@@ -1,0 +1,753 @@
+/* ==========================================================================
+   Museum van Onafgemaakte Ideeën
+   ========================================================================== */
+
+.museum-hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+.museum-hero h1 {
+  font-size: clamp(2.6rem, 1rem + 5.2vw, 5.8rem);
+}
+@media (max-width: 900px) {
+  .museum-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Plattegrond ---------- */
+
+.floorplan {
+  position: relative;
+  filter: drop-shadow(6px 6px 0 var(--line));
+  transform: rotate(1.5deg);
+}
+.floorplan svg {
+  width: 100%;
+  height: auto;
+}
+.floorplan a:focus-visible .floorplan__room {
+  stroke: var(--koraal);
+  stroke-width: 6;
+}
+.floorplan__room {
+  transition: transform 0.3s var(--ease-bounce);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.floorplan a:hover .floorplan__room {
+  transform: scale(0.95) rotate(-1deg);
+}
+.floorplan__room--secret {
+  animation: pop 0.6s var(--ease-bounce);
+}
+.crack {
+  position: absolute;
+  right: 6%;
+  bottom: 14%;
+  width: 24px;
+  height: 44px;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.crack:hover,
+.crack:focus-visible {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* ---------- Zalen ---------- */
+
+.room {
+  position: relative;
+  padding-block: clamp(56px, 8vw, 110px);
+  border-top: 3px solid var(--line);
+  overflow: hidden;
+}
+.room--kobalt {
+  background: var(--kobalt);
+  color: var(--creme);
+}
+.room--boter {
+  background: var(--boter);
+  color: var(--inkt);
+}
+.room--lila {
+  background: var(--lila);
+  color: var(--inkt);
+}
+.room--groen {
+  background: var(--groen);
+  color: var(--inkt);
+}
+.room--koraal {
+  background: var(--koraal);
+  color: var(--inkt);
+}
+.room--secret {
+  background: #0b0a1f;
+  color: var(--creme);
+}
+.room__head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(16px, 3vw, 40px);
+  align-items: start;
+  margin-bottom: clamp(28px, 4vw, 56px);
+}
+.room__head h2 {
+  font-size: clamp(2.4rem, 1.4rem + 4vw, 5rem);
+}
+.room__no {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(6rem, 3rem + 12vw, 13rem);
+  line-height: 0.75;
+  letter-spacing: -0.06em;
+  color: var(--creme);
+  text-shadow: 6px 6px 0 var(--inkt);
+}
+.room--secret .room__no {
+  color: var(--boter);
+  text-shadow: 6px 6px 0 #000;
+}
+@media (max-width: 600px) {
+  .room__head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.linkish {
+  background: none;
+  border: 0;
+  padding: 4px 2px;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+.plaque__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.is-highlighted {
+  outline: 5px solid var(--boter);
+  outline-offset: 8px;
+  animation: highlight 1.2s var(--ease-bounce);
+}
+.room--boter .is-highlighted {
+  outline-color: var(--kobalt);
+}
+@keyframes highlight {
+  0% {
+    outline-offset: 30px;
+    outline-color: transparent;
+  }
+}
+
+/* ---------- Zaal 1: galerij ---------- */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: clamp(20px, 3vw, 36px);
+}
+.exhibit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 20px;
+}
+.exhibit:nth-child(odd) {
+  transform: rotate(-1deg);
+}
+.exhibit:nth-child(even) {
+  transform: rotate(1.2deg) translateY(18px);
+}
+.exhibit__frame {
+  display: block;
+  padding: 14px;
+  background: #fff4e0;
+  border: 3px solid var(--inkt);
+  border-radius: 6px;
+  box-shadow: 0 0 0 10px #b98b4e, 0 0 0 13px var(--inkt), 10px 14px 0 13px rgba(0, 0, 0, 0.25);
+  margin: 13px;
+  transition: transform 0.35s var(--ease-bounce);
+}
+.exhibit__frame:hover {
+  transform: scale(1.03) rotate(-1deg);
+}
+.exhibit__frame .artwork {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 2px solid var(--inkt);
+}
+.plaque {
+  background: var(--creme);
+  color: var(--inkt);
+  border: 3px solid var(--inkt);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.plaque h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+.plaque dl,
+.label-dialog__meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 12px;
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+}
+.plaque dt,
+.label-dialog__meta dt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  padding-top: 2px;
+}
+.plaque dd,
+.label-dialog__meta dd {
+  margin: 0;
+}
+.exhibit__room {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--inkt);
+  color: var(--creme);
+  padding: 4px 10px;
+  border-radius: 999px;
+  transform: translate(10px, -6px) rotate(6deg);
+}
+
+/* ---------- Zaal 2: bijna af ---------- */
+
+.almost-list {
+  display: grid;
+  gap: 20px;
+}
+.almost {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 20px;
+  align-items: center;
+  background: var(--creme);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+@media (max-width: 600px) {
+  .almost {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .almost__art {
+    max-width: 140px;
+  }
+}
+.almost__art .artwork {
+  border: 3px solid var(--inkt);
+  border-radius: 14px;
+  width: 100%;
+  height: auto;
+}
+.almost h3 {
+  font-size: clamp(1.4rem, 1rem + 1vw, 2rem);
+  margin-bottom: 4px;
+}
+.almost__bar {
+  position: relative;
+  height: 40px;
+  border: var(--border);
+  border-radius: 999px;
+  background: #fff;
+  overflow: hidden;
+  margin: 12px 0 8px;
+}
+.almost__bar > span {
+  display: block;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, var(--kobalt) 0 14px, #3d4ff0 14px 28px);
+  border-right: 3px solid var(--inkt);
+  transition: width 0.6s var(--ease-bounce);
+  animation: stripes 1.2s linear infinite;
+  background-size: 40px 40px;
+}
+@keyframes stripes {
+  to {
+    background-position: 40px 0;
+  }
+}
+.almost__bar b {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-mono);
+  color: var(--creme);
+  background: var(--inkt);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+.almost__barwrap {
+  position: relative;
+}
+.almost__hidden {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  width: 10px;
+  height: 34px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: default;
+}
+.almost__hidden:focus-visible {
+  background: var(--koraal);
+}
+.almost__status {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.almost__msg {
+  min-height: 1.5em;
+  margin: 8px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--koraal-deep);
+}
+
+/* ---------- Zaal 3: vitrines ---------- */
+
+.vitrines {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.vitrine {
+  display: grid;
+  gap: 0;
+  border-radius: 20px;
+}
+.vitrine__glass {
+  position: relative;
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  border: var(--border);
+  border-bottom: 0;
+  border-radius: 20px 20px 0 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.55));
+  overflow: hidden;
+}
+.vitrine__glass::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.8) 50%, transparent 60%);
+  transform: translateX(-60%);
+  transition: transform 0.9s var(--ease-out);
+}
+.vitrine:hover .vitrine__glass::before {
+  transform: translateX(60%);
+}
+.vitrine__domain {
+  position: relative;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(1rem, 0.8rem + 0.8vw, 1.35rem);
+  background: var(--inkt);
+  color: var(--boter);
+  padding: 10px 16px;
+  border-radius: 10px;
+  transform: rotate(-3deg);
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+.vitrine__tag {
+  background: var(--inkt);
+  color: var(--creme);
+  padding: 16px;
+  border: var(--border);
+  border-radius: 0 0 20px 20px;
+}
+.vitrine__tag p {
+  margin: 0 0 10px;
+}
+.vitrine .vote {
+  border-color: var(--creme);
+}
+.mill {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+  background: var(--creme);
+  color: var(--inkt);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+.mill__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+.mill__list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  align-items: baseline;
+  padding: 8px 12px;
+  border: 2px dashed var(--inkt);
+  border-radius: 12px;
+  animation: pop 0.4s var(--ease-bounce);
+}
+.mill__list strong {
+  font-family: var(--font-mono);
+}
+
+/* ---------- Zaal 4: generator ---------- */
+
+.slot__machine {
+  background: var(--inkt);
+  color: var(--creme);
+  border: var(--border);
+  border-radius: 40px 40px 24px 24px;
+  box-shadow: 10px 10px 0 rgba(23, 21, 58, 0.6);
+  padding: clamp(18px, 3vw, 32px);
+}
+.slot__top {
+  text-align: center;
+  margin-bottom: 18px;
+  color: var(--boter);
+}
+.slot__reels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 760px) {
+  .slot__reels {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.reel {
+  background: linear-gradient(180deg, #d9d2c2 0%, #fff 25%, #fff 75%, #d9d2c2 100%);
+  color: var(--inkt);
+  border: var(--border);
+  border-radius: 18px;
+  min-height: 140px;
+  padding: 16px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  text-align: center;
+  overflow: hidden;
+}
+.reel strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1rem + 0.8vw, 1.6rem);
+  line-height: 1.1;
+}
+.slot__reels.is-spinning .reel strong {
+  filter: blur(1.5px);
+  animation: reel 0.14s linear infinite;
+}
+@keyframes reel {
+  from {
+    transform: translateY(-12px);
+  }
+  to {
+    transform: translateY(12px);
+  }
+}
+.slot__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 22px;
+}
+.slot__count {
+  text-align: center;
+  margin: 16px 0 0;
+  opacity: 0.75;
+}
+
+/* ---------- Zaal 5: archief van morgen ---------- */
+
+.countdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: baseline;
+  margin-bottom: 28px;
+}
+.countdown__time {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(2rem, 1.2rem + 3vw, 3.6rem);
+  background: var(--inkt);
+  color: var(--koraal);
+  padding: 4px 16px;
+  border-radius: 12px;
+}
+.countdown__idea {
+  width: 100%;
+  font-weight: 600;
+}
+.futures {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+.future {
+  position: relative;
+  background: var(--creme);
+  color: var(--inkt);
+  border: var(--border);
+  border-radius: 28px 28px 28px 4px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+.future h3 {
+  font-size: 1.5rem;
+}
+.future .plaque__actions {
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+.future__fog {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(255, 244, 224, 0.9) 60%, rgba(198, 179, 255, 0.85));
+  backdrop-filter: blur(6px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .future:hover .future__fog {
+    opacity: 0;
+    transform: scale(1.4) translateX(40%);
+  }
+}
+.future.is-clear .future__fog {
+  opacity: 0;
+  transform: scale(1.4) translateX(40%);
+}
+.future__date {
+  color: var(--koraal-deep);
+}
+
+/* ---------- Zaal 6: geheime zaal ---------- */
+
+.darkroom {
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  min-height: 460px;
+  border: 3px solid #2b2950;
+  border-radius: 28px;
+  background: #171538;
+  overflow: hidden;
+  cursor: crosshair;
+  touch-action: pan-y;
+}
+.darkroom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle 130px at var(--mx) var(--my), transparent 0, transparent 60%, rgba(5, 4, 18, 0.97) 100%);
+  transition: opacity 0.6s;
+}
+.darkroom.is-lit::after {
+  opacity: 0;
+}
+.darkroom__note {
+  position: absolute;
+  max-width: 220px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--boter);
+  border: 2px dashed rgba(255, 210, 77, 0.6);
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .darkroom {
+    min-height: 620px;
+  }
+  .darkroom__note {
+    max-width: 160px;
+    font-size: 0.75rem;
+  }
+}
+.darkroom__object {
+  position: absolute;
+  transform: translate(-50%, 0);
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  background: none;
+  border: 0;
+  color: var(--creme);
+  font-weight: 700;
+  z-index: 0;
+}
+.darkroom__pedestal {
+  width: 70px;
+  height: 90px;
+  background: linear-gradient(180deg, #fff4e0 0 20%, #c9bfae 20% 100%);
+  border: 3px solid var(--creme);
+  border-radius: 6px;
+}
+.darkroom__object.is-found .darkroom__pedestal {
+  box-shadow: 0 0 40px 10px rgba(255, 210, 77, 0.7);
+}
+.darkroom__reveal {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: min(460px, calc(100% - 32px));
+  background: var(--boter);
+  color: var(--inkt);
+  border: var(--border);
+  border-radius: 20px;
+  padding: 18px;
+  z-index: 2;
+  animation: dialog-in 0.4s var(--ease-bounce);
+}
+.darkroom__reveal h3 {
+  font-size: 1.8rem;
+}
+
+/* ---------- Publieksvleugel en loket ---------- */
+
+.wing {
+  padding-top: clamp(56px, 8vw, 110px);
+}
+.wing__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .wing__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.public-wing__empty {
+  padding: 18px;
+  border: 3px dashed var(--line);
+  border-radius: 18px;
+  font-weight: 600;
+}
+.public-wing__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+.public-card {
+  background: var(--creme);
+  color: var(--inkt);
+  border: var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.public-card h3 {
+  font-size: 1.35rem;
+  margin: 6px 0;
+}
+.loket-desk h2 {
+  font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem);
+}
+
+/* ---------- Gids ---------- */
+
+.guide {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 700;
+  width: min(640px, calc(100vw - 32px));
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 16px;
+  align-items: center;
+  background: var(--creme);
+  color: var(--inkt);
+  border: var(--border);
+  border-radius: 24px;
+  box-shadow: 6px 6px 0 var(--inkt);
+  padding: 14px 16px;
+  animation: dialog-in 0.4s var(--ease-bounce);
+}
+.guide__avatar svg {
+  width: 56px;
+  height: 56px;
+  animation: dot-bounce 2s infinite;
+}
+.guide__text p {
+  margin: 2px 0 0;
+  font-weight: 600;
+}
+.guide__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.label-dialog__art {
+  width: 140px;
+  float: right;
+  margin: 0 0 12px 16px;
+}
+.label-dialog__art .artwork {
+  border: 3px solid var(--inkt);
+  border-radius: 12px;
+  width: 100%;
+  height: auto;
+}

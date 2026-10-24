@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noUnusedLocals": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "types": ["@cloudflare/workers-types", "node"]
+  },
+  "include": ["./**/*.ts", "../www/**/*.ts", "../shared/**/*.ts", "../tests/worker.test.ts", "../tests/d1-shim.ts"]
+}

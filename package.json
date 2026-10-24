@@ -1,0 +1,41 @@
+{
+  "name": "martijndenbesten",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Officiële website van een man met meer ideeën dan tijd.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node --experimental-strip-types scripts/postbuild.mjs",
+    "preview": "npm run build && wrangler dev --local --port 8787",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p worker/tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "db:migrate:local": "wrangler d1 migrations apply martijndenbesten --local",
+    "db:migrate:remote": "wrangler d1 migrations apply martijndenbesten --remote",
+    "deploy": "npm run build && wrangler d1 migrations apply martijndenbesten --remote && wrangler deploy && wrangler deploy -c wrangler.www.jsonc",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource/instrument-sans": "^5.3.0",
+    "@fontsource/space-mono": "^5.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@cloudflare/workers-types": "^5.20261024.1",
+    "@playwright/test": "^1.63.0",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "jsdom": "^29.1.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5",
+    "wrangler": "^4.152.0"
+  }
+}

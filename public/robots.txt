@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /beheer
+Disallow: /api/
+
+Sitemap: https://martijndenbesten.com/sitemap.xml
