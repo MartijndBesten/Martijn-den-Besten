@@ -100,7 +100,7 @@ BR.boeken.push({
     ["Johannes 20:31", "Johannes schreef dit op, ‘opdat gij gelooft, dat Jezus is de Christus, de Zone Gods’."]],
   ctx: ["salem", "nt_olijfberg", "jericho"],
   steps: [
-  { ref: "Johannes 5:1–9", t: "Achtendertig jaar ziek", stamp: "Bethesda", at: ["nt_bethesda"], zoom: 11,
+  { ref: "Johannes 5:1–9", t: "Achtendertig jaar ziek", stamp: "Bethesda", at: ["nt_bethesda"], zoom: 12,
     who: [["Jezus"], ["Zieke man", "38 jaar ziek"]],
     txt: "Voor een feest gaat de Heere Jezus naar Jeruzalem, naar het badwater Bethesda bij de Schaapspoort. In de vijf zuilengangen liggen veel zieken, blinden en kreupelen, die wachten tot het water bewogen wordt. Eén man is al achtendertig jaar ziek; hij heeft niemand die hem in het water helpt. De Heere Jezus vraagt: ‘Wilt gij gezond worden?’ en zegt dan: ‘Sta op, neem uw beddeken op, en wandel.’ Meteen is de man gezond, en hij pakt zijn matje op en loopt. Die dag is het sabbat.",
     fs: "h", fact: "Bij de St.-Annakerk in Jeruzalem hebben archeologen twee grote baden gevonden, met resten van zuilengangen. Daar wordt het badwater Bethesda meestal gezocht." },
@@ -108,7 +108,7 @@ BR.boeken.push({
     who: [["Jezus"], ["Zieke man"], ["Joden"]],
     txt: "Sommige Joden zeggen tegen de genezen man: ‘Het is sabbat; u mag uw bed niet dragen.’ Hij antwoordt: ‘Die mij gezond gemaakt heeft, Die heeft mij gezegd: Neem uw beddeken op, en wandel.’ Maar hij weet niet wie het was. Later vindt de Heere Jezus hem in de tempel en zegt: ‘Zondig niet meer, opdat u niet wat ergers geschiede.’ Dan vertelt de man aan de Joden dat het Jezus was. Zij willen de Heere Jezus doden, omdat Hij dit op de sabbat deed. En nog meer omdat Hij God Zijn eigen Vader noemde en Zichzelf zo gelijk maakte aan God.",
     fs: "b", fact: "Door de profeet Jeremia had God gezegd: ‘Draagt geen last op den sabbatdag’ (Jeremia 17:21). Later zegt de Heere Jezus: jullie besnijden een jongen op de sabbat; waarom zijn jullie dan boos dat Ik een héle mens op de sabbat gezond maakte? (Johannes 7:23)." },
-  { ref: "Johannes 9:1–12", t: "Was je in Siloam", stamp: "Siloam", at: ["nt_siloam"], zoom: 11,
+  { ref: "Johannes 9:1–12", t: "Was je in Siloam", stamp: "Siloam", at: ["nt_siloam"], zoom: 12,
     who: [["Jezus"], ["Blindgeborene"], ["Discipelen"]],
     txt: "De Heere Jezus ziet een man die blind geboren is. De discipelen vragen: ‘Rabbi, wie heeft er gezondigd, deze, of zijn ouders?’ Hij antwoordt: geen van beiden, maar de werken van God moeten in hem zichtbaar worden; ‘Zolang Ik in de wereld ben, zo ben Ik het Licht der wereld.’ Dan spuugt Hij op de grond, maakt slijk en strijkt dat op de ogen van de blinde. ‘Ga heen, was u in het badwater Siloam.’ De man gaat, wast zich, en komt terug: hij kan zien!",
     fs: "h", fact: "Siloam betekent ‘uitgezonden’; dat legt Johannes er zelf bij uit (Johannes 9:7). In 2004 werd in Jeruzalem een groot bad met brede trappen uit de tijd van de Heere Jezus opgegraven. Het wordt gezien als het badwater Siloam." },

@@ -58,6 +58,17 @@ nl=[f for f in c['features'] if f['properties'].get('ADM0_A3')=='NLD'][0]
 g=shape(nl['geometry'])
 polys=[p for p in (g.geoms if g.geom_type=='MultiPolygon' else [g]) if 3<p.centroid.x<8 and p.centroid.y>50]
 nlsh=[[[round(x,3),round(y,3)] for x,y in p.simplify(0.01).exterior.coords] for p in sorted(polys,key=lambda p:-p.area) if p.area>0.005]
+# Correctie (3.0): de noordoever van het Meer van Galilea ligt in ne_10m_lakes ca. 1 km te noordelijk, waardoor Kapernaüm
+# (Tell Hum, 32.881 N) in het meer viel. Oever langs Tabgha–Kapernaüm–monding Jordaan; de Jordaan niet door het meer tekenen.
+for f in lakes:
+    if f['properties']['n']=='Sea of Galilee':
+        c=f['geometry']['coordinates'][0]
+        noord=[i for i,(x,y) in enumerate(c) if y>32.865 and 35.54<x<35.63]
+        if noord: c[noord[0]:noord[-1]+1]=[[35.548,32.87],[35.575,32.8785],[35.6,32.8835],[35.625,32.884]]
+        meer=shape(f['geometry'])
+        for r in rivers:
+            ls=shape(r['geometry'])
+            if ls.intersects(meer): r['geometry']=rnd(ls.difference(meer))
 out={'land':feat(L),'rivers':rivers,'lakes':lakes,'regions':regions,'inset':inset,'nl':nlsh}
 s=json.dumps(out,separators=(',',':'))
 open(OUT,'w').write(s); print(len(s), [ (r['properties']['n']) for r in regions])

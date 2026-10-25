@@ -52,7 +52,7 @@
 
   // ---------- kaart ----------
   const WIDE = [[29.0, 30.5], [38.6, 47.6]], KANAAN = [[30.9, 34.2], [33.4, 36.4]];
-  const map = L.map("map", { zoomSnap: 0.25, zoomDelta: 0.5, minZoom: 4, maxZoom: 11, attributionControl: false, maxBounds: [[22, 4], [47, 57]], maxBoundsViscosity: 0.8, zoomControl: false });
+  const map = L.map("map", { zoomSnap: 0.25, zoomDelta: 0.5, minZoom: 4, maxZoom: 13, attributionControl: false, maxBounds: [[22, 4], [47, 57]], maxBoundsViscosity: 0.8, zoomControl: false });
   L.control.zoom({ position: "topleft", zoomInTitle: "Inzoomen", zoomOutTitle: "Uitzoomen" }).addTo(map);
   L.control.scale({ imperial: false, maxWidth: 120, position: "bottomleft" }).addTo(map);
   map.fitBounds(WIDE, { padding: [20, 20] });
@@ -214,6 +214,10 @@
     // In het overzicht van een deel lichten alle plaatsen van dat deel op; bij een stap alleen die van de stap.
     const on = new Set(focus ? focus.at : mode !== "reis" ? [] : cur >= 0 ? deel.steps[cur].at : deel.steps.flatMap((s) => s.at));
     const size = map.getSize(), items = [];
+    // Op een smal scherm met veel actieve namen (Paulus’ reizen) houden alleen begin en eind voorrang; de rest wijkt bij
+    // botsing en verschijnt bij inzoomen of op de grote kaart.
+    const veel = isNarrow() && !document.body.classList.contains("mapfull") && on.size > 6;
+    const kern = new Set(focus ? focus.kern || [] : cur >= 0 ? [] : [deel.steps[0].at[0], deel.steps[deel.steps.length - 1].at.slice(-1)[0]]);
     Object.entries(markers).forEach(([id, m]) => {
       const el = m.getElement(); if (!el || !map.hasLayer(m)) return;
       const lab = el.querySelector(".lab");
@@ -222,8 +226,10 @@
       lab.classList.toggle("on", on.has(id));
       lab.classList.remove("clash");
       const pt = map.latLngToContainerPoint(P[id].ll);
-      if (vis && pt.x > -150 && pt.y > -40 && pt.x < size.x + 150 && pt.y < size.y + 40) items.push({ el: lab, pt, side: m.pside, pr: on.has(id) ? 3 : P[id].ctx ? 1 : 2, z: P[id].z || 7, pin: certOf(P[id]) !== "r" });
+      if (vis && pt.x > -150 && pt.y > -40 && pt.x < size.x + 150 && pt.y < size.y + 40) items.push({ el: lab, pt, side: m.pside, pr: on.has(id) ? (veel && !kern.has(id) ? 2.5 : 3) : P[id].ctx ? 1 : 2, z: P[id].z || 7, pin: certOf(P[id]) !== "r" });
     });
+    // Labels van andere mogelijke plekken (betwist): lagere voorrang; bij botsing blijft alleen de ring staan.
+    lyAlt.eachLayer((m) => { const el = m.getElement(), lab = el && el.querySelector(".lab"); if (!lab) return; lab.classList.remove("clash"); const pt = map.latLngToContainerPoint(m.getLatLng()); if (pt.x > -150 && pt.y > -40 && pt.x < size.x + 150 && pt.y < size.y + 40) items.push({ el: lab, pt, side: "r", pr: 0.8, z: 0, pin: true }); });
     const tst = boek.nt ? "nt" : "ot";
     const plaatsNamen = new Set(items.map((it) => it.el.firstChild && it.el.firstChild.textContent));
     REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1] || (r.tijd && r.tijd !== tst) || plaatsNamen.has(r.t); el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
@@ -245,16 +251,24 @@
       }
       const order = [it.side].concat(SIDES.filter((s) => s !== it.side));
       let side = null, rect = null;
-      for (const s of order) { const r = labelRect(it.pt, it.w, it.h, s); if (!placed.some((q) => hits(r, q))) { side = s; rect = r; break; } }
+      const binnen = (r) => r[0] >= 2 && r[1] >= 2 && r[0] + r[2] <= size.x - 2 && r[1] + r[3] <= size.y - 2;
+      for (const s of order) { const r = labelRect(it.pt, it.w, it.h, s); if (binnen(r) && !placed.some((q) => hits(r, q))) { side = s; rect = r; break; } }
+      if (!side) for (const s of order) { const r = labelRect(it.pt, it.w, it.h, s); if (!placed.some((q) => hits(r, q))) { side = s; rect = r; break; } }
       if (!side && it.pr < 3) { it.el.classList.add("clash"); return; }
       if (!side) {
         // Een actief label moet zichtbaar blijven: kies de kant met de minste overlap.
         const overlap = (r) => placed.reduce((a, q) => a + Math.max(0, Math.min(r[0] + r[2], q[0] + q[2]) - Math.max(r[0], q[0])) * Math.max(0, Math.min(r[1] + r[3], q[1] + q[3]) - Math.max(r[1], q[1])), 0);
-        side = order.slice().sort((a, b) => overlap(labelRect(it.pt, it.w, it.h, a)) - overlap(labelRect(it.pt, it.w, it.h, b)))[0];
+        const buiten = (r) => (r[0] < 0 || r[1] < 0 || r[0] + r[2] > size.x || r[1] + r[3] > size.y ? 1e6 : 0);
+        side = order.slice().sort((a, b) => buiten(labelRect(it.pt, it.w, it.h, a)) + overlap(labelRect(it.pt, it.w, it.h, a)) - buiten(labelRect(it.pt, it.w, it.h, b)) - overlap(labelRect(it.pt, it.w, it.h, b)))[0];
       }
       rect = rect || labelRect(it.pt, it.w, it.h, side);
       SIDES.forEach((s) => it.el.classList.toggle("s-" + s, s === side));
       placed.push(rect);
+    });
+    Object.entries(markers).forEach(([id, m]) => {
+      const el = m.getElement(); if (!el) return;
+      const lab = el.querySelector(".lab");
+      el.classList.toggle("stil", !!focus && !on.has(id) && (lab.classList.contains("off") || lab.classList.contains("clash")));
     });
   }
   let labelT;
@@ -266,7 +280,8 @@
     const b = L.latLngBounds(pts);
     // Ruimte laten voor de knoppen en, als die open is, de legenda.
     const lg = $("legend"), lgW = lg.classList.contains("open") && !lg.hidden && !isNarrow() ? lg.offsetWidth + 16 : 0;
-    const opts = { paddingTopLeft: [Math.max(60, lgW), 56], paddingBottomRight: [isNarrow() ? 24 : 150, 90], maxZoom: maxZoom || 9 };
+    const smal = isNarrow(), balk = !$("mapbar").hidden;
+    const opts = { paddingTopLeft: [smal ? 50 : Math.max(60, lgW), smal ? 44 : 56], paddingBottomRight: [smal ? 16 : 150, balk ? 90 : smal ? 34 : 60], maxZoom: maxZoom || 9 };
     if (reduceMotion) { map.fitBounds(b, opts); done && done(); return; }
     map.flyToBounds(b, { ...opts, duration: 0.8 });
     done && setTimeout(done, 850);
@@ -815,10 +830,16 @@
     if (d0 !== deel) { deel = d0; boek = d0.boek; cur = -1; renderDelen(); setAccent(); renderDots(); }
     const delen = [...new Set(steps.map((s) => s.deel))];
     partRoutes.forEach((gr, key) => { if (!delen.some((d) => d.key === key)) map.removeLayer(gr); });
-    focus = { keys: new Set(steps.map((s) => s.key)), at: [...new Set(steps.flatMap((s) => s.at))], delen };
+    // Plaatsen van de geschiedenis: die van de stappen plus begin en eind van elke (niet-rode) route, zodat geen route
+    // van een naamloos punt naar een naamloos punt loopt.
+    const eind = steps.flatMap((s) => (s.r || []).filter((r) => r.w !== "rood").flatMap((r) => [r.p[0], r.p[r.p.length - 1]])).filter((x) => typeof x === "string" && P[x] && !P[x].k);
+    focus = { keys: new Set(steps.map((s) => s.key)), at: [...new Set(steps.flatMap((s) => s.at).concat(eind))], delen };
+    focus.kern = [eind[0] || steps[0].at[0], eind[eind.length - 1] || steps[steps.length - 1].at.slice(-1)[0]].filter(Boolean);
     // Alleen de plaatsen van deze geschiedenis (en de vaste context van het deel) op de kaart.
     lyPlaces.clearLayers(); lyAlt.clearLayers();
-    focus.at.concat(d0.ctx || []).forEach((id) => { if (markers[id]) lyPlaces.addLayer(markers[id]); (altMarkers[id] || []).forEach((m) => lyAlt.addLayer(m)); });
+    focus.at.concat(d0.ctx || []).forEach((id) => { if (markers[id]) lyPlaces.addLayer(markers[id]); });
+    // Andere mogelijke plekken alleen voor plaatsen van deze geschiedenis, niet voor de vaste context van het deel.
+    focus.at.forEach((id) => (altMarkers[id] || []).forEach((m) => lyAlt.addLayer(m)));
     delen.forEach((d) => {
       map.addLayer(routeLayer(d));
       d.steps.forEach((s) => (s.r || []).forEach((r) => {
@@ -832,7 +853,8 @@
     const last = steps[steps.length - 1], lr = last.r && last.r[last.r.length - 1];
     const end = lr ? lr.pts[lr.pts.length - 1] : focus.at.length ? ll(focus.at[0]) : null;
     if (end) camel.setLatLng(end);
-    camelStyle(lr ? lr.w : d0.c, false, undefined, !end);
+    // Zonder route geen reisstip: die zou precies op de plaats (en het zekerheidsteken) staan.
+    camelStyle(lr ? lr.w : d0.c, false, undefined, !lr);
     $("map").classList.toggle("gelijkenis", g.vorm === "gelijkenis" && !focus.at.length);
     if (pts.length) fit(pts, Math.max(...steps.map((s) => s.zoom || 9)));
     else { const v = steps.find((s) => s.view); fit(v && Array.isArray(v.view) ? v.view : v && v.view === "wide" ? WIDE : KANAAN, 8); }

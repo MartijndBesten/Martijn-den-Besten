@@ -921,7 +921,7 @@ BR.mensen = {
     kort: "Een voorganger onder de broeders in Jeruzalem; Paulus koos hem als reisgenoot. In de gevangenis van Filippi baden en zongen Paulus en Silas.",
     elders: [["Handelingen 15:22", "Met Judas Barsabas met Paulus en Barnabas naar Antiochië gezonden."], ["Handelingen 15:40", "‘Maar Paulus verkoos Silas.’"], ["Handelingen 16:25", "Omtrent middernacht zongen zij Gode lofzangen."]] },
   timotheus: { n: "Timotheüs", boek: ["handelingen"],
-    kort: "Een discipel uit de streek van Derbe en Lystra, zoon van een gelovige Joodse vrouw en een Griekse vader; Paulus nam hem mee op reis. Zijn moeder heette Eunice en zijn grootmoeder Lois.",
+    kort: "Een discipel uit de streek van Derbe en Lystre, zoon van een gelovige Joodse vrouw en een Griekse vader; Paulus nam hem mee op reis. Zijn moeder heette Eunice en zijn grootmoeder Lois.",
     elders: [["Handelingen 16:1–3", "Paulus neemt hem mee."], ["2 Timotheüs 1:5", "Het ongeveinsd geloof van zijn grootmoeder Lois en zijn moeder Eunice."], ["1 Timotheüs 1:2", "‘Mijn oprechten zoon in het geloof.’"], ["Filippenzen 2:19–22", "‘Als een kind zijn vader, met mij gediend heeft in het Evangelie.’"]] },
   lydia: { n: "Lydia", boek: ["handelingen"],
     kort: "Een purperverkoopster uit Thyatira, die God diende. Bij de rivier van Filippi opende de Heere haar hart; ze werd gedoopt met haar huis en nam Paulus en de zijnen in huis.",
@@ -944,6 +944,6 @@ BR.mensen = {
 
   // ---------- Openbaring (versie 3.0) ----------
   antipas: { n: "Antipas", boek: ["openbaring"],
-    kort: "‘Mijn getrouwe getuige’, zegt de Heere; hij werd gedood in Pergamum, ‘daar de satan woont’. Meer vertelt de Bijbel niet over hem.",
-    elders: [["Openbaring 2:12–13", "De brief aan de gemeente in Pergamum."]] },
+    kort: "‘Mijn getrouwe getuige’, zegt de Heere; hij werd gedood in Pergamus, ‘daar de satan woont’. Meer vertelt de Bijbel niet over hem.",
+    elders: [["Openbaring 2:12–13", "De brief aan de gemeente in Pergamus."]] },
 };
