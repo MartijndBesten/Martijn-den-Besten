@@ -68,3 +68,13 @@ Kleuren (`c`/`w`): `kobalt`, `terra`, `lila`, `koraal`, `salie`, `boter`, `rood`
 - `node --check public/bijbelreis/inhoud/<boek>.js`; open de pagina lokaal (`npx vite preview` of `python3 -m http.server` in `public/`) en kijk in de console: `Bijbelreis: onbekende plaatsen…` betekent een id die niet bestaat.
 - Bijbelverwijzingen en getallen: `python3 scripts/bijbel-check.py <controlebestand>` met regels `Exodus 12:37 | zeshonderd duizend` (regex, hoofdletterongevoelig; de Statenvertaling schrijft getallen voluit: ‘vijf en zeventig’, ‘honderd en dertig’).
 - Vóór publicatie: `npm run check` (typecheck, tests, build) en `npx playwright test navigatie a11y`.
+
+## Stand (25 oktober 2026)
+
+14 boeken, 27 delen, 252 stappen, 152 plaatsen en 375 speurtochtvragen: Genesis (Het begin, Abraham, Izak, Jakob, Jozef), Exodus (Mozes, Uittocht, Sinaï), Numeri en Deuteronomium (Woestijn, Moab), Jozua (Intocht, Het land), Richteren (Debora en Gideon, Simson), Ruth, 1 Samuël (Samuël, Saul en David), 2 Samuël (David), 1 Koningen (Salomo, Elia), 2 Koningen (Elisa, Wegvoering), Daniël, Esther, Ezra en Nehemia (Terugkeer, Nehemia), Jona. Controle: 2.178 regels in `scripts/bijbel-controle/`, alle geslaagd tegen de Statenvertaling; `node scripts/bijbelreis-check.mjs` zonder meldingen; e2e-tests (navigatie, toegankelijkheid) groen op desktop en telefoon.
+
+Nog niet gedaan: de profeten buiten Jona en Daniël (Jesaja, Jeremia, Amos, Micha), Job, de Psalmen en Spreuken als eigen delen; Nieuwe Testament. De verwijzingen naar het Nieuwe Testament in `cross` zijn uit het hoofd en niet met het script gecontroleerd (alleen Oudtestamentische boeken staan in `public/bijbelreis/bijbel/`).
+
+## Bibliotheek (martijn-ai-workbench)
+
+Herbruikbaar als bouwsteen-kandidaat "Interactieve kinderkaart met reisboek uit inhoudsbestanden": Leaflet lokaal + Natural Earth-ondergrond, inhoud per boek in gewone JS-bestanden met een vast schema, geanimeerde routes, speurtocht met kaart-tikvragen, afstanden vergeleken met Nederland, stempelpaspoort in `localStorage`, Bijbeltekst-lade uit JSON, en twee controlescripts (bronverwijzingen tegen een tekstcorpus; pagina doorlopen in een browser). Hergebruikt uit de bibliotheek: B38 (visuele controle met Playwright), B99 (uitrol vanuit een cloudsessie via GitHub Actions; statische assets niet via de proxy), B53 (kindvriendelijke uitleg met oefenbeurt, als patroon). De kaart voor de bibliotheek is nog niet ingediend (daarvoor is schrijftoegang op `martijn-ai-workbench` nodig).
