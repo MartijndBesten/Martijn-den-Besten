@@ -21,7 +21,7 @@ Mattheüs 26:66 | des doods schuldig
 Johannes 18:38 | Ik vind geen schuld in Hem
 Mattheüs 27:24 | wies de handen
 Mattheüs 27:26 | gaf hij Hem over om gekruisigd te worden
-Mattheüs 27:16 | welbekende gevangene, genaamd Bar-abbas
+Mattheüs 27:16 | welbekenden gevangene, genaamd Bar-abbas
 Lukas 23:19 | oproer.*doodslag
 Markus 15:21 | Simon van Cyrene.*komende van den akker.*Alexander en Rufus.*Zijn kruis droeg
 Mattheüs 27:57 | rijk man van Arimathea, met name Jozef.*discipel van Jezus
@@ -44,7 +44,7 @@ Johannes 11:55 | pascha
 Johannes 12:1 | zes dagen voor het pascha te Bethanie
 Johannes 12:12 | Des anderen daags.*naar Jeruzalem kwam
 Mattheüs 26:2 | na twee dagen het pascha
-Mattheüs 26:17 | eerste dag der ongehevelde broden
+Mattheüs 26:17 | eersten dag der ongehevelde broden
 Zacharia 9:9 | Ziet, uw Koning zal u komen, rechtvaardig, en Hij is een Heiland; arm, en rijdende op een ezel
 Mattheüs 20:18 | overgeleverd worden
 Mattheüs 20:19 | bespotten en te geselen, en te kruisigen; en ten derden dage zal Hij weder opstaan
@@ -52,10 +52,10 @@ Psalm 118:26 | Gezegend zij hij, die daar komt in den Naam des HEEREN
 Psalm 118:22 | De steen, dien de bouwlieden verworpen hadden
 1 Korinthe 11:23 | in den nacht, in welken Hij verraden werd, het brood nam
 # stap 0
-Mattheüs 21:1 | Beth-fage, aan de Olijfberg.*twee discipelen
+Mattheüs 21:1 | Beth-fage, aan den Olijfberg.*twee discipelen
 Mattheüs 21:2 | ezelin gebonden vinden, en een veulen met haar
 Mattheüs 21:3 | de Heere deze van node heeft
-Mattheüs 21:7 | legden hun klederen op dezelve, en zetten Hem daarop
+Mattheüs 21:7 | leiden hun klederen op dezelve, en zetten Hem daarop
 Mattheüs 21:8 | spreidden hun klederen op den weg.*takken van de bomen
 Mattheüs 21:9 | die voorgingen en die volgden.*Hosanna den Zone Davids! Gezegend is Hij, Die komt in den Naam des Heeren! Hosanna in de hoogste hemelen
 Mattheüs 21:10 | gehele stad beroerd.*Wie is Deze
@@ -67,7 +67,7 @@ Mattheüs 21:12 | dreef uit allen, die verkochten en kochten.*tafelen der wissel
 Mattheüs 21:13 | Mijn huis zal een huis des gebeds genaamd worden; maar gij hebt dat tot een moordenaarskuil gemaakt
 Mattheüs 21:14 | blinden en kreupelen.*genas dezelve
 Mattheüs 21:15 | overpriesters en Schriftgeleerden.*kinderen, roepende in den tempel.*Hosanna den Zone Davids.*zeer kwalijk
-Mattheüs 21:16 | Uit de mond der jonge kinderen en der zuigelingen hebt Gij U lof toebereid
+Mattheüs 21:16 | Uit den mond der jonge kinderen en der zuigelingen hebt Gij U lof toebereid
 Mattheüs 21:17 | naar Bethanie, en overnachtte aldaar
 Markus 11:11 | als Hij alles rondom bezien had.*ging Hij uit naar Bethanie
 Markus 11:12 | des anderen daags
@@ -103,7 +103,7 @@ Mattheüs 24:42 | Waakt dan; want gij weet niet, in welke ure uw Heere komen zal
 Mattheüs 26:2 | Zoon des mensen zal overgeleverd worden, om gekruisigd te worden
 Mattheüs 26:3 | hogepriesters, die genaamd was Kajafas
 Mattheüs 26:4 | met listigheid vangen en doden
-Mattheüs 26:6 | Bethanie was, ten huize van Simon, de melaatse
+Mattheüs 26:6 | Bethanie was, ten huize van Simon, den melaatse
 Mattheüs 26:7 | vrouw.*albasten fles.*kostelijke zalf.*Zijn hoofd
 Mattheüs 26:8 | Waartoe dit verlies
 Mattheüs 26:12 | voorbereiding van Mijn begrafenis
@@ -125,7 +125,7 @@ Lukas 22:24 | twisting onder hen, wie van hen scheen de meeste te zijn
 Lukas 22:27 | Ik ben in het midden van u, als een die dient
 # stap 6
 Mattheüs 26:20 | zat Hij aan met de twaalven
-Mattheüs 26:21 | Voorwaar, Ik zeg u, dat een van u Mij zal verraden
+Mattheüs 26:21 | Voorwaar, Ik zeg u, dat een van u,? Mij zal verraden
 Mattheüs 26:22 | zeer bedroefd.*Ben ik het, Heere
 Mattheüs 26:25 | Judas.*Gij hebt het gezegd
 Mattheüs 26:26 | nam Jezus het brood, en gezegend hebbende, brak Hij het.*Neemt, eet, dat is Mijn lichaam
@@ -135,7 +135,7 @@ Lukas 22:19 | doet dat tot Mijn gedachtenis
 1 Korinthe 11:26 | den dood des Heeren, totdat Hij komt
 Johannes 13:30 | En het was nacht
 # stap 7
-Mattheüs 26:31 | Gij zult allen aan Mij geergerd worden in deze nacht
+Mattheüs 26:31 | Gij zult allen aan Mij geergerd worden in dezen nacht
 Mattheüs 26:34 | eer de haan gekraaid zal hebben, Mij driemaal zult verloochenen
 Mattheüs 26:35 | Al moest ik ook met U sterven, zo zal ik U geenszins verloochenen
 Mattheüs 26:36 | Gethsemane
@@ -261,7 +261,7 @@ Lukas 23:42 | Heere, gedenk mijner, als Gij in Uw Koninkrijk zult gekomen zijn
 Lukas 23:43 | Heden zult gij met Mij in het Paradijs zijn
 Johannes 19:26 | Vrouw, zie, uw zoon
 Johannes 19:27 | Zie, uw moeder
-Johannes 19:19 | JEZUS De NAZARENER De KONING DER JODEN
+Johannes 19:19 | JEZUS, DE NAZARENER, DE KONING DER JODEN
 Johannes 19:20 | Hebreeuws, in het Grieks, en in het Latijn
 Johannes 19:23 | klederen.*rok
 Johannes 19:24 | over Mijn kleding hebben zij het lot geworpen
@@ -288,7 +288,7 @@ Johannes 19:39 | Nicodemus.*mirre en aloe; omtrent honderd ponden
 Johannes 19:40 | linnen doeken met de specerijen
 Johannes 19:41 | een hof, en in den hof een nieuw graf, in hetwelk nog nooit iemand gelegd was geweest
 Johannes 19:42 | graf nabij was
-Mattheüs 27:60 | in een steenrots uitgehouwen.*grote steen tegen de deur des grafs gewenteld
+Mattheüs 27:60 | in een steenrots uitgehouwen.*groten steen tegen de deur des grafs gewenteld
 Mattheüs 27:62 | Des anderen daags.*overpriesters en de Farizeen tot Pilatus
 Mattheüs 27:66 | verzekerden het graf met de wacht, den steen verzegeld hebbende
 Johannes 19:36 | Geen been van Hem zal verbroken worden
@@ -317,7 +317,7 @@ Johannes 11:25 | Ik ben de Opstanding en het Leven
 Markus 16:19 | opgenomen in den hemel, en is gezeten aan de rechter hand Gods
 # stap 0
 Mattheüs 28:1 | laat na de sabbat, als het begon te lichten.*Maria Magdalena, en de andere Maria, om het graf te bezien
-Mattheüs 28:2 | grote aardbeving.*engel des Heeren, nederdalende uit den hemel.*wentelde de steen af.*zat op denzelven
+Mattheüs 28:2 | grote aardbeving.*engel des Heeren, nederdalende uit den hemel.*wentelde den steen af.*zat op denzelven
 Mattheüs 28:3 | gedaante was gelijk een bliksem.*wit gelijk sneeuw
 Mattheüs 28:4 | wachters zeer verschrikt.*als doden
 Mattheüs 28:5 | Vreest gijlieden niet
@@ -339,7 +339,7 @@ Johannes 20:9 | wisten nog de Schrift niet, dat Hij van de doden moest opstaan
 Johannes 20:11 | Maria stond buiten bij het graf, wenende
 Johannes 20:12 | twee engelen in witte klederen
 Johannes 20:15 | hovenier
-Johannes 20:16 | Jezus zeide tot haar: Maria! .*Rabbouni, hetwelk is gezegd: Meester
+Johannes 20:16 | Jezus zeide tot haar: Maria! .*Rabbouni, hetwelk is gezegd, Meester
 Johannes 20:18 | dat zij den Heere gezien had
 # stap 2
 Lukas 24:13 | twee van hen.*zestig stadien van Jeruzalem.*Emmaus
@@ -394,7 +394,7 @@ Johannes 21:19 | met hoedanigen dood hij God verheerlijken zou.*Volg Mij
 Mattheüs 28:16 | elf discipelen.*Galilea, naar den berg, waar Jezus hen bescheiden had
 Mattheüs 28:17 | baden zij Hem aan; doch sommigen twijfelden
 Mattheüs 28:18 | Mij is gegeven alle macht in hemel en op aarde
-Mattheüs 28:19 | Gaat dan henen, onderwijst al de volken, dezelve dopende in de Naam des Vaders, en des Zoons, en des Heiligen Geestes
+Mattheüs 28:19 | Gaat dan henen, onderwijst al de volken, dezelve dopende in den Naam des Vaders, en des Zoons, en des Heiligen Geestes
 Mattheüs 28:19 | lerende hen onderhouden alles, wat Ik u geboden heb
 Mattheüs 28:20 | Ik ben met ulieden al de dagen tot de voleinding der wereld
 # stap 8
@@ -410,7 +410,7 @@ Handelingen 1:11 | Deze Jezus.*zal alzo komen, gelijkerwijs gij Hem naar den hem
 Lukas 24:52 | grote blijdschap
 Handelingen 1:12 | Olijf berg.*sabbatsreize
 # speurtocht nt-opstanding
-Mattheüs 28:2 | engel des Heeren.*wentelde de steen af
+Mattheüs 28:2 | engel des Heeren.*wentelde den steen af
 Mattheüs 28:6 | Hij is hier niet; want Hij is opgestaan
 Johannes 20:15 | hovenier
 Lukas 24:13 | zestig stadien
@@ -427,7 +427,7 @@ Mattheüs 21:5 | Zie, uw Koning komt tot u, zachtmoedig en gezeten op een ezelin
 Lukas 19:41 | weende Hij over haar
 Lukas 19:42 | hetgeen tot uw vrede dient
 Mattheüs 21:6 | discipelen
-Psalm 8:3 | Uit de mond der kinderkens en der zuigelingen hebt Gij sterkte gegrondvest
+Psalm 8:3 | Uit den mond der kinderkens en der zuigelingen hebt Gij sterkte gegrondvest
 Johannes 12:16 | dit verstonden Zijn discipelen in het eerst niet; maar als Jezus verheerlijkt was
 Lukas 19:43 | vijanden
 Johannes 12:14 | jongen ezel
@@ -446,7 +446,7 @@ Mattheüs 24:32 | vijgeboom.*zomer nabij is
 Mattheüs 24:33 | Alzo ook gijlieden, wanneer gij al deze dingen zult zien, zo weet, dat het nabij is
 Mattheüs 25:2 | vijf.*wijzen.*vijf.*dwazen
 Mattheüs 25:10 | de deur werd gesloten
-Mattheüs 25:13 | Zo waakt dan; want gij weet den dag niet, noch de ure, in welke de Zoon des mensen komen zal
+Mattheüs 25:13 | Zo waakt dan; want gij weet den dag niet, noch de ure, in dewelke de Zoon des mensen komen zal
 Mattheüs 25:21 | over weinig zijt gij getrouw geweest; over veel zal ik u zetten
 Mattheüs 25:40 | Voor zoveel gij dit een van deze Mijn minste broeders gedaan hebt, zo hebt gij dat Mij gedaan
 Mattheüs 25:15 | den ene gaf hij vijf talenten
@@ -467,7 +467,7 @@ Johannes 13:12 | Verstaat gij, wat Ik ulieden gedaan heb
 Johannes 13:14 | de Heere en de Meester, uw voeten gewassen heb, zo zijt gij ook schuldig, elkanders voeten te wassen
 Lukas 22:25 | koningen der volken heersen over hen
 Lukas 22:26 | de meeste onder u, die zij gelijk de minste
-Markus 10:45 | niet gekomen, om gediend te worden, maar om te dienen, en Zijn ziel te geven tot een rantsoen voor velen
+Markus 10:45 | niet gekomen om gediend te worden, maar om te dienen, en Zijn ziel te geven tot een rantsoen voor velen
 Filippenzen 2:7 | gestaltenis eens dienstknechts
 Filippenzen 2:8 | vernederd.*den dood des kruises
 Lukas 14:11 | die zichzelven vernedert, zal verhoogd worden
@@ -492,13 +492,13 @@ Markus 14:11 | verblijd.*beloofden hem geld te geven.*zocht, hoe hij Hem bekwame
 Markus 14:26 | lofzang gezongen.*Olijfberg
 Markus 14:32 | Gethsemane
 Markus 14:34 | Mijn ziel is geheel bedroefd tot den dood toe
-Markus 14:36 | Abba, Vader, alle dingen zijn U mogelijk; neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt
-Markus 14:37 | Simon, slaapt gij\? Kunt gij niet een uur waken
+Markus 14:36 | Abba, Vader! alle dingen zijn U mogelijk; neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt
+Markus 14:37 | Simon! slaapt gij\? Kunt gij niet een uur waken
 Markus 14:40 | wederom slapende
 Markus 14:41 | ten derden male
 Markus 14:43 | grote schare, met zwaarden en stokken
 Markus 14:44 | Dien ik kussen zal, Die is het
-Markus 14:45 | Rabbi, Rabbi, en kuste Hem
+Markus 14:45 | zeide: Rabbi, en kuste Hem
 Markus 14:46 | grepen Hem
 Markus 14:47 | hieuw hem zijn oor af
 Markus 14:49 | opdat de Schriften vervuld zouden worden

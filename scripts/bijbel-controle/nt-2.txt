@@ -19,7 +19,7 @@ Markus 6:24 | Het hoofd van Johannes den Doper
 Johannes 1:45 | Bethsaida, uit de stad van Andreas en Petrus
 Lukas 9:28 | Petrus, en Johannes, en Jakobus
 Lukas 9:54 | vuur van den hemel
-Markus 10:37 | rechter hand.*linker hand
+Markus 10:37 | rechter-?.*linker ?hand
 Johannes 11:5 | Martha, en haar zuster, en Lazarus lief
 Johannes 11:17 | vier dagen in het graf
 Johannes 11:43 | Lazarus, kom uit
@@ -41,7 +41,7 @@ Johannes 6:13 | twaalf korven
 Mattheüs 14:1–21 | Herodes, de viervorst
 Mattheüs 14:1–21 | vijf broden en twee vissen
 Markus 8:27–30 | vlekken van Cesarea Filippi
-2 Petrus 1:18 | op de heilige berg
+2 Petrus 1:18 | op den heiligen berg
 # stap 0
 Markus 6:14 | Johannes, die daar doopte, is van de doden opgewekt
 Markus 6:16 | Deze is Johannes, dien ik onthoofd heb
@@ -101,7 +101,7 @@ Johannes 1:43 | Cefas, hetwelk overgezet wordt Petrus
 Markus 8:22 | kwam te Bethsaida
 Markus 8:27 | Cesarea Filippi
 # stap 5
-Mattheüs 16:21 | naar Jeruzalem, en veel lijden van de ouderlingen, en overpriesters, en Schriftgeleerden, en gedood worden, en ten derden dage opgewekt
+Mattheüs 16:21 | naar Jeruzalem, en veel lijden van de ouderlingen, en overpriesteren, en Schriftgeleerden, en gedood worden, en ten derden dage opgewekt
 Mattheüs 16:22 | dit zal U geenszins geschieden
 Mattheüs 16:23 | Ga weg achter Mij, satanas!.*gij verzint niet de dingen, die Gods zijn, maar die der mensen zijn
 Mattheüs 16:24 | verloochene zichzelven, en neme zijn kruis op, en volge Mij
@@ -312,7 +312,7 @@ Leviticus 11:7 | zwijn.*onrein
 Lukas 17:11 | naar Jeruzalem reisde.*door het midden van Samaria en Galilea
 Lukas 17:12 | zeker vlek.*tien melaatse mannen, welke stonden van verre
 Lukas 17:13 | Jezus, Meester! ontferm U onzer
-Lukas 17:14 | Gaat heen en vertoont uzelven den priesters.*terwijl zij heengingen, dat zij gereinigd werden
+Lukas 17:14 | Gaat heen en vertoont uzelven den priesteren.*terwijl zij heengingen, dat zij gereinigd werden
 Lukas 17:15 | keerde wederom, met grote stemme God verheerlijkende
 Lukas 17:16 | viel op het aangezicht voor Zijn voeten, Hem dankende; en dezelve was een Samaritaan
 Lukas 17:17 | Zijn niet de tien gereinigd geworden, en waar zijn de negen
@@ -324,7 +324,7 @@ Leviticus 14:2 | tot den priester zal gebracht worden
 # stap 6
 Lukas 18:9 | bij zichzelven vertrouwden, dat zij rechtvaardig waren, en de anderen niets achtten, deze gelijkenis
 Lukas 18:10 | Twee mensen gingen op in den tempel om te bidden.*Farizeer.*tollenaar
-Lukas 18:11 | ik dank U, dat ik niet ben gelijk de anderen mensen, rovers, onrechtvaardigen, overspelers; of ook gelijk deze tollenaar
+Lukas 18:11 | ik dank U, dat ik niet ben gelijk de andere mensen, rovers, onrechtvaardigen, overspelers; of ook gelijk deze tollenaar
 Lukas 18:12 | Ik vast tweemaal per week; ik geef tienden van alles, wat ik bezit
 Lukas 18:13 | van verre staande.*niet opheffen naar den hemel.*sloeg op zijn borst.*O God! wees mij zondaar genadig
 Lukas 18:14 | ging af gerechtvaardigd in zijn huis, meer dan die.*zichzelven verhoogt, zal vernederd worden, en die zichzelven vernedert, zal verhoogd worden
@@ -338,8 +338,8 @@ Markus 10:13 | kinderkens.*aanraken.*discipelen bestraften
 Markus 10:14 | nam het zeer kwalijk.*Laat de kinderkens tot Mij komen, en verhindert ze niet; want derzulken is het Koninkrijk Gods
 Markus 10:15 | niet ontvangt, gelijk een kindeken
 Markus 10:16 | omving ze met Zijn armen.*handen op hen gelegd.*zegende
-Psalm 8:3 | Uit de mond der kinderkens en der zuigelingen hebt Gij sterkte gegrondvest
-Mattheüs 21:16 | Uit de mond der jonge kinderen en der zuigelingen
+Psalm 8:3 | Uit den mond der kinderkens en der zuigelingen hebt Gij sterkte gegrondvest
+Mattheüs 21:16 | Uit den mond der jonge kinderen en der zuigelingen
 # stap 8
 Markus 10:17 | op de knieen vallende.*Goede Meester! wat zal ik doen, opdat ik het eeuwige leven beerve
 Markus 10:19 | Gij weet de geboden
@@ -357,14 +357,14 @@ Markus 10:32 | op den weg, gaande op naar Jeruzalem; en Jezus ging voor hen; en 
 Markus 10:33 | overpriesteren, en den Schriftgeleerden overgeleverd.*ter dood veroordelen
 Markus 10:34 | bespotten.*geselen.*doden; en ten derden dage zal Hij weder opstaan
 Markus 10:35 | Jakobus en Johannes, de zonen van Zebedeus
-Markus 10:37 | Geef ons, dat wij mogen zitten, de een aan Uw rechter hand, en de ander aan Uw linker hand in Uw heerlijkheid
+Markus 10:37 | Geef ons, dat wij mogen zitten, de een aan Uw rechter-, en de ander aan Uw linker ?hand in Uw heerlijkheid
 Markus 10:38 | Gij weet niet, wat gij begeert. Kunt gij den drinkbeker drinken, dien Ik drink
 Markus 10:39 | Wij kunnen.*drinkbeker, dien Ik drink, zult gij wel drinken
 Markus 10:40 | gegeven worden dien het bereid is
 Markus 10:41 | de andere tien.*zeer kwalijk
 Markus 10:43 | groot zal willen worden, die zal uw dienaar zijn
 Markus 10:44 | de eerste zal willen worden, die zal aller dienstknecht zijn
-Markus 10:45 | niet gekomen, om gediend te worden, maar om te dienen, en Zijn ziel te geven tot een rantsoen voor velen
+Markus 10:45 | niet gekomen om gediend te worden, maar om te dienen, en Zijn ziel te geven tot een rantsoen voor velen
 Handelingen 12:1–2 | Herodes.*doodde Jakobus, den broeder van Johannes, met het zwaard
 Mattheüs 20:20 | moeder der zonen van Zebedeus
 # stap 10
@@ -402,7 +402,7 @@ Markus 6:17 | huisvrouw van zijn broeder Filippus
 Markus 6:19 | Herodias.*wilde hem doden
 Markus 6:20 | rechtvaardig en heilig man.*hoorde hem gaarne
 Markus 6:26 | om de eden, en degenen, die mede aanzaten
-Lukas 3:19–20 | om Herodias' wil.*boze stukken.*Johannes in de gevangenis gesloten
+Lukas 3:19–20 | om Herodias.? wil.*boze stukken.*Johannes in de gevangenis gesloten
 Mattheüs 14:12–13 | begroeven.*boodschapten het Jezus.*te scheep, naar een woeste plaats
 Lukas 23:8 | Herodes Jezus zag.*enig teken te zien
 Markus 6:22 | Eis van mij, wat gij ook wilt, en ik zal het u geven
@@ -457,8 +457,8 @@ Lukas 9:34 | overschaduwde hen
 Lukas 9:36 | verhaalden in die dagen niemand iets
 Deuteronomium 18:15 | Een Profeet.*als mij.*naar Hem zult gij horen
 Mattheüs 17:9 | Zegt niemand dit gezicht, totdat de Zoon des mensen zal opgestaan zijn uit de doden
-2 Petrus 1:16–18 | aanschouwers.*Deze is Mijn geliefde Zoon.*heilige berg
-Mattheüs 17:1–8 | na zes dagen.*hoge berg.*blonk gelijk de zon
+2 Petrus 1:16–18 | aanschouwers.*Deze is Mijn geliefde Zoon.*heiligen berg
+Mattheüs 17:1–8 | na zes dagen.*hogen berg.*blonk gelijk de zon
 Exodus 34:29 | het vel zijns aangezichts glinsterde
 # 107
 Markus 10:14 | nam het zeer kwalijk
@@ -472,11 +472,11 @@ Mattheüs 19:20–22 | jongeling
 Mattheüs 6:19–20 | Vergadert u schatten in den hemel
 # 108
 Markus 10:35 | Zebedeus
-Markus 10:37 | rechter hand.*linker hand
+Markus 10:37 | rechter-?.*linker ?hand
 Markus 10:41 | zeer kwalijk
 Markus 10:42 | heerschappij voeren over hen
 Markus 10:45 | rantsoen voor velen
-Mattheüs 20:20–21 | moeder der zonen van Zebedeus.*rechter- en de ander tot Uw linker hand
+Mattheüs 20:20–21 | moeder der zonen van Zebedeus.*rechter-,? en de ander tot Uw linker ?hand
 Handelingen 12:2 | doodde Jakobus.*met het zwaard
 Johannes 13:14–15 | voeten gewassen.*Ik heb u een voorbeeld gegeven
 Lukas 9:54–55 | vuur van den hemel.*bestrafte Hij hen
@@ -525,7 +525,7 @@ Jesaja 55:7 | hij bekere zich tot den HEERE, zo zal Hij Zich Zijner ontfermen
 Lukas 19:10 | zalig te maken, dat verloren was
 # 113
 Lukas 17:12 | stonden van verre
-Lukas 17:14 | den priesters
+Lukas 17:14 | den priesteren
 Lukas 17:14 | terwijl zij heengingen, dat zij gereinigd werden
 Lukas 17:16 | Samaritaan
 Lukas 17:17–18 | de tien.*vreemdeling
@@ -540,7 +540,7 @@ Lukas 18:12 | tweemaal per week
 Lukas 18:13 | sloeg op zijn borst
 Lukas 18:14 | gerechtvaardigd
 Psalm 51:19 | een gebroken en verslagen hart zult Gij, o God! niet verachten
-1 Petrus 5:5 | God wederstaat de hovaardigen, maar de nederigen geeft Hij genade
+1 Petrus 5:5 | God wederstaat de hovaardigen, maar den nederigen geeft Hij genade
 Lukas 14:11 | een iegelijk, die zichzelven verhoogt, zal vernederd worden
 # 115
 Johannes 11:6 | twee dagen
@@ -573,7 +573,7 @@ Mattheüs 9:13 | Ik ben niet gekomen om te roepen rechtvaardigen, maar zondaars 
 Lukas 19:28 | opgaande naar Jeruzalem|naar Jeruzalem
 
 # ===== Kernwoorden =====
-Genesis 2:2–3 | gerust op den zevende dag.*gezegend, en die geheiligd
+Genesis 2:2–3 | gerust op den zevenden dag.*gezegend, en dien geheiligd
 Exodus 20:8 | Gedenkt den sabbatdag, dat gij dien heiligt
 Exodus 20:8–11 | Zes dagen zult gij arbeiden.*de zevende dag is de sabbat des HEEREN
 Markus 2:27–28 | De sabbat is gemaakt om den mens, niet de mens om den sabbat.*een Heere ook van den sabbat
@@ -588,8 +588,8 @@ Psalm 103:2 | vergeet geen van Zijn weldaden
 Lukas 17:15–18 | Gode eer te geven
 Johannes 6:11 | gedankt hebbende
 1 Thessalonicenzen 5:18 | Dankt God in alles; want dit is de wil van God in Christus Jezus over u
-Markus 1:1 | Het begin des Evangelies van JEZUS CHRISTUS, den Zone Gods
+Markus 1:1 | Het begin des Evangelies van JEZUS CHRISTUS, den Zoon van God
 1 Korinthe 15:3–4 | dat Christus gestorven is voor onze zonden, naar de Schriften.*dat Hij is begraven, en dat Hij is opgewekt ten derden dage
-Markus 1:15 | bekeert u, en gelooft het Evangelie
+Markus 1:15 | bekeert u, en gelooft,? het Evangelie
 Romeinen 1:16 | kracht Gods tot zaligheid een iegelijk, die gelooft
 Lukas 19:10 | om te zoeken en zalig te maken, dat verloren was

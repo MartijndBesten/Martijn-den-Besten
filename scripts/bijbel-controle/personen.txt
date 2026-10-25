@@ -89,7 +89,7 @@ Genesis 25:10 | Abraham begraven, en Sara
 Genesis 25:13 | Ismael
 Genesis 25:16 | twaalf vorsten
 Genesis 25:17 | honderd zeven en dertig jaren.*stierf
-Genesis 25:20 | veertig jaren.*Rebekka, de dochter van Betuel
+Genesis 25:20 | veertig jaren.*Rebekka, de dochter van Bethuel
 Genesis 25:21 | Izak.*Rebekka.*zwanger
 Genesis 25:25 | Ezau
 Genesis 25:26 | Jakob.*zestig jaren
@@ -188,17 +188,17 @@ Jakobus 2:21 | Izak
 Maleachi 1:2 | Jakob liefgehad
 Maleachi 1:3 | Ezau.*gehaat
 Hebreeën 12:16 | Ezau.*eerstgeboorte
-Hosea 12:3 | broeder bij de verzenen
-Hosea 12:4 | Engel
-Hosea 12:4 | Beth-?el
+Hosea 12:4 | broeder bij de verzenen
+Hosea 12:5 | Engel
+Hosea 12:5 | Beth-?el
 Johannes 4:5 | Jakob.*Jozef
 Johannes 4:6 | fontein Jakobs
 Hebreeën 11:21 | Jakob.*zonen van Jozef
 Ruth 4:11 | Rachel en als Lea, die beiden het huis van Israel gebouwd
 Jeremia 31:15 | Rachel weent over haar kinderen
 Mattheüs 2:18 | Rachel
-Exodus 6:16 | Levi.*honderd zeven en dertig jaren
-Exodus 6:20 | Amram.*Aaron en Mozes
+Exodus 6:15 | Levi.*honderd zeven en dertig jaren
+Exodus 6:19 | Amram.*Aaron en Mozes
 Mattheüs 1:2 | Juda
 Mattheüs 1:3 | Juda
 Hebreeën 7:14 | uit Juda
@@ -219,16 +219,16 @@ Hebreeën 7:1 | Melchizedek.*Salem
 Hebreeën 7:3 | Zoon van God gelijk
 Richteren 13:2 | Zora.*Daniet.*Manoach
 # --- Exodus, Numeri, Jozua ---
-Exodus 6:16 | zonen van Levi.*Kehath
-Exodus 6:18 | zonen van Kehath: Amram
-Exodus 6:18 | honderd drie en dertig jaren
-Exodus 6:20 | Amram nam Jochebed.*huisvrouw
-Exodus 6:20 | honderd zeven en dertig jaren
+Exodus 6:15 | zonen van Levi.*Kehath
+Exodus 6:17 | zonen van Kehath: Amram
+Exodus 6:17 | honderd drie en dertig jaren
+Exodus 6:19 | Amram nam Jochebed.*huisvrouw
+Exodus 6:19 | honderd zeven en dertig jaren
 Numeri 26:59 | Jochebed, de dochter van Levi
 Numeri 26:59 | Amram, Aaron, en Mozes, en Mirjam
-Exodus 6:23 | Aaron.*Eleazar
-Exodus 6:25 | Eleazar, de zoon van Aaron.*Pinehas
-Exodus 6:21 | Jizhar: Korah
+Exodus 6:22 | Aaron.*Eleazar
+Exodus 6:24 | Eleazar, de zoon van Aaron.*Pinehas
+Exodus 6:20 | Jizhar: Korah
 Exodus 2:2 | baarde een zoon
 Exodus 2:2 | drie maanden
 Exodus 2:10 | Mozes
@@ -236,7 +236,7 @@ Exodus 2:16 | priester in Midian
 Exodus 2:18 | Rehuel
 Exodus 2:21 | Zippora
 Exodus 18:1 | Jethro.*priester van Midian.*schoonvader
-Exodus 18:2 | Jethro.*Zippora, Mozes' huisvrouw
+Exodus 18:2 | Jethro.*Zippora, Mozes.? huisvrouw
 Exodus 18:3 | Gersom
 Exodus 18:4 | Eliezer
 Exodus 18:21 | oversten
@@ -369,7 +369,7 @@ Handelingen 3:24 | Samuel
 Handelingen 13:21 | Saul, den zoon van Kis.*Benjamin.*veertig jaren
 1 Samuël 14:1 | Jonathan, de zoon van Saul
 1 Samuël 14:49 | Jonathan.*Michal
-1 Samuël 14:50 | Abner, een zoon van Ner, Sauls oom
+1 Samuël 14:50 | Abi-?ner, een zoon van Ner, Sauls oom
 1 Samuël 31:2 | Jonathan
 1 Samuël 31:4 | Saul.*zwaard.*viel daarin
 1 Samuël 31:6 | stierf Saul, en zijn drie zonen
@@ -463,7 +463,7 @@ Psalm 23:1 | psalm van David
 1 Samuël 13:14 | man gezocht naar Zijn hart
 Psalm 78:70 | David
 Psalm 78:71 | weiden
-Jesaja 9:7 | troon van David
+Jesaja 9:6 | troon van David
 Mattheüs 1:1 | Zoon van David
 # --- 1 en 2 Koningen ---
 1 Koningen 1:39 | Zadok.*zalfde Salomo
@@ -482,7 +482,7 @@ Mattheüs 12:42 | wijsheid van Salomo
 1 Koningen 14:4 | Ahia
 1 Koningen 14:21 | Rehabeam.*een en veertig jaren
 Mattheüs 1:7 | Roboam
-1 Koningen 11:26 | Jerobeam, de zoon van Nebat.*Salomo's knecht
+1 Koningen 11:26 | Jerobeam, de zoon van Nebat.*Salomo.?s knecht
 1 Koningen 12:28 | twee gouden kalveren
 1 Koningen 12:29 | Beth-?el.*Dan
 1 Koningen 13:4 | Jerobeam.*hand.*verdorde
@@ -590,13 +590,13 @@ Jeremia 1:3 | Zedekia, zoon van Josia
 1 Kronieken 3:15 | Josia.*Jojakim.*Zedekia
 2 Kronieken 36:10 | zijn broeder Zedekia
 1 Kronieken 3:16 | Jechonia.*Zedekia
-2 Koningen 25:7 | zonen van Zedekia.*verblindde Zedekia's ogen
+2 Koningen 25:7 | zonen van Zedekia.*verblindde Zedekia.?s ogen
 2 Koningen 25:6 | koning
 Jeremia 39:7 | ogen van Zedekia
 2 Koningen 25:8 | Nebuzaradan
 2 Koningen 25:9 | verbrandde het huis des HEEREN
 Jeremia 40:1 | Nebuzaradan
-Jeremia 25:9 | Nebukadrezar.*Mijn knecht
+Jeremia 25:9 | Nebukadnezar.*Mijn knecht
 Ezra 5:12 | Nebukadnezar
 Daniël 4:34 | Nebukadnezar.*loofde den Allerhoogste
 # --- Daniël en Esther ---
@@ -608,11 +608,11 @@ Daniël 5:11 | uw vader
 Daniël 5:18 | uw vader Nebukadnezar
 Daniël 5:30 | Belsazar.*gedood
 Daniël 7:1 | Belsazar
-Daniël 5:31 | Darius, de Meder.*twee en zestig jaren
+Daniël 6:1 | Darius, de Meder.*twee en zestig jaren
 Daniël 9:1 | Darius, den zoon van Ahasveros.*Meden
-Daniël 6:16 | kuil
+Daniël 6:17 | kuil
 Ezechiël 14:14 | Daniel
-Mattheüs 24:15 | Daniel, de profeet
+Mattheüs 24:15 | Daniel, den profeet
 Daniël 1:21 | Kores
 Jesaja 44:28 | Cores.*Mijn herder
 Jesaja 45:1 | Zijn gezalfde, tot Cores
@@ -633,7 +633,7 @@ Esther 10:3 | Mordechai.*tweede
 Ezra 3:2 | Jesua, de zoon van Jozadak.*Zerubbabel, de zoon van Sealthiel
 Haggaï 1:1 | Zerubbabel, den zoon van Sealthiel.*Josua, den zoon van Jozadak
 Haggaï 1:1 | Darius
-Haggaï 2:23 | Zerubbabel.*zegelring
+Haggaï 2:24 | Zerubbabel.*zegelring
 1 Kronieken 3:17 | Jechonia
 1 Kronieken 3:17 | Sealthiel
 1 Kronieken 3:19 | Pedaja.*Zerubbabel

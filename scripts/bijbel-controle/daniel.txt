@@ -10,7 +10,7 @@ Daniël 1:8 | niet zou ontreinigen
 Daniël 1:12 | tien dagen.*gezaaide.*water te drinken
 Daniël 1:15 | tien dagen.*schoner
 Daniël 1:17 | wetenschap en verstand.*gezichten en dromen
-Daniël 1:20 | tienmaal boven al de tovernaars
+Daniël 1:20 | tienmaal boven al de tovenaars
 Daniël 1:21 | eerste jaar van den koning Kores
 Daniël 2:1 | slaap werd in hem gebroken
 Daniël 2:5 | in stukken gehouwen
@@ -58,23 +58,23 @@ Daniël 5:26 | God heeft uw koninkrijk geteld
 Daniël 5:27 | gewogen.*te licht gevonden
 Daniël 5:28 | den Meden en den Perzen gegeven
 Daniël 5:30 | In dienzelfden nacht.*Belsazar.*gedood
-Daniël 5:31 | Darius, de Meder
-Daniël 6:1 | honderd en twintig stadhouders
-Daniël 6:2 | drie vorsten.*Daniel de eerste
-Daniël 6:4 | geen gelegenheid noch misdaad vinden
-Daniël 6:7 | dertig dagen.*enigen god of mens.*kuil der leeuwen
-Daniël 6:8 | wet der Meden en der Perzen, die niet mag wederroepen worden
-Daniël 6:10 | drie tijden 's daags.*bad
-Daniël 6:14 | zeer bedroefd
-Daniël 6:17 | steen.*mond des kuils.*verzegelde
-Daniël 6:18 | slaap week verre van hem
-Daniël 6:19 | vroegen morgenstond
-Daniël 6:20 | heeft ook uw God.*van de leeuwen kunnen verlossen
-Daniël 6:22 | Zijn engel gezonden.*muil der leeuwen toegesloten
-Daniël 6:23 | geen schade aan hem gevonden
-Daniël 6:24 | hun kinderen, en hun vrouwen.*kwamen niet op den grond des kuils
-Daniël 6:26 | de levende God
-Daniël 6:28 | Darius.*Kores, den Perziaan
+Daniël 6:1 | Darius, de Meder
+Daniël 6:2 | honderd en twintig stadhouders
+Daniël 6:3 | drie vorsten.*Daniel de eerste
+Daniël 6:5 | geen gelegenheid noch misdaad vinden
+Daniël 6:8 | dertig dagen.*enigen god of mens.*kuil der leeuwen
+Daniël 6:9 | wet der Meden en der Perzen, die niet mag wederroepen worden
+Daniël 6:11 | drie tijden 's daags.*bad
+Daniël 6:15 | zeer bedroefd
+Daniël 6:18 | steen.*mond des kuils.*verzegelde
+Daniël 6:19 | slaap week verre van hem
+Daniël 6:20 | vroegen morgenstond
+Daniël 6:21 | heeft ook uw God.*van de leeuwen kunnen verlossen
+Daniël 6:23 | Zijn engel gezonden.*muil der leeuwen toegesloten
+Daniël 6:24 | geen schade aan hem gevonden
+Daniël 6:25 | hun kinderen, en hun vrouwen.*kwamen niet op den grond des kuils
+Daniël 6:27 | de levende God
+Daniël 6:29 | Darius.*Kores, den Perziaan
 Daniël 9:2 | Jeremia.*zeventig jaren
 Jeremia 29:10 | zeventig jaren te Babel
 2 Koningen 25:9 | verbrandde het huis des HEEREN
@@ -82,18 +82,18 @@ Jeremia 29:10 | zeventig jaren te Babel
 2 Kronieken 36:7 | vaten van het huis des HEEREN naar Babel
 # Audit oktober 2026 (inhoud-samuel-jona): SV-nummering Daniël 3/4/5/6, chronologie, kruisverwijzingen
 Daniël 1:1 | derde jaar des koninkrijks van Jojakim
-Jeremia 25:1 | vierde jaar van Jojakim.*eerste jaar van Nebukadrezar
+Jeremia 25:1 | vierde jaar van Jojakim.*eerste jaar van Nebukadnezar
 Daniël 2:1 | tweede jaar nu des koninkrijks van Nebukadnezar
 Daniël 2:27 | kunnen de wijzen.*niet te kennen geven
 Daniël 3:30 | Sadrach, Mesach en Abed-nego
 Daniël 4:1 | Nebukadnezar aan alle volken
 Daniël 4:37 | Ik, Nebukadnezar
 Daniël 5:3 | gouden vaten.*tempel
-Daniël 5:31 | Darius, de Meder nu, ontving het koninkrijk, omtrent twee en zestig jaren oud
-Daniël 6:28 | Daniel.*koninkrijk van Darius.*Kores, den Perziaan
+Daniël 6:1 | Darius, de Meder nu, ontving het koninkrijk, omtrent twee en zestig jaren oud
+Daniël 6:29 | Daniel.*koninkrijk van Darius.*Kores, den Perziaan
 Daniël 9:1 | Darius, den zoon van Ahasveros, uit het zaad der Meden
 Ezechiël 14:14 | Noach, Daniel en Job
 Hebreeën 11:33 | muilen der leeuwen toegestopt
 Hebreeën 11:34 | kracht des vuurs hebben uitgeblust
-Mattheüs 24:15 | Daniel, de profeet
+Mattheüs 24:15 | Daniel, den profeet
 Lukas 1:33 | Zijns Koninkrijks zal geen einde zijn

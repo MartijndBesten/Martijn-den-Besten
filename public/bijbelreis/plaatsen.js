@@ -402,7 +402,7 @@ Object.assign(BR.plaatsen, {
 Object.assign(BR.plaatsen, {
   dan_dura: { n: "Dal van Dura", ll: [32.45, 44.25], c: "o", s: "b", z: 7.5, t: "gebied", d: "Hier zette Nebukadnezar het gouden beeld neer (Daniël 3:1). De Bijbel zegt alleen dat het ‘in het landschap van Babel’ lag; waar precies, weet niemand.",
     nu: "Onbekend; vlakte bij Babylon, Irak", bron: "Onbekend; voorgesteld o.a. Tulul Dura ten zuidoosten van Babylon. Punt illustratief." },
-  dan_medie: { n: "Medië", ll: [35.6, 47.2], c: "r", s: "r", z: 5.5, t: "gebied", d: "Het land van de Meden, in de bergen ten oosten van Babel. Darius de Meder ontving het koninkrijk na Belsazar (Daniël 5:30–31).",
+  dan_medie: { n: "Medië", ll: [35.6, 47.2], c: "r", s: "r", z: 5.5, t: "gebied", d: "Het land van de Meden, in de bergen ten oosten van Babel. Darius de Meder ontving het koninkrijk na Belsazar (Daniël 5:30; 6:1).",
     nu: "Bergland van West-Iran", bron: "Gebied: Medië." },
 });
 

@@ -153,7 +153,7 @@ Nehemia 13:26 | Salomo.*vreemde vrouwen zondigen
 # --- Karmel ---
 1 Koningen 18:1 | derde jaar.*regen geven
 1 Koningen 18:2 | honger was sterk in Samaria
-1 Koningen 18:17 | beroerden van Israel
+1 Koningen 18:17 | beroerder van Israel
 1 Koningen 18:18 | Baals nagevolgd
 1 Koningen 18:19 | berg Karmel.*vierhonderd en vijftig profeten van Baal.*vierhonderd profeten van het bos
 1 Koningen 18:21 | Hoe lang hinkt gij op twee gedachten.*Zo de HEERE God is, volgt Hem na, en zo het Baal is, volgt hem na
@@ -164,8 +164,8 @@ Nehemia 13:26 | Salomo.*vreemde vrouwen zondigen
 1 Koningen 18:28 | messen
 1 Koningen 18:31 | twaalf stenen
 1 Koningen 18:32 | groeve rondom het altaar
-1 Koningen 18:34 | vier kruiken.*ten derden male
-1 Koningen 18:38 | vuur de HEEREN.*brandoffer.*hout.*stenen.*stof.*water
+1 Koningen 18:33-34 | vier kruiken.*ten derden male
+1 Koningen 18:38 | vuur des HEEREN.*brandoffer.*hout.*stenen.*stof.*water
 1 Koningen 18:39 | aangezichten.*De HEERE is God, de HEERE is God
 1 Koningen 18:40 | Grijpt de profeten van Baal.*beek Kison.*slachtte
 Deuteronomium 13:5 | profeet.*zal gedood worden.*afval
@@ -200,7 +200,7 @@ Deuteronomium 13:5 | profeet.*zal gedood worden.*afval
 1 Koningen 19:19 | Elisa, den zoon van Safat.*twaalf juk runderen.*bij het twaalfde.*mantel op hem
 1 Koningen 19:20 | verliet de runderen, en liep Elia na.*vader en mijn moeder kusse, daarna zal ik u navolgen
 1 Koningen 19:21 | juk runderen, en slachtte het.*gereedschap der runderen.*volk gaf.*volgde Elia na, en diende hem
-2 Koningen 2:13 | Elia's mantel
+2 Koningen 2:13 | Elia.?s mantel
 # --- Naboth ---
 1 Koningen 21:1 | Naboth.*wijngaard.*Jizreel.*paleis van Achab
 1 Koningen 21:2 | kruidhof.*wijngaard, die beter is.*geld

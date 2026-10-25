@@ -51,10 +51,10 @@ Leviticus 9:24 | vuur ging uit van het aangezicht des HEEREN, en verteerde op he
 Hebreeen 7:26 | heilig, onnozel, onbesmet, afgescheiden van de zondaren
 Hebreeen 7:27 | eerst voor zijn eigen zonden.*eenmaal gedaan, als Hij Zichzelven opgeofferd heeft
 # --- Stap 2: Leviticus 10:1-7 ---
-Leviticus 10:1 | een ieder zijn wierookvat, en deden vuur daarin, en legden reukwerk daarop
+Leviticus 10:1 | een ieder zijn wierookvat, en deden vuur daarin, en leiden reukwerk daarop
 Leviticus 10:2 | zij stierven voor het aangezicht des HEEREN
 Leviticus 10:3 | In degenen, die tot Mij naderen, zal Ik geheiligd worden.*Aaron zweeg stil
-Leviticus 10:4 | Misael en Elzafan, de zonen van Uzziel, de oom van Aaron
+Leviticus 10:4 | Misael en Elzafan, de zonen van Uzziel, den oom van Aaron
 Leviticus 10:5 | tot buiten het leger
 Leviticus 10:6 | Eleazar, en tot Ithamar.*niet ontbloten, noch uw klederen verscheuren.*ganse huis van Israel.*bewenen
 Leviticus 10:7 | uit de deur van de tent der samenkomst niet uitgaan
@@ -97,12 +97,12 @@ Leviticus 10:3 | tot Mij naderen, zal Ik geheiligd worden
 Leviticus 17:11 | om over uw zielen verzoening te doen
 Hebreeen 9:11-12 | Christus.*Zijn eigen bloed, eenmaal ingegaan in het heiligdom
 Leviticus 16:34 | eenmaal des jaars, verzoening
-Hebreeen 9:25-26 | alle jaar in het heiligdom ingaat.*eenmaal in de voleinding der eeuwen geopenbaard, om de zonde te niet te doen, door Zijnzelfs offerande
+Hebreeen 9:25-26 | alle jaar in het heiligdom ingaat.*eenmaal in de voleinding der eeuwen geopenbaard, om de zonde te niet te doen, door Zijnszelfs offerande
 Leviticus 16:14-15 | bloed van den var.*bok des zondoffers.*binnen in den voorhang
 Hebreeen 9:12 | Noch door het bloed der bokken en kalveren, maar door Zijn eigen bloed
 Leviticus 16:2 | niet te allen tijde ga in het heilige, binnen den voorhang
 Hebreeen 10:19-20 | door het bloed van Jezus.*versen en levenden weg.*door het voorhangsel, dat is, door Zijn vlees
-Leviticus 9:7 | Nader tot het altaar, en maak uw zondoffer toe
+Leviticus 9:7 | Nader tot het altaar, en maak uw zondoffer, en uw brandoffer toe
 Hebreeen 7:26-27 | heilig.*niet allen dag nodig.*eerst voor zijn eigen zonden
 Leviticus 16:7-8 | twee bokken
 Leviticus 16:29 | zevende maand, op den tienden der maand
@@ -116,7 +116,7 @@ Numeri 13:2 | van elken stam zijner vaderen zult gijlieden een man zenden
 Numeri 13:25 | ten einde van veertig dagen
 Numeri 13:21 | van de woestijn Zin af tot Rechob toe
 Numeri 13:23 | dal Eskol.*tros wijndruiven, dien zij droegen met tweeen, op een draagstok
-Numeri 13:26 | in de woestijn Paran, naar Kades
+Numeri 13:26 | in de woestijn van Paran, naar Kades
 Numeri 13:27-28 | melk en honig.*sterk volk.*kinderen van Enak
 Numeri 13:33 | reuzen.*als sprinkhanen
 Numeri 13:30 | Kaleb.*Laat ons vrijmoedig optrekken
@@ -136,7 +136,7 @@ Numeri 13:20 | eerste vruchten van de wijndruiven
 # --- 34 De koperen slang ---
 Numeri 20:1 | te Kades.*Mirjam stierf aldaar
 Numeri 20:2 | geen water
-Numeri 20:8 | spreekt gijlieden tot den steenrots
+Numeri 20:8 | spreekt gijlieden tot de steenrots
 Numeri 20:11 | sloeg de steenrots tweemaal met zijn staf
 Numeri 20:12 | zult gijlieden deze gemeente niet inbrengen in het land
 Numeri 20:21 | weigerde Edom Israel toe te laten door zijn landpale te trekken
@@ -155,7 +155,7 @@ Numeri 20:11 | er kwam veel waters uit
 Deuteronomium 32:51 | twistwater te Kades.*niet geheiligd
 Numeri 33:38 | Aaron.*berg Hor.*veertigste jaar.*vijfde maand, op den eersten der maand
 # --- 35 Bileam ---
-Numeri 22:1 | vlakken velden van Moab.*Jordaan van Jericho
+Numeri 22:1 | vlakke velden van Moab.*Jordaan van Jericho
 Numeri 22:3 | vreesde Moab zeer voor het aangezicht dezes volks
 Numeri 22:5-6 | Bileam.*Pethor.*vervloek mij dit volk
 Numeri 22:12 | gij zult dat volk niet vloeken, want het is gezegend
@@ -224,7 +224,7 @@ Jozua 4:24 | Opdat alle volken der aarde de hand des HEEREN kennen zouden, dat z
 Jozua 4:4-5 | twaalf mannen.*een steen op zijn schouder
 Jozua 4:8 | twaalf stenen op midden uit de Jordaan
 Jozua 4:13 | Omtrent veertig duizend toegeruste krijgsmannen.*vlakke velden van Jericho
-Jozua 4:19 | den tiende der eerste maand uit de Jordaan opgeklommen
+Jozua 4:19 | den tienden der eerste maand uit de Jordaan opgeklommen
 Jozua 3:15-16 | voeten der priesteren.*ingedoopt.*stonden de wateren
 Psalm 114:3 | De zee zag het, en vlood; de Jordaan keerde achterwaarts
 Exodus 14:21-22 | maakte de zee droog.*op het droge
@@ -263,7 +263,7 @@ Jozua 7:25-26 | Hoe hebt gij ons beroerd.*dal van Achor
 Jozua 8:12 | omtrent vijf duizend man.*achterlage tussen Beth-El en tussen Ai
 Jozua 8:30-31 | altaar.*berg Ebal.*gehele stenen, over dewelke men geen ijzer bewogen had
 Jozua 7:5 | zes en dertig
-Hosea 2:15 | het dal Achor, tot een deur der hoop
+Hosea 2:14 | het dal Achor, tot een deur der hoop
 Deuteronomium 27:2-4 | grote stenen.*alle woorden dezer wet.*op den berg Ebal
 # --- 41 Gibeon en Jozua 24 ---
 Jozua 9:4-5 | oude zakken.*gescheurde.*wijnzakken.*oude en bevlekte schoenen.*droog en beschimmeld
@@ -302,10 +302,10 @@ Psalm 83:10 | Doe hun als Midian, als Sisera, als Jabin aan de beek Kison
 Richteren 2:16 | de HEERE verwekte richteren, die hen verlosten
 # --- 43 Gideon ---
 Richteren 6:1 | in de hand der Midianieten, zeven jaren
-Richteren 6:11-12 | Gideon dorste tarwe bij de pers.*De HEERE is met u, gij strijdbare held
+Richteren 6:11-12 | Gideon dorste tarwe bij de pers.*De HEERE is met u, gij,? strijdbare held
 Richteren 6:25-27 | breek af het altaar van Baal.*deed het bij nacht|breek af het altaar van Baal.*het deed bij nacht
 Richteren 6:36-40 | wollen vlies.*ditmaal.*droogte was op het vlies alleen
-Richteren 7:3 | twee en twintig duizend, dat er tienduizend overbleven
+Richteren 7:3 | twee en twintig duizend, dat er tien ?duizend overbleven
 Richteren 7:2 | opdat zich Israel niet tegen Mij beroeme
 Richteren 7:6-7 | driehonderd
 Richteren 7:16 | bazuin in zijn hand, en ledige kruiken, en fakkelen in het midden der kruiken
@@ -314,7 +314,7 @@ Richteren 7:22 | zette de HEERE het zwaard des een tegen den anderen.*het leger 
 Richteren 8:23 | de HEERE zal over u heersen
 Richteren 6:11 | dorste tarwe bij de pers
 Richteren 7:13 | gerstebrood.*tent.*viel
-Jesaja 9:4 | ten dage der Midianieten
+Jesaja 9:3 | ten dage der Midianieten
 Hebreeen 11:32 | Gideon
 1 Korinthe 1:27 | het zwakke der wereld heeft God uitverkoren, opdat Hij het sterke zou beschamen
 Richteren 8:28 | veertig jaren, in de dagen van Gideon
@@ -383,7 +383,7 @@ Ruth 2:12 | onder wiens vleugelen gij gekomen zijt om toevlucht te nemen
 Mattheus 1:5 | Booz gewon Obed bij Ruth
 Ruth 4:18-19 | Perez gewon Hezron.*Hezron gewon Ram.*Ram gewon Amminadab
 Ruth 4:20-22 | Amminadab gewon Nahesson.*Salmon gewon Boaz.*Boaz gewon Obed.*Obed gewon Isai.*Isai gewon David
-Ruth 1:22 | in het begin van de gersteoogst
+Ruth 1:22 | in het begin van den gersteoogst
 Ruth 4:22 | Obed gewon Isai
 Mattheus 1:5-6 | Booz gewon Obed bij Ruth, en Obed gewon Jessai
 Leviticus 19:9-10 | niet ganselijk afoogsten.*den arme en den vreemdeling|niet ganselijk afoogsten.*arme.*vreemdeling
@@ -397,14 +397,14 @@ Psalm 146:9 | De HEERE bewaart de vreemdelingen; Hij houdt den wees en de weduwe
 1 Samuel 1:19-20 | de HEERE gedacht aan haar.*noemde zijn naam Samuel
 1 Samuel 1:24-25 | gespeend.*Silo.*brachten.*tot Eli
 1 Samuel 2:1 | bad Hanna.*Mijn hart springt van vreugde op in den HEERE
-1 Samuel 3:4-8 | riep.*Samuel.*Hier ben ik.*ten derde maal
+1 Samuel 3:4-8 | riep.*Samuel.*Hier ben ik.*ten derden maal
 1 Samuel 3:10 | Spreek, want Uw knecht hoort
 1 Samuel 3:1 | het woord des HEEREN was dierbaar in die dagen
 1 Samuel 1:8 | Ben ik u niet beter dan tien zonen
 1 Samuel 1:14 | Hoe lang zult gij u dronken aanstellen
 1 Samuel 1:11 | den HEERE geven al de dagen zijns levens
 1 Samuel 2:19 | zijn moeder maakte hem een kleinen rok
-1 Samuel 3:8 | ten derde maal.*Toen verstond Eli, dat de HEERE den jongeling riep
+1 Samuel 3:8 | ten derden maal.*Toen verstond Eli, dat de HEERE den jongeling riep
 Lukas 1:46-47 | Mijn ziel maakt groot den Heere
 Psalm 99:6 | Samuel onder de aanroepers Zijns Naams
 Handelingen 13:21 | Saul.*veertig jaren
@@ -470,7 +470,7 @@ Handelingen 13:21 | van toen aan begeerden zij een koning; en God gaf hun Saul, 
 Psalm 23:1 | De HEERE is mijn Herder, mij zal niets ontbreken
 Psalm 23:4 | in een dal der schaduw des doods.*Uw stok en Uw staf, die vertroosten mij
 1 Samuel 16:11 | De kleinste is nog overig, en zie, hij weidt de schapen
-1 Samuel 17:34-35 | weid de schapen.*leeuw en een beer.*redde het uit zijn mond
+1 Samuel 17:34-35 | weidde de schapen.*leeuw en een beer.*redde het uit zijn mond
 2 Samuel 5:2 | Gij zult Mijn volk Israel weiden
 Johannes 10:11 | Ik ben de goede Herder; de goede herder stelt zijn leven voor de schapen
 1 Samuel 13:9 | hij offerde brandoffer
@@ -486,7 +486,7 @@ Psalm 23:1-4 | Herder.*Uw stok en Uw staf
 1 Samuel 17:17-18 | broeders
 1 Samuel 17:26 | slagorden van den levenden God zou honen
 1 Samuel 17:37 | De HEERE, Die mij van de hand des leeuws gered heeft, en uit de hand des beers, Die zal mij redden uit de hand van dezen Filistijn
-1 Samuel 17:39-40 | legde ze van zich.*zijn staf in zijn hand.*vijf gladde stenen uit de beek.*slinger
+1 Samuel 17:39-40 | leide ze van zich.*zijn staf in zijn hand.*vijf gladde stenen uit de beek.*slinger
 1 Samuel 17:45 | Gij komt tot mij met een zwaard.*maar ik kom tot u in den Naam van den HEERE der heirscharen
 1 Samuel 17:49 | trof den Filistijn in zijn voorhoofd.*viel op zijn aangezicht ter aarde
 1 Samuel 17:46 | de ganse aarde zal weten, dat Israel een God heeft
@@ -520,7 +520,7 @@ Spreuken 17:17 | Een vriend heeft te aller tijd lief
 1 Samuel 21:13 | maakte zichzelven gek
 1 Samuel 22:1-2 | spelonk van Adullam.*omtrent vierhonderd mannen
 1 Samuel 22:18 | vijf en tachtig mannen
-1 Samuel 24:1-4 | En-gedi.*Saul ging daarin.*David nu en zijn mannen zaten aan de zijden der spelonken
+1 Samuel 24:1-4 | En-gedi.*Saul ging daarin.*David nu en zijn mannen zaten aan de zijden der spelonk
 1 Samuel 24:5 | sneed stilletjes een slip van Sauls mantel
 1 Samuel 24:7 | want hij is de gezalfde des HEEREN
 1 Samuel 24:17-18 | weende.*Gij zijt rechtvaardiger dan ik
@@ -605,7 +605,7 @@ Psalm 51:4 | Was mij wel van mijn ongerechtigheid, en reinig mij van mijn zonde
 2 Samuel 12:25 | Jedid-Jah
 Psalm 51:3-4 | Wees mij genadig, o God.*Was mij wel van mijn ongerechtigheid
 Psalm 32:5 | Ik zal belijdenis van mijn overtredingen doen voor den HEERE; en Gij vergaaft de ongerechtigheid mijner zonde
-Mattheus 1:6 | die Uria's vrouw was geweest
+Mattheus 1:6 | die Uria.?s vrouw was geweest
 # --- 59 Absalom ---
 2 Samuel 15:4-6 | Och, dat men mij ten rechter stelde in het land.*stal Absalom het hart der mannen van Israel
 2 Samuel 15:10 | Absalom is koning te Hebron
@@ -670,7 +670,7 @@ Johannes 2:19-21 | Breekt dezen tempel, en in drie dagen zal Ik denzelven oprich
 2 Samuel 7:13 | Die zal Mijn Naam een huis bouwen
 # --- 62 Afval en scheuring ---
 1 Koningen 11:1-2 | veel vreemde vrouwen lief.*zij zouden zekerlijk uw hart achter hun goden neigen
-1 Koningen 11:4 | in den tijd van Salomo's ouderdom.*zijn hart achter andere goden neigden
+1 Koningen 11:4 | in den tijd van Salomo.?s ouderdom.*zijn hart achter andere goden neigden
 1 Koningen 11:7 | een hoogte voor Kamos.*voor Molech
 1 Koningen 11:9 | vertoornde Zich de HEERE tegen Salomo
 1 Koningen 11:11-13 | dit koninkrijk van u scheuren.*In uw dagen nochtans zal Ik dat niet doen, om uws vaders Davids wil.*een stam zal Ik uw zoon geven
@@ -703,7 +703,7 @@ Nehemia 13:26 | Ook hem deden de vreemde vrouwen zondigen
 1 Koningen 18:21 | Hoe lang hinkt gij op twee gedachten\? Zo de HEERE God is, volgt Hem na, en zo het Baal is, volgt hem na
 1 Koningen 18:26 | van den morgen tot op den middag.*geen stem en geen antwoorder
 1 Koningen 18:34 | ten derden male
-1 Koningen 18:38 | Toen viel het vuur de HEEREN, en verteerde
+1 Koningen 18:38 | Toen viel het vuur des HEEREN, en verteerde
 1 Koningen 18:39 | De HEERE is God, de HEERE is God
 1 Koningen 18:45 | een grote regen
 1 Koningen 18:36 | dat het heden bekend worde, dat Gij God in Israel zijt
@@ -743,7 +743,7 @@ Genesis 22:13 | offerde hem ten brandoffer in zijns zoons plaats
 Hebreeen 10:10-14 | met een offerande heeft Hij in eeuwigheid volmaakt degenen, die geheiligd worden
 Romeinen 12:1 | een levende, heilige en Gode welbehagelijke offerande
 # leven
-Genesis 2:7 | geblazen de adem des levens
+Genesis 2:7 | geblazen den adem des levens
 Romeinen 5:12 | door de zonde de dood
 Numeri 21:8-9 | zo zal hij leven.*bleef levend
 Johannes 11:25 | Ik ben de Opstanding en het Leven

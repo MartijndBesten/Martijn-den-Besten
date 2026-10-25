@@ -1,6 +1,6 @@
 # Controle voor public/bijbelreis/inhoud/2koningen.js: elk getal, elke leeftijd, elk aantal en elk citaat.
 # --- Elisa: de mantel ---
-2 Koningen 2:13 | Elia's mantel.*afgevallen.*oever van de Jordaan
+2 Koningen 2:13 | Elia.?s mantel.*afgevallen.*oever van de Jordaan
 2 Koningen 2:14 | Waar is de HEERE, de God van Elia.*verdeeld
 2 Koningen 2:15 | Jericho.*De geest van Elia rust op Elisa.*bogen
 2 Koningen 2:16 | vijftig dappere mannen.*bergen.*dalen
@@ -81,7 +81,7 @@
 2 Koningen 6:20 | open de ogen.*midden van Samaria
 2 Koningen 6:21 | Zal ik hen slaan
 2 Koningen 6:22 | niet slaan.*brood en water
-2 Koningen 6:23 | groten maaltijd.*liet hij hen gaan.*benden der Syriers niet meer in het land van Israel
+2 Koningen 6:23 | grote maaltijd.*liet hij hen gaan.*benden der Syriers niet meer in het land van Israel
 Genesis 37:17 | Dothan
 # --- Beleg van Samaria ---
 2 Koningen 6:24 | Benhadad, de koning van Syrie.*gehele leger.*Samaria belegerde
@@ -110,7 +110,7 @@ Deuteronomium 28:53 | eten.*vlees uwer zonen.*belegering
 2 Koningen 13:15 | boog en pijlen
 2 Koningen 13:17 | venster open tegen het oosten.*Schiet.*pijl der verlossing des HEEREN.*Syriers.*Afek
 2 Koningen 13:18 | Sla tegen de aarde.*driemaal.*stond hij stil
-2 Koningen 13:19 | toornig.*vijfmaal of zesmaal.*tot verdoens toe.*driemaal
+2 Koningen 13:19 | toornig.*vijf ?maal of zesmaal.*tot verdoens toe.*driemaal
 2 Koningen 13:20 | stierf Elisa.*begroeven.*Moabieten
 2 Koningen 13:21 | bende.*graf van Elisa.*gebeente van Elisa aanroerde, werd hij levend, en rees op zijn voeten
 2 Koningen 13:25 | Joas sloeg hem driemaal
@@ -206,8 +206,8 @@ Daniël 1:3 | koninklijk zaad
 2 Koningen 25:4 | doorgebroken.*krijgslieden vloden des nachts.*poort, tussen de twee muren
 2 Koningen 25:5 | achterhaalden hem in de vlakke velden van Jericho
 2 Koningen 25:6 | koning van Babel, naar Ribla
-2 Koningen 25:7 | slachtten de zonen van Zedekia voor zijn ogen.*verblindde Zedekia's ogen.*twee koperen ketenen.*naar Babel
-2 Koningen 25:8 | vijfde maand, op de zevenden.*Nebuzaradan, de overste der trawanten
+2 Koningen 25:7 | slachtten de zonen van Zedekia voor zijn ogen.*verblindde Zedekia.?s ogen.*twee koperen ketenen.*naar Babel
+2 Koningen 25:8 | vijfde maand, op den zevenden.*Nebuzaradan, de overste der trawanten
 2 Koningen 25:9 | verbrandde het huis des HEEREN, en het huis des konings.*alle huizen van Jeruzalem
 2 Koningen 25:10 | muren van Jeruzalem rondom af
 2 Koningen 25:11 | overige.*volks.*gevankelijk weg

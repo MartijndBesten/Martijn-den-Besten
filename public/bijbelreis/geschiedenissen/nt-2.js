@@ -174,7 +174,7 @@ BR.geschiedenissen.push(
 
 { nr: 108, t: "Jakobus en Johannes vragen de beste plaatsen", ref: "Markus 10:32–45", sectie: "galilea",
   stappen: ["jezus-2:nt-reis-naar-jeruzalem:9"], vorm: "plek",
-  uitleg: "Op weg naar Jeruzalem loopt de Heere Jezus voorop, en de discipelen zijn verbaasd en bang. Hij neemt de twaalf apart en vertelt opnieuw wat er gaat gebeuren: Hij zal overgeleverd worden aan de overpriesters en schriftgeleerden, ter dood veroordeeld, bespot, gegeseld en gedood, en op de derde dag zal Hij opstaan. Juist dan komen Jakobus en Johannes, de zonen van Zebedeüs, met een verzoek: ze willen in Zijn heerlijkheid naast Hem zitten, de een rechts en de ander links. De Heere Jezus zegt: ‘Gij weet niet, wat gij begeert. Kunt gij den drinkbeker drinken, dien Ik drink?’ ‘Wij kunnen’, zeggen ze. Hij antwoordt dat ze Zijn beker inderdaad zullen drinken, maar dat de plaatsen naast Hem gegeven worden aan wie ze bereid zijn. De andere tien worden boos, en de Heere Jezus roept hen bij Zich: wie groot wil worden, moet dienaar zijn, en wie de eerste wil zijn, dienstknecht van allen. ‘Want ook de Zoon des mensen is niet gekomen, om gediend te worden, maar om te dienen, en Zijn ziel te geven tot een rantsoen voor velen.’",
+  uitleg: "Op weg naar Jeruzalem loopt de Heere Jezus voorop, en de discipelen zijn verbaasd en bang. Hij neemt de twaalf apart en vertelt opnieuw wat er gaat gebeuren: Hij zal overgeleverd worden aan de overpriesters en schriftgeleerden, ter dood veroordeeld, bespot, gegeseld en gedood, en op de derde dag zal Hij opstaan. Juist dan komen Jakobus en Johannes, de zonen van Zebedeüs, met een verzoek: ze willen in Zijn heerlijkheid naast Hem zitten, de een rechts en de ander links. De Heere Jezus zegt: ‘Gij weet niet, wat gij begeert. Kunt gij den drinkbeker drinken, dien Ik drink?’ ‘Wij kunnen’, zeggen ze. Hij antwoordt dat ze Zijn beker inderdaad zullen drinken, maar dat de plaatsen naast Hem gegeven worden aan wie ze bereid zijn. De andere tien worden boos, en de Heere Jezus roept hen bij Zich: wie groot wil worden, moet dienaar zijn, en wie de eerste wil zijn, dienstknecht van allen. ‘Want ook de Zoon des mensen is niet gekomen om gediend te worden, maar om te dienen, en Zijn ziel te geven tot een rantsoen voor velen.’",
   betekenis: "In Gods Koninkrijk is de grootste wie dient. De Heere Jezus geeft Zelf het voorbeeld: Hij kwam om te dienen en Zijn leven te geven als losprijs (‘rantsoen’) voor velen (Markus 10:45).",
   wie: ["Jezus", "Jakobus", "Johannes"],
   ontdek: { soort: "koppel", titel: "Wat hoort erbij?", paren: [
@@ -298,10 +298,10 @@ BR.geschiedenissen.push(
 { nr: 114, t: "De Farizeeër en de tollenaar", ref: "Lukas 18:9–14", sectie: "onderweg",
   stappen: ["jezus-2:nt-reis-naar-jeruzalem:6"], vorm: "gelijkenis",
   uitleg: "De Heere Jezus vertelt deze gelijkenis aan sommige mensen die op zichzelf vertrouwden dat ze rechtvaardig waren, en de anderen niets waard vonden (Lukas 18:9). Twee mannen gaan naar de tempel om te bidden: een Farizeeër en een tollenaar. De Farizeeër staat daar en dankt God dat hij niet is zoals andere mensen: rovers, onrechtvaardigen, overspelers, of zoals die tollenaar. Hij vast twee keer per week en geeft tienden van alles wat hij bezit. De tollenaar blijft op afstand staan. Hij durft zelfs niet naar de hemel op te kijken, slaat op zijn borst en bidt: ‘O God! wees mij zondaar genadig!’ De Heere Jezus zegt: deze tollenaar ging gerechtvaardigd naar huis, en de Farizeeër niet. ‘Want een ieder, die zichzelven verhoogt, zal vernederd worden, en die zichzelven vernedert, zal verhoogd worden.’",
-  betekenis: "Niet wie zichzelf rechtvaardig vindt, maar wie zijn zonde belijdt en om genade vraagt, gaat volgens de Heere Jezus gerechtvaardigd naar huis (Lukas 18:14). ‘God wederstaat de hovaardigen, maar de nederigen geeft Hij genade’ (1 Petrus 5:5).",
+  betekenis: "Niet wie zichzelf rechtvaardig vindt, maar wie zijn zonde belijdt en om genade vraagt, gaat volgens de Heere Jezus gerechtvaardigd naar huis (Lukas 18:14). ‘God wederstaat de hovaardigen, maar den nederigen geeft Hij genade’ (1 Petrus 5:5).",
   wie: ["Jezus"],
   ontdek: { soort: "wiezei", titel: "Wie bad zo?", items: [
-    ["O God! ik dank U, dat ik niet ben gelijk de anderen mensen.", "De Farizeeër", ["De tollenaar", "Zacheüs"]],
+    ["O God! ik dank U, dat ik niet ben gelijk de andere mensen.", "De Farizeeër", ["De tollenaar", "Zacheüs"]],
     ["Ik vast tweemaal per week; ik geef tienden van alles, wat ik bezit.", "De Farizeeër", ["De tollenaar", "De wetgeleerde"]],
     ["O God! wees mij zondaar genadig!", "De tollenaar", ["De Farizeeër", "De priester"]]] },
   quiz: [
@@ -310,7 +310,7 @@ BR.geschiedenissen.push(
     { q: "Wat deed de tollenaar toen hij bad?", a: ["Hij sloeg op zijn borst", "Hij hief zijn handen hoog op", "Hij ging vooraan staan"], why: "Lukas 18:13" },
     { q: "Wie ging volgens de Heere Jezus gerechtvaardigd naar huis?", a: ["De tollenaar", "De Farizeeër", "Allebei"], why: "Lukas 18:14" }],
   cross: [["Psalm 51:19", "‘Een gebroken en verslagen hart zult Gij, o God! niet verachten.’"],
-    ["1 Petrus 5:5", "‘God wederstaat de hovaardigen, maar de nederigen geeft Hij genade.’"],
+    ["1 Petrus 5:5", "‘God wederstaat de hovaardigen, maar den nederigen geeft Hij genade.’"],
     ["Lukas 14:11", "Dezelfde woorden: wie zichzelf verhoogt, zal vernederd worden."]],
   tl: [29, 30], tijd: "ca. 29–30 n.Chr. (of 32–33)",
   tijdNoot: "Reconstructie. Lukas vertelt deze gelijkenis op de reis naar Jeruzalem, zonder datum en zonder plaatsnaam. Wie de kruisiging ca. 30 n.Chr. stelt, komt op ca. 29–30; wie 33 n.Chr. aanhoudt, op ca. 32–33." },

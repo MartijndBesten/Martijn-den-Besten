@@ -1,6 +1,6 @@
 # Controle voor groep nt-1: public/bijbelreis/inhoud/nt-jezus-1.js en public/bijbelreis/geschiedenissen/nt-1.js (nr. 80–99).
 # Maatstaf: Statenvertaling in public/bijbelreis/bijbel/. Regel: verwijzing | regex (hoofdletterongevoelig).
-# Let op SV-versnummering: Johannes 1 heeft 51 verzen (Cefas = 1:43, Filippus = 1:44); Micha 5:2 = Bethlehem; Jesaja 9:2 en 9:6.
+# Let op SV-versnummering: Johannes 1 heeft 52 verzen (Cefas = 1:43, Filippus = 1:44, Jakobsladder = 1:52); Micha 5:1 = Bethlehem; Jesaja 9:1 en 9:5.
 
 # ===== Boek: Wie is wie =====
 Lukas 3:23 | Jezus, begon omtrent dertig jaren oud te wezen
@@ -44,9 +44,9 @@ Lukas 1:36 | deze maand is haar.*de zesde
 Lukas 2:42 | twaalf jaren oud
 Mattheus 1:20 | engel des Heeren verscheen hem in den droom
 Mattheus 2:12 | door Goddelijke openbaring vermaand zijnde in den droom
-Micha 5:2 | Bethlehem Efratha.*Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israel
+Micha 5:1 | Bethlehem Efratha.*Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israel
 Jesaja 7:14 | een maagd zal zwanger worden, en zij zal een Zoon baren
-Jesaja 9:6 | Want een Kind is ons geboren, een Zoon is ons gegeven
+Jesaja 9:5 | Want een Kind is ons geboren, een Zoon is ons gegeven
 Maleachi 4:5 | Ik zende ulieden den profeet Elia
 Lukas 1:17 | in den geest en de kracht van Elias
 Galaten 4:4 | wanneer de volheid des tijds gekomen is, heeft God Zijn Zoon uitgezonden, geworden uit een vrouw
@@ -116,8 +116,8 @@ Lukas 2:3 | een iegelijk naar zijn eigen stad
 Lukas 2:4 | Jozef ging ook op van Galilea, uit de stad Nazareth, naar Judea, tot de stad Davids, die Bethlehem genaamd wordt.*huis en geslacht van David
 Lukas 2:5 | Maria, zijn ondertrouwde vrouw, welke bevrucht was
 Lukas 2:6 | als zij daar waren
-Lukas 2:7 | eerstgeboren Zoon, en wond Hem in doeken, en legde Hem neder in de kribbe, omdat voor henlieden geen plaats was in de herberg
-Micha 5:2 | En gij, Bethlehem Efratha!.*Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israel
+Lukas 2:7 | eerstgeboren Zoon, en wond Hem in doeken, en leide Hem neder in de kribbe, omdat voor henlieden geen plaats was in de herberg
+Micha 5:1 | En gij, Bethlehem Efratha!.*Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israel
 # --- Stap 6: Lukas 2:8–20 ---
 Lukas 2:8 | herders.*hielden de nachtwacht over hun kudde
 Lukas 2:9 | engel des Heeren stond bij hen, en de heerlijkheid des Heeren omscheen hen.*vreesden met grote vreze
@@ -163,7 +163,7 @@ Mattheus 2:15 | tot den dood van Herodes.*Uit Egypte heb Ik Mijn Zoon geroepen
 Mattheus 2:16 | bedrogen was.*zeer toornig.*al de kinderen.*Bethlehem, en in al deszelfs landpalen.*twee jaren oud en daaronder
 Mattheus 2:17 | profeet Jeremia
 Mattheus 2:18 | Rachel beweende haar kinderen, en wilde niet vertroost wezen
-Hosea 11:1 | Ik heb Mijn zoon uit Egypte uitgeroepen
+Hosea 11:1 | Ik heb Mijn zoon uit Egypte geroepen
 # --- Stap 10: Mattheüs 2:19–23 ---
 Mattheus 2:19 | Herodes nu gestorven was.*engel des Heeren verschijnt Jozef in den droom, in Egypte
 Mattheus 2:20 | Sta op, neem het Kindeken en Zijn moeder tot u, en trek in het land Israels.*gestorven, die de ziel van het Kindeken zochten
@@ -236,7 +236,7 @@ Deuteronomium 8:3 | de mens niet alleen van het brood leeft
 Deuteronomium 6:16 | Gij zult den HEERE, uw God, niet verzoeken
 Deuteronomium 6:13 | Gij zult den HEERE, uw God, vrezen, en Hem dienen
 Deuteronomium 8:2 | veertig jaren in de woestijn.*om u te verzoeken
-# --- Stap 3: Johannes 1:35–51 ---
+# --- Stap 3: Johannes 1:35–52 ---
 Johannes 1:35 | Johannes, en twee uit zijn discipelen
 Johannes 1:36 | ziende op Jezus, daar wandelende, zeide hij: Ziet, het Lam Gods
 Johannes 1:37 | zij volgden Jezus
@@ -297,7 +297,7 @@ Johannes 6:4 | het pascha, het feest der Joden, was nabij
 Johannes 11:55 | het pascha der Joden was nabij
 Lukas 5:1 | meer Gennesareth
 Johannes 21:1 | zee van Tiberias
-Jesaja 9:2 | Het volk, dat in duisternis wandelt, zal een groot licht zien
+Jesaja 9:1 | Het volk, dat in duisternis wandelt, zal een groot licht zien
 Mattheus 4:15 | Zebulon.*Nafthali.*Galilea der volken
 Mattheus 4:16 | groot licht gezien
 Jesaja 53:4 | Waarlijk, Hij heeft onze krankheden op Zich genomen
@@ -329,7 +329,7 @@ Markus 1:25 | Zwijg stil, en ga uit van hem
 Markus 1:26 | hem scheurende, en roepende met een grote stem, ging uit van hem
 Markus 1:29 | in het huis van Simon en Andreas
 Markus 1:30 | Simons vrouws moeder lag met de koorts
-Markus 1:31 | vatte haar hand, en richtte haar op; en terstond verliet haar de koorts, en zij diende henlieden
+Markus 1:31 | vatte haar hand, en richtte ze op; en terstond verliet haar de koorts, en zij diende henlieden
 Markus 1:32 | toen de zon onderging, brachten zij tot Hem allen
 Markus 1:33 | de gehele stad was bijeenvergaderd omtrent de deur
 Markus 1:34 | Hij genas er velen.*wierp vele duivelen uit
@@ -378,7 +378,7 @@ Lukas 7:38 | wenende.*Zijn voeten nat te maken met tranen.*droogde ze af met het
 Lukas 7:39 | indien Hij een profeet ware, zou wel weten
 Lukas 7:40 | Simon! Ik heb u wat te zeggen
 Lukas 7:41 | twee schuldenaars; de een was schuldig vijfhonderd penningen, en de andere vijftig
-Lukas 7:42 | schold hij het hun beiden kwijt.*wie van deze zal hem meer liefhebben
+Lukas 7:42 | schold hij het hun beiden kwijt.*wie van dezen zal hem meer liefhebben
 Lukas 7:43 | dien hij het meeste kwijtgescholden heeft
 Lukas 7:44 | water hebt gij niet tot Mijn voeten gegeven
 Lukas 7:45 | Gij hebt Mij geen kus gegeven
@@ -405,7 +405,7 @@ Markus 4:36 | namen Hem mede.*in het schip.*andere scheepjes met Hem
 Markus 4:37 | grote storm van wind, en de baren sloegen over in het schip, alzo dat het nu vol werd
 Markus 4:38 | in het achterschip, slapende op een oorkussen.*Meester, bekommert het U niet, dat wij vergaan
 Markus 4:39 | bestrafte den wind, en zeide tot de zee: Zwijg, wees stil! En de wind ging liggen, en er werd grote stilte
-Markus 4:40 | Wat zijt gij zo vreesachtig\? Hoe hebt gij geen geloof
+Markus 4:40 | Wat zijt gij zo vreesachtig\? Hebt gij geen geloof
 Markus 4:41 | vreesden met grote vreze.*Wie is toch Deze, dat ook de wind en de zee Hem gehoorzaam zijn
 Markus 5:1 | andere zijde der zee, in het land der Gadarenen
 # --- Stap 9: Markus 5:1–20 ---
@@ -541,8 +541,8 @@ Mattheus 2:12 | door een anderen weg
 Mattheus 2:13 | vlied in Egypte
 Mattheus 2:16 | twee jaren oud en daaronder
 Mattheus 2:23 | Nazareth
-Micha 5:2 | Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israel
-Hosea 11:1 | Mijn zoon uit Egypte uitgeroepen
+Micha 5:1 | Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israel
+Hosea 11:1 | Mijn zoon uit Egypte geroepen
 Jeremia 31:15 | Rachel weent over haar kinderen
 Mattheus 2:15 | Uit Egypte heb Ik Mijn Zoon geroepen
 Mattheus 2:18 | Rachel beweende haar kinderen
@@ -637,7 +637,7 @@ Johannes 4:46 | Kana in Galilea, waar Hij het water wijn gemaakt had
 Johannes 2:1 | op den derden dag
 # --- 91 ---
 Markus 1:22 | als machthebbende
-Markus 1:27 | met macht ook den onreine geesten gebiedt, en zij Hem gehoorzaam zijn
+Markus 1:27 | met macht ook den onreinen geesten gebiedt, en zij Hem gehoorzaam zijn
 Markus 1:31 | verliet haar de koorts
 Markus 1:32 | van den duivel bezeten
 Markus 1:40 | melaatse.*Indien Gij wilt, Gij kunt mij reinigen
@@ -704,8 +704,8 @@ Markus 4:38 | slapende op een oorkussen
 Markus 4:39 | Zwijg, wees stil
 Markus 4:40 | geen geloof
 Markus 4:41 | Wie is toch Deze, dat ook de wind en de zee Hem gehoorzaam zijn
-Psalm 107:29 | Hij doet de storm stilstaan, zodat hun golven stilzwijgen
-Markus 1:1 | JEZUS CHRISTUS, den Zone Gods
+Psalm 107:29 | Hij doet den storm stilstaan, zodat hun golven stilzwijgen
+Markus 1:1 | JEZUS CHRISTUS, den Zoon van God
 Markus 4:36 | andere scheepjes
 Mattheus 8:26 | Wat zijt gij vreesachtig, gij kleingelovigen
 Jona 1:4 | de HEERE wierp een groten wind op de zee; en er werd een grote storm
@@ -821,7 +821,7 @@ Openbaring 4:11 | Gij Heere, zijt waardig
 Openbaring 12:9 | de oude slang, welke genaamd wordt duivel en satanas
 Johannes 8:44 | mensenmoorder van den beginne.*leugenaar, en de vader derzelve leugen
 1 Johannes 3:8 | opdat Hij de werken des duivels verbreken zou
-Genesis 3:15 | datzelve zal u de kop vermorzelen
+Genesis 3:15 | datzelve zal u den kop vermorzelen
 Mattheus 4:10 | Ga weg, satan
 Jakobus 4:7 | wederstaat den duivel, en hij zal van u vlieden
 # wonder
@@ -847,7 +847,7 @@ Ezechiel 36:26 | nieuw hart
 Spreuken 4:23 | Behoed uw hart boven al wat te bewaren is, want daaruit zijn de uitgangen des levens
 Romeinen 10:10 | met het hart gelooft men ter rechtvaardigheid
 # koninkrijk-van-god
-Markus 1:15 | De tijd is vervuld, en het Koninkrijk Gods nabij gekomen; bekeert u, en gelooft het Evangelie
+Markus 1:15 | De tijd is vervuld, en het Koninkrijk Gods nabij gekomen; bekeert u, en gelooft,? het Evangelie
 Johannes 18:36 | Mijn Koninkrijk is niet van deze wereld
 Johannes 3:5 | in het Koninkrijk Gods niet ingaan
 Mattheus 6:10 | Uw Koninkrijk kome

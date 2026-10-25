@@ -58,7 +58,7 @@ BR.boeken.push({
     r: [{ p: ["gilgal", "ai"], recon: 1 }],
     who: [["Jozua"], ["Achan"], ["Soldaten", "3000 man"]],
     txt: "God had gezegd: neem niets mee uit Jericho. Maar Achan stal een mooie mantel uit Babylonië, 200 sikkels zilver en een staaf goud van 50 sikkels, en begroef ze in zijn tent. Dan stuurt Jozua 3000 man naar het stadje Ai. Ze verliezen en vluchten; ongeveer 36 mannen sterven. Jozua scheurt zijn kleren en ligt tot de avond voor de ark. God zegt: ‘Israël heeft gezondigd.’ Door het lot wordt Achan aangewezen. Hij bekent. Achan, zijn gezin en alles wat hij heeft worden in het dal Achor gestenigd en verbrand. Er komt een grote steenhoop op.",
-    fs: "b", fact: "Achor betekent ‘ellende’ of ‘beroering’ (7:25–26). Honderden jaren later zegt God door de profeet Hosea dat Hij het dal Achor zal geven ‘tot een deur der hoop’ (Hosea 2:15)." },
+    fs: "b", fact: "Achor betekent ‘ellende’ of ‘beroering’ (7:25–26). Honderden jaren later zegt God door de profeet Hosea dat Hij het dal Achor zal geven ‘tot een deur der hoop’ (Hosea 2:14)." },
   { ref: "Jozua 8:1–29", t: "Ai valt", stamp: "Ai", at: ["ai", "bethel"],
     r: [{ p: ["gilgal", "jericho", "ai"], recon: 1 }],
     who: [["Jozua"], ["Soldaten", "30.000 man; hinderlaag ca. 5000"]],

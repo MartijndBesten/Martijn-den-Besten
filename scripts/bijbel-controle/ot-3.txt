@@ -126,7 +126,7 @@ Jona 4:6 | wonderboom.*schaduw mocht zijn over zijn hoofd
 Jona 4:7 | worm.*stak den wonderboom, dat hij verdorde
 Jona 4:8 | oostenwind
 Jona 4:11 | meer dan honderd en twintig duizend mensen.*veel vee
-Mattheus 12:41 | mannen van Nineve.*bekeerd op de prediking van Jonas.*meer dan Jonas is hier
+Mattheus 12:41 | mannen van Nineve.*bekeerd op de prediking van Jonas.*meer dan Jona is hier
 Exodus 34:6 | barmhartig en genadig, lankmoedig en groot van weldadigheid en waarheid
 Lukas 15:7 | blijdschap zal zijn in den hemel over een zondaar, die zich bekeert
 # ===================== 71 Jeruzalem verwoest / Jeremia =====================
@@ -242,9 +242,9 @@ Daniel 2:44 | Koninkrijk verwekken, dat in der eeuwigheid niet zal verstoord wor
 Daniel 2:45 | steen zonder handen
 Daniel 2:48 | heerser over het ganse landschap van Babel
 Ezechiel 14:14 | Noach, Daniel en Job
-Mattheus 24:15 | Daniel, de profeet
+Mattheus 24:15 | Daniel, den profeet
 2 Koningen 20:18 | hovelingen zijn in het paleis des konings van Babel
-Jeremia 25:1 | vierde jaar van Jojakim.*eerste jaar van Nebukadrezar
+Jeremia 25:1 | vierde jaar van Jojakim.*eerste jaar van Nebukadnezar
 # ===================== 74 Daniël 3 (eren) =====================
 Daniel 3:1 | beeld van goud.*zestig ellen.*zes ellen.*dal Dura
 Daniel 3:4 | heraut.*gij volken, gij natien, en tongen
@@ -266,22 +266,22 @@ Hebreeen 11:34 | kracht des vuurs hebben uitgeblust
 Jesaja 43:2 | door het vuur zult gaan, zult gij niet verbranden, en de vlam zal u niet aansteken
 # ===================== 75 Daniël 6 (gebed) =====================
 Daniel 5:30 | gedood
-Daniel 5:31 | Darius, de Meder.*twee en zestig
-Daniel 6:1 | honderd en twintig stadhouders
-Daniel 6:2 | drie vorsten.*Daniel de eerste
-Daniel 6:3 | gehele koninkrijk
-Daniel 6:4 | geen gelegenheid noch misdaad.*getrouw
-Daniel 6:7 | dertig dagen.*kuil der leeuwen
-Daniel 6:9 | tekende de koning Darius
-Daniel 6:10 | knielde drie tijden 's daags.*bad.*belijdenis.*gelijk hij voor dezen gedaan had
-Daniel 6:14 | zeer bedroefd
-Daniel 6:16 | wierpen hem in den kuil der leeuwen
-Daniel 6:17 | steen.*verzegelde denzelven met zijn ring, en met den ring zijner geweldigen
-Daniel 6:19 | vroegen morgenstond
-Daniel 6:22 | Mijn God heeft Zijn engel gezonden, en Hij heeft den muil der leeuwen toegesloten
-Daniel 6:23 | dewijl hij in zijn God geloofd had
-Daniel 6:25 | alle volken, natien en tongen
-Daniel 6:26 | beve en siddere voor het aangezicht van den God van Daniel; want Hij is de levende God
+Daniel 6:1 | Darius, de Meder.*twee en zestig
+Daniel 6:2 | honderd en twintig stadhouders
+Daniel 6:3 | drie vorsten.*Daniel de eerste
+Daniel 6:4 | gehele koninkrijk
+Daniel 6:5 | geen gelegenheid noch misdaad.*getrouw
+Daniel 6:8 | dertig dagen.*kuil der leeuwen
+Daniel 6:10 | tekende de koning Darius
+Daniel 6:11 | knielde drie tijden 's daags.*bad.*belijdenis.*gelijk hij voor dezen gedaan had
+Daniel 6:15 | zeer bedroefd
+Daniel 6:17 | wierpen hem in den kuil der leeuwen
+Daniel 6:18 | steen.*verzegelde denzelven met zijn ring, en met den ring zijner geweldigen
+Daniel 6:20 | vroegen morgenstond
+Daniel 6:23 | Mijn God heeft Zijn engel gezonden, en Hij heeft den muil der leeuwen toegesloten
+Daniel 6:24 | dewijl hij in zijn God geloofd had
+Daniel 6:26 | alle volken, natien en tongen
+Daniel 6:27 | beve en siddere voor het aangezicht van den God van Daniel; want Hij is de levende God
 Hebreeen 11:33 | muilen der leeuwen toegestopt
 Mattheus 6:6 | binnenkamer.*bidt uw Vader, Die in het verborgen is
 Psalm 65:3 | Gij hoort het gebed; tot U zal alle vlees komen
@@ -399,7 +399,7 @@ Johannes 12:15 | Koning komt, zittende op het veulen ener ezelin
 Mattheus 26:31 | Ik zal den Herder slaan, en de schapen der kudde zullen verstrooid worden
 Johannes 19:34 | doorstak Zijn zijde
 Johannes 19:37 | Zij zullen zien, in Welken zij gestoken hebben
-Mattheus 11:10 | Ziet, Ik zend Mijn engel voor Uw aangezicht
+Mattheus 11:10 | Ziet, Ik zende Mijn engel voor Uw aangezicht
 Markus 1:2 | Ik zend Mijn engel voor Uw aangezicht
 Mattheus 11:14 | hij is Elias, die komen zou
 Lukas 1:17 | in den geest en de kracht van Elias, om te bekeren de harten der vaderen tot de kinderen
@@ -454,7 +454,7 @@ Handelingen 17:30 | bekeren
 Handelingen 17:31 | dag gesteld.*rechtvaardiglijk zal oordelen
 Efeze 2:8 | uit genade zijt gij zalig geworden door het geloof; en dat niet uit u, het is Gods gave
 Efeze 2:9 | Niet uit de werken
-2 Petrus 1:21 | heilige mensen Gods van den Heilige Geest gedreven
+2 Petrus 1:21 | heilige mensen Gods,? van den Heiligen Geest gedreven
 Deuteronomium 18:18 | Een Profeet zal Ik hun verwekken.*Mijn woorden in Zijn mond geven
 Handelingen 3:22 | Profeet verwekken
 Hebreeen 1:1 | door de profeten.*door den Zoon
@@ -465,4 +465,4 @@ Mattheus 6:9 | Onze Vader, Die in de hemelen zijt
 1 Thessalonicenzen 5:17 | Bidt zonder ophouden
 Psalm 50:15 | roept Mij aan in den dag der benauwdheid; Ik zal er u uithelpen, en gij zult Mij eren
 Filippenzen 4:6 | door bidden en smeken, met dankzegging bekend worden bij God
-Daniel 6:24 | wierpen in den kuil der leeuwen hen, hun kinderen, en hun vrouwen.*leeuwen heersten over hen
+Daniel 6:25 | wierpen in den kuil der leeuwen hen, hun kinderen, en hun vrouwen.*leeuwen heersten over hen

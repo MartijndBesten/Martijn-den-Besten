@@ -17,6 +17,10 @@ NAAM = ["Genesis","Exodus","Leviticus","Numeri","Deuteronomium","Jozua","Richter
 # Bekende transcriptiefouten in de bron, hersteld naar de gedrukte SV (editie 1888). Houd deze lijst kort en verantwoord.
 ERRATA = {
     ("Acts", 8, 14): ("zonden zij, hen Petrus", "zonden zij tot hen Petrus"),  # 'tot' ontbreekt in de transcriptie
+    ("1Kgs", 3, 4): ("offerde5927 Salomo", "offerde Salomo"),          # Strong-nummer in de tekst gelekt
+    ("Num", 19, 13): ("een dode4191,", "een dode,"),                     # idem
+    ("Joel", 2, 32): ("gelijk als834 de HEERE", "gelijk als de HEERE"),  # idem
+    ("2Chr", 32, 10): ("Zo3541", "Zo zegt Sanherib, de koning van Assyrië: Waarom vertrouwt gij, dat gij te Jeruzalem blijft in de vesting?"),  # vers ontbreekt; tekst volgens de gedrukte SV
 }
 
 def clean(x):
@@ -39,7 +43,7 @@ def main(path, out):
         fix = ERRATA.get((b, int(c), int(v)))
         if fix:
             assert fix[0] in t, f"erratum {b} {c}:{v} past niet meer"
-            t = t.replace(*fix)
+            t = fix[1] if t == fix[0] else t.replace(*fix)
         data[b][int(c)][int(v)] = t
     os.makedirs(out, exist_ok=True)
     for o, slug, naam in zip(OSIS, SLUG, NAAM):

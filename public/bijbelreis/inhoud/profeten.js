@@ -124,7 +124,7 @@ BR.boeken.push({
   who: [["Zacharia", "profeet"], ["Maleachi", "profeet"], ["Zerubbabel"]],
   stat: "Het allerlaatste vers van het Oude Testament (Maleachi 4:6) gaat over het hart van vaders en kinderen.",
   cross: [["Mattheüs 21:4–5", "Als de Heere Jezus op een ezelin en een veulen Jeruzalem binnenrijdt, schrijft Mattheüs dat vervuld wordt wat door de profeet gesproken is (Zacharia 9:9)."],
-    ["Mattheüs 11:10", "De Heere Jezus zegt over Johannes de Doper: ‘Deze is het, van denwelken geschreven staat: Ziet, Ik zend Mijn engel voor Uw aangezicht’ (Maleachi 3:1)."],
+    ["Mattheüs 11:10", "De Heere Jezus zegt over Johannes de Doper: ‘Deze is het, van dewelken geschreven staat: Ziet, Ik zende Mijn engel voor Uw aangezicht’ (Maleachi 3:1)."],
     ["Mattheüs 11:14", "‘En zo gij het wilt aannemen, hij is Elias, die komen zou’ (Maleachi 4:5)."],
     ["Lukas 1:17", "De engel zegt tegen Zacharias dat zijn zoon Johannes zal gaan ‘in den geest en de kracht van Elias, om te bekeren de harten der vaderen tot de kinderen’."]],
   ctx: ["babelst"],
