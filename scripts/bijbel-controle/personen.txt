@@ -1121,3 +1121,135 @@ Handelingen 28:8 | de vader van Publius, met koortsen.*maakte hem gezond
 # --- Openbaring ---
 Openbaring 2:12 | Gemeente, die in Pergamus is
 Openbaring 2:13 | Antipas, Mijn getrouwe getuige was, welke gedood is bij ulieden, daar de satan woont
+# ===== Grondslag van de familiebanden (veld basis, oktober 2026) =====
+# Eén regel per verwijzing in basis (soort b en a); bij ' + ' één regel per deel. De regex laat de band zelf zien.
+Genesis 4:1 | Adam bekende Heva, zijn huisvrouw
+Genesis 4:1 | Adam bekende Heva.*baarde, Kain
+Genesis 4:1–2 | Adam bekende Heva.*zij voer voort te baren zijn broeder Habel
+Genesis 4:1–2 | Heva.*zij voer voort te baren zijn broeder Habel
+Genesis 5:3 | Adam leefde.*gewon een zoon.*Seth
+Genesis 4:25 | Adam bekende wederom zijn huisvrouw.*Seth
+Genesis 4:1 | Heva, zijn huisvrouw
+Genesis 5:6 | Seth leefde.*gewon Enos
+Genesis 5:9 | Enos leefde.*gewon Kenan
+Genesis 5:12 | Kenan leefde.*gewon Mahalal-?el
+Genesis 5:15 | Mahalal-?el leefde.*gewon Jered
+Genesis 5:18 | Jered leefde.*gewon Henoch
+Genesis 5:21 | Henoch leefde.*gewon Methusalach
+Genesis 5:25 | Methusalach leefde.*gewon Lamech
+Genesis 5:28–29 | Lamech leefde.*gewon een zoon.*noemde zijn naam Noach
+Genesis 5:32 | Noach gewon Sem
+Genesis 11:10 | Sem was honderd jaren oud, en gewon, Arfachsad
+Genesis 11:12 | Arfachsad leefde.*gewon Selah
+Genesis 11:14 | Selah leefde.*gewon Heber
+Genesis 11:16 | Heber leefde.*gewon Peleg
+Genesis 11:18 | Peleg leefde.*gewon Rehu
+Genesis 11:20 | Rehu leefde.*gewon Serug
+Genesis 11:22 | Serug leefde.*gewon Nahor
+Genesis 11:24 | Nahor leefde.*gewon Terah
+Genesis 11:26 | Terah leefde.*gewon Abram, Nahor en Haran
+Genesis 11:29 | de naam van Abrams huisvrouw was Sarai
+Genesis 20:12 | zij is mijns vaders dochter, maar niet mijner moeder dochter
+Genesis 11:26 | Terah leefde.*gewon Abram
+Genesis 16:3 | Hagar.*gaf haar aan Abram, haar man, hem tot een vrouw
+Genesis 11:29 | de naam van Nahors huisvrouw was Milka
+Genesis 11:29 | Milka, een dochter van Haran
+Genesis 22:20–23 | Milka heeft ook Nahor.*zonen gebaard.*Bethuel.*deze acht baarde Milka aan Nahor
+Genesis 11:27 | Haran gewon Lot
+Genesis 22:23 | Bethuel gewon Rebekka
+Genesis 24:67 | nam Rebekka, en zij werd hem ter vrouw
+Genesis 28:5 | Laban, den zoon van Bethuel
+Genesis 21:2–3 | Sara.*baarde Abraham een zoon.*Abraham noemde den naam zijns zoons.*Izak
+Genesis 16:15 | Hagar baarde Abram een zoon.*Ismael
+Genesis 25:25–26 | Ezau.*Jakob.*Izak was zestig jaren oud, als hij hen gewon
+Genesis 28:5 | Rebekka, Jakobs en Ezau.?s moeder
+Genesis 29:21–23 | Geef mijn huisvrouw.*zijn dochter Lea nam, en bracht haar tot hem
+Genesis 29:28 | gaf hij hem Rachel, zijn dochter, hem tot een vrouw
+Genesis 30:4 | gaf zij hem haar dienstmaagd Bilha tot een vrouw; en Jakob
+Genesis 30:9 | Zilpa, en gaf die aan Jakob tot een vrouw
+Genesis 29:16 | Laban had twee dochters.*Lea.*Rachel
+Genesis 35:22–26 | zonen van Jakob waren twaalf.*De zonen van Lea waren: Ruben.*Simeon.*Levi.*Juda.*Issaschar.*Zebulon
+Genesis 35:22–26 | zonen van Jakob waren twaalf.*De zonen van Rachel: Jozef en Benjamin.*Deze zijn de zonen van Jakob
+Genesis 35:22–26 | zonen van Jakob waren twaalf.*De zonen van Bilha.*Dan en Nafthali.*Deze zijn de zonen van Jakob
+Genesis 35:22–26 | zonen van Jakob waren twaalf.*De zonen van Zilpa.*Gad en Aser. Deze zijn de zonen van Jakob
+Genesis 34:1 | Dina, de dochter van Lea, die zij Jakob gebaard had
+Genesis 41:45 | gaf hem Asnath.*tot een vrouw
+Genesis 41:50–51 | Jozef werden twee zonen geboren.*Asnath.*hem baarde.*Manasse
+Genesis 41:50–52 | Jozef werden twee zonen geboren.*Asnath.*hem baarde.*Efraim
+Exodus 6:15 | zonen van Levi.*Gerson, en Kehath, en Merari
+Exodus 6:17 | zonen van Kehath: Amram
+Exodus 6:19 | Amram nam Jochebed, zijn moei, zich tot een huisvrouw
+Numeri 26:59 | Jochebed, de dochter van Levi
+Exodus 6:19 | Amram nam Jochebed.*zij baarde hem Aaron en Mozes
+Numeri 26:59 | Jochebed.*deze baarde aan Amram, Aaron, en Mozes, en Mirjam
+Exodus 18:2 | Zippora, Mozes.? huisvrouw
+Exodus 2:18–21 | Rehuel.*hij gaf Mozes zijn dochter Zippora
+Exodus 18:1–2 | Jethro.*schoonvader van Mozes.*Zippora, Mozes.? huisvrouw
+Exodus 6:22 | Aaron nam zich tot een vrouw Eliseba.*zij baarde hem Nadab en Abihu, Eleazar en Ithamar
+Exodus 6:24 | Eleazar, de zoon van Aaron.*zij baarde hem Pinehas
+Mattheüs 1:5 | Salmon gewon Booz bij Rachab
+Ruth 4:21 | Salmon gewon Boaz
+Richteren 6:29 | Gideon, de zoon van Joas
+Richteren 16:31 | begroeven hem.*in het graf van zijn vader Manoach
+Ruth 1:2 | Elimelech, en de naam zijner huisvrouw Naomi
+Ruth 1:3 | Elimelech, de man van Naomi
+Ruth 1:2 | Elimelech.*de naam zijner twee zonen Machlon en Chiljon
+Ruth 1:2–3 | zijner huisvrouw Naomi.*zonen Machlon en Chiljon.*zij werd overgelaten met haar twee zonen
+Ruth 4:10 | Ruth, de Moabietische, de huisvrouw van Machlon
+Ruth 4:13 | nam Boaz Ruth, en zij werd hem ter vrouwe
+Mattheüs 1:5 | Booz gewon Obed bij Ruth
+Ruth 4:17 | Obed; deze is de vader van Isai
+Ruth 4:22 | Isai gewon David
+1 Samuël 1:1–2 | Elkana.*En hij had twee vrouwen; de naam van de ene was Hanna
+1 Samuël 1:19–20 | Elkana bekende zijn huisvrouw Hanna.*baarde een zoon.*Samuel
+1 Samuël 9:1–2 | Kis.*Die had een zoon, wiens naam was Saul
+1 Samuël 14:1 | Jonathan, de zoon van Saul
+1 Samuël 18:20 | Michal, de dochter van Saul
+1 Samuël 18:27 | gaf Saul hem zijn dochter Michal ter vrouw
+1 Samuël 25:42 | Abigail.*volgde de boden van David na, en zij werd hem ter huisvrouw
+1 Samuël 25:3 | Nabal, en de naam zijner huisvrouw was Abigail
+2 Samuël 11:27 | zond David heen.*zij werd hem ter vrouwe
+2 Samuël 11:3 | Bathseba, de dochter van Eliam, de huisvrouw van Uria
+1 Samuël 22:20 | een der zonen van Achimelech.*wiens naam was Abjathar
+2 Samuël 2:18 | drie zonen van Zeruja, Joab, en Abisai
+2 Samuël 2:8 | Isboseth, Sauls zoon
+2 Samuël 4:4 | Jonathan, Sauls zoon, had een zoon.*Mefiboseth
+2 Samuël 13:1 | Absalom, Davids zoon
+2 Samuël 12:24 | David zijn huisvrouw Bathseba.*zij baarde een zoon.*Salomo
+1 Koningen 14:21 | Rehabeam nu, de zoon van Salomo
+1 Koningen 16:30–31 | Achab.*ter vrouwe nam Izebel
+2 Koningen 14:23 | Jerobeam, de zoon van Joas, koning van Israel
+2 Koningen 20:21 | Hizkia ontsliep.*zijn zoon Manasse werd koning
+2 Koningen 21:18 | Manasse ontsliep.*zijn zoon Amon werd koning
+2 Koningen 21:24 | koning Amon.*zijn zoon Josia koning
+2 Koningen 22:12 | Ahikam, den zoon van Safan
+2 Koningen 25:22 | Gedalia, den zoon van Ahikam
+2 Koningen 23:34 | Eljakim, den zoon van Josia.*Jojakim
+2 Koningen 24:6 | Jojakim ontsliep.*zijn zoon Jojachin werd koning
+Jeremia 1:3 | Zedekia, zoon van Josia
+2 Koningen 8:24 | Joram ontsliep.*Ahazia, zijn zoon, werd koning
+2 Koningen 8:26 | Ahazia.*de naam zijner moeder was Athalia
+2 Koningen 11:2 | Joseba, de dochter van den koning Joram
+2 Kronieken 22:11 | Jozabath, de dochter van den koning Joram, de huisvrouw van den priester Jojada
+2 Koningen 11:2 | Joas, den zoon van Ahazia
+Daniël 5:2 | zijn vader Nebukadnezar
+Esther 1:9–12 | koningin Vasthi.*koning Ahasveros.*Vasthi, de koningin
+Esther 2:16–17 | Esther genomen tot den koning Ahasveros.*maakte haar koningin in de plaats van Vasthi
+Mattheüs 1:12 | gewon Jechonias Salathiel
+Jeremia 24:1 | Jechonia, den zoon van Jojakim
+Ezra 3:2 | Zerubbabel, de zoon van Sealthiel
+Mattheüs 1:16 | Maria, uit welke geboren is JEZUS
+Mattheüs 1:16 | Jozef, den man van Maria
+Lukas 1:5 | Zacharias.*zijn vrouw.*haar naam Elizabet
+Lukas 3:2 | Johannes, den zoon van Zacharias, in de woestijn
+Lukas 1:57–60 | Elizabet.*baarde een zoon.*zijn moeder antwoordde.*Johannes heten
+Markus 6:17 | Herodias.*omdat hij haar getrouwd had
+Johannes 1:43 | Gij zijt Simon, de zoon van Jonas
+Johannes 1:41–43 | Andreas, de broeder van Simon Petrus.*Simon, de zoon van Jonas
+Mattheüs 4:21 | Jakobus, den zoon van Zebedeus, en Johannes, zijn broeder.*hun vader Zebedeus
+Handelingen 5:1 | Ananias, met Saffira, zijn vrouw
+# --- Zeruja (geen v: 1 Kronieken 2:16 tegenover 2 Samuël 17:25) en Jozef, de man van Maria (geen v) ---
+1 Kronieken 2:16 | hun zusters waren Zeruja en Abigail
+2 Samuël 17:25 | Abigail, dochter van Nahas, zuster van Zeruja, Joabs moeder
+Mattheüs 1:16 | Jakob gewon Jozef, den man van Maria
+Lukas 3:23 | zoon van Jozef, den zoon van Heli
