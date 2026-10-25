@@ -10,6 +10,20 @@ function watchErrors(page: Page) {
   return errors;
 }
 
+// Tik midden op de kaart zoals een kind dat doet: wacht tot de pagina en de kaart stilstaan (Leaflet negeert tikken
+// tijdens het bewegen) en gebruik op tablet en telefoon een echte aanraking (een muisklik geeft daar geen Leaflet-klik).
+async function tikOpKaart(page: Page, hasTouch: boolean) {
+  let m = await page.locator("#map").boundingBox();
+  await expect.poll(async () => {
+    const vorige = JSON.stringify(m); await page.waitForTimeout(300);
+    m = await page.locator("#map").boundingBox();
+    return JSON.stringify(m) === vorige && !(await page.locator("#map .leaflet-zoom-anim, #map.leaflet-pan-anim").count());
+  }, { timeout: 10_000 }).toBe(true);
+  await page.waitForTimeout(400);
+  if (hasTouch) await page.touchscreen.tap(m!.x + m!.width / 2, m!.y + m!.height / 2);
+  else await page.mouse.click(m!.x + m!.width / 2, m!.y + m!.height / 2);
+}
+
 test("diepe link naar een stap opent die stap en het kruimelpad", async ({ page }) => {
   const errors = watchErrors(page);
   await page.goto("/bijbelreis#jozef/4");
@@ -78,13 +92,13 @@ test("Bijbeltekst opent als venster, Escape sluit en de focus keert terug", asyn
   await expect(page.locator("#leesBtn")).toBeFocused();
 });
 
-test("speurtocht: een meerkeuzevraag beantwoorden geeft uitleg met verwijzing", async ({ page }) => {
+test("speurtocht: een meerkeuzevraag beantwoorden geeft uitleg met verwijzing", async ({ page, hasTouch }) => {
   await page.goto("/bijbelreis#ruth");
   await page.getByRole("tab", { name: "Speurtocht" }).click();
   await page.locator("#qGo").click();
   for (let i = 0; i < 10; i++) {
     if (await page.locator(".opt").count()) break;
-    await page.mouse.click(300, 300);
+    await tikOpKaart(page, hasTouch);
     await page.locator("#qNext").click();
   }
   // Meerkeuze: één klik; volgorde: alle items aantikken.
@@ -185,17 +199,7 @@ for (const [soort, nr] of Object.entries(VOORBEELD)) {
     } else if (soort === "kaart") {
       await box.locator(".btn").click();
       await expect(page.locator("#map")).toHaveClass(/quizmode/);
-      // Wacht tot de pagina naar de kaart gescrold is en de kaart stilstaat (Leaflet negeert tikken tijdens het bewegen).
-      let m = await page.locator("#map").boundingBox();
-      await expect.poll(async () => {
-        const vorige = JSON.stringify(m); await page.waitForTimeout(300);
-        m = await page.locator("#map").boundingBox();
-        return JSON.stringify(m) === vorige && !(await page.locator("#map .leaflet-zoom-anim, #map.leaflet-pan-anim").count());
-      }, { timeout: 10_000 }).toBe(true);
-      await page.waitForTimeout(400);
-      // Op tablet en telefoon tikt een kind; met de muis klikken geeft daar geen Leaflet-klik.
-      if (hasTouch) await page.touchscreen.tap(m!.x + m!.width / 2, m!.y + m!.height / 2);
-      else await page.mouse.click(m!.x + m!.width / 2, m!.y + m!.height / 2);
+      await tikOpKaart(page, hasTouch);
       await expect(box.locator(".feedback")).toBeVisible();
     }
     expect(errors).toEqual([]);
