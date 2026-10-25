@@ -287,8 +287,9 @@ verwijzingen en speurtochtvragen (4:33, 6:10, 6:22).
 | Jona | 7 | 14 | 47 → 58 | 0 mis |
 | **Totaal** | **106** | **168** | **1.285 → 1.504 (+219)** | **0 mis** |
 
-- Correcties (tabelregels hierboven): ca. 175, waarvan ca. 60 inhoudelijk in `txt`/`who`/`ref`/`cross`, ca. 25 routes
-  (`recon`), 12 delen met nieuwe chronologie en `fs` bij alle 106 stappen met een weetje.
+- Correcties: ca. 155 tabelregels hierboven (sommige regels bundelen meer wijzigingen), waaronder ca. 20 routes
+  (`recon` toegevoegd of weggehaald, één routepunt vervangen), 12 delen met nieuwe chronologie (`tijd`, `tl`,
+  `tijdNoot`) en een `fs` bij alle 106 weetjes.
 - Alle kruisverwijzingen (`cross`), inclusief het Nieuwe Testament, hebben nu een controleregel; alle verwijzingen zijn
   leesbaar voor `BR.parseRef` (ook de nieuwe, zoals ‘Daniël 5:31–6:28’ en ‘2 Koningen 23:29–30; 2 Kronieken 35:20–25’).
 - `node --check` op alle acht inhoudsbestanden: in orde. `node scripts/bijbelreis-check.mjs`: geen problemen.
