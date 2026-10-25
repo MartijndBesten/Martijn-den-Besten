@@ -8,7 +8,7 @@ Een speelse, kleurrijke website die drie concepten combineert:
 2. **Het Martijn Control Center** — een bedieningsmachine met arcadeknop, sleutelknop, kussenknop, muntgleuf, draaiknop (0–10, en 11), serieuze modus, hendel, geheime schakelaars en een officiële noodstop.
 3. **Het Museum van Onafgemaakte Ideeën** — zes zalen (waarvan één geheim), een rondleiding, een ideeëngenerator, echte stemmen en een gemodereerd ideeënloket.
 
-Daarnaast: het Bureau voor Onnodige Innovatie, een certificaatgenerator (PNG/PDF), bezoekersmissies en 20 verborgen verrassingen.
+Daarnaast: het Bureau voor Onnodige Innovatie, een certificaatgenerator (PNG/PDF), bezoekersmissies en 20 verborgen verrassingen. En één afdeling die wél af is: **[Bijbelreis](https://martijndenbesten.com/bijbelreis)**, een interactieve kaart van het Oude Testament voor kinderen (zie [docs/BIJBELREIS.md](docs/BIJBELREIS.md)).
 
 **Live:** https://martijndenbesten.com
 
@@ -73,6 +73,7 @@ docs/             ← inhoud wijzigen, deployment, moderatie, verrassingen
 ## Documentatie
 
 - [Ontwerpsysteem](docs/ONTWERP.md)
+- [Bijbelreis: de interactieve kinderkaart op /bijbelreis](docs/BIJBELREIS.md)
 - [Inhoud wijzigen](docs/INHOUD.md)
 - [Deployment en hosting](docs/DEPLOYMENT.md)
 - [Moderatie van ingezonden ideeën](docs/MODERATIE.md)

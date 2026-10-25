@@ -142,7 +142,8 @@
   }
   function refreshLabels() {
     const z = map.getZoom();
-    const on = new Set(cur >= 0 && mode === "reis" ? deel.steps[cur].at : []);
+    // In het overzicht van een deel lichten alle plaatsen van dat deel op; bij een stap alleen die van de stap.
+    const on = new Set(mode !== "reis" ? [] : cur >= 0 ? deel.steps[cur].at : deel.steps.flatMap((s) => s.at));
     Object.entries(markers).forEach(([id, m]) => {
       const el = m.getElement(); if (!el) return;
       const lab = el.querySelector(".lab");

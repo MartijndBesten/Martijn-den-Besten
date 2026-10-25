@@ -1,0 +1,255 @@
+# Controle voor public/bijbelreis/inhoud/jozua.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+Numeri 13:8 | Efraim.*Hosea, de zoon van Nun
+Numeri 13:16 | Hosea.*Jozua
+Jozua 24:29 | honderd en tien jaren
+Deuteronomium 34:1 | Nebo
+Deuteronomium 34:5 | stierf
+Deuteronomium 27:4 | berg Ebal
+Jozua 6:25 | Rachab leven.*huisgezin
+Jozua 2:15 | zeel door het venster
+Jozua 7:1 | Achan.*stam van Juda.*nam van het verbannene
+Numeri 14:30 | behalve Kaleb.*Jozua
+Jozua 14:10 | vijf en tachtig jaren
+Jozua 24:33 | Eleazar, de zoon van Aaron
+Jozua 19:51 | Eleazar.*Jozua.*lot.*Silo
+Jozua 9:27 | houthouwers en waterputters
+Jozua 11:1 | Jabin, de koning van Hazor
+Jozua 11:5 | wateren van Merom
+Jozua 11:11 | Hazor verbrandde
+Jozua 24:32 | beenderen van Jozef.*Sichem
+# --- Deel intocht: stat en cross ---
+Jozua 6:3 | eenmaal.*zes dagen
+Jozua 6:4 | zevenden dag de stad zevenmaal
+Psalm 114:3 | Jordaan keerde achterwaarts
+1 Koningen 16:34 | Hiel.*Jericho.*Jozua
+Jozua 6:26 | vervloekt.*Jericho bouwen
+Micha 6:5 | Sittim af tot Gilgal
+# --- Stap 0: Jozua 1 ---
+Jozua 1:2 | Mozes is gestorven.*trek over deze Jordaan.*al dit volk.*land, dat Ik hun
+Jozua 1:8 | dag en nacht
+Jozua 1:6 | wees sterk en heb goeden moed
+Jozua 1:7 | wees sterk en heb zeer goeden moed
+Jozua 1:9 | wees sterk en heb goeden moed
+Jozua 1:9 | de HEERE, uw God, is met u alom, waar gij heengaat
+Jozua 1:11 | binnen nog drie dagen.*over deze Jordaan
+# --- Stap 1: Jozua 2 ---
+Jozua 2:1 | twee mannen.*heimelijk.*Rachab
+Jozua 2:3 | koning van Jericho
+Jozua 2:15 | huis was op den stadsmuur
+Jozua 2:6 | dak.*vlas
+Jozua 2:15 | zeel door het venster
+Jozua 2:9 | de HEERE u dit land gegeven heeft
+Jozua 2:18 | snoer van scharlakendraad aan het venster.*vader.*moeder.*broeders
+Jozua 2:16 | gebergte.*drie dagen
+Jozua 2:22 | drie dagen
+Jozua 2:11 | God boven in den hemel, en beneden op de aarde
+# --- Stap 2: Jozua 3–4 ---
+Jozua 3:6 | priesters.*ark.*voor het aangezicht des volks
+Jozua 3:15 | Jordaan nu was vol al de dagen des oogstes
+Jozua 3:15 | voeten der priesteren.*ingedoopt
+Jozua 3:16 | op een hoop.*stad Adam
+Jozua 3:17 | gans Israel ging over op het droge
+Jozua 3:16 | tegenover Jericho
+Jozua 4:3 | twaalf stenen
+Jozua 4:4 | twaalf mannen
+Jozua 4:18 | wateren van de Jordaan.*plaats
+Jozua 4:13 | veertig duizend toegeruste krijgsmannen
+Jozua 4:23 | Schelfzee
+# --- Stap 3: Jozua 4:19–5:12 ---
+Jozua 4:19 | Gilgal, aan het oosteinde van Jericho
+Jozua 4:20 | twaalf stenen te Gilgal
+Jozua 4:6 | wanneer uw kinderen morgen vragen.*wat zijn u deze stenen
+Jozua 4:22 | Op het droge is Israel door deze Jordaan gegaan
+Jozua 5:10 | Gilgal.*pascha
+Jozua 5:11 | overjarige koren
+Jozua 5:12 | Manna hield op des anderen daags
+Exodus 16:35 | aten Man veertig jaren
+# --- Stap 4: Jozua 5:13–6:27 ---
+Jozua 5:13 | Man.*uitgetogen zwaard
+Jozua 5:14 | Vorst van het heir des HEEREN.*viel Jozua op zijn aangezicht
+Jozua 6:1 | sloot de poorten.*niemand uit.*niemand in
+Jozua 6:4 | zeven priesters.*zeven ramsbazuinen.*voor de ark
+Jozua 6:10 | gij zult niet juichen.*stem niet laten horen.*geen woord
+Jozua 6:13 | toegerusten gingen voor.*achtertocht volgde de ark
+Jozua 6:14 | keerden weder in het leger.*zes dagen
+Jozua 6:15 | zevenden dag.*zevenmaal
+Jozua 6:16 | ten zevenden male.*Juicht, want de HEERE heeft ulieden de stad gegeven
+Jozua 6:20 | muur viel onder zich
+Jozua 6:21 | verbanden.*scherpte des zwaards
+Jozua 6:17 | alleenlijk.*Rachab levend blijven
+Jozua 6:19 | zilver en goud.*schat des HEEREN
+Jozua 6:24 | stad nu verbrandden zij met vuur
+# --- Stap 5: Jozua 7 ---
+Jozua 6:18 | u wacht van het verbannene
+Jozua 7:21 | Babylonisch overkleed.*tweehonderd sikkelen zilvers.*gouden tong.*vijftig sikkelen.*verborgen in de aarde.*tent
+Jozua 7:4 | omtrent drie duizend man.*vloden
+Jozua 7:5 | zes en dertig man
+Jozua 7:6 | verscheurde Jozua zijn klederen.*voor de ark.*tot den avond
+Jozua 7:11 | Israel heeft gezondigd
+Jozua 7:18 | Achan.*geraakt
+Jozua 7:20 | ik heb tegen den HEERE.*gezondigd
+Jozua 7:24 | Achan.*zonen.*dochteren.*alles wat hij had.*dal Achor
+Jozua 7:25 | stenigde.*verbrandden.*stenen
+Jozua 7:26 | groten steenhoop
+Hosea 2:15 | dal Achor, tot een deur der hoop
+# --- Stap 6: Jozua 8:1–29 ---
+Jozua 8:1 | Vrees niet.*koning van Ai.*in uw hand gegeven
+Jozua 8:3 | dertig duizend mannen.*bij nacht
+Jozua 8:4 | lagen leggen van achter de stad
+Jozua 8:12 | tussen Beth-El en tussen Ai, aan het westen
+Jozua 8:15 | vloden
+Jozua 8:16 | samengeroepen al het volk.*joegen Jozua na.*van de stad afgetrokken
+Jozua 8:17 | lieten de stad openstaan
+Jozua 8:18 | spies
+Jozua 8:19 | achterlage.*namen ze in.*staken de stad aan met vuur
+Jozua 8:22 | in het midden
+Jozua 8:25 | twaalf duizend
+Jozua 8:28 | verbrandde Ai.*hoop
+Jozua 8:29 | koning van Ai hing hij aan een hout
+# --- Stap 7: Jozua 8:30–35 ---
+Jozua 8:30 | altaar.*berg Ebal
+Jozua 8:31 | gelijk als Mozes.*gehele stenen.*geen ijzer
+Jozua 8:32 | schreef.*wet van Mozes
+Jozua 8:33 | ark.*helft daarvan tegenover den berg Gerizim, en een helft daarvan tegenover den berg Ebal
+Jozua 8:34 | al de woorden der wet, de zegening en den vloek
+Jozua 8:35 | vrouwen, en de kleine kinderen, en de vreemdelingen
+# --- Quiz intocht ---
+Jozua 2:18 | scharlakendraad
+Jozua 2:21 | scharlakensnoer
+# --- Deel land: stat en cross ---
+Jozua 12:24 | een en dertig
+Jozua 12:2 | Sihon
+Jozua 12:4 | Og
+Jesaja 28:21 | dal van Gibeon
+Psalm 78:60 | tabernakel te Silo
+1 Samuël 1:3 | van jaar tot jaar.*Silo
+1 Samuël 1:11 | mannelijk zaad
+Richteren 2:7 | diende den HEERE, al de dagen van Jozua
+Richteren 2:10 | den HEERE niet kende
+# --- Stap 0: Jozua 9 ---
+Jozua 9:3 | Gibeon hoorden.*Jericho.*Ai
+Jozua 9:4 | oude zakken.*gescheurde.*wijnzakken
+Jozua 9:5 | oude en bevlekte schoenen.*droog en beschimmeld
+Jozua 9:6 | Gilgal.*ver land.*verbond
+Jozua 9:14 | namen de mannen van hun reiskost.*vraagden het den mond des HEEREN niet
+Jozua 9:15 | vrede.*verbond.*zwoeren
+Jozua 9:16 | drie dagen.*naburen.*in het midden van hen
+Jozua 9:19 | gezworen.*niet aantasten
+Jozua 9:27 | houthouwers en waterputters.*altaar des HEEREN
+Jozua 9:17 | Gibeon, en Chefira, en Beeroth, en Kirjath-Jearim
+1 Samuël 7:2 | Kirjath-Jearim.*twintig jaren
+# --- Stap 1: Jozua 10:1–15 ---
+Jozua 10:5 | vijf koningen der Amorieten, de koning van Jeruzalem, de koning van Hebron, de koning van Jarmuth, de koning van Lachis, de koning van Eglon.*belegerden Gibeon
+Jozua 10:6 | Gibeon zonden tot Jozua.*Gilgal.*verlos ons, en help ons
+Jozua 10:9 | den gansen nacht over was hij van Gilgal opgetrokken
+Jozua 10:10 | verschrikte hen.*Beth-horon.*Azeka.*Makkeda
+Jozua 10:11 | afgang van Beth-horon.*grote stenen.*van den hemel.*meer, die van de hagelstenen stierven, dan die.*met het zwaard
+Jozua 10:12 | Zon, sta stil te Gibeon, en gij, maan, in het dal van Ajalon
+Jozua 10:13 | zon stond stil.*omtrent een volkomen dag
+Jozua 10:14 | geen dag aan dezen gelijk.*de HEERE streed voor Israel
+# --- Stap 2: Jozua 10:16–43 ---
+Jozua 10:16 | vijf koningen.*spelonk bij Makkeda
+Jozua 10:18 | grote stenen.*mond der spelonk
+Jozua 10:22 | brengt.*vijf koningen.*uit die spelonk
+Jozua 10:24 | oversten des krijgsvolks.*voeten op de halzen
+Jozua 10:26 | sloeg.*doodde.*hing.*vijf houten
+Jozua 10:28 | Makkeda
+Jozua 10:29 | Makkeda naar Libna
+Jozua 10:31 | Libna naar Lachis
+Jozua 10:34 | Lachis naar Eglon
+Jozua 10:36 | Eglon naar Hebron
+Jozua 10:38 | Debir
+Jozua 10:40 | ganse land.*zuiden.*verbande alles, wat adem had.*HEERE.*geboden
+Jozua 10:42 | op eenmaal.*de HEERE, de God Israels, streed voor Israel
+Jozua 10:43 | leger te Gilgal
+2 Koningen 18:14 | Lachis
+# --- Stap 3: Jozua 11 ---
+Jozua 11:1 | Jabin, de koning van Hazor.*zond
+Jozua 11:2 | koningen.*noorden
+Jozua 11:4 | zand, dat aan den oever der zee is.*zeer vele paarden en wagens
+Jozua 11:5 | legerden zich samen aan de wateren van Merom
+Jozua 11:6 | Vrees niet.*morgen omtrent dezen tijd.*altegader verslagen.*paarden.*verlammen.*wagenen met vuur verbranden
+Jozua 11:7 | snellijk.*wateren van Merom.*overvielen
+Jozua 11:8 | joegen hen na tot groot Sidon
+Jozua 11:9 | paarden verlamde.*wagenen verbrandde hij met vuur
+Jozua 11:10 | nam Hazor in.*koning sloeg hij.*hoofd van al deze koninkrijken
+Jozua 11:11 | alle ziel.*Hazor verbrandde hij met vuur
+Jozua 11:13 | steden, die op haar heuvelen stonden, behalve Hazor alleen
+# --- Stap 4: Jozua 14:6–15 ---
+Jozua 14:6 | Gilgal.*Kaleb
+Jozua 14:7 | veertig jaren oud.*Mozes.*Kades-Barnea.*verspieden
+Jozua 14:8 | broeders.*hart des volks smelten.*volhardde den HEERE.*na te volgen
+Jozua 14:10 | vijf en veertig jaren.*vijf en tachtig jaren oud
+Jozua 14:11 | nog heden zo sterk.*ten dage, toen Mozes mij uitzond
+Jozua 14:12 | geef mij dit gebergte.*Enakieten.*grote vaste steden
+Jozua 14:13 | zegende hem Jozua.*Kaleb.*Hebron ten erfdeel
+Jozua 14:14 | volhard had den HEERE, den God Israels, na te volgen
+Jozua 15:14 | Kaleb verdreef.*drie zonen van Enak
+Jozua 14:15 | Kirjath-Arba.*groot mens.*Enakieten.*land rustte van den krijg
+# --- Stap 5: Jozua 13–19 ---
+Jozua 13:1 | oud.*zeer veel lands overgebleven
+Jozua 13:8 | Rubenieten en Gadieten.*Mozes.*gene zijde van de Jordaan tegen het oosten
+Jozua 13:7 | negen stammen.*halven stam van Manasse
+Jozua 15:1 | Juda
+Jozua 16:5 | Efraim
+Jozua 17:1 | Manasse
+Jozua 18:1 | Silo.*tent der samenkomst
+Jozua 18:2 | zeven stammen
+Jozua 18:3 | Hoe lang houdt gij u zo slap
+Jozua 18:4 | drie mannen van elken stam.*beschrijven
+Jozua 18:10 | lot.*Silo.*deelde
+Jozua 13:14 | stam Levi geen erfenis
+Jozua 13:33 | de HEERE, de God Israels, is Zelf hunlieder Erfdeel
+Jozua 19:49 | Jozua, den zoon van Nun, een erfdeel
+Jozua 19:50 | Thimnath-Serah, op het gebergte van Efraim.*bouwde die stad, en woonde in dezelve
+# onthul: stammen
+Jozua 13:16 | Arnon
+Jozua 13:25 | Gilead
+Jozua 13:30 | Bazan
+Jozua 17:5 | Manasse.*Jordaan
+Jozua 15:54 | Hebron
+Jozua 19:1 | Simeon.*in het midden van het erfdeel der kinderen van Juda
+Jozua 19:2 | Beer-seba
+Jozua 18:21 | Benjamin.*Jericho
+Jozua 18:25 | Gibeon
+Jozua 18:28 | Jebusi \(deze is Jeruzalem\).*Benjamin
+Jozua 18:11 | Benjamin.*tussen de kinderen van Juda, en tussen de kinderen van Jozef
+Jozua 19:41 | Zora
+Jozua 19:47 | Dan.*Lesem.*Dan
+Jozua 19:18 | Jizreel
+Jozua 19:10 | Zebulon
+Jozua 19:29 | Tyrus
+Jozua 19:36 | Hazor
+Jozua 19:32 | Nafthali
+Jozua 21:41 | acht en veertig steden
+# --- Stap 6: Jozua 23–24:28 ---
+Jozua 23:1 | Jozua oud geworden
+Jozua 24:1 | al de stammen van Israel te Sichem
+Jozua 24:2 | gene zijde der rivier.*Terah.*Abraham
+Jozua 24:3 | Abraham van gene zijde der rivier
+Jozua 24:5 | Egypte
+Jozua 24:13 | steden, die gij niet gebouwd hebt.*wijngaarden en olijfbomen, die gij niet geplant hebt
+Jozua 24:14 | doet weg de goden
+Jozua 24:15 | kiest u heden, wien gij dienen zult.*aangaande mij, en mijn huis, wij zullen den HEERE dienen
+Jozua 24:21 | wij zullen den HEERE dienen
+Jozua 24:25 | verbond met het volk.*Sichem
+Jozua 24:26 | groten steen.*onder den eik
+Jozua 24:27 | steen.*getuigenis
+Genesis 12:6 | Sichem
+Genesis 12:7 | altaar
+Genesis 35:4 | vreemde goden.*onder den eikeboom, die bij Sichem is
+# --- Stap 7: Jozua 24:29–33 ---
+Jozua 24:29 | Jozua.*knecht des HEEREN, stierf.*honderd en tien jaren
+Jozua 24:30 | begroeven hem.*Timnath-Serah
+Jozua 24:32 | beenderen van Jozef.*uit Egypte.*Sichem.*Jakob gekocht.*honderd stukken gelds
+Jozua 24:33 | stierf Eleazar
+Jozua 24:31 | Israel nu diende den HEERE al de dagen van Jozua, en al de dagen van de oudsten
+Genesis 50:26 | Jozef stierf, honderd en tien jaren
+Exodus 13:19 | Mozes nam de beenderen van Jozef
+# --- Quiz land ---
+Jozua 10:11 | hagelstenen
+Jozua 10:16 | Makkeda
+Jozua 18:1 | Silo
+Jozua 24:15 | mijn huis, wij zullen den HEERE dienen
+Jozua 24:29 | honderd en tien

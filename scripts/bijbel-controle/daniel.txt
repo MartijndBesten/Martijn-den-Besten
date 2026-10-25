@@ -1,0 +1,82 @@
+# Daniël — controle van getallen, aantallen en citaten (ref | regex)
+Daniël 1:1 | Nebukadnezar.*Jeruzalem.*belegerde
+Daniël 1:2 | HEERE gaf Jojakim.*in zijn hand.*vaten.*Sinear
+Daniël 1:3 | koninklijk zaad
+Daniël 1:4 | boeken en spraak der Chaldeen
+Daniël 1:5 | drie jaren
+Daniël 1:6 | Daniel, Hananja, Misael en Azarja
+Daniël 1:7 | Beltsazar.*Sadrach.*Mesach.*Abed-nego
+Daniël 1:8 | niet zou ontreinigen
+Daniël 1:12 | tien dagen.*gezaaide.*water te drinken
+Daniël 1:15 | tien dagen.*schoner
+Daniël 1:17 | wetenschap en verstand.*gezichten en dromen
+Daniël 1:20 | tienmaal boven al de tovernaars
+Daniël 1:21 | eerste jaar van den koning Kores
+Daniël 2:1 | slaap werd in hem gebroken
+Daniël 2:5 | in stukken gehouwen
+Daniël 2:17 | Hananja, Misael, en Azarja
+Daniël 2:18 | God des hemels barmhartigheden verzochten
+Daniël 2:19 | nachtgezicht
+Daniël 2:28 | God in den hemel, Die verborgenheden openbaart
+Daniël 2:32 | hoofd.*goud.*borst en zijn armen van zilver.*buik en zijn dijen van koper
+Daniël 2:33 | schenkelen van ijzer.*voeten.*ijzer.*leem
+Daniël 2:34 | steen afgehouwen.*zonder handen
+Daniël 2:35 | steen.*groten berg.*gehele aarde
+Daniël 2:38 | gij zijt dat gouden hoofd
+Daniël 2:39 | ander koninkrijk.*lager.*derde koninkrijk van koper.*gehele aarde
+Daniël 2:40 | vierde koninkrijk.*hard.*ijzer
+Daniël 2:41 | gedeeld koninkrijk
+Daniël 2:42 | ten dele hard.*ten dele broos
+Daniël 2:44 | Koninkrijk.*in der eeuwigheid niet zal verstoord worden
+Daniël 2:48 | heerser over het ganse landschap van Babel
+Daniël 3:1 | beeld van goud.*zestig ellen.*zes ellen.*dal Dura.*landschap van Babel
+Daniël 3:5 | nedervallen, en aanbidden
+Daniël 3:6 | oven des brandenden vuurs
+Daniël 3:17 | onze God.*machtig ons te verlossen
+Daniël 3:18 | zo niet.*uw goden niet zullen eren
+Daniël 3:19 | zevenmaal meer heet
+Daniël 3:22 | vonken des vuurs.*gedood
+Daniël 3:25 | vier mannen, los wandelende
+Daniël 3:27 | haar huns hoofds niet verbrand.*reuk des vuurs
+Daniël 3:28 | Zijn engel gezonden
+Daniël 4:10 | boom.*hoogte was groot
+Daniël 4:14 | Houwt dien boom af
+Daniël 4:25 | van de mensen verstoten.*kruid, als den ossen.*zeven tijden
+Daniël 4:29 | twaalf maanden.*paleis van Babel wandelde
+Daniël 4:30 | Is dit niet het grote Babel, dat ik gebouwd heb
+Daniël 4:33 | at gras als de ossen.*haar wies als der arenden vederen.*nagelen als der vogelen
+Daniël 4:34 | ogen op ten hemel.*verstand kwam weer in mij
+Daniël 4:37 | Koning des hemels
+Daniël 5:1 | maaltijd voor zijn duizend geweldigen
+Daniël 5:2 | gouden en zilveren vaten.*tempel.*Jeruzalem
+Daniël 5:4 | prezen de gouden.*goden
+Daniël 5:5 | vingeren van eens mensen hand.*kalk van den wand
+Daniël 5:6 | knieen stieten tegen elkander
+Daniël 5:8 | konden dit schrift niet lezen
+Daniël 5:25 | MENE, MENE, TEKEL, UPHARSIN
+Daniël 5:26 | God heeft uw koninkrijk geteld
+Daniël 5:27 | gewogen.*te licht gevonden
+Daniël 5:28 | den Meden en den Perzen gegeven
+Daniël 5:30 | In dienzelfden nacht.*Belsazar.*gedood
+Daniël 5:31 | Darius, de Meder
+Daniël 6:1 | honderd en twintig stadhouders
+Daniël 6:2 | drie vorsten.*Daniel de eerste
+Daniël 6:4 | geen gelegenheid noch misdaad vinden
+Daniël 6:7 | dertig dagen.*enigen god of mens.*kuil der leeuwen
+Daniël 6:8 | wet der Meden en der Perzen, die niet mag wederroepen worden
+Daniël 6:10 | drie tijden 's daags.*bad
+Daniël 6:14 | zeer bedroefd
+Daniël 6:17 | steen.*mond des kuils.*verzegelde
+Daniël 6:18 | slaap week verre van hem
+Daniël 6:19 | vroegen morgenstond
+Daniël 6:20 | heeft ook uw God.*van de leeuwen kunnen verlossen
+Daniël 6:22 | Zijn engel gezonden.*muil der leeuwen toegesloten
+Daniël 6:23 | geen schade aan hem gevonden
+Daniël 6:24 | hun kinderen, en hun vrouwen.*kwamen niet op den grond des kuils
+Daniël 6:26 | de levende God
+Daniël 6:28 | Darius.*Kores, den Perziaan
+Daniël 9:2 | Jeremia.*zeventig jaren
+Jeremia 29:10 | zeventig jaren te Babel
+2 Koningen 25:9 | verbrandde het huis des HEEREN
+2 Kronieken 36:6 | Nebukadnezar.*koperen ketenen
+2 Kronieken 36:7 | vaten van het huis des HEEREN naar Babel

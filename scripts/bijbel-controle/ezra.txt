@@ -1,0 +1,144 @@
+# Ezra en Nehemia — controle van getallen, aantallen en citaten (ref | regex)
+Ezra 1:1 | eerste jaar.*Kores, koning van Perzie.*Jeremia.*verwekte de HEERE den geest van Kores.*ganse koninkrijk
+Ezra 1:2 | HEERE, de God des hemels.*bevolen Hem een huis te bouwen te Jeruzalem
+Ezra 1:3 | Wie is onder ulieden van al Zijn volk.*trekke op naar Jeruzalem
+Ezra 1:7 | vaten van het huis des HEEREN, die Nebukadnezar uit Jeruzalem
+Ezra 1:8 | Sesbazar, den vorst van Juda
+Ezra 1:11 | vijf duizend en vierhonderd.*Babel naar Jeruzalem
+Ezra 2:1 | een iegelijk naar zijn stad
+Ezra 2:2 | Zerubbabel, Jesua
+Ezra 2:64 | twee en veertig duizend driehonderd en zestig
+Ezra 2:65 | zeven duizend driehonderd zeven en dertig.*tweehonderd zangers
+Ezra 2:66 | paarden.*zevenhonderd zes en dertig.*muildieren, tweehonderd vijf en veertig
+Ezra 2:67 | kemelen, vierhonderd vijf en dertig.*ezelen, zes duizend zevenhonderd en twintig
+Ezra 3:1 | zevende maand.*als een enig man, te Jeruzalem
+Ezra 3:2 | Jesua.*Zerubbabel.*bouwden het altaar
+Ezra 3:3 | met verschrikking.*volken der landen.*brandofferen des morgens en des avonds
+Ezra 3:4 | feest der loofhutten
+Ezra 3:6 | grond van den tempel des HEEREN was niet gelegd
+Ezra 3:7 | cederenhout van den Libanon.*zee naar Jafo
+Ezra 3:8 | tweede jaar.*tweede maand
+Ezra 3:10 | grond van des HEEREN tempel legden.*priesteren.*trompetten.*Levieten.*cimbalen
+Ezra 3:11 | Hij goedig is.*weldadigheid tot in eeuwigheid is over Israel.*juichte
+Ezra 3:12 | die het eerste huis gezien hadden.*weenden met luider stem
+Ezra 3:13 | stem tot van verre gehoord werd
+Ezra 4:2 | Laat ons met ulieden bouwen
+Ezra 4:3 | wij alleen zullen het den HEERE.*bouwen.*Kores
+Ezra 4:4 | handen des volks van Juda slap
+Ezra 4:5 | huurden tegen hen raadslieden
+Ezra 4:12 | rebelle en die boze stad
+Ezra 4:17 | te Samaria woonden
+Ezra 4:23 | beletten hen met arm en geweld
+Ezra 4:24 | hield op tot in het tweede jaar van het koninkrijk van Darius
+Ezra 5:1 | Haggai.*Zacharia.*profeteerden
+Ezra 5:2 | Zerubbabel.*Jesua.*begonnen te bouwen
+Ezra 5:3 | Thathnai.*Wie heeft ulieden bevel gegeven dit huis te bouwen
+Ezra 6:2 | Achmetha.*landschap Medie.*rol gevonden
+Ezra 6:3 | eerste jaar van den koning Kores.*huis Gods te Jeruzalem.*gebouwd
+Ezra 6:7 | Laat hen aan den arbeid van dit huis Gods
+Ezra 6:8 | uit des konings goederen.*onkosten
+Ezra 6:11 | hout uit zijn huis.*opgehangen
+Ezra 6:14 | Haggai en Zacharia
+Ezra 6:15 | derden dag der maand Adar.*zesde jaar.*Darius
+Ezra 6:16 | inwijding.*met vreugde
+Ezra 6:17 | honderd runderen, tweehonderd rammen, vierhonderd lammeren en twaalf geitenbokken.*zondoffer.*stammen Israels
+Ezra 6:19 | pascha
+Ezra 6:22 | feest der ongezuurde broden zeven dagen.*HEERE had hen verblijd
+Ezra 7:1 | Arthahsasta.*Ezra
+Ezra 7:5 | Aaron
+Ezra 7:6 | vaardig schriftgeleerde in de wet van Mozes.*al zijn verzoek
+Ezra 7:7 | priesteren en de Levieten, en de zangers
+Ezra 7:9 | eersten der eerste maand.*uit Babel.*eersten der vijfde maand kwam hij te Jeruzalem
+Ezra 7:10 | wet des HEEREN te zoeken en te doen.*Israel te leren
+Ezra 7:15 | zilver en goud
+Ezra 8:15 | rivier.*Ahava
+Ezra 8:21 | vasten.*rivier Ahava
+Ezra 8:22 | schaamde mij van den koning een heir en ruiters te begeren.*hand onzes Gods is ten goede over allen, die Hem zoeken
+Ezra 8:26 | zeshonderd en vijftig talenten zilvers.*goud, honderd talenten
+Ezra 8:31 | redde ons van de hand des vijands
+Nehemia 1:1 | Chisleu.*Susan in het paleis
+Nehemia 1:2 | Hanani, een van mijn broederen.*Jeruzalem
+Nehemia 1:3 | Jeruzalems muur is verscheurd.*poorten zijn met vuur verbrand
+Nehemia 1:4 | weende.*vastende en biddende voor het aangezicht van den God des hemels
+Nehemia 1:6 | belijdenis over de zonden
+Nehemia 1:9 | einde des hemels
+Nehemia 1:11 | heden wel gelukken.*dezes mans.*des konings schenker
+Nehemia 2:1 | Nisan.*wijn.*gaf hem den koning
+Nehemia 2:2 | Waarom is uw aangezicht treurig.*vreesde ik gans zeer
+Nehemia 2:3 | stad, de plaats der begravenissen mijner vaderen, woest is
+Nehemia 2:4 | Wat verzoekt gij nu.*bad ik tot God van den hemel
+Nehemia 2:5 | zendt naar Juda.*dat ik ze bouwe
+Nehemia 2:6 | behaagde den koning, dat hij mij zond
+Nehemia 2:7 | brieven.*landvoogden
+Nehemia 2:8 | hout
+Nehemia 2:9 | oversten des heirs en ruiteren met mij gezonden
+Nehemia 2:10 | Sanballat.*Tobia.*mishaagde
+Nehemia 2:11 | Jeruzalem, en was daar drie dagen
+Nehemia 2:12 | des nachts.*weinig mannen.*geen mens te kennen.*het dier, waarop ik reed
+Nehemia 2:13 | Dalpoort.*Drakenfontein.*Mistpoort.*muren van Jeruzalem.*poorten met vuur verteerd
+Nehemia 2:14 | Fonteinpoort.*geen plaats voor het dier
+Nehemia 2:15 | door de beek
+Nehemia 2:17 | laat ons Jeruzalems muur opbouwen
+Nehemia 2:18 | Laat ons op zijn, dat wij bouwen
+Nehemia 2:19 | Sanballat.*Tobia.*Gesem, de Arabier.*bespotten zij ons
+Nehemia 2:20 | God van den hemel, Die zal het ons doen gelukken
+Nehemia 3:1 | Eljasib, de hogepriester.*priesteren.*Schaapspoort
+Nehemia 3:2 | mannen van Jericho
+Nehemia 3:3 | Vispoort.*kinderen van Senaa
+Nehemia 3:6 | Oude poort.*Jojada.*Mesullam
+Nehemia 3:8 | goudsmeden
+Nehemia 3:13 | Dalpoort.*Hanun, en de inwoners van Zanoah
+Nehemia 3:14 | Mistpoort.*Malchia, de zoon van Rechab
+Nehemia 3:15 | Fonteinpoort.*Sallum, de zoon van Kol-Hoze
+Nehemia 3:26 | Waterpoort
+Nehemia 3:27 | Thekoieten
+Nehemia 3:28 | Paardenpoort.*priesteren, een iegelijk tegenover zijn huis
+Nehemia 3:32 | goudsmeden en de kruideniers
+Nehemia 4:1 | Sanballat.*zeer toornig.*bespotte de Joden
+Nehemia 4:2 | amechtige Joden.*steentjes uit de stofhopen levend maken.*verbrand
+Nehemia 4:3 | Tobia.*vos.*stenen muur wel verscheuren
+Nehemia 4:4 | Hoor, o onze God
+Nehemia 4:8 | tegen Jeruzalem te strijden
+Nehemia 4:9 | baden tot onzen God, en zetten wacht tegen hen, dag en nacht
+Nehemia 4:14 | Vreest niet.*groten en vreselijken HEERE
+Nehemia 4:16 | helft.*werk.*helft.*spiesen.*schilden
+Nehemia 4:17 | ene hand doende aan het werk, en de andere hield het geweer
+Nehemia 4:18 | zwaard aan zijn lenden.*bazuin blies, was bij mij
+Nehemia 6:2 | Sanballat, en Gesem.*dal Ono.*kwaad te doen
+Nehemia 6:3 | Ik doe een groot werk, zodat ik niet zal kunnen afkomen
+Nehemia 6:4 | viermaal.*op dezelfde wijze
+Nehemia 6:5 | open brief
+Nehemia 6:6 | gij zult hun ten koning zijn
+Nehemia 6:10 | Semaja.*tempel.*doden
+Nehemia 6:11 | Ik zal er niet ingaan
+Nehemia 6:12 | Tobia en Sanballat hem gehuurd hadden
+Nehemia 6:15 | vijf en twintigsten van Elul, in twee en vijftig dagen
+Nehemia 6:16 | vijanden.*vreesden.*werk van onzen God gedaan was
+Nehemia 8:1 | zevende maand
+Nehemia 8:2 | als een enig man op de straat voor de Waterpoort.*Ezra.*boek der wet van Mozes
+Nehemia 8:3 | mannen en vrouwen.*eersten dag der zevende maand
+Nehemia 8:4 | Waterpoort.*morgen licht aan tot op den middag
+Nehemia 8:5 | hogen houten stoel
+Nehemia 8:9 | den zin verklarende
+Nehemia 8:10 | Nehemia.*Ezra.*Deze dag is den HEERE.*heilig.*weent niet.*al het volk weende
+Nehemia 8:11 | eet het vette, en drinkt het zoete, en zendt delen.*blijdschap des HEEREN, die is uw sterkte
+Nehemia 8:14 | des anderen daags
+Nehemia 8:15 | loofhutten.*zevende maand
+Nehemia 8:16 | takken.*loofhutten
+Nehemia 8:17 | loofhutten.*op zijn dak.*voorhoven
+Nehemia 8:18 | sinds de dagen van Jesua, den zoon van Nun.*zeer grote blijdschap.*feest zeven dagen
+Nehemia 12:31 | twee grote dankkoren.*op den muur
+Nehemia 12:38 | tweede dankkoor nu ging tegenover
+Nehemia 12:40 | beide dankkoren in Gods huis
+Nehemia 12:43 | vrolijkheid van Jeruzalem tot van verre gehoord
+Jeremia 29:10 | zeventig jaren te Babel
+2 Kronieken 36:22 | Kores.*verwekte de HEERE den geest van Kores
+2 Kronieken 36:23 | Zo zegt Kores, koning van Perzie
+Jesaja 44:28 | Cores.*Mijn herder.*tempel
+Psalmen 126:1 | gevangenen Sions wederbracht.*gelijk degenen, die dromen
+Psalmen 137:1 | Aan de rivieren van Babel, daar zaten wij, ook weenden wij
+Deuteronomium 30:4 | verdrevenen aan het einde des hemels
+Leviticus 23:42 | Zeven dagen zult gij in de loofhutten wonen
+Psalmen 122:6 | Bidt om den vrede van Jeruzalem
+Psalmen 122:7 | Vrede zij in uw vesting
+2 Koningen 25:9 | verbrandde het huis des HEEREN

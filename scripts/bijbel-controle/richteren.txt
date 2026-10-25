@@ -1,0 +1,228 @@
+# Controle voor public/bijbelreis/inhoud/richteren.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+Richteren 4:4 | Debora.*profetesse.*richtte
+Richteren 4:5 | palmboom.*tussen Rama en tussen Beth-El
+Richteren 4:6 | Barak.*Kedes-Nafthali
+Richteren 4:8 | Indien gij met mij trekken zult, zo zal ik heen trekken
+Richteren 4:14 | Thabor.*tien duizend man
+Richteren 4:17 | tent van Jael, de huisvrouw van Heber, den Keniet
+Richteren 4:21 | nagel der tent.*stierf
+Richteren 5:24 | Gezegend zij boven de vrouwen Jael
+Richteren 4:3 | negenhonderd ijzeren wagenen.*twintig jaren
+Richteren 4:15 | wagen afklom, en vluchtte op zijn voeten
+Richteren 4:2 | Jabin.*Kanaanieten.*Hazor
+Richteren 4:24 | hard over Jabin.*uitgeroeid
+Jozua 11:11 | Hazor verbrandde
+Richteren 6:11 | Ofra.*Gideon.*pers
+Richteren 6:37 | vlies
+Richteren 7:7 | driehonderd mannen
+Richteren 6:31 | Joas.*Baal.*twiste
+Richteren 6:32 | Jerubbaal
+Richteren 7:10 | Pura, uw jongen
+Richteren 7:13 | droom.*gerstebrood
+Richteren 13:2 | Zora.*Daniet.*Manoach
+Richteren 13:5 | Nazireer Gods
+Richteren 15:20 | twintig jaren
+Richteren 16:30 | sterve met de Filistijnen.*huis viel
+Richteren 16:4 | beek Sorek.*Delila
+Richteren 16:5 | duizend en honderd zilverlingen
+Richteren 16:16 | alle dagen.*perste
+# --- Deel debora: stat en cross ---
+Richteren 5:31 | land was stil, veertig jaren
+Richteren 8:28 | land was stil veertig jaren
+Richteren 3:30 | tachtig jaren
+Psalm 83:10 | Sisera.*Jabin.*beek Kison
+Psalm 83:12 | Oreb.*Zeeb
+Jesaja 10:26 | slachting van Midian.*rots van Oreb
+Jesaja 9:4 | juk.*Midianieten
+1 Samuël 12:11 | Jerubbaal
+Nehemia 9:27 | tijd hunner benauwdheid tot U riepen.*verlossers
+# --- Stap 0: Richteren 2 ---
+Richteren 2:7 | diende den HEERE, al de dagen van Jozua.*oudsten
+Richteren 2:10 | ander geslacht.*den HEERE niet kende
+Richteren 2:11 | dienden de Baals
+Richteren 2:12 | goden der volken, die rondom hen waren
+Richteren 2:14 | toorn.*rovers, die hen beroofden.*vijanden
+Richteren 2:16 | de HEERE verwekte richteren, die hen verlosten
+Richteren 2:18 | huns zuchtens
+Richteren 2:19 | versterven des richters.*verdierven het meer dan hun vaderen.*andere goden
+Richteren 21:25 | geen koning in Israel.*wat recht was in zijn ogen
+# --- Stap 1: Richteren 4:1–5 ---
+Richteren 4:1 | kwaad was in de ogen des HEEREN
+Richteren 4:2 | Jabin, koning der Kanaanieten.*Hazor.*krijgsoverste was Sisera
+Richteren 4:3 | riepen de kinderen Israels tot den HEERE.*negenhonderd ijzeren wagenen.*met geweld onderdrukt, twintig jaren
+Richteren 4:4 | profetesse.*richtte te dier tijd Israel
+Richteren 4:5 | palmboom van Debora, tussen Rama en tussen Beth-El.*ten gerichte
+Richteren 5:7 | Debora.*moeder in Israel
+# --- Stap 2: Richteren 4:6–10 ---
+Richteren 4:6 | Barak.*Kedes-Nafthali.*Heeft de HEERE.*niet geboden.*berg Thabor.*tien duizend man.*Nafthali.*Zebulon
+Richteren 4:7 | beek Kison.*Sisera.*wagenen.*in uw hand geven
+Richteren 4:8 | Indien gij met mij trekken zult.*indien gij niet met mij zult trekken, zo zal ik niet trekken
+Richteren 4:9 | Ik zal zekerlijk met u trekken.*de eer de uwe niet.*de HEERE zal Sisera verkopen in de hand ener vrouw.*Kedes
+Richteren 4:10 | Zebulon en Nafthali bijeen te Kedes.*tien duizend man.*Debora
+# --- Stap 3: Richteren 4:12–16; 5 ---
+Richteren 4:12 | Sisera.*Barak.*Thabor
+Richteren 4:13 | negenhonderd ijzeren wagenen.*beek Kison
+Richteren 4:14 | Maak u op; want dit is de dag.*Sisera in uw hand gegeven.*Thabor af, en tien duizend man
+Richteren 4:15 | de HEERE versloeg Sisera.*ganse heirleger.*wagen afklom.*vluchtte op zijn voeten
+Richteren 4:16 | niet overbleef tot een toe
+Richteren 5:20 | Van den hemel streden zij, de sterren.*Sisera
+Richteren 5:21 | beek Kison wentelde hen weg
+# --- Stap 4: Richteren 4:17–24 ---
+Richteren 4:17 | Sisera vluchtte op zijn voeten naar de tent van Jael.*Heber, den Keniet.*vrede tussen Jabin
+Richteren 4:18 | Wijk in, mijn heer.*vrees niet.*bedekte hem met een deken
+Richteren 4:19 | melkfles, en gaf hem te drinken
+Richteren 4:21 | nagel der tent.*hamer.*stilletjes.*nagel in den slaap zijns hoofds.*in de aarde vast.*diepen slaap.*stierf
+Richteren 4:22 | Barak vervolgde Sisera.*ik zal u den man wijzen, dien gij zoekt
+Richteren 4:23 | God.*Jabin.*ten ondergebracht
+Richteren 5:31 | veertig jaren
+# --- Stap 5: Richteren 6:1–24 ---
+Richteren 6:1 | Midianieten, zeven jaren
+Richteren 6:2 | holen, die in de bergen zijn.*spelonken
+Richteren 6:3 | als Israel gezaaid had, zo kwamen de Midianieten
+Richteren 6:4 | noch klein vee, noch os, noch ezel
+Richteren 6:5 | sprinkhanen in menigte.*kemelen niet tellen
+Richteren 6:6 | riepen de kinderen Israels tot den HEERE
+Richteren 6:11 | Engel des HEEREN.*onder den eik, die te Ofra is.*Gideon dorste tarwe bij de pers.*Midianieten
+Richteren 6:12 | De HEERE is met u, gij strijdbare held
+Richteren 6:13 | zo de HEERE met ons is, waarom is ons dan dit alles wedervaren
+Richteren 6:15 | mijn duizend is het armste in Manasse, en ik ben de kleinste in mijns vaders huis
+Richteren 6:16 | Omdat Ik met u zal zijn
+Richteren 6:21 | vuur op uit de rots, en verteerde het vlees en de ongezuurde koeken
+Richteren 6:24 | altaar.*De HEERE is vrede
+# --- Stap 6: Richteren 6:25–40 ---
+Richteren 6:25 | dienzelven nacht.*breek af het altaar van Baal, dat van uw vader is
+Richteren 6:27 | tien mannen uit zijn knechten.*vreesde.*bij nacht
+Richteren 6:30 | sterve
+Richteren 6:31 | Joas.*Baal.*hij twiste voor zichzelven
+Richteren 6:32 | Jerubbaal
+Richteren 6:33 | Midianieten.*legerden zich in het dal van Jizreel
+Richteren 6:34 | Geest des HEEREN.*Gideon.*blies met de bazuin
+Richteren 6:35 | Manasse.*Aser.*Zebulon.*Nafthali.*kwamen op
+Richteren 6:37 | wollen vlies op den vloer.*dauw op het vlies alleen zal zijn, en droogte op de ganse aarde
+Richteren 6:38 | wrong den dauw uit het vlies, een schaal vol waters
+Richteren 6:39 | droogte op het vlies alleen, en op de ganse aarde zij dauw
+Richteren 6:40 | God deed alzo in denzelven nacht
+# --- Stap 7: Richteren 7:1–8 ---
+Richteren 7:1 | legerden zich aan de fontein van Harod.*Midianieten.*tegen het noorden, achter den heuvel More, in het dal
+Richteren 7:2 | Des volks is te veel.*Mijn hand heeft mij verlost
+Richteren 7:3 | Wie blode en versaagd is, die kere weder.*twee en twintig duizend.*tienduizend overbleven
+Richteren 7:4 | Nog is des volks te veel.*water
+Richteren 7:5 | met zijn tong uit het water zal lekken.*op zijn knieen zal bukken
+Richteren 7:6 | hand tot hun mond gelekt.*driehonderd man
+Richteren 7:7 | Door deze driehonderd mannen.*zal Ik ulieden verlossen.*laat al dat volk weggaan
+Richteren 8:10 | omtrent vijftien duizend.*overgeblevenen.*gevallenen waren honderd en twintig duizend mannen
+# --- Stap 8: Richteren 7:9–8:28 ---
+Richteren 7:10 | Pura, uw jongen, naar het leger
+Richteren 7:11 | Pura.*schildwachten
+Richteren 7:13 | droom.*geroost gerstebrood wentelde zich in het leger der Midianieten.*tent.*viel
+Richteren 7:14 | zwaard van Gideon
+Richteren 7:15 | aanbad hij
+Richteren 7:16 | driehonderd man in drie hopen.*bazuin.*ledige kruiken, en fakkelen in het midden der kruiken
+Richteren 7:19 | middelste nachtwaak.*bliezen met de bazuinen.*sloegen.*kruiken.*in stukken
+Richteren 7:20 | fakkelen.*bazuinen.*Het zwaard van den HEERE, en van Gideon
+Richteren 7:21 | rondom het leger.*schreeuwden en vloden
+Richteren 7:22 | zwaard des een tegen den anderen.*vluchtte
+Richteren 7:24 | Jordaan
+Richteren 8:4 | Jordaan, ging hij over, met de driehonderd mannen
+Richteren 8:12 | ving de beide koningen der Midianieten
+Richteren 8:21 | doodde Zebah en Tsalmuna
+Richteren 8:22 | Heers over ons
+Richteren 8:23 | Ik zal over u niet heersen; ook zal mijn zoon over u niet heersen; de HEERE zal over u heersen
+# --- Quiz debora ---
+Richteren 4:5 | palmboom
+Richteren 4:3 | negenhonderd
+Richteren 6:11 | tarwe bij de pers
+Richteren 6:37 | wollen vlies
+Richteren 7:16 | bazuin.*kruiken.*fakkelen
+# --- Deel simson: stat en cross ---
+Richteren 15:20 | hij richtte Israel.*twintig jaren
+Richteren 16:31 | twintig jaren
+Numeri 6:3 | wijn
+Numeri 6:5 | scheermes
+Numeri 6:6 | doden
+Amos 2:11 | Nazireen
+Amos 2:12 | Nazireen wijn te drinken gegeven
+1 Samuël 5:2 | huis van Dagon
+1 Samuël 5:3 | Dagon op zijn aangezicht ter aarde gevallen voor de ark
+1 Samuël 5:4 | Dagon.*aangezicht ter aarde
+1 Samuël 7:13 | Filistijnen vernederd
+Richteren 13:5 | beginnen Israel te verlossen
+# --- Stap 0: Richteren 13 ---
+Richteren 13:1 | kwaad.*Filistijnen veertig jaren
+Richteren 13:2 | man van Zora.*Daniet.*Manoach.*onvruchtbaar
+Richteren 13:3 | Engel des HEEREN verscheen aan deze vrouw.*zoon baren
+Richteren 13:5 | geen scheermes.*Nazireer Gods zijn, van moeders buik af.*beginnen Israel te verlossen uit der Filistijnen hand
+Richteren 13:19 | geitenbokje.*offerde het op den rotssteen
+Richteren 13:20 | vlam.*voer de Engel des HEEREN op in de vlam
+Richteren 13:24 | zoon.*Simson.*de HEERE zegende het
+Richteren 13:25 | Geest des HEEREN begon hem.*te drijven.*tussen Zora en tussen Esthaol
+# --- Stap 1: Richteren 14:1–9 ---
+Richteren 14:1 | Simson ging af naar Thimnath.*vrouw te Thimnath.*Filistijnen
+Richteren 14:2 | vader en zijn moeder.*neem mij die tot een vrouw
+Richteren 14:3 | Is er geen vrouw onder de dochteren uwer broeders
+Richteren 14:4 | dit van den HEERE was.*gelegenheid zocht van de Filistijnen
+Richteren 14:5 | wijngaarden van Thimnath.*jonge leeuw, brullende hem tegemoet
+Richteren 14:6 | Geest des HEEREN.*van een scheurde, gelijk men een bokje van een scheurt.*niets in zijn hand.*niet te kennen
+Richteren 14:8 | bijenzwerm was in het lichaam van den leeuw, met honig
+Richteren 14:9 | etende.*vader en tot zijn moeder.*gaf hun daarvan
+# --- Stap 2: Richteren 14:10–15:8 ---
+Richteren 14:10 | Simson aldaar een bruiloft
+Richteren 14:11 | dertig metgezellen
+Richteren 14:12 | raadsel.*zeven dagen dezer bruiloft.*dertig fijne lijnwaadsklederen, en dertig wisselklederen
+Richteren 14:14 | Spijze ging uit van den eter, en zoetigheid ging uit van de sterke
+Richteren 14:15 | zevenden dag.*huisvrouw van Simson.*Overreed uw man.*met vuur verbranden
+Richteren 14:17 | weende.*zevenden dag.*verklaarde
+Richteren 14:18 | Wat is zoeter dan honig. en wat is sterker dan een leeuw
+Richteren 14:19 | Askelonieten.*sloeg van hen dertig man.*gewaad.*wisselklederen.*toorn
+Richteren 14:20 | huisvrouw van Simson werd zijns metgezels
+Richteren 15:4 | driehonderd vossen.*fakkelen.*staart aan staart.*fakkel tussen twee staarten
+Richteren 15:5 | staande koren der Filistijnen.*korenhopen.*wijngaarden en olijfbomen
+Richteren 15:6 | verbrandden haar en haar vader met vuur
+Richteren 15:8 | sloeg hen.*groten slag.*hoogte van de rots Etam
+# --- Stap 3: Richteren 15:9–20 ---
+Richteren 15:9 | Filistijnen.*legerden zich tegen Juda.*Lechi
+Richteren 15:10 | om Simson te binden
+Richteren 15:11 | drie duizend mannen.*uit Juda.*Wist gij niet, dat de Filistijnen over ons heersen
+Richteren 15:13 | twee nieuwe touwen
+Richteren 15:14 | tot Lechi.*juichten de Filistijnen hem tegemoet.*Geest des HEEREN.*touwen.*linnen draden, die van het vuur gebrand zijn
+Richteren 15:15 | vochtig ezelskinnebakken.*sloeg daarmede duizend man
+Richteren 15:17 | Ramath-Lechi
+Richteren 15:18 | zeer dorstte.*riep hij tot den HEERE
+Richteren 15:19 | kloofde God de holle plaats.*water uit.*dronk
+Richteren 15:20 | twintig jaren
+# --- Stap 4: Richteren 16:1–3 ---
+Richteren 16:1 | Simson nu ging heen naar Gaza.*vrouw
+Richteren 16:2 | gansen nacht lagen in de stadspoort.*morgenlicht, dan zullen wij hem doden
+Richteren 16:3 | lag tot middernacht.*deuren der stadspoort met de beide posten.*grendelboom.*schouderen.*hoogte des bergs, die in het gezicht van Hebron is
+# --- Stap 5: Richteren 16:4–22 ---
+Richteren 16:4 | vrouw lief kreeg, aan de beek Sorek.*Delila
+Richteren 16:5 | vorsten der Filistijnen.*waarin zijn grote kracht zij.*een iegelijk, duizend en honderd zilverlingen
+Richteren 16:7 | zeven verse zelen
+Richteren 16:9 | De Filistijnen over u, Simson.*verbrak hij de zelen
+Richteren 16:11 | nieuwe touwen
+Richteren 16:12 | De Filistijnen over u, Simson.*verbrak
+Richteren 16:13 | zeven haarlokken mijns hoofds vlochtet aan een weversboom
+Richteren 16:14 | De Filistijnen over u, Simson.*weversboom
+Richteren 16:15 | driemaal met mij gespot
+Richteren 16:16 | alle dagen met haar woorden perste.*verdrietig werd tot stervens toe
+Richteren 16:17 | nooit een scheermes op mijn hoofd gekomen.*Nazireer Gods van mijn moeders buik af.*geschoren.*zwak worden.*als alle de mensen
+Richteren 16:19 | slapen op haar knieen.*zeven haarlokken zijns hoofds afscheren.*kracht week van hem
+Richteren 16:20 | De Filistijnen over u, Simson.*mij uitschudden.*wist niet, dat de HEERE van hem geweken was
+Richteren 16:21 | groeven zijn ogen uit.*Gaza.*twee koperen ketenen.*malende in het gevangenhuis
+Richteren 16:22 | haar zijns hoofds begon weder te wassen
+# --- Stap 6: Richteren 16:23–31 ---
+Richteren 16:23 | vorsten der Filistijnen.*Dagon.*Onze god heeft onze vijand Simson in onze hand gegeven
+Richteren 16:25 | Roept Simson, dat hij voor ons spele.*gevangenhuis.*tussen de pilaren
+Richteren 16:27 | huis nu was vol mannen en vrouwen.*alle vorsten der Filistijnen.*dak.*drie duizend mannen en vrouwen
+Richteren 16:28 | Heere, HEERE! gedenk toch mijner, en sterk mij toch alleenlijk ditmaal, o God
+Richteren 16:29 | twee middelste pilaren, op dewelke het huis was gevestigd
+Richteren 16:30 | Mijn ziel sterve met de Filistijnen.*boog zich met kracht.*huis viel op de vorsten, en op al het volk.*meer, dan die hij in zijn leven gedood had
+Richteren 16:31 | broeders.*huis zijns vaders.*begroeven hem tussen Zora en tussen Esthaol, in het graf van zijn vader Manoach.*twintig jaren
+# --- Quiz simson ---
+Richteren 14:8 | bijenzwerm.*honig
+Richteren 15:4 | driehonderd vossen
+Richteren 15:15 | ezelskinnebakken.*duizend man
+Richteren 16:3 | deuren der stadspoort
+Richteren 16:5 | duizend en honderd
+Richteren 16:29 | twee middelste pilaren
