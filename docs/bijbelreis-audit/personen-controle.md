@@ -207,3 +207,13 @@ alle gemeld, exitcode 1.
    maar de zoekresultaten maken het onderscheid niet zichtbaar.
 8. `kort` van Abel (‘zoon van Adam en Eva’) en Zippora (‘dochter van Jethro’) noemt een afgeleide band zonder voorbehoud; de
    app toont die band met * (afgeleid) en de redenering, dus niet aangepast.
+
+## Verwerkt na deze controle (25 oktober 2026)
+
+- Punt 1 is opgelost: in geschiedenis 65 staat nu ‘Joas van Juda’.
+- Punt 2 is opgelost: het wie-item heet nu ‘Drie mannen Ananias’ en is als groep niet aan één persoon gekoppeld.
+- Punt 3 is opgelost: de wie-tekst noemt nu ‘de zoon van Jonas’ alleen voor Simon (Johannes 1:43). Dat Jonas ook de vader van Andreas is, wordt uitdrukkelijk als afleiding gebracht (‘omdat Andreas zijn broer is’).
+- De lijst `BEKEND` in de check is daardoor leeg. `node scripts/bijbelreis-personen-check.mjs --streng` geeft **geen fouten**.
+- In `app.js` koppelt een naam zonder boek-treffer alleen nog aan een persoon als precies één persoon zo heet. Geschiedenissen en ontdek-stambomen gebruiken het boek van de geschiedenis.
+- De personenkaart toont per band ‘Staat zo in de Bijbel’ of ‘Afgeleid’ (met *, stippelrand, verwijzing en redenering). Overlevering staat in een eigen blok ‘Niet uit de Bijbel’.
+- De e2e-tests ‘naamgenoten’ en ‘personenkaart’ slagen op desktop, mobiel en tablet.
