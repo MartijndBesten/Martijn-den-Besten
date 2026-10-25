@@ -524,29 +524,8 @@
   });
 
   // ---------- Bijbeltekst (Statenvertaling) ----------
-  const SLUGS = { genesis: "genesis", exodus: "exodus", leviticus: "leviticus", numeri: "numeri", deuteronomium: "deuteronomium", jozua: "jozua", richteren: "richteren", ruth: "ruth", "1samuel": "1samuel", "2samuel": "2samuel", "1koningen": "1koningen", "2koningen": "2koningen", "1kronieken": "1kronieken", "2kronieken": "2kronieken", ezra: "ezra", nehemia: "nehemia", esther: "esther", job: "job", psalm: "psalmen", psalmen: "psalmen", jesaja: "jesaja", jeremia: "jeremia", daniel: "daniel", hosea: "hosea", amos: "amos", jona: "jona", micha: "micha", nahum: "nahum", spreuken: "spreuken", ezechiel: "ezechiel", haggai: "haggai", maleachi: "maleachi", mattheus: "mattheus", markus: "markus", marcus: "markus", lukas: "lukas", lucas: "lukas", johannes: "johannes", handelingen: "handelingen", romeinen: "romeinen", "1korinthe": "1korinthe", "1korintiers": "1korinthe", galaten: "galaten", hebreeen: "hebreeen", jakobus: "jakobus", "1petrus": "1petrus", "2petrus": "2petrus", openbaring: "openbaring" };
   const bibleCache = {};
-  function parseRef(ref) {
-    const m = String(ref).match(/^(\d?\s?[A-Za-zëéïü]+)\s+(.+)$/);
-    if (!m) return null;
-    const slug = SLUGS[m[1].toLowerCase().replace(/\s|ë|é|ï|ü/g, (c) => ({ ë: "e", é: "e", ï: "i", ü: "u" })[c] ?? "")];
-    if (!slug) return null;
-    const parts = m[2].split(";").map((x) => x.trim()).filter(Boolean);
-    const ranges = [];
-    let lastCh = null;
-    for (const p of parts) {
-      let r;
-      if ((r = p.match(/^(\d+):(\d+)[–-](\d+):(\d+)$/))) ranges.push({ c1: +r[1], v1: +r[2], c2: +r[3], v2: +r[4] });
-      else if ((r = p.match(/^(\d+):(\d+)[–-](\d+)$/))) ranges.push({ c1: +r[1], v1: +r[2], c2: +r[1], v2: +r[3] });
-      else if ((r = p.match(/^(\d+):(\d+)$/))) ranges.push({ c1: +r[1], v1: +r[2], c2: +r[1], v2: +r[2] });
-      else if ((r = p.match(/^(\d+)[–-](\d+)$/))) ranges.push({ c1: +r[1], v1: 1, c2: +r[2], v2: 999 });
-      else if ((r = p.match(/^(\d+)$/))) ranges.push({ c1: +r[1], v1: 1, c2: +r[1], v2: 999 });
-      else if (lastCh !== null && (r = p.match(/^(\d+)[–-]?(\d+)?$/))) ranges.push({ c1: lastCh, v1: +r[1], c2: lastCh, v2: +(r[2] || r[1]) });
-      else return null;
-      lastCh = ranges[ranges.length - 1].c2;
-    }
-    return { slug, ranges, book: m[1] };
-  }
+  const parseRef = BR.parseRef;
   async function loadBible(slug) {
     if (!bibleCache[slug]) bibleCache[slug] = fetch(`/bijbelreis/bijbel/${slug}.json`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); });
     return bibleCache[slug];
@@ -557,17 +536,19 @@
     $("verzen").innerHTML = "<p class='ref'>Even geduld…</p>";
     $("lade").hidden = false; $("ladeSluit").focus();
     try {
-      const data = await loadBible(q.slug);
+      const books = {};
+      await Promise.all([...new Set(q.ranges.map((rg) => rg.slug))].map(async (sl) => (books[sl] = await loadBible(sl))));
       let html = "";
       q.ranges.forEach((rg) => {
-        for (let c = rg.c1; c <= rg.c2; c++) {
+        const data = books[rg.slug];
+        for (let c = rg.c1; c <= Math.min(rg.c2, Object.keys(data.hoofdstukken).length); c++) {
           const verses = data.hoofdstukken[String(c)]; if (!verses) continue;
           const from = c === rg.c1 ? rg.v1 : 1, to = c === rg.c2 ? Math.min(rg.v2, verses.length) : verses.length;
           if (from > verses.length) continue;
           html += `<h4>${esc(data.boek)} ${c}</h4><p>` + verses.slice(from - 1, to).map((v, i) => `<sup>${from + i}</sup>${esc(v)} `).join("") + "</p>";
         }
       });
-      $("verzen").innerHTML = (html || "<p class='ref'>Deze tekst is niet gevonden.</p>") + `<p class="ref" style="margin-top:12px">${esc(data.vertaling)}. Oude spelling: lees het samen met een volwassene.</p>`;
+      $("verzen").innerHTML = (html || "<p class='ref'>Deze tekst is niet gevonden.</p>") + `<p class="ref" style="margin-top:12px">${esc(books[q.slug].vertaling)}. Oude spelling: lees het samen met een volwassene.</p>`;
     } catch {
       $("verzen").innerHTML = "<p class='ref'>De Bijbeltekst kon niet worden geladen. Probeer het straks nog eens.</p>";
     }

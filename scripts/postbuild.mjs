@@ -74,3 +74,15 @@ writeFileSync(
     .join("\n")}\n</urlset>\n`,
 );
 console.log(`postbuild: ${ROUTES.length} routes + 404.html + sitemap.xml`);
+
+// Bijbelreis: versienummer (inhoudshash) achter de eigen scripts en stijlen, zodat een nieuwe versie niet
+// half uit de browsercache komt (oude app.js met nieuwe inhoud of andersom).
+{
+  const { createHash } = await import("node:crypto");
+  const file = join(dist, "bijbelreis.html");
+  const html = readFileSync(file, "utf8").replace(/((?:src|href)=")(\/bijbelreis\/[^"?]+\.(?:js|css))"/g, (m, attr, url) => {
+    const hash = createHash("sha256").update(readFileSync(join(dist, url))).digest("hex").slice(0, 10);
+    return `${attr}${url}?v=${hash}"`;
+  });
+  writeFileSync(file, html);
+}
