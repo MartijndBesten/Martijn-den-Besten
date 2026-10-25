@@ -9,7 +9,10 @@ BR.SLUGS = {
   ezra: "ezra", nehemia: "nehemia", esther: "esther", job: "job", psalm: "psalmen", psalmen: "psalmen", spreuken: "spreuken",
   jesaja: "jesaja", jeremia: "jeremia", ezechiel: "ezechiel", daniel: "daniel", hosea: "hosea", amos: "amos", jona: "jona", micha: "micha", nahum: "nahum", haggai: "haggai", maleachi: "maleachi",
   mattheus: "mattheus", markus: "markus", marcus: "markus", lukas: "lukas", lucas: "lukas", johannes: "johannes", handelingen: "handelingen", romeinen: "romeinen",
-  "1korinthe": "1korinthe", "1korintiers": "1korinthe", galaten: "galaten", hebreeen: "hebreeen", jakobus: "jakobus", "1petrus": "1petrus", "2petrus": "2petrus", openbaring: "openbaring",
+  "1korinthe": "1korinthe", "1korintiers": "1korinthe", "2korinthe": "2korinthe", "2korintiers": "2korinthe", galaten: "galaten", efeze: "efeze", efeziers: "efeze", filippenzen: "filippenzen", kolossenzen: "kolossenzen",
+  "1thessalonicenzen": "1thessalonicenzen", "1tessalonicenzen": "1thessalonicenzen", "2thessalonicenzen": "2thessalonicenzen", "2tessalonicenzen": "2thessalonicenzen", "1timotheus": "1timotheus", "2timotheus": "2timotheus",
+  titus: "titus", filemon: "filemon", hebreeen: "hebreeen", jakobus: "jakobus", "1petrus": "1petrus", "2petrus": "2petrus", "1johannes": "1johannes", "2johannes": "2johannes", "3johannes": "3johannes", judas: "judas", openbaring: "openbaring",
+  prediker: "prediker", hooglied: "hooglied", klaagliederen: "klaagliederen", joel: "joel", obadja: "obadja", habakuk: "habakuk", sefanja: "sefanja", zefanja: "sefanja", zacharia: "zacharia",
 };
 BR.parseRef = function parseRef(ref) {
   const norm = (b) => b.toLowerCase().replace(/\s/g, "").replace(/[ëéèïüö]/g, (c) => ({ ë: "e", é: "e", è: "e", ï: "i", ü: "u", ö: "o" })[c]);

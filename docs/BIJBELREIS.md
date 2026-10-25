@@ -147,3 +147,45 @@ Open inhoudelijke punten voor Martijn staan in de verslagen `docs/bijbelreis-aud
 ## Bibliotheek (martijn-ai-workbench)
 
 Herbruikbaar als bouwsteen-kandidaat "Interactieve kinderkaart met reisboek uit inhoudsbestanden": Leaflet lokaal + Natural Earth-ondergrond, inhoud per boek in gewone JS-bestanden met een vast schema, geanimeerde routes, speurtocht met kaart-tikvragen, afstanden vergeleken met Nederland, stempelpaspoort in `localStorage`, Bijbeltekst-lade uit JSON, en twee controlescripts (bronverwijzingen tegen een tekstcorpus; pagina doorlopen in een browser). Hergebruikt uit de bibliotheek: B38 (visuele controle met Playwright), B99 (uitrol vanuit een cloudsessie via GitHub Actions; statische assets niet via de proxy), B53 (kindvriendelijke uitleg met oefenbeurt, als patroon). De kaart voor de bibliotheek is nog niet ingediend (daarvoor is schrijftoegang op `martijn-ai-workbench` nodig).
+
+## De 150 geschiedenissen (versie 3.0)
+
+Leidraad: een inhoudsopgave van 150 geschiedenissen (79 OT, 71 NT) met kernwoorden; transcriptie en controle in
+`docs/bijbelreis-150/inhoudsopgave.tsv`. Alleen nummering, verwijzing en kernwoord zijn overgenomen als leidraad; alle
+teksten, titels en vragen zijn eigen werk. Eén geschiedenis is een laag bóven de reisstappen: ze verwijst naar één of meer
+stappen (kaart, routes, stempel) en voegt uitleg, kernwoord, ontdekking en vragen toe. Zo bestaat elk verhaal maar één keer.
+
+Bestanden: `public/bijbelreis/geschiedenissen/<groep>.js` (records), nieuwe reisboeken in `public/bijbelreis/inhoud/`
+(`leviticus.js`, `profeten.js`, `nt-jezus-1.js`, `nt-jezus-2.js`, `nt-jezus-3.js`, `nt-handelingen.js`, `nt-openbaring.js`),
+nieuwe plaatsen staan (na samenvoegen) in `plaatsen.js`.
+
+```js
+BR.geschiedenissen.push({
+  nr: 13,                                   // 1–150, volgorde van de leidraad
+  t: "Abraham moet Izak offeren",           // eigen titel (beschrijvend)
+  ref: "Genesis 22:1–19",                   // SV-nummering, zo precies mogelijk
+  sectie: "aartsvaders",                    // zie lijst hieronder
+  stappen: ["genesis:abraham:21"],          // reisstappen (boek:deel:index); bestaand of nieuw; [] alleen bij vorm symbool/thema zonder plek
+  vorm: "route",                            // route | plek | stamboom | gelijkenis | thema | symbool
+  uitleg: "5–9 zinnen: wat de Bijbel vertelt, in eigen woorden.",
+  betekenis: "1–3 zinnen uitleg: wat dit in de Bijbel zelf laat zien (met verwijzing), geen subjectieve toepassing.",
+  wie: ["Abraham", "Izak"],                 // namen zoals in `who` / BR.mensen
+  kw: "geloof",                             // alleen bij de 47 geschiedenissen met een kernwoord
+  ontdek: { soort: "volgorde", titel: "…", items: ["…"] },   // zie soorten hieronder
+  quiz: [{ q: "…", a: ["GOED", "fout", "fout"], why: "Genesis 22:2" }],   // 3–5, eerste antwoord is goed
+  cross: [["Hebreeën 11:17–19", "…"]],      // 1–4 verbanden met andere Bijbelgedeelten
+  tl: [-2050, -2050], tijd: "ca. 2050 v.Chr.", tijdNoot: "Reconstructie: …",   // of tl: null bij geen verantwoorde datering
+});
+BR.kernwoorden.geloof = { n: "Geloof", uitleg: "3–5 zinnen, gebaseerd op de Bijbel.", refs: [["Hebreeën 11:1", "…"]] };
+```
+
+Ontdek-soorten: `koppel` ({ paren: [[a, b]] }), `volgorde` ({ items }), `onthul` ({ items: [[kop, tekst]] }),
+`wiezei` ({ items: [[citaat, goed, [fout, fout]]] }), `gelijkenis` ({ beelden: [[beeld, betekenis, ref]] }),
+`symbolen` ({ items: [[symbool, betekenis, ref]] } — alleen betekenissen die de Bijbel zelf geeft), `verbanden`
+({ items: [[ref1, belofte, ref2, vervulling]] }), `kaart` ({ vraag, id, v }), `stamboom` ({ rijen: [[naam, …]] }).
+
+Secties: OT `begin` (1–7), `aartsvaders` (8–20), `mozes` (21–31), `woestijn` (32–36), `kanaan` (37–41), `richters` (42–47),
+`koningen` (48–62), `profeten` (63–75), `terugkeer` (76–79); NT `geboorte` (80–86), `galilea` (87–108), `onderweg` (109–117),
+`pasen` (118–132), `gemeente` (133–142), `paulus` (143–148), `openbaring` (149–150).
+
+Voortgang van geschiedenissen: `bijbelreis:verhalen` → `{ "<nr>": { g: 1, q: <beste score> } }` (los van de stapsleutels).

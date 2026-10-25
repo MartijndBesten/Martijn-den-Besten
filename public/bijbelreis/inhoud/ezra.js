@@ -88,7 +88,7 @@ BR.boeken.push({
     ["Psalm 122:6–7", "‘Bidt om den vrede van Jeruzalem (…) Vrede zij in uw vesting.’ Daar bad Nehemia om, en daar bouwde hij aan."],
     ["Johannes 5:2", "Bij de Schaapspoort (vergelijk Nehemia 3:1) lag later het badwater Bethesda, waar Jezus een verlamde man genas."],
     ["Spreuken 21:1", "‘Des konings hart is in de hand des HEEREN.’ Nehemia bad, en de koning zei ja (Nehemia 2:4–6)."],
-    ["Mattheüs 23:2", "Jezus spreekt over schriftgeleerden ‘op de stoel van Mozes’. Ezra heet ‘een vaardig schriftgeleerde in de wet van Mozes’ (Ezra 7:6)."]],
+    ["Mattheüs 23:2", "Jezus spreekt over schriftgeleerden ‘op den stoel van Mozes’. Ezra heet ‘een vaardig schriftgeleerde in de wet van Mozes’ (Ezra 7:6)."]],
   ctx: ["babelst", "ekbatana", "damascusst"],
   steps: [
   { ref: "Ezra 7–8", t: "Ezra reist naar Jeruzalem", stamp: "Vier maanden", at: ["ezra_ahava", "salem"],

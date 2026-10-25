@@ -1,6 +1,6 @@
 // Laadt /bijbelreis lokaal in een browser en meldt consolefouten, onbekende plaatsen en ontbrekende Bijbelverwijzingen.
-// Gebruik: node scripts/bijbelreis-check.mjs   (bouwt niets; gebruikt public/ rechtstreeks)
-import { chromium } from "@playwright/test";
+// Gebruik: node scripts/bijbelreis-check.mjs [desktop|telefoon|tablet]   (bouwt niets; gebruikt public/ rechtstreeks)
+import { chromium, devices } from "@playwright/test";
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join } from "node:path";
@@ -15,7 +15,12 @@ const server = createServer(async (req, res) => {
 }).listen(0);
 const port = server.address().port;
 const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 1400, height: 900 } });
+const APPARAAT = { desktop: { viewport: { width: 1400, height: 900 } }, telefoon: devices["iPhone 13"], tablet: devices["iPad (gen 7)"] };
+const soort = process.argv[2] || "desktop";
+if (!APPARAAT[soort]) throw new Error(`onbekend apparaat: ${soort}`);
+const { defaultBrowserType, ...opties } = APPARAAT[soort];
+const page = await (await browser.newContext(opties)).newPage();
+console.log(`Apparaat: ${soort}`);
 const problems = [];
 page.on("pageerror", (e) => problems.push("pagefout: " + e.message));
 page.on("console", (m) => { if (m.type() === "error" || m.type() === "warning") problems.push(m.type() + ": " + m.text()); });
@@ -39,6 +44,23 @@ for (let i = 0; i < nParts; i++) {
   const steps = await page.evaluate(() => document.querySelectorAll(".dot").length);
   for (let s = 0; s < steps; s++) { await page.evaluate((s) => document.querySelector(`.dot[data-step="${s}"]`).click(), s); await page.waitForTimeout(30); }
 }
+// Alle geschiedenissen openen: verhaalpagina, ontdekking aantikken en alle vragen beantwoorden.
+const nrs = await page.evaluate(() => (BR.geschiedenissen || []).map((g) => g.nr).sort((a, b) => a - b));
+for (const nr of nrs) {
+  await page.evaluate((nr) => { location.hash = "v" + nr; }, nr);
+  await page.waitForTimeout(60);
+  const ok = await page.evaluate((nr) => !!document.querySelector("#p-verhalen .verhaal") && document.querySelector("#p-verhalen .top b").textContent.includes("Geschiedenis " + nr + " "), nr);
+  if (!ok) { problems.push(`geschiedenis ${nr} opent niet`); continue; }
+  await page.evaluate(() => { const b = document.querySelector("#vOntdek button"); b && b.click(); });
+  await page.evaluate(() => document.querySelector("#vqStart") && document.querySelector("#vqStart").click());
+  for (let q = 0; q < 6; q++) {
+    const more = await page.evaluate(() => { const o = document.querySelector("#vQuiz .opt:not(:disabled)"); if (o) o.click(); const n = document.querySelector("#vqVolgende"); if (n) { n.click(); return true; } return false; });
+    if (!more) break;
+  }
+  const klaar = await page.evaluate(() => /Klaar:/.test(document.querySelector("#vQuiz").textContent));
+  if (!klaar) problems.push(`geschiedenis ${nr}: vragen niet af te ronden`);
+}
+report.geschiedenissen = `${nrs.length} van 150 geopend`;
 await page.waitForTimeout(500);
 console.log(JSON.stringify(report, null, 1));
 console.log(problems.length ? "PROBLEMEN:\n" + [...new Set(problems)].join("\n") : "Geen problemen gevonden.");

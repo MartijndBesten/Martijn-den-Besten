@@ -23,7 +23,7 @@ BR.boeken.push({
   cross: [["Spreuken 16:33", "‘Het lot wordt in den schoot geworpen; maar het gehele beleid daarvan is van den HEERE.’ Haman liet het lot (pur) werpen, maar God bepaalde de uitkomst."],
     ["Spreuken 21:1", "‘Des konings hart is in de hand des HEEREN.’ Denk aan de nacht dat de koning niet kon slapen, en Mordechai geëerd werd (Esther 6)."],
     ["1 Samuël 15:8", "Haman was een Agagiet. Veel uitleggers denken dat dit wijst op Agag, de koning van de Amalekieten, de oude vijand van Israël, die Saul moest verslaan."],
-    ["Daniël 6:8", "Ook bij Daniël zie je dat een wet van de Meden en Perzen niet teruggedraaid kon worden. Daarom kreeg Mordechai een nieuwe wet, naast de oude."],
+    ["Daniël 6:9", "Ook bij Daniël zie je dat een wet van de Meden en Perzen niet teruggedraaid kon worden. Daarom kreeg Mordechai een nieuwe wet, naast de oude."],
     ["Ezra 4:6", "Deze Ahasveros wordt ook genoemd in Ezra: in zijn tijd schreven de vijanden van Juda een klacht tegen Jeruzalem."],
     ["Nehemia 1:1", "Nehemia werkte later in hetzelfde paleis in Susan, als schenker van de koning."]],
   ctx: ["babelst", "salem", "ekbatana"],

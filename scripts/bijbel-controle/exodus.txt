@@ -4,7 +4,7 @@
 Deuteronomium 34:7 | honderd en twintig jaren oud
 Exodus 7:7 | Mozes was tachtig jaar oud, en Aaron was drie en tachtig
 Exodus 15:20-21 | Mirjam.*trommel
-Exodus 6:20 | Amram.*Jochebed.*Aaron en Mozes
+Exodus 6:19 | Amram.*Jochebed.*Aaron en Mozes
 Exodus 2:10 | zij noemde zijn naam Mozes
 Exodus 2:18 | Rehuel
 Exodus 2:16 | zeven dochters
@@ -44,7 +44,7 @@ Exodus 3:7 | verdrukking Mijns volks
 Exodus 3:10 | tot Farao zenden.*uit Egypte voert
 Exodus 3:11-12 | Wie ben ik.*Ik zal voorzeker met u zijn.*God dienen op dezen berg
 Exodus 3:13 | Hoe is Zijn naam
-Exodus 3:14 | Ik ZAL ZIJN,, Die Ik ZIJN ZAL.*Ik ZAL ZIJN heeft mij tot ulieden gezonden
+Exodus 3:14 | IK ZAL ZIJN, Die IK ZIJN ZAL.*IK ZAL ZIJN heeft mij tot ulieden gezonden
 Exodus 3:15 | dat is Mijn Naam eeuwiglijk
 Exodus 4:1 | zij zullen mij niet geloven
 Exodus 4:2-4 | staf.*slang.*staart.*staf in zijn hand
@@ -63,7 +63,7 @@ Exodus 5:1 | Laat Mijn volk trekken
 Exodus 5:2 | Wie is de HEERE.*Ik ken den HEERE niet.*niet laten trekken
 Exodus 5:7-8 | geen stro meer geven.*zelven.*stro.*getal der tichelstenen.*niet verminderen
 Exodus 5:21 | stinkende gemaakt voor Farao
-Exodus 6:1 | Nu zult gij zien, wat Ik aan Farao doen zal
+Exodus 5:24 | Nu zult gij zien, wat Ik aan Farao doen zal
 Exodus 7:20-21 | water.*in bloed veranderd.*vis.*stierf.*rivier stonk
 Exodus 8:3 | vorsen.*slaapkamer.*bed.*baktroggen
 Exodus 8:17 | stof der aarde.*luizen.*mensen.*vee
@@ -72,14 +72,14 @@ Exodus 9:3 | paarden.*ezelen.*kemelen.*runderen.*klein vee.*pestilentie
 Exodus 9:8-10 | as uit den oven.*zweren.*blaren
 Exodus 9:23-26 | donder en hagel.*vuur.*nooit geweest.*Gosen.*geen hagel
 Exodus 10:13-15 | oostenwind.*sprinkhanen.*hagel.*over gelaten
-Exodus 10:22-23 | dikke duisternis.*drie dagen.*de een de ander niet.*kinderen Israels was het licht
+Exodus 10:22-23 | dikke duisternis.*drie dagen.*de een den ander niet.*kinderen Israels was het licht
 Exodus 12:29-30 | middernacht.*eerstgeborenen.*Farao.*geen huis, waarin niet een dode was
-Exodus 12:12 | gerichten oefenen aan alle goden der Egyptenaren
+Exodus 12:12 | gerichten oefenen aan al de goden der Egyptenaren
 Exodus 12:5 | volkomen lam
 Exodus 12:7 | beide zijposten, en aan den bovendorpel
 Exodus 12:8 | aan het vuur gebraden, met ongezuurde broden.*bittere
 Exodus 12:11 | schoenen aan uw voeten, en uw staf in uw hand
-Exodus 12:13 | wanneer Ik het bloed zie, zal Ik ulieden voorbij gaan
+Exodus 12:13 | wanneer Ik het bloed zie, zal Ik ulieden voorbijgaan
 Exodus 12:14 | gedachtenis.*feest
 Exodus 12:31 | riep hij Mozes en Aaron in den nacht.*trekt uit
 Exodus 12:34-36 | deeg.*eer het gedesemd was.*zilveren vaten, en gouden vaten, en klederen
@@ -137,7 +137,7 @@ Exodus 17:12 | steen.*Aaron en Hur.*totdat de zon onderging
 Exodus 17:13 | Jozua Amalek.*zwaards
 Exodus 17:15 | altaar.*De HEERE is mijn Banier
 Exodus 18:2-3 | Zippora.*twee zonen
-Exodus 18:4 | Eliezer.*God mijns vaders is tot mijn Hulpe.*Farao's zwaard
+Exodus 18:4 | Eliezer.*God mijns vaders is tot mijn Hulpe.*Farao.?s zwaard
 Exodus 18:8-10 | Mozes vertelde zijn schoonvader alles.*Jethro nu verheugde zich
 Exodus 18:13-14 | van den morgen tot den avond.*gij zelf alleen
 Exodus 18:18 | te zwaar voor u, gij alleen kunt het niet doen
@@ -175,7 +175,7 @@ Exodus 32:2-4 | gouden oorsierselen.*gegoten kalf.*Dit zijn uw goden, Israel
 Exodus 32:6 | brandoffer.*eten en te drinken.*spelen
 Exodus 32:19 | toorn van Mozes ontstak.*tafelen.*verbrak
 Exodus 32:20 | verbrandde het in het vuur, en vermaalde het.*strooide het op het water
-Exodus 32:28 | zonen van Levi.*omtrent drie duizend man
+Exodus 32:28 | zonen van Levi.*drie duizend man
 Exodus 32:32 | zonden vergeven.*delg mij nu uit Uw boek
 Exodus 34:28 | veertig dagen en veertig nachten.*tien woorden
 Exodus 34:29 | vel zijns aangezichts glinsterde
@@ -225,7 +225,7 @@ Exodus 8:22 | land Gosen.*geen vermenging
 Exodus 9:6 | vee der Egyptenaren stierf; maar van het vee der kinderen Israels stierf niet een
 Exodus 9:26 | land Gosen.*geen hagel
 Exodus 10:23 | kinderen Israels was het licht
-Exodus 12:12 | in dezen nacht.*gerichten oefenen aan alle goden der Egyptenaren
+Exodus 12:12 | in dezen nacht.*gerichten oefenen aan al de goden der Egyptenaren
 Lukas 22:15 | Ik heb grotelijks begeerd, dit pascha met u te eten, eer dat Ik lijde
 Exodus 12:37 | omtrent zeshonderd duizend te voet
 Exodus 14:7 | zeshonderd uitgelezene wagens, ja, al de wagens van Egypte

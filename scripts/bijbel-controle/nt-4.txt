@@ -1,0 +1,1014 @@
+# Controle voor groep nt-4: public/bijbelreis/inhoud/nt-handelingen.js, nt-openbaring.js, geschiedenissen/nt-4.js,
+# plaatsen/nt-4.js (Statenvertaling). Regel: verwijzing | regex (hoofdletterongevoelig; de SV-json heeft geen trema's).
+#
+# ===== Handelingen: boek, Wie is wie =====
+Handelingen 2:41 | omtrent dri. du.zend zi.len
+Handelingen 4:20 | wij kunnen ni.t laten te spreken, hetge.n wij gezi.n en geho.rd hebben
+Openbaring 1:9 | Patmos
+Handelingen 6:5 | Stefanus, e.n man vol des gelo.fs en des He.ligen Ge.stes
+Handelingen 7:60 | He.re, reken hun deze zonde ni.t to.
+Handelingen 21:8 | Filippus, den evangelist \(di. e.n was van de zeven\)
+Handelingen 21:9 | vi.r dochters, nog ma.gden, di. profete.rden
+Handelingen 5:1 | Anani.s, met Saffira, zijn vro.w
+Handelingen 9:10 | discipel te Damaskus, met name Anani.s
+Handelingen 23:2 | de hogepri.ster Anani.s beval
+Handelingen 10:1 | Corneli.s, e.n ho.fdman over honderd
+Handelingen 10:2 | vrezende God, met gehe.l zijn hu.s
+Handelingen 10:44 | vi.l de He.lige Ge.st op allen
+Handelingen 12:1 | de koning Herodes
+Handelingen 12:2 | Jakobus, den bro.der van Johannes, met het zwa.rd
+Handelingen 12:23 | da.rom dat hij Gode de e.r ni.t gaf
+Handelingen 22:3 | te Tarsen in Cilici. geboren
+Handelingen 22:3 | a.n de vo.ten van Gamali.l onderwezen
+Handelingen 4:36 | Barnabas.*e.n zo.n der vertro.sting\), e.n Levi.t, van gebo.rte u.t Cyprus
+Handelingen 15:39 | Barnabas Markus medenam
+Handelingen 16:1 | Timothe.s
+Handelingen 16:14 | Lydi., e.n purperverko.pster, van de stad Thyatira
+Handelingen 24:27 | twe. jaren
+Handelingen 24:27 | Porci.s Festus
+Handelingen 27:1 | Juli.s
+Handelingen 27:43 | de ho.fdman, wille(nde)? Pa.lus beho.den
+# ===== Deel nt-gemeente =====
+Handelingen 2:41 | dri. du.zend
+Handelingen 4:4 | omtrent vijf du.zend
+Handelingen 1:8 | zo te Jeruzalem, als in gehe.l Jude. en Samari., en tot a.n het u.terste der a.rde
+Lukas 24:49 | totdat gij zult a.ngeda.n zijn met kracht u.t de ho.gte
+Joel 2:28 | Ik Mijn Ge.st zal u.tgi.ten over alle vle.s
+Jona 1:3 | kwam af te Jafo
+Jona 1:3 | te vluchten na.r Tarsis, van het a.ngezicht des HE.REN
+Jona 3:2 | Ninev
+# stap 0
+Handelingen 2:1 | Pinkster fe.st
+Handelingen 2:1 | allen e.ndrachtelijk bije.n
+Handelingen 2:2 | gelu.d, gelijk als van e.n geweldigen, gedreven wind, en vervulde het gehele hu.s
+Handelingen 2:3 | verde.lde tongen als van vu.r, en het zat op e.n i.gelijk van hen
+Handelingen 2:4 | vervuld met den He.ligen Ge.st, en begonnen te spreken met andere talen
+Handelingen 2:6 | in zijn e.gen ta.l
+Handelingen 2:11 | de grote werken Gods
+Handelingen 2:13 | Zij zijn vol zo.ten wijns
+Leviticus 23:16 | Tot den anderen dag, na den zevenden sabbat, zult gij vijftig dagen tellen
+# stap 1
+Handelingen 2:14 | Petrus, sta.nde met de elven
+Handelingen 2:15 | ni.t dronken
+Handelingen 2:15 | de derde ure van de dag
+Handelingen 2:16 | profe.t Jo.l
+Handelingen 2:17 | Ik zal u.tstorten van Mijn Ge.st op alle vle.s
+Handelingen 2:23 | a.n het kru.s gehecht
+Handelingen 2:32 | Dezen Jezus he.ft God opgewekt; wa.rvan wij allen getu.gen zijn
+Handelingen 2:37 | verslagen in het hart
+Handelingen 2:37 | Wat zullen wij do.n mannen bro.ders
+Handelingen 2:38 | Beke.rt u, en e.n i.gelijk van u worde gedo.pt in den Na.m van Jezus Christus, tot vergeving der zonden
+Handelingen 2:42 | volhardende in de le.r der apostelen, en in de geme.nschap, en in de breking des bro.ds, en in de gebeden
+# stap 2
+Handelingen 3:1 | de ure des gebeds, zijnde de negende ure
+Handelingen 3:2 | kre.pel was van zijner mo.ders lijf
+Handelingen 3:2 | gena.md de Schone, om e.n a.lmo.s
+Handelingen 3:6 | Zilver en go.d heb ik ni.t, ma.r hetge.n ik heb, dat geve ik u; in den Na.m van Jezus Christus, den Nazarener, sta op en wandel!
+Handelingen 3:8 | wandelende en springende, en lovende God
+Handelingen 4:3 | zetten ze in bewaring
+Handelingen 4:7 | Do.r wat kracht, of do.r wat na.m
+Handelingen 4:12 | onder den hemel ge.n andere Na.m, Di. onder de mensen gegeven is, do.r Welken wij mo.ten zalig worden
+Handelingen 4:21 | dre.gden hen nog me.r, en li.ten ze ga.n
+Handelingen 4:22 | me.r dan ve.rtig jaren o.d
+Jesaja 35:6 | Alsdan zal de kre.pele springen als e.n hert
+# stap 3
+Handelingen 4:32 | e.n hart en e.n zi.l
+Handelingen 4:34 | verkochten zij, en brachten den prijs
+Handelingen 4:35 | na.r dat elk van node had
+Handelingen 4:37 | verkocht di.n, en bracht het geld, en legde het a.n de vo.ten der apostelen
+Handelingen 5:1 | verkocht e.n have
+Handelingen 5:2 | onttrok van den prijs, o.k met medeweten zijner vro.w
+Handelingen 5:3 | Anani.s, wa.rom he.ft de satan uw hart vervuld, dat gij den He.ligen Ge.st li.gen zo.dt
+Handelingen 5:4 | Zo het gebleven ware, ble.f het ni.t uw, en verkocht zijnde, was het ni.t in uw macht
+Handelingen 5:4 | Gij hebt den mensen ni.t gelogen, ma.r Gode
+Handelingen 5:5 | vi.l neder en gaf den ge.st
+Handelingen 5:7 | omtrent dri. uren da.rna
+Handelingen 5:8 | Ja, vo.r zove.l
+Handelingen 5:10 | vi.l terstond neder
+Handelingen 5:11 | grote vreze over de gehele Geme.nte
+# stap 4
+Handelingen 5:12 | vele tekenen en wonderen
+Handelingen 5:15 | de schaduw i.mand van hen beschaduwen mocht
+Handelingen 5:16 | welke allen genezen werden
+Handelingen 5:17 | vervuld met nijdighe.d
+Handelingen 5:19 | de engel des He.ren opende des nachts de de.ren der gevangenis
+Handelingen 5:20 | Ga.t he.n, en sta.t, en spre.kt in den tempel tot het volk
+Handelingen 5:29 | Men mo.t Gode me.r geho.rza.m zijn, dan den mensen
+Handelingen 5:34 | Gamali.l, e.n lera.r der wet, in wa.rde geho.den
+Handelingen 5:38 | u.t mensen is, zo zal het gebroken worden
+Handelingen 5:39 | indi.n het u.t God is, zo kunt gij dat ni.t breken
+Handelingen 5:40 | geselden zij dezelve
+Handelingen 5:41 | verblijd zijnde, dat zij waren wa.rdig ge.cht gewe.st, om Zijns Na.ms wil sma.dhe.d te lijden
+# stap 5
+Handelingen 6:1 | murmurering der Gri.ksen tegen de Hebre.n, omdat hun weduwen in de dagelijkse bedi.ning verzu.md werden
+Handelingen 6:2 | Het is ni.t beho.rlijk, dat wij het Wo.rd Gods nalaten, en de tafelen di.nen
+Handelingen 6:3 | zeven mannen u.t u, di. go.de getu.genis hebben, vol des He.ligen Ge.stes en der wijshe.d
+Handelingen 6:4 | volharden in het gebed, en in de bedi.ning des Wo.rds
+Handelingen 6:5 | Stefanus.*Filippus, en Prochorus, en Nicanor, en Timon, en Parmenas, (en )?Nicola.s
+Handelingen 6:6 | als zij gebeden hadden, legden hun de handen op
+Handelingen 6:7 | e.n grote schare der pri.steren werd den gelove geho.rza.m
+# stap 6
+Handelingen 6:8 | vol van gelo.f en kracht, de.d wonderen en grote tekenen
+Handelingen 6:10 | ni.t wedersta.n de wijshe.d en den Ge.st
+Handelingen 6:13 | valse getu.gen
+Handelingen 6:15 | als het a.ngezicht e.ns engels
+Handelingen 7:2 | onzen vader Abraham
+Handelingen 7:47 | Salomo bo.wde Hem e.n hu.s
+Handelingen 7:51 | gij wedersta.t altijd den He.ligen Ge.st; gelijk uw vaders, alzo o.k gij
+Handelingen 7:55 | zag de he.rlijkhe.d Gods, en Jezus, sta.nde ter rechter hand Gods
+Handelingen 7:56 | ik zi. de hemelen ge.pend, en den Zo.n des mensen, sta.nde ter rechter hand Gods
+Handelingen 7:57 | stopten hun oren
+Handelingen 7:58 | wi.rpen hem ter stad u.t, en stenigden hem
+Handelingen 7:58 | legden hun klederen af a.n de vo.ten e.ns jongelings, gena.md Sa.lus
+Handelingen 7:59 | He.re Jezus, ontvang mijn ge.st
+Handelingen 7:60 | vallende op de kni..n
+Handelingen 7:60 | ontsli.p hij
+Lukas 23:34 | Vader, verge.f het hun
+Handelingen 8:1 | verstro..d do.r de landen van Jude. en Samari.
+# stap 7
+Handelingen 8:4 | verkondigden het Wo.rd
+Handelingen 8:5 | Filippus kwam af in de stad van Samari., en predikte hun Christus
+Handelingen 8:7 | vele gera.kten en kre.pelen werden genezen
+Handelingen 8:8 | grote blijdschap in di. stad
+Handelingen 8:9 | Simon, was te voren in de stad plegende toverij
+Handelingen 8:13 | Simon gelo.fde o.k zelf, en gedo.pt zijnde
+Handelingen 8:14 | Petrus en Johannes
+Handelingen 8:17 | legden zij de handen op hen, en zij ontvingen den He.ligen Ge.st
+Handelingen 8:18 | bo.d hij hun geld a.n
+Handelingen 8:20 | Uw geld zij met u ten verderve, omdat gij geme.nd hebt, dat de gave Gods do.r geld verkregen wordt
+# stap 8
+Handelingen 8:26 | den weg, di. van Jeruzalem afda.lt na.r Gaza
+Handelingen 8:27 | e.n Mo.rman, e.n kamerling
+Handelingen 8:27 | over al ha.r schat
+Handelingen 8:27 | om a.n te bidden te Jeruzalem
+Handelingen 8:28 | zat op zijn wagen, en las den profe.t Jesaja
+Handelingen 8:30 | Versta.t gij o.k, hetge.n gij le.st
+Handelingen 8:31 | Ho. zo. ik toch kunnen, zo mij ni.t i.mand onderricht
+Handelingen 8:32 | gelijk e.n scha.p ter slachting gele.d
+Handelingen 8:35 | beginnende van di.zelfde Schrift, verkondigde hem Jezus
+Handelingen 8:36 | wat verhindert mij gedo.pt te worden
+Handelingen 8:37 | Ik gelo.f, dat Jezus Christus de Zo.n van God is
+Handelingen 8:38 | hij do.pte hem
+Handelingen 8:39 | nam de Ge.st des He.ren Filippus weg
+Handelingen 8:39 | re.sde zijn weg met blijdschap
+Handelingen 8:40 | Filippus werd gevonden, te Azote
+Handelingen 8:40 | in alle steden, totdat hij te Cesare. kwam
+Jesaja 53:7 | als e.n lam werd Hij ter slachting gele.d
+# stap 9
+Handelingen 9:31 | De Geme.nten dan, do.r gehe.l Jude., en Galile., en Samari., hadden vrede
+Handelingen 9:32 | Petrus alom do.rtrok
+Handelingen 9:32 | Lydda
+Handelingen 9:33 | Ene.s, di. acht jaren te bed gelegen had
+Handelingen 9:34 | Ene.s! Jezus Christus ma.kt u gezond; sta op en spre.d uzelven het bed
+Handelingen 9:34 | stond terstond op
+Handelingen 9:35 | Lydda en Sarona wo.nden, dewelke zich beke.rden tot den He.re
+# stap 10
+Handelingen 9:36 | te Joppe was e.n zekere discipelin, met name Tabitha
+Handelingen 9:36 | Dorkas
+Handelingen 9:36 | vol van go.de werken en a.lmo.zen
+Handelingen 9:37 | krank werd en sti.rf
+Handelingen 9:37 | in de opperza.l
+Handelingen 9:38 | Lydda nabij Joppe
+Handelingen 9:38 | zonden twe. mannen tot hem
+Handelingen 9:39 | al de weduwen stonden bij hem, wenende
+Handelingen 9:39 | de rokken en klederen, di. Dorkas gema.kt had
+Handelingen 9:40 | hebbende hen allen u.tgedreven, kni.lde neder en bad
+Handelingen 9:40 | Tabitha, sta op
+Handelingen 9:40 | zij de.d ha.r ogen open
+Handelingen 9:41 | gaf ha.r de hand
+Handelingen 9:41 | stelde hij ha.r levend vo.r hen
+Handelingen 9:42 | bekend do.r gehe.l Joppe, en velen gelo.fden
+Handelingen 9:43 | vele dagen te Joppe ble.f, bij e.n zekeren Simon, e.n lederbere.der
+# stap 11
+Handelingen 10:1 | te Cesare.
+Handelingen 10:2 | do.nde vele a.lmo.zen a.n het volk, en God geduriglijk biddende
+Handelingen 10:3 | omtrent de negende ure
+Handelingen 10:4 | Uw gebeden en uw a.lmo.zen zijn tot gedachtenis opgekomen vo.r God
+Handelingen 10:5 | zend mannen na.r Joppe, en ontbi.d Simon, di. to.gena.md wordt Petrus
+Handelingen 10:7 | twe. van zijn hu.sknechten, en e.n godzaligen krijgsknecht
+Handelingen 10:9 | klom Petrus op het dak, om te bidden, omtrent de zesde ure
+Handelingen 10:11 | gelijk e.n gro.t linnen laken
+Handelingen 10:12 | vi.rvo.tige di.ren der a.rde, en de wilde, en de kru.pende di.ren, en de vogelen des hemels
+Handelingen 10:13 | Sta op, Petrus! slacht en e.t
+Handelingen 10:14 | Ge.nszins, He.re! want ik heb no..t gegeten i.ts, dat geme.n of onre.n was
+Handelingen 10:15 | Hetge.n God gere.nigd he.ft, zult gij ni.t geme.n maken
+Handelingen 10:16 | tot dri. ma.l
+Handelingen 10:17 | stonden a.n de po.rt
+# stap 12
+Handelingen 10:23 | sommigen der bro.deren, di. van Joppe waren, gingen met hem
+Handelingen 11:12 | deze zes bro.ders
+Handelingen 10:24 | di. van zijn ma.gschap en bijzonderste vri.nden
+Handelingen 10:25 | vallende a.n zijn vo.ten
+Handelingen 10:26 | Sta op, ik ben o.k zelf e.n mens
+Handelingen 10:34 | Ik verne.m in der wa.rhe.d, dat God ge.n a.nnemer des perso.ns is
+Handelingen 10:39 | Hem hangende a.n het ho.t
+Handelingen 10:40 | Dezen he.ft God opgewekt ten derden dage
+Handelingen 10:43 | e.n i.gelijk, di. in Hem gelo.ft, vergeving der zonden ontvangen zal do.r Zijn Na.m
+Handelingen 10:44 | Als Petrus nog deze wo.rden sprak, vi.l de He.lige Ge.st op allen, di. het Wo.rd ho.rden
+Handelingen 10:46 | spreken met vre.mde talen, en God gro.t maken
+Handelingen 10:48 | gedo.pt worden in den Na.m des He.ren
+Handelingen 11:3 | met hen gegeten
+Handelingen 11:18 | Zo he.ft dan God o.k den he.denen de bekering gegeven ten leven
+# stap 13
+Handelingen 12:3 | vo.r hij vo.rt, om o.k Petrus te vangen
+Handelingen 12:3 | de dagen der ongehevelde broden
+Handelingen 12:4 | vi.r wachten, elk van vi.r krijgsknechten
+Handelingen 12:5 | gedurig gebed tot God vo.r hem
+Handelingen 12:6 | sli.p Petrus di.nzelfden nacht tussen twe. krijgsknechten, gebonden met twe. ketenen
+Handelingen 12:7 | e.n engel des He.ren stond da.r, en e.n licht sche.n in de woning
+Handelingen 12:7 | Sta ha.stelijk op. En zijn ketenen vi.len af van de handen
+Handelingen 12:10 | do.r de e.rste en twe.de wacht
+Handelingen 12:10 | de ijzeren po.rt, di. na.r de stad le.dt; dewelke van zelve hun ge.pend werd
+Handelingen 12:12 | het hu.s van Mari., de mo.der van Johannes, di. to.gena.md was Markus, alwa.r velen samenvergaderd en biddende waren
+Handelingen 12:13 | di.nstma.gd.*Rhode
+Handelingen 12:14 | de.d van blijdschap de vo.rpo.rt ni.t open
+# stap 14
+Handelingen 12:19 | de wachters rechtelijk ondervra.gd had, gebo.d hij, dat zij weggele.d zo.den worden
+Handelingen 12:19 | vertrok van Jude. na.r Cesare.
+Handelingen 12:20 | Tyri.rs en Sidoni.rs
+Handelingen 12:20 | bege.rden vrede, omdat hun land gespijzigd werd van des konings land
+Handelingen 12:21 | op e.n gezetten dag, Herodes, e.n koninklijk kle.d a.ngeda.n hebbende, en op den rechtersto.l gezeten
+Handelingen 12:22 | E.n stem Gods, en ni.t e.ns mensen
+Handelingen 12:23 | slo.g hem e.n engel des He.ren
+Handelingen 12:23 | van de wormen gegeten, en gaf den ge.st
+Handelingen 12:24 | het Wo.rd Gods wi.s, en vermenigvuldigde
+# quiz nt-gemeente
+Handelingen 3:6 | Zilver en go.d heb ik ni.t
+Handelingen 5:29 | Petrus en de apostelen antwo.rdden
+Handelingen 7:58 | Sa.lus
+Handelingen 8:28 | Jesaja
+Handelingen 9:39 | rokken en klederen
+Handelingen 10:11 | laken
+Handelingen 10:12 | vi.rvo.tige di.ren
+Handelingen 12:13 | Rhode
+Handelingen 12:14 | van blijdschap
+# ===== Deel nt-paulus =====
+Galaten 1:18 | na dri. jaren
+Galaten 2:1 | na ve.rti.n jaren
+Handelingen 18:12 | Galli.
+Handelingen 14:19 | stenigden Pa.lus, en sle.pten hem bu.ten de stad, menende, dat hij do.d was
+2 Korinthe 11:25 | e.ns ben ik gestenigd
+Galaten 1:13 | de Geme.nte Gods vervolgde
+Galaten 1:17 | ging henen na.r Arabi., en ke.rde wederom na.r Damaskus
+1 Timotheus 1:13 | gods lastera.r was, en e.n vervolger
+1 Timotheus 1:15 | Christus Jezus in de wereld gekomen is, om de zondaren zalig te maken, van welke ik de vo.rna.mste ben
+2 Timotheus 3:11 | in Anti.chi., in Ikoni.m en in Lystre
+2 Timotheus 3:11 | de He.re he.ft mij u.t alle verlost
+Filippenzen 1:5 | van den e.rsten dag af
+# stap 0
+Handelingen 9:1 | blazende nog dre.ging en mo.rd tegen de discipelen des He.ren
+Handelingen 9:2 | bege.rde bri.ven van hem na.r Damaskus, a.n de synagogen
+Handelingen 9:2 | di. van di.n weg waren
+Handelingen 9:2 | be.den mannen en vro.wen, zo. gebonden brengen na.r Jeruzalem
+Handelingen 9:3 | nabij Damaskus kwam, en hem omsche.n snellijk e.n licht van den hemel
+Handelingen 9:4 | ter a.rde gevallen
+Handelingen 9:4 | Sa.l, Sa.l! wat vervolgt gij Mij
+Handelingen 9:5 | Wi. zijt Gij, He.re
+Handelingen 9:5 | Ik ben Jezus, Di.n gij vervolgt
+Handelingen 9:7 | horende wel de stem, ma.r ni.mand zi.nde
+Handelingen 9:8 | hem bij de hand le.dende, brachten hem te Damaskus
+Handelingen 9:9 | dri. dagen, dat hij ni.t zag, en at ni.t, en dronk ni.t
+# stap 1
+Handelingen 9:10 | de He.re ze.de tot hem in e.n gezicht
+Handelingen 9:11 | de stra.t, gena.md de Rechte
+Handelingen 9:11 | in het hu.s van Judas na.r e.n, met name Sa.lus, van Tarsen; want zi., hij bidt
+Handelingen 9:13 | ho.ve.l kwa.d hij Uw he.ligen in Jeruzalem geda.n he.ft
+Handelingen 9:15 | deze is Mij (e.n )?u.tverkoren vat, om Mijn Na.m te dragen vo.r de he.denen, en de koningen, en de kinderen Isra.ls
+Handelingen 9:17 | Sa.l, bro.der
+Handelingen 9:18 | vi.len af van zijn ogen gelijk als schellen
+Handelingen 9:18 | werd terstond wederom zi.nde; en stond op, en werd gedo.pt
+Handelingen 9:20 | predikte terstond Christus in de synagogen, dat Hij de Zo.n van God is
+Handelingen 9:23 | om hem te doden
+Handelingen 9:24 | bewa.rden de po.rten, be.de des da.gs en des nachts
+Handelingen 9:25 | namen hem des nachts, en li.ten hem neder do.r den mu.r, hem aflatende in e.n mand
+# stap 2
+Handelingen 9:26 | po.gde zich bij de discipelen te vo.gen; ma.r zij vre.sden hem allen
+Handelingen 9:27 | Barnabas, hem tot zich nemende, le.dde hem tot de apostelen
+Handelingen 9:27 | ho. hij op den weg den He.re gezi.n had
+Handelingen 9:27 | te Damaskus vrijmo.diglijk gesproken had in den Na.m van Jezus
+Handelingen 9:29 | handelde tegen de Gri.kse Joden; ma.r deze trachtten hem te doden
+Handelingen 9:30 | gele.dden hem tot Cesare., en zonden hem af na.r Tarsen
+Galaten 1:18 | ble.f bij hem vijfti.n dagen
+# stap 3
+Handelingen 11:19 | verstro..d waren do.r de verdrukking, di. over Stefanus geschi.d was
+Handelingen 11:20 | spraken tot de Gri.ksen, verkondigende den He.re Jezus
+Handelingen 11:21 | e.n gro.t getal gelo.fde
+Handelingen 11:22 | zonden Barnabas u.t
+Handelingen 11:23 | de genade Gods zi.nde, werd verblijd, en verma.nde hen allen, dat zij met e.n vo.rnemen des harten bij den He.re zo.den blijven
+Handelingen 11:25 | Barnabas ging u.t na.r Tarsen, om Sa.lus te zo.ken
+Handelingen 11:26 | e.n gehe.l ja.r samen vergaderden
+Handelingen 11:26 | de discipelen e.rst te Anti.chi. Christenen gena.md werden
+Handelingen 11:28 | Agabus
+Handelingen 11:28 | e.n grote hongersno.d
+Handelingen 11:28 | onder den ke.zer Cla.di.s
+Handelingen 11:29 | ten di.nste der bro.deren, di. in Jude. wo.nden
+Handelingen 11:30 | do.r de hand van Barnabas en Sa.lus
+# stap 4
+Handelingen 13:1 | profeten en lera.rs
+Handelingen 13:2 | als zij den He.re di.nden, en vastten
+Handelingen 13:2 | Zondert Mij af be.den Barnabas en Sa.lus tot het werk, wa.rto. Ik hen gero.pen heb
+Handelingen 13:3 | vastten en baden zij, en hun de handen opgelegd hebbende, li.ten zij hen ga.n
+Handelingen 13:4 | kwamen af tot Sele.ci., en van da.r sche.pten zij af na.r Cyprus
+Handelingen 13:5 | te Salamis, verkondigden zij het wo.rd Gods in de synagogen
+Handelingen 13:5 | Johannes tot e.n di.na.r
+Handelingen 13:6 | het e.land do.rgega.n waren tot Pafos to.
+Handelingen 13:6 | Bar-Jezus
+Handelingen 13:7 | Sergi.s Pa.lus
+Handelingen 13:7 | zocht ze.r het Wo.rd Gods te horen
+Handelingen 13:8 | Elymas, de tovena.r
+Handelingen 13:8 | zo.kende den stadho.der van het gelo.f af te keren
+Handelingen 13:9 | Sa.lus.*di. o.k Pa.lus gena.md is
+Handelingen 13:11 | gij zult blind zijn, en de zon ni.t zi.n vo.r e.n tijd
+Handelingen 13:11 | vi.l op hem donkerhe.d en du.sternis
+Handelingen 13:12 | to.n gelo.fde hij
+# stap 5
+Handelingen 13:13 | van Pafos afgevaren zijnde, kwamen te Perge, e.n stad in Pamfyli.
+Handelingen 13:13 | Johannes, van hen sche.dende, ke.rde weder na.r Jeruzalem
+Handelingen 13:14 | kwamen te Anti.chi., e.n stad in Pisidi.
+Handelingen 13:14 | op den dag des sabbats
+Handelingen 13:15 | na het lezen der wet en der profeten
+Handelingen 13:17 | in het land Egypte, en he.ft hen met e.n hogen arm da.ru.t gele.d
+Handelingen 13:22 | David
+Handelingen 13:23 | Van het za.d dezes he.ft God Isra.l, na.r de belofte, verwekt den Zaligmaker Jezus
+Handelingen 13:38 | do.r Dezen u vergeving der zonden verkondigd wordt
+Handelingen 13:44 | bijna de gehele stad samen
+Handelingen 13:45 | met nijdighe.d vervuld, en wederspraken
+Handelingen 13:46 | wij keren ons tot de he.denen
+Handelingen 13:47 | Ik heb u gesteld tot e.n licht der he.denen
+Handelingen 13:48 | verblijdden zij zich
+Handelingen 13:50 | verwekten vervolging tegen Pa.lus en Barnabas
+Handelingen 13:51 | schudden het stof van hun vo.ten af tegen dezelve, en kwamen te Ikoni.m
+Jesaja 49:6 | Ik heb U o.k gegeven tot e.n Licht der he.denen
+# stap 6
+Handelingen 14:1 | e.n grote menigte, be.den van Joden en Gri.ken, gelo.fde
+Handelingen 14:4 | de menigte der stad werd verde.ld
+Handelingen 14:5 | hen te stenigen
+Handelingen 14:6 | gevlucht na.r de steden van Lyka.ni., namelijk Lystre en Derbe
+Handelingen 14:8 | kre.pel zijnde van zijner mo.ders lijf, di. no..t had gewandeld
+Handelingen 14:9 | dat hij gelo.f had om gezond te worden
+Handelingen 14:10 | Ze.de met grote stem: Sta recht op uw vo.ten! En hij sprong op en wandelde
+Handelingen 14:11 | De goden zijn den mensen gelijk geworden, en tot ons nedergekomen
+Handelingen 14:12 | no.mden Barnabas Jupiter, en Pa.lus Mercuri.s
+Handelingen 14:13 | ossen en kransen
+Handelingen 14:14 | sche.rden hun klederen
+Handelingen 14:15 | Wij zijn o.k mensen
+Handelingen 14:15 | van deze ijdele dingen bekeren tot den levenden God
+Handelingen 14:19 | kwamen Joden van Anti.chi. en Ikoni.m
+Handelingen 14:20 | stond hij op, en kwam in de stad; en des anderen da.gs ging hij met Barnabas u.t na.r Derbe
+Handelingen 16:1 | Lystre.*Timothe.s
+# stap 7
+Handelingen 14:21 | vele discipelen gema.kt hadden, ke.rden zij weder na.r Lystre, en Ikoni.m, en Anti.chi.
+Handelingen 14:22 | wij do.r vele verdrukkingen mo.ten inga.n in het Koninkrijk Gods
+Handelingen 14:23 | in elke Geme.nte, met opsteken der handen, o.derlingen verkoren hadden, gebeden hebbende met vasten, bevalen zij hen den He.re
+Handelingen 14:24 | Pisidi. do.rgere.sd hebbende, kwamen zij in Pamfyli.
+Handelingen 14:25 | te Perge het Wo.rd gesproken hadden, kwamen zij af na.r Attali.
+Handelingen 14:26 | van da.r sche.pten zij af na.r Anti.chi.
+Handelingen 14:27 | wat grote dingen God met hen geda.n had, en dat Hij den he.denen de de.r des gelo.fs ge.pend had
+# stap 8
+Handelingen 15:36 | bezo.ken onze bro.ders in elke stad
+Handelingen 15:37 | Johannes, di. (to.)?gena.md is Markus
+Handelingen 15:38 | van Pamfyli. af van hen was afgeweken
+Handelingen 15:39 | van elkander gesche.den zijn
+Handelingen 15:39 | na.r Cyprus afsche.pte
+Handelingen 15:40 | Pa.lus verko.s Silas
+Handelingen 15:41 | do.rre.sde Syri. en Cilici.
+Handelingen 16:2 | go.den getu.genis gegeven werd van de bro.deren te Lystre en Ikoni.m
+Handelingen 16:3 | Deze wilde Pa.lus, dat met hem zo. re.zen
+Handelingen 16:6 | van den He.ligen Ge.st verhinderd het Wo.rd in Azi. te spreken
+Handelingen 16:7 | po.gden zij na.r Bithyni. te re.zen; en de Ge.st li.t het hun ni.t to.
+Handelingen 16:8 | kwamen af tot Tro.s
+Handelingen 16:9 | in den nacht e.n gezicht gezi.n: er was e.n Macedonisch man sta.nde
+Handelingen 16:9 | Kom over in Macedoni., en help ons
+Handelingen 16:10 | zochten wij terstond na.r Macedoni. te re.zen
+Kolossenzen 4:14 | Lukas, de medicijnme.ster
+# stap 9
+Handelingen 16:11 | Van Tro.s dan afgevaren zijnde, li.pen wij recht na.r Samothrace, en den volgende dag na.r Ne.polis
+Handelingen 16:12 | Filippi, welke is de e.rste stad van dit de.l van Macedoni., e.n koloni.
+Handelingen 16:13 | op den dag des sabbats gingen wij bu.ten de stad a.n de rivi.r, wa.r het gebed placht te geschi.den
+Handelingen 16:13 | spraken wij tot de vro.wen
+Handelingen 16:14 | Lydi., e.n purperverko.pster, van de stad Thyatira, di. God di.nde
+Handelingen 16:14 | welker hart de He.re he.ft ge.pend, dat zij acht nam op hetge.n van Pa.lus gesproken werd
+Handelingen 16:15 | gedo.pt was, en ha.r hu.s
+Handelingen 16:15 | komt in mijn hu.s, en blijft er
+Openbaring 2:18 | Thyatire
+# stap 10
+Handelingen 16:16 | di.nstma.gd, hebbende e.n wa.rzeggenden ge.st
+Handelingen 16:18 | dit de.d zij vele dagen lang
+Handelingen 16:18 | Ik gebi.d u in den Na.m van Jezus Christus, dat gij van ha.r u.tga.t
+Handelingen 16:19 | de ho.p huns gewins weg was, grepen zij Pa.lus en Silas
+Handelingen 16:22 | bevalen hen te geselen
+Handelingen 16:24 | in den binnensten kerker, en verzekerde hun vo.ten in de stok
+Handelingen 16:25 | omtrent den middernacht baden Pa.lus en Silas, en zongen Gode lofzangen en de gevangenen ho.rden na.r hen
+Handelingen 16:26 | e.n grote a.rdbeving
+Handelingen 16:26 | al de de.ren ge.pend, en de banden van allen werden los
+Handelingen 16:27 | zo. zichzelven omgebracht hebben
+Handelingen 16:28 | Do. uzelven ge.n kwa.d; want wij zijn allen hi.r
+Handelingen 16:29 | werd ze.r bevende
+Handelingen 16:30 | wat mo.t ik do.n, opdat ik zalig worde
+Handelingen 16:31 | Gelo.f in den He.re Jezus Christus, en gij zult zalig worden, gij en uw hu.s
+Handelingen 16:33 | in dezelve ure des nachts
+Handelingen 16:33 | werd terstond gedo.pt, en al de zijnen
+Filippenzen 4:4 | Verblijdt u in den He.re te allen tijd
+# quiz nt-paulus
+Handelingen 9:4 | Sa.l, Sa.l
+Handelingen 9:25 | mand
+Handelingen 11:26 | Anti.chi. Christenen
+Handelingen 13:11 | blind
+Handelingen 14:12 | Pa.lus Mercuri.s
+Handelingen 15:37 | Markus
+Handelingen 15:39 | verbittering
+Handelingen 16:14 | Thyatira
+Handelingen 16:25 | lofzangen
+# ===== Deel nt-paulusrome =====
+Handelingen 24:27 | als twe. jaren vervuld waren, kre.g Felix Porci.s Festus in zijn pla.ts
+Handelingen 27:9 | de vasten nu vo.rbij was
+Handelingen 28:30 | twe. gehele jaren
+Handelingen 27:37 | twe.honderd zes en zeventig zi.len
+Handelingen 27:44 | zij allen beho.den a.n het land gekomen zijn
+Handelingen 20:22 | gebonden zijnde do.r den Ge.st, re.s na.r Jeruzalem
+Handelingen 20:23 | banden en verdrukkingen a.nsta.nde zijn
+Handelingen 23:11 | Heb go.den mo.d, Pa.lus, want gelijk gij te Jeruzalem van Mij betu.gd hebt alzo mo.t gij o.k te Rome getu.gen
+Romeinen 1:15 | di. te Rome zijt, het Evangeli. te verkondigen
+2 Korinthe 11:25 | dri.ma.l heb ik schipbre.k geleden
+# stap 0
+Handelingen 20:17 | van Milete na.r Efeze
+Handelingen 21:1 | kwamen te Kos, en den dag da.ra.n te Rhodus, en van da.r te Patara
+Handelingen 21:2 | e.n schip gevonden hebbende, dat na.r Fenici. overvo.r
+Handelingen 21:3 | Cyprus in het gezicht gekregen, en dat a.n de linker hand gelaten
+Handelingen 21:3 | kwamen a.n te Tyrus
+Handelingen 21:4 | bleven wij da.r zeven dagen
+Handelingen 21:7 | kwamen a.n te Ptolema.s
+Handelingen 21:7 | bleven e.n dag bij hen
+Handelingen 21:8 | kwamen te Cesare.; en gega.n zijnde in het hu.s van Filippus, den evangelist
+Handelingen 21:10 | Agabus
+Handelingen 21:11 | nam den gordel van Pa.lus, en zichzelven handen en vo.ten gebonden hebbende
+Handelingen 21:11 | Dit zegt de He.lige Ge.st: Den man, wi.ns deze gordel is, zullen de Joden alzo te Jeruzalem binden
+Handelingen 21:12 | baden be.den wij en di. van di. pla.ts waren, dat hij ni.t zo. opga.n na.r Jeruzalem
+Handelingen 21:13 | ik ben bere.d ni.t alle.n gebonden te worden, ma.r o.k te sterven te Jeruzalem vo.r den Na.m van den He.re Jezus
+Handelingen 21:14 | De wil des He.ren geschi.de
+Handelingen 21:15 | gingen op na.r Jeruzalem
+Handelingen 6:5 | Filippus
+Handelingen 8:40 | Cesare.
+# stap 1
+Handelingen 21:18 | ging Pa.lus met ons in tot Jakobus; en al de o.derlingen
+Handelingen 21:19 | wat God onder de he.denen do.r zijn di.nst geda.n had
+Handelingen 21:20 | lo.fden den He.re
+Handelingen 21:23 | e.n gelofte
+Handelingen 21:27 | Als nu de zeven dagen zo.den vole.ndigd worden, zagen hem de Joden van Azi. in den tempel
+Handelingen 21:28 | he.ft hij o.k Gri.ken in den tempel gebracht
+Handelingen 21:29 | Trofimus, den Efezi.r, met hem in de stad gezi.n
+Handelingen 21:30 | trokken hem bu.ten den tempel
+Handelingen 21:31 | hem zochten te doden
+Handelingen 21:32 | krijgsknechten en ho.fdmannen over honderd
+Handelingen 21:33 | met twe. ketenen zo. binden
+Handelingen 21:35 | a.n de trappen
+Handelingen 21:40 | sta.nde op de trappen
+Handelingen 21:40 | in de Hebre..wse ta.l
+Handelingen 22:6 | Damaskus gena.kte
+Handelingen 22:21 | Ik zal u ver tot de he.denen afzenden
+Handelingen 22:22 | Weg van de a.rde met zulk e.n
+Handelingen 22:25 | e.n Rome.nsen mens, en di.n onvero.rde.ld, te geselen
+Handelingen 22:28 | Ik heb dit burgerrecht vo.r e.n grote som gelds verkregen
+Handelingen 22:28 | Ma.r ik ben o.k e.n burger geboren
+Handelingen 22:29 | de overste werd o.k bevre.sd
+Handelingen 23:26 | Cla.di.s Lysi.s
+# stap 2
+Handelingen 23:6 | ik ben e.n Farize.r, e.ns Farize.rs zo.n; ik word over de ho.p en opstanding der doden ge..rde.ld
+Handelingen 23:7 | twe.dracht tussen de Farize.n en de Sadduce.n
+Handelingen 23:10 | in de legerpla.ts brengen
+Handelingen 23:11 | den volgenden nacht stond de He.re bij hem
+Handelingen 23:12 | noch eten noch drinken zo.den, totdat zij Pa.lus zo.den gedo.d hebben
+Handelingen 23:13 | me.r dan ve.rtig
+Handelingen 23:16 | de zo.n van Pa.lus.{1,2}zuster
+Handelingen 23:23 | twe.honderd krijgsknechten
+Handelingen 23:23 | zeventig ru.ters, en twe.honderd schutters, tegen de derde ure des nachts
+Handelingen 23:24 | tot den stadho.der Felix
+Handelingen 23:31 | brachten hem des nachts tot Antipatris
+Handelingen 23:32 | latende de ru.ters met hem trekken, ke.rden zij wederom na.r de legerpla.ts
+Handelingen 23:33 | te Cesare. gekomen waren
+# stap 3
+Handelingen 24:27 | willende den Joden gunst bewijzen, li.t Pa.lus gevangen
+Handelingen 25:1 | ging na dri. dagen van Cesare. op na.r Jeruzalem
+Handelingen 25:2 | de hogepri.ster, en de vo.rna.msten der Joden
+Handelingen 25:3 | leggende e.n lage, om hem op den weg om te brengen
+Handelingen 25:6 | op den rechtersto.l gezeten zijnde
+Handelingen 25:7 | vele en zware beschuldigingen tegen Pa.lus vo.rtbrengende, di. zij ni.t konden bewijzen
+Handelingen 25:9 | Wilt gij na.r Jeruzalem opga.n
+Handelingen 25:11 | Ik bero.p mij op den ke.zer
+Handelingen 25:12 | Gij zult tot den ke.zer ga.n
+Handelingen 26:32 | Deze mens kon losgelaten worden, indi.n hij zich op den ke.zer ni.t had bero.pen
+# stap 4
+Handelingen 27:1 | Pa.lus en enige andere gevangenen, over a.n e.n ho.fdman over honderd, met name Juli.s
+Handelingen 27:2 | Aristarchus
+Handelingen 27:3 | te Sidon
+Handelingen 27:3 | li.t hem to. tot de vri.nden te ga.n
+Handelingen 27:4 | vo.ren wij onder Cyprus he.n
+Handelingen 27:5 | kwamen wij a.n te Myra in Lyci.
+Handelingen 27:6 | e.n schip.*van Alexandri., dat na.r Itali. vo.r
+Handelingen 27:7 | vele dagen langza.m vo.rtvo.ren, en na.welijks tegenover Knidus gekomen waren
+Handelingen 27:7 | onder Kreta he.n, tegenover Salmone
+Handelingen 27:8 | Schonehavens
+Handelingen 27:10 | met hinder en grote schade, ni.t alle.n van de lading en van het schip, ma.r o.k van ons leven
+Handelingen 27:11 | de ho.fdman gelo.fde me.r den stu.rman en den schipper
+Handelingen 27:14 | e.n stormwind, gena.md E.roklydon
+Handelingen 27:16 | Kla.da
+Handelingen 27:20 | noch zon noch gesternten verschenen in vele dagen
+Handelingen 27:20 | alle ho.p van beho.den te worden benomen
+Handelingen 27:21 | stond Pa.lus op
+Handelingen 27:23 | e.n engel Gods
+Handelingen 27:24 | Vre.s ni.t, Pa.lus, gij mo.t vo.r den ke.zer gesteld worden; en zi., God he.ft u geschonken allen, di. met u varen
+# stap 5
+Handelingen 27:27 | de ve.rti.nde nacht
+Handelingen 27:27 | in de Adri.tische ze.
+Handelingen 27:28 | twintig vademen
+Handelingen 27:28 | vijfti.n vademen
+Handelingen 27:29 | wi.rpen zij vi.r ankers van het achterschip u.t, en wensten, dat het dag werd
+Handelingen 27:33 | verma.nde Pa.lus hen allen, dat zij zo.den spijze nemen
+Handelingen 27:34 | ni.mand van u zal e.n ha.r van het ho.fd vallen
+Handelingen 27:35 | dankte hij God in aller tegenwo.rdighe.d
+Handelingen 27:37 | twe.honderd zes en zeventig
+Handelingen 27:39 | e.n zekeren inham
+Handelingen 27:41 | het achterschip brak van het geweld der baren
+Handelingen 27:42 | dat zij de gevangenen zo.den doden
+Handelingen 27:43 | de ho.fdman, wille(nde)? Pa.lus beho.den, belette hun dat vo.rnemen
+Handelingen 27:43 | di. zwemmen konden
+Handelingen 27:44 | sommigen op planken, en sommigen op enige stukken van het schip
+# stap 6
+Handelingen 28:1 | het e.land Melite he.tte
+Handelingen 28:2 | ge.n gemene vri.ndelijkhe.d; want e.n gro.t vu.r ontstoken hebbende
+Handelingen 28:2 | om den regen, di. overkwam, en om de ko.de
+Handelingen 28:3 | e.n ho.p rijzen bije.ngera.pt en op het vu.r gelegd had, kwam er e.n adder u.t do.r de hitte, en vatte zijn hand
+Handelingen 28:4 | Deze mens is gewisselijk e.n do.dslager, welken de wra.k ni.t la.t leven
+Handelingen 28:5 | schudde het be.st af in het vu.r, en le.d ni.ts kwa.ds
+Handelingen 28:6 | ze.den, dat hij e.n god was
+Handelingen 28:7 | de vo.rna.mste van het e.land, met name Publi.s
+Handelingen 28:7 | dri. dagen vri.ndelijk herbergde
+Handelingen 28:8 | de vader van Publi.s, met ko.rtsen
+Handelingen 28:8 | als hij gebeden had, legde hij de handen op hem, en ma.kte hem gezond
+Handelingen 28:9 | de anderen, di. krankheden hadden in het e.land, en werden genezen
+Markus 16:18 | Slangen zullen zij opnemen
+Markus 16:18 | dat zal hun ni.t schaden
+Markus 16:17 | di. gelo.fd zullen hebben
+# stap 7
+Handelingen 28:11 | na dri. ma.nden vo.ren wij af in e.n schip van Alexandri., dat in het e.land overwinterd had, hebbende tot e.n teken, Kastor en Pollux
+Handelingen 28:12 | te Syrakuse a.ngekomen waren, bleven wij alda.r dri. dagen
+Handelingen 28:13 | kwamen a.n te Regi.m
+Handelingen 28:13 | de wind zu.d werd, kwamen wij den twe.den dag te Pute.li
+Handelingen 28:14 | bro.ders vonden, en werden gebeden, zeven dagen bij hen te blijven; en alzo gingen wij na.r Rome
+Handelingen 28:15 | kwamen de bro.ders, van onze zaken geho.rd hebbende, ons tegemo.t tot Appi.smarkt, en de dri. tabernen
+Handelingen 28:15 | dankte hij God en gre.p mo.d
+# stap 8
+Handelingen 28:16 | a.n Pa.lus werd to.gelaten op zichzelven te wonen met den krijgsknecht, di. hem bewa.rde
+Handelingen 28:17 | na dri. dagen dat Pa.lus samenri.p degenen, di. de vo.rna.msten der Joden waren
+Handelingen 28:20 | vanwege de hope Isra.ls ben ik met deze keten omvangen
+Handelingen 28:23 | het Koninkrijk Gods u.tlegde
+Handelingen 28:23 | u.t de wet van Mozes en de profeten, van des morgens vro.g tot den avond to.
+Handelingen 28:24 | sommigen gelo.fden wel, hetge.n gezegd werd, ma.r sommigen gelo.fden ni.t
+Handelingen 28:25 | Jesaja, den profe.t
+Handelingen 28:28 | de zalighe.d Gods den he.denen gezonden is, en dezelve zullen horen
+Handelingen 28:30 | Pa.lus ble.f twe. gehele jaren in zijn e.gen gehu.rde woning; en ontving allen, di. tot hem kwamen
+Handelingen 28:31 | Predikende het Koninkrijk Gods
+Handelingen 28:31 | met alle vrijmo.dighe.d, onverhinderd
+Filippenzen 1:13 | mijn banden in Christus openba.r geworden zijn in het ganse rechthu.s
+# quiz nt-paulusrome
+Handelingen 21:11 | gordel
+Handelingen 21:40 | Hebre..wse
+Handelingen 23:16 | zo.n van Pa.lus.{1,2}zuster
+Handelingen 23:23 | zeventig ru.ters
+Handelingen 25:11 | bero.p mij op den ke.zer
+Handelingen 27:37 | twe.honderd zes en zeventig
+Handelingen 28:3 | adder
+Handelingen 28:30 | twe. gehele jaren
+# ===== Openbaring: boek en deel =====
+Openbaring 1:1 | Zijn di.nstknecht Johannes
+Openbaring 1:9 | uw bro.der ben, en medegeno.t in de verdrukking
+Openbaring 1:9 | om het Wo.rd Gods, en om de getu.genis van Jezus Christus
+Openbaring 1:13 | E.n, den Zo.n des mensen gelijk
+Openbaring 1:16 | zeven sterren in Zijn rechterhand
+Openbaring 1:17 | Ik ben de E.rste en de La.tste
+Openbaring 1:18 | Di. le.f, en Ik ben do.d gewe.st; en zi., Ik ben levend in alle e..wighe.d
+Openbaring 2:13 | Antipas, Mijn getro.we getu.ge was, welke gedo.d is bij uli.den
+Openbaring 1:20 | De zeven sterren zijn de engelen der zeven Geme.nten; en de zeven kandelaren, di. gij gezi.n hebt, zijn de zeven Geme.nten
+Openbaring 5:1 | verzegeld met zeven zegelen
+Daniel 7:9 | het ha.r Zijns ho.fds als zu.vere wol
+Daniel 7:9 | kle.d wit was als de sne..w
+Openbaring 1:14 | witte wol, gelijk sne..w
+Daniel 7:13 | E.n met de wolken des hemels, als e.ns mensen zo.n
+Handelingen 19:10 | twe. jaren lang, alzo dat allen, di. in Azi. wo.nden, het Wo.rd van den He.re Jezus ho.rden
+Kolossenzen 4:13 | La.dice.
+Kolossenzen 4:16 | in de geme.nte der La.dicensen gelezen worde
+# Patmos
+Openbaring 1:10 | ik was in den ge.st op den dag des He.ren
+Openbaring 1:10 | e.n grote stem, als van e.n bazu.n
+Openbaring 1:11 | schrijf dat in e.n bo.k, en zend het a.n de zeven Geme.nten, di. in Azi. zijn
+Openbaring 1:11 | Efeze, en na.r Smyrna, en na.r Pergamus, en na.r Thyatire, en na.r Sardis, en na.r Filadelfi., en na.r La.dice.
+Openbaring 1:12 | zeven go.den kandelaren
+Openbaring 1:14 | Zijn ogen gelijk e.n vlam vu.rs
+Openbaring 1:16 | Zijn a.ngezicht was, gelijk de zon schijnt in ha.r kracht
+Openbaring 1:17 | vi.l ik als do.d a.n Zijn vo.ten; en Hij le(i|g)de Zijn rechterhand op mij
+Openbaring 1:17 | Vre.s ni.t; Ik ben de E.rste en de La.tste
+Handelingen 20:7 | op den e.rsten dag der we.k, als de discipelen bije.ngekomen waren
+# Efeze
+Openbaring 2:1 | Efeze: Dit zegt Hij, Di. de zeven sterren in Zijn rechter hand ho.dt
+Openbaring 2:2 | Ik we.t uw werken, en uw arbe.d, en uw lijdza.mhe.d
+Openbaring 2:2 | u.tgeven, dat zij apostelen zijn, en zij zijn het ni.t; en hebt ze le.gena.rs bevonden
+Openbaring 2:3 | om Mijns Na.ms wil ge.rbe.d, en zijt ni.t mo.de geworden
+Openbaring 2:4 | Ma.r Ik heb tegen u, dat gij uw e.rste li.fde hebt verlaten
+Openbaring 2:5 | Gedenk dan, wa.rvan gij u.tgevallen zijt, en beke.r u, en do. de e.rste werken
+Openbaring 2:5 | uw kandela.r van zijn pla.ts weren
+Openbaring 2:7 | te eten van den bo.m des levens, di. in het midden van het paradijs Gods is
+# Smyrna
+Openbaring 2:8 | Smyrna: Dit zegt de E.rste en de La.tste, Di. do.d gewe.st is, en weder levend is geworden
+Openbaring 2:9 | Ik we.t uw werken, en verdrukking, en armo.de \( ?doch gij zijt rijk\)
+Openbaring 2:10 | de du.vel zal enigen van uli.den in de gevangenis werpen
+Openbaring 2:10 | e.n verdrukking hebben van ti.n dagen
+Openbaring 2:10 | Zijt getro.w tot den do.d, en Ik zal u geven de kro.n des levens
+Openbaring 2:11 | zal van den twe.den do.d ni.t beschadigd worden
+# Pergamum
+Openbaring 2:12 | Pergamus is: Dit zegt Hij, Di. het twe.snijdend scherp zwa.rd he.ft
+Openbaring 2:13 | Ik we.t uw werken, en wa.r gij wo.nt; namelijk da.r de tro.n des satans is
+Openbaring 2:13 | gij ho.dt Mijn Na.m
+Openbaring 2:14 | de lering van Bala.m ho.den, di. Balak le.rde
+Openbaring 2:15 | Nikola..ten
+Openbaring 2:16 | Beke.r u
+Openbaring 2:16 | met het zwa.rd Mijns monds
+Openbaring 2:17 | het manna, dat verborgen is
+Openbaring 2:17 | e.n witten ke.rste.n, en op den ke.rste.n e.n ni..wen na.m geschreven
+Numeri 22:5 | Bile.m
+Numeri 31:16 | Bile.m
+# Thyatira
+Openbaring 2:18 | Thyatire: Dit zegt de Zo.n van God, Di. Zijn ogen he.ft als e.n vlam vu.rs, en Zijn vo.ten zijn blinkend koper gelijk
+Openbaring 2:19 | Ik we.t uw werken, en li.fde, en di.nst, en gelo.f, en uw lijdza.mhe.d
+Openbaring 2:19 | de la.tste me.r zijn dan de e.rste
+Openbaring 2:20 | de vro.w Jezabel, di. zich ?zelve zegt e.n profetes te zijn
+Openbaring 2:20 | ho.reren en afgodenoffer eten
+Openbaring 2:26 | di. Mijn werken tot het e.nde to. bewa.rt, Ik zal hem macht geven over de he.denen
+Openbaring 2:28 | En Ik zal hem de morgenster geven
+# Sardis
+Openbaring 3:1 | Sardis is: Dit zegt, Di. de zeven ge.sten Gods he.ft, en de zeven sterren
+Openbaring 3:1 | Ik we.t uw werken, dat gij den na.m hebt, dat gij le.ft, en gij zijt do.d
+Openbaring 3:2 | Zijt wakende, en versterk het overige
+Openbaring 3:3 | zo zal Ik over u komen als e.n di.f
+Openbaring 3:4 | enige we.nige namen o.k te Sardis, di. hun klederen ni.t bevlekt hebben
+Openbaring 3:4 | met Mij wandelen in witte klederen
+Openbaring 3:5 | Ik zal zijn na.m ge.nszins u.tdo.n u.t het bo.k des levens
+# Filadelfia
+Openbaring 3:7 | Filadelfi. is: Dit zegt de He.lige, de Wa.rachtige, Di. den sle.tel Davids he.ft
+Openbaring 3:8 | Ik heb e.n ge.pende de.r vo.r u gegeven, en ni.mand kan di. slu.ten
+Openbaring 3:8 | gij hebt kle.ne kracht, en gij hebt Mijn wo.rd bewa.rd, en hebt Mijn Na.m ni.t verlo.chend
+Openbaring 3:10 | zo zal Ik o.k u bewaren u.t de ure der verzo.king, di. over de gehele wereld komen zal
+Openbaring 3:11 | Zi., Ik kom ha.stelijk; ho.d dat gij hebt, opdat ni.mand uw kro.n neme
+Openbaring 3:12 | Ik zal hem maken tot e.n pila.r in den tempel Mijns Gods
+Openbaring 3:12 | des ni..wen Jeruzalems
+# Laodicea
+Openbaring 3:14 | La.dicensen: Dit zegt de Amen, de tro.we, en wa.rachtige Getu.ge
+Openbaring 3:15 | Ik we.t uw werken, dat gij noch ko.d zijt, noch he.t
+Openbaring 3:16 | omdat gij la.w zijt
+Openbaring 3:16 | Ik zal u u.t Mijn mond spuwen
+Openbaring 3:17 | Ik ben rijk, en verrijkt geworden, en heb ge.ns dings gebrek
+Openbaring 3:17 | ellendig, en jammerlijk, en arm, en blind, en na.kt
+Openbaring 3:18 | go.d, bepro.fd komende u.t het vu.r
+Openbaring 3:18 | witte klederen
+Openbaring 3:18 | ogenzalf
+Openbaring 3:19 | Zo wi. Ik li.fheb, di. bestraf en kastijd Ik; we.s dan ijverig, en beke.r u
+Openbaring 3:20 | Zi., Ik sta a.n de de.r, en Ik klop; indi.n i.mand Mijn stem zal horen, en de de.r opendo.n, Ik zal tot hem inkomen
+# quiz Openbaring (deel)
+Openbaring 1:9 | om het Wo.rd Gods
+Openbaring 1:20 | zeven kandelaren.*zijn de zeven Geme.nten
+Openbaring 1:16 | zeven sterren
+Openbaring 2:4 | e.rste li.fde
+Openbaring 2:10 | Zijt getro.w tot den do.d
+Openbaring 2:13 | Antipas
+Openbaring 3:15 | noch ko.d zijt, noch he.t
+# ===== Plaatsen (nt-4) =====
+Handelingen 20:15 | Milete
+Handelingen 20:17 | o.derlingen der Geme.nte
+Handelingen 21:1 | Kos
+Handelingen 21:1 | Rhodus
+Handelingen 21:1 | Patara
+Handelingen 21:2 | Fenici.
+Handelingen 21:7 | Ptolema.s
+Handelingen 21:7 | e.n dag
+Richteren 1:31 | Acco
+Openbaring 2:8 | Smyrna
+Openbaring 2:13 | tro.n des satans
+Openbaring 3:7 | Filadelfi.
+Openbaring 3:8 | ge.pende de.r
+Openbaring 3:14 | La.dicensen
+Openbaring 3:1 | gij zijt do.d
+# ===== Geschiedenissen 134–150 =====
+# 134
+Handelingen 2:1 | Pinkster
+Handelingen 2:9 | Parthers.*Mesopotami.
+Handelingen 2:10 | Egypte, en de delen van Libye
+Handelingen 2:10 | Rome.nen
+Handelingen 2:10 | Joden en Jodengenoten
+Handelingen 2:11 | Kretenzen en Arabi.ren
+Handelingen 2:12 | Wat wil toch dit zijn
+Handelingen 2:13 | spottende
+Handelingen 2:16 | Jo.l
+Handelingen 2:17 | u.tstorten van Mijn Ge.st
+Johannes 14:16 | e.n anderen Tro.ster
+Johannes 14:17 | den Ge.st der wa.rhe.d
+Joel 2:28 | Mijn Ge.st zal u.tgi.ten over alle vle.s
+Leviticus 23:16 | vijftig dagen
+Handelingen 2:2 | geweldigen, gedreven wind
+Handelingen 2:3 | tongen als van vu.r
+Handelingen 1:8 | kracht des He.ligen Ge.stes
+# 135
+Handelingen 2:14 | met de elven
+Handelingen 2:22 | Jezus den Nazarener
+Handelingen 2:22 | krachten, en wonderen, en tekenen
+Handelingen 2:23 | do.r de handen der onrechtva.rdigen a.n het kru.s gehecht
+Handelingen 2:24 | Welken God opgewekt he.ft
+Handelingen 2:25 | David zegt van Hem
+Handelingen 2:33 | do.r de rechter hand Gods verho.gd
+Handelingen 2:33 | he.ft dit u.tgestort
+Handelingen 2:39 | u komt de belofte to., en uw kinderen, en allen, di. da.r verre zijn, zo velen als er de He.re, onze God, to. ro.pen zal
+Handelingen 2:29 | dat hij be.de gestorven en begraven is
+Lukas 22:61 | dri.ma.l verlo.chenen
+Lukas 22:62 | we.nde bitterlijk
+Psalm 16:10 | Gij zult ni.t to.laten, dat Uw He.lige de verderving zi.
+Psalm 110:1 | Zit a.n Mijn rechterhand
+Joel 2:32 | al wi. den Na.m des HE.REN zal a.nro.pen, zal beho.den worden
+Handelingen 2:27 | Uw He.lige
+Handelingen 2:34 | Zit a.n Mijn rechter hand
+# 136
+Handelingen 3:11 | Salomo.?s vo.rhof
+Handelingen 5:12 | vo.rhof van Salomo
+Handelingen 3:12 | alsof wij do.r onze e.gen kracht of godzalighe.d dezen hadden do.n wandelen
+Handelingen 3:16 | do.r het gelo.f in Zijn Na.m
+Handelingen 4:11 | Deze is de Ste.n, Di. van u, de bo.wli.den, veracht is
+Handelingen 4:13 | de vrijmo.dighe.d van Petrus en Johannes
+Handelingen 4:14 | den mens bij hen sta.n, di. genezen was
+Handelingen 5:20 | al de wo.rden dezes levens
+Handelingen 5:21 | tegen den morgenstond in den tempel, en le.rden
+Psalm 118:22 | De ste.n, di.n de bo.wli.den verworpen hadden, is tot e.n ho.fd des ho.ks geworden
+# 137
+Handelingen 4:32 | e.n hart en e.n zi.l
+Handelingen 4:37 | akker
+Handelingen 5:6 | de jongelingen, opsta.nde
+Handelingen 5:6 | begro.ven hem
+Handelingen 5:7 | ni.t wetende, wat er geschi.d was
+Handelingen 5:2 | legde dat a.n de vo.ten der apostelen
+Galaten 6:7 | God la.t Zich ni.t bespotten; want zo wat de mens za..t, dat zal hij o.k ma...n
+Jozua 7:21 | verborgen in de a.rde, in het midden mijner tent
+Spreuken 12:22 | Valse lippen zijn den HE.RE e.n gruwel; ma.r di. tro.welijk handelen, zijn Zijn welgevallen
+# 138
+Handelingen 6:3 | zeven mannen
+Handelingen 6:9 | twistten met Stefanus
+Handelingen 6:11 | lasterlijke wo.rden tegen Mozes en God
+Handelingen 6:13 | tegen deze he.lige pla.ts en de wet
+Handelingen 7:9 | Jozef
+Handelingen 7:20 | Mozes
+Handelingen 7:45 | David
+Handelingen 8:2 | godvruchtige mannen dro.gen Stefanus te zamen ten grave en ma.kten groten ro.w over hem
+Handelingen 6:1 | weduwen in de dagelijkse bedi.ning verzu.md
+Handelingen 7:55 | he.rlijkhe.d Gods, en Jezus, sta.nde ter rechter hand Gods
+Lukas 23:46 | Vader, in Uw handen beve.l Ik Mijn ge.st
+Lukas 22:69 | Van nu a.n zal de Zo.n des mensen gezeten zijn a.n de rechter hand der kracht Gods
+Mattheus 5:44 | bidt vo.r degenen, di. u geweld do.n, en di. u vervolgen
+Mattheus 5:44 | Hebt uw vijanden li.f
+Handelingen 22:20 | to.n het blo.d van Stefanus, Uw getu.ge, vergoten werd, dat ik da.r o.k bij stond
+Handelingen 22:20 | de klederen bewa.rde
+# 139
+Handelingen 8:6 | de tekenen, di. hij de.d
+Handelingen 8:12 | werden zij gedo.pt, be.den, mannen en vro.wen
+Handelingen 8:19 | Ge.ft o.k mij deze macht
+Handelingen 8:26 | e.n engel des He.ren sprak tot Filippus
+Handelingen 8:18 | geld
+Handelingen 8:30 | den profe.t Jesaja lezen
+Psalm 68:32 | Morenland zal zich ha.sten zijn handen tot God u.t te strekken
+Handelingen 21:8 | Cesare..*Filippus
+# 140
+Handelingen 9:33 | gera.kt
+Handelingen 9:38 | biddende, dat hij ni.t zo. verto.ven tot hen over te komen
+Handelingen 9:39 | als zij bij ha.r was
+Handelingen 9:40 | zat zij over e.nde
+Markus 5:41 | Talitha kumi
+Markus 5:37 | Petrus
+1 Koningen 17:22 | de HE.RE verho.rde de stem van Eli.; en de zi.l van het kind kwam weder in hem
+Mattheus 25:40 | Vo.r zove.l gij dit e.n van deze Mijn minste bro.ders geda.n hebt, zo hebt gij dat Mij geda.n
+Jakobus 1:27 | wezen en weduwen bezo.ken in hun verdrukking
+# 141
+Handelingen 10:19 | ze.de de Ge.st tot hem: Zi., dri. mannen zo.ken u
+Handelingen 10:20 | re.s met hen
+Handelingen 10:28 | e.n Jo.dsen man onge..rlo.fd is, zich te vo.gen of te ga.n tot e.n vre.mde
+Handelingen 10:47 | gedo.pt
+Handelingen 11:2 | twistten tegen hem
+Handelingen 15:9 | gere.nigd hebbende hun harten do.r het gelo.f
+Handelingen 15:7 | de he.denen do.r mijn mond het wo.rd des Evangeli.s zo.den horen
+Handelingen 15:9 | ge.n ondersche.d gema.kt tussen ons en hen
+Genesis 12:3 | in u zullen alle geslachten des a.rdrijks gezegend worden
+# 142
+Handelingen 12:9 | me.nde, dat hij e.n gezicht zag
+Handelingen 12:11 | Nu we.t ik wa.rachtiglijk dat de He.re Zijn engel u.tgezonden he.ft
+Handelingen 12:15 | Gij ra.st
+Handelingen 12:15 | Het is zijn engel
+Handelingen 12:16 | Petrus ble.f kloppende
+Handelingen 12:21 | de.d e.n rede tot hen
+Psalm 34:8 | De Engel des HE.REN legert Zich rondom degenen, di. Hem vrezen, en rukt hen u.t
+Jakobus 5:16 | e.n krachtig gebed des rechtva.rdigen vermag ve.l
+Mattheus 20:23 | Mijn drinkbeker zult gij wel drinken
+Hebreeen 1:14 | gedi.nstige ge.sten, di. tot di.nst u.tgezonden worden
+# 143
+Handelingen 8:3 | Sa.lus verwo.stte de Geme.nte, ga.nde in de hu.zen; en trekkende mannen en vro.wen, leverde hen over in de gevangenis
+Handelingen 8:1 | Sa.lus had mede e.n welbehagen a.n zijn do.d
+Handelingen 9:6 | Sta op, en ga in de stad
+Handelingen 9:13 | Anani.s antwo.rdde
+Handelingen 9:15 | Ga he.n
+Handelingen 9:17 | de handen op hem leggende
+Galaten 1:15 | do.r Zijn genade
+Galaten 1:13 | de Geme.nte Gods vervolgde
+Filippenzen 3:5 | na.r de wet e.n Farize.r
+Filippenzen 3:6 | Na.r den ijver e.n vervolger der Geme.nte
+1 Timotheus 1:13 | mij is barmhartighe.d geschi.d
+Handelingen 22:7 | Sa.l, Sa.l, wat vervolgt gij Mij
+# 144
+Handelingen 9:27 | Barnabas
+Handelingen 11:26 | Anti.chi. Christenen
+Handelingen 13:6 | Pafos
+Handelingen 13:23 | Zaligmaker Jezus
+Handelingen 14:13 | wilde hij offeren
+Handelingen 14:21 | ke.rden zij weder
+Handelingen 14:22 | Versterkende de zi.len der discipelen
+Handelingen 14:23 | o.derlingen verkoren
+Handelingen 14:27 | den he.denen de de.r des gelo.fs ge.pend had
+Handelingen 14:14 | sche.rden hun klederen
+# 145
+Handelingen 16:1 | Lystre
+Handelingen 16:6 | Azi.
+Handelingen 16:7 | Bithyni.
+Handelingen 16:10 | beslu.tende da.ru.t, dat ons de He.re gero.pen had, om denzelven het Evangeli. te verkondigen
+Handelingen 16:11 | Ne.polis
+Handelingen 16:24 | verzekerde hun vo.ten in de stok
+Handelingen 16:34 | verhe.gde zich, dat hij met al zijn hu.s a.n God gelovig geworden was
+Romeinen 10:14 | ho. zullen zij horen, zonder di. hun predikt
+Romeinen 10:15 | ho. zullen zij prediken, indi.n zij ni.t gezonden worden
+Mattheus 28:19 | Ga.t dan henen, onderwijst al de volken
+Filippenzen 1:3 | Ik dank mijn God
+Handelingen 15:40 | Silas
+Handelingen 16:9 | Kom over in Macedoni., en help ons
+Handelingen 16:14 | purperverko.pster
+# 146
+Handelingen 21:3 | Tyrus
+Handelingen 21:8 | Cesare.
+Handelingen 21:13 | o.k te sterven te Jeruzalem vo.r den Na.m van den He.re Jezus
+Handelingen 21:31 | hem zochten te doden
+Handelingen 21:32 | krijgsknechten
+Handelingen 22:4 | Di. dezen weg vervolgd heb tot den do.d
+Handelingen 23:6 | ho.p en opstanding der doden
+Handelingen 23:7 | twe.dracht
+Handelingen 23:11 | alzo mo.t gij o.k te Rome getu.gen
+Handelingen 23:23 | twe.honderd krijgsknechten
+Handelingen 20:24 | ik acht op ge.n ding, noch ho.de mijn leven di.rba.r vo.r mijzelven
+Handelingen 9:16 | Ik zal hem tonen, ho.ve.l hij lijden mo.t om Mijn Na.m
+Handelingen 21:9 | vi.r dochters
+Handelingen 21:29 | Trofimus, den Efezi.r
+Handelingen 22:28 | ik ben o.k e.n burger geboren
+Handelingen 23:13 | me.r dan ve.rtig
+Handelingen 9:15 | u.tverkoren vat
+Handelingen 20:22 | ni.t wetende, wat mij da.r ontmo.ten zal
+Filippenzen 3:5 | e.n Hebre.r u.t de Hebre.n, na.r de wet e.n Farize.r
+# 147
+Handelingen 25:11 | Ik bero.p mij op den ke.zer
+Handelingen 27:1 | Juli.s
+Handelingen 27:5 | Myra
+Handelingen 27:8 | Schonehavens
+Handelingen 27:10 | grote schade
+Handelingen 27:11 | Doch de ho.fdman gelo.fde me.r den stu.rman
+Handelingen 27:15 | dreven he.n
+Handelingen 27:18 | deden zij den volgende dag e.n u.tworp
+Handelingen 27:19 | wi.rpen wij met onze e.gen handen het sche.psgere.dschap u.t
+Handelingen 27:22 | er zal ge.n verli.s geschi.den van i.mands leven onder u, ma.r alle.n van het schip
+Handelingen 27:25 | ik gelo.f Gode, dat het alzo zijn zal, gelijkerwijs het mij gezegd is
+Handelingen 27:27 | ve.rti.nde nacht
+Handelingen 27:35 | dankte hij God
+Handelingen 27:41 | e.n pla.ts, di. de ze. a.n be.de zijden had
+Handelingen 27:41 | achterschip brak
+Handelingen 27:43 | di. zwemmen konden
+Handelingen 27:44 | sommigen op planken
+Handelingen 27:44 | zij allen beho.den a.n het land gekomen zijn
+Handelingen 27:14 | E.roklydon
+Handelingen 27:23 | e.n engel Gods
+Handelingen 27:24 | Vre.s ni.t, Pa.lus
+Handelingen 27:29 | vi.r ankers
+Psalm 107:29 | Hij do.t den? storm stilsta.n, zodat hun golven stilzwijgen
+Psalm 107:30 | Hij hen tot de haven hunner bege.rte gele.d he.ft
+Jona 1:4 | e.n grote storm in de ze.
+Markus 4:39 | Zwijg, we.s stil
+2 Korinthe 11:25 | dri.ma.l heb ik schipbre.k geleden
+# 148
+Handelingen 28:1 | Melite
+Handelingen 28:3 | adder
+Handelingen 28:4 | do.dslager
+Handelingen 28:5 | le.d ni.ts kwa.ds
+Handelingen 28:6 | e.n god was
+Handelingen 28:7 | Publi.s
+Handelingen 28:8 | ma.kte hem gezond
+Handelingen 28:9 | werden genezen
+Handelingen 28:11 | na dri. ma.nden
+Handelingen 28:12 | Syrakuse
+Handelingen 28:13 | Regi.m
+Handelingen 28:13 | Pute.li
+Handelingen 28:14 | gingen wij na.r Rome
+Handelingen 28:15 | dankte hij God en gre.p mo.d
+Handelingen 28:16 | met den krijgsknecht
+Handelingen 28:30 | twe. gehele jaren in zijn e.gen gehu.rde woning
+Handelingen 28:31 | Predikende het Koninkrijk Gods, en lerende van den He.re Jezus Christus met alle vrijmo.dighe.d, onverhinderd
+Handelingen 28:2 | om den regen, di. overkwam, en om de ko.de
+Handelingen 28:6 | ze.den, dat hij e.n god was
+Handelingen 28:11 | Kastor en Pollux
+Handelingen 28:14 | zeven dagen
+Handelingen 28:15 | Appi.smarkt
+Filippenzen 1:12 | me.r tot bevordering van het Evangeli. gekomen is
+Romeinen 1:15 | di. te Rome zijt
+# 149
+Openbaring 1:11 | zeven Geme.nten
+Openbaring 2:7 | Di. overwint
+Openbaring 4:1 | e.n de.r was ge.pend in den hemel
+Openbaring 4:2 | er was e.n tro.n gezet in den hemel, en er zat E.n op den tro.n
+Openbaring 4:4 | vi.r en twintig o.derlingen
+Openbaring 5:1 | zeven zegelen
+Openbaring 5:3 | ni.mand.*kon het bo.k openen
+Openbaring 5:5 | de Le..w, Di. u.t den stam van Juda is, de Wortel Davids, he.ft overwonnen, om het bo.k te openen
+Openbaring 5:6 | e.n Lam, sta.nde als geslacht
+Openbaring 5:9 | Gij zijt geslacht, en hebt ons Gode gekocht met Uw blo.d, u.t alle geslacht, en ta.l, en volk, en nati.
+Openbaring 12:9 | de grote dra.k is geworpen, namelijk de o.de slang, welke gena.md wordt du.vel en satanas
+Openbaring 20:11 | e.n groten witten tro.n
+Openbaring 20:12 | de doden werden ge..rde.ld u.t hetge.n in de bo.ken geschreven was, na.r hun werken
+Openbaring 20:12 | e.n ander bo.k werd ge.pend, dat des levens is
+Openbaring 1:1 | De openbaring van Jezus Christus, di. God hem gegeven he.ft
+Openbaring 4:5 | zeven vurige lampen waren brandende vo.r den tro.n, welke zijn de zeven ge.sten Gods
+Openbaring 5:8 | go.den fi.len, zijnde vol re.kwerks, welke zijn de gebeden der he.ligen
+Openbaring 17:1 | di. da.r zit op vele wateren
+Openbaring 17:15 | De wateren, di. gij gezi.n hebt, wa.r de ho.r zit, zijn volken, en scharen, en nati.n, en tongen
+Openbaring 19:8 | re.n en blinkend fijn lijnwa.d; want dit fijn lijnwa.d zijn de rechtva.rdigmakingen der he.ligen
+Daniel 7:13 | als e.ns mensen zo.n
+Genesis 49:9 | Juda is e.n le..wenwelp
+Johannes 1:29 | Zi. het Lam Gods, Dat de zonde der wereld wegne.mt
+Genesis 3:15 | datzelve zal u den? kop vermorzelen
+# 150
+Jesaja 11:1 | e.n Rijsje vo.rtkomen u.t den afgeho.wen tronk van Isa.
+Jesaja 11:2 | op Hem zal de Ge.st des HE.REN rusten
+Jesaja 11:4 | Hij zal de armen met gerechtighe.d richten
+Jesaja 11:6 | de wolf zal met het lam verkeren
+Jesaja 11:6 | e.n kle.n jongske zal ze drijven
+Jesaja 11:9 | Men zal nergens le.d do.n noch verderven op den gansen berg Mijner he.lighe.d
+Jesaja 11:9 | de a.rde zal vol van kennis des HE.REN zijn
+Jesaja 11:10 | den Wortel van Isa.
+Openbaring 21:1 | e.n ni..wen hemel en e.n ni..we a.rde
+Openbaring 21:2 | het ni..we Jeruzalem, nederdalende van God u.t den hemel
+Openbaring 21:3 | de tabernakel Gods is bij de mensen
+Openbaring 21:4 | God zal alle tranen van hun ogen afwissen; en de do.d zal ni.t me.r zijn; noch ro.w, noch gekrijt, noch mo..te zal me.r zijn
+Openbaring 21:5 | Zi.t, Ik ma.k alle dingen ni..w
+Openbaring 21:12 | twa.lf po.rten
+Openbaring 21:21 | de twa.lf po.rten waren twa.lf pa.rlen, e.n i.dere po.rt was elk u.t e.n pa.rl
+Openbaring 21:22 | ik zag ge.n tempel in dezelve; want de He.re, de almachtige God, is ha.r Tempel, en het Lam
+Openbaring 21:25 | alda.r zal ge.n nacht zijn
+Openbaring 22:1 | water des levens
+Openbaring 22:2 | op de ene en de andere zijde der rivi.r was de bo.m des levens
+Openbaring 22:3 | ge.n vervlo.king zal er me.r tegen i.mand zijn
+Openbaring 21:27 | in ha.r zal ni.t inkomen i.ts, dat ontre.nigt
+Openbaring 21:27 | di. geschreven zijn in het bo.k des levens des Lams
+Openbaring 22:15 | di. de le.gen li.fhe.ft
+Openbaring 22:20 | Ja, kom, He.re Jezus
+Openbaring 22:16 | Ik, Jezus.*Ik ben de Wortel en het geslacht Davids
+Genesis 3:17 | zo zij het a.rdrijk om uwentwil vervlo.kt
+Genesis 3:24 | cherubim
+Genesis 3:24 | om te bewaren den weg van den bo.m des levens
+Genesis 3:22 | bo.m des levens
+Jesaja 65:17 | Ik schep ni..we hemelen en e.n ni..we a.rde
+Romeinen 15:12 | Er zal zijn de wortel van Jessa.
+Romeinen 15:12 | op Hem zullen de he.denen hopen
+Mattheus 3:16 | den Ge.st Gods nederdalen
+Jesaja 1:1 | Uzzi..*Hizki.
+# ===== Kernwoorden =====
+Handelingen 5:3 | den He.ligen Ge.st li.gen
+Handelingen 5:4 | Gij hebt den mensen ni.t gelogen, ma.r Gode
+Johannes 16:8 | de wereld overtu.gen van zonde
+Johannes 16:13 | Hij zal u in al de wa.rhe.d le.den
+1 Korinthe 12:3 | ni.mand kan zeggen, Jezus den He.re te zijn, dan do.r den He.ligen Ge.st
+Handelingen 2:4 | Zij werden allen vervuld met den He.ligen Ge.st
+Galaten 5:22 | de vrucht des Ge.stes is li.fde, blijdschap, vrede, lankmo.dighe.d, go.derti.renhe.d, go.dhe.d, gelo.f, zachtmo.dighe.d, matighe.d
+Mattheus 28:19 | des Vaders, en des Zo.ns, en des He.ligen Ge.stes
+Psalm 32:1 | Welgelukzalig is hij, wi.ns overtreding vergeven, wi.ns zonde bedekt is
+Mattheus 6:12 | En verge.f ons onze schulden, gelijk o.k wij vergeven onzen schuldenaren
+1 Johannes 1:9 | Indi.n wij onze zonden belijden, Hij is getro.w en rechtva.rdig, dat Hij ons de zonden vergeve
+Efeze 4:32 | vergevende elkander, gelijkerwijs o.k God in Christus uli.den vergeven he.ft
+Markus 10:45 | ni.t gekomen,? om gedi.nd te worden, ma.r om te di.nen, en Zijn zi.l te geven tot e.n rantso.n vo.r velen
+Handelingen 6:2 | de tafelen di.nen
+Galaten 5:13 | di.nt elkander do.r de li.fde
+1 Petrus 4:10 | gelijk hij gave ontvangen he.ft, alzo bedi.ne hij dezelve a.n de anderen
+Ezechiel 33:11 | Beke.rt u, beke.rt u van uw boze wegen, want wa.rom zo.dt gij sterven
+Lukas 15:7 | blijdschap zal zijn in den hemel over e.n zonda.r, di. zich beke.rt
+Handelingen 3:19 | Betert u dan, en beke.rt u, opdat uw zonden mogen u.tgewist worden
+Handelingen 11:18 | den he.denen de bekering gegeven ten leven
+Handelingen 1:8 | gij zult Mijn getu.gen zijn
+Handelingen 13:2 | Zondert Mij af be.den Barnabas en Sa.lus
+Handelingen 13:3 | vastten en baden zij
+Romeinen 10:15 | indi.n zij ni.t gezonden worden
+Deuteronomium 29:29 | De verborgene dingen zijn vo.r den HE.RE, onzen God; ma.r de ge.penba.rde zijn vo.r ons en vo.r onze kinderen
+Daniel 2:28 | er is e.n God in den hemel, Di. verborgenheden openba.rt
+Hebreeen 1:1 | tot de vaderen gesproken hebbende do.r de profeten, he.ft in deze la.tste dagen tot ons gesproken do.r den Zo.n
+Openbaring 1:1 | De openbaring van Jezus Christus

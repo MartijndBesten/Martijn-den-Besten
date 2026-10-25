@@ -16,7 +16,7 @@ BOOKS = {}
 
 def slug(name):
     s = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower().replace(" ", "")
-    return {"psalm": "psalmen", "richters": "richteren", "deut": "deuteronomium", "1sam": "1samuel", "2sam": "2samuel", "1kon": "1koningen", "2kon": "2koningen", "1kron": "1kronieken", "2kron": "2kronieken", "marcus": "markus", "lucas": "lukas", "1korintiers": "1korinthe", "1kor": "1korinthe", "hebr": "hebreeen", "matth": "mattheus", "hand": "handelingen", "openb": "openbaring", "spr": "spreuken", "ezech": "ezechiel"}.get(s, s)
+    return {"psalm": "psalmen", "richters": "richteren", "deut": "deuteronomium", "1sam": "1samuel", "2sam": "2samuel", "1kon": "1koningen", "2kon": "2koningen", "1kron": "1kronieken", "2kron": "2kronieken", "marcus": "markus", "lucas": "lukas", "1korintiers": "1korinthe", "1kor": "1korinthe", "hebr": "hebreeen", "matth": "mattheus", "hand": "handelingen", "openb": "openbaring", "spr": "spreuken", "ezech": "ezechiel", "2korintiers": "2korinthe", "efeziers": "efeze", "1tessalonicenzen": "1thessalonicenzen", "2tessalonicenzen": "2thessalonicenzen", "zefanja": "sefanja"}.get(s, s)
 
 def book(name):
     s = slug(name)
@@ -42,6 +42,10 @@ def text(ref):
         raise ValueError(f"{ref}: vers buiten bereik (hoofdstuk heeft {len(verses)} verzen)")
     return " ".join(verses[a - 1 : z])
 
+def fold(x):
+    """Trema's en accenten tellen niet mee (Kaïn = Kain, zeeën = zeeen): het gaat om de woorden."""
+    return unicodedata.normalize("NFKD", x).encode("ascii", "ignore").decode()
+
 def main(path):
     bad = 0
     lines = [l for l in open(path, encoding="utf-8").read().splitlines() if l.strip() and not l.startswith("#")]
@@ -49,7 +53,7 @@ def main(path):
         try:
             ref, pat = [x.strip() for x in line.split("|", 1)]
             t = text(ref)
-            if not re.search(pat, t, re.I):
+            if not re.search(fold(pat), fold(t), re.I):
                 bad += 1
                 print(f"FAIL {ref} | {pat}\n     {t[:260]}")
         except Exception as e:  # noqa: BLE001

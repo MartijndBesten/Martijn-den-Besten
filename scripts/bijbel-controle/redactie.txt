@@ -1,0 +1,501 @@
+# Redactieronde 150 geschiedenissen (docs/bijbelreis-150/redactie.md).
+# Elke gewijzigde of nieuwe feitelijke claim of verwijzing, gecontroleerd tegen de Statenvertaling. Regel: verwijzing | regex.
+
+# ===== ot-1 (1–31) =====
+Genesis 3:19 | want gij zijt stof, en gij zult tot stof wederkeren
+Genesis 3:8 | verborg zich Adam.*in het midden van het geboomte
+Genesis 4:23 | ik sloeg wel een man dood
+Genesis 12:1 | Ga gij uit uw land, en uit uw maagschap, en uit uws vaders huis
+Genesis 12:10 | honger in dat land
+Genesis 12:13 | Gij zijt mijn zuster
+Genesis 13:10 | ganse vlakte der Jordaan, dat zij die geheel bevochtigde
+Genesis 13:8 | Laat toch geen twisting zijn tussen mij en tussen u
+Genesis 18:32 | Ik zal haar niet verderven om der tienen wil
+Genesis 19:16 | grepen dan die mannen zijn hand, en de hand zijner vrouw, en de hand zijner twee dochteren
+Genesis 19:33 | gaven dien nacht haar vader wijn te drinken
+Genesis 19:36 | twee dochters van Lot werden bevrucht van haar vader
+Genesis 15:5 | tel de sterren, indien gij ze tellen kunt
+Genesis 15:5 | Zo zal uw zaad zijn
+Genesis 17:15 | haar naam zal zijn Sara
+Genesis 21:16 | Dat ik het kind niet zie sterven
+Genesis 24:14 | Drink, en ik zal ook uw kemelen drenken
+Genesis 24:63 | om te bidden
+Genesis 25:27 | Jakob werd een oprecht man, wonende in tenten
+Genesis 27:1 | Izak oud geworden was, en zijn ogen donker geworden waren, en hij niet zien kon
+Genesis 27:16 | vellen van de geitenbokjes
+Genesis 29:30 | had ook Rachel liever dan Lea
+Genesis 29:31 | Lea gehaat was
+Genesis 29:31 | Rachel was onvruchtbaar
+Genesis 31:20 | niet te kennen gaf, dat hij vlood
+Genesis 31:55 | Laban.*zegende hen
+Genesis 32:25 | roerde hij het gewricht zijner heup aan
+Genesis 37:22 | Vergiet geen bloed
+Genesis 39:9 | hoe zoude ik dan dit een zo groot kwaad doen, en zondigen tegen God
+Genesis 41:16 | Het is buiten mij! God zal Farao’s welstand aanzeggen
+Genesis 42:21 | Voorwaar, wij zijn schuldig aan onzen broeder
+Genesis 44:33 | uw knecht voor dezen jongeling slaaf van mijn heer blijven
+Genesis 45:3 | Ik ben Jozef! leeft mijn vader nog
+Genesis 45:5 | God heeft mij voor uw aangezicht gezonden, tot behoudenis des levens
+Genesis 46:3 | vrees niet van af te trekken naar Egypte
+Exodus 1:15 | vroedvrouwen
+Exodus 2:14 | Wie heeft u tot een overste en rechter over ons gezet
+Exodus 2:22 | Ik ben een vreemdeling geworden in een vreemd land
+Exodus 4:10 | zwaar van mond
+Exodus 4:13 | zend toch door de hand desgenen, dien Gij zoudt zenden
+Exodus 4:14 | toorn des HEEREN.*Aaron
+Exodus 5:18 | stro zal u niet gegeven worden; evenwel zult gij het getal der tichelstenen leveren
+Exodus 6:5 | Ik zal ulieden uitleiden van onder de lasten der Egyptenaren
+Exodus 10:20 | de HEERE verstokte Farao’s hart
+Exodus 12:5 | een volkomen lam hebben, een manneken, een jaar oud
+Exodus 12:11 | het is des HEEREN pascha
+Exodus 12:30 | geen huis, waarin niet een dode was
+Exodus 14:16 | strek uw hand uit over de zee
+Exodus 14:22 | een muur, aan hun rechter hand en aan hun linkerhand
+Exodus 15:1 | het paard en zijn ruiter heeft Hij in de zee geworpen
+Exodus 16:16 | een gomer voor een hoofd
+Exodus 16:20 | wiesen er wormen in, en het werd stinkende
+Exodus 16:24 | het stonk niet, en er was geen worm in
+Exodus 19:8 | Al wat de HEERE gesproken heeft, zullen wij doen
+Exodus 32:4 | Dit zijn uw goden, Israel
+Exodus 32:19 | de reien zag.*tafelen uit zijn handen wierp, en dezelve beneden aan den berg verbrak
+Exodus 32:20 | deed het den kinderen Israels drinken
+Exodus 35:21 | wiens hart hem bewoog
+Exodus 38:1 | maakte ook het brandofferaltaar
+Exodus 38:8 | maakte ook het koperen wasvat
+
+# ===== ot-2 (32–64) =====
+Numeri 13:33 | wij waren als sprinkhanen in onze ogen
+Numeri 20:12 | tot Mozes en tot Aaron.*niet geloofd.*niet inbrengen in het land
+Numeri 21:5 | onze ziel walgt over dit zeer lichte brood
+Numeri 21:7 | Wij hebben gezondigd
+Richteren 6:11 | dorste tarwe bij de pers, om die te vluchten voor het aangezicht der Midianieten
+Richteren 14:3 | Is er geen vrouw onder de dochteren uwer broeders
+Richteren 14:3 | Neem mij die
+Richteren 16:10 | gij hebt met mij gespot, en leugenen tot mij gesproken
+Richteren 16:20 | de HEERE van hem geweken was
+Ruth 2:20 | een van onze lossers
+Ruth 4:5 | den naam des verstorvenen te verwekken over zijn erfdeel
+Ruth 3:13 | zal ik u lossen
+1 Samuel 1:6 | tergde haar
+1 Samuel 3:5 | liep tot Eli
+1 Samuel 4:3 | opdat zij ons verlosse
+1 Samuel 7:3 | doet de vreemde goden uit het midden van u weg
+1 Samuel 7:4 | dienden den HEERE alleen
+1 Samuel 6:7 | nieuwen wagen.*twee zogende koeien
+1 Samuel 9:2 | van zijn schouderen en opwaarts was hij hoger dan al het volk
+1 Samuel 10:22 | hij heeft zich tussen de vaten verstoken
+1 Samuel 13:13 | Gij hebt zottelijk gedaan
+1 Samuel 15:3 | verban alles, wat hij heeft
+1 Samuel 16:14 | een boze geest van den HEERE verschrikte hem
+1 Samuel 21:13 | maakte zichzelven gek
+1 Samuel 22:2 | omtrent vierhonderd man
+1 Samuel 28:3 | Saul had uit het land weggedaan de waarzeggers
+1 Samuel 28:8 | verstelde zich
+2 Samuel 3:1 | David ging en werd sterker
+2 Samuel 11:4 | liet haar halen.*lag hij bij haar
+2 Samuel 12:3 | een enig klein ooilam
+2 Samuel 18:5 | Handelt mij zachtkens met den jongeling, met Absalom
+2 Samuel 18:9 | zijn hoofd vast aan den eik
+2 Samuel 18:14 | nam drie pijlen, en stak ze in Absaloms hart
+2 Samuel 18:15 | tien jongens, wapendragers van Joab.*doodden hem
+1 Koningen 3:25 | Doorsnijdt dat levende kind in tweeen
+1 Koningen 3:26 | Geef haar dat levende kind, en dood het geenszins
+1 Koningen 10:1 | om hem met raadselen te verzoeken
+1 Koningen 9:6 | andere goden.*dienen
+1 Koningen 9:7 | dit huis.*van Mijn aangezicht wegwerpen
+1 Koningen 17:9 | weduwvrouw geboden, dat zij u onderhoude
+2 Koningen 5:12 | wendde hij zich, en toog weg met grimmigheid
+2 Koningen 5:13 | knechten.*Mijn vader
+2 Koningen 5:25 | Uw knecht is noch herwaarts noch derwaarts gegaan
+
+# ===== ot-3 (65–79) =====
+2 Koningen 11:2 | Joseba.*nam Joas
+2 Koningen 11:12 | klapten zij met de handen, en zeiden: De koning leve
+2 Koningen 12:9 | kist
+2 Koningen 12:18 | al het goud.*zond het tot Hazael
+2 Koningen 12:20 | knechten.*sloegen Joas
+2 Koningen 18:4 | verbrijzelde de koperen slang, die Mozes gemaakt had
+2 Koningen 19:14 | breidde die uit voor het aangezicht des HEEREN
+2 Koningen 19:35 | honderd vijf en tachtig duizend
+2 Koningen 20:11 | tien graden achterwaarts
+2 Koningen 20:13 | toonde hun zijn ganse schathuis
+2 Koningen 22:19 | uw hart week geworden is, en gij u voor het aangezicht des HEEREN vernederd hebt
+2 Koningen 23:3 | stond aan den pilaar, en maakte een verbond
+2 Koningen 23:15 | het altaar, dat te Beth-el was
+Jona 1:3 | kwam af te Jafo, en vond een schip, gaande naar Tarsis
+Jona 1:16 | vreesden de mannen den HEERE.*slachtten den HEERE slachtoffer
+Jona 1:17 | De HEERE nu beschikte een groten vis
+Jona 3:5 | geloofden aan God; en zij riepen een vasten uit, en bekleedden zich met zakken
+Jona 3:6 | zat neder in de as
+Jona 3:7 | Laat mens noch beest.*iets smaken.*noch water drinken
+Jona 4:11 | meer dan honderd en twintig duizend mensen
+Jeremia 39:5 | in de vlakke velden van Jericho
+Jeremia 39:6 | zonen van Zedekia.*voor zijn ogen
+Jeremia 39:7 | verblindde de ogen van Zedekia, en bond hem met twee koperen ketenen
+Jeremia 39:12 | doe hem niets kwaads
+Jeremia 39:18 | omdat gij op Mij vertrouwd hebt
+Jeremia 40:4 | ik heb u heden losgemaakt van de ketenen
+Jeremia 40:6 | kwam Jeremia tot Gedalia.*te Mizpa
+Jeremia 38:13 | trokken Jeremia bij de zelen, en haalden hem op uit de kuil
+2 Koningen 25:27 | zeven en dertigste jaar.*Jojachin
+2 Koningen 25:29 | at geduriglijk brood voor zijn aangezicht
+Daniel 1:8 | niet zou ontreinigen met de stukken van de spijs des konings
+Daniel 1:15 | Ten einde nu der tien dagen.*schoner.*vetter
+Daniel 2:18 | van den God des hemels barmhartigheden verzochten
+Daniel 2:28 | Er is een God in den hemel, Die verborgenheden openbaart
+Daniel 2:48 | heerser over het ganse landschap van Babel
+Daniel 3:17 | Onze God, Dien wij eren, is machtig ons te verlossen
+Daniel 3:18 | Maar zo niet.*uw goden niet zullen eren
+Daniel 3:28 | Die Zijn engel gezonden, en Zijn knechten verlost heeft
+Daniel 6:4 | overtrof deze Daniel.*stellen over het gehele koninkrijk
+Daniel 6:5 | geen gelegenheid noch misdaad vinden, dewijl hij getrouw was
+Daniel 6:18 | verzegelde denzelven met zijn ring
+Daniel 6:23 | Mijn God heeft Zijn engel gezonden, en Hij heeft den muil der leeuwen toegesloten
+Daniel 6:25 | hen, hun kinderen, en hun vrouwen
+Ezra 1:1 | eerste jaar nu van Kores.*uit den mond van Jeremia
+Ezra 2:64 | twee en veertig duizend driehonderd en zestig
+Ezra 3:2 | Jesua.*Zerubbabel.*bouwden het altaar
+Ezra 3:12 | weenden met luider stem
+Ezra 4:24 | tot in het tweede jaar van het koninkrijk van Darius
+Ezra 6:2 | Achmetha
+Ezra 6:15 | zesde jaar van het koninkrijk van den koning Darius
+Esther 2:7 | dochter zijns ooms.*geen vader noch moeder
+Esther 2:15 | genade.*in de ogen van allen, die haar zagen
+Esther 2:17 | zette de koninklijke kroon op haar hoofd
+Esther 3:7 | het Pur, dat is, het lot.*maand Adar
+Esther 4:1 | verscheurde Mordechai zijn klederen, en hij trok een zak aan met as
+Esther 4:11 | gouden scepter
+Esther 6:1 | de slaap van den koning geweken.*de kronieken
+Esther 6:11 | Haman nam dat kleed en dat paard.*deed hem rijden door de straten der stad
+Esther 7:10 | hingen zij Haman aan de galg, die hij voor Mordechai had doen bereiden
+Esther 8:16 | licht, en blijdschap, en vreugde, en eer
+Zacharia 8:5 | knechtjes en meisjes, spelende op haar straten
+Zacharia 9:9 | rechtvaardig, en Hij is een Heiland; arm, en rijdende op een ezel
+
+# ===== nt-1 (80–99) =====
+Lukas 1:20 | niet kunnen spreken.*om dies wil, dat gij mijn woorden niet geloofd hebt
+Lukas 1:31 | Zijn naam heten JEZUS
+Lukas 1:33 | Zijns Koninkrijks zal geen einde zijn
+Lukas 1:76 | de weg des Heeren te bereiden|Zijn wegen te bereiden
+Mattheus 2:11 | nedervallende hebben zij Hetzelve aangebeden.*goud en wierook, en mirre
+Lukas 2:51 | was hun onderdanig
+Mattheus 4:8 | al de koninkrijken der wereld
+Mattheus 4:9 | nedervallende, mij zult aanbidden
+Mattheus 6:19 | Vergadert u geen schatten op de aarde
+Mattheus 6:26 | uw hemelse Vader voedt nochtans dezelve
+Johannes 3:2 | Leraar van God gekomen.*niemand kan deze tekenen doen
+Johannes 3:5 | uit water en Geest
+Johannes 3:8 | De wind blaast, waarheen hij wil
+Markus 5:3 | woning in de graven
+Markus 5:5 | nacht en dag.*slaande zichzelven met stenen
+Markus 5:13 | omtrent twee duizend
+Markus 5:15 | zittende, en gekleed, en wel bij zijn verstand
+Markus 5:17 | dat Hij van hun landpalen wegging
+Markus 5:20 | Dekapolis
+Lukas 7:41 | vijfhonderd penningen, en de andere vijftig
+Lukas 7:42 | schold hij het hun beiden kwijt
+Lukas 7:43 | dien hij het meeste kwijtgescholden heeft
+Lukas 8:42 | een enige dochter, van omtrent twaalf jaren
+Lukas 8:43 | twaalf jaren lang den vloed des bloeds.*van niemand had kunnen genezen worden
+Lukas 8:44 | raakte den zoom Zijns kleeds aan
+Lukas 8:51 | Petrus, en Jakobus, en Johannes, en den vader en de moeder des kinds
+Mattheus 13:5 | steenachtige plaatsen
+Mattheus 13:7 | doornen.*verstikten
+Mattheus 13:8 | het een honderd-, het ander zestig-, en het ander dertig voud
+Mattheus 13:21 | maar is voor een tijd
+
+# ===== nt-2 (100–117) =====
+Markus 6:18 | Het is u niet geoorloofd
+Markus 6:26 | om de eden.*aanzaten
+Johannes 6:2 | tekenen.*kranken
+Johannes 6:7 | Voor tweehonderd penningen brood is voor dezen niet genoeg
+Johannes 6:9 | vijf gerstebroden heeft, en twee visjes
+Johannes 6:14 | Deze is waarlijk de Profeet, Die in de wereld komen zou
+Johannes 6:15 | Koning maakten, ontweek wederom op den berg, Hij Zelf alleen
+Johannes 5:5 | acht en dertig jaren
+Johannes 5:7 | geen mens
+Johannes 5:8 | Sta op, neem uw beddeken op, en wandel
+Johannes 9:3 | de werken Gods in hem zouden geopenbaard worden
+Johannes 9:5 | zo ben Ik het Licht der wereld
+Johannes 9:6 | maakte slijk
+Johannes 9:16 | Deze Mens is van God niet, want Hij houdt den sabbat niet
+Johannes 9:25 | dat ik blind was, en nu zie
+Johannes 9:38 | Ik geloof, Heere
+Johannes 10:1 | van elders inklimt, die is een dief
+Johannes 10:3 | roept zijn schapen bij name
+Johannes 10:4 | gaat hij voor hen heen; en de schapen volgen hem, overmits zij zijn stem kennen
+Johannes 10:6 | verstonden niet
+Johannes 10:27 | Mijn schapen horen Mijn stem, en Ik ken dezelve, en zij volgen Mij
+Johannes 10:28 | niemand zal dezelve uit Mijn hand rukken
+Mattheus 16:21 | moest heengaan naar Jeruzalem, en veel lijden.*gedood worden, en ten derden dage opgewekt worden
+Lukas 9:33 | Meester, het is goed, dat wij hier zijn.*niet wetende, wat hij zeide
+Lukas 9:36 | werd Jezus alleen gevonden.*verhaalden in die dagen niemand iets
+Markus 10:14 | nam het zeer kwalijk
+Markus 10:17 | voor Hem op de knieen vallende
+Markus 10:20 | van mijn jonkheid af
+Markus 10:21 | Een ding ontbreekt u
+Markus 10:27 | Bij de mensen is het onmogelijk, maar niet bij God
+Markus 10:33 | den overpriesteren, en den Schriftgeleerden overgeleverd worden, en zij zullen Hem ter dood veroordelen
+Markus 10:34 | bespotten, en Hem geselen.*doden; en ten derden dage zal Hij weder opstaan
+Markus 10:40 | dien het bereid is
+Markus 10:41 | begonnen zij het van Jakobus en Johannes zeer kwalijk te nemen
+Lukas 10:30 | kwam af van Jeruzalem naar Jericho.*half dood liggen
+Lukas 10:31 | priester.*ging hij tegenover hem voorbij
+Lukas 10:34 | verbond zijn wonden, gietende daarin olie en wijn.*op zijn eigen beest.*herberg
+Lukas 10:35 | twee penningen
+Lukas 10:37 | Die barmhartigheid aan hem gedaan heeft.*doe gij desgelijks
+Lukas 14:1 | een der oversten der Farizeen, op den sabbat
+Lukas 14:18 | akker gekocht
+Lukas 14:19 | vijf juk ossen
+Lukas 14:20 | Ik heb een vrouw getrouwd
+Lukas 14:21 | werd de heer des huizes toornig
+Lukas 14:23 | wegen en heggen.*huis vol worde
+Lukas 15:13 | ver gelegen land, en heeft aldaar zijn goed doorgebracht, levende overdadiglijk
+Lukas 15:15 | om de zwijnen te weiden
+Lukas 15:16 | den draf, dien de zwijnen aten
+Lukas 15:20 | toe lopende, viel hem om zijn hals, en kuste hem
+Lukas 15:22 | het beste kleed.*een ring aan zijn hand, en schoenen
+Lukas 15:28 | werd toornig, en wilde niet ingaan
+Lukas 15:31 | Kind, gij zijt altijd bij mij, en al het mijne is uwe
+Lukas 17:15 | met grote stemme God verheerlijkende
+Lukas 17:16 | viel op het aangezicht.*Samaritaan
+Johannes 11:4 | ter heerlijkheid Gods
+Johannes 11:6 | twee dagen
+Johannes 11:14 | Lazarus is gestorven
+Johannes 11:41 | Vader, Ik dank U
+Johannes 11:43 | Lazarus, kom uit
+Markus 10:48 | bestraften hem, opdat hij zwijgen zou; maar hij riep zoveel temeer
+Markus 10:50 | zijn mantel afgeworpen hebbende
+Lukas 19:2 | een overste der tollenaren, en hij was rijk
+Lukas 19:4 | wilden vijgeboom
+Lukas 19:7 | murmureerden
+Lukas 19:8 | de helft van mijn goederen, Heere, geef ik den armen.*vierdubbel
+
+# ===== nt-3 (118–133) =====
+Mattheus 21:3 | de Heere deze van node heeft
+Mattheus 21:7 | leiden hun klederen op dezelve
+Mattheus 21:15 | namen zij dat zeer kwalijk
+Mattheus 22:21 | Geeft dan den keizer, dat des keizers is, en Gode, dat Gods is
+Mattheus 22:15 | hoe zij Hem verstrikken zouden in Zijn rede
+Mattheus 25:3 | dwaas waren.*geen olie
+Mattheus 25:10 | de deur werd gesloten
+Johannes 13:4 | legde Zijn klederen af, en nemende een linnen doek
+Johannes 13:5 | goot Hij water in het bekken
+Johannes 13:8 | Gij zult mijn voeten niet wassen in der eeuwigheid.*geen deel met Mij
+Johannes 13:9 | niet alleen mijn voeten, maar ook de handen en het hoofd
+Johannes 13:14 | de Heere en de Meester, uw voeten gewassen heb.*elkanders voeten te wassen
+Lukas 22:21 | de hand desgenen, die Mij verraadt, is met Mij aan de tafel
+Lukas 22:23 | onder elkander te vragen
+Markus 14:11 | waren verblijd, en beloofden hem geld te geven
+Markus 14:47 | sloeg den dienstknecht des hogepriesters, en hieuw hem zijn oor af
+Markus 14:50 | Hem verlatende, zijn allen gevloden
+Lukas 23:2 | het volk verkeert.*Christus, de Koning is
+Lukas 23:7 | zond hij Hem heen tot Herodes
+Lukas 23:15 | ook Herodes niet.*niets gedaan, dat des doods waardig is
+Lukas 23:16 | kastijden en loslaten
+Lukas 23:21 | Kruis Hem, kruis Hem
+Lukas 23:25 | liet hun los.*Jezus gaf hij over tot hun wil
+Johannes 19:18 | twee anderen, aan elke zijde een, en Jezus in het midden
+Johannes 19:25 | Zijn moeder en Zijner moeders zuster, Maria, de vrouw van Klopas, en Maria Magdalena
+Johannes 19:28 | wetende, dat nu alles volbracht was.*Mij dorst
+Johannes 19:33 | Hij nu gestorven was, zo braken zij Zijn benen niet
+Johannes 19:34 | doorstak Zijn zijde met een speer, en terstond kwam er bloed en water uit
+Johannes 19:38 | een discipel van Jezus was, maar bedekt om de vreze der Joden
+Johannes 19:39 | mirre en aloe; omtrent honderd ponden
+Johannes 19:40 | linnen doeken met de specerijen
+Johannes 19:41 | nieuw graf, in hetwelk nog nooit iemand gelegd was
+Mattheus 28:2 | grote aardbeving.*wentelde den steen af van de deur, en zat op denzelven
+Mattheus 28:7 | Hij gaat u voor naar Galilea
+Johannes 20:2 | Zij liep dan, en kwam tot Simon Petrus
+Johannes 20:5 | zag hij de doeken liggen
+Lukas 24:13 | zestig stadien van Jeruzalem.*Emmaus
+Lukas 24:16 | hun ogen werden gehouden
+Lukas 24:30 | als Hij het gebroken had
+Lukas 24:31 | hun ogen werden geopend, en zij kenden Hem; en Hij kwam weg uit hun gezicht
+Lukas 24:33 | keerden weder naar Jeruzalem
+Johannes 20:21 | gelijkerwijs Mij de Vader gezonden heeft
+Johannes 20:22 | blies Hij op hen.*Ontvangt den Heiligen Geest
+Johannes 20:25 | Wij hebben den Heere gezien.*het teken der nagelen
+Johannes 20:26 | na acht dagen.*Thomas met hen.*als de deuren gesloten waren
+Johannes 21:2 | Simon Petrus, en Thomas.*twee anderen van Zijn discipelen
+Johannes 21:3 | in dien nacht vingen zij niets
+Johannes 21:6 | Werpt het net aan de rechterzijde van het schip.*konden hetzelve niet meer trekken
+Johannes 21:19 | met hoedanigen dood hij God verheerlijken zou.*Volg Mij
+Handelingen 1:3 | veertig dagen
+Handelingen 1:7 | die de Vader in Zijn eigen macht gesteld heeft
+Handelingen 1:8 | Mijn getuigen zijn, zo te Jeruzalem, als in geheel Judea en Samaria, en tot aan het uiterste der aarde
+Handelingen 1:13 | opperzaal
+Handelingen 1:14 | eendrachtelijk volhardende in het bidden.*Maria, de moeder van Jezus, en met Zijn broederen
+
+# ===== nt-4 (134–150) =====
+Handelingen 2:15 | het is eerst de derde ure van de dag
+Handelingen 2:23 | door de handen der onrechtvaardigen aan het kruis gehecht
+Handelingen 2:37 | verslagen in het hart
+Handelingen 2:41 | omtrent drie duizend zielen
+Handelingen 2:42 | volhardende in de leer der apostelen, en in de gemeenschap, en in de breking des broods, en in de gebeden
+Handelingen 2:39 | u komt de belofte toe, en uw kinderen
+Handelingen 3:8 | opspringende.*lovende God
+Handelingen 5:15 | de schaduw iemand van hen beschaduwen mocht
+Handelingen 5:16 | welke allen genezen werden
+Handelingen 5:18 | zetten hen in de gemene gevangenis
+Handelingen 5:19 | engel des Heeren opende des nachts de deuren
+Handelingen 5:21 | tegen den morgenstond in den tempel, en leerden
+Handelingen 5:2 | met medeweten zijner vrouw
+Handelingen 5:6 | jongelingen.*droegen hem uit, en begroeven hem
+Handelingen 5:7 | omtrent drie uren
+Handelingen 5:11 | grote vreze over de gehele Gemeente
+Handelingen 6:5 | Stefanus, een man vol des geloofs en des Heiligen Geestes
+Handelingen 6:10 | konden niet wederstaan de wijsheid en den Geest
+Handelingen 7:57 | stopten hun oren
+Handelingen 7:58 | wierpen hem ter stad uit, en stenigden hem.*aan de voeten eens jongelings, genaamd Saulus
+Handelingen 7:59 | Heere Jezus, ontvang mijn geest
+Handelingen 7:60 | knieen.*Heere, reken hun deze zonde niet toe
+Handelingen 8:13 | Simon geloofde ook zelf, en gedoopt zijnde
+Handelingen 8:18 | bood hij hun geld aan
+Handelingen 8:26 | den weg, die van Jeruzalem afdaalt naar Gaza
+Handelingen 8:27 | gekomen om aan te bidden te Jeruzalem
+Handelingen 8:28 | las den profeet Jesaja
+Handelingen 8:32 | gelijk een schaap ter slachting geleid
+Handelingen 8:35 | verkondigde hem Jezus
+Handelingen 8:37 | Ik geloof, dat Jezus Christus de Zoon van God is
+Handelingen 8:39 | Geest des Heeren.*Filippus.*met blijdschap
+Handelingen 9:36 | Tabitha.*Dorkas
+Handelingen 9:37 | gewassen hadden, legden zij haar in de opperzaal
+Handelingen 9:38 | zonden twee mannen tot hem.*niet zou vertoeven
+Handelingen 9:39 | weduwen.*rokken en klederen
+Handelingen 9:40 | knielde neder en bad.*Tabitha, sta op.*zat zij over einde
+Handelingen 9:41 | stelde hij haar levend voor hen
+Handelingen 9:42 | velen geloofden in den Heere
+Handelingen 10:2 | vrezende God, met geheel zijn huis.*vele aalmoezen
+Handelingen 10:11 | groot linnen laken
+Handelingen 10:13 | Sta op, Petrus! slacht en eet
+Handelingen 10:15 | Hetgeen God gereinigd heeft, zult gij niet gemeen maken
+Handelingen 10:43 | vergeving der zonden ontvangen zal
+Handelingen 10:44 | viel de Heilige Geest op allen
+Handelingen 11:18 | den heidenen de bekering gegeven ten leven
+Handelingen 12:3 | de dagen der ongehevelde broden
+Handelingen 12:4 | vier wachten, elk van vier krijgsknechten
+Handelingen 12:5 | van de Gemeente werd een gedurig gebed tot God voor hem gedaan
+Handelingen 12:6 | tussen twee krijgsknechten, gebonden met twee ketenen
+Handelingen 12:7 | licht scheen.*ketenen vielen af
+Handelingen 12:9 | meende, dat hij een gezicht zag
+Handelingen 12:10 | door de eerste en tweede wacht.*ijzeren poort.*van zelve hun geopend
+Handelingen 12:11 | de Heere Zijn engel uitgezonden heeft
+Handelingen 12:12 | Maria, de moeder van Johannes, die toegenaamd was Markus
+Handelingen 12:14 | deed van blijdschap de voorpoort niet open
+Handelingen 12:23 | engel des Heeren, daarom dat hij Gode de eer niet gaf
+Handelingen 12:24 | het Woord Gods wies, en vermenigvuldigde
+Handelingen 8:3 | trekkende mannen en vrouwen, leverde hen over in de gevangenis
+Handelingen 9:2 | brieven van hem naar Damaskus
+Handelingen 9:3 | omscheen snellijk een licht van den hemel
+Handelingen 9:9 | drie dagen, dat hij niet zag, en at niet, en dronk niet
+Handelingen 9:15 | uitverkoren vat.*heidenen, en de koningen, en de kinderen Israels
+Handelingen 9:18 | als schellen
+Handelingen 9:20 | predikte.*dat Hij de Zoon van God is
+Handelingen 9:25 | lieten hem neder door den muur, hem aflatende in een mand
+Handelingen 9:27 | Barnabas, hem tot zich nemende, leidde hem tot de apostelen
+Handelingen 9:30 | Tarsen
+Handelingen 11:25 | Barnabas.*Tarsen.*Saulus
+Handelingen 11:26 | discipelen eerst te Antiochie Christenen genaamd
+Handelingen 13:11 | gij zult blind zijn
+Handelingen 13:12 | de stadhouder.*geloofde hij
+Handelingen 13:23 | den Zaligmaker Jezus
+Handelingen 14:8 | die nooit had gewandeld
+Handelingen 14:13 | offeren
+Handelingen 14:19 | stenigden Paulus
+Handelingen 14:27 | den heidenen de deur des geloofs geopend
+Handelingen 15:40 | Paulus.*Silas
+Handelingen 16:1 | Timotheus
+Handelingen 16:6 | verhinderd het Woord in Azie te spreken
+Handelingen 16:7 | Bithynie.*de Geest liet het hun niet toe
+Handelingen 16:14 | Lydia, een purperverkoopster.*welker hart de Heere heeft geopend
+Handelingen 16:15 | zij gedoopt was, en haar huis
+Handelingen 16:18 | zeide tot den geest.*dat gij van haar uitgaat
+Handelingen 16:24 | verzekerde hun voeten in de stok
+Handelingen 16:25 | middernacht.*zongen Gode lofzangen
+Handelingen 16:26 | grote aardbeving.*al de deuren geopend
+Handelingen 16:34 | verheugde zich, dat hij met al zijn huis aan God gelovig geworden was
+Handelingen 21:3 | Tyrus
+Handelingen 21:8 | Filippus
+Handelingen 21:11 | gordel van Paulus
+Handelingen 21:13 | ook te sterven te Jeruzalem voor den Naam van den Heere Jezus
+Handelingen 21:27 | Joden van Azie
+Handelingen 21:28 | Grieken in den tempel gebracht
+Handelingen 21:40 | trappen
+Handelingen 23:6 | over de hoop en opstanding der doden geoordeeld
+Handelingen 23:7 | tweedracht tussen de Farizeen en de Sadduceen
+Handelingen 23:11 | gelijk gij te Jeruzalem van Mij betuigd hebt alzo moet gij ook te Rome getuigen
+Handelingen 23:13 | meer dan veertig
+Handelingen 23:16 | de zoon van Paulus.*zuster
+Handelingen 23:23 | tweehonderd krijgsknechten.*zeventig ruiters
+Handelingen 25:11 | Ik beroep mij op den keizer
+Handelingen 25:12 | Gij zult tot den keizer gaan
+Handelingen 27:1 | Julius
+Handelingen 27:8 | Schonehavens
+Handelingen 27:10 | met hinder en grote schade
+Handelingen 27:18 | uitworp
+Handelingen 27:19 | het scheepsgereedschap uit
+Handelingen 27:20 | noch zon noch gesternten verschenen in vele dagen
+Handelingen 27:22 | geen verlies geschieden van iemands leven onder u, maar alleen van het schip
+Handelingen 27:27 | veertiende nacht
+Handelingen 27:35 | dankte hij God in aller tegenwoordigheid
+Handelingen 27:37 | tweehonderd zes en zeventig zielen
+Handelingen 27:41 | die de zee aan beide zijden had.*achterschip brak
+Handelingen 27:44 | sommigen op planken
+Handelingen 28:1 | Melite
+Handelingen 28:2 | een groot vuur ontstoken
+Handelingen 28:3 | adder.*vatte zijn hand
+Handelingen 28:4 | doodslager
+Handelingen 28:5 | schudde het beest af in het vuur, en leed niets kwaads
+Handelingen 28:6 | zeiden, dat hij een god was
+Handelingen 28:8 | vader van Publius
+Handelingen 28:11 | na drie maanden
+Handelingen 28:15 | dankte hij God en greep moed
+Handelingen 28:16 | op zichzelven te wonen met den krijgsknecht
+Handelingen 28:30 | twee gehele jaren.*ontving allen, die tot hem kwamen
+Handelingen 28:31 | met alle vrijmoedigheid, onverhinderd
+Openbaring 1:9 | Patmos
+Openbaring 1:10 | dag des Heeren.*als van een bazuin
+Openbaring 1:17 | viel ik als dood.*Vrees niet; Ik ben de Eerste en de Laatste
+Openbaring 4:1 | een deur was geopend in den hemel
+Openbaring 5:9 | Gij zijt geslacht, en hebt ons Gode gekocht met Uw bloed, uit alle geslacht
+Openbaring 20:12 | geoordeeld uit hetgeen in de boeken geschreven was, naar hun werken
+Jesaja 11:1 | Rijsje voortkomen uit den afgehouwen tronk van Isai
+Jesaja 11:2 | op Hem zal de Geest des HEEREN rusten
+Jesaja 11:4 | de armen met gerechtigheid richten
+Jesaja 11:6 | de wolf zal met het lam verkeren.*een klein jongske zal ze drijven
+Jesaja 11:9 | aarde zal vol van kennis des HEEREN
+Openbaring 21:2 | nieuwe Jeruzalem, nederdalende van God uit den hemel
+Openbaring 21:3 | de tabernakel Gods is bij de mensen
+Openbaring 21:4 | God zal alle tranen van hun ogen afwissen
+Openbaring 21:5 | Ziet, Ik maak alle dingen nieuw
+Openbaring 21:21 | twaalf poorten waren twaalf paarlen
+Openbaring 21:22 | geen tempel
+Openbaring 21:25 | geen nacht
+Openbaring 21:27 | het boek des levens des Lams
+Openbaring 22:3 | geen vervloeking
+Openbaring 22:20 | Ja, kom, Heere Jezus
+
+# ===== Tweede ronde: betekenis-zinnen en nieuwe (foute) quizantwoorden die als citaat ogen =====
+Markus 10:45 | Want ook de Zoon des mensen is niet gekomen om gediend te worden, maar om te dienen
+Hebreeen 9:12 | Noch door het bloed der bokken en kalveren, maar door Zijn eigen bloed, eenmaal ingegaan in het heiligdom
+Psalm 13:2 | Hoe lang, HEERE, zult Gij mij steeds vergeten
+Psalm 51:3 | Wees mij genadig, o God! naar Uw goedertierenheid
+Psalm 23:1 | De HEERE is mijn Herder, mij zal niets ontbreken
+Genesis 27:24 | Zijt gij mijn zoon Ezau zelf
+Genesis 29:26 | dat men de kleinste uitgeve voor de eerstgeborene
+Genesis 41:2 | zeven koeien.*vet van vlees
+Genesis 28:12 | een ladder was gesteld op de aarde, welker opperste aan den hemel raakte
+Exodus 16:22 | zesden dag, dat zij dubbel brood verzamelden, twee gomers voor een
+Exodus 24:18 | veertig dagen en veertig nachten
+Richteren 7:13 | gerstebrood
+1 Samuel 17:39 | nooit verzocht
+1 Samuel 28:6 | noch door dromen, noch door de urim, noch door de profeten
+1 Koningen 6:7 | geen hameren, noch bijl of enig ijzeren gereedschap
+Lukas 14:1 | een der oversten der Farizeen
+Lukas 18:9 | bij zichzelven vertrouwden, dat zij rechtvaardig waren
+Handelingen 6:1 | weduwen in de dagelijkse bediening verzuimd werden
+Handelingen 9:7 | horende wel de stem, maar niemand ziende
+Openbaring 5:2 | sterken engel
+Richteren 13:5 | hij zal beginnen Israel te verlossen uit der Filistijnen hand
+Psalm 146:8 | De HEERE opent de ogen der blinden

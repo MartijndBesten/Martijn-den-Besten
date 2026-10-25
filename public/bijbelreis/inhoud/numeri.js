@@ -50,7 +50,7 @@ BR.boeken.push({
     txt: "In Hazeroth spreken Mirjam en Aäron kwaad over Mozes, om zijn vrouw. ‘Spreekt de HEERE alleen door Mozes? Ook door ons toch?’ God hoort het. Hij roept de drie naar de tent der samenkomst en zegt: ‘Met Mozes spreek Ik van mond tot mond. Waarom zijn jullie niet bang geweest om kwaad over hem te spreken?’ Als de wolk weggaat, is Mirjam melaats, wit als sneeuw. Aäron smeekt, en Mozes roept: ‘O God, genees haar toch!’ Mirjam moet zeven dagen buiten het kamp blijven. Het volk wacht op haar, en daarna trekken ze verder.",
     fs: "b", fact: "Mozes was ‘zeer zachtmoedig, meer dan alle mensen op de aardbodem’ (12:3). Hij verdedigde zichzelf niet, maar bad voor zijn zus." },
   { ref: "Numeri 13", t: "Twaalf verspieders", stamp: "Druiven", at: ["kadesbarnea", "mamre"],
-    r: [{ p: ["hazeroth", "ezeongeber", "kadesbarnea"], recon: 1 },
+    r: [{ p: ["hazeroth", [29.476, 34.405], [29.69, 34.671], [29.628, 34.83], "ezeongeber", "kadesbarnea"], recon: 1 },
         { w: "teal", p: ["kadesbarnea", "negevmid", "arad", "hebron", "jeruz", "bethel", "ridge", "sichem", "dothanw", "galil", "hazor", "dan"], recon: 1 },
         { w: "teal", p: ["dan", "hazor", "galil", "dothanw", "sichem", "ridge", "bethel", "jeruz", "hebron", "arad", "negevmid", "kadesbarnea"], recon: 1 }],
     who: [["Spionnen", "12 mannen"], ["Jozua"], ["Kaleb"], ["Mozes"]],

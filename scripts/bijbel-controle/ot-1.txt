@@ -1,0 +1,803 @@
+# Controle geschiedenissen ot-1 (nrs 1–31, Genesis 1 t/m Exodus 40) tegen de Statenvertaling.
+# Per regel: verwijzing | regex. Quizvragen (why), kruisverwijzingen, kernwoord-verwijzingen, citaten en getallen.
+
+# 1 God schept hemel en aarde
+Genesis 1:1 | In den beginne schiep God den hemel en de aarde
+Genesis 1:2 | woest en ledig
+Genesis 1:3 | Daar zij licht! en daar werd licht
+Genesis 1:5 | de eerste dag
+Genesis 1:6-8 | uitspansel.*tweede dag
+Genesis 1:9-13 | het droge.*grasscheutjes.*derde dag
+Genesis 1:16-19 | twee grote lichten.*sterren.*vierde dag
+Genesis 1:20-23 | gevogelte.*vijfde dag
+Genesis 1:24-31 | gedierte.*mensen maken.*zesde dag
+Genesis 1:27 | schiep den mens naar Zijn beeld.*man en vrouw
+Genesis 1:28 | heerschappij over de vissen der zee, en over het gevogelte
+Genesis 1:31 | zeer goed
+Genesis 2:2 | gerust op den zevenden dag van al Zijn werk
+Genesis 2:3 | gezegend, en dien geheiligd
+Psalm 33:9 | Hij spreekt, en het is er
+Johannes 1:1-3 | Alle dingen zijn door Hetzelve gemaakt
+Hebreeen 11:3 | door het woord Gods is toebereid
+Exodus 20:11 | in zes dagen heeft de HEERE den hemel en de aarde gemaakt.*rustte ten zevenden dage
+
+# 2 Adam en Eva in de hof van Eden
+Genesis 2:7 | uit het stof der aarde.*adem des levens.*levende ziel
+Genesis 2:8 | hof geplant in Eden, tegen het oosten
+Genesis 2:9 | boom des levens in het midden van den hof.*boom der kennis des goeds en des kwaads
+Genesis 2:10 | vier hoofden
+Genesis 2:11-14 | Pison.*Gihon.*Hiddekel.*Frath
+Genesis 2:15 | om dien te bouwen, en dien te bewaren
+Genesis 2:16 | Van allen boom dezes hofs zult gij vrijelijk eten
+Genesis 2:17 | daarvan zult gij niet eten; want ten dage, als gij daarvan eet, zult gij den dood sterven
+Genesis 2:18 | Het is niet goed, dat de mens alleen zij
+Genesis 2:20 | Zo had Adam genoemd de namen.*geen hulpe
+Genesis 2:21-22 | diepen slaap.*ribben.*bouwde de ribbe.*tot een vrouw
+Genesis 2:23 | Deze is ditmaal been van mijn benen, en vlees van mijn vlees
+Genesis 3:20 | omdat zij een moeder aller levenden is
+Mattheus 19:4-6 | man en vrouw.*tot een vlees zijn
+Mattheus 19:5 | tot een vlees zijn
+1 Korinthe 15:45 | De eerste mens Adam is geworden tot een levende ziel
+Openbaring 22:2 | boom des levens
+
+# 3 De slang en de zondeval
+Genesis 3:1 | listiger dan al het gedierte des velds
+Genesis 3:1 | Is het ook, dat God gezegd heeft: Gijlieden zult niet eten van allen boom dezes hofs
+Genesis 3:4 | Gijlieden zult den dood niet sterven
+Genesis 3:6 | goed was tot spijze.*begeerlijk.*at; en zij gaf ook haar man met haar, en hij at
+Genesis 3:7 | naakt.*vijgeboombladeren.*schorten
+Genesis 3:8 | verborg zich Adam en zijn vrouw.*geboomte des hofs
+Genesis 3:9 | Waar zijt gij
+Genesis 3:12 | De vrouw, die Gij bij mij gegeven hebt, die heeft mij van dien boom gegeven
+Genesis 3:13 | De slang heeft mij bedrogen, en ik heb gegeten
+Genesis 3:14 | vervloekt
+Genesis 3:15 | uw zaad en tussen haar zaad; datzelve zal u den kop vermorzelen
+Genesis 3:16 | met smart zult gij kinderen baren
+Genesis 3:19 | In het zweet uws aanschijns zult gij brood eten.*tot stof wederkeren
+Genesis 3:21 | rokken van vellen
+Genesis 3:23 | verzond hem de HEERE God uit den hof van Eden
+Genesis 3:24 | cherubim.*vlammig lemmer eens zwaards.*weg van den boom des levens
+Romeinen 5:12 | door een mens de zonde in de wereld ingekomen is, en door de zonde de dood
+1 Johannes 3:8 | de werken des duivels verbreken
+Openbaring 12:9 | de oude slang, welke genaamd wordt duivel en satan
+Galaten 4:4 | God Zijn Zoon uitgezonden, geworden uit een vrouw
+
+# 4 Kain en Abel
+Genesis 4:2 | Habel werd een schaapherder, en Kain werd een landbouwer
+Genesis 4:3 | van de vrucht des lands den HEERE offer
+Genesis 4:4 | eerstgeborenen zijner schapen.*de HEERE zag Habel en zijn offer aan
+Genesis 4:5 | Kain en zijn offer zag Hij niet aan. Toen ontstak Kain zeer
+Genesis 4:7 | de zonde ligt aan de deur
+Genesis 4:8 | in het veld.*sloeg hem dood
+Genesis 4:9 | Ik weet het niet; ben ik mijns broeders hoeder
+Genesis 4:11-12 | vervloekt.*zwervende en dolende
+Genesis 4:15 | stelde een teken aan Kain
+Genesis 4:16 | woonde in het land Nod, ten oosten van Eden
+Genesis 4:17 | baarde Henoch
+Genesis 4:20-22 | Jabal.*Jubal.*Tubal-Kain
+Genesis 4:23 | Lamech zeide tot zijn vrouwen.*ik sloeg wel een man dood
+Genesis 4:25 | noemde zijn naam Seth
+Genesis 4:26 | noemde zijn naam Enos. Toen begon men den naam des HEEREN aan te roepen
+Hebreeen 11:4 | Door het geloof heeft Abel een meerdere offerande Gode geofferd dan Kain
+1 Johannes 3:12 | Kain, die uit den boze was, en zijn broeder doodsloeg.*zijn werken boos waren
+Hebreeen 12:24 | betere dingen spreekt dan Abel
+
+# 5 Noach bouwt de ark
+Genesis 6:5 | boosheid des mensen menigvuldig.*alleenlijk boos
+Genesis 6:7 | Ik zal den mens.*verdelgen van den aardbodem
+Genesis 6:8 | Noach vond genade in de ogen des HEEREN
+Genesis 6:9 | rechtvaardig.*Noach wandelde met God
+Genesis 6:10 | Sem, Cham en Jafeth
+Genesis 6:14 | Maak u een ark van goferhout
+Genesis 6:15 | driehonderd ellen.*vijftig ellen.*dertig ellen
+Genesis 6:16 | onderste, tweede en derde verdiepingen
+Genesis 7:2 | rein vee zult gij tot u nemen zeven en zeven
+Genesis 7:6 | Noach nu was zeshonderd jaren oud
+Genesis 7:9 | twee en twee
+Genesis 7:11 | fonteinen des groten afgronds opengebroken
+Genesis 7:12 | veertig dagen en veertig nachten
+Genesis 7:13 | Sem, en Cham, en Jafeth.*de drie vrouwen zijner zonen
+Genesis 7:16 | de HEERE sloot achter hem toe
+Genesis 7:19 | alle hoge bergen.*bedekt
+Genesis 7:22 | op het droge was, is gestorven
+Genesis 7:23 | Noach alleen bleef over, en wat met hem in de ark was
+Genesis 7:24 | honderd en vijftig dagen
+Genesis 9:29 | negenhonderd en vijftig jaren
+Mattheus 24:37-39 | dagen van Noach
+Hebreeen 11:7 | Noach.*de ark toebereid
+2 Petrus 2:5 | Noach, den prediker der gerechtigheid
+1 Petrus 3:20 | acht\) zielen behouden werden door het water
+
+# 6 God sluit een verbond met Noach
+Genesis 8:1 | God gedacht aan Noach.*vee.*wind over de aarde
+Genesis 8:4 | zevende maand.*op de bergen van Ararat
+Genesis 8:7 | liet een raaf uit
+Genesis 8:8 | liet hij een duif
+Genesis 8:11 | afgebroken olijfblad was in haar bek
+Genesis 8:16 | Ga uit de ark
+Genesis 8:20 | Noach bouwde den HEERE een altaar.*brandofferen
+Genesis 8:22 | zaaiing en oogst, en koude en hitte, en zomer en winter, en dag en nacht, niet ophouden
+Genesis 9:9-10 | Mijn verbond.*uw zaad.*alle levende ziel
+Genesis 9:11 | geen vloed meer zal zijn, om de aarde te verderven
+Genesis 9:12 | teken des verbonds.*tot eeuwige geslachten
+Genesis 9:13 | Mijn boog heb Ik gegeven in de wolken; die zal zijn tot een teken des verbonds
+Jesaja 54:9 | de wateren van Noach
+Openbaring 4:3 | regenboog was rondom den troon
+
+# 7 De toren van Babel
+Genesis 11:1 | enerlei spraak
+Genesis 11:2 | tegen het oosten.*laagte vonden in het land Sinear
+Genesis 11:3 | tichelen.*het lijm was hun voor leem
+Genesis 11:4 | een stad bouwen, en een toren, welks opperste in den hemel zij.*naam voor ons maken.*verstrooid
+Genesis 11:5 | kwam de HEERE neder, om te bezien de stad en den toren
+Genesis 11:7 | hun spraak aldaar verwarren
+Genesis 11:8 | verstrooide hen de HEERE.*hielden op de stad te bouwen
+Genesis 11:9 | Babel; want aldaar verwarde de HEERE de spraak der ganse aarde
+Handelingen 2:6 | een iegelijk hoorde hen in zijn eigen taal spreken
+Handelingen 2:11 | grote werken Gods
+Openbaring 7:9 | uit alle natie, en geslachten, en volken, en talen
+
+# 8 Abram gaat op weg naar Kanaan
+Genesis 11:27 | Terah gewon Abram, Nahor en Haran; en Haran gewon Lot
+Genesis 11:31 | Ur der Chaldeen, om te gaan naar het land Kanaan; en zij kwamen tot Haran
+Genesis 11:32 | Terah stierf te Haran
+Genesis 12:1 | Ga gij uit uw land, en uit uw maagschap, en uit uws vaders huis, naar het land, dat Ik u wijzen zal
+Genesis 12:2 | Ik zal u tot een groot volk maken
+Genesis 12:3 | in u zullen alle geslachten des aardrijks gezegend worden
+Genesis 12:4 | vijf en zeventig jaren oud, toen hij uit Haran ging
+Genesis 12:5 | Sarai.*Lot.*al hun have
+Genesis 12:6 | Sichem, tot aan het eikenbos More
+Genesis 12:7 | Aan uw zaad zal Ik dit land geven. Toen bouwde hij aldaar een altaar
+Genesis 12:8 | Beth-El.*Ai.*altaar, en riep den naam des HEEREN aan
+Genesis 12:10 | honger.*Egypte.*honger zwaar
+Genesis 12:13 | Gij zijt mijn zuster
+Genesis 12:15 | weggenomen naar het huis van Farao
+Genesis 12:17 | plaagde Farao met grote plagen
+Genesis 12:20 | geleidden hem, en zijn huisvrouw, en alles wat hij had
+Exodus 1:7 | gans zeer machtig
+Jozua 21:43 | gaf de HEERE aan Israel het ganse land, dat Hij gezworen had hun vaderen te geven
+Galaten 3:8 | In u zullen al de volken gezegend worden
+Hebreeen 11:8 | niet wetende, waar hij komen zou
+Handelingen 7:2-4 | Ga uit uw land en uit uw maagschap
+Jozua 24:2 | Terah.*andere goden
+Jozua 24:3 | Toen nam Ik uw vader Abraham
+
+# 9 Hagar vlucht, en God ziet haar
+Genesis 16:1 | Egyptische dienstmaagd, welker naam was Hagar
+Genesis 16:3 | ten einde van tien jaren.*Kanaan
+Genesis 16:4 | haar vrouw veracht in haar ogen
+Genesis 16:6 | Sarai vernederde haar, en zij vluchtte
+Genesis 16:7 | waterfontein in de woestijn, aan de fontein op den weg van Sur
+Genesis 16:9 | Keer weder tot uw vrouw, en verneder u onder haar handen
+Genesis 16:10 | Ik zal uw zaad grotelijks vermenigvuldigen
+Genesis 16:11 | Ismael noemen, omdat de HEERE uw verdrukking aangehoord heeft
+Genesis 16:13 | God des aanziens
+Genesis 16:14 | Lachai-Roi; ziet, hij is tussen Kades en tussen Bered
+Genesis 16:15 | Abram noemde den naam zijns zoons.*Ismael
+Genesis 16:16 | zes en tachtig jaren oud
+Genesis 17:20 | twaalf vorsten zal hij gewinnen
+Genesis 17:21 | Mijn verbond zal Ik met Izak oprichten
+Galaten 4:22 | twee zonen had, een uit de dienstmaagd, en een uit de vrije
+Galaten 4:23 | door de beloftenis
+
+# 10 Abram en Lot; Sodom
+Genesis 13:6 | dat land droeg hen niet
+Genesis 13:7 | twist tussen de herders
+Genesis 13:8 | Laat toch geen twisting zijn tussen mij en tussen u
+Genesis 13:10 | de ganse vlakte der Jordaan.*bevochtigde
+Genesis 13:12 | sloeg tenten tot aan Sodom toe
+Genesis 13:13 | de mannen van Sodom waren boos, en grote zondaars tegen den HEERE
+Genesis 13:15 | al dit land, dat gij ziet, zal Ik u geven
+Genesis 13:18 | eikenbossen van Mamre, die bij Hebron zijn
+Genesis 18:2 | drie mannen
+Genesis 18:10 | Sara, uw huisvrouw, zal een zoon hebben
+Genesis 18:20-21 | Sodom en Gomorra.*afgaan en bezien
+Genesis 18:24 | vijftig rechtvaardigen
+Genesis 18:32 | Ik zal haar niet verderven om der tienen wil
+Genesis 19:1 | twee engelen
+Genesis 19:4-5 | dat huis omsingeld.*breng hen uit tot ons
+Genesis 19:16 | grepen dan die mannen zijn hand, en de hand zijner vrouw, en de hand zijner twee dochteren
+Genesis 19:22-23 | Zoar.*Lot te Zoar inkwam
+Genesis 19:24 | zwavel en vuur over Sodom en Gomorra
+Genesis 19:26 | zij werd een zoutpilaar
+Genesis 19:28 | rook eens ovens
+Genesis 19:29 | God aan Abraham gedacht, en Hij leidde Lot uit het midden dezer omkering
+Genesis 19:30 | woonde in een spelonk, hij en zijn twee dochters
+Genesis 19:32-33 | wijn te drinken
+Genesis 19:36 | bevrucht van haar vader
+Genesis 19:37-38 | Moabieten.*kinderen Ammons
+2 Petrus 2:6-8 | Sodoma en Gomorra.*rechtvaardigen Lot
+Lukas 17:32 | Gedenkt aan de vrouw van Lot
+Hebreeen 13:2 | onwetend engelen geherbergd
+
+# 11 God belooft Abraham een zoon
+Genesis 15:1 | Vrees niet, Abram! Ik ben u een Schild, uw Loon zeer groot
+Genesis 15:2 | zonder kinderen.*bezorger van mijn huis is deze Damaskener Eliezer
+Genesis 15:3 | de zoon van mijn huis zal mijn erfgenaam zijn
+Genesis 15:4 | die uit uw lijf voortkomen zal, die zal uw erfgenaam zijn
+Genesis 15:5 | leidde Hij hem uit naar buiten.*tel de sterren, indien gij ze tellen kunt.*Zo zal uw zaad zijn
+Genesis 15:6 | hij geloofde in den HEERE; en Hij rekende het hem tot gerechtigheid
+Genesis 15:17 | het duister werd.*rokende oven en vurige fakkel, die tussen die stukken doorging
+Genesis 15:18 | Ten zelfden dage maakte de HEERE een verbond met Abram
+Genesis 17:1 | negen en negentig jaren
+Genesis 17:5 | uw naam zal wezen Abraham; want Ik heb u gesteld tot een vader van menigte der volken
+Genesis 17:11 | tot een teken zijn van het verbond
+Genesis 17:15 | haar naam zal zijn Sara
+Genesis 17:16 | koningen der volken zullen uit haar worden
+Genesis 17:17 | hij lachte
+Genesis 17:19 | gij zult zijn naam noemen Izak
+Genesis 17:21 | op dezen gezetten tijd in het andere jaar
+Genesis 18:12 | lachte Sara bij zichzelve
+Genesis 21:1 | de HEERE deed aan Sara, gelijk als Hij gesproken had
+Genesis 21:2 | ter gezetter tijd
+Genesis 21:3 | Izak
+Genesis 21:5 | honderd jaren oud, als hem Izak zijn zoon geboren werd
+Genesis 21:6 | God heeft mij een lachen gemaakt
+Romeinen 4:18 | tegen hoop op hoop geloofd
+Romeinen 4:21 | ten volle verzekerd zijnde, dat hetgeen beloofd was, Hij ook machtig was te doen
+Hebreeen 11:11 | Sara zelve kracht ontvangen
+Galaten 3:6 | Abraham Gode geloofd heeft, en het is hem tot rechtvaardigheid gerekend
+
+# 12 Hagar en Ismael weggestuurd
+Genesis 21:8 | maaltijd op den dag, als Izak gespeend werd
+Genesis 21:9 | spottende
+Genesis 21:10 | Drijf deze dienstmaagd en haar zoon uit
+Genesis 21:11 | zeer kwaad in Abrahams ogen
+Genesis 21:12 | in Izak zal uw zaad genoemd worden
+Genesis 21:13 | zoon dezer dienstmaagd tot een volk stellen
+Genesis 21:14 | des morgens vroeg.*brood, en een fles water.*woestijn Ber-seba
+Genesis 21:15-16 | onder een van de struiken.*Dat ik het kind niet zie sterven.*weende
+Genesis 21:17 | God hoorde de stem van den jongen.*de Engel Gods riep Hagar toe uit den hemel.*Vrees niet
+Genesis 21:19 | God opende haar ogen, dat zij een waterput zag
+Genesis 21:20 | God was met den jongen.*boogschutter
+Genesis 21:21 | woestijn Paran
+Romeinen 9:7 | In Izaak zal u het zaad genoemd worden
+Genesis 25:12 | Ismael
+Genesis 25:16 | twaalf vorsten naar hun volken
+
+# 13 Abraham moet Izak offeren
+Genesis 22:1 | God Abraham verzocht
+Genesis 22:2 | Neem nu uw zoon, uw enige, dien gij liefhebt, Izak.*land Moria.*brandoffer
+Genesis 22:3 | des morgens vroeg.*ezel.*twee van zijn jongeren.*kloofde hout
+Genesis 22:4 | Aan den derden dag.*zag die plaats van verre
+Genesis 22:5 | Blijft gij hier met den ezel, en ik en de jongen zullen heengaan tot daar; als wij aangebeden zullen hebben, dan zullen wij tot u wederkeren
+Genesis 22:6 | het hout des brandoffers, en legde het op Izak
+Genesis 22:7 | Zie het vuur en het hout; maar waar is het lam tot het brandoffer
+Genesis 22:8 | God zal Zichzelven een lam ten brandoffer voorzien, mijn zoon
+Genesis 22:9 | bouwde aldaar een altaar.*bond zijn zoon Izak
+Genesis 22:10 | nam het mes
+Genesis 22:11 | de Engel des HEEREN riep tot hem van den hemel
+Genesis 22:12 | Strek uw hand niet uit aan den jongen, en doe hem niets
+Genesis 22:13 | een ram in de verwarde struiken vast met zijn hoornen.*in zijns zoons plaats
+Genesis 22:14 | De HEERE zal het voorzien
+Genesis 22:16 | Ik zweer bij Mijzelven
+Genesis 22:18 | in uw zaad zullen gezegend worden alle volken der aarde
+Genesis 22:19 | Ber-seba
+Genesis 23:1 | honderd zeven en twintig jaren
+Hebreeen 11:17-19 | Izak geofferd.*machtig was, hem ook uit de doden te verwekken
+Romeinen 8:32 | Zijn eigen Zoon niet gespaard heeft, maar heeft Hem voor ons allen overgegeven
+Jakobus 2:21-23 | vriend van God
+Johannes 1:29 | Zie het Lam Gods, Dat de zonde der wereld wegneemt
+
+# 14 Een vrouw voor Izak
+Genesis 24:1 | Abraham nu was oud
+Genesis 24:2 | den oudste van zijn huis
+Genesis 24:3 | geen vrouw nemen zult van de dochteren der Kanaanieten
+Genesis 24:4 | naar mijn land, en naar mijn maagschap
+Genesis 24:7 | Die Zelf zal Zijn Engel voor uw aangezicht
+Genesis 24:10 | tien kemelen.*Mesopotamie, naar de stad van Nahor
+Genesis 24:11 | waterput, des avondtijds
+Genesis 24:12 | HEERE! God van mijn heer Abraham
+Genesis 24:14 | Drink, en ik zal ook uw kemelen drenken
+Genesis 24:15 | eer hij geeindigd had te spreken.*Rebekka.*Bethuel.*Milka.*Nahor
+Genesis 24:19 | Ik zal ook voor uw kemelen putten
+Genesis 24:26 | aanbad den HEERE
+Genesis 24:27 | de HEERE heeft mij op dezen weg geleid
+Genesis 24:50 | Laban, en Bethuel.*Van den HEERE is deze zaak voortgekomen
+Genesis 24:58 | Ik zal trekken
+Genesis 24:63 | om te bidden in het veld, tegen het naken van den avond.*de kemelen kwamen
+Genesis 24:67 | hij had haar lief. Alzo werd Izak getroost na zijner moeders dood
+Genesis 25:20 | Izak was veertig jaren oud, als hij Rebekka
+Genesis 28:1-2 | Neem geen vrouw van de dochteren van Kanaan.*van de dochteren van Laban
+
+# 15 Ezau en Jakob
+Genesis 25:21 | Izak bad den HEERE.*onvruchtbaar.*liet zich van hem verbidden
+Genesis 25:23 | de meerdere zal den mindere dienen
+Genesis 25:25 | ros.*haren kleed.*Ezau
+Genesis 25:26 | hand Ezau.?s verzenen hield.*zestig jaren oud
+Genesis 25:27 | Ezau een man, verstandig op de jacht.*Jakob.*wonende in tenten
+Genesis 25:28 | Izak had Ezau lief; want het wildbraad was naar zijn mond; maar Rebekka had Jakob lief
+Genesis 25:30 | dat rode
+Genesis 25:33 | verkocht aan Jakob zijn eerstgeboorte
+Genesis 25:34 | Jakob gaf aan Ezau brood, en het linzenkooksel
+Genesis 27:1 | Izak oud geworden was.*niet zien kon
+Genesis 27:15-16 | klederen van Ezau.*vellen van de geitenbokjes
+Genesis 27:22 | De stem is Jakobs stem, maar de handen zijn Ezau.?s handen
+Genesis 27:23 | zegende hem
+Genesis 27:34 | schreeuwde
+Genesis 27:41 | Ezau haatte Jakob.*mijn broeder Jakob doden
+Genesis 27:43 | vlied gij naar Haran, tot Laban, mijn broeder
+Genesis 28:1 | Izak riep Jakob, en zegende hem
+Genesis 28:12 | een ladder was gesteld op de aarde, welker opperste aan den hemel raakte
+Genesis 28:15 | Ik ben met u, en Ik zal u behoeden overal, waarheen gij trekken zult, en Ik zal u wederbrengen in dit land
+Genesis 28:19 | noemde den naam dier plaats Beth-El
+Romeinen 9:10-12 | Rebekka.*De meerdere zal den mindere dienen
+Hebreeen 12:16 | Ezau, die om een spijze het recht van zijn eerstgeboorte weggaf
+Johannes 1:52 | engelen Gods opklimmende en nederdalende op den Zoon des mensen
+Genesis 47:9 | honderd en dertig jaren
+Genesis 41:46 | dertig jaren oud
+Genesis 45:6 | twee jaren des hongers
+Genesis 30:25 | Rachel Jozef gebaard had, dat Jakob tot Laban zeide: Laat mij vertrekken
+Genesis 31:41 | veertien jaren gediend om uw beide dochteren, en zes jaren om uw kudde
+
+# 16 Jakob bij Laban
+Genesis 29:4 | Wij zijn van Haran
+Genesis 29:10 | Rachel.*wentelde den steen van den mond des puts, en drenkte de schapen
+Genesis 29:11 | Jakob kuste Rachel; en hij hief zijn stem op en weende
+Genesis 29:18 | Ik zal u zeven jaren dienen, om Rachel
+Genesis 29:20 | zeven jaren; en die waren in zijn ogen als enige dagen, omdat hij haar liefhad
+Genesis 29:23 | zijn dochter Lea nam, en bracht haar tot hem
+Genesis 29:25 | het was Lea.*waarom hebt gij mij dan bedrogen
+Genesis 29:26 | Men doet alzo niet te dezer onzer plaatse, dat men de kleinste uitgeve voor de eerstgeborene
+Genesis 29:27-28 | Vervul de week.*andere zeven jaren.*Rachel
+Genesis 29:30 | nog andere zeven jaren
+Genesis 29:31 | de HEERE zag, dat Lea gehaat was, opende Hij haar baarmoeder; maar Rachel was onvruchtbaar
+Genesis 29:32 | noemde zijn naam Ruben
+Genesis 29:33-35 | Simeon.*Levi.*Juda
+Genesis 30:3 | Bilha
+Genesis 30:6 | Dan
+Genesis 30:8 | Nafthali
+Genesis 30:9 | Zilpa
+Genesis 30:11 | Gad
+Genesis 30:13 | Aser
+Genesis 30:18 | Issaschar
+Genesis 30:20 | Zebulon
+Genesis 30:21 | Dina
+Genesis 30:22 | God dacht ook aan Rachel
+Genesis 30:24 | Jozef
+Genesis 30:32 | gespikkelde en geplekte vee
+Genesis 30:43 | brak gans zeer uit in menigte
+Genesis 35:18 | Benjamin
+Genesis 49:28 | Al deze stammen van Israel zijn twaalf
+Hosea 12:13 | Israel diende om een vrouw, en hoedde om een vrouw
+Ruth 4:11 | als Rachel en als Lea, die beiden het huis van Israel gebouwd hebben
+
+# 17 Jakob keert terug en worstelt bij de Jabbok
+Genesis 31:2 | niet als gisteren en eergisteren
+Genesis 31:3 | Keer weder tot het land uwer vaderen, en tot uw maagschap, en Ik zal met u zijn
+Genesis 31:17-18 | zijn zonen en zijn vrouwen.*al zijn vee
+Genesis 31:19-20 | stal Rachel de terafim.*niet te kennen gaf, dat hij vlood
+Genesis 31:23 | een weg van zeven dagen.*gebergte van Gilead
+Genesis 31:24 | God kwam tot Laban.*in een droom
+Genesis 31:41 | twintig jaren.*loon tien malen veranderd
+Genesis 31:46 | maakten een hoop
+Genesis 31:48 | Deze hoop zij heden een getuige
+Genesis 31:55 | Laban trok heen
+Genesis 32:1-2 | engelen Gods ontmoetten hem.*Mahanaim
+Genesis 32:6 | vierhonderd mannen met hem
+Genesis 32:7 | vreesde Jakob zeer
+Genesis 32:9-12 | Keer weder tot uw land.*Ruk mij toch uit mijns broeders hand.*Gij hebt immers gezegd
+Genesis 32:13-15 | geschenk.*Tweehonderd geiten
+Genesis 32:22 | het veer van de Jabbok
+Genesis 32:24 | een man worstelde met hem, totdat de dageraad opging
+Genesis 32:25 | gewricht zijner heup aan
+Genesis 32:26 | Ik zal U niet laten gaan, tenzij dat Gij mij zegent
+Genesis 32:28 | niet Jakob heten, maar Israel
+Genesis 32:30 | Pniel.*ik heb God gezien van aangezicht tot aangezicht
+Hosea 12:4-5 | vorstelijk.*weende en smeekte Hem
+Hosea 12:5 | hij weende en smeekte Hem
+Genesis 28:15 | Ik zal u wederbrengen in dit land
+
+# 18 Jozef wordt verkocht
+Genesis 37:2 | zeventien jaren, weidde de kudde met zijn broeders
+Genesis 37:3 | had Jozef lief, boven al zijn zonen.*veelvervigen rok
+Genesis 37:4 | haatten zij hem
+Genesis 37:7 | uw schoven kwamen rondom, en bogen zich neder voor mijn schoof
+Genesis 37:8 | haatten zij hem nog te meer
+Genesis 37:9 | de zon, en de maan, en elf sterren bogen zich voor mij neder
+Genesis 37:11 | benijdden hem
+Genesis 37:14 | dal Hebron.*Sichem
+Genesis 37:17 | Dothan
+Genesis 37:19 | Ziet, daar komt die meesterdromer aan
+Genesis 37:20 | laat ons hem doodslaan
+Genesis 37:22 | Vergiet geen bloed; werpt hem in dezen kuil.*opdat hij hem uit hun hand verloste
+Genesis 37:23-24 | rok uit.*de kuil was ledig; er was geen water in
+Genesis 37:25 | Ismaelieten kwam uit Gilead.*naar Egypte
+Genesis 37:26 | Wat gewin zal het zijn, dat wij onzen broeder doodslaan, en zijn bloed verbergen
+Genesis 37:28 | twintig zilverlingen; die brachten Jozef naar Egypte
+Genesis 37:31 | slachtten een geitenbok, en zij doopten den rok in het bloed
+Genesis 37:33 | Het is mijns zoons rok! een boos dier heeft hem opgegeten
+Genesis 37:34 | bedreef rouw over zijn zoon vele dagen
+Genesis 37:36 | Potifar, een hoveling van Farao
+Handelingen 7:9 | verkochten Jozef.*en God was met hem
+Psalm 105:17 | Jozef werd verkocht tot een slaaf
+
+# 19 Jozef blijft trouw in Egypte
+Genesis 39:2 | de HEERE was met Jozef
+Genesis 39:4 | stelde hem over zijn huis; en al wat hij had, gaf hij in zijn hand
+Genesis 39:9 | hoe zoude ik dan dit een zo groot kwaad doen, en zondigen tegen God
+Genesis 39:12 | liet zijn kleed in haar hand, en vluchtte
+Genesis 39:20 | gevangenhuis
+Genesis 39:21 | Doch de HEERE was met Jozef
+Genesis 40:8 | Zijn de uitleggingen niet van God
+Genesis 40:10 | drie ranken
+Genesis 40:12-13 | de drie ranken zijn drie dagen.*in uw staat herstellen
+Genesis 40:16 | drie getraliede korven
+Genesis 40:18-19 | drie korven zijn drie dagen.*aan een hout hangen
+Genesis 40:22 | den overste der bakkers hing hij op
+Genesis 40:23 | gedacht aan Jozef niet, maar vergat hem
+Genesis 41:1 | ten einde van twee volle jaren, dat Farao droomde
+Genesis 41:2-4 | zeven.*koeien
+Genesis 41:5-7 | zeven aren
+Genesis 41:9-13 | overste der schenkers
+Genesis 41:16 | Het is buiten mij! God zal Farao.?s welstand aanzeggen
+Genesis 41:25 | De droom van Farao is een
+Genesis 41:26 | zeven schone koeien zijn zeven jaren
+Genesis 41:29-30 | zeven aankomende jaren.*grote overvloed.*zeven jaren des hongers
+Genesis 41:38 | Zouden wij wel een man vinden als dezen, in welken Gods Geest is
+Genesis 41:41 | ik heb u over gans Egypteland gesteld
+Genesis 41:46 | Jozef nu was dertig jaren oud
+Psalm 105:18-21 | ijzers.*doorlouterd.*koning zond.*heer over zijn huis
+Psalm 105:19 | doorlouterd
+Handelingen 7:9-10 | genade en wijsheid voor Farao
+
+# 20 Jozef en zijn broers weer samen
+Genesis 41:47-54 | zeven jaren des overvloeds.*zeven jaren des hongers
+Genesis 42:3 | Jozefs tien broederen af, om koren uit Egypte te kopen
+Genesis 42:4 | Benjamin, Jozefs broeder, zond Jakob niet met zijn broederen
+Genesis 42:5 | de honger was in het land Kanaan
+Genesis 42:6 | bogen zich voor hem, met de aangezichten ter aarde
+Genesis 42:8 | zij kenden hem niet
+Genesis 42:9 | gedacht Jozef aan de dromen.*Gij zijt verspieders
+Genesis 42:21 | Voorwaar, wij zijn schuldig aan onzen broeder
+Genesis 42:24 | nam Simeon van hen, en bond hem
+Genesis 43:9 | Ik zal borg voor hem zijn
+Genesis 43:34 | Benjamins gerecht was vijfmaal groter
+Genesis 44:2 | beker
+Genesis 44:12 | die beker werd gevonden in den zak van Benjamin
+Genesis 44:33 | laat toch uw knecht voor dezen jongeling slaaf van mijn heer blijven
+Genesis 45:1 | Toen kon zich Jozef niet bedwingen
+Genesis 45:3 | Ik ben Jozef! leeft mijn vader nog
+Genesis 45:5 | God heeft mij voor uw aangezicht gezonden, tot behoudenis des levens
+Genesis 45:8 | gij hebt mij herwaarts niet gezonden, maar God Zelf
+Genesis 46:1 | Ber-seba
+Genesis 46:3 | vrees niet van af te trekken naar Egypte
+Genesis 46:27 | die in Egypte kwamen, waren zeventig
+Genesis 46:29 | Gosen.*viel hij hem aan zijn hals, en weende lang aan zijn hals
+Genesis 50:20 | Gijlieden wel, gij hebt kwaad tegen mij gedacht; doch God heeft dat ten goede gedacht
+Handelingen 7:11-13 | in de tweede reize werd Jozef zijn broederen bekend
+Psalm 105:21-23 | heer over zijn huis.*Israel in Egypte
+
+# 21 Mozes wordt gered uit het water
+Exodus 1:7 | vruchtbaar.*gans zeer machtig
+Exodus 1:8 | een nieuwe koning.*die Jozef niet gekend had
+Exodus 1:11 | schatsteden, Pitom en Raamses
+Exodus 1:12 | hoe meer zij het verdrukten, hoe meer het vermeerderde
+Exodus 1:15 | Sifra.*Pua
+Exodus 1:17 | de vroedvrouwen vreesden God
+Exodus 1:20 | deed God aan de vroedvrouwen goed
+Exodus 1:22 | Alle zonen, die geboren worden, zult gij in de rivier werpen
+Exodus 2:1 | een dochter van Levi
+Exodus 2:2 | verborg zij hem drie maanden
+Exodus 2:3 | kistje van biezen, en belijmde het met lijm en met pek.*aan den oever der rivier
+Exodus 2:4 | zijn zuster stelde zich van verre
+Exodus 2:5 | de dochter van Farao.*het kistje
+Exodus 2:6 | het jongsken weende; en zij werd met barmhartigheid bewogen
+Exodus 2:7-8 | voedstervrouw.*riep des knechtjes moeder
+Exodus 2:10 | het werd haar ten zoon; en zij noemde zijn naam Mozes.*Want ik heb hem uit het water getogen
+Exodus 6:19 | Amram nam Jochebed.*Mozes
+Exodus 7:7 | Mozes was tachtig jaar oud
+Hebreeen 11:23 | drie maanden lang van zijn ouders verborgen.*vreesden het gebod des konings niet
+Handelingen 7:20-22 | Mozes.*dochter van Farao
+
+# 22 Mozes kiest de kant van zijn volk
+Exodus 2:11 | Mozes groot geworden was.*bezag hun lasten.*een Egyptisch man een Hebreeuwsen man
+Exodus 2:12 | versloeg hij den Egyptenaar, en verborg hem in het zand
+Exodus 2:13 | twee Hebreeuwse mannen twistten.*Waarom slaat gij uw naaste
+Exodus 2:14 | Wie heeft u tot een overste en rechter over ons gezet
+Exodus 2:15 | zocht hij Mozes te doden.*Mozes vlood.*het land Midian.*waterput
+Exodus 2:16 | de priester in Midian had zeven dochters
+Exodus 2:17 | de herders.*dreven haar.*Mozes stond op, en verloste ze
+Exodus 2:18 | Rehuel
+Exodus 2:19 | Een Egyptisch man heeft ons verlost uit de hand der herderen
+Exodus 2:21 | gaf Mozes zijn dochter Zippora
+Exodus 2:22 | Gersom.*Ik ben een vreemdeling geworden in een vreemd land
+Exodus 2:23 | de koning van Egypte gestorven was.*zuchtten en schreeuwden
+Exodus 2:24 | God hoorde hun gekerm, en God gedacht aan Zijn verbond met Abraham, met Izak, en met Jakob
+Hebreeen 11:24-25 | geweigerd een zoon van Farao.?s dochter genoemd te worden.*met het volk van God kwalijk gehandeld te worden
+Handelingen 7:23 | veertig jaren
+Handelingen 7:29 | vluchtte.*Madiam
+Handelingen 7:30 | als veertig jaren vervuld waren
+
+# 23 God roept Mozes bij de braamstruik
+Exodus 3:1 | kudde van Jethro, zijn schoonvader.*berg Gods, aan Horeb
+Exodus 3:2 | het braambos brandde in het vuur, en het braambos werd niet verteerd
+Exodus 3:4 | Mozes, Mozes
+Exodus 3:5 | trek uw schoenen uit van uw voeten; want de plaats, waarop gij staat, is heilig land
+Exodus 3:7 | gezien de verdrukking Mijns volks
+Exodus 3:10 | Ik zal u tot Farao zenden
+Exodus 3:11 | Wie ben ik
+Exodus 3:12 | Ik zal voorzeker met u zijn
+Exodus 3:14 | Ik ZAL ZIJN,+ Die Ik ZIJN ZAL
+Exodus 4:3 | tot een slang
+Exodus 4:4 | grijp haar bij haar staart.*tot een staf in zijn hand
+Exodus 4:6 | melaats, wit als sneeuw
+Exodus 4:7 | weder als zijn ander vlees
+Exodus 4:9 | wateren der rivier.*tot bloed
+Exodus 4:10 | zwaar van mond
+Exodus 4:14-16 | Aaron, de Leviet, uw broeder.*hij zal voor u tot het volk spreken
+Exodus 4:24 | de HEERE hem tegenkwam, en zocht hem te doden
+Exodus 4:25-26 | Zippora.*besneed.*liet van hem af
+Exodus 4:27 | ontmoette hem aan den berg Gods
+Exodus 4:30-31 | deed de tekenen voor de ogen des volks.*het volk geloofde.*aanbaden
+Markus 12:26-27 | God der doden, maar een God der levenden
+Handelingen 7:30-34 | doornenbos.*Ik ben de God uwer vaderen
+
+# 24 Tien plagen
+Exodus 5:1 | Alzo zegt de HEERE, de God van Israel: Laat Mijn volk trekken
+Exodus 5:2 | Wie is de HEERE, Wiens stem ik gehoorzamen zou
+Exodus 5:7-8 | geen stro meer.*stro.*getal der tichelstenen
+Exodus 5:21 | De HEERE zie op u
+Exodus 6:5 | Ik zal ulieden uitleiden van onder de lasten der Egyptenaren
+Exodus 7:7 | Mozes was tachtig jaar oud, en Aaron was drie en tachtig jaar oud
+Exodus 7:20 | sloeg het water
+Exodus 7:21 | bloed in het ganse Egypteland
+Exodus 8:6 | vorsen
+Exodus 8:17 | luizen
+Exodus 8:19 | Dit is Gods vinger
+Exodus 8:22 | het land Gosen.*geen vermenging van ongedierte
+Exodus 8:24 | vermenging van ongedierte
+Exodus 9:6 | al het vee der Egyptenaren stierf
+Exodus 9:10 | zweren
+Exodus 9:14 | opdat gij weet, dat er niemand is gelijk Ik, op de ganse aarde
+Exodus 9:23 | hagel
+Exodus 9:26 | Alleen in het land Gosen.*geen hagel
+Exodus 9:34 | verzwaarde zijn hart
+Exodus 10:14 | sprinkhanen
+Exodus 10:20 | de HEERE verstokte Farao.?s hart
+Exodus 10:22 | dikke duisternis in het ganse Egypteland, drie dagen
+Exodus 10:23 | bij al de kinderen Israels was het licht
+Romeinen 9:17 | opdat Mijn Naam verkondigd worde op de ganse aarde
+Psalm 105:26-29 | Mozes.*tekenen.*land van Cham
+
+# 25 Het Pascha en de uittocht
+Exodus 11:1 | Ik zal nog een plaag over Farao, en over Egypte brengen, daarna zal hij ulieden van hier laten trekken
+Exodus 12:3 | een lam voor een huis
+Exodus 12:5 | een volkomen lam.*manneken, een jaar oud
+Exodus 12:6 | veertienden dag dezer maand
+Exodus 12:7 | strijken het aan de beide zijposten, en aan den bovendorpel
+Exodus 12:8 | ongezuurde broden; zij zullen het met bittere saus eten
+Exodus 12:11 | uw schoenen aan uw voeten, en uw staf in uw hand.*het is des HEEREN pascha
+Exodus 12:13 | wanneer Ik het bloed zie, zal Ik ulieden voorbijgaan
+Exodus 12:29 | ter middernacht.*al de eerstgeborenen in Egypteland sloeg
+Exodus 12:30 | geen huis, waarin niet een dode was
+Exodus 12:31 | riep hij Mozes en Aaron in den nacht.*Maakt u op, trekt uit het midden van mijn volk
+Exodus 12:35 | zilveren vaten, en gouden vaten, en klederen
+Exodus 12:37 | Rameses naar Sukkoth, omtrent zeshonderd duizend te voet, mannen alleen, behalve de kinderkens
+Exodus 12:40 | vierhonderd jaren en dertig jaren
+Exodus 13:19 | Mozes nam de beenderen van Jozef met zich
+Exodus 13:21 | des daags in een wolkkolom.*des nachts in een vuurkolom
+Genesis 15:14 | daarna zullen zij uittrekken met grote have
+Genesis 50:25 | zo zult gij mijn beenderen van hier opvoeren
+Numeri 33:3 | vijftienden dag der eerste maand
+1 Korinthe 5:7 | ook ons Pascha is voor ons geslacht, namelijk Christus
+Lukas 22:15 | Ik heb grotelijks begeerd, dit pascha met u te eten, eer dat Ik lijde
+Hebreeen 11:28 | Door het geloof heeft hij het pascha uitgericht
+
+# 26 Droog door de Schelfzee
+Exodus 14:2 | Pi-Hachiroth.*de zee
+Exodus 14:5 | Waarom hebben wij dat gedaan, dat wij Israel hebben laten trekken
+Exodus 14:7 | zeshonderd uitgelezene wagens, ja, al de wagens van Egypte
+Exodus 14:10 | vreesden zeer
+Exodus 14:11-12 | geen graven.*Egyptenaren te dienen
+Exodus 14:13 | Vreest niet, staat vast, en ziet het heil des HEEREN
+Exodus 14:14 | De HEERE zal voor ulieden strijden, en gij zult stil zijn
+Exodus 14:19-20 | wolkkolom.*stond achter hen.*tussen het leger der Egyptenaren, en tussen het leger van Israel
+Exodus 14:21 | sterken oostenwind, dien gansen nacht
+Exodus 14:22 | op het droge; en de wateren waren hun een muur, aan hun rechter hand en aan hun linkerhand
+Exodus 14:25 | stiet de raderen hunner wagenen weg.*Laat ons vlieden van het aangezicht van Israel, want de HEERE strijdt voor hen
+Exodus 14:28 | er bleef niet een van hen over
+Exodus 14:31 | het volk vreesde den HEERE, en geloofde in den HEERE, en aan Mozes
+Exodus 15:1 | Het paard en zijn ruiter heeft Hij in de zee geworpen
+Exodus 15:20 | Mirjam, de profetes, Aarons zuster, nam een trommel in haar hand; en al de vrouwen gingen uit, haar na
+Exodus 15:21 | Zingt den HEERE; want Hij is hogelijk verheven
+Hebreeen 11:29 | Door het geloof zijn zij de Rode zee doorgegaan, als door het droge
+Psalm 106:9-12 | Schelfzee.*Toen geloofden zij aan Zijn woorden; zij zongen Zijn lof
+1 Korinthe 10:1-2 | allen door de zee doorgegaan
+Openbaring 15:3 | het gezang van Mozes.*het gezang des Lams
+
+# 27 Water, manna en kwartels
+Exodus 15:22 | woestijn Sur.*drie dagen.*geen water
+Exodus 15:23 | Mara.*bitter
+Exodus 15:24 | Wat zullen wij drinken
+Exodus 15:25 | de HEERE wees hem een hout.*werd het water zoet
+Exodus 15:27 | Elim.*twaalf waterfonteinen, en zeventig palmbomen
+Exodus 16:1 | woestijn Sin.*vijftienden dag der tweede maand
+Exodus 16:2-3 | murmureerde.*vleespotten.*tot verzadiging brood aten
+Exodus 16:13 | aan den avond, dat er kwakkelen opkwamen
+Exodus 16:14 | een klein rond ding
+Exodus 16:15 | Het is Man, want zij wisten niet wat het was
+Exodus 16:16 | een gomer voor een hoofd
+Exodus 16:20 | wiesen er wormen in, en het werd stinkende
+Exodus 16:22 | op den zesden dag, dat zij dubbel brood verzamelden, twee gomers voor een
+Exodus 16:24 | het stonk niet, en er was geen worm in
+Exodus 17:1 | Rafidim. Daar nu was geen water
+Exodus 17:2 | twistte het volk met Mozes
+Exodus 17:5 | uw staf in uw hand
+Exodus 17:6 | op de rotssteen in Horeb.*zo zal er water uitgaan
+Exodus 17:7 | Massa en Meriba.*Is de HEERE in het midden van ons, of niet
+Johannes 6:31-35 | Manna.*Ik ben het Brood des levens
+Johannes 6:35 | Ik ben het Brood des levens
+Deuteronomium 8:3 | Man.*niet alleen van het brood leeft
+1 Korinthe 10:3-4 | geestelijke steenrots.*de steenrots was Christus
+
+# 28 Mozes met opgeheven handen
+Exodus 17:8 | Toen kwam Amalek en streed tegen Israel in Rafidim
+Exodus 17:9 | Kies ons mannen, en trek uit, strijd tegen Amalek.*de staf Gods zal in mijn hand zijn
+Exodus 17:10 | Jozua nu deed.*Mozes, Aaron en Hur klommen op de hoogte des heuvels
+Exodus 17:11 | terwijl Mozes zijn hand ophief, zo was Israel de sterkste; maar terwijl hij zijn hand nederliet, zo was Amalek de sterkste
+Exodus 17:12 | handen van Mozes werden zwaar.*een steen.*Aaron en Hur onderstutten zijn handen, de een op deze, de ander op de andere zijde.*de zon onderging
+Exodus 17:13 | Jozua Amalek en zijn volk krenkte, door de scherpte des zwaards
+Exodus 17:14 | Schrijf dit ter gedachtenis in een boek
+Exodus 17:15 | Mozes bouwde een altaar.*De HEERE is mijn Banier
+Deuteronomium 25:17-18 | Amalek.*de zwakken achter u, als gij moede en mat waart
+Psalm 28:2 | als ik mijn handen ophef
+1 Timotheus 2:8 | dat de mannen bidden in alle plaatsen, opheffende heilige handen
+
+# 29 God geeft de Tien Geboden
+Exodus 19:1 | In de derde maand.*woestijn Sinai
+Exodus 19:2 | tegenover dien berg
+Exodus 19:4 | op vleugelen der arenden gedragen
+Exodus 19:5 | Mijn verbond houden, zo zult gij Mijn eigendom zijn uit alle volken
+Exodus 19:8 | Al wat de HEERE gesproken heeft, zullen wij doen
+Exodus 19:16 | op den derden dag.*donderen en bliksemen.*zware wolk.*zeer sterke bazuin
+Exodus 19:18 | de ganse berg Sinai rookte, omdat de HEERE op denzelven nederkwam in vuur.*beefde zeer
+Exodus 20:2 | Ik ben de HEERE uw God, Die u uit Egypteland, uit het diensthuis, uitgeleid heb
+Exodus 20:3 | geen andere goden voor Mijn aangezicht
+Exodus 20:4 | geen gesneden beeld
+Exodus 20:7 | Naam des HEEREN uws Gods niet ijdellijk gebruiken
+Exodus 20:8 | Gedenkt den sabbatdag, dat gij dien heiligt
+Exodus 20:12 | Eert uw vader en uw moeder, opdat uw dagen verlengd worden
+Exodus 20:13 | niet doodslaan
+Exodus 20:14 | niet echtbreken
+Exodus 20:15 | niet stelen
+Exodus 20:16 | geen valse getuigenis
+Exodus 20:17 | niet begeren
+Exodus 20:18 | stonden van verre
+Exodus 24:4 | Mozes nu beschreef al de woorden des HEEREN.*altaar onder aan den berg, en twaalf kolommen, naar de twaalf stammen van Israel
+Exodus 24:8 | sprengde het op het volk.*dit is het bloed des verbonds
+Exodus 24:18 | Mozes ging in het midden der wolk.*veertig dagen en veertig nachten
+Deuteronomium 5:6 | Ik ben de HEERE, uw God
+Deuteronomium 5:21 | niet begeren
+Mattheus 22:37-40 | liefhebben den Heere, uw God.*naaste liefhebben als uzelven.*Aan deze twee geboden
+Romeinen 13:9 | gij zult niet stelen
+
+# 30 Het gouden kalf
+Exodus 32:1 | Mozes vertoog van den berg af te komen.*Sta op, maak ons goden, die voor ons aangezicht gaan
+Exodus 32:2-3 | gouden oorsierselen
+Exodus 32:4 | gegoten kalf.*Dit zijn uw goden, Israel! die u uit Egypteland opgevoerd hebben
+Exodus 32:6 | offerden.*om te eten en te drinken.*om te spelen
+Exodus 32:7 | heeft het verdorven
+Exodus 32:11 | Mozes aanbad het aangezicht des HEEREN
+Exodus 32:14 | berouwde het den HEERE over het kwaad
+Exodus 32:17 | Er is een krijgsgeschrei in het leger
+Exodus 32:19 | het kalf, en de reien zag.*tafelen uit zijn handen wierp.*beneden aan den berg verbrak
+Exodus 32:20 | verbrandde het in het vuur, en vermaalde het.*strooide het op het water, en deed het den kinderen Israels drinken
+Exodus 32:24 | ik wierp het in het vuur, en dit kalf is er uit gekomen
+Exodus 32:26 | Wie den HEERE toebehoort, kome tot mij! Toen verzamelden zich tot hem al de zonen van Levi
+Exodus 32:28 | drie duizend man
+Exodus 32:32 | indien Gij hun zonden vergeven zult! doch zo niet, zo delg mij nu uit Uw boek
+Exodus 32:35 | Aldus plaagde de HEERE dit volk, omdat zij dat kalf gemaakt hadden
+Exodus 34:1 | Houw u twee stenen tafelen
+Exodus 34:6 | HEERE, HEERE, God, barmhartig en genadig
+Exodus 34:7 | zonde vergeeft; Die den schuldige geenszins onschuldig houdt
+Exodus 34:10 | Ik maak een verbond
+Exodus 34:28 | veertig dagen en veertig nachten
+Exodus 34:29-30 | het vel zijns aangezichts glinsterde
+Exodus 34:30 | Aaron en al de kinderen Israels Mozes aanzagen, ziet, zo glinsterde het vel zijns aangezichts
+1 Korinthe 10:7 | Het volk zat neder om te eten, en om te drinken, en zij stonden op om te spelen
+Psalm 106:19-23 | kalf bij Horeb.*Mozes.*in de scheure
+Handelingen 7:39-41 | Aaron.*maakten een kalf
+
+# 31 De tabernakel wordt gebouwd
+Exodus 31:2 | Bezaleel, den zoon van Uri, den zoon van Hur, van den stam van Juda
+Exodus 31:3 | vervuld met den Geest Gods, met wijsheid, en met verstand
+Exodus 31:6 | Aholiab.*van den stam van Dan
+Exodus 31:13 | Mijn sabbatten.*een teken tussen Mij en tussen ulieden
+Exodus 31:18 | twee tafelen der getuigenis, tafelen van steen, beschreven met den vinger Gods
+Exodus 35:5 | wiens hart vrijwillig is.*goud, en zilver, en koper
+Exodus 35:21 | wiens hart hem bewoog
+Exodus 35:23-24 | hout|vellen|scharlaken
+Exodus 36:5 | Het volk brengt te veel, meer dan genoeg is
+Exodus 36:6 | Man noch vrouw make geen werk meer
+Exodus 37:1 | Bezaleel de ark van sittimhout
+Exodus 37:2 | overtrok ze met louter goud
+Exodus 37:6-7 | verzoendeksel.*twee cherubim van goud
+Exodus 37:10 | tafel
+Exodus 37:17 | kandelaar van louter goud
+Exodus 37:23 | hij maakte hem zeven lampen
+Exodus 37:25 | het reukaltaar van sittimhout.*vierkant
+Exodus 38:1 | brandofferaltaar.*vijf ellen.*vijf ellen zijn breedte
+Exodus 38:8 | koperen wasvat.*van de spiegels der te hoop komende vrouwen
+Exodus 39:43 | gelijk als de HEERE geboden had.*Toen zegende Mozes hen
+Exodus 40:17 | in de eerste maand, in het tweede jaar, op den eersten der maand, dat de tabernakel opgericht werd
+Exodus 40:20 | leide de getuigenis in de ark
+Exodus 40:34 | bedekte de wolk de tent der samenkomst; en de heerlijkheid des HEEREN vervulde den tabernakel
+Exodus 40:35 | Mozes niet kon ingaan in de tent der samenkomst
+Exodus 25:8 | dat Ik in het midden van hen wone
+Exodus 25:9 | voorbeeld dezes tabernakels
+Johannes 1:14 | het Woord is vlees geworden, en heeft onder ons gewoond
+Hebreeen 9:11 | den meerderen en volmaakten tabernakel
+Openbaring 21:3 | Ziet, de tabernakel Gods is bij de mensen
+
+# Kernwoorden
+Genesis 1:1 | In den beginne schiep God
+Psalm 33:6 | Door het Woord des HEEREN zijn de hemelen gemaakt
+Johannes 1:3 | Alle dingen zijn door Hetzelve gemaakt
+Openbaring 4:11 | want Gij hebt alle dingen geschapen
+Genesis 3:6 | zij nam van zijn vrucht en at
+Romeinen 3:23 | Want zij hebben allen gezondigd
+1 Johannes 1:9 | Indien wij onze zonden belijden, Hij is getrouw en rechtvaardig
+Genesis 9:11 | Ik richt Mijn verbond op met u
+Genesis 17:7 | om u te zijn tot een God, en uw zaad na u
+Exodus 24:8 | dit is het bloed des verbonds
+Lukas 22:20 | het nieuwe testament in Mijn bloed
+Genesis 12:2-3 | groot volk.*gezegend worden
+2 Korinthe 1:20 | zovele beloften Gods als er zijn, die zijn in Hem ja, en zijn in Hem amen
+Hebreeen 10:23 | Die het beloofd heeft, is getrouw
+Hebreeen 11:1 | Het geloof nu is een vaste grond der dingen, die men hoopt
+Hebreeen 11:6 | zonder geloof is het onmogelijk Gode te behagen
+Efeze 2:8 | door het geloof; en dat niet uit u, het is Gods gave
+Deuteronomium 7:9 | die getrouwe God, welke het verbond en de weldadigheid houdt
+Klaagliederen 3:23 | Zij zijn allen morgen nieuw, Uw trouw is groot
+Openbaring 2:10 | Zijt getrouw tot den dood
+Psalm 42:6 | Hoop op God, want ik zal Hem nog loven
+Hebreeen 6:19 | een anker der ziel, hetwelk zeker en vast is
+Romeinen 15:13 | De God nu der hoop vervulle ulieden met alle blijdschap en vrede in het geloven
+Exodus 12:41 | al de heiren des HEEREN uit Egypteland gegaan zijn
+Deuteronomium 5:15 | dienstknecht in Egypteland geweest zijt.*sterke hand
+Lukas 9:31 | Zijn uitgang, dien Hij zoude volbrengen te Jeruzalem
+Exodus 34:28 | de tien woorden
+Deuteronomium 4:13 | de tien woorden, en schreef ze op twee stenen tafelen
+Exodus 20:3-5 | geen andere goden.*gesneden beeld
+Psalm 115:4-6 | werk van des mensen handen.*een mond, maar spreken niet; zij hebben ogen, maar zien niet
+1 Thessalonicenzen 1:9 | bekeerd zijt van de afgoden, om den levenden en waarachtigen God te dienen
+1 Johannes 5:21 | Kinderkens, bewaart uzelven van de afgoden
+Exodus 26:33 | voorhang.*ark der getuigenis
+
+# Exacte verwijzingen zoals ze in quiz (why), kruisverwijzingen, verbanden en kernwoorden staan
+Genesis 2:16-17 | Van allen boom dezes hofs zult gij vrijelijk eten.*boom der kennis des goeds en des kwaads, daarvan zult gij niet eten
+Handelingen 2:6-11 | in zijn eigen taal.*grote werken Gods
+Genesis 12:6-7 | Sichem, tot aan het eikenbos More.*Aan uw zaad zal Ik dit land geven
+Hebreeen 11:8-10 | niet wetende, waar hij komen zou
+Jozua 24:2-3 | Terah.*andere goden.*nam Ik uw vader Abraham
+Galaten 4:22-23 | een uit de dienstmaagd, en een uit de vrije.*door de beloftenis
+Genesis 13:6-7 | dat land droeg hen niet.*twist tussen de herders
+Lukas 17:28-32 | dagen van Lot.*Gedenkt aan de vrouw van Lot
+Genesis 15:2-3 | Damaskener Eliezer.*mijn erfgenaam zijn
+Genesis 17:1-5 | negen en negentig jaren.*uw naam zal wezen Abraham
+Romeinen 4:18-21 | tegen hoop op hoop geloofd.*machtig was te doen
+Hebreeen 11:11-12 | Sara zelve kracht ontvangen.*sterren des hemels
+Genesis 25:12-16 | Ismael.*twaalf vorsten naar hun volken
+Romeinen 9:10-13 | Rebekka.*De meerdere zal den mindere dienen
+Hebreeen 12:16-17 | Ezau, die om een spijze het recht van zijn eerstgeboorte weggaf
+Genesis 29:23-25 | Lea nam, en bracht haar tot hem.*het was Lea
+Genesis 31:19 | stal Rachel de terafim, die haar vader had
+Psalm 105:17-22 | Jozef werd verkocht tot een slaaf.*heer over zijn huis
+Handelingen 7:17-22 | Mozes.*dochter van Farao
+Hebreeen 11:24-27 | geweigerd een zoon van Farao.?s dochter genoemd te worden.*Egypte verlaten
+Handelingen 7:23-29 | veertig jaren.*vluchtte
+Exodus 3:11-12 | Wie ben ik.*Ik zal voorzeker met u zijn
+Exodus 5:7 | geen stro meer.*stro voor zichzelven verzamelen
+Exodus 12:35-36 | zilveren vaten, en gouden vaten, en klederen
+Exodus 17:5-6 | uw staf in uw hand.*op den rotssteen slaan
+Exodus 17:9-10 | Mozes dan zeide tot Jozua.*Jozua nu deed.*strijdende tegen Amalek
+Deuteronomium 5:6-21 | Ik ben de HEERE, uw God.*niet begeren
+Exodus 32:2-4 | gouden oorsierselen.*gegoten kalf
+Exodus 36:5-6 | Het volk brengt te veel.*Man noch vrouw make geen werk meer
+Psalm 33:6-9 | Door het Woord des HEEREN zijn de hemelen gemaakt.*Hij spreekt, en het is er
+Klaagliederen 3:22-23 | goedertierenheden des HEEREN.*Uw trouw is groot
+Exodus 20:1-17 | Toen sprak God al deze woorden.*Gij zult niet begeren
+Psalm 115:4-8 | Hunlieder afgoden zijn zilver en goud.*al wie op hen vertrouwt
+Exodus 25:8-9 | dat Ik in het midden van hen wone.*voorbeeld dezes tabernakels
+1 Korinthe 10:1 | onze vaders allen onder de wolk waren, en allen door de zee doorgegaan

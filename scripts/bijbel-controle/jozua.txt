@@ -92,7 +92,7 @@ Jozua 7:20 | ik heb tegen den HEERE.*gezondigd
 Jozua 7:24 | Achan.*zonen.*dochteren.*alles wat hij had.*dal Achor
 Jozua 7:25 | stenigde.*verbrandden.*stenen
 Jozua 7:26 | groten steenhoop
-Hosea 2:15 | dal Achor, tot een deur der hoop
+Hosea 2:14 | dal Achor, tot een deur der hoop
 # --- Stap 6: Jozua 8:1–29 ---
 Jozua 8:1 | Vrees niet.*koning van Ai.*in uw hand gegeven
 Jozua 8:3 | dertig duizend mannen.*bij nacht
@@ -213,7 +213,7 @@ Jozua 19:1 | Simeon.*in het midden van het erfdeel der kinderen van Juda
 Jozua 19:2 | Beer-seba
 Jozua 18:21 | Benjamin.*Jericho
 Jozua 18:25 | Gibeon
-Jozua 18:28 | Jebusi \(deze is Jeruzalem\).*Benjamin
+Jozua 18:28 | Jebusi \( ?deze is Jeruzalem\).*Benjamin
 Jozua 18:11 | Benjamin.*tussen de kinderen van Juda, en tussen de kinderen van Jozef
 Jozua 19:41 | Zora
 Jozua 19:47 | Dan.*Lesem.*Dan
@@ -256,7 +256,7 @@ Jozua 24:29 | honderd en tien
 # --- Audit 2.0 (oktober 2026): chronologie, correcties en kruisverwijzingen (ook NT)
 1 Koningen 6:1 | vierhonderd en tachtigste jaar.*vierde jaar van het koninkrijk van Salomo
 Numeri 14:33-34 | veertig jaren
-Jozua 4:19 | tiende der eerste maand.*Gilgal
+Jozua 4:19 | tienden der eerste maand.*Gilgal
 Jozua 14:7 | veertig jaren oud
 Jozua 14:10 | vijf en tachtig jaren oud
 Numeri 14:6-9 | Jozua.*Kaleb.*de HEERE is met ons
@@ -271,7 +271,7 @@ Jozua 5:14 | viel Jozua op zijn aangezicht ter aarde
 Jozua 7:21 | Babylonisch overkleed
 Jozua 7:5 | omtrent zes en dertig man
 Jozua 7:25-26 | beroerd.*dal van Achor
-Hosea 2:15 | dal Achor, tot een deur der hoop
+Hosea 2:14 | dal Achor, tot een deur der hoop
 Jozua 8:3-4 | dertig duizend mannen, strijdbare helden.*bij nacht.*lagen leggen van achter de stad
 Jozua 8:12 | omtrent vijf duizend man.*achterlage tussen Beth-El en tussen Ai, aan het westen der stad
 Hebreeën 11:30-31 | muren van Jericho gevallen.*Rachab

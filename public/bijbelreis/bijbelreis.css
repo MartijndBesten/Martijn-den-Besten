@@ -315,6 +315,7 @@ details.parents dd { margin: 0; }
 .lab.gb { font-style: italic; font-weight: 600; letter-spacing: 0.02em; color: var(--fg-2); }
 .lab .nu { display: none; font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.02em; color: var(--fg-3); margin-top: 2px; }
 .nu .lab.on .nu { display: block; }
+.pl.stil { visibility: hidden; }
 .lab.off, .lab.clash, .region.off, .region.clash, .peak.off, .peak.clash { display: none; }
 .nu .region.land { opacity: 0.35; }
 .border { stroke: var(--ink-2); stroke-width: 1.3; stroke-dasharray: 5 3 1 3; stroke-opacity: 0.55; fill: none; }
@@ -472,6 +473,13 @@ button.kb[aria-current="true"] { box-shadow: 0 0 0 2px var(--salie-deep); }
 .fam { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 10px; align-items: center; font-size: 0.85rem; }
 .fam dt { color: var(--fg-3); }
 .fam dd { margin: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.chip.afgeleid { border-style: dashed; }
+.grond { margin: 8px 0; font-size: 0.85rem; }
+.grond summary { cursor: pointer; color: var(--fg-2); }
+.gs { font-weight: 600; }
+.gs-b { color: var(--goed); }
+.gs-a, .gs-x { color: var(--fg-3); font-style: italic; }
+.overlevering ul { margin: 4px 0 0; padding-left: 18px; }
 .golist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
 .golist li { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
 .golist small { color: var(--fg-3); font-size: 0.78rem; white-space: nowrap; }
@@ -498,3 +506,62 @@ button.kb[aria-current="true"] { box-shadow: 0 0 0 2px var(--salie-deep); }
 /* Plaatsen zijn met het toetsenbord te kiezen; de marker zelf is 0×0, dus de focus komt op het pictogram. */
 .leaflet-marker-icon.pl:focus { outline: none; }
 .leaflet-marker-icon.pl:focus-visible > :first-child { outline: 3px solid var(--boter-deep); outline-offset: 3px; border-radius: 50%; }
+
+/* ===== 3.0: de 150 geschiedenissen ===== */
+input[type="search"] { font: inherit; font-size: 1rem; color: var(--fg); background: var(--card); border: 1.5px solid var(--line); border-radius: 14px; padding: 10px 14px; width: 100%; }
+input[type="search"]:focus-visible { outline: 3px solid var(--boter); outline-offset: 2px; }
+.prog.big { height: 8px; margin: 0; }
+.vlijst { display: flex; flex-direction: column; gap: 4px; }
+.vsectie { font-size: 1rem; margin: 10px 0 2px; display: flex; justify-content: space-between; align-items: baseline; }
+.vsectie small { font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--fg-3); letter-spacing: 0.04em; }
+.vul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.vitem { width: 100%; display: grid; grid-template-columns: 2.4rem minmax(0, 1fr) auto; gap: 10px; align-items: center; text-align: left; background: var(--card); border: 1.5px solid var(--line); border-radius: 14px; padding: 8px 12px; cursor: pointer; color: var(--fg); font: inherit; min-height: 48px; }
+button.vitem:hover { border-color: var(--acc); }
+.vitem.off { cursor: default; opacity: 0.6; border-style: dashed; }
+.vnr { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; color: var(--fg-3); text-align: right; font-variant-numeric: tabular-nums; }
+.vt { display: flex; flex-direction: column; min-width: 0; }
+.vt b { font-weight: 650; }
+.vt small { color: var(--fg-3); font-size: 0.8rem; }
+.vt small i { font-style: normal; color: var(--acc-deep); font-weight: 600; }
+.vitem.gezien { border-color: color-mix(in srgb, var(--acc) 35%, var(--line)); }
+.vitem.klaar { background: color-mix(in srgb, var(--goed) 9%, var(--card)); border-color: color-mix(in srgb, var(--goed) 45%, transparent); }
+.vok { color: var(--goed); font-weight: 800; }
+.kwlijst summary { cursor: pointer; font-weight: 650; min-height: 24px; }
+.kwlijst .chips { margin-top: 8px; }
+.verhaal .kernwoord { border-radius: 14px; padding: 12px 14px; background: color-mix(in srgb, var(--acc) 10%, var(--card)); border: 1.5px solid color-mix(in srgb, var(--acc) 35%, transparent); display: flex; flex-direction: column; gap: 6px; }
+.verhaal .kernwoord h3 { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 1.6rem; letter-spacing: 0; color: var(--acc-deep); }
+.otitel { font-size: 1.05rem; margin-top: -6px; }
+.ontdek { display: flex; flex-direction: column; gap: 8px; }
+.koppel { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.koppel > div { display: flex; flex-direction: column; gap: 6px; }
+.koppel .opt { font-size: 0.92rem; padding: 9px 11px; }
+.opt.sel { border-color: var(--acc); box-shadow: 0 0 0 2px var(--acc); }
+.wiezei { display: flex; flex-direction: column; gap: 6px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.citaat { font-family: var(--font-serif); font-size: 1.15rem; margin: 0; }
+.wiezei .pick button.ok { border-color: var(--goed); background: color-mix(in srgb, var(--goed) 14%, var(--card)); }
+.wiezei .pick button.no { border-color: var(--fout); }
+.verbanden { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 10px; }
+.verbanden p { margin: 2px 0 0; }
+.verbanden .vb2 { border-left: 3px solid var(--acc); padding-left: 10px; margin-top: 6px; }
+.verbanden .btn.small { margin-top: 6px; }
+.kaartjes .day { min-height: 92px; }
+.linkbtn.small { font-size: 0.8rem; }
+.noot summary { cursor: pointer; color: var(--fg-3); font-size: 0.85rem; min-height: 24px; }
+.noot p { font-size: 0.88rem; color: var(--fg-2); margin: 4px 0 0; }
+.vgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(34px, 1fr)); gap: 4px; }
+.vcel { aspect-ratio: 1; border-radius: 8px; border: 1.5px solid var(--line); background: var(--card); font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); cursor: pointer; padding: 0; min-height: 28px; }
+.vcel:disabled { opacity: 0.35; cursor: default; border-style: dashed; }
+.vcel.gezien { border-color: var(--acc); color: var(--acc-deep); }
+.vcel.klaar { background: var(--acc); border-color: var(--acc); color: var(--bg); font-weight: 700; }
+/* Openbaring en profetie: geen plek op de kaart; de kaart wordt rustig en zegt dat. */
+#map.symbool::after { content: "Beelden en beloften, geen plaatsen op de kaart"; position: absolute; inset: 0; z-index: 650; display: grid; place-items: center; text-align: center; padding: 24px; font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; color: var(--fg); background: color-mix(in srgb, var(--bg) 72%, transparent); pointer-events: none; }
+#map.gelijkenis::after { content: "Een gelijkenis: een verhaal dat de Heere Jezus vertelde"; position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 650; max-width: 80%; text-align: center; padding: 8px 14px; border-radius: 999px; font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; color: var(--fg); background: color-mix(in srgb, var(--card) 88%, transparent); box-shadow: 0 0 0 1.5px var(--line); pointer-events: none; }
+/* Nieuwe Testament: een stip in plaats van de kameel. */
+.camel .walker { display: none; position: absolute; left: 16px; top: 22px; width: 16px; height: 16px; border-radius: 50%; border: 3px solid var(--card); box-shadow: 0 0 0 2px var(--fg); }
+.camel.nt svg { display: none; }
+.camel.nt .walker { display: block; }
+.camel.nt { filter: none; }
+@media (max-width: 900px) { .koppel { grid-template-columns: 1fr; } .vitem { grid-template-columns: 2rem minmax(0, 1fr) auto; } }
+.famlijst { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.famlijst li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-size: 0.9rem; }
+.famlijst li span { color: var(--fg-2); }
