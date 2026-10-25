@@ -3,7 +3,7 @@ import { BUREAU_BUDGETS, BUREAU_PROBLEMS, BUREAU_SOLUTIONS, BUREAU_STATUSES, gen
 import { seeded, shuffle } from "../lib/random";
 import { sfx } from "../lib/sound";
 import { Link } from "../router";
-import { MiniFig } from "../components/MiniFig";
+import { DeptObject } from "../components/Objects";
 import "../styles/pages.css";
 
 function Dossier({ c, fresh }: { c: BureauCase; fresh?: boolean }) {
@@ -43,7 +43,7 @@ export default function Bureau() {
 
   return (
     <div className="page bureau">
-      <section className="page-hero bg-sage bureau__hero" aria-labelledby="bureau-title">
+      <section className="page-hero bureau__hero" aria-labelledby="bureau-title">
         <div className="wrap bureau__hero-grid">
           <div>
           <span className="dept-no">Afd. 06 — Bureau voor Onnodige Innovatie</span>
@@ -65,7 +65,7 @@ export default function Bureau() {
             Open een nieuw dossier
           </button>
           </div>
-          <MiniFig kind="lamp" className="bureau__fig" />
+          <DeptObject kind="lamp" className="bureau__fig" />
         </div>
       </section>
       <div className="wrap">

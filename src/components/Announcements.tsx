@@ -1,5 +1,5 @@
 // Het mededelingenbulletin: wisselt automatisch, pauzeert bij hover/focus en is met knoppen te bedienen.
-// Een dunne lijn toont wanneer de volgende mededeling komt.
+// Een dunne lijn toont wanneer de volgende mededeling komt. Lange teksten blijven langer staan.
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { ANNOUNCEMENTS } from "../content/announcements";
@@ -8,7 +8,8 @@ import { useClickBurst, usePrefersReducedMotion } from "../lib/hooks";
 import { useGame } from "../state/GameState";
 import { sfx } from "../lib/sound";
 
-const INTERVAL = 7000;
+/** Leestijd: minimaal 7 seconden, plus ruim de tijd voor langere mededelingen. */
+export const readTime = (text: string) => Math.max(7000, 3000 + text.length * 70);
 
 export function Announcements() {
   const list = useMemo(() => shuffle(ANNOUNCEMENTS), []);
@@ -24,9 +25,9 @@ export function Announcements() {
 
   useEffect(() => {
     if (!running) return;
-    const t = window.setTimeout(() => setI((x) => (x + 1) % list.length), INTERVAL);
+    const t = window.setTimeout(() => setI((x) => (x + 1) % list.length), readTime(list[i].text));
     return () => window.clearTimeout(t);
-  }, [i, running, list.length]);
+  }, [i, running, list]);
 
   const go = (d: number) => {
     sfx.click();
@@ -36,6 +37,7 @@ export function Announcements() {
 
   const a = list[i];
   const number = String(((i * 7) % 97) + 3).padStart(3, "0");
+  const tilt = ((i * 5) % 7) - 3;
 
   return (
     <div
@@ -55,21 +57,23 @@ export function Announcements() {
         <span>Afd. {a.dept}</span>
       </div>
       <div className="board__screen" onClick={() => burst()} aria-live={manual ? "polite" : "off"} aria-atomic="true">
-        <div key={i} className="board__msg">
+        <div key={i} className={`board__msg ${a.text.length > 150 ? "is-long" : ""}`}>
           <p>{a.text}</p>
-          <span className="stamp board__stamp">{a.stamp}</span>
+          <span className="stamp board__stamp" style={{ "--tilt": `${tilt - 4}deg` } as CSSProperties}>
+            {a.stamp}
+          </span>
         </div>
       </div>
       <div className="board__timer" aria-hidden="true">
-        <i key={`${i}-${running}`} style={{ "--dur": `${INTERVAL}ms`, animationPlayState: running ? "running" : "paused" } as CSSProperties} />
+        <i key={`${i}-${running}`} style={{ "--dur": `${readTime(a.text)}ms`, animationPlayState: running ? "running" : "paused" } as CSSProperties} />
       </div>
       <div className="board__controls">
-        <button type="button" className="btn btn--small" onClick={() => go(-1)} aria-label="Vorige mededeling">
-          ←
+        <button type="button" className="board__nav" onClick={() => go(-1)} aria-label="Vorige mededeling">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
         <button
           type="button"
-          className="btn btn--small"
+          className="board__pause"
           aria-pressed={userPaused}
           onClick={() => {
             sfx.click();
@@ -78,8 +82,8 @@ export function Announcements() {
         >
           {userPaused ? "Hervatten" : "Pauzeren"}
         </button>
-        <button type="button" className="btn btn--small" onClick={() => go(1)} aria-label="Volgende mededeling">
-          →
+        <button type="button" className="board__nav" onClick={() => go(1)} aria-label="Volgende mededeling">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
         <span className="board__progress label" aria-hidden="true">
           {String(i + 1).padStart(2, "0")} / {list.length}

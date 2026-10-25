@@ -1,5 +1,5 @@
 import { IdeaForm } from "../components/IdeaForm";
-import { MiniFig } from "../components/MiniFig";
+import { DeptObject } from "../components/Objects";
 import "../styles/pages.css";
 
 export default function Loket() {
@@ -17,7 +17,7 @@ export default function Loket() {
             Heeft u een idee dat thuishoort in het Museum van Onafgemaakte Ideeën? Dien het hier in. Elke inzending wordt zorgvuldig beoordeeld, zodra daar tijd voor is.
           </p>
         </div>
-        <MiniFig kind="ticket" className="loket__fig" />
+        <DeptObject kind="ticket" className="loket__fig" />
       </section>
       <div className="wrap loket__grid">
         <div className="panel loket__form">

@@ -1,6 +1,6 @@
 // Het missiepaspoort: overzicht van missies en gevonden verrassingen.
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { EGGS, EGG_COUNT, MISSIONS, type EggId } from "../content/progress";
 import { useGame } from "../state/GameState";
 import { Link } from "../router";
@@ -11,19 +11,34 @@ export function Passport() {
   const { missions, eggs, missionProgress, reset } = useGame();
   const done = missions.length;
   const pct = done / MISSIONS.length;
-  const r = 14;
+  const r = 13;
   const circ = 2 * Math.PI * r;
+  // Even opveren als er een missie bijkomt, zodat de bezoeker ziet waar de voortgang staat.
+  const [bumped, setBumped] = useState(false);
+  const prev = useRef(done);
+  useEffect(() => {
+    if (done > prev.current) {
+      setBumped(true);
+      const t = window.setTimeout(() => setBumped(false), 800);
+      prev.current = done;
+      return () => window.clearTimeout(t);
+    }
+    prev.current = done;
+  }, [done]);
 
   return (
     <>
-      <button type="button" className="passport-btn" onClick={() => setOpen(true)} aria-haspopup="dialog">
+      <button type="button" className={`passport-btn ${bumped ? "is-bumped" : ""}`} onClick={() => setOpen(true)} aria-haspopup="dialog" aria-label={`Missies: ${done} van ${MISSIONS.length} voltooid`}>
         <svg className="passport-btn__ring" viewBox="0 0 36 36" aria-hidden="true">
-          <circle cx="18" cy="18" r={r} fill="none" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" />
-          <circle cx="18" cy="18" r={r} fill="none" stroke="#c2913a" strokeWidth="3" strokeDasharray={`${circ * pct} ${circ}`} transform="rotate(-90 18 18)" />
-          <text x="18" y="21.5" textAnchor="middle" fontSize="10" fontFamily="Geist Mono" fill="currentColor">{done}</text>
+          <circle cx="18" cy="18" r={r} fill="none" stroke="currentColor" strokeOpacity="0.25" strokeWidth="3" />
+          <circle cx="18" cy="18" r={r} fill="none" stroke="#f2785c" strokeWidth="3.5" strokeLinecap="round" strokeDasharray={`${Math.max(0.01, circ * pct)} ${circ}`} transform="rotate(-90 18 18)" />
+          <path d="M13 18.5l3.2 3.2 6.5-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity={done === MISSIONS.length ? 1 : 0} />
+          <circle cx="18" cy="18" r="3.4" fill="currentColor" opacity={done === MISSIONS.length ? 0 : 0.85} />
         </svg>
-        <span className="passport-btn__label">Missies</span>
-        <span className="visually-hidden"> ({done} van {MISSIONS.length} voltooid)</span>
+        <span className="passport-btn__count" aria-hidden="true">
+          {done}/{MISSIONS.length}
+        </span>
+        <span className="passport-btn__label" aria-hidden="true">Missies</span>
       </button>
       <Dialog open={open} onClose={() => setOpen(false)} title="Uw missiepaspoort">
         <p>

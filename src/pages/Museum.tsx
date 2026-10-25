@@ -7,6 +7,7 @@ import { useInView, usePrefersReducedMotion } from "../lib/hooks";
 import { api, type PublicIdea } from "../lib/api";
 import { useGame } from "../state/GameState";
 import { Artwork } from "../components/Artwork";
+import { DeptObject } from "../components/Objects";
 import { Dialog } from "../components/Dialog";
 import { VoteButton } from "../components/VoteButton";
 import { IdeaForm } from "../components/IdeaForm";
@@ -17,72 +18,60 @@ const ROMAN = ["", "I", "II", "III", "IV", "V", "VI"];
 // ---------- Plattegrond ----------
 
 function FloorPlan({ secret, onCrack }: { secret: boolean; onCrack: () => void }) {
-  // Zalen als bouwtekening: muren, deurbogen en één accentkleur per zaal.
+  // Zalen als kleurrijke kamers, elk in de kleur van zijn tentoonstelling.
   const rooms = [
-    { n: 1, x: 20, y: 30, w: 130, h: 90, accent: "#4a4f8c", door: "b" },
-    { n: 2, x: 150, y: 30, w: 100, h: 90, accent: "#c2913a", door: "b" },
-    { n: 3, x: 250, y: 30, w: 130, h: 90, accent: "#4a4f8c", door: "b" },
-    { n: 4, x: 20, y: 140, w: 170, h: 80, accent: "#8a9a7b", door: "t" },
-    { n: 5, x: 190, y: 140, w: 120, h: 80, accent: "#b65a3a", door: "t" },
+    { n: 1, x: 16, y: 34, w: 140, h: 92, fill: "#f7e3a1", ink: "#191b2e", short: "Briljant" },
+    { n: 2, x: 162, y: 34, w: 96, h: 92, fill: "#f9cfc2", ink: "#191b2e", short: "Bijna af" },
+    { n: 3, x: 264, y: 34, w: 120, h: 92, fill: "#3c5bd6", ink: "#fffdf8", short: "Domeinen" },
+    { n: 4, x: 16, y: 132, w: 170, h: 86, fill: "#dcd0f7", ink: "#191b2e", short: "Generator" },
+    { n: 5, x: 192, y: 132, w: 116, h: 86, fill: "#191b2e", ink: "#f6d36b", short: "Morgen" },
   ] as const;
   return (
     <nav className="floorplan" aria-label="Plattegrond van het museum">
-      <div className="plate__head">
+      <div className="floorplan__head">
         <span>Plattegrond · begane grond</span>
         <span>Schaal 1:200</span>
       </div>
-      <svg viewBox="0 0 400 250" className="draw">
-        <defs>
-          <pattern id="wall" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-            <line x1="0" y1="0" x2="0" y2="5" stroke="currentColor" strokeWidth="0.7" />
-          </pattern>
-        </defs>
-        <rect className="fill" x="14" y="24" width="372" height="202" fill="url(#wall)" stroke="none" />
-        <rect x="14" y="24" width="372" height="202" fill="none" stroke="currentColor" strokeWidth="1.4" />
+      <svg viewBox="0 0 400 236">
         {rooms.map((r) => (
           <a key={r.n} href={`#zaal-${r.n}`} aria-label={`Zaal ${r.n}: ${ROOMS[r.n - 1].title}`} className="floorplan__link">
-            <rect className="floorplan__room fill" x={r.x + 3} y={r.y + 3} width={r.w - 6} height={r.h - 6} fill="var(--bg)" />
-            <rect x={r.x + 3} y={r.y + 3} width={r.w - 6} height={r.h - 6} fill="none" stroke="currentColor" strokeWidth="1" />
-            <rect className="floorplan__mark fill" x={r.x + 12} y={r.y + 12} width="6" height="6" fill={r.accent} />
-            {r.door === "b" ? (
-              <path d={`M${r.x + r.w / 2 - 12} ${r.y + r.h - 3}h24M${r.x + r.w / 2 - 12} ${r.y + r.h - 3}a24 24 0 0 1 24 -24`} fill="none" stroke="currentColor" strokeWidth="0.7" />
-            ) : (
-              <path d={`M${r.x + r.w / 2 - 12} ${r.y + 3}h24M${r.x + r.w / 2 - 12} ${r.y + 3}a24 24 0 0 0 24 24`} fill="none" stroke="currentColor" strokeWidth="0.7" />
-            )}
-            <text x={r.x + 24} y={r.y + 19} fill="currentColor" fontFamily="Geist Mono" fontSize="8">
-              ZAAL {r.n}
+            <rect className="floorplan__room" x={r.x} y={r.y} width={r.w} height={r.h} rx="14" fill={r.fill} stroke="#191b2e" strokeWidth="2" />
+            <circle cx={r.x + 20} cy={r.y + 20} r="11" fill="#fffdf8" stroke="#191b2e" strokeWidth="1.6" />
+            <text x={r.x + 20} y={r.y + 24} textAnchor="middle" fill="#191b2e" fontFamily="Geist Mono" fontWeight="600" fontSize="10">
+              {r.n}
             </text>
-            <text x={r.x + 12} y={r.y + r.h - 28} fill="currentColor" fontFamily="Instrument Serif" fontSize="15">
-              {ROOMS[r.n - 1].title.length > 18 ? `${ROOMS[r.n - 1].title.slice(0, 17)}…` : ROOMS[r.n - 1].title}
+            <text x={r.x + 12} y={r.y + r.h - 14} fill={r.ink} fontFamily="Geist" fontWeight="700" fontSize="15" letterSpacing="-0.4">
+              {r.short}
             </text>
           </a>
         ))}
         {secret ? (
           <a href="#zaal-6" aria-label="Zaal 6: De Geheime Zaal" className="floorplan__link">
-            <rect className="floorplan__room floorplan__room--secret fill" x="313" y="143" width="70" height="74" fill="#1a2033" />
-            <text x="324" y="165" fill="#c2913a" fontFamily="Geist Mono" fontSize="8">
+            <rect className="floorplan__room floorplan__room--secret" x="314" y="132" width="70" height="86" rx="14" fill="#000" stroke="#191b2e" strokeWidth="2" />
+            <text x="349" y="172" textAnchor="middle" fill="#f6d36b" fontFamily="Geist Mono" fontSize="9">
               ZAAL 6
             </text>
-            <text x="324" y="200" fill="#f3ecdf" fontFamily="Instrument Serif" fontStyle="italic" fontSize="15">
+            <text x="349" y="192" textAnchor="middle" fill="#fffdf8" fontFamily="Instrument Serif" fontStyle="italic" fontSize="16">
               Geheim
             </text>
           </a>
         ) : (
-          <text x="324" y="185" fill="currentColor" fontFamily="Geist Mono" fontSize="7" opacity="0.7">
-            (MUUR)
-          </text>
+          <g>
+            <rect x="314" y="132" width="70" height="86" rx="14" fill="none" stroke="#191b2e" strokeWidth="1.4" strokeDasharray="4 5" opacity=".6" />
+            <text x="349" y="179" textAnchor="middle" fill="currentColor" fontFamily="Geist Mono" fontSize="8" opacity=".75">
+              (MUUR)
+            </text>
+          </g>
         )}
-        <path d="M14 240h372M14 236v8M386 236v8" fill="none" stroke="currentColor" strokeWidth="0.7" />
-        <text x="200" y="248" textAnchor="middle" fill="currentColor" fontFamily="Geist Mono" fontSize="7">
-          74,4 M (ONGEVEER)
+        <path d="M200 226h-12l6-8z" fill="#f2785c" stroke="#191b2e" strokeWidth="1.4" />
+        <text x="206" y="230" fill="currentColor" fontFamily="Geist Mono" fontSize="8">
+          U BENT HIER (ONGEVEER)
         </text>
-        <path d="M370 10l6 10h-12z" fill="currentColor" stroke="none" className="fill" />
-        <text x="382" y="20" fill="currentColor" fontFamily="Geist Mono" fontSize="7">N</text>
       </svg>
       {!secret && (
         <button type="button" className="crack" onClick={onCrack} aria-label="Een barstje in de muur">
           <svg viewBox="0 0 20 40" aria-hidden="true">
-            <path d="M10 0l-4 10 6 6-5 9 5 6-3 9" fill="none" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M10 0l-4 10 6 6-5 9 5 6-3 9" fill="none" stroke="currentColor" strokeWidth="1.6" />
           </svg>
         </button>
       )}
@@ -92,10 +81,23 @@ function FloorPlan({ secret, onCrack }: { secret: boolean; onCrack: () => void }
 
 // ---------- Museumstuk ----------
 
+/** Objecten kantelen een fractie mee met de muis, alsof ze op een draaiplateau staan. */
+function tilt(ev: PointerEvent<HTMLElement>) {
+  if (ev.pointerType !== "mouse") return;
+  const el = ev.currentTarget;
+  const r = el.getBoundingClientRect();
+  el.style.setProperty("--rx", (((ev.clientY - r.top) / r.height - 0.5) * -10).toFixed(2) + "deg");
+  el.style.setProperty("--ry", (((ev.clientX - r.left) / r.width - 0.5) * 12).toFixed(2) + "deg");
+}
+function untilt(ev: PointerEvent<HTMLElement>) {
+  ev.currentTarget.style.setProperty("--rx", "0deg");
+  ev.currentTarget.style.setProperty("--ry", "0deg");
+}
+
 function ExhibitCard({ e, room, highlighted, onOpen }: { e: Exhibit; room: Room; highlighted: boolean; onOpen: (e: Exhibit) => void }) {
   return (
     <article id={`stuk-${e.id}`} className={`exhibit reveal ${highlighted ? "is-highlighted" : ""}`}>
-      <button type="button" className="exhibit__frame" onClick={() => onOpen(e)} aria-label={`Bekijk ${e.title}`}>
+      <button type="button" className="exhibit__frame" onClick={() => onOpen(e)} aria-label={`Bekijk ${e.title}`} onPointerMove={tilt} onPointerLeave={untilt}>
         <span className="exhibit__head" aria-hidden="true">
           <span>Cat. nr. {room.number}.{room.exhibits.indexOf(e) + 1}</span>
           <span>Octrooi aangevraagd</span>
@@ -144,7 +146,7 @@ function AlmostDone({ e, highlighted, onOpen }: { e: Exhibit; highlighted: boole
   return (
     <article id={`stuk-${e.id}`} className={`almost ${highlighted ? "is-highlighted" : ""}`}>
       <div className="almost__art">
-        <Artwork seed={e.seed} label={e.title} />
+        <Artwork seed={e.seed} label={e.title} unfinished />
       </div>
       <div className="almost__body">
         <h3>{e.title}</h3>
@@ -504,10 +506,13 @@ export default function Museum() {
       </section>
 
       {ROOMS.map((room) => (
-        <section key={room.id} id={room.id} className={`room room--${room.color}`} aria-labelledby={`${room.id}-title`} style={{ "--room": room.number } as CSSProperties}>
+        <section key={room.id} id={room.id} className={`room room--${room.color} room--n${room.number}`} aria-labelledby={`${room.id}-title`} style={{ "--room": room.number } as CSSProperties}>
           <div className="wrap">
             <header className="room__head">
-              <span className="room__no" aria-hidden="true">{ROMAN[room.number]}</span>
+              <span className="room__no" aria-hidden="true">
+                <span>Zaal</span>
+                {ROMAN[room.number]}
+              </span>
               <div>
                 <span className="dept-no">Zaal {room.number} · {room.subtitle}</span>
                 <h2 id={`${room.id}-title`}>{room.title}</h2>
@@ -542,6 +547,12 @@ export default function Museum() {
             {room.number === 4 && <Generator onSubmit={submitFromGenerator} />}
             {room.number === 5 && (
               <>
+                <div className="stars" aria-hidden="true">
+                  {Array.from({ length: 18 }, (_, i) => (
+                    <i key={i} style={{ left: `${(i * 37) % 100}%`, top: `${(i * 53) % 100}%`, animationDelay: `${-i * 0.4}s` }} />
+                  ))}
+                </div>
+                <DeptObject kind="planeet" className="room__planet" />
                 <Countdown />
                 <div className="futures">
                   {room.exhibits.map((e) => (
@@ -580,7 +591,7 @@ export default function Museum() {
               <circle cx="23" cy="31" r="1.8" fill="currentColor" />
               <circle cx="37" cy="31" r="1.8" fill="currentColor" />
               <path d="M23 40q7 5 14 0" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M10 16h40l-6-10H16z" fill="#b65a3a" stroke="currentColor" strokeWidth="1.2" />
+              <path d="M10 16h40l-6-10H16z" fill="#f2785c" stroke="currentColor" strokeWidth="1.2" />
             </svg>
           </div>
           <div className="guide__text">

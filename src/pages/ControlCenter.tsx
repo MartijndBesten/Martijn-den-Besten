@@ -10,8 +10,82 @@ import "../styles/control.css";
 type LogLine = { id: number; text: string; tone?: "ok" | "warn" | "err" };
 type Capsule = { id: number; plan: string; color: string; open: boolean };
 
-const CAPSULE_COLORS = ["#b65a3a", "#4a4f8c", "#8a9a7b", "#c2913a", "#1a2033", "#9a4529"];
+const CAPSULE_COLORS = ["#f2785c", "#3c5bd6", "#9fc39a", "#f6d36b", "#c3b2f0", "#191b2e"];
 const LOAD_PER_ACTION = 9;
+
+/** De creativiteitsplant groeit mee met de draaiknop. Bij 11 gaat de bloem draaien. */
+function Plant({ level }: { level: number }) {
+  const h = 14 + Math.min(level, 10) * 6.5;
+  const leaves = Math.floor(Math.min(level, 10) / 2);
+  return (
+    <svg viewBox="0 0 80 110" className={`plant ${level >= 11 ? "is-eleven" : ""}`} aria-hidden="true">
+      <path d={`M40 88V${88 - h}`} stroke="#35603b" strokeWidth="3" strokeLinecap="round" className="plant__stem" />
+      {Array.from({ length: leaves }, (_, i) => {
+        const y = 82 - i * 12;
+        const left = i % 2 === 0;
+        return (
+          <path
+            key={i}
+            className="plant__leaf"
+            d={left ? `M40 ${y}c-6-8-16-8-20-4 6 6 14 8 20 4z` : `M40 ${y}c6-8 16-8 20-4-6 6-14 8-20 4z`}
+            fill="#9fc39a"
+            stroke="#191b2e"
+            strokeWidth="1.4"
+          />
+        );
+      })}
+      {level >= 8 && (
+        <g className="plant__flower" style={{ transformOrigin: `40px ${88 - h}px` }}>
+          {Array.from({ length: 6 }, (_, i) => (
+            <ellipse key={i} cx="40" cy={88 - h - 7} rx="4" ry="7" fill="#f6d36b" stroke="#191b2e" strokeWidth="1.2" transform={`rotate(${i * 60} 40 ${88 - h})`} />
+          ))}
+          <circle cx="40" cy={88 - h} r="4.5" fill="#f2785c" stroke="#191b2e" strokeWidth="1.2" />
+        </g>
+      )}
+      <path d="M24 88h32l-4 18H28z" fill="#f2785c" stroke="#191b2e" strokeWidth="1.6" strokeLinejoin="round" />
+      <rect x="21" y="84" width="38" height="8" rx="3" fill="#d4502f" stroke="#191b2e" strokeWidth="1.6" />
+    </svg>
+  );
+}
+
+/** Een knop die wegloopt voor de muis. Met het toetsenbord lukt het meteen; op een touchscreen na twee pogingen. */
+function RunawayButton({ onCaught, disabled }: { onCaught: () => void; disabled: boolean }) {
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [tries, setTries] = useState(0);
+  const pointer = useRef<string>("");
+  const reduced = usePrefersReducedMotion();
+  const limit = 5;
+  const dodge = () => {
+    sfx.tick();
+    setTries((t) => t + 1);
+    const ang = Math.random() * Math.PI * 2;
+    setPos({ x: Math.round(Math.cos(ang) * 70), y: Math.round(Math.sin(ang) * 26) });
+  };
+  return (
+    <button
+      type="button"
+      className={`runaway ${tries >= limit ? "is-tired" : ""}`}
+      style={{ transform: `translate(${pos.x}px, ${pos.y}px) rotate(${pos.x / 12}deg)` }}
+      disabled={disabled}
+      onPointerEnter={(e) => {
+        if (e.pointerType === "mouse" && tries < limit && !reduced) dodge();
+      }}
+      onPointerDown={(e) => (pointer.current = e.pointerType)}
+      onClick={(e) => {
+        const touch = pointer.current === "touch" || pointer.current === "pen";
+        pointer.current = "";
+        if (e.detail > 0 && touch && tries < 2 && !reduced) {
+          dodge();
+          return;
+        }
+        setPos({ x: 0, y: 0 });
+        onCaught();
+      }}
+    >
+      {tries >= limit ? "Vooruit dan" : "Alles tegelijk afmaken"}
+    </button>
+  );
+}
 
 export default function ControlCenter() {
   const game = useGame();
@@ -277,6 +351,13 @@ export default function ControlCenter() {
     }
   };
 
+  const caught = () => {
+    sfx.clunk();
+    findEgg("wegloper");
+    setOutput({ title: "Alles tegelijk afmaken…", body: "Technisch onmogelijk. De knop wist dat al, daarom liep hij weg. Er is een nieuw plan gemaakt om dit plan af te maken.", tone: "err" });
+    addLog("Knop ‘alles afmaken’ gevangen (tegen zijn zin)", "warn");
+  };
+
   const unjam = () => {
     sfx.clunk();
     setJammed(false);
@@ -362,7 +443,11 @@ export default function ControlCenter() {
 
           <div className="console__head" aria-hidden="true">
             <span>Instrumentenpaneel · model MdB-2</span>
-            <span>Blad 1 van 1</span>
+            <span className="console__lamps">
+              {Array.from({ length: 11 }, (_, i) => (
+                <i key={i} className={i < level ? "is-on" : ""} />
+              ))}
+            </span>
             <span>Creativiteit {level}/10</span>
           </div>
 
@@ -429,8 +514,10 @@ export default function ControlCenter() {
           <div className="module module--gauge bg-ivory" style={{ "--i": 1 } as CSSProperties}>
             <span className="module__label">Machinebelasting</span>
             <svg viewBox="0 0 200 124" className="gauge" role="img" aria-label={`Machinebelasting ${Math.round(load)} procent`}>
-              <path d="M20 110a80 80 0 0 1 160 0" fill="none" stroke="currentColor" strokeWidth="1.2" />
-              <path d="M150.6 48.4a80 80 0 0 1 29.4 61.6" fill="none" stroke="#b65a3a" strokeWidth="6" />
+              <path d="M20 110a80 80 0 0 1 56.6-76.5" fill="none" stroke="#9fc39a" strokeWidth="12" />
+              <path d="M76.6 33.5a80 80 0 0 1 73.9 14.8" fill="none" stroke="#f6d36b" strokeWidth="12" />
+              <path d="M150.6 48.4a80 80 0 0 1 29.4 61.6" fill="none" stroke="#f2785c" strokeWidth="12" />
+              <text x="168" y="34" textAnchor="middle" fontFamily="Geist Mono" fontSize="7.5" fontWeight="600" fill="currentColor">VEEL TE VEEL</text>
               {Array.from({ length: 21 }, (_, i) => {
                 const a = Math.PI + (i / 20) * Math.PI;
                 const r1 = i % 5 ? 72 : 66;
@@ -445,15 +532,15 @@ export default function ControlCenter() {
                 );
               })}
               <g style={{ transform: `rotate(${-90 + load * 1.8}deg)`, transformOrigin: "100px 110px", transition: "transform .5s cubic-bezier(.34,1.4,.64,1)" }}>
-                <path d="M100 116L100 40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path d="M100 116L100 40" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               </g>
-              <circle cx="100" cy="110" r="6" fill="#b65a3a" stroke="currentColor" strokeWidth="1.2" />
+              <circle cx="100" cy="110" r="8" fill="#f2785c" stroke="currentColor" strokeWidth="2" />
             </svg>
             <span className="label">{Math.round(load)}% {load > 75 ? "· rustig aan!" : ""}</span>
           </div>
 
           {/* Nieuw idee */}
-          <div className="module module--idea bg-terra" style={{ "--i": 2 } as CSSProperties}>
+          <div className="module module--idea bg-koraal" style={{ "--i": 2 } as CSSProperties}>
             <span className="module__label">Ideeënafdeling</span>
             <button type="button" className="arcade" onClick={newIdea} disabled={disabled}>
               <span className="arcade__cap">
@@ -463,7 +550,7 @@ export default function ControlCenter() {
           </div>
 
           {/* Project afronden */}
-          <div className="module module--finish bg-oker" style={{ "--i": 3 } as CSSProperties}>
+          <div className="module module--finish bg-boter" style={{ "--i": 3 } as CSSProperties}>
             <span className="module__label">Afrondingsafdeling</span>
             <button type="button" className="keybtn" onClick={finishProject} disabled={disabled || progress !== null}>
               <span className="keybtn__key" aria-hidden="true">
@@ -477,7 +564,7 @@ export default function ControlCenter() {
           </div>
 
           {/* Even niets doen */}
-          <div className="module module--nothing bg-steen" style={{ "--i": 4 } as CSSProperties}>
+          <div className="module module--nothing bg-salie" style={{ "--i": 4 } as CSSProperties}>
             <span className="module__label">Rustafdeling</span>
             <button type="button" className={`pillow ${nothingCount >= 3 ? "is-flipped" : ""}`} onClick={doNothing} disabled={disabled}>
               {nothingCount >= 3 ? "Toch maar iets doen" : "Even niets doen"}
@@ -486,7 +573,7 @@ export default function ControlCenter() {
           </div>
 
           {/* Domeinnaam */}
-          <div className="module module--domain bg-sage" style={{ "--i": 5 } as CSSProperties}>
+          <div className="module module--domain bg-kobalt-soft" style={{ "--i": 5 } as CSSProperties}>
             <span className="module__label">Domeinbeheer</span>
             <button type="button" className="coinslot" onClick={buyDomain} disabled={disabled}>
               <span className="coinslot__slot" aria-hidden="true" />
@@ -540,6 +627,7 @@ export default function ControlCenter() {
                 </div>
               </div>
             </div>
+            <Plant level={level} />
             <div className="knob-buttons">
               <button type="button" className="btn btn--small btn--ivory" onClick={() => changeCreativity(creativity - 1)} disabled={disabled} aria-label="Creativiteit omlaag">
                 −
@@ -564,7 +652,7 @@ export default function ControlCenter() {
           </div>
 
           {/* Hendel */}
-          <div className="module module--lever bg-steen" style={{ "--i": 8 } as CSSProperties}>
+          <div className="module module--lever bg-lila" style={{ "--i": 8 } as CSSProperties}>
             <span className="module__label">Nieuwe plannen</span>
             <div className="lever-wrap">
               <div className="lever-slot" aria-hidden="true" />
@@ -604,7 +692,7 @@ export default function ControlCenter() {
           </div>
 
           {/* Geheime schakelaars */}
-          <div className="module module--switches bg-oker" style={{ "--i": 9 } as CSSProperties}>
+          <div className="module module--switches bg-ivory" style={{ "--i": 9 } as CSSProperties}>
             <span className="module__label">Instellingen</span>
             <div className="toggles">
               {(["koffie", "ambitie", "realisme"] as const).map((k) => (
@@ -623,8 +711,17 @@ export default function ControlCenter() {
             )}
           </div>
 
+          {/* Weglopende knop */}
+          <div className="module module--runaway bg-koraal" style={{ "--i": 10 } as CSSProperties}>
+            <span className="module__label">Experimentele afdeling</span>
+            <div className="runaway-track">
+              <RunawayButton onCaught={caught} disabled={disabled} />
+            </div>
+            <span className="label">Let op: deze knop is schuw.</span>
+          </div>
+
           {/* Noodstop */}
-          <div className="module module--stop bg-ivory" style={{ "--i": 10 } as CSSProperties}>
+          <div className="module module--stop bg-ivory" style={{ "--i": 11 } as CSSProperties}>
             <span className="module__label">Officiële noodstop</span>
             <div className="stop-wrap">
               <button

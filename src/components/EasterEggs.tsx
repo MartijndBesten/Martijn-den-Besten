@@ -121,7 +121,7 @@ export function EasterEggs() {
     w.__mdbConsole = true;
     console.log(
       "%cInstituut Martijn den Besten%c\n\nVacature: iemand die projecten afmaakt.\nTip: typ eens ‘koffie’, ‘rust’ of ‘geheim’ op de pagina. Of probeer ↑ ↑ ↓ ↓ ← → ← → b a.",
-      "font: italic 22px Georgia, serif; color: #c2913a; background: #1a2033; padding: 8px 14px",
+      "font: italic 22px Georgia, serif; color: #f6d36b; background: #191b2e; padding: 8px 14px",
       "font: 14px monospace; color: inherit",
     );
   }, []);

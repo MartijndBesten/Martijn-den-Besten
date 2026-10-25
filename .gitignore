@@ -8,3 +8,4 @@ playwright-report
 lighthouse
 .DS_Store
 worker/generated/
+wrangler.preview.jsonc

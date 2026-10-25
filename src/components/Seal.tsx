@@ -1,20 +1,19 @@
-// Het officiële zegel: een fijne lijntekening met roterende rand. Klik vijf keer voor een verrassing.
+// Het officiële zegel: een sticker met roterende rand. Klik vijf keer voor een verrassing.
 
 export function Seal({ size = 40 }: { size?: number }) {
   return (
     <svg viewBox="0 0 100 100" width={size} height={size} aria-hidden="true">
       <defs>
-        <path id="seal-circle" d="M50 50 m-37 0 a37 37 0 1 1 74 0 a37 37 0 1 1 -74 0" />
+        <path id="seal-circle" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0" />
       </defs>
-      <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="50" cy="50" r="49" fill="#f6d36b" />
       <g className="seal__ring">
-        <text fontFamily="Geist Mono, monospace" fontSize="9.5" letterSpacing="2.6" fill="currentColor">
+        <text fontFamily="Geist Mono, monospace" fontSize="9.5" fontWeight="600" letterSpacing="2.4" fill="#191b2e">
           <textPath href="#seal-circle">INSTITUUT · MDB · OPGERICHT VANDAAG · </textPath>
         </text>
       </g>
-      <circle cx="50" cy="50" r="27" fill="none" stroke="currentColor" strokeWidth="1" />
-      <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 3" />
-      <circle cx="50" cy="50" r="8" fill="#b65a3a" />
+      <circle cx="50" cy="50" r="24" fill="#f2785c" />
+      <path d="M50 36l3.6 9.4 10 .6-7.8 6.3 2.6 9.7L50 56.6 41.6 62l2.6-9.7-7.8-6.3 10-.6z" fill="#191b2e" />
     </svg>
   );
 }

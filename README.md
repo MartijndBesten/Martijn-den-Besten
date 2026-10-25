@@ -16,7 +16,7 @@ Daarnaast: het Bureau voor Onnodige Innovatie, een certificaatgenerator (PNG/PDF
 
 | Onderdeel | Keuze |
 | --- | --- |
-| Frontend | React 19 + TypeScript + Vite, eigen mini-router, CSS-animaties en inline SVG-octrooitekeningen |
+| Frontend | React 19 + TypeScript + Vite, eigen mini-router, CSS-animaties en inline SVG-illustraties (ontwerpsysteem ‘Playful Premium’, zie docs/ONTWERP.md) |
 | Hosting | Cloudflare Workers met Static Assets (gratis plan) |
 | API | Dezelfde Worker, alleen voor `/api/*` (`worker/index.ts`) |
 | Opslag | Cloudflare D1 (`martijndenbesten`) voor stemmen, inzendingen en rate limiting |

@@ -7,41 +7,72 @@ import { Announcements } from "../components/Announcements";
 import { Counter } from "../components/Counter";
 import { IdeaMachine } from "../components/IdeaMachine";
 import { Arrow } from "../components/Icons";
-import { MiniFig } from "../components/MiniFig";
+import { DeptObject, Floaters, type ObjectKind } from "../components/Objects";
 import { sfx } from "../lib/sound";
+import { reducedMotion } from "../lib/hooks";
 
-const DEPARTMENTS = [
-  { to: "/control-center", no: "02", title: "Control Center", text: "Knoppen, hendels, schakelaars en een officiële noodstop. Alles werkt. Bijna alles.", fig: "knop" },
-  { to: "/museum", no: "03", title: "Museum van Onafgemaakte Ideeën", text: "Zes zalen vol plannen op 95%. Waarvan u er vijf kunt vinden.", fig: "sokkel" },
-  { to: "/bureau", no: "04", title: "Bureau voor Onnodige Innovatie", text: "Oplossingen voor problemen die niet bestaan. Op afspraak.", fig: "lamp" },
-  { to: "/loket", no: "05", title: "Het Ideeënloket", text: "Heeft u ook een idee? Het loket is open. De wachtrij ook.", fig: "ticket" },
-] as const;
+const DEPARTMENTS: { to: string; no: string; title: string; text: string; obj: ObjectKind; world: string }[] = [
+  { to: "/control-center", no: "02", title: "Control Center", text: "Knoppen, hendels, schakelaars en een officiële noodstop. Alles werkt. Bijna alles.", obj: "knop", world: "boter" },
+  { to: "/museum", no: "03", title: "Museum van Onafgemaakte Ideeën", text: "Zes zalen vol plannen op 95%. Waarvan u er vijf kunt vinden.", obj: "sokkel", world: "lila" },
+  { to: "/bureau", no: "04", title: "Bureau voor Onnodige Innovatie", text: "Oplossingen voor problemen die niet bestaan. Op afspraak.", obj: "lamp", world: "kobalt" },
+  { to: "/loket", no: "05", title: "Het Ideeënloket", text: "Heeft u ook een idee? Het loket is open. De wachtrij ook.", obj: "ticket", world: "salie" },
+];
 
 const MAX_STAT = Math.max(...STATS.map((s) => s.value));
 
-/** Schuift de hero-typografie subtiel mee met scrollen. */
-function useScrollVar(ref: React.RefObject<HTMLElement | null>) {
+/** Zwevende vormen schuiven een fractie mee met de muis. Alleen bij een muis en zonder bewegingsbeperking. */
+function useParallax(ref: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
     const el = ref.current;
-    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!el || reducedMotion() || !window.matchMedia("(pointer: fine)").matches) return;
     let raf = 0;
-    const on = () => {
+    const on = (e: PointerEvent) => {
       cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => el.style.setProperty("--sy", String(Math.min(window.scrollY, 900))));
+      raf = requestAnimationFrame(() => {
+        el.style.setProperty("--px", ((e.clientX / window.innerWidth - 0.5) * 2).toFixed(3));
+        el.style.setProperty("--py", ((e.clientY / window.innerHeight - 0.5) * 2).toFixed(3));
+      });
     };
-    window.addEventListener("scroll", on, { passive: true });
+    window.addEventListener("pointermove", on, { passive: true });
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener("scroll", on);
+      window.removeEventListener("pointermove", on);
     };
   }, [ref]);
+  // Zweven stopt zodra de hero uit beeld is.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(([e]) => el.classList.toggle("is-away", !e.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, [ref]);
+}
+
+/** Het jaarverslag is altijd bijna af. */
+function NeverDone() {
+  const [p, setP] = useState(97.2);
+  useEffect(() => {
+    if (reducedMotion()) return;
+    const iv = window.setInterval(() => setP((x) => (x >= 99.8 ? 96.4 : +(x + 0.4).toFixed(1))), 1400);
+    return () => window.clearInterval(iv);
+  }, []);
+  return (
+    <div className="neverdone" role="img" aria-label="Voortgang van dit jaarverslag: bijna klaar, al een tijdje">
+      <span className="label">Jaarverslag afgerond</span>
+      <span className="neverdone__bar" aria-hidden="true">
+        <i style={{ width: `${p}%` }} />
+      </span>
+      <b aria-hidden="true">{p.toFixed(1).replace(".", ",")}%</b>
+    </div>
+  );
 }
 
 export default function Home() {
   const { findEgg, missions } = useGame();
   const [timeGone, setTimeGone] = useState(false);
   const hero = useRef<HTMLElement>(null);
-  useScrollVar(hero);
+  useParallax(hero);
 
   return (
     <div className="page home">
@@ -53,21 +84,22 @@ export default function Home() {
               <span>
                 Dossier <b>Nº 0001</b>
               </span>
-              <span>Opgericht: vandaag</span>
             </p>
             <h1 id="hero-title" className="hero__title">
+              <Floaters />
               <span className="hero__l1">Martijn</span>
               <span className="hero__l2">
                 <span className="hero__den">den</span>
-                <span className="hero__note" aria-hidden="true">
-                  tussenvoegsel —<br />
-                  klein geschreven,
-                  <br />
-                  groot bedoeld
+                <span className="hero__besten">
+                  Besten<span className="hero__dot" aria-hidden="true" />
                 </span>
               </span>
-              <span className="hero__l3">
-                Besten<span className="hero__dot">.</span>
+              <span className="hero__note" aria-hidden="true">
+                <svg viewBox="0 0 60 40">
+                  <path d="M56 6C40 4 18 10 10 32" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                  <path d="M4 26l6 8 7-6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                tussenvoegsel: klein geschreven, groot bedoeld
               </span>
             </h1>
             <div className="hero__slogan">
@@ -88,20 +120,12 @@ export default function Home() {
                 </button>
                 {timeGone && <span className="time-gone" aria-hidden="true"> (even weg)</span>}.
               </p>
-              <svg className="hero__dim draw" viewBox="0 0 430 26" aria-hidden="true">
-                <path d="M1 4v18M429 4v18M1 13h428" />
-                <path className="fill" d="M1 13l8-4v8zM429 13l-8-4v8z" fill="currentColor" stroke="none" />
-                <rect className="fill" x="170" y="5" width="90" height="16" fill="var(--bg)" stroke="none" />
-                <text x="215" y="17" textAnchor="middle" fontFamily="Geist Mono" fontSize="10" fill="currentColor" stroke="none">
-                  Δ ≈ ∞
-                </text>
-              </svg>
             </div>
             <div className="hero__ctas">
               <Link to="/control-center" className="btn btn--ink">
                 Betreed het Control Center <Arrow />
               </Link>
-              <Link to="/museum" className="btn">
+              <Link to="/museum" className="btn btn--boter">
                 Bezoek het museum <Arrow />
               </Link>
             </div>
@@ -121,37 +145,36 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="wrap report" aria-labelledby="stats-title">
-        <header className="report__head">
-          <div>
+      <section className="report-wrap bg-boter" aria-labelledby="stats-title">
+        <div className="wrap report">
+          <header className="report__head">
             <span className="dept-no">Afd. 01 — Bureau voor de Statistiek</span>
-            <h2 id="stats-title" className="section-title">
-              Jaarverslag, <em>ongeveer</em>
+            <h2 id="stats-title" className="report__statement">
+              14.892 ideeën. <em>Drie</em> afgerond.
             </h2>
-          </div>
-          <p className="lede">Alle cijfers zijn fictief, maar voelen echt. Gecontroleerd door niemand, goedgekeurd door iedereen die ze niet heeft nagerekend.</p>
-        </header>
-        <ol className="report__grid">
-          {STATS.map((s, i) => (
-            <li key={s.label} className="report__item reveal" style={{ ["--d" as string]: i }}>
-              <span className="report__idx label">
-                {String(i + 1).padStart(2, "0")}
-                {s.live && <span className="report__live"> · live</span>}
-              </span>
-              <span className="report__label">{s.label}</span>
-              <span className="report__value">
-                <Counter value={s.value} live={s.live} />
-              </span>
-              <span className="report__bar" aria-hidden="true">
-                <i style={{ width: `${Math.max(0.6, (s.value / MAX_STAT) * 100)}%` }} />
-              </span>
-              <span className="report__note">
-                <sup>{i + 1}</sup> {s.note}
-              </span>
-            </li>
-          ))}
-        </ol>
-        <p className="report__foot label">Bron: het gevoel van de directie. Afwijkingen van ±100% zijn mogelijk.</p>
+            <p className="lede">Alle cijfers zijn fictief, maar voelen echt. Gecontroleerd door niemand, goedgekeurd door iedereen die ze niet heeft nagerekend.</p>
+            <NeverDone />
+          </header>
+          <ol className="report__grid">
+            {STATS.map((s, i) => (
+              <li key={s.label} className={`report__item report__item--${i} reveal`} style={{ ["--d" as string]: i }}>
+                <span className="report__idx label">
+                  {String(i + 1).padStart(2, "0")}
+                  {s.live && <span className="report__live"> · live</span>}
+                </span>
+                <span className="report__value">
+                  <Counter value={s.value} live={s.live} />
+                </span>
+                <span className="report__label">{s.label}</span>
+                <span className="report__bar" aria-hidden="true">
+                  <i style={{ width: `${Math.max(1.2, (s.value / MAX_STAT) * 100)}%` }} />
+                </span>
+                <span className="report__note">{s.note}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="report__foot label">Bron: het gevoel van de directie. Afwijkingen van ±100% zijn mogelijk.</p>
+        </div>
       </section>
 
       <section className="bulletin bg-ink" aria-labelledby="announce-title">
@@ -169,20 +192,20 @@ export default function Home() {
 
       <section className="wrap toc" aria-labelledby="depts-title">
         <header className="toc__head">
-          <span className="dept-no">Inhoudsopgave</span>
+          <span className="dept-no">Plattegrond van het instituut</span>
           <h2 id="depts-title" className="section-title">
-            De <em>afdelingen</em>
+            Vier afdelingen, <em>nul</em> haast
           </h2>
         </header>
         <ol className="toc__list">
           {DEPARTMENTS.map((d, i) => (
-            <li key={d.to} className="reveal" style={{ ["--d" as string]: i }}>
-              <Link to={d.to} className="toc__row">
-                <span className="toc__no label">{d.no}</span>
+            <li key={d.to} className={`toc__item toc__item--${i} reveal`} style={{ ["--d" as string]: i }}>
+              <Link to={d.to} className={`toc__row world-${d.world}`}>
+                <span className="toc__no label">Afd. {d.no}</span>
                 <span className="toc__title">{d.title}</span>
                 <span className="toc__text">{d.text}</span>
                 <span className="toc__fig" aria-hidden="true">
-                  <MiniFig kind={d.fig} />
+                  <DeptObject kind={d.obj} />
                 </span>
                 <span className="toc__go" aria-hidden="true">
                   <Arrow />
@@ -193,14 +216,26 @@ export default function Home() {
         </ol>
       </section>
 
+      <section className="statement" aria-labelledby="statement-title">
+        <div className="wrap statement__inner">
+          <h2 id="statement-title" className="statement__text reveal">
+            Bijna af is ook <em>een soort</em> af.
+          </h2>
+          <span className="stamp statement__stamp" aria-hidden="true">
+            Officieel standpunt
+          </span>
+          <p className="statement__by label">— Uit het huishoudelijk reglement, artikel 1 (concept)</p>
+        </div>
+      </section>
+
       <section className="wrap duo" aria-labelledby="missions-title">
-        <div className="panel bg-sage duo__card reveal">
+        <div className="panel bg-lila duo__card reveal">
           <span className="dept-no">Bezoekersmissies · formulier M-8</span>
           <h2 id="missions-title">
             Uw opdracht, <em>mocht u die aanvaarden</em>
           </h2>
           <p>
-            Het instituut heeft {MISSIONS.length} missies verstopt. U heeft er {missions.length} voltooid. Uw missiepaspoort zit linksonder.
+            Het instituut heeft {MISSIONS.length} missies verstopt. U heeft er {missions.length} voltooid. Uw missiepaspoort zit rechtsboven in de kop.
           </p>
           <ul className="checklist">
             {MISSIONS.slice(0, 4).map((mi) => (
@@ -212,13 +247,13 @@ export default function Home() {
             ))}
           </ul>
         </div>
-        <div className="panel bg-oker duo__card reveal" style={{ ["--d" as string]: 1 }}>
+        <div className="panel bg-koraal duo__card duo__card--cert reveal" style={{ ["--d" as string]: 1 }}>
           <span className="dept-no">Certificaatbureau</span>
           <h2>
             Officieel <em>niets</em> opgelost?
           </h2>
           <p>Laat het instituut het vastleggen. Met stempel, handtekening en serienummer. Gratis te downloaden.</p>
-          <MiniFig kind="certificaat" />
+          <DeptObject kind="certificaat" className="duo__obj" />
           <Link to="/certificaat" className="btn btn--ink">
             Vraag een certificaat aan <Arrow />
           </Link>

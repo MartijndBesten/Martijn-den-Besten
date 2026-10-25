@@ -89,3 +89,23 @@ test("te veel drukken laat de machine vastlopen", async ({ page }) => {
   await page.getByRole("button", { name: "Tik tegen de machine" }).click();
   await expect(screen(page)).toContainText("Machine draait weer");
 });
+
+test("de creativiteitsplant groeit mee en de lampjes tellen mee", async ({ page }) => {
+  const knob = page.getByRole("slider", { name: "Creativiteit" });
+  const leaves = page.locator(".plant__leaf");
+  const before = await leaves.count();
+  await knob.focus();
+  await page.keyboard.press("End");
+  await expect(leaves).toHaveCount(5);
+  expect(before).toBeLessThan(5);
+  await expect(page.locator(".plant__flower")).toBeVisible();
+  await expect(page.locator(".console__lamps i.is-on")).toHaveCount(10);
+});
+
+test("de weglopende knop is met het toetsenbord gewoon te bedienen", async ({ page }) => {
+  const runaway = page.getByRole("button", { name: "Alles tegelijk afmaken" });
+  await runaway.focus();
+  await page.keyboard.press("Enter");
+  await expect(screen(page)).toContainText("Technisch onmogelijk");
+  await expect(page.getByText("Verrassing: Weglopende knop")).toBeVisible();
+});

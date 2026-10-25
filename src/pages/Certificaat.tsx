@@ -28,15 +28,27 @@ function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): st
 function draw(canvas: HTMLCanvasElement, name: string, achievement: string, serial: string) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
-  const INK = "#1a2033";
-  const TERRA = "#b65a3a";
-  const OKER = "#c2913a";
+  const INK = "#191b2e";
+  const TERRA = "#d4502f";
+  const OKER = "#f6d36b";
   ctx.clearRect(0, 0, W, H);
-  ctx.fillStyle = "#f3ecdf";
+  ctx.fillStyle = "#fffdf8";
   ctx.fillRect(0, 0, W, H);
 
+  // Kleurvlakken in de hoeken: de huiskleuren, net buiten de rand gestoten
+  const blob = (x: number, y: number, r: number, color: string) => {
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+  };
+  blob(40, 40, 170, "#f9cfc2");
+  blob(W - 30, 60, 120, "#f7e3a1");
+  blob(W - 60, H - 40, 190, "#dcd0f7");
+  blob(60, H - 30, 110, "#cfe3c8");
+
   // Guilloche-rand: twee in elkaar grijpende golflijnen, zoals op waardepapier
-  ctx.strokeStyle = INK;
+  ctx.strokeStyle = "#3c5bd6";
   ctx.lineWidth = 1;
   const wave = (offset: number, amp: number, phase: number) => {
     const x0 = 60 + offset;
@@ -66,6 +78,7 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
   };
   wave(0, 6, 0);
   wave(0, 6, Math.PI);
+  ctx.strokeStyle = INK;
   ctx.lineWidth = 1.5;
   ctx.strokeRect(44, 44, W - 88, H - 88);
   ctx.lineWidth = 1;
@@ -99,7 +112,7 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
   ctx.fillText("INSTITUUT MARTIJN DEN BESTEN  ·  AFDELING CERTIFICATEN  ·  Nº " + serial, W / 2, 180);
 
   // Titel: twee woorden in verschillende stijlen, samen gecentreerd
-  const romanFont = "400 132px 'Instrument Serif', serif";
+  const romanFont = "750 118px 'Geist', sans-serif";
   const italicFont = "italic 400 132px 'Instrument Serif', serif";
   ctx.font = romanFont;
   const w1 = ctx.measureText("Officieel ").width;
@@ -131,12 +144,14 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
   ctx.save();
   ctx.translate(1230, 870);
   ctx.rotate(-0.2);
-  ctx.strokeStyle = TERRA;
-  ctx.fillStyle = TERRA;
+  ctx.fillStyle = "#f2785c";
+  ctx.strokeStyle = INK;
   ctx.lineWidth = 3;
   ctx.beginPath();
   ctx.arc(0, 0, 118, 0, Math.PI * 2);
+  ctx.fill();
   ctx.stroke();
+  ctx.fillStyle = INK;
   ctx.lineWidth = 1.2;
   ctx.beginPath();
   ctx.arc(0, 0, 84, 0, Math.PI * 2);

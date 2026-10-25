@@ -4,29 +4,29 @@ import { useGame } from "../state/GameState";
 import { sfx } from "../lib/sound";
 
 const SWATCHES = [
-  ["ivoor", "#f3ecdf"],
-  ["inkt", "#1a2033"],
-  ["indigo", "#4a4f8c"],
-  ["terracotta", "#b65a3a"],
-  ["salie", "#8a9a7b"],
-  ["oker", "#c2913a"],
+  ["ivoor", "#f5efe4"],
+  ["kobalt", "#3c5bd6"],
+  ["koraal", "#f2785c"],
+  ["salie", "#9fc39a"],
+  ["lila", "#c3b2f0"],
+  ["boter", "#f6d36b"],
 ] as const;
 
 /** Fig. 99: een zandloper waarin het zand weigert te vallen. */
 function Hourglass() {
   return (
-    <svg viewBox="0 0 220 160" className="draw" aria-hidden="true">
-      <path d="M70 14h80M70 146h80" stroke="currentColor" strokeWidth="1.2" fill="none" />
-      <path d="M78 14c0 40 26 50 32 66c6-16 32-26 32-66" stroke="currentColor" strokeWidth="1.2" fill="none" />
-      <path d="M78 146c0-40 26-50 32-66c6 16 32 26 32 66" stroke="currentColor" strokeWidth="1.2" fill="none" />
-      <path className="fill" d="M88 30h44c-4 22-16 30-22 40c-6-10-18-18-22-40z" fill="#c2913a" />
-      <path d="M110 80v4" stroke="#c2913a" strokeWidth="1.5" strokeDasharray="1 3" />
-      <path d="M160 30h40M160 80h40" stroke="currentColor" strokeWidth="0.8" />
-      <circle cx="160" cy="30" r="2" fill="currentColor" />
-      <circle cx="160" cy="80" r="2" fill="currentColor" />
-      <text x="164" y="24" fontFamily="Geist Mono" fontSize="7" fill="currentColor">TIJD</text>
-      <text x="164" y="74" fontFamily="Geist Mono" fontSize="7" fill="currentColor">OP</text>
-      <text x="20" y="156" fontFamily="Geist Mono" fontSize="7" fill="currentColor">FIG. 99 — ZANDLOPER (BIJNA LEEG)</text>
+    <svg viewBox="0 0 220 160" aria-hidden="true" className="hourglass">
+      <ellipse cx="110" cy="150" rx="56" ry="6" fill="#000" opacity=".25" />
+      <rect x="62" y="8" width="96" height="12" rx="6" fill="#c3b2f0" />
+      <rect x="62" y="140" width="96" height="12" rx="6" fill="#c3b2f0" />
+      <path d="M76 20c0 40 26 48 34 60c8-12 34-20 34-60z" fill="rgba(245,239,228,.14)" stroke="#f5efe4" strokeWidth="2" />
+      <path d="M76 140c0-40 26-48 34-60c8 12 34 20 34 60z" fill="rgba(245,239,228,.14)" stroke="#f5efe4" strokeWidth="2" />
+      <path className="hourglass__sand" d="M86 32h48c-4 20-16 28-24 38c-8-10-20-18-24-38z" fill="#f6d36b" />
+      <path d="M110 80v6" stroke="#f6d36b" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="1 4" />
+      <path d="M90 34q4 18 12 26" stroke="#fff" strokeOpacity=".5" strokeWidth="3" strokeLinecap="round" fill="none" />
+      <text x="168" y="34" fontFamily="Geist Mono" fontSize="8" fill="#f5efe4" opacity=".7">TIJD: OP</text>
+      <path d="M150 30h14" stroke="#f5efe4" strokeOpacity=".5" />
+      <text x="20" y="158" fontFamily="Geist Mono" fontSize="7" fill="#f5efe4" opacity=".55">FIG. 99 — ZANDLOPER (BIJNA LEEG)</text>
     </svg>
   );
 }

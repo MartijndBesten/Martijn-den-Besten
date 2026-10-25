@@ -43,7 +43,10 @@ export type EggId =
   | "idle"
   | "end"
   | "flashlight"
-  | "serious";
+  | "serious"
+  | "vogeltje"
+  | "mega-idee"
+  | "wegloper";
 
 export const EGGS: Record<EggId, { title: string; text: string }> = {
   konami: { title: "Directiemodus", text: "U kent de geheime code. De nachtdienst is ingeschakeld." },
@@ -66,6 +69,9 @@ export const EGGS: Record<EggId, { title: string; text: string }> = {
   end: { title: "Het einde", text: "U heeft het einde van de website bereikt." },
   flashlight: { title: "Zaklampdetective", text: "U vond het enige afgemaakte object in het museum." },
   serious: { title: "Serieus?", text: "U heeft de serieuze modus overleefd." },
+  vogeltje: { title: "Gouden modus", text: "Het vogeltje op de ideeënmachine blijkt de echte directeur. De machine draait even op goud." },
+  "mega-idee": { title: "Veel te groot idee", text: "De machine produceerde een idee dat niet meer door de deur past." },
+  wegloper: { title: "Weglopende knop", text: "U heeft de knop die wegloopt toch te pakken gekregen. Hij is er niet blij mee." },
 };
 
 export const EGG_COUNT = Object.keys(EGGS).length;

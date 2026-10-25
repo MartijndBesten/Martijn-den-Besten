@@ -8,7 +8,7 @@ import "../styles/pages.css";
 function Portrait() {
   return (
     <figure className="portrait">
-      <div className="plate__head">
+      <div className="portrait__head-label">
         <span>Fig. 13 — Directeur, zijaanzicht</span>
         <span>Artistieke impressie</span>
       </div>
@@ -20,25 +20,31 @@ function Portrait() {
         </defs>
         <path d="M60 330V250c0-18 10-30 26-36l30-10" />
         <path
+          className="fill portrait__head"
+          d="M116 204c-14-6-22-20-22-36 0-12 4-20 2-30-4-12-14-20-12-32 4-36 34-66 78-66 46 0 80 32 80 78 0 30-14 50-26 64-6 8-8 20-6 30l4 26c2 12-6 22-18 22h-26z"
+          fill="#f9cfc2"
+          stroke="none"
+        />
+        <path
           d="M116 204c-14-6-22-20-22-36 0-12 4-20 2-30-4-12-14-20-12-32 4-36 34-66 78-66 46 0 80 32 80 78 0 30-14 50-26 64-6 8-8 20-6 30l4 26c2 12-6 22-18 22h-26"
           strokeWidth="1.3"
         />
         <path d="M94 128l-14 18c-2 4 0 8 4 8h12" />
         <path d="M100 170c6 2 12 2 16 0" />
         <circle className="fill" cx="124" cy="112" r="3" fill="currentColor" stroke="none" />
-        <path className="fill" d="M138 46c30-16 76-12 98 16 10 12 14 28 12 40-14-26-46-42-84-38-14 2-26-6-26-18z" fill="url(#p-hatch)" stroke="none" />
+        <path className="fill" d="M138 46c30-16 76-12 98 16 10 12 14 28 12 40-14-26-46-42-84-38-14 2-26-6-26-18z" fill="#c3b2f0" stroke="none" />
         {/* binnenwerk: tandwiel en lamp */}
         <circle cx="196" cy="118" r="26" strokeDasharray="3 3" />
-        <circle className="fill" cx="196" cy="118" r="14" fill="#8a9a7b" stroke="none" />
+        <circle className="fill" cx="196" cy="118" r="14" fill="#9fc39a" stroke="none" />
         <circle cx="196" cy="118" r="14" />
-        <circle className="fill" cx="268" cy="42" r="18" fill="#c2913a" stroke="none" />
+        <circle className="fill" cx="268" cy="42" r="18" fill="#f6d36b" stroke="none" />
         <circle cx="268" cy="42" r="18" />
         <path d="M262 42q3-7 6 0t6 0M268 14v-8M292 26l6-5M244 26l-6-5" />
         <path d="M218 98c18-10 30-30 40-40" strokeDasharray="2 3" />
         {/* gedachtewolkjes */}
         <circle cx="34" cy="70" r="8" />
         <circle cx="52" cy="44" r="12" />
-        <circle className="fill" cx="80" cy="22" r="14" fill="#b65a3a" stroke="none" />
+        <circle className="fill" cx="80" cy="22" r="14" fill="#f2785c" stroke="none" />
         <circle cx="80" cy="22" r="14" />
         {/* maatvoering */}
         <path d="M300 60v200M296 60h8M296 260h8" strokeWidth="0.6" />
