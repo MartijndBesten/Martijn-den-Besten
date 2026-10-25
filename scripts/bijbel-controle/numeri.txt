@@ -1,5 +1,5 @@
 # Controle Numeri en Deuteronomium (public/bijbelreis/inhoud/numeri.js): ref | regex
-# Nieuwtestamentische verwijzingen (Johannes, 1 Korinthe, Hebreeën, 2 Petrus, Markus, Mattheüs) zijn niet in de map bijbel/ en staan hier niet.
+# Sinds oktober 2026 staan ook de Nieuwtestamentische boeken uit de kruisverwijzingen in de map bijbel/; ze worden hieronder (audit 2.0) gecontroleerd.
 # --- Wie is wie
 Numeri 12:3 | zeer zachtmoedig, meer dan alle mensen
 Deuteronomium 34:7 | honderd en twintig jaren oud
@@ -170,3 +170,42 @@ Deuteronomium 34:9 | Jozua.*vol van den Geest der wijsheid.*handen op hem gelegd
 Deuteronomium 34:10 | geen profeet meer op in Israel, gelijk Mozes.*van aangezicht tot aangezicht
 Jozua 1:6 | Wees sterk en heb goeden moed
 Jozua 1:9 | Ik zal met u zijn|de HEERE, uw God, is met u
+# --- Audit 2.0 (oktober 2026): chronologie, correcties en kruisverwijzingen
+1 Koningen 6:1 | vierhonderd en tachtigste jaar.*vierde jaar van het koninkrijk van Salomo
+Numeri 33:38 | veertigste jaar na den uittocht
+Deuteronomium 1:3 | veertigste jaar, in de elfde maand
+Numeri 20:12 | Mij niet geloofd hebt, dat gij Mij heiligdet
+Numeri 20:8 | spreekt gijlieden tot den steenrots
+Numeri 16:31-33 | aarde opende haar mond, en verslond hen met hun huizen, en allen mensen, die Korach toebehoorden
+Numeri 16:35 | vuur uit van den HEERE, en verteerde die tweehonderd en vijftig mannen
+Openbaring 2:14 | Balaam houden, die Balak leerde den kinderen Israels een aanstoot voor te werpen
+Numeri 1:3 | twintig jaren oud en daarboven, allen, die ten heire in Israel uittrekken
+Johannes 3:14-15 | En gelijk Mozes de slang in de woestijn verhoogd heeft, alzo moet de Zoon des mensen verhoogd worden.*Opdat een iegelijk, die in Hem gelooft, niet verderve, maar het eeuwige leven hebbe
+1 Korinthe 10:1-11 | woestijn.*voorbeelden.*waarschuwing
+Psalmen 95:8-11 | Meriba.*Veertig jaren.*in Mijn rust
+Hebreeën 3:7-19 | Verhardt uw harten.*ongeloof
+2 Koningen 18:4 | koperen slang.*kinderen Israels.*gerookt
+Jozua 14:6-12 | Kaleb.*Kades-Barnea.*vijf en tachtig.*gebergte
+Numeri 10:33 | togen zij drie dagreizen.*de ark des verbonds des HEEREN reisde voor hun aangezicht drie dagreizen, om voor hen een rustplaats uit te speuren
+Numeri 11:34 | begroeven zij het volk, dat belust was geweest
+Numeri 20:14 | zond Mozes boden uit Kades
+Numeri 21:2 | beloofde Israel den HEERE een gelofte
+Numeri 21:6 | vurige slangen
+Richteren 11:18 | toog om het land der Edomieten en het land der Moabieten, en kwam van den opgang der zon.*niet binnen de landpale der Moabieten
+Numeri 21:13 | aan deze zijde van de Arnon, welke in de woestijn is
+Numeri 21:24 | landpale der kinderen Ammons was vast
+Deuteronomium 2:14 | acht en dertig jaren; totdat het ganse geslacht der krijgslieden.*verteerd was, gelijk de HEERE hun gezworen had
+Deuteronomium 3:11 | Og.*alleen van de overigen der reuzen overgebleven.*Negen ellen.*vier ellen.*eens mans elleboog
+Numeri 33:45 | Dibon-Gad
+Deuteronomium 23:4 | Bileam.*Pethor uit Mesopotamie
+Numeri 22:36 | landpale van de Arnon
+Numeri 25:1 | hoereren met de dochteren der Moabieten
+Numeri 25:6 | Midianietin.*voor de ogen van Mozes, en voor de ogen van de ganse vergadering
+Numeri 25:7-8 | Pinehas.*spies.*doorstak hen beiden.*plaag.*opgehouden
+Numeri 13:16 | Hosea.*Jozua
+Markus 12:28-30 | Het eerste van al de geboden is: Hoor, Israel
+Mattheüs 4:4 | De mens zal bij brood alleen niet leven
+Deuteronomium 8:3 | niet alleen van het brood leeft
+Mattheüs 17:1-3 | hoge berg.*Mozes en Elias, met Hem samensprekende
+2 Petrus 2:15-16 | Balaam.*loon der ongerechtigheid.*stomme dier
+Jozua 1:1-9 | Mozes.*gestorven.*Wees sterk en heb goeden moed.*met u

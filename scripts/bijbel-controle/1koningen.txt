@@ -236,3 +236,29 @@ Deuteronomium 13:5 | profeet.*zal gedood worden.*afval
 1 Koningen 17:16 | meel.*olie
 1 Koningen 18:34 | ten derden male
 1 Koningen 19:8 | veertig dagen
+# --- Audit oktober 2026 (inhoud-samuel-jona): chronologie, kruisverwijzingen, correcties ---
+1 Koningen 12:20 | stam van Juda alleen
+1 Koningen 12:21 | Juda en den stam van Benjamin
+1 Koningen 16:23 | een en dertigste jaar van Asa.*Omri.*twaalf jaren
+1 Koningen 16:29 | acht en dertigste jaar van Asa.*twee en twintig jaren
+1 Koningen 10:27 | zilver in Jeruzalem te zijn als stenen
+1 Koningen 19:10 | Ik heb zeer geijverd voor den HEERE
+1 Koningen 19:16 | Elisa, den zoon van Safat, van Abel-mehola
+1 Koningen 21:23 | honden zullen Izebel eten
+2 Koningen 1:17 | stierf hij.*Elia.*Joram werd koning
+Mattheüs 12:42 | koningin van het Zuiden.*wijsheid van Salomo.*meer dan Salomo is hier
+Mattheüs 6:29 | Salomo, in al zijn heerlijkheid
+Mattheüs 17:3 | Mozes en Elias
+2 Kronieken 3:1 | berg Moria
+Genesis 22:2 | land Moria
+Spreuken 1:1 | spreuken van Salomo, den zoon van David, den koning van Israel
+Handelingen 7:47 | Salomo.*huis
+Handelingen 7:48 | Allerhoogste woont niet in tempelen met handen gemaakt
+Jakobus 5:17 | Elias was een mens.*drie jaren en zes maanden
+Jakobus 5:18 | bad wederom.*regen
+Lukas 4:25 | Elias.*drie jaren en zes maanden
+Lukas 4:26 | Sarepta Sidonis.*weduwe
+Maleachi 4:5 | profeet Elia.*dag des HEEREN
+Lukas 1:17 | geest en de kracht van Elias
+Romeinen 11:2 | Schrift zegt van Elia
+Romeinen 11:4 | zeven duizend mannen.*Baal

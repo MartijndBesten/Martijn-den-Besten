@@ -1,0 +1,34 @@
+{
+ "regio": {
+  "src": "/bijbelreis/relief-regio.webp",
+  "bounds": [
+   [
+    22.492257,
+    18.984375
+   ],
+   [
+    44.512176,
+    54.008789
+   ]
+  ]
+ },
+ "kanaan": {
+  "src": "/bijbelreis/relief-kanaan.webp",
+  "bounds": [
+   [
+    29.197726,
+    33.799438
+   ],
+   [
+    33.950195,
+    37.202454
+   ]
+  ]
+ },
+ "_info": {
+  "projectie": "Web Mercator (EPSG:3857); beeldrijen lineair in Mercator-y, randen op hele tegelpixels",
+  "zoom": "regio: bron AWS Terrain Tiles zoom 7, uitvoer zoom 6; kanaan: bron en uitvoer zoom 9",
+  "samenspel": "beide in dezelfde pane, relief-kanaan boven relief-regio; mix-blend-mode multiply alleen op de pane; relief-kanaan vloeit via zijn alfakanaal over in relief-regio",
+  "bron": "AWS Terrain Tiles (Mapzen/Tilezen): SRTM en GMTED2010 (USGS), ETOPO1 (NOAA); masker uit geo.json (Natural Earth)"
+ }
+}

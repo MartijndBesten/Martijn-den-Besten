@@ -20,7 +20,7 @@ Interactieve kaart voor kinderen (ca. 8–12 jaar) over het Oude Testament. Een 
 - **Alles controleerbaar.** Elke stap heeft een `ref` (bijv. `"Exodus 14:21–31"`). Getallen, leeftijden, aantallen en citaten moeten in de Statenvertaling staan: controleer ze met het verifyscript (zie onder) vóór je ze opschrijft. Niets verzinnen alsof het in de Bijbel staat; achtergrondweetjes (‘Wist je dat?’) mogen over archeologie, aardrijkskunde of een ander Bijbelvers gaan, maar niet over legendes.
 - **De Bijbel bepaalt wat er verteld wordt.** Het is Gods Woord: vertel de geschiedenissen zoals ze in de Bijbel staan, ook de ernstige (zonde, straf, oorlog, dood), in woorden die een kind begrijpt. Niets weglaten of afzwakken omdat het ‘gevoelig’ zou zijn; wel zonder eigen uitweidingen die niet in de tekst staan.
 - **Routes:** de Bijbel noemt plaatsen, geen wegen. Gebruik `recon: 1` als de Bijbel alleen begin en eind noemt. Volg bekende wegen (kustweg, bergrug, Koningsweg ten oosten van de Jordaan, Eufraatroute).
-- **Plaatsen:** `c` eerlijk invullen: `v` (vrij zeker), `w` (waarschijnlijk), `o` (onzeker), `r` (gebied). Coördinaten op de bekende tell of de gangbare identificatie; bij twijfel `o` en dat in `d` uitleggen.
+- **Plaatsen:** `c` eerlijk invullen (zie Schema 2.0). Coördinaten op de bekende tell of de gangbare identificatie; bij twijfel `w`, `b` of `o` en dat in `d` uitleggen.
 
 ## Schema van een boek
 
@@ -63,17 +63,86 @@ Een **stap**:
 
 Kleuren (`c`/`w`): `kobalt`, `terra`, `lila`, `koraal`, `salie`, `boter`, `rood` (vijanden/legers), `bruin`, `olijf`, `teal`, `grijs`. Groepen zoals `Volk`, `Leger`, `Soldaten`, `Spionnen`, `Priesters`, `Profeten`, `Vijanden` krijgen in `who` een aantal als tweede waarde (`["Volk", "600.000 mannen"]`).
 
+## Schema 2.0 (aanvullingen, oktober 2026)
+
+**Plaatsen** (`plaatsen.js`, sinds 2.0 staan *alle* plaatsen daar; inhoudsbestanden definiëren geen plaatsen meer):
+
+```js
+dothan: { n: "Dothan", ll: [32.43, 35.2], c: "v", s: "l", z: 7, t: "stad", d: "Uitleg voor kinderen.",
+  nu: "Tell Dothan (Westelijke Jordaanoever)",   // moderne naam/ligging, alleen voor de stand ‘Nu’
+  bron: "Tell Dothan; identificatie algemeen aanvaard.",   // korte verantwoording van de ligging (niet voor kinderen)
+  alt: [[29.0, 34.0, "Alternatief: …"]],         // alleen bij c: "b": andere serieuze kandidaten
+}
+```
+
+Zekerheid `c` (legenda in drie groepen):
+
+| `c` | betekenis | op de kaart | legenda |
+| --- | --- | --- | --- |
+| `v` | identificeerbaar: naam bleef in gebruik of de tell is algemeen aanvaard | volle stip | Identificeerbaar |
+| `w` | waarschijnlijk: gangbare identificatie, maar niet zeker | stip met witte kern | Waarschijnlijk of betwist |
+| `b` | betwist: meerdere serieuze kandidaten (`alt`) | stip met witte kern + kandidaten als kleine ringen | Waarschijnlijk of betwist |
+| `o` | onbekend: alleen de streek is bekend; het punt is illustratief | vage cirkel met ‘?’ | Onbekend |
+| `r` | gebied/streek/gebergte: geen punt | zachte vlek met naam | (gebied) |
+
+Eden en Ararat zijn nooit een exacte plek (`o` resp. `r`).
+
+**Deel** — tijd en chronologie:
+
+```js
+tijd: "ca. 1446 v.Chr.",         // korte tekst; bij Genesis 1–11: null
+tl: [-1446, -1406],              // begin/eind als getal (negatief = v.Chr.) voor de tijdlijn; null = geen datering
+tijdNoot: "Reconstructie: …",    // hoe de datum berekend is en dat het een reconstructie is
+```
+
+**Stap** — soort weetje: `fs: "b"` (uit een ander Bijbelgedeelte, met verwijzing), `"u"` (uitleg van woord, gewoonte of
+achtergrond), `"h"` (historische/archeologische achtergrond of reconstructie, niet uit de Bijbel). `txt` bevat alleen wat
+de Bijbel vertelt (in eigen woorden, met `ref`); uitleg en reconstructie horen in `fact`.
+
+**Personen** (`personen.js`, `BR.mensen`): één centrale lijst die personen, plaatsen, gebeurtenissen en
+Bijbelverwijzingen koppelt.
+
+```js
+jozef: { n: "Jozef", alias: ["Zafnath-Paneah"], v: "jakob", m: "rachel", p: ["asnath"], boek: ["genesis", "exodus"],
+  kort: "Zoon van Jakob en Rachel; onderkoning van Egypte.", geb: "Genesis 30:22–24", dood: "Genesis 50:26",
+  leeftijd: [[17, "Genesis 37:2"], [30, "Genesis 41:46"], [110, "Genesis 50:26"]],
+  elders: [["Psalm 105:17–22", "…"], ["Handelingen 7:9–16", "…"], ["Hebreeën 11:22", "…"]],
+  vervolg: [["Exodus 13:19", "Mozes neemt de beenderen van Jozef mee."], ["Jozua 24:32", "Begraven in Sichem."]] }
+```
+
+`v`/`m` (vader/moeder) en `p` (vrouwen/man) zijn ids; kinderen worden daaruit berekend. Namen in `who` van een stap
+worden gekoppeld via `n` of `alias`, alleen binnen de boeken in `boek` (zo blijven ‘Darius’ of ‘Joas’ eenduidig).
+Groepen (Volk, Leger, Broers) staan niet in `BR.mensen`.
+
+**Stapsleutels** (`boek:deel:index`) zijn de sleutels van de voortgang in `localStorage` (`bijbelreis:gezien`). Stappen
+dus nooit herordenen, invoegen of verwijderen; alleen aan het eind toevoegen.
+
 ## Controleren
 
 - `node --check public/bijbelreis/inhoud/<boek>.js`; open de pagina lokaal (`npx vite preview` of `python3 -m http.server` in `public/`) en kijk in de console: `Bijbelreis: onbekende plaatsen…` betekent een id die niet bestaat.
 - Bijbelverwijzingen en getallen: `python3 scripts/bijbel-check.py <controlebestand>` met regels `Exodus 12:37 | zeshonderd duizend` (regex, hoofdletterongevoelig; de Statenvertaling schrijft getallen voluit: ‘vijf en zeventig’, ‘honderd en dertig’).
 - Vóór publicatie: `npm run check` (typecheck, tests, build) en `npx playwright test navigatie a11y`.
 
-## Stand (25 oktober 2026)
+## Stand (versie 2.0, 25 oktober 2026)
 
-14 boeken, 27 delen, 252 stappen, 152 plaatsen en 375 speurtochtvragen: Genesis (Het begin, Abraham, Izak, Jakob, Jozef), Exodus (Mozes, Uittocht, Sinaï), Numeri en Deuteronomium (Woestijn, Moab), Jozua (Intocht, Het land), Richteren (Debora en Gideon, Simson), Ruth, 1 Samuël (Samuël, Saul en David), 2 Samuël (David), 1 Koningen (Salomo, Elia), 2 Koningen (Elisa, Wegvoering), Daniël, Esther, Ezra en Nehemia (Terugkeer, Nehemia), Jona. Controle: 2.178 regels in `scripts/bijbel-controle/`, alle geslaagd tegen de Statenvertaling; `node scripts/bijbelreis-check.mjs` zonder meldingen; e2e-tests (navigatie, toegankelijkheid) groen op desktop en telefoon.
+14 boeken, 27 delen, 252 stappen (sleutels ongewijzigd t.o.v. 1.0), 152 plaatsen, 196 personen. Alles gecontroleerd tegen de
+Statenvertaling: 3.067 regels in `scripts/bijbel-controle/<boek>.txt` plus 650 in `personen.txt`, alle geslaagd; ook de
+kruisverwijzingen naar het Nieuwe Testament (NT-boeken staan nu in `public/bijbelreis/bijbel/`). Verslagen per onderdeel
+in `docs/bijbelreis-audit/` (audit, vergelijking, plaatsen, personen, inhoud per boekengroep, ondergrond).
 
-Nog niet gedaan: de profeten buiten Jona en Daniël (Jesaja, Jeremia, Amos, Micha), Job, de Psalmen en Spreuken als eigen delen; Nieuwe Testament. De verwijzingen naar het Nieuwe Testament in `cross` zijn uit het hoofd en niet met het script gecontroleerd (alleen Oudtestamentische boeken staan in `public/bijbelreis/bijbel/`).
+Nieuw in 2.0: reliëf (`relief-*.webp`, script `scripts/bijbelreis-ondergrond.py`), zekerheid per plaats met legenda,
+Toen/Nu met moderne grenzen (`grenzen.json`), botsingsvrije labels, klikbare routes en plaatsen (‘Hier in de reis’),
+grote kaart en tweevingerbediening op telefoons, tijdlijn, boekenkast (66 boeken met status), personenkaart met familie,
+gebeurtenissen, plaatsen en verwijzingen (`personen.js`), kruimelpad, diepe link per stap (`#jozef/4`), ‘verder waar je
+was’, soort weetje (Uit de Bijbel / Uitleg / Historische achtergrond), afstand per stap, één verwijzingslezer
+(`verwijzing.js`), focusval in vensters, versiehash achter scripts (postbuild).
+
+Vaste controles: `npm run check` (o.a. `tests/bijbelreis.test.ts`: verwijzingen, plaatsen, stapsleutels, chronologie,
+personen), `python3 scripts/bijbel-check.py scripts/bijbel-controle/<boek>.txt`, `node scripts/bijbelreis-personen-check.mjs`,
+`node scripts/bijbelreis-check.mjs` en `npx playwright test bijbelreis navigatie a11y`.
+
+Nog niet gedaan: de overige bijbelboeken (in de boekenkast als ‘in ontwikkeling’), het Nieuwe Testament als reis.
+Open inhoudelijke punten voor Martijn staan in de verslagen `docs/bijbelreis-audit/inhoud-*.md` en `personen.md`.
 
 ## Bibliotheek (martijn-ai-workbench)
 

@@ -1,5 +1,5 @@
 # Controle Exodus (public/bijbelreis/inhoud/exodus.js): ref | regex
-# Nieuwtestamentische verwijzingen (Hebreeën, Handelingen, Markus, Johannes, Mattheüs, Lukas, 1 Korinthe, Openbaring) zijn niet in de map bijbel/ en staan hier niet.
+# Sinds oktober 2026 staan ook de Nieuwtestamentische boeken uit de kruisverwijzingen in de map bijbel/; ze worden hieronder (audit 2.0) gecontroleerd.
 # --- Wie is wie
 Deuteronomium 34:7 | honderd en twintig jaren oud
 Exodus 7:7 | Mozes was tachtig jaar oud, en Aaron was drie en tachtig
@@ -196,3 +196,61 @@ Exodus 40:36-37 | wolk opgeheven.*reisden.*niet opgeheven.*reisden zij niet
 Exodus 40:4-5 | tafel.*kandelaar.*altaar ten reukwerk
 Exodus 40:21 | ark in den tabernakel.*voorhang
 Exodus 40:29 | altaar des brandoffers
+# --- Audit 2.0 (oktober 2026): chronologie, correcties en kruisverwijzingen
+1 Koningen 6:1 | vierhonderd en tachtigste jaar, na den uitgang.*uit Egypte, in het vierde jaar van het koninkrijk van Salomo
+Exodus 7:7 | Mozes was tachtig jaar oud.*toen zij tot Farao spraken
+Numeri 33:3 | eerste maand, op den vijftienden dag der eerste maand
+Galaten 3:17 | vierhonderd en dertig jaren
+Exodus 19:1 | derde maand, na het uittrekken
+Exodus 40:17 | eerste maand, in het tweede jaar, op den eersten der maand
+Numeri 26:59 | Amram was Jochebed.*Aaron, en Mozes, en Mirjam, hun zuster
+Exodus 2:4 | zijn zuster stelde zich van verre
+Leviticus 8:12 | zalfolie op het hoofd van Aaron, en hij zalfde hem
+Exodus 2:1 | huis van Levi.*dochter van Levi
+Handelingen 7:23 | veertig jaren vervuld
+Handelingen 7:30 | veertig jaren vervuld.*doornenbos
+Deuteronomium 5:2 | verbond met ons gemaakt aan Horeb
+Exodus 4:24 | in de herberg, dat de HEERE hem tegenkwam, en zocht hem te doden
+Exodus 4:25 | Zippora een stenen mes en besneed de voorhuid haars zoons
+Exodus 4:26 | liet van hem af
+Markus 12:26-27 | boek van Mozes, hoe God in het doornenbos.*niet een God der doden, maar een God der levenden
+Johannes 8:58 | Eer Abraham was, ben Ik
+Exodus 3:14 | Ik ZAL ZIJN
+Mattheüs 2:13-15 | Egypte.*Uit Egypte heb Ik Mijn Zoon geroepen
+Hebreeën 11:23-27 | drie maanden.*verborgen.*schatten in Egypte
+Handelingen 7:20-34 | Mozes.*Madiam.*doornenbos
+Exodus 5:20-21 | Mozes en Aaron.*stinkende gemaakt
+Exodus 5:19 | ambtlieden der kinderen Israels
+Exodus 8:22 | land Gosen.*geen vermenging
+Exodus 9:6 | vee der Egyptenaren stierf; maar van het vee der kinderen Israels stierf niet een
+Exodus 9:26 | land Gosen.*geen hagel
+Exodus 10:23 | kinderen Israels was het licht
+Exodus 12:12 | in dezen nacht.*gerichten oefenen aan alle goden der Egyptenaren
+Lukas 22:15 | Ik heb grotelijks begeerd, dit pascha met u te eten, eer dat Ik lijde
+Exodus 12:37 | omtrent zeshonderd duizend te voet
+Exodus 14:7 | zeshonderd uitgelezene wagens, ja, al de wagens van Egypte
+Exodus 14:2 | Pi-Hachiroth, tussen Migdol.*Baal-Zefon
+Exodus 14:25 | stiet de raderen hunner wagenen weg, en deed ze zwaarlijk voortvaren.*Laat ons vlieden.*HEERE strijdt voor hen
+Psalmen 106:9-11 | Schelfzee.*verdroogde.*wateren overdekten
+Psalmen 136:13-15 | Schelfzee in delen deelde.*Farao met zijn heir
+Hebreeën 11:29 | Rode zee doorgegaan, als door het droge
+Openbaring 15:2-3 | overwinning.*gezang van Mozes, den dienstknecht Gods, en het gezang des Lams
+1 Korinthe 5:7 | ons Pascha is voor ons geslacht, namelijk Christus
+Johannes 1:29 | Zie het Lam Gods, Dat de zonde der wereld wegneemt
+Hebreeën 11:28-29 | pascha.*Rode zee
+1 Korinthe 10:1-2 | onder de wolk.*door de zee.*gedoopt
+Psalmen 106:12 | geloofden zij aan Zijn woorden
+Exodus 32:35 | plaagde de HEERE dit volk
+Exodus 34:9 | vergeef onze ongerechtigheid
+Exodus 34:10 | Ik maak een verbond
+Exodus 32:32 | Nu dan, indien Gij hun zonden vergeven zult! doch zo niet, zo delg mij nu uit Uw boek
+Johannes 6:31-35 | brood uit den hemel.*Mijn Vader.*Ik ben het Brood des levens
+1 Korinthe 10:4 | steenrots was Christus
+Mattheüs 22:37-40 | liefhebben den Heere, uw God.*naaste liefhebben als uzelven.*Aan deze twee geboden
+Hebreeën 12:18-24 | berg.*vuur.*berg Sion.*Jezus
+Johannes 1:14 | het Woord is vlees geworden, en heeft onder ons gewoond
+Exodus 17:9 | Jozua
+Deuteronomium 5:6-21 | geen andere goden.*niet begeren
+Psalmen 106:20 | gedaante van een os
+Exodus 2:23 | koning van Egypte gestorven
+Exodus 14:28 | ganse heir van Farao
