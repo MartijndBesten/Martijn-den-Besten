@@ -116,7 +116,8 @@
     return fetch("/bijbelreis/grenzen.json").then((r) => r.json()).then((g) => {
       const feats = g.features || [];
       L.geoJSON({ type: "FeatureCollection", features: feats.filter((f) => f.geometry.type !== "Point") }, { pane: "modern", interactive: false, className: "border" }).addTo(lyModern);
-      feats.filter((f) => f.geometry.type === "Point").forEach((f) => lyModern.addLayer(L.marker([f.geometry.coordinates[1], f.geometry.coordinates[0]], { interactive: false, keyboard: false, icon: icon(`<span class="country">${esc(f.properties.naam)}</span>`) })));
+      // Alleen landen die Nederland erkent krijgen een naam (geen ‘Noord-Cyprus’).
+      feats.filter((f) => f.geometry.type === "Point" && f.properties.naam !== "Noord-Cyprus").forEach((f) => lyModern.addLayer(L.marker([f.geometry.coordinates[1], f.geometry.coordinates[0]], { interactive: false, keyboard: false, icon: icon(`<span class="country">${esc(f.properties.naam)}</span>`) })));
     }).catch(() => { modernLoaded = false; toast("De moderne grenzen konden niet worden geladen."); });
   }
   const peakMarkers = PEAKS.map((p) => L.marker(p.ll, { interactive: false, keyboard: false, icon: icon(`<span class="peak off"><i></i><span>${esc(p.n)} ${fmt(p.h)} m</span></span>`) }).addTo(map));

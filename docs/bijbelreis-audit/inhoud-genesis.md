@@ -9,11 +9,11 @@ Stapvolgorde, stap-, deel- en plaats-ids zijn ongewijzigd (gecontroleerd met een
 | | |
 | --- | --- |
 | Delen / stappen gecontroleerd | 5 / 67 (plus intro's, `stat`, `cross`, quiz, stamboom, leeftijden, `ordAlles`) |
-| Stappen met inhoudelijke correctie in `txt`/`ref`/`who` | 49 |
-| Weetjes (`fact`) herschreven of vervangen | 27; alle 67 stappen hebben nu `fs` (b 44, u 13, h 10) |
-| Routes van `recon` voorzien | 17 |
-| Kruisverwijzingen gecorrigeerd/gesplitst | 12 |
-| Quizvragen aangepast | 17 (plus 2 nieuwe `ordAlles`-vragen) |
+| Stappen met een wijziging in `txt`/`ref`/`who` | 65 van 67 (vaak aanvulling of SV-citaat; de inhoudelijke fouten staan in de tabellen) |
+| Weetjes (`fact`) aangepast | 57 (vaak alleen versverwijzing of voorzichtiger formulering); alle 67 stappen hebben nu `fs` (b 43, u 13, h 11) |
+| Routes van `recon` voorzien | 17 (in 15 stappen) |
+| Kruisverwijzingen nieuw, gecorrigeerd of gesplitst | 28 regels |
+| Quizvragen aangepast | 24 (plus 2 nieuwe `ordAlles`-vragen) |
 | Controleregels toegevoegd | 506 (nieuw bestand; ook NT- en OT-kruisverwijzingen) |
 | Resultaat `python3 scripts/bijbel-check.py scripts/bijbel-controle/genesis.txt` | **506 gecontroleerd, 0 mis** |
 | `node --check` / `node scripts/bijbelreis-check.mjs` | geslaagd / ‘Geen problemen gevonden’ |
