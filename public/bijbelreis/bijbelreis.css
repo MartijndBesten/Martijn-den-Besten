@@ -472,6 +472,13 @@ button.kb[aria-current="true"] { box-shadow: 0 0 0 2px var(--salie-deep); }
 .fam { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 10px; align-items: center; font-size: 0.85rem; }
 .fam dt { color: var(--fg-3); }
 .fam dd { margin: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.chip.afgeleid { border-style: dashed; }
+.grond { margin: 8px 0; font-size: 0.85rem; }
+.grond summary { cursor: pointer; color: var(--fg-2); }
+.gs { font-weight: 600; }
+.gs-b { color: var(--goed); }
+.gs-a, .gs-x { color: var(--fg-3); font-style: italic; }
+.overlevering ul { margin: 4px 0 0; padding-left: 18px; }
 .golist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
 .golist li { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
 .golist small { color: var(--fg-3); font-size: 0.78rem; white-space: nowrap; }

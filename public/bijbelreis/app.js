@@ -1024,19 +1024,38 @@
     }
   }
   // Eén persoon met familie, gebeurtenissen, plaatsen en verwijzingen, allemaal uit BR.mensen en de stappen.
-  const mensChip = (id) => MENSEN[id] ? `<button type="button" class="chip" data-mens="${id}"><i style="background:${color(BR.personen[MENSEN[id].n] || "grijs")}">${esc(MENSEN[id].n[0])}</i>${esc(MENSEN[id].n)}</button>` : "";
+  const mensChip = (id, afgeleid) => MENSEN[id] ? `<button type="button" class="chip${afgeleid ? " afgeleid" : ""}" data-mens="${id}"${afgeleid ? ' title="Afgeleid: zie ‘Waar staat dat?’"' : ""}><i style="background:${color(BR.personen[MENSEN[id].n] || "grijs")}">${esc(MENSEN[id].n[0])}</i>${esc(MENSEN[id].n)}${afgeleid ? '<small aria-label="afgeleid"> *</small>' : ""}</button>` : "";
+  // Grondslag van een familieband (personen.js, veld basis): ["b", ref] staat zo in de Bijbel; ["a", ref, redenering] is
+  // afgeleid door teksten te combineren. Kerkelijke overlevering staat nooit in v/m/p maar apart in ‘overlevering’.
+  function grondslag(ouder, soort, ander) {
+    const b = (MENSEN[ouder] || {}).basis || {};
+    if (soort === "p") return (b.p || {})[ander] || (((MENSEN[ander] || {}).basis || {}).p || {})[ouder] || null;
+    return b[soort] || null;
+  }
   const refBtn = (r) => (parseRef(r) ? `<button type="button" class="linkbtn" data-ref="${esc(r)}">${esc(r)}</button>` : `<b>${esc(r)}</b>`);
   function mensDetails(id) {
     const m = MENSEN[id]; if (!m) return "";
     const kids = Object.keys(MENSEN).filter((k) => MENSEN[k].v === id || MENSEN[k].m === id);
     const sibs = m.v || m.m ? Object.keys(MENSEN).filter((k) => k !== id && ((m.v && MENSEN[k].v === m.v) || (m.m && MENSEN[k].m === m.m))) : [];
     const partners = (m.p || []).concat(Object.keys(MENSEN).filter((k) => (MENSEN[k].p || []).includes(id) && !(m.p || []).includes(k)));
+    // Per band: [rol, persoon, grondslag]. Broers en zussen volgen uit dezelfde vader of moeder.
+    const banden = [];
+    if (m.v) banden.push(["Vader", m.v, grondslag(id, "v")]);
+    if (m.m) banden.push(["Moeder", m.m, grondslag(id, "m")]);
+    partners.forEach((k) => banden.push(["Getrouwd met", k, grondslag(id, "p", k)]));
+    kids.forEach((k) => banden.push(["Kind", k, grondslag(k, MENSEN[k].v === id ? "v" : "m")]));
+    const afg = new Set(banden.filter(([, , g]) => g && g[0] === "a").map(([, k]) => k));
     const fam = [["Vader", m.v ? [m.v] : []], ["Moeder", m.m ? [m.m] : []], ["Getrouwd met", partners], ["Kinderen", kids], ["Broers en zussen", sibs]].filter(([, l]) => l.some((k) => MENSEN[k]));
     const steps = MENS_STAPPEN[id] || [];
     const places = [...new Set(steps.flatMap(([d, i]) => d.steps[i].at || []))].filter((p) => P[p] && !P[p].ctx);
     let h = "";
     if (m.leeftijd && m.leeftijd.length) h += `<p class="ref">${m.leeftijd.map(([a, r]) => `${a} jaar (${esc(r)})`).join(" · ")}</p>`;
-    if (fam.length) h += `<dl class="fam">${fam.map(([t, l]) => `<dt>${t}</dt><dd>${l.map(mensChip).join("")}</dd>`).join("")}</dl>`;
+    if (fam.length) h += `<dl class="fam">${fam.map(([t, l]) => `<dt>${t}</dt><dd>${l.map((k) => mensChip(k, t !== "Broers en zussen" && afg.has(k))).join("")}</dd>`).join("")}</dl>`;
+    if (banden.length) {
+      const soortTekst = (g) => !g ? "Grondslag nog niet vastgelegd" : g[0] === "b" ? "Staat zo in de Bijbel" : "Afgeleid";
+      h += `<details class="grond"><summary>Waar staat dat?${afg.size ? ' <small>(* = afgeleid)</small>' : ""}</summary><ul class="xrefs">${banden.filter(([, k]) => MENSEN[k]).map(([rol, k, g]) => `<li><span><b>${esc(rol)}: ${esc(MENSEN[k].n)}</b> · <span class="gs gs-${g ? g[0] : "x"}">${soortTekst(g)}</span>${g && g[1] ? " " + refBtn(g[1]) : ""}${g && g[2] ? `<br><small>${esc(g[2])}</small>` : ""}</span></li>`).join("")}${sibs.length ? `<li><span><b>Broers en zussen</b> · <span class="gs gs-a">Afgeleid</span><br><small>Ze hebben dezelfde vader of moeder.</small></span></li>` : ""}</ul></details>`;
+    }
+    if (m.overlevering && m.overlevering.length) h += `<div class="fact overlevering"><b>Overlevering <span class="fs fs-h">Niet uit de Bijbel</span></b><ul>${m.overlevering.map(([t, u]) => `<li>${esc(t)}${u ? ` <small>${esc(u)}</small>` : ""}</li>`).join("")}</ul></div>`;
     if (steps.length) h += `<p class="label">In de reis</p><ul class="golist">${steps.map(([d, i]) => `<li><button type="button" class="linkbtn" data-go="${d.key}:${i}">${esc(d.steps[i].t)}</button><small>${esc(d.steps[i].ref)}</small></li>`).join("")}</ul>`;
     if (places.length) h += `<p class="label">Plaatsen</p><div class="chips">${places.map((p) => `<button type="button" class="chip place" data-place="${p}">${esc(P[p].n)}</button>`).join("")}</div>`;
     if (m.elders && m.elders.length) h += `<p class="label">Elders in de Bijbel</p><ul class="xrefs">${m.elders.map(([r, t]) => `<li>${refBtn(r)}<span>${esc(t)}</span></li>`).join("")}</ul>`;

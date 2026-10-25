@@ -146,6 +146,25 @@ describe("bijbelreis: personen", () => {
     }
     expect(bad).toEqual([]);
   });
+  it.skipIf(!M)("elke familieband heeft een grondslag: uit de Bijbel (b) of afgeleid (a, met redenering), met een bestaande tekst", () => {
+    type G = [string, string, string?];
+    const bad: string[] = [];
+    const check = (wie: string, g: G | undefined) => {
+      if (!g) return bad.push(`${wie}: geen grondslag`);
+      if (!["b", "a"].includes(g[0])) bad.push(`${wie}: soort ${g[0]}`);
+      if (verses(g[1]) !== "ok") bad.push(`${wie}: ${g[1]} ${verses(g[1])}`);
+      if (g[0] === "a" && !(g[2] && g[2].length > 10)) bad.push(`${wie}: afgeleid zonder redenering`);
+    };
+    for (const [id, m] of Object.entries(M!)) {
+      const b = (m as { basis?: { v?: G; m?: G; p?: Record<string, G> } }).basis || {};
+      if (m.v) check(`${id} → vader ${m.v}`, b.v);
+      if (m.m) check(`${id} → moeder ${m.m}`, b.m);
+      (m.p || []).forEach((k) => check(`${id} → partner ${k}`, (b.p || {})[k] || ((M![k] as { basis?: { p?: Record<string, G> } }).basis?.p || {})[id]));
+      const o = (m as { overlevering?: [string, string?][] }).overlevering;
+      if (o && !o.every((x) => Array.isArray(x) && x[0])) bad.push(`${id}: overlevering zonder tekst`);
+    }
+    expect(bad).toEqual([]);
+  });
   it.skipIf(!M)("personen met dezelfde naam delen nooit een boek (de app zou ze dan samenvoegen)", () => {
     const seen: Record<string, string> = {}, bad: string[] = [];
     for (const [id, m] of Object.entries(M!)) {
