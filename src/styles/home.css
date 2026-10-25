@@ -431,45 +431,48 @@
   font-weight: 650;
 }
 
-/* Het vogeltje */
-.machine__bird {
+/* De windvaan: een uitgesneden metalen vogel op de zuigercilinder */
+.machine__vane {
   position: absolute;
   z-index: 3;
-  width: 8.5%;
-  min-width: 40px;
-  aspect-ratio: 48 / 40;
+  width: 11%;
+  min-width: 48px;
+  aspect-ratio: 64 / 40;
   margin: 0;
   padding: 0;
   border: 0;
   background: none;
   translate: -50% -50%;
-  transform-origin: 50% 100%;
+  transform-origin: 50% 75%;
   transition: transform var(--t-func) var(--ease-spring);
 }
-.machine__bird svg {
+.machine__vane svg {
   width: 100%;
   height: 100%;
   overflow: visible;
 }
-.machine__bird:hover {
-  transform: translateY(-4px) rotate(-8deg);
+.machine__vane:hover {
+  transform: rotate(-8deg);
 }
-.machine__bird.is-hopping {
-  animation: hop 0.6s var(--ease-spring);
+.machine__vane.is-spinning {
+  animation: vane-spin 0.9s var(--ease-out);
 }
-.machine__bird:focus-visible {
+.machine__vane:focus-visible {
   outline-offset: 2px;
   border-radius: 8px;
 }
-@keyframes hop {
-  40% {
-    transform: translateY(-26px) rotate(-18deg);
+@keyframes vane-spin {
+  30% {
+    transform: scaleX(-1);
   }
-  70% {
-    transform: translateY(0) scale(1.08, 0.9);
+  60% {
+    transform: scaleX(1);
+  }
+  80% {
+    transform: scaleX(-0.6);
   }
 }
-.is-gold .machine__bird path:first-child {
+.is-gold .machine__vane-bird {
   fill: #f6d36b;
 }
 
@@ -486,42 +489,59 @@
 .machine.is-gold .m-glow {
   opacity: 1;
 }
-.machine .m-swirl {
+/* Kern van de denkkamer: licht op als een idee binnenkomt */
+.machine .m-core {
   transform-origin: 290px 282px;
-  animation: spin 22s linear infinite;
+  transition: transform 0.4s var(--ease-spring), filter 0.4s;
 }
-.machine:is(.is-intake, .is-process, .is-surprise) .m-swirl {
-  animation-duration: 1.4s;
+.machine .m-core__hot {
+  opacity: 0;
+  transition: opacity 0.3s;
 }
-.machine .m-eyes {
-  transform-origin: 290px 278px;
-  animation: blink-eyes 6s infinite;
-}
-.machine.is-process .m-eyes {
-  animation: none;
-  transform: scaleY(0.35);
-  transition: transform 0.2s;
-}
-.machine.is-jammed .m-eyes {
-  animation: none;
-  transform: scaleY(0.12);
-}
-@keyframes blink-eyes {
-  0%,
-  94%,
-  100% {
-    transform: scaleY(1);
-  }
-  96% {
-    transform: scaleY(0.1);
-  }
-}
-.machine .m-mouth {
-  transform-origin: 283px 305px;
-  transition: transform 0.3s var(--ease-spring);
-}
-.machine:is(.is-lit, .is-gold) .m-mouth {
+.machine:is(.is-process, .is-surprise) .m-core {
   transform: scale(1.5);
+}
+.machine:is(.is-process, .is-surprise) .m-core__hot {
+  opacity: 1;
+}
+.machine.is-jammed .m-core {
+  transform: scale(0.8);
+  opacity: 0.5;
+}
+/* De pers stempelt bij elke uitvoer */
+.machine .m-ram {
+  transition: transform 0.12s var(--ease-mech);
+}
+.machine.is-pressing .m-ram {
+  transform: translateY(16px);
+}
+/* Zeldzaam: een moertje springt los en rolt weg */
+.machine .m-nut {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.machine.is-nut .m-nut {
+  animation: nut-drop 1.4s var(--ease-out) forwards;
+}
+@keyframes nut-drop {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(14px, -26px) rotate(140deg);
+  }
+  55% {
+    transform: translate(34px, 80px) rotate(320deg);
+  }
+  70% {
+    transform: translate(42px, 64px) rotate(400deg);
+  }
+  85% {
+    transform: translate(52px, 80px) rotate(460deg);
+  }
+  100% {
+    transform: translate(70px, 80px) rotate(560deg);
+  }
 }
 .machine .m-led {
   opacity: 0.3;
@@ -1052,27 +1072,33 @@
 }
 .report {
   display: grid;
+  gap: clamp(24px, 3.4vw, 44px);
+}
+.report__head {
+  display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(28px, 4vw, 56px);
+  gap: 4px 40px;
+  align-items: end;
 }
-@media (min-width: 980px) {
-  .report {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    align-items: start;
-  }
+@media (min-width: 900px) {
   .report__head {
-    position: sticky;
-    top: calc(var(--header-h) + 32px);
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+  .report__head .dept-no,
+  .report__head .section-title {
+    grid-column: 1;
+  }
+  .report__head .lede {
+    grid-column: 2;
+    grid-row: 2;
+    margin-bottom: 10px;
+  }
+  .report__head .neverdone {
+    grid-column: 2;
+    grid-row: 3;
   }
 }
-.report__statement {
-  font-size: clamp(2.5rem, 1.3rem + 4.6vw, 5.4rem);
-  font-weight: 760;
-  letter-spacing: -0.06em;
-  line-height: 0.92;
-  margin-bottom: 18px;
-}
-.report__statement em {
+.report__head .section-title em {
   color: var(--koraal-deep);
 }
 .neverdone {
@@ -1080,8 +1106,7 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 12px;
-  max-width: 420px;
-  margin-top: 8px;
+  max-width: 440px;
   padding: 12px 16px;
   border-radius: 999px;
   background: var(--card);
@@ -1109,107 +1134,322 @@
   min-width: 5ch;
   text-align: right;
 }
-.report__grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+
+/* Een compositie in plaats van zes gelijke kaarten */
+.report__bento {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(10px, 1.4vw, 16px);
 }
-.report__item {
-  --c: var(--koraal);
+@media (min-width: 760px) {
+  .report__bento {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .stat--hero {
+    grid-column: span 8;
+  }
+  .stat--done {
+    grid-column: span 4;
+  }
+  .stat--ledger {
+    grid-column: span 7;
+  }
+  .stat--coffee {
+    grid-column: span 5;
+  }
+}
+.stat {
   position: relative;
-  display: grid;
-  gap: 6px;
-  align-content: start;
-  padding: clamp(16px, 2vw, 22px);
-  border-radius: 22px;
-  background: var(--card);
   min-width: 0;
+  padding: clamp(18px, 2.6vw, 30px);
+  border-radius: clamp(22px, 2.6vw, 32px);
+  background: var(--card);
 }
-.report__item--1 {
-  --c: var(--kobalt);
-}
-.report__item--2 {
-  --c: var(--ink);
-  background: var(--koraal);
-  color: var(--ink);
-  --fg-2: rgba(25, 27, 46, 0.82);
-  --fg-3: rgba(25, 27, 46, 0.8);
-  --line: rgba(25, 27, 46, 0.2);
-  transform: rotate(-1.5deg);
-}
-.report__item--3 {
-  --c: var(--salie-deep);
-}
-.report__item--4 {
-  --c: var(--lila-deep);
-}
-.report__item--5 {
-  --c: var(--boter-deep);
-}
-.report__idx {
-  font-size: 0.62rem;
-  color: var(--fg-3);
-}
-.report__live {
+.stat__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
   color: var(--accent-text);
 }
-.report__item--2 .report__live {
-  color: inherit;
+.stat__live::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--koraal);
+  animation: blink 1.6s steps(2) infinite;
 }
-.report__value {
-  font-size: clamp(2rem, 1.5rem + 1.8vw, 3.2rem);
+.stat__big {
+  display: block;
+  margin: 6px 0 2px;
+  font-size: clamp(3.6rem, 1.6rem + 9vw, 9.5rem);
+  font-weight: 780;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+.stat__mid {
+  display: block;
+  margin: 4px 0;
+  font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.6rem);
   font-weight: 760;
   letter-spacing: -0.06em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
-.report__label {
-  font-weight: 620;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+.stat__note {
+  margin: 6px 0 0;
+  color: var(--fg-2);
+  max-width: 40ch;
 }
-.report__bar {
-  display: block;
-  height: 6px;
+.ratio {
+  display: grid;
+  gap: 6px;
+  margin-top: clamp(16px, 2.4vw, 28px);
+}
+.ratio__bar {
+  position: relative;
+  height: 12px;
   border-radius: 999px;
   background: var(--line);
   overflow: hidden;
 }
-.report__bar i {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--c);
-  transform-origin: 0 50%;
-  transform: scaleX(0);
-  transition: transform 1.4s var(--ease-out) 0.3s;
+.ratio__bar i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--koraal);
 }
-.report__item.is-in .report__bar i {
-  transform: none;
+.ratio .label {
+  color: var(--fg-3);
+  font-size: 0.62rem;
 }
-.report__note {
-  font-size: 0.85rem;
-  line-height: 1.4;
+/* Afgerond: het tweede dominante cijfer, als officieel insigne */
+.stat--done {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  background: var(--koraal);
+  color: var(--ink);
+  --fg-2: rgba(25, 27, 46, 0.82);
+}
+.stat__badge {
+  display: grid;
+  place-items: center;
+  width: clamp(130px, 16vw, 190px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--boter);
+  font-size: clamp(4.6rem, 3rem + 5vw, 7.4rem);
+  font-weight: 780;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  box-shadow: 0 0 0 8px rgba(25, 27, 46, 0.12);
+  transform: rotate(-6deg);
+  transition: transform 0.6s var(--ease-spring);
+}
+.stat--done:hover .stat__badge {
+  transform: rotate(8deg) scale(1.04);
+}
+.stat__label {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+.stat__stamp {
+  --tilt: 3deg;
+  color: var(--ink);
+  font-size: 0.62rem;
+}
+/* Kasboek met puntjes, zoals een echte administratie */
+.ledger {
+  display: grid;
+  margin: 10px 0 0;
+}
+.ledger__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 12px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1.5px dotted color-mix(in srgb, var(--fg) 35%, transparent);
+}
+.ledger__row:last-child {
+  border-bottom: 0;
+}
+.ledger dt {
+  font-weight: 640;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.ledger dd {
+  margin: 0;
+}
+.ledger dd:not(.ledger__note) {
+  font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2.1rem);
+  font-weight: 760;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+}
+.ledger__note {
+  grid-column: 1 / -1;
+  font-size: 0.86rem;
   color: var(--fg-2);
 }
+/* Koffie: de enige statistiek waar u zelf aan kunt bijdragen */
+.stat--coffee {
+  background: var(--salie-soft);
+}
+.coffee {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 16px;
+  align-items: end;
+}
+.coffee > :not(.coffee__cup) {
+  grid-column: 1;
+}
+.coffee__mine {
+  color: var(--salie-deep);
+  font-weight: 650;
+}
+.coffee__cup {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  width: clamp(104px, 12vw, 132px);
+  padding: 8px 6px 10px;
+  border: 0;
+  border-radius: 20px;
+  background: var(--card);
+  color: var(--fg);
+  transition: transform var(--t-micro) var(--ease-out);
+  touch-action: manipulation;
+}
+.coffee__cup:hover {
+  transform: rotate(-4deg) translateY(-2px);
+}
+.coffee__cup:active {
+  transform: rotate(-12deg) scale(0.96);
+}
+.coffee__cup svg {
+  width: 100%;
+}
+.coffee__fill {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: pour 0.9s var(--ease-out) both;
+}
+@keyframes pour {
+  from {
+    transform: scaleY(0);
+  }
+}
+.coffee__steam path {
+  animation: steam 2.4s ease-in-out infinite;
+}
+.coffee__steam path:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.coffee__steam path:nth-child(3) {
+  animation-delay: 0.8s;
+}
+@keyframes steam {
+  50% {
+    transform: translateY(-4px);
+    opacity: 0.2;
+  }
+}
+.coffee__label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 .report__foot {
-  grid-column: 1 / -1;
   color: var(--fg-3);
   margin: 0;
 }
-@media (max-width: 420px) {
-  .report__grid {
-    gap: 8px;
+
+/* ---------- Naden tussen secties ---------- */
+
+.seam {
+  position: relative;
+  z-index: 6;
+  height: 0;
+  pointer-events: none;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+.seam.reveal {
+  opacity: 1;
+  transform: none;
+}
+.seam svg {
+  position: absolute;
+  overflow: visible;
+}
+.seam--bal svg {
+  width: 44px;
+  left: 16%;
+  top: -10px;
+  transform: translateX(-30vw) rotate(-540deg);
+  transition: transform 1.4s var(--ease-out);
+}
+.seam--stempel svg {
+  width: clamp(76px, 9vw, 108px);
+  right: 8%;
+  left: auto;
+  top: -54px;
+  opacity: 0;
+  transform: scale(1.8) rotate(-30deg);
+  transition: transform 0.35s cubic-bezier(0.5, 0, 0.75, 0), opacity 0.2s;
+}
+.seam--stempel svg {
+  inset-inline-end: 8%;
+}
+.seam--ster svg {
+  width: 36px;
+  left: 9%;
+  top: -40px;
+  transform: translateY(-60px);
+  opacity: 0;
+  transition: transform 0.9s var(--ease-spring), opacity 0.3s;
+}
+.seam--ring svg {
+  width: 52px;
+  right: 18%;
+  top: 0;
+  transform: translateX(40vw) rotate(400deg);
+  transition: transform 1.5s var(--ease-out);
+}
+.seam--stempel,
+.seam--ring {
+  display: flex;
+  justify-content: flex-end;
+}
+.seam.is-in svg {
+  transform: none;
+  opacity: 1;
+}
+.seam--stempel.is-in svg {
+  transform: rotate(-12deg);
+}
+@media (max-width: 560px) {
+  .seam--ster svg {
+    left: 6%;
   }
-  .report__item {
-    padding: 14px;
-    border-radius: 18px;
-  }
-  .report__note {
-    font-size: 0.8rem;
+  .seam--ring svg {
+    right: 10%;
   }
 }
 
@@ -1592,47 +1832,189 @@
 .duo__card--cert:hover .duo__obj {
   transform: rotate(-4deg) scale(1.05);
 }
-.checklist {
-  list-style: none;
-  padding: 0;
-  margin: 18px 0 0;
+/* Stempelkaart */
+.stampcard {
   display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+.stampcard__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
 }
-.checklist li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 14px;
-  border-radius: 16px;
-  background: var(--card);
-  font-weight: 550;
-}
-.checklist__box {
-  flex: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 7px;
-  border: 2px solid var(--fg);
-}
-.checklist li.is-done {
-  color: var(--fg-3);
-  text-decoration: line-through;
-  text-decoration-color: var(--koraal);
-  text-decoration-thickness: 2px;
-}
-.checklist li.is-done .checklist__box {
-  background: var(--salie) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12l4 4 8-9' fill='none' stroke='%23191b2e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 80% no-repeat;
-  border-color: var(--salie-deep);
-}
 
-@media (min-width: 561px) and (max-width: 999px) {
-  .hero__title {
-    font-size: min(17vw, 7.4rem);
+.stampcard__slot {
+  --tone: var(--koraal);
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-height: 84px;
+  padding: 12px;
+  border-radius: 18px;
+  border: 2px dashed color-mix(in srgb, var(--fg) 28%, transparent);
+  background: color-mix(in srgb, var(--card) 55%, transparent);
+  overflow: hidden;
+}
+.stampcard__slot.tone-kobalt {
+  --tone: var(--kobalt);
+}
+.stampcard__slot.tone-salie {
+  --tone: var(--salie);
+}
+.stampcard__slot.tone-lila {
+  --tone: var(--lila);
+}
+.stampcard__slot.tone-boter {
+  --tone: var(--boter);
+}
+.stampcard__no {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: var(--fg-3);
+}
+.stampcard__slot.is-done .stampcard__title {
+  padding-right: 58px;
+}
+.stampcard__title {
+  font-weight: 620;
+  font-size: 0.9rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.stampcard__slot.is-done {
+  border-style: solid;
+  border-color: transparent;
+  background: var(--card);
+}
+.stampcard__slot.is-done .stampcard__title {
+  color: var(--fg-2);
+}
+.stampcard__stamp {
+  position: absolute;
+  right: 8px;
+  top: calc(50% - 26px);
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px double var(--ink);
+  background: var(--tone);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.5rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transform: rotate(var(--tilt));
+  opacity: 0.92;
+}
+.stampcard__slot.is-fresh .stampcard__stamp {
+  animation: stamp-thump 0.55s cubic-bezier(0.5, 0, 0.75, 0) 0.3s both;
+}
+.stampcard__rank {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--card);
+}
+.stampcard__rank .label {
+  color: var(--fg-3);
+}
+.stampcard__rank strong {
+  font-weight: 720;
+  letter-spacing: -0.02em;
+}
+.stampcard__meter {
+  display: flex;
+  gap: 3px;
+}
+.stampcard__meter i {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--line);
+  transition: background-color 0.4s;
+}
+.stampcard__meter i.is-on {
+  background: var(--koraal);
+}
+@media (max-width: 420px) {
+  .stampcard__rank {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .stampcard__rank > .label:first-child {
+    display: none;
+  }
+  .stampcard__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+  .stampcard__slot {
+    min-height: 0;
+    grid-template-columns: 26px minmax(0, 1fr);
+    align-items: center;
+    padding: 10px 12px;
+  }
+  .stampcard__stamp {
+    top: calc(50% - 23px);
+    width: 46px;
+    height: 46px;
   }
 }
-@media (max-width: 360px) {
-  .plate__foot {
-    grid-template-columns: repeat(2, auto);
+
+/* Gouden sleutel (na vijf ontdekkingen) */
+.hero__text {
+  position: relative;
+}
+.golden-key {
+  position: absolute;
+  right: 4%;
+  top: 2%;
+  z-index: 3;
+  width: 72px;
+  padding: 6px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  transform: rotate(-12deg);
+  transition: transform var(--t-func) var(--ease-spring);
+}
+.golden-key svg {
+  animation: glint 3.2s ease-in-out infinite;
+}
+.golden-key:hover {
+  transform: rotate(8deg) scale(1.08);
+}
+@keyframes glint {
+  0%,
+  70%,
+  100% {
+    filter: none;
+  }
+  80% {
+    filter: brightness(1.15) drop-shadow(0 0 8px rgba(246, 211, 107, 0.95));
+  }
+}
+
+@media (max-width: 759px) {
+  .stat--done {
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: start;
+    text-align: left;
+    column-gap: 18px;
+  }
+  .stat--done .stat__badge {
+    grid-row: span 2;
+    width: 104px;
+    font-size: 4rem;
   }
 }

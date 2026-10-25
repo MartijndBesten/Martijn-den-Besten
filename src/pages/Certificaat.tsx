@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ACHIEVEMENTS } from "../content/progress";
+import { ACHIEVEMENTS, MISSIONS } from "../content/progress";
 import { useGame } from "../state/GameState";
 import { sfx } from "../lib/sound";
 import "../styles/pages.css";
@@ -25,7 +25,7 @@ function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): st
   return lines;
 }
 
-function draw(canvas: HTMLCanvasElement, name: string, achievement: string, serial: string) {
+function draw(canvas: HTMLCanvasElement, name: string, achievement: string, serial: string, golden = false) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const INK = "#191b2e";
@@ -42,10 +42,10 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
     ctx.fillStyle = color;
     ctx.fill();
   };
-  blob(40, 40, 170, "#f9cfc2");
+  blob(40, 40, 170, golden ? "#f7e3a1" : "#f9cfc2");
   blob(W - 30, 60, 120, "#f7e3a1");
-  blob(W - 60, H - 40, 190, "#dcd0f7");
-  blob(60, H - 30, 110, "#cfe3c8");
+  blob(W - 60, H - 40, 190, golden ? "#f7e3a1" : "#dcd0f7");
+  blob(60, H - 30, 110, golden ? "#f9cfc2" : "#cfe3c8");
 
   // Guilloche-rand: twee in elkaar grijpende golflijnen, zoals op waardepapier
   ctx.strokeStyle = "#3c5bd6";
@@ -106,6 +106,21 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
   rosette(120, H - 120);
   rosette(W - 120, H - 120);
 
+  // Gouden uitvoering voor wie alle missies heeft voltooid
+  if (golden) {
+    ctx.strokeStyle = "#d9a92e";
+    ctx.lineWidth = 8;
+    ctx.strokeRect(62, 62, W - 124, H - 124);
+    ctx.fillStyle = "#191b2e";
+    ctx.beginPath();
+    ctx.roundRect(W / 2 - 190, 106, 380, 44, 22);
+    ctx.fill();
+    ctx.fillStyle = "#f6d36b";
+    ctx.textAlign = "center";
+    ctx.font = "600 20px 'Geist Mono', monospace";
+    ctx.fillText("★  OPPERBEZOEKER  ★", W / 2, 135);
+  }
+
   ctx.textAlign = "center";
   ctx.fillStyle = INK;
   ctx.font = "400 22px 'Geist Mono', monospace";
@@ -144,7 +159,7 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
   ctx.save();
   ctx.translate(1230, 870);
   ctx.rotate(-0.2);
-  ctx.fillStyle = "#f2785c";
+  ctx.fillStyle = golden ? "#f6d36b" : "#f2785c";
   ctx.strokeStyle = INK;
   ctx.lineWidth = 3;
   ctx.beginPath();
@@ -197,9 +212,8 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
 }
 
 export default function Certificaat() {
-  const params = new URLSearchParams(window.location.search);
   const { missions } = useGame();
-  const special = params.get("prestatie") === "opper" && missions.length >= 8 ? SPECIAL.opper : null;
+  const special = missions.length >= MISSIONS.length ? SPECIAL.opper : null;
   const [name, setName] = useState("");
   const [achievement, setAchievement] = useState<string>(special ?? ACHIEVEMENTS[0]);
   const [serial] = useState(() => `MdB-${Math.floor(Math.random() * 900000 + 100000)}`);
@@ -209,7 +223,7 @@ export default function Certificaat() {
   useEffect(() => {
     let cancelled = false;
     const render = () => {
-      if (!cancelled && canvas.current) draw(canvas.current, name, achievement, serial);
+      if (!cancelled && canvas.current) draw(canvas.current, name, achievement, serial, achievement === SPECIAL.opper);
     };
     render();
     if (document.fonts) {
@@ -251,6 +265,11 @@ export default function Certificaat() {
         <span className="dept-no">Afd. 07 — Certificaatbureau</span>
         <h1 id="cert-title">Uw officiële certificaat</h1>
         <p className="lede">Laat het instituut vastleggen wat u heeft bereikt. Of juist niet. Uw naam blijft in uw browser en wordt nergens naartoe gestuurd.</p>
+        {special && (
+          <p className="cert__golden" role="status">
+            <span aria-hidden="true">★</span> Alle missies voltooid. Uw gouden certificaat als Opperbezoeker ligt klaar.
+          </p>
+        )}
       </section>
       <div className="wrap cert__grid">
         <form className="panel bg-steen cert__form no-print" onSubmit={(e) => e.preventDefault()}>

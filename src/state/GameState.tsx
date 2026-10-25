@@ -2,7 +2,7 @@
 // Alles wordt lokaal bewaard in localStorage; er gaat niets naar een server.
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { EGGS, MISSIONS, type EggId, type MissionId } from "../content/progress";
+import { discoveryLevel, EGGS, MISSIONS, type EggId, type MissionId } from "../content/progress";
 import { load, remove, save } from "../lib/storage";
 import { setSoundEnabled, sfx } from "../lib/sound";
 
@@ -66,6 +66,13 @@ export function GameProvider({ children }: { children: ReactNode }) {
     document.documentElement.dataset.theme = appearance;
     save(APPEARANCE_KEY, appearance);
   }, [appearance]);
+
+  // Ontdekkingsniveau op <html>, zodat illustraties subtiel kunnen meeveranderen.
+  const level = discoveryLevel(state.eggs.length);
+  useEffect(() => {
+    if (level) document.documentElement.dataset.ontdekt = String(level);
+    else delete document.documentElement.dataset.ontdekt;
+  }, [level]);
 
   useEffect(() => {
     if (effect) document.documentElement.dataset.effect = effect;

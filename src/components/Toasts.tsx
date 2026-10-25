@@ -14,6 +14,11 @@ export function Toasts() {
             <p>{t.text}</p>
           </div>
           <button type="button" onClick={() => dismiss(t.id)} aria-label="Melding sluiten">×</button>
+          {t.kind === "mission" && (
+            <span className="toast__stamp stamp" aria-hidden="true">
+              Gestempeld
+            </span>
+          )}
         </div>
       ))}
     </div>

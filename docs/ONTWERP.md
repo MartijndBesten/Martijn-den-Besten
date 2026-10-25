@@ -69,39 +69,78 @@ Elke accentkleur heeft drie varianten:
 
 ## De ideeënmachine (FIG. 1)
 
-`src/components/IdeaMachine.tsx`: half technisch, half absurd. Onderdelen:
+`src/components/IdeaMachine.tsx`: een uitvinding van een creatief industrieel ontwerper, geen personage. Er zitten bewust geen gezichtjes in. De onderdelen hangen mechanisch samen:
 
-1. trechter met ruwe gedachten;
-2. glazen twijfelbuis;
-3. denkkamer met een bewoner die meekijkt;
-4. twee tandwielen die echt in elkaar grijpen (12 en 8 tanden, overbrenging 1,5×);
-5. inspiratielamp;
-6. schoorsteen;
-7. ideeënmeter tot ‘veel te veel’;
-8. lopende band;
-9. vogeltje.
+- **Tandwiel A** (12 tanden) draait een **kruk**. Een drijfstang zet die draaiing om in de op-en-neer-beweging van de **zuiger** in de glazen cilinder. De kinematica wordt per frame berekend (`crank()`) en een unit-test bewaakt dat de zuiger in de cilinder blijft.
+- **Tandwiel B** (8 tanden, overbrenging 1,5×) drijft via een **riem** de **lopende band** aan.
+- De **gyroscopische denkkamer** heeft drie ringen rond een kern en draait mee met de aandrijving.
+- Verder: trechter, glazen twijfelbuis met klemringen, inspiratielamp, schoorsteen, ideeënmeter tot ‘veel te veel’, ventilatierooster, klinknagels, een achterhuis voor diepte, een **pers** boven de band en een **windvaan** (uitgesneden metalen vogel) op de cilinder.
 
 **Een tik geeft deze reeks (± 2 s):**
 
 1. Een gedachte reist door de buis.
-2. De denkkamer en de tandwielen versnellen. De romp rommelt, de meter slaat uit en er komt rook uit de schoorsteen.
-3. Er gebeurt iets onverwachts: de lamp springt los, er verschijnt een Eureka-vlag, de machine stempelt zichzelf ‘Goedgekeurd’, of er komt een veer met ster uit de trechter.
-4. Een octrooikaart rolt over de band. De kaart toont naam, octrooinummer, illustratie, beschrijving en een scheve status.
+2. In de denkkamer licht de kern koraal op en versnellen de ringen. Tegelijk pompt de zuiger, slaat de meter uit en komt er rook uit de schoorsteen.
+3. Er gebeurt iets onverwachts: de lamp springt los, er verschijnt een Eureka-vlag, de machine stempelt zichzelf ‘Goedgekeurd’, of er komt een veer met signaalschijf uit de trechter.
+4. De pers stempelt de uitvinding en de band voert hem af.
 
-**Bij veel gebruik:**
+**Zeldzame reacties:**
 
-- **Oververhit**: rode gloed, rook en een knipperend lampje.
-- **Vastgelopen**: 12 tikken binnen 6 s. De machine kantelt en print een storingsrapport. Dit is ook een missie.
-- **Elke 9e uitvinding** is een mega-idee: de romp zwelt op en er komt een XXL-kaart uit.
-- **Het vogeltje** zet de gouden modus aan voor vijf uitvindingen.
+- **Losse moer**: ongeveer 1 op 12 kans. De moer stuitert weg en de status meldt ‘Moertje los (geen zorgen)’.
+- **Mega-idee**: elke 9e uitvinding.
+- **Vastgelopen**: 12 tikken binnen 6 s. De machine print een storingsrapport. Dit is ook een missie.
+- **Gouden modus**: de windvaan geeft vijf gouden uitvindingen.
 
-**Genummerde callouts** leggen de onderdelen uit. Ze zijn met muis, touch en toetsenbord te bedienen.
+Genummerde callouts leggen de acht onderdelen uit. Ze zijn met muis, touch en toetsenbord te bedienen.
 
 **Uitvindingen:**
 
-- Ze komen uit `src/content/inventions.ts`: onderwerp × apparaat × bijvoeglijk naamwoord × model, met grammaticaal passende beschrijvingen (ook bij meervoud).
-- Daarnaast zijn er 16 klassiekers en de mega- en gouden reeksen.
-- Er zijn meer dan 10.000 combinaties, volledig lokaal, zonder AI-API.
+- Ze komen uit `src/content/inventions.ts`: onderwerp × apparaat × bijvoeglijk naamwoord × model, met grammaticaal passende beschrijvingen.
+- Daarnaast zijn er klassiekers en de mega- en gouden reeksen.
+- Er zijn meer dan 10.000 combinaties, volledig lokaal.
+
+## Jaarverslag
+
+Geen zes gelijke dashboardkaarten, maar een compositie op de botergele achtergrond:
+
+- **14.892 bedachte ideeën** staat het grootst, met een verhoudingsbalk ‘afgerond t.o.v. bedacht: 0,02%’.
+- **3 afgeronde projecten** staat als donker insigne op koraal.
+- Een **kasboek** met puntjeslijnen bevat de overige drie cijfers.
+- Een **koffiekopje** schenk je bij met een tik. Het telt mee als ‘waarvan N van u’ (alleen in deze browser).
+
+Er staat één droge bronvermelding in plaats van overal disclaimers.
+
+## Overgangen tussen secties
+
+Kleine objecten liggen op de naad tussen twee secties. Ze bewegen één keer zodra ze in beeld komen:
+
+| Overgang | Object |
+| --- | --- |
+| Statusbalk → jaarverslag | Een bal rolt het jaarverslag in |
+| Jaarverslag → mededelingen | Een stempel ‘Gezien door de directie’ |
+| Mededelingen → afdelingen | Een ster aan een stippeldraad zakt omlaag |
+| Afdelingen → statement | Een ring rolt binnen |
+
+Er is geen parallax. Zonder beweging (reduced motion) staat alles meteen op zijn plek.
+
+## Missies en ontdekkingen
+
+**Stempelkaart** (`StampCard.tsx`):
+
+- Acht vakjes met een rang (Nieuwkomer → Bezoeker → Vaste gast → Ere-uitvinder → Opperbezoeker) en een voortgangsbalk.
+- Een nieuw verdiende missie krijgt één keer een stempelanimatie. Welke stempels al gezien zijn, staat alleen in localStorage.
+- Meldingen voor missies krijgen een ‘Gestempeld’-stempel.
+
+**Ontdekkingsniveaus** (`data-ontdekt` op `<html>`, op basis van het aantal gevonden verrassingen):
+
+| Ontdekkingen | Wat er verandert |
+| --- | --- |
+| 3 | Een geheim sterretje op het zegel in de kop |
+| 5 | Een gouden sleutel in de hero (nieuwe verrassing). De machine krijgt ‘MDB-1 ★’ en een gouden gedachte in de trechter |
+| 8 | De zandloper in de footer loopt eindelijk, en u staat in het ontdekkersregister |
+
+- Bij alle missies krijgt de bezoeker automatisch een **gouden certificaat** als Opperbezoeker.
+- Nieuwe bezoekers zien hier niets van. De site blijft rustig.
+- Er zijn geen accounts en er worden geen persoonsgegevens opgeslagen.
 
 ## Beweging: drie niveaus
 

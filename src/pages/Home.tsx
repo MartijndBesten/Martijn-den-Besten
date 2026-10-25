@@ -9,6 +9,7 @@ import { IdeaMachine } from "../components/IdeaMachine";
 import { Arrow } from "../components/Icons";
 import { DeptObject, Floaters, type ObjectKind } from "../components/Objects";
 import { sfx } from "../lib/sound";
+import { StampCard } from "../components/StampCard";
 import { reducedMotion } from "../lib/hooks";
 
 const DEPARTMENTS: { to: string; no: string; title: string; text: string; obj: ObjectKind; world: string }[] = [
@@ -18,7 +19,6 @@ const DEPARTMENTS: { to: string; no: string; title: string; text: string; obj: O
   { to: "/loket", no: "05", title: "Het Ideeënloket", text: "Heeft u ook een idee? Het loket is open. De wachtrij ook.", obj: "ticket", world: "salie" },
 ];
 
-const MAX_STAT = Math.max(...STATS.map((s) => s.value));
 
 /** Zwevende vormen schuiven een fractie mee met de muis. Alleen bij een muis en zonder bewegingsbeperking. */
 function useParallax(ref: React.RefObject<HTMLElement | null>) {
@@ -49,6 +49,92 @@ function useParallax(ref: React.RefObject<HTMLElement | null>) {
   }, [ref]);
 }
 
+/** Een kopje koffie bijschenken telt echt mee (alleen in deze browser). */
+function CoffeeCup({ base, label, note }: { base: number; label: string; note: string }) {
+  const { coffee, addCoffee } = useGame();
+  const [pouring, setPouring] = useState(0);
+  const pour = () => {
+    sfx.blip();
+    addCoffee();
+    setPouring((p) => p + 1);
+  };
+  return (
+    <div className="coffee">
+      <span className="label">{label}</span>
+      <span className="stat__mid">
+        <Counter value={base} />
+      </span>
+      <p className="stat__note">
+        {note}
+        {coffee > 0 && <span className="coffee__mine"> Waarvan {coffee} van u.</span>}
+      </p>
+      <button type="button" className="coffee__cup" onClick={pour} aria-label="Schenk een kopje koffie in">
+        <svg viewBox="0 0 120 110" aria-hidden="true">
+          <g className="coffee__steam" fill="none" stroke="#191b2e" strokeWidth="2" strokeLinecap="round" opacity=".55">
+            <path d="M44 22c-6-8 6-10 0-18" />
+            <path d="M60 24c-6-8 6-10 0-18" />
+            <path d="M76 22c-6-8 6-10 0-18" />
+          </g>
+          <ellipse cx="60" cy="100" rx="46" ry="6" fill="#191b2e" opacity=".12" />
+          <path d="M92 50h6a14 14 0 0 1 0 28h-8" fill="none" stroke="#191b2e" strokeWidth="5" />
+          <path d="M22 36h76l-8 52a10 10 0 0 1-10 9H40a10 10 0 0 1-10-9z" fill="#fffdf8" stroke="#191b2e" strokeWidth="2.4" strokeLinejoin="round" />
+          <clipPath id="koffie-in-kop">
+            <path d="M22 36h76l-8 52a10 10 0 0 1-10 9H40a10 10 0 0 1-10-9z" />
+          </clipPath>
+          <g clipPath="url(#koffie-in-kop)">
+            <rect key={pouring} className="coffee__fill" x="20" y="40" width="80" height="60" fill="#8a5a3c" />
+          </g>
+          <path d="M30 48h10" stroke="#fff" strokeOpacity=".7" strokeWidth="4" strokeLinecap="round" />
+        </svg>
+        <span className="coffee__label">Schenk bij</span>
+      </button>
+    </div>
+  );
+}
+
+/** Kleine verbindende objecten op de naad tussen twee secties. Bewegen één keer als ze in beeld komen. */
+function Seam({ kind }: { kind: "bal" | "stempel" | "ster" | "ring" }) {
+  return (
+    <div className={`seam seam--${kind} reveal`} aria-hidden="true">
+      {kind === "bal" && (
+        <svg viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="26" fill="#f2785c" stroke="#191b2e" strokeWidth="2" />
+          <path d="M14 22a18 18 0 0 1 12-10" fill="none" stroke="#fff" strokeOpacity=".7" strokeWidth="4" strokeLinecap="round" />
+          <path d="M30 4v52" stroke="#191b2e" strokeOpacity=".25" strokeWidth="2" />
+        </svg>
+      )}
+      {kind === "stempel" && (
+        <svg viewBox="0 0 120 120">
+          <defs>
+            <path id="naad-stempel" d="M60 60m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0" />
+          </defs>
+          <circle cx="60" cy="60" r="56" fill="#fffdf8" stroke="#d4502f" strokeWidth="3" />
+          <circle cx="60" cy="60" r="32" fill="none" stroke="#d4502f" strokeWidth="1.5" />
+          <text fontFamily="Geist Mono, monospace" fontSize="10" fontWeight="600" letterSpacing="2.4" fill="#d4502f">
+            <textPath href="#naad-stempel">GEZIEN · DOOR DE DIRECTIE · GEZIEN · </textPath>
+          </text>
+          <text x="60" y="70" textAnchor="middle" fontFamily="Instrument Serif, serif" fontStyle="italic" fontSize="30" fill="#d4502f">
+            Ok.
+          </text>
+        </svg>
+      )}
+      {kind === "ster" && (
+        <svg viewBox="0 0 60 140">
+          <path d="M30 0v92" stroke="#191b2e" strokeWidth="2" strokeDasharray="4 6" />
+          <path d="M30 88l7 15 16 2-12 11 3 16-14-8-14 8 3-16-12-11 16-2z" fill="#f6d36b" stroke="#191b2e" strokeWidth="2" strokeLinejoin="round" />
+        </svg>
+      )}
+      {kind === "ring" && (
+        <svg viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="20" fill="none" stroke="#191b2e" strokeWidth="15" />
+          <circle cx="30" cy="30" r="20" fill="none" stroke="#c3b2f0" strokeWidth="11" />
+          <path d="M15 22a17 17 0 0 1 10-9" fill="none" stroke="#fff" strokeOpacity=".7" strokeWidth="3" strokeLinecap="round" />
+        </svg>
+      )}
+    </div>
+  );
+}
+
 /** Het jaarverslag is altijd bijna af. */
 function NeverDone() {
   const [p, setP] = useState(97.2);
@@ -69,7 +155,7 @@ function NeverDone() {
 }
 
 export default function Home() {
-  const { findEgg, missions } = useGame();
+  const { findEgg, eggs } = useGame();
   const [timeGone, setTimeGone] = useState(false);
   const hero = useRef<HTMLElement>(null);
   useParallax(hero);
@@ -102,6 +188,23 @@ export default function Home() {
                 tussenvoegsel: klein geschreven, groot bedoeld
               </span>
             </h1>
+            {eggs.length >= 5 && (
+              <button
+                type="button"
+                className="golden-key"
+                aria-label="Een gouden sleutel"
+                onClick={() => {
+                  sfx.success();
+                  findEgg("sleutel");
+                }}
+              >
+                <svg viewBox="0 0 64 28" aria-hidden="true">
+                  <circle cx="12" cy="14" r="9" fill="#f6d36b" stroke="#191b2e" strokeWidth="2" />
+                  <circle cx="12" cy="14" r="3.5" fill="#f5efe4" stroke="#191b2e" strokeWidth="1.6" />
+                  <path d="M21 12h38v5h-6v6h-5v-6h-5v4h-5v-4H21z" fill="#f6d36b" stroke="#191b2e" strokeWidth="2" strokeLinejoin="round" />
+                </svg>
+              </button>
+            )}
             <div className="hero__slogan">
               <p>
                 Officiële website van een man met meer <em>ideeën</em> dan{" "}
@@ -145,37 +248,64 @@ export default function Home() {
         </div>
       </div>
 
+      <Seam kind="bal" />
       <section className="report-wrap bg-boter" aria-labelledby="stats-title">
         <div className="wrap report">
           <header className="report__head">
             <span className="dept-no">Afd. 01 — Bureau voor de Statistiek</span>
-            <h2 id="stats-title" className="report__statement">
-              14.892 ideeën. <em>Drie</em> afgerond.
+            <h2 id="stats-title" className="section-title">
+              Jaarverslag, <em>ongeveer</em>
             </h2>
-            <p className="lede">Alle cijfers zijn fictief, maar voelen echt. Gecontroleerd door niemand, goedgekeurd door iedereen die ze niet heeft nagerekend.</p>
+            <p className="lede">Gecontroleerd door niemand, goedgekeurd door iedereen die het niet heeft nagerekend.</p>
             <NeverDone />
           </header>
-          <ol className="report__grid">
-            {STATS.map((s, i) => (
-              <li key={s.label} className={`report__item report__item--${i} reveal`} style={{ ["--d" as string]: i }}>
-                <span className="report__idx label">
-                  {String(i + 1).padStart(2, "0")}
-                  {s.live && <span className="report__live"> · live</span>}
+          <div className="report__bento">
+            <div className="stat stat--hero reveal">
+              <span className="label">
+                {STATS[0].label} <span className="stat__live">live</span>
+              </span>
+              <span className="stat__big">
+                <Counter value={STATS[0].value} live />
+              </span>
+              <p className="stat__note">{STATS[0].note}</p>
+              <div className="ratio" role="img" aria-label="Verhouding afgeronde projecten tot bedachte ideeën: ongeveer 0,02 procent">
+                <span className="ratio__bar" aria-hidden="true">
+                  <i />
                 </span>
-                <span className="report__value">
-                  <Counter value={s.value} live={s.live} />
+                <span className="label" aria-hidden="true">
+                  Afgerond t.o.v. bedacht: 0,02% (vergrootglas aanbevolen)
                 </span>
-                <span className="report__label">{s.label}</span>
-                <span className="report__bar" aria-hidden="true">
-                  <i style={{ width: `${Math.max(1.2, (s.value / MAX_STAT) * 100)}%` }} />
-                </span>
-                <span className="report__note">{s.note}</span>
-              </li>
-            ))}
-          </ol>
+              </div>
+            </div>
+            <div className="stat stat--done reveal" style={{ ["--d" as string]: 1 }}>
+              <span className="stat__badge">
+                <Counter value={STATS[2].value} />
+              </span>
+              <span className="stat__label">{STATS[2].label}</span>
+              <span className="stamp stat__stamp">{STATS[2].note}</span>
+            </div>
+            <div className="stat stat--ledger reveal" style={{ ["--d" as string]: 2 }}>
+              <span className="label">Verder in de boeken</span>
+              <dl className="ledger">
+                {[STATS[1], STATS[5], STATS[4]].map((s) => (
+                  <div key={s.label} className="ledger__row">
+                    <dt>{s.label}</dt>
+                    <dd>
+                      <Counter value={s.value} />
+                    </dd>
+                    <dd className="ledger__note">{s.note}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <div className="stat stat--coffee reveal" style={{ ["--d" as string]: 3 }}>
+              <CoffeeCup base={STATS[3].value} label={STATS[3].label} note={STATS[3].note} />
+            </div>
+          </div>
           <p className="report__foot label">Bron: het gevoel van de directie. Afwijkingen van ±100% zijn mogelijk.</p>
         </div>
       </section>
+      <Seam kind="stempel" />
 
       <section className="bulletin bg-ink" aria-labelledby="announce-title">
         <div className="wrap bulletin__grid">
@@ -190,6 +320,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Seam kind="ster" />
       <section className="wrap toc" aria-labelledby="depts-title">
         <header className="toc__head">
           <span className="dept-no">Plattegrond van het instituut</span>
@@ -216,6 +347,7 @@ export default function Home() {
         </ol>
       </section>
 
+      <Seam kind="ring" />
       <section className="statement" aria-labelledby="statement-title">
         <div className="wrap statement__inner">
           <h2 id="statement-title" className="statement__text reveal">
@@ -235,17 +367,9 @@ export default function Home() {
             Uw opdracht, <em>mocht u die aanvaarden</em>
           </h2>
           <p>
-            Het instituut heeft {MISSIONS.length} missies verstopt. U heeft er {missions.length} voltooid. Uw missiepaspoort zit rechtsboven in de kop.
+            Het instituut heeft {MISSIONS.length} missies verstopt. Elke voltooide missie krijgt een officiële stempel. De hints staan in uw missiepaspoort, rechtsboven in de kop.
           </p>
-          <ul className="checklist">
-            {MISSIONS.slice(0, 4).map((mi) => (
-              <li key={mi.id} className={missions.includes(mi.id) ? "is-done" : ""}>
-                <span aria-hidden="true" className="checklist__box" />
-                {mi.title}
-                <span className="visually-hidden">{missions.includes(mi.id) ? " (voltooid)" : ""}</span>
-              </li>
-            ))}
-          </ul>
+          <StampCard />
         </div>
         <div className="panel bg-koraal duo__card duo__card--cert reveal" style={{ ["--d" as string]: 1 }}>
           <span className="dept-no">Certificaatbureau</span>

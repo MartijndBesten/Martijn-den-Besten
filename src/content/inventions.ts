@@ -127,7 +127,7 @@ export const MEGA: { name: string; description: string }[] = [
   { name: "Een Snelweg naar Later", description: "Twaalf rijstroken, allemaal richting later. Geen afslagen. Wel een wegrestaurant." },
 ];
 
-/** Gouden modus: het vogeltje op de machine bemoeit zich ermee. */
+/** Gouden modus: de windvaan op de machine draait op goud. */
 export const GOLDEN: { name: string; description: string }[] = [
   { name: "De Gouden Afmaakknop", description: "Eén druk en het project is af. Het prototype wacht nog op een knop." },
   { name: "De Tijdverruimer", description: "Voegt aan elke dag één uur toe. Uitsluitend te gebruiken voor nieuwe ideeën." },

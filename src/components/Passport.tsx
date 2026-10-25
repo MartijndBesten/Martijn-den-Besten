@@ -1,10 +1,11 @@
 // Het missiepaspoort: overzicht van missies en gevonden verrassingen.
 
 import { useEffect, useRef, useState } from "react";
-import { EGGS, EGG_COUNT, MISSIONS, type EggId } from "../content/progress";
+import { DISCOVERY_STEPS, EGGS, EGG_COUNT, MISSIONS, type EggId } from "../content/progress";
 import { useGame } from "../state/GameState";
 import { Link } from "../router";
 import { Dialog } from "./Dialog";
+import { RankBar } from "./StampCard";
 
 export function Passport() {
   const [open, setOpen] = useState(false);
@@ -44,6 +45,7 @@ export function Passport() {
         <p>
           Het instituut heeft {MISSIONS.length} missies voor bezoekers. Uw voortgang wordt alleen in deze browser bewaard.
         </p>
+        <RankBar />
         <ul className="mission-list">
           {MISSIONS.map((mi) => {
             const p = missionProgress(mi.id);
@@ -51,6 +53,11 @@ export function Passport() {
             return (
               <li key={mi.id} className={`mission ${isDone ? "is-done" : ""}`}>
                 <span className="mission__check" aria-hidden="true">{isDone ? "✓" : "?"}</span>
+                {isDone && (
+                  <span className="mission__stamp stamp" aria-hidden="true">
+                    Voltooid
+                  </span>
+                )}
                 <div>
                   <strong>
                     {mi.title}
@@ -70,6 +77,12 @@ export function Passport() {
         <h3 style={{ fontSize: "1.4rem" }}>
           Verrassingen gevonden: {eggs.length} / {EGG_COUNT}
         </h3>
+        <p className="label passport__next">
+          {(() => {
+            const next = DISCOVERY_STEPS.find((n) => eggs.length < n);
+            return next ? `Bij ${next} ontdekkingen verandert er iets op de website.` : "Alle ontdekkingsniveaus bereikt. Kijk eens naar de zandloper onderaan.";
+          })()}
+        </p>
         <ul className="egg-grid">
           {(Object.keys(EGGS) as EggId[]).map((id) => (
             <li key={id} className={eggs.includes(id) ? "" : "is-unknown"}>

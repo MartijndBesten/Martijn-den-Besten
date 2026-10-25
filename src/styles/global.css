@@ -1871,3 +1871,98 @@ dialog.dialog[open] {
     gap: 8px;
   }
 }
+
+/* ---------- Ontdekkingsniveaus: de site verandert subtiel mee ---------- */
+
+/* Niveau 1 (3 ontdekkingen): een geheim symbool op het zegel */
+.seal {
+  position: relative;
+}
+:root[data-ontdekt] .seal::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  width: 15px;
+  height: 15px;
+  background: var(--kobalt);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  animation: pop 0.6s var(--ease-spring);
+}
+:root[data-ontdekt="2"] .seal::after,
+:root[data-ontdekt="3"] .seal::after {
+  background: var(--koraal);
+}
+/* Niveau 3 (8 ontdekkingen): de zandloper loopt eindelijk */
+.hourglass__stream,
+.hourglass__pile {
+  opacity: 0;
+}
+:root[data-ontdekt="3"] .hourglass__stream {
+  opacity: 1;
+  animation: sand 0.8s linear infinite;
+}
+:root[data-ontdekt="3"] .hourglass__pile {
+  opacity: 1;
+}
+@keyframes sand {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+.footer-register {
+  color: var(--boter) !important;
+}
+
+/* Missiestempel in meldingen en paspoort */
+.toast {
+  position: relative;
+  overflow: hidden;
+}
+.toast__stamp {
+  position: absolute;
+  right: 40px;
+  bottom: 8px;
+  --tilt: -10deg;
+  color: var(--salie-deep);
+  font-size: 0.56rem;
+  animation: stamp-thump 0.5s cubic-bezier(0.5, 0, 0.75, 0) 0.4s both;
+}
+@keyframes stamp-thump {
+  0% {
+    opacity: 0;
+    transform: scale(2.2) rotate(calc(var(--tilt) - 20deg));
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.94) rotate(var(--tilt));
+  }
+  100% {
+    transform: scale(1) rotate(var(--tilt));
+  }
+}
+.mission {
+  position: relative;
+}
+.mission__stamp {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  --tilt: 8deg;
+  color: var(--salie-deep);
+  font-size: 0.56rem;
+}
+.passport__next {
+  color: var(--fg-3);
+  margin: 0 0 6px;
+}
+.cert__golden {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--boter);
+  color: var(--ink);
+  font-weight: 600;
+}

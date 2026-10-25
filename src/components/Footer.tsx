@@ -22,7 +22,8 @@ function Hourglass() {
       <path d="M76 20c0 40 26 48 34 60c8-12 34-20 34-60z" fill="rgba(245,239,228,.14)" stroke="#f5efe4" strokeWidth="2" />
       <path d="M76 140c0-40 26-48 34-60c8 12 34 20 34 60z" fill="rgba(245,239,228,.14)" stroke="#f5efe4" strokeWidth="2" />
       <path className="hourglass__sand" d="M86 32h48c-4 20-16 28-24 38c-8-10-20-18-24-38z" fill="#f6d36b" />
-      <path d="M110 80v6" stroke="#f6d36b" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="1 4" />
+      <path className="hourglass__stream" d="M110 80v52" stroke="#f6d36b" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="1 4" />
+      <path className="hourglass__pile" d="M90 138q20-16 40 0z" fill="#f6d36b" />
       <path d="M90 34q4 18 12 26" stroke="#fff" strokeOpacity=".5" strokeWidth="3" strokeLinecap="round" fill="none" />
       <text x="168" y="34" fontFamily="Geist Mono" fontSize="8" fill="#f5efe4" opacity=".7">TIJD: OP</text>
       <path d="M150 30h14" stroke="#f5efe4" strokeOpacity=".5" />
@@ -32,7 +33,7 @@ function Hourglass() {
 }
 
 export function Footer() {
-  const { findEgg, setEffect } = useGame();
+  const { findEgg, setEffect, eggs } = useGame();
   const [touched, setTouched] = useState<string[]>([]);
 
   const touch = (name: string) => {
@@ -64,6 +65,7 @@ export function Footer() {
           <h2>Instituut Martijn den Besten</h2>
           <p>Het officiële instituut voor ideeën, plannen en projecten die bijna af zijn. Opgericht vandaag. Kantoortijden: wanneer er tijd is.</p>
           <p className="label">KvK: niet aangevraagd · BTW: ook niet</p>
+          {eggs.length >= 8 && <p className="label footer-register">★ U staat in het ontdekkersregister, onder nummer {eggs.length}.</p>}
         </div>
         <div>
           <h2>Afdelingen</h2>
