@@ -3,6 +3,8 @@ import { expect, test, type Page } from "@playwright/test";
 // Visuele regressietest van de Bijbelreis (3.1): de belangrijkste schermen op desktop, telefoon en tablet.
 // Vaste voortgang, vaste volgorde, geen animaties. Nieuwe referentiebeelden na een bewuste ontwerpwijziging:
 //   npx playwright test bijbelreis-visueel --update-snapshots
+// De referentiebeelden horen bij de Chromium van de CI (de versie die bij @playwright/test hoort). Een andere
+// Chromium tekent tekst net anders (andere regelafbreking): maak ze daarom bij voorkeur in de CI aan.
 test.use({ reducedMotion: "reduce" });
 
 async function voorbereid(page: Page) {
