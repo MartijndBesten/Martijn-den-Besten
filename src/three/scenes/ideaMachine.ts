@@ -8,11 +8,11 @@ import { Group, Mesh, MeshStandardMaterial, TorusGeometry, Vector3, type Object3
 import { createStage, easing, tween, wait, type CameraSpec, type Stage } from "../engine";
 import type { MachineLayout } from "../machineInfo";
 import {
-  arch,
   ball,
   box,
   cable,
   conveyor,
+  fanArch,
   funnel,
   gauge,
   gear,
@@ -21,8 +21,11 @@ import {
   mat,
   metal,
   PAL,
+  pillSwitch,
   pipe,
+  plant,
   ribbedPlatform,
+  ribbedTrack,
   roundCyl,
   shade,
   sphere,
@@ -270,7 +273,7 @@ export function buildIdeaMachine(canvas: HTMLCanvasElement, width: number, heigh
 
   // ---------- I. Uitvoerstation: boog en ribbelplatform ----------
   const OUT = new Vector3(4.55, 0, 0);
-  const outArch = arch(1.2, 1.35, 0.22, mat(PAL.boter, { gloss: 0.2 }));
+  const outArch = fanArch(1.2, 1.35, 0.22, mat(PAL.boter, { gloss: 0.2 }), mat(PAL.boterDiep, { gloss: 0.2 }));
   outArch.position.set(BELT_X0 + BELT_LEN + 0.2, 0, 0);
   outArch.rotation.y = Math.PI / 2;
   root.add(outArch);
@@ -280,6 +283,25 @@ export function buildIdeaMachine(canvas: HTMLCanvasElement, width: number, heigh
   const outLamp = lamp(0.12, PAL.boter);
   outLamp.position.set(OUT.x + 0.42, 0.2, -0.45);
   root.add(outLamp);
+
+  // geribbelde baan onder verwerker en band: alles staat op één ondergrond (stijlanker)
+  const track = ribbedTrack(6.2, 2.9, 0.05);
+  track.position.set(0.2, 0, -0.55);
+  root.add(track);
+  // een paar geaarde details, zoals op de referentie
+  const aloe = plant("aloe", PAL.creme);
+  aloe.position.set(-2.55, 0.08, 0.55);
+  root.add(aloe);
+  const cactus = plant("cactus", PAL.roze);
+  cactus.position.set(3.45, 0.08, -1.25);
+  root.add(cactus);
+  const pillA = pillSwitch(true, PAL.roze);
+  pillA.position.set(-3.55, 0, 0.95);
+  pillA.rotation.y = 0.35;
+  const pillB = pillSwitch(false);
+  pillB.position.set(-3.3, 0, 1.45);
+  pillB.rotation.y = 0.35;
+  root.add(pillA, pillB);
 
   // kabels tussen de onderdelen
   root.add(cable([new Vector3(-1.4, 0.05, -0.5), new Vector3(-0.4, 0.04, -0.8), new Vector3(0.6, 0.05, -1.05), new Vector3(SORT_X - 0.3, 0.06, -1.05)], 0.035));

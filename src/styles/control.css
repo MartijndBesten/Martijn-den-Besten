@@ -60,9 +60,8 @@
   display: grid;
   border-radius: clamp(28px, 4vw, 52px);
   background:
-    radial-gradient(55% 45% at 82% 8%, #f3e6fb 0 60%, transparent 61%),
-    radial-gradient(40% 35% at 6% 92%, #fbefcf 0 60%, transparent 61%),
-    linear-gradient(180deg, #e6eefb 0%, #edf1fb 70%, #f4eef3 100%);
+    radial-gradient(70% 60% at 50% 38%, #fbf0f1 0%, rgba(251, 240, 241, 0) 70%),
+    linear-gradient(180deg, #f6e8ea 0%, #f2e1e4 100%);
   overflow: hidden;
   isolation: isolate;
 }
@@ -182,7 +181,7 @@
   height: 8px;
   translate: -50% 100%;
   border-radius: 50%;
-  border: 1.5px solid #2f3a66;
+  border: 1.5px solid #4a6089;
   background: #fffdf8;
 }
 .cc-ctl--toggle.is-on .cc-dot {
@@ -221,7 +220,7 @@
   translate: -50% -2px;
   padding: 2px 7px;
   border-radius: 999px;
-  background: #2f3a66;
+  background: #4a6089;
   color: #f6d781;
   font-family: var(--font-mono);
   font-size: clamp(0.56rem, 0.75cqw, 0.7rem);
@@ -240,7 +239,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1.5px solid #2f3a66;
+  border: 1.5px solid #4a6089;
   background: #fffdf8;
   color: #191b2e;
   font-weight: 700;
@@ -257,7 +256,7 @@
   translate: -50% 0;
   padding: 2px 7px;
   border-radius: 6px;
-  background: rgba(47, 58, 102, 0.9);
+  background: rgba(74, 96, 137, 0.94);
   color: #fffdf8;
   font-family: var(--font-mono);
   font-size: clamp(0.54rem, 0.7cqw, 0.68rem);
@@ -888,7 +887,7 @@
   background: #a8c6e8;
 }
 .cc-tile--nacht {
-  background: #2f3a66;
+  background: #4a6089;
   color: #fffdf8;
 }
 .cc-tile--nacht[aria-checked="true"] {
@@ -913,7 +912,7 @@
 }
 .cc-tile__icon--coin {
   border-radius: 6px;
-  background: linear-gradient(#2f3a66, #2f3a66) center / 60% 4px no-repeat, #fffdf8;
+  background: linear-gradient(#4a6089, #4a6089) center / 60% 4px no-repeat, #fffdf8;
 }
 .cc-tile__icon--switch {
   border-radius: 8px;
@@ -937,7 +936,7 @@
   height: 20px;
   border-radius: 999px;
   background: #fffdf8;
-  box-shadow: inset 0 0 0 1.5px #2f3a66;
+  box-shadow: inset 0 0 0 1.5px #4a6089;
 }
 .cc-toggle__track::after {
   content: "";
@@ -947,7 +946,7 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #2f3a66;
+  background: #4a6089;
   transition: translate var(--t-func) var(--ease-spring);
 }
 .cc-toggle[aria-checked="true"] .cc-toggle__track {

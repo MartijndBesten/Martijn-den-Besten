@@ -6,7 +6,7 @@
 import { CanvasTexture, ExtrudeGeometry, Group, Mesh, MeshStandardMaterial, PlaneGeometry, Shape, SRGBColorSpace, TorusGeometry, Vector3, type Object3D } from "three";
 import { createStage, easing, tween, wait, type CameraSpec, type Stage } from "../engine";
 import type { ConsoleLayout } from "../consoleInfo";
-import { ball, box, cable, gauge, glass, glassPipe, lamp, mat, metal, PAL, pipe, roundCyl, shade, sphere } from "../kit";
+import { ball, box, cable, gauge, glass, glassPipe, lamp, mat, metal, PAL, pipe, ribbedTrack, roundCyl, shade, sphere } from "../kit";
 
 export const CONSOLE_CAMERAS: Record<ConsoleLayout, CameraSpec> = {
   wide: { pos: [4.6, 8.4, 12.8], target: [0.45, 1.75, -0.1], fov: 31 },
@@ -152,6 +152,10 @@ export function buildConsole(canvas: HTMLCanvasElement, width: number, height: n
   deskGeo.translate(-S.deskW / 2 + bev, 0, 0);
   const desk = new Mesh(deskGeo, mat(PAL.creme, { gloss: 0.25 }));
   root.add(desk);
+  // de lessenaar staat op een geribbelde baan, net als de ideeënmachine (stijlanker)
+  const base = ribbedTrack(S.deskW + 1.4, ZF - ZB + 1.1, 0.05);
+  base.position.set(0, 0, (ZF + ZB) / 2);
+  root.add(base);
   // plint en voetjes
   const kick = box(S.deskW - 0.3, 0.16, ZF - ZB - 0.2, 0.06, mat(PAL.nacht));
   kick.position.set(0, 0.08, (ZF + ZB) / 2);

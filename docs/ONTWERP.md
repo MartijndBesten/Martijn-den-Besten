@@ -109,6 +109,20 @@ Waarom hybride:
 - Zonder WebGL, met `prefers-reduced-motion` of met databesparing blijft de poster staan en werkt alle bediening via HTML. De machine levert dan direct een uitvinding.
 - De functionele e2e-tests draaien bewust **zonder** WebGL (terugvalpad); `e2e/drie-d.spec.ts` draait **met** WebGL en controleert dat de scènes live komen, pixels tekenen en reageren.
 
+## Stijlanker (vast uitgangspunt)
+
+Het referentiebeeld (Behance ‘Playful’: pastelkleurige isometrische machine met ribbelbaan, waaierbogen, glazen buizen en een roze leiding uit het plafond) is **het vaste stijlanker** van de 3D-wereld. Nieuwe 3D-onderdelen moeten hierop aansluiten:
+
+- **Decor**: één zacht poederroze vlak (`#f6e8ea` → `#f2e1e4`) waar alles op staat; geen kleurvlekken of losse achtergrondvormen.
+- **Kleur**: warm botergeel als hoofdkleur, poederroze, lichtblauw, mint en lila; het donkere accent is **gedempt jeansblauw** (`#5f7aa3`, leisteen `#4a6089`), nooit hard donkerblauw of zwart.
+- **Vorm en materiaal**: afgeronde, gegoten vormen; mat gelakt; een vleugje glans op knoppen en ballen; transparante buizen met een glanslijn.
+- **Textuur**: fijne ribbels (de geribbelde baan onder de machines, het ribbelplatform, de waaierboog bij de uitvoer).
+- **Compositie**: alles staat op de vloer met een zachte contactschaduw; leidingen en kabels verbinden onderdelen zichtbaar; een leiding komt uit het plafond.
+- **Details**: een paar geaarde props (planten in potten, tuimelpillen op de vloer), nooit willekeurig zwevend.
+- **Niet doen**: gezichtjes, harde contrasten, glimmende chroom-look, generieke ‘AI-illustratie’ met losse zwevende objecten, letterlijk kopiëren van de referentie.
+
+In code: `PAL` en de onderdelen `ribbedTrack`, `fanArch`, `ribbedPlatform`, `plant` en `pillSwitch` in `src/three/kit.ts`.
+
 ## Referentieanalyse
 
 De referentie (Behance) toont een pastelkleurige isometrische machine: buizen, een band, een geribbeld geel platform, een klok, een blauwe bak, een stippenbord op stangen en een roze leiding uit het plafond.

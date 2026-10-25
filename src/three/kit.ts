@@ -35,17 +35,23 @@ import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeom
 export const PAL = {
   creme: 0xf7eee6,
   papier: 0xefe2d8,
-  roze: 0xf2b6c3,
-  rozeDiep: 0xe58ea3,
+  roze: 0xf0afbf,
+  rozeDiep: 0xe48aa1,
   blauw: 0xa8c6e8,
   blauwDiep: 0x7ea3d1,
-  boter: 0xf6d781,
-  boterDiep: 0xe9bf55,
+  boter: 0xf5c965,
+  boterDiep: 0xe6ac44,
   mint: 0xb3e1cb,
   mintDiep: 0x86c8aa,
   lila: 0xd5c7f2,
   lilaDiep: 0xb3a0e4,
-  nacht: 0x2f3a66,
+  // gedempt jeansblauw: het donkere accent van het referentiebeeld (geen hard donkerblauw)
+  nacht: 0x5f7aa3,
+  leisteen: 0x4a6089,
+  scherm: 0x1d2742,
+  plant: 0x7fbf8f,
+  plantDiep: 0x5a9e70,
+  vloer: 0xf4e3e5,
   inkt: 0x232845,
   metaal: 0xc9ccd8,
   rood: 0xe9707f,
@@ -311,7 +317,7 @@ export function conveyor(length: number, width: number, height: number): Group &
     rail.position.set(0, height, z);
     g.add(rail);
   }
-  const bed = box(length, 0.1, width, 0.04, mat(PAL.nacht, { gloss: 0.2 }));
+  const bed = box(length, 0.1, width, 0.04, mat(PAL.blauwDiep, { gloss: 0.2 }));
   bed.position.set(0, height - 0.06, 0);
   g.add(bed);
   for (const x of [-length / 2, length / 2]) {
@@ -420,5 +426,110 @@ export function ticket(color: ColorRepresentation): Group {
     line.position.set(-0.08 + i * 0.04, 0.006, -0.02 + i * 0.07);
     g.add(line);
   }
+  return g;
+}
+
+// ---------- Stijlanker (referentiebeeld): ribbels, waaierbogen, planten ----------
+
+/** Stadionvorm (rechte stukken met halve cirkels) als pad in het xz-vlak. */
+function stadiumPath(len: number, width: number, y: number): CurvePath<Vector3> {
+  const r = width / 2;
+  const half = len / 2 - r;
+  const pts: Vector3[] = [];
+  const seg = 18;
+  for (let i = 0; i <= seg; i++) {
+    const a = -Math.PI / 2 + (i / seg) * Math.PI;
+    pts.push(new Vector3(half + Math.cos(a) * r, y, Math.sin(a) * r));
+  }
+  for (let i = 0; i <= seg; i++) {
+    const a = Math.PI / 2 + (i / seg) * Math.PI;
+    pts.push(new Vector3(-half + Math.cos(a) * r, y, Math.sin(a) * r));
+  }
+  const path = new CurvePath<Vector3>();
+  path.add(new CatmullRomCurve3(pts, true, "centripetal"));
+  return path;
+}
+
+/** Geribbelde ronde baan (zoals het gele ‘racebaan’-vlak op de referentie), met roze rand. */
+export function ribbedTrack(len: number, width: number, h = 0.08): Group {
+  const g = new Group();
+  const r = width / 2;
+  const s = new Shape();
+  s.moveTo(-len / 2 + r, -r);
+  s.lineTo(len / 2 - r, -r);
+  s.absarc(len / 2 - r, 0, r, -Math.PI / 2, Math.PI / 2, false);
+  s.lineTo(-len / 2 + r, r);
+  s.absarc(-len / 2 + r, 0, r, Math.PI / 2, (Math.PI * 3) / 2, false);
+  const geo = new ExtrudeGeometry(s, { depth: h, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.03, bevelSegments: 3, curveSegments: 32 });
+  geo.rotateX(Math.PI / 2);
+  geo.translate(0, h, 0);
+  g.add(new Mesh(geo, mat(PAL.boter, { gloss: 0.15 })));
+  // ribbels die de vorm volgen
+  const ribMat = mat(PAL.boterDiep, { gloss: 0.2 });
+  const step = 0.075;
+  for (let k = 1; k * step < r - 0.08; k++) {
+    const inset = k * step;
+    const path = stadiumPath(len - inset * 2, width - inset * 2, h + 0.03);
+    g.add(new Mesh(new TubeGeometry(path, 120, 0.016, 6, true), ribMat));
+  }
+  // roze rand
+  g.add(new Mesh(new TubeGeometry(stadiumPath(len + 0.02, width + 0.02, h * 0.55), 160, 0.05, 10, true), mat(PAL.roze, { gloss: 0.25 })));
+  return g;
+}
+
+/** Boog met verticale ribbels in de opening (de ‘waaierpoort’ van de referentie). */
+export function fanArch(w: number, h: number, thick: number, material: Material, ribMaterial: Material): Group {
+  const g = new Group();
+  g.add(arch(w, h, thick, material));
+  const r = w * 0.3;
+  const n = 11;
+  for (let i = 0; i < n; i++) {
+    const x = -r + 0.06 + (i / (n - 1)) * (2 * r - 0.12);
+    const top = h * 0.45 + Math.sqrt(Math.max(0, r * r - x * x)) - 0.05;
+    const rib = box(0.035, top, thick * 0.35, 0.015, ribMaterial);
+    rib.position.set(x, top / 2, -thick * 0.15);
+    g.add(rib);
+  }
+  return g;
+}
+
+/** Plant in een pot: ‘aloe’ (spitse bladeren) of ‘cactus’. */
+export function plant(kind: "aloe" | "cactus", potColor: ColorRepresentation = PAL.roze): Group {
+  const g = new Group();
+  const pot = roundCyl(0.22, 0.3, 0.05, mat(potColor, { gloss: 0.25 }));
+  g.add(pot);
+  const soil = roundCyl(0.19, 0.03, 0.01, mat(0x8a6f66));
+  soil.position.y = 0.28;
+  g.add(soil);
+  if (kind === "aloe") {
+    for (let i = 0; i < 9; i++) {
+      const a = (i / 9) * Math.PI * 2;
+      const leaf = new Mesh(new CylinderGeometry(0.0, 0.045, 0.62 + (i % 3) * 0.12, 6), mat(i % 2 ? PAL.plant : PAL.plantDiep, { gloss: 0.2 }));
+      leaf.scale.z = 0.45;
+      leaf.position.set(Math.cos(a) * 0.06, 0.55, Math.sin(a) * 0.06);
+      leaf.rotation.set(Math.sin(a) * 0.45, -a, -Math.cos(a) * 0.45);
+      g.add(leaf);
+    }
+  } else {
+    const body = roundCyl(0.11, 0.6, 0.1, mat(PAL.plant, { gloss: 0.2 }));
+    body.position.y = 0.28;
+    g.add(body);
+    const arm = pipe([new Vector3(0.08, 0.55, 0), new Vector3(0.2, 0.55, 0), new Vector3(0.2, 0.72, 0)], 0.055, mat(PAL.plant, { gloss: 0.2 }), 0.08, false);
+    g.add(arm);
+    const flower = sphere(0.05, mat(PAL.roze));
+    flower.position.y = 0.92;
+    g.add(flower);
+  }
+  return g;
+}
+
+/** Een tuimelpil op de vloer (zoals de schakelaartjes op de referentie). */
+export function pillSwitch(on: boolean, color: ColorRepresentation = PAL.roze): Group {
+  const g = new Group();
+  const body = box(0.62, 0.12, 0.3, 0.15, mat(on ? color : PAL.creme, { gloss: 0.3 }), 6);
+  body.position.y = 0.06;
+  const knob = roundCyl(0.11, 0.05, 0.02, mat(on ? PAL.creme : PAL.mintDiep, { gloss: 0.3 }));
+  knob.position.set(on ? 0.16 : -0.16, 0.11, 0);
+  g.add(body, knob);
   return g;
 }
