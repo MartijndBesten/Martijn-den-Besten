@@ -16,7 +16,7 @@ BOOKS = {}
 
 def slug(name):
     s = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower().replace(" ", "")
-    return {"psalm": "psalmen", "richters": "richteren", "deut": "deuteronomium", "1sam": "1samuel", "2sam": "2samuel", "1kon": "1koningen", "2kon": "2koningen", "1kron": "1kronieken", "2kron": "2kronieken"}.get(s, s)
+    return {"psalm": "psalmen", "richters": "richteren", "deut": "deuteronomium", "1sam": "1samuel", "2sam": "2samuel", "1kon": "1koningen", "2kon": "2koningen", "1kron": "1kronieken", "2kron": "2kronieken", "marcus": "markus", "lucas": "lukas", "1korintiers": "1korinthe", "1kor": "1korinthe", "hebr": "hebreeen", "matth": "mattheus", "hand": "handelingen", "openb": "openbaring", "spr": "spreuken", "ezech": "ezechiel"}.get(s, s)
 
 def book(name):
     s = slug(name)
