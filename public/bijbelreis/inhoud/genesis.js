@@ -431,7 +431,7 @@ BR.boeken.push({
     txt: "De HEERE is met Jozef. Alles wat hij doet, laat de HEERE lukken. Potifar maakt hem baas over zijn huis. De vrouw van Potifar wil dat Jozef met haar zondigt, maar Jozef weigert: ‘Hoe zou ik dit grote kwaad doen, en zondigen tegen God?’ Dan liegt zij over hem, en Jozef komt onschuldig in de gevangenis. Ook daar is de HEERE met hem.",
     fact: "‘De HEERE was met Jozef’: dat staat er vier keer in dit hoofdstuk, ook toen hij in de gevangenis zat (39:2, 3, 21, 23).", fs: "b" },
   { ref: "Genesis 40", t: "Twee dromen in de cel", stamp: "Schenker", at: ["egypte"], zoom: 7,
-    who: [["Jozef"], ["Schenker"], ["Bakker"]],
+    who: [["Jozef"], ["Mannen", "schenker en bakker"]],
     txt: "In de gevangenis zitten ook de schenker en de bakker van de farao. Allebei hebben ze een vreemde droom. Jozef legt de dromen uit: de schenker krijgt binnen drie dagen zijn werk terug, de bakker wordt opgehangen. Het gebeurt precies zo. Maar de schenker vergeet Jozef.",
     fact: "Jozef zei: ‘Zijn de uitleggingen niet van God?’ (40:8).", fs: "b" },
   { ref: "Genesis 41", t: "Onderkoning van Egypte", stamp: "Onderkoning", at: ["egypte"], zoom: 7,

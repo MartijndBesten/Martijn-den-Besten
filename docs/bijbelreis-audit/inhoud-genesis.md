@@ -151,7 +151,7 @@ Stapvolgorde, stap-, deel- en plaats-ids zijn ongewijzigd (gecontroleerd met een
 | stap 3 `fact` | ‘Jesaja noemt hem de weg van de zee (Jesaja 9:1)’ (identificatie met de kustweg omstreden) | karavaan uit Gilead (37:25) + voorzichtige zin over de kustroute | Gen 37:25 |
 | stap 4 `txt` | ‘de vrouw van Potifar liegt’ | Jozef weigert: ‘hoe zoude ik … zondigen tegen God’; daarna liegt zij | Gen 39:7–20 |
 | stap 4 `fact` | ‘vier keer’ | met verzen 39:2, 3, 21, 23 | Gen 39 |
-| stap 5 `who`, `txt`, `fact` | ‘Bezoekers: en de bakker’; ‘de bakker niet’ | Schenker, Bakker; binnen drie dagen; de bakker wordt opgehangen; SV-citaat 40:8 | Gen 40:8–22 |
+| stap 5 `who`, `txt`, `fact` | ‘Bezoekers: en de bakker’; ‘de bakker niet’ | groep ‘Mannen: schenker en bakker’; binnen drie dagen; de bakker wordt opgehangen; SV-citaat 40:8 | Gen 40:8–22 |
 | stap 6 `txt`, `fact` | — | ook de aren; SV 41:16; ‘stelt Jozef over heel Egypte’; naam ‘Zafnath-Paneah’ (gelijk aan personen.js) | Gen 41:1–52 |
 | stap 7 `txt` | — | hard doen, verspieders, Simeon gebonden | Gen 42:7–24 |
 | stap 8 `txt` | — | Benjamin vijf keer zoveel; ‘slaaf blijven’ | Gen 43:34, 44:33 |
@@ -188,6 +188,10 @@ Zonder `recon` gebleven: korte rechte lijnen tussen twee genoemde plaatsen (bijv
 6. **Betekenissen van namen** (Abram, Sara, Izak, Israël, Esek, Sitna, Berseba, Benjamin) staan als uitleg (`fs: "u"`), niet als Bijbeltekst; ‘Israël’ is voorzichtig geformuleerd.
 7. **Tellingen in `stat`** (Noach 12 verzen buiten Genesis, Abraham/Izak/Jakob 32 verzen, Israël ‘ruim 2300’) zijn geteld in de SV-bestanden van `public/bijbelreis/bijbel/`. Daar ontbreken o.a. Klaagliederen, Zacharia, Joël, 2 Korinthe en Efeze; voor Noach en het drietal verwacht ik daar geen treffers, voor ‘Israël’ wel enkele (corpus: 2293). Niet met het controlescript vast te leggen.
 8. **Stamboom-rij van Lot.** Lot staat in de rij van Abraham, maar hoort bij het geslacht daarna. Verplaatsen naar de rij van Izak zou kunnen suggereren dat hij een zoon van Abraham is; daarom alleen de toelichting aangepast. Weergavekeuze voor de hoofdagent/Martijn.
+
+## Voor de hoofdagent (andere bestanden)
+
+- `personen.js`: geef `nahor_serug` de alias `"Nahor (opa)"`. De leeftijdenlijst gebruikt die naam nu, zodat de app de opa (148 jaar, 11:24–25) niet meer verwart met Abrahams broer Nahor. Tot dan meldt `node scripts/bijbelreis-personen-check.mjs` één Genesis-fout (‘Nahor (opa)’ niet gekoppeld); verder geen Genesis-fouten.
 
 ## Voor plaatsen/kaart (niet zelf gewijzigd)
 

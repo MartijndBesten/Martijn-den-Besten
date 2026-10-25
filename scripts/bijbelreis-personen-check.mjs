@@ -37,7 +37,7 @@ const err = (s) => errors.push(s), warn = (s) => warnings.push(s);
 const GROEPEN = new Set(["Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen",
   "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters", "Amalek", "Filistijnen", "Midianieten", "Gibeonieten",
   "Oudsten", "Arbeiders", "Raven", "Melaatsen", "Lopers", "Bouwers", "Zeelieden", "Vrienden", "Egyptenaren", "Edomieten"]);
-const ROLLEN = new Set(["Farao", "Farao’s dochter", "Knecht", "Schenker", "Losser", "De andere losser", "Wapendrager", "Koningin",
+const ROLLEN = new Set(["Farao", "Bakker", "Farao’s dochter", "Knecht", "Schenker", "Losser", "De andere losser", "Wapendrager", "Koningin",
   "De koningin van Scheba", "Koning", "Weduwe", "Zoon", "Jongen", "Engel", "Meisje", "Het meisje uit Israël", "Sunamitische", "De Sunamitische"]);
 
 // ---------- 1. structuur van elke persoon ----------

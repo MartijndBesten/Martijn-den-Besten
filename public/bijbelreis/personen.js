@@ -67,8 +67,9 @@ BR.mensen = {
     geb: "Genesis 11:18", dood: "Genesis 11:21", leeftijd: [[32, "Genesis 11:20"]] },
   serug: { n: "Serug", v: "rehu", boek: ["genesis"], kort: "Zoon van Rehu en overgrootvader van Abraham.",
     geb: "Genesis 11:20", dood: "Genesis 11:23", leeftijd: [[30, "Genesis 11:22"]] },
-  // Twee mannen heten Nahor: de opa en de broer van Abraham. De broer staat hieronder (en wint bij een koppeling op naam).
-  nahor_serug: { n: "Nahor", v: "serug", boek: ["genesis"], kort: "Zoon van Serug en opa van Abraham; niet dezelfde als Abrahams broer Nahor.",
+  // Twee mannen heten Nahor: de opa en de broer van Abraham. De stamboom noemt de opa ‘Nahor (opa)’ (daarom die alias);
+  // de broer staat verderop en wint bij een koppeling op alleen ‘Nahor’.
+  nahor_serug: { n: "Nahor", alias: ["Nahor (opa)"], v: "serug", boek: ["genesis"], kort: "Zoon van Serug en opa van Abraham; niet dezelfde als Abrahams broer Nahor.",
     geb: "Genesis 11:22", dood: "Genesis 11:25", leeftijd: [[29, "Genesis 11:24"]] },
   terach: { n: "Terach", v: "nahor_serug", boek: ["genesis"],
     kort: "Vader van Abram, Nahor en Haran; hij trok met Abram uit Ur en stierf in Haran.",
@@ -401,6 +402,10 @@ BR.mensen = {
   hizkia: { n: "Hizkia", boek: ["2koningen"], kort: "Koning van Juda die op de HEERE vertrouwde; God redde Jeruzalem van Sanherib en gaf Hizkia vijftien jaar extra.",
     dood: "2 Koningen 20:21", leeftijd: [[25, "2 Koningen 18:2"]],
     elders: [["Jesaja 37:21", "Jesaja brengt Gods antwoord op het gebed van Hizkia."], ["Spreuken 25:1", "De mannen van Hizkia schreven spreuken van Salomo over."], ["Mattheüs 1:9–10", "Hij staat in het geslachtsregister van de Heere Jezus."]] },
+  jesaja: { n: "Jesaja", boek: ["2koningen"], kort: "Profeet in Jeruzalem, zoon van Amoz; hij bracht koning Hizkia Gods antwoord tegen Sanherib.",
+    elders: [["Jesaja 1:1", "Het begin van zijn eigen boek."], ["Mattheüs 3:3", "Johannes de Doper is ‘de stem des roependen in de woestijn’ waarvan Jesaja sprak."], ["Johannes 12:41", "Jesaja zag de heerlijkheid van de Heere Jezus en sprak van Hem."]] },
+  sanherib: { n: "Sanherib", boek: ["2koningen"], kort: "Koning van Assyrië; zijn leger werd in één nacht door de Engel van de HEERE verslagen.",
+    dood: "2 Koningen 19:37", elders: [["Jesaja 37:21", "God antwoordt op het gebed van Hizkia tegen Sanherib."]] },
   manasse_juda: { n: "Manasse", v: "hizkia", boek: [], kort: "Zoon van Hizkia, koning van Juda, die veel kwaad deed; in de gevangenschap vernederde hij zich voor God.",
     leeftijd: [[12, "2 Koningen 21:1"]], vervolg: [["2 Kronieken 33:12–13", "In de benauwdheid bad hij, en God hoorde hem."]] },
   amon: { n: "Amon", v: "manasse_juda", boek: [], kort: "Zoon van Manasse, koning van Juda; zijn knechten doodden hem na twee jaar.", leeftijd: [[22, "2 Koningen 21:19"]] },

@@ -246,6 +246,7 @@ Exodus 17:12 | Aaron en Hur
 Exodus 24:14 | Aaron en Hur
 Exodus 31:2 | Bezaleel.*Uri.*Hur.*Juda
 Exodus 31:3 | Geest Gods
+2 Kronieken 1:5 | Bezaleel
 Handelingen 7:23 | veertig jaren
 Deuteronomium 34:5 | stierf Mozes
 Deuteronomium 34:7 | honderd en twintig jaren
@@ -532,6 +533,13 @@ Hosea 1:1 | Jerobeam
 2 Koningen 20:6 | vijftien jaren
 2 Koningen 20:21 | Hizkia ontsliep.*zijn zoon Manasse
 Jesaja 37:21 | Hizkia
+Jesaja 37:21 | Sanherib
+2 Koningen 19:2 | Jesaja.*Amoz
+2 Koningen 19:20 | Jesaja.*Hizkia
+Jesaja 1:1 | Jesaja, den zoon van Amoz
+Mattheüs 3:3 | Jesaja.*roependen in de woestijn
+Johannes 12:41 | Jesaja.*heerlijkheid
+2 Koningen 18:13 | Sanherib.*Assyrie
 Spreuken 25:1 | Hizkia
 Mattheüs 1:9 | Ezekias
 Mattheüs 1:10 | Ezekias.*Manasse
