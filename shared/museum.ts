@@ -19,7 +19,7 @@ export type Room = {
   title: string;
   subtitle: string;
   intro: string;
-  color: "kobalt" | "boter" | "lila" | "groen" | "koraal" | "nacht";
+  color: "indigo" | "oker" | "steen" | "sage" | "terra" | "nacht";
   exhibits: Exhibit[];
 };
 
@@ -31,7 +31,7 @@ export const ROOMS: Room[] = [
     subtitle: "Ideeën die de wereld hadden kunnen veranderen",
     intro:
       "In deze zaal hangen ideeën die zo goed waren dat niemand ze durfde uit te voeren. Ook de bedenker niet.",
-    color: "kobalt",
+    color: "indigo",
     exhibits: [
       {
         id: "uitstel-app",
@@ -87,7 +87,7 @@ export const ROOMS: Room[] = [
     subtitle: "Projecten die permanent op 95% staan",
     intro:
       "Wetenschappers noemen het ‘de laatste vijf procent’. Hier noemen we het gewoon ‘de collectie’. Druk gerust op ‘afmaken’. Het helpt niet.",
-    color: "boter",
+    color: "oker",
     exhibits: [
       {
         id: "schuurtje",
@@ -138,7 +138,7 @@ export const ROOMS: Room[] = [
     subtitle: "Een verzameling plekken op internet waar nog niets staat",
     intro:
       "Sommige mensen sparen postzegels. Anderen sparen domeinnamen. Deze vitrines tonen een fictieve verzameling. Alle prijskaartjes zijn gelukkig niet echt.",
-    color: "lila",
+    color: "steen",
     exhibits: [
       {
         id: "domein-later",
@@ -176,7 +176,7 @@ export const ROOMS: Room[] = [
     subtitle: "Een machine die nooit stil staat",
     intro:
       "Trek aan de hendel en de machine combineert drie onderdelen tot een gloednieuw onafgemaakt idee. Het museum is niet aansprakelijk voor gevolgen.",
-    color: "groen",
+    color: "sage",
     exhibits: [],
   },
   {
@@ -186,7 +186,7 @@ export const ROOMS: Room[] = [
     subtitle: "Projecten die waarschijnlijk binnenkort bedacht worden",
     intro:
       "Deze ideeën bestaan nog niet, maar we zijn er vrij zeker van dat ze er komen. Wrijf over de mist om een glimp op te vangen.",
-    color: "koraal",
+    color: "terra",
     exhibits: [
       {
         id: "morgen-podcast",

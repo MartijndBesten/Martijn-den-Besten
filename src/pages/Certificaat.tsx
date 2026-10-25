@@ -28,86 +28,134 @@ function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): st
 function draw(canvas: HTMLCanvasElement, name: string, achievement: string, serial: string) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
+  const INK = "#1a2033";
+  const TERRA = "#b65a3a";
+  const OKER = "#c2913a";
   ctx.clearRect(0, 0, W, H);
-  ctx.fillStyle = "#fff4e0";
+  ctx.fillStyle = "#f3ecdf";
   ctx.fillRect(0, 0, W, H);
 
-  // Randen
-  ctx.lineWidth = 10;
-  ctx.strokeStyle = "#17153a";
-  ctx.strokeRect(40, 40, W - 80, H - 80);
-  ctx.lineWidth = 22;
-  ctx.strokeStyle = "#2a3bdb";
-  ctx.strokeRect(70, 70, W - 140, H - 140);
-  ctx.lineWidth = 4;
-  ctx.strokeStyle = "#17153a";
-  ctx.strokeRect(92, 92, W - 184, H - 184);
-
-  // Hoekvormen
-  const corner = (x: number, y: number, color: string) => {
+  // Guilloche-rand: twee in elkaar grijpende golflijnen, zoals op waardepapier
+  ctx.strokeStyle = INK;
+  ctx.lineWidth = 1;
+  const wave = (offset: number, amp: number, phase: number) => {
+    const x0 = 60 + offset;
+    const y0 = 60 + offset;
+    const x1 = W - 60 - offset;
+    const y1 = H - 60 - offset;
+    const per = (a: number, b: number) => Math.hypot(b - a, 0);
+    const edge = (ax: number, ay: number, bx: number, by: number) => {
+      const len = per(ax, bx) + per(ay, by);
+      const steps = Math.ceil(len / 4);
+      const nx = by === ay ? 0 : 1;
+      const ny = by === ay ? 1 : 0;
+      for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        const x = ax + (bx - ax) * t + nx * Math.sin(t * len * 0.06 + phase) * amp;
+        const y = ay + (by - ay) * t + ny * Math.sin(t * len * 0.06 + phase) * amp;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+    };
     ctx.beginPath();
-    ctx.arc(x, y, 46, 0, Math.PI * 2);
-    ctx.fillStyle = color;
-    ctx.fill();
-    ctx.lineWidth = 6;
-    ctx.strokeStyle = "#17153a";
+    edge(x0, y0, x1, y0);
+    edge(x1, y0, x1, y1);
+    edge(x1, y1, x0, y1);
+    edge(x0, y1, x0, y0);
     ctx.stroke();
   };
-  corner(92, 92, "#ff5c47");
-  corner(W - 92, 92, "#ffd24d");
-  corner(92, H - 92, "#34c77b");
-  corner(W - 92, H - 92, "#c6b3ff");
+  wave(0, 6, 0);
+  wave(0, 6, Math.PI);
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect(44, 44, W - 88, H - 88);
+  ctx.lineWidth = 1;
+  ctx.strokeRect(80, 80, W - 160, H - 160);
+  ctx.strokeRect(88, 88, W - 176, H - 176);
+
+  // Rozetten in de hoeken
+  const rosette = (x: number, y: number) => {
+    ctx.save();
+    ctx.translate(x, y);
+    for (let i = 0; i < 18; i++) {
+      ctx.rotate(Math.PI / 9);
+      ctx.beginPath();
+      ctx.ellipse(14, 0, 14, 5, 0, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    ctx.beginPath();
+    ctx.arc(0, 0, 4, 0, Math.PI * 2);
+    ctx.fillStyle = OKER;
+    ctx.fill();
+    ctx.restore();
+  };
+  rosette(120, 120);
+  rosette(W - 120, 120);
+  rosette(120, H - 120);
+  rosette(W - 120, H - 120);
 
   ctx.textAlign = "center";
-  ctx.fillStyle = "#17153a";
-  ctx.font = "700 26px 'Space Mono', monospace";
-  ctx.fillText("INSTITUUT MARTIJN DEN BESTEN · AFDELING CERTIFICATEN", W / 2, 190);
+  ctx.fillStyle = INK;
+  ctx.font = "400 22px 'Geist Mono', monospace";
+  ctx.fillText("INSTITUUT MARTIJN DEN BESTEN  ·  AFDELING CERTIFICATEN  ·  Nº " + serial, W / 2, 180);
 
-  ctx.font = "800 104px Bricolage, sans-serif";
-  ctx.fillStyle = "#2a3bdb";
-  ctx.fillText("Officieel Certificaat", W / 2, 310);
+  // Titel: twee woorden in verschillende stijlen, samen gecentreerd
+  const romanFont = "400 132px 'Instrument Serif', serif";
+  const italicFont = "italic 400 132px 'Instrument Serif', serif";
+  ctx.font = romanFont;
+  const w1 = ctx.measureText("Officieel ").width;
+  ctx.font = italicFont;
+  const w2 = ctx.measureText("Certificaat").width;
+  const startX = W / 2 - (w1 + w2) / 2;
+  ctx.textAlign = "left";
+  ctx.font = romanFont;
+  ctx.fillText("Officieel ", startX, 320);
+  ctx.font = italicFont;
+  ctx.fillStyle = TERRA;
+  ctx.fillText("Certificaat", startX + w1, 320);
+  ctx.textAlign = "center";
 
-  ctx.fillStyle = "#17153a";
-  ctx.font = "400 38px 'Instrument Sans', sans-serif";
+  ctx.fillStyle = INK;
+  ctx.font = "400 34px 'Geist', sans-serif";
   ctx.fillText("Hierbij verklaart het Instituut Martijn den Besten dat", W / 2, 410);
 
-  ctx.font = "800 92px Bricolage, sans-serif";
-  ctx.fillStyle = "#ff5c47";
+  ctx.font = "italic 400 104px 'Instrument Serif', serif";
   const who = name.trim() || "u";
-  ctx.fillText(who, W / 2, 530);
-  ctx.fillStyle = "#17153a";
-  ctx.fillRect(W / 2 - 360, 556, 720, 5);
+  ctx.fillText(who, W / 2, 540);
+  ctx.fillRect(W / 2 - 380, 566, 760, 1.5);
 
-  ctx.font = "600 44px 'Instrument Sans', sans-serif";
+  ctx.font = "400 46px 'Instrument Serif', serif";
   const lines = wrap(ctx, `${achievement}.`, 1100);
-  lines.forEach((l, i) => ctx.fillText(l, W / 2, 640 + i * 58));
+  lines.forEach((l, i) => ctx.fillText(l, W / 2, 646 + i * 58));
 
-  // Stempel
+  // Zegel
   ctx.save();
-  ctx.translate(1240, 860);
-  ctx.rotate(-0.22);
-  ctx.beginPath();
-  ctx.arc(0, 0, 120, 0, Math.PI * 2);
-  ctx.fillStyle = "rgba(255, 92, 71, 0.12)";
-  ctx.fill();
-  ctx.lineWidth = 8;
-  ctx.strokeStyle = "#c4301d";
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.arc(0, 0, 96, 0, Math.PI * 2);
+  ctx.translate(1230, 870);
+  ctx.rotate(-0.2);
+  ctx.strokeStyle = TERRA;
+  ctx.fillStyle = TERRA;
   ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.arc(0, 0, 118, 0, Math.PI * 2);
   ctx.stroke();
-  ctx.fillStyle = "#c4301d";
-  ctx.font = "700 30px 'Space Mono', monospace";
-  ctx.fillText("GOEDGEKEURD", 0, -10);
-  ctx.font = "700 20px 'Space Mono', monospace";
-  ctx.fillText("door zichzelf", 0, 24);
-  ctx.fillText("★ ★ ★", 0, 58);
+  ctx.lineWidth = 1.2;
+  ctx.beginPath();
+  ctx.arc(0, 0, 84, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.font = "400 17px 'Geist Mono', monospace";
+  const ring = "GOEDGEKEURD · DOOR ZICHZELF · INSTITUUT MDB · ";
+  for (let i = 0; i < ring.length; i++) {
+    ctx.save();
+    ctx.rotate((i / ring.length) * Math.PI * 2);
+    ctx.fillText(ring[i], 0, -94);
+    ctx.restore();
+  }
+  ctx.font = "italic 400 64px 'Instrument Serif', serif";
+  ctx.fillText("Ok.", 0, 20);
   ctx.restore();
 
   // Handtekening
-  ctx.strokeStyle = "#17153a";
-  ctx.lineWidth = 5;
+  ctx.strokeStyle = INK;
+  ctx.lineWidth = 2.4;
   ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(250, 880);
@@ -115,21 +163,22 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
   ctx.bezierCurveTo(420, 810, 440, 900, 490, 850);
   ctx.bezierCurveTo(520, 820, 560, 880, 640, 840);
   ctx.stroke();
-  ctx.lineWidth = 3;
+  ctx.lineWidth = 1.2;
   ctx.beginPath();
   ctx.moveTo(230, 905);
   ctx.lineTo(700, 905);
   ctx.stroke();
   ctx.textAlign = "left";
-  ctx.font = "600 26px 'Instrument Sans', sans-serif";
+  ctx.fillStyle = INK;
+  ctx.font = "400 30px 'Instrument Serif', serif";
   ctx.fillText("M. den Besten", 230, 945);
-  ctx.font = "400 22px 'Instrument Sans', sans-serif";
-  ctx.fillText("Directeur Onafgemaakte Zaken", 230, 978);
+  ctx.font = "400 18px 'Geist Mono', monospace";
+  ctx.fillText("DIRECTEUR ONAFGEMAAKTE ZAKEN", 230, 978);
 
   ctx.textAlign = "center";
-  ctx.font = "700 20px 'Space Mono', monospace";
+  ctx.font = "400 18px 'Geist Mono', monospace";
   const date = new Date().toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" });
-  ctx.fillText(`Afgegeven op ${date} · Serienummer ${serial} · Geldig tot nader order`, W / 2, H - 130);
+  ctx.fillText(`AFGEGEVEN OP ${date.toUpperCase()}  ·  GELDIG TOT NADER ORDER`, W / 2, H - 128);
 }
 
 export default function Certificaat() {
@@ -148,7 +197,10 @@ export default function Certificaat() {
       if (!cancelled && canvas.current) draw(canvas.current, name, achievement, serial);
     };
     render();
-    void document.fonts?.ready.then(render);
+    if (document.fonts) {
+      const faces = ['400 40px "Instrument Serif"', 'italic 400 40px "Instrument Serif"', '400 20px "Geist"', '400 20px "Geist Mono"'];
+      void Promise.all(faces.map((f) => document.fonts.load(f).catch(() => null))).then(render);
+    }
     return () => {
       cancelled = true;
     };
@@ -186,7 +238,7 @@ export default function Certificaat() {
         <p className="lede">Laat het instituut vastleggen wat u heeft bereikt. Of juist niet. Uw naam blijft in uw browser en wordt nergens naartoe gestuurd.</p>
       </section>
       <div className="wrap cert__grid">
-        <form className="panel bg-lila cert__form no-print" onSubmit={(e) => e.preventDefault()}>
+        <form className="panel bg-steen cert__form no-print" onSubmit={(e) => e.preventDefault()}>
           <div className="field">
             <label htmlFor="cert-name">Naam op het certificaat</label>
             <input id="cert-name" className="input" value={name} maxLength={40} onChange={(e) => setName(e.target.value)} placeholder="Bijvoorbeeld: een oplettende bezoeker" autoComplete="off" />
@@ -202,10 +254,10 @@ export default function Certificaat() {
             ))}
           </fieldset>
           <div className="cert__actions">
-            <button type="button" className="btn btn--kobalt" onClick={download}>
+            <button type="button" className="btn btn--indigo" onClick={download}>
               Download als afbeelding (PNG)
             </button>
-            <button type="button" className="btn btn--creme" onClick={print}>
+            <button type="button" className="btn btn--ivory" onClick={print}>
               Afdrukken of opslaan als PDF
             </button>
           </div>

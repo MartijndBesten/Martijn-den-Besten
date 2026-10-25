@@ -9,15 +9,15 @@ export const SITE = {
 export type RouteMeta = { path: string; title: string; description: string; nav?: string; color: string };
 
 export const ROUTES: RouteMeta[] = [
-  { path: "/", nav: "Hoofdkwartier", color: "koraal", title: "Martijn den Besten — Officiële website van een man met meer ideeën dan tijd", description: "Het officiële hoofdkwartier van Martijn den Besten: mededelingen, statistieken, een Control Center vol knoppen en een museum van onafgemaakte ideeën." },
-  { path: "/control-center", nav: "Control Center", color: "kobalt", title: "Martijn Control Center — Druk op alles", description: "Een bedieningsmachine vol knoppen, hendels en schakelaars. Start een idee, rond een project af tot 99% of druk op de officiële noodstop." },
-  { path: "/museum", nav: "Museum", color: "lila", title: "Museum van Onafgemaakte Ideeën — Martijn den Besten", description: "Een interactief museum met zes zalen vol briljante, bijna afgeronde en nog te bedenken ideeën. Stem op uw favoriet of dien zelf een idee in." },
-  { path: "/over", nav: "Over Martijn", color: "groen", title: "Over Martijn — Instituut Martijn den Besten", description: "Wie is Martijn den Besten? Oprichter, directeur en enige medewerker van het instituut voor onafgemaakte zaken." },
-  { path: "/loket", color: "boter", title: "Het Officiële Ideeënloket — Martijn den Besten", description: "Dien een idee in bij het Instituut Martijn den Besten. Elke inzending wordt zorgvuldig beoordeeld (zodra er tijd is)." },
-  { path: "/bureau", color: "groen", title: "Bureau voor Onnodige Innovatie — Martijn den Besten", description: "Het bureau dat volstrekt onnodige oplossingen bedenkt voor problemen die niet bestaan." },
-  { path: "/certificaat", color: "boter", title: "Officieel certificaat — Instituut Martijn den Besten", description: "Laat het instituut officieel vaststellen wat u heeft bereikt (of niet). Download uw certificaat als afbeelding." },
-  { path: "/einde", color: "creme", title: "Het einde — Martijn den Besten", description: "U heeft het einde van de website bereikt." },
-  { path: "/beheer", color: "creme", title: "Directiekamer — Martijn den Besten", description: "Moderatie van ingezonden ideeën." },
+  { path: "/", nav: "Hoofdkwartier", color: "terra", title: "Martijn den Besten — Officiële website van een man met meer ideeën dan tijd", description: "Het officiële hoofdkwartier van Martijn den Besten: mededelingen, statistieken, een Control Center vol knoppen en een museum van onafgemaakte ideeën." },
+  { path: "/control-center", nav: "Control Center", color: "indigo", title: "Martijn Control Center — Druk op alles", description: "Een bedieningsmachine vol knoppen, hendels en schakelaars. Start een idee, rond een project af tot 99% of druk op de officiële noodstop." },
+  { path: "/museum", nav: "Museum", color: "steen", title: "Museum van Onafgemaakte Ideeën — Martijn den Besten", description: "Een interactief museum met zes zalen vol briljante, bijna afgeronde en nog te bedenken ideeën. Stem op uw favoriet of dien zelf een idee in." },
+  { path: "/over", nav: "Over Martijn", color: "sage", title: "Over Martijn — Instituut Martijn den Besten", description: "Wie is Martijn den Besten? Oprichter, directeur en enige medewerker van het instituut voor onafgemaakte zaken." },
+  { path: "/loket", color: "oker", title: "Het Officiële Ideeënloket — Martijn den Besten", description: "Dien een idee in bij het Instituut Martijn den Besten. Elke inzending wordt zorgvuldig beoordeeld (zodra er tijd is)." },
+  { path: "/bureau", color: "sage", title: "Bureau voor Onnodige Innovatie — Martijn den Besten", description: "Het bureau dat volstrekt onnodige oplossingen bedenkt voor problemen die niet bestaan." },
+  { path: "/certificaat", color: "oker", title: "Officieel certificaat — Instituut Martijn den Besten", description: "Laat het instituut officieel vaststellen wat u heeft bereikt (of niet). Download uw certificaat als afbeelding." },
+  { path: "/einde", color: "ivory", title: "Het einde — Martijn den Besten", description: "U heeft het einde van de website bereikt." },
+  { path: "/beheer", color: "ivory", title: "Directiekamer — Martijn den Besten", description: "Moderatie van ingezonden ideeën." },
 ];
 
 export const NAV = ROUTES.filter((r) => r.nav);
@@ -25,12 +25,12 @@ export const NAV = ROUTES.filter((r) => r.nav);
 export type Stat = { label: string; value: number; suffix?: string; note: string; color: string; live?: boolean };
 
 export const STATS: Stat[] = [
-  { label: "Ideeën bedacht", value: 14892, note: "En terwijl u dit leest komen er bij.", color: "boter", live: true },
-  { label: "Projecten gestart", value: 1204, note: "Waarvan 1.198 ‘tijdelijk gepauzeerd’.", color: "lila" },
-  { label: "Projecten afgerond", value: 3, note: "Waarvan twee per ongeluk.", color: "koraal" },
-  { label: "Kopjes koffie", value: 27311, note: "Gemeten door de koffieautomaat zelf.", color: "groen" },
-  { label: "Pogingen om niets te doen", value: 412, note: "Geslaagd: 0.", color: "kobalt" },
-  { label: "Nieuwe plannen tijdens bestaande plannen", value: 8077, note: "Gemiddeld 6,7 per plan.", color: "creme" },
+  { label: "Ideeën bedacht", value: 14892, note: "En terwijl u dit leest komen er bij.", color: "oker", live: true },
+  { label: "Projecten gestart", value: 1204, note: "Waarvan 1.198 ‘tijdelijk gepauzeerd’.", color: "steen" },
+  { label: "Projecten afgerond", value: 3, note: "Waarvan twee per ongeluk.", color: "terra" },
+  { label: "Kopjes koffie", value: 27311, note: "Gemeten door de koffieautomaat zelf.", color: "sage" },
+  { label: "Pogingen om niets te doen", value: 412, note: "Geslaagd: 0.", color: "indigo" },
+  { label: "Nieuwe plannen tijdens bestaande plannen", value: 8077, note: "Gemiddeld 6,7 per plan.", color: "ivory" },
 ];
 
 export const TIMELINE = [

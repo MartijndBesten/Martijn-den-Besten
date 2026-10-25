@@ -10,7 +10,7 @@ import "../styles/control.css";
 type LogLine = { id: number; text: string; tone?: "ok" | "warn" | "err" };
 type Capsule = { id: number; plan: string; color: string; open: boolean };
 
-const CAPSULE_COLORS = ["#ff5c47", "#c6b3ff", "#34c77b", "#ffd24d", "#ffa6c9", "#2a3bdb"];
+const CAPSULE_COLORS = ["#b65a3a", "#4a4f8c", "#8a9a7b", "#c2913a", "#1a2033", "#9a4529"];
 const LOAD_PER_ACTION = 9;
 
 export default function ControlCenter() {
@@ -322,10 +322,24 @@ export default function ControlCenter() {
 
   return (
     <div className="page control">
-      <section className="page-hero wrap" aria-labelledby="cc-title">
-        <span className="dept-no">Afd. 02 — Technische Dienst</span>
-        <h1 id="cc-title">Martijn Control Center</h1>
-        <p className="lede">Bedieningsinstructies: druk op alles. De machine is getest door niemand en goedgekeurd door iedereen die hem niet heeft gebruikt.</p>
+      <section className="page-hero wrap control__hero" aria-labelledby="cc-title">
+        <div>
+          <span className="dept-no">Afd. 02 — Technische Dienst</span>
+          <h1 id="cc-title">
+            Martijn Control <em>Center</em>
+          </h1>
+          <p className="lede">Bedieningsinstructies: druk op alles. De machine is getest door niemand en goedgekeurd door iedereen die hem niet heeft gebruikt.</p>
+        </div>
+        <dl className="spec">
+          <dt>Model</dt>
+          <dd>MdB-2 ‘Altijd Aan’</dd>
+          <dt>Bouwjaar</dt>
+          <dd>Vandaag</dd>
+          <dt>Garantie</dt>
+          <dd>Verlopen</dd>
+          <dt>Handleiding</dt>
+          <dd>Hoofdstuk 1 volgt</dd>
+        </dl>
       </section>
 
       <div className="wrap">
@@ -345,6 +359,12 @@ export default function ControlCenter() {
               <span />
             </div>
           )}
+
+          <div className="console__head" aria-hidden="true">
+            <span>Instrumentenpaneel · model MdB-2</span>
+            <span>Blad 1 van 1</span>
+            <span>Creativiteit {level}/10</span>
+          </div>
 
           {/* Scherm */}
           <div className="console__screen module" style={{ "--i": 0 } as CSSProperties}>
@@ -406,29 +426,35 @@ export default function ControlCenter() {
           </div>
 
           {/* Belastingsmeter */}
-          <div className="module module--gauge bg-creme" style={{ "--i": 1 } as CSSProperties}>
-            <span className="plate">Machinebelasting</span>
-            <svg viewBox="0 0 200 120" className="gauge" role="img" aria-label={`Machinebelasting ${Math.round(load)} procent`}>
-              <path d="M20 110a80 80 0 0 1 160 0" fill="none" stroke="#17153a" strokeWidth="18" strokeLinecap="round" />
-              <path d="M20 110a80 80 0 0 1 160 0" fill="none" stroke="url(#gauge-grad)" strokeWidth="12" strokeLinecap="round" />
-              <defs>
-                <linearGradient id="gauge-grad">
-                  <stop offset="0" stopColor="#34c77b" />
-                  <stop offset="0.6" stopColor="#ffd24d" />
-                  <stop offset="1" stopColor="#ff5c47" />
-                </linearGradient>
-              </defs>
-              <g style={{ transform: `rotate(${-90 + load * 1.8}deg)`, transformOrigin: "100px 110px", transition: "transform .4s cubic-bezier(.34,1.56,.64,1)" }}>
-                <path d="M100 110L100 42" stroke="#17153a" strokeWidth="6" strokeLinecap="round" />
+          <div className="module module--gauge bg-ivory" style={{ "--i": 1 } as CSSProperties}>
+            <span className="module__label">Machinebelasting</span>
+            <svg viewBox="0 0 200 124" className="gauge" role="img" aria-label={`Machinebelasting ${Math.round(load)} procent`}>
+              <path d="M20 110a80 80 0 0 1 160 0" fill="none" stroke="currentColor" strokeWidth="1.2" />
+              <path d="M150.6 48.4a80 80 0 0 1 29.4 61.6" fill="none" stroke="#b65a3a" strokeWidth="6" />
+              {Array.from({ length: 21 }, (_, i) => {
+                const a = Math.PI + (i / 20) * Math.PI;
+                const r1 = i % 5 ? 72 : 66;
+                return <line key={i} x1={100 + Math.cos(a) * r1} y1={110 + Math.sin(a) * r1} x2={100 + Math.cos(a) * 78} y2={110 + Math.sin(a) * 78} stroke="currentColor" strokeWidth={i % 5 ? 0.8 : 1.4} />;
+              })}
+              {[0, 50, 100].map((v) => {
+                const a = Math.PI + (v / 100) * Math.PI;
+                return (
+                  <text key={v} x={100 + Math.cos(a) * 54} y={110 + Math.sin(a) * 54 + 3} textAnchor="middle" fontFamily="Geist Mono" fontSize="8" fill="currentColor">
+                    {v}
+                  </text>
+                );
+              })}
+              <g style={{ transform: `rotate(${-90 + load * 1.8}deg)`, transformOrigin: "100px 110px", transition: "transform .5s cubic-bezier(.34,1.4,.64,1)" }}>
+                <path d="M100 116L100 40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </g>
-              <circle cx="100" cy="110" r="10" fill="#ff5c47" stroke="#17153a" strokeWidth="4" />
+              <circle cx="100" cy="110" r="6" fill="#b65a3a" stroke="currentColor" strokeWidth="1.2" />
             </svg>
             <span className="label">{Math.round(load)}% {load > 75 ? "· rustig aan!" : ""}</span>
           </div>
 
           {/* Nieuw idee */}
-          <div className="module module--idea bg-koraal" style={{ "--i": 2 } as CSSProperties}>
-            <span className="plate">Ideeënafdeling</span>
+          <div className="module module--idea bg-terra" style={{ "--i": 2 } as CSSProperties}>
+            <span className="module__label">Ideeënafdeling</span>
             <button type="button" className="arcade" onClick={newIdea} disabled={disabled}>
               <span className="arcade__cap">
                 <span>Nieuw idee starten</span>
@@ -437,8 +463,8 @@ export default function ControlCenter() {
           </div>
 
           {/* Project afronden */}
-          <div className="module module--finish bg-boter" style={{ "--i": 3 } as CSSProperties}>
-            <span className="plate">Afrondingsafdeling</span>
+          <div className="module module--finish bg-oker" style={{ "--i": 3 } as CSSProperties}>
+            <span className="module__label">Afrondingsafdeling</span>
             <button type="button" className="keybtn" onClick={finishProject} disabled={disabled || progress !== null}>
               <span className="keybtn__key" aria-hidden="true">
                 <svg viewBox="0 0 40 40">
@@ -451,8 +477,8 @@ export default function ControlCenter() {
           </div>
 
           {/* Even niets doen */}
-          <div className="module module--nothing bg-lila" style={{ "--i": 4 } as CSSProperties}>
-            <span className="plate">Rustafdeling</span>
+          <div className="module module--nothing bg-steen" style={{ "--i": 4 } as CSSProperties}>
+            <span className="module__label">Rustafdeling</span>
             <button type="button" className={`pillow ${nothingCount >= 3 ? "is-flipped" : ""}`} onClick={doNothing} disabled={disabled}>
               {nothingCount >= 3 ? "Toch maar iets doen" : "Even niets doen"}
             </button>
@@ -460,8 +486,8 @@ export default function ControlCenter() {
           </div>
 
           {/* Domeinnaam */}
-          <div className="module module--domain bg-groen" style={{ "--i": 5 } as CSSProperties}>
-            <span className="plate">Domeinbeheer</span>
+          <div className="module module--domain bg-sage" style={{ "--i": 5 } as CSSProperties}>
+            <span className="module__label">Domeinbeheer</span>
             <button type="button" className="coinslot" onClick={buyDomain} disabled={disabled}>
               <span className="coinslot__slot" aria-hidden="true" />
               Nog een domeinnaam kopen
@@ -478,8 +504,8 @@ export default function ControlCenter() {
           </div>
 
           {/* Draaiknop */}
-          <div className="module module--knob bg-creme" style={{ "--i": 6 } as CSSProperties}>
-            <span className="plate" id="knob-label">Creativiteit</span>
+          <div className="module module--knob bg-ivory" style={{ "--i": 6 } as CSSProperties}>
+            <span className="module__label" id="knob-label">Creativiteit</span>
             <div className="knob-wrap">
               <div className="knob-scale" aria-hidden="true">
                 {Array.from({ length: 11 }, (_, i) => (
@@ -515,7 +541,7 @@ export default function ControlCenter() {
               </div>
             </div>
             <div className="knob-buttons">
-              <button type="button" className="btn btn--small btn--creme" onClick={() => changeCreativity(creativity - 1)} disabled={disabled} aria-label="Creativiteit omlaag">
+              <button type="button" className="btn btn--small btn--ivory" onClick={() => changeCreativity(creativity - 1)} disabled={disabled} aria-label="Creativiteit omlaag">
                 −
               </button>
               <span className="knob-value" aria-hidden="true">{level}</span>
@@ -526,8 +552,8 @@ export default function ControlCenter() {
           </div>
 
           {/* Serieuze modus */}
-          <div className="module module--serious bg-kobalt" style={{ "--i": 7 } as CSSProperties}>
-            <span className="plate plate--light">Serieuze modus</span>
+          <div className="module module--serious bg-indigo" style={{ "--i": 7 } as CSSProperties}>
+            <span className="module__label">Serieuze modus</span>
             <button type="button" role="switch" aria-checked={serious} className="bigswitch" onClick={toggleSerious} disabled={disabled}>
               <span className="bigswitch__track">
                 <span className="bigswitch__thumb" />
@@ -538,8 +564,8 @@ export default function ControlCenter() {
           </div>
 
           {/* Hendel */}
-          <div className="module module--lever bg-lila" style={{ "--i": 8 } as CSSProperties}>
-            <span className="plate">Nieuwe plannen</span>
+          <div className="module module--lever bg-steen" style={{ "--i": 8 } as CSSProperties}>
+            <span className="module__label">Nieuwe plannen</span>
             <div className="lever-wrap">
               <div className="lever-slot" aria-hidden="true" />
               <button
@@ -578,8 +604,8 @@ export default function ControlCenter() {
           </div>
 
           {/* Geheime schakelaars */}
-          <div className="module module--switches bg-boter" style={{ "--i": 9 } as CSSProperties}>
-            <span className="plate">Instellingen</span>
+          <div className="module module--switches bg-oker" style={{ "--i": 9 } as CSSProperties}>
+            <span className="module__label">Instellingen</span>
             <div className="toggles">
               {(["koffie", "ambitie", "realisme"] as const).map((k) => (
                 <button key={k} type="button" role="switch" aria-checked={switches[k]} className="toggle" onClick={() => toggleSwitch(k)} disabled={disabled}>
@@ -598,8 +624,8 @@ export default function ControlCenter() {
           </div>
 
           {/* Noodstop */}
-          <div className="module module--stop bg-creme" style={{ "--i": 10 } as CSSProperties}>
-            <span className="plate">Officiële noodstop</span>
+          <div className="module module--stop bg-ivory" style={{ "--i": 10 } as CSSProperties}>
+            <span className="module__label">Officiële noodstop</span>
             <div className="stop-wrap">
               <button
                 type="button"
@@ -619,7 +645,7 @@ export default function ControlCenter() {
           {jammed && (
             <div className="jam-overlay" role="alert">
               <p>MACHINE VASTGELOPEN</p>
-              <button type="button" className="btn btn--koraal" onClick={unjam} autoFocus>
+              <button type="button" className="btn btn--terra" onClick={unjam} autoFocus>
                 Tik tegen de machine
               </button>
             </div>

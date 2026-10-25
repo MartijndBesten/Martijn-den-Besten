@@ -231,18 +231,19 @@ export async function handleApi(request: Request, env: Env, ctx: ExecutionContex
   const method = request.method.toUpperCase();
   const now = Math.floor(Date.now() / 1000);
 
+  // Let op: overal `return await`, anders vangt de catch hieronder geen databasefouten op.
   try {
     if (path === "/api/health" && method === "GET") return json({ ok: true, status: "Het instituut is open." });
-    if (path === "/api/votes" && method === "GET") return getVotes(env);
-    if (path === "/api/votes" && method === "POST") return postVote(request, env, ctx, now);
-    if (path === "/api/ideas" && method === "GET") return getIdeas(env);
-    if (path === "/api/ideas" && method === "POST") return postIdea(request, env, ctx, now);
+    if (path === "/api/votes" && method === "GET") return await getVotes(env);
+    if (path === "/api/votes" && method === "POST") return await postVote(request, env, ctx, now);
+    if (path === "/api/ideas" && method === "GET") return await getIdeas(env);
+    if (path === "/api/ideas" && method === "POST") return await postIdea(request, env, ctx, now);
 
     if (path.startsWith("/api/admin/")) {
       if (!isAdmin(request, env)) return error("Geen toegang tot de directiekamer.", 401, { "WWW-Authenticate": "Bearer" });
-      if (path === "/api/admin/ideas" && method === "GET") return adminList(request, env);
+      if (path === "/api/admin/ideas" && method === "GET") return await adminList(request, env);
       const match = path.match(/^\/api\/admin\/ideas\/(\d{1,9})$/);
-      if (match && method === "POST") return adminModerate(request, env, Number(match[1]), now);
+      if (match && method === "POST") return await adminModerate(request, env, Number(match[1]), now);
     }
     if (["/api/votes", "/api/ideas", "/api/health"].includes(path)) return error("Methode niet toegestaan.", 405, { Allow: "GET, POST" });
     return error("Deze afdeling bestaat niet.", 404);

@@ -16,13 +16,14 @@ export function Passport() {
 
   return (
     <>
-      <button type="button" className="passport-btn no-print" onClick={() => setOpen(true)} aria-haspopup="dialog">
+      <button type="button" className="passport-btn" onClick={() => setOpen(true)} aria-haspopup="dialog">
         <svg className="passport-btn__ring" viewBox="0 0 36 36" aria-hidden="true">
-          <circle cx="18" cy="18" r={r} fill="#fff4e0" stroke="#17153a" strokeWidth="3" />
-          <circle cx="18" cy="18" r={r} fill="none" stroke="#2a3bdb" strokeWidth="5" strokeDasharray={`${circ * pct} ${circ}`} transform="rotate(-90 18 18)" />
-          <text x="18" y="22" textAnchor="middle" fontSize="11" fontWeight="800" fill="#17153a">{done}</text>
+          <circle cx="18" cy="18" r={r} fill="none" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" />
+          <circle cx="18" cy="18" r={r} fill="none" stroke="#c2913a" strokeWidth="3" strokeDasharray={`${circ * pct} ${circ}`} transform="rotate(-90 18 18)" />
+          <text x="18" y="21.5" textAnchor="middle" fontSize="10" fontFamily="Geist Mono" fill="currentColor">{done}</text>
         </svg>
-        <span>Missies <span className="visually-hidden">({done} van {MISSIONS.length} voltooid)</span></span>
+        <span className="passport-btn__label">Missies</span>
+        <span className="visually-hidden"> ({done} van {MISSIONS.length} voltooid)</span>
       </button>
       <Dialog open={open} onClose={() => setOpen(false)} title="Uw missiepaspoort">
         <p>
@@ -68,7 +69,7 @@ export function Passport() {
           </p>
         )}
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 12 }}>
-          <button type="button" className="btn btn--small btn--creme" onClick={reset}>
+          <button type="button" className="btn btn--small btn--ivory" onClick={reset}>
             Voortgang wissen
           </button>
           <button type="button" className="btn btn--small" onClick={() => setOpen(false)}>

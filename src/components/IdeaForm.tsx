@@ -107,7 +107,7 @@ export function IdeaForm({ initialTitle = "", compact = false }: { initialTitle?
       <p className="label" style={{ opacity: 0.75 }}>
         Uw inzending wordt pas zichtbaar na goedkeuring door de directie. Er worden geen namen of e-mailadressen gevraagd of bewaard.
       </p>
-      <button type="submit" className="btn btn--kobalt" disabled={busy}>
+      <button type="submit" className="btn btn--indigo" disabled={busy}>
         {busy ? "Wordt gestempeld…" : "Idee indienen bij het loket"}
       </button>
       <div aria-live="polite">

@@ -24,11 +24,12 @@ export default function Einde() {
         <p className="einde__sub">U heeft het einde van de website bereikt. Er is hier niets. Dit was ook een idee.</p>
         {stage >= 1 && (
           <div className="einde__walker" aria-hidden="true">
-            <svg viewBox="0 0 80 80">
-              <circle cx="40" cy="40" r="34" fill="#ffd24d" stroke="#17153a" strokeWidth="5" />
-              <circle cx="30" cy="34" r="5" fill="#17153a" />
-              <circle cx="50" cy="34" r="5" fill="#17153a" />
-              <path d="M28 52q12 8 24 0" fill="none" stroke="#17153a" strokeWidth="5" strokeLinecap="round" />
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="1.4">
+              <circle cx="40" cy="40" r="30" fill="#c2913a" stroke="none" />
+              <circle cx="40" cy="40" r="30" />
+              <circle cx="31" cy="36" r="2.5" fill="currentColor" stroke="none" />
+              <circle cx="49" cy="36" r="2.5" fill="currentColor" stroke="none" />
+              <path d="M30 50q10 7 20 0" strokeLinecap="round" />
             </svg>
           </div>
         )}
@@ -36,8 +37,8 @@ export default function Einde() {
           <div className="einde__extra" role="status">
             <p>O, u bent er nog. Dat is doorzettingsvermogen. Daar heeft het instituut een certificaat voor.</p>
             <div className="hero__ctas">
-              <Link to="/certificaat" className="btn btn--koraal">Haal uw certificaat</Link>
-              <Link to="/" className="btn btn--creme">Terug naar het begin</Link>
+              <Link to="/certificaat" className="btn btn--terra">Haal uw certificaat</Link>
+              <Link to="/" className="btn btn--ivory">Terug naar het begin</Link>
             </div>
           </div>
         )}

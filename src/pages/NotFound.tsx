@@ -13,8 +13,8 @@ export default function NotFound() {
         </div>
         <p className="lede">De pagina die u zoekt is bedacht, maar nooit gebouwd. Ze staat waarschijnlijk in het museum, in zaal 2.</p>
         <div className="hero__ctas">
-          <Link to="/" className="btn btn--kobalt">Naar het hoofdkwartier</Link>
-          <Link to="/museum#zaal-2" className="btn btn--creme">Naar zaal 2</Link>
+          <Link to="/" className="btn btn--indigo">Naar het hoofdkwartier</Link>
+          <Link to="/museum#zaal-2" className="btn btn--ivory">Naar zaal 2</Link>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { BUREAU_BUDGETS, BUREAU_PROBLEMS, BUREAU_SOLUTIONS, BUREAU_STATUSES, gen
 import { seeded, shuffle } from "../lib/random";
 import { sfx } from "../lib/sound";
 import { Link } from "../router";
-import { Shapes } from "../components/Shapes";
+import { MiniFig } from "../components/MiniFig";
 import "../styles/pages.css";
 
 function Dossier({ c, fresh }: { c: BureauCase; fresh?: boolean }) {
@@ -43,17 +43,19 @@ export default function Bureau() {
 
   return (
     <div className="page bureau">
-      <section className="page-hero bg-groen bureau__hero" aria-labelledby="bureau-title">
-        <Shapes items={[{ kind: "plus", color: "boter", size: 80, top: "16%", left: "86%" }, { kind: "half", color: "kobalt", size: 120, top: "72%", left: "70%" }]} />
-        <div className="wrap">
+      <section className="page-hero bg-sage bureau__hero" aria-labelledby="bureau-title">
+        <div className="wrap bureau__hero-grid">
+          <div>
           <span className="dept-no">Afd. 06 — Bureau voor Onnodige Innovatie</span>
-          <h1 id="bureau-title">Oplossingen voor problemen die niet bestaan</h1>
+          <h1 id="bureau-title">
+            Oplossingen voor problemen die <em>niet bestaan</em>
+          </h1>
           <p className="lede">
             Het bureau werkt onvermoeibaar aan volstrekt overbodige innovaties. Dien geen probleem in: het bureau verzint ze zelf.
           </p>
           <button
             type="button"
-            className="btn btn--kobalt"
+            className="btn btn--indigo"
             onClick={() => {
               sfx.clunk();
               setCurrent(generateBureauCase());
@@ -62,13 +64,17 @@ export default function Bureau() {
           >
             Open een nieuw dossier
           </button>
+          </div>
+          <MiniFig kind="lamp" className="bureau__fig" />
         </div>
       </section>
       <div className="wrap">
         <div aria-live="polite" className="bureau__current">
           {current && <Dossier key={n} c={current} fresh />}
         </div>
-        <h2 className="section-title bureau__archive-title">Lopende dossiers</h2>
+        <h2 className="section-title bureau__archive-title">
+          Lopende <em>dossiers</em>
+        </h2>
         <div className="cases">
           {archive.map((c) => (
             <Dossier key={c.number} c={c} />

@@ -5,9 +5,8 @@ import { useGame } from "../state/GameState";
 import { useClickBurst } from "../lib/hooks";
 import { sfx } from "../lib/sound";
 import { Seal } from "./Seal";
-import { IconClose, IconMenu, IconSound } from "./Icons";
-
-const DOT: Record<string, string> = { koraal: "#ff5c47", kobalt: "#2a3bdb", lila: "#c6b3ff", groen: "#34c77b" };
+import { Passport } from "./Passport";
+import { IconClose, IconMenu } from "./Icons";
 
 export function Header() {
   const { path, navigate } = useRouter();
@@ -47,20 +46,21 @@ export function Header() {
           <Seal />
         </button>
         <Link to="/" className="brand" aria-label="Martijn den Besten, naar het hoofdkwartier">
-          <span>
-            Martijn den Besten
-            <small>Instituut · sinds vandaag</small>
-          </span>
+          Martijn den Besten
+          <small>Instituut voor onafgemaakte zaken</small>
         </Link>
         <nav className="nav" aria-label="Hoofdnavigatie">
-          {NAV.map((r) => (
-            <Link key={r.path} to={r.path} aria-current={isActive(r.path) ? "page" : undefined} style={{ ["--dot" as string]: DOT[r.color] }}>
+          {NAV.map((r, i) => (
+            <Link key={r.path} to={r.path} aria-current={isActive(r.path) ? "page" : undefined}>
+              <span aria-hidden="true">0{i + 1}</span>
               {r.nav}
             </Link>
           ))}
         </nav>
-        <button type="button" className="icon-btn" aria-pressed={sound} aria-label={sound ? "Geluid uitzetten" : "Geluid aanzetten"} onClick={() => setSound(!sound)}>
-          <IconSound on={sound} />
+        <Passport />
+        <button type="button" className="sound-toggle" aria-pressed={sound} aria-label={sound ? "Geluid uitzetten" : "Geluid aanzetten"} onClick={() => setSound(!sound)}>
+          <i aria-hidden="true" />
+          <span>Geluid {sound ? "aan" : "uit"}</span>
         </button>
         <button type="button" className="icon-btn menu-toggle" aria-expanded={menu} aria-controls="mobiel-menu" aria-label="Menu openen" onClick={() => setMenu(true)}>
           <IconMenu />
@@ -69,7 +69,7 @@ export function Header() {
       {menu && (
         <div className="mobile-menu" id="mobiel-menu" role="dialog" aria-modal="true" aria-label="Menu">
           <div className="mobile-menu__top">
-            <span className="label">Plattegrond van het instituut</span>
+            <span className="label">Inhoudsopgave</span>
             <button type="button" className="icon-btn" aria-label="Menu sluiten" onClick={() => setMenu(false)} autoFocus>
               <IconClose />
             </button>

@@ -16,7 +16,7 @@ Daarnaast: het Bureau voor Onnodige Innovatie, een certificaatgenerator (PNG/PDF
 
 | Onderdeel | Keuze |
 | --- | --- |
-| Frontend | React 19 + TypeScript + Vite, eigen mini-router, CSS-animaties en inline SVG |
+| Frontend | React 19 + TypeScript + Vite, eigen mini-router, CSS-animaties en inline SVG-octrooitekeningen |
 | Hosting | Cloudflare Workers met Static Assets (gratis plan) |
 | API | Dezelfde Worker, alleen voor `/api/*` (`worker/index.ts`) |
 | Opslag | Cloudflare D1 (`martijndenbesten`) voor stemmen, inzendingen en rate limiting |
@@ -24,7 +24,7 @@ Daarnaast: het Bureau voor Onnodige Innovatie, een certificaatgenerator (PNG/PDF
 | Tests | Vitest (logica + API met echte SQL) en Playwright (e2e + axe-toegankelijkheid) |
 | CI/CD | GitHub Actions: checks bij elke push, deploy naar Cloudflare op `main` |
 
-Geen cookies, geen advertentietrackers, geen externe API's of CDN's (alleen de cookieloze Cloudflare Web Analytics die op de zone aanstaat). Lettertypen (Bricolage Grotesque, Instrument Sans, Space Mono; OFL) worden zelf gehost.
+Geen cookies, geen advertentietrackers, geen externe API's of CDN's (alleen de cookieloze Cloudflare Web Analytics die op de zone aanstaat). Lettertypen (Instrument Serif, Geist, Geist Mono; OFL) worden zelf gehost.
 
 ## Lokaal ontwikkelen
 
@@ -72,6 +72,7 @@ docs/             ← inhoud wijzigen, deployment, moderatie, verrassingen
 
 ## Documentatie
 
+- [Ontwerpsysteem](docs/ONTWERP.md)
 - [Inhoud wijzigen](docs/INHOUD.md)
 - [Deployment en hosting](docs/DEPLOYMENT.md)
 - [Moderatie van ingezonden ideeën](docs/MODERATIE.md)

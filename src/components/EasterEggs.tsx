@@ -120,8 +120,8 @@ export function EasterEggs() {
     if (w.__mdbConsole) return;
     w.__mdbConsole = true;
     console.log(
-      "%cINSTITUUT MARTIJN DEN BESTEN%c\n\nVacature: iemand die projecten afmaakt.\nTip: typ eens ‘koffie’, ‘rust’ of ‘geheim’ op de pagina. Of probeer ↑ ↑ ↓ ↓ ← → ← → b a.",
-      "font: 800 20px sans-serif; color: #ff5c47; background: #17153a; padding: 8px 12px; border-radius: 6px",
+      "%cInstituut Martijn den Besten%c\n\nVacature: iemand die projecten afmaakt.\nTip: typ eens ‘koffie’, ‘rust’ of ‘geheim’ op de pagina. Of probeer ↑ ↑ ↓ ↓ ← → ← → b a.",
+      "font: italic 22px Georgia, serif; color: #c2913a; background: #1a2033; padding: 8px 14px",
       "font: 14px monospace; color: inherit",
     );
   }, []);
@@ -156,10 +156,10 @@ function CoffeeRain() {
           viewBox="0 0 60 60"
           style={{ left: `${(i * 37) % 100}%`, animationDelay: `${(i % 6) * 0.18}s`, animationDuration: `${2.2 + (i % 4) * 0.4}s` }}
         >
-          <path d="M10 18h34v18a14 14 0 0 1-14 14h-6A14 14 0 0 1 10 36z" fill="#fff4e0" stroke="#17153a" strokeWidth="3.5" />
-          <path d="M44 24h4a6 6 0 0 1 0 12h-4" fill="none" stroke="#17153a" strokeWidth="3.5" />
-          <path d="M14 22h26v6H14z" fill="#7a4a2a" />
-          <path d="M22 4c-3 4 3 6 0 10M32 4c-3 4 3 6 0 10" fill="none" stroke="#17153a" strokeWidth="3" strokeLinecap="round" />
+          <path d="M10 18h34v18a14 14 0 0 1-14 14h-6A14 14 0 0 1 10 36z" fill="var(--bg)" stroke="currentColor" strokeWidth="1.5" />
+          <path d="M44 24h4a6 6 0 0 1 0 12h-4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+          <path d="M14 23h26v5H14z" fill="#9a4529" />
+          <path d="M22 4c-3 4 3 6 0 10M32 4c-3 4 3 6 0 10" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
         </svg>
       ))}
     </div>

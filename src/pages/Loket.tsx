@@ -1,5 +1,5 @@
 import { IdeaForm } from "../components/IdeaForm";
-import { Shapes } from "../components/Shapes";
+import { MiniFig } from "../components/MiniFig";
 import "../styles/pages.css";
 
 export default function Loket() {
@@ -7,21 +7,23 @@ export default function Loket() {
   const initial = (params.get("idee") ?? "").slice(0, 80);
   return (
     <div className="page loket">
-      <section className="page-hero" aria-labelledby="loket-title">
-        <Shapes items={[{ kind: "star", color: "koraal", size: 90, top: "18%", left: "84%" }, { kind: "ring", color: "lila", size: 130, top: "70%", left: "92%" }]} />
-        <div className="wrap">
+      <section className="page-hero wrap loket__hero" aria-labelledby="loket-title">
+        <div>
           <span className="dept-no">Afd. 05 — Het Officiële Ideeënloket · Formulier ID-1</span>
-          <h1 id="loket-title">Aanvraag tot het hebben van een idee</h1>
+          <h1 id="loket-title">
+            Aanvraag tot het hebben van een <em>idee</em>
+          </h1>
           <p className="lede">
             Heeft u een idee dat thuishoort in het Museum van Onafgemaakte Ideeën? Dien het hier in. Elke inzending wordt zorgvuldig beoordeeld, zodra daar tijd voor is.
           </p>
         </div>
+        <MiniFig kind="ticket" className="loket__fig" />
       </section>
       <div className="wrap loket__grid">
-        <div className="panel bg-boter loket__form">
-          <div className="ticket-no" aria-hidden="true">
-            <span className="label">Nummer trekken</span>
-            <strong>A-{String(Math.floor(Math.random() * 900) + 100)}</strong>
+        <div className="panel loket__form">
+          <div className="form-sheet__head" aria-hidden="true">
+            <span>Formulier ID-1 · in te vullen in blokletters (of niet)</span>
+            <span>Nummer A-{String(Math.floor(Math.random() * 900) + 100)}</span>
           </div>
           <IdeaForm initialTitle={initial} />
         </div>

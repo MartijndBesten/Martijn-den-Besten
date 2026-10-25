@@ -21,7 +21,7 @@ test("even niets doen geeft fout 404 en verandert na drie keer van functie", asy
   for (let i = 0; i < 3; i++) {
     await page.getByRole("button", { name: "Even niets doen" }).click();
     await expect(page.getByRole("alertdialog")).toContainText("Fout 404: rustmoment niet gevonden.");
-    await page.getByRole("button", { name: "OK" }).click();
+    await page.getByRole("button", { name: "OK", exact: true }).click();
   }
   await page.getByRole("button", { name: "Toch maar iets doen" }).click();
   await expect(screen(page)).toContainText("Goed bezig!");

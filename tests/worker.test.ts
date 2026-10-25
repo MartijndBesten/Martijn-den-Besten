@@ -121,6 +121,21 @@ describe("moderatie", () => {
   });
 });
 
+describe("foutafhandeling", () => {
+  it("geeft bij een databasefout een nette JSON-500 in plaats van een crash", async () => {
+    env.DB = {
+      prepare: () => {
+        throw new Error("database onbereikbaar");
+      },
+    } as unknown as D1Database;
+    const r = await req("/api/votes");
+    expect(r.status).toBe(500);
+    expect(((await r.json()) as J).error).toContain("machinekamer");
+    const r2 = await req("/api/ideas");
+    expect(r2.status).toBe(500);
+  });
+});
+
 describe("router", () => {
   it("geeft 404 en 405 netjes als JSON", async () => {
     const r = await req("/api/onzin");

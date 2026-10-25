@@ -4,7 +4,8 @@ test("ideeënmachine produceert ideeën en loopt vast", async ({ page }) => {
   await page.goto("/");
   const machine = page.getByRole("button", { name: /Ideeënmachine/ });
   await machine.click();
-  await expect(page.locator(".idea-bubble").first()).toBeVisible();
+  await expect(page.locator(".belt-card").first()).toBeAttached();
+  await expect(page.locator(".plate__foot")).not.toContainText("klik op de machine");
   for (let i = 0; i < 11; i++) await machine.click();
   await expect(page.getByRole("button", { name: /Herstart de vastgelopen/ })).toBeVisible();
   await expect(page.getByRole("status").getByText("Missie voltooid")).toBeVisible();
@@ -22,8 +23,8 @@ test("mededelingen wisselen via de knoppen", async ({ page }) => {
 
 test("statistieken tellen op tot fictieve waarden", async ({ page }) => {
   await page.goto("/");
-  await page.locator(".stats").scrollIntoViewIfNeeded();
-  await expect(page.locator(".stat--3 .counter")).toHaveText("3", { timeout: 5000 });
+  await page.locator(".report").scrollIntoViewIfNeeded();
+  await expect(page.locator(".report__item:nth-child(3) .counter")).toHaveText("3", { timeout: 5000 });
 });
 
 test("verrassingen: koffie, Konami-code, tijd en zegel", async ({ page }) => {

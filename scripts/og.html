@@ -1,18 +1,35 @@
-<!doctype html><html><head><meta charset="utf-8"><style>
-@font-face{font-family:B;src:url(../public/fonts/bricolage-wght.woff2);font-weight:200 800}
-@font-face{font-family:M;src:url(../public/fonts/space-mono-700.woff2);font-weight:700}
-body{margin:0;width:1200px;height:630px;background:#fff4e0;font-family:B;color:#17153a;position:relative;overflow:hidden}
-h1{position:absolute;left:70px;top:90px;margin:0;font-size:132px;line-height:.84;letter-spacing:-.055em;text-transform:uppercase;font-weight:800}
-h1 span{display:block}.b{color:#ff5c47;text-shadow:5px 5px 0 #17153a;padding-left:70px}.c{color:#2a3bdb}
-p{position:absolute;left:72px;top:500px;margin:0;font-size:34px;font-weight:600;letter-spacing:-.02em}
-.k{position:absolute;left:72px;top:40px;font-family:M;font-size:18px;letter-spacing:.1em;border:3px solid;border-radius:99px;padding:6px 16px}
-.s{position:absolute;border:5px solid #17153a;border-radius:50%}
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+@font-face{font-family:S;src:url(../public/fonts/instrument-serif.woff2)}
+@font-face{font-family:S;font-style:italic;src:url(../public/fonts/instrument-serif-italic.woff2)}
+@font-face{font-family:G;src:url(../public/fonts/geist.woff2);font-weight:100 900}
+@font-face{font-family:M;src:url(../public/fonts/geist-mono.woff2);font-weight:100 900}
+body{margin:0;width:1200px;height:630px;background:#f3ecdf;color:#1a2033;font-family:G;position:relative;overflow:hidden}
+.k{position:absolute;left:64px;top:52px;font-family:M;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:#3b4157}
+.k b{color:#9a4529;font-weight:400}
+h1{position:absolute;left:58px;top:104px;margin:0;font-family:S;font-weight:400;font-size:178px;line-height:.78;letter-spacing:-.04em}
+h1>span{display:block}.d{font-style:italic;color:#b65a3a;font-size:96px;margin:6px 0 10px 110px}
+.dot{color:#b65a3a}
+p{position:absolute;left:64px;bottom:52px;margin:0;font-size:28px;line-height:1.2;letter-spacing:-.01em;max-width:540px}
+p em{font-family:S;font-size:34px}
+.plate{position:absolute;right:48px;top:48px;width:470px;height:534px;border:1.5px solid #1a2033;background:#ece3d2;background-image:linear-gradient(rgba(26,32,51,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(26,32,51,.14) 1px,transparent 1px);background-size:22px 22px}
+.head{display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1.5px solid #1a2033;font-family:M;font-size:12px;letter-spacing:.08em;background:#ece3d2}
+svg{position:absolute;left:20px;top:70px;width:430px}
 </style></head><body>
-<div class="k">INSTITUUT MARTIJN DEN BESTEN · OFFICIEEL</div>
-<h1><span>Martijn</span><span class="b">den</span><span class="c">Besten.</span></h1>
-<p>Officiële website van een man met meer ideeën dan tijd.</p>
-<div class="s" style="width:300px;height:300px;right:-40px;top:-60px;background:#c6b3ff"></div>
-<div class="s" style="width:220px;height:220px;right:150px;top:260px;background:#ffd24d"></div>
-<div class="s" style="width:130px;height:130px;right:40px;top:420px;background:#34c77b"></div>
-<div class="s" style="width:90px;height:90px;right:330px;top:120px;background:#ff5c47"></div>
+<div class="k">Instituut voor onafgemaakte zaken · Dossier <b>Nº 0001</b></div>
+<h1><span>Martijn</span><span class="d">den</span><span>Besten<span class="dot">.</span></span></h1>
+<p>Officiële website van een man met meer <em>ideeën</em> dan <em>tijd</em>.</p>
+<div class="plate"><div class="head"><span>FIG. 1 — IDEEËNMACHINE</span><span>NL-2026/0001</span></div>
+<svg viewBox="0 0 600 540" fill="none" stroke="#1a2033" stroke-width="1.6" stroke-linejoin="round">
+<defs><pattern id="h" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1a2033" stroke-width=".9"/></pattern></defs>
+<path d="M200 70h200l-46 84h-108z" fill="url(#h)"/><path d="M188 70h224"/>
+<rect x="140" y="154" width="320" height="250" rx="26" fill="#ece3d2"/>
+<circle cx="300" cy="276" r="74" fill="#f3ecdf"/><path d="M300 276L350 222" stroke="#b65a3a" stroke-width="3"/><circle cx="300" cy="276" r="6" fill="#1a2033"/>
+<rect x="432" y="212" width="50" height="34" fill="#b65a3a"/><path d="M482 229C530 229 520 140 548 120M482 236C538 236 528 146 556 126"/>
+<circle cx="552" cy="92" r="30" fill="#c2913a"/>
+<circle cx="150" cy="176" r="46" fill="#8a9a7b"/><circle cx="150" cy="176" r="14" fill="#f3ecdf"/>
+<path d="M90 444h420M90 470h420"/>
+<g id="r"></g>
+</svg></div>
+<script>const g=document.getElementById('r');for(let i=0;i<10;i++){const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',104+i*44);c.setAttribute('cy',457);c.setAttribute('r',11);g.appendChild(c)}</script>
 </body></html>

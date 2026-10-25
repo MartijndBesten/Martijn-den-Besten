@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { STATS } from "../content/site";
 import { MISSIONS } from "../content/progress";
 import { Link } from "../router";
@@ -6,170 +6,220 @@ import { useGame } from "../state/GameState";
 import { Announcements } from "../components/Announcements";
 import { Counter } from "../components/Counter";
 import { IdeaMachine } from "../components/IdeaMachine";
-import { Shapes, type ShapeSpec } from "../components/Shapes";
 import { Arrow } from "../components/Icons";
+import { MiniFig } from "../components/MiniFig";
 import { sfx } from "../lib/sound";
 
-const HERO_SHAPES: ShapeSpec[] = [
-  { kind: "circle", color: "lila", size: 120, top: "8%", left: "-3%" },
-  { kind: "star", color: "boter", size: 70, top: "70%", left: "40%", rot: 60 },
-  { kind: "squiggle", color: "koraal", size: 140, top: "82%", left: "6%", dx: 40 },
-  { kind: "half", color: "groen", size: 90, top: "4%", left: "52%", rot: -30 },
-  { kind: "plus", color: "roze", size: 54, top: "56%", left: "92%" },
-  { kind: "ring", color: "kobalt", size: 110, top: "88%", left: "78%" },
-];
-
 const DEPARTMENTS = [
-  { to: "/control-center", no: "02", title: "Control Center", text: "Knoppen, hendels, schakelaars en een noodstop. Alles werkt. Bijna alles.", cls: "dept--kobalt", shape: "dept--circle" },
-  { to: "/museum", no: "03", title: "Museum", text: "Zes zalen vol onafgemaakte ideeën. Waarvan u er vijf kunt vinden.", cls: "dept--lila", shape: "dept--arch" },
-  { to: "/bureau", no: "04", title: "Bureau voor Onnodige Innovatie", text: "Oplossingen voor problemen die niet bestaan. Op afspraak.", cls: "dept--groen", shape: "dept--ticket" },
-  { to: "/loket", no: "05", title: "Ideeënloket", text: "Heeft u ook een idee? Het loket is open. De wachtrij ook.", cls: "dept--boter", shape: "dept--blob" },
-];
+  { to: "/control-center", no: "02", title: "Control Center", text: "Knoppen, hendels, schakelaars en een officiële noodstop. Alles werkt. Bijna alles.", fig: "knop" },
+  { to: "/museum", no: "03", title: "Museum van Onafgemaakte Ideeën", text: "Zes zalen vol plannen op 95%. Waarvan u er vijf kunt vinden.", fig: "sokkel" },
+  { to: "/bureau", no: "04", title: "Bureau voor Onnodige Innovatie", text: "Oplossingen voor problemen die niet bestaan. Op afspraak.", fig: "lamp" },
+  { to: "/loket", no: "05", title: "Het Ideeënloket", text: "Heeft u ook een idee? Het loket is open. De wachtrij ook.", fig: "ticket" },
+] as const;
+
+const MAX_STAT = Math.max(...STATS.map((s) => s.value));
+
+/** Schuift de hero-typografie subtiel mee met scrollen. */
+function useScrollVar(ref: React.RefObject<HTMLElement | null>) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const on = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => el.style.setProperty("--sy", String(Math.min(window.scrollY, 900))));
+    };
+    window.addEventListener("scroll", on, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", on);
+    };
+  }, [ref]);
+}
 
 export default function Home() {
   const { findEgg, missions } = useGame();
   const [timeGone, setTimeGone] = useState(false);
+  const hero = useRef<HTMLElement>(null);
+  useScrollVar(hero);
 
   return (
     <div className="page home">
-      <section className="hero" aria-labelledby="hero-title">
-        <Shapes items={HERO_SHAPES} />
+      <section className="hero" aria-labelledby="hero-title" ref={hero}>
         <div className="wrap hero__grid">
           <div className="hero__text">
-            <p className="kicker">Officieel kanaal · versie 1.0 (bèta, permanent)</p>
+            <p className="kicker">
+              <span>Instituut voor onafgemaakte zaken</span>
+              <span>
+                Dossier <b>Nº 0001</b>
+              </span>
+              <span>Opgericht: vandaag</span>
+            </p>
             <h1 id="hero-title" className="hero__title">
-              <span className="hero__line hero__line--1">Martijn</span>
-              <span className="hero__line hero__line--2">den</span>
-              <span className="hero__line hero__line--3">
-                Besten<span className="hero__dot" aria-hidden="true" />
+              <span className="hero__l1">Martijn</span>
+              <span className="hero__l2">
+                <span className="hero__den">den</span>
+                <span className="hero__note" aria-hidden="true">
+                  tussenvoegsel —<br />
+                  klein geschreven,
+                  <br />
+                  groot bedoeld
+                </span>
+              </span>
+              <span className="hero__l3">
+                Besten<span className="hero__dot">.</span>
               </span>
             </h1>
-            <p className="hero__slogan">
-              Officiële website van een man met meer ideeën dan{" "}
-              <button
-                type="button"
-                className={`time-word ${timeGone ? "is-gone" : ""}`}
-                onClick={() => {
-                  sfx.blip();
-                  setTimeGone(true);
-                  findEgg("tijd");
-                  window.setTimeout(() => setTimeGone(false), 4000);
-                }}
-                aria-label={timeGone ? "tijd (is even weg)" : "tijd"}
-              >
-                tijd
-              </button>
-              {timeGone && <span className="time-gone" aria-hidden="true"> … ( tijd is even weg )</span>}.
-            </p>
+            <div className="hero__slogan">
+              <p>
+                Officiële website van een man met meer <em>ideeën</em> dan{" "}
+                <button
+                  type="button"
+                  className={`time-word ${timeGone ? "is-gone" : ""}`}
+                  onClick={() => {
+                    sfx.blip();
+                    setTimeGone(true);
+                    findEgg("tijd");
+                    window.setTimeout(() => setTimeGone(false), 4000);
+                  }}
+                  aria-label={timeGone ? "tijd (is even weg)" : "tijd"}
+                >
+                  tijd
+                </button>
+                {timeGone && <span className="time-gone" aria-hidden="true"> (even weg)</span>}.
+              </p>
+              <svg className="hero__dim draw" viewBox="0 0 430 26" aria-hidden="true">
+                <path d="M1 4v18M429 4v18M1 13h428" />
+                <path className="fill" d="M1 13l8-4v8zM429 13l-8-4v8z" fill="currentColor" stroke="none" />
+                <rect className="fill" x="170" y="5" width="90" height="16" fill="var(--bg)" stroke="none" />
+                <text x="215" y="17" textAnchor="middle" fontFamily="Geist Mono" fontSize="10" fill="currentColor" stroke="none">
+                  Δ ≈ ∞
+                </text>
+              </svg>
+            </div>
             <div className="hero__ctas">
-              <Link to="/control-center" className="btn btn--kobalt">
+              <Link to="/control-center" className="btn btn--ink">
                 Betreed het Control Center <Arrow />
               </Link>
-              <Link to="/museum" className="btn btn--creme">
-                Bezoek het museum
+              <Link to="/museum" className="btn">
+                Bezoek het museum <Arrow />
               </Link>
             </div>
-            <span className="stamp hero__stamp">Goedgekeurd door: zichzelf</span>
           </div>
-          <div className="hero__machine">
+          <div className="hero__fig">
             <IdeaMachine />
-            <p className="hero__hint label">↑ Klik op de machine. Niet te vaak.</p>
           </div>
         </div>
       </section>
 
-      <div className="statusbar" role="note" aria-label="Status van het instituut">
-        <div className="wrap statusbar__inner">
-          <span><i className="led led--groen" /> Instituut: open</span>
-          <span><i className="led led--boter" /> Ideeën in de wachtrij: veel</span>
-          <span><i className="led led--koraal" /> Koffievoorraad: kritiek</span>
-          <span><i className="led led--lila" /> Vrije tijd: niet gevonden</span>
+      <div className="telex" role="note" aria-label="Status van het instituut">
+        <div className="wrap telex__inner">
+          <span><i className="telex__led telex__led--ok" /> Instituut: open</span>
+          <span><i className="telex__led" /> Ideeën in de wachtrij: veel</span>
+          <span><i className="telex__led telex__led--warn" /> Koffievoorraad: kritiek</span>
+          <span><i className="telex__led" /> Vrije tijd: niet gevonden</span>
         </div>
       </div>
 
-      <section className="wrap stats" aria-labelledby="stats-title">
-        <header className="section-head">
-          <span className="dept-no">Afd. 01 — Hoofdkwartier · Bureau voor de Statistiek</span>
-          <h2 id="stats-title" className="section-title">Officiële statistieken</h2>
-          <p className="lede">
-            Peildatum: vandaag. Alle cijfers zijn fictief, maar voelen echt. Gecontroleerd door niemand.
-          </p>
+      <section className="wrap report" aria-labelledby="stats-title">
+        <header className="report__head">
+          <div>
+            <span className="dept-no">Afd. 01 — Bureau voor de Statistiek</span>
+            <h2 id="stats-title" className="section-title">
+              Jaarverslag, <em>ongeveer</em>
+            </h2>
+          </div>
+          <p className="lede">Alle cijfers zijn fictief, maar voelen echt. Gecontroleerd door niemand, goedgekeurd door iedereen die ze niet heeft nagerekend.</p>
         </header>
-        <ul className="stats__grid">
+        <ol className="report__grid">
           {STATS.map((s, i) => (
-            <li key={s.label} className={`stat stat--${s.color} stat--${i + 1}`}>
-              <span className="stat__label label">{s.label}</span>
-              <span className="stat__value">
+            <li key={s.label} className="report__item reveal" style={{ ["--d" as string]: i }}>
+              <span className="report__idx label">
+                {String(i + 1).padStart(2, "0")}
+                {s.live && <span className="report__live"> · live</span>}
+              </span>
+              <span className="report__label">{s.label}</span>
+              <span className="report__value">
                 <Counter value={s.value} live={s.live} />
               </span>
-              <span className="stat__note">{s.note}</span>
-              {s.live && <span className="stat__live label"><i aria-hidden="true" /> Live</span>}
+              <span className="report__bar" aria-hidden="true">
+                <i style={{ width: `${Math.max(0.6, (s.value / MAX_STAT) * 100)}%` }} />
+              </span>
+              <span className="report__note">
+                <sup>{i + 1}</sup> {s.note}
+              </span>
             </li>
           ))}
-        </ul>
-        <p className="stats__disclaimer label">* Bron: het gevoel van de directie. Afwijkingen van ±100% zijn mogelijk.</p>
+        </ol>
+        <p className="report__foot label">Bron: het gevoel van de directie. Afwijkingen van ±100% zijn mogelijk.</p>
       </section>
 
-      <section className="announce bg-kobalt" aria-labelledby="announce-title">
-        <Shapes
-          items={[
-            { kind: "ring", color: "boter", size: 160, top: "-6%", left: "84%" },
-            { kind: "triangle", color: "koraal", size: 80, top: "76%", left: "3%", rot: 40 },
-          ]}
-        />
-        <div className="wrap announce__grid">
-          <div>
-            <span className="dept-no">Afd. Communicatie · Uitgaand</span>
-            <h2 id="announce-title" className="section-title">Officiële mededelingen</h2>
-            <p className="lede">
-              Het instituut informeert u graag over de laatste besluiten. Besluiten kunnen zonder aankondiging worden teruggedraaid.
-            </p>
+      <section className="bulletin bg-ink" aria-labelledby="announce-title">
+        <div className="wrap bulletin__grid">
+          <div className="bulletin__intro">
+            <span className="dept-no">Afd. Communicatie · uitgaand</span>
+            <h2 id="announce-title" className="section-title">
+              Officiële <em>mededelingen</em>
+            </h2>
+            <p className="lede">Het instituut informeert u graag over de laatste besluiten. Besluiten kunnen zonder aankondiging worden teruggedraaid.</p>
           </div>
           <Announcements />
         </div>
       </section>
 
-      <section className="wrap depts" aria-labelledby="depts-title">
-        <header className="section-head">
-          <span className="dept-no">Plattegrond</span>
-          <h2 id="depts-title" className="section-title">De afdelingen</h2>
+      <section className="wrap toc" aria-labelledby="depts-title">
+        <header className="toc__head">
+          <span className="dept-no">Inhoudsopgave</span>
+          <h2 id="depts-title" className="section-title">
+            De <em>afdelingen</em>
+          </h2>
         </header>
-        <ul className="depts__grid">
-          {DEPARTMENTS.map((d) => (
-            <li key={d.to}>
-              <Link to={d.to} className={`dept ${d.cls} ${d.shape}`}>
-                <span className="dept__no">{d.no}</span>
-                <span className="dept__title">{d.title}</span>
-                <span className="dept__text">{d.text}</span>
-                <span className="dept__go" aria-hidden="true">
+        <ol className="toc__list">
+          {DEPARTMENTS.map((d, i) => (
+            <li key={d.to} className="reveal" style={{ ["--d" as string]: i }}>
+              <Link to={d.to} className="toc__row">
+                <span className="toc__no label">{d.no}</span>
+                <span className="toc__title">{d.title}</span>
+                <span className="toc__text">{d.text}</span>
+                <span className="toc__fig" aria-hidden="true">
+                  <MiniFig kind={d.fig} />
+                </span>
+                <span className="toc__go" aria-hidden="true">
                   <Arrow />
                 </span>
               </Link>
             </li>
           ))}
-        </ul>
+        </ol>
       </section>
 
-      <section className="wrap missions-teaser" aria-labelledby="missions-title">
-        <div className="panel bg-lila missions-teaser__card">
-          <span className="dept-no">Bezoekersmissies</span>
-          <h2 id="missions-title">Uw opdracht, mocht u die aanvaarden</h2>
+      <section className="wrap duo" aria-labelledby="missions-title">
+        <div className="panel bg-sage duo__card reveal">
+          <span className="dept-no">Bezoekersmissies · formulier M-8</span>
+          <h2 id="missions-title">
+            Uw opdracht, <em>mocht u die aanvaarden</em>
+          </h2>
           <p>
-            Het instituut heeft {MISSIONS.length} missies verstopt. U heeft er {missions.length} voltooid. Open uw missiepaspoort linksonder om te zien wat er nog te doen is.
+            Het instituut heeft {MISSIONS.length} missies verstopt. U heeft er {missions.length} voltooid. Uw missiepaspoort zit linksonder.
           </p>
-          <ul className="missions-teaser__list">
+          <ul className="checklist">
             {MISSIONS.slice(0, 4).map((mi) => (
               <li key={mi.id} className={missions.includes(mi.id) ? "is-done" : ""}>
+                <span aria-hidden="true" className="checklist__box" />
                 {mi.title}
+                <span className="visually-hidden">{missions.includes(mi.id) ? " (voltooid)" : ""}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="panel bg-boter missions-teaser__card">
+        <div className="panel bg-oker duo__card reveal" style={{ ["--d" as string]: 1 }}>
           <span className="dept-no">Certificaatbureau</span>
-          <h2>Officieel niets opgelost?</h2>
+          <h2>
+            Officieel <em>niets</em> opgelost?
+          </h2>
           <p>Laat het instituut het vastleggen. Met stempel, handtekening en serienummer. Gratis te downloaden.</p>
-          <Link to="/certificaat" className="btn btn--koraal">
+          <MiniFig kind="certificaat" />
+          <Link to="/certificaat" className="btn btn--ink">
             Vraag een certificaat aan <Arrow />
           </Link>
         </div>

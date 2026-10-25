@@ -4,9 +4,9 @@ import { GameProvider } from "./state/GameState";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Toasts } from "./components/Toasts";
-import { Passport } from "./components/Passport";
 import { SeriousMode } from "./components/SeriousMode";
 import { EasterEggs } from "./components/EasterEggs";
+import { ScrollEffects } from "./components/ScrollEffects";
 import Home from "./pages/Home";
 
 const ControlCenter = lazy(() => import("./pages/ControlCenter"));
@@ -63,9 +63,9 @@ export function App() {
           <Header />
           <Page />
           <Footer />
-          <Passport />
           <Toasts />
           <EasterEggs />
+          <ScrollEffects />
           <SeriousMode />
         </GameProvider>
       </RouterProvider>

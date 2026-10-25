@@ -81,24 +81,24 @@ export default function Beheer() {
               <input id="beheer-token" className="input" type="password" value={input} onChange={(e) => setInput(e.target.value)} autoComplete="off" />
               <small>Het token wordt alleen voor deze browsersessie bewaard.</small>
             </div>
-            <button type="submit" className="btn btn--kobalt">Inloggen</button>
+            <button type="submit" className="btn btn--indigo">Inloggen</button>
             {message && <p className="form-message form-message--error" style={{ marginTop: 12 }}>{message}</p>}
           </form>
         ) : (
           <>
             <div className="beheer__bar">
               {(["pending", "approved", "rejected"] as const).map((s) => (
-                <button key={s} type="button" className={`btn btn--small ${status === s ? "btn--inkt" : "btn--creme"}`} aria-pressed={status === s} onClick={() => {
+                <button key={s} type="button" className={`btn btn--small ${status === s ? "btn--ink" : "btn--ivory"}`} aria-pressed={status === s} onClick={() => {
                   setStatus(s);
                   setMessage("");
                 }}>
                   {s === "pending" ? "Wachtrij" : s === "approved" ? "Goedgekeurd" : "Afgewezen"}
                 </button>
               ))}
-              <button type="button" className="btn btn--small btn--creme" onClick={() => void refresh()}>Vernieuwen</button>
+              <button type="button" className="btn btn--small btn--ivory" onClick={() => void refresh()}>Vernieuwen</button>
               <button
                 type="button"
-                className="btn btn--small btn--koraal"
+                className="btn btn--small btn--terra"
                 onClick={() => {
                   setToken("");
                   try {
@@ -122,9 +122,9 @@ export default function Beheer() {
                     <h2>{i.title}</h2>
                     {i.description && <p>{i.description}</p>}
                     <div className="plaque__actions">
-                      {i.status !== "approved" && <button type="button" className="btn btn--small btn--groen" onClick={() => void act(i.id, "approve")}>Goedkeuren</button>}
-                      {i.status !== "rejected" && <button type="button" className="btn btn--small btn--creme" onClick={() => void act(i.id, "reject")}>Afwijzen</button>}
-                      <button type="button" className="btn btn--small btn--koraal" onClick={() => void act(i.id, "delete")}>Verwijderen</button>
+                      {i.status !== "approved" && <button type="button" className="btn btn--small btn--sage" onClick={() => void act(i.id, "approve")}>Goedkeuren</button>}
+                      {i.status !== "rejected" && <button type="button" className="btn btn--small btn--ivory" onClick={() => void act(i.id, "reject")}>Afwijzen</button>}
+                      <button type="button" className="btn btn--small btn--terra" onClick={() => void act(i.id, "delete")}>Verwijderen</button>
                     </div>
                   </li>
                 ))}
