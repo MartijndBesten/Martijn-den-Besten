@@ -6,9 +6,9 @@ import { APPEARANCES, useGame, type Appearance } from "../state/GameState";
 import { sfx } from "../lib/sound";
 
 export const APPEARANCE_INFO: Record<Appearance, { name: string; note: string; colors: [string, string, string] }> = {
-  ivoor: { name: "Ivoor", note: "Dagdienst, vol kleur", colors: ["#f5efe4", "#191b2e", "#f2785c"] },
+  ivoor: { name: "Ivoor", note: "Dagdienst, vol kleur", colors: ["#f7f1ec", "#191b2e", "#ee9aac"] },
   blauwdruk: { name: "Blauwdruk", note: "De tekenkamer", colors: ["#1d3b74", "#f1f4fb", "#ffcf70"] },
-  nacht: { name: "Nachtdienst", note: "Na sluitingstijd", colors: ["#14162a", "#f2ecdf", "#c3b2f0"] },
+  nacht: { name: "Nachtdienst", note: "Na sluitingstijd", colors: ["#14162a", "#f2ecdf", "#cdbdf0"] },
 };
 
 function Swatch({ colors }: { colors: [string, string, string] }) {

@@ -149,7 +149,7 @@
   height: 36px;
   border-radius: 50%;
   background: #191b2e;
-  color: #f5efe4;
+  color: #f7f1ec;
 }
 .values strong {
   font-weight: 720;
@@ -198,7 +198,7 @@
 }
 .timeline li:nth-child(6n + 5) {
   background: var(--ink);
-  color: #f5efe4;
+  color: #f7f1ec;
   --fg-2: rgba(245, 239, 228, 0.86);
   transform: rotate(-2deg);
 }

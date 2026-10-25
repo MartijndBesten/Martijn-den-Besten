@@ -1,6 +1,6 @@
-# Ontwerpsysteem ‘Playful Premium’
+# Ontwerpsysteem ‘Playful Premium’ · 3D-werkplaats
 
-**70% verfijnd ontwerp, 30% gecontroleerde gekkigheid.**
+**70% verfijnd ontwerp, 30% gecontroleerde gekkigheid.** Sinds de versie ‘Playful 3D Workshop’ is het instituut een ruimtelijke uitvinderswereld: pastelkleurige machines met afgeronde vormen, zachte schaduwen en echte mechanische samenhang.
 
 De site is een eigenzinnig instituut: een uitvinderswerkplaats van de toekomst, met een museum en een speeltuin vol knoppen. De basis is rustig: warm ivoor en diep inktblauw. Daarop krijgt elk onderdeel een eigen kleurwereld.
 
@@ -18,17 +18,19 @@ Elke accentkleur heeft drie varianten:
 
 | Token | Vol | Diep (tekst) | Zacht (wereld) |
 | --- | --- | --- | --- |
-| Kobalt | `#3c5bd6` | `#2a3fa0` | `#cdd6fa` |
-| Koraal | `#f2785c` | `#9c3720` (grote tekst: `#d4502f`) | `#f9cfc2` |
-| Salie | `#9fc39a` | `#35603b` | `#cfe3c8` |
-| Lila | `#c3b2f0` | `#5440a6` | `#dcd0f7` |
-| Boter | `#f6d36b` | `#7a5a00` | `#f7e3a1` |
+| Kobalt → donkerblauw | `#34407a` | `#2f3a66` | `#dbe7f7` (lichtblauw) |
+| Koraal → poederroze | `#ee9aac` | `#8e2c49` (grote tekst: `#c24d6b`) | `#f8d9e0` |
+| Salie → mint | `#a9dcc4` | `#2c6a4f` | `#d5efe3` |
+| Lila | `#cdbdf0` | `#5440a6` | `#e6ddf8` |
+| Boter | `#f6d781` | `#7a5a00` | `#f9eabf` |
 | Terracotta | `#b65a3a` | `#9a4529` | — |
+
+De tokennamen zijn gelijk gebleven; alleen de waarden zijn naar pastel geschoven. De 3D-bouwdoos gebruikt hetzelfde palet (`PAL` in `src/three/kit.ts`).
 
 **Basis:**
 
-- ivoor `#f5efe4` (achtergrond);
-- papier `#ece4d5` (vlakken);
+- warm crème `#f7f1ec` (achtergrond);
+- papier `#efe5de` (vlakken);
 - wit `#fffdf8` (kaarten);
 - inkt `#191b2e`.
 
@@ -36,7 +38,7 @@ Elke accentkleur heeft drie varianten:
 
 - Kleine tekst staat nooit in een volle accentkleur. Gebruik de diepe variant of inkt.
 - Op koraal, boter, salie en lila staat altijd inkt, nooit wit.
-- Op kobalt staat wit.
+- Op (donker)blauw staat wit.
 - Per sectie één kleurwereld, met hooguit twee accenten erbij.
 - Geen harde primaire kleuren.
 - Geen dikke zwarte cartooncontouren: lijnen zijn 1,5–2,2 px inkt.
@@ -46,13 +48,13 @@ Elke accentkleur heeft drie varianten:
 
 | Onderdeel | Wereld |
 | --- | --- |
-| Hero en machine | Ivoor met kobalt-zacht podium, koraal/boter/lila vormen |
+| Hero en machine | Crème met een lichtblauwe werkplaats; 3D-machine in roze, boter, mint, lila en lichtblauw |
 | Jaarverslag | Boter |
 | Mededelingen | Inkt (‘nachtelijk bulletin’) |
 | Afdelingen | Bento: boter, lila, kobalt (vol), salie |
 | Missies / certificaat | Lila / koraal |
-| Control Center | Panelen met elk een eigen kleur. Serieuze modus in vol kobalt, noodstop met boter-inkt waarschuwingsstrepen |
-| Museum | Zaal I boter, II koraal (bouwplaats), III kobalt (labels aan een rail), IV lila (gokkast), V sterrenhemel, VI pikzwart met zaklamp |
+| Control Center | Eén crème lessenaar met lichtblauwe toren; modules op het dek in eigen pastel, noodstop op boter-donkerblauwe strepen |
+| Museum | Zaal I boter, II poederroze (bouwplaats), III donkerblauw (labels aan een rail + archiefmachine), IV lila (kleine ideeënmachine), V sterrenhemel met kinetische installatie, VI donkere 3D-zaal met zaklamp |
 
 ## Typografie
 
@@ -62,41 +64,124 @@ Elke accentkleur heeft drie varianten:
 
 ## Vormen en illustraties
 
-- **Plat 3D**: volle vlakken met één glanslicht en één schaduwkant. Zie `Objects.tsx` (afdelingsobjecten en zwevende vormen) en `Artwork.tsx` (procedurele museumobjecten: bol, cilinder, kubus, kegel, ring, blob en boog).
+- **3D-objecten**: afdelingsobjecten, hero-vormen en museumstukken zijn vooraf gerenderd uit de 3D-bouwdoos (`public/3d/*.webp`, opnieuw maken met `node scripts/render-3d.mjs`). Octrooitekeningen op de uitvindingskaarten blijven bewust lijntekeningen (`InventionFig.tsx`).
 - **Kaarten**: ronde hoeken van 22–36 px. Secties zijn ‘platen’ met nog grotere ronde hoeken en een smalle marge, zodat de pagina als losse zalen leest.
 - **Knoppen**: pillen met een tastbare onderrand. Bij indrukken zakt de knop in.
 - **Stempels**: staan altijd een paar graden scheef (`--tilt`).
 
-## De ideeënmachine (FIG. 1)
+## 3D: techniekkeuze
 
-`src/components/IdeaMachine.tsx`: een uitvinding van een creatief industrieel ontwerper, geen personage. Er zitten bewust geen gezichtjes in. De onderdelen hangen mechanisch samen:
+**Gekozen: hybride.** Live three.js voor de twee interactieve machines, vooraf gerenderde 3D-beelden (WebP) uit dezelfde bouwdoos voor al het andere, en gewone HTML voor alle tekst en bediening.
 
-- **Tandwiel A** (12 tanden) draait een **kruk**. Een drijfstang zet die draaiing om in de op-en-neer-beweging van de **zuiger** in de glazen cilinder. De kinematica wordt per frame berekend (`crank()`) en een unit-test bewaakt dat de zuiger in de cilinder blijft.
-- **Tandwiel B** (8 tanden, overbrenging 1,5×) drijft via een **riem** de **lopende band** aan.
-- De **gyroscopische denkkamer** heeft drie ringen rond een kern en draait mee met de aandrijving.
-- Verder: trechter, glazen twijfelbuis met klemringen, inspiratielamp, schoorsteen, ideeënmeter tot ‘veel te veel’, ventilatierooster, klinknagels, een achterhuis voor diepte, een **pers** boven de band en een **windvaan** (uitgesneden metalen vogel) op de cilinder.
+| | Live WebGL (three.js) | React Three Fiber | Spline / Rive-export | 2.5D (vooraf gerenderd + CSS) | Model-viewer / glTF |
+| --- | --- | --- | --- | --- | --- |
+| Visuele kwaliteit | hoog (echte schaduw, licht, reflectie) | gelijk aan three.js | hoog, maar ‘stock’-look | hoog, statisch per beeld | hoog, alleen losse objecten |
+| Interactie | volledig (mechanische reeksen) | volledig | beperkt tot de editor | beperkt (lagen, sprites) | draaien/zoomen |
+| iPhone-prestaties | goed met render-op-verzoek | iets zwaarder (React-reconciler) | zware runtime | uitstekend | redelijk |
+| Complexiteit / onderhoud | middel, alles in code | middel, extra abstractie | laag, maar buiten de repo | laag | laag, maar modellen buiten code |
+| Bundelgrootte | ~148 kB gzip, lazy | +40–60 kB extra | 300 kB+ runtime | 0 kB JS | ~100 kB + modellen |
+| Toegankelijkheid | via HTML-laag | via HTML-laag | canvas, moeilijk | via HTML-laag | redelijk |
 
-**Een tik geeft deze reeks (± 2 s):**
+Waarom hybride:
 
-1. Een gedachte reist door de buis.
-2. In de denkkamer licht de kern koraal op en versnellen de ringen. Tegelijk pompt de zuiger, slaat de meter uit en komt er rook uit de schoorsteen.
-3. Er gebeurt iets onverwachts: de lamp springt los, er verschijnt een Eureka-vlag, de machine stempelt zichzelf ‘Goedgekeurd’, of er komt een veer met signaalschijf uit de trechter.
-4. De pers stempelt de uitvinding en de band voert hem af.
+- Alleen waar interactie het verhaal draagt (de ideeënmachine en het Control Center) draait echte 3D. Die scènes laden pas bij de eerste echte interactie (muis, toets, aanraking), dus Lighthouse en de eerste paginalading merken er niets van.
+- Museum, afdelingen, hero-vormen en posters komen uit **dezelfde** bouwdoos, maar worden vooraf gerenderd met `node scripts/render-3d.mjs` (headless Chromium + SwiftShader). Eén visuele taal, nul JavaScript voor statische objecten.
+- Een poster die pixel voor pixel gelijk is aan het eerste 3D-frame staat er meteen; de live scène neemt het ongemerkt over.
+- **Geen statische afbeelding met onzichtbare klikgebieden**: de machines bewegen echt (tandwielen, band, sorteerarm, pers, hendel, meters), en de HTML-knoppen liggen op geprojecteerde ankerpunten van de 3D-onderdelen.
 
-**Zeldzame reacties:**
+### Bouwdoos (`src/three/`)
 
-- **Losse moer**: ongeveer 1 op 12 kans. De moer stuitert weg en de status meldt ‘Moertje los (geen zorgen)’.
-- **Mega-idee**: elke 9e uitvinding.
-- **Vastgelopen**: 12 tikken binnen 6 s. De machine print een storingsrapport. Dit is ook een missie.
-- **Gouden modus**: de windvaan geeft vijf gouden uitvindingen.
+| Bestand | Inhoud |
+| --- | --- |
+| `engine.ts` | Eén renderer met zacht studiolicht (RoomEnvironment, hemellamp, één schaduwlamp), contactschaduw, render-op-verzoek, `tween` en `easing` (inOut, spring, thump). |
+| `kit.ts` | Palet, materialen (mat gelakt, kunststof, geborsteld metaal, glas), onderdelen: afgeronde blokken, buizen met kragen, glazen buizen, kabels, tandwielen, trechter, meter, lopende band, ribbelplatform, boog, lampje, bal, kaartje. |
+| `scenes/ideaMachine.ts` | De grote ideeënmachine (live). |
+| `scenes/console.ts` | De bedieningsinstallatie van het Control Center (live). |
+| `scenes/objects.ts` | Objectstudio voor alle vooraf gerenderde beelden. |
+| `useLazy3D.ts` | Gedeelde laadlogica: poster, laden bij interactie, pauze buiten beeld, kwaliteit per apparaat, terugval. |
+| `machineInfo.ts`, `consoleInfo.ts`, `stillInfo.ts` | Posterformaten, ankerpunten en teksten, zonder three.js (mogen in de hoofdbundel). |
 
-Genummerde callouts leggen de acht onderdelen uit. Ze zijn met muis, touch en toetsenbord te bedienen.
+### Prestaties, batterij en terugval
 
-**Uitvindingen:**
+- Render-op-verzoek: er wordt alleen getekend als er iets beweegt; stilstand = nul frames.
+- Buiten beeld wordt de lus gepauzeerd (IntersectionObserver).
+- Pixelratio max. 2 (desktop), 1,5 (mobiel) en 1,25 op zwakke apparaten (≤ 4 kernen of ≤ 3 GB); kleinere schaduwkaarten op mobiel.
+- Zonder WebGL, met `prefers-reduced-motion` of met databesparing blijft de poster staan en werkt alle bediening via HTML. De machine levert dan direct een uitvinding.
+- De functionele e2e-tests draaien bewust **zonder** WebGL (terugvalpad); `e2e/drie-d.spec.ts` draait **met** WebGL en controleert dat de scènes live komen, pixels tekenen en reageren.
 
-- Ze komen uit `src/content/inventions.ts`: onderwerp × apparaat × bijvoeglijk naamwoord × model, met grammaticaal passende beschrijvingen.
-- Daarnaast zijn er klassiekers en de mega- en gouden reeksen.
-- Er zijn meer dan 10.000 combinaties, volledig lokaal.
+## Referentieanalyse
+
+De referentie (Behance) toont een pastelkleurige isometrische machine: buizen, een band, een geribbeld geel platform, een klok, een blauwe bak, een stippenbord op stangen en een roze leiding uit het plafond.
+
+Overgenomen als **principes**, niet als kopie:
+
+- zachte pastels met één donkerblauw contrast;
+- afgeronde, ‘gegoten’ vormen met matte lak;
+- leidingen en kabels die onderdelen zichtbaar verbinden;
+- een leiding uit het plafond als anker in de ruimte;
+- objecten staan op de vloer, met contactschaduw. Niets zweeft zonder reden.
+
+Bewust anders: geen klok maar een ideeënmeter, een sorteerarm met keurbord en een stempelpers (oorzaak → gevolg), en een eigen uitvoerstation met boog en ribbelplatform.
+
+## De ideeënmachine (FIG. 1, live 3D)
+
+`src/three/scenes/ideaMachine.ts` + `src/components/IdeaMachine.tsx`. Geen gezichtjes, geen personages: een installatie.
+
+**Eén tik (± 4 s):**
+
+1. Een bal valt uit de invoertrechter (op een driepoot) en rolt door de glazen buis.
+2. In de verwerker draaien drie tandwielen (12, 8 en 6 tanden, juiste overbrenging) en slaat de meter uit.
+3. Via de tweede buis valt het idee op de lopende band.
+4. De sorteerarm keurt het; het stippenbord licht op in de kleur van het idee.
+5. Goedgekeurd: de pers stempelt de bal tot octrooikaart, die door de boog naar het platform rijdt. Afgekeurd: de arm veegt het idee in de afkeurbak.
+
+**Varianten:**
+
+| Variant | Kans |
+| --- | --- |
+| Afgekeurd (status ‘Afgekeurd: …’) | ± 1 op 5 |
+| Twee ideeën tegelijk (bijproduct) | ± 1 op 7 |
+| Korte hapering in de verwerker (rook, rode lamp, herstelt zichzelf) | ± 1 op 25, na 4 tikken |
+| Mega-idee (grotere bal, langer brommen) | elke 9e |
+| Vastgelopen met storingsrapport (missie) | 12 tikken binnen 6 s |
+| Gouden modus | via de verborgen sleutelschakelaar op de verwerker |
+
+Desktop: brede compositie naast de titel. Mobiel: een eigen camera (compacter, dichterbij) met grotere tikdoelen. Acht genummerde callouts liggen op de 3D-onderdelen.
+
+## Het Control Center (live 3D)
+
+`src/three/scenes/console.ts` + `src/pages/ControlCenter.tsx`: één bedieningslessenaar (MdB-2 ‘Altijd Aan’) in plaats van losse kaarten.
+
+- **Toren**: centraal display (HTML-tekst, met een perspectieftransformatie precies op het 3D-scherm gelegd), meters voor belasting en voortgang, een rij van elf lampjes en een zwaailicht.
+- **Hellend dek**: grote rode ideeënknop, creativiteitsknop met ledkrans, sleutelschakelaar ‘Project afronden’, rustkussen ‘Even niets doen’, muntgleuf ‘Domeinnaam’, tuimelschakelaar ‘Serieuze modus’, drie instellingsschakelaars en een noodstop met klapkapje.
+- **Rondom**: ideeënreservoir met glazen leiding naar het display, printer voor domeinbonnetjes, hendel met capsulemagazijn en glazen goot naar de uitvoerbak, creativiteitsplant, rail met de weglopende knop.
+
+| Bediening | Wat de machine doet |
+| --- | --- |
+| Nieuw idee | knop zakt in, een bal reist door de leiding, het display licht op |
+| Creativiteit | knop draait, ledkrans en lampjes lopen mee, plant groeit, ledstrip kleurt warmer; vanaf 7 lopen de lampjes en dansen de ballen; ideeën worden gekker (twee eigenschappen, ‘in drievoud’) |
+| Project afronden | sleutel draait, voortgangsmeter loopt op en blijft trillend op 99% hangen |
+| Even niets doen | lampjes gaan één voor één uit, het scherm dooft… en de machine start zichzelf weer op (Fout 404) |
+| Domeinnaam | munt valt in de gleuf, de printer drukt een bonnetje af |
+| Hendel | capsule rolt uit het magazijn door de goot in de bak |
+| Noodstop | kapje klapt open; daarna gecontroleerde stilstand, rood scherm, draaiend zwaailicht, herstel na 5 s |
+
+Mobiel: een compacte console met display, hoofdknop, draaiknop, rustkussen, noodstop en hendel. De overige bediening zit in een uitklapbare **bedieningslade**. Logboek, bonnetjes en capsules staan in het uitvoerstation onder de console.
+
+## Museum
+
+Elke zaal houdt zijn eigen ruimtelijke karakter, met objecten uit dezelfde bouwdoos:
+
+| Zaal | 3D |
+| --- | --- |
+| I Briljante ideeën | objecten op sokkels, als **draaiplateau** (8 aanzichten; draaien met muis of vinger) |
+| II Bijna afgerond | bijna-af-machines op een werkplaatsvloer met tape, losse tandwielen en schroeven |
+| III Domeinenarchief | archiefmachine: een kaartje gaat de gleuf in en vliegt naar een la |
+| IV Ideeëngenerator | een kleine ideeënmachine; de rollen staan met perspectief in het venster |
+| V Archief van Morgen | kinetische installatie: wiel en slinger draaien als losse 3D-lagen (alleen in beeld, uit te zetten, stil bij minder beweging) |
+| VI Geheime Zaal | een donkere 3D-zaal die je met de zaklamp verkent |
+
+Niet alles is realtime 3D: alleen waar het iets toevoegt.
 
 ## Jaarverslag
 
@@ -135,7 +220,7 @@ Er is geen parallax. Zonder beweging (reduced motion) staat alles meteen op zijn
 | Ontdekkingen | Wat er verandert |
 | --- | --- |
 | 3 | Een geheim sterretje op het zegel in de kop |
-| 5 | Een gouden sleutel in de hero (nieuwe verrassing). De machine krijgt ‘MDB-1 ★’ en een gouden gedachte in de trechter |
+| 5 | Een gouden sleutel in de hero (nieuwe verrassing). Het machinebordje wordt ‘MDB-1 ★’ |
 | 8 | De zandloper in de footer loopt eindelijk, en u staat in het ontdekkersregister |
 
 - Bij alle missies krijgt de bezoeker automatisch een **gouden certificaat** als Opperbezoeker.
@@ -158,7 +243,7 @@ Easing:
 
 **Prestaties en batterij:**
 
-- De machine heeft één `requestAnimationFrame`-lus. Die draait alleen als de machine in beeld is en iets te doen heeft. Na een paar seconden zonder interactie komt alles tot stilstand.
+- De 3D-scènes renderen alleen als er iets beweegt en pauzeren buiten beeld. De hero-vormen zweven drie keer en liggen dan stil.
 - Een `IntersectionObserver` pauzeert alle CSS-animaties buiten beeld. Dat geldt voor de machine (`.is-offscreen`) en voor de hero-vormen (`.is-away`).
 - Er zijn geen scrollgedreven SVG-metingen meer op de homepage.
 

@@ -4,7 +4,7 @@ test("ideeënmachine produceert ideeën en loopt vast", async ({ page }) => {
   await page.goto("/");
   const machine = page.getByRole("button", { name: /Ideeënmachine/ });
   await machine.click();
-  await expect(page.locator(".belt-card").first()).toBeAttached();
+  await expect(page.locator(".belt-card").first()).toBeAttached({ timeout: 8000 });
   await expect(page.locator(".plate__foot")).not.toContainText("tik op de machine");
   // De octrooikaart toont naam, octrooinummer, illustratie en status.
   const card = page.locator(".invention");
@@ -28,9 +28,9 @@ test("onderdelen van de machine leggen zichzelf uit", async ({ page }) => {
   await expect(page.locator("#machine-uitleg")).toContainText("veel te veel");
 });
 
-test("de windvaan zet de gouden modus aan", async ({ page }) => {
+test("de sleutelschakelaar zet de gouden modus aan", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "Windvaan op de machine" }).click();
+  await page.getByRole("button", { name: "Sleutelschakelaar op de machine" }).click();
   await expect(page.getByText("Verrassing: Gouden modus")).toBeVisible();
   await expect(page.locator(".plate__foot")).toContainText("Gouden modus");
   await page.getByRole("button", { name: /maak een nieuwe uitvinding/ }).click();

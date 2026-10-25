@@ -1,56 +1,50 @@
-import { useCallback, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from "react";
+// Het Martijn Control Center: één grote bedieningsinstallatie (MdB-2 ‘Altijd Aan’).
+// De installatie is een 3D-scène (src/three/scenes/console.ts); alle bediening is gewone, toegankelijke HTML
+// die precies op de geprojecteerde onderdelen ligt. Zonder WebGL blijft de poster staan en werkt alles hetzelfde.
+
+import { useCallback, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent, type ReactNode } from "react";
 import { generateDomain, generateIdea, PLANS, STUCK_AT_99, type Domain } from "../content/generators";
 import { pickFresh, shuffle } from "../lib/random";
 import { sfx } from "../lib/sound";
-import { usePrefersReducedMotion } from "../lib/hooks";
+import { useMediaQuery, usePrefersReducedMotion } from "../lib/hooks";
 import { useGame } from "../state/GameState";
 import { Link } from "../router";
+import { CONSOLE_ANCHORS, CONSOLE_POSTER, quadToMatrix3d, type ConsoleAnchor, type ConsoleLayout } from "../three/consoleInfo";
+import type { ConsoleController, Tone } from "../three/scenes/console";
+import { quality, useLazy3D } from "../three/useLazy3D";
 import "../styles/control.css";
 
 type LogLine = { id: number; text: string; tone?: "ok" | "warn" | "err" };
 type Capsule = { id: number; plan: string; color: string; open: boolean };
+type Toggle = "koffie" | "ambitie" | "realisme";
+const TOGGLES: Toggle[] = ["koffie", "ambitie", "realisme"];
 
-const CAPSULE_COLORS = ["#f2785c", "#3c5bd6", "#9fc39a", "#f6d36b", "#c3b2f0", "#191b2e"];
+const CAPSULE_COLORS = ["#f2b6c3", "#a8c6e8", "#b3e1cb", "#f6d781", "#d5c7f2", "#e58ea3"];
 const LOAD_PER_ACTION = 9;
+const pct = (n: number) => `${(n * 100).toFixed(2)}%`;
+const hex = (c: string) => parseInt(c.slice(1), 16);
+const later = (ms: number) => new Promise<void>((r) => window.setTimeout(r, ms));
 
-/** De creativiteitsplant groeit mee met de draaiknop. Bij 11 gaat de bloem draaien. */
-function Plant({ level }: { level: number }) {
-  const h = 14 + Math.min(level, 10) * 6.5;
-  const leaves = Math.floor(Math.min(level, 10) / 2);
+/** Een knop op de installatie: een onzichtbaar maar focusbaar vlak precies over het 3D-onderdeel, met een naamplaatje. */
+function Control({
+  a,
+  plate,
+  side = "below",
+  className = "",
+  children,
+  ...rest
+}: { a: ConsoleAnchor; plate?: ReactNode; side?: "below" | "above" | "left" } & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <svg viewBox="0 0 80 110" className={`plant ${level >= 11 ? "is-eleven" : ""}`} aria-hidden="true">
-      <path d={`M40 88V${88 - h}`} stroke="#35603b" strokeWidth="3" strokeLinecap="round" className="plant__stem" />
-      {Array.from({ length: leaves }, (_, i) => {
-        const y = 82 - i * 12;
-        const left = i % 2 === 0;
-        return (
-          <path
-            key={i}
-            className="plant__leaf"
-            d={left ? `M40 ${y}c-6-8-16-8-20-4 6 6 14 8 20 4z` : `M40 ${y}c6-8 16-8 20-4-6 6-14 8-20 4z`}
-            fill="#9fc39a"
-            stroke="#191b2e"
-            strokeWidth="1.4"
-          />
-        );
-      })}
-      {level >= 8 && (
-        <g className="plant__flower" style={{ transformOrigin: `40px ${88 - h}px` }}>
-          {Array.from({ length: 6 }, (_, i) => (
-            <ellipse key={i} cx="40" cy={88 - h - 7} rx="4" ry="7" fill="#f6d36b" stroke="#191b2e" strokeWidth="1.2" transform={`rotate(${i * 60} 40 ${88 - h})`} />
-          ))}
-          <circle cx="40" cy={88 - h} r="4.5" fill="#f2785c" stroke="#191b2e" strokeWidth="1.2" />
-        </g>
-      )}
-      <path d="M24 88h32l-4 18H28z" fill="#f2785c" stroke="#191b2e" strokeWidth="1.6" strokeLinejoin="round" />
-      <rect x="21" y="84" width="38" height="8" rx="3" fill="#d4502f" stroke="#191b2e" strokeWidth="1.6" />
-    </svg>
+    <button type="button" className={`cc-ctl ${className}`} style={{ left: pct(a.x), top: pct(a.y), "--r": a.r } as CSSProperties} {...rest}>
+      {children}
+      {plate && <span className={`cc-plate cc-plate--${side}`}>{plate}</span>}
+    </button>
   );
 }
 
 /** Een knop die wegloopt voor de muis. Met het toetsenbord lukt het meteen; op een touchscreen na twee pogingen. */
-function RunawayButton({ onCaught, disabled }: { onCaught: () => void; disabled: boolean }) {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+function RunawayButton({ onCaught, disabled, range }: { onCaught: () => void; disabled: boolean; range: number }) {
+  const [x, setX] = useState(0);
   const [tries, setTries] = useState(0);
   const pointer = useRef<string>("");
   const reduced = usePrefersReducedMotion();
@@ -58,14 +52,17 @@ function RunawayButton({ onCaught, disabled }: { onCaught: () => void; disabled:
   const dodge = () => {
     sfx.tick();
     setTries((t) => t + 1);
-    const ang = Math.random() * Math.PI * 2;
-    setPos({ x: Math.round(Math.cos(ang) * 70), y: Math.round(Math.sin(ang) * 26) });
+    setX((prev) => {
+      let next = Math.round((Math.random() * 2 - 1) * range);
+      if (Math.abs(next - prev) < range * 0.4) next = prev > 0 ? -Math.abs(next) - range * 0.3 : Math.abs(next) + range * 0.3;
+      return Math.max(-range, Math.min(range, next));
+    });
   };
   return (
     <button
       type="button"
       className={`runaway ${tries >= limit ? "is-tired" : ""}`}
-      style={{ transform: `translate(${pos.x}px, ${pos.y}px) rotate(${pos.x / 12}deg)` }}
+      style={{ transform: `translateX(${x}px) rotate(${x / 30}deg)` }}
       disabled={disabled}
       onPointerEnter={(e) => {
         if (e.pointerType === "mouse" && tries < limit && !reduced) dodge();
@@ -78,7 +75,7 @@ function RunawayButton({ onCaught, disabled }: { onCaught: () => void; disabled:
           dodge();
           return;
         }
-        setPos({ x: 0, y: 0 });
+        setX(0);
         onCaught();
       }}
     >
@@ -91,6 +88,9 @@ export default function ControlCenter() {
   const game = useGame();
   const { findEgg, completeMission, unlockSecret, setSerious, serious, sound, setSound } = game;
   const reduced = usePrefersReducedMotion();
+  const layout: ConsoleLayout = useMediaQuery("(max-width: 759px)") ? "compact" : "wide";
+  const poster = CONSOLE_POSTER[layout];
+  const { anchors: A, screen: SR } = CONSOLE_ANCHORS[layout];
 
   const [output, setOutput] = useState<{ title: string; body: string; tone?: "err" | "ok" }>({
     title: "Systeem gereed.",
@@ -106,6 +106,7 @@ export default function ControlCenter() {
   const [progress, setProgress] = useState<number | null>(null);
   const [progressText, setProgressText] = useState("");
   const [nothingCount, setNothingCount] = useState(0);
+  const [resting, setResting] = useState(false);
   const [errorWin, setErrorWin] = useState(false);
   const [receipts, setReceipts] = useState<Domain[]>([]);
   const [cover, setCover] = useState(false);
@@ -114,19 +115,73 @@ export default function ControlCenter() {
   const capsuleId = useRef(1);
   const [pull, setPull] = useState(0);
   const [pulling, setPulling] = useState(false);
-  const [switches, setSwitches] = useState({ koffie: false, ambitie: false, realisme: true });
+  const [switches, setSwitches] = useState<Record<Toggle, boolean>>({ koffie: false, ambitie: false, realisme: true });
   const lastIdea = useRef<string | undefined>(undefined);
   const lastStuck = useRef<string | undefined>(undefined);
   const errorOk = useRef<HTMLButtonElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const addLog = useCallback((text: string, tone?: LogLine["tone"]) => {
-    setLog((l) => [{ id: logId.current++, text, tone }, ...l].slice(0, 6));
+  const [size, setSize] = useState({ w: 0, h: 0 });
+  useEffect(() => {
+    const el = stageRef.current;
+    if (!el || !("ResizeObserver" in window)) return;
+    const ro = new ResizeObserver(([e]) => setSize({ w: e.contentRect.width, h: e.contentRect.height }));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  const level = eleven ? 11 : creativity;
+  const tone: Tone = output.tone ?? "normal";
+
+  // ---------- De 3D-installatie ----------
+  const state = useRef({ level, load, progress, serious, switches, cover, emergency, jammed, tone });
+  state.current = { level, load, progress, serious, switches, cover, emergency, jammed, tone };
+  const { mode, ctl: scene, activate } = useLazy3D<ConsoleController>({
+    stageRef,
+    canvasRef,
+    layout,
+    disabled: reduced,
+    build: async (canvas, w, h) => {
+      const { buildConsole } = await import("../three/scenes/console");
+      return buildConsole(canvas, w, h, layout, quality(layout === "compact"));
+    },
+    onReady: (c) => {
+      // de huidige toestand overzetten op de vers geladen installatie
+      const s = state.current;
+      c.setCreativity(s.level);
+      c.setLoad(s.load / 100);
+      if (s.progress !== null) c.setProgress(s.progress / 100);
+      c.setSerious(s.serious);
+      (Object.keys(s.switches) as Toggle[]).forEach((k) => c.setToggle(k, s.switches[k]));
+      c.setCover(s.cover);
+      if (s.emergency) c.emergency(true);
+      if (s.jammed) c.jam(true);
+      c.screen(s.tone);
+      c.stage.render();
+    },
+  });
+  const live = () => scene.current;
+
+  useEffect(() => live()?.setCreativity(level), [level]);
+  useEffect(() => live()?.setLoad(load / 100), [load]);
+  useEffect(() => live()?.setProgress(progress === null ? null : progress / 100), [progress]);
+  useEffect(() => live()?.setSerious(serious), [serious]);
+  useEffect(() => live()?.setCover(cover), [cover]);
+  useEffect(() => live()?.emergency(emergency), [emergency]);
+  useEffect(() => live()?.jam(jammed), [jammed]);
+  useEffect(() => live()?.screen(tone), [tone]);
+  useEffect(() => live()?.setLever(pull), [pull]);
+
+  const addLog = useCallback((text: string, t?: LogLine["tone"]) => {
+    setLog((l) => [{ id: logId.current++, text, tone: t }, ...l].slice(0, 6));
   }, []);
 
   // Belasting zakt langzaam terug.
   useEffect(() => {
     if (jammed) return;
     const iv = window.setInterval(() => {
+      if (loadRef.current === 0) return;
       loadRef.current = Math.max(0, loadRef.current - 2);
       setLoad(loadRef.current);
     }, 400);
@@ -135,6 +190,7 @@ export default function ControlCenter() {
 
   const act = useCallback(
     (amount = LOAD_PER_ACTION): boolean => {
+      void activate();
       if (jammed || emergency) return false;
       const next = Math.min(100, loadRef.current + amount);
       loadRef.current = next;
@@ -149,16 +205,18 @@ export default function ControlCenter() {
       }
       return true;
     },
-    [jammed, emergency, addLog, completeMission],
+    [jammed, emergency, addLog, completeMission, activate],
   );
 
-  // ---------- Knoppen ----------
+  // ---------- Bediening ----------
 
   const newIdea = () => {
     if (!act()) return;
     sfx.blip();
-    let idea = generateIdea();
-    while (idea.title === lastIdea.current) idea = generateIdea();
+    live()?.press("idee");
+    live()?.idea();
+    let idea = generateIdea(Math.random, level);
+    while (idea.title === lastIdea.current) idea = generateIdea(Math.random, level);
     lastIdea.current = idea.title;
     setOutput({ title: idea.title, body: idea.description });
     addLog(`Nieuw idee ${idea.serial} gestart`, "ok");
@@ -167,6 +225,7 @@ export default function ControlCenter() {
   const finishProject = () => {
     if (progress !== null || !act(14)) return;
     sfx.click();
+    live()?.press("afronden");
     addLog("Project ‘Afronden’ gestart");
     setOutput({ title: "Project wordt afgerond…", body: "Een ogenblik geduld. Het instituut rondt nooit iets af, maar probeert het graag." });
     if (reduced) {
@@ -211,8 +270,9 @@ export default function ControlCenter() {
     return () => window.clearInterval(iv);
   }, [progress, addLog, completeMission]);
 
-  const doNothing = () => {
-    if (!act(4)) return;
+  const doNothing = async () => {
+    if (resting || !act(4)) return;
+    live()?.press("niets");
     if (nothingCount >= 3) {
       sfx.success();
       setOutput({ title: "Goed bezig!", body: "U heeft iets gedaan: u heeft op een knop gedrukt. De knop ‘Even niets doen’ is hierdoor in de war geraakt.", tone: "ok" });
@@ -221,9 +281,19 @@ export default function ControlCenter() {
       setNothingCount(0);
       return;
     }
-    sfx.error();
-    setErrorWin(true);
     setNothingCount((c) => c + 1);
+    const c = live();
+    if (c && !reduced) {
+      // de machine probeert echt even niets te doen: lampjes uit, scherm uit… en start zichzelf weer op
+      setResting(true);
+      setOutput({ title: "Rustmodus…", body: "De machine probeert even helemaal niets te doen." });
+      addLog("Rustmodus gestart");
+      await Promise.race([c.sleep(), later(3200)]);
+      setResting(false);
+    }
+    sfx.error();
+    setOutput({ title: "Rustmodus mislukt.", body: "De machine heeft zichzelf direct weer opgestart. Er waren nog ideeën.", tone: "err" });
+    setErrorWin(true);
     addLog("Fout 404: rustmoment niet gevonden", "err");
   };
 
@@ -234,6 +304,8 @@ export default function ControlCenter() {
   const buyDomain = () => {
     if (!act()) return;
     sfx.clunk();
+    live()?.press("domein");
+    live()?.print();
     const d = generateDomain();
     setReceipts((r) => [d, ...r].slice(0, 3));
     setOutput({ title: `Domein ‘${d.name}’ (niet echt) gekocht`, body: `${d.reason} Prijs: € 0,00. Er is niets geregistreerd; deze extensie bestaat niet eens.` });
@@ -241,6 +313,7 @@ export default function ControlCenter() {
   };
 
   const changeCreativity = (next: number) => {
+    void activate();
     if (jammed || emergency) return;
     if (next > 10) {
       if (!eleven) {
@@ -263,12 +336,14 @@ export default function ControlCenter() {
   };
 
   const toggleSerious = () => {
+    void activate();
     sfx.click();
     addLog("Serieuze modus geactiveerd");
     setSerious(true);
   };
 
   const pressEmergency = () => {
+    void activate();
     if (!cover) {
       setCover(true);
       sfx.click();
@@ -300,24 +375,30 @@ export default function ControlCenter() {
     sfx.clunk();
     const plan = pickFresh(PLANS, capsules[capsules.length - 1]?.plan);
     const id = capsuleId.current++;
-    setCapsules((c) => [...c.slice(-5), { id, plan, color: CAPSULE_COLORS[id % CAPSULE_COLORS.length], open: false }]);
-    setOutput({ title: "Nieuw plan uit de machine gerold", body: `Open de capsule om het plan te bekijken. (Spoiler: ${plan.toLowerCase()}.)` });
+    const color = CAPSULE_COLORS[id % CAPSULE_COLORS.length];
+    setCapsules((c) => [...c.slice(-5), { id, plan, color, open: false }]);
+    live()?.capsule(hex(color));
+    setOutput({ title: "Nieuw plan uit de machine gerold", body: `Open de capsule in de bak om het plan te bekijken. (Spoiler: ${plan.toLowerCase()}.)` });
     addLog("Hendel overgehaald: 1 nieuw plan");
   };
 
   // Hendel: slepen naar beneden of gewoon klikken.
-  const leverStart = useRef<{ y: number; moved: boolean } | null>(null);
+  const leverStart = useRef<{ y: number; moved: boolean; span: number } | null>(null);
   const onLeverDown = (e: PointerEvent<HTMLButtonElement>) => {
+    void activate();
     e.currentTarget.setPointerCapture(e.pointerId);
-    leverStart.current = { y: e.clientY, moved: false };
+    const h = stageRef.current?.getBoundingClientRect().height ?? 600;
+    leverStart.current = { y: e.clientY, moved: false, span: Math.max(40, Math.abs(A.leverEnd.y - A.lever.y) * h) };
     setPulling(true);
   };
   const onLeverMove = (e: PointerEvent<HTMLButtonElement>) => {
-    if (!leverStart.current) return;
-    const dy = e.clientY - leverStart.current.y;
-    if (Math.abs(dy) > 6) leverStart.current.moved = true;
-    setPull(Math.max(0, Math.min(1, dy / 90)));
+    const s = leverStart.current;
+    if (!s) return;
+    const dy = e.clientY - s.y;
+    if (Math.abs(dy) > 6) s.moved = true;
+    setPull(Math.max(0, Math.min(1, dy / s.span)));
   };
+  const releaseLever = () => window.setTimeout(() => setPull(0), 260);
   const onLeverUp = () => {
     const s = leverStart.current;
     leverStart.current = null;
@@ -325,7 +406,7 @@ export default function ControlCenter() {
     if (s && (!s.moved || pull > 0.55)) {
       setPull(1);
       triggerLever();
-      window.setTimeout(() => setPull(0), 260);
+      releaseLever();
     } else setPull(0);
   };
   const onLeverKey = (e: KeyboardEvent<HTMLButtonElement>) => {
@@ -333,15 +414,17 @@ export default function ControlCenter() {
       e.preventDefault();
       setPull(1);
       triggerLever();
-      window.setTimeout(() => setPull(0), 260);
+      releaseLever();
     }
   };
 
-  const toggleSwitch = (key: keyof typeof switches) => {
+  const toggleSwitch = (key: Toggle) => {
+    void activate();
     if (jammed || emergency) return;
     sfx.click();
     const next = { ...switches, [key]: !switches[key] };
     setSwitches(next);
+    live()?.setToggle(key, next[key]);
     addLog(`Schakelaar ${key}: ${next[key] ? "aan" : "uit"}`);
     if (next.koffie && next.ambitie && !next.realisme) {
       unlockSecret();
@@ -360,6 +443,7 @@ export default function ControlCenter() {
 
   const unjam = () => {
     sfx.clunk();
+    live()?.thump();
     setJammed(false);
     loadRef.current = 30;
     setLoad(30);
@@ -368,7 +452,6 @@ export default function ControlCenter() {
   };
 
   // ---------- Draaiknop ----------
-
   const knobRef = useRef<HTMLDivElement>(null);
   const knobDrag = useRef(false);
   const knobFromPointer = (e: PointerEvent<HTMLDivElement>) => {
@@ -396,10 +479,42 @@ export default function ControlCenter() {
     }
   };
 
-  const knobAngle = eleven ? 150 : -135 + creativity * 27;
-  const level = eleven ? 11 : creativity;
-  const sparkles = reduced ? 0 : Math.max(0, level - 2) * 2;
   const disabled = jammed || emergency;
+  const compact = layout === "compact";
+  const finishLabel = progress !== null ? "Bezig met afronden…" : "Project afronden";
+  const [drawer, setDrawer] = useState(false);
+  const railPx = Math.round(A.rail.r * 0.8 * (size.w || (compact ? 360 : 1100)));
+  // het display: een HTML-scherm dat met een perspectieftransformatie precies op het 3D-scherm ligt
+  const screenStyle: CSSProperties = (() => {
+    if (!size.w || !SR.quad) return { left: pct(SR.x), top: pct(SR.y), width: pct(SR.w), height: pct(SR.h) };
+    const q = SR.quad.map((p) => ({ x: p.x * size.w, y: p.y * size.h }));
+    const w = Math.hypot(q[1].x - q[0].x, q[1].y - q[0].y);
+    const h = Math.hypot(q[2].x - q[0].x, q[2].y - q[0].y);
+    return { left: 0, top: 0, width: w, height: h, transformOrigin: "0 0", transform: quadToMatrix3d(w, h, q) };
+  })();
+
+  // − en + naast de draaiknop (op mobiel in de bedieningslade, waar ze niets overlappen)
+  const steps = (
+    <span className="cc-knob__steps">
+      <button type="button" onClick={() => changeCreativity(creativity - 1)} disabled={disabled} aria-label="Creativiteit omlaag">
+        −
+      </button>
+      <button type="button" onClick={() => changeCreativity(creativity + 1)} disabled={disabled} aria-label="Creativiteit omhoog">
+        +
+      </button>
+    </span>
+  );
+
+  const logList = (
+    <ol className="screen__log" aria-label="Logboek">
+      {log.map((l) => (
+        <li key={l.id} className={l.tone ? `is-${l.tone}` : ""}>
+          {"> "}
+          {l.text}
+        </li>
+      ))}
+    </ol>
+  );
 
   return (
     <div className="page control">
@@ -409,7 +524,7 @@ export default function ControlCenter() {
           <h1 id="cc-title">
             Martijn Control <em>Center</em>
           </h1>
-          <p className="lede">Bedieningsinstructies: druk op alles. De machine is getest door niemand en goedgekeurd door iedereen die hem niet heeft gebruikt.</p>
+          <p className="lede">Bedieningsinstructies: druk op alles. De installatie is getest door niemand en goedgekeurd door iedereen die hem niet heeft gebruikt.</p>
         </div>
         <dl className="spec">
           <dt>Model</dt>
@@ -424,66 +539,155 @@ export default function ControlCenter() {
       </section>
 
       <div className="wrap">
-        <div
-          className={`console level-${Math.min(level, 11)} ${jammed ? "is-jammed" : ""} ${emergency ? "is-emergency" : ""}`}
+        <section
+          className={`console console--${layout} console--${mode} level-${level} ${jammed ? "is-jammed" : ""} ${emergency ? "is-emergency" : ""} ${resting ? "is-resting" : ""}`}
+          aria-label="Bedieningsinstallatie MdB-2"
+          data-lamps={Math.min(level, 11)}
+          data-plant={Math.floor(Math.min(level, 10) / 2)}
           style={{ "--c": level / 10 } as CSSProperties}
         >
-          {sparkles > 0 && (
-            <div className="console__sparkles" aria-hidden="true">
-              {Array.from({ length: sparkles }, (_, i) => (
-                <span key={i} style={{ left: `${(i * 53) % 100}%`, top: `${(i * 37) % 100}%`, animationDelay: `${-i * 0.37}s`, background: CAPSULE_COLORS[i % 6] }} />
-              ))}
-            </div>
-          )}
-          {emergency && (
-            <div className="beacon" aria-hidden="true">
-              <span />
-            </div>
-          )}
+          <div ref={stageRef} className="cc-stage" style={{ aspectRatio: `${poster.w} / ${poster.h}` }}>
+            <img
+              key={`p-${layout}`}
+              className="cc-poster"
+              src={poster.src}
+              srcSet={poster.srcset}
+              sizes={compact ? "100vw" : "(min-width: 1240px) 1180px, 96vw"}
+              width={poster.w}
+              height={poster.h}
+              alt=""
+              decoding="async"
+              fetchPriority="high"
+            />
+            <canvas key={`c-${layout}`} ref={canvasRef} className="cc-canvas" aria-hidden="true" />
 
-          <div className="console__head" aria-hidden="true">
-            <span>Instrumentenpaneel · model MdB-2</span>
-            <span className="console__lamps">
-              {Array.from({ length: 11 }, (_, i) => (
-                <i key={i} className={i < level ? "is-on" : ""} />
-              ))}
+            {/* Het centrale display */}
+            <div className={`cc-screen cc-screen--${tone}`} style={screenStyle}>
+              <div className="screen">
+                <div className="screen__top">
+                  <span className="label">Uitvoerscherm · MdB-2</span>
+                  <button type="button" className="screen__sound" aria-pressed={sound} onClick={() => setSound(!sound)}>
+                    Geluid: {sound ? "aan" : "uit"}
+                  </button>
+                </div>
+                <div key={output.title} className={`screen__output ${output.tone ? `is-${output.tone}` : ""}`} aria-live="polite" aria-atomic="true">
+                  <p className="screen__title">{output.title}</p>
+                  <p className="screen__body">{output.body}</p>
+                </div>
+                {progress !== null && (
+                  <div className="segbar" role="progressbar" aria-label="Voortgang project" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress}>
+                    <div className="segbar__track">
+                      {Array.from({ length: 20 }, (_, i) => (
+                        <span key={i} className={i < Math.floor(progress / 5) ? "is-on" : ""} />
+                      ))}
+                    </div>
+                    <span className="segbar__pct">{progress}%</span>
+                    {progress >= 99 && <span className="segbar__text">{progressText}</span>}
+                  </div>
+                )}
+                {!compact && logList}
+              </div>
+            </div>
+
+            {/* Meters */}
+            <span className={`cc-readout ${compact ? "visually-hidden" : ""}`} role="img" aria-label={`Machinebelasting ${Math.round(load)} procent`} style={{ left: pct(A.gaugeLoad.x), top: pct(A.gaugeLoad.y) }}>
+              Belasting {Math.round(load)}%
             </span>
-            <span>Creativiteit {level}/10</span>
-          </div>
+            <span className={`cc-readout ${compact ? "visually-hidden" : ""}`} aria-hidden="true" style={{ left: pct(A.gaugeProgress.x), top: pct(A.gaugeProgress.y) }}>
+              Voortgang {progress ?? 0}%
+            </span>
 
-          {/* Scherm */}
-          <div className="console__screen module" style={{ "--i": 0 } as CSSProperties}>
-            <div className="screen">
-              <div className="screen__top">
-                <span className="label">Uitvoerscherm · CRT-model 1987</span>
-                <button type="button" className="screen__sound" aria-pressed={sound} onClick={() => setSound(!sound)}>
-                  Geluid: {sound ? "aan" : "uit"}
+            {/* Bediening op het dek */}
+            <Control a={A.idee} className="cc-ctl--idee" plate="Nieuw idee starten" onClick={newIdea} disabled={disabled} />
+            <Control a={A.niets} plate={nothingCount >= 3 ? "Toch maar iets doen" : "Even niets doen"} onClick={() => void doNothing()} disabled={disabled || resting} />
+            {!compact && (
+              <>
+                <Control a={A.afronden} side="above" plate={finishLabel} onClick={finishProject} disabled={disabled || progress !== null} />
+                <Control a={A.domein} plate="Nog een domeinnaam kopen" onClick={buyDomain} disabled={disabled} />
+                <Control a={A.serious} role="switch" aria-checked={serious} aria-label="Serieuze modus" plate="Serieuze modus" onClick={toggleSerious} disabled={disabled} />
+                {TOGGLES.map((k) => (
+                  <Control key={k} a={A[k]} className={`cc-ctl--toggle ${switches[k] ? "is-on" : ""}`} role="switch" aria-checked={switches[k]} aria-label={k} onClick={() => toggleSwitch(k)} disabled={disabled}>
+                    <span className="cc-dot" aria-hidden="true" />
+                  </Control>
+                ))}
+                <span className="cc-plate cc-plate--free" aria-hidden="true" style={{ left: pct(A.ambitie.x), top: pct(A.ambitie.y - A.ambitie.r * 2.6) }}>
+                  Koffie · Ambitie · Realisme
+                </span>
+              </>
+            )}
+            <Control
+              a={A.stop}
+              className={`cc-ctl--stop ${cover ? "is-open" : ""}`}
+              plate={cover ? "Kapje open. Zeker weten?" : "Noodstop (eerst kapje)"}
+              onClick={pressEmergency}
+              disabled={emergency || jammed}
+              aria-label={cover ? "Druk op de officiële noodstop" : "Open het beschermkapje van de noodstop"}
+            />
+
+            {/* Draaiknop */}
+            <div className="cc-knob" style={{ left: pct(A.knob.x), top: pct(A.knob.y), "--r": A.knob.r } as CSSProperties}>
+              <div
+                ref={knobRef}
+                className="cc-ctl cc-ctl--knob"
+                role="slider"
+                tabIndex={disabled ? -1 : 0}
+                aria-labelledby="knob-label"
+                aria-valuemin={0}
+                aria-valuemax={10}
+                aria-valuenow={creativity}
+                aria-valuetext={eleven ? "11, buiten de schaal" : `Niveau ${creativity} van 10`}
+                aria-disabled={disabled}
+                onKeyDown={onKnobKey}
+                onPointerDown={(e) => {
+                  knobDrag.current = true;
+                  e.currentTarget.setPointerCapture(e.pointerId);
+                  knobFromPointer(e);
+                }}
+                onPointerMove={(e) => knobDrag.current && knobFromPointer(e)}
+                onPointerUp={() => (knobDrag.current = false)}
+                onPointerCancel={() => (knobDrag.current = false)}
+              />
+              <span className="cc-plate cc-plate--below">
+                <span id="knob-label">Creativiteit</span> <b aria-hidden="true">{level}/10</b>
+              </span>
+              {!compact && steps}
+            </div>
+
+            {/* Hendel */}
+            <Control
+              a={A.lever}
+              className={`cc-ctl--lever ${pulling ? "is-pulling" : ""}`}
+              side={compact ? "below" : "left"}
+              plate="Hendel: nieuw plan"
+              onPointerDown={onLeverDown}
+              onPointerMove={onLeverMove}
+              onPointerUp={onLeverUp}
+              onPointerCancel={onLeverUp}
+              onKeyDown={onLeverKey}
+              disabled={disabled}
+              aria-label="Trek aan de hendel voor een nieuw plan"
+              style={{ left: pct(A.lever.x + (A.leverEnd.x - A.lever.x) * pull), top: pct(A.lever.y + (A.leverEnd.y - A.lever.y) * pull), "--r": A.lever.r } as CSSProperties}
+            />
+
+            {/* Experimentele afdeling: de rail op de voorkant */}
+            <div className="cc-rail" style={{ left: pct(A.rail.x), top: pct(A.rail.y) }}>
+              <RunawayButton onCaught={caught} disabled={disabled} range={railPx} />
+            </div>
+
+            {jammed && (
+              <div className="jam-overlay" role="alert">
+                <p>MACHINE VASTGELOPEN</p>
+                <button type="button" className="btn btn--terra" onClick={unjam} autoFocus>
+                  Tik tegen de machine
                 </button>
               </div>
-              <div className={`screen__output ${output.tone ? `is-${output.tone}` : ""}`} aria-live="polite" aria-atomic="true">
-                <p className="screen__title">{output.title}</p>
-                <p className="screen__body">{output.body}</p>
+            )}
+            {emergency && (
+              <div className="emergency-banner" role="alert">
+                <strong>NOODSTOP</strong>
+                <span>Ideeën worden veilig opgeborgen…</span>
               </div>
-              {progress !== null && (
-                <div className="segbar" role="progressbar" aria-label="Voortgang project" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress}>
-                  <div className="segbar__track">
-                    {Array.from({ length: 20 }, (_, i) => (
-                      <span key={i} className={i < Math.floor(progress / 5) ? "is-on" : ""} />
-                    ))}
-                  </div>
-                  <span className="segbar__pct">{progress}%</span>
-                  {progress >= 99 && <span className="segbar__text">{progressText}</span>}
-                </div>
-              )}
-              <ol className="screen__log" aria-label="Logboek">
-                {log.map((l) => (
-                  <li key={l.id} className={l.tone ? `is-${l.tone}` : ""}>
-                    {"> "}
-                    {l.text}
-                  </li>
-                ))}
-              </ol>
-            </div>
+            )}
             {errorWin && (
               <div className="retro-window" role="alertdialog" aria-modal="false" aria-labelledby="err-title" aria-describedby="err-desc">
                 <div className="retro-window__bar">
@@ -510,250 +714,93 @@ export default function ControlCenter() {
             )}
           </div>
 
-          {/* Belastingsmeter */}
-          <div className="module module--gauge bg-ivory" style={{ "--i": 1 } as CSSProperties}>
-            <span className="module__label">Machinebelasting</span>
-            <svg viewBox="0 0 200 124" className="gauge" role="img" aria-label={`Machinebelasting ${Math.round(load)} procent`}>
-              <path d="M20 110a80 80 0 0 1 56.6-76.5" fill="none" stroke="#9fc39a" strokeWidth="12" />
-              <path d="M76.6 33.5a80 80 0 0 1 73.9 14.8" fill="none" stroke="#f6d36b" strokeWidth="12" />
-              <path d="M150.6 48.4a80 80 0 0 1 29.4 61.6" fill="none" stroke="#f2785c" strokeWidth="12" />
-              <text x="168" y="34" textAnchor="middle" fontFamily="Geist Mono" fontSize="7.5" fontWeight="600" fill="currentColor">VEEL TE VEEL</text>
-              {Array.from({ length: 21 }, (_, i) => {
-                const a = Math.PI + (i / 20) * Math.PI;
-                const r1 = i % 5 ? 72 : 66;
-                return <line key={i} x1={100 + Math.cos(a) * r1} y1={110 + Math.sin(a) * r1} x2={100 + Math.cos(a) * 78} y2={110 + Math.sin(a) * 78} stroke="currentColor" strokeWidth={i % 5 ? 0.8 : 1.4} />;
-              })}
-              {[0, 50, 100].map((v) => {
-                const a = Math.PI + (v / 100) * Math.PI;
-                return (
-                  <text key={v} x={100 + Math.cos(a) * 54} y={110 + Math.sin(a) * 54 + 3} textAnchor="middle" fontFamily="Geist Mono" fontSize="8" fill="currentColor">
-                    {v}
-                  </text>
-                );
-              })}
-              <g style={{ transform: `rotate(${-90 + load * 1.8}deg)`, transformOrigin: "100px 110px", transition: "transform .5s cubic-bezier(.34,1.4,.64,1)" }}>
-                <path d="M100 116L100 40" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              </g>
-              <circle cx="100" cy="110" r="8" fill="#f2785c" stroke="currentColor" strokeWidth="2" />
-            </svg>
-            <span className="label">{Math.round(load)}% {load > 75 ? "· rustig aan!" : ""}</span>
-          </div>
-
-          {/* Nieuw idee */}
-          <div className="module module--idea bg-koraal" style={{ "--i": 2 } as CSSProperties}>
-            <span className="module__label">Ideeënafdeling</span>
-            <button type="button" className="arcade" onClick={newIdea} disabled={disabled}>
-              <span className="arcade__cap">
-                <span>Nieuw idee starten</span>
-              </span>
-            </button>
-          </div>
-
-          {/* Project afronden */}
-          <div className="module module--finish bg-boter" style={{ "--i": 3 } as CSSProperties}>
-            <span className="module__label">Afrondingsafdeling</span>
-            <button type="button" className="keybtn" onClick={finishProject} disabled={disabled || progress !== null}>
-              <span className="keybtn__key" aria-hidden="true">
-                <svg viewBox="0 0 40 40">
-                  <circle cx="14" cy="20" r="9" fill="none" stroke="currentColor" strokeWidth="4" />
-                  <path d="M23 20h14M32 20v6M37 20v5" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-                </svg>
-              </span>
-              {progress !== null ? "Bezig met afronden…" : "Project afronden"}
-            </button>
-          </div>
-
-          {/* Even niets doen */}
-          <div className="module module--nothing bg-salie" style={{ "--i": 4 } as CSSProperties}>
-            <span className="module__label">Rustafdeling</span>
-            <button type="button" className={`pillow ${nothingCount >= 3 ? "is-flipped" : ""}`} onClick={doNothing} disabled={disabled}>
-              {nothingCount >= 3 ? "Toch maar iets doen" : "Even niets doen"}
-            </button>
-            <span className="label">Pogingen vandaag: {nothingCount}</span>
-          </div>
-
-          {/* Domeinnaam */}
-          <div className="module module--domain bg-kobalt-soft" style={{ "--i": 5 } as CSSProperties}>
-            <span className="module__label">Domeinbeheer</span>
-            <button type="button" className="coinslot" onClick={buyDomain} disabled={disabled}>
-              <span className="coinslot__slot" aria-hidden="true" />
-              Nog een domeinnaam kopen
-            </button>
-            <div className="receipts" role="group" aria-label="Bonnetjes">
-              {receipts.map((r, i) => (
-                <div key={r.name + i} className="receipt">
-                  <span className="label">Bon · niet echt</span>
-                  <strong>{r.name}</strong>
-                  <span>€ 0,00</span>
+          {/* Mobiel: de rest van de bediening in een uitklapbare lade onder de console */}
+          {compact && (
+            <div className={`cc-drawer ${drawer ? "is-open" : ""}`}>
+              <button type="button" className="cc-drawer__toggle" aria-expanded={drawer} aria-controls="cc-lade" onClick={() => setDrawer(!drawer)}>
+                <span>Bedieningslade</span>
+                <span className="label">{drawer ? "Inklappen" : "Meer knoppen"}</span>
+              </button>
+              <div id="cc-lade" className="cc-drawer__body" hidden={!drawer}>
+                <button type="button" className="cc-tile cc-tile--boter" onClick={finishProject} disabled={disabled || progress !== null}>
+                  <span className="cc-tile__icon cc-tile__icon--key" aria-hidden="true" />
+                  {finishLabel}
+                </button>
+                <button type="button" className="cc-tile cc-tile--blauw" onClick={buyDomain} disabled={disabled}>
+                  <span className="cc-tile__icon cc-tile__icon--coin" aria-hidden="true" />
+                  Nog een domeinnaam kopen
+                </button>
+                <button type="button" role="switch" aria-checked={serious} className="cc-tile cc-tile--nacht" onClick={toggleSerious} disabled={disabled}>
+                  <span className="cc-tile__icon cc-tile__icon--switch" aria-hidden="true" />
+                  Serieuze modus
+                </button>
+                <div className="cc-tile cc-tile--lila cc-tile--group" role="group" aria-label="Instellingen">
+                  {TOGGLES.map((k) => (
+                    <button key={k} type="button" role="switch" aria-checked={switches[k]} className="cc-toggle" onClick={() => toggleSwitch(k)} disabled={disabled}>
+                      <span className="cc-toggle__track" aria-hidden="true" />
+                      {k}
+                    </button>
+                  ))}
                 </div>
-              ))}
+                <div className="cc-tile cc-tile--creme cc-tile--wide">
+                  <span>Creativiteit {level}/10</span>
+                  {steps}
+                </div>
+                <p className="cc-drawer__meters">
+                  Belasting {Math.round(load)}% · Voortgang {progress ?? 0}%
+                </p>
+              </div>
             </div>
-          </div>
+          )}
 
-          {/* Draaiknop */}
-          <div className="module module--knob bg-ivory" style={{ "--i": 6 } as CSSProperties}>
-            <span className="module__label" id="knob-label">Creativiteit</span>
-            <div className="knob-wrap">
-              <div className="knob-scale" aria-hidden="true">
-                {Array.from({ length: 11 }, (_, i) => (
-                  <span key={i} style={{ transform: `rotate(${-135 + i * 27}deg)` }}>
-                    <b style={{ transform: `rotate(${135 - i * 27}deg)` }}>{i}</b>
-                  </span>
+          {/* Uitvoerstation: wat de installatie aflevert */}
+          <div className="cc-out">
+            <div className="cc-out__bay">
+              <span className="label">Printer · bonnetjes</span>
+              <div className="receipts" role="group" aria-label="Bonnetjes">
+                {receipts.length === 0 && <span className="cc-out__empty">Nog geen domeinnamen gekocht. Dat verandert vast.</span>}
+                {receipts.map((r, i) => (
+                  <div key={r.name + i} className="receipt">
+                    <span className="label">Bon · niet echt</span>
+                    <strong>{r.name}</strong>
+                    <span>€ 0,00</span>
+                  </div>
                 ))}
               </div>
-              <div
-                ref={knobRef}
-                className="knob"
-                role="slider"
-                tabIndex={disabled ? -1 : 0}
-                aria-labelledby="knob-label"
-                aria-valuemin={0}
-                aria-valuemax={10}
-                aria-valuenow={creativity}
-                aria-valuetext={eleven ? "11, buiten de schaal" : `Niveau ${creativity} van 10`}
-                aria-disabled={disabled}
-                onKeyDown={onKnobKey}
-                onPointerDown={(e) => {
-                  knobDrag.current = true;
-                  e.currentTarget.setPointerCapture(e.pointerId);
-                  knobFromPointer(e);
-                }}
-                onPointerMove={(e) => knobDrag.current && knobFromPointer(e)}
-                onPointerUp={() => (knobDrag.current = false)}
-                onPointerCancel={() => (knobDrag.current = false)}
-              >
-                <div className="knob__cap" style={{ transform: `rotate(${knobAngle}deg)` }}>
-                  <span className="knob__marker" />
-                </div>
+            </div>
+            <div className="cc-out__bay">
+              <span className="label">Capsulebak · plannen</span>
+              <ul className="tray" aria-label="Uitgerolde plannen">
+                {capsules.length === 0 && <li className="cc-out__empty">Trek aan de hendel voor een plan.</li>}
+                {capsules.map((c) => (
+                  <li key={c.id}>
+                    <button
+                      type="button"
+                      className={`capsule ${c.open ? "is-open" : ""}`}
+                      style={{ "--cap": c.color } as CSSProperties}
+                      onClick={() => setCapsules((cs) => cs.map((x) => (x.id === c.id ? { ...x, open: !x.open } : x)))}
+                      aria-expanded={c.open}
+                      aria-label={c.open ? `Plan: ${c.plan}` : "Gesloten capsule openen"}
+                    >
+                      {c.open ? <span className="capsule__plan">{c.plan}</span> : <span className="capsule__shell" />}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {compact && (
+              <div className="cc-out__bay cc-out__bay--log">
+                <span className="label">Logboek</span>
+                {logList}
               </div>
-            </div>
-            <Plant level={level} />
-            <div className="knob-buttons">
-              <button type="button" className="btn btn--small btn--ivory" onClick={() => changeCreativity(creativity - 1)} disabled={disabled} aria-label="Creativiteit omlaag">
-                −
-              </button>
-              <span className="knob-value" aria-hidden="true">{level}</span>
-              <button type="button" className="btn btn--small" onClick={() => changeCreativity(creativity + 1)} disabled={disabled} aria-label="Creativiteit omhoog">
-                +
-              </button>
-            </div>
-          </div>
-
-          {/* Serieuze modus */}
-          <div className="module module--serious bg-indigo" style={{ "--i": 7 } as CSSProperties}>
-            <span className="module__label">Serieuze modus</span>
-            <button type="button" role="switch" aria-checked={serious} className="bigswitch" onClick={toggleSerious} disabled={disabled}>
-              <span className="bigswitch__track">
-                <span className="bigswitch__thumb" />
-              </span>
-              <span className="visually-hidden">Serieuze modus</span>
-            </button>
-            <span className="label">Houdbaarheid: 15 seconden</span>
-          </div>
-
-          {/* Hendel */}
-          <div className="module module--lever bg-lila" style={{ "--i": 8 } as CSSProperties}>
-            <span className="module__label">Nieuwe plannen</span>
-            <div className="lever-wrap">
-              <div className="lever-slot" aria-hidden="true" />
-              <button
-                type="button"
-                className={`lever ${pulling ? "is-pulling" : ""}`}
-                style={{ "--pull": pull } as CSSProperties}
-                onPointerDown={onLeverDown}
-                onPointerMove={onLeverMove}
-                onPointerUp={onLeverUp}
-                onPointerCancel={onLeverUp}
-                onKeyDown={onLeverKey}
-                disabled={disabled}
-                aria-label="Trek aan de hendel voor een nieuw plan"
-              >
-                <span className="lever__arm" />
-                <span className="lever__ball" />
-              </button>
-              <div className="chute" aria-hidden="true" />
-            </div>
-            <ul className="tray" aria-label="Uitgerolde plannen">
-              {capsules.map((c) => (
-                <li key={c.id}>
-                  <button
-                    type="button"
-                    className={`capsule ${c.open ? "is-open" : ""}`}
-                    style={{ "--cap": c.color } as CSSProperties}
-                    onClick={() => setCapsules((cs) => cs.map((x) => (x.id === c.id ? { ...x, open: !x.open } : x)))}
-                    aria-expanded={c.open}
-                    aria-label={c.open ? `Plan: ${c.plan}` : "Gesloten capsule openen"}
-                  >
-                    {c.open ? <span className="capsule__plan">{c.plan}</span> : <span className="capsule__shell" />}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Geheime schakelaars */}
-          <div className="module module--switches bg-ivory" style={{ "--i": 9 } as CSSProperties}>
-            <span className="module__label">Instellingen</span>
-            <div className="toggles">
-              {(["koffie", "ambitie", "realisme"] as const).map((k) => (
-                <button key={k} type="button" role="switch" aria-checked={switches[k]} className="toggle" onClick={() => toggleSwitch(k)} disabled={disabled}>
-                  <span className="toggle__track">
-                    <span className="toggle__thumb" />
-                  </span>
-                  <span className="toggle__label">{k}</span>
-                </button>
-              ))}
-            </div>
+            )}
             {game.secretUnlocked && (
               <Link to="/museum#zaal-6" className="label secret-link">
                 → Naar de geheime zaal
               </Link>
             )}
           </div>
-
-          {/* Weglopende knop */}
-          <div className="module module--runaway bg-koraal" style={{ "--i": 10 } as CSSProperties}>
-            <span className="module__label">Experimentele afdeling</span>
-            <div className="runaway-track">
-              <RunawayButton onCaught={caught} disabled={disabled} />
-            </div>
-            <span className="label">Let op: deze knop is schuw.</span>
-          </div>
-
-          {/* Noodstop */}
-          <div className="module module--stop bg-ivory" style={{ "--i": 11 } as CSSProperties}>
-            <span className="module__label">Officiële noodstop</span>
-            <div className="stop-wrap">
-              <button
-                type="button"
-                className={`stop ${cover ? "is-open" : ""}`}
-                onClick={pressEmergency}
-                disabled={emergency || jammed}
-                aria-label={cover ? "Druk op de officiële noodstop" : "Open het beschermkapje van de noodstop"}
-              >
-                <span className="stop__ring" aria-hidden="true" />
-                <span className="stop__button" aria-hidden="true">STOP</span>
-                <span className="stop__cover" aria-hidden="true" />
-              </button>
-            </div>
-            <span className="label">{cover ? "Kapje open. Weet u het zeker?" : "Eerst het kapje openen"}</span>
-          </div>
-
-          {jammed && (
-            <div className="jam-overlay" role="alert">
-              <p>MACHINE VASTGELOPEN</p>
-              <button type="button" className="btn btn--terra" onClick={unjam} autoFocus>
-                Tik tegen de machine
-              </button>
-            </div>
-          )}
-          {emergency && (
-            <div className="emergency-banner" role="alert">
-              <strong>NOODSTOP</strong>
-              <span>Ideeën worden veilig opgeborgen…</span>
-            </div>
-          )}
-        </div>
+        </section>
 
         <p className="control__footnote label">
           Tip: de draaiknop werkt ook met de pijltjestoetsen, de hendel kunt u naar beneden slepen. Er is een geheime combinatie van schakelaars.

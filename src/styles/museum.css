@@ -117,7 +117,7 @@
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--room-sticker, var(--ink));
-  color: var(--room-sticker-fg, #f5efe4);
+  color: var(--room-sticker-fg, #f7f1ec);
   font-family: var(--font-serif);
   font-style: italic;
   font-size: clamp(2rem, 1.2rem + 2vw, 3.2rem);
@@ -249,14 +249,37 @@
   color: var(--fg);
   perspective: 700px;
 }
-.exhibit__frame .artwork {
+/* Draaiplateau: één strook met acht aanzichten; object-position kiest het aanzicht */
+.turntable {
+  display: block;
+  cursor: ew-resize;
+  touch-action: pan-y;
+}
+.turntable img {
+  display: block;
   width: 100%;
   height: auto;
-  transform: rotateX(var(--rx)) rotateY(var(--ry));
-  transition: transform 0.5s var(--ease-out);
+  aspect-ratio: 480 / 544;
+  object-fit: cover;
+  object-position: 0 0;
+  user-select: none;
 }
-.exhibit__frame:hover .artwork {
-  animation: float 4s ease-in-out infinite;
+.exhibit__hint {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.9);
+  color: #191b2e;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  opacity: 0;
+  transition: opacity var(--t-micro);
+}
+.exhibit__frame:hover .exhibit__hint,
+.exhibit__frame:focus-visible .exhibit__hint {
+  opacity: 1;
 }
 .exhibit__head {
   position: absolute;
@@ -355,9 +378,11 @@
   border-radius: 18px;
   overflow: hidden;
 }
-.almost__art .artwork {
+.almost__art img {
+  display: block;
   width: 100%;
   height: auto;
+  background: rgba(255, 253, 248, 0.55);
 }
 .almost__body h3 {
   font-size: clamp(1.2rem, 1rem + 0.7vw, 1.5rem);
@@ -547,7 +572,7 @@
   background: var(--kobalt-soft);
 }
 :root:is([data-theme="nacht"], [data-theme="blauwdruk"]) .vitrine__glass {
-  background: #cdd6fa;
+  background: #dbe7f7;
 }
 .vitrine__domain {
   display: block;
@@ -565,12 +590,87 @@
 }
 .mill {
   display: grid;
-  gap: 14px;
-  justify-items: start;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 14px 28px;
+  align-items: center;
   margin-top: clamp(32px, 5vw, 56px);
   padding: clamp(18px, 3vw, 28px);
   border-radius: 26px;
   background: rgba(255, 253, 248, 0.1);
+}
+@media (max-width: 760px) {
+  .mill {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.mill__side {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+}
+/* Het archief: een kaartje gaat de gleuf in en vliegt naar een la */
+.archive {
+  position: relative;
+}
+.archive img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.archive__card {
+  position: absolute;
+  left: var(--x1);
+  top: var(--y1);
+  translate: -50% -50%;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #fffdf8;
+  color: #191b2e;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 8px 16px -10px rgba(25, 27, 46, 0.7);
+  pointer-events: none;
+  animation: file-card 2.1s var(--ease-out) both;
+}
+@keyframes file-card {
+  0% {
+    left: var(--x0);
+    top: calc(var(--y0) - 14%);
+    opacity: 0;
+    scale: 0.8;
+  }
+  15% {
+    left: var(--x0);
+    top: calc(var(--y0) - 6%);
+    opacity: 1;
+    scale: 1;
+  }
+  40% {
+    left: var(--x0);
+    top: var(--y0);
+    scale: 0.6;
+    opacity: 0.4;
+  }
+  70% {
+    left: var(--x1);
+    top: calc(var(--y1) - 4%);
+    scale: 0.9;
+    opacity: 1;
+  }
+  100% {
+    left: var(--x1);
+    top: var(--y1);
+    scale: 0.5;
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .archive__card {
+    animation: none;
+    opacity: 0;
+  }
 }
 .room--n3 .mill .btn {
   --btn-bg: var(--boter);
@@ -619,40 +719,83 @@
 }
 .slot__machine {
   position: relative;
-  width: min(940px, 100%);
-  padding: clamp(18px, 3vw, 34px);
+  width: min(980px, 100%);
+  padding: clamp(14px, 2.4vw, 28px);
   border-radius: clamp(28px, 4vw, 48px);
-  background: var(--ink);
-  color: #f5efe4;
-  box-shadow: 0 14px 0 #5440a6, 0 40px 60px -30px rgba(25, 27, 46, 0.6);
+  background: color-mix(in srgb, var(--card) 60%, transparent);
+  color: var(--fg);
 }
-.slot__machine::before {
-  content: "";
-  position: absolute;
-  right: -14px;
-  top: 30%;
-  width: 18px;
-  height: 90px;
-  border-radius: 9px;
-  background: #3a3d55;
+/* De kleine ideeënmachine: 3D-render met de rollen precies in het venster */
+.mini {
+  position: relative;
+  container-type: inline-size;
 }
-.slot__machine::after {
-  content: "";
+.mini img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.mini__lever {
   position: absolute;
-  right: -30px;
-  top: calc(30% - 34px);
-  width: 46px;
-  height: 46px;
+  width: 64px;
+  height: 64px;
+  translate: -50% -50%;
   border-radius: 50%;
-  border: 2px solid #191b2e;
-  background: radial-gradient(circle at 34% 28%, #fff 0 12%, #f2785c 42%, #d4502f);
+  cursor: pointer;
+}
+.mini.is-spinning .mini__lever {
+  cursor: progress;
+}
+.mini .slot__reels {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  padding: 1.2cqw;
+  gap: 1cqw;
+}
+.mini .reel {
+  min-height: 0;
+  padding: 0.6cqw 0.8cqw;
+  border-radius: 1.2cqw;
+  gap: 0.3cqw;
+  overflow: hidden;
+}
+.mini .reel .label {
+  font-size: clamp(8px, 1.1cqw, 11px);
+}
+.mini .reel strong {
+  font-size: clamp(11px, 1.75cqw, 18px);
+  line-height: 1.12;
+}
+@container (max-width: 620px) {
+  .mini .slot__reels {
+    position: static;
+    width: auto !important;
+    height: auto !important;
+    transform: none !important;
+    padding: 0;
+    margin-top: 10px;
+    gap: 8px;
+  }
+  .mini .reel {
+    padding: 10px 12px;
+    border-radius: 14px;
+  }
+  .mini .reel .label {
+    font-size: 0.66rem;
+  }
+  .mini .reel strong {
+    font-size: 1rem;
+  }
 }
 .slot__top {
   display: flex;
   justify-content: center;
   gap: 8px;
-  color: var(--boter);
-  margin-bottom: 14px;
+  color: var(--lila-deep);
+  margin-bottom: 6px;
+  text-align: center;
 }
 .slot__top::before,
 .slot__top::after {
@@ -704,12 +847,12 @@
   --btn-bg: #fffdf8;
   --btn-fg: #191b2e;
   --btn-line: #fffdf8;
-  --btn-edge: #c3b2f0;
+  --btn-edge: #cdbdf0;
 }
 .slot__count {
   margin: 14px 0 0;
   text-align: center;
-  color: rgba(245, 239, 228, 0.72);
+  color: var(--fg-2);
 }
 @media (max-width: 640px) {
   .slot__reels {
@@ -719,22 +862,76 @@
     min-height: 0;
     padding: 12px;
   }
-  .slot__machine::before,
-  .slot__machine::after {
-    display: none;
+}
+
+/* ---------- Kinetische installatie (zaal V) ---------- */
+.kinetic {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: 18px 28px;
+  align-items: center;
+  margin: 0 0 clamp(24px, 4vw, 40px);
+}
+@media (max-width: 760px) {
+  .kinetic {
+    grid-template-columns: minmax(0, 1fr);
   }
+}
+.kinetic__stage {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 520px;
+}
+.kinetic__stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.kinetic__layer {
+  position: absolute;
+  inset: 0;
+}
+.kinetic__stage.is-moving .kinetic__layer--wheel {
+  animation: kinetic-turn 14s linear infinite;
+}
+.kinetic__stage.is-moving .kinetic__layer--pendulum {
+  animation: kinetic-swing 2.8s ease-in-out infinite alternate;
+}
+@keyframes kinetic-turn {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes kinetic-swing {
+  from {
+    rotate: -14deg;
+  }
+  to {
+    rotate: 14deg;
+  }
+}
+.kinetic figcaption {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+.kinetic figcaption p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
 }
 
 /* ---------- Zaal V: De toekomst — sterrenhemel en mist ---------- */
 
 .room--n5 {
   background: #14162a;
-  color: #f5efe4;
-  --fg: #f5efe4;
+  color: #f7f1ec;
+  --fg: #f7f1ec;
   --fg-2: rgba(245, 239, 228, 0.82);
   --fg-3: rgba(245, 239, 228, 0.7);
   --line: rgba(245, 239, 228, 0.16);
-  --line-strong: #f5efe4;
+  --line-strong: #f7f1ec;
   --card: #20233d;
   --bg: #14162a;
   --surface: #1c1f37;
@@ -746,9 +943,9 @@
 }
 .room--n5 .btn--ivory {
   --btn-bg: #20233d;
-  --btn-fg: #f5efe4;
-  --btn-line: #f5efe4;
-  --btn-edge: #c3b2f0;
+  --btn-fg: #f7f1ec;
+  --btn-line: #f7f1ec;
+  --btn-edge: #cdbdf0;
 }
 .room--n5 .vote {
   background: transparent;
@@ -764,12 +961,12 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f6d36b;
+  background: #f6d781;
   opacity: 0.7;
   animation: twinkle 3s ease-in-out infinite;
 }
 .stars i:nth-child(3n) {
-  background: #c3b2f0;
+  background: #cdbdf0;
   width: 6px;
   height: 6px;
 }
@@ -907,22 +1104,22 @@
 
 .room--secret {
   background: #000;
-  color: #f5efe4;
-  --fg: #f5efe4;
+  color: #f7f1ec;
+  --fg: #f7f1ec;
   --fg-2: rgba(245, 239, 228, 0.8);
   --fg-3: rgba(245, 239, 228, 0.68);
-  --line-strong: #f5efe4;
+  --line-strong: #f7f1ec;
   --card: #111;
   --accent-text: var(--boter);
   --dot: var(--boter);
-  --room-sticker: #f5efe4;
+  --room-sticker: #f7f1ec;
   --room-sticker-fg: #000;
 }
 .room--secret .btn--ivory {
   --btn-bg: #111;
-  --btn-fg: #f5efe4;
-  --btn-line: #f5efe4;
-  --btn-edge: #f6d36b;
+  --btn-fg: #f7f1ec;
+  --btn-line: #f7f1ec;
+  --btn-edge: #f6d781;
 }
 .darkroom {
   --mx: 50%;
@@ -948,14 +1145,17 @@
 .darkroom.is-lit::after {
   opacity: 0;
 }
+.darkroom::after {
+  z-index: 1;
+}
 .darkroom__note {
   position: absolute;
   max-width: 220px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   line-height: 1.5;
-  color: #f6d36b;
-  border-left: 2px solid #f6d36b;
+  color: #f6d781;
+  border-left: 2px solid #f6d781;
   padding: 2px 0 2px 10px;
   margin: 0;
 }
@@ -968,28 +1168,41 @@
     font-size: 0.68rem;
   }
 }
+.darkroom__scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 50%;
+  pointer-events: none;
+}
+.darkroom__note,
+.darkroom__object,
+.darkroom__reveal {
+  z-index: 1;
+}
 .darkroom__object {
   position: absolute;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -30%);
   display: grid;
   justify-items: center;
   gap: 8px;
   background: none;
   border: 0;
-  color: #f5efe4;
+  color: #f7f1ec;
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.1rem;
 }
+/* de sokkel staat in de 3D-zaal; dit is alleen de gloed eromheen */
 .darkroom__pedestal {
-  width: 66px;
-  height: 92px;
-  border-radius: 10px 10px 4px 4px;
-  border: 2px solid #f5efe4;
-  background: linear-gradient(180deg, transparent 0 22%, rgba(245, 239, 228, 0.1) 22%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
 }
 .darkroom__object.is-found .darkroom__pedestal {
-  box-shadow: 0 0 70px 16px rgba(246, 211, 107, 0.6);
+  box-shadow: 0 0 80px 24px rgba(246, 211, 107, 0.55);
 }
 .darkroom__reveal {
   position: absolute;
@@ -997,7 +1210,7 @@
   bottom: 20px;
   transform: translateX(-50%);
   width: min(460px, calc(100% - 32px));
-  background: #f6d36b;
+  background: #f6d781;
   color: #191b2e;
   --fg: #191b2e;
   --line-strong: #191b2e;

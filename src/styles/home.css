@@ -126,8 +126,10 @@
 }
 .floater {
   position: absolute;
+  height: auto;
   --float-rot: 4deg;
-  animation: float 7s ease-in-out infinite;
+  /* een paar keer zweven en dan stil liggen: geen eindeloze beweging */
+  animation: float 7s ease-in-out 3;
   translate: calc(var(--px, 0) * var(--depth, 10px)) calc(var(--py, 0) * var(--depth, 10px));
   transition: translate 0.9s var(--ease-out);
 }
@@ -135,13 +137,13 @@
   animation-play-state: paused;
 }
 .floater--sphere {
-  width: 0.46em;
+  width: 0.56em;
   left: 3.1em;
   top: -0.05em;
   --depth: 18px;
 }
 .floater--ring {
-  width: 0.36em;
+  width: 0.48em;
   left: -0.3em;
   top: 0.86em;
   --depth: 12px;
@@ -149,7 +151,7 @@
   animation-delay: -2s;
 }
 .floater--star {
-  width: 0.3em;
+  width: 0.42em;
   left: 4.3em;
   top: 0.55em;
   --depth: 24px;
@@ -158,16 +160,15 @@
   animation-delay: -4s;
 }
 .floater--pill {
-  width: 0.5em;
+  width: 0.62em;
   left: 3.6em;
   top: -0.1em;
   --depth: 8px;
   --float-rot: -8deg;
-  rotate: 18deg;
   animation-duration: 8s;
 }
 .floater--squiggle {
-  width: 0.8em;
+  width: 0.9em;
   left: 2.7em;
   top: 1.78em;
   --depth: 14px;
@@ -255,79 +256,74 @@
   }
 }
 
-/* ---------- De ideeënmachine ---------- */
+/* ---------- De ideeënmachine (3D) ---------- */
 
 .machine {
-  --tone-koraal: #f2785c;
   position: relative;
   display: grid;
   gap: 0;
 }
+/* De werkplaatsvloer: een zachte pastelruimte waarin de machine staat. De 3D-scène zelf is transparant. */
 .machine__stage {
   position: relative;
-  aspect-ratio: 640 / 520;
   border-radius: clamp(26px, 3.6vw, 44px);
-  background: #dfe5fb;
+  background:
+    radial-gradient(60% 50% at 78% 12%, #f3e6fb 0 60%, transparent 61%),
+    radial-gradient(45% 38% at 12% 96%, #fbefcf 0 60%, transparent 61%),
+    linear-gradient(180deg, #e6eefb 0%, #eef2fb 62%, #f4eef3 100%);
   overflow: hidden;
   isolation: isolate;
   touch-action: manipulation;
+  cursor: pointer;
 }
 :root[data-theme="nacht"] .machine__stage {
-  background: #252c58;
+  background:
+    radial-gradient(60% 50% at 78% 12%, rgba(195, 178, 240, 0.16) 0 60%, transparent 61%),
+    radial-gradient(45% 38% at 12% 96%, rgba(246, 211, 107, 0.12) 0 60%, transparent 61%),
+    linear-gradient(180deg, #262c52 0%, #2c335f 100%);
 }
 :root[data-theme="blauwdruk"] .machine__stage {
-  background: #2a5299;
+  background:
+    radial-gradient(60% 50% at 78% 12%, rgba(255, 255, 255, 0.08) 0 60%, transparent 61%),
+    linear-gradient(180deg, #2a5299 0%, #2f5ca8 100%);
 }
-/* Achtergrondvormen in de machinekamer */
-.machine__stage::before,
-.machine__stage::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  border-radius: 46% 54% 60% 40% / 52% 40% 60% 48%;
-}
-.machine__stage::before {
-  width: 48%;
-  aspect-ratio: 1;
-  right: -10%;
-  top: -18%;
-  background: #ece4fc;
-}
-.machine__stage::after {
-  width: 38%;
-  aspect-ratio: 1.2;
-  left: -8%;
-  bottom: -16%;
-  background: #f9e7b5;
-  border-radius: 60% 40% 45% 55% / 50% 60% 40% 50%;
-}
-:root:is([data-theme="nacht"], [data-theme="blauwdruk"]) .machine__stage::before {
-  background: rgba(195, 178, 240, 0.18);
-}
-:root:is([data-theme="nacht"], [data-theme="blauwdruk"]) .machine__stage::after {
-  background: rgba(246, 211, 107, 0.16);
-}
-.machine__svg {
+.machine__poster,
+.machine__canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  overflow: visible;
-  transition: transform var(--t-micro) var(--ease-out);
+  transition: transform var(--t-micro) var(--ease-out), opacity 0.35s var(--ease-out);
 }
-.machine__stage:has(.machine__hit:active) .machine__svg {
-  transform: scale(0.985);
+.machine__poster {
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.machine__canvas {
+  opacity: 0;
+  pointer-events: none;
+}
+.machine--live .machine__canvas {
+  opacity: 1;
+}
+.machine--live .machine__poster {
+  opacity: 0;
+  transition-delay: 0.35s;
+}
+.machine__stage:has(.machine__hit:active) :is(.machine__poster, .machine__canvas) {
+  transform: scale(0.99);
 }
 .machine__caption {
   position: absolute;
   left: 14px;
-  top: 14px;
+  bottom: 30px;
   z-index: 2;
   display: inline-flex;
   gap: 6px;
   padding: 5px 10px;
   border-radius: 999px;
-  background: rgba(255, 253, 248, 0.82);
+  background: rgba(255, 253, 248, 0.86);
   color: #191b2e;
   font-family: var(--font-mono);
   font-size: 0.62rem;
@@ -335,20 +331,9 @@
   text-transform: uppercase;
   pointer-events: none;
 }
-@media (max-width: 560px) {
-  .machine__caption .machine__caption-long {
-    display: none;
-  }
-  .hotspot {
-    width: 22px;
-    height: 22px;
-    margin: -11px 0 0 -11px;
-    font-size: 0.62rem;
-  }
-}
 .machine__caption b {
   font-weight: 600;
-  color: #9c3720;
+  color: #8e2c49;
 }
 .machine__hit {
   position: absolute;
@@ -366,8 +351,37 @@
   outline: 3px solid var(--kobalt);
   outline-offset: -6px;
 }
+/* Het label boven de trechter: zegt wat je hier kunt doen */
+.machine__inlet {
+  position: absolute;
+  z-index: 2;
+  translate: var(--shift, -50%) -100%;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #2f3a66;
+  color: #fffdf8;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 10px 20px -12px rgba(47, 58, 102, 0.8);
+}
+.machine__inlet::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--shift, -50%) * -1);
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  translate: -50% 0;
+  rotate: 45deg;
+  background: inherit;
+}
+.machine.is-jammed .machine__inlet {
+  background: #8e2c49;
+}
 
-/* Onderdelen als genummerde callouts: de octrooisignatuur */
+/* Onderdelen als genummerde callouts: de octrooisignatuur, nu op de 3D-ankerpunten */
 .hotspot {
   position: absolute;
   z-index: 3;
@@ -377,7 +391,7 @@
   padding: 0;
   border-radius: 50%;
   border: 1.5px solid #191b2e;
-  background: #fffdf8;
+  background: rgba(255, 253, 248, 0.94);
   color: #191b2e;
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -398,8 +412,25 @@
 }
 .hotspot.is-active {
   background: #191b2e;
-  color: #f6d36b;
+  color: #f6d781;
   transform: scale(1.12);
+}
+@media (max-width: 560px) {
+  .machine__caption .machine__caption-long {
+    display: none;
+  }
+  .hotspot {
+    width: 24px;
+    height: 24px;
+    margin: -12px 0 0 -12px;
+    border-width: 1.2px;
+    font-size: 0.6rem;
+    background: rgba(255, 253, 248, 0.86);
+  }
+  .machine__inlet {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
 }
 .machine__bubble {
   position: absolute;
@@ -413,7 +444,7 @@
   padding: 12px 14px;
   border-radius: 16px;
   background: #191b2e;
-  color: #f5efe4;
+  color: #f7f1ec;
   font-size: 0.88rem;
   line-height: 1.35;
   box-shadow: 0 18px 30px -18px rgba(0, 0, 0, 0.6);
@@ -427,320 +458,107 @@
   transform: none;
 }
 .machine__bubble strong {
-  color: #f6d36b;
+  color: #f6d781;
   font-weight: 650;
 }
 
-/* De windvaan: een uitgesneden metalen vogel op de zuigercilinder */
-.machine__vane {
+/* Verborgen bediening: de sleutelschakelaar op de zijkant van de verwerker (gouden modus) */
+.machine__key {
   position: absolute;
   z-index: 3;
-  width: 11%;
-  min-width: 48px;
-  aspect-ratio: 64 / 40;
-  margin: 0;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
   padding: 0;
   border: 0;
-  background: none;
-  translate: -50% -50%;
-  transform-origin: 50% 75%;
-  transition: transform var(--t-func) var(--ease-spring);
+  border-radius: 50%;
+  background: transparent;
 }
-.machine__vane svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+.machine__key span {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(47, 58, 102, 0.45);
+  transition: border-color 0.2s, transform var(--t-func) var(--ease-spring);
 }
-.machine__vane:hover {
-  transform: rotate(-8deg);
+.machine__key:hover span,
+.machine__key:focus-visible span {
+  border-color: #2f3a66;
+  border-style: solid;
+  transform: scale(1.2);
 }
-.machine__vane.is-spinning {
-  animation: vane-spin 0.9s var(--ease-out);
+.machine__key.is-turning span {
+  transform: rotate(90deg) scale(1.2);
 }
-.machine__vane:focus-visible {
-  outline-offset: 2px;
-  border-radius: 8px;
-}
-@keyframes vane-spin {
-  30% {
-    transform: scaleX(-1);
-  }
-  60% {
-    transform: scaleX(1);
-  }
-  80% {
-    transform: scaleX(-0.6);
-  }
-}
-.is-gold .machine__vane-bird {
-  fill: #f6d36b;
+.machine.is-gold .machine__key span {
+  border: 2px solid #c79a1c;
 }
 
-/* SVG-onderdelen */
-.machine .m-heatglow {
-  opacity: calc(var(--heat, 0) * 0.9);
-  transition: opacity 0.6s;
+/* Wat er uit de machine komt: een label bij het platform of bij de afkeurbak */
+.belt-cards {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
 }
-.machine .m-glow {
-  opacity: 0;
-  transition: opacity 0.5s var(--ease-out);
-}
-.machine.is-lit .m-glow,
-.machine.is-gold .m-glow {
-  opacity: 1;
-}
-/* Kern van de denkkamer: licht op als een idee binnenkomt */
-.machine .m-core {
-  transform-origin: 290px 282px;
-  transition: transform 0.4s var(--ease-spring), filter 0.4s;
-}
-.machine .m-core__hot {
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.machine:is(.is-process, .is-surprise) .m-core {
-  transform: scale(1.5);
-}
-.machine:is(.is-process, .is-surprise) .m-core__hot {
-  opacity: 1;
-}
-.machine.is-jammed .m-core {
-  transform: scale(0.8);
-  opacity: 0.5;
-}
-/* De pers stempelt bij elke uitvoer */
-.machine .m-ram {
-  transition: transform 0.12s var(--ease-mech);
-}
-.machine.is-pressing .m-ram {
-  transform: translateY(16px);
-}
-/* Zeldzaam: een moertje springt los en rolt weg */
-.machine .m-nut {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-.machine.is-nut .m-nut {
-  animation: nut-drop 1.4s var(--ease-out) forwards;
-}
-@keyframes nut-drop {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(14px, -26px) rotate(140deg);
-  }
-  55% {
-    transform: translate(34px, 80px) rotate(320deg);
-  }
-  70% {
-    transform: translate(42px, 64px) rotate(400deg);
-  }
-  85% {
-    transform: translate(52px, 80px) rotate(460deg);
-  }
-  100% {
-    transform: translate(70px, 80px) rotate(560deg);
-  }
-}
-.machine .m-led {
-  opacity: 0.3;
-  transition: opacity 0.2s;
-}
-.machine .m-led--ok {
-  opacity: 1;
-}
-.machine:is(.is-intake, .is-process, .is-surprise) .m-led--busy {
-  opacity: 1;
-  animation: blink 0.35s steps(2) infinite;
-}
-.machine.is-hot .m-led--hot,
-.machine.is-jammed .m-led--hot {
-  opacity: 1;
-  animation: blink 0.6s steps(2) infinite;
-}
-.machine.is-jammed .m-led--ok {
-  opacity: 0.3;
-}
-.machine .m-smoke circle {
-  fill: #fffdf8;
-  stroke: #191b2e;
-  stroke-width: 1.6;
-  opacity: 0;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-.machine:is(.is-process, .is-surprise, .is-hot) .m-smoke circle {
-  animation: puff 1.5s var(--ease-out) infinite;
-}
-.machine .m-smoke circle:nth-child(2) {
-  animation-delay: 0.3s;
-}
-.machine .m-smoke circle:nth-child(3) {
-  animation-delay: 0.6s;
-}
-.machine.is-jammed .m-smoke circle {
-  fill: #8d8fa3;
-  animation: puff 2.4s var(--ease-out) infinite;
-}
-@keyframes puff {
-  0% {
-    opacity: 0;
-    transform: translateY(26px) scale(0.4);
-  }
-  30% {
-    opacity: 0.95;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-14px) scale(1.15);
-  }
-}
-.machine .m-body {
-  transform-origin: 295px 470px;
-}
-.machine.is-process .m-body {
-  animation: rumble 0.14s linear infinite;
-}
-.machine.surprise-mega .m-body {
-  animation: inflate 1s var(--ease-spring);
-}
-.machine.is-jammed .m-body {
-  transform: rotate(-2.5deg) translateY(4px);
-  transition: transform 0.5s var(--ease-spring);
-}
-@keyframes rumble {
-  25% {
-    transform: translate(1.5px, -1px);
-  }
-  75% {
-    transform: translate(-1.5px, 1px);
-  }
-}
-@keyframes inflate {
-  40% {
-    transform: scale(1.12, 1.16);
-  }
-  65% {
-    transform: scale(0.96, 0.94);
-  }
-}
-.machine.is-gold .m-body__face {
-  fill: #d9a92e;
-}
-.machine.is-gold .m-body__shade {
-  fill: #a87c12;
-}
-.machine .m-body__face,
-.machine .m-body__shade {
-  transition: fill 0.6s var(--ease-out);
-}
-/* Verrassing 0: de lamp springt los */
-.machine .m-bulb {
-  transform-origin: 330px 130px;
-}
-.machine.surprise-0 .m-bulb {
-  animation: bulb-pop 0.75s var(--ease-spring);
-}
-@keyframes bulb-pop {
-  45% {
-    transform: translateY(-34px) rotate(24deg);
-  }
-}
-/* Verrassing 1: Eureka-vlag */
-.machine .m-flag {
-  opacity: 0;
-  transform: translateY(64px);
-  transition: transform 0.55s var(--ease-spring), opacity 0.3s;
-}
-.machine.surprise-1 .m-flag {
-  opacity: 1;
-  transform: none;
-}
-/* Verrassing 2: de machine keurt zichzelf goed */
-.machine .m-stamp {
-  opacity: 0;
-  transform-origin: 290px 253px;
-  transform: scale(1.8);
-  transition: opacity 0.4s, transform 0.4s;
-}
-.machine.surprise-2 .m-stamp {
-  opacity: 1;
-  transform: scale(1);
-  transition: transform 0.22s cubic-bezier(0.5, 0, 0.75, 0), opacity 0.1s;
-}
-/* Verrassing 3: veer met ster uit de trechter */
-.machine .m-spring {
-  opacity: 0;
-  transform-origin: 185px 64px;
-  transform: scaleY(0);
-  transition: transform 0.5s var(--ease-spring), opacity 0.2s;
-}
-.machine.surprise-3 .m-spring {
-  opacity: 1;
-  transform: none;
-}
-.machine.surprise-3 .m-thoughts,
-.machine.is-intake .m-thoughts {
-  transform: translateY(4px);
-  transition: transform 0.3s;
-}
-
-/* Uitvoer over de band */
 .belt-card {
-  animation: belt-move 2.3s var(--ease-mech) forwards;
+  position: absolute;
+  translate: -50% -100%;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: #fffdf8;
+  color: #191b2e;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  box-shadow: 0 12px 22px -14px rgba(47, 58, 102, 0.7);
+  animation: card-pop 2.6s var(--ease-out) both;
+}
+.belt-card--uitvoer {
+  border: 1.5px solid #2c6a4f;
+  color: #2c6a4f;
+}
+.belt-card--afkeurbak {
+  border: 1.5px solid #8e2c49;
+  color: #8e2c49;
+  rotate: -6deg;
 }
 .belt-card--big {
-  animation-name: belt-move-big;
+  font-size: 0.82rem;
+  padding: 7px 14px;
 }
-@keyframes belt-move {
+@keyframes card-pop {
   0% {
-    transform: translate(440px, 386px) rotate(30deg) scale(0.5);
     opacity: 0;
+    transform: translateY(8px) scale(0.9);
   }
-  18% {
-    transform: translate(470px, 412px) rotate(0) scale(1);
+  10%,
+  80% {
     opacity: 1;
+    transform: none;
   }
   100% {
-    transform: translate(690px, 412px);
+    opacity: 0;
+    transform: translateY(-10px);
   }
 }
-@keyframes belt-move-big {
-  0% {
-    transform: translate(440px, 386px) scale(0.6);
+@media (prefers-reduced-motion: reduce) {
+  .belt-card {
+    animation: none;
   }
-  25% {
-    transform: translate(500px, 392px) scale(2.1);
-  }
-  100% {
-    transform: translate(760px, 392px) scale(2.1);
-  }
-}
-.belt-card__paper {
-  fill: #fffdf8;
-}
-.belt-card__paper.tone-koraal {
-  fill: #f2785c;
-}
-.belt-card__paper.tone-kobalt {
-  fill: #a9b8ff;
-}
-.belt-card__paper.tone-salie {
-  fill: #9fc39a;
-}
-.belt-card__paper.tone-lila {
-  fill: #c3b2f0;
-}
-.belt-card__paper.tone-boter {
-  fill: #f6d36b;
 }
 
-/* Animaties buiten beeld pauzeren */
-.machine.is-offscreen *,
-.machine.is-offscreen *::before,
-.machine.is-offscreen *::after {
-  animation-play-state: paused !important;
+.machine__extra {
+  margin: 0;
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: var(--paper);
+  font-size: 0.88rem;
+}
+.machine__extra .label {
+  margin-right: 6px;
 }
 
 /* ---------- Paneel onder de machine ---------- */
@@ -761,7 +579,7 @@
   padding: 12px 18px;
   border-radius: 18px;
   background: var(--ink);
-  color: #f5efe4;
+  color: #f7f1ec;
   font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.06em;
@@ -780,13 +598,13 @@
   font-weight: 600;
   letter-spacing: -0.01em;
   text-transform: none;
-  color: #f5efe4;
+  color: #f7f1ec;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .machine__state.is-warn {
-  color: #f6d36b;
+  color: #f6d781;
 }
 .machine__state.is-bad {
   color: #ff9a80;
@@ -804,12 +622,12 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: #9fc39a;
+  background: #a9dcc4;
   transition: width 0.4s var(--ease-out), background-color 0.4s;
 }
 .machine.is-hot .heatbar i,
 .machine.is-jammed .heatbar i {
-  background: #f2785c;
+  background: #ee9aac;
 }
 @media (max-width: 560px) {
   .plate__foot {
@@ -981,7 +799,7 @@
   font-family: var(--font-sans);
   font-size: 1.3rem;
   letter-spacing: -0.03em;
-  color: #9c3720;
+  color: #8e2c49;
 }
 .jam-report dl {
   display: grid;
@@ -1012,7 +830,7 @@
   margin: 0 clamp(6px, 1.4vw, 20px) clamp(10px, 1.5vw, 18px);
   border-radius: 999px;
   background: var(--ink);
-  color: #f5efe4;
+  color: #f7f1ec;
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.06em;
@@ -1565,14 +1383,14 @@
   border-radius: 50%;
   border: 1.5px solid rgba(245, 239, 228, 0.5);
   background: transparent;
-  color: #f5efe4;
+  color: #f7f1ec;
   transition: background-color 0.2s, color 0.2s, transform var(--t-micro) var(--ease-out);
 }
 .board__nav svg {
   width: 20px;
 }
 .board__nav:hover {
-  background: #f5efe4;
+  background: #f7f1ec;
   color: var(--ink);
 }
 .board__nav:active {
@@ -1584,7 +1402,7 @@
   border-radius: 999px;
   border: 1.5px solid rgba(245, 239, 228, 0.5);
   background: transparent;
-  color: #f5efe4;
+  color: #f7f1ec;
   font-weight: 600;
   font-size: 0.88rem;
   transition: background-color 0.2s, color 0.2s;
@@ -1712,7 +1530,7 @@
   height: 46px;
   border-radius: 50%;
   background: var(--ink);
-  color: #f5efe4;
+  color: #f7f1ec;
   transition: transform var(--t-func) var(--ease-spring);
 }
 .world-kobalt .toc__go {
@@ -1726,14 +1544,13 @@
   background: var(--fg);
   color: var(--bg);
 }
-.obj .obj__press {
-  transition: transform 0.2s var(--ease-out);
+.obj {
+  display: block;
+  height: auto;
+  transition: transform var(--t-func) var(--ease-spring);
 }
-.toc__row:hover .obj__press {
-  transform: translateY(8px);
-}
-.obj .obj__float {
-  animation: float 5s ease-in-out infinite;
+.toc__row:hover .obj {
+  transform: translateY(-6px) rotate(-3deg);
 }
 @media (max-width: 759px) {
   .toc__row {

@@ -32,8 +32,8 @@
 
 :root {
   /* Basis */
-  --ivory: #f5efe4;
-  --paper: #ece4d5;
+  --ivory: #f7f1ec;
+  --paper: #efe5de;
   --paper-2: #e2d8c5;
   --ink: #191b2e;
   --ink-2: #3a3d55;
@@ -41,22 +41,22 @@
   --white: #fffdf8;
 
   /* Accentkleuren: vol (vlakken en objecten), diep (tekst), zacht (kleurwerelden) */
-  --kobalt: #3c5bd6;
-  --kobalt-deep: #2a3fa0;
-  --kobalt-soft: #cdd6fa;
-  --koraal: #f2785c;
-  --koraal-ink: #d4502f; /* grote tekst op ivoor */
-  --koraal-deep: #9c3720;
-  --koraal-soft: #f9cfc2;
-  --salie: #9fc39a;
-  --salie-deep: #35603b;
-  --salie-soft: #cfe3c8;
-  --lila: #c3b2f0;
+  --kobalt: #34407a;
+  --kobalt-deep: #2f3a66;
+  --kobalt-soft: #dbe7f7;
+  --koraal: #ee9aac;
+  --koraal-ink: #c24d6b; /* grote tekst op ivoor */
+  --koraal-deep: #8e2c49;
+  --koraal-soft: #f8d9e0;
+  --salie: #a9dcc4;
+  --salie-deep: #2c6a4f;
+  --salie-soft: #d5efe3;
+  --lila: #cdbdf0;
   --lila-deep: #5440a6;
-  --lila-soft: #dcd0f7;
-  --boter: #f6d36b;
+  --lila-soft: #e6ddf8;
+  --boter: #f6d781;
   --boter-deep: #7a5a00;
-  --boter-soft: #f7e3a1;
+  --boter-soft: #f9eabf;
   --terra: #b65a3a;
   --terra-deep: #9a4529;
 
@@ -138,7 +138,7 @@
   --kobalt-deep: #a9b8ff;
   --salie-deep: #b5d6af;
   --lila-deep: #cfc1ff;
-  --boter-deep: #f6d36b;
+  --boter-deep: #f6d781;
   --koraal-deep: #ffab95;
   --kobalt-soft: #252c58;
   --koraal-soft: #3a2531;
@@ -324,7 +324,7 @@ p {
   top: -80px;
   z-index: 10000;
   background: var(--ink);
-  color: #f5efe4;
+  color: #f7f1ec;
   padding: 12px 18px;
   border-radius: 999px;
   font-weight: 600;
@@ -616,12 +616,12 @@ p {
 .bg-ink,
 .bg-nacht {
   background: var(--ink);
-  color: #f5efe4;
-  --fg: #f5efe4;
+  color: #f7f1ec;
+  --fg: #f7f1ec;
   --fg-2: rgba(245, 239, 228, 0.82);
   --fg-3: rgba(245, 239, 228, 0.7);
   --line: rgba(245, 239, 228, 0.16);
-  --line-strong: #f5efe4;
+  --line-strong: #f7f1ec;
   --card: #23263d;
   --accent: var(--boter);
   --accent-big: var(--boter);
@@ -1026,7 +1026,7 @@ p {
   inset: 0;
   z-index: 800;
   background: var(--ink);
-  color: #f5efe4;
+  color: #f7f1ec;
   display: flex;
   flex-direction: column;
   padding: calc(14px + var(--safe-top)) var(--gutter) calc(28px + env(safe-area-inset-bottom, 0px));
@@ -1050,7 +1050,7 @@ p {
   color: rgba(245, 239, 228, 0.7);
 }
 .mobile-menu .icon-btn {
-  background: #f5efe4;
+  background: #f7f1ec;
   color: var(--ink);
 }
 .mobile-menu nav {
@@ -1106,7 +1106,7 @@ p {
   --md: var(--lila);
 }
 .mobile-menu nav a:nth-child(6) span {
-  --md: #f5efe4;
+  --md: #f7f1ec;
 }
 .mobile-menu nav a[aria-current="page"] {
   font-family: var(--font-serif);
@@ -1122,21 +1122,21 @@ p {
   padding: 14px;
   border-radius: 20px;
   background: rgba(245, 239, 228, 0.06);
-  color: #f5efe4;
+  color: #f7f1ec;
 }
 .mobile-menu__settings .label {
   color: var(--boter);
 }
 .mobile-menu__settings .appearance-option[aria-checked="true"] {
   background: rgba(245, 239, 228, 0.1);
-  box-shadow: inset 0 0 0 1.5px #f5efe4;
+  box-shadow: inset 0 0 0 1.5px #f7f1ec;
 }
 .mobile-menu__settings .appearance-option:hover {
   background: rgba(245, 239, 228, 0.1);
 }
 .mobile-menu__settings .sound-toggle {
   justify-self: start;
-  color: #f5efe4;
+  color: #f7f1ec;
   border-color: rgba(245, 239, 228, 0.4);
 }
 
@@ -1145,8 +1145,8 @@ p {
 .site-footer {
   margin-top: clamp(80px, 12vw, 160px);
   background: var(--ink);
-  color: #f5efe4;
-  --fg: #f5efe4;
+  color: #f7f1ec;
+  --fg: #f7f1ec;
   --fg-2: rgba(245, 239, 228, 0.76);
   --line: rgba(245, 239, 228, 0.16);
   --accent: var(--boter);
@@ -1270,7 +1270,7 @@ p {
 }
 .swatch[aria-pressed="true"] {
   transform: scale(0.72);
-  box-shadow: 0 0 0 2px var(--ink), 0 0 0 3.5px #f5efe4;
+  box-shadow: 0 0 0 2px var(--ink), 0 0 0 3.5px #f7f1ec;
 }
 .hidden-dot {
   display: inline;

@@ -70,3 +70,21 @@ describe("validatie", () => {
     expect(isVotableId("<script>")).toBe(false);
   });
 });
+
+import { generateInvention, REJECTIONS } from "../src/content/inventions";
+describe("creativiteit en afkeuring", () => {
+  it("maakt gekkere ideeën bij hogere creativiteit", () => {
+    const low = generateIdea(seeded(3), 2).title;
+    const high = generateIdea(seeded(3), 8).title;
+    const max = generateIdea(seeded(3), 10).title;
+    expect(low).not.toContain(" én ");
+    expect(high).toContain(" én ");
+    expect(max).toMatch(/in drievoud$/);
+  });
+  it("geeft afgekeurde uitvindingen een afkeurstatus", () => {
+    const inv = generateInvention(seeded(4), { rejected: true });
+    expect(inv.rejected).toBe(true);
+    expect(REJECTIONS).toContain(inv.status);
+    for (let i = 0; i < 50; i++) expect(generateInvention(seeded(i)).status).not.toMatch(/^Afge/);
+  });
+});

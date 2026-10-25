@@ -1,20 +1,27 @@
 import { describe, expect, it } from "vitest";
-import { crank } from "../src/components/IdeaMachine";
+import { MACHINE_ANCHORS, PART_TEXT } from "../src/three/machineInfo";
 import { rankFor } from "../src/components/StampCard";
 import { discoveryLevel, MISSIONS } from "../src/content/progress";
 
-describe("ideeënmachine: kruk en zuiger", () => {
-  it("houdt de zuiger bij elke hoek binnen de cilinder", () => {
-    for (let a = 0; a < 360; a += 5) {
-      const { pistonY } = crank(a);
-      // cilinder loopt van y 88 tot 174; de zuigerkop is 20 hoog
-      expect(pistonY - 20).toBeGreaterThanOrEqual(88);
-      expect(pistonY).toBeLessThanOrEqual(180);
+describe("ideeënmachine in 3D: ankerpunten", () => {
+  it("heeft voor elk onderdeel een ankerpunt binnen beeld, in beide composities", () => {
+    for (const layout of ["wide", "compact"] as const) {
+      const a = MACHINE_ANCHORS[layout];
+      for (const id of [...PART_TEXT.map((p) => p.id), "schakelaar"]) {
+        expect(a[id], `${layout}/${id}`).toBeDefined();
+        expect(a[id].x).toBeGreaterThan(0.03);
+        expect(a[id].x).toBeLessThan(0.97);
+        expect(a[id].y).toBeGreaterThan(0.03);
+        expect(a[id].y).toBeLessThan(0.97);
+      }
     }
   });
-  it("beweegt de zuiger echt op en neer", () => {
-    const ys = Array.from({ length: 72 }, (_, i) => crank(i * 5).pistonY);
-    expect(Math.max(...ys) - Math.min(...ys)).toBeGreaterThan(40);
+  it("zet de genummerde callouts niet op elkaar", () => {
+    for (const layout of ["wide", "compact"] as const) {
+      const pts = PART_TEXT.map((p) => MACHINE_ANCHORS[layout][p.id]);
+      for (let i = 0; i < pts.length; i++)
+        for (let j = i + 1; j < pts.length; j++) expect(Math.hypot(pts[i].x - pts[j].x, pts[i].y - pts[j].y), `${layout} ${i}-${j}`).toBeGreaterThan(0.05);
+    }
   });
 });
 

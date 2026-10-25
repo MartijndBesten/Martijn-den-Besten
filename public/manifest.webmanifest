@@ -4,8 +4,8 @@
   "description": "Officiële website van een man met meer ideeën dan tijd.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f5efe4",
-  "theme_color": "#f5efe4",
+  "background_color": "#f7f1ec",
+  "theme_color": "#f7f1ec",
   "lang": "nl",
   "icons": [
     { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },

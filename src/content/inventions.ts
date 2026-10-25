@@ -17,6 +17,7 @@ export type Invention = {
   seed: number;
   mega?: boolean;
   gold?: boolean;
+  rejected?: boolean;
 };
 
 type Topic = { stem: string; what: string; pl?: boolean };
@@ -88,7 +89,6 @@ export const STATUSES: { text: string; tone: Tone }[] = [
   { text: "Volstrekt overbodig", tone: "koraal" },
   { text: "Voorlopig goedgekeurd", tone: "salie" },
   { text: "Goedgekeurd door zichzelf", tone: "salie" },
-  { text: "Afgewezen: te logisch", tone: "koraal" },
   { text: "Wacht op koffie", tone: "boter" },
   { text: "Aangevraagd in 2019", tone: "lila" },
   { text: "Bijna af", tone: "boter" },
@@ -127,7 +127,7 @@ export const MEGA: { name: string; description: string }[] = [
   { name: "Een Snelweg naar Later", description: "Twaalf rijstroken, allemaal richting later. Geen afslagen. Wel een wegrestaurant." },
 ];
 
-/** Gouden modus: de windvaan op de machine draait op goud. */
+/** Gouden modus: de sleutelschakelaar op de machine staat op goud. */
 export const GOLDEN: { name: string; description: string }[] = [
   { name: "De Gouden Afmaakknop", description: "Eén druk en het project is af. Het prototype wacht nog op een knop." },
   { name: "De Tijdverruimer", description: "Voegt aan elke dag één uur toe. Uitsluitend te gebruiken voor nieuwe ideeën." },
@@ -156,7 +156,17 @@ export function composeInvention(rng: Rng = Math.random): Pick<Invention, "name"
 
 export const COMBINATIONS = TOPICS.length * DEVICES.length * (ADJECTIVES.length + 1) * (MODELS.length + 1);
 
-export type InventionOptions = { mega?: boolean; gold?: boolean; avoid?: string[] };
+/** Wat de sorteerarm zegt als hij een idee in de afkeurbak veegt. */
+export const REJECTIONS = [
+  "Afgekeurd: te logisch",
+  "Afgekeurd: past niet door de buis",
+  "Afgekeurd: al bedacht in 2019",
+  "Afgekeurd, maar bewaard",
+  "Afgekeurd: te weinig knoppen",
+  "Afgekeurd: werkt mogelijk",
+] as const;
+
+export type InventionOptions = { mega?: boolean; gold?: boolean; rejected?: boolean; avoid?: string[] };
 
 export function generateInvention(rng: Rng = Math.random, opts: InventionOptions = {}): Invention {
   const seed = Math.floor(rng() * 1e9);
@@ -178,5 +188,6 @@ export function generateInvention(rng: Rng = Math.random, opts: InventionOptions
     parts = composeInvention(rng);
     for (let i = 0; i < 5 && avoid.has(parts.name); i++) parts = composeInvention(rng);
   }
+  if (opts.rejected) return { ...base, ...parts, status: pick(REJECTIONS, rng), tone: "koraal", rejected: true };
   return { ...base, ...parts, status: status.text, tone: status.tone };
 }

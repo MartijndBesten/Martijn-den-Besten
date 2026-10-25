@@ -92,14 +92,13 @@ test("te veel drukken laat de machine vastlopen", async ({ page }) => {
 
 test("de creativiteitsplant groeit mee en de lampjes tellen mee", async ({ page }) => {
   const knob = page.getByRole("slider", { name: "Creativiteit" });
-  const leaves = page.locator(".plant__leaf");
-  const before = await leaves.count();
+  const console_ = page.locator(".console");
+  await expect(console_).toHaveAttribute("data-plant", "1");
   await knob.focus();
   await page.keyboard.press("End");
-  await expect(leaves).toHaveCount(5);
-  expect(before).toBeLessThan(5);
-  await expect(page.locator(".plant__flower")).toBeVisible();
-  await expect(page.locator(".console__lamps i.is-on")).toHaveCount(10);
+  await expect(console_).toHaveAttribute("data-plant", "5");
+  await expect(console_).toHaveAttribute("data-lamps", "10");
+  await expect(page.locator(".cc-knob")).toContainText("10/10");
 });
 
 test("de weglopende knop is met het toetsenbord gewoon te bedienen", async ({ page }) => {

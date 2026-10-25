@@ -98,7 +98,7 @@ function Seam({ kind }: { kind: "bal" | "stempel" | "ster" | "ring" }) {
     <div className={`seam seam--${kind} reveal`} aria-hidden="true">
       {kind === "bal" && (
         <svg viewBox="0 0 60 60">
-          <circle cx="30" cy="30" r="26" fill="#f2785c" stroke="#191b2e" strokeWidth="2" />
+          <circle cx="30" cy="30" r="26" fill="#ee9aac" stroke="#191b2e" strokeWidth="2" />
           <path d="M14 22a18 18 0 0 1 12-10" fill="none" stroke="#fff" strokeOpacity=".7" strokeWidth="4" strokeLinecap="round" />
           <path d="M30 4v52" stroke="#191b2e" strokeOpacity=".25" strokeWidth="2" />
         </svg>
@@ -108,12 +108,12 @@ function Seam({ kind }: { kind: "bal" | "stempel" | "ster" | "ring" }) {
           <defs>
             <path id="naad-stempel" d="M60 60m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0" />
           </defs>
-          <circle cx="60" cy="60" r="56" fill="#fffdf8" stroke="#d4502f" strokeWidth="3" />
-          <circle cx="60" cy="60" r="32" fill="none" stroke="#d4502f" strokeWidth="1.5" />
-          <text fontFamily="Geist Mono, monospace" fontSize="10" fontWeight="600" letterSpacing="2.4" fill="#d4502f">
+          <circle cx="60" cy="60" r="56" fill="#fffdf8" stroke="#c24d6b" strokeWidth="3" />
+          <circle cx="60" cy="60" r="32" fill="none" stroke="#c24d6b" strokeWidth="1.5" />
+          <text fontFamily="Geist Mono, monospace" fontSize="10" fontWeight="600" letterSpacing="2.4" fill="#c24d6b">
             <textPath href="#naad-stempel">GEZIEN · DOOR DE DIRECTIE · GEZIEN · </textPath>
           </text>
-          <text x="60" y="70" textAnchor="middle" fontFamily="Instrument Serif, serif" fontStyle="italic" fontSize="30" fill="#d4502f">
+          <text x="60" y="70" textAnchor="middle" fontFamily="Instrument Serif, serif" fontStyle="italic" fontSize="30" fill="#c24d6b">
             Ok.
           </text>
         </svg>
@@ -121,13 +121,13 @@ function Seam({ kind }: { kind: "bal" | "stempel" | "ster" | "ring" }) {
       {kind === "ster" && (
         <svg viewBox="0 0 60 140">
           <path d="M30 0v92" stroke="#191b2e" strokeWidth="2" strokeDasharray="4 6" />
-          <path d="M30 88l7 15 16 2-12 11 3 16-14-8-14 8 3-16-12-11 16-2z" fill="#f6d36b" stroke="#191b2e" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M30 88l7 15 16 2-12 11 3 16-14-8-14 8 3-16-12-11 16-2z" fill="#f6d781" stroke="#191b2e" strokeWidth="2" strokeLinejoin="round" />
         </svg>
       )}
       {kind === "ring" && (
         <svg viewBox="0 0 60 60">
           <circle cx="30" cy="30" r="20" fill="none" stroke="#191b2e" strokeWidth="15" />
-          <circle cx="30" cy="30" r="20" fill="none" stroke="#c3b2f0" strokeWidth="11" />
+          <circle cx="30" cy="30" r="20" fill="none" stroke="#cdbdf0" strokeWidth="11" />
           <path d="M15 22a17 17 0 0 1 10-9" fill="none" stroke="#fff" strokeOpacity=".7" strokeWidth="3" strokeLinecap="round" />
         </svg>
       )}
@@ -199,9 +199,9 @@ export default function Home() {
                 }}
               >
                 <svg viewBox="0 0 64 28" aria-hidden="true">
-                  <circle cx="12" cy="14" r="9" fill="#f6d36b" stroke="#191b2e" strokeWidth="2" />
-                  <circle cx="12" cy="14" r="3.5" fill="#f5efe4" stroke="#191b2e" strokeWidth="1.6" />
-                  <path d="M21 12h38v5h-6v6h-5v-6h-5v4h-5v-4H21z" fill="#f6d36b" stroke="#191b2e" strokeWidth="2" strokeLinejoin="round" />
+                  <circle cx="12" cy="14" r="9" fill="#f6d781" stroke="#191b2e" strokeWidth="2" />
+                  <circle cx="12" cy="14" r="3.5" fill="#f7f1ec" stroke="#191b2e" strokeWidth="1.6" />
+                  <path d="M21 12h38v5h-6v6h-5v-6h-5v4h-5v-4H21z" fill="#f6d781" stroke="#191b2e" strokeWidth="2" strokeLinejoin="round" />
                 </svg>
               </button>
             )}

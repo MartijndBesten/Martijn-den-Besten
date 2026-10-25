@@ -29,8 +29,8 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const INK = "#191b2e";
-  const TERRA = "#d4502f";
-  const OKER = "#f6d36b";
+  const TERRA = "#c24d6b";
+  const OKER = "#f6d781";
   ctx.clearRect(0, 0, W, H);
   ctx.fillStyle = "#fffdf8";
   ctx.fillRect(0, 0, W, H);
@@ -42,13 +42,13 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
     ctx.fillStyle = color;
     ctx.fill();
   };
-  blob(40, 40, 170, golden ? "#f7e3a1" : "#f9cfc2");
-  blob(W - 30, 60, 120, "#f7e3a1");
-  blob(W - 60, H - 40, 190, golden ? "#f7e3a1" : "#dcd0f7");
-  blob(60, H - 30, 110, golden ? "#f9cfc2" : "#cfe3c8");
+  blob(40, 40, 170, golden ? "#f9eabf" : "#f8d9e0");
+  blob(W - 30, 60, 120, "#f9eabf");
+  blob(W - 60, H - 40, 190, golden ? "#f9eabf" : "#e6ddf8");
+  blob(60, H - 30, 110, golden ? "#f8d9e0" : "#d5efe3");
 
   // Guilloche-rand: twee in elkaar grijpende golflijnen, zoals op waardepapier
-  ctx.strokeStyle = "#3c5bd6";
+  ctx.strokeStyle = "#34407a";
   ctx.lineWidth = 1;
   const wave = (offset: number, amp: number, phase: number) => {
     const x0 = 60 + offset;
@@ -115,7 +115,7 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
     ctx.beginPath();
     ctx.roundRect(W / 2 - 190, 106, 380, 44, 22);
     ctx.fill();
-    ctx.fillStyle = "#f6d36b";
+    ctx.fillStyle = "#f6d781";
     ctx.textAlign = "center";
     ctx.font = "600 20px 'Geist Mono', monospace";
     ctx.fillText("★  OPPERBEZOEKER  ★", W / 2, 135);
@@ -159,7 +159,7 @@ function draw(canvas: HTMLCanvasElement, name: string, achievement: string, seri
   ctx.save();
   ctx.translate(1230, 870);
   ctx.rotate(-0.2);
-  ctx.fillStyle = golden ? "#f6d36b" : "#f2785c";
+  ctx.fillStyle = golden ? "#f6d781" : "#ee9aac";
   ctx.strokeStyle = INK;
   ctx.lineWidth = 3;
   ctx.beginPath();

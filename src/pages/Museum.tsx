@@ -6,8 +6,10 @@ import { sfx } from "../lib/sound";
 import { useInView, usePrefersReducedMotion } from "../lib/hooks";
 import { api, type PublicIdea } from "../lib/api";
 import { useGame } from "../state/GameState";
-import { Artwork } from "../components/Artwork";
 import { DeptObject } from "../components/Objects";
+import { Still } from "../components/Still";
+import { OBJECT_ANCHORS } from "../three/stillInfo";
+import { quadToMatrix3d } from "../three/consoleInfo";
 import { Dialog } from "../components/Dialog";
 import { VoteButton } from "../components/VoteButton";
 import { IdeaForm } from "../components/IdeaForm";
@@ -20,11 +22,11 @@ const ROMAN = ["", "I", "II", "III", "IV", "V", "VI"];
 function FloorPlan({ secret, onCrack }: { secret: boolean; onCrack: () => void }) {
   // Zalen als kleurrijke kamers, elk in de kleur van zijn tentoonstelling.
   const rooms = [
-    { n: 1, x: 16, y: 34, w: 140, h: 92, fill: "#f7e3a1", ink: "#191b2e", short: "Briljant" },
-    { n: 2, x: 162, y: 34, w: 96, h: 92, fill: "#f9cfc2", ink: "#191b2e", short: "Bijna af" },
-    { n: 3, x: 264, y: 34, w: 120, h: 92, fill: "#3c5bd6", ink: "#fffdf8", short: "Domeinen" },
-    { n: 4, x: 16, y: 132, w: 170, h: 86, fill: "#dcd0f7", ink: "#191b2e", short: "Generator" },
-    { n: 5, x: 192, y: 132, w: 116, h: 86, fill: "#191b2e", ink: "#f6d36b", short: "Morgen" },
+    { n: 1, x: 16, y: 34, w: 140, h: 92, fill: "#f9eabf", ink: "#191b2e", short: "Briljant" },
+    { n: 2, x: 162, y: 34, w: 96, h: 92, fill: "#f8d9e0", ink: "#191b2e", short: "Bijna af" },
+    { n: 3, x: 264, y: 34, w: 120, h: 92, fill: "#34407a", ink: "#fffdf8", short: "Domeinen" },
+    { n: 4, x: 16, y: 132, w: 170, h: 86, fill: "#e6ddf8", ink: "#191b2e", short: "Generator" },
+    { n: 5, x: 192, y: 132, w: 116, h: 86, fill: "#191b2e", ink: "#f6d781", short: "Morgen" },
   ] as const;
   return (
     <nav className="floorplan" aria-label="Plattegrond van het museum">
@@ -48,7 +50,7 @@ function FloorPlan({ secret, onCrack }: { secret: boolean; onCrack: () => void }
         {secret ? (
           <a href="#zaal-6" aria-label="Zaal 6: De Geheime Zaal" className="floorplan__link">
             <rect className="floorplan__room floorplan__room--secret" x="314" y="132" width="70" height="86" rx="14" fill="#000" stroke="#191b2e" strokeWidth="2" />
-            <text x="349" y="172" textAnchor="middle" fill="#f6d36b" fontFamily="Geist Mono" fontSize="9">
+            <text x="349" y="172" textAnchor="middle" fill="#f6d781" fontFamily="Geist Mono" fontSize="9">
               ZAAL 6
             </text>
             <text x="349" y="192" textAnchor="middle" fill="#fffdf8" fontFamily="Instrument Serif" fontStyle="italic" fontSize="16">
@@ -63,7 +65,7 @@ function FloorPlan({ secret, onCrack }: { secret: boolean; onCrack: () => void }
             </text>
           </g>
         )}
-        <path d="M200 226h-12l6-8z" fill="#f2785c" stroke="#191b2e" strokeWidth="1.4" />
+        <path d="M200 226h-12l6-8z" fill="#ee9aac" stroke="#191b2e" strokeWidth="1.4" />
         <text x="206" y="230" fill="currentColor" fontFamily="Geist Mono" fontSize="8">
           U BENT HIER (ONGEVEER)
         </text>
@@ -81,28 +83,53 @@ function FloorPlan({ secret, onCrack }: { secret: boolean; onCrack: () => void }
 
 // ---------- Museumstuk ----------
 
-/** Objecten kantelen een fractie mee met de muis, alsof ze op een draaiplateau staan. */
-function tilt(ev: PointerEvent<HTMLElement>) {
-  if (ev.pointerType !== "mouse") return;
-  const el = ev.currentTarget;
-  const r = el.getBoundingClientRect();
-  el.style.setProperty("--rx", (((ev.clientY - r.top) / r.height - 0.5) * -10).toFixed(2) + "deg");
-  el.style.setProperty("--ry", (((ev.clientX - r.left) / r.width - 0.5) * 12).toFixed(2) + "deg");
-}
-function untilt(ev: PointerEvent<HTMLElement>) {
-  ev.currentTarget.style.setProperty("--rx", "0deg");
-  ev.currentTarget.style.setProperty("--ry", "0deg");
+// ---------- Draaiplateau ----------
+
+const FRAMES = 8;
+
+/** Een 3D-object op een sokkel, rondom gefotografeerd: met muis of vinger draai je het rond. */
+function Turntable({ id, className = "" }: { id: string; className?: string }) {
+  const [f, setF] = useState(0);
+  const start = useRef<{ x: number; f: number } | null>(null);
+  const turn = (e: PointerEvent<HTMLElement>) => {
+    if (e.pointerType === "mouse") {
+      const r = e.currentTarget.getBoundingClientRect();
+      setF(Math.min(FRAMES - 1, Math.max(0, Math.floor(((e.clientX - r.left) / r.width) * FRAMES))));
+      return;
+    }
+    const s0 = start.current;
+    if (!s0) return;
+    const steps = Math.round((e.clientX - s0.x) / 28);
+    setF((((s0.f - steps) % FRAMES) + FRAMES) % FRAMES);
+  };
+  return (
+    <span
+      className={`turntable ${className}`}
+      onPointerDown={(e) => (start.current = { x: e.clientX, f })}
+      onPointerMove={turn}
+      onPointerUp={() => (start.current = null)}
+      onPointerLeave={(e) => {
+        start.current = null;
+        if (e.pointerType === "mouse") setF(0);
+      }}
+    >
+      <img src={`/3d/stuk-${id}.webp`} width={480} height={544} alt="" loading="lazy" decoding="async" draggable={false} style={{ objectPosition: `${(f / (FRAMES - 1)) * 100}% 0` }} />
+    </span>
+  );
 }
 
 function ExhibitCard({ e, room, highlighted, onOpen }: { e: Exhibit; room: Room; highlighted: boolean; onOpen: (e: Exhibit) => void }) {
   return (
     <article id={`stuk-${e.id}`} className={`exhibit reveal ${highlighted ? "is-highlighted" : ""}`}>
-      <button type="button" className="exhibit__frame" onClick={() => onOpen(e)} aria-label={`Bekijk ${e.title}`} onPointerMove={tilt} onPointerLeave={untilt}>
+      <button type="button" className="exhibit__frame" onClick={() => onOpen(e)} aria-label={`Bekijk ${e.title}`}>
         <span className="exhibit__head" aria-hidden="true">
           <span>Cat. nr. {room.number}.{room.exhibits.indexOf(e) + 1}</span>
           <span>Octrooi aangevraagd</span>
         </span>
-        <Artwork seed={e.seed} label={e.title} />
+        <Turntable id={e.id} />
+        <span className="exhibit__hint" aria-hidden="true">
+          ↔ draai mee
+        </span>
       </button>
       <div className="plaque">
         <h3>{e.title}</h3>
@@ -146,7 +173,7 @@ function AlmostDone({ e, highlighted, onOpen }: { e: Exhibit; highlighted: boole
   return (
     <article id={`stuk-${e.id}`} className={`almost ${highlighted ? "is-highlighted" : ""}`}>
       <div className="almost__art">
-        <Artwork seed={e.seed} label={e.title} unfinished />
+        <Still name={`bijna-${e.id}`} w={960} h={720} widths={[480, 960]} sizes="(min-width: 900px) 36vw, 92vw" />
       </div>
       <div className="almost__body">
         <h3>{e.title}</h3>
@@ -200,28 +227,47 @@ function DomainVitrine({ e, highlighted, onOpen }: { e: Exhibit; highlighted: bo
   );
 }
 
+/** De domeinmolen is een archiefmachine: een kaartje gaat de gleuf in en wordt in een la gesorteerd. */
 function DomainMill() {
   const [items, setItems] = useState<Domain[]>([]);
+  const [flying, setFlying] = useState<{ id: number; name: string } | null>(null);
+  const flyId = useRef(0);
+  const A = OBJECT_ANCHORS.archief;
+  const spin = () => {
+    sfx.clunk();
+    const d = generateDomain();
+    setItems((x) => [d, ...x].slice(0, 4));
+    const id = ++flyId.current;
+    setFlying({ id, name: d.name });
+    window.setTimeout(() => setFlying((f) => (f?.id === id ? null : f)), 2200);
+  };
   return (
     <div className="mill">
-      <button
-        type="button"
-        className="btn btn--indigo"
-        onClick={() => {
-          sfx.clunk();
-          setItems((x) => [generateDomain(), ...x].slice(0, 4));
-        }}
-      >
-        Draai aan de domeinmolen
-      </button>
-      <ul className="mill__list" aria-live="polite">
-        {items.map((d, i) => (
-          <li key={d.name + i}>
-            <strong>{d.name}</strong> <span>{d.reason}</span>
-          </li>
-        ))}
-      </ul>
-      <p className="label">Niets wordt echt geregistreerd. De extensies bestaan niet eens.</p>
+      <div className="archive" aria-hidden="true">
+        <Still name="archief" w={1000} h={800} widths={[600, 1000]} sizes="(min-width: 900px) 46vw, 92vw" />
+        {flying && (
+          <span
+            key={flying.id}
+            className="archive__card"
+            style={{ "--x0": `${A.slot.x * 100}%`, "--y0": `${A.slot.y * 100}%`, "--x1": `${A.drawer.x * 100}%`, "--y1": `${A.drawer.y * 100}%` } as CSSProperties}
+          >
+            {flying.name}
+          </span>
+        )}
+      </div>
+      <div className="mill__side">
+        <button type="button" className="btn btn--indigo" onClick={spin}>
+          Draai aan de domeinmolen
+        </button>
+        <ul className="mill__list" aria-live="polite">
+          {items.map((d, i) => (
+            <li key={d.name + i}>
+              <strong>{d.name}</strong> <span>{d.reason}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="label">Het archief sorteert alles netjes. Niets wordt echt geregistreerd; de extensies bestaan niet eens.</p>
+      </div>
     </div>
   );
 }
@@ -260,15 +306,37 @@ function Generator({ onSubmit }: { onSubmit: (title: string) => void }) {
   };
 
   const title = `${vals[0]} ${vals[1]} ${vals[2]}`;
+  const M = OBJECT_ANCHORS.mini;
+  const stageRef = useRef<HTMLDivElement>(null);
+  const [size, setSize] = useState({ w: 0, h: 0 });
+  useEffect(() => {
+    const el = stageRef.current;
+    if (!el || !("ResizeObserver" in window)) return;
+    const ro = new ResizeObserver(([e]) => setSize({ w: e.contentRect.width, h: e.contentRect.height }));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  // de rollen liggen met een perspectieftransformatie precies in het venster van de 3D-machine
+  const reelStyle: CSSProperties = (() => {
+    if (!size.w) return {};
+    const q = M.window.map((p) => ({ x: p.x * size.w, y: p.y * size.h }));
+    const w = Math.hypot(q[1].x - q[0].x, q[1].y - q[0].y);
+    const h = Math.hypot(q[2].x - q[0].x, q[2].y - q[0].y);
+    return { width: w, height: h, transform: quadToMatrix3d(w, h, q) };
+  })();
 
   return (
     <div className="slot">
       <div className="slot__machine">
-        <div className="slot__top label">Ideeëngenerator · model ‘Altijd Aan’</div>
-        <div className={`slot__reels ${spinning ? "is-spinning" : ""}`} aria-live={spinning ? "off" : "polite"} aria-atomic="true">
-          <div className="reel"><span className="label">Wat</span><strong>{vals[0]}</strong></div>
-          <div className="reel"><span className="label">Voor wie</span><strong>{vals[1]}</strong></div>
-          <div className="reel"><span className="label">Waarom</span><strong>{vals[2]}</strong></div>
+        <div className="slot__top label">Ideeëngenerator · een kleine ideeënmachine, model ‘Altijd Aan’</div>
+        <div ref={stageRef} className={`mini ${spinning ? "is-spinning" : ""}`}>
+          <Still name="mini" w={1000} h={700} widths={[600, 1000]} sizes="(min-width: 1000px) 900px, 94vw" />
+          <span className="mini__lever" aria-hidden="true" style={{ left: `${M.lever.x * 100}%`, top: `${M.lever.y * 100}%` }} onClick={spin} />
+          <div className={`slot__reels ${spinning ? "is-spinning" : ""}`} style={reelStyle} aria-live={spinning ? "off" : "polite"} aria-atomic="true">
+            <div className="reel"><span className="label">Wat</span><strong>{vals[0]}</strong></div>
+            <div className="reel"><span className="label">Voor wie</span><strong>{vals[1]}</strong></div>
+            <div className="reel"><span className="label">Waarom</span><strong>{vals[2]}</strong></div>
+          </div>
         </div>
         <div className="slot__actions">
           <button type="button" className="btn btn--terra" onClick={spin} disabled={spinning}>
@@ -338,6 +406,35 @@ function Countdown() {
   );
 }
 
+// Een bewegende installatie: wiel en slinger zijn losse 3D-lagen die op hun eigen as draaien.
+function Kinetic() {
+  const K = OBJECT_ANCHORS.kinetisch;
+  const reduced = usePrefersReducedMotion();
+  const [ref, seen] = useInView<HTMLDivElement>("0px");
+  const [on, setOn] = useState(true);
+  const moving = on && seen && !reduced;
+  return (
+    <figure className="kinetic">
+      <div ref={ref} className={`kinetic__stage ${moving ? "is-moving" : ""}`} aria-hidden="true">
+        <Still name="kinetisch-frame" w={900} h={900} widths={[500, 900]} sizes="(min-width: 900px) 40vw, 90vw" />
+        <span className="kinetic__layer kinetic__layer--wheel" style={{ transformOrigin: `${K.wheel.x * 100}% ${K.wheel.y * 100}%` }}>
+          <Still name="kinetisch-wheel" w={900} h={900} widths={[500, 900]} sizes="(min-width: 900px) 40vw, 90vw" />
+        </span>
+        <span className="kinetic__layer kinetic__layer--pendulum" style={{ transformOrigin: `${K.hook.x * 100}% ${K.hook.y * 100}%` }}>
+          <Still name="kinetisch-pendulum" w={900} h={900} widths={[500, 900]} sizes="(min-width: 900px) 40vw, 90vw" />
+        </span>
+      </div>
+      <figcaption>
+        <span className="label">Kinetische installatie ‘Bijna Morgen’</span>
+        <p>Het wiel draait, de slinger telt af. Niemand weet waarnaartoe.</p>
+        <button type="button" className="btn btn--small btn--ivory" aria-pressed={!on} onClick={() => setOn((x) => !x)}>
+          {on ? "Installatie stilzetten" : "Installatie aanzetten"}
+        </button>
+      </figcaption>
+    </figure>
+  );
+}
+
 // ---------- Zaal 6: de geheime zaal ----------
 
 function SecretRoom() {
@@ -376,6 +473,7 @@ function SecretRoom() {
           </div>
         </header>
         <div ref={roomRef} className={`darkroom ${lights ? "is-lit" : ""}`} onPointerMove={move}>
+          <Still name="donker" w={1600} h={860} widths={[900, 1600]} sizes="(min-width: 1200px) 1140px, 96vw" className="darkroom__scene" />
           <p className="darkroom__note" style={{ left: "6%", top: "10%" }}>Hier hing vroeger een afgemaakt project. Het is uitgeleend.</p>
           <p className="darkroom__note" style={{ left: "52%", top: "16%" }}>Let op: natte verf (sinds 2019).</p>
           <p className="darkroom__note" style={{ left: "12%", top: "62%" }}>Nooduitgang → leidt naar een nieuw idee.</p>
@@ -383,7 +481,7 @@ function SecretRoom() {
           <button
             type="button"
             className={`darkroom__object ${found ? "is-found" : ""}`}
-            style={{ left: "70%", top: "38%" }}
+            style={{ left: `${OBJECT_ANCHORS.donker.object.x * 100}%`, top: `${OBJECT_ANCHORS.donker.object.y * 100}%` }}
             onClick={() => {
               setFound(true);
               findEgg("flashlight");
@@ -553,6 +651,7 @@ export default function Museum() {
                   ))}
                 </div>
                 <DeptObject kind="planeet" className="room__planet" />
+                <Kinetic />
                 <Countdown />
                 <div className="futures">
                   {room.exhibits.map((e) => (
@@ -591,7 +690,7 @@ export default function Museum() {
               <circle cx="23" cy="31" r="1.8" fill="currentColor" />
               <circle cx="37" cy="31" r="1.8" fill="currentColor" />
               <path d="M23 40q7 5 14 0" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M10 16h40l-6-10H16z" fill="#f2785c" stroke="currentColor" strokeWidth="1.2" />
+              <path d="M10 16h40l-6-10H16z" fill="#ee9aac" stroke="currentColor" strokeWidth="1.2" />
             </svg>
           </div>
           <div className="guide__text">
@@ -613,7 +712,13 @@ export default function Museum() {
         {open && (
           <div className="label-dialog">
             <div className="label-dialog__art">
-              <Artwork seed={open.seed} label={open.title} />
+              {ROOMS[0].exhibits.some((x) => x.id === open.id) ? (
+                <Turntable id={open.id} />
+              ) : ROOMS[1].exhibits.some((x) => x.id === open.id) ? (
+                <Still name={`bijna-${open.id}`} w={960} h={720} widths={[480, 960]} sizes="420px" />
+              ) : (
+                <Still name="afd-sokkel" w={400} h={400} />
+              )}
             </div>
             <p>{open.text}</p>
             <dl className="label-dialog__meta">

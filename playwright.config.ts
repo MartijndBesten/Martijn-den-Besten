@@ -1,6 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const PORT = 8788;
+const NO_WEBGL = ["--disable-webgl", "--disable-3d-apis"];
+const WEBGL = ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"];
 const BASE_URL = process.env.E2E_BASE_URL ?? `http://127.0.0.1:${PORT}`;
 
 export default defineConfig({
@@ -11,9 +13,13 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   reporter: [["list"]],
   use: { baseURL: BASE_URL, trace: "retain-on-failure" },
+  // De functionele tests draaien zonder WebGL: dat is meteen de verplichte terugvaloptie (poster + HTML-bediening).
+  // De 3D-suite draait mét WebGL (SwiftShader) en controleert dat de machines live, zichtbaar en bedienbaar zijn.
   projects: [
-    { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },
-    { name: "mobiel", use: { ...devices["Pixel 7"] }, testMatch: /navigatie|a11y|uiterlijk/ },
+    { name: "desktop", testIgnore: /drie-d/, use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 }, launchOptions: { args: NO_WEBGL } } },
+    { name: "mobiel", use: { ...devices["Pixel 7"], launchOptions: { args: NO_WEBGL } }, testMatch: /navigatie|a11y|uiterlijk/ },
+    { name: "3d-desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 }, launchOptions: { args: WEBGL } }, testMatch: /drie-d/ },
+    { name: "3d-mobiel", use: { ...devices["Pixel 7"], launchOptions: { args: WEBGL } }, testMatch: /drie-d/ },
   ],
   webServer: process.env.E2E_BASE_URL
     ? undefined

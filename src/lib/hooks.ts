@@ -54,3 +54,16 @@ export function useClickBurst(count: number, windowMs: number, onBurst: () => vo
     return times.current.length;
   };
 }
+
+/** Volgt een media query, bijvoorbeeld om te wisselen tussen een brede en een compacte compositie. */
+export function useMediaQuery(query: string): boolean {
+  const [match, setMatch] = useState(() => typeof window !== "undefined" && window.matchMedia(query).matches);
+  useEffect(() => {
+    const mq = window.matchMedia(query);
+    const onChange = () => setMatch(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, [query]);
+  return match;
+}

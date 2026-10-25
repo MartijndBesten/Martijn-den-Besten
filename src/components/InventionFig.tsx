@@ -6,18 +6,18 @@ import { seeded } from "../lib/random";
 import type { FigKind, Tone } from "../content/inventions";
 
 export const TONE_HEX: Record<Tone, string> = {
-  koraal: "#f2785c",
-  kobalt: "#3c5bd6",
-  salie: "#9fc39a",
-  lila: "#c3b2f0",
-  boter: "#f6d36b",
+  koraal: "#ee9aac",
+  kobalt: "#34407a",
+  salie: "#a9dcc4",
+  lila: "#cdbdf0",
+  boter: "#f6d781",
 };
 const SECOND: Record<Tone, string> = {
-  koraal: "#f6d36b",
-  kobalt: "#f2785c",
-  salie: "#3c5bd6",
-  lila: "#f2785c",
-  boter: "#3c5bd6",
+  koraal: "#f6d781",
+  kobalt: "#ee9aac",
+  salie: "#34407a",
+  lila: "#ee9aac",
+  boter: "#34407a",
 };
 
 const INK = "#191b2e";
@@ -86,8 +86,8 @@ function Attachment({ kind, top, accent }: { kind: FigKind; top: number; accent:
       return (
         <g>
           <path d={`M60 ${top - 22}h40l-14 20h-12z`} fill={accent} {...s} />
-          <circle cx="74" cy={top - 26} r="4" fill="#f2785c" {...s} strokeWidth={1.1} />
-          <circle cx="86" cy={top - 27} r="3.5" fill="#9fc39a" {...s} strokeWidth={1.1} />
+          <circle cx="74" cy={top - 26} r="4" fill="#ee9aac" {...s} strokeWidth={1.1} />
+          <circle cx="86" cy={top - 27} r="3.5" fill="#a9dcc4" {...s} strokeWidth={1.1} />
         </g>
       );
     case "wolk":

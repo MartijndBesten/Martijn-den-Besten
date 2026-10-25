@@ -63,9 +63,21 @@ export const IDEA_PURPOSES = [
 
 export type Idea = { title: string; description: string; serial: string };
 
-export function generateIdea(rng: Rng = Math.random): Idea {
-  const title = `${pick(IDEA_OBJECTS, rng)} ${pick(IDEA_FEATURES, rng)}`;
-  const description = `${pick(["Een revolutionair concept", "Een baanbrekend plan", "Een volkomen logisch idee", "Een onvermijdelijke uitvinding", "Een product voor de toekomst"], rng)}, ${pick(IDEA_PURPOSES, rng)}`;
+/** Hoe hoger de creativiteit, hoe gekker het idee: vanaf 7 twee eigenschappen, vanaf 10 ook nog in drievoud. */
+export function generateIdea(rng: Rng = Math.random, creativity = 3): Idea {
+  const f1 = pick(IDEA_FEATURES, rng);
+  let title = `${pick(IDEA_OBJECTS, rng)} ${f1}`;
+  if (creativity >= 7) {
+    let f2 = pick(IDEA_FEATURES, rng);
+    for (let i = 0; i < 5 && f2 === f1; i++) f2 = pick(IDEA_FEATURES, rng);
+    title += ` én ${f2}`;
+  }
+  if (creativity >= 10) title += ", in drievoud";
+  const opener =
+    creativity <= 1
+      ? pick(["Een redelijk normaal idee", "Een voorzichtig plan", "Een idee met een helm op"], rng)
+      : pick(["Een revolutionair concept", "Een baanbrekend plan", "Een volkomen logisch idee", "Een onvermijdelijke uitvinding", "Een product voor de toekomst"], rng);
+  const description = `${opener}, ${pick(IDEA_PURPOSES, rng)}`;
   const serial = `ID-${Math.floor(rng() * 90000 + 10000)}`;
   return { title, description, serial };
 }

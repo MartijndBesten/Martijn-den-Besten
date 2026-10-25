@@ -70,7 +70,7 @@ export const EGGS: Record<EggId, { title: string; text: string }> = {
   end: { title: "Het einde", text: "U heeft het einde van de website bereikt." },
   flashlight: { title: "Zaklampdetective", text: "U vond het enige afgemaakte object in het museum." },
   serious: { title: "Serieus?", text: "U heeft de serieuze modus overleefd." },
-  vogeltje: { title: "Gouden modus", text: "De windvaan op de ideeënmachine draaide op goud. De machine volgt de wind en levert even alleen gouden ideeën." },
+  vogeltje: { title: "Gouden modus", text: "U vond de sleutelschakelaar op de ideeënmachine en zette hem op goud. De machine levert even alleen gouden ideeën." },
   "mega-idee": { title: "Veel te groot idee", text: "De machine produceerde een idee dat niet meer door de deur past." },
   sleutel: { title: "Sleutel van het instituut", text: "U heeft de gouden sleutel gevonden. Hij past nergens op. Dat is de grap." },
   wegloper: { title: "Weglopende knop", text: "U heeft de knop die wegloopt toch te pakken gekregen. Hij is er niet blij mee." },

@@ -25,7 +25,7 @@ export default function Einde() {
         {stage >= 1 && (
           <div className="einde__walker" aria-hidden="true">
             <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="1.4">
-              <circle cx="40" cy="40" r="30" fill="#f6d36b" stroke="none" />
+              <circle cx="40" cy="40" r="30" fill="#f6d781" stroke="none" />
               <circle cx="40" cy="40" r="30" />
               <circle cx="31" cy="36" r="2.5" fill="currentColor" stroke="none" />
               <circle cx="49" cy="36" r="2.5" fill="currentColor" stroke="none" />

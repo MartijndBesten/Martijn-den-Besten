@@ -32,7 +32,7 @@ export function Passport() {
       <button type="button" className={`passport-btn ${bumped ? "is-bumped" : ""}`} onClick={() => setOpen(true)} aria-haspopup="dialog" aria-label={`Missies: ${done} van ${MISSIONS.length} voltooid`}>
         <svg className="passport-btn__ring" viewBox="0 0 36 36" aria-hidden="true">
           <circle cx="18" cy="18" r={r} fill="none" stroke="currentColor" strokeOpacity="0.25" strokeWidth="3" />
-          <circle cx="18" cy="18" r={r} fill="none" stroke="#f2785c" strokeWidth="3.5" strokeLinecap="round" strokeDasharray={`${Math.max(0.01, circ * pct)} ${circ}`} transform="rotate(-90 18 18)" />
+          <circle cx="18" cy="18" r={r} fill="none" stroke="#ee9aac" strokeWidth="3.5" strokeLinecap="round" strokeDasharray={`${Math.max(0.01, circ * pct)} ${circ}`} transform="rotate(-90 18 18)" />
           <path d="M13 18.5l3.2 3.2 6.5-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity={done === MISSIONS.length ? 1 : 0} />
           <circle cx="18" cy="18" r="3.4" fill="currentColor" opacity={done === MISSIONS.length ? 0 : 0.85} />
         </svg>
