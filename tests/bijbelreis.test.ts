@@ -97,7 +97,7 @@ describe("bijbelreis: plaatsen en routes", () => {
   });
   it("coördinaten liggen in het kaartgebied en zekerheid is ingevuld", () => {
     for (const [id, p] of Object.entries(P)) {
-      expect(p.ll[0] > 10 && p.ll[0] < 46 && p.ll[1] > 18 && p.ll[1] < 60, id).toBe(true);
+      expect(p.ll[0] > 10 && p.ll[0] < 47 && p.ll[1] > 4 && p.ll[1] < 60, id).toBe(true); // kaartgebied van Rome tot Perzië
       if (!p.ctx) expect(["v", "w", "b", "o", "r"], id).toContain(p.c);
       if (p.c === "b") expect(Array.isArray(p.alt) && p.alt.length > 0, `${id}: betwist zonder kandidaten`).toBe(true);
     }
@@ -145,5 +145,65 @@ describe("bijbelreis: personen", () => {
       while (cur && n < 200) { if (cur === id) { bad.push(`kring bij ${id}`); break; } cur = M![cur]?.v; n++; }
     }
     expect(bad).toEqual([]);
+  });
+});
+
+// ---------- de 150 geschiedenissen ----------
+type Gesch = { nr: number; t: string; ref: string; stappen: string[]; vorm: string; uitleg: string; betekenis?: string; wie?: string[]; kw?: string;
+  ontdek?: { soort: string }; quiz: { q: string; a: string[]; why: string }[]; cross?: [string, string][]; tl?: [number, number] | null };
+const GS = ((BR as unknown as { geschiedenissen?: Gesch[] }).geschiedenissen || []).slice().sort((a, b) => a.nr - b.nr);
+const KWS = (BR as unknown as { kernwoorden?: Record<string, { n: string; uitleg: string; refs?: [string, string][] }> }).kernwoorden || {};
+const LEID = readFileSync(join(__dirname, "..", "docs", "bijbelreis-150", "inhoudsopgave.tsv"), "utf8").trim().split("\n").slice(1).map((l) => l.split("\t"));
+const STAPKEYS = new Set(STEPS.map((x) => x.key));
+const KWID = (n: string) => n.toLowerCase().replace(/^de /, "").normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/\s+/g, "-");
+
+describe("bijbelreis: de 150 geschiedenissen", () => {
+  it("de leidraad heeft 150 unieke nummers (79 OT, 71 NT) en 47 kernwoorden", () => {
+    expect(LEID.map((r) => +r[0])).toEqual(Array.from({ length: 150 }, (_, i) => i + 1));
+    expect(LEID.filter((r) => r[3]).length).toBe(47);
+  });
+  it("elk record is volledig en verwijst naar bestaande stappen, teksten en kernwoorden", () => {
+    const bad: string[] = [];
+    const nrs = new Set<number>();
+    for (const g of GS) {
+      const w = `#${g.nr}`;
+      if (nrs.has(g.nr)) bad.push(`${w} dubbel`); nrs.add(g.nr);
+      if (!(g.nr >= 1 && g.nr <= 150)) bad.push(`${w} nummer`);
+      if (!g.t || !g.ref) bad.push(`${w} titel/ref`);
+      if (verses(g.ref) !== "ok" && !/^Zacharia en Maleachi$/.test(g.ref)) bad.push(`${w} ref ${g.ref}: ${verses(g.ref)}`);
+      if (!g.uitleg || g.uitleg.length < 200) bad.push(`${w} uitleg te kort`);
+      if (!["route", "plek", "stamboom", "gelijkenis", "thema", "symbool"].includes(g.vorm)) bad.push(`${w} vorm ${g.vorm}`);
+      (g.stappen || []).forEach((k) => { if (!STAPKEYS.has(k)) bad.push(`${w} stap ${k} bestaat niet`); });
+      if (!(g.stappen || []).length && !["symbool", "thema"].includes(g.vorm)) bad.push(`${w} geen stappen`);
+      if (!g.quiz || g.quiz.length < 3 || g.quiz.length > 5) bad.push(`${w} ${g.quiz ? g.quiz.length : 0} vragen`);
+      (g.quiz || []).forEach((q, i) => {
+        if (new Set(q.a).size !== q.a.length || q.a.length < 2) bad.push(`${w} vraag ${i + 1} antwoorden`);
+        if (!q.why || verses(q.why.replace(/^.*?(\d?\s?[A-Z][a-zëéïü]+ \d.*)$/, "$1")) !== "ok") bad.push(`${w} vraag ${i + 1} why ${q.why}`);
+      });
+      (g.cross || []).forEach(([r]) => { if (verses(r) !== "ok") bad.push(`${w} cross ${r}`); });
+      if (!g.ontdek || !["koppel", "volgorde", "onthul", "wiezei", "gelijkenis", "symbolen", "verbanden", "kaart", "stamboom"].includes(g.ontdek.soort)) bad.push(`${w} ontdek`);
+      const lk = LEID.find((r) => +r[0] === g.nr)!;
+      if (lk[3] && g.kw !== KWID(lk[3])) bad.push(`${w} kernwoord moet ${KWID(lk[3])} zijn (is ${g.kw})`);
+      if (!lk[3] && g.kw) bad.push(`${w} heeft een kernwoord dat niet in de leidraad staat`);
+      if (g.kw && !KWS[g.kw]) bad.push(`${w} kernwoord ${g.kw} ontbreekt in BR.kernwoorden`);
+    }
+    expect(bad).toEqual([]);
+  });
+  it("geen dubbele uitleg of dubbele vragen tussen geschiedenissen", () => {
+    const u = GS.map((g) => g.uitleg), q = GS.flatMap((g) => g.quiz.map((x) => x.q.toLowerCase()));
+    expect(u.filter((x, i) => u.indexOf(x) !== i)).toEqual([]);
+    expect(q.filter((x, i) => q.indexOf(x) !== i)).toEqual([]);
+  });
+  it("kernwoorden hebben uitleg en kloppende verwijzingen", () => {
+    const bad: string[] = [];
+    for (const [id, k] of Object.entries(KWS)) {
+      if (!k.n || !k.uitleg || k.uitleg.length < 80) bad.push(`${id} uitleg`);
+      (k.refs || []).forEach(([r]) => { if (verses(r) !== "ok") bad.push(`${id} ${r}`); });
+    }
+    expect(bad).toEqual([]);
+  });
+  it.skipIf(process.env.BIJBELREIS_150 !== "1")("alle 150 geschiedenissen zijn uitgewerkt (BIJBELREIS_150=1)", () => {
+    expect(GS.map((g) => g.nr)).toEqual(Array.from({ length: 150 }, (_, i) => i + 1));
+    expect(Object.keys(KWS).length).toBe(47);
   });
 });

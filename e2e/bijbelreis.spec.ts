@@ -47,7 +47,8 @@ test("tabbladen: tijdlijn, wie is wie, hoe ver en boekenkast", async ({ page }) 
   await expect(page.locator("#p-tijd .tl-item.cur")).toContainText("Jakob");
   await page.getByRole("tab", { name: "Wie is wie" }).click();
   await expect(page.locator("#wieInfo")).not.toBeEmpty();
-  await page.getByRole("tab", { name: "Hoe ver?" }).click();
+  await page.getByRole("tab", { name: "Reis" }).click();
+  await page.getByRole("button", { name: "Hoe ver?" }).click();
   await expect(page.locator("#tripKm")).toContainText("km");
   await page.getByRole("tab", { name: "Reis" }).click();
   await page.getByRole("button", { name: "Alle 66 boeken" }).click();
@@ -107,5 +108,29 @@ test("kaart: Toen/Nu, legenda en een plaats met zekerheid", async ({ page, isMob
   await bethel.focus();
   await page.keyboard.press("Enter");
   await expect(page.locator(".leaflet-popup")).toContainText(/Identificeerbaar|Waarschijnlijk|Betwist|Onbekend/);
+  expect(errors).toEqual([]);
+});
+
+test("verhalen: overzicht, zoeken, een geschiedenis openen en de vragen maken", async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto("/bijbelreis");
+  await expect(page.getByRole("tab", { name: "Verhalen" })).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator("#p-verhalen")).toContainText("150");
+  await page.locator("#vZoek").fill("Jona");
+  await expect(page.locator("#vLijst .vitem").first()).toBeVisible();
+  const first = page.locator("#vLijst button.vitem").first();
+  if (await first.count()) {
+    await first.click();
+    await expect(page.locator("#p-verhalen .verhaal")).toBeVisible();
+    await page.locator("#vqStart").click();
+    for (let i = 0; i < 5; i++) {
+      await page.locator("#vQuiz .opt").first().click();
+      await page.locator("#vqVolgende").click();
+      if (await page.locator("#vQuiz").getByText(/Klaar:/).count()) break;
+    }
+    await expect(page.locator("#vQuiz")).toContainText("Klaar:");
+    const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("bijbelreis:verhalen") || "{}"));
+    expect(Object.keys(stored).length).toBeGreaterThan(0);
+  }
   expect(errors).toEqual([]);
 });
