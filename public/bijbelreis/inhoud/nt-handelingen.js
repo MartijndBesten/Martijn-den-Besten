@@ -3,7 +3,7 @@
 // Zeeroutes lopen via punten op zee; de precieze vaarroute staat niet in de Bijbel.
 // Kleuren alleen zetten als een eerder NT-bestand ze nog niet gaf (zo blijft één kleur per persoon).
 (function (kleuren) { Object.keys(kleuren).forEach(function (k) { if (!BR.personen[k]) BR.personen[k] = kleuren[k]; }); })({
-  Petrus: "kobalt", Johannes: "teal", Apostelen: "kobalt", Discipelen: "kobalt", Stefanus: "koraal", "Filippus de evangelist": "olijf",
+  Petrus: "terra", Johannes: "bruin", Apostelen: "kobalt", Discipelen: "kobalt", Stefanus: "koraal", "Filippus de evangelist": "olijf",
   Saulus: "terra", Paulus: "terra", Barnabas: "salie", Silas: "olijf", "Timotheüs": "salie", Lydia: "lila", Tabitha: "koraal", Cornelius: "bruin",
   Ananias: "grijs", Saffira: "grijs", "Ananias van Damascus": "teal", "Gamaliël": "grijs", "Simon de tovenaar": "grijs", Kamerling: "bruin",
   Eneas: "grijs", Weduwen: "koraal", Broeders: "kobalt", "Herodes (Agrippa I)": "rood", Rhode: "koraal", Raad: "rood", Kreupele: "grijs",
