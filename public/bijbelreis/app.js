@@ -446,7 +446,8 @@
       let pts = s.rays4 ? [[ll(s.rays4)[0] + 0.8, ll(s.rays4)[1] - 1], [ll(s.rays4)[0] - 0.8, ll(s.rays4)[1] + 1]] : (s.r ? s.r.flatMap((r) => r.pts) : []).concat(s.at.map(ll));
       if (s.later) pts = pts.concat(s.later.p.map(ll));
       if (s.look) pts = pts.concat(s.look.slice(0, 2).map(ll));
-      if (!pts.length) fit(WIDE, 6, () => animate(s));
+      // Geen plaats bekend (bijv. ‘ergens in Israël’): toon de streek in plaats van een verzonnen punt.
+      if (!pts.length) fit(Array.isArray(s.view) ? s.view : s.view === "kanaan" ? KANAAN : WIDE, Array.isArray(s.view) ? 9 : 6, () => animate(s));
       else if (pts.every((p) => p[0] === pts[0][0] && p[1] === pts[0][1])) {
         const z = s.zoom || 9; reduceMotion ? map.setView(pts[0], z) : map.flyTo(pts[0], z, { duration: 0.8 }); setTimeout(() => animate(s), reduceMotion ? 0 : 850);
       } else fit(pts, s.zoom || 9, () => animate(s));
