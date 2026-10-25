@@ -70,7 +70,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       quiz: [
         { q: "Waaruit formeerde God de mens?", a: ["Uit het stof van de aarde", "Uit een rib", "Uit het water van de rivier"], why: "Genesis 2:7" },
         { q: "Wie gaf de dieren hun naam?", a: ["Adam", "Eva", "Noach"], why: "Genesis 2:20" },
-        { q: "Van welke boom mocht Adam niet eten?", a: ["Van de boom der kennis des goeds en des kwaads", "Van de boom des levens", "Van de vijgenboom"], why: "Genesis 2:16–17" },
+        { q: "Van welke boom mocht Adam niet eten?", a: ["Van de boom der kennis des goeds en des kwaads", "Van de boom des levens, midden in de hof", "Van de vijgenboom bij de rivier"], why: "Genesis 2:16–17" },
         { q: "Wat zei God voordat Hij een vrouw voor Adam maakte?", a: ["‘Het is niet goed, dat de mens alleen zij.’", "‘Adam moet de dieren tellen.’", "‘De hof is te groot voor één mens.’"], why: "Genesis 2:18" },
       ],
       cross: [
@@ -279,7 +279,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       quiz: [
         { q: "Waar stierf Terach, de vader van Abram?", a: ["In Haran", "In Ur der Chaldeeën", "In Sichem"], why: "Genesis 11:32" },
         { q: "Hoe oud was Abram toen hij uit Haran vertrok?", a: ["75 jaar", "99 jaar", "100 jaar"], why: "Genesis 12:4" },
-        { q: "Bij welke plaats zei de HEERE: ‘Aan uw zaad zal Ik dit land geven’?", a: ["Bij Sichem, bij het eikenbos More", "In Egypte", "In Haran"], why: "Genesis 12:6–7" },
+        { q: "Bij welke plaats zei de HEERE: ‘Aan uw zaad zal Ik dit land geven’?", a: ["Bij Sichem, bij het eikenbos More", "In Haran, voordat hij vertrok", "In Egypte, bij de farao"], why: "Genesis 12:6–7" },
         { q: "Waarom ging Abram naar Egypte?", a: ["Er was zware honger in het land", "De farao had hem uitgenodigd", "Lot wilde daarheen"], why: "Genesis 12:10" },
       ],
       cross: [
@@ -347,10 +347,10 @@ BR.kernwoorden = BR.kernwoorden || {};
         ],
       },
       quiz: [
-        { q: "Waarom gingen Abram en Lot uit elkaar?", a: ["Het land kon hun vee niet samen dragen en de herders kregen twist", "Lot wilde terug naar Haran", "God zei dat Lot naar Egypte moest"], why: "Genesis 13:6–7" },
+        { q: "Waarom gingen Abram en Lot uit elkaar?", a: ["Het land kon hun vee niet samen dragen en de herders kregen twist", "Lot wilde terug naar Haran, naar zijn familie", "God had gezegd dat Lot naar Egypte moest gaan"], why: "Genesis 13:6–7" },
         { q: "Hoeveel rechtvaardigen noemde Abraham de laatste keer dat hij voor Sodom pleitte?", a: ["Tien", "Vijftig", "Twintig"], why: "Genesis 18:32" },
         { q: "Naar welk stadje vluchtte Lot?", a: ["Zoar", "Gomorra", "Bethel"], why: "Genesis 19:22–23" },
-        { q: "Wat zag Abraham de volgende morgen boven het land van Sodom en Gomorra?", a: ["Rook, zoals de rook van een oven", "Een regenboog", "Een wolkkolom"], why: "Genesis 19:28" },
+        { q: "Wat zag Abraham de volgende morgen boven het land van Sodom en Gomorra?", a: ["Rook, zoals de rook van een oven", "Een regenboog boven de vlakte", "Een wolkkolom boven de stad"], why: "Genesis 19:28" },
       ],
       cross: [
         ["2 Petrus 2:6–8", "God veroordeelde Sodom en Gomorra, maar verloste de rechtvaardige Lot."],
@@ -383,7 +383,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       },
       quiz: [
         { q: "Wat moest Abram tellen, als hij het kon?", a: ["De sterren", "Het zand van de zee", "Zijn schapen"], why: "Genesis 15:5" },
-        { q: "Wie zou volgens Abram zijn erfgenaam worden?", a: ["Eliëzer uit Damaskus, de beheerder van zijn huis", "Zijn neef Lot", "Ismaël"], why: "Genesis 15:2–3" },
+        { q: "Wie zou volgens Abram zijn erfgenaam worden?", a: ["Eliëzer uit Damaskus, de beheerder van zijn huis", "Zijn neef Lot, de zoon van Haran", "Ismaël, de zoon van Hagar"], why: "Genesis 15:2–3" },
         { q: "Hoe oud was Abram toen God hem de naam Abraham gaf?", a: ["99 jaar", "75 jaar", "86 jaar"], why: "Genesis 17:1–5" },
         { q: "Hoe oud was Abraham toen Izak geboren werd?", a: ["100 jaar", "90 jaar", "120 jaar"], why: "Genesis 21:5" },
       ],
@@ -524,7 +524,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       quiz: [
         { q: "Wat zei de HEERE tegen Rebekka vóór de geboorte van de tweeling?", a: ["‘De meerdere zal den mindere dienen.’", "‘De oudste zal koning worden.’", "‘U krijgt drie zonen.’"], why: "Genesis 25:23" },
         { q: "Waarvoor verkocht Ezau zijn eerstgeboorterecht?", a: ["Voor brood en linzensoep", "Voor een mantel", "Voor zilver"], why: "Genesis 25:34" },
-        { q: "Wat zei Izak toen hij Jakob betastte?", a: ["‘De stem is Jakobs stem, maar de handen zijn Ezau’s handen.’", "‘Jij bent zeker Ezau.’", "‘Waarom ben je zo laat?’"], why: "Genesis 27:22" },
+        { q: "Wat zei Izak toen hij Jakob betastte?", a: ["‘De stem is Jakobs stem, maar de handen zijn Ezau’s handen.’", "‘Uw handen zijn glad, gij zijt Jakob.’", "‘Breng mij eerst water, mijn zoon.’"], why: "Genesis 27:22" },
         { q: "Hoe noemde Jakob de plaats waar hij van de ladder droomde?", a: ["Bethel", "Pniël", "Mahanaïm"], why: "Genesis 28:19" },
       ],
       cross: [
@@ -560,7 +560,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         { q: "Hoeveel jaar diende Jakob eerst om Rachel?", a: ["Zeven jaar", "Veertien jaar", "Twintig jaar"], why: "Genesis 29:20" },
         { q: "Wie gaf Laban na de bruiloft aan Jakob?", a: ["Lea", "Rachel", "Bilha"], why: "Genesis 29:23–25" },
         { q: "Wie was de oudste zoon van Jakob?", a: ["Ruben", "Jozef", "Juda"], why: "Genesis 29:32" },
-        { q: "Waarom gaf Laban eerst Lea, volgens wat hij zelf zei?", a: ["In zijn plaats gaf men de jongste niet vóór de oudste weg", "Rachel wilde niet trouwen", "Jakob had om Lea gevraagd"], why: "Genesis 29:26" },
+        { q: "Waarom gaf Laban eerst Lea, volgens wat hij zelf zei?", a: ["In zijn plaats gaf men de jongste niet vóór de oudste weg", "Rachel wilde nog niet met Jakob trouwen", "Jakob had zelf om Lea gevraagd"], why: "Genesis 29:26" },
       ],
       cross: [
         ["Genesis 49:28", "‘Al deze stammen van Israël zijn twaalf.’"],
@@ -870,7 +870,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         ],
       },
       quiz: [
-        { q: "Waar moesten de Israëlieten het bloed van het lam strijken?", a: ["Aan de twee deurposten en de bovendorpel", "Op het dak van het huis", "Op de drempel"], why: "Exodus 12:7" },
+        { q: "Waar moesten de Israëlieten het bloed van het lam strijken?", a: ["Aan de twee deurposten en de bovendorpel", "Op de drempel en op de deur zelf", "Op het dak en op de muren van het huis"], why: "Exodus 12:7" },
         { q: "Wat aten ze bij het lam?", a: ["Ongezuurde broden en bittere saus", "Honingkoeken en melk", "Vis en vijgen"], why: "Exodus 12:8" },
         { q: "Hoe lang hadden de Israëlieten in Egypte gewoond?", a: ["Vierhonderddertig jaar", "Veertig jaar", "Zeventig jaar"], why: "Exodus 12:40" },
         { q: "Wiens beenderen nam Mozes mee?", a: ["Die van Jozef", "Die van Jakob", "Die van Abraham"], why: "Exodus 13:19" },
@@ -945,7 +945,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         { q: "Wat gooide Mozes in het bittere water van Mara?", a: ["Een hout", "Zout", "Een steen"], why: "Exodus 15:25" },
         { q: "Hoeveel waterbronnen waren er in Elim?", a: ["Twaalf", "Zeven", "Zeventig"], why: "Exodus 15:27" },
         { q: "Waarom zeiden de Israëlieten: ‘Het is Man’?", a: ["Ze wisten niet wat het was", "Mozes had het zo genoemd", "Het smaakte naar brood"], why: "Exodus 16:15" },
-        { q: "Hoeveel manna verzamelden ze op de zesde dag?", a: ["Dubbel: twee gomers per persoon", "Niets", "Een halve gomer"], why: "Exodus 16:22" },
+        { q: "Hoeveel manna verzamelden ze op de zesde dag?", a: ["Dubbel: twee gomers per persoon", "Niets, want het was de rustdag", "Een halve gomer per persoon"], why: "Exodus 16:22" },
         { q: "Waarmee sloeg Mozes op de rots?", a: ["Met zijn staf", "Met een hamer", "Met zijn hand"], why: "Exodus 17:5–6" },
       ],
       cross: [
@@ -1018,7 +1018,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         { q: "Waarmee begint God als Hij de Tien Geboden geeft?", a: ["Met Wie Hij is en wat Hij gedaan heeft", "Met het gebod over de sabbat", "Met een straf voor het volk"], why: "Exodus 20:2" },
         { q: "Bij welk gebod staat de belofte dat je dagen verlengd worden?", a: ["Eert uw vader en uw moeder", "Gij zult niet stelen", "Gij zult niet doodslaan"], why: "Exodus 20:12" },
         { q: "Hoeveel kolommen zette Mozes bij het altaar onder aan de berg?", a: ["Twaalf, voor de twaalf stammen", "Tien, voor de tien geboden", "Zeven"], why: "Exodus 24:4" },
-        { q: "Hoe lang was Mozes daarna op de berg?", a: ["Veertig dagen en veertig nachten", "Zeven dagen", "Drie dagen"], why: "Exodus 24:18" },
+        { q: "Hoe lang was Mozes daarna op de berg?", a: ["Veertig dagen en veertig nachten", "Zeven dagen en zeven nachten", "Drie dagen en drie nachten"], why: "Exodus 24:18" },
       ],
       cross: [
         ["Deuteronomium 5:6–21", "De Tien Geboden staan ook in Deuteronomium."],

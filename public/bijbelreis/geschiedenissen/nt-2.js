@@ -17,7 +17,7 @@ BR.geschiedenissen.push(
     ["Deze is Johannes, dien ik onthoofd heb; die is van de doden opgewekt.", "Herodes", ["Herodias", "Filippus"]]] },
   quiz: [
     { q: "Waarom schrok Herodes toen hij over de Heere Jezus hoorde?", a: ["Hij dacht dat Johannes de Doper was opgestaan", "Hij dacht dat de Romeinen kwamen", "Hij dacht dat Mozes was teruggekomen"], why: "Markus 6:16" },
-    { q: "Met wie was Herodias eerst getrouwd?", a: ["Met Filippus, de broer van Herodes", "Met de keizer", "Met Johannes"], why: "Markus 6:17" },
+    { q: "Met wie was Herodias eerst getrouwd?", a: ["Met Filippus, de broer van Herodes", "Met de keizer in Rome", "Met een koning van Arabië"], why: "Markus 6:17" },
     { q: "Wat wist Herodes eigenlijk van Johannes?", a: ["Dat hij een rechtvaardig en heilig man was", "Dat hij een bedrieger was", "Niets, hij kende hem niet"], why: "Markus 6:20" },
     { q: "Waarom liet Herodes Johannes toch onthoofden?", a: ["Vanwege zijn eden en zijn gasten", "Omdat Johannes wilde vluchten", "Omdat de Romeinen het eisten"], why: "Markus 6:26" }],
   cross: [["Lukas 3:19–20", "Johannes had Herodes bestraft om Herodias en om al het kwaad dat hij deed; daarom sloot Herodes hem op."],
@@ -122,7 +122,7 @@ BR.geschiedenissen.push(
     { q: "Wie zeiden sommige mensen dat de Heere Jezus was?", a: ["Johannes de Doper, Elia of Jeremia", "Mozes of Aäron", "Een engel uit de hemel"], why: "Mattheüs 16:14" },
     { q: "Wie had aan Petrus geopenbaard dat Jezus de Christus is?", a: ["De Vader in de hemelen", "Zijn broer Andreas", "Johannes de Doper"], why: "Mattheüs 16:17" },
     { q: "Waarom zei de Heere Jezus tegen Petrus: ‘Ga weg achter Mij, satanas’?", a: ["Petrus wilde niet dat Hij zou lijden", "Petrus had Hem verloochend", "Petrus was in slaap gevallen"], why: "Mattheüs 16:22–23" },
-    { q: "Wat moet iemand doen die achter de Heere Jezus aan wil komen?", a: ["Zichzelf verloochenen, zijn kruis opnemen en Hem volgen", "Eerst rijk worden", "Naar Jeruzalem verhuizen"], why: "Mattheüs 16:24" }],
+    { q: "Wat moet iemand doen die achter de Heere Jezus aan wil komen?", a: ["Zichzelf verloochenen, zijn kruis opnemen en Hem volgen", "Eerst al zijn geld aan de tempel geven", "Naar Jeruzalem verhuizen en daar blijven"], why: "Mattheüs 16:24" }],
   cross: [["Johannes 6:68–69", "Ook in Kapernaüm had Petrus gezegd: ‘wij hebben geloofd en bekend, dat Gij zijt de Christus’."],
     ["Johannes 1:42–43", "Andreas vond de Messias, ‘de Christus’; de Heere Jezus gaf Simon de naam Cefas, ‘hetwelk overgezet wordt Petrus’."],
     ["1 Petrus 2:6", "Petrus schrijft later over Christus als de uitverkoren Hoeksteen in Sion."],
@@ -136,7 +136,7 @@ BR.geschiedenissen.push(
   betekenis: "God de Vader Zelf wijst op Zijn Zoon: ‘hoort Hem!’ (Lukas 9:35). Mozes en Elia spreken met Hem over Zijn sterven in Jeruzalem (Lukas 9:31); de heerlijkheid op de berg komt vlak na de aankondiging van Zijn lijden.",
   wie: ["Jezus", "Petrus", "Jakobus", "Johannes", "Mozes", "Elia"],
   ontdek: { soort: "verbanden", titel: "Beloofd en uitgekomen", items: [
-    ["Deuteronomium 18:15", "Mozes zei: God zal een Profeet als ik verwekken; ‘naar Hem zult gij horen’.", "Lukas 9:35", "Op de berg zegt God over Jezus: ‘Deze is Mijn geliefde Zoon; hoort Hem!’"],
+    ["Deuteronomium 18:15", "Mozes zei: God zal een Profeet als ik verwekken; ‘naar Hem zult gij horen’.", "Lukas 9:35", "Op de berg zegt God over de Heere Jezus: ‘Deze is Mijn geliefde Zoon; hoort Hem!’"],
     ["Lukas 9:31", "Mozes en Elia spreken over Zijn uitgang, die Hij in Jeruzalem zou volbrengen.", "Lukas 24:6–7", "Hij werd overgeleverd en gekruisigd, en stond op de derde dag op."],
     ["Mattheüs 17:9", "‘Zegt niemand dit gezicht, totdat de Zoon des mensen zal opgestaan zijn uit de doden.’", "2 Petrus 1:16–18", "Later schrijft Petrus: wij hebben die stem gehoord, toen wij met Hem op de heilige berg waren."]] },
   quiz: [
@@ -163,7 +163,7 @@ BR.geschiedenissen.push(
     ["Honderdvoud", "Wie iets verlaat om de Heere Jezus en het Evangelie, ontvangt honderdvoud, ‘met de vervolgingen’, en in de toekomende eeuw het eeuwige leven (Markus 10:29–30)."]] },
   quiz: [
     { q: "Hoe reageerde de Heere Jezus toen de discipelen de kinderen wegstuurden?", a: ["Hij nam het zeer kwalijk", "Hij gaf de discipelen gelijk", "Hij ging weg"], why: "Markus 10:14" },
-    { q: "Wat zei de Heere Jezus dat de rijke man moest doen?", a: ["Alles verkopen, het de armen geven en Hem volgen", "Meer bidden", "Vaker naar de tempel gaan"], why: "Markus 10:21" },
+    { q: "Wat zei de Heere Jezus dat de rijke man moest doen?", a: ["Alles verkopen, het de armen geven en Hem volgen", "Elke dag drie keer bidden en vasten", "Vaker naar de tempel gaan en offeren"], why: "Markus 10:21" },
     { q: "Waarom ging de rijke man bedroefd weg?", a: ["Hij had vele goederen", "Hij was ziek", "Hij was te laat"], why: "Markus 10:22" },
     { q: "Wat is volgens de Heere Jezus nog moeilijker dan een kemel door het oog van een naald?", a: ["Dat een rijke in het Koninkrijk Gods ingaat", "Dat een visser rijk wordt", "Dat een kind de wet leert"], why: "Markus 10:25" }],
   cross: [["Mattheüs 18:3", "‘Indien gij u niet verandert, en wordt gelijk de kinderkens, zo zult gij in het Koninkrijk der hemelen geenszins ingaan.’"],
@@ -185,8 +185,8 @@ BR.geschiedenissen.push(
   quiz: [
     { q: "Wiens zonen waren Jakobus en Johannes?", a: ["Van Zebedeüs", "Van Jonas", "Van Timeüs"], why: "Markus 10:35" },
     { q: "Wat vroegen Jakobus en Johannes?", a: ["Om rechts en links naast Hem te zitten in Zijn heerlijkheid", "Om de beurs van de discipelen te dragen", "Om in de tempel te mogen preken"], why: "Markus 10:37" },
-    { q: "Hoe reageerden de andere tien discipelen?", a: ["Ze namen het Jakobus en Johannes zeer kwalijk", "Ze vroegen hetzelfde", "Ze zeiden niets"], why: "Markus 10:41" },
-    { q: "Waarvoor is de Zoon des mensen gekomen?", a: ["Om te dienen en Zijn ziel te geven tot een rantsoen voor velen", "Om gediend te worden", "Om koning van Rome te worden"], why: "Markus 10:45" }],
+    { q: "Hoe reageerden de andere tien discipelen?", a: ["Ze namen het Jakobus en Johannes zeer kwalijk", "Ze vroegen precies hetzelfde voor zichzelf", "Ze zeiden niets en liepen door"], why: "Markus 10:41" },
+    { q: "Waarvoor is de Zoon des mensen gekomen?", a: ["Om te dienen en Zijn ziel te geven tot een rantsoen voor velen", "Om gediend te worden door alle mensen", "Om rijk en machtig te worden"], why: "Markus 10:45" }],
   cross: [["Mattheüs 20:20–21", "Volgens Mattheüs kwam hun moeder met hen mee om dit te vragen."],
     ["Handelingen 12:2", "Jakobus werd later met het zwaard gedood: hij dronk de beker van het lijden."],
     ["Johannes 13:14–15", "De Heere Jezus wast de voeten van Zijn discipelen: ‘Ik heb u een voorbeeld gegeven.’"],
@@ -224,7 +224,7 @@ BR.geschiedenissen.push(
     ["Het dorp", "Lukas noemt het ‘een vlek’; Johannes noemt Bethanië ‘het vlek van Maria en haar zuster Martha’ (Johannes 11:1)."]] },
   quiz: [
     { q: "Wie ontving de Heere Jezus in haar huis?", a: ["Martha", "Maria", "Maria Magdalena"], why: "Lukas 10:38" },
-    { q: "Wat deed Maria?", a: ["Ze zat aan de voeten van de Heere Jezus en hoorde Zijn woord", "Ze bakte brood", "Ze ging water halen"], why: "Lukas 10:39" },
+    { q: "Wat deed Maria?", a: ["Ze zat aan de voeten van de Heere Jezus en hoorde Zijn woord", "Ze bakte brood voor de gasten", "Ze ging water halen bij de put"], why: "Lukas 10:39" },
     { q: "Wat vroeg Martha aan de Heere Jezus?", a: ["Of Hij tegen Maria wilde zeggen dat ze moest helpen", "Of Hij wilde blijven slapen", "Of Hij haar broer wilde genezen"], why: "Lukas 10:40" },
     { q: "Hoeveel dingen zijn volgens de Heere Jezus nodig?", a: ["Eén ding", "Twee dingen", "Tien dingen"], why: "Lukas 10:42" }],
   cross: [["Lukas 10:27", "Het grote gebod: God liefhebben met heel je hart, en je naaste als jezelf."],
@@ -246,7 +246,7 @@ BR.geschiedenissen.push(
     ["Uit de straten van de stad", "Armen, verminkten, kreupelen en blinden"],
     ["Van de wegen en heggen", "Nog meer gasten, tot het huis vol is"]] },
   quiz: [
-    { q: "Bij wie at de Heere Jezus op die sabbat?", a: ["Bij een van de oversten van de Farizeeën", "Bij Zacheüs", "Bij Martha"], why: "Lukas 14:1" },
+    { q: "Bij wie at de Heere Jezus op die sabbat?", a: ["Bij een van de oversten van de Farizeeën", "Bij Zacheüs, de tollenaar", "Bij Martha, in Bethanië"], why: "Lukas 14:1" },
     { q: "Wat liet de heer tegen de genodigden zeggen?", a: ["Komt, want alle dingen zijn nu gereed", "Blijft maar thuis", "Neemt zelf eten mee"], why: "Lukas 14:17" },
     { q: "Waarom kon de derde genodigde niet komen?", a: ["Hij had een vrouw getrouwd", "Hij was ziek", "Hij had een akker gekocht"], why: "Lukas 14:20" },
     { q: "Waar moest de knecht als laatste mensen halen?", a: ["Op de wegen en bij de heggen", "In de tempel", "In het paleis van de koning"], why: "Lukas 14:23" }],
@@ -305,7 +305,7 @@ BR.geschiedenissen.push(
     ["Ik vast tweemaal per week; ik geef tienden van alles, wat ik bezit.", "De Farizeeër", ["De tollenaar", "De wetgeleerde"]],
     ["O God! wees mij zondaar genadig!", "De tollenaar", ["De Farizeeër", "De priester"]]] },
   quiz: [
-    { q: "Aan wie vertelde de Heere Jezus deze gelijkenis?", a: ["Aan mensen die op zichzelf vertrouwden dat ze rechtvaardig waren", "Aan de tollenaars", "Aan de kinderen"], why: "Lukas 18:9" },
+    { q: "Aan wie vertelde de Heere Jezus deze gelijkenis?", a: ["Aan mensen die op zichzelf vertrouwden dat ze rechtvaardig waren", "Aan de tollenaars en zondaars", "Aan de kinderen die bij Hem kwamen"], why: "Lukas 18:9" },
     { q: "Hoe vaak per week vastte de Farizeeër?", a: ["Twee keer", "Eén keer", "Elke dag"], why: "Lukas 18:12" },
     { q: "Wat deed de tollenaar toen hij bad?", a: ["Hij sloeg op zijn borst", "Hij hief zijn handen hoog op", "Hij ging vooraan staan"], why: "Lukas 18:13" },
     { q: "Wie ging volgens de Heere Jezus gerechtvaardigd naar huis?", a: ["De tollenaar", "De Farizeeër", "Allebei"], why: "Lukas 18:14" }],
@@ -347,7 +347,7 @@ BR.geschiedenissen.push(
     { q: "Wat deed Bartimeüs nadat hij kon zien?", a: ["Hij volgde de Heere Jezus op de weg", "Hij ging terug naar huis", "Hij ging naar de tempel"], why: "Markus 10:52" }],
   cross: [["Lukas 18:35–43", "Lukas vertelt over een blinde bij Jericho, toen de Heere Jezus dicht bij de stad kwam."],
     ["Mattheüs 20:29–30", "Mattheüs vertelt over twee blinden, toen ze uit Jericho gingen."],
-    ["Jesaja 35:5", "‘Alsdan zullen der blinden ogen opengedaan worden.’"]],
+    ["Psalm 146:8", "‘De HEERE opent de ogen der blinden.’"]],
   tl: [30, 30], tijd: "ca. 30 n.Chr. (of 33)",
   tijdNoot: "Reconstructie. Jericho is de laatste stad op de weg naar Jeruzalem, vlak voor het laatste Pascha. Wie de kruisiging ca. 30 n.Chr. stelt, komt op het voorjaar van 30; wie 33 n.Chr. aanhoudt, op het voorjaar van 33." },
 

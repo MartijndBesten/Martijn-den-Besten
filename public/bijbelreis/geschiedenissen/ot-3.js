@@ -152,8 +152,8 @@ BR.geschiedenissen.push(
     ["De armsten van het volk", "Zij bleven in Juda en kregen wijngaarden en akkers (Jeremia 39:10)."],
     ["Koning Jojachin", "Na 37 jaar gevangenschap at hij al de dagen van zijn leven aan de tafel van de koning van Babel (2 Koningen 25:27–29)."]] },
   quiz: [
-    { q: "Waar werd Zedekia ingehaald?", a: ["In de vlakke velden van Jericho", "Bij de stad Dan", "In Egypte"], why: "Jeremia 39:5" },
-    { q: "Waar sprak Nebukadnezar het oordeel over Zedekia uit?", a: ["In Ribla, in het land van Hamath", "In Jeruzalem", "In Ninevé"], why: "Jeremia 39:5" },
+    { q: "Waar werd Zedekia ingehaald?", a: ["In de vlakke velden van Jericho", "Bij de stad Dan, in het noorden", "In Egypte, bij de farao"], why: "Jeremia 39:5" },
+    { q: "Waar sprak Nebukadnezar het oordeel over Zedekia uit?", a: ["In Ribla, in het land van Hamath", "In Jeruzalem, in zijn eigen paleis", "In Ninevé, in Assyrië"], why: "Jeremia 39:5" },
     { q: "Wat kregen de armsten die in Juda bleven?", a: ["Wijngaarden en akkers", "Paarden en wagens", "Huizen in Babel"], why: "Jeremia 39:10" },
     { q: "Wie maakte de ketenen van Jeremia los?", a: ["Nebuzaradan, de overste van de lijfwacht", "Koning Zedekia", "Johanan, de zoon van Kareah"], why: "Jeremia 40:4" },
     { q: "Na hoeveel jaar gevangenschap werd Jojachin vrijgelaten?", a: ["37 jaar", "70 jaar", "7 jaar"], why: "2 Koningen 25:27" }],
@@ -204,7 +204,7 @@ BR.geschiedenissen.push(
     { q: "Hoe lang werden de vier jongens getest met groente en water?", a: ["10 dagen", "40 dagen", "3 jaar"], why: "Daniël 1:12" },
     { q: "Hoeveel keer wijzer vond de koning hen dan al zijn wijzen?", a: ["Tien keer", "Twee keer", "Honderd keer"], why: "Daniël 1:20" },
     { q: "Wat deden Daniël en zijn vrienden toen de koning zijn droom wilde weten?", a: ["Ze vroegen de God van de hemel om barmhartigheid", "Ze vluchtten de stad uit", "Ze raadpleegden de sterren"], why: "Daniël 2:18" },
-    { q: "Wat werd de steen die het beeld verbrijzelde?", a: ["Een grote berg die de hele aarde vulde", "Een gouden kroon", "Stof dat wegwaaide"], why: "Daniël 2:35" }],
+    { q: "Wat werd de steen die het beeld verbrijzelde?", a: ["Een grote berg die de hele aarde vulde", "Een gouden kroon op het hoofd van de koning", "Een rivier die door het hele land stroomde"], why: "Daniël 2:35" }],
   cross: [["Ezechiël 14:14", "Daniël wordt genoemd met Noach en Job als rechtvaardige mannen."],
     ["Mattheüs 24:15", "De Heere Jezus spreekt over ‘Daniël, den profeet’."],
     ["2 Koningen 20:18", "Jesaja had gezegd dat er uit het huis van Hizkia jongens als hovelingen naar het paleis van de koning van Babel zouden gaan. Daniël 1:3 vertelt dat Nebukadnezar jongens ‘uit het koninklijk zaad’ liet halen."]],
@@ -226,7 +226,7 @@ BR.geschiedenissen.push(
   quiz: [
     { q: "Hoe hoog was het gouden beeld?", a: ["60 el", "6 el", "100 el"], why: "Daniël 3:1" },
     { q: "Hoeveel keer heter liet de koning de oven maken?", a: ["Zeven keer", "Twee keer", "Tien keer"], why: "Daniël 3:19" },
-    { q: "Wie werden door de vlammen gedood?", a: ["De mannen die hen in de oven wierpen", "De wijzen van Babel", "Niemand"], why: "Daniël 3:22" },
+    { q: "Wie werden door de vlammen gedood?", a: ["De mannen die hen in de oven wierpen", "De wijzen van Babel die hen aangeklaagd hadden", "Niemand, het vuur deed niemand kwaad"], why: "Daniël 3:22" },
     { q: "Hoeveel mannen zag de koning in het vuur lopen?", a: ["Vier", "Drie", "Zeven"], why: "Daniël 3:25" },
     { q: "Wat was er aan de drie vrienden verbrand?", a: ["Niets, zelfs hun haar niet", "Hun mantels", "Hun handen"], why: "Daniël 3:27" }],
   cross: [["Exodus 20:3–5", "‘Gij zult geen andere goden voor Mijn aangezicht hebben ... Gij zult u voor die niet buigen, noch hen dienen.’"],
