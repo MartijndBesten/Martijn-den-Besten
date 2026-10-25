@@ -157,7 +157,7 @@ stappen (kaart, routes, stempel) en voegt uitleg, kernwoord, ontdekking en vrage
 
 Bestanden: `public/bijbelreis/geschiedenissen/<groep>.js` (records), nieuwe reisboeken in `public/bijbelreis/inhoud/`
 (`leviticus.js`, `profeten.js`, `nt-jezus-1.js`, `nt-jezus-2.js`, `nt-jezus-3.js`, `nt-handelingen.js`, `nt-openbaring.js`),
-nieuwe plaatsen eerst per groep in `public/bijbelreis/plaatsen/<groep>.js` (daarna samengevoegd in `plaatsen.js`).
+nieuwe plaatsen staan (na samenvoegen) in `plaatsen.js`.
 
 ```js
 BR.geschiedenissen.push({

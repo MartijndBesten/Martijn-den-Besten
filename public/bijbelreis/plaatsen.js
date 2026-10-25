@@ -486,3 +486,69 @@ Object.assign(BR.W, {
   nt_middenzee: [35.6, 19.0], nt_tyrrheense: [39.5, 14.6],
   nt_tauruspas: [37.3, 34.75],
 });
+
+// Uit groep nt-1 (geschiedenissen 3.0)
+// Coördinaten: OpenBible.info Bible Geocoding Data (CC BY 4.0) waar beschikbaar; anders traditioneel punt, eerlijk als ‘o’ gemarkeerd.
+Object.assign(BR.plaatsen, {
+  nt1_judagebergte: { n: "Stad in het bergland van Juda", ll: [31.7645, 35.1595], c: "o", s: "l", z: 9, t: "stad",
+    d: "Hier woonden Zacharias en Elisabeth. Maria reisde ‘naar het gebergte, in een stad van Juda’ (Lukas 1:39–40). De Bijbel noemt de naam van de stad niet; een oude traditie wijst Ein Karem aan, vlak bij Jeruzalem.",
+    nu: "Ein Karem? (Jeruzalem)",
+    bron: "Niet genoemd in de Bijbel. Punt illustratief op Ein Karem (traditie; coördinaat van Ein Karim volgens OpenBible, CC BY 4.0)." },
+  nt1_bergrede: { n: "Berg van de Bergrede", ll: [32.8808, 35.5558], c: "o", s: "l", z: 8.5, t: "berg",
+    d: "‘Een berg’ in Galilea, waar de Heere Jezus de Bergrede uitsprak (Mattheüs 5:1). De Bijbel noemt geen naam. Daarna ging Hij naar Kapernaüm (Mattheüs 8:5).",
+    nu: "Heuvel bij Tabgha (traditie), Israël",
+    bron: "Niet genoemd in de Bijbel; traditioneel de heuvel boven Tabgha (‘Berg der Zaligsprekingen’). Geen OpenBible-identificatie. Punt illustratief." },
+});
+
+// Uit groep nt-2 (geschiedenissen 3.0)
+// Coördinaten: OpenBible.info Bible Geocoding Data (CC BY 4.0), gecontroleerd; zekerheid eerlijk ingevuld (zie docs/BIJBELREIS.md, Schema 2.0).
+Object.assign(BR.plaatsen, {
+  nt2_efraim: { n: "Efraïm", ll: [31.9544, 35.3003], c: "w", s: "r", z: 8.5, t: "stad",
+    d: "Een stad ‘bij de woestijn’. Hierheen trok de Heere Jezus Zich met Zijn discipelen terug, nadat de Joodse raad besloten had Hem te doden (Johannes 11:54).",
+    nu: "et-Taiyibe (Taybeh), Westelijke Jordaanoever",
+    bron: "OpenBible: Ephraim 2 (Joh. 11:54) = Ephraim 1, bij et-Taiyibe; gangbare identificatie, niet zeker." },
+  nt2_samaria: { n: "Samaria (streek)", ll: [32.2, 35.22], c: "r", s: "c", z: 7.5, t: "gebied",
+    d: "Het heuvelland tussen Galilea en Judea, waar de Samaritanen woonden. Een dorp van de Samaritanen wilde de Heere Jezus niet ontvangen, omdat Hij op weg was naar Jeruzalem (Lukas 9:52–53).",
+    nu: "Noordelijk deel van de Westelijke Jordaanoever",
+    bron: "Streek; middelpunt bij benadering (OpenBible: Samaria 2)." },
+  nt2_vlek: { n: "Een dorp (tien melaatsen)", ll: [32.52, 35.4], c: "o", s: "r", z: 8.5, t: "stad",
+    d: "Lukas zegt alleen dat de Heere Jezus ‘door het midden van Samaria en Galilea’ ging en in ‘een zeker vlek’ kwam (Lukas 17:11–12). Welk dorp het was, weten we niet; de stip staat ergens op de grens van Galilea en Samaria.",
+    nu: "Grensgebied Galilea–Samaria (bij de Jizreëlvlakte?)",
+    bron: "Niet genoemd in de Bijbel; punt illustratief op de grens van Galilea en Samaria." },
+  nt2_perea: { n: "Over de Jordaan", ll: [31.95, 35.65], c: "r", s: "r", z: 7.5, t: "gebied",
+    d: "‘De landpalen van Judea, door de overzijde van de Jordaan’ (Markus 10:1): het land ten oosten van de Jordaan. Geschiedschrijvers uit die tijd noemen het Perea. Hier zegende de Heere Jezus de kinderen en sprak Hij met de rijke jongeman.",
+    nu: "Jordaandal en heuvels ten oosten van de Jordaan, Jordanië",
+    bron: "Streek; de naam Perea komt van Josephus, niet uit de Bijbel." },
+});
+
+// Uit groep nt-3 (geschiedenissen 3.0)
+// Coördinaten: OpenBible.info Bible Geocoding Data (CC BY 4.0). Zekerheid eerlijk ingevuld (zie docs/BIJBELREIS.md, Schema 2.0).
+Object.assign(BR.plaatsen, {
+  nt3_gabbatha: { n: "Gabbatha (rechthuis van Pilatus)", ll: [31.7761, 35.228], c: "b", s: "l", z: 10, t: "stad",
+    d: "Het rechthuis van de stadhouder Pilatus, met de rechterstoel op een plaats die ‘Lithostrotos’ heet, in het Hebreeuws ‘Gabbatha’ (Johannes 19:13). Waar dat precies was, is niet zeker: bij het paleis van Herodes in het westen van de stad, of bij de burcht Antonia naast de tempel.",
+    nu: "Bij de Citadel (Jaffapoort) of bij de Via Dolorosa, Jeruzalem",
+    bron: "OpenBible: binnen 500 m van het paleis van Herodes (meeste stemmen); traditie: burcht Antonia (klooster van de Zusters van Sion).",
+    alt: [[31.7803, 35.2334, "Burcht Antonia (klooster van de Zusters van Sion)"]] },
+  nt3_berggalilea: { n: "De berg in Galilea", ll: [32.76, 35.527], c: "o", s: "r", z: 7.5, t: "berg",
+    d: "‘De berg, waar Jezus hen bescheiden had’ (Mattheüs 28:16). De Bijbel noemt de naam van de berg niet. Alleen de streek, Galilea, is bekend; het punt op de kaart is een voorbeeld.",
+    nu: "Onbekend; ergens in Galilea, Israël",
+    bron: "Niet genoemd in de Bijbel. Punt illustratief: OpenBible-punt voor de streek Galilea." },
+});
+
+// Uit groep nt-4 (geschiedenissen 3.0)
+// Coördinaten: OpenBible.info Bible Geocoding Data (CC BY 4.0), oktober 2026. Ids beginnen met nt4_.
+Object.assign(BR.plaatsen, {
+  // Handelingen 21: van Milete naar Jeruzalem
+  nt4_milete: { n: "Milete", ll: [37.5311, 27.2756], c: "v", s: "l", z: 7, t: "stad", d: "Havenstad aan de westkust van Asia. Hier nam Paulus afscheid van de ouderlingen van Efeze (Handelingen 20:15–38).", nu: "Milet (bij Balat), Turkije", bron: "Opgegraven stad Miletus (OpenBible)." },
+  nt4_kos: { n: "Kos", ll: [36.8153, 27.1103], c: "v", s: "l", z: 7.5, t: "gebied", d: "Eiland voor de kust van Asia, waar het schip van Paulus aanlegde (Handelingen 21:1).", nu: "Kos, Griekenland", bron: "Eiland Kos (OpenBible); de havenstad met dezelfde naam ligt aan de noordoostpunt." },
+  nt4_rhodus: { n: "Rhodus", ll: [36.4409, 28.2109], c: "v", s: "b", z: 7, t: "stad", d: "Eiland en havenstad; het schip van Paulus kwam hier op weg naar Patara (Handelingen 21:1).", nu: "Rodos, Griekenland", bron: "Stad Rhodos aan de noordpunt van het eiland (OpenBible)." },
+  nt4_patara: { n: "Patara", ll: [36.2603, 29.3142], c: "v", s: "b", z: 7, t: "stad", d: "Havenstad in Lycië. Hier stapte Paulus over op een schip naar Fenicië (Handelingen 21:1–2).", nu: "Patara (bij Gelemiş), Turkije", bron: "Opgegraven stad Patara (OpenBible)." },
+  nt4_ptolemais: { n: "Ptolemaïs", ll: [32.9214, 35.0692], c: "v", s: "l", z: 7.5, t: "stad", d: "Havenstad tussen Tyrus en Caesarea. Paulus bleef hier één dag bij de broeders (Handelingen 21:7). Vroeger heette de stad Akko (Richteren 1:31).", nu: "Akko (Acre), Israël", bron: "Akko; naam en ligging algemeen aanvaard (OpenBible)." },
+  // Openbaring 1:11: de zeven gemeenten (Efeze staat al in plaatsen.js als nt_efeze)
+  nt4_smyrna: { n: "Smyrna", ll: [38.4189, 27.1378], c: "v", s: "l", z: 7, t: "stad", d: "Havenstad in Asia; de tweede van de zeven gemeenten in Openbaring (2:8–11).", nu: "İzmir, Turkije", bron: "İzmir; de oude stad ligt onder de moderne stad (OpenBible)." },
+  nt4_pergamus: { n: "Pergamum", ll: [39.1322, 27.1842], c: "v", s: "r", z: 7, t: "stad", d: "Stad in Asia (Statenvertaling: Pergamus); de derde van de zeven gemeenten, ‘daar de troon des satans is’ (Openbaring 2:12–17).", nu: "Bergama, Turkije", bron: "Opgegraven stad Pergamon bij Bergama (OpenBible)." },
+  nt4_thyatira: { n: "Thyatira", ll: [38.9202, 27.8366], c: "v", s: "r", z: 7, t: "stad", d: "Stad in Asia (Statenvertaling: Thyatire); de vierde van de zeven gemeenten (Openbaring 2:18–29). Lydia, de purperverkoopster, kwam hiervandaan (Handelingen 16:14).", nu: "Akhisar, Turkije", bron: "Akhisar (OpenBible)." },
+  nt4_sardis: { n: "Sardis", ll: [38.4883, 28.0403], c: "v", s: "r", z: 7, t: "stad", d: "Stad in Asia; de vijfde van de zeven gemeenten: ‘gij hebt den naam, dat gij leeft, en gij zijt dood’ (Openbaring 3:1).", nu: "Sart (bij Salihli), Turkije", bron: "Opgegraven stad Sardis (OpenBible)." },
+  nt4_filadelfia: { n: "Filadelfia", ll: [38.35, 28.5167], c: "v", s: "b", z: 7, t: "stad", d: "Stad in Asia; de zesde van de zeven gemeenten. Voor haar had de Heere ‘een geopende deur’ gegeven (Openbaring 3:7–13).", nu: "Alaşehir, Turkije", bron: "Alaşehir (OpenBible)." },
+  nt4_laodicea: { n: "Laodicea", ll: [37.8358, 29.1075], c: "v", s: "r", z: 7, t: "stad", d: "Rijke stad in Asia; de zevende gemeente, die ‘noch koud, noch heet’ was (Openbaring 3:14–22). Paulus noemt haar ook in Kolossenzen 4:13–16.", nu: "bij Denizli, Turkije", bron: "Opgegraven stad Laodicea aan de Lycus (OpenBible)." },
+});
