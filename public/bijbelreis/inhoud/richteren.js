@@ -1,16 +1,5 @@
 // Richteren: Debora en Barak, Gideon, Simson. Namen volgens de Herziene Statenvertaling.
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
-Object.assign(BR.plaatsen, {
-  ri_palm: { n: "Palmboom van Debora", ll: [31.89, 35.23], c: "o", s: "r", z: 8.5, t: "tent", d: "Debora zat onder een palmboom tussen Rama en Bethel, in het bergland van Efraïm (Richteren 4:5). Precies welke plek, weten we niet." },
-  ri_kedes: { n: "Kedes-Naftali", ll: [33.11, 35.53], c: "w", s: "r", z: 7.5, t: "stad", d: "Woonplaats van Barak. Hier verzamelde hij zijn leger, en hier vlakbij stond de tent van Jaël (Richteren 4:6, 11)." },
-  ri_tabor: { n: "Berg Tabor", ll: [32.687, 35.39], c: "v", s: "r", z: 7, t: "berg", d: "Vanaf deze berg viel Barak met tienduizend man aan (Richteren 4:14). Een ronde berg die alleen in de vlakte staat." },
-  ri_kison: { n: "Beek Kison", ll: [32.68, 35.17], c: "v", s: "l", z: 8, t: "water", d: "Hier versloeg God het leger van Sisera. De beek spoelde de vijanden weg (Richteren 4:7, 5:21)." },
-  ri_ofra: { n: "Ofra", ll: [32.64, 35.44], c: "o", s: "r", z: 8, t: "altaar", d: "Woonplaats van Gideon. Hier dorste hij tarwe bij de wijnpers en bouwde hij een altaar (Richteren 6). Waar Ofra precies lag, weten we niet; waarschijnlijk bij de vlakte van Jizreël." },
-  ri_harod: { n: "Bron Harod", ll: [32.55, 35.36], c: "w", s: "b", z: 8, t: "put", d: "Bij deze bron koos God driehonderd man uit (Richteren 7:1–7). Een grote bron aan de voet van de berg Gilboa." },
-  ri_more: { n: "Heuvel More", ll: [32.61, 35.38], c: "w", s: "r", z: 8.5, t: "berg", d: "Achter deze heuvel, in het dal, lag het leger van de Midianieten (Richteren 7:1)." },
-  ri_sorek: { n: "Dal Sorek", ll: [31.77, 34.9], c: "r", s: "b", z: 8.5, t: "gebied", d: "Het dal tussen Zora en de kust van de Filistijnen. Hier woonde Delila (Richteren 16:4)." },
-  ri_lechi: { n: "Lechi", ll: [31.72, 35.02], c: "o", s: "r", z: 8.5, t: "stad", d: "Hier versloeg Simson duizend Filistijnen met een ezelskaak (Richteren 15:14–17). Lechi betekent ‘kaak’. Waar het lag, weet niemand precies." },
-});
 Object.assign(BR.personen, { Jaël: "lila", Sisera: "rood", Jabin: "rood", Midianieten: "rood", Filistijnen: "rood", Manoach: "terra", Pura: "salie" });
 
 BR.boeken.push({

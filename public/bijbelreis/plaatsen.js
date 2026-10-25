@@ -47,15 +47,15 @@ Object.assign(BR.plaatsen, {
 // Tussenpunten (geen plaatsen uit de Bijbel): bochten in handelswegen, rivierovergangen, passen.
 Object.assign(BR.W, {
   uruk: [31.32, 45.64], nippur: [32.13, 45.23], sippar: [33.06, 44.25], hit: [33.64, 42.83], anah: [34.47, 41.95],
-  mariw: [34.55, 40.89], deir: [35.33, 40.14], tuttul: [35.95, 39.02], balich: [36.45, 38.98], mosul: [36.34, 43.13], assur: [35.46, 43.26],
+  mariw: [34.55, 40.89], deir: [35.33, 40.14], tuttul: [35.95, 39.02], balich: [36.45, 38.98], mosul: [36.34, 43.13],
   karkw: [36.83, 38.01], aleppo: [36.2, 37.16], qatna: [34.835, 36.866], damw: [33.513, 36.292], basan: [32.9, 36.1],
   hazor: [33.017, 35.568], galil: [32.82, 35.45], dothanw: [32.46, 35.3], ridge: [32.07, 35.26],
   jeruz: [31.777, 35.235], bethlehem: [31.705, 35.2], hebron: [31.53, 35.095], halfway: [31.62, 35.15],
-  nitz: [30.88, 34.42], sinai: [30.8, 33.7], sur: [30.62, 32.8], timsah: [30.58, 32.3],
-  jericho: [31.87, 35.44], golan: [33.35, 35.85], jvalley: [32.5, 35.52], rabba: [32.05, 35.88], lisan: [31.5, 35.47],
+  nitz: [30.88, 34.42], sinaiw: [30.8, 33.7], sur: [30.62, 32.8], timsah: [30.58, 32.3],
+  golan: [33.35, 35.85], jvalley: [32.5, 35.52], lisan: [31.5, 35.47],
   ham: [32.6, 35.8], seirw: [30.55, 35.55], hazezon: [31.46, 35.39], siddim: [31.2, 35.45], gerarw: [31.42, 34.85], paranw: [30.75, 34.65],
   blrgerar: [31.1, 34.5], gerarval: [31.2, 34.6], ford: [32.2, 35.55], sichemvalley: [32.22, 35.4], moab: [31.3, 35.75],
-  coast1: [32.45, 34.95], jaffa: [32.0, 34.78], gaza: [31.5, 34.45], arish: [31.13, 33.8], pelusium: [31.04, 32.55],
+  coast1: [32.45, 34.95], jaffa: [32.0, 34.78], arish: [31.13, 33.8], pelusium: [31.04, 32.55],
 });
 
 // Kleur per persoon (paletsleutel uit app.js). Inhoudsbestanden mogen aanvullen.
@@ -172,4 +172,86 @@ Object.assign(BR.personen, {
   Naäman: "grijs", Hizkia: "kobalt", Jesaja: "lila", Josia: "kobalt", Jeremia: "lila", Nebukadnezar: "rood", Daniël: "kobalt", Ezechiël: "lila",
   Esther: "koraal", Mordechai: "kobalt", Haman: "rood", Ahasveros: "grijs", Ezra: "salie", Nehemia: "teal", Zerubbabel: "salie", Kores: "grijs", Jona: "teal",
   Farao: "grijs", Bileam: "grijs", Balak: "grijs", Volk: "boter", Leger: "rood", Soldaten: "rood", Spionnen: "teal", Priesters: "grijs", Profeten: "lila", Vijanden: "rood", Knechten: "grijs", Boden: "grijs",
+});
+
+// Plaatsen die eerst in de inhoudsbestanden stonden (sinds 2.0 staan alle plaatsen hier).
+
+// exodus
+Object.assign(BR.plaatsen, {
+  ex_midian: { n: "Midian", ll: [28.6, 35.3], c: "r", s: "r", z: 6, t: "gebied", d: "Het land van Jethro, ten oosten van de Golf van Akaba (nu Saoedi-Arabië). Hier woonde Mozes als herder en trouwde hij met Zippora (Exodus 2:15–22). Waar precies, weten we niet." },
+});
+
+// jozua
+Object.assign(BR.plaatsen, {
+  jo_ebal: { n: "Berg Ebal", ll: [32.234, 35.273], c: "v", s: "r", z: 8, t: "berg", d: "Hier bouwde Jozua een altaar en las hij de hele wet voor (Jozua 8:30–35). Tegenover de Ebal ligt de berg Gerizim; Sichem ligt in het dal ertussen." },
+  jo_achor: { n: "Dal Achor", ll: [31.83, 35.4], c: "o", s: "b", z: 8.5, t: "gebied", d: "Hier werd Achan gestraft (Jozua 7:24–26). Achor betekent ‘ellende’. Welk dal het precies is, weten we niet zeker." },
+  jo_azeka: { n: "Azeka", ll: [31.7, 34.936], c: "v", s: "b", z: 8, t: "stad", d: "Tot hier joeg Jozua de vijf koningen na. Onderweg vielen er grote hagelstenen uit de hemel (Jozua 10:10–11)." },
+  jo_makkeda: { n: "Makkeda", ll: [31.66, 34.88], c: "o", s: "l", z: 8.5, t: "stad", d: "Bij Makkeda verstopten de vijf koningen zich in een grot (Jozua 10:16). Waar de stad precies lag, is niet zeker." },
+  jo_eglon: { n: "Eglon", ll: [31.55, 34.78], c: "o", s: "b", z: 8.5, t: "stad", d: "Een van de vijf steden van de koningen die tegen Gibeon optrokken (Jozua 10:3, 34–35). De precieze plek is onzeker." },
+  jo_debir: { n: "Debir", ll: [31.42, 34.98], c: "w", s: "b", z: 8.5, t: "stad", d: "Ook Kirjath-Sefer genoemd. De laatste stad van Jozua’s veldtocht naar het zuiden (Jozua 10:38–39)." },
+  jo_merom: { n: "Wateren van Merom", ll: [33.0, 35.47], c: "o", s: "l", z: 8, t: "water", d: "Hier verzamelden de koningen van het noorden hun legers (Jozua 11:5). Een meer of bronnen ten westen van Hazor; de precieze plek is onzeker." },
+});
+Object.assign(BR.W, { jo_libna: [31.62, 34.87] });
+
+// richteren
+Object.assign(BR.plaatsen, {
+  ri_palm: { n: "Palmboom van Debora", ll: [31.89, 35.23], c: "o", s: "r", z: 8.5, t: "tent", d: "Debora zat onder een palmboom tussen Rama en Bethel, in het bergland van Efraïm (Richteren 4:5). Precies welke plek, weten we niet." },
+  ri_kedes: { n: "Kedes-Naftali", ll: [33.11, 35.53], c: "w", s: "r", z: 7.5, t: "stad", d: "Woonplaats van Barak. Hier verzamelde hij zijn leger, en hier vlakbij stond de tent van Jaël (Richteren 4:6, 11)." },
+  ri_tabor: { n: "Berg Tabor", ll: [32.687, 35.39], c: "v", s: "r", z: 7, t: "berg", d: "Vanaf deze berg viel Barak met tienduizend man aan (Richteren 4:14). Een ronde berg die alleen in de vlakte staat." },
+  ri_kison: { n: "Beek Kison", ll: [32.68, 35.17], c: "v", s: "l", z: 8, t: "water", d: "Hier versloeg God het leger van Sisera. De beek spoelde de vijanden weg (Richteren 4:7, 5:21)." },
+  ri_ofra: { n: "Ofra", ll: [32.64, 35.44], c: "o", s: "r", z: 8, t: "altaar", d: "Woonplaats van Gideon. Hier dorste hij tarwe bij de wijnpers en bouwde hij een altaar (Richteren 6). Waar Ofra precies lag, weten we niet; waarschijnlijk bij de vlakte van Jizreël." },
+  ri_harod: { n: "Bron Harod", ll: [32.55, 35.36], c: "w", s: "b", z: 8, t: "put", d: "Bij deze bron koos God driehonderd man uit (Richteren 7:1–7). Een grote bron aan de voet van de berg Gilboa." },
+  ri_more: { n: "Heuvel More", ll: [32.61, 35.38], c: "w", s: "r", z: 8.5, t: "berg", d: "Achter deze heuvel, in het dal, lag het leger van de Midianieten (Richteren 7:1)." },
+  ri_sorek: { n: "Dal Sorek", ll: [31.77, 34.9], c: "r", s: "b", z: 8.5, t: "gebied", d: "Het dal tussen Zora en de kust van de Filistijnen. Hier woonde Delila (Richteren 16:4)." },
+  ri_lechi: { n: "Lechi", ll: [31.72, 35.02], c: "o", s: "r", z: 8.5, t: "stad", d: "Hier versloeg Simson duizend Filistijnen met een ezelskaak (Richteren 15:14–17). Lechi betekent ‘kaak’. Waar het lag, weet niemand precies." },
+});
+
+// 1samuel
+Object.assign(BR.plaatsen, {
+  sam_afek: { n: "Afek", ll: [32.105, 34.93], c: "w", s: "l", z: 7.5, t: "stad", d: "Hier stond het leger van de Filistijnen toen ze de ark buitmaakten (1 Samuël 4:1). Israël lag vlakbij, bij Eben-Haëzer. Later verzamelden de Filistijnen zich hier weer, vóór de slag bij Gilboa (29:1)." },
+  sam_ebenhaezer: { n: "Eben-Haëzer", ll: [31.9, 35.155], c: "o", s: "t", z: 9, t: "altaar", d: "‘Steen van de hulp’. Samuël zette deze steen tussen Mizpa en Sen (1 Samuël 7:12). Waar Sen lag, weet niemand. In 1 Samuël 4:1 heet ook het legerkamp bij Afek zo; dat is waarschijnlijk een andere plek." },
+  sam_bezek: { n: "Bezek", ll: [32.39, 35.4], c: "w", s: "l", z: 8.5, t: "kamp", d: "Hier telde Saul zijn leger voordat hij Jabes ging redden (1 Samuël 11:8)." },
+  sam_michmas: { n: "Michmas", ll: [31.875, 35.275], c: "v", s: "r", z: 8.5, t: "kamp", d: "Kamp van de Filistijnen, aan de overkant van een diep dal tegenover Gibea. Jonathan klom hier met zijn wapendrager omhoog (1 Samuël 13–14). Het dorp heet nu nog Mukhmas." },
+  sam_amalek: { n: "Amalek", ll: [30.95, 34.55], c: "r", s: "b", z: 7, t: "gebied", d: "De Amalekieten woonden in het zuiden, in de woestijn. Ze vielen Israël al aan vlak na de uittocht (Exodus 17:8). Saul moest tegen hen strijden (1 Samuël 15), later David ook (1 Samuël 30)." },
+  sam_nob: { n: "Nob", ll: [31.8, 35.245], c: "o", s: "r", z: 9, t: "stad", d: "De stad van de priesters, vlak bij Jeruzalem (Jesaja 10:32). Precies waar, weten we niet. David kreeg hier de toonbroden en het zwaard van Goliath (1 Samuël 21)." },
+  sam_kehila: { n: "Kehila", ll: [31.615, 34.97], c: "w", s: "l", z: 9, t: "stad", d: "David redde deze stad van de Filistijnen (1 Samuël 23:1–5)." },
+  sam_zif: { n: "Zif", ll: [31.49, 35.13], c: "w", s: "r", z: 8.5, t: "stad", d: "Stad in het bergland van Juda, met een woestijn ernaast. David verborg zich hier, Jonathan bezocht hem hier voor het laatst, en de mensen van Zif verraadden David aan Saul (1 Samuël 23 en 26)." },
+  sam_maon: { n: "Maon · Karmel", ll: [31.42, 35.13], c: "v", s: "r", z: 8.5, t: "stad", d: "Twee plaatsjes vlak bij elkaar, ten zuiden van Hebron. Hier woonde Nabal, de man van Abigaïl (1 Samuël 25:2). Saul zette in Karmel een gedenkteken voor zichzelf neer (15:12)." },
+  sam_bethsan: { n: "Beth-San", ll: [32.5, 35.5], c: "v", s: "r", z: 8, t: "stad", d: "Stad aan de rand van de Jordaanvallei. De Filistijnen hingen het lichaam van Saul aan de stadsmuur (1 Samuël 31:10)." },
+});
+Object.assign(BR.W, { besor: [31.33, 34.62], moabmizpe: [31.4, 35.75] });
+
+// 2samuel
+Object.assign(BR.plaatsen, {
+  sam_bahurim: { n: "Bahurim", ll: [31.79, 35.27], c: "o", s: "r", z: 9, t: "stad", d: "Dorp aan de oostkant van de Olijfberg. Hier schold Simeï David uit en gooide stenen (2 Samuël 16:5). Precies waar het lag, weten we niet." },
+  sam_lodebar: { n: "Lodebar", ll: [32.52, 35.65], c: "o", s: "r", z: 8.5, t: "stad", d: "Plaats in Gilead, ten oosten van de Jordaan. Hier woonde Mefiboseth bij Machir voordat David hem liet halen (2 Samuël 9:4). De plek is onzeker." },
+});
+
+// 1koningen
+Object.assign(BR.plaatsen, {
+  kon_scheba: { n: "Naar Scheba ↓", ll: [26.3, 37.9], c: "o", s: "r", z: 5.5, t: "gebied", d: "Scheba lag ver in het zuiden, waarschijnlijk in het huidige Jemen: nog zo’n 1500 km verder dan deze pijl. De koningin reisde met kamelen door de woestijn naar Jeruzalem (1 Koningen 10:1–2)." },
+  kon_jordaanelia: { n: "Jordaan · Elia", ll: [31.84, 35.53], c: "o", s: "r", z: 8, t: "water", d: "Hier, ergens tegenover Jericho, ging Elia droogvoets door de Jordaan en werd hij in een storm naar de hemel opgenomen (2 Koningen 2). De precieze plek weten we niet." },
+});
+
+// 2koningen
+Object.assign(BR.plaatsen, {
+  kon_jordaannaaman: { n: "Jordaan · Naäman", ll: [32.2, 35.56], c: "o", s: "r", z: 8, t: "water", d: "Ergens in de Jordaan dompelde Naäman zich zeven keer onder (2 Koningen 5:14). Waar precies, zegt de Bijbel niet; dit is de dichtstbijzijnde oversteekplaats vanaf Samaria." },
+  kon_medie: { n: "Steden van Medië", ll: [35.3, 47.0], c: "r", s: "r", z: 5.5, t: "gebied", d: "Bergland ver in het oosten (nu Iran). Een deel van de tien stammen werd hierheen weggevoerd (2 Koningen 17:6)." },
+});
+
+// daniel
+Object.assign(BR.plaatsen, {
+  dan_dura: { n: "Dal van Dura", ll: [32.45, 44.25], c: "o", s: "b", z: 7.5, t: "gebied", d: "Hier zette Nebukadnezar het gouden beeld neer (Daniël 3:1). De Bijbel zegt alleen dat het ‘in het landschap van Babel’ lag; waar precies, weet niemand." },
+  dan_medie: { n: "Medië", ll: [35.6, 47.2], c: "r", s: "r", z: 5.5, t: "gebied", d: "Het land van de Meden, in de bergen ten oosten van Babel. Darius de Meder kreeg het koninkrijk na Belsazar (Daniël 5:31)." },
+});
+
+// ezra
+Object.assign(BR.plaatsen, {
+  ezra_ahava: { n: "Rivier Ahava", ll: [32.75, 44.7], c: "o", s: "r", z: 7.5, t: "water", d: "Hier verzamelde Ezra het volk voor de reis en riep hij een vasten uit (Ezra 8:15–21). Een rivier of kanaal bij Babel; waar precies, weet niemand." },
+});
+
+// jona
+Object.assign(BR.plaatsen, {
+  jona_gathhefer: { n: "Gath-Hefer", ll: [32.74, 35.32], c: "w", s: "r", z: 7.5, t: "stad", d: "Het dorp van Jona, in Galilea (2 Koningen 14:25). Vlak bij het latere Nazareth." },
+  jona_verdek: { n: "Ten oosten van Ninevé", ll: [36.33, 43.42], c: "o", s: "r", z: 8, t: "tent", d: "Hier maakte Jona een hut en wachtte hij af wat er met de stad zou gebeuren (Jona 4:5). De precieze plek weten we niet." },
 });

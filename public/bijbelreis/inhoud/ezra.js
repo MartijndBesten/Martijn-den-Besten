@@ -1,8 +1,5 @@
 // Ezra en Nehemia: terug uit Babel, de tempel herbouwd, de muur van Jeruzalem in 52 dagen. Namen volgens de Herziene Statenvertaling.
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
-Object.assign(BR.plaatsen, {
-  ezra_ahava: { n: "Rivier Ahava", ll: [32.75, 44.7], c: "o", s: "r", z: 7.5, t: "water", d: "Hier verzamelde Ezra het volk voor de reis en riep hij een vasten uit (Ezra 8:15–21). Een rivier of kanaal bij Babel; waar precies, weet niemand." },
-});
 Object.assign(BR.personen, { Jesua: "salie", Sesbazar: "grijs", Haggaï: "lila", Zacharia: "lila", Arthahsasta: "grijs", Hanani: "teal", Sanballat: "rood", Tobia: "rood", Bouwers: "teal", Darius: "grijs" });
 
 BR.boeken.push({

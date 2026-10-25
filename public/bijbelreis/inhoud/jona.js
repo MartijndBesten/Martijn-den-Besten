@@ -1,9 +1,5 @@
 // Jona: de profeet die de andere kant op vluchtte. Namen volgens de Herziene Statenvertaling.
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
-Object.assign(BR.plaatsen, {
-  jona_gathhefer: { n: "Gath-Hefer", ll: [32.74, 35.32], c: "w", s: "r", z: 7.5, t: "stad", d: "Het dorp van Jona, in Galilea (2 Koningen 14:25). Vlak bij het latere Nazareth." },
-  jona_verdek: { n: "Ten oosten van Ninevé", ll: [36.33, 43.42], c: "o", s: "r", z: 8, t: "tent", d: "Hier maakte Jona een hut en wachtte hij af wat er met de stad zou gebeuren (Jona 4:5). De precieze plek weten we niet." },
-});
 Object.assign(BR.personen, { Zeelieden: "grijs", Koning: "grijs" });
 
 BR.boeken.push({

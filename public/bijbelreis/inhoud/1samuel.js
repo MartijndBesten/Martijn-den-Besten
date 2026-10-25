@@ -1,19 +1,5 @@
 // 1 Samuël: Samuël, Saul en David. Namen volgens de Herziene Statenvertaling.
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
-// Plaatsen die alleen in 1 en 2 Samuël voorkomen staan hieronder (ids beginnen met sam_).
-Object.assign(BR.plaatsen, {
-  sam_afek: { n: "Afek", ll: [32.105, 34.93], c: "w", s: "l", z: 7.5, t: "stad", d: "Hier stond het leger van de Filistijnen toen ze de ark buitmaakten (1 Samuël 4:1). Israël lag vlakbij, bij Eben-Haëzer. Later verzamelden de Filistijnen zich hier weer, vóór de slag bij Gilboa (29:1)." },
-  sam_ebenhaezer: { n: "Eben-Haëzer", ll: [31.9, 35.155], c: "o", s: "t", z: 9, t: "altaar", d: "‘Steen van de hulp’. Samuël zette deze steen tussen Mizpa en Sen (1 Samuël 7:12). Waar Sen lag, weet niemand. In 1 Samuël 4:1 heet ook het legerkamp bij Afek zo; dat is waarschijnlijk een andere plek." },
-  sam_bezek: { n: "Bezek", ll: [32.39, 35.4], c: "w", s: "l", z: 8.5, t: "kamp", d: "Hier telde Saul zijn leger voordat hij Jabes ging redden (1 Samuël 11:8)." },
-  sam_michmas: { n: "Michmas", ll: [31.875, 35.275], c: "v", s: "r", z: 8.5, t: "kamp", d: "Kamp van de Filistijnen, aan de overkant van een diep dal tegenover Gibea. Jonathan klom hier met zijn wapendrager omhoog (1 Samuël 13–14). Het dorp heet nu nog Mukhmas." },
-  sam_amalek: { n: "Amalek", ll: [30.95, 34.55], c: "r", s: "b", z: 7, t: "gebied", d: "De Amalekieten woonden in het zuiden, in de woestijn. Ze vielen Israël al aan vlak na de uittocht (Exodus 17:8). Saul moest tegen hen strijden (1 Samuël 15), later David ook (1 Samuël 30)." },
-  sam_nob: { n: "Nob", ll: [31.8, 35.245], c: "o", s: "r", z: 9, t: "stad", d: "De stad van de priesters, vlak bij Jeruzalem (Jesaja 10:32). Precies waar, weten we niet. David kreeg hier de toonbroden en het zwaard van Goliath (1 Samuël 21)." },
-  sam_kehila: { n: "Kehila", ll: [31.615, 34.97], c: "w", s: "l", z: 9, t: "stad", d: "David redde deze stad van de Filistijnen (1 Samuël 23:1–5)." },
-  sam_zif: { n: "Zif", ll: [31.49, 35.13], c: "w", s: "r", z: 8.5, t: "stad", d: "Stad in het bergland van Juda, met een woestijn ernaast. David verborg zich hier, Jonathan bezocht hem hier voor het laatst, en de mensen van Zif verraadden David aan Saul (1 Samuël 23 en 26)." },
-  sam_maon: { n: "Maon · Karmel", ll: [31.42, 35.13], c: "v", s: "r", z: 8.5, t: "stad", d: "Twee plaatsjes vlak bij elkaar, ten zuiden van Hebron. Hier woonde Nabal, de man van Abigaïl (1 Samuël 25:2). Saul zette in Karmel een gedenkteken voor zichzelf neer (15:12)." },
-  sam_bethsan: { n: "Beth-San", ll: [32.5, 35.5], c: "v", s: "r", z: 8, t: "stad", d: "Stad aan de rand van de Jordaanvallei. De Filistijnen hingen het lichaam van Saul aan de stadsmuur (1 Samuël 31:10)." },
-});
-Object.assign(BR.W, { besor: [31.33, 34.62], moabmizpe: [31.4, 35.75] });
 Object.assign(BR.personen, {
   Elkana: "koraal", Isaï: "kobalt", Michal: "koraal", Abigaïl: "koraal", Nabal: "grijs", Achis: "grijs", Nahas: "rood", Agag: "rood", Achimelech: "grijs", Abjathar: "grijs",
   Doëg: "rood", Wapendrager: "bruin", Kis: "grijs", Jonathan: "bruin", Abner: "bruin", Abisaï: "teal",

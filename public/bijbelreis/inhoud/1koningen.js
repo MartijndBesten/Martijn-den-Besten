@@ -1,9 +1,5 @@
 // 1 Koningen: Salomo en Elia. Namen volgens de Herziene Statenvertaling.
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
-Object.assign(BR.plaatsen, {
-  kon_scheba: { n: "Naar Scheba ↓", ll: [26.3, 37.9], c: "o", s: "r", z: 5.5, t: "gebied", d: "Scheba lag ver in het zuiden, waarschijnlijk in het huidige Jemen: nog zo’n 1500 km verder dan deze pijl. De koningin reisde met kamelen door de woestijn naar Jeruzalem (1 Koningen 10:1–2)." },
-  kon_jordaanelia: { n: "Jordaan · Elia", ll: [31.84, 35.53], c: "o", s: "r", z: 8, t: "water", d: "Hier, ergens tegenover Jericho, ging Elia droogvoets door de Jordaan en werd hij in een storm naar de hemel opgenomen (2 Koningen 2). De precieze plek weten we niet." },
-});
 Object.assign(BR.personen, {
   Zadok: "grijs", Hiram: "grijs", Arbeiders: "bruin", Vrouwen: "grijs", Koningin: "lila", Ahia: "lila", Raven: "grijs", Weduwe: "koraal", Zoon: "koraal",
   Jongen: "grijs", Engel: "boter", Naboth: "olijf", Obadja: "grijs",

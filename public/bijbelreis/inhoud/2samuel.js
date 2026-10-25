@@ -1,9 +1,5 @@
 // 2 Samuël: David koning. Namen volgens de Herziene Statenvertaling.
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
-Object.assign(BR.plaatsen, {
-  sam_bahurim: { n: "Bahurim", ll: [31.79, 35.27], c: "o", s: "r", z: 9, t: "stad", d: "Dorp aan de oostkant van de Olijfberg. Hier schold Simeï David uit en gooide stenen (2 Samuël 16:5). Precies waar het lag, weten we niet." },
-  sam_lodebar: { n: "Lodebar", ll: [32.52, 35.65], c: "o", s: "r", z: 8.5, t: "stad", d: "Plaats in Gilead, ten oosten van de Jordaan. Hier woonde Mefiboseth bij Machir voordat David hem liet halen (2 Samuël 9:4). De plek is onzeker." },
-});
 Object.assign(BR.personen, {
   Joab: "teal", Isboseth: "bruin", Mefiboseth: "salie", Bathseba: "koraal", Uria: "grijs", Absalom: "terra", Husai: "grijs", Simeï: "rood", Achitofel: "rood",
   Barzillai: "salie", Arauna: "grijs", Gad: "lila", Ziba: "grijs", Ithaï: "teal",

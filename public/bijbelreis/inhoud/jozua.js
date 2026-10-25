@@ -1,15 +1,5 @@
 // Jozua: de intocht in Kanaän en de verdeling van het land. Namen volgens de Herziene Statenvertaling.
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
-Object.assign(BR.plaatsen, {
-  jo_ebal: { n: "Berg Ebal", ll: [32.234, 35.273], c: "v", s: "r", z: 8, t: "berg", d: "Hier bouwde Jozua een altaar en las hij de hele wet voor (Jozua 8:30–35). Tegenover de Ebal ligt de berg Gerizim; Sichem ligt in het dal ertussen." },
-  jo_achor: { n: "Dal Achor", ll: [31.83, 35.4], c: "o", s: "b", z: 8.5, t: "gebied", d: "Hier werd Achan gestraft (Jozua 7:24–26). Achor betekent ‘ellende’. Welk dal het precies is, weten we niet zeker." },
-  jo_azeka: { n: "Azeka", ll: [31.7, 34.936], c: "v", s: "b", z: 8, t: "stad", d: "Tot hier joeg Jozua de vijf koningen na. Onderweg vielen er grote hagelstenen uit de hemel (Jozua 10:10–11)." },
-  jo_makkeda: { n: "Makkeda", ll: [31.66, 34.88], c: "o", s: "l", z: 8.5, t: "stad", d: "Bij Makkeda verstopten de vijf koningen zich in een grot (Jozua 10:16). Waar de stad precies lag, is niet zeker." },
-  jo_eglon: { n: "Eglon", ll: [31.55, 34.78], c: "o", s: "b", z: 8.5, t: "stad", d: "Een van de vijf steden van de koningen die tegen Gibeon optrokken (Jozua 10:3, 34–35). De precieze plek is onzeker." },
-  jo_debir: { n: "Debir", ll: [31.42, 34.98], c: "w", s: "b", z: 8.5, t: "stad", d: "Ook Kirjath-Sefer genoemd. De laatste stad van Jozua’s veldtocht naar het zuiden (Jozua 10:38–39)." },
-  jo_merom: { n: "Wateren van Merom", ll: [33.0, 35.47], c: "o", s: "l", z: 8, t: "water", d: "Hier verzamelden de koningen van het noorden hun legers (Jozua 11:5). Een meer of bronnen ten westen van Hazor; de precieze plek is onzeker." },
-});
-Object.assign(BR.W, { jo_libna: [31.62, 34.87] });
 Object.assign(BR.personen, { Achan: "bruin", Gibeonieten: "grijs", Eleazar: "grijs", Mozes: "boter", Jabin: "rood" });
 
 BR.boeken.push({

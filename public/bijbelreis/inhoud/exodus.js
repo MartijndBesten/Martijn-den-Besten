@@ -1,8 +1,5 @@
 // Exodus: Mozes, de uittocht en de Sinaï. Namen volgens de Herziene Statenvertaling.
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
-Object.assign(BR.plaatsen, {
-  ex_midian: { n: "Midian", ll: [28.6, 35.3], c: "r", s: "r", z: 6, t: "gebied", d: "Het land van Jethro, ten oosten van de Golf van Akaba (nu Saoedi-Arabië). Hier woonde Mozes als herder en trouwde hij met Zippora (Exodus 2:15–22). Waar precies, weten we niet." },
-});
 Object.assign(BR.personen, {
   Jethro: "grijs", Zippora: "koraal", "Farao’s dochter": "koraal", Hur: "grijs", Amalek: "rood", Vrouwen: "boter", Bezaleël: "grijs", Egyptenaren: "rood",
 });

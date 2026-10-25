@@ -1,10 +1,5 @@
 // 2 Koningen: Elisa, en de wegvoering van Israël en Juda. Namen volgens de Herziene Statenvertaling.
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
-Object.assign(BR.plaatsen, {
-  kon_jordaannaaman: { n: "Jordaan · Naäman", ll: [32.2, 35.56], c: "o", s: "r", z: 8, t: "water", d: "Ergens in de Jordaan dompelde Naäman zich zeven keer onder (2 Koningen 5:14). Waar precies, zegt de Bijbel niet; dit is de dichtstbijzijnde oversteekplaats vanaf Samaria." },
-  kon_medie: { n: "Steden van Medië", ll: [35.3, 47.0], c: "r", s: "r", z: 5.5, t: "gebied", d: "Bergland ver in het oosten (nu Iran). Een deel van de tien stammen werd hierheen weggevoerd (2 Koningen 17:6)." },
-});
-BR.plaatsen.kon_jordaanelia = BR.plaatsen.kon_jordaanelia || { n: "Jordaan · Elia", ll: [31.84, 35.53], c: "o", s: "r", z: 8, t: "water", d: "Hier, ergens tegenover Jericho, ging Elia droogvoets door de Jordaan en werd hij in een storm naar de hemel opgenomen (2 Koningen 2). De precieze plek weten we niet." };
 Object.assign(BR.personen, {
   Gehazi: "grijs", Sunamitische: "koraal", Meisje: "koraal", Benhadad: "rood", Koning: "grijs", Melaatsen: "grijs", Joas: "grijs", Hosea: "grijs",
   Sanherib: "rood", Rabsake: "rood", Hilkia: "grijs", Safan: "grijs", Jojachin: "grijs", Zedekia: "grijs", Nebuzaradan: "rood", Gedalja: "grijs", "Evil-Merodach": "grijs", Engel: "boter", Zoon: "koraal",
