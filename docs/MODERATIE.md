@@ -28,5 +28,5 @@ npx wrangler d1 execute martijndenbesten --remote --command "DELETE FROM ideas W
 | Spam | Honeypot-veld en minimale invultijd (bots krijgen een nep-‘succes’) |
 | Origin-check | POST alleen vanaf de eigen site; JSON verplicht; max. 4 KB per verzoek |
 | Wachtrijlimiet | Maximaal 500 inzendingen in de wachtrij |
-| Privacy | Geen namen, e-mailadressen of IP-adressen. Stemmen en limieten gebruiken een HMAC van IP + datum met een geheime sleutel: per dag anders, niet terug te rekenen. Rate-limitregels worden na 2 dagen opgeschoond |
-| Eerlijke tellers | Stemtellers tonen het echte aantal uit D1; één stem per object per bezoeker per dag. Bij een storing staat er ‘teller offline’ in plaats van een verzonnen getal |
+| Privacy | Geen namen, e-mailadressen of IP-adressen. Limieten gebruiken een HMAC van IP + datum met een geheime sleutel: per dag anders, niet terug te rekenen. Rate-limitregels worden na 2 dagen opgeschoond |
+| Eerlijke tellers | Stemtellers tonen het echte aantal uit D1. Eén stem per object per bezoeker per dag, op basis van een willekeurige anonieme bezoekerscode in de browser (per dag gehasht), met het gehashte IP-adres als terugval. Zo tellen mensen achter een gedeeld IP-adres apart en telt een wisselend IP-adres niet dubbel. Bij een storing staat er ‘teller offline’ in plaats van een verzonnen getal |

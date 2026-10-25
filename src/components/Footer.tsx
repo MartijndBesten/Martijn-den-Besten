@@ -32,7 +32,7 @@ function Hourglass() {
 }
 
 export function Footer() {
-  const { findEgg, setTheme } = useGame();
+  const { findEgg, setEffect } = useGame();
   const [touched, setTouched] = useState<string[]>([]);
 
   const touch = (name: string) => {
@@ -41,9 +41,9 @@ export function Footer() {
     setTouched(next);
     if (next.length === SWATCHES.length) {
       findEgg("colors");
-      setTheme("explosie");
+      setEffect("explosie");
       window.setTimeout(() => {
-        setTheme("normaal");
+        setEffect(null);
         setTouched([]);
       }, 6000);
     }

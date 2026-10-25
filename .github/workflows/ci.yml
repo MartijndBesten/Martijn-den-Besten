@@ -39,10 +39,14 @@ jobs:
   deploy:
     name: Deploy naar Cloudflare
     needs: check
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # Bij elke push naar main, of handmatig via ‘Run workflow’ in het tabblad Actions.
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     environment: production
+    concurrency:
+      group: productie
+      cancel-in-progress: false
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: c5472db2163a42a463916a6a525d8353
@@ -67,11 +71,15 @@ jobs:
         run: npm ci
       - if: steps.token.outputs.present == 'true'
         run: npm run build
+      - name: Token en rechten controleren
+        if: steps.token.outputs.present == 'true'
+        run: npx wrangler whoami
       - name: Databasemigraties
         if: steps.token.outputs.present == 'true'
         run: npx wrangler d1 migrations apply martijndenbesten --remote
-      - name: Deploy hoofdsite
+      - name: Deploy hoofdsite (Workers Static Assets)
         if: steps.token.outputs.present == 'true'
+        # Bestaande Worker-secrets (ADMIN_TOKEN, HASH_SECRET) blijven bij een deploy behouden.
         run: npx wrangler deploy
       - name: Deploy www-doorverwijzing
         if: steps.token.outputs.present == 'true'
@@ -79,6 +87,26 @@ jobs:
       - name: Rooktest productie
         if: steps.token.outputs.present == 'true'
         run: |
-          sleep 10
+          sleep 15
           curl -fsS https://martijndenbesten.com/api/health
-          curl -fsS -o /dev/null -w "%{http_code}\n" https://martijndenbesten.com/
+          test "$(curl -s -o /dev/null -w '%{http_code}' https://martijndenbesten.com/)" = "200"
+          test "$(curl -s -o /dev/null -w '%{http_code}' https://martijndenbesten.com/bestaat-niet)" = "404"
+          test "$(curl -s -o /dev/null -w '%{redirect_url}' https://www.martijndenbesten.com/museum)" = "https://martijndenbesten.com/museum"
+      - name: Playwright-browser installeren
+        if: steps.token.outputs.present == 'true'
+        run: npx playwright install --with-deps chromium
+      - name: End-to-end tests op productie (zonder schrijvende tests)
+        if: steps.token.outputs.present == 'true'
+        env:
+          E2E_BASE_URL: https://martijndenbesten.com
+        run: npx playwright test --grep-invert "stemmen telt|moderatieflow|ideeëngenerator vult|loket weigert"
+      - name: Hulp bij een mislukte deploy
+        if: failure() && steps.token.outputs.present == 'true'
+        run: |
+          echo "::error::De productiecontrole is mislukt. Vorige versie terugzetten: npx wrangler rollback (zie docs/DEPLOYMENT.md)."
+      - uses: actions/upload-artifact@v4
+        if: failure() && steps.token.outputs.present == 'true'
+        with:
+          name: productie-testresultaten
+          path: test-results
+          retention-days: 7

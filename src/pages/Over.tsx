@@ -146,7 +146,8 @@ export default function Over() {
             <li>Cloudflare Web Analytics telt anoniem en zonder cookies hoeveel pagina’s er bekeken worden.</li>
             <li>Missies en verrassingen worden alleen in uw eigen browser bewaard (localStorage).</li>
             <li>Ingezonden ideeën worden opgeslagen zonder naam of e-mailadres en zijn pas zichtbaar na goedkeuring.</li>
-            <li>Voor stemmen en spambescherming wordt een per dag wisselende, versleutelde code van uw verbinding gebruikt. Uw IP-adres zelf wordt niet opgeslagen.</li>
+            <li>Om dubbel stemmen te voorkomen krijgt uw browser een willekeurige, anonieme bezoekerscode. Die wordt per dag versleuteld opgeslagen en is niet naar u te herleiden.</li>
+            <li>Voor spambescherming wordt een per dag wisselende, versleutelde code van uw verbinding gebruikt. Uw IP-adres zelf wordt niet opgeslagen.</li>
           </ul>
           <Link to="/loket" className="btn btn--ink">
             Naar het ideeënloket <Arrow />

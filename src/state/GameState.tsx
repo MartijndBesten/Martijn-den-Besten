@@ -6,7 +6,9 @@ import { EGGS, MISSIONS, type EggId, type MissionId } from "../content/progress"
 import { load, remove, save } from "../lib/storage";
 import { setSoundEnabled, sfx } from "../lib/sound";
 
-export type Theme = "normaal" | "nacht" | "explosie";
+export type Appearance = "ivoor" | "blauwdruk" | "nacht";
+export type Effect = "explosie" | null;
+export const APPEARANCES: Appearance[] = ["ivoor", "blauwdruk", "nacht"];
 export type Toast = { id: number; title: string; text: string; kind: "egg" | "mission" | "info" };
 
 type Persisted = { eggs: EggId[]; missions: MissionId[]; secret: boolean; coffee: number };
@@ -16,7 +18,7 @@ type GameApi = {
   missions: MissionId[];
   secretUnlocked: boolean;
   coffee: number;
-  theme: Theme;
+  appearance: Appearance;
   serious: boolean;
   sound: boolean;
   toasts: Toast[];
@@ -24,7 +26,8 @@ type GameApi = {
   completeMission: (id: MissionId) => void;
   unlockSecret: () => void;
   addCoffee: () => void;
-  setTheme: (t: Theme) => void;
+  setAppearance: (a: Appearance) => void;
+  setEffect: (e: Effect) => void;
   setSerious: (on: boolean) => void;
   setSound: (on: boolean) => void;
   notify: (title: string, text: string, kind?: Toast["kind"]) => void;
@@ -34,6 +37,8 @@ type GameApi = {
 };
 
 const KEY = "mdb:voortgang:v1";
+// Moet gelijk blijven aan de sleutel in public/uiterlijk.js (zet het thema vóór het eerste beeld).
+export const APPEARANCE_KEY = "mdb:uiterlijk";
 const GameContext = createContext<GameApi | null>(null);
 
 const HIDDEN: EggId[] = ["hidden-1", "hidden-2", "hidden-3"];
@@ -43,7 +48,11 @@ export function GameProvider({ children }: { children: ReactNode }) {
     const s = load<Partial<Persisted>>(KEY, {});
     return { eggs: s.eggs ?? [], missions: s.missions ?? [], secret: s.secret ?? false, coffee: s.coffee ?? 0 };
   });
-  const [theme, setTheme] = useState<Theme>("normaal");
+  const [appearance, setAppearanceState] = useState<Appearance>(() => {
+    const a = load<string>(APPEARANCE_KEY, "ivoor");
+    return (APPEARANCES as string[]).includes(a) ? (a as Appearance) : "ivoor";
+  });
+  const [effect, setEffect] = useState<Effect>(null);
   const [serious, setSerious] = useState(false);
   const [sound, setSoundState] = useState(false);
   const [toasts, setToasts] = useState<Toast[]>([]);
@@ -54,8 +63,16 @@ export function GameProvider({ children }: { children: ReactNode }) {
   useEffect(() => save(KEY, state), [state]);
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-  }, [theme]);
+    document.documentElement.dataset.theme = appearance;
+    save(APPEARANCE_KEY, appearance);
+  }, [appearance]);
+
+  useEffect(() => {
+    if (effect) document.documentElement.dataset.effect = effect;
+    else delete document.documentElement.dataset.effect;
+  }, [effect]);
+
+  const setAppearance = useCallback((a: Appearance) => setAppearanceState(a), []);
 
   const notify = useCallback((title: string, text: string, kind: Toast["kind"] = "info") => {
     const id = nextId.current++;
@@ -112,7 +129,6 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const reset = useCallback(() => {
     remove(KEY);
     setState({ eggs: [], missions: [], secret: false, coffee: 0 });
-    setTheme("normaal");
     notify("Voortgang gewist", "Het instituut is alles vergeten. Dat gebeurt vaker.");
   }, [notify]);
 
@@ -122,7 +138,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
       missions: state.missions,
       secretUnlocked: state.secret,
       coffee: state.coffee,
-      theme,
+      appearance,
       serious,
       sound,
       toasts,
@@ -130,7 +146,8 @@ export function GameProvider({ children }: { children: ReactNode }) {
       completeMission,
       unlockSecret,
       addCoffee,
-      setTheme,
+      setAppearance,
+      setEffect,
       setSerious,
       setSound,
       notify,
@@ -138,7 +155,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
       missionProgress,
       reset,
     }),
-    [state, theme, serious, sound, toasts, findEgg, completeMission, unlockSecret, addCoffee, setSound, notify, dismiss, missionProgress, reset],
+    [state, appearance, serious, sound, toasts, findEgg, completeMission, unlockSecret, addCoffee, setAppearance, setSound, notify, dismiss, missionProgress, reset],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

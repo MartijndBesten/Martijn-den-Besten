@@ -97,6 +97,44 @@
   color-scheme: dark;
 }
 
+/* Blauwdruk: de tekenkamer. Witte lijnen op blauw papier, oker als enige accent. */
+:root[data-theme="blauwdruk"] {
+  --ivory: #1d3b74;
+  --paper: #224383;
+  --paper-2: #2a4c8f;
+  --bg: #1d3b74;
+  --surface: #224383;
+  --fg: #f1f4fb;
+  --fg-2: rgba(241, 244, 251, 0.84);
+  --fg-3: rgba(241, 244, 251, 0.74);
+  --line: rgba(241, 244, 251, 0.2);
+  --line-strong: #f1f4fb;
+  --accent: #ffcf70;
+  --accent-text: #ffcf70;
+  --tint-indigo: #24478a;
+  --tint-terra: #2a4682;
+  --tint-sage: #214a80;
+  --tint-oker: #274a86;
+  color-scheme: dark;
+}
+:root[data-theme="blauwdruk"] body::after {
+  mix-blend-mode: screen;
+  opacity: 0.22;
+}
+:root[data-theme="blauwdruk"] .btn--indigo,
+:root[data-theme="blauwdruk"] .btn--ink {
+  --btn-bg: #f1f4fb;
+  --btn-fg: #1d3b74;
+  --btn-line: #f1f4fb;
+}
+:root[data-theme="blauwdruk"] :is(.site-footer, .telex, .bg-ink, .room--sage, .room--secret) {
+  background-color: #132a57;
+}
+:root[data-theme="blauwdruk"] ::selection {
+  background: #ffcf70;
+  color: #132a57;
+}
+
 *,
 *::before,
 *::after {
@@ -138,7 +176,7 @@ body::after {
   opacity: 0.25;
 }
 
-:root[data-theme="explosie"] main {
+:root[data-effect="explosie"] main {
   animation: hue-cycle 2.4s linear infinite;
 }
 @keyframes hue-cycle {
@@ -651,6 +689,107 @@ p {
   border-color: var(--accent);
 }
 
+/* Uiterlijk-kiezer */
+.theme-switch {
+  position: relative;
+}
+.theme-switch__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 4px 12px 4px 5px;
+  border: var(--hair);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg-2);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s, border-color 0.2s;
+}
+.theme-switch__toggle:hover,
+.theme-switch__toggle[aria-expanded="true"] {
+  color: var(--fg);
+  border-color: var(--line-strong);
+}
+.swatch-mini {
+  flex: none;
+  transition: transform 0.6s var(--ease-spring);
+}
+.theme-switch__toggle:hover .swatch-mini {
+  transform: rotate(180deg);
+}
+.theme-switch__panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  z-index: 50;
+  width: 250px;
+  padding: 12px;
+  background: var(--bg);
+  color: var(--fg);
+  border: var(--rule);
+  box-shadow: 0 30px 60px -30px rgba(10, 12, 24, 0.6);
+  animation: rise 0.35s var(--ease-out);
+}
+.theme-switch__panel > .label {
+  display: block;
+  color: var(--fg-3);
+  padding: 2px 6px 8px;
+}
+.appearance-options {
+  display: grid;
+  gap: 2px;
+}
+.appearance-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 6px;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+}
+.appearance-option:hover {
+  background: var(--line);
+}
+.appearance-option[aria-checked="true"] {
+  background: var(--line);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+.appearance-option strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.15rem;
+  line-height: 1.1;
+}
+.appearance-option small {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+@media (max-width: 1100px) {
+  .theme-switch__label {
+    display: none;
+  }
+  .theme-switch__toggle {
+    padding-right: 5px;
+  }
+}
+@media (max-width: 480px) {
+  .site-header__bar > .sound-toggle {
+    display: none;
+  }
+}
+
 .icon-btn {
   display: inline-grid;
   place-items: center;
@@ -735,6 +874,24 @@ p {
   gap: 16px;
   padding: 12px 0;
   border-bottom: 1px solid rgba(243, 236, 223, 0.16);
+}
+.mobile-menu__settings {
+  display: grid;
+  gap: 10px;
+  margin-top: 28px;
+  color: #f3ecdf;
+}
+.mobile-menu__settings .label {
+  color: var(--oker);
+}
+.mobile-menu__settings .appearance-option[aria-checked="true"],
+.mobile-menu__settings .appearance-option:hover {
+  background: rgba(243, 236, 223, 0.12);
+}
+.mobile-menu__settings .sound-toggle {
+  justify-self: start;
+  color: #f3ecdf;
+  border-color: rgba(243, 236, 223, 0.4);
 }
 .mobile-menu nav a span {
   font-family: var(--font-mono);

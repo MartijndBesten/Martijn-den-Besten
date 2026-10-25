@@ -6,6 +6,7 @@ import { useClickBurst } from "../lib/hooks";
 import { sfx } from "../lib/sound";
 import { Seal } from "./Seal";
 import { Passport } from "./Passport";
+import { AppearanceOptions, ThemeSwitch } from "./ThemeSwitch";
 import { IconClose, IconMenu } from "./Icons";
 
 export function Header() {
@@ -57,6 +58,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
+        <ThemeSwitch />
         <Passport />
         <button type="button" className="sound-toggle" aria-pressed={sound} aria-label={sound ? "Geluid uitzetten" : "Geluid aanzetten"} onClick={() => setSound(!sound)}>
           <i aria-hidden="true" />
@@ -96,6 +98,14 @@ export function Header() {
               <span>06</span>Bureau
             </a>
           </nav>
+          <div className="mobile-menu__settings">
+            <span className="label">Uiterlijk</span>
+            <AppearanceOptions />
+            <button type="button" className="sound-toggle" aria-pressed={sound} onClick={() => setSound(!sound)}>
+              <i aria-hidden="true" />
+              Geluid {sound ? "aan" : "uit"}
+            </button>
+          </div>
         </div>
       )}
     </header>

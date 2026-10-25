@@ -15,12 +15,26 @@ async function request<T>(path: string, init?: RequestInit): Promise<ApiResult<T
   }
 }
 
-export type PublicIdea = { id: number; title: string; description: string; category: string; created_at: number };
+/** Willekeurige, anonieme bezoekerscode voor eerlijke stemtellingen. Bevat geen persoonsgegevens. */
+function voterCode(): string | undefined {
+  try {
+    let code = window.localStorage.getItem("mdb:bezoeker");
+    if (!code) {
+      code = crypto.randomUUID();
+      window.localStorage.setItem("mdb:bezoeker", code);
+    }
+    return code;
+  } catch {
+    return undefined;
+  }
+}
+
+export type PublicIdea ={ id: number; title: string; description: string; category: string; created_at: number };
 export type AdminIdea = PublicIdea & { status: string; moderated_at: number | null };
 
 export const api = {
   votes: () => request<{ counts: Record<string, number> }>("/api/votes"),
-  vote: (itemId: string) => request<{ count: number; counted: boolean }>("/api/votes", { method: "POST", body: JSON.stringify({ itemId }) }),
+  vote: (itemId: string) => request<{ count: number; counted: boolean }>("/api/votes", { method: "POST", body: JSON.stringify({ itemId, voter: voterCode() }) }),
   ideas: () => request<{ ideas: PublicIdea[] }>("/api/ideas"),
   submitIdea: (payload: Record<string, unknown>) => request<{ ticket: number; message: string }>("/api/ideas", { method: "POST", body: JSON.stringify(payload) }),
   adminList: (token: string, status: string) =>

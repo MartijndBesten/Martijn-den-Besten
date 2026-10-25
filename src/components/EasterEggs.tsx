@@ -32,8 +32,8 @@ export function EasterEggs() {
       const g = gameRef.current;
       if (keys.join() === KONAMI.join()) {
         keys = [];
-        const night = document.documentElement.dataset.theme !== "nacht";
-        g.setTheme(night ? "nacht" : "normaal");
+        const night = g.appearance !== "nacht";
+        g.setAppearance(night ? "nacht" : "ivoor");
         g.findEgg("konami");
         if (!night) g.notify("Dagdienst", "De directiemodus is uitgeschakeld.");
       }

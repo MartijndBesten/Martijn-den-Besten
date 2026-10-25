@@ -39,6 +39,23 @@ describe("stemmen", () => {
     expect(counts.counts["uitstel-app"]).toBe(2);
   });
 
+  it("telt per anonieme bezoekerscode, ook als het IP-adres wisselt of gedeeld wordt", async () => {
+    const vote = (voter: string, ip: string) =>
+      req("/api/votes", { method: "POST", body: JSON.stringify({ itemId: "moestuin", voter }), ip }).then((r) => r.json() as Promise<J>);
+    const anna = "3f2b6c1e-8d4a-4b7e-9c21-5a6d7e8f9a0b";
+    const bert = "a1b2c3d4-e5f6-4789-8abc-def012345678";
+    expect(await vote(anna, "198.51.100.10")).toMatchObject({ count: 1, counted: true });
+    // zelfde bezoeker, ander IP-adres (mobiel netwerk): telt niet opnieuw
+    expect(await vote(anna, "198.51.100.99")).toMatchObject({ count: 1, counted: false });
+    // andere bezoeker achter hetzelfde gedeelde IP-adres: telt wel
+    expect(await vote(bert, "198.51.100.10")).toMatchObject({ count: 2, counted: true });
+    // ongeldige code valt terug op het IP-adres
+    expect(await vote("geen-uuid", "203.0.113.50")).toMatchObject({ count: 3, counted: true });
+    expect(await vote("nog-steeds-geen", "203.0.113.50")).toMatchObject({ count: 3, counted: false });
+    const dump = JSON.stringify(db.raw.prepare("SELECT * FROM votes").all());
+    expect(dump).not.toContain(anna);
+  });
+
   it("weigert onbekende objecten en stemmen zonder eigen origin", async () => {
     expect((await req("/api/votes", { method: "POST", body: JSON.stringify({ itemId: "bestaat-niet" }) })).status).toBe(400);
     expect((await req("/api/votes", { method: "POST", body: JSON.stringify({ itemId: "uitstel-app" }), headers: { Origin: "https://evil.example" } })).status).toBe(403);

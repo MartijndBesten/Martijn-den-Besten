@@ -118,6 +118,8 @@ async function getVotes(env: Env): Promise<Response> {
   return json({ ok: true, counts }, 200, { "Cache-Control": "public, max-age=15" });
 }
 
+const VOTER_CODE = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+
 async function postVote(request: Request, env: Env, ctx: ExecutionContext, now: number): Promise<Response> {
   if (!sameOrigin(request)) return error("Stemmen kan alleen via de website.", 403);
   const body = await readJson(request);
@@ -136,8 +138,15 @@ async function postVote(request: Request, env: Env, ctx: ExecutionContext, now: 
     return error("U heeft wel heel enthousiast gestemd. Probeer het over een uur opnieuw.", 429, { "Retry-After": "3600" });
   }
 
+  // Eén stem per bezoeker per object per dag. De browser stuurt een willekeurige, anonieme code mee;
+  // die wordt per dag gehasht. Zonder code valt de telling terug op het (gehashte) IP-adres.
+  // Zo tellen bezoekers achter een gedeeld IP-adres apart, en wisselende IP-adressen niet dubbel.
+  const voterCode = (body as { voter?: unknown })?.voter;
+  const voter =
+    typeof voterCode === "string" && VOTER_CODE.test(voterCode) ? await hmac(env.HASH_SECRET || "lokale-ontwikkelsleutel", `stemmer|${voterCode}|${today(now)}`) : visitor;
+
   const result = await env.DB.prepare("INSERT OR IGNORE INTO votes (item_id, voter_hash, day, created_at) VALUES (?1, ?2, ?3, ?4)")
-    .bind(itemId, visitor, today(now), now)
+    .bind(itemId, voter, today(now), now)
     .run();
   const row = await env.DB.prepare("SELECT COUNT(*) AS n FROM votes WHERE item_id = ?1").bind(itemId).first<{ n: number }>();
   if (Math.random() < 0.05) ctx.waitUntil(cleanup(env.DB, now));

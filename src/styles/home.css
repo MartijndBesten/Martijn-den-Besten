@@ -367,7 +367,7 @@
     display: none;
   }
 }
-:root[data-theme="nacht"] .machine__seal {
+:root:is([data-theme="nacht"], [data-theme="blauwdruk"]) .machine__seal {
   mix-blend-mode: normal;
 }
 .machine__jam {

@@ -13,7 +13,7 @@ export default defineConfig({
   use: { baseURL: BASE_URL, trace: "retain-on-failure" },
   projects: [
     { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },
-    { name: "mobiel", use: { ...devices["Pixel 7"] }, testMatch: /navigatie|a11y/ },
+    { name: "mobiel", use: { ...devices["Pixel 7"] }, testMatch: /navigatie|a11y|uiterlijk/ },
   ],
   webServer: process.env.E2E_BASE_URL
     ? undefined
