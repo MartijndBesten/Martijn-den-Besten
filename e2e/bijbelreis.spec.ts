@@ -102,7 +102,10 @@ test("kaart: Toen/Nu, legenda en een plaats met zekerheid", async ({ page, isMob
     await page.locator("#fullBtn").click();
     await expect(page.locator("body")).not.toHaveClass(/mapfull/);
   }
-  await page.locator(".leaflet-marker-icon[title='Bethel'] > :first-child").click({ force: true });
+  // Via het toetsenbord (focus + Enter): werkt ook als de kaart nog beweegt na het wisselen van grote kaart.
+  const bethel = page.locator(".leaflet-marker-icon[title='Bethel']");
+  await bethel.focus();
+  await page.keyboard.press("Enter");
   await expect(page.locator(".leaflet-popup")).toContainText(/Identificeerbaar|Waarschijnlijk|Betwist|Onbekend/);
   expect(errors).toEqual([]);
 });
