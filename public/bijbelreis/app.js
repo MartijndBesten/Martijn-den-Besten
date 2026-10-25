@@ -12,7 +12,7 @@
     set(k, v) { try { localStorage.setItem("bijbelreis:" + k, JSON.stringify(v)); } catch { /* geen opslag: dan geen stempels */ } },
   };
   const color = (key) => `var(--${key}-deep, var(--${key}))`;
-  const GROUPS = new Set(["Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen", "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters"]);
+  const GROUPS = new Set(["Discipelen", "Schare", "Apostelen", "Farizeeën", "Tollenaars", "Herders", "Wijzen", "Engelen", "Overpriesters", "Sadduceeën", "Wachters", "Moordenaars", "Broeders", "Ouderlingen", "Weduwen", "Reisgenoten", "Bemanning", "Eilanders", "Joden", "Melaatsen", "Handelaars", "Raad", "Oudsten", "Gemeente", "Ouders", "Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen", "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters"]);
 
   // ---------- rekenen ----------
   function hav(a, b) {
@@ -400,12 +400,12 @@
   const mensOf = (name, boekId) => MENS_IDX[boekId + "|" + name] || null;
   const MENS_STAPPEN = {};
   BOEKEN.forEach((b) => b.delen.forEach((d) => d.steps.forEach((s, i) => (s.who || []).forEach(([n]) => { const id = mensOf(n, b.id); if (id) (MENS_STAPPEN[id] = MENS_STAPPEN[id] || []).push([d, i]); }))));
-  function personChip([name, age]) {
+  function personChip([name, age], boekId = boek.id) {
     const c = color(BR.personen[name] || "grijs");
     const group = GROUPS.has(name);
     const label = group ? age || name.toLowerCase() : name;
     const sub = !group && age ? ` <small>${/^\d+$/.test(age) ? age + " jaar" : esc(age)}</small>` : "";
-    const id = !group && mensOf(name, boek.id);
+    const id = !group && (mensOf(name, boekId) || (boekId === "*" ? MENS_IDX["*|" + name] : null));
     return id ? `<button type="button" class="chip" data-mens="${id}" title="Wie is ${esc(name)}?"><i style="background:${c}">${esc(name[0])}</i>${esc(label)}${sub}</button>` : `<span class="chip"><i style="background:${c}">${esc(name[0])}</i>${esc(label)}${sub}</span>`;
   }
   const FS = { b: "Uit de Bijbel", u: "Uitleg", h: "Historische achtergrond" };
@@ -758,7 +758,7 @@
         <div class="top"><b>Geschiedenis ${nr} van 150</b><span>${esc(VORM[g.vorm] || "")}</span></div>
         <h2 id="vTitel">${esc(g.t)}</h2>
         <p class="tijd"><span>${esc(g.ref)}</span>${tijd ? `<span>· ${esc(tijd)}${g.tijdNoot ? "" : ""}</span>` : ""}</p>
-        <div class="chips">${(g.wie || []).map((n) => personChip([n])).join("")}</div>
+        <div class="chips">${(g.wie || []).map((n) => personChip([n], steps[0] ? steps[0].deel.boek.id : "*")).join("")}</div>
         <p class="label bl">Wat de Bijbel vertelt</p>
         <p>${esc(g.uitleg)}</p>
         ${parseRef(g.ref) ? `<button type="button" class="btn small bijbellink" data-ref="${esc(g.ref)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></svg>Lees het zelf in de Bijbel</button>` : ""}
@@ -1058,7 +1058,8 @@
     const d = x.deel ? boek.delen.find((q) => q.id === x.deel) : null;
     $("wieInfo").innerHTML = `<h3>${esc(x.n)}</h3>${x.rol ? `<p class="ref">${esc(x.rol)}</p>` : ""}<p>${esc(x.i || "")}</p>${d ? `<button type="button" class="btn primary" id="wieGo" style="--acc:${color(d.c)};--acc-deep:${color(d.c)}">Bekijk de reis van ${esc(d.short)} ▶</button>` : ""}`;
     if (d) $("wieGo").onclick = () => { setMode("reis"); chooseDeel(d); };
-    const mid = mensOf(name.split(/ en /)[0], boek.id); if (mid) $("wieInfo").insertAdjacentHTML("beforeend", mensDetails(mid));
+    // ‘Silas, Timotheüs en Lydia’ of ‘Saulus / Paulus’: de eerste naam die bij een persoon hoort.
+    const mid = name.split(/ en |, | \/ /).map((n) => mensOf(n.trim(), boek.id)).find(Boolean); if (mid) $("wieInfo").insertAdjacentHTML("beforeend", mensDetails(mid));
     document.querySelectorAll("#wieList button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.n === name));
   }
   $("p-wie").addEventListener("click", (e) => { const b = e.target.closest("[data-n]"); if (b && !b.closest("#wieInfo")) boek.stamboom ? wieInfoGenesis(b.dataset.n) : wieInfoBoek(b.dataset.n); });

@@ -4,6 +4,8 @@
 //  - v/m/p verwijzen naar bestaande ids; boek-ids bestaan; geen cycli in de ouders (niemand is zijn eigen voorouder);
 //  - elke individuele naam in `who` (stappen en deel-intro's), in de `wie`-lijsten en in de Genesis-stamboom is te koppelen
 //    via n/alias binnen `boek` (groepen en rollen zonder naam worden genegeerd en apart getoond);
+//  - elke naam in `wie` van een geschiedenis (geschiedenissen/*.js) is te koppelen zoals de app dat doet: via n/alias binnen de
+//    boeken van haar stappen (`boek:deel:index`), en bij een geschiedenis zonder stappen via de globale naam (eerste in personen.js);
 //  - geen naam wijst binnen één boek naar twee personen (fout als de naam in `who`/`wie` van dat boek staat, anders waarschuwing);
 //  - elke verwijzing (geb, dood, leeftijd, elders, vervolg) is leesbaar en gedekt door een regel in scripts/bijbel-controle/personen.txt.
 import { readFileSync, readdirSync, existsSync } from "node:fs";
@@ -19,9 +21,15 @@ const ctx = { console };
 ctx.window = ctx;
 vm.createContext(ctx);
 const html = existsSync(join(pub, "bijbelreis.html")) ? readFileSync(join(pub, "bijbelreis.html"), "utf8") : "";
-let inhoud = [...html.matchAll(/src="\/bijbelreis\/(inhoud\/[^"?]+)/g)].map((m) => m[1]);
-for (const f of readdirSync(join(dir, "inhoud")).filter((f) => f.endsWith(".js")).sort()) if (!inhoud.includes("inhoud/" + f)) inhoud.push("inhoud/" + f);
-for (const f of ["plaatsen.js", "personen.js", ...inhoud]) {
+const uitHtml = (map) => [...html.matchAll(new RegExp(`src="/bijbelreis/(${map}/[^"?]+)`, "g"))].map((m) => m[1]);
+const scripts = (map) => {
+  const lijst = uitHtml(map);
+  if (existsSync(join(dir, map))) for (const f of readdirSync(join(dir, map)).filter((f) => f.endsWith(".js")).sort()) if (!lijst.includes(`${map}/${f}`)) lijst.push(`${map}/${f}`);
+  return lijst;
+};
+const inhoud = scripts("inhoud");
+const geschiedenissen = scripts("geschiedenissen");
+for (const f of ["plaatsen.js", "personen.js", ...inhoud, ...geschiedenissen]) {
   try { vm.runInContext(readFileSync(join(dir, f), "utf8"), ctx, { filename: f }); }
   catch (e) { console.error(`FOUT bij laden van ${f}: ${e.message}`); process.exit(1); }
 }
@@ -36,9 +44,20 @@ const err = (s) => errors.push(s), warn = (s) => warnings.push(s);
 // Groepen (staan nooit in BR.mensen) en rollen zonder naam (‘Koning’, ‘Weduwe’): bewust niet gekoppeld.
 const GROEPEN = new Set(["Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen",
   "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters", "Amalek", "Filistijnen", "Midianieten", "Gibeonieten",
-  "Oudsten", "Arbeiders", "Raven", "Melaatsen", "Lopers", "Bouwers", "Zeelieden", "Vrienden", "Egyptenaren", "Edomieten"]);
+  "Oudsten", "Arbeiders", "Raven", "Melaatsen", "Lopers", "Bouwers", "Zeelieden", "Vrienden", "Egyptenaren", "Edomieten",
+  // Nieuwe Testament (versie 3.0)
+  "Discipelen", "Apostelen", "Schare", "Engelen", "Herders", "Wijzen", "Joden", "Ouders", "Farizeeën", "Sadduceeën", "Overpriesters",
+  "Tollenaars", "Handelaars", "Moordenaars", "Raad", "Wachters", "Weduwen", "Broeders", "Reisgenoten", "Ouderlingen", "Bemanning",
+  "Eilanders", "Gemeente"]);
 const ROLLEN = new Set(["Farao", "Bakker", "Farao’s dochter", "Knecht", "Schenker", "Losser", "De andere losser", "Wapendrager", "Koningin",
-  "De koningin van Scheba", "Koning", "Weduwe", "Zoon", "Jongen", "Engel", "Meisje", "Het meisje uit Israël", "Sunamitische", "De Sunamitische"]);
+  "De koningin van Scheba", "Koning", "Weduwe", "Zoon", "Jongen", "Engel", "Meisje", "Het meisje uit Israël", "Sunamitische", "De Sunamitische",
+  // Nieuwe Testament (versie 3.0). ‘Discipel’ is de discipel die Jezus liefhad (of de tweede Emmaüsganger): niet invullen.
+  "Discipel", "Hoofdman", "Overste", "Vrouw", "Verlamde", "Zieke man", "Blindgeborene", "Wetgeleerde", "Waterzuchtige man", "Samaritaan",
+  "Rijke jongeman", "Dochter van Herodias", "Dienstmaagd", "Kreupele", "Kamerling", "Gevangenbewaarder", "Neef",
+  // Geen mens: bewust niet in BR.mensen.
+  "Satan"]);
+// Eén regel in een wie-lijst kan meer namen bevatten: ‘Nadab en Abihu’, ‘Silas, Timotheüs en Lydia’, ‘Saulus / Paulus’.
+const splitWie = (s) => String(s).split(/ en |, | \/ /).map((n) => n.trim()).filter(Boolean);
 
 // ---------- 1. structuur van elke persoon ----------
 const SLUGS = { psalm: "psalmen", psalmen: "psalmen" };
@@ -105,6 +124,11 @@ const idx = {}; // boek -> naam -> [ids]
 for (const [id, m] of Object.entries(M)) for (const n of [m.n, ...(m.alias || [])]) for (const b of m.boek || []) ((idx[b] ??= {})[n] ??= []).push(id);
 const genegeerd = {}, gebruikt = {}; // boek -> Set(naam)
 const ignore = (b, n, waar) => { (genegeerd[n] ??= new Set()).add(`${b} (${waar})`); };
+// namen uit `wie` van geschiedenissen, per boek van hun stappen (tellen mee als ‘gebruikt’ voor de boek-waarschuwing hieronder)
+const G = BR.geschiedenissen || [];
+const geschBoeken = (g) => [...new Set((g.stappen || []).map((k) => String(k).split(":")[0]))];
+const geschNamen = {};
+for (const g of G) for (const b of geschBoeken(g)) for (const n of g.wie || []) (geschNamen[b] ??= new Set()).add(n);
 for (const b of BR.boeken) {
   const namen = new Map(); // naam -> [waar]
   const add = (n, waar) => { if (!namen.has(n)) namen.set(n, []); namen.get(n).push(waar); };
@@ -113,10 +137,10 @@ for (const b of BR.boeken) {
     d.steps.forEach((s, i) => (s.who || []).forEach(([n]) => add(n, `${d.id}:${i}`)));
   }
   const wie = new Map();
-  for (const x of b.wie || []) for (const n of String(x.n).split(/ en /)) wie.set(n.trim(), x.n);
+  for (const x of b.wie || []) for (const n of splitWie(x.n)) wie.set(n, x.n);
   const stamboom = new Set();
   if (b.stamboom) { for (const x of (b.stamboom.rijen || []).flat()) stamboom.add(x.n); for (const [n] of b.stamboom.leeftijden || []) stamboom.add(n); }
-  gebruikt[b.id] = new Set([...namen.keys(), ...wie.keys(), ...stamboom]);
+  gebruikt[b.id] = new Set([...namen.keys(), ...wie.keys(), ...stamboom, ...(geschNamen[b.id] || [])]);
   for (const [n, waar] of namen) {
     if (GROEPEN.has(n) || ROLLEN.has(n)) { ignore(b.id, n, "who"); continue; }
     const hit = idx[b.id]?.[n] || [];
@@ -137,6 +161,29 @@ for (const b of BR.boeken) {
   // dubbele namen die (nog) niet in deze inhoud voorkomen
   for (const [n, hit] of Object.entries(idx[b.id] || {})) if (hit.length > 1 && !namen.has(n) && !wie.has(n) && !stamboom.has(n)) warn(`${b.id}: de naam ‘${n}’ hoort bij ${hit.join(" en ")}`);
 }
+// ---------- 4. namen in `wie` van de geschiedenissen ----------
+// Zoals app.js: mensOf(naam, boek.id) voor de boeken van de stappen; zonder stappen de globale naam (MENS_IDX["*|naam"]).
+const globaal = {}; // naam -> [ids], in de volgorde van personen.js
+for (const [id, m] of Object.entries(M)) for (const n of [m.n, ...(m.alias || [])]) (globaal[n] ??= []).push(id);
+for (const g of G) {
+  const boeken = geschBoeken(g);
+  for (const b of boeken) if (!boekIds.has(b)) err(`geschiedenis ${g.nr}: stap in onbekend boek "${b}"`);
+  for (const n of g.wie || []) {
+    if (GROEPEN.has(n) || ROLLEN.has(n)) { ignore(boeken[0] || "*", n, `geschiedenis ${g.nr}`); continue; }
+    if (boeken.length) {
+      const hits = boeken.map((b) => [b, idx[b]?.[n] || []]);
+      const ids = [...new Set(hits.flatMap(([, h]) => h))];
+      if (!ids.length) err(`geschiedenis ${g.nr}: ‘${n}’ in wie is niet gekoppeld aan BR.mensen in ${boeken.join("/")}`);
+      for (const [b, h] of hits) if (h.length > 1) err(`geschiedenis ${g.nr}: ‘${n}’ wijst in ${b} naar meer personen: ${h.join(", ")}`);
+      if (ids.length > 1) warn(`geschiedenis ${g.nr}: ‘${n}’ is per boek een andere persoon (${ids.join(", ")})`);
+    } else {
+      const ids = globaal[n] || [];
+      if (!ids.length) err(`geschiedenis ${g.nr} (zonder stappen): ‘${n}’ in wie is niet gekoppeld aan BR.mensen`);
+      if (ids.length > 1) warn(`geschiedenis ${g.nr} (zonder stappen): ‘${n}’ kan ${ids.join(" of ")} zijn; de app kiest ${ids[0]} (eerste in personen.js)`);
+    }
+  }
+}
+
 // boek genoemd bij een persoon, maar de naam komt daar niet (meer) voor
 for (const [id, m] of Object.entries(M)) for (const b of m.boek || []) if (gebruikt[b] && ![m.n, ...(m.alias || [])].some((n) => gebruikt[b].has(n))) warn(`${id}: boek "${b}", maar ${m.n} staat daar niet in who/wie/stamboom`);
 
