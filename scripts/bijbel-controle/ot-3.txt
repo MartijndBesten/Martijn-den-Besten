@@ -1,0 +1,467 @@
+# Controle voor groep ot-3: public/bijbelreis/geschiedenissen/ot-3.js (nrs. 65–79) en public/bijbelreis/inhoud/profeten.js.
+# De nieuwe stappen van het deel 'joas' in 2koningen.js staan in scripts/bijbel-controle/2koningen.txt.
+# ===================== 65 Joas (geschiedenis) =====================
+2 Koningen 11:1 | Athalia, de moeder van Ahazia.*koninklijke zaad om
+2 Koningen 11:2 | Joseba, de dochter van den koning Joram, de zuster van Ahazia.*Joas.*voedster.*slaapkamer
+2 Koningen 11:3 | huis des HEEREN zes jaren.*Athalia regeerde
+2 Koningen 11:4 | zevende jaar.*Jojada.*beedigde.*toonde hun den zoon des konings
+2 Koningen 11:12 | kroon op.*getuigenis.*zalfden.*klapten.*De koning leve
+2 Koningen 11:16 | ingang der paarden.*gedood
+2 Koningen 11:17 | Jojada maakte een verbond tussen den HEERE.*koning.*volk
+2 Koningen 11:18 | huis van Baal.*Mattan, den priester van Baal, sloegen zij dood voor de altaren
+2 Koningen 11:21 | Joas was zeven jaren oud
+2 Koningen 12:1 | veertig jaren te Jeruzalem.*Zibja van Ber-seba
+2 Koningen 12:2 | al zijn dagen, in dewelke de priester Jojada hem onderwees
+2 Koningen 12:9 | kist.*gat in haar deksel.*bij het altaar ter rechterhand
+2 Koningen 12:15 | trouwelijk
+2 Koningen 12:17 | Hazael.*Gath.*Jeruzalem
+2 Koningen 12:18 | geheiligde dingen.*goud.*Hazael
+2 Koningen 12:20 | Millo
+2 Koningen 12:21 | Jozacar.*Jozabad.*stad Davids.*Amazia
+2 Kronieken 22:11 | Jozabath.*huisvrouw van den priester Jojada.*zuster van Ahazia
+2 Kronieken 24:20 | Zacharia aan, den zoon van Jojada
+2 Kronieken 24:21 | stenigden hem.*gebod des konings.*voorhof van het huis des HEEREN
+2 Samuel 7:16 | uw huis zal bestendig zijn
+Deuteronomium 17:18 | dubbel van deze wet afschrijven
+Deuteronomium 17:19 | lezen al de dagen zijns levens
+2 Koningen 9:27 | Ahazia.*stierf
+# ===================== 66 Samaria valt =====================
+2 Koningen 17:1 | Hosea.*koning over Israel te Samaria
+2 Koningen 17:3 | Salmaneser, koning van Assyrie.*Hosea werd zijn knecht
+2 Koningen 17:4 | So, den koning van Egypte
+2 Koningen 17:5 | belegerde haar drie jaren
+2 Koningen 17:6 | negende jaar van Hosea.*Halah.*Habor, aan de rivier Gozan.*steden der Meden
+2 Koningen 17:7 | gezondigd hadden tegen den HEERE.*uit Egypteland
+2 Koningen 17:13 | profeten.*zieners.*Bekeert u van uw boze wegen
+2 Koningen 17:14 | verhardden hun nek
+2 Koningen 17:16 | twee kalveren
+2 Koningen 17:17 | zonen en hun dochteren door het vuur gaan
+2 Koningen 17:18 | stam van Juda alleen
+2 Koningen 17:21 | Jerobeam
+2 Koningen 17:23 | gelijk als Hij gesproken had door den dienst van al Zijn knechten, de profeten
+2 Koningen 17:24 | Babel.*steden van Samaria
+2 Koningen 18:10 | negende jaar van Hosea.*Samaria ingenomen
+Deuteronomium 28:36 | uw koning.*tot een volk, dat gij niet gekend hebt
+Deuteronomium 28:64 | verstrooien onder alle volken, van het ene einde der aarde tot aan het andere
+1 Koningen 14:15 | uitrukken uit dit goede land.*verstrooien op gene zijde der rivier
+1 Koningen 14:16 | om Jerobeams zonden wil
+Amos 5:27 | gevankelijk wegvoeren, ver boven Damaskus henen
+Hosea 11:5 | Assur, die zal zijn koning zijn; omdat zij zich weigerden te bekeren
+Nehemia 9:30 | profeten.*neigden het oor niet
+Nehemia 9:31 | niet vernield.*genadig en barmhartig God
+# ===================== 67 Hizkia =====================
+2 Koningen 18:2 | Vijf en twintig jaren was hij oud.*negen en twintig jaren
+2 Koningen 18:4 | hoogten weg.*koperen slang, die Mozes gemaakt had
+2 Koningen 18:5 | na hem zijns gelijke niet was onder alle koningen van Juda
+2 Koningen 18:13 | veertiende jaar.*Sanherib
+2 Koningen 18:20 | op wien vertrouwt gij nu, dat gij tegen mij rebelleert
+2 Koningen 18:26 | Eljakim.*Sebna.*Joah.*Spreek toch tot uw knechten in het Syrisch, want wij verstaan het wel
+2 Koningen 18:28 | Rabsake.*riep met luider stem in het Joods
+2 Koningen 18:30 | De HEERE zal ons zekerlijk redden
+2 Koningen 19:14 | breidde die uit voor het aangezicht des HEEREN
+2 Koningen 19:15 | Gij zelf, Gij alleen zijt de God van alle koninkrijken der aarde
+2 Koningen 19:19 | verlos ons toch uit zijn hand; zo zullen alle koninkrijken der aarde weten, dat Gij, HEERE, alleen God zijt
+2 Koningen 19:20 | Jesaja.*gebeden.*heb Ik gehoord
+2 Koningen 19:35 | Engel des HEEREN.*honderd vijf en tachtig duizend
+2 Koningen 20:1 | krank tot stervens toe.*Jesaja
+2 Koningen 20:3 | weende gans zeer
+2 Koningen 20:5 | Ik heb uw gebed gehoord, Ik heb uw tranen gezien
+2 Koningen 20:6 | vijftien jaren
+2 Koningen 20:11 | schaduw tien graden achterwaarts
+2 Koningen 20:12 | Babel.*brieven en een geschenk
+2 Koningen 20:13 | schathuis.*wapenhuis
+2 Koningen 20:14 | uit verren lande gekomen, uit Babel
+2 Koningen 20:17 | naar Babel weggevoerd
+Jesaja 38:9 | schrift van Hizkia.*ziekte genezen
+2 Kronieken 32:8 | met ons is de HEERE, onze God, om ons te helpen
+Psalm 46:2 | God is ons een Toevlucht en Sterkte.*Hulp in benauwdheden
+# ===================== 68 Josia =====================
+2 Koningen 22:1 | Josia was acht jaren oud.*een en dertig jaren
+2 Koningen 22:3 | achttiende jaar.*Safan
+2 Koningen 22:8 | Hilkia.*Ik heb het wetboek in het huis des HEEREN gevonden
+2 Koningen 22:10 | Safan.*las dat voor het aangezicht des konings
+2 Koningen 22:11 | klederen scheurde
+2 Koningen 22:14 | profetes Hulda
+2 Koningen 22:19 | hart week geworden.*vernederd
+2 Koningen 22:20 | uw ogen zullen al het kwaad niet zien
+2 Koningen 23:2 | las voor hun oren al de woorden van het boek des verbonds
+2 Koningen 23:3 | stond aan den pilaar, en maakte een verbond
+2 Koningen 23:15 | altaar, dat te Beth-El was.*Jerobeam, de zoon van Nebat
+2 Koningen 23:16 | naar het woord des HEEREN, dat de man Gods uitgeroepen had
+2 Koningen 23:22 | van de dagen der richteren af
+2 Koningen 23:25 | met zijn ganse hart, en met zijn ganse ziel, en met zijn ganse kracht.*bekeerd had
+2 Koningen 23:29 | Farao Necho.*Megiddo
+1 Koningen 13:2 | wiens naam zal zijn Josia
+2 Kronieken 34:3 | achtste jaar zijner regering.*jongeling
+Jeremia 1:2 | Josia.*dertiende jaar
+# ===================== 69 Jona vlucht =====================
+Jona 1:2 | grote stad Nineve.*boosheid is opgeklommen voor Mijn aangezicht
+Jona 1:3 | vluchten naar Tarsis.*Jafo
+Jona 1:4 | groten wind.*schip.*breken
+Jona 1:7 | lot viel op Jona
+Jona 1:9 | Ik ben een Hebreer; en ik vreze den HEERE
+Jona 1:12 | Neemt mij op, en werpt mij in de zee, zo zal de zee stil worden
+Jona 1:14 | laat ons toch niet vergaan om dezes mans ziel
+Jona 1:15 | stond de zee stil
+Jona 1:16 | vreesden de mannen den HEERE.*slachtten den HEERE slachtoffer
+Jona 1:17 | HEERE nu beschikte een groten vis.*drie dagen en drie nachten
+Jona 2:9 | Het heil is des HEEREN
+Jona 2:10 | spuwde Jona uit op het droge
+Mattheus 12:40 | Jonas drie dagen en drie nachten.*hart der aarde
+Psalm 139:9 | uiterste der zee
+Psalm 139:10 | Uw hand mij geleiden
+2 Koningen 14:25 | Jona.*Amitthai.*Gath-Hefer
+# ===================== 70 Jona in Ninevé (genade) =====================
+Jona 3:1 | ten anderen male
+Jona 3:3 | drie dagreizen
+Jona 3:4 | dagreis.*Nog veertig dagen, dan zal Nineve worden omgekeerd
+Jona 3:5 | lieden van Nineve geloofden aan God.*vasten.*zakken.*grootste af tot hun kleinste
+Jona 3:6 | stond op van zijn troon.*zak.*as
+Jona 3:7 | mens noch beest
+Jona 3:10 | bekeerden van hun bozen weg.*deed het niet
+Jona 4:1 | toorn ontstak
+Jona 4:2 | vluchtende naar Tarsis.*genadig en barmhartig God.*lankmoedig en groot van goedertierenheid
+Jona 4:5 | tegen het oosten der stad
+Jona 4:6 | wonderboom.*schaduw mocht zijn over zijn hoofd
+Jona 4:7 | worm.*stak den wonderboom, dat hij verdorde
+Jona 4:8 | oostenwind
+Jona 4:11 | meer dan honderd en twintig duizend mensen.*veel vee
+Mattheus 12:41 | mannen van Nineve.*bekeerd op de prediking van Jonas.*meer dan Jonas is hier
+Exodus 34:6 | barmhartig en genadig, lankmoedig en groot van weldadigheid en waarheid
+Lukas 15:7 | blijdschap zal zijn in den hemel over een zondaar, die zich bekeert
+# ===================== 71 Jeruzalem verwoest / Jeremia =====================
+Jeremia 39:1 | negende jaar van Zedekia.*tiende maand.*belegerden
+Jeremia 39:2 | elfde jaar.*vierde maand.*doorgebroken
+Jeremia 39:5 | vlakke velden van Jericho.*Ribla, in het land van Hamath.*oordelen
+Jeremia 39:6 | zonen van Zedekia te Ribla voor zijn ogen
+Jeremia 39:7 | verblindde de ogen van Zedekia.*twee koperen ketenen.*Babel
+Jeremia 39:8 | verbrandden.*muren van Jeruzalem af
+Jeremia 39:10 | arm.*wijngaarden en akkers
+2 Koningen 25:7 | zonen van Zedekia voor zijn ogen.*verblindde.*koperen ketenen
+2 Koningen 25:9 | verbrandde het huis des HEEREN.*huis des konings.*huizen van Jeruzalem
+2 Koningen 25:27 | zeven en dertigste jaar.*Jojachin.*gevangenhuis
+2 Koningen 25:29 | at geduriglijk brood voor zijn aangezicht, al de dagen zijns levens
+Jeremia 40:2 | De HEERE, uw God, heeft dit kwaad over deze plaats gesproken
+Jeremia 40:3 | gedaan, gelijk als Hij gesproken had
+Jeremia 1:9 | Zie, Ik geef Mijn woorden in uw mond
+Jeremia 29:10 | zeventig jaren te Babel.*wederbrengende
+Klaagliederen 1:1 | Hoe zit die stad zo eenzaam, die vol volks was
+2 Kronieken 36:19 | verbrandden het huis Gods.*muur van Jeruzalem af
+Jeremia 52:13 | verbrandde hij het huis des HEEREN
+# ===================== 72 Jesaja 40–43 (en deel jesaja-troost) =====================
+Jesaja 39:6 | naar Babel weggevoerd
+Jesaja 39:7 | hovelingen.*koning.*Babel
+Jesaja 40:1 | Troost, troost Mijn volk
+Jesaja 40:2 | Spreekt naar het hart van Jeruzalem.*strijd vervuld.*ongerechtigheid verzoend
+Jesaja 40:3 | stem des roependen in de woestijn: Bereidt den weg des HEEREN
+Jesaja 40:4 | dalen.*verhoogd.*bergen.*vernederd
+Jesaja 40:6 | Alle vlees is gras.*bloem des velds
+Jesaja 40:8 | het Woord onzes Gods bestaat in der eeuwigheid
+Jesaja 40:9 | Jeruzalem.*steden van Juda: Zie hier is uw God
+Jesaja 40:11 | kudde weiden gelijk een herder.*lammeren in Zijn armen
+Jesaja 40:12 | wateren met Zijn vuist gemeten.*bergen gewogen
+Jesaja 40:13 | raadsman
+Jesaja 40:15 | volken.*druppel van een emmer
+Jesaja 40:18 | Bij wien dan zult gij God vergelijken
+Jesaja 40:19 | giet een beeld.*goud
+Jesaja 40:20 | hout uit, dat niet verrotte.*niet wankele
+Jesaja 40:26 | alle bij name roept.*niet een gemist
+Jesaja 40:28 | noch moede noch mat
+Jesaja 40:29 | geeft den moeden kracht
+Jesaja 40:31 | dien den HEERE verwachten, zullen de kracht vernieuwen; zij zullen opvaren met vleugelen, gelijk de arenden
+Jesaja 41:8 | Gij, Israel, Mijn knecht! gij Jakob, dien Ik verkoren heb! het zaad van Abraham, Mijn liefhebber
+Jesaja 41:9 | niet verworpen
+Jesaja 41:10 | Vrees niet, want Ik ben met u; zijt niet verbaasd, want Ik ben uw God
+Jesaja 41:13 | grijp uw rechterhand
+Jesaja 41:14 | wormpje Jakobs.*Ik help u
+Jesaja 41:17 | ellendigen.*water.*dorst
+Jesaja 41:18 | rivieren op de hoge plaatsen
+Jesaja 41:19 | woestijn den cederboom
+Jesaja 41:20 | hand des HEEREN zulks gedaan
+Jesaja 42:1 | Ziet, Mijn Knecht, Dien Ik ondersteun, Mijn Uitverkorene, in Denwelken Mijn ziel een welbehagen heeft.*Mijn geest op Hem gegeven
+Jesaja 42:2 | niet schreeuwen.*straat
+Jesaja 42:3 | gekrookte riet zal Hij niet verbreken.*rokende vlaswiek
+Jesaja 42:4 | recht op aarde
+Jesaja 42:6 | Licht der heidenen
+Jesaja 42:7 | blinde ogen.*gevangenis.*duisternis
+Jesaja 42:8 | Ik ben de HEERE, dat is Mijn Naam; en Mijn eer zal Ik geen anderen geven
+Jesaja 43:1 | vrees niet, want Ik heb u verlost; Ik heb u bij uw naam geroepen, gij zijt Mijn
+Jesaja 43:2 | water.*rivieren.*niet overstromen.*vuur.*niet verbranden
+Jesaja 43:3 | Egypte, Morenland en Seba gegeven tot uw losgeld
+Jesaja 43:5 | opgang.*ondergang
+Jesaja 43:6 | noorden.*zuiden
+Jesaja 43:10 | Gijlieden zijt Mijn getuigen, spreekt de HEERE
+Jesaja 43:11 | er is geen Heiland behalve Mij
+Jesaja 43:14 | naar Babel gezonden
+Jesaja 43:16 | in de zee een weg
+Jesaja 43:17 | wagenen en paarden
+Jesaja 43:19 | Ziet, Ik zal wat nieuws maken.*woestijn een weg.*rivieren in de wildernis
+Jesaja 43:24 | vermoeid met uw ongerechtigheden
+Jesaja 43:25 | Ik, Ik ben het, Die uw overtredingen uitdelg, om Mijnentwil
+Jesaja 1:1 | Jesaja, den zoon van Amoz.*Uzzia, Jotham, Achaz en Hizkia
+Mattheus 3:3 | gesproken is door Jesaja.*stem des roependen in de woestijn
+Markus 1:3 | stem des roependen in de woestijn
+Lukas 3:4 | Jesaja.*stem des roependen in de woestijn
+Lukas 3:6 | alle vlees zal de zaligheid Gods zien
+Johannes 1:23 | Ik ben de stem des roependen in de woestijn
+1 Petrus 1:24 | alle vlees is als gras
+1 Petrus 1:25 | Woord des Heeren blijft in der eeuwigheid; en dit is het Woord, dat onder u verkondigd is
+Mattheus 12:15 | genas ze allen
+Mattheus 12:16 | niet openbaar maken
+Mattheus 12:17 | Opdat vervuld zou worden, hetgeen gesproken is door Jesaja, den profeet
+Mattheus 12:20 | gekrookte riet zal Hij niet verbreken
+Mattheus 12:21 | in Zijn Naam zullen de heidenen hopen
+Romeinen 11:34 | wie heeft den zin des Heeren gekend\? Of wie is Zijn raadsman geweest
+Jakobus 2:23 | vriend van God genaamd
+Exodus 14:28 | wagenen en de ruiters
+# ===================== 73 Daniël 1–2 =====================
+Daniel 1:1 | derde jaar.*Jojakim.*Nebukadnezar.*belegerde
+Daniel 1:3 | koninklijk zaad
+Daniel 1:5 | drie jaren
+Daniel 1:6 | Daniel, Hananja, Misael en Azarja
+Daniel 1:7 | Daniel noemde hij Beltsazar.*Hananja Sadrach.*Misael Mesach.*Azarja Abed-nego
+Daniel 1:8 | niet zou ontreinigen.*spijs des konings.*wijn
+Daniel 1:12 | tien dagen.*gezaaide.*water
+Daniel 1:15 | gedaanten schoner
+Daniel 1:17 | God wetenschap en verstand.*wijsheid
+Daniel 1:20 | tienmaal
+Daniel 2:1 | tweede jaar.*Nebukadnezar, droomde
+Daniel 2:18 | God des hemels barmhartigheden verzochten
+Daniel 2:19 | nachtgezicht.*verborgenheid geopenbaard
+Daniel 2:28 | er is een God in den hemel, Die verborgenheden openbaart
+Daniel 2:32 | hoofd.*goud.*zilver.*koper
+Daniel 2:33 | ijzer.*leem
+Daniel 2:34 | steen afgehouwen.*zonder handen
+Daniel 2:35 | groten berg.*gehele aarde vervulde
+Daniel 2:38 | gij zijt dat gouden hoofd
+Daniel 2:39 | ander koninkrijk.*lager.*derde koninkrijk van koper.*gehele aarde
+Daniel 2:40 | vierde koninkrijk zal hard zijn, gelijk ijzer
+Daniel 2:41 | gedeeld koninkrijk
+Daniel 2:42 | ten dele hard.*ten dele broos
+Daniel 2:44 | Koninkrijk verwekken, dat in der eeuwigheid niet zal verstoord worden
+Daniel 2:45 | steen zonder handen
+Daniel 2:48 | heerser over het ganse landschap van Babel
+Ezechiel 14:14 | Noach, Daniel en Job
+Mattheus 24:15 | Daniel, de profeet
+2 Koningen 20:18 | hovelingen zijn in het paleis des konings van Babel
+Jeremia 25:1 | vierde jaar van Jojakim.*eerste jaar van Nebukadrezar
+# ===================== 74 Daniël 3 (eren) =====================
+Daniel 3:1 | beeld van goud.*zestig ellen.*zes ellen.*dal Dura
+Daniel 3:4 | heraut.*gij volken, gij natien, en tongen
+Daniel 3:6 | oven des brandenden vuurs
+Daniel 3:8 | Chaldeeuwse mannen
+Daniel 3:12 | deze mannen hebben, o koning! op u geen acht gesteld
+Daniel 3:17 | onze God, Dien wij eren, is machtig ons te verlossen
+Daniel 3:18 | zo niet.*uw goden niet zullen eren
+Daniel 3:19 | zevenmaal meer heet
+Daniel 3:22 | vonken des vuurs die mannen.*gedood
+Daniel 3:25 | ik zie vier mannen, los wandelende in het midden des vuurs.*gedaante des vierden is gelijk eens zoons der goden
+Daniel 3:27 | haar huns hoofds niet verbrand.*mantels niet veranderd
+Daniel 3:28 | Geloofd zij de God van Sadrach, Mesach en Abed-nego, Die Zijn engel gezonden, en Zijn knechten verlost heeft
+Daniel 3:29 | er is geen ander God, Die alzo verlossen kan
+Daniel 2:49 | Sadrach, Mesach en Abed-nego over de bediening van het landschap van Babel
+Exodus 20:3 | Gij zult geen andere goden voor Mijn aangezicht hebben
+Exodus 20:5 | Gij zult u voor die niet buigen, noch hen dienen
+Hebreeen 11:34 | kracht des vuurs hebben uitgeblust
+Jesaja 43:2 | door het vuur zult gaan, zult gij niet verbranden, en de vlam zal u niet aansteken
+# ===================== 75 Daniël 6 (gebed) =====================
+Daniel 5:30 | gedood
+Daniel 5:31 | Darius, de Meder.*twee en zestig
+Daniel 6:1 | honderd en twintig stadhouders
+Daniel 6:2 | drie vorsten.*Daniel de eerste
+Daniel 6:3 | gehele koninkrijk
+Daniel 6:4 | geen gelegenheid noch misdaad.*getrouw
+Daniel 6:7 | dertig dagen.*kuil der leeuwen
+Daniel 6:9 | tekende de koning Darius
+Daniel 6:10 | knielde drie tijden 's daags.*bad.*belijdenis.*gelijk hij voor dezen gedaan had
+Daniel 6:14 | zeer bedroefd
+Daniel 6:16 | wierpen hem in den kuil der leeuwen
+Daniel 6:17 | steen.*verzegelde denzelven met zijn ring, en met den ring zijner geweldigen
+Daniel 6:19 | vroegen morgenstond
+Daniel 6:22 | Mijn God heeft Zijn engel gezonden, en Hij heeft den muil der leeuwen toegesloten
+Daniel 6:23 | dewijl hij in zijn God geloofd had
+Daniel 6:25 | alle volken, natien en tongen
+Daniel 6:26 | beve en siddere voor het aangezicht van den God van Daniel; want Hij is de levende God
+Hebreeen 11:33 | muilen der leeuwen toegestopt
+Mattheus 6:6 | binnenkamer.*bidt uw Vader, Die in het verborgen is
+Psalm 65:3 | Gij hoort het gebed; tot U zal alle vlees komen
+# ===================== 76 Ezra 1–6 =====================
+Ezra 1:1 | eerste jaar nu van Kores.*Jeremia.*verwekte de HEERE den geest van Kores
+Ezra 1:2 | huis te bouwen te Jeruzalem
+Ezra 1:7 | vaten.*Nebukadnezar
+Ezra 1:8 | Sesbazar
+Ezra 1:11 | vijf duizend en vierhonderd
+Ezra 2:64 | twee en veertig duizend driehonderd en zestig
+Ezra 2:65 | knechten en hun maagden
+Ezra 3:1 | zevende maand
+Ezra 3:2 | Jesua.*Zerubbabel.*bouwden het altaar
+Ezra 3:11 | juichte met groot gejuich
+Ezra 3:12 | priesteren, en de Levieten.*oud.*eerste huis gezien.*weenden met luider stem
+Ezra 4:4 | verstoorde hen in het bouwen
+Ezra 4:24 | tweede jaar.*Darius
+Ezra 5:1 | Haggai.*Zacharia, de zoon van Iddo, profeteerden tot de Joden, die in Juda en te Jeruzalem waren
+Ezra 5:2 | begonnen te bouwen
+Ezra 6:1 | Darius bevel; en zij zochten
+Ezra 6:2 | Achmetha.*Medie.*rol gevonden
+Ezra 6:3 | Kores
+Ezra 6:14 | profetie van den profeet Haggai en Zacharia
+Ezra 6:15 | derden dag der maand Adar.*zesde jaar.*Darius
+Ezra 6:16 | inwijding.*vreugde
+Ezra 6:19 | pascha
+Ezra 6:22 | blijdschap
+Jeremia 29:10 | zeventig jaren
+Jesaja 44:28 | Cores.*Hij is Mijn herder.*tempel: Word gegrond
+Haggai 1:4 | Is het voor ulieden wel de tijd, dat gij woont in uw gewelfde huizen, en zal dit huis woest zijn
+Psalm 126:1 | Als de HEERE de gevangenen Sions wederbracht, waren wij gelijk degenen, die dromen
+# ===================== 77 Esther 1–3 =====================
+Esther 1:1 | Indie af tot aan Morenland toe, honderd zeven en twintig landschappen
+Esther 1:2 | burg Susan
+Esther 1:3 | derde jaar
+Esther 1:4 | honderd en tachtig dagen
+Esther 1:5 | zeven dagen lang
+Esther 1:12 | Vasthi weigerde te komen
+Esther 2:5 | Mordechai.*man van Jemini
+Esther 2:6 | weggevoerd was van Jeruzalem.*Jechonia
+Esther 2:7 | Hadassa.*Esther.*dochter zijns ooms.*geen vader noch moeder
+Esther 2:10 | Mordechai had haar geboden, dat zij het niet zou te kennen geven
+Esther 2:15 | genade in de ogen van allen, die haar zagen
+Esther 2:17 | koninklijke kroon op haar hoofd.*koningin
+Esther 2:21 | twee kamerlingen.*hand te slaan aan den koning
+Esther 2:22 | Mordechai bekend gemaakt
+Esther 2:23 | kronieken
+Esther 3:1 | Haman.*Hammedatha, den Agagiet.*stoel boven al de vorsten
+Esther 3:2 | Mordechai neigde zich niet, en boog zich niet neder
+Esther 3:5 | Mordechai zich niet neigde.*grimmigheid
+Esther 3:6 | al de Joden.*te verdelgen
+Esther 3:7 | Pur, dat is, het lot
+Esther 3:13 | dertienden der twaalfde maand.*Adar
+Esther 6:2 | Mordechai had te kennen gegeven
+Esther 9:26 | Purim, van den naam van dat Pur
+Spreuken 16:33 | Het lot wordt in den schoot geworpen; maar het gehele beleid daarvan is van den HEERE
+# ===================== 78 Esther 4–8 =====================
+Esther 4:1 | verscheurde Mordechai zijn klederen, en hij trok een zak aan met as
+Esther 4:11 | niet geroepen.*dode, tenzij dat de koning den gouden scepter hem toereike
+Esther 4:14 | wie weet, of gij niet om zulken tijd als deze is, tot dit koninkrijk geraakt zijt
+Esther 4:16 | vast voor mij.*drie dagen.*Wanneer ik dan omkome, zo kom ik om
+Esther 5:2 | gouden scepter.*Esther toereikte
+Esther 5:3 | Wat is u, koningin Esther! of wat is uw verzoek
+Esther 5:4 | Haman.*maaltijd
+Esther 6:1 | slaap van den koning geweken.*kronieken
+Esther 6:6 | Tot wien heeft de koning een welbehagen, om hem eer te doen, meer dan tot mij
+Esther 6:8 | koninklijke kleed.*paard
+Esther 6:11 | Haman nam dat kleed en dat paard.*Mordechai.*straten der stad
+Esther 7:6 | deze boze Haman
+Esther 7:9 | Charbona.*galg, welke Haman gemaakt heeft voor Mordechai.*vijftig ellen hoog
+Esther 7:10 | hingen zij Haman aan de galg, die hij voor Mordechai had doen bereiden
+Esther 8:8 | des konings ring
+Esther 8:11 | vergaderen, en voor hun leven te staan
+Esther 8:16 | licht, en blijdschap, en vreugde, en eer
+Esther 9:22 | droefenis in blijdschap
+Spreuken 26:27 | Die een kuil graaft, zal er in vallen
+Psalm 121:4 | Bewaarder Israels zal niet sluimeren, noch slapen
+# ===================== 79 Zacharia en Maleachi (en deel zacharia-maleachi) =====================
+Zacharia 1:1 | achtste maand, in het tweede jaar van Darius.*Zacharia, den zoon van Berechja, den zoon van Iddo
+Zacharia 1:3 | Keert weder tot Mij.*zo zal Ik weder tot ulieden keren
+Zacharia 1:4 | Weest niet als uw vaderen.*profeten.*hoorden niet
+Zacharia 2:7 | Hui, Sion! ontkomt gij, die woont bij de dochter van Babel
+Zacharia 4:6 | Zerubbabel.*Niet door kracht noch door geweld, maar door Mijn Geest
+Zacharia 4:9 | handen van Zerubbabel hebben dit huis gegrondvest, zijn handen zullen het ook voleinden
+Zacharia 4:10 | wie veracht den dag der kleine dingen
+Zacharia 8:3 | Ik ben wedergekeerd tot Sion, en Ik zal in het midden van Jeruzalem wonen.*stad der waarheid
+Zacharia 8:4 | oude mannen en oude vrouwen.*straten van Jeruzalem.*stok
+Zacharia 8:5 | knechtjes en meisjes, spelende op haar straten
+Zacharia 8:7 | land des opgangs.*nedergangs der zon
+Zacharia 8:8 | zij zullen Mij tot een volk zijn, en Ik zal hun tot een God zijn
+Zacharia 8:22 | vele volken.*HEERE der heirscharen te Jeruzalem te zoeken
+Zacharia 8:23 | tien mannen.*slip.*Joodsen man.*Wij zullen met ulieden gaan, want wij hebben gehoord, dat God met ulieden is
+Zacharia 9:9 | Verheug u zeer, gij dochter Sions! juich, gij dochter Jeruzalems! Ziet, uw Koning zal u komen, rechtvaardig, en Hij is een Heiland; arm, en rijdende op een ezel, en op een veulen, een jong der ezelinnen
+Zacharia 9:10 | wagens.*paarden.*strijdboog.*vrede spreken.*van zee tot aan zee
+Zacharia 12:10 | huis Davids.*inwoners van Jeruzalem.*Geest der genade en der gebeden.*Mij aanschouwen, Dien zij doorstoken hebben.*enigen zoon
+Zacharia 13:7 | sla dien Herder, en de schapen zullen verstrooid worden.*kleinen
+Maleachi 1:1 | Maleachi
+Maleachi 1:2 | Ik heb u liefgehad.*Waarin hebt Gij ons liefgehad
+Maleachi 1:8 | blinds.*kreupels.*kranks
+Maleachi 3:1 | Ziet, Ik zende Mijn engel, die voor Mijn aangezicht den weg bereiden zal; en snellijk zal tot Zijn tempel komen die Heere, Dien gijlieden zoekt
+Maleachi 3:3 | goud.*zilver
+Maleachi 3:6 | Ik, de HEERE, word niet veranderd
+Maleachi 3:7 | keert weder tot Mij, en Ik zal tot u wederkeren
+Maleachi 3:8 | tienden
+Maleachi 3:10 | Brengt al de tienden in het schathuis
+Maleachi 3:16 | gedenkboek.*die den HEERE vrezen
+Maleachi 4:1 | brandende als een oven.*hoogmoedigen.*stoppel
+Maleachi 4:2 | Mijn Naam vreest, zal de Zon der gerechtigheid opgaan
+Maleachi 4:4 | Gedenk der wet van Mozes
+Maleachi 4:5 | Ziet, Ik zende ulieden den profeet Elia, eer dat die grote en die vreselijke dag des HEEREN komen zal
+Maleachi 4:6 | hart der vaderen tot de kinderen.*hart der kinderen tot hun vaderen.*ban
+Mattheus 21:1 | Beth-fage
+Mattheus 21:5 | Zegt der dochter Sions: Zie, uw Koning komt tot u, zachtmoedig en gezeten op een ezelin
+Johannes 12:15 | Koning komt, zittende op het veulen ener ezelin
+Mattheus 26:31 | Ik zal den Herder slaan, en de schapen der kudde zullen verstrooid worden
+Johannes 19:34 | doorstak Zijn zijde
+Johannes 19:37 | Zij zullen zien, in Welken zij gestoken hebben
+Mattheus 11:10 | Ziet, Ik zend Mijn engel voor Uw aangezicht
+Markus 1:2 | Ik zend Mijn engel voor Uw aangezicht
+Mattheus 11:14 | hij is Elias, die komen zou
+Lukas 1:17 | in den geest en de kracht van Elias, om te bekeren de harten der vaderen tot de kinderen
+Jeremia 7:34 | straten van Jeruzalem doen ophouden de stem der vrolijkheid
+# ===================== Deel jeremia (profeten.js) =====================
+Jeremia 1:1 | Anathoth
+Jeremia 1:3 | elfde jaar van Zedekia.*Jeruzalem gevankelijk werd weggevoerd
+Jeremia 38:28 | voorhof der bewaring tot op den dag, dat Jeruzalem werd ingenomen
+Jeremia 39:11 | Jeremia.*Nebuzaradan
+Jeremia 39:12 | doe hem niets kwaads; maar gelijk als hij tot u spreken zal, doe alzo met hem
+Jeremia 39:14 | voorhof der bewaring.*Gedalia, den zoon van Ahikam.*in het midden des volks
+Jeremia 39:16 | Ebed-melech, den Moorman.*Ik zal Mijn woorden brengen over deze stad, ten kwade en niet ten goede
+Jeremia 39:17 | niet overgegeven worden in de hand der mannen, voor welker aangezicht gij vreest
+Jeremia 39:18 | Ik zal u zekerlijk bevrijden, en gij zult door het zwaard niet vallen.*omdat gij op Mij vertrouwd hebt
+Jeremia 38:7 | Ebed-melech, de Moorman, een der kamerlingen
+Jeremia 38:11 | lompen.*zelen
+Jeremia 38:13 | haalden hem op uit de kuil
+Jeremia 40:1 | Rama.*ketenen gebonden.*gevangenen van Jeruzalem en Juda.*Babel
+Jeremia 40:4 | losgemaakt van de ketenen.*Babel.*het ganse land is voor uw aangezicht
+Jeremia 40:5 | reiskost en een geschenk
+Jeremia 40:6 | Gedalia.*te Mizpa.*in het midden des volks
+Jeremia 40:7 | oversten der heiren
+Jeremia 40:9 | Vreest niet van de Chaldeen te dienen; blijft in het land, en dient den koning van Babel, zo zal het u welgaan
+Jeremia 40:11 | Moab.*Ammons.*Edom
+Jeremia 40:12 | zeer veel wijns en zomervruchten
+Jeremia 40:13 | Johanan, de zoon van Kareah.*Mizpa
+Jeremia 40:14 | Baalis, de koning der kinderen Ammons, Ismael, den zoon van Nethanja.*Gedalia.*geloofde hen niet
+Jeremia 40:15 | in het verborgene.*Ismael.*overblijfsel van Juda verloren gaan
+Jeremia 40:16 | Doe deze zaak niet, want gij spreekt vals van Ismael
+Jeremia 41:1 | zevende maand.*Ismael.*Mizpa.*aten aldaar brood
+Jeremia 41:2 | sloegen Gedalia
+2 Koningen 25:25 | Ismael.*Gedalia
+Jeremia 43:4 | gehoorzaamde.*niet
+Jeremia 43:6 | profeet Jeremia
+Jeremia 43:7 | Egypteland
+2 Koningen 22:10 | Safan
+Jeremia 26:24 | hand van Ahikam, den zoon van Safan, was met Jeremia
+Jeremia 31:15 | stem gehoord in Rama, een klage.*Rachel weent over haar kinderen
+Mattheus 2:18 | stem is in Rama gehoord
+1 Samuel 7:5 | Mizpa.*bidden
+Klaagliederen 3:22 | goedertierenheden des HEEREN, dat wij niet vernield zijn, dat Zijn barmhartigheden geen einde hebben
+Klaagliederen 3:23 | allen morgen nieuw, Uw trouw is groot
+Mattheus 16:14 | Jeremia of een van de profeten
+2 Koningen 25:8 | Nebuzaradan
+# ===================== Kernwoorden =====================
+2 Koningen 17:13 | Bekeert u van uw boze wegen
+2 Koningen 17:14 | hoorden zij niet
+Prediker 12:14 | God zal ieder werk in het gericht brengen, met al wat verborgen is, hetzij goed, of hetzij kwaad
+Johannes 5:22 | al het oordeel den Zoon gegeven
+Johannes 5:24 | Die Mijn woord hoort.*komt niet in de verdoemenis
+Handelingen 17:30 | bekeren
+Handelingen 17:31 | dag gesteld.*rechtvaardiglijk zal oordelen
+Efeze 2:8 | uit genade zijt gij zalig geworden door het geloof; en dat niet uit u, het is Gods gave
+Efeze 2:9 | Niet uit de werken
+2 Petrus 1:21 | heilige mensen Gods van den Heilige Geest gedreven
+Deuteronomium 18:18 | Een Profeet zal Ik hun verwekken.*Mijn woorden in Zijn mond geven
+Handelingen 3:22 | Profeet verwekken
+Hebreeen 1:1 | door de profeten.*door den Zoon
+Mattheus 4:10 | Den Heere, uw God, zult gij aanbidden, en Hem alleen dienen
+Exodus 20:12 | Eert uw vader en uw moeder
+Handelingen 5:29 | Men moet Gode meer gehoorzaam zijn, dan den mensen
+Mattheus 6:9 | Onze Vader, Die in de hemelen zijt
+1 Thessalonicenzen 5:17 | Bidt zonder ophouden
+Psalm 50:15 | roept Mij aan in den dag der benauwdheid; Ik zal er u uithelpen, en gij zult Mij eren
+Filippenzen 4:6 | door bidden en smeken, met dankzegging bekend worden bij God

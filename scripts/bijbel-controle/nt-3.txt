@@ -1,0 +1,638 @@
+# Controle voor groep nt-3: public/bijbelreis/inhoud/nt-jezus-3.js en public/bijbelreis/geschiedenissen/nt-3.js (118–133).
+# Regel: verwijzing | regex (Statenvertaling, hoofdletterongevoelig; SV schrijft getallen voluit en zonder trema's).
+# ===== Boek: Wie is wie =====
+Mattheüs 21:5 | zachtmoedig en gezeten op een ezelin
+1 Korinthe 15:3 | Christus gestorven is voor onze zonden
+1 Korinthe 15:4 | begraven.*opgewekt ten derden dage
+Handelingen 1:3 | veertig dagen
+Handelingen 1:9 | werd Hij opgenomen
+Mattheüs 26:35 | Al moest ik ook met U sterven
+Mattheüs 26:75 | driemaal verloochenen
+Johannes 21:15 | hebt gij Mij liever dan dezen
+Johannes 21:17 | ten derden maal
+Mattheüs 26:14 | Judas Iskariot
+Mattheüs 26:15 | dertig zilveren penningen
+Mattheüs 26:49 | kuste Hem
+Mattheüs 27:3 | berouw gehad.*dertig zilveren penningen
+Mattheüs 27:5 | in den tempel geworpen.*verworgde zichzelven
+Johannes 18:13 | Annas.*vrouws vader van Kajafas.*hogepriester
+Mattheüs 26:57 | Kajafas, den hogepriester
+Mattheüs 26:66 | des doods schuldig
+Johannes 18:38 | Ik vind geen schuld in Hem
+Mattheüs 27:24 | wies de handen
+Mattheüs 27:26 | gaf hij Hem over om gekruisigd te worden
+Mattheüs 27:16 | welbekende gevangene, genaamd Bar-abbas
+Lukas 23:19 | oproer.*doodslag
+Markus 15:21 | Simon van Cyrene.*komende van den akker.*Alexander en Rufus.*Zijn kruis droeg
+Mattheüs 27:57 | rijk man van Arimathea, met name Jozef.*discipel van Jezus
+Mattheüs 27:60 | zijn nieuw graf
+Johannes 19:38 | Jozef van Arimathea.*discipel van Jezus was, maar bedekt om de vreze der Joden
+Johannes 19:39 | Nicodemus.*des nachts.*mirre en aloe.*honderd ponden
+Johannes 19:25 | Maria Magdalena
+Johannes 20:16 | Maria
+Markus 16:9 | verscheen Hij eerst aan Maria Magdalena
+Johannes 20:24 | Thomas.*Didymus
+Johannes 20:25 | teken der nagelen
+Johannes 20:28 | Mijn Heere en mijn God
+Lukas 24:13 | Emmaus
+Lukas 24:18 | Kleopas
+# ===== Deel nt-lijdensweek: tijd en kader =====
+Lukas 3:1 | vijftiende jaar der regering van den keizer Tiberius.*Pontius Pilatus stadhouder
+Johannes 2:13 | pascha der Joden was nabij
+Johannes 6:4 | pascha
+Johannes 11:55 | pascha
+Johannes 12:1 | zes dagen voor het pascha te Bethanie
+Johannes 12:12 | Des anderen daags.*naar Jeruzalem kwam
+Mattheüs 26:2 | na twee dagen het pascha
+Mattheüs 26:17 | eerste dag der ongehevelde broden
+Zacharia 9:9 | Ziet, uw Koning zal u komen, rechtvaardig, en Hij is een Heiland; arm, en rijdende op een ezel
+Mattheüs 20:18 | overgeleverd worden
+Mattheüs 20:19 | bespotten en te geselen, en te kruisigen; en ten derden dage zal Hij weder opstaan
+Psalm 118:26 | Gezegend zij hij, die daar komt in den Naam des HEEREN
+Psalm 118:22 | De steen, dien de bouwlieden verworpen hadden
+1 Korinthe 11:23 | in den nacht, in welken Hij verraden werd, het brood nam
+# stap 0
+Mattheüs 21:1 | Beth-fage, aan de Olijfberg.*twee discipelen
+Mattheüs 21:2 | ezelin gebonden vinden, en een veulen met haar
+Mattheüs 21:3 | de Heere deze van node heeft
+Mattheüs 21:7 | legden hun klederen op dezelve, en zetten Hem daarop
+Mattheüs 21:8 | spreidden hun klederen op den weg.*takken van de bomen
+Mattheüs 21:9 | die voorgingen en die volgden.*Hosanna den Zone Davids! Gezegend is Hij, Die komt in den Naam des Heeren! Hosanna in de hoogste hemelen
+Mattheüs 21:10 | gehele stad beroerd.*Wie is Deze
+Mattheüs 21:11 | Deze is Jezus, de Profeet van Nazareth in Galilea
+Mattheüs 21:4 | opdat vervuld worde
+Johannes 12:13 | takken van palmbomen
+# stap 1
+Mattheüs 21:12 | dreef uit allen, die verkochten en kochten.*tafelen der wisselaars.*zitstoelen dergenen, die de duiven verkochten
+Mattheüs 21:13 | Mijn huis zal een huis des gebeds genaamd worden; maar gij hebt dat tot een moordenaarskuil gemaakt
+Mattheüs 21:14 | blinden en kreupelen.*genas dezelve
+Mattheüs 21:15 | overpriesters en Schriftgeleerden.*kinderen, roepende in den tempel.*Hosanna den Zone Davids.*zeer kwalijk
+Mattheüs 21:16 | Uit de mond der jonge kinderen en der zuigelingen hebt Gij U lof toebereid
+Mattheüs 21:17 | naar Bethanie, en overnachtte aldaar
+Markus 11:11 | als Hij alles rondom bezien had.*ging Hij uit naar Bethanie
+Markus 11:12 | des anderen daags
+Markus 11:15 | tafelen der wisselaars
+Johannes 2:15 | dreef Hij ze allen uit den tempel
+Jesaja 56:7 | Mijn huis zal een bedehuis genoemd worden voor alle volken
+Jeremia 7:11 | spelonk der moordenaren
+# stap 2
+Mattheüs 21:23 | Door wat macht doet Gij deze dingen
+Mattheüs 21:28 | twee zonen
+Mattheüs 21:38 | Deze is de erfgenaam, komt, laat ons hem doden
+Mattheüs 22:2 | koning, die zijn zoon een bruiloft bereid had
+Mattheüs 22:17 | den keizer schatting te geven
+Mattheüs 22:19 | penning
+Mattheüs 22:20 | beeld en het opschrift
+Mattheüs 22:21 | Geeft dan den keizer, dat des keizers is, en Gode, dat Gods is
+Mattheüs 22:36 | grote gebod
+Mattheüs 22:37 | liefhebben den Heere, uw God, met geheel uw hart, en met geheel uw ziel, en met geheel uw verstand
+Mattheüs 22:39 | naaste liefhebben als uzelven
+Mattheüs 22:46 | noch iemand durfde Hem van dien dag aan iets meer vragen
+Mattheüs 20:2 | een penning des daags
+# stap 3
+Mattheüs 24:1 | gebouwen des tempels
+Mattheüs 24:2 | niet een steen op den anderen steen gelaten worden
+Mattheüs 24:3 | op den Olijfberg.*het teken.*Uw toekomst
+Mattheüs 24:30 | Zoon des mensen.*komende op de wolken des hemels
+Mattheüs 24:36 | dien dag en die ure weet niemand.*Vader alleen
+Mattheüs 25:1 | tien maagden.*bruidegom tegemoet
+Mattheüs 25:15 | vijf talenten
+Mattheüs 25:32 | schapen van de bokken scheidt
+Mattheüs 24:42 | Waakt dan; want gij weet niet, in welke ure uw Heere komen zal
+# stap 4
+Mattheüs 26:2 | Zoon des mensen zal overgeleverd worden, om gekruisigd te worden
+Mattheüs 26:3 | hogepriesters, die genaamd was Kajafas
+Mattheüs 26:4 | met listigheid vangen en doden
+Mattheüs 26:6 | Bethanie was, ten huize van Simon, de melaatse
+Mattheüs 26:7 | vrouw.*albasten fles.*kostelijke zalf.*Zijn hoofd
+Mattheüs 26:8 | Waartoe dit verlies
+Mattheüs 26:12 | voorbereiding van Mijn begrafenis
+Mattheüs 26:14 | een van de twaalven, genaamd Judas Iskariot, tot de overpriesters
+Mattheüs 26:15 | Wat wilt gij mij geven, en ik zal Hem u overleveren.*dertig zilveren penningen
+Johannes 12:3 | Maria.*nardus.*voeten van Jezus gezalfd
+Zacharia 11:12 | dertig zilverlingen
+Zacharia 11:13 | dertig zilverlingen
+# stap 5
+Lukas 22:7 | dag der ongehevelde broden
+Lukas 22:8 | Petrus en Johannes
+Lukas 22:10 | mens.*kruik waters
+Lukas 22:12 | grote toegeruste opperzaal
+Johannes 13:4 | legde Zijn klederen af.*linnen doek
+Johannes 13:5 | water in het bekken.*voeten der discipelen te wassen
+Johannes 13:8 | Gij zult mijn voeten niet wassen in der eeuwigheid.*Indien Ik u niet wasse, gij hebt geen deel met Mij
+Johannes 13:15 | Ik heb u een voorbeeld gegeven, opdat, gelijkerwijs Ik u gedaan heb, gijlieden ook doet
+Lukas 22:24 | twisting onder hen, wie van hen scheen de meeste te zijn
+Lukas 22:27 | Ik ben in het midden van u, als een die dient
+# stap 6
+Mattheüs 26:20 | zat Hij aan met de twaalven
+Mattheüs 26:21 | Voorwaar, Ik zeg u, dat een van u Mij zal verraden
+Mattheüs 26:22 | zeer bedroefd.*Ben ik het, Heere
+Mattheüs 26:25 | Judas.*Gij hebt het gezegd
+Mattheüs 26:26 | nam Jezus het brood, en gezegend hebbende, brak Hij het.*Neemt, eet, dat is Mijn lichaam
+Mattheüs 26:28 | dat is Mijn bloed, het bloed des Nieuwen Testaments, hetwelk voor velen vergoten wordt, tot vergeving der zonden
+Mattheüs 26:30 | lofzang gezongen.*Olijfberg
+Lukas 22:19 | doet dat tot Mijn gedachtenis
+1 Korinthe 11:26 | den dood des Heeren, totdat Hij komt
+Johannes 13:30 | En het was nacht
+# stap 7
+Mattheüs 26:31 | Gij zult allen aan Mij geergerd worden in deze nacht
+Mattheüs 26:34 | eer de haan gekraaid zal hebben, Mij driemaal zult verloochenen
+Mattheüs 26:35 | Al moest ik ook met U sterven, zo zal ik U geenszins verloochenen
+Mattheüs 26:36 | Gethsemane
+Mattheüs 26:37 | Petrus, en de twee zonen van Zebedeus
+Mattheüs 26:38 | Mijn ziel is geheel bedroefd tot den dood toe
+Mattheüs 26:39 | viel Hij op Zijn aangezicht.*Mijn Vader, indien het mogelijk is, laat dezen drinkbeker van Mij voorbijgaan.*doch niet, gelijk Ik wil, maar gelijk Gij wilt
+Mattheüs 26:43 | wederom slapende
+Mattheüs 26:44 | ten derden male
+Lukas 22:43 | engel uit den hemel, die Hem versterkte
+Lukas 22:44 | grote droppelen bloeds, die op de aarde afliepen
+Johannes 18:1 | over de beek Kedron, waar een hof was
+Markus 14:33 | Petrus, en Jakobus, en Johannes
+# stap 8
+Mattheüs 26:47 | Judas.*grote schare, met zwaarden en stokken
+Johannes 18:3 | lantaarnen, en fakkelen
+Mattheüs 26:48 | Dien ik zal kussen, Dezelve is het
+Mattheüs 26:49 | Wees gegroet, Rabbi! en hij kuste Hem
+Johannes 18:6 | Ik ben het; gingen zij achterwaarts, en vielen ter aarde
+Johannes 18:10 | Simon Petrus.*zwaard.*rechteroor af.*Malchus
+Johannes 18:11 | Steek uw zwaard in de schede
+Johannes 18:12 | bonden Hem
+Mattheüs 26:56 | vluchtten al de discipelen, Hem verlatende
+Lukas 22:48 | Judas, verraadt gij den Zoon des mensen met een kus
+Lukas 22:51 | raakte zijn oor aan, en heelde hem
+Mattheüs 26:53 | meer dan twaalf legioenen engelen
+Mattheüs 26:54 | Schriften vervuld
+# speurtocht nt-lijdensweek
+Mattheüs 21:7 | Brachten de ezelin en het veulen
+Mattheüs 21:9 | Hosanna den Zone Davids
+Mattheüs 21:13 | huis des gebeds
+Mattheüs 22:21 | den keizer, dat des keizers is
+Mattheüs 25:2 | vijf van haar waren wijzen
+Mattheüs 25:4 | wijzen namen olie in haar vaten
+Mattheüs 26:15 | dertig zilveren penningen
+Mattheüs 26:37 | Petrus, en de twee zonen van Zebedeus
+Mattheüs 26:48 | Dien ik zal kussen
+# ===== Deel nt-lijden =====
+Markus 15:42 | voorbereiding was, welke is de voorsabbat
+Johannes 19:31 | voorbereiding.*sabbat
+Mattheüs 27:45 | zesde ure.*duisternis.*negende ure
+Johannes 19:4 | ik in Hem geen schuld vinde
+Johannes 19:6 | ik vind in Hem geen schuld
+Jesaja 53:5 | om onze overtredingen verwond, om onze ongerechtigheden is Hij verbrijzeld
+Psalm 22:2 | Mijn God, mijn God! waarom hebt Gij mij verlaten
+1 Petrus 2:24 | Die Zelf onze zonden in Zijn lichaam gedragen heeft op het hout
+Johannes 10:18 | Niemand neemt hetzelve van Mij, maar Ik leg het van Mijzelven af
+# stap 0
+Johannes 18:12 | namen Jezus gezamenlijk, en bonden Hem
+Johannes 18:13 | eerst tot Annas
+Johannes 18:24 | gebonden gezonden tot Kajafas
+Mattheüs 26:59 | gehele grote raad zochten valse getuigenis tegen Jezus, opdat zij Hem doden mochten; en vonden niet
+Mattheüs 26:63 | Jezus zweeg stil.*Ik bezweer U bij den levenden God, dat Gij ons zegt, of Gij zijt de Christus, de Zoon van God
+Mattheüs 26:64 | Gij hebt het gezegd.*Zoon des mensen, zittende ter rechter hand der kracht Gods
+Mattheüs 26:65 | verscheurde de hogepriester zijn klederen.*Hij heeft God gelasterd
+Mattheüs 26:66 | Hij is des doods schuldig
+Mattheüs 26:67 | spogen zij in Zijn aangezicht, en sloegen Hem
+Jesaja 53:7 | als een schaap, dat stom is voor het aangezicht zijner scheerders, alzo deed Hij Zijn mond niet open
+Johannes 11:49 | Kajafas
+Johannes 11:50 | dat het ons nut is, dat een mens sterve voor het volk
+# stap 1
+Mattheüs 26:58 | Petrus volgde Hem van verre tot aan de zaal des hogepriesters
+Lukas 22:55 | vuur ontstoken.*zat Petrus in het midden van hen
+Mattheüs 26:69 | dienstmaagd.*Gij waart ook met Jezus, den Galileer
+Mattheüs 26:70 | loochende het voor allen.*Ik weet niet, wat gij zegt
+Mattheüs 26:71 | andere dienstmaagd
+Mattheüs 26:72 | met een eed.*Ik ken den Mens niet
+Mattheüs 26:73 | ook uw spraak maakt u openbaar
+Mattheüs 26:74 | zich te vervloeken, en te zweren
+Mattheüs 26:75 | kraaide de haan.*weende hij bitterlijk
+Lukas 22:61 | de Heere, Zich omkerende, zag Petrus aan
+Lukas 22:59 | Galileer
+# stap 2
+Mattheüs 27:1 | morgenstond.*raad genomen tegen Jezus, dat zij Hem doden zouden
+Mattheüs 27:2 | gebonden.*Pontius Pilatus, den stadhouder
+Mattheüs 27:3 | berouw gehad.*dertig zilveren penningen.*wedergebracht
+Mattheüs 27:4 | Ik heb gezondigd, verradende het onschuldig bloed.*Wat gaat ons dat aan
+Mattheüs 27:5 | zilveren penningen in den tempel geworpen.*verworgde zichzelven
+Mattheüs 27:7 | akker des pottenbakkers, tot een begrafenis voor de vreemdelingen
+Mattheüs 27:8 | akker des bloeds
+Mattheüs 27:9 | vervuld
+Handelingen 1:19 | Akeldama, dat is, een akker des bloeds
+# stap 3
+Johannes 18:28 | rechthuis.*'s morgens vroeg.*niet verontreinigd.*pascha eten
+Lukas 23:2 | zeggende, dat Hij Zelf Christus, de Koning is
+Johannes 18:33 | Zijt Gij de Koning der Joden
+Johannes 18:36 | Mijn Koninkrijk is niet van deze wereld
+Johannes 18:37 | Hiertoe ben Ik geboren en hiertoe ben Ik in de wereld gekomen, opdat Ik der waarheid getuigenis geven zou
+Johannes 18:38 | Wat is waarheid.*ging hij wederom uit tot de Joden.*Ik vind geen schuld in Hem
+# stap 4
+Lukas 23:6 | Galileer
+Lukas 23:7 | gebied van Herodes.*zond hij Hem heen tot Herodes.*binnen Jeruzalem
+Lukas 23:8 | zeer verblijd.*hoopte enig teken te zien
+Lukas 23:9 | vraagde Hem met vele woorden; doch Hij antwoordde hem niets
+Lukas 23:10 | beschuldigden Hem heftiglijk
+Lukas 23:11 | Herodes met zijn krijgslieden Hem veracht en bespot.*blinkend kleed.*zond Hem weder tot Pilatus
+Lukas 23:12 | Pilatus en Herodes vrienden.*vijandschap
+Lukas 3:1 | Herodes een viervorst over Galilea
+Mattheüs 14:1 | Herodes, de viervorst
+Mattheüs 14:10 | onthoofdde Johannes
+# stap 5
+Mattheüs 27:15 | op het feest was de stadhouder gewoon den volke een gevangene los te laten
+Mattheüs 27:17 | Welken wilt gij, dat ik u zal loslaten, Bar-abbas, of Jezus
+Mattheüs 27:20 | overpriesters.*scharen aangeraden, dat zij zouden Bar-abbas begeren
+Mattheüs 27:21 | Bar-abbas
+Mattheüs 27:22 | Laat Hem gekruisigd worden
+Johannes 19:1 | geselde Hem
+Johannes 19:2 | kroon van doornen.*purperen kleed
+Johannes 19:3 | Wees gegroet, Gij Koning der Joden
+Johannes 19:5 | Ziet, de Mens
+Johannes 19:6 | Kruis Hem, kruis Hem
+Mattheüs 27:24 | wies de handen
+Mattheüs 27:26 | liet hij hun Bar-abbas los.*gaf hij Hem over om gekruisigd te worden
+Lukas 23:19 | oproer.*doodslag
+Mattheüs 27:19 | Heb toch niet te doen met dien Rechtvaardige
+Johannes 19:13 | rechterstoel.*Lithostrotos.*Gabbatha
+# stap 6
+Johannes 19:17 | dragende Zijn kruis, ging uit naar de plaats, genaamd Hoofdschedelplaats.*Golgotha
+Lukas 23:26 | Simon van Cyrene, komende van den akker.*het kruis op, dat hij het achter Jezus droeg
+Johannes 19:18 | twee anderen, aan elke zijde een, en Jezus in het midden
+Lukas 23:34 | Vader, vergeef het hun; want zij weten niet, wat zij doen
+Lukas 23:39 | lasterde Hem
+Lukas 23:42 | Heere, gedenk mijner, als Gij in Uw Koninkrijk zult gekomen zijn
+Lukas 23:43 | Heden zult gij met Mij in het Paradijs zijn
+Johannes 19:26 | Vrouw, zie, uw zoon
+Johannes 19:27 | Zie, uw moeder
+Johannes 19:19 | JEZUS De NAZARENER De KONING DER JODEN
+Johannes 19:20 | Hebreeuws, in het Grieks, en in het Latijn
+Johannes 19:23 | klederen.*rok
+Johannes 19:24 | over Mijn kleding hebben zij het lot geworpen
+Psalm 22:19 | Zij delen mijn klederen onder zich, en werpen het lot over mijn gewaad
+# stap 7
+Mattheüs 27:45 | van de zesde ure aan werd er duisternis over de gehele aarde, tot de negende ure toe
+Mattheüs 27:46 | omtrent de negende ure riep Jezus met een grote stem.*ELI, ELI, LAMA SABACHTHANI.*Mijn God! Mijn God! Waarom hebt Gij Mij verlaten
+Johannes 19:28 | Mij dorst
+Johannes 19:29 | spons met edik
+Johannes 19:30 | Het is volbracht! En het hoofd buigende, gaf den geest
+Mattheüs 27:51 | voorhangsel des tempels scheurde in tweeen, van boven tot beneden; en de aarde beefde, en de steenrotsen scheurden
+Mattheüs 27:52 | graven werden geopend
+Mattheüs 27:54 | hoofdman over honderd.*Waarlijk, Deze was Gods Zoon
+Mattheüs 27:56 | Maria Magdalena
+Lukas 23:46 | Vader, in Uw handen beveel Ik Mijn geest
+# stap 8
+Johannes 19:31 | voorbereiding.*benen zouden gebroken
+Johannes 19:32 | braken wel de benen des eersten, en des anderen
+Johannes 19:33 | Hij nu gestorven was, zo braken zij Zijn benen niet
+Johannes 19:34 | doorstak Zijn zijde met een speer, en terstond kwam er bloed en water uit
+Mattheüs 27:57 | rijk man van Arimathea, met name Jozef.*discipel
+Johannes 19:38 | bad Pilatus, dat hij mocht het lichaam van Jezus wegnemen
+Johannes 19:39 | Nicodemus.*mirre en aloe; omtrent honderd ponden
+Johannes 19:40 | linnen doeken met de specerijen
+Johannes 19:41 | een hof, en in den hof een nieuw graf, in hetwelk nog nooit iemand gelegd was geweest
+Johannes 19:42 | graf nabij was
+Mattheüs 27:60 | in een steenrots uitgehouwen.*grote steen tegen de deur des grafs gewenteld
+Mattheüs 27:62 | Des anderen daags.*overpriesters en de Farizeen tot Pilatus
+Mattheüs 27:66 | verzekerden het graf met de wacht, den steen verzegeld hebbende
+Johannes 19:36 | Geen been van Hem zal verbroken worden
+Exodus 12:46 | geen been daaraan breken
+Jesaja 53:9 | Hij is bij den rijke in Zijn dood geweest
+Mattheüs 27:61 | Maria Magdalena, en de andere Maria, zittende tegenover het graf
+# speurtocht nt-lijden
+Johannes 18:13 | eerst tot Annas
+Mattheüs 26:75 | driemaal
+Johannes 18:38 | Wat is waarheid
+Mattheüs 27:26 | liet hij hun Bar-abbas los
+Lukas 23:26 | Simon van Cyrene
+Lukas 23:43 | Heden zult gij met Mij in het Paradijs zijn
+Johannes 19:30 | Het is volbracht
+Johannes 19:39 | Nicodemus
+# ===== Deel nt-opstanding =====
+Mattheüs 28:1 | eersten dag der week
+Johannes 20:1 | eersten dag der week
+Johannes 20:26 | na acht dagen
+1 Korinthe 15:6 | meer dan vijfhonderd broeders op eenmaal
+1 Korinthe 15:5 | Cefas.*twaalven
+1 Korinthe 15:8 | ten laatste van allen.*van mij
+Psalm 16:10 | Gij zult niet toelaten, dat Uw Heilige de verderving zie
+Handelingen 2:27 | Uw Heilige.*verderving
+Johannes 11:25 | Ik ben de Opstanding en het Leven
+Markus 16:19 | opgenomen in den hemel, en is gezeten aan de rechter hand Gods
+# stap 0
+Mattheüs 28:1 | laat na de sabbat, als het begon te lichten.*Maria Magdalena, en de andere Maria, om het graf te bezien
+Mattheüs 28:2 | grote aardbeving.*engel des Heeren, nederdalende uit den hemel.*wentelde de steen af.*zat op denzelven
+Mattheüs 28:3 | gedaante was gelijk een bliksem.*wit gelijk sneeuw
+Mattheüs 28:4 | wachters zeer verschrikt.*als doden
+Mattheüs 28:5 | Vreest gijlieden niet
+Mattheüs 28:6 | Hij is hier niet; want Hij is opgestaan, gelijk Hij gezegd heeft
+Mattheüs 28:8 | met vreze en grote blijdschap
+Mattheüs 28:9 | Jezus is haar ontmoet.*Weest gegroet.*grepen Zijn voeten, en aanbaden Hem
+Mattheüs 28:12 | veel gelds
+Mattheüs 28:13 | Zijn discipelen zijn des nachts gekomen, en hebben Hem gestolen
+Markus 16:1 | Salome
+Lukas 24:10 | Johanna
+# stap 1
+Johannes 20:1 | vroeg, als het nog duister was.*steen van het graf weggenomen
+Johannes 20:2 | Simon Petrus.*anderen discipel, welken Jezus liefhad.*Zij hebben den Heere weggenomen uit het graf
+Johannes 20:4 | andere discipel liep vooruit, sneller dan Petrus
+Johannes 20:6 | doeken liggen
+Johannes 20:7 | zweetdoek.*samengerold
+Johannes 20:8 | zag het, en geloofde
+Johannes 20:9 | wisten nog de Schrift niet, dat Hij van de doden moest opstaan
+Johannes 20:11 | Maria stond buiten bij het graf, wenende
+Johannes 20:12 | twee engelen in witte klederen
+Johannes 20:15 | hovenier
+Johannes 20:16 | Jezus zeide tot haar: Maria! .*Rabbouni, hetwelk is gezegd: Meester
+Johannes 20:18 | dat zij den Heere gezien had
+# stap 2
+Lukas 24:13 | twee van hen.*zestig stadien van Jeruzalem.*Emmaus
+Lukas 24:15 | Jezus Zelf bij hen kwam, en met hen ging
+Lukas 24:16 | hun ogen werden gehouden, dat zij Hem niet kenden
+Lukas 24:21 | wij hoopten, dat Hij was Degene, Die Israel verlossen zou
+Lukas 24:26 | Moest de Christus niet deze dingen lijden, en alzo in Zijn heerlijkheid ingaan
+Lukas 24:27 | begonnen hebbende van Mozes en van al de profeten
+Lukas 24:29 | Blijf met ons; want het is bij den avond
+Lukas 24:30 | nam Hij het brood.*gebroken
+Lukas 24:31 | hun ogen werden geopend, en zij kenden Hem; en Hij kwam weg uit hun gezicht
+Lukas 24:33 | opstaande ter zelfder ure, keerden weder naar Jeruzalem
+# stap 3
+Johannes 20:19 | avond.*eersten dag der week.*deuren gesloten.*vreze der Joden.*Vrede zij ulieden
+Lukas 24:36 | als zij van deze dingen spraken, stond Jezus Zelf in het midden van hen
+Lukas 24:37 | meenden, dat zij een geest zagen
+Lukas 24:39 | tast Mij aan, en ziet; want een geest heeft geen vlees en benen, gelijk gij ziet, dat Ik heb
+Lukas 24:40 | toonde Hij hun de handen en de voeten
+Johannes 20:20 | Zijn handen en Zijn zijde
+Lukas 24:42 | stuk van een gebraden vis
+Lukas 24:43 | at het voor hun ogen
+Lukas 24:45 | opende Hij hun verstand, opdat zij de Schriften verstonden
+Lukas 24:48 | gij zijt getuigen van deze dingen
+Johannes 20:21 | gelijkerwijs Mij de Vader gezonden heeft, zende Ik ook ulieden
+Johannes 20:22 | blies Hij op hen.*Ontvangt den Heiligen Geest
+# stap 4
+Johannes 20:24 | Thomas, een van de twaalven.*was met hen niet
+Johannes 20:25 | Wij hebben den Heere gezien.*teken der nagelen.*mijn vinger.*mijn hand in Zijn zijde, ik zal geenszins geloven
+Johannes 20:26 | na acht dagen.*binnen, en Thomas met hen.*deuren gesloten.*Vrede zij ulieden
+Johannes 20:27 | Breng uw vinger hier, en zie Mijn handen.*zijt niet ongelovig, maar gelovig
+Johannes 20:28 | Mijn Heere en mijn God
+Johannes 20:29 | zalig zijn zij, die niet zullen gezien hebben, en nochtans zullen geloofd hebben
+Johannes 20:31 | opdat gij gelooft, dat Jezus is de Christus, de Zone Gods
+# stap 5
+Johannes 21:1 | zee van Tiberias
+Johannes 21:2 | Simon Petrus, en Thomas, gezegd Didymus, en Nathanael.*zonen van Zebedeus, en twee anderen
+Johannes 21:3 | Ik ga vissen.*in dien nacht vingen zij niets
+Johannes 21:4 | morgenstond.*stond Jezus op den oever.*wisten niet, dat het Jezus was
+Johannes 21:6 | Werpt het net aan de rechterzijde van het schip.*niet meer trekken vanwege de menigte der vissen
+Johannes 21:7 | De discipel dan, welken Jezus liefhad, zeide tot Petrus: Het is de Heere.*wierp zichzelven in de zee
+Johannes 21:9 | kolenvuur.*vis daarop liggen, en brood
+Johannes 21:11 | honderd drie en vijftig.*scheurde het net niet
+Johannes 21:14 | de derde maal
+Mattheüs 4:18 | zee van Galilea.*Simon, gezegd Petrus
+Mattheüs 4:19 | Volgt Mij na, en Ik zal u vissers der mensen maken
+# stap 6
+Johannes 21:15 | middagmaal.*Simon, zoon van Jonas, hebt gij Mij liever dan dezen.*Ja, Heere! Gij weet, dat ik U liefheb.*Weid Mijn lammeren
+Johannes 21:16 | ten tweeden maal.*Hoed Mijn schapen
+Johannes 21:17 | Petrus werd bedroefd.*Heere! Gij weet alle dingen, Gij weet, dat ik U liefheb.*Weid Mijn schapen
+Johannes 21:19 | met hoedanigen dood hij God verheerlijken zou.*Volg Mij
+# stap 7
+Mattheüs 28:16 | elf discipelen.*Galilea, naar den berg, waar Jezus hen bescheiden had
+Mattheüs 28:17 | baden zij Hem aan; doch sommigen twijfelden
+Mattheüs 28:18 | Mij is gegeven alle macht in hemel en op aarde
+Mattheüs 28:19 | Gaat dan henen, onderwijst al de volken, dezelve dopende in de Naam des Vaders, en des Zoons, en des Heiligen Geestes
+Mattheüs 28:19 | lerende hen onderhouden alles, wat Ik u geboden heb
+Mattheüs 28:20 | Ik ben met ulieden al de dagen tot de voleinding der wereld
+# stap 8
+Handelingen 1:3 | Zichzelven levend vertoond.*veertig dagen.*Koninkrijk Gods
+Handelingen 1:4 | van Jeruzalem niet scheiden.*belofte des Vaders
+Handelingen 1:5 | gij zult met den Heiligen Geest gedoopt worden, niet lang na deze dagen
+Handelingen 1:8 | gij zult Mijn getuigen zijn, zo te Jeruzalem, als in geheel Judea en Samaria, en tot aan het uiterste der aarde
+Lukas 24:50 | tot aan Bethanie.*handen opheffende, zegende Hij hen
+Lukas 24:51 | als Hij hen zegende.*opgenomen in den hemel
+Handelingen 1:9 | een wolk nam Hem weg van hun ogen
+Handelingen 1:10 | twee mannen stonden bij hen in witte kleding
+Handelingen 1:11 | Deze Jezus.*zal alzo komen, gelijkerwijs gij Hem naar den hemel hebt zien heenvaren
+Lukas 24:52 | grote blijdschap
+Handelingen 1:12 | Olijf berg.*sabbatsreize
+# speurtocht nt-opstanding
+Mattheüs 28:2 | engel des Heeren.*wentelde de steen af
+Mattheüs 28:6 | Hij is hier niet; want Hij is opgestaan
+Johannes 20:15 | hovenier
+Lukas 24:13 | zestig stadien
+Lukas 24:35 | in het breken des broods
+Johannes 20:28 | Mijn Heere en mijn God
+Johannes 21:11 | honderd drie en vijftig
+Handelingen 1:3 | veertig dagen
+# ===== Geschiedenis 118 =====
+Mattheüs 21:1 | Beth-fage
+Mattheüs 21:3 | de Heere deze van node heeft
+Mattheüs 21:8 | klederen op den weg.*takken
+Mattheüs 21:11 | de Profeet van Nazareth in Galilea
+Mattheüs 21:5 | Zie, uw Koning komt tot u, zachtmoedig en gezeten op een ezelin
+Lukas 19:41 | weende Hij over haar
+Lukas 19:42 | hetgeen tot uw vrede dient
+Mattheüs 21:6 | discipelen
+Psalm 8:3 | Uit de mond der kinderkens en der zuigelingen hebt Gij sterkte gegrondvest
+Johannes 12:16 | dit verstonden Zijn discipelen in het eerst niet; maar als Jezus verheerlijkt was
+Lukas 19:43 | vijanden
+Johannes 12:14 | jongen ezel
+# ===== 119 =====
+Mattheüs 21:12 | duiven
+Mattheüs 21:16 | Hoort Gij wel, wat dezen zeggen
+Johannes 2:17 | De ijver van Uw huis heeft mij verslonden
+Psalm 69:10 | de ijver van Uw huis heeft mij verteerd
+Markus 11:18 | zochten, hoe zij Hem doden zouden
+Johannes 2:14 | in den tempel.*verkochten
+# ===== 120 =====
+Mattheüs 22:3 | zij wilden niet komen
+Mattheüs 22:9 | uitgangen der wegen
+Mattheüs 22:14 | Want velen zijn geroepen, maar weinigen uitverkoren
+Mattheüs 24:32 | vijgeboom.*zomer nabij is
+Mattheüs 24:33 | Alzo ook gijlieden, wanneer gij al deze dingen zult zien, zo weet, dat het nabij is
+Mattheüs 25:2 | vijf.*wijzen.*vijf.*dwazen
+Mattheüs 25:10 | de deur werd gesloten
+Mattheüs 25:13 | Zo waakt dan; want gij weet den dag niet, noch de ure, in welke de Zoon des mensen komen zal
+Mattheüs 25:21 | over weinig zijt gij getrouw geweest; over veel zal ik u zetten
+Mattheüs 25:40 | Voor zoveel gij dit een van deze Mijn minste broeders gedaan hebt, zo hebt gij dat Mij gedaan
+Mattheüs 25:15 | den ene gaf hij vijf talenten
+Mattheüs 25:18 | groef in de aarde, en verborg het geld
+Mattheüs 22:38 | het eerste en het grote gebod
+Mattheüs 24:36 | Mijn Vader alleen
+Mattheüs 25:6 | ter middernacht.*Ziet, de bruidegom komt
+Mattheüs 25:5 | vielen in slaap
+Daniël 7:13 | Een met de wolken des hemels, als eens mensen zoon
+Daniël 7:14 | Koninkrijk
+Deuteronomium 6:5 | liefhebben, met uw ganse hart
+1 Thessalonicenzen 4:16 | de Heere Zelf.*nederdalen van den hemel
+Mattheüs 26:1 | al deze woorden geeindigd had
+# ===== 121 =====
+Johannes 13:1 | voor het feest van het pascha.*ure gekomen was.*tot den Vader.*liefgehad tot het einde
+Johannes 13:9 | niet alleen mijn voeten, maar ook de handen en het hoofd
+Johannes 13:12 | Verstaat gij, wat Ik ulieden gedaan heb
+Johannes 13:14 | de Heere en de Meester, uw voeten gewassen heb, zo zijt gij ook schuldig, elkanders voeten te wassen
+Lukas 22:25 | koningen der volken heersen over hen
+Lukas 22:26 | de meeste onder u, die zij gelijk de minste
+Markus 10:45 | niet gekomen, om gediend te worden, maar om te dienen, en Zijn ziel te geven tot een rantsoen voor velen
+Filippenzen 2:7 | gestaltenis eens dienstknechts
+Filippenzen 2:8 | vernederd.*den dood des kruises
+Lukas 14:11 | die zichzelven vernedert, zal verhoogd worden
+Johannes 13:4 | Stond op van het avondmaal
+# ===== 122 =====
+Lukas 22:7 | pascha moest geslacht worden
+Lukas 22:14 | twaalf apostelen
+Lukas 22:15 | Ik heb grotelijks begeerd, dit pascha met u te eten, eer dat Ik lijde
+Lukas 22:19 | nam brood.*gedankt.*brak.*Dat is Mijn lichaam, hetwelk voor u gegeven wordt; doet dat tot Mijn gedachtenis
+Lukas 22:20 | drinkbeker na het avondmaal.*Deze drinkbeker is het nieuwe testament in Mijn bloed, hetwelk voor u vergoten wordt
+Lukas 22:21 | de hand desgenen, die Mij verraadt, is met Mij aan de tafel
+Lukas 22:23 | onder elkander te vragen, wie van hen
+Exodus 12:13 | bloed zal ulieden tot een teken zijn aan de huizen
+Exodus 12:14 | ter gedachtenis
+1 Korinthe 5:7 | ons Pascha is voor ons geslacht, namelijk Christus
+Lukas 22:8 | Petrus en Johannes
+Lukas 22:10 | kruik waters
+Johannes 6:35 | Ik ben het Brood des levens
+# ===== 123 =====
+Markus 14:10 | Judas Iskariot, een van de twaalven, ging heen tot de overpriesters
+Markus 14:11 | verblijd.*beloofden hem geld te geven.*zocht, hoe hij Hem bekwamelijk overleveren zou
+Markus 14:26 | lofzang gezongen.*Olijfberg
+Markus 14:32 | Gethsemane
+Markus 14:34 | Mijn ziel is geheel bedroefd tot den dood toe
+Markus 14:36 | Abba, Vader, alle dingen zijn U mogelijk; neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt
+Markus 14:37 | Simon, slaapt gij\? Kunt gij niet een uur waken
+Markus 14:40 | wederom slapende
+Markus 14:41 | ten derden male
+Markus 14:43 | grote schare, met zwaarden en stokken
+Markus 14:44 | Dien ik kussen zal, Die is het
+Markus 14:45 | Rabbi, Rabbi, en kuste Hem
+Markus 14:46 | grepen Hem
+Markus 14:47 | hieuw hem zijn oor af
+Markus 14:49 | opdat de Schriften vervuld zouden worden
+Markus 14:50 | Hem verlatende, zijn allen gevloden
+Johannes 13:18 | Die met Mij het brood eet, heeft tegen Mij zijn verzenen opgeheven
+Psalm 41:10 | Zelfs de man mijns vredes.*die mijn brood at, heeft de verzenen tegen mij grotelijks verheven
+Zacharia 13:7 | sla dien Herder, en de schapen zullen verstrooid worden
+Markus 14:27 | Ik zal den Herder slaan
+Markus 14:12 | eersten dag der ongehevelde broden
+Markus 14:17 | avond
+# ===== 124 =====
+Mattheüs 26:33 | Al werden zij ook allen aan U geergerd, ik zal nimmermeer geergerd worden
+Mattheüs 26:57 | Kajafas
+Mattheüs 26:72 | Ik ken den Mens niet
+Mattheüs 26:74 | Ik ken den Mens niet
+Mattheüs 26:75 | terstond kraaide de haan
+Lukas 22:32 | Ik heb voor u gebeden, dat uw geloof niet ophoude
+Lukas 22:31 | Simon, Simon
+Lukas 22:34 | driemaal
+Lukas 22:62 | weende bitterlijk
+Johannes 21:16 | hebt gij Mij lief
+# ===== 125 =====
+Lukas 22:66 | als het dag geworden was.*ouderlingen des volks, en de overpriesters en Schriftgeleerden.*in hun raad
+Lukas 22:70 | Zijt Gij dan de Zoon Gods\? En Hij zeide tot hen: Gij zegt, dat Ik het ben
+Lukas 23:2 | Deze het volk verkeert
+Lukas 23:4 | Ik vind geen schuld in dezen Mens
+Lukas 23:15 | ook Herodes niet.*niets gedaan, dat des doods waardig is
+Lukas 23:16 | kastijden en loslaten
+Lukas 23:18 | Weg met Dezen, en laat ons Bar-abbas los
+Lukas 23:21 | Kruis Hem, kruis Hem
+Lukas 23:22 | ten derden male.*Ik heb geen schuld des doods in Hem gevonden
+Lukas 23:14 | geen schuld gevonden
+Lukas 23:23 | geroep werd geweldiger
+Lukas 23:25 | liet hun los.*Jezus gaf hij over tot hun wil
+1 Petrus 2:23 | Die, als Hij gescholden werd, niet wederschold, en als Hij leed, niet dreigde
+Johannes 19:15 | Wij hebben geen koning, dan den keizer
+Johannes 14:6 | Ik ben de Weg, en de Waarheid, en het Leven
+Lukas 23:7 | zond hij Hem heen tot Herodes
+Lukas 23:12 | vrienden
+Lukas 23:19 | oproer.*doodslag.*gevangenis
+Lukas 22:66 | dag
+Johannes 18:28 | 's morgens vroeg
+# ===== 126 =====
+Johannes 19:16 | gaf hij Hem dan hun over, opdat Hij gekruist zou worden
+Johannes 19:23 | rok nu was zonder naad, van boven af geheel geweven
+Johannes 19:25 | Zijn moeder en Zijner moeders zuster, Maria, de vrouw van Klopas, en Maria Magdalena
+Johannes 19:28 | wetende, dat nu alles volbracht was.*Mij dorst
+Johannes 19:30 | den edik genomen had.*Het is volbracht
+Filippenzen 2:8 | gehoorzaam geworden zijnde tot den dood, ja, den dood des kruises
+Psalm 69:22 | in mijn dorst hebben zij mij edik te drinken gegeven
+Jesaja 53:12 | met de overtreders is geteld geweest.*voor de overtreders gebeden heeft
+Lukas 23:33 | Hoofdschedel plaats, kruisigden zij Hem.*kwaaddoeners
+Jesaja 53:4 | onze smarten heeft Hij gedragen
+Johannes 3:14 | Mozes de slang in de woestijn verhoogd heeft, alzo moet de Zoon des mensen verhoogd worden
+Johannes 19:17 | Hoofdschedelplaats.*Golgotha
+Johannes 19:24 | Laat ons dien niet scheuren
+Johannes 19:14 | voorbereiding van het pascha
+# ===== 127 =====
+Johannes 19:31 | die dag des sabbats was groot.*benen zouden gebroken, en zij weggenomen worden
+Johannes 19:35 | die het gezien heeft, die heeft het getuigd, en zijn getuigenis is waarachtig
+Johannes 19:37 | Zij zullen zien, in Welken zij gestoken hebben
+Zacharia 12:10 | Dien zij doorstoken hebben
+1 Korinthe 15:4 | dat Hij is begraven
+Lukas 23:54 | dag der voorbereiding, en de sabbat kwam aan
+# ===== 128 =====
+Mattheüs 28:7 | Hij gaat u voor naar Galilea
+Mattheüs 28:6 | Komt herwaarts, ziet de plaats, waar de Heere gelegen heeft
+Mattheüs 16:21 | gedood worden, en ten derden dage opgewekt worden
+Markus 16:3 | Wie zal ons den steen van de deur des grafs afwentelen
+Lukas 24:4 | twee mannen.*blinkende klederen
+Lukas 24:5 | Wat zoekt gij den Levende bij de doden
+Johannes 19:20 | plaats.*nabij de stad
+# ===== 129 =====
+Mattheüs 28:10 | Vreest niet; gaat henen, boodschapt Mijn broederen, dat zij heengaan naar Galilea
+Mattheüs 28:11 | enigen van de wacht
+1 Korinthe 15:6 | van welken het meren deel nog over is
+1 Korinthe 15:20 | Christus is opgewekt uit de doden, en is de Eersteling geworden dergenen, die ontslapen zijn
+Lukas 24:34 | De Heere is waarlijk opgestaan, en is van Simon gezien
+1 Korinthe 15:7 | Jakobus, daarna van al de apostelen
+Romeinen 4:25 | overgeleverd is om onze zonden, en opgewekt om onze rechtvaardigmaking
+Lukas 24:21 | heden de derde dag
+# ===== 130 =====
+Lukas 24:14 | spraken samen.*al deze dingen
+Lukas 24:17 | droevig
+Lukas 24:19 | Jezus den Nazarener
+Lukas 24:20 | gekruisigd
+Lukas 24:23 | dat Hij leeft
+Lukas 24:25 | O onverstandigen en tragen van hart, om te geloven al hetgeen de profeten gesproken hebben
+Lukas 24:32 | Was ons hart niet brandende in ons
+Lukas 24:33 | vonden de elven samenvergaderd
+Lukas 24:44 | in de Wet van Mozes, en de Profeten, en Psalmen
+Lukas 24:47 | bekering en vergeving der zonden
+Jesaja 53:3 | een Man van smarten
+# ===== 131 =====
+Johannes 20:20 | De discipelen dan werden verblijd, als zij den Heere zagen
+1 Petrus 1:8 | Denwelken gij niet gezien hebt, en nochtans liefhebt
+Johannes 11:16 | Laat ons ook gaan, opdat wij met Hem sterven
+Lukas 24:43 | at het voor hun ogen
+# ===== 132 =====
+Johannes 21:8 | tweehonderd ellen
+Johannes 21:13 | nam het brood, en gaf het hun, en den vis desgelijks
+Mattheüs 26:70 | loochende
+Mattheüs 26:74 | zweren
+Lukas 22:32 | als gij eens zult bekeerd zijn, zo versterk uw broeders
+1 Petrus 5:2 | Weidt de kudde Gods, die onder u is
+Lukas 5:6 | hun net scheurde
+Lukas 5:10 | van nu aan zult gij mensen vangen
+# ===== 133 =====
+Handelingen 1:1 | Het eerste boek heb ik gemaakt
+Handelingen 1:6 | Koninkrijk wederoprichten
+Handelingen 1:7 | Het komt u niet toe, te weten de tijden
+Handelingen 1:11 | Gij Galilese mannen, wat staat gij en ziet op naar den hemel
+Handelingen 1:13 | opperzaal
+Handelingen 1:14 | eendrachtelijk volhardende in het bidden en smeken, met de vrouwen, en Maria, de moeder van Jezus, en met Zijn broederen
+Johannes 14:2 | Ik ga heen om u plaats te bereiden
+Johannes 14:3 | zo kome Ik weder en zal u tot Mij nemen
+Lukas 24:53 | lovende en dankende God
+Efeze 1:20 | gezet tot Zijn rechter hand in den hemel
+# ===== Kernwoorden =====
+Mattheüs 11:29 | leert van Mij, dat Ik zachtmoedig ben en nederig van hart; en gij zult rust vinden voor uw zielen
+Mattheüs 5:5 | Zalig zijn de zachtmoedigen; want zij zullen het aardrijk beerven
+Galaten 5:22 | zachtmoedigheid
+Numeri 12:3 | zeer zachtmoedig
+Johannes 18:37 | waarheid getuigenis
+Johannes 17:17 | Uw woord is de waarheid
+Johannes 8:32 | de waarheid zal u vrijmaken
+Psalm 31:6 | Gij hebt mij verlost, HEERE, Gij, God der waarheid
+1 Petrus 2:22 | Die geen zonde gedaan heeft
+1 Korinthe 1:18 | het woord des kruises.*ons, die behouden worden, is het een kracht Gods
+Galaten 6:14 | in het kruis van onzen Heere Jezus Christus
+Mattheüs 16:24 | neme zijn kruis op, en volge Mij
+Johannes 11:25 | die in Mij gelooft zal leven, al ware hij ook gestorven
+Mattheüs 6:9 | Onze Vader, Die in de hemelen zijt
+Mattheüs 6:10 | Uw wil geschiede, gelijk in den hemel alzo ook op de aarde
+Johannes 14:2 | In het huis Mijns Vaders zijn vele woningen
+Openbaring 21:1 | een nieuwen hemel en een nieuwe aarde
+Openbaring 21:4 | God zal alle tranen van hun ogen afwissen; en de dood zal niet meer zijn

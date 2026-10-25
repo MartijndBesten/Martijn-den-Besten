@@ -131,7 +131,7 @@ describe("bijbelreis: chronologie", () => {
   it("Genesis 1–11 heeft geen jaartal; datums zijn oplopende getallen", () => {
     const begin = DELEN.find(({ d }) => d.id === "begin")!.d;
     expect(begin.tl ?? null).toBeNull();
-    for (const { d } of DELEN) if (d.tl) { expect(d.tl[0] <= d.tl[1], d.id).toBe(true); expect(d.tl[0] < 0, d.id).toBe(true); }
+    for (const { b, d } of DELEN) if (d.tl) { expect(d.tl[0] <= d.tl[1], d.id).toBe(true); if (!(b as unknown as { nt?: boolean }).nt) expect(d.tl[0] < 0, d.id).toBe(true); }
   });
 });
 
