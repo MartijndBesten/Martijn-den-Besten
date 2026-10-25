@@ -225,7 +225,8 @@
       if (vis && pt.x > -150 && pt.y > -40 && pt.x < size.x + 150 && pt.y < size.y + 40) items.push({ el: lab, pt, side: m.pside, pr: on.has(id) ? 3 : P[id].ctx ? 1 : 2, z: P[id].z || 7, pin: certOf(P[id]) !== "r" });
     });
     const tst = boek.nt ? "nt" : "ot";
-    REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1] || (r.tijd && r.tijd !== tst); el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
+    const plaatsNamen = new Set(items.map((it) => it.el.firstChild && it.el.firstChild.textContent));
+    REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1] || (r.tijd && r.tijd !== tst) || plaatsNamen.has(r.t); el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
     PEAKS.forEach((p, i) => { const el = peakMarkers[i].getElement(); if (!el) return; el.firstChild.classList.toggle("off", z < p.z); el.firstChild.classList.remove("clash"); if (z >= p.z) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(p.ll), side: "peak", pr: 0.5, z: p.z }); });
     // Eén leesronde voor alle maten, daarna alleen schrijven.
     items.forEach((it) => { it.w = it.el.offsetWidth; it.h = it.el.offsetHeight; });
@@ -491,7 +492,7 @@
       const startLL = first ? (first.r ? first.r[0].pts[0] : ll(first.at[0])) : null;
       if (startLL) camel.setLatLng(startLL);
       camelStyle(deel.c, false, false, !startLL || deel.id === "begin");
-      if (!opts.noFly) fit(partBounds(deel), 8);
+      if (!opts.noFly) fit(partBounds(deel), 9.5);
       $("where").textContent = deel.n;
     }
     const idx = ALLPARTS.indexOf(deel), atEnd = cur >= deel.steps.length - 1, next = ALLPARTS[idx + 1];
@@ -523,7 +524,7 @@
     $("boeken").innerHTML = BOEKEN.map((b) => `<button type="button" class="boek" data-boek="${b.id}" aria-pressed="${b === boek}">${esc(b.n)}<small>${esc(b.tijd || "")}</small></button>`).join("");
   }
   function renderDelen() {
-    $("delen").innerHTML = boek.delen.map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.ref.replace(/^(\d\s)?[^\d\s]+\s/, ""))}</small></button>`).join("");
+    $("delen").innerHTML = boek.delen.map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.ref.split(/;|,/)[0].replace(/^(\d\s)?[^\d\s]+\s/, ""))}</small></button>`).join("");
   }
   $("boeken").addEventListener("click", (e) => { const b = e.target.closest(".boek"); if (b) chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek)); });
   $("delen").addEventListener("click", (e) => { const b = e.target.closest(".deel"); if (b) chooseDeel(boek.delen.find((x) => x.id === b.dataset.deel)); });
