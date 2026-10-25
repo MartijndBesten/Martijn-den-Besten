@@ -1,6 +1,6 @@
 // Laadt /bijbelreis lokaal in een browser en meldt consolefouten, onbekende plaatsen en ontbrekende Bijbelverwijzingen.
-// Gebruik: node scripts/bijbelreis-check.mjs   (bouwt niets; gebruikt public/ rechtstreeks)
-import { chromium } from "@playwright/test";
+// Gebruik: node scripts/bijbelreis-check.mjs [desktop|telefoon|tablet]   (bouwt niets; gebruikt public/ rechtstreeks)
+import { chromium, devices } from "@playwright/test";
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join } from "node:path";
@@ -15,7 +15,12 @@ const server = createServer(async (req, res) => {
 }).listen(0);
 const port = server.address().port;
 const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 1400, height: 900 } });
+const APPARAAT = { desktop: { viewport: { width: 1400, height: 900 } }, telefoon: devices["iPhone 13"], tablet: devices["iPad (gen 7)"] };
+const soort = process.argv[2] || "desktop";
+if (!APPARAAT[soort]) throw new Error(`onbekend apparaat: ${soort}`);
+const { defaultBrowserType, ...opties } = APPARAAT[soort];
+const page = await (await browser.newContext(opties)).newPage();
+console.log(`Apparaat: ${soort}`);
 const problems = [];
 page.on("pageerror", (e) => problems.push("pagefout: " + e.message));
 page.on("console", (m) => { if (m.type() === "error" || m.type() === "warning") problems.push(m.type() + ": " + m.text()); });

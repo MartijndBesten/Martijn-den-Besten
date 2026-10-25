@@ -146,6 +146,14 @@ describe("bijbelreis: personen", () => {
     }
     expect(bad).toEqual([]);
   });
+  it.skipIf(!M)("personen met dezelfde naam delen nooit een boek (de app zou ze dan samenvoegen)", () => {
+    const seen: Record<string, string> = {}, bad: string[] = [];
+    for (const [id, m] of Object.entries(M!)) {
+      for (const n of [m.n].concat((m as { alias?: string[] }).alias || []))
+        for (const b of m.boek || []) { const k = `${b}|${n}`; if (seen[k] && seen[k] !== id) bad.push(`${k}: ${seen[k]} en ${id}`); seen[k] = id; }
+    }
+    expect(bad).toEqual([]);
+  });
 });
 
 // ---------- de 150 geschiedenissen ----------
@@ -186,6 +194,25 @@ describe("bijbelreis: de 150 geschiedenissen", () => {
       if (lk[3] && g.kw !== KWID(lk[3])) bad.push(`${w} kernwoord moet ${KWID(lk[3])} zijn (is ${g.kw})`);
       if (!lk[3] && g.kw) bad.push(`${w} heeft een kernwoord dat niet in de leidraad staat`);
       if (g.kw && !KWS[g.kw]) bad.push(`${w} kernwoord ${g.kw} ontbreekt in BR.kernwoorden`);
+    }
+    expect(bad).toEqual([]);
+  });
+  it("elke geschiedenis is inhoudelijk uitgewerkt, niet alleen een record", () => {
+    type O = { soort: string; id?: string; items?: unknown[][]; paren?: string[][]; rijen?: unknown[][]; beelden?: string[][] };
+    const MIN: Record<string, number> = { koppel: 3, volgorde: 3, onthul: 3, wiezei: 2, gelijkenis: 3, symbolen: 3, verbanden: 2, stamboom: 2 };
+    const bad: string[] = [];
+    for (const g of GS) {
+      const w = `#${g.nr}`, o = g.ontdek as O;
+      if (g.uitleg.length < 400) bad.push(`${w} uitleg korter dan 400 tekens`);
+      if (!g.betekenis || g.betekenis.length < 100) bad.push(`${w} betekenis ontbreekt of te kort`);
+      if (!(g.cross || []).length) bad.push(`${w} geen verwijzingen elders in de Bijbel`);
+      g.quiz.forEach((q, i) => { if (q.a.length < 3) bad.push(`${w} vraag ${i + 1} minder dan 3 antwoorden`); });
+      if (o.soort === "kaart") { if (!o.id || !P[o.id]) bad.push(`${w} kaart-ontdekking zonder bestaande plaats`); continue; }
+      const list = (o.items || o.paren || o.rijen || o.beelden || []) as unknown[][];
+      if (list.length < MIN[o.soort]) bad.push(`${w} ${o.soort}: ${list.length} onderdelen`);
+      if (o.soort === "wiezei") list.forEach((it) => { if (!it[0] || !it[1] || !(it[2] as string[] || []).length) bad.push(`${w} wiezei zonder citaat/antwoord/alternatief`); });
+      if (["gelijkenis", "symbolen", "koppel"].includes(o.soort)) list.forEach((it) => { if (!it[0] || !it[1]) bad.push(`${w} ${o.soort} zonder uitleg`); });
+      if (o.soort === "verbanden") list.forEach((it) => [it[0], it[2]].forEach((r) => { if (verses(r as string) !== "ok") bad.push(`${w} verband ${r}`); }));
     }
     expect(bad).toEqual([]);
   });

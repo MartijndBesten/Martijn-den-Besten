@@ -396,16 +396,25 @@
   // Personen: koppeling van namen in de stappen aan de centrale lijst BR.mensen (personen.js), per boek.
   const MENSEN = BR.mensen || {};
   const MENS_IDX = {};
-  Object.entries(MENSEN).forEach(([id, m]) => [m.n].concat(m.alias || []).forEach((n) => (m.boek || []).concat("*").forEach((b) => { const k = b + "|" + n; if (b !== "*" || !MENS_IDX[k]) MENS_IDX[k] = id; })));
+  // Zonder boek (‘*’) koppelt een naam alleen als precies één persoon zo heet: personen met dezelfde naam
+  // (Jozef, Johannes, Herodes …) worden nooit op de gok samengevoegd.
+  const NAAM_IDS = {};
+  Object.entries(MENSEN).forEach(([id, m]) => [m.n].concat(m.alias || []).forEach((n) => {
+    (NAAM_IDS[n] = NAAM_IDS[n] || new Set()).add(id);
+    (m.boek || []).forEach((b) => { MENS_IDX[b + "|" + n] = id; });
+  }));
+  Object.entries(NAAM_IDS).forEach(([n, ids]) => { if (ids.size === 1) MENS_IDX["*|" + n] = [...ids][0]; });
   const mensOf = (name, boekId) => MENS_IDX[boekId + "|" + name] || null;
+  const mensIn = (name, boekId) => mensOf(name, boekId) || MENS_IDX["*|" + name] || null;
   const MENS_STAPPEN = {};
   BOEKEN.forEach((b) => b.delen.forEach((d) => d.steps.forEach((s, i) => (s.who || []).forEach(([n]) => { const id = mensOf(n, b.id); if (id) (MENS_STAPPEN[id] = MENS_STAPPEN[id] || []).push([d, i]); }))));
-  function personChip([name, age], boekId = boek.id) {
+  // ruim: ook koppelen via een unieke naam als de persoon niet bij dit boek staat (geschiedenissen).
+  function personChip([name, age], boekId = boek.id, ruim = boekId === "*") {
     const c = color(BR.personen[name] || "grijs");
     const group = GROUPS.has(name);
     const label = group ? age || name.toLowerCase() : name;
     const sub = !group && age ? ` <small>${/^\d+$/.test(age) ? age + " jaar" : esc(age)}</small>` : "";
-    const id = !group && (mensOf(name, boekId) || (boekId === "*" ? MENS_IDX["*|" + name] : null));
+    const id = !group && (ruim ? mensIn(name, boekId) : mensOf(name, boekId));
     return id ? `<button type="button" class="chip" data-mens="${id}" title="Wie is ${esc(name)}?"><i style="background:${c}">${esc(name[0])}</i>${esc(label)}${sub}</button>` : `<span class="chip"><i style="background:${c}">${esc(name[0])}</i>${esc(label)}${sub}</span>`;
   }
   const FS = { b: "Uit de Bijbel", u: "Uitleg", h: "Historische achtergrond" };
@@ -758,7 +767,7 @@
         <div class="top"><b>Geschiedenis ${nr} van 150</b><span>${esc(VORM[g.vorm] || "")}</span></div>
         <h2 id="vTitel">${esc(g.t)}</h2>
         <p class="tijd"><span>${esc(g.ref)}</span>${tijd ? `<span>· ${esc(tijd)}${g.tijdNoot ? "" : ""}</span>` : ""}</p>
-        <div class="chips">${(g.wie || []).map((n) => personChip([n], steps[0] ? steps[0].deel.boek.id : "*")).join("")}</div>
+        <div class="chips">${(g.wie || []).map((n) => personChip([n], verhaalBoek(g), true)).join("")}</div>
         <p class="label bl">Wat de Bijbel vertelt</p>
         <p>${esc(g.uitleg)}</p>
         ${parseRef(g.ref) ? `<button type="button" class="btn small bijbellink" data-ref="${esc(g.ref)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></svg>Lees het zelf in de Bijbel</button>` : ""}
@@ -835,6 +844,8 @@
   }
 
   // ---------- ontdekken: één bouwsteen per soort ----------
+  // Het boek van een geschiedenis (van de eerste stap), voor de koppeling van namen aan personen.
+  const verhaalBoek = (g) => { const s = (g.stappen || []).map((x) => STEP_BY_KEY.get(x)).find(Boolean); return s ? s.deel.boek.id : "*"; };
   function renderOntdek(host, g) {
     const o = g.ontdek; if (!o) return;
     host.innerHTML = `<p class="label">Ontdek</p><h3 class="otitel">${esc(o.titel || "")}</h3><div class="ontdek"></div>`;
@@ -888,14 +899,14 @@
       box.innerHTML = `<ol class="verbanden">${(o.items || []).map(([r1, b, r2, v]) => `<li><div class="vb1">${refLink(r1)}<p>${esc(b)}</p></div><button type="button" class="btn small" aria-expanded="false">Hoe kwam het uit?</button><div class="vb2" hidden>${refLink(r2)}<p>${esc(v)}</p></div></li>`).join("")}</ol>`;
       box.querySelectorAll(".verbanden li").forEach((li) => (li.querySelector(".btn").onclick = (e) => { const d = li.querySelector(".vb2"); d.hidden = !d.hidden; e.target.setAttribute("aria-expanded", !d.hidden); }));
     },
-    stamboom(box, o) {
+    stamboom(box, o, g) {
       const rijen = o.rijen || [];
       // Twee vormen: generaties (rijen met namen) of een lijst [naam, relatie, verwijzing].
       if (rijen.length && rijen.every((r) => r.length === 3 && parseRef(r[2]))) {
-        box.innerHTML = `<ul class="famlijst">${rijen.map(([n, rel, r]) => { const id = mensOf(n, boek.id) || MENS_IDX["*|" + n]; return `<li>${id ? `<button type="button" class="chip" data-mens="${id}">${esc(n)}</button>` : `<b>${esc(n)}</b>`}<span>${esc(rel)}</span>${refLink(r)}</li>`; }).join("")}</ul>`;
+        box.innerHTML = `<ul class="famlijst">${rijen.map(([n, rel, r]) => { const id = mensIn(n, verhaalBoek(g)); return `<li>${id ? `<button type="button" class="chip" data-mens="${id}">${esc(n)}</button>` : `<b>${esc(n)}</b>`}<span>${esc(rel)}</span>${refLink(r)}</li>`; }).join("")}</ul>`;
         return;
       }
-      box.innerHTML = `<div class="tree">${(o.rijen || []).map((row, i) => (i ? '<div class="arrow" aria-hidden="true">▼</div>' : "") + `<div class="gen">${row.map((n) => { const id = mensOf(n, boek.id) || MENS_IDX["*|" + n]; return id ? `<button type="button" class="person" data-mens="${id}">${esc(n)}</button>` : `<span class="person">${esc(n)}</span>`; }).join("")}</div>`).join("")}</div>${o.ref ? `<p class="ref">${refLink(o.ref)}</p>` : ""}`;
+      box.innerHTML = `<div class="tree">${(o.rijen || []).map((row, i) => (i ? '<div class="arrow" aria-hidden="true">▼</div>' : "") + `<div class="gen">${row.map((n) => { const id = mensIn(n, verhaalBoek(g)); return id ? `<button type="button" class="person" data-mens="${id}">${esc(n)}</button>` : `<span class="person">${esc(n)}</span>`; }).join("")}</div>`).join("")}</div>${o.ref ? `<p class="ref">${refLink(o.ref)}</p>` : ""}`;
     },
     kaart(box, o) {
       box.innerHTML = `<p>${esc(o.vraag || "Wijs de plek aan op de kaart.")}</p><button type="button" class="btn small">Wijs aan op de kaart</button><div class="res" role="status"></div>`;
