@@ -16,7 +16,7 @@ BR.geschiedenissen.push(
     ["Ahazia", "koning van Juda; vader van Joas", "2 Koningen 11:2"],
     ["Joseba", "dochter van Joram en zus van Ahazia, dus de tante van Joas", "2 Koningen 11:2"],
     ["Jojada", "priester; volgens Kronieken de man van Joseba", "2 Kronieken 22:11"],
-    ["Joas", "zoon van Ahazia; koning toen hij zeven was", "2 Koningen 11:21"],
+    ["Joas van Juda", "zoon van Ahazia; koning toen hij zeven was", "2 Koningen 11:21"],
     ["Amazia", "zoon van Joas; koning na hem", "2 Koningen 12:21"]] },
   quiz: [
     { q: "Wie was de moeder van Joas?", a: ["Zibja uit Berseba", "Athalia", "Joseba"], why: "2 Koningen 12:1" },

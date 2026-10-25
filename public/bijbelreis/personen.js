@@ -9,7 +9,7 @@
 // basis = de grondslag van elke familieband, per relatie: { v: [soort, ref, toelichting?], m: […], p: { id: […] } }.
 //   soort "b": expliciet in de Bijbel (één tekst of één doorlopend gedeelte zegt het letterlijk);
 //   soort "a": afgeleid door teksten te combineren; het derde element geeft dan de redenering.
-//   ref: één verwijzing, of meer uit verschillende boeken gescheiden door ' + '. Elke ref heeft een regel in personen.txt.
+//   ref: één verwijzing (meer delen uit hetzelfde boek met ‘; ’). Elk deel heeft een regel in scripts/bijbel-controle/personen.txt.
 // overlevering = kerkelijke overlevering die niet in de Bijbel staat: [[tekst, toelichting]]. Overlevering staat nooit in
 //   v, m of p; een familieband die alleen op overlevering rust, wordt niet opgenomen.
 // Alle familiebanden, leeftijden en verwijzingen zijn gecontroleerd tegen de Statenvertaling:
@@ -40,7 +40,7 @@ BR.mensen = {
     kort: "Zoon van Adam en Eva, geboren in de plaats van Abel; via hem loopt het geslacht naar Noach.",
     geb: "Genesis 4:25", dood: "Genesis 5:8", leeftijd: [[105, "Genesis 5:6"], [912, "Genesis 5:8"]],
     elders: [["Lukas 3:38", "Genoemd in het geslachtsregister van de Heere Jezus."]],
-    basis: { v: ["b", "Genesis 5:3"], m: ["a", "Genesis 4:25 + Genesis 4:1", "Adams huisvrouw baarde Seth (4:25); Adams huisvrouw is Heva (4:1). Haar naam staat niet in 4:25 zelf."] } },
+    basis: { v: ["b", "Genesis 5:3"], m: ["a", "Genesis 4:1; 4:25", "Adams huisvrouw baarde Seth (4:25); Adams huisvrouw is Heva (4:1). Haar naam staat niet in 4:25 zelf."] } },
   enos: { n: "Enos", v: "seth", boek: ["genesis"],
     kort: "Zoon van Seth; in zijn tijd begon men de Naam van de HEERE aan te roepen.",
     geb: "Genesis 4:26", dood: "Genesis 5:11", leeftijd: [[90, "Genesis 5:9"], [905, "Genesis 5:11"]],
@@ -120,7 +120,7 @@ BR.mensen = {
     kort: "Vrouw van Abraham; op haar negentigste kreeg zij de beloofde zoon Izak.",
     dood: "Genesis 23:2", leeftijd: [[90, "Genesis 17:17"], [127, "Genesis 23:1"]],
     elders: [["Jesaja 51:2", "‘Aanschouwt Abraham, ulieder vader, en Sara, die ulieden gebaard heeft.’"], ["Hebreeën 11:11", "Door het geloof kreeg Sara kracht om een kind te krijgen, ver boven haar leeftijd."], ["1 Petrus 3:6", "Sara gehoorzaamde Abraham en noemde hem heer."]],
-    basis: { v: ["a", "Genesis 20:12 + Genesis 11:26", "Abraham zegt van Sara: ‘zij is mijns vaders dochter, maar niet mijner moeder dochter’ (20:12); Abrahams vader is Terach (11:26). Het zijn Abrahams eigen woorden; de Bijbel spreekt ze niet tegen."], p: { abraham: ["b", "Genesis 11:29"] } } },
+    basis: { v: ["a", "Genesis 11:26; 20:12", "Abraham zegt van Sara: ‘zij is mijns vaders dochter, maar niet mijner moeder dochter’ (20:12); Abrahams vader is Terach (11:26). Het zijn Abrahams eigen woorden; de Bijbel spreekt ze niet tegen."], p: { abraham: ["b", "Genesis 11:29"] } } },
   hagar: { n: "Hagar", p: ["abraham"], boek: ["genesis"],
     kort: "Egyptische slavin van Sara en moeder van Ismaël; in de woestijn zag God haar en hoorde Hij haar.",
     elders: [["Galaten 4:24–25", "Paulus gebruikt Hagar als beeld van het oude verbond van de Sinaï."]],
@@ -268,7 +268,7 @@ BR.mensen = {
     basis: { v: ["b", "Numeri 26:59"], m: ["b", "Numeri 26:59"] } },
   jethro: { n: "Jethro", alias: ["Reüel"], boek: ["exodus"], kort: "Priester van Midian en schoonvader van Mozes; hij gaf Mozes de raad om helpers aan te stellen." },
   zippora: { n: "Zippora", v: "jethro", p: ["mozes"], boek: ["exodus"], kort: "Dochter van Jethro en vrouw van Mozes; moeder van Gersom en Eliëzer.",
-    basis: { v: ["a", "Exodus 2:18–21 + Exodus 18:1–2", "De priester van Midian, Rehuël, gaf Mozes zijn dochter Zippora (2:18–21); Jethro heet ‘de schoonvader van Mozes’ en neemt Zippora, Mozes’ huisvrouw, mee (18:1–2). Dat Jethro en Rehuël dezelfde man zijn, volgt daaruit, maar staat er niet letterlijk (vergelijk Numeri 10:29, ‘Hobab, den zoon van Rehuël’)."], p: { mozes: ["b", "Exodus 18:2"] } } },
+    basis: { v: ["a", "Exodus 2:18–21; 18:1–2", "De priester van Midian, Rehuël, gaf Mozes zijn dochter Zippora (2:18–21); Jethro heet ‘de schoonvader van Mozes’ en neemt Zippora, Mozes’ huisvrouw, mee (18:1–2). Dat Jethro en Rehuël dezelfde man zijn, volgt daaruit, maar staat er niet letterlijk (vergelijk Numeri 10:29, ‘Hobab, den zoon van Rehuël’)."], p: { mozes: ["b", "Exodus 18:2"] } } },
   jozua: { n: "Jozua", alias: ["Hosea"], boek: ["exodus", "numeri", "jozua"],
     kort: "Zoon van Nun, de dienaar van Mozes; na Mozes bracht hij het volk Israël het beloofde land in.",
     dood: "Jozua 24:29", leeftijd: [[110, "Jozua 24:29"]],
@@ -584,7 +584,7 @@ BR.mensen = {
     elders: [["Jesaja 44:28", "Lang van tevoren noemt God hem bij name: ‘Kores, hij is Mijn herder.’"], ["Jesaja 45:1", "‘Alzo zegt de HEERE tot Zijn gezalfde, tot Kores.’"], ["2 Kronieken 36:22–23", "Het bevel van Kores staat ook aan het eind van Kronieken."]] },
   ahasveros: { n: "Ahasveros", p: ["vasthi", "esther"], boek: ["esther"],
     kort: "Koning van Perzië en Medië over honderdzevenentwintig landschappen; hij maakte Esther koningin.",
-    elders: [["Ezra 4:6", "In zijn tijd schreven de vijanden een aanklacht tegen Juda en Jeruzalem."]],
+    elders: [["Ezra 4:6", "In het begin van het koninkrijk van een koning Ahasveros schreven de vijanden een aanklacht tegen Juda en Jeruzalem; de Bijbel zegt niet met zoveel woorden dat dit dezelfde koning is als in Esther."]],
     basis: { p: { vasthi: ["a", "Esther 1:9–12", "Vasthi is ‘de koningin’ in het huis van koning Ahasveros (1:9–12); dat zij zijn vrouw is, volgt daaruit, het woord ‘vrouw’ staat er niet."], esther: ["a", "Esther 2:16–17", "Esther wordt ‘genomen tot den koning Ahasveros’ en hij maakt haar ‘koningin in de plaats van Vasthi’ (2:16–17); het woord ‘vrouw’ staat er niet."] } } },
   vasthi: { n: "Vasthi", p: ["ahasveros"], boek: ["esther"], kort: "Koningin die weigerde te komen toen de koning haar riep; daarna mocht zij geen koningin meer zijn.",
     basis: { p: { ahasveros: ["a", "Esther 1:9–12", "Vasthi is ‘de koningin’ in het huis van koning Ahasveros (1:9–12); dat zij zijn vrouw is, volgt daaruit, het woord ‘vrouw’ staat er niet."] } } },
@@ -599,7 +599,7 @@ BR.mensen = {
   // ---------- Ezra en Nehemia ----------
   // Zerubbabel is ‘de zoon van Sealthiël’ (Ezra 3:2, Haggaï 1:1, Mattheüs 1:12); 1 Kronieken 3:19 noemt hem bij de kinderen van Pedaja.
   sealthiel: { n: "Sealthiël", v: "jojachin", boek: [], kort: "Zoon van koning Jojachin en vader van Zerubbabel.",
-    basis: { v: ["a", "Mattheüs 1:12 + Jeremia 24:1", "Mattheüs 1:12: ‘Jechonias gewon Salathiël’; Jechonia is Jojachin, de zoon van Jojakim (Jeremia 24:1). 1 Kronieken 3:17 (‘De kinderen van Jechonia waren Assir; zijn zoon was Sealthiël’) kan ook anders gelezen worden."] } },
+    basis: { v: ["a", "Mattheüs 1:12", "Mattheüs 1:12: ‘Jechonias gewon Salathiël’; Jechonia is Jojachin, de zoon van Jojakim (Jeremia 24:1). 1 Kronieken 3:17 (‘De kinderen van Jechonia waren Assir; zijn zoon was Sealthiël’) kan ook anders gelezen worden."] } },
   zerubbabel: { n: "Zerubbabel", v: "sealthiel", boek: ["ezra", "profeten"],
     kort: "Kleinzoon van koning Jojachin; hij leidde de eerste groep terug uit Babel en bouwde met Jesua de tempel.",
     elders: [["Haggaï 1:1", "Haggaï noemt hem ‘de vorst van Juda’."], ["Haggaï 2:24", "God belooft: ‘Ik zal u stellen als een zegelring.’"], ["Zacharia 4:9", "‘De handen van Zerubbabel hebben dit huis gegrondvest, zijn handen zullen het ook voleinden.’"], ["Mattheüs 1:12–13", "Hij staat in het geslachtsregister van de Heere Jezus."]],
@@ -776,7 +776,7 @@ BR.mensen = {
   // ‘De discipel, dien Jezus liefhad’ is in de inhoud een rol (Discipel) en wordt hier niet ingevuld.
   johannes: { n: "Johannes", v: "zebedeus", boek: ["jezus-1", "jezus-2", "jezus-3", "handelingen"],
     kort: "Zoon van Zebedeüs en broer van Jakobus, een visser en een van de twaalf apostelen.",
-    elders: [["Markus 1:19–20", "Met Jakobus laat hij zijn vader in het schip achter en volgt de Heere Jezus."], ["Markus 3:17", "‘Boanerges’, zonen des donders."], ["Galaten 2:9", "Paulus noemt hem een van de ‘pilaren’."]],
+    elders: [["Markus 1:19–20", "Met Jakobus laat hij zijn vader in het schip achter en volgt de Heere Jezus."], ["Markus 3:17", "‘Boanerges’, zonen des donders."], ["Galaten 2:9", "Paulus noemt een Johannes, met Jakobus en Cefas, een van de ‘pilaren’; vermoedelijk deze apostel, al zegt de tekst niet welke Johannes."]],
     vervolg: [["Handelingen 4:13", "De raad verwondert zich over de vrijmoedigheid van Petrus en Johannes."], ["Handelingen 8:14", "Met Petrus gaat hij naar Samaria."]],
     basis: { v: ["b", "Mattheüs 4:21"] },
     overlevering: [["Volgens de kerkelijke overlevering is hij ook de Johannes van Openbaring en ‘de discipel, dien Jezus liefhad’.", "Dat staat niet in de Bijbel: Openbaring noemt alleen ‘Johannes’ (1:1, 9) en het Evangelie naar Johannes noemt de naam van die discipel niet (Johannes 21:20, 24). Daarom zijn johannes_patmos en de rol ‘Discipel’ niet aan hem gekoppeld."]] },
