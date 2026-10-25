@@ -22,6 +22,10 @@
   }
   const len = (p) => p.slice(1).reduce((s, q, i) => s + hav(p[i], q), 0);
   const roundKm = (km) => (km < 100 ? Math.round(km / 5) * 5 : Math.round(km / 10) * 10);
+  // Gegevensbestanden die app.js zelf ophaalt, krijgen het versienummer (inhoudshash) uit de pagina, zodat na een nieuwe
+  // versie geen oude kaart of oude Bijbeltekst uit de browsercache komt (zie scripts/postbuild.mjs).
+  const DV = (() => { try { return JSON.parse(document.querySelector('meta[name="bijbelreis-data"]').content); } catch { return {}; } })();
+  const dataUrl = (p) => "/bijbelreis/" + p + (DV[p] ? "?v=" + DV[p] : "");
   const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
   // ---------- inhoud klaarzetten ----------
@@ -113,16 +117,16 @@
     drawInset();
   }
   // Reliëf (schaduw van bergen en dalen) en moderne grenzen zijn aanvullingen: als ze niet laden, werkt de kaart gewoon.
-  fetch("/bijbelreis/relief.json").then((r) => (r.ok ? r.json() : null)).then((rel) => {
+  fetch(dataUrl("relief.json")).then((r) => (r.ok ? r.json() : null)).then((rel) => {
     if (!rel) return;
-    Object.values(rel).filter((o) => o && o.src && o.bounds).forEach((o) => L.imageOverlay(o.src, o.bounds, { pane: "relief", interactive: false, className: "relief", alt: "" }).addTo(map));
+    Object.values(rel).filter((o) => o && o.src && o.bounds).forEach((o) => L.imageOverlay(dataUrl(o.src.replace(/^\/bijbelreis\//, "")), o.bounds, { pane: "relief", interactive: false, className: "relief", alt: "" }).addTo(map));
   }).catch(() => {});
   const lyModern = L.layerGroup();
   let modernLoaded = false;
   function loadModern() {
     if (modernLoaded) return Promise.resolve();
     modernLoaded = true;
-    return fetch("/bijbelreis/grenzen.json").then((r) => r.json()).then((g) => {
+    return fetch(dataUrl("grenzen.json")).then((r) => r.json()).then((g) => {
       const feats = g.features || [];
       L.geoJSON({ type: "FeatureCollection", features: feats.filter((f) => f.geometry.type !== "Point") }, { pane: "modern", interactive: false, className: "border" }).addTo(lyModern);
       // Alleen landen die Nederland erkent krijgen een naam (geen ‘Noord-Cyprus’).
@@ -207,7 +211,7 @@
   const hits = (a, b) => a[0] < b[0] + b[2] + 2 && b[0] < a[0] + a[2] + 2 && a[1] < b[1] + b[3] + 1 && b[1] < a[1] + a[3] + 1;
   function uiRects() {
     const box = map.getContainer().getBoundingClientRect();
-    return [...document.querySelectorAll(".leaflet-control-zoom, .maptools > *, .mapbar, .legend, .leaflet-control-scale")].filter((e) => e.offsetParent).map((e) => { const r = e.getBoundingClientRect(); return [r.left - box.left, r.top - box.top, r.width, r.height]; });
+    return [...document.querySelectorAll(".leaflet-control-zoom, .maptools > *, .mapacties > *, .mapbar, .legend, .leaflet-control-scale")].filter((e) => e.offsetParent).map((e) => { const r = e.getBoundingClientRect(); return [r.left - box.left, r.top - box.top, r.width, r.height]; });
   }
   function refreshLabels() {
     const z = map.getZoom();
@@ -239,7 +243,7 @@
     const placed = uiRects();
     // De kameel staat aan het eind van een reis precies op een plaats: labels wijken voor hem uit.
     const ce = camel.getElement(), cel = ce && ce.querySelector(".camel");
-    if (cel && map.hasLayer(camel) && !cel.classList.contains("gone")) { const c = map.latLngToContainerPoint(camel.getLatLng()); placed.push([c.x - 24, c.y - 40, 48, 40]); }
+    if (cel && map.hasLayer(camel) && !cel.classList.contains("gone")) { const box = map.getContainer().getBoundingClientRect(), r = (cel.classList.contains("nt") ? cel.querySelector(".walker") : cel).getBoundingClientRect(); placed.push([r.left - box.left - 3, r.top - box.top - 3, r.width + 6, r.height + 6]); }
     items.filter((it) => it.pin).forEach((it) => placed.push([it.pt.x - 7, it.pt.y - 7, 14, 14]));
     items.sort((a, b) => b.pr - a.pr || a.z - b.z);
     items.forEach((it) => {
@@ -280,8 +284,9 @@
     const b = L.latLngBounds(pts);
     // Ruimte laten voor de knoppen en, als die open is, de legenda.
     const lg = $("legend"), lgW = lg.classList.contains("open") && !lg.hidden && !isNarrow() ? lg.offsetWidth + 16 : 0;
-    const smal = isNarrow(), balk = !$("mapbar").hidden;
-    const opts = { paddingTopLeft: [smal ? 50 : Math.max(60, lgW), smal ? 44 : 56], paddingBottomRight: [smal ? 16 : 150, balk ? 90 : smal ? 34 : 60], maxZoom: maxZoom || 9 };
+    // Telefoon: de stappenbalk staat onder de kaart, dus onderin alleen ruimte voor ‘Hele reis’/‘Groot’ en de schaal.
+    const smal = isNarrow(), balk = !smal && !$("mapbar").hidden;
+    const opts = { paddingTopLeft: [smal ? 52 : 64, smal ? 54 : 60], paddingBottomRight: [smal ? 18 : Math.max(40, lgW),  balk ? 96 : smal ? 58 : 64], maxZoom: maxZoom || 9 };
     if (reduceMotion) { map.fitBounds(b, opts); done && done(); return; }
     map.flyToBounds(b, { ...opts, duration: 0.8 });
     done && setTimeout(done, 850);
@@ -306,7 +311,7 @@
     box.setAttribute("x", Math.max(0, x1).toFixed(1)); box.setAttribute("y", Math.max(0, y1).toFixed(1));
     box.setAttribute("width", Math.max(3, Math.min(230, x2) - Math.max(0, x1)).toFixed(1)); box.setAttribute("height", Math.max(3, Math.min(125, y2) - Math.max(0, y1)).toFixed(1));
   }
-  const insetLabel = () => { const open = !$("inset").hidden; $("insetBtn").textContent = isNarrow() ? (open ? "Sluit" : "Waar?") : open ? "Kaartje sluiten" : "Waar ligt dit?"; $("insetBtn").setAttribute("aria-label", open ? "Overzichtskaartje sluiten" : "Waar ligt dit? Overzichtskaartje met Nederland"); };
+  const insetLabel = () => { const open = !$("inset").hidden; $("insetBtn").textContent = open ? "Overzichtskaartje sluiten" : "Waar ligt dit?"; $("insetBtn").setAttribute("aria-label", open ? "Overzichtskaartje sluiten" : "Waar ligt dit? Overzichtskaartje met Nederland"); };
   $("insetBtn").addEventListener("click", () => { const open = $("inset").hidden; $("inset").hidden = !open; $("insetBtn").setAttribute("aria-expanded", open); insetLabel(); });
   insetLabel();
 
@@ -445,8 +450,7 @@
     $("sTijd").hidden = !t; $("sTijd").innerHTML = t ? `<span>${esc(t)}</span>${deel.tijdNoot ? `<button type="button" class="linkbtn" data-tab="tijd">Hoe weten we dat?</button>` : ""}` : "";
   }
   function setAccent() {
-    document.body.style.setProperty("--acc", color(deel.c));
-    document.body.style.setProperty("--acc-deep", color(deel.c));
+    document.body.style.setProperty("--rc", color(deel.c));
     document.querySelectorAll(".deel").forEach((b) => b.setAttribute("aria-pressed", b.dataset.deel === deel.id));
     document.querySelectorAll(".boek").forEach((b) => b.setAttribute("aria-pressed", b.dataset.boek === boek.id));
   }
@@ -466,7 +470,7 @@
   function select(i, opts = {}) {
     focus = null; $("map").classList.remove("symbool", "gelijkenis");
     cur = Math.max(-1, Math.min(deel.steps.length - 1, i));
-    showAll = false;
+    showAll = false; heleZichtbaar();
     map.closePopup();
     const sp = $("sSpecial"); sp.innerHTML = "";
     const lees = $("leesBtn");
@@ -577,7 +581,7 @@
   const bibleCache = {};
   const parseRef = BR.parseRef;
   async function loadBible(slug) {
-    if (!bibleCache[slug]) bibleCache[slug] = fetch(`/bijbelreis/bijbel/${slug}.json`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); });
+    if (!bibleCache[slug]) bibleCache[slug] = fetch(dataUrl(`bijbel/${slug}.json`)).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); });
     return bibleCache[slug];
   }
   async function openBible(ref) {
@@ -672,6 +676,10 @@
     if (m !== "verhalen") clearFocus();
     tapHandler = null;
     $("mapbar").hidden = m !== "reis";
+    const voor = document.body.dataset.modus; document.body.dataset.modus = m;
+    // Op de telefoon is de kaart per onderdeel anders van hoogte: Leaflet moet dat weten.
+    if (voor !== m && isNarrow()) requestAnimationFrame(() => { map.invalidateSize(); queueLabels(); });
+    heleZichtbaar();
     $("legend").hidden = !(m === "reis" || m === "verhalen"); $("legendBtn").hidden = !(m === "reis" || m === "verhalen");
     $("map").classList.toggle("quizmode", m === "quiz");
     lyQuiz.clearLayers();
@@ -800,13 +808,15 @@
           <button type="button" class="btn primary" ${nextG ? `data-v="${nextG.nr}"` : "disabled"}>${nextG ? `${nextG.nr}. ${esc(nextG.t.length > 22 ? nextG.t.slice(0, 21) + "…" : nextG.t)}` : "Einde"} ▶</button>
         </div>
       </article>`;
-    $("vTerug").onclick = () => { vOpen = null; history.replaceState(null, "", "#verhalen"); renderVerhalen(); };
+    $("vTerug").onclick = () => { vOpen = null; history.replaceState(null, "", "#verhalen"); renderVerhalen(); heleZichtbaar(); };
     renderOntdek($("vOntdek"), g);
     renderVQuiz($("vQuiz"), g);
-    focusStory(g);
+    focusStory(g); heleZichtbaar();
     setAccent2(steps[0] ? steps[0].deel.c : g.nr >= 80 ? "lila" : "kobalt");
   }
-  function setAccent2(c) { document.body.style.setProperty("--acc", color(c)); document.body.style.setProperty("--acc-deep", color(c)); }
+  // De knop ‘Hele reis’ alleen als er een route is om naar terug te gaan.
+  function heleZichtbaar() { $("heleBtn").hidden = !((mode === "reis" && cur >= 0) || (mode === "verhalen" && vOpen && (GBYNR.get(vOpen).stappen || []).length)); }
+  function setAccent2(c) { document.body.style.setProperty("--rc", color(c)); }
 
   // De kaart bij een geschiedenis: alle bijbehorende stappen (routes en plaatsen) tegelijk.
   function clearFocus() {
@@ -993,13 +1003,14 @@
   function renderTijd() {
     const undated = ALLPARTS.filter((d) => !d.tl), dated = ALLPARTS.filter((d) => d.tl).sort((a, b) => a.tl[0] - b.tl[0] || a.tl[1] - b.tl[1]);
     const jaar = (y) => (y < 0 ? `${fmt(-y)} v.Chr.` : `${fmt(y)} n.Chr.`);
-    const row = (d) => `<li class="tl-item${d === deel ? " cur" : ""}" style="--pc:${color(d.c)}"><span class="tl-dot" aria-hidden="true"></span><div><p class="tl-when">${esc(tijdText(d) || "")}</p><button type="button" class="tl-go" data-go="${d.key}:-1"${d === deel ? ' aria-current="true"' : ""}><b>${esc(d.n)}</b><small>${esc(d.boek.n)} · ${esc(d.ref)}</small></button>${d.tijdNoot ? `<details><summary>Hoe weten we dat?</summary><p>${esc(d.tijdNoot)}</p></details>` : ""}</div></li>`;
+    const wanneer = (d) => { const t = tijdText(d) || ""; return /geen jaartallen/.test(t) ? `${esc(t.replace(" · geen jaartallen", ""))}<span class="tl-tag geen">geen jaartal</span>` : /reconstructie/.test(t) ? `${esc(t.replace(" · reconstructie", ""))}<span class="tl-tag recon">reconstructie</span>` : esc(t); };
+    const row = (d) => `<li class="tl-item${d === deel ? " cur" : ""}" style="--pc:${color(d.c)}"><span class="tl-dot" aria-hidden="true"></span><div><p class="tl-when">${wanneer(d)}</p><button type="button" class="tl-go" data-go="${d.key}:-1"${d === deel ? ' aria-current="true"' : ""}><b>${esc(d.n)}</b><small>${esc(d.boek.n)} · ${esc(d.ref)}</small></button>${d.tijdNoot ? `<details><summary>Hoe weten we dat?</summary><p>${esc(d.tijdNoot)}</p></details>` : ""}</div></li>`;
     let h = "", prev = null;
     dated.forEach((d) => {
       if (prev && d.tl[0] - prev.tl[1] >= 40) h += `<li class="tl-gap" aria-hidden="true">ruim ${fmt(Math.floor((d.tl[0] - prev.tl[1]) / 10) * 10)} jaar later</li>`;
       h += row(d); prev = !prev || d.tl[1] > prev.tl[1] ? d : prev;
     });
-    $("p-tijd").innerHTML = `<h2>Wanneer <em>gebeurde</em> het?</h2><p class="ref">De Bijbel rekent in levensjaren en regeringsjaren, niet in onze jaartelling. De jaartallen hier zijn een reconstructie: vooral de vroegste data zijn onzeker, en onderzoekers verschillen daarover van mening. Genesis 1–11 krijgt geen jaartal.</p><ol class="tijdlijn">${undated.map((d) => row(d)).join("")}${undated.length ? `<li class="tl-gap" aria-hidden="true">geen jaartallen bekend</li>` : ""}${h}</ol>`;
+    $("p-tijd").innerHTML = `<h2>Wanneer <em>gebeurde</em> het?</h2><p class="ref">De Bijbel rekent in levensjaren en regeringsjaren, niet in onze jaartelling. De jaartallen hier zijn een reconstructie: vooral de vroegste data zijn onzeker, en onderzoekers verschillen daarover van mening. Genesis 1–11 krijgt geen jaartal.</p><ul class="tl-uitleg"><li><span class="tl-dot-l" aria-hidden="true"></span>De <b>volgorde</b> komt uit de Bijbel.</li><li><span class="tl-tag recon">reconstructie</span>Het <b>jaartal</b> is berekend en kan afwijken.</li><li><span class="tl-tag geen">geen jaartal</span>Te vroeg om te dateren.</li></ul><ol class="tijdlijn">${undated.map((d) => row(d)).join("")}${undated.length ? `<li class="tl-gap" aria-hidden="true">geen jaartallen bekend</li>` : ""}${h}</ol>`;
     const c = $("p-tijd").querySelector(".cur"); if (c) requestAnimationFrame(() => c.scrollIntoView({ block: "nearest" }));
   }
 
@@ -1101,7 +1112,7 @@
     const d = t && t.deel ? boek.delen.find((x) => x.id === t.deel) : null;
     const age = (t && t.a) || (ch && ch[1]);
     const info = (t && t.i) || sb.uitleg[name] || `Staat in het geslachtsregister van Genesis ${ch ? (ch[2].startsWith("5") ? "5" : "11") : ""}.`;
-    $("wieInfo").innerHTML = `<h3>${esc(name)}</h3>${age ? `<p class="ref">Werd ${age} jaar${ch ? ` (Genesis ${esc(ch[2])})` : ""}</p>` : ""}<p>${esc(info)}</p>${d ? `<button type="button" class="btn primary" id="wieGo" style="--acc:${color(d.c)};--acc-deep:${color(d.c)}">Bekijk de reis van ${esc(name)} ▶</button>` : ""}`;
+    $("wieInfo").innerHTML = `<h3>${esc(name)}</h3>${age ? `<p class="ref">Werd ${age} jaar${ch ? ` (Genesis ${esc(ch[2])})` : ""}</p>` : ""}<p>${esc(info)}</p>${d ? `<button type="button" class="btn primary" id="wieGo">Bekijk de reis van ${esc(name)} ▶</button>` : ""}`;
     if (d) $("wieGo").onclick = () => { setMode("reis"); chooseDeel(d); };
     const mid = mensOf(name, boek.id); if (mid) $("wieInfo").insertAdjacentHTML("beforeend", mensDetails(mid));
     document.querySelectorAll(".person, .chain button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.n === name));
@@ -1110,7 +1121,7 @@
     wieSel = name;
     const x = (boek.wie || []).find((p) => p.n === name); if (!x) return;
     const d = x.deel ? boek.delen.find((q) => q.id === x.deel) : null;
-    $("wieInfo").innerHTML = `<h3>${esc(x.n)}</h3>${x.rol ? `<p class="ref">${esc(x.rol)}</p>` : ""}<p>${esc(x.i || "")}</p>${d ? `<button type="button" class="btn primary" id="wieGo" style="--acc:${color(d.c)};--acc-deep:${color(d.c)}">Bekijk de reis van ${esc(d.short)} ▶</button>` : ""}`;
+    $("wieInfo").innerHTML = `<h3>${esc(x.n)}</h3>${x.rol ? `<p class="ref">${esc(x.rol)}</p>` : ""}<p>${esc(x.i || "")}</p>${d ? `<button type="button" class="btn primary" id="wieGo">Bekijk de reis van ${esc(d.short)} ▶</button>` : ""}`;
     if (d) $("wieGo").onclick = () => { setMode("reis"); chooseDeel(d); };
     // ‘Silas, Timotheüs en Lydia’ of ‘Saulus / Paulus’: de eerste naam die bij een persoon hoort.
     const mid = name.split(/ en |, | \/ /).map((n) => mensOf(n.trim(), boek.id)).find(Boolean); if (mid) $("wieInfo").insertAdjacentHTML("beforeend", mensDetails(mid));
@@ -1289,10 +1300,11 @@
   }
   function renderStamps() {
     const total = ALLPARTS.reduce((a, d) => a + d.steps.length, 0);
-    $("stamps").innerHTML = BOEKEN.map((b) => `<p class="label" style="margin-top:4px">${esc(b.n)}</p>` + b.delen.map((d) => {
+    // Per Bijbelboek een uitklapbaar blad; boeken met stempels staan open.
+    $("stamps").innerHTML = BOEKEN.map((b) => { const gotB = b.delen.reduce((x, d) => x + d.steps.filter((t) => seen.has(t.key)).length, 0), totB = b.delen.reduce((x, d) => x + d.steps.length, 0); return `<details class="pasboek"${gotB ? " open" : ""}><summary><b>${esc(b.n)}</b><span>${gotB} van ${totB}</span></summary>` + b.delen.map((d) => {
       const got = d.steps.filter((s) => seen.has(s.key)).length;
       return `<div class="stack" style="gap:6px"><p class="label" style="color:${color(d.c)}">${esc(d.n)} · ${got} van ${d.steps.length}</p><div class="stamps">${d.steps.map((s) => `<button type="button" class="stamp${seen.has(s.key) ? "" : " no"}" data-key="${d.key}" data-s="${s.i}" aria-label="${esc(d.n)}, stap ${s.i + 1}: ${esc(s.t)}${seen.has(s.key) ? ", gestempeld" : ", nog niet bezocht"}">${stampSVG(s)}</button>`).join("")}</div></div>`;
-    }).join("")).join("");
+    }).join("") + "</details>"; }).join("");
     const n = ALLPARTS.reduce((a, d) => a + d.steps.filter((s) => seen.has(s.key)).length, 0);
     $("pasText").textContent = n === total ? `Alle ${total} stempels! Jij hebt de hele reis gemaakt.` : `Je hebt ${n} van de ${total} stempels. Ga verder met de reis om ze allemaal te verzamelen.`;
     const nV = Object.values(verhaalStore).filter((v) => v.q != null).length, nG = Object.keys(verhaalStore).length;
@@ -1301,6 +1313,8 @@
     const bests = [];
     BOEKEN.forEach((b) => [["alles", "alles uit " + b.n]].concat(b.delen.map((d) => [d.id, d.n])).forEach(([id, nm]) => { const v = store.get("best:" + b.id + ":" + id, null); if (v != null) bests.push(`${nm} ${fmt(v)}/10`); }));
     $("bestText").textContent = bests.length ? "Beste scores speurtocht: " + bests.join(" · ") : "Je hebt de speurtocht nog niet gedaan.";
+    const pct = (x, t) => `<div class="prog" aria-hidden="true"><div style="width:${t ? ((x / t) * 100).toFixed(1) : 0}%"></div></div>`;
+    $("pasStats").innerHTML = `<div><b>${fmt(n)}</b><span>van ${fmt(total)} reisstempels</span>${pct(n, total)}</div><div><b>${nV}</b><span>van 150 geschiedenissen gestempeld</span>${pct(nV, 150)}</div><div><b>${bests.length}</b><span>${bests.length === 1 ? "speurtocht gedaan" : "speurtochten gedaan"}</span></div>`;
   }
   $("vGrid").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
   $("stamps").addEventListener("click", (e) => { const b = e.target.closest(".stamp"); if (b) { const d = ALLPARTS.find((x) => x.key === b.dataset.key); setMode("reis"); if (d.boek !== boek) chooseBoek(d.boek, d, +b.dataset.s); else chooseDeel(d, +b.dataset.s); } });
@@ -1350,9 +1364,11 @@
   }
   $("toenBtn").onclick = () => setNu(false);
   $("nuBtn").onclick = () => setNu(true);
-  function setLegend(open) { $("legend").classList.toggle("open", open); $("legendBtn").setAttribute("aria-expanded", open); $("legendBtn").textContent = open && !isNarrow() ? "Legenda sluiten" : "Legenda"; queueLabels(); }
+  function setLegend(open) { $("legend").classList.toggle("open", open); $("legendBtn").setAttribute("aria-expanded", open); $("legendBtn").querySelector("span").textContent = open ? "Sluit" : "Legenda"; queueLabels(); }
   $("legendBtn").onclick = () => { const open = !$("legend").classList.contains("open"); setLegend(open); store.set("legenda", open); };
-  setLegend(store.get("legenda", false));
+  $("legendSluit").onclick = () => { setLegend(false); store.set("legenda", false); $("legendBtn").focus(); };
+  // Op de telefoon schuift de legenda over de pagina: daar niet vanzelf openen.
+  setLegend(store.get("legenda", false) && !isNarrow());
   const touchy = window.matchMedia("(pointer: coarse)");
   function setFull(on) {
     document.body.classList.toggle("mapfull", on);
@@ -1363,6 +1379,8 @@
     if (!on) $("fullBtn").focus();
   }
   $("fullBtn").onclick = () => setFull(!document.body.classList.contains("mapfull"));
+  // ‘Hele reis’: terug naar de volledige route van het deel (Reis) of van de geschiedenis (Verhalen).
+  $("heleBtn").onclick = () => { if (mode === "verhalen" && vOpen) focusStory(GBYNR.get(vOpen)); else if (mode === "reis") select(-1); };
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !e.defaultPrevented && document.body.classList.contains("mapfull") && $("lade").hidden && $("kast").hidden) setFull(false); });
   // Op een telefoon in het reisboek: met één vinger scroll je de pagina, met twee vingers beweeg je de kaart (Leaflet-knijpzoom verschuift ook).
   function syncDrag() {
@@ -1384,8 +1402,8 @@
     if (store.get("welkomWeg", false) && !d) { box.hidden = true; return; }
     box.hidden = false;
     box.innerHTML = d && d.steps[i]
-      ? `<p class="label">Welkom terug</p><p>Je was bij <b>${esc(d.boek.n)} · ${esc(d.n)}</b>, stap ${i + 1}: ${esc(d.steps[i].t)}.</p><div class="navrow"><button type="button" class="btn primary" data-go="${d.key}:${i}">Ga verder ▶</button><button type="button" class="btn" id="welkomWeg">Begin ergens anders</button></div>`
-      : `<p class="label">Zo werkt het</p><ol class="uitleg"><li>Kies bij <b>Verhalen</b> een van de 150 geschiedenissen, of zoek op naam, plaats of Bijbelboek.</li><li>Lees wat de Bijbel vertelt, bekijk het op de <b>kaart</b> en lees de Bijbeltekst zelf.</li><li>Ontdek meer, maak de vragen en verzamel <b>stempels</b>. Bij <b>Reis</b> volg je de routes stap voor stap.</li></ol><button type="button" class="btn small" id="welkomWeg">Begrepen</button>`;
+      ? `<div class="verder"><div class="v-wat"><p class="label">Verder waar je was</p><b>${esc(d.n)}</b><span>${esc(d.boek.n)} · stap ${i + 1} van ${d.steps.length}: ${esc(d.steps[i].t)}</span><div class="prog" aria-hidden="true"><div style="width:${(((i + 1) / d.steps.length) * 100).toFixed(1)}%"></div></div></div><button type="button" class="btn primary" data-go="${d.key}:${i}">Ga verder</button></div><button type="button" class="linkbtn small" id="welkomWeg">Ergens anders beginnen</button>`
+      : `<div class="verder nieuw"><div class="v-wat"><p class="label">Zo werkt het</p><span>Kies een <b>geschiedenis</b>, volg de <b>reis</b> op de kaart, lees de Bijbeltekst zelf en verzamel <b>stempels</b> in je paspoort.</span></div><button type="button" class="btn" id="welkomWeg">Begrepen</button></div>`;
     $("welkomWeg").onclick = () => { store.set("welkomWeg", true); box.hidden = true; };
   }
 
@@ -1394,7 +1412,7 @@
   const [hashId, hashStep] = decodeURIComponent(location.hash.slice(1)).split("/");
   const startDeel = ALLPARTS.find((d) => d.id === hashId) || ALLPARTS.find((d) => d.boek.id === hashId) || ALLPARTS[0];
   const startStep = hashStep && startDeel.steps[+hashStep - 1] ? +hashStep - 1 : -1;
-  fetch("/bijbelreis/geo.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(drawBase).catch(() => {
+  fetch(dataUrl("geo.json")).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(drawBase).catch(() => {
     console.error("Bijbelreis: de kaartondergrond kon niet worden geladen.");
     $("map").insertAdjacentHTML("beforeend", '<p class="maperr" role="status">De kaart kon niet helemaal worden geladen. Controleer de verbinding en laad de pagina opnieuw.</p>');
   });

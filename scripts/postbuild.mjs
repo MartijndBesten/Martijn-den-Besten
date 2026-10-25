@@ -84,5 +84,13 @@ console.log(`postbuild: ${ROUTES.length} routes + 404.html + sitemap.xml`);
     const hash = createHash("sha256").update(readFileSync(join(dist, url))).digest("hex").slice(0, 10);
     return `${attr}${url}?v=${hash}"`;
   });
-  writeFileSync(file, html);
+  // Ook de gegevens die app.js zelf ophaalt (ondergrond, reliëf, grenzen, Bijbeltekst) krijgen een inhoudshash,
+  // in een meta-tag (CSP staat geen inline script toe). app.js zet die achter de URL.
+  const { readdirSync } = await import("node:fs");
+  const kort = (p) => createHash("sha256").update(readFileSync(join(dist, "bijbelreis", p))).digest("hex").slice(0, 10);
+  const data = {};
+  for (const p of ["geo.json", "relief.json", "grenzen.json", "relief-regio.webp", "relief-kanaan.webp"]) data[p] = kort(p);
+  for (const f of readdirSync(join(dist, "bijbelreis", "bijbel")).filter((f) => f.endsWith(".json"))) data["bijbel/" + f] = kort("bijbel/" + f);
+  const meta = `<meta name="bijbelreis-data" content='${JSON.stringify(data)}' />`;
+  writeFileSync(file, html.replace("</head>", `    ${meta}\n  </head>`));
 }
