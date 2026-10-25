@@ -129,7 +129,7 @@ Live staat 3.0 met de afrondingsreparatie: worker `d5b8af16-ca11-466e-b060-5da3f
 | Statenvertaling-controleregels | 9.574, 0 mis |
 | Personencheck `--streng` | geen fouten |
 | Doorklikken: alle delen en stappen en alle 150 geschiedenissen | desktop, telefoon, tablet: geen problemen |
-| Playwright `bijbelreis navigatie a11y` (incl. axe/WCAG 2.2 AA) | desktop, mobiel, tablet: zie het PR-verslag voor de laatste run |
+| Volledige Playwright-suite zoals in CI (desktop 101, mobiel 62, tablet 35, 3D 6; incl. axe/WCAG 2.2 AA) | 203 geslaagd, 0 mislukt, 1 bewust overgeslagen (alleen-touch-test op desktop) |
 | Visuele regressie (`e2e/bijbelreis-visueel.spec.ts`) | 4 schermen × 3 apparaten, stabiel bij herhaling |
 | Voortgang uit echte 2.0 → 3.1 | 8 stempels, score 9/10 en geen sleutel verloren (desktop, Pixel 7, iPad) |
 | Alle 252 sleutels van 2.0 | wijzen naar dezelfde stap |
