@@ -547,6 +547,7 @@ button.vitem:hover { border-color: var(--acc); }
 .vcel.klaar { background: var(--acc); border-color: var(--acc); color: var(--bg); font-weight: 700; }
 /* Openbaring en profetie: geen plek op de kaart; de kaart wordt rustig en zegt dat. */
 #map.symbool::after { content: "Beelden en beloften, geen plaatsen op de kaart"; position: absolute; inset: 0; z-index: 650; display: grid; place-items: center; text-align: center; padding: 24px; font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; color: var(--fg); background: color-mix(in srgb, var(--bg) 72%, transparent); pointer-events: none; }
+#map.gelijkenis::after { content: "Een gelijkenis: een verhaal dat de Heere Jezus vertelde"; position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 650; max-width: 80%; text-align: center; padding: 8px 14px; border-radius: 999px; font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; color: var(--fg); background: color-mix(in srgb, var(--card) 88%, transparent); box-shadow: 0 0 0 1.5px var(--line); pointer-events: none; }
 /* Nieuwe Testament: een stip in plaats van de kameel. */
 .camel .walker { display: none; position: absolute; left: 16px; top: 22px; width: 16px; height: 16px; border-radius: 50%; border: 3px solid var(--card); box-shadow: 0 0 0 2px var(--fg); }
 .camel.nt svg { display: none; }

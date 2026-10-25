@@ -246,7 +246,12 @@
       let side = null, rect = null;
       for (const s of order) { const r = labelRect(it.pt, it.w, it.h, s); if (!placed.some((q) => hits(r, q))) { side = s; rect = r; break; } }
       if (!side && it.pr < 3) { it.el.classList.add("clash"); return; }
-      side = side || it.side; rect = rect || labelRect(it.pt, it.w, it.h, side);
+      if (!side) {
+        // Een actief label moet zichtbaar blijven: kies de kant met de minste overlap.
+        const overlap = (r) => placed.reduce((a, q) => a + Math.max(0, Math.min(r[0] + r[2], q[0] + q[2]) - Math.max(r[0], q[0])) * Math.max(0, Math.min(r[1] + r[3], q[1] + q[3]) - Math.max(r[1], q[1])), 0);
+        side = order.slice().sort((a, b) => overlap(labelRect(it.pt, it.w, it.h, a)) - overlap(labelRect(it.pt, it.w, it.h, b)))[0];
+      }
+      rect = rect || labelRect(it.pt, it.w, it.h, side);
       SIDES.forEach((s) => it.el.classList.toggle("s-" + s, s === side));
       placed.push(rect);
     });
@@ -434,7 +439,7 @@
   }
 
   function select(i, opts = {}) {
-    focus = null; $("map").classList.remove("symbool");
+    focus = null; $("map").classList.remove("symbool", "gelijkenis");
     cur = Math.max(-1, Math.min(deel.steps.length - 1, i));
     showAll = false;
     map.closePopup();
@@ -780,7 +785,7 @@
   function clearFocus() {
     if (!focus) return;
     (focus.delen || []).forEach((d) => { if (d !== deel) map.removeLayer(routeLayer(d)); });
-    focus = null; $("map").classList.remove("symbool");
+    focus = null; $("map").classList.remove("symbool", "gelijkenis");
     showPartPlaces(); routeState();
   }
   function focusStory(g) {
@@ -801,8 +806,9 @@
     const delen = [...new Set(steps.map((s) => s.deel))];
     partRoutes.forEach((gr, key) => { if (!delen.some((d) => d.key === key)) map.removeLayer(gr); });
     focus = { keys: new Set(steps.map((s) => s.key)), at: [...new Set(steps.flatMap((s) => s.at))], delen };
-    showPartPlaces();
-    focus.at.forEach((id) => markers[id] && !map.hasLayer(markers[id]) && lyPlaces.addLayer(markers[id]));
+    // Alleen de plaatsen van deze geschiedenis (en de vaste context van het deel) op de kaart.
+    lyPlaces.clearLayers(); lyAlt.clearLayers();
+    focus.at.concat(d0.ctx || []).forEach((id) => { if (markers[id]) lyPlaces.addLayer(markers[id]); (altMarkers[id] || []).forEach((m) => lyAlt.addLayer(m)); });
     delen.forEach((d) => {
       map.addLayer(routeLayer(d));
       d.steps.forEach((s) => (s.r || []).forEach((r) => {
@@ -817,7 +823,9 @@
     const end = lr ? lr.pts[lr.pts.length - 1] : focus.at.length ? ll(focus.at[0]) : null;
     if (end) camel.setLatLng(end);
     camelStyle(lr ? lr.w : d0.c, false, undefined, !end);
+    $("map").classList.toggle("gelijkenis", g.vorm === "gelijkenis" && !focus.at.length);
     if (pts.length) fit(pts, Math.max(...steps.map((s) => s.zoom || 9)));
+    else { const v = steps.find((s) => s.view); fit(v && Array.isArray(v.view) ? v.view : v && v.view === "wide" ? WIDE : KANAAN, 8); }
     queueLabels();
   }
   function focusOverview() {
