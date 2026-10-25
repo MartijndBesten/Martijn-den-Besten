@@ -52,11 +52,11 @@ GEO = os.path.join(OUT, "geo.json")
 
 TILE_URL = "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"
 NE_URL = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/{}.geojson"
-MAXBOUNDS = ((22.5, 19.0), (44.5, 54.0))  # (zuid, west), (noord, oost) zoals in app.js
+MAXBOUNDS = ((22.0, 4.0), (47.0, 57.0))  # (zuid, west), (noord, oost) zoals in app.js (sinds 3.0 tot Rome)
 
 # naam, gevraagde bounds, bronzoom, uitvoerzoom, webp-kwaliteit, overdrijving (z-factor)
 RELIEF = {
-    "regio": dict(bounds=MAXBOUNDS, zsrc=7, zout=6, q=72, exag=5.5),
+    "regio": dict(bounds=MAXBOUNDS, zsrc=7, zout=6, q=64, exag=5.5),
     "kanaan": dict(bounds=((29.2, 33.8), (33.95, 37.2)), zsrc=9, zout=9, q=70, exag=3.2),
 }
 # Overgangszone (graden, gemeten vanaf de rand van relief-kanaan naar binnen): daarin loopt de dekking (alfa)
