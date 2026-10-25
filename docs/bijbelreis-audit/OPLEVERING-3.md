@@ -52,7 +52,7 @@ Zie `personen-controle.md`.
 | Personen: teksten verzuiverd | 7 | Patmos, Jozef/Heli, Ahasveros, Johannes (Galaten 2:9), Rachab, Andreas/Jonas (2×) |
 | Personen: koppelfouten | 3 | Joas van Juda (65), Ananias (drie mannen), stamboom-koppeling via het verkeerde boek |
 | Plaatsen: naam, coördinaat of zekerheid | 16 + 1 nieuw | Golgotha, berg van de verheerlijking en Bergrede betwist; Asdod, Kos; Antipatris nieuw |
-| Routes: over zee in plaats van over land | 20 routes (11 NT, 9 OT) | vlucht naar Egypte, Via Appia, Kapernaüm, Jozef naar Egypte, Mozes naar Midian, Dode Zee |
+| Routes: over zee in plaats van over land | 24 routes (11 NT, 13 OT) | vlucht naar Egypte, Via Appia, Kapernaüm, Jozef naar Egypte, Mozes naar Midian, Dode Zee |
 | Ondergrond: oever Meer van Galilea | 1 | Kapernaüm lag ‘in het meer’ |
 | Namen in teksten gelijk aan kaart/SV | 33 regels | Lystre, Appiusmarkt, Pergamus, Rhodos, Samothrake, Asdod (Azote) |
 
