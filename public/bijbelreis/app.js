@@ -35,12 +35,12 @@
     return [31.5, 35.2];
   }
   const BOEKEN = BR.boeken;
-  const ALLPARTS = [];
+  const ALLPARTS = [], STEP_BY_KEY = new Map();
   BOEKEN.forEach((b) => b.delen.forEach((d) => {
     d.boek = b;
     d.key = b.id + ":" + d.id;
     d.steps.forEach((s, i) => {
-      s.deel = d; s.i = i; s.key = d.key + ":" + i; s.at = s.at || [];
+      s.deel = d; s.i = i; s.key = d.key + ":" + i; s.at = s.at || []; STEP_BY_KEY.set(s.key, s);
       (s.r || []).forEach((r) => { r.w = r.w || d.c; r.pts = r.p.map(ll); r.cum = [0]; r.pts.slice(1).forEach((q, j) => r.cum.push(r.cum[j] + hav(r.pts[j], q))); r.len = r.cum[r.cum.length - 1]; });
       s.km = s.r ? roundKm(s.r.reduce((a, r) => a + r.len, 0)) : 0;
     });
@@ -52,7 +52,7 @@
 
   // ---------- kaart ----------
   const WIDE = [[29.0, 30.5], [38.6, 47.6]], KANAAN = [[30.9, 34.2], [33.4, 36.4]];
-  const map = L.map("map", { zoomSnap: 0.25, zoomDelta: 0.5, minZoom: 4, maxZoom: 11, attributionControl: false, maxBounds: [[22.5, 19], [44.5, 54]], maxBoundsViscosity: 0.8, zoomControl: false });
+  const map = L.map("map", { zoomSnap: 0.25, zoomDelta: 0.5, minZoom: 4, maxZoom: 11, attributionControl: false, maxBounds: [[22, 4], [47, 57]], maxBoundsViscosity: 0.8, zoomControl: false });
   L.control.zoom({ position: "topleft", zoomInTitle: "Inzoomen", zoomOutTitle: "Uitzoomen" }).addTo(map);
   L.control.scale({ imperial: false, maxWidth: 120, position: "bottomleft" }).addTo(map);
   map.fitBounds(WIDE, { padding: [20, 20] });
@@ -73,15 +73,24 @@
     { n: "Gilboa", h: 497, ll: [32.47, 35.42], z: 9.25 }, { n: "Sinaï (Jebel Musa)", h: 2285, ll: [28.54, 33.98], z: 6.5 }, { n: "Libanon", h: 3088, ll: [34.31, 36.1], z: 7.75 },
   ];
   const REGIONS = [
-    { t: "Kanaän", ll: [31.75, 34.8], z: [6.5, 7.6], k: "land" }, { t: "Egypte", ll: [29.6, 31.0], z: [4, 8], k: "land" }, { t: "Sinaï", ll: [29.6, 33.8], z: [5, 8], k: "land" },
-    { t: "Sinear", ll: [32.0, 45.3], z: [4, 7], k: "land" }, { t: "Arabische woestijn", ll: [31.3, 40.2], z: [4, 7], k: "land" }, { t: "Aram", ll: [35.2, 38.6], z: [5, 7.5], k: "land" },
-    { t: "Negev", ll: [30.7, 34.8], z: [7, 9], k: "land" }, { t: "Moab", ll: [31.3, 35.85], z: [7.5, 10], k: "land" }, { t: "Edom", ll: [30.3, 35.5], z: [7, 9], k: "land" },
-    { t: "Filistijnen", ll: [31.42, 34.38], z: [8.25, 10], k: "land" }, { t: "Basan", ll: [32.95, 36.1], z: [7.5, 10], k: "land" }, { t: "Elam", ll: [32.0, 48.8], z: [4.5, 7], k: "land" },
-    { t: "Assyrië", ll: [36.0, 42.6], z: [4.5, 7], k: "land" }, { t: "Perzië", ll: [31.5, 51.5], z: [4, 6.5], k: "land" },
+    { t: "Kanaän", tijd: "ot", ll: [31.75, 34.8], z: [6.5, 7.6], k: "land" }, { t: "Egypte", ll: [29.6, 31.0], z: [4, 8], k: "land" }, { t: "Sinaï", ll: [29.6, 33.8], z: [5, 8], k: "land" },
+    { t: "Sinear", tijd: "ot", ll: [32.0, 45.3], z: [4, 7], k: "land" }, { t: "Arabische woestijn", ll: [31.3, 40.2], z: [4, 7], k: "land" }, { t: "Aram", tijd: "ot", ll: [35.2, 38.6], z: [5, 7.5], k: "land" },
+    { t: "Negev", ll: [30.7, 34.8], z: [7, 9], k: "land" }, { t: "Moab", tijd: "ot", ll: [31.3, 35.85], z: [7.5, 10], k: "land" }, { t: "Edom", tijd: "ot", ll: [30.3, 35.5], z: [7, 9], k: "land" },
+    { t: "Filistijnen", tijd: "ot", ll: [31.42, 34.38], z: [8.25, 10], k: "land" }, { t: "Basan", tijd: "ot", ll: [32.95, 36.1], z: [7.5, 10], k: "land" }, { t: "Elam", tijd: "ot", ll: [32.0, 48.8], z: [4.5, 7], k: "land" },
+    { t: "Assyrië", tijd: "ot", ll: [36.0, 42.6], z: [4.5, 7], k: "land" }, { t: "Perzië", tijd: "ot", ll: [31.5, 51.5], z: [4, 6.5], k: "land" },
     { t: "Grote Zee", ll: [33.3, 32.6], z: [4, 9], k: "sea" }, { t: "Dode Zee", ll: [31.45, 35.52], z: [8.5, 12], k: "sea" }, { t: "Meer van Galilea", ll: [32.82, 35.59], z: [8.75, 12], k: "sea" },
     { t: "Rode Zee", ll: [26.5, 35.4], z: [4, 8], k: "sea" }, { t: "Perzische Golf", ll: [28.6, 49.9], z: [4, 7], k: "sea" },
     { t: "Eufraat", ll: [37.35, 38.75], z: [5, 9], k: "sea" }, { t: "Tigris", ll: [34.7, 43.75], z: [5, 9], k: "sea" }, { t: "Nijl", ll: [29.3, 31.42], z: [6, 9], k: "sea" },
-    { t: "Jordaan", ll: [32.35, 35.66], z: [8, 12], k: "sea" }, { t: "Jabbok", ll: [32.0, 36.2], z: [8.5, 12], k: "sea" },
+    { t: "Jordaan", ll: [32.35, 35.66], z: [8, 12], k: "sea" }, { t: "Jabbok", ll: [32.0, 36.2], z: [8.5, 12], k: "sea", tijd: "ot" },
+    // Streken in de tijd van het Nieuwe Testament (Romeinse provincies en landstreken zoals de Bijbel ze noemt).
+    { t: "Galilea", ll: [32.88, 35.32], z: [7.25, 10], k: "land", tijd: "nt" }, { t: "Samaria", ll: [32.2, 35.12], z: [7.5, 10], k: "land", tijd: "nt" },
+    { t: "Judea", ll: [31.55, 34.98], z: [7.25, 10], k: "land", tijd: "nt" }, { t: "Dekapolis", ll: [32.55, 35.95], z: [7.75, 10], k: "land", tijd: "nt" },
+    { t: "Syrië", ll: [34.6, 37.3], z: [4.75, 7.5], k: "land", tijd: "nt" }, { t: "Cilicië", ll: [37.15, 34.9], z: [5.5, 8], k: "land", tijd: "nt" },
+    { t: "Pamfylië", ll: [37.1, 31.3], z: [5.5, 8], k: "land", tijd: "nt" }, { t: "Galatië", ll: [39.3, 32.6], z: [4.75, 7.5], k: "land", tijd: "nt" },
+    { t: "Asia", ll: [38.7, 28.7], z: [4.75, 7.5], k: "land", tijd: "nt" }, { t: "Macedonië", ll: [40.9, 22.3], z: [4.75, 7.5], k: "land", tijd: "nt" },
+    { t: "Achaje", ll: [37.6, 22.0], z: [4.75, 7.5], k: "land", tijd: "nt" }, { t: "Italië", ll: [41.2, 15.2], z: [4, 7], k: "land", tijd: "nt" },
+    { t: "Kreta", ll: [35.25, 24.6], z: [5, 8], k: "land", tijd: "nt" }, { t: "Cyprus", ll: [35.1, 33.15], z: [5, 8], k: "land", tijd: "nt" },
+    { t: "Adria", ll: [38.0, 18.6], z: [4, 7], k: "sea", tijd: "nt" },
   ];
 
   const lyRoutes = L.layerGroup().addTo(map), lyPlaces = L.layerGroup().addTo(map), lyKings = L.layerGroup();
@@ -161,17 +170,20 @@
   });
   const lyAlt = L.layerGroup().addTo(map);
 
-  const CAMEL = `<div class="camel"><svg viewBox="0 0 48 40" aria-hidden="true"><path class="leg a" d="M12 30v8"/><path class="leg b" d="M17 30v8"/><path class="leg b" d="M29 30v8"/><path class="leg a" d="M34 30v8"/><path class="body" d="M6 25c0-6 4-10 9-9 2-6 9-7 11 0 1-3 6-3 7 1 1 2 2 3 2 6l3-12c1-3 4-4 7-3l3 1-1 3h-4l-4 16c-1 2-2 3-4 3H9c-2 0-3-2-3-6z"/><path class="saddle" d="M15 17c4-2 10-2 15 1l-2 6H16z"/><circle class="eye" cx="42.5" cy="11.5" r="1"/></svg></div>`;
+  const CAMEL = `<div class="camel"><svg viewBox="0 0 48 40" aria-hidden="true"><path class="leg a" d="M12 30v8"/><path class="leg b" d="M17 30v8"/><path class="leg b" d="M29 30v8"/><path class="leg a" d="M34 30v8"/><path class="body" d="M6 25c0-6 4-10 9-9 2-6 9-7 11 0 1-3 6-3 7 1 1 2 2 3 2 6l3-12c1-3 4-4 7-3l3 1-1 3h-4l-4 16c-1 2-2 3-4 3H9c-2 0-3-2-3-6z"/><path class="saddle" d="M15 17c4-2 10-2 15 1l-2 6H16z"/><circle class="eye" cx="42.5" cy="11.5" r="1"/></svg><span class="walker"></span></div>`;
   const camel = L.marker([31.5, 35.2], { icon: icon(CAMEL), interactive: false, keyboard: false, zIndexOffset: 1000 }).addTo(map);
   function camelStyle(who, walking, flip, gone) {
     const e = camel.getElement(); const el = e && e.querySelector(".camel"); if (!el) return;
     el.querySelector(".saddle").style.fill = color(who || "kobalt");
+    // In het Nieuwe Testament geen kameel maar een eenvoudige stip: geen afbeelding bij de reizen van de Heere Jezus.
+    el.classList.toggle("nt", !!boek.nt); el.querySelector(".walker").style.background = color(who || "kobalt");
     el.classList.toggle("walk", !!walking);
     el.classList.toggle("gone", !!gone);
     if (flip !== undefined) el.classList.toggle("flip", flip);
   }
 
   let boek = BOEKEN[0], deel = boek.delen[0], cur = -1, mode = "reis", animToken = 0, showAll = false;
+  let focus = null; // { keys: Set van stapsleutels, at: [plaats-ids] } wanneer een geschiedenis op de kaart staat
 
   function showPartPlaces() {
     lyPlaces.clearLayers();
@@ -200,7 +212,7 @@
   function refreshLabels() {
     const z = map.getZoom();
     // In het overzicht van een deel lichten alle plaatsen van dat deel op; bij een stap alleen die van de stap.
-    const on = new Set(mode !== "reis" ? [] : cur >= 0 ? deel.steps[cur].at : deel.steps.flatMap((s) => s.at));
+    const on = new Set(focus ? focus.at : mode !== "reis" ? [] : cur >= 0 ? deel.steps[cur].at : deel.steps.flatMap((s) => s.at));
     const size = map.getSize(), items = [];
     Object.entries(markers).forEach(([id, m]) => {
       const el = m.getElement(); if (!el || !map.hasLayer(m)) return;
@@ -212,7 +224,8 @@
       const pt = map.latLngToContainerPoint(P[id].ll);
       if (vis && pt.x > -150 && pt.y > -40 && pt.x < size.x + 150 && pt.y < size.y + 40) items.push({ el: lab, pt, side: m.pside, pr: on.has(id) ? 3 : P[id].ctx ? 1 : 2, z: P[id].z || 7, pin: certOf(P[id]) !== "r" });
     });
-    REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1]; el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
+    const tst = boek.nt ? "nt" : "ot";
+    REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1] || (r.tijd && r.tijd !== tst); el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
     PEAKS.forEach((p, i) => { const el = peakMarkers[i].getElement(); if (!el) return; el.firstChild.classList.toggle("off", z < p.z); el.firstChild.classList.remove("clash"); if (z >= p.z) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(p.ll), side: "peak", pr: 0.5, z: p.z }); });
     // Eén leesronde voor alle maten, daarna alleen schrijven.
     items.forEach((it) => { it.w = it.el.offsetWidth; it.h = it.el.offsetHeight; });
@@ -306,6 +319,7 @@
     deel.steps.forEach((s, i) => (s.r || []).forEach((r) => {
       let st = showAll ? "past" : i < cur ? "past" : i === cur ? "active" : "future";
       if (r.w === "rood" && i !== cur) st = "future";
+      if (focus) st = focus.keys.has(s.key) ? "active" : "future";
       [r.line, r.casing].forEach((l) => { const el = l && l.getElement(); if (!el) return; el.classList.remove("past", "active", "future", "hl"); el.classList.add(st); });
       r.arrows.forEach((a) => { const e = a.getElement(); if (e) { e.firstChild.classList.toggle("off", st === "future"); e.firstChild.classList.toggle("dim", st === "past"); } });
     }));
@@ -420,6 +434,7 @@
   }
 
   function select(i, opts = {}) {
+    focus = null; $("map").classList.remove("symbool");
     cur = Math.max(-1, Math.min(deel.steps.length - 1, i));
     showAll = false;
     map.closePopup();
@@ -618,12 +633,16 @@
   }
 
   // ---------- tabbladen ----------
-  const TABS = ["reis", "wie", "tijd", "quiz", "ver", "pas"];
+  const TABS = ["verhalen", "reis", "wie", "tijd", "quiz", "pas"];
   function setMode(m) {
     mode = m;
-    TABS.forEach((t) => { $("t-" + t).setAttribute("aria-selected", t === m); $("t-" + t).tabIndex = t === m ? 0 : -1; $("p-" + t).hidden = t !== m; });
+    const tab = m === "ver" ? "reis" : m; // ‘Hoe ver?’ hoort bij de reis en heeft geen eigen tab meer
+    TABS.forEach((t) => { $("t-" + t).setAttribute("aria-selected", t === tab); $("t-" + t).tabIndex = t === tab ? 0 : -1; });
+    ["verhalen", "reis", "wie", "tijd", "quiz", "ver", "pas"].forEach((t) => ($("p-" + t).hidden = t !== m));
+    if (m !== "verhalen") clearFocus();
+    tapHandler = null;
     $("mapbar").hidden = m !== "reis";
-    $("legend").hidden = m !== "reis"; $("legendBtn").hidden = m !== "reis";
+    $("legend").hidden = !(m === "reis" || m === "verhalen"); $("legendBtn").hidden = !(m === "reis" || m === "verhalen");
     $("map").classList.toggle("quizmode", m === "quiz");
     lyQuiz.clearLayers();
     if (m !== "ver") { lyNL.clearLayers(); nlOn = false; $("nlBtn").textContent = "Leg Nederland op de kaart"; $("nlHint").hidden = true; }
@@ -633,6 +652,7 @@
       if (!map.hasLayer(lyPlaces)) map.addLayer(lyPlaces);
       if (!map.hasLayer(camel)) map.addLayer(camel);
       if (m === "reis") select(cur);
+      if (m === "verhalen") renderVerhalen();
       if (m === "ver") { renderTrips(); showTrip(); }
       if (m === "pas") renderStamps();
       if (m === "wie") renderWie();
@@ -645,6 +665,278 @@
     const i = TABS.indexOf(mode);
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); const n = TABS[(i + (e.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length]; setMode(n); $("t-" + n).focus(); }
   });
+
+
+  // ---------- de 150 geschiedenissen ----------
+  // Een geschiedenis is een laag boven de reisstappen: ze wijst naar stappen (kaart, route, stempel) en voegt uitleg,
+  // kernwoord, een ontdekking en vragen toe. Leidraad en nummering: docs/bijbelreis-150/.
+  const LEIDRAAD = BR.leidraad || {};
+  const G = (BR.geschiedenissen || []).slice().sort((a, b) => a.nr - b.nr);
+  const GBYNR = new Map(G.map((g) => [g.nr, g]));
+  const KW = BR.kernwoorden || {};
+  const SECTIES = [
+    ["Schepping en oergeschiedenis", 1, 7], ["De aartsvaders", 8, 20], ["Mozes en de uittocht", 21, 31], ["In de woestijn", 32, 36],
+    ["Het beloofde land", 37, 41], ["Richters en Ruth", 42, 47], ["Samuël, Saul, David en Salomo", 48, 62], ["Koningen, profeten en ballingschap", 63, 75],
+    ["Terugkeer en wachten op de Koning", 76, 79], ["Geboorte en jeugd van de Heere Jezus", 80, 86], ["Doop, wonderen en onderwijs", 87, 108],
+    ["Onderweg naar Jeruzalem", 109, 117], ["Lijden, sterven en opstanding", 118, 132], ["De eerste gemeente", 133, 142], ["De reizen van Paulus", 143, 148], ["Openbaring", 149, 150],
+  ];
+  const sectieOf = (nr) => SECTIES.find(([, a, b]) => nr >= a && nr <= b)[0];
+  const VORM = { route: "Reis op de kaart", plek: "Gebeurtenis op een plek", stamboom: "Familie", gelijkenis: "Gelijkenis", thema: "Profetie en verbanden", symbool: "Beelden en tekens" };
+  const verhaalStore = store.get("verhalen", {});
+  const saveVerhaal = (nr, patch) => { verhaalStore[nr] = { ...(verhaalStore[nr] || {}), ...patch }; store.set("verhalen", verhaalStore); };
+  const norm = (t) => String(t || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "");
+  G.forEach((g) => {
+    const plaatsen = (g.stappen || []).flatMap((k) => (STEP_BY_KEY.get(k) || { at: [] }).at).map((id) => P[id] && P[id].n);
+    g.zoek = norm([g.nr, g.t, g.ref, (g.wie || []).join(" "), g.kw && KW[g.kw] ? KW[g.kw].n : "", sectieOf(g.nr), plaatsen.join(" "), VORM[g.vorm] || ""].join(" "));
+  });
+  let vTest = "alle", vZoek = "", vOpen = null;
+
+  function renderVerhalen() {
+    if (vOpen) return renderVerhaal(vOpen);
+    const box = $("p-verhalen");
+    const done = G.filter((g) => verhaalStore[g.nr]).length;
+    box.innerHTML = `<h2>150 <em>geschiedenissen</em></h2>
+      <p class="ref">Van de schepping tot Openbaring. Kies een geschiedenis, of zoek op Bijbelboek, persoon, plaats of thema. Je kunt ook gewoon bij 1 beginnen en steeds ‘Volgende’ kiezen.</p>
+      <div class="prog big" aria-hidden="true"><div style="width:${((done / 150) * 100).toFixed(1)}%"></div></div>
+      <p class="ref">${done ? `Je hebt ${done} van de 150 geschiedenissen gelezen.` : `${G.length} van de 150 geschiedenissen zijn beschikbaar.`}</p>
+      <label class="label" for="vZoek">Zoeken</label>
+      <input type="search" id="vZoek" placeholder="Bijvoorbeeld: Jozef, Jericho, Lukas, gebed" value="${esc(vZoek)}" autocomplete="off">
+      <div class="pick" role="group" aria-label="Testament">${[["alle", "Alles"], ["ot", "Oude Testament · 79"], ["nt", "Nieuwe Testament · 71"]].map(([k, n]) => `<button type="button" data-vt="${k}" aria-pressed="${vTest === k}" style="--pc:var(--acc)">${n}</button>`).join("")}</div>
+      <div id="vLijst" class="vlijst"></div>
+      <details class="kwlijst"><summary>Kernwoorden (${Object.keys(KW).length})</summary><div class="chips">${Object.entries(KW).sort((a, b) => a[1].n.localeCompare(b[1].n, "nl")).map(([id, k]) => `<button type="button" class="chip" data-kw="${id}">${esc(k.n)}</button>`).join("")}</div></details>`;
+    $("vZoek").addEventListener("input", (e) => { vZoek = e.target.value; renderLijst(); });
+    box.querySelectorAll("[data-vt]").forEach((b) => (b.onclick = () => { vTest = b.dataset.vt; box.querySelectorAll("[data-vt]").forEach((x) => x.setAttribute("aria-pressed", x === b)); renderLijst(); }));
+    box.querySelectorAll("[data-kw]").forEach((b) => (b.onclick = () => { vZoek = KW[b.dataset.kw].n; $("vZoek").value = vZoek; renderLijst(); $("vZoek").scrollIntoView({ block: "nearest" }); }));
+    renderLijst();
+    focusOverview();
+  }
+  function renderLijst() {
+    const q = norm(vZoek).split(/\s+/).filter(Boolean);
+    const okT = (nr) => vTest === "alle" || (vTest === "ot" ? nr <= 79 : nr >= 80);
+    let html = "", hits = 0;
+    SECTIES.forEach(([naam, a, b]) => {
+      const items = [];
+      for (let nr = a; nr <= b; nr++) {
+        if (!okT(nr)) continue;
+        const g = GBYNR.get(nr);
+        if (q.length && !(g && q.every((w) => g.zoek.includes(w)))) continue;
+        hits++;
+        const st = verhaalStore[nr];
+        items.push(g
+          ? `<li><button type="button" class="vitem${st && st.q != null ? " klaar" : st ? " gezien" : ""}" data-v="${nr}"><span class="vnr">${nr}</span><span class="vt"><b>${esc(g.t)}</b><small>${esc(g.ref)}${g.kw && KW[g.kw] ? ` · <i>${esc(KW[g.kw].n)}</i>` : ""}</small></span>${st && st.q != null ? '<span class="vok" aria-label="gestempeld">✓</span>' : ""}</button></li>`
+          : `<li><span class="vitem off"><span class="vnr">${nr}</span><span class="vt"><b>Nog niet beschikbaar</b><small>${esc(LEIDRAAD[nr] || "")}</small></span></span></li>`);
+      }
+      if (items.length) html += `<h3 class="vsectie">${esc(naam)} <small>${a}–${b}</small></h3><ul class="vul">${items.join("")}</ul>`;
+    });
+    $("vLijst").innerHTML = html || `<p class="ref">Niets gevonden voor ‘${esc(vZoek)}’. Probeer een andere naam, plaats of Bijbelboek.</p>`;
+    if (q.length) $("vLijst").insertAdjacentHTML("afterbegin", `<p class="ref" role="status">${hits} gevonden</p>`);
+  }
+  $("p-verhalen").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
+
+  function openVerhaal(nr, opts = {}) {
+    const g = GBYNR.get(nr); if (!g) return;
+    vOpen = nr;
+    if (mode !== "verhalen") setMode("verhalen"); else renderVerhaal(nr);
+    if (!opts.keepHash) history.replaceState(null, "", "#v" + nr);
+    if (!verhaalStore[nr]) saveVerhaal(nr, { g: 1 });
+    if (isNarrow()) $("p-verhalen").scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" }); else $("reisboek").scrollTo({ top: 0 });
+  }
+  function renderVerhaal(nr) {
+    const g = GBYNR.get(nr), box = $("p-verhalen"); if (!g) { vOpen = null; return renderVerhalen(); }
+    const k = g.kw && KW[g.kw];
+    const steps = (g.stappen || []).map((x) => STEP_BY_KEY.get(x)).filter(Boolean);
+    const prevG = G.slice().reverse().find((x) => x.nr < nr), nextG = G.find((x) => x.nr > nr);
+    const tijd = g.tl === null || g.tijd === null ? "" : g.tijd || (steps[0] && tijdText(steps[0].deel)) || "";
+    box.innerHTML = `<nav class="crumb" aria-label="Waar ben je"><button type="button" class="linkbtn" id="vTerug">← Alle geschiedenissen</button><span class="muted">${esc(sectieOf(nr))}</span></nav>
+      <article class="card verhaal" aria-labelledby="vTitel">
+        <div class="top"><b>Geschiedenis ${nr} van 150</b><span>${esc(VORM[g.vorm] || "")}</span></div>
+        <h2 id="vTitel">${esc(g.t)}</h2>
+        <p class="tijd"><span>${esc(g.ref)}</span>${tijd ? `<span>· ${esc(tijd)}${g.tijdNoot ? "" : ""}</span>` : ""}</p>
+        <div class="chips">${(g.wie || []).map((n) => personChip([n])).join("")}</div>
+        <p class="label bl">Wat de Bijbel vertelt</p>
+        <p>${esc(g.uitleg)}</p>
+        ${parseRef(g.ref) ? `<button type="button" class="btn small bijbellink" data-ref="${esc(g.ref)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></svg>Lees het zelf in de Bijbel</button>` : ""}
+        ${g.betekenis ? `<div class="fact"><b>Uitleg <span class="fs fs-u">Uitleg</span></b>${esc(g.betekenis)}</div>` : ""}
+        ${k ? `<div class="kernwoord"><p class="label">Kernwoord</p><h3>${esc(k.n)}</h3><p>${esc(k.uitleg)}</p>${(k.refs || []).length ? `<ul class="xrefs">${k.refs.map(([r, t]) => `<li>${parseRef(r) ? `<button type="button" class="linkbtn" data-ref="${esc(r)}">${esc(r)}</button>` : `<b>${esc(r)}</b>`}<span>${esc(t)}</span></li>`).join("")}</ul>` : ""}</div>` : ""}
+        ${steps.length ? `<div class="stack"><p class="label">Volg het op de kaart</p><ul class="golist">${steps.map((s) => `<li><button type="button" class="linkbtn" data-go="${s.key}">${esc(s.t)}</button><small>${esc(s.ref)}</small></li>`).join("")}</ul></div>` : g.vorm === "symbool" || g.vorm === "thema" ? `<p class="ref">${g.vorm === "symbool" ? "De visioenen in dit gedeelte zijn beelden; ze staan niet als plaatsen op de kaart." : "Dit gedeelte is een profetie: het gaat om wat God belooft, niet om een reis."}</p>` : ""}
+        <div id="vOntdek" class="stack"></div>
+        <div id="vQuiz" class="stack"></div>
+        ${(g.cross || []).length ? `<p class="label">Elders in de Bijbel</p><ul class="xrefs">${g.cross.map(([r, t]) => `<li>${parseRef(r) ? `<button type="button" class="linkbtn" data-ref="${esc(r)}">${esc(r)}</button>` : `<b>${esc(r)}</b>`}<span>${esc(t)}</span></li>`).join("")}</ul>` : ""}
+        ${g.tijdNoot ? `<details class="noot"><summary>Hoe weten we wanneer dit was?</summary><p>${esc(g.tijdNoot)}</p></details>` : ""}
+        <div class="navrow">
+          <button type="button" class="btn" ${prevG ? `data-v="${prevG.nr}"` : "disabled"}>◀ ${prevG ? prevG.nr : ""}</button>
+          <button type="button" class="btn primary" ${nextG ? `data-v="${nextG.nr}"` : "disabled"}>${nextG ? `${nextG.nr}. ${esc(nextG.t.length > 22 ? nextG.t.slice(0, 21) + "…" : nextG.t)}` : "Einde"} ▶</button>
+        </div>
+      </article>`;
+    $("vTerug").onclick = () => { vOpen = null; history.replaceState(null, "", "#verhalen"); renderVerhalen(); };
+    renderOntdek($("vOntdek"), g);
+    renderVQuiz($("vQuiz"), g);
+    focusStory(g);
+    setAccent2(steps[0] ? steps[0].deel.c : g.nr >= 80 ? "lila" : "kobalt");
+  }
+  function setAccent2(c) { document.body.style.setProperty("--acc", color(c)); document.body.style.setProperty("--acc-deep", color(c)); }
+
+  // De kaart bij een geschiedenis: alle bijbehorende stappen (routes en plaatsen) tegelijk.
+  function clearFocus() {
+    if (!focus) return;
+    (focus.delen || []).forEach((d) => { if (d !== deel) map.removeLayer(routeLayer(d)); });
+    focus = null; $("map").classList.remove("symbool");
+    showPartPlaces(); routeState();
+  }
+  function focusStory(g) {
+    const steps = (g.stappen || []).map((x) => STEP_BY_KEY.get(x)).filter(Boolean);
+    animToken++; lySpecial.clearLayers(); map.removeLayer(lyKings); map.closePopup();
+    if (focus) clearFocus();
+    if (!steps.length) {
+      focus = { keys: new Set(), at: [], delen: [] };
+      partRoutes.forEach((gr) => map.removeLayer(gr)); lyPlaces.clearLayers(); lyAlt.clearLayers();
+      camelStyle(null, false, undefined, true);
+      $("map").classList.toggle("symbool", g.vorm === "symbool" || g.vorm === "thema");
+      fit(g.nr >= 80 ? [[30.5, 33.5], [34, 37]] : WIDE, 6);
+      queueLabels();
+      return;
+    }
+    const d0 = steps[0].deel;
+    if (d0 !== deel) { deel = d0; boek = d0.boek; cur = -1; renderDelen(); setAccent(); renderDots(); }
+    const delen = [...new Set(steps.map((s) => s.deel))];
+    partRoutes.forEach((gr, key) => { if (!delen.some((d) => d.key === key)) map.removeLayer(gr); });
+    focus = { keys: new Set(steps.map((s) => s.key)), at: [...new Set(steps.flatMap((s) => s.at))], delen };
+    showPartPlaces();
+    focus.at.forEach((id) => markers[id] && !map.hasLayer(markers[id]) && lyPlaces.addLayer(markers[id]));
+    delen.forEach((d) => {
+      map.addLayer(routeLayer(d));
+      d.steps.forEach((s) => (s.r || []).forEach((r) => {
+        r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts);
+        const st = focus.keys.has(s.key) ? "active" : "future";
+        [r.line, r.casing].forEach((l) => { const el = l.getElement(); if (el) { el.classList.remove("past", "active", "future", "hl"); el.classList.add(st); } });
+        r.arrows.forEach((a) => { const e = a.getElement(); if (e) { e.firstChild.classList.toggle("off", st === "future"); e.firstChild.classList.remove("dim"); } });
+      }));
+    });
+    const pts = steps.flatMap((s) => (s.r || []).filter((r) => r.w !== "rood").flatMap((r) => r.pts)).concat(focus.at.map(ll));
+    const last = steps[steps.length - 1], lr = last.r && last.r[last.r.length - 1];
+    const end = lr ? lr.pts[lr.pts.length - 1] : focus.at.length ? ll(focus.at[0]) : null;
+    if (end) camel.setLatLng(end);
+    camelStyle(lr ? lr.w : d0.c, false, undefined, !end);
+    if (pts.length) fit(pts, Math.max(...steps.map((s) => s.zoom || 9)));
+    queueLabels();
+  }
+  function focusOverview() {
+    if (focus) clearFocus();
+    select(-1, { keepHash: true, noFly: false });
+  }
+
+  // ---------- ontdekken: één bouwsteen per soort ----------
+  function renderOntdek(host, g) {
+    const o = g.ontdek; if (!o) return;
+    host.innerHTML = `<p class="label">Ontdek</p><h3 class="otitel">${esc(o.titel || "")}</h3><div class="ontdek"></div>`;
+    const box = host.querySelector(".ontdek");
+    const soort = ONTDEK[o.soort] || ONTDEK.onthul;
+    soort(box, o, g);
+  }
+  const refLink = (r) => (r && parseRef(r) ? ` <button type="button" class="linkbtn small" data-ref="${esc(r)}">${esc(r)}</button>` : r ? ` <small>${esc(r)}</small>` : "");
+  const ONTDEK = {
+    onthul(box, o) { revealGame(box, { titel: "", items: o.items || [] }); },
+    volgorde(box, o) {
+      const items = o.items || [], opts = shuffle(items), picked = [];
+      box.innerHTML = `<p class="ref">Tik ze aan in de goede volgorde.</p><div class="opts">${opts.map((x) => `<button type="button" class="opt" data-v="${esc(x)}">${esc(x)}</button>`).join("")}</div><button type="button" class="btn small" data-undo>Opnieuw</button><div class="res"></div>`;
+      const btns = [...box.querySelectorAll(".opt")];
+      btns.forEach((b) => (b.onclick = () => {
+        if (picked.includes(b.dataset.v)) return;
+        picked.push(b.dataset.v); b.innerHTML = `<span class="num">${picked.length}</span>${esc(b.dataset.v)}`;
+        if (picked.length === items.length) {
+          const ok = picked.every((v, i) => v === items[i]);
+          btns.forEach((x) => { x.disabled = true; x.classList.add(picked.indexOf(x.dataset.v) === items.indexOf(x.dataset.v) ? "ok" : "no"); });
+          box.querySelector(".res").innerHTML = `<div class="feedback ${ok ? "ok" : "mid"}">${ok ? "Helemaal goed!" : "Bijna."}<span>De goede volgorde: ${esc(items.join(" → "))}.</span></div>`;
+        }
+      }));
+      box.querySelector("[data-undo]").onclick = () => ONTDEK.volgorde(box, o);
+    },
+    koppel(box, o) {
+      const paren = o.paren || [], rechts = shuffle(paren.map((p) => p[1]));
+      let sel = null, goed = 0;
+      box.innerHTML = `<p class="ref">Tik links en dan rechts wat erbij hoort.</p><div class="koppel"><div>${paren.map((p, i) => `<button type="button" class="opt l" data-i="${i}">${esc(p[0])}</button>`).join("")}</div><div>${rechts.map((r) => `<button type="button" class="opt r" data-r="${esc(r)}">${esc(r)}</button>`).join("")}</div></div><div class="res" role="status"></div>`;
+      box.querySelectorAll(".l").forEach((b) => (b.onclick = () => { box.querySelectorAll(".l").forEach((x) => x.classList.remove("sel")); if (!b.disabled) { sel = b; b.classList.add("sel"); } }));
+      box.querySelectorAll(".r").forEach((b) => (b.onclick = () => {
+        if (!sel || b.disabled) return;
+        const ok = paren[+sel.dataset.i][1] === b.dataset.r;
+        if (ok) { sel.disabled = b.disabled = true; sel.classList.add("ok"); b.classList.add("ok"); sel.classList.remove("sel"); sel = null; goed++; }
+        else { b.classList.add("no"); setTimeout(() => b.classList.remove("no"), 600); }
+        box.querySelector(".res").innerHTML = goed === paren.length ? `<div class="feedback ok">Alles goed gekoppeld!</div>` : ok ? "" : `<div class="feedback no">Dat hoort niet bij elkaar. Probeer het nog eens.</div>`;
+      }));
+    },
+    wiezei(box, o) {
+      box.innerHTML = (o.items || []).map(([citaat, goed, fout], i) => `<div class="wiezei" data-i="${i}"><p class="citaat">‘${esc(citaat)}’</p><div class="pick">${shuffle([goed].concat(fout || [])).map((n) => `<button type="button" data-n="${esc(n)}">${esc(n)}</button>`).join("")}</div><div class="res"></div></div>`).join("");
+      box.querySelectorAll(".wiezei").forEach((w) => w.querySelectorAll("button").forEach((b) => (b.onclick = () => {
+        const it = o.items[+w.dataset.i], ok = b.dataset.n === it[1];
+        w.querySelectorAll("button").forEach((x) => { x.disabled = true; if (x.dataset.n === it[1]) x.classList.add("ok"); });
+        if (!ok) b.classList.add("no");
+        w.querySelector(".res").innerHTML = `<div class="feedback ${ok ? "ok" : "no"}">${ok ? "Goed!" : `Het was ${esc(it[1])}.`}</div>`;
+      })));
+    },
+    gelijkenis(box, o) { kaartjes(box, (o.beelden || o.items || []), "Wat betekent het?"); },
+    symbolen(box, o) { kaartjes(box, (o.items || []), "Wat zegt de Bijbel zelf?"); },
+    verbanden(box, o) {
+      box.innerHTML = `<ol class="verbanden">${(o.items || []).map(([r1, b, r2, v]) => `<li><div class="vb1">${refLink(r1)}<p>${esc(b)}</p></div><button type="button" class="btn small" aria-expanded="false">Hoe kwam het uit?</button><div class="vb2" hidden>${refLink(r2)}<p>${esc(v)}</p></div></li>`).join("")}</ol>`;
+      box.querySelectorAll(".verbanden li").forEach((li) => (li.querySelector(".btn").onclick = (e) => { const d = li.querySelector(".vb2"); d.hidden = !d.hidden; e.target.setAttribute("aria-expanded", !d.hidden); }));
+    },
+    stamboom(box, o) {
+      box.innerHTML = `<div class="tree">${(o.rijen || []).map((row, i) => (i ? '<div class="arrow" aria-hidden="true">▼</div>' : "") + `<div class="gen">${row.map((n) => { const id = mensOf(n, boek.id) || MENS_IDX["*|" + n]; return id ? `<button type="button" class="person" data-mens="${id}">${esc(n)}</button>` : `<span class="person">${esc(n)}</span>`; }).join("")}</div>`).join("")}</div>${o.ref ? `<p class="ref">${refLink(o.ref)}</p>` : ""}`;
+    },
+    kaart(box, o) {
+      box.innerHTML = `<p>${esc(o.vraag || "Wijs de plek aan op de kaart.")}</p><button type="button" class="btn small">Wijs aan op de kaart</button><div class="res" role="status"></div>`;
+      box.querySelector(".btn").onclick = () => {
+        fit(o.v === "wide" ? WIDE : o.v === "kanaan" ? KANAAN : Array.isArray(o.v) ? o.v : KANAAN, 8.5);
+        $("map").classList.add("quizmode"); scrollToMap();
+        tapHandler = (latlng) => {
+          $("map").classList.remove("quizmode"); tapHandler = null;
+          const goal = ll(o.id), km = hav([latlng.lat, latlng.lng], goal), ok = km <= (o.v === "wide" ? 120 : 15) * 2;
+          lyQuiz.clearLayers();
+          L.marker(goal, { interactive: false, icon: icon(`<span class="goal"></span><span class="lab s-r on" style="display:block">${esc(P[o.id] ? P[o.id].n : "")}</span>`) }).addTo(lyQuiz);
+          box.querySelector(".res").innerHTML = `<div class="feedback ${ok ? "ok" : "mid"}">${ok ? "Raak!" : `Je zat ${fmt(Math.round(km))} km ernaast.`}</div>`;
+          setTimeout(() => lyQuiz.clearLayers(), 6000);
+        };
+      };
+    },
+  };
+  function kaartjes(box, items, vraag) {
+    box.innerHTML = `<div class="days kaartjes">${items.map(([beeld]) => `<button type="button" class="day" aria-expanded="false"><b>${esc(beeld)}</b><span>${esc(vraag)}</span></button>`).join("")}</div>`;
+    box.querySelectorAll(".day").forEach((b, i) => (b.onclick = (e) => {
+      if (e.target.closest("[data-ref]")) return;
+      const open = b.classList.toggle("open"); b.setAttribute("aria-expanded", open);
+      const [, bet, r] = items[i];
+      b.querySelector("span").innerHTML = open ? `${esc(bet)}${r ? ` <small>(${esc(r)})</small>` : ""}` : esc(vraag);
+    }));
+  }
+  let tapHandler = null;
+
+  // ---------- vragen bij een geschiedenis ----------
+  function renderVQuiz(host, g) {
+    const Qs = g.quiz || []; if (!Qs.length) return;
+    let i = 0, score = 0;
+    const order = Qs.map((q) => ({ ...q, opts: shuffle(q.a) }));
+    function show() {
+      if (i >= order.length) {
+        const best = verhaalStore[g.nr] && verhaalStore[g.nr].q;
+        if (best == null || score > best) saveVerhaal(g.nr, { q: score });
+        host.innerHTML = `<p class="label">Vragen</p><div class="feedback ok">Klaar: ${score} van ${order.length} goed.<span>${score === order.length ? "Alles goed! Je hebt de stempel van deze geschiedenis." : "Je hebt de stempel van deze geschiedenis. Lees het nog eens na en probeer het opnieuw."}</span></div><button type="button" class="btn small" id="vqOpnieuw">Nog een keer</button>`;
+        host.querySelector("#vqOpnieuw").onclick = () => renderVQuiz(host, g);
+        toast(`Stempel: geschiedenis ${g.nr}`);
+        return;
+      }
+      const q = order[i];
+      host.innerHTML = `<p class="label">Vraag ${i + 1} van ${order.length}</p><p class="qtext">${esc(q.q)}</p><div class="opts">${q.opts.map((o) => `<button type="button" class="opt">${esc(o)}</button>`).join("")}</div><div class="res"></div>`;
+      host.querySelectorAll(".opt").forEach((b) => (b.onclick = () => {
+        const ok = b.textContent === q.a[0]; if (ok) score++;
+        host.querySelectorAll(".opt").forEach((x) => { x.disabled = true; if (x.textContent === q.a[0]) x.classList.add("ok"); });
+        if (!ok) b.classList.add("no");
+        host.querySelector(".res").innerHTML = `<div class="feedback ${ok ? "ok" : "no"}">${ok ? "Goed!" : "Helaas."}<span>Het goede antwoord: ${esc(q.a[0])}.${q.why ? ` Lees ${refLink(q.why)}.` : ""}</span></div><button type="button" class="btn primary small" id="vqVolgende">${i + 1 < order.length ? "Volgende vraag ▶" : "Klaar"}</button>`;
+        host.querySelector("#vqVolgende").onclick = () => { i++; show(); };
+        host.querySelector("#vqVolgende").focus({ preventScroll: true });
+      }));
+    }
+    host.innerHTML = `<p class="label">Vragen</p><p class="ref">${order.length} vragen over deze geschiedenis.</p><button type="button" class="btn small" id="vqStart">Begin met de vragen</button>`;
+    host.querySelector("#vqStart").onclick = show;
+  }
 
   // ---------- tijdlijn ----------
   // Jaartallen zijn reconstructies (zie tijdNoot per deel); Genesis 1–11 krijgt bewust geen jaartal.
@@ -671,11 +963,11 @@
     ["Brieven en Openbaring", "Romeinen 1_Korinthe 2_Korinthe Galaten Efeze Filippenzen Kolossenzen 1_Thessalonicenzen 2_Thessalonicenzen 1_Timotheüs 2_Timotheüs Titus Filemon Hebreeën Jakobus 1_Petrus 2_Petrus 1_Johannes 2_Johannes 3_Johannes Judas Openbaring"],
   ];
   const slugOf = (n) => n.toLowerCase().replace(/_/g, "").replace(/[ëéïü]/g, (c) => ({ ë: "e", é: "e", ï: "i", ü: "u" })[c]);
-  const SAMEN = { deuteronomium: "numeri", nehemia: "ezra" };
+  const SAMEN = { deuteronomium: "numeri", nehemia: "ezra", mattheus: "jezus-1", markus: "jezus-1", lukas: "jezus-1", johannes: "jezus-1", jesaja: "profeten", jeremia: "profeten", zacharia: "profeten", maleachi: "profeten" };
   function renderKast() {
     $("kastLijst").innerHTML = KAST.map(([g, list], gi) => `${gi === 4 ? '<p class="label nt">Nieuwe Testament</p>' : gi === 0 ? '<p class="label nt">Oude Testament</p>' : ""}<p class="label">${g}</p><div class="kastrij">${list.split(" ").map((x) => {
       const n = x.replace(/_/g, " "), id = SAMEN[slugOf(x)] || slugOf(x), b = BOEKEN.find((q) => q.id === id);
-      const st = b ? (SAMEN[slugOf(x)] ? `samen met ${b.n.split(" en ")[0]}` : `${b.delen.reduce((a, d) => a + d.steps.length, 0)} stappen`) : "in ontwikkeling";
+      const st = b ? (SAMEN[slugOf(x)] ? `in ‘${b.n.split(" en ")[0].split(":")[0]}’` : `${b.delen.reduce((a, d) => a + d.steps.length, 0)} stappen`) : "in ontwikkeling";
       return b ? `<button type="button" class="kb" data-boek="${b.id}"${b === boek ? ' aria-current="true"' : ""}><b>${esc(n)}</b><small>${esc(st)}</small></button>` : `<span class="kb off"><b>${esc(n)}</b><small>${st}</small></span>`;
     }).join("")}</div>`).join("");
   }
@@ -817,6 +1109,7 @@
     }
   }
   map.on("click", (e) => {
+    if (tapHandler) { tapHandler(e.latlng); return; }
     if (mode !== "quiz" || !awaitingTap) return;
     const q = awaitingTap; awaitingTap = null;
     const goal = ll(q.id), tap = [e.latlng.lat, e.latlng.lng], km = hav(tap, goal), wide = q.v === "wide";
@@ -932,10 +1225,14 @@
     }).join("")).join("");
     const n = ALLPARTS.reduce((a, d) => a + d.steps.filter((s) => seen.has(s.key)).length, 0);
     $("pasText").textContent = n === total ? `Alle ${total} stempels! Jij hebt de hele reis gemaakt.` : `Je hebt ${n} van de ${total} stempels. Ga verder met de reis om ze allemaal te verzamelen.`;
+    const nV = Object.values(verhaalStore).filter((v) => v.q != null).length, nG = Object.keys(verhaalStore).length;
+    $("vPasText").textContent = nG ? `${nG} van de 150 geschiedenissen gelezen, ${nV} gestempeld (vragen gemaakt).` : "Lees een geschiedenis bij ‘Verhalen’ en maak de vragen om een stempel te krijgen.";
+    $("vGrid").innerHTML = Array.from({ length: 150 }, (_, i) => { const nr = i + 1, v = verhaalStore[nr], g = GBYNR.get(nr); return `<button type="button" class="vcel${v && v.q != null ? " klaar" : v ? " gezien" : ""}" ${g ? `data-v="${nr}"` : "disabled"} aria-label="Geschiedenis ${nr}${g ? ": " + esc(g.t) : " (nog niet beschikbaar)"}${v && v.q != null ? ", gestempeld" : v ? ", gelezen" : ""}">${nr}</button>`; }).join("");
     const bests = [];
     BOEKEN.forEach((b) => [["alles", "alles uit " + b.n]].concat(b.delen.map((d) => [d.id, d.n])).forEach(([id, nm]) => { const v = store.get("best:" + b.id + ":" + id, null); if (v != null) bests.push(`${nm} ${fmt(v)}/10`); }));
     $("bestText").textContent = bests.length ? "Beste scores speurtocht: " + bests.join(" · ") : "Je hebt de speurtocht nog niet gedaan.";
   }
+  $("vGrid").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
   $("stamps").addEventListener("click", (e) => { const b = e.target.closest(".stamp"); if (b) { const d = ALLPARTS.find((x) => x.key === b.dataset.key); setMode("reis"); if (d.boek !== boek) chooseBoek(d.boek, d, +b.dataset.s); else chooseDeel(d, +b.dataset.s); } });
   let resetArmed = false;
   $("resetPas").onclick = () => {
@@ -1018,7 +1315,7 @@
     box.hidden = false;
     box.innerHTML = d && d.steps[i]
       ? `<p class="label">Welkom terug</p><p>Je was bij <b>${esc(d.boek.n)} · ${esc(d.n)}</b>, stap ${i + 1}: ${esc(d.steps[i].t)}.</p><div class="navrow"><button type="button" class="btn primary" data-go="${d.key}:${i}">Ga verder ▶</button><button type="button" class="btn" id="welkomWeg">Begin ergens anders</button></div>`
-      : `<p class="label">Zo werkt het</p><ol class="uitleg"><li>Kies een <b>bijbelboek</b> en een <b>deel</b>.</li><li>Druk op <b>Start</b> en volg de reis stap voor stap op de kaart.</li><li>Lees bij elke stap de Bijbeltekst zelf en verzamel een <b>stempel</b>.</li></ol><button type="button" class="btn small" id="welkomWeg">Begrepen</button>`;
+      : `<p class="label">Zo werkt het</p><ol class="uitleg"><li>Kies bij <b>Verhalen</b> een van de 150 geschiedenissen, of zoek op naam, plaats of Bijbelboek.</li><li>Lees wat de Bijbel vertelt, bekijk het op de <b>kaart</b> en lees de Bijbeltekst zelf.</li><li>Ontdek meer, maak de vragen en verzamel <b>stempels</b>. Bij <b>Reis</b> volg je de routes stap voor stap.</li></ol><button type="button" class="btn small" id="welkomWeg">Begrepen</button>`;
     $("welkomWeg").onclick = () => { store.set("welkomWeg", true); box.hidden = true; };
   }
 
@@ -1033,10 +1330,16 @@
   });
   TABS.forEach((t) => ($("t-" + t).tabIndex = t === "reis" ? 0 : -1));
   chooseBoek(startDeel.boek, startDeel, startStep, { keepHash: true });
+  const vHash = /^v(\d+)$/.exec(hashId || "");
+  if (vHash && GBYNR.has(+vHash[1])) openVerhaal(+vHash[1], { keepHash: true });
+  else if (!hashId || hashId === "verhalen") setMode("verhalen");
+  else setMode("reis");
   if (!hashId) renderWelkom();
   syncDrag();
   window.addEventListener("hashchange", () => {
-    const [h, st] = decodeURIComponent(location.hash.slice(1)).split("/"), d = ALLPARTS.find((x) => x.id === h); if (!d) return;
+    const [h, st] = decodeURIComponent(location.hash.slice(1)).split("/");
+    const vm = /^v(\d+)$/.exec(h); if (vm && GBYNR.has(+vm[1])) { if (vOpen !== +vm[1]) openVerhaal(+vm[1], { keepHash: true }); return; }
+    const d = ALLPARTS.find((x) => x.id === h); if (!d) return;
     const i = st && d.steps[+st - 1] ? +st - 1 : -1;
     if (d !== deel || i !== cur) { setMode("reis"); chooseBoek(d.boek, d, i, { keepHash: true }); }
   });
