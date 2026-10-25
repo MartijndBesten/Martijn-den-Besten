@@ -14,6 +14,11 @@ SLUG = ["genesis","exodus","leviticus","numeri","deuteronomium","jozua","richter
 NAAM = ["Genesis","Exodus","Leviticus","Numeri","Deuteronomium","Jozua","Richteren","Ruth","1 Samuël","2 Samuël","1 Koningen","2 Koningen","1 Kronieken","2 Kronieken","Ezra","Nehemia","Esther","Job","Psalmen","Spreuken","Prediker","Hooglied","Jesaja","Jeremia","Klaagliederen","Ezechiël","Daniël","Hosea","Joël","Amos","Obadja","Jona","Micha","Nahum","Habakuk","Sefanja","Haggaï","Zacharia","Maleachi",
         "Mattheüs","Markus","Lukas","Johannes","Handelingen","Romeinen","1 Korinthe","2 Korinthe","Galaten","Efeze","Filippenzen","Kolossenzen","1 Thessalonicenzen","2 Thessalonicenzen","1 Timotheüs","2 Timotheüs","Titus","Filemon","Hebreeën","Jakobus","1 Petrus","2 Petrus","1 Johannes","2 Johannes","3 Johannes","Judas","Openbaring"]
 
+# Bekende transcriptiefouten in de bron, hersteld naar de gedrukte SV (editie 1888). Houd deze lijst kort en verantwoord.
+ERRATA = {
+    ("Acts", 8, 14): ("zonden zij, hen Petrus", "zonden zij tot hen Petrus"),  # 'tot' ontbreekt in de transcriptie
+}
+
 def clean(x):
     x = re.sub(r"<note\b.*?</note>", "", x, flags=re.S)
     x = re.sub(r"<title\b.*?</title>", "", x, flags=re.S)
@@ -30,7 +35,12 @@ def main(path, out):
         osis = re.search(r'osisID="([^"]+)"', parts[i]).group(1).split()[0]
         body = parts[i + 1].split("</verse>")[0]
         b, c, v = osis.split(".")
-        data[b][int(c)][int(v)] = clean(body)
+        t = clean(body)
+        fix = ERRATA.get((b, int(c), int(v)))
+        if fix:
+            assert fix[0] in t, f"erratum {b} {c}:{v} past niet meer"
+            t = t.replace(*fix)
+        data[b][int(c)][int(v)] = t
     os.makedirs(out, exist_ok=True)
     for o, slug, naam in zip(OSIS, SLUG, NAAM):
         ch = data[o]

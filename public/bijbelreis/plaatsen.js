@@ -483,6 +483,6 @@ Object.assign(BR.plaatsen, {
 Object.assign(BR.W, {
   nt_jordaanvallei: [32.3, 35.56], nt_galilea_zuid: [32.55, 35.35], nt_kustweg: [32.25, 34.88], nt_samariaweg: [32.0, 35.25],
   nt_damascusweg: [33.05, 35.95], nt_cilicie: [36.8, 34.6], nt_cyprus_oost: [35.3, 34.4], nt_kretazee: [35.6, 25.6],
-  nt_middenzee: [35.6, 19.0], nt_messina: [38.27, 15.62], nt_tyrrheense: [39.5, 14.6], nt_cilicischezee: [36.2, 32.5],
-  nt_tauruspas: [37.3, 34.75], nt_egeisch: [39.9, 25.2],
+  nt_middenzee: [35.6, 19.0], nt_tyrrheense: [39.5, 14.6],
+  nt_tauruspas: [37.3, 34.75],
 });

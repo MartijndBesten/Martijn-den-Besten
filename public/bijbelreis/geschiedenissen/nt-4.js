@@ -28,7 +28,7 @@ BR.geschiedenissen.push(
   nr: 135, t: "Petrus preekt op de Pinksterdag", ref: "Handelingen 2:14–47", sectie: "gemeente",
   stappen: ["handelingen:nt-gemeente:1"], vorm: "plek",
   uitleg: "Petrus staat op met de elf andere apostelen en spreekt de menigte toe. Deze mensen zijn niet dronken, zegt hij, want het is pas het derde uur van de dag. Wat hier gebeurt, had God door de profeet Joël beloofd: Hij zou Zijn Geest uitstorten op alle vlees. Dan vertelt Petrus over Jezus van Nazareth, Die God door wonderen en tekenen had aangewezen. Jullie hebben Hem door de handen van onrechtvaardigen aan het kruis laten slaan, maar God heeft Hem opgewekt, zoals David al in de Psalmen schreef. Nu zit Hij aan de rechterhand van God en heeft Hij de Heilige Geest uitgestort. De mensen worden in hun hart geraakt en vragen wat ze moeten doen. ‘Bekeert u’, zegt Petrus, ‘en een iegelijk van u worde gedoopt in den Naam van Jezus Christus, tot vergeving der zonden.’ Ongeveer drieduizend mensen laten zich dopen, en ze blijven bij de leer van de apostelen, de gemeenschap, het breken van het brood en de gebeden.",
-  betekenis: "Dezelfde Petrus die de Heere Jezus driemaal verloochende (Lukas 22:61–62), preekt nu vrijmoedig over Zijn opstanding. Petrus zegt erbij: de belofte is ‘u, en uw kinderen, en allen, die daar verre zijn, zo velen als er de Heere, onze God, toe roepen zal’ (Handelingen 2:39).",
+  betekenis: "Dezelfde Petrus die de Heere Jezus driemaal verloochende (Lukas 22:61–62), preekt nu vrijmoedig over Zijn opstanding. Petrus zegt erbij: de belofte is ‘u komt de belofte toe, en uw kinderen, en allen, die daar verre zijn, zo velen als er de Heere, onze God, toe roepen zal’ (Handelingen 2:39).",
   wie: ["Petrus", "Apostelen"],
   ontdek: { soort: "wiezei", titel: "Wie zei het?", items: [
     ["Zij zijn vol zoeten wijns.", "Spotters in de menigte", ["Petrus", "De profeet Joël"]],
@@ -186,7 +186,7 @@ BR.geschiedenissen.push(
   nr: 143, t: "Saulus op weg naar Damascus", ref: "Handelingen 9:1–25", sectie: "paulus",
   stappen: ["handelingen:nt-paulus:0", "handelingen:nt-paulus:1"], vorm: "route",
   uitleg: "Saulus vervolgt de gemeente en sleept mannen en vrouwen naar de gevangenis; met brieven van de hogepriester reist hij naar Damascus, om ook daar gelovigen gevangen te nemen. Vlak bij de stad straalt plotseling een licht uit de hemel om hem heen; hij valt op de grond en hoort: ‘Saul, Saul! wat vervolgt gij Mij?’ ‘Wie zijt Gij, Heere?’ ‘Ik ben Jezus, Dien gij vervolgt.’ Blind wordt hij Damascus binnengeleid, en drie dagen eet en drinkt hij niets. De Heere stuurt de discipel Ananias naar hem toe: ‘want zie, hij bidt.’ Ananias is bang, maar de Heere zegt dat Saulus een uitverkoren vat is om Zijn Naam te dragen voor de heidenen, de koningen en Israël. Ananias legt hem de handen op, er vallen als schubben van zijn ogen, en Saulus wordt gedoopt. Direct predikt hij in de synagogen dat Jezus de Zoon van God is, en als men hem wil doden, ontsnapt hij ’s nachts in een mand langs de muur.",
-  betekenis: "De grootste vervolger wordt door Gods genade een apostel. Paulus schreef later: ‘Christus Jezus is in de wereld gekomen, om de zondaren zalig te maken, van welke ik de voornaamste ben’ (1 Timotheüs 1:15).",
+  betekenis: "De grootste vervolger wordt door Gods genade een apostel. Paulus schreef later: ‘Christus Jezus in de wereld gekomen is, om de zondaren zalig te maken, van welke ik de voornaamste ben’ (1 Timotheüs 1:15).",
   wie: ["Saulus", "Ananias van Damascus"], kw: "bekering",
   ontdek: { soort: "onthul", titel: "Saulus: vóór en na", items: [
     ["Vóór: bij Stefanus", "De getuigen leggen hun kleren aan de voeten van Saulus, en hij heeft een welbehagen aan de dood van Stefanus (7:58; 8:1)."],
@@ -208,7 +208,7 @@ BR.geschiedenissen.push(
   nr: 144, t: "Paulus en Barnabas op reis", ref: "Handelingen 9:26–30; 11:19–30; 13–14", sectie: "paulus",
   stappen: ["handelingen:nt-paulus:2", "handelingen:nt-paulus:3", "handelingen:nt-paulus:4", "handelingen:nt-paulus:5", "handelingen:nt-paulus:6", "handelingen:nt-paulus:7"], vorm: "route",
   uitleg: "In Jeruzalem zijn de discipelen eerst bang voor Saulus, maar Barnabas neemt hem mee naar de apostelen. Daarna gaat Saulus naar Tarsus, tot Barnabas hem ophaalt naar Antiochië, waar de discipelen voor het eerst christenen genoemd worden. Daar zegt de Heilige Geest: ‘Zondert Mij af beiden Barnabas en Saulus tot het werk, waartoe Ik hen geroepen heb.’ Ze varen naar Cyprus en trekken het eiland door; in Pafos wordt de tovenaar Elymas blind en gaat de stadhouder geloven. In Antiochië in Pisidië preekt Paulus in de synagoge over Jezus, de Zaligmaker uit Davids nageslacht. Veel heidenen zijn blij, maar er komt vervolging, ook in Ikonium. In Lystra geneest Paulus een man die nog nooit gelopen had, en de mensen willen hen als goden offers brengen; even later wordt Paulus gestenigd. Toch keren ze terug langs dezelfde steden om de gelovigen te versterken en ouderlingen te kiezen. In Antiochië vertellen ze dat God voor de heidenen de deur van het geloof had geopend.",
-  betekenis: "Paulus en Barnabas zeggen: ‘wij moeten door vele verdrukkingen ingaan in het Koninkrijk Gods’ (Handelingen 14:22). Paulus herinnert Timotheüs later aan die vervolgingen, en schrijft: ‘de Heere heeft mij uit alle verlost’ (2 Timotheüs 3:11).",
+  betekenis: "Paulus en Barnabas zeggen: ‘wij door vele verdrukkingen moeten ingaan in het Koninkrijk Gods’ (Handelingen 14:22). Paulus herinnert Timotheüs later aan die vervolgingen, en schrijft: ‘de Heere heeft mij uit alle verlost’ (2 Timotheüs 3:11).",
   wie: ["Paulus", "Barnabas", "Johannes Markus", "Sergius Paulus", "Elymas"],
   ontdek: { soort: "volgorde", titel: "De eerste reis: zet de plaatsen op volgorde", items: [
     "Antiochië", "Seleucië", "Salamis", "Pafos", "Perge", "Antiochië in Pisidië", "Ikonium", "Lystra", "Derbe"] },
@@ -219,7 +219,7 @@ BR.geschiedenissen.push(
   cross: [["Jesaja 49:6", "‘Ik heb U ook gegeven tot een Licht der heidenen.’ Paulus en Barnabas halen dit aan in Antiochië in Pisidië (Handelingen 13:47)."],
     ["Handelingen 4:36", "Barnabas betekent ‘zoon der vertroosting’; hij was een Leviet van Cyprus."],
     ["2 Timotheüs 3:11", "Paulus noemt de vervolgingen ‘in Antiochië, in Ikonium en in Lystre’."],
-    ["2 Korinthe 11:25", "‘Eens ben ik gestenigd geweest.’"]],
+    ["2 Korinthe 11:25", "‘Eens ben ik gestenigd.’"]],
   tl: [46, 48], tijd: "ca. 46–48 n.Chr. (de eerste reis)", tijdNoot: "Reconstructie. Saulus kwam ca. 36 n.Chr. in Jeruzalem en Antiochië kreeg hulp tijdens de hongersnood onder keizer Claudius (Handelingen 11:28). De eerste zendingsreis (Handelingen 13–14) wordt meestal ca. 46–48 n.Chr. gedateerd. De Bijbel noemt geen jaartallen.",
 },
 {
@@ -256,7 +256,7 @@ BR.geschiedenissen.push(
     { q: "Hoeveel mannen hadden gezworen Paulus te doden?", a: ["Meer dan veertig", "Twaalf", "Zeven"], why: "Handelingen 23:13" }],
   cross: [["Handelingen 20:22–24", "Paulus reist ‘gebonden zijnde door den Geest’ naar Jeruzalem, niet wetend wat hem daar zal ontmoeten."],
     ["Handelingen 9:15–16", "De Heere noemde Paulus een uitverkoren vat, en zei hoeveel hij om Zijn Naam zou moeten lijden."],
-    ["Filippenzen 3:5", "Paulus noemt zich ‘een Hebreeër uit de Hebreeën, naar de wet een Farizeeër’."]],
+    ["Filippenzen 3:5", "Paulus noemt zich ‘een Hebreër uit de Hebreën, naar de wet een Farizeër’."]],
   tl: [57, 57], tijd: "ca. 57 n.Chr.", tijdNoot: "Reconstructie: twee jaar vóór de komst van Festus (Handelingen 24:27), die meestal rond 59 n.Chr. wordt gedateerd. Andere dateringen liggen tussen ca. 55 en 58 n.Chr.",
 },
 {
@@ -271,7 +271,7 @@ BR.geschiedenissen.push(
     { q: "Hoe heette de stormwind die tegen het schip sloeg?", a: ["Euroklydon", "Sirocco", "Boreas"], why: "Handelingen 27:14" },
     { q: "Wie stond in de nacht bij Paulus en zei: ‘Vrees niet’?", a: ["Een engel Gods", "De hoofdman Julius", "De stuurman"], why: "Handelingen 27:23–24" },
     { q: "Hoeveel ankers wierpen ze uit het achterschip?", a: ["Vier", "Twee", "Zeven"], why: "Handelingen 27:29" }],
-  cross: [["Psalm 107:28–30", "‘Hij doet de storm stilstaan, zodat hun golven stilzwijgen … en dat Hij hen tot de haven hunner begeerte geleid heeft.’"],
+  cross: [["Psalm 107:28–30", "‘Hij doet den storm stilstaan, zodat hun golven stilzwijgen … en dat Hij hen tot de haven hunner begeerte geleid heeft.’"],
     ["Jona 1:4", "Ook in het verhaal van Jona stuurt de HEERE een grote storm op zee."],
     ["Markus 4:39", "De Heere Jezus zei tegen de zee: ‘Zwijg, wees stil!’"],
     ["2 Korinthe 11:25", "‘Driemaal heb ik schipbreuk geleden.’"]],
@@ -357,14 +357,14 @@ BR.kernwoorden["heilige-geest"] = { n: "Heilige Geest",
     ["Handelingen 5:3–4", "Liegen tegen de Heilige Geest is liegen tegen God."],
     ["Galaten 5:22", "De vrucht van de Geest is liefde, blijdschap, vrede, lankmoedigheid, goedertierenheid, goedheid, geloof, zachtmoedigheid en matigheid."]] };
 BR.kernwoorden.vergeving = { n: "Vergeving",
-  uitleg: "Vergeven betekent: iemand zijn schuld niet meer aanrekenen. Bij God is vergeving van zonden door de Heere Jezus: ‘een iegelijk, die in Hem gelooft, vergeving der zonden ontvangen zal door Zijn Naam’ (Handelingen 10:43). ‘Indien wij onze zonden belijden, Hij is getrouw en rechtvaardig, dat Hij ons de zonden vergeve’ (1 Johannes 1:9). Wie vergeving ontvangt, moet ook anderen vergeven, zoals de Heere Jezus leerde in het Onze Vader. Stefanus bad zelfs voor de mensen die hem stenigden (Handelingen 7:60).",
+  uitleg: "Vergeven betekent: iemand zijn schuld niet meer aanrekenen. Bij God is vergeving van zonden door de Heere Jezus: ‘een iegelijk, die in Hem gelooft, vergeving der zonden ontvangen zal door Zijn Naam’ (Handelingen 10:43). ‘Indiën wij onze zonden belijden, Hij is getrouw en rechtvaardig, dat Hij ons de zonden vergeve’ (1 Johannes 1:9). Wie vergeving ontvangt, moet ook anderen vergeven, zoals de Heere Jezus leerde in het Onze Vader. Stefanus bad zelfs voor de mensen die hem stenigden (Handelingen 7:60).",
   refs: [["Psalm 32:1", "‘Welgelukzalig is hij, wiens overtreding vergeven, wiens zonde bedekt is.’"],
     ["Mattheüs 6:12", "‘En vergeef ons onze schulden, gelijk ook wij vergeven onzen schuldenaren.’"],
     ["Handelingen 10:43", "Ieder die in Christus gelooft, ontvangt vergeving van de zonden door Zijn Naam."],
     ["Efeze 4:32", "‘Vergevende elkander, gelijkerwijs ook God in Christus ulieden vergeven heeft.’"]] };
 BR.kernwoorden.dienen = { n: "Dienen",
   uitleg: "Dienen is werken voor God en voor een ander, zonder jezelf groot te maken. De Heere Jezus zei dat Hij niet gekomen is om gediend te worden, maar om te dienen en Zijn leven te geven als losprijs voor velen (Markus 10:45). In de eerste gemeente werden zeven mannen gekozen om voor de weduwen te zorgen (Handelingen 6:1–6), en Tabitha was ‘vol van goede werken’ (Handelingen 9:36). Paulus schrijft: ‘dient elkander door de liefde’ (Galaten 5:13).",
-  refs: [["Markus 10:45", "‘Want ook de Zoon des mensen is niet gekomen, om gediend te worden, maar om te dienen.’"],
+  refs: [["Markus 10:45", "‘Want ook de Zoon des mensen is niet gekomen om gediend te worden, maar om te dienen.’"],
     ["Handelingen 6:2–3", "Zeven mannen worden gekozen voor het dagelijkse dienen van de tafels."],
     ["Galaten 5:13", "‘Dient elkander door de liefde.’"],
     ["1 Petrus 4:10", "Ieder moet de gave die hij gekregen heeft gebruiken om anderen te dienen."]] };
