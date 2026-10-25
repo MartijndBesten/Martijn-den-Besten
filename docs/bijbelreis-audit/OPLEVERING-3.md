@@ -1,6 +1,6 @@
 # Oplevering Bijbelreis 3.0: 150 geschiedenissen (25 oktober 2026)
 
-**Status:** zie §7 (publicatie en controle op productie).
+**Live:** https://martijndenbesten.com/bijbelreis, worker-versie `0f451139-7eef-4119-addd-5eb0cf691e70`, broncode `main` @ `0d9f08b` (PR #4).
 **Herstelpunt:** de live versie 2.0, worker-versie `b4db496e-3380-41dc-b8a1-7ebab4dba63d` (`npx wrangler rollback b4db496e-3380-41dc-b8a1-7ebab4dba63d -c wrangler.embedded.jsonc`).
 
 ## 1. Geschiedenissen
@@ -111,6 +111,16 @@ Zie `kaart-3.md`.
   - Voor Jeruzalem is geen stadsplattegrond getekend: de loop van de muren in de 1e eeuw is deels onzeker.
 - **Techniek:** GitHub-uitrol slaat over zolang het geheim `CLOUDFLARE_API_TOKEN` ontbreekt. Uitrol gaat handmatig via de embedded worker.
 
-## 7. Publicatie
+## 7. Publicatie en controle op productie
 
-Wordt na de uitrol ingevuld met versie, commit en controle op productie.
+- **Publicatie:** PR #4, CI groen. De eerste CI-run vond een testfout: de speurtocht-test klikte op mobiel met de muis op de kaart in plaats van te tikken. Die is opgelost en met 60/60 herhaalde runs bewezen.
+- **Commit:** squash-merge `0d9f08b` op `main`, gebouwd vanaf `main`.
+- **Uitrol:** via de embedded worker (5,2 MB gzip). Worker-versie: `0f451139-7eef-4119-addd-5eb0cf691e70`.
+- **Herstelpunt:** `b4db496e-3380-41dc-b8a1-7ebab4dba63d` (2.0).
+- **Gecontroleerd op productie (25-10-2026):**
+  - nieuwe versie geladen (`app.js?v=a1fe1b8486`);
+  - alle 34 scripts geven 200;
+  - de gecorrigeerde ondergrond staat live;
+  - Playwright `bijbelreis navigatie a11y` tegen https://martijndenbesten.com: **94/94** (desktop, mobiel, tablet);
+  - alle 150 geschiedenissen geopend met titel, ontdekking en vragen op desktop, iPhone 13, Pixel 7 en iPad: 4 × 150/150, **0 JavaScript-fouten**.
+- **Schermafbeeldingen van productie:** `screenshots/3.0/<apparaat>-start.jpg` en `<apparaat>-v26|v94|v126|v144|v149.jpg`.
