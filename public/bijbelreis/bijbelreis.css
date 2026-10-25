@@ -553,3 +553,6 @@ button.vitem:hover { border-color: var(--acc); }
 .camel.nt .walker { display: block; }
 .camel.nt { filter: none; }
 @media (max-width: 900px) { .koppel { grid-template-columns: 1fr; } .vitem { grid-template-columns: 2rem minmax(0, 1fr) auto; } }
+.famlijst { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.famlijst li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-size: 0.9rem; }
+.famlijst li span { color: var(--fg-2); }

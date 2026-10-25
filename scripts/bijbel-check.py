@@ -42,6 +42,10 @@ def text(ref):
         raise ValueError(f"{ref}: vers buiten bereik (hoofdstuk heeft {len(verses)} verzen)")
     return " ".join(verses[a - 1 : z])
 
+def fold(x):
+    """Trema's en accenten tellen niet mee (Kaïn = Kain, zeeën = zeeen): het gaat om de woorden."""
+    return unicodedata.normalize("NFKD", x).encode("ascii", "ignore").decode()
+
 def main(path):
     bad = 0
     lines = [l for l in open(path, encoding="utf-8").read().splitlines() if l.strip() and not l.startswith("#")]
@@ -49,7 +53,7 @@ def main(path):
         try:
             ref, pat = [x.strip() for x in line.split("|", 1)]
             t = text(ref)
-            if not re.search(pat, t, re.I):
+            if not re.search(fold(pat), fold(t), re.I):
                 bad += 1
                 print(f"FAIL {ref} | {pat}\n     {t[:260]}")
         except Exception as e:  # noqa: BLE001

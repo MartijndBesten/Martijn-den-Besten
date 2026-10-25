@@ -880,6 +880,12 @@
       box.querySelectorAll(".verbanden li").forEach((li) => (li.querySelector(".btn").onclick = (e) => { const d = li.querySelector(".vb2"); d.hidden = !d.hidden; e.target.setAttribute("aria-expanded", !d.hidden); }));
     },
     stamboom(box, o) {
+      const rijen = o.rijen || [];
+      // Twee vormen: generaties (rijen met namen) of een lijst [naam, relatie, verwijzing].
+      if (rijen.length && rijen.every((r) => r.length === 3 && parseRef(r[2]))) {
+        box.innerHTML = `<ul class="famlijst">${rijen.map(([n, rel, r]) => { const id = mensOf(n, boek.id) || MENS_IDX["*|" + n]; return `<li>${id ? `<button type="button" class="chip" data-mens="${id}">${esc(n)}</button>` : `<b>${esc(n)}</b>`}<span>${esc(rel)}</span>${refLink(r)}</li>`; }).join("")}</ul>`;
+        return;
+      }
       box.innerHTML = `<div class="tree">${(o.rijen || []).map((row, i) => (i ? '<div class="arrow" aria-hidden="true">▼</div>' : "") + `<div class="gen">${row.map((n) => { const id = mensOf(n, boek.id) || MENS_IDX["*|" + n]; return id ? `<button type="button" class="person" data-mens="${id}">${esc(n)}</button>` : `<span class="person">${esc(n)}</span>`; }).join("")}</div>`).join("")}</div>${o.ref ? `<p class="ref">${refLink(o.ref)}</p>` : ""}`;
     },
     kaart(box, o) {
