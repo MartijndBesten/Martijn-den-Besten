@@ -24,7 +24,7 @@ Daarnaast: het Bureau voor Onnodige Innovatie, een certificaatgenerator (PNG/PDF
 | Tests | Vitest (logica + API met echte SQL) en Playwright (e2e + axe-toegankelijkheid) |
 | CI/CD | GitHub Actions: checks bij elke push, deploy naar Cloudflare op `main` |
 
-Geen cookies, geen trackers, geen externe API's of CDN's. Lettertypen (Bricolage Grotesque, Instrument Sans, Space Mono; OFL) worden zelf gehost.
+Geen cookies, geen advertentietrackers, geen externe API's of CDN's (alleen de cookieloze Cloudflare Web Analytics die op de zone aanstaat). Lettertypen (Bricolage Grotesque, Instrument Sans, Space Mono; OFL) worden zelf gehost.
 
 ## Lokaal ontwikkelen
 

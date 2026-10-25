@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Officiële website van een man met meer ideeën dan tijd.",
+  "description": "Offici\u00eble website van een man met meer idee\u00ebn dan tijd.",
   "scripts": {
     "dev": "vite",
     "build": "vite build && node --experimental-strip-types scripts/postbuild.mjs",
@@ -14,7 +14,8 @@
     "db:migrate:local": "wrangler d1 migrations apply martijndenbesten --local",
     "db:migrate:remote": "wrangler d1 migrations apply martijndenbesten --remote",
     "deploy": "npm run build && wrangler d1 migrations apply martijndenbesten --remote && wrangler deploy && wrangler deploy -c wrangler.www.jsonc",
-    "check": "npm run typecheck && npm test && npm run build"
+    "check": "npm run typecheck && npm test && npm run build",
+    "deploy:embedded": "npm run build && node scripts/embed-assets.mjs && tsc -p worker/tsconfig.embedded.json --noEmit && wrangler d1 migrations apply martijndenbesten --remote && wrangler deploy -c wrangler.embedded.jsonc && wrangler deploy -c wrangler.www.jsonc"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",

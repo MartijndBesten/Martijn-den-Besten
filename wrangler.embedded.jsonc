@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "martijndenbesten",
+  "main": "./worker/embedded.ts",
+  "compatibility_date": "2026-10-13",
+  "account_id": "c5472db2163a42a463916a6a525d8353",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "martijndenbesten.com", "custom_domain": true }],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "martijndenbesten",
+      "database_id": "d348e383-bcf1-4e08-b742-f85abe8fef2c",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "observability": { "enabled": true }
+}

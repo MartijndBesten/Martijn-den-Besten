@@ -18,7 +18,7 @@
     {
       "binding": "DB",
       "database_name": "martijndenbesten",
-      "database_id": "baee3882-6d6c-4807-8100-1661c04c1270",
+      "database_id": "d348e383-bcf1-4e08-b742-f85abe8fef2c",
       "migrations_dir": "migrations"
     }
   ],

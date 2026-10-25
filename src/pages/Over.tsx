@@ -110,7 +110,8 @@ export default function Over() {
           </p>
           <h3>Privacy, kort en eerlijk</h3>
           <ul>
-            <li>Geen cookies, geen trackers, geen advertenties.</li>
+            <li>Geen cookies, geen advertenties en geen advertentietrackers.</li>
+            <li>Cloudflare Web Analytics telt anoniem en zonder cookies hoeveel pagina’s er bekeken worden.</li>
             <li>Missies en verrassingen worden alleen in uw eigen browser bewaard (localStorage).</li>
             <li>Ingezonden ideeën worden opgeslagen zonder naam of e-mailadres en zijn pas zichtbaar na goedkeuring.</li>
             <li>Voor stemmen en spambescherming wordt een per dag wisselende, versleutelde code van uw verbinding gebruikt. Uw IP-adres zelf wordt niet opgeslagen.</li>

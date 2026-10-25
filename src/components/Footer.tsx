@@ -78,7 +78,7 @@ export function Footer() {
           >
             .
           </button>
-          {" "}Geen cookies, geen tracking.
+          {" "}Geen cookies, geen advertentietrackers.
         </p>
         <div className="swatches" role="group" aria-label="Huiskleuren">
           {SWATCHES.map(([name, hex]) => (

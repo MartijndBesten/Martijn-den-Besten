@@ -79,9 +79,11 @@ test("geheime schakelaarcombinatie ontgrendelt de geheime zaal", async ({ page }
 
 test("te veel drukken laat de machine vastlopen", async ({ page }) => {
   const btn = page.getByRole("button", { name: "Nieuw idee starten" });
-  for (let i = 0; i < 12; i++) {
+  const jam = page.getByRole("alert").getByText("MACHINE VASTGELOPEN");
+  // De belasting zakt langzaam terug; klik door tot de machine vastloopt.
+  for (let i = 0; i < 25 && !(await jam.isVisible()); i++) {
     if (await btn.isDisabled()) break;
-    await btn.click();
+    await btn.click({ timeout: 2000 });
   }
   await expect(page.getByRole("alert").getByText("MACHINE VASTGELOPEN")).toBeVisible();
   await page.getByRole("button", { name: "Tik tegen de machine" }).click();

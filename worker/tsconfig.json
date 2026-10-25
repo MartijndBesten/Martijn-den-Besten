@@ -10,5 +10,6 @@
     "skipLibCheck": true,
     "types": ["@cloudflare/workers-types", "node"]
   },
+  "exclude": ["./embedded.ts", "./generated"],
   "include": ["./**/*.ts", "../www/**/*.ts", "../shared/**/*.ts", "../tests/worker.test.ts", "../tests/d1-shim.ts"]
 }

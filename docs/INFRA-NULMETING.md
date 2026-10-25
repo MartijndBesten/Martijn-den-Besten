@@ -19,7 +19,7 @@ Het gebruikte API-token mag geen DNS-records lezen of schrijven; DNS is daarom n
 
 - Worker `martijndenbesten` + custom domain `martijndenbesten.com`
 - Worker `martijndenbesten-www` + custom domain `www.martijndenbesten.com`
-- D1-database `martijndenbesten`
+- D1-database `martijndenbesten` (`d348e383-bcf1-4e08-b742-f85abe8fef2c`)
 - Worker-secrets `ADMIN_TOKEN` en `HASH_SECRET`
 
 Niets bestaands is verwijderd of overschreven. Andere Workers, databases en zones zijn niet gewijzigd.
@@ -27,3 +27,7 @@ Niets bestaands is verwijderd of overschreven. Andere Workers, databases en zone
 ## Aandachtspunt e-mail
 
 Er is geen e-mail ingericht. Wil je later e-mail op dit domein, overweeg dan in de tussentijd een ‘null MX’ en SPF `v=spf1 -all` om spoofing te voorkomen. Dat is bewust niet gedaan, omdat het buiten deze opdracht valt en de DNS-rechten ontbraken.
+
+## Opgeruimd
+
+Een eerste poging om de database aan te maken via de Cloudflare-connector van de bouwomgeving kwam in een ander account terecht dan het account met dit domein. Die lege database (0 tabellen) is direct weer verwijderd en opnieuw aangemaakt in het juiste account.
