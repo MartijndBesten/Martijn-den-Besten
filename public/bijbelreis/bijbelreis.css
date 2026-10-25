@@ -495,3 +495,6 @@ button.kb[aria-current="true"] { box-shadow: 0 0 0 2px var(--salie-deep); }
   .tabs button svg { width: 18px; height: 18px; }
 }
 @media (prefers-reduced-motion: reduce) { .prog div { transition: none; } }
+/* Plaatsen zijn met het toetsenbord te kiezen; de marker zelf is 0×0, dus de focus komt op het pictogram. */
+.leaflet-marker-icon.pl:focus { outline: none; }
+.leaflet-marker-icon.pl:focus-visible > :first-child { outline: 3px solid var(--boter-deep); outline-offset: 3px; border-radius: 50%; }

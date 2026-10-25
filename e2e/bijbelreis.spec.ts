@@ -102,7 +102,7 @@ test("kaart: Toen/Nu, legenda en een plaats met zekerheid", async ({ page, isMob
     await page.locator("#fullBtn").click();
     await expect(page.locator("body")).not.toHaveClass(/mapfull/);
   }
-  await page.locator(".leaflet-marker-icon[title='Bethel']").click();
+  await page.locator(".leaflet-marker-icon[title='Bethel'] > :first-child").click({ force: true });
   await expect(page.locator(".leaflet-popup")).toContainText(/Identificeerbaar|Waarschijnlijk|Betwist|Onbekend/);
   expect(errors).toEqual([]);
 });

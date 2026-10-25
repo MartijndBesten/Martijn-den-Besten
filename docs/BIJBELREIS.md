@@ -123,11 +123,26 @@ dus nooit herordenen, invoegen of verwijderen; alleen aan het eind toevoegen.
 - Bijbelverwijzingen en getallen: `python3 scripts/bijbel-check.py <controlebestand>` met regels `Exodus 12:37 | zeshonderd duizend` (regex, hoofdletterongevoelig; de Statenvertaling schrijft getallen voluit: ‘vijf en zeventig’, ‘honderd en dertig’).
 - Vóór publicatie: `npm run check` (typecheck, tests, build) en `npx playwright test navigatie a11y`.
 
-## Stand (25 oktober 2026)
+## Stand (versie 2.0, 25 oktober 2026)
 
-14 boeken, 27 delen, 252 stappen, 152 plaatsen en 375 speurtochtvragen: Genesis (Het begin, Abraham, Izak, Jakob, Jozef), Exodus (Mozes, Uittocht, Sinaï), Numeri en Deuteronomium (Woestijn, Moab), Jozua (Intocht, Het land), Richteren (Debora en Gideon, Simson), Ruth, 1 Samuël (Samuël, Saul en David), 2 Samuël (David), 1 Koningen (Salomo, Elia), 2 Koningen (Elisa, Wegvoering), Daniël, Esther, Ezra en Nehemia (Terugkeer, Nehemia), Jona. Controle: 2.178 regels in `scripts/bijbel-controle/`, alle geslaagd tegen de Statenvertaling; `node scripts/bijbelreis-check.mjs` zonder meldingen; e2e-tests (navigatie, toegankelijkheid) groen op desktop en telefoon.
+14 boeken, 27 delen, 252 stappen (sleutels ongewijzigd t.o.v. 1.0), 152 plaatsen, 196 personen. Alles gecontroleerd tegen de
+Statenvertaling: 3.067 regels in `scripts/bijbel-controle/<boek>.txt` plus 650 in `personen.txt`, alle geslaagd; ook de
+kruisverwijzingen naar het Nieuwe Testament (NT-boeken staan nu in `public/bijbelreis/bijbel/`). Verslagen per onderdeel
+in `docs/bijbelreis-audit/` (audit, vergelijking, plaatsen, personen, inhoud per boekengroep, ondergrond).
 
-Nog niet gedaan: de profeten buiten Jona en Daniël (Jesaja, Jeremia, Amos, Micha), Job, de Psalmen en Spreuken als eigen delen; Nieuwe Testament. De verwijzingen naar het Nieuwe Testament in `cross` zijn uit het hoofd en niet met het script gecontroleerd (alleen Oudtestamentische boeken staan in `public/bijbelreis/bijbel/`).
+Nieuw in 2.0: reliëf (`relief-*.webp`, script `scripts/bijbelreis-ondergrond.py`), zekerheid per plaats met legenda,
+Toen/Nu met moderne grenzen (`grenzen.json`), botsingsvrije labels, klikbare routes en plaatsen (‘Hier in de reis’),
+grote kaart en tweevingerbediening op telefoons, tijdlijn, boekenkast (66 boeken met status), personenkaart met familie,
+gebeurtenissen, plaatsen en verwijzingen (`personen.js`), kruimelpad, diepe link per stap (`#jozef/4`), ‘verder waar je
+was’, soort weetje (Uit de Bijbel / Uitleg / Historische achtergrond), afstand per stap, één verwijzingslezer
+(`verwijzing.js`), focusval in vensters, versiehash achter scripts (postbuild).
+
+Vaste controles: `npm run check` (o.a. `tests/bijbelreis.test.ts`: verwijzingen, plaatsen, stapsleutels, chronologie,
+personen), `python3 scripts/bijbel-check.py scripts/bijbel-controle/<boek>.txt`, `node scripts/bijbelreis-personen-check.mjs`,
+`node scripts/bijbelreis-check.mjs` en `npx playwright test bijbelreis navigatie a11y`.
+
+Nog niet gedaan: de overige bijbelboeken (in de boekenkast als ‘in ontwikkeling’), het Nieuwe Testament als reis.
+Open inhoudelijke punten voor Martijn staan in de verslagen `docs/bijbelreis-audit/inhoud-*.md` en `personen.md`.
 
 ## Bibliotheek (martijn-ai-workbench)
 
