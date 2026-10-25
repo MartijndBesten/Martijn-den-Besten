@@ -138,7 +138,7 @@ Psalm 34:1 | Abimelech
 Psalm 57:1 | in de spelonk
 Psalm 142:1 | als hij in de spelonk was
 Psalm 56:1 | Gath
-1 Kronieken 10:13 | waarzegster
+1 Kronieken 10:13 | Saul.*woord des HEEREN.*waarzegster
 1 Samuël 13:2 | Michmas.*Jonathan te Gibea
 1 Samuël 13:5 | Michmas
 1 Samuël 13:6 | spelonken
@@ -173,7 +173,7 @@ Psalm 56:1 | Gath
 1 Samuël 16:14 | Geest des HEEREN.*boze geest
 1 Samuël 16:16 | harp
 1 Samuël 16:18 | spelen kan.*dapper held.*verstandig.*de HEERE is met hem
-1 Samuël 16:20 | ezel met brood.*wijn.*geitenbokje
+1 Samuël 16:20 | ezel met brood.*lederen zak met wijn.*geitenbokje
 1 Samuël 16:21 | wapendrager
 1 Samuël 16:23 | harp.*beter
 1 Samuël 17:2 | eikendal
@@ -288,7 +288,7 @@ Psalm 56:1 | Gath
 1 Samuël 31:10 | muur te Beth-San
 1 Samuël 31:12 | gehelen nacht.*Beth-San.*Jabes
 1 Samuël 31:13 | begroeven.*geboomte te Jabes.*zeven dagen
-1 Kronieken 10:13 | woord des HEEREN.*waarzegster
+1 Kronieken 10:13 | Saul.*woord des HEEREN.*waarzegster
 # Quiz
 1 Samuël 5:3 | Dagon.*gevallen
 1 Samuël 7:12 | Eben-Haezer
@@ -296,3 +296,57 @@ Psalm 56:1 | Gath
 1 Samuël 14:6 | wapenen droeg
 1 Samuël 18:4 | mantel.*zwaard.*boog
 1 Samuël 31:11 | Jabes
+# Audit oktober 2026 (inhoud-samuel-jona)
+Handelingen 13:20 | rechters, tot op Samuel
+Handelingen 13:21 | Saul.*veertig jaren
+Handelingen 13:22 | man naar Mijn hart
+2 Samuël 5:4 | Dertig jaar was David oud.*veertig jaren
+1 Samuël 13:1 | een jaar in zijn regering
+Jeremia 7:12 | Silo.*ziet, wat Ik daaraan gedaan heb
+Psalm 99:6 | Samuel onder de aanroepers Zijns Naams
+1 Samuël 4:3 | opdat zij ons verlosse
+1 Samuël 4:15 | acht en negentig jaren.*niet zien kon
+1 Samuël 6:4 | Vijf gouden spenen, en vijf gouden muizen.*vorsten
+1 Samuël 6:17 | Asdod.*Gaza.*Askelot.*Gath.*Ekron
+1 Samuël 6:19 | zeventig mannen, en vijftig duizend mannen
+1 Samuël 1:1 | Ramathaim-Zofim.*Zuf
+1 Samuël 1:11 | al de dagen zijns levens
+1 Samuël 1:22 | gespeend
+1 Samuël 11:7 | een paar runderen, en hieuw ze in stukken
+1 Samuël 11:8 | Bezek.*driehonderd duizend.*dertig duizend
+1 Samuël 11:11 | drie hopen.*morgenwake
+1 Samuël 14:4 | Bozes.*Sene
+1 Samuël 14:5 | Michmas.*Geba
+1 Samuël 14:31 | van Michmas tot Ajalon
+1 Samuël 15:35 | Samuel zag Saul niet meer tot den dag zijns doods
+1 Samuël 16:12 | roodachtig.*schoon van ogen
+1 Samuël 16:14 | boze geest van den HEERE verschrikte hem
+1 Samuël 16:20 | ezel met brood.*lederen zak met wijn.*geitenbokje
+1 Samuël 17:17 | geroost koren.*tien broden
+1 Samuël 17:18 | tien melkkazen aan de oversten
+1 Samuël 17:39 | Ik kan in deze niet gaan, want ik heb het nooit verzocht
+1 Samuël 17:49 | slingerde.*voorhoofd
+1 Samuël 18:11 | tweemaal
+1 Samuël 20:42 | tussen mijn zaad en tussen uw zaad
+1 Samuël 22:18 | vijf en tachtig mannen
+1 Samuël 25:24 | viel aan zijn voeten
+1 Samuël 25:18 | tweehonderd broden.*twee lederzakken wijns.*vijf toebereide schapen.*vijf maten geroost koren.*honderd stukken rozijnen.*tweehonderd klompen vijgen
+1 Samuël 30:10 | vierhonderd mannen.*tweehonderd mannen.*Besor
+1 Samuël 31:3 | boog schieten.*vreesde zeer voor de schutters
+1 Samuël 31:12 | gehelen nacht.*Beth-San.*brandden ze
+1 Samuël 31:13 | beenderen.*geboomte te Jabes.*zeven dagen
+Psalm 34:1 | Abimelech
+Psalm 56:1 | Gath
+Psalm 57:1 | spelonk
+Psalm 142:1 | spelonk
+Mattheüs 12:3 | David gedaan heeft
+Mattheüs 12:4 | toonbroden
+Lukas 1:46 | Mijn ziel maakt groot den Heere
+1 Kronieken 10:13 | Saul.*woord des HEEREN.*waarzegster
+Exodus 17:8 | Amalek.*Rafidim
+Deuteronomium 17:16 | paarden
+Deuteronomium 17:17 | vrouwen.*zilver en goud
+Exodus 27:21 | avond tot den morgen
+Ruth 4:17 | Obed.*vader van Isai
+2 Samuël 3:3 | Chileab.*Abigail
+Hebreeën 11:32 | Samuel

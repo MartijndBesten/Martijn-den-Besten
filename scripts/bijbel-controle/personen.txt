@@ -1,0 +1,656 @@
+# Controle voor public/bijbelreis/personen.js (BR.mensen): elke familieband (v/m/p), leeftijd, geboorte/dood en elke
+# verwijzing in elders/vervolg, tegen de Statenvertaling. Regex hoofdletterongevoelig; de SV schrijft getallen voluit en
+# gebruikt soms een andere spelling (Terah, Kehath, Korah, Isai, Rehuel, Booz, Salomon, Elias, Jonas).
+# --- Adam tot Noach (Genesis 4–5) ---
+Genesis 3:20 | Adam.*Eva
+Genesis 2:22 | rib
+Genesis 4:1 | Adam bekende Heva.*Kain
+Genesis 4:2 | Abel
+Genesis 4:2 | Habel werd een schaapherder
+Genesis 4:8 | Kain.*Abel.*sloeg hem dood
+Genesis 4:25 | Adam bekende wederom zijn huisvrouw.*Seth
+Genesis 4:26 | Seth.*Enos
+Genesis 4:26 | Naam des HEEREN aan te roepen
+Genesis 5:3 | honderd en dertig jaren
+Genesis 5:3 | Seth
+Genesis 5:5 | negenhonderd jaren, en dertig jaren
+Genesis 5:5 | stierf
+Genesis 5:6 | honderd en vijf jaren.*Enos
+Genesis 5:8 | negenhonderd en twaalf jaren.*stierf
+Genesis 5:9 | negentig jaren.*Kenan
+Genesis 5:11 | negenhonderd en vijf jaren.*stierf
+Genesis 5:12 | zeventig jaren.*Mahalal-?el
+Genesis 5:14 | negenhonderd en tien jaren.*stierf
+Genesis 5:15 | vijf en zestig jaren.*Jered
+Genesis 5:17 | achthonderd vijf en negentig jaren.*stierf
+Genesis 5:18 | honderd twee en zestig jaren.*Henoch
+Genesis 5:20 | negenhonderd twee en zestig jaren.*stierf
+Genesis 5:21 | vijf en zestig jaren.*Methusalach
+Genesis 5:23 | driehonderd vijf en zestig jaren
+Genesis 5:24 | God nam hem weg
+Genesis 5:25 | honderd zeven en tachtig jaren.*Lamech
+Genesis 5:27 | negenhonderd negen en zestig jaren.*stierf
+Genesis 5:28 | honderd twee en tachtig jaren.*zoon
+Genesis 5:29 | Noach.*troosten
+Genesis 5:31 | zevenhonderd zeven en zeventig jaren.*stierf
+Genesis 5:32 | vijfhonderd jaren.*Sem
+Genesis 7:6 | zeshonderd jaren
+Genesis 9:29 | negenhonderd en vijftig jaren.*stierf
+Genesis 6:9 | rechtvaardig.*wandelde met God
+# --- Sem tot Terach (Genesis 11) ---
+Genesis 11:10 | Sem.*honderd jaren.*Arfachsad
+Genesis 11:11 | Sem leefde
+Genesis 11:12 | vijf en dertig jaren.*Selah
+Genesis 11:13 | Arfachsad leefde
+Genesis 11:14 | dertig jaren.*Heber
+Genesis 11:15 | Selah leefde
+Genesis 11:16 | vier en dertig jaren.*Peleg
+Genesis 11:17 | Heber leefde
+Genesis 11:18 | dertig jaren.*Rehu
+Genesis 11:19 | Peleg leefde
+Genesis 11:20 | twee en dertig jaren.*Serug
+Genesis 11:21 | Rehu leefde
+Genesis 11:22 | dertig jaren.*Nahor
+Genesis 11:23 | Serug leefde
+Genesis 11:24 | negen en twintig jaren.*Terah
+Genesis 11:25 | Nahor leefde
+Genesis 10:25 | Peleg.*aarde verdeeld
+Genesis 11:26 | zeventig jaren.*Abram, Nahor en Haran
+Genesis 11:27 | Haran gewon Lot
+Genesis 11:28 | Haran stierf.*zijns vaders Terah
+Genesis 11:29 | Nahors huisvrouw was Milka, een dochter van Haran
+Genesis 11:29 | Abrams huisvrouw was Sarai
+Genesis 11:32 | tweehonderd en vijf jaren.*Terah stierf
+Jozua 24:2 | Terah, de vader van Abraham, en de vader van Nahor.*andere goden
+# --- Abraham en zijn familie ---
+Genesis 12:4 | vijf en zeventig jaren
+Genesis 16:3 | Abram.*tot een vrouw
+Genesis 16:15 | Hagar baarde Abram een zoon.*Ismael
+Genesis 16:16 | zes en tachtig jaren.*Hagar.*Ismael
+Genesis 17:5 | Abram.*Abraham
+Genesis 17:15 | Sarai.*Sara
+Genesis 17:17 | negentig jaren
+Genesis 17:24 | negen en negentig jaren
+Genesis 17:25 | Ismael.*dertien jaren
+Genesis 20:12 | mijns vaders dochter
+Genesis 21:2 | Sara.*baarde Abraham een zoon
+Genesis 21:3 | Izak
+Genesis 21:5 | honderd jaren.*Izak
+Genesis 22:23 | Bethuel gewon Rebekka
+Genesis 22:23 | Milka aan Nahor
+Genesis 24:15 | Rebekka.*Bethuel.*Milka.*Nahor
+Genesis 24:67 | Rebekka, en zij werd hem ter vrouw
+Genesis 23:1 | honderd zeven en twintig jaren
+Genesis 23:2 | Sara stierf
+Genesis 25:7 | honderd vijf en zeventig jaren
+Genesis 25:8 | Abraham.*stierf
+Genesis 25:9 | Izak en Ismael
+Genesis 25:10 | Abraham begraven, en Sara
+Genesis 25:13 | Ismael
+Genesis 25:16 | twaalf vorsten
+Genesis 25:17 | honderd zeven en dertig jaren.*stierf
+Genesis 25:20 | veertig jaren.*Rebekka, de dochter van Betuel
+Genesis 25:21 | Izak.*Rebekka.*zwanger
+Genesis 25:25 | Ezau
+Genesis 25:26 | Jakob.*zestig jaren
+Genesis 25:30 | Edom
+Genesis 26:34 | Ezau.*veertig jaren
+Genesis 28:5 | Laban, den zoon van Bethuel.*broeder van Rebekka
+Genesis 35:28 | honderd jaren, en tachtig jaren
+Genesis 35:29 | Izak.*stierf
+Genesis 36:1 | Ezau.*Edom
+Genesis 21:22 | Abimelech.*Abraham
+Genesis 21:32 | verbond.*Ber-?seba
+Genesis 26:26 | Abimelech
+Genesis 26:31 | zwoeren
+Genesis 14:18 | Melchizedek.*Salem.*priester
+Genesis 39:1 | Potifar.*overste der trawanten
+Genesis 41:45 | Zafnath.*Asnath.*Potifera.*On
+# --- Jakob, zijn vrouwen en kinderen ---
+Genesis 29:16 | Laban.*twee dochters.*Lea.*Rachel
+Genesis 29:23 | Lea
+Genesis 29:28 | Rachel.*tot een vrouw
+Genesis 29:24 | Zilpa
+Genesis 29:29 | Bilha
+Genesis 30:4 | Bilha.*tot een vrouw
+Genesis 30:9 | Zilpa.*Jakob tot een vrouw
+Genesis 29:32 | Lea.*Ruben
+Genesis 29:33 | Simeon
+Genesis 29:34 | Levi
+Genesis 29:35 | Juda
+Genesis 30:5 | Bilha.*baarde Jakob een zoon
+Genesis 30:6 | Dan
+Genesis 30:7 | Bilha
+Genesis 30:8 | Nafthali
+Genesis 30:10 | Zilpa.*baarde Jakob een zoon
+Genesis 30:11 | Gad
+Genesis 30:12 | Zilpa
+Genesis 30:13 | Aser
+Genesis 30:17 | Lea.*baarde Jakob den vijfden zoon
+Genesis 30:18 | Issaschar
+Genesis 30:19 | Lea.*baarde Jakob den zesden zoon
+Genesis 30:20 | Zebulon
+Genesis 30:21 | Dina
+Genesis 30:22 | Rachel
+Genesis 30:24 | Jozef
+Genesis 32:28 | Israel
+Genesis 35:18 | Benjamin
+Genesis 35:19 | stierf Rachel
+Genesis 37:2 | zeventien jaren
+Genesis 37:21 | Ruben
+Genesis 41:46 | dertig jaren
+Genesis 41:50 | Asnath
+Genesis 41:51 | Manasse
+Genesis 41:52 | Efraim
+Genesis 42:24 | Simeon
+Genesis 47:9 | honderd en dertig jaren
+Genesis 47:28 | honderd zeven en veertig jaren
+Genesis 49:10 | schepter zal van Juda niet wijken
+Genesis 49:31 | Rebekka.*Lea
+Genesis 49:33 | Jakob.*gaf den geest
+Genesis 50:26 | honderd en tien jaren
+Genesis 50:26 | Jozef stierf
+# --- Elders over Genesis-personen ---
+Lukas 3:38 | Seth.*Adam
+Lukas 3:36 | Sem
+Romeinen 5:12 | een mens.*zonde
+1 Korinthe 15:22 | Adam
+Hebreeën 11:4 | Abel.*Kain
+Mattheüs 23:35 | rechtvaardigen Abels
+Hebreeën 11:5 | Enoch.*den dood niet
+Ezechiël 14:14 | Noach, Daniel en Job
+Mattheüs 24:37 | Noach
+Mattheüs 24:38 | ark
+Hebreeën 11:7 | Noach.*ark
+1 Petrus 3:20 | acht\) zielen behouden.*water
+1 Petrus 3:20 | Noach
+2 Petrus 2:5 | Noach.*gerechtigheid
+Nehemia 9:7 | Abram.*Abraham
+Jesaja 41:8 | Abraham, Mijn liefhebber
+Romeinen 4:3 | Abraham geloofde God.*rechtvaardigheid
+Hebreeën 11:8 | Abraham.*niet wetende, waar hij komen zou
+Hebreeën 11:17 | Abraham.*Izak geofferd
+Jakobus 2:23 | vriend van God
+Jesaja 51:2 | Abraham.*Sara
+Hebreeën 11:11 | Sara
+1 Petrus 3:6 | Sara.*heer
+Galaten 4:24 | Agar
+Galaten 4:25 | Agar.*Sina
+Jozua 24:2 | Nahor
+Lukas 17:32 | vrouw van Lot
+2 Petrus 2:7 | rechtvaardigen Lot
+Romeinen 9:10 | Rebekka
+Romeinen 9:12 | De meerdere zal den mindere dienen
+Romeinen 9:7 | In Izaak zal u het zaad genoemd worden
+Hebreeën 11:17 | Izak
+Hebreeën 11:20 | Izak.*Jakob en Ezau
+Jakobus 2:21 | Izak
+Maleachi 1:2 | Jakob liefgehad
+Maleachi 1:3 | Ezau.*gehaat
+Hebreeën 12:16 | Ezau.*eerstgeboorte
+Hosea 12:3 | broeder bij de verzenen
+Hosea 12:4 | Engel
+Hosea 12:4 | Beth-?el
+Johannes 4:5 | Jakob.*Jozef
+Johannes 4:6 | fontein Jakobs
+Hebreeën 11:21 | Jakob.*zonen van Jozef
+Ruth 4:11 | Rachel en als Lea, die beiden het huis van Israel gebouwd
+Jeremia 31:15 | Rachel weent over haar kinderen
+Mattheüs 2:18 | Rachel
+Exodus 6:16 | Levi.*honderd zeven en dertig jaren
+Exodus 6:20 | Amram.*Aaron en Mozes
+Mattheüs 1:2 | Juda
+Mattheüs 1:3 | Juda
+Hebreeën 7:14 | uit Juda
+Openbaring 5:5 | Leeuw, Die uit den stam van Juda is
+Mattheüs 4:13 | Kapernaum.*Zebulon en Nafthali
+Mattheüs 4:15 | Zebulon.*Nafthali
+Lukas 2:36 | Anna.*Aser
+Romeinen 11:1 | Benjamin
+Psalm 105:17 | Jozef werd verkocht tot een slaaf
+Psalm 105:21 | heer over zijn huis
+Handelingen 7:9 | Jozef
+Handelingen 7:16 | Sichem
+Hebreeën 11:22 | Jozef.*bevel gegeven van zijn gebeente
+Exodus 13:19 | beenderen van Jozef
+Jozua 24:32 | beenderen van Jozef.*Sichem
+Psalm 110:4 | Melchizedek
+Hebreeën 7:1 | Melchizedek.*Salem
+Hebreeën 7:3 | Zoon van God gelijk
+Richteren 13:2 | Zora.*Daniet.*Manoach
+# --- Exodus, Numeri, Jozua ---
+Exodus 6:16 | zonen van Levi.*Kehath
+Exodus 6:18 | zonen van Kehath: Amram
+Exodus 6:18 | honderd drie en dertig jaren
+Exodus 6:20 | Amram nam Jochebed.*huisvrouw
+Exodus 6:20 | honderd zeven en dertig jaren
+Numeri 26:59 | Jochebed, de dochter van Levi
+Numeri 26:59 | Amram, Aaron, en Mozes, en Mirjam
+Exodus 6:23 | Aaron.*Eleazar
+Exodus 6:25 | Eleazar, de zoon van Aaron.*Pinehas
+Exodus 6:21 | Jizhar: Korah
+Exodus 2:2 | baarde een zoon
+Exodus 2:2 | drie maanden
+Exodus 2:10 | Mozes
+Exodus 2:16 | priester in Midian
+Exodus 2:18 | Rehuel
+Exodus 2:21 | Zippora
+Exodus 18:1 | Jethro.*priester van Midian.*schoonvader
+Exodus 18:2 | Jethro.*Zippora, Mozes' huisvrouw
+Exodus 18:3 | Gersom
+Exodus 18:4 | Eliezer
+Exodus 18:21 | oversten
+Exodus 7:7 | Mozes was tachtig jaar oud, en Aaron was drie en tachtig jaar oud
+Exodus 15:20 | Mirjam.*Aarons zuster.*trommel
+Exodus 17:12 | Aaron en Hur
+Exodus 24:14 | Aaron en Hur
+Exodus 31:2 | Bezaleel.*Uri.*Hur.*Juda
+Exodus 31:3 | Geest Gods
+Handelingen 7:23 | veertig jaren
+Deuteronomium 34:5 | stierf Mozes
+Deuteronomium 34:7 | honderd en twintig jaren
+Deuteronomium 34:10 | geen profeet meer.*Mozes
+Psalm 90:1 | gebed van Mozes, den man Gods
+Micha 6:4 | Mozes, Aaron en Mirjam
+Mattheüs 17:3 | Mozes en Elias
+Johannes 1:17 | wet is door Mozes gegeven
+Hebreeën 11:23 | Mozes.*drie maanden.*ouders
+Hebreeën 11:25 | met het volk van God kwalijk gehandeld
+Psalm 99:6 | Mozes en Aaron.*Samuel
+Psalm 133:2 | baard van Aaron
+Hebreeën 5:4 | Aaron
+Numeri 20:28 | Aaron stierf
+Numeri 33:39 | Aaron.*honderd drie en twintig jaren
+Numeri 20:1 | Kades. En Mirjam stierf
+Deuteronomium 24:9 | Mirjam
+Numeri 13:16 | Hosea.*Jozua
+Numeri 13:6 | Kaleb.*Jefunne
+Jozua 24:29 | Jozua.*Nun.*honderd en tien jaren
+Handelingen 7:45 | Jozua
+Exodus 33:11 | Jozua.*Nun
+Jozua 24:33 | stierf Eleazar, de zoon van Aaron
+Jozua 14:1 | Eleazar.*Jozua
+Psalm 106:30 | Pinehas
+Psalm 106:30 | plaag
+Numeri 25:7 | Pinehas
+Jozua 22:13 | Pinehas
+Richteren 20:28 | Pinehas
+Numeri 14:24 | Kaleb.*andere geest
+Jozua 14:7 | veertig jaren
+Jozua 14:10 | vijf en tachtig jaren
+Jozua 14:13 | Kaleb.*Hebron
+Numeri 16:1 | Korach.*Jizhar.*Kohath.*Levi
+Numeri 16:2 | tweehonderd en vijftig
+Numeri 16:32 | aarde.*verslond
+Numeri 26:11 | kinderen van Korach stierven niet
+Psalm 42:1 | kinderen van Korach
+Numeri 22:2 | Balak.*Zippor
+Numeri 22:5 | Bileam.*Pethor
+Numeri 31:8 | doodden zij met het zwaard Bileam
+Micha 6:5 | Balak.*Bileam
+2 Petrus 2:15 | Balaam
+Openbaring 2:14 | Balaam.*Balak
+Jozua 24:9 | Balak.*Zippor
+Numeri 21:26 | Sihon.*Amorieten
+Psalm 136:19 | Sihon
+Psalm 136:20 | Og
+Deuteronomium 3:11 | Og.*bedstede van ijzer.*Negen ellen
+Jozua 2:1 | Rachab
+Jozua 6:25 | Rachab.*gewoond in het midden van Israel
+Mattheüs 1:5 | Salmon gewon Booz bij Rachab
+Mattheüs 1:5 | Booz gewon Obed bij Ruth
+Hebreeën 11:31 | Rachab
+Jakobus 2:25 | Rachab
+Ruth 4:21 | Salmon gewon Boaz
+Jozua 7:1 | Achan, de zoon van Charmi.*Juda
+Jozua 7:25 | stenigde hem
+Jozua 22:20 | Achan
+Jozua 11:1 | Jabin.*Hazor
+Jozua 11:5 | Merom
+Jozua 11:10 | Hazor in, en haar koning sloeg hij met het zwaard
+# --- Richteren en Ruth ---
+Richteren 4:2 | Jabin.*Hazor.*Sisera
+Richteren 4:3 | negenhonderd ijzeren wagenen
+Psalm 83:10 | Sisera.*Jabin.*Kison
+1 Samuël 12:9 | Sisera
+Richteren 4:4 | Debora.*profetes.*richtte
+Richteren 4:6 | Barak.*Abinoam.*Kedes
+Richteren 4:14 | tien duizend
+Richteren 4:17 | Jael.*Heber
+Richteren 4:21 | stierf
+Hebreeën 11:32 | Gideon, en Barak, en Samson.*David, en Samuel
+Richteren 6:11 | Joas, den Abi-?ezriet.*Gideon
+Richteren 6:12 | strijdbare held
+Richteren 6:29 | Gideon, de zoon van Joas
+Richteren 6:31 | Joas.*twiste
+Richteren 6:32 | Jerubbaal
+1 Samuël 12:11 | Jerubbaal
+Richteren 7:7 | driehonderd
+Richteren 7:10 | Pura
+Richteren 8:32 | Gideon.*stierf.*graf van zijn vader Joas
+Richteren 13:2 | Zora.*Manoach
+Richteren 13:24 | Simson
+Richteren 16:30 | Mijn ziel sterve met de Filistijnen
+Richteren 16:4 | Sorek.*Delila
+Richteren 16:5 | duizend en honderd zilv
+Ruth 1:2 | Elimelech.*Naomi.*Machlon en Chiljon
+Ruth 1:3 | Elimelech.*stierf
+Ruth 1:4 | Orpa.*Ruth
+Ruth 1:5 | Machlon en Chiljon
+Ruth 1:16 | uw volk is mijn volk, en uw God mijn God
+Ruth 1:20 | Mara
+Ruth 2:1 | geslacht van Elimelech.*Boaz
+Ruth 4:10 | Ruth, de Moabietische, de huisvrouw van Machlon
+Ruth 4:13 | Boaz Ruth, en zij werd hem ter vrouwe.*een zoon baarde
+Ruth 4:17 | Obed.*Isai.*David
+Ruth 4:22 | Obed gewon Isai; en Isai gewon David
+Lukas 3:32 | Jesse.*Obed.*Booz.*Salmon
+Mattheüs 1:5 | Ruth
+Mattheüs 1:6 | Jessai gewon David
+Jesaja 11:1 | Isai
+Handelingen 13:22 | David, den zoon van Jesse.*naar Mijn hart
+1 Samuël 16:10 | Isai.*zeven.*zonen
+1 Samuël 17:12 | Isai.*acht zonen
+# --- 1 en 2 Samuël ---
+1 Samuël 1:1 | Elkana
+1 Samuël 1:2 | Hanna
+1 Samuël 1:19 | Rama. En Elkana bekende zijn huisvrouw Hanna
+1 Samuël 1:20 | Samuel
+1 Samuël 4:15 | acht en negentig jaren
+1 Samuël 4:18 | stierf.*richtte Israel veertig jaren
+1 Samuël 25:1 | Samuel stierf
+Jeremia 15:1 | Mozes en Samuel
+Handelingen 3:24 | Samuel
+1 Koningen 2:27 | Abjathar.*huis van Eli
+1 Samuël 9:1 | Benjamin, wiens naam was Kis
+1 Samuël 9:2 | Saul
+1 Samuël 9:3 | ezelinnen nu van Kis, den vader van Saul
+Handelingen 13:21 | Saul, den zoon van Kis.*Benjamin.*veertig jaren
+1 Samuël 14:1 | Jonathan, de zoon van Saul
+1 Samuël 14:49 | Jonathan.*Michal
+1 Samuël 14:50 | Abner, een zoon van Ner, Sauls oom
+1 Samuël 31:2 | Jonathan
+1 Samuël 31:4 | Saul.*zwaard.*viel daarin
+1 Samuël 31:6 | stierf Saul, en zijn drie zonen
+2 Samuël 1:17 | Saul.*Jonathan
+2 Samuël 1:26 | Jonathan
+2 Samuël 9:1 | Jonathans wil
+1 Samuël 18:27 | gaf Saul hem zijn dochter Michal
+1 Samuël 19:12 | venster
+1 Samuël 17:4 | Goliath.*Gath
+1 Samuël 17:50 | slinger
+1 Samuël 17:51 | doodde hem
+1 Samuël 21:9 | zwaard van Goliath
+1 Samuël 25:3 | Nabal.*Abigail
+1 Samuël 25:38 | Nabal.*stierf
+1 Samuël 25:42 | Abigail.*vrouw
+1 Samuël 21:12 | Achis.*Gath
+1 Samuël 27:6 | Achis.*Ziklag
+Psalm 34:1 | Abimelech
+1 Samuël 15:8 | Agag
+1 Samuël 15:33 | Agag
+1 Samuël 21:1 | Achimelech
+1 Samuël 21:6 | toonbroden|heilige
+1 Samuël 22:16 | Achimelech
+1 Samuël 22:18 | Doeg.*priesters
+1 Samuël 22:20 | zonen van Achimelech.*Abjathar
+1 Samuël 21:7 | Doeg.*Edomiet.*herderen
+Psalm 52:2 | Doeg.*Achimelech
+Markus 2:26 | Abjathar
+1 Koningen 2:26 | Abjathar
+1 Samuël 11:1 | Nahas.*Ammoniet.*Jabes
+2 Samuël 10:2 | Hanun.*Nahas
+1 Kronieken 2:13 | Isai gewon
+1 Kronieken 2:15 | David
+1 Kronieken 2:16 | zusters waren Zeruja en Abigail
+1 Kronieken 2:16 | Zeruja.*Joab
+2 Samuël 2:18 | zonen van Zeruja.*Joab
+2 Samuël 17:25 | Abigail, dochter van Nahas, zuster van Zeruja
+1 Koningen 2:32 | Abner.*Amasa
+1 Koningen 2:34 | doodde hem
+2 Samuël 3:27 | Abner.*Joab.*sloeg hem.*stierf
+2 Samuël 2:8 | Abner.*Isboseth, Sauls zoon
+2 Samuël 2:10 | Veertig jaren was Isboseth
+2 Samuël 4:7 | doodden hem
+1 Kronieken 8:33 | Saul.*Esbaal
+2 Samuël 4:4 | Jonathan.*vijf jaren.*Mefiboseth
+1 Kronieken 8:34 | Jonathan.*Merib-?baal
+2 Samuël 19:24 | Mefiboseth
+2 Samuël 21:7 | Mefiboseth.*Jonathan
+2 Samuël 9:13 | Mefiboseth.*des konings tafel
+2 Samuël 11:3 | Bathseba.*Eliam.*Uria
+2 Samuël 11:17 | Uria.*stierf
+2 Samuël 11:27 | werd hem ter vrouwe
+2 Samuël 12:24 | Bathseba.*Salomo
+2 Samuël 12:25 | Nathan.*Jedid-?jah
+1 Kronieken 3:5 | Bath-?sua
+1 Koningen 1:15 | Bathseba
+1 Koningen 2:19 | rechterhand
+Mattheüs 1:6 | Uria.*vrouw
+2 Samuël 23:39 | Uria, de Hethiet
+1 Koningen 15:5 | Uria
+2 Samuël 3:2 | zonen geboren
+2 Samuël 3:3 | Absalom
+2 Samuël 18:9 | eik
+2 Samuël 18:14 | Absalom
+2 Samuël 18:15 | doodden hem
+2 Samuël 18:33 | Mijn zoon Absalom
+Psalm 3:1 | Absalom
+2 Samuël 15:32 | Husai, de Archiet
+2 Samuël 17:14 | raad van Husai.*beter dan Achitofels raad
+2 Samuël 24:16 | Arauna
+2 Samuël 24:24 | vijftig zilveren sikkelen
+2 Kronieken 3:1 | Ornan
+2 Samuël 24:11 | Gad.*ziener
+1 Samuël 22:5 | profeet Gad
+2 Samuël 15:19 | Ithai.*Gethiet
+2 Samuël 15:21 | daar zal uw knecht voorzeker ook zijn
+2 Samuël 18:2 | Ithai
+2 Samuël 16:5 | Simei.*Gera
+2 Samuël 19:16 | Simei, de zoon van Gera
+2 Samuël 19:23 | Simei
+1 Koningen 2:46 | stierf
+1 Koningen 2:36 | Simei
+2 Samuël 9:2 | Ziba
+2 Samuël 16:1 | Ziba
+2 Samuël 12:7 | Gij zijt die man
+2 Samuël 7:2 | Nathan
+Psalm 51:2 | Nathan.*Bathseba
+2 Samuël 5:4 | Dertig jaar was David oud
+1 Koningen 2:10 | David ontsliep
+Psalm 23:1 | psalm van David
+Psalm 78:70 | David
+Psalm 78:71 | weiden
+Jesaja 9:7 | troon van David
+Mattheüs 1:1 | Zoon van David
+# --- 1 en 2 Koningen ---
+1 Koningen 1:39 | Zadok.*zalfde Salomo
+2 Samuël 15:24 | Zadok.*ark
+1 Koningen 3:9 | verstandig hart
+1 Koningen 11:43 | ontsliep Salomo.*Rehabeam, zijn zoon
+Psalm 72:1 | Salomo
+Spreuken 1:1 | Salomo, den zoon van David
+Mattheüs 6:29 | Salomo
+Mattheüs 12:42 | wijsheid van Salomo
+1 Koningen 5:1 | Hiram.*Tyrus.*David
+1 Koningen 5:10 | Hiram aan Salomo cederenhout
+2 Samuël 5:11 | Hiram
+1 Koningen 11:29 | Jerobeam.*Ahia, de Siloniet
+1 Koningen 11:31 | tien stukken
+1 Koningen 14:4 | Ahia
+1 Koningen 14:21 | Rehabeam.*een en veertig jaren
+Mattheüs 1:7 | Roboam
+1 Koningen 11:26 | Jerobeam, de zoon van Nebat.*Salomo's knecht
+1 Koningen 12:28 | twee gouden kalveren
+1 Koningen 12:29 | Beth-?el.*Dan
+1 Koningen 13:4 | Jerobeam.*hand.*verdorde
+2 Koningen 17:21 | Jerobeam.*grote zonde
+1 Koningen 16:30 | Achab.*Omri
+1 Koningen 16:31 | Izebel, de dochter van Eth-?Baal, den koning der Sidoniers
+1 Koningen 22:37 | stierf de koning
+2 Koningen 9:33 | stieten haar van boven neder
+2 Koningen 9:36 | Izebel
+Openbaring 2:20 | Jezabel
+Micha 6:16 | ganse werk van het huis van Achab
+1 Koningen 17:1 | Elia.*Thisbiet
+1 Koningen 18:38 | viel het vuur
+2 Koningen 2:11 | vurige wagen.*voer Elia met een onweder ten hemel
+Maleachi 4:5 | profeet Elia
+Lukas 4:25 | Elias
+Lukas 4:26 | weduwe
+Romeinen 11:2 | van Elia
+Romeinen 11:4 | zeven duizend
+Jakobus 5:17 | Elias.*niet zou regenen
+1 Koningen 18:3 | Obadja, den hofmeester.*zeer vrezende
+1 Koningen 18:4 | honderd profeten
+1 Koningen 21:1 | Naboth.*Jizreeliet.*wijngaard
+1 Koningen 21:13 | Naboth.*stenigden
+2 Koningen 9:26 | Naboth
+1 Koningen 19:16 | Elisa.*Safat.*Abel-?mehola
+2 Koningen 13:20 | stierf Elisa
+Lukas 4:27 | profeet Elisa.*Naaman, de Syrier
+2 Koningen 5:1 | Naaman.*Syrie.*melaats
+2 Koningen 5:14 | Jordaan zevenmaal
+2 Koningen 5:27 | melaatsheid.*Naaman
+2 Koningen 5:20 | Gehazi
+2 Koningen 8:4 | Gehazi
+2 Koningen 6:24 | Benhadad.*Samaria
+2 Koningen 13:10 | Joas, de zoon van Joahaz
+2 Koningen 13:14 | Joas
+2 Koningen 13:25 | Joas.*driemaal
+2 Koningen 13:13 | Jerobeam
+2 Koningen 14:23 | Jerobeam, de zoon van Joas
+2 Koningen 14:25 | Jona, den zoon van Amitthai.*Gath-?hefer
+Amos 1:1 | Jerobeam
+Hosea 1:1 | Jerobeam
+2 Koningen 17:1 | Hosea, de zoon van Ela
+2 Koningen 17:6 | negende jaar van Hosea.*Samaria
+2 Koningen 18:2 | vijf en twintig jaren
+2 Koningen 18:5 | betrouwde
+2 Koningen 19:35 | engel des HEEREN
+2 Koningen 19:37 | zijn zonen, hem met het zwaard versloegen
+2 Koningen 20:6 | vijftien jaren
+2 Koningen 20:21 | Hizkia ontsliep.*zijn zoon Manasse
+Jesaja 37:21 | Hizkia
+Spreuken 25:1 | Hizkia
+Mattheüs 1:9 | Ezekias
+Mattheüs 1:10 | Ezekias.*Manasse
+2 Koningen 21:1 | Manasse.*twaalf jaren
+2 Koningen 21:2 | kwaad
+2 Kronieken 33:12 | vernederde zich zeer
+2 Kronieken 33:13 | hoorde zijn smeking
+2 Koningen 21:18 | Manasse ontsliep.*zijn zoon Amon
+2 Koningen 21:19 | Amon.*twee en twintig jaren
+2 Koningen 21:23 | knechten van Amon.*doodden
+2 Koningen 21:24 | Amon.*zijn zoon Josia koning
+2 Koningen 22:1 | Josia.*acht jaren
+2 Koningen 23:29 | Necho.*doodde hem te Megiddo
+1 Koningen 13:2 | Josia
+Jeremia 1:2 | Josia
+Mattheüs 1:10 | Josias
+Mattheüs 1:11 | Josias gewon Jechonias
+2 Koningen 22:8 | hogepriester Hilkia.*wetboek
+2 Koningen 22:10 | Safan.*schrijver.*las
+2 Koningen 22:12 | Ahikam, den zoon van Safan
+Jeremia 26:24 | Ahikam.*Jeremia
+2 Koningen 25:22 | Gedalia, den zoon van Ahikam, den zoon van Safan
+2 Koningen 25:25 | sloegen Gedalia, dat hij stierf
+Jeremia 40:6 | Jeremia tot Gedalia.*Mizpa
+2 Koningen 23:29 | Farao Necho
+2 Koningen 23:33 | Farao Necho
+2 Koningen 23:34 | Eljakim, den zoon van Josia.*Jojakim
+Jeremia 46:2 | Necho.*Karchemis
+2 Koningen 23:36 | Vijf en twintig jaren was Jojakim oud
+Jeremia 36:23 | vuur
+Daniël 1:1 | Jojakim
+Daniël 1:2 | Jojakim
+2 Koningen 24:1 | drie jaren
+2 Koningen 24:6 | Jojakim ontsliep.*zijn zoon Jojachin
+2 Koningen 24:8 | Jojachin.*achttien jaren.*drie maanden
+2 Koningen 24:15 | Jojachin.*Babel
+2 Kronieken 36:9 | Acht jaren was Jojachin oud
+Jeremia 22:24 | Chonia, de zoon van Jojakim
+Esther 2:6 | Jechonia
+Mattheüs 1:12 | Jechonias Salathiel
+2 Koningen 25:27 | zeven en dertigste jaar der wegvoering van Jojachin.*Evilmerodach
+2 Koningen 25:29 | brood
+Jeremia 52:31 | Evil-?Merodach
+2 Koningen 24:17 | Mattanja.*oom.*Zedekia
+2 Koningen 24:18 | Zedekia.*een en twintig jaren
+Jeremia 1:3 | Zedekia, zoon van Josia
+1 Kronieken 3:15 | Josia.*Jojakim.*Zedekia
+2 Kronieken 36:10 | zijn broeder Zedekia
+1 Kronieken 3:16 | Jechonia.*Zedekia
+2 Koningen 25:7 | zonen van Zedekia.*verblindde Zedekia's ogen
+2 Koningen 25:6 | koning
+Jeremia 39:7 | ogen van Zedekia
+2 Koningen 25:8 | Nebuzaradan
+2 Koningen 25:9 | verbrandde het huis des HEEREN
+Jeremia 40:1 | Nebuzaradan
+Jeremia 25:9 | Nebukadrezar.*Mijn knecht
+Ezra 5:12 | Nebukadnezar
+Daniël 4:34 | Nebukadnezar.*loofde den Allerhoogste
+# --- Daniël en Esther ---
+Daniël 1:6 | Daniel, Hananja, Misael en Azarja
+Daniël 1:7 | Beltsazar.*Sadrach.*Mesach.*Abed-?nego
+Daniël 3:27 | haar huns hoofds niet verbrand
+Daniël 5:2 | Belsazar.*zijn vader Nebukadnezar
+Daniël 5:11 | uw vader
+Daniël 5:18 | uw vader Nebukadnezar
+Daniël 5:30 | Belsazar.*gedood
+Daniël 7:1 | Belsazar
+Daniël 5:31 | Darius, de Meder.*twee en zestig jaren
+Daniël 9:1 | Darius, den zoon van Ahasveros.*Meden
+Daniël 6:16 | kuil
+Ezechiël 14:14 | Daniel
+Mattheüs 24:15 | Daniel, de profeet
+Daniël 1:21 | Kores
+Jesaja 44:28 | Cores.*Mijn herder
+Jesaja 45:1 | Zijn gezalfde, tot Cores
+2 Kronieken 36:22 | Kores
+Ezra 1:1 | Kores
+Esther 1:1 | Ahasveros.*honderd zeven en twintig landschappen
+Esther 1:9 | koningin Vasthi.*koning Ahasveros
+Esther 1:19 | Vasthi
+Esther 2:17 | Esther.*koningin in de plaats van Vasthi
+Ezra 4:6 | Ahasveros
+Esther 2:5 | Mordechai.*Jair.*Kis
+Esther 2:7 | Hadassa.*Esther.*dochter zijns ooms.*geen vader noch moeder
+Esther 2:15 | Abichail.*oom van Mordechai
+Esther 3:1 | Haman.*Hammedatha.*Agagiet
+Esther 7:10 | hingen zij Haman aan de galg
+Esther 10:3 | Mordechai.*tweede
+# --- Ezra en Nehemia ---
+Ezra 3:2 | Jesua, de zoon van Jozadak.*Zerubbabel, de zoon van Sealthiel
+Haggaï 1:1 | Zerubbabel, den zoon van Sealthiel.*Josua, den zoon van Jozadak
+Haggaï 1:1 | Darius
+Haggaï 2:23 | Zerubbabel.*zegelring
+1 Kronieken 3:17 | Jechonia
+1 Kronieken 3:17 | Sealthiel
+1 Kronieken 3:19 | Pedaja.*Zerubbabel
+Mattheüs 1:12 | Salathiel gewon Zorobabel
+Mattheüs 1:13 | Zorobabel
+Ezra 2:2 | Zerubbabel
+Ezra 1:8 | Sesbazar.*vorst van Juda
+Ezra 5:14 | Sesbazar
+Ezra 5:16 | Sesbazar.*fondamenten
+Ezra 5:1 | Haggai.*Zacharia, de zoon van Iddo
+Ezra 6:14 | Haggai.*Zacharia
+Ezra 6:1 | Darius
+Ezra 6:15 | zesde jaar.*Darius
+Ezra 7:1 | Arthahsasta.*Ezra
+Ezra 7:5 | Aaron
+Ezra 7:6 | vaardig schriftgeleerde in de wet van Mozes
+Nehemia 8:2 | Ezra, den schriftgeleerde.*wet van Mozes
+Nehemia 8:3 | Ezra, de priester, bracht de wet
+Nehemia 1:1 | Nehemia, zoon van Hachalja
+Nehemia 1:11 | schenker
+Nehemia 1:2 | Hanani
+Nehemia 7:2 | mijn broeder Hanani
+Nehemia 2:1 | Arthahsasta
+Nehemia 2:10 | Sanballat.*Horoniet.*Tobia.*Ammonietische knecht
+# --- Jona ---
+Jona 1:1 | Jona, den zoon van Amitthai
+Mattheüs 12:39 | Jonas
+Mattheüs 12:40 | drie dagen en drie nachten
+Mattheüs 12:41 | Jonas

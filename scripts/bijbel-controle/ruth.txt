@@ -106,3 +106,14 @@ Ruth 1:20 | Mara
 Ruth 2:3 | las op in het veld, achter de maaiers
 Ruth 4:7 | schoen
 Ruth 4:17 | Obed
+# --- Audit 2.0 (oktober 2026): chronologie, correcties en kruisverwijzingen (ook NT)
+Ruth 1:1 | In de dagen, als de richters richtten
+Ruth 4:17 | Obed; deze is de vader van Isai, Davids vader
+2 Samuël 5:4 | Dertig jaar was David oud, als hij koning werd
+Mattheüs 1:5 | Salmon gewon Booz bij Rachab, en Booz gewon Obed bij Ruth
+Mattheüs 1:5-6 | Obed gewon Jessai.*Jessai gewon David, den koning
+Lukas 2:4 | Bethlehem.*huis en geslacht van David
+Ruth 2:1 | geslacht van Elimelech.*Boaz
+Ruth 2:17 | omtrent een efa gerst
+Leviticus 25:25 | losser
+1 Samuël 16:1 | Isai, den Bethlehemiet
