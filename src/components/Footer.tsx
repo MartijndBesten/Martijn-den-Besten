@@ -74,6 +74,7 @@ export function Footer() {
             <li><Link to="/control-center">Control Center</Link></li>
             <li><Link to="/museum">Museum van Onafgemaakte Ideeën</Link></li>
             <li><Link to="/over">Over Martijn</Link></li>
+            <li><a href="/bijbelreis">Bijbelreis: het Oude Testament op de kaart</a></li>
           </ul>
         </div>
         <div>

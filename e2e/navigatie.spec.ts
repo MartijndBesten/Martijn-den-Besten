@@ -8,6 +8,7 @@ const PAGES = [
   ["/loket", /Aanvraag tot het hebben van een idee/],
   ["/bureau", /Oplossingen voor problemen/],
   ["/certificaat", /Uw officiële certificaat/],
+  ["/bijbelreis", /Op reis door de Bijbel/],
 ] as const;
 
 for (const [path, heading] of PAGES) {

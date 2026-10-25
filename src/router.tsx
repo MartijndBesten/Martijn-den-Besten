@@ -70,7 +70,7 @@ export function Link({ to, onClick, children, ...rest }: LinkProps) {
   const handle = (e: MouseEvent<HTMLAnchorElement>) => {
     onClick?.(e);
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    if (to.startsWith("http")) return;
+    if (to.startsWith("http") || routeMeta(normalize(to))?.static) return;
     e.preventDefault();
     navigate(to);
   };

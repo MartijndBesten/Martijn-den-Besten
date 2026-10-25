@@ -1449,6 +1449,9 @@
   .toc__item--3 {
     grid-column: span 7;
   }
+  .toc__item--4 {
+    grid-column: span 12;
+  }
 }
 .toc__item {
   display: grid;

@@ -1,0 +1,766 @@
+// Bijbelreis: de kaart, het reisboek, de speurtocht, de afstanden en het paspoort.
+// Inhoud komt uit plaatsen.js en inhoud/*.js (BR.boeken). Geen externe bronnen: alles staat op deze site.
+(() => {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isNarrow = () => window.matchMedia("(max-width: 900px)").matches;
+  const fmt = (n) => n.toLocaleString("nl-NL");
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem("bijbelreis:" + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v) { try { localStorage.setItem("bijbelreis:" + k, JSON.stringify(v)); } catch { /* geen opslag: dan geen stempels */ } },
+  };
+  const color = (key) => `var(--${key}-deep, var(--${key}))`;
+  const GROUPS = new Set(["Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen", "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters"]);
+
+  // ---------- rekenen ----------
+  function hav(a, b) {
+    const r = Math.PI / 180, dLat = (b[0] - a[0]) * r, dLon = (b[1] - a[1]) * r;
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(a[0] * r) * Math.cos(b[0] * r) * Math.sin(dLon / 2) ** 2;
+    return 2 * 6371 * Math.asin(Math.sqrt(h));
+  }
+  const len = (p) => p.slice(1).reduce((s, q, i) => s + hav(p[i], q), 0);
+  const roundKm = (km) => (km < 100 ? Math.round(km / 5) * 5 : Math.round(km / 10) * 10);
+  const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+  // ---------- inhoud klaarzetten ----------
+  const P = BR.plaatsen, W = BR.W;
+  const missing = new Set();
+  function ll(k) {
+    if (Array.isArray(k)) return k;
+    if (P[k]) return P[k].ll;
+    if (W[k]) return W[k];
+    missing.add(k);
+    return [31.5, 35.2];
+  }
+  const BOEKEN = BR.boeken;
+  const ALLPARTS = [];
+  BOEKEN.forEach((b) => b.delen.forEach((d) => {
+    d.boek = b;
+    d.key = b.id + ":" + d.id;
+    d.steps.forEach((s, i) => {
+      s.deel = d; s.i = i; s.key = d.key + ":" + i; s.at = s.at || [];
+      (s.r || []).forEach((r) => { r.w = r.w || d.c; r.pts = r.p.map(ll); r.cum = [0]; r.pts.slice(1).forEach((q, j) => r.cum.push(r.cum[j] + hav(r.pts[j], q))); r.len = r.cum[r.cum.length - 1]; });
+      s.km = s.r ? roundKm(s.r.reduce((a, r) => a + r.len, 0)) : 0;
+    });
+    ALLPARTS.push(d);
+  }));
+  if (missing.size) console.error("Bijbelreis: onbekende plaatsen of tussenpunten:", [...missing].join(", "));
+  const partKm = (d) => d.steps.reduce((a, s) => a + (s.r || []).filter((r) => r.w === d.c).reduce((b, r) => b + r.len, 0), 0);
+  const scrollToMap = () => { if (isNarrow()) document.querySelector(".mapwrap").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }); };
+
+  // ---------- kaart ----------
+  const WIDE = [[29.0, 30.5], [38.6, 47.6]], KANAAN = [[30.9, 34.2], [33.4, 36.4]];
+  const map = L.map("map", { zoomSnap: 0.25, zoomDelta: 0.5, minZoom: 4, maxZoom: 11, attributionControl: false, maxBounds: [[22.5, 19], [44.5, 54]], maxBoundsViscosity: 0.8, zoomControl: false });
+  L.control.zoom({ position: "topleft", zoomInTitle: "Inzoomen", zoomOutTitle: "Uitzoomen" }).addTo(map);
+  L.control.scale({ imperial: false, maxWidth: 140, position: "bottomright" }).addTo(map);
+  map.fitBounds(WIDE, { padding: [20, 20] });
+  const icon = (html, cls = "pl") => L.divIcon({ className: cls, iconSize: [0, 0], html });
+
+  const KLEINE_RIVIEREN = [
+    { n: "Jabbok", p: [[31.95, 35.93], [32.07, 36.09], [32.17, 36.05], [32.27, 35.92], [32.21, 35.78], [32.19, 35.66], [32.1, 35.56]] },
+    { n: "Jarmuk", p: [[32.75, 36.2], [32.73, 36.0], [32.68, 35.8], [32.69, 35.64]] },
+    { n: "Arnon", p: [[31.35, 36.1], [31.45, 35.9], [31.5, 35.7], [31.47, 35.55]] },
+    { n: "Kison", p: [[32.55, 35.25], [32.65, 35.15], [32.75, 35.05], [32.82, 35.02]] },
+    { n: "Besor", p: [[31.15, 34.95], [31.25, 34.75], [31.33, 34.55], [31.38, 34.4]] },
+  ];
+  const PEAKS = [
+    { n: "Hermon", h: 2814, ll: [33.41, 35.86], z: 7 }, { n: "Karmel", h: 546, ll: [32.73, 35.05], z: 8.25 }, { n: "Tabor", h: 575, ll: [32.69, 35.39], z: 8.75 },
+    { n: "Gerizim", h: 881, ll: [32.195, 35.265], z: 9.75 }, { n: "Ebal", h: 940, ll: [32.235, 35.27], z: 9.75 }, { n: "Nebo", h: 817, ll: [31.77, 35.73], z: 8.25 },
+    { n: "Gilboa", h: 497, ll: [32.47, 35.42], z: 9.25 }, { n: "Sinaï (Jebel Musa)", h: 2285, ll: [28.54, 33.98], z: 6.5 }, { n: "Libanon", h: 3088, ll: [34.31, 36.1], z: 7.75 },
+  ];
+  const REGIONS = [
+    { t: "Kanaän", ll: [31.75, 34.8], z: [6.5, 7.6], k: "land" }, { t: "Egypte", ll: [29.6, 31.0], z: [4, 8], k: "land" }, { t: "Sinaï", ll: [29.6, 33.8], z: [5, 8], k: "land" },
+    { t: "Sinear", ll: [32.0, 45.3], z: [4, 7], k: "land" }, { t: "Arabische woestijn", ll: [31.3, 40.2], z: [4, 7], k: "land" }, { t: "Aram", ll: [35.2, 38.6], z: [5, 7.5], k: "land" },
+    { t: "Negev", ll: [30.7, 34.8], z: [7, 9], k: "land" }, { t: "Moab", ll: [31.3, 35.85], z: [7.5, 10], k: "land" }, { t: "Edom", ll: [30.3, 35.5], z: [7, 9], k: "land" },
+    { t: "Filistijnen", ll: [31.42, 34.38], z: [8.25, 10], k: "land" }, { t: "Basan", ll: [32.95, 36.1], z: [7.5, 10], k: "land" }, { t: "Elam", ll: [32.0, 48.8], z: [4.5, 7], k: "land" },
+    { t: "Assyrië", ll: [36.0, 42.6], z: [4.5, 7], k: "land" }, { t: "Perzië", ll: [31.5, 51.5], z: [4, 6.5], k: "land" },
+    { t: "Grote Zee", ll: [33.3, 32.6], z: [4, 9], k: "sea" }, { t: "Dode Zee", ll: [31.45, 35.52], z: [8.5, 12], k: "sea" }, { t: "Meer van Galilea", ll: [32.82, 35.59], z: [8.75, 12], k: "sea" },
+    { t: "Rode Zee", ll: [26.5, 35.4], z: [4, 8], k: "sea" }, { t: "Perzische Golf", ll: [28.6, 49.9], z: [4, 7], k: "sea" },
+    { t: "Eufraat", ll: [37.35, 38.75], z: [5, 9], k: "sea" }, { t: "Tigris", ll: [34.7, 43.75], z: [5, 9], k: "sea" }, { t: "Nijl", ll: [29.3, 31.42], z: [6, 9], k: "sea" },
+    { t: "Jordaan", ll: [32.35, 35.66], z: [8, 12], k: "sea" }, { t: "Jabbok", ll: [32.0, 36.2], z: [8.5, 12], k: "sea" },
+  ];
+
+  const lyRoutes = L.layerGroup().addTo(map), lyPlaces = L.layerGroup().addTo(map), lyKings = L.layerGroup();
+  const lySpecial = L.layerGroup().addTo(map), lyQuiz = L.layerGroup().addTo(map), lyNL = L.layerGroup().addTo(map);
+  const partRoutes = new Map();
+  let geoReady = false, insetGeo = null;
+
+  function drawBase(geo) {
+    L.geoJSON(geo.land, { className: "landglow", interactive: false }).addTo(map);
+    L.geoJSON(geo.land, { className: "land", interactive: false }).addTo(map);
+    geo.regions.forEach((f) => L.geoJSON(f, { className: "rg-" + f.properties.k, interactive: false }).addTo(map));
+    geo.lakes.forEach((f) => L.geoJSON(f, { className: "lake", interactive: false }).addTo(map));
+    geo.rivers.forEach((f) => L.geoJSON(f, { className: "river", interactive: false }).addTo(map));
+    KLEINE_RIVIEREN.forEach((r) => L.polyline(r.p, { className: "river klein", interactive: false }).addTo(map));
+    insetGeo = geo;
+    // Routes, plaatsen en de kameel moeten boven de ondergrond liggen.
+    [lyRoutes, lyPlaces, lySpecial, lyQuiz, lyNL].forEach((g) => { map.removeLayer(g); map.addLayer(g); });
+    map.removeLayer(camel); map.addLayer(camel);
+    geoReady = true;
+    drawInset();
+  }
+  const peakMarkers = PEAKS.map((p) => L.marker(p.ll, { interactive: false, keyboard: false, icon: icon(`<span class="peak off"><i></i><span>${esc(p.n)} ${fmt(p.h)} m</span></span>`) }).addTo(map));
+  const regionMarkers = REGIONS.map((r) => L.marker(r.ll, { interactive: false, keyboard: false, icon: icon(`<span class="region ${r.k}">${esc(r.t)}</span>`) }).addTo(map));
+
+  // Plaatsen: één marker per plaats, met een icoon per soort.
+  const PIN = {
+    stad: '<circle class="f" cx="7" cy="7" r="4.6"/>', altaar: '<path class="f" d="M7 1.2 12.8 7 7 12.8 1.2 7z"/>', put: '<circle class="f" cx="7" cy="7" r="4.6"/><circle cx="7" cy="7" r="1.8" fill="var(--halo)"/>',
+    berg: '<path class="f" d="M7 1.5 12.5 12H1.5z"/>', tent: '<path class="f" d="M7 1.5 13 12.5H1z"/><path d="M7 7v5.5" stroke="var(--halo)" stroke-width="1.6"/>',
+    kamp: '<rect class="f" x="2.2" y="2.2" width="9.6" height="9.6" rx="2"/>', gebied: '<circle class="f" cx="7" cy="7" r="5"/>', water: '<circle class="f" cx="7" cy="7" r="4.6"/>', ctx: '<circle class="f" cx="7" cy="7" r="4"/>',
+  };
+  const STATUS = { v: "We weten vrij zeker waar dit lag.", w: "Waarschijnlijk lag het hier.", o: "We weten niet precies waar dit lag.", r: "Dit is een gebied." };
+  const markers = {};
+  Object.entries(P).forEach(([id, p]) => {
+    const t = p.ctx ? "ctx" : p.c === "r" ? "gebied" : p.t || "stad";
+    const pin = ["pin", "t-" + t, p.ctx ? "ctx" : "c-" + p.c, p.k ? "k" : ""].join(" ");
+    const lab = ["lab", "s-" + (p.s || "r"), p.ctx ? "ctx" : "", p.k ? "k" : ""].join(" ");
+    const m = L.marker(p.ll, { icon: icon(`<span class="${pin}"><svg viewBox="0 0 14 14" aria-hidden="true">${PIN[t] || PIN.stad}</svg></span><span class="${lab}">${esc(p.n)}</span>`), keyboard: !p.ctx, title: p.n });
+    if (!p.ctx) m.bindPopup(`<div class="pop"><h3>${esc(p.n)}</h3><p>${esc(p.d || "")}</p><p class="st">${STATUS[p.c] || ""}</p></div>`, { maxWidth: 260 });
+    if (p.k) lyKings.addLayer(m);
+    markers[id] = m;
+  });
+
+  const CAMEL = `<div class="camel"><svg viewBox="0 0 48 40" aria-hidden="true"><path class="leg a" d="M12 30v8"/><path class="leg b" d="M17 30v8"/><path class="leg b" d="M29 30v8"/><path class="leg a" d="M34 30v8"/><path class="body" d="M6 25c0-6 4-10 9-9 2-6 9-7 11 0 1-3 6-3 7 1 1 2 2 3 2 6l3-12c1-3 4-4 7-3l3 1-1 3h-4l-4 16c-1 2-2 3-4 3H9c-2 0-3-2-3-6z"/><path class="saddle" d="M15 17c4-2 10-2 15 1l-2 6H16z"/><circle class="eye" cx="42.5" cy="11.5" r="1"/></svg></div>`;
+  const camel = L.marker([31.5, 35.2], { icon: icon(CAMEL), interactive: false, keyboard: false, zIndexOffset: 1000 }).addTo(map);
+  function camelStyle(who, walking, flip, gone) {
+    const e = camel.getElement(); const el = e && e.querySelector(".camel"); if (!el) return;
+    el.querySelector(".saddle").style.fill = color(who || "kobalt");
+    el.classList.toggle("walk", !!walking);
+    el.classList.toggle("gone", !!gone);
+    if (flip !== undefined) el.classList.toggle("flip", flip);
+  }
+
+  let boek = BOEKEN[0], deel = boek.delen[0], cur = -1, mode = "reis", animToken = 0, showAll = false;
+
+  function showPartPlaces() {
+    lyPlaces.clearLayers();
+    const ids = new Set(deel.ctx || []);
+    deel.steps.forEach((s) => s.at.forEach((id) => { if (P[id] && !P[id].k) ids.add(id); }));
+    ids.forEach((id) => markers[id] && lyPlaces.addLayer(markers[id]));
+  }
+  function refreshLabels() {
+    const z = map.getZoom();
+    const on = new Set(cur >= 0 && mode === "reis" ? deel.steps[cur].at : []);
+    Object.entries(markers).forEach(([id, m]) => {
+      const el = m.getElement(); if (!el) return;
+      const lab = el.querySelector(".lab");
+      lab.classList.toggle("off", !(z >= (P[id].z || 7) || on.has(id)));
+      lab.classList.toggle("on", on.has(id));
+    });
+    REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (el) el.firstChild.classList.toggle("off", z < r.z[0] || z > r.z[1]); });
+    PEAKS.forEach((p, i) => { const el = peakMarkers[i].getElement(); if (el) el.firstChild.classList.toggle("off", z < p.z); });
+  }
+  map.on("zoomend", refreshLabels);
+  map.on("moveend", drawInsetBox);
+
+  function fit(pts, maxZoom, done) {
+    const b = L.latLngBounds(pts);
+    const opts = { paddingTopLeft: [60, 56], paddingBottomRight: [36, 90], maxZoom: maxZoom || 9 };
+    if (reduceMotion) { map.fitBounds(b, opts); done && done(); return; }
+    map.flyToBounds(b, { ...opts, duration: 0.8 });
+    done && setTimeout(done, 850);
+  }
+
+  // ---------- inzetkaartje ----------
+  const insetSvg = document.querySelector("#inset svg");
+  const ix = (lon) => ((lon + 12) / 72) * 230, iy = (lat) => ((63 - lat) / 36) * 125;
+  function drawInset() {
+    if (!insetGeo) return;
+    const ring = (r) => r.map(([lon, lat]) => `${ix(lon).toFixed(1)},${iy(lat).toFixed(1)}`).join(" ");
+    const polys = insetGeo.inset.geometry.type === "Polygon" ? [insetGeo.inset.geometry.coordinates] : insetGeo.inset.geometry.coordinates;
+    const landPath = polys.map((poly) => poly.map((r) => "M" + ring(r) + "Z").join("")).join("");
+    const nlPath = insetGeo.nl.map((r) => "M" + ring(r) + "Z").join("");
+    insetSvg.innerHTML = `<rect class="sea-i" width="230" height="125" rx="8"/><path class="land-i" d="${landPath}"/><path class="nl-i" d="${nlPath}"/><text x="${ix(5.3) - 2}" y="${iy(52.2) - 5}">NL</text><rect class="box-i" id="insetBox" x="0" y="0" width="0" height="0" rx="2"/>`;
+    drawInsetBox();
+  }
+  function drawInsetBox() {
+    const box = $("insetBox"); if (!box) return;
+    const b = map.getBounds();
+    const x1 = ix(b.getWest()), x2 = ix(b.getEast()), y1 = iy(b.getNorth()), y2 = iy(b.getSouth());
+    box.setAttribute("x", Math.max(0, x1).toFixed(1)); box.setAttribute("y", Math.max(0, y1).toFixed(1));
+    box.setAttribute("width", Math.max(3, Math.min(230, x2) - Math.max(0, x1)).toFixed(1)); box.setAttribute("height", Math.max(3, Math.min(125, y2) - Math.max(0, y1)).toFixed(1));
+  }
+  $("insetBtn").addEventListener("click", () => { const open = $("inset").hidden; $("inset").hidden = !open; $("insetBtn").setAttribute("aria-expanded", open); $("insetBtn").textContent = open ? "Kaartje sluiten" : "Waar ligt dit?"; });
+
+  // ---------- routes tekenen ----------
+  function routeLayer(d) {
+    if (partRoutes.has(d.key)) return partRoutes.get(d.key);
+    const g = L.layerGroup();
+    d.steps.forEach((s) => (s.r || []).forEach((r) => {
+      r.casing = L.polyline(r.pts, { className: `rt rt-casing${r.recon ? " recon" : ""} future`, interactive: false }).addTo(g);
+      r.line = L.polyline(r.pts, { className: `rt${r.recon ? " recon" : ""} future`, color: color(r.w), interactive: false }).addTo(g);
+      r.arrows = arrows(r, g);
+    }));
+    partRoutes.set(d.key, g);
+    return g;
+  }
+  function angleDeg(a, b) { const p1 = map.project(a, 6), p2 = map.project(b, 6); return (Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180) / Math.PI; }
+  function pointAt(r, f) {
+    const L0 = r.len * f;
+    for (let i = 1; i < r.pts.length; i++) {
+      if (r.cum[i] >= L0) { const t = (L0 - r.cum[i - 1]) / (r.cum[i] - r.cum[i - 1] || 1); const a = r.pts[i - 1], b = r.pts[i]; return { ll: [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t], a: angleDeg(a, b) }; }
+    }
+    return { ll: r.pts[r.pts.length - 1], a: 0 };
+  }
+  function arrows(r, group) {
+    const fs = r.len > 400 ? [0.35, 0.8] : r.len > 60 ? [0.6] : [];
+    return fs.map((f) => { const q = pointAt(r, f); const m = L.marker(q.ll, { interactive: false, keyboard: false, icon: icon(`<span class="arr off" style="--arr:${color(r.w)};transform:rotate(${q.a.toFixed(1)}deg)"></span>`) }); group.addLayer(m); return m; });
+  }
+  function routeState() {
+    deel.steps.forEach((s, i) => (s.r || []).forEach((r) => {
+      let st = showAll ? "past" : i < cur ? "past" : i === cur ? "active" : "future";
+      if (r.w === "rood" && i !== cur) st = "future";
+      [r.line, r.casing].forEach((l) => { const el = l && l.getElement(); if (!el) return; el.classList.remove("past", "active", "future", "hl"); el.classList.add(st); });
+      r.arrows.forEach((a) => { const e = a.getElement(); if (e) { e.firstChild.classList.toggle("off", st === "future"); e.firstChild.classList.toggle("dim", st === "past"); } });
+    }));
+  }
+  function partial(r, d) {
+    if (d >= r.len) return r.pts.slice();
+    let i = 1; while (i < r.pts.length && r.cum[i] < d) i++;
+    const a = r.pts[i - 1], b = r.pts[i], t = (d - r.cum[i - 1]) / (r.cum[i] - r.cum[i - 1] || 1);
+    return r.pts.slice(0, i).concat([[a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]]);
+  }
+  function animate(s) {
+    const token = ++animToken;
+    const routes = s.r || [];
+    const who = routes.length ? routes[0].w : deel.c;
+    if (!routes.length && !s.at.length) { camelStyle(who, false, undefined, true); return; }
+    const end = routes.length ? routes[routes.length - 1].pts.slice(-1)[0] : ll(s.at[0]);
+    if (!routes.length || reduceMotion) { routes.forEach((r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); }); camel.setLatLng(end); camelStyle(who, false, undefined, false); return; }
+    const total = routes.reduce((a, r) => a + r.len, 0);
+    const dur = Math.max(1400, Math.min(5200, total * 3.2));
+    routes.forEach((r) => { r.line.setLatLngs([r.pts[0], r.pts[0]]); r.casing.setLatLngs([r.pts[0], r.pts[0]]); });
+    camel.setLatLng(routes[0].pts[0]); camelStyle(who, true, undefined, false);
+    const t0 = performance.now();
+    let lastLL = routes[0].pts[0], lastWho = who;
+    function frame(now) {
+      if (token !== animToken) return;
+      const f = Math.min(1, (now - t0) / dur);
+      const e = f < 0.5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
+      let d = e * total, pos = null, w = who;
+      routes.forEach((r) => {
+        const dd = Math.max(0, Math.min(r.len, d));
+        const pts = partial(r, dd);
+        const drawn = pts.length > 1 ? pts : [r.pts[0], r.pts[0]];
+        r.line.setLatLngs(drawn); r.casing.setLatLngs(drawn);
+        if (d > 0 && !pos) { pos = pts[pts.length - 1]; w = r.w; }
+        if (dd === r.len && d > r.len) pos = null;
+        d -= r.len;
+      });
+      if (!pos) pos = end;
+      const pa = map.latLngToLayerPoint(lastLL), pb = map.latLngToLayerPoint(pos);
+      camelStyle(w, true, Math.abs(pb.x - pa.x) > 0.5 ? pb.x < pa.x : undefined, false);
+      camel.setLatLng(pos); lastLL = pos; lastWho = w;
+      if (f < 1) requestAnimationFrame(frame); else camelStyle(lastWho, false);
+    }
+    requestAnimationFrame(frame);
+  }
+  function drawSpecial(s) {
+    lySpecial.clearLayers();
+    if (s.rays4) {
+      const b = ll(s.rays4);
+      [["noord", [b[0] + 0.75, b[1]]], ["zuid", [b[0] - 0.75, b[1]]], ["oost", [b[0], b[1] + 0.9]], ["west", [b[0], b[1] - 0.9]]].forEach(([t, e]) => {
+        L.polyline([b, e], { className: "ray", interactive: false }).addTo(lySpecial);
+        lySpecial.addLayer(L.marker(e, { interactive: false, keyboard: false, icon: icon(`<span class="raylab">${t}</span>`) }));
+      });
+    }
+    if (s.look) {
+      const a = ll(s.look[0]), b = ll(s.look[1]);
+      L.polyline([a, b], { className: "ray look", interactive: false }).addTo(lySpecial);
+      lySpecial.addLayer(L.marker([(a[0] + b[0]) / 2 + 0.03, (a[1] + b[1]) / 2], { interactive: false, keyboard: false, icon: icon(`<span class="raylab look">${esc(s.look[2] || "")}</span>`) }));
+    }
+    if (s.later) {
+      L.polyline(s.later.p.map(ll), { className: "ray", interactive: false }).addTo(lySpecial);
+      if (s.later.lab) lySpecial.addLayer(L.marker(ll(s.later.at || s.later.p[Math.floor(s.later.p.length / 2)]), { interactive: false, keyboard: false, icon: icon(`<span class="raylab">${esc(s.later.lab)}</span>`) }));
+    }
+  }
+
+  // ---------- reisboek ----------
+  const seen = new Set(store.get("gezien", []));
+  function personChip([name, age]) {
+    const c = color(BR.personen[name] || "grijs");
+    const group = GROUPS.has(name);
+    const label = group ? age || name.toLowerCase() : name;
+    const sub = !group && age ? ` <small>${/^\d+$/.test(age) ? age + " jaar" : esc(age)}</small>` : "";
+    return `<span class="chip"><i style="background:${c}">${esc(name[0])}</i>${esc(label)}${sub}</span>`;
+  }
+  function setAccent() {
+    document.body.style.setProperty("--acc", color(deel.c));
+    document.body.style.setProperty("--acc-deep", color(deel.c));
+    document.querySelectorAll(".deel").forEach((b) => b.setAttribute("aria-pressed", b.dataset.deel === deel.id));
+    document.querySelectorAll(".boek").forEach((b) => b.setAttribute("aria-pressed", b.dataset.boek === boek.id));
+  }
+  function chooseBoek(b, d, step = -1, opts) {
+    boek = b; d = d || b.delen[0];
+    renderDelen();
+    chooseDeel(d, step, opts);
+  }
+  function chooseDeel(d, step = -1, opts = {}) {
+    deel = d; boek = d.boek; cur = -1;
+    partRoutes.forEach((g, key) => { if (key !== d.key) map.removeLayer(g); });
+    map.addLayer(routeLayer(d));
+    showPartPlaces(); setAccent(); renderDots();
+    if (!opts.keepHash) history.replaceState(null, "", "#" + d.id);
+    select(step, opts);
+  }
+
+  function select(i, opts = {}) {
+    cur = Math.max(-1, Math.min(deel.steps.length - 1, i));
+    showAll = false;
+    map.closePopup();
+    const sp = $("sSpecial"); sp.innerHTML = "";
+    const lees = $("leesBtn");
+    if (cur >= 0) {
+      const s = deel.steps[cur];
+      if (!seen.has(s.key)) { seen.add(s.key); store.set("gezien", [...seen]); toast(`Nieuwe stempel: ${s.stamp}!`); }
+      $("sRef").textContent = s.ref;
+      $("sKm").textContent = s.km ? "ca. " + fmt(s.km) + " km" : "geen reis";
+      $("sTitle").textContent = cur + 1 + ". " + s.t;
+      $("sWho").innerHTML = (s.who || []).map(personChip).join("");
+      $("sText").textContent = s.txt;
+      $("sFact").innerHTML = "<b>Wist je dat?</b>" + esc(s.fact); $("sFact").hidden = !s.fact;
+      lees.hidden = !parseRef(s.ref); lees.dataset.ref = s.ref;
+      if (s.sterren) starGame(sp);
+      if (s.onthul) revealGame(sp, s.onthul);
+      if (s.vergelijk) compareBars(sp, s.vergelijk);
+      s.kings ? map.addLayer(lyKings) : map.removeLayer(lyKings);
+      drawSpecial(s);
+      deel.steps.forEach((t, j) => (t.r || []).forEach((r) => { if (j !== cur) { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); } }));
+      routeState();
+      let pts = s.rays4 ? [[ll(s.rays4)[0] + 0.8, ll(s.rays4)[1] - 1], [ll(s.rays4)[0] - 0.8, ll(s.rays4)[1] + 1]] : (s.r ? s.r.flatMap((r) => r.pts) : []).concat(s.at.map(ll));
+      if (s.later) pts = pts.concat(s.later.p.map(ll));
+      if (s.look) pts = pts.concat(s.look.slice(0, 2).map(ll));
+      if (!pts.length) fit(WIDE, 6, () => animate(s));
+      else if (pts.every((p) => p[0] === pts[0][0] && p[1] === pts[0][1])) {
+        const z = s.zoom || 9; reduceMotion ? map.setView(pts[0], z) : map.flyTo(pts[0], z, { duration: 0.8 }); setTimeout(() => animate(s), reduceMotion ? 0 : 850);
+      } else fit(pts, s.zoom || 9, () => animate(s));
+      $("where").textContent = `${deel.short} · ${cur + 1} van ${deel.steps.length}`;
+    } else {
+      $("sRef").textContent = deel.ref;
+      const km = partKm(deel);
+      $("sKm").textContent = deel.steps.length + " stappen" + (km > 50 ? ` · ca. ${fmt(Math.round(km / 100) * 100)} km` : "");
+      $("sTitle").textContent = deel.n;
+      $("sWho").innerHTML = (deel.who || []).map(personChip).join("");
+      $("sText").textContent = deel.intro;
+      $("sFact").innerHTML = "<b>Wist je dat?</b>" + esc(deel.stat || ""); $("sFact").hidden = !deel.stat;
+      lees.hidden = true;
+      if (deel.cross && deel.cross.length) sp.innerHTML = `<p class="label">Elders in de Bijbel</p><ul class="xrefs">${deel.cross.map(([r, t]) => `<li><b>${esc(r)}</b>${esc(t)}</li>`).join("")}</ul>`;
+      map.removeLayer(lyKings); lySpecial.clearLayers();
+      deel.steps.forEach((t) => (t.r || []).forEach((r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); }));
+      showAll = true; routeState(); showAll = false;
+      animToken++;
+      const first = deel.steps.find((s) => s.at.length || s.r);
+      const startLL = first ? (first.r ? first.r[0].pts[0] : ll(first.at[0])) : null;
+      if (startLL) camel.setLatLng(startLL);
+      camelStyle(deel.c, false, false, !startLL || deel.id === "begin");
+      if (!opts.noFly) fit(partBounds(deel), 8);
+      $("where").textContent = deel.n;
+    }
+    const idx = ALLPARTS.indexOf(deel), atEnd = cur >= deel.steps.length - 1, next = ALLPARTS[idx + 1];
+    $("prev").disabled = $("prev2").disabled = cur <= -1 && idx === 0;
+    $("next").disabled = $("next2").disabled = atEnd && !next;
+    $("next").textContent = $("next2").textContent = cur < 0 ? "Start ▶" : atEnd && next ? `Naar ${next.short} ▶` : "Verder ▶";
+    renderDots();
+    requestAnimationFrame(refreshLabels);
+  }
+  function partBounds(d) {
+    const pts = d.steps.flatMap((s) => (s.r ? s.r.filter((r) => r.w !== "rood").flatMap((r) => r.pts) : []).concat(s.at.filter((id) => P[id] && !P[id].k).map(ll)));
+    return pts.length ? pts : WIDE;
+  }
+  function goNext() { if (cur < deel.steps.length - 1) select(cur + 1); else { const n = ALLPARTS[ALLPARTS.indexOf(deel) + 1]; if (n) { if (n.boek !== boek) chooseBoek(n.boek, n); else chooseDeel(n); } } }
+  function goPrev() { if (cur > -1) select(cur - 1); else { const p = ALLPARTS[ALLPARTS.indexOf(deel) - 1]; if (p) { if (p.boek !== boek) chooseBoek(p.boek, p, p.steps.length - 1); else chooseDeel(p, p.steps.length - 1); } } }
+
+  function renderBoeken() {
+    $("boeken").innerHTML = BOEKEN.map((b) => `<button type="button" class="boek" data-boek="${b.id}" aria-pressed="${b === boek}">${esc(b.n)}<small>${esc(b.tijd || "")}</small></button>`).join("");
+  }
+  function renderDelen() {
+    $("delen").innerHTML = boek.delen.map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.ref.replace(/^\S+ /, "").replace(/^(\d )?/, ""))}</small></button>`).join("");
+  }
+  $("boeken").addEventListener("click", (e) => { const b = e.target.closest(".boek"); if (b) chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek)); });
+  $("delen").addEventListener("click", (e) => { const b = e.target.closest(".deel"); if (b) chooseDeel(boek.delen.find((x) => x.id === b.dataset.deel)); });
+  function renderDots() {
+    const box = $("chapters"); const by = {};
+    deel.steps.forEach((s, i) => { const m = s.ref.match(/(\d+)(?::|$|–|;| )/); const ch = m ? m[1] : "?"; (by[ch] = by[ch] || []).push(i); });
+    $("stepsLabel").textContent = "Alle stappen: " + deel.n;
+    box.innerHTML = Object.entries(by).sort((a, b) => a[0] - b[0]).map(([ch, idx]) => `<div class="row"><span>Hfst. ${ch}</span><div class="dots">${idx.map((i) => `<button type="button" class="dot${seen.has(deel.steps[i].key) ? " seen" : ""}" data-step="${i}" aria-current="${i === cur ? "step" : "false"}" title="${esc(deel.steps[i].t)}" aria-label="Stap ${i + 1}: ${esc(deel.steps[i].t)}">${i + 1}</button>`).join("")}</div></div>`).join("");
+  }
+  $("chapters").addEventListener("click", (e) => { const b = e.target.closest(".dot"); if (b) { select(+b.dataset.step); scrollToMap(); } });
+  $("prev").onclick = $("prev2").onclick = goPrev;
+  $("next").onclick = $("next2").onclick = goNext;
+  $("whole").onclick = () => {
+    showAll = true; animToken++;
+    deel.steps.forEach((t) => (t.r || []).forEach((r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); }));
+    routeState(); lySpecial.clearLayers(); map.removeLayer(lyKings);
+    fit(partBounds(deel), 8); scrollToMap();
+  };
+  document.addEventListener("keydown", (e) => {
+    if (mode !== "reis" || e.target.closest("input, select, textarea, [role='tablist']") || e.altKey || e.ctrlKey || e.metaKey || !$("lade").hidden) return;
+    if (e.key === "ArrowRight") { e.preventDefault(); goNext(); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); goPrev(); }
+  });
+
+  // ---------- Bijbeltekst (Statenvertaling) ----------
+  const SLUGS = { genesis: "genesis", exodus: "exodus", leviticus: "leviticus", numeri: "numeri", deuteronomium: "deuteronomium", jozua: "jozua", richteren: "richteren", ruth: "ruth", "1samuel": "1samuel", "2samuel": "2samuel", "1koningen": "1koningen", "2koningen": "2koningen", "1kronieken": "1kronieken", "2kronieken": "2kronieken", ezra: "ezra", nehemia: "nehemia", esther: "esther", job: "job", psalm: "psalmen", psalmen: "psalmen", jesaja: "jesaja", jeremia: "jeremia", daniel: "daniel", hosea: "hosea", amos: "amos", jona: "jona", micha: "micha", nahum: "nahum" };
+  const bibleCache = {};
+  function parseRef(ref) {
+    const m = String(ref).match(/^(\d?\s?[A-Za-zëéïü]+)\s+(.+)$/);
+    if (!m) return null;
+    const slug = SLUGS[m[1].toLowerCase().replace(/\s|ë|é|ï|ü/g, (c) => ({ ë: "e", é: "e", ï: "i", ü: "u" })[c] ?? "")];
+    if (!slug) return null;
+    const parts = m[2].split(";").map((x) => x.trim()).filter(Boolean);
+    const ranges = [];
+    let lastCh = null;
+    for (const p of parts) {
+      let r;
+      if ((r = p.match(/^(\d+):(\d+)[–-](\d+):(\d+)$/))) ranges.push({ c1: +r[1], v1: +r[2], c2: +r[3], v2: +r[4] });
+      else if ((r = p.match(/^(\d+):(\d+)[–-](\d+)$/))) ranges.push({ c1: +r[1], v1: +r[2], c2: +r[1], v2: +r[3] });
+      else if ((r = p.match(/^(\d+):(\d+)$/))) ranges.push({ c1: +r[1], v1: +r[2], c2: +r[1], v2: +r[2] });
+      else if ((r = p.match(/^(\d+)[–-](\d+)$/))) ranges.push({ c1: +r[1], v1: 1, c2: +r[2], v2: 999 });
+      else if ((r = p.match(/^(\d+)$/))) ranges.push({ c1: +r[1], v1: 1, c2: +r[1], v2: 999 });
+      else if (lastCh !== null && (r = p.match(/^(\d+)[–-]?(\d+)?$/))) ranges.push({ c1: lastCh, v1: +r[1], c2: lastCh, v2: +(r[2] || r[1]) });
+      else return null;
+      lastCh = ranges[ranges.length - 1].c2;
+    }
+    return { slug, ranges, book: m[1] };
+  }
+  async function loadBible(slug) {
+    if (!bibleCache[slug]) bibleCache[slug] = fetch(`/bijbelreis/bijbel/${slug}.json`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); });
+    return bibleCache[slug];
+  }
+  async function openBible(ref) {
+    const q = parseRef(ref); if (!q) return;
+    $("ladeTitel").textContent = ref;
+    $("verzen").innerHTML = "<p class='ref'>Even geduld…</p>";
+    $("lade").hidden = false; $("ladeSluit").focus();
+    try {
+      const data = await loadBible(q.slug);
+      let html = "";
+      q.ranges.forEach((rg) => {
+        for (let c = rg.c1; c <= rg.c2; c++) {
+          const verses = data.hoofdstukken[String(c)]; if (!verses) continue;
+          const from = c === rg.c1 ? rg.v1 : 1, to = c === rg.c2 ? Math.min(rg.v2, verses.length) : verses.length;
+          if (from > verses.length) continue;
+          html += `<h4>${esc(data.boek)} ${c}</h4><p>` + verses.slice(from - 1, to).map((v, i) => `<sup>${from + i}</sup>${esc(v)} `).join("") + "</p>";
+        }
+      });
+      $("verzen").innerHTML = (html || "<p class='ref'>Deze tekst is niet gevonden.</p>") + `<p class="ref" style="margin-top:12px">${esc(data.vertaling)}. Oude spelling: lees het samen met een volwassene.</p>`;
+    } catch {
+      $("verzen").innerHTML = "<p class='ref'>De Bijbeltekst kon niet worden geladen. Probeer het straks nog eens.</p>";
+    }
+  }
+  $("leesBtn").addEventListener("click", () => openBible($("leesBtn").dataset.ref));
+  $("ladeSluit").addEventListener("click", () => { $("lade").hidden = true; $("leesBtn").focus(); });
+  $("lade").addEventListener("click", (e) => { if (e.target === $("lade")) { $("lade").hidden = true; } });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("lade").hidden) $("lade").hidden = true; });
+
+  // ---------- mini-spellen ----------
+  function starGame(host) {
+    const box = document.createElement("div"); box.className = "sky";
+    box.innerHTML = '<canvas aria-label="Tik op de sterren om ze te tellen"></canvas><div class="count">Tik op de sterren: 0</div><div class="msg"></div>';
+    host.appendChild(box);
+    const cv = box.querySelector("canvas"), ctx = cv.getContext("2d"), cnt = box.querySelector(".count"), msg = box.querySelector(".msg");
+    let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const stars = Array.from({ length: 420 }, () => ({ x: rnd(), y: rnd(), r: rnd() < 0.08 ? 1.9 : 0.4 + rnd() * 1.1, lit: false }));
+    let n = 0;
+    function draw() {
+      if (!cv.isConnected) return;
+      const w = cv.clientWidth, h = cv.clientHeight, dpr = window.devicePixelRatio || 1;
+      cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      stars.forEach((s) => {
+        ctx.beginPath(); ctx.arc(s.x * w, s.y * h, s.lit ? 3.4 : s.r, 0, Math.PI * 2);
+        ctx.fillStyle = s.lit ? "#ffd24d" : "rgba(235,240,255," + (0.45 + s.r / 4) + ")"; ctx.fill();
+        if (s.lit) { ctx.beginPath(); ctx.arc(s.x * w, s.y * h, 7, 0, Math.PI * 2); ctx.strokeStyle = "rgba(255,210,77,.5)"; ctx.stroke(); }
+      });
+    }
+    cv.addEventListener("click", (e) => {
+      const b = cv.getBoundingClientRect(), x = (e.clientX - b.left) / b.width, y = (e.clientY - b.top) / b.height;
+      let best = null, bd = Infinity;
+      stars.forEach((s) => { if (s.lit) return; const d = Math.hypot((s.x - x) * b.width, (s.y - y) * b.height); if (d < bd) { bd = d; best = s; } });
+      if (best && bd < 28) { best.lit = true; n++; draw(); }
+      cnt.textContent = "Tik op de sterren: " + n;
+      if (n >= 12) msg.textContent = `${n} geteld… en er zijn er nog ${fmt(stars.length - n)} op dit plaatje. Aan de echte hemel nog veel meer. Zo groot wordt Abrams nageslacht!`;
+    });
+    requestAnimationFrame(draw);
+    window.addEventListener("resize", draw, { passive: true });
+  }
+  function revealGame(host, o) {
+    const wrap = document.createElement("div");
+    wrap.innerHTML = `<p class="label">${esc(o.titel)}</p><div class="days">${o.items.map(([d]) => `<button type="button" class="day" aria-expanded="false"><b>${esc(d)}</b><span>?</span></button>`).join("")}</div>`;
+    host.appendChild(wrap);
+    wrap.querySelectorAll(".day").forEach((b, i) => (b.onclick = () => { const open = b.classList.toggle("open"); b.setAttribute("aria-expanded", open); b.querySelector("span").textContent = open ? o.items[i][1] : "?"; }));
+  }
+  function compareBars(host, o) {
+    const max = Math.max(...o.rijen.map((r) => r[1]));
+    const wrap = document.createElement("div");
+    wrap.innerHTML = `<p class="label">${esc(o.titel)}</p><div class="compare">${o.rijen.map(([n, m, t], i) => `<div><span>${esc(n)}</span><span style="display:flex;align-items:center;gap:6px"><span class="bar${i ? " alt" : ""}" style="width:${((m / max) * 70).toFixed(1)}%"></span><small>${esc(t)}</small></span></div>`).join("")}</div>${o.noot ? `<p class="ref">${esc(o.noot)}</p>` : ""}`;
+    host.appendChild(wrap);
+  }
+
+  // ---------- tabbladen ----------
+  const TABS = ["reis", "wie", "quiz", "ver", "pas"];
+  function setMode(m) {
+    mode = m;
+    TABS.forEach((t) => { $("t-" + t).setAttribute("aria-selected", t === m); $("p-" + t).hidden = t !== m; });
+    $("mapbar").hidden = m !== "reis";
+    $("legend").hidden = m !== "reis";
+    $("map").classList.toggle("quizmode", m === "quiz");
+    lyQuiz.clearLayers();
+    if (m !== "ver") { lyNL.clearLayers(); nlOn = false; $("nlBtn").textContent = "Leg Nederland op de kaart"; $("nlHint").hidden = true; }
+    if (m === "quiz") { partRoutes.forEach((g) => map.removeLayer(g)); map.removeLayer(lyPlaces); map.removeLayer(lyKings); map.removeLayer(camel); lySpecial.clearLayers(); quizIntro(); }
+    else {
+      const g = routeLayer(deel); if (!map.hasLayer(g)) map.addLayer(g);
+      if (!map.hasLayer(lyPlaces)) map.addLayer(lyPlaces);
+      if (!map.hasLayer(camel)) map.addLayer(camel);
+      if (m === "reis") select(cur);
+      if (m === "ver") { renderTrips(); showTrip(); }
+      if (m === "pas") renderStamps();
+      if (m === "wie") renderWie();
+    }
+    requestAnimationFrame(refreshLabels);
+  }
+  TABS.forEach((t) => $("t-" + t).addEventListener("click", () => setMode(t)));
+  document.querySelector(".tabs").addEventListener("keydown", (e) => {
+    const i = TABS.indexOf(mode);
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); const n = TABS[(i + (e.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length]; setMode(n); $("t-" + n).focus(); }
+  });
+
+  // ---------- wie is wie ----------
+  let wieSel = null;
+  function renderWie() {
+    const box = $("p-wie");
+    const sb = boek.stamboom;
+    if (sb) {
+      wieSel = wieSel || "Abraham";
+      box.innerHTML = `<h2>De <em>familie</em> van Abraham</h2><p>Tik op een naam om meer te weten. De aartsvaders zijn Abraham, Izak en Jakob: opa, vader en zoon.</p><div class="card" id="wieInfo"></div><div class="tree" id="tree"></div><div class="card"><h3>Hoe oud werden ze?</h3><p class="ref">Van Adam tot Jozef, volgens Genesis 5, 11 en verder. Tik op een naam.</p><div class="chain" id="chain"></div></div>`;
+      const person = (x) => { const c = x.deel ? color(boek.delen.find((d) => d.id === x.deel).c) : x.m ? color(sb.moeders[x.m]) : "var(--grijs)"; return `<button type="button" class="person${x.deel ? " main" : ""}" data-n="${esc(x.n)}" style="--c:${c}" aria-pressed="false">${x.m && !x.deel && sb.rijen[4].includes(x) ? '<span class="m"></span>' : x.m && sb.rijen[4].includes(x) ? '<span class="m"></span>' : ""}${esc(x.n)}${x.a ? `<small>${x.a} jaar</small>` : ""}</button>`; };
+      $("tree").innerHTML = sb.rijen.map((row, i) => (i ? '<div class="arrow" aria-hidden="true">▼</div>' : "") + `<div class="gen">${row.map(person).join("")}</div>` + (i === 4 ? `<div class="mothers">${Object.entries(sb.moeders).map(([m, c]) => `<span style="--c:${color(c)}">moeder ${esc(m)}</span>`).join("")}</div>` : "")).join("");
+      const max = Math.max(...sb.leeftijden.map((x) => x[1]));
+      $("chain").innerHTML = sb.leeftijden.map(([n, a]) => `<button type="button" data-n="${esc(n)}" aria-pressed="false" style="--c:${sb.kleuren[n] ? color(sb.kleuren[n]) : "var(--grijs)"}"><span>${esc(n)}</span><span class="bar" style="width:${((a / max) * 100).toFixed(1)}%"></span><span class="age">${a}</span></button>`).join("");
+      wieInfoGenesis(wieSel);
+    } else {
+      const list = boek.wie || [];
+      wieSel = list.find((x) => x.n === wieSel) ? wieSel : list[0] && list[0].n;
+      box.innerHTML = `<h2>Wie is <em>wie</em> in ${esc(boek.n)}?</h2><p>Tik op een naam om meer te weten.</p><div class="card" id="wieInfo"></div><div class="wie" id="wieList">${list.map((x) => `<button type="button" data-n="${esc(x.n)}" aria-pressed="false"><b>${esc(x.n)}</b><small>${esc(x.rol || "")}</small></button>`).join("")}</div>`;
+      if (list.length) wieInfoBoek(wieSel); else $("wieInfo").innerHTML = "<p>Voor dit boek is nog geen lijst met personen.</p>";
+    }
+  }
+  function wieInfoGenesis(name) {
+    wieSel = name;
+    const sb = boek.stamboom;
+    const all = sb.rijen.flat(); const t = all.find((x) => x.n === name); const ch = sb.leeftijden.find((x) => x[0] === name);
+    const d = t && t.deel ? boek.delen.find((x) => x.id === t.deel) : null;
+    const age = (t && t.a) || (ch && ch[1]);
+    const info = (t && t.i) || sb.uitleg[name] || `Staat in het geslachtsregister van Genesis ${ch ? (ch[2].startsWith("5") ? "5" : "11") : ""}.`;
+    $("wieInfo").innerHTML = `<h3>${esc(name)}</h3>${age ? `<p class="ref">Werd ${age} jaar${ch ? ` (Genesis ${esc(ch[2])})` : ""}</p>` : ""}<p>${esc(info)}</p>${d ? `<button type="button" class="btn primary" id="wieGo" style="--acc:${color(d.c)};--acc-deep:${color(d.c)}">Bekijk de reis van ${esc(name)} ▶</button>` : ""}`;
+    if (d) $("wieGo").onclick = () => { setMode("reis"); chooseDeel(d); };
+    document.querySelectorAll(".person, .chain button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.n === name));
+  }
+  function wieInfoBoek(name) {
+    wieSel = name;
+    const x = (boek.wie || []).find((p) => p.n === name); if (!x) return;
+    const d = x.deel ? boek.delen.find((q) => q.id === x.deel) : null;
+    $("wieInfo").innerHTML = `<h3>${esc(x.n)}</h3>${x.rol ? `<p class="ref">${esc(x.rol)}</p>` : ""}<p>${esc(x.i || "")}</p>${d ? `<button type="button" class="btn primary" id="wieGo" style="--acc:${color(d.c)};--acc-deep:${color(d.c)}">Bekijk de reis van ${esc(d.short)} ▶</button>` : ""}`;
+    if (d) $("wieGo").onclick = () => { setMode("reis"); chooseDeel(d); };
+    document.querySelectorAll("#wieList button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.n === name));
+  }
+  $("p-wie").addEventListener("click", (e) => { const b = e.target.closest("[data-n]"); if (b) boek.stamboom ? wieInfoGenesis(b.dataset.n) : wieInfoBoek(b.dataset.n); });
+
+  // ---------- speurtocht ----------
+  let Q = [], qi = 0, score = 0, awaitingTap = null, qPart = "alles";
+  const quizOf = (d) => d.quiz || { tap: [], mc: [], ord: [] };
+  function quizIntro() {
+    const opts = [["alles", "Alles uit " + boek.n, "var(--boter)"]].concat(boek.delen.map((d) => [d.id, d.n, color(d.c)]));
+    if (!boek.delen.find((d) => d.id === qPart) && qPart !== "alles") qPart = "alles";
+    const best = store.get("best:" + boek.id + ":" + qPart, null);
+    $("p-quiz").innerHTML = `<div class="card"><h2>Speur<em>tocht</em></h2><p>10 vragen. Soms wijs je een plek aan op de kaart, soms kies je het goede antwoord of zet je dingen in de goede volgorde.</p><p class="label">Over wie?</p><div class="pick">${opts.map(([id, n, c]) => `<button type="button" data-q="${id}" style="--pc:${c}" aria-pressed="${id === qPart}">${esc(n)}</button>`).join("")}</div><p class="ref">In de speurtocht staan er geen namen op de kaart. Kijk goed naar de zeeën en rivieren!</p>${best != null ? `<p><b>Jouw beste score hier: ${fmt(best)} van 10</b></p>` : ""}<button type="button" class="btn primary" id="qGo">Start de speurtocht</button></div>`;
+    $("p-quiz").querySelectorAll("[data-q]").forEach((b) => (b.onclick = () => { qPart = b.dataset.q; quizIntro(); }));
+    $("qGo").onclick = startQuiz;
+    fit(WIDE, 6);
+  }
+  function startQuiz() {
+    const delen = qPart === "alles" ? boek.delen : [boek.delen.find((d) => d.id === qPart)];
+    const tap = shuffle(delen.flatMap((d) => quizOf(d).tap || [])), mc = shuffle(delen.flatMap((d) => quizOf(d).mc || [])), ord = shuffle(delen.flatMap((d) => quizOf(d).ord || []).concat(qPart === "alles" ? boek.ordAlles || [] : []));
+    const nOrd = Math.min(2, ord.length), nTap = Math.min(4, tap.length), nMc = Math.min(10 - nOrd - nTap, mc.length);
+    Q = shuffle([...tap.slice(0, nTap).map((x) => ({ t: "tap", ...x })), ...mc.slice(0, nMc).map((x) => ({ t: "mc", ...x })), ...ord.slice(0, nOrd).map((x) => ({ t: "ord", ...x }))]);
+    if (!Q.length) { $("p-quiz").innerHTML = "<div class='card'><p>Voor dit deel zijn nog geen vragen.</p></div>"; return; }
+    qi = 0; score = 0; ask();
+  }
+  const head = () => `<div class="qhead"><span>Vraag ${qi + 1} van ${Q.length}</span><span>Punten: ${fmt(score)}</span></div><div class="progress"><div style="width:${((qi / Q.length) * 100).toFixed(0)}%"></div></div>`;
+  const nextBtn = () => `<button type="button" class="btn primary" id="qNext">${qi + 1 < Q.length ? "Volgende vraag ▶" : "Bekijk je score"}</button>`;
+  function bindNext() { $("qNext").onclick = () => { qi++; lyQuiz.clearLayers(); qi < Q.length ? ask() : finish(); }; $("qNext").focus({ preventScroll: true }); }
+  const viewOf = (v) => (v === "wide" ? WIDE : v === "kanaan" ? KANAAN : v);
+  function ask() {
+    const q = Q[qi]; awaitingTap = null; lyQuiz.clearLayers();
+    const box = $("p-quiz");
+    if (q.t === "tap") {
+      box.innerHTML = `${head()}<p class="qtext">${esc(q.q)}</p><div class="tapcall"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 11V5a2 2 0 0 1 4 0v6M13 10a2 2 0 0 1 4 0v2M17 11a2 2 0 0 1 4 0v4a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3l-3-5a2 2 0 0 1 3-2l2 2"/></svg><span>Tik op de kaart${isNarrow() ? " hierboven" : ""}.</span></div><div id="qRes"></div>`;
+      fit(viewOf(q.v), 8.5); awaitingTap = q; scrollToMap();
+    } else if (q.t === "mc") {
+      const opts = shuffle(q.a);
+      box.innerHTML = `${head()}<p class="qtext">${esc(q.q)}</p><div class="opts">${opts.map((o) => `<button type="button" class="opt">${esc(o)}</button>`).join("")}</div><div id="qRes"></div>`;
+      box.querySelectorAll(".opt").forEach((b) => (b.onclick = () => {
+        const ok = b.textContent === q.a[0];
+        box.querySelectorAll(".opt").forEach((x) => { x.disabled = true; if (x.textContent === q.a[0]) x.classList.add("ok"); });
+        if (!ok) b.classList.add("no"); else score++;
+        $("qRes").innerHTML = `<div class="feedback ${ok ? "ok" : "no"}">${ok ? "Goed zo!" : "Helaas."}<span>Het goede antwoord: ${esc(q.a[0])}. Lees maar na in ${esc(q.why)}.</span></div>${nextBtn()}`;
+        bindNext();
+      }));
+    } else {
+      const opts = shuffle(q.items); const picked = [];
+      box.innerHTML = `${head()}<p class="qtext">${esc(q.q)}</p><p class="ref">Tik ze aan in de goede volgorde: eerst wat het eerst kwam.</p><div class="opts">${opts.map((o) => `<button type="button" class="opt" data-v="${esc(o)}">${esc(o)}</button>`).join("")}</div><button type="button" class="btn" id="qUndo">Opnieuw kiezen</button><div id="qRes"></div>`;
+      const btns = [...box.querySelectorAll(".opt")];
+      btns.forEach((b) => (b.onclick = () => {
+        if (picked.includes(b.dataset.v)) return;
+        picked.push(b.dataset.v);
+        b.innerHTML = `<span class="num">${picked.length}</span>${esc(b.dataset.v)}`;
+        if (picked.length === q.items.length) {
+          const nOk = picked.filter((v, i) => v === q.items[i]).length, ok = nOk === q.items.length;
+          btns.forEach((x) => { x.disabled = true; x.classList.add(picked.indexOf(x.dataset.v) === q.items.indexOf(x.dataset.v) ? "ok" : "no"); });
+          $("qUndo").hidden = true;
+          if (ok) score++; else if (nOk >= 2) score += 0.5;
+          $("qRes").innerHTML = `<div class="feedback ${ok ? "ok" : nOk >= 2 ? "mid" : "no"}">${ok ? "Helemaal goed!" : nOk >= 2 ? "Bijna! Een half punt." : "Helaas."}<span>De goede volgorde: ${esc(q.items.join(" → "))}.</span></div>${nextBtn()}`;
+          bindNext();
+        }
+      }));
+      $("qUndo").onclick = () => { picked.length = 0; btns.forEach((b) => (b.textContent = b.dataset.v)); };
+    }
+  }
+  map.on("click", (e) => {
+    if (mode !== "quiz" || !awaitingTap) return;
+    const q = awaitingTap; awaitingTap = null;
+    const goal = ll(q.id), tap = [e.latlng.lat, e.latlng.lng], km = hav(tap, goal), wide = q.v === "wide";
+    const hit = (wide ? 120 : 15) * (q.loose || 1) * (q.loose && !wide ? 2 : 1), near = hit * 3;
+    const res = km <= hit ? "ok" : km <= near ? "mid" : "no";
+    if (res === "ok") score++; else if (res === "mid") score += 0.5;
+    L.marker(tap, { interactive: false, icon: icon('<span class="tap"></span>') }).addTo(lyQuiz);
+    L.marker(goal, { interactive: false, icon: icon(`<span class="goal"></span><span class="lab s-r on" style="display:block">${esc(q.name || (P[q.id] && P[q.id].n) || "")}</span>`) }).addTo(lyQuiz);
+    if (res !== "ok") L.polyline([tap, goal], { className: "qline", interactive: false }).addTo(lyQuiz);
+    fit([tap, goal], 9);
+    $("qRes").innerHTML = `<div class="feedback ${res}">${res === "ok" ? "Raak!" : res === "mid" ? "Bijna! Een half punt." : "Mis."}<span>${res === "ok" && km < 5 ? "Precies goed." : `Je zat ${fmt(roundKm(km) || Math.round(km))} km ernaast.`}</span></div>${nextBtn()}`;
+    document.querySelector(".tapcall").hidden = true;
+    bindNext();
+    if (isNarrow()) $("qRes").scrollIntoView({ block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
+  });
+  const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21.1l1.4-7L2 9.3l7-.8z"/></svg>';
+  function finish() {
+    const s = Math.round(score * 2) / 2, nStars = s >= 9 ? 3 : s >= 6 ? 2 : s >= 3 ? 1 : 0;
+    const key = "best:" + boek.id + ":" + qPart;
+    const best = store.get(key, null), isBest = best == null || s > best;
+    if (isBest) store.set(key, s);
+    const words = ["Goed geprobeerd! Kijk nog eens bij de Reis en probeer het opnieuw.", "Mooi! Je weet al aardig wat.", "Heel goed! Jij kent de verhalen.", "Super! Jij bent een echte speurneus."];
+    $("p-quiz").innerHTML = `<div class="card center"><h2>Klaar!</h2><div class="stars">${[0, 1, 2].map((i) => `<span class="${i < nStars ? "" : "off"}">${STAR}</span>`).join("")}</div><p class="big">${fmt(s)} <small>van ${Q.length}</small></p><p>${words[nStars]}</p>${isBest && best != null ? "<p><b>Nieuw record!</b></p>" : ""}<button type="button" class="btn primary" id="qAgain">Nog een keer</button></div>`;
+    $("qAgain").onclick = quizIntro;
+    fit(WIDE, 6);
+  }
+
+  // ---------- hoe ver ----------
+  const NL_KM = roundKm(hav([53.219, 6.567], [50.851, 5.691]));
+  const WAYS = [
+    { n: "Met schapen en geiten", s: "ongeveer 10 km per dag", v: 10, u: "d", i: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8 15a5 5 0 0 1 8-3 5 5 0 0 1 8 3 4 4 0 0 1-1 7H9a4 4 0 0 1-1-7z"/><path d="M11 22v5M21 22v5M24 15h3l1 3"/></svg>' },
+    { n: "Wandelen", s: "ongeveer 25 km per dag", v: 25, u: "d", i: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="17" cy="5" r="2.5"/><path d="m11 30 4-9 4 3 2 6M15 21l1-8 5 4h4M16 13l-5 2-2 5"/></svg>' },
+    { n: "Fietsen", s: "ongeveer 75 km per dag", v: 75, u: "d", i: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="22" r="5"/><circle cx="25" cy="22" r="5"/><path d="m7 22 6-10h8l4 10M13 12l4 10h-4M19 8h4"/></svg>' },
+    { n: "Met de auto", s: "ongeveer 90 km per uur", v: 90, u: "h", i: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21v-5l3-6h14l5 6h2v5z"/><circle cx="9" cy="22" r="3"/><circle cx="23" cy="22" r="3"/></svg>' },
+  ];
+  function dur(km, w) {
+    const x = km / w.v;
+    if (w.u === "h") return `${Math.max(1, Math.round(x))} uur`;
+    const d = Math.max(1, Math.round(x));
+    const extra = d >= 60 ? `<small>ruim ${Math.floor(d / 30)} maanden</small>` : d >= 14 ? `<small>${Math.round(d / 7)} weken</small>` : "";
+    return `${d} ${d === 1 ? "dag" : "dagen"}${extra}`;
+  }
+  let TRIP_LIST = [], tripLines = [], nlOn = false, nlCenter = null;
+  function renderTrips() {
+    TRIP_LIST = [];
+    BOEKEN.forEach((b) => b.delen.forEach((d) => (d.trips || []).forEach((t) => {
+      const routes = t.s === "alles" ? d.steps.flatMap((s) => (s.r || []).filter((r) => r.w === d.c)) : (d.steps[t.s] && d.steps[t.s].r || []).filter((r, i) => t.r == null || i === t.r);
+      if (routes.length) TRIP_LIST.push({ g: b.n + " · " + d.n, n: t.n, routes, deel: d });
+    })));
+    const groups = [...new Set(TRIP_LIST.map((t) => t.g))];
+    const sel = $("trip");
+    const keep = sel.value;
+    sel.innerHTML = groups.map((g) => `<optgroup label="${esc(g)}">${TRIP_LIST.map((t, i) => (t.g === g ? `<option value="${i}">${esc(t.n)}</option>` : "")).join("")}</optgroup>`).join("");
+    const first = TRIP_LIST.findIndex((t) => t.deel === deel);
+    sel.value = keep && TRIP_LIST[+keep] ? keep : String(first >= 0 ? first : 0);
+  }
+  function showTrip() {
+    const t = TRIP_LIST[+$("trip").value]; if (!t) return;
+    const km = roundKm(t.routes.reduce((a, r) => a + r.len, 0));
+    $("tripKm").innerHTML = `${fmt(km)} <small>km</small>`;
+    $("ways").innerHTML = WAYS.map((w) => `<div class="way">${w.i}<div>${w.n}<small>${w.s}</small></div><b>${dur(km, w)}</b></div>`).join("");
+    const times = km / NL_KM;
+    $("nlText").innerHTML = times >= 1
+      ? `Nederland is van Groningen tot Maastricht ongeveer ${NL_KM} km lang. Deze reis is <b>${fmt(Math.round(times * 10) / 10)} keer</b> zo lang.`
+      : `Nederland is van Groningen tot Maastricht ongeveer ${NL_KM} km lang. Deze reis is <b>${Math.round(times * 100)}%</b> daarvan, ongeveer ${km < 60 ? "van Amsterdam naar Utrecht en een stukje verder" : km < 130 ? "van Amsterdam naar Arnhem" : "van Amsterdam naar Maastricht"}.`;
+    const full = Math.floor(times), partW = times - full, unit = Math.max(14, Math.min(56, 300 / Math.max(times, 1)));
+    $("nlRow").innerHTML = Array.from({ length: Math.min(full, 40) }, () => `<span class="nlbar" style="width:${unit.toFixed(0)}px"></span>`).join("") + (partW > 0.05 ? `<span class="nlbar part" style="width:${Math.max(4, unit * partW).toFixed(0)}px"></span>` : "");
+    if (t.deel !== deel) { deel = t.deel; boek = deel.boek; cur = -1; partRoutes.forEach((g, key) => { if (key !== deel.key) map.removeLayer(g); }); map.addLayer(routeLayer(deel)); showPartPlaces(); setAccent(); renderDots(); renderBoeken(); renderDelen(); }
+    deel.steps.forEach((s) => (s.r || []).forEach((r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); }));
+    showAll = true; routeState(); showAll = false;
+    tripLines.forEach((l) => l.remove());
+    tripLines = t.routes.map((r) => L.polyline(r.pts, { className: "rt hl", color: color(deel.c), interactive: false }).addTo(lyQuiz));
+    map.removeLayer(lyKings); lySpecial.clearLayers();
+    const pts = t.routes.flatMap((r) => r.pts);
+    fit(pts, 8.5);
+    nlCenter = L.latLng(pts[Math.floor(pts.length / 2)]);
+    if (nlOn) drawNL();
+  }
+  $("trip").addEventListener("change", showTrip);
+  function nlShape(c) {
+    const k = Math.cos((52.15 * Math.PI) / 180), kc = Math.cos((c.lat * Math.PI) / 180);
+    return insetGeo.nl.map((ring) => ring.map(([lon, lat]) => [c.lat + (lat - 52.15), c.lng + ((lon - 5.3) * k) / kc]));
+  }
+  function drawNL() {
+    if (!insetGeo) return;
+    lyNL.clearLayers();
+    const poly = L.polygon(nlShape(nlCenter), { className: "nl", interactive: false }).addTo(lyNL);
+    const h = L.marker(nlCenter, { draggable: true, keyboard: true, title: "Sleep Nederland", icon: icon('<span class="nlhandle">NL</span>') }).addTo(lyNL);
+    h.on("drag", (e) => { nlCenter = e.target.getLatLng(); poly.setLatLngs(nlShape(nlCenter)); });
+  }
+  $("nlBtn").onclick = () => {
+    nlOn = !nlOn;
+    $("nlBtn").textContent = nlOn ? "Haal Nederland weg" : "Leg Nederland op de kaart";
+    $("nlHint").hidden = !nlOn;
+    if (nlOn) { drawNL(); scrollToMap(); } else lyNL.clearLayers();
+  };
+
+  // ---------- paspoort ----------
+  function stampSVG(s) {
+    const w = s.r ? s.r[0].w : s.deel.c, c = color(w);
+    const rot = ((s.i * 37 + s.deel.id.length * 11) % 17) - 8;
+    const fs = s.stamp.length > 10 ? 11 : s.stamp.length > 8 ? 13 : 16;
+    const top = s.ref.replace(/^(\d?\s?[A-Za-zëéïü]+)\s.*$/, "$1").toUpperCase().slice(0, 7) + " " + ((s.ref.match(/\s(\d+)/) || [])[1] || "");
+    return `<svg viewBox="0 0 100 100" style="transform:rotate(${rot}deg)"><circle class="ring" cx="50" cy="50" r="44" stroke="${c}"/><circle class="ring2" cx="50" cy="50" r="37" stroke="${c}"/><text class="mono" x="50" y="33" font-size="9" fill="${c}">${esc(top)}</text><text x="50" y="57" font-size="${fs}" fill="${c}">${esc(s.stamp)}</text><text class="mono" x="50" y="76" font-size="10" fill="${c}">${s.i + 1}</text></svg>`;
+  }
+  function renderStamps() {
+    const total = ALLPARTS.reduce((a, d) => a + d.steps.length, 0);
+    $("stamps").innerHTML = BOEKEN.map((b) => `<p class="label" style="margin-top:4px">${esc(b.n)}</p>` + b.delen.map((d) => {
+      const got = d.steps.filter((s) => seen.has(s.key)).length;
+      return `<div class="stack" style="gap:6px"><p class="label" style="color:${color(d.c)}">${esc(d.n)} · ${got} van ${d.steps.length}</p><div class="stamps">${d.steps.map((s) => `<button type="button" class="stamp${seen.has(s.key) ? "" : " no"}" data-key="${d.key}" data-s="${s.i}" aria-label="${esc(d.n)}, stap ${s.i + 1}: ${esc(s.t)}${seen.has(s.key) ? ", gestempeld" : ", nog niet bezocht"}">${stampSVG(s)}</button>`).join("")}</div></div>`;
+    }).join("")).join("");
+    const n = ALLPARTS.reduce((a, d) => a + d.steps.filter((s) => seen.has(s.key)).length, 0);
+    $("pasText").textContent = n === total ? `Alle ${total} stempels! Jij hebt de hele reis gemaakt.` : `Je hebt ${n} van de ${total} stempels. Ga verder met de reis om ze allemaal te verzamelen.`;
+    const bests = [];
+    BOEKEN.forEach((b) => [["alles", "alles uit " + b.n]].concat(b.delen.map((d) => [d.id, d.n])).forEach(([id, nm]) => { const v = store.get("best:" + b.id + ":" + id, null); if (v != null) bests.push(`${nm} ${fmt(v)}/10`); }));
+    $("bestText").textContent = bests.length ? "Beste scores speurtocht: " + bests.join(" · ") : "Je hebt de speurtocht nog niet gedaan.";
+  }
+  $("stamps").addEventListener("click", (e) => { const b = e.target.closest(".stamp"); if (b) { const d = ALLPARTS.find((x) => x.key === b.dataset.key); setMode("reis"); if (d.boek !== boek) chooseBoek(d.boek, d, +b.dataset.s); else chooseDeel(d, +b.dataset.s); } });
+  let resetArmed = false;
+  $("resetPas").onclick = () => {
+    if (!resetArmed) { resetArmed = true; $("resetPas").textContent = "Zeker weten? Tik nog een keer"; setTimeout(() => { resetArmed = false; $("resetPas").textContent = "Paspoort leegmaken"; }, 4000); return; }
+    resetArmed = false; seen.clear(); store.set("gezien", []);
+    BOEKEN.forEach((b) => ["alles"].concat(b.delen.map((d) => d.id)).forEach((id) => store.set("best:" + b.id + ":" + id, null)));
+    $("resetPas").textContent = "Paspoort leegmaken"; renderStamps(); toast("Paspoort is leeg");
+  };
+  let toastT;
+  function toast(t) { const el = $("toast"); el.textContent = t; el.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove("show"), 2200); }
+
+  // ---------- start ----------
+  renderBoeken();
+  const hashId = location.hash.slice(1);
+  const startDeel = ALLPARTS.find((d) => d.id === hashId) || ALLPARTS.find((d) => d.boek.id === hashId) || ALLPARTS[0];
+  fetch("/bijbelreis/geo.json").then((r) => r.json()).then(drawBase).catch(() => console.error("Bijbelreis: de kaartondergrond kon niet worden geladen."));
+  chooseBoek(startDeel.boek, startDeel, -1, { keepHash: true });
+  window.addEventListener("hashchange", () => { const d = ALLPARTS.find((x) => x.id === location.hash.slice(1)); if (d && d !== deel) { setMode("reis"); chooseBoek(d.boek, d, -1, { keepHash: true }); } });
+})();

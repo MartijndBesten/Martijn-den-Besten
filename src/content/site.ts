@@ -6,13 +6,15 @@ export const SITE = {
   url: "https://martijndenbesten.com",
 };
 
-export type RouteMeta = { path: string; title: string; description: string; nav?: string; color: string };
+export type RouteMeta = { path: string; title: string; description: string; nav?: string; color: string; static?: boolean };
 
 export const ROUTES: RouteMeta[] = [
   { path: "/", nav: "Hoofdkwartier", color: "terra", title: "Martijn den Besten — Officiële website van een man met meer ideeën dan tijd", description: "Het officiële hoofdkwartier van Martijn den Besten: mededelingen, statistieken, een Control Center vol knoppen en een museum van onafgemaakte ideeën." },
   { path: "/control-center", nav: "Control Center", color: "indigo", title: "Martijn Control Center — Druk op alles", description: "Een bedieningsmachine vol knoppen, hendels en schakelaars. Start een idee, rond een project af tot 99% of druk op de officiële noodstop." },
   { path: "/museum", nav: "Museum", color: "steen", title: "Museum van Onafgemaakte Ideeën — Martijn den Besten", description: "Een interactief museum met zes zalen vol briljante, bijna afgeronde en nog te bedenken ideeën. Stem op uw favoriet of dien zelf een idee in." },
   { path: "/over", nav: "Over Martijn", color: "sage", title: "Over Martijn — Instituut Martijn den Besten", description: "Wie is Martijn den Besten? Oprichter, directeur en enige medewerker van het instituut voor onafgemaakte zaken." },
+  // Statische pagina (public/bijbelreis.html): wordt niet door React gerenderd, wel in navigatie en sitemap.
+  { path: "/bijbelreis", nav: "Bijbelreis", color: "lila", static: true, title: "Bijbelreis — Op reis door het Oude Testament — Martijn den Besten", description: "Interactieve kaart voor kinderen: reis mee met Abraham, Izak, Jakob, Jozef, Mozes en de andere verhalen uit het Oude Testament. Met speurtocht, afstanden en een stempelpaspoort." },
   { path: "/loket", color: "oker", title: "Het Officiële Ideeënloket — Martijn den Besten", description: "Dien een idee in bij het Instituut Martijn den Besten. Elke inzending wordt zorgvuldig beoordeeld (zodra er tijd is)." },
   { path: "/bureau", color: "sage", title: "Bureau voor Onnodige Innovatie — Martijn den Besten", description: "Het bureau dat volstrekt onnodige oplossingen bedenkt voor problemen die niet bestaan." },
   { path: "/certificaat", color: "oker", title: "Officieel certificaat — Instituut Martijn den Besten", description: "Laat het instituut officieel vaststellen wat u heeft bereikt (of niet). Download uw certificaat als afbeelding." },
@@ -21,6 +23,7 @@ export const ROUTES: RouteMeta[] = [
 ];
 
 export const NAV = ROUTES.filter((r) => r.nav);
+export const routeMetaOf = (path: string) => ROUTES.find((r) => r.path === path);
 
 export type Stat = { label: string; value: number; suffix?: string; note: string; color: string; live?: boolean };
 

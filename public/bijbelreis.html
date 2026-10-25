@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="nl" data-theme="ivoor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Bijbelreis — Op reis door het Oude Testament — Martijn den Besten</title>
+    <meta name="description" content="Interactieve kaart voor kinderen: reis mee met Abraham, Izak, Jakob, Jozef, Mozes en de andere verhalen uit het Oude Testament. Met speurtocht, afstanden en een stempelpaspoort." />
+    <link rel="canonical" href="https://martijndenbesten.com/bijbelreis" />
+    <meta name="theme-color" content="#f7f1ec" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:site_name" content="Martijn den Besten" />
+    <meta property="og:title" content="Bijbelreis — Op reis door het Oude Testament" />
+    <meta property="og:description" content="Interactieve kaart voor kinderen: reis mee met de aartsvaders, Mozes en de andere verhalen uit het Oude Testament." />
+    <meta property="og:url" content="https://martijndenbesten.com/bijbelreis" />
+    <meta property="og:image" content="https://martijndenbesten.com/og.png" />
+    <script src="/uiterlijk.js"></script>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/bijbelreis/leaflet.css" />
+    <link rel="stylesheet" href="/bijbelreis/bijbelreis.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#reisboek">Direct naar het reisboek</a>
+    <div class="app">
+      <div class="mapwrap">
+        <div id="map" role="region" aria-label="Kaart van de reizen in de Bijbel"></div>
+        <div class="maptools">
+          <button type="button" class="btn small" id="insetBtn" aria-expanded="false" aria-controls="inset">Waar ligt dit?</button>
+          <div class="inset" id="inset" hidden>
+            <svg viewBox="0 0 230 125" aria-label="Overzichtskaartje met Europa, Nederland en het gebied van de kaart"></svg>
+            <p>Het gele vlekje is <b>Nederland</b>. Het kader is wat je nu op de grote kaart ziet.</p>
+          </div>
+        </div>
+        <div class="legend" id="legend" aria-label="Legenda">
+          <div><span class="sw"></span>Route van deze stap</div>
+          <div><span class="sw dash"></span>Gestreept: de Bijbel noemt alleen begin en eind</div>
+          <div><span class="sw past"></span>Eerdere stappen</div>
+          <div><span class="pin t-altaar"><svg viewBox="0 0 14 14"><path class="f" d="M7 1 13 7 7 13 1 7z"/></svg></span>Altaar</div>
+          <div><span class="pin c-o"><svg viewBox="0 0 14 14"><circle class="f" cx="7" cy="7" r="5"/></svg></span>Ligging onzeker</div>
+        </div>
+        <div class="mapbar" id="mapbar">
+          <button type="button" class="btn" id="prev" aria-label="Vorige stap">◀</button>
+          <span class="where" id="where">Start</span>
+          <button type="button" class="btn primary" id="next">Verder ▶</button>
+        </div>
+      </div>
+
+      <aside class="panel" id="reisboek">
+        <div class="topbar">
+          <a href="/">← Hoofdkwartier</a>
+          <span>Afd. 06 · Reisbureau</span>
+        </div>
+        <header class="masthead">
+          <svg viewBox="0 0 48 40" aria-hidden="true"><path d="M6 25c0-6 4-10 9-9 2-6 9-7 11 0 1-3 6-3 7 1 1 2 2 3 2 6l3-12c1-3 4-4 7-3l3 1-1 3h-4l-4 16c-1 2-2 3-4 3H9c-2 0-3-2-3-6z" fill="var(--camel)" stroke="var(--camel-dark)" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 30v8M17 30v8M29 30v8M34 30v8" stroke="var(--camel-dark)" stroke-width="3" stroke-linecap="round"/><path d="M15 17c4-2 10-2 15 1l-2 6H16z" fill="var(--acc)"/></svg>
+          <div>
+            <h1>Op reis door de <em>Bijbel</em></h1>
+            <p>Het Oude Testament op de kaart · ontdek, speel en verzamel stempels</p>
+          </div>
+        </header>
+
+        <nav class="tabs" role="tablist" aria-label="Onderdelen">
+          <button type="button" role="tab" id="t-reis" aria-controls="p-reis" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20 12 4l9 16z"/><path d="M12 4v16M9 20l3-6 3 6"/></svg>Reis</button>
+          <button type="button" role="tab" id="t-wie" aria-controls="p-wie" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5V12M5 16.5V12h14v4.5"/></svg>Wie is wie</button>
+          <button type="button" role="tab" id="t-quiz" aria-controls="p-quiz" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg>Speurtocht</button>
+          <button type="button" role="tab" id="t-ver" aria-controls="p-ver" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 17h20M5 17v-3M9 17v-5M13 17v-3M17 17v-5M21 17v-3"/></svg>Hoe ver?</button>
+          <button type="button" role="tab" id="t-pas" aria-controls="p-pas" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="11" r="3.5"/></svg>Paspoort</button>
+        </nav>
+
+        <section id="p-reis" role="tabpanel" aria-labelledby="t-reis" class="stack">
+          <div>
+            <p class="label">Bijbelboek</p>
+            <div class="boeken" id="boeken" role="group" aria-label="Kies een bijbelboek"></div>
+          </div>
+          <div>
+            <p class="label">Deel</p>
+            <div class="delen" id="delen" role="group" aria-label="Kies een deel"></div>
+          </div>
+          <article class="card" aria-live="polite">
+            <div class="top"><b id="sRef"></b><span id="sKm"></span></div>
+            <h2 id="sTitle"></h2>
+            <div class="chips" id="sWho"></div>
+            <p id="sText"></p>
+            <div id="sSpecial" class="stack"></div>
+            <div class="fact" id="sFact"></div>
+            <button type="button" class="btn small bijbellink" id="leesBtn" hidden>📖 Lees het zelf in de Bijbel</button>
+            <div class="navrow">
+              <button type="button" class="btn" id="prev2">◀ Terug</button>
+              <button type="button" class="btn primary" id="next2">Verder ▶</button>
+            </div>
+          </article>
+          <div class="stack">
+            <p class="label" id="stepsLabel">Alle stappen</p>
+            <div class="chapters" id="chapters"></div>
+          </div>
+          <button type="button" class="btn" id="whole">Laat dit hele deel zien</button>
+        </section>
+
+        <section id="p-wie" role="tabpanel" aria-labelledby="t-wie" class="stack" hidden></section>
+        <section id="p-quiz" role="tabpanel" aria-labelledby="t-quiz" class="stack" hidden></section>
+
+        <section id="p-ver" role="tabpanel" aria-labelledby="t-ver" class="stack" hidden>
+          <h2>Hoe ver is dat <em>eigenlijk</em>?</h2>
+          <label for="trip" class="label">Kies een stuk van de reis</label>
+          <select id="trip"></select>
+          <p class="big" id="tripKm"></p>
+          <div class="ways" id="ways"></div>
+          <div class="card">
+            <p id="nlText"></p>
+            <div class="nlrow" id="nlRow" aria-hidden="true"></div>
+            <button type="button" class="btn" id="nlBtn">Leg Nederland op de kaart</button>
+            <p class="ref" id="nlHint" hidden>Nederland ligt nu op ware grootte op de kaart. Sleep het gele rondje om het te verplaatsen.</p>
+          </div>
+        </section>
+
+        <section id="p-pas" role="tabpanel" aria-labelledby="t-pas" class="stack" hidden>
+          <div class="passport">
+            <h2>Mijn <em>reispaspoort</em></h2>
+            <p id="pasText"></p>
+            <div id="stamps" class="stack"></div>
+          </div>
+          <p id="bestText" class="ref"></p>
+          <button type="button" class="btn" id="resetPas">Paspoort leegmaken</button>
+        </section>
+
+        <details class="parents">
+          <summary>Voor ouders en leiders</summary>
+          <dl>
+            <dt>Bron en namen</dt>
+            <dd>Alle verwijzingen, leeftijden en getallen zijn gecontroleerd in de Statenvertaling. De verhalen zijn in eigen woorden naverteld voor kinderen van ongeveer 8 tot 12 jaar; namen volgen de Herziene Statenvertaling (Izak, Bethlehem, Sukkoth). Met ‘Lees het zelf in de Bijbel’ lees je de Statenvertaling (1637, editie 1888; oude spelling).</dd>
+            <dt>Routes</dt>
+            <dd>De Bijbel noemt plaatsen, geen wegen. Gestreepte lijnen zijn een reconstructie langs bekende handelswegen. Afstanden zijn hemelsbreed langs de getekende lijn, afgerond.</dd>
+            <dt>Onzekere plaatsen</dt>
+            <dd>Plaatsen met een gestippeld rondje zijn bij benadering: de hof van Eden, Ur (meestal Zuid-Irak), Sodom (zuid- of noordkant van de Dode Zee), Zoar, Gerar, Lachai-Roï, Rehoboth, Mahanaïm, Pniël en Hoba. Moria is volgens 2 Kronieken 3:1 de tempelberg in Jeruzalem.</dd>
+            <dt>Gevoelige verhalen</dt>
+            <dd>Kaïn en Abel, Sodom, Izak op Moria en Jozef in de put zijn kort en zonder details verteld. Lees ze vooraf even door.</dd>
+            <dt>Kaart</dt>
+            <dd>Moderne kustlijnen, rivieren, woestijnen en gebergten (Natural Earth, publiek domein). Rond 2000 v.Chr. stroomde de Eufraat vlak langs Ur en was de Dode Zee groter. Stempels en scores worden alleen in deze browser bewaard.</dd>
+          </dl>
+        </details>
+        <p class="colofon">Een afdeling van het <a href="/">Instituut Martijn den Besten</a>. Kaart: <a href="/bijbelreis/LICENSE-leaflet.txt">Leaflet</a> (BSD) en Natural Earth. Geen cookies, geen trackers.</p>
+      </aside>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <div class="lade" id="lade" hidden role="dialog" aria-modal="true" aria-labelledby="ladeTitel">
+      <div class="lade__box">
+        <div class="lade__head"><h3 id="ladeTitel"></h3><button type="button" class="btn small" id="ladeSluit">Sluiten</button></div>
+        <div class="verzen" id="verzen"></div>
+      </div>
+    </div>
+
+    <script src="/bijbelreis/leaflet.js"></script>
+    <script src="/bijbelreis/plaatsen.js"></script>
+    <script src="/bijbelreis/inhoud/genesis.js"></script>
+    <script src="/bijbelreis/inhoud/exodus.js"></script>
+    <script src="/bijbelreis/inhoud/numeri.js"></script>
+    <script src="/bijbelreis/inhoud/jozua.js"></script>
+    <script src="/bijbelreis/inhoud/richteren.js"></script>
+    <script src="/bijbelreis/inhoud/ruth.js"></script>
+    <script src="/bijbelreis/inhoud/1samuel.js"></script>
+    <script src="/bijbelreis/inhoud/2samuel.js"></script>
+    <script src="/bijbelreis/inhoud/1koningen.js"></script>
+    <script src="/bijbelreis/inhoud/2koningen.js"></script>
+    <script src="/bijbelreis/inhoud/daniel.js"></script>
+    <script src="/bijbelreis/inhoud/esther.js"></script>
+    <script src="/bijbelreis/inhoud/ezra.js"></script>
+    <script src="/bijbelreis/inhoud/jona.js"></script>
+    <script src="/bijbelreis/app.js"></script>
+  </body>
+</html>
