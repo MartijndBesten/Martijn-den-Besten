@@ -113,7 +113,7 @@ Zie `kaart-3.md`.
 
 ## 7. Publicatie en controle op productie
 
-- **Publicatie:** PR #4, CI groen. De eerste CI-run vond een testfout: de speurtocht-test klikte op mobiel met de muis op de kaart in plaats van te tikken. Die is opgelost en met 60/60 herhaalde runs bewezen.
+- **Publicatie:** PR #4, CI groen. De eerste CI-run faalde in de speurtocht-test op mobiel; dezelfde fout zat al in de push-run van 2.0 (run 14). De toen gegeven verklaring (‘muis in plaats van tik’) was onjuist, zie §8.
 - **Commit:** squash-merge `0d9f08b` op `main`, gebouwd vanaf `main`.
 - **Uitrol:** via de embedded worker (5,2 MB gzip). Worker-versie: `0f451139-7eef-4119-addd-5eb0cf691e70`.
 - **Herstelpunt:** `b4db496e-3380-41dc-b8a1-7ebab4dba63d` (2.0).
@@ -124,3 +124,43 @@ Zie `kaart-3.md`.
   - Playwright `bijbelreis navigatie a11y` tegen https://martijndenbesten.com: **94/94** (desktop, mobiel, tablet);
   - alle 150 geschiedenissen geopend met titel, ontdekking en vragen op desktop, iPhone 13, Pixel 7 en iPad: 4 × 150/150, **0 JavaScript-fouten**.
 - **Schermafbeeldingen van productie:** `screenshots/3.0/<apparaat>-start.jpg` en `<apparaat>-v26|v94|v126|v144|v149.jpg`.
+
+## 8. Afronding (25 oktober 2026, avond)
+
+Hercontrole op verzoek van Martijn, na publicatie van `0d9f08b`.
+
+- **CI:**
+  - De run op `d269ca6` (PR #4) en de push-run op `main` voor `0d9f08b` (run 17) zijn groen.
+  - De push-run op `main` voor 2.0 (`b98275f`, run 14) was rood door dezelfde willekeurige speurtocht-fout; dat was toen niet opgemerkt.
+  - `main` heeft geen verplichte checks (geen branchbescherming). De feitelijke poort is de job ‘Typecheck, tests en build’. ‘Deploy naar Cloudflare’ wordt overgeslagen zolang het geheim ontbreekt.
+- **Oorzaak van de speurtocht-fout:**
+  - De vragen worden geschud met `Math.random`. Als de eerste vraag een kaartvraag was, tikte de test op vaste coördinaten (300,300), terwijl de telefoon nog naar de kaart scrolde: geen reactie.
+  - Een muisklik werkt op een touch-apparaat wél zodra de kaart stilstaat. Gemeten: Pixel 7, iPad en desktop, zowel muis als tik.
+  - `touchscreen.tap` levert dezelfde gebeurtenissen als Chrome op Android: `pointerdown:touch → touchstart → pointerup → touchend → click:touch`.
+- **Tests nu deterministisch:**
+  - `Math.random` wordt alleen in de test vastgezet; de vraagvolgorde volgt dan de gegevens.
+  - Kaartvraag, meerkeuze en volgorde worden apart getest; voor de laatste twee haalt de test de andere soorten weg uit zijn eigen testgegevens.
+  - Bij de kaartvraag tikt de test precies op de plaats (pixel via de Leaflet-projectie) en verwacht ‘Raak!’. Daarna tikt hij ver weg op vrije kaart en verwacht ‘Mis.’ met ‘km ernaast’.
+- **Kaartbediening getest op desktop, mobiel en tablet:**
+  - zoomknoppen (+0,5 en terug);
+  - desktop: slepen met de muis en het muiswiel;
+  - telefoon en tablet:
+    - één vinger in het reisboek verschuift de kaart niet en toont de hint;
+    - knijpen met twee vingers zoomt;
+    - op de grote kaart verschuift één vinger de kaart;
+  - een plaats aantikken opent het venster met de zekerheid.
+- **Fout gevonden en hersteld (app):**
+  - Bij de kaart-ontdekking (15 geschiedenissen) stond het doel als marker op de kaart. Een tik op de goede plek opende het venster met de naam en gaf geen ‘Raak!’; zo werd ook het antwoord verraden.
+  - Nu zijn plaatsen verborgen en routes niet klikbaar tijdens een kaartvraag (`.quizmode .plaats`).
+  - Een open kaartvraag vervalt bij het wisselen van geschiedenis.
+  - Beide nieuwe tests falen op `0d9f08b` en slagen met de reparatie. Alle 15 kaart-ontdekkingen zijn raak getest op 3 apparaten.
+- **Voortgang:**
+  - Echte voortgang opgebouwd in 2.0 (`b98275f`, lokaal): 8 stempels en een speurtocht-score.
+  - Overgezet naar 3.0 op desktop, Pixel 7 en iPad: paspoort ‘8 stempels’ en ‘Ruth 9/10’ blijven staan; geen sleutel verloren.
+  - Alle 252 sleutels van 2.0 wijzen naar dezelfde stap; alleen Daniël 7 heeft een verwijzing in SV-nummering.
+- **Hercontrole van eerdere correcties en koppelingen:** 21/21 in orde. Daaronder:
+  - #126, #15, #34, #59, #123;
+  - Joas van Juda, Ananias, Andreas/Jonas, Jozef/Heli, Patmos, Zeruja, Nahor;
+  - grondslag bij elke band; geen gedeelde naam+boek;
+  - namen in HSV/SV-spelling; Kapernaüm op land; routes over land; betwiste plaatsen met kandidaten.
+- **Redactie:** `redactie.md` heeft een regel per geschiedenis voor alle 150 (1–150, geen gat).

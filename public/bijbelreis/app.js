@@ -161,12 +161,12 @@
     const t = p.ctx ? "ctx" : c === "r" ? "gebied" : p.t || "stad";
     const pin = c === "o" && !p.ctx ? `<span class="fuzz" aria-hidden="true">?</span>` : c === "r" ? `<span class="area" aria-hidden="true"></span>` : `<span class="${["pin", "t-" + t, p.ctx ? "ctx" : "c-" + c, p.k ? "k" : ""].join(" ")}"><svg viewBox="0 0 14 14" aria-hidden="true">${PIN[t] || PIN.stad}</svg></span>`;
     const lab = ["lab", "s-" + (c === "r" ? "c" : p.s || "r"), p.ctx ? "ctx" : "", p.k ? "k" : "", c === "r" ? "gb" : ""].join(" ");
-    const m = L.marker(p.ll, { icon: icon(`${pin}<span class="${lab}">${esc(p.n)}${p.nu ? `<small class="nu">${esc(p.nu)}</small>` : ""}</span>`), keyboard: !p.ctx, title: p.n, alt: p.n });
+    const m = L.marker(p.ll, { icon: icon(`${pin}<span class="${lab}">${esc(p.n)}${p.nu ? `<small class="nu">${esc(p.nu)}</small>` : ""}</span>`, "pl plaats"), keyboard: !p.ctx, title: p.n, alt: p.n });
     m.pid = id; m.pside = c === "r" ? "c" : p.s || "r";
     if (!p.ctx) m.bindPopup(() => placePopup(id), { maxWidth: 280, autoPanPaddingTopLeft: [50, 150], autoPanPaddingBottomRight: [20, 90] });
     if (p.k) lyKings.addLayer(m);
     markers[id] = m;
-    if (c === "b" && p.alt) altMarkers[id] = p.alt.map(([la, lo, n]) => L.marker([la, lo], { interactive: false, keyboard: false, icon: icon(`<span class="altpin" aria-hidden="true"></span><span class="lab s-r alt">${esc(n || "andere mogelijke plek")}</span>`) }));
+    if (c === "b" && p.alt) altMarkers[id] = p.alt.map(([la, lo, n]) => L.marker([la, lo], { interactive: false, keyboard: false, icon: icon(`<span class="altpin" aria-hidden="true"></span><span class="lab s-r alt">${esc(n || "andere mogelijke plek")}</span>`, "pl plaats") }));
   });
   const lyAlt = L.layerGroup().addTo(map);
 
@@ -773,6 +773,8 @@
   }
   function renderVerhaal(nr) {
     const g = GBYNR.get(nr), box = $("p-verhalen"); if (!g) { vOpen = null; return renderVerhalen(); }
+    // Een open kaartvraag van de vorige geschiedenis vervalt.
+    tapHandler = null; $("map").classList.remove("quizmode"); lyQuiz.clearLayers();
     const k = g.kw && KW[g.kw];
     const steps = (g.stappen || []).map((x) => STEP_BY_KEY.get(x)).filter(Boolean);
     const prevG = G.slice().reverse().find((x) => x.nr < nr), nextG = G.find((x) => x.nr > nr);
