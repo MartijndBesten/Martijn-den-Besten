@@ -1,0 +1,855 @@
+# Controle voor groep nt-1: public/bijbelreis/inhoud/nt-jezus-1.js en public/bijbelreis/geschiedenissen/nt-1.js (nr. 80–99).
+# Maatstaf: Statenvertaling in public/bijbelreis/bijbel/. Regel: verwijzing | regex (hoofdletterongevoelig).
+# Let op SV-versnummering: Johannes 1 heeft 51 verzen (Cefas = 1:43, Filippus = 1:44); Micha 5:2 = Bethlehem; Jesaja 9:2 en 9:6.
+
+# ===== Boek: Wie is wie =====
+Lukas 3:23 | Jezus, begon omtrent dertig jaren oud te wezen
+Mattheus 1:21 | Zijn naam heten JEZUS; want Hij zal Zijn volk zalig maken van hun zonden
+Lukas 1:38 | Zie, de dienstmaagd des Heeren; mij geschiede naar uw woord
+Lukas 2:19 | Maria bewaarde deze woorden alle te zamen.*hart
+Lukas 2:51 | Zijn moeder bewaarde al deze dingen in haar hart
+Mattheus 1:19 | Jozef.*rechtvaardig
+Mattheus 1:20 | Jozef, gij zone Davids
+Mattheus 1:20 | engel des Heeren verscheen hem in den droom
+Mattheus 2:13 | verschijnt Jozef in den droom
+Mattheus 2:19 | verschijnt Jozef in den droom
+Mattheus 2:22 | Goddelijke openbaring vermaand in den droom
+Mattheus 1:24 | deed, gelijk de engel des Heeren hem bevolen had
+Mattheus 2:14 | opgestaan zijnde, nam het Kindeken
+Mattheus 2:21 | opgestaan zijnde, heeft tot zich genomen het Kindeken
+Lukas 1:5 | priester, met name Zacharias.*Elizabet
+Lukas 1:6 | beiden rechtvaardig voor God
+Lukas 1:7 | geen kind.*verre op hun dagen
+Lukas 1:36 | Elizabet, uw nicht
+Johannes 1:29 | Zie het Lam Gods, Dat de zonde der wereld wegneemt
+Mattheus 2:1 | in de dagen van den koning Herodes
+Mattheus 2:16 | omgebracht al de kinderen.*Bethlehem.*twee jaren oud en daaronder
+Lukas 3:1 | Herodes een viervorst over Galilea
+Johannes 1:43 | Simon, de zoon van Jonas.*Cefas.*Petrus
+Johannes 1:45 | Filippus nu was van Bethsaida, uit de stad van Andreas en Petrus
+Johannes 1:42 | vond eerst zijn broeder Simon
+Markus 1:19 | Jakobus, den zoon van Zebedeus, en Johannes, zijn broeder
+Markus 1:20 | latende hun vader Zebedeus in het schip, met de huurlingen
+Johannes 3:1 | Nicodemus, een overste der Joden
+Johannes 3:2 | des nachts tot Jezus
+Johannes 19:39 | Nicodemus kwam ook.*mirre en aloe
+Lukas 8:41 | Jairus.*overste der synagoge
+Lukas 8:42 | enige dochter, van omtrent twaalf jaren.*op haar sterven
+Lukas 8:54 | Kind, sta op
+
+# ===== Deel nt-geboorte: kader =====
+Mattheus 2:19 | Toen Herodes nu gestorven was
+Lukas 1:26 | in de zesde maand werd de engel Gabriel
+Lukas 1:36 | deze maand is haar.*de zesde
+Lukas 2:42 | twaalf jaren oud
+Mattheus 1:20 | engel des Heeren verscheen hem in den droom
+Mattheus 2:12 | door Goddelijke openbaring vermaand zijnde in den droom
+Micha 5:2 | Bethlehem Efratha.*Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israel
+Jesaja 7:14 | een maagd zal zwanger worden, en zij zal een Zoon baren
+Jesaja 9:6 | Want een Kind is ons geboren, een Zoon is ons gegeven
+Maleachi 4:5 | Ik zende ulieden den profeet Elia
+Lukas 1:17 | in den geest en de kracht van Elias
+Galaten 4:4 | wanneer de volheid des tijds gekomen is, heeft God Zijn Zoon uitgezonden, geworden uit een vrouw
+
+# --- Stap 0: Lukas 1:5–25 ---
+Lukas 1:5 | In de dagen van Herodes.*priester, met name Zacharias.*Elizabet
+Lukas 1:6 | wandelende in al de geboden
+Lukas 1:7 | geen kind.*verre op hun dagen gekomen
+Lukas 1:9 | te lote was gevallen.*reukofferen
+Lukas 1:11 | engel des Heeren, staande ter rechter zijde van het altaar des reukoffers
+Lukas 1:13 | Vrees niet, Zacharias! want uw gebed is verhoord.*zoon baren.*Johannes
+Lukas 1:18 | Waarbij zal ik dat weten\? Want ik ben oud
+Lukas 1:19 | Ik ben Gabriel, die voor God sta
+Lukas 1:20 | gij zult zwijgen.*mijn woorden niet geloofd hebt
+Lukas 1:21 | het volk was wachtende op Zacharias
+Lukas 1:22 | hij wenkte hun toe, en bleef stom
+1 Kronieken 24:3 | David nu verdeelde hen
+1 Kronieken 24:10 | het achtste voor Abia
+1 Kronieken 24:18 | vier en twintigste
+Lukas 1:5 | dagorde van Abia
+# --- Stap 1: Lukas 1:26–38 ---
+Lukas 1:26 | zesde maand.*Gabriel van God gezonden.*Galilea, genaamd Nazareth
+Lukas 1:27 | maagd, die ondertrouwd was met een man, wiens naam was Jozef, uit den huize Davids.*Maria
+Lukas 1:28 | Wees gegroet, gij begenadigde; de Heere is met u
+Lukas 1:29 | zeer ontroerd
+Lukas 1:30 | Vrees niet, Maria, want gij hebt genade bij God gevonden
+Lukas 1:31 | een Zoon baren, en zult Zijn naam heten JEZUS
+Lukas 1:32 | Zoon des Allerhoogsten genaamd worden
+Lukas 1:33 | Zijns Koninkrijks zal geen einde zijn
+Lukas 1:34 | Hoe zal dat wezen
+Lukas 1:35 | De Heilige Geest zal over u komen
+Lukas 1:37 | geen ding zal bij God onmogelijk zijn
+Lukas 1:38 | Zie, de dienstmaagd des Heeren; mij geschiede naar uw woord
+Mattheus 1:22 | opdat vervuld zou worden
+Mattheus 1:23 | de maagd zal zwanger worden, en een Zoon baren
+# --- Stap 2: Mattheüs 1:18–25 ---
+Mattheus 1:18 | Maria.*met Jozef ondertrouwd.*eer zij samengekomen waren.*zwanger bevonden uit den Heiligen Geest
+Mattheus 1:19 | Jozef nu, haar man, alzo hij rechtvaardig was.*niet wilde openbaarlijk te schande maken.*heimelijk te verlaten
+Mattheus 1:20 | Jozef, gij zone Davids! wees niet bevreesd Maria, uw vrouw, tot u te nemen.*uit den Heiligen Geest
+Mattheus 1:21 | Zoon baren.*JEZUS; want Hij zal Zijn volk zalig maken van hun zonden
+Mattheus 1:24 | opgewekt zijnde van den slaap, deed, gelijk de engel des Heeren hem bevolen had
+# --- Stap 3: Lukas 1:39–56 ---
+Lukas 1:39 | reisde met haast naar het gebergte, in een stad van Juda
+Lukas 1:40 | huis van Zacharias, en groette Elizabet
+Lukas 1:41 | sprong het kindeken op in haar buik.*vervuld met den Heiligen Geest
+Lukas 1:42 | Gezegend zijt gij onder de vrouwen, en gezegend is de vrucht uws buiks
+Lukas 1:43 | de moeder mijns Heeren tot mij komt
+Lukas 1:46 | Mijn ziel maakt groot den Heere
+Lukas 1:47 | mijn geest verheugt zich in God, mijn Zaligmaker
+Lukas 1:56 | omtrent drie maanden, en keerde weder tot haar huis
+# --- Stap 4: Lukas 1:57–80 ---
+Lukas 1:57 | baarde een zoon
+Lukas 1:58 | waren met haar verblijd
+Lukas 1:59 | achtsten dag.*besnijden.*noemden het Zacharias, naar den naam zijns vaders
+Lukas 1:60 | Niet alzo, maar hij zal Johannes heten
+Lukas 1:62 | wenkten zijn vader
+Lukas 1:63 | schrijftafeltje.*Johannes is zijn naam
+Lukas 1:64 | terstond werd zijn mond geopend.*sprak, God lovende
+Lukas 1:67 | vervuld met den Heiligen Geest, en profeteerde
+Lukas 1:76 | En gij, kindeken, zult een profeet des Allerhoogsten genaamd worden
+Lukas 1:80 | was in de woestijnen, tot den dag zijner vertoning aan Israel
+Lukas 1:17 | in den geest en de kracht van Elias
+Maleachi 4:5 | Ziet, Ik zende ulieden den profeet Elia
+# --- Stap 5: Lukas 2:1–7 ---
+Lukas 2:1 | gebod uitging van den Keizer Augustus, dat de gehele wereld beschreven zou worden
+Lukas 2:3 | een iegelijk naar zijn eigen stad
+Lukas 2:4 | Jozef ging ook op van Galilea, uit de stad Nazareth, naar Judea, tot de stad Davids, die Bethlehem genaamd wordt.*huis en geslacht van David
+Lukas 2:5 | Maria, zijn ondertrouwde vrouw, welke bevrucht was
+Lukas 2:6 | als zij daar waren
+Lukas 2:7 | eerstgeboren Zoon, en wond Hem in doeken, en legde Hem neder in de kribbe, omdat voor henlieden geen plaats was in de herberg
+Micha 5:2 | En gij, Bethlehem Efratha!.*Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israel
+# --- Stap 6: Lukas 2:8–20 ---
+Lukas 2:8 | herders.*hielden de nachtwacht over hun kudde
+Lukas 2:9 | engel des Heeren stond bij hen, en de heerlijkheid des Heeren omscheen hen.*vreesden met grote vreze
+Lukas 2:10 | Vreest niet.*verkondig u grote blijdschap
+Lukas 2:11 | heden geboren is de Zaligmaker, welke is Christus, de Heere, in de stad Davids
+Lukas 2:12 | Kindeken vinden in doeken gewonden, en liggende in de kribbe
+Lukas 2:13 | menigte des hemelsen heirlegers, prijzende God
+Lukas 2:14 | Ere zij God in de hoogste hemelen, en vrede op aarde, in de mensen een welbehagen
+Lukas 2:16 | kwamen met haast, en vonden Maria en Jozef, en het Kindeken liggende in de kribbe
+Lukas 2:17 | maakten zij alom bekend het woord
+Lukas 2:20 | verheerlijkende en prijzende God
+Lukas 2:19 | bewaarde deze woorden alle te zamen, overleggende die in haar hart
+1 Samuel 16:11 | hij weidt de schapen
+# --- Stap 7: Lukas 2:21–38 ---
+Lukas 2:21 | acht dagen.*Zijn Naam genaamd JEZUS, welke genaamd was van den engel
+Lukas 2:22 | brachten zij Hem te Jeruzalem, opdat zij Hem den Heere voorstelden
+Lukas 2:24 | een paar tortelduiven, of twee jonge duiven
+Lukas 2:25 | Simeon.*rechtvaardig en godvrezende; verwachtende de vertroosting Israels
+Lukas 2:28 | nam hij Hetzelve in zijn armen, en loofde God
+Lukas 2:29 | Nu laat Gij, Heere! Uw dienstknecht gaan in vrede
+Lukas 2:30 | mijn ogen hebben Uw zaligheid gezien
+Lukas 2:34 | zeide tot Maria
+Lukas 2:35 | een zwaard zal door uw eigen ziel gaan
+Lukas 2:36 | Anna, een profetesse
+Lukas 2:37 | weduwe van omtrent vier en tachtig jaren
+Lukas 2:38 | heeft insgelijks den Heere beleden, en sprak van Hem tot allen, die de verlossing in Jeruzalem verwachtten
+Leviticus 12:6 | eenjarig lam ten brandoffer, en een jonge duif, of tortelduif
+Leviticus 12:8 | niet genoeg voor een lam.*twee tortelduiven, of twee jonge duiven
+# --- Stap 8: Mattheüs 2:1–12 ---
+Mattheus 2:1 | Jezus geboren was te Bethlehem.*koning Herodes.*wijzen van het Oosten zijn te Jeruzalem aangekomen
+Mattheus 2:2 | Waar is de geboren Koning der Joden\? want wij hebben gezien Zijn ster in het Oosten, en zijn gekomen om Hem te aanbidden
+Mattheus 2:3 | Herodes.*werd ontroerd, en geheel Jeruzalem, met hem
+Mattheus 2:4 | overpriesters en Schriftgeleerden
+Mattheus 2:5 | Te Bethlehem.*geschreven door den profeet
+Mattheus 2:8 | boodschapt het mij, opdat ik ook kome en Datzelve aanbidde
+Mattheus 2:9 | de ster.*ging hun voor, totdat zij kwam en stond boven de plaats, waar het Kindeken was
+Mattheus 2:11 | in het huis gekomen.*nedervallende hebben zij Hetzelve aangebeden.*goud en wierook, en mirre
+Mattheus 2:12 | in den droom.*door een anderen weg weder naar hun land
+# --- Stap 9: Mattheüs 2:13–18 ---
+Mattheus 2:13 | Sta op, en neem tot u het Kindeken en Zijn moeder, en vlied in Egypte.*Herodes zal het Kindeken zoeken, om Hetzelve te doden
+Mattheus 2:14 | in den nacht, en vertrok naar Egypte
+Mattheus 2:15 | tot den dood van Herodes.*Uit Egypte heb Ik Mijn Zoon geroepen
+Mattheus 2:16 | bedrogen was.*zeer toornig.*al de kinderen.*Bethlehem, en in al deszelfs landpalen.*twee jaren oud en daaronder
+Mattheus 2:17 | profeet Jeremia
+Mattheus 2:18 | Rachel beweende haar kinderen, en wilde niet vertroost wezen
+Hosea 11:1 | Ik heb Mijn zoon uit Egypte uitgeroepen
+# --- Stap 10: Mattheüs 2:19–23 ---
+Mattheus 2:19 | Herodes nu gestorven was.*engel des Heeren verschijnt Jozef in den droom, in Egypte
+Mattheus 2:20 | Sta op, neem het Kindeken en Zijn moeder tot u, en trek in het land Israels.*gestorven, die de ziel van het Kindeken zochten
+Mattheus 2:21 | is gekomen in het land Israels
+Mattheus 2:22 | Archelaus in Judea koning was, in de plaats van zijn vader Herodes, vreesde hij.*in den droom.*Galilea
+Mattheus 2:23 | stad, genaamd Nazareth.*Nazarener zal geheten worden
+Lukas 3:1 | Herodes een viervorst over Galilea
+# --- Stap 11: Lukas 2:41–52 ---
+Lukas 2:41 | Zijn ouders reisden alle jaar naar Jeruzalem, op het feest van pascha
+Lukas 2:42 | twaalf jaren oud
+Lukas 2:43 | bleef het Kind Jezus te Jeruzalem, en Jozef en Zijn moeder wisten het niet
+Lukas 2:44 | in het gezelschap.*een dagreize.*onder de magen, en onder de bekenden
+Lukas 2:45 | keerden zij wederom naar Jeruzalem
+Lukas 2:46 | na drie dagen.*in den tempel, zittende in het midden der leraren, hen horende, en hen ondervragende
+Lukas 2:47 | ontzetten zich over Zijn verstand en antwoorden
+Lukas 2:48 | Kind! waarom hebt Gij ons zo gedaan\? Zie, Uw vader en ik hebben U met angst gezocht
+Lukas 2:49 | Wist gij niet, dat Ik moet zijn in de dingen Mijns Vaders
+Lukas 2:51 | kwam te Nazareth, en was hun onderdanig
+Deuteronomium 16:16 | Driemaal in het jaar.*feest der ongezuurde
+# --- Speurtocht nt-geboorte ---
+Lukas 1:9 | in den tempel des Heeren om te reukofferen
+Lukas 1:11 | engel des Heeren
+Lukas 1:26 | de engel Gabriel
+Lukas 1:63 | Johannes is zijn naam
+Lukas 2:1 | gehele wereld beschreven
+Lukas 2:5 | Om beschreven te worden
+Lukas 2:12 | in doeken gewonden, en liggende in de kribbe
+Mattheus 2:11 | goud en wierook, en mirre
+Lukas 2:29 | Nu laat Gij, Heere! Uw dienstknecht gaan in vrede
+Lukas 2:46 | na drie dagen
+
+# ===== Deel nt-begin: kader =====
+Lukas 3:1 | vijftiende jaar der regering van den keizer Tiberius
+Lukas 3:23 | omtrent dertig jaren
+Johannes 1:28 | Bethabara, over de Jordaan, waar Johannes was dopende
+Jesaja 40:3 | Een stem des roependen in de woestijn: Bereidt den weg des HEEREN
+Mattheus 3:3 | De stem des roependen in de woestijn
+Hebreeen 4:15 | in alle dingen, gelijk als wij, is verzocht geweest, doch zonder zonde
+Johannes 2:11 | Zijn heerlijkheid geopenbaard; en Zijn discipelen geloofden in Hem
+# --- Stap 0: Mattheüs 3:1–12 ---
+Mattheus 3:1 | Johannes de Doper, predikende in de woestijn van Judea
+Mattheus 3:2 | Bekeert u; want het Koninkrijk der hemelen is nabij gekomen
+Mattheus 3:4 | kleding van kemelshaar, en een lederen gordel.*sprinkhanen en wilde honig
+Mattheus 3:5 | Jeruzalem en geheel Judea, en het gehele land rondom de Jordaan
+Mattheus 3:6 | gedoopt in de Jordaan, belijdende hun zonden
+Mattheus 3:7 | Farizeen en Sadduceen
+Mattheus 3:8 | Brengt dan vruchten voort, der bekering waardig
+Mattheus 3:11 | Die na mij komt, is sterker dan ik.*Die zal u met den Heiligen Geest en met vuur dopen
+2 Koningen 1:8 | een man met een harig kleed, en met een lederen gordel
+# --- Stap 1: Mattheüs 3:13–17 ---
+Mattheus 3:13 | Jezus van Galilea naar de Jordaan, tot Johannes, om van hem gedoopt te worden
+Markus 1:9 | Jezus kwam van Nazareth, gelegen in Galilea
+Mattheus 3:14 | Mij is nodig van U gedoopt te worden, en komt Gij tot mij
+Mattheus 3:15 | Laat nu af; want aldus betaamt ons alle gerechtigheid te vervullen
+Mattheus 3:16 | opgeklommen uit het water.*hemelen werden Hem geopend.*Geest Gods nederdalen, gelijk een duive, en op Hem komen
+Mattheus 3:17 | Deze is Mijn Zoon, Mijn Geliefde, in Denwelken Ik Mijn welbehagen heb
+# --- Stap 2: Mattheüs 4:1–11 ---
+Mattheus 4:1 | van den Geest weggeleid in de woestijn, om verzocht te worden van den duivel
+Mattheus 4:2 | veertig dagen en veertig nachten gevast.*hongerde Hem
+Mattheus 4:3 | Indien Gij Gods Zoon zijt, zeg, dat deze stenen broden worden
+Mattheus 4:4 | De mens zal bij brood alleen niet leven, maar bij alle woord, dat door den mond Gods uitgaat
+Mattheus 4:5 | tinne des tempels
+Mattheus 4:6 | werp Uzelven nederwaarts
+Mattheus 4:7 | Er is wederom geschreven: Gij zult den Heere, uw God, niet verzoeken
+Mattheus 4:8 | zeer hogen berg.*al de koninkrijken der wereld
+Mattheus 4:9 | Al deze dingen zal ik U geven, indien Gij, nedervallende, mij zult aanbidden
+Mattheus 4:10 | Ga weg, satan.*Den Heere, uw God, zult gij aanbidden, en Hem alleen dienen
+Mattheus 4:11 | liet de duivel van Hem af; en ziet, de engelen zijn toegekomen, en dienden Hem
+Deuteronomium 8:3 | de mens niet alleen van het brood leeft
+Deuteronomium 6:16 | Gij zult den HEERE, uw God, niet verzoeken
+Deuteronomium 6:13 | Gij zult den HEERE, uw God, vrezen, en Hem dienen
+Deuteronomium 8:2 | veertig jaren in de woestijn.*om u te verzoeken
+# --- Stap 3: Johannes 1:35–51 ---
+Johannes 1:35 | Johannes, en twee uit zijn discipelen
+Johannes 1:36 | ziende op Jezus, daar wandelende, zeide hij: Ziet, het Lam Gods
+Johannes 1:37 | zij volgden Jezus
+Johannes 1:39 | Wat zoekt gij\?.*Rabbi!.*Meester.*waar woont Gij
+Johannes 1:40 | Komt en ziet
+Johannes 1:41 | Andreas, de broeder van Simon Petrus, was een van de twee
+Johannes 1:42 | vond eerst zijn broeder Simon.*Wij hebben gevonden den Messias
+Johannes 1:43 | Gij zijt Simon, de zoon van Jonas; gij zult genaamd worden Cefas, hetwelk overgezet wordt Petrus
+Johannes 1:44 | Des anderen daags.*vond Filippus, en zeide tot hem: Volg Mij
+Johannes 1:45 | Filippus nu was van Bethsaida
+Johannes 1:46 | Filippus vond Nathanael
+Johannes 1:47 | Kan uit Nazareth iets goeds zijn
+Johannes 1:49 | onder den vijgeboom waart, zag Ik u
+Johannes 1:50 | Rabbi! Gij zijt de Zone Gods, Gij zijt de Koning Israels
+# --- Stap 4: Johannes 2:1–11 ---
+Johannes 1:44 | wilde Jezus heengaan naar Galilea
+Johannes 2:1 | op den derden dag was er een bruiloft te Kana in Galilea; en de moeder van Jezus was aldaar
+Johannes 2:2 | Jezus was ook genood, en Zijn discipelen
+Johannes 2:3 | Zij hebben geen wijn
+Johannes 2:4 | Vrouw, wat heb Ik met u te doen\? Mijn ure is nog niet gekomen
+Johannes 2:5 | Zo wat Hij ulieden zal zeggen, doet dat
+Johannes 2:6 | zes stenen watervaten.*reiniging der Joden.*twee of drie metreten
+Johannes 2:7 | Vult de watervaten met water. En zij vulden ze tot boven toe
+Johannes 2:8 | Schept nu, en draagt het tot den hofmeester
+Johannes 2:9 | het water, dat wijn geworden was
+Johannes 2:10 | gij hebt den goeden wijn tot nu toe bewaard
+Johannes 2:11 | Dit beginsel der tekenen.*Kana in Galilea.*Zijn heerlijkheid geopenbaard; en Zijn discipelen geloofden in Hem
+# --- Stap 5: Johannes 3:1–21 ---
+Johannes 2:12 | ging Hij af naar Kapernaum
+Johannes 2:13 | het pascha der Joden was nabij, en Jezus ging op naar Jeruzalem
+Johannes 2:23 | te Jeruzalem was, op het pascha
+Johannes 3:1 | mens uit de Farizeen, wiens naam was Nicodemus, een overste der Joden
+Johannes 3:2 | des nachts.*Rabbi, wij weten, dat Gij zijt een Leraar van God gekomen
+Johannes 3:3 | Voorwaar, voorwaar zeg Ik u: Tenzij dat iemand wederom geboren worde, hij kan het Koninkrijk Gods niet zien
+Johannes 3:4 | Hoe kan een mens geboren worden, nu oud zijnde
+Johannes 3:5 | geboren wordt uit water en Geest
+Johannes 3:8 | De wind blaast, waarheen hij wil
+Johannes 3:14 | gelijk Mozes de slang in de woestijn verhoogd heeft, alzo moet de Zoon des mensen verhoogd worden
+Johannes 3:16 | Want alzo lief heeft God de wereld gehad, dat Hij Zijn eniggeboren Zoon gegeven heeft, opdat een iegelijk die in Hem gelooft, niet verderve, maar het eeuwige leven hebbe
+Johannes 7:50 | Nicodemus
+Johannes 7:51 | Oordeelt ook onze wet den mens
+Johannes 19:39 | Nicodemus.*mirre en aloe
+# --- Speurtocht nt-begin ---
+Mattheus 3:4 | sprinkhanen en wilde honig
+Mattheus 3:17 | Deze is Mijn Zoon, Mijn Geliefde
+Mattheus 4:2 | veertig dagen en veertig nachten
+Mattheus 4:4 | Er is geschreven
+Mattheus 4:7 | Er is wederom geschreven
+Mattheus 4:10 | er staat geschreven
+Johannes 1:41 | Andreas
+Johannes 1:42 | vond eerst zijn broeder Simon
+Johannes 2:6 | zes stenen watervaten
+Johannes 3:2 | des nachts
+
+# ===== Deel nt-galilea: kader =====
+Johannes 2:13 | pascha
+Johannes 6:4 | het pascha, het feest der Joden, was nabij
+Johannes 11:55 | het pascha der Joden was nabij
+Lukas 5:1 | meer Gennesareth
+Johannes 21:1 | zee van Tiberias
+Jesaja 9:2 | Het volk, dat in duisternis wandelt, zal een groot licht zien
+Mattheus 4:15 | Zebulon.*Nafthali.*Galilea der volken
+Mattheus 4:16 | groot licht gezien
+Jesaja 53:4 | Waarlijk, Hij heeft onze krankheden op Zich genomen
+Mattheus 8:16 | genas allen
+Mattheus 8:17 | Hij heeft onze krankheden op Zich genomen
+Handelingen 10:38 | het land doorgegaan is, goeddoende, en genezende allen, die van den duivel overweldigd waren
+Lukas 8:1 | reisde van de ene stad en vlek tot de andere, predikende en verkondigende het Evangelie van het Koninkrijk Gods; en de twaalven waren met Hem
+# --- Stap 0: Mattheüs 4:12–17 ---
+Mattheus 4:12 | gehoord had, dat Johannes overgeleverd was, is Hij wedergekeerd naar Galilea
+Mattheus 4:13 | Nazareth verlaten hebbende, is komen wonen te Kapernaum, gelegen aan de zee, in de landpale van Zebulon en Nafthali
+Mattheus 4:14 | Jesaja, den profeet
+Mattheus 4:16 | Het volk, dat in duisternis zat, heeft een groot licht gezien
+Mattheus 4:17 | Bekeert u; want het Koninkrijk der hemelen is nabij gekomen
+# --- Stap 1: Markus 1:16–20 ---
+Markus 1:16 | wandelende bij de Galilese zee, zag Hij Simon en Andreas, zijn broeder, werpende het net in de zee.*vissers
+Markus 1:17 | Volgt Mij na, en Ik zal maken, dat gij vissers der mensen zult worden
+Markus 1:18 | terstond hun netten verlatende
+Markus 1:19 | Jakobus, den zoon van Zebedeus, en Johannes, zijn broeder.*in het schip hun netten vermakende
+Markus 1:20 | terstond riep Hij hen.*latende hun vader Zebedeus in het schip, met de huurlingen
+Lukas 5:5 | den gehelen nacht over gearbeid, en niet gevangen; doch op Uw woord zal ik het net uitwerpen
+Lukas 5:6 | hun net scheurde
+Lukas 5:8 | viel neder aan de knieen van Jezus.*Heere! ga uit van mij; want ik ben een zondig mens
+# --- Stap 2: Markus 1:21–34 ---
+Markus 1:21 | Kapernaum.*sabbatdag in de synagoge
+Markus 1:22 | Hij leerde hen, als machthebbende, en niet als de Schriftgeleerden
+Markus 1:23 | een mens, met een onreinen geest
+Markus 1:24 | Ik ken U, wie Gij zijt, namelijk de Heilige Gods
+Markus 1:25 | Zwijg stil, en ga uit van hem
+Markus 1:26 | hem scheurende, en roepende met een grote stem, ging uit van hem
+Markus 1:29 | in het huis van Simon en Andreas
+Markus 1:30 | Simons vrouws moeder lag met de koorts
+Markus 1:31 | vatte haar hand, en richtte haar op; en terstond verliet haar de koorts, en zij diende henlieden
+Markus 1:32 | toen de zon onderging, brachten zij tot Hem allen
+Markus 1:33 | de gehele stad was bijeenvergaderd omtrent de deur
+Markus 1:34 | Hij genas er velen.*wierp vele duivelen uit
+# --- Stap 3: Markus 2:1–12 ---
+Markus 2:1 | na sommige dagen is Hij wederom binnen Kapernaum gekomen
+Markus 2:2 | de plaatsen omtrent de deur hen niet meer konden bevatten
+Markus 2:3 | een geraakte, die van vier gedragen werd
+Markus 2:4 | ontdekten zij het dak.*lieten zij het beddeken neder, daar de geraakte op lag
+Markus 2:5 | hun geloof ziende.*Zoon, uw zonden zijn u vergeven
+Markus 2:6 | Schriftgeleerden
+Markus 2:7 | Wie kan de zonden vergeven, dan alleen God
+Markus 2:8 | in Zijn geest bekennende
+Markus 2:10 | opdat gij moogt weten, dat de Zoon des mensen macht heeft, om de zonden op de aarde te vergeven
+Markus 2:11 | Sta op, en neem uw beddeken op, en ga heen naar uw huis
+Markus 2:12 | terstond stond hij op.*verheerlijkten God, zeggende: Wij hebben nooit zulks gezien
+# --- Stap 4: Mattheüs 5:1–7:29 ---
+Mattheus 5:1 | de schare ziende, is geklommen op een berg, en als Hij nedergezeten was, kwamen Zijn discipelen tot Hem
+Mattheus 5:2 | leerde Hij hen
+Mattheus 5:3 | Zalig zijn de armen van geest; want hunner is het Koninkrijk der hemelen
+Mattheus 6:9 | Onze Vader, Die in de hemelen zijt
+Mattheus 6:33 | zoekt eerst het Koninkrijk Gods en Zijn gerechtigheid
+Mattheus 7:24 | Mijn woorden hoort en dezelve doet.*voorzichtig man, die zijn huis op een steenrots gebouwd heeft
+Mattheus 7:25 | slagregen.*waterstromen.*winden.*niet gevallen
+Mattheus 7:26 | niet doet.*dwazen man.*huis op het zand gebouwd heeft
+Mattheus 7:27 | het is gevallen, en zijn val was groot
+Mattheus 7:28 | zich ontzetten over Zijn leer
+Mattheus 7:29 | Hij leerde hen, als macht hebbende
+Mattheus 8:1 | van den berg afgeklommen
+Mattheus 8:5 | Als nu Jezus te Kapernaum ingegaan was
+# --- Stap 5: Lukas 7:1–10 ---
+Lukas 7:1 | ging Hij in te Kapernaum
+Lukas 7:2 | dienstknecht van een zeker hoofdman over honderd, die hem zeer waard was, krank zijnde, lag op zijn sterven
+Lukas 7:3 | zond hij tot Hem de ouderlingen der Joden
+Lukas 7:4 | Hij is waardig
+Lukas 7:5 | hij heeft ons volk lief, en heeft zelf ons de synagoge gebouwd
+Lukas 7:6 | Jezus ging met hen.*niet verre van het huis.*enige vrienden.*Heere, neem de moeite niet; want ik ben niet waardig, dat Gij onder mijn dak zoudt inkomen
+Lukas 7:7 | zeg het met een woord, en mijn knecht zal genezen worden
+Lukas 7:8 | krijgsknechten onder mij
+Lukas 7:9 | verwonderde Zich.*Ik heb zo groot een geloof zelfs in Israel niet gevonden
+Lukas 7:10 | die gezonden waren.*vonden den kranken dienstknecht gezond
+Mattheus 8:10 | Ik heb zelfs in Israel zo groot een geloof niet gevonden
+# --- Stap 6: Lukas 7:36–50 ---
+Lukas 7:36 | een der Farizeen bad Hem, dat Hij met hem ate
+Lukas 7:37 | een vrouw in de stad, welke een zondares was.*albasten fles met zalf
+Lukas 7:38 | wenende.*Zijn voeten nat te maken met tranen.*droogde ze af met het haar van haar hoofd, en kuste Zijn voeten, en zalfde ze met de zalf
+Lukas 7:39 | indien Hij een profeet ware, zou wel weten
+Lukas 7:40 | Simon! Ik heb u wat te zeggen
+Lukas 7:41 | twee schuldenaars; de een was schuldig vijfhonderd penningen, en de andere vijftig
+Lukas 7:42 | schold hij het hun beiden kwijt.*wie van deze zal hem meer liefhebben
+Lukas 7:43 | dien hij het meeste kwijtgescholden heeft
+Lukas 7:44 | water hebt gij niet tot Mijn voeten gegeven
+Lukas 7:45 | Gij hebt Mij geen kus gegeven
+Lukas 7:46 | Met olie hebt gij Mijn hoofd niet gezalfd
+Lukas 7:47 | Haar zonden zijn haar vergeven, die vele waren; want zij heeft veel liefgehad
+Lukas 7:49 | Wie is Deze, Die ook de zonden vergeeft
+Lukas 7:50 | Uw geloof heeft u behouden; ga heen in vrede
+Mattheus 20:2 | een penning des daags
+Lukas 7:11 | Nain
+# --- Stap 7: Mattheüs 13:1–23 ---
+Mattheus 13:1 | uit het huis gegaan zijnde, zat bij de zee
+Mattheus 13:2 | zodat Hij in een schip ging en nederzat, en al de schare stond op den oever
+Mattheus 13:3 | sprak tot hen vele dingen door gelijkenissen.*Ziet, een zaaier ging uit om te zaaien
+Mattheus 13:4 | bij den weg; en de vogelen kwamen en aten datzelve op
+Mattheus 13:5 | steenachtige plaatsen.*ging terstond op
+Mattheus 13:6 | als de zon opgegaan was, zo is het verbrand.*geen wortel had
+Mattheus 13:7 | in de doornen.*verstikten hetzelve
+Mattheus 13:8 | in de goede aarde, en gaf vrucht, het een honderd-, het ander zestig-, en het ander dertig voud
+Mattheus 13:9 | Wie oren heeft om te horen, die hore
+Mattheus 13:18 | hoort de gelijkenis van den zaaier
+# --- Stap 8: Markus 4:35–41 ---
+Markus 4:35 | als het nu avond geworden was.*Laat ons overvaren aan de andere zijde
+Markus 4:36 | namen Hem mede.*in het schip.*andere scheepjes met Hem
+Markus 4:37 | grote storm van wind, en de baren sloegen over in het schip, alzo dat het nu vol werd
+Markus 4:38 | in het achterschip, slapende op een oorkussen.*Meester, bekommert het U niet, dat wij vergaan
+Markus 4:39 | bestrafte den wind, en zeide tot de zee: Zwijg, wees stil! En de wind ging liggen, en er werd grote stilte
+Markus 4:40 | Wat zijt gij zo vreesachtig\? Hoe hebt gij geen geloof
+Markus 4:41 | vreesden met grote vreze.*Wie is toch Deze, dat ook de wind en de zee Hem gehoorzaam zijn
+Markus 5:1 | andere zijde der zee, in het land der Gadarenen
+# --- Stap 9: Markus 5:1–20 ---
+Markus 5:1 | land der Gadarenen
+Markus 5:2 | uit de graven, een mens met een onreinen geest
+Markus 5:3 | niemand kon hem binden, ook zelfs niet met ketenen
+Markus 5:4 | ketenen waren van hem in stukken getrokken, en de boeien verbrijzeld.*niemand was machtig om hem te temmen
+Markus 5:5 | nacht en dag, op de bergen en in de graven, roepende en slaande zichzelven met stenen
+Markus 5:6 | aanbad Hem
+Markus 5:7 | Wat heb ik met U te doen, Jezus, Gij Zone Gods, des Allerhoogsten
+Markus 5:9 | Welke is uw naam\?.*Mijn naam is Legio; want wij zijn velen
+Markus 5:12 | Zend ons in die zwijnen
+Markus 5:13 | liet het hun terstond toe.*stortte van de steilte af in de zee.*omtrent twee duizend.*versmoorden
+Markus 5:15 | zittende, en gekleed, en wel bij zijn verstand.*werden bevreesd
+Markus 5:17 | dat Hij van hun landpalen wegging
+Markus 5:18 | dat hij met Hem mocht zijn
+Markus 5:19 | Ga heen naar uw huis tot de uwen, en boodschap hun, wat grote dingen u de Heere gedaan heeft
+Markus 5:20 | Dekapolis
+Mattheus 8:28 | land der Gergesenen.*twee, van den duivel bezeten
+# --- Stap 10: Lukas 8:40–56 ---
+Lukas 8:40 | als Jezus wederkeerde, dat Hem de schare ontving
+Lukas 8:41 | Jairus.*overste der synagoge.*viel aan de voeten van Jezus
+Lukas 8:42 | een enige dochter, van omtrent twaalf jaren.*lag op haar sterven
+Lukas 8:43 | twaalf jaren lang den vloed des bloeds
+Lukas 8:44 | raakte den zoom Zijns kleeds aan; en terstond stelpte
+Lukas 8:45 | Wie is het, die Mij heeft aangeraakt
+Lukas 8:47 | kwam bevende
+Lukas 8:48 | Dochter, wees welgemoed, uw geloof heeft u behouden; ga heen in vrede
+Lukas 8:49 | Uw dochter is gestorven
+Lukas 8:50 | Vrees niet, geloof alleenlijk
+Lukas 8:51 | niemand inkomen, dan Petrus, en Jakobus, en Johannes, en den vader en de moeder des kinds
+Lukas 8:52 | zij is niet gestorven; maar zij slaapt
+Lukas 8:53 | zij belachten Hem, wetende, dat zij gestorven was
+Lukas 8:54 | greep Hij haar hand.*Kind, sta op
+Lukas 8:55 | haar geest keerde weder.*terstond opgestaan.*te eten geven
+Markus 5:41 | Talitha kumi!.*Gij dochtertje \(Ik zeg u\), sta op
+Mattheus 9:1 | voer Hij over en kwam in Zijn stad
+Mattheus 4:13 | is komen wonen te Kapernaum
+# --- Speurtocht nt-galilea ---
+Markus 1:16 | werpende het net in de zee
+Markus 1:30 | met de koorts
+Markus 2:4 | ontdekten zij het dak
+Mattheus 7:24 | huis op een steenrots
+Lukas 7:5 | ons de synagoge gebouwd
+Markus 4:38 | slapende op een oorkussen
+Markus 5:9 | Legio
+Lukas 8:42 | omtrent twaalf jaren
+
+# ===== Geschiedenissen 80–99 =====
+# --- 80 ---
+Lukas 1:13 | uw gebed is verhoord
+Lukas 1:16 | velen der kinderen Israels bekeren tot den Heere
+Lukas 1:17 | in den geest en de kracht van Elias
+Lukas 1:18 | Waarbij zal ik dat weten
+Lukas 1:19 | Gabriel, die voor God sta
+Lukas 1:20 | niet kunnen spreken.*niet geloofd hebt
+Lukas 1:23 | naar zijn huis
+Lukas 1:24 | Elizabet.*bevrucht
+Lukas 1:25 | Alzo heeft mij de Heere gedaan.*om mijn versmaadheid onder de mensen weg te nemen
+Maleachi 3:1 | Ziet, Ik zende Mijn engel, die voor Mijn aangezicht den weg bereiden zal
+Maleachi 4:5 | profeet Elia
+Markus 1:2 | Ik zend Mijn engel voor Uw aangezicht
+Lukas 1:9 | reukofferen
+Lukas 1:11 | ter rechter zijde van het altaar des reukoffers
+Lukas 1:20 | om dies wil, dat gij mijn woorden niet geloofd hebt
+Lukas 1:24 | verborg zich vijf maanden
+Daniel 9:21 | de man Gabriel.*omtrent den tijd des avondoffers
+Genesis 18:11 | Abraham nu en Sara waren oud
+Genesis 18:14 | Zou iets voor den HEERE te wonderlijk zijn
+# --- 81 ---
+Lukas 1:32 | Zoon des Allerhoogsten
+Lukas 1:33 | Zijns Koninkrijks zal geen einde zijn
+Lukas 1:35 | De Heilige Geest zal over u komen
+Lukas 1:37 | geen ding zal bij God onmogelijk zijn
+Mattheus 1:19 | heimelijk te verlaten
+Mattheus 1:20 | uit den Heiligen Geest
+Mattheus 1:24 | heeft zijn vrouw tot zich genomen
+Lukas 1:39 | gebergte, in een stad van Juda
+Lukas 1:44 | sprong het kindeken van vreugde op in mijn buik
+Lukas 1:56 | omtrent drie maanden
+2 Samuel 7:16 | uw koninkrijk tot in eeuwigheid
+Lukas 1:26 | Gabriel van God gezonden naar een stad in Galilea, genaamd Nazareth
+Lukas 1:42 | Gezegend zijt gij onder de vrouwen
+Lukas 1:27 | Maria
+Lukas 1:31 | JEZUS
+Lukas 1:41 | sprong het kindeken op in haar buik
+1 Samuel 2:1 | Mijn hart springt van vreugde op in den HEERE
+# --- 82 ---
+Lukas 1:58 | de Heere Zijn barmhartigheid grotelijks aan haar bewezen had
+Lukas 1:59 | achtsten dag.*Zacharias
+Lukas 1:60 | Niet alzo, maar hij zal Johannes heten
+Lukas 1:61 | Er is niemand in uw maagschap, die met dien naam genaamd wordt
+Lukas 1:62 | wenkten zijn vader
+Lukas 1:63 | Johannes is zijn naam
+Lukas 1:64 | terstond werd zijn mond geopend
+Lukas 1:66 | Wat zal toch dit kindeken wezen
+Lukas 1:69 | hoorn der zaligheid ons opgericht, in het huis van David
+Lukas 1:73 | eed, dien Hij Abraham
+Lukas 1:76 | voor het aangezicht des Heeren heengaan, om Zijn wegen te bereiden
+Lukas 1:80 | vertoning aan Israel
+Maleachi 4:6 | het hart der vaderen tot de kinderen wederbrengen
+Genesis 17:12 | zoontje dan van acht dagen zal u besneden worden
+Mattheus 11:11 | niemand opgestaan meerder dan Johannes de Doper
+# --- 83 ---
+Lukas 2:21 | Zijn Naam genaamd JEZUS, welke genaamd was van den engel
+Mattheus 2:5 | Te Bethlehem
+Mattheus 2:6 | gij Bethlehem
+2 Korinthe 8:9 | om uwentwil is arm geworden, daar Hij rijk was
+Lukas 2:2 | Cyrenius over Syrie stadhouder was
+Lukas 2:1 | Keizer Augustus
+Lukas 2:4 | huis en geslacht van David
+Lukas 2:7 | in de kribbe
+Lukas 2:7 | geen plaats was in de herberg
+# --- 84 ---
+Lukas 2:11 | u heden geboren is de Zaligmaker, welke is Christus, de Heere
+Lukas 2:9 | heerlijkheid des Heeren
+Lukas 2:13 | menigte des hemelsen heirlegers
+Lukas 2:16 | vonden Maria en Jozef, en het Kindeken
+Lukas 2:17 | maakten zij alom bekend
+Lukas 2:20 | verheerlijkende en prijzende God over alles, wat zij gehoord en gezien hadden
+Lukas 2:28 | loofde God
+Lukas 2:38 | heeft insgelijks den Heere beleden
+Lukas 2:8 | hielden de nachtwacht over hun kudde
+Lukas 2:14 | Ere zij God in de hoogste hemelen
+Lukas 2:19 | bewaarde deze woorden.*in haar hart
+Lukas 2:30 | mijn ogen hebben Uw zaligheid gezien
+Psalm 95:6 | Komt, laat ons aanbidden en nederbukken; laat ons knielen voor den HEERE
+1 Samuel 16:11 | weidt de schapen
+# --- 85 ---
+Mattheus 2:2 | Zijn ster
+Mattheus 2:3 | ontroerd
+Mattheus 2:12 | door een anderen weg
+Mattheus 2:13 | vlied in Egypte
+Mattheus 2:16 | twee jaren oud en daaronder
+Mattheus 2:23 | Nazareth
+Micha 5:2 | Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israel
+Hosea 11:1 | Mijn zoon uit Egypte uitgeroepen
+Jeremia 31:15 | Rachel weent over haar kinderen
+Mattheus 2:15 | Uit Egypte heb Ik Mijn Zoon geroepen
+Mattheus 2:18 | Rachel beweende haar kinderen
+Mattheus 2:6 | gij Bethlehem
+Mattheus 2:2 | Waar is de geboren Koning der Joden
+Mattheus 2:13 | engel des Heeren verschijnt Jozef in den droom
+Mattheus 2:22 | Archelaus in Judea koning was
+Mattheus 2:23 | woonplaats in de stad, genaamd Nazareth
+Numeri 24:17 | Er zal een ster voortkomen uit Jakob, en er zal een scepter uit Israel opkomen
+Psalm 72:10 | geschenken aanbrengen
+Psalm 72:11 | alle heidenen zullen hem dienen
+Mattheus 2:6 | uit u zal de Leidsman voortkomen, Die Mijn volk Israel weiden zal
+# --- 86 ---
+Lukas 2:41 | pascha
+Lukas 2:47 | Zijn verstand en antwoorden
+Lukas 2:49 | in de dingen Mijns Vaders
+Lukas 2:51 | was hun onderdanig
+Lukas 2:52 | Jezus nam toe in wijsheid, en in grootte, en in genade bij God en de mensen
+Exodus 20:12 | Eert uw vader en uw moeder
+Lukas 2:42 | twaalf jaren oud
+Lukas 2:46 | hen horende, en hen ondervragende
+Deuteronomium 16:16 | Driemaal in het jaar.*feest der ongezuurde
+Johannes 2:16 | het huis Mijns Vaders
+# --- 87 ---
+Mattheus 3:2 | Bekeert u; want het Koninkrijk der hemelen is nabij gekomen
+Mattheus 3:6 | belijdende hun zonden
+Mattheus 3:11 | sterker dan ik
+Mattheus 3:13 | van Galilea naar de Jordaan
+Mattheus 3:14 | Mij is nodig van U gedoopt te worden, en komt Gij tot mij
+Mattheus 3:15 | alle gerechtigheid te vervullen
+Mattheus 3:16 | de hemelen werden Hem geopend.*Geest Gods nederdalen, gelijk een duive
+Mattheus 3:17 | Deze is Mijn Zoon, Mijn Geliefde, in Denwelken Ik Mijn welbehagen heb
+Johannes 3:30 | Hij moet wassen, maar ik minder worden
+Johannes 1:29 | Zie het Lam Gods, Dat de zonde der wereld wegneemt
+Mattheus 3:1 | in de woestijn van Judea
+Mattheus 3:4 | kemelshaar
+Mattheus 3:6 | gedoopt in de Jordaan
+Jesaja 40:3 | Een stem des roependen in de woestijn: Bereidt den weg des HEEREN
+# --- 88 ---
+Mattheus 4:1 | van den Geest weggeleid in de woestijn
+Mattheus 4:2 | veertig dagen en veertig nachten.*hongerde
+Mattheus 4:3 | stenen broden worden
+Mattheus 4:5 | tinne des tempels
+Mattheus 4:6 | Zijn engelen van U bevelen zal
+Mattheus 4:8 | al de koninkrijken der wereld
+Mattheus 4:9 | mij zult aanbidden
+Mattheus 4:4 | Er is geschreven
+Mattheus 4:10 | Ga weg, satan
+Mattheus 4:11 | de engelen zijn toegekomen, en dienden Hem
+Deuteronomium 8:2 | veertig jaren in de woestijn
+Deuteronomium 8:3 | de mens niet alleen van het brood leeft
+Hebreeen 2:18 | verzocht zijnde, geleden heeft, kan Hij dengenen, die verzocht worden, te hulp komen
+Mattheus 4:6 | werp Uzelven nederwaarts
+Deuteronomium 6:16 | niet verzoeken
+Deuteronomium 6:13 | Gij zult den HEERE, uw God, vrezen, en Hem dienen
+Psalm 91:11 | Want Hij zal Zijn engelen van u bevelen
+Psalm 91:12 | Zij zullen u op de handen dragen
+Hebreeen 4:15 | in alle dingen, gelijk als wij, is verzocht geweest, doch zonder zonde
+Jakobus 4:7 | wederstaat den duivel, en hij zal van u vlieden
+# --- 89 ---
+Johannes 1:36 | Ziet, het Lam Gods
+Johannes 1:37 | zij volgden Jezus
+Johannes 1:40 | bleven dien dag bij Hem
+Johannes 1:42 | Wij hebben gevonden den Messias
+Johannes 1:43 | Cefas, hetwelk overgezet wordt Petrus
+Johannes 1:44 | vond Filippus
+Johannes 1:46 | Filippus vond Nathanael
+Markus 1:16 | Galilese zee
+Markus 1:17 | Volgt Mij na, en Ik zal maken, dat gij vissers der mensen zult worden
+Markus 1:18 | terstond hun netten verlatende
+Markus 1:20 | latende hun vader Zebedeus in het schip
+Johannes 15:16 | Gij hebt Mij niet uitverkoren, maar Ik heb u uitverkoren
+Johannes 1:43 | Simon, de zoon van Jonas
+Markus 1:19 | Jakobus, den zoon van Zebedeus, en Johannes, zijn broeder
+Johannes 1:49 | onder den vijgeboom
+Lukas 5:10 | Vrees niet; van nu aan zult gij mensen vangen
+Mattheus 4:18 | Simon, gezegd Petrus, en Andreas
+Mattheus 4:21 | Jakobus, den zoon van Zebedeus
+Mattheus 10:2 | Simon, gezegd Petrus, en Andreas, zijn broeder; Jakobus, de zoon van Zebedeus, en Johannes, zijn broeder
+Markus 1:14 | nadat Johannes overgeleverd was
+# --- 90 ---
+Johannes 2:1 | bruiloft te Kana in Galilea
+Johannes 2:2 | Zijn discipelen, tot de bruiloft
+Johannes 2:4 | Mijn ure is nog niet gekomen
+Johannes 2:5 | Zo wat Hij ulieden zal zeggen, doet dat
+Johannes 2:7 | tot boven toe
+Johannes 2:9 | hij wist niet, van waar de wijn was; maar de dienaren, die het water geschept hadden, wisten het
+Johannes 2:10 | goeden wijn tot nu toe bewaard
+Johannes 2:11 | beginsel der tekenen.*Zijn discipelen geloofden in Hem
+Johannes 20:31 | opdat gij gelooft, dat Jezus is de Christus, de Zone Gods
+Johannes 4:46 | Kana in Galilea, waar Hij het water wijn gemaakt had
+Johannes 2:1 | op den derden dag
+# --- 91 ---
+Markus 1:22 | als machthebbende
+Markus 1:27 | met macht ook den onreine geesten gebiedt, en zij Hem gehoorzaam zijn
+Markus 1:31 | verliet haar de koorts
+Markus 1:32 | van den duivel bezeten
+Markus 1:40 | melaatse.*Indien Gij wilt, Gij kunt mij reinigen
+Markus 1:41 | raakte hem aan.*Ik wil, word gereinigd
+Markus 2:3 | van vier gedragen
+Markus 2:4 | het dak
+Markus 2:5 | Zoon, uw zonden zijn u vergeven
+Markus 2:7 | Wie kan de zonden vergeven, dan alleen God
+Markus 2:10 | macht heeft, om de zonden op de aarde te vergeven
+Markus 2:12 | ging hij uit
+Mattheus 8:17 | Hij heeft onze krankheden op Zich genomen
+Jesaja 53:4 | Hij heeft onze krankheden op Zich genomen
+Handelingen 2:22 | krachten, en wonderen, en tekenen, die God door Hem gedaan heeft
+Leviticus 14:2 | wet des melaatsen.*reiniging.*tot den priester
+Markus 1:44 | vertoon uzelven den priester
+Markus 1:23 | onreinen geest
+Markus 1:30 | Simons vrouws moeder
+Markus 1:14 | nadat Johannes overgeleverd was
+# --- 92 ---
+Mattheus 6:1 | uw Vader, Die in de hemelen is
+Mattheus 6:4 | uw Vader, Die in het verborgen ziet
+Mattheus 6:6 | uw Vader, Die in het verborgen ziet
+Mattheus 6:18 | uw Vader, Die in het verborgen ziet
+Mattheus 6:9 | Onze Vader, Die in de hemelen zijt
+Mattheus 6:19 | Vergadert u geen schatten op de aarde
+Mattheus 6:20 | vergadert u schatten in den hemel
+Mattheus 6:26 | vogelen des hemels.*uw hemelse Vader voedt nochtans dezelve
+Mattheus 6:28 | lelien des velds
+Mattheus 6:33 | zoekt eerst het Koninkrijk Gods en Zijn gerechtigheid
+Mattheus 7:13 | enge poort.*breed is de weg, die tot het verderf leidt
+Mattheus 7:21 | Niet een iegelijk, die tot Mij zegt: Heere, Heere! zal ingaan in het Koninkrijk der hemelen, maar die daar doet den wil Mijns Vaders
+Mattheus 7:24 | steenrots
+Mattheus 7:26 | op het zand
+Mattheus 7:27 | zijn val was groot
+Jakobus 1:22 | zijt daders des Woords, en niet alleen hoorders
+Lukas 6:48 | op een steenrots
+Lukas 6:49 | de val van datzelve huis was groot
+Lukas 11:1 | Heere, leer ons bidden
+Lukas 11:2 | Onze Vader
+Mattheus 5:1 | geklommen op een berg, en als Hij nedergezeten was
+Mattheus 4:23 | omging geheel Galilea
+# --- 93 ---
+Johannes 3:1 | Farizeen.*Nicodemus, een overste der Joden
+Johannes 3:2 | niemand kan deze tekenen doen, die Gij doet, zo God met hem niet is
+Johannes 3:3 | Tenzij dat iemand wederom geboren worde, hij kan het Koninkrijk Gods niet zien
+Johannes 3:4 | nu oud zijnde
+Johannes 3:5 | uit water en Geest
+Johannes 3:8 | De wind blaast, waarheen hij wil, en gij hoort zijn geluid; maar gij weet niet, van waar hij komt, en waar hij heen gaat
+Johannes 3:10 | Zijt gij een leraar van Israel, en weet gij deze dingen niet
+Johannes 3:14 | Mozes de slang in de woestijn verhoogd heeft
+Johannes 3:16 | Zijn eniggeboren Zoon gegeven heeft.*het eeuwige leven hebbe
+Titus 3:5 | door het bad der wedergeboorte en vernieuwing des Heiligen Geestes
+Numeri 21:8 | vurige slang.*als hij haar aanziet, zo zal hij leven
+Numeri 21:9 | koperen slang.*bleef levend
+Ezechiel 36:26 | Ik zal u een nieuw hart geven, en zal een nieuwen geest geven in het binnenste van u
+Johannes 19:39 | mirre en aloe
+Johannes 2:13 | pascha
+Johannes 2:23 | te Jeruzalem was, op het pascha
+# --- 94 ---
+Markus 4:1 | in het schip gegaan zijnde.*de gehele schare was op het land aan de zee
+Markus 4:35 | Laat ons overvaren aan de andere zijde
+Markus 4:37 | grote storm.*vol werd
+Markus 4:38 | slapende op een oorkussen
+Markus 4:39 | Zwijg, wees stil
+Markus 4:40 | geen geloof
+Markus 4:41 | Wie is toch Deze, dat ook de wind en de zee Hem gehoorzaam zijn
+Psalm 107:29 | Hij doet de storm stilstaan, zodat hun golven stilzwijgen
+Markus 1:1 | JEZUS CHRISTUS, den Zone Gods
+Markus 4:36 | andere scheepjes
+Mattheus 8:26 | Wat zijt gij vreesachtig, gij kleingelovigen
+Jona 1:4 | de HEERE wierp een groten wind op de zee; en er werd een grote storm
+# --- 95 ---
+Markus 5:3 | woning in de graven
+Markus 5:4 | ketenen.*in stukken getrokken.*boeien verbrijzeld.*niemand was machtig om hem te temmen
+Markus 5:5 | roepende en slaande zichzelven met stenen
+Markus 5:7 | Zone Gods, des Allerhoogsten
+Markus 5:9 | Legio; want wij zijn velen
+Markus 5:13 | twee duizend
+Markus 5:15 | zittende, en gekleed, en wel bij zijn verstand
+Markus 5:17 | wegging
+Markus 5:19 | wat grote dingen u de Heere gedaan heeft
+Markus 5:20 | Dekapolis
+1 Johannes 3:8 | Hiertoe is de Zoon van God geopenbaard, opdat Hij de werken des duivels verbreken zou
+Markus 5:5 | op de bergen en in de graven
+Mattheus 8:28 | land der Gergesenen.*twee
+Lukas 8:26 | land der Gadarenen, hetwelk is tegenover Galilea
+# --- 96 ---
+Lukas 7:2 | hoofdman over honderd.*lag op zijn sterven
+Lukas 7:3 | ouderlingen der Joden
+Lukas 7:4 | Hij is waardig
+Lukas 7:5 | ons volk lief.*synagoge gebouwd
+Lukas 7:6 | ik ben niet waardig, dat Gij onder mijn dak zoudt inkomen
+Lukas 7:7 | zeg het met een woord, en mijn knecht zal genezen worden
+Lukas 7:8 | krijgsknechten
+Lukas 7:9 | zo groot een geloof zelfs in Israel niet gevonden
+Lukas 7:10 | gezond
+1 Samuel 16:7 | de mens ziet aan, wat voor ogen is, maar de HEERE ziet het hart aan
+Mattheus 8:11 | velen zullen komen van oosten en westen
+Psalm 34:19 | De HEERE is nabij de gebrokenen van harte
+# --- 97 ---
+Lukas 7:36 | Farizeen
+Lukas 7:37 | zondares.*albasten fles met zalf
+Lukas 7:38 | nat te maken met tranen.*haar van haar hoofd.*kuste Zijn voeten.*zalfde
+Lukas 7:39 | Deze, indien Hij een profeet ware
+Lukas 7:40 | Simon
+Lukas 7:41 | vijfhonderd penningen, en de andere vijftig
+Lukas 7:42 | schold hij het hun beiden kwijt
+Lukas 7:43 | dien hij het meeste kwijtgescholden heeft
+Lukas 7:44 | water hebt gij niet tot Mijn voeten gegeven; maar deze heeft Mijn voeten met tranen nat gemaakt, en met het haar van haar hoofd afgedroogd
+Lukas 7:45 | Gij hebt Mij geen kus gegeven; maar deze.*niet afgelaten Mijn voeten te kussen
+Lukas 7:46 | Met olie hebt gij Mijn hoofd niet gezalfd; maar deze heeft Mijn voeten met zalf gezalfd
+Lukas 7:47 | Haar zonden zijn haar vergeven, die vele waren; want zij heeft veel liefgehad
+Lukas 7:49 | Wie is Deze, Die ook de zonden vergeeft
+Lukas 7:50 | Uw geloof heeft u behouden; ga heen in vrede
+Markus 2:7 | Wie kan de zonden vergeven, dan alleen God
+Psalm 32:1 | Welgelukzalig is hij, wiens overtreding vergeven, wiens zonde bedekt is
+1 Johannes 4:19 | Wij hebben Hem lief, omdat Hij ons eerst liefgehad heeft
+Lukas 7:1 | Kapernaum
+Lukas 7:11 | Nain
+Lukas 8:1 | van de ene stad en vlek tot de andere
+# --- 98 ---
+Lukas 8:40 | wederkeerde
+Lukas 8:41 | overste der synagoge
+Lukas 8:42 | enige dochter, van omtrent twaalf jaren.*op haar sterven
+Lukas 8:43 | twaalf jaren lang den vloed des bloeds.*van niemand had kunnen genezen worden
+Lukas 8:44 | zoom Zijns kleeds
+Lukas 8:48 | Dochter, wees welgemoed, uw geloof heeft u behouden
+Lukas 8:49 | Uw dochter is gestorven
+Lukas 8:50 | Vrees niet, geloof alleenlijk, en zij zal behouden worden
+Lukas 8:52 | zij slaapt
+Lukas 8:53 | belachten Hem
+Lukas 8:51 | Petrus, en Jakobus, en Johannes, en den vader en de moeder des kinds
+Lukas 8:54 | greep Hij haar hand.*Kind, sta op
+Lukas 8:55 | haar geest keerde weder.*terstond opgestaan.*te eten geven
+Johannes 11:25 | Ik ben de Opstanding en het Leven; die in Mij gelooft zal leven, al ware hij ook gestorven
+Markus 5:41 | Talitha kumi
+Markus 5:21 | wederom in het schip overgevaren
+1 Koningen 17:22 | de ziel van het kind kwam weder in hem, dat het weder levend werd
+# --- 99 ---
+Mattheus 13:2 | in een schip ging en nederzat, en al de schare stond op den oever
+Mattheus 13:4 | de vogelen kwamen en aten datzelve op
+Mattheus 13:5 | steenachtige plaatsen
+Mattheus 13:6 | verbrand.*verdord
+Mattheus 13:7 | doornen.*verstikten
+Mattheus 13:8 | goede aarde.*honderd-.*zestig-.*dertig voud
+Mattheus 13:9 | Wie oren heeft om te horen, die hore
+Mattheus 13:10 | Waarom spreekt Gij tot hen door gelijkenissen
+Mattheus 13:11 | de verborgenheden van het Koninkrijk der hemelen te weten
+Mattheus 13:18 | Gij dan, hoort de gelijkenis van den zaaier
+Mattheus 13:19 | Woord des Koninkrijks hoort, en niet verstaat, zo komt de boze, en rukt weg, hetgeen in zijn hart gezaaid was; deze is degene, die bij den weg bezaaid is
+Mattheus 13:20 | steenachtige plaatsen.*het Woord hoort, en dat terstond met vreugde ontvangt
+Mattheus 13:21 | geen wortel.*verdrukking of vervolging.*terstond geergerd
+Mattheus 13:22 | doornen.*zorgvuldigheid dezer wereld, en de verleiding des rijkdoms verstikt het Woord
+Mattheus 13:23 | goede aarde.*het Woord hoort en verstaat.*vrucht draagt.*honderd-.*zestig-.*dertig voud
+Lukas 8:11 | Het zaad is het Woord Gods
+Markus 4:14 | De zaaier is, die het Woord zaait
+Lukas 8:15 | in een eerlijk en goed hart bewaren, en in volstandigheid vruchten voortbrengen
+Jesaja 55:10 | zaad geve den zaaier
+Jesaja 55:11 | het zal niet ledig tot Mij wederkeren
+Markus 4:35 | op denzelfden dag
+
+# ===== Kernwoorden =====
+# engelen
+Kolossenzen 1:16 | door Hem zijn alle dingen geschapen, die in de hemelen.*onzienlijk
+Psalm 103:20 | Looft den HEERE, Zijn engelen!.*die Zijn woord doet
+Lukas 1:19 | Ik ben Gabriel, die voor God sta
+Lukas 1:26 | engel Gabriel
+Hebreeen 1:14 | gedienstige geesten, die tot dienst uitgezonden worden.*zaligheid beerven
+Lukas 15:10 | blijdschap voor de engelen Gods over een zondaar, die zich bekeert
+Openbaring 22:8 | om aan te bidden voor de voeten des engels
+Openbaring 22:9 | Zie, dat gij het niet doet.*aanbid God
+# aanbidden
+Psalm 95:6 | Komt, laat ons aanbidden en nederbukken
+Mattheus 2:11 | nedervallende hebben zij Hetzelve aangebeden
+Lukas 2:20 | verheerlijkende en prijzende God
+Mattheus 4:10 | Den Heere, uw God, zult gij aanbidden, en Hem alleen dienen
+Johannes 4:24 | die Hem aanbidden, moeten Hem aanbidden in geest en waarheid
+Openbaring 4:10 | vielen.*voor Hem.*aanbaden Hem
+Openbaring 4:11 | Gij Heere, zijt waardig
+# satan
+Openbaring 12:9 | de oude slang, welke genaamd wordt duivel en satanas
+Johannes 8:44 | mensenmoorder van den beginne.*leugenaar, en de vader derzelve leugen
+1 Johannes 3:8 | opdat Hij de werken des duivels verbreken zou
+Genesis 3:15 | datzelve zal u de kop vermorzelen
+Mattheus 4:10 | Ga weg, satan
+Jakobus 4:7 | wederstaat den duivel, en hij zal van u vlieden
+# wonder
+Psalm 77:15 | Gij zijt die God, Die wonder doet
+Johannes 2:11 | beginsel der tekenen.*heerlijkheid geopenbaard
+Johannes 20:31 | opdat gij gelooft, dat Jezus is de Christus, de Zone Gods
+Markus 2:10 | macht heeft, om de zonden op de aarde te vergeven
+Markus 2:12 | terstond stond hij op
+Handelingen 2:22 | krachten, en wonderen, en tekenen, die God door Hem gedaan heeft
+# wedergeboorte
+Johannes 3:3 | Tenzij dat iemand wederom geboren worde, hij kan het Koninkrijk Gods niet zien
+Johannes 3:5 | geboren wordt uit water en Geest
+Johannes 3:8 | alzo is een iegelijk, die uit den Geest geboren is
+Titus 3:5 | het bad der wedergeboorte en vernieuwing des Heiligen Geestes
+Ezechiel 36:26 | Ik zal u een nieuw hart geven, en zal een nieuwen geest geven
+1 Petrus 1:23 | wedergeboren.*door het levende en eeuwig blijvende Woord van God
+# hart
+1 Samuel 16:7 | de HEERE ziet het hart aan
+Mattheus 12:34 | uit den overvloed des harten spreekt de mond
+Mattheus 15:19 | uit het hart komen voort boze bedenkingen
+Psalm 51:12 | Schep mij een rein hart, o God
+Ezechiel 36:26 | nieuw hart
+Spreuken 4:23 | Behoed uw hart boven al wat te bewaren is, want daaruit zijn de uitgangen des levens
+Romeinen 10:10 | met het hart gelooft men ter rechtvaardigheid
+# koninkrijk-van-god
+Markus 1:15 | De tijd is vervuld, en het Koninkrijk Gods nabij gekomen; bekeert u, en gelooft het Evangelie
+Johannes 18:36 | Mijn Koninkrijk is niet van deze wereld
+Johannes 3:5 | in het Koninkrijk Gods niet ingaan
+Mattheus 6:10 | Uw Koninkrijk kome
+Mattheus 6:33 | Koninkrijk Gods en Zijn gerechtigheid
+Romeinen 14:17 | rechtvaardigheid, en vrede, en blijdschap, door den Heiligen Geest

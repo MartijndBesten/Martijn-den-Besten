@@ -1,0 +1,595 @@
+# Controle voor groep nt-2 (geschiedenissen 100–117): public/bijbelreis/inhoud/nt-jezus-2.js en
+# public/bijbelreis/geschiedenissen/nt-2.js, tegen de Statenvertaling in public/bijbelreis/bijbel/. Regel: verwijzing | regex
+# (de tekstbestanden zijn zonder trema's: Farizeen, Israels, Zacheus).
+
+# ===== Boek: Wie is wie =====
+Mattheüs 16:16 | Gij zijt de Christus, de Zoon des levenden Gods
+Johannes 6:35 | Ik ben het Brood des levens
+Johannes 10:11 | Ik ben de goede Herder
+Johannes 11:25 | Ik ben de Opstanding en het Leven
+Markus 6:17 | Herodias, de huisvrouw van zijn broeder Filippus
+Markus 6:18 | niet geoorloofd
+Markus 6:27 | onthoofdde hem in de gevangenis
+Mattheüs 11:11 | niemand opgestaan meerder dan Johannes de Doper
+Mattheüs 14:1 | Herodes, de viervorst
+Lukas 3:1 | Herodes een viervorst over Galilea
+Mattheüs 2:19 | Herodes nu gestorven was
+Lukas 9:9 | zocht Hem te zien
+Markus 6:24 | Het hoofd van Johannes den Doper
+Johannes 1:45 | Bethsaida, uit de stad van Andreas en Petrus
+Lukas 9:28 | Petrus, en Johannes, en Jakobus
+Lukas 9:54 | vuur van den hemel
+Markus 10:37 | rechter hand.*linker hand
+Johannes 11:5 | Martha, en haar zuster, en Lazarus lief
+Johannes 11:17 | vier dagen in het graf
+Johannes 11:43 | Lazarus, kom uit
+Johannes 11:27 | ik heb geloofd, dat Gij zijt de Christus, de Zone Gods
+Johannes 11:49 | Kajafas.*hogepriester
+Johannes 11:50 | een mens sterve voor het volk
+Johannes 11:51 | niet uit zichzelven; maar.*profeteerde hij
+Markus 10:46 | zoon van Timeus, Bar-timeus, de blinde
+Markus 10:47 | Jezus, Gij Zone Davids! ontferm U mijner
+Lukas 19:2 | Zacheus.*overste der tollenaren.*rijk
+Lukas 19:3 | klein van persoon
+Lukas 19:4 | wilden vijgeboom
+
+# ===== Deel nt-brood-en-berg =====
+Johannes 6:4 | het pascha.*was nabij
+Johannes 11:55 | het pascha der Joden was nabij
+Johannes 6:10 | omtrent vijf duizend
+Johannes 6:13 | twaalf korven
+Mattheüs 14:1–21 | Herodes, de viervorst
+Mattheüs 14:1–21 | vijf broden en twee vissen
+Markus 8:27–30 | vlekken van Cesarea Filippi
+2 Petrus 1:18 | op de heilige berg
+# stap 0
+Markus 6:14 | Johannes, die daar doopte, is van de doden opgewekt
+Markus 6:16 | Deze is Johannes, dien ik onthoofd heb
+Markus 6:21 | op den dag zijner geboorte
+Markus 6:22 | danste
+Markus 6:23 | tot de helft mijns koninkrijks
+Markus 6:25 | in een schotel
+Markus 6:26 | zeer bedroefd.*om de eden, en degenen, die mede aanzaten
+Markus 6:29 | legden dat in een graf
+# stap 1
+Johannes 6:1 | over de zee van Galilea
+Johannes 6:2 | grote schare
+Johannes 6:5 | tot Filippus: Van waar zullen wij broden kopen
+Johannes 6:7 | tweehonderd penningen brood is voor dezen niet genoeg
+Johannes 6:8–9 | Andreas.*jongsken, dat vijf gerstebroden heeft, en twee visjes
+Johannes 6:9 | wat zijn deze onder zo velen
+Johannes 6:10 | veel gras
+Johannes 6:11 | gedankt hebbende.*zoveel zij wilden
+Johannes 6:15 | met geweld.*Koning maakten.*op den berg, Hij Zelf alleen
+Lukas 9:10 | woeste plaats der stad, genaamd Bethsaida
+2 Koningen 4:42 | twintig gerstebroden
+2 Koningen 4:43 | honderd mannen
+2 Koningen 4:44 | hielden over
+# stap 2
+Johannes 6:16 | avond
+Johannes 6:17 | naar Kapernaum.*duister
+Johannes 6:18 | grote wind
+Johannes 6:19 | vijf en twintig of dertig stadien.*wandelende op de zee
+Johannes 6:20 | Ik ben het; zijt niet bevreesd
+Johannes 6:21 | terstond kwam het schip aan het land
+Mattheüs 14:29 | wandelde op het water
+Mattheüs 14:30 | den sterken wind.*Heere, behoud mij
+Mattheüs 14:31 | terstond de hand uitstekende, greep hem aan
+# stap 3
+Johannes 6:24 | kwamen te Kapernaum
+Johannes 6:26 | van de broden gegeten
+Johannes 6:27 | spijs, die blijft tot in het eeuwige leven
+Johannes 6:31 | Manna gegeten in de woestijn
+Johannes 6:35 | die tot Mij komt, zal geenszins hongeren
+Johannes 6:59 | in de synagoge, lerende te Kapernaum
+Johannes 6:60 | Deze rede is hard
+Johannes 6:66 | wandelden niet meer met Hem
+Johannes 6:67 | Wilt gijlieden ook niet weggaan
+Johannes 6:68 | Heere, tot Wien zullen wij heengaan\? Gij hebt de woorden des eeuwigen levens
+Exodus 16:35 | Man veertig jaren
+Exodus 16:15 | Dit is het brood, hetwelk de HEERE ulieden te eten gegeven heeft
+Johannes 6:32 | Mozes heeft u niet gegeven het brood uit den hemel; maar Mijn Vader
+# stap 4
+Mattheüs 16:13 | in de delen van Cesarea Filippi
+Mattheüs 16:13 | Wie zeggen de mensen
+Mattheüs 16:14 | Johannes de Doper; en anderen: Elias; en anderen: Jeremia of een van de profeten
+Mattheüs 16:15 | Maar gij, wie zegt gij, dat Ik ben
+Mattheüs 16:17 | vlees en bloed heeft u dat niet geopenbaard, maar Mijn Vader
+Mattheüs 16:20 | verbood Hij Zijn discipelen
+Johannes 1:42 | Messias, hetwelk is, overgezet zijnde, de Christus
+Johannes 1:43 | Cefas, hetwelk overgezet wordt Petrus
+Markus 8:22 | kwam te Bethsaida
+Markus 8:27 | Cesarea Filippi
+# stap 5
+Mattheüs 16:21 | naar Jeruzalem, en veel lijden van de ouderlingen, en overpriesters, en Schriftgeleerden, en gedood worden, en ten derden dage opgewekt
+Mattheüs 16:22 | dit zal U geenszins geschieden
+Mattheüs 16:23 | Ga weg achter Mij, satanas!.*gij verzint niet de dingen, die Gods zijn, maar die der mensen zijn
+Mattheüs 16:24 | verloochene zichzelven, en neme zijn kruis op, en volge Mij
+Lukas 24:6 | Gedenkt, hoe Hij tot u gesproken heeft, als Hij nog in Galilea was
+Lukas 24:7 | ten derden dage wederopstaan
+# stap 6
+Lukas 9:28 | omtrent acht dagen.*om te bidden
+Lukas 9:29 | gedaante Zijns aangezichts veranderd, en Zijn kleding wit en zeer blinkende
+Lukas 9:30 | Mozes en Elias
+Lukas 9:31 | Zijn uitgang, dien Hij zoude volbrengen te Jeruzalem
+Lukas 9:33 | drie tabernakelen.*niet wetende, wat hij zeide
+Lukas 9:34 | kwam een wolk
+Lukas 9:35 | Deze is Mijn geliefde Zoon; hoort Hem
+Lukas 9:36 | werd Jezus alleen gevonden
+Mattheüs 17:1 | na zes dagen
+# speurtocht
+Markus 6:17–18 | om Herodias' wil|uit oorzaak van Herodias
+Markus 6:23 | helft mijns koninkrijks
+Johannes 6:8–9 | Andreas
+Johannes 6:13 | twaalf korven
+Johannes 6:20 | Ik ben het
+Johannes 6:59 | synagoge.*Kapernaum
+Mattheüs 16:14 | Elias
+Lukas 9:30 | Mozes en Elias
+
+# ===== Deel nt-feesten-jeruzalem =====
+Johannes 5:1 | een feest der Joden.*Jeruzalem
+Johannes 7:2 | loof huttenzetting
+Johannes 10:22 | feest der vernieuwing des tempels.*winter
+Johannes 11:18 | omtrent vijftien stadien
+Johannes 2:13 | het pascha der Joden was nabij, en Jezus ging op naar Jeruzalem
+Johannes 12:1 | zes dagen voor het pascha te Bethanie
+Johannes 12:2 | Martha diende; en Lazarus
+Johannes 12:3 | de voeten van Jezus gezalfd
+Johannes 20:31 | opdat gij gelooft, dat Jezus is de Christus, de Zone Gods
+# stap 0
+Johannes 5:2 | Schaaps poort.*Bethesda, hebbende vijf zalen
+Johannes 5:3 | kranken, blinden, kreupelen.*roering des waters
+Johannes 5:5 | acht en dertig jaren krank
+Johannes 5:6 | Wilt gij gezond worden
+Johannes 5:7 | ik heb geen mens
+Johannes 5:8 | Sta op, neem uw beddeken op, en wandel
+Johannes 5:9 | terstond werd de mens gezond.*sabbat
+# stap 1
+Johannes 5:10 | Het is sabbat; het is u niet geoorloofd het beddeken te dragen
+Johannes 5:11 | Die mij gezond gemaakt heeft, Die heeft mij gezegd: Neem uw beddeken op, en wandel
+Johannes 5:13 | wist niet, Wie Hij was
+Johannes 5:14 | vond hem Jezus in den tempel.*zondig niet meer, opdat u niet wat ergers geschiede
+Johannes 5:15 | dat het Jezus was
+Johannes 5:16 | zochten Hem te doden, omdat Hij deze dingen op den sabbat deed
+Johannes 5:18 | God Zijn eigen Vader was, Zichzelven Gode evengelijk makende
+Jeremia 17:21 | draagt geen last op den sabbatdag
+Johannes 7:23 | een gehelen mens gezond gemaakt heb op den sabbat
+Johannes 7:23 | besnijdenis ontvangt op den sabbat
+# stap 2
+Johannes 9:1 | blind van de geboorte af
+Johannes 9:2 | Rabbi, wie heeft er gezondigd, deze, of zijn ouders
+Johannes 9:3 | Noch deze heeft gezondigd, noch zijn ouders.*werken Gods
+Johannes 9:5 | Licht der wereld
+Johannes 9:6 | spoog Hij op de aarde, en maakte slijk
+Johannes 9:7 | Ga heen, was u in het badwater Siloam
+Johannes 9:7 | uitgezonden
+Johannes 9:7 | kwam ziende
+# stap 3
+Johannes 9:14 | het was sabbat
+Johannes 9:13–19 | Farizeen.*ouders
+Johannes 9:22 | omdat zij de Joden vreesden.*uit de synagoge zou geworpen worden
+Johannes 9:23 | Hij heeft zijn ouderdom, vraagt hemzelven
+Johannes 9:25 | Of Hij een zondaar is, weet ik niet; een ding weet ik, dat ik blind was, en nu zie
+Johannes 9:34 | wierpen hem uit
+Johannes 9:35 | hem vindende.*Gelooft gij in den Zoon van God
+Johannes 9:38 | Ik geloof, Heere! En hij aanbad Hem
+Jesaja 35:5 | der blinden ogen opengedaan worden
+Johannes 9:32 | eens blindgeborenen ogen geopend heeft
+# stap 4
+Johannes 9:40 | Farizeen
+Johannes 10:1 | Die niet ingaat door de deur.*dief
+Johannes 10:2 | die door de deur ingaat, is een herder der schapen
+Johannes 10:3 | roept zijn schapen bij name
+Johannes 10:4 | volgen hem, overmits zij zijn stem kennen
+Johannes 10:6 | Deze gelijkenis zeide Jezus tot hen; maar zij verstonden niet
+Johannes 10:7 | Ik ben de Deur der schapen
+Johannes 10:11 | de goede herder stelt zijn leven voor de schapen
+Johannes 10:12 | huurling.*wolf.*vliedt
+Johannes 10:17 | Ik Mijn leven afleg, opdat Ik hetzelve wederom neme
+Psalm 23:1 | De HEERE is mijn Herder, mij zal niets ontbreken
+Ezechiël 34:23 | Ik zal een enigen Herder over hen verwekken
+# stap 5
+Johannes 10:23 | in den tempel, in het voorhof van Salomo
+Johannes 10:24 | Indien Gij de Christus zijt, zeg het ons vrijuit
+Johannes 10:27 | Mijn schapen horen Mijn stem, en Ik ken dezelve, en zij volgen Mij
+Johannes 10:28 | Ik geef hun het eeuwige leven
+Johannes 10:30 | Ik en de Vader zijn een
+Johannes 10:31 | stenen op, om Hem te stenigen
+Johannes 10:39 | ontging uit hun hand
+Johannes 10:40 | over de Jordaan, tot de plaats, waar Johannes eerst doopte
+Johannes 10:42 | velen geloofden aldaar in Hem
+# stap 6
+Johannes 11:1 | Lazarus, van Bethanie, uit het vlek van Maria en haar zuster Martha
+Johannes 11:3 | Heere, zie, dien Gij liefhebt, is krank
+Johannes 11:4 | Deze krankheid is niet tot den dood, maar ter heerlijkheid Gods
+Johannes 11:6 | bleef Hij nog twee dagen in de plaats, waar Hij was
+Johannes 11:11 | Lazarus, onze vriend, slaapt
+Johannes 11:14 | Lazarus is gestorven
+Johannes 11:16 | Thomas.*Laat ons ook gaan, opdat wij met Hem sterven
+Johannes 11:8 | zocht te stenigen
+# stap 7
+Johannes 11:21 | Heere, waart Gij hier geweest, zo ware mijn broeder niet gestorven
+Johannes 11:25 | die in Mij gelooft zal leven, al ware hij ook gestorven
+Johannes 11:32 | viel aan Zijn voeten
+Johannes 11:33 | wenen
+Johannes 11:35 | Jezus weende
+Johannes 11:38 | spelonk, en een steen was daarop gelegd
+Johannes 11:39 | Neemt den steen weg
+Johannes 11:41 | Vader, Ik dank U
+Johannes 11:43 | riep Hij met grote stemme
+Johannes 11:44 | gebonden aan handen en voeten met grafdoeken.*zweetdoek
+Johannes 11:19 | velen uit de Joden.*vertroosten
+# stap 8
+Johannes 11:45 | Velen dan uit de Joden.*geloofden in Hem
+Johannes 11:46 | gingen tot de Farizeen
+Johannes 11:47 | overpriesters dan en de Farizeen vergaderden den raad
+Johannes 11:48 | zij zullen allen in Hem geloven, en de Romeinen zullen komen
+Johannes 11:49 | deszelven jaars hogepriester
+Johannes 11:50 | dat het ons nut is, dat een mens sterve voor het volk
+Johannes 11:53 | dat zij Hem doden zouden
+Johannes 11:54 | land bij de woestijn, naar de stad, genaamd Efraim.*met Zijn discipelen
+# speurtocht
+Johannes 5:5 | acht en dertig
+Johannes 5:8 | Sta op, neem uw beddeken op, en wandel
+Johannes 9:6 | slijk uit dat speeksel
+Johannes 9:22 | uit de synagoge
+Johannes 10:11 | stelt zijn leven voor de schapen
+Johannes 10:22 | winter
+Johannes 11:17 | vier dagen
+Johannes 11:49–50 | Kajafas.*een mens sterve voor het volk
+
+# ===== Deel nt-reis-naar-jeruzalem =====
+Lukas 9:51 | richtte Hij Zijn aangezicht, om naar Jeruzalem te reizen
+Lukas 17:15–18 | een van hen.*keerde wederom.*God verheerlijkende.*Gode eer te geven
+Lukas 13:22 | richtende Zijn reis naar Jeruzalem
+Mattheüs 20:29–30 | van Jericho.*twee blinden
+# stap 0
+Lukas 9:51 | dagen Zijner opneming
+Lukas 9:52 | boden.*vlek der Samaritanen, om voor Hem herberg te bereiden
+Lukas 9:53 | ontvingen Hem niet, omdat Zijn aangezicht was als reizende naar Jeruzalem
+Lukas 9:54 | Jakobus en Johannes.*Heere, wilt Gij, dat wij zeggen, dat vuur van den hemel nederdale, en dezen verslinde, gelijk ook Elias gedaan heeft
+Lukas 9:55 | Zich omkerende, bestrafte Hij hen
+Lukas 9:56 | niet gekomen om der mensen zielen te verderven, maar om te behouden.*naar een ander vlek
+2 Koningen 1:10 | dale vuur van den hemel
+# stap 1
+Lukas 10:25 | wetgeleerde.*verzoekende.*Meester, wat doende zal ik het eeuwige leven beerven
+Lukas 10:27 | liefhebben, uit geheel uw hart.*uw naaste als uzelven
+Lukas 10:28 | doe dat, en gij zult leven
+Lukas 10:29 | willende zichzelven rechtvaardigen.*En wie is mijn naaste
+Lukas 10:30 | van Jeruzalem naar Jericho.*moordenaars.*uitgetogen.*zware slagen.*half dood
+Lukas 10:31 | priester.*tegenover hem voorbij
+Lukas 10:32 | Leviet.*tegenover hem voorbij
+Lukas 10:33 | Samaritaan.*innerlijke ontferming
+Lukas 10:34 | verbond zijn wonden, gietende daarin olie en wijn.*op zijn eigen beest.*herberg
+Lukas 10:35 | twee penningen.*waard
+Lukas 10:36 | Wie dan van deze drie dunkt u de naaste geweest te zijn
+Lukas 10:37 | Die barmhartigheid aan hem gedaan heeft.*Ga heen, en doe gij desgelijks
+# stap 2
+Lukas 10:38 | in een vlek.*Martha, ontving Hem in haar huis
+Lukas 10:39 | Maria.*zittende aan de voeten van Jezus, Zijn woord hoorde
+Lukas 10:40 | zeer bezig met veel dienens.*Heere, trekt Gij U dat niet aan, dat mijn zuster mij alleen laat dienen\? Zeg dan haar, dat zij mij helpe
+Lukas 10:41 | Martha, Martha, gij bekommert en ontrust u over vele dingen
+Lukas 10:42 | een ding is nodig; doch Maria heeft het goede deel uitgekozen, hetwelk van haar niet zal weggenomen worden
+# stap 3
+Lukas 14:1 | huis van een der oversten der Farizeen, op den sabbat.*waarnamen
+Lukas 14:2 | waterzuchtig mens
+Lukas 14:4 | genas hem
+Lukas 14:5 | ezel of os.*in een put.*op den dag des sabbats
+Lukas 14:7 | vooraanzittingen
+Lukas 14:12–13 | nood armen, verminkten, kreupelen, blinden
+Lukas 14:15 | Zalig is hij, die brood eet in het Koninkrijk Gods
+Lukas 14:16 | groot avondmaal, en hij noodde er velen
+Lukas 14:17 | Komt, want alle dingen zijn nu gereed
+Lukas 14:18 | akker gekocht
+Lukas 14:19 | vijf juk ossen gekocht
+Lukas 14:20 | vrouw getrouwd
+Lukas 14:21 | toornig.*straten en wijken der stad.*armen, en verminkten, en kreupelen, en blinden
+Lukas 14:23 | wegen en heggen.*opdat mijn huis vol worde
+Lukas 14:24 | niemand van die mannen, die genood waren, mijn avondmaal smaken zal
+# stap 4
+Lukas 15:1 | tollenaars en de zondaars naderden tot Hem, om Hem te horen
+Lukas 15:2 | Farizeen en de Schriftgeleerden murmureerden.*Deze ontvangt de zondaars, en eet met hen
+Lukas 15:3 | sprak tot hen deze gelijkenis
+Lukas 15:4 | honderd schapen.*negen en negentig
+Lukas 15:8 | tien penningen.*een penning verliest
+Lukas 15:11 | twee zonen
+Lukas 15:12 | jongste.*geef mij het deel des goeds
+Lukas 15:13 | ver gelegen land.*goed doorgebracht, levende overdadiglijk
+Lukas 15:14 | grote hongersnood
+Lukas 15:15 | de zwijnen te weiden
+Lukas 15:16 | draf, dien de zwijnen aten
+Lukas 15:17 | tot zichzelven gekomen
+Lukas 15:18 | Ik zal opstaan en tot mijn vader gaan.*Vader, ik heb gezondigd tegen den Hemel, en voor u
+Lukas 15:20 | nog ver van hem was.*innerlijke ontferming bewogen.*toe lopende, viel hem om zijn hals, en kuste hem
+Lukas 15:22 | het beste kleed.*ring.*schoenen
+Lukas 15:23 | gemeste kalf
+Lukas 15:24 | deze mijn zoon was dood, en is weder levend geworden; en hij was verloren, en is gevonden
+Lukas 15:28 | toornig, en wilde niet ingaan.*vader uit, en bad hem
+Lukas 15:31 | Kind, gij zijt altijd bij mij, en al het mijne is uwe
+Leviticus 11:7 | zwijn.*onrein
+# stap 5
+Lukas 17:11 | naar Jeruzalem reisde.*door het midden van Samaria en Galilea
+Lukas 17:12 | zeker vlek.*tien melaatse mannen, welke stonden van verre
+Lukas 17:13 | Jezus, Meester! ontferm U onzer
+Lukas 17:14 | Gaat heen en vertoont uzelven den priesters.*terwijl zij heengingen, dat zij gereinigd werden
+Lukas 17:15 | keerde wederom, met grote stemme God verheerlijkende
+Lukas 17:16 | viel op het aangezicht voor Zijn voeten, Hem dankende; en dezelve was een Samaritaan
+Lukas 17:17 | Zijn niet de tien gereinigd geworden, en waar zijn de negen
+Lukas 17:18 | Gode eer te geven, dan deze vreemdeling
+Lukas 17:19 | Sta op, en ga heen; uw geloof heeft u behouden
+Leviticus 13:45 | Onrein, onrein
+Leviticus 13:46 | alleen wonen; buiten het leger
+Leviticus 14:2 | tot den priester zal gebracht worden
+# stap 6
+Lukas 18:9 | bij zichzelven vertrouwden, dat zij rechtvaardig waren, en de anderen niets achtten, deze gelijkenis
+Lukas 18:10 | Twee mensen gingen op in den tempel om te bidden.*Farizeer.*tollenaar
+Lukas 18:11 | ik dank U, dat ik niet ben gelijk de anderen mensen, rovers, onrechtvaardigen, overspelers; of ook gelijk deze tollenaar
+Lukas 18:12 | Ik vast tweemaal per week; ik geef tienden van alles, wat ik bezit
+Lukas 18:13 | van verre staande.*niet opheffen naar den hemel.*sloeg op zijn borst.*O God! wees mij zondaar genadig
+Lukas 18:14 | ging af gerechtvaardigd in zijn huis, meer dan die.*zichzelven verhoogt, zal vernederd worden, en die zichzelven vernedert, zal verhoogd worden
+# stap 7
+Markus 9:33 | kwam te Kapernaum
+Markus 10:1 | landpalen van Judea, door de overzijde van de Jordaan.*scharen kwamen wederom
+Markus 10:2 | Farizeen.*of het een man geoorloofd is, zijn vrouw te verlaten
+Markus 10:6 | van het begin der schepping heeft ze God man en vrouw gemaakt
+Markus 10:9 | Hetgeen dan God samengevoegd heeft, scheide de mens niet
+Markus 10:13 | kinderkens.*aanraken.*discipelen bestraften
+Markus 10:14 | nam het zeer kwalijk.*Laat de kinderkens tot Mij komen, en verhindert ze niet; want derzulken is het Koninkrijk Gods
+Markus 10:15 | niet ontvangt, gelijk een kindeken
+Markus 10:16 | omving ze met Zijn armen.*handen op hen gelegd.*zegende
+Psalm 8:3 | Uit de mond der kinderkens en der zuigelingen hebt Gij sterkte gegrondvest
+Mattheüs 21:16 | Uit de mond der jonge kinderen en der zuigelingen
+# stap 8
+Markus 10:17 | op de knieen vallende.*Goede Meester! wat zal ik doen, opdat ik het eeuwige leven beerve
+Markus 10:19 | Gij weet de geboden
+Markus 10:20 | van mijn jonkheid af
+Markus 10:21 | beminde hem.*Een ding ontbreekt u.*verkoop alles.*geef het den armen.*volg Mij
+Markus 10:22 | bedroefd weg; want hij had vele goederen
+Markus 10:25 | lichter, dat een kemel ga door het oog van een naald, dan dat een rijke in het Koninkrijk Gods inga
+Markus 10:27 | Bij de mensen is het onmogelijk, maar niet bij God
+Markus 10:28 | wij hebben alles verlaten, en zijn U gevolgd
+Mattheüs 19:20 | jongeling
+Mattheüs 19:22 | jongeling
+Lukas 18:18 | overste
+# stap 9
+Markus 10:32 | op den weg, gaande op naar Jeruzalem; en Jezus ging voor hen; en zij waren verbaasd.*bevreesd
+Markus 10:33 | overpriesteren, en den Schriftgeleerden overgeleverd.*ter dood veroordelen
+Markus 10:34 | bespotten.*geselen.*doden; en ten derden dage zal Hij weder opstaan
+Markus 10:35 | Jakobus en Johannes, de zonen van Zebedeus
+Markus 10:37 | Geef ons, dat wij mogen zitten, de een aan Uw rechter hand, en de ander aan Uw linker hand in Uw heerlijkheid
+Markus 10:38 | Gij weet niet, wat gij begeert. Kunt gij den drinkbeker drinken, dien Ik drink
+Markus 10:39 | Wij kunnen.*drinkbeker, dien Ik drink, zult gij wel drinken
+Markus 10:40 | gegeven worden dien het bereid is
+Markus 10:41 | de andere tien.*zeer kwalijk
+Markus 10:43 | groot zal willen worden, die zal uw dienaar zijn
+Markus 10:44 | de eerste zal willen worden, die zal aller dienstknecht zijn
+Markus 10:45 | niet gekomen, om gediend te worden, maar om te dienen, en Zijn ziel te geven tot een rantsoen voor velen
+Handelingen 12:1–2 | Herodes.*doodde Jakobus, den broeder van Johannes, met het zwaard
+Mattheüs 20:20 | moeder der zonen van Zebedeus
+# stap 10
+Markus 10:46 | kwamen te Jericho.*van Jericho uitging.*aan den weg, bedelende
+Markus 10:47 | Jezus de Nazarener
+Markus 10:48 | velen bestraften hem.*riep zoveel temeer
+Markus 10:49 | stil staande.*Heb goeden moed; sta op; Hij roept u
+Markus 10:50 | mantel afgeworpen hebbende, stond op
+Markus 10:51 | Wat wilt gij, dat Ik u doen zal\?.*Rabboni! dat ik ziende mag worden
+Markus 10:52 | Ga heen, uw geloof heeft u behouden. En terstond werd hij ziende, en volgde Jezus op den weg
+Lukas 18:35 | nabij Jericho kwam.*blinde
+# stap 11
+Lukas 19:1 | ging door Jericho
+Lukas 19:5 | opwaarts ziende.*Zache.s! haast u, en kom af; want Ik moet heden in uw huis blijven
+Lukas 19:6 | ontving Hem met blijdschap
+Lukas 19:7 | allen, die het zagen, murmureerden.*zondigen man ingegaan, om te herbergen
+Lukas 19:8 | de helft van mijn goederen, Heere, geef ik den armen.*door bedrog.*vierdubbel
+Lukas 19:9 | Heden is dezen huize zaligheid geschied
+Lukas 19:10 | om te zoeken en zalig te maken, dat verloren was
+Exodus 22:1 | vier schapen voor een stuk klein vee
+# speurtocht
+Lukas 10:29 | wie is mijn naaste
+Lukas 10:39 | aan de voeten van Jezus, Zijn woord hoorde
+Lukas 15:2–3 | ontvangt de zondaars, en eet met hen.*gelijkenis
+Lukas 17:15–17 | een van hen.*waar zijn de negen
+Lukas 18:13 | O God! wees mij zondaar genadig
+Markus 10:50 | mantel
+Lukas 19:3–4 | klein van persoon.*klom hij op een wilden vijgeboom
+Markus 10:45 | om te dienen
+
+# ===== Geschiedenissen: quiz (why) en kruisverwijzingen =====
+# 100
+Markus 6:16 | van de doden opgewekt
+Markus 6:17 | huisvrouw van zijn broeder Filippus
+Markus 6:19 | Herodias.*wilde hem doden
+Markus 6:20 | rechtvaardig en heilig man.*hoorde hem gaarne
+Markus 6:26 | om de eden, en degenen, die mede aanzaten
+Lukas 3:19–20 | om Herodias' wil.*boze stukken.*Johannes in de gevangenis gesloten
+Mattheüs 14:12–13 | begroeven.*boodschapten het Jezus.*te scheep, naar een woeste plaats
+Lukas 23:8 | Herodes Jezus zag.*enig teken te zien
+Markus 6:22 | Eis van mij, wat gij ook wilt, en ik zal het u geven
+# 101
+Johannes 6:2 | Zijn tekenen zagen, die Hij deed aan de kranken
+Johannes 6:5–6 | Filippus.*hem beproevende; want Hij wist Zelf, wat Hij doen zou
+Johannes 6:9 | gerstebroden
+Johannes 6:11 | gedankt hebbende
+Johannes 6:12 | opdat er niets verloren ga
+Johannes 6:14 | Deze is waarlijk de Profeet, Die in de wereld komen zou
+Johannes 6:15 | met geweld nemen, opdat zij Hem Koning maakten
+Johannes 6:47 | Die in Mij gelooft, heeft het eeuwige leven
+Johannes 6:51 | zal in der eeuwigheid leven
+Lukas 9:10–17 | Bethsaida.*vijf broden, en twee vissen.*twaalf korven
+# 102
+Johannes 5:2 | Schaaps poort
+Johannes 5:6 | Wilt gij gezond worden
+Johannes 5:14 | in den tempel
+Johannes 5:17 | Mijn Vader werkt tot nu toe, en Ik werk ook
+Johannes 5:18 | den sabbat brak.*God Zijn eigen Vader
+Johannes 5:21 | alzo maakt ook de Zoon levend
+Johannes 5:24 | Die Mijn woord hoort, en gelooft Hem, Die Mij gezonden heeft, die heeft het eeuwige leven
+# 103
+Johannes 9:16 | Deze Mens is van God niet, want Hij houdt den sabbat niet
+Johannes 9:17 | Hij is een Profeet
+Johannes 9:39 | die niet zien, zien mogen, en die zien, blind worden
+Johannes 9:41 | nu zegt gij: Wij zien; zo blijft dan uw zonde
+Johannes 8:12 | Ik ben het licht der wereld; die Mij volgt, zal in de duisternis niet wandelen
+Johannes 11:37 | Die de ogen des blinden geopend heeft
+# 104
+Johannes 9:40–41 | Wij zien
+Johannes 10:9 | Ik ben de Deur; indien iemand door Mij ingaat, die zal behouden worden
+Johannes 10:12–13 | wien de schapen niet eigen zijn.*vliedt
+Johannes 10:15 | Ik stel Mijn leven voor de schapen
+Johannes 10:16 | Ik heb nog andere schapen, die van dezen stal niet zijn.*een kudde, en een Herder
+Johannes 10:28 | niemand zal dezelve uit Mijn hand rukken
+Jesaja 40:11 | Hij zal Zijn kudde weiden gelijk een herder; Hij zal de lammeren in Zijn armen vergaderen
+1 Petrus 2:25 | Gij waart als dwalende schapen; maar gij zijt nu bekeerd tot den Herder en Opziener uwer zielen
+# 105
+Mattheüs 16:16 | Simon Petrus
+Mattheüs 16:17 | Zalig zijt gij.*Mijn Vader, Die in de hemelen is
+Mattheüs 16:18 | gij zijt Petrus, en op deze petra zal Ik Mijn gemeente bouwen, en de poorten der hel zullen dezelve niet overweldigen
+Mattheüs 16:22–23 | geenszins geschieden.*satanas
+Johannes 6:68–69 | wij hebben geloofd en bekend, dat Gij zijt de Christus
+Johannes 1:42–43 | Messias.*Cefas, hetwelk overgezet wordt Petrus
+1 Petrus 2:6 | Ik leg in Sion een uitersten Hoeksteen, Die uitverkoren
+Lukas 24:6–7 | overgeleverd.*gekruisigd.*ten derden dage wederopstaan
+# 106
+Lukas 9:32 | met slaap bezwaard.*zagen zij Zijn heerlijkheid
+Lukas 9:33 | Meester, het is goed, dat wij hier zijn
+Lukas 9:34 | overschaduwde hen
+Lukas 9:36 | verhaalden in die dagen niemand iets
+Deuteronomium 18:15 | Een Profeet.*als mij.*naar Hem zult gij horen
+Mattheüs 17:9 | Zegt niemand dit gezicht, totdat de Zoon des mensen zal opgestaan zijn uit de doden
+2 Petrus 1:16–18 | aanschouwers.*Deze is Mijn geliefde Zoon.*heilige berg
+Mattheüs 17:1–8 | na zes dagen.*hoge berg.*blonk gelijk de zon
+Exodus 34:29 | het vel zijns aangezichts glinsterde
+# 107
+Markus 10:14 | nam het zeer kwalijk
+Markus 10:21 | verkoop alles, wat gij hebt, en geef het den armen.*volg Mij
+Markus 10:22 | vele goederen
+Markus 10:24 | op het goed hun betrouwen zetten
+Markus 10:25 | kemel
+Markus 10:29–30 | om Mijnentwil en des Evangelies wil.*honderdvoud.*met de vervolgingen.*het eeuwige leven
+Mattheüs 18:3 | Indien gij u niet verandert, en wordt gelijk de kinderkens, zo zult gij in het Koninkrijk der hemelen geenszins ingaan
+Mattheüs 19:20–22 | jongeling
+Mattheüs 6:19–20 | Vergadert u schatten in den hemel
+# 108
+Markus 10:35 | Zebedeus
+Markus 10:37 | rechter hand.*linker hand
+Markus 10:41 | zeer kwalijk
+Markus 10:42 | heerschappij voeren over hen
+Markus 10:45 | rantsoen voor velen
+Mattheüs 20:20–21 | moeder der zonen van Zebedeus.*rechter- en de ander tot Uw linker hand
+Handelingen 12:2 | doodde Jakobus.*met het zwaard
+Johannes 13:14–15 | voeten gewassen.*Ik heb u een voorbeeld gegeven
+Lukas 9:54–55 | vuur van den hemel.*bestrafte Hij hen
+Markus 10:46 | Jericho
+# 109
+Lukas 10:25 | het eeuwige leven beerven
+Lukas 10:30 | van Jeruzalem naar Jericho
+Lukas 10:34 | olie en wijn
+Lukas 10:35 | twee penningen
+Leviticus 19:18 | gij zult uw naaste liefhebben als uzelven; Ik ben de HEERE
+Deuteronomium 6:5 | Zo zult gij den HEERE, uw God, liefhebben, met uw ganse hart
+Johannes 4:9 | de Joden houden geen gemeenschap met de Samaritanen
+Lukas 6:36 | Weest dan barmhartig, gelijk ook uw Vader barmhartig is
+# 110
+Lukas 10:38 | Martha
+Lukas 10:39 | aan de voeten van Jezus
+Lukas 10:40 | Zeg dan haar, dat zij mij helpe
+Lukas 10:42 | een ding is nodig
+Lukas 10:27 | den Heere, uw God, liefhebben, uit geheel uw hart.*uw naaste als uzelven
+Psalm 27:4 | Een ding heb ik van den HEERE begeerd, dat zal ik zoeken
+Johannes 11:5 | Jezus nu had Martha, en haar zuster, en Lazarus lief
+Johannes 12:2–3 | Martha diende.*Maria.*voeten van Jezus gezalfd
+Johannes 11:43–44 | Lazarus, kom uit.*de gestorvene kwam uit
+# 111
+Lukas 14:1 | oversten der Farizeen
+Lukas 14:17 | alle dingen zijn nu gereed
+Lukas 14:20 | vrouw getrouwd
+Lukas 14:23 | wegen en heggen
+Lukas 14:21–24 | armen.*wegen en heggen.*niemand van die mannen
+Mattheüs 22:2–3 | bruiloft.*zij wilden niet komen
+Jesaja 25:6 | De HEERE der heirscharen zal op dezen berg allen volken een vetten maaltijd maken
+Openbaring 19:9 | zalig zijn zij, die geroepen zijn tot het avondmaal van de bruiloft des Lams
+# 112
+Lukas 15:1–2 | tollenaars.*Deze ontvangt de zondaars
+Lukas 15:2 | murmureerden
+Lukas 15:4 | honderd schapen
+Lukas 15:7 | blijdschap zal zijn in den hemel over een zondaar, die zich bekeert
+Lukas 15:10 | blijdschap voor de engelen Gods over een zondaar, die zich bekeert
+Lukas 15:18 | ik heb gezondigd tegen den Hemel, en voor u
+Lukas 15:20 | viel hem om zijn hals, en kuste hem
+Lukas 15:23 | gemeste kalf
+Lukas 15:24 | was verloren, en is gevonden
+Lukas 15:28–30 | toornig.*met hoeren doorgebracht
+Psalm 103:13 | Gelijk zich een vader ontfermt over de kinderen, ontfermt Zich de HEERE over degenen, die Hem vrezen
+Jesaja 55:7 | hij bekere zich tot den HEERE, zo zal Hij Zich Zijner ontfermen
+Lukas 19:10 | zalig te maken, dat verloren was
+# 113
+Lukas 17:12 | stonden van verre
+Lukas 17:14 | den priesters
+Lukas 17:14 | terwijl zij heengingen, dat zij gereinigd werden
+Lukas 17:16 | Samaritaan
+Lukas 17:17–18 | de tien.*vreemdeling
+Psalm 50:23 | Wie dankoffert, die zal Mij eren
+Leviticus 13:45–46 | Onrein, onrein.*buiten het leger
+2 Koningen 5:14 | werd rein
+Lukas 4:27 | Naaman, de Syrier
+Psalm 103:2 | Loof den HEERE, mijn ziel, en vergeet geen van Zijn weldaden
+# 114
+Lukas 18:9 | vertrouwden, dat zij rechtvaardig waren
+Lukas 18:12 | tweemaal per week
+Lukas 18:13 | sloeg op zijn borst
+Lukas 18:14 | gerechtvaardigd
+Psalm 51:19 | een gebroken en verslagen hart zult Gij, o God! niet verachten
+1 Petrus 5:5 | God wederstaat de hovaardigen, maar de nederigen geeft Hij genade
+Lukas 14:11 | een iegelijk, die zichzelven verhoogt, zal vernederd worden
+# 115
+Johannes 11:6 | twee dagen
+Johannes 11:16 | Thomas
+Johannes 11:25 | Ik ben de Opstanding en het Leven
+Johannes 11:44 | zweetdoek
+Johannes 11:54 | Efraim
+Johannes 11:53 | Hem doden zouden
+Johannes 11:50–51 | een mens sterve voor het volk.*niet uit zichzelven
+Johannes 12:1–2 | zes dagen voor het pascha te Bethanie.*Lazarus was een van degenen, die met Hem aanzaten
+Johannes 12:10–11 | dat zij ook Lazarus doden zouden.*geloofden in Jezus
+Johannes 5:28–29 | de ure komt, in dewelke allen, die in de graven zijn, Zijn stem zullen horen
+Johannes 18:14 | dat het nut was, dat een Mens voor het volk stierve
+# 116
+Markus 10:46 | Timeus
+Markus 10:47 | Zone Davids
+Markus 10:50 | mantel
+Markus 10:52 | volgde Jezus op den weg
+2 Samuël 7:12–13 | uw zaad na u.*stoel zijns koninkrijks bevestigen tot in eeuwigheid
+Lukas 18:35–43 | nabij Jericho.*blinde.*werd hij ziende
+Mattheüs 20:29–30 | twee blinden
+# 117
+Lukas 19:2 | overste der tollenaren
+Lukas 19:3 | vanwege de schare, omdat hij klein van persoon was
+Lukas 19:4 | wilden vijgeboom
+Lukas 19:8 | vierdubbel
+Ezechiël 34:16 | Het verlorene zal Ik zoeken
+Lukas 15:2 | Deze ontvangt de zondaars
+Mattheüs 9:13 | Ik ben niet gekomen om te roepen rechtvaardigen, maar zondaars tot bekering
+Lukas 19:28 | opgaande naar Jeruzalem|naar Jeruzalem
+
+# ===== Kernwoorden =====
+Genesis 2:2–3 | gerust op den zevende dag.*gezegend, en die geheiligd
+Exodus 20:8 | Gedenkt den sabbatdag, dat gij dien heiligt
+Exodus 20:8–11 | Zes dagen zult gij arbeiden.*de zevende dag is de sabbat des HEEREN
+Markus 2:27–28 | De sabbat is gemaakt om den mens, niet de mens om den sabbat.*een Heere ook van den sabbat
+Johannes 9:14 | sabbat, als Jezus het slijk maakte
+Johannes 20:1 | op den eersten dag der week
+Handelingen 20:7 | op den eersten dag der week, als de discipelen bijeengekomen waren
+Johannes 3:16 | Want alzo lief heeft God de wereld gehad, dat Hij Zijn eniggeboren Zoon gegeven heeft
+Lukas 10:27 | uit geheel uw hart, en uit geheel uw ziel, en uit geheel uw kracht, en uit geheel uw verstand
+Johannes 15:13 | Niemand heeft meerder liefde dan deze, dat iemand zijn leven zette voor zijn vrienden
+1 Johannes 4:19 | Wij hebben Hem lief, omdat Hij ons eerst liefgehad heeft
+Psalm 103:2 | vergeet geen van Zijn weldaden
+Lukas 17:15–18 | Gode eer te geven
+Johannes 6:11 | gedankt hebbende
+1 Thessalonicenzen 5:18 | Dankt God in alles; want dit is de wil van God in Christus Jezus over u
+Markus 1:1 | Het begin des Evangelies van JEZUS CHRISTUS, den Zone Gods
+1 Korinthe 15:3–4 | dat Christus gestorven is voor onze zonden, naar de Schriften.*dat Hij is begraven, en dat Hij is opgewekt ten derden dage
+Markus 1:15 | bekeert u, en gelooft het Evangelie
+Romeinen 1:16 | kracht Gods tot zaligheid een iegelijk, die gelooft
+Lukas 19:10 | om te zoeken en zalig te maken, dat verloren was

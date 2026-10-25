@@ -420,7 +420,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         { q: "Wat werd Ismaël toen hij opgroeide?", a: ["Een boogschutter", "Een schaapherder", "Een koning in Egypte"], why: "Genesis 21:20" },
       ],
       cross: [
-        ["Romeinen 9:7", "‘In Izaak zal u het zaad genoemd worden.’"],
+        ["Romeinen 9:7", "Paulus haalt aan wat God tegen Abraham zei: de belofte gaat verder via Izak."],
         ["Genesis 25:12–16", "Ismaël kreeg twaalf zonen: ‘twaalf vorsten naar hun volken’."],
       ],
       tl: [-2066, -2060],
@@ -899,7 +899,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         soort: "wiezei",
         titel: "Wie zei het?",
         items: [
-          ["Waarom hebben wij dat gedaan, dat wij Israël hebben laten gaan?", "De farao en zijn knechten", ["Mozes", "Mirjam"]],
+          ["Waarom hebben wij dat gedaan, dat wij Israël hebben laten trekken?", "De farao en zijn knechten", ["Mozes", "Mirjam"]],
           ["Vreest niet, staat vast, en ziet het heil des HEEREN", "Mozes", ["Aäron", "Mirjam"]],
           ["Laat ons vlieden van het aangezicht van Israël, want de HEERE strijdt voor hen", "De Egyptenaren", ["De Israëlieten", "Mozes"]],
           ["Zingt den HEERE; want Hij is hogelijk verheven!", "Mirjam", ["De farao", "Aäron"]],
@@ -914,7 +914,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       cross: [
         ["Hebreeën 11:29", "Door het geloof gingen zij door de Rode Zee als door het droge."],
         ["Psalm 106:9–12", "God verloste hen; toen geloofden zij en zongen Zijn lof."],
-        ["1 Korinthe 10:1–2", "‘onze vaders [zijn] allen door de zee doorgegaan’."],
+        ["1 Korinthe 10:1–2", "Paulus schrijft dat ‘onze vaders allen onder de wolk waren, en allen door de zee doorgegaan’ zijn."],
         ["Openbaring 15:3", "In de hemel klinkt ‘het gezang van Mozes’ en ‘het gezang des Lams’."],
       ],
       tl: [-1446, -1446],
