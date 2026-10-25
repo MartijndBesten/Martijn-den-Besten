@@ -216,6 +216,9 @@
     // Eén leesronde voor alle maten, daarna alleen schrijven.
     items.forEach((it) => { it.w = it.el.offsetWidth; it.h = it.el.offsetHeight; });
     const placed = uiRects();
+    // De kameel staat aan het eind van een reis precies op een plaats: labels wijken voor hem uit.
+    const ce = camel.getElement(), cel = ce && ce.querySelector(".camel");
+    if (cel && map.hasLayer(camel) && !cel.classList.contains("gone")) { const c = map.latLngToContainerPoint(camel.getLatLng()); placed.push([c.x - 24, c.y - 40, 48, 40]); }
     items.filter((it) => it.pin).forEach((it) => placed.push([it.pt.x - 7, it.pt.y - 7, 14, 14]));
     items.sort((a, b) => b.pr - a.pr || a.z - b.z);
     items.forEach((it) => {
@@ -318,7 +321,7 @@
     const who = routes.length ? routes[0].w : deel.c;
     if (!routes.length && !s.at.length) { camelStyle(who, false, undefined, true); return; }
     const end = routes.length ? routes[routes.length - 1].pts.slice(-1)[0] : ll(s.at[0]);
-    if (!routes.length || reduceMotion) { routes.forEach((r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); }); camel.setLatLng(end); camelStyle(who, false, undefined, false); return; }
+    if (!routes.length || reduceMotion) { routes.forEach((r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); }); camel.setLatLng(end); camelStyle(who, false, undefined, false); queueLabels(); return; }
     const total = routes.reduce((a, r) => a + r.len, 0);
     const dur = Math.max(1400, Math.min(5200, total * 3.2));
     routes.forEach((r) => { r.line.setLatLngs([r.pts[0], r.pts[0]]); r.casing.setLatLngs([r.pts[0], r.pts[0]]); });
@@ -343,7 +346,7 @@
       const pa = map.latLngToLayerPoint(lastLL), pb = map.latLngToLayerPoint(pos);
       camelStyle(w, true, Math.abs(pb.x - pa.x) > 0.5 ? pb.x < pa.x : undefined, false);
       camel.setLatLng(pos); lastLL = pos; lastWho = w;
-      if (f < 1) requestAnimationFrame(frame); else camelStyle(lastWho, false);
+      if (f < 1) requestAnimationFrame(frame); else { camelStyle(lastWho, false); queueLabels(); }
     }
     requestAnimationFrame(frame);
   }
@@ -498,7 +501,7 @@
     $("boeken").innerHTML = BOEKEN.map((b) => `<button type="button" class="boek" data-boek="${b.id}" aria-pressed="${b === boek}">${esc(b.n)}<small>${esc(b.tijd || "")}</small></button>`).join("");
   }
   function renderDelen() {
-    $("delen").innerHTML = boek.delen.map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.ref.replace(/^\S+ /, "").replace(/^(\d )?/, ""))}</small></button>`).join("");
+    $("delen").innerHTML = boek.delen.map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.ref.replace(/^(\d\s)?[^\d\s]+\s/, ""))}</small></button>`).join("");
   }
   $("boeken").addEventListener("click", (e) => { const b = e.target.closest(".boek"); if (b) chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek)); });
   $("delen").addEventListener("click", (e) => { const b = e.target.closest(".deel"); if (b) chooseDeel(boek.delen.find((x) => x.id === b.dataset.deel)); });
