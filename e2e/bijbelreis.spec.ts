@@ -429,3 +429,101 @@ test("een open kaartvraag vervalt als je naar een andere geschiedenis gaat", asy
   await expect.poll(() => zichtbarePlaatsen(page)).toBeGreaterThan(0);
   expect(errors).toEqual([]);
 });
+
+// ---------- 3.1: lay-out, voortgang en kaartbediening ----------
+test("3.1: de zes onderdelen zijn altijd bereikbaar, groot genoeg en zonder horizontale overloop", async ({ page, isMobile }) => {
+  await page.goto("/bijbelreis#ruth");
+  const vp = page.viewportSize()!;
+  for (const naam of ["Verhalen", "Reis", "Wie is wie", "Tijdlijn", "Speurtocht", "Paspoort"]) {
+    const b = (await page.getByRole("tab", { name: naam }).boundingBox())!;
+    expect(b.width, naam).toBeGreaterThanOrEqual(44);
+    expect(b.height, naam).toBeGreaterThanOrEqual(44);
+    expect(b.x >= 0 && b.x + b.width <= vp.width + 1, `${naam} in beeld`).toBe(true);
+    if (isMobile) expect(b.y + b.height, `${naam} onderaan`).toBeGreaterThan(vp.height - 80);
+  }
+  // Na scrollen blijft de onderbalk staan.
+  await page.mouse.wheel(0, 1500);
+  await page.getByRole("tab", { name: "Paspoort" }).click();
+  await expect(page.locator("#p-pas")).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test("3.1: compacte voortgang met de naam, de stap en ‘Ga verder’", async ({ page, isMobile }) => {
+  await page.addInitScript(() => { if (!sessionStorage.getItem("gezet")) { localStorage.setItem("bijbelreis:laatst", JSON.stringify("ezra:terugkeer:4")); sessionStorage.setItem("gezet", "1"); } });
+  await page.goto("/bijbelreis");
+  const v = page.locator("#welkom .verder");
+  await expect(v).toContainText("Terugkeer en tempel");
+  await expect(v).toContainText("stap 5 van 7");
+  expect((await v.boundingBox())!.height).toBeLessThan(isMobile ? 170 : 130);
+  await v.getByRole("button", { name: "Ga verder" }).click();
+  await expect(page.locator("#sCrumb")).toContainText("Stap 5 van 7");
+  const opgeslagen = await page.evaluate(() => localStorage.getItem("bijbelreis:laatst"));
+  expect(JSON.parse(opgeslagen!)).toBe("ezra:terugkeer:4");
+});
+
+test("3.1: ‘Hele reis’ gaat terug naar de volledige route, in de reis en bij een geschiedenis", async ({ page }) => {
+  await page.goto("/bijbelreis#abraham/4");
+  await expect(page.locator("#heleBtn")).toBeVisible();
+  await page.locator("#heleBtn").click();
+  await expect(page.locator("#sCrumb")).not.toContainText("Stap");
+  await expect(page.locator("#heleBtn")).toBeHidden();
+  await page.goto("/bijbelreis#v8");
+  await expect(page.locator("#heleBtn")).toBeVisible();
+  await page.locator("#vTerug").click();
+  await expect(page.locator("#heleBtn")).toBeHidden();
+  await page.getByRole("tab", { name: "Tijdlijn" }).click();
+  await expect(page.locator("#heleBtn")).toBeHidden();
+});
+
+test("3.1: legenda met ‘Waar ligt dit?’ opent, past in beeld en sluit weer", async ({ page }) => {
+  await page.goto("/bijbelreis#abraham/4");
+  await page.locator("#legendBtn").click();
+  const lg = page.locator("#legend");
+  await expect(lg).toBeVisible();
+  const b = (await lg.boundingBox())!, vp = page.viewportSize()!;
+  expect(b.y >= 0 && b.y + b.height <= vp.height + 1 && b.x >= 0 && b.x + b.width <= vp.width + 1).toBe(true);
+  await page.locator("#insetBtn").click();
+  await expect(page.locator("#inset")).toBeVisible();
+  await page.locator("#legendSluit").click();
+  await expect(lg).toBeHidden();
+  await expect(page.locator("#legendBtn")).toHaveAttribute("aria-expanded", "false");
+});
+
+test("3.1: kaartgegevens en Bijbeltekst komen met versienummer (geen oude versie uit de cache)", async ({ page }) => {
+  const urls: string[] = [];
+  page.on("request", (r) => urls.push(r.url()));
+  await page.goto("/bijbelreis#ruth/1");
+  await page.locator("#leesBtn").click();
+  await expect(page.locator("#verzen")).toContainText("Ruth");
+  for (const naam of ["geo.json", "relief.json", "bijbel/ruth.json"]) {
+    const u = urls.find((x) => x.includes("/bijbelreis/" + naam));
+    expect(u, naam).toBeTruthy();
+    expect(u, naam).toMatch(/\?v=[0-9a-f]{10}/);
+  }
+});
+
+test("3.1: het site-thema (Blauwdruk) maakt de atlas niet blauw", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("mdb:uiterlijk", JSON.stringify("blauwdruk")));
+  await page.goto("/bijbelreis");
+  expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(245, 240, 229)");
+  expect(await page.evaluate(() => getComputedStyle(document.getElementById("map")!).backgroundColor)).toBe("rgb(195, 214, 216)");
+});
+
+test("3.1: Rachab is volgens Mattheüs 1:5 de moeder van Boaz; of zij Rachab uit Jericho is, staat er apart bij", async ({ page }) => {
+  await page.goto("/bijbelreis#v47");
+  await page.locator(".verhaal .chips [data-mens='boaz']").click();
+  await page.locator("#wieInfo details.grond summary").click();
+  const g = page.locator("#wieInfo details.grond li").filter({ hasText: "Moeder: Rachab" });
+  await expect(g).toContainText("Staat zo in de Bijbel");
+  await expect(g).toContainText("Mattheüs 1:5");
+  await expect(g).toContainText("Jericho");
+});
+
+test("3.1: een ander onderdeel kiezen begint bovenaan (ook als je ver naar beneden was)", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "alleen op de telefoon: daar is de pagina zelf de scrollcontainer");
+  await page.goto("/bijbelreis#ruth");
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.getByRole("tab", { name: "Paspoort" }).click();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  await expect(page.locator("#pasStats")).toBeInViewport();
+});

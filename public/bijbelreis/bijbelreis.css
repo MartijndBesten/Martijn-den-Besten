@@ -517,7 +517,7 @@ details.parents dd { margin: 0; }
 .country { position: absolute; transform: translate(-50%, -50%); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--inkt-2); background: color-mix(in srgb, var(--wit) 70%, transparent); padding: 1px 6px; border-radius: 5px; white-space: nowrap; pointer-events: none; }
 /* Historische streken: rustig, ze mogen niet alle aandacht vragen. */
 .region { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: color-mix(in srgb, var(--inkt-3) 85%, transparent); white-space: nowrap; transform: translate(-50%, -50%); position: absolute; pointer-events: none; text-shadow: 0 0 3px var(--halo), 0 0 3px var(--halo); }
-.region.sea { font-family: var(--font-serif); font-style: italic; text-transform: none; letter-spacing: 0.06em; font-size: 15px; color: var(--water-diep); text-shadow: 0 0 3px var(--zee), 0 0 3px var(--zee); }
+.region.sea { font-family: var(--font-serif); font-style: italic; text-transform: none; letter-spacing: 0.06em; font-size: 15px; color: #2f5562; text-shadow: 0 0 3px var(--zee), 0 0 3px var(--zee); }
 .region.land { font-size: 12px; letter-spacing: 0.32em; opacity: 0.8; }
 .peak { position: absolute; left: -6px; top: -5px; display: flex; align-items: center; gap: 4px; pointer-events: none; }
 .peak i { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 10px solid var(--berg); display: block; }

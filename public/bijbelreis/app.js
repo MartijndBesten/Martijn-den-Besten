@@ -228,6 +228,7 @@
       const vis = z >= (P[id].z || 7) || on.has(id);
       lab.classList.toggle("off", !vis);
       lab.classList.toggle("on", on.has(id));
+      if (m.options.zIndexOffset !== (on.has(id) ? 600 : 0)) m.setZIndexOffset(on.has(id) ? 600 : 0);
       lab.classList.remove("clash");
       const pt = map.latLngToContainerPoint(P[id].ll);
       if (vis && pt.x > -150 && pt.y > -40 && pt.x < size.x + 150 && pt.y < size.y + 40) items.push({ el: lab, pt, side: m.pside, pr: on.has(id) ? (veel && !kern.has(id) ? 2.5 : 3) : P[id].ctx ? 1 : 2, z: P[id].z || 7, pin: certOf(P[id]) !== "r" });
@@ -243,15 +244,24 @@
     const placed = uiRects();
     // De kameel staat aan het eind van een reis precies op een plaats: labels wijken voor hem uit.
     const ce = camel.getElement(), cel = ce && ce.querySelector(".camel");
-    if (cel && map.hasLayer(camel) && !cel.classList.contains("gone")) { const box = map.getContainer().getBoundingClientRect(), r = (cel.classList.contains("nt") ? cel.querySelector(".walker") : cel).getBoundingClientRect(); placed.push([r.left - box.left - 3, r.top - box.top - 3, r.width + 6, r.height + 6]); }
+    let reiziger = null;
+    if (cel && map.hasLayer(camel) && !cel.classList.contains("gone")) { const box = map.getContainer().getBoundingClientRect(), r = (cel.classList.contains("nt") ? cel.querySelector(".walker") : cel).getBoundingClientRect(); reiziger = [r.left - box.left - 3, r.top - box.top - 3, r.width + 6, r.height + 6]; placed.push(reiziger); }
     items.filter((it) => it.pin).forEach((it) => placed.push([it.pt.x - 7, it.pt.y - 7, 14, 14]));
     items.sort((a, b) => b.pr - a.pr || a.z - b.z);
+    // Overlap met wat er al staat; de reiziger telt zwaar: een naam onder de kameel of stip is onleesbaar.
+    const overlap = (r) => placed.reduce((a, q) => a + Math.max(0, Math.min(r[0] + r[2], q[0] + q[2]) - Math.max(r[0], q[0])) * Math.max(0, Math.min(r[1] + r[3], q[1] + q[3]) - Math.max(r[1], q[1])) * (q === reiziger ? 12 : 1), 0);
     items.forEach((it) => {
       if (it.side === "c" || it.side === "peak") {
-        const r = it.side === "peak" ? [it.pt.x - 6, it.pt.y - 8, it.w, it.h] : labelRect(it.pt, it.w, it.h, "c");
-        const out = it.pr < 1 && (r[0] < 0 || r[1] < 0 || r[0] + r[2] > size.x || r[1] + r[3] > size.y);
-        if ((out || placed.some((q) => hits(r, q))) && it.pr < 3) { it.el.classList.add("clash"); return; }
-        placed.push(r); return;
+        // Gebiedsnamen staan midden in hun gebied, maar mogen iets omhoog of omlaag uitwijken (voor de reiziger of een plaats).
+        const sx = it.w / 2 + 12, sy = it.h + 6;
+        const opties = it.side === "peak" ? [[0, 0]] : [[0, 0], [0, -sy], [0, sy], [sx, 0], [-sx, 0]];
+        const rect = ([dx, dy]) => (it.side === "peak" ? [it.pt.x - 6, it.pt.y - 8, it.w, it.h] : (([x, y, w, h]) => [x + dx, y + dy, w, h])(labelRect(it.pt, it.w, it.h, "c")));
+        const buiten = (r) => r[0] < 0 || r[1] < 0 || r[0] + r[2] > size.x || r[1] + r[3] > size.y;
+        let d = opties.find((o) => !(it.pr < 1 && buiten(rect(o))) && !placed.some((q) => hits(rect(o), q)));
+        if (d === undefined && it.pr < 3) { it.el.classList.add("clash"); it.el.style.margin = ""; return; }
+        if (d === undefined) d = opties.slice().sort((a, b) => overlap(rect(a)) + (buiten(rect(a)) ? 1e6 : 0) - overlap(rect(b)) - (buiten(rect(b)) ? 1e6 : 0))[0];
+        if (it.side === "c") it.el.style.margin = d[0] || d[1] ? `${d[1]}px 0 0 ${d[0]}px` : "";
+        placed.push(rect(d)); return;
       }
       const order = [it.side].concat(SIDES.filter((s) => s !== it.side));
       let side = null, rect = null;
@@ -261,7 +271,6 @@
       if (!side && it.pr < 3) { it.el.classList.add("clash"); return; }
       if (!side) {
         // Een actief label moet zichtbaar blijven: kies de kant met de minste overlap.
-        const overlap = (r) => placed.reduce((a, q) => a + Math.max(0, Math.min(r[0] + r[2], q[0] + q[2]) - Math.max(r[0], q[0])) * Math.max(0, Math.min(r[1] + r[3], q[1] + q[3]) - Math.max(r[1], q[1])), 0);
         const buiten = (r) => (r[0] < 0 || r[1] < 0 || r[0] + r[2] > size.x || r[1] + r[3] > size.y ? 1e6 : 0);
         side = order.slice().sort((a, b) => buiten(labelRect(it.pt, it.w, it.h, a)) + overlap(labelRect(it.pt, it.w, it.h, a)) - buiten(labelRect(it.pt, it.w, it.h, b)) - overlap(labelRect(it.pt, it.w, it.h, b)))[0];
       }
@@ -698,7 +707,8 @@
     }
     queueLabels();
   }
-  TABS.forEach((t) => $("t-" + t).addEventListener("click", () => setMode(t)));
+  // Op de telefoon staan de onderdelen in een vaste onderbalk: een nieuw onderdeel begint bovenaan, niet halverwege.
+  TABS.forEach((t) => $("t-" + t).addEventListener("click", () => { const ander = mode !== t; setMode(t); if (ander && isNarrow()) window.scrollTo({ top: 0 }); }));
   document.querySelector(".tabs").addEventListener("keydown", (e) => {
     const i = TABS.indexOf(mode);
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); const n = TABS[(i + (e.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length]; setMode(n); $("t-" + n).focus(); }
