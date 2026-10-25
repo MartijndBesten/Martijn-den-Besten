@@ -215,3 +215,18 @@ test("naamgenoten worden niet samengevoegd: Jozef (Genesis / Lukas) en Johannes 
   }
   expect(errors).toEqual([]);
 });
+
+test("personenkaart: afgeleide band en overlevering staan apart van wat de Bijbel letterlijk zegt", async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto("/bijbelreis#v89");
+  await page.locator(".verhaal .chips [data-mens='andreas']").click();
+  await page.locator("#wieInfo details.grond summary").click();
+  await expect(page.locator("#wieInfo details.grond")).toContainText("Vader: Jonas");
+  await expect(page.locator("#wieInfo details.grond")).toContainText("Afgeleid");
+  await expect(page.locator("#wieInfo .overlevering")).toHaveCount(0);
+  await page.goto("/bijbelreis#v149");
+  await page.locator(".verhaal .chips [data-mens='johannes_patmos']").click();
+  await expect(page.locator("#wieInfo .overlevering")).toContainText("Niet uit de Bijbel");
+  await expect(page.locator("#wieInfo dl.fam")).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
