@@ -17,6 +17,7 @@ const DEPARTMENTS: { to: string; no: string; title: string; text: string; obj: O
   { to: "/museum", no: "03", title: "Museum van Onafgemaakte Ideeën", text: "Zes zalen vol plannen op 95%. Waarvan u er vijf kunt vinden.", obj: "sokkel", world: "lila" },
   { to: "/bureau", no: "04", title: "Bureau voor Onnodige Innovatie", text: "Oplossingen voor problemen die niet bestaan. Op afspraak.", obj: "lamp", world: "kobalt" },
   { to: "/loket", no: "05", title: "Het Ideeënloket", text: "Heeft u ook een idee? Het loket is open. De wachtrij ook.", obj: "ticket", world: "salie" },
+  { to: "/bijbelreis", no: "06", title: "Bijbelreis", text: "Het Oude Testament op de kaart, voor kinderen. Reis mee met Abraham, Jakob, Jozef en Mozes. Eén afdeling die wél af is.", obj: "planeet", world: "koraal" },
 ];
 
 
@@ -325,7 +326,7 @@ export default function Home() {
         <header className="toc__head">
           <span className="dept-no">Plattegrond van het instituut</span>
           <h2 id="depts-title" className="section-title">
-            Vier afdelingen, <em>nul</em> haast
+            Vijf afdelingen, <em>nul</em> haast
           </h2>
         </header>
         <ol className="toc__list">

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NAV } from "../content/site";
+import { NAV, routeMetaOf } from "../content/site";
 import { Link, useRouter } from "../router";
 import { useGame } from "../state/GameState";
 import { useClickBurst } from "../lib/hooks";
@@ -107,6 +107,7 @@ export function Header() {
                 href={r.path}
                 aria-current={isActive(r.path) ? "page" : undefined}
                 onClick={(e) => {
+                  if (routeMetaOf(r.path)?.static) return;
                   e.preventDefault();
                   navigate(r.path);
                 }}

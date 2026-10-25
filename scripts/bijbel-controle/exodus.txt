@@ -1,0 +1,198 @@
+# Controle Exodus (public/bijbelreis/inhoud/exodus.js): ref | regex
+# Nieuwtestamentische verwijzingen (Hebreeën, Handelingen, Markus, Johannes, Mattheüs, Lukas, 1 Korinthe, Openbaring) zijn niet in de map bijbel/ en staan hier niet.
+# --- Wie is wie
+Deuteronomium 34:7 | honderd en twintig jaren oud
+Exodus 7:7 | Mozes was tachtig jaar oud, en Aaron was drie en tachtig
+Exodus 15:20-21 | Mirjam.*trommel
+Exodus 6:20 | Amram.*Jochebed.*Aaron en Mozes
+Exodus 2:10 | zij noemde zijn naam Mozes
+Exodus 2:18 | Rehuel
+Exodus 2:16 | zeven dochters
+Exodus 18:3-4 | Gersom.*Eliezer
+Exodus 33:11 | Jozua.*week niet uit het midden der tent
+Exodus 17:12 | Aaron en Hur onderstutten zijn handen
+Exodus 24:14 | Aaron en Hur zijn bij u
+Exodus 31:2-5 | Bezaleel.*Hur.*Juda.*Geest Gods.*goud.*zilver.*koper
+# --- Deel Mozes
+Exodus 1:8 | nieuwe koning.*Jozef niet gekend
+Exodus 1:11 | Pitom en Raamses
+Exodus 1:14 | leem en in tichelstenen
+Exodus 1:12 | hoe meer zij het verdrukten, hoe meer het vermeerderde
+Exodus 1:22 | Alle zonen.*in de rivier werpen
+Exodus 1:15 | Sifra.*Pua
+Exodus 1:17-21 | vroedvrouwen vreesden God.*deed God aan de vroedvrouwen goed
+Exodus 2:1 | huis van Levi
+Exodus 2:2 | drie maanden
+Exodus 2:3 | kistje van biezen.*pek.*oever der rivier
+Exodus 2:4 | zijn zuster stelde zich van verre
+Exodus 2:5-6 | dochter van Farao.*wassen.*weende.*barmhartigheid
+Exodus 2:7-9 | voedstervrouw.*zoog het mij
+Exodus 2:10 | uit het water getogen
+Exodus 2:11-12 | Egyptisch man een Hebreeuwsen man.*sloeg.*versloeg hij den Egyptenaar, en verborg hem in het zand
+Exodus 2:14 | deze zaak is bekend geworden
+Exodus 2:15 | zocht hij Mozes te doden.*Midian.*waterput
+Genesis 25:2 | Midian
+Exodus 2:17 | herders.*Mozes stond op, en verloste ze, en drenkte haar kudden
+Exodus 2:21-22 | Zippora.*Gersom.*vreemdeling geworden in een vreemd land
+Exodus 2:23-24 | zuchtten.*God hoorde hun gekerm.*verbond met Abraham, met Izak, en met Jakob
+Exodus 3:1 | Jethro.*berg Gods, aan Horeb
+Exodus 3:2 | braambos brandde in het vuur, en het braambos werd niet verteerd
+Exodus 3:4 | Mozes, Mozes!
+Exodus 3:5 | Nader hier niet toe; trek uw schoenen uit.*heilig land
+Exodus 3:6 | God van Abraham, de God van Izak en de God van Jakob
+Exodus 3:7 | verdrukking Mijns volks
+Exodus 3:10 | tot Farao zenden.*uit Egypte voert
+Exodus 3:11-12 | Wie ben ik.*Ik zal voorzeker met u zijn.*God dienen op dezen berg
+Exodus 3:13 | Hoe is Zijn naam
+Exodus 3:14 | Ik ZAL ZIJN,, Die Ik ZIJN ZAL.*Ik ZAL ZIJN heeft mij tot ulieden gezonden
+Exodus 3:15 | dat is Mijn Naam eeuwiglijk
+Exodus 4:1 | zij zullen mij niet geloven
+Exodus 4:2-4 | staf.*slang.*staart.*staf in zijn hand
+Exodus 4:6-7 | melaats, wit als sneeuw.*weder als zijn ander vlees
+Exodus 4:9 | wateren der rivier.*op het droge.*tot bloed
+Exodus 4:10 | zwaar van mond, en zwaar van tong
+Exodus 4:14 | ontstak de toorn des HEEREN over Mozes.*Aaron.*zeer wel spreken
+Exodus 4:17 | Neem dan dezen staf
+Exodus 4:18 | Ga in vrede
+Exodus 4:20 | zijn vrouw, en zijn zonen.*op een ezel.*staf Gods
+Exodus 4:27 | Aaron.*ontmoette hem aan den berg Gods
+Exodus 4:29-31 | oudsten.*Aaron sprak.*deed de tekenen.*het volk geloofde.*aanbaden
+# --- Deel Uittocht
+Numeri 33:5-49 | Rameses
+Exodus 5:1 | Laat Mijn volk trekken
+Exodus 5:2 | Wie is de HEERE.*Ik ken den HEERE niet.*niet laten trekken
+Exodus 5:7-8 | geen stro meer geven.*zelven.*stro.*getal der tichelstenen.*niet verminderen
+Exodus 5:21 | stinkende gemaakt voor Farao
+Exodus 6:1 | Nu zult gij zien, wat Ik aan Farao doen zal
+Exodus 7:20-21 | water.*in bloed veranderd.*vis.*stierf.*rivier stonk
+Exodus 8:3 | vorsen.*slaapkamer.*bed.*baktroggen
+Exodus 8:17 | stof der aarde.*luizen.*mensen.*vee
+Exodus 8:21-22 | vermenging van ongedierte.*huizen.*Gosen.*geen vermenging
+Exodus 9:3 | paarden.*ezelen.*kemelen.*runderen.*klein vee.*pestilentie
+Exodus 9:8-10 | as uit den oven.*zweren.*blaren
+Exodus 9:23-26 | donder en hagel.*vuur.*nooit geweest.*Gosen.*geen hagel
+Exodus 10:13-15 | oostenwind.*sprinkhanen.*hagel.*over gelaten
+Exodus 10:22-23 | dikke duisternis.*drie dagen.*de een de ander niet.*kinderen Israels was het licht
+Exodus 12:29-30 | middernacht.*eerstgeborenen.*Farao.*geen huis, waarin niet een dode was
+Exodus 12:12 | gerichten oefenen aan alle goden der Egyptenaren
+Exodus 12:5 | volkomen lam
+Exodus 12:7 | beide zijposten, en aan den bovendorpel
+Exodus 12:8 | aan het vuur gebraden, met ongezuurde broden.*bittere
+Exodus 12:11 | schoenen aan uw voeten, en uw staf in uw hand
+Exodus 12:13 | wanneer Ik het bloed zie, zal Ik ulieden voorbij gaan
+Exodus 12:14 | gedachtenis.*feest
+Exodus 12:31 | riep hij Mozes en Aaron in den nacht.*trekt uit
+Exodus 12:34-36 | deeg.*eer het gedesemd was.*zilveren vaten, en gouden vaten, en klederen
+Exodus 12:37 | Rameses naar Sukkoth.*zeshonderd duizend te voet, mannen alleen
+Exodus 12:38 | gans veel vee
+Exodus 12:40 | vierhonderd jaren en dertig jaren
+Exodus 13:17 | niet op den weg van het land der Filistijnen.*strijd
+Exodus 13:19 | beenderen van Jozef
+Exodus 13:20 | Sukkoth.*Etham, aan het einde der woestijn
+Exodus 13:21 | des daags in een wolkkolom.*des nachts in een vuurkolom
+Exodus 14:2 | Pi-Hachiroth.*aan de zee
+Exodus 14:5 | Waarom hebben wij dat gedaan, dat wij Israel hebben laten trekken
+Exodus 14:7 | zeshonderd uitgelezene wagens
+Exodus 14:10 | vreesden zeer
+Exodus 14:11 | in Egypte gans geen graven
+Exodus 14:13-14 | Vreest niet.*De HEERE zal voor ulieden strijden
+Exodus 14:19-20 | wolkkolom.*stond achter hen.*tussen het leger der Egyptenaren, en tussen het leger van Israel
+Exodus 14:21 | sterken oostenwind, dien gansen nacht.*de zee droog
+Exodus 14:22 | muur, aan hun rechter hand en aan hun linkerhand
+Exodus 14:23 | Egyptenaars vervolgden hen
+Exodus 14:25 | raderen hunner wagenen weg
+Exodus 14:27-28 | naken van den morgenstond.*wagenen en de ruiters.*niet een van hen over
+Exodus 14:30-31 | Egyptenaren dood aan den oever der zee.*vreesde den HEERE, en geloofde in den HEERE, en aan Mozes
+Exodus 15:1 | Ik zal den HEERE zingen; want Hij is hogelijk verheven! Het paard en zijn ruiter heeft Hij in de zee geworpen
+Exodus 15:20 | Mirjam, de profetes, Aarons zuster, nam een trommel.*al de vrouwen.*trommelen en met reien
+Exodus 15:21 | Zingt den HEERE; want Hij is hogelijk verheven
+Exodus 15:22 | woestijn Sur.*drie dagen.*geen water
+Exodus 15:23 | Mara.*bitter
+Exodus 15:24 | Wat zullen wij drinken
+Exodus 15:25 | hout.*water zoet
+Exodus 15:26 | Ik ben de HEERE, uw Heelmeester
+Exodus 15:27 | Elim.*twaalf waterfonteinen, en zeventig palmbomen
+Ruth 1:20 | noemt mij Mara.*bitterheid
+Psalmen 106:9 | schold de Schelfzee, zodat zij verdroogde
+# --- Deel Sinaï
+Exodus 16:1 | woestijn Sin
+Exodus 16:3 | vleespotten.*tot verzadiging brood aten
+Exodus 16:4 | brood uit den hemel regenen
+Exodus 16:5 | zesden dag.*dubbel
+Exodus 16:13-14 | kwakkelen.*dauw.*klein rond ding
+Exodus 16:15 | Het is Man, want zij wisten niet wat het was
+Exodus 16:26-27 | zevenden dag is het sabbat.*zij vonden niet
+Exodus 16:31 | korianderzaad, wit.*honigkoeken
+Exodus 16:33-34 | kruik.*gomer vol Man.*voor de getuigenis
+Exodus 16:35 | aten Man veertig jaren
+Exodus 17:1 | Rafidim.*geen water
+Exodus 17:2-3 | Geeft gijlieden ons water.*mijn kinderen, en mijn vee, van dorst
+Exodus 17:4 | zij zullen mij stenigen
+Exodus 17:5-6 | staf.*rotssteen in Horeb.*water uitgaan.*voor de ogen der oudsten
+Exodus 17:7 | Massa en Meriba.*Is de HEERE in het midden van ons, of niet
+Exodus 17:8 | Amalek.*Rafidim
+Exodus 17:9 | Jozua: Kies ons mannen.*staf Gods
+Exodus 17:11 | hand ophief, zo was Israel de sterkste.*nederliet, zo was Amalek de sterkste
+Exodus 17:12 | steen.*Aaron en Hur.*totdat de zon onderging
+Exodus 17:13 | Jozua Amalek.*zwaards
+Exodus 17:15 | altaar.*De HEERE is mijn Banier
+Exodus 18:2-3 | Zippora.*twee zonen
+Exodus 18:4 | Eliezer.*God mijns vaders is tot mijn Hulpe.*Farao's zwaard
+Exodus 18:8-10 | Mozes vertelde zijn schoonvader alles.*Jethro nu verheugde zich
+Exodus 18:13-14 | van den morgen tot den avond.*gij zelf alleen
+Exodus 18:18 | te zwaar voor u, gij alleen kunt het niet doen
+Exodus 18:21 | kloeke mannen, God vrezende.*duizenden.*honderden.*vijftigen.*tienen
+Exodus 18:24 | Mozes nu hoorde naar de stem van zijn schoonvader
+Exodus 19:1-2 | derde maand.*uit Rafidim.*woestijn Sinai.*tegenover dien berg
+Exodus 19:4-5 | vleugelen der arenden.*Mijn eigendom zijn uit alle volken
+Exodus 19:11 | derden dag
+Exodus 19:16 | derden dag.*donderen en bliksemen.*zware wolk.*zeer sterke bazuin.*verschrikte
+Exodus 19:18 | berg Sinai rookte.*nederkwam in vuur.*beefde zeer
+Exodus 19:17 | onderste des bergs
+Exodus 19:20 | Mozes klom op
+Exodus 20:1 | Toen sprak God al deze woorden
+Exodus 20:2 | Ik ben de HEERE uw God, Die u uit Egypteland, uit het diensthuis, uitgeleid heb
+Exodus 20:3 | geen andere goden
+Exodus 20:4-5 | gesneden beeld.*niet buigen, noch hen dienen
+Exodus 20:7 | Naam des HEEREN uws Gods niet ijdellijk
+Exodus 20:8-10 | sabbatdag.*Zes dagen.*zevende dag
+Exodus 20:12 | Eert uw vader en uw moeder.*land
+Exodus 20:13 | niet doodslaan
+Exodus 20:14 | niet echtbreken
+Exodus 20:15 | niet stelen
+Exodus 20:16 | geen valse getuigenis
+Exodus 20:17 | niet begeren uws naasten huis.*vrouw
+Exodus 20:18-19 | donderen.*bazuin.*rokenden berg.*Spreek gij met ons.*dat God met ons niet spreke, opdat wij niet sterven
+Deuteronomium 5:6-7 | Ik ben de HEERE, uw God.*geen andere goden
+Exodus 24:12 | stenen tafelen
+Exodus 24:13 | Jozua, zijn dienaar
+Exodus 24:16 | zes dagen.*zevenden dag riep Hij Mozes uit het midden der wolk
+Exodus 24:17 | verterend vuur
+Exodus 24:18 | veertig dagen en veertig nachten
+Exodus 31:18 | twee tafelen.*vinger Gods
+Exodus 32:1 | Mozes vertoog.*maak ons goden, die voor ons aangezicht gaan
+Exodus 32:2-4 | gouden oorsierselen.*gegoten kalf.*Dit zijn uw goden, Israel
+Exodus 32:6 | brandoffer.*eten en te drinken.*spelen
+Exodus 32:19 | toorn van Mozes ontstak.*tafelen.*verbrak
+Exodus 32:20 | verbrandde het in het vuur, en vermaalde het.*strooide het op het water
+Exodus 32:28 | zonen van Levi.*omtrent drie duizend man
+Exodus 32:32 | zonden vergeven.*delg mij nu uit Uw boek
+Exodus 34:28 | veertig dagen en veertig nachten.*tien woorden
+Exodus 34:29 | vel zijns aangezichts glinsterde
+Psalmen 106:19 | kalf bij Horeb.*gegoten beeld
+Exodus 25:8 | heiligdom.*in het midden van hen wone
+Exodus 25:9 | voorbeeld
+Exodus 25:10 | twee ellen en een halve zal haar lengte zijn
+Exodus 26:16 | lengte van een berd zal tien ellen zijn, en een el en een halve el zal de breedte
+Exodus 26:18 | twintig berderen naar de zuidzijde
+Exodus 27:18 | lengte des voorhofs zal honderd ellen zijn, en de breedte doorgaans vijftig
+Exodus 35:5 | goud, en zilver, en koper
+Exodus 36:5-7 | te veel.*Man noch vrouw make geen werk meer.*er was over
+Exodus 31:6 | Aholiab
+Exodus 35:31 | Geest Gods.*wijsheid
+Exodus 40:17 | eerste maand, in het tweede jaar, op den eersten der maand.*tabernakel opgericht
+Exodus 40:34 | wolk.*tent der samenkomst.*heerlijkheid des HEEREN vervulde den tabernakel
+Exodus 40:36-37 | wolk opgeheven.*reisden.*niet opgeheven.*reisden zij niet
+Exodus 40:4-5 | tafel.*kandelaar.*altaar ten reukwerk
+Exodus 40:21 | ark in den tabernakel.*voorhang
+Exodus 40:29 | altaar des brandoffers

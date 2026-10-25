@@ -1,0 +1,83 @@
+# Esther — controle van getallen, aantallen en citaten (ref | regex)
+Esther 1:1 | Indie af tot aan Morenland.*honderd zeven en twintig landschappen
+Esther 1:2 | burg Susan
+Esther 1:3 | derde jaar zijner regering.*maaltijd.*vorsten
+Esther 1:4 | honderd en tachtig dagen
+Esther 1:5 | zeven dagen lang
+Esther 1:7 | vaten van goud
+Esther 1:10 | zevenden dag
+Esther 1:11 | Vasthi.*kroon.*schoonheid
+Esther 1:12 | Vasthi weigerde te komen.*zeer verbolgen
+Esther 1:19 | Vasthi niet inga.*koninkrijk aan haar naaste
+Esther 2:3 | jonge dochters.*burg Susan
+Esther 2:5 | Mordechai.*Kis.*Jemini
+Esther 2:6 | weggevoerd was van Jeruzalem
+Esther 2:7 | Hadassa.*Esther.*geen vader noch moeder.*tot een dochter aangenomen
+Esther 2:10 | haar volk.*niet te kennen gegeven.*Mordechai had haar geboden
+Esther 2:17 | beminde Esther boven alle vrouwen.*koninklijke kroon op haar hoofd
+Esther 2:19 | Mordechai in de poort des konings
+Esther 2:21 | Bigthan en Theres.*hand te slaan aan den koning
+Esther 2:22 | Mordechai.*Esther zeide het den koning
+Esther 2:23 | aan een galg gehangen.*kronieken
+Esther 3:1 | Haman.*Agagiet.*boven al de vorsten
+Esther 3:2 | bogen zich neder voor Haman.*Mordechai neigde zich niet
+Esther 3:5 | Haman vervuld met grimmigheid
+Esther 3:6 | al de Joden.*ganse koninkrijk.*verdelgen
+Esther 3:7 | Pur, dat is, het lot.*twaalfde maand.*Adar
+Esther 3:8 | doen zij des konings wetten niet
+Esther 3:9 | tien duizend talenten zilvers
+Esther 3:10 | ring.*gaf hem aan Haman
+Esther 3:13 | lopers.*verdelgen, doden.*van den jonge tot den oude.*kleine kinderen en de vrouwen.*dertienden der twaalfde maand.*Adar
+Esther 4:1 | verscheurde.*klederen.*zak.*as.*bitter geroep
+Esther 4:3 | grote rouw onder de Joden, met vasten
+Esther 4:8 | tot den koning ging.*smeken
+Esther 4:11 | niet geroepen.*dode.*gouden scepter.*dertig dagen
+Esther 4:13 | Beeld u niet in.*ontkomen in het huis des konings
+Esther 4:14 | wie weet, of gij niet om zulken tijd als deze is, tot dit koninkrijk geraakt zijt
+Esther 4:16 | vast voor mij.*drie dagen, nacht noch dag.*niet naar de wet.*Wanneer ik dan omkome, zo kom ik om
+Esther 5:1 | derden dag.*koninklijk kleed.*binnenste voorhof
+Esther 5:2 | gouden scepter.*Esther toereikte
+Esther 5:3 | helft des koninkrijks
+Esther 5:4 | koning met Haman heden tot den maaltijd
+Esther 5:8 | morgen
+Esther 5:9 | Mordechai.*niet opstond
+Esther 5:10 | Zeres, zijn huisvrouw
+Esther 5:14 | galg, vijftig ellen hoog.*Mordechai daaraan hange.*deed de galg maken
+Esther 6:1 | slaap van den koning geweken.*kronieken.*gelezen
+Esther 6:2 | Mordechai.*Bigthana en Theres
+Esther 6:3 | Aan hem is niets gedaan
+Esther 6:4 | Haman.*Mordechai zou hangen aan de galg
+Esther 6:6 | Tot wien heeft de koning een welbehagen.*meer dan tot mij
+Esther 6:8 | koninklijke kleed.*paard, waarop de koning pleegt te rijden
+Esther 6:9 | een uit de vorsten des konings.*straten der stad
+Esther 6:10 | doe alzo aan Mordechai, den Jood
+Esther 6:11 | Haman.*deed hem rijden door de straten der stad, en hij riep voor hem
+Esther 7:2 | tweeden dag.*Wat is uw bede
+Esther 7:3 | geve mij mijn leven.*mijn volk
+Esther 7:4 | wij zijn verkocht.*verdelge, dode
+Esther 7:5 | Wie is die
+Esther 7:6 | deze boze Haman
+Esther 7:7 | grimmigheid.*hof van het paleis.*Haman bleef staan.*zijn leven verzoek te doen
+Esther 7:9 | galg.*Haman.*Mordechai.*vijftig ellen hoog.*Hang hem daaraan
+Esther 7:10 | hingen zij Haman aan de galg, die hij voor Mordechai
+Esther 8:1 | Esther het huis van Haman
+Esther 8:2 | ring.*van Haman genomen.*gaf hem aan Mordechai.*Esther stelde Mordechai over het huis van Haman
+Esther 8:9 | Mordechai gebood.*Indie af tot aan Morenland.*honderd zeven en twintig landschappen
+Esther 8:10 | naam van den koning.*lopers te paard.*snelle
+Esther 8:11 | voor hun leven te staan
+Esther 8:12 | dertienden der twaalfde maand.*Adar
+Esther 9:1 | dertienden dag.*Joden heersten over hun haters
+Esther 9:10 | tien zonen van Haman.*doodden zij
+Esther 9:14 | hing de tien zonen van Haman op
+Esther 9:17 | rustten.*maaltijden en der vreugde
+Esther 9:21 | veertienden dag der maand Adar, en den vijftienden dag.*ieder jaar
+Esther 9:22 | maaltijden.*zending van delen aan elkander.*gaven aan de armen
+Esther 9:26 | noemt men die dagen Purim, van den naam van dat Pur
+Esther 9:29 | koningin Esther.*Mordechai, de Jood.*brief van Purim
+Esther 10:3 | Mordechai was de tweede bij den koning
+Exodus 17:8 | Amalek.*streed tegen Israel
+1 Samuël 15:8 | Agag, den koning der Amalekieten
+1 Samuël 9:1 | Benjamin.*Kis
+Daniël 6:8 | wet der Meden en der Perzen
+Ezra 4:6 | Ahasveros.*aanklacht tegen de inwoners van Juda en Jeruzalem
+Nehemia 1:1 | Susan in het paleis

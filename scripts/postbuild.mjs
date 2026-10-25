@@ -54,7 +54,8 @@ function page({ path, title, description }, { noindex = false } = {}) {
 }
 
 for (const r of ROUTES) {
-  if (r.path === "/") continue;
+  // Statische pagina's (bijv. /bijbelreis) staan al in public/ en krijgen geen React-schil.
+  if (r.path === "/" || r.static) continue;
   const file = `${r.path.slice(1)}.html`;
   writeFileSync(join(dist, file), page(r, { noindex: r.path === "/beheer" }));
 }

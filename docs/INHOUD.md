@@ -11,6 +11,7 @@ Alle teksten staan in gewone TypeScript-bestanden. Wijzig, commit en push naar `
 | Missies, verrassingen, certificaatteksten | `src/content/progress.ts` |
 | Tekst ‘Over Martijn’ | `src/pages/Over.tsx` |
 | Kleuren en lettertypen | `src/styles/global.css` (bovenaan, `:root`) |
+| Bijbelreis (verhalen, plaatsen, vragen) | `public/bijbelreis/inhoud/*.js` en `public/bijbelreis/plaatsen.js`, zie [BIJBELREIS.md](BIJBELREIS.md) |
 
 ## Voorbeelden
 

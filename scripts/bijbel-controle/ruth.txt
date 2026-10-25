@@ -1,0 +1,108 @@
+# Controle voor public/bijbelreis/inhoud/ruth.js (Statenvertaling). Regel: verwijzing | regex
+# (85 verzen = 22 + 23 + 18 + 22, geteld in public/bijbelreis/bijbel/ruth.json)
+# --- Wie is wie ---
+Ruth 1:20 | Noemt mij niet Naomi, noemt mij Mara
+Ruth 4:16 | Naomi nam dat kind, en zette het op haar schoot
+Ruth 1:1 | honger.*Bethlehem-Juda.*velden Moabs
+Ruth 1:3 | Elimelech, de man van Naomi, stierf
+Ruth 1:4 | Orpa.*Ruth.*omtrent tien jaren
+Ruth 1:5 | Machlon en Chiljon, stierven ook
+Ruth 4:10 | Ruth, de Moabietische, de huisvrouw van Machlon
+Ruth 1:14 | Orpa kuste haar schoonmoeder, maar Ruth kleefde haar aan
+Ruth 1:15 | wedergekeerd tot haar volk en tot haar goden
+Ruth 1:16 | uw volk is mijn volk, en uw God mijn God
+Ruth 4:17 | Obed.*vader van Isai, Davids vader
+Ruth 2:1 | bloedvriend van haar man.*geslacht van Elimelech.*Boaz
+Ruth 4:6 | ik zal niet kunnen lossen
+Ruth 4:8 | trok zijn schoen uit
+Ruth 4:17 | naburinnen gaven hem een naam
+1 Samuël 16:1 | Isai, den Bethlehemiet
+1 Samuël 17:12 | Bethlehem-Juda.*Isai.*acht zonen
+1 Samuël 16:11 | kleinste.*schapen
+Ruth 4:22 | Isai gewon David
+# --- Deel: cross ---
+Leviticus 19:9 | hoek uws velds niet ganselijk afoogsten
+Leviticus 19:10 | den arme en den vreemdeling zult gij die overlaten
+Leviticus 25:25 | verarmd.*verkocht.*losser, die hem nabestaande is
+Deuteronomium 25:7 | poort tot de oudsten
+Deuteronomium 25:9 | schoen van zijn voet uittrekken
+Deuteronomium 23:3 | Moabiet.*vergadering des HEEREN
+# --- Stap 0: Ruth 1:1–5 ---
+Ruth 1:1 | als de richters richtten.*honger in het land.*man van Bethlehem-Juda.*vreemdeling.*velden Moabs.*huisvrouw, en zijn twee zonen
+Ruth 1:2 | Elimelech.*Naomi.*Machlon en Chiljon
+Ruth 1:3 | Elimelech.*stierf
+Ruth 1:4 | Moabietische vrouwen.*Orpa.*Ruth.*omtrent tien jaren
+Ruth 1:5 | Machlon en Chiljon, stierven ook.*overgelaten na haar twee zonen en na haar man
+Genesis 19:37 | Moab.*vader der Moabieten
+# --- Stap 1: Ruth 1:6–18 ---
+Ruth 1:6 | gehoord.*de HEERE Zijn volk bezocht had, gevende hun brood
+Ruth 1:7 | twee schoondochters.*land van Juda
+Ruth 1:8 | keert weder.*huis van haar moeder.*de HEERE doe bij u weldadigheid
+Ruth 1:9 | hieven zij haar stem op en weenden
+Ruth 1:14 | weenden wederom.*Orpa kuste haar schoonmoeder, maar Ruth kleefde haar aan
+Ruth 1:16 | Val mij niet tegen, dat ik u zou verlaten.*waar gij zult heengaan, zal ik ook heengaan, en waar gij zult vernachten, zal ik vernachten; uw volk is mijn volk, en uw God mijn God
+Ruth 1:17 | Waar gij zult sterven, zal ik sterven
+Ruth 1:18 | vastelijk voorgenomen.*hield zij op tot haar te spreken
+# --- Stap 2: Ruth 1:19–22 ---
+Ruth 1:19 | gingen die beiden.*Bethlehem.*ganse stad.*beroerd.*Is dit Naomi
+Ruth 1:20 | Noemt mij niet Naomi, noemt mij Mara; want de Almachtige heeft mij grote bitterheid aangedaan
+Ruth 1:21 | Vol toog ik weg, maar ledig heeft mij de HEERE doen wederkeren
+Ruth 1:22 | Bethlehem in het begin van de gersteoogst
+Ruth 2:23 | gersteoogst en tarweoogst
+# --- Stap 3: Ruth 2 ---
+Ruth 2:2 | in het veld gaan, en van de aren oplezen
+Ruth 2:3 | achter de maaiers.*bij geval.*veld van Boaz, die van het geslacht van Elimelech was
+Ruth 2:1 | geweldig van vermogen
+Ruth 2:4 | Boaz kwam van Bethlehem.*De HEERE zij met ulieden
+Ruth 2:5 | Wiens is deze jonge vrouw
+Ruth 2:8 | niet.*in een ander veld.*bij mijn maagden
+Ruth 2:9 | drink van hetgeen de jongens zullen geschept hebben
+Ruth 2:12 | De HEERE vergelde u uw daad.*onder wiens vleugelen gij gekomen zijt om toevlucht te nemen
+Ruth 2:14 | eet van het brood.*geroost koren
+Ruth 2:16 | van de handvollen voor haar wat vallen, en laat het liggen
+Ruth 2:17 | tot aan den avond.*omtrent een efa gerst
+Ruth 2:20 | Die man is ons nabestaande; hij is een van onze lossers
+# --- Stap 4: Ruth 3 ---
+Ruth 3:2 | Boaz.*dezen nacht gerst op den dorsvloer wannen
+Ruth 3:3 | baad u.*doe uw klederen aan, en ga af naar den dorsvloer
+Ruth 3:4 | plaats zult merken, waar hij zal nedergelegen zijn.*sla zijn voetdeksel op, en leg u
+Ruth 3:6 | ging zij af naar den dorsvloer, en deed naar alles
+Ruth 3:8 | te middernacht.*verschrikte.*een vrouw lag aan zijn voetdeksel
+Ruth 3:9 | Wie zijt gij.*Ik ben Ruth.*breid dan uw vleugel uit over uw dienstmaagd, want gij zijt de losser
+Ruth 3:11 | vrees niet.*ganse stad mijns volks weet, dat gij een deugdelijke vrouw zijt
+Ruth 3:12 | nog een losser, nader dan ik
+Ruth 3:13 | indien het hem niet lust u te lossen, zo zal ik u lossen
+Ruth 3:14 | tot den morgen toe.*eer dat de een den ander kennen kon
+Ruth 3:15 | zes maten gerst
+Ruth 3:17 | Kom niet ledig tot uw schoonmoeder
+Ruth 3:18 | Zit stil, mijn dochter.*die man zal niet rusten, tenzij dat hij heden deze zaak voleind hebbe
+# --- Stap 5: Ruth 4:1–12 ---
+Ruth 4:1 | Boaz ging op in de poort, en zette zich.*losser.*ging voorbij
+Ruth 4:2 | tien mannen van de oudsten der stad
+Ruth 4:3 | stuk lands, dat van onzen broeder Elimelech was, heeft Naomi.*verkocht
+Ruth 4:4 | zo gij het zult lossen, los het.*Ik zal het lossen
+Ruth 4:5 | aanvaarden van Ruth, de Moabietische, de huisvrouw des verstorvenen, om den naam des verstorvenen te verwekken
+Ruth 4:6 | Ik zal het voor mij niet kunnen lossen
+Ruth 4:7 | van ouds een gewoonheid in Israel.*trok de man zijn schoen uit en gaf die aan zijn naaste
+Ruth 4:8 | Aanvaard gij het voor u; en hij trok zijn schoen uit
+Ruth 4:9 | Gijlieden zijt heden getuigen
+Ruth 4:11 | Wij zijn getuigen; de HEERE make deze vrouw, die in uw huis komt, als Rachel en als Lea, die beiden het huis van Israel gebouwd hebben
+# --- Stap 6: Ruth 4:13–22 ---
+Ruth 4:13 | nam Boaz Ruth.*ter vrouwe.*de HEERE gaf haar.*een zoon baarde
+Ruth 4:14 | vrouwen tot Naomi: Geloofd zij de HEERE, Die niet heeft nagelaten u heden een losser te geven
+Ruth 4:15 | uw schoondochter, die u liefheeft, heeft hem gebaard, dewelke u beter is dan zeven zonen
+Ruth 4:16 | Naomi nam dat kind, en zette het op haar schoot, en werd zijn voedster
+Ruth 4:17 | naburinnen gaven hem een naam.*Obed; deze is de vader van Isai, Davids vader
+Ruth 4:18 | geboorten van Perez
+Ruth 4:12 | Perez \(die Thamar aan Juda baarde\)
+Ruth 4:21 | Boaz gewon Obed
+Ruth 4:22 | Obed gewon Isai; en Isai gewon David
+# --- Quiz ---
+Ruth 1:1 | honger
+Ruth 1:2 | Machlon en Chiljon
+Ruth 1:14 | Orpa
+Ruth 1:16 | uw volk is mijn volk, en uw God mijn God
+Ruth 1:20 | Mara
+Ruth 2:3 | las op in het veld, achter de maaiers
+Ruth 4:7 | schoen
+Ruth 4:17 | Obed

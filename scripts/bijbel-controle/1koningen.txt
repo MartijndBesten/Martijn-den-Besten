@@ -1,0 +1,238 @@
+# Controle voor public/bijbelreis/inhoud/1koningen.js: elk getal, elke leeftijd, elk aantal en elk citaat.
+# --- Salomo: koning ---
+1 Koningen 1:5 | Adonia
+1 Koningen 1:33 | muilezelin.*Gihon
+1 Koningen 1:34 | Zadok.*Nathan
+1 Koningen 1:39 | oliehoorn
+1 Koningen 1:39 | De koning Salomo leve
+1 Koningen 1:40 | aarde van hun geluid spleet
+1 Koningen 2:11 | veertig jaren
+1 Koningen 2:11 | zeven jaren.*Hebron
+1 Koningen 2:11 | drie en dertig
+# --- Gibeon ---
+1 Koningen 3:4 | duizend brandoffer
+1 Koningen 3:5 | Begeer wat Ik u geven zal
+1 Koningen 3:7 | klein jongeling
+1 Koningen 3:9 | verstandig hart, om Uw volk te richten
+1 Koningen 3:11 | vele dagen.*rijkdom.*vijanden
+1 Koningen 3:12 | uws gelijke voor u niet geweest is, en uws gelijke na u niet
+1 Koningen 3:13 | rijkdom en eer
+1 Koningen 3:15 | het was een droom
+1 Koningen 3:15 | ark.*brandofferen
+1 Koningen 4:32 | drie duizend spreuken
+1 Koningen 4:32 | duizend en vijf
+# --- Twee moeders ---
+1 Koningen 3:17 | in een huis
+1 Koningen 3:19 | des nachts gestorven
+1 Koningen 3:20 | nam mijn zoon.*doden zoon
+1 Koningen 3:24 | zwaard
+1 Koningen 3:25 | in tweeen.*ene een helft
+1 Koningen 3:26 | Geef haar dat levende kind, en dood het geenszins
+1 Koningen 3:27 | die is zijn moeder
+1 Koningen 3:28 | geheel Israel hoorde.*wijsheid Gods in hem
+1 Koningen 4:34 | alle koningen der aarde
+# --- Hout uit de Libanon ---
+1 Koningen 5:1 | Hiram, de koning van Tyrus
+1 Koningen 5:1 | David altijd bemind
+1 Koningen 5:5 | huis te bouwen
+1 Koningen 5:6 | cederen uit den Libanon
+1 Koningen 5:6 | Sidoniers
+1 Koningen 5:7 | verblijdde
+1 Koningen 5:9 | Libanon aan de zee.*vlotten over de zee
+1 Koningen 5:13 | dertig duizend man
+1 Koningen 5:14 | tien duizend des maands
+1 Koningen 5:15 | zeventig duizend.*tachtig duizend houwers op het gebergte
+1 Koningen 5:17 | grote stenen toe, kostelijke stenen.*grond van dat huis
+2 Kronieken 2:16 | vlotten, over de zee, naar Jafo
+# --- De tempel ---
+1 Koningen 6:1 | vierhonderd en tachtigste jaar
+1 Koningen 6:1 | vierde jaar
+1 Koningen 6:2 | zestig ellen
+1 Koningen 6:2 | twintig in zijn breedte
+1 Koningen 6:2 | dertig ellen in zijn hoogte
+1 Koningen 6:38 | zeven jaren
+1 Koningen 6:7 | geen hameren, noch bijl
+1 Koningen 6:22 | ganse huis met goud
+1 Koningen 8:6 | heilige der heiligen.*vleugelen der cherubim
+1 Koningen 8:9 | niets in de ark, dan alleen de twee stenen tafelen
+1 Koningen 8:10 | wolk het huis des HEEREN vervulde
+1 Koningen 8:11 | heerlijkheid des HEEREN
+1 Koningen 8:27 | zou God op de aarde wonen.*hoeveel te min dit huis
+1 Koningen 8:63 | twee en twintig duizend runderen
+1 Koningen 8:63 | honderd en twintig duizend schapen
+1 Koningen 8:65 | veertien dagen
+1 Koningen 7:1 | dertien jaren
+# --- Koningin van Scheba ---
+1 Koningen 10:1 | koningin van Scheba.*Naam des HEEREN
+1 Koningen 10:1 | raadselen
+1 Koningen 10:2 | kemelen, dragende specerijen, en zeer veel gouds, en kostelijk gesteente
+1 Koningen 10:3 | verklaarde haar al haar woorden
+1 Koningen 10:5 | geen geest meer
+1 Koningen 10:7 | niet geloofd, totdat ik gekomen ben, en mijn ogen dat gezien hebben
+1 Koningen 10:7 | de helft is mij niet aangezegd
+1 Koningen 10:9 | Geloofd zij de HEERE, uw God
+1 Koningen 10:10 | honderd en twintig talenten gouds
+1 Koningen 10:13 | al haar behagen.*toog in haar land
+# --- Goud, schepen en paarden ---
+1 Koningen 9:26 | schepen te Ezeon-Geber.*Schelfzee
+1 Koningen 9:27 | Hiram.*scheepslieden
+1 Koningen 9:28 | Ofir.*vierhonderd en twintig talenten
+1 Koningen 10:14 | zeshonderd zes en zestig talenten
+1 Koningen 10:16 | tweehonderd rondassen van geslagen goud
+1 Koningen 10:17 | driehonderd schilden van geslagen goud
+1 Koningen 10:18 | elpenbenen troon.*goud
+1 Koningen 10:19 | zes trappen
+1 Koningen 10:20 | twaalf leeuwen
+1 Koningen 10:21 | drinkvaten.*van goud.*zilver.*niet voor enig ding geacht
+1 Koningen 10:22 | eenmaal in drie jaren.*goud, en zilver, elpenbeen, en apen, en pauwen
+1 Koningen 10:26 | duizend en vierhonderd wagenen, en twaalf duizend ruiteren
+1 Koningen 10:27 | zilver in Jeruzalem.*als stenen
+# --- Afval ---
+1 Koningen 11:1 | veel vreemde vrouwen
+1 Koningen 11:2 | hart achter hun goden
+1 Koningen 11:3 | zevenhonderd vrouwen.*driehonderd bijwijven
+1 Koningen 11:4 | ouderdom.*andere goden
+1 Koningen 11:5 | Astoreth
+1 Koningen 11:7 | hoogte voor Kamos.*Molech
+1 Koningen 11:9 | tweemaal verschenen
+1 Koningen 11:11 | koninkrijk van u scheuren.*uw knecht geven
+1 Koningen 11:12 | In uw dagen nochtans zal Ik dat niet doen, om uws vaders Davids wil
+1 Koningen 11:13 | een stam zal Ik uw zoon geven
+1 Koningen 11:29 | Ahia, de Siloniet.*nieuw kleed.*op het veld
+1 Koningen 11:30 | twaalf stukken
+1 Koningen 11:31 | Neem u tien stukken
+1 Koningen 11:40 | Jerobeam te doden.*Sisak, den koning van Egypte
+1 Koningen 11:42 | veertig jaar
+Nehemia 13:26 | Salomo.*vreemde vrouwen zondigen
+# --- Het rijk scheurt ---
+1 Koningen 12:1 | Rehabeam toog naar Sichem.*koning te maken
+1 Koningen 12:2 | Jerobeam.*Egypte
+1 Koningen 12:4 | juk hard.*lichter
+1 Koningen 12:7 | goede woorden
+1 Koningen 12:11 | geselen.*schorpioenen
+1 Koningen 12:16 | Wat deel hebben wij aan David.*naar uw tenten, o Israel
+1 Koningen 12:18 | wagen.*naar Jeruzalem vluchtte
+1 Koningen 12:20 | koning maakten.*stam van Juda alleen
+1 Koningen 12:28 | twee gouden kalveren.*zie uw goden, o Israel
+1 Koningen 12:29 | Beth-El.*Dan
+1 Koningen 12:30 | tot zonde
+# --- Quiz Salomo ---
+1 Koningen 3:9 | verstandig hart
+1 Koningen 6:38 | zeven jaren
+1 Koningen 8:9 | twee stenen tafelen
+# --- Elia: Achab en Izebel ---
+1 Koningen 16:24 | kocht den berg Samaria.*bebouwde den berg
+1 Koningen 16:29 | Achab.*twee en twintig jaren
+1 Koningen 16:30 | kwaad.*meer dan allen, die voor hem geweest waren
+1 Koningen 16:31 | Izebel.*koning der Sidoniers.*diende Baal
+1 Koningen 16:32 | altaar.*huis van Baal.*Samaria
+1 Koningen 16:33 | bos
+1 Koningen 18:4 | Izebel de profeten des HEEREN uitroeide.*honderd profeten.*vijftig.*spelonk.*brood en water
+1 Koningen 22:39 | elpenbenen huis
+# --- Krith ---
+1 Koningen 17:1 | Thisbiet.*Gilead
+1 Koningen 17:1 | voor Wiens aangezicht ik sta.*dauw of regen.*naar mijn woord
+1 Koningen 17:3 | oosten.*beek Krith.*Jordaan
+1 Koningen 17:4 | raven
+1 Koningen 17:6 | des morgens brood en vlees.*des avonds.*dronk uit de beek
+1 Koningen 17:7 | beek uitdroogde.*geen regen
+# --- Zarfath ---
+1 Koningen 17:9 | Zarfath, dat bij Sidon is.*weduwvrouw
+1 Koningen 17:10 | poort der stad.*hout lezende.*weinig waters
+1 Koningen 17:11 | bete broods
+1 Koningen 17:12 | hand vol meels in de kruik, en een weinig olie in de fles
+1 Koningen 17:12 | mijn zoon.*eten, en sterven
+1 Koningen 17:13 | Vrees niet.*kleinen koek
+1 Koningen 17:14 | meel van de kruik zal niet verteerd worden, en de olie der fles zal niet ontbreken.*regen
+1 Koningen 17:15 | vele dagen
+1 Koningen 17:17 | krank.*geen adem
+1 Koningen 17:19 | opperzaal
+1 Koningen 17:21 | driemaal
+1 Koningen 17:22 | verhoorde.*weder levend
+1 Koningen 17:24 | Nu weet ik, dat gij een man Gods zijt
+# --- Karmel ---
+1 Koningen 18:1 | derde jaar.*regen geven
+1 Koningen 18:2 | honger was sterk in Samaria
+1 Koningen 18:17 | beroerden van Israel
+1 Koningen 18:18 | Baals nagevolgd
+1 Koningen 18:19 | berg Karmel.*vierhonderd en vijftig profeten van Baal.*vierhonderd profeten van het bos
+1 Koningen 18:21 | Hoe lang hinkt gij op twee gedachten.*Zo de HEERE God is, volgt Hem na, en zo het Baal is, volgt hem na
+1 Koningen 18:22 | vierhonderd en vijftig
+1 Koningen 18:23 | twee varren
+1 Koningen 18:24 | de God, Die door vuur antwoorden zal, Die zal God zijn
+1 Koningen 18:26 | van den morgen tot op den middag.*sprongen
+1 Koningen 18:28 | messen
+1 Koningen 18:31 | twaalf stenen
+1 Koningen 18:32 | groeve rondom het altaar
+1 Koningen 18:34 | vier kruiken.*ten derden male
+1 Koningen 18:38 | vuur de HEEREN.*brandoffer.*hout.*stenen.*stof.*water
+1 Koningen 18:39 | aangezichten.*De HEERE is God, de HEERE is God
+1 Koningen 18:40 | Grijpt de profeten van Baal.*beek Kison.*slachtte
+Deuteronomium 13:5 | profeet.*zal gedood worden.*afval
+# --- Regen ---
+1 Koningen 18:41 | eet en drink.*geruis van een overvloedigen regen
+1 Koningen 18:42 | hoogte van Karmel.*aangezicht tussen zijn knieen
+1 Koningen 18:43 | zie uit naar de zee.*Er is niets.*zevenmaal
+1 Koningen 18:44 | zevende maal.*kleine wolk, als eens mans hand.*van de zee
+1 Koningen 18:44 | Span aan, en kom af, dat u de regen niet ophoude
+1 Koningen 18:45 | wolken en wind zwart.*grote regen.*Jizreel
+1 Koningen 18:46 | hand des HEEREN was over Elia.*gordde zijn lenden.*liep voor het aangezicht van Achab.*Jizreel
+# --- Vlucht ---
+1 Koningen 19:1 | Achab zeide Izebel aan
+1 Koningen 19:2 | bode.*morgen omtrent dezen tijd uw ziel stellen
+1 Koningen 19:3 | om zijns levens wil.*Ber-seba, dat in Juda is.*jongen aldaar
+1 Koningen 19:4 | woestijn een dagreis.*jeneverboom.*Het is genoeg; neem nu, HEERE, mijn ziel
+1 Koningen 19:5 | sliep.*engel.*Sta op, eet
+1 Koningen 19:6 | koek op de kolen gebakken, en een fles met water
+1 Koningen 19:7 | ten anderen male.*de weg zou te veel voor u zijn
+1 Koningen 19:8 | kracht derzelver spijs, veertig dagen en veertig nachten, tot aan den berg Gods, Horeb
+1 Koningen 8:9 | Mozes bij Horeb
+# --- Horeb ---
+1 Koningen 19:9 | spelonk.*Wat maakt gij hier, Elia
+1 Koningen 19:10 | geijverd.*verbond verlaten, Uw altaren afgebroken en Uw profeten.*gedood.*ik alleen ben overgebleven.*zoeken mijn ziel
+1 Koningen 19:11 | sta op dezen berg.*sterke wind, scheurende de bergen, en brekende de steenrotsen.*de HEERE was in den wind niet.*aardbeving.*in de aardbeving niet
+1 Koningen 19:12 | vuur.*in het vuur niet.*suizen van een zachte stilte
+1 Koningen 19:13 | aangezicht bewond met zijn mantel
+1 Koningen 19:15 | Hazael ten koning over Syrie
+1 Koningen 19:16 | Jehu.*koning over Israel.*Elisa.*van Abel-mehola.*profeet.*in uw plaats
+1 Koningen 19:18 | zeven duizend.*niet gebogen hebben voor Baal
+# --- Elisa geroepen ---
+1 Koningen 19:19 | Elisa, den zoon van Safat.*twaalf juk runderen.*bij het twaalfde.*mantel op hem
+1 Koningen 19:20 | verliet de runderen, en liep Elia na.*vader en mijn moeder kusse, daarna zal ik u navolgen
+1 Koningen 19:21 | juk runderen, en slachtte het.*gereedschap der runderen.*volk gaf.*volgde Elia na, en diende hem
+2 Koningen 2:13 | Elia's mantel
+# --- Naboth ---
+1 Koningen 21:1 | Naboth.*wijngaard.*Jizreel.*paleis van Achab
+1 Koningen 21:2 | kruidhof.*wijngaard, die beter is.*geld
+1 Koningen 21:3 | late de HEERE verre van mij zijn.*erve mijner vaderen
+1 Koningen 21:4 | bed.*at geen brood
+1 Koningen 21:7 | Zoudt gij nu het koninkrijk over Israel regeren.*ik zal u den wijngaard van Naboth
+1 Koningen 21:8 | brieven in den naam van Achab.*signet.*oudsten
+1 Koningen 21:9 | vasten
+1 Koningen 21:10 | twee mannen.*God en den koning gezegend.*stenigt hem
+1 Koningen 21:13 | buiten de stad, en stenigden hem met stenen, dat hij stierf
+1 Koningen 21:16 | wijngaard.*erfelijk te bezitten
+1 Koningen 21:19 | Hebt gij doodgeslagen, en ook een erfelijke bezitting ingenomen.*honden het bloed van Naboth gelekt hebben, zullen de honden uw bloed lekken
+1 Koningen 21:27 | klederen scheurde.*zak.*vastte
+1 Koningen 21:29 | vernedert.*in zijn dagen niet.*dagen zijns zoons
+1 Koningen 22:29 | Ramoth in Gilead
+1 Koningen 22:34 | boog.*koning van Israel
+1 Koningen 22:38 | wagen.*Samaria.*honden zijn bloed
+2 Koningen 9:30 | Jizreel.*Izebel.*venster
+2 Koningen 9:33 | Stoot ze van boven neder
+2 Koningen 9:36 | Elia.*honden het vlees van Izebel eten
+# --- Elia naar de hemel ---
+2 Koningen 2:1 | onweder ten hemel.*van Gilgal
+2 Koningen 2:2 | Beth-El.*ik zal u niet verlaten
+2 Koningen 2:4 | Jericho
+2 Koningen 2:6 | Jordaan
+2 Koningen 2:7 | vijftig mannen.*van verre
+2 Koningen 2:8 | mantel.*sloeg het water.*verdeeld.*op het droge
+2 Koningen 2:9 | Begeer wat ik u doen zal, eer ik van bij u weggenomen worde.*twee delen van uw geest
+2 Koningen 2:10 | harde zaak.*indien gij mij zult zien
+2 Koningen 2:11 | gaande en sprekende.*vurige wagen met vurige paarden.*scheiding.*onweder ten hemel
+2 Koningen 2:12 | Mijn vader, mijn vader, wagen Israels en zijn ruiteren.*zag hem niet meer.*scheurde
+# --- Quiz Elia ---
+1 Koningen 17:16 | meel.*olie
+1 Koningen 18:34 | ten derden male
+1 Koningen 19:8 | veertig dagen
