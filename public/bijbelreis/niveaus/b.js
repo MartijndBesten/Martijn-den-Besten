@@ -4403,7 +4403,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Wachten bij het badwater",
         stap: "jezus-2:nt-feesten-jeruzalem:0",
-        t: "Voor een feest van de Joden gaat de Heere Jezus naar Jeruzalem. Bij de Schaapspoort is een badwater, een groot bad, dat Bethesda heet. Het heeft vijf zalen. Daar liggen veel zieken, blinden en kreupelen. Ze wachten tot het water bewogen wordt. Want wie daarna als eerste in het water komt, wordt gezond.",
+        t: "Voor een feest van de Joden gaat de Heere Jezus naar Jeruzalem. Bij de Schaapspoort is een badwater, een bad met water, dat Bethesda heet. Het heeft vijf zalen. Daar liggen veel zieken, blinden en kreupelen. Ze wachten tot het water bewogen wordt. Want wie daarna als eerste in het water komt, wordt gezond.",
       },
       {
         kop: "Sta op en wandel",
@@ -4453,7 +4453,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Eén ding weet ik",
         stap: "jezus-2:nt-feesten-jeruzalem:3",
-        t: "Het is sabbat. De Farizeeën ondervragen de man en ook zijn ouders. De ouders zijn bang om uit de synagoge gezet te worden. De man zegt: ‘een ding weet ik, dat ik blind was, en nu zie.’ Daarop werpen ze hem uit. De Heere Jezus vindt hem en vraagt: ‘Gelooft gij in den Zoon van God?’ De man zegt: ‘Ik geloof, Heere!’ En hij aanbidt Hem.",
+        t: "Het is sabbat. De Farizeeën ondervragen de man en ook zijn ouders. De ouders zijn bang om uit de synagoge gezet te worden. De man zegt: ‘een ding weet ik, dat ik blind was, en nu zie.’ Ten slotte werpen ze hem uit. De Heere Jezus vindt hem en vraagt: ‘Gelooft gij in den Zoon van God?’ De man zegt: ‘Ik geloof, Heere!’ En hij aanbidt Hem.",
       },
     ],
     vragen: [
@@ -4530,7 +4530,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Gij zijt de Christus",
-        t: "Simon Petrus antwoordt: ‘Gij zijt de Christus, de Zoon des levenden Gods.’ Christus betekent Gezalfde: Hij is de Beloofde van God. De Heere Jezus noemt Petrus zalig, want niet mensen hebben hem dit laten zien, maar de Vader in de hemel. Hij verbiedt de discipelen om aan iemand te vertellen dat Hij de Christus is.",
+        t: "Simon Petrus antwoordt: ‘Gij zijt de Christus, de Zoon des levenden Gods.’ Christus betekent Gezalfde: Hij is de Beloofde van God. De Heere Jezus noemt Petrus zalig (gezegend), want niet mensen hebben hem dit laten zien, maar de Vader in de hemel. Hij verbiedt de discipelen om aan iemand te vertellen dat Hij de Christus is.",
       },
       {
         kop: "Lijden, sterven en opstaan",
@@ -4567,7 +4567,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Bidden op de berg",
         stap: "jezus-2:nt-brood-en-berg:6",
-        t: "Ongeveer acht dagen na de belijdenis van Petrus neemt de Heere Jezus Petrus, Johannes en Jakobus mee een berg op om te bidden. Terwijl Hij bidt, verandert Zijn gezicht, en Zijn kleren worden wit en zeer blinkend. Twee mannen spreken met Hem: Mozes en Elia. Ze zijn in heerlijkheid en spreken over Zijn uitgang, die Hij in Jeruzalem zou volbrengen. Dat wordt meestal uitgelegd als Zijn sterven in Jeruzalem.",
+        t: "Ongeveer acht dagen na de belijdenis van Petrus neemt de Heere Jezus Petrus, Johannes en Jakobus mee een berg op om te bidden. Terwijl Hij bidt, verandert Zijn gezicht, en Zijn kleren worden wit en zeer blinkend. Twee mannen spreken met Hem: Mozes en Elia. Ze verschijnen in heerlijkheid en spreken over Zijn uitgang, die Hij in Jeruzalem zou volbrengen. Dat wordt meestal uitgelegd als Zijn sterven in Jeruzalem.",
       },
       {
         kop: "Drie tenten",
@@ -4612,11 +4612,11 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Eén ding ontbreekt",
         stap: "jezus-2:nt-reis-naar-jeruzalem:8",
-        t: "Dan valt een man voor Hem op de knieën. Hij vraagt hoe hij het eeuwige leven kan beërven (krijgen als erfenis). De Heere Jezus noemt de geboden. De man zegt dat hij die van jongs af gehouden heeft. Hij kijkt hem aan, heeft hem lief en zegt: ‘Een ding ontbreekt u’. Hij moet alles verkopen, het aan de armen geven en Hem volgen. De man gaat bedroefd weg, want hij heeft veel bezittingen.",
+        t: "Dan valt een man voor Hem op de knieën. Hij vraagt hoe hij het eeuwige leven kan beërven (krijgen als erfenis). De Heere Jezus noemt de geboden. De man zegt dat hij die van jongs af gehouden heeft. De Heere Jezus kijkt hem aan, heeft hem lief en zegt: ‘Een ding ontbreekt u’. Hij moet alles verkopen, het aan de armen geven en Hem volgen. De man gaat bedroefd weg, want hij heeft veel bezittingen.",
       },
       {
         kop: "Bij God is alles mogelijk",
-        t: "Voor rijken is het heel moeilijk om in Gods Koninkrijk te komen. Een kemel (een kameel) gaat nog makkelijker door het oog van een naald, zegt de Heere Jezus. De discipelen schrikken: wie kan dan zalig worden? Hij antwoordt: ‘Bij de mensen is het onmogelijk, maar niet bij God’.",
+        t: "De Heere Jezus zegt: voor rijken is het heel moeilijk om in Gods Koninkrijk te komen. Een kemel (kameel) gaat nog makkelijker door het oog van een naald. De discipelen schrikken: wie kan dan zalig worden? Hij antwoordt: ‘Bij de mensen is het onmogelijk, maar niet bij God’.",
       },
     ],
     vragen: [
@@ -4652,7 +4652,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Een vraag om de beste plaatsen",
-        t: "Dan vragen Jakobus en Johannes, de zonen van Zebedeüs, of ze in Zijn heerlijkheid naast Hem mogen zitten, rechts en links. De Heere Jezus zegt: ‘Gij weet niet, wat gij begeert.’ Hij vraagt of ze de drinkbeker kunnen drinken die Hij drinkt. Die beker is een beeld van het lijden dat Hem wacht. ‘Wij kunnen’, zeggen ze.",
+        t: "Dan vragen Jakobus en Johannes, de zonen van Zebedeüs, of ze in Zijn heerlijkheid naast Hem mogen zitten, rechts en links. De Heere Jezus zegt: ‘Gij weet niet, wat gij begeert.’ Hij vraagt of ze de drinkbeker kunnen drinken die Hij drinkt. Dat wordt meestal uitgelegd als het lijden dat Hem wacht. ‘Wij kunnen’, zeggen ze.",
       },
       {
         kop: "Wie groot wil zijn",
@@ -4677,7 +4677,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         q: "Waarom moet wie groot wil zijn een dienaar worden?",
-        a: ["Ook de Zoon des mensen kwam om te dienen", "Dan krijgt hij later een beloning", "Dan worden de anderen niet boos"],
+        a: ["Ook de Zoon des mensen kwam om te dienen", "Dan houden de anderen meer van hem", "Dan worden de anderen niet boos"],
         why: "Markus 10:43–45",
       },
     ],
@@ -5403,7 +5403,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Rhode aan de deur",
-        t: "Petrus klopt aan bij het huis van Maria, de moeder van Johannes Markus. Daar bidden veel mensen. Rhode herkent zijn stem, maar van blijdschap doet ze niet open. Binnen gelooft niemand haar. Pas als ze opendoen, zien ze Petrus.",
+        t: "Petrus klopt aan bij het huis van Maria, de moeder van Johannes Markus. Daar bidden veel mensen. Rhode herkent zijn stem, maar van blijdschap doet ze niet open. Binnen geloven ze haar niet. Pas als ze opendoen, zien ze Petrus.",
       },
       {
         kop: "Herodes geeft God de eer niet",
@@ -5495,7 +5495,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Goden of mensen",
         stap: "handelingen:nt-paulus:6",
-        t: "In Antiochië in Pisidië en in Ikonium geloven veel mensen, maar er komt ook vervolging. In Lystre geneest Paulus een man die nog nooit gelopen heeft. De mensen denken dat ze goden zijn en willen hun offeren. Maar die roepen: ‘Wij zijn ook mensen’. Dan komen er Joden uit andere steden. Paulus wordt gestenigd: met stenen bekogeld, tot men denkt dat hij dood is. Maar hij staat op.",
+        t: "In Antiochië in Pisidië en Ikonium geloven velen, maar er komt ook vervolging. In Lystre geneest Paulus een man die nog nooit gelopen heeft. De mensen denken dat de twee goden zijn en willen hun offeren. Maar die roepen: ‘Wij zijn ook mensen’. Dan komen er Joden uit andere steden. Paulus wordt gestenigd: met stenen bekogeld, tot men denkt dat hij dood is. Maar hij staat op.",
       },
       {
         kop: "De deur van het geloof",
@@ -5537,7 +5537,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Lydia bij de rivier",
         stap: "handelingen:nt-paulus:9",
-        t: "Ze varen naar Filippi in Macedonië. Op de sabbat spreken ze bij de rivier met vrouwen die daar bidden. Lydia verkoopt purper, dure paarsrode stof. De Heere opent haar hart, en ze wordt gedoopt met haar huis.",
+        t: "Ze varen naar Filippi in Macedonië. Op de sabbat gaan ze naar de rivier, waar gebeden wordt, en spreken met de vrouwen daar. Lydia verkoopt purper, dure paarsrode stof. De Heere opent haar hart, en ze wordt gedoopt met haar huis.",
       },
       {
         kop: "Lofzangen in de nacht",
@@ -5584,7 +5584,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Moed in de nacht",
         stap: "handelingen:nt-paulusrome:2",
-        t: "’s Nachts staat de Heere bij hem: ‘Heb goeden moed, Paulus’. Hij moet ook in Rome getuigen. Meer dan veertig mannen zweren niets te eten voordat ze Paulus gedood hebben. Maar een neef van Paulus, de zoon van zijn zus, hoort het en waarschuwt. De overste stuurt Paulus ’s nachts met veel soldaten naar stadhouder Felix in Caesarea.",
+        t: "’s Nachts staat de Heere bij hem: ‘Heb goeden moed, Paulus’. Hij moet ook in Rome getuigen. Meer dan veertig mannen zweren niets te eten of te drinken voordat ze Paulus gedood hebben. Maar een neef van Paulus, de zoon van zijn zus, hoort het en waarschuwt. De overste stuurt Paulus ’s nachts met veel soldaten naar stadhouder Felix in Caesarea.",
       },
     ],
     vragen: [
@@ -5642,7 +5642,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         q: "Waarom kon Paulus de mensen moed inspreken?",
-        a: ["Een engel van God had hem iets beloofd", "Hij zag het land al liggen", "De stuurman had het hem gezegd"],
+        a: ["Een engel had gezegd dat niemand zou omkomen", "Hij zag het land al liggen", "De stuurman had gezegd dat het goed kwam"],
         why: "Handelingen 27:22–25",
       },
       {

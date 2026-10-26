@@ -3091,7 +3091,10 @@ BR.niveaus.voegToe("a", {
     status: "concept",
     plaatsen: ["nt_bethesda", "nt_tempel"],
     delen: [
-      { t: "De Heere Jezus gaat naar Jeruzalem. Daar is een groot badwater. Het heet Bethesda.", stap: "jezus-2:nt-feesten-jeruzalem:0" },
+      {
+        t: "De Heere Jezus gaat naar Jeruzalem. Daar is een badwater, een bad met water. Het heet Bethesda.",
+        stap: "jezus-2:nt-feesten-jeruzalem:0",
+      },
       {
         t: "Bij het water liggen heel veel zieke mensen. Ook mensen die blind zijn of niet goed kunnen lopen.",
         stap: "jezus-2:nt-feesten-jeruzalem:0",
@@ -3106,7 +3109,7 @@ BR.niveaus.voegToe("a", {
       },
       { t: "De Joden willen de Heere Jezus doden. Want Hij doet dit op de sabbat, en Hij noemt God Zijn eigen Vader." },
     ],
-    samen: "Bij A is weggelaten dat volgens vers 4 een engel het water beroerde (Johannes 5:4), en ook het antwoord van de Heere Jezus: ‘Mijn Vader werkt tot nu toe, en Ik werk ook’ (Johannes 5:17). Het verhaal eindigt ermee dat de Joden Hem willen doden (Johannes 5:18); dat kun je eenvoudig zo laten staan. Vraag samen: wie had de man om hem te helpen, en wat gebeurde er toen de Heere Jezus sprak?",
+    samen: "Bij A is weggelaten dat volgens vers 4 een engel het water beroerde (Johannes 5:4), en ook het antwoord van de Heere Jezus: ‘Mijn Vader werkt tot nu toe, en Ik werk ook’ (Johannes 5:17). Het verhaal eindigt ermee dat de Joden Hem willen doden (Johannes 5:18); benoem dat eenvoudig en eerlijk. Vraag samen: wie hielp de man in het water, en wat gebeurde er toen de Heere Jezus sprak?",
     vragen: [
       { q: "Hoe lang is de man al ziek?", a: ["Achtendertig jaar", "Een paar dagen"], why: "Johannes 5:5" },
       {
@@ -3152,7 +3155,7 @@ BR.niveaus.voegToe("a", {
       { t: "De herder roept zijn schapen bij hun naam. Hij gaat voor ze uit, en ze volgen hem. Want ze kennen zijn stem." },
       { t: "Een vreemde volgen de schapen niet. Van hem vluchten ze weg." },
       { t: "De Heere Jezus zegt: ‘Ik ben de goede Herder.’ De goede herder geeft zijn leven voor de schapen." },
-      { t: "Iemand die alleen voor geld op de schapen past, vlucht als de wolf komt. Maar de goede Herder geeft Zijn leven voor ze." },
+      { t: "Iemand die alleen voor geld op de schapen past, vlucht als de wolf komt. Hij heeft geen zorg voor de schapen." },
       {
         t: "Het is winter. De Heere Jezus is in de tempel. Hij zegt: ‘Mijn schapen horen Mijn stem.’",
         stap: "jezus-2:nt-feesten-jeruzalem:5",
@@ -3193,7 +3196,7 @@ BR.niveaus.voegToe("a", {
     plaatsen: ["nt_berg"],
     delen: [
       { t: "De Heere Jezus neemt Petrus, Johannes en Jakobus mee. Ze gaan een berg op om te bidden.", stap: "jezus-2:nt-brood-en-berg:6" },
-      { t: "Terwijl Hij bidt, verandert Zijn gezicht. Zijn kleren worden wit en stralend.", stap: "jezus-2:nt-brood-en-berg:6" },
+      { t: "Terwijl Hij bidt, verandert Zijn gezicht. Zijn kleren worden wit en stralend." },
       { t: "Dan spreken er twee mannen met Hem: Mozes en Elia. Ze spreken over wat Hij in Jeruzalem zal volbrengen." },
       { t: "De discipelen zijn erg slaperig. Als ze wakker worden, zien ze Zijn heerlijkheid en de twee mannen." },
       { t: "Petrus zegt: ‘Meester, het is goed, dat wij hier zijn’. Hij wil drie tenten maken. Maar hij weet niet wat hij zegt." },
@@ -3246,7 +3249,7 @@ BR.niveaus.voegToe("a", {
       { t: "De Heere Jezus is met Zijn discipelen op weg naar Jeruzalem. Hij loopt voorop.", stap: "jezus-2:nt-reis-naar-jeruzalem:9" },
       { t: "Hij vertelt wat er in Jeruzalem gaat gebeuren. Mensen zullen Hem bespotten en doden. Maar op de derde dag zal Hij opstaan." },
       { t: "Dan komen Jakobus en Johannes bij Hem. Ze zijn broers, de zonen van Zebedeüs." },
-      { t: "Ze vragen of ze later naast Hem mogen zitten, de één rechts en de ander links, in Zijn heerlijkheid." },
+      { t: "Ze vragen of ze naast Hem mogen zitten, de één rechts en de ander links, in Zijn heerlijkheid." },
       { t: "De Heere Jezus zegt: ‘Gij weet niet, wat gij begeert.’ Dat betekent: jullie weten niet wat jullie vragen." },
       { t: "De andere tien discipelen horen het. Ze worden boos op Jakobus en Johannes." },
       { t: "Dan zegt de Heere Jezus: wie groot wil zijn, moet de anderen dienen." },
@@ -3262,8 +3265,10 @@ BR.niveaus.voegToe("a", {
   109: {
     status: "concept",
     delen: [
-      { t: "Een wetgeleerde wil de Heere Jezus op de proef stellen. Een wetgeleerde kent de wet van God heel goed." },
-      { t: "Hij zegt wat er in de wet staat: heb God lief met heel je hart, en je naaste als jezelf." },
+      {
+        t: "Een wetgeleerde kent Gods wet heel goed. Hij wil de Heere Jezus op de proef stellen en vraagt hoe hij het eeuwige leven krijgt.",
+      },
+      { t: "De Heere Jezus vraagt wat er in de wet staat. De man zegt: heb God lief met heel je hart, en je naaste als jezelf." },
       { t: "Dan vraagt hij: ‘En wie is mijn naaste?’ De Heere Jezus vertelt een gelijkenis." },
       { t: "Een man reist van Jeruzalem naar Jericho. Onderweg wordt hij overvallen. De rovers laten hem half dood liggen." },
       { t: "Er komt een priester langs. Hij ziet de man, maar loopt aan de overkant voorbij. Een Leviet doet hetzelfde." },
@@ -3740,7 +3745,7 @@ BR.niveaus.voegToe("a", {
         t: "De Heere zegt tegen Ananias: Ga naar Saulus. Maar Ananias zegt: Heere, die man heeft Uw volk veel kwaad gedaan.",
         stap: "handelingen:nt-paulus:1",
       },
-      { t: "De Heere zegt: Ga toch. Ik heb hem uitgekozen. Hij zal Mijn Naam bekendmaken aan volken en koningen." },
+      { t: "De Heere zegt: Ga heen. Ik heb hem uitgekozen. Hij zal Mijn Naam bekendmaken aan volken en koningen." },
       {
         t: "Ananias legt Saulus de handen op. Er valt iets als schubben van zijn ogen. Hij ziet weer en wordt gedoopt.",
         stap: "handelingen:nt-paulus:1",
@@ -3750,7 +3755,7 @@ BR.niveaus.voegToe("a", {
     samen: "Op schilderijen valt Saulus vaak van een paard. Handelingen 9 noemt geen paard: er staat alleen dat hij ‘ter aarde gevallen’ was (9:4). Saulus had de gelovigen veel kwaad gedaan (9:1–2, 13); de Bijbel vertelt dat zonder details, en dat kan bij het voorlezen ook. Vraag samen: wat deed Saulus in de drie dagen dat hij niet kon zien? (9:9, 11)",
     vragen: [
       { q: "Wat ziet Saulus vlak bij Damascus?", a: ["Een licht uit de hemel", "Een groot vuur"], why: "Handelingen 9:3" },
-      { q: "Wie spreekt tegen Saulus?", a: ["De Heere Jezus", "Een van de soldaten"], why: "Handelingen 9:5" },
+      { q: "Wie spreekt tegen Saulus?", a: ["De Heere Jezus", "Een van zijn reisgenoten"], why: "Handelingen 9:5" },
       {
         q: "Hoe komt Saulus later uit Damascus weg?",
         a: ["In een mand langs de muur", "Op een kameel door de poort"],
@@ -3767,12 +3772,12 @@ BR.niveaus.voegToe("a", {
         stap: "handelingen:nt-paulus:2",
       },
       {
-        t: "Later haalt Barnabas Saulus op uit Tarsus. Een heel jaar leren ze samen de gemeente in Antiochië.",
+        t: "Later haalt Barnabas Saulus op uit Tarsus. Een heel jaar onderwijzen ze samen de gemeente in Antiochië.",
         stap: "handelingen:nt-paulus:3",
       },
       { t: "In Antiochië worden de discipelen voor het eerst christenen genoemd.", stap: "handelingen:nt-paulus:3" },
       {
-        t: "De Heilige Geest zegt dat Barnabas en Saulus apart gezet moeten worden voor een werk. De gemeente bidt en laat hen gaan.",
+        t: "De Heilige Geest zegt dat Barnabas en Saulus apart gezet moeten worden voor een werk. Na vasten en bidden laat men hen gaan.",
         stap: "handelingen:nt-paulus:4",
       },
       { t: "Ze varen naar het eiland Cyprus. Daar vertellen ze het Woord van God.", stap: "handelingen:nt-paulus:4" },
@@ -3816,7 +3821,7 @@ BR.niveaus.voegToe("a", {
       },
       { t: "Ze varen met een schip over de zee naar Macedonië. Daar gaan ze naar de stad Filippi.", stap: "handelingen:nt-paulus:9" },
       { t: "Bij de rivier vertelt Paulus over de Heere. Lydia luistert. De Heere opent haar hart.", stap: "handelingen:nt-paulus:9" },
-      { t: "Lydia wordt gedoopt, met haar huis. Ze vraagt of Paulus en de anderen bij haar willen wonen." },
+      { t: "Lydia wordt gedoopt, met haar huis. Ze vraagt of Paulus en de anderen bij haar in huis willen blijven." },
       {
         t: "Later worden Paulus en Silas geslagen en in de gevangenis gezet. Hun voeten zitten vast in een blok.",
         stap: "handelingen:nt-paulus:10",
@@ -3824,9 +3829,11 @@ BR.niveaus.voegToe("a", {
       { t: "Om middernacht bidden Paulus en Silas en zingen ze voor God. De andere gevangenen luisteren." },
       { t: "Dan komt er een grote aardbeving. Alle deuren gaan open en alle boeien raken los." },
       { t: "De bewaker denkt dat iedereen gevlucht is. Maar Paulus roept: ‘Doe uzelven geen kwaad; want wij zijn allen hier.’" },
-      { t: "De bewaker vraagt hoe hij zalig kan worden. Ze zeggen: Geloof in de Heere Jezus Christus. Nog die nacht wordt hij gedoopt." },
+      {
+        t: "De bewaker vraagt hoe hij zalig kan worden. Ze zeggen: Geloof in de Heere Jezus Christus. Nog die nacht wordt hij gedoopt, met al de zijnen.",
+      },
     ],
-    samen: "Weggelaten: Paulus en Barnabas gaan in onenigheid uit elkaar (Handelingen 15:37–39), en Paulus drijft een waarzeggende geest uit een slavin; daarom worden hij en Silas gevangengezet (16:16–24). De bewaker wilde zichzelf doden toen hij de deuren open zag (16:27); Daarom roept Paulus: ‘Doe uzelven geen kwaad’. Zalig worden betekent: gered worden van de zonden. Vraag samen: wat deden Paulus en Silas midden in de nacht? (16:25)",
+    samen: "Weggelaten: Paulus en Barnabas gaan in onenigheid uit elkaar (Handelingen 15:37–39), en Paulus drijft een waarzeggende geest uit een slavin; daarom worden hij en Silas gevangengezet (16:16–24). De bewaker wilde zichzelf doden toen hij de deuren open zag (16:27). Daarom roept Paulus: ‘Doe uzelven geen kwaad’. Zalig worden betekent: gered worden van de zonden. Vraag samen: wat deden Paulus en Silas midden in de nacht? (16:25)",
     vragen: [
       { q: "Wie ziet Paulus in de nacht in Troas?", a: ["Een man uit Macedonië", "Een engel met een zwaard"], why: "Handelingen 16:9" },
       { q: "Wat opent de Heere bij Lydia?", a: ["Haar hart", "Haar winkel"], why: "Handelingen 16:14" },

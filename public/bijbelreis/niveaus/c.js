@@ -3999,7 +3999,7 @@ BR.niveaus.voegToe("c", {
         q: "Welk voorbeeld gebruikt de Heere Jezus in Lukas 13 over de sabbat?",
         a: [
           "Iedereen maakt zijn os of ezel los om te drinken",
-          "Iedereen haalt op de sabbat water uit de put",
+          "Iedereen bakt op de sabbat zijn brood",
           "Iedereen gaat op de sabbat naar de markt",
         ],
         why: "Lukas 13:15",
@@ -4011,7 +4011,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Elders in de Bijbel",
-        t: "Dat God blinden laat zien, staat al in het Oude Testament: ‘De HEERE opent de ogen der blinden’ (Psalm 146:8). Over Zijn Knecht zegt de HEERE bij Jesaja dat Hij komt ‘om te openen de blinde ogen’ (Jesaja 42:7). De genezen man zegt zelf: ‘Van alle eeuw is het niet gehoord, dat iemand eens blindgeborenen ogen geopend heeft’ (Johannes 9:32).",
+        t: "Dat God blinden laat zien, staat al in het Oude Testament: ‘De HEERE opent de ogen der blinden’ (Psalm 146:8). Bij Jesaja zegt de HEERE over Zijn Knecht dat Hij gegeven is ‘om te openen de blinde ogen’ (Jesaja 42:6–7). De genezen man zegt zelf: ‘Van alle eeuw is het niet gehoord, dat iemand eens blindgeborenen ogen geopend heeft’ (Johannes 9:32).",
         refs: ["Psalm 146:8", "Jesaja 42:1–7", "Johannes 9:32"],
       },
       {
@@ -4021,7 +4021,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Waar en wanneer",
-        t: "Het badwater Siloam geldt als identificeerbaar. Ook Lukas noemt Siloam: daar viel een toren op achttien mensen (Lukas 13:4). Johannes vertelt deze geschiedenis na het Loofhuttenfeest (Johannes 7:2) en vóór het feest der vernieuwing in de winter (Johannes 10:22). Daarom wordt ze in het najaar gedateerd: ca. 29 n.Chr. als de kruisiging rond 30 was, of ca. 32 bij een kruisiging in 33. Dat is een reconstructie.",
+        t: "Het badwater Siloam geldt als identificeerbaar. Ook Lukas noemt Siloam: daar viel een toren op achttien mensen (Lukas 13:4). Johannes vertelt deze geschiedenis na zijn verslag van het Loofhuttenfeest (Johannes 7:2) en vóór het feest der vernieuwing in de winter (Johannes 10:22). Daarom wordt ze in het najaar gedateerd: ca. 29 n.Chr. als de kruisiging rond 30 was, of ca. 32 bij een kruisiging in 33. Dat is een reconstructie.",
         refs: ["Lukas 13:4", "Johannes 7:2", "Johannes 10:22"],
       },
     ],
@@ -4044,7 +4044,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Herders in de Bijbel",
-        t: "Ezechiël moest profeteren tegen ‘de herders van Israël’, de leiders van het volk, die ‘zichzelven weiden’ en niet voor de schapen zorgden (Ezechiël 34:2–3). Daartegenover zegt God: ‘Ik, ja, Ik zal naar Mijn schapen vragen, en zal ze opzoeken’ (Ezechiël 34:11). Psalm 80 begint met: ‘O Herder Israëls! neem ter ore’ (Psalm 80:2). Na Zijn opstanding noemt Hebreeën de Heere Jezus ‘den grote Herder der schapen’ (Hebreeën 13:20), en Petrus ‘de overste Herder’ (1 Petrus 5:4).",
+        t: "Ezechiël moest profeteren tegen ‘de herders van Israël’, de leiders van het volk, die ‘zichzelven weiden’ en niet voor de schapen zorgden (Ezechiël 34:2–3). Daartegenover zegt God: ‘Ik, ja, Ik zal naar Mijn schapen vragen, en zal ze opzoeken’ (Ezechiël 34:11). In Psalm 80 staat: ‘O Herder Israëls! neem ter ore’ (Psalm 80:2). Later noemt de brief aan de Hebreeën de Heere Jezus ‘den grote Herder der schapen’, Die God uit de doden heeft wedergebracht (Hebreeën 13:20). Petrus noemt Hem ‘de overste Herder’ (1 Petrus 5:4).",
         refs: ["Ezechiël 34:2–3", "Ezechiël 34:11", "Psalm 80:2", "Hebreeën 13:20", "1 Petrus 5:4"],
       },
       {
@@ -4054,7 +4054,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Het feest van de vernieuwing",
-        t: "Johannes noemt ‘het feest der vernieuwing des tempels’ (Johannes 10:22). Dat feest komt in het Oude Testament niet voor. Het herdacht dat de tempel opnieuw werd ingewijd nadat hij was ontheiligd, in de tijd van de Makkabeeën; tegenwoordig heet het Chanoeka. De Heere Jezus wandelt ‘in het voorhof van Salomo’ (10:23). Na Zijn woorden ‘Ik en de Vader zijn een’ nemen de Joden stenen op om Hem te stenigen (10:31).",
+        t: "Johannes noemt ‘het feest der vernieuwing des tempels’ (Johannes 10:22). Dat feest komt in het Oude Testament niet voor. Uit bronnen buiten de Bijbel weten we dat het herdacht dat de tempel opnieuw werd ingewijd nadat hij was ontheiligd, in de tijd van de Makkabeeën. Tegenwoordig heet het Chanoeka. De Heere Jezus wandelt ‘in het voorhof van Salomo’ (10:23). Na Zijn woorden ‘Ik en de Vader zijn een’ nemen de Joden stenen op om Hem te stenigen (10:31).",
         refs: ["Johannes 10:22–23", "Johannes 10:30–31"],
       },
     ],
@@ -4081,12 +4081,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Drie evangeliën",
-        t: "Ook Markus en Lukas vertellen dit. Bij Markus zegt Petrus: ‘Gij zijt de Christus’ (Markus 8:29); bij Lukas: ‘De Christus Gods’ (Lukas 9:20). Lukas vertelt dat de Heere Jezus vlak daarvoor ‘alleen was biddende’ (Lukas 9:18). Alleen Mattheüs schrijft op wat de Heere Jezus daarna tegen Petrus zegt over de gemeente en de sleutels (Mattheüs 16:17–19). Bar-jona betekent: zoon van Jona; Johannes noemt hem ‘Simon, de zoon van Jonas’ (Johannes 1:43).",
+        t: "Ook Markus en Lukas vertellen dit. Bij Markus zegt Petrus: ‘Gij zijt de Christus’ (Markus 8:29); bij Lukas: ‘De Christus Gods’ (Lukas 9:20). Lukas vertelt dat de Heere Jezus vlak daarvoor ‘alleen was biddende’ (Lukas 9:18). Alleen Mattheüs schrijft op wat de Heere Jezus daarna tegen Petrus zegt over de gemeente en de sleutels (Mattheüs 16:17–19). Bar-jona betekent ‘zoon van Jona’ in het Aramees; Johannes noemt hem ‘Simon, de zoon van Jonas’ (Johannes 1:43).",
         refs: ["Markus 8:27–31", "Lukas 9:18–22", "Mattheüs 16:17–19", "Johannes 1:43"],
       },
       {
-        kop: "Drie keer aangekondigd",
-        t: "Hier begint de Heere Jezus over Zijn lijden te spreken (16:21). Mattheüs vertelt dat Hij het daarna nog twee keer zegt: in Galilea (Mattheüs 17:22–23) en op weg naar Jeruzalem. Die laatste keer zegt Hij er ook bij dat de heidenen Hem zullen bespotten, geselen en kruisigen (Mattheüs 20:17–19). Na de tweede aankondiging staat er: ‘En zij werden zeer bedroefd’ (Mattheüs 17:23).",
+        kop: "Opnieuw aangekondigd",
+        t: "‘Van toen aan’ begint de Heere Jezus over Zijn lijden te spreken (16:21). Daarna kondigt Hij het opnieuw aan, onder andere in Galilea (Mattheüs 17:22–23) en op weg naar Jeruzalem. Daar zegt Hij er ook bij dat de heidenen Hem zullen bespotten, geselen en kruisigen (Mattheüs 20:17–19). Na de woorden in Galilea staat er: ‘En zij werden zeer bedroefd’ (Mattheüs 17:23).",
         refs: ["Mattheüs 16:21", "Mattheüs 17:22–23", "Mattheüs 20:17–19"],
       },
       {
@@ -4118,7 +4118,7 @@ BR.niveaus.voegToe("c", {
     status: "concept",
     verdieping: [
       {
-        kop: "Wat Mattheüs en Markus toevoegen",
+        kop: "Wat de andere evangeliën vertellen",
         t: "Markus schrijft dat Zijn kleren zo wit werden ‘als sneeuw, hoedanige geen voller op aarde zo wit maken kan’ (Markus 9:3). Een voller was iemand die stof reinigde en wit maakte. Mattheüs vertelt dat de discipelen op hun gezicht vielen, en dat de Heere Jezus hen aanraakte en zei: ‘Staat op en vreest niet’ (Mattheüs 17:6–7). Alleen Lukas vertelt dat ze over Zijn uitgang spraken en dat de discipelen ‘met slaap bezwaard’ waren (Lukas 9:31–32).",
         refs: ["Markus 9:3", "Mattheüs 17:6–7", "Lukas 9:31–32"],
       },
@@ -4189,17 +4189,17 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "De drinkbeker",
-        t: "De Heere Jezus spreekt over ‘den drinkbeker’ die Hij drinkt (Markus 10:38). In Gethsemane bidt Hij later: ‘neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt’ (Markus 14:36). Tegen de broers zegt Hij dat zij Zijn drinkbeker ook zullen drinken (Markus 10:39). Johannes schrijft later dat hij ‘medegenoot in de verdrukking’ was, op het eiland Patmos (Openbaring 1:9). Veel uitleggers zien daarin een vervulling van dit woord.",
-        refs: ["Markus 10:38–39", "Markus 14:32–36", "Openbaring 1:9"],
+        t: "De Heere Jezus spreekt over ‘den drinkbeker’ die Hij drinkt (Markus 10:38). In Gethsemane bidt Hij later: ‘neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt’ (Markus 14:36). Tegen de broers zegt Hij dat zij Zijn drinkbeker ook zullen drinken (Markus 10:39). Jakobus werd later met het zwaard gedood (Handelingen 12:2); Johannes schrijft dat hij ‘medegenoot in de verdrukking’ was, op het eiland Patmos (Openbaring 1:9). Veel uitleggers zien hierin hoe dit woord uitkwam.",
+        refs: ["Markus 10:38–39", "Markus 14:32–36", "Handelingen 12:2", "Openbaring 1:9"],
       },
       {
         kop: "Rechts en links",
-        t: "Jakobus en Johannes vragen om de plaatsen aan Zijn rechter- en linkerhand ‘in Uw heerlijkheid’. Markus gebruikt die woorden later opnieuw: bij de kruisiging hangen er twee moordenaars, ‘een aan Zijn rechter-, en een aan Zijn linker zijde’ (Markus 15:27). Uitleggers wijzen op dat verband. Mattheüs schrijft dat de plaatsen gegeven worden aan hen voor wie het ‘bereid is van Mijn Vader’ (Mattheüs 20:23).",
+        t: "Jakobus en Johannes vragen om de plaatsen aan Zijn rechter- en linkerhand ‘in Uw heerlijkheid’. Markus gebruikt die woorden later opnieuw: bij de kruisiging hangen er twee moordenaars, ‘een aan Zijn rechter-, en een aan Zijn linker zijde’ (Markus 15:27). Sommige uitleggers wijzen op dat verband. Mattheüs schrijft dat de plaatsen gegeven worden aan hen voor wie het ‘bereid is van Mijn Vader’ (Mattheüs 20:23).",
         refs: ["Markus 10:37", "Markus 15:27", "Mattheüs 20:23"],
       },
       {
         kop: "Een rantsoen voor velen",
-        t: "Een rantsoen is een losprijs: wat betaald wordt om iemand vrij te maken. Paulus schrijft iets vergelijkbaars over Christus Jezus, ‘Die Zichzelven gegeven heeft tot een rantsoen voor allen’ (1 Timotheüs 2:6). Jesaja had over de Knecht van de HEERE gezegd dat Hij ‘veler zonden gedragen heeft’ (Jesaja 53:12). Dit is in Markus de derde keer dat de Heere Jezus Zijn lijden aankondigt (Markus 8:31; 9:31), en nu het uitvoerigst.",
+        t: "Een rantsoen is een losprijs: wat betaald wordt om iemand vrij te maken. Paulus schrijft iets vergelijkbaars over Christus Jezus, ‘Die Zichzelven gegeven heeft tot een rantsoen voor allen’ (1 Timotheüs 2:6). Jesaja had over de Knecht van de HEERE gezegd dat Hij ‘veler zonden gedragen heeft’ (Jesaja 53:12). Markus vertelt ook eerder dat de Heere Jezus Zijn lijden aankondigt (Markus 8:31; 9:31); hier doet Hij dat het uitvoerigst.",
         refs: ["1 Timotheüs 2:5–6", "Jesaja 53:12", "Markus 8:31", "Markus 9:31"],
       },
     ],
@@ -4230,7 +4230,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Samaritanen",
-        t: "De Samaritanen woonden in Samaria, tussen Judea en Galilea. Nadat de koning van Assyrië Samaria had ingenomen, liet hij volken uit andere landen ‘wonen in de steden van Samaria’ (2 Koningen 17:6, 24). Kort voor deze gelijkenis wilde een dorp van de Samaritanen de Heere Jezus niet ontvangen (Lukas 9:52–53). Veel uitleggers wijzen erop dat het daarom extra opvalt dat juist een Samaritaan in deze gelijkenis barmhartig is.",
+        t: "De Samaritanen woonden in Samaria, tussen Judea en Galilea. Nadat Assyrië Samaria had ingenomen, liet de koning van Assyrië volken uit andere landen ‘wonen in de steden van Samaria’ (2 Koningen 17:6, 24). Daarmee wordt vaak verklaard waarom Joden en Samaritanen niet met elkaar omgingen. Kort voor deze gelijkenis wilde een dorp van de Samaritanen de Heere Jezus niet ontvangen (Lukas 9:52–53). Veel uitleggers wijzen erop dat het daarom extra opvalt dat juist een Samaritaan in deze gelijkenis barmhartig is.",
         refs: ["2 Koningen 17:6", "2 Koningen 17:24", "Lukas 9:52–53"],
       },
       {
@@ -4891,7 +4891,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         q: "Wat zei Petrus toen Cornelius voor hem neerviel?",
-        a: ["Sta op, ik ben ook zelf een mens", "Bid voor mij, want ik ben zwak", "Buig liever voor de keizer"],
+        a: ["Sta op, ik ben ook zelf een mens", "Bid voor mij, want ik ben zwak", "Ga heen, ik ken u niet"],
         why: "Handelingen 10:26",
       },
       {
@@ -4943,7 +4943,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Twee keer Antiochië",
-        t: "De reis begint en eindigt in Antiochië in Syrië, waar de discipelen voor het eerst christenen heten (11:26). Onderweg komen Paulus en Barnabas in een andere stad met dezelfde naam: ‘Antiochië, een stad in Pisidië’ (13:14). Op de kaart zijn de plaatsen identificeerbaar, behalve Derbe, dat als waarschijnlijk staat. De Bijbel noemt geen jaartallen. De hongersnood ‘onder den keizer Claudius’ (11:28) geeft wel houvast. De eerste reis wordt meestal rond 46–48 n.Chr. gedateerd.",
+        t: "De reis begint en eindigt in Antiochië in Syrië (15:23), waar de discipelen voor het eerst christenen heten (11:26). Onderweg komen Paulus en Barnabas in een andere stad met dezelfde naam: ‘Antiochië, een stad in Pisidië’ (13:14). Op de kaart zijn de plaatsen identificeerbaar, behalve Derbe, dat als waarschijnlijk staat. De Bijbel noemt geen jaartallen. De hongersnood ‘onder den keizer Claudius’ (11:28) geeft wel houvast. De eerste reis wordt meestal rond 46–48 n.Chr. gedateerd.",
         refs: ["Handelingen 11:26–28", "Handelingen 13:14", "Handelingen 15:23"],
       },
       {
@@ -4953,7 +4953,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Paulus preekt uit de Schriften",
-        t: "In de synagoge van Antiochië in Pisidië haalt Paulus het Oude Testament aan. Uit ‘den tweeden psalm’: ‘Gij zijt Mijn Zoon, heden heb Ik U gegenereerd’ (Psalm 2:7). Uit Psalm 16:10: ‘Gij zult niet toelaten, dat Uw Heilige de verderving zie’. David heeft wel verderving gezien, zegt Paulus, maar Hij Die God opgewekt heeft niet (13:35–37). En hij waarschuwt met de woorden van Habakuk 1:5: ‘Ik werk een werk in uw dagen’ (13:41).",
+        t: "In de synagoge van Antiochië in Pisidië haalt Paulus het Oude Testament aan. Uit ‘den tweeden psalm’: ‘Gij zijt Mijn Zoon, heden heb Ik U gegenereerd’ (Psalm 2:7). Uit Psalm 16:10: ‘Gij zult niet toelaten, dat Uw Heilige de verderving zie’. David heeft wel verderving gezien, zegt Paulus, maar Hij Die door God is opgewekt, niet (13:35–37). En hij waarschuwt met de woorden van Habakuk 1:5: ‘Ik werk een werk in uw dagen’ (13:41).",
         refs: ["Handelingen 13:33–41", "Psalm 2:7", "Psalm 16:10", "Habakuk 1:5"],
       },
     ],
@@ -5027,7 +5027,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Farizeeën en Sadduceeën",
-        t: "Paulus weet dat de raad uit twee groepen bestaat. ‘De Sadduceën zeggen, dat er geen opstanding is, noch engel, noch geest, maar de Farizeën belijden het beide’ (23:8). Ook de Heere Jezus sprak met Sadduceeën, ‘die zeggen, dat er geen opstanding is’ (Mattheüs 22:23). Paulus noemt zich ‘een Farizeër, eens Farizeërs zoon’, en zegt dat het gaat om ‘de hoop en opstanding der doden’ (23:6). Daardoor raakt de raad verdeeld, en sommige Farizeeën zeggen: ‘Wij vinden geen kwaad in dezen mens’ (23:9).",
+        t: "Paulus weet dat de raad uit twee groepen bestaat. ‘De Sadduceën zeggen, dat er geen opstanding is, noch engel, noch geest, maar de Farizeën belijden het beide’ (23:8). Ook de Heere Jezus sprak met Sadduceeën, ‘die zeggen, dat er geen opstanding is’ (Mattheüs 22:23). Paulus noemt zich ‘een Farizeër, eens Farizeërs zoon’, en zegt dat het gaat om ‘de hoop en opstanding der doden’ (23:6). Daardoor raakt de raad verdeeld, en Schriftgeleerden van de Farizeeën zeggen: ‘Wij vinden geen kwaad in dezen mens’ (23:9).",
         refs: ["Handelingen 23:6–9", "Mattheüs 22:23"],
       },
       {
@@ -5077,7 +5077,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         q: "Voor wie moest Paulus volgens de engel nog komen te staan?",
-        a: ["Voor de keizer", "Voor de hogepriester", "Voor koning Agrippa"],
+        a: ["Voor de keizer", "Voor de hogepriester", "Voor de stadhouder van Kreta"],
         why: "Handelingen 27:24",
       },
       {
