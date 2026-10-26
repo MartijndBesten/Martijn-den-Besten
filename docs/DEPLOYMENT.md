@@ -70,6 +70,8 @@ Extra slot op de deur, gratis tot 50 gebruikers: alleen jouw e-mailadres komt no
 
 ## Twee deploy-varianten
 
+> **Stand 25 oktober 2026:** de deploy-job in GitHub Actions wordt nog steeds overgeslagen omdat het secret `CLOUDFLARE_API_TOKEN` niet is ingesteld (stap 1 hierboven); de workflow meldt dat als waarschuwing, niet als fout. De site draait daarom nog op de **ingebedde** variant, voor het laatst uitgerold vanuit een Claude-cloudsessie met `npm run build && node scripts/embed-assets.mjs && npx wrangler deploy -c wrangler.embedded.jsonc` (versie `1e9d3cbc`, met Bijbelreis). De ingebedde Worker is nu 3,7 MB gecomprimeerd (door de Bijbelteksten en 3D-beelden); zodra het secret is ingesteld en één deploy via Actions is geslaagd, is die grens niet meer van belang.
+
 | Variant | Config | Wanneer |
 | --- | --- | --- |
 | **Static Assets** (standaard) | `wrangler.jsonc` | GitHub Actions en lokaal met een eigen token. Statische bestanden komen niet langs de Worker: gratis, gecachet aan de rand. |
