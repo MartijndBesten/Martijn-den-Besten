@@ -324,7 +324,7 @@
       "plaatsen": ["nt_caesarea", "nt_schonehavens", "nt_malta"],
       "delen": [
         { "t": "Paulus is gevangen in Caesarea. Hij zegt: ‘Ik beroep mij op den keizer.’ Dat betekent: de keizer moet over mij oordelen.", "stap": "handelingen:nt-paulusrome:3" },
-        { "t": "Daarom gaat Paulus met een schip naar Italië. Hij is samen met andere gevangenen. De hoofdman Julius past op hen." },
+        { "t": "Daarom gaat Paulus met een schip op weg naar Italië. Hij is samen met andere gevangenen. De hoofdman Julius past op hen." },
         { "t": "Paulus waarschuwt: deze reis wordt gevaarlijk. Maar ze varen toch verder.", "stap": "handelingen:nt-paulusrome:4" },
         { "t": "Dan komt er een zware storm. Vele dagen zien ze geen zon en geen sterren. Ze hebben geen hoop meer." },
         { "t": "Paulus zegt: Een engel van God is bij mij geweest. Niemand zal sterven, alleen het schip gaat verloren." },

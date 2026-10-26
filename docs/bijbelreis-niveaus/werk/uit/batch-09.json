@@ -11,7 +11,7 @@
         { "t": "De poorten van Jericho zijn dicht. Niemand gaat de stad uit, en niemand gaat erin.", "stap": "jozua:intocht:4" },
         { "t": "De HEERE zegt hoe het moet. Zes dagen lang lopen ze één keer om de stad heen." },
         { "t": "Priesters dragen de ark van de HEERE. Zeven priesters blazen op ramshoorns. Het volk zegt geen woord." },
-        { "t": "Op de zevende dag lopen ze zeven keer om de stad. Dan roept Jozua dat ze moeten juichen, want de HEERE geeft hun de stad." },
+        { "t": "Op de zevende dag lopen ze zeven keer om de stad. Dan roept Jozua dat ze moeten juichen, want de HEERE heeft hun de stad gegeven." },
         { "t": "Het volk juicht heel hard. En de muur van de stad valt naar beneden!", "stap": "jozua:intocht:4" },
         { "t": "Israël neemt de stad in. Alleen Rachab en haar familie blijven leven, want zij had twee mannen van Jozua verborgen." }
       ],
@@ -34,7 +34,7 @@
         {
           "kop": "De Vorst van het leger",
           "stap": "jozua:intocht:4",
-          "t": "Bij Jericho ziet Jozua een Man met een getrokken zwaard. Hij zegt: ‘Ik ben de Vorst van het heir des HEEREN’. Dat betekent: de Aanvoerder van het leger van de HEERE. Jozua valt op zijn gezicht en aanbidt."
+          "t": "Bij Jericho ziet Jozua een Man met een getrokken zwaard. Hij zegt: ‘Ik ben de Vorst van het heir des HEEREN’. Dat betekent: de Aanvoerder van het leger van de HEERE. Jozua valt op zijn gezicht en aanbidt. Hij moet zijn schoenen uittrekken, want de plaats waar hij staat is heilig."
         },
         {
           "kop": "Zeven dagen om de stad",
@@ -58,17 +58,17 @@
       "verdieping": [
         {
           "kop": "Oordeel over de volken van Kanaän",
-          "t": "Jozua 6:21 vertelt dat Israël alles in Jericho doodde. De Bijbel beschrijft dit als Gods oordeel over de volken van Kanaän. Al tegen Abraham zei God dat zijn nakomelingen pas in het vierde geslacht zouden terugkomen, ‘want de ongerechtigheid der Amorieten is tot nog toe niet volkomen’ (Genesis 15:16). Mozes zei tegen Israël: ‘Niet om uw gerechtigheid’, ‘maar om de goddeloosheid dezer volken, verdrijft hen de HEERE’ (Deuteronomium 9:5). Het woord ‘verbannen’ (6:17) betekent hier: helemaal aan de HEERE gewijd. Mensen en dieren werden gedood; het zilver, het goud en de koperen en ijzeren vaten kwamen in Zijn schat (6:19).",
-          "refs": ["Jozua 6:17–21", "Genesis 15:16", "Deuteronomium 9:5"]
+          "t": "Jozua 6:21 vertelt dat Israël alles in Jericho doodde. De Bijbel beschrijft dit als Gods oordeel over de volken van Kanaän. Al tegen Abram zei God dat zijn nakomelingen pas in het vierde geslacht zouden terugkomen, ‘want de ongerechtigheid der Amorieten is tot nog toe niet volkomen’ (Genesis 15:16). Mozes zei tegen Israël: ‘Niet om uw gerechtigheid’, ‘maar om de goddeloosheid dezer volken, verdrijft hen de HEERE’ (Deuteronomium 9:5). Het woord ‘verbannen’ (6:17) wordt uitgelegd als: helemaal aan de HEERE gegeven, zodat niemand er iets van mocht nemen (6:18; vgl. Leviticus 27:28). Mensen en dieren werden gedood; het zilver, het goud en de koperen en ijzeren vaten kwamen in Zijn schat (6:19).",
+          "refs": ["Jozua 6:17–21", "Genesis 15:16", "Deuteronomium 9:5", "Leviticus 27:28"]
         },
         {
           "kop": "Rachab elders in de Bijbel",
-          "t": "Toen Rachab de verspieders verborg, zei ze: ‘de HEERE, ulieder God, is een God boven in den hemel, en beneden op de aarde’ (Jozua 2:11). Hebreeën 11:31 zegt: ‘Door het geloof is Rachab, de hoer, niet omgekomen met de ongehoorzamen’. Jakobus 2:25 noemt haar als voorbeeld van een geloof dat zich laat zien in wat iemand doet. In het geslachtsregister van de Heere Jezus staat: ‘Salmon gewon Booz bij Rachab’ (Mattheüs 1:5). Meestal wordt zij gezien als dezelfde Rachab.",
-          "refs": ["Jozua 2:11", "Hebreeën 11:31", "Jakobus 2:25", "Mattheüs 1:5"]
+          "t": "Toen Rachab de verspieders verborg, zei ze: ‘de HEERE, ulieder God, is een God boven in den hemel, en beneden op de aarde’ (Jozua 2:11). Hebreeën 11:31 zegt: ‘Door het geloof is Rachab, de hoer, niet omgekomen met de ongehoorzamen’. Jakobus noemt haar als voorbeeld bij de woorden ‘Toon mij uw geloof uit uw werken’ (Jakobus 2:18, 25). In het geslachtsregister van de Heere Jezus staat: ‘Salmon gewon Booz bij Rachab’ (Mattheüs 1:5). Uitleggers zien haar meestal als dezelfde Rachab.",
+          "refs": ["Jozua 2:11", "Hebreeën 11:31", "Jakobus 2:18, 25", "Mattheüs 1:5"]
         },
         {
           "kop": "Waar en wanneer",
-          "t": "De ligging van Jericho is bekend. Gilgal lag ‘aan het oosteinde van Jericho’ (Jozua 4:19); de plek op de kaart is waarschijnlijk, maar niet zeker. Het Pascha viel op de veertiende dag van de eerste maand (4:19; 5:10), na veertig jaar in de woestijn (5:6). Wie de uittocht met 1 Koningen 6:1 rond 1446 v.Chr. dateert, komt hier rond 1406 v.Chr. uit. Wie de uittocht in de 13e eeuw v.Chr. plaatst, komt rond 1230–1200 v.Chr. uit.",
+          "t": "Jericho is identificeerbaar. Gilgal lag ‘aan het oosteinde van Jericho’ (Jozua 4:19); de plek op de kaart is waarschijnlijk, maar niet zeker. Het Pascha viel op de veertiende dag van de eerste maand (4:19; 5:10), na veertig jaar in de woestijn (5:6). Wie de uittocht met 1 Koningen 6:1 rond 1446 v.Chr. dateert, komt hier rond 1406 v.Chr. uit. Wie de uittocht in de 13e eeuw v.Chr. plaatst, komt rond 1230–1200 v.Chr. uit.",
           "refs": ["Jozua 4:19", "Jozua 5:6–10", "1 Koningen 6:1"]
         }
       ],

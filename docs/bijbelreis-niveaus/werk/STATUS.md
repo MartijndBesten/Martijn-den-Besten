@@ -1,6 +1,6 @@
 # Status reisniveaus (gegenereerd door scripts/niveaus/samenvoegen.mjs)
 
-In de app: 134 geschiedenissen, 402 versies. Doel: 150 × 3 = 450.
+In de app: 125 geschiedenissen, 375 versies. Doel: 150 × 3 = 450.
 
 | Batch | Geschiedenissen | Geschreven | Gecontroleerd | Controleverslag |
 |---|---|---|---|---|
@@ -13,22 +13,22 @@ In de app: 134 geschiedenissen, 402 versies. Doel: 150 × 3 = 450.
 | 06 | 29, 30, 31 | 9 van 9 | 9 | ja |
 | 07 | 32, 33, 34, 35 | 12 van 12 | 12 | ja |
 | 08 | 36, 37, 38 | 9 van 9 | 9 | ja |
-| 09 | 39, 40, 41, 42 | 12 van 12 | 0 | nee |
+| 09 | 39, 40, 41, 42 | 0 van 12 | 0 | nee · haalt de controle nog niet; niet in de app |
 | 10 | 43, 44, 45, 46, 47 | 15 van 15 | 15 | ja |
 | 11 | 48, 49, 50 | 9 van 9 | 9 | ja |
 | 12 | 51, 52, 53 | 9 van 9 | 9 | ja |
 | 13 | 54, 55, 56 | 9 van 9 | 9 | ja |
 | 14 | 57, 58, 59, 60 | 12 van 12 | 12 | ja |
 | 15 | 61, 62 | 6 van 6 | 6 | ja |
-| 16 | 63, 64, 65, 66, 67 | 15 van 15 | 0 | nee |
+| 16 | 63, 64, 65, 66, 67 | 0 van 15 | 0 | nee · haalt de controle nog niet; niet in de app |
 | 17 | 68, 69, 70, 71, 72 | 15 van 15 | 0 | nee |
-| 18 | 73, 74, 75, 76 | 12 van 12 | 12 | nee |
+| 18 | 73, 74, 75, 76 | 12 van 12 | 12 | ja |
 | 19 | 77, 78, 79, 80, 81, 82, 84, 85 | 24 van 24 | 0 | nee |
 | 20 | 86, 87, 88, 89, 90, 91, 92, 93 | 24 van 24 | 0 | nee |
 | 21 | 94, 95, 96, 97, 98, 99, 100, 101 | 24 van 24 | 24 | ja |
 | 22 | 102, 103, 104, 105, 106, 107, 108, 109 | 24 van 24 | 0 | nee |
 | 23 | 110, 111, 112, 113, 114, 115, 116, 117 | 24 van 24 | 24 | ja |
-| 24 | 118, 119, 120, 121, 122, 123, 124, 125 | 0 van 24 | 0 | nee |
+| 24 | 118, 119, 120, 121, 122, 123, 124, 125 | 0 van 24 | 0 | nee · haalt de controle nog niet; niet in de app |
 | 25 | 126, 127, 128, 129, 130, 131, 132, 133 | 0 van 24 | 0 | nee |
 | 26 | 134, 135, 136, 137, 138, 139, 140, 141 | 24 van 24 | 0 | nee |
 | 27 | 142, 143, 144, 145, 146, 147 | 18 van 18 | 0 | nee |

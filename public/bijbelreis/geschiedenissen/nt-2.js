@@ -166,7 +166,7 @@ BR.geschiedenissen.push(
     { q: "Wat zei de Heere Jezus dat de rijke man moest doen?", a: ["Alles verkopen, het de armen geven en Hem volgen", "Elke dag drie keer bidden en vasten", "Vaker naar de tempel gaan en offeren"], why: "Markus 10:21" },
     { q: "Waarom ging de rijke man bedroefd weg?", a: ["Hij had vele goederen", "Hij was ziek", "Hij was te laat"], why: "Markus 10:22" },
     { q: "Wat is volgens de Heere Jezus nog moeilijker dan een kemel door het oog van een naald?", a: ["Dat een rijke in het Koninkrijk Gods ingaat", "Dat een visser rijk wordt", "Dat een kind de wet leert"], why: "Markus 10:25" }],
-  cross: [["Mattheüs 18:3", "‘Indien gij u niet verandert, en wordt gelijk de kinderkens, zo zult gij in het Koninkrijk der hemelen geenszins ingaan.’"],
+  cross: [["Mattheüs 18:3", "‘Indiën gij u niet verandert, en wordt gelijk de kinderkens, zo zult gij in het Koninkrijk der hemelen geenszins ingaan.’"],
     ["Mattheüs 19:20–22", "Mattheüs vertelt dat het een jongeling was."],
     ["Mattheüs 6:19–20", "‘Vergadert u schatten in den hemel.’"]],
   tl: [30, 30], tijd: "ca. 30 n.Chr. (of 33)",
@@ -214,7 +214,7 @@ BR.geschiedenissen.push(
 
 { nr: 110, t: "Martha en Maria", ref: "Lukas 10:38–42", sectie: "onderweg",
   stappen: ["jezus-2:nt-reis-naar-jeruzalem:2"], vorm: "plek", kw: "liefde",
-  uitleg: "Op de reis komt de Heere Jezus in een dorp, en Martha ontvangt Hem in haar huis. Haar zuster Maria gaat aan Zijn voeten zitten en luistert naar Zijn woord. Martha heeft het erg druk met het vele werk om alles klaar te maken. Ze komt naar de Heere Jezus en vraagt of het Hem niets kan schelen dat haar zuster haar alleen laat werken: ‘Zeg dan haar, dat zij mij helpe.’ Maar de Heere Jezus antwoordt: ‘Martha, Martha, gij bekommert en ontrust u over vele dingen; maar een ding is nodig.’ Maria heeft het goede deel gekozen, en dat zal haar niet worden afgenomen. Johannes vertelt dat de Heere Jezus Martha, haar zuster en Lazarus liefhad (Johannes 11:5).",
+  uitleg: "Op de reis komt de Heere Jezus in een dorp, en Martha ontvangt Hem in haar huis. Haar zuster Maria gaat aan Zijn voeten zitten en luistert naar Zijn woord. Martha heeft het erg druk met het vele werk om alles klaar te maken. Ze komt naar de Heere Jezus en vraagt of het Hem niets kan schelen dat haar zuster haar alleen laat werken: ‘Zeg dan haar, dat zij mij helpe.’ Maar de Heere Jezus antwoordt: ‘Martha, Martha, gij bekommert en ontrust u over vele dingen; Maar een ding is nodig.’ Maria heeft het goede deel gekozen, en dat zal haar niet worden afgenomen. Johannes vertelt dat de Heere Jezus Martha, haar zuster en Lazarus liefhad (Johannes 11:5).",
   betekenis: "Dit verhaal staat direct na het grote gebod om God lief te hebben met heel je hart, en je naaste als jezelf (Lukas 10:27). Maria zit aan Zijn voeten en hoort Zijn woord: dat noemt de Heere Jezus ‘het goede deel’ (Lukas 10:42).",
   wie: ["Jezus", "Martha", "Maria van Bethanië"],
   ontdek: { soort: "onthul", titel: "De familie uit Bethanië", items: [
@@ -262,8 +262,8 @@ BR.geschiedenissen.push(
   betekenis: "De Heere Jezus zegt zelf waar de gelijkenissen van Lukas 15 over gaan: er is blijdschap in de hemel over één zondaar die zich bekeert (Lukas 15:7, 10). De boze oudste zoon doet denken aan de Farizeeën, die mopperden dat Hij zondaars ontving (Lukas 15:2, 28–30).",
   wie: ["Jezus", "Tollenaars", "Farizeeën"],
   ontdek: { soort: "gelijkenis", titel: "Verloren en gevonden", beelden: [
-    ["Het verloren schaap", "‘Er zal blijdschap zijn in den hemel over een zondaar, die zich bekeert.’", "Lukas 15:7"],
-    ["De verloren penning", "‘Er is blijdschap voor de engelen Gods over een zondaar, die zich bekeert.’", "Lukas 15:10"],
+    ["Het verloren schaap", "‘Dat er alzo blijdschap zal zijn in den hemel over een zondaar, die zich bekeert.’", "Lukas 15:7"],
+    ["De verloren penning", "‘Alzo, zeg Ik ulieden, is er blijdschap voor de engelen Gods over een zondaar, die zich bekeert.’", "Lukas 15:10"],
     ["De jongste zoon", "‘Deze mijn zoon was dood, en is weder levend geworden; en hij was verloren, en is gevonden!’", "Lukas 15:24"],
     ["De oudste zoon", "Hij wordt boos en wil niet naar binnen, zoals de Farizeeën mopperden dat de Heere Jezus zondaars ontving.", "Lukas 15:2, 28"]] },
   quiz: [
@@ -332,7 +332,7 @@ BR.geschiedenissen.push(
     ["Johannes 5:28–29", "‘De ure komt, in dewelke allen, die in de graven zijn, Zijn stem zullen horen.’"],
     ["Johannes 18:14", "Johannes herinnert aan de raad van Kajafas: ‘dat het nut was, dat een Mens voor het volk stierve’."]],
   tl: [30, 30], tijd: "ca. 30 n.Chr. (of 33)",
-  tijdNoot: "Reconstructie. Na dit wonder was ‘het pascha der Joden nabij’ (Johannes 11:55): het gebeurde weken vóór het laatste Pascha. Wie de kruisiging ca. 30 n.Chr. stelt, komt op het begin van 30; wie 33 n.Chr. aanhoudt, op het begin van 33." },
+  tijdNoot: "Reconstructie. Na dit wonder staat er: ‘het pascha der Joden was nabij’ (Johannes 11:55); het gebeurde weken vóór het laatste Pascha. Wie de kruisiging ca. 30 n.Chr. stelt, komt op het begin van 30; wie 33 n.Chr. aanhoudt, op het begin van 33." },
 
 { nr: 116, t: "De blinde Bartimeüs", ref: "Markus 10:46–52", sectie: "onderweg",
   stappen: ["jezus-2:nt-reis-naar-jeruzalem:10"], vorm: "plek",

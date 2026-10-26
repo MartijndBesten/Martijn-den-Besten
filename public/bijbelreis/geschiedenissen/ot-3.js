@@ -111,7 +111,7 @@ BR.geschiedenissen.push(
     { q: "Wie beschikte de grote vis?", a: ["De HEERE", "De zeelieden", "De koning van Ninevé"], why: "Jona 1:17" },
     { q: "Waarmee eindigt het gebed van Jona in de vis?", a: ["Het heil is des HEEREN", "Ik wil naar Tarsis", "Laat mij sterven"], why: "Jona 2:9" }],
   cross: [["Mattheüs 12:40", "‘Gelijk Jonas drie dagen en drie nachten was in den buik van den walvis, alzo zal de Zoon des mensen drie dagen en drie nachten wezen in het hart der aarde.’"],
-    ["Psalm 139:9–10", "‘Woonde ik aan het uiterste der zee … Ook daar zou Uw hand mij geleiden.’"],
+    ["Psalm 139:9–10", "‘Woonde ik aan het uiterste der zee; Ook daar zou Uw hand mij geleiden.’"],
     ["2 Koningen 14:25", "Jona, de zoon van Amitthai, kwam uit Gath-Hefer en profeteerde in de tijd van koning Jerobeam."]],
   tl: [-793, -753], tijd: "ca. 790–750 v.Chr.",
   tijdNoot: "Reconstructie. De Bijbel zegt alleen dat Jona profeteerde in de tijd van Jerobeam II, koning van Israël (2 Koningen 14:23–25). Diens regering wordt in de gangbare chronologie (Thiele) op ca. 793–753 v.Chr. gezet. Wanneer Jona naar Ninevé moest, staat er niet.",
