@@ -16,7 +16,7 @@ BR.boeken.push({
 { id: "nt-openbaring", n: "Johannes op Patmos", short: "Openbaring", ref: "Openbaring 1–3", c: "lila", init: "J",
   tijd: "ca. 95 n.Chr.", tl: [95, 95],
   tijdNoot: "Reconstructie; de Bijbel noemt geen jaartal. De kerkvader Irenaeus (ca. 180 n.Chr.) schrijft dat Johannes de Openbaring zag aan het einde van de regering van keizer Domitianus (81–96 n.Chr.); daarom wordt meestal ca. 95 aangehouden. Sommige uitleggers dateren het boek eerder, rond 68 n.Chr.",
-  intro: "Johannes is op het eiland Patmos, om het Woord van God. Op de dag des Heeren hoort hij een stem als een bazuin: ‘Schrijf wat u ziet, en stuur het naar de zeven gemeenten.’ Hij ziet de verheerlijkte Heere Jezus. Daarna volgen zeven brieven, aan echte gemeenten in echte steden, die je op de kaart kunt vinden.",
+  intro: "Johannes is op het eiland Patmos, om het Woord van God. Op de dag des Heeren hoort hij een stem als een bazuin: “Schrijf wat u ziet, en stuur het naar de zeven gemeenten.” Hij ziet de verheerlijkte Heere Jezus. Daarna volgen zeven brieven, aan echte gemeenten in echte steden, die je op de kaart kunt vinden.",
   who: [["Johannes"], ["Gemeente", "7 gemeenten"]],
   stat: "In Openbaring komt het getal zeven steeds terug: zeven gemeenten, zeven sterren, zeven kandelaren (1:20) en een boek met zeven zegels (5:1).",
   cross: [["Daniël 7:9", "Ook Daniël zag in een gezicht Iemand met haar ‘als zuivere wol’ en kleren wit als sneeuw, net als Johannes in Openbaring 1:14."],

@@ -94,11 +94,11 @@ BR.boeken.push({
   { ref: "Jeremia 40:6–12", t: "Bij Gedalja in Mizpa", stamp: "Mizpa", at: ["rama", "mizpa"],
     r: [{ p: ["rama", "mizpa"], recon: 1 }],
     who: [["Jeremia"], ["Gedalja"], ["Volk", "wie in het land bleef"]],
-    txt: "Jeremia gaat naar Gedalja in Mizpa en woont bij hem, midden tussen het volk dat in het land is overgebleven. De legeroversten die nog in het veld waren, komen met hun mannen naar Gedalja. Gedalja zweert hun: ‘Vreest niet van de Chaldeeën te dienen; blijft in het land, en dient den koning van Babel, zo zal het u welgaan.’ Joden die naar Moab, Ammon, Edom en andere landen gevlucht waren, horen het en komen terug naar Juda. Ze verzamelen heel veel wijn en zomervruchten.",
+    txt: "Jeremia gaat naar Gedalja in Mizpa en woont bij hem, midden tussen het volk dat in het land is overgebleven. De legeroversten die nog in het veld waren, komen met hun mannen naar Gedalja. Gedalja zweert hun: “Vreest niet van de Chaldeeën te dienen; blijft in het land, en dient den koning van Babel, zo zal het u welgaan.” Joden die naar Moab, Ammon, Edom en andere landen gevlucht waren, horen het en komen terug naar Juda. Ze verzamelen heel veel wijn en zomervruchten.",
     fact: "In Mizpa had Samuël vroeger het hele volk bijeengeroepen om voor hen te bidden (1 Samuël 7:5).", fs: "b" },
   { ref: "Jeremia 40:13–16", t: "Een waarschuwing", stamp: "Gevaar", at: ["mizpa"], zoom: 9,
     who: [["Gedalja"], ["Johanan", "zoon van Kareah"]],
-    txt: "Johanan, de zoon van Kareah, en de andere legeroversten komen bij Gedalja in Mizpa. ‘Weet u wel dat Baälis, de koning van de Ammonieten, Ismaël, de zoon van Nethanja, gestuurd heeft om u te doden?’ Maar Gedalja gelooft hen niet. In het geheim zegt Johanan: ‘Laat mij Ismaël doden, niemand zal het weten. Anders raakt het hele overblijfsel van Juda verloren.’ Gedalja antwoordt: ‘Doe dat niet, want wat u over Ismaël zegt, is niet waar.’",
+    txt: "Johanan, de zoon van Kareah, en de andere legeroversten komen bij Gedalja in Mizpa. “Weet u wel dat Baälis, de koning van de Ammonieten, Ismaël, de zoon van Nethanja, gestuurd heeft om u te doden?” Maar Gedalja gelooft hen niet. In het geheim zegt Johanan: “Laat mij Ismaël doden, niemand zal het weten. Anders raakt het hele overblijfsel van Juda verloren.” Gedalja antwoordt: “Doe dat niet, want wat u over Ismaël zegt, is niet waar.”",
     fact: "Johanan had gelijk. In de zevende maand doodde Ismaël Gedalja in Mizpa, terwijl ze samen aten (Jeremia 41:1–2; 2 Koningen 25:25). Daarna gingen Johanan en het volk tegen het woord van de HEERE in naar Egypte, en ze namen Jeremia mee (Jeremia 43:4–7).", fs: "b" },
   ],
   quiz: {
