@@ -6,7 +6,7 @@
     <title>Bijbelreis — Op reis door de Bijbel — Martijn den Besten</title>
     <meta name="description" content="Interactieve Bijbelatlas voor kinderen en ouders: 150 geschiedenissen van Genesis tot Openbaring op de kaart, met de Bijbeltekst, tijdlijn, speurtocht en een stempelpaspoort." />
     <link rel="canonical" href="https://martijndenbesten.com/bijbelreis" />
-    <meta name="theme-color" content="#f7f1ec" />
+    <meta name="theme-color" content="#243d70" />
     <meta name="robots" content="index, follow" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="nl_NL" />
@@ -15,7 +15,6 @@
     <meta property="og:description" content="150 geschiedenissen van Genesis tot Openbaring op de kaart, met de Bijbeltekst ernaast." />
     <meta property="og:url" content="https://martijndenbesten.com/bijbelreis" />
     <meta property="og:image" content="https://martijndenbesten.com/og.png" />
-    <script src="/uiterlijk.js"></script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
@@ -25,23 +24,42 @@
   </head>
   <body>
     <a class="skip-link" href="#reisboek">Direct naar het reisboek</a>
+    <header class="kop">
+      <a class="kop-terug" href="/" aria-label="Terug naar het Hoofdkwartier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span>Hoofdkwartier</span></a>
+      <div class="kop-titel">
+        <svg class="kop-kameel" viewBox="0 0 48 40" aria-hidden="true"><path d="M6 25c0-6 4-10 9-9 2-6 9-7 11 0 1-3 6-3 7 1 1 2 2 3 2 6l3-12c1-3 4-4 7-3l3 1-1 3h-4l-4 16c-1 2-2 3-4 3H9c-2 0-3-2-3-6z" fill="var(--camel)" stroke="var(--camel-dark)" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 30v8M17 30v8M29 30v8M34 30v8" stroke="var(--camel-dark)" stroke-width="3" stroke-linecap="round"/><path d="M15 17c4-2 10-2 15 1l-2 6H16z" fill="var(--terra)"/></svg>
+        <div>
+          <h1>Op reis door de <em>Bijbel</em></h1>
+          <p class="kop-sub">150 geschiedenissen van de schepping tot Openbaring · Afd. 06 · Reisbureau</p>
+        </div>
+      </div>
+      <nav class="tabs" role="tablist" aria-label="Onderdelen">
+        <button type="button" role="tab" id="t-verhalen" aria-controls="p-verhalen" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></svg>Verhalen</button>
+        <button type="button" role="tab" id="t-reis" aria-controls="p-reis" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20 12 4l9 16z"/><path d="M12 4v16M9 20l3-6 3 6"/></svg>Reis</button>
+        <button type="button" role="tab" id="t-wie" aria-controls="p-wie" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5V12M5 16.5V12h14v4.5"/></svg>Wie is wie</button>
+        <button type="button" role="tab" id="t-tijd" aria-controls="p-tijd" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18"/><circle cx="12" cy="7" r="2"/><circle cx="12" cy="16" r="2"/><path d="M14 7h6M4 16h6"/></svg>Tijdlijn</button>
+        <button type="button" role="tab" id="t-quiz" aria-controls="p-quiz" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg>Speurtocht</button>
+        <button type="button" role="tab" id="t-pas" aria-controls="p-pas" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="11" r="3.5"/></svg>Paspoort</button>
+      </nav>
+    </header>
     <div class="app">
       <div class="mapwrap">
+        <div class="kaartvlak">
         <div id="map" role="region" aria-label="Kaart van de reizen in de Bijbel"></div>
         <div class="maptools">
-          <button type="button" class="btn small icon" id="fullBtn" aria-pressed="false" aria-label="Groot: kaart op volledig scherm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span>Groot</span></button>
           <div class="seg" role="group" aria-label="Kaart van toen of van nu">
             <button type="button" id="toenBtn" aria-pressed="true">Toen</button>
             <button type="button" id="nuBtn" aria-pressed="false">Nu</button>
           </div>
-          <button type="button" class="btn small" id="legendBtn" aria-expanded="false" aria-controls="legend">Legenda</button>
-          <button type="button" class="btn small" id="insetBtn" aria-expanded="false" aria-controls="inset">Waar ligt dit?</button>
-          <div class="inset" id="inset" hidden>
-            <svg viewBox="0 0 230 125" role="img" aria-label="Overzichtskaartje met Europa, Nederland en het gebied van de kaart"></svg>
-            <p>Het gele vlekje is <b>Nederland</b>. Het kader is wat je nu op de grote kaart ziet.</p>
-          </div>
+          <button type="button" class="mbtn" id="legendBtn" aria-expanded="false" aria-controls="legend" aria-label="Legenda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span>Legenda</span></button>
         </div>
-        <div class="legend" id="legend" aria-label="Legenda">
+        <div class="mapacties">
+          <button type="button" class="mbtn" id="wereldBtn" aria-pressed="false" aria-label="Hele Bijbelwereld: alle plaatsen op de kaart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>Bijbelwereld</span></button>
+          <button type="button" class="mbtn" id="heleBtn" aria-label="Hele reis: de hele route weer tonen" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 18h6a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h6"/></svg><span>Hele reis</span></button>
+          <button type="button" class="mbtn" id="fullBtn" aria-pressed="false" aria-label="Groot: kaart op volledig scherm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span>Groot</span></button>
+        </div>
+        <div class="legend" id="legend" role="region" aria-label="Legenda">
+          <div class="lg-kop"><p class="lg-titel">Legenda</p><button type="button" class="linkbtn small" id="legendSluit">Sluiten</button></div>
           <p class="lg-h">Routes</p>
           <div><span class="sw"></span>Route van deze stap</div>
           <div><span class="sw dash"></span>Gestreept: reconstructie (de Bijbel noemt alleen begin en eind)</div>
@@ -54,8 +72,16 @@
           <div><span class="area" aria-hidden="true"></span>Gebied of gebergte</div>
           <div><span class="pin t-altaar"><svg viewBox="0 0 14 14" aria-hidden="true"><path class="f" d="M7 1 13 7 7 13 1 7z"/></svg></span>Altaar <span class="pin t-tent"><svg viewBox="0 0 14 14" aria-hidden="true"><path class="f" d="M7 1.5 13 12.5H1z"/></svg></span>Tent <span class="pin t-put"><svg viewBox="0 0 14 14" aria-hidden="true"><circle class="f" cx="7" cy="7" r="4.6"/></svg></span>Put</div>
           <p class="lg-nu" id="lgNu" hidden>Stand ‘Nu’: moderne grenzen en namen, alleen om te weten waar het nu ligt.</p>
+          <div class="waar">
+            <button type="button" class="linkbtn" id="insetBtn" aria-expanded="false" aria-controls="inset">Waar ligt dit?</button>
+            <div class="inset" id="inset" hidden>
+              <svg viewBox="0 0 230 125" role="img" aria-label="Overzichtskaartje met Europa, Nederland en het gebied van de kaart"></svg>
+              <p>Het gele vlekje is <b>Nederland</b>. Het kader is wat je nu op de grote kaart ziet.</p>
+            </div>
+          </div>
         </div>
-        <div class="gesture" id="gesture" hidden aria-hidden="true">Schuif met <b>twee vingers</b> of tik op <b>Grote kaart</b></div>
+        <div class="gesture" id="gesture" hidden aria-hidden="true">Schuif met <b>twee vingers</b>, of tik op <b>Groot</b></div>
+        </div>
         <div class="mapbar" id="mapbar">
           <button type="button" class="btn" id="prev" aria-label="Vorige stap">◀</button>
           <span class="where" id="where" aria-live="polite">Start</span>
@@ -64,28 +90,9 @@
       </div>
 
       <aside class="panel" id="reisboek">
-        <div class="topbar">
-          <a href="/">← Hoofdkwartier</a>
-          <span>Afd. 06 · Reisbureau</span>
-        </div>
-        <header class="masthead">
-          <svg viewBox="0 0 48 40" aria-hidden="true"><path d="M6 25c0-6 4-10 9-9 2-6 9-7 11 0 1-3 6-3 7 1 1 2 2 3 2 6l3-12c1-3 4-4 7-3l3 1-1 3h-4l-4 16c-1 2-2 3-4 3H9c-2 0-3-2-3-6z" fill="var(--camel)" stroke="var(--camel-dark)" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 30v8M17 30v8M29 30v8M34 30v8" stroke="var(--camel-dark)" stroke-width="3" stroke-linecap="round"/><path d="M15 17c4-2 10-2 15 1l-2 6H16z" fill="var(--acc)"/></svg>
-          <div>
-            <h1>Op reis door de <em>Bijbel</em></h1>
-            <p>De Bijbel op de kaart: 150 geschiedenissen van de schepping tot Openbaring</p>
-          </div>
-        </header>
 
-        <nav class="tabs" role="tablist" aria-label="Onderdelen">
-          <button type="button" role="tab" id="t-verhalen" aria-controls="p-verhalen" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></svg>Verhalen</button>
-          <button type="button" role="tab" id="t-reis" aria-controls="p-reis" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20 12 4l9 16z"/><path d="M12 4v16M9 20l3-6 3 6"/></svg>Reis</button>
-          <button type="button" role="tab" id="t-wie" aria-controls="p-wie" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5V12M5 16.5V12h14v4.5"/></svg>Wie is wie</button>
-          <button type="button" role="tab" id="t-tijd" aria-controls="p-tijd" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18"/><circle cx="12" cy="7" r="2"/><circle cx="12" cy="16" r="2"/><path d="M14 7h6M4 16h6"/></svg>Tijdlijn</button>
-          <button type="button" role="tab" id="t-quiz" aria-controls="p-quiz" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg>Speurtocht</button>
-          <button type="button" role="tab" id="t-pas" aria-controls="p-pas" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="11" r="3.5"/></svg>Paspoort</button>
-        </nav>
 
-        <div class="card welkom" id="welkom" hidden></div>
+        <div class="welkom" id="welkom" hidden></div>
 
         <section id="p-verhalen" role="tabpanel" aria-labelledby="t-verhalen" class="stack" hidden></section>
 
@@ -144,14 +151,18 @@
 
         <section id="p-pas" role="tabpanel" aria-labelledby="t-pas" class="stack" hidden>
           <div class="passport">
-            <h2>Mijn <em>reispaspoort</em></h2>
+            <div class="pas-kop"><p class="label">Reisdocument</p><h2>Mijn <em>reispaspoort</em></h2></div>
+            <div class="passtats" id="pasStats"></div>
             <p id="pasText"></p>
-            <div id="stamps" class="stack"></div>
           </div>
-          <div class="passport">
+          <div class="pasblad">
             <h3>Geschiedenissen</h3>
-            <p id="vPasText"></p>
+            <p id="vPasText" class="ref"></p>
             <div id="vGrid" class="vgrid"></div>
+          </div>
+          <div class="pasblad">
+            <h3>Stempels van de reis</h3>
+            <div id="stamps" class="stack"></div>
           </div>
           <p id="bestText" class="ref"></p>
           <button type="button" class="btn" id="resetPas">Paspoort leegmaken</button>
@@ -229,6 +240,8 @@
     <script src="/bijbelreis/geschiedenissen/nt-2.js"></script>
     <script src="/bijbelreis/geschiedenissen/nt-3.js"></script>
     <script src="/bijbelreis/geschiedenissen/nt-4.js"></script>
+    <script src="/bijbelreis/dateringen.js"></script>
+    <script src="/bijbelreis/indeling.js"></script>
     <script src="/bijbelreis/verwijzing.js"></script>
     <script src="/bijbelreis/app.js"></script>
   </body>

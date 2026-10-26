@@ -253,3 +253,71 @@ describe("bijbelreis: de 150 geschiedenissen", () => {
     expect(Object.keys(KWS).length).toBe(47);
   });
 });
+
+// Leeservaring: de vertelling is in onderdelen met een tussenkop verdeeld (indeling.js), zonder dat er tekst verloren gaat.
+describe("bijbelreis: indeling van de vertelteksten", () => {
+  const IND = (BR as unknown as { indeling?: Record<number, [string, string, string?][]> }).indeling || {};
+  it("elke geschiedenis heeft 2–4 onderdelen met een rustige kop", () => {
+    const bad: string[] = [];
+    for (const g of GS) {
+      const d = IND[g.nr];
+      if (!d || d.length < 2 || d.length > 4) { bad.push(`#${g.nr} aantal`); continue; }
+      for (const [kop] of d) if (!kop || kop.length > 42 || /[!?.]$/.test(kop) || kop.split(/\s+/).length < 2) bad.push(`#${g.nr} kop '${kop}'`);
+    }
+    expect(bad).toEqual([]);
+  });
+  it("elk onderdeel begint letterlijk aan het begin van een zin en samen vormen ze precies de hele tekst", () => {
+    const bad: string[] = [];
+    for (const g of GS) {
+      const d = IND[g.nr]; if (!d) continue;
+      if (d[0][1] !== "") bad.push(`#${g.nr} eerste onderdeel begint niet aan het begin`);
+      const at = d.map(([, b], i) => (i === 0 ? 0 : g.uitleg.indexOf(b)));
+      at.forEach((x, i) => {
+        if (i === 0) return;
+        if (x < 0) bad.push(`#${g.nr} begin '${d[i][1]}' niet gevonden`);
+        else if (g.uitleg.indexOf(d[i][1], x + 1) >= 0) bad.push(`#${g.nr} begin '${d[i][1]}' niet uniek`);
+        else if (!/[.!?…][’”')]*\s+$/.test(g.uitleg.slice(0, x))) bad.push(`#${g.nr} begin '${d[i][1]}' niet op een zinsgrens`);
+        if (x <= at[i - 1]) bad.push(`#${g.nr} volgorde`);
+      });
+      const delen = at.map((x, i) => g.uitleg.slice(x, at[i + 1] ?? g.uitleg.length).trim());
+      if (delen.join(" ") !== g.uitleg.trim().replace(/\s+/g, " ")) bad.push(`#${g.nr} tekst niet volledig`);
+    }
+    expect(bad).toEqual([]);
+  });
+  it("een ontdekmoment verwijst naar een kaartstap van dezelfde geschiedenis", () => {
+    const bad: string[] = [];
+    for (const g of GS) for (const [, , stap] of IND[g.nr] || []) if (stap && !g.stappen.includes(stap)) bad.push(`#${g.nr} ${stap}`);
+    expect(bad).toEqual([]);
+  });
+});
+
+// Dateringen: bij elk jaartal staat waarop het rust (dateringen.js); vroege data zijn nooit als vaststaand feit gemarkeerd.
+describe("bijbelreis: grond van de jaartallen", () => {
+  const DAT = (BR as unknown as { dateringen: { soorten: Record<string, { n: string; uitleg: string }>; delen: Record<string, [string, boolean]>; verhalen: [number, number, string, boolean][] } }).dateringen;
+  const vanVerhaal = (nr: number) => DAT.verhalen.find(([a, b]) => nr >= a && nr <= b);
+  it("elk gedateerd deel en elke gedateerde geschiedenis heeft een soort en een toelichting", () => {
+    const bad: string[] = [];
+    for (const { b, d } of DELEN) {
+      const key = `${b.id}:${d.id}`;
+      if (d.tijd == null) { if (DAT.delen[key]) bad.push(`${key} heeft geen jaartal maar wel een soort`); continue; }
+      if (!DAT.delen[key] || !["bijbel", "historie"].includes(DAT.delen[key][0])) bad.push(`${key} zonder soort`);
+      if (!(d as unknown as { tijdNoot?: string }).tijdNoot) bad.push(`${key} zonder toelichting`);
+    }
+    for (const g of GS as unknown as { nr: number; tijd?: string | null; tijdNoot?: string }[]) {
+      if (g.tijd == null) continue;
+      if (!vanVerhaal(g.nr)) bad.push(`#${g.nr} zonder soort`);
+      if (!g.tijdNoot) bad.push(`#${g.nr} zonder toelichting`);
+    }
+    expect(bad).toEqual([]);
+  });
+  it("de reeksen overlappen niet en Genesis 1–11 heeft geen jaartal", () => {
+    const n = DAT.verhalen.flatMap(([a, b]) => Array.from({ length: b - a + 1 }, (_, i) => a + i));
+    expect(new Set(n).size).toBe(n.length);
+    for (const g of GS as unknown as { nr: number; tijd?: string | null }[]) if (g.nr <= 7) expect(g.tijd ?? null, `#${g.nr}`).toBeNull();
+  });
+  it("uittocht, aartsvaders, richters en kruisiging zijn als onzeker gemarkeerd", () => {
+    for (const key of ["genesis:abraham", "exodus:uittocht", "jozua:intocht", "richteren:debora", "jezus-3:nt-lijden"]) expect(DAT.delen[key]?.[1], key).toBe(true);
+    for (const nr of [8, 26, 37, 42, 126]) expect(vanVerhaal(nr)?.[3], `#${nr}`).toBe(true);
+    for (const nr of [8, 26, 42]) expect(vanVerhaal(nr)?.[2], `#${nr}`).toBe("bijbel");
+  });
+});

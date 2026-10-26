@@ -145,7 +145,7 @@ BR.boeken.push({
 },
 
 { id: "ballingschap", n: "Wegvoering", short: "Wegvoering", ref: "2 Koningen 17–25", c: "rood", init: "W",
-  tijd: "ca. 725–560 v.Chr.", tl: [-725, -561],
+  tijd: "ca. 725–561 v.Chr.", tl: [-725, -561],
   tijdNoot: "Reconstructie op grond van de koningsjaren in de Bijbel en Assyrische en Babylonische bronnen. Samaria valt in het negende jaar van Hosea (17:6): volgens de meeste onderzoekers 722 v.Chr. Sanherib komt in het veertiende jaar van Hizkia (18:13): 701 v.Chr. Josia sneuvelt in 609; Jojachin wordt weggevoerd in 597; Jeruzalem en de tempel worden verwoest in 586 v.Chr. (sommigen rekenen 587). Jojachin komt vrij in het 37e jaar van zijn wegvoering (25:27), ca. 561 v.Chr. De jaartallen van Hizkia in 18:1, 18:9–10 en 18:13 zijn niet eenvoudig met elkaar te rijmen; daarom verschillen de schema’s daar.",
   intro: "De profeten hebben eeuwenlang gewaarschuwd. Nu komt de straf. Eerst valt Samaria en wordt Israël naar Assyrië gebracht. Juda krijgt nog goede koningen, Hizkia en Josia, en God redt Jeruzalem op wonderlijke wijze van Sanherib. Maar uiteindelijk verbrandt Nebukadnezar de stad en de tempel, en het volk gaat naar Babel.",
   who: [["Hizkia"], ["Jesaja"], ["Josia", "8 jaar"], ["Nebukadnezar"]],
