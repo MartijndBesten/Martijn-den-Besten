@@ -1,11 +1,27 @@
+import { existsSync, readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 
 // Visuele regressietest van de Bijbelreis (3.1): de belangrijkste schermen op desktop, telefoon en tablet.
-// Vaste voortgang, vaste volgorde, geen animaties. Nieuwe referentiebeelden na een bewuste ontwerpwijziging:
-//   npx playwright test bijbelreis-visueel --update-snapshots
-// De referentiebeelden horen bij de Chromium van de CI (de versie die bij @playwright/test hoort). Een andere
-// Chromium tekent tekst net anders (andere regelafbreking): maak ze daarom bij voorkeur in de CI aan.
+// Vaste voortgang, vaste volgorde, geen animaties.
+//
+// Vaste omgeving: deze test draait alleen in het Playwright-image dat in scripts/visueel.sh en in de CI-job
+// ‘Visuele regressie’ op digest is vastgezet (Playwright 1.63.0, Chromium 153.0.8010.12, Ubuntu 24.04 met dezelfde
+// systeemlettertypen). Buiten dat image slaat hij zichzelf over: een andere omgeving tekent tekens buiten de
+// webfonts (▶, ✓, ‘ ’) met andere lettertypen en breekt regels dan net anders af.
+//   npm run test:visueel                          vergelijken
+//   npm run test:visueel -- --update-snapshots    nieuwe referentiebeelden
+// Nieuwe referentiebeelden alleen na een bewuste ontwerpwijziging én nadat elk nieuw beeld inhoudelijk is bekeken
+// (staat alles erop, klopt de tekst, niets afgesneden of overlappend). Leg die controle vast in
+// docs/bijbelreis-audit/ontwerp-3.1.md. Nooit ‘actual’-beelden uit een mislukte CI-run overnemen zonder die controle.
+const BEELD = "/ms-playwright/.docker-info";
+const inVasteOmgeving = process.env.BIJBELREIS_VISUEEL === "1";
+test.skip(!inVasteOmgeving, "Alleen in het vaste Playwright-image: npm run test:visueel");
 test.use({ reducedMotion: "reduce" });
+test.beforeAll(async ({ browser }) => {
+  // Bewaakt de vaste omgeving: een ander image of een andere Chromium geeft andere pixels.
+  expect(existsSync(BEELD) && readFileSync(BEELD, "utf8"), "draait niet in het Playwright-image").toContain("v1.63.0");
+  expect(browser.version()).toBe("153.0.8010.12");
+});
 
 async function voorbereid(page: Page) {
   await page.addInitScript(() => {
@@ -28,17 +44,18 @@ async function stil(page: Page) {
 }
 const OPTIES = { maxDiffPixelRatio: 0.02, animations: "disabled" as const };
 
-const SCHERMEN: [string, string, string?][] = [
+const SCHERMEN: [string, string, ((p: Page) => Promise<void>)?][] = [
   ["start", "/bijbelreis"],
+  ["wereld", "/bijbelreis", (p) => p.locator("#wereldBtn").click()],
   ["reis", "/bijbelreis#terugkeer/4"],
   ["verhaal", "/bijbelreis#v26"],
-  ["paspoort", "/bijbelreis#ruth", "Paspoort"],
+  ["paspoort", "/bijbelreis#ruth", (p) => p.getByRole("tab", { name: "Paspoort" }).click()],
 ];
-for (const [naam, url, tab] of SCHERMEN) {
+for (const [naam, url, actie] of SCHERMEN) {
   test(`visueel: ${naam}`, async ({ page }) => {
     await voorbereid(page);
     await page.goto(url);
-    if (tab) await page.getByRole("tab", { name: tab }).click();
+    if (actie) await actie(page);
     await stil(page);
     await expect(page).toHaveScreenshot(`${naam}.png`, OPTIES);
   });

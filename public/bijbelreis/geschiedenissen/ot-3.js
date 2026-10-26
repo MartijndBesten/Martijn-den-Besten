@@ -276,7 +276,7 @@ BR.geschiedenissen.push(
   cross: [["Jesaja 44:28", "Lang tevoren zegt God over Kores: ‘Hij is Mijn herder’, en tegen de tempel: ‘Word gegrond.’"],
     ["Haggaï 1:4", "‘Is het voor ulieden wel de tijd, dat gij woont in uw gewelfde huizen, en zal dit huis woest zijn?’"],
     ["Psalm 126:1", "‘Als de HEERE de gevangenen Sions wederbracht, waren wij gelijk degenen, die dromen.’"]],
-  tl: [-538, -516], tijd: "ca. 538–516 v.Chr.",
+  tl: [-538, -515], tijd: "ca. 538–515 v.Chr.",
   tijdNoot: "Reconstructie. Het eerste jaar van Kores als koning over Babel is 538 v.Chr. (na de verovering in 539). Het werk lag stil tot het tweede jaar van Darius I, 520 v.Chr. (Ezra 4:24). De tempel was klaar op de derde dag van Adar in zijn zesde jaar (Ezra 6:15), ca. 516 of 515 v.Chr.",
 },
 {

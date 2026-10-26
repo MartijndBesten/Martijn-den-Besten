@@ -51,10 +51,11 @@
             <button type="button" id="toenBtn" aria-pressed="true">Toen</button>
             <button type="button" id="nuBtn" aria-pressed="false">Nu</button>
           </div>
-          <button type="button" class="mbtn" id="legendBtn" aria-expanded="false" aria-controls="legend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span>Legenda</span></button>
+          <button type="button" class="mbtn" id="legendBtn" aria-expanded="false" aria-controls="legend" aria-label="Legenda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span>Legenda</span></button>
         </div>
         <div class="mapacties">
-          <button type="button" class="mbtn" id="heleBtn" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 18h6a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h6"/></svg><span>Hele reis</span></button>
+          <button type="button" class="mbtn" id="wereldBtn" aria-pressed="false" aria-label="Hele Bijbelwereld: alle plaatsen op de kaart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>Bijbelwereld</span></button>
+          <button type="button" class="mbtn" id="heleBtn" aria-label="Hele reis: de hele route weer tonen" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 18h6a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h6"/></svg><span>Hele reis</span></button>
           <button type="button" class="mbtn" id="fullBtn" aria-pressed="false" aria-label="Groot: kaart op volledig scherm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span>Groot</span></button>
         </div>
         <div class="legend" id="legend" role="region" aria-label="Legenda">
@@ -239,6 +240,8 @@
     <script src="/bijbelreis/geschiedenissen/nt-2.js"></script>
     <script src="/bijbelreis/geschiedenissen/nt-3.js"></script>
     <script src="/bijbelreis/geschiedenissen/nt-4.js"></script>
+    <script src="/bijbelreis/dateringen.js"></script>
+    <script src="/bijbelreis/indeling.js"></script>
     <script src="/bijbelreis/verwijzing.js"></script>
     <script src="/bijbelreis/app.js"></script>
   </body>

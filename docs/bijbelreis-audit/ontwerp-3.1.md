@@ -166,3 +166,108 @@ Live staat 3.0 met de afrondingsreparatie: worker `d5b8af16-ca11-466e-b060-5da3f
 1. **Site-thema:** moet de atlas een eigen ‘avond’-variant krijgen voor wie Nachtdienst kiest? Nu is de atlas altijd licht. Advies: niet nu; een donkere atlas maakt land, water en routes slechter leesbaar.
 2. **Stadsplattegrond van Jeruzalem** (zoom 13): bewust niet getekend. De loop van de muren in de 1e eeuw is deels onzeker.
 3. Na goedkeuring van de schermafbeeldingen: PR, CI, merge en publicatie volgens de vaste route.
+
+## G. Reviewronde 26 oktober 2026 (op verzoek van Martijn, nog niet gepubliceerd)
+
+### 1. Startkaart volgt de geschiedenis van nu
+
+Bij het openen toont de kaart de route en plaatsen van de huidige geschiedenis, niet langer standaard ‘Het begin’ (Ur en Eden).
+
+**Welke geschiedenis is ‘nu’?** Gekozen wordt de eerste die van toepassing is:
+
+1. de laatst geopende geschiedenis (nieuwe sleutel `bijbelreis:huidig`);
+2. anders de geschiedenis bij de laatst bekeken reisstap (`bijbelreis:laatst`);
+3. anders de eerste na de verste gelezen geschiedenis;
+4. voor een nieuwe reiziger geschiedenis 1.
+
+**Bijbelwereld.** De knop *Bijbelwereld* op de kaart toont alle plaatsen uit alle reizen zonder routes. Ankerplaatsen van Ur tot Rome krijgen een vaste naam; de rest verschijnt bij inzoomen. *Jouw reis* gaat terug.
+
+**Nieuwe reiziger.** Geschiedenis 1 heeft geen plaatsen op de kaart. Daarom begint een nieuwe reiziger met de Bijbelwereld.
+
+**Telefoon.** Op een smal scherm wordt het kerngebied (Macedonië tot Perzië) getoond. Rome en Malta liggen een veeg naar links. Verder uitzoomen toont de rand van de kaartondergrond en is daarom bewust niet toegestaan.
+
+**Bestaande voortgang blijft geldig.** Er komt één sleutel bij (`huidig`). De 252 stapsleutels, de stempels, `verhalen` en `laatst` blijven ongewijzigd.
+
+### 2. Startpagina als ontdekkingsreis
+
+Een reisetiket boven de lijst bevat:
+
+- ‘Je reis nu’ of ‘Verder waar je was’;
+- het nummer en de titel van de geschiedenis;
+- de route ‘Babel → Jeruzalem · ca. 1.520 km · Ezra 1–6’;
+- een etappelijn met de 16 delen van de leidraad (gelezen, half, huidige);
+- ‘Etappe 9 van 16’ en ‘1 van 4 gelezen’.
+
+In de lijst staat elk deel met hetzelfde etappenummer en de voortgang per deel. Alles is functioneel: het zegt waar je bent en wat de kaart toont. Er is geen losse decoratie.
+
+### 3. Lange geschiedenissen
+
+Alle 150 vertelteksten zijn verdeeld in 2–4 onderdelen met een rustige tussenkop (`public/bijbelreis/indeling.js`, 419 onderdelen):
+
+- **Knippunten.** Er is alleen geknipt op een zinsgrens, op een inhoudelijk keerpunt.
+- **Tekst ongewijzigd.** Een unittest bewaakt dat alle tekst, citaten en verwijzingen letterlijk blijven staan.
+- **Ontdekmoment.** Hoort een onderdeel bij een kaartstap, dan staat eronder *Op de kaart: …*. Dat toont alleen die stap op de kaart, zonder de geschiedenis te verlaten. *Hele reis* gaat terug.
+- **Volgorde.** De ontdekking (bijv. ‘Wie zei het?’) staat nu direct na de tekst en ‘Lees het zelf’.
+- **Leesbaarheid.** De regellengte is maximaal 64 tekens en de regelafstand 1,68.
+
+**Wie schreef de koppen.** Drie hulpagenten stelden ze op. Een controlescript toetste ze op letterlijkheid en zinsgrenzen. Daarna zijn ze allemaal nagelezen en zijn er twee bijgesteld: 91 en 150.
+
+### 4. Kleine telefoons
+
+- **Knoppen.** De kaartknoppen zijn op de telefoon 42 px hoog, Toen/Nu minimaal 44 × 38 px, met 8 px tussenruimte.
+- **Onder 400 px.** *Hele reis* en *Groot* worden pictogrammen. Elke pictogramknop heeft een toegankelijke naam (ook *Legenda*; die ontbrak eerder bij 360 px).
+- **Schaalbalk.** Die staat op de telefoon linksboven onder de zoomknoppen, zodat hij niet meer botst met de knoppen onderaan. Onder 340 px vervalt hij.
+- **Route.** Het eindpunt van een route houdt meer afstand tot de knoppen.
+- **Snel tikken.** Bij snel tikken vlak na het laden negeerde Leaflet soms de nieuwe uitsnede, omdat de zoomanimatie nog liep. Nu wacht de nieuwe uitsnede, en bij ‘minder beweging’ is er geen animatie meer.
+- **Test op 320 × 568.** Een nieuwe test controleert dat de knoppen groot genoeg zijn, een naam hebben, in beeld staan en niet overlappen, en dat er geen horizontale overloop is.
+
+### 5. Dateringen
+
+Zie `dateringen.md`. Elke datering heeft nu een zichtbare grond: Bijbelse tijdrekening, historische reconstructie, onzeker of geen jaartal. Twee interne ongelijkheden zijn rechtgezet (515 en 561).
+
+### 6. Reproduceerbare visuele tests
+
+**Correctie op mijn eerdere uitleg.** Ik schreef dat de CI een andere Chromium gebruikte (rev 1248) dan lokaal (1243). Dat klopte niet. De CI-log van run 23 laat dezelfde Chromium 153.0.8010.12 (rev 1243) zien. De verschillen kwamen van de omgeving: tekens buiten de webfonts (▶, ✓, ‘ ’) worden met systeemlettertypen getekend, en die verschillen tussen de GitHub-runner en deze container.
+
+Daarnaast zat er een tweede `playwright-core` (1.64.1, via `@axe-core/playwright`) in de boom, die bij een andere aanroep een andere browser zou verwachten.
+
+**Nu vastgezet:**
+
+- `@playwright/test` staat exact op `1.63.0`, met `overrides.playwright-core = 1.63.0`. Er is maar één versie in de lockfile.
+- De visuele test draait alleen in het officiële image `mcr.microsoft.com/playwright:v1.63.0-noble`, vastgezet op digest `sha256:eff16c30…a4a27`. Lokaal gaat dat met `npm run test:visueel` (`scripts/visueel.sh`), in de CI met de nieuwe job *Visuele regressie*. Deploy wacht ook op die job.
+- Buiten dat image slaat de test zichzelf over. Daarbinnen controleert hij het image en `browser.version() === 153.0.8010.12`.
+- `tests/testomgeving.test.ts` bewaakt dat de versie in `package.json`, de lockfile, het script en de workflow overeenkomen.
+
+**Werkwijze voor referentiebeelden** (staat ook in de spec): alleen na een bewuste ontwerpwijziging, en pas nadat elk nieuw beeld inhoudelijk is bekeken. Nooit `actual`-beelden uit een mislukte CI-run overnemen.
+
+**Visuele controle van de referentiebeelden.** Er zijn 15 beelden: 5 schermen × 3 apparaten. Ze zijn allemaal opnieuw gemaakt met `--update-snapshots=all` en daarna één voor één bekeken.
+
+| Scherm | Bekeken op |
+| --- | --- |
+| *start* | route Babel → Jeruzalem, reisetiket ‘Verder waar je was’ met stap 5 van 7 en etappe 9, etappestippen 1 en 10 half (geschiedenis 3 en 81 gelezen) |
+| *wereld* | ankerplaatsen Filippi t/m Susan op de telefoon, met Rome en Malta op tablet en desktop; knop *Jouw reis* actief |
+| *reis* | Terugkeer stap 4, ‘ca. 538–515 v.Chr. · Historische reconstructie’; Genesis-kaart ‘berekend, onzeker’ |
+| *verhaal* | 26 met ‘Wanneer? ca. 1446 v.Chr. · Bijbelse tijdrekening · onzeker’, tussenkoppen en ontdekmoment |
+| *paspoort* | tellers 6/404, 1/150, 1 |
+
+Er is niets afgesneden of overlappend. Eén eerdere versie van *wereld* is afgekeurd: die toonde alleen het oosten. Dat kwam door de animatiefout uit punt 4. Die is eerst opgelost.
+
+### 7. Hercontrole na deze ronde
+
+| Test | Uitkomst |
+| --- | --- |
+| Typecheck, unittests (hele site), incl. nieuwe tests voor tekstindeling, dateringen en testomgeving | 76 geslaagd, 0 mislukt (1 overgeslagen: 150-controle zonder vlag) |
+| Bijbelreis-gegevens met `BIJBELREIS_150=1` | 26/26 |
+| Personencheck `--streng` | geen fouten |
+| Doorklikken van alle delen, stappen en 150 geschiedenissen (`bijbelreis-check.mjs`) | desktop, telefoon en tablet: geen problemen |
+| Volledige Playwright-suite (desktop, mobiel, tablet, 3D; incl. axe/WCAG 2.2 AA) | 205 geslaagd, 0 mislukt, 17 overgeslagen (15 visuele tests buiten het vaste image, 2 alleen-telefoon-tests op desktop) |
+| Visuele regressie in het vaste image (`npm run test:visueel`) | 15/15 tegen de nieuwe, nagekeken referentiebeelden |
+| Voortgang uit productie (3.0, `main`) naar 3.1 | Desktop, Pixel 7 en iPhone SE: 5 stempels, Ruth-score, 2 gelezen en 1 gestempelde geschiedenis; geen sleutel verloren |
+
+**Screenshots:** in `screenshots/3.1-review/`:
+
+- `mobiel-iphone13.jpg`: start, Bijbelwereld, verhaal, tussenkoppen, ontdekmoment, speurtocht, tijdlijn;
+- `mobiel-klein-320.jpg`;
+- `desktop-overzicht.jpg`.
+
+**Niet gedaan in deze ronde.** Er zijn geen nieuwe functies buiten de zeven punten. Er is niets gepubliceerd of gemerged. De werkwijze-les uit de reviewronde (`werkwijze/LESSEN.md`) moet nog in de workbench worden vastgelegd. Deze sessie heeft daar alleen leestoegang.

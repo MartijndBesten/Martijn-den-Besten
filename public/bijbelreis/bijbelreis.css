@@ -154,11 +154,28 @@ button.chip:hover { border-color: var(--nacht); }
 .verder { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; background: var(--wit); border: 1px solid var(--lijn); border-left: 4px solid var(--terra); border-radius: var(--r); padding: 10px 10px 10px 14px; box-shadow: var(--schaduw); }
 .verder .v-wat { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .verder .v-wat b { font-weight: 700; font-size: 1.02rem; line-height: 1.25; }
-.verder .v-wat span { font-size: 0.84rem; color: var(--fg-3); line-height: 1.35; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.verder .v-wat > span { font-size: 0.84rem; color: var(--fg-3); line-height: 1.35; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .verder .v-wat .prog { margin-top: 6px; }
 .verder .v-wat .prog div { background: var(--terra); }
 .verder.nieuw { border-left-color: var(--salie); }
 .verder.nieuw .v-wat span { -webkit-line-clamp: 3; color: var(--fg-2); }
+/* Reisetiket: de geschiedenis van nu, haar route, en de 16 etappes van de hele reis door de Bijbel. */
+.reiskaart { display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 12px 12px 12px 14px; }
+.reiskaart .rk-kop { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.rk-etappe { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--terra-diep); white-space: nowrap; }
+.rk-hoofd { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; }
+.reiskaart .v-wat b { display: flex; align-items: baseline; gap: 7px; }
+.rk-nr { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; color: var(--terra-diep); font-variant-numeric: tabular-nums; }
+.reiskaart .v-wat .rk-route { color: var(--fg-2); -webkit-line-clamp: 2; }
+.rk-lijn { position: relative; display: flex; justify-content: space-between; align-items: center; height: 16px; margin: 2px 2px 0; }
+.rk-lijn::before { content: ""; position: absolute; left: 4px; right: 4px; top: 50%; border-top: 2px dotted var(--zand-diep); opacity: 0.55; }
+.rk-lijn i { position: relative; width: 9px; height: 9px; border-radius: 50%; background: var(--wit); border: 2px solid var(--zand); box-sizing: border-box; }
+.rk-lijn i.half { border-color: var(--terra); background: linear-gradient(90deg, var(--terra) 50%, var(--wit) 50%); }
+.rk-lijn i.af { border-color: var(--terra-diep); background: var(--terra-diep); }
+.rk-lijn i.nu { width: 15px; height: 15px; border: 3px solid var(--nacht); box-shadow: 0 0 0 3px var(--nacht-zacht); }
+.rk-sectie { display: flex; justify-content: space-between; gap: 8px; margin: 0; font-size: 0.8rem; color: var(--fg-3); }
+.rk-sectie span:first-child { font-weight: 620; color: var(--fg-2); }
+.rk-uitleg { margin: 2px 0 0; font-size: 0.86rem; color: var(--fg-2); line-height: 1.4; }
 .welkom > .linkbtn { align-self: flex-start; margin-left: 4px; color: var(--fg-3); text-decoration-color: color-mix(in srgb, var(--fg-3) 50%, transparent); }
 
 /* ===== Reis: boeken, delen, stapkaart ===== */
@@ -180,7 +197,34 @@ button.chip:hover { border-color: var(--nacht); }
 #sProg { margin-top: -4px; }
 .tijd { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; margin: -4px 0 0 !important; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.03em; color: var(--fg-3); }
 .tijd .linkbtn { font-family: var(--font-sans); font-size: 0.82rem; letter-spacing: 0; }
-#sText, .verhaal > p:not(.tijd):not(.label):not(.ref) { font-size: 1.04rem; line-height: 1.65; }
+#sText, .verhaal > p:not(.tijd):not(.label):not(.ref), .vertelling p { font-size: 1.04rem; line-height: 1.68; }
+/* Lange geschiedenissen: onderdelen met een rustige tussenkop, een leesbare regellengte en een ontdekmoment op de kaart. */
+.vertelling { display: flex; flex-direction: column; gap: 4px; max-width: 64ch; }
+.vdeel { display: flex; flex-direction: column; gap: 6px; }
+.vdeel + .vdeel { margin-top: 10px; }
+.vkop { font-size: 1.02rem; font-weight: 680; letter-spacing: -0.015em; color: var(--nacht); margin: 0; }
+.vdeel p { margin: 0; }
+.kaartmoment { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 6px 12px 6px 9px; border: 1px dashed color-mix(in srgb, var(--water-diep) 60%, transparent); border-radius: var(--r-klein); background: var(--water-zacht); color: var(--water-diep); font: inherit; font-size: 0.86rem; text-align: left; cursor: pointer; }
+.kaartmoment svg { width: 18px; height: 18px; flex: none; }
+.kaartmoment b { font-weight: 640; }
+.kaartmoment:hover { border-style: solid; }
+.kaartmoment[aria-pressed="true"] { background: var(--water-diep); color: #fff; border: 1px solid var(--water-diep); }
+/* Wanneer? Jaartal met zijn grond: Bijbelse tijdrekening, historische reconstructie, onzeker. */
+.wanneer { margin: -2px 0 0; font-size: 0.86rem; }
+.wanneer summary { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; cursor: pointer; min-height: 32px; list-style: none; }
+.wanneer summary::-webkit-details-marker { display: none; }
+.wanneer .w-l { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-3); }
+.wanneer summary b { font-family: var(--font-mono); font-size: 12.5px; font-weight: 600; letter-spacing: 0.02em; }
+.wanneer .w-hoe { color: var(--terra-diep); text-decoration: underline; text-underline-offset: 3px; font-size: 0.82rem; }
+.wanneer[open] .w-hoe { display: none; }
+.wanneer p { margin: 6px 0 0; color: var(--fg-2); font-size: 0.9rem; line-height: 1.5; }
+.wanneer .w-grond { color: var(--fg-3); font-size: 0.84rem; }
+.dt { display: inline-block; flex: none; font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; padding: 1px 6px; border-radius: 5px; margin-left: 6px; vertical-align: 1px; line-height: 1.5; }
+.wanneer .dt, .tijd .dt, .tl-uitleg .dt { margin-left: 0; }
+.dt-bijbel { background: var(--salie-zacht); color: var(--salie-diep); }
+.dt-historie { background: var(--water-zacht); color: var(--water-diep); }
+.dt-onzeker { background: var(--terra-zacht); color: var(--terra-diep); border: 1px dashed var(--terra); }
+.dt-geen { background: rgba(31, 36, 48, 0.07); color: var(--fg-2); }
 .label.bl { margin-bottom: -6px; }
 .afstand { background: var(--papier-2); border-radius: var(--r); padding: 10px 14px; font-size: 0.9rem; display: flex; flex-direction: column; gap: 4px; }
 .afstand p { margin: 0; }
@@ -235,8 +279,13 @@ input[type="search"] { font: inherit; font-size: 1rem; color: var(--fg); backgro
 .pick button { font-weight: 600; font-size: 0.86rem; border-radius: var(--r-klein); padding: 7px 12px; min-height: 36px; border: 1px solid var(--lijn-sterk); background: var(--wit); color: var(--fg); cursor: pointer; }
 .pick button[aria-pressed="true"] { border-color: var(--nacht); background: var(--nacht); color: #fff; }
 .vlijst { display: flex; flex-direction: column; gap: 2px; }
-.vsectie { font-size: 1rem; margin: 18px 0 6px; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding-bottom: 6px; border-bottom: 2px solid var(--zand); }
-.vsectie small { font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--fg-3); letter-spacing: 0.04em; }
+.vsectie { font-size: 1rem; margin: 18px 0 6px; display: flex; align-items: center; gap: 9px; padding-bottom: 6px; border-bottom: 2px solid var(--zand); }
+.vsectie .vs-t { flex: 1; min-width: 0; }
+/* Etappe-nummer: dezelfde stip als op het reisetiket. */
+.vs-n { flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--zand); background: var(--wit); font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--fg-2); }
+.vs-n.half { border-color: var(--terra); }
+.vs-n.af { border-color: var(--terra-diep); background: var(--terra-diep); color: #fff; }
+.vsectie small { white-space: nowrap;  font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--fg-3); letter-spacing: 0.04em; }
 .vul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; background: var(--wit); border: 1px solid var(--lijn); border-radius: var(--r); overflow: hidden; }
 .vul li + li { border-top: 1px solid var(--lijn); }
 .vitem { width: 100%; display: grid; grid-template-columns: 2.4rem minmax(0, 1fr) auto; gap: 10px; align-items: center; text-align: left; background: none; border: 0; padding: 9px 12px; cursor: pointer; color: var(--fg); font: inherit; min-height: 52px; }
@@ -361,17 +410,20 @@ select { font: inherit; font-size: 0.95rem; color: var(--fg); background: var(--
 
 /* ===== Tijdlijn: chronologie met Bijbel, datering en onzekerheid ===== */
 .tl-uitleg { list-style: none; margin: 0; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; background: var(--wit); border: 1px solid var(--lijn); border-radius: var(--r); font-size: 0.84rem; color: var(--fg-2); }
-.tl-uitleg li { display: flex; align-items: center; gap: 8px; }
+.tl-uitleg li { display: flex; align-items: flex-start; gap: 8px; }
+.tl-uitleg li.dtrij { flex-wrap: wrap; gap: 2px 8px; padding-top: 4px; }
+.tl-uitleg li.dtrij > span:last-child { flex: 1 1 100%; }
 .tl-dot-l { width: 12px; height: 12px; border-radius: 50%; background: var(--nacht); flex: none; margin: 0 4px; }
 .tl-tag { display: inline-block; flex: none; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; padding: 1px 6px; border-radius: 5px; margin-left: 6px; vertical-align: 1px; }
 .tl-uitleg .tl-tag { margin-left: 0; }
-.tl-tag.recon { background: var(--oker-zacht); color: var(--oker-diep); border: 1px dashed var(--oker); }
-.tl-tag.geen { background: rgba(31, 36, 48, 0.07); color: var(--fg-2); }
+.tl-uitleg li > .dt + .dt { margin-left: -4px; }
 .tijdlijn { list-style: none; margin: 0; padding: 0 0 0 4px; position: relative; display: flex; flex-direction: column; }
 .tijdlijn::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: var(--zand); }
 .tl-item { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 12px; padding: 7px 0; position: relative; }
 .tl-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--pc); border: 3px solid var(--bg); margin-top: 2px; position: relative; z-index: 1; }
-.tl-when { margin: 0; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.03em; color: var(--fg-3); }
+.tl-when { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 3px 8px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.03em; color: var(--fg-3); }
+.tl-grond { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.tl-grond .dt { margin-left: 0; }
 .tl-go { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; background: none; border: 0; padding: 2px 0; cursor: pointer; color: var(--fg); text-align: left; font: inherit; min-height: 32px; }
 .tl-go b { font-weight: 650; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--pc) 55%, transparent); text-underline-offset: 3px; }
 .tl-go small { color: var(--fg-3); font-size: 0.8rem; }
@@ -635,15 +687,20 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   body[data-modus="reis"] .mapacties { bottom: 10px; }
   .maptools { top: 8px; right: 8px; }
   .mapacties { right: 8px; bottom: 10px; }
-  .mbtn, .seg { height: 38px; }
-  .mbtn { padding: 0 10px; font-size: 0.82rem; }
-  .seg button { padding: 0 10px; font-size: 0.82rem; }
+  /* Kaartknoppen op de telefoon: 42 px hoog, met de duim te raken; tussenruimte zodat je niet de buurknop raakt. */
+  .mbtn, .seg { height: 42px; }
+  .mbtn { padding: 0 11px; font-size: 0.82rem; }
+  .mapacties { gap: 8px; }
+  .seg { padding: 2px; }
+  .seg button { padding: 0 10px; font-size: 0.82rem; min-width: 44px; }
   #fullBtn { display: inline-flex; }
   /* Legenda op de telefoon: een paneel boven de onderbalk, niet in de kleine kaart geperst. */
   .legend { position: fixed; z-index: 1420; left: 8px; right: 8px; width: auto; top: auto; bottom: calc(var(--onderbalk-h) + env(safe-area-inset-bottom, 0px) + 8px); max-height: 62vh; max-height: 62svh; padding: 14px 16px; box-shadow: 0 -2px 30px rgba(31, 36, 48, 0.28); }
   body.mapfull .legend { bottom: calc(70px + env(safe-area-inset-bottom, 0px)); }
   .leaflet-top.leaflet-left { top: 0; left: 0; }
-  .leaflet-left .leaflet-control-scale { margin-left: 10px; margin-bottom: 10px; }
+  /* Schaalbalk op de telefoon linksboven onder de zoomknoppen: de onderrand is voor de kaartknoppen. */
+  .leaflet-bottom.leaflet-left { top: 98px; bottom: auto; }
+  .leaflet-left .leaflet-control-scale { margin: 0 0 0 10px; }
   .leaflet-control-scale-line { font-size: 9.5px; }
   .panel { border-left: 0; padding: 14px max(16px, env(safe-area-inset-right, 0px)) 28px max(16px, env(safe-area-inset-left, 0px)); gap: 16px; overflow: visible; }
   .koppel { grid-template-columns: 1fr; }
@@ -657,13 +714,25 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   body.mapfull .mapwrap { position: fixed; inset: 0; z-index: 1450; height: auto; max-height: none; min-height: 0; padding-top: env(safe-area-inset-top, 0px); background: var(--wit); }
   body.mapfull .mapbar { padding-bottom: max(6px, env(safe-area-inset-bottom, 0px)); }
 }
+/* Kleine telefoons: ‘Hele reis’ en ‘Groot’ alleen als pictogram (met toegankelijke naam), ‘Bijbelwereld’ houdt zijn woord. */
+@media (max-width: 400px) {
+  #heleBtn span, #fullBtn span { display: none; }
+  #heleBtn, #fullBtn { width: 42px; padding: 0; justify-content: center; }
+  .rk-hoofd { gap: 10px; }
+}
 @media (max-width: 360px) {
   .tabs button { font-size: 9.5px; letter-spacing: -0.02em; }
   .tabs button svg { width: 20px; height: 20px; }
   .kop h1 { font-size: 1.05rem; }
-  .mbtn span { display: none; }
-  .mbtn { padding: 0 9px; }
+  .mbtn:not(#wereldBtn) span { display: none; }
+  .reiskaart .v-wat b { font-size: 0.95rem; }
+  .rk-hoofd .btn { padding: 10px 12px; }
+  #legendBtn { width: 42px; padding: 0; justify-content: center; }
+  .seg button { padding: 0 9px; }
   .passtats { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 340px) {
+  .leaflet-control-scale { display: none; }
 }
 @media (min-width: 901px) and (max-width: 1180px) {
   .kop { grid-template-columns: auto minmax(0, 1fr) 420px; }
