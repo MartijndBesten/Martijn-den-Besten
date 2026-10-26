@@ -1,4 +1,4 @@
-// Controle van de reisniveaus (public/bijbelreis/niveaus*.js) of van een kandidaatbestand met nieuwe versies.
+// Controle van de reisniveaus (public/bijbelreis/niveaus/{a,b,c}.js) of van een kandidaatbestand met nieuwe versies.
 // Gebruik:
 //   node scripts/niveaus-controle.mjs                 alle versies in de site
 //   node scripts/niveaus-controle.mjs pad/naar.json   alleen de versies in dat bestand ({ "nr": { a, b, c } })
@@ -13,7 +13,7 @@ import { runInNewContext } from "node:vm";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PUB = join(ROOT, "public");
 const html = readFileSync(join(PUB, "bijbelreis.html"), "utf8");
-const scripts = [...html.matchAll(/src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s));
+const scripts = [...html.matchAll(/src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s)).concat(["niveaus/a.js", "niveaus/b.js", "niveaus/c.js"]);
 const ctx = { window: {} };
 for (const s of scripts) runInNewContext(readFileSync(join(PUB, "bijbelreis", s), "utf8").replace(/\bBR\./g, "window.BR."), ctx);
 const BR = ctx.window.BR;

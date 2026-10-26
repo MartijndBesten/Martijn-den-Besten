@@ -167,12 +167,6 @@ button.chip:hover { border-color: var(--nacht); }
 .reiskaart .v-wat b { display: flex; align-items: baseline; gap: 7px; }
 .rk-nr { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; color: var(--terra-diep); font-variant-numeric: tabular-nums; }
 .reiskaart .v-wat .rk-route { color: var(--fg-2); -webkit-line-clamp: 2; }
-.rk-lijn { position: relative; display: flex; justify-content: space-between; align-items: center; height: 16px; margin: 2px 2px 0; }
-.rk-lijn::before { content: ""; position: absolute; left: 4px; right: 4px; top: 50%; border-top: 2px dotted var(--zand-diep); opacity: 0.55; }
-.rk-lijn i { position: relative; width: 9px; height: 9px; border-radius: 50%; background: var(--wit); border: 2px solid var(--zand); box-sizing: border-box; }
-.rk-lijn i.half { border-color: var(--terra); background: linear-gradient(90deg, var(--terra) 50%, var(--wit) 50%); }
-.rk-lijn i.af { border-color: var(--terra-diep); background: var(--terra-diep); }
-.rk-lijn i.nu { width: 15px; height: 15px; border: 3px solid var(--nacht); box-shadow: 0 0 0 3px var(--nacht-zacht); }
 .rk-sectie { display: flex; justify-content: space-between; gap: 8px; margin: 0; font-size: 0.8rem; color: var(--fg-3); }
 .rk-sectie span:first-child { font-weight: 620; color: var(--fg-2); }
 .rk-uitleg { margin: 2px 0 0; font-size: 0.86rem; color: var(--fg-2); line-height: 1.4; }
@@ -829,3 +823,21 @@ body[data-niveau="a"] .maptools .seg, body[data-niveau="a"] #legendBtn, body[dat
   .keuzekaart .nivopt small { display: none; }
   .keuzekaart .nivopt { min-height: 48px; align-items: center; }
 }
+/* Samen ontdekken: de 150 verhalen per etappe, uitklapbaar. */
+.samensectie > summary { cursor: pointer; list-style: none; margin: 10px 0 6px; }
+.samensectie > summary::-webkit-details-marker { display: none; }
+.samensectie > summary::after { content: "▾"; color: var(--fg-3); transition: transform 0.15s; }
+.samensectie:not([open]) > summary::after { transform: rotate(-90deg); }
+.samensectie > .vul { margin-bottom: 8px; }
+@media (prefers-reduced-motion: reduce) { .samensectie > summary::after { transition: none; } }
+/* Samen ontdekken in de reis: één zin per stap en de weg naar het verhaal; geen extra's. */
+body[data-niveau="a"] #sKm, body[data-niveau="a"] #sFact, body[data-niveau="a"] #sSpecial, body[data-niveau="a"] #sVer, body[data-niveau="a"] #p-reis > .stack:has(#chapters), body[data-niveau="a"] #p-reis > .navrow { display: none !important; }
+.a-reisverhaal { display: block; margin-top: 12px; }
+/* Voorlezen: alleen zichtbaar als het apparaat een Nederlandse stem heeft. */
+.voorlees { display: none; align-items: center; gap: 6px; font-size: 0.9rem; }
+body.kan-voorlezen .voorlees { display: inline-flex; }
+.voorlees svg { width: 18px; height: 18px; flex: none; }
+.voorlees[aria-pressed="true"] { color: var(--terra-diep); font-weight: 600; }
+.labelrij { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.a-stap .voorlees { margin-top: 10px; min-height: 44px; }
+body[data-niveau="a"] #sTijd, body[data-niveau="a"] #sProg { display: none !important; }
