@@ -726,15 +726,17 @@ test("niveaus: Samen ontdekken vertelt in korte stappen, toont alleen de belangr
   expect(v["26"].lv.a).toBeGreaterThanOrEqual(0);
 });
 
-test("niveaus: zonder Samen-versie geen moeilijke tekst alsof die past, maar een duidelijke keuze", async ({ page }) => {
+test("niveaus: kan een niveau niet laden, dan geen moeilijke tekst alsof die past, maar een eerlijke melding en een uitweg", async ({ page }) => {
+  await page.route("**/bijbelreis/niveaus/a.js*", (r) => r.abort());
   await zetNiveau(page, "a");
   await page.goto("/bijbelreis#v76");
   const art = page.locator(".verhaal.samen");
-  await expect(art).toContainText("nog niet bewerkt voor Samen ontdekken");
+  await expect(art).toContainText("konden niet worden geladen");
   await expect(art).not.toContainText("Kores");
   await art.getByRole("button", { name: "Lees de vertelling voor 7–10 jaar" }).click();
   await expect(page.locator("#niveauNaam")).toHaveText("Zelf op reis");
-  await expect(page.locator(".verhaal")).toContainText("Kores");
+  await expect(page.locator(".verhaal h2")).toHaveText("Terug naar Jeruzalem: de tempel herbouwd");
+  await expect(page.locator(".verhaal #vVertelling")).not.toBeEmpty();
 });
 
 test("niveaus: Zelf op reis en Verder ontdekken verschillen echt in tekst, tijd, verdieping en vragen", async ({ page }) => {
@@ -776,4 +778,122 @@ test("niveaus: Samen speuren stelt vragen met twee antwoorden; tijdlijn zonder j
   await page.getByRole("tab", { name: "Wie is wie" }).click();
   await expect(page.locator("#p-wie .wiekaart")).toHaveCount(2);
   await expect(page.locator("#p-wie")).toContainText("Mirjam");
+});
+
+// ---------- 4.0 ----------
+// Opslag zoals 3.1 die achterliet: stempels, scores, gelezen geschiedenissen, waar je was; nog geen reisniveau.
+const OPSLAG_31: Record<string, string> = {
+  "bijbelreis:gezien": JSON.stringify(["exodus:uittocht:0", "exodus:uittocht:1", "exodus:uittocht:2", "exodus:uittocht:3", "exodus:uittocht:4", "exodus:uittocht:5", "genesis:begin:0", "genesis:abraham:0"]),
+  "bijbelreis:best:exodus:uittocht": "7",
+  "bijbelreis:best:genesis:alles": "9",
+  "bijbelreis:verhalen": JSON.stringify({ 1: { g: 1, q: 3 }, 26: { g: 1, q: 2 }, 83: { g: 1 } }),
+  "bijbelreis:laatst": JSON.stringify("exodus:uittocht:5"),
+  "bijbelreis:huidig": JSON.stringify({ k: "exodus:uittocht:5" }),
+  "bijbelreis:legenda": "true",
+};
+const zetOpslag = (page: Page, st: Record<string, string>) => page.addInitScript((st) => { if (sessionStorage.getItem("opslagGezet")) return; sessionStorage.setItem("opslagGezet", "1"); localStorage.clear(); for (const [k, v] of Object.entries(st)) localStorage.setItem(k, v); }, st);
+
+test("4.0: opslag van 3.1 blijft heel; nieuwe scores per niveau komen ernaast en niets telt dubbel", async ({ page }) => {
+  const errors = watchErrors(page);
+  await zetOpslag(page, OPSLAG_31);
+  await page.goto("/bijbelreis");
+  await expect(page.locator("#niveauNaam")).toHaveText("Verder ontdekken");
+  const na = await opslag(page);
+  for (const [k, v] of Object.entries(OPSLAG_31)) if (k !== "bijbelreis:huidig") expect(na[k], k).toBe(v);
+  expect(JSON.parse(na["bijbelreis:niveau"]!)).toBe("c");
+  await page.getByRole("tab", { name: "Paspoort" }).click();
+  await expect(page.locator("#pasStats")).toContainText("8");
+  await expect(page.locator("#pasStats")).toContainText("2van 150 geschiedenissen gestempeld");
+  await expect(page.locator("#bestText")).toContainText("7/10");
+  await expect(page.locator("#bestText")).toContainText("9/10");
+
+  // Samen speuren over hetzelfde deel: een eigen score, de score van Verder ontdekken blijft staan.
+  await page.locator("#niveauBtn").click();
+  await page.locator('#niveauKeuze [data-niveau="a"]').click();
+  await page.getByRole("tab", { name: "Speurtocht" }).click();
+  await expect(page.locator("#p-quiz")).toContainText("Samen speuren");
+  await page.locator('#p-quiz [data-q="uittocht"]').click();
+  await page.locator("#qGo").click();
+  for (let i = 0; i < 6; i++) {
+    const opts = page.locator("#p-quiz .opt");
+    if (!(await opts.count())) break;
+    await expect(opts).toHaveCount(2);
+    await opts.first().click();
+    await page.locator("#qNext").click();
+  }
+  await expect(page.locator("#p-quiz")).toContainText("Klaar!");
+  const daarna = await opslag(page);
+  expect(daarna["bijbelreis:best:exodus:uittocht"]).toBe("7");
+  expect(daarna["bijbelreis:samen:exodus:uittocht"]).toBeDefined();
+  expect(daarna["bijbelreis:verhalen"]).toBe(OPSLAG_31["bijbelreis:verhalen"]);
+  expect(daarna["bijbelreis:gezien"]).toBe(OPSLAG_31["bijbelreis:gezien"]);
+
+  // Terug naar Verder ontdekken: het deel telt één keer als gedaan speurtocht, met beide scores erbij.
+  await page.locator("#niveauBtn").click();
+  await page.locator('#niveauKeuze [data-niveau="c"]').click();
+  await page.getByRole("tab", { name: "Paspoort" }).click();
+  await expect(page.locator("#pasStats")).toContainText("2speurtochten gedaan");
+  await expect(page.locator("#bestText")).toContainText("(Samen ontdekken)");
+  expect(errors).toEqual([]);
+});
+
+test("4.0: vragen bij een geschiedenis op een ander niveau: één stempel, de beste score blijft, de score per niveau komt erbij", async ({ page }) => {
+  await zetOpslag(page, { ...OPSLAG_31, "bijbelreis:niveau": JSON.stringify("a") });
+  await page.goto("/bijbelreis#v26");
+  const art = page.locator(".verhaal.samen");
+  for (let i = 0; i < 12 && (await page.locator("#aVerder").count()); i++) await page.locator("#aVerder").click();
+  for (let i = 0; i < 6 && (await page.locator("#vqVolgende, #vQuiz .opt").count()); i++) {
+    if (!(await page.locator("#vQuiz .opt").count())) break;
+    await page.locator("#vQuiz .opt").last().click();
+    await page.locator("#vqVolgende").click();
+  }
+  await expect(art.locator("#vQuiz")).toContainText("Klaar:");
+  const v = JSON.parse((await opslag(page))["bijbelreis:verhalen"]!);
+  expect(v["26"].q).toBeGreaterThanOrEqual(2);
+  expect(v["26"].lv.a).toBeGreaterThanOrEqual(0);
+  expect(Object.keys(v).sort()).toEqual(["1", "26", "83"]);
+  expect(v["83"].q).toBeUndefined();
+});
+
+test("4.0: Samen ontdekken in de reis: één zin per stap, de weg naar het verhaal, geen jaartallen en geen extra's", async ({ page }) => {
+  await zetNiveau(page, "a");
+  await page.goto("/bijbelreis#uittocht/6");
+  const kaartje = page.locator(".stapkaart");
+  await expect(kaartje.locator("#sTitle")).toContainText("Door de Schelfzee");
+  await expect(kaartje.locator("#sTijd")).toBeHidden();
+  await expect(kaartje.locator("#sFact")).toBeHidden();
+  await expect(page.locator("#chapters")).toBeHidden();
+  const tekst = (await kaartje.locator("#sText").innerText()).split("\n")[0];
+  expect((tekst.match(/[.!?](\s|$)/g) || []).length).toBeLessThanOrEqual(1);
+  await kaartje.getByRole("button", { name: /Lees samen: Droog door de Schelfzee/ }).click();
+  await expect(page.locator(".verhaal.samen h2")).toHaveText("Droog door de Schelfzee");
+});
+
+test("4.0: voorlezen met een Nederlandse stem van het apparaat; zonder die stem geen knop", async ({ page }) => {
+  await page.addInitScript(() => {
+    const w = window as unknown as Record<string, unknown>;
+    const gesproken: string[] = []; w.__gesproken = gesproken;
+    const stem = { lang: "nl-NL", name: "Test", localService: true, default: true, voiceURI: "test" };
+    w.SpeechSynthesisUtterance = class { text: string; onend?: () => void; onerror?: () => void; voice?: unknown; lang?: string; rate?: number; constructor(t: string) { this.text = t; } };
+    Object.defineProperty(window, "speechSynthesis", { configurable: true, value: { getVoices: () => [stem], speak: (u: { text: string; onend?: () => void }) => { gesproken.push(u.text); setTimeout(() => u.onend && u.onend(), 20); }, cancel: () => {}, addEventListener: () => {} } });
+  });
+  await zetNiveau(page, "b");
+  await page.goto("/bijbelreis#v26");
+  const knop = page.locator(".verhaal .voorlees");
+  await expect(knop).toBeVisible();
+  await knop.click();
+  await expect.poll(() => page.evaluate(() => ((window as unknown as { __gesproken: string[] }).__gesproken || []).join(" "))).toContain("Klem tussen zee en leger");
+  const alles = await page.evaluate(() => (window as unknown as { __gesproken: string[] }).__gesproken.join(" "));
+  expect(alles).toContain("Here");
+  expect(alles).not.toContain("HEERE");
+  expect(alles).not.toMatch(/[‘’]/);
+  await expect(knop).toHaveAttribute("aria-pressed", "false");
+});
+
+test("4.0: zonder Nederlandse stem staat er geen voorleesknop", async ({ page }) => {
+  await page.addInitScript(() => { Object.defineProperty(window, "speechSynthesis", { configurable: true, value: { getVoices: () => [{ lang: "en-US", name: "X", localService: true }], speak: () => {}, cancel: () => {}, addEventListener: () => {} } }); });
+  await zetNiveau(page, "b");
+  await page.goto("/bijbelreis#v26");
+  await expect(page.locator(".verhaal h2")).toBeVisible();
+  await expect(page.locator(".verhaal .voorlees")).toBeHidden();
 });
