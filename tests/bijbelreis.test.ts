@@ -1,6 +1,6 @@
 // Gegevenscontrole van de Bijbelreis (public/bijbelreis): verwijzingen, plaatsen, personen en de stapsleutels
 // waaraan de voortgang van kinderen (stempels in localStorage) hangt.
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { runInNewContext } from "node:vm";
 import { describe, expect, it } from "vitest";
@@ -319,5 +319,82 @@ describe("bijbelreis: grond van de jaartallen", () => {
     for (const key of ["genesis:abraham", "exodus:uittocht", "jozua:intocht", "richteren:debora", "jezus-3:nt-lijden"]) expect(DAT.delen[key]?.[1], key).toBe(true);
     for (const nr of [8, 26, 37, 42, 126]) expect(vanVerhaal(nr)?.[3], `#${nr}`).toBe(true);
     for (const nr of [8, 26, 42]) expect(vanVerhaal(nr)?.[2], `#${nr}`).toBe("bijbel");
+  });
+});
+
+// Reisniveaus (proef): drie vertelversies per geschiedenis in niveaus.js. Inhoudelijke regels die een redacteur
+// niet met de hand hoeft na te lopen: vorm, lengte, verwijzingen, antwoorden en letterlijke citaten.
+describe("bijbelreis: reisniveaus", () => {
+  type Deel = { t: string; kop?: string; stap?: string };
+  type Vraag = { q: string; a: string[]; why: string };
+  type Versie = { status: string; delen?: Deel[]; vragen?: Vraag[]; samen?: string; plaatsen?: string[]; verdieping?: { kop: string; t: string; refs?: string[] }[] };
+  const NV = (BR as unknown as { niveaus: { soorten: Record<string, { n: string }>; verhalen: Record<number, Record<string, Versie>> } }).niveaus;
+  const ALLE = Object.entries(NV.verhalen).flatMap(([nr, lv]) => Object.entries(lv).map(([n, v]) => ({ nr: +nr, n, v })));
+  // De hele Statenvertaling als één genormaliseerde tekst, om citaten letterlijk terug te vinden.
+  const norm = (t: string) => t.toLowerCase().normalize("NFC").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  const SV = readdirSync(join(PUB, "bijbelreis", "bijbel")).filter((f) => f.endsWith(".json")).map((f) => Object.values((JSON.parse(readFileSync(join(PUB, "bijbelreis", "bijbel", f), "utf8")) as { hoofdstukken: Record<string, string[]> }).hoofdstukken).flat().join(" ")).map(norm).join(" ");
+  const teksten = (v: Versie) => [...(v.delen || []).flatMap((d) => [d.t, d.kop || ""]), v.samen || "", ...(v.verdieping || []).flatMap((d) => [d.kop, d.t]), ...(v.vragen || []).flatMap((q) => [q.q, ...q.a])];
+
+  it("drie voorbeeldgeschiedenissen (schepping, Schelfzee, geboorte) op alle drie niveaus, met een geldige status", () => {
+    expect(Object.keys(NV.verhalen).map(Number).sort((a, b) => a - b)).toEqual([1, 26, 83]);
+    for (const nr of [1, 26, 83]) expect(Object.keys(NV.verhalen[nr]).sort(), `#${nr}`).toEqual(["a", "b", "c"]);
+    for (const { nr, n, v } of ALLE) expect(["concept", "goedgekeurd"], `#${nr}${n}`).toContain(v.status);
+    expect(Object.keys(NV.soorten)).toEqual(["a", "b", "c"]);
+  });
+  it("Samen ontdekken: korte stappen, geen jaartallen, twee antwoorden per vraag en een tip voor wie voorleest", () => {
+    const bad: string[] = [];
+    for (const { nr, n, v } of ALLE.filter((x) => x.n === "a")) {
+      const w = `#${nr}${n}`;
+      if (!v.delen || v.delen.length < 4 || v.delen.length > 10) bad.push(`${w} aantal stappen`);
+      for (const d of v.delen || []) {
+        if (d.t.length > 140) bad.push(`${w} stap te lang (${d.t.length}): ${d.t.slice(0, 30)}`);
+        if ((d.t.match(/[.!?](\s|$)/g) || []).length > 3) bad.push(`${w} te veel zinnen: ${d.t.slice(0, 30)}`);
+        if (/\b\d{3,4}\b/.test(d.t)) bad.push(`${w} jaartal in stap`);
+      }
+      if (!v.samen) bad.push(`${w} tip voor wie voorleest ontbreekt`);
+      if (!v.vragen || v.vragen.length < 2) bad.push(`${w} vragen`);
+      for (const q of v.vragen || []) if (q.a.length !== 2) bad.push(`${w} ‘${q.q}’ heeft geen twee antwoorden`);
+    }
+    expect(bad).toEqual([]);
+  });
+  it("Zelf op reis: 2–4 onderdelen met kop, samen hooguit 1.000 tekens; vragen met drie antwoorden", () => {
+    const bad: string[] = [];
+    for (const { nr, n, v } of ALLE.filter((x) => x.n === "b")) {
+      const w = `#${nr}${n}`, len = (v.delen || []).reduce((a, d) => a + d.t.length, 0), g = GS.find((x) => x.nr === nr)!;
+      if (!v.delen || v.delen.length < 2 || v.delen.length > 4 || v.delen.some((d) => !d.kop)) bad.push(`${w} onderdelen`);
+      if (len > 1000 || !g) bad.push(`${w} te lang (${len})`);
+      for (const q of v.vragen || []) if (q.a.length !== 3) bad.push(`${w} ‘${q.q}’ heeft geen drie antwoorden`);
+    }
+    expect(bad).toEqual([]);
+  });
+  it("Verder ontdekken: verdieping met kop en tekst, verdiepende vragen met drie antwoorden", () => {
+    const bad: string[] = [];
+    for (const { nr, n, v } of ALLE.filter((x) => x.n === "c")) {
+      if (!v.verdieping || v.verdieping.length < 2) bad.push(`#${nr}${n} verdieping`);
+      for (const q of v.vragen || []) if (q.a.length !== 3) bad.push(`#${nr}${n} ‘${q.q}’`);
+    }
+    expect(bad).toEqual([]);
+  });
+  it("antwoorden zijn uniek, verwijzingen en kaartstappen bestaan, plaatsen horen bij de geschiedenis", () => {
+    const bad: string[] = [];
+    for (const { nr, n, v } of ALLE) {
+      const w = `#${nr}${n}`, g = GS.find((x) => x.nr === nr)!;
+      for (const q of v.vragen || []) {
+        if (new Set(q.a).size !== q.a.length) bad.push(`${w} dubbel antwoord ‘${q.q}’`);
+        for (const r of q.why.split(/;\s*/)) if (verses(r) !== "ok") bad.push(`${w} ${r}: ${verses(r)}`);
+      }
+      for (const d of v.verdieping || []) for (const r of d.refs || []) if (verses(r) !== "ok") bad.push(`${w} ${r}: ${verses(r)}`);
+      for (const d of v.delen || []) if (d.stap && !g.stappen.includes(d.stap)) bad.push(`${w} stap ${d.stap}`);
+      const plaatsenVanG = new Set(g.stappen.flatMap((k) => STEPS.find((s) => s.key === k)?.s.at || []).concat(g.stappen.flatMap((k) => (STEPS.find((s) => s.key === k)?.s.r || []).flatMap((r) => r.p.filter((x): x is string => typeof x === "string")))));
+      for (const p of v.plaatsen || []) if (!P[p] || !plaatsenVanG.has(p)) bad.push(`${w} plaats ${p}`);
+    }
+    expect(bad).toEqual([]);
+  });
+  it("elk citaat tussen ‘ ’ staat letterlijk in de Statenvertaling", () => {
+    const bad: string[] = [];
+    for (const { nr, n, v } of ALLE) for (const t of teksten(v)) for (const m of t.matchAll(/‘([^’]+)’/g)) {
+      for (const stuk of m[1].split(/…|\.\.\./)) if (norm(stuk) && !SV.includes(norm(stuk))) bad.push(`#${nr}${n}: ‘${stuk}’`);
+    }
+    expect(bad).toEqual([]);
   });
 });
