@@ -20,7 +20,7 @@ BR.geschiedenissen.push(
     { q: "Waarom kon Zacharias niet meer spreken?", a: ["Hij had de woorden van de engel niet geloofd", "Hij was ziek geworden", "Hij had een gelofte gedaan"], why: "Lukas 1:20" },
     { q: "Hoe lang hield Elisabeth zich verborgen?", a: ["Vijf maanden", "Drie maanden", "Zeven dagen"], why: "Lukas 1:24" }],
   cross: [["Maleachi 3:1", "‘Ziet, Ik zende Mijn engel, die voor Mijn aangezicht den weg bereiden zal.’ Markus 1:2 past dit toe op Johannes."],
-    ["Daniël 9:21", "Ook bij Daniël kwam ‘de man Gabriel’, omtrent den tijd van het avondoffer."],
+    ["Daniël 9:21", "Ook bij Daniël kwam ‘de man Gabriël’, omtrent den tijd van het avondoffer."],
     ["Genesis 18:11–14", "Ook Abraham en Sara waren oud toen God hun een zoon beloofde: ‘Zou iets voor den HEERE te wonderlijk zijn?’"]],
   tl: [-7, -5], tijd: "ca. 7–5 v.Chr.", tijdNoot: "Reconstructie: ongeveer vijftien maanden vóór de geboorte van de Heere Jezus (Lukas 1:26, 36). Die wordt meestal op ca. 6–4 v.Chr. gesteld, omdat Herodes volgens Josephus ca. 4 v.Chr. stierf. Andere dateringen bestaan." },
 

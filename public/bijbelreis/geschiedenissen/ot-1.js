@@ -146,7 +146,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       cross: [
         ["Hebreeën 11:4", "Door het geloof bracht Abel een beter offer dan Kaïn."],
         ["1 Johannes 3:12", "Kaïn was uit de boze en sloeg zijn broer dood."],
-        ["Hebreeën 12:24", "Het bloed van de Heere Jezus ‘spreekt betere dingen dan Abel’."],
+        ["Hebreeën 12:24", "Het bloed van de Heere Jezus is het bloed ‘dat betere dingen spreekt dan Abel’."],
       ],
       tl: null,
       tijd: null,
@@ -232,7 +232,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "begin",
       stappen: ["genesis:begin:5"],
       vorm: "plek",
-      uitleg: "Alle mensen op aarde spreken dezelfde taal. Ze trekken naar het oosten en gaan wonen in een laagte in het land Sinear. Daar bakken ze stenen, en ze gebruiken lijm (aardpek) als specie. Ze zeggen: ‘Laten we een stad bouwen en een toren met de top in de hemel, en een naam voor onszelf maken, zodat we niet over de hele aarde verstrooid worden.’ De HEERE komt neer om de stad en de toren te bekijken. Hij verwart hun taal, zodat ze elkaar niet meer verstaan. Zo verstrooit de HEERE hen over de hele aarde, en ze houden op met het bouwen van de stad. Die stad heet Babel, want daar verwarde de HEERE de taal van de hele aarde.",
+      uitleg: "Alle mensen op aarde spreken dezelfde taal. Ze trekken naar het oosten en gaan wonen in een laagte in het land Sinear. Daar bakken ze stenen, en ze gebruiken lijm (aardpek) als specie. Ze zeggen: “Laten we een stad bouwen en een toren met de top in de hemel, en een naam voor onszelf maken, zodat we niet over de hele aarde verstrooid worden.” De HEERE komt neer om de stad en de toren te bekijken. Hij verwart hun taal, zodat ze elkaar niet meer verstaan. Zo verstrooit de HEERE hen over de hele aarde, en ze houden op met het bouwen van de stad. Die stad heet Babel, want daar verwarde de HEERE de taal van de hele aarde.",
       betekenis: "De mensen wilden een naam voor zichzelf maken, maar God laat zien dat Hij regeert. Op de Pinksterdag hoort iedereen de grote werken van God in zijn eigen taal (Handelingen 2:6–11).",
       wie: [],
       ontdek: {
@@ -305,9 +305,9 @@ BR.kernwoorden = BR.kernwoorden || {};
         soort: "onthul",
         titel: "Namen met een betekenis",
         items: [
-          ["Ismaël", "‘God hoort’: ‘omdat de HEERE uw verdrukking aangehoord heeft’ (16:11)."],
+          ["Ismaël", "“God hoort”: ‘omdat de HEERE uw verdrukking aangehoord heeft’ (16:11)."],
           ["God des aanziens", "Zo noemt Hagar de HEERE: Hij is de God Die haar ziet (16:13)."],
-          ["Lachai-Roï", "De naam van de put (16:14). Meestal uitgelegd als ‘put van de Levende, Die mij ziet’."],
+          ["Lachai-Roï", "De naam van de put (16:14). Meestal uitgelegd als “put van de Levende, Die mij ziet”."],
           ["Tussen Kades en Bered", "Daar lag de put (16:14). Waar precies, weet niemand; daarom is de plek op de kaart onzeker."],
         ],
       },
@@ -333,7 +333,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       stappen: ["genesis:abraham:5", "genesis:abraham:6", "genesis:abraham:7", "genesis:abraham:8", "genesis:abraham:15", "genesis:abraham:16"],
       vorm: "route",
       uitleg: "Abram en Lot komen terug uit Egypte. Ze hebben zoveel vee dat het land hen niet samen kan dragen, en hun herders krijgen twist. Abram zegt: ‘Laat toch geen twisting zijn tussen mij en tussen u’, en hij laat Lot kiezen. Lot kiest de Jordaanvlakte, waar overal water is. Hij zet zijn tenten op tot bij Sodom, waar de mannen boos zijn en grote zondaars tegen de HEERE. God belooft Abram al het land dat hij ziet. Abram gaat wonen bij de eikenbossen van Mamre, bij Hebron. Later krijgt Abraham bezoek van drie mannen. De HEERE belooft dat Sara een zoon zal krijgen, en Hij zegt dat Hij Sodom en Gomorra gaat bezien. Abraham pleit voor Sodom: van vijftig rechtvaardigen tot tien. God zegt: ‘Ik zal haar niet verderven om der tienen wil.’ In Sodom omsingelen de mannen het huis van Lot, omdat ze zijn twee gasten kwaad willen doen; die gasten zijn engelen. De engelen trekken Lot, zijn vrouw en zijn twee dochters aan de hand de stad uit. De HEERE laat zwavel en vuur regenen op Sodom en Gomorra. Lots vrouw kijkt om en wordt een zoutpilaar. Daarna woont Lot met zijn dochters in een spelonk. Zij geven hun vader wijn te drinken en worden zwanger van hem; zo ontstaan de Moabieten en de Ammonieten.",
-      betekenis: "Sodom laat zien dat God de zonde oordeelt (2 Petrus 2:6). Maar ‘God gedacht aan Abraham, en Hij leidde Lot uit het midden dezer omkering’ (19:29). De Heere Jezus waarschuwt: ‘Gedenkt aan de vrouw van Lot’ (Lukas 17:32).",
+      betekenis: "Sodom laat zien dat God de zonde oordeelt (2 Petrus 2:6). Maar God heeft ‘aan Abraham gedacht’, en ‘Hij leidde Lot uit het midden dezer omkering’ (19:29). De Heere Jezus waarschuwt: ‘Gedenkt aan de vrouw van Lot’ (Lukas 17:32).",
       wie: ["Abraham", "Sara", "Lot"],
       ontdek: {
         soort: "koppel",
@@ -434,7 +434,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "aartsvaders",
       stappen: ["genesis:abraham:21"],
       vorm: "route",
-      uitleg: "God stelt Abraham op de proef: ‘Neem nu uw zoon, uw enige, dien gij liefhebt, Izak’, en offer hem als brandoffer op een berg in het land Moria. Vroeg in de morgen vertrekt Abraham met Izak, twee knechten, een ezel en gekloofd hout. Op de derde dag ziet hij de plaats van verre. Tegen de knechten zegt hij: ‘als wij aangebeden zullen hebben, dan zullen wij tot u wederkeren.’ Izak draagt het hout en vraagt: ‘waar is het lam tot het brandoffer?’ Abraham antwoordt: ‘God zal Zichzelven een lam ten brandoffer voorzien, mijn zoon!’ Op de berg bouwt Abraham een altaar. Hij bindt Izak en neemt het mes. Maar de Engel van de HEERE roept uit de hemel: ‘Strek uw hand niet uit aan den jongen.’ Abraham ziet een ram die met zijn horens vastzit in de struiken. Hij offert de ram in de plaats van zijn zoon en noemt de plaats ‘De HEERE zal het voorzien!’ God zweert bij Zichzelf dat in Abrahams zaad alle volken van de aarde gezegend zullen worden. Daarna gaat Abraham terug naar Berseba.",
+      uitleg: "God stelt Abraham op de proef: ‘Neem nu uw zoon, uw enige, dien gij liefhebt, Izak’, en offer hem als brandoffer op een berg in het land Moria. Vroeg in de morgen vertrekt Abraham met Izak, twee knechten, een ezel en gekloofd hout. Op de derde dag ziet hij de plaats van verre. Tegen de knechten zegt hij: ‘als wij aangebeden zullen hebben, dan zullen wij tot u wederkeren.’ Izak draagt het hout en vraagt: ‘waar is het lam tot het brandoffer?’ Abraham antwoordt: ‘God zal Zichzelven een lam ten brandoffer voorzien, mijn zoon!’ Op de berg bouwt Abraham een altaar. Hij bindt Izak en neemt het mes. Maar de Engel van de HEERE roept uit de hemel: ‘Strek uw hand niet uit aan den jongen.’ Abraham ziet een ram die met zijn horens vastzit in de struiken. Hij offert de ram in de plaats van zijn zoon en noemt de plaats ‘De Heere zal het voorzien!’ God zweert bij Zichzelf dat in Abrahams zaad alle volken van de aarde gezegend zullen worden. Daarna gaat Abraham terug naar Berseba.",
       betekenis: "Abraham rekende erop dat God machtig was om Izak zelfs uit de doden op te wekken (Hebreeën 11:17–19). God spaarde Izak, maar Romeinen 8:32 zegt dat God ‘Zijn eigen Zoon niet gespaard heeft, maar heeft Hem voor ons allen overgegeven’.",
       wie: ["Abraham", "Izak"],
       kw: "geloof",

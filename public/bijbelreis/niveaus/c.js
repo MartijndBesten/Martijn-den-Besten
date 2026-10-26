@@ -566,11 +566,11 @@ BR.niveaus.voegToe("c", {
     ],
   },
   16: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Namen met een betekenis",
-        t: "Bij elke zoon zegt de moeder waarom hij zo heet. Bij Ruben zegt Lea: ‘Omdat de HEERE mijn verdrukking heeft aangezien’. Bij Juda: ‘Ditmaal zal ik den HEERE loven’. In het Hebreeuws lijken de namen op woorden uit die zinnen. Bij Jozef zegt Rachel: ‘De HEERE voege mij een anderen zoon daartoe’, dat is: de HEERE geve mij er nog een zoon bij. Dat gebeurt later, maar bij de geboorte van Benjamin sterft Rachel, op de weg naar Efrath (Genesis 35:16–19).",
+        t: "Bij elke zoon zegt Lea of Rachel waarom hij zo heet, ook bij de zonen van Bilha en Zilpa. Bij Ruben zegt Lea: ‘Omdat de HEERE mijn verdrukking heeft aangezien’. Bij Juda: ‘Ditmaal zal ik den HEERE loven’. In het Hebreeuws lijken de namen op woorden uit die zinnen. Bij Jozef zegt Rachel: ‘De HEERE voege mij een anderen zoon daartoe’, dat is: de HEERE geve mij er nog een zoon bij. Dat gebeurt later, maar bij de geboorte van Benjamin sterft Rachel, op de weg naar Efrath (Genesis 35:16–19).",
         refs: ["Genesis 29:32–35", "Genesis 30:23–24", "Genesis 35:16–19"],
       },
       {
@@ -612,12 +612,12 @@ BR.niveaus.voegToe("c", {
     ],
   },
   17: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Van Jakob naar Israël",
         t: "Bij zijn geboorte hield Jakob de hiel van Ezau vast; ‘daarom noemde men zijn naam Jakob’ (Genesis 25:26). Later zegt Ezau: ‘Is het niet omdat men zijn naam noemt Jakob, dat hij mij nu twee reizen heeft bedrogen?’ (Genesis 27:36). Bij de Jabbok vraagt de Man: ‘Hoe is uw naam?’ Dan krijgt Jakob de naam Israël, ‘want gij hebt u vorstelijk gedragen met God en met de mensen, en hebt overmocht’. In Bethel bevestigt God die naam (Genesis 35:10). Later heet het hele volk naar hem: de kinderen Israëls (Genesis 32:32).",
-        refs: ["Genesis 25:26", "Genesis 27:36", "Genesis 32:27–28", "Genesis 35:10"],
+        refs: ["Genesis 25:26", "Genesis 27:36", "Genesis 32:27–28", "Genesis 35:10", "Genesis 32:32"],
       },
       {
         kop: "Wie is de Man?",
@@ -650,7 +650,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   18: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Ismaëlieten en Midianieten",
@@ -659,7 +659,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Later in het verhaal",
-        t: "Genesis 37 vertelt niet wat Jozef in de kuil zei. Jaren later zeggen de broers tegen elkaar: ‘wij zijn schuldig aan onzen broeder, wiens benauwdheid der ziele wij zagen, toen hij ons om genade bad; maar wij hoorden niet!’ (Genesis 42:21). Ruben herinnert hen eraan dat hij hen gewaarschuwd had. Jozef zegt later zelf: ‘God heeft mij voor uw aangezicht gezonden, tot behoudenis des levens’ (Genesis 45:5), en: ‘gij hebt kwaad tegen mij gedacht; doch God heeft dat ten goede gedacht’ (Genesis 50:20).",
+        t: "Genesis 37 vertelt niet wat Jozef zei toen zijn broers hem in de kuil wierpen en verkochten. Jaren later zeggen de broers tegen elkaar: ‘wij zijn schuldig aan onzen broeder, wiens benauwdheid der ziele wij zagen, toen hij ons om genade bad; maar wij hoorden niet!’ (Genesis 42:21). Ruben herinnert hen eraan dat hij hen gewaarschuwd had. Jozef zegt later zelf: ‘God heeft mij voor uw aangezicht gezonden, tot behoudenis des levens’ (Genesis 45:5), en: ‘gij hebt kwaad tegen mij gedacht; doch God heeft dat ten goede gedacht’ (Genesis 50:20).",
         refs: ["Genesis 42:21–22", "Genesis 45:5", "Genesis 50:20"],
       },
       {
@@ -675,7 +675,7 @@ BR.niveaus.voegToe("c", {
         why: "Genesis 37:25",
       },
       {
-        q: "Wat zeiden de broers jaren later over Jozef in de kuil?",
+        q: "Wat zeiden de broers jaren later tegen elkaar over Jozef?",
         a: ["Dat hij om genade bad en zij niet hoorden", "Dat hij de hele tijd stil was gebleven", "Dat hij zelf uit de kuil was geklommen"],
         why: "Genesis 42:21",
       },
@@ -687,11 +687,11 @@ BR.niveaus.voegToe("c", {
     ],
   },
   19: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Een Egyptische naam en twee zonen",
-        t: "De farao geeft Jozef een Egyptische naam: Zafnath Paaneah. Wat die naam precies betekent, daarover verschillen onderzoekers. Jozef trouwt met Asnath, de dochter van Potifera, de overste van On. De Bijbel noemt Potifera met een andere naam en een andere taak dan Potifar. On wordt meestal gelijkgesteld aan de latere stad Heliopolis. De namen van Jozefs zonen zijn een belijdenis: Manasse, want ‘God heeft mij doen vergeten al mijn moeite’, en Efraïm, want ‘God heeft mij doen wassen in het land mijner verdrukking’. Later neemt Jakob hen aan als zijn eigen zonen (Genesis 48:5).",
+        t: "De farao geeft Jozef een Egyptische naam: Zafnath Paaneah. Wat die naam precies betekent, daarover verschillen onderzoekers. Jozef trouwt met Asnath, de dochter van Potifera, de overste van On. Potifera heeft in de Bijbel een andere naam en een andere taak dan Potifar. On wordt meestal gelijkgesteld aan de latere stad Heliopolis. Bij de namen van zijn zonen spreekt Jozef over God: Manasse, want ‘God heeft mij doen vergeten al mijn moeite’, en Efraïm, want ‘God heeft mij doen wassen in het land mijner verdrukking’. Later neemt Jakob hen aan als zijn eigen zonen (Genesis 48:5).",
         refs: ["Genesis 41:45", "Genesis 41:50–52", "Genesis 48:5"],
       },
       {
@@ -2844,7 +2844,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   73: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Waar en wanneer",
@@ -2886,7 +2886,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   74: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Waar en wanneer",
@@ -2895,7 +2895,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Een hoofd van goud, een beeld van goud",
-        t: "In zijn droom in Daniël 2 was Nebukadnezar zelf ‘dat gouden hoofd’ (Daniël 2:38). In hoofdstuk 3 laat hij een beeld van goud maken, en iedereen moet het aanbidden. De tekst legt dat verband niet zelf; veel uitleggers wijzen erop. Daniël wordt in hoofdstuk 3 niet genoemd. Waar hij toen was, vertelt de Bijbel niet.",
+        t: "Bij de uitleg van zijn droom zei Daniël tegen Nebukadnezar: ‘gij zijt dat gouden hoofd’ (Daniël 2:38). In hoofdstuk 3 laat hij een beeld van goud maken, en iedereen moet het aanbidden. De tekst legt dat verband niet zelf; veel uitleggers wijzen erop. Daniël wordt in hoofdstuk 3 niet genoemd. Waar hij toen was, vertelt de Bijbel niet.",
         refs: ["Daniël 2:38", "Daniël 3:1–7"],
       },
       {
@@ -2928,11 +2928,11 @@ BR.niveaus.voegToe("c", {
     ],
   },
   75: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Waar en wanneer",
-        t: "Darius de Meder ontving het koninkrijk na de dood van Belsazar, toen Babel viel (Daniël 5:30; 6:1). Dat was in 539 v.Chr. Wie deze Darius buiten de Bijbel was, is niet zeker; daarover bestaan verschillende opvattingen. Daniël 9:1 noemt hem ‘den zoon van Ahasveros, uit het zaad der Meden’. Daniël was rond 605 v.Chr. naar Babel gebracht (Daniël 1:1–6), ruim zestig jaar eerder. Hij is hier dus geen jonge man meer, al noemt de Bijbel zijn leeftijd niet.",
+        t: "Darius de Meder ontving het koninkrijk na de dood van Belsazar, toen Babel viel (Daniël 5:30; 6:1). Dat was in 539 v.Chr. Wie deze Darius buiten de Bijbel was, is niet zeker; daarover bestaan verschillende opvattingen. Daniël 9:1 noemt hem ‘den zoon van Ahasveros, uit het zaad der Meden’. Daniël was in het derde jaar van Jojakim naar Babel gebracht (Daniël 1:1–6); volgens de reconstructie rond 605 v.Chr., dus ruim zestig jaar eerder. Hij is hier dus geen jonge man meer, al noemt de Bijbel zijn leeftijd niet.",
         refs: ["Daniël 5:30", "Daniël 6:1", "Daniël 9:1", "Daniël 1:1–6"],
       },
       {
@@ -2974,7 +2974,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   76: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Waar en wanneer",
@@ -2983,20 +2983,20 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Ezra 4: wie waren deze koningen?",
-        t: "Ezra 4:6–23 gaat over tegenwerking onder Ahasveros en Arthahsasta. De brief aan Arthahsasta klaagt over het herbouwen van de stad en haar muren, niet over de tempel (Ezra 4:12–13). Uitleggers verschillen over wie deze koningen waren. Velen zien hier koningen die na Darius regeerden; dan is dit stuk een vooruitblik, en keert vers 24 terug naar de tijd van Darius. Anderen denken aan koningen tussen Kores en Darius. Vanaf Ezra 4:8 tot en met 6:18 is het boek in het Aramees geschreven, dat in 4:7 ‘Syrisch’ heet.",
+        t: "Ezra 4:6–23 gaat over tegenwerking onder Ahasveros en Arthahsasta. De brief aan Arthahsasta klaagt over het herbouwen van de stad en haar muren, niet over de tempel (Ezra 4:12–13). Uitleggers verschillen over wie deze koningen waren. Sommigen zien hier koningen die na Darius regeerden; dan is dit stuk een vooruitblik, en gaat vers 24 verder waar vers 5 ophield. Anderen denken aan koningen tussen Kores en Darius. Vanaf Ezra 4:8 tot en met 6:18 is het boek in het Aramees geschreven, dat in 4:7 ‘Syrisch’ heet.",
         refs: ["Ezra 4:6–24", "Ezra 4:12–13", "Ezra 4:7"],
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Jeremia had over de vaten van de tempel gezegd: ‘Naar Babel zullen zij gebracht worden’, en dat God ze zou ‘wederbrengen tot deze plaats’ (Jeremia 27:21–22). Het boek 2 Kronieken eindigt met bijna dezelfde woorden als Ezra 1:1–3 (2 Kronieken 36:22–23). Haggaï vraagt wie er nog is die ‘dit huis in zijn eerste heerlijkheid gezien heeft’ (Haggaï 2:4), zoals de oude mannen die huilden (Ezra 3:12). Zacharia zegt: ‘De handen van Zerubbabel hebben dit huis gegrondvest, zijn handen zullen het ook voleinden’ (Zacharia 4:9).",
-        refs: ["Jeremia 27:21–22", "2 Kronieken 36:22–23", "Ezra 1:1–3", "Haggaï 2:4", "Ezra 3:12", "Zacharia 4:9"],
+        t: "Jeremia had over de vaten die nog in het huis van de HEERE waren overgebleven, gezegd: ‘Naar Babel zullen zij gebracht worden’, en dat God ze zou ‘wederbrengen tot deze plaats’ (Jeremia 27:21–22). Het boek 2 Kronieken eindigt met bijna dezelfde woorden als Ezra 1:1–3 (2 Kronieken 36:22–23). Haggaï vraagt wie er nog is die ‘dit huis in zijn eerste heerlijkheid gezien heeft’ (Haggaï 2:3–4), zoals de oude mannen die huilden (Ezra 3:12). Zacharia zegt: ‘De handen van Zerubbabel hebben dit huis gegrondvest, zijn handen zullen het ook voleinden’ (Zacharia 4:9).",
+        refs: ["Jeremia 27:21–22", "2 Kronieken 36:22–23", "Ezra 1:1–3", "Haggaï 2:3–4", "Ezra 3:12", "Zacharia 4:9"],
       },
     ],
     vragen: [
       {
         q: "Welke profeet vraagt wie het huis nog ‘in zijn eerste heerlijkheid’ gezien heeft?",
         a: ["Haggaï", "Zacharia", "Jeremia"],
-        why: "Haggaï 2:4",
+        why: "Haggaï 2:3–4",
       },
       {
         q: "Waarover klaagt de brief aan Arthahsasta in Ezra 4?",
@@ -3016,6 +3016,225 @@ BR.niveaus.voegToe("c", {
         q: "Welk Bijbelboek eindigt met bijna dezelfde woorden als het begin van Ezra?",
         a: ["2 Kronieken", "Nehemia", "Esther"],
         why: "2 Kronieken 36:22–23",
+      },
+    ],
+  },
+  77: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Waar en wanneer",
+        t: "Susan, de burcht van de koning, is een plaats die goed is aan te wijzen. De Bijbel noemt hier geen jaartallen, wel regeringsjaren van Ahasveros: het feest in zijn derde jaar (1:3), Esther koningin in de tiende maand van zijn zevende jaar (2:16), en het lot in zijn twaalfde jaar (3:7). Meestal wordt Ahasveros gelijkgesteld met de Perzische koning Xerxes I (486–465 v.Chr.); dan komt dat uit op ca. 483, 479 en 474 v.Chr. Wie Ahasveros anders identificeert, komt op andere jaartallen. Het is dus een reconstructie.",
+        refs: ["Esther 1:3", "Esther 2:16", "Esther 3:7"],
+      },
+      {
+        kop: "Agagiet en Benjaminiet",
+        t: "Haman wordt ‘den Agagiet’ genoemd (3:1). Veel uitleggers verbinden die naam met Agag, ‘den koning der Amalekieten’, die koning Saul gevangennam (1 Samuël 15:8). Na de strijd tegen Amalek zei Mozes: ‘zo zal de oorlog des HEEREN tegen Amalek zijn, van geslacht tot geslacht!’ (Exodus 17:16). Mordechai is een Benjaminiet, een nakomeling van Kis (2:5). Ook de vader van Saul heette Kis en kwam uit Benjamin (1 Samuël 9:1–2). Het boek Esther legt dit verband zelf niet; het is een uitleg.",
+        refs: ["Esther 3:1", "1 Samuël 15:8", "Exodus 17:16", "Esther 2:5", "1 Samuël 9:1–2"],
+      },
+      {
+        kop: "Wat de tekst zegt en wat niet",
+        t: "De tekst zegt niet waarom Vasthi weigerde te komen. Er staat alleen dat zij ‘niet gedaan had het woord van den koning’ (1:15). Ook waarom Mordechai niet voor Haman boog, wordt niet uitgelegd. Er staat alleen dat ‘hij had hun te kennen gegeven, dat hij een Jood was’ (3:4). Uitleggers verschillen over de reden.",
+        refs: ["Esther 1:12–15", "Esther 3:2–4"],
+      },
+    ],
+    vragen: [
+      {
+        q: "In welk jaar van Ahasveros werd Esther koningin?",
+        a: ["In zijn zevende jaar", "In zijn derde jaar", "In zijn twaalfde jaar"],
+        why: "Esther 2:16",
+      },
+      {
+        q: "Welke koning van Juda noemt Esther 2:6 bij de wegvoering uit Jeruzalem?",
+        a: ["Jechonia", "Zedekia", "Josia"],
+        why: "Esther 2:6",
+      },
+      {
+        q: "Waarmee werden de brieven van Haman verzegeld?",
+        a: ["Met de ring van de koning", "Met de ring van Haman zelf", "Met het zegel van Mordechai"],
+        why: "Esther 3:10–12",
+      },
+    ],
+  },
+  78: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Een wet die niet terug kan",
+        t: "Esther vraagt of de brieven van Haman ‘wederroepen worden’ (8:5). Maar de koning zegt: ‘het schrift, dat in des konings naam geschreven, en met des konings ring verzegeld is, is niet te wederroepen’ (8:8). Datzelfde lezen we bij Vasthi, over een gebod in ‘de wetten der Perzen en Meden’ (1:19), en bij Daniël: ‘naar de wet der Meden en Perzen, die niet mag herroepen worden’ (Daniël 6:13). Daarom komt er geen bevel dat het eerste opheft, maar een tweede bevel. Dat geeft de Joden het recht om ‘zich te vergaderen, en voor hun leven te staan’ (8:11).",
+        refs: ["Esther 8:5–11", "Esther 1:19", "Daniël 6:13"],
+      },
+      {
+        kop: "Zak, as en vasten",
+        t: "Mordechai ‘trok een zak aan met as’ (4:1). Een zak is een kleed van grove stof. Samen met as was het een teken van rouw en verootmoediging. Zo deed ook de koning van Nineve toen Jona preekte (Jona 3:6), en Daniël toen hij voor zijn volk bad (Daniël 9:3). Esther vraagt om drie dagen vasten (4:16). Dat er ook gebeden werd, staat er niet; wel horen vasten en bidden elders in de Bijbel vaak bij elkaar (Ezra 8:23; Nehemia 1:4).",
+        refs: ["Esther 4:1–3", "Esther 4:16", "Jona 3:6", "Daniël 9:3", "Ezra 8:23", "Nehemia 1:4"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Alles gebeurt in de burcht Susan; van daaruit gaan de brieven naar honderdzevenentwintig landschappen, ‘van Indië af tot aan Morenland’ (8:9). Het lot werd geworpen in het twaalfde jaar van Ahasveros (3:7), en het nieuwe bevel ging uit in de derde maand, Sivan (8:9). Als Ahasveros Xerxes I is, was dat ca. 474 v.Chr., en viel de dertiende van Adar in het voorjaar van 473 v.Chr. Dat is een reconstructie.",
+        refs: ["Esther 3:7", "Esther 8:9"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wie bracht de boodschappen over tussen Esther en Mordechai?",
+        a: ["Hatach, een kamerling", "Charbona, een kamerling", "Hegai, de bewaarder der vrouwen"],
+        why: "Esther 4:5–10",
+      },
+      { q: "Hoe lang was Esther al niet bij de koning geroepen?", a: ["Dertig dagen", "Drie dagen", "Zeven dagen"], why: "Esther 4:11" },
+      {
+        q: "Wat zeiden Zeres en de wijzen van Haman nadat hij Mordechai had moeten eren?",
+        a: [
+          "Dat hij niet tegen Mordechai zou kunnen winnen",
+          "Dat de koning Mordechai zou straffen",
+          "Dat Mordechai de stad uit zou vluchten",
+        ],
+        why: "Esther 6:13",
+      },
+    ],
+  },
+  79: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Waar en wanneer",
+        t: "Zacharia begon ‘in de achtste maand, in het tweede jaar van Darius’ (Zacharia 1:1), in de gangbare chronologie 520 v.Chr. In datzelfde jaar sprak ook Haggaï (Haggaï 1:1). Door hun profetie ging de bouw van de tempel in Jeruzalem voorspoedig verder, en het huis werd voltooid in het zesde jaar van Darius (Ezra 6:14–15). Maleachi noemt geen jaartal; de meeste uitleggers plaatsen hem in de tijd van Ezra en Nehemia, ongeveer 450–430 v.Chr. Dat is een schatting. In Ezra 5:1 heet Zacharia ‘de zoon van Iddo’; volgens Zacharia 1:1 was Iddo zijn grootvader. Zoon kan in de Bijbel ook nakomeling betekenen.",
+        refs: ["Zacharia 1:1", "Haggaï 1:1", "Ezra 5:1", "Ezra 6:14–15"],
+      },
+      {
+        kop: "Is Johannes nu Elia?",
+        t: "De Heere Jezus zegt over Johannes de Doper dat Elias al gekomen is (Mattheüs 17:12–13). Maar als men Johannes zelf vraagt: ‘Zijt gij Elias?’, zegt hij: ‘Ik ben die niet’ (Johannes 1:21). Hoe gaat dat samen? De engel zei tegen Zacharias dat Johannes zou gaan ‘in den geest en de kracht van Elias’ (Lukas 1:17). Veel uitleggers zien daarin het antwoord: Johannes is niet Elia zelf die terugkomt, maar hij komt met dezelfde opdracht.",
+        refs: ["Mattheüs 17:10–13", "Johannes 1:21", "Lukas 1:17"],
+      },
+      {
+        kop: "Bode en wegbereider",
+        t: "Het Hebreeuwse woord dat in Maleachi 3:1 met engel vertaald is, betekent ook bode: iemand die een boodschap brengt. De naam Maleachi betekent: mijn bode. Markus begint zijn evangelie met Maleachi 3:1 en Jesaja 40:3 samen: ‘De stem des roependen in de woestijn: Bereidt den weg des Heeren’ (Markus 1:2–3). En over de Koning op de ezel schrijft Johannes: ‘dit verstonden Zijn discipelen in het eerst niet’ (Johannes 12:16).",
+        refs: ["Maleachi 3:1", "Jesaja 40:3", "Markus 1:2–3", "Johannes 12:14–16"],
+      },
+    ],
+    vragen: [
+      {
+        q: "In welk jaar van koning Darius kwam het woord van de HEERE tot Zacharia?",
+        a: ["In het tweede jaar", "In het zesde jaar", "In het twaalfde jaar"],
+        why: "Zacharia 1:1",
+      },
+      { q: "Met welke profeet samen profeteerde Zacharia volgens Ezra 5:1?", a: ["Haggaï", "Maleachi", "Jesaja"], why: "Ezra 5:1" },
+      {
+        q: "Wat antwoordde Johannes toen men vroeg of hij Elias was?",
+        a: ["Ik ben die niet", "Ja, ik ben Elias", "Dat zal de Heere zeggen"],
+        why: "Johannes 1:21",
+      },
+    ],
+  },
+  80: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Priesters in beurten",
+        t: "Zacharias hoort bij ‘de dagorde van Abia’ (Lukas 1:5). In 1 Kronieken 24 worden de priesters door het lot in vierentwintig groepen verdeeld: ‘het achtste voor Abia’ (1 Kronieken 24:10). Elke groep deed om de beurt de dienst in de tempel (Lukas 1:8). Wie het reukoffer mocht brengen, werd met het lot bepaald (Lukas 1:9). Het reukwerk werd elke morgen en elke avond aangestoken (Exodus 30:7–8). Het volk bidt buiten ‘ten ure des reukoffers’ (Lukas 1:10). Ook Psalm 141:2 verbindt bidden en reukwerk: ‘Mijn gebed worde gesteld als reukwerk voor Uw aangezicht’.",
+        refs: ["Lukas 1:5–10", "1 Kronieken 24:5–18", "Exodus 30:7–8", "Psalm 141:2"],
+      },
+      {
+        kop: "Elders in de Bijbel",
+        t: "De engel zegt over Johannes: ‘noch wijn, noch sterken drank zal hij drinken’ (Lukas 1:15). Dat doet denken aan de wet voor de nazireeër: ‘Van wijn en sterken drank zal hij zich afzonderen’ (Numeri 6:3). Lukas noemt Johannes geen nazireeër; veel uitleggers wijzen wel op de overeenkomst met Simson (Richteren 13:4–5). Ook Elisabeth staat niet alleen. Van Rebekka, de moeder van Simson en Hanna vertelt de Bijbel dat ze onvruchtbaar waren of geen kinderen hadden, voordat God hun een zoon gaf (Genesis 25:21; Richteren 13:2–3; 1 Samuël 1:2, 20).",
+        refs: ["Lukas 1:15", "Numeri 6:3", "Richteren 13:2–5", "Genesis 25:21", "1 Samuël 1:2, 20"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "De tempel in Jeruzalem is goed aan te wijzen. Wanneer dit gebeurde, is een reconstructie. Als Gabriël bij Maria komt, is Elisabeth in haar zesde maand (Lukas 1:26, 36). Dit gebeurde dus ongeveer vijftien maanden vóór de geboorte van de Heere Jezus. Die wordt meestal op ca. 6–4 v.Chr. gesteld, omdat Herodes volgens de geschiedschrijver Josephus ca. 4 v.Chr. stierf. Andere dateringen bestaan.",
+        refs: ["Lukas 1:5", "Lukas 1:26, 36"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Tot welke dagorde van priesters hoorde Zacharias?",
+        a: ["De dagorde van Abia", "De dagorde van Jojarib", "De dagorde van Maazja"],
+        why: "Lukas 1:5",
+      },
+      {
+        q: "Wat zou Johannes volgens de engel niet drinken?",
+        a: ["Wijn en sterke drank", "Water uit de Jordaan", "Melk van de kudde"],
+        why: "Lukas 1:15",
+      },
+      {
+        q: "Wat begrepen de mensen buiten, toen Zacharias niet kon spreken?",
+        a: [
+          "Dat hij een gezicht in de tempel gezien had",
+          "Dat hij in de tempel ziek geworden was",
+          "Dat hij een gelofte van zwijgen had gedaan",
+        ],
+        why: "Lukas 1:22",
+      },
+      {
+        q: "In welke maand was Elisabeth toen Gabriël bij Maria kwam?",
+        a: ["In de zesde maand", "In de derde maand", "In de negende maand"],
+        why: "Lukas 1:26, 36",
+      },
+    ],
+  },
+  81: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Twee vragen aan Gabriël",
+        t: "Zacharias vroeg: ‘Waarbij zal ik dat weten?’ (Lukas 1:18) en moest zwijgen, omdat hij niet geloofde (1:20). Maria vraagt: ‘Hoe zal dat wezen?’ (1:34), en de engel legt het uit. Veel uitleggers zien het verschil in de vraag zelf: Zacharias vroeg om een bewijs, Maria vroeg hoe het zou gebeuren. Elisabeth zegt over Maria: ‘zalig is zij, die geloofd heeft’ (1:45).",
+        refs: ["Lukas 1:18–20", "Lukas 1:34–35", "Lukas 1:45"],
+      },
+      {
+        kop: "Elders in de Bijbel",
+        t: "‘Want geen ding zal bij God onmogelijk zijn’ (1:37) doet denken aan wat God over Sara zei: ‘Zou iets voor den HEERE te wonderlijk zijn?’ (Genesis 18:14). De woorden van Maria (1:46–55) lijken op het gebed van Hanna: ‘Hij vernedert, ook verhoogt Hij’ (1 Samuël 2:7), naast ‘nederigen heeft Hij verhoogd’ (Lukas 1:52). En Maria eindigt bij de belofte aan ‘Abraham, en zijn zaad’ (Lukas 1:55; vergelijk Genesis 22:17–18).",
+        refs: ["Lukas 1:37", "Genesis 18:14", "1 Samuël 2:7", "Lukas 1:52–55", "Genesis 22:17–18"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Nazareth, ‘een stad in Galilea’ (1:26), is goed aan te wijzen. De woonplaats van Zacharias en Elisabeth wordt niet bij naam genoemd: alleen ‘een stad van Juda’ in het gebergte (1:39). Daarom staat die plaats op de kaart als onbekend. Het woord nicht (1:36) betekent hier: familielid; hoe Maria en Elisabeth precies familie waren, zegt de tekst niet. Datering: een reconstructie, ongeveer negen maanden vóór de geboorte van de Heere Jezus (ca. 6–4 v.Chr., vóór de dood van Herodes). Andere dateringen bestaan.",
+        refs: ["Lukas 1:26", "Lukas 1:36", "Lukas 1:39–40"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat zei Elisabeth over Maria, omdat zij geloofd had?",
+        a: ["Zalig is zij, die geloofd heeft", "Zij zal een profetes genoemd worden", "Zij moet naar de tempel gaan"],
+        why: "Lukas 1:45",
+      },
+      { q: "Welke naam uit de profetie noemt Mattheüs 1:23 voor het Kind?", a: ["Emmanuël", "Johannes", "Zacharias"], why: "Mattheüs 1:23" },
+      {
+        q: "Waar woonden Zacharias en Elisabeth volgens Lukas 1:39?",
+        a: ["In een stad van Juda, in het gebergte", "In Nazareth, in Galilea", "In Bethlehem, de stad van David"],
+        why: "Lukas 1:39–40",
+      },
+    ],
+  },
+  82: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Elders in de Bijbel",
+        t: "De woorden van Zacharias zitten vol Oude Testament. Hij spreekt over ‘een hoorn der zaligheid’ in het huis van David (1:69), een verwijzing naar de belofte aan David; een hoorn is in de Bijbel een beeld van kracht. ‘Den eed, dien Hij Abraham, onzen vader, gezworen heeft’ (1:73) wijst naar Genesis 22:16: ‘Ik zweer bij Mijzelven, spreekt de HEERE’. Bij ‘de Opgang uit de hoogte’ (1:78) denken veel uitleggers aan Maleachi 4:2: ‘de Zon der gerechtigheid’.",
+        refs: ["Lukas 1:69–73", "Genesis 22:16–18", "Lukas 1:78", "Maleachi 4:2"],
+      },
+      {
+        kop: "De dag dat Johannes verschijnt",
+        t: "Het kind is ‘in de woestijnen, tot den dag zijner vertoning aan Israël’ (1:80). Lukas vertelt later hoe die dag komt: ‘geschiedde het woord Gods tot Johannes, den zoon van Zacharias, in de woestijn’ (Lukas 3:2). Mattheüs ziet in hem ‘de stem des roependen in de woestijn’ uit Jesaja 40:3 (Mattheüs 3:3). Zo wordt waar wat Zacharias zei: ‘gij zult voor het aangezicht des Heeren heengaan, om Zijn wegen te bereiden’ (1:76).",
+        refs: ["Lukas 1:76–80", "Lukas 3:2–4", "Mattheüs 3:1–3", "Jesaja 40:3"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "De woonplaats van Zacharias en Elisabeth heeft in de tekst geen naam. Lukas spreekt alleen van ‘het gehele gebergte van Judea’ (1:65). Op de kaart staat de plaats daarom als onbekend. De datering is een reconstructie: Johannes was ongeveer een half jaar ouder dan de Heere Jezus (Lukas 1:26, 36), Die ca. 6–4 v.Chr. werd geboren. Andere dateringen bestaan.",
+        refs: ["Lukas 1:65", "Lukas 1:26, 36"],
+      },
+    ],
+    vragen: [
+      { q: "Aan wie had God volgens Zacharias een eed gezworen?", a: ["Aan Abraham", "Aan Mozes", "Aan Elia"], why: "Lukas 1:73" },
+      {
+        q: "In welk huis heeft God volgens Zacharias een hoorn der zaligheid opgericht?",
+        a: ["In het huis van David", "In het huis van Aäron", "In het huis van Abia"],
+        why: "Lukas 1:69",
+      },
+      {
+        q: "Welke profeet noemt Mattheüs als Johannes in de woestijn gaat preken?",
+        a: ["Jesaja", "Jeremia", "Daniël"],
+        why: "Mattheüs 3:3",
       },
     ],
   },
@@ -3054,6 +3273,76 @@ BR.niveaus.voegToe("c", {
         why: "Lukas 2:1–2; Mattheüs 2:1",
       },
       { q: "Welke andere naam gebruikt de Bijbel voor Bethlehem?", a: ["Efrath", "Bethel", "Bethanië"], why: "Genesis 35:19" },
+    ],
+  },
+  84: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Simeon en Anna",
+        t: "Op de achtste dag krijgt het Kind de naam Jezus, ‘welke genaamd was van den engel’ (2:21). Later brengen Jozef en Maria Hem naar de tempel in Jeruzalem. Ze geven ‘een paar tortelduiven, of twee jonge duiven’ (2:24). Volgens Leviticus 12:8 was dat het offer voor wie geen lam kon betalen; uitleggers leiden daaruit af dat Jozef en Maria arm waren. In de tempel neemt Simeon, ‘rechtvaardig en godvrezende’, het Kind in zijn armen. Ook de profetes Anna looft de Heere en spreekt over Hem ‘tot allen, die de verlossing in Jeruzalem verwachtten’ (2:38).",
+        refs: ["Lukas 2:21–38", "Leviticus 12:8"],
+      },
+      {
+        kop: "Wat de tekst zegt en wat niet",
+        t: "Lukas zegt niet hoeveel herders er waren. De hemelse menigte is ‘prijzende God en zeggende’ (2:13); dat de engelen zongen, staat er niet. Een stal, een os en een ezel worden niet genoemd, alleen de kribbe (2:12, 16). De datum van 25 december komt uit de traditie van de kerk, niet uit de Bijbel. Uitleggers verschillen over de vraag of herders ’s nachts in het veld iets zeggen over het seizoen.",
+        refs: ["Lukas 2:8–16"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Bethlehem is goed aan te wijzen. Waar de herders precies waren, zegt Lukas niet: ‘in diezelfde landstreek’ (2:8). Plekken die nu als herdersvelden worden aangewezen, komen uit de overlevering. De datering is een reconstructie: dit gebeurde in de nacht van de geboorte (geschiedenis 83), ca. 6–4 v.Chr. Andere dateringen bestaan.",
+        refs: ["Lukas 2:8", "Lukas 2:15"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat zeiden de herders tegen elkaar toen de engelen weg waren?",
+        a: ["Laat ons heengaan naar Bethlehem", "Laat ons naar de tempel gaan", "Laat ons bij de kudde blijven"],
+        why: "Lukas 2:15",
+      },
+      {
+        q: "Welk offer brachten Jozef en Maria in de tempel?",
+        a: ["Tortelduiven of jonge duiven", "Een lam van een jaar", "Een jonge stier"],
+        why: "Lukas 2:24",
+      },
+      { q: "Hoe noemt Lukas de oude Anna in de tempel?", a: ["Een profetes", "Een priesteres", "Een herderin"], why: "Lukas 2:36" },
+    ],
+  },
+  85: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Wat de tekst zegt en wat niet",
+        t: "Mattheüs zegt niet hoeveel wijzen er waren; dat het er drie waren, is afgeleid uit de drie geschenken. Dat ze koningen waren en namen als Caspar, Melchior en Balthasar hadden, komt uit de traditie. Ze vinden het Kind ‘in het huis’ (2:11), niet bij de kribbe. Herodes laat kinderen doden ‘van twee jaren oud en daaronder, naar den tijd, dien hij van de wijzen naarstiglijk onderzocht had’ (2:16). Daarom denken veel uitleggers dat de wijzen enige tijd na de geboorte kwamen. Hoe lang, zegt de tekst niet.",
+        refs: ["Mattheüs 2:7–11", "Mattheüs 2:16"],
+      },
+      {
+        kop: "Elders in de Bijbel",
+        t: "Rachel was begraven ‘aan den weg naar Efrath, hetwelk is Bethlehem’ (Genesis 35:19). In Jeremia volgt op haar geween direct een belofte: ‘uw kinderen zullen wederkomen tot hun landpale’ (Jeremia 31:17). De engel zegt tegen Jozef: ‘zij zijn gestorven, die de ziel van het Kindeken zochten’ (2:20). Dat lijkt sterk op wat God tegen Mozes zei: ‘al de mannen zijn dood, die uw ziel zochten’ (Exodus 4:19). Veel uitleggers zien hier een bewust verband tussen Mozes en de Heere Jezus.",
+        refs: ["Genesis 35:19", "Jeremia 31:15–17", "Mattheüs 2:19–20", "Exodus 4:19"],
+      },
+      {
+        kop: "Nazarener, en de route",
+        t: "Mattheüs schrijft dat vervuld werd ‘wat door de profeten gezegd is, dat Hij Nazarener zal geheten worden’ (2:23). Er is geen tekst in het Oude Testament die letterlijk zo luidt, en Mattheüs spreekt van de profeten, meervoud. Uitleggers verschillen over wat bedoeld is. Sommigen denken aan de Scheut uit Jesaja 11:1, omdat dat woord in het Hebreeuws op Nazareth lijkt; anderen aan het geringe aanzien van Nazareth (Johannes 1:47). Mattheüs noemt geen route naar Egypte of terug; de route op de kaart is een reconstructie.",
+        refs: ["Mattheüs 2:23", "Jesaja 11:1", "Johannes 1:47"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat vroeg Herodes heimelijk aan de wijzen?",
+        a: ["Wanneer de ster verschenen was", "Uit welk land zij kwamen", "Wat zij het Kind wilden geven"],
+        why: "Mattheüs 2:7",
+      },
+      {
+        q: "Waar was Rachel begraven volgens Genesis 35:19?",
+        a: ["Aan de weg naar Efrath, dat is Bethlehem", "In de spelonk bij Hebron", "In Egypte, bij haar zoon Jozef"],
+        why: "Genesis 35:19",
+      },
+      {
+        q: "Op welke woorden aan Mozes lijkt wat de engel in Mattheüs 2:20 tegen Jozef zegt?",
+        a: ["Al de mannen zijn dood, die uw ziel zochten", "Trek uw schoenen uit van uw voeten", "Ga heen, Ik zal met uw mond zijn"],
+        why: "Exodus 4:19",
+      },
     ],
   },
   86: {
@@ -4289,6 +4578,514 @@ BR.niveaus.voegToe("c", {
         a: ["Hij las wilde vijgen af", "Hij ving vissen in de zee", "Hij bouwde huizen in Jericho"],
         why: "Amos 7:14",
       },
+    ],
+  },
+  134: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Belofte en vervulling",
+        t: "Pinksteren kwam niet onverwacht. Na Zijn opstanding zei de Heere Jezus: ‘blijft gij in de stad Jeruzalem, totdat gij zult aangedaan zijn met kracht uit de hoogte’ (Lukas 24:49). En: ‘gij zult met den Heiligen Geest gedoopt worden, niet lang na deze dagen’ (Handelingen 1:5). Al eerder had Hij gezegd: ‘Het is u nut, dat Ik wegga; want indien Ik niet wegga, zo zal de Trooster tot u niet komen’ (Johannes 16:7). Johannes schrijft er elders bij dat de Geest nog niet gegeven was, ‘overmits Jezus nog niet verheerlijkt was’ (Johannes 7:39).",
+        refs: ["Lukas 24:49", "Handelingen 1:5", "Johannes 16:7", "Johannes 7:39"],
+      },
+      {
+        kop: "Het feest der weken",
+        t: "In het Oude Testament heet Pinksteren ‘het feest der weken’ (Exodus 34:22): Israël telde zeven weken en vierde dan het feest van de eerstelingen van de tarweoogst (Deuteronomium 16:9–10). De naam Pinksteren komt van het Griekse woord voor vijftigste. In Jeruzalem zijn ‘beiden Joden en Jodengenoten’ (Handelingen 2:10). Jodengenoten zijn mensen van buiten het Joodse volk die het Joodse geloof hebben aangenomen.",
+        refs: ["Exodus 34:22", "Deuteronomium 16:9–10", "Handelingen 2:10"],
+      },
+      {
+        kop: "Wat de tekst zegt en wat niet",
+        t: "Het geluid vulde ‘het gehele huis, waar zij zaten’ (2:2), maar welk huis dat was, zegt Lukas niet. Veel uitleggers zien een tegenhanger van Babel: daar verwarde de HEERE de spraak (Genesis 11:9), hier hoort ieder ‘de grote werken Gods’ in zijn eigen taal (2:11). Handelingen 2 noemt Babel zelf niet. Ook het jaar staat er niet: Pinksteren valt vijftig dagen na het Pascha van de kruisiging, en daarvoor worden vooral 30 en 33 n.Chr. verdedigd.",
+        refs: ["Handelingen 2:2", "Genesis 11:9", "Handelingen 2:11"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Hoe heet het Pinksterfeest in het Oude Testament?",
+        a: ["Het feest der weken", "Het feest der loofhutten", "Het feest van het Pascha"],
+        why: "Exodus 34:22; Deuteronomium 16:10",
+      },
+      {
+        q: "Wat moesten de discipelen volgens Lukas 24:49 doen?",
+        a: ["In Jeruzalem blijven tot de kracht uit de hoogte kwam", "Meteen teruggaan naar Galilea", "Naar alle volken reizen om te dopen"],
+        why: "Lukas 24:49",
+      },
+      {
+        q: "Uit welke streek kwamen de discipelen, volgens de verbaasde menigte?",
+        a: ["Galilea", "Judea", "Samaria"],
+        why: "Handelingen 2:7",
+      },
+    ],
+  },
+  135: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Van verloochenaar tot prediker",
+        t: "In de nacht van het verraad had de Heere Jezus tegen Petrus gezegd: ‘Ik heb voor u gebeden, dat uw geloof niet ophoude; en gij, als gij eens zult bekeerd zijn, zo versterk uw broeders’ (Lukas 22:32). Na de opstanding vroeg de Heere hem driemaal: ‘hebt gij Mij lief?’ en zei Hij: ‘Weid Mijn lammeren’ en ‘Weid Mijn schapen’ (Johannes 21:15–17). Met Pinksteren staat dezelfde Petrus op en spreekt vrijmoedig tot duizenden.",
+        refs: ["Lukas 22:31–32", "Johannes 21:15–17"],
+      },
+      {
+        kop: "Het derde uur en het breken van het brood",
+        t: "De Joden telden de uren van de dag vanaf zonsopgang. Het derde uur is dus in de ochtend, ongeveer negen uur. Over ‘de breking des broods’ (2:42) verschillen uitleggers: sommigen denken aan het Heilig Avondmaal, anderen aan de gewone maaltijden, of aan allebei. De tekst zegt verder dat ze ‘van huis tot huis brood brekende’ samen aten ‘met verheuging en eenvoudigheid des harten’ (2:46).",
+        refs: ["Handelingen 2:15", "Handelingen 2:42", "Handelingen 2:46"],
+      },
+      {
+        kop: "Wie de Heere roepen zal",
+        t: "Petrus begint met Joël en houdt op bij de woorden: ‘een iegelijk, die den Naam des Heeren zal aanroepen, zalig zal worden’ (2:21). Aan het eind van zijn preek zegt hij: ‘zo velen als er de Heere, onze God, toe roepen zal’ (2:39). Dat lijkt op het slot van Joël 2:32, dat in Handelingen 2 niet wordt aangehaald: ‘bij de overgeblevenen, die de HEERE zal roepen’. De mens roept God aan, en God roept de mens.",
+        refs: ["Handelingen 2:21", "Handelingen 2:39", "Joël 2:32"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat had de Heere Jezus volgens Lukas 22:32 tegen Petrus gezegd?",
+        a: ["Als gij bekeerd zijt, versterk uw broeders", "Gij zult de tempel opnieuw bouwen", "Ga naar Rome en predik daar"],
+        why: "Lukas 22:32",
+      },
+      {
+        q: "Hoe aten de gelovigen samen, volgens Handelingen 2:46?",
+        a: ["Met verheuging en eenvoudigheid des harten", "Alleen op de sabbat, in de tempel", "In stilte en met droefheid"],
+        why: "Handelingen 2:46",
+      },
+      {
+        q: "Wat deden de gelovigen met hun goederen?",
+        a: ["Ze verkochten ze en deelden uit naar ieders nood", "Ze gaven alles aan de hogepriester", "Ze brachten alles naar de tempel"],
+        why: "Handelingen 2:45",
+      },
+    ],
+  },
+  136: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Sadduceeën en een Farizeeër",
+        t: "De priesters en Sadduceeën waren ‘zeer ontevreden’, omdat de apostelen ‘in Jezus de opstanding uit de doden’ verkondigden (4:1–2). Later legt Lukas uit: ‘de Sadduceën zeggen, dat er geen opstanding is, noch engel, noch geest’ (Handelingen 23:8). Ook de hogepriester hoorde bij hen (5:17). Gamaliël was een Farizeeër en een geachte leraar der wet (5:34). Paulus vertelt later dat hij ‘aan de voeten van Gamaliël’ onderwezen was (Handelingen 22:3).",
+        refs: ["Handelingen 4:1–2", "Handelingen 23:8", "Handelingen 5:17", "Handelingen 5:34", "Handelingen 22:3"],
+      },
+      {
+        kop: "Mozes en Abraham in de preek",
+        t: "In zijn tweede preek wijst Petrus terug naar Mozes: ‘De Heere, uw God, zal u een Profeet verwekken, uit uw broederen, gelijk mij’ (3:22, uit Deuteronomium 18:15). En naar de belofte aan Abraham: ‘En in uw zade zullen alle geslachten der aarde gezegend worden’ (3:25; vergelijk Genesis 22:18). Petrus noemt de Heere Jezus ‘den Vorst des levens’, Die zij gedood hadden en Die God heeft opgewekt (3:15).",
+        refs: ["Handelingen 3:22", "Deuteronomium 18:15", "Handelingen 3:25", "Genesis 22:18", "Handelingen 3:15"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Welke tempelpoort de Schone heette, zegt de Bijbel niet; uitleggers verschillen daarover. Salomo’s voorhof was een zuilengang bij de tempel, waar ook de Heere Jezus gewandeld had (Johannes 10:23). Het negende uur was in de middag, ongeveer drie uur. Een jaartal noemt de Bijbel niet: het gebeurt kort na Pinksteren, afhankelijk van het jaar van de kruisiging (30 of 33) in de eerste jaren daarna.",
+        refs: ["Handelingen 3:1–2", "Handelingen 3:11", "Johannes 10:23"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Waarom waren de Sadduceeën zo ontevreden over de apostelen?",
+        a: ["Ze verkondigden de opstanding uit de doden", "Ze vroegen geld bij de tempelpoort", "Ze spraken in vreemde talen"],
+        why: "Handelingen 4:1–2; Handelingen 23:8",
+      },
+      {
+        q: "Welke belofte van Mozes haalt Petrus aan?",
+        a: ["God zal een Profeet verwekken, gelijk Mozes", "God zal de tempel opnieuw bouwen", "God zal Israël naar Egypte terugbrengen"],
+        why: "Handelingen 3:22; Deuteronomium 18:15",
+      },
+      {
+        q: "Waarom gingen de apostelen blij weg van de raad?",
+        a: ["Ze waren waardig geacht om smaadheid te lijden", "Ze mochten voortaan vrij preken", "De raad had hun gelijk gegeven"],
+        why: "Handelingen 5:40–41",
+      },
+      { q: "Wie werd volgens Handelingen 22:3 onderwezen door Gamaliël?", a: ["Paulus", "Petrus", "Stefanus"], why: "Handelingen 22:3" },
+    ],
+  },
+  137: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Wat de tekst zegt en wat niet",
+        t: "Niemand was verplicht om land te verkopen. Petrus zegt: ‘Zo het gebleven ware, bleef het niet uw, en verkocht zijnde, was het niet in uw macht?’ (5:4). De zonde was niet dat ze geld hielden, maar dat ze logen. Ananias en Saffira hadden dat samen afgesproken: ‘Wat is het, dat gij onder u hebt overeengestemd te verzoeken den Geest des Heeren?’ (5:9). Veel uitleggers wijzen erop dat Petrus eerst zegt dat Ananias de Heilige Geest heeft gelogen (5:3) en daarna: ‘Gij hebt den mensen niet gelogen, maar Gode’ (5:4).",
+        refs: ["Handelingen 5:3–4", "Handelingen 5:9"],
+      },
+      {
+        kop: "Barnabas, zoon der vertroosting",
+        t: "Barnabas komt in Handelingen vaker terug. Als Saulus na zijn bekering in Jeruzalem komt en de discipelen hem vrezen, neemt Barnabas hem mee naar de apostelen (9:26–27). Later stuurt de gemeente hem naar Antiochië, ‘want hij was een goed man, en vol des Heiligen Geestes en des geloofs’ (11:24). En de Heilige Geest zegt: ‘Zondert Mij af beiden Barnabas en Saulus’ (13:2).",
+        refs: ["Handelingen 9:26–27", "Handelingen 11:22–24", "Handelingen 13:2"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Dit gebeurt in Jeruzalem, in de eerste jaren van de gemeente en nog vóór de dood van Stefanus. De Bijbel noemt geen jaartal; daarom staat op de tijdlijn een reconstructie: ca. 30–35 n.Chr.",
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat zei Petrus tegen Saffira over de mannen bij de deur?",
+        a: ["Ze hebben uw man begraven en zullen u uitdragen", "Ze komen het geld terugbrengen", "Ze willen het land van u kopen"],
+        why: "Handelingen 5:9",
+      },
+      {
+        q: "Hoe noemt Lukas Barnabas in Handelingen 11:24?",
+        a: ["Een goed man, vol des Heiligen Geestes", "Een rijk man uit het land Cyprus", "Een geachte leraar der wet"],
+        why: "Handelingen 11:24",
+      },
+      {
+        q: "Wat hadden Ananias en Saffira volgens Petrus samen gedaan?",
+        a: ["Overeengestemd de Geest des Heeren te verzoeken", "Samen een tweede akker gekocht", "Samen naar Cyprus gereisd"],
+        why: "Handelingen 5:9",
+      },
+    ],
+  },
+  138: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Stefanus en de profeten",
+        t: "Stefanus haalt in zijn rede de profeten aan. ‘Hebt gij ook slachtofferen en offeranden Mij opgeofferd, veertig jaren in de woestijn’ (7:42) komt uit Amos 5:25. ‘De hemel is Mij een troon, en de aarde een voetbank Mijner voeten’ (7:49) komt uit Jesaja 66:1, waar staat: ‘De hemel is Mijn troon’. Stefanus gebruikt het om te laten zien dat ‘de Allerhoogste woont niet in tempelen met handen gemaakt’ (7:48). Zo antwoordt hij op de beschuldiging over de tempel.",
+        refs: ["Handelingen 7:42–43", "Amos 5:25–27", "Handelingen 7:48–50", "Jesaja 66:1–2"],
+      },
+      {
+        kop: "Na Stefanus",
+        t: "Op die dag begint ‘een grote vervolging tegen de Gemeente’, en de gelovigen worden verstrooid door Judea en Samaria, ‘behalve de apostelen’ (8:1). Wie verstrooid werden, brachten het Woord tot in Fenicië, Cyprus en Antiochië (11:19). Saulus ging door met vervolgen (8:3; 9:1–2). Later schreef hij: ‘ik ben de minste van de apostelen, die niet waardig ben een apostel genaamd te worden, daarom dat ik de Gemeente Gods vervolgd heb’ (1 Korinthe 15:9).",
+        refs: ["Handelingen 8:1–3", "Handelingen 11:19", "Handelingen 9:1–2", "1 Korinthe 15:9"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Ze werpen Stefanus ‘ter stad uit’ (7:58). De wet zei dat iemand die de Naam van de HEERE lasterde, buiten het leger gestenigd moest worden (Leviticus 24:14, 16); de beschuldiging tegen Stefanus was laster (6:11, 13). Waar het precies gebeurde, zegt de Bijbel niet. Een jaartal staat er ook niet; het valt na de eerste jaren van de gemeente en vóór de bekering van Saulus, daarom ca. 31–35 n.Chr.",
+        refs: ["Handelingen 7:58", "Leviticus 24:14–16", "Handelingen 6:11–13"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Uit welk Bijbelboek haalt Stefanus ‘De hemel is Mij een troon’ aan?",
+        a: ["Jesaja", "Amos", "Psalmen"],
+        why: "Handelingen 7:49; Jesaja 66:1",
+      },
+      {
+        q: "Wie bleven in Jeruzalem toen de gemeente verstrooid werd?",
+        a: ["De apostelen", "Stefanus en Filippus", "Alle weduwen"],
+        why: "Handelingen 8:1",
+      },
+      {
+        q: "Hoe noemt Paulus Stefanus later in Handelingen 22:20?",
+        a: ["Uw getuige", "Mijn leraar", "De eerste apostel"],
+        why: "Handelingen 22:20",
+      },
+    ],
+  },
+  139: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Samaria hoort het Woord",
+        t: "Joden en Samaritanen gingen niet met elkaar om: ‘de Joden houden geen gemeenschap met de Samaritanen’ (Johannes 4:9). Toen een dorp van de Samaritanen de Heere Jezus niet ontving, vroegen Jakobus en Johannes of ze vuur van de hemel mochten laten komen (Lukas 9:54). Nu komt Johannes naar Samaria om te bidden dat de mensen daar de Heilige Geest ontvangen (8:14–17). Naar Simon is later het woord simonie genoemd: het kopen of verkopen van een geestelijk ambt.",
+        refs: ["Johannes 4:9", "Lukas 9:52–55", "Handelingen 8:14–17"],
+      },
+      {
+        kop: "Jesaja 53 op de wagen",
+        t: "De kamerling leest Jesaja 53:7–8. Lukas geeft de woorden anders weer dan Jesaja 53 in de Statenvertaling. Waar Jesaja zegt ‘wie zal Zijn leeftijd uitspreken?’, staat in Handelingen 8:33 ‘wie zal Zijn geslacht verhalen?’ Uitleggers verklaren dat meestal doordat Lukas de Griekse vertaling van het Oude Testament volgt. De vraag van de kamerling is de kern: ‘van Wien zegt de profeet dit, van zichzelven, of van iemand anders?’ (8:34).",
+        refs: ["Jesaja 53:7–8", "Handelingen 8:32–34"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "De weg ‘die van Jeruzalem afdaalt naar Gaza’ heet ‘woest’ (8:26); uitleggers verschillen over de vraag of dat op de weg of op Gaza slaat. Welk water het was, zegt de Bijbel niet; de plek op de kaart is onbekend. Azote is Asdod. Het rijk van Candace wordt meestal gezocht ten zuiden van Egypte. Het gebeurt kort na de dood van Stefanus; een jaartal noemt de Bijbel niet.",
+        refs: ["Handelingen 8:26", "Handelingen 8:36", "Handelingen 8:40"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat wilden Jakobus en Johannes eerder met een dorp van de Samaritanen doen?",
+        a: ["Vuur van de hemel laten komen", "Er een synagoge bouwen", "Er het Pascha vieren"],
+        why: "Lukas 9:54",
+      },
+      {
+        q: "Wat vroeg de kamerling aan Filippus over de tekst uit Jesaja?",
+        a: ["Van wie de profeet dit zegt", "Wanneer de profeet dit schreef", "Waar de profeet begraven ligt"],
+        why: "Handelingen 8:34",
+      },
+      {
+        q: "Waarom kwamen Petrus en Johannes naar Samaria?",
+        a: ["Samaria had het Woord Gods aangenomen", "Filippus was ziek geworden", "Simon had hen laten roepen"],
+        why: "Handelingen 8:14",
+      },
+    ],
+  },
+  140: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Elders in de Bijbel",
+        t: "Wat Petrus doet, lijkt op wat hij bij de Heere Jezus had gezien. Bij het dochtertje van Jaïrus stuurde de Heere eerst iedereen weg: ‘als Hij hen allen had uitgedreven’ (Markus 5:40). Ook Elisa sloot bij een dood kind ‘de deur voor hen beiden toe, en bad tot den HEERE’ (2 Koningen 4:33). Er is ook een verschil: de Heere Jezus spreekt het meisje meteen aan, Petrus ‘knielde neder en bad’ voordat hij sprak (9:40).",
+        refs: ["Markus 5:40–41", "2 Koningen 4:32–35", "Handelingen 9:40"],
+      },
+      {
+        kop: "Twee namen",
+        t: "Tabitha is een Arameese naam, Dorkas een Griekse. Lukas schrijft: ‘hetwelk overgezet zijnde, is gezegd Dorkas’ (9:36). Overgezet betekent: vertaald. Beide namen betekenen een gazelle of hinde. Weduwen hadden in die tijd vaak niemand die voor hen zorgde. Al in Handelingen 6 zorgt de gemeente voor hen bij ‘de dagelijkse bediening’ (6:1).",
+        refs: ["Handelingen 9:36", "Handelingen 6:1"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Lydda en Joppe liggen dicht bij elkaar (9:38). Joppe is een havenstad aan de zee; in het Oude Testament heet zij Jafo. Daarheen werd het cederhout voor de tempel van Salomo met vlotten gebracht (2 Kronieken 2:16). Het gebeurt in een tijd van rust voor de gemeenten, na de bekering van Saulus (9:31). Een jaartal noemt de Bijbel niet.",
+        refs: ["Handelingen 9:38", "2 Kronieken 2:16", "Handelingen 9:31"],
+      },
+    ],
+    vragen: [
+      { q: "Wie sloot in 2 Koningen 4 de deur en bad bij een dood kind?", a: ["Elisa", "Elia", "Samuël"], why: "2 Koningen 4:32–33" },
+      {
+        q: "Wat deed Petrus net als de Heere Jezus bij het dochtertje van Jaïrus?",
+        a: ["Hij stuurde eerst iedereen naar buiten", "Hij zalfde haar met olie", "Hij nam haar mee naar de tempel"],
+        why: "Markus 5:40; Handelingen 9:40",
+      },
+      { q: "Hoe heet Joppe in het Oude Testament?", a: ["Jafo", "Jericho", "Jizreël"], why: "2 Kronieken 2:16" },
+    ],
+  },
+  141: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Rein en onrein",
+        t: "In Leviticus 11 had God Israël gezegd welke dieren ze wel en niet mochten eten. Daarom zegt Petrus: ‘Geenszins, Heere! want ik heb nooit gegeten iets, dat gemeen of onrein was’ (10:14). Gemeen betekent hier: onrein, niet heilig. Een Jood ging ook niet om met mensen van een ander volk: ‘Gij weet, hoe het een Joodsen man ongeoorloofd is, zich te voegen of te gaan tot een vreemde’ (10:28). Maar Petrus begrijpt het gezicht: ‘God heeft mij getoond, dat ik geen mens zou gemeen of onrein heten’.",
+        refs: ["Leviticus 11:1–4", "Handelingen 10:14", "Handelingen 10:28"],
+      },
+      {
+        kop: "Elders in de Bijbel",
+        t: "Ook in de evangeliën komt een hoofdman over honderd voor die God vreest: de Joden zeggen van hem dat hij ‘ons volk lief’ heeft en de synagoge heeft gebouwd (Lukas 7:5). De Heere Jezus had gezegd dat ‘velen zullen komen van oosten en westen’ (Mattheüs 8:11). In Caesarea herinnert Petrus zich het woord: ‘Johannes doopte wel met water, maar gijlieden zult gedoopt worden met den Heiligen Geest’ (11:16; vergelijk 1:5).",
+        refs: ["Lukas 7:2–5", "Mattheüs 8:11", "Handelingen 11:16", "Handelingen 1:5"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Caesarea is een havenstad aan de kust, waar later ook de Romeinse stadhouder zit (Handelingen 23:33). De mannen van Cornelius reizen van Caesarea naar Joppe, en Petrus gaat met hen terug: hij vertrekt de dag na hun komst en is de dag daarna in Caesarea (10:23–24). Cornelius zegt dat het gezicht vier dagen eerder was (10:30). Het gebeurt na de reis van Petrus langs Lydda en Joppe en vóór de dood van Herodes (44 n.Chr.); een jaartal noemt de Bijbel niet.",
+        refs: ["Handelingen 23:33", "Handelingen 10:23–24", "Handelingen 10:30"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Hoe legt Petrus het gezicht van het laken uit in Handelingen 10:28?",
+        a: ["Hij mag geen mens gemeen of onrein noemen", "Hij mag voortaan alleen vis eten", "Hij moet naar Rome gaan preken"],
+        why: "Handelingen 10:28",
+      },
+      {
+        q: "Wat doet Cornelius als Petrus binnenkomt?",
+        a: ["Hij valt aan zijn voeten en aanbidt", "Hij geeft hem een geschenk", "Hij vraagt om gedoopt te worden"],
+        why: "Handelingen 10:25–26",
+      },
+      { q: "Hoeveel broeders gingen er met Petrus mee naar Caesarea?", a: ["Zes", "Twee", "Twaalf"], why: "Handelingen 11:12" },
+    ],
+  },
+  142: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Welke Herodes?",
+        t: "In het Nieuwe Testament komen verschillende vorsten met de naam Herodes voor. Bij de geboorte van de Heere Jezus regeert koning Herodes (Mattheüs 2:1). ‘Herodes, de viervorst’ laat Johannes de Doper onthoofden (Mattheüs 14:1–10). In Handelingen 12 staat alleen ‘de koning Herodes’; geschiedschrijvers noemen hem Herodes Agrippa I. Volgens de Joodse geschiedschrijver Josephus stierf hij in 44 n.Chr. Daarom wordt deze geschiedenis rond 43–44 n.Chr. gedateerd. De koning Agrippa voor wie Paulus later spreekt (Handelingen 25:13), is een andere vorst.",
+        refs: ["Mattheüs 2:1", "Mattheüs 14:1–10", "Handelingen 12:1", "Handelingen 25:13"],
+      },
+      {
+        kop: "Twee keer Jakobus",
+        t: "Petrus zegt: ‘Boodschapt dit aan Jakobus en de broederen’ (12:17). Dat kan niet Jakobus de broer van Johannes zijn: die was al gedood (12:2). Meestal wordt deze Jakobus uitgelegd als ‘Jakobus, den broeder des Heeren’ (Galaten 1:19), die later in Jeruzalem een leidende plaats heeft (Handelingen 15:13; 21:18). Waar Petrus daarna heen gaat, zegt de tekst niet; hij ‘reisde naar een andere plaats’. En wat de biddende mensen bedoelden met ‘Het is zijn engel’ (12:15), daarover verschillen uitleggers.",
+        refs: ["Handelingen 12:2", "Handelingen 12:15–17", "Galaten 1:19", "Handelingen 15:13", "Handelingen 21:18"],
+      },
+      {
+        kop: "De eer die God toekomt",
+        t: "Het volk roept tegen Herodes: ‘Een stem Gods, en niet eens mensen!’ en hij weigert die eer niet. Andere dienaren van God doen dat juist wel. Als Cornelius voor Petrus neervalt, zegt Petrus: ‘Sta op, ik ben ook zelf een mens’ (Handelingen 10:26). In Lystre roepen Barnabas en Paulus: ‘Wij zijn ook mensen’ (Handelingen 14:15). De engel in Openbaring 19:10 zegt: ‘aanbid God.’ Het hoofdstuk eindigt niet bij Herodes, maar bij het Woord: ‘En het Woord Gods wies, en vermenigvuldigde’ (12:24).",
+        refs: ["Handelingen 12:21–24", "Handelingen 10:25–26", "Handelingen 14:14–15", "Openbaring 19:10"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Waarom kan de Jakobus van Handelingen 12:17 niet de broer van Johannes zijn?",
+        a: ["Die was al door Herodes gedood", "Die was op reis naar Antiochië", "Die zat ook in de gevangenis"],
+        why: "Handelingen 12:2, 17",
+      },
+      {
+        q: "Wat zei Petrus toen Cornelius voor hem neerviel?",
+        a: ["Sta op, ik ben ook zelf een mens", "Bid voor mij, want ik ben zwak", "Buig liever voor de keizer"],
+        why: "Handelingen 10:26",
+      },
+      {
+        q: "In welke dagen werd Petrus gevangengenomen?",
+        a: ["In de dagen der ongehevelde broden", "In de dagen van het Loofhuttenfeest", "Op de Grote Verzoendag"],
+        why: "Handelingen 12:3",
+      },
+    ],
+  },
+  143: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Wat de tekst zegt en wat niet",
+        t: "Een paard wordt in Handelingen 9 niet genoemd; Saulus is ‘ter aarde gevallen’ (9:4). Hij krijgt hier ook geen nieuwe naam. Pas op Cyprus staat dat Saulus ‘ook Paulus genaamd is’ (Handelingen 13:9); uitleggers zien Paulus als een tweede, Romeinse naam. In 9:7 horen de reisgenoten ‘wel de stem’, maar in 22:9 zegt Paulus dat zij ‘de stem Desgenen, Die tot mij sprak’ niet hoorden. Veel uitleggers verklaren dat zij wel geluid hoorden, maar de woorden niet verstonden.",
+        refs: ["Handelingen 9:4", "Handelingen 9:7", "Handelingen 13:9", "Handelingen 22:9"],
+      },
+      {
+        kop: "Paulus vertelt het zelf",
+        t: "Paulus vertelt later twee keer over deze dag: aan het volk in Jeruzalem (Handelingen 22) en aan koning Agrippa (Handelingen 26). Daar zegt hij dat het gebeurde ‘in het midden van den dag’ en dat de stem sprak ‘in de Hebreeuwse taal’ (26:13–14). In Galaten 1:17 schrijft hij dat hij ging ‘naar Arabië, en keerde wederom naar Damaskus’; Handelingen 9 noemt dat niet, maar spreekt wel van ‘vele dagen’ (9:23). De vlucht beschrijft hij zo: ‘ik werd door een venster in een mand over den muur nedergelaten’ (2 Korinthe 11:33).",
+        refs: ["Handelingen 26:12–15", "Galaten 1:15–18", "Handelingen 9:23–25", "2 Korinthe 11:32–33"],
+      },
+      {
+        kop: "De verzenen tegen de prikkels",
+        t: "In de Statenvertaling zegt de Heere ook: ‘Het is u hard, de verzenen tegen de prikkels te slaan’ (9:5; vergelijk 26:14). Dat is een beeld uit het boerenleven. Verzenen zijn hielen. Een prikkel is een puntige stok waarmee ossen werden voortgedreven. Een os die achteruit trapt tegen die stok, doet alleen zichzelf pijn. Zo wordt het meestal uitgelegd: tegen de Heere ingaan heeft geen zin. Later noemt Paulus zich ‘de minste van de apostelen’, ‘daarom dat ik de Gemeente Gods vervolgd heb’ (1 Korinthe 15:9).",
+        refs: ["Handelingen 9:5", "Handelingen 26:14", "1 Korinthe 15:9"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Waar ging Paulus volgens Galaten 1 heen voordat hij naar Damascus terugkeerde?",
+        a: ["Naar Arabië", "Naar Egypte", "Naar Cyprus"],
+        why: "Galaten 1:17",
+      },
+      {
+        q: "Hoe beschrijft Paulus zelf zijn vlucht uit Damascus?",
+        a: ["Door een venster, in een mand over de muur", "Verkleed als soldaat door de poort", "Met een schip over de rivier"],
+        why: "2 Korinthe 11:33",
+      },
+      {
+        q: "Op welk moment van de dag zag Saulus het licht, volgens Handelingen 26?",
+        a: ["In het midden van de dag", "Midden in de nacht", "Bij zonsondergang"],
+        why: "Handelingen 26:13",
+      },
+    ],
+  },
+  144: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Twee keer Antiochië",
+        t: "De reis begint en eindigt in Antiochië in Syrië, waar de discipelen voor het eerst christenen heten (11:26). Onderweg komen Paulus en Barnabas in een andere stad met dezelfde naam: ‘Antiochië, een stad in Pisidië’ (13:14). Op de kaart zijn de plaatsen identificeerbaar, behalve Derbe, dat als waarschijnlijk staat. De Bijbel noemt geen jaartallen. De hongersnood ‘onder den keizer Claudius’ (11:28) geeft wel houvast. De eerste reis wordt meestal rond 46–48 n.Chr. gedateerd.",
+        refs: ["Handelingen 11:26–28", "Handelingen 13:14", "Handelingen 15:23"],
+      },
+      {
+        kop: "Saulus, die ook Paulus heet",
+        t: "In Handelingen 13:9 staat voor het eerst dat Saulus ‘ook Paulus genaamd is’. Vanaf dan gebruikt de schrijver die naam. Ook de volgorde verandert: eerst ‘Barnabas en Saulus’ (13:2, 7), daarna meestal ‘Paulus en Barnabas’ (13:43, 46, 50). In 13:13 staat zelfs: ‘Paulus, en die met hem waren’. In Lystre staat Barnabas weer voorop (14:14). Een naamswisseling bij zijn bekering noemt de Bijbel niet; veel uitleggers zien Paulus als zijn Romeinse naam naast de Joodse naam Saulus.",
+        refs: ["Handelingen 13:2–13", "Handelingen 13:43–50", "Handelingen 14:14"],
+      },
+      {
+        kop: "Paulus preekt uit de Schriften",
+        t: "In de synagoge van Antiochië in Pisidië haalt Paulus het Oude Testament aan. Uit ‘den tweeden psalm’: ‘Gij zijt Mijn Zoon, heden heb Ik U gegenereerd’ (Psalm 2:7). Uit Psalm 16:10: ‘Gij zult niet toelaten, dat Uw Heilige de verderving zie’. David heeft wel verderving gezien, zegt Paulus, maar Hij Die God opgewekt heeft niet (13:35–37). En hij waarschuwt met de woorden van Habakuk 1:5: ‘Ik werk een werk in uw dagen’ (13:41).",
+        refs: ["Handelingen 13:33–41", "Psalm 2:7", "Psalm 16:10", "Habakuk 1:5"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Welke psalm haalt Paulus aan met ‘Gij zijt Mijn Zoon, heden heb Ik U gegenereerd’?",
+        a: ["De tweede psalm", "Psalm 23", "Psalm 51"],
+        why: "Handelingen 13:33; Psalm 2:7",
+      },
+      {
+        q: "Welke profeet voorzei in Antiochië een grote hongersnood?",
+        a: ["Agabus", "Simeon, genaamd Niger", "Lucius van Cyrene"],
+        why: "Handelingen 11:28",
+      },
+      {
+        q: "Hoe noemden de mensen in Lystre Barnabas en Paulus?",
+        a: ["Jupiter en Mercurius", "Mozes en Elia", "Petrus en Johannes"],
+        why: "Handelingen 14:12",
+      },
+      {
+        q: "Bij welke gebeurtenis heet Saulus voor het eerst ook Paulus?",
+        a: ["Bij de tovenaar Elymas op Cyprus", "Bij zijn doop in Damascus", "Bij de genezing in Lystre"],
+        why: "Handelingen 13:8–9",
+      },
+    ],
+  },
+  145: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Barnabas, Markus en Paulus",
+        t: "Na de ‘verbittering’ (15:39) wordt Barnabas in Handelingen niet meer genoemd. Maar uit de brieven blijkt dat Markus later weer bij Paulus is. Paulus noemt ‘Markus, de neef van Barnabas’ (Kolossenzen 4:10) en schrijft: ‘Markus, Aristarchus, Demas, Lukas, mijn medearbeiders’ (Filemon 1:24). En aan Timotheüs: ‘Neem Markus mede, en breng hem met u; want hij is mij zeer nut tot den dienst’ (2 Timotheüs 4:11). Ook over Timotheüs schrijft Paulus later: het geloof woonde eerst ‘in uw grootmoeder Lois, en in uw moeder Eunice’ (2 Timotheüs 1:5).",
+        refs: ["Handelingen 15:37–39", "Kolossenzen 4:10", "Filemon 1:24", "2 Timotheüs 4:11", "2 Timotheüs 1:5"],
+      },
+      {
+        kop: "Van zij naar wij",
+        t: "Tot Troas vertelt de schrijver over ‘zij’. Vanaf 16:10 staat er: ‘zo zochten wij terstond naar Macedonië te reizen’. Veel uitleggers zien hierin dat de schrijver van Handelingen, meestal Lukas genoemd, in Troas bij Paulus kwam. Het ‘wij’ stopt in Filippi (16:17) en komt later terug, als Paulus weer uit Filippi vertrekt (Handelingen 20:5–6). Het is een uitleg; de schrijver noemt zijn eigen naam niet.",
+        refs: ["Handelingen 16:8–17", "Handelingen 20:5–6"],
+      },
+      {
+        kop: "Romeinen in Filippi",
+        t: "Filippi was ‘een kolonie’ (16:12): een Romeinse stad buiten Italië, met Romeinse burgers en Romeins bestuur. Daarom zeggen de eigenaars van de slavin: ‘alzo wij Romeinen zijn’ (16:21). Maar Paulus en Silas zijn zelf ook Romeinen. Een Romein mocht niet zonder vonnis gegeseld worden; zie ook Handelingen 22:25. Daarom zegt Paulus de volgende morgen: ‘dat zij zelven komen, en ons uitleiden’ (16:37), en worden de hoofdmannen bang.",
+        refs: ["Handelingen 16:12", "Handelingen 16:20–21", "Handelingen 16:35–39", "Handelingen 22:25"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat schrijft Paulus later over Markus in 2 Timotheüs 4:11?",
+        a: ["Neem hem mee, want hij is mij zeer nuttig", "Laat hem thuis, hij verlaat ons toch", "Stuur hem terug naar Barnabas"],
+        why: "2 Timotheüs 4:11",
+      },
+      {
+        q: "Wat valt op aan de vertelling vanaf Handelingen 16:10?",
+        a: ["De schrijver zegt ‘wij’", "De schrijver noemt jaartallen", "Paulus vertelt het zelf in een brief"],
+        why: "Handelingen 16:10–11",
+      },
+      {
+        q: "Waarom werden de hoofdmannen van Filippi bang?",
+        a: ["Ze hoorden dat Paulus en Silas Romeinen waren", "Er kwam opnieuw een aardbeving", "De bewaker was gevlucht"],
+        why: "Handelingen 16:37–38",
+      },
+    ],
+  },
+  146: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Paulus vertelt zijn roeping opnieuw",
+        t: "Op de trappen vertelt Paulus wat ook in Handelingen 9 staat, met nieuwe details. Het gebeurde ‘omtrent den middag’ (22:6). De stem zei: ‘Ik ben Jezus, de Nazarener’ (22:8). Ananias was ‘een godvruchtig man naar de wet’ (22:12). En hij vertelt iets wat Handelingen 9 niet noemt: later, in de tempel, zei de Heere: ‘Ga heen; want Ik zal u ver tot de heidenen afzenden’ (22:21). Tot dat woord luistert het volk; dan roepen ze: ‘Weg van de aarde met zulk een’ (22:22).",
+        refs: ["Handelingen 22:6–22", "Handelingen 9:3–18"],
+      },
+      {
+        kop: "Farizeeën en Sadduceeën",
+        t: "Paulus weet dat de raad uit twee groepen bestaat. ‘De Sadduceën zeggen, dat er geen opstanding is, noch engel, noch geest, maar de Farizeën belijden het beide’ (23:8). Ook de Heere Jezus sprak met Sadduceeën, ‘die zeggen, dat er geen opstanding is’ (Mattheüs 22:23). Paulus noemt zich ‘een Farizeër, eens Farizeërs zoon’, en zegt dat het gaat om ‘de hoop en opstanding der doden’ (23:6). Daardoor raakt de raad verdeeld, en sommige Farizeeën zeggen: ‘Wij vinden geen kwaad in dezen mens’ (23:9).",
+        refs: ["Handelingen 23:6–9", "Mattheüs 22:23"],
+      },
+      {
+        kop: "Een gewitte wand",
+        t: "Als de hogepriester Ananias hem op de mond laat slaan, zegt Paulus: ‘God zal u slaan, gij gewitte wand!’ (23:3). Dit is een andere Ananias dan de discipel in Damascus. Een gewitte wand is een muur die van buiten met kalk wit gemaakt is; meestal wordt het uitgelegd als: van buiten mooi, van binnen anders. De Heere Jezus gebruikte een vergelijkbaar beeld: ‘witgepleisterden graven’ (Mattheüs 23:27). Als Paulus hoort wie het is, wijst hij op de wet: ‘Den overste uws volks zult gij niet vloeken’ (23:5; vergelijk Exodus 22:28).",
+        refs: ["Handelingen 23:2–5", "Mattheüs 23:27", "Exodus 22:28"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat zeiden de Sadduceeën volgens Handelingen 23:8?",
+        a: ["Dat er geen opstanding is, noch engel, noch geest", "Dat Paulus een engel gezien had", "Dat de doden zeker zullen opstaan"],
+        why: "Handelingen 23:8",
+      },
+      {
+        q: "Wat zei de Heere tegen Paulus in de tempel, volgens zijn toespraak?",
+        a: ["Dat Hij hem ver naar de heidenen zou sturen", "Dat hij in Jeruzalem moest blijven", "Dat hij hogepriester zou worden"],
+        why: "Handelingen 22:17–21",
+      },
+      { q: "Wie was de hogepriester die Paulus op de mond liet slaan?", a: ["Ananias", "Kajafas", "Gamaliël"], why: "Handelingen 23:2" },
+    ],
+  },
+  147: {
+    status: "concept",
+    verdieping: [
+      {
+        kop: "Na de vasten",
+        t: "Paulus waarschuwt ‘omdat ook de vasten nu voorbij was’ (27:9). Meestal wordt dit uitgelegd als de Grote Verzoendag, ‘op den tienden dezer zevende maand’ (Leviticus 23:27), in de herfst. De tekst zegt zelf dat de vaart ‘nu zorgelijk was’, en dat de haven ongeschikt was ‘om te overwinteren’ (27:12). De reis wordt meestal rond 59–60 n.Chr. gedateerd; de Bijbel noemt geen jaartal.",
+        refs: ["Handelingen 27:9–12", "Leviticus 23:27"],
+      },
+      {
+        kop: "Waar strandde het schip?",
+        t: "De naam van het eiland staat pas in het volgende hoofdstuk: ‘het eiland Melite’ (Handelingen 28:1). Dat wordt meestal gelijkgesteld met Malta; op de kaart staat het als waarschijnlijk, net als Salmone. Myra, Knidus, Schone Havens en Klauda zijn identificeerbaar. Fenix, de haven waar men wilde overwinteren (27:12), haalt het schip niet. De Bijbel vertelt niet waar op het eiland het schip vastliep, alleen dat het ‘een plaats, die de zee aan beide zijden had’ was (27:41).",
+        refs: ["Handelingen 27:5–16", "Handelingen 27:41", "Handelingen 28:1"],
+      },
+      {
+        kop: "Een woord dat vaststaat",
+        t: "In Jeruzalem zei de Heere al: ‘alzo moet gij ook te Rome getuigen’ (Handelingen 23:11). In de storm zegt de engel: ‘gij moet voor den keizer gesteld worden’ (27:24). Paulus zegt: ‘niemand van u zal een haar van het hoofd vallen’ (27:34), woorden die lijken op wat de Heere Jezus zei: ‘Doch niet een haar uit uw hoofd zal verloren gaan’ (Lukas 21:18). Toch zegt Paulus ook: ‘Indiën dezen in het schip niet blijven, gij kunt niet behouden worden’ (27:31). Veel uitleggers wijzen erop dat Gods belofte en het gebruik van middelen hier samengaan.",
+        refs: ["Handelingen 23:11", "Handelingen 27:24", "Handelingen 27:31–34", "Lukas 21:18"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Waarom hakten de soldaten de touwen van de boot af?",
+        a: ["De scheepslieden wilden met de boot vluchten", "De boot was lek geslagen", "Ze wilden met de boot land zoeken"],
+        why: "Handelingen 27:30–32",
+      },
+      {
+        q: "Voor wie moest Paulus volgens de engel nog komen te staan?",
+        a: ["Voor de keizer", "Voor de hogepriester", "Voor koning Agrippa"],
+        why: "Handelingen 27:24",
+      },
+      {
+        q: "Waarom verbood de hoofdman de soldaten de gevangenen te doden?",
+        a: ["Hij wilde Paulus behouden", "Hij had het schip al verlaten", "De gevangenen konden niet zwemmen"],
+        why: "Handelingen 27:42–43",
+      },
+      { q: "Hoe heet het eiland van de schipbreuk in de Statenvertaling?", a: ["Melite", "Klauda", "Kreta"], why: "Handelingen 28:1" },
     ],
   },
   148: {

@@ -111,7 +111,7 @@ BR.geschiedenissen.push(
     { q: "Wie beschikte de grote vis?", a: ["De HEERE", "De zeelieden", "De koning van Ninevé"], why: "Jona 1:17" },
     { q: "Waarmee eindigt het gebed van Jona in de vis?", a: ["Het heil is des HEEREN", "Ik wil naar Tarsis", "Laat mij sterven"], why: "Jona 2:9" }],
   cross: [["Mattheüs 12:40", "‘Gelijk Jonas drie dagen en drie nachten was in den buik van den walvis, alzo zal de Zoon des mensen drie dagen en drie nachten wezen in het hart der aarde.’"],
-    ["Psalm 139:9–10", "‘Woonde ik aan het uiterste der zee, ook daar zou Uw hand mij geleiden.’"],
+    ["Psalm 139:9–10", "‘Woonde ik aan het uiterste der zee … Ook daar zou Uw hand mij geleiden.’"],
     ["2 Koningen 14:25", "Jona, de zoon van Amitthai, kwam uit Gath-Hefer en profeteerde in de tijd van koning Jerobeam."]],
   tl: [-793, -753], tijd: "ca. 790–750 v.Chr.",
   tijdNoot: "Reconstructie. De Bijbel zegt alleen dat Jona profeteerde in de tijd van Jerobeam II, koning van Israël (2 Koningen 14:23–25). Diens regering wordt in de gangbare chronologie (Thiele) op ca. 793–753 v.Chr. gezet. Wanneer Jona naar Ninevé moest, staat er niet.",
@@ -119,7 +119,7 @@ BR.geschiedenissen.push(
 {
   nr: 70, t: "Ninevé bekeert zich en God is genadig", ref: "Jona 3–4", sectie: "profeten",
   stappen: ["jona:jona:4", "jona:jona:5", "jona:jona:6"], vorm: "plek", kw: "genade",
-  uitleg: "Voor de tweede keer zegt God tegen Jona: ga naar Ninevé. Nu gaat hij. Jona loopt een dag de grote stad in en roept: ‘Nog veertig dagen, dan zal Ninevé worden omgekeerd!’ De mensen van Ninevé geloven God. Ze roepen een vasten uit en trekken zakken aan, van de grootste tot de kleinste. Ook de koning staat op van zijn troon en gaat in de as zitten. Zelfs de dieren mogen niet eten of drinken. God ziet dat ze zich bekeren van hun boze weg, en Hij doet het kwaad niet dat Hij gezegd had. Daarover wordt Jona heel boos, want hij wist dat God genadig en barmhartig is. Met een wonderboom, een worm en een oostenwind laat God Jona iets zien. Hij heeft medelijden met de grote stad, met meer dan 120.000 mensen en veel vee.",
+  uitleg: "Voor de tweede keer zegt God tegen Jona: ga naar Ninevé. Nu gaat hij. Jona loopt een dag de grote stad in en roept: ‘Nog veertig dagen, dan zal Nineve worden omgekeerd.’ De mensen van Ninevé geloven God. Ze roepen een vasten uit en trekken zakken aan, van de grootste tot de kleinste. Ook de koning staat op van zijn troon en gaat in de as zitten. Zelfs de dieren mogen niet eten of drinken. God ziet dat ze zich bekeren van hun boze weg, en Hij doet het kwaad niet dat Hij gezegd had. Daarover wordt Jona heel boos, want hij wist dat God genadig en barmhartig is. Met een wonderboom, een worm en een oostenwind laat God Jona iets zien. Hij heeft medelijden met de grote stad, met meer dan 120.000 mensen en veel vee.",
   betekenis: "Genade is dat God spaart wie straf verdient. Jona wist het al: ‘Gij een genadig en barmhartig God zijt, lankmoedig en groot van goedertierenheid’ (Jona 4:2). De Heere Jezus zegt dat de mannen van Ninevé zich bekeerden op de prediking van Jona, ‘en ziet, meer dan Jona is hier!’ (Mattheüs 12:41).",
   wie: ["Jona", "Koning"],
   ontdek: { soort: "koppel", titel: "Wie of wat deed wat?", paren: [
