@@ -1,0 +1,325 @@
+{
+  "39": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["gilgal", "jericho"],
+      "delen": [
+        { "t": "Het volk Israël is door de Jordaan gegaan. Bij Gilgal slaan ze hun kamp op, vlak bij de stad Jericho.", "stap": "jozua:intocht:3" },
+        { "t": "In Gilgal vieren ze het Pascha. Ze eten van het koren van het land. Daarna is er geen manna meer.", "stap": "jozua:intocht:3" },
+        { "t": "Bij Jericho ziet Jozua een Man met een zwaard in Zijn hand. Hij is de Vorst van het leger van de HEERE.", "stap": "jozua:intocht:4" },
+        { "t": "Jozua valt met zijn gezicht op de grond. Hij moet zijn schoenen uittrekken, want de plaats is heilig." },
+        { "t": "De poorten van Jericho zijn dicht. Niemand gaat de stad uit, en niemand gaat erin.", "stap": "jozua:intocht:4" },
+        { "t": "De HEERE zegt hoe het moet. Zes dagen lang lopen ze één keer om de stad heen." },
+        { "t": "Priesters dragen de ark van de HEERE. Zeven priesters blazen op ramshoorns. Het volk zegt geen woord." },
+        { "t": "Op de zevende dag lopen ze zeven keer om de stad. Dan roept Jozua dat ze moeten juichen, want de HEERE geeft hun de stad." },
+        { "t": "Het volk juicht heel hard. En de muur van de stad valt naar beneden!", "stap": "jozua:intocht:4" },
+        { "t": "Israël neemt de stad in. Alleen Rachab en haar familie blijven leven, want zij had twee mannen van Jozua verborgen." }
+      ],
+      "samen": "Jozua 6:21 vertelt dat Israël alles in Jericho doodde, mensen en dieren; daarna werd de stad verbrand (6:24). Dat staat hier niet uitgeschreven. Komen er vragen, houd het dan bij de tekst: de stad was ‘den HEERE verbannen’ (6:17), en Hebreeën 11:31 spreekt van ‘de ongehoorzamen’. Hoe Rachab de verspieders verborg, staat in Jozua 2. Tel samen: hoe vaak liepen ze in totaal om de stad?",
+      "vragen": [
+        { "q": "Hoeveel dagen lopen ze één keer om de stad?", "a": ["Zes dagen", "Twee dagen"], "why": "Jozua 6:3" },
+        { "q": "Wat gebeurt er als het volk juicht?", "a": ["De muur valt naar beneden", "De poorten gaan open"], "why": "Jozua 6:20" },
+        { "q": "Waarom moet Jozua zijn schoenen uittrekken?", "a": ["De plaats is heilig", "Zijn schoenen zijn nat"], "why": "Jozua 5:15" },
+        { "q": "Wie blijven er leven in Jericho?", "a": ["Rachab en haar familie", "De koning en zijn soldaten"], "why": "Jozua 6:21, 25" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Pascha in Gilgal",
+          "stap": "jozua:intocht:3",
+          "t": "Israël is door de Jordaan getrokken en heeft zijn kamp in Gilgal, vlak bij Jericho. Daar viert het volk het Pascha. Ze eten van het koren van het land, en de volgende dag houdt het manna op."
+        },
+        {
+          "kop": "De Vorst van het leger",
+          "stap": "jozua:intocht:4",
+          "t": "Bij Jericho ziet Jozua een Man met een getrokken zwaard. Hij zegt: ‘Ik ben de Vorst van het heir des HEEREN’. Dat betekent: de Aanvoerder van het leger van de HEERE. Jozua valt op zijn gezicht en aanbidt."
+        },
+        {
+          "kop": "Zeven dagen om de stad",
+          "t": "Zes dagen lang trekt het leger één keer om Jericho. Zeven priesters gaan voor de ark uit en blazen op ramsbazuinen: trompetten van ramshoorn. Het volk zwijgt. Op de zevende dag gaan ze zeven keer rond. Dan roept Jozua: ‘Juicht, want de HEERE heeft ulieden de stad gegeven!’ Het volk juicht, en de muur valt."
+        },
+        {
+          "kop": "Rachab blijft leven",
+          "t": "Israël neemt de stad in. Zoals Jozua gezegd had, worden alle mensen en dieren gedood en wordt de stad verbrand. Het zilver en goud gaan naar de schat van de HEERE. Alleen Rachab en haar familie blijven leven, omdat zij de verspieders verborgen had."
+        }
+      ],
+      "vragen": [
+        { "q": "Waar vierde het volk het Pascha?", "a": ["In Gilgal", "In de stad Jericho", "Aan de oostkant van de Jordaan"], "why": "Jozua 5:10" },
+        { "q": "Waarom moest Jozua zijn schoenen uittrekken?", "a": ["De plaats waar hij stond was heilig", "Zijn schoenen waren versleten", "Hij moest door een rivier lopen"], "why": "Jozua 5:15" },
+        { "q": "Wie gingen er met ramsbazuinen voor de ark uit?", "a": ["Zeven priesters", "Twaalf oudsten", "Jozua en Kaleb"], "why": "Jozua 6:4, 8" },
+        { "q": "Hoe vaak gingen ze in totaal om de stad, alle zeven dagen samen?", "a": ["Dertien keer", "Zeven keer", "Veertien keer"], "why": "Jozua 6:14–15" },
+        { "q": "Waarom bleef Rachab leven?", "a": ["Zij had de verspieders verborgen", "Zij woonde buiten de stad", "Zij was familie van Jozua"], "why": "Jozua 6:17, 25" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Oordeel over de volken van Kanaän",
+          "t": "Jozua 6:21 vertelt dat Israël alles in Jericho doodde. De Bijbel beschrijft dit als Gods oordeel over de volken van Kanaän. Al tegen Abraham zei God dat zijn nakomelingen pas in het vierde geslacht zouden terugkomen, ‘want de ongerechtigheid der Amorieten is tot nog toe niet volkomen’ (Genesis 15:16). Mozes zei tegen Israël: ‘Niet om uw gerechtigheid’, ‘maar om de goddeloosheid dezer volken, verdrijft hen de HEERE’ (Deuteronomium 9:5). Het woord ‘verbannen’ (6:17) betekent hier: helemaal aan de HEERE gewijd. Mensen en dieren werden gedood; het zilver, het goud en de koperen en ijzeren vaten kwamen in Zijn schat (6:19).",
+          "refs": ["Jozua 6:17–21", "Genesis 15:16", "Deuteronomium 9:5"]
+        },
+        {
+          "kop": "Rachab elders in de Bijbel",
+          "t": "Toen Rachab de verspieders verborg, zei ze: ‘de HEERE, ulieder God, is een God boven in den hemel, en beneden op de aarde’ (Jozua 2:11). Hebreeën 11:31 zegt: ‘Door het geloof is Rachab, de hoer, niet omgekomen met de ongehoorzamen’. Jakobus 2:25 noemt haar als voorbeeld van een geloof dat zich laat zien in wat iemand doet. In het geslachtsregister van de Heere Jezus staat: ‘Salmon gewon Booz bij Rachab’ (Mattheüs 1:5). Meestal wordt zij gezien als dezelfde Rachab.",
+          "refs": ["Jozua 2:11", "Hebreeën 11:31", "Jakobus 2:25", "Mattheüs 1:5"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "De ligging van Jericho is bekend. Gilgal lag ‘aan het oosteinde van Jericho’ (Jozua 4:19); de plek op de kaart is waarschijnlijk, maar niet zeker. Het Pascha viel op de veertiende dag van de eerste maand (4:19; 5:10), na veertig jaar in de woestijn (5:6). Wie de uittocht met 1 Koningen 6:1 rond 1446 v.Chr. dateert, komt hier rond 1406 v.Chr. uit. Wie de uittocht in de 13e eeuw v.Chr. plaatst, komt rond 1230–1200 v.Chr. uit.",
+          "refs": ["Jozua 4:19", "Jozua 5:6–10", "1 Koningen 6:1"]
+        }
+      ],
+      "vragen": [
+        { "q": "Met wie kwam Rachab volgens Hebreeën 11:31 niet om?", "a": ["Met de ongehoorzamen", "Met de verspieders", "Met de priesters"], "why": "Hebreeën 11:31" },
+        { "q": "Welke naam uit deze geschiedenis staat ook in het geslachtsregister van Mattheüs 1?", "a": ["Rachab", "Jozua", "Nun"], "why": "Mattheüs 1:5" },
+        { "q": "Waar kwamen het zilver en goud van Jericho terecht?", "a": ["In de schat van het huis des HEEREN", "In de tenten van de soldaten", "Onder de puinhopen van de stad"], "why": "Jozua 6:19, 24" },
+        { "q": "Welke reden geeft Deuteronomium 9:5 waarom de HEERE de volken verdrijft?", "a": ["De goddeloosheid van die volken", "De gerechtigheid van Israël", "De kracht van Israëls leger"], "why": "Deuteronomium 9:5" }
+      ]
+    }
+  },
+  "40": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["jericho", "ai", "jo_ebal"],
+      "delen": [
+        { "t": "God had gezegd: neem niets voor jezelf uit Jericho. Maar Achan neemt een mooie mantel, zilver en goud. Hij verstopt het in zijn tent.", "stap": "jozua:intocht:5" },
+        { "t": "Dan gaan soldaten van Israël naar de stad Ai. Ze moeten vluchten, en er sterven mannen van Israël.", "stap": "jozua:intocht:5" },
+        { "t": "Jozua scheurt zijn kleren. Tot de avond ligt hij met zijn gezicht op de grond, voor de ark van de HEERE." },
+        { "t": "Dan zegt de HEERE: ‘Israël heeft gezondigd’. Er is iets gestolen en verstopt." },
+        { "t": "De HEERE wijst aan wie het gedaan heeft: Achan. Achan zegt dat hij gezondigd heeft. In zijn tent vinden ze alles terug.", "stap": "jozua:intocht:5" },
+        { "t": "In het dal Achor krijgt Achan zijn straf. Hij sterft, en er komt een grote hoop stenen.", "stap": "jozua:intocht:5" },
+        { "t": "Dan zegt de HEERE tegen Jozua: ‘Vrees niet’. Hij geeft Ai in Jozua’s hand.", "stap": "jozua:intocht:6" },
+        { "t": "Soldaten verstoppen zich achter Ai. Jozua doet alsof hij vlucht, en de mannen van Ai rennen hem achterna.", "stap": "jozua:intocht:6" },
+        { "t": "Dan nemen de verstopte soldaten de lege stad in. Zo wint Israël bij Ai.", "stap": "jozua:intocht:6" },
+        { "t": "Op de berg Ebal bouwt Jozua een altaar voor de HEERE. Hij leest de hele wet van Mozes voor aan het volk.", "stap": "jozua:intocht:7" }
+      ],
+      "samen": "Achan nam van wat voor de HEERE ‘verbannen’ was (Jozua 6:17–18; 7:1). Hoe Achan in het dal Achor werd gestraft, vertelt Jozua 7:24–26 uitvoeriger. Bij Ai worden alle inwoners gedood en wordt de koning opgehangen (8:24–29). Dat is hier weggelaten; vraagt uw kind ernaar, houd het dan bij de tekst. Vraag samen: hoe wist Jozua wie het gedaan had? (7:16–18)",
+      "vragen": [
+        { "q": "Waar verstopt Achan de mantel, het zilver en het goud?", "a": ["In zijn tent", "Onder een boom"], "why": "Jozua 7:21" },
+        { "q": "Waarom moet Israël de eerste keer vluchten bij Ai?", "a": ["Israël heeft gezondigd", "Ze zijn de weg kwijt"], "why": "Jozua 7:11–12" },
+        { "q": "Wat zegt de HEERE daarna tegen Jozua?", "a": ["Vrees niet", "Ga terug naar Egypte"], "why": "Jozua 8:1" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Gestolen uit Jericho",
+          "stap": "jozua:intocht:5",
+          "t": "Niemand mocht iets nemen van wat in Jericho ‘verbannen’ was: dat was voor de HEERE. Maar Achan uit de stam Juda neemt het toch. Daarna gaan ongeveer drieduizend man naar Ai. Ze moeten vluchten; ongeveer zesendertig van hen sterven."
+        },
+        {
+          "kop": "De HEERE wijst Achan aan",
+          "stap": "jozua:intocht:5",
+          "t": "Jozua scheurt zijn kleren en ligt tot de avond voor de ark. De HEERE zegt: ‘Israël heeft gezondigd’. Dan wijst de HEERE eerst de stam Juda aan, dan een familie en ten slotte Achan. Achan bekent: hij zag een mooie mantel, zilver en een staaf goud, wilde ze hebben en nam ze. In het dal Achor stenigt Israël hem."
+        },
+        {
+          "kop": "Een hinderlaag bij Ai",
+          "stap": "jozua:intocht:6",
+          "t": "Nu zegt de HEERE: ‘Vrees niet’. Soldaten verstoppen zich tussen Bethel en Ai: een hinderlaag. Jozua doet alsof hij vlucht, en de mannen van Ai jagen hem na. Op een teken van Jozua nemen de verstopte soldaten de stad in en steken haar in brand. Alle inwoners van Ai worden gedood."
+        },
+        {
+          "kop": "De wet op de berg Ebal",
+          "stap": "jozua:intocht:7",
+          "t": "Op de berg Ebal bouwt Jozua een altaar, zoals Mozes geboden had. Hij leest de hele wet voor, de zegen en de vloek. Ook de vrouwen, de kinderen en de vreemdelingen luisteren."
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom moest Israël de eerste keer vluchten voor Ai?", "a": ["Israël had gezondigd: er was gestolen", "Ai had hogere muren dan Jericho", "De priesters hadden niet geblazen"], "why": "Jozua 7:11–12" },
+        { "q": "Hoe wees de HEERE aan wie het gedaan had?", "a": ["Eerst de stam, dan de familie en ten slotte Achan", "Achan meldde zich meteen zelf", "Een verspieder had Achan gezien"], "why": "Jozua 7:16–18" },
+        { "q": "Hoe begon het bij Achan, volgens zijn eigen woorden?", "a": ["Hij zag het en kreeg er lust toe", "Iemand anders gaf het hem", "Hij vond het buiten de stad"], "why": "Jozua 7:21" },
+        { "q": "Waar lag de hinderlaag?", "a": ["Tussen Bethel en Ai", "Bij de Jordaan", "In de stad Jericho"], "why": "Jozua 8:9, 12" },
+        { "q": "Wie hoorden de wet voorlezen op de berg Ebal?", "a": ["Het hele volk, ook vrouwen en kinderen", "Alleen de priesters", "Alleen de oudsten"], "why": "Jozua 8:35" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Beroering",
+          "t": "Al bij Jericho had Jozua gewaarschuwd: wie van het verbannene neemt, maakt het leger van Israël tot een ban en brengt het in beroering (Jozua 6:18). Dat woord komt terug als Jozua tegen Achan zegt: ‘Hoe hebt gij ons beroerd? De HEERE zal u beroeren te dezen dage!’ (7:25). Vers 26 zegt: ‘Daarom noemde men den naam dier plaats het dal van Achor’; uitleggers verbinden die naam met het woord voor beroeren. Ook 1 Kronieken 2:7 noemt hem ‘de beroerder van Israël, die zich aan het verbannene vergreep’.",
+          "refs": ["Jozua 6:18", "Jozua 7:25–26", "1 Kronieken 2:7"]
+        },
+        {
+          "kop": "Zegen en vloek",
+          "t": "Mozes had gezegd: ‘dan zult gij den zegen uitspreken op den berg Gerizim, en den vloek op den berg Ebal’ (Deuteronomium 11:29). De berg Ebal ligt bij Sichem. Het altaar moest van ‘gehele stenen’ zijn, ‘over dewelke men geen ijzer bewogen had’ (8:31). Dat sluit aan bij Exodus 20:25: ‘zo gij uw houwijzer daarover verheft, zo zult gij het ontheiligen’. Jozua las de wet voor aan ‘de gehele gemeente van Israël, en de vrouwen, en de kleine kinderen, en de vreemdelingen’ (8:35).",
+          "refs": ["Deuteronomium 11:29", "Jozua 8:30–35", "Exodus 20:25"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Ai lag ‘bij Beth-aven’, ‘aan het oosten van Beth-el’ (Jozua 7:2). Waar dat precies was, is betwist; de plek op de kaart is niet zeker. Ook de ligging van Bethel, Gilgal en het dal Achor is waarschijnlijk, niet zeker. De berg Ebal en Sichem zijn wel identificeerbaar. De datering is een reconstructie: kort na de val van Jericho, veertig jaar na de uittocht. Wie de uittocht met 1 Koningen 6:1 rond 1446 v.Chr. dateert, komt rond 1406 v.Chr. uit; wie de uittocht in de 13e eeuw v.Chr. plaatst, rond 1230–1200 v.Chr.",
+          "refs": ["Jozua 7:2", "1 Koningen 6:1"]
+        }
+      ],
+      "vragen": [
+        { "q": "Welk woord uit de waarschuwing van Jozua 6:18 komt terug als Jozua Achan aanspreekt?", "a": ["Beroeren", "Juichen", "Verspieden"], "why": "Jozua 6:18; Jozua 7:25" },
+        { "q": "Hoe noemt 1 Kronieken 2:7 Achan?", "a": ["De beroerder van Israël", "De verspieder van Jericho", "De knecht van Jozua"], "why": "1 Kronieken 2:7" },
+        { "q": "Wat mocht Israël bij Ai wel voor zichzelf houden?", "a": ["Het vee en de buit van de stad", "Alleen de wapens van de soldaten", "Alleen het zilver en het goud"], "why": "Jozua 8:2, 27" },
+        { "q": "Op welke berg moest volgens Mozes de zegen worden uitgesproken?", "a": ["Op de berg Gerizim", "Op de berg Ebal", "Op de berg Tabor"], "why": "Deuteronomium 11:29" }
+      ]
+    }
+  },
+  "41": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["gilgal", "gibeon", "sichem"],
+      "delen": [
+        { "t": "De mensen van Gibeon horen wat Jozua met Jericho en Ai gedaan heeft. Ze bedenken een list.", "stap": "jozua:land:0" },
+        { "t": "Ze trekken oude kleren en oude schoenen aan. Ze nemen droog, beschimmeld brood mee.", "stap": "jozua:land:0" },
+        { "t": "In Gilgal zeggen ze tegen Jozua: wij komen uit een ver land. Sluit een verbond met ons.", "stap": "jozua:land:0" },
+        { "t": "De mannen van Israël vragen het niet aan de HEERE. Jozua sluit vrede met hen: ze mogen blijven leven." },
+        { "t": "Drie dagen later blijkt dat ze vlakbij wonen. Toch blijven ze leven, want de leiders hebben het bij de HEERE gezworen." },
+        { "t": "Dan vallen vijf koningen Gibeon aan. Gibeon vraagt Jozua om hulp, en hij trekt de hele nacht door.", "stap": "jozua:land:1" },
+        { "t": "De HEERE laat grote hagelstenen op de vijanden vallen. Jozua spreekt tot de HEERE, en de zon blijft stilstaan.", "stap": "jozua:land:1" },
+        { "t": "Later roept Jozua het hele volk bij elkaar in Sichem. Hij vertelt wat de HEERE allemaal voor hen gedaan heeft.", "stap": "jozua:land:6" },
+        { "t": "Jozua zegt: ik en mijn huis, wij zullen de HEERE dienen. Het volk zegt: wij willen de HEERE ook dienen.", "stap": "jozua:land:6" },
+        { "t": "Jozua sterft als hij heel oud is. Hij wordt begraven op zijn eigen stuk land.", "stap": "jozua:land:7" }
+      ],
+      "samen": "Weggelaten zijn wat er met de vijf koningen bij Makkeda gebeurde (Jozua 10:16–27) en de verovering van de steden in het zuiden, waar Israël alle inwoners doodde, zoals de HEERE geboden had (10:28–40). Ook dat de Gibeonieten hout moesten hakken en water putten (9:27), staat hier niet. Over de zon zegt de Bijbel: ‘er was geen dag aan dezen gelijk’ (10:14). Vraag samen: waarom laat Israël de mensen van Gibeon leven, ook al zijn ze bedrogen? (9:19)",
+      "vragen": [
+        { "q": "Wat voor brood hebben de mensen van Gibeon bij zich?", "a": ["Droog, beschimmeld brood", "Vers, warm brood"], "why": "Jozua 9:5" },
+        { "q": "Wat laat de HEERE op de vijanden vallen?", "a": ["Grote hagelstenen", "Heel veel sneeuw"], "why": "Jozua 10:11" },
+        { "q": "Wat zegt Jozua over zichzelf en zijn huis?", "a": ["Wij zullen de HEERE dienen", "Wij gaan terug naar Egypte"], "why": "Jozua 24:15" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Een list met oud brood",
+          "stap": "jozua:land:0",
+          "t": "De inwoners van Gibeon horen wat Jozua met Jericho en Ai gedaan heeft. Met oude kleren, versleten schoenen en droog, beschimmeld brood komen ze in Gilgal. Ze zeggen dat ze uit een ver land komen. Israël vraagt de HEERE niet om raad, en Jozua sluit vrede met hen. Drie dagen later blijkt dat ze vlakbij wonen. Toch blijven ze leven, want de leiders hebben gezworen bij de HEERE. Wel moeten ze voortaan hout hakken en water putten."
+        },
+        {
+          "kop": "De zon staat stil",
+          "stap": "jozua:land:1",
+          "t": "Vijf koningen van de Amorieten belegeren Gibeon. Jozua trekt de hele nacht door om te helpen. De HEERE werpt grote hagelstenen op de vijanden. Dan zegt Jozua: ‘Zon, sta stil te Gibeon’. De zon blijft bijna een hele dag staan, want de HEERE strijdt voor Israël."
+        },
+        {
+          "kop": "Kies wie u dienen zult",
+          "stap": "jozua:land:6",
+          "t": "Later roept Jozua alle stammen bij elkaar in Sichem. Hij zegt: ‘kiest u heden, wien gij dienen zult’. Dat betekent: kies vandaag wie je wilt dienen. ‘Maar aangaande mij, en mijn huis, wij zullen den HEERE dienen!’ Het volk belooft de HEERE te dienen. Jozua sterft als hij honderdtien jaar oud is."
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom lieten de Israëlieten de Gibeonieten toch leven?", "a": ["De leiders hadden het bij de HEERE gezworen", "De Gibeonieten waren familie van Jozua", "De Gibeonieten hadden de verspieders verborgen"], "why": "Jozua 9:18–20" },
+        { "q": "Hoe kwamen de Israëlieten erachter dat ze bedrogen waren?", "a": ["Na drie dagen hoorden ze dat Gibeon vlakbij lag", "De HEERE zei het meteen tegen Jozua", "Het brood bleek toch vers te zijn"], "why": "Jozua 9:16" },
+        { "q": "Wie belegerden Gibeon?", "a": ["Vijf koningen van de Amorieten", "De Filistijnen", "De koning van Egypte"], "why": "Jozua 10:5" },
+        { "q": "Wat moesten de Gibeonieten voortaan doen?", "a": ["Hout hakken en water putten", "Het leger van Israël leiden", "De ark van de HEERE dragen"], "why": "Jozua 9:21, 27" },
+        { "q": "Waar riep Jozua alle stammen bij elkaar?", "a": ["In Sichem", "In Gilgal", "In Jericho"], "why": "Jozua 24:1" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Het boek des oprechten",
+          "t": "Na de woorden van Jozua tegen de zon vraagt de tekst: ‘Is dit niet geschreven in het boek des oprechten?’ (Jozua 10:13). Dat boek wordt ook genoemd bij de klaagzang van David over Saul en Jonathan (2 Samuël 1:17–18). Het boek zelf is niet bewaard gebleven. Hoe de zon stilstond, legt de Bijbel niet uit. Wel zegt de tekst wat er zo bijzonder was: ‘dat de HEERE de stem eens mans alzo verhoorde; want de HEERE streed voor Israël’ (10:14).",
+          "refs": ["Jozua 10:12–14", "2 Samuël 1:17–18"]
+        },
+        {
+          "kop": "Sichem en de eik",
+          "t": "Jozua neemt afscheid in Sichem. Daar bouwde Abram een altaar, toen de HEERE zei: ‘Aan uw zaad zal Ik dit land geven’ (Genesis 12:6–7). Daar verborg Jakob de vreemde goden ‘onder den eikeboom, die bij Sichem is’ (Genesis 35:4). Jozua zegt nu: ‘doet de vreemde goden weg’ (24:23), en hij richt een grote steen op ‘onder den eik’ (24:26). Veel uitleggers zien hier bewuste verbanden. In Sichem worden ook de beenderen van Jozef begraven, op het veld dat Jakob gekocht had (Genesis 33:19). Jozef had gevraagd ze mee te nemen (Genesis 50:25).",
+          "refs": ["Genesis 12:6–7", "Genesis 35:2–4", "Jozua 24:23–26", "Jozua 24:32", "Genesis 33:19", "Genesis 50:25"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Gibeon is identificeerbaar; het was ‘een grote stad, als een der koninklijke steden’ (Jozua 10:2). Gilgal en Timnath-serah zijn waarschijnlijk; de ligging van Makkeda is onbekend. Richteren 2:9 noemt de plaats van Jozua’s graf Timnath-heres; meestal ziet men dat als dezelfde plaats. De list en de slag vallen kort na de intocht, ca. 1406 v.Chr. Hoe oud Jozua bij de intocht was, zegt de Bijbel niet; daarom is het jaar van zijn afscheid en dood een ruwe schatting. Wie de uittocht in de 13e eeuw v.Chr. dateert, komt bijna twee eeuwen later uit.",
+          "refs": ["Jozua 10:2", "Jozua 24:29–30", "Richteren 2:8–9"]
+        }
+      ],
+      "vragen": [
+        { "q": "In welk boek stond volgens Jozua 10:13 ook dat de zon stilstond?", "a": ["Het boek des oprechten", "Het boek der kronieken", "Het wetboek van Mozes"], "why": "Jozua 10:13" },
+        { "q": "Wiens beenderen werden in Sichem begraven?", "a": ["Die van Jozef", "Die van Jakob", "Die van Mozes"], "why": "Jozua 24:32" },
+        { "q": "Wat had Jakob al eerder gedaan bij de eik bij Sichem?", "a": ["Hij verborg er de vreemde goden", "Hij sloot er een verbond met Laban", "Hij zag er de ladder naar de hemel"], "why": "Genesis 35:4" },
+        { "q": "Waarom murmureerde de vergadering tegen de oversten?", "a": ["Ze mochten de Gibeonieten niet doden vanwege de eed", "De oversten hadden het brood weggegeven", "De oversten wilden terug over de Jordaan"], "why": "Jozua 9:18" }
+      ]
+    }
+  },
+  "42": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["ri_palm", "ri_tabor", "ri_kison"],
+      "delen": [
+        { "t": "Het volk Israël doet weer wat kwaad is in de ogen van de HEERE. Daarom geeft Hij hen in de hand van koning Jabin.", "stap": "richteren:debora:1" },
+        { "t": "Sisera, de legeraanvoerder van Jabin, heeft heel veel ijzeren strijdwagens. Twintig jaar lang wordt Israël hard onderdrukt." },
+        { "t": "Dan roepen de Israëlieten tot de HEERE. In die tijd is Debora richter. Onder een palmboom spreekt zij recht.", "stap": "richteren:debora:1" },
+        { "t": "Debora laat Barak komen. Ze zegt: de HEERE wil dat je met heel veel mannen naar de berg Tabor gaat.", "stap": "richteren:debora:2" },
+        { "t": "Barak wil alleen gaan als Debora meegaat. Debora gaat mee. Ze zegt: de HEERE geeft Sisera in de hand van een vrouw.", "stap": "richteren:debora:2" },
+        { "t": "Sisera komt met al zijn wagens naar de beek Kison. Debora zegt tegen Barak: vandaag geeft de HEERE Sisera in je hand!", "stap": "richteren:debora:3" },
+        { "t": "Barak trekt met zijn mannen de berg af. De HEERE verslaat Sisera en zijn hele leger.", "stap": "richteren:debora:3" },
+        { "t": "Sisera stapt van zijn wagen en vlucht te voet. Hij gaat naar de tent van Jaël.", "stap": "richteren:debora:4" },
+        { "t": "Jaël geeft hem melk en dekt hem toe. Terwijl hij slaapt, doodt zij hem. Zo komt uit wat Debora gezegd had.", "stap": "richteren:debora:4" },
+        { "t": "Debora en Barak zingen een lied voor de HEERE. Daarna heeft het land lange tijd rust." }
+      ],
+      "samen": "Richteren 4:21 vertelt hoe Jaël Sisera doodde: met een tentpin en een hamer, terwijl hij sliep. Hier staat dat in één zin. Vers 23 zegt dat God zo Jabin onderwierp. Het lied van Debora en Barak staat in Richteren 5. Debora is profetes (4:4): God spreekt door haar. Vraag samen: wat had Debora tegen Barak gezegd over een vrouw? (4:9)",
+      "vragen": [
+        { "q": "Waar spreekt Debora recht?", "a": ["Onder een palmboom", "In een paleis"], "why": "Richteren 4:5" },
+        { "q": "Naar welke berg moet Barak gaan?", "a": ["Naar de berg Tabor", "Naar de berg Sinaï"], "why": "Richteren 4:6" },
+        { "q": "Hoe vlucht Sisera?", "a": ["Te voet", "Op zijn wagen"], "why": "Richteren 4:15" },
+        { "q": "Wat doen Debora en Barak na de overwinning?", "a": ["Ze zingen een lied", "Ze bouwen een huis"], "why": "Richteren 5:1" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Onderdrukt door Jabin",
+          "stap": "richteren:debora:1",
+          "t": "Israël doet weer wat kwaad is in de ogen van de HEERE. Daarom geeft Hij hen in de hand van Jabin, de koning in Hazor. Zijn legeroverste Sisera heeft negenhonderd ijzeren wagens. Twintig jaar lang wordt Israël onderdrukt. Dan roept het volk tot de HEERE. De profetes Debora is dan richter: God spreekt door haar. Ze spreekt recht onder een palmboom tussen Rama en Bethel."
+        },
+        {
+          "kop": "Barak en de berg Tabor",
+          "stap": "richteren:debora:2",
+          "t": "Debora roept Barak uit Kedes-Naftali. De HEERE draagt hem op om met tienduizend man naar de berg Tabor te gaan. Barak wil alleen gaan als zij meegaat. Ze gaat mee, maar zegt dat de eer niet voor hem zal zijn: de HEERE zal Sisera in de hand van een vrouw geven."
+        },
+        {
+          "kop": "De slag bij de beek Kison",
+          "stap": "richteren:debora:3",
+          "t": "Sisera komt met al zijn wagens naar de beek Kison. Barak trekt de berg af, en de HEERE verslaat Sisera en zijn hele leger."
+        },
+        {
+          "kop": "In de tent van Jaël",
+          "stap": "richteren:debora:4",
+          "t": "Sisera klimt van zijn wagen en vlucht te voet naar de tent van Jaël, de vrouw van Heber de Keniet. Zij geeft hem melk. Als hij slaapt, doodt ze hem met een tentpin. Debora en Barak zingen een lied voor de HEERE, en het land heeft veertig jaar rust."
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom gaf de HEERE Israël in de hand van Jabin?", "a": ["Ze deden wat kwaad was in Zijn ogen", "Ze hadden Jabin eerst aangevallen", "Ze waren met te weinig mensen"], "why": "Richteren 4:1–2" },
+        { "q": "Waarom zou de eer niet voor Barak zijn, volgens Debora?", "a": ["De HEERE zou Sisera in de hand van een vrouw geven", "Barak zou de strijd verliezen", "Sisera zou ontsnappen naar Hazor"], "why": "Richteren 4:9" },
+        { "q": "Uit welke stammen kwamen de tienduizend man?", "a": ["Naftali en Zebulon", "Ruben en Gad", "Juda en Simeon"], "why": "Richteren 4:6, 10" },
+        { "q": "Bij welke beek werd Sisera verslagen?", "a": ["De beek Kison", "De beek Krith", "De beek Kidron"], "why": "Richteren 4:13–15" },
+        { "q": "Wie was Jaël?", "a": ["De vrouw van Heber de Keniet", "De zus van Debora", "Een dochter van Jabin"], "why": "Richteren 4:17" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Wat het lied erbij vertelt",
+          "t": "Richteren 5 bezingt dezelfde overwinning, met eigen details. ‘Van den hemel streden zij, de sterren uit haar loopplaatsen streden tegen Sisera’ (5:20), en ‘De beek Kison wentelde hen weg’ (5:21). Zebulon en Naftali waagden hun leven (5:18). Maar Ruben bleef ‘zitten tussen de stallingen’, Gilead bleef aan de overkant van de Jordaan, Dan bij zijn schepen en Aser aan de zeehaven (5:15–17). Meroz wordt vervloekt, ‘omdat zij niet gekomen zijn tot de hulp des HEEREN’ (5:23). Tegen het eind kijkt de moeder van Sisera door het venster uit naar zijn wagen (5:28).",
+          "refs": ["Richteren 5:15–23", "Richteren 5:28"]
+        },
+        {
+          "kop": "Jabin, Heber en Sisera",
+          "t": "Jozua had al eerder een Jabin, koning van Hazor, verslagen en Hazor verbrand (Jozua 11:1, 10–11). Hier regeert weer een Jabin in Hazor. Uitleggers verklaren dat verschillend: de stad kan herbouwd zijn, en Jabin was misschien een naam die vaker in dat koningshuis voorkwam. Heber de Keniet kwam ‘uit de kinderen van Hobab’, de schoonvader van Mozes (4:11). Er was vrede tussen Jabin en het huis van Heber (4:17); daarom vluchtte Sisera naar die tent. Samuël noemt Sisera later nog: ‘zo verkocht Hij hen in de hand van Sisera, den krijgsoverste, te Hazor’ (1 Samuël 12:9).",
+          "refs": ["Jozua 11:1, 10–11", "Richteren 4:11, 17", "1 Samuël 12:9"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "De berg Tabor, de beek Kison, Megiddo en Hazor zijn identificeerbaar. Het lied plaatst de strijd ‘te Thaanach aan de wateren van Megiddo’ (5:19). Waar Kedes-Naftali lag, is betwist, en de plek van de palmboom van Debora is onbekend; de Bijbel zegt alleen ‘tussen Rama en tussen Beth-el, op het gebergte van Efraïm’ (4:5). De datering is onzeker. Opgeteld zijn de jaren in Richteren langer dan er volgens 1 Koningen 6:1 tussen Jozua en Saul past; veel uitleggers nemen aan dat perioden elkaar overlappen. Debora valt dan ongeveer in de 13e of vroege 12e eeuw v.Chr.; wie de uittocht in de 13e eeuw dateert, komt ruim een eeuw later uit.",
+          "refs": ["Richteren 4:5", "Richteren 5:19", "1 Koningen 6:1"]
+        }
+      ],
+      "vragen": [
+        { "q": "Wat streed volgens het lied vanuit de hemel tegen Sisera?", "a": ["De sterren", "De maan", "De wolken"], "why": "Richteren 5:20" },
+        { "q": "Welke plaats wordt in het lied vervloekt omdat de inwoners niet kwamen helpen?", "a": ["Meroz", "Hazor", "Kedes"], "why": "Richteren 5:23" },
+        { "q": "Waarom vluchtte Sisera juist naar de tent van Jaël?", "a": ["Er was vrede tussen Jabin en het huis van Heber", "Jaël was familie van Sisera", "De tent stond naast zijn wagens"], "why": "Richteren 4:17" },
+        { "q": "Welke koning van Hazor had Jozua al eerder verslagen?", "a": ["Een koning die ook Jabin heette", "Een koning die Sisera heette", "Een koning die Adoni-zedek heette"], "why": "Jozua 11:1, 10" }
+      ]
+    }
+  }
+}

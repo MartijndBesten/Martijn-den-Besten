@@ -1,0 +1,621 @@
+{
+  "51": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "gilgal",
+        "efrath"
+      ],
+      "delen": [
+        {
+          "t": "Koning Saul moet strijden tegen de Filistijnen. Hij wacht in Gilgal zeven dagen op Samuël.",
+          "stap": "1samuel:saul-david:0"
+        },
+        {
+          "t": "Als Samuël niet komt, brengt Saul zelf het offer. Net als hij klaar is, komt Samuël.",
+          "stap": "1samuel:saul-david:0"
+        },
+        {
+          "t": "Samuël zegt tegen Saul: je hebt niet gedaan wat de HEERE geboden had. Daarom zal je koningschap niet blijven."
+        },
+        {
+          "t": "Later moet Saul tegen Amalek strijden. Hij mag niets sparen. Maar Saul spaart koning Agag en de beste schapen en runderen.",
+          "stap": "1samuel:saul-david:1"
+        },
+        {
+          "t": "Samuël zegt: luisteren naar de HEERE is beter dan een offer. Omdat Saul niet luistert, mag hij geen koning blijven.",
+          "stap": "1samuel:saul-david:1"
+        },
+        {
+          "t": "God stuurt Samuël naar Bethlehem, naar Isaï. Een van de zonen van Isaï heeft God als koning gekozen.",
+          "stap": "1samuel:saul-david:2"
+        },
+        {
+          "t": "Samuël ziet Eliab en denkt: hij is het. Maar de HEERE zegt: mensen kijken naar de buitenkant, de HEERE ziet het hart aan.",
+          "stap": "1samuel:saul-david:2"
+        },
+        {
+          "t": "Zeven zonen van Isaï gaan voorbij. God heeft geen van hen gekozen. De jongste is er niet bij: hij past op de schapen.",
+          "stap": "1samuel:saul-david:2"
+        },
+        {
+          "t": "David wordt gehaald. De HEERE zegt: ‘Sta op, zalf hem, want deze is het.’ Samuël zalft hem, en de Geest van de HEERE komt over hem.",
+          "stap": "1samuel:saul-david:2"
+        },
+        {
+          "t": "De Geest van de HEERE gaat weg bij Saul, en hij wordt bang. David speelt voor hem op de harp. Dan wordt het beter met Saul.",
+          "stap": "1samuel:saul-david:3"
+        }
+      ],
+      "samen": "Weggelaten: de opdracht om Amalek helemaal te vernietigen en de dood van koning Agag (1 Samuël 15:3, 32–33). De Bijbel noemt het een straf voor wat Amalek Israël aandeed na de uittocht uit Egypte (15:2). Over ‘een boze geest van den HEERE’ (16:14) zegt de Bijbel niet precies wat dat was; houd het bij wat er staat: Saul werd erg bang. Vraag samen: waar kijken mensen naar, en waar kijkt de HEERE naar (16:7)?",
+      "vragen": [
+        {
+          "q": "Waar kijkt de HEERE naar?",
+          "a": [
+            "Naar het hart",
+            "Naar hoe lang iemand is"
+          ],
+          "why": "1 Samuël 16:7"
+        },
+        {
+          "q": "Wat doet David als Samuël in Bethlehem komt?",
+          "a": [
+            "Hij past op de schapen",
+            "Hij werkt op het land"
+          ],
+          "why": "1 Samuël 16:11"
+        },
+        {
+          "q": "Wat doet David voor koning Saul?",
+          "a": [
+            "Hij speelt op de harp",
+            "Hij kookt eten voor hem"
+          ],
+          "why": "1 Samuël 16:23"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Saul wacht niet tot Samuël komt",
+          "stap": "1samuel:saul-david:0",
+          "t": "Saul wacht in Gilgal zeven dagen op Samuël. Het volk loopt weg; Saul brengt zelf het brandoffer. Net daarna komt Samuël. Hij zegt: Saul heeft het gebod van de HEERE niet gehouden; zijn koningschap zal niet blijven."
+        },
+        {
+          "kop": "Gehoorzamen is beter",
+          "stap": "1samuel:saul-david:1",
+          "t": "Later moet Saul Amalek verbannen: helemaal vernietigen. Toch spaart hij koning Agag en de beste dieren, om te offeren, zegt hij. Samuël antwoordt: ‘gehoorzamen is beter dan slachtoffer’ (een offer van een dier). Saul heeft het woord van de HEERE verworpen; daarom verwerpt de HEERE hem als koning."
+        },
+        {
+          "kop": "De jongste zoon van Isaï",
+          "stap": "1samuel:saul-david:2",
+          "t": "God stuurt Samuël naar Isaï in Bethlehem. Samuël ziet Eliab en denkt: dit is hem. Maar de HEERE zegt: ‘de HEERE ziet het hart aan.’ Zeven zonen gaan voorbij. De jongste, David, wordt van de schapen gehaald. Samuël zalft hem tot koning. Vanaf die dag komt de Geest van de HEERE over David."
+        },
+        {
+          "kop": "Harp voor de koning",
+          "stap": "1samuel:saul-david:3",
+          "t": "De Geest van de HEERE wijkt van Saul, en een boze geest van de HEERE maakt hem bang. Zijn knechten zoeken iemand die goed harp speelt. Zo komt David bij Saul. Als hij speelt, wordt het beter met Saul."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom zei Samuël dat het koningschap van Saul niet zou blijven?",
+          "a": [
+            "Saul had het gebod van de HEERE niet gehouden",
+            "Saul had de strijd tegen de Filistijnen verloren",
+            "Saul was te oud geworden om koning te zijn"
+          ],
+          "why": "1 Samuël 13:13–14"
+        },
+        {
+          "q": "Wie spaarde Saul, terwijl hij alles moest verbannen?",
+          "a": [
+            "Agag, de koning van Amalek",
+            "Goliath, de Filistijn uit Gath",
+            "Eliab, de zoon van Isaï"
+          ],
+          "why": "1 Samuël 15:8–9"
+        },
+        {
+          "q": "Waar was David toen Samuël in Bethlehem kwam?",
+          "a": [
+            "Bij de schapen",
+            "In het leger van Saul",
+            "Bij Samuël in Rama"
+          ],
+          "why": "1 Samuël 16:11"
+        },
+        {
+          "q": "Wat gebeurde er toen Samuël David zalfde?",
+          "a": [
+            "De Geest van de HEERE kwam over David",
+            "Saul nam David mee naar Gibea",
+            "Saul gaf David zijn mantel"
+          ],
+          "why": "1 Samuël 16:13"
+        },
+        {
+          "q": "Waarom kwam David bij koning Saul?",
+          "a": [
+            "Hij kon goed op de harp spelen",
+            "Hij had Goliath al verslagen",
+            "Samuël had hem daarheen gestuurd"
+          ],
+          "why": "1 Samuël 16:16–19"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Twee keer niet gehoorzaam",
+          "t": "Veel uitleggers verbinden het wachten in Gilgal met wat Samuël eerder tegen Saul zei: ‘zeven dagen zult gij daar beiden, totdat ik tot u kome’ (1 Samuël 10:8). Saul wacht zeven dagen, ‘tot den tijd, dien Samuël bestemd had’ (13:8), maar offert voordat Samuël er is. Beide keren geeft Saul redenen: het volk liep weg en de Filistijnen zouden naar Gilgal komen (13:11–12); bij Amalek zegt hij dat het volk de dieren gespaard heeft om te offeren (15:15, 21). Samuël antwoordt: ‘gehoorzamen is beter dan slachtoffer, opmerken dan het vette der rammen’ (15:22). Opmerken betekent hier: aandachtig luisteren. Pas daarna zegt Saul: ‘ik heb het volk gevreesd en naar hun stem gehoord’ (15:24).",
+          "refs": [
+            "1 Samuël 10:8",
+            "1 Samuël 13:8–14",
+            "1 Samuël 15:15–24"
+          ]
+        },
+        {
+          "kop": "Waarom Amalek?",
+          "t": "De HEERE noemt zelf de reden: Amalek had zich tegen Israël gesteld ‘op den weg, toen hij uit Egypte opkwam’ (15:2). Dat staat in Exodus 17:8–16 en in Deuteronomium 25:17–19, waar Amalek de zwakken achteraan aanviel, ‘en hij vreesde God niet’. Het bevel gold mensen en dieren (15:3). De Bijbel beschrijft deze strijd als Gods oordeel: ‘verban de zondaars, de Amalekieten’ (15:18). Over Agag zegt Samuël: ‘Gelijk als uw zwaard de vrouwen van haar kinderen beroofd heeft’ (15:33). De Kenieten, die Israël barmhartigheid hadden gedaan, liet Saul eerst weggaan (15:6).",
+          "refs": [
+            "1 Samuël 15:2–6",
+            "1 Samuël 15:18",
+            "Exodus 17:8–16",
+            "Deuteronomium 25:17–19",
+            "1 Samuël 15:33"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Bethlehem is op de kaart identificeerbaar; Gilgal en Gibea zijn waarschijnlijk; de ligging van Rama, waar Samuël heengaat (15:34; 16:13), is betwist. Het Karmel waar Saul een pilaar voor zichzelf opricht (15:12), wordt meestal gezien als de stad Karmel bij Maon in Juda (vergelijk Jozua 15:55; 1 Samuël 25:2), niet de berg Karmel aan zee. Een jaartal noemt de Bijbel niet. Handelingen 13:21 geeft Saul veertig jaar; als reconstructie werd hij koning ca. 1050 v.Chr. David was dertig toen hij koning werd (2 Samuël 5:4), in de gangbare chronologie ca. 1010 v.Chr. Hoe oud David bij de zalving was, zegt de Bijbel niet.",
+          "refs": [
+            "1 Samuël 15:12",
+            "Jozua 15:55",
+            "1 Samuël 25:2",
+            "Handelingen 13:21",
+            "2 Samuël 5:4"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Hoeveel dagen moest Saul volgens 1 Samuël 10:8 in Gilgal wachten?",
+          "a": [
+            "Zeven dagen",
+            "Drie dagen",
+            "Veertig dagen"
+          ],
+          "why": "1 Samuël 10:8"
+        },
+        {
+          "q": "Waarom moest Saul tegen Amalek strijden?",
+          "a": [
+            "Amalek had Israël aangevallen na de uittocht",
+            "Amalek had de ark van God geroofd",
+            "Amalek had Samuël gevangengenomen"
+          ],
+          "why": "1 Samuël 15:2; Exodus 17:8"
+        },
+        {
+          "q": "Wie liet Saul eerst weggaan uit het midden van de Amalekieten?",
+          "a": [
+            "De Kenieten",
+            "De Filistijnen",
+            "De Moabieten"
+          ],
+          "why": "1 Samuël 15:6"
+        },
+        {
+          "q": "Welke reden gaf Saul toen hij zijn zonde beleed?",
+          "a": [
+            "Hij had het volk gevreesd",
+            "Hij had Samuël niet verstaan",
+            "Hij was ziek geworden"
+          ],
+          "why": "1 Samuël 15:24"
+        }
+      ]
+    }
+  },
+  "52": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "elah",
+        "gath",
+        "efrath"
+      ],
+      "delen": [
+        {
+          "t": "De Filistijnen staan op een berg. Het leger van Israël staat op een andere berg. Daartussen ligt een dal.",
+          "stap": "1samuel:saul-david:4"
+        },
+        {
+          "t": "Uit het leger van de Filistijnen komt een heel grote soldaat. Hij heet Goliath en hij komt uit Gath.",
+          "stap": "1samuel:saul-david:4"
+        },
+        {
+          "t": "Goliath roept: geef mij een man die tegen mij vecht! Koning Saul en zijn soldaten zijn erg bang."
+        },
+        {
+          "t": "David is de jongste zoon van Isaï. Hij brengt eten naar zijn broers in het leger. Daar hoort hij Goliath roepen."
+        },
+        {
+          "t": "David zegt tegen Saul: de HEERE heeft mij gered van de leeuw en de beer. Hij zal mij ook redden van deze Filistijn."
+        },
+        {
+          "t": "Saul doet David zijn eigen kleren, een helm en een harnas aan. Maar David kan er niet in lopen. Hij doet het weer uit."
+        },
+        {
+          "t": "David neemt zijn staf en zijn slinger. Uit de beek kiest hij vijf gladde stenen."
+        },
+        {
+          "t": "David zegt tegen Goliath: jij komt met een zwaard, maar ik kom in de Naam van de HEERE."
+        },
+        {
+          "t": "David slingert een steen. De steen raakt Goliath in zijn voorhoofd. Goliath valt op de grond.",
+          "stap": "1samuel:saul-david:4"
+        },
+        {
+          "t": "Goliath is dood. De Filistijnen zien het en vluchten weg."
+        }
+      ],
+      "samen": "Weggelaten: dat David Goliath met diens eigen zwaard het hoofd afhieuw (1 Samuël 17:51), en de dreigende woorden over vogels en dieren (17:44, 46). De Bijbel geeft de lengte van Goliath: zes ellen en een span (17:4). Vraag samen: waarom durft David naar Goliath te gaan? Hij zegt het zelf: de HEERE heeft hem gered van de leeuw en de beer (17:37).",
+      "vragen": [
+        {
+          "q": "Wie roept naar het leger van Israël?",
+          "a": [
+            "Goliath",
+            "David"
+          ],
+          "why": "1 Samuël 17:8–10"
+        },
+        {
+          "q": "Wat haalt David uit de beek?",
+          "a": [
+            "Vijf gladde stenen",
+            "Een zwaard"
+          ],
+          "why": "1 Samuël 17:40"
+        },
+        {
+          "q": "In wiens Naam gaat David naar Goliath?",
+          "a": [
+            "In de Naam van de HEERE",
+            "In de naam van koning Saul"
+          ],
+          "why": "1 Samuël 17:45"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een kampvechter uit Gath",
+          "stap": "1samuel:saul-david:4",
+          "t": "De Filistijnen en Israël staan op twee bergen, met het eikendal ertussen. Goliath uit Gath komt naar voren. Hij is een kampvechter: hij wil in zijn eentje vechten voor zijn hele leger. Hij is zes ellen en een span lang. Veertig dagen lang roept hij: ‘Geeft mij een man, dat wij te zamen strijden!’ Saul en heel Israël zijn erg bang."
+        },
+        {
+          "kop": "David hoort de Filistijn",
+          "t": "Isaï stuurt David met eten naar zijn broers in het leger. Daar hoort David Goliath roepen. Hij zegt tegen Saul: de HEERE, Die mij gered heeft van de leeuw en de beer, zal mij ook redden van deze Filistijn."
+        },
+        {
+          "kop": "In de Naam van de HEERE",
+          "t": "David doet het harnas van Saul weer uit; hij is het niet gewend. Met zijn staf, zijn slinger en vijf gladde stenen uit de beek gaat hij op Goliath af. Hij zegt: ‘ik kom tot u in den Naam van den HEERE der heirscharen’. Heirscharen zijn legers. Hij zegt ook: ‘de ganse aarde zal weten, dat Israël een God heeft.’ David slingert een steen, die Goliath in zijn voorhoofd treft. Goliath valt, en David doodt hem met diens eigen zwaard. Dan vluchten de Filistijnen."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom durfde David tegen Goliath te strijden?",
+          "a": [
+            "De HEERE had hem gered van de leeuw en de beer",
+            "Hij was groter dan Goliath",
+            "Hij droeg het harnas van Saul"
+          ],
+          "why": "1 Samuël 17:37"
+        },
+        {
+          "q": "Waarom was David bij het leger?",
+          "a": [
+            "Hij bracht eten voor zijn broers",
+            "Saul had hem geroepen als soldaat",
+            "Hij zocht een weggelopen schaap"
+          ],
+          "why": "1 Samuël 17:17–18"
+        },
+        {
+          "q": "Uit welke stad kwam Goliath?",
+          "a": [
+            "Uit Gath",
+            "Uit Bethlehem",
+            "Uit Jericho"
+          ],
+          "why": "1 Samuël 17:4"
+        },
+        {
+          "q": "Wat zou de hele aarde weten, volgens David?",
+          "a": [
+            "Dat Israël een God heeft",
+            "Dat David de sterkste man is",
+            "Dat Saul een goede koning is"
+          ],
+          "why": "1 Samuël 17:46"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Waar en wanneer",
+          "t": "De Filistijnen legeren zich ‘tussen Socho en tussen Azeka’ in Juda (17:1); Israël staat in het eikendal. Het Eikdal is op de kaart identificeerbaar, net als Gath, de stad van Goliath, en Ekron, tot waar Israël de Filistijnen achtervolgt (17:52). Een jaartal staat er niet bij. David is nog ‘een jongeling’ (17:33) en wordt op zijn dertigste koning (2 Samuël 5:4), in de gangbare chronologie ca. 1010 v.Chr. Op de tijdlijn staat het gevecht als reconstructie rond 1025 v.Chr., met het label onzeker. Hoe oud David precies was, zegt de Bijbel niet.",
+          "refs": [
+            "1 Samuël 17:1–3",
+            "1 Samuël 17:33",
+            "1 Samuël 17:52",
+            "2 Samuël 5:4"
+          ]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "In tekeningen wordt David soms als klein jongetje getoond. De tekst noemt hem ‘een jongeling, roodachtig, mitsgaders schoon van aanzien’ (17:42), en een knecht van Saul noemde hem al ‘een dapper held, en een krijgsman’ (16:18). Waarom David vijf stenen koos, zegt de tekst niet; hij gebruikte er één. Opvallend is ook dat Saul aan Abner vraagt: ‘Wiens zoon is deze jongeling’ (17:55), terwijl David al eerder bij Saul was geweest als harpspeler en wapendrager (16:21–23). Uitleggers geven daar verschillende verklaringen voor.",
+          "refs": [
+            "1 Samuël 17:42",
+            "1 Samuël 16:18–23",
+            "1 Samuël 17:55–58"
+          ]
+        },
+        {
+          "kop": "Geen zwaard in de hand",
+          "t": "David zegt dat de HEERE ‘niet door het zwaard, noch door de spies verlost’ (17:47), en de tekst benadrukt: ‘doch David had geen zwaard in de hand’ (17:50). Later krijgt David het zwaard van Goliath in Nob van de priester Achimelech: ‘Het zwaard van Goliath, den Filistijn, denwelken gij sloegt in het eikendal’ (1 Samuël 21:9–10). Psalm 20 zegt iets vergelijkbaars als David: ‘Dezen vermelden van wagens, en die van paarden; maar wij zullen vermelden van den Naam des HEEREN, onzes Gods’ (Psalm 20:8).",
+          "refs": [
+            "1 Samuël 17:47–50",
+            "1 Samuël 21:1–10",
+            "Psalm 20:8"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Tussen welke plaatsen legerden de Filistijnen zich?",
+          "a": [
+            "Tussen Socho en Azeka",
+            "Tussen Gath en Ekron",
+            "Tussen Bethlehem en Rama"
+          ],
+          "why": "1 Samuël 17:1"
+        },
+        {
+          "q": "Wat zou de koning geven aan de man die Goliath versloeg?",
+          "a": [
+            "Grote rijkdom en zijn dochter",
+            "Een plaats als priester",
+            "Het land van de Filistijnen"
+          ],
+          "why": "1 Samuël 17:25"
+        },
+        {
+          "q": "Aan wie vroeg Saul wiens zoon David was?",
+          "a": [
+            "Aan Abner, de krijgsoverste",
+            "Aan Samuël, de profeet",
+            "Aan Eliab, de broer van David"
+          ],
+          "why": "1 Samuël 17:55"
+        },
+        {
+          "q": "Waar was het zwaard van Goliath toen David bij Achimelech kwam?",
+          "a": [
+            "Bij de priester, achter de efod",
+            "Bij koning Saul in Gibea",
+            "Bij de Filistijnen in Gath"
+          ],
+          "why": "1 Samuël 21:9–10"
+        }
+      ]
+    }
+  },
+  "53": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "sam_michmas",
+        "gibea"
+      ],
+      "delen": [
+        {
+          "t": "Jonathan is de zoon van koning Saul. Het leger van de Filistijnen ligt bij Michmas.",
+          "stap": "1samuel:saul-david:0"
+        },
+        {
+          "t": "Jonathan gaat erheen met de jongen die zijn wapens draagt. Hij zegt: de HEERE kan helpen, met veel mensen of met weinig.",
+          "stap": "1samuel:saul-david:0"
+        },
+        {
+          "t": "Ze klimmen op hun handen en voeten de rotsen op. Boven verslaan ze ongeveer twintig man.",
+          "stap": "1samuel:saul-david:0"
+        },
+        {
+          "t": "Dan laat God alles beven. De Filistijnen schrikken en vluchten weg. Zo redt de HEERE Israël."
+        },
+        {
+          "t": "Later verslaat David de Filistijn Goliath. Jonathan houdt dan van David zoals van zichzelf.",
+          "stap": "1samuel:saul-david:5"
+        },
+        {
+          "t": "Jonathan en David sluiten een verbond: een vaste belofte. Jonathan geeft David zijn mantel, zijn zwaard en zijn boog.",
+          "stap": "1samuel:saul-david:5"
+        },
+        {
+          "t": "De vrouwen zingen dat David veel meer vijanden heeft verslagen dan Saul. Dan wordt Saul boos op David."
+        },
+        {
+          "t": "Als David muziek voor Saul maakt, gooit Saul zijn speer naar hem. Maar David ontwijkt de speer."
+        },
+        {
+          "t": "De HEERE is met David. Heel Israël heeft David lief."
+        }
+      ],
+      "samen": "Weggelaten: de eed van Saul, waardoor Jonathan bijna moest sterven omdat hij wat honing had geproefd (1 Samuël 14:24–45), en hoe David met Michal, de dochter van Saul, trouwde (18:20–27). Een wapendrager is de jongen die de wapens van zijn heer draagt (14:1). Vraag samen: wat geeft Jonathan aan David (18:4)? En wie is er met David, ook als Saul boos is (18:14)?",
+      "vragen": [
+        {
+          "q": "Wie klimt met Jonathan de rotsen op?",
+          "a": [
+            "De jongen die zijn wapens draagt",
+            "Koning Saul"
+          ],
+          "why": "1 Samuël 14:13"
+        },
+        {
+          "q": "Wat geeft Jonathan aan David?",
+          "a": [
+            "Zijn mantel, zwaard en boog",
+            "Een harp en een schaap"
+          ],
+          "why": "1 Samuël 18:4"
+        },
+        {
+          "q": "Waarom wordt Saul boos op David?",
+          "a": [
+            "Door het lied van de vrouwen",
+            "Omdat David is weggelopen"
+          ],
+          "why": "1 Samuël 18:7–8"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Op handen en voeten omhoog",
+          "stap": "1samuel:saul-david:0",
+          "t": "De Filistijnen liggen bij Michmas. Jonathan, de zoon van koning Saul, gaat erheen zonder het zijn vader te vertellen. Alleen zijn wapendrager, die zijn wapens draagt, gaat mee. Jonathan zegt: ‘bij den HEERE is geen verhindering, om te verlossen door velen of door weinigen.’ Dat betekent: de HEERE kan redden, met veel of met weinig mensen. Op handen en voeten klimmen ze omhoog en verslaan ongeveer twintig man. Dan laat God het leger van de Filistijnen beven. Zo verlost de HEERE Israël."
+        },
+        {
+          "kop": "Een verbond van vriendschap",
+          "stap": "1samuel:saul-david:5",
+          "t": "Als David Goliath verslagen heeft, heeft Jonathan hem lief als zichzelf. Ze sluiten een verbond: een plechtige belofte. Jonathan geeft David zijn mantel, zijn kleren, zijn zwaard, zijn boog en zijn gordel."
+        },
+        {
+          "kop": "Saul wordt jaloers",
+          "t": "De vrouwen zingen: ‘Saul heeft zijn duizenden verslagen, maar David zijn tienduizenden!’ Saul wordt kwaad en houdt David vanaf die dag in de gaten. Als David muziek voor hem maakt, gooit Saul zijn spies (een speer) naar hem, maar David ontwijkt hem. Saul wordt bang voor David, want de HEERE is met David."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom durfde Jonathan met alleen zijn wapendrager te gaan?",
+          "a": [
+            "Bij de HEERE maakt het niet uit of het velen of weinigen zijn",
+            "De Filistijnen sliepen allemaal",
+            "Saul kwam met een groot leger achter hem aan"
+          ],
+          "why": "1 Samuël 14:6"
+        },
+        {
+          "q": "Hoe kwamen Jonathan en zijn wapendrager boven bij de Filistijnen?",
+          "a": [
+            "Ze klommen op handen en voeten omhoog",
+            "Ze liepen over een brug",
+            "Ze reden op paarden de berg op"
+          ],
+          "why": "1 Samuël 14:13"
+        },
+        {
+          "q": "Wat sloten Jonathan en David met elkaar?",
+          "a": [
+            "Een verbond",
+            "Een koop van schapen",
+            "Een vrede met de Filistijnen"
+          ],
+          "why": "1 Samuël 18:3"
+        },
+        {
+          "q": "Waarom werd Saul bang voor David?",
+          "a": [
+            "De HEERE was met David",
+            "David had een groter leger dan Saul",
+            "David had Saul met een spies bedreigd"
+          ],
+          "why": "1 Samuël 18:12"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Honing en een vloek",
+          "t": "Op de dag van de strijd bij Michmas bezweert Saul het volk: ‘Vervloekt zij de man, die spijze eet tot aan den avond’ (14:24). Jonathan heeft dat niet gehoord en proeft wat honing van zijn staf. Als God Saul later geen antwoord geeft, laat Saul het lot werpen, en het valt op Jonathan. Saul zegt dat zijn zoon moet sterven. Maar het volk zegt: ‘want hij heeft dit heden met God gedaan’, en verlost Jonathan, ‘dat hij niet stierf’ (14:45).",
+          "refs": [
+            "1 Samuël 14:24–45"
+          ]
+        },
+        {
+          "kop": "Een verbond voor later",
+          "t": "Jonathan blijft voor David opkomen. Hij spreekt ‘goed van David tot zijn vader Saul’ (1 Samuël 19:4). Bij hun afscheid zegt hij: ‘Ga in vrede’, en hij herinnert aan wat ze gezworen hebben: ‘De HEERE zij tussen mij en tussen u, en tussen mijn zaad en tussen uw zaad’ (1 Samuël 20:42). Later zoekt hij David op in de woestijn Zif en zegt: ‘gij zult koning worden over Israël, en ik zal de tweede bij u zijn’ (1 Samuël 23:17). Daar maken ze opnieuw een verbond (1 Samuël 23:18).",
+          "refs": [
+            "1 Samuël 19:4",
+            "1 Samuël 20:42",
+            "1 Samuël 23:15–18"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Michmas is op de kaart identificeerbaar; Gibea, waar Saul onder een granaatboom zat (14:2), is waarschijnlijk. Bij de doortocht lag de ene rotspunt tegen het noorden, tegenover Michmas, en de andere tegen het zuiden, tegenover Geba (14:4–5). Eerder had Jonathan duizend man bij zich in Gibea (13:2); nu zijn er bij Saul nog omtrent zeshonderd (13:15; 14:2). De vriendschap met David begint pas na het gevecht met Goliath (18:1). Als reconstructie valt Michmas vroeg in de regering van Saul (ca. 1050 v.Chr.), en David werd ca. 1010 v.Chr. koning (2 Samuël 5:4). De precieze jaren staan niet in de Bijbel.",
+          "refs": [
+            "1 Samuël 13:2",
+            "1 Samuël 13:15",
+            "1 Samuël 14:2–5",
+            "1 Samuël 18:1",
+            "2 Samuël 5:4"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom at het volk op de dag van de strijd bij Michmas niets?",
+          "a": [
+            "Saul had vervloekt wie vóór de avond at",
+            "Er was nergens eten te vinden",
+            "Samuël had een vastendag uitgeroepen"
+          ],
+          "why": "1 Samuël 14:24"
+        },
+        {
+          "q": "Wie zorgde ervoor dat Jonathan niet hoefde te sterven?",
+          "a": [
+            "Het volk",
+            "Samuël",
+            "De priester Ahia"
+          ],
+          "why": "1 Samuël 14:45"
+        },
+        {
+          "q": "Waarom wilde Saul David zijn dochter Michal geven?",
+          "a": [
+            "Zij moest hem tot een valstrik zijn",
+            "Samuël had het zo bevolen",
+            "Hij wilde vrede sluiten met David"
+          ],
+          "why": "1 Samuël 18:21"
+        },
+        {
+          "q": "Wat zei Jonathan later tegen David in de woestijn Zif?",
+          "a": [
+            "Dat David koning zou worden over Israël",
+            "Dat David terug moest gaan naar Saul",
+            "Dat Jonathan zelf koning zou worden"
+          ],
+          "why": "1 Samuël 23:17"
+        }
+      ]
+    }
+  }
+}

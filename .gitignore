@@ -9,3 +9,4 @@ lighthouse
 .DS_Store
 worker/generated/
 wrangler.preview.jsonc
+docs/bijbelreis-niveaus/werk/invoer/

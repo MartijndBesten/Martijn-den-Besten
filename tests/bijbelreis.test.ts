@@ -3,6 +3,7 @@
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { runInNewContext } from "node:vm";
+import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 
 type Route = { p: (string | [number, number])[]; recon?: number; w?: string };
@@ -14,6 +15,7 @@ type Mens = { n: string; v?: string; m?: string; p?: string[]; boek?: string[] }
 type BR = { boeken: Boek[]; plaatsen: Record<string, Plaats>; W: Record<string, [number, number]>; personen: Record<string, string>; mensen?: Record<string, Mens> };
 
 const PUB = join(__dirname, "..", "public");
+const SVDIR = join(__dirname, "..", "data", "statenvertaling");
 const html = readFileSync(join(PUB, "bijbelreis.html"), "utf8");
 // De teksten per reisniveau laadt de pagina zelf na (niveaus.js); hier gewoon alle drie.
 const scripts = [...html.matchAll(/src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s)).concat(["niveaus/a.js", "niveaus/b.js", "niveaus/c.js"]);
@@ -27,7 +29,7 @@ const P = BR.plaatsen, W = BR.W;
 const DELEN = BR.boeken.flatMap((b) => b.delen.map((d) => ({ b, d })));
 const STEPS = DELEN.flatMap(({ b, d }) => d.steps.map((s, i) => ({ b, d, s, i, key: `${b.id}:${d.id}:${i}` })));
 
-// Bijbelverwijzing → bestaat ze in de Statenvertaling (public/bijbelreis/bijbel/<slug>.json)? Zelfde lezer als de app.
+// Bijbelverwijzing → bestaat ze in de Statenvertaling (data/statenvertaling/<slug>.json, alleen voor controle; niet in de app)?
 type Range = { slug: string; c1: number; v1: number; c2: number; v2: number };
 const parseRef = (BR as unknown as { parseRef: (r: string) => { ranges: Range[] } | null }).parseRef;
 const bible: Record<string, { hoofdstukken: Record<string, string[]> }> = {};
@@ -35,7 +37,7 @@ function verses(ref: string): string {
   const q = parseRef(ref);
   if (!q) return "onleesbaar";
   for (const rg of q.ranges) {
-    const file = join(PUB, "bijbelreis", "bijbel", rg.slug + ".json");
+    const file = join(SVDIR, rg.slug + ".json");
     if (!existsSync(file)) continue; // boek niet aanwezig: niet te controleren
     bible[rg.slug] ??= JSON.parse(readFileSync(file, "utf8"));
     const H = bible[rg.slug].hoofdstukken, n = Object.keys(H).length;
@@ -323,79 +325,26 @@ describe("bijbelreis: grond van de jaartallen", () => {
   });
 });
 
-// Reisniveaus (proef): drie vertelversies per geschiedenis in niveaus.js. Inhoudelijke regels die een redacteur
-// niet met de hand hoeft na te lopen: vorm, lengte, verwijzingen, antwoorden en letterlijke citaten.
+// Reisniveaus: drie leeftijdsversies per geschiedenis in niveaus/{a,b,c}.js. Alle vormregels, verwijzingen en
+// letterlijke citaten controleert scripts/niveaus-controle.mjs (één bron voor schrijvers, redacteuren en deze test).
 describe("bijbelreis: reisniveaus", () => {
-  type Deel = { t: string; kop?: string; stap?: string };
-  type Vraag = { q: string; a: string[]; why: string };
-  type Versie = { status: string; delen?: Deel[]; vragen?: Vraag[]; samen?: string; plaatsen?: string[]; verdieping?: { kop: string; t: string; refs?: string[] }[] };
-  const NV = (BR as unknown as { niveaus: { soorten: Record<string, { n: string }>; verhalen: Record<number, Record<string, Versie>> } }).niveaus;
-  const ALLE = Object.entries(NV.verhalen).flatMap(([nr, lv]) => Object.entries(lv).map(([n, v]) => ({ nr: +nr, n, v })));
-  // De hele Statenvertaling als één genormaliseerde tekst, om citaten letterlijk terug te vinden.
-  const norm = (t: string) => t.toLowerCase().normalize("NFC").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
-  const SV = readdirSync(join(PUB, "bijbelreis", "bijbel")).filter((f) => f.endsWith(".json")).map((f) => Object.values((JSON.parse(readFileSync(join(PUB, "bijbelreis", "bijbel", f), "utf8")) as { hoofdstukken: Record<string, string[]> }).hoofdstukken).flat().join(" ")).map(norm).join(" ");
-  const teksten = (v: Versie) => [...(v.delen || []).flatMap((d) => [d.t, d.kop || ""]), v.samen || "", ...(v.verdieping || []).flatMap((d) => [d.kop, d.t]), ...(v.vragen || []).flatMap((q) => [q.q, ...q.a])];
-
-  it("drie voorbeeldgeschiedenissen (schepping, Schelfzee, geboorte) op alle drie niveaus, met een geldige status", () => {
-    expect(Object.keys(NV.verhalen).map(Number).sort((a, b) => a - b)).toEqual([1, 26, 83]);
-    for (const nr of [1, 26, 83]) expect(Object.keys(NV.verhalen[nr]).sort(), `#${nr}`).toEqual(["a", "b", "c"]);
-    for (const { nr, n, v } of ALLE) expect(["concept", "goedgekeurd"], `#${nr}${n}`).toContain(v.status);
+  const controle = (...args: string[]) => {
+    try { return { ok: true, uit: execFileSync(process.execPath, [join(__dirname, "..", "scripts", "niveaus-controle.mjs"), ...args], { encoding: "utf8" }) }; }
+    catch (e) { return { ok: false, uit: String((e as { stdout?: string }).stdout || e) }; }
+  };
+  const NV = (BR as unknown as { niveaus: { soorten: Record<string, { n: string }> } }).niveaus;
+  it("drie niveaus: Samen ontdekken, Zelf op reis, Verder ontdekken", () => {
     expect(Object.keys(NV.soorten)).toEqual(["a", "b", "c"]);
   });
-  it("Samen ontdekken: korte stappen, geen jaartallen, twee antwoorden per vraag en een tip voor wie voorleest", () => {
-    const bad: string[] = [];
-    for (const { nr, n, v } of ALLE.filter((x) => x.n === "a")) {
-      const w = `#${nr}${n}`;
-      if (!v.delen || v.delen.length < 4 || v.delen.length > 10) bad.push(`${w} aantal stappen`);
-      for (const d of v.delen || []) {
-        if (d.t.length > 140) bad.push(`${w} stap te lang (${d.t.length}): ${d.t.slice(0, 30)}`);
-        if ((d.t.match(/[.!?](\s|$)/g) || []).length > 3) bad.push(`${w} te veel zinnen: ${d.t.slice(0, 30)}`);
-        if (/\b\d{3,4}\b/.test(d.t)) bad.push(`${w} jaartal in stap`);
-      }
-      if (!v.samen) bad.push(`${w} tip voor wie voorleest ontbreekt`);
-      if (!v.vragen || v.vragen.length < 2) bad.push(`${w} vragen`);
-      for (const q of v.vragen || []) if (q.a.length !== 2) bad.push(`${w} ‘${q.q}’ heeft geen twee antwoorden`);
-    }
-    expect(bad).toEqual([]);
+  it("alle niveauteksten in de app halen het controlescript (vorm, verwijzingen, antwoorden, citaten letterlijk in de genoemde verzen)", () => {
+    const r = controle();
+    expect(r.uit.trim().split("\n").slice(-20).join("\n"), r.uit).toMatch(/^OK: /m);
+    expect(r.ok).toBe(true);
   });
-  it("Zelf op reis: 2–4 onderdelen met kop, samen hooguit 1.000 tekens; vragen met drie antwoorden", () => {
-    const bad: string[] = [];
-    for (const { nr, n, v } of ALLE.filter((x) => x.n === "b")) {
-      const w = `#${nr}${n}`, len = (v.delen || []).reduce((a, d) => a + d.t.length, 0), g = GS.find((x) => x.nr === nr)!;
-      if (!v.delen || v.delen.length < 2 || v.delen.length > 4 || v.delen.some((d) => !d.kop)) bad.push(`${w} onderdelen`);
-      if (len > 1000 || !g) bad.push(`${w} te lang (${len})`);
-      for (const q of v.vragen || []) if (q.a.length !== 3) bad.push(`${w} ‘${q.q}’ heeft geen drie antwoorden`);
-    }
-    expect(bad).toEqual([]);
-  });
-  it("Verder ontdekken: verdieping met kop en tekst, verdiepende vragen met drie antwoorden", () => {
-    const bad: string[] = [];
-    for (const { nr, n, v } of ALLE.filter((x) => x.n === "c")) {
-      if (!v.verdieping || v.verdieping.length < 2) bad.push(`#${nr}${n} verdieping`);
-      for (const q of v.vragen || []) if (q.a.length !== 3) bad.push(`#${nr}${n} ‘${q.q}’`);
-    }
-    expect(bad).toEqual([]);
-  });
-  it("antwoorden zijn uniek, verwijzingen en kaartstappen bestaan, plaatsen horen bij de geschiedenis", () => {
-    const bad: string[] = [];
-    for (const { nr, n, v } of ALLE) {
-      const w = `#${nr}${n}`, g = GS.find((x) => x.nr === nr)!;
-      for (const q of v.vragen || []) {
-        if (new Set(q.a).size !== q.a.length) bad.push(`${w} dubbel antwoord ‘${q.q}’`);
-        for (const r of q.why.split(/;\s*/)) if (verses(r) !== "ok") bad.push(`${w} ${r}: ${verses(r)}`);
-      }
-      for (const d of v.verdieping || []) for (const r of d.refs || []) if (verses(r) !== "ok") bad.push(`${w} ${r}: ${verses(r)}`);
-      for (const d of v.delen || []) if (d.stap && !g.stappen.includes(d.stap)) bad.push(`${w} stap ${d.stap}`);
-      const plaatsenVanG = new Set(g.stappen.flatMap((k) => STEPS.find((s) => s.key === k)?.s.at || []).concat(g.stappen.flatMap((k) => (STEPS.find((s) => s.key === k)?.s.r || []).flatMap((r) => r.p.filter((x): x is string => typeof x === "string")))));
-      for (const p of v.plaatsen || []) if (!P[p] || !plaatsenVanG.has(p)) bad.push(`${w} plaats ${p}`);
-    }
-    expect(bad).toEqual([]);
-  });
-  it("elk citaat tussen ‘ ’ staat letterlijk in de Statenvertaling", () => {
-    const bad: string[] = [];
-    for (const { nr, n, v } of ALLE) for (const t of teksten(v)) for (const m of t.matchAll(/‘([^’]+)’/g)) {
-      for (const stuk of m[1].split(/…|\.\.\./)) if (norm(stuk) && !SV.includes(norm(stuk))) bad.push(`#${nr}${n}: ‘${stuk}’`);
-    }
-    expect(bad).toEqual([]);
+  // Releasepoort: alle 150 geschiedenissen op alle drie niveaus, niets meer op ‘concept’.
+  it("alle 150 geschiedenissen hebben a, b en c, en geen enkele versie staat nog op concept", () => {
+    const r = controle("--volledig");
+    expect(r.ok, r.uit.split("\n").slice(0, 15).join("\n")).toBe(true);
+    expect(r.uit).toMatch(/OK: 150 geschiedenis\(sen\), 450 versies\./);
   });
 });

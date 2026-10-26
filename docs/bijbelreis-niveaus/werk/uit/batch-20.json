@@ -1,0 +1,422 @@
+{
+  "86": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_nazareth", "salem", "nt_tempel"],
+      "delen": [
+        { "t": "Elk jaar gaan Jozef en Maria naar Jeruzalem. Daar vieren ze het Pascha, een groot feest.", "stap": "jezus-1:nt-geboorte:11" },
+        { "t": "Als de Heere Jezus twaalf jaar is, gaan ze weer naar het feest." },
+        { "t": "Na het feest gaan Jozef en Maria terug naar huis. Maar de Heere Jezus blijft in Jeruzalem. Zijn ouders weten het niet." },
+        { "t": "Ze denken dat Hij bij de andere reizigers is. Zo lopen ze een hele dag." },
+        { "t": "Dan zoeken ze Hem bij familie en bekenden. Ze vinden Hem niet. Daarom gaan ze terug naar Jeruzalem." },
+        { "t": "Na drie dagen vinden ze Hem in de tempel. Hij zit tussen de leraars. Hij luistert naar hen en stelt hun vragen.", "stap": "jezus-1:nt-geboorte:11" },
+        { "t": "Iedereen die Hem hoort, is verbaasd over Zijn verstand en Zijn antwoorden." },
+        { "t": "Maria zegt dat ze Hem met angst gezocht hebben. De Heere Jezus zegt dat Hij moet zijn in de dingen van Zijn Vader." },
+        { "t": "Dan gaat Hij met Jozef en Maria mee naar Nazareth. Daar is Hij hun gehoorzaam.", "stap": "jezus-1:nt-geboorte:11" },
+        { "t": "De Heere Jezus groeit op. Hij neemt toe in wijsheid en in grootte." }
+      ],
+      "samen": "Lukas zegt niet dat de Heere Jezus de leraars les gaf. Hij zat tussen hen in, ‘hen horende, en hen ondervragende’, en ze waren verbaasd over Zijn verstand en antwoorden (Lukas 2:46–47). Vraag samen: Maria zegt ‘Uw vader’, de Heere Jezus zegt ‘Mijns Vaders’ (2:48–49). Wie bedoelen ze? Jozef en Maria begrepen het toen zelf ook niet (2:50).",
+      "vragen": [
+        { "q": "Hoe oud is de Heere Jezus in dit verhaal?", "a": ["Twaalf jaar", "Zes jaar"], "why": "Lukas 2:42" },
+        { "q": "Waar vinden Jozef en Maria de Heere Jezus?", "a": ["In de tempel", "Bij de rivier"], "why": "Lukas 2:46" },
+        { "q": "Waar gaat Hij daarna met hen naartoe?", "a": ["Naar Nazareth", "Naar Egypte"], "why": "Lukas 2:51" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Elk jaar naar het Pascha", "stap": "jezus-1:nt-geboorte:11", "t": "Jozef en Maria wonen in Nazareth. Elk jaar reizen ze naar Jeruzalem voor het feest van het Pascha. Als de Heere Jezus twaalf jaar is, gaan ze weer. Na de feestdagen gaan ze terug naar huis. Maar het Kind Jezus blijft in Jeruzalem, en Zijn ouders weten het niet." },
+        { "kop": "Drie dagen zoeken", "t": "Ze denken dat Hij ergens in het reisgezelschap is: de groep mensen die samen reist. Na een dagreis zoeken ze Hem bij familie en bekenden. Hij is er niet. Daarom gaan ze terug naar Jeruzalem. Na drie dagen vinden ze Hem in de tempel. Hij zit midden tussen de leraars, luistert naar hen en stelt hun vragen. Iedereen is verbaasd over Zijn verstand en Zijn antwoorden." },
+        { "kop": "In de dingen van Zijn Vader", "t": "Maria zegt: ‘Zie, Uw vader en ik hebben U met angst gezocht.’ Hij antwoordt: ‘Wist gij niet, dat Ik moet zijn in de dingen Mijns Vaders?’ Met Zijn Vader bedoelt Hij God. Jozef en Maria begrijpen het niet. Hij gaat met hen mee naar Nazareth en is hun onderdanig: Hij gehoorzaamt hen. Maria bewaart al deze dingen in haar hart." }
+      ],
+      "vragen": [
+        { "q": "Waarom liepen Jozef en Maria eerst een dag door zonder Hem?", "a": ["Ze dachten dat Hij in het reisgezelschap was", "Ze wisten dat Hij in de tempel was gebleven", "Hij had gezegd dat Hij later zou komen"], "why": "Lukas 2:43–44" },
+        { "q": "Na hoeveel dagen vonden ze Hem?", "a": ["Na drie dagen", "Na één dag", "Na zeven dagen"], "why": "Lukas 2:46" },
+        { "q": "Waarover waren alle mensen die Hem hoorden verbaasd?", "a": ["Over Zijn verstand en antwoorden", "Over Zijn wonderen en tekenen", "Over Zijn kleding en afkomst"], "why": "Lukas 2:47" },
+        { "q": "Wie bedoelde de Heere Jezus met ‘Mijns Vaders’?", "a": ["God", "Jozef", "Koning David"], "why": "Lukas 2:48–49" },
+        { "q": "Wat deed Maria met al deze dingen?", "a": ["Ze bewaarde ze in haar hart", "Ze vertelde ze aan de leraars", "Ze schreef ze op een rol"], "why": "Lukas 2:51" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Opgroeien in Nazareth", "t": "Lukas beschrijft het opgroeien van de Heere Jezus twee keer bijna op dezelfde manier. Eerst: ‘En het Kindeken wies op, en werd gesterkt in den geest, en vervuld met wijsheid; en de genade Gods was over Hem’ (Lukas 2:40). En na deze geschiedenis: ‘Jezus nam toe in wijsheid, en in grootte, en in genade bij God en de mensen’ (2:52). Die woorden lijken op wat over de jonge Samuël staat: ‘En de jongeling Samuël nam toe, en werd groot en aangenaam beide bij den HEERE en ook bij de mensen’ (1 Samuël 2:26). Ook na de geboorte staat al dat Maria ‘deze woorden alle te zamen’ bewaarde in haar hart (Lukas 2:19).", "refs": ["Lukas 2:40", "Lukas 2:52", "1 Samuël 2:26", "Lukas 2:19"] },
+        { "kop": "Wat de tekst zegt en wat niet", "t": "Vaak wordt verteld dat de twaalfjarige de leraars onderwees. Lukas zegt dat Hij in hun midden zat, ‘hen horende, en hen ondervragende’, en dat allen zich verbaasden over Zijn ‘verstand en antwoorden’ (Lukas 2:46–47). Waar Hij die dagen at of sliep, vertelt de tekst niet. Ook zegt Lukas niet precies hoe de drie dagen geteld worden: vanaf het vertrek uit Jeruzalem of vanaf de terugkeer. En Lukas zegt eerlijk dat Jozef en Maria ‘het woord niet’ verstonden dat Hij tot hen sprak (2:50).", "refs": ["Lukas 2:46–47", "Lukas 2:50"] },
+        { "kop": "Waar en wanneer", "t": "Jeruzalem, de tempel en Nazareth zijn bekende plaatsen. Welke weg Jozef en Maria namen, vertelt de Bijbel niet; de route op de kaart door het Jordaandal en langs Jericho is een reconstructie. De datering is ook een reconstructie: twaalf jaar na de geboorte (ca. 6–4 v.Chr.) komt uit op ca. 6–8 n.Chr. Er is geen jaar 0. Andere dateringen bestaan.", "refs": ["Lukas 2:41–42"] }
+      ],
+      "vragen": [
+        { "q": "Over wie zegt de Bijbel bijna hetzelfde als in Lukas 2:52?", "a": ["Over Samuël", "Over Simson", "Over Salomo"], "why": "1 Samuël 2:26" },
+        { "q": "Wat begrepen Jozef en Maria niet?", "a": ["Het woord dat Hij tot hen sprak", "Waarom ze naar Jeruzalem gingen", "De weg terug naar Nazareth"], "why": "Lukas 2:50" },
+        { "q": "Waarin nam de Heere Jezus toe, volgens Lukas 2:52?", "a": ["In wijsheid, grootte en genade", "In rijkdom, macht en eer", "In kracht, moed en roem"], "why": "Lukas 2:52" },
+        { "q": "Wat zegt de Bijbel over de weg van Nazareth naar Jeruzalem?", "a": ["Niets; de route op de kaart is een reconstructie", "Dat ze door Samaria liepen", "Dat ze over het meer voeren"], "why": "Lukas 2:41–45" }
+      ]
+    }
+  },
+  "87": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_woestijn", "nt_doopplaats", "nt_nazareth"],
+      "delen": [
+        { "t": "Johannes de Doper preekt in de woestijn. Hij roept de mensen: ‘Bekeert u’.", "stap": "jezus-1:nt-begin:0" },
+        { "t": "Johannes draagt kleren van kemelshaar. Hij eet sprinkhanen en wilde honing." },
+        { "t": "Veel mensen komen naar hem toe. Ze belijden hun zonden. Johannes doopt hen in de Jordaan.", "stap": "jezus-1:nt-begin:0" },
+        { "t": "Johannes zegt: na mij komt Iemand Die sterker is dan ik." },
+        { "t": "Dan komt de Heere Jezus uit Galilea naar de Jordaan. Hij wil door Johannes gedoopt worden.", "stap": "jezus-1:nt-begin:1" },
+        { "t": "Johannes wil dat eerst niet. Hij zegt dat hij juist door de Heere Jezus gedoopt moet worden." },
+        { "t": "Maar de Heere Jezus zegt dat het zo moet. Dan doopt Johannes Hem." },
+        { "t": "Als de Heere Jezus uit het water komt, gaan de hemelen open. De Geest van God komt als een duif op Hem neer.", "stap": "jezus-1:nt-begin:1" },
+        { "t": "Er klinkt een stem uit de hemel: ‘Deze is Mijn Zoon, Mijn Geliefde’." }
+      ],
+      "samen": "Bij deze doop zijn de Zoon, de Geest en de Vader er alle drie: de Zoon wordt gedoopt, de Geest daalt neer als een duif, en de stem uit de hemel spreekt (Mattheüs 3:16–17). Bij A zijn de harde woorden van Johannes tegen de Farizeeën en Sadduceeën weggelaten (3:7–12). ‘Bekeert u’ (3:2) kun je uitleggen als: keer je af van de zonde en keer je naar God.",
+      "vragen": [
+        { "q": "Waar doopt Johannes de mensen?", "a": ["In de Jordaan", "In de zee"], "why": "Mattheüs 3:6" },
+        { "q": "Hoe komt de Geest van God op de Heere Jezus?", "a": ["Als een duif", "Als een vuur"], "why": "Mattheüs 3:16" },
+        { "q": "Wat zegt de stem uit de hemel?", "a": ["Deze is Mijn Zoon, Mijn Geliefde", "Deze is een grote profeet"], "why": "Mattheüs 3:17" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een stem in de woestijn", "stap": "jezus-1:nt-begin:0", "t": "Johannes de Doper preekt in de woestijn van Judea: ‘Bekeert u; want het Koninkrijk der hemelen is nabij gekomen.’ Hij draagt kleding van kemelshaar en een leren gordel, en hij eet sprinkhanen en wilde honing. Uit Jeruzalem, Judea en de streek rond de Jordaan komen mensen naar hem toe. Ze belijden hun zonden en laten zich dopen in de Jordaan." },
+        { "kop": "Iemand Die sterker is", "stap": "jezus-1:nt-begin:1", "t": "Johannes zegt: ‘Die na mij komt, is sterker dan ik’. Dan komt de Heere Jezus van Galilea naar de Jordaan om gedoopt te worden. Johannes weigert eerst: ‘Mij is nodig van U gedoopt te worden, en komt Gij tot mij?’ Maar de Heere Jezus zegt: ‘Laat nu af’. Dat betekent: houd Mij niet tegen. Zo hoort het, zegt Hij, om alle gerechtigheid te vervullen." },
+        { "kop": "De hemelen gaan open", "t": "Als de Heere Jezus gedoopt is, komt Hij meteen uit het water. De hemelen gaan open, en de Geest van God daalt als een duif op Hem neer. Een stem uit de hemel zegt: ‘Deze is Mijn Zoon, Mijn Geliefde, in Denwelken Ik Mijn welbehagen heb!’ Welbehagen betekent: vreugde en goedkeuring." }
+      ],
+      "vragen": [
+        { "q": "Wat at Johannes de Doper?", "a": ["Sprinkhanen en wilde honing", "Brood en gebakken vis", "Manna en kwakkels"], "why": "Mattheüs 3:4" },
+        { "q": "Wat zei Johannes over Hem Die na hem kwam?", "a": ["Hij is sterker dan ik", "Hij is jonger dan ik", "Hij is mijn leerling"], "why": "Mattheüs 3:11" },
+        { "q": "Waarom wilde Johannes de Heere Jezus eerst niet dopen?", "a": ["Hij vond dat hij zelf door Hem gedoopt moest worden", "Hij moest eerst de Farizeeën nog dopen", "Hij vond de Jordaan te diep om te dopen"], "why": "Mattheüs 3:14" },
+        { "q": "Waar kwam de Heere Jezus vandaan toen Hij naar de Jordaan ging?", "a": ["Uit Galilea", "Uit Egypte", "Uit Samaria"], "why": "Mattheüs 3:13" },
+        { "q": "Wat gebeurde er toen de Heere Jezus uit het water kwam?", "a": ["De hemelen werden geopend", "Het begon hard te regenen", "De Jordaan stond stil"], "why": "Mattheüs 3:16" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Johannes en Elia", "t": "De kleding van Johannes doet denken aan de profeet Elia. Over Elia staat: ‘Hij was een man met een harig kleed, en met een lederen gordel gegord om zijn lenden’ (2 Koningen 1:8). Maleachi beloofde: ‘Ziet, Ik zende ulieden den profeet Elia’ (Maleachi 4:5). De Heere Jezus zegt later over Johannes: ‘hij is Elias, die komen zou’ (Mattheüs 11:14). En na de verheerlijking op de berg begrijpen de discipelen ‘dat Hij hun van Johannes de Doper gesproken had’ (Mattheüs 17:13).", "refs": ["2 Koningen 1:8", "Maleachi 4:5", "Mattheüs 11:14", "Mattheüs 17:11–13"] },
+        { "kop": "Vier evangeliën over de doop", "t": "Bij Markus en Lukas spreekt de stem de Heere Jezus Zelf aan: ‘Gij zijt Mijn geliefde Zoon’ (Markus 1:11; Lukas 3:22). Lukas vertelt ook dat de Heere Jezus bad toen de hemel geopend werd (Lukas 3:21), en dat de Geest neerdaalde ‘in lichamelijke gedaante, gelijk een duif’ (3:22). In Johannes getuigt Johannes de Doper: ‘Ik heb den Geest zien nederdalen uit den hemel, gelijk een duif, en bleef op Hem’ (Johannes 1:32). Veel uitleggers horen in de woorden van de stem Psalm 2:7 en Jesaja 42:1.", "refs": ["Markus 1:9–11", "Lukas 3:21–22", "Johannes 1:32–34", "Psalm 2:7", "Jesaja 42:1"] },
+        { "kop": "Waar en wanneer", "t": "Mattheüs noemt alleen de Jordaan. Johannes 1:28 noemt ‘Bethabara, over de Jordaan’ als plaats waar Johannes doopte. Waar dat precies lag, is betwist; de plek op de kaart is dus niet zeker. De datering is een reconstructie uit Lukas 3:1 (het vijftiende jaar van keizer Tiberius, ca. 26–29 n.Chr., afhankelijk van de telling) en Lukas 3:23 (‘omtrent dertig jaren’). Zo komt de doop op ca. 27–29 n.Chr. Wie de kruisiging in 33 n.Chr. plaatst, komt op ca. 29–30 n.Chr.", "refs": ["Johannes 1:28", "Lukas 3:1", "Lukas 3:23"] }
+      ],
+      "vragen": [
+        { "q": "Over welke profeet staat ook dat hij een lederen gordel om zijn lenden had?", "a": ["Elia", "Jesaja", "Jeremia"], "why": "2 Koningen 1:8" },
+        { "q": "Wat deed de Heere Jezus volgens Lukas toen de hemel geopend werd?", "a": ["Hij bad", "Hij zong een psalm", "Hij preekte"], "why": "Lukas 3:21" },
+        { "q": "Hoe begint de stem uit de hemel in Markus 1:11?", "a": ["Gij zijt Mijn geliefde Zoon", "Deze is Mijn knecht", "Hoort naar Hem"], "why": "Markus 1:11" },
+        { "q": "Waar doopte Johannes volgens Johannes 1:28?", "a": ["In Bethabara, over de Jordaan", "In Jericho, bij de stadspoort", "In Kana, in Galilea"], "why": "Johannes 1:28" }
+      ]
+    }
+  },
+  "88": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_woestijn", "nt_tempel"],
+      "delen": [
+        { "t": "Na Zijn doop leidt de Geest de Heere Jezus naar de woestijn. Daar zal de duivel Hem verzoeken.", "stap": "jezus-1:nt-begin:2" },
+        { "t": "Veertig dagen en veertig nachten eet de Heere Jezus niets. Daarna heeft Hij honger." },
+        { "t": "De duivel zegt: als U Gods Zoon bent, maak dan van deze stenen brood." },
+        { "t": "De Heere Jezus antwoordt met Gods Woord: de mens leeft niet van brood alleen, maar van elk woord van God." },
+        { "t": "Dan zet de duivel Hem boven op de tempel. Hij zegt: spring naar beneden, engelen zullen U opvangen.", "stap": "jezus-1:nt-begin:2" },
+        { "t": "Weer antwoordt de Heere Jezus met Gods Woord: je mag God niet op de proef stellen." },
+        { "t": "Op een hoge berg laat de duivel Hem alle koninkrijken van de wereld zien. Die wil hij Hem geven, als Hij hem aanbidt." },
+        { "t": "De Heere Jezus zegt: ‘Ga weg, satan’. Alleen God moet je aanbidden en dienen." },
+        { "t": "Dan gaat de duivel weg. Engelen komen bij de Heere Jezus en dienen Hem." }
+      ],
+      "samen": "‘Verzoeken’ betekent hier: proberen iemand tot zonde te brengen. Een kind kan bang zijn voor de duivel. De Bijbel vertelt sober dat de duivel moet weggaan als de Heere Jezus het zegt, en dat engelen Hem dienen (Mattheüs 4:10–11). Vraag samen: waarmee antwoordt de Heere Jezus elke keer? Met wat geschreven staat (4:4, 7, 10). Hebreeën 2:18 zegt dat Hij daarom kan helpen wie verzocht worden.",
+      "vragen": [
+        { "q": "Hoe lang eet de Heere Jezus niets?", "a": ["Veertig dagen en nachten", "Drie dagen en nachten"], "why": "Mattheüs 4:2" },
+        { "q": "Waarmee antwoordt de Heere Jezus de duivel?", "a": ["Met woorden uit Gods Woord", "Met een groot wonder"], "why": "Mattheüs 4:4, 7, 10" },
+        { "q": "Wie komen er aan het eind bij de Heere Jezus?", "a": ["Engelen", "Herders"], "why": "Mattheüs 4:11" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Veertig dagen zonder eten", "stap": "jezus-1:nt-begin:2", "t": "Na Zijn doop wordt de Heere Jezus door de Geest naar de woestijn geleid. Daar zal de duivel Hem verzoeken: proberen Hem tot zonde te brengen. Veertig dagen en nachten vast Hij: Hij eet niets. Dan heeft Hij honger. De duivel zegt: ‘Indiën Gij Gods Zoon zijt, zeg, dat deze stenen broden worden.’ Maar Hij antwoordt: ‘Er is geschreven: De mens zal bij brood alleen niet leven’." },
+        { "kop": "Op de tinne van de tempel", "t": "Dan neemt de duivel Hem mee naar Jeruzalem, de heilige stad. Hij zet Hem op de tinne van de tempel, een hoog punt van het gebouw. Hij zegt dat Hij naar beneden moet springen, en haalt zelf een Bijbeltekst aan: engelen zullen U op de handen nemen. De Heere Jezus zegt: ‘Gij zult den Heere, uw God, niet verzoeken.’" },
+        { "kop": "Ga weg, satan", "t": "Op een zeer hoge berg toont de duivel Hem alle koninkrijken van de wereld. ‘Al deze dingen zal ik U geven, indien Gij, nedervallende, mij zult aanbidden.’ De Heere Jezus zegt: ‘Ga weg, satan’. Alleen God moet je aanbidden en dienen. Dan gaat de duivel weg, en engelen komen en dienen Hem." }
+      ],
+      "vragen": [
+        { "q": "Wat deed de Heere Jezus veertig dagen en veertig nachten?", "a": ["Hij vastte", "Hij preekte", "Hij doopte"], "why": "Mattheüs 4:2" },
+        { "q": "Wanneer kwam de duivel met de stenen?", "a": ["Toen de Heere Jezus honger had", "Toen de Heere Jezus in de tempel leerde", "Toen de Heere Jezus in Nazareth was"], "why": "Mattheüs 4:2–3" },
+        { "q": "Waarmee antwoordde de Heere Jezus de duivel steeds?", "a": ["Met wat er in de Schrift geschreven staat", "Met een droom die Hij gehad had", "Met een teken uit de hemel"], "why": "Mattheüs 4:4, 7, 10" },
+        { "q": "Wie haalde ook een Bijbeltekst aan, maar om te verleiden?", "a": ["De duivel", "Johannes de Doper", "De engelen"], "why": "Mattheüs 4:6" },
+        { "q": "Wat beloofde de duivel op de zeer hoge berg?", "a": ["Alle koninkrijken van de wereld", "Brood voor veertig dagen", "Een plaats in de tempel"], "why": "Mattheüs 4:8–9" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Drie antwoorden uit Deuteronomium", "t": "Alle drie de antwoorden komen uit Deuteronomium, waar Mozes het volk terug laat kijken op de veertig jaar in de woestijn. Bij de tweede verzoeking gaat de tekst verder: ‘gelijk als gij Hem verzocht hebt te Massa’ (Deuteronomium 6:16). In Massa vroeg Israël: ‘Is de HEERE in het midden van ons, of niet?’ (Exodus 17:7). Deuteronomium 6:13 zegt in de Statenvertaling: ‘Gij zult den HEERE, uw God, vrezen, en Hem dienen’; in Mattheüs 4:10 klinkt dat als ‘aanbidden, en Hem alleen dienen’.", "refs": ["Deuteronomium 8:3", "Deuteronomium 6:16", "Exodus 17:7", "Deuteronomium 6:13"] },
+        { "kop": "Veertig dagen en een psalm", "t": "Ook Mozes was ‘veertig dagen en veertig nachten’ bij de HEERE en ‘at geen brood’ (Exodus 34:28), en Elia ging ‘veertig dagen en veertig nachten, tot aan den berg Gods, Horeb’ (1 Koningen 19:8). Psalm 91:11 zegt: ‘Want Hij zal Zijn engelen van u bevelen, dat zij u bewaren in al uw wegen.’ Wie dat naast Mattheüs 4:6 legt, ziet dat de woorden ‘in al uw wegen’ daar niet worden aangehaald. Sommige uitleggers zien daarin dat de duivel de tekst naar zijn hand zet.", "refs": ["Exodus 34:28", "1 Koningen 19:8", "Psalm 91:11–12", "Mattheüs 4:6"] },
+        { "kop": "Lukas, Markus en de plaatsen", "t": "Lukas vertelt de laatste twee verzoekingen in een andere volgorde: eerst de hoge berg, dan de tinne van de tempel (Lukas 4:5–9). Hij eindigt met: ‘week hij van Hem voor een tijd’ (4:13). Markus noemt dat Hij ‘bij de wilde gedierten’ was (Markus 1:13). De woestijn van Juda is een gebied, de tempel in Jeruzalem is een bekende plaats. De zeer hoge berg wordt niet bij naam genoemd. De datering is een reconstructie: direct na de doop, ca. 27–29 n.Chr.", "refs": ["Lukas 4:1–13", "Markus 1:12–13"] }
+      ],
+      "vragen": [
+        { "q": "Uit welk Bijbelboek komen alle drie de antwoorden van de Heere Jezus?", "a": ["Deuteronomium", "Psalmen", "Jesaja"], "why": "Deuteronomium 8:3; Deuteronomium 6:16; Deuteronomium 6:13" },
+        { "q": "In welke volgorde vertelt Lukas de laatste twee verzoekingen?", "a": ["Eerst de berg, dan de tinne", "Eerst de tinne, dan de berg", "Eerst de Jordaan, dan de berg"], "why": "Lukas 4:5–9" },
+        { "q": "Wat vertelt Markus extra over de woestijn?", "a": ["Hij was er bij de wilde gedierten", "Hij was er bij de herders", "Hij was er met Zijn discipelen"], "why": "Markus 1:13" },
+        { "q": "Wie was ook veertig dagen en nachten bij de HEERE zonder brood te eten?", "a": ["Mozes", "Abraham", "David"], "why": "Exodus 34:28" }
+      ]
+    }
+  },
+  "89": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_doopplaats", "nt_meer"],
+      "delen": [
+        { "t": "Johannes de Doper is bij de Jordaan, met twee van zijn leerlingen. Hij ziet de Heere Jezus lopen.", "stap": "jezus-1:nt-begin:3" },
+        { "t": "Johannes zegt: ‘Ziet, het Lam Gods!’ De twee leerlingen gaan achter de Heere Jezus aan." },
+        { "t": "Ze blijven die dag bij Hem. Een van de twee heet Andreas." },
+        { "t": "Andreas zoekt eerst zijn broer Simon op. Hij zegt: we hebben de Messias gevonden! Hij brengt Simon bij de Heere Jezus." },
+        { "t": "De Heere Jezus zegt dat Simon een nieuwe naam krijgt: Cefas. Dat is Petrus." },
+        { "t": "De volgende dag zegt de Heere Jezus tegen Filippus: ‘Volg Mij.’ Filippus vertelt het aan Nathanaël." },
+        { "t": "Later loopt de Heere Jezus langs het meer van Galilea. Simon en Andreas werpen daar hun net uit, want ze zijn vissers.", "stap": "jezus-1:nt-galilea:1" },
+        { "t": "Hij zegt: ‘Volgt Mij na’. Hij zal van hen vissers van mensen maken." },
+        { "t": "Meteen laten ze hun netten liggen en volgen Hem.", "stap": "jezus-1:nt-galilea:1" },
+        { "t": "Ook Jakobus en Johannes, de zonen van Zebedeüs, laten hun vader in het schip achter. Ze volgen Hem." }
+      ],
+      "samen": "Dit verhaal heeft twee delen: eerst bij de Jordaan (Johannes 1:35–52), later aan het meer van Galilea (Markus 1:16–20). Er zijn twee mannen met de naam Johannes: Johannes de Doper en Johannes, de zoon van Zebedeüs. Bij A is het gesprek met Nathanaël weggelaten (Johannes 1:47–52). Vraag samen: wie vertelt het aan wie? Andreas aan Simon, Filippus aan Nathanaël (1:42, 46).",
+      "vragen": [
+        { "q": "Wat zegt Johannes als hij de Heere Jezus ziet?", "a": ["Ziet, het Lam Gods!", "Ziet, de koning komt!"], "why": "Johannes 1:36" },
+        { "q": "Wie is de broer van Andreas?", "a": ["Simon", "Filippus"], "why": "Johannes 1:41" },
+        { "q": "Wat doen Simon en Andreas als de Heere Jezus hen roept?", "a": ["Ze laten hun netten liggen", "Ze varen snel weg"], "why": "Markus 1:18" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Ziet, het Lam Gods", "stap": "jezus-1:nt-begin:3", "t": "Johannes de Doper doopt in Bethabara, aan de overkant van de Jordaan. Daar staat hij met twee van zijn discipelen, dat zijn leerlingen. Als hij de Heere Jezus ziet lopen, zegt hij: ‘Ziet, het Lam Gods!’ De twee gaan achter de Heere Jezus aan. ‘Komt en ziet!’ zegt Hij. Ze blijven die dag bij Hem." },
+        { "kop": "Vertellen aan een ander", "t": "Een van de twee is Andreas. Hij zoekt eerst zijn broer Simon op: ‘Wij hebben gevonden den Messias’. Messias betekent: Christus. De Heere Jezus zegt dat Simon Cefas genoemd zal worden, dat is Petrus. De volgende dag roept Hij Filippus uit Bethsaida. Filippus vertelt het aan Nathanaël. Die vraagt eerst: ‘Kan uit Nazareth iets goeds zijn?’" },
+        { "kop": "Vissers van mensen", "stap": "jezus-1:nt-galilea:1", "t": "Later, aan het meer van Galilea, ziet de Heere Jezus Simon en Andreas hun net uitwerpen. Hij zegt: ‘Volgt Mij na, en Ik zal maken, dat gij vissers der mensen zult worden.’ Meteen laten ze hun netten liggen. Ook Jakobus en Johannes, de zonen van Zebedeüs, laten hun vader en de knechten in het schip achter en volgen Hem." }
+      ],
+      "vragen": [
+        { "q": "Wat deed Andreas eerst nadat hij bij de Heere Jezus was geweest?", "a": ["Hij zocht zijn broer Simon op", "Hij ging terug naar Johannes", "Hij ging vissen op het meer"], "why": "Johannes 1:42" },
+        { "q": "Uit welke stad kwam Filippus?", "a": ["Uit Bethsaida", "Uit Nazareth", "Uit Jeruzalem"], "why": "Johannes 1:45" },
+        { "q": "Wie vertelde het aan Nathanaël?", "a": ["Filippus", "Andreas", "Simon"], "why": "Johannes 1:46" },
+        { "q": "Waarom twijfelde Nathanaël eerst?", "a": ["Hij dacht dat uit Nazareth niets goeds kon komen", "Hij had nooit van Mozes en de profeten gehoord", "Hij vond Filippus te jong om dat te weten"], "why": "Johannes 1:47" },
+        { "q": "Wat deden Jakobus en Johannes toen de Heere Jezus hen zag?", "a": ["Ze herstelden hun netten in het schip", "Ze verkochten vis op de markt", "Ze trokken hun schip aan land"], "why": "Markus 1:19" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Twee momenten, twee plaatsen", "t": "Johannes 1 speelt kort na de doop, bij Bethabara over de Jordaan (Johannes 1:28); die plaats is betwist. De roeping aan het meer volgt nadat Johannes de Doper gevangengenomen was (Markus 1:14). Volgens Johannes 1 hadden Simon en Andreas de Heere Jezus dus al ontmoet toen Hij hen aan het meer riep. Uitleggers verschillen over de vraag of de grote visvangst in Lukas 5 bij dezelfde roeping hoort. Johannes noemt ook het tijdstip: ‘omtrent de tiende ure’ (1:40). Bij de gewone Joodse telling vanaf zonsopgang is dat ongeveer vier uur ’s middags; sommige uitleggers rekenen anders. De datering is een reconstructie: ca. 27–29 n.Chr.", "refs": ["Johannes 1:28", "Markus 1:14", "Johannes 1:40"] },
+        { "kop": "Elders in de Bijbel", "t": "Nathanaël kwam uit Kana: ‘Nathanaël, die van Kana in Galilea was’ (Johannes 21:2). De Heere Jezus belooft hem dat hij ‘de engelen Gods opklimmende en nederdalende op den Zoon des mensen’ zal zien (Johannes 1:52). Dat doet denken aan de droom van Jakob, waarin ‘de engelen Gods klommen daarbij op en neder’ (Genesis 28:12). Jakobus en Johannes krijgen later ook een bijnaam: ‘Boanerges, hetwelk is, zonen des donders’ (Markus 3:17).", "refs": ["Johannes 21:2", "Johannes 1:52", "Genesis 28:12", "Markus 3:17"] },
+        { "kop": "Wat de tekst zegt en wat niet", "t": "Johannes noemt maar één van de twee discipelen die de Heere Jezus volgden: Andreas (Johannes 1:41). De naam van de ander staat er niet. Veel uitleggers denken aan Johannes, de zoon van Zebedeüs, maar de tekst zegt het niet. Ook wordt Nathanaël vaak gelijkgesteld met Bartholomeüs, die in de lijsten van apostelen naast Filippus staat (Mattheüs 10:3). Dat is een uitleg, geen tekst.", "refs": ["Johannes 1:41", "Mattheüs 10:3"] }
+      ],
+      "vragen": [
+        { "q": "Uit welke plaats kwam Nathanaël, volgens Johannes 21:2?", "a": ["Uit Kana in Galilea", "Uit Bethsaida", "Uit Kapernaüm"], "why": "Johannes 21:2" },
+        { "q": "Aan welke droom doen de woorden over de engelen op de Zoon des mensen denken?", "a": ["De droom van Jakob over de ladder", "De droom van Jozef over de schoven", "De droom van Farao over de koeien"], "why": "Johannes 1:52; Genesis 28:12" },
+        { "q": "Welke bijnaam gaf de Heere Jezus later aan Jakobus en Johannes?", "a": ["Boanerges, zonen des donders", "Cefas, dat is Petrus", "Didymus, dat is tweeling"], "why": "Markus 3:17" },
+        { "q": "Wat zegt Johannes 1 over de tweede discipel die met Andreas meeging?", "a": ["De tekst noemt zijn naam niet", "Het was Filippus uit Bethsaida", "Het was Nathanaël uit Kana"], "why": "Johannes 1:40–41" }
+      ]
+    }
+  },
+  "90": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_kana"],
+      "delen": [
+        { "t": "In Kana is een bruiloft. Maria, de moeder van de Heere Jezus, is er ook.", "stap": "jezus-1:nt-begin:4" },
+        { "t": "De Heere Jezus en Zijn discipelen zijn ook uitgenodigd." },
+        { "t": "Dan is de wijn op. Maria zegt tegen de Heere Jezus: ‘Zij hebben geen wijn.’" },
+        { "t": "Maria zegt tegen de dienaren: doe maar wat Hij jullie zegt." },
+        { "t": "Er staan zes stenen watervaten. De Heere Jezus zegt: vul ze met water. De dienaren vullen ze tot bovenaan.", "stap": "jezus-1:nt-begin:4" },
+        { "t": "Dan zegt Hij: schep er nu uit en breng het naar de hofmeester. Dat is de man die het feest leidt." },
+        { "t": "De hofmeester proeft: het water is wijn geworden! Hij weet niet waar de wijn vandaan komt, maar de dienaren weten het wel." },
+        { "t": "Hij zegt tegen de bruidegom: jij hebt de goede wijn tot nu toe bewaard." },
+        { "t": "Dit is het eerste teken van de Heere Jezus. Zijn discipelen geloven in Hem." }
+      ],
+      "samen": "Bij A is het antwoord van de Heere Jezus weggelaten: ‘Vrouw, wat heb Ik met u te doen? Mijn ure is nog niet gekomen.’ (Johannes 2:4). Ook aan het kruis spreekt Hij Zijn moeder aan met ‘Vrouw’ (Johannes 19:26). Johannes noemt dit wonder een ‘teken’: het wijst naar Wie de Heere Jezus is (2:11). Vraag samen: wie weten waar de wijn vandaan komt, en wie niet? (2:9)",
+      "vragen": [
+        { "q": "Wat is er op bij de bruiloft?", "a": ["De wijn", "Het brood"], "why": "Johannes 2:3" },
+        { "q": "Waarmee vullen de dienaren de watervaten?", "a": ["Met water", "Met wijn"], "why": "Johannes 2:7" },
+        { "q": "Wat is het water geworden?", "a": ["Wijn", "Melk"], "why": "Johannes 2:9" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Geen wijn meer", "stap": "jezus-1:nt-begin:4", "t": "Op de derde dag is er een bruiloft in Kana in Galilea. Maria is er, en de Heere Jezus en Zijn discipelen zijn ook uitgenodigd. Dan is de wijn op. Maria zegt tegen Hem: ‘Zij hebben geen wijn.’ Hij antwoordt: ‘Vrouw, wat heb Ik met u te doen? Mijn ure is nog niet gekomen.’ Maria zegt tegen de dienaren: ‘Zo wat Hij ulieden zal zeggen, doet dat.’" },
+        { "kop": "Zes stenen watervaten", "t": "Er staan zes stenen watervaten, voor de reiniging van de Joden: daarmee wasten zij zich volgens hun gebruik. De Heere Jezus zegt: ‘Vult de watervaten met water.’ De dienaren vullen ze tot boven toe. Dan zegt Hij: ‘Schept nu, en draagt het tot den hofmeester’. De hofmeester is de man die het feest leidt." },
+        { "kop": "Het eerste teken", "t": "De hofmeester proeft het water dat wijn geworden is. Hij weet niet waar de wijn vandaan komt, maar de dienaren wel. Hij zegt tegen de bruidegom: ‘gij hebt den goeden wijn tot nu toe bewaard.’ Dit is het eerste teken van de Heere Jezus. Een teken wijst naar Wie Hij is. Zo openbaart Hij Zijn heerlijkheid, en Zijn discipelen geloven in Hem." }
+      ],
+      "vragen": [
+        { "q": "Wanneer was de bruiloft in Kana?", "a": ["Op de derde dag", "Op de achtste dag", "Op de veertigste dag"], "why": "Johannes 2:1" },
+        { "q": "Wat zei Maria tegen de dienaren?", "a": ["Doe wat Hij jullie zegt", "Haal nieuwe wijn op de markt", "Vraag het aan de bruidegom"], "why": "Johannes 2:5" },
+        { "q": "Waarvoor waren de stenen watervaten bedoeld?", "a": ["Voor de reiniging van de Joden", "Om wijn in te bewaren", "Om vis in te zouten"], "why": "Johannes 2:6" },
+        { "q": "Wat vond de hofmeester bijzonder?", "a": ["Dat de goede wijn tot nu toe bewaard was", "Dat de wijn uit Jeruzalem kwam", "Dat de wijn in stenen vaten zat"], "why": "Johannes 2:10" },
+        { "q": "Wat openbaarde de Heere Jezus met dit teken?", "a": ["Zijn heerlijkheid", "Zijn koninkrijk op aarde", "Zijn wijsheid als leraar"], "why": "Johannes 2:11" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Water voor de reiniging", "t": "De watervaten stonden er ‘naar de reiniging der Joden’ (Johannes 2:6). Markus legt dat gebruik uit: de Joden eten niet ‘tenzij dat zij eerst de handen dikmaals wassen’, en ze kennen ‘de wassingen der drinkbekers, en kannen, en koperen vaten’ (Markus 7:3–4). Elk vat hield ‘twee of drie metreten’. Een metreet is een inhoudsmaat; een gangbare schatting is ongeveer veertig liter. Het ging dus om veel water. Johannes zegt niet hoeveel wijn er precies uit werd geschept.", "refs": ["Johannes 2:6", "Markus 7:3–4"] },
+        { "kop": "Mijn ure", "t": "Het woord ‘ure’ komt in Johannes vaker terug. Mensen zochten Hem te grijpen, ‘want Zijn ure was nog niet gekomen’ (Johannes 7:30). Later zegt Hij: ‘De ure is gekomen, dat de Zoon des mensen zal verheerlijkt worden’ (12:23). Voor het laatste Pascha wist Hij ‘dat Zijn ure gekomen was’ (13:1), en Hij bidt: ‘Vader, de ure is gekomen’ (17:1). Veel uitleggers zien daarom in ‘Mijn ure’ de tijd van Zijn lijden en verheerlijking.", "refs": ["Johannes 7:30", "Johannes 12:23", "Johannes 13:1", "Johannes 17:1"] },
+        { "kop": "Tekenen, en waar Kana lag", "t": "Johannes telt de tekenen: vanuit Kana doet de Heere Jezus later ook ‘Dit tweede teken’: de genezing van de zoon van een koninklijk hoveling (Johannes 4:46–54). Hij schrijft dat de Heere Jezus ‘nog wel vele andere tekenen’ deed die niet zijn opgeschreven (20:30). Waar Kana lag, is betwist: Khirbet Qana en Kafr Kanna worden allebei voorgesteld. De plek op de kaart is dus niet zeker. De datering is een reconstructie: kort na de doop, ca. 27–29 n.Chr.", "refs": ["Johannes 4:46–54", "Johannes 20:30"] }
+      ],
+      "vragen": [
+        { "q": "Hoeveel metreten hield elk watervat?", "a": ["Twee of drie", "Tien of twaalf", "Een halve"], "why": "Johannes 2:6" },
+        { "q": "Welk tweede teken deed de Heere Jezus ook vanuit Kana?", "a": ["Hij genas de zoon van een koninklijk hoveling", "Hij stilde de storm op het meer", "Hij gaf vijfduizend mensen te eten"], "why": "Johannes 4:46–54" },
+        { "q": "Wat zegt de Heere Jezus in Johannes 17:1 over Zijn ure?", "a": ["Dat die gekomen is", "Dat die nog lang niet komt", "Dat die voorbij is"], "why": "Johannes 17:1" },
+        { "q": "Waarom staat Kana als onzeker op de kaart?", "a": ["Er worden verschillende plaatsen voorgesteld", "De Bijbel noemt Kana maar één keer", "Kana lag niet in Galilea"], "why": "Johannes 2:1" }
+      ]
+    }
+  },
+  "91": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_kapernaum"],
+      "delen": [
+        { "t": "Op de sabbat gaat de Heere Jezus in Kapernaüm naar de synagoge. Daar leert Hij de mensen. Ze staan versteld, want Hij leert met macht.", "stap": "jezus-1:nt-galilea:2" },
+        { "t": "Er is een man met een onreine geest. De Heere Jezus zegt: ‘Zwijg stil, en ga uit van hem.’ En de geest gaat weg." },
+        { "t": "Daarna gaan ze naar het huis van Simon en Andreas. De moeder van Simons vrouw ligt in bed met koorts." },
+        { "t": "De Heere Jezus pakt haar hand en helpt haar overeind. De koorts gaat meteen weg, en ze bedient hen." },
+        { "t": "’s Avonds staat de hele stad bij de deur. De Heere Jezus geneest veel zieken.", "stap": "jezus-1:nt-galilea:2" },
+        { "t": "Een man met melaatsheid smeekt: maak mij rein. De Heere Jezus raakt hem aan en zegt: ‘Ik wil, word gereinigd!’" },
+        { "t": "Een paar dagen later is het huis weer vol. Vier mannen brengen een verlamde man. Ze kunnen niet bij de Heere Jezus komen.", "stap": "jezus-1:nt-galilea:3" },
+        { "t": "Ze maken een opening in het dak. Ze laten de man op zijn bedje naar beneden zakken." },
+        { "t": "De Heere Jezus zegt tegen hem: ‘Zoon, uw zonden zijn u vergeven.’" },
+        { "t": "Dan zegt Hij: sta op en ga naar huis. De man staat op en gaat weg. Iedereen eert God." }
+      ],
+      "samen": "Een ‘onreine geest’ is een boze geest; Markus spreekt ook van ‘duivelen’ (Markus 1:34). De Bijbel vertelt het sober: de Heere Jezus spreekt, en de geest moet gehoorzamen (1:27). Bij A is weggelaten dat Hij ’s morgens vroeg in een woeste plaats ging bidden (1:35) en wat de schriftgeleerden dachten (2:6–10). Vraag samen: wat zegt de Heere Jezus eerst tegen de verlamde man, en wat daarna? (2:5, 11)",
+      "vragen": [
+        { "q": "Wie ligt er in bed met koorts?", "a": ["De moeder van Simons vrouw", "De vrouw van Andreas"], "why": "Markus 1:30" },
+        { "q": "Hoe komt de verlamde man bij de Heere Jezus?", "a": ["Door het dak", "Door het raam"], "why": "Markus 2:4" },
+        { "q": "Wat doet de man als de Heere Jezus zegt dat hij moet opstaan?", "a": ["Hij staat op en gaat weg", "Hij blijft liggen"], "why": "Markus 2:12" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een sabbat in Kapernaüm", "stap": "jezus-1:nt-galilea:2", "t": "Op de sabbat leert de Heere Jezus in de synagoge van Kapernaüm. Hij leert met macht, niet zoals de schriftgeleerden. Een man met een onreine geest roept: ‘Ik ken U, wie Gij zijt, namelijk de Heilige Gods.’ De Heere Jezus zegt: ‘Zwijg stil, en ga uit van hem.’ De geest gaat uit de man weg. Iedereen is verbaasd." },
+        { "kop": "Koorts en melaatsheid", "t": "Simons schoonmoeder ligt met koorts. De Heere Jezus pakt haar hand en richt haar op, en de koorts verlaat haar. Als de zon ondergaat, geneest Hij velen. Later smeekt een melaatse: ‘Indiën Gij wilt, Gij kunt mij reinigen.’ Hij raakt hem aan, en de man wordt rein." },
+        { "kop": "Door het dak", "stap": "jezus-1:nt-galilea:3", "t": "Na een paar dagen is het huis zo vol, dat vier mannen met een verlamde niet bij Hem kunnen komen. Ze maken een opening in het dak en laten het bed zakken. De Heere Jezus zegt: ‘Zoon, uw zonden zijn u vergeven.’ Sommige schriftgeleerden denken: alleen God kan zonden vergeven. Om te laten zien dat Hij macht heeft om zonden te vergeven, zegt Hij tegen de man dat hij moet opstaan. Hij staat op, en allen verheerlijken God." }
+      ],
+      "vragen": [
+        { "q": "Wat riep de man met de onreine geest?", "a": ["Ik ken U, wie Gij zijt", "Help mij, Meester", "Waar woont Gij?"], "why": "Markus 1:24" },
+        { "q": "Wanneer brachten ze veel zieken bij Hem?", "a": ["Toen de zon onderging", "Midden op de dag", "Vroeg in de morgen"], "why": "Markus 1:32" },
+        { "q": "Waarom lieten de mannen de verlamde door het dak zakken?", "a": ["Ze konden door de menigte niet bij Hem komen", "De deur van het huis was op slot", "De verlamde wilde niet gezien worden"], "why": "Markus 2:4" },
+        { "q": "Waarom vonden sommige schriftgeleerden het verkeerd dat Hij zonden vergaf?", "a": ["Ze dachten: alleen God kan zonden vergeven", "Ze wilden de man zelf genezen", "Ze dachten dat de man niet ziek was"], "why": "Markus 2:6–7" },
+        { "q": "Hoe liet de Heere Jezus zien dat Hij zonden mag vergeven?", "a": ["De verlamde stond op en ging weg", "Er kwam vuur uit de hemel", "Het dak was ineens weer heel"], "why": "Markus 2:10–12" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Een melaatse aanraken", "t": "Volgens de wet moest een melaatse roepen: ‘Onrein, onrein!’ En verder: ‘onrein is hij, hij zal alleen wonen; buiten het leger zal zijn woning wezen’ (Leviticus 13:45–46). Een melaatse moest dus afstand houden. De Heere Jezus raakt hem juist aan, ‘met barmhartigheid innerlijk bewogen’, en de melaatsheid gaat weg (Markus 1:41–42). Het woord melaatsheid in de Bijbel wordt meestal uitgelegd als een naam voor verschillende huidziekten, niet alleen wat wij nu lepra noemen.", "refs": ["Leviticus 13:45–46", "Markus 1:41–42"] },
+        { "kop": "De Zoon des mensen", "t": "In Markus 2:10 noemt de Heere Jezus Zichzelf ‘de Zoon des mensen’. Daniël zag ‘Een met de wolken des hemels, als eens mensen zoon’, en ‘Hem werd gegeven heerschappij’ (Daniël 7:13–14). Voor de hogepriester verbindt de Heere Jezus die woorden zelf met Zich: ‘gijlieden zult den Zoon des mensen zien zitten ter rechter hand der kracht Gods, en komen met de wolken des hemels’ (Markus 14:62). Lukas vertelt dat de mannen de verlamde ‘door de tichelen’ neerlieten (Lukas 5:19): door de dakpannen.", "refs": ["Markus 2:10", "Daniël 7:13–14", "Markus 14:62", "Lukas 5:19"] },
+        { "kop": "Waar en wanneer", "t": "Kapernaüm is een bekende plaats aan het meer. Mattheüs zegt dat de Heere Jezus er kwam wonen, ‘gelegen aan de zee, in de landpale van Zebulon en Nafthali’ (Mattheüs 4:13). De zieken worden gebracht ‘toen de zon onderging’ (Markus 1:32). Veel uitleggers wijzen erop dat de sabbat dan voorbij was; de tekst zegt dat niet met zoveel woorden. De datering is een reconstructie: in het begin van het optreden in Galilea, ca. 28–30 n.Chr.", "refs": ["Mattheüs 4:13", "Markus 1:32"] }
+      ],
+      "vragen": [
+        { "q": "Waar moest een melaatse volgens de wet wonen?", "a": ["Alleen, buiten het leger", "In de voorhof van de tempel", "In het huis van de priester"], "why": "Leviticus 13:46" },
+        { "q": "Hoe zegt Lukas dat de verlamde werd neergelaten?", "a": ["Door de tichelen van het dak", "Door een raam in de muur", "Langs de trap naar binnen"], "why": "Lukas 5:19" },
+        { "q": "Wat deed de Heere Jezus de volgende morgen vroeg?", "a": ["Hij ging naar een woeste plaats om te bidden", "Hij ging naar de synagoge om te leren", "Hij voer met het schip naar de overkant"], "why": "Markus 1:35" },
+        { "q": "Bij welke profeet staat het visioen van Een als eens mensen zoon?", "a": ["Daniël", "Jona", "Haggaï"], "why": "Daniël 7:13" }
+      ]
+    }
+  },
+  "92": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt1_bergrede"],
+      "delen": [
+        { "t": "De Heere Jezus ziet veel mensen. Hij gaat een berg op en gaat zitten. Zijn discipelen komen bij Hem, en Hij leert hen.", "stap": "jezus-1:nt-galilea:4" },
+        { "t": "Hij noemt wie er zalig zijn. Bijvoorbeeld: ‘Zalig zijn de reinen van hart; want zij zullen God zien.’" },
+        { "t": "Hij leert hen bidden: ‘Onze Vader, Die in de hemelen zijt!’" },
+        { "t": "Kijk naar de vogels, zegt Hij. Ze zaaien niet en maaien niet. Toch geeft de Vader in de hemel hun eten." },
+        { "t": "Kijk naar de lelies op het veld. Zelfs koning Salomo was niet zo mooi gekleed als een van hen." },
+        { "t": "Daarom hoeven ze niet bezorgd te zijn. Ze moeten eerst het Koninkrijk van God zoeken." },
+        { "t": "Aan het eind vertelt Hij over twee mannen. Allebei bouwen ze een huis." },
+        { "t": "Wie Zijn woorden hoort en doet, lijkt op een verstandige man. Hij bouwt zijn huis op de rots." },
+        { "t": "Dan komen er regen, water en wind. Maar het huis op de rots blijft staan." },
+        { "t": "Wie Zijn woorden hoort maar niet doet, lijkt op een dwaze man. Hij bouwt op het zand, en dat huis valt." }
+      ],
+      "samen": "De Bergrede is lang (Mattheüs 5–7). Bij A staan maar een paar stukken. Je kunt samen de zaligsprekingen lezen (5:3–12) of het gebed (6:9–13). Vraag samen: wat is het verschil tussen de twee bouwers? Ze horen allebei de woorden van de Heere Jezus, maar alleen de een doet ze (7:24–27). De Bijbel noemt de naam van de berg niet.",
+      "vragen": [
+        { "q": "Waar gaat de Heere Jezus zitten?", "a": ["Op een berg", "In een schip"], "why": "Mattheüs 5:1" },
+        { "q": "Wie geeft de vogels te eten?", "a": ["De Vader in de hemel", "De boeren op het land"], "why": "Mattheüs 6:26" },
+        { "q": "Welk huis blijft staan?", "a": ["Het huis op de rots", "Het huis op het zand"], "why": "Mattheüs 7:24–25" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Zalig zijn", "stap": "jezus-1:nt-galilea:4", "t": "Als de Heere Jezus de menigte ziet, klimt Hij een berg op en gaat zitten. Zijn discipelen komen bij Hem, en Hij leert hen. Hij begint met wie zalig zijn: ‘Zalig zijn de armen van geest; want hunner is het Koninkrijk der hemelen.’ Hij noemt ook de zachtmoedigen, de barmhartigen, de reinen van hart en de vreedzamen." },
+        { "kop": "Wat de Vader in het verborgen ziet", "t": "Geven aan armen, bidden en vasten moet je niet doen om door mensen gezien te worden. De Vader ziet in het verborgen. Hij leert hen bidden: ‘Onze Vader, Die in de hemelen zijt!’ Ze hoeven niet bezorgd te zijn: de Vader voedt de vogels en kleedt de leliën. ‘Zoekt eerst het Koninkrijk Gods en Zijn gerechtigheid’." },
+        { "kop": "Twee bouwers", "t": "Aan het eind vertelt Hij een vergelijking. Wie Zijn woorden hoort en doet, is als een voorzichtig (wijs) man die op een steenrots bouwt. Dat huis blijft staan in regen en wind. Wie ze hoort en niet doet, is als een dwaze man die op het zand bouwt. Dat huis valt, ‘en zijn val was groot.’ De mensen zijn verbaasd, want Hij leert met macht." }
+      ],
+      "vragen": [
+        { "q": "Wie zijn volgens de Heere Jezus zalig?", "a": ["De reinen van hart", "De rijken en machtigen", "De sterken en snellen"], "why": "Mattheüs 5:8" },
+        { "q": "Waarom hoef je niet te bidden om door mensen gezien te worden?", "a": ["De Vader ziet in het verborgen", "God hoort alleen gebeden in de tempel", "Bidden mag alleen op de sabbat"], "why": "Mattheüs 6:5–6" },
+        { "q": "Waarmee laat de Heere Jezus zien dat je niet bezorgd hoeft te zijn?", "a": ["Met de vogels en de leliën", "Met de zon en de maan", "Met de vissen in het meer"], "why": "Mattheüs 6:26–30" },
+        { "q": "Wat is het verschil tussen de twee bouwers?", "a": ["De een doet wat hij hoort, de ander niet", "De een heeft meer geld dan de ander", "De een bouwt sneller dan de ander"], "why": "Mattheüs 7:24–26" },
+        { "q": "Waarom waren de mensen verbaasd?", "a": ["Hij leerde hen als macht hebbende", "Hij sprak in een vreemde taal", "Hij las voor uit een boekrol"], "why": "Mattheüs 7:28–29" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Gij hebt gehoord, maar Ik zeg u", "t": "Steeds noemt de Heere Jezus wat ‘tot de ouden gezegd’ is, en zegt dan: ‘Maar Ik zeg u’. Hij noemt het zesde en het zevende gebod (Exodus 20:13–14), de regel ‘Oog voor oog, tand voor tand’ (Exodus 21:24) en ‘gij zult uw naaste liefhebben als uzelven’ (Leviticus 19:18). De woorden ‘uw vijand zult gij haten’ (Mattheüs 5:43) staan niet zo in de wet; uitleggers zien ze als de manier waarop men de wet toen uitlegde. Vooraf zegt Hij: ‘Ik ben niet gekomen, om die te ontbinden, maar te vervullen’ (5:17).", "refs": ["Mattheüs 5:17–48", "Exodus 20:13–14", "Exodus 21:24", "Leviticus 19:18"] },
+        { "kop": "Mattheüs en Lukas", "t": "Lukas vertelt een rede met veel van dezelfde woorden, maar daar ‘stond Hij op een vlakke plaats’ (Lukas 6:17), en Hij begint: ‘Zalig zijt gij, armen’ (6:20). Ook daar eindigt Hij met de twee bouwers (6:47–49). Uitleggers verschillen over de vraag of Mattheüs en Lukas dezelfde toespraak vertellen of dat de Heere Jezus dit vaker heeft gezegd. Mattheüs sluit af met: ‘Toen Hij nu van den berg afgeklommen was, zijn Hem vele scharen gevolgd’ (Mattheüs 8:1).", "refs": ["Lukas 6:17–20", "Lukas 6:47–49", "Mattheüs 8:1"] },
+        { "kop": "Waar en wanneer", "t": "Mattheüs noemt geen naam voor de berg. Een heuvel aan het meer van Galilea wordt in de overlevering de Berg der Zaligsprekingen genoemd; de plek op de kaart is daarom niet zeker. De datering is een reconstructie: in het begin van het optreden in Galilea (Mattheüs 4:23–5:1), ca. 28–30 n.Chr. Andere dateringen bestaan.", "refs": ["Mattheüs 4:23–5:1"] }
+      ],
+      "vragen": [
+        { "q": "Welk gebod noemt de Heere Jezus als eerste na ‘Gij hebt gehoord’?", "a": ["Gij zult niet doden", "Gij zult niet stelen", "Gij zult niet begeren"], "why": "Mattheüs 5:21" },
+        { "q": "Wat zegt de Heere Jezus over de wet en de profeten?", "a": ["Hij is gekomen om ze te vervullen", "Hij is gekomen om ze af te schaffen", "Ze gelden niet meer voor Zijn discipelen"], "why": "Mattheüs 5:17" },
+        { "q": "Waar staat de Heere Jezus volgens Lukas 6:17 als Hij spreekt?", "a": ["Op een vlakke plaats", "In de synagoge", "In een schip"], "why": "Lukas 6:17" },
+        { "q": "Wat gebeurde er toen Hij van de berg afkwam?", "a": ["Vele scharen volgden Hem", "Hij ging naar Jeruzalem", "Hij bleef alleen achter"], "why": "Mattheüs 8:1" }
+      ]
+    }
+  },
+  "93": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["salem"],
+      "delen": [
+        { "t": "Nicodemus is een Farizeeër. Hij is een van de leiders van de Joden." },
+        { "t": "Op een nacht komt hij bij de Heere Jezus in Jeruzalem.", "stap": "jezus-1:nt-begin:5" },
+        { "t": "Hij zegt: U bent een Leraar Die van God gekomen is. Niemand kan zulke tekenen doen als God niet met hem is." },
+        { "t": "De Heere Jezus zegt: je moet opnieuw geboren worden. Anders kun je het Koninkrijk van God niet zien." },
+        { "t": "Nicodemus begrijpt het niet. Hoe kan een oud mens opnieuw geboren worden?" },
+        { "t": "De Heere Jezus zegt dat het gaat om geboren worden uit water en Geest." },
+        { "t": "Het is als met de wind. Je hoort hem wel. Maar je weet niet waar hij vandaan komt of waar hij heen gaat." },
+        { "t": "Mozes zette in de woestijn een koperen slang omhoog. Zo moet ook de Zoon des mensen omhoog geheven worden." },
+        { "t": "De Heere Jezus zegt: ‘Want alzo lief heeft God de wereld gehad, dat Hij Zijn eniggeboren Zoon gegeven heeft’." },
+        { "t": "Wie in Hem gelooft, gaat niet verloren, maar heeft het eeuwige leven." }
+      ],
+      "samen": "Opnieuw geboren worden is moeilijk te begrijpen, ook voor Nicodemus (Johannes 3:4, 9). De Heere Jezus zegt dat het het werk van de Geest is, als de wind die je niet ziet maar wel hoort (3:8). Het verhaal van de koperen slang staat in Numeri 21:8–9. Later zegt de Heere Jezus dat Hij ‘van de aarde zal verhoogd zijn’, en Johannes legt uit dat Hij daarmee Zijn dood bedoelde (Johannes 12:32–33).",
+      "vragen": [
+        { "q": "Wanneer komt Nicodemus bij de Heere Jezus?", "a": ["’s Nachts", "’s Middags"], "why": "Johannes 3:2" },
+        { "q": "Waarmee vergelijkt de Heere Jezus de Geest?", "a": ["Met de wind", "Met het vuur"], "why": "Johannes 3:8" },
+        { "q": "Wat heeft God gegeven omdat Hij de wereld liefhad?", "a": ["Zijn eniggeboren Zoon", "Een nieuw land"], "why": "Johannes 3:16" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een bezoek in de nacht", "stap": "jezus-1:nt-begin:5", "t": "Bij het Pascha is de Heere Jezus in Jeruzalem. Daar komt Nicodemus ’s nachts bij Hem. Hij is een Farizeeër en een overste, dat is een leider, van de Joden. Hij zegt: ‘Rabbi, wij weten, dat Gij zijt een Leraar van God gekomen’. Rabbi betekent meester. Niemand kan zulke tekenen doen, zegt hij, als God niet met hem is." },
+        { "kop": "Opnieuw geboren", "t": "De Heere Jezus antwoordt: ‘Tenzij dat iemand wederom geboren worde, hij kan het Koninkrijk Gods niet zien.’ Nicodemus vraagt: ‘Hoe kan een mens geboren worden, nu oud zijnde?’ De Heere Jezus zegt dat het gaat om geboren worden uit water en Geest. Het is als met de wind: je hoort hem, maar je weet niet waar hij vandaan komt en waar hij heen gaat." },
+        { "kop": "Zo lief heeft God de wereld", "t": "Hij herinnert aan Mozes, die in de woestijn een slang omhoog hief. Wie gebeten was en ernaar keek, bleef leven. Zo moet de Zoon des mensen verhoogd worden. ‘Want alzo lief heeft God de wereld gehad, dat Hij Zijn eniggeboren Zoon gegeven heeft, opdat een iegelijk die in Hem gelooft, niet verderve, maar het eeuwige leven hebbe.’" }
+      ],
+      "vragen": [
+        { "q": "Waarom dacht Nicodemus dat de Heere Jezus van God gekomen was?", "a": ["Door de tekenen die Hij deed", "Omdat de hogepriester het zei", "Omdat Hij in de tempel woonde"], "why": "Johannes 3:2" },
+        { "q": "Wat begreep Nicodemus niet?", "a": ["Hoe een oud mens opnieuw geboren kan worden", "Waarom hij naar Jeruzalem moest komen", "Wie de profeet Mozes was"], "why": "Johannes 3:4" },
+        { "q": "Wat gebeurde er met wie gebeten was en naar de koperen slang keek?", "a": ["Hij bleef leven", "Hij werd blind", "Hij moest het land uit"], "why": "Numeri 21:8–9" },
+        { "q": "Waarom heeft God Zijn Zoon gegeven?", "a": ["Omdat Hij de wereld zo liefhad", "Omdat de mensen erom vroegen", "Omdat Nicodemus het vroeg"], "why": "Johannes 3:16" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Nicodemus later", "t": "Nicodemus komt nog twee keer voor. Als de overpriesters en Farizeeën de Heere Jezus willen laten grijpen, vraagt hij: ‘Oordeelt ook onze wet den mens, tenzij dat zij eerst van hem gehoord heeft, en verstaat, wat hij doet?’ (Johannes 7:50–51). Ze antwoorden: ‘Zijt gij ook uit Galilea?’ (7:52). En bij de begrafenis brengt hij mirre en aloë mee. Johannes noemt hem dan weer ‘die des nachts tot Jezus eerst gekomen was’ (19:39).", "refs": ["Johannes 7:45–52", "Johannes 19:39"] },
+        { "kop": "Water en Geest", "t": "Over ‘water en Geest’ (Johannes 3:5) verschillen uitleggers. Sommigen denken aan de belofte: ‘Dan zal Ik rein water op u sprengen’ en ‘Ik zal Mijn Geest geven in het binnenste van u’ (Ezechiël 36:25, 27). Anderen denken aan de doop. Titus 3:5 spreekt van ‘het bad der wedergeboorte en vernieuwing des Heiligen Geestes’. Het Griekse woord dat met ‘wederom’ is vertaald, kan ook betekenen: van boven. Nicodemus vat het op als ‘andermaal’ (3:4).", "refs": ["Johannes 3:5", "Ezechiël 36:25–27", "Titus 3:5", "Johannes 3:4"] },
+        { "kop": "Wat de tekst zegt en wat niet", "t": "Johannes zegt niet waarom Nicodemus ’s nachts kwam; de tekst geeft geen reden. Het gesprek speelt in Jeruzalem, bij het eerste Pascha dat Johannes noemt (Johannes 2:13, 23); de datering is een reconstructie, ca. 27–29 n.Chr. De Statenvertaling heeft geen aanhalingstekens. Uitleggers verschillen over de vraag of de woorden vanaf Johannes 3:16 nog door de Heere Jezus gesproken worden, of dat Johannes ze erbij schrijft.", "refs": ["Johannes 2:13", "Johannes 2:23", "Johannes 3:16–21"] }
+      ],
+      "vragen": [
+        { "q": "Wat vroeg Nicodemus later aan de Farizeeën?", "a": ["Of de wet iemand oordeelt zonder hem eerst te horen", "Of de Heere Jezus gegrepen kon worden", "Of er uit Galilea een profeet zou komen"], "why": "Johannes 7:50–51" },
+        { "q": "Welke profeet beloofde rein water én Gods Geest in het binnenste?", "a": ["Ezechiël", "Jona", "Amos"], "why": "Ezechiël 36:25–27" },
+        { "q": "Wat zegt Johannes 12:33 over het verhoogd worden?", "a": ["Het wijst op de dood die Hij zou sterven", "Hij zou koning in Jeruzalem worden", "Hij zou op een berg gaan preken"], "why": "Johannes 12:32–33" },
+        { "q": "Bij welk feest was de Heere Jezus toen in Jeruzalem?", "a": ["Het Pascha", "Het Loofhuttenfeest", "Het Pinksterfeest"], "why": "Johannes 2:23" }
+      ]
+    }
+  }
+}

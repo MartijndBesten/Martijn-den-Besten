@@ -119,7 +119,7 @@ const splitWie = (s) => String(s).split(SPLIT).map((n) => n.trim()).filter(Boole
 // ---------- 1. structuur van elke persoon ----------
 const SLUGS = { psalm: "psalmen", psalmen: "psalmen" };
 const slug = (b) => { const s = b.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s/g, ""); return SLUGS[s] || s; };
-const bijbel = new Set(readdirSync(join(dir, "bijbel")).map((f) => f.replace(/\.json$/, "")));
+const bijbel = new Set(readdirSync(join(dir, "..", "..", "data", "statenvertaling")).map((f) => f.replace(/\.json$/, "")));
 function parseRef(ref) { // zelfde vormen als parseRef in app.js: "Boek 1:2", "1:2–5", "1:2–3:4", "1–3", "1:2; 3:4"
   const m = String(ref).match(/^(\d?\s?[A-Za-zëéïü]+)\s+(.+)$/);
   if (!m) return null;
@@ -159,7 +159,7 @@ for (const [id, m] of Object.entries(M)) {
   const refs = [["geb", m.geb], ["dood", m.dood], ...(m.leeftijd || []).map(([a, r]) => [`leeftijd ${a}`, r]), ...(m.elders || []).map(([r]) => ["elders", r]), ...(m.vervolg || []).map(([r]) => ["vervolg", r])].filter(([, r]) => r);
   for (const [soort, r] of refs) {
     const q = parseRef(r);
-    if (!q) err(`${id}: ${soort} "${r}" is geen leesbare verwijzing (of het bijbelboek ontbreekt in public/bijbelreis/bijbel/)`);
+    if (!q) err(`${id}: ${soort} "${r}" is geen leesbare verwijzing (of het bijbelboek ontbreekt in data/statenvertaling/)`);
     else if (!isGedekt(q)) err(`${id}: ${soort} "${r}" staat niet in scripts/bijbel-controle/personen.txt`);
   }
 }

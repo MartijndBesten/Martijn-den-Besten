@@ -1,0 +1,407 @@
+{
+  "94": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["nt_meer"],
+      "delen": [
+        { "t": "Het is avond. De Heere Jezus zegt tegen Zijn discipelen dat ze naar de overkant van het meer gaan varen.", "stap": "jezus-1:nt-galilea:8" },
+        { "t": "Ze nemen Hem mee in het schip. Er varen nog andere bootjes mee." },
+        { "t": "Dan komt er een zware storm. De golven slaan over het schip. Het schip loopt vol water.", "stap": "jezus-1:nt-galilea:8" },
+        { "t": "De Heere Jezus slaapt achter in het schip, op een kussen." },
+        { "t": "De discipelen maken Hem wakker. Ze zijn bang dat ze zullen omkomen." },
+        { "t": "De Heere Jezus staat op. Hij bestraft de wind en zegt tegen de zee: ‘Zwijg, wees stil!’" },
+        { "t": "Dan gaat de wind liggen. Het wordt helemaal stil op het meer." },
+        { "t": "Hij vraagt de discipelen waarom ze zo bang zijn. Hebben ze geen geloof?" },
+        { "t": "De discipelen zeggen tegen elkaar: ‘Wie is toch Deze, dat ook de wind en de zee Hem gehoorzaam zijn?’" }
+      ],
+      "samen": "Opvallend: als het al stil is geworden, staat er dat de discipelen ‘vreesden met grote vreze’ (Markus 4:41). Ze vragen zich af wie de Heere Jezus toch is. Vraag samen: wie kan de wind en de zee laten gehoorzamen? Psalm 107:29 zegt het van de HEERE: ‘Hij doet den storm stilstaan’.",
+      "vragen": [
+        { "q": "Waar slaapt de Heere Jezus?", "a": ["Achter in het schip, op een kussen", "Op het land, onder een boom"], "why": "Markus 4:38" },
+        { "q": "Wat zegt de Heere Jezus tegen de zee?", "a": ["Zwijg, wees stil!", "Ga maar weg, zee!"], "why": "Markus 4:39" },
+        { "q": "Wat gebeurt er dan met de wind?", "a": ["Hij gaat liggen", "Hij waait nog harder"], "why": "Markus 4:39" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Naar de overkant", "stap": "jezus-1:nt-galilea:8", "t": "Die dag heeft de Heere Jezus bij het meer veel gelijkenissen verteld. Als het avond is, zegt Hij: ‘Laat ons overvaren aan de andere zijde.’ Dat betekent: laten we naar de overkant varen. De discipelen nemen Hem mee in het schip. Er varen nog andere scheepjes mee." },
+        { "kop": "Storm op het meer", "t": "Er komt een grote storm. De golven slaan over in het schip, zodat het vol water loopt. De Heere Jezus slaapt achter in het schip op een kussen. De discipelen maken Hem wakker: ‘Meester, bekommert het U niet, dat wij vergaan?’ Ze bedoelen: kan het U niet schelen dat we omkomen?" },
+        { "kop": "Wind en zee gehoorzamen Hem", "t": "Hij staat op, bestraft de wind en zegt tegen de zee: ‘Zwijg, wees stil!’ De wind gaat liggen en het wordt helemaal stil. Dan vraagt Hij: ‘Wat zijt gij zo vreesachtig? Hebt gij geen geloof?’ De discipelen worden heel erg bang. Ze vragen elkaar: ‘Wie is toch Deze, dat ook de wind en de zee Hem gehoorzaam zijn?’" }
+      ],
+      "vragen": [
+        { "q": "Wanneer gingen ze naar de overkant varen?", "a": ["’s Avonds, op de dag van de gelijkenissen", "’s Morgens vroeg, na het ontbijt", "Midden in de nacht, na de sabbat"], "why": "Markus 4:35" },
+        { "q": "Waarom maakten de discipelen de Heere Jezus wakker?", "a": ["Ze waren bang dat ze zouden vergaan", "Ze hadden honger gekregen", "Ze waren de weg kwijtgeraakt"], "why": "Markus 4:38" },
+        { "q": "Wat deed de Heere Jezus toen Hij wakker was?", "a": ["Hij bestrafte de wind en sprak tot de zee", "Hij schepte het water uit het schip", "Hij stuurde het schip terug naar de kant"], "why": "Markus 4:39" },
+        { "q": "Wat vroegen de discipelen elkaar na de storm?", "a": ["Wie is toch Deze?", "Waar zijn de andere scheepjes?", "Wanneer zijn we aan land?"], "why": "Markus 4:41" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Elders in de Bijbel", "t": "In de Psalmen is het de HEERE Die de zee stilt: ‘Gij heerst over de opgeblazenheid der zee; wanneer haar baren zich verheffen, zo stilt Gij ze’ (Psalm 89:10), en Hij is het ‘Die het bruisen der zeeën stilt’ (Psalm 65:8). Daarom is de vraag van de discipelen zo groot. Ook Jona slaapt in een schip terwijl het stormt (Jona 1:5). Als die storm gaat liggen, ‘vreesden de mannen den HEERE met grote vreze’ (Jona 1:16). In Markus 4:41 staat bijna hetzelfde: ‘zij vreesden met grote vreze’.", "refs": ["Psalm 89:10", "Psalm 65:8", "Jona 1:5", "Jona 1:15–16", "Markus 4:41"] },
+        { "kop": "Drie evangeliën", "t": "Mattheüs, Markus en Lukas vertellen deze storm alle drie. Ze geven de roep van de discipelen elk anders weer: ‘Meester, bekommert het U niet, dat wij vergaan?’ (Markus 4:38), ‘Heere, behoed ons, wij vergaan!’ (Mattheüs 8:25) en ‘Meester, Meester, wij vergaan!’ (Lukas 8:24). Bij Mattheüs spreekt de Heere Jezus eerst de discipelen aan en bestraft Hij daarna de winden en de zee (Mattheüs 8:26); bij Markus en Lukas is het andersom. Alleen Markus zegt dat het ‘op denzelfden dag’ was als de gelijkenissen (Markus 4:35).", "refs": ["Markus 4:38", "Mattheüs 8:25–26", "Lukas 8:24–25", "Markus 4:35"] },
+        { "kop": "Waar en wanneer", "t": "Het meer van Galilea heet in de Statenvertaling vaak ‘zee’. Lukas noemt het ‘het meer Gennesareth’ (Lukas 5:1), Johannes ‘de zee van Tiberias’ (Johannes 21:1). Vanaf welke plaats ze vertrokken, zegt Markus niet. Aan de overkant komen ze in het land van de Gadarenen (Markus 5:1); waar dat precies lag, is onbekend. De datering ca. 28–30 n.Chr. is een reconstructie; andere dateringen bestaan.", "refs": ["Lukas 5:1", "Johannes 21:1", "Markus 5:1"] }
+      ],
+      "vragen": [
+        { "q": "Welke profeet sliep ook in een schip terwijl het stormde?", "a": ["Jona", "Elia", "Jeremia"], "why": "Jona 1:5" },
+        { "q": "Wat zegt Psalm 89 over de baren van de zee?", "a": ["Als ze zich verheffen, stilt de HEERE ze", "Ze zijn alleen in de winter gevaarlijk", "Niemand kan ze ooit tot rust brengen"], "why": "Psalm 89:10" },
+        { "q": "Wat staat er over de discipelen als het stil is geworden?", "a": ["Ze vreesden met grote vreze", "Ze gingen meteen weer slapen", "Ze zongen een lied voor de HEERE"], "why": "Markus 4:41" }
+      ]
+    }
+  },
+  "95": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["nt_gadara"],
+      "delen": [
+        { "t": "De Heere Jezus komt met het schip aan de overkant van het meer. Dat is het land van de Gadarenen.", "stap": "jezus-1:nt-galilea:9" },
+        { "t": "Daar komt een man uit de graven naar Hem toe. Hij woont in de graven. Er is een boze geest in hem.", "stap": "jezus-1:nt-galilea:9" },
+        { "t": "Niemand kan hem vastbinden. Zelfs kettingen trekt hij stuk. Dag en nacht roept hij." },
+        { "t": "Als hij de Heere Jezus ziet, rent hij naar Hem toe en buigt zich voor Hem neer." },
+        { "t": "De Heere Jezus vraagt hoe hij heet. ‘Mijn naam is Legio; want wij zijn velen.’ Er zijn heel veel boze geesten in hem." },
+        { "t": "Bij de bergen is een grote kudde varkens. De boze geesten vragen of ze in de varkens mogen gaan. De Heere Jezus laat het toe." },
+        { "t": "Dan stort de hele kudde zich van de steile helling in de zee. De varkens verdrinken." },
+        { "t": "De mensen komen kijken. Ze zien de man zitten, met kleren aan en weer bij zijn verstand. Ze worden bang." },
+        { "t": "Ze vragen de Heere Jezus om weg te gaan. De man wil met Hem mee, maar dat mag niet." },
+        { "t": "Hij moet thuis vertellen wat de Heere voor hem gedaan heeft. Dat doet hij, en iedereen verwondert zich." }
+      ],
+      "samen": "Deze geschiedenis gaat over boze geesten; de Bijbel vertelt er sober over. Bij A is weggelaten dat de man zichzelf met stenen sloeg (Markus 5:5). Je kunt samen opmerken dat de boze geesten de Heere Jezus moeten gehoorzamen, en dat de man daarna rustig zit, ‘gekleed, en wel bij zijn verstand’ (Markus 5:15). Vraag: wat mocht de man thuis vertellen (Markus 5:19)?",
+      "vragen": [
+        { "q": "Waar woont de man?", "a": ["In de graven", "In een groot huis"], "why": "Markus 5:3" },
+        { "q": "Waar gaan de boze geesten in?", "a": ["In de varkens", "In de vissen"], "why": "Markus 5:13" },
+        { "q": "Wat moet de man thuis doen?", "a": ["Vertellen wat de Heere gedaan heeft", "Een groot feest geven voor de buren"], "why": "Markus 5:19" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een man uit de graven", "stap": "jezus-1:nt-galilea:9", "t": "Aan de overkant van het meer, in het land van de Gadarenen, komt een man uit de graven op de Heere Jezus af. Hij heeft een onreine geest: hij is bezeten. Niemand kan hem binden, zelfs niet met ketenen. Dag en nacht roept hij en slaat hij zichzelf met stenen." },
+        { "kop": "Mijn naam is Legio", "t": "Hij valt voor de Heere Jezus neer en roept: ‘Wat heb ik met U te doen, Jezus, Gij Zone Gods, des Allerhoogsten?’ Zo noemt hij Hem de Zoon van de allerhoogste God. De Heere Jezus vraagt zijn naam. ‘Mijn naam is Legio; want wij zijn velen.’ Een legioen is een grote afdeling van een leger. De boze geesten vragen of ze in een kudde varkens mogen gaan. Hij laat het toe, en ongeveer tweeduizend varkens storten zich in de zee." },
+        { "kop": "Vertel het thuis", "t": "De mensen komen kijken. Ze zien de man zitten, gekleed en bij zijn verstand, en worden bang. Ze vragen de Heere Jezus om weg te gaan. De man wil met Hem mee. Maar Hij zegt: ‘Ga heen naar uw huis tot de uwen, en boodschap hun, wat grote dingen u de Heere gedaan heeft’. Dat vertelt de man in heel Dekapolis." }
+      ],
+      "vragen": [
+        { "q": "Waarom kon niemand de man binden?", "a": ["Hij trok zelfs ketenen in stukken", "Hij rende altijd te snel weg", "Hij verstopte zich in een grot"], "why": "Markus 5:3–4" },
+        { "q": "Hoe noemde de man de Heere Jezus?", "a": ["De Zoon van de allerhoogste God", "Een goede Meester uit Galilea", "Een profeet uit Nazareth"], "why": "Markus 5:7" },
+        { "q": "Wat gebeurde er met de kudde varkens?", "a": ["Ze stortten in de zee en verdronken", "Ze renden weg, de bergen in", "Ze werden aan de man gegeven"], "why": "Markus 5:13" },
+        { "q": "Wat moest de man doen, in plaats van met de Heere Jezus mee te gaan?", "a": ["Thuis vertellen wat de Heere gedaan had", "In het schip op de Heere Jezus wachten", "In de graven blijven wonen"], "why": "Markus 5:18–19" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Eén man of twee", "t": "Mattheüs vertelt over ‘twee, van den duivel bezeten’ (Mattheüs 8:28). Markus en Lukas vertellen alleen over één man. Veel uitleggers verklaren dat zo: Markus en Lukas richten zich op de man die daarna met de Heere Jezus mee wilde en die ging vertellen wat er gebeurd was. Ook de naam van de streek verschilt: Gadarenen bij Markus en Lukas, Gergesenen bij Mattheüs. Waar het precies was, is onbekend; daarom staat de plaats op de kaart als onzeker.", "refs": ["Mattheüs 8:28", "Markus 5:1–2", "Lukas 8:26–27"] },
+        { "kop": "Achtergrond", "t": "Een legioen was een grote afdeling van het Romeinse leger, met duizenden soldaten. Varkens waren voor Israël onrein: ‘Ook het zwijn … dat zal u onrein zijn’ (Leviticus 11:7). Dekapolis betekent tien steden. Het was een gebied met veel niet-Joodse inwoners, grotendeels ten oosten van de Jordaan. Later komt de Heere Jezus er opnieuw (Markus 7:31).", "refs": ["Leviticus 11:7", "Markus 5:20", "Markus 7:31"] },
+        { "kop": "Elders in de Bijbel", "t": "De boze geesten weten wie de Heere Jezus is. Ook in de synagoge van Kapernaüm roept een onreine geest: ‘Ik ken U, wie Gij zijt, namelijk de Heilige Gods’ (Markus 1:24). Jakobus schrijft: ‘de duivelen geloven het ook, en zij sidderen’ (Jakobus 2:19). Opvallend is ook het slot. De Heere Jezus zegt dat de man moet vertellen wat ‘de Heere’ gedaan heeft (Markus 5:19), en de man vertelt ‘wat grote dingen hem Jezus gedaan had’ (Markus 5:20). Veel uitleggers zien hierin dat de Heere Jezus Zelf de Heere is.", "refs": ["Markus 1:21–24", "Jakobus 2:19", "Markus 5:19–20"] }
+      ],
+      "vragen": [
+        { "q": "Hoeveel bezetenen noemt Mattheüs in deze geschiedenis?", "a": ["Twee", "Eén", "Drie"], "why": "Mattheüs 8:28" },
+        { "q": "Waarom waren varkens bijzonder voor Israël?", "a": ["Volgens de wet waren ze onrein", "Ze werden bij elk offer gebruikt", "Alleen de koning mocht ze houden"], "why": "Leviticus 11:7" },
+        { "q": "Wat riep de onreine geest in de synagoge in Markus 1?", "a": ["Ik ken U, wie Gij zijt", "Mijn naam is Legio", "Zend ons in die zwijnen"], "why": "Markus 1:24" }
+      ]
+    }
+  },
+  "96": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["nt_kapernaum"],
+      "delen": [
+        { "t": "De Heere Jezus komt in Kapernaüm. Daar woont een hoofdman. Hij heeft soldaten onder zich.", "stap": "jezus-1:nt-galilea:5" },
+        { "t": "De hoofdman heeft een knecht die hem heel dierbaar is. Die knecht is erg ziek en gaat bijna dood." },
+        { "t": "De hoofdman stuurt oudsten van de Joden naar de Heere Jezus. Ze vragen of Hij wil komen." },
+        { "t": "Ze zeggen: hij houdt van ons volk, en hij heeft onze synagoge gebouwd. De Heere Jezus gaat met hen mee." },
+        { "t": "Dicht bij het huis komen vrienden van de hoofdman. Ze brengen een boodschap.", "stap": "jezus-1:nt-galilea:5" },
+        { "t": "De hoofdman laat zeggen: ik ben het niet waard dat U in mijn huis komt." },
+        { "t": "‘Zeg het met een woord, en mijn knecht zal genezen worden.’ Hij weet: de Heere Jezus hoeft maar te spreken." },
+        { "t": "De Heere Jezus verwondert Zich. Hij zegt dat Hij zo’n groot geloof zelfs in Israël niet gevonden heeft." },
+        { "t": "De vrienden gaan terug naar het huis. Daar is de knecht gezond!" }
+      ],
+      "samen": "De hoofdman hoort niet bij het volk Israël; de oudsten spreken over ‘ons volk’ (Lukas 7:5). Daarom valt op wat de Heere Jezus zegt: ‘Ik heb zo groot een geloof zelfs in Israël niet gevonden’ (Lukas 7:9). Let ook op het verschil: de oudsten zeggen ‘Hij is waardig’, de hoofdman zegt ‘ik ben niet waardig’ (Lukas 7:4, 6). Vraag samen: hoe wordt de knecht beter, terwijl de Heere Jezus niet in het huis komt?",
+      "vragen": [
+        { "q": "Wie is er erg ziek?", "a": ["De knecht van de hoofdman", "De vrouw van de hoofdman"], "why": "Lukas 7:2" },
+        { "q": "Wat heeft de hoofdman gebouwd?", "a": ["Een synagoge", "Een schip"], "why": "Lukas 7:5" },
+        { "q": "Hoe is de knecht als de vrienden terugkomen?", "a": ["Gezond", "Nog steeds ziek"], "why": "Lukas 7:10" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een zieke knecht", "stap": "jezus-1:nt-galilea:5", "t": "De Heere Jezus komt in Kapernaüm. Daar woont een hoofdman over honderd: een officier met soldaten onder zich. Zijn knecht, die hem heel dierbaar is, ligt op sterven. De hoofdman stuurt oudsten van de Joden naar de Heere Jezus. Zij vragen dringend of Hij wil komen. ‘Hij is waardig’, zeggen ze. Dat betekent: hij verdient het. Want hij heeft hun volk lief en heeft de synagoge gebouwd." },
+        { "kop": "Zeg het met een woord", "t": "De Heere Jezus gaat met hen mee. Dicht bij het huis komen vrienden van de hoofdman. Hij laat zeggen: ‘ik ben niet waardig, dat Gij onder mijn dak zoudt inkomen’. Hij weet wat gezag is. Als hij tegen een soldaat zegt dat hij moet gaan, dan gaat die. Daarom vraagt hij: ‘zeg het met een woord, en mijn knecht zal genezen worden.’" },
+        { "kop": "Zo’n groot geloof", "t": "De Heere Jezus verwondert Zich. Hij keert Zich om naar de mensen die Hem volgen en zegt: ‘Ik heb zo groot een geloof zelfs in Israël niet gevonden.’ Als de vrienden terugkomen in het huis, is de knecht gezond." }
+      ],
+      "vragen": [
+        { "q": "Waarom vonden de oudsten dat de Heere Jezus de hoofdman moest helpen?", "a": ["Hij had hun volk lief en de synagoge gebouwd", "Hij was de rijkste man van de stad", "Hij was familie van de hogepriester"], "why": "Lukas 7:4–5" },
+        { "q": "Waarom hoefde de Heere Jezus volgens de hoofdman niet in zijn huis te komen?", "a": ["Hij vond zichzelf niet waardig", "Zijn huis was te klein", "De knecht was al beter"], "why": "Lukas 7:6–7" },
+        { "q": "Wat wist de hoofdman over gezag?", "a": ["Als hij een bevel gaf, deden zijn soldaten het", "Alleen de keizer mocht bevelen geven", "Zijn soldaten luisterden nooit naar hem"], "why": "Lukas 7:8" },
+        { "q": "Waar was de Heere Jezus toen de vrienden kwamen?", "a": ["Niet ver van het huis", "Nog in Jeruzalem", "Al binnen in het huis"], "why": "Lukas 7:6" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Mattheüs en Lukas", "t": "Mattheüs vertelt deze geschiedenis anders. Daar spreekt de hoofdman zelf met de Heere Jezus (Mattheüs 8:5–8). Lukas vertelt dat hij eerst oudsten en daarna vrienden stuurde. Veel uitleggers verklaren het verschil zo: wat iemand via boden laat zeggen, zegt hij zelf. Mattheüs geeft ook het woord van de Heere Jezus aan de hoofdman: ‘Ga heen, en u geschiede, gelijk gij geloofd hebt.’ De knecht werd gezond ‘te dierzelver ure’ (Mattheüs 8:13).", "refs": ["Mattheüs 8:5–13", "Lukas 7:3–6"] },
+        { "kop": "Achtergrond", "t": "Een hoofdman over honderd was een officier, die over honderd soldaten ging. Lukas noemt zijn naam niet. Uit ‘ons volk’ (Lukas 7:5) en ‘zelfs in Israël’ (Lukas 7:9) blijkt dat hij geen Israëliet was. In het Nieuwe Testament komen meer hoofdmannen over honderd voor. Bij het kruis zegt er een: ‘Waarlijk, deze Mens was rechtvaardig’ (Lukas 23:47). En Cornelius in Cesarea was ‘vrezende God, met geheel zijn huis’ (Handelingen 10:1–2).", "refs": ["Lukas 7:5", "Lukas 7:9", "Lukas 23:47", "Handelingen 10:1–2"] },
+        { "kop": "Elders in de Bijbel", "t": "De hoofdman vraagt alleen om een woord. Psalm 107:20 zegt van de HEERE: ‘Hij zond Zijn woord uit, en heelde hen’. Ook in Johannes 4 geneest de Heere Jezus vanuit Kana iemand in Kapernaüm, op afstand: de zoon van een koninklijk hoveling. Hij zegt: ‘Ga heen, uw zoon leeft’, en de man ‘geloofde het woord, dat Jezus tot hem zeide’ (Johannes 4:50).", "refs": ["Psalm 107:20", "Johannes 4:46–53"] }
+      ],
+      "vragen": [
+        { "q": "Wat zegt de Heere Jezus in Mattheüs 8:13 tegen de hoofdman?", "a": ["Ga heen, en u geschiede, gelijk gij geloofd hebt", "Sta op, neem uw bed op en wandel", "Uw zonden zijn u vergeven, ga in vrede"], "why": "Mattheüs 8:13" },
+        { "q": "Welke hoofdman over honderd woonde in Cesarea?", "a": ["Cornelius", "Jaïrus", "Zacheüs"], "why": "Handelingen 10:1" },
+        { "q": "Wat zegt Psalm 107:20 over de HEERE?", "a": ["Hij zond Zijn woord uit, en heelde hen", "Hij bouwde een huis voor Zijn volk", "Hij gaf Zijn volk water uit de rots"], "why": "Psalm 107:20" }
+      ]
+    }
+  },
+  "97": {
+    "a": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "t": "Een Farizeeër, Simon, vraagt de Heere Jezus om bij hem te komen eten." },
+        { "t": "Er komt een vrouw uit de stad binnen. Ze heeft veel zonden gedaan. Ze heeft een fles met zalf bij zich." },
+        { "t": "Ze staat bij de voeten van de Heere Jezus en huilt. Haar tranen maken Zijn voeten nat." },
+        { "t": "Ze droogt Zijn voeten af met haar haren. Ze kust Zijn voeten en zalft ze met de zalf." },
+        { "t": "Simon denkt: als Hij een profeet was, zou Hij weten wat voor vrouw dit is." },
+        { "t": "De Heere Jezus vertelt over twee mensen die geld schuldig zijn. De een heel veel, de ander veel minder." },
+        { "t": "Ze kunnen niet betalen. Dan scheldt de man die het geld uitleende, het allebei kwijt. Ze hoeven niets meer te betalen." },
+        { "t": "De Heere Jezus vraagt: wie zal die man het meest liefhebben? Simon zegt: hij die het meest kwijtgescholden is." },
+        { "t": "Tegen de vrouw zegt de Heere Jezus: ‘Uw zonden zijn u vergeven.’" },
+        { "t": "En Hij zegt: ‘Uw geloof heeft u behouden; ga heen in vrede.’" }
+      ],
+      "samen": "Lukas noemt de naam van de vrouw niet, en ook niet welke zonden ze gedaan had; vul dat niet in. Kijk samen naar wat Simon niet deed en de vrouw wel (Lukas 7:44–46). De gasten vragen zich af: ‘Wie is Deze, Die ook de zonden vergeeft?’ (Lukas 7:49). Je kunt samen bespreken: wie kan zonden vergeven? (Markus 2:7).",
+      "vragen": [
+        { "q": "Waarmee maakt de vrouw Zijn voeten nat?", "a": ["Met haar tranen", "Met water uit een kruik"], "why": "Lukas 7:38" },
+        { "q": "Waarmee droogt ze Zijn voeten af?", "a": ["Met haar haren", "Met een doek"], "why": "Lukas 7:38" },
+        { "q": "Wat zegt de Heere Jezus tegen de vrouw?", "a": ["Uw zonden zijn u vergeven", "U moet het huis uit gaan"], "why": "Lukas 7:48" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een vrouw bij de maaltijd", "t": "Een Farizeeër vraagt de Heere Jezus om bij hem te eten. Farizeeërs letten nauw op de wet. Een vrouw uit de stad, een zondares, hoort dat Hij daar is. Ze komt met een albasten fles met zalf. Huilend staat ze bij Zijn voeten en maakt ze nat met haar tranen. Ze droogt ze af met haar haren, kust ze en zalft ze." },
+        { "kop": "Twee schuldenaars", "t": "De Farizeeër, Simon, denkt: als Hij een profeet was, wist Hij dat zij een zondares is. De Heere Jezus vertelt over twee mensen met een schuld. De een moet vijfhonderd penningen betalen, de ander vijftig. Ze kunnen niet betalen. De schuldheer scheldt het allebei kwijt. Hij vraagt: wie zal hem nu het meest liefhebben? Simon zegt: hij die het meeste kwijtgescholden is." },
+        { "kop": "Haar zonden zijn vergeven", "t": "Dan wijst Hij op de vrouw. Simon gaf Hem geen water voor Zijn voeten, geen kus en geen olie. Zij deed veel meer. ‘Haar zonden zijn haar vergeven, die vele waren; want zij heeft veel liefgehad.’ De gasten denken: ‘Wie is Deze, Die ook de zonden vergeeft?’ Tegen haar zegt Hij: ‘Uw geloof heeft u behouden; ga heen in vrede.’" }
+      ],
+      "vragen": [
+        { "q": "Wat had de vrouw bij zich?", "a": ["Een albasten fles met zalf", "Een mand met verse broden", "Een kruik met koel water"], "why": "Lukas 7:37" },
+        { "q": "Wat dacht Simon toen hij de vrouw zag?", "a": ["Als Hij een profeet was, wist Hij wie zij is", "Wat heeft deze vrouw een mooie zalf", "Deze vrouw hoort bij mijn familie"], "why": "Lukas 7:39" },
+        { "q": "Wie heeft volgens Simon de schuldheer het meest lief?", "a": ["Hij die het meest kwijtgescholden is", "Hij die het minst schuldig was", "Allebei precies even veel"], "why": "Lukas 7:43" },
+        { "q": "Wat vroegen de andere gasten zich af?", "a": ["Wie is Deze, Die ook de zonden vergeeft?", "Waarom is er geen wijn bij de maaltijd?", "Hoe heet de vrouw met de zalf?"], "why": "Lukas 7:49" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Wat de tekst zegt en wat niet", "t": "Lukas noemt de naam van de vrouw niet, en ook niet welke zonden ze gedaan had. In de traditie is ze vaak gelijkgesteld met Maria Magdalena, die kort daarna wordt genoemd (Lukas 8:2). Lukas legt dat verband niet. De Bijbel vertelt ook over een zalving in Bethanië, kort voor het lijden: Maria zalft daar Zijn voeten (Johannes 12:1–3), en in het huis van ‘Simon, den melaatse’ zalft een vrouw Zijn hoofd (Mattheüs 26:6–7). Veel uitleggers zien Lukas 7 als een andere gebeurtenis: het speelt veel eerder, en Lukas noemt daar geen plaats.", "refs": ["Lukas 8:2", "Johannes 12:1–3", "Mattheüs 26:6–7"] },
+        { "kop": "Achtergrond", "t": "Een penning was het loon voor een dag werk: in een gelijkenis werken arbeiders ‘voor een penning des daags’ (Mattheüs 20:2). Vijfhonderd penningen is dus ongeveer het loon van vijfhonderd werkdagen. Water voor de voeten van een gast was een bekend gebruik van gastvrijheid (Genesis 18:4). Olie op het hoofd hoort bij een feestmaal: ‘Gij maakt mijn hoofd vet met olie’ (Psalm 23:5). Simon had Hem geen water, geen kus en geen olie gegeven (Lukas 7:44–46).", "refs": ["Mattheüs 20:2", "Genesis 18:4", "Psalm 23:5", "Lukas 7:44–46"] },
+        { "kop": "Elders in Lukas 7", "t": "Kort voor deze maaltijd roept het volk in Naïn: ‘Een groot Profeet is onder ons opgestaan’ (Lukas 7:16). Simon twijfelt daar juist aan (Lukas 7:39). De Heere Jezus zegt ook dat mensen Hem uitmaken voor ‘een Vriend van tollenaren en zondaren’ (Lukas 7:34). Direct daarna ontvangt in het huis van Simon een zondares vergeving.", "refs": ["Lukas 7:16", "Lukas 7:34", "Lukas 7:39"] }
+      ],
+      "vragen": [
+        { "q": "Hoeveel verdiende een arbeider in de gelijkenis van de wijngaard per dag?", "a": ["Een penning", "Vijftig penningen", "Vijfhonderd penningen"], "why": "Mattheüs 20:2" },
+        { "q": "Wat riep het volk in Naïn, kort voor deze geschiedenis?", "a": ["Een groot Profeet is onder ons opgestaan", "Hosanna, de Zoon van David", "Wie is Deze, Die de zonden vergeeft?"], "why": "Lukas 7:16" },
+        { "q": "Waar zalfde Maria later de voeten van de Heere Jezus?", "a": ["In Bethanië", "In Kapernaüm", "In Nazareth"], "why": "Johannes 12:1–3" }
+      ]
+    }
+  },
+  "98": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["nt_kapernaum"],
+      "delen": [
+        { "t": "De Heere Jezus komt terug over het meer. Veel mensen wachten op Hem.", "stap": "jezus-1:nt-galilea:10" },
+        { "t": "Daar komt Jaïrus. Hij is een leider in de synagoge. Hij valt aan de voeten van de Heere Jezus." },
+        { "t": "Zijn enige dochter is erg ziek en gaat bijna dood. Jaïrus vraagt of de Heere Jezus wil komen." },
+        { "t": "Onderweg raakt een vrouw de rand van Zijn kleed aan. Ze is al twaalf jaar ziek. Meteen is ze beter." },
+        { "t": "De vrouw vertelt alles. De Heere Jezus zegt dat haar geloof haar gered heeft." },
+        { "t": "Dan komt er iemand uit het huis van Jaïrus. Hij zegt: ‘Uw dochter is gestorven.’" },
+        { "t": "Maar de Heere Jezus zegt tegen Jaïrus: ‘Vrees niet, geloof alleenlijk.’ Dat betekent: wees niet bang, geloof alleen." },
+        { "t": "In het huis huilt iedereen. De Heere Jezus zegt: ze is niet dood, ze slaapt. Dan lachen ze Hem uit." },
+        { "t": "Hij pakt haar hand en roept: ‘Kind, sta op!’ En meteen staat ze op." },
+        { "t": "De Heere Jezus zegt dat ze haar te eten moeten geven. Haar ouders zijn heel erg verbaasd." }
+      ],
+      "samen": "Deze geschiedenis vertelt over de dood van een kind. De Bijbel zegt het eerlijk: de mensen weten ‘dat zij gestorven was’ (Lukas 8:53). Dat de Heere Jezus zegt dat ze slaapt, wordt meestal zo uitgelegd: voor Hem is de dood als een slaap waaruit Hij kan opwekken (vergelijk Johannes 11:11). Bij A is weggelaten dat de vrouw al twaalf jaar bloedverlies had (Lukas 8:43). Vraag samen: wat zegt de Heere Jezus tegen Jaïrus als het slechte bericht komt?",
+      "vragen": [
+        { "q": "Wie is er erg ziek in het huis van Jaïrus?", "a": ["Zijn dochter", "Zijn vrouw"], "why": "Lukas 8:42" },
+        { "q": "Wat zegt de Heere Jezus tegen het meisje?", "a": ["Kind, sta op!", "Ga maar verder slapen"], "why": "Lukas 8:54" },
+        { "q": "Wat moet het meisje daarna krijgen?", "a": ["Te eten", "Een nieuwe jurk"], "why": "Lukas 8:55" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Jaïrus vraagt om hulp", "stap": "jezus-1:nt-galilea:10", "t": "Als de Heere Jezus terugkomt over het meer, wacht een grote menigte op Hem. Jaïrus, een overste van de synagoge, valt aan Zijn voeten. Een overste van de synagoge zorgt voor de samenkomsten in de synagoge. Jaïrus smeekt de Heere Jezus om mee te komen, want zijn enige dochter van ongeveer twaalf jaar ligt op sterven." },
+        { "kop": "Een vrouw raakt Hem aan", "t": "Onderweg verdringen de mensen Hem. Een vrouw die al twaalf jaar ziek is, raakt van achteren de zoom van Zijn kleed aan. Meteen is ze genezen. ‘Wie is het, die Mij heeft aangeraakt?’ vraagt de Heere Jezus. Bevend vertelt de vrouw alles. Hij zegt: ‘Dochter, wees welgemoed, uw geloof heeft u behouden; ga heen in vrede.’" },
+        { "kop": "Kind, sta op", "t": "Dan komt het bericht: ‘Uw dochter is gestorven’. Maar de Heere Jezus zegt: ‘Vrees niet, geloof alleenlijk, en zij zal behouden worden.’ In huis huilt iedereen. Als Hij zegt dat ze slaapt, lachen ze Hem uit. Hij pakt haar hand en roept: ‘Kind, sta op!’ Haar geest keert terug, en ze staat meteen op." }
+      ],
+      "vragen": [
+        { "q": "Waarom vroeg Jaïrus de Heere Jezus om te komen?", "a": ["Zijn enige dochter lag op sterven", "Hij wilde Hem uitnodigen om te eten", "Zijn knecht was erg ziek geworden"], "why": "Lukas 8:41–42" },
+        { "q": "Wat raakte de vrouw aan?", "a": ["De zoom van Zijn kleed", "De hand van Petrus", "Zijn voeten"], "why": "Lukas 8:44" },
+        { "q": "Wat zei de Heere Jezus toen het bericht kwam dat het meisje gestorven was?", "a": ["Vrees niet, geloof alleenlijk", "Dan is het nu te laat", "Ik kom morgen naar het huis"], "why": "Lukas 8:50" },
+        { "q": "Waarom lachten de mensen in het huis Hem uit?", "a": ["Ze wisten dat het meisje gestorven was", "Hij zei dat ze een feest moesten geven", "Hij kwam zonder Zijn discipelen"], "why": "Lukas 8:52–53" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Achtergrond", "t": "Volgens de wet van Mozes was een vrouw met zo’n langdurige bloedvloeiing onrein (Leviticus 15:25). Lukas zegt dat ze ‘al haar leeftocht aan medicijnmeesters ten koste gelegd had’ (Lukas 8:43). Markus voegt toe dat het ‘veeleer erger geworden was’ (Markus 5:26). Opvallend is het getal twaalf: de vrouw is twaalf jaar ziek, en het meisje is ongeveer twaalf jaar oud (Lukas 8:42–43).", "refs": ["Leviticus 15:25", "Lukas 8:42–43", "Markus 5:26"] },
+        { "kop": "Waar was het", "t": "Lukas en Markus noemen de stad niet waar Jaïrus woonde. Mattheüs vertelt dat de Heere Jezus na de overtocht ‘kwam in Zijn stad’ (Mattheüs 9:1), en kort daarna komt de overste bij Hem (Mattheüs 9:18). Volgens Mattheüs 4:13 woonde de Heere Jezus in Kapernaüm. Daarom toont de kaart Kapernaüm; de Bijbel zegt het niet met zoveel woorden. Ook vertelt Mattheüs het korter: daar zegt de vader al bij het begin: ‘Mijn dochter is nu terstond gestorven’ (Mattheüs 9:18).", "refs": ["Mattheüs 9:1", "Mattheüs 9:18", "Mattheüs 4:13"] },
+        { "kop": "Elders in de Bijbel", "t": "Petrus was erbij toen het meisje opstond. Later staat hij zelf in Joppe bij Tabitha, die gestorven is. Net als de Heere Jezus stuurt hij eerst iedereen weg. Dan bidt hij en zegt: ‘Tabitha, sta op!’ (Handelingen 9:40). Ook bij de profeet Elisa werd een gestorven jongen weer levend (2 Koningen 4:32–35). En over Lazarus zegt de Heere Jezus: ‘Lazarus, onze vriend, slaapt’ (Johannes 11:11).", "refs": ["Handelingen 9:36–41", "2 Koningen 4:32–35", "Johannes 11:11"] }
+      ],
+      "vragen": [
+        { "q": "Wat zei Petrus later tegen de gestorven Tabitha?", "a": ["Tabitha, sta op!", "Vrees niet, geloof alleenlijk", "Dochter, ga heen in vrede"], "why": "Handelingen 9:40" },
+        { "q": "Waaraan had de vrouw al haar geld uitgegeven?", "a": ["Aan medicijnmeesters", "Aan offers in de tempel", "Aan een reis naar Jeruzalem"], "why": "Lukas 8:43" },
+        { "q": "Wat had de Heere Jezus volgens Lukas 8:46 gemerkt?", "a": ["Dat er kracht van Hem uitgegaan was", "Dat de vrouw Hem bang aankeek", "Dat Petrus Hem had aangeraakt"], "why": "Lukas 8:46" }
+      ]
+    }
+  },
+  "99": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["nt_meer"],
+      "delen": [
+        { "t": "De Heere Jezus zit bij het meer. Er komen heel veel mensen naar Hem toe.", "stap": "jezus-1:nt-galilea:7" },
+        { "t": "Daarom gaat Hij in een schip zitten. De mensen staan op de oever.", "stap": "jezus-1:nt-galilea:7" },
+        { "t": "Hij vertelt een gelijkenis. Dat is een verhaal waarin Hij iets vergelijkt met gewone dingen." },
+        { "t": "Een zaaier gaat uit om zaad te zaaien." },
+        { "t": "Een deel valt op de weg. De vogels komen en eten het op." },
+        { "t": "Een deel valt op grond met veel stenen. Het komt snel op, maar in de zon verdort het." },
+        { "t": "Een deel valt tussen de doornen. De doornen groeien mee en verstikken het." },
+        { "t": "Een deel valt in de goede aarde. Daar groeit het en geeft het heel veel vrucht." },
+        { "t": "Later legt de Heere Jezus het uit. Het zaad is het Woord van God." },
+        { "t": "De goede aarde is iemand die het Woord hoort en begrijpt, en vrucht draagt." }
+      ],
+      "samen": "De Heere Jezus legt de gelijkenis Zelf uit (Mattheüs 13:18–23). Je kunt samen de vier soorten grond langsgaan: de weg, de stenen, de doornen en de goede aarde. Wat Mattheüs ‘dat Woord des Koninkrijks’ noemt (Mattheüs 13:19), heet bij A eenvoudig het Woord van God; Lukas 8:11 zegt: ‘Het zaad is het Woord Gods’. Weggelaten is waarom Hij in gelijkenissen spreekt (Mattheüs 13:10–17). Vraag samen: wat gebeurt er met het zaad in de goede aarde?",
+      "vragen": [
+        { "q": "Waar zit de Heere Jezus als Hij vertelt?", "a": ["In een schip", "Op een berg"], "why": "Mattheüs 13:2" },
+        { "q": "Wat doen de vogels met het zaad op de weg?", "a": ["Ze eten het op", "Ze bouwen er een nest mee"], "why": "Mattheüs 13:4" },
+        { "q": "Waar geeft het zaad veel vrucht?", "a": ["In de goede aarde", "Tussen de doornen"], "why": "Mattheüs 13:8" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een zaaier gaat zaaien", "stap": "jezus-1:nt-galilea:7", "t": "De Heere Jezus zit bij het meer van Galilea. Er komen zoveel mensen dat Hij in een schip gaat zitten, terwijl de menigte op de oever staat. Hij vertelt hun veel door gelijkenissen: verhalen uit het gewone leven waarmee Hij iets zegt over het Koninkrijk der hemelen. ‘Ziet, een zaaier ging uit om te zaaien.’" },
+        { "kop": "Vier soorten grond", "t": "Een deel van het zaad valt bij de weg, en de vogels eten het op. Een deel valt op steenachtige plaatsen. Het komt snel op, maar verdort in de zon, omdat het geen wortel heeft. Een deel valt tussen de doornen en wordt verstikt. En een deel valt in de goede aarde en geeft vrucht: honderd, zestig of dertig keer zoveel." },
+        { "kop": "De uitleg", "t": "Later legt Hij het uit aan Zijn discipelen. Het zaad is het Woord van het Koninkrijk. Bij de weg: iemand hoort het, maar verstaat het niet, en de boze rukt het weg. Op de stenen: iemand is eerst blij, maar haakt af als het moeilijk wordt. Tussen de doornen: zorgen en rijkdom verstikken het Woord. De goede aarde is wie het Woord hoort en verstaat, en vrucht draagt." }
+      ],
+      "vragen": [
+        { "q": "Waarom verdorde het zaad op de steenachtige plaatsen?", "a": ["Het had geen wortel", "De vogels aten het op", "Het kreeg te veel water"], "why": "Mattheüs 13:5–6" },
+        { "q": "Wat gebeurde er met het zaad tussen de doornen?", "a": ["De doornen verstikten het", "Het groeide het hoogst van alles", "De zaaier raapte het weer op"], "why": "Mattheüs 13:7" },
+        { "q": "Wat is volgens de uitleg het zaad?", "a": ["Het Woord van het Koninkrijk", "Het geld van de rijke mensen", "Het brood voor de arme mensen"], "why": "Mattheüs 13:19" },
+        { "q": "Wat verstikt volgens de uitleg het Woord bij de doornen?", "a": ["De zorgen en de rijkdom", "De vogels en de zon", "De stenen en de wind"], "why": "Mattheüs 13:22" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Waarom gelijkenissen", "t": "De discipelen vragen: ‘Waarom spreekt Gij tot hen door gelijkenissen?’ (Mattheüs 13:10). In Zijn antwoord haalt de Heere Jezus de profeet Jesaja aan: ‘Met het gehoor zult gij horen, en geenszins verstaan’ (Mattheüs 13:14). Jesaja moest dat al zeggen tegen het volk in zijn eigen tijd (Jesaja 6:9–10). Tegen Zijn discipelen zegt Hij: ‘uw ogen zijn zalig, omdat zij zien, en uw oren, omdat zij horen’. Vele profeten en rechtvaardigen hadden dat ook willen zien (Mattheüs 13:16–17).", "refs": ["Mattheüs 13:10–17", "Jesaja 6:9–10"] },
+        { "kop": "Drie evangeliën", "t": "Mattheüs, Markus en Lukas vertellen deze gelijkenis alle drie. Waar Mattheüs ‘de boze’ zegt, staat bij Markus ‘de satan’ (Markus 4:15) en bij Lukas ‘de duivel’, die het Woord wegneemt, ‘opdat zij niet zouden geloven, en zalig worden’ (Lukas 8:12). Bij Markus vraagt de Heere Jezus: ‘Weet gij deze gelijkenis niet, en hoe zult gij al de gelijkenissen verstaan?’ (Markus 4:13). Volgens Markus komt ’s avonds op dezelfde dag de storm op het meer (Markus 4:35).", "refs": ["Mattheüs 13:19", "Markus 4:13–15", "Lukas 8:12", "Markus 4:35"] },
+        { "kop": "Meer over zaad", "t": "Direct na deze gelijkenis vertelt de Heere Jezus nog meer gelijkenissen over zaad: over het goede zaad waar een vijand onkruid tussen zaait (Mattheüs 13:24–30) en over het mosterdzaad (Mattheüs 13:31–32). Ook Petrus gebruikt later het beeld van zaad. Hij schrijft dat gelovigen wedergeboren zijn ‘niet uit vergankelijk, maar uit onvergankelijk zaad, door het levende en eeuwig blijvende Woord van God’ (1 Petrus 1:23).", "refs": ["Mattheüs 13:24–32", "1 Petrus 1:23"] }
+      ],
+      "vragen": [
+        { "q": "Welke profeet haalt de Heere Jezus aan als Hij uitlegt waarom Hij in gelijkenissen spreekt?", "a": ["Jesaja", "Jeremia", "Daniël"], "why": "Mattheüs 13:14–15" },
+        { "q": "Hoe heet bij Markus degene die het Woord bij de weg wegneemt?", "a": ["De satan", "De vijand", "De vogelvanger"], "why": "Markus 4:15" },
+        { "q": "Waar zijn gelovigen volgens 1 Petrus 1:23 uit wedergeboren?", "a": ["Uit onvergankelijk zaad", "Uit het zaad van de goede aarde", "Uit het zaad van Abraham"], "why": "1 Petrus 1:23" }
+      ]
+    }
+  },
+  "100": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["nt_machaerus"],
+      "delen": [
+        { "t": "Koning Herodes hoort over de Heere Jezus. Hij zegt: dat is Johannes de Doper, die is uit de doden opgewekt." },
+        { "t": "Hoe zit dat? Eerder heeft Herodes Johannes de Doper gevangengenomen. Johannes zit in de gevangenis.", "stap": "jezus-2:nt-brood-en-berg:0" },
+        { "t": "Herodes is getrouwd met Herodias, de vrouw van zijn broer. Johannes zegt tegen hem: dat mag niet." },
+        { "t": "Herodias wil Johannes doden, maar dat lukt haar niet." },
+        { "t": "Want Herodes weet dat Johannes een rechtvaardig en heilig man is. Hij luistert graag naar hem." },
+        { "t": "Op zijn verjaardag geeft Herodes een maaltijd. De dochter van Herodias danst." },
+        { "t": "De koning zweert dat ze mag vragen wat ze wil. Hij zal het haar geven." },
+        { "t": "Ze vraagt haar moeder wat ze moet vragen. Haar moeder zegt: vraag om de dood van Johannes. Dat vraagt ze aan de koning." },
+        { "t": "De koning wordt heel bedroefd. Maar hij heeft het gezworen, en zijn gasten hebben het gehoord." },
+        { "t": "Dan laat hij Johannes doden in de gevangenis. De discipelen van Johannes leggen hem in een graf.", "stap": "jezus-2:nt-brood-en-berg:0" }
+      ],
+      "samen": "Dit is een verdrietige geschiedenis: Johannes wordt gedood. Markus vertelt dat het meisje vroeg om ‘het hoofd van Johannes den Doper’, op een schotel (Markus 6:24–25); bij A staat dat in eenvoudiger woorden. De naam van de dochter staat niet in de Bijbel. Je kunt samen bespreken wat Johannes tegen Herodes had gezegd (Markus 6:18), en dat hij dat zei, ook al was Herodes de koning.",
+      "vragen": [
+        { "q": "Waar zit Johannes de Doper?", "a": ["In de gevangenis", "In de woestijn"], "why": "Markus 6:17" },
+        { "q": "Wie danst er op het feest?", "a": ["De dochter van Herodias", "Herodias zelf"], "why": "Markus 6:22" },
+        { "q": "Hoe is de koning als het meisje haar vraag heeft gesteld?", "a": ["Heel bedroefd", "Heel blij"], "why": "Markus 6:26" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Herodes hoort over de Heere Jezus", "t": "Koning Herodes hoort over de wonderen die de Heere Jezus doet. Sommigen zeggen: Hij is Elias. Anderen zeggen: Hij is een profeet. Maar Herodes zegt: ‘Deze is Johannes, dien ik onthoofd heb; die is van de doden opgewekt.’ Markus vertelt dan hoe dat kwam." },
+        { "kop": "Johannes in de gevangenis", "stap": "jezus-2:nt-brood-en-berg:0", "t": "Herodes was getrouwd met Herodias, de vrouw van zijn broer Filippus. Johannes zei tegen hem: ‘Het is u niet geoorloofd de huisvrouw uws broeders te hebben.’ Dat betekent: het mag niet volgens Gods wet. Daarom zette Herodes hem gevangen. Herodias wilde Johannes doden, maar Herodes wist dat hij een rechtvaardig en heilig man was." },
+        { "kop": "Een eed op het feest", "t": "Op zijn verjaardag geeft Herodes een maaltijd. De dochter van Herodias danst, en de koning zweert haar te geven wat ze vraagt, tot de helft van zijn koninkrijk. Haar moeder zegt dat ze het hoofd van Johannes de Doper moet vragen. Ze vraagt het de koning. De koning wordt zeer bedroefd, maar vanwege zijn eden en zijn gasten laat hij Johannes onthoofden. De discipelen van Johannes leggen hem in een graf." }
+      ],
+      "vragen": [
+        { "q": "Wie dachten sommige mensen dat de Heere Jezus was?", "a": ["Elias of een profeet", "Mozes of Abraham", "Een zoon van Herodes"], "why": "Markus 6:15" },
+        { "q": "Waarom liet Herodes Johannes gevangennemen?", "a": ["Johannes zei dat zijn huwelijk met Herodias niet mocht", "Johannes had geld uit de tempel gestolen", "Johannes wilde zelf koning worden"], "why": "Markus 6:17–18" },
+        { "q": "Wie zei tegen het meisje wat ze moest vragen?", "a": ["Haar moeder Herodias", "Koning Herodes", "Een van de gasten"], "why": "Markus 6:24" },
+        { "q": "Wat deden de discipelen van Johannes?", "a": ["Ze legden zijn lichaam in een graf", "Ze vluchtten naar Egypte", "Ze gingen naar de koning toe"], "why": "Markus 6:29" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Waar en wanneer", "t": "Markus noemt de plaats van de gevangenis niet. De kaart toont Machérus, een vesting ten oosten van de Dode Zee. Dat Johannes daar gevangenzat, weten we van de Joodse geschiedschrijver Josephus, niet uit de Bijbel; daarom staat de plaats als waarschijnlijk. Markus noemt wel de gasten: ‘de voornaamsten van Galilea’ (Markus 6:21). De Bijbel noemt geen jaartal. Markus vertelt dit als terugblik, vlak voor de spijziging van de vijfduizend, kort voor een Pascha (Johannes 6:4). Wie de kruisiging ca. 30 n.Chr. stelt, komt op ca. 28–29; wie 33 n.Chr. aanhoudt, op ca. 31–32.", "refs": ["Markus 6:21", "Johannes 6:4"] },
+        { "kop": "Wat de tekst zegt en wat niet", "t": "De naam van de dochter van Herodias staat niet in de Bijbel; de naam Salome komt van Josephus. Markus noemt Herodes steeds ‘koning’. Mattheüs en Lukas noemen hem ‘viervorst’ (Mattheüs 14:1; Lukas 9:7), al schrijft ook Mattheüs verderop ‘de koning’ (Mattheüs 14:9). Lukas 3:1 zegt dat hij viervorst over Galilea was. Mattheüs vertelt ook dat Herodes zelf Johannes wilde doden, maar dat hij het volk vreesde, ‘omdat zij hem hielden voor een profeet’ (Mattheüs 14:5).", "refs": ["Mattheüs 14:1", "Mattheüs 14:9", "Lukas 9:7", "Lukas 3:1", "Mattheüs 14:5"] },
+        { "kop": "Elders in de Bijbel", "t": "Johannes sprak in lijn met de wet van Mozes, die een man verbood de vrouw van zijn broer te nemen (Leviticus 18:16; 20:21). Later zegt de Heere Jezus dat Elias al gekomen is, ‘en zij hebben hem niet gekend; doch zij hebben aan hem gedaan, al wat zij hebben gewild’. Dan begrijpen de discipelen dat Hij over Johannes de Doper spreekt (Mattheüs 17:12–13).", "refs": ["Leviticus 18:16", "Leviticus 20:21", "Mattheüs 17:12–13"] }
+      ],
+      "vragen": [
+        { "q": "Hoe noemen Mattheüs en Lukas Herodes?", "a": ["Viervorst", "Stadhouder", "Keizer"], "why": "Mattheüs 14:1; Lukas 9:7" },
+        { "q": "Wie waren volgens Markus de gasten op het feest?", "a": ["De groten, de oversten en de voornaamsten van Galilea", "De priesters en de Farizeeën uit Jeruzalem", "De discipelen van Johannes en hun families"], "why": "Markus 6:21" },
+        { "q": "Over wie sprak de Heere Jezus toen Hij zei dat Elias al gekomen was?", "a": ["Over Johannes de Doper", "Over Zichzelf", "Over de profeet Elisa"], "why": "Mattheüs 17:12–13" }
+      ]
+    }
+  },
+  "101": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["nt_meer"],
+      "delen": [
+        { "t": "De Heere Jezus gaat naar de overkant van het meer. Een grote menigte volgt Hem.", "stap": "jezus-2:nt-brood-en-berg:1" },
+        { "t": "Ze hebben gezien dat Hij zieken beter maakt. Hij gaat met Zijn discipelen op een berg zitten." },
+        { "t": "De Heere Jezus vraagt aan Filippus: waar kunnen we brood kopen voor al deze mensen?" },
+        { "t": "Filippus zegt: zelfs voor heel veel geld is er niet genoeg brood." },
+        { "t": "Andreas zegt: hier is een jongen met vijf gerstebroden en twee visjes. Maar wat is dat voor zoveel mensen?" },
+        { "t": "De mensen moeten gaan zitten in het gras. Het zijn ongeveer vijfduizend mannen.", "stap": "jezus-2:nt-brood-en-berg:1" },
+        { "t": "De Heere Jezus neemt de broden en dankt. Dan laat Hij het brood en de vis uitdelen." },
+        { "t": "Iedereen mag eten zoveel hij wil. Ze krijgen allemaal genoeg." },
+        { "t": "Daarna halen de discipelen de stukken op die over zijn. Ze vullen er twaalf manden mee!" },
+        { "t": "De mensen willen de Heere Jezus koning maken. Maar Hij gaat alleen de berg op." }
+      ],
+      "samen": "Johannes vertelt niet dat de jongen zijn eten zelf naar de Heere Jezus bracht; Andreas wijst hem alleen aan (Johannes 6:8–9). De vijfduizend zijn alleen de mannen; Mattheüs zegt erbij: ‘zonder de vrouwen en kinderen’ (Mattheüs 14:21). Bij A is weggelaten dat de Heere Jezus de volgende dag zegt: ‘Ik ben het Brood des levens’ (Johannes 6:35). Vraag samen: hoeveel bleef er over toen iedereen gegeten had?",
+      "vragen": [
+        { "q": "Wat heeft de jongen bij zich?", "a": ["Vijf broden en twee visjes", "Twee broden en vijf visjes"], "why": "Johannes 6:9" },
+        { "q": "Hoeveel manden met stukken blijven er over?", "a": ["Twaalf", "Eén"], "why": "Johannes 6:13" },
+        { "q": "Waar gaat de Heere Jezus daarna heen?", "a": ["Alleen de berg op", "Naar Nazareth"], "why": "Johannes 6:15" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een grote menigte", "stap": "jezus-2:nt-brood-en-berg:1", "t": "De Heere Jezus gaat over de zee van Galilea, die ook de zee van Tiberias heet. Een grote menigte volgt Hem, omdat ze de tekenen gezien hebben: de wonderen die Hij bij de zieken deed. Het is kort voor het Pascha, het feest van de Joden. Hij gaat met Zijn discipelen op een berg zitten." },
+        { "kop": "Vijf broden en twee visjes", "t": "Hij vraagt Filippus: ‘Van waar zullen wij broden kopen, opdat deze eten mogen?’ Hij wil Filippus op de proef stellen, want Hij weet Zelf al wat Hij gaat doen. Filippus rekent: zelfs voor tweehonderd penningen brood is het niet genoeg. Andreas wijst op een jongen met vijf gerstebroden en twee visjes, ‘maar wat zijn deze onder zo velen?’" },
+        { "kop": "Twaalf korven over", "t": "Ongeveer vijfduizend mannen gaan zitten in het gras. De Heere Jezus dankt en laat brood en vis uitdelen, zoveel als ze willen. Daarna worden de brokken verzameld, ‘opdat er niets verloren ga’. Ze vullen twaalf korven. De mensen zeggen: ‘Deze is waarlijk de Profeet, Die in de wereld komen zou.’ Ze willen Hem met geweld koning maken, maar Hij gaat alleen de berg op." }
+      ],
+      "vragen": [
+        { "q": "Waarom stelde de Heere Jezus Filippus de vraag over brood?", "a": ["Om hem op de proef te stellen", "Omdat Hij zelf niet wist wat te doen", "Omdat Filippus het geld bewaarde"], "why": "Johannes 6:5–6" },
+        { "q": "Wie wees op de jongen met de broden?", "a": ["Andreas", "Petrus", "Filippus"], "why": "Johannes 6:8–9" },
+        { "q": "Hoeveel korven met brokken bleven er over?", "a": ["Twaalf", "Vijf", "Zeven"], "why": "Johannes 6:13" },
+        { "q": "Wat zeiden de mensen na het teken?", "a": ["Deze is waarlijk de Profeet", "Deze is Johannes de Doper", "Deze is een vriend van Herodes"], "why": "Johannes 6:14" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Elders in de Bijbel", "t": "De vraag aan Filippus lijkt op wat Mozes in de woestijn vroeg: ‘Van waar zou ik het vlees hebben, om al dit volk te geven?’ (Numeri 11:13). De mensen noemen de Heere Jezus ‘de Profeet, Die in de wereld komen zou’. Veel uitleggers zien daarin een verwijzing naar de belofte van Mozes: ‘Een Profeet, uit het midden van u, uit uw broederen, als mij, zal u de HEERE, uw God, verwekken’ (Deuteronomium 18:15). De volgende dag zegt de Heere Jezus dat ze Hem zoeken ‘omdat gij van de broden gegeten hebt, en verzadigd zijt’ (Johannes 6:26).", "refs": ["Numeri 11:13", "Deuteronomium 18:15", "Johannes 6:14", "Johannes 6:26"] },
+        { "kop": "Vier evangeliën", "t": "Behalve de opstanding is dit het enige wonder dat alle vier de evangeliën vertellen (Mattheüs 14:13–21; Markus 6:30–44; Lukas 9:10–17). Alleen Johannes noemt Filippus, Andreas en de jongen met de gerstebroden. Markus vertelt dat de mensen gingen zitten ‘bij honderd te zamen, en bij vijftig te zamen’ (Markus 6:40). Mattheüs en Markus vertellen dat de Heere Jezus ‘innerlijk met ontferming’ over de schare bewogen werd (Mattheüs 14:14; Markus 6:34).", "refs": ["Mattheüs 14:13–21", "Markus 6:30–44", "Lukas 9:10–17"] },
+        { "kop": "Waar en wanneer", "t": "Johannes noemt geen stad of dorp, alleen ‘de zee van Galilea, welke is de zee van Tiberias’ en een berg. Lukas noemt de stad Bethsaïda (Lukas 9:10); waar die plaats precies lag, is betwist. Het Pascha was nabij (Johannes 6:4). Dat is waarschijnlijk een jaar vóór het Pascha waarop de Heere Jezus stierf (Johannes 11:55). Wie de kruisiging ca. 30 n.Chr. stelt, komt op ca. 29; wie 33 n.Chr. aanhoudt, op ca. 32.", "refs": ["Johannes 6:1–4", "Lukas 9:10", "Johannes 11:55"] }
+      ],
+      "vragen": [
+        { "q": "In welk Bijbelboek vraagt Mozes: ‘Van waar zou ik het vlees hebben?’", "a": ["Numeri", "Genesis", "Jozua"], "why": "Numeri 11:13" },
+        { "q": "Hoe zaten de mensen volgens Markus in het gras?", "a": ["In groepen van honderd en van vijftig", "Ieder bij zijn eigen familie", "De mannen apart van de vrouwen"], "why": "Markus 6:40" },
+        { "q": "Welke belofte gaf Mozes in Deuteronomium 18:15?", "a": ["De HEERE zou een Profeet verwekken, als hij", "De HEERE zou het volk elke dag manna geven", "Er zou een koning uit Egypte komen"], "why": "Deuteronomium 18:15" }
+      ]
+    }
+  }
+}

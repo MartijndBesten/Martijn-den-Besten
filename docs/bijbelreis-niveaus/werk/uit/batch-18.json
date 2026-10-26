@@ -1,0 +1,312 @@
+{
+  "73": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["salem", "babelst"],
+      "delen": [
+        { "t": "Nebukadnezar, de koning van Babel, komt naar Jeruzalem en belegert de stad. God geeft de koning van Juda in zijn hand.", "stap": "daniel:daniel:0" },
+        { "t": "Nebukadnezar laat jongens uit Israël naar zijn paleis in Babel brengen. Daar moeten ze leren om de koning te dienen.", "stap": "daniel:daniel:1" },
+        { "t": "Daniël en zijn drie vrienden zijn erbij. Ze krijgen andere namen. Daniël heet nu Beltsazar.", "stap": "daniel:daniel:1" },
+        { "t": "De jongens krijgen het eten en de wijn van de koning. Maar Daniël wil zich daarmee niet onrein maken.", "stap": "daniel:daniel:2" },
+        { "t": "Daniël vraagt: geef ons tien dagen groente en water. Daarna zien de vier vrienden er beter uit dan de anderen.", "stap": "daniel:daniel:2" },
+        { "t": "God geeft de vier vrienden kennis en wijsheid. Aan Daniël geeft Hij ook verstand van dromen." },
+        { "t": "Dan droomt koning Nebukadnezar. Hij wil dat zijn wijzen zeggen wat hij gedroomd heeft. Niemand kan het.", "stap": "daniel:daniel:3" },
+        { "t": "Daniël en zijn vrienden bidden tot God. In de nacht laat God aan Daniël zien wat de koning gedroomd heeft." },
+        { "t": "Daniël zegt tegen de koning: er is een God in de hemel, Die geheimen bekendmaakt. Dan vertelt hij de droom." },
+        { "t": "De koning zag een groot beeld. Een steen sloeg het kapot en werd een grote berg. Daarna maakt de koning Daniël heerser over Babel." }
+      ],
+      "samen": "Bij A is weggelaten dat de koning bevel gaf alle wijzen van Babel te doden, en dat men ook Daniël en zijn vrienden zocht (Daniël 2:12–13). Daarom vroegen ze God om barmhartigheid (Daniël 2:18). Waarom het eten van de koning Daniël onrein zou maken, zegt de tekst niet (Daniël 1:8); uitleggers geven verschillende redenen. Vraag samen: wat deed Daniël toen God hem de droom liet zien? Hij loofde God (Daniël 2:19).",
+      "vragen": [
+        { "q": "Welke nieuwe naam krijgt Daniël?", "a": ["Beltsazar", "Nebukadnezar"], "why": "Daniël 1:7" },
+        { "q": "Wat eten en drinken de vier vrienden tien dagen lang?", "a": ["Groente en water", "Brood en wijn"], "why": "Daniël 1:12" },
+        { "q": "Wat doen Daniël en zijn vrienden als ze de droom niet weten?", "a": ["Ze bidden tot God", "Ze vragen het aan de wijzen"], "why": "Daniël 2:17–18" },
+        { "q": "Wat wordt de steen?", "a": ["Een grote berg", "Een groot huis"], "why": "Daniël 2:35" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Van Jeruzalem naar Babel",
+          "stap": "daniel:daniel:1",
+          "t": "Nebukadnezar, de koning van Babel, belegert Jeruzalem. Hij laat jongens uit de koninklijke familie naar Babel brengen. Drie jaar leren ze de taal en de boeken van Babel. Daniël, Hananja, Misaël en Azarja zijn erbij. Ze krijgen nieuwe namen: Beltsazar, Sadrach, Mesach en Abed-Nego."
+        },
+        {
+          "kop": "Groente en water",
+          "stap": "daniel:daniel:2",
+          "t": "Daniël wil zich niet onrein maken met het eten en de wijn van de koning. Hij vraagt om tien dagen groente en water. Daarna zien de vier er beter uit dan de anderen. God geeft hun kennis en wijsheid, en Daniël verstand van dromen."
+        },
+        {
+          "kop": "Een droom die niemand weet",
+          "stap": "daniel:daniel:3",
+          "t": "De koning wil dat zijn wijzen zijn droom én de uitleg vertellen. Niemand kan het. Dan wil hij alle wijzen doden, ook Daniël en zijn vrienden. Ze bidden tot God, en in de nacht maakt God de droom aan Daniël bekend."
+        },
+        {
+          "kop": "Een steen wordt een berg",
+          "t": "Daniël zegt: ‘er is een God in den hemel, Die verborgenheden openbaart’ (geheimen bekendmaakt). De koning zag een groot beeld van goud, zilver, koper, ijzer en leem. Een steen sloeg het kapot en werd een grote berg. Dat betekent: God richt een Koninkrijk op dat nooit vergaat."
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom vraagt Daniël om groente en water?", "a": ["Hij wil zich niet onrein maken", "Hij is ziek geworden", "De koning heeft dat bevolen"], "why": "Daniël 1:8" },
+        { "q": "Wie geeft de vier jongens kennis en wijsheid?", "a": ["God", "De opzichter van de jongens", "Koning Nebukadnezar"], "why": "Daniël 1:17" },
+        { "q": "Wat moeten de wijzen aan de koning vertellen?", "a": ["De droom én de uitleg", "Alleen de uitleg", "Hoe lang hij koning blijft"], "why": "Daniël 2:5–6" },
+        { "q": "Wat doet Daniël als God hem de droom bekendmaakt?", "a": ["Hij looft de God van de hemel", "Hij gaat terug naar Jeruzalem", "Hij schrijft het op een rol"], "why": "Daniël 2:19" },
+        { "q": "Wat betekent de steen die een berg wordt?", "a": ["Gods Koninkrijk dat eeuwig blijft", "Het rijk van Nebukadnezar", "Een nieuwe tempel in Babel"], "why": "Daniël 2:44–45" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Waar en wanneer",
+          "t": "Daniël 1:1 noemt het derde jaar van koning Jojakim. Jeremia 25:1 noemt het vierde jaar van Jojakim ‘het eerste jaar van Nebukadnezar’: een andere manier van tellen. Babylonische bronnen plaatsen de eerste tocht van Nebukadnezar naar het westen in 605 v.Chr. De droom kwam in zijn tweede jaar (Daniël 2:1), ca. 603 v.Chr. Hoe dat samengaat met de opleiding van drie jaar (Daniël 1:5), leggen uitleggers verschillend uit. Jeruzalem en Babel kunnen we aanwijzen. Het land Sinear (1:2) is het land rond Babel (Genesis 10:10).",
+          "refs": ["Daniël 1:1", "Jeremia 25:1", "Daniël 2:1", "Daniël 1:5", "Genesis 10:10"]
+        },
+        {
+          "kop": "De vaten uit de tempel",
+          "t": "Nebukadnezar brengt een deel van de vaten uit het huis van God in het schathuis van zijn god (Daniël 1:2). Later laat koning Belsazar daaruit drinken op een feest (Daniël 5:2–3), en in dezelfde nacht wordt hij gedood (Daniël 5:30). Koning Kores geeft de vaten terug, en ze gaan mee naar Jeruzalem (Ezra 1:7–11). Daniël 1:21 zegt dat Daniël bleef ‘tot het eerste jaar van den koning Kores toe’: het jaar waarin Kores de Joden liet teruggaan (Ezra 1:1).",
+          "refs": ["Daniël 1:2", "Daniël 5:2–3", "Daniël 5:30", "Ezra 1:7–11", "Daniël 1:21", "Ezra 1:1"]
+        },
+        {
+          "kop": "Achtergrond: Syrisch en Chaldeeën",
+          "t": "In Daniël 2:4 spreken de Chaldeeën ‘tot den koning in het Syrisch’. Daarmee wordt het Aramees bedoeld, een taal die toen in het rijk veel werd gebruikt. Vanaf dit vers tot het einde van hoofdstuk 7 is het boek Daniël in het Aramees geschreven; de rest in het Hebreeuws. Het woord Chaldeeën betekent in Daniël het volk van Babel, maar ook een groep wijzen naast de tovenaars en sterrenkijkers (Daniël 2:2). ‘Het gezaaide’ (1:12) is wat uit zaad groeit; uitleggers denken aan groente, peulvruchten en graan.",
+          "refs": ["Daniël 2:4", "Daniël 2:2", "Daniël 1:12"]
+        }
+      ],
+      "vragen": [
+        { "q": "In welke taal spreken de Chaldeeën tot de koning in Daniël 2:4?", "a": ["In het Syrisch, het Aramees", "In het Hebreeuws", "In het Grieks"], "why": "Daniël 2:4" },
+        { "q": "Wat doet Belsazar later met de vaten uit de tempel?", "a": ["Hij laat er op een feest uit drinken", "Hij geeft ze terug aan Jeruzalem", "Hij laat ze begraven in Sinear"], "why": "Daniël 5:2–3" },
+        { "q": "Tot wanneer bleef Daniël volgens Daniël 1:21?", "a": ["Tot het eerste jaar van koning Kores", "Tot de dood van Nebukadnezar", "Tot de tempel weer klaar was"], "why": "Daniël 1:21" },
+        { "q": "Waarom is de droom volgens Daniël aan hem geopenbaard?", "a": ["Zodat de koning de uitleg zou weten", "Omdat hij wijzer was dan alle levenden", "Omdat hij de boeken van Babel kende"], "why": "Daniël 2:30" }
+      ]
+    }
+  },
+  "74": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["dan_dura"],
+      "delen": [
+        { "t": "Koning Nebukadnezar laat een heel groot beeld van goud maken. Hij zet het neer in het dal Dura.", "stap": "daniel:daniel:4" },
+        { "t": "Alle bestuurders van het land moeten komen. Er wordt geroepen: als de muziek klinkt, moet iedereen neervallen voor het beeld.", "stap": "daniel:daniel:4" },
+        { "t": "Wie dat niet doet, wordt in een brandende oven gegooid." },
+        { "t": "De muziek klinkt. Alle mensen vallen neer en aanbidden het beeld. Maar Sadrach, Mesach en Abed-Nego doen het niet." },
+        { "t": "De koning wordt heel boos. Maar de drie vrienden zeggen: onze God kan ons redden." },
+        { "t": "En ook als Hij dat niet doet, aanbidden wij uw beeld niet." },
+        { "t": "De koning laat de oven nog veel heter maken. De drie vrienden worden vastgebonden en in het vuur gegooid." },
+        { "t": "Dan schrikt de koning. Hij ziet vier mannen los rondlopen in het vuur. Het vuur doet hun niets." },
+        { "t": "De koning roept de drie vrienden naar buiten. Zelfs hun haar is niet verbrand, en ze ruiken niet naar rook." },
+        { "t": "Nebukadnezar zegt: geloofd zij hun God! Hij heeft Zijn engel gestuurd en Zijn knechten gered." }
+      ],
+      "samen": "Bij A is weggelaten dat de mannen die de drie vrienden in de oven wierpen, zelf door het vuur stierven (Daniël 3:22). Wie de vierde man in het vuur was, zegt de tekst niet met zoveel woorden; Nebukadnezar spreekt van ‘Zijn engel’ (Daniël 3:28). Vraag samen: wat zeiden de vrienden tegen de koning, en wat zouden ze doen als God hen niet zou redden (Daniël 3:17–18)?",
+      "vragen": [
+        { "q": "Waarvan is het grote beeld gemaakt?", "a": ["Van goud", "Van steen"], "why": "Daniël 3:1" },
+        { "q": "Wat doen de drie vrienden als de muziek klinkt?", "a": ["Ze aanbidden het beeld niet", "Ze vallen neer voor het beeld"], "why": "Daniël 3:12" },
+        { "q": "Hoeveel mannen ziet de koning in het vuur?", "a": ["Vier", "Twee"], "why": "Daniël 3:25" },
+        { "q": "Wie heeft God gestuurd om de vrienden te redden?", "a": ["Zijn engel", "De soldaten van de koning"], "why": "Daniël 3:28" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Een beeld van goud",
+          "stap": "daniel:daniel:4",
+          "t": "Koning Nebukadnezar laat een beeld van goud maken, zestig el hoog. Een el is ongeveer een halve meter. Hij zet het in het dal Dura, in het landschap van Babel. Een heraut, een omroeper van de koning, roept: als de muziek klinkt, moet iedereen neervallen en het beeld aanbidden. Wie dat niet doet, wordt in een brandende oven geworpen."
+        },
+        {
+          "kop": "Wij aanbidden het beeld niet",
+          "t": "Sadrach, Mesach en Abed-Nego buigen niet. Chaldeeuwse mannen klagen hen aan. De woedende koning vraagt welke God hen uit zijn handen zou kunnen verlossen. Ze antwoorden: ‘onze God, Dien wij eren, is machtig ons te verlossen’. En ook als Hij het niet doet, zullen ze het beeld niet aanbidden."
+        },
+        {
+          "kop": "Vier mannen in het vuur",
+          "t": "De oven wordt zeven keer heter gemaakt. De drie worden vastgebonden en erin geworpen. De mannen die hen erin werpen, worden zelf door het vuur gedood. Dan ziet de koning vier mannen los rondlopen in het vuur. Hij roept de drie naar buiten. Hun haar is niet verbrand en ze ruiken niet naar rook. Nebukadnezar looft hun God, Die Zijn engel gezonden heeft."
+        }
+      ],
+      "vragen": [
+        { "q": "Wat moest iedereen doen als de muziek klonk?", "a": ["Neervallen en het beeld aanbidden", "Naar huis gaan en feestvieren", "Een lied zingen voor de koning"], "why": "Daniël 3:5" },
+        { "q": "Waarom aanbaden de drie vrienden het beeld niet?", "a": ["Ze wilden alleen hun eigen God eren", "Ze hadden de muziek niet gehoord", "Ze waren te laat in het dal"], "why": "Daniël 3:18, 28" },
+        { "q": "Wie vertelden de koning dat de drie niet bogen?", "a": ["Chaldeeuwse mannen", "Daniël en zijn knechten", "De heraut van de koning"], "why": "Daniël 3:8–12" },
+        { "q": "Wat zeiden de vrienden, als God hen niet zou redden?", "a": ["Dan nog aanbidden we het beeld niet", "Dan zullen we toch buigen", "Dan vluchten we naar Jeruzalem"], "why": "Daniël 3:18" },
+        { "q": "Wie heeft volgens Nebukadnezar de drie gered?", "a": ["God, door Zijn engel", "De soldaten bij de oven", "De wijzen van Babel"], "why": "Daniël 3:28" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Waar en wanneer",
+          "t": "Het dal Dura lag ‘in het landschap van Babel’ (3:1), maar waar precies, is onbekend. Daniël 3 noemt geen jaar. Het gebeurde in de regering van Nebukadnezar (ca. 605–562 v.Chr.) en na de droom van hoofdstuk 2, want Sadrach, Mesach en Abed-Nego waren toen al over het landschap van Babel gesteld (Daniël 2:49; 3:12).",
+          "refs": ["Daniël 3:1", "Daniël 2:49", "Daniël 3:12"]
+        },
+        {
+          "kop": "Een hoofd van goud, een beeld van goud",
+          "t": "In zijn droom in Daniël 2 was Nebukadnezar zelf ‘dat gouden hoofd’ (Daniël 2:38). In hoofdstuk 3 laat hij een beeld van goud maken, en iedereen moet het aanbidden. De tekst legt dat verband niet zelf; veel uitleggers wijzen erop. Daniël wordt in hoofdstuk 3 niet genoemd. Waar hij toen was, vertelt de Bijbel niet.",
+          "refs": ["Daniël 2:38", "Daniël 3:1–7"]
+        },
+        {
+          "kop": "Wie was de vierde?",
+          "t": "Nebukadnezar zegt: ‘de gedaante des vierden is gelijk eens zoons der goden’ (3:25). Hij spreekt als heidense koning. In vers 28 zegt hij dat God ‘Zijn engel gezonden’ heeft. Uitleggers verschillen: sommigen zien hier een engel, anderen de Zoon van God Zelf, al vóór Hij mens werd. Een vergelijkbare redding staat in Daniël 6: ook daar een wet van de koning, aanklagers, een engel en een koning die God looft (Daniël 6:23, 27).",
+          "refs": ["Daniël 3:25", "Daniël 3:28", "Daniël 6:23", "Daniël 6:27"]
+        }
+      ],
+      "vragen": [
+        { "q": "Waar stond het gouden beeld?", "a": ["In het dal Dura, in het landschap van Babel", "Op de tempelberg in Jeruzalem", "Bij de poort van het paleis in Babel"], "why": "Daniël 3:1" },
+        { "q": "Hoe noemt Nebukadnezar de drie vrienden bij de deur van de oven?", "a": ["Knechten des allerhoogsten Gods", "Wijzen van Babel", "Joodse stadhouders"], "why": "Daniël 3:26" },
+        { "q": "Welk deel van het droombeeld was volgens Daniël 2:38 Nebukadnezar zelf?", "a": ["Het hoofd van goud", "De borst van zilver", "De voeten van ijzer en leem"], "why": "Daniël 2:38" },
+        { "q": "Welke latere geschiedenis in Daniël lijkt hierop, met een wet, aanklagers en een redding?", "a": ["Daniël in de leeuwenkuil", "De droom van het grote beeld", "De tien dagen met groente en water"], "why": "Daniël 6:8–24" }
+      ]
+    }
+  },
+  "75": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["babelst"],
+      "delen": [
+        { "t": "Darius is nu koning. Hij geeft Daniël een hoge plaats: Daniël is de eerste van drie vorsten.", "stap": "daniel:daniel:7" },
+        { "t": "De andere vorsten zoeken iets om Daniël aan te klagen. Maar ze vinden niets. Daniël is trouw." },
+        { "t": "Ze laten de koning een wet tekenen: wie dertig dagen iets vraagt aan een god of mens, behalve aan de koning, gaat de leeuwenkuil in." },
+        { "t": "Daniël weet het. Toch knielt hij drie keer per dag en bidt tot God, net als altijd. Zijn ramen staan open naar Jeruzalem." },
+        { "t": "De mannen zien Daniël bidden en vertellen het aan de koning. De koning is erg verdrietig. Hij wil Daniël redden." },
+        { "t": "Maar de wet mag niet veranderd worden. Daniël wordt in de kuil gegooid. Er komt een steen op de opening." },
+        { "t": "De koning kan die nacht niet slapen. ’s Morgens vroeg gaat hij snel naar de kuil en roept Daniël." },
+        { "t": "Daniël antwoordt: mijn God heeft Zijn engel gestuurd. Hij heeft de bek van de leeuwen dichtgedaan." },
+        { "t": "Daniël wordt uit de kuil gehaald. Hij is helemaal niet gewond, want hij geloofde in zijn God." },
+        { "t": "Dan schrijft koning Darius aan alle volken: beef voor de God van Daniël, want Hij is de levende God." }
+      ],
+      "samen": "Bij A is weggelaten wat er daarna met de aanklagers gebeurde: ze werden met hun vrouwen en kinderen in de kuil geworpen, en de leeuwen doodden hen (Daniël 6:25). Als uw kind ernaar vraagt, houd het dan bij wat de Bijbel zegt. Wijs samen het open venster aan: Daniël bad met de vensters open naar Jeruzalem (Daniël 6:11). Veel uitleggers verbinden dat met het gebed van Salomo (1 Koningen 8:48).",
+      "vragen": [
+        { "q": "Hoe vaak per dag bidt Daniël?", "a": ["Drie keer", "Eén keer"], "why": "Daniël 6:11" },
+        { "q": "Waar wordt Daniël in gegooid?", "a": ["In de kuil van de leeuwen", "In een brandende oven"], "why": "Daniël 6:17" },
+        { "q": "Wie heeft God naar Daniël in de kuil gestuurd?", "a": ["Zijn engel", "De koning"], "why": "Daniël 6:23" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Niets om Daniël aan te klagen",
+          "stap": "daniel:daniel:7",
+          "t": "Darius de Meder is koning geworden. Hij zet honderdtwintig stadhouders over zijn rijk, met drie vorsten boven hen. Daniël is de eerste. De koning wil hem over het hele rijk zetten. De andere vorsten en stadhouders zoeken iets om hem aan te klagen. Maar ze vinden niets, want Daniël is trouw."
+        },
+        {
+          "kop": "Een wet van dertig dagen",
+          "t": "Ze laten de koning een wet tekenen: wie dertig dagen iets vraagt aan een god of een mens, behalve aan de koning, wordt in de leeuwenkuil geworpen. Zo’n wet van de Meden en Perzen mag niet veranderd worden. Daniël weet het. Toch knielt hij drie keer per dag en bidt tot zijn God, net als altijd, met de vensters open naar Jeruzalem."
+        },
+        {
+          "kop": "Een engel in de leeuwenkuil",
+          "t": "De koning is erg bedroefd, maar Daniël wordt toch in de kuil geworpen. ’s Morgens vroeg roept de koning bij de kuil. Daniël antwoordt: ‘Mijn God heeft Zijn engel gezonden, en Hij heeft den muil der leeuwen toegesloten’. Een muil is een bek. Daniël is niet gewond, want hij geloofde in zijn God. Zijn aanklagers worden daarna zelf met hun gezinnen in de kuil geworpen en gedood."
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom konden de vorsten niets vinden om Daniël aan te klagen?", "a": ["Hij was trouw en deed niets verkeerd", "Hij woonde ver weg van het paleis", "De koning verborg zijn fouten"], "why": "Daniël 6:5" },
+        { "q": "Wat stond er in de nieuwe wet?", "a": ["Dertig dagen alleen iets vragen aan de koning", "Niemand mag nog naar Jeruzalem reizen", "Iedereen moet voor een gouden beeld buigen"], "why": "Daniël 6:8" },
+        { "q": "Naar welke stad stonden de vensters open als Daniël bad?", "a": ["Naar Jeruzalem", "Naar Babel", "Naar Bethlehem"], "why": "Daniël 6:11" },
+        { "q": "Waarom kon de koning de wet niet terugdraaien?", "a": ["Een wet van de Meden en Perzen mocht niet veranderen", "Daniël wilde zelf niet gered worden", "De vorsten hadden de wet verstopt"], "why": "Daniël 6:16" },
+        { "q": "Waarom hadden de leeuwen Daniël niets gedaan?", "a": ["God had Zijn engel gezonden", "De leeuwen sliepen die nacht", "De koning had ze eten gegeven"], "why": "Daniël 6:23" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Waar en wanneer",
+          "t": "Darius de Meder ontving het koninkrijk na de dood van Belsazar, toen Babel viel (Daniël 5:30; 6:1). Dat was in 539 v.Chr. Wie deze Darius buiten de Bijbel was, is niet zeker; daarover bestaan verschillende opvattingen. Daniël 9:1 noemt hem ‘den zoon van Ahasveros, uit het zaad der Meden’. Daniël was rond 605 v.Chr. naar Babel gebracht (Daniël 1:1–6), ruim zestig jaar eerder. Hij is hier dus geen jonge man meer, al noemt de Bijbel zijn leeftijd niet.",
+          "refs": ["Daniël 5:30", "Daniël 6:1", "Daniël 9:1", "Daniël 1:1–6"]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Daniël bad met open vensters ‘tegen Jeruzalem aan’ (6:11). Bij de inwijding van de tempel had Salomo gebeden dat God zou horen als Zijn volk in het land van de vijanden zou bidden ‘naar deze stad, die Gij verkoren hebt, en naar dit huis’ (1 Koningen 8:48–49). In het eerste jaar van Darius merkte Daniël in de boeken dat de verwoestingen van Jeruzalem volgens het woord van de HEERE tot Jeremia zeventig jaar zouden duren, en hij zocht God ‘met het gebed, en smekingen’ (Daniël 9:2–3). Ook Psalm 55:18 noemt drie tijden van de dag: ‘Des avonds, en des morgens, en des middags zal ik klagen’.",
+          "refs": ["Daniël 6:11", "1 Koningen 8:48–49", "Daniël 9:1–3", "Psalm 55:18"]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "De aanklagers gebruiken tegen Daniël dezelfde woorden als eerder de Chaldeeën tegen zijn drie vrienden: hij heeft ‘op u geen acht gesteld’ (Daniël 6:14; Daniël 3:12). Hoeveel leeuwen er in de kuil waren en hoe de kuil eruitzag, vertelt de Bijbel niet. Wel zegt de tekst dat er geen schade aan Daniël gevonden werd, ‘dewijl hij in zijn God geloofd had’ (6:24). Darius noemt hem ‘gij knecht des levenden Gods’ (6:21), en in zijn brief noemt hij God ‘de levende God’ (6:27).",
+          "refs": ["Daniël 6:14", "Daniël 3:12", "Daniël 6:24", "Daniël 6:21", "Daniël 6:27"]
+        }
+      ],
+      "vragen": [
+        { "q": "Hoe spreekt de koning Daniël aan als hij bij de kuil roept?", "a": ["Gij knecht des levenden Gods", "Gij eerste der vorsten", "Gij wijze uit Juda"], "why": "Daniël 6:21" },
+        { "q": "Wat merkte Daniël in het eerste jaar van Darius in de boeken?", "a": ["Dat de verwoesting van Jeruzalem zeventig jaar zou duren", "Dat hij in een leeuwenkuil geworpen zou worden", "Dat de tempel in Babel gebouwd zou worden"], "why": "Daniël 9:1–2" },
+        { "q": "Met welke woorden klagen de mannen Daniël aan, net als eerder de drie vrienden?", "a": ["Hij heeft op u geen acht gesteld", "Hij heeft uw goud gestolen", "Hij heeft de wijzen gedood"], "why": "Daniël 6:14; Daniël 3:12" },
+        { "q": "Waarom werd er volgens Daniël 6:24 geen schade aan Daniël gevonden?", "a": ["Hij had in zijn God geloofd", "De leeuwen hadden al gegeten", "De koning had de leeuwen weggehaald"], "why": "Daniël 6:24" }
+      ]
+    }
+  },
+  "76": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["babelst", "salem"],
+      "delen": [
+        { "t": "Kores is de koning van Perzië. De HEERE zet hem ertoe aan om iets bijzonders te doen.", "stap": "ezra:terugkeer:0" },
+        { "t": "Kores laat overal bekendmaken: Gods volk mag naar Jeruzalem gaan. Daar mogen ze het huis van de HEERE bouwen.", "stap": "ezra:terugkeer:0" },
+        { "t": "Kores geeft ook de vaten van de tempel terug. Koning Nebukadnezar had ze lang geleden meegenomen naar Babel.", "stap": "ezra:terugkeer:0" },
+        { "t": "Een heel grote groep mensen gaat op reis, van Babel naar Jeruzalem. Ieder gaat terug naar zijn eigen stad.", "stap": "ezra:terugkeer:1" },
+        { "t": "Eerst bouwen ze het altaar. Daarop brengen ze offers aan de HEERE, ’s morgens en ’s avonds.", "stap": "ezra:terugkeer:2" },
+        { "t": "Dan leggen ze het fundament: de onderkant van de tempel. Ze zingen dat de HEERE goed is. Het volk juicht.", "stap": "ezra:terugkeer:3" },
+        { "t": "Maar oude mannen huilen hardop. Zij hebben de eerste tempel nog gezien.", "stap": "ezra:terugkeer:3" },
+        { "t": "Dan zijn er mensen die het bouwen tegenwerken. Het werk ligt lange tijd stil.", "stap": "ezra:terugkeer:4" },
+        { "t": "Twee profeten, Haggaï en Zacharia, spreken in de naam van God. Dan gaat het volk weer bouwen.", "stap": "ezra:terugkeer:5" },
+        { "t": "Eindelijk is de tempel klaar. Het volk viert feest met blijdschap, want de HEERE heeft hen blij gemaakt.", "stap": "ezra:terugkeer:6" }
+      ],
+      "samen": "Bij A is weggelaten dat tegenstanders brieven naar koningen van Perzië schreven (Ezra 4:6–23), en dat koning Darius het bevel van Kores liet zoeken en het bouwen toestond (Ezra 5:3–6:12). Ezra 1:1 zegt dat dit alles begon ‘opdat volbracht wierd het woord des HEEREN, uit den mond van Jeremia’. Vraag samen: waarom huilden de oude mannen, terwijl anderen juichten (Ezra 3:12)?",
+      "vragen": [
+        { "q": "Wat bouwen ze als eerste?", "a": ["Het altaar", "Een muur"], "why": "Ezra 3:2" },
+        { "q": "Waarom huilen de oude mannen?", "a": ["Ze hebben de eerste tempel nog gezien", "Ze zijn moe van de lange reis"], "why": "Ezra 3:12" },
+        { "q": "Wat geeft Kores terug?", "a": ["De vaten van de tempel", "Een kroon van goud"], "why": "Ezra 1:7" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Kores laat het volk gaan",
+          "stap": "ezra:terugkeer:0",
+          "t": "In het eerste jaar van Kores, de koning van Perzië, wekt de HEERE zijn geest op. Dat betekent: de HEERE maakt dat Kores dit wil. Zo gebeurt wat God door Jeremia zei. Kores laat bekendmaken: wie bij Gods volk hoort, mag naar Jeruzalem gaan om het huis van de HEERE te bouwen. Hij geeft ook de vaten terug die Nebukadnezar uit de tempel had weggehaald."
+        },
+        {
+          "kop": "Juichen en huilen",
+          "stap": "ezra:terugkeer:3",
+          "t": "Een grote groep keert terug, met Zerubbabel en Jesua. Eerst bouwen ze het altaar, om brandoffers te brengen. In het tweede jaar leggen ze het fundament van de tempel. Ze loven de HEERE, dat Hij goed is, en het volk juicht. Maar oude mannen die de eerste tempel nog gezien hebben, huilen hardop."
+        },
+        {
+          "kop": "Stilgelegd en toch klaar",
+          "stap": "ezra:terugkeer:5",
+          "t": "Tegenstanders ontmoedigen het volk, en het werk ligt stil tot het tweede jaar van koning Darius. Dan profeteren Haggaï en Zacharia, en het volk bouwt verder. In Achmetha wordt het bevel van Kores teruggevonden, en Darius zegt: laat hen bouwen. In het zesde jaar van Darius is de tempel klaar. Het volk viert met blijdschap de inwijding en het Pascha."
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom liet Kores het volk gaan?", "a": ["De HEERE had zijn geest opgewekt", "Het volk had hem goud gegeven", "Hij was bang voor Jeruzalem"], "why": "Ezra 1:1" },
+        { "q": "Wie bouwden het altaar?", "a": ["Jesua en Zerubbabel met hun broeders", "Haggaï en Zacharia", "Kores en Darius"], "why": "Ezra 3:2" },
+        { "q": "Wat gebeurde er eerst?", "a": ["Het altaar werd gebouwd", "Het fundament werd gelegd", "De tempel werd ingewijd"], "why": "Ezra 3:2–10" },
+        { "q": "Waarom lag het werk aan de tempel stil?", "a": ["Tegenstanders hielden het bouwen tegen", "Er was geen hout meer", "Het volk ging terug naar Babel"], "why": "Ezra 4:4–5; Ezra 4:24" },
+        { "q": "Wat werd er in Achmetha gevonden?", "a": ["Een rol met het bevel van Kores", "De vaten van de tempel", "Een brief van Jeremia"], "why": "Ezra 6:2–3" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Waar en wanneer",
+          "t": "Het eerste jaar van Kores als koning over Babel is 538 v.Chr., na de verovering van Babel in 539. Het werk lag stil tot het tweede jaar van Darius I, 520 v.Chr. (Ezra 4:24). De tempel was klaar op de derde dag van Adar in zijn zesde jaar (Ezra 6:15), ca. 516 of 515 v.Chr. Babel, Jeruzalem en Achmetha, ook bekend als Ekbatana in Medië, kunnen we aanwijzen. Welke weg de terugkeerders namen, vertelt de Bijbel niet; de route op de kaart is een reconstructie.",
+          "refs": ["Ezra 1:1", "Ezra 4:24", "Ezra 6:15", "Ezra 6:2"]
+        },
+        {
+          "kop": "Ezra 4: wie waren deze koningen?",
+          "t": "Ezra 4:6–23 gaat over tegenwerking onder Ahasveros en Arthahsasta. De brief aan Arthahsasta klaagt over het herbouwen van de stad en haar muren, niet over de tempel (Ezra 4:12–13). Uitleggers verschillen over wie deze koningen waren. Velen zien hier koningen die na Darius regeerden; dan is dit stuk een vooruitblik, en keert vers 24 terug naar de tijd van Darius. Anderen denken aan koningen tussen Kores en Darius. Vanaf Ezra 4:8 tot en met 6:18 is het boek in het Aramees geschreven, dat in 4:7 ‘Syrisch’ heet.",
+          "refs": ["Ezra 4:6–24", "Ezra 4:12–13", "Ezra 4:7"]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Jeremia had over de vaten van de tempel gezegd: ‘Naar Babel zullen zij gebracht worden’, en dat God ze zou ‘wederbrengen tot deze plaats’ (Jeremia 27:21–22). Het boek 2 Kronieken eindigt met bijna dezelfde woorden als Ezra 1:1–3 (2 Kronieken 36:22–23). Haggaï vraagt wie er nog is die ‘dit huis in zijn eerste heerlijkheid gezien heeft’ (Haggaï 2:4), zoals de oude mannen die huilden (Ezra 3:12). Zacharia zegt: ‘De handen van Zerubbabel hebben dit huis gegrondvest, zijn handen zullen het ook voleinden’ (Zacharia 4:9).",
+          "refs": ["Jeremia 27:21–22", "2 Kronieken 36:22–23", "Ezra 1:1–3", "Haggaï 2:4", "Ezra 3:12", "Zacharia 4:9"]
+        }
+      ],
+      "vragen": [
+        { "q": "Welke profeet vraagt wie het huis nog ‘in zijn eerste heerlijkheid’ gezien heeft?", "a": ["Haggaï", "Zacharia", "Jeremia"], "why": "Haggaï 2:4" },
+        { "q": "Waarover klaagt de brief aan Arthahsasta in Ezra 4?", "a": ["Over het herbouwen van de stad en haar muren", "Over de offers op het nieuwe altaar", "Over de vaten van goud en zilver"], "why": "Ezra 4:12–13" },
+        { "q": "Wat zegt Zacharia over de handen van Zerubbabel?", "a": ["Ze hebben het huis gegrondvest en zullen het voleinden", "Ze zijn te zwak om het huis te bouwen", "Ze moeten eerst de stadsmuur bouwen"], "why": "Zacharia 4:9" },
+        { "q": "Welk Bijbelboek eindigt met bijna dezelfde woorden als het begin van Ezra?", "a": ["2 Kronieken", "Nehemia", "Esther"], "why": "2 Kronieken 36:22–23" }
+      ]
+    }
+  }
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Controleert Bijbelverwijzingen en getallen tegen de Statenvertaling in public/bijbelreis/bijbel/.
+"""Controleert Bijbelverwijzingen en getallen tegen de Statenvertaling in data/statenvertaling/.
 
 Gebruik: python3 scripts/bijbel-check.py controle.txt
 Elke regel: <verwijzing> | <regex die in de tekst moet voorkomen>, bijvoorbeeld
@@ -11,7 +11,7 @@ Exitcode 1 als een controle faalt."""
 import json, re, sys, os, unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DIR = os.path.join(HERE, "..", "public", "bijbelreis", "bijbel")
+DIR = os.path.join(HERE, "..", "data", "statenvertaling")
 BOOKS = {}
 
 def slug(name):

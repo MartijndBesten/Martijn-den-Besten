@@ -1,0 +1,598 @@
+{
+  "77": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["susan"],
+      "delen": [
+        { "t": "Koning Ahasveros is een machtige koning. Hij woont in de burcht Susan en regeert over heel veel landen.", "stap": "esther:esther:0" },
+        { "t": "De koning geeft een groot feest. Hij laat koningin Vasthi roepen, maar Vasthi weigert te komen.", "stap": "esther:esther:0" },
+        { "t": "De koning wordt heel boos. Vasthi mag geen koningin meer zijn." },
+        { "t": "In Susan woont een Joodse man, Mordechai. Hij zorgt voor Esther, want haar vader en moeder zijn gestorven.", "stap": "esther:esther:1" },
+        { "t": "Esther wordt naar het huis van de koning gebracht. De koning houdt meer van haar dan van alle anderen. Hij maakt haar koningin.", "stap": "esther:esther:1" },
+        { "t": "Esther vertelt niet dat ze Joods is. Dat heeft Mordechai haar gezegd." },
+        { "t": "Mordechai hoort dat twee mannen de koning willen doden. Hij laat het via Esther aan de koning weten. Het wordt opgeschreven in een boek." },
+        { "t": "Dan maakt de koning Haman de belangrijkste van al zijn vorsten. Iedereen moet voor Haman buigen. Maar Mordechai buigt niet.", "stap": "esther:esther:2" },
+        { "t": "Haman wordt heel boos. Hij wil niet alleen Mordechai, maar alle Joden laten doden. De koning geeft hem daarvoor zijn ring.", "stap": "esther:esther:2" }
+      ],
+      "samen": "Het verhaal stopt hier op een spannend punt: Haman wil alle Joden laten doden (Esther 3:6, 13). Hoe het verdergaat, staat in de volgende geschiedenis (78). Weggelaten: de twee kamerlingen werden aan een galg gehangen (Esther 2:23), en hoe de jonge vrouwen een jaar lang werden voorbereid (Esther 2:12–14). Vraag samen: wat werd er in het boek opgeschreven? Dat wordt later heel belangrijk (Esther 6:1–3).",
+      "vragen": [
+        { "q": "Wie zorgt voor Esther?", "a": ["Mordechai", "Haman"], "why": "Esther 2:7" },
+        { "q": "Wie wordt de nieuwe koningin?", "a": ["Esther", "Vasthi"], "why": "Esther 2:17" },
+        { "q": "Waarom wordt Haman zo boos?", "a": ["Mordechai buigt niet voor hem", "Esther wordt koningin"], "why": "Esther 3:5" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Een feest in de burcht Susan",
+          "stap": "esther:esther:0",
+          "t": "Koning Ahasveros regeert vanuit de burcht Susan over honderdzevenentwintig landschappen. In zijn derde jaar geeft hij een groot feestmaal. Op de zevende dag laat hij koningin Vasthi roepen, om haar schoonheid te laten zien. Maar Vasthi weigert te komen. Daarom besluit de koning dat zij geen koningin meer mag zijn."
+        },
+        {
+          "kop": "Esther wordt koningin",
+          "stap": "esther:esther:1",
+          "t": "Uit het hele rijk worden jonge vrouwen naar Susan gebracht, ook Esther. Zij is Joods en heeft geen vader en moeder meer. Haar neef Mordechai heeft haar als zijn dochter opgevoed. Op zijn bevel vertelt ze niet uit welk volk ze komt. De koning houdt meer van Esther dan van alle anderen en zet haar de kroon op."
+        },
+        {
+          "kop": "Haman en het lot",
+          "stap": "esther:esther:2",
+          "t": "Mordechai ontdekt dat twee kamerlingen (dienaren van de koning) hem willen doden. Dat wordt opgeschreven in de kronieken. Daarna maakt de koning Haman de hoogste van alle vorsten. Mordechai buigt niet voor hem. Daarom wil Haman alle Joden laten doden. Het lot, het Pur, wijst een dag aan: de dertiende van de maand Adar."
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom mocht Vasthi geen koningin meer zijn?", "a": ["Ze weigerde te komen toen de koning haar riep", "Ze was naar een ander land vertrokken", "Ze wilde de koning laten doden"], "why": "Esther 1:12–19" },
+        { "q": "Wie had Esther opgevoed?", "a": ["Mordechai, haar neef", "Hegai, de kamerling", "Haman, de vorst"], "why": "Esther 2:7" },
+        { "q": "Waarom vertelde Esther niet dat ze Joods was?", "a": ["Mordechai had het haar geboden", "Ze wist het zelf niet", "De koning had het verboden"], "why": "Esther 2:10" },
+        { "q": "Wat gebeurde er nadat Mordechai de koning had gered?", "a": ["Het werd in de kronieken opgeschreven", "Mordechai werd meteen een vorst", "Haman moest hem eren"], "why": "Esther 2:22–23" },
+        { "q": "Waarvoor werd het lot, het Pur, geworpen?", "a": ["Om een dag te kiezen", "Om een koningin te kiezen", "Om een vorst te kiezen"], "why": "Esther 3:7, 13" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Waar en wanneer",
+          "t": "Susan, de burcht van de koning, is een plaats die goed is aan te wijzen. De Bijbel noemt hier geen jaartallen, wel regeringsjaren van Ahasveros: het feest in zijn derde jaar (1:3), Esther koningin in de tiende maand van zijn zevende jaar (2:16), en het lot in zijn twaalfde jaar (3:7). Meestal wordt Ahasveros gelijkgesteld met de Perzische koning Xerxes I (486–465 v.Chr.); dan komt dat uit op ca. 483, 479 en 474 v.Chr. Wie Ahasveros anders identificeert, komt op andere jaartallen. Het is dus een reconstructie.",
+          "refs": ["Esther 1:3", "Esther 2:16", "Esther 3:7"]
+        },
+        {
+          "kop": "Agagiet en Benjaminiet",
+          "t": "Haman wordt ‘den Agagiet’ genoemd (3:1). Veel uitleggers verbinden die naam met Agag, ‘den koning der Amalekieten’, die koning Saul gevangennam (1 Samuël 15:8). Over Amalek had de HEERE gezegd: ‘zo zal de oorlog des HEEREN tegen Amalek zijn, van geslacht tot geslacht!’ (Exodus 17:16). Mordechai is een Benjaminiet, een nakomeling van Kis (2:5). Ook de vader van Saul heette Kis en kwam uit Benjamin (1 Samuël 9:1–2). Het boek Esther legt dit verband zelf niet; het is een uitleg.",
+          "refs": ["Esther 3:1", "1 Samuël 15:8", "Exodus 17:16", "Esther 2:5", "1 Samuël 9:1–2"]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "De tekst zegt niet waarom Vasthi weigerde te komen. Er staat alleen dat zij ‘niet gedaan had het woord van den koning’ (1:15). Ook waarom Mordechai niet voor Haman boog, wordt niet uitgelegd. Er staat alleen dat ‘hij had hun te kennen gegeven, dat hij een Jood was’ (3:4). Uitleggers verschillen over de reden. Wie het verhaal navertelt, kan dat dus beter niet invullen.",
+          "refs": ["Esther 1:12–15", "Esther 3:2–4"]
+        }
+      ],
+      "vragen": [
+        { "q": "In welk jaar van Ahasveros werd Esther koningin?", "a": ["In zijn zevende jaar", "In zijn derde jaar", "In zijn twaalfde jaar"], "why": "Esther 2:16" },
+        { "q": "Welke koning van Juda noemt Esther 2:6 bij de wegvoering uit Jeruzalem?", "a": ["Jechonia", "Zedekia", "Josia"], "why": "Esther 2:6" },
+        { "q": "Waarmee werden de brieven van Haman verzegeld?", "a": ["Met de ring van de koning", "Met de ring van Haman zelf", "Met het zegel van Mordechai"], "why": "Esther 3:10–12" }
+      ]
+    }
+  },
+  "78": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["susan"],
+      "delen": [
+        { "t": "Mordechai hoort dat Haman alle Joden wil laten doden. Hij scheurt zijn kleren en roept luid door de stad.", "stap": "esther:esther:3" },
+        { "t": "Mordechai vraagt Esther om naar de koning te gaan. Ze moet de koning smeken voor haar volk.", "stap": "esther:esther:3" },
+        { "t": "Maar dat is gevaarlijk. Wie niet geroepen is en toch bij de koning komt, moet sterven. Behalve als de koning zijn gouden scepter uitsteekt." },
+        { "t": "Esther vraagt alle Joden in Susan om voor haar te vasten: drie dagen niet eten en niet drinken. Dan gaat ze naar de koning." },
+        { "t": "De koning steekt de gouden scepter naar Esther uit. Ze mag blijven leven! Ze vraagt de koning en Haman om bij haar te komen eten.", "stap": "esther:esther:4" },
+        { "t": "Haman ziet Mordechai weer in de poort. Hij wil de koning vragen om Mordechai te laten doden.", "stap": "esther:esther:4" },
+        { "t": "Die nacht kan de koning niet slapen. Hij laat voorlezen uit het boek waarin alles wordt opgeschreven.", "stap": "esther:esther:5" },
+        { "t": "Zo hoort de koning dat Mordechai hem gered heeft. Nu moet Haman zelf Mordechai op het paard van de koning door de stad leiden.", "stap": "esther:esther:5" },
+        { "t": "Bij de tweede maaltijd vertelt Esther: Haman wil mij en mijn volk doden. De koning wordt heel boos, en Haman moet sterven.", "stap": "esther:esther:6" },
+        { "t": "Mordechai schrijft een nieuwe wet. Nu mogen de Joden voor hun leven opkomen. Bij de Joden is er licht en blijdschap.", "stap": "esther:esther:7" }
+      ],
+      "samen": "Weggelaten: Haman werd opgehangen aan de galg die hij voor Mordechai had laten maken (Esther 7:9–10), en de nieuwe wet gaf de Joden ook het recht om hun vijanden te doden (Esther 8:11). Vertel dat sober als je kind ernaar vraagt. Wijs samen aan hoe alles omdraait: de eer die Haman voor zichzelf bedacht, kreeg Mordechai (Esther 6:6–11).",
+      "vragen": [
+        { "q": "Wat steekt de koning naar Esther uit?", "a": ["De gouden scepter", "Zijn zwaard"], "why": "Esther 5:2" },
+        { "q": "Wat doet de koning als hij niet kan slapen?", "a": ["Hij laat voorlezen uit een boek", "Hij roept Esther bij zich"], "why": "Esther 6:1" },
+        { "q": "Wat vraagt Esther aan de Joden in Susan?", "a": ["Drie dagen voor haar vasten", "Een feest voor haar maken"], "why": "Esther 4:16" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Voor zulk een tijd als deze",
+          "stap": "esther:esther:3",
+          "t": "Mordechai scheurt zijn kleren en vraagt Esther om bij de koning te smeken voor haar volk. Maar wie ongeroepen bij de koning komt, wordt gedood, tenzij de koning de gouden scepter uitsteekt. Mordechai laat zeggen: misschien ben je juist voor deze tijd koningin geworden. Esther laat de Joden drie dagen vasten en zegt: ‘Wanneer ik dan omkome, zo kom ik om.’"
+        },
+        {
+          "kop": "Een nacht zonder slaap",
+          "stap": "esther:esther:5",
+          "t": "De koning steekt de scepter naar Esther uit. Ze nodigt hem en Haman uit voor een maaltijd. Haman laat een galg maken voor Mordechai. Maar die nacht kan de koning niet slapen. Uit de kronieken hoort hij dat Mordechai hem gered heeft. Nu moet Haman zelf Mordechai eren."
+        },
+        {
+          "kop": "Alles draait om",
+          "stap": "esther:esther:6",
+          "t": "Bij de tweede maaltijd zegt Esther dat Haman haar volk wil uitroeien. Haman wordt opgehangen aan de galg die hij voor Mordechai had gemaakt. Een bevel met de ring van de koning kan niet worden ingetrokken. Daarom krijgen de Joden met een nieuw bevel het recht om voor hun leven op te komen."
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom was het gevaarlijk voor Esther om naar de koning te gaan?", "a": ["Wie ongeroepen kwam, werd gedood", "De koning was ziek en wilde niemand zien", "Haman bewaakte de deur van de koning"], "why": "Esther 4:11" },
+        { "q": "Wat vroeg Esther aan de Joden in Susan?", "a": ["Drie dagen voor haar vasten", "Een galg voor Haman bouwen", "Samen de stad uit vluchten"], "why": "Esther 4:16" },
+        { "q": "Hoe hoorde de koning dat Mordechai hem gered had?", "a": ["Uit de kronieken die werden voorgelezen", "Mordechai kwam het hem zelf zeggen", "Haman vertelde het hem"], "why": "Esther 6:1–2" },
+        { "q": "Wat gebeurde er met Haman?", "a": ["Hij werd opgehangen aan zijn eigen galg", "Hij werd naar Babel gestuurd", "Hij werd de tweede na de koning"], "why": "Esther 7:9–10" },
+        { "q": "Waarom kwam er een nieuw bevel in plaats van het oude in te trekken?", "a": ["Wat met de ring van de koning verzegeld was, kon niet herroepen worden", "Haman had het oude bevel meegenomen", "De koning was het oude bevel vergeten"], "why": "Esther 8:8" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Een wet die niet terug kan",
+          "t": "Esther vraagt of de brieven van Haman ‘wederroepen worden’ (8:5). Maar de koning zegt: ‘het schrift, dat in des konings naam geschreven, en met des konings ring verzegeld is, is niet te wederroepen’ (8:8). Datzelfde lezen we bij Vasthi, over een gebod in ‘de wetten der Perzen en Meden’ (1:19), en bij Daniël: ‘naar de wet der Meden en Perzen, die niet mag herroepen worden’ (Daniël 6:13). Daarom komt er geen bevel dat het eerste opheft, maar een tweede bevel. Dat geeft de Joden het recht om ‘zich te vergaderen, en voor hun leven te staan’ (8:11).",
+          "refs": ["Esther 8:5–11", "Esther 1:19", "Daniël 6:13"]
+        },
+        {
+          "kop": "Zak, as en vasten",
+          "t": "Mordechai ‘trok een zak aan met as’ (4:1). Een zak is een kleed van grove stof. Samen met as was het een teken van rouw en verootmoediging. Zo deed ook de koning van Ninevé toen Jona preekte (Jona 3:6), en Daniël toen hij voor zijn volk bad (Daniël 9:3). Esther vraagt om drie dagen vasten (4:16). Dat er ook gebeden werd, staat er niet; wel horen vasten en bidden elders in de Bijbel vaak bij elkaar (Ezra 8:23; Nehemia 1:4).",
+          "refs": ["Esther 4:1–3", "Esther 4:16", "Jona 3:6", "Daniël 9:3", "Ezra 8:23", "Nehemia 1:4"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Alles gebeurt in de burcht Susan; van daaruit gaan de brieven naar honderdzevenentwintig landschappen, ‘van Indië af tot aan Morenland’ (8:9). Het lot werd geworpen in het twaalfde jaar van Ahasveros (3:7), en het nieuwe bevel ging uit in de derde maand, Sivan (8:9). Als Ahasveros Xerxes I is, was dat ca. 474 v.Chr., en viel de dertiende van Adar in het voorjaar van 473 v.Chr. Dat is een reconstructie.",
+          "refs": ["Esther 3:7", "Esther 8:9"]
+        }
+      ],
+      "vragen": [
+        { "q": "Wie bracht de boodschappen over tussen Esther en Mordechai?", "a": ["Hatach, een kamerling", "Charbona, een kamerling", "Hegai, de bewaarder der vrouwen"], "why": "Esther 4:5–10" },
+        { "q": "Hoe lang was Esther al niet bij de koning geroepen?", "a": ["Dertig dagen", "Drie dagen", "Zeven dagen"], "why": "Esther 4:11" },
+        { "q": "Wat zeiden Zeres en de wijzen van Haman nadat hij Mordechai had moeten eren?", "a": ["Dat hij niet tegen Mordechai zou kunnen winnen", "Dat hij de koning om de galg moest vragen", "Dat Mordechai zou vluchten uit Susan"], "why": "Esther 6:13" }
+      ]
+    }
+  },
+  "79": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["salem"],
+      "delen": [
+        { "t": "God stuurt de profeet Zacharia naar Zijn volk. Een profeet brengt een boodschap van God.", "stap": "profeten:zacharia-maleachi:0" },
+        { "t": "God zegt: Kom terug bij Mij, dan kom Ik terug bij jullie. Doe niet zoals jullie vaders, want zij luisterden niet." },
+        { "t": "Zacharia vertelt ook blij nieuws voor Jeruzalem. Er komt een Koning!", "stap": "profeten:zacharia-maleachi:2" },
+        { "t": "Deze Koning is rechtvaardig, en Hij redt. Hij is arm, en Hij rijdt op een ezel.", "stap": "profeten:zacharia-maleachi:2" },
+        { "t": "De Koning brengt vrede aan de volken. Zijn rijk gaat tot aan het einde van de aarde." },
+        { "t": "God spreekt ook door de profeet Maleachi. Zijn boek is het laatste boek van het Oude Testament.", "stap": "profeten:zacharia-maleachi:4" },
+        { "t": "God zegt: Ik stuur Mijn bode. Hij maakt de weg klaar. Dan komt de Heere naar Zijn tempel.", "stap": "profeten:zacharia-maleachi:4" },
+        { "t": "God belooft ook: Ik stuur de profeet Elia, vóór de grote dag van de HEERE." },
+        { "t": "Elia zal het hart van de vaders weer naar de kinderen brengen. En het hart van de kinderen naar hun vaders." }
+      ],
+      "samen": "Deze geschiedenis kijkt vooruit. De Heere Jezus rijdt later op een ezel Jeruzalem binnen (Mattheüs 21:4–5), en Hij zegt dat de bode en ‘Elias, die komen zou’ Johannes de Doper is (Mattheüs 11:10, 14). Weggelaten: Hij Die doorstoken wordt (Zacharia 12:10), de Herder Die geslagen wordt (Zacharia 13:7) en de dag die brandt als een oven (Maleachi 4:1). Vraag samen: op welk dier komt de Koning?",
+      "vragen": [
+        { "q": "Op welk dier rijdt de Koning?", "a": ["Op een ezel", "Op een paard"], "why": "Zacharia 9:9" },
+        { "q": "Wie stuurt God vóór de grote dag?", "a": ["De profeet Elia", "Koning David"], "why": "Maleachi 4:5" },
+        { "q": "Wat vraagt God aan Zijn volk?", "a": ["Kom terug bij Mij", "Ga weg uit Jeruzalem"], "why": "Zacharia 1:3" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Keert weder tot Mij",
+          "stap": "profeten:zacharia-maleachi:0",
+          "t": "In het tweede jaar van koning Darius spreekt God door de profeet Zacharia. God roept: ‘Keert weder tot Mij … zo zal Ik weder tot ulieden keren.’ Dat betekent: kom terug bij Mij, dan kom Ik terug bij jullie. Wees niet als jullie vaders, die niet luisterden naar de profeten."
+        },
+        {
+          "kop": "Een Koning op een ezel",
+          "stap": "profeten:zacharia-maleachi:2",
+          "t": "Zacharia roept Jeruzalem op om te juichen: ‘Ziet, uw Koning zal u komen, rechtvaardig, en Hij is een Heiland’. Een Heiland is iemand die redt. Deze Koning is arm en rijdt op een ezel. Hij spreekt vrede tot de volken."
+        },
+        {
+          "kop": "Een bode en de profeet Elia",
+          "stap": "profeten:zacharia-maleachi:4",
+          "t": "In Maleachi, het laatste boek van het Oude Testament, zegt God: ‘Ziet, Ik zende Mijn engel, die voor Mijn aangezicht den weg bereiden zal’. Engel betekent hier: bode. Daarna komt de Heere naar Zijn tempel. Vóór de grote dag van de HEERE stuurt God de profeet Elia. De Heere Jezus zegt later dat Johannes de Doper die bode is (Mattheüs 11:10)."
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom moest het volk niet doen zoals hun vaders?", "a": ["Hun vaders luisterden niet naar de profeten", "Hun vaders waren in Egypte gebleven", "Hun vaders hadden de tempel gebouwd"], "why": "Zacharia 1:4" },
+        { "q": "Hoe komt de Koning naar Jeruzalem, volgens Zacharia?", "a": ["Arm, en rijdend op een ezel", "Met strijdwagens en paarden", "Met een groot leger soldaten"], "why": "Zacharia 9:9" },
+        { "q": "Wat zal de bode uit Maleachi 3 doen?", "a": ["De weg bereiden voor de Heere", "De tempel opnieuw opbouwen", "Het volk naar Babel brengen"], "why": "Maleachi 3:1" },
+        { "q": "Wie stuurt God vóór de grote dag van de HEERE?", "a": ["De profeet Elia", "De profeet Zacharia", "Koning David"], "why": "Maleachi 4:5" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Waar en wanneer",
+          "t": "Zacharia begon ‘in de achtste maand, in het tweede jaar van Darius’ (Zacharia 1:1), in de gangbare chronologie 520 v.Chr. In datzelfde jaar sprak ook Haggaï (Haggaï 1:1). Door hun profetie ging de bouw van de tempel in Jeruzalem voorspoedig verder, en het huis werd voltooid in het zesde jaar van Darius (Ezra 6:14–15). Maleachi noemt geen jaartal; de meeste uitleggers plaatsen hem in de tijd van Ezra en Nehemia, ongeveer 450–430 v.Chr. Dat is een schatting. In Ezra 5:1 heet Zacharia ‘de zoon van Iddo’; volgens Zacharia 1:1 was Iddo zijn grootvader. Zoon kan in de Bijbel ook nakomeling betekenen.",
+          "refs": ["Zacharia 1:1", "Haggaï 1:1", "Ezra 5:1", "Ezra 6:14–15"]
+        },
+        {
+          "kop": "Is Johannes nu Elia?",
+          "t": "De Heere Jezus zegt over Johannes de Doper dat Elias al gekomen is (Mattheüs 17:12–13). Maar als men Johannes zelf vraagt: ‘Zijt gij Elias?’, zegt hij: ‘Ik ben die niet’ (Johannes 1:21). Hoe gaat dat samen? De engel zei tegen Zacharias dat Johannes zou gaan ‘in den geest en de kracht van Elias’ (Lukas 1:17). Veel uitleggers zien daarin het antwoord: Johannes is niet Elia zelf die terugkomt, maar hij komt met dezelfde opdracht.",
+          "refs": ["Mattheüs 17:10–13", "Johannes 1:21", "Lukas 1:17"]
+        },
+        {
+          "kop": "Bode en Wegbereider",
+          "t": "Het Hebreeuwse woord dat in Maleachi 3:1 met engel vertaald is, betekent ook bode: iemand die een boodschap brengt. De naam Maleachi betekent: mijn bode. Markus begint zijn evangelie met Maleachi 3:1 en Jesaja 40:3 samen: ‘De stem des roependen in de woestijn: Bereidt den weg des Heeren’ (Markus 1:2–3). En over de Koning op de ezel schrijft Johannes: ‘dit verstonden Zijn discipelen in het eerst niet’ (Johannes 12:16).",
+          "refs": ["Maleachi 3:1", "Jesaja 40:3", "Markus 1:2–3", "Johannes 12:14–16"]
+        }
+      ],
+      "vragen": [
+        { "q": "In welk jaar van koning Darius kwam het woord van de HEERE tot Zacharia?", "a": ["In het tweede jaar", "In het zesde jaar", "In het twaalfde jaar"], "why": "Zacharia 1:1" },
+        { "q": "Met welke profeet samen profeteerde Zacharia volgens Ezra 5:1?", "a": ["Haggaï", "Maleachi", "Jesaja"], "why": "Ezra 5:1" },
+        { "q": "Wat antwoordde Johannes toen men vroeg of hij Elias was?", "a": ["Ik ben die niet", "Ja, ik ben Elias", "Dat zal de Heere zeggen"], "why": "Johannes 1:21" }
+      ]
+    }
+  },
+  "80": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_tempel"],
+      "delen": [
+        { "t": "Zacharias is een priester. Hij en zijn vrouw Elisabeth leven allebei naar Gods geboden." },
+        { "t": "Ze hebben geen kinderen. En ze zijn al oud." },
+        { "t": "Zacharias mag in de tempel het reukoffer brengen: geurige rook voor God. Buiten bidt het volk.", "stap": "jezus-1:nt-geboorte:0" },
+        { "t": "Opeens staat er een engel bij het altaar. Zacharias schrikt erg.", "stap": "jezus-1:nt-geboorte:0" },
+        { "t": "De engel zegt: Wees niet bang, je gebed is verhoord. Elisabeth krijgt een zoon. Hij moet Johannes heten." },
+        { "t": "Maar Zacharias gelooft het niet. Hij vraagt hoe hij dat kan weten, want hij is oud." },
+        { "t": "De engel zegt: Ik ben Gabriël, ik sta voor God. Omdat je het niet gelooft, kun je niet praten tot het gebeurd is." },
+        { "t": "Zacharias komt naar buiten. Hij kan niet praten en maakt alleen gebaren.", "stap": "jezus-1:nt-geboorte:0" },
+        { "t": "Daarna gaat Zacharias naar huis. En Elisabeth verwacht een kindje, zoals de engel gezegd had." }
+      ],
+      "samen": "Zacharias kon niet meer spreken omdat hij de woorden van de engel niet geloofde (Lukas 1:20). Je kunt dat rustig bespreken: God deed toch wat Hij beloofd had. Hoe Zacharias weer gaat spreken, staat in Lukas 1:57–64 (geschiedenis 82). Wijs op de kaart de tempel in Jeruzalem aan, en vraag: wat deed het volk buiten terwijl Zacharias binnen was?",
+      "vragen": [
+        { "q": "Waar is Zacharias als de engel komt?", "a": ["In de tempel", "Thuis in bed"], "why": "Lukas 1:9–11" },
+        { "q": "Hoe moet het kindje heten?", "a": ["Johannes", "Zacharias"], "why": "Lukas 1:13" },
+        { "q": "Wat kan Zacharias daarna niet meer?", "a": ["Praten", "Lopen"], "why": "Lukas 1:20" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Een priester en zijn vrouw",
+          "t": "In de tijd van koning Herodes leeft er een priester, Zacharias. Een priester doet de dienst voor God in de tempel. Hij en zijn vrouw Elisabeth zijn rechtvaardig voor God en leven naar al Zijn geboden. Maar ze hebben geen kind, want Elisabeth is onvruchtbaar: ze kan geen kinderen krijgen. En ze zijn allebei al oud."
+        },
+        {
+          "kop": "Een engel bij het altaar",
+          "stap": "jezus-1:nt-geboorte:0",
+          "t": "Het lot wijst Zacharias aan om in de tempel het reukoffer te brengen. Buiten bidt het volk. Dan staat er een engel rechts van het altaar. Zacharias schrikt. De engel zegt: ‘Vrees niet, Zacharias! want uw gebed is verhoord’. Elisabeth krijgt een zoon, en hij moet Johannes heten."
+        },
+        {
+          "kop": "Stil tot het gebeurt",
+          "t": "Zacharias vraagt waaraan hij dat kan weten, want hij is oud. De engel zegt: ‘Ik ben Gabriël, die voor God sta’. Omdat Zacharias het niet gelooft, zal hij niet kunnen spreken tot alles gebeurd is. Als hij naar buiten komt, kan hij alleen gebaren maken. Na zijn dienst gaat hij naar huis, en Elisabeth wordt zwanger."
+        }
+      ],
+      "vragen": [
+        { "q": "Hoe werd Zacharias gekozen om het reukoffer te brengen?", "a": ["Het lot viel op hem", "Hij had het zelf gevraagd", "Koning Herodes had het bevolen"], "why": "Lukas 1:9" },
+        { "q": "Wat deed het volk terwijl Zacharias in de tempel was?", "a": ["Het bad buiten", "Het ging naar huis", "Het bracht offers binnen"], "why": "Lukas 1:10" },
+        { "q": "Waarom kon Zacharias niet meer spreken?", "a": ["Hij had de woorden van de engel niet geloofd", "Hij was ziek geworden in de tempel", "Hij had beloofd om te zwijgen"], "why": "Lukas 1:20" },
+        { "q": "Hoe heette de engel?", "a": ["Gabriël", "Michaël", "Johannes"], "why": "Lukas 1:19" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Priesters in beurten",
+          "t": "Zacharias hoort bij ‘de dagorde van Abia’ (Lukas 1:5). In 1 Kronieken 24 worden de priesters door het lot in vierentwintig groepen verdeeld: ‘het achtste voor Abia’ (1 Kronieken 24:10). Elke groep deed om de beurt de dienst in de tempel (Lukas 1:8). Wie het reukoffer mocht brengen, werd met het lot bepaald (Lukas 1:9). Het reukwerk werd elke morgen en elke avond aangestoken (Exodus 30:7–8). Het volk bidt buiten ‘ten ure des reukoffers’ (Lukas 1:10). Ook Psalm 141:2 verbindt bidden en reukwerk: ‘Mijn gebed worde gesteld als reukwerk voor Uw aangezicht’.",
+          "refs": ["Lukas 1:5–10", "1 Kronieken 24:5–18", "Exodus 30:7–8", "Psalm 141:2"]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "De engel zegt over Johannes: ‘noch wijn, noch sterken drank zal hij drinken’ (Lukas 1:15). Dat doet denken aan de wet voor de nazireeër: ‘Van wijn en sterken drank zal hij zich afzonderen’ (Numeri 6:3). Lukas noemt Johannes geen nazireeër; veel uitleggers wijzen wel op de overeenkomst met Simson (Richteren 13:4–5). Ook Elisabeth staat niet alleen. Van Rebekka, de moeder van Simson en Hanna vertelt de Bijbel dat ze onvruchtbaar waren of geen kinderen hadden, voordat God hun een zoon gaf (Genesis 25:21; Richteren 13:2–3; 1 Samuël 1:2, 20).",
+          "refs": ["Lukas 1:15", "Numeri 6:3", "Richteren 13:2–5", "Genesis 25:21", "1 Samuël 1:2, 20"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "De tempel in Jeruzalem is goed aan te wijzen. Wanneer dit gebeurde, is een reconstructie. Als Gabriël bij Maria komt, is Elisabeth in haar zesde maand (Lukas 1:26, 36). Dit gebeurde dus ongeveer vijftien maanden vóór de geboorte van de Heere Jezus. Die wordt meestal op ca. 6–4 v.Chr. gesteld, omdat Herodes volgens de geschiedschrijver Josephus ca. 4 v.Chr. stierf. Andere dateringen bestaan.",
+          "refs": ["Lukas 1:5", "Lukas 1:26, 36"]
+        }
+      ],
+      "vragen": [
+        { "q": "Tot welke dagorde van priesters hoorde Zacharias?", "a": ["De dagorde van Abia", "De dagorde van Jojarib", "De dagorde van Maazja"], "why": "Lukas 1:5" },
+        { "q": "Wat zou Johannes volgens de engel niet drinken?", "a": ["Wijn en sterke drank", "Water uit de Jordaan", "Melk van de kudde"], "why": "Lukas 1:15" },
+        { "q": "Wat begrepen de mensen buiten, toen Zacharias niet kon spreken?", "a": ["Dat hij een gezicht in de tempel gezien had", "Dat hij in de tempel ziek geworden was", "Dat hij een gelofte van zwijgen had gedaan"], "why": "Lukas 1:22" },
+        { "q": "In welke maand was Elisabeth toen Gabriël bij Maria kwam?", "a": ["In de zesde maand", "In de derde maand", "In de negende maand"], "why": "Lukas 1:26, 36" }
+      ]
+    }
+  },
+  "81": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_nazareth", "nt1_judagebergte"],
+      "delen": [
+        { "t": "God stuurt de engel Gabriël naar Nazareth, naar Maria. Maria gaat trouwen met Jozef.", "stap": "jezus-1:nt-geboorte:1" },
+        { "t": "De engel zegt: Wees niet bang, Maria. Je hebt genade gevonden bij God.", "stap": "jezus-1:nt-geboorte:1" },
+        { "t": "Je krijgt een Zoon, en je moet Hem Jezus noemen. Hij zal Koning zijn, en aan Zijn Koninkrijk komt geen einde." },
+        { "t": "Maria vraagt hoe dat kan. De engel zegt: De Heilige Geest zal over je komen. Bij God is niets onmogelijk." },
+        { "t": "Maria zegt: ‘Zie, de dienstmaagd des Heeren; mij geschiede naar uw woord.’" },
+        { "t": "Dan reist Maria haastig naar Elisabeth, in het bergland van Juda. Elisabeth verwacht ook een kindje.", "stap": "jezus-1:nt-geboorte:3" },
+        { "t": "Als Elisabeth Maria hoort groeten, springt het kindje in haar buik op van vreugde.", "stap": "jezus-1:nt-geboorte:3" },
+        { "t": "Maria looft God: ‘Mijn ziel maakt groot den Heere’. Ze blijft ongeveer drie maanden bij Elisabeth." },
+        { "t": "Ook Jozef hoort dat Maria een kindje verwacht. Hij wil eerst stilletjes bij haar weggaan.", "stap": "jezus-1:nt-geboorte:2" },
+        { "t": "Maar een engel zegt in een droom: Neem Maria als je vrouw, het Kind is uit de Heilige Geest. Jozef doet wat de engel zegt.", "stap": "jezus-1:nt-geboorte:2" }
+      ],
+      "samen": "Maria werd zwanger ‘uit den Heiligen Geest’ voordat zij en Jozef samenwoonden (Mattheüs 1:18). Leg dat niet verder uit dan de Bijbel zelf doet. De Bijbel zegt niet of de droom van Jozef vóór of na het bezoek aan Elisabeth was. De engel zegt ook waarom het Kind Jezus moet heten: ‘want Hij zal Zijn volk zalig maken van hun zonden’ (Mattheüs 1:21). Lees dat er gerust bij.",
+      "vragen": [
+        { "q": "Wie stuurt God naar Maria?", "a": ["De engel Gabriël", "De profeet Elia"], "why": "Lukas 1:26–27" },
+        { "q": "Naar wie gaat Maria op reis?", "a": ["Naar Elisabeth", "Naar de koning"], "why": "Lukas 1:39–40" },
+        { "q": "Hoe hoort Jozef wat hij moet doen?", "a": ["Een engel zegt het in een droom", "Maria schrijft hem een brief"], "why": "Mattheüs 1:20" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Gabriël in Nazareth",
+          "stap": "jezus-1:nt-geboorte:1",
+          "t": "God stuurt de engel Gabriël naar Nazareth, naar Maria. Zij is ondertrouwd met Jozef uit het huis van David: ze hebben beloofd met elkaar te trouwen. De engel zegt dat Maria een Zoon zal krijgen, Die Jezus moet heten. Hij is de Zoon van de Allerhoogste, en aan Zijn Koninkrijk komt geen einde."
+        },
+        {
+          "kop": "Mij geschiede naar uw woord",
+          "t": "Maria vraagt hoe dat kan. De engel zegt dat de Heilige Geest over haar zal komen, ‘want geen ding zal bij God onmogelijk zijn.’ Maria antwoordt: ‘Zie, de dienstmaagd des Heeren; mij geschiede naar uw woord.’ Dat betekent: ik ben de dienares van de Heere; laat het gebeuren zoals u zegt."
+        },
+        {
+          "kop": "Bij Elisabeth",
+          "stap": "jezus-1:nt-geboorte:3",
+          "t": "Maria reist haastig naar Elisabeth, in het bergland van Juda. Als Elisabeth haar groet hoort, springt het kindje op in haar buik. Maria looft God en blijft ongeveer drie maanden."
+        },
+        {
+          "kop": "De droom van Jozef",
+          "stap": "jezus-1:nt-geboorte:2",
+          "t": "Jozef wil Maria eerst in stilte verlaten. Maar een engel zegt hem in een droom dat het Kind uit de Heilige Geest is. Jozef doet wat de engel zegt en neemt Maria als zijn vrouw."
+        }
+      ],
+      "vragen": [
+        { "q": "Met wie was Maria ondertrouwd?", "a": ["Met Jozef, uit het huis van David", "Met Zacharias, de priester", "Met een herder uit Bethlehem"], "why": "Lukas 1:27" },
+        { "q": "Welk nieuws over Elisabeth vertelde de engel aan Maria?", "a": ["Dat zij in haar ouderdom zwanger was", "Dat zij naar Nazareth zou komen", "Dat zij een dochter zou krijgen"], "why": "Lukas 1:36" },
+        { "q": "Wat gebeurde er toen Elisabeth de groet van Maria hoorde?", "a": ["Het kindje sprong op in haar buik", "Zacharias kon weer spreken", "Er kwam een engel binnen"], "why": "Lukas 1:41" },
+        { "q": "Waarom wilde Jozef Maria eerst in stilte verlaten?", "a": ["Hij wilde haar niet openlijk te schande maken", "Hij moest op reis naar Bethlehem", "Hij had geen huis voor haar"], "why": "Mattheüs 1:19" },
+        { "q": "Wat deed Jozef toen hij wakker werd?", "a": ["Hij nam Maria als zijn vrouw", "Hij vertrok meteen naar Egypte", "Hij ging naar de tempel"], "why": "Mattheüs 1:24" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Twee vragen aan Gabriël",
+          "t": "Zacharias vroeg: ‘Waarbij zal ik dat weten?’ (Lukas 1:18) en moest zwijgen, omdat hij niet geloofde (1:20). Maria vraagt: ‘Hoe zal dat wezen?’ (1:34), en de engel legt het uit. Veel uitleggers zien het verschil in de vraag zelf: Zacharias vroeg om een bewijs, Maria vroeg hoe het zou gebeuren. Elisabeth zegt over Maria: ‘zalig is zij, die geloofd heeft’ (1:45).",
+          "refs": ["Lukas 1:18–20", "Lukas 1:34–35", "Lukas 1:45"]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "‘Want geen ding zal bij God onmogelijk zijn’ (1:37) doet denken aan wat God over Sara zei: ‘Zou iets voor den HEERE te wonderlijk zijn?’ (Genesis 18:14). De lofzang van Maria lijkt op het gebed van Hanna: ‘Hij vernedert, ook verhoogt Hij’ (1 Samuël 2:7), naast ‘nederigen heeft Hij verhoogd’ (Lukas 1:52). En Maria eindigt bij de belofte aan ‘Abraham, en zijn zaad’ (Lukas 1:55; vergelijk Genesis 22:17–18).",
+          "refs": ["Lukas 1:37", "Genesis 18:14", "1 Samuël 2:7", "Lukas 1:52–55", "Genesis 22:17–18"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Nazareth, ‘een stad in Galilea’ (1:26), is goed aan te wijzen. De woonplaats van Zacharias en Elisabeth wordt niet bij naam genoemd: alleen ‘een stad van Juda’ in het gebergte (1:39). Daarom staat die plaats op de kaart als onbekend. Het woord nicht (1:36) betekent hier: familielid; hoe Maria en Elisabeth precies familie waren, zegt de tekst niet. Datering: een reconstructie, ongeveer negen maanden vóór de geboorte van de Heere Jezus (ca. 6–4 v.Chr., vóór de dood van Herodes). Andere dateringen bestaan.",
+          "refs": ["Lukas 1:26", "Lukas 1:36", "Lukas 1:39–40"]
+        }
+      ],
+      "vragen": [
+        { "q": "Wat zei Elisabeth over Maria, omdat zij geloofd had?", "a": ["Zalig is zij, die geloofd heeft", "Zij zal een profetes genoemd worden", "Zij moet naar de tempel gaan"], "why": "Lukas 1:45" },
+        { "q": "Welke naam uit de profetie noemt Mattheüs 1:23 voor het Kind?", "a": ["Emmanuël, God met ons", "Nazarener, uit Nazareth", "Abia, uit de priesters"], "why": "Mattheüs 1:23" },
+        { "q": "Waar woonden Zacharias en Elisabeth volgens Lukas 1:39?", "a": ["In een stad van Juda, in het gebergte", "In Nazareth, in Galilea", "In Bethlehem, de stad van David"], "why": "Lukas 1:39–40" }
+      ]
+    }
+  },
+  "82": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt1_judagebergte"],
+      "delen": [
+        { "t": "Elisabeth krijgt een zoon. Haar buren en familie zijn blij met haar.", "stap": "jezus-1:nt-geboorte:4" },
+        { "t": "Op de achtste dag komen ze bij het kindje. Ze willen hem Zacharias noemen, net als zijn vader.", "stap": "jezus-1:nt-geboorte:4" },
+        { "t": "Maar Elisabeth zegt: Nee, hij zal Johannes heten." },
+        { "t": "De mensen zeggen: Niemand in je familie heet zo. Met gebaren vragen ze aan Zacharias hoe het kindje moet heten." },
+        { "t": "Zacharias kan nog steeds niet praten. Hij schrijft op een tafeltje: Johannes is zijn naam." },
+        { "t": "Meteen kan Zacharias weer praten. Hij looft God." },
+        { "t": "In het hele bergland praten de mensen erover. Ze vragen zich af: wat zal dit kindje worden?" },
+        { "t": "Zacharias wordt vervuld met de Heilige Geest. Hij zegt: God komt Zijn volk verlossen, zoals Hij beloofd heeft." },
+        { "t": "Tegen zijn zoontje zegt hij: Jij zult een profeet van de Allerhoogste zijn. Jij gaat voor de Heere uit om de weg klaar te maken." },
+        { "t": "Johannes groeit op. Hij is in de woestijn, tot de dag dat hij aan Israël bekend wordt." }
+      ],
+      "samen": "Weggelaten: op de achtste dag werd het kindje besneden, zoals God aan Abraham had gezegd (Lukas 1:59; Genesis 17:12). Wijs samen aan dat God precies doet wat de engel gezegd had: een zoon, de naam Johannes, en Zacharias die weer kan spreken (Lukas 1:13, 20, 64). De woorden van Zacharias (Lukas 1:68–79) zijn hier kort samengevat; lees ze eventueel zelf voor.",
+      "vragen": [
+        { "q": "Hoe moet het kindje heten?", "a": ["Johannes", "Zacharias"], "why": "Lukas 1:60, 63" },
+        { "q": "Wat gebeurt er als Zacharias de naam heeft opgeschreven?", "a": ["Hij kan weer praten", "Hij valt in slaap"], "why": "Lukas 1:64" },
+        { "q": "Waar is Johannes als hij opgroeit?", "a": ["In de woestijn", "In een paleis"], "why": "Lukas 1:80" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Johannes is zijn naam",
+          "stap": "jezus-1:nt-geboorte:4",
+          "t": "Elisabeth krijgt een zoon, en haar buren en familie zijn blij met haar. Op de achtste dag wordt het kind besneden. Dat is het teken van Gods verbond met Abraham (Genesis 17:11–12). De familie wil hem Zacharias noemen, naar zijn vader. Maar Elisabeth zegt: ‘Niet alzo, maar hij zal Johannes heten.’ Niemand in de familie heet zo. Daarom vragen ze het met gebaren aan Zacharias. Hij schrijft op een schrijftafeltje: ‘Johannes is zijn naam.’"
+        },
+        {
+          "kop": "Zacharias spreekt weer",
+          "t": "Meteen kan Zacharias weer spreken, en hij looft God. In het hele bergland van Judea praten de mensen erover. Vervuld met de Heilige Geest profeteert Zacharias: God brengt verlossing voor Zijn volk, in het huis van David, zoals Hij aan Abraham beloofd had."
+        },
+        {
+          "kop": "Een profeet in de woestijn",
+          "t": "Tegen zijn zoon zegt Zacharias: ‘En gij, kindeken, zult een profeet des Allerhoogsten genaamd worden’. Johannes zal voor de Heere uit gaan om Zijn wegen te bereiden. Het kind groeit op en is in de woestijn, tot de dag dat hij aan Israël bekend wordt."
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom vond de familie de naam Johannes vreemd?", "a": ["Niemand in de familie heette zo", "Het was de naam van een koning", "Zacharias wilde een andere naam"], "why": "Lukas 1:61" },
+        { "q": "Hoe vroegen ze Zacharias naar de naam?", "a": ["Met gebaren", "Met een brief", "Via een andere priester"], "why": "Lukas 1:62" },
+        { "q": "Waarom kon Zacharias juist toen weer spreken?", "a": ["De engel had gezegd: tot deze dingen gebeurd zijn", "Hij was eindelijk beter geworden", "Elisabeth had het hem gevraagd"], "why": "Lukas 1:20, 64" },
+        { "q": "Wat zal Johannes doen volgens Zacharias?", "a": ["Voor de Heere uit gaan om Zijn wegen te bereiden", "De tempel in Jeruzalem opnieuw bouwen", "Koning worden in het huis van David"], "why": "Lukas 1:76" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "De woorden van Zacharias zitten vol Oude Testament. ‘een hoorn der zaligheid’ in het huis van David (1:69) wijst naar de belofte aan David; een hoorn is in de Bijbel een beeld van kracht. ‘Den eed, dien Hij Abraham, onzen vader, gezworen heeft’ (1:73) wijst naar Genesis 22:16: ‘Ik zweer bij Mijzelven, spreekt de HEERE’. Bij ‘de Opgang uit de hoogte’ (1:78) denken veel uitleggers aan Maleachi 4:2: ‘de Zon der gerechtigheid’.",
+          "refs": ["Lukas 1:69–73", "Genesis 22:16–18", "Lukas 1:78", "Maleachi 4:2"]
+        },
+        {
+          "kop": "De dag dat Johannes verschijnt",
+          "t": "Het kind is ‘in de woestijnen, tot den dag zijner vertoning aan Israël’ (1:80). Lukas vertelt later hoe die dag komt: ‘geschiedde het woord Gods tot Johannes, den zoon van Zacharias, in de woestijn’ (Lukas 3:2). Mattheüs ziet in hem ‘de stem des roependen in de woestijn’ uit Jesaja 40:3 (Mattheüs 3:3). Zo wordt waar wat Zacharias zei: ‘gij zult voor het aangezicht des Heeren heengaan, om Zijn wegen te bereiden’ (1:76).",
+          "refs": ["Lukas 1:76–80", "Lukas 3:2–4", "Mattheüs 3:1–3", "Jesaja 40:3"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "De woonplaats van Zacharias en Elisabeth heeft in de tekst geen naam. Lukas spreekt alleen van ‘het gehele gebergte van Judea’ (1:65). Op de kaart staat de plaats daarom als onbekend. De datering is een reconstructie: Johannes was ongeveer een half jaar ouder dan de Heere Jezus (Lukas 1:26, 36), Die ca. 6–4 v.Chr. werd geboren. Andere dateringen bestaan.",
+          "refs": ["Lukas 1:65", "Lukas 1:26, 36"]
+        }
+      ],
+      "vragen": [
+        { "q": "Aan wie had God volgens Zacharias een eed gezworen?", "a": ["Aan Abraham", "Aan Mozes", "Aan Elia"], "why": "Lukas 1:73" },
+        { "q": "In welk huis heeft God volgens Zacharias een hoorn der zaligheid opgericht?", "a": ["In het huis van David", "In het huis van Aäron", "In het huis van Abia"], "why": "Lukas 1:69" },
+        { "q": "Welke profeet noemt Mattheüs als Johannes in de woestijn gaat preken?", "a": ["Jesaja", "Jeremia", "Daniël"], "why": "Mattheüs 3:3" }
+      ]
+    }
+  },
+  "84": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["efrath"],
+      "delen": [
+        { "t": "Bij Bethlehem zijn herders in het veld. Het is nacht, en ze houden de wacht bij hun kudde.", "stap": "jezus-1:nt-geboorte:6" },
+        { "t": "Opeens staat er een engel van de Heere bij hen. Het licht van de heerlijkheid van de Heere schijnt om hen heen. De herders zijn erg bang." },
+        { "t": "De engel zegt: Wees niet bang. Ik breng jullie heel blij nieuws." },
+        { "t": "Vandaag is de Zaligmaker geboren, in de stad van David. Hij is Christus, de Heere." },
+        { "t": "Zo zullen jullie Hem vinden: een Kindje in doeken, in een kribbe." },
+        { "t": "Dan zijn er opeens heel veel engelen. Ze loven God: ‘Ere zij God in de hoogste hemelen’." },
+        { "t": "De herders gaan snel naar Bethlehem. Ze vinden Maria en Jozef, en het Kindje in de kribbe.", "stap": "jezus-1:nt-geboorte:6" },
+        { "t": "Ze vertellen aan iedereen wat er over dit Kindje gezegd is. De mensen verwonderen zich." },
+        { "t": "Maria onthoudt al deze woorden in haar hart. De herders gaan terug en loven God." }
+      ],
+      "samen": "Lukas zegt dat de engelen God prezen, ‘prijzende God en zeggende’ (Lukas 2:13); dat ze zongen, staat er niet. Ook hoeveel herders er waren, en een stal, een os of een ezel worden niet genoemd. Bij deze geschiedenis hoort op de kaart ook Simeon en Anna in de tempel (Lukas 2:21–38); lees dat gedeelte er eventueel bij. Vraag samen: waaraan zouden de herders het Kind herkennen?",
+      "vragen": [
+        { "q": "Wie komt er bij de herders?", "a": ["Een engel van de Heere", "Koning Herodes"], "why": "Lukas 2:9" },
+        { "q": "Waar ligt het Kindje?", "a": ["In een kribbe", "In een paleis"], "why": "Lukas 2:12, 16" },
+        { "q": "Wat doen de herders als ze teruggaan?", "a": ["Ze loven God", "Ze gaan slapen"], "why": "Lukas 2:20" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Een engel in de nacht",
+          "stap": "jezus-1:nt-geboorte:6",
+          "t": "In de buurt van Bethlehem houden herders ’s nachts de wacht bij hun kudde. Opeens staat er een engel van de Heere bij hen, en de heerlijkheid van de Heere schijnt om hen heen. Ze worden heel bang. Maar de engel zegt: ‘Vreest niet, want, ziet, ik verkondig u grote blijdschap’. Vandaag is in de stad van David de Zaligmaker geboren: Christus, de Heere. Zaligmaker betekent: Redder."
+        },
+        {
+          "kop": "Het teken en de engelen",
+          "t": "Het teken is een Kindje in doeken, liggend in een kribbe. Dan is er bij de engel een menigte van het hemelse leger. Ze prijzen God en zeggen: ‘Ere zij God in de hoogste hemelen, en vrede op aarde, in de mensen een welbehagen.’"
+        },
+        {
+          "kop": "Haastig naar Bethlehem",
+          "stap": "jezus-1:nt-geboorte:6",
+          "t": "De herders gaan haastig naar Bethlehem en vinden Maria, Jozef en het Kindje in de kribbe. Ze vertellen overal wat er over dit Kind gezegd is, en iedereen verwondert zich. Maria bewaart al deze woorden in haar hart. De herders gaan terug en prijzen God."
+        }
+      ],
+      "vragen": [
+        { "q": "Wat was het teken voor de herders?", "a": ["Een Kindje in doeken, in een kribbe", "Een ster boven het huis", "Een engel bij de stadspoort"], "why": "Lukas 2:12" },
+        { "q": "Waarom gingen de herders naar Bethlehem?", "a": ["Ze wilden zien wat de Heere hun verkondigd had", "Ze moesten zich laten inschrijven", "Ze zochten een verdwaald dier"], "why": "Lukas 2:15" },
+        { "q": "Wie prezen God samen met de engel?", "a": ["Een menigte van het hemelse leger", "De mensen uit Bethlehem", "Maria en Jozef"], "why": "Lukas 2:13" },
+        { "q": "Wat deden de herders nadat ze het Kind gezien hadden?", "a": ["Ze vertelden overal wat hun gezegd was", "Ze bleven bij de kribbe wonen", "Ze gingen naar de tempel"], "why": "Lukas 2:17" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Simeon en Anna",
+          "t": "Op de achtste dag krijgt het Kind de naam Jezus, ‘welke genaamd was van den engel’ (2:21). Later brengen Jozef en Maria Hem naar de tempel in Jeruzalem. Ze geven ‘een paar tortelduiven, of twee jonge duiven’ (2:24). Volgens Leviticus 12:8 was dat het offer voor wie geen lam kon betalen; uitleggers leiden daaruit af dat Jozef en Maria arm waren. In de tempel neemt Simeon, ‘rechtvaardig en godvrezende’, het Kind in zijn armen. Ook de profetes Anna looft de Heere en spreekt over Hem ‘tot allen, die de verlossing in Jeruzalem verwachtten’ (2:38).",
+          "refs": ["Lukas 2:21–38", "Leviticus 12:8"]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Lukas zegt niet hoeveel herders er waren. De hemelse menigte is ‘prijzende God en zeggende’ (2:13); dat de engelen zongen, staat er niet. Een stal, een os en een ezel worden niet genoemd, alleen de kribbe (2:12, 16). De datum van 25 december komt uit de traditie van de kerk, niet uit de Bijbel. Uitleggers verschillen over de vraag of herders ’s nachts in het veld iets zeggen over het seizoen.",
+          "refs": ["Lukas 2:8–16"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Bethlehem is goed aan te wijzen. Waar de herders precies waren, zegt Lukas niet: ‘in diezelfde landstreek’ (2:8). Plekken die nu als herdersvelden worden aangewezen, komen uit de overlevering. De datering is een reconstructie: dit gebeurde in de nacht van de geboorte (geschiedenis 83), ca. 6–4 v.Chr. Andere dateringen bestaan.",
+          "refs": ["Lukas 2:8", "Lukas 2:15"]
+        }
+      ],
+      "vragen": [
+        { "q": "Wat zeiden de herders tegen elkaar toen de engelen weg waren?", "a": ["Laat ons heengaan naar Bethlehem", "Laat ons naar de tempel gaan", "Laat ons bij de kudde blijven"], "why": "Lukas 2:15" },
+        { "q": "Welk offer brachten Jozef en Maria in de tempel?", "a": ["Tortelduiven of jonge duiven", "Een lam van een jaar", "Een jonge stier"], "why": "Lukas 2:24" },
+        { "q": "Hoe noemt Lukas de oude Anna in de tempel?", "a": ["Een profetes", "Een priesteres", "Een herderin"], "why": "Lukas 2:36" }
+      ]
+    }
+  },
+  "85": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["salem", "efrath", "egypte"],
+      "delen": [
+        { "t": "Er komen wijzen uit het oosten naar Jeruzalem. Ze hebben de ster van de Koning van de Joden gezien. Ze willen Hem aanbidden.", "stap": "jezus-1:nt-geboorte:8" },
+        { "t": "Koning Herodes schrikt. Hij hoort dat de Christus in Bethlehem geboren zal worden." },
+        { "t": "De wijzen gaan naar Bethlehem. De ster gaat voor hen uit, tot boven de plaats waar het Kind is. Ze zijn heel blij.", "stap": "jezus-1:nt-geboorte:8" },
+        { "t": "In het huis vinden ze het Kind bij Maria, Zijn moeder. Ze vallen neer en aanbidden Hem." },
+        { "t": "Ze openen hun schatten en geven Hem goud, wierook en mirre." },
+        { "t": "God waarschuwt hen in een droom: ga niet terug naar Herodes. Ze reizen langs een andere weg naar huis." },
+        { "t": "Een engel zegt in een droom tegen Jozef: Vlucht naar Egypte, want Herodes zoekt het Kind. Nog in de nacht vertrekt Jozef.", "stap": "jezus-1:nt-geboorte:9" },
+        { "t": "Als Herodes gestorven is, gaan ze terug. Jozef gaat met Maria en het Kind in Nazareth wonen.", "stap": "jezus-1:nt-geboorte:10" }
+      ],
+      "samen": "Weggelaten: Herodes liet in Bethlehem en omgeving alle kinderen van twee jaar en jonger doden (Mattheüs 2:16–18). Vertel dat sober als je kind ernaar vraagt; het Kind Jezus was toen al in Egypte, want God had Jozef gewaarschuwd (Mattheüs 2:13–14). Mattheüs zegt niet hoeveel wijzen er waren, en ook niet dat het koningen waren. Ze vonden het Kind in een huis (Mattheüs 2:11), niet bij de kribbe.",
+      "vragen": [
+        { "q": "Wat hebben de wijzen gezien?", "a": ["Zijn ster", "Een engel"], "why": "Mattheüs 2:2" },
+        { "q": "Wat geven de wijzen aan het Kind?", "a": ["Goud, wierook en mirre", "Brood en vis"], "why": "Mattheüs 2:11" },
+        { "q": "Waar moet Jozef naartoe vluchten?", "a": ["Naar Egypte", "Naar Jeruzalem"], "why": "Mattheüs 2:13" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Wijzen zoeken een Koning",
+          "stap": "jezus-1:nt-geboorte:8",
+          "t": "Wijzen uit het oosten komen in Jeruzalem en vragen: ‘Waar is de geboren Koning der Joden?’ Ze hebben Zijn ster gezien. Koning Herodes schrikt. De schriftgeleerden zeggen: in Bethlehem, want dat heeft de profeet geschreven. Herodes stuurt de wijzen erheen en zegt dat hij het Kind ook wil aanbidden."
+        },
+        {
+          "kop": "Goud, wierook en mirre",
+          "t": "De ster gaat voor de wijzen uit tot boven de plaats waar het Kind is. In het huis vallen ze neer, aanbidden Hem en geven goud, wierook en mirre. In een droom waarschuwt God hen. Ze gaan niet terug naar Herodes, maar langs een andere weg naar huis."
+        },
+        {
+          "kop": "Vluchten en terugkeren",
+          "stap": "jezus-1:nt-geboorte:9",
+          "t": "Een engel zegt Jozef in een droom te vluchten naar Egypte, want Herodes zoekt het Kind om Het te doden. Herodes laat in Bethlehem alle kinderen van twee jaar en jonger doden. Na de dood van Herodes gaat Jozef terug, en hij gaat wonen in Nazareth in Galilea."
+        }
+      ],
+      "vragen": [
+        { "q": "Hoe wisten de schriftgeleerden dat de Christus in Bethlehem geboren zou worden?", "a": ["Een profeet had het geschreven", "De wijzen hadden het verteld", "Herodes had het bepaald"], "why": "Mattheüs 2:5–6" },
+        { "q": "Waar vonden de wijzen het Kind?", "a": ["In een huis, bij Maria", "In de tempel in Jeruzalem", "In het paleis van Herodes"], "why": "Mattheüs 2:11" },
+        { "q": "Waarom gingen de wijzen niet terug naar Herodes?", "a": ["God waarschuwde hen in een droom", "Ze waren de weg kwijtgeraakt", "Herodes was al gestorven"], "why": "Mattheüs 2:12" },
+        { "q": "Waarom moest Jozef met het Kind vluchten?", "a": ["Herodes zocht het Kind om Het te doden", "Er was honger in Bethlehem", "De keizer had het bevolen"], "why": "Mattheüs 2:13" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Mattheüs zegt niet hoeveel wijzen er waren; dat het er drie waren, is afgeleid uit de drie geschenken. Dat ze koningen waren en namen als Caspar, Melchior en Balthasar hadden, komt uit de traditie. Ze vinden het Kind ‘in het huis’ (2:11), niet bij de kribbe. Herodes laat kinderen doden ‘van twee jaren oud en daaronder, naar den tijd, dien hij van de wijzen naarstiglijk onderzocht had’ (2:16). Daarom denken veel uitleggers dat de wijzen enige tijd na de geboorte kwamen. Hoe lang, zegt de tekst niet.",
+          "refs": ["Mattheüs 2:7–11", "Mattheüs 2:16"]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Rachel was begraven ‘aan den weg naar Efrath, hetwelk is Bethlehem’ (Genesis 35:19). In Jeremia volgt op haar geween direct een belofte: ‘uw kinderen zullen wederkomen tot hun landpale’ (Jeremia 31:17). De engel zegt tegen Jozef: ‘zij zijn gestorven, die de ziel van het Kindeken zochten’ (2:20). Dat lijkt sterk op wat God tegen Mozes zei: ‘al de mannen zijn dood, die uw ziel zochten’ (Exodus 4:19). Veel uitleggers zien hier een bewust verband tussen Mozes en de Heere Jezus.",
+          "refs": ["Genesis 35:19", "Jeremia 31:15–17", "Mattheüs 2:19–20", "Exodus 4:19"]
+        },
+        {
+          "kop": "Nazarener, en de route",
+          "t": "Mattheüs schrijft dat vervuld werd ‘wat door de profeten gezegd is, dat Hij Nazarener zal geheten worden’ (2:23). Er is geen tekst in het Oude Testament die letterlijk zo luidt, en Mattheüs spreekt van de profeten, meervoud. Uitleggers verschillen over wat bedoeld is. Sommigen denken aan de Scheut uit Jesaja 11:1, omdat dat woord in het Hebreeuws op Nazareth lijkt; anderen aan het geringe aanzien van Nazareth (Johannes 1:47). Mattheüs noemt geen route naar Egypte of terug; de route op de kaart is een reconstructie.",
+          "refs": ["Mattheüs 2:23", "Jesaja 11:1", "Johannes 1:47"]
+        }
+      ],
+      "vragen": [
+        { "q": "Wat vroeg Herodes heimelijk aan de wijzen?", "a": ["Wanneer de ster verschenen was", "Uit welk land zij kwamen", "Wat zij het Kind wilden geven"], "why": "Mattheüs 2:7" },
+        { "q": "Waar was Rachel begraven volgens Genesis 35:19?", "a": ["Aan de weg naar Efrath, dat is Bethlehem", "In de spelonk bij Hebron", "In Egypte, bij haar zoon Jozef"], "why": "Genesis 35:19" },
+        { "q": "Op welke woorden aan Mozes lijkt wat de engel in Mattheüs 2:20 tegen Jozef zegt?", "a": ["Al de mannen zijn dood, die uw ziel zochten", "Trek uw schoenen uit van uw voeten", "Ga heen, Ik zal met uw mond zijn"], "why": "Exodus 4:19" }
+      ]
+    }
+  }
+}

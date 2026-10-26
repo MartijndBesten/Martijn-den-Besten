@@ -704,7 +704,8 @@ test("niveaus: Samen ontdekken vertelt in korte stappen, toont alleen de belangr
   await zetNiveau(page, "a");
   await page.goto("/bijbelreis#v26");
   const art = page.locator(".verhaal.samen");
-  await expect(art.locator(".conceptlabel")).toContainText("nog niet inhoudelijk gecontroleerd");
+  // Gecontroleerde teksten hebben geen proefmarkering meer.
+  await expect(art.locator(".conceptlabel")).toHaveCount(0);
   await expect(art.locator(".a-tekst")).toContainText("Nu staan ze bij de zee.");
   await expect(art.locator(".a-stippen i")).toHaveCount(7);
   // Geen jaartallen, geen kernwoord, geen kruisverwijzingen in de standaardweergave.
@@ -744,7 +745,7 @@ test("niveaus: Zelf op reis en Verder ontdekken verschillen echt in tekst, tijd,
   await zetNiveau(page, "b");
   await page.goto("/bijbelreis#v26");
   let art = page.locator(".verhaal");
-  await expect(art.locator(".conceptlabel")).toContainText("Zelf op reis");
+  await expect(art.locator(".conceptlabel")).toHaveCount(0);
   await expect(art).toContainText("Dat betekent: wees niet bang");
   await expect(art.locator("details.wanneer summary")).toContainText("Mozes en de uittocht");
   await expect(art.locator("details.wanneer summary")).not.toContainText("1446");

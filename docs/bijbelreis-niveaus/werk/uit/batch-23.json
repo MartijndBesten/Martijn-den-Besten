@@ -1,0 +1,409 @@
+{
+  "110": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["nt_bethanie"],
+      "delen": [
+        { "t": "De Heere Jezus is op reis. Hij komt in een dorp.", "stap": "jezus-2:nt-reis-naar-jeruzalem:2" },
+        { "t": "Daar woont een vrouw die Martha heet. Zij ontvangt de Heere Jezus in haar huis.", "stap": "jezus-2:nt-reis-naar-jeruzalem:2" },
+        { "t": "Martha heeft een zus. Zij heet Maria." },
+        { "t": "Maria gaat bij de voeten van de Heere Jezus zitten. Ze luistert naar wat Hij zegt." },
+        { "t": "Martha heeft het heel druk. Er is veel werk te doen." },
+        { "t": "Martha vraagt aan de Heere Jezus: wilt U tegen Maria zeggen dat ze mij moet helpen?" },
+        { "t": "De Heere Jezus antwoordt: ‘Martha, Martha’. Je maakt je zorgen over heel veel dingen. Maar één ding is nodig." },
+        { "t": "Maria heeft het goede deel gekozen. Dat zal niet van haar weggenomen worden." }
+      ],
+      "samen": "Lukas noemt de naam van het dorp niet. Johannes noemt Bethanië ‘het vlek van Maria en haar zuster Martha’ (Johannes 11:1); daarom wijst de kaart Bethanië aan. Vraag samen: wat doet Martha, en wat doet Maria? De Heere Jezus zegt dat Maria ‘het goede deel’ heeft gekozen (Lukas 10:42). Martha dient later opnieuw bij een maaltijd voor de Heere Jezus (Johannes 12:2).",
+      "vragen": [
+        { "q": "Wat doet Maria?", "a": ["Ze luistert naar de Heere Jezus", "Ze maakt het eten klaar"], "why": "Lukas 10:39" },
+        { "q": "Waarom heeft Martha het zo druk?", "a": ["Er is veel werk te doen", "Ze moet op reis"], "why": "Lukas 10:40" },
+        { "q": "Hoeveel dingen zijn nodig, zegt de Heere Jezus?", "a": ["Eén ding", "Heel veel dingen"], "why": "Lukas 10:42" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een gast in het huis van Martha", "stap": "jezus-2:nt-reis-naar-jeruzalem:2", "t": "De Heere Jezus is op reis naar Jeruzalem. Hij komt in een dorp, en een vrouw die Martha heet, ontvangt Hem in haar huis. Martha heeft een zuster, Maria. Maria gaat aan de voeten van de Heere Jezus zitten en hoort Zijn woord." },
+        { "kop": "Druk met dienen", "t": "Martha is heel druk met het vele werk. De Bijbel noemt dat ‘dienen’: zorgen voor de gasten. Ze komt naar de Heere Jezus en zegt: ‘Heere, trekt Gij U dat niet aan, dat mijn zuster mij alleen laat dienen?’ Dat betekent: kan het U niet schelen? ‘Zeg dan haar, dat zij mij helpe.’" },
+        { "kop": "Eén ding is nodig", "t": "De Heere Jezus antwoordt: ‘Martha, Martha, gij bekommert en ontrust u over vele dingen’. Martha maakt zich dus zorgen en is onrustig over veel dingen. ‘Maar een ding is nodig’, zegt Hij. Maria heeft het goede deel gekozen, en dat zal niet van haar weggenomen worden." }
+      ],
+      "vragen": [
+        { "q": "Wat doet Maria terwijl Martha bezig is?", "a": ["Ze zit aan Zijn voeten en hoort Zijn woord", "Ze haalt water bij de put", "Ze gaat de buren uitnodigen"], "why": "Lukas 10:39" },
+        { "q": "Waarom komt Martha naar de Heere Jezus?", "a": ["Ze wil dat Maria haar komt helpen", "Ze wil dat Hij verder reist", "Ze wil weten waar Hij heen gaat"], "why": "Lukas 10:40" },
+        { "q": "Wat bedoelt de Heere Jezus met ‘gij bekommert en ontrust u’?", "a": ["Martha maakt zich zorgen en is onrustig", "Martha werkt veel te langzaam", "Martha moet nog harder werken"], "why": "Lukas 10:41" },
+        { "q": "Wat zegt de Heere Jezus over het deel dat Maria koos?", "a": ["Het zal niet van haar weggenomen worden", "Ze moet het met Martha delen", "Ze krijgt het pas later"], "why": "Lukas 10:42" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Aan de voeten zitten", "t": "Maria zit ‘aan de voeten van Jezus’ en hoort Zijn woord (Lukas 10:39). Uitleggers zien daarin de plaats van een leerling bij zijn leraar. Paulus zegt over zichzelf dat hij ‘aan de voeten van Gamaliël onderwezen’ is (Handelingen 22:3). Lukas gebruikt dezelfde woorden voor de man uit wie de duivelen waren uitgevaren: hij zat ‘aan de voeten van Jezus, gekleed en wel bij zijn verstand’ (Lukas 8:35).", "refs": ["Lukas 10:39", "Handelingen 22:3", "Lukas 8:35"] },
+        { "kop": "Martha en Maria bij Johannes", "t": "Johannes vertelt meer over de twee zusters. Als Lazarus gestorven is, gaat Martha de Heere Jezus tegemoet, ‘doch Maria bleef in huis zitten’ (Johannes 11:20). Martha belijdt: ‘Ja, Heere; ik heb geloofd, dat Gij zijt de Christus, de Zone Gods’ (Johannes 11:27). Maria vinden we steeds aan de voeten van de Heere Jezus: in Lukas 10:39, na de dood van haar broer (Johannes 11:32) en bij de zalving (Johannes 12:3).", "refs": ["Johannes 11:20", "Johannes 11:27", "Johannes 11:32", "Johannes 12:3"] },
+        { "kop": "Waar en wanneer", "t": "Lukas noemt alleen ‘een vlek’, een dorp, zonder naam. Johannes noemt Bethanië ‘het vlek van Maria en haar zuster Martha’ (Johannes 11:1), ‘omtrent vijftien stadiën’ van Jeruzalem (Johannes 11:18). Daarom wordt het dorp meestal met Bethanië verbonden; die plaats is identificeerbaar. Lukas vertelt dit op de reis naar Jeruzalem, die begint in Lukas 9:51, zonder datum. De tijd is een reconstructie: ca. 29–30 n.Chr., of ca. 32–33 als je de kruisiging in 33 n.Chr. stelt.", "refs": ["Johannes 11:1", "Johannes 11:18", "Lukas 9:51"] }
+      ],
+      "vragen": [
+        { "q": "Aan wiens voeten is Paulus onderwezen?", "a": ["Aan de voeten van Gamaliël", "Aan de voeten van Johannes de Doper", "Aan de voeten van Petrus"], "why": "Handelingen 22:3" },
+        { "q": "Wat doet Maria als Martha de Heere Jezus tegemoetgaat na de dood van Lazarus?", "a": ["Ze blijft in huis zitten", "Ze gaat naar Jeruzalem", "Ze gaat het de discipelen vertellen"], "why": "Johannes 11:20" },
+        { "q": "Welke evangelist noemt Bethanië het dorp van Maria en Martha?", "a": ["Johannes", "Lukas", "Markus"], "why": "Johannes 11:1" }
+      ]
+    }
+  },
+  "111": {
+    "a": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "t": "De Heere Jezus eet bij een van de leiders van de Farizeeën." },
+        { "t": "Een van de gasten zegt: wat gelukkig is wie mag eten in het Koninkrijk van God!" },
+        { "t": "Dan vertelt de Heere Jezus een gelijkenis. Een man maakt een grote maaltijd klaar. Hij nodigt veel mensen uit." },
+        { "t": "Als alles klaar is, stuurt hij zijn knecht. Die zegt: ‘Komt, want alle dingen zijn nu gereed.’" },
+        { "t": "Maar ze hebben allemaal een reden om niet te komen. De een heeft een akker gekocht, de ander ossen. Weer een ander is net getrouwd." },
+        { "t": "Dan wordt de heer boos. Hij laat arme mensen, blinden en kreupelen uit de stad binnenhalen." },
+        { "t": "Er is nog plaats. Daarom stuurt de heer zijn knecht ook naar de wegen en de heggen. Zijn huis moet vol worden." },
+        { "t": "Maar de mensen die eerst uitgenodigd waren, zullen niet van zijn maaltijd proeven." }
+      ],
+      "samen": "Dit is een gelijkenis: een verhaal waarmee de Heere Jezus antwoordt op de woorden van een gast over eten in het Koninkrijk van God (Lukas 14:15). Lukas legt de gelijkenis niet verder uit. Kort daarvoor zei de Heere Jezus dat je juist armen, verminkten, kreupelen en blinden moet uitnodigen (Lukas 14:13). Vraag samen: wie kwamen er niet, en wie mochten er wel binnen?",
+      "vragen": [
+        { "q": "Wat maakt de man klaar?", "a": ["Een grote maaltijd", "Een groot huis"], "why": "Lukas 14:16" },
+        { "q": "Wat doen de mensen die uitgenodigd zijn?", "a": ["Ze hebben een reden om niet te komen", "Ze komen meteen"], "why": "Lukas 14:18–20" },
+        { "q": "Wie mogen er daarna binnenkomen?", "a": ["Arme mensen en blinden", "Alleen de rijke buren"], "why": "Lukas 14:21" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Aan tafel bij een Farizeeër", "t": "Op een sabbat eet de Heere Jezus in het huis van een van de oversten van de Farizeeën. Daar geneest Hij een zieke man. Dan zegt een van de gasten: ‘Zalig is hij, die brood eet in het Koninkrijk Gods.’ Zalig betekent: heel gelukkig. De Heere Jezus antwoordt met een gelijkenis." },
+        { "kop": "Iedereen heeft een excuus", "t": "Een man maakt een groot avondmaal klaar en nodigt veel mensen uit. Als alles klaar is, stuurt hij zijn knecht: ‘Komt, want alle dingen zijn nu gereed.’ Maar ze verontschuldigen zich allemaal. De een heeft een akker gekocht, de ander vijf juk ossen. Een derde is net getrouwd." },
+        { "kop": "Een vol huis", "t": "Dan wordt de heer van het huis toornig: hij wordt heel boos. Hij stuurt de knecht snel de stad in om armen, verminkten, kreupelen en blinden te halen. Er is nog plaats. Daarom moet de knecht ook naar de wegen en heggen, zodat het huis vol wordt. Maar niemand van de eerste genodigden zal van het avondmaal proeven." }
+      ],
+      "vragen": [
+        { "q": "Op welke dag eet de Heere Jezus bij de Farizeeër?", "a": ["Op een sabbat", "Op de eerste dag van het Pascha", "Op de dag van een bruiloft"], "why": "Lukas 14:1" },
+        { "q": "Waarom vertelt de Heere Jezus deze gelijkenis?", "a": ["Een gast spreekt over eten in het Koninkrijk van God", "De discipelen vragen wat het Koninkrijk is", "Een zieke man vraagt om genezing"], "why": "Lukas 14:15–16" },
+        { "q": "Wat heeft de tweede genodigde gekocht?", "a": ["Vijf juk ossen", "Een akker", "Een huis in de stad"], "why": "Lukas 14:19" },
+        { "q": "Wie haalt de knecht eerst uit de stad?", "a": ["Armen, verminkten, kreupelen en blinden", "Vrienden, broeders en rijke buren", "Farizeeën en schriftgeleerden"], "why": "Lukas 14:21" },
+        { "q": "Waarom stuurt de heer de knecht ook naar de wegen en heggen?", "a": ["Er is nog plaats, en zijn huis moet vol worden", "De mensen uit de stad wilden niet komen", "Hij zoekt de eerste genodigden"], "why": "Lukas 14:22–23" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Dezelfde vier groepen", "t": "Vlak voor de gelijkenis zegt de Heere Jezus tegen Zijn gastheer: nodig niet je vrienden, broers, familie of rijke buren, die je terug kunnen vragen, ‘maar wanneer gij een maaltijd zult houden, zo nood armen, verminkten, kreupelen, blinden’ (Lukas 14:12–13). Zij kunnen niets terugdoen, ‘want het zal u vergolden worden in de opstanding der rechtvaardigen’ (Lukas 14:14). In de gelijkenis laat de heer precies deze vier groepen binnenhalen (Lukas 14:21).", "refs": ["Lukas 14:12–14", "Lukas 14:21"] },
+        { "kop": "Twee keer uitgenodigd", "t": "De heer nodigt eerst ‘velen’ uit. Op het uur van de maaltijd stuurt hij zijn knecht ‘om den genoden te zeggen: Komt’ (Lukas 14:16–17). De gasten wisten het dus al. Toch verontschuldigen ze zich ‘allen’ (Lukas 14:18). Een akker, ossen en een huwelijk zijn op zichzelf gewone dingen; veel uitleggers wijzen erop dat het er in de gelijkenis om gaat dat de genodigden daardoor niet komen. Het slot is ernstig: ‘niemand van die mannen, die genood waren, mijn avondmaal smaken zal’ (Lukas 14:24).", "refs": ["Lukas 14:16–18", "Lukas 14:24"] },
+        { "kop": "Elders in de Bijbel", "t": "Jesaja roept: ‘O alle gij dorstigen! komt tot de wateren, en gij, die geen geld hebt, komt, koopt en eet’ (Jesaja 55:1). In Spreuken nodigt de Wijsheid uit: ‘Komt, eet van Mijn brood’ (Spreuken 9:5). De Heere Jezus zegt elders: ‘daar zullen er komen van Oosten en Westen, en van Noorden en Zuiden, en zullen aanzitten in het Koninkrijk Gods’ (Lukas 13:29). Veel uitleggers zien in de mensen van de wegen en heggen ook mensen van buiten Israël; de gelijkenis zelf zegt dat niet.", "refs": ["Jesaja 55:1", "Spreuken 9:5", "Lukas 13:29"] }
+      ],
+      "vragen": [
+        { "q": "Welke vier groepen moet je volgens de Heere Jezus uitnodigen als je een maaltijd houdt?", "a": ["Armen, verminkten, kreupelen, blinden", "Vrienden, broeders, magen, rijke buren", "Priesters, levieten, oudsten, schriftgeleerden"], "why": "Lukas 14:12–13" },
+        { "q": "Waarom is het goed om armen uit te nodigen, volgens Lukas 14:14?", "a": ["Het zal vergolden worden in de opstanding der rechtvaardigen", "Zij nodigen je later ook uit", "Dan krijg je het dubbel terug van de buren"], "why": "Lukas 14:14" },
+        { "q": "Wanneer stuurt de heer zijn knecht naar de genodigden?", "a": ["Op het uur van de maaltijd", "Een week van tevoren", "Na afloop van de maaltijd"], "why": "Lukas 14:17" },
+        { "q": "Wat zegt Lukas 13:29 over het Koninkrijk Gods?", "a": ["Er komen mensen van oosten, westen, noorden en zuiden", "Alleen de Farizeeën zullen er aanzitten", "Er is maar plaats voor twaalf mensen"], "why": "Lukas 13:29" }
+      ]
+    }
+  },
+  "112": {
+    "a": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "t": "Tollenaars en zondaars komen naar de Heere Jezus om naar Hem te luisteren. De Farizeeën mopperen daarover." },
+        { "t": "Dan vertelt de Heere Jezus een gelijkenis. Een vader heeft twee zonen." },
+        { "t": "De jongste zoon vraagt zijn deel van wat de vader bezit. Dan reist hij naar een ver land." },
+        { "t": "Daar geeft hij alles uit. Dan komt er een grote hongersnood. Hij heeft niets meer." },
+        { "t": "Hij moet op de varkens passen. Hij heeft zo’n honger dat hij het varkensvoer wel wil eten." },
+        { "t": "Dan zegt hij: ik ga terug naar mijn vader. Ik zeg tegen hem dat ik gezondigd heb." },
+        { "t": "Zijn vader ziet hem al van ver aankomen. Hij loopt naar hem toe en kust hem." },
+        { "t": "De vader geeft hem het beste kleed, een ring en schoenen. Er komt een feest, want de zoon was verloren en is gevonden!" },
+        { "t": "Maar de oudste zoon wordt boos. Hij wil niet naar binnen. De vader gaat naar buiten en smeekt hem." }
+      ],
+      "samen": "De Heere Jezus vertelt deze gelijkenis omdat de Farizeeën en schriftgeleerden mopperen dat Hij zondaars ontvangt (Lukas 15:1–3). Bij de twee gelijkenissen ervoor zegt Hij dat er blijdschap is in de hemel over één zondaar die zich bekeert (Lukas 15:7, 10). Bij A is weggelaten wat de oudste zoon zijn broer verwijt (Lukas 15:30). Vraag samen: wat doet de vader als hij zijn zoon van ver ziet aankomen?",
+      "vragen": [
+        { "q": "Waar gaat de jongste zoon naartoe?", "a": ["Naar een ver land", "Naar zijn oom"], "why": "Lukas 15:13" },
+        { "q": "Wat doet de vader als hij zijn zoon ziet aankomen?", "a": ["Hij loopt naar hem toe en kust hem", "Hij doet de deur dicht"], "why": "Lukas 15:20" },
+        { "q": "Wie wordt er boos?", "a": ["De oudste zoon", "De vader"], "why": "Lukas 15:28" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Waarom de Heere Jezus dit vertelt", "t": "Tollenaars en zondaars komen naar de Heere Jezus om Hem te horen. De Farizeeën en schriftgeleerden mopperen: ‘Deze ontvangt de zondaars, en eet met hen.’ Daarom vertelt Hij gelijkenissen." },
+        { "kop": "Ver weg van huis", "t": "Een vader heeft twee zonen. De jongste vraagt zijn deel van de bezittingen en reist naar een ver land. Daar geeft hij alles uit. Als er hongersnood komt, moet hij zwijnen hoeden. Hij zou graag hun voer eten, maar niemand geeft het hem. Dan komt hij tot zichzelf: ik ga terug en zeg tegen mijn vader dat ik gezondigd heb." },
+        { "kop": "Verloren en gevonden", "t": "De vader ziet hem al van ver. Hij krijgt medelijden, loopt naar hem toe en kust hem. Hij laat het beste kleed, een ring en schoenen brengen en het gemeste kalf slachten. ‘Want deze mijn zoon was dood, en is weder levend geworden; en hij was verloren, en is gevonden!’" },
+        { "kop": "De oudste zoon", "t": "De oudste zoon komt van het veld en hoort het gezang. Hij wordt boos en wil niet naar binnen. De vader gaat naar buiten en smeekt hem. De vader zegt: ‘Kind, gij zijt altijd bij mij, en al het mijne is uwe.’" }
+      ],
+      "vragen": [
+        { "q": "Wat vraagt de jongste zoon aan zijn vader?", "a": ["Zijn deel van de bezittingen", "Werk op het land van zijn vader", "Een paard voor de reis"], "why": "Lukas 15:12" },
+        { "q": "Waarom besluit de zoon terug te gaan?", "a": ["De huurlingen van zijn vader hebben brood genoeg, en hij heeft honger", "Hij heeft weer veel geld verdiend", "Zijn vader heeft hem een bericht gestuurd"], "why": "Lukas 15:17–18" },
+        { "q": "Wat zegt de vader over zijn jongste zoon?", "a": ["Hij was dood en is weer levend geworden", "Hij moet eerst als knecht werken", "Hij mag niet meer binnenkomen"], "why": "Lukas 15:24" },
+        { "q": "Waarom vertelt de Heere Jezus deze gelijkenis?", "a": ["De Farizeeën mopperen dat Hij zondaars ontvangt", "Een vader vraagt Hem om raad", "De discipelen hebben ruzie over geld"], "why": "Lukas 15:1–3" },
+        { "q": "Wat doet de vader als de oudste zoon niet naar binnen wil?", "a": ["Hij gaat naar buiten en smeekt hem", "Hij stuurt hem weg van huis", "Hij laat een knecht hem halen"], "why": "Lukas 15:28" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Drie keer verloren en gevonden", "t": "De Heere Jezus vertelt in Lukas 15 drie gelijkenissen achter elkaar. Een herder mist één schaap, een vrouw één penning, een vader één zoon. Steeds is er iets verloren, en steeds volgt blijdschap als het terug is: ‘Weest blijde met mij’ (Lukas 15:6, 9), en bij de vader: ‘laat ons eten en vrolijk zijn’ (Lukas 15:23). Paulus gebruikt dezelfde beelden van dood en levend: ‘Ook toen wij dood waren door de misdaden, heeft ons levend gemaakt met Christus’ (Efeze 2:5).", "refs": ["Lukas 15:4–10", "Lukas 15:23–24", "Efeze 2:5"] },
+        { "kop": "Erfdeel en zwijnen", "t": "De jongste vraagt ‘het deel des goeds, dat mij toekomt’ terwijl zijn vader nog leeft. De vader ‘deelde hun het goed’: beide zonen krijgen hun deel (Lukas 15:12). Later zegt de vader tegen de oudste: ‘al het mijne is uwe’ (Lukas 15:31). Volgens de wet kreeg de eerstgeborene ‘het dubbele deel’ (Deuteronomium 21:17). Het zwijn was voor Israël een onrein dier (Leviticus 11:7). Veel uitleggers zien in het zwijnen hoeden hoe diep de zoon gezonken is.", "refs": ["Lukas 15:12", "Lukas 15:31", "Deuteronomium 21:17", "Leviticus 11:7"] },
+        { "kop": "Wat de tekst zegt en wat niet", "t": "De bekende naam “de verloren zoon” staat niet in de Bijbel. De gelijkenis begint met: ‘Een zeker mens had twee zonen’ (Lukas 15:11). Ze gaat dus ook over de oudste zoon, die toornig wordt. De gelijkenis eindigt met de woorden van de vader (Lukas 15:32), zonder te vertellen of de oudste zoon nog naar binnen gaat. Veel uitleggers zien in de oudste zoon de Farizeeën en schriftgeleerden, die mopperden dat de Heere Jezus zondaars ontving (Lukas 15:2).", "refs": ["Lukas 15:11", "Lukas 15:28–32", "Lukas 15:2"] }
+      ],
+      "vragen": [
+        { "q": "Met welke woorden begint deze gelijkenis?", "a": ["Een zeker mens had twee zonen", "Een zeker mens had honderd schapen", "Een zeker mens bereidde een groot avondmaal"], "why": "Lukas 15:11" },
+        { "q": "Aan wie deelt de vader het goed uit?", "a": ["Aan beide zonen", "Alleen aan de jongste zoon", "Aan zijn huurlingen"], "why": "Lukas 15:12" },
+        { "q": "Wat zegt de wet van Mozes over het zwijn?", "a": ["Het is onrein", "Het is een offerdier", "Het mag op de sabbat gegeten worden"], "why": "Leviticus 11:7" },
+        { "q": "Welk deel kreeg de eerstgeborene volgens de wet?", "a": ["Het dubbele deel", "Het hele erfdeel", "Een tiende deel"], "why": "Deuteronomium 21:17" }
+      ]
+    }
+  },
+  "113": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["nt2_vlek"],
+      "delen": [
+        { "t": "De Heere Jezus is op weg naar Jeruzalem. Hij komt bij een dorp.", "stap": "jezus-2:nt-reis-naar-jeruzalem:5" },
+        { "t": "Daar zijn tien mannen. Ze zijn melaats: ze hebben een ernstige ziekte.", "stap": "jezus-2:nt-reis-naar-jeruzalem:5" },
+        { "t": "Ze blijven ver weg staan. Ze roepen: ‘Jezus, Meester! ontferm U onzer!’ Dat betekent: heb medelijden met ons." },
+        { "t": "De Heere Jezus zegt: ga naar de priesters en laat je aan hen zien." },
+        { "t": "De mannen gaan op weg. En terwijl ze gaan, worden ze alle tien beter!" },
+        { "t": "Eén man ziet dat hij genezen is. Hij keert terug en eert God met luide stem." },
+        { "t": "Hij valt voor de voeten van de Heere Jezus en dankt Hem. Die man is een Samaritaan, uit een ander volk." },
+        { "t": "De Heere Jezus vraagt: ‘waar zijn de negen?’ Alleen deze vreemdeling is teruggekomen om God te eren." },
+        { "t": "Tegen de man zegt Hij: ‘Sta op, en ga heen; uw geloof heeft u behouden.’" }
+      ],
+      "samen": "Melaatsen moesten ‘Onrein, onrein!’ roepen en apart wonen, buiten het leger (Leviticus 13:45–46). Daarom blijven de mannen op afstand. Een priester moest bekijken of een melaatse genezen was (Leviticus 14:2–3); daarom stuurt de Heere Jezus hen naar de priesters. Vraag samen: hoeveel mannen werden beter, en hoeveel kwamen er terug om te danken?",
+      "vragen": [
+        { "q": "Hoeveel zieke mannen zijn er?", "a": ["Tien", "Twee"], "why": "Lukas 17:12" },
+        { "q": "Hoeveel mannen komen er terug om te danken?", "a": ["Eén", "Alle tien"], "why": "Lukas 17:15–17" },
+        { "q": "Wat doet de man die terugkomt?", "a": ["Hij dankt de Heere Jezus", "Hij vraagt om geld"], "why": "Lukas 17:16" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Tien melaatse mannen", "stap": "jezus-2:nt-reis-naar-jeruzalem:5", "t": "De Heere Jezus reist naar Jeruzalem, door het midden van Samaria en Galilea. Bij een dorp komen tien melaatse mannen Hem tegemoet. Melaatsheid is een ernstige ziekte. Wie melaats was, was onrein en moest apart wonen. Daarom blijven ze van verre staan en roepen: ‘Jezus, Meester! ontferm U onzer!’ Dat betekent: heb medelijden met ons." },
+        { "kop": "Onderweg gereinigd", "t": "De Heere Jezus zegt: ‘Gaat heen en vertoont uzelven den priesteren.’ Een priester moest bekijken of een melaatse genezen was. Terwijl de tien mannen op weg zijn, worden ze rein." },
+        { "kop": "Eén komt terug", "t": "Eén van hen ziet dat hij genezen is. Hij keert terug, eert God met luide stem en valt voor de voeten van de Heere Jezus om Hem te danken. Die man is een Samaritaan. De Heere Jezus vraagt: ‘Zijn niet de tien gereinigd geworden, en waar zijn de negen?’ Tegen de man zegt Hij: ‘Sta op, en ga heen; uw geloof heeft u behouden.’" }
+      ],
+      "vragen": [
+        { "q": "Waarom keert de Samaritaan terug?", "a": ["Om God te eren en de Heere Jezus te danken", "Omdat hij nog niet genezen is", "Omdat de priesters hem wegsturen"], "why": "Lukas 17:15–18" },
+        { "q": "Wat zegt de Heere Jezus tegen de tien mannen?", "a": ["Dat ze zich aan de priesters moeten laten zien", "Dat ze zich zeven keer in de Jordaan moeten wassen", "Dat ze morgen terug moeten komen"], "why": "Lukas 17:14" },
+        { "q": "Wanneer worden de mannen rein?", "a": ["Terwijl ze op weg zijn", "Als de Heere Jezus hen aanraakt", "Als ze terugkomen bij Hem"], "why": "Lukas 17:14" },
+        { "q": "Wat is bijzonder aan de man die terugkomt?", "a": ["Hij is een Samaritaan, een vreemdeling", "Hij is een priester", "Hij is de enige die genezen is"], "why": "Lukas 17:16–18" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Naar de priester", "t": "De wet zegt over de melaatse: ‘ten dage zijner reiniging: dat hij tot den priester zal gebracht worden’. De priester moest dan ‘buiten het leger gaan’ om te zien of de plaag genezen was (Leviticus 14:2–3). Ook bij een eerdere genezing zegt de Heere Jezus: ‘vertoon uzelven den priester, en offer voor uw reiniging, gelijk Mozes geboden heeft’ (Lukas 5:14). Opvallend is dat de tien pas rein worden ‘terwijl zij heengingen’ (Lukas 17:14): ze gaan op weg voordat ze iets zien.", "refs": ["Leviticus 14:2–3", "Lukas 5:14", "Lukas 17:14"] },
+        { "kop": "Net als Naäman", "t": "Ook de Syriër Naäman ging na zijn genezing terug: ‘Toen keerde hij weder tot den man Gods’, en hij zei: ‘nu weet ik, dat er geen God is op de ganse aarde, dan in Israël!’ (2 Koningen 5:15). De Heere Jezus noemde hem in Nazareth: ‘geen van hen werd gereinigd, dan Naäman, de Syriër’ (Lukas 4:27). Ook in Lukas 17 is het een vreemdeling die terugkomt. Eerder op de reis had een vlek van de Samaritanen de Heere Jezus niet ontvangen (Lukas 9:52–53).", "refs": ["2 Koningen 5:15", "Lukas 4:27", "Lukas 9:52–53"] },
+        { "kop": "Waar en wanneer", "t": "Lukas noemt geen naam van het dorp; daarom staat de plaats op de kaart als onbekend. Hij schrijft alleen dat de Heere Jezus ‘door het midden van Samaria en Galilea ging’ toen Hij naar Jeruzalem reisde (Lukas 17:11). Een datum noemt Lukas niet. De tijd is een reconstructie: ca. 29–30 n.Chr., of ca. 32–33 als je de kruisiging in 33 n.Chr. stelt. De woorden ‘uw geloof heeft u behouden’ zegt de Heere Jezus in Lukas ook tegen anderen (Lukas 7:50; 8:48; 18:42).", "refs": ["Lukas 17:11", "Lukas 7:50", "Lukas 8:48", "Lukas 18:42"] }
+      ],
+      "vragen": [
+        { "q": "Waar moest de priester volgens de wet heengaan om een melaatse te bekijken?", "a": ["Buiten het leger", "In het heilige der heiligen", "Naar de Jordaan"], "why": "Leviticus 14:3" },
+        { "q": "Welke vreemdeling uit het Oude Testament keerde na zijn genezing ook terug?", "a": ["Naäman, de Syriër", "Goliath, de Filistijn", "Hiram, de koning van Tyrus"], "why": "2 Koningen 5:15" },
+        { "q": "Wat schrijft Lukas over de plaats van dit wonder?", "a": ["Een vlek, zonder naam", "Het dorp Kana in Galilea", "De stad Jeruzalem"], "why": "Lukas 17:11–12" }
+      ]
+    }
+  },
+  "114": {
+    "a": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "t": "De Heere Jezus vertelt een gelijkenis. Hij vertelt het aan mensen die denken dat ze zelf goed zijn, en die anderen niets waard vinden." },
+        { "t": "Twee mannen gaan naar de tempel om te bidden. De een is een Farizeeër. De ander is een tollenaar." },
+        { "t": "De Farizeeër staat en bidt. Hij dankt God dat hij niet is zoals de andere mensen, en ook niet zoals die tollenaar." },
+        { "t": "Hij zegt: ik vast twee keer per week. En ik geef een tiende deel van alles wat ik heb." },
+        { "t": "De tollenaar blijft ver weg staan. Hij kijkt niet eens omhoog naar de hemel." },
+        { "t": "Hij slaat op zijn borst en bidt: ‘O God! wees mij zondaar genadig!’" },
+        { "t": "De Heere Jezus zegt: de tollenaar gaat gerechtvaardigd naar huis, en de Farizeeër niet." },
+        { "t": "Want wie zichzelf groot maakt, wordt klein gemaakt. En wie zichzelf klein maakt, wordt groot gemaakt." }
+      ],
+      "samen": "Een tollenaar haalde belasting op en werd vaak met zondaars genoemd (Lukas 15:1). Een Farizeeër wilde de wet heel precies houden. De Heere Jezus zegt zelf voor wie de gelijkenis is: mensen die op zichzelf vertrouwden dat ze rechtvaardig waren, en de anderen niets achtten (Lukas 18:9). ‘Gerechtvaardigd’ wil hier zeggen: rechtvaardig voor God. Vraag samen: wat zegt de tollenaar tegen God?",
+      "vragen": [
+        { "q": "Waar gaan de twee mannen naartoe?", "a": ["Naar de tempel", "Naar de markt"], "why": "Lukas 18:10" },
+        { "q": "Wat bidt de tollenaar?", "a": ["O God, wees mij zondaar genadig", "O God, ik dank U dat ik goed ben"], "why": "Lukas 18:13" },
+        { "q": "Wie gaat er gerechtvaardigd naar huis?", "a": ["De tollenaar", "De Farizeeër"], "why": "Lukas 18:14" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Twee mannen in de tempel", "t": "De Heere Jezus vertelt deze gelijkenis aan mensen die op zichzelf vertrouwen dat ze rechtvaardig zijn: goed in Gods ogen. De anderen vinden ze niets waard. Twee mannen gaan naar de tempel om te bidden. De een is een Farizeeër, de ander een tollenaar." },
+        { "kop": "Het gebed van de Farizeeër", "t": "De Farizeeër staat en bidt: ‘O God! ik dank U, dat ik niet ben gelijk de andere mensen’. Hij noemt rovers, onrechtvaardigen en overspelers, en ook deze tollenaar. ‘Ik vast tweemaal per week; ik geef tienden van alles, wat ik bezit.’ Vasten is een tijd niet eten. Een tiende is één deel van elke tien." },
+        { "kop": "Het gebed van de tollenaar", "t": "De tollenaar blijft van verre staan en wil zijn ogen niet eens opheffen naar de hemel. Hij slaat op zijn borst en bidt: ‘O God! wees mij zondaar genadig!’ De Heere Jezus zegt: deze man gaat gerechtvaardigd naar huis, de Farizeeër niet. Gerechtvaardigd betekent: rechtvaardig voor God. Want wie zichzelf verhoogt, zal vernederd worden, en wie zichzelf vernedert, zal verhoogd worden." }
+      ],
+      "vragen": [
+        { "q": "Waarom vertelt de Heere Jezus deze gelijkenis?", "a": ["Sommigen vertrouwen op zichzelf en achten anderen niets", "De discipelen vragen hoe ze moeten vasten", "Een tollenaar vraagt Hem om raad"], "why": "Lukas 18:9" },
+        { "q": "Waarvoor dankt de Farizeeër God?", "a": ["Dat hij niet is zoals de andere mensen", "Dat God hem zijn zonden vergeeft", "Dat de tollenaar ook in de tempel is"], "why": "Lukas 18:11" },
+        { "q": "Waar staat de tollenaar als hij bidt?", "a": ["Van verre", "Vooraan bij het altaar", "Naast de Farizeeër"], "why": "Lukas 18:13" },
+        { "q": "Wat bidt de tollenaar?", "a": ["God, wees mij zondaar genadig", "God, ik dank U voor mijn vasten", "God, maak mij zoals de Farizeeër"], "why": "Lukas 18:13" },
+        { "q": "Wat gebeurt er met wie zichzelf verhoogt?", "a": ["Hij zal vernederd worden", "Hij zal verhoogd worden", "Hij zal rijk worden"], "why": "Lukas 18:14" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Vasten en tienden", "t": "De wet vroeg Israël: ‘Gij zult getrouwelijk vertienen al het inkomen uws zaads’ (Deuteronomium 14:22). De Farizeeër geeft tienden ‘van alles, wat ik bezit’ (Lukas 18:12). Elders zegt de Heere Jezus tegen de Farizeeën: ‘gij vertient de munte, en de dille, en den komijn, en gij laat na het zwaarste der wet, namelijk het oordeel, en de barmhartigheid, en het geloof’ (Mattheüs 23:23). De gelijkenis zegt niet dat de Farizeeër loog over zijn vasten en tienden. Volgens Lukas 18:9 gaat het om op zichzelf vertrouwen en anderen niets achten.", "refs": ["Deuteronomium 14:22", "Lukas 18:12", "Mattheüs 23:23", "Lukas 18:9"] },
+        { "kop": "Elders in de Bijbel", "t": "Het gebed van de tollenaar lijkt op het begin van Psalm 51, die David schreef na zijn zonde met Bathseba: ‘Wees mij genadig, o God!’ (Psalm 51:3). De HEERE zegt: ‘op dezen zal Ik zien, op den arme en verslagene van geest’ (Jesaja 66:2). Tegen de Farizeeën zegt de Heere Jezus: ‘Gij zijt het, die uzelven rechtvaardigt voor de mensen; maar God kent uw harten’ (Lukas 16:15). Paulus schrijft over God, ‘Die den goddeloze rechtvaardigt’ (Romeinen 4:5).", "refs": ["Psalm 51:1–3", "Jesaja 66:2", "Lukas 16:15", "Romeinen 4:5"] }
+      ],
+      "vragen": [
+        { "q": "Welke soorten mensen noemt de Farizeeër in zijn gebed, naast de tollenaar?", "a": ["Rovers, onrechtvaardigen, overspelers", "Tollenaars, zondaars, heidenen", "Priesters, levieten, schriftgeleerden"], "why": "Lukas 18:11" },
+        { "q": "Wat vertienden de Farizeeën volgens Mattheüs 23:23?", "a": ["Munt, dille en komijn", "Goud, zilver en koper", "Schapen, geiten en runderen"], "why": "Mattheüs 23:23" },
+        { "q": "Wat zegt de Heere Jezus in Lukas 16:15 tegen de Farizeeën?", "a": ["God kent uw harten", "Gij zijt de rechtvaardigen", "Uw tienden zijn genoeg"], "why": "Lukas 16:15" },
+        { "q": "Op wie zal God zien, volgens Jesaja 66:2?", "a": ["Op den arme en verslagene van geest", "Op wie tweemaal per week vast", "Op wie de meeste tienden geeft"], "why": "Jesaja 66:2" }
+      ]
+    }
+  },
+  "115": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["nt_bethanie", "nt_doopplaats"],
+      "delen": [
+        { "t": "In Bethanië wonen Martha, Maria en hun broer Lazarus. De Heere Jezus heeft hen lief.", "stap": "jezus-2:nt-feesten-jeruzalem:6" },
+        { "t": "Lazarus wordt ziek. De zusters laten de Heere Jezus weten: hij van wie U houdt, is ziek." },
+        { "t": "De Heere Jezus is aan de andere kant van de Jordaan. Hij blijft daar nog twee dagen.", "stap": "jezus-2:nt-feesten-jeruzalem:6" },
+        { "t": "Dan zegt Hij tegen Zijn discipelen: Lazarus is gestorven. Laten we naar hem toe gaan." },
+        { "t": "Als de Heere Jezus in Bethanië komt, ligt Lazarus al vier dagen in het graf.", "stap": "jezus-2:nt-feesten-jeruzalem:7" },
+        { "t": "Martha gaat naar Hem toe. De Heere Jezus zegt tegen haar: ‘Ik ben de Opstanding en het Leven.’" },
+        { "t": "Maria en de mensen bij haar huilen. Dan huilt de Heere Jezus ook." },
+        { "t": "Het graf is een grot met een steen ervoor. De Heere Jezus zegt: haal de steen weg." },
+        { "t": "Hij dankt Zijn Vader. Dan roept Hij met luide stem: ‘Lazarus, kom uit!’" },
+        { "t": "En Lazarus komt naar buiten, nog in doeken gewikkeld. Veel mensen die het zien, geloven in de Heere Jezus." }
+      ],
+      "samen": "Dit verhaal gaat over doodgaan en verdriet. De Bijbel vertelt eerlijk dat Maria en de anderen huilden, en dat ook de Heere Jezus huilde: ‘Jezus weende’ (Johannes 11:33–35). Hij zegt: ‘Ik ben de Opstanding en het Leven’ (Johannes 11:25). Bij A is weggelaten wat daarna gebeurt: de overpriesters en Farizeeën besluiten de Heere Jezus te doden (Johannes 11:47–53). Vraag samen: wat roept de Heere Jezus bij het graf?",
+      "vragen": [
+        { "q": "Wie wordt er ziek?", "a": ["Lazarus", "Martha"], "why": "Johannes 11:1" },
+        { "q": "Wat doet de Heere Jezus als Hij Maria ziet huilen?", "a": ["Hij huilt ook", "Hij gaat weg"], "why": "Johannes 11:33–35" },
+        { "q": "Wat roept de Heere Jezus bij het graf?", "a": ["Lazarus, kom uit!", "Lazarus, slaap maar!"], "why": "Johannes 11:43" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een bericht uit Bethanië", "stap": "jezus-2:nt-feesten-jeruzalem:6", "t": "Lazarus woont in Bethanië. Hij is de broer van Martha en Maria, en de Heere Jezus heeft hen lief. Als Lazarus ziek wordt, laten de zusters het de Heere Jezus weten. Hij zegt dat deze ziekte is ‘ter heerlijkheid Gods’. Hij blijft nog twee dagen waar Hij is. Dan zegt Hij: ‘Lazarus is gestorven.’" },
+        { "kop": "De Opstanding en het Leven", "stap": "jezus-2:nt-feesten-jeruzalem:7", "t": "Als de Heere Jezus komt, ligt Lazarus al vier dagen in het graf. Martha gaat Hem tegemoet. Hij zegt: ‘Ik ben de Opstanding en het Leven’. Maria valt aan Zijn voeten. Als Hij haar en de anderen ziet huilen, staat er: ‘Jezus weende.’" },
+        { "kop": "Uit het graf", "t": "Het graf is een grot met een steen ervoor. De Heere Jezus laat de steen wegnemen en dankt Zijn Vader. Dan roept Hij: ‘Lazarus, kom uit!’ De gestorvene komt naar buiten, met grafdoeken om handen en voeten. Veel mensen die het zien, geloven in de Heere Jezus. Maar sommigen gaan het aan de Farizeeën vertellen." }
+      ],
+      "vragen": [
+        { "q": "Wat laten de zusters de Heere Jezus weten?", "a": ["Dat Lazarus ziek is", "Dat Lazarus op reis is", "Dat ze naar Jeruzalem gaan"], "why": "Johannes 11:3" },
+        { "q": "Waarvoor is deze ziekte, volgens de Heere Jezus?", "a": ["Ter heerlijkheid van God", "Als straf voor een zonde van Lazarus", "Om de zusters te leren wachten"], "why": "Johannes 11:4" },
+        { "q": "Hoe lang ligt Lazarus al in het graf als de Heere Jezus komt?", "a": ["Vier dagen", "Twee dagen", "Een week"], "why": "Johannes 11:17" },
+        { "q": "Wat doet de Heere Jezus vlak voordat Hij Lazarus roept?", "a": ["Hij dankt Zijn Vader", "Hij wast Zijn handen", "Hij zalft het graf"], "why": "Johannes 11:41–43" },
+        { "q": "Wat doen veel mensen die het wonder zien?", "a": ["Ze geloven in de Heere Jezus", "Ze leggen de steen terug", "Ze gaan naar de tempel om te offeren"], "why": "Johannes 11:45" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Waar en wanneer", "t": "Toen het bericht kwam, was de Heere Jezus ‘over de Jordaan, tot de plaats, waar Johannes eerst doopte’ (Johannes 10:40). Die plaats wordt meestal gelijkgesteld met Bethabara, waar Johannes doopte (Johannes 1:28); waar die lag, is betwist. Bethanië is identificeerbaar en lag ‘nabij Jeruzalem, omtrent vijftien stadiën van daar’ (Johannes 11:18). Met een stadie van ongeveer 185 meter is dat bijna drie kilometer. Daarna gaat de Heere Jezus naar Efraïm, ‘bij de woestijn’ (Johannes 11:54); de ligging daarvan is waarschijnlijk bekend. Daarna staat er: ‘En het pascha der Joden was nabij’ (Johannes 11:55). Het jaar is een reconstructie: begin ca. 30 n.Chr., of begin 33.", "refs": ["Johannes 10:40", "Johannes 1:28", "Johannes 11:18", "Johannes 11:54–55"] },
+        { "kop": "Elders in de Bijbel", "t": "Martha belijdt: ‘Gij zijt de Christus, de Zone Gods’ (Johannes 11:27), zoals Petrus: ‘Gij zijt de Christus, de Zoon des levenden Gods’ (Mattheüs 16:16). Ook elders wekt de Heere Jezus doden op: de jongeling bij Naïn, ‘Jongeling, Ik zeg u, sta op!’ (Lukas 7:14), en de dochter van Jaïrus, ‘Kind, sta op!’ (Lukas 8:54). Paulus schrijft dat gelovigen niet bedroefd hoeven te zijn ‘gelijk als de anderen, die geen hoop hebben’ (1 Thessalonicenzen 4:13).", "refs": ["Johannes 11:27", "Mattheüs 16:16", "Lukas 7:11–15", "Lukas 8:49–55", "1 Thessalonicenzen 4:13–14"] },
+        { "kop": "Wat de tekst zegt en wat niet", "t": "De discipelen begrijpen ‘slaapt’ eerst verkeerd: ‘zij meenden, dat Hij sprak van de rust des slaaps’ (Johannes 11:13). Van Lazarus zelf staat in Johannes 11 en 12 geen enkel woord; de Bijbel vertelt niet wat hij in die vier dagen heeft meegemaakt. Kajafas zegt in de raad ‘dat het ons nut is, dat een mens sterve voor het volk’. Johannes schrijft dat hij dat ‘niet uit zichzelven’ zei: hij profeteerde ‘dat Jezus sterven zou voor het volk’ (Johannes 11:50–51).", "refs": ["Johannes 11:11–13", "Johannes 11:47–53"] }
+      ],
+      "vragen": [
+        { "q": "Hoe begrepen de discipelen eerst de woorden dat Lazarus slaapt?", "a": ["Dat hij gewoon rustte in de slaap", "Dat hij al begraven was", "Dat hij op reis was gegaan"], "why": "Johannes 11:12–13" },
+        { "q": "Hoe ver lag Bethanië van Jeruzalem?", "a": ["Omtrent vijftien stadiën", "Een dagreis", "Drie dagreizen"], "why": "Johannes 11:18" },
+        { "q": "Wat belijdt Martha over de Heere Jezus?", "a": ["Dat Hij de Christus is, de Zoon van God", "Dat Hij een profeet is zoals Elia", "Dat Hij de zoon van Jozef is"], "why": "Johannes 11:27" },
+        { "q": "Wie zei in de raad dat het nut was dat één mens zou sterven voor het volk?", "a": ["Kajafas", "Pilatus", "Nikodemus"], "why": "Johannes 11:49–50" }
+      ]
+    }
+  },
+  "116": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["jericho"],
+      "delen": [
+        { "t": "De Heere Jezus komt met Zijn discipelen in de stad Jericho. Er zijn heel veel mensen bij Hem.", "stap": "jezus-2:nt-reis-naar-jeruzalem:10" },
+        { "t": "Als Hij de stad weer uitgaat, zit er een blinde man langs de weg. Hij heet Bartimeüs. Hij bedelt.", "stap": "jezus-2:nt-reis-naar-jeruzalem:10" },
+        { "t": "Bartimeüs hoort dat de Heere Jezus voorbijkomt. Hij roept: ‘Jezus, Gij Zone Davids! ontferm U mijner.’" },
+        { "t": "Dat betekent: heb medelijden met mij. Veel mensen zeggen dat hij stil moet zijn. Maar hij roept nog harder." },
+        { "t": "De Heere Jezus blijft staan. Hij laat Bartimeüs bij Zich roepen." },
+        { "t": "Bartimeüs gooit zijn mantel af. Hij staat op en komt bij de Heere Jezus." },
+        { "t": "De Heere Jezus vraagt: ‘Wat wilt gij, dat Ik u doen zal?’ Bartimeüs zegt: ik wil graag kunnen zien." },
+        { "t": "De Heere Jezus zegt: ‘Ga heen, uw geloof heeft u behouden.’ Meteen kan Bartimeüs zien!" },
+        { "t": "En Bartimeüs gaat met de Heere Jezus mee op de weg." }
+      ],
+      "samen": "Bartimeüs noemt de Heere Jezus ‘Zone Davids’. Dat wijst op de Koning uit het huis van David, Die God beloofd had (2 Samuël 7:12–13). Hij blijft roepen, ook als veel mensen zeggen dat hij moet zwijgen (Markus 10:48). Mattheüs vertelt over twee blinden bij Jericho (Mattheüs 20:30). Vraag samen: wat doet Bartimeüs als hij weer kan zien?",
+      "vragen": [
+        { "q": "Wat is er met Bartimeüs aan de hand?", "a": ["Hij is blind", "Hij is doof"], "why": "Markus 10:46" },
+        { "q": "Wat doet Bartimeüs als de mensen zeggen dat hij stil moet zijn?", "a": ["Hij roept nog harder", "Hij gaat naar huis"], "why": "Markus 10:48" },
+        { "q": "Wat doet Bartimeüs als hij kan zien?", "a": ["Hij gaat met de Heere Jezus mee", "Hij blijft langs de weg zitten"], "why": "Markus 10:52" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een blinde langs de weg", "stap": "jezus-2:nt-reis-naar-jeruzalem:10", "t": "De Heere Jezus is met Zijn discipelen op weg naar Jeruzalem. Ze komen in Jericho. Als ze de stad weer uitgaan, gaat er een grote menigte mee. Langs de weg zit Bartimeüs, de zoon van Timeüs. Hij is blind en bedelt: hij vraagt voorbijgangers om een gift." },
+        { "kop": "Hij blijft roepen", "t": "Bartimeüs hoort dat het Jezus van Nazareth is. Hij roept: ‘Jezus, Gij Zone Davids! ontferm U mijner.’ Zoon van David is een naam voor de beloofde Koning uit het huis van David. Veel mensen bestraffen hem: hij moet zwijgen. Maar hij roept nog veel harder." },
+        { "kop": "Bartimeüs kan zien", "t": "De Heere Jezus blijft staan en laat hem bij Zich roepen. Bartimeüs gooit zijn mantel af en komt bij Hem. ‘Wat wilt gij, dat Ik u doen zal?’ vraagt de Heere Jezus. Bartimeüs zegt: ‘Rabboni! dat ik ziende mag worden.’ Rabboni betekent: Meester. ‘Ga heen, uw geloof heeft u behouden.’ Meteen kan hij zien, en hij volgt de Heere Jezus op de weg." }
+      ],
+      "vragen": [
+        { "q": "Waar zit Bartimeüs?", "a": ["Langs de weg bij Jericho", "Bij de poort van Jeruzalem", "Aan de oever van de Jordaan"], "why": "Markus 10:46" },
+        { "q": "Wat zeggen veel mensen tegen Bartimeüs?", "a": ["Dat hij moet zwijgen", "Dat hij naar huis moet gaan", "Dat hij geld moet geven"], "why": "Markus 10:48" },
+        { "q": "Wat doet Bartimeüs voordat hij bij de Heere Jezus komt?", "a": ["Hij gooit zijn mantel af", "Hij wast zijn ogen", "Hij pakt zijn stok"], "why": "Markus 10:50" },
+        { "q": "Wat vraagt Bartimeüs aan de Heere Jezus?", "a": ["Dat hij kan zien", "Dat hij geld krijgt", "Dat hij mee mag naar Jeruzalem"], "why": "Markus 10:51" },
+        { "q": "Waardoor is Bartimeüs behouden, volgens de Heere Jezus?", "a": ["Door zijn geloof", "Door zijn harde roepen", "Door zijn lange wachten"], "why": "Markus 10:52" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Eén blinde of twee?", "t": "Markus noemt één blinde, met naam: Bartimeüs. Lukas vertelt over ‘een zeker blinde’ toen de Heere Jezus ‘nabij Jericho kwam’ (Lukas 18:35). Mattheüs noemt ‘twee blinden’, toen ze ‘van Jericho uitgingen’ (Mattheüs 20:29–30). Uitleggers verschillen over hoe deze berichten precies samengaan. In alle drie roept de blinde de Heere Jezus aan als ‘Zone Davids’ (Markus 10:47; Lukas 18:38; Mattheüs 20:30).", "refs": ["Markus 10:46–47", "Lukas 18:35–38", "Mattheüs 20:29–30"] },
+        { "kop": "Bar-timeus en Rabboni", "t": "‘Bar’ is Aramees voor zoon. Daarom schrijft Markus: ‘de zoon van Timeüs, Bar-timeus’ (Markus 10:46). Zo noemt de Heere Jezus Petrus ‘Simon, Bar-jona’ (Mattheüs 16:17). ‘Rabboni’ betekent Meester; Johannes legt het uit: ‘Rabbouni, hetwelk is gezegd, Meester’ (Johannes 20:16). Kort daarvoor stelde de Heere Jezus bijna dezelfde vraag aan Jakobus en Johannes: ‘Wat wilt gij, dat Ik u doe?’ (Markus 10:36). Zij vroegen een ereplaats; Bartimeüs vroeg om te mogen zien.", "refs": ["Markus 10:46", "Mattheüs 16:17", "Johannes 20:16", "Markus 10:35–37"] },
+        { "kop": "Elders in de Bijbel", "t": "Jesaja profeteerde: ‘Alsdan zullen der blinden ogen opengedaan worden’ (Jesaja 35:5). Als Johannes de Doper laat vragen of Hij ‘Degene, Die komen zou’ is, antwoordt de Heere Jezus onder meer: ‘De blinden worden ziende’ (Mattheüs 11:3–5). Mattheüs begint zijn evangelie met ‘JEZUS CHRISTUS, den Zoon van David’ (Mattheüs 1:1). Vanuit Jericho gaat de weg verder naar Jeruzalem; in het volgende hoofdstuk nadert de Heere Jezus de stad (Markus 11:1).", "refs": ["Jesaja 35:5", "Mattheüs 11:2–5", "Mattheüs 1:1", "Markus 11:1"] }
+      ],
+      "vragen": [
+        { "q": "Wat betekent ‘Bar’ in de naam Bar-timeus?", "a": ["Zoon", "Blind", "Bedelaar"], "why": "Markus 10:46" },
+        { "q": "Hoeveel blinden noemt Mattheüs bij Jericho?", "a": ["Twee", "Eén", "Drie"], "why": "Mattheüs 20:30" },
+        { "q": "Wie kregen kort daarvoor bijna dezelfde vraag: ‘Wat wilt gij, dat Ik u doe?’", "a": ["Jakobus en Johannes", "Petrus en Andreas", "Martha en Maria"], "why": "Markus 10:35–36" },
+        { "q": "Wat laat de Heere Jezus aan Johannes de Doper weten?", "a": ["De blinden worden ziende", "De zee wordt gespleten", "Het vuur valt uit de hemel"], "why": "Mattheüs 11:4–5" }
+      ]
+    }
+  },
+  "117": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["jericho"],
+      "delen": [
+        { "t": "De Heere Jezus gaat door de stad Jericho.", "stap": "jezus-2:nt-reis-naar-jeruzalem:11" },
+        { "t": "Daar woont Zacheüs. Hij is een baas over de tollenaars, en hij is rijk." },
+        { "t": "Zacheüs wil de Heere Jezus graag zien. Maar hij is klein, en er staan te veel mensen.", "stap": "jezus-2:nt-reis-naar-jeruzalem:11" },
+        { "t": "Daarom rent hij vooruit. Hij klimt in een wilde vijgenboom." },
+        { "t": "De Heere Jezus komt bij de boom en kijkt omhoog. Hij zegt: ‘Zacheüs! haast u, en kom af’." },
+        { "t": "Hij zegt dat Hij vandaag in het huis van Zacheüs moet blijven. Zacheüs komt snel naar beneden en ontvangt Hem blij." },
+        { "t": "Alle mensen die het zien, mopperen. Ze zeggen: Hij gaat logeren bij een zondaar." },
+        { "t": "Zacheüs zegt: de helft van wat ik heb, geef ik aan de armen. Heb ik iemand iets afgenomen door bedrog, dan geef ik het vier keer terug." },
+        { "t": "De Heere Jezus zegt: vandaag is de redding in dit huis gekomen. Hij is gekomen om te zoeken en te redden wat verloren was." }
+      ],
+      "samen": "Een tollenaar haalde tol en belasting op. In de evangeliën worden tollenaars vaak samen met zondaars genoemd (Lukas 15:1). Daarom mopperen de mensen dat de Heere Jezus bij Zacheüs gaat logeren (Lukas 19:7). ‘Zaligheid’ in Lukas 19:9 is hier vertaald met redding. Vraag samen: wat doet Zacheüs als de Heere Jezus bij hem komt?",
+      "vragen": [
+        { "q": "Waarom klimt Zacheüs in een boom?", "a": ["Hij is klein en wil de Heere Jezus zien", "Hij wil vijgen plukken"], "why": "Lukas 19:3–4" },
+        { "q": "Wat zegt de Heere Jezus tegen Zacheüs?", "a": ["Kom snel naar beneden", "Blijf maar in de boom"], "why": "Lukas 19:5" },
+        { "q": "Hoe ontvangt Zacheüs de Heere Jezus?", "a": ["Blij", "Boos"], "why": "Lukas 19:6" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een rijke tollenaar in Jericho", "stap": "jezus-2:nt-reis-naar-jeruzalem:11", "t": "De Heere Jezus gaat door Jericho. Daar woont Zacheüs, een overste van de tollenaars, en hij is rijk. Tollenaars halen tol en belasting op. Zacheüs wil graag zien wie Jezus is, maar hij is klein en de menigte staat ervoor. Daarom rent hij vooruit en klimt in een wilde vijgenboom langs de weg." },
+        { "kop": "Vandaag in jouw huis", "t": "Als de Heere Jezus daar komt, kijkt Hij omhoog en zegt: ‘Zacheüs! haast u, en kom af; want Ik moet heden in uw huis blijven.’ Heden betekent vandaag. Zacheüs komt snel naar beneden en ontvangt Hem met blijdschap. Maar alle mensen die het zien, mopperen dat Hij bij een zondaar gaat logeren." },
+        { "kop": "Zaligheid in dit huis", "t": "Zacheüs zegt: ‘Zie, de helft van mijn goederen, Heere, geef ik den armen’. En als hij iemand door bedrog iets heeft afgenomen, geeft hij het vier keer terug. De Heere Jezus zegt: ‘Heden is dezen huize zaligheid geschied’. Zaligheid is redding. ‘Want de Zoon des mensen is gekomen, om te zoeken en zalig te maken, dat verloren was.’" }
+      ],
+      "vragen": [
+        { "q": "Waarom klimt Zacheüs in de boom?", "a": ["Hij is klein en de menigte staat ervoor", "Hij wil zich voor de mensen verstoppen", "Hij wil vijgen plukken voor de gasten"], "why": "Lukas 19:3–4" },
+        { "q": "Wat zegt de Heere Jezus als Hij bij de boom komt?", "a": ["Zacheüs, kom snel naar beneden", "Zacheüs, blijf daar maar zitten", "Zacheüs, kom morgen bij Mij"], "why": "Lukas 19:5" },
+        { "q": "Waarom mopperen de mensen?", "a": ["De Heere Jezus gaat logeren bij een zondaar", "Zacheüs klimt in een boom", "De Heere Jezus gaat niet naar de tempel"], "why": "Lukas 19:7" },
+        { "q": "Wat geeft Zacheüs aan de armen?", "a": ["De helft van zijn goederen", "Al zijn geld", "Een tiende van zijn goederen"], "why": "Lukas 19:8" },
+        { "q": "Waarvoor is de Zoon des mensen gekomen?", "a": ["Om te zoeken en zalig te maken wat verloren was", "Om de rijken te straffen voor hun bedrog", "Om koning te worden in Jericho"], "why": "Lukas 19:10" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Wat de wet vroeg", "t": "Wie een ander onrecht had gedaan, moest volgens de wet zijn zonde belijden en het teruggeven ‘naar de hoofdsom daarvan’, met ‘derzelfder vijfde deel’ erbij (Numeri 5:7). Vier keer zoveel gold bij gestolen klein vee dat geslacht of verkocht was (Exodus 22:1). Zacheüs belooft vierdubbel terug te geven, en daarnaast de helft van zijn goederen aan de armen (Lukas 19:8). Johannes de Doper had tegen tollenaars gezegd: ‘Eist niet meer, dan hetgeen u gezet is’ (Lukas 3:13).", "refs": ["Numeri 5:6–7", "Exodus 22:1", "Lukas 19:8", "Lukas 3:12–13"] },
+        { "kop": "Een rijke die zalig wordt", "t": "Kort voordat de Heere Jezus bij Jericho komt, wordt een rijke overste ‘geheel droevig; want hij was zeer rijk’. De Heere Jezus zegt dan: ‘Hoe bezwaarlijk zullen degenen, die goed hebben, in het Koninkrijk Gods ingaan!’ Op de vraag ‘Wie kan dan zalig worden?’ antwoordt Hij: ‘De dingen, die onmogelijk zijn bij de mensen, zijn mogelijk bij God’ (Lukas 18:23–27). In Jericho zegt Hij over de rijke Zacheüs: ‘Heden is dezen huize zaligheid geschied’, en Hij noemt hem ‘een zoon van Abraham’ (Lukas 19:9).", "refs": ["Lukas 18:18–27", "Lukas 19:9"] },
+        { "kop": "Waar en wanneer", "t": "Jericho is een identificeerbare plaats. De wilde vijgeboom kent de Bijbel ook bij Amos, die zegt dat hij ‘wilde vijgen’ afplukte (Amos 7:14). Na het bezoek aan Zacheüs vertelt de Heere Jezus nog een gelijkenis; daarna ‘reisde Hij voor hen heen, en ging op naar Jeruzalem’ (Lukas 19:28), voor het laatste Pascha. Het jaar is een reconstructie: het voorjaar van ca. 30 n.Chr., of van 33 n.Chr.", "refs": ["Amos 7:14", "Lukas 19:11", "Lukas 19:28"] }
+      ],
+      "vragen": [
+        { "q": "Wat moest iemand volgens Numeri 5:7 teruggeven als hij een ander onrecht had gedaan?", "a": ["De hoofdsom, met een vijfde deel erbij", "Vier keer zoveel als hij genomen had", "Niets, alleen een offer brengen"], "why": "Numeri 5:7" },
+        { "q": "Hoe noemt de Heere Jezus Zacheüs?", "a": ["Een zoon van Abraham", "Een zoon van David", "Een zoon van Levi"], "why": "Lukas 19:9" },
+        { "q": "Wat is volgens Lukas 18:27 mogelijk bij God?", "a": ["De dingen die onmogelijk zijn bij de mensen", "Alleen wat mensen zelf ook kunnen", "Alleen wat in de wet geschreven staat"], "why": "Lukas 18:27" },
+        { "q": "Wat deed Amos, behalve ossen hoeden?", "a": ["Hij las wilde vijgen af", "Hij ving vissen in de zee", "Hij bouwde huizen in Jericho"], "why": "Amos 7:14" }
+      ]
+    }
+  }
+}

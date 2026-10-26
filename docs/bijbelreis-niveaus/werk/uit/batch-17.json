@@ -1,0 +1,502 @@
+{
+  "68": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["salem", "bethel", "megiddo"],
+      "delen": [
+        { "t": "Josia is pas acht jaar oud als hij koning wordt in Jeruzalem. Hij doet wat recht is in de ogen van de HEERE.", "stap": "2koningen:ballingschap:4" },
+        { "t": "Josia laat het huis van de HEERE herstellen. Daar vindt de hogepriester Hilkia een boek: het wetboek.", "stap": "2koningen:ballingschap:4" },
+        { "t": "De schrijver Safan leest het boek voor aan de koning. Als Josia de woorden hoort, scheurt hij zijn kleren." },
+        { "t": "Josia stuurt mannen naar de profetes Hulda. Ze moeten de HEERE vragen naar de woorden van het boek." },
+        { "t": "Hulda zegt: de straf uit het boek komt over Jeruzalem. Maar Josia zal het niet zien, want zijn hart werd zacht en hij huilde voor de HEERE." },
+        { "t": "Josia roept al het volk bij elkaar in het huis van de HEERE, groot en klein. Hij leest hun het hele boek voor.", "stap": "2koningen:ballingschap:4" },
+        { "t": "Bij de pilaar sluit Josia een verbond. Hij wil de HEERE volgen met heel zijn hart. Het hele volk doet mee." },
+        { "t": "Josia haalt de afgodsbeelden weg en verbrandt ze. Hij breekt ook het altaar in Bethel af." },
+        { "t": "Dan viert het volk het Pascha, zoals het in het boek staat. Zo’n Pascha is er in heel lange tijd niet geweest." },
+        { "t": "Later gaat Josia de koning van Egypte tegemoet. Bij Megiddo wordt hij gedood en naar Jeruzalem gebracht.", "stap": "2koningen:ballingschap:5" }
+      ],
+      "samen": "Bij A is weggelaten dat Josia ook de priesters van de hoogten in Samaria doodde (2 Koningen 23:20). Hulda zegt dat het kwaad komt omdat het volk de HEERE verlaten heeft (2 Koningen 22:16–17); ondanks Josia’s bekering blijft de HEERE toornig om wat Manasse gedaan had (2 Koningen 23:26). Vraag samen: wat doet Josia als hij Gods woorden hoort? Hij scheurt zijn kleren en huilt (2 Koningen 22:11, 19).",
+      "vragen": [
+        { "q": "Wat vindt Hilkia in het huis van de HEERE?", "a": ["Het wetboek", "Een gouden kroon"], "why": "2 Koningen 22:8" },
+        { "q": "Wat doet Josia als hij de woorden uit het boek hoort?", "a": ["Hij scheurt zijn kleren", "Hij legt het boek weg"], "why": "2 Koningen 22:11" },
+        { "q": "Welk feest viert het volk daarna?", "a": ["Het Pascha", "Een bruiloft"], "why": "2 Koningen 23:21–23" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Een boek in het huis van de HEERE",
+          "stap": "2koningen:ballingschap:4",
+          "t": "Josia is acht jaar als hij koning wordt in Jeruzalem, en hij doet wat recht is in de ogen van de HEERE. In zijn achttiende jaar laat hij de tempel herstellen. Dan vindt de hogepriester Hilkia het wetboek: het boek met Gods wet. De schrijver Safan leest het voor aan de koning. Josia scheurt zijn kleren. Hij zegt: de HEERE is toornig, omdat onze vaderen niet naar dit boek gehoord hebben."
+        },
+        {
+          "kop": "Het antwoord van Hulda",
+          "t": "Josia laat de HEERE vragen bij de profetes Hulda. Een profetes is een vrouw die Gods woord doorgeeft. Zij zegt: het kwaad uit het boek komt over Jeruzalem, omdat het volk andere goden vereerd heeft. Maar Josia zal het niet zien, omdat hij zich voor de HEERE vernederd heeft."
+        },
+        {
+          "kop": "Een verbond bij de pilaar",
+          "t": "Josia leest het boek voor aan het hele volk. Bij de pilaar sluit hij een verbond: een plechtige belofte om de HEERE te volgen met heel zijn hart. Hij ruimt de afgoden op, tot in Bethel toe, en viert het Pascha. Later wordt hij bij Megiddo gedood door farao Necho van Egypte."
+        }
+      ],
+      "vragen": [
+        { "q": "Waar werd het wetboek gevonden?", "a": ["In het huis van de HEERE", "In het paleis van de koning", "In de stad Bethel"], "why": "2 Koningen 22:8" },
+        {
+          "q": "Waarom was de HEERE toornig, volgens Josia?",
+          "a": ["Hun vaderen hadden niet naar het boek gehoord", "Het geld voor de tempel was gestolen", "De tempel was nog niet hersteld"],
+          "why": "2 Koningen 22:13"
+        },
+        {
+          "q": "Wat deed Josia nadat hij het boek aan het volk had voorgelezen?",
+          "a": ["Hij sloot een verbond bij de pilaar", "Hij verbrandde het boek", "Hij stuurde het boek naar Babel"],
+          "why": "2 Koningen 23:2–3"
+        },
+        { "q": "In welke stad brak Josia het altaar van Jerobeam af?", "a": ["Bethel", "Jericho", "Hebron"], "why": "2 Koningen 23:15" },
+        {
+          "q": "Wat gebeurde er als eerste?",
+          "a": ["Hilkia vond het wetboek", "Het volk vierde het Pascha", "Josia sloot een verbond bij de pilaar"],
+          "why": "2 Koningen 22:8; 2 Koningen 23:3; 2 Koningen 23:21–23"
+        }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Het einde bij Megiddo",
+          "t": "2 Kronieken 35 vertelt meer over Josia’s dood. Necho trok op ‘om te krijgen tegen Karchemis, aan den Frath’, en liet Josia zeggen: ‘ik ben heden tegen u niet’. Maar Josia ‘verstelde zich’ (hij vermomde zich) en ‘hoorde niet naar de woorden van Necho uit den mond van God’. Schutters raakten hem; hij stierf en werd in Jeruzalem begraven. Jeremia maakte een klaaglied over hem. Hulda had gezegd dat Josia ‘met vrede in uw graf verzameld’ zou worden, en dat hij het kwaad over Jeruzalem niet zou zien (2 Koningen 22:20). De verwoesting van de stad maakte hij inderdaad niet mee.",
+          "refs": ["2 Kronieken 35:20–25", "2 Koningen 22:20"]
+        },
+        {
+          "kop": "Welk boek werd gevonden?",
+          "t": "De tekst noemt het ‘het wetboek’ en ‘het boek des verbonds’ (2 Koningen 23:2). Welk deel van de wet van Mozes het precies was, zegt de tekst niet. Veel uitleggers denken aan (een deel van) Deuteronomium, omdat wat Josia daarna doet daar sterk bij aansluit; anderen denken aan de hele wet van Mozes. Mozes had bevolen: ‘Neemt dit wetboek, en legt het aan de zijde van de ark des verbonds’ (Deuteronomium 31:26). En een koning moest een afschrift van de wet bij zich hebben en ‘daarin lezen al de dagen zijns levens’ (Deuteronomium 17:19).",
+          "refs": ["2 Koningen 23:2", "Deuteronomium 31:24–26", "Deuteronomium 17:18–19"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Josia regeerde eenendertig jaar (2 Koningen 22:1). Dat hij in 609 v.Chr. bij Megiddo sneuvelde, volgt uit Babylonische bronnen over de tocht van farao Necho. Zijn achttiende jaar, toen het wetboek gevonden werd, valt dan rond 622 v.Chr. Dat is een reconstructie. Jeruzalem en Megiddo zijn aanwijsbare plaatsen. De plek van Bethel, waar Josia het altaar van Jerobeam afbrak, is waarschijnlijk, maar niet zeker.",
+          "refs": ["2 Koningen 22:1–3", "2 Koningen 23:29"]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat liet Necho volgens 2 Kronieken 35 tegen Josia zeggen?",
+          "a": ["Ik ben heden tegen u niet", "Geef mij het goud van de tempel", "Ik kom Jeruzalem verwoesten"],
+          "why": "2 Kronieken 35:21"
+        },
+        { "q": "Wie maakte een klaaglied over Josia?", "a": ["Jeremia", "Hulda", "Safan"], "why": "2 Kronieken 35:25" },
+        {
+          "q": "Wat moest een koning volgens Deuteronomium 17 met de wet doen?",
+          "a": ["Een afschrift hebben en er zijn leven lang in lezen", "Hem alleen door de priesters laten lezen", "Hem eens per jaar in de tempel horen"],
+          "why": "Deuteronomium 17:18–19"
+        },
+        {
+          "q": "Hoe noemt 2 Koningen 23:2 het gevonden boek ook?",
+          "a": ["Het boek des verbonds", "Het boek der kronieken", "Het boek der Psalmen"],
+          "why": "2 Koningen 23:2"
+        }
+      ]
+    }
+  },
+  "69": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["joppe", "ninivest"],
+      "delen": [
+        { "t": "De HEERE zegt tegen Jona: ga naar de grote stad Ninevé. Preek tegen de mensen daar, want ze doen veel kwaad.", "stap": "jona:jona:0" },
+        { "t": "Maar Jona vlucht weg van de HEERE. In de stad Jafo stapt hij op een schip naar Tarsis.", "stap": "jona:jona:1" },
+        { "t": "Dan werpt de HEERE een grote wind op de zee. Het stormt zo erg dat het schip bijna breekt.", "stap": "jona:jona:2" },
+        { "t": "De zeelieden zijn bang. Ieder roept tot zijn eigen god. Maar Jona ligt beneden in het schip diep te slapen." },
+        { "t": "De kapitein maakt hem wakker: ‘Sta op, roep tot uw God’." },
+        { "t": "De zeelieden werpen het lot om te weten door wie de storm komt. Het lot valt op Jona." },
+        { "t": "Jona zegt: gooi mij in de zee, dan wordt de zee stil. De mannen doen het. Dan staat de zee stil." },
+        { "t": "De HEERE zorgt voor een grote vis. De vis slokt Jona op.", "stap": "jona:jona:3" },
+        { "t": "Drie dagen en drie nachten zit Jona in de vis. Daar bidt hij tot de HEERE, zijn God." },
+        { "t": "Dan spreekt de HEERE tot de vis. De vis spuwt Jona uit op het droge land." }
+      ],
+      "samen": "In Jona 1:17 staat ‘een groten vis’; welke vis het was, zegt de tekst niet. Bij A is weggelaten dat de zeelieden eerst nog naar het land probeerden te roeien en tot de HEERE baden (Jona 1:13–14), en wat Jona in de vis bad (Jona 2). Let samen op het eind van Jona 1: de zeelieden riepen eerst ieder tot hun eigen god, maar nu vrezen zij de HEERE en brengen Hem een offer (Jona 1:5, 16).",
+      "vragen": [
+        { "q": "Waar moet Jona van de HEERE naartoe?", "a": ["Naar Ninevé", "Naar Jeruzalem"], "why": "Jona 1:2" },
+        { "q": "Wat doet Jona in het schip als het stormt?", "a": ["Hij slaapt", "Hij helpt roeien"], "why": "Jona 1:5" },
+        { "q": "Wat doet de vis op het eind?", "a": ["Hij spuwt Jona uit op het land", "Hij zwemt met Jona naar Tarsis"], "why": "Jona 2:10" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Weg van de HEERE",
+          "stap": "jona:jona:1",
+          "t": "De HEERE zegt tegen Jona: ga naar de grote stad Ninevé en preek tegen haar, want hun boosheid is tot bij Mij gekomen. Maar Jona vlucht naar Tarsis, ‘van het aangezicht des HEEREN’. In Jafo vindt hij een schip. Hij betaalt de reis en gaat aan boord."
+        },
+        {
+          "kop": "Storm op zee",
+          "stap": "jona:jona:2",
+          "t": "De HEERE werpt een grote wind op de zee. De zeelieden roepen tot hun goden en gooien de lading overboord. Jona slaapt. Ze werpen het lot, en het valt op Jona. Hij zegt dat hij de HEERE vreest, Die de zee en het droge gemaakt heeft. ‘Neemt mij op, en werpt mij in de zee’, zegt hij. Eerst roeien de mannen nog, maar het lukt niet. Dan bidden ze tot de HEERE en werpen Jona in zee. De zee wordt stil."
+        },
+        {
+          "kop": "In de buik van de vis",
+          "stap": "jona:jona:3",
+          "t": "De HEERE beschikt een grote vis: Hij laat hem komen om Jona in te slokken. Drie dagen en drie nachten zit Jona in de vis. Daar bidt hij, en hij eindigt met: ‘Het heil is des HEEREN.’ Dat betekent: redding komt van de HEERE. Dan spuwt de vis Jona uit op het droge."
+        }
+      ],
+      "vragen": [
+        { "q": "Waar wilde Jona met het schip naartoe?", "a": ["Naar Tarsis", "Naar Ninevé", "Naar Jeruzalem"], "why": "Jona 1:3" },
+        {
+          "q": "Waarom gooiden de zeelieden de lading in zee?",
+          "a": ["Om het schip lichter te maken", "Om de vissen te voeren", "Omdat Jona dat vroeg"],
+          "why": "Jona 1:5"
+        },
+        {
+          "q": "Waarom wierpen de zeelieden het lot?",
+          "a": ["Om te weten door wie het kwaad hen overkwam", "Om te kiezen wie moest roeien", "Om te weten welke kant ze op moesten"],
+          "why": "Jona 1:7"
+        },
+        {
+          "q": "Wat deden de mannen voordat ze Jona in zee wierpen?",
+          "a": ["Ze probeerden naar het land te roeien", "Ze sprongen zelf in het water", "Ze voeren terug naar Jafo"],
+          "why": "Jona 1:13"
+        },
+        { "q": "Waar bad Jona tot de HEERE?", "a": ["In het ingewand van de vis", "Op het dek van het schip", "Op het strand bij Jafo"], "why": "Jona 2:1" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Steeds verder naar beneden",
+          "t": "Wie goed leest, ziet dat Jona telkens naar beneden gaat. Hij ‘kwam af te Jafo’, ging ‘neder in hetzelve’ (het schip) en ‘was nedergegaan aan de zijden van het schip’. In zijn gebed zegt hij: ‘Ik was nedergedaald tot de gronden der bergen’ (2:6). Veel uitleggers wijzen erop dat de vlucht van God weg zo een weg omlaag is. Dan keert het: ‘maar Gij hebt mijn leven uit het verderf opgevoerd, o HEERE, mijn God!’ Ook het woord ‘beschikte’ valt op: de HEERE beschikte de vis (1:17), en later een wonderboom, een worm en een oostenwind (Jona 4:6–8).",
+          "refs": ["Jona 1:3", "Jona 1:5", "Jona 2:6", "Jona 1:17", "Jona 4:6–8"]
+        },
+        {
+          "kop": "Een gebed met woorden uit de Psalmen",
+          "t": "Jona’s gebed lijkt op woorden uit de Psalmen. Jona bidt: ‘Ik riep uit mijn benauwdheid tot den HEERE, en Hij antwoordde mij’; Psalm 120:1 zegt: ‘Ik heb tot den HEERE geroepen in mijn benauwdheid, en Hij heeft mij verhoord.’ Jona: ‘al Uw baren en Uw golven gingen over mij henen’; Psalm 42:8: ‘al Uw baren en Uw golven zijn over mij heengegaan.’ En het slot, ‘Het heil is des HEEREN’, staat ook in Psalm 3:9. Jona bidt in de taal van de Psalmen.",
+          "refs": ["Jona 2:2–3", "Jona 2:9", "Psalm 120:1", "Psalm 42:8", "Psalm 3:9"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "De Bijbel zegt alleen dat Jona profeteerde in de tijd van Jerobeam, de zoon van Joas, koning van Israël (2 Koningen 14:23–25). Diens regering wordt in de gangbare chronologie op ongeveer 793–753 v.Chr. gezet. Wanneer Jona naar Ninevé moest, staat er niet. Jafo (Joppe) en Ninevé zijn aanwijsbare plaatsen; Gath-Hefer, waar Jona vandaan kwam, is waarschijnlijk teruggevonden. Waar Tarsis lag, zegt de tekst niet; daarover verschillen uitleggers.",
+          "refs": ["2 Koningen 14:23–25"]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Welke Psalm heeft bijna dezelfde woorden als Jona 2:3: ‘al Uw baren en Uw golven’?",
+          "a": ["Psalm 42", "Psalm 23", "Psalm 100"],
+          "why": "Psalm 42:8; Jona 2:3"
+        },
+        {
+          "q": "Wat zegt Jona 1:17 over de soort vis?",
+          "a": ["Alleen dat het een grote vis was", "Dat het een walvis was", "Dat het een haai was"],
+          "why": "Jona 1:17"
+        },
+        {
+          "q": "In de tijd van welke koning profeteerde Jona?",
+          "a": ["Jerobeam, de zoon van Joas", "Josia, de zoon van Amon", "Hizkia, de zoon van Achaz"],
+          "why": "2 Koningen 14:23–25"
+        },
+        {
+          "q": "Welk woord gebruikt het boek Jona als de HEERE de vis, de wonderboom en de worm laat komen?",
+          "a": ["Beschikken", "Scheppen", "Roepen"],
+          "why": "Jona 1:17; Jona 4:6–7"
+        }
+      ]
+    }
+  },
+  "70": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["ninivest", "jona_verdek"],
+      "delen": [
+        { "t": "Voor de tweede keer zegt de HEERE tegen Jona: ga naar Ninevé. Nu gaat Jona wel.", "stap": "jona:jona:4" },
+        { "t": "Jona loopt een dag lang de grote stad in. Hij roept: nog veertig dagen, dan wordt Ninevé verwoest.", "stap": "jona:jona:4" },
+        { "t": "De mensen van Ninevé geloven God. Ze vasten, en groot en klein trekken een zak aan: een ruw rouwkleed.", "stap": "jona:jona:5" },
+        { "t": "Ook de koning staat op van zijn troon. Hij trekt een zak aan en gaat in de as zitten." },
+        { "t": "De koning laat omroepen: mensen en dieren mogen niet eten en niet drinken. Iedereen moet stoppen met het kwaad." },
+        { "t": "God ziet dat ze zich bekeren van hun boze weg. Hij doet het kwaad niet dat Hij gezegd had." },
+        { "t": "Maar Jona wordt heel boos. Hij zegt tegen de HEERE: ik wist wel dat U genadig en barmhartig bent.", "stap": "jona:jona:6" },
+        { "t": "Jona gaat buiten de stad zitten, aan de oostkant. God laat een wonderboom groeien, voor schaduw. Jona is er heel blij mee." },
+        { "t": "De volgende morgen stuurt God een worm. Die steekt de boom, en de boom verdort. Jona wordt weer boos." },
+        { "t": "God zegt: jij hebt medelijden met die boom. Zou Ik dan geen medelijden hebben met die grote stad?" }
+      ],
+      "samen": "Bij A is weggelaten dat Jona liever wilde sterven dan leven (Jona 4:3, 8). Het boek eindigt met een vraag van God aan Jona; wat Jona antwoordde, staat er niet (Jona 4:10–11). Vraag samen: met wie heeft God medelijden? Met de mensen in de grote stad, en ook met het vee (Jona 4:11).",
+      "vragen": [
+        { "q": "Wat doen de mensen van Ninevé als Jona preekt?", "a": ["Ze geloven God", "Ze jagen Jona weg"], "why": "Jona 3:5" },
+        { "q": "Waar gaat de koning zitten?", "a": ["In de as", "Op een kameel"], "why": "Jona 3:6" },
+        { "q": "Wat maakt de wonderboom kapot?", "a": ["Een worm", "Een vogel"], "why": "Jona 4:7" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Nog veertig dagen",
+          "stap": "jona:jona:4",
+          "t": "Voor de tweede keer zegt de HEERE tegen Jona: ga naar Ninevé. Nu gaat hij. Ninevé is een grote stad, ‘van drie dagreizen’. Een dagreis is wat je op één dag loopt. Jona gaat een dag de stad in en roept: ‘Nog veertig dagen, dan zal Nineve worden omgekeerd.’ Dat betekent: dan wordt de stad verwoest."
+        },
+        {
+          "kop": "Een stad in rouw",
+          "stap": "jona:jona:5",
+          "t": "De mensen van Ninevé geloven God. Ze vasten en trekken zakken aan: ruwe rouwkleren. De koning staat op van zijn troon en gaat in de as zitten. Hij beveelt: mens en dier eten en drinken niet, en iedereen moet zich bekeren van zijn boze weg. God ziet het, en Hij doet het kwaad niet dat Hij gezegd had."
+        },
+        {
+          "kop": "Jona en de wonderboom",
+          "stap": "jona:jona:6",
+          "t": "Jona wordt heel boos. Hij zegt: ik wist dat U een genadig en barmhartig God bent; daarom vluchtte ik. Aan de oostkant van de stad wacht hij af. God laat een wonderboom opschieten voor schaduw. Maar de volgende morgen steekt een worm de boom, en hij verdort. Dan zegt God: jij hebt medelijden met die boom. ‘En Ik zou die grote stad Nineve niet verschonen?’ Verschonen betekent: sparen."
+        }
+      ],
+      "vragen": [
+        { "q": "Hoe vaak kreeg Jona de opdracht om naar Ninevé te gaan?", "a": ["Twee keer", "Eén keer", "Drie keer"], "why": "Jona 1:2; Jona 3:1–2" },
+        {
+          "q": "Wat deed de koning toen hij hoorde wat Jona preekte?",
+          "a": ["Hij trok een zak aan en zat in de as", "Hij liet Jona gevangennemen", "Hij vluchtte uit de stad"],
+          "why": "Jona 3:6"
+        },
+        {
+          "q": "Waarom deed God het kwaad niet?",
+          "a": ["Hij zag dat ze zich bekeerden van hun boze weg", "Jona had voor de stad gebeden", "De koning had God goud beloofd"],
+          "why": "Jona 3:10"
+        },
+        {
+          "q": "Wat gebeurde er met de wonderboom?",
+          "a": ["Een worm stak hem, zodat hij verdorde", "De wind blies hem omver", "Jona hakte hem om"],
+          "why": "Jona 4:7"
+        }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Wat Jona over God zegt, staat bijna woordelijk ook in Joël 2:13: ‘want Hij is genadig en barmhartig, lankmoedig en groot van goedertierenheid, en berouw hebbende over het kwade.’ De woorden van de koning van Ninevé, ‘Wie weet, God mocht Zich wenden’, lijken op Joël 2:14: ‘Wie weet, Hij mocht Zich wenden en berouw hebben’. En in Jeremia 18:8 zegt God: ‘indien datzelve volk … zich van zijn boosheid bekeert, zo zal Ik berouw hebben over het kwaad’. Dat gebeurt in Ninevé.",
+          "refs": ["Joël 2:13–14", "Jeremia 18:7–8"]
+        },
+        {
+          "kop": "Zak en as",
+          "t": "Een zak is een ruw kleed van grove stof. Wie zo’n kleed droeg en in de as ging zitten, liet zien dat hij rouwde of zich voor God verootmoedigde. Jakob ‘legde een zak om zijn lenden’ toen hij dacht dat Jozef dood was (Genesis 37:34). Mordechai ‘trok een zak aan met as’ (Esther 4:1). Daniël zocht God ‘met vasten, en zak, en as’ (Daniël 9:3). Bijzonder in Ninevé is dat zelfs de dieren met zakken bedekt moesten worden (Jona 3:8).",
+          "refs": ["Genesis 37:33–34", "Esther 4:1", "Daniël 9:3", "Jona 3:8"]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Jona 3:10 zegt: ‘het berouwde God over het kwaad’. Numeri 23:19 zegt dat God geen mens is, ‘dat het Hem berouwen zou’. In de reformatorische uitleg wordt Jona 3:10 meestal gezien als een menselijke manier van spreken: God doet het aangekondigde oordeel niet, zoals Jeremia 18:8 zegt. Over de mensen ‘die geen onderscheid weten tussen hun rechterhand, en hun linkerhand’ verschillen uitleggers: sommigen denken aan jonge kinderen, anderen aan mensen zonder kennis van God. Het boek eindigt met Gods vraag; Jona’s antwoord staat er niet.",
+          "refs": ["Jona 3:10", "Numeri 23:19", "Jeremia 18:8", "Jona 4:11"]
+        }
+      ],
+      "vragen": [
+        { "q": "Welke profeet gebruikt bijna dezelfde woorden als Jona 4:2 over Gods genade?", "a": ["Joël", "Habakuk", "Obadja"], "why": "Joël 2:13; Jona 4:2" },
+        {
+          "q": "Wat deed de koning van Ninevé met zijn heerlijk overkleed?",
+          "a": ["Hij deed het van zich af", "Hij gaf het aan Jona", "Hij trok het over zijn zak aan"],
+          "why": "Jona 3:6"
+        },
+        {
+          "q": "Hoe eindigt het boek Jona?",
+          "a": ["Met een vraag van de HEERE aan Jona", "Met het antwoord van Jona", "Met een lied van de mensen van Ninevé"],
+          "why": "Jona 4:10–11"
+        },
+        {
+          "q": "Wat antwoordde Jona toen God vroeg of zijn toorn over de wonderboom billijk was?",
+          "a": ["Billijk is mijn toorn ontstoken ter dood toe", "Nee HEERE, ik heb verkeerd gedaan", "Ik weet het niet, HEERE"],
+          "why": "Jona 4:9"
+        }
+      ]
+    }
+  },
+  "71": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["salem", "babelst", "mizpa"],
+      "delen": [
+        { "t": "Nebukadnezar, de koning van Babel, komt met zijn hele leger naar Jeruzalem. Ze sluiten de stad helemaal in.", "stap": "2koningen:ballingschap:7" },
+        { "t": "Dat duurt heel lang. In de stad wordt de honger erg. Er is geen brood meer." },
+        { "t": "Dan breken de vijanden door de muur. Koning Zedekia vlucht in de nacht de stad uit." },
+        { "t": "Maar bij Jericho halen ze hem in. Zedekia wordt in ketenen naar Babel gebracht.", "stap": "2koningen:ballingschap:7" },
+        { "t": "Het huis van de HEERE wordt verbrand, en ook alle huizen van Jeruzalem. De muren worden afgebroken." },
+        { "t": "Het volk wordt weggevoerd naar Babel. Een paar arme mensen mogen blijven, voor de wijngaarden en de akkers." },
+        { "t": "Jeremia zit gevangen. Maar de koning van Babel geeft bevel: doe hem niets kwaads.", "stap": "profeten:jeremia:0" },
+        { "t": "In Rama maakt Nebuzaradan de ketenen van Jeremia los. Jeremia mag zelf kiezen waar hij heen gaat.", "stap": "profeten:jeremia:2" },
+        { "t": "Jeremia gaat naar Gedalja in Mizpa. Daar woont hij tussen het volk dat in het land gebleven is.", "stap": "profeten:jeremia:3" },
+        { "t": "Ver weg in Babel zit koning Jojachin gevangen. Na heel veel jaren mag hij eruit. Elke dag eet hij bij de koning.", "stap": "2koningen:ballingschap:8" }
+      ],
+      "samen": "Bij A is weggelaten wat er met Zedekia in Ribla gebeurde: zijn zonen werden voor zijn ogen gedood en hij werd blind gemaakt (Jeremia 39:6–7). Ook de moord op Gedalja (2 Koningen 25:25) en de belofte aan Ebed-Melech (Jeremia 39:15–18) staan er niet in. De Bijbel zegt waarom Jeruzalem viel: ‘gijlieden hebt gezondigd tegen den HEERE, en Zijner stem niet gehoorzaamd’ (Jeremia 40:3).",
+      "vragen": [
+        { "q": "Wat gebeurt er met het huis van de HEERE?", "a": ["Het wordt verbrand", "Het wordt groter gemaakt"], "why": "2 Koningen 25:9" },
+        { "q": "Wat zegt de koning van Babel over Jeremia?", "a": ["Doe hem niets kwaads", "Stop hem in de gevangenis"], "why": "Jeremia 39:11–12" },
+        { "q": "Waar gaat Jeremia wonen?", "a": ["Bij Gedalja in Mizpa", "In het paleis in Babel"], "why": "Jeremia 40:6" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Jeruzalem valt",
+          "stap": "2koningen:ballingschap:7",
+          "t": "In het negende jaar van koning Zedekia belegert Nebukadnezar Jeruzalem: zijn leger ligt rondom de stad. In het elfde jaar is er geen brood meer. De muur wordt doorgebroken en Zedekia vlucht ’s nachts, maar bij Jericho wordt hij ingehaald. In Ribla worden zijn zonen voor zijn ogen gedood. Daarna wordt hij blind gemaakt en in koperen ketenen naar Babel gebracht."
+        },
+        {
+          "kop": "Het huis van de HEERE verbrand",
+          "t": "Nebuzaradan, de overste van de lijfwacht, verbrandt het huis van de HEERE, het paleis en alle huizen. Het volk wordt naar Babel weggevoerd. Alleen de armsten blijven, voor de wijngaarden en akkers. Nebuzaradan zegt tegen Jeremia waarom: ‘gijlieden hebt gezondigd tegen den HEERE’."
+        },
+        {
+          "kop": "Jeremia en Ebed-Melech",
+          "stap": "profeten:jeremia:2",
+          "t": "Nebukadnezar heeft bevolen dat Jeremia niets kwaads mag gebeuren. In Rama maakt Nebuzaradan zijn ketenen los, en Jeremia gaat wonen bij Gedalja in Mizpa. Al eerder kreeg Ebed-Melech, die Jeremia uit de kuil had gehaald, een belofte: hij wordt gered, ‘omdat gij op Mij vertrouwd hebt’. En in Babel laat koning Evilmerodach na 37 jaar koning Jojachin vrij."
+        }
+      ],
+      "vragen": [
+        { "q": "Wie verbrandde het huis van de HEERE?", "a": ["Nebuzaradan", "Gedalja", "Zedekia"], "why": "2 Koningen 25:8–9" },
+        {
+          "q": "Waarom kwam dit kwaad over Jeruzalem, volgens Nebuzaradan?",
+          "a": ["Het volk had tegen de HEERE gezondigd", "Zedekia had te weinig soldaten", "Jeremia had de stad verraden"],
+          "why": "Jeremia 40:2–3"
+        },
+        {
+          "q": "Waarom zou Ebed-Melech gered worden?",
+          "a": ["Hij had op de HEERE vertrouwd", "Hij was een vriend van Nebukadnezar", "Hij had de poort voor Babel geopend"],
+          "why": "Jeremia 39:18"
+        },
+        {
+          "q": "Bij wie ging Jeremia wonen?",
+          "a": ["Bij Gedalja in Mizpa", "Bij Nebuzaradan in Babel", "Bij Zedekia in Ribla"],
+          "why": "Jeremia 40:6"
+        },
+        {
+          "q": "Wat gebeurde er als eerste?",
+          "a": ["De muur van Jeruzalem werd doorgebroken", "Jeremia ging naar Mizpa", "Jojachin kwam uit de gevangenis"],
+          "why": "Jeremia 39:2; Jeremia 40:6; 2 Koningen 25:27"
+        }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Zoals de profeten gezegd hadden",
+          "t": "Jeremia had tegen Zedekia gezegd: ‘uw ogen zullen de ogen des konings van Babel zien’ en ‘gij zult te Babel komen’ (Jeremia 34:3). Ezechiël profeteerde over de vorst in Jeruzalem: ‘Ik zal hem brengen in Babylonië, het land der Chaldeen; ook zal hij dat niet zien, hoewel hij daar sterven zal’ (Ezechiël 12:13). Zo gebeurde het: Zedekia zag de koning van Babel in Ribla en werd daarna blind naar Babel gebracht. De val van Jeruzalem wordt in de Bijbel meer dan eens verteld: in 2 Koningen 25, in Jeremia 39 en opnieuw in Jeremia 52, dat grotendeels gelijk loopt met 2 Koningen 25.",
+          "refs": ["Jeremia 34:2–3", "Ezechiël 12:10–13", "Jeremia 39:5–7", "Jeremia 52:12–13"]
+        },
+        {
+          "kop": "Gedalja, de kleinzoon van Safan",
+          "t": "Gedalja was ‘de zoon van Ahikam, den zoon van Safan’ (Jeremia 39:14). Een Ahikam, zoon van Safan, was een van de mannen die koning Josia naar de profetes Hulda stuurde, samen met Safan de schrijver (2 Koningen 22:12–14). Uitleggers gaan er meestal van uit dat dit dezelfde familie is. Ahikam beschermde later Jeremia: ‘de hand van Ahikam, den zoon van Safan, was met Jeremia’ (Jeremia 26:24). Nu wordt Jeremia aan zijn zoon Gedalja toevertrouwd.",
+          "refs": ["Jeremia 39:14", "2 Koningen 22:12–14", "Jeremia 26:24"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Het beleg begon in het negende jaar van Zedekia, en de stad viel in zijn elfde jaar (Jeremia 39:1–2). Volgens de meeste onderzoekers werden stad en tempel verwoest in 586 v.Chr.; sommigen houden 587 aan. Jojachin kwam vrij in het zevenendertigste jaar van zijn wegvoering (2 Koningen 25:27), rond 561 v.Chr. Jeruzalem, Jericho en Babel zijn aanwijsbare plaatsen. Mizpa is waarschijnlijk teruggevonden, maar niet zeker. Over de ligging van Rama, waar Jeremia werd losgemaakt, verschillen onderzoekers.",
+          "refs": ["Jeremia 39:1–2", "2 Koningen 25:27", "Jeremia 40:1"]
+        }
+      ],
+      "vragen": [
+        { "q": "Wie was de grootvader van Gedalja?", "a": ["Safan", "Hilkia", "Nebuzaradan"], "why": "2 Koningen 25:22" },
+        {
+          "q": "Wat had Ezechiël voorzegd over de vorst die naar Babel gebracht zou worden?",
+          "a": ["Hij zou het land niet zien, al zou hij er sterven", "Hij zou daarna terugkeren naar Jeruzalem", "Hij zou er koning van Babel worden"],
+          "why": "Ezechiël 12:13"
+        },
+        { "q": "Welke koning van Babel liet Jojachin uit de gevangenis?", "a": ["Evilmerodach", "Nebukadnezar", "Belsazar"], "why": "2 Koningen 25:27" },
+        {
+          "q": "Welk hoofdstuk van Jeremia vertelt de val van Jeruzalem nog eens, net als 2 Koningen 25?",
+          "a": ["Jeremia 52", "Jeremia 1", "Jeremia 29"],
+          "why": "Jeremia 52:12–13"
+        }
+      ]
+    }
+  },
+  "72": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["salem", "babelst"],
+      "delen": [
+        { "t": "God geeft Jesaja een boodschap voor Zijn volk. God zegt: ‘Troost, troost Mijn volk’.", "stap": "profeten:jesaja-troost:0" },
+        { "t": "Mensen zijn als gras. Het gras verdort en de bloem valt af. Maar het woord van God blijft altijd bestaan.", "stap": "profeten:jesaja-troost:0" },
+        { "t": "God zorgt voor Zijn volk zoals een herder voor de schapen. De lammetjes draagt Hij in Zijn armen." },
+        { "t": "Mensen maken beelden van hout en goud. Maar niemand is zoals God.", "stap": "profeten:jesaja-troost:1" },
+        { "t": "Kijk maar omhoog naar de sterren. God heeft ze gemaakt, en Hij roept ze allemaal bij hun naam." },
+        { "t": "God wordt nooit moe. Hij geeft kracht aan wie moe is." },
+        { "t": "God zegt tegen Zijn volk: ‘Vrees niet, want Ik ben met u’.", "stap": "profeten:jesaja-troost:2" },
+        { "t": "God vertelt over Zijn Knecht. Een geknakt rietje breekt Hij niet af.", "stap": "profeten:jesaja-troost:3" },
+        { "t": "God zegt: ‘Ik heb u bij uw naam geroepen, gij zijt Mijn.’ Zo hoort Zijn volk bij Hem.", "stap": "profeten:jesaja-troost:4" },
+        { "t": "Ook als ze door water of door vuur moeten gaan, is God bij hen." }
+      ],
+      "samen": "Vlak voor deze hoofdstukken zegt Jesaja tegen koning Hizkia dat alles naar Babel weggevoerd zal worden (Jesaja 39:6–7). De troost is voor het volk dat dan ver van huis zal zijn. Het Nieuwe Testament zegt dat wat Jesaja over de Knecht zegt, vervuld is in de Heere Jezus (Mattheüs 12:17–21). Vraag samen: wat doet God met de sterren, en wat zegt Hij tegen Zijn volk als ze bang zijn (Jesaja 40:26; 41:10)?",
+      "vragen": [
+        { "q": "Wat zegt God tegen Zijn volk als ze bang zijn?", "a": ["Vrees niet, want Ik ben met u", "Zoek het zelf maar uit"], "why": "Jesaja 41:10" },
+        { "q": "Wie roept de sterren bij hun naam?", "a": ["God", "De mensen"], "why": "Jesaja 40:26" },
+        { "q": "Wat draagt God als een herder in Zijn armen?", "a": ["De lammetjes", "Een emmer water"], "why": "Jesaja 40:11" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        {
+          "kop": "Troost, troost Mijn volk",
+          "stap": "profeten:jesaja-troost:0",
+          "t": "Jesaja heeft koning Hizkia gezegd dat alles naar Babel zal worden weggevoerd. Daarna klinkt: ‘Troost, troost Mijn volk, zal ulieder God zeggen.’ Een stem roept dat de weg voor de HEERE klaargemaakt moet worden. Mensen zijn als gras, ‘maar het Woord onzes Gods bestaat in der eeuwigheid’. God zal Zijn kudde weiden als een herder."
+        },
+        {
+          "kop": "Niemand is aan God gelijk",
+          "stap": "profeten:jesaja-troost:1",
+          "t": "Voor God zijn de volken als een druppel aan een emmer. Mensen maken beelden van goud en hout, maar: ‘Bij wien dan zult gij God vergelijken?’ God roept de sterren bij hun naam en wordt nooit moe. Wie de HEERE verwacht, krijgt nieuwe kracht, ‘gelijk de arenden’. Verwachten betekent hier: op Hem hopen en wachten."
+        },
+        {
+          "kop": "Vrees niet",
+          "stap": "profeten:jesaja-troost:4",
+          "t": "God zegt tegen Zijn volk: ‘Vrees niet, want Ik ben met u.’ Hij kondigt Zijn Knecht aan, op Wie Hij Zijn Geest geeft. Die breekt ‘het gekrookte riet’ niet af: een geknakt riet. En God zegt: ‘Ik heb u bij uw naam geroepen, gij zijt Mijn.’"
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat had Jesaja vlak daarvoor tegen koning Hizkia gezegd?",
+          "a": ["Dat alles naar Babel weggevoerd zou worden", "Dat Jeruzalem nooit meer belegerd zou worden", "Dat Hizkia naar Egypte moest vluchten"],
+          "why": "Jesaja 39:6–7"
+        },
+        {
+          "q": "Waarmee vergelijkt Jesaja de volken?",
+          "a": ["Met een druppel van een emmer", "Met de sterren aan de hemel", "Met het zand aan de zee"],
+          "why": "Jesaja 40:15"
+        },
+        {
+          "q": "Wat gebeurt er met wie de HEERE verwachten?",
+          "a": ["Ze krijgen nieuwe kracht", "Ze worden moe en mat", "Ze vallen in een diepe slaap"],
+          "why": "Jesaja 40:31"
+        },
+        { "q": "Waarom hoeft Gods volk niet bang te zijn?", "a": ["God is met hen", "Ze hebben een sterk leger", "Babel is heel ver weg"], "why": "Jesaja 41:10" },
+        { "q": "Wat doet de Knecht met het gekrookte riet?", "a": ["Hij breekt het niet", "Hij gooit het weg", "Hij plant het opnieuw"], "why": "Jesaja 42:3" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Waar en wanneer",
+          "t": "Jesaja profeteerde in de dagen van Uzzia, Jotham, Achaz en Hizkia (Jesaja 1:1), ongeveer 740–700 v.Chr. De troost van Jesaja 40–43 is gericht aan het volk in de ballingschap, die toen nog moest komen. Babel en de Chaldeeën worden al genoemd (Jesaja 43:14), en even verderop noemt Jesaja zelfs Cores bij name (Jesaja 44:28; 45:1). Veel bijbelwetenschappers dateren deze hoofdstukken later, rond 540 v.Chr. In de reformatorische traditie geldt Jesaja zelf als de schrijver, zoals ook het Nieuwe Testament hem noemt (Mattheüs 3:3).",
+          "refs": ["Jesaja 1:1", "Jesaja 43:14", "Jesaja 44:28", "Jesaja 45:1", "Mattheüs 3:3"]
+        },
+        {
+          "kop": "Mijn knecht",
+          "t": "Het woord knecht wordt in deze hoofdstukken op meer manieren gebruikt. God noemt het volk ‘Israël, Mijn knecht’ (Jesaja 41:8), en Hij spreekt ook over een knecht die blind en doof is (Jesaja 42:19). In Jesaja 42:1 gaat het over ‘Mijn Knecht, Dien Ik ondersteun’, op Wie God Zijn Geest geeft en Die het recht brengt. Mattheüs 12:17–21 zegt dat dit vervuld is in de Heere Jezus. Veel uitleggers horen Jesaja 42:1 ook in de stem bij Zijn doop: ‘Deze is Mijn Zoon, Mijn Geliefde, in Denwelken Ik Mijn welbehagen heb!’ (Mattheüs 3:17).",
+          "refs": ["Jesaja 41:8", "Jesaja 42:1", "Jesaja 42:19", "Mattheüs 12:17–21", "Mattheüs 3:17"]
+        },
+        {
+          "kop": "Riet, vlaswiek en losgeld",
+          "t": "Een gekrookt riet is een geknakte rietstengel. Een vlaswiek is de pit van een olielamp, gemaakt van vlas; een rokende vlaswiek brandt bijna niet meer. Van de Knecht zegt Jesaja: ‘Het gekrookte riet zal Hij niet verbreken, en de rokende vlaswiek zal Hij niet uitblussen’. Veel uitleggers lezen dit zo: wat zwak is, maakt Hij niet kapot. In Jesaja 43:3 noemt God Egypte, Morenland en Seba als ‘losgeld’: de prijs die betaald wordt om iemand vrij te krijgen. De reden staat erbij: ‘dat gij kostelijk zijt geweest in Mijn ogen’ (Jesaja 43:4).",
+          "refs": ["Jesaja 42:3", "Jesaja 43:3–4"]
+        }
+      ],
+      "vragen": [
+        { "q": "Welke koning noemt Jesaja even verderop bij name?", "a": ["Cores", "Nebukadnezar", "Darius"], "why": "Jesaja 44:28; Jesaja 45:1" },
+        {
+          "q": "Wie noemt God in Jesaja 41:8 ‘Mijn knecht’?",
+          "a": ["Israël, het zaad van Abraham", "De koning van Babel", "De profeet Jesaja"],
+          "why": "Jesaja 41:8"
+        },
+        {
+          "q": "Welke landen noemt God in Jesaja 43:3 als losgeld?",
+          "a": ["Egypte, Morenland en Seba", "Babel, Assur en Edom", "Moab, Ammon en Edom"],
+          "why": "Jesaja 43:3"
+        }
+      ]
+    }
+  }
+}

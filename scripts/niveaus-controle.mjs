@@ -12,6 +12,8 @@ import { runInNewContext } from "node:vm";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PUB = join(ROOT, "public");
+// De Statenvertaling staat alleen voor controle in de repository, niet in de app.
+const SVDIR = join(ROOT, "data", "statenvertaling");
 const html = readFileSync(join(PUB, "bijbelreis.html"), "utf8");
 const scripts = [...html.matchAll(/src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s)).concat(["niveaus/a.js", "niveaus/b.js", "niveaus/c.js"]);
 const ctx = { window: {} };
@@ -29,7 +31,7 @@ function verses(ref) {
   const q = BR.parseRef(ref);
   if (!q) return "onleesbaar";
   for (const rg of q.ranges) {
-    const file = join(PUB, "bijbelreis", "bijbel", rg.slug + ".json");
+    const file = join(SVDIR, rg.slug + ".json");
     if (!existsSync(file)) continue;
     bible[rg.slug] ??= JSON.parse(readFileSync(file, "utf8"));
     const H = bible[rg.slug].hoofdstukken, n = Object.keys(H).length, c2 = rg.c2 === 999 ? n : rg.c2;
@@ -45,7 +47,7 @@ function tekstVan(ref) {
   const q = BR.parseRef(ref); if (!q) return "";
   const uit = [];
   for (const rg of q.ranges) {
-    const file = join(PUB, "bijbelreis", "bijbel", rg.slug + ".json"); if (!existsSync(file)) continue;
+    const file = join(SVDIR, rg.slug + ".json"); if (!existsSync(file)) continue;
     bible[rg.slug] ??= JSON.parse(readFileSync(file, "utf8"));
     const H = bible[rg.slug].hoofdstukken, c2 = rg.c2 === 999 ? Object.keys(H).length : rg.c2;
     for (let c = rg.c1; c <= c2; c++) { const vs = H[c] || []; uit.push(...vs.slice((c === rg.c1 ? rg.v1 : 1) - 1, c === c2 && rg.v2 !== 999 ? rg.v2 : vs.length)); }
@@ -63,7 +65,7 @@ function refsIn(t, g) {
   return uit;
 }
 const norm = (t) => String(t).toLowerCase().normalize("NFC").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
-const SV = readdirSync(join(PUB, "bijbelreis", "bijbel")).filter((f) => f.endsWith(".json")).map((f) => Object.values(JSON.parse(readFileSync(join(PUB, "bijbelreis", "bijbel", f), "utf8")).hoofdstukken).flat().join(" ")).map(norm).join(" ");
+const SV = readdirSync(SVDIR).filter((f) => f.endsWith(".json")).map((f) => Object.values(JSON.parse(readFileSync(join(SVDIR, f), "utf8")).hoofdstukken).flat().join(" ")).map(norm).join(" ");
 const zinnen = (t) => (t.match(/[.!?](\s|$)/g) || []).length || 1;
 const PLACEHOLDER = /\b(TODO|TBD|lorem|ipsum|xxx|PLACEHOLDER|invullen)\b|\{\{|\[\[|…\s*$|\.\.\.\s*$/i;
 

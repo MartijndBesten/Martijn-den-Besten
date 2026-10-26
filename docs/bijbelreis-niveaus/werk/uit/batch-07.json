@@ -1,0 +1,416 @@
+{
+  "32": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["sinai"],
+      "delen": [
+        { "t": "Bij de berg Sinaï wast Mozes Aäron en zijn zonen met water. Hij doet Aäron de kleren van de priester aan.", "stap": "leviticus:verzoendag:0" },
+        { "t": "Mozes giet olie op het hoofd van Aäron. Zo wordt Aäron apart gezet om God te dienen.", "stap": "leviticus:verzoendag:0" },
+        { "t": "Op de achtste dag brengt Aäron offers op het altaar. Daarna zegent hij het volk.", "stap": "leviticus:verzoendag:1" },
+        { "t": "Dan gaat er vuur uit van God. Het verbrandt het offer op het altaar. Het volk juicht en buigt zich diep.", "stap": "leviticus:verzoendag:1" },
+        { "t": "Nadab en Abihu, twee zonen van Aäron, brengen vuur bij God dat Hij niet bevolen heeft. Er gaat vuur uit van God, en ze sterven.", "stap": "leviticus:verzoendag:2" },
+        { "t": "Mozes zegt tegen Aäron: wie dicht bij God komt, moet Hem eren als de heilige God. Aäron zwijgt.", "stap": "leviticus:verzoendag:2" },
+        { "t": "Daarna zegt God wanneer Aäron achter het voorhangsel mag komen, het gordijn voor de ark. Dat mag maar één dag in het jaar.", "stap": "leviticus:verzoendag:3" },
+        { "t": "Op die dag sprenkelt Aäron daar bloed van de offers. Zo wordt het volk voor God gereinigd van al zijn zonden.", "stap": "leviticus:verzoendag:3" },
+        { "t": "Dan legt Aäron zijn handen op de kop van een levende bok. Hij belijdt alle zonden van het volk en legt ze op de bok.", "stap": "leviticus:verzoendag:4" },
+        { "t": "Een man brengt de bok ver weg, de woestijn in. Zo draagt de bok de zonden weg.", "stap": "leviticus:verzoendag:4" }
+      ],
+      "samen": "Nadab en Abihu sterven, omdat ze ‘vreemd vuur’ brengen dat God niet geboden had (Leviticus 10:1–2). Wat dat vuur precies was, zegt de tekst niet. Mozes zegt daarna: ‘In degenen, die tot Mij naderen, zal Ik geheiligd worden’ (Leviticus 10:3). Vraag samen: waarom mocht Aäron niet zomaar achter het voorhangsel komen? (Leviticus 16:2). Hebreeën 9:11–12 wijst van de hogepriester naar de Heere Jezus, Die met Zijn eigen bloed is ingegaan.",
+      "vragen": [
+        { "q": "Wat gaat er van God uit naar het altaar?", "a": ["Vuur", "Water"], "why": "Leviticus 9:24" },
+        { "q": "Hoe vaak mag Aäron achter het voorhangsel komen?", "a": ["Eén dag in het jaar", "Elke dag"], "why": "Leviticus 16:2, 34" },
+        { "q": "Waar brengt de man de levende bok heen?", "a": ["De woestijn in", "Terug naar Egypte"], "why": "Leviticus 16:21–22" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Aäron wordt priester",
+          "stap": "leviticus:verzoendag:0",
+          "t": "Bij de berg Sinaï wast Mozes Aäron en zijn zonen met water. Hij doet Aäron de priesterkleren aan en zalft hem met olie. Zo wordt Aäron geheiligd: apart gezet om God te dienen. Op de achtste dag brengt Aäron zelf de offers. Dan gaat er vuur uit van de HEERE en verteert het offer op het altaar. Het volk juicht en buigt zich met het gezicht naar de grond."
+        },
+        {
+          "kop": "Vreemd vuur",
+          "stap": "leviticus:verzoendag:2",
+          "t": "Maar Nadab en Abihu, zonen van Aäron, brengen ‘vreemd vuur’ voor de HEERE: vuur dat Hij niet geboden had. Er gaat vuur uit van de HEERE, en ze sterven. Mozes zegt dat God geheiligd wil worden door wie dicht bij Hem komen. Dat betekent: God is heilig, en wie bij Hem komt, doet wat Hij zegt. Aäron zwijgt."
+        },
+        {
+          "kop": "Eén dag in het jaar",
+          "stap": "leviticus:verzoendag:3",
+          "t": "Aäron mag niet zomaar achter het voorhangsel komen, bij de ark. Dat mag alleen op de tiende dag van de zevende maand. Dan sprenkelt hij daar bloed van een jonge stier en van een bok. Daarna belijdt hij alle zonden van Israël over een tweede, levende bok. Belijden is: zonden eerlijk noemen voor God. Een man brengt die bok de woestijn in."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat gebeurde er nadat Aäron de eerste offers had gebracht?",
+          "a": ["Vuur van de HEERE verteerde het offer", "Het begon hard te regenen", "Het altaar stortte in"],
+          "why": "Leviticus 9:22–24"
+        },
+        {
+          "q": "Waarom stierven Nadab en Abihu?",
+          "a": ["Ze brachten vuur dat God niet geboden had", "Ze hadden het volk niet gezegend", "Ze hadden geen priesterkleren aan"],
+          "why": "Leviticus 10:1–2"
+        },
+        {
+          "q": "Hoe vaak mocht Aäron achter het voorhangsel komen?",
+          "a": ["Eenmaal per jaar", "Elke sabbat", "Elke morgen"],
+          "why": "Leviticus 16:2, 34"
+        },
+        {
+          "q": "Waarom legde Aäron zijn handen op de kop van de levende bok?",
+          "a": ["Om de zonden van het volk op de bok te leggen", "Om de bok te zegenen voor de reis", "Om te zien of de bok gezond was"],
+          "why": "Leviticus 16:21"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "De naam van deze dag staat in Leviticus 23:27: ‘op den tienden dezer zevende maand zal de verzoendag zijn’. Leviticus 16:27 zegt dat de stier en de bok van het zondoffer buiten het leger verbrand moesten worden. Hebreeën 13 legt daar een verband mee: ‘Daarom heeft ook Jezus, opdat Hij door Zijn eigen bloed het volk zou heiligen, buiten de poort geleden.’ En toen de Heere Jezus stierf: ‘het voorhangsel des tempels scheurde in tweeën, van boven tot beneden’ (Mattheüs 27:51).",
+          "refs": ["Leviticus 23:27–28", "Leviticus 16:27", "Hebreeën 13:11–12", "Mattheüs 27:50–51"]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Wat het ‘vreemd vuur’ van Nadab en Abihu precies was, zegt de tekst niet. Er staat alleen: ‘hetwelk hij hen niet geboden had’ (Leviticus 10:1). Kort daarna verbiedt God de priesters wijn en sterke drank als ze in de tent der samenkomst gaan (Leviticus 10:9). Sommige uitleggers zien daarin een aanwijzing over wat er misging; de tekst legt dat verband zelf niet. Numeri 3:4 voegt toe dat Nadab en Abihu geen kinderen hadden. Voor ‘den weggaanden bok’ (Leviticus 16:8) staat in het Hebreeuws het woord azazel. Uitleggers en vertalingen verschillen over wat dat woord precies betekent.",
+          "refs": ["Leviticus 10:1–2", "Leviticus 10:9", "Numeri 3:4", "Leviticus 16:8"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Leviticus speelt zich af bij de berg Sinaï. Welke berg dat precies is, is betwist. De tabernakel werd opgericht in de eerste maand van het tweede jaar na de uittocht (Exodus 40:17); de wijding van Aäron volgt kort daarna. Wie de uittocht met 1 Koningen 6:1 rond 1446 v.Chr. dateert, komt hier op ca. 1445 v.Chr.; wie de uittocht in de 13e eeuw v.Chr. plaatst, komt bijna twee eeuwen later uit. Wanneer de Grote Verzoendag voor het eerst gehouden werd, staat niet in de Bijbel.",
+          "refs": ["Exodus 40:17", "1 Koningen 6:1"]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waar deed Mozes het bloed van de ram des vuloffers op?",
+          "a": ["Op het rechteroor, de duim en de grote teen", "Op het verzoendeksel en de ark", "Op de deurposten van de tent"],
+          "why": "Leviticus 8:23–24"
+        },
+        {
+          "q": "Wat vertelt Numeri 3 nog meer over Nadab en Abihu?",
+          "a": ["Ze hadden geen kinderen", "Ze waren de jongste zonen van Aäron", "Ze hadden de tabernakel gebouwd"],
+          "why": "Numeri 3:2–4"
+        },
+        {
+          "q": "Wat gebeurde er met de stier en de bok waarvan het bloed achter het voorhangsel kwam?",
+          "a": ["Ze werden buiten het leger verbrand", "Ze werden door de priesters gegeten", "Ze werden met de levende bok meegestuurd"],
+          "why": "Leviticus 16:27"
+        }
+      ]
+    }
+  },
+  "33": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["kadesbarnea", "mamre"],
+      "delen": [
+        { "t": "Het volk Israël is in de woestijn Paran. God gaat hun het land Kanaän geven.", "stap": "numeri:woestijn:3" },
+        { "t": "God zegt tegen Mozes: stuur mannen om het land te bekijken. Mozes stuurt twaalf mannen. Jozua en Kaleb zijn erbij.", "stap": "numeri:woestijn:3" },
+        { "t": "Veertig dagen lang trekken de mannen door het land. Ze komen ook bij de stad Hebron.", "stap": "numeri:woestijn:3" },
+        { "t": "In het dal Eskol snijden ze een tros druiven af. Twee mannen dragen hem samen aan een stok.", "stap": "numeri:woestijn:3" },
+        { "t": "Dan komen ze terug bij Mozes en het volk, in Kades. Ze laten de vruchten zien: het is een land vol melk en honing.", "stap": "numeri:woestijn:3" },
+        { "t": "Maar ze zeggen ook: het volk daar is sterk, en de steden zijn groot." },
+        { "t": "Kaleb zegt: laten we gaan, we kunnen het land zeker innemen! Maar de andere mannen zeggen: we zagen reuzen. Wij leken wel sprinkhanen." },
+        { "t": "Het volk huilt die nacht. Ze willen terug naar Egypte.", "stap": "numeri:woestijn:4" },
+        { "t": "Jozua en Kaleb zeggen: wees niet bang, de HEERE is met ons! Maar het volk wil hen met stenen gooien.", "stap": "numeri:woestijn:4" },
+        { "t": "God zegt: jullie blijven veertig jaar in de woestijn. Alleen Jozua en Kaleb, en de kinderen, komen in het land.", "stap": "numeri:woestijn:4" }
+      ],
+      "samen": "Weggelaten is dat God zegt dat iedereen van twintig jaar en ouder in de woestijn zal sterven, en dat de verspieders die het kwade gerucht brachten, sterven door een plaag (Numeri 14:29, 36–37). Hebreeën 3:19 zegt waarom ze niet in het land kwamen: ‘vanwege hun ongeloof’. Vraag samen: wat zagen de meeste verspieders, en op wie keken Jozua en Kaleb? (Numeri 13:31–33; 14:9).",
+      "vragen": [
+        { "q": "Hoeveel mannen stuurt Mozes het land in?", "a": ["Twaalf", "Twee"], "why": "Numeri 13:2–16" },
+        { "q": "Wat dragen twee mannen samen aan een stok?", "a": ["Een tros druiven", "Een grote steen"], "why": "Numeri 13:23" },
+        { "q": "Wie zeggen: wees niet bang, de HEERE is met ons?", "a": ["Jozua en Kaleb", "De andere verspieders"], "why": "Numeri 14:6–9" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Twaalf verspieders",
+          "stap": "numeri:woestijn:3",
+          "t": "Vanuit de woestijn Paran stuurt Mozes op Gods bevel twaalf mannen naar Kanaän, uit elke stam één. Ze moeten het land verspieden: ongemerkt gaan kijken hoe het is. Kaleb is erbij, en ook Hosea, die Mozes Jozua noemt. Veertig dagen trekken ze rond, tot Rechob in het noorden. In het dal Eskol snijden ze een tros druiven af, die ze met z’n tweeën aan een draagstok dragen."
+        },
+        {
+          "kop": "Een goed land, een bang volk",
+          "stap": "numeri:woestijn:3",
+          "t": "Terug in Kades laten ze de vruchten zien. Het land ‘is van melk en honig vloeiende’: het is rijk en vruchtbaar. Maar het volk daar is sterk, de steden zijn groot, en ze zagen reuzen. Kaleb zegt: we kunnen het zeker innemen! De anderen zeggen: dat volk is sterker dan wij."
+        },
+        {
+          "kop": "Veertig jaar in de woestijn",
+          "stap": "numeri:woestijn:4",
+          "t": "Het volk huilt die nacht en wil terug naar Egypte. Jozua en Kaleb zeggen: ‘de HEERE is met ons; vreest hen niet!’ Maar het volk wil hen stenigen. Mozes bidt voor het volk, en God vergeeft. Toch zegt Hij: wie twintig jaar of ouder is, zal in de woestijn sterven, behalve Kaleb en Jozua. Veertig jaar blijft het volk in de woestijn: een jaar voor elke dag."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat moesten de verspieders in Kanaän bekijken?",
+          "a": ["Het land, het volk en de steden", "Alleen de rivieren en de bergen", "Alleen het paleis van de koning"],
+          "why": "Numeri 13:18–20"
+        },
+        { "q": "Welke nieuwe naam gaf Mozes aan Hosea?", "a": ["Jozua", "Kaleb", "Eleazar"], "why": "Numeri 13:16" },
+        {
+          "q": "Waarom wilde het volk het land niet in?",
+          "a": ["Ze waren bang voor het sterke volk daar", "Ze hadden geen eten meer", "Mozes had het verboden"],
+          "why": "Numeri 13:31; Numeri 14:1–4"
+        },
+        {
+          "q": "Waarom moest het volk juist veertig jaar in de woestijn blijven?",
+          "a": ["Een jaar voor elke dag dat ze het land verspied hadden", "Omdat de weg naar Kanaän zo lang was", "Omdat Edom hen niet doorliet"],
+          "why": "Numeri 14:34"
+        },
+        {
+          "q": "Waar kwamen de verspieders terug bij Mozes en het volk?",
+          "a": ["In Kades, in de woestijn Paran", "In Hebron, bij de kinderen van Enak", "In Egypte, bij de farao"],
+          "why": "Numeri 13:26"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Mozes bidt, en het volk gaat te laat",
+          "t": "God zegt dat Hij het volk zal slaan en van Mozes een groter volk zal maken. Maar Mozes pleit voor het volk met woorden die God eerder Zelf had uitgeroepen: ‘De HEERE is lankmoedig en groot van weldadigheid’ (Numeri 14:18; vergelijk Exodus 34:6–7). God antwoordt: ‘Ik heb hun vergeven naar uw woord.’ Toch blijft de straf staan. De volgende morgen wil het volk alsnog optrekken. Mozes waarschuwt: ‘Trekt niet op, want de HEERE zal in het midden van u niet zijn’. Ze gaan toch, terwijl de ark en Mozes in het leger blijven, en worden verslagen ‘tot Horma toe’.",
+          "refs": ["Numeri 14:11–20", "Exodus 34:6–7", "Numeri 14:40–45"]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "In Deuteronomium 1 blikt Mozes terug. Daar komt het volk zelf met het voorstel om mannen vooruit te sturen, en Mozes vindt dat goed (Deuteronomium 1:22–23). Numeri 13:2 vertelt dat de HEERE het beval; de Bijbel noemt beide. Later zegt Mozes dat de verspieders ‘het hart der kinderen Israëls’ braken (Numeri 32:9). Bij de telling in de vlakke velden van Moab was er van de vroegere getelden niemand over, ‘dan Kaleb, de zoon van Jefunne, en Jozua, de zoon van Nun’ (Numeri 26:65). Kaleb vertelt in Jozua 14:7 dat hij veertig jaar oud was toen Mozes hem uitzond.",
+          "refs": ["Deuteronomium 1:22–23", "Numeri 32:8–9", "Numeri 26:63–65", "Jozua 14:7"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Kades ligt in de woestijn van Paran (Numeri 13:26); de plaats is waarschijnlijk, maar niet zeker teruggevonden. Hebron is wel identificeerbaar. Numeri 13:22 voegt toe: ‘Hebron nu was zeven jaren gebouwd voor Zoan in Egypte.’ Rechob ligt op de weg naar Hamath, ver in het noorden. Het volk vertrok in het tweede jaar na de uittocht van de Sinaï (Numeri 10:11); de verspieders gingen in ‘de dagen der eerste vruchten van de wijndruiven’ (Numeri 13:20). Daarom wordt het meestal in dat tweede jaar geplaatst. Met 1 Koningen 6:1 komt dat rond 1445 v.Chr.; wie de uittocht in de 13e eeuw v.Chr. plaatst, komt bijna twee eeuwen later uit.",
+          "refs": ["Numeri 13:20–26", "Numeri 10:11", "1 Koningen 6:1"]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat zei Mozes over de HEERE toen hij voor het volk bad?",
+          "a": ["Hij is lankmoedig en groot van weldadigheid", "Hij is een verterend vuur", "Hij sluimert noch slaapt"],
+          "why": "Numeri 14:17–19"
+        },
+        {
+          "q": "Wat gebeurde er toen het volk de volgende morgen toch optrok?",
+          "a": ["Ze werden verslagen tot Horma toe", "Ze veroverden de stad Hebron", "Ze kwamen tot Rechob"],
+          "why": "Numeri 14:40–45"
+        },
+        {
+          "q": "Waarom zou Kaleb volgens God in het land komen?",
+          "a": ["Hij had volhard God na te volgen", "Hij kwam uit de stam van Levi", "Hij was de zoon van Nun"],
+          "why": "Numeri 14:24"
+        },
+        {
+          "q": "Wie kwam volgens Deuteronomium 1 met het plan om verspieders te sturen?",
+          "a": ["Het volk, en Mozes vond het goed", "Aäron, en het volk vond het goed", "Kaleb, en Jozua ging mee"],
+          "why": "Deuteronomium 1:22–23"
+        }
+      ]
+    }
+  },
+  "34": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["kadesbarnea", "hor", "punon"],
+      "delen": [
+        { "t": "Het volk is weer in Kades. Daar sterft Mirjam.", "stap": "numeri:woestijn:5" },
+        { "t": "Er is geen water. Het volk maakt ruzie met Mozes en Aäron.", "stap": "numeri:woestijn:5" },
+        { "t": "God zegt: spreek tegen de rots, dan komt er water. Maar Mozes slaat twee keer met zijn staf op de rots.", "stap": "numeri:woestijn:5" },
+        { "t": "Er komt veel water uit de rots. Maar God zegt: Mozes en Aäron hebben Mij niet geloofd. Zij brengen het volk niet in het land.", "stap": "numeri:woestijn:5" },
+        { "t": "Edom laat het volk niet door zijn land. Op de berg Hor krijgt Eleazar de kleren van zijn vader Aäron. Daar sterft Aäron.", "stap": "numeri:woestijn:6" },
+        { "t": "Het volk moet een lange weg om Edom heen. Onderweg wordt het moedeloos.", "stap": "numeri:woestijn:7" },
+        { "t": "Ze spreken tegen God en tegen Mozes. Ze zeggen dat ze walgen van het manna.", "stap": "numeri:woestijn:7" },
+        { "t": "Dan stuurt de HEERE vurige slangen. De slangen bijten, en veel mensen sterven.", "stap": "numeri:woestijn:7" },
+        { "t": "Het volk komt bij Mozes en zegt: wij hebben gezondigd. Mozes bidt voor het volk.", "stap": "numeri:woestijn:7" },
+        { "t": "God zegt: maak een slang en zet hem op een paal. Mozes maakt een koperen slang. Wie gebeten is en ernaar kijkt, blijft leven.", "stap": "numeri:woestijn:7" }
+      ],
+      "samen": "Weggelaten zijn de strijd tegen de koning van Harad (Numeri 21:1–3) en de overwinning op Sihon en Og (Numeri 21:21–35). De Heere Jezus noemt de koperen slang zelf: ‘Gelijk Mozes de slang in de woestijn verhoogd heeft, alzo moet de Zoon des mensen verhoogd worden’ (Johannes 3:14). Vraag samen: wat moest iemand doen die gebeten was? En wie had beloofd dat hij dan zou leven? (Numeri 21:8–9).",
+      "vragen": [
+        { "q": "Wat zegt God dat Mozes bij de rots moet doen?", "a": ["Tegen de rots spreken", "Op de rots slaan"], "why": "Numeri 20:8" },
+        { "q": "Wie sterft er op de berg Hor?", "a": ["Aäron", "Mirjam"], "why": "Numeri 20:1, 28" },
+        { "q": "Wat moet iemand doen die gebeten is?", "a": ["Naar de koperen slang kijken", "Zich wassen in het water"], "why": "Numeri 21:8–9" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Water uit de rots",
+          "stap": "numeri:woestijn:5",
+          "t": "Het volk is weer in Kades. Daar sterft Mirjam. Er is geen water, en het volk twist met Mozes en Aäron. God zegt: spreek tegen de rots, dan geeft hij water. Maar Mozes roept: ‘Hoort toch, gij wederspannigen’, en slaat twee keer met zijn staf op de rots. Wederspannigen zijn mensen die tegen God ingaan. Er komt veel water. Toch zegt God: omdat jullie Mij niet geloofd hebben, zullen jullie dit volk niet in het land brengen."
+        },
+        {
+          "kop": "Aäron sterft op de berg Hor",
+          "stap": "numeri:woestijn:6",
+          "t": "Edom laat Israël niet door zijn land. Op de berg Hor trekt Mozes Aäron zijn priesterkleren uit en doet ze zijn zoon Eleazar aan. Aäron sterft op de top van de berg. Heel Israël beweent hem dertig dagen."
+        },
+        {
+          "kop": "Kijken en leven",
+          "stap": "numeri:woestijn:7",
+          "t": "Op de lange weg om Edom heen wordt het volk moedeloos. Ze spreken tegen God en Mozes en walgen van ‘dit zeer lichte brood’: het manna. Dan stuurt de HEERE vurige slangen, en veel mensen sterven. Het volk zegt: ‘Wij hebben gezondigd’, en Mozes bidt. God zegt: maak een slang en zet hem op een paal. Mozes maakt een koperen slang. Wie gebeten is en ernaar kijkt, blijft leven."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat deed Mozes bij de rots?",
+          "a": ["Hij sloeg twee keer met zijn staf op de rots", "Hij groef een put naast de rots", "Hij bad de hele nacht bij de rots"],
+          "why": "Numeri 20:11"
+        },
+        {
+          "q": "Waarom mochten Mozes en Aäron het volk niet in het land brengen?",
+          "a": ["Ze hadden God niet geloofd en niet geheiligd", "Ze waren te oud geworden", "Het volk wilde een andere leider"],
+          "why": "Numeri 20:12"
+        },
+        {
+          "q": "Wie kreeg de priesterkleren van Aäron?",
+          "a": ["Eleazar, zijn zoon", "Jozua, de dienaar van Mozes", "Kaleb, de verspieder"],
+          "why": "Numeri 20:26–28"
+        },
+        {
+          "q": "Waarom moest het volk om Edom heen trekken?",
+          "a": ["Edom liet hen niet door zijn land", "De weg door Edom was te droog", "Er woonden reuzen in Edom"],
+          "why": "Numeri 20:18–21"
+        },
+        {
+          "q": "Waarom stuurde de HEERE de vurige slangen?",
+          "a": ["Het volk sprak tegen God en tegen Mozes", "Mozes had op de rots geslagen", "Het volk had geen offers gebracht"],
+          "why": "Numeri 21:5–7"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Meer dan de koperen slang",
+          "t": "Numeri 21 vertelt nog meer. De koning van Harad valt Israël aan en neemt gevangenen mee. Israël doet de HEERE een gelofte, wint, en noemt de plaats Horma (21:1–3). Die naam kwam al voor in Numeri 14:45, bij de nederlaag na de verspieders. Na de slangen trekt het volk om Moab heen tot aan de Arnon, ‘de landpale van Moab’ (21:13). Bij Beer geeft God water, en Israël zingt: ‘Spring op, gij put’ (21:16–17). Sihon, de koning der Amorieten, weigert Israël door te laten, en Og, de koning van Basan, trekt ten strijde. Beiden worden verslagen (21:21–35). Psalm 136:19–20 noemt hen in de lofzang op Gods goedertierenheid.",
+          "refs": ["Numeri 21:1–3", "Numeri 14:45", "Numeri 21:13–17", "Numeri 21:21–35", "Psalm 136:19–20"]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Het volk vraagt Mozes te bidden ‘dat Hij deze slangen van ons wegneme’ (21:7). De tekst zegt niet dat God de slangen weghaalt. Er staat wel: ‘als een slang iemand beet, zo zag hij de koperen slang aan, en hij bleef levend’ (21:9). Over de rots zegt Psalm 106:33 dat Mozes ‘wat onbedachtelijk voortbracht met zijn lippen’. Hoe de zonde van Mozes bij Meriba precies moet worden omschreven, daarover verschillen uitleggers. Numeri 20:12 noemt als reden dat Mozes en Aäron God niet geloofden en Hem niet heiligden voor de ogen van het volk.",
+          "refs": ["Numeri 21:7–9", "Psalm 106:32–33", "Numeri 20:12"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Kades is waarschijnlijk teruggevonden, maar niet zeker. De berg Hor ligt ‘aan de pale van het land van Edom’ (20:23); welke berg het is, is betwist. Op de kaart staat bij de koperen slang Punon, in de Statenvertaling Funon: volgens Numeri 33:42 een kampplaats na de berg Hor. De plaats is waarschijnlijk; Numeri 21 noemt bij de slangen zelf geen plaatsnaam. Aäron stierf in het veertigste jaar na de uittocht, op de eerste dag van de vijfde maand, 123 jaar oud (Numeri 33:38–39). Met 1 Koningen 6:1 komt dat rond 1407 v.Chr.; wie de uittocht in de 13e eeuw v.Chr. dateert, komt bijna twee eeuwen later uit.",
+          "refs": ["Numeri 20:22–23", "Numeri 33:37–42", "1 Koningen 6:1"]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat deed Israël toen de koning van Harad gevangenen had meegenomen?",
+          "a": ["Het deed de HEERE een gelofte", "Het vluchtte terug naar Kades", "Het vroeg Edom om hulp"],
+          "why": "Numeri 21:1–3"
+        },
+        {
+          "q": "Wat vroeg het volk aan Mozes, toen de slangen beten?",
+          "a": ["Te bidden dat de HEERE de slangen wegnam", "Hen terug te brengen naar Egypte", "Een kortere weg om Edom te zoeken"],
+          "why": "Numeri 21:7"
+        },
+        {
+          "q": "Welke grens vormde de Arnon?",
+          "a": ["De grens tussen Moab en de Amorieten", "De grens tussen Edom en Egypte", "De grens tussen Basan en Ammon"],
+          "why": "Numeri 21:13"
+        },
+        { "q": "Hoe oud was Aäron toen hij stierf?", "a": ["123 jaar", "120 jaar", "110 jaar"], "why": "Numeri 33:39" }
+      ]
+    }
+  },
+  "35": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["pethor", "sittim"],
+      "delen": [
+        { "t": "Het volk Israël kampeert in de vlakten van Moab, dicht bij de rivier de Jordaan.", "stap": "numeri:moab:0" },
+        { "t": "Balak, de koning van Moab, is erg bang. Het volk Israël is zo groot!" },
+        { "t": "Balak stuurt mannen naar Bileam. Bileam moet het volk vervloeken: iets kwaads over hen uitspreken.", "stap": "numeri:moab:0" },
+        { "t": "Maar God zegt tegen Bileam: ga niet mee. Je mag dat volk niet vervloeken, want het is gezegend." },
+        { "t": "Later zegt God: ga dan mee, maar doe alleen wat Ik zeg." },
+        { "t": "Bileam rijdt op zijn ezelin. Op de weg staat de Engel van de HEERE, met een zwaard in Zijn hand." },
+        { "t": "De ezelin ziet de Engel, maar Bileam ziet Hem niet. Drie keer wijkt de ezelin uit voor de Engel, en Bileam slaat haar." },
+        { "t": "Dan laat de HEERE de ezelin praten. Ze vraagt: wat heb ik u gedaan, dat u mij drie keer geslagen hebt?" },
+        { "t": "Nu ziet Bileam de Engel ook, en hij buigt diep. De Engel zegt: zeg alleen wat Ik tegen je zeg." },
+        { "t": "Balak wil steeds dat Bileam Israël vervloekt. Maar drie keer zegent Bileam Israël!", "stap": "numeri:moab:0" }
+      ],
+      "samen": "De ezelin praat niet uit zichzelf: ‘De HEERE nu opende den mond der ezelin’ (Numeri 22:28). Weggelaten is dat Gods toorn ontstoken werd omdat Bileam toch ging (Numeri 22:22), en wat Bileam zegt over de ster uit Jakob (Numeri 24:17). Vraag samen: waarom kon Bileam Israël niet vervloeken? De Bijbel zegt: omdat God het volk gezegend had (Numeri 22:12; 23:8).",
+      "vragen": [
+        { "q": "Wat wil Balak dat Bileam doet?", "a": ["Israël vervloeken", "Israël helpen"], "why": "Numeri 22:6" },
+        { "q": "Wie ziet de Engel op de weg staan?", "a": ["De ezelin", "Balak"], "why": "Numeri 22:23" },
+        { "q": "Wat doet Bileam, als hij Israël moet vervloeken?", "a": ["Hij zegent Israël", "Hij vecht tegen Israël"], "why": "Numeri 24:10" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Balak roept Bileam",
+          "stap": "numeri:moab:0",
+          "t": "Israël kampeert in de vlakten van Moab, tegenover Jericho. Balak, de koning van Moab, ziet wat Israël met de Amorieten gedaan heeft en is bang. Hij stuurt boden met loon naar Bileam in Pethor: kom en vervloek dit volk. Vervloeken betekent: onheil over iemand uitspreken. Maar God zegt: ‘gij zult dat volk niet vloeken, want het is gezegend.’ Later zegt God: ga mee, maar doe alleen wat Ik tot u spreek."
+        },
+        {
+          "kop": "De ezelin ziet de Engel",
+          "t": "Onderweg staat de Engel van de HEERE op de weg, met een getrokken zwaard. De ezelin ziet Hem en wijkt uit: het veld in, tegen een muur, en ten slotte gaat ze liggen. Drie keer slaat Bileam haar. Dan opent de HEERE de mond van de ezelin: ‘Wat heb ik u gedaan, dat gij mij nu driemaal geslagen hebt?’ Dan ziet ook Bileam de Engel."
+        },
+        {
+          "kop": "Zegen in plaats van vloek",
+          "t": "Balak neemt Bileam mee naar hoge plaatsen, vanwaar ze Israël zien. Telkens worden er zeven altaren gebouwd. Maar Bileam zegent Israël: ‘Hoe goed zijn uw tenten, Jakob!’ Balak wordt boos: hij heeft Bileam geroepen om te vloeken, en nu heeft hij drie keer gezegend."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom was Balak bang voor Israël?",
+          "a": ["Hij zag wat Israël met de Amorieten had gedaan", "Israël had zijn stad al ingenomen", "Mozes had hem met oorlog gedreigd"],
+          "why": "Numeri 22:2–3"
+        },
+        {
+          "q": "Wat zei God toen Bileam vertelde wat Balak wilde?",
+          "a": ["Ga niet mee, want dat volk is gezegend", "Ga mee en vervloek het volk", "Wacht tot Mozes je roept"],
+          "why": "Numeri 22:12"
+        },
+        {
+          "q": "Waarom ging de ezelin van de weg af?",
+          "a": ["Ze zag de Engel van de HEERE staan", "Ze was moe van de lange reis", "Ze was bang voor een leeuw"],
+          "why": "Numeri 22:23"
+        },
+        { "q": "Wie opende de mond van de ezelin?", "a": ["De HEERE", "Bileam", "Balak"], "why": "Numeri 22:28" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Hoe het verder ging met Bileam",
+          "t": "Na de zegeningen keert Bileam terug naar zijn plaats (24:25). Toch is dat niet het einde. Numeri 31:16 zegt dat de vrouwen van Midian Israël ‘door den raad van Bileam’ tot overtreding brachten, ‘in de zaak van Peor’ (zie Numeri 25:1–3). Openbaring 2:14 zegt dat Bileam (daar Balaäm) ‘Balak leerde den kinderen Israëls een aanstoot voor te werpen’. Bileam wordt door Israël met het zwaard gedood (Numeri 31:8; Jozua 13:22). En Micha 6:5 roept op te gedenken ‘wat Balak, de koning van Moab, beraadslaagde, en wat hem Bileam, de zoon van Beor, antwoordde’.",
+          "refs": ["Numeri 24:25", "Numeri 31:15–16", "Numeri 25:1–3", "Openbaring 2:14", "Numeri 31:8", "Jozua 13:22", "Micha 6:5"]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "God zegt: ‘sta op, ga met hen’ (22:20). Toch wordt direct daarna ‘de toorn van God’ ontstoken, ‘omdat hij heentoog’ (22:22). De Engel zegt dat Bileams weg van Hem ‘afwijkt’ (22:32). Verder legt de tekst dit niet uit. Veel uitleggers verbinden het met 2 Petrus 2:15, waar staat dat Bileam het loon liefhad; dat is een uitleg. Bileam is geen profeet uit Israël: hij ging meermalen ‘tot de toverijen’ (24:1), en Jozua 13:22 noemt hem ‘den voorzegger’. Toch legt de HEERE het woord in zijn mond (23:5).",
+          "refs": ["Numeri 22:20–22", "Numeri 22:32", "2 Petrus 2:15", "Numeri 24:1", "Jozua 13:22", "Numeri 23:5"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Pethor ligt ‘aan de rivier’ (22:5); daarmee wordt meestal de Eufraat bedoeld. Deuteronomium 23:4 zegt: ‘van Pethor uit Mesopotamië’. Waar Pethor precies lag, is waarschijnlijk, niet zeker. Balak gaat Bileam tegemoet tot de stad aan de Arnon, de grens van Moab (22:36). Daarna neemt hij hem mee naar de hoogten van Baäl, het veld Zofim op de Pisga en de hoogte van Peor (22:41; 23:14, 28). Een reconstructie: het gebeurt na de dood van Aäron in het veertigste jaar (Numeri 33:38) en vóór de toespraken van Mozes in de elfde maand (Deuteronomium 1:3). Met 1 Koningen 6:1 is dat ca. 1407–1406 v.Chr.; andere onderzoekers komen bijna twee eeuwen later uit.",
+          "refs": ["Numeri 22:5", "Deuteronomium 23:4", "Numeri 22:36–41", "Numeri 33:38", "Deuteronomium 1:3", "1 Koningen 6:1"]
+        }
+      ],
+      "vragen": [
+        { "q": "Hoeveel altaren werden er telkens gebouwd?", "a": ["Zeven", "Twaalf", "Drie"], "why": "Numeri 23:1–2, 14, 29–30" },
+        {
+          "q": "Hoe kwam Bileam later om het leven?",
+          "a": ["Israël doodde hem met het zwaard", "Zijn ezelin wierp hem af", "Balak liet hem doden"],
+          "why": "Numeri 31:8"
+        },
+        {
+          "q": "Waar nam Balak Bileam de derde keer mee naartoe?",
+          "a": ["Naar de hoogte van Peor", "Naar de berg Hor", "Naar de stad Pethor"],
+          "why": "Numeri 23:27–28"
+        }
+      ]
+    }
+  }
+}

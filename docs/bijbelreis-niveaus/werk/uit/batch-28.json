@@ -1,0 +1,164 @@
+{
+  "148": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_malta", "nt_rome"],
+      "delen": [
+        { "t": "Het schip met Paulus is vergaan. Paulus en de anderen zijn uit de zee aan land gekomen. Het eiland heet Melite.", "stap": "handelingen:nt-paulusrome:6" },
+        { "t": "Het regent en het is koud. De mensen van het eiland zijn heel vriendelijk. Ze maken een groot vuur.", "stap": "handelingen:nt-paulusrome:6" },
+        { "t": "Paulus legt een bos takken op het vuur. Door de hitte komt er een adder uit, een slang. De slang hangt aan zijn hand." },
+        { "t": "De mensen denken dat Paulus nu dood zal gaan. Maar Paulus schudt de slang af in het vuur. Hij krijgt er geen last van." },
+        { "t": "Publius is de belangrijkste man van het eiland. Zijn vader is ziek. Paulus bidt, legt hem de handen op en maakt hem gezond." },
+        { "t": "Daarna komen ook de andere zieken van het eiland. Ook zij worden genezen." },
+        { "t": "Na drie maanden varen ze met een ander schip verder, op weg naar Rome.", "stap": "handelingen:nt-paulusrome:7" },
+        { "t": "Broeders uit Rome komen hen tegemoet. Als Paulus hen ziet, dankt hij God. Hij krijgt weer moed.", "stap": "handelingen:nt-paulusrome:7" },
+        { "t": "In Rome mag Paulus in een eigen huis wonen. Een soldaat bewaakt hem.", "stap": "handelingen:nt-paulusrome:8" },
+        { "t": "Twee jaar lang ontvangt hij iedereen die bij hem komt. Hij vertelt over het Koninkrijk van God en over de Heere Jezus Christus.", "stap": "handelingen:nt-paulusrome:8" }
+      ],
+      "samen": "Paulus is in Rome nog steeds een gevangene: hij draagt een keten (Handelingen 28:16, 20). Bij A is het gesprek met de Joden in Rome weggelaten; sommigen geloven, anderen niet (Handelingen 28:17–29). Vraag samen: wat zeggen de mensen op het eiland eerst over Paulus, en wat zeggen ze later? (Handelingen 28:4, 6) Elders zegt Paulus zelf: ‘Wij zijn ook mensen’ (Handelingen 14:15). Hoe het daarna met Paulus ging, vertelt Handelingen niet.",
+      "vragen": [
+        { "q": "Wat komt er uit het vuur?", "a": ["Een slang", "Een vogel"], "why": "Handelingen 28:3" },
+        { "q": "Wie is er ziek op het eiland?", "a": ["De vader van Publius", "De vrouw van Publius"], "why": "Handelingen 28:8" },
+        { "q": "Wat doet Paulus als hij de broeders uit Rome ziet?", "a": ["Hij dankt God", "Hij gaat terug naar het schip"], "why": "Handelingen 28:15" },
+        { "q": "Wie is er bij Paulus in zijn huis in Rome?", "a": ["Een soldaat die hem bewaakt", "Publius van het eiland"], "why": "Handelingen 28:16" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een adder op Melite", "stap": "handelingen:nt-paulusrome:6", "t": "Na de schipbreuk komen Paulus en de anderen aan land op Melite, waarschijnlijk Malta. Het regent en is koud; de bewoners maken een groot vuur. Als Paulus takken op het vuur legt, komt er een adder uit, die aan zijn hand hangt. De bewoners denken dat hij een moordenaar is. Maar Paulus schudt de slang af in het vuur, en er gebeurt hem niets. Dan zeggen ze dat hij een god is." },
+        { "kop": "Zieken worden genezen", "t": "Publius is de voornaamste van het eiland. Zijn vader ligt met koorts in bed. Paulus bidt, legt hem de handen op en maakt hem gezond. Daarna worden ook andere zieken genezen." },
+        { "kop": "Op weg naar Rome", "stap": "handelingen:nt-paulusrome:7", "t": "Na drie maanden varen ze via Syrakuse en Regium naar Puteoli. Broeders uit Rome komen hen tegemoet tot Appiusmarkt en Drie Tabernen. Paulus dankt God en grijpt moed." },
+        { "kop": "Twee jaar in Rome", "stap": "handelingen:nt-paulusrome:8", "t": "In Rome woont Paulus apart, met een soldaat als bewaker. Hij spreekt met de Joden over de Heere Jezus. Sommigen geloven, anderen niet. Twee hele jaren woont hij in een gehuurd huis. Hij preekt ‘met alle vrijmoedigheid, onverhinderd’: vrijuit, zonder dat iemand hem tegenhoudt." }
+      ],
+      "vragen": [
+        { "q": "Waarom dachten de bewoners dat Paulus een moordenaar was?", "a": ["Er hing een adder aan zijn hand", "Hij had het vuur aangestoken", "Hij had het schip laten vergaan"], "why": "Handelingen 28:4" },
+        { "q": "Wie was Publius?", "a": ["De voornaamste van het eiland", "De kapitein van het schip", "Een broeder uit Rome"], "why": "Handelingen 28:7" },
+        { "q": "Waar kwamen de broeders uit Rome hen tegemoet?", "a": ["Tot Appiusmarkt en Drie Tabernen", "Tot in Puteoli", "Tot in Syrakuse"], "why": "Handelingen 28:15" },
+        { "q": "Wat deed Paulus toen hij de broeders uit Rome zag?", "a": ["Hij dankte God en greep moed", "Hij vroeg hen hem te bevrijden", "Hij ging met hen terug naar Puteoli"], "why": "Handelingen 28:15" },
+        { "q": "Hoe lang woonde Paulus in zijn gehuurde woning in Rome?", "a": ["Twee gehele jaren", "Drie maanden", "Zeven dagen"], "why": "Handelingen 28:30" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Van Melite naar Rome", "t": "Melite wordt meestal uitgelegd als Malta; op de kaart staat het daarom als waarschijnlijk. Syrakuse ligt op Sicilië, Regium aan de punt van Italië en Puteoli aan de baai van Napels. Appiusmarkt lag aan de Via Appia, de weg naar Rome; Drie Tabernen waarschijnlijk ook. Het schip had als teken Kastor en Pollux: in de Grieks-Romeinse godsdienst tweelingbroers die als beschermers van zeelieden golden. De tekst noemt alleen het teken. Het jaartal is een reconstructie: na de winter op Malta komt Paulus in Rome en blijft er twee jaar (28:11, 30). Met de gangbare datering van Festus (ca. 59) komt dat op ongeveer 60–62 n.Chr.", "refs": ["Handelingen 28:1", "Handelingen 28:11–16", "Handelingen 28:30"] },
+        { "kop": "Paulus en Jesaja", "t": "De woorden die Paulus aanhaalt, komen uit Jesaja 6. Daar zegt de Heere tegen Jesaja: ‘Ga henen, en zeg tot dit volk’ (Jesaja 6:9). De Heere Jezus haalde dezelfde profetie aan toen Hij in gelijkenissen sprak (Mattheüs 13:14–15). Dat Paulus zich tot de heidenen keert, gebeurde al eerder, in Antiochië in Pisidië: ‘ziet, wij keren ons tot de heidenen’ (Handelingen 13:46). En in de brief aan Efeze noemt Paulus zichzelf ‘een gezant … in een keten’ (Efeze 6:20), zoals hij hier ‘met deze keten omvangen’ is (28:20).", "refs": ["Jesaja 6:9–10", "Mattheüs 13:14–15", "Handelingen 13:46", "Efeze 6:20"] },
+        { "kop": "Wat Handelingen niet vertelt", "t": "Handelingen eindigt zonder te vertellen hoe het proces voor de keizer afliep. Het boek zegt ook niet welke brieven Paulus in Rome schreef. Veel uitleggers rekenen de brieven aan Efeze, Filippi, Kolosse en Filemon tot deze gevangenschap; anderen denken aan een andere gevangenschap. In 2 Timotheüs 4:6 schrijft Paulus: ‘de tijd mijner ontbinding is aanstaande’. Uitleggers verschillen erover of dat in deze of in een latere gevangenschap was. Dat Paulus in Rome om zijn geloof is gedood, komt uit de overlevering van de vroege kerk, niet uit de Bijbel.", "refs": ["Handelingen 28:30–31", "2 Timotheüs 4:6"] }
+      ],
+      "vragen": [
+        { "q": "Uit welk Bijbelboek komen de woorden die Paulus tegen de Joden in Rome aanhaalt?", "a": ["Jesaja", "Jeremia", "Ezechiël"], "why": "Handelingen 28:25–27; Jesaja 6:9–10" },
+        { "q": "Waarom is Paulus volgens zijn eigen woorden met een keten omvangen?", "a": ["Vanwege de hope Israëls", "Omdat hij een doodslager is", "Omdat hij uit de zee ontkomen is"], "why": "Handelingen 28:20" },
+        { "q": "Waarom moest Paulus als gevangene naar Rome?", "a": ["Hij had zich op de keizer beroepen", "Publius had hem erheen gestuurd", "De broeders in Rome hadden erom gevraagd"], "why": "Handelingen 28:19; Handelingen 25:11" },
+        { "q": "Wat vertelt Handelingen over de afloop van het proces van Paulus?", "a": ["Niets: het boek eindigt met zijn prediking", "Dat hij werd vrijgesproken", "Dat hij in Rome werd gedood"], "why": "Handelingen 28:30–31" }
+      ]
+    }
+  },
+  "149": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_patmos", "nt_efeze", "nt4_smyrna"],
+      "delen": [
+        { "t": "Johannes is op het eiland Patmos, om het Woord van God. Daar laat God hem dingen zien die gaan gebeuren.", "stap": "openbaring:nt-openbaring:0" },
+        { "t": "Op de dag des Heeren hoort hij achter zich een grote stem, als van een bazuin. De stem zegt: schrijf op wat je ziet.", "stap": "openbaring:nt-openbaring:0" },
+        { "t": "Johannes kijkt om. Hij ziet zeven gouden kandelaren. In het midden is Iemand als de Zoon des mensen; Zijn gezicht straalt als de zon." },
+        { "t": "Johannes valt als dood neer. Maar Hij legt Zijn hand op hem en zegt: ‘Vrees niet’. ‘Ik ben dood geweest; en zie, Ik ben levend’." },
+        { "t": "Johannes moet schrijven aan zeven gemeenten, in steden als Efeze en Smyrna. Wie overwint, krijgt een belofte.", "stap": "openbaring:nt-openbaring:1" },
+        { "t": "Daarna ziet Johannes een deur open in de hemel. Hij ziet een troon, met een regenboog eromheen. Er zit Iemand op de troon." },
+        { "t": "Rondom de troon zitten vierentwintig ouderlingen, in witte kleren en met gouden kronen. Ze aanbidden Hem Die op de troon zit." },
+        { "t": "Hij Die op de troon zit, heeft een boek met zeven zegels. Niemand kan het openen. Daarom huilt Johannes heel erg." },
+        { "t": "Een ouderling zegt: ‘Ween niet’. Dan ziet Johannes een Lam, dat eruitziet alsof het geslacht is. Het Lam neemt het boek." },
+        { "t": "Johannes ziet nog veel meer, ook een grote draak. Aan het eind ziet hij een grote witte troon, en de doden staan voor God." }
+      ],
+      "samen": "Openbaring is beeldtaal. Bij A staat alleen wat Johannes ziet en hoort. Soms legt de Bijbel zelf een beeld uit: de zeven kandelaren zijn de zeven gemeenten (Openbaring 1:20). Over het Lam zingen de ouderlingen: ‘Gij zijt geslacht, en hebt ons Gode gekocht met Uw bloed’ (Openbaring 5:9). De plagen, het beest en de poel des vuurs (Openbaring 6–20) zijn bij A weggelaten. Vraag samen: waarom huilt Johannes, en waarom hoeft dat niet meer? (Openbaring 5:4–5)",
+      "vragen": [
+        { "q": "Op welk eiland is Johannes?", "a": ["Patmos", "Melite"], "why": "Openbaring 1:9" },
+        { "q": "Wat zegt Hij als Johannes als dood neervalt?", "a": ["Vrees niet", "Ga weg van hier"], "why": "Openbaring 1:17" },
+        { "q": "Waarom huilt Johannes?", "a": ["Niemand kan het boek openen", "Hij is alleen op het eiland"], "why": "Openbaring 5:4" },
+        { "q": "Wie neemt het boek met de zeven zegels?", "a": ["Het Lam", "Johannes"], "why": "Openbaring 5:7" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een stem als een bazuin", "stap": "openbaring:nt-openbaring:0", "t": "Johannes is op het eiland Patmos, ‘om het Woord Gods’. Op de dag des Heeren hoort hij achter zich een grote stem. Hij kijkt om en ziet zeven gouden kandelaren. In het midden is Iemand als de Zoon des mensen, met ogen als een vlam vuurs. Johannes valt als dood neer. Maar Hij zegt: ‘Vrees niet; Ik ben de Eerste en de Laatste’." },
+        { "kop": "Zeven brieven", "stap": "openbaring:nt-openbaring:1", "t": "Johannes moet schrijven aan zeven gemeenten in Asia, zoals Efeze, Smyrna en Laodicea. In elke brief staat: ‘Ik weet uw werken’. Elke brief belooft iets aan wie overwint." },
+        { "kop": "Het boek en het Lam", "t": "Daarna ziet Johannes een deur open in de hemel, en een troon. Hij Die op de troon zit, heeft een boek met zeven zegels. Niemand kan het openen; Johannes huilt. Een ouderling zegt: de Leeuw uit de stam van Juda heeft overwonnen. Johannes ziet een Lam, ‘staande als geslacht’. Het Lam neemt het boek." },
+        { "kop": "De draak en de witte troon", "t": "Michaël en zijn engelen strijden tegen de grote draak, ‘de oude slang’. De draak wordt uit de hemel geworpen. Aan het eind ziet Johannes een grote witte troon. De doden worden geoordeeld naar hun werken." }
+      ],
+      "vragen": [
+        { "q": "Waarom was Johannes op Patmos?", "a": ["Om het Woord Gods", "Omdat zijn schip daar was vergaan", "Om er een gemeente te beginnen"], "why": "Openbaring 1:9" },
+        { "q": "Wat zijn volgens de Bijbel zelf de zeven gouden kandelaren?", "a": ["De zeven gemeenten", "De zeven engelen", "De zeven geesten Gods"], "why": "Openbaring 1:20" },
+        { "q": "Waarom weende Johannes?", "a": ["Niemand kon het boek openen", "Hij was bang voor de ouderlingen", "Hij moest alleen op Patmos blijven"], "why": "Openbaring 5:3–4" },
+        { "q": "Wat zag Johannes toen de ouderling over de Leeuw sprak?", "a": ["Een Lam, staande als geslacht", "Een leeuw met zeven hoornen", "Een draak met zeven hoofden"], "why": "Openbaring 5:5–6" },
+        { "q": "Wie streden in de hemel tegen de draak?", "a": ["Michaël en zijn engelen", "De vierentwintig ouderlingen", "De vier dieren"], "why": "Openbaring 12:7" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Beelden die al eerder voorkomen", "t": "Veel van wat Johannes ziet, staat al eerder in de Bijbel. De vier dieren roepen ‘Heilig, heilig, heilig’ (Openbaring 4:8), zoals de serafs bij Jesaja (Jesaja 6:3). Een leeuw, een kalf, een mens en een arend (Openbaring 4:7) lijken op de vier aangezichten bij Ezechiël: een mens, een leeuw, een os en een arend (Ezechiël 1:10). Het beest uit de zee, een pardel, een beer en een leeuw gelijk (Openbaring 13:1–2), doet denken aan de dieren die Daniël uit de zee zag opkomen (Daniël 7:3–7). En water dat bloed wordt, hagel en sprinkhanen kennen we van de plagen in Egypte. Uitleggers wijzen op die verbanden; wat de beelden precies betekenen, daarover verschillen zij.", "refs": ["Jesaja 6:3", "Ezechiël 1:10", "Daniël 7:3–7", "Exodus 7:20", "Exodus 9:23", "Exodus 10:14"] },
+        { "kop": "Reeksen van zeven", "t": "Openbaring is opgebouwd in reeksen van zeven: zeven brieven (hoofdstuk 2–3), zeven zegels (6:1–8:1), zeven bazuinen (8:2–11:19) en zeven fiolen (16:1–21). Dat staat in de tekst zelf. Hoe die reeksen zich tot elkaar verhouden, daarover verschillen uitleggers. Sommigen lezen ze als gebeurtenissen die na elkaar komen. Anderen zien dezelfde tijd steeds opnieuw, telkens van een andere kant. Na de zesde bazuin staat dat de overige mensen ‘hebben zich niet bekeerd’ (9:20); bij de vierde en vijfde fiool staat iets dergelijks (16:9, 11).", "refs": ["Openbaring 6:1", "Openbaring 8:2", "Openbaring 16:1", "Openbaring 9:20", "Openbaring 16:9–11"] },
+        { "kop": "Uitleg en datering", "t": "Uitleggers lezen Openbaring op verschillende manieren. Sommigen zien vooral wat in de eerste eeuwen gebeurde, anderen de hele geschiedenis van de kerk, weer anderen vooral de eindtijd of de strijd in alle tijden. Ook over de duizend jaren (20:2–7) verschillen zij sterk. Vaste grond geeft de Bijbel zelf: het is ‘De openbaring van Jezus Christus’ (1:1), en ‘het Lam zal hen overwinnen’ (17:14). Een jaartal noemt de Bijbel niet. Irenaeus (ca. 180 n.Chr.) schrijft dat Johannes het zag aan het einde van de regering van keizer Domitianus (81–96 n.Chr.); daarom staat hier ca. 95 n.Chr. Sommige uitleggers dateren het boek rond 68 n.Chr.", "refs": ["Openbaring 1:1", "Openbaring 17:14", "Openbaring 20:2–7"] }
+      ],
+      "vragen": [
+        { "q": "Bij welke profeet roepen de serafs ook ‘Heilig, heilig, heilig’?", "a": ["Jesaja", "Jona", "Amos"], "why": "Jesaja 6:3; Openbaring 4:8" },
+        { "q": "Welke reeksen van zeven volgen in Openbaring op de zeven brieven?", "a": ["Zegels, bazuinen en fiolen", "Bekers, kronen en boeken", "Poorten, muren en torens"], "why": "Openbaring 6:1; Openbaring 8:2; Openbaring 16:1" },
+        { "q": "Wat zei de engel toen Johannes voor hem neerviel om hem te aanbidden?", "a": ["Dat hij dat niet moest doen, maar God aanbidden", "Dat hij moest opstaan en verder schrijven", "Dat hij terug moest naar Patmos"], "why": "Openbaring 19:10" }
+      ]
+    }
+  },
+  "150": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_patmos"],
+      "delen": [
+        { "t": "De profeet Jesaja spreekt over een boom die is omgehakt. Uit de stronk van Isaï zal een nieuw takje komen, een Rijsje." },
+        { "t": "Jesaja zegt dat op Hem de Geest van de HEERE zal rusten. Hij zal eerlijk recht doen aan de armen." },
+        { "t": "Dan zal de wolf bij het lam wonen. De leeuw zal stro eten, net als de os. Een klein kind zal de dieren leiden." },
+        { "t": "Niemand zal nog kwaad doen. De aarde zal vol zijn van de kennis van de HEERE, zoals de zee vol water is." },
+        { "t": "Veel later ziet Johannes een nieuwe hemel en een nieuwe aarde. Ook ziet hij het nieuwe Jeruzalem van God uit de hemel neerdalen.", "stap": "openbaring:nt-openbaring:0" },
+        { "t": "Een stem zegt: God zal bij de mensen wonen. Hij zal alle tranen van hun ogen afwissen." },
+        { "t": "Er is geen dood meer, geen verdriet, geen gehuil en geen moeite. God zegt: ‘Ziet, Ik maak alle dingen nieuw.’" },
+        { "t": "De poorten van de stad zijn parels. De straat is van zuiver goud. Er is geen nacht, want God geeft er licht." },
+        { "t": "Uit de troon van God en van het Lam stroomt een rivier met het water des levens. Aan beide kanten staat de boom des levens." },
+        { "t": "De Heere Jezus zegt: ‘Ik kom haastiglijk’: Ik kom snel. Het laatste gebed in de Bijbel is: ‘Ja, kom, Heere Jezus!’" }
+      ],
+      "samen": "Jesaja 11 en Openbaring 21–22 vertellen in beeldtaal wat God belooft. Isaï is de vader van koning David (Ruth 4:22). De Heere Jezus zegt: ‘Ik ben de Wortel en het geslacht Davids’ (Openbaring 22:16). Bij A is weggelaten wie niet in de stad komen (Openbaring 21:8, 27; 22:15). Petrus bij de hemelpoort komt uit de traditie, niet uit Openbaring 21. Vraag samen: wat is er in de nieuwe stad niet meer? (Openbaring 21:4)",
+      "vragen": [
+        { "q": "Wie zal er bij het lam wonen?", "a": ["De wolf", "De vos"], "why": "Jesaja 11:6" },
+        { "q": "Wat zal God van hun ogen afwissen?", "a": ["Alle tranen", "Al het stof"], "why": "Openbaring 21:4" },
+        { "q": "Wat staat er aan beide kanten van de rivier?", "a": ["De boom des levens", "Een hoge muur"], "why": "Openbaring 22:2" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een Rijsje uit de tronk van Isaï", "t": "Jesaja zegt: ‘Want er zal een Rijsje voortkomen uit den afgehouwen tronk van Isaï’. Een tronk is de stronk van een omgehakte boom; een rijsje is een jong takje. Isaï is de vader van koning David. Op Hem, het Rijsje, zal de Geest des HEEREN rusten, en Hij zal de armen met gerechtigheid richten." },
+        { "kop": "De wolf bij het lam", "t": "Dan zal de wolf bij het lam wonen; een klein kind zal ze drijven. De leeuw zal stro eten, net als de os. Niemand zal nog kwaad doen, ‘want de aarde zal vol van kennis des HEEREN zijn’." },
+        { "kop": "Alle dingen nieuw", "stap": "openbaring:nt-openbaring:0", "t": "Veel later ziet Johannes een nieuwe hemel en een nieuwe aarde, en het nieuwe Jeruzalem dat uit de hemel neerdaalt. God zal alle tranen van hun ogen afwissen. Er is geen dood meer, geen rouw en geen moeite. Hij Die op de troon zit, zegt: ‘Ziet, Ik maak alle dingen nieuw.’" },
+        { "kop": "De stad met de boom des levens", "t": "De poorten zijn parels. Er is geen tempel, want God en het Lam zijn haar tempel. Er is geen nacht. Uit de troon stroomt de rivier van het water des levens, met aan beide kanten de boom des levens. Het laatste gebed is: ‘Ja, kom, Heere Jezus!’" }
+      ],
+      "vragen": [
+        { "q": "Wie is Isaï?", "a": ["De vader van koning David", "De vader van de profeet Jesaja", "Een zoon van koning David"], "why": "Ruth 4:22; Jesaja 1:1" },
+        { "q": "Wat zal er volgens Jesaja op het Rijsje rusten?", "a": ["De Geest des HEEREN", "Een gouden kroon", "Een witte wolk"], "why": "Jesaja 11:2" },
+        { "q": "Waarom zal men nergens leed doen op Gods heilige berg?", "a": ["De aarde zal vol zijn van kennis des HEEREN", "Alle wilde dieren zijn weggejaagd", "Er staat een hoge muur omheen"], "why": "Jesaja 11:9" },
+        { "q": "Wat ziet Johannes van God uit de hemel neerdalen?", "a": ["Het nieuwe Jeruzalem", "Een gouden tempel", "Een grote ark"], "why": "Openbaring 21:2" },
+        { "q": "Waarom heeft de stad geen zon nodig?", "a": ["De heerlijkheid van God verlicht haar", "Er branden overal lampen", "Het is er altijd zomer"], "why": "Openbaring 21:23" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Al eerder beloofd", "t": "Veel van Openbaring 21–22 klinkt al bij de profeten. Jesaja schreef: ‘de Heere HEERE zal de tranen van alle aangezichten afwissen’ (Jesaja 25:8). Over het licht: ‘de HEERE zal u wezen tot een eeuwig Licht’ (Jesaja 60:19). Ezechiël zag water uit het heiligdom stromen, met bomen aan beide oevers, waarvan het blad ‘tot heling’ is (Ezechiël 47:12). En Petrus schrijft: ‘wij verwachten, naar Zijn belofte, nieuwe hemelen en een nieuwe aarde, in dewelke gerechtigheid woont’ (2 Petrus 3:13).", "refs": ["Jesaja 25:8", "Jesaja 60:19", "Ezechiël 47:1–12", "2 Petrus 3:13"] },
+        { "kop": "Wat de tekst zegt en wat niet", "t": "Bij de hemelpoort denken veel mensen aan Petrus met de sleutels. Dat beeld komt uit de traditie, met Mattheüs 16:19 als aanleiding, niet uit Openbaring 21. Daar staan in de twaalf poorten twaalf engelen, en op de poorten de namen van de twaalf geslachten van Israël. Op de twaalf fundamenten staan de namen van de twaalf apostelen (21:12–14). Over de maten van de stad (21:16–17) verschillen uitleggers: sommigen lezen ze letterlijk, anderen als beeldtaal. Ook bij de wolf en het lam in Jesaja 11 verschillen uitleggers of het letterlijk of als beeld bedoeld is.", "refs": ["Openbaring 21:12–17", "Mattheüs 16:19", "Jesaja 11:6–9"] },
+        { "kop": "Wanneer?", "t": "Jesaja profeteerde in de tijd van de koningen Uzzia tot Hizkia (Jesaja 1:1), ongeveer 740–700 v.Chr. Openbaring wordt meestal rond 95 n.Chr. gedateerd; sommigen houden ca. 68 n.Chr. aan. Wat Openbaring 21–22 beschrijft, ligt in de toekomst; daarvoor noemt de Bijbel geen datum. Wel zegt de Heere: ‘Zie, Ik kom haastiglijk’ (22:7).", "refs": ["Jesaja 1:1", "Openbaring 22:7"] }
+      ],
+      "vragen": [
+        { "q": "Welke namen staan op de twaalf poorten van de stad?", "a": ["De namen van de twaalf geslachten van Israël", "De namen van de twaalf apostelen", "De namen van de twaalf engelen"], "why": "Openbaring 21:12" },
+        { "q": "Waartoe zijn de bladeren van de boom des levens?", "a": ["Tot genezing der heidenen", "Tot versiering van de stad", "Tot voedsel voor de engelen"], "why": "Openbaring 22:2" },
+        { "q": "Welke profeet schreef al dat de Heere HEERE de tranen van alle aangezichten zal afwissen?", "a": ["Jesaja", "Ezechiël", "Daniël"], "why": "Jesaja 25:8" }
+      ]
+    }
+  }
+}

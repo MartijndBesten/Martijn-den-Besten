@@ -1,0 +1,157 @@
+{
+  "54": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["sam_nob", "adullam", "engedi"],
+      "delen": [
+        { "t": "Jonathan, de zoon van koning Saul, houdt veel van David. Ze sluiten een verbond: ze beloven elkaar trouw.", "stap": "1samuel:saul-david:5" },
+        { "t": "De vrouwen zingen dat David nog meer vijanden verslagen heeft dan Saul. Daarom wordt Saul heel boos op David.", "stap": "1samuel:saul-david:5" },
+        { "t": "Saul gooit zijn speer naar David. Maar David ontwijkt hem." },
+        { "t": "Saul wil David doden. Michal, de vrouw van David, laat hem ’s nachts door een raam naar beneden. Zo ontsnapt David." },
+        { "t": "Jonathan schiet in het veld een pijl weg. Zo laat hij David weten dat hij moet vluchten. Ze huilen samen en nemen afscheid.", "stap": "1samuel:saul-david:5" },
+        { "t": "In Nob geeft de priester Achimelech David brood en het zwaard van Goliath.", "stap": "1samuel:saul-david:6" },
+        { "t": "David verstopt zich in de grot van Adullam. Daar komen veel mannen bij hem, en hij wordt hun leider.", "stap": "1samuel:saul-david:6" },
+        { "t": "Saul zoekt David met heel veel soldaten. Hij gaat een grot in. Juist daar zitten David en zijn mannen.", "stap": "1samuel:saul-david:7" },
+        { "t": "David snijdt stilletjes een stukje van Sauls mantel af. Maar hij doet Saul geen kwaad, want God heeft Saul koning gemaakt.", "stap": "1samuel:saul-david:7" },
+        { "t": "Buiten roept David Saul na en laat hem het stukje mantel zien. Saul huilt. Hij zegt: jij hebt mij goed gedaan, en ik jou kwaad." }
+      ],
+      "samen": "Weggelaten: Saul laat de priesters van Nob doden, omdat Achimelech David had geholpen; alleen Abjathar ontkomt (1 Samuël 22:16–20). Komt het ter sprake, vertel het dan sober, zoals de Bijbel het doet. Ook Davids vlucht naar Gath is weggelaten (1 Samuël 21:10–15). Om samen over te praten: waarom doet David Saul geen kwaad, terwijl Saul hem wil doden? David zegt: ‘De HEERE zal richten tussen mij en tussen u’ (1 Samuël 24:13).",
+      "vragen": [
+        { "q": "Met wie sluit David een verbond?", "a": ["Met Jonathan", "Met Saul"], "why": "1 Samuël 18:3" },
+        { "q": "Hoe ontsnapt David uit zijn huis?", "a": ["Michal laat hem door een raam zakken", "Hij verstopt zich in een kist"], "why": "1 Samuël 19:12" },
+        { "q": "Wat doet David met Saul in de grot?", "a": ["Hij doet hem geen kwaad", "Hij neemt hem gevangen"], "why": "1 Samuël 24:5–8" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een vriend en een vijand", "stap": "1samuel:saul-david:5", "t": "Jonathan, de zoon van Saul, houdt van David als van zichzelf. Ze sluiten een verbond: een plechtige belofte van trouw. Maar de vrouwen zingen dat David meer vijanden versloeg dan Saul. Saul wordt woedend, gooit zijn speer naar David en wil hem laten doden. Michal, Davids vrouw, laat hem ’s nachts door een venster ontsnappen." },
+        { "kop": "Op de vlucht", "stap": "1samuel:saul-david:6", "t": "Jonathan waarschuwt David met een pijl: hij moet vluchten. In Nob geeft de priester Achimelech hem heilig brood en het zwaard van Goliath. Doëg, een knecht van Saul, ziet het. David verbergt zich in de spelonk (grot) van Adullam, en ongeveer vierhonderd mannen komen bij hem. Doëg verraadt het aan Saul, en Saul laat de priesters doden. Alleen Abjathar ontkomt." },
+        { "kop": "David spaart Saul", "stap": "1samuel:saul-david:7", "t": "Saul jaagt David na tot bij En-Gedi en gaat een spelonk in waar David zit. David snijdt stilletjes een slip van Sauls mantel af, maar doodt hem niet. Hij zegt: Saul is ‘de gezalfde des HEEREN’, door God als koning aangewezen. Buiten laat David de slip zien. Saul huilt en zegt: ‘Gij zijt rechtvaardiger dan ik’." }
+      ],
+      "vragen": [
+        { "q": "Waarom wordt Saul zo boos op David?", "a": ["De vrouwen zingen dat David meer verslagen heeft", "David wil niet tegen de Filistijnen strijden", "David wil niet meer voor hem spelen"], "why": "1 Samuël 18:7–8" },
+        { "q": "Wie ziet David in Nob en vertelt het aan Saul?", "a": ["Doëg", "Abjathar", "Jonathan"], "why": "1 Samuël 22:9–10" },
+        { "q": "Wat gebeurt er het eerst?", "a": ["Jonathan schiet een pijl in het veld", "David krijgt het zwaard van Goliath", "David verbergt zich in Adullam"], "why": "1 Samuël 20:35–42; 1 Samuël 21:9–10; 1 Samuël 22:1" },
+        { "q": "Waarom doodt David Saul niet in de spelonk?", "a": ["Saul is de gezalfde van de HEERE", "Hij ziet Saul niet in het donker", "Zijn mannen houden hem tegen"], "why": "1 Samuël 24:7" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Psalmen uit de vluchttijd", "t": "Boven sommige psalmen staat bij welke gebeurtenis David ze dichtte. Psalm 59 hoort bij de nacht ‘toen Saul gezonden had, die zijn huis bewaren zouden, om hem te doden’ (vergelijk 1 Samuël 19:11). Psalm 52 hoort bij de tijd ‘als Doeg, de Edomiet, gekomen was, en Saul te kennen gegeven’. Psalm 34 is van David ‘als hij zijn gelaat veranderd had voor het aangezicht van Abimelech’. In 1 Samuël 21 heet de koning van Gath Achis. Veel uitleggers zien Abimelech als een titel van Filistijnse koningen, zoals farao in Egypte; zeker is dat niet.", "refs": ["Psalm 59:1", "Psalm 52:1–2", "Psalm 34:1", "1 Samuël 21:10–14"] },
+        { "kop": "Het heilige brood", "t": "De toonbroden waren twaalf koeken op de reine tafel in het heiligdom, ‘voor het aangezicht des HEEREN’. Op elke sabbat werden ze vervangen (Leviticus 24:8), en de oude broden waren ‘voor Aäron en zijn zonen’, om in de heilige plaats te eten (Leviticus 24:9). Achimelech geeft het brood alleen als Davids jongemannen zich rein gehouden hebben (1 Samuël 21:4–5). De Heere Jezus wijst op deze geschiedenis als de Farizeën Zijn discipelen verwijten dat ze op de sabbat aren plukken (Mattheüs 12:1–4).", "refs": ["Leviticus 24:5–9", "1 Samuël 21:4–7", "Mattheüs 12:1–4"] },
+        { "kop": "Waar en wanneer", "t": "Gath en En-Gedi zijn goed te identificeren, Adullam en Gibea waarschijnlijk. Over Rama verschillen de meningen, en waar Nob lag, is onbekend; die punten op de kaart zijn een benadering. Hoe lang David op de vlucht was, zegt de Bijbel niet precies. Wel staat er dat hij later ‘een jaar en vier maanden’ in het land van de Filistijnen woonde (1 Samuël 27:7). De jaartallen op de tijdlijn (ca. 1020–1010 v.Chr.) zijn een reconstructie en onzeker: het gaat om de laatste jaren van Saul, die stierf vlak voordat David koning werd.", "refs": ["1 Samuël 27:7"] }
+      ],
+      "vragen": [
+        { "q": "Bij welke gebeurtenis hoort Psalm 52 volgens het opschrift?", "a": ["Doëg vertelt Saul dat David bij Achimelech was", "Michal laat David door een venster ontsnappen", "David spaart Saul in de spelonk"], "why": "Psalm 52:2" },
+        { "q": "Wie mochten de toonbroden volgens de wet eten?", "a": ["Aäron en zijn zonen, de priesters", "Iedereen die honger had", "Alleen de koning en zijn knechten"], "why": "Leviticus 24:9" },
+        { "q": "Hoe lang woonde David later in het land van de Filistijnen?", "a": ["Een jaar en vier maanden", "Zeven jaar en zes maanden", "Veertig dagen en nachten"], "why": "1 Samuël 27:7" }
+      ]
+    }
+  },
+  "55": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["endor", "gilboa", "ziklag"],
+      "delen": [
+        { "t": "Saul gaat weer met heel veel soldaten op zoek naar David, in de woestijn Zif.", "stap": "1samuel:saul-david:7" },
+        { "t": "’s Nachts sluipt David met Abisaï het kamp binnen. Niemand wordt wakker, want de HEERE laat hen diep slapen.", "stap": "1samuel:saul-david:7" },
+        { "t": "Abisaï wil Saul doden. Maar David zegt nee: God heeft Saul koning gemaakt. Hij neemt alleen de speer en de waterfles mee.", "stap": "1samuel:saul-david:7" },
+        { "t": "Later komen de Filistijnen met hun leger. Saul is heel bang. Hij vraagt de HEERE om raad, maar de HEERE antwoordt niet.", "stap": "1samuel:saul-david:10" },
+        { "t": "Dan gaat Saul ’s nachts verkleed naar een vrouw in Endor die waarzegt. Dat had God verboden.", "stap": "1samuel:saul-david:10" },
+        { "t": "Daar hoort Saul dat het koninkrijk naar David gaat. En dat hij met zijn zonen zal sterven.", "stap": "1samuel:saul-david:10" },
+        { "t": "Dan komt de strijd op de berg Gilboa. Israël verliest. Saul sterft, en ook drie van zijn zonen, onder wie Jonathan.", "stap": "1samuel:saul-david:10" },
+        { "t": "In Ziklag hoort David dat Saul en Jonathan dood zijn. David scheurt zijn kleren en huilt.", "stap": "2samuel:david:0" },
+        { "t": "David maakt een treurlied over Saul en Jonathan: ‘hoe zijn de helden gevallen!’", "stap": "2samuel:david:0" }
+      ],
+      "samen": "Saul ging naar een vrouw ‘die een waarzeggenden geest heeft’; God verbiedt dat (Deuteronomium 18:10–12). Over wat daar precies gebeurde, verschillen uitleggers (1 Samuël 28:11–19). Weggelaten: Saul kwam in het nauw door de boogschutters en liet zich in zijn eigen zwaard vallen (1 Samuël 31:3–4). Ook de Amalekiet die David het nieuws bracht en werd gedood, is weggelaten (2 Samuël 1:1–16). Om samen over te praten: waarom huilt David om Saul, terwijl Saul hem wilde doden?",
+      "vragen": [
+        { "q": "Wat neemt David mee uit het kamp van Saul?", "a": ["De speer en de waterfles", "De kroon en de mantel"], "why": "1 Samuël 26:12" },
+        { "q": "Waar gaat Saul ’s nachts verkleed heen?", "a": ["Naar een vrouw in Endor", "Naar David in de woestijn"], "why": "1 Samuël 28:7–8" },
+        { "q": "Wat doet David als hij hoort dat Saul en Jonathan dood zijn?", "a": ["Hij scheurt zijn kleren en huilt", "Hij houdt een groot feest"], "why": "2 Samuël 1:11–12" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Weer spaart David Saul", "stap": "1samuel:saul-david:7", "t": "Saul zoekt David met drieduizend man in de woestijn Zif. ’s Nachts sluipt David met Abisaï het kamp binnen. Niemand merkt het, want de HEERE heeft een diepe slaap op hen laten vallen. Abisaï wil Saul doden, maar David zegt: wie kan ‘den gezalfde des HEEREN’ iets aandoen en onschuldig blijven? Hij neemt alleen de spies en de waterfles mee." },
+        { "kop": "Geen antwoord meer", "stap": "1samuel:saul-david:10", "t": "De Filistijnen legeren zich bij Sunem, Saul op de Gilboa. Saul is erg bang. Hij vraagt de HEERE om raad, maar krijgt geen antwoord. Dan gaat hij verkleed naar een vrouw in Endor die waarzegt. Dat had God verboden, en Saul had zelf de waarzeggers weggedaan. Daar hoort hij van Samuël dat de HEERE het koninkrijk aan David gegeven heeft." },
+        { "kop": "Hoe zijn de helden gevallen", "stap": "2samuel:david:0", "t": "Op de berg Gilboa verliest Israël. Jonathan en twee broers sneuvelen. De boogschutters komen op Saul af, en hij is erg bang. Dan valt hij in zijn eigen zwaard. In Ziklag hoort David het nieuws. Hij scheurt zijn kleren, huilt en vast tot de avond. Hij maakt een klaaglied over Saul en Jonathan: ‘hoe zijn de helden gevallen!’" }
+      ],
+      "vragen": [
+        { "q": "Wie gaat met David mee het kamp van Saul in?", "a": ["Abisaï", "Jonathan", "Abner"], "why": "1 Samuël 26:6–7" },
+        { "q": "Waarom merkt niemand in het kamp David op?", "a": ["De HEERE had een diepe slaap op hen laten vallen", "De wachters waren die nacht weggelopen", "David had zich als soldaat van Saul verkleed"], "why": "1 Samuël 26:12" },
+        { "q": "Waarom gaat Saul naar de vrouw in Endor?", "a": ["De HEERE antwoordt hem niet meer", "Hij wil weten waar David zich verbergt", "Samuël heeft hem daarheen gestuurd"], "why": "1 Samuël 28:6–7, 15" },
+        { "q": "Waar is David als hij hoort dat Saul dood is?", "a": ["In Ziklag", "In Hebron", "In En-Gedi"], "why": "2 Samuël 1:1–4" },
+        { "q": "Wat doet David als hij het nieuws hoort?", "a": ["Hij rouwt en maakt een klaaglied", "Hij laat zich meteen tot koning zalven", "Hij trekt op tegen de Filistijnen"], "why": "2 Samuël 1:11–12, 17" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "De vrouw in Endor", "t": "De tekst noemt de vrouw niet bij naam. De Statenvertaling spreekt van ‘een vrouw, die een waarzeggenden geest heeft’; de bekende benaming heks van Endor komt uit de traditie. De vrouw ziet ‘een oud man’ opkomen, ‘met een mantel bekleed’, en Saul ‘vernam, dat het Samuël was’. Uitleggers verschillen over hoe dit te verstaan is: sommigen zien hier Samuël zelf, door God gezonden; anderen een bedrieglijke verschijning. De Bijbel oordeelt wel duidelijk over wat Saul deed: hij stierf ook ‘omdat hij de waarzegster gevraagd had’ (1 Kronieken 10:13).", "refs": ["1 Samuël 28:7–19", "1 Kronieken 10:13–14"] },
+        { "kop": "Twee verhalen over Sauls dood", "t": "Volgens 1 Samuël 31 valt Saul in zijn eigen zwaard, als zijn wapendrager hem niet wil doden. In 2 Samuël 1 zegt een Amalekiet dat hij Saul op diens verzoek gedood heeft, en hij brengt ‘de kroon, die op zijn hoofd was, en het armgesmijde’. Veel uitleggers denken dat de man loog om beloning te krijgen. David zegt later dat de man meende ‘dat ik hem bodenloon zou geven’ (2 Samuël 4:10). David oordeelt de man naar zijn eigen woorden: ‘uw mond heeft tegen u getuigd’ (2 Samuël 1:16).", "refs": ["1 Samuël 31:3–5", "2 Samuël 1:6–16", "2 Samuël 4:10"] },
+        { "kop": "De mannen van Jabes", "t": "Aan het begin van zijn koningschap had Saul Jabes in Gilead verlost, toen Nahas de Ammoniet de stad belegerde (1 Samuël 11). Veel uitleggers zien daarin de reden dat juist de mannen van Jabes ‘den gehelen nacht’ gaan om de lichamen van Saul en zijn zonen van de muur van Beth-San te halen. David laat hun later zeggen: ‘Gezegend zijt gij den HEERE, dat gij deze weldadigheid gedaan hebt aan uw heer’ (2 Samuël 2:5). Beth-San, de Gilboa en Sunem zijn goed te identificeren; waar Jabes en Ziklag lagen, is betwist.", "refs": ["1 Samuël 11:1–11", "1 Samuël 31:11–13", "2 Samuël 2:4–7"] }
+      ],
+      "vragen": [
+        { "q": "Hoe beschrijft de vrouw wie er opkomt?", "a": ["Een oud man, met een mantel bekleed", "Een jonge man in een wit kleed", "Een engel met een zwaard in de hand"], "why": "1 Samuël 28:14" },
+        { "q": "Wat brengt de Amalekiet mee naar David?", "a": ["De kroon en het armgesmijde van Saul", "De spies en de waterfles van Saul", "Het zwaard en de boog van Jonathan"], "why": "2 Samuël 1:10" },
+        { "q": "Wat had Saul eerder voor Jabes in Gilead gedaan?", "a": ["Hij had de stad van Nahas de Ammoniet verlost", "Hij had de stad op de Filistijnen veroverd", "Hij had er Samuël begraven"], "why": "1 Samuël 11:1–11; 1 Samuël 28:3" }
+      ]
+    }
+  },
+  "56": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["mamre", "mahanaim", "salem"],
+      "delen": [
+        { "t": "Saul is dood. David vraagt de HEERE waar hij heen moet gaan. De HEERE zegt: naar Hebron.", "stap": "2samuel:david:1" },
+        { "t": "In Hebron zalven de mannen van Juda David tot koning. Zo wordt hij koning over Juda.", "stap": "2samuel:david:1" },
+        { "t": "Maar Abner, de legeroverste van Saul, maakt Isboseth, een zoon van Saul, koning in Mahanaïm. Hij is koning over de rest van Israël.", "stap": "2samuel:david:1" },
+        { "t": "Lange tijd is er strijd tussen de mannen van David en de mannen van Saul. David wordt steeds sterker." },
+        { "t": "Dan komen alle stammen van Israël naar Hebron. Ze zeggen: de HEERE heeft gezegd dat jij Zijn volk zult weiden, zoals een herder.", "stap": "2samuel:david:2" },
+        { "t": "De oudsten zalven David tot koning over heel Israël. David is dan dertig jaar.", "stap": "2samuel:david:2" },
+        { "t": "In Jeruzalem wonen nog de Jebusieten. Ze zeggen dat David er niet in zal komen. Maar David neemt de burcht Sion in.", "stap": "2samuel:david:3" },
+        { "t": "Het wordt de stad van David. David wordt steeds groter, want de HEERE is met hem.", "stap": "2samuel:david:3" },
+        { "t": "Koning Hiram van Tyrus stuurt cederhout en bouwers. Zij bouwen een huis voor David." },
+        { "t": "Twee keer vallen de Filistijnen aan. Steeds vraagt David eerst de HEERE wat hij moet doen, en hij verslaat hen." }
+      ],
+      "samen": "Weggelaten: de strijd bij de vijver van Gibeon, waarin Abner Asahel, de broer van Joab, doodde (2 Samuël 2:12–32). De kaart vertelt ook dat Abner en Isboseth later gedood werden (2 Samuël 3 en 4); dat staat niet in de stappen hierboven. Om samen over te praten: David vraagt steeds eerst de HEERE wat hij moet doen (2 Samuël 2:1; 5:19, 23). Op welke momenten doet hij dat in dit verhaal?",
+      "vragen": [
+        { "q": "In welke stad wordt David eerst koning?", "a": ["In Hebron", "In Jeruzalem"], "why": "2 Samuël 2:1–4" },
+        { "q": "Wie stuurt cederhout en bouwers naar David?", "a": ["Koning Hiram", "Koning Saul"], "why": "2 Samuël 5:11" },
+        { "q": "Wat doet David voordat hij tegen de Filistijnen strijdt?", "a": ["Hij vraagt de HEERE wat hij moet doen", "Hij vraagt Abner om hulp"], "why": "2 Samuël 5:19, 23" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Twee koningen", "stap": "2samuel:david:1", "t": "Na de dood van Saul vraagt David de HEERE of hij naar een stad in Juda moet gaan. Het antwoord is: naar Hebron. Daar zalven de mannen van Juda hem tot koning. Maar Abner, de legeroverste van Saul, maakt Isboseth, een zoon van Saul, koning over de rest van Israël, in Mahanaïm. Er komt een lange strijd, en David wordt steeds sterker." },
+        { "kop": "Koning over heel Israël", "stap": "2samuel:david:2", "t": "Dan komen alle stammen van Israël naar Hebron. Ze zeggen tegen David dat de HEERE tegen hem gezegd heeft: ‘Gij zult Mijn volk Israël weiden’. Weiden is zorgen voor het volk, zoals een herder voor zijn schapen. De oudsten zalven David tot koning over heel Israël. Hij is dan dertig jaar." },
+        { "kop": "De stad van David", "stap": "2samuel:david:3", "t": "David trekt op naar Jeruzalem, waar de Jebusieten wonen. Ze zeggen dat hij er niet in zal komen, maar David neemt de burcht Sion in: de stad van David. Koning Hiram van Tyrus stuurt cederhout en bouwers. Twee keer vallen de Filistijnen aan. Steeds vraagt David eerst de HEERE, en hij verslaat hen." }
+      ],
+      "vragen": [
+        { "q": "Waarom gaat David naar Hebron?", "a": ["De HEERE zegt dat hij daarheen moet", "Abner heeft hem daarheen gestuurd", "Hiram heeft hem daar een huis gegeven"], "why": "2 Samuël 2:1" },
+        { "q": "Wie is Isboseth?", "a": ["Een zoon van Saul", "Een broer van David", "De legeroverste van Saul"], "why": "2 Samuël 2:8" },
+        { "q": "Wat gebeurt er het eerst?", "a": ["David wordt koning over Juda", "Alle stammen komen naar Hebron", "David neemt de burcht Sion in"], "why": "2 Samuël 2:4; 2 Samuël 5:1–3; 2 Samuël 5:7" },
+        { "q": "Waarom komen de stammen van Israël naar David in Hebron?", "a": ["De HEERE had gezegd dat David Zijn volk zou weiden", "Hiram van Tyrus had het hun gevraagd", "David had hen met zijn leger gedwongen"], "why": "2 Samuël 5:1–3" },
+        { "q": "Wat doet David steeds voordat hij tegen de Filistijnen optrekt?", "a": ["Hij vraagt de HEERE om raad", "Hij vraagt Hiram om hulp", "Hij stuurt Abner vooruit"], "why": "2 Samuël 5:19, 23" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Hoe Jeruzalem werd ingenomen", "t": "2 Samuël 5 vertelt kort dat David de burcht Sion innam. Hij beloofde: wie de Jebusieten slaat ‘en geraakt aan die watergoot’, wordt hoofd en overste. Wat die watergoot precies was, weten we niet zeker; vaak wordt gedacht aan een waterschacht van de bron naar de stad. 1 Kronieken 11 noemt Jeruzalem ook Jebus en vertelt wie als eerste naar boven ging: ‘Toen beklom Joab, de zoon van Zeruja, dien het eerst; daarom werd hij tot een hoofd.’", "refs": ["2 Samuël 5:6–9", "1 Kronieken 11:4–7"] },
+        { "kop": "Sion in de rest van de Bijbel", "t": "Na David komt de naam Sion vaak terug in de Bijbel. Psalm 132 zingt: ‘Want de HEERE heeft Sion verkoren, Hij heeft het begeerd tot Zijn woonplaats’. Psalm 48 noemt de berg Sion ‘de stad des groten Konings’. En Hebreeën 12:22 schrijft aan de gelovigen: ‘Maar gij zijt gekomen tot den berg Sion, en de stad des levenden Gods, tot het hemelse Jeruzalem’. Veel uitleggers zien zo een lijn van Davids burcht naar de plaats waar God bij Zijn volk woont.", "refs": ["Psalm 132:13–14", "Psalm 48:2–3", "Hebreeën 12:22"] },
+        { "kop": "Waar en wanneer", "t": "Hebron, Gibeon en Jeruzalem zijn goed te identificeren. De ligging van Mahanaïm, aan de overkant van de Jordaan (2 Samuël 2:29), is waarschijnlijk, maar niet zeker. David regeerde ‘zeven jaren en zes maanden’ in Hebron. Over Isboseth staat dat hij ‘regeerde het tweede jaar’, meestal uitgelegd als twee jaar. Hoe die twee perioden in elkaar passen, zegt de tekst niet; uitleggers geven verschillende verklaringen. De jaartallen (ca. 1010–1003 v.Chr.) zijn teruggerekend vanaf het vierde jaar van Salomo (1 Koningen 6:1); andere schema’s verschillen enkele jaren.", "refs": ["2 Samuël 2:10–11", "2 Samuël 5:4–5", "1 Koningen 6:1"] }
+      ],
+      "vragen": [
+        { "q": "Wie ging volgens 1 Kronieken 11 als eerste naar boven en werd hoofd?", "a": ["Joab, de zoon van Zeruja", "Abner, de zoon van Ner", "Asahel, de broer van Joab"], "why": "1 Kronieken 11:6" },
+        { "q": "Hoe oud was Isboseth toen hij koning werd over Israël?", "a": ["Veertig jaar", "Dertig jaar", "Twintig jaar"], "why": "2 Samuël 2:10" },
+        { "q": "Hoe noemde David de plaats waar hij de Filistijnen de eerste keer versloeg?", "a": ["Baäl-perazim", "Chelkath-hazurim", "Mahanaïm"], "why": "2 Samuël 5:20" },
+        { "q": "Wat zegt Psalm 132:13 over Sion?", "a": ["De HEERE heeft Sion verkoren", "De HEERE heeft Sion verlaten", "Sion is alleen voor de koning"], "why": "Psalm 132:13–14" }
+      ]
+    }
+  }
+}

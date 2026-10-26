@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Zet de Statenvertaling (editie 1888, transcriptie CC0) om naar public/bijbelreis/bijbel/<slug>.json.
+"""Zet de Statenvertaling (editie 1888, transcriptie CC0) om naar data/statenvertaling/<slug>.json (alleen voor controle; niet in de app).
 
 Bron: https://github.com/jajpater/statenvertaling (STV.osis.xml, CC0 1.0), met de Nederlandse SV-versnummering
 (DutSVV, vergeleken met de GBS-module). Kanttekeningen (<note>) worden weggelaten, <divineName> wordt HEERE.
@@ -58,4 +58,4 @@ def main(path, out):
     print(len(OSIS), "boeken,", sum(len(v) for b in data.values() for v in b.values()), "verzen")
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else os.path.join(os.path.dirname(__file__), "..", "public", "bijbelreis", "bijbel"))
+    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else os.path.join(os.path.dirname(__file__), "..", "data", "statenvertaling"))

@@ -1,0 +1,1219 @@
+{
+  "10": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "bethel",
+        "sodom",
+        "mamre"
+      ],
+      "delen": [
+        {
+          "t": "Abram en Lot komen terug uit Egypte, naar Bethel. Ze hebben allebei heel veel vee.",
+          "stap": "genesis:abraham:5"
+        },
+        {
+          "t": "Ze hebben zoveel vee dat ze niet samen kunnen wonen. Hun herders krijgen ruzie.",
+          "stap": "genesis:abraham:6"
+        },
+        {
+          "t": "Abram zegt tegen Lot: laten we geen ruzie maken. Kies jij maar waar je gaat wonen.",
+          "stap": "genesis:abraham:6"
+        },
+        {
+          "t": "Lot kiest de vlakte bij de Jordaan, waar overal water is. Hij woont tot bij de stad Sodom. Maar de mannen daar zijn slecht.",
+          "stap": "genesis:abraham:6"
+        },
+        {
+          "t": "God zegt tegen Abram: kijk om je heen. Al dit land geef Ik aan jou en aan wie na jou komen.",
+          "stap": "genesis:abraham:7"
+        },
+        {
+          "t": "Jaren later geeft God Abram een nieuwe naam: Abraham. Hij woont bij Mamre. Op een dag staan er drie mannen bij zijn tent.",
+          "stap": "genesis:abraham:15"
+        },
+        {
+          "t": "De HEERE belooft dat Sara een zoon krijgt. Abraham bidt voor Sodom. God zegt: als er tien goede mensen zijn, spaar Ik de stad.",
+          "stap": "genesis:abraham:15"
+        },
+        {
+          "t": "Twee engelen halen Lot, zijn vrouw en zijn twee dochters aan de hand de stad uit. Ze moeten vluchten en niet omkijken.",
+          "stap": "genesis:abraham:16"
+        },
+        {
+          "t": "Lot vlucht naar het stadje Zoar. Dan laat de HEERE zwavel en vuur regenen op Sodom en Gomorra.",
+          "stap": "genesis:abraham:16"
+        },
+        {
+          "t": "De vrouw van Lot kijkt toch om. Ze wordt een zoutpilaar: een paal van zout."
+        }
+      ],
+      "samen": "Hier is weggelaten wat de mannen van Sodom bij het huis van Lot wilden (Genesis 19:4–11) en wat Lots dochters later deden (Genesis 19:30–38). De Bijbel vertelt wel duidelijk dat God de steden oordeelt om hun zonde (Genesis 18:20; 19:13), en dat Hij Lot redt, omdat Hij aan Abraham dacht (Genesis 19:29). Vraag samen: voor wie bidt Abraham, en wat antwoordt God?",
+      "vragen": [
+        {
+          "q": "Waarom krijgen de herders ruzie?",
+          "a": [
+            "Er is te veel vee om samen te wonen",
+            "Er is nergens water te vinden"
+          ],
+          "why": "Genesis 13:6–7"
+        },
+        {
+          "q": "Wie mag kiezen waar hij gaat wonen?",
+          "a": [
+            "Lot",
+            "Abram"
+          ],
+          "why": "Genesis 13:9–11"
+        },
+        {
+          "q": "Waar vlucht Lot naartoe?",
+          "a": [
+            "Naar het stadje Zoar",
+            "Terug naar Egypte"
+          ],
+          "why": "Genesis 19:22–23"
+        },
+        {
+          "q": "Wat gebeurt er met de vrouw van Lot als ze omkijkt?",
+          "a": [
+            "Ze wordt een zoutpilaar",
+            "Ze valt in slaap"
+          ],
+          "why": "Genesis 19:26"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Lot mag kiezen",
+          "stap": "genesis:abraham:6",
+          "t": "Abram en Lot hebben te veel vee om samen te wonen. Hun herders krijgen ruzie. Abram zegt: ‘Laat toch geen twisting zijn tussen mij en tussen u’, en laat Lot kiezen. Lot kiest de Jordaanvlakte, waar overal water is, en woont tot bij Sodom. Maar de mannen daar zijn ‘grote zondaars tegen den HEERE’. God belooft Abram al het land dat hij ziet."
+        },
+        {
+          "kop": "Abraham pleit voor Sodom",
+          "stap": "genesis:abraham:15",
+          "t": "Later heet Abram: Abraham. Bij Mamre krijgt hij bezoek van drie mannen. De HEERE belooft Sara een zoon, en zegt dat de zonde van Sodom zeer zwaar is. Abraham vraagt of God de stad spaart als er vijftig rechtvaardigen zijn: mensen die doen wat recht is. Steeds vraagt hij minder, tot tien. God zegt: om tien zal Ik haar niet verderven."
+        },
+        {
+          "kop": "Gered uit Sodom",
+          "stap": "genesis:abraham:16",
+          "t": "Twee engelen komen in Sodom. De mannen van de stad willen hun kwaad doen, maar de engelen slaan hen met blindheid. Bij dageraad trekken ze Lot, zijn vrouw en twee dochters aan de hand de stad uit. Lot vlucht naar Zoar. De HEERE laat zwavel en vuur regenen op Sodom en Gomorra. Lots vrouw kijkt om en wordt een zoutpilaar."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom koos Lot de Jordaanvlakte?",
+          "a": [
+            "Hij zag dat er overal water was",
+            "Abram had hem die vlakte gewezen",
+            "Daar woonde familie van hem"
+          ],
+          "why": "Genesis 13:10–11"
+        },
+        {
+          "q": "Wat beloofde God aan Abram nadat Lot weg was?",
+          "a": [
+            "Al het land dat hij kon zien",
+            "Een grote stad aan de Jordaan",
+            "Een nieuwe kudde vee"
+          ],
+          "why": "Genesis 13:14–15"
+        },
+        {
+          "q": "Wat deden de engelen met de mannen van Sodom?",
+          "a": [
+            "Ze sloegen hen met blindheid",
+            "Ze riepen vuur uit de hemel",
+            "Ze vluchtten over het dak"
+          ],
+          "why": "Genesis 19:9–11"
+        },
+        {
+          "q": "Waarom moest Lot de stad uit?",
+          "a": [
+            "De HEERE ging de stad verderven",
+            "De mannen van Sodom joegen hem weg",
+            "Hij wilde weer bij Abraham wonen"
+          ],
+          "why": "Genesis 19:13–15"
+        },
+        {
+          "q": "Wat vroeg Abraham aan God?",
+          "a": [
+            "Of Hij Sodom wilde sparen om de rechtvaardigen",
+            "Of Lot weer bij hem mocht komen wonen",
+            "Of Hij Sodom snel wilde verwoesten"
+          ],
+          "why": "Genesis 18:23–26"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Waar en wanneer",
+          "t": "Bethel ligt waarschijnlijk op de plek die de kaart toont; Abram had er vlakbij eerder een altaar gebouwd (12:8; 13:3–4). Hebron met de eikenbossen van Mamre is goed aan te wijzen. Waar Sodom lag, is omstreden: veel onderzoekers zoeken het aan de zuidkant van de Dode Zee, anderen aan de noordkant. Ook Zoar ligt waarschijnlijk op de plek van de kaart. De Bijbelreis plaatst Genesis 13 kort na de terugkeer uit Egypte, en Genesis 18–19 toen Abraham negenennegentig was (17:1), samen ca. 2090–2067 v.Chr. Dat is gerekend vanaf de uittocht rond 1446 v.Chr. (1 Koningen 6:1); wie de uittocht later dateert, komt enkele eeuwen later uit.",
+          "refs": [
+            "Genesis 12:8",
+            "Genesis 13:3–4",
+            "Genesis 17:1",
+            "1 Koningen 6:1"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Deuteronomium 29:23 noemt naast Sodom en Gomorra ook Adama en Zeboim, ‘die de HEERE heeft omgekeerd in Zijn toorn’. Ezechiël 16:49 noemt de zonde van Sodom onder meer ‘hoogmoed, zatheid van brood en stille gerustheid’, en zegt dat zij ‘de hand des armen en nooddruftigen niet’ sterkte. De Heere Jezus zegt tegen Kapernaum dat het ‘den lande van Sodom verdragelijker zal zijn in den dag des oordeels, dan u’ (Mattheüs 11:24). Uit Lot komen Moab en Ammon voort; God gaf hun een eigen land, en Israël mocht hen niet aanvallen (Deuteronomium 2:9, 19).",
+          "refs": [
+            "Deuteronomium 29:23",
+            "Ezechiël 16:49–50",
+            "Mattheüs 11:23–24",
+            "Deuteronomium 2:9",
+            "Deuteronomium 2:19"
+          ]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Er komen drie mannen bij Abraham (18:2). Twee gaan naar Sodom; Genesis 19:1 noemt hen ‘twee engelen’. Abraham blijft ‘nog staande voor het aangezicht des HEEREN’ (18:22). Daarom zien veel uitleggers in de derde man de HEERE Zelf. Abraham pleit met een vraag: ‘zou de Rechter der ganse aarde geen recht doen?’ (18:25). De vrouw van Lot krijgt in de Bijbel geen naam, en de tekst zegt niet waarom zij omkeek.",
+          "refs": [
+            "Genesis 18:2",
+            "Genesis 18:22–25",
+            "Genesis 19:1"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Hoe noemt Abraham God als hij voor Sodom pleit?",
+          "a": [
+            "De Rechter der ganse aarde",
+            "De Koning van Sodom",
+            "De God van Lot"
+          ],
+          "why": "Genesis 18:25"
+        },
+        {
+          "q": "Welke zonde van Sodom noemt Ezechiël 16:49 onder andere?",
+          "a": [
+            "Hoogmoed, en de arme niet helpen",
+            "Tovenarij en waarzeggerij",
+            "Oorlog voeren tegen Israël"
+          ],
+          "why": "Ezechiël 16:49"
+        },
+        {
+          "q": "Welke steden noemt Deuteronomium 29:23 naast Sodom en Gomorra?",
+          "a": [
+            "Adama en Zeboim",
+            "Zoar en Bela",
+            "Jericho en Ai"
+          ],
+          "why": "Deuteronomium 29:23"
+        },
+        {
+          "q": "Welke volken mocht Israël niet aanvallen, omdat God hun land aan de kinderen van Lot had gegeven?",
+          "a": [
+            "Moab en Ammon",
+            "Amalek en Midian",
+            "De Filistijnen en de Hethieten"
+          ],
+          "why": "Deuteronomium 2:9, 19"
+        }
+      ]
+    }
+  },
+  "11": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "mamre",
+        "gerar"
+      ],
+      "delen": [
+        {
+          "t": "Abram en Sarai hebben geen kinderen. Dan spreekt de HEERE tot Abram: ‘Vrees niet, Abram!’",
+          "stap": "genesis:abraham:12"
+        },
+        {
+          "t": "God neemt Abram mee naar buiten. Hij zegt: kijk naar de hemel en tel de sterren, als je kunt.",
+          "stap": "genesis:abraham:12"
+        },
+        {
+          "t": "God zegt: zo veel zullen er na jou komen. En Abram gelooft de HEERE.",
+          "stap": "genesis:abraham:12"
+        },
+        {
+          "t": "Jaren later is Abram heel oud. God geeft hem een nieuwe naam: Abraham. Sarai heet voortaan Sara.",
+          "stap": "genesis:abraham:14"
+        },
+        {
+          "t": "God belooft Abraham: Sara krijgt een zoon.",
+          "stap": "genesis:abraham:14"
+        },
+        {
+          "t": "Abraham lacht. Hij denkt: kan een man van honderd jaar nog een kind krijgen? En Sara is negentig!",
+          "stap": "genesis:abraham:14"
+        },
+        {
+          "t": "Maar God zegt: over een jaar krijgt Sara echt een zoon. Je moet hem Izak noemen.",
+          "stap": "genesis:abraham:14"
+        },
+        {
+          "t": "God doet wat Hij beloofd heeft. Sara krijgt een zoon, en Abraham noemt hem Izak.",
+          "stap": "genesis:abraham:18"
+        },
+        {
+          "t": "Sara zegt: ‘God heeft mij een lachen gemaakt’. Iedereen die het hoort, zal met haar lachen.",
+          "stap": "genesis:abraham:18"
+        }
+      ],
+      "samen": "Twee dingen zijn hier weggelaten: het verbond met de dieren die Abram in stukken deelde (Genesis 15:9–17) en de besnijdenis als teken van het verbond (Genesis 17:9–14). Die kunt u zelf aanvullen als uw kind ernaar vraagt. Ga ’s avonds samen naar buiten en kijk naar de sterren: kun je ze tellen? Zo groot zou de familie van Abram worden (Genesis 15:5).",
+      "vragen": [
+        {
+          "q": "Wat moet Abram tellen?",
+          "a": [
+            "De sterren",
+            "De schapen"
+          ],
+          "why": "Genesis 15:5"
+        },
+        {
+          "q": "Welke nieuwe naam krijgt Abram?",
+          "a": [
+            "Abraham",
+            "Izak"
+          ],
+          "why": "Genesis 17:5"
+        },
+        {
+          "q": "Hoe heet de zoon van Abraham en Sara?",
+          "a": [
+            "Izak",
+            "Lot"
+          ],
+          "why": "Genesis 21:3"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Tel de sterren",
+          "stap": "genesis:abraham:12",
+          "t": "Abram zegt tegen de HEERE dat hij geen kinderen heeft; Eliëzer uit Damaskus, die zijn huis beheert, zal alles erven. Maar de HEERE zegt dat een eigen zoon zijn erfgenaam wordt. Hij neemt Abram mee naar buiten: ‘tel de sterren, indien gij ze tellen kunt’. Zo veel nakomelingen krijgt Abram. Abram gelooft de HEERE, en God rekent het hem tot gerechtigheid: God ziet hem aan als rechtvaardig."
+        },
+        {
+          "kop": "Nieuwe namen",
+          "stap": "genesis:abraham:14",
+          "t": "Als Abram negenennegentig is, verschijnt God weer. Abram heet voortaan Abraham, ‘want Ik heb u gesteld tot een vader van menigte der volken’. Sarai heet nu Sara. God belooft Abraham dat Hij zijn God zal zijn en die van zijn nakomelingen. Dat is Gods verbond; de besnijdenis is er het teken van. Sara zal een zoon krijgen. Abraham lacht en denkt: kan een man van honderd nog vader worden?"
+        },
+        {
+          "kop": "Izak wordt geboren",
+          "stap": "genesis:abraham:18",
+          "t": "De HEERE doet wat Hij gezegd heeft: op de genoemde tijd krijgt Sara een zoon. Abraham is dan honderd. Hij noemt zijn zoon Izak, en als Izak acht dagen oud is, besnijdt hij hem. Sara zegt: ‘God heeft mij een lachen gemaakt’."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat deed Abram toen God zei dat zijn nakomelingen zo talrijk als de sterren zouden zijn?",
+          "a": [
+            "Hij geloofde de HEERE",
+            "Hij zei dat het niet kon",
+            "Hij ging terug naar Haran"
+          ],
+          "why": "Genesis 15:5–6"
+        },
+        {
+          "q": "Waarom kreeg Abram de naam Abraham?",
+          "a": [
+            "God stelde hem tot vader van veel volken",
+            "Hij was toen negenennegentig jaar",
+            "Sara wilde hem zo noemen"
+          ],
+          "why": "Genesis 17:5"
+        },
+        {
+          "q": "Wat werd het teken van het verbond tussen God en Abraham?",
+          "a": [
+            "De besnijdenis",
+            "De regenboog",
+            "Een altaar van stenen"
+          ],
+          "why": "Genesis 17:10–11"
+        },
+        {
+          "q": "Wanneer besneed Abraham zijn zoon Izak?",
+          "a": [
+            "Toen Izak acht dagen oud was",
+            "Op de dag dat Izak geboren werd",
+            "Toen Izak gespeend werd"
+          ],
+          "why": "Genesis 21:4"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Tussen de stukken door",
+          "t": "In Genesis 15 deelt Abram dieren middendoor en legt hij de helften tegenover elkaar (15:9–10). Jeremia 34:18 laat zien dat zo een verbond werd gesloten: de mensen gingen tussen de stukken door ‘met het kalf, dat zij in tweeën hadden gehouwen’. In Genesis 15 ligt Abram in een diepe slaap (15:12). De tekst noemt alleen ‘een rokende oven en vurige fakkel’ die tussen de stukken door gaan (15:17). Veel uitleggers zien daarin dat God hier Zelf de belofte op Zich neemt.",
+          "refs": [
+            "Genesis 15:9–17",
+            "Jeremia 34:18"
+          ]
+        },
+        {
+          "kop": "Een blik vooruit",
+          "t": "God zegt tegen Abram dat zijn nakomelingen vreemdelingen zullen zijn in een land dat niet van hen is, en dat ze daar ‘vierhonderd jaren’ verdrukt zullen worden (15:13). Daarna zullen ze ‘uittrekken met grote have’ (15:14). Dat gebeurt bij de uittocht uit Egypte. Exodus 12:40 noemt vierhonderddertig jaar; over hoe die getallen samenhangen, verschillen uitleggers. Stefanus haalt de belofte aan in Handelingen 7:6. Paulus noemt de besnijdenis van Abraham ‘een zegel der rechtvaardigheid des geloofs’ (Romeinen 4:11).",
+          "refs": [
+            "Genesis 15:13–14",
+            "Exodus 12:40–41",
+            "Handelingen 7:6",
+            "Romeinen 4:11"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Genesis 15 en 17 noemen zelf geen plaats; de kaart toont Hebron en Mamre, waar Abram woonde (13:18). Ook bij de geboorte van Izak noemt de tekst geen plaats. De kaart toont Gerar, waar Abraham in Genesis 20 als vreemdeling woonde (20:1). Genesis 15 is niet gedateerd, maar staat vóór Genesis 16, toen Abram vijfentachtig à zesentachtig was (16:3, 16). Genesis 17 speelt toen hij negenennegentig was, Genesis 21 toen hij honderd was. De Bijbelreis komt zo op ca. 2081–2066 v.Chr., gerekend vanaf de uittocht rond 1446 v.Chr.; andere dateringen komen enkele eeuwen later uit.",
+          "refs": [
+            "Genesis 13:18",
+            "Genesis 20:1",
+            "Genesis 16:3, 16",
+            "Genesis 17:1",
+            "Genesis 21:5"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat ging er tussen de stukken van de dieren door?",
+          "a": [
+            "Een rokende oven en een vurige fakkel",
+            "Abram en zijn knecht Eliëzer",
+            "Een wolk en een zuil van vuur"
+          ],
+          "why": "Genesis 15:17"
+        },
+        {
+          "q": "Hoe lang zouden Abrams nakomelingen volgens Genesis 15:13 verdrukt worden?",
+          "a": [
+            "Vierhonderd jaren",
+            "Veertig jaren",
+            "Zeventig jaren"
+          ],
+          "why": "Genesis 15:13"
+        },
+        {
+          "q": "Hoe oud was Ismaël toen hij besneden werd?",
+          "a": [
+            "Dertien jaar",
+            "Acht dagen",
+            "Negenennegentig jaar"
+          ],
+          "why": "Genesis 17:25"
+        },
+        {
+          "q": "Hoe noemt Romeinen 4:11 de besnijdenis van Abraham?",
+          "a": [
+            "Een zegel van de rechtvaardigheid van het geloof",
+            "Een teken van de wet van Mozes",
+            "Een offer voor de zonde van Abram"
+          ],
+          "why": "Romeinen 4:11"
+        }
+      ]
+    }
+  },
+  "12": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "berseba",
+        "paran"
+      ],
+      "delen": [
+        {
+          "t": "Izak wordt groter. Hij drinkt niet meer bij zijn moeder. Daarom geeft Abraham een groot feest."
+        },
+        {
+          "t": "Sara ziet dat Ismaël spot. Ismaël is ook een zoon van Abraham. Zijn moeder heet Hagar."
+        },
+        {
+          "t": "Sara wil dat Hagar en Ismaël weggaan. Abraham vindt dat heel erg, want Ismaël is zijn zoon."
+        },
+        {
+          "t": "Maar God zegt tegen Abraham: luister naar Sara. Ook van Ismaël maak Ik een volk."
+        },
+        {
+          "t": "Vroeg in de morgen geeft Abraham Hagar brood en een fles water. Dan stuurt hij haar met de jongen weg.",
+          "stap": "genesis:abraham:19"
+        },
+        {
+          "t": "Hagar dwaalt rond in de woestijn bij Berseba. Dan is het water op.",
+          "stap": "genesis:abraham:19"
+        },
+        {
+          "t": "Hagar legt de jongen onder een struik. Ze gaat een eind verderop zitten en huilt."
+        },
+        {
+          "t": "God hoort de stem van de jongen. De Engel van God roept Hagar uit de hemel toe: ‘Vrees niet’."
+        },
+        {
+          "t": "God opent Hagars ogen. Ze ziet een waterput! Ze vult de fles en geeft de jongen te drinken.",
+          "stap": "genesis:abraham:19"
+        },
+        {
+          "t": "God is met de jongen. Ismaël groeit op in de woestijn Paran en wordt een boogschutter.",
+          "stap": "genesis:abraham:19"
+        }
+      ],
+      "samen": "Ismaël was geen klein kind meer: hij was dertien toen Abraham negenennegentig was (Genesis 17:24–25), en Izak werd een jaar later geboren. Al voor zijn geboorte zei de Engel van de HEERE dat hij Ismaël moest heten, ‘omdat de HEERE uw verdrukking aangehoord heeft’ (Genesis 16:11). Ook nu hoort God. Vraag samen: wie hoort de stem van de jongen in de woestijn? (Genesis 21:17).",
+      "vragen": [
+        {
+          "q": "Wat geeft Abraham aan Hagar mee?",
+          "a": [
+            "Brood en een fles water",
+            "Een ezel en een tent"
+          ],
+          "why": "Genesis 21:14"
+        },
+        {
+          "q": "Wie hoort de stem van de jongen?",
+          "a": [
+            "God",
+            "Abraham"
+          ],
+          "why": "Genesis 21:17"
+        },
+        {
+          "q": "Wat ziet Hagar als God haar ogen opent?",
+          "a": [
+            "Een waterput",
+            "Een stad"
+          ],
+          "why": "Genesis 21:19"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een feest en een spotter",
+          "t": "Izak wordt gespeend: hij drinkt niet meer bij zijn moeder. Abraham geeft een grote maaltijd. Dan ziet Sara dat Ismaël spot. Hij is de zoon van Hagar, de Egyptische dienstmaagd: een dienares van Sara. Sara zegt: ‘Drijf deze dienstmaagd en haar zoon uit’, want Ismaël zal niet samen met Izak erven. Abraham vindt dat heel erg. Maar God zegt: ‘in Izak zal uw zaad genoemd worden’. Dat betekent: de belofte gaat verder via Izak. Ook van Ismaël zal God een volk maken."
+        },
+        {
+          "kop": "Zonder water in de woestijn",
+          "stap": "genesis:abraham:19",
+          "t": "Vroeg in de morgen geeft Abraham Hagar brood en een fles water, en stuurt hij haar met de jongen weg. Ze dwaalt in de woestijn van Berseba. Als het water op is, legt ze de jongen onder een struik. Ze gaat een eind verderop zitten, want ze wil het kind niet zien sterven. Ze huilt."
+        },
+        {
+          "kop": "God hoort",
+          "stap": "genesis:abraham:19",
+          "t": "God hoort de stem van de jongen. De Engel van God roept Hagar uit de hemel toe: ‘Vrees niet’. God opent haar ogen, en ze ziet een waterput. God is met Ismaël. Hij woont in de woestijn Paran en wordt een boogschutter."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom wilde Sara dat Hagar en Ismaël weggingen?",
+          "a": [
+            "Ismaël mocht niet samen met Izak erven",
+            "Er was te weinig eten in de tent",
+            "Hagar wilde terug naar Egypte"
+          ],
+          "why": "Genesis 21:9–10"
+        },
+        {
+          "q": "Waarom vond Abraham het zo erg?",
+          "a": [
+            "Ismaël was ook zijn zoon",
+            "Hij had Hagar nodig bij het vee",
+            "Hij moest zelf ook weggaan"
+          ],
+          "why": "Genesis 21:11"
+        },
+        {
+          "q": "Waar dwaalde Hagar rond?",
+          "a": [
+            "In de woestijn van Berseba",
+            "Bij de eikenbossen van Mamre",
+            "Aan de oever van de Jordaan"
+          ],
+          "why": "Genesis 21:14"
+        },
+        {
+          "q": "Wat beloofde God over Ismaël?",
+          "a": [
+            "Hij zou een groot volk worden",
+            "Hij zou koning van Egypte worden",
+            "Hij zou de erfgenaam van Abraham zijn"
+          ],
+          "why": "Genesis 21:13, 18"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "God hoort",
+          "t": "Dit is niet de eerste keer dat Hagar in de woestijn is. Voor de geboorte van Ismaël vluchtte ze al eens voor Sarai (16:6–7). Toen zei de Engel van de HEERE dat ze haar zoon Ismaël moest noemen, ‘omdat de HEERE uw verdrukking aangehoord heeft’ (16:11). De naam Ismaël wordt meestal uitgelegd als: God hoort. Nu klinkt het opnieuw: ‘God heeft naar des jongens stem gehoord’ (21:17).",
+          "refs": [
+            "Genesis 16:6–14",
+            "Genesis 21:17"
+          ]
+        },
+        {
+          "kop": "Hoe oud was Ismaël?",
+          "t": "Wie alleen 21:14–15 leest, denkt misschien aan een klein kind. Maar Ismaël werd geboren toen Abram zesentachtig was (16:16), en hij was dertien toen hij besneden werd (17:25). Izak werd geboren toen Abraham honderd was (21:5). Bij het spenen van Izak was Ismaël dus minstens veertien. Hoe oud Izak bij het spenen was, zegt de Bijbel niet. Daarom staat deze geschiedenis in de Bijbelreis kort na ca. 2066 v.Chr. Berseba is goed aan te wijzen; de woestijn Paran is een gebied, geen precieze plek.",
+          "refs": [
+            "Genesis 16:16",
+            "Genesis 17:24–25",
+            "Genesis 21:5"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Paulus gebruikt deze geschiedenis in Galaten 4 als beeld van twee verbonden; hij zegt dat het ‘dingen zijn, die andere beduiding hebben’ (Galaten 4:24). Hij schrijft: ‘die naar het vlees geboren was, vervolgde dengene, die naar den Geest geboren was’ (Galaten 4:29). En hij haalt de woorden van Sara aan: ‘Werp de dienstmaagd uit en haar zoon’ (Galaten 4:30).",
+          "refs": [
+            "Galaten 4:22–31"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom moest Ismaël volgens de Engel van de HEERE zo heten?",
+          "a": [
+            "De HEERE had Hagars verdrukking gehoord",
+            "Hij was de eerste zoon van Abram",
+            "Abram had die naam gedroomd"
+          ],
+          "why": "Genesis 16:11"
+        },
+        {
+          "q": "Waarom ging Hagar een eind verderop zitten?",
+          "a": [
+            "Ze wilde het kind niet zien sterven",
+            "Ze ging zelf water zoeken",
+            "Ze wachtte daar op Abraham"
+          ],
+          "why": "Genesis 21:16"
+        },
+        {
+          "q": "Waar haalde Hagar een vrouw voor Ismaël vandaan?",
+          "a": [
+            "Uit Egypteland",
+            "Uit Haran",
+            "Uit Kanaän"
+          ],
+          "why": "Genesis 21:21"
+        },
+        {
+          "q": "Welke woorden uit deze geschiedenis haalt Paulus aan in Galaten 4:30?",
+          "a": [
+            "Dat de dienstmaagd en haar zoon weg moeten",
+            "Dat Abraham een grote maaltijd maakte",
+            "Dat God de ogen van Hagar opende"
+          ],
+          "why": "Galaten 4:30"
+        }
+      ]
+    }
+  },
+  "13": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "berseba",
+        "salem"
+      ],
+      "delen": [
+        {
+          "t": "God stelt Abraham op de proef. Hij zegt: neem je zoon Izak, van wie je zoveel houdt."
+        },
+        {
+          "t": "Ga naar het land Moria. Offer Izak daar aan Mij, op een berg die Ik je zal wijzen."
+        },
+        {
+          "t": "Vroeg in de morgen gaat Abraham op weg, met Izak, twee knechten en een ezel. Hij neemt hout mee.",
+          "stap": "genesis:abraham:21"
+        },
+        {
+          "t": "Op de derde dag ziet Abraham de plaats in de verte. Izak draagt het hout.",
+          "stap": "genesis:abraham:21"
+        },
+        {
+          "t": "Izak vraagt: vader, hier is het vuur en het hout, maar waar is het lam?"
+        },
+        {
+          "t": "Abraham zegt: God Zelf zal voor het lam zorgen, mijn zoon."
+        },
+        {
+          "t": "Op de berg bouwt Abraham een altaar. Hij bindt Izak en legt hem op het hout. Dan neemt hij het mes."
+        },
+        {
+          "t": "Maar de Engel van de HEERE roept uit de hemel: ‘Doe hem niets!’"
+        },
+        {
+          "t": "Abraham kijkt om. Daar zit een ram vast in de struiken: een mannetjesschaap. Abraham offert de ram in de plaats van Izak."
+        },
+        {
+          "t": "Abraham noemt die plaats: de Heere zal het voorzien. Dat betekent: de Heere zorgt. Daarna gaat hij terug naar Berseba.",
+          "stap": "genesis:abraham:21"
+        }
+      ],
+      "samen": "Dit is een spannend verhaal voor jonge kinderen. De Bijbel vertelt niet wat Abraham of Izak voelde. Hebreeën 11:19 zegt dat Abraham erop rekende dat God Izak zelfs uit de doden kon opwekken. En de Engel van de HEERE riep: ‘Doe hem niets!’ (Genesis 22:12). Vraag samen: wie zorgde voor het lam? (Genesis 22:8, 13).",
+      "vragen": [
+        {
+          "q": "Wat vraagt Izak onderweg?",
+          "a": [
+            "Waar is het lam?",
+            "Waar is de ezel?"
+          ],
+          "why": "Genesis 22:7"
+        },
+        {
+          "q": "Wie roept uit de hemel?",
+          "a": [
+            "De Engel van de HEERE",
+            "Sara"
+          ],
+          "why": "Genesis 22:11"
+        },
+        {
+          "q": "Wat offert Abraham in de plaats van Izak?",
+          "a": [
+            "Een ram",
+            "Een duif"
+          ],
+          "why": "Genesis 22:13"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een zware opdracht",
+          "stap": "genesis:abraham:21",
+          "t": "God stelt Abraham op de proef: ‘Neem nu uw zoon, uw enige, dien gij liefhebt, Izak’. Hij moet hem offeren als brandoffer op een berg in het land Moria. Een brandoffer wordt helemaal verbrand. Vroeg in de morgen gaat Abraham op weg, met Izak, twee knechten, een ezel en hout."
+        },
+        {
+          "kop": "Waar is het lam",
+          "t": "Op de derde dag ziet hij de plaats van verre. Tegen de knechten zegt hij: ‘als wij aangebeden zullen hebben, dan zullen wij tot u wederkeren.’ Izak draagt het hout en vraagt waar het lam is. Abraham antwoordt: ‘God zal Zichzelven een lam ten brandoffer voorzien, mijn zoon!’ Voorzien betekent hier: zorgen voor."
+        },
+        {
+          "kop": "De Heere zal het voorzien",
+          "t": "Op de berg bouwt Abraham een altaar en bindt Izak. Als hij het mes neemt, roept de Engel van de HEERE: ‘Strek uw hand niet uit aan den jongen … want nu weet Ik, dat gij God vrezende zijt’. Dan ziet Abraham een ram, met zijn horens vast in de struiken. Hij offert de ram in plaats van Izak, en noemt die plaats: ‘De Heere zal het voorzien!’ Daarna belooft God: in Abrahams zaad worden alle volken gezegend."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat zei Abraham tegen de knechten?",
+          "a": [
+            "Dat hij en de jongen zouden terugkomen",
+            "Dat ze alvast naar Berseba moesten gaan",
+            "Dat ze het hout naar boven moesten dragen"
+          ],
+          "why": "Genesis 22:5"
+        },
+        {
+          "q": "Waarom zei de Engel dat Abraham God vreesde?",
+          "a": [
+            "Abraham hield zijn enige zoon niet voor God achter",
+            "Abraham had een groot altaar gebouwd",
+            "Abraham was drie dagen onderweg geweest"
+          ],
+          "why": "Genesis 22:12"
+        },
+        {
+          "q": "Waar zat de ram vast?",
+          "a": [
+            "Met zijn horens in de struiken",
+            "Met zijn poot tussen de stenen",
+            "In een kuil naast het altaar"
+          ],
+          "why": "Genesis 22:13"
+        },
+        {
+          "q": "Welke belofte gaf God daarna opnieuw?",
+          "a": [
+            "In zijn zaad worden alle volken gezegend",
+            "Hij zou koning worden over Moria",
+            "Hij zou nooit meer hoeven te reizen"
+          ],
+          "why": "Genesis 22:17–18"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Waar lag Moria?",
+          "t": "Genesis 22:2 noemt ‘het land Moria’ en een van de bergen daar. 2 Kronieken 3:1 zegt dat Salomo de tempel bouwde ‘te Jeruzalem, op den berg Moria’. Veel uitleggers zien daarin dezelfde plaats als in Genesis 22, waar 22:14 al spreekt van ‘den berg des HEEREN’. Met zoveel woorden zegt de Bijbel dat niet. De kaart toont Jeruzalem; Berseba, waar Abraham woonde, is goed aan te wijzen.",
+          "refs": [
+            "Genesis 22:2",
+            "Genesis 22:14",
+            "2 Kronieken 3:1"
+          ]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "‘God Abraham verzocht’ (22:1) betekent hier: God stelde hem op de proef. Hoe oud Izak was, zegt de Bijbel niet. Hij was oud genoeg om het hout te dragen (22:6). Het gebeurde na zijn geboorte en vóór de dood van Sara (23:1), toen Abraham honderdzevenendertig was. Daarom staat het in de Bijbelreis tussen ca. 2066 en 2029 v.Chr. Wat Abraham en Izak onderweg voelden, vertelt de tekst niet.",
+          "refs": [
+            "Genesis 22:1",
+            "Genesis 22:6",
+            "Genesis 23:1"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "God zweert hier ‘bij Mijzelven’ (22:16). Hebreeën 6:13 legt uit: omdat Hij bij niemand die meerder was kon zweren, ‘zwoer Hij bij Zichzelven’. Hier klinkt ook de belofte ‘in uw zaad zullen gezegend worden alle volken der aarde’ (22:18). Over de beloften aan Abraham en zijn zaad schrijft Paulus: ‘En uw zade; hetwelk is Christus’ (Galaten 3:16). Veel uitleggers wijzen ook op Johannes 3:16, waar God ‘Zijn eniggeboren Zoon gegeven heeft’.",
+          "refs": [
+            "Genesis 22:16–18",
+            "Hebreeën 6:13–14",
+            "Galaten 3:16",
+            "Johannes 3:16"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat bouwde Salomo volgens 2 Kronieken 3:1 op de berg Moria?",
+          "a": [
+            "Het huis van de HEERE",
+            "Een paleis voor zichzelf",
+            "Een altaar voor Abraham"
+          ],
+          "why": "2 Kronieken 3:1"
+        },
+        {
+          "q": "Bij wie zwoer God toen Hij Abraham de belofte gaf?",
+          "a": [
+            "Bij Zichzelf",
+            "Bij de hemel en de aarde",
+            "Bij de naam van Abraham"
+          ],
+          "why": "Genesis 22:16; Hebreeën 6:13"
+        },
+        {
+          "q": "Wat nam Abraham zelf in zijn hand, toen Izak het hout droeg?",
+          "a": [
+            "Het vuur en het mes",
+            "Een touw en een kruik",
+            "Een staf en een lamp"
+          ],
+          "why": "Genesis 22:6"
+        }
+      ]
+    }
+  },
+  "14": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "mamre",
+        "haran"
+      ],
+      "delen": [
+        {
+          "t": "Abraham is oud. Hij wil een vrouw voor zijn zoon Izak, uit zijn eigen familie.",
+          "stap": "genesis:abraham:23"
+        },
+        {
+          "t": "Hij stuurt zijn oudste knecht op reis, met tien kamelen. De knecht reist ver weg, naar de stad van Nahor.",
+          "stap": "genesis:abraham:23"
+        },
+        {
+          "t": "’s Avonds komt de knecht bij een waterput buiten de stad. Daar komen de meisjes van de stad water halen."
+        },
+        {
+          "t": "De knecht bidt tot God: laat het meisje dat ook mijn kamelen water geeft, de vrouw voor Izak zijn."
+        },
+        {
+          "t": "Nog voor hij klaar is met bidden, komt Rebekka met haar kruik op haar schouder."
+        },
+        {
+          "t": "De knecht vraagt om een beetje water. Rebekka geeft hem te drinken. Daarna haalt ze water voor al zijn kamelen."
+        },
+        {
+          "t": "Rebekka hoort bij de familie van Abraham. De knecht buigt zijn hoofd en dankt de HEERE: God heeft hem de goede weg gewezen."
+        },
+        {
+          "t": "Rebekka wil mee. Ze zegt: ‘Ik zal trekken.’ Dat betekent: ik ga mee."
+        },
+        {
+          "t": "’s Avonds ziet Izak in het veld de kamelen komen. Hij trouwt met Rebekka en hij heeft haar lief."
+        }
+      ],
+      "samen": "De knecht heeft in Genesis 24 geen naam. Vaak wordt hij Eliëzer genoemd, naar Genesis 15:2, maar dat staat in dit hoofdstuk niet. Vraag samen: wat vraagt de knecht aan God bij de put, en wat doet hij als God antwoordt? (Genesis 24:12–14, 26–27).",
+      "vragen": [
+        {
+          "q": "Waar bidt de knecht?",
+          "a": [
+            "Bij een waterput",
+            "In de tent van Abraham"
+          ],
+          "why": "Genesis 24:11–12"
+        },
+        {
+          "q": "Wat doet Rebekka voor de kamelen?",
+          "a": [
+            "Ze geeft ze water",
+            "Ze jaagt ze weg"
+          ],
+          "why": "Genesis 24:19–20"
+        },
+        {
+          "q": "Wat ziet Izak in het veld?",
+          "a": [
+            "De kamelen komen",
+            "Een leeuw"
+          ],
+          "why": "Genesis 24:63"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een eed en een lange reis",
+          "stap": "genesis:abraham:23",
+          "t": "Abraham is oud. Hij laat zijn oudste knecht zweren dat die voor Izak geen vrouw zal nemen uit de Kanaänieten, maar uit Abrahams eigen familie. Zweren is plechtig beloven. Abraham vertrouwt erop dat God Zijn Engel mee zal sturen. De knecht neemt tien kamelen en reist naar Mesopotamië, naar de stad van Nahor."
+        },
+        {
+          "kop": "Een gebed bij de waterput",
+          "t": "’s Avonds laat de knecht de kamelen knielen bij een waterput. Hij bidt: laat het meisje dat zegt ‘Drink, en ik zal ook uw kemelen drenken’, de vrouw zijn die U voor Izak hebt bestemd. Nog voordat hij klaar is, komt Rebekka, een kleindochter van Nahor, de broer van Abraham. Ze doet precies wat de knecht had gevraagd. Dan buigt hij zich en aanbidt de HEERE."
+        },
+        {
+          "kop": "Ik zal trekken",
+          "t": "Rebekka’s broer Laban en haar vader Bethuël zeggen: ‘Van den HEERE is deze zaak voortgekomen’. Als ze Rebekka vragen of ze meegaat, zegt ze: ‘Ik zal trekken.’ ’s Avonds is Izak in het veld om te bidden, en hij ziet de kamelen komen. Hij trouwt met Rebekka en heeft haar lief. Zo wordt hij getroost na de dood van zijn moeder."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat moest de knecht aan Abraham zweren?",
+          "a": [
+            "Izak zou geen vrouw uit de Kanaänieten krijgen",
+            "Izak zou zelf naar Mesopotamië gaan",
+            "Hij zou nooit meer terugkomen"
+          ],
+          "why": "Genesis 24:3–6"
+        },
+        {
+          "q": "Hoe wist de knecht dat Rebekka de goede vrouw was?",
+          "a": [
+            "Ze gaf ook zijn kamelen te drinken",
+            "Ze droeg al een gouden ring",
+            "Ze groette hem als eerste"
+          ],
+          "why": "Genesis 24:14, 18–21"
+        },
+        {
+          "q": "Wie was Rebekka in de familie van Abraham?",
+          "a": [
+            "Een kleindochter van zijn broer Nahor",
+            "Een dochter van Lot",
+            "Een zus van Sara"
+          ],
+          "why": "Genesis 24:15"
+        },
+        {
+          "q": "Wat zeiden Laban en Bethuël tegen de knecht?",
+          "a": [
+            "Deze zaak is van de HEERE gekomen",
+            "Wij willen eerst Izak zelf zien",
+            "Abraham moet zelf komen"
+          ],
+          "why": "Genesis 24:50"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "De knecht heeft in Genesis 24 geen naam. Vaak wordt hij gelijkgesteld met Eliëzer, ‘de bezorger van mijn huis’ in Genesis 15:2, maar Genesis 24 noemt die naam niet. Hij wordt genoemd ‘den oudste van zijn huis, regerende over alles, wat hij had’ (24:2). Hoeveel water de kamelen dronken, staat er niet; wel dat Rebekka bleef putten ‘totdat zij voleindigd hebben te drinken’ (24:19). Met Rebekka gaat haar voedster mee (24:59); in Genesis 35:8 horen we haar naam: Debora.",
+          "refs": [
+            "Genesis 15:2",
+            "Genesis 24:2",
+            "Genesis 24:19",
+            "Genesis 24:59",
+            "Genesis 35:8"
+          ]
+        },
+        {
+          "kop": "Achtergrond: de eed en de familie",
+          "t": "De knecht legt zijn hand onder de heup van Abraham en zweert (24:2, 9). Jakob vraagt later hetzelfde van Jozef, als hij wil dat die hem niet in Egypte begraaft (47:29). Abraham had al gehoord dat zijn broer Nahor kinderen had gekregen: ‘En Bethuël gewon Rebekka’ (22:23). Laban, de broer van Rebekka, komt later terug in het leven van Jakob (27:43; 29:5).",
+          "refs": [
+            "Genesis 24:2, 9",
+            "Genesis 47:29",
+            "Genesis 22:20–23",
+            "Genesis 27:43",
+            "Genesis 29:5"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Genesis 24 noemt geen stadsnaam, maar ‘de stad van Nahor’ in Mesopotamië (24:10). De kaart toont Haran, een plaats die goed aan te wijzen is: daar woonde de familie van Abraham eerder (11:31), en later woont Laban daar (27:43). Izak kwam van de put Lachai-roi (24:62); waar die precies lag, weten we niet. Izak was veertig toen hij met Rebekka trouwde (25:20); de Bijbelreis komt zo op ca. 2026 v.Chr.",
+          "refs": [
+            "Genesis 24:10",
+            "Genesis 11:31",
+            "Genesis 27:43",
+            "Genesis 24:62",
+            "Genesis 25:20"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waar moest de knecht zijn hand leggen toen hij zwoer?",
+          "a": [
+            "Onder de heup van Abraham",
+            "Op het altaar bij Mamre",
+            "Op het hoofd van Izak"
+          ],
+          "why": "Genesis 24:2, 9"
+        },
+        {
+          "q": "Wat zei de knecht toen hem in het huis van Rebekka eten werd voorgezet?",
+          "a": [
+            "Dat hij eerst wilde vertellen waarom hij kwam",
+            "Dat hij al bij de put had gegeten",
+            "Dat hij eerst wilde gaan slapen"
+          ],
+          "why": "Genesis 24:33"
+        },
+        {
+          "q": "Hoe heette de voedster van Rebekka, volgens Genesis 35:8?",
+          "a": [
+            "Debora",
+            "Milka",
+            "Hagar"
+          ],
+          "why": "Genesis 35:8"
+        }
+      ]
+    }
+  },
+  "15": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "berseba",
+        "bethel"
+      ],
+      "delen": [
+        {
+          "t": "Izak en Rebekka krijgen geen kinderen. Izak bidt tot de HEERE, en de HEERE verhoort hem.",
+          "stap": "genesis:izak:0"
+        },
+        {
+          "t": "Rebekka krijgt een tweeling. Eerst komt Ezau, rood en helemaal harig. Daarna komt Jakob, die de hiel van Ezau vasthoudt.",
+          "stap": "genesis:izak:0"
+        },
+        {
+          "t": "Ezau wordt een jager. Jakob woont in de tenten.",
+          "stap": "genesis:izak:1"
+        },
+        {
+          "t": "Op een dag komt Ezau moe thuis. Jakob heeft rode soep gekookt. Ezau verkoopt zijn recht als oudste zoon voor brood en soep.",
+          "stap": "genesis:izak:1"
+        },
+        {
+          "t": "Jaren later is Izak oud. Hij kan niet meer zien. Hij wil Ezau zegenen.",
+          "stap": "genesis:izak:5"
+        },
+        {
+          "t": "Maar Rebekka en Jakob bedriegen Izak. Rebekka trekt Jakob de kleren van Ezau aan, met geitenvel om zijn handen.",
+          "stap": "genesis:izak:5"
+        },
+        {
+          "t": "Izak denkt dat het Ezau is, en hij zegent Jakob. Als Ezau komt, huilt hij. Hij haat Jakob.",
+          "stap": "genesis:izak:5"
+        },
+        {
+          "t": "Ezau wil Jakob doden. Daarom moet Jakob weg, naar Laban, de broer van zijn moeder.",
+          "stap": "genesis:izak:6"
+        },
+        {
+          "t": "Onderweg slaapt Jakob buiten, met een steen onder zijn hoofd. Hij droomt van een ladder tot aan de hemel, met engelen.",
+          "stap": "genesis:jakob:0"
+        },
+        {
+          "t": "De HEERE zegt: ‘Ik ben met u’. Jakob noemt die plaats Bethel.",
+          "stap": "genesis:jakob:0"
+        }
+      ],
+      "samen": "De Bijbel noemt wat Jakob deed bedrog: ‘Uw broeder is gekomen met bedrog’ (Genesis 27:35). Het wordt niet goedgepraat. Toch blijft God trouw aan wat Hij beloofd heeft (Genesis 25:23; 28:15). Vraag samen: wat belooft God aan Jakob, als hij alleen onderweg is? (Genesis 28:15).",
+      "vragen": [
+        {
+          "q": "Wat heeft Jakob gekookt?",
+          "a": [
+            "Rode soep",
+            "Vis"
+          ],
+          "why": "Genesis 25:29–30"
+        },
+        {
+          "q": "Wie zegent Izak, terwijl hij denkt dat het Ezau is?",
+          "a": [
+            "Jakob",
+            "Laban"
+          ],
+          "why": "Genesis 27:23"
+        },
+        {
+          "q": "Waar droomt Jakob van?",
+          "a": [
+            "Een ladder tot aan de hemel",
+            "Een grote boot op het water"
+          ],
+          "why": "Genesis 28:12"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een tweeling",
+          "stap": "genesis:izak:0",
+          "t": "Rebekka krijgt geen kinderen, maar Izak bidt en de HEERE verhoort hem. Voor de geboorte zegt de HEERE tegen Rebekka dat de oudste de jongste zal dienen. Eerst komt Ezau, rood en harig, dan Jakob, die de hiel van zijn broer vasthoudt. Ezau wordt een jager, Jakob woont in tenten. Op een dag verkoopt Ezau zijn eerstgeboorte, het recht van de oudste zoon, voor brood en linzensoep."
+        },
+        {
+          "kop": "Een zegen met bedrog",
+          "stap": "genesis:izak:5",
+          "t": "Izak is oud en kan niet meer zien. Hij wil Ezau zegenen. Rebekka bedenkt een list: ze trekt Jakob de kleren van Ezau aan, met geitenvel over handen en hals. Jakob zegt: ‘Ik ben Ezau uw eerstgeborene’. Zo krijgt hij de zegen. Izak zegt tegen Ezau: ‘Uw broeder is gekomen met bedrog’. Ezau haat Jakob en wil hem doden."
+        },
+        {
+          "kop": "Een ladder tot aan de hemel",
+          "stap": "genesis:jakob:0",
+          "t": "Jakob vlucht naar Laban, de broer van zijn moeder, in Haran. Onderweg slaapt hij met een steen als kussen. Hij droomt van een ladder tot aan de hemel, met engelen die op en neer gaan. De HEERE belooft: ‘Ik ben met u, en Ik zal u behoeden’. Jakob noemt de plaats Bethel. Dat betekent: huis van God."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wie werd als eerste geboren?",
+          "a": [
+            "Ezau",
+            "Jakob",
+            "Ze kwamen precies tegelijk"
+          ],
+          "why": "Genesis 25:25–26"
+        },
+        {
+          "q": "Waarom kon Jakob zijn vader bedriegen?",
+          "a": [
+            "Izak kon niet meer zien",
+            "Izak was op reis",
+            "Ezau was al naar Haran"
+          ],
+          "why": "Genesis 27:1"
+        },
+        {
+          "q": "Waarom moest Jakob vluchten?",
+          "a": [
+            "Ezau wilde hem doden",
+            "Er was geen eten meer thuis",
+            "Izak stuurde hem op jacht"
+          ],
+          "why": "Genesis 27:41–43"
+        },
+        {
+          "q": "Wat beloofde de HEERE aan Jakob in de droom?",
+          "a": [
+            "Dat Hij met hem zou zijn",
+            "Dat hij koning zou worden in Haran",
+            "Dat hij de kudde van Laban zou krijgen"
+          ],
+          "why": "Genesis 28:15"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Eerstgeboorte en zegen",
+          "t": "De eerstgeboorte en de zegen zijn twee verschillende dingen. Ezau verkocht de eerstgeboorte (25:33); de zegen nam Jakob later met bedrog. Ezau zegt: ‘mijn eerstgeboorte heeft hij genomen, en zie, nu heeft hij mijn zegen genomen!’ (27:36). In de wet van Mozes, later, krijgt de eerstgeborene ‘het dubbele deel van alles’ (Deuteronomium 21:17). Hebreeën 11:20 zegt dat Izak zijn zonen ‘door het geloof’ zegende ‘aangaande toekomende dingen’.",
+          "refs": [
+            "Genesis 25:33",
+            "Genesis 27:36",
+            "Deuteronomium 21:17",
+            "Hebreeën 11:20"
+          ]
+        },
+        {
+          "kop": "Namen en verbanden",
+          "t": "Ezau wordt ook Edom genoemd, naar ‘dat rode’ (25:30). Genesis 36:9 noemt hem ‘den vader der Edomieten, op het gebergte van Seir’. Hosea kijkt terug op de geboorte: ‘In moeders buik hield hij zijn broeder bij de verzenen’ (Hosea 12:4). Bethel heette eerst Luz (28:19). Abram had bij Bethel al een altaar gebouwd (12:8). Jakob komt later terug en bouwt daar zelf een altaar (35:6–7).",
+          "refs": [
+            "Genesis 25:30",
+            "Genesis 36:9",
+            "Hosea 12:4",
+            "Genesis 28:19",
+            "Genesis 12:8",
+            "Genesis 35:6–7"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Berseba is goed aan te wijzen, Bethel waarschijnlijk. Waar de put Lachai-roi lag, waar Izak woonde (25:11), weten we niet. Izak was zestig bij de geboorte van de tweeling (25:26). Jakob was ongeveer zevenenzeventig toen hij vluchtte; dat is teruggerekend vanaf zijn leeftijd bij aankomst in Egypte (47:9). De Bijbelreis komt zo op ca. 2006–1929 v.Chr. Rebekka spreekt van ‘enige dagen’ (27:44), maar Jakob blijft twintig jaar bij Laban (31:41).",
+          "refs": [
+            "Genesis 25:11",
+            "Genesis 25:26",
+            "Genesis 47:9",
+            "Genesis 27:44",
+            "Genesis 31:41"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Welke andere naam kreeg Ezau, naar de rode soep?",
+          "a": [
+            "Edom",
+            "Moab",
+            "Ammon"
+          ],
+          "why": "Genesis 25:30"
+        },
+        {
+          "q": "Hoe heette Bethel eerst?",
+          "a": [
+            "Luz",
+            "Ai",
+            "Zoar"
+          ],
+          "why": "Genesis 28:19"
+        },
+        {
+          "q": "Wat beloofde Jakob in Bethel aan God te geven?",
+          "a": [
+            "De tienden van alles",
+            "Zijn eerstgeboren zoon",
+            "Al zijn schapen"
+          ],
+          "why": "Genesis 28:22"
+        },
+        {
+          "q": "Hoe lang bleef Jakob uiteindelijk bij Laban?",
+          "a": [
+            "Twintig jaar",
+            "Enige dagen",
+            "Zeven jaar"
+          ],
+          "why": "Genesis 31:41"
+        }
+      ]
+    }
+  }
+}

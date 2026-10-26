@@ -1,0 +1,626 @@
+{
+  "29": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "sinai"
+      ],
+      "delen": [
+        {
+          "t": "God heeft Zijn volk uit Egypte gered. Nu komen ze in de woestijn bij een berg: de berg Sinaï.",
+          "stap": "exodus:sinai:4"
+        },
+        {
+          "t": "God zegt: Ik heb jullie gedragen op vleugels van arenden. Als jullie naar Mij luisteren, zijn jullie Mijn eigen volk."
+        },
+        {
+          "t": "Het volk zegt: alles wat de HEERE zegt, zullen we doen. Ze wassen hun kleren en maken zich klaar."
+        },
+        {
+          "t": "Op de derde dag dondert en bliksemt het. Er ligt een dikke wolk op de berg. Er klinkt een heel harde bazuin.",
+          "stap": "exodus:sinai:4"
+        },
+        {
+          "t": "De hele berg rookt en beeft, want de HEERE komt erop neer in vuur. Het volk schrikt erg.",
+          "stap": "exodus:sinai:4"
+        },
+        {
+          "t": "Dan spreekt God: Ik ben de HEERE, jullie God. Ik heb jullie uit Egypte geleid, waar jullie slaven waren.",
+          "stap": "exodus:sinai:5"
+        },
+        {
+          "t": "Dan geeft God tien geboden. Ze gaan over God, en over de mensen om je heen.",
+          "stap": "exodus:sinai:5"
+        },
+        {
+          "t": "Het volk is bang en blijft ver van de berg staan. Maar Mozes gaat dichterbij, naar het donker waar God is.",
+          "stap": "exodus:sinai:5"
+        },
+        {
+          "t": "Mozes vertelt het volk alles wat God gezegd heeft. Het volk zegt: dat zullen we doen. Mozes schrijft het op."
+        },
+        {
+          "t": "Dan gaat Mozes de berg op, de wolk in. Hij blijft daar veertig dagen en veertig nachten.",
+          "stap": "exodus:sinai:6"
+        }
+      ],
+      "samen": "God begint niet met een gebod, maar met wat Hij gedaan heeft: ‘Ik ben de HEERE uw God, Die u uit Egypteland, uit het diensthuis, uitgeleid heb’ (Exodus 20:2). Het diensthuis is het slavenhuis. Weggelaten is dat niemand de berg mocht aanraken, op straffe van de dood (Exodus 19:12–13), en het offer met ‘het bloed des verbonds’ (Exodus 24:5–8). Vraag samen: wat had God al voor Zijn volk gedaan, voordat Hij de geboden gaf?",
+      "vragen": [
+        {
+          "q": "Bij welke berg is het volk?",
+          "a": [
+            "Bij de berg Sinaï",
+            "Bij een berg in Egypte"
+          ],
+          "why": "Exodus 19:1–2, 11"
+        },
+        {
+          "q": "Wat gebeurt er op de derde dag?",
+          "a": [
+            "Het dondert en bliksemt op de berg",
+            "Het regent de hele dag"
+          ],
+          "why": "Exodus 19:16"
+        },
+        {
+          "q": "Hoeveel geboden geeft God?",
+          "a": [
+            "Tien",
+            "Twaalf"
+          ],
+          "why": "Exodus 20:1–17; Exodus 34:28"
+        },
+        {
+          "q": "Wie gaat dichter naar God toe?",
+          "a": [
+            "Mozes",
+            "Het hele volk"
+          ],
+          "why": "Exodus 20:21"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Aangekomen bij de Sinaï",
+          "stap": "exodus:sinai:4",
+          "t": "In de derde maand na de uittocht zet Israël de tenten op tegenover de berg Sinaï. God zegt dat Hij hen ‘op vleugelen der arenden gedragen’ heeft. Als ze Zijn verbond houden, zijn ze Zijn eigen volk. Een verbond is een vaste band met beloften. Het volk antwoordt: ‘Al wat de HEERE gesproken heeft, zullen wij doen!’"
+        },
+        {
+          "kop": "God spreekt vanaf de berg",
+          "stap": "exodus:sinai:5",
+          "t": "Op de derde dag dondert en bliksemt het. Er klinkt een zeer sterke bazuin. De berg rookt en beeft, want de HEERE daalt erop neer in vuur. Dan spreekt God: ‘Ik ben de HEERE uw God, Die u uit Egypteland, uit het diensthuis, uitgeleid heb.’ Het diensthuis is het slavenhuis. Daarna geeft Hij Zijn geboden. Het volk is bang en blijft van verre staan. Maar Mozes gaat naar de donkerheid waar God is."
+        },
+        {
+          "kop": "Het bloed van het verbond",
+          "stap": "exodus:sinai:6",
+          "t": "Mozes schrijft de woorden van de HEERE op. Hij bouwt een altaar onder aan de berg en zet twaalf kolommen neer, voor de twaalf stammen. Na de offers sprenkelt hij het bloed op het altaar en op het volk. Daarna gaat hij de berg op, de wolk in. Hij blijft er veertig dagen en veertig nachten."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat beloofde het volk toen Mozes Gods woorden doorgaf?",
+          "a": [
+            "Alles wat de HEERE zegt, zullen we doen",
+            "We willen eerst rustig nadenken",
+            "We gaan liever terug naar huis"
+          ],
+          "why": "Exodus 19:7–8"
+        },
+        {
+          "q": "Waarom rookte de hele berg?",
+          "a": [
+            "De HEERE daalde erop neer in vuur",
+            "Er brandde een groot bos op de berg",
+            "Het volk verbrandde er offers"
+          ],
+          "why": "Exodus 19:18"
+        },
+        {
+          "q": "Wat zegt God over Zichzelf voordat Hij de geboden geeft?",
+          "a": [
+            "Dat Hij hen uit Egypte heeft geleid",
+            "Dat Hij de berg Sinaï heeft gemaakt",
+            "Dat Hij hun een land met een stad geeft"
+          ],
+          "why": "Exodus 20:2"
+        },
+        {
+          "q": "Waarom bleef het volk van verre staan?",
+          "a": [
+            "Ze waren bang voor de donder, de bazuin en de rook",
+            "Ze moesten op hun vee passen",
+            "Ze konden de berg niet goed zien"
+          ],
+          "why": "Exodus 20:18–19"
+        },
+        {
+          "q": "Wat deed Mozes met het bloed van het verbond?",
+          "a": [
+            "Hij sprenkelde het op het altaar en op het volk",
+            "Hij goot het uit in de beek",
+            "Hij bewaarde het in zijn tent"
+          ],
+          "why": "Exodus 24:6–8"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Tien woorden",
+          "t": "In Exodus 20 worden de geboden niet geteld. Elders noemt de Bijbel ze ‘de tien woorden’, op twee stenen tafelen geschreven (Exodus 34:28; Deuteronomium 4:13). Hoe je tot tien telt, verschilt per traditie. In de gereformeerde traditie, zoals in de Heidelbergse Catechismus, is het verbod op het gesneden beeld het tweede gebod. De rooms-katholieke en de lutherse traditie nemen het eerste en tweede samen en splitsen het verbod op begeren in tweeën. Hoe de woorden over de twee tafelen verdeeld waren, zegt de Bijbel niet.",
+          "refs": [
+            "Exodus 34:28",
+            "Deuteronomium 4:13"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Hebreeën 12 zet de Sinaï tegenover de berg Sion: ‘Want gij zijt niet gekomen tot den tastelijken berg, en het brandende vuur’ … ‘Maar gij zijt gekomen tot den berg Sion, en de stad des levenden Gods’. Ook het bloed uit Exodus 24:8 komt terug. Hebreeën 9:19–20 haalt het aan: ‘Dit is het bloed des testaments’. Veel uitleggers horen het ook in wat de Heere Jezus bij het avondmaal zegt: ‘dat is Mijn bloed, het bloed des Nieuwen Testaments, hetwelk voor velen vergoten wordt, tot vergeving der zonden’ (Mattheüs 26:28).",
+          "refs": [
+            "Hebreeën 12:18–24",
+            "Hebreeën 9:19–20",
+            "Mattheüs 26:28"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "De Bijbel noemt deze berg ook Horeb, de berg Gods (Exodus 3:1; Deuteronomium 5:2). Welke berg het is, weten we niet zeker. Meestal denkt men aan de Jebel Musa in het zuiden van het Sinaï-schiereiland; daar staat hij op de kaart. Israël kwam in de derde maand na de uittocht bij de berg (19:1). Gerekend met 1 Koningen 6:1, dat de tempelbouw in het vierhonderd en tachtigste jaar na de uittocht plaatst, is dat ca. 1446 v.Chr. Veel onderzoekers dateren de uittocht later, in de 13e eeuw v.Chr.",
+          "refs": [
+            "Exodus 3:1",
+            "Deuteronomium 5:2",
+            "Exodus 19:1",
+            "1 Koningen 6:1"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Hoe noemt Exodus 34:28 wat op de tafelen geschreven stond?",
+          "a": [
+            "De woorden des verbonds, de tien woorden",
+            "De rechten van de twaalf stammen",
+            "Het lied van Mozes en Mirjam"
+          ],
+          "why": "Exodus 34:28"
+        },
+        {
+          "q": "Welke berg zet Hebreeën 12 tegenover de Sinaï?",
+          "a": [
+            "De berg Sion",
+            "De berg Karmel",
+            "De Olijfberg"
+          ],
+          "why": "Hebreeën 12:18–22"
+        },
+        {
+          "q": "Wie gingen er met Mozes omhoog en zagen de God van Israël?",
+          "a": [
+            "Aäron, Nadab, Abihu en zeventig oudsten",
+            "Alleen Jozua, zijn dienaar",
+            "De hoofden van de twaalf stammen en hun zonen"
+          ],
+          "why": "Exodus 24:9–10"
+        }
+      ]
+    }
+  },
+  "30": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "sinai"
+      ],
+      "delen": [
+        {
+          "t": "Mozes blijft lang weg op de berg. Het volk zegt tegen Aäron: maak goden voor ons, die voor ons uit gaan.",
+          "stap": "exodus:sinai:7"
+        },
+        {
+          "t": "Aäron laat de mensen hun gouden oorringen brengen. Daarvan maakt hij een kalf van goud.",
+          "stap": "exodus:sinai:7"
+        },
+        {
+          "t": "Het volk roept: dit zijn je goden, Israël! Ze offeren aan het kalf. Ze eten, drinken en dansen."
+        },
+        {
+          "t": "God zegt tegen Mozes: ga naar beneden. Het volk heeft een kalf gemaakt en buigt ervoor. Mozes smeekt God het volk te sparen."
+        },
+        {
+          "t": "Mozes gaat naar beneden met de twee stenen tafelen. God Zelf heeft erop geschreven."
+        },
+        {
+          "t": "Hij ziet het kalf en het dansen. Dan wordt Mozes heel boos. Hij gooit de tafelen neer en ze breken."
+        },
+        {
+          "t": "Mozes verbrandt het kalf en maalt het fijn. Hij strooit het op het water."
+        },
+        {
+          "t": "Mozes zegt tegen het volk: jullie hebben een grote zonde gedaan. Hij gaat naar God en vraagt of Hij wil vergeven."
+        },
+        {
+          "t": "Mozes gaat weer de berg op, met twee nieuwe stenen tafelen. God roept: de HEERE is barmhartig en genadig.",
+          "stap": "exodus:sinai:7"
+        },
+        {
+          "t": "Als Mozes terugkomt, glanst zijn gezicht. Hij weet het zelf niet."
+        }
+      ],
+      "samen": "Weggelaten is dat die dag drieduizend man van het volk door de Levieten werden gedood, op bevel van de HEERE (Exodus 32:26–28), en dat de HEERE het volk plaagde (Exodus 32:35). Mozes noemt wat het volk deed ‘een grote zonde’ (Exodus 32:30–31). Toch maakt God Zich bekend als ‘barmhartig en genadig’ (Exodus 34:6). Vraag samen: welk gebod had God net gegeven over het maken van een beeld? (Exodus 20:4)",
+      "vragen": [
+        {
+          "q": "Wat maakt Aäron van het goud?",
+          "a": [
+            "Een kalf",
+            "Een kroon"
+          ],
+          "why": "Exodus 32:4"
+        },
+        {
+          "q": "Wat gebeurt er met de stenen tafelen?",
+          "a": [
+            "Mozes gooit ze neer en ze breken",
+            "Mozes geeft ze aan Aäron"
+          ],
+          "why": "Exodus 32:19"
+        },
+        {
+          "q": "Wat zegt God over Zichzelf?",
+          "a": [
+            "Hij is barmhartig en genadig",
+            "Hij wil niet meer met Mozes praten"
+          ],
+          "why": "Exodus 34:6"
+        },
+        {
+          "q": "Wat is er bijzonder aan het gezicht van Mozes?",
+          "a": [
+            "Het glanst",
+            "Het is heel verdrietig"
+          ],
+          "why": "Exodus 34:29–30"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een kalf van goud",
+          "stap": "exodus:sinai:7",
+          "t": "Mozes blijft lang weg. Het volk zegt tegen Aäron: ‘Maak ons goden, die voor ons aangezicht gaan’. Ze weten niet wat Mozes is overkomen. Van hun gouden oorringen maakt Aäron een gegoten kalf. Het volk roept: ‘Dit zijn uw goden, Israël!’ Ze offeren, eten, drinken en dansen. Maar God had gezegd: maak geen gesneden beeld (20:4)."
+        },
+        {
+          "kop": "Mozes breekt de tafelen",
+          "t": "God vertelt Mozes over het kalf. Mozes smeekt voor het volk, en God vernietigt hen niet. Mozes gaat naar beneden met de stenen tafelen. Als hij het kalf ziet, werpt hij de tafelen neer en ze breken. Hij verbrandt het kalf en maalt het fijn. Op bevel van de HEERE doden de Levieten drieduizend man. Mozes zegt: ‘Gijlieden hebt een grote zonde gezondigd’. De HEERE plaagt het volk om het kalf."
+        },
+        {
+          "kop": "Barmhartig en genadig",
+          "t": "Mozes hakt twee nieuwe stenen tafelen uit en gaat weer de berg op. De HEERE gaat aan hem voorbij en roept: ‘HEERE, HEERE, God, barmhartig en genadig’. Dat betekent: vol medelijden, en goed voor wie het niet verdient. Hij vergeeft zonde. Als Mozes terugkomt, glinstert zijn gezicht."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom wilde het volk dat Aäron goden maakte?",
+          "a": [
+            "Ze wisten niet wat er met Mozes gebeurd was",
+            "Aäron had hun dat zelf beloofd",
+            "Ze hadden geen water meer"
+          ],
+          "why": "Exodus 32:1"
+        },
+        {
+          "q": "Waarom vernietigde de HEERE het volk niet?",
+          "a": [
+            "Mozes smeekte voor het volk",
+            "Het volk had al spijt",
+            "Aäron vroeg om vergeving"
+          ],
+          "why": "Exodus 32:11–14; Psalm 106:23"
+        },
+        {
+          "q": "Wat deed Mozes met het kalf?",
+          "a": [
+            "Hij verbrandde het en maalde het fijn",
+            "Hij nam het mee de berg op",
+            "Hij gaf het goud terug aan het volk"
+          ],
+          "why": "Exodus 32:20"
+        },
+        {
+          "q": "Wat riep de HEERE toen Hij aan Mozes voorbijging?",
+          "a": [
+            "HEERE, HEERE, God, barmhartig en genadig",
+            "Dit volk is niet meer Mijn volk",
+            "Ga weg van deze heilige berg"
+          ],
+          "why": "Exodus 34:6"
+        },
+        {
+          "q": "Waarom durfde het volk eerst niet bij Mozes te komen?",
+          "a": [
+            "Het vel van zijn gezicht glinsterde",
+            "Hij was nog boos op hen",
+            "Hij had de tafelen weer gebroken"
+          ],
+          "why": "Exodus 34:30"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Een feest voor de HEERE?",
+          "t": "Het volk noemt het kalf ‘uw goden’ (32:4, 8). Toch bouwt Aäron er een altaar voor en roept: ‘Morgen zal den HEERE een feest zijn!’ (32:5). Veel uitleggers zien daarom in het kalf ook een overtreding van het gebod tegen het gesneden beeld (20:4–5): men wilde de HEERE dienen op een manier die Hij verboden had. Opvallend is ook wat Aäron later zegt: ‘ik wierp het in het vuur, en dit kalf is er uit gekomen’ (32:24). Maar vers 4 vertelt dat hij het goud zelf bewerkte ‘met een griffie’, een graveerstift, en er een gegoten kalf van maakte.",
+          "refs": [
+            "Exodus 32:4–5",
+            "Exodus 32:24",
+            "Exodus 20:4–5"
+          ]
+        },
+        {
+          "kop": "Mozes vertelt het opnieuw",
+          "t": "In Deuteronomium 9 en 10 vertelt Mozes deze geschiedenis zelf, met details die Exodus niet noemt. Hij wierp zich ‘veertig dagen en veertig nachten’ neer voor het aangezicht van de HEERE, om de zonde van het volk (Deuteronomium 9:18). Uitleggers verschillen over hoe die periode samenvalt met Exodus 32–34. Mozes bad ook voor Aäron, op wie de HEERE zeer vertoornd was (Deuteronomium 9:20). Het stof van het kalf wierp hij ‘in de beek, die van den berg afvliet’ (Deuteronomium 9:21). En de nieuwe tafelen legde hij in een kist van sittimhout (Deuteronomium 10:3–5).",
+          "refs": [
+            "Deuteronomium 9:18–21",
+            "Deuteronomium 10:1–5"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Gods Naam uit Exodus 34:6–7 klinkt later vaak terug. Mozes gebruikt de woorden in zijn gebed in Numeri 14:18. Psalm 103:8 zingt: ‘Barmhartig en genadig is de HEERE, lankmoedig en groot van goedertierenheid.’ Jona zegt: ‘ik wist, dat Gij een genadig en barmhartig God zijt’ (Jona 4:2). Ook het glinsterende gezicht van Mozes komt terug: Paulus schrijft dat Mozes ‘een deksel op zijn aangezicht leide’ (2 Korinthe 3:13).",
+          "refs": [
+            "Numeri 14:18",
+            "Psalm 103:8",
+            "Jona 4:2",
+            "2 Korinthe 3:7–13"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat riep Aäron toen hij een altaar voor het kalf bouwde?",
+          "a": [
+            "Morgen zal den HEERE een feest zijn",
+            "Mozes komt nooit meer terug",
+            "Laten we nu naar Kanaän gaan"
+          ],
+          "why": "Exodus 32:5"
+        },
+        {
+          "q": "Voor wie bad Mozes volgens Deuteronomium 9:20 ook?",
+          "a": [
+            "Voor Aäron",
+            "Voor Jozua",
+            "Voor de farao"
+          ],
+          "why": "Deuteronomium 9:20"
+        },
+        {
+          "q": "Waar wierp Mozes het stof van het kalf, volgens Deuteronomium 9:21?",
+          "a": [
+            "In de beek die van de berg afvloeide",
+            "Op het altaar onder aan de berg",
+            "In een kuil achter het leger"
+          ],
+          "why": "Deuteronomium 9:21"
+        },
+        {
+          "q": "Welke profeet zegt: ‘ik wist, dat Gij een genadig en barmhartig God zijt’?",
+          "a": [
+            "Jona",
+            "Elia",
+            "Samuël"
+          ],
+          "why": "Jona 4:2"
+        }
+      ]
+    }
+  },
+  "31": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "sinai"
+      ],
+      "delen": [
+        {
+          "t": "God wil midden tussen Zijn volk wonen. Daarom moet Israël een tent voor Hem maken: de tabernakel.",
+          "stap": "exodus:sinai:8"
+        },
+        {
+          "t": "God kiest Bezaleël. Hij geeft hem Zijn Geest en wijsheid, om mooi werk te maken van goud, zilver en koper."
+        },
+        {
+          "t": "Aholiab mag hem helpen. Ook anderen die wijs van hart zijn, werken mee."
+        },
+        {
+          "t": "Mozes vraagt het volk om gaven voor de HEERE. Wie het graag wil, mag iets brengen."
+        },
+        {
+          "t": "Het volk brengt goud, zilver, koper, gekleurde stoffen en hout. Elke morgen komt er nog meer."
+        },
+        {
+          "t": "Het is zelfs te veel! Mozes laat in het hele kamp omroepen: breng maar niets meer."
+        },
+        {
+          "t": "Bezaleël maakt de ark: een kist met goud bedekt. Op het deksel staan twee gouden cherubs met vleugels."
+        },
+        {
+          "t": "Er komt ook een gouden kandelaar met zeven lampen, een tafel en twee altaren."
+        },
+        {
+          "t": "Dan zet Mozes de tabernakel op. Hij legt de stenen tafelen in de ark.",
+          "stap": "exodus:sinai:8"
+        },
+        {
+          "t": "Een wolk bedekt de tent. De heerlijkheid van de HEERE vult de tabernakel.",
+          "stap": "exodus:sinai:8"
+        }
+      ],
+      "samen": "God zei: ‘dat Ik in het midden van hen wone’ (Exodus 25:8). Israël is nog bij de berg Sinaï; wijs die samen aan op de kaart. Weggelaten zijn de vele maten, de priesterklederen (Exodus 39) en het gebod over de sabbat (Exodus 31:12–17). Johannes zegt later over de Heere Jezus: ‘het Woord is vlees geworden, en heeft onder ons gewoond’ (Johannes 1:14). Vraag samen: wat bracht het volk allemaal mee?",
+      "vragen": [
+        {
+          "q": "Wie maakt de ark?",
+          "a": [
+            "Bezaleël",
+            "Aäron"
+          ],
+          "why": "Exodus 37:1"
+        },
+        {
+          "q": "Waarom zegt Mozes: breng maar niets meer?",
+          "a": [
+            "Het volk brengt te veel",
+            "Het volk heeft niets meer"
+          ],
+          "why": "Exodus 36:5–7"
+        },
+        {
+          "q": "Wat bedekt de tent als alles klaar is?",
+          "a": [
+            "Een wolk",
+            "Een grote vlag"
+          ],
+          "why": "Exodus 40:34"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Gekozen om te bouwen",
+          "t": "God roept Bezaleël uit de stam Juda bij zijn naam. Hij vervult hem met de Geest van God, met wijsheid en verstand. Zo kan hij werken met goud, zilver, koper, stenen en hout. Aholiab uit de stam Dan helpt hem, en ook anderen die wijs van hart zijn. Samen maken ze de tabernakel: de tent waar God wil wonen, midden tussen Zijn volk."
+        },
+        {
+          "kop": "Meer dan genoeg",
+          "t": "Mozes vraagt om gaven voor de HEERE. Ieder ‘wiens hart vrijwillig is’, mag iets brengen. Ze brengen goud, zilver, koper, stoffen, vellen en hout. Elke morgen komt er meer. Dan zeggen de werklieden: ‘Het volk brengt te veel’. Mozes laat omroepen: breng niets meer."
+        },
+        {
+          "kop": "De wolk op de tent",
+          "stap": "exodus:sinai:8",
+          "t": "Bezaleël maakt de ark: een kist met goud overtrokken. Op het gouden deksel, het verzoendeksel, staan twee cherubs met vleugels. Ook komen er een tafel, een gouden kandelaar, twee altaren en een koperen wasvat. Op de eerste dag van de eerste maand, in het tweede jaar, richt Mozes de tabernakel op. Dan bedekt de wolk de tent, en de heerlijkheid van de HEERE vult de tabernakel. Zelfs Mozes kan er niet in."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waardoor kon Bezaleël zulk kunstig werk maken?",
+          "a": [
+            "God had hem vervuld met Zijn Geest en wijsheid",
+            "Hij was een broer van Mozes",
+            "Hij was een zoon van Aäron"
+          ],
+          "why": "Exodus 31:2–5"
+        },
+        {
+          "q": "Uit welke stam kwam Aholiab?",
+          "a": [
+            "Dan",
+            "Juda",
+            "Levi"
+          ],
+          "why": "Exodus 31:6"
+        },
+        {
+          "q": "Wie mochten er gaven voor de tabernakel brengen?",
+          "a": [
+            "Ieder die het vrijwillig wilde",
+            "Alleen de oversten van het volk",
+            "Alleen de priesters en Levieten"
+          ],
+          "why": "Exodus 35:5, 21–22"
+        },
+        {
+          "q": "Waarom kon Mozes de tent niet ingaan?",
+          "a": [
+            "De wolk bleef erop en Gods heerlijkheid vulde hem",
+            "De deur van de tent was nog dicht",
+            "Alleen Bezaleël mocht naar binnen"
+          ],
+          "why": "Exodus 40:35"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Zoals de HEERE geboden had",
+          "t": "In Exodus 39 en 40 klinkt steeds: ‘gelijk als de HEERE aan Mozes geboden had’. Niets wordt naar eigen idee gemaakt. God had gezegd: ‘Zie dan toe, dat gij het maakt naar hun voorbeeld, hetwelk u op den berg getoond is’ (25:40). Hebreeën 8:5 haalt dat aan en zegt dat de priesters daar ‘het voorbeeld en de schaduw der hemelse dingen’ dienen. Uitleggers wijzen vaak op het verschil met het gouden kalf (Exodus 32): daar maakten mensen zelf iets om God te dienen, hier gebeurt alles zoals God het geboden had.",
+          "refs": [
+            "Exodus 39:21, 31",
+            "Exodus 40:19, 21",
+            "Exodus 25:40",
+            "Hebreeën 8:5"
+          ]
+        },
+        {
+          "kop": "Wat lag er in de ark?",
+          "t": "Mozes legt ‘de getuigenis’ in de ark (40:20). Dat zijn de twee stenen tafelen; Exodus 31:18 noemt ze ‘de twee tafelen der getuigenis’. Als de ark later in de tempel van Salomo komt, staat er: ‘Er was niets in de ark, dan alleen de twee stenen tafelen’ (1 Koningen 8:9). Hebreeën 9:4 noemt in de ark ook ‘de gouden kruik, daar het Manna in was, en de staf van Aäron, die gebloeid had’. Volgens Exodus 16:34 en Numeri 17:10 werden de kruik en de staf ‘voor de getuigenis’ gezet. Uitleggers verschillen over hoe deze teksten samengaan.",
+          "refs": [
+            "Exodus 40:20",
+            "Exodus 31:18",
+            "1 Koningen 8:9",
+            "Hebreeën 9:4",
+            "Exodus 16:34",
+            "Numeri 17:10"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Israël is nog bij de berg Sinaï. Welke berg dat is, weten we niet zeker; meestal denkt men aan de Jebel Musa in het zuiden van het Sinaï-schiereiland. De tabernakel wordt opgericht op de eerste dag van de eerste maand van het tweede jaar (40:17), minder dan een jaar nadat het volk in de derde maand bij de berg kwam (19:1). Gerekend met 1 Koningen 6:1 is dat ca. 1446–1445 v.Chr.; veel onderzoekers dateren de uittocht later, in de 13e eeuw v.Chr. De tent kon mee op reis: als de wolk werd opgeheven, trok het volk verder (40:36–37).",
+          "refs": [
+            "Exodus 40:17",
+            "Exodus 19:1",
+            "1 Koningen 6:1",
+            "Exodus 40:36–37"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Welke woorden klinken in Exodus 39 en 40 steeds terug?",
+          "a": [
+            "Gelijk als de HEERE aan Mozes geboden had",
+            "Zo zegt de HEERE der heirscharen",
+            "Toen was het avond geweest en morgen"
+          ],
+          "why": "Exodus 39:21, 31; Exodus 40:19, 21"
+        },
+        {
+          "q": "Wat dienden de priesters volgens Hebreeën 8:5?",
+          "a": [
+            "Het voorbeeld en de schaduw der hemelse dingen",
+            "Het einde van alle offers voor altijd",
+            "Een beeld van het beloofde land Kanaän"
+          ],
+          "why": "Hebreeën 8:5"
+        },
+        {
+          "q": "Wat lag er volgens 1 Koningen 8:9 in de ark, toen die in de tempel kwam?",
+          "a": [
+            "Alleen de twee stenen tafelen",
+            "De staf van Mozes en de zalfolie",
+            "De priesterklederen van Aäron"
+          ],
+          "why": "1 Koningen 8:9"
+        },
+        {
+          "q": "Wat deden de Israëlieten als de wolk van de tabernakel werd opgeheven?",
+          "a": [
+            "Ze reisden verder",
+            "Ze bouwden een nieuwe tent",
+            "Ze vierden zeven dagen feest"
+          ],
+          "why": "Exodus 40:36"
+        }
+      ]
+    }
+  }
+}

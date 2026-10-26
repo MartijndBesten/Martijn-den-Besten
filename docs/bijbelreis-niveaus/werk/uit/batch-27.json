@@ -1,0 +1,384 @@
+{
+  "142": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["salem"],
+      "delen": [
+        { "t": "Koning Herodes doet de gemeente kwaad. Hij laat Jakobus, de broer van Johannes, doden.", "stap": "handelingen:nt-gemeente:13" },
+        { "t": "Dan laat hij ook Petrus gevangennemen. Veel soldaten moeten hem bewaken.", "stap": "handelingen:nt-gemeente:13" },
+        { "t": "Maar de gemeente bidt steeds tot God voor Petrus." },
+        { "t": "Het is nacht. Petrus slaapt tussen twee soldaten. Hij zit vast met twee kettingen." },
+        { "t": "Dan staat er een engel van de Heere bij hem, en er schijnt licht. De engel zegt: Sta snel op! De kettingen vallen van zijn handen." },
+        { "t": "Petrus loopt achter de engel aan, langs de wachten. De ijzeren poort naar de stad gaat vanzelf open.", "stap": "handelingen:nt-gemeente:13" },
+        { "t": "Op straat is de engel ineens weg. Nu weet Petrus zeker: de Heere heeft Zijn engel gestuurd om hem te verlossen." },
+        { "t": "Petrus gaat naar het huis van Maria. Daar zijn veel mensen bij elkaar. Ze bidden." },
+        { "t": "Rhode hoort Petrus aan de deur. Ze is zo blij dat ze niet opendoet, maar naar binnen rent om het te vertellen." },
+        { "t": "Petrus blijft kloppen. Als ze opendoen, zien ze hem echt staan. Wat zijn ze verbaasd!" }
+      ],
+      "samen": "Aan het eind van Handelingen 12 sterft koning Herodes in Caesarea: een engel van de Heere slaat hem, ‘daarom dat hij Gode de eer niet gaf’ (Handelingen 12:23). Dat is hier weggelaten. De dood van Jakobus vertelt de Bijbel in één zin (12:2); meer hoeft u er ook niet over te zeggen. Vraag samen: wat deed de gemeente terwijl Petrus gevangen zat? (12:5, 12)",
+      "vragen": [
+        { "q": "Wat doet de gemeente als Petrus gevangen zit?", "a": ["Ze bidden tot God voor hem", "Ze gaan naar de koning"], "why": "Handelingen 12:5" },
+        { "q": "Wie maakt Petrus wakker in de nacht?", "a": ["Een engel van de Heere", "Een van de soldaten"], "why": "Handelingen 12:7" },
+        { "q": "Wat doet Rhode als ze Petrus hoort?", "a": ["Ze rent blij naar binnen", "Ze doet meteen de deur open"], "why": "Handelingen 12:14" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Petrus in de gevangenis", "stap": "handelingen:nt-gemeente:13", "t": "Koning Herodes laat Jakobus, de broer van Johannes, doden met het zwaard. Omdat de Joden dat goed vinden, laat hij ook Petrus gevangennemen. Vier wachten van elk vier soldaten bewaken hem. Maar de gemeente bidt steeds tot God voor hem." },
+        { "kop": "Een engel in de nacht", "t": "In de nacht slaapt Petrus tussen twee soldaten, gebonden met twee kettingen. Dan staat er een engel van de Heere, en er schijnt licht. De engel stoot hem aan: ‘Sta haastelijk op.’ De kettingen vallen af. De ijzeren poort gaat vanzelf voor hen open. Petrus denkt eerst dat hij een gezicht ziet. Maar op straat weet hij zeker: de Heere heeft hem verlost." },
+        { "kop": "Rhode aan de deur", "t": "Petrus klopt aan bij het huis van Maria, de moeder van Johannes Markus. Daar bidden veel mensen. Rhode herkent zijn stem, maar van blijdschap doet ze niet open. Binnen gelooft niemand haar. Pas als ze opendoen, zien ze Petrus." },
+        { "kop": "Herodes geeft God de eer niet", "stap": "handelingen:nt-gemeente:14", "t": "Later laat Herodes zich in Caesarea toejuichen als een god. Meteen slaat een engel van de Heere hem, omdat hij God de eer niet geeft, en hij sterft. Maar het Woord van God groeit." }
+      ],
+      "vragen": [
+        { "q": "Waarom liet Herodes ook Petrus gevangennemen?", "a": ["Hij zag dat de Joden het goed vonden", "Petrus had de soldaten aangevallen", "Petrus wilde uit Jeruzalem vluchten"], "why": "Handelingen 12:3" },
+        { "q": "Wat dacht Petrus eerst toen de engel hem wegleidde?", "a": ["Dat hij een gezicht zag", "Dat het een soldaat was", "Dat Herodes hem vrijliet"], "why": "Handelingen 12:9" },
+        { "q": "Hoe ging de ijzeren poort naar de stad open?", "a": ["Vanzelf", "Met een sleutel van de engel", "Een soldaat deed hem open"], "why": "Handelingen 12:10" },
+        { "q": "Waarom sloeg de engel van de Heere koning Herodes?", "a": ["Hij gaf God de eer niet", "Hij had Petrus laten ontsnappen", "Hij wilde geen vrede sluiten"], "why": "Handelingen 12:23" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Welke Herodes?",
+          "t": "In het Nieuwe Testament komen verschillende vorsten met de naam Herodes voor. Bij de geboorte van de Heere Jezus regeert koning Herodes (Mattheüs 2:1). ‘Herodes, de viervorst’ laat Johannes de Doper onthoofden (Mattheüs 14:1–10). In Handelingen 12 staat alleen ‘de koning Herodes’; geschiedschrijvers noemen hem Herodes Agrippa I. Volgens de Joodse geschiedschrijver Josephus stierf hij in 44 n.Chr. Daarom wordt deze geschiedenis rond 43–44 n.Chr. gedateerd. De koning Agrippa voor wie Paulus later spreekt (Handelingen 25:13), is een andere vorst.",
+          "refs": ["Mattheüs 2:1", "Mattheüs 14:1–10", "Handelingen 12:1", "Handelingen 25:13"]
+        },
+        {
+          "kop": "Twee keer Jakobus",
+          "t": "Petrus zegt: ‘Boodschapt dit aan Jakobus en de broederen’ (12:17). Dat kan niet Jakobus de broer van Johannes zijn: die was al gedood (12:2). Meestal wordt deze Jakobus uitgelegd als ‘Jakobus, den broeder des Heeren’ (Galaten 1:19), die later in Jeruzalem een leidende plaats heeft (Handelingen 15:13; 21:18). Waar Petrus daarna heen gaat, zegt de tekst niet; hij ‘reisde naar een andere plaats’. En wat de biddende mensen bedoelden met ‘Het is zijn engel’ (12:15), daarover verschillen uitleggers.",
+          "refs": ["Handelingen 12:2", "Handelingen 12:15–17", "Galaten 1:19", "Handelingen 15:13", "Handelingen 21:18"]
+        },
+        {
+          "kop": "De eer die God toekomt",
+          "t": "Het volk roept tegen Herodes: ‘Een stem Gods, en niet eens mensen!’ en hij weigert die eer niet. Andere dienaren van God doen dat juist wel. Als Cornelius voor Petrus neervalt, zegt Petrus: ‘Sta op, ik ben ook zelf een mens’ (Handelingen 10:26). In Lystre roepen Barnabas en Paulus: ‘Wij zijn ook mensen’ (Handelingen 14:15). De engel in Openbaring 19:10 zegt: ‘aanbid God.’ Het hoofdstuk eindigt niet bij Herodes, maar bij het Woord: ‘En het Woord Gods wies, en vermenigvuldigde’ (12:24).",
+          "refs": ["Handelingen 12:21–24", "Handelingen 10:25–26", "Handelingen 14:14–15", "Openbaring 19:10"]
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom kan de Jakobus van Handelingen 12:17 niet de broer van Johannes zijn?", "a": ["Die was al door Herodes gedood", "Die was op reis naar Antiochië", "Die zat ook in de gevangenis"], "why": "Handelingen 12:2, 17" },
+        { "q": "Wat zei Petrus toen Cornelius voor hem neerviel?", "a": ["Sta op, ik ben ook zelf een mens", "Bid voor mij, want ik ben zwak", "Buig liever voor de keizer"], "why": "Handelingen 10:26" },
+        { "q": "In welke dagen werd Petrus gevangengenomen?", "a": ["In de dagen der ongehevelde broden", "In de dagen van het Loofhuttenfeest", "Op de Grote Verzoendag"], "why": "Handelingen 12:3" }
+      ]
+    }
+  },
+  "143": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["salem", "damascusst"],
+      "delen": [
+        { "t": "Saulus is tegen de discipelen van de Heere. Hij wil hen gevangennemen. Daarom gaat hij op weg naar Damascus.", "stap": "handelingen:nt-paulus:0" },
+        { "t": "Vlak bij Damascus schijnt er ineens een licht uit de hemel om hem heen. Saulus valt op de grond.", "stap": "handelingen:nt-paulus:0" },
+        { "t": "Hij hoort een stem: ‘Saul, Saul! wat vervolgt gij Mij?’ Dat betekent: waarom doe je Mij kwaad?" },
+        { "t": "Saulus vraagt: Wie bent U, Heere? De stem zegt: Ik ben Jezus. Het is de Heere Jezus zelf!" },
+        { "t": "Saulus staat op, maar hij kan niets zien. Ze nemen hem bij de hand en brengen hem in Damascus.", "stap": "handelingen:nt-paulus:0" },
+        { "t": "Drie dagen lang ziet hij niets. Hij eet niet en drinkt niet. Hij bidt." },
+        { "t": "De Heere zegt tegen Ananias: Ga naar Saulus. Maar Ananias zegt: Heere, die man heeft Uw volk veel kwaad gedaan.", "stap": "handelingen:nt-paulus:1" },
+        { "t": "De Heere zegt: Ga toch. Ik heb hem uitgekozen. Hij zal Mijn Naam bekendmaken aan volken en koningen." },
+        { "t": "Ananias legt Saulus de handen op. Er valt iets als schubben van zijn ogen. Hij ziet weer en wordt gedoopt.", "stap": "handelingen:nt-paulus:1" },
+        { "t": "Nu vertelt Saulus dat Jezus de Zoon van God is. Later laten de discipelen hem ’s nachts in een mand langs de muur zakken." }
+      ],
+      "samen": "Op schilderijen valt Saulus vaak van een paard. Handelingen 9 noemt geen paard: er staat alleen dat hij ‘ter aarde gevallen’ was (9:4). Saulus had de gelovigen veel kwaad gedaan (9:1–2, 13); de Bijbel vertelt dat zonder details, en dat kan bij het voorlezen ook. Vraag samen: wat deed Saulus in de drie dagen dat hij niet kon zien? (9:9, 11)",
+      "vragen": [
+        { "q": "Wat ziet Saulus vlak bij Damascus?", "a": ["Een licht uit de hemel", "Een groot vuur"], "why": "Handelingen 9:3" },
+        { "q": "Wie spreekt tegen Saulus?", "a": ["De Heere Jezus", "Een van de soldaten"], "why": "Handelingen 9:5" },
+        { "q": "Hoe komt Saulus later uit Damascus weg?", "a": ["In een mand langs de muur", "Op een kameel door de poort"], "why": "Handelingen 9:25" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een licht op de weg", "stap": "handelingen:nt-paulus:0", "t": "Saulus wil de discipelen van de Heere gevangennemen. Hij vraagt de hogepriester om brieven voor de synagogen in Damascus: gebedshuizen van de Joden. Vlak bij de stad schijnt er een licht uit de hemel om hem heen. Hij valt op de grond en hoort: ‘Saul, Saul! wat vervolgt gij Mij?’ Vervolgen is: achternazitten en kwaad doen. Hij vraagt: ‘Wie zijt Gij, Heere?’ ‘Ik ben Jezus, Dien gij vervolgt.’" },
+        { "kop": "Drie dagen blind", "t": "Saulus staat op, maar hij ziet niets. Aan de hand wordt hij Damascus binnengeleid. Drie dagen eet en drinkt hij niet." },
+        { "kop": "Saul, broeder", "stap": "handelingen:nt-paulus:1", "t": "De Heere stuurt Ananias naar hem toe, ‘want zie, hij bidt’. Ananias weet wat Saulus gedaan heeft. Maar de Heere heeft Saulus uitgekozen om Zijn Naam bekend te maken, ook aan de heidenen, de niet-Joden. Ananias legt hem de handen op. Er valt iets als schubben van zijn ogen; hij ziet weer en wordt gedoopt." },
+        { "kop": "Van vervolger tot prediker", "t": "Meteen predikt Saulus in de synagogen dat Jezus de Zoon van God is. Iedereen is verbaasd. Later willen de Joden hem doden. Maar de discipelen laten hem ’s nachts in een mand langs de muur zakken." }
+      ],
+      "vragen": [
+        { "q": "Waarom wilde Saulus naar Damascus?", "a": ["Om gelovigen gebonden naar Jeruzalem te brengen", "Om daar in de synagogen te preken", "Om de discipel Ananias te bezoeken"], "why": "Handelingen 9:2" },
+        { "q": "Wat zei de Heere tegen Ananias over Saulus?", "a": ["Dat Hij hem had uitgekozen", "Dat Ananias hem moest binden", "Dat Saulus terug moest naar Jeruzalem"], "why": "Handelingen 9:15" },
+        { "q": "Wat deed Saulus in de drie dagen in Damascus?", "a": ["Hij at en dronk niet en bad", "Hij preekte in de synagogen", "Hij reisde terug naar Jeruzalem"], "why": "Handelingen 9:9, 11" },
+        { "q": "Waarom waren de mensen in de synagogen zo verbaasd?", "a": ["Saulus had de gelovigen eerst vervolgd", "Saulus sprak in een vreemde taal", "Saulus was nog steeds blind"], "why": "Handelingen 9:21" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Een paard wordt in Handelingen 9 niet genoemd; Saulus is ‘ter aarde gevallen’ (9:4). Hij krijgt hier ook geen nieuwe naam. Pas op Cyprus staat dat Saulus ‘ook Paulus genaamd is’ (Handelingen 13:9); uitleggers zien Paulus als een tweede, Romeinse naam. In 9:7 horen de reisgenoten ‘wel de stem’, maar in 22:9 zegt Paulus dat zij ‘de stem Desgenen, Die tot mij sprak’ niet hoorden. Veel uitleggers verklaren dat zij wel geluid hoorden, maar de woorden niet verstonden.",
+          "refs": ["Handelingen 9:4", "Handelingen 9:7", "Handelingen 13:9", "Handelingen 22:9"]
+        },
+        {
+          "kop": "Paulus vertelt het zelf",
+          "t": "Paulus vertelt later twee keer over deze dag: aan het volk in Jeruzalem (Handelingen 22) en aan koning Agrippa (Handelingen 26). Daar zegt hij dat het gebeurde ‘in het midden van den dag’ en dat de stem sprak ‘in de Hebreeuwse taal’ (26:13–14). In Galaten 1:17 schrijft hij dat hij ging ‘naar Arabië, en keerde wederom naar Damaskus’; Handelingen 9 noemt dat niet, maar spreekt wel van ‘vele dagen’ (9:23). De vlucht beschrijft hij zo: ‘ik werd door een venster in een mand over den muur nedergelaten’ (2 Korinthe 11:33).",
+          "refs": ["Handelingen 26:12–15", "Galaten 1:15–18", "Handelingen 9:23–25", "2 Korinthe 11:32–33"]
+        },
+        {
+          "kop": "De verzenen tegen de prikkels",
+          "t": "In de Statenvertaling zegt de Heere ook: ‘Het is u hard, de verzenen tegen de prikkels te slaan’ (9:5; vergelijk 26:14). Dat is een beeld uit het boerenleven. Verzenen zijn hielen. Een prikkel is een puntige stok waarmee ossen werden voortgedreven. Een os die achteruit trapt tegen die stok, doet alleen zichzelf pijn. Zo wordt het meestal uitgelegd: tegen de Heere ingaan heeft geen zin. Later noemt Paulus zich ‘de minste van de apostelen’, ‘daarom dat ik de Gemeente Gods vervolgd heb’ (1 Korinthe 15:9).",
+          "refs": ["Handelingen 9:5", "Handelingen 26:14", "1 Korinthe 15:9"]
+        }
+      ],
+      "vragen": [
+        { "q": "Waar ging Paulus volgens Galaten 1 heen voordat hij naar Damascus terugkeerde?", "a": ["Naar Arabië", "Naar Egypte", "Naar Cyprus"], "why": "Galaten 1:17" },
+        { "q": "Hoe beschrijft Paulus zelf zijn vlucht uit Damascus?", "a": ["Door een venster, in een mand over de muur", "Verkleed als soldaat door de poort", "Met een schip over de rivier"], "why": "2 Korinthe 11:33" },
+        { "q": "Op welk moment van de dag zag Saulus het licht, volgens Handelingen 26?", "a": ["In het midden van de dag", "Midden in de nacht", "Bij zonsondergang"], "why": "Handelingen 26:13" }
+      ]
+    }
+  },
+  "144": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_antiochie", "nt_pafos", "nt_lystre"],
+      "delen": [
+        { "t": "In Jeruzalem zijn de discipelen bang voor Saulus. Maar Barnabas neemt hem mee naar de apostelen.", "stap": "handelingen:nt-paulus:2" },
+        { "t": "Later haalt Barnabas Saulus op uit Tarsus. Een heel jaar leren ze samen de gemeente in Antiochië.", "stap": "handelingen:nt-paulus:3" },
+        { "t": "In Antiochië worden de discipelen voor het eerst christenen genoemd.", "stap": "handelingen:nt-paulus:3" },
+        { "t": "De Heilige Geest zegt dat Barnabas en Saulus apart gezet moeten worden voor een werk. De gemeente bidt en laat hen gaan.", "stap": "handelingen:nt-paulus:4" },
+        { "t": "Ze varen naar het eiland Cyprus. Daar vertellen ze het Woord van God.", "stap": "handelingen:nt-paulus:4" },
+        { "t": "In Pafos werkt een tovenaar hen tegen. Hij wordt een tijd blind. De stadhouder ziet het en gaat geloven.", "stap": "handelingen:nt-paulus:4" },
+        { "t": "In Lystre zit een man die nog nooit gelopen heeft. Paulus roept: Sta recht op je voeten! De man springt op en loopt.", "stap": "handelingen:nt-paulus:6" },
+        { "t": "De mensen denken dat Paulus en Barnabas goden zijn. Maar zij roepen: Wij zijn ook mensen!", "stap": "handelingen:nt-paulus:6" },
+        { "t": "Later gooien mensen stenen naar Paulus. Ze denken dat hij dood is. Maar hij staat op en gaat verder.", "stap": "handelingen:nt-paulus:6" },
+        { "t": "Terug in Antiochië vertellen ze wat God gedaan heeft. Hij heeft ook voor de heidenen de deur van het geloof geopend.", "stap": "handelingen:nt-paulus:7" }
+      ],
+      "samen": "Paulus wordt in Lystre gestenigd (Handelingen 14:19). De Bijbel vertelt het kort: men dacht dat hij dood was, maar hij stond op. Paulus schrijft er later zelf over: ‘eens ben ik gestenigd’ (2 Korinthe 11:25). Weggelaten zijn onder andere de preek in Antiochië in Pisidië (13:14–52) en de vervolging in Ikonium (14:1–6). Heidenen zijn mensen die geen Joden zijn. Vraag samen: wie neemt het voor Saulus op als iedereen bang voor hem is? (9:27)",
+      "vragen": [
+        { "q": "Wie gaat met Saulus op reis?", "a": ["Barnabas", "Petrus"], "why": "Handelingen 13:2–4" },
+        { "q": "Wat doet de man in Lystre die nooit gelopen heeft?", "a": ["Hij springt op en loopt", "Hij blijft stil zitten"], "why": "Handelingen 14:10" },
+        { "q": "Waar worden de discipelen voor het eerst christenen genoemd?", "a": ["In Antiochië", "In Jeruzalem"], "why": "Handelingen 11:26" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Barnabas neemt het voor Saulus op", "stap": "handelingen:nt-paulus:2", "t": "In Jeruzalem zijn de discipelen bang voor Saulus. Barnabas neemt hem mee naar de apostelen. Later haalt Barnabas hem uit Tarsus naar Antiochië. Daar worden de discipelen voor het eerst christenen genoemd." },
+        { "kop": "Uitgezonden naar Cyprus", "stap": "handelingen:nt-paulus:4", "t": "De Heilige Geest zegt: ‘Zondert Mij af beiden Barnabas en Saulus’. Afzonderen is: apart zetten voor een taak. Ze varen naar Cyprus. In Pafos werkt de tovenaar Elymas hen tegen. Hij wordt een tijd blind, en de stadhouder gaat geloven." },
+        { "kop": "Goden of mensen", "stap": "handelingen:nt-paulus:6", "t": "In Antiochië in Pisidië en in Ikonium geloven veel mensen, maar er komt ook vervolging. In Lystre geneest Paulus een man die nog nooit gelopen heeft. De mensen denken dat ze goden zijn en willen hun offeren. Maar die roepen: ‘Wij zijn ook mensen’. Dan komen er Joden uit andere steden. Paulus wordt gestenigd: met stenen bekogeld, tot men denkt dat hij dood is. Maar hij staat op." },
+        { "kop": "De deur van het geloof", "stap": "handelingen:nt-paulus:7", "t": "Toch gaan ze terug langs dezelfde steden en versterken de gelovigen. In Antiochië vertellen ze dat God voor de heidenen, de niet-Joden, de deur van het geloof heeft geopend." }
+      ],
+      "vragen": [
+        { "q": "Waarom waren de discipelen in Jeruzalem bang voor Saulus?", "a": ["Ze geloofden niet dat hij een discipel was", "Hij was met soldaten gekomen", "Hij had een tovenaar bij zich"], "why": "Handelingen 9:26" },
+        { "q": "Wie stuurde Barnabas en Saulus op reis?", "a": ["De Heilige Geest", "De keizer in Rome", "De stadhouder van Cyprus"], "why": "Handelingen 13:2–4" },
+        { "q": "Wat gebeurde er met de tovenaar Elymas?", "a": ["Hij werd voor een tijd blind", "Hij ging met hen mee op reis", "Hij werd de nieuwe stadhouder"], "why": "Handelingen 13:11" },
+        { "q": "Waarom dachten de mensen in Lystre dat Paulus en Barnabas goden waren?", "a": ["Paulus had een kreupele man genezen", "Ze droegen koninklijke kleren", "Ze kwamen met een schip uit Cyprus"], "why": "Handelingen 14:8–11" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Twee keer Antiochië",
+          "t": "De reis begint en eindigt in Antiochië in Syrië, waar de discipelen voor het eerst christenen heten (11:26). Onderweg komen Paulus en Barnabas in een andere stad met dezelfde naam: ‘Antiochië, een stad in Pisidië’ (13:14). Op de kaart zijn de plaatsen identificeerbaar, behalve Derbe, dat als waarschijnlijk staat. De Bijbel noemt geen jaartallen. De hongersnood ‘onder den keizer Claudius’ (11:28) geeft wel houvast. De eerste reis wordt meestal rond 46–48 n.Chr. gedateerd.",
+          "refs": ["Handelingen 11:26–28", "Handelingen 13:14", "Handelingen 15:23"]
+        },
+        {
+          "kop": "Saulus, die ook Paulus heet",
+          "t": "In Handelingen 13:9 staat voor het eerst dat Saulus ‘ook Paulus genaamd is’. Vanaf dan gebruikt de schrijver die naam. Ook de volgorde verandert: eerst ‘Barnabas en Saulus’ (13:2, 7), daarna meestal ‘Paulus en Barnabas’ (13:43, 46, 50). In 13:13 staat zelfs: ‘Paulus, en die met hem waren’. In Lystre staat Barnabas weer voorop (14:14). Een naamswisseling bij zijn bekering noemt de Bijbel niet; veel uitleggers zien Paulus als zijn Romeinse naam naast de Joodse naam Saulus.",
+          "refs": ["Handelingen 13:2–13", "Handelingen 13:43–50", "Handelingen 14:14"]
+        },
+        {
+          "kop": "Paulus preekt uit de Schriften",
+          "t": "In de synagoge van Antiochië in Pisidië haalt Paulus het Oude Testament aan. Uit ‘den tweeden psalm’: ‘Gij zijt Mijn Zoon, heden heb Ik U gegenereerd’ (Psalm 2:7). Uit Psalm 16:10: ‘Gij zult niet toelaten, dat Uw Heilige de verderving zie’. David heeft wel verderving gezien, zegt Paulus, maar Hij Die God opgewekt heeft niet (13:35–37). En hij waarschuwt met de woorden van Habakuk 1:5: ‘Ik werk een werk in uw dagen’ (13:41).",
+          "refs": ["Handelingen 13:33–41", "Psalm 2:7", "Psalm 16:10", "Habakuk 1:5"]
+        }
+      ],
+      "vragen": [
+        { "q": "Welke psalm haalt Paulus aan met ‘Gij zijt Mijn Zoon, heden heb Ik U gegenereerd’?", "a": ["De tweede psalm", "Psalm 23", "Psalm 51"], "why": "Handelingen 13:33; Psalm 2:7" },
+        { "q": "Welke profeet voorzei in Antiochië een grote hongersnood?", "a": ["Agabus", "Simeon, genaamd Niger", "Lucius van Cyrene"], "why": "Handelingen 11:28" },
+        { "q": "Hoe noemden de mensen in Lystre Barnabas en Paulus?", "a": ["Jupiter en Mercurius", "Mozes en Elia", "Petrus en Johannes"], "why": "Handelingen 14:12" },
+        { "q": "Bij welke gebeurtenis heet Saulus voor het eerst ook Paulus?", "a": ["Bij de tovenaar Elymas op Cyprus", "Bij zijn doop in Damascus", "Bij de genezing in Lystre"], "why": "Handelingen 13:8–9" }
+      ]
+    }
+  },
+  "145": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_lystre", "nt_troas", "nt_filippi"],
+      "delen": [
+        { "t": "Paulus gaat weer op reis, nu met Silas. In Lystre gaat ook Timotheüs mee.", "stap": "handelingen:nt-paulus:8" },
+        { "t": "In Troas ziet Paulus in de nacht een gezicht. Een man uit Macedonië vraagt: ‘Kom over in Macedonië, en help ons.’", "stap": "handelingen:nt-paulus:8" },
+        { "t": "Ze varen met een schip over de zee naar Macedonië. Daar gaan ze naar de stad Filippi.", "stap": "handelingen:nt-paulus:9" },
+        { "t": "Bij de rivier vertelt Paulus over de Heere. Lydia luistert. De Heere opent haar hart.", "stap": "handelingen:nt-paulus:9" },
+        { "t": "Lydia wordt gedoopt, met haar huis. Ze vraagt of Paulus en de anderen bij haar willen wonen." },
+        { "t": "Later worden Paulus en Silas geslagen en in de gevangenis gezet. Hun voeten zitten vast in een blok.", "stap": "handelingen:nt-paulus:10" },
+        { "t": "Om middernacht bidden Paulus en Silas en zingen ze voor God. De andere gevangenen luisteren." },
+        { "t": "Dan komt er een grote aardbeving. Alle deuren gaan open en alle boeien raken los." },
+        { "t": "De bewaker denkt dat iedereen gevlucht is. Maar Paulus roept: ‘Doe uzelven geen kwaad; want wij zijn allen hier.’" },
+        { "t": "De bewaker vraagt hoe hij zalig kan worden. Ze zeggen: Geloof in de Heere Jezus Christus. Nog die nacht wordt hij gedoopt." }
+      ],
+      "samen": "Weggelaten: Paulus en Barnabas gaan in onenigheid uit elkaar (Handelingen 15:37–39), en Paulus drijft een waarzeggende geest uit een slavin; daarom worden hij en Silas gevangengezet (16:16–24). De bewaker wilde zichzelf doden toen hij de deuren open zag (16:27); Daarom roept Paulus: ‘Doe uzelven geen kwaad’. Zalig worden betekent: gered worden van de zonden. Vraag samen: wat deden Paulus en Silas midden in de nacht? (16:25)",
+      "vragen": [
+        { "q": "Wie ziet Paulus in de nacht in Troas?", "a": ["Een man uit Macedonië", "Een engel met een zwaard"], "why": "Handelingen 16:9" },
+        { "q": "Wat opent de Heere bij Lydia?", "a": ["Haar hart", "Haar winkel"], "why": "Handelingen 16:14" },
+        { "q": "Wat doen Paulus en Silas om middernacht?", "a": ["Ze bidden en zingen voor God", "Ze liggen te slapen"], "why": "Handelingen 16:25" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een man uit Macedonië", "stap": "handelingen:nt-paulus:8", "t": "Paulus wil de gemeenten van de eerste reis bezoeken. Barnabas wil Johannes Markus meenemen, maar Paulus niet, omdat die hen eerder verlaten had. Ze gaan uit elkaar. Paulus reist met Silas, en in Lystre gaat Timotheüs mee. De Heilige Geest laat hen niet in Asia prediken. In Troas ziet Paulus ’s nachts een Macedonische man die smeekt: ‘Kom over in Macedonië, en help ons.’" },
+        { "kop": "Lydia bij de rivier", "stap": "handelingen:nt-paulus:9", "t": "Ze varen naar Filippi in Macedonië. Op de sabbat spreken ze bij de rivier met vrouwen die daar bidden. Lydia verkoopt purper, dure paarsrode stof. De Heere opent haar hart, en ze wordt gedoopt met haar huis." },
+        { "kop": "Lofzangen in de nacht", "stap": "handelingen:nt-paulus:10", "t": "Paulus drijft een waarzeggende geest uit een slavin. Haar bazen zijn hun winst kwijt. Paulus en Silas worden gegeseld en met hun voeten in het blok gezet. Om middernacht bidden en zingen ze. Een aardbeving opent alle deuren. De bewaker vraagt: ‘wat moet ik doen, opdat ik zalig worde?’ ‘Geloof in den Heere Jezus Christus’, zeggen ze. Nog die nacht wordt hij gedoopt, met al de zijnen." }
+      ],
+      "vragen": [
+        { "q": "Waarom gingen Paulus en Barnabas uit elkaar?", "a": ["Ze waren het oneens over Johannes Markus", "Barnabas werd ziek in Antiochië", "Paulus wilde liever naar Rome"], "why": "Handelingen 15:37–39" },
+        { "q": "Waarom gingen ze naar Macedonië?", "a": ["Paulus zag een Macedonische man die om hulp vroeg", "Lydia had hen uitgenodigd", "Ze vluchtten voor een storm"], "why": "Handelingen 16:9–10" },
+        { "q": "Waar spraken ze Lydia voor het eerst?", "a": ["Bij de rivier buiten de stad", "In de synagoge van Troas", "Op de markt van Filippi"], "why": "Handelingen 16:13–14" },
+        { "q": "Wat dacht de bewaker toen hij de deuren open zag?", "a": ["Dat de gevangenen gevlucht waren", "Dat er een engel gekomen was", "Dat het al ochtend was"], "why": "Handelingen 16:27" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Barnabas, Markus en Paulus",
+          "t": "Na de ‘verbittering’ (15:39) wordt Barnabas in Handelingen niet meer genoemd. Maar uit de brieven blijkt dat Markus later weer bij Paulus is. Paulus noemt ‘Markus, de neef van Barnabas’ (Kolossenzen 4:10) en schrijft: ‘Markus, Aristarchus, Demas, Lukas, mijn medearbeiders’ (Filemon 1:24). En aan Timotheüs: ‘Neem Markus mede, en breng hem met u; want hij is mij zeer nut tot den dienst’ (2 Timotheüs 4:11). Ook over Timotheüs schrijft Paulus later: het geloof woonde eerst ‘in uw grootmoeder Lois, en in uw moeder Eunice’ (2 Timotheüs 1:5).",
+          "refs": ["Handelingen 15:37–39", "Kolossenzen 4:10", "Filemon 1:24", "2 Timotheüs 4:11", "2 Timotheüs 1:5"]
+        },
+        {
+          "kop": "Van zij naar wij",
+          "t": "Tot Troas vertelt de schrijver over ‘zij’. Vanaf 16:10 staat er: ‘zo zochten wij terstond naar Macedonië te reizen’. Veel uitleggers zien hierin dat de schrijver van Handelingen, meestal Lukas genoemd, in Troas bij Paulus kwam. Het ‘wij’ stopt in Filippi (16:17) en komt later terug, als Paulus weer uit Filippi vertrekt (Handelingen 20:5–6). Het is een uitleg; de schrijver noemt zijn eigen naam niet.",
+          "refs": ["Handelingen 16:8–17", "Handelingen 20:5–6"]
+        },
+        {
+          "kop": "Romeinen in Filippi",
+          "t": "Filippi was ‘een kolonie’ (16:12): een Romeinse stad buiten Italië, met Romeinse burgers en Romeins bestuur. Daarom zeggen de eigenaars van de slavin: ‘alzo wij Romeinen zijn’ (16:21). Maar Paulus en Silas zijn zelf ook Romeinen. Een Romein mocht niet zonder vonnis gegeseld worden; zie ook Handelingen 22:25. Daarom zegt Paulus de volgende morgen: ‘dat zij zelven komen, en ons uitleiden’ (16:37), en worden de hoofdmannen bang.",
+          "refs": ["Handelingen 16:12", "Handelingen 16:20–21", "Handelingen 16:35–39", "Handelingen 22:25"]
+        }
+      ],
+      "vragen": [
+        { "q": "Wat schrijft Paulus later over Markus in 2 Timotheüs 4:11?", "a": ["Neem hem mee, want hij is mij zeer nuttig", "Laat hem thuis, hij verlaat ons toch", "Stuur hem terug naar Barnabas"], "why": "2 Timotheüs 4:11" },
+        { "q": "Wat valt op aan de vertelling vanaf Handelingen 16:10?", "a": ["De schrijver zegt ‘wij’", "De schrijver noemt jaartallen", "Paulus vertelt het zelf in een brief"], "why": "Handelingen 16:10–11" },
+        { "q": "Waarom werden de hoofdmannen van Filippi bang?", "a": ["Ze hoorden dat Paulus en Silas Romeinen waren", "Er kwam opnieuw een aardbeving", "De bewaker was gevlucht"], "why": "Handelingen 16:37–38" }
+      ]
+    }
+  },
+  "146": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_caesarea", "salem", "nt_tempel"],
+      "delen": [
+        { "t": "Paulus en zijn vrienden varen met een schip naar Tyrus. Daarna gaan ze naar Caesarea.", "stap": "handelingen:nt-paulusrome:0" },
+        { "t": "Daar neemt de profeet Agabus de gordel van Paulus. Hij bindt er zijn eigen handen en voeten mee.", "stap": "handelingen:nt-paulusrome:0" },
+        { "t": "Agabus zegt: Zo zullen ze Paulus in Jeruzalem binden. Iedereen vraagt Paulus om niet te gaan." },
+        { "t": "Maar Paulus is bereid om voor de Naam van de Heere Jezus te sterven. Dan zeggen ze: ‘De wil des Heeren geschiede.’" },
+        { "t": "In de tempel in Jeruzalem grijpen mensen Paulus vast. Ze willen hem doden.", "stap": "handelingen:nt-paulusrome:1" },
+        { "t": "Maar Romeinse soldaten komen eraan. Ze nemen Paulus mee.", "stap": "handelingen:nt-paulusrome:1" },
+        { "t": "Op de trap vertelt Paulus hoe de Heere Jezus hem op weg naar Damascus geroepen heeft." },
+        { "t": "In de nacht staat de Heere bij Paulus. Hij zegt: ‘Heb goeden moed, Paulus’. Je moet ook in Rome over Mij vertellen." },
+        { "t": "Een groep mannen spreekt af om Paulus te doden. Maar de zoon van zijn zus hoort het en vertelt het." },
+        { "t": "Dan stuurt de overste Paulus in de nacht met heel veel soldaten naar Caesarea.", "stap": "handelingen:nt-paulusrome:2" }
+      ],
+      "samen": "Een gordel is een riem om het middel. Weggelaten zijn onder andere de ruzie in de raad tussen Farizeeën en Sadduceeën (Handelingen 23:6–10) en dat de hogepriester Paulus op de mond laat slaan (23:2). De geschiedenis eindigt met Paulus als gevangene, maar de Heere heeft hem beloofd dat hij ook in Rome zal getuigen (23:11). Vraag samen: wie hoorde van het plan en waarschuwde Paulus? (23:16)",
+      "vragen": [
+        { "q": "Wat doet Agabus met de gordel van Paulus?", "a": ["Hij bindt er zijn handen en voeten mee", "Hij gooit hem in de zee"], "why": "Handelingen 21:11" },
+        { "q": "Wat zegt de Heere in de nacht tegen Paulus?", "a": ["Heb goeden moed", "Ga terug naar huis"], "why": "Handelingen 23:11" },
+        { "q": "Wie hoort het plan om Paulus te doden?", "a": ["De zoon van zijn zus", "De profeet Agabus"], "why": "Handelingen 23:16" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een profeet met een gordel", "stap": "handelingen:nt-paulusrome:0", "t": "Paulus reist per schip naar Tyrus en dan naar Caesarea, naar het huis van Filippus de evangelist. Daar bindt de profeet Agabus zijn eigen handen en voeten met de gordel van Paulus. Zo zullen de Joden in Jeruzalem Paulus binden, zegt hij. Iedereen smeekt Paulus niet te gaan. Maar hij is bereid ‘ook te sterven te Jeruzalem voor den Naam van den Heere Jezus’." },
+        { "kop": "Opschudding in de tempel", "stap": "handelingen:nt-paulusrome:1", "t": "In de tempel zien Joden uit Asia Paulus. Ze roepen dat hij Grieken in de tempel heeft gebracht. Ze slepen hem naar buiten en willen hem doden. Dan grijpt de Romeinse overste met soldaten in. Op de trappen vertelt Paulus het volk hoe de Heere hem op de weg naar Damascus geroepen heeft." },
+        { "kop": "Moed in de nacht", "stap": "handelingen:nt-paulusrome:2", "t": "’s Nachts staat de Heere bij hem: ‘Heb goeden moed, Paulus’. Hij moet ook in Rome getuigen. Meer dan veertig mannen zweren niets te eten voordat ze Paulus gedood hebben. Maar een neef van Paulus, de zoon van zijn zus, hoort het en waarschuwt. De overste stuurt Paulus ’s nachts met veel soldaten naar stadhouder Felix in Caesarea." }
+      ],
+      "vragen": [
+        { "q": "Wat betekende het dat Agabus zich bond met de gordel van Paulus?", "a": ["Paulus zou in Jeruzalem gebonden worden", "Paulus moest in Caesarea blijven wonen", "Agabus wilde met Paulus meereizen"], "why": "Handelingen 21:11" },
+        { "q": "Wie redde Paulus bij de tempel uit de handen van de menigte?", "a": ["De Romeinse overste met soldaten", "Jakobus en de ouderlingen", "Filippus de evangelist"], "why": "Handelingen 21:31–33" },
+        { "q": "Wat zei de Heere ’s nachts tegen Paulus?", "a": ["Dat hij ook in Rome moest getuigen", "Dat hij naar Tarsus terug moest", "Dat hij in Jeruzalem moest blijven"], "why": "Handelingen 23:11" },
+        { "q": "Hoe hoorde Paulus van het plan om hem te doden?", "a": ["Via de zoon van zijn zus", "Via een engel in een droom", "Via de hogepriester"], "why": "Handelingen 23:16" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Paulus vertelt zijn roeping opnieuw",
+          "t": "Op de trappen vertelt Paulus wat ook in Handelingen 9 staat, met nieuwe details. Het gebeurde ‘omtrent den middag’ (22:6). De stem zei: ‘Ik ben Jezus, de Nazarener’ (22:8). Ananias was ‘een godvruchtig man naar de wet’ (22:12). En hij vertelt iets wat Handelingen 9 niet noemt: later, in de tempel, zei de Heere: ‘Ga heen; want Ik zal u ver tot de heidenen afzenden’ (22:21). Tot dat woord luistert het volk; dan roepen ze: ‘Weg van de aarde met zulk een’ (22:22).",
+          "refs": ["Handelingen 22:6–22", "Handelingen 9:3–18"]
+        },
+        {
+          "kop": "Farizeeën en Sadduceeën",
+          "t": "Paulus weet dat de raad uit twee groepen bestaat. ‘De Sadduceën zeggen, dat er geen opstanding is, noch engel, noch geest, maar de Farizeën belijden het beide’ (23:8). Ook de Heere Jezus sprak met Sadduceeën, ‘die zeggen, dat er geen opstanding is’ (Mattheüs 22:23). Paulus noemt zich ‘een Farizeër, eens Farizeërs zoon’, en zegt dat het gaat om ‘de hoop en opstanding der doden’ (23:6). Daardoor raakt de raad verdeeld, en sommige Farizeeën zeggen: ‘Wij vinden geen kwaad in dezen mens’ (23:9).",
+          "refs": ["Handelingen 23:6–9", "Mattheüs 22:23"]
+        },
+        {
+          "kop": "Een gewitte wand",
+          "t": "Als de hogepriester Ananias hem op de mond laat slaan, zegt Paulus: ‘God zal u slaan, gij gewitte wand!’ (23:3). Dit is een andere Ananias dan de discipel in Damascus. Een gewitte wand is een muur die van buiten met kalk wit gemaakt is; meestal wordt het uitgelegd als: van buiten mooi, van binnen anders. De Heere Jezus gebruikte een vergelijkbaar beeld: ‘witgepleisterden graven’ (Mattheüs 23:27). Als Paulus hoort wie het is, wijst hij op de wet: ‘Den overste uws volks zult gij niet vloeken’ (23:5; vergelijk Exodus 22:28).",
+          "refs": ["Handelingen 23:2–5", "Mattheüs 23:27", "Exodus 22:28"]
+        }
+      ],
+      "vragen": [
+        { "q": "Wat zeiden de Sadduceeën volgens Handelingen 23:8?", "a": ["Dat er geen opstanding is, noch engel, noch geest", "Dat Paulus een engel gezien had", "Dat de doden zeker zullen opstaan"], "why": "Handelingen 23:8" },
+        { "q": "Wat zei de Heere tegen Paulus in de tempel, volgens zijn toespraak?", "a": ["Dat Hij hem ver naar de heidenen zou sturen", "Dat hij in Jeruzalem moest blijven", "Dat hij hogepriester zou worden"], "why": "Handelingen 22:17–21" },
+        { "q": "Wie was de hogepriester die Paulus op de mond liet slaan?", "a": ["Ananias", "Kajafas", "Gamaliël"], "why": "Handelingen 23:2" }
+      ]
+    }
+  },
+  "147": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_caesarea", "nt_schonehavens", "nt_malta"],
+      "delen": [
+        { "t": "Paulus is gevangen in Caesarea. Hij zegt: ‘Ik beroep mij op den keizer.’ Dat betekent: de keizer moet over mij oordelen.", "stap": "handelingen:nt-paulusrome:3" },
+        { "t": "Daarom gaat Paulus met een schip naar Italië. Hij is samen met andere gevangenen. De hoofdman Julius past op hen." },
+        { "t": "Paulus waarschuwt: deze reis wordt gevaarlijk. Maar ze varen toch verder.", "stap": "handelingen:nt-paulusrome:4" },
+        { "t": "Dan komt er een zware storm. Vele dagen zien ze geen zon en geen sterren. Ze hebben geen hoop meer." },
+        { "t": "Paulus zegt: Een engel van God is bij mij geweest. Niemand zal sterven, alleen het schip gaat verloren." },
+        { "t": "In de nacht komen ze dicht bij land. Paulus zegt dat iedereen moet eten. Hij dankt God voor het brood.", "stap": "handelingen:nt-paulusrome:5" },
+        { "t": "Het schip loopt vast. De golven slaan het achterste deel stuk.", "stap": "handelingen:nt-paulusrome:5" },
+        { "t": "Wie kan zwemmen, springt in het water. De anderen drijven op planken naar het land." },
+        { "t": "Zo komen ze allemaal veilig aan land, zoals God beloofd had." }
+      ],
+      "samen": "De storm kan spannend zijn voor jonge kinderen; benadruk dat God beloofde dat niemand zou omkomen, en dat dat ook gebeurde (Handelingen 27:22–24, 44). Weggelaten: de soldaten wilden de gevangenen doden, zodat niemand zou ontvluchten, maar de hoofdman verbood het om Paulus te redden (27:42–43). Op het schip waren 276 mensen (27:37). Vraag samen: wat deed Paulus voordat hij het brood at? (27:35)",
+      "vragen": [
+        { "q": "Wat zegt Paulus na het bezoek van de engel?", "a": ["Niemand zal sterven", "Het schip blijft heel"], "why": "Handelingen 27:22–24" },
+        { "q": "Wat doet Paulus voordat hij het brood eet?", "a": ["Hij dankt God", "Hij gaat slapen"], "why": "Handelingen 27:35" },
+        { "q": "Hoe komen de mensen aan land?", "a": ["Zwemmend of op planken", "Met een andere boot"], "why": "Handelingen 27:43–44" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een beroep op de keizer", "stap": "handelingen:nt-paulusrome:3", "t": "Paulus zit al twee jaar gevangen in Caesarea. Dan komt er een nieuwe stadhouder, Festus. De leiders van de Joden willen Paulus naar Jeruzalem laten komen om hem onderweg te doden. Festus vraagt of Paulus in Jeruzalem berecht wil worden. Maar Paulus zegt: ‘Ik beroep mij op den keizer.’ Dat betekent: de keizer moet over mijn zaak oordelen." },
+        { "kop": "Storm op zee", "stap": "handelingen:nt-paulusrome:4", "t": "Met andere gevangenen gaat Paulus aan boord, onder Julius, een hoofdman over honderd soldaten. Ze komen in Schone Havens op Kreta. Paulus waarschuwt dat de reis grote schade zal geven. Maar de hoofdman gelooft de stuurman en de schipper meer. Dan slaat een stormwind tegen het schip. Vele dagen zien ze zon noch sterren. Paulus zegt: een engel van God heeft gezegd dat niemand zijn leven zal verliezen." },
+        { "kop": "Allemaal behouden aan land", "stap": "handelingen:nt-paulusrome:5", "t": "In de veertiende nacht komen ze dicht bij land. Paulus dankt God voor het brood en eet, en dan eten ze allemaal. Het schip loopt vast en breekt. Wie kan zwemmen, springt overboord; de anderen drijven op planken. Zo komen ze ‘allen behouden aan het land’." }
+      ],
+      "vragen": [
+        { "q": "Waarom wilden de Joodse leiders dat Paulus naar Jeruzalem kwam?", "a": ["Ze wilden hem onderweg doden", "Ze wilden hem vrijlaten", "Ze wilden hem in de tempel horen"], "why": "Handelingen 25:2–3" },
+        { "q": "Waarom voeren ze toch verder van Schone Havens?", "a": ["De hoofdman geloofde de stuurman meer dan Paulus", "Paulus wilde snel naar de keizer", "De storm was al voorbij"], "why": "Handelingen 27:10–13" },
+        { "q": "Waarom kon Paulus de mensen moed inspreken?", "a": ["Een engel van God had hem iets beloofd", "Hij zag het land al liggen", "De stuurman had het hem gezegd"], "why": "Handelingen 27:22–25" },
+        { "q": "Wat deden de anderen nadat Paulus God gedankt had en begon te eten?", "a": ["Ze kregen moed en aten ook", "Ze sprongen meteen overboord", "Ze gooiden het brood in zee"], "why": "Handelingen 27:35–36" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        {
+          "kop": "Na de vasten",
+          "t": "Paulus waarschuwt ‘omdat ook de vasten nu voorbij was’ (27:9). Meestal wordt dit uitgelegd als de Grote Verzoendag, ‘op den tienden dezer zevende maand’ (Leviticus 23:27), in de herfst. De tekst zegt zelf dat de vaart ‘nu zorgelijk was’, en dat de haven ongeschikt was ‘om te overwinteren’ (27:12). De reis wordt meestal rond 59–60 n.Chr. gedateerd; de Bijbel noemt geen jaartal.",
+          "refs": ["Handelingen 27:9–12", "Leviticus 23:27"]
+        },
+        {
+          "kop": "Waar strandde het schip?",
+          "t": "De naam van het eiland staat pas in het volgende hoofdstuk: ‘het eiland Melite’ (Handelingen 28:1). Dat wordt meestal gelijkgesteld met Malta; op de kaart staat het als waarschijnlijk, net als Salmone. Myra, Knidus, Schone Havens en Klauda zijn identificeerbaar. Fenix, de haven waar men wilde overwinteren (27:12), haalt het schip niet. De Bijbel vertelt niet waar op het eiland het schip vastliep, alleen dat het ‘een plaats, die de zee aan beide zijden had’ was (27:41).",
+          "refs": ["Handelingen 27:5–16", "Handelingen 27:41", "Handelingen 28:1"]
+        },
+        {
+          "kop": "Een woord dat vaststaat",
+          "t": "In Jeruzalem zei de Heere al: ‘alzo moet gij ook te Rome getuigen’ (Handelingen 23:11). In de storm zegt de engel: ‘gij moet voor den keizer gesteld worden’ (27:24). Paulus zegt: ‘niemand van u zal een haar van het hoofd vallen’ (27:34), woorden die lijken op wat de Heere Jezus zei: ‘Doch niet een haar uit uw hoofd zal verloren gaan’ (Lukas 21:18). Toch zegt Paulus ook: ‘Indiën dezen in het schip niet blijven, gij kunt niet behouden worden’ (27:31). Veel uitleggers wijzen erop dat Gods belofte en het gebruik van middelen hier samengaan.",
+          "refs": ["Handelingen 23:11", "Handelingen 27:24", "Handelingen 27:31–34", "Lukas 21:18"]
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom hakten de soldaten de touwen van de boot af?", "a": ["De scheepslieden wilden met de boot vluchten", "De boot was lek geslagen", "Ze wilden met de boot land zoeken"], "why": "Handelingen 27:30–32" },
+        { "q": "Voor wie moest Paulus volgens de engel nog komen te staan?", "a": ["Voor de keizer", "Voor de hogepriester", "Voor koning Agrippa"], "why": "Handelingen 27:24" },
+        { "q": "Waarom verbood de hoofdman de soldaten de gevangenen te doden?", "a": ["Hij wilde Paulus behouden", "Hij had het schip al verlaten", "De gevangenen konden niet zwemmen"], "why": "Handelingen 27:42–43" },
+        { "q": "Hoe heet het eiland van de schipbreuk in de Statenvertaling?", "a": ["Melite", "Klauda", "Kreta"], "why": "Handelingen 28:1" }
+      ]
+    }
+  }
+}

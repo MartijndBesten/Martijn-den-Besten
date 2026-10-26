@@ -1,0 +1,215 @@
+{
+  "16": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["haran"],
+      "delen": [
+        { "t": "Jakob is op reis naar het oosten. Hij komt bij een put in het veld. Er liggen drie kudden schapen bij.", "stap": "genesis:jakob:1" },
+        { "t": "Op de put ligt een grote steen. Dan komt Rachel met de schapen van haar vader Laban. Laban is de broer van Jakobs moeder.", "stap": "genesis:jakob:1" },
+        { "t": "Jakob rolt de steen van de put en geeft de schapen water. Hij kust Rachel en huilt. Laban haalt Jakob in huis.", "stap": "genesis:jakob:1" },
+        { "t": "Jakob heeft Rachel lief. Hij werkt zeven jaar voor Laban om met haar te trouwen. Die jaren lijken voor hem maar een paar dagen.", "stap": "genesis:jakob:2" },
+        { "t": "Dan geeft Laban een feestmaal. Maar de volgende morgen ziet Jakob dat hij Lea als vrouw heeft gekregen, de oudere zus.", "stap": "genesis:jakob:2" },
+        { "t": "Laban heeft Jakob bedrogen. Een week later krijgt Jakob ook Rachel als vrouw. Daarvoor werkt hij nog eens zeven jaar.", "stap": "genesis:jakob:2" },
+        { "t": "De HEERE ziet dat Lea minder geliefd is. Hij geeft haar zonen. Maar Rachel krijgt geen kinderen.", "stap": "genesis:jakob:3" },
+        { "t": "Jakob krijgt nog meer zonen, en een dochter: Dina.", "stap": "genesis:jakob:3" },
+        { "t": "Als laatste denkt God ook aan Rachel. Zij krijgt een zoon: Jozef.", "stap": "genesis:jakob:3" }
+      ],
+      "samen": "Weggelaten: Rachel en Lea gaven ook hun slavinnen Bilha en Zilpa aan Jakob, en ook zij kregen zonen (Genesis 30:3–13). De Bijbel vertelt eerlijk over de jaloezie tussen de zussen (30:1, 15). Dat Jakob meer vrouwen had, vertelt de Bijbel zoals het ging. Wijs Haran aan op de kaart: daar woont Laban. Vraag samen: wie gaf Rachel toch een zoon (30:22–24)?",
+      "vragen": [
+        { "q": "Wie komt er met de schapen bij de put?", "a": ["Rachel", "Lea"], "why": "Genesis 29:9" },
+        { "q": "Hoe lang werkt Jakob eerst voor Rachel?", "a": ["Zeven jaar", "Twee jaar"], "why": "Genesis 29:20" },
+        { "q": "Met wie blijkt Jakob na het feest getrouwd te zijn?", "a": ["Met Lea, de oudere zus", "Met Rachel, de jongere zus"], "why": "Genesis 29:23–25" },
+        { "q": "Hoe heet de zoon van Rachel?", "a": ["Jozef", "Jakob"], "why": "Genesis 30:24" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Bij de put in het veld", "stap": "genesis:jakob:1", "t": "Jakob reist naar het land in het oosten. Bij een put in het veld liggen kudden schapen. De herders komen uit Haran en kennen Laban, de broer van Jakobs moeder. Dan komt Rachel, de dochter van Laban, met de schapen. Jakob rolt de grote steen van de put en geeft de schapen water. Hij kust Rachel en huilt. Laban haalt hem in huis." },
+        { "kop": "Zeven jaar, en nog eens zeven", "stap": "genesis:jakob:2", "t": "Jakob heeft Rachel lief. Hij werkt zeven jaar voor Laban om met haar te trouwen. Die jaren zijn in zijn ogen ‘als enige dagen’: als een paar dagen. Maar na het bruiloftsmaal blijkt dat Laban hem Lea heeft gegeven, de oudste dochter. ‘Waarom hebt gij mij dan bedrogen?’ vraagt Jakob. Een week later krijgt hij ook Rachel. Daarvoor werkt hij nog zeven jaar." },
+        { "kop": "Elf zonen en een dochter", "stap": "genesis:jakob:3", "t": "De HEERE ziet dat Lea minder geliefd is, en Hij geeft haar zonen. Rachel krijgt geen kinderen en is jaloers op haar zus. Ook hun slavinnen Bilha en Zilpa krijgen zonen van Jakob. Als laatste denkt God aan Rachel, en zij krijgt Jozef. Zo heeft Jakob in Haran elf zonen en een dochter, Dina." }
+      ],
+      "vragen": [
+        { "q": "Waar komen de herders bij de put vandaan?", "a": ["Uit Haran", "Uit Bethel", "Uit Sichem"], "why": "Genesis 29:4" },
+        { "q": "Waarom lijken de zeven jaren voor Jakob maar een paar dagen?", "a": ["Omdat hij Rachel liefheeft", "Omdat het werk heel licht is", "Omdat Laban hem veel betaalt"], "why": "Genesis 29:20" },
+        { "q": "Wat gebeurt er een week na de bruiloft met Lea?", "a": ["Jakob krijgt ook Rachel als vrouw", "Jakob vlucht weg uit Haran", "Laban stuurt Lea terug naar huis"], "why": "Genesis 29:27–28" },
+        { "q": "Wie zijn Bilha en Zilpa?", "a": ["De slavinnen van Rachel en Lea", "De zussen van Laban", "De dochters van Jakob"], "why": "Genesis 29:24, 29" },
+        { "q": "Wie is de moeder van Jozef?", "a": ["Rachel", "Lea", "Bilha"], "why": "Genesis 30:22–24" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Namen met een betekenis", "t": "Bij elke zoon zegt de moeder waarom hij zo heet. Bij Ruben zegt Lea: ‘Omdat de HEERE mijn verdrukking heeft aangezien’. Bij Juda: ‘Ditmaal zal ik den HEERE loven’. In het Hebreeuws lijken de namen op woorden uit die zinnen. Bij Jozef zegt Rachel: ‘De HEERE voege mij een anderen zoon daartoe’, dat is: de HEERE geve mij er nog een zoon bij. Dat gebeurt later, maar bij de geboorte van Benjamin sterft Rachel, op de weg naar Efrath (Genesis 35:16–19).", "refs": ["Genesis 29:32–35", "Genesis 30:23–24", "Genesis 35:16–19"] },
+        { "kop": "De gespikkelde kudde", "t": "Na de geboorte van Jozef wil Jakob terug naar zijn land. Laban wil hem houden en zegt: ‘ik heb waargenomen, dat de HEERE mij om uwentwil gezegend heeft’. Jakobs loon wordt het gespikkelde en geplekte vee. Hij legt geschilde roeden (stokken) bij de drinkbakken, en zijn kudde groeit sterk. Uitleggers verschillen over wat die roeden deden. Jakob zegt later zelf dat God dit bestuurde: ‘Alzo heeft God uw vader het vee ontrukt, en aan mij gegeven’ (Genesis 31:9). In een droom had de Engel Gods tegen hem gezegd: ‘Ik heb gezien alles, wat Laban u doet.’", "refs": ["Genesis 30:25–43", "Genesis 31:9–12"] },
+        { "kop": "Elders in de Bijbel", "t": "Jakob had eerder zijn vader Izak bedrogen. Izak zei toen tegen Ezau: ‘Uw broeder is gekomen met bedrog’ (Genesis 27:35). Nu wordt Jakob zelf bedrogen; veel uitleggers wijzen op die overeenkomst. Lea, de minder geliefde vrouw, wordt later begraven in het graf waar ook Abraham en Izak liggen (Genesis 49:31). Rachel wordt veel later genoemd door de profeet Jeremia: ‘Rachel weent over haar kinderen’ (Jeremia 31:15). Mattheüs haalt die woorden aan bij de kinderen van Bethlehem (Mattheüs 2:17–18).", "refs": ["Genesis 27:35", "Genesis 49:31", "Jeremia 31:15", "Mattheüs 2:17–18"] }
+      ],
+      "vragen": [
+        { "q": "Wat zei Lea bij de geboorte van Juda?", "a": ["‘Ditmaal zal ik den HEERE loven’", "‘Er komt een hoop!’", "‘Tot mijn geluk!’"], "why": "Genesis 29:35" },
+        { "q": "Wat zei Laban toen Jakob na de geboorte van Jozef wilde vertrekken?", "a": ["Dat de HEERE hem om Jakobs wil gezegend had", "Dat Jakob zijn dochters niet mocht meenemen", "Dat Jakob nog zeven jaar moest werken"], "why": "Genesis 30:27" },
+        { "q": "Van wie kwam volgens Jakob de groei van zijn kudde?", "a": ["Van God, Die het vee van Laban aan hem gaf", "Van Ezau, als geschenk", "Van de herders uit Haran"], "why": "Genesis 31:9" },
+        { "q": "Welke zoon kreeg Rachel later, zoals zij bij Jozef gevraagd had?", "a": ["Benjamin", "Juda", "Gad"], "why": "Genesis 30:24; Genesis 35:18" }
+      ]
+    }
+  },
+  "17": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["haran", "gilead", "pniel"],
+      "delen": [
+        { "t": "Jakob is al twintig jaar bij Laban. Dan zegt de HEERE: ga terug naar het land van je vaderen. Ik zal met je zijn.", "stap": "genesis:jakob:4" },
+        { "t": "Jakob vertrekt met zijn vrouwen, zijn kinderen en al zijn dieren. Hij zegt het niet tegen Laban.", "stap": "genesis:jakob:4" },
+        { "t": "Laban gaat hen achterna en haalt hen in op de bergen van Gilead. Maar God waarschuwt Laban in een droom.", "stap": "genesis:jakob:4" },
+        { "t": "Jakob en Laban maken een hoop stenen. Die hoop is een getuige: ze zullen elkaar geen kwaad doen. Dan gaat Laban terug.", "stap": "genesis:jakob:4" },
+        { "t": "Onderweg komen engelen van God Jakob tegemoet.", "stap": "genesis:jakob:5" },
+        { "t": "Dan hoort Jakob dat zijn broer Ezau eraan komt, met heel veel mannen. Jakob is erg bang.", "stap": "genesis:jakob:5" },
+        { "t": "Jakob bidt tot God: red mij uit de hand van mijn broer. Hij stuurt Ezau een groot geschenk van dieren.", "stap": "genesis:jakob:5" },
+        { "t": "In de nacht blijft Jakob alleen achter bij de beek de Jabbok. Een Man worstelt met hem tot het licht wordt.", "stap": "genesis:jakob:6" },
+        { "t": "De Man raakt Jakobs heup aan. Maar Jakob zegt: ‘Ik zal U niet laten gaan, tenzij dat Gij mij zegent.’", "stap": "genesis:jakob:6" },
+        { "t": "Jakob krijgt een nieuwe naam: Israël. Hij zegt: ik heb God gezien. Als de zon opkomt, loopt hij mank.", "stap": "genesis:jakob:6" }
+      ],
+      "samen": "Weggelaten: Rachel nam stiekem de huisgoden (terafim) van haar vader mee en verborg ze (Genesis 31:19, 34). Wie de Man bij de Jabbok is, zegt Genesis 32 niet met een naam. Jakob zegt dat hij God gezien heeft (32:30), en Hosea 12:5 noemt Hem de Engel. Jakob was bang, maar hij bad en hield God Zijn belofte voor (32:9–12). Vraag samen: wat vraagt Jakob aan de Man?",
+      "vragen": [
+        { "q": "Wie zegt tegen Jakob dat hij terug moet gaan?", "a": ["De HEERE", "Laban"], "why": "Genesis 31:3" },
+        { "q": "Waarom is Jakob bang?", "a": ["Ezau komt eraan met heel veel mannen", "Hij is zijn schapen kwijt"], "why": "Genesis 32:6–7" },
+        { "q": "Welke nieuwe naam krijgt Jakob?", "a": ["Israël", "Jozef"], "why": "Genesis 32:28" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Terug naar het land van je vaderen", "stap": "genesis:jakob:4", "t": "Jakob is twintig jaar bij Laban geweest. Laban is tegen hem niet meer zoals vroeger. Dan zegt de HEERE: ‘Keer weder tot het land uwer vaderen, en tot uw maagschap, en Ik zal met u zijn.’ Maagschap betekent familie. Jakob vertrekt met zijn gezin en zijn vee, zonder het Laban te zeggen." },
+        { "kop": "Een steenhoop als getuige", "stap": "genesis:jakob:4", "t": "Laban jaagt hen achterna en haalt hen in op het gebergte Gilead. Maar God waarschuwt hem in een droom. Jakob en Laban maken een hoop stenen als getuige: ze zullen elkaar geen kwaad doen." },
+        { "kop": "Bang voor Ezau", "stap": "genesis:jakob:5", "t": "Bij Mahanaïm ontmoeten engelen van God Jakob. Dan hoort hij dat Ezau eraan komt met vierhonderd man. Jakob is erg bang. Hij bidt: ‘Ruk mij toch uit mijns broeders hand’. Dat is: red mij van mijn broer. Hij stuurt een groot geschenk van vee vooruit." },
+        { "kop": "Worstelen tot de dageraad", "stap": "genesis:jakob:6", "t": "’s Nachts blijft Jakob alleen achter bij de beek de Jabbok. Een Man worstelt met hem tot de dageraad en raakt Jakobs heup aan. Jakob zegt: ‘Ik zal U niet laten gaan, tenzij dat Gij mij zegent.’ Hij krijgt de naam Israël. Jakob noemt de plaats Pniël, want hij heeft God gezien." }
+      ],
+      "vragen": [
+        { "q": "Waarom gaat Jakob terug naar het land van zijn vaderen?", "a": ["De HEERE zegt dat hij terug moet gaan", "Laban stuurt hem weg", "Er is honger in Haran"], "why": "Genesis 31:3" },
+        { "q": "Waar haalt Laban Jakob in?", "a": ["Op het gebergte Gilead", "Bij de beek de Jabbok", "In Bethel"], "why": "Genesis 31:23" },
+        { "q": "Wat doet Jakob als hij hoort dat Ezau eraan komt?", "a": ["Hij bidt en stuurt een geschenk vooruit", "Hij keert terug naar Laban", "Hij verstopt zich in de bergen"], "why": "Genesis 32:9–21" },
+        { "q": "Wat gebeurt er als eerste?", "a": ["Jakob en Laban maken een steenhoop", "Jakob hoort dat Ezau eraan komt", "Jakob worstelt bij de Jabbok"], "why": "Genesis 31:46; Genesis 32:6; Genesis 32:24" },
+        { "q": "Waarom noemt Jakob de plaats Pniël?", "a": ["Hij heeft God gezien van aangezicht tot aangezicht", "Hij heeft daar een put gevonden", "Hij heeft daar Ezau ontmoet"], "why": "Genesis 32:30" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Van Jakob naar Israël", "t": "Bij zijn geboorte hield Jakob de hiel van Ezau vast; ‘daarom noemde men zijn naam Jakob’ (Genesis 25:26). Later zegt Ezau: ‘Is het niet omdat men zijn naam noemt Jakob, dat hij mij nu twee reizen heeft bedrogen?’ (Genesis 27:36). Bij de Jabbok vraagt de Man: ‘Hoe is uw naam?’ Dan krijgt Jakob de naam Israël, ‘want gij hebt u vorstelijk gedragen met God en met de mensen, en hebt overmocht’. In Bethel bevestigt God die naam (Genesis 35:10). Later heet het hele volk naar hem: de kinderen Israëls (Genesis 32:32).", "refs": ["Genesis 25:26", "Genesis 27:36", "Genesis 32:27–28", "Genesis 35:10"] },
+        { "kop": "Wie is de Man?", "t": "Genesis 32 noemt Hem eerst ‘een man’. Zijn naam geeft Hij niet: ‘Waarom is het, dat gij naar Mijn naam vraagt?’ Toch zegt Jakob: ‘ik heb God gezien van aangezicht tot aangezicht’. Hosea noemt Hem ‘den Engel’. In Genesis 31 spreekt ook ‘de Engel Gods’ tot Jakob, en Hij zegt: ‘Ik ben die God van Beth-el’. Veel uitleggers zien hierin de Engel des HEEREN, Die als God spreekt. In de reformatorische uitleg wordt Hij vaak gezien als de Zoon van God, voordat Hij mens werd. De tekst zelf noemt geen naam.", "refs": ["Genesis 32:24–30", "Genesis 31:11–13", "Hosea 12:4–5"] },
+        { "kop": "Waar en wanneer", "t": "Gilead is het bergland ten oosten van de Jordaan. Laban noemt de steenhoop Jegar-sahadutha, Jakob noemt hem Gilead. Beide namen betekenen: hoop van de getuigenis, de ene in het Aramees, de taal van Laban, de andere in het Hebreeuws. Mahanaïm betekent: twee legers. Jakob zag ‘een heirleger Gods’, en kort daarna verdeelde hij zijn eigen mensen ‘in twee heiren’. Mahanaïm en Pniël worden gezocht bij de Jabbok, een zijrivier van de Jordaan; die ligging is waarschijnlijk, niet zeker. In de reconstructie van de reis is dit ca. 1909 v.Chr.; andere dateringen komen enkele eeuwen later.", "refs": ["Genesis 31:47–48", "Genesis 32:2", "Genesis 32:7"] }
+      ],
+      "vragen": [
+        { "q": "Hoe noemde Laban de steenhoop?", "a": ["Jegar-sahadutha", "Mahanaïm", "Paddan-aram"], "why": "Genesis 31:47" },
+        { "q": "Wat zei Jakob toen de engelen van God hem ontmoetten?", "a": ["Dit is een heirleger Gods", "Dit is de poort des hemels", "Dit is het land van Ezau"], "why": "Genesis 32:2" },
+        { "q": "Wat antwoordde de Man toen Jakob naar Zijn naam vroeg?", "a": ["Hij vroeg waarom Jakob naar Zijn naam vroeg", "Hij zei dat Zijn naam Israël was", "Hij gaf geen antwoord en ging weg"], "why": "Genesis 32:29" },
+        { "q": "Waarom eten de kinderen Israëls de verrukte zenuw niet?", "a": ["Omdat de Man Jakobs heup daar had aangeraakt", "Omdat Laban het zo had bepaald", "Omdat Ezau daarom had gevraagd"], "why": "Genesis 32:32" }
+      ]
+    }
+  },
+  "18": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["mamre", "dothan", "egypte"],
+      "delen": [
+        { "t": "Jozef past samen met zijn broers op de kudde van hun vader Jakob.", "stap": "genesis:jozef:0" },
+        { "t": "Jakob houdt het meest van Jozef. Hij maakt voor hem een veelkleurige rok: een kleed in veel kleuren. Daarom haten de broers Jozef.", "stap": "genesis:jozef:0" },
+        { "t": "Jozef droomt dat de schoven van zijn broers buigen voor zijn schoof. Een schoof is een bos graan. De broers haten hem nog meer." },
+        { "t": "Daarna droomt hij dat de zon, de maan en elf sterren voor hem buigen. De broers zijn jaloers." },
+        { "t": "Vader Jakob stuurt Jozef naar zijn broers. Jozef zoekt hen en vindt hen bij Dothan.", "stap": "genesis:jozef:1" },
+        { "t": "De broers zien hem van ver aankomen. Ze willen hem doden. Maar Ruben zegt: doe hem geen kwaad.", "stap": "genesis:jozef:2" },
+        { "t": "Ze trekken Jozef zijn rok uit. Ze gooien hem in een lege put, zonder water.", "stap": "genesis:jozef:2" },
+        { "t": "Er komen kooplieden langs die naar Egypte reizen. Juda zegt: laten we hem verkopen. Zo wordt Jozef verkocht.", "stap": "genesis:jozef:2" },
+        { "t": "De broers dopen de rok in het bloed van een bok. Vader Jakob denkt dat een wild dier Jozef gedood heeft. Hij huilt heel lang.", "stap": "genesis:jakob:11" },
+        { "t": "Maar Jozef leeft. In Egypte wordt hij verkocht aan Potifar, een hoge dienaar van de farao.", "stap": "genesis:jozef:3" }
+      ],
+      "samen": "De broers wilden Jozef eerst doden (Genesis 37:18–20); dat staat hier in één zin. De Bijbel noemt hun haat en jaloezie (37:4, 11). Jakob werd bedrogen met de rok en dacht dat Jozef dood was (37:31–35). Stefanus zegt later dat God met Jozef was (Handelingen 7:9). Vraag samen: wat weet vader Jakob niet, en wat weten wij wel?",
+      "vragen": [
+        { "q": "Wat maakt vader Jakob voor Jozef?", "a": ["Een veelkleurige rok", "Een nieuwe tent"], "why": "Genesis 37:3" },
+        { "q": "Waar gooien de broers Jozef in?", "a": ["In een lege put", "In een rivier"], "why": "Genesis 37:24" },
+        { "q": "Waar gaat Jozef met de kooplieden naartoe?", "a": ["Naar Egypte", "Naar Haran"], "why": "Genesis 37:28" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een rok en twee dromen", "stap": "genesis:jozef:0", "t": "Jozef is zeventien jaar en past met zijn broers op de kudde. Jakob heeft hem het liefst. Hij maakt Jozef een veelkleurige rok. Daarom haten de broers hem. Jozef droomt dat hun schoven (bossen graan) buigen voor zijn schoof. Daarna droomt hij dat de zon, de maan en elf sterren voor hem buigen. De broers worden jaloers." },
+        { "kop": "In de kuil bij Dothan", "stap": "genesis:jozef:2", "t": "Jakob stuurt Jozef naar zijn broers bij Sichem. Hij vindt hen pas bij Dothan. Als ze hem zien, zeggen ze: ‘Ziet, daar komt die meesterdromer aan!’ Ze willen hem doden. Maar Ruben zegt: ‘Vergiet geen bloed’. Hij wil Jozef later terugbrengen naar zijn vader. Ze trekken Jozef zijn rok uit en gooien hem in een lege kuil." },
+        { "kop": "Verkocht naar Egypte", "stap": "genesis:jozef:3", "t": "Dan komen er kooplieden langs, op weg naar Egypte. Juda zegt: laten we hem niet doden, maar verkopen, want hij is onze broer. Ze verkopen Jozef voor twintig zilverlingen. De rok dopen ze in het bloed van een geitenbok. Jakob denkt dat een wild dier Jozef verscheurd heeft, en hij rouwt lang. In Egypte wordt Jozef verkocht aan Potifar, een hoveling van de farao." }
+      ],
+      "vragen": [
+        { "q": "Waarom haten de broers Jozef?", "a": ["Hun vader heeft hem het liefst", "Jozef heeft hun schapen weggenomen", "Jozef is de oudste zoon"], "why": "Genesis 37:4" },
+        { "q": "Waar zoekt Jozef zijn broers eerst, voordat hij naar Dothan gaat?", "a": ["Bij Sichem", "Bij Bethel", "Bij Haran"], "why": "Genesis 37:12–17" },
+        { "q": "Wat zegt Ruben tegen zijn broers?", "a": ["Vergiet geen bloed", "Laten we hem verkopen", "Laten we naar huis gaan"], "why": "Genesis 37:22" },
+        { "q": "Waarom wil Juda Jozef liever verkopen dan doden?", "a": ["Hij is hun broer, hun eigen vlees", "Ze hebben geld nodig voor brood", "De kooplieden vragen om een slaaf"], "why": "Genesis 37:26–27" },
+        { "q": "Wat denkt Jakob als hij de rok met bloed ziet?", "a": ["Een wild dier heeft Jozef opgegeten", "Jozef is naar Egypte gegaan", "Jozef is verdwaald in het veld"], "why": "Genesis 37:33" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Ismaëlieten en Midianieten", "t": "De kooplieden heten in Genesis 37 ‘een reisgezelschap van Ismaëlieten’, maar ook ‘Midianietische kooplieden’. Volgens Genesis 37:36 verkopen ‘de Midianieten’ Jozef aan Potifar, en volgens Genesis 39:1 koopt Potifar hem van de Ismaëlieten. Uitleggers verklaren dat verschillend. Sommigen denken aan één groep met twee namen; in Richteren 8:24 worden Midianieten ook Ismaëlieten genoemd. Anderen denken aan Midianietische handelaars die met een karavaan van Ismaëlieten meereisden. De karavaan kwam uit Gilead met ‘specerijen en balsem, en mirre’.", "refs": ["Genesis 37:25–28", "Genesis 37:36", "Genesis 39:1", "Richteren 8:24"] },
+        { "kop": "Later in het verhaal", "t": "Genesis 37 vertelt niet wat Jozef in de kuil zei. Jaren later zeggen de broers tegen elkaar: ‘wij zijn schuldig aan onzen broeder, wiens benauwdheid der ziele wij zagen, toen hij ons om genade bad; maar wij hoorden niet!’ (Genesis 42:21). Ruben herinnert hen eraan dat hij hen gewaarschuwd had. Jozef zegt later zelf: ‘God heeft mij voor uw aangezicht gezonden, tot behoudenis des levens’ (Genesis 45:5), en: ‘gij hebt kwaad tegen mij gedacht; doch God heeft dat ten goede gedacht’ (Genesis 50:20).", "refs": ["Genesis 42:21–22", "Genesis 45:5", "Genesis 50:20"] },
+        { "kop": "Waar en wanneer", "t": "Jozef reist van het dal van Hebron naar Sichem, hemelsbreed bijna tachtig kilometer naar het noorden, en dan nog ruim twintig kilometer verder naar Dothan. Die drie plaatsen zijn goed te identificeren. In de reconstructie van de reis is dit ca. 1898 v.Chr., toen Jozef zeventien was; andere dateringen komen enkele eeuwen later. Opvallend: in de wet van Mozes is twintig sikkelen de schatting voor een jongen van vijf tot twintig jaar (Leviticus 27:5). Sommige uitleggers wijzen op die overeenkomst met de twintig zilverlingen; Genesis zelf legt dat verband niet.", "refs": ["Genesis 37:14–17", "Genesis 37:28", "Leviticus 27:5"] }
+      ],
+      "vragen": [
+        { "q": "Wat droegen de kamelen van de karavaan uit Gilead?", "a": ["Specerijen, balsem en mirre", "Koren, wijn en olie", "Goud, zilver en koper"], "why": "Genesis 37:25" },
+        { "q": "Wat zeiden de broers jaren later over Jozef in de kuil?", "a": ["Dat hij om genade bad en zij niet hoorden", "Dat hij de hele tijd stil was gebleven", "Dat hij zelf uit de kuil was geklommen"], "why": "Genesis 42:21" },
+        { "q": "Wat zei Jozef later over het kwaad dat zijn broers hem deden?", "a": ["God heeft het ten goede gedacht", "Hij zou het hun nooit vergeven", "Het was alleen de schuld van Juda"], "why": "Genesis 50:20" }
+      ]
+    }
+  },
+  "19": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["egypte"],
+      "delen": [
+        { "t": "Jozef is in Egypte, in het huis van Potifar. De HEERE is met Jozef. Alles wat hij doet, laat de HEERE lukken.", "stap": "genesis:jozef:4" },
+        { "t": "Potifar ziet dat de HEERE met Jozef is. Hij maakt Jozef de baas over alles wat hij heeft.", "stap": "genesis:jozef:4" },
+        { "t": "De vrouw van Potifar wil dat Jozef iets doet wat niet mag. Jozef zegt nee. Hij wil niet zondigen tegen God.", "stap": "genesis:jozef:4" },
+        { "t": "Dan liegt zij over Jozef. Potifar wordt boos en laat Jozef in de gevangenis zetten. Maar ook daar is de HEERE met hem.", "stap": "genesis:jozef:4" },
+        { "t": "In de gevangenis zitten ook de schenker en de bakker van de farao. Ze dromen allebei een droom.", "stap": "genesis:jozef:5" },
+        { "t": "Jozef zegt dat de uitleg van God komt. Over drie dagen mag de schenker weer bij de farao werken. Voor de bakker loopt het slecht af.", "stap": "genesis:jozef:5" },
+        { "t": "Het gebeurt zoals Jozef zei. Maar de schenker vergeet Jozef.", "stap": "genesis:jozef:5" },
+        { "t": "Twee jaar later droomt de farao van zeven vette en zeven magere koeien, en van zeven volle en zeven dunne aren.", "stap": "genesis:jozef:6" },
+        { "t": "Niemand kan het uitleggen. Dan denkt de schenker aan Jozef. Jozef zegt tegen de farao: God zal het antwoord geven.", "stap": "genesis:jozef:6" },
+        { "t": "Hij legt uit: er komen zeven goede jaren en daarna zeven jaren honger. De farao maakt Jozef heer over heel Egypte.", "stap": "genesis:jozef:6" }
+      ],
+      "samen": "Bij stap drie: de vrouw van Potifar wilde dat Jozef bij haar zou liggen, wat alleen bij haar eigen man hoorde (Genesis 39:7–12). Jozef vluchtte en liet zijn kleed achter. Voor jonge kinderen is genoeg: ze wilde iets wat God verboden heeft. Weggelaten: de bakker werd opgehangen, zoals Jozef gezegd had (40:19–22). Vraag samen: wie was bij Jozef, ook in de gevangenis (39:21)?",
+      "vragen": [
+        { "q": "Wie is met Jozef, ook in de gevangenis?", "a": ["De HEERE", "Zijn broer Ruben"], "why": "Genesis 39:21" },
+        { "q": "Waarom zegt Jozef nee tegen de vrouw van Potifar?", "a": ["Hij wil niet zondigen tegen God", "Hij is bang voor de farao"], "why": "Genesis 39:9" },
+        { "q": "Wie vergeet Jozef, als hij weer bij de farao werkt?", "a": ["De schenker", "De bakker"], "why": "Genesis 40:21–23" },
+        { "q": "Wat maakt de farao van Jozef?", "a": ["Heer over heel Egypte", "Bakker van de farao"], "why": "Genesis 41:41" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Trouw in het huis van Potifar", "stap": "genesis:jozef:4", "t": "Potifar, een hoveling van de farao, koopt Jozef in Egypte. De HEERE is met Jozef, en alles wat hij doet, gaat goed. Potifar stelt hem over zijn hele huis. Dan wil Potifars vrouw dat Jozef met haar zondigt. Jozef weigert, want hij wil niet ‘zondigen tegen God’. Hij vlucht. Zij liegt over hem, en Potifar zet Jozef in de gevangenis." },
+        { "kop": "Dromen in de gevangenis", "stap": "genesis:jozef:5", "t": "Ook in de gevangenis is de HEERE met Jozef. Daar zitten ook de schenker en de bakker van de farao. Een schenker schenkt wijn voor de koning. Ze dromen allebei. Jozef legt de dromen uit: binnen drie dagen krijgt de schenker zijn werk terug, en de bakker wordt opgehangen. Zo gebeurt het. Maar de schenker vergeet Jozef." },
+        { "kop": "Jozef staat voor de farao", "stap": "genesis:jozef:6", "t": "Twee jaar later droomt de farao van zeven vette en zeven magere koeien, en van zeven volle en zeven dunne aren. Dan denkt de schenker aan Jozef. Jozef zegt: ‘Het is buiten mij!’ Dat is: niet ik, maar God geeft het antwoord. Jozef legt uit: er komen zeven jaren overvloed en daarna zeven jaren honger. De farao stelt Jozef over heel Egypte." }
+      ],
+      "vragen": [
+        { "q": "Waarom gaat alles goed wat Jozef doet bij Potifar?", "a": ["De HEERE is met hem", "Potifar helpt hem steeds", "Hij heeft veel geld meegenomen"], "why": "Genesis 39:2–3" },
+        { "q": "Waarom wil Jozef niet doen wat de vrouw van Potifar vraagt?", "a": ["Hij wil niet zondigen tegen God", "Hij is bang voor de farao", "Hij wil liever naar huis"], "why": "Genesis 39:9" },
+        { "q": "Wat gebeurt er met de schenker na drie dagen?", "a": ["Hij krijgt zijn werk terug", "Hij wordt opgehangen", "Hij mag terug naar zijn land"], "why": "Genesis 40:20–21" },
+        { "q": "Wie vertelt de farao over Jozef?", "a": ["De schenker", "De bakker", "Potifar"], "why": "Genesis 41:9–13" },
+        { "q": "Wat komt er na de zeven jaren van overvloed?", "a": ["Zeven jaren honger", "Zeven jaren oorlog", "Zeven jaren regen"], "why": "Genesis 41:29–30" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Een Egyptische naam en twee zonen", "t": "De farao geeft Jozef een Egyptische naam: Zafnath Paaneah. Wat die naam precies betekent, daarover verschillen onderzoekers. Jozef trouwt met Asnath, de dochter van Potifera, de overste van On. De Bijbel noemt Potifera met een andere naam en een andere taak dan Potifar. On wordt meestal gelijkgesteld aan de latere stad Heliopolis. De namen van Jozefs zonen zijn een belijdenis: Manasse, want ‘God heeft mij doen vergeten al mijn moeite’, en Efraïm, want ‘God heeft mij doen wassen in het land mijner verdrukking’. Later neemt Jakob hen aan als zijn eigen zonen (Genesis 48:5).", "refs": ["Genesis 41:45", "Genesis 41:50–52", "Genesis 48:5"] },
+        { "kop": "Dertien jaar", "t": "In Genesis 37:2 is Jozef zeventien jaar; als hij voor de farao staat, is hij dertig. Daartussen liggen ongeveer dertien jaar als slaaf en gevangene. Tegen de schenker zegt Jozef: ‘Want ik ben diefelijk ontstolen uit het land der Hebreën; en ook heb ik hier niets gedaan, dat zij mij in dezen kuil gezet hebben.’ Diefelijk ontstolen betekent: weggenomen zoals een dief iets wegneemt. Met de kuil bedoelt hij de gevangenis. In welke stad Jozef woonde, vertelt de Bijbel niet; daarom staat op de kaart alleen Egypte. In de reconstructie van de reis is dit ca. 1898–1885 v.Chr.; andere dateringen komen enkele eeuwen later.", "refs": ["Genesis 37:2", "Genesis 40:14–15", "Genesis 41:46"] },
+        { "kop": "Elders in de Bijbel", "t": "Ook Daniël moet later een koning een droom uitleggen. Net als Jozef wijst hij van zichzelf af: ‘Maar er is een God in den hemel, Die verborgenheden openbaart’ (Daniël 2:28). Jozef zegt later tegen zijn broers dat God hem ‘tot Farao’s vader gesteld heeft’ (Genesis 45:8). En Jozefs woorden ‘zondigen tegen God’ lijken op het gebed van David: ‘Tegen U, U alleen, heb ik gezondigd’ (Psalm 51:6).", "refs": ["Daniël 2:27–28", "Genesis 45:8", "Psalm 51:6"] }
+      ],
+      "vragen": [
+        { "q": "Welke Egyptische naam gaf de farao aan Jozef?", "a": ["Zafnath Paaneah", "Potifera", "Asnath"], "why": "Genesis 41:45" },
+        { "q": "Waarom noemde Jozef zijn eerste zoon Manasse?", "a": ["God had hem al zijn moeite doen vergeten", "Hij was in Kanaän geboren", "Zo heette de vader van Asnath"], "why": "Genesis 41:51" },
+        { "q": "Waarom kreeg de farao dezelfde boodschap twee keer in een droom?", "a": ["De zaak was bij God vastbesloten en God zou haast maken", "De farao had de eerste droom niet goed onthouden", "De tovenaars vroegen om een tweede droom"], "why": "Genesis 41:32" },
+        { "q": "Wat vroeg Jozef aan de schenker?", "a": ["Dat hij aan hem zou denken bij de farao", "Dat hij een boodschap naar Jakob zou brengen", "Dat hij hem eten uit het paleis zou geven"], "why": "Genesis 40:14" }
+      ]
+    }
+  }
+}
