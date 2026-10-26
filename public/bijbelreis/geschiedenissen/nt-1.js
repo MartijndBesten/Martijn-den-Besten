@@ -365,7 +365,7 @@ BR.geschiedenissen.push(
 Object.assign(BR.kernwoorden, {
   engelen: { n: "Engelen",
     uitleg: "Engelen zijn dienaren van God in de hemel; ook zij zijn door Hem geschapen (Kolossenzen 1:16). Ze loven God en doen wat Hij zegt (Psalm 103:20). Soms stuurt God een engel met een boodschap, zoals Gabriël naar Zacharias en Maria (Lukas 1:19, 26). Ze zijn ‘gedienstige geesten’ die God uitzendt tot hulp van wie zalig zullen worden (Hebreeën 1:14). Engelen zelf mogen niet aanbeden worden: ‘aanbid God’ (Openbaring 22:9).",
-    refs: [["Lukas 1:19", "‘Ik ben Gabriel, die voor God sta.’"],
+    refs: [["Lukas 1:19", "‘Ik ben Gabriël, die voor God sta.’"],
       ["Psalm 103:20", "‘Looft den HEERE, Zijn engelen! … die Zijn woord doet.’"],
       ["Hebreeën 1:14", "‘Gedienstige geesten, die tot dienst uitgezonden worden.’"],
       ["Lukas 15:10", "Er is ‘blijdschap voor de engelen Gods over een zondaar, die zich bekeert’."],
@@ -392,7 +392,7 @@ Object.assign(BR.kernwoorden, {
       ["Handelingen 2:22", "‘Krachten, en wonderen, en tekenen, die God door Hem gedaan heeft.’"],
       ["Johannes 20:31", "‘Opdat gij gelooft, dat Jezus is de Christus, de Zone Gods.’"]] },
   wedergeboorte: { n: "Wedergeboorte",
-    uitleg: "Wedergeboorte betekent ‘opnieuw geboren worden’. De Heere Jezus zei tegen Nicodemus dat niemand het Koninkrijk van God kan zien als hij niet opnieuw geboren wordt (Johannes 3:3). Dat kan een mens niet zelf doen; het is het werk van de Heilige Geest (Johannes 3:5–8; Titus 3:5). God belooft een nieuw hart en een nieuwe geest te geven (Ezechiël 36:26). Wie wedergeboren is, is geboren door het levende Woord van God (1 Petrus 1:23).",
+    uitleg: "Wedergeboorte betekent “opnieuw geboren worden”. De Heere Jezus zei tegen Nicodemus dat niemand het Koninkrijk van God kan zien als hij niet opnieuw geboren wordt (Johannes 3:3). Dat kan een mens niet zelf doen; het is het werk van de Heilige Geest (Johannes 3:5–8; Titus 3:5). God belooft een nieuw hart en een nieuwe geest te geven (Ezechiël 36:26). Wie wedergeboren is, is geboren door het levende Woord van God (1 Petrus 1:23).",
     refs: [["Johannes 3:3", "‘Tenzij dat iemand wederom geboren worde, hij kan het Koninkrijk Gods niet zien.’"],
       ["Johannes 3:8", "‘Alzo is een iegelijk, die uit den Geest geboren is.’"],
       ["Ezechiël 36:26", "‘Ik zal u een nieuw hart geven.’"],

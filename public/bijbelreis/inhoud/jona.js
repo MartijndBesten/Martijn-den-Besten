@@ -20,10 +20,10 @@ BR.boeken.push({
   who: [["Jona"]],
   stat: "Het boek Jona heeft maar 48 verzen, maar het woord ‘groot’ staat er in de Statenvertaling 16 keer in: een grote stad, een grote wind, een grote vis, grote blijdschap.",
   cross: [["Mattheüs 12:40–41", "Jezus zegt: zoals Jona drie dagen en drie nachten in de vis was, zo zal de Zoon des mensen drie dagen in de aarde zijn. En de mensen van Ninevé bekeerden zich op de preek van Jona."],
-    ["Lukas 11:30–32", "Jezus noemt Jona een teken voor de mensen van Ninevé. ‘En zie, meer dan Jona is hier.’"],
+    ["Lukas 11:30–32", "Jezus noemt Jona een teken voor de mensen van Ninevé. ‘En ziet, meer dan Jonas is hier!’"],
     ["2 Koningen 14:25", "Hier staat waar Jona vandaan kwam, Gath-Hefer, en dat hij in de tijd van koning Jerobeam leefde."],
     ["Nahum 3:7", "Veel later profeteert Nahum opnieuw tegen Ninevé: ‘Nineve is verstoord, wie zal medelijden met haar hebben?’"],
-    ["Psalm 139:7–10", "‘Waar zou ik heengaan voor Uw Geest? Woonde ik aan het uiterste van de zee, ook daar zou Uw hand mij leiden.’ Dat ontdekte Jona."],
+    ["Psalm 139:7–10", "‘Waar zou ik heengaan voor Uw Geest … woonde ik aan het uiterste der zee; Ook daar zou Uw hand mij geleiden.’ Dat ontdekte Jona."],
     ["Exodus 34:6", "Jona kende deze woorden: ‘barmhartig en genadig, lankmoedig en groot van weldadigheid’. Daarom wist hij dat God Ninevé zou sparen (Jona 4:2)."]],
   ctx: ["samaria", "damascusst", "babelst"],
   steps: [

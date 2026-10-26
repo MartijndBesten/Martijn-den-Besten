@@ -74,7 +74,7 @@ BR.boeken.push({
   stat: "De val van Jeruzalem staat vier keer in de Bijbel: in 2 Koningen 25, 2 Kronieken 36, Jeremia 39 en Jeremia 52.",
   cross: [["Jeremia 38:7–13", "Ebed-Melech, de Moorman, haalde Jeremia met touwen en oude lappen uit de put."],
     ["Jeremia 29:10", "Jeremia schreef de ballingen in Babel: als zeventig jaar vervuld zijn, breng Ik u terug."],
-    ["Klaagliederen 3:22–23", "‘Het zijn de goedertierenheden des HEEREN, dat wij niet vernield zijn, dat Zijn barmhartigheden geen einde hebben; zij zijn allen morgen nieuw, Uw trouw is groot.’"],
+    ["Klaagliederen 3:22–23", "‘Het zijn de goedertierenheden des HEEREN, dat wij niet vernield zijn, dat Zijn barmhartigheden geen einde hebben; Zij zijn allen morgen nieuw, Uw trouw is groot.’"],
     ["Mattheüs 16:13–14", "Sommige mensen dachten dat de Heere Jezus Jeremia was, of een van de profeten."]],
   ctx: ["babelst", "anathoth"],
   steps: [

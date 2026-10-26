@@ -396,7 +396,7 @@ BR.kernwoorden.dankbaarheid = { n: "Dankbaarheid",
     ["1 Thessalonicenzen 5:18", "Dankt God in alles."]] };
 
 BR.kernwoorden.evangelie = { n: "Evangelie",
-  uitleg: "Evangelie betekent ‘goede boodschap’. Het is het goede nieuws over Jezus Christus, de Zoon van God (Markus 1:1). De kern is ‘dat Christus gestorven is voor onze zonden, naar de Schriften; en dat Hij is begraven, en dat Hij is opgewekt ten derden dage’ (1 Korinthe 15:3–4). De Heere Jezus riep: ‘bekeert u, en gelooft het Evangelie’ (Markus 1:15). Bij Zacheüs zegt Hij waarvoor Hij kwam: ‘om te zoeken en zalig te maken, dat verloren was’ (Lukas 19:10).",
+  uitleg: "Evangelie betekent ‘goede boodschap’. Het is het goede nieuws over Jezus Christus, de Zoon van God (Markus 1:1). De kern is ‘dat Christus gestorven is voor onze zonden, naar de Schriften; En dat Hij is begraven, en dat Hij is opgewekt ten derden dage’ (1 Korinthe 15:3–4). De Heere Jezus riep: ‘bekeert u, en gelooft het Evangelie’ (Markus 1:15). Bij Zacheüs zegt Hij waarvoor Hij kwam: ‘om te zoeken en zalig te maken, dat verloren was’ (Lukas 19:10).",
   refs: [["Markus 1:1", "Het begin van het Evangelie van Jezus Christus, de Zoon van God."],
     ["Markus 1:15", "Bekeert u en gelooft het Evangelie."],
     ["Romeinen 1:16", "Het Evangelie is een kracht van God tot zaligheid voor ieder die gelooft."],

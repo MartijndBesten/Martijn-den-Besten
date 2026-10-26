@@ -1124,7 +1124,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         ["Genesis 3:6", "Eva en Adam eten van de verboden boom."],
         ["Romeinen 5:12", "Door één mens kwam de zonde in de wereld, en door de zonde de dood."],
         ["Romeinen 3:23", "‘Want zij hebben allen gezondigd.’"],
-        ["1 Johannes 1:9", "‘Indien wij onze zonden belijden, Hij is getrouw en rechtvaardig.’"],
+        ["1 Johannes 1:9", "‘Indiën wij onze zonden belijden, Hij is getrouw en rechtvaardig.’"],
       ],
     },
     verbond: {
@@ -1169,7 +1169,7 @@ BR.kernwoorden = BR.kernwoorden || {};
     },
     hoop: {
       n: "Hoop",
-      uitleg: "Hoop in de Bijbel is niet ‘misschien gaat het goed’, maar vast verwachten wat God belooft. Israël zuchtte in Egypte, en God hoorde hun gekerm en dacht aan Zijn verbond. Wie op God hoopt, heeft een anker voor de ziel dat zeker en vast is. Daarom zegt de psalmdichter tegen zichzelf: ‘Hoop op God.’",
+      uitleg: "Hoop in de Bijbel is niet “misschien gaat het goed”, maar vast verwachten wat God belooft. Israël zuchtte in Egypte, en God hoorde hun gekerm en dacht aan Zijn verbond. Wie op God hoopt, heeft een anker voor de ziel dat zeker en vast is. Daarom zegt de psalmdichter tegen zichzelf: ‘Hoop op God.’",
       refs: [
         ["Psalm 42:6", "‘Hoop op God, want ik zal Hem nog loven.’"],
         ["Exodus 2:24", "God hoorde het gekerm van Zijn volk."],

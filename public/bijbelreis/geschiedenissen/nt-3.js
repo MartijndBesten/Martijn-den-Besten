@@ -293,7 +293,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       uitleg: "Zachtmoedig is iemand die niet hard of trots is en niet terugslaat, maar geduldig en vriendelijk blijft, ook als hem onrecht gedaan wordt. De Heere Jezus zegt: ‘leert van Mij, dat Ik zachtmoedig ben en nederig van hart.’ Als Koning kwam Hij Jeruzalem binnen ‘zachtmoedig en gezeten op een ezelin’. De Bijbel noemt zachtmoedigheid een vrucht van de Geest, en de Heere Jezus zegt: ‘Zalig zijn de zachtmoedigen.’",
       refs: [["Mattheüs 11:29", "‘Leert van Mij, dat Ik zachtmoedig ben en nederig van hart; en gij zult rust vinden voor uw zielen.’"],
         ["Mattheüs 21:5", "‘Zie, uw Koning komt tot u, zachtmoedig en gezeten op een ezelin.’"],
-        ["Mattheüs 5:5", "‘Zalig zijn de zachtmoedigen; want zij zullen het aardrijk beerven.’"],
+        ["Mattheüs 5:5", "‘Zalig zijn de zachtmoedigen; want zij zullen het aardrijk beërven.’"],
         ["Galaten 5:22–23", "Zachtmoedigheid hoort bij de vrucht van de Geest."],
         ["Numeri 12:3", "Ook Mozes wordt ‘zeer zachtmoedig’ genoemd."]] },
     avondmaal: { n: "Avondmaal",
