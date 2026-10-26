@@ -1480,7 +1480,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   39: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Oordeel over de volken van Kanaän",
@@ -1522,7 +1522,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   40: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Beroering",
@@ -1564,7 +1564,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   41: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Het boek des oprechten",
@@ -1606,7 +1606,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   42: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Wat het lied erbij vertelt",

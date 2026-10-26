@@ -1619,7 +1619,7 @@ BR.niveaus.voegToe("b", {
     ],
   },
   39: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Pascha in Gilgal",
@@ -1637,7 +1637,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Rachab blijft leven",
-        t: "Israël neemt de stad in. Zoals Jozua gezegd had, worden alle mensen en dieren gedood en wordt de stad verbrand. Het zilver en goud gaan naar de schat van de HEERE. Alleen Rachab en haar familie blijven leven, omdat zij de verspieders verborgen had.",
+        t: "Israël neemt de stad in. Alle mensen en dieren worden gedood, zoals Jozua gezegd had. De stad wordt verbrand. Het zilver en goud gaan naar de schat van de HEERE. Alleen Rachab en haar familie blijven leven, omdat zij de verspieders verborgen had.",
       },
     ],
     vragen: [
@@ -1665,7 +1665,7 @@ BR.niveaus.voegToe("b", {
     ],
   },
   40: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Gestolen uit Jericho",
@@ -1680,7 +1680,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Een hinderlaag bij Ai",
         stap: "jozua:intocht:6",
-        t: "Nu zegt de HEERE: ‘Vrees niet’. Soldaten verstoppen zich tussen Bethel en Ai: een hinderlaag. Jozua doet alsof hij vlucht, en de mannen van Ai jagen hem na. Jozua steekt op Gods bevel zijn speer uit. Dan neemt de hinderlaag de stad in en steken haar in brand. Alle inwoners van Ai worden gedood.",
+        t: "Nu zegt de HEERE: ‘Vrees niet’. Soldaten verstoppen zich tussen Bethel en Ai: een hinderlaag. Jozua doet alsof hij vlucht, en de mannen van Ai jagen hem na. Jozua steekt op Gods bevel zijn speer uit. Dan neemt de hinderlaag de stad in en steekt haar in brand. Alle inwoners van Ai worden gedood.",
       },
       {
         kop: "De wet op de berg Ebal",
@@ -1713,12 +1713,12 @@ BR.niveaus.voegToe("b", {
     ],
   },
   41: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Een list met oud brood",
         stap: "jozua:land:0",
-        t: "De inwoners van Gibeon horen wat Jozua met Jericho en Ai deed. Ze bedenken een list. Met oude kleren, versleten schoenen en droog, beschimmeld brood komen ze in Gilgal. Ze zeggen dat ze uit een ver land komen. Israël vraagt de HEERE niet om raad, en Jozua sluit vrede met hen. Drie dagen later blijkt dat ze vlakbij wonen. Toch blijven ze leven, want de leiders hebben gezworen bij de HEERE. Wel moeten ze hout hakken en water putten.",
+        t: "De inwoners van Gibeon horen wat Jozua met Jericho en Ai gedaan heeft. Ze bedenken een list. Met oude kleren, versleten schoenen en droog, beschimmeld brood komen ze in Gilgal. Ze zeggen dat ze uit een ver land komen. Israël vraagt de HEERE niet om raad, en Jozua sluit vrede met hen. Drie dagen later blijkt dat ze vlakbij wonen. Toch blijven ze leven, want de leiders hebben gezworen bij de HEERE. Wel moeten ze hout hakken en water putten.",
       },
       {
         kop: "De zon staat stil",
@@ -1756,7 +1756,7 @@ BR.niveaus.voegToe("b", {
     ],
   },
   42: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Onderdrukt door Jabin",

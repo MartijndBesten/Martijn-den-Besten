@@ -1117,7 +1117,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   39: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["gilgal", "jericho"],
     delen: [
       {
@@ -1148,7 +1148,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   40: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["jericho", "ai", "jo_ebal"],
     delen: [
       {
@@ -1186,7 +1186,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   41: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["gilgal", "gibeon", "sichem"],
     delen: [
       {
@@ -1221,7 +1221,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   42: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["ri_palm", "ri_tabor", "ri_kison"],
     delen: [
       {
