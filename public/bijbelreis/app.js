@@ -512,7 +512,7 @@
       if (niveau === "a") { const gv = G.find((g) => (g.stappen || []).includes(s.key)); $("sText").innerHTML = esc(eersteZin(s.txt)) + (gv ? `<span class="a-reisverhaal"><button type="button" class="btn primary small" data-v="${gv.nr}">Lees samen: ${esc(gv.t)}</button></span>` : ""); }
       $("sFact").innerHTML = `<b>Wist je dat?${s.fs && FS[s.fs] ? ` <span class="fs fs-${s.fs}">${FS[s.fs]}</span>` : ""}</b>` + esc(s.fact); $("sFact").hidden = !s.fact;
       renderAfstand(s);
-      lees.hidden = !parseRef(s.ref); lees.dataset.ref = s.ref;
+      lees.hidden = !s.ref; $("leesRef").textContent = s.ref;
       if (s.sterren) starGame(sp);
       if (s.onthul) revealGame(sp, s.onthul);
       if (s.vergelijk) compareBars(sp, s.vergelijk);
@@ -539,7 +539,7 @@
       $("sFact").innerHTML = "<b>Wist je dat?</b>" + esc(deel.stat || ""); $("sFact").hidden = !deel.stat;
       $("sVer").hidden = true;
       lees.hidden = true;
-      if (deel.cross && deel.cross.length) sp.innerHTML = `<p class="label">Elders in de Bijbel</p><ul class="xrefs">${deel.cross.map(([r, t]) => `<li>${parseRef(r) ? `<button type="button" class="linkbtn" data-ref="${esc(r)}">${esc(r)}</button>` : `<b>${esc(r)}</b>`}<span>${esc(t)}</span></li>`).join("")}</ul>`;
+      if (deel.cross && deel.cross.length) sp.innerHTML = `<p class="label">Elders in de Bijbel</p><ul class="xrefs">${deel.cross.map(([r, t]) => `<li>${refTekst(r)}<span>${esc(t)}</span></li>`).join("")}</ul>`;
       map.removeLayer(lyKings); lySpecial.clearLayers();
       deel.steps.forEach((t) => (t.r || []).forEach((r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); }));
       showAll = true; routeState(); showAll = false;
@@ -608,49 +608,19 @@
     fit(partBounds(deel), 8); scrollToMap();
   };
   document.addEventListener("keydown", (e) => {
-    if (mode !== "reis" || e.target.closest("input, select, textarea, [role='tablist']") || e.altKey || e.ctrlKey || e.metaKey || !$("lade").hidden) return;
+    if (mode !== "reis" || e.target.closest("input, select, textarea, [role='tablist']") || e.altKey || e.ctrlKey || e.metaKey || !$("kast").hidden) return;
     if (e.key === "ArrowRight") { e.preventDefault(); goNext(); }
     if (e.key === "ArrowLeft") { e.preventDefault(); goPrev(); }
   });
 
-  // ---------- Bijbeltekst (Statenvertaling) ----------
-  const bibleCache = {};
+  // ---------- Bijbelverwijzingen ----------
+  // De Bijbelreis is een hulpmiddel náást de eigen Bijbel of kinderbijbel: verwijzingen staan als tekst, de Bijbeltekst
+  // zelf zit niet in de app (zo kan iedereen zijn eigen vertaling gebruiken).
   const parseRef = BR.parseRef;
-  async function loadBible(slug) {
-    if (!bibleCache[slug]) bibleCache[slug] = fetch(dataUrl(`bijbel/${slug}.json`)).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); });
-    return bibleCache[slug];
-  }
-  async function openBible(ref) {
-    const q = parseRef(ref); if (!q) return;
-    $("ladeTitel").textContent = ref;
-    $("verzen").innerHTML = "<p class='ref'>Even geduld…</p>";
-    $("lade").hidden = false; $("ladeSluit").focus();
-    try {
-      const books = {};
-      await Promise.all([...new Set(q.ranges.map((rg) => rg.slug))].map(async (sl) => (books[sl] = await loadBible(sl))));
-      let html = "";
-      q.ranges.forEach((rg) => {
-        const data = books[rg.slug];
-        for (let c = rg.c1; c <= Math.min(rg.c2, Object.keys(data.hoofdstukken).length); c++) {
-          const verses = data.hoofdstukken[String(c)]; if (!verses) continue;
-          const from = c === rg.c1 ? rg.v1 : 1, to = c === rg.c2 ? Math.min(rg.v2, verses.length) : verses.length;
-          if (from > verses.length) continue;
-          html += `<h4>${esc(data.boek)} ${c}</h4><p>` + verses.slice(from - 1, to).map((v, i) => `<sup>${from + i}</sup>${esc(v)} `).join("") + "</p>";
-        }
-      });
-      $("verzen").innerHTML = (html || "<p class='ref'>Deze tekst is niet gevonden.</p>") + `<p class="ref" style="margin-top:12px">${esc(books[q.slug].vertaling)}. Oude spelling: lees het samen met een volwassene.</p>`;
-    } catch {
-      $("verzen").innerHTML = "<p class='ref'>De Bijbeltekst kon niet worden geladen. Probeer het straks nog eens.</p>";
-    }
-  }
-  let ladeFrom = null;
-  $("leesBtn").addEventListener("click", () => { ladeFrom = $("leesBtn"); openBible($("leesBtn").dataset.ref); });
-  const closeLade = () => { $("lade").hidden = true; if (ladeFrom && ladeFrom.isConnected) ladeFrom.focus(); };
-  $("ladeSluit").addEventListener("click", closeLade);
-  $("lade").addEventListener("click", (e) => { if (e.target === $("lade")) closeLade(); });
+  const refTekst = (r) => `<span class="bref">${esc(r)}</span>`;
   document.addEventListener("keydown", (e) => {
-    const open = !$("lade").hidden ? $("lade") : !$("kast").hidden ? $("kast") : null; if (!open) return;
-    if (e.key === "Escape") { e.preventDefault(); open === $("lade") ? closeLade() : closeKast(); return; }
+    const open = !$("kast").hidden ? $("kast") : null; if (!open) return;
+    if (e.key === "Escape") { e.preventDefault(); closeKast(); return; }
     if (e.key !== "Tab") return;
     // Focus blijft in het venster zolang het open is.
     const f = [...open.querySelectorAll("button, a[href], [tabindex]:not([tabindex='-1'])")].filter((x) => x.offsetParent);
@@ -705,7 +675,7 @@
   // ---------- tabbladen ----------
   const TABS = ["verhalen", "reis", "wie", "tijd", "quiz", "pas"];
   function setMode(m) {
-    mode = m; stopVoorlezen();
+    mode = m;
     const tab = m === "ver" ? "reis" : m; // ‘Hoe ver?’ hoort bij de reis en heeft geen eigen tab meer
     TABS.forEach((t) => { $("t-" + t).setAttribute("aria-selected", t === tab); $("t-" + t).tabIndex = t === tab ? 0 : -1; });
     ["verhalen", "reis", "wie", "tijd", "quiz", "ver", "pas"].forEach((t) => ($("p-" + t).hidden = t !== m));
@@ -856,47 +826,10 @@
     if (isNarrow()) niveau === "a" ? window.scrollTo({ top: 0 }) : $("p-verhalen").scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" }); else $("reisboek").scrollTo({ top: 0 });
   }
   const BOEKJE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></svg>';
-  const xrefList = (items) => `<ul class="xrefs">${items.map(([r, t]) => `<li>${parseRef(r) ? `<button type="button" class="linkbtn" data-ref="${esc(r)}">${esc(r)}</button>` : `<b>${esc(r)}</b>`}<span>${esc(t)}</span></li>`).join("")}</ul>`;
-  // ---------- voorlezen ----------
-  // Met de spraak van het apparaat zelf (Web Speech API), alleen als er een Nederlandse stem is; anders geen knop.
-  // Geen externe dienst. ‘HEERE’ wordt als ‘Here’ uitgesproken; lange teksten gaan in stukken (sommige stemmen
-  // stoppen anders halverwege).
-  const spraak = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window ? window.speechSynthesis : null;
-  let nlStem = null;
-  function zoekStem() {
-    const v = spraak.getVoices().filter((x) => /^nl([-_]|$)/i.test(x.lang));
-    nlStem = v.find((x) => x.localService && /nl[-_]NL/i.test(x.lang)) || v.find((x) => x.localService) || v.find((x) => /nl[-_]NL/i.test(x.lang)) || v[0] || null;
-    document.body.classList.toggle("kan-voorlezen", !!nlStem);
-  }
-  if (spraak) { zoekStem(); if (spraak.addEventListener) spraak.addEventListener("voiceschanged", zoekStem); }
-  const spreekbaar = (t) => String(t).replace(/HEEREN/g, "Heren").replace(/HEERE/g, "Here").replace(/[‘’]/g, "").replace(/\bv\.Chr\./g, "voor Christus").replace(/\bn\.Chr\./g, "na Christus").replace(/\bca\. /g, "ongeveer ");
-  const voorleesKnop = (doel) => `<button type="button" class="linkbtn voorlees" data-voorlees="${doel}" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span>Lees voor</span></button>`;
-  function stopVoorlezen() {
-    if (!spraak) return;
-    spraak.cancel();
-    document.querySelectorAll("[data-voorlees][aria-pressed='true']").forEach((b) => { b.setAttribute("aria-pressed", "false"); b.querySelector("span").textContent = "Lees voor"; });
-  }
-  document.addEventListener("click", (e) => {
-    const b = e.target.closest("[data-voorlees]"); if (!b || !spraak || !nlStem) return;
-    if (b.getAttribute("aria-pressed") === "true") return stopVoorlezen();
-    stopVoorlezen();
-    const el = document.querySelector(b.dataset.voorlees); if (!el) return;
-    const stukken = [...el.querySelectorAll("h3, h4, p")].map((x) => x.textContent.trim()).filter(Boolean)
-      .flatMap((t) => spreekbaar(t).match(/[^.!?]+[.!?]*\s*/g) || [])
-      .reduce((a, z) => { if (a.length && (a[a.length - 1] + z).length < 220) a[a.length - 1] += z; else a.push(z); return a; }, []);
-    if (!stukken.length) return;
-    b.setAttribute("aria-pressed", "true"); b.querySelector("span").textContent = "Stop";
-    stukken.forEach((t, i) => {
-      const u = new SpeechSynthesisUtterance(t.trim()); u.voice = nlStem; u.lang = nlStem.lang; u.rate = niveau === "a" ? 0.9 : 1;
-      if (i === stukken.length - 1) u.onend = u.onerror = () => { if (b.isConnected) { b.setAttribute("aria-pressed", "false"); b.querySelector("span").textContent = "Lees voor"; } };
-      spraak.speak(u);
-    });
-  });
-
+  const xrefList = (items) => `<ul class="xrefs">${items.map(([r, t]) => `<li>${refTekst(r)}<span>${esc(t)}</span></li>`).join("")}</ul>`;
   let vStap = 0; // Samen ontdekken: welke verhaalstap staat open
   function renderVerhaal(nr) {
     const g = GBYNR.get(nr), box = $("p-verhalen"); if (!g) { vOpen = null; return renderVerhalen(); }
-    stopVoorlezen();
     // Een open kaartvraag van de vorige geschiedenis vervalt.
     tapHandler = null; $("map").classList.remove("quizmode"); lyQuiz.clearLayers();
     const steps = (g.stappen || []).map((x) => STEP_BY_KEY.get(x)).filter(Boolean);
@@ -906,7 +839,7 @@
           <button type="button" class="btn" ${prevG ? `data-v="${prevG.nr}"` : "disabled"}>◀ ${prevG ? prevG.nr : ""}</button>
           <button type="button" class="btn primary" ${nextG ? `data-v="${nextG.nr}"` : "disabled"}>${nextG ? `${nextG.nr}. ${esc(nextG.t.length > 22 ? nextG.t.slice(0, 21) + "…" : nextG.t)}` : "Einde"} ▶</button>
         </div>`;
-    const lees = parseRef(g.ref) ? `<button type="button" class="btn small bijbellink" data-ref="${esc(g.ref)}">${BOEKJE}Lees het zelf in de Bijbel</button>` : "";
+    const lees = g.ref ? `<p class="leesbijbel">${BOEKJE}<span>Lees in je Bijbel: <b>${esc(g.ref)}</b></span></p>` : "";
     if (niveau === "a") box.innerHTML = crumb + verhaalSamen(g, lees);
     else {
       const v = versie(g), c = niveau === "c", k = g.kw && KW[g.kw];
@@ -919,7 +852,7 @@
       const golist = steps.length ? `<ul class="golist">${steps.map((s) => `<li><button type="button" class="linkbtn" data-go="${s.key}">${esc(s.t)}</button><small>${esc(s.ref)}</small></li>`).join("")}</ul>` : g.vorm === "symbool" || g.vorm === "thema" ? `<p class="ref">${g.vorm === "symbool" ? "De visioenen in dit gedeelte zijn beelden; ze staan niet als plaatsen op de kaart." : "Dit gedeelte is een profetie: het gaat om wat God belooft, niet om een reis."}</p>` : "";
       const kern = k ? `<h3>${esc(k.n)}</h3><p>${esc(k.uitleg)}</p>${(k.refs || []).length ? xrefList(k.refs) : ""}` : "";
       const blok = (titel, inhoud, open, extra = "") => (inhoud ? `<details class="blok${extra}"${open ? " open" : ""}><summary>${titel}</summary><div class="blok-in">${inhoud}</div></details>` : "");
-      const verdieping = c && v && v.verdieping ? conceptLabel(v, "van de verdieping") + v.verdieping.map((d) => `<h4>${esc(d.kop)}</h4><p>${esc(d.t)}</p>${(d.refs || []).length ? `<p class="refs">${d.refs.map((r) => (parseRef(r) ? `<button type="button" class="linkbtn" data-ref="${esc(r)}">${esc(r)}</button>` : esc(r))).join(" · ")}</p>` : ""}`).join("") : "";
+      const verdieping = c && v && v.verdieping ? conceptLabel(v, "van de verdieping") + v.verdieping.map((d) => `<h4>${esc(d.kop)}</h4><p>${esc(d.t)}</p>${(d.refs || []).length ? `<p class="refs">${d.refs.map(refTekst).join(" · ")}</p>` : ""}`).join("") : "";
       const meer = c
         ? blok("Uitleg", g.betekenis ? `<p>${esc(g.betekenis)}</p>` : "", true) + blok("Verdieping", verdieping, false) + blok(k ? `Kernwoord: ${esc(k.n)}` : "", kern, false) + blok("Volg het op de kaart", golist, false) + blok("Elders in de Bijbel", (g.cross || []).length ? xrefList(g.cross) : "", false)
         : blok("Meer weten", [g.betekenis ? `<h4>Uitleg</h4><p>${esc(g.betekenis)}</p>` : "", k ? `<h4>Kernwoord: ${esc(k.n)}</h4><p>${esc(k.uitleg)}</p>` : "", steps.length ? `<h4>Volg het op de kaart</h4>${golist}` : "", (g.cross || []).length ? `<h4>Elders in de Bijbel</h4>${xrefList(g.cross.slice(0, 2))}` : ""].join(""), false, " meer");
@@ -931,7 +864,7 @@
         ${wanneer}
         <div class="chips">${(g.wie || []).map((n) => personChip([n], verhaalBoek(g), true)).join("")}</div>
         ${!c ? conceptLabel(v, "voor Zelf op reis") : ""}
-        <div class="labelrij"><p class="label bl">Wat de Bijbel vertelt</p>${voorleesKnop("#vVertelling")}</div>
+        <p class="label bl">Wat de Bijbel vertelt</p>
         <div id="vVertelling">${!c && v && v.delen ? vertellingVan(v.delen) : vertelling(g)}</div>
         ${lees}
         <div id="vOntdek" class="stack"></div>
@@ -959,7 +892,7 @@
     return `<article class="card verhaal samen" aria-labelledby="vTitel">
         <h2 id="vTitel">${esc(g.t)}</h2>
         ${conceptLabel(v, "voor Samen ontdekken")}
-        ${klaar ? `<div id="vQuiz" class="stack"></div>` : `<div class="a-stap" id="aStap" aria-live="polite"><p class="a-tekst">${esc(v.delen[i].t)}</p>${voorleesKnop("#aStap")}</div>
+        ${klaar ? `<div id="vQuiz" class="stack"></div>` : `<div class="a-stap" id="aStap" aria-live="polite"><p class="a-tekst">${esc(v.delen[i].t)}</p></div>
         <div class="a-stippen" role="img" aria-label="Stap ${i + 1} van ${n}">${Array.from({ length: n }, (_, j) => stip(j)).join("")}</div>
         <div class="a-nav"><button type="button" class="btn a-terug" id="aTerug" ${i ? "" : "disabled"} aria-label="Vorige stap">◀</button><button type="button" class="btn primary a-verder" id="aVerder">${i + 1 < n ? "Verder ▶" : "Naar de vragen ▶"}</button></div>`}
         <details class="samenvoor"><summary>Voor wie voorleest</summary><p>${esc(v.samen || "")}</p>${lees}</details>
@@ -1135,7 +1068,7 @@
     const soort = ONTDEK[o.soort] || ONTDEK.onthul;
     soort(box, o, g);
   }
-  const refLink = (r) => (r && parseRef(r) ? ` <button type="button" class="linkbtn small" data-ref="${esc(r)}">${esc(r)}</button>` : r ? ` <small>${esc(r)}</small>` : "");
+  const refLink = (r) => (r ? ` ${refTekst(r)}` : "");
   const ONTDEK = {
     onthul(box, o) { revealGame(box, { titel: "", items: o.items || [] }); },
     volgorde(box, o) {
@@ -1209,7 +1142,6 @@
   function kaartjes(box, items, vraag) {
     box.innerHTML = `<div class="days kaartjes">${items.map(([beeld]) => `<button type="button" class="day" aria-expanded="false"><b>${esc(beeld)}</b><span>${esc(vraag)}</span></button>`).join("")}</div>`;
     box.querySelectorAll(".day").forEach((b, i) => (b.onclick = (e) => {
-      if (e.target.closest("[data-ref]")) return;
       const open = b.classList.toggle("open"); b.setAttribute("aria-expanded", open);
       const [, bet, r] = items[i];
       b.querySelector("span").innerHTML = open ? `${esc(bet)}${r ? ` <small>(${esc(r)})</small>` : ""}` : esc(vraag);
@@ -1341,7 +1273,7 @@
     if (soort === "p") return (b.p || {})[ander] || (((MENSEN[ander] || {}).basis || {}).p || {})[ouder] || null;
     return b[soort] || null;
   }
-  const refBtn = (r) => (parseRef(r) ? `<button type="button" class="linkbtn" data-ref="${esc(r)}">${esc(r)}</button>` : `<b>${esc(r)}</b>`);
+  const refBtn = refTekst;
   function mensDetails(id) {
     const m = MENSEN[id]; if (!m) return "";
     const kids = Object.keys(MENSEN).filter((k) => MENSEN[k].v === id || MENSEN[k].m === id);
@@ -1667,9 +1599,8 @@
     scrollToMap();
   }
   document.addEventListener("click", (e) => {
-    const t = e.target.closest("[data-go], [data-ref], [data-mens], [data-place], [data-crumb], [data-tab]"); if (!t) return;
+    const t = e.target.closest("[data-go], [data-mens], [data-place], [data-crumb], [data-tab]"); if (!t) return;
     if (t.dataset.go) goKey(t.dataset.go);
-    else if (t.dataset.ref) { ladeFrom = t; openBible(t.dataset.ref); }
     else if (t.dataset.mens) showMens(t.dataset.mens);
     else if (t.dataset.place) showPlace(t.dataset.place);
     else if (t.dataset.crumb === "boek") chooseBoek(boek);

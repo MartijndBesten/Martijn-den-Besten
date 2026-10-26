@@ -141,8 +141,6 @@ button.chip:hover { border-color: var(--nacht); }
 .xrefs li { background: var(--papier-2); border-radius: var(--r-klein); padding: 9px 12px; font-size: 0.9rem; display: flex; flex-direction: column; gap: 1px; }
 .xrefs li > span { color: var(--fg); }
 .xrefs b { display: block; font-weight: 650; color: var(--nacht); }
-.bijbellink { align-self: flex-start; }
-.bijbellink svg { width: 18px; height: 18px; flex: none; }
 .rowhead { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
 .rowhead .linkbtn { font-size: 0.86rem; }
 .prog { height: 4px; border-radius: 4px; background: rgba(31, 36, 48, 0.09); overflow: hidden; }
@@ -251,9 +249,6 @@ button.chip:hover { border-color: var(--nacht); }
 .lade__box { width: min(660px, 100%); max-height: min(85vh, 85svh); overflow: auto; background: var(--wit); color: var(--fg); border-radius: var(--radius) var(--radius) 0 0; padding: 18px 22px calc(28px + env(safe-area-inset-bottom, 0px)); box-shadow: var(--schaduw); }
 .lade__head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }
 .lade__head h3 { font-size: 1.1rem; }
-.verzen { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.6; margin: 0; }
-.verzen sup { font-family: var(--font-mono); font-size: 0.6em; color: var(--terra-diep); margin-right: 3px; }
-.verzen h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); margin: 14px 0 4px; }
 .lade__box.wide { width: min(820px, 100%); display: flex; flex-direction: column; gap: 8px; }
 .kast { display: flex; flex-direction: column; gap: 6px; }
 .kast .label.nt { margin-top: 10px; color: var(--fg); }
@@ -833,11 +828,9 @@ body[data-niveau="a"] .maptools .seg, body[data-niveau="a"] #legendBtn, body[dat
 /* Samen ontdekken in de reis: één zin per stap en de weg naar het verhaal; geen extra's. */
 body[data-niveau="a"] #sKm, body[data-niveau="a"] #sFact, body[data-niveau="a"] #sSpecial, body[data-niveau="a"] #sVer, body[data-niveau="a"] #p-reis > .stack:has(#chapters), body[data-niveau="a"] #p-reis > .navrow { display: none !important; }
 .a-reisverhaal { display: block; margin-top: 12px; }
-/* Voorlezen: alleen zichtbaar als het apparaat een Nederlandse stem heeft. */
-.voorlees { display: none; align-items: center; gap: 6px; font-size: 0.9rem; }
-body.kan-voorlezen .voorlees { display: inline-flex; }
-.voorlees svg { width: 18px; height: 18px; flex: none; }
-.voorlees[aria-pressed="true"] { color: var(--terra-diep); font-weight: 600; }
-.labelrij { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.a-stap .voorlees { margin-top: 10px; min-height: 44px; }
+/* Bijbelverwijzingen staan als tekst: lezen doe je in je eigen Bijbel. */
+.bref { font-weight: 600; white-space: nowrap; }
+.leesbijbel { display: flex; align-items: center; gap: 8px; margin: 4px 0 0; padding: 8px 12px; border-radius: var(--r); background: var(--zand-zacht); color: var(--fg); font-size: 0.95rem; }
+.leesbijbel svg { width: 20px; height: 20px; flex: none; color: var(--terra-diep); }
+.leesbijbel[hidden] { display: none; }
 body[data-niveau="a"] #sTijd, body[data-niveau="a"] #sProg { display: none !important; }

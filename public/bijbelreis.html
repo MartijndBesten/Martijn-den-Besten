@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Bijbelreis — Op reis door de Bijbel — Martijn den Besten</title>
-    <meta name="description" content="Interactieve Bijbelatlas voor kinderen en ouders: 150 geschiedenissen van Genesis tot Openbaring op de kaart, met de Bijbeltekst, tijdlijn, speurtocht en een stempelpaspoort." />
+    <meta name="description" content="Interactieve Bijbelatlas voor kinderen en ouders: 150 geschiedenissen van Genesis tot Openbaring op de kaart, met tijdlijn, speurtocht en een stempelpaspoort. Een hulpmiddel naast de eigen Bijbel of kinderbijbel." />
     <link rel="canonical" href="https://martijndenbesten.com/bijbelreis" />
     <meta name="theme-color" content="#243d70" />
     <meta name="robots" content="index, follow" />
@@ -12,7 +12,7 @@
     <meta property="og:locale" content="nl_NL" />
     <meta property="og:site_name" content="Martijn den Besten" />
     <meta property="og:title" content="Bijbelreis — Op reis door de Bijbel" />
-    <meta property="og:description" content="150 geschiedenissen van Genesis tot Openbaring op de kaart, met de Bijbeltekst ernaast." />
+    <meta property="og:description" content="150 geschiedenissen van Genesis tot Openbaring op de kaart: een hulpmiddel naast de eigen Bijbel of kinderbijbel." />
     <meta property="og:url" content="https://martijndenbesten.com/bijbelreis" />
     <meta property="og:image" content="https://martijndenbesten.com/og.png" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -119,7 +119,7 @@
             <div class="chips" id="sWho"></div>
             <p class="label bl" id="sTextLabel">Wat de Bijbel vertelt</p>
             <p id="sText"></p>
-            <button type="button" class="btn small bijbellink" id="leesBtn" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></svg>Lees het zelf in de Bijbel</button>
+            <p class="leesbijbel" id="leesBtn" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></svg><span>Lees in je Bijbel: <b id="leesRef"></b></span></p>
             <div id="sSpecial" class="stack"></div>
             <div class="fact" id="sFact"></div>
             <div class="afstand" id="sVer" hidden></div>
@@ -177,7 +177,7 @@
           <summary>Voor ouders en leiders</summary>
           <dl>
             <dt>Uitgangspunt</dt>
-            <dd>De Bijbel is Gods Woord en bepaalt wat er verteld wordt. De geschiedenissen worden verteld zoals ze in de Bijbel staan, in woorden die kinderen begrijpen; er wordt niets afgezwakt. Met ‘Lees het zelf in de Bijbel’ staat de Bijbeltekst er altijd naast.</dd>
+            <dd>De Bijbel is Gods Woord en bepaalt wat er verteld wordt. De geschiedenissen worden verteld zoals ze in de Bijbel staan, in woorden die kinderen begrijpen; er wordt niets afgezwakt. De Bijbelreis is een hulpmiddel náást de eigen Bijbel of kinderbijbel: bij elke geschiedenis staat waar het in de Bijbel staat, zodat je het daar zelf leest, in welke vertaling je ook gebruikt. De Bijbeltekst zelf zit niet in de app.</dd>
             <dt>Drie reisniveaus</dt>
             <dd><b>Samen ontdekken</b> (4–6 jaar) vertelt de hoofdlijn in korte stukjes om voor te lezen; wat voor jonge kinderen te zwaar is, kan korter of weggelaten zijn, en de tip ‘Voor wie voorleest’ zegt dan wat en waar het staat. <b>Zelf op reis</b> (7–10 jaar) is een vertelling om zelf te lezen. <b>Verder ontdekken</b> (11+) is de volledige vertelling met verdieping. Alle niveaus zijn eigen navertellingen, gecontroleerd aan de Statenvertaling; het niveau staat alleen op dit apparaat en wisselen wist geen voortgang.</dd>
             <dt>Bijbeltekst, uitleg en reconstructie</dt>
@@ -200,12 +200,6 @@
       </aside>
     </div>
     <div class="toast" id="toast" role="status"></div>
-    <div class="lade" id="lade" hidden role="dialog" aria-modal="true" aria-labelledby="ladeTitel">
-      <div class="lade__box">
-        <div class="lade__head"><h3 id="ladeTitel"></h3><button type="button" class="btn small" id="ladeSluit">Sluiten</button></div>
-        <div class="verzen" id="verzen"></div>
-      </div>
-    </div>
 
     <div class="lade" id="kast" hidden role="dialog" aria-modal="true" aria-labelledby="kastTitel">
       <div class="lade__box wide">

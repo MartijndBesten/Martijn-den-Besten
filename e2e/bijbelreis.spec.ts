@@ -95,6 +95,7 @@ test("diepe link naar een stap opent die stap en het kruimelpad", async ({ page 
   await expect(page.locator("#sTitle")).toHaveText(/^4\. /);
   await expect(page.locator("#sCrumb")).toContainText("Stap 4 van");
   await expect(page.locator("#leesBtn")).toBeVisible();
+  await expect(page.locator("#leesRef")).not.toBeEmpty();
   expect(errors).toEqual([]);
 });
 
@@ -146,15 +147,15 @@ test("tabbladen: tijdlijn, wie is wie, hoe ver en boekenkast", async ({ page }) 
   expect(errors).toEqual([]);
 });
 
-test("Bijbeltekst opent als venster, Escape sluit en de focus keert terug", async ({ page }) => {
+test("de Bijbelreis staat naast de eigen Bijbel: verwijzingen als tekst, geen Bijbeltekst in de app", async ({ page }) => {
+  const urls: string[] = [];
+  page.on("request", (r) => urls.push(r.url()));
   await page.goto("/bijbelreis#ruth/1");
-  await page.locator("#leesBtn").click();
-  const lade = page.getByRole("dialog");
-  await expect(lade).toBeVisible();
-  await expect(page.locator("#verzen")).toContainText("Ruth");
-  await page.keyboard.press("Escape");
-  await expect(lade).toBeHidden();
-  await expect(page.locator("#leesBtn")).toBeFocused();
+  await expect(page.locator("#leesBtn")).toContainText("Lees in je Bijbel: Ruth 1");
+  await page.goto("/bijbelreis#v26");
+  await expect(page.locator(".verhaal .leesbijbel")).toContainText("Exodus 14:1–15:21");
+  await expect(page.locator("[data-ref]")).toHaveCount(0);
+  expect(urls.filter((u) => u.includes("/bijbelreis/bijbel/"))).toEqual([]);
 });
 
 // De speurtocht in vaste volgorde, per soort vraag apart: willekeur kan zo geen fouten verbergen.
@@ -499,13 +500,13 @@ test("3.1: legenda met ‘Waar ligt dit?’ opent, past in beeld en sluit weer",
   await expect(page.locator("#legendBtn")).toHaveAttribute("aria-expanded", "false");
 });
 
-test("3.1: kaartgegevens en Bijbeltekst komen met versienummer (geen oude versie uit de cache)", async ({ page }) => {
+test("3.1: kaartgegevens komen met versienummer (geen oude versie uit de cache)", async ({ page }) => {
   const urls: string[] = [];
   page.on("request", (r) => urls.push(r.url()));
   await page.goto("/bijbelreis#ruth/1");
-  await page.locator("#leesBtn").click();
-  await expect(page.locator("#verzen")).toContainText("Ruth");
-  for (const naam of ["geo.json", "relief.json", "bijbel/ruth.json"]) {
+  await expect(page.locator("#sTitle")).toBeVisible();
+  await expect.poll(() => urls.filter((u) => /geo\.json|relief\.json/.test(u)).length).toBeGreaterThanOrEqual(2);
+  for (const naam of ["geo.json", "relief.json"]) {
     const u = urls.find((x) => x.includes("/bijbelreis/" + naam));
     expect(u, naam).toBeTruthy();
     expect(u, naam).toMatch(/\?v=[0-9a-f]{10}/);
@@ -867,33 +868,4 @@ test("4.0: Samen ontdekken in de reis: één zin per stap, de weg naar het verha
   expect((tekst.match(/[.!?](\s|$)/g) || []).length).toBeLessThanOrEqual(1);
   await kaartje.getByRole("button", { name: /Lees samen: Droog door de Schelfzee/ }).click();
   await expect(page.locator(".verhaal.samen h2")).toHaveText("Droog door de Schelfzee");
-});
-
-test("4.0: voorlezen met een Nederlandse stem van het apparaat; zonder die stem geen knop", async ({ page }) => {
-  await page.addInitScript(() => {
-    const w = window as unknown as Record<string, unknown>;
-    const gesproken: string[] = []; w.__gesproken = gesproken;
-    const stem = { lang: "nl-NL", name: "Test", localService: true, default: true, voiceURI: "test" };
-    w.SpeechSynthesisUtterance = class { text: string; onend?: () => void; onerror?: () => void; voice?: unknown; lang?: string; rate?: number; constructor(t: string) { this.text = t; } };
-    Object.defineProperty(window, "speechSynthesis", { configurable: true, value: { getVoices: () => [stem], speak: (u: { text: string; onend?: () => void }) => { gesproken.push(u.text); setTimeout(() => u.onend && u.onend(), 20); }, cancel: () => {}, addEventListener: () => {} } });
-  });
-  await zetNiveau(page, "b");
-  await page.goto("/bijbelreis#v26");
-  const knop = page.locator(".verhaal .voorlees");
-  await expect(knop).toBeVisible();
-  await knop.click();
-  await expect.poll(() => page.evaluate(() => ((window as unknown as { __gesproken: string[] }).__gesproken || []).join(" "))).toContain("Klem tussen zee en leger");
-  const alles = await page.evaluate(() => (window as unknown as { __gesproken: string[] }).__gesproken.join(" "));
-  expect(alles).toContain("Here");
-  expect(alles).not.toContain("HEERE");
-  expect(alles).not.toMatch(/[‘’]/);
-  await expect(knop).toHaveAttribute("aria-pressed", "false");
-});
-
-test("4.0: zonder Nederlandse stem staat er geen voorleesknop", async ({ page }) => {
-  await page.addInitScript(() => { Object.defineProperty(window, "speechSynthesis", { configurable: true, value: { getVoices: () => [{ lang: "en-US", name: "X", localService: true }], speak: () => {}, cancel: () => {}, addEventListener: () => {} } }); });
-  await zetNiveau(page, "b");
-  await page.goto("/bijbelreis#v26");
-  await expect(page.locator(".verhaal h2")).toBeVisible();
-  await expect(page.locator(".verhaal .voorlees")).toBeHidden();
 });
