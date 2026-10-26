@@ -1,7 +1,7 @@
 {
   "63": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": ["kerith", "sarfath", "karmel"],
       "delen": [
         { "t": "Achab is koning van Israël. Hij doet wat kwaad is in de ogen van de HEERE. Hij dient de afgod Baäl.", "stap": "1koningen:elia:0" },
@@ -23,7 +23,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         { "kop": "Geen regen in Israël", "stap": "1koningen:elia:1", "t": "Koning Achab trouwt met Izebel en dient de afgod Baäl. De profeet Elia zegt tegen hem dat er geen dauw of regen zal komen, tenzij op zijn woord. Bij de beek Krith brengen raven Elia eten. Later zorgt een weduwe in Zarfath voor hem. Bij haar raken het meel en de olie niet op." },
         { "kop": "De God Die met vuur antwoordt", "stap": "1koningen:elia:3", "t": "In het derde jaar komt heel Israël op de berg Karmel, met vierhonderdvijftig profeten van Baäl. Elia vraagt: ‘Hoe lang hinkt gij op twee gedachten?’ Hij bedoelt: hoe lang gaan jullie nog heen en weer tussen de HEERE en Baäl? Elia zegt: de God Die met vuur antwoordt, Die is God. Het volk vindt dat goed. De profeten van Baäl roepen urenlang, maar er komt geen antwoord." },
@@ -37,7 +37,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         { "kop": "Elders in de Bijbel", "t": "Mozes had gewaarschuwd: als Israël andere goden zou dienen, zou de HEERE ‘den hemel toesluite, dat er geen regen zij’ (Deuteronomium 11:16–17). Elia zegt tegen Achab dat de ellende komt doordat hij en zijn familie ‘de Baäls nagevolgd’ zijn (1 Koningen 18:18). Later voer Elia ‘met een onweder ten hemel’ (2 Koningen 2:11). Door Maleachi belooft God: ‘Ziet, Ik zende ulieden den profeet Elia’ (Maleachi 4:5). Johannes de Doper zou gaan ‘in den geest en de kracht van Elias’ (Lukas 1:17). En op de berg spreken Mozes en Elia met de Heere Jezus (Mattheüs 17:3).", "refs": ["Deuteronomium 11:16–17", "1 Koningen 18:18", "2 Koningen 2:11", "Maleachi 4:5", "Lukas 1:17", "Mattheüs 17:3"] },
         { "kop": "Waar en wanneer", "t": "Zarfath ‘bij Sidon’, de berg Karmel en Jizreël zijn identificeerbaar. Waar Tisbe en de beek Krith lagen, is onbekend. De Bijbel zegt alleen dat Elia ‘van de inwoneren van Gilead’ was, en dat de beek ‘voor aan de Jordaan’ lag. Achab regeerde tweeëntwintig jaar in Samaria, in de gangbare chronologie (Thiele) ca. 874–853 v.Chr. In welke jaren de droogte viel, staat niet in de Bijbel. 1 Koningen 18:1 spreekt van ‘het derde jaar’; de Heere Jezus en Jakobus noemen ‘drie jaren en zes maanden’ (Lukas 4:25; Jakobus 5:17). Uitleggers verklaren dat verschil op verschillende manieren.", "refs": ["1 Koningen 17:1–9", "1 Koningen 16:29", "1 Koningen 18:1", "Lukas 4:25", "Jakobus 5:17"] },
@@ -53,14 +53,14 @@
   },
   "64": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": ["damascusst", "samaria", "kon_jordaannaaman"],
       "delen": [
         { "t": "Naäman is de legeroverste van de koning van Syrië. Hij is een dapper man. Maar hij is melaats: hij heeft een erge huidziekte.", "stap": "2koningen:elisa:4" },
         { "t": "In zijn huis woont een klein meisje uit Israël. Ze is gevangen meegenomen. Ze helpt de vrouw van Naäman." },
         { "t": "Het meisje zegt: was mijn heer maar bij de profeet in Samaria. Die zou hem beter maken." },
         { "t": "Naäman brengt een brief van zijn koning naar de koning van Israël. Die scheurt zijn kleren: hij kan Naäman niet beter maken." },
-        { "t": "Dan laat de profeet Elisa zeggen: laat hem bij mij komen. Naäman stopt met zijn paarden en wagen bij het huis van Elisa.", "stap": "2koningen:elisa:4" },
+        { "t": "Dan stuurt de profeet Elisa een bericht: laat hem bij mij komen. Naäman stopt met zijn paarden en wagen bij het huis van Elisa.", "stap": "2koningen:elisa:4" },
         { "t": "Elisa stuurt een bode naar hem toe. Die zegt: ga en was u zeven keer in de Jordaan. Dan wordt u gezond en rein." },
         { "t": "Naäman wordt boos en gaat weg. Maar zijn knechten praten met hem. Dan gaat hij toch naar de Jordaan." },
         { "t": "Zeven keer gaat hij onder in het water. Dan is zijn huid gezond, net als de huid van een kleine jongen.", "stap": "2koningen:elisa:4" },
@@ -75,7 +75,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         { "kop": "Een meisje weet raad", "stap": "2koningen:elisa:4", "t": "Naäman is legeroverste van de koning van Syrië en een dapper held, maar hij is melaats. Dat is een ernstige huidziekte. In zijn huis dient een klein meisje uit Israël, dat als gevangene is meegenomen. Zij zegt tegen de vrouw van Naäman: was mijn heer maar bij de profeet in Samaria, dan zou die hem genezen." },
         { "kop": "Zeven keer in de Jordaan", "t": "Met een brief van zijn koning en veel zilver en goud reist Naäman naar Israël. Hij stopt bij het huis van de profeet Elisa. Elisa stuurt een bode: ‘Ga heen en was u zevenmaal in de Jordaan’. Naäman wordt kwaad. Hij had gedacht dat Elisa zelf naar buiten zou komen. Maar zijn knechten overtuigen hem. Na de zevende keer is zijn huid als die van een kleine jongen." },
@@ -89,7 +89,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         { "kop": "Elders in de Bijbel", "t": "‘Wit als de sneeuw’ staat ook bij Mirjam, toen zij melaats werd (Numeri 12:10). Koning Uzzia bleef melaats ‘tot aan den dag zijns doods’ (2 Kronieken 26:21). Een melaatse zegt tegen de Heere Jezus: ‘Heere! indien Gij wilt, Gij kunt mij reinigen.’ Hij antwoordt: ‘Ik wil, word gereinigd!’ (Mattheüs 8:2–3). Als tien melaatsen gereinigd worden, komt er maar één terug om God te danken: een Samaritaan. De Heere Jezus noemt hem ‘deze vreemdeling’ (Lukas 17:15–18). Net als Naäman keert hij na zijn genezing terug.", "refs": ["Numeri 12:10", "2 Kronieken 26:21", "Mattheüs 8:2–3", "Lukas 17:15–18"] },
         { "kop": "Aarde uit Israël en het huis van Rimmon", "t": "Naäman vraagt ‘een last aarde van een juk muildieren’: zoveel aarde als een span muildieren kan dragen. Hij wil geen offers meer brengen aan andere goden, ‘maar den HEERE’ (2 Koningen 5:17). Veel uitleggers denken dat hij de HEERE wilde dienen op aarde uit Zijn land; de tekst zegt niet precies waarom. Naäman vraagt vergeving als hij met zijn koning moet buigen ‘in het huis van Rimmon’, een afgod in Syrië (5:18). Elisa antwoordt alleen: ‘Ga in vrede.’ Wat Elisa daarmee bedoelde, daarover verschillen uitleggers.", "refs": ["2 Koningen 5:17–19"] },
@@ -105,7 +105,7 @@
   },
   "65": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": ["salem"],
       "delen": [
         { "t": "Koning Ahazia van Juda is dood. Zijn moeder Athalia laat de hele familie van de koning ombrengen.", "stap": "2koningen:joas:0" },
@@ -127,7 +127,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         { "kop": "Verborgen in de tempel", "stap": "2koningen:joas:0", "t": "Als koning Ahazia van Juda gestorven is, laat zijn moeder Athalia de hele koninklijke familie ombrengen. Maar Joseba, de zus van Ahazia, haalt zijn zoon Joas weg tussen de prinsen die gedood worden. Zes jaar blijft Joas met zijn voedster verborgen in het huis van de HEERE in Jeruzalem. Een voedster is een vrouw die een klein kind voedt en verzorgt." },
         { "kop": "Een koning van zeven jaar", "stap": "2koningen:joas:1", "t": "In het zevende jaar laat de priester Jojada de oversten en de lijfwacht zweren in de tempel. Hij geeft hun de speren en schilden van koning David en zet Joas de kroon op. Joas is dan zeven jaar. Het volk klapt in de handen: ‘De koning leve!’ Athalia roept: ‘Verraad, verraad!’ Ze wordt buiten de tempel gedood." },
@@ -141,7 +141,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         { "kop": "Wat Kronieken erbij vertelt", "t": "2 Kronieken 22–24 vertelt dezelfde geschiedenis. Joseba heet daar Jozabath, en zij is ‘de huisvrouw van den priester Jojada’ (2 Kronieken 22:11). Joas deed wat recht was ‘al de dagen van den priester Jojada’ (2 Kronieken 24:2). Maar na de dood van Jojada luistert Joas naar de vorsten van Juda, en zij dienen afgoden (2 Kronieken 24:17–18). Volgens Kronieken doden zijn knechten hem ‘om het bloed der zonen van den priester Jojada’, en wordt hij niet in de graven der koningen begraven (2 Kronieken 24:25). Beide boeken zeggen dat hij in de stad Davids begraven werd (2 Koningen 12:21).", "refs": ["2 Kronieken 22:11", "2 Kronieken 24:2", "2 Kronieken 24:17–18", "2 Kronieken 24:25", "2 Koningen 12:21"] },
         { "kop": "De kroon en de getuigenis", "t": "Jojada zet Joas de kroon op, ‘en gaf hem de getuigenis’ (2 Koningen 11:12). Wat die getuigenis precies was, legt de tekst niet uit. Veel uitleggers denken aan een boekrol met de wet van God. Deuteronomium 17 zegt dat een koning een afschrift van de wet moest hebben, ‘en hij zal daarin lezen al de dagen zijns levens’ (Deuteronomium 17:19). Daarna sluit Jojada een verbond tussen de HEERE, de koning en het volk, ‘dat het den HEERE tot een volk zou zijn’ (11:17). Daarna breekt het volk het huis van Baäl af (11:18).", "refs": ["2 Koningen 11:12", "Deuteronomium 17:18–19", "2 Koningen 11:17–18"] },
@@ -157,7 +157,7 @@
   },
   "66": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": ["samaria", "halah", "kon_medie"],
       "delen": [
         { "t": "Hosea is koning van Israël in de stad Samaria. Hij doet wat kwaad is in de ogen van de HEERE.", "stap": "2koningen:ballingschap:0" },
@@ -178,7 +178,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         { "kop": "Koning Hosea zoekt hulp in Egypte", "stap": "2koningen:ballingschap:0", "t": "Hosea is koning van Israël in Samaria. Hij doet wat kwaad is in de ogen van de HEERE. Hij is de knecht van Salmaneser, de koning van Assyrië, en moet hem elk jaar een geschenk geven, een soort belasting. Maar Hosea stuurt boden naar So, de koning van Egypte, en stopt met betalen. Daarom zet de koning van Assyrië hem gevangen." },
         { "kop": "Samaria valt", "t": "Het leger van Assyrië belegert Samaria drie jaar. Belegeren betekent: een stad insluiten, zodat niemand erin of eruit kan. In het negende jaar van Hosea wordt de stad ingenomen. De Israëlieten worden weggevoerd naar Halah, naar Habor aan de rivier Gozan en naar de steden van de Meden. In hun steden komen mensen uit Babel en andere landen wonen." },
@@ -192,7 +192,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         { "kop": "Nieuwe bewoners in Samaria", "t": "In de steden van Samaria komen volken uit Babel, Chuta, Avva, Hamath en Sefarvaim wonen (2 Koningen 17:24). Als zij de HEERE niet vrezen, zendt Hij leeuwen onder hen (17:25). De koning van Assyrië stuurt dan een weggevoerde priester terug. Die gaat in Beth-el wonen en leert hen ‘hoe zij den HEERE vrezen zouden’ (17:28). Toch staat er: ‘Zij vreesden den HEERE, en dienden ook hun goden’ (17:33). Veel uitleggers zien hierin een begin van de latere Samaritanen uit het Nieuwe Testament (vergelijk Johannes 4:9); over hun precieze herkomst verschillen onderzoekers.", "refs": ["2 Koningen 17:24–33", "Johannes 4:9"] },
         { "kop": "Niet in één keer, en niet iedereen", "t": "Al eerder had Tiglath-pilezer, de koning van Assyrië, onder meer Gilead en Galilea, ‘het ganse land van Nafthali’, weggevoerd (2 Koningen 15:29). Ook bleven er Israëlieten achter. Koning Hizkia riep heel Israël op om in Jeruzalem pascha te houden; zijn boden spraken van ‘de ontkomenen, die ulieden overgebleven zijn uit de hand der koningen van Assyrië’. Ze werden uitgelachen, maar sommigen uit Aser, Manasse en Zebulon kwamen (2 Kronieken 30:1, 6, 10–11). Of dat vóór of na de val van Samaria was, zegt de tekst niet. Nog later, onder koning Josia, wordt geld opgehaald ‘uit het ganse overblijfsel van Israël’ (2 Kronieken 34:9).", "refs": ["2 Koningen 15:29", "2 Kronieken 30:1", "2 Kronieken 30:6", "2 Kronieken 30:10–11", "2 Kronieken 34:9"] },
@@ -208,7 +208,7 @@
   },
   "67": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": ["salem", "ninivest"],
       "delen": [
         { "t": "Hizkia is koning in Jeruzalem. Hij vertrouwt op de HEERE. Hij breekt de afgodsbeelden kapot.", "stap": "2koningen:ballingschap:1" },
@@ -230,12 +230,12 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         { "kop": "Een koning die op de HEERE vertrouwt", "stap": "2koningen:ballingschap:1", "t": "Hizkia is vijfentwintig als hij koning van Juda wordt. Geen koning van Juda vertrouwde zo op de HEERE als hij. Hij haalt de offerhoogten (offerplaatsen buiten de tempel) weg en verbrijzelt zelfs de koperen slang van Mozes, omdat het volk daarvoor reukwerk brandde." },
-        { "kop": "Een brief voor de HEERE", "stap": "2koningen:ballingschap:2", "t": "Sanherib, de koning van Assyrië, neemt de vestingsteden van Juda in. Zijn dienaar Rabsake roept bij de muur van Jeruzalem dat de HEERE de stad niet zal redden. Dan stuurt Sanherib een dreigbrief. Hizkia spreidt de brief uit in het huis van de HEERE en bidt: ‘Gij alleen zijt de God van alle koninkrijken der aarde’." },
-        { "kop": "Gods antwoord", "stap": "2koningen:ballingschap:3", "t": "Door de profeet Jesaja laat God weten dat Hij het gebed gehoord heeft. In die nacht slaat de Engel van de HEERE in het leger van Assyrië honderdvijfentachtigduizend man. Sanherib gaat terug naar Ninevé." },
-        { "kop": "Vijftien jaar erbij", "t": "In die dagen wordt Hizkia doodziek. Hij bidt en huilt, en God geeft hem nog vijftien jaar. Als teken gaat de schaduw tien graden terug. Maar Hizkia laat gezanten uit Babel al zijn schatten zien. Jesaja zegt dat alles naar Babel weggevoerd zal worden." }
+        { "kop": "Een brief voor de HEERE", "stap": "2koningen:ballingschap:2", "t": "Sanherib, de koning van Assyrië, valt Juda binnen. Zijn dienaar Rabsake roept bij de muur van Jeruzalem dat de HEERE de stad niet zal redden. Dan stuurt Sanherib een dreigbrief. Hizkia spreidt de brief uit in het huis van de HEERE en bidt: ‘Gij alleen zijt de God van alle koninkrijken der aarde’." },
+        { "kop": "Gods antwoord", "stap": "2koningen:ballingschap:3", "t": "Door de profeet Jesaja zegt God dat Hij het gebed gehoord heeft. Die nacht slaat de Engel van de HEERE in het leger van Assyrië honderdvijfentachtigduizend man. Sanherib gaat terug naar Ninevé." },
+        { "kop": "Vijftien jaar erbij", "t": "In die dagen wordt Hizkia doodziek. Hij bidt en huilt, en God geeft hem nog vijftien jaar. Als teken gaat de schaduw tien graden terug. Maar Hizkia toont gezanten uit Babel al zijn schatten. Jesaja zegt: alles zal naar Babel weggevoerd worden." }
       ],
       "vragen": [
         { "q": "Waarom verbrijzelde Hizkia de koperen slang van Mozes?", "a": ["Het volk brandde er reukwerk voor", "Hij was oud en kapotgegaan", "Sanherib wilde hem meenemen"], "why": "2 Koningen 18:4" },
@@ -245,7 +245,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         { "kop": "De koperen slang", "t": "In de woestijn maakte Mozes een koperen slang en zette die op een stang; wie gebeten was en haar aanzag, bleef leven (Numeri 21:8–9). Tot in de tijd van Hizkia brandden de Israëlieten er reukwerk voor. Daarom verbrijzelt Hizkia haar en noemt haar Nehustan (2 Koningen 18:4). Die naam wordt meestal uitgelegd als: een stuk koper. Veel uitleggers zien daarin dat Hizkia wilde laten zien dat het niet meer was dan koper. De Heere Jezus wijst op dezelfde slang: ‘gelijk Mozes de slang in de woestijn verhoogd heeft, alzo moet de Zoon des mensen verhoogd worden’ (Johannes 3:14).", "refs": ["Numeri 21:8–9", "2 Koningen 18:4", "Johannes 3:14"] },
         { "kop": "In die dagen", "t": "Hoofdstuk 20 begint met ‘In die dagen’. De ziekte van Hizkia wordt na het verhaal van Sanherib verteld, maar de tekst zegt niet dat zij daarna kwam. Wel belooft God hem dat Hij hem ‘uit de hand des konings van Assyrië verlossen’ zal, ‘mitsgaders deze stad’ (20:6). Daarom denken veel uitleggers dat Hizkia ziek werd vóór of tijdens de dreiging van Sanherib. Ook de gezanten uit Babel kwamen ‘te dier tijd’ (20:12). Volgens 2 Kronieken 32:31 kwamen zij vragen ‘naar dat wonderteken’, en ‘verliet hem God, om hem te verzoeken, om te weten al wat in zijn hart was’.", "refs": ["2 Koningen 20:1–12", "2 Kronieken 32:31"] },

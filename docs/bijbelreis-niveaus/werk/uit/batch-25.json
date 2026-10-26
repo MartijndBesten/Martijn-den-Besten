@@ -1,0 +1,407 @@
+{
+  "126": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_golgotha"],
+      "delen": [
+        { "t": "Pilatus geeft de Heere Jezus over. Hij moet gekruisigd worden.", "stap": "jezus-3:nt-lijden:6" },
+        { "t": "De Heere Jezus draagt Zijn kruis. Hij gaat naar een plaats dicht bij de stad. Die plaats heet Golgotha.", "stap": "jezus-3:nt-lijden:6" },
+        { "t": "Daar kruisigen de soldaten Hem. Naast Hem worden nog twee mannen gekruisigd, aan elke kant één.", "stap": "jezus-3:nt-lijden:6" },
+        { "t": "Pilatus laat op het kruis schrijven: Jezus, de Nazarener, de Koning der Joden." },
+        { "t": "Bij het kruis staan Zijn moeder en een paar andere vrouwen. De discipel die Hij liefheeft, staat er ook." },
+        { "t": "De Heere Jezus zegt tegen die discipel: ‘Zie, uw moeder.’ Vanaf dat uur neemt de discipel haar in zijn huis." },
+        { "t": "Dan zegt de Heere Jezus: ‘Mij dorst.’ Dat betekent: Ik heb dorst. Ze brengen een spons met zure edik aan Zijn mond." },
+        { "t": "Dan zegt Hij: ‘Het is volbracht!’ Hij buigt Zijn hoofd en sterft.", "stap": "jezus-3:nt-lijden:7" },
+        { "t": "Waarom sterft de Heere Jezus? De Bijbel zegt: Hij heeft onze zonden gedragen (1 Petrus 2:24)." }
+      ],
+      "samen": "Vertel rustig wat de Bijbel zegt, en beschrijf het lijden niet verder dan de tekst. De Heere Jezus gaf Zijn leven Zelf: ‘Niemand neemt hetzelve van Mij, maar Ik leg het van Mijzelven af’ (Johannes 10:18). Petrus schrijft waarom: ‘Die Zelf onze zonden in Zijn lichaam gedragen heeft op het hout’ (1 Petrus 2:24). Hier weggelaten: de soldaten verdelen Zijn kleren en loten om Zijn rok (Johannes 19:23–24). Het verhaal eindigt niet bij het graf; lees daarna ook geschiedenis 128 en 129.",
+      "vragen": [
+        { "q": "Wat draagt de Heere Jezus naar Golgotha?", "a": ["Zijn kruis", "Een grote steen"], "why": "Johannes 19:17" },
+        { "q": "Wat laat Pilatus op het kruis schrijven?", "a": ["De Koning der Joden", "De Zoon van David"], "why": "Johannes 19:19" },
+        { "q": "Wat zegt de Heere Jezus vlak voordat Hij sterft?", "a": ["Het is volbracht", "Ik ga naar Nazareth"], "why": "Johannes 19:30" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Naar Golgotha", "stap": "jezus-3:nt-lijden:6", "t": "Pilatus geeft de Heere Jezus over om gekruisigd te worden. De Heere Jezus draagt Zijn kruis naar een plaats dicht bij de stad. In het Hebreeuws heet die plaats Golgotha: Hoofdschedelplaats. Daar kruisigen de soldaten Hem, met twee anderen: aan elke kant één, en de Heere Jezus in het midden. Pilatus zet een opschrift op het kruis: ‘JEZUS, DE NAZARENER, DE KONING DER JODEN’." },
+        { "kop": "Zie, uw moeder", "t": "Bij het kruis staan Zijn moeder, Maria Magdalena en andere vrouwen. Ook de discipel die de Heere Jezus liefheeft, staat erbij. Tegen Zijn moeder zegt de Heere Jezus: ‘Vrouw, zie, uw zoon.’ En tegen de discipel: ‘Zie, uw moeder.’ Vanaf dat uur neemt die discipel haar in zijn huis." },
+        { "kop": "Het is volbracht", "stap": "jezus-3:nt-lijden:7", "t": "Dan zegt de Heere Jezus: ‘Mij dorst.’ Zo wordt de Schrift vervuld. Ze geven Hem edik, een zure drank, met een spons. Dan zegt Hij: ‘Het is volbracht!’ Hij buigt Zijn hoofd en geeft de geest: Hij sterft. Petrus schrijft later waarom: Hij heeft ‘onze zonden in Zijn lichaam gedragen’ (1 Petrus 2:24)." }
+      ],
+      "vragen": [
+        { "q": "Waar kruisigen de soldaten de Heere Jezus?", "a": ["Op Golgotha", "Op de Olijfberg", "Bij de Jordaan"], "why": "Johannes 19:17–18" },
+        { "q": "Waarom zegt de Heere Jezus: ‘Mij dorst’?", "a": ["Opdat de Schrift vervuld zou worden", "Omdat Zijn moeder erom vroeg", "Omdat de soldaten het wilden horen"], "why": "Johannes 19:28" },
+        { "q": "Wat doet de discipel die de Heere Jezus liefheeft voor Zijn moeder?", "a": ["Hij neemt haar in zijn huis", "Hij brengt haar naar Nazareth", "Hij brengt haar naar Petrus"], "why": "Johannes 19:27" },
+        { "q": "Wat zegt de Heere Jezus als laatste, voordat Hij de geest geeft?", "a": ["Het is volbracht!", "Mij dorst.", "Zie, uw moeder."], "why": "Johannes 19:26–30" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Zeven woorden aan het kruis", "t": "In de kerk spreekt men vaak van de zeven kruiswoorden. Dat is een verzameling uit de vier evangeliën; geen evangelist noemt ze alle zeven. Lukas noemt: ‘Vader, vergeef het hun; want zij weten niet, wat zij doen’ (Lukas 23:34), ‘Heden zult gij met Mij in het Paradijs zijn’ (Lukas 23:43) en ‘Vader, in Uw handen beveel Ik Mijn geest’ (Lukas 23:46). Mattheüs en Markus noemen: ‘Mijn God! Mijn God! Waarom hebt Gij Mij verlaten!’ (Mattheüs 27:46). Johannes noemt de drie uit deze geschiedenis: het woord tot Zijn moeder en de discipel, ‘Mij dorst’ en ‘Het is volbracht!’", "refs": ["Lukas 23:34", "Lukas 23:43", "Lukas 23:46", "Mattheüs 27:46", "Markus 15:34", "Johannes 19:26–30"] },
+        { "kop": "Wat Johannes vertelt en wat niet", "t": "Johannes schrijft dat de Heere Jezus Zijn kruis Zelf droeg (19:17). Mattheüs, Markus en Lukas vertellen dat de soldaten onderweg Simon van Cyrene dwongen het kruis te dragen (Mattheüs 27:32; Lukas 23:26). Uitleggers zien dat meestal als twee delen van dezelfde tocht. De naam van de discipel ‘dien Hij liefhad’ noemt Johannes nergens. Aan het eind van het evangelie staat dat deze discipel ‘deze dingen geschreven heeft’ (Johannes 21:20, 24); daarom wordt hij van oudsher gezien als de apostel Johannes. Of Johannes 19:25 drie of vier vrouwen noemt, daarover verschillen uitleggers.", "refs": ["Johannes 19:17", "Mattheüs 27:32", "Lukas 23:26", "Johannes 21:20–24", "Johannes 19:25"] },
+        { "kop": "Waar en wanneer", "t": "Johannes zegt dat de plaats ‘nabij de stad’ lag (19:20). Hebreeën 13:12 zegt dat de Heere Jezus ‘buiten de poort geleden’ heeft. Waar Golgotha precies lag, is niet met zekerheid bekend; daarom staat de plaats op de kaart als betwist. Een jaartal noemt de Bijbel niet. Met Lukas 3:1 en de ambtstijd van Pilatus komt men meestal op 30 of 33 n.Chr.; andere dateringen bestaan ook. Johannes noemt wel de dag: ‘de voorbereiding van het pascha’ (19:14).", "refs": ["Johannes 19:20", "Hebreeën 13:12", "Lukas 3:1", "Johannes 19:14"] }
+      ],
+      "vragen": [
+        { "q": "Welk kruiswoord vertelt Lukas?", "a": ["Vader, vergeef het hun", "Mij dorst", "Het is volbracht"], "why": "Lukas 23:34" },
+        { "q": "Wie moest volgens Mattheüs en Lukas het kruis dragen?", "a": ["Simon van Cyrene", "Jozef van Arimathea", "Simon Petrus"], "why": "Mattheüs 27:32; Lukas 23:26" },
+        { "q": "Waar heeft de Heere Jezus geleden, volgens Hebreeën 13:12?", "a": ["Buiten de poort", "Midden in de tempel", "Op de Olijfberg"], "why": "Hebreeën 13:12" },
+        { "q": "Welke dag was het volgens Johannes toen Pilatus de Heere Jezus overgaf?", "a": ["De voorbereiding van het pascha", "De eerste dag der week", "De sabbat"], "why": "Johannes 19:14–16" }
+      ]
+    }
+  },
+  "127": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_golgotha"],
+      "delen": [
+        { "t": "De Heere Jezus is aan het kruis gestorven. Het is bijna sabbat, de rustdag.", "stap": "jezus-3:nt-lijden:8" },
+        { "t": "De soldaten komen bij het kruis. Ze zien dat de Heere Jezus al gestorven is.", "stap": "jezus-3:nt-lijden:8" },
+        { "t": "Jozef van Arimathea gaat naar Pilatus. Hij vraagt of hij het lichaam van de Heere Jezus mag wegnemen." },
+        { "t": "Pilatus vindt het goed. Jozef neemt het lichaam mee." },
+        { "t": "Nicodemus komt ook. Hij brengt heel veel mirre en aloë mee. Dat zijn specerijen voor een begrafenis." },
+        { "t": "Samen wikkelen ze het lichaam met de specerijen in linnen doeken." },
+        { "t": "Dichtbij is een tuin met een nieuw graf. Daar heeft nog nooit iemand in gelegen.", "stap": "jezus-3:nt-lijden:8" },
+        { "t": "Daar leggen ze de Heere Jezus neer. Het graf is dichtbij, en de sabbat begint bijna.", "stap": "jezus-3:nt-lijden:8" }
+      ],
+      "samen": "Hier weggelaten: de soldaten breken de benen van de twee anderen, en een soldaat steekt een speer in de zijde van de Heere Jezus; er komt bloed en water uit (Johannes 19:32–34). Johannes zegt dat zo de Schrift vervuld werd (Johannes 19:36–37). Johannes noemt geen steen. Mattheüs vertelt dat Jozef een grote steen tegen de deur van het graf rolde (Mattheüs 27:60). Die steen komt terug in geschiedenis 128. Vraag samen: wie zorgen er voor het lichaam van de Heere Jezus?",
+      "vragen": [
+        { "q": "Wie vraagt Pilatus om het lichaam van de Heere Jezus?", "a": ["Jozef van Arimathea", "Petrus"], "why": "Johannes 19:38" },
+        { "q": "Waarin wikkelen ze het lichaam?", "a": ["In linnen doeken", "In een rode mantel"], "why": "Johannes 19:40" },
+        { "q": "Wat is er bijzonder aan het graf?", "a": ["Er heeft nog nooit iemand in gelegen", "Het is een heel oud graf"], "why": "Johannes 19:41" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Voor de grote sabbat", "stap": "jezus-3:nt-lijden:8", "t": "Het is de dag van de voorbereiding, en de sabbat die volgt is een grote dag. De Joden willen niet dat de lichamen op de sabbat aan het kruis blijven. De soldaten breken de benen van de twee anderen. Maar de Heere Jezus is al gestorven, en daarom breken ze Zijn benen niet. Wel steekt een soldaat een speer in Zijn zijde, en meteen komt er bloed en water uit. Zo wordt de Schrift vervuld: ‘Geen been van Hem zal verbroken worden.’" },
+        { "kop": "Jozef en Nicodemus", "t": "Jozef van Arimathea is een discipel van de Heere Jezus, maar in het geheim, omdat hij bang is voor de Joden. Hij vraagt Pilatus om het lichaam, en Pilatus staat het toe. Ook Nicodemus komt, met ongeveer honderd pond mirre en aloë: geurige specerijen. Samen wikkelen ze het lichaam met de specerijen in linnen doeken, zoals de Joden gewend zijn bij een begrafenis." },
+        { "kop": "Een nieuw graf in een hof", "stap": "jezus-3:nt-lijden:8", "t": "Bij de plaats van de kruisiging is een hof, een tuin, met een nieuw graf. Daar heeft nog nooit iemand in gelegen. Omdat het graf dichtbij is en de sabbat bijna begint, leggen ze de Heere Jezus daar." }
+      ],
+      "vragen": [
+        { "q": "Waarom wilden de Joden dat de lichamen werden weggehaald?", "a": ["Ze mochten op de sabbat niet aan het kruis blijven", "Pilatus had dat zo bevolen", "De soldaten wilden naar huis"], "why": "Johannes 19:31" },
+        { "q": "Welk Schriftwoord werd vervuld doordat ze Zijn benen niet braken?", "a": ["Geen been van Hem zal verbroken worden", "Zij delen Mijn klederen onder zich", "Mijn God, waarom hebt Gij Mij verlaten"], "why": "Johannes 19:36" },
+        { "q": "Wat bracht Nicodemus mee?", "a": ["Ongeveer honderd pond mirre en aloë", "Een grote steen voor het graf", "Brood en wijn voor de sabbat"], "why": "Johannes 19:39" },
+        { "q": "Waarom legden ze de Heere Jezus juist in dit graf?", "a": ["Het was dichtbij en de sabbat begon bijna", "Het was het graf van Zijn familie", "Pilatus had het graf aangewezen"], "why": "Johannes 19:42" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Geen been gebroken", "t": "Johannes haalt twee Schriftwoorden aan. Bij het eerste denken uitleggers aan het paaslam: ‘gij zult geen been daaraan breken’ (Exodus 12:46; Numeri 9:12), en aan Psalm 34 over de rechtvaardige: ‘niet een van die wordt gebroken’ (Psalm 34:21). Paulus schrijft: ‘ook ons Pascha is voor ons geslacht, namelijk Christus’ (1 Korinthe 5:7). Het tweede woord komt uit Zacharia 12:10: ‘zij zullen Mij aanschouwen, Dien zij doorstoken hebben’. In Openbaring 1:7 klinkt het opnieuw: ‘alle oog zal Hem zien, ook degenen, die Hem doorstoken hebben’.", "refs": ["Exodus 12:46", "Numeri 9:12", "Psalm 34:21", "1 Korinthe 5:7", "Zacharia 12:10", "Openbaring 1:7"] },
+        { "kop": "Wie waren Jozef en Nicodemus?", "t": "De andere evangeliën vertellen meer over Jozef. Hij was ‘een rijk man’ (Mattheüs 27:57) en een raadsheer, ‘een goed en rechtvaardig man’, die ‘niet mede bewilligd’ had in wat de raad tegen de Heere Jezus besloot (Lukas 23:50–51). Mattheüs noemt het graf ‘zijn nieuw graf, hetwelk hij in een steenrots uitgehouwen had’ (Mattheüs 27:60). Nicodemus was een Farizeeër en een overste der Joden, die eerst ‘des nachts’ bij de Heere Jezus kwam (Johannes 3:1–2). Later vroeg hij de Farizeeën of hun wet iemand mag oordelen zonder hem eerst te horen (Johannes 7:50–51).", "refs": ["Mattheüs 27:57–60", "Lukas 23:50–51", "Johannes 3:1–2", "Johannes 7:50–51"] },
+        { "kop": "Waarom zo snel?", "t": "Uitleggers wijzen op de wet: wie aan een hout was opgehangen, mocht daar niet blijven: ‘Zo zal zijn dood lichaam aan het hout niet overnachten’ (Deuteronomium 21:23). Bovendien begon de sabbat. Lukas vertelt dat de vrouwen zagen hoe het lichaam werd neergelegd. Daarna maakten ze specerijen klaar, maar ‘op den sabbat rustten zij naar het gebod’ (Lukas 23:55–56). Ongeveer honderd pond mirre en aloë is veel. Uitleggers rekenen dat om tot ruim dertig kilo.", "refs": ["Deuteronomium 21:22–23", "Lukas 23:55–56", "Johannes 19:39"] }
+      ],
+      "vragen": [
+        { "q": "Over welk offer zei de wet: ‘gij zult geen been daaraan breken’?", "a": ["Het paaslam", "Het morgenoffer", "De zondebok"], "why": "Exodus 12:43–46" },
+        { "q": "Wanneer was Nicodemus voor het eerst bij de Heere Jezus gekomen?", "a": ["Des nachts", "Op de sabbat in de tempel", "Bij de bruiloft te Kana"], "why": "Johannes 3:2; Johannes 19:39" },
+        { "q": "Van wie was het nieuwe graf, volgens Mattheüs?", "a": ["Van Jozef van Arimathea", "Van Nicodemus", "Van Lazarus"], "why": "Mattheüs 27:57–60" },
+        { "q": "Wat vertelt Lukas over Jozef van Arimathea?", "a": ["Hij had niet ingestemd met de raad", "Hij was de hogepriester", "Hij was een tollenaar"], "why": "Lukas 23:50–51" }
+      ]
+    }
+  },
+  "128": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_golgotha"],
+      "delen": [
+        { "t": "Het is de eerste dag van de week. Het begint net licht te worden." },
+        { "t": "Maria Magdalena en de andere Maria gaan naar het graf van de Heere Jezus.", "stap": "jezus-3:nt-opstanding:0" },
+        { "t": "Dan komt er een grote aardbeving. Een engel van de Heere komt uit de hemel naar beneden." },
+        { "t": "De engel rolt de steen weg van het graf. Dan gaat hij erop zitten.", "stap": "jezus-3:nt-opstanding:0" },
+        { "t": "De engel ziet eruit als een bliksem. De wachters bij het graf worden zo bang dat ze als doden zijn." },
+        { "t": "De engel zegt tegen de vrouwen dat ze niet bang hoeven te zijn. De Heere Jezus is hier niet. Hij is opgestaan!" },
+        { "t": "De engel laat hun de plaats zien waar de Heere gelegen heeft.", "stap": "jezus-3:nt-opstanding:0" },
+        { "t": "Ze moeten het snel aan de discipelen vertellen. De Heere Jezus gaat hen voor naar Galilea." },
+        { "t": "De vrouwen lopen snel weg. Ze zijn bang en ook heel blij." }
+      ],
+      "samen": "Het graf werd bewaakt: de overpriesters hadden de steen laten verzegelen en er een wacht bij gezet (Mattheüs 27:62–66). Mattheüs vertelt niet hoe of wanneer de Heere Jezus uit het graf ging; de engel zegt alleen: ‘Hij is hier niet; want Hij is opgestaan’ (Mattheüs 28:6). Markus en Lukas noemen meer vrouwen (Markus 16:1; Lukas 24:10). Vraag samen: had de Heere Jezus dit van tevoren gezegd? Ja, Hij zou ‘ten derden dage opgewekt worden’ (Mattheüs 16:21).",
+      "vragen": [
+        { "q": "Wie rolt de steen weg?", "a": ["Een engel van de Heere", "De twee vrouwen"], "why": "Mattheüs 28:2" },
+        { "q": "Waarom is de Heere Jezus niet meer in het graf?", "a": ["Hij is opgestaan", "Hij is weggedragen"], "why": "Mattheüs 28:6" },
+        { "q": "Hoe lopen de vrouwen weg?", "a": ["Bang en heel blij", "Boos en moe"], "why": "Mattheüs 28:8" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Vroeg naar het graf", "stap": "jezus-3:nt-opstanding:0", "t": "Na de sabbat, als het licht begint te worden op de eerste dag van de week, gaan Maria Magdalena en de andere Maria het graf bekijken. Het graf wordt bewaakt. De overpriesters hebben de steen laten verzegelen en er een wacht bij gezet, zodat de discipelen het lichaam niet kunnen stelen (Mattheüs 27:62–66)." },
+        { "kop": "Een engel op de steen", "t": "Dan komt er een grote aardbeving. Een engel van de Heere daalt uit de hemel neer. Hij rolt de steen van de ingang weg en gaat erop zitten. Hij ziet eruit als een bliksem, en zijn kleding is wit als sneeuw. De wachters worden zo bang dat ze als doden zijn." },
+        { "kop": "Hij is opgestaan", "t": "De engel zegt tegen de vrouwen: ‘Vreest gijlieden niet’. Dat betekent: wees niet bang. ‘Hij is hier niet; want Hij is opgestaan, gelijk Hij gezegd heeft.’ Hij laat hun de plaats zien waar de Heere gelegen heeft. Ze moeten het snel aan de discipelen vertellen: de Heere Jezus gaat hen voor naar Galilea. Met vrees en grote blijdschap lopen de vrouwen weg." }
+      ],
+      "vragen": [
+        { "q": "Waarom stond er een wacht bij het graf?", "a": ["De overpriesters wilden niet dat het lichaam gestolen werd", "De vrouwen hadden erom gevraagd", "Jozef wilde zijn graf laten bewaken"], "why": "Mattheüs 27:62–66" },
+        { "q": "Wat deed de engel nadat hij de steen had weggerold?", "a": ["Hij ging erop zitten", "Hij brak hem in stukken", "Hij zette hem weer terug"], "why": "Mattheüs 28:2" },
+        { "q": "Waarom hoefden de vrouwen niet bang te zijn?", "a": ["De Heere Jezus was opgestaan", "De wachters waren weggelopen", "Pilatus had het graf laten openen"], "why": "Mattheüs 28:5–6" },
+        { "q": "Hoe liepen de vrouwen weg van het graf?", "a": ["Haastig, met vrees en grote blijdschap", "Langzaam en heel verdrietig", "Boos, omdat het graf leeg was"], "why": "Mattheüs 28:8" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Vier verslagen van één morgen", "t": "Mattheüs noemt twee vrouwen en één engel, die op de steen zit. Markus noemt ook Salome en vertelt van ‘een jongeling’ in het graf, ‘bekleed met een wit lang kleed’ (Markus 16:1, 5). Lukas noemt onder anderen Johanna en spreekt van ‘twee mannen’ in ‘blinkende klederen’ (Lukas 24:4, 10). Johannes vertelt vooral over Maria Magdalena (Johannes 20:1). Uitleggers leggen deze verslagen op verschillende manieren naast elkaar. Alle vier vertellen dat het graf leeg is, en dat de Heere is opgestaan.", "refs": ["Markus 16:1–6", "Lukas 24:1–10", "Johannes 20:1"] },
+        { "kop": "Gelijk Hij gezegd heeft", "t": "De engel herinnert aan wat de Heere Jezus Zelf vooraf had gezegd. Meer dan eens kondigde Hij aan dat Hij gedood zou worden en ‘ten derden dage’ zou opstaan (Mattheüs 17:23; 20:19). In de nacht voor Zijn lijden zei Hij: ‘Maar nadat Ik zal opgestaan zijn, zal Ik u voorgaan naar Galilea’ (Mattheüs 26:32). Ook de overpriesters wisten het nog. Ze zeiden tegen Pilatus: ‘Na drie dagen zal Ik opstaan’, en vroegen daarom om een wacht (Mattheüs 27:63–64).", "refs": ["Mattheüs 17:22–23", "Mattheüs 20:18–19", "Mattheüs 26:31–32", "Mattheüs 27:62–66"] },
+        { "kop": "De eerste dag der week", "t": "De vrouwen komen ‘tegen den eersten dag der week’ (28:1): de dag na de sabbat, onze zondag. Later kwamen de discipelen in Troas samen ‘op den eersten dag der week’ om brood te breken (Handelingen 20:7). Paulus vraagt de gemeente in Korinthe om ‘op elken eersten dag der week’ iets weg te leggen voor de verzameling voor de heiligen (1 Korinthe 16:1–2). Johannes spreekt van ‘den dag des Heeren’ (Openbaring 1:10); veel uitleggers zien daarin de zondag.", "refs": ["Mattheüs 28:1", "Handelingen 20:6–7", "1 Korinthe 16:1–2", "Openbaring 1:10"] }
+      ],
+      "vragen": [
+        { "q": "Wat had de Heere Jezus vooraf gezegd over Galilea?", "a": ["Na Zijn opstanding zou Hij hen voorgaan naar Galilea", "Hij zou nooit meer in Galilea komen", "Ze moesten op Hem wachten in Bethlehem"], "why": "Mattheüs 26:32" },
+        { "q": "Wie herinnerden Pilatus aan de woorden: ‘Na drie dagen zal Ik opstaan’?", "a": ["De overpriesters en de Farizeeën", "De discipelen van de Heere Jezus", "De vrouwen uit Galilea"], "why": "Mattheüs 27:62–63" },
+        { "q": "Welke evangelist noemt Salome bij het graf?", "a": ["Markus", "Mattheüs", "Johannes"], "why": "Markus 16:1" },
+        { "q": "Op welke dag kwamen de discipelen in Troas samen om brood te breken?", "a": ["Op de eerste dag der week", "Op de sabbat", "Op de dag der voorbereiding"], "why": "Handelingen 20:6–7" }
+      ]
+    }
+  },
+  "129": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_golgotha"],
+      "delen": [
+        { "t": "Het is nog donker. Maria Magdalena gaat naar het graf. Ze ziet dat de steen weg is.", "stap": "jezus-3:nt-opstanding:1" },
+        { "t": "Ze rent naar Petrus en de andere discipel. Ze denkt dat iemand de Heere uit het graf heeft weggehaald." },
+        { "t": "Petrus en de andere discipel rennen naar het graf. Ze zien de doeken liggen, maar de Heere is er niet.", "stap": "jezus-3:nt-opstanding:1" },
+        { "t": "Maria staat bij het graf en huilt. Ze ziet twee engelen in witte kleren.", "stap": "jezus-3:nt-opstanding:1" },
+        { "t": "Dan draait ze zich om. Daar staat de Heere Jezus, maar ze weet niet dat Hij het is." },
+        { "t": "Ze denkt dat Hij de tuinman is." },
+        { "t": "Dan noemt Hij haar naam: ‘Maria!’ Ze keert zich om en zegt: ‘Rabbouni!’ Dat betekent: Meester." },
+        { "t": "Maria gaat naar de discipelen. Ze vertelt dat ze de Heere gezien heeft." }
+      ],
+      "samen": "Hier weggelaten: Mattheüs vertelt dat de Heere Jezus ook de vrouwen tegemoet kwam, en dat ze Zijn voeten grepen en Hem aanbaden (Mattheüs 28:9–10). Ook vertelt hij dat de soldaten van de wacht geld kregen om te zeggen dat de discipelen het lichaam gestolen hadden (Mattheüs 28:11–15). Vraag samen: waaraan herkent Maria de Heere Jezus? Hij noemt haar naam (Johannes 20:16).",
+      "vragen": [
+        { "q": "Waarom huilt Maria bij het graf?", "a": ["Ze denkt dat de Heere is weggehaald", "Ze is verdwaald in de tuin"], "why": "Johannes 20:13" },
+        { "q": "Voor wie houdt Maria de Heere Jezus eerst?", "a": ["Voor de tuinman", "Voor Petrus"], "why": "Johannes 20:15" },
+        { "q": "Wanneer weet Maria dat het de Heere Jezus is?", "a": ["Als Hij haar naam noemt", "Als ze de engelen ziet"], "why": "Johannes 20:16" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "De vrouwen ontmoeten Hem", "stap": "jezus-3:nt-opstanding:0", "t": "Mattheüs vertelt: als de vrouwen van het graf weggaan, komt de Heere Jezus hen tegemoet. ‘Weest gegroet!’ zegt Hij. Ze grijpen Zijn voeten en aanbidden Hem. Hij stuurt hen naar Zijn broeders: die moeten naar Galilea gaan, daar zullen ze Hem zien." },
+        { "kop": "Het graf is leeg", "stap": "jezus-3:nt-opstanding:1", "t": "Johannes vertelt over Maria Magdalena. Vroeg, als het nog donker is, ziet ze dat de steen van het graf weg is. Ze rent naar Simon Petrus en de andere discipel. Die twee rennen naar het graf. Ze zien de linnen doeken liggen, en de zweetdoek apart opgerold." },
+        { "kop": "Hij noemt haar naam", "t": "Maria blijft huilend bij het graf staan. Dan ziet ze de Heere Jezus, maar ze herkent Hem niet. Ze denkt dat Hij de hovenier is, de tuinman. Dan zegt Hij: ‘Maria!’ Zij zegt: ‘Rabbouni’, dat betekent: Meester. Ze gaat naar de discipelen en vertelt dat ze de Heere gezien heeft." },
+        { "kop": "Geld voor de soldaten", "t": "Intussen vertellen soldaten van de wacht aan de overpriesters wat er gebeurd is. Die geven hun veel geld. Ze moeten zeggen dat de discipelen het lichaam ’s nachts gestolen hebben, terwijl zij sliepen." }
+      ],
+      "vragen": [
+        { "q": "Wat zei de Heere Jezus toen Hij de vrouwen tegemoet kwam?", "a": ["Weest gegroet!", "Vrede zij ulieden!", "Raak Mij niet aan!"], "why": "Mattheüs 28:9" },
+        { "q": "Waarom huilde Maria bij het graf?", "a": ["Ze dacht dat iemand de Heere had weggenomen", "De engelen hadden haar weggestuurd", "Petrus wilde haar niet meenemen"], "why": "Johannes 20:13" },
+        { "q": "Wanneer herkende Maria de Heere Jezus?", "a": ["Toen Hij haar naam noemde", "Toen ze de engelen zag", "Toen Hij het brood brak"], "why": "Johannes 20:16" },
+        { "q": "Waarom gaven de overpriesters de soldaten veel geld?", "a": ["Ze moesten zeggen dat het lichaam gestolen was", "Ze moesten het graf langer bewaken", "Ze moesten de discipelen gevangennemen"], "why": "Mattheüs 28:12–13" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Doeken en zweetdoek", "t": "Johannes beschrijft precies wat er in het graf ligt: de doeken, en ‘den zweetdoek, die op Zijn hoofd geweest was’, ‘in het bijzonder in een andere plaats samengerold’ (20:6–7). Vergelijk Lazarus: hij kwam naar buiten ‘gebonden aan handen en voeten met grafdoeken’ en moest nog worden losgemaakt (Johannes 11:44). Veel uitleggers zien in de opgerolde zweetdoek een aanwijzing dat het lichaam niet in haast is weggehaald. Van de andere discipel zegt Johannes: hij ‘zag het, en geloofde’ (20:8). Toch staat er: ‘zij wisten nog de Schrift niet, dat Hij van de doden moest opstaan’ (20:9).", "refs": ["Johannes 20:6–9", "Johannes 11:44"] },
+        { "kop": "Wie was Maria Magdalena?", "t": "Lukas vertelt dat uit Maria Magdalena ‘zeven duivelen uitgegaan waren’ (Lukas 8:2). Zij stond bij het kruis (Johannes 19:25) en zag waar Hij gelegd werd (Markus 15:47). Markus schrijft dat de opgestane Heere ‘eerst aan Maria Magdalena’ verscheen (Markus 16:9). Dat zij vroeger een zondares was, zoals vaak wordt verteld, staat niet in de Bijbel. Dat komt uit latere overlevering, die haar gelijkstelde met de vrouw uit Lukas 7:37.", "refs": ["Lukas 8:2", "Johannes 19:25", "Markus 15:47", "Markus 16:9", "Lukas 7:37"] },
+        { "kop": "Mijn Vader en uw Vader", "t": "De Heere Jezus zegt tegen Maria: ‘Raak Mij niet aan, want Ik ben nog niet opgevaren tot Mijn Vader’ (20:17). Uitleggers verschillen over wat Hij daarmee precies bedoelt. Duidelijk is de boodschap die zij moet brengen: ‘Ik vare op tot Mijn Vader en uw Vader, en tot Mijn God en uw God.’ Hij noemt de discipelen hier ‘Mijn broeders’, en in Mattheüs 28:10 ‘Mijn broederen’. Hebreeën 2:11 zegt dat Hij ‘Zich niet schaamt hen broeders te noemen’.", "refs": ["Johannes 20:17", "Mattheüs 28:10", "Hebreeën 2:11"] }
+      ],
+      "vragen": [
+        { "q": "Wat lag er apart opgerold op een andere plaats in het graf?", "a": ["De zweetdoek", "De linnen doeken", "De steen van de ingang"], "why": "Johannes 20:7" },
+        { "q": "Wat vertelt Lukas over Maria Magdalena?", "a": ["Uit haar waren zeven duivelen uitgegaan", "Zij was de moeder van Jakobus en Joses", "Zij was de vrouw van Klopas"], "why": "Lukas 8:2; Mattheüs 27:56; Johannes 19:25" },
+        { "q": "Wat wisten de discipelen volgens Johannes 20:9 nog niet?", "a": ["De Schrift, dat Hij van de doden moest opstaan", "Waar het graf van Jozef lag", "Wie de andere discipel was"], "why": "Johannes 20:9" },
+        { "q": "Hoe noemt de Heere Jezus de discipelen in Zijn boodschap aan Maria?", "a": ["Mijn broeders", "Mijn knechten", "Mijn vrienden"], "why": "Johannes 20:17" }
+      ]
+    }
+  },
+  "130": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_emmaus", "salem"],
+      "delen": [
+        { "t": "Twee discipelen lopen van Jeruzalem naar Emmaüs. Ze praten over alles wat er gebeurd is.", "stap": "jezus-3:nt-opstanding:2" },
+        { "t": "Dan komt de Heere Jezus bij hen lopen. Maar ze herkennen Hem niet." },
+        { "t": "Hij vraagt waar ze over praten, en waarom ze zo verdrietig kijken." },
+        { "t": "Ze vertellen over de Heere Jezus, Die gekruisigd is. En over de vrouwen die zeggen dat Hij leeft." },
+        { "t": "Dan legt de Heere Jezus uit wat Mozes en de profeten over Hem geschreven hebben." },
+        { "t": "Bij Emmaüs vragen ze Hem om bij hen te blijven, want het wordt avond.", "stap": "jezus-3:nt-opstanding:2" },
+        { "t": "Aan tafel neemt Hij het brood. Hij zegent het, breekt het en geeft het hun." },
+        { "t": "Dan gaan hun ogen open, en ze herkennen Hem. Daarna verdwijnt Hij uit hun gezicht." },
+        { "t": "Meteen gaan ze terug naar Jeruzalem. Daar vertellen ze wat er gebeurd is.", "stap": "jezus-3:nt-opstanding:2" }
+      ],
+      "samen": "Lukas noemt maar één van de twee bij name: Kleopas (Lukas 24:18). Wie de ander was, zegt de Bijbel niet. Waar Emmaüs precies lag, is niet zeker; daarom staat het op de kaart als betwist. Vraag samen: waaraan herkennen de twee de Heere Jezus? Lukas zegt: ‘in het breken des broods’ (Lukas 24:35).",
+      "vragen": [
+        { "q": "Waar lopen de twee discipelen naartoe?", "a": ["Naar Emmaüs", "Naar Bethlehem"], "why": "Lukas 24:13" },
+        { "q": "Wanneer herkennen ze de Heere Jezus?", "a": ["Als Hij het brood breekt", "Als Hij hun naam noemt"], "why": "Lukas 24:30–31" },
+        { "q": "Wat doen ze daarna meteen?", "a": ["Ze gaan terug naar Jeruzalem", "Ze gaan in Emmaüs slapen"], "why": "Lukas 24:33" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Verdrietig onderweg", "stap": "jezus-3:nt-opstanding:2", "t": "Op dezelfde dag lopen twee discipelen van Jeruzalem naar het dorp Emmaüs. Onderweg komt de Heere Jezus Zelf bij hen lopen. Maar hun ogen worden gehouden: ze herkennen Hem niet. Kleopas vertelt Hem over Jezus van Nazareth, Die gekruisigd is. ‘En wij hoopten, dat Hij was Degene, Die Israël verlossen zou.’ Nu zeggen vrouwen dat ze engelen gezien hebben, die zeggen dat Hij leeft." },
+        { "kop": "De Schriften geopend", "t": "De Heere Jezus zegt: ‘Moest de Christus niet deze dingen lijden, en alzo in Zijn heerlijkheid ingaan?’ Hij begint bij Mozes en alle profeten, en legt uit wat er in de Schriften over Hem geschreven staat." },
+        { "kop": "Het brood gebroken", "stap": "jezus-3:nt-opstanding:2", "t": "Bij Emmaüs vragen ze: ‘Blijf met ons; want het is bij den avond.’ Aan tafel neemt Hij het brood, zegent het, breekt het en geeft het hun. Dan gaan hun ogen open en herkennen ze Hem, en Hij verdwijnt uit hun gezicht. Meteen gaan ze terug naar Jeruzalem. Daar horen ze van de elf: ‘De Heere is waarlijk opgestaan, en is van Simon gezien.’" }
+      ],
+      "vragen": [
+        { "q": "Waarom herkenden de twee de Heere Jezus eerst niet?", "a": ["Hun ogen werden gehouden", "Het was al te donker", "Hij liep ver voor hen uit"], "why": "Lukas 24:16" },
+        { "q": "Wat hadden de twee gehoopt?", "a": ["Dat Hij Israël zou verlossen", "Dat Hij in Emmaüs zou wonen", "Dat Hij hen naar huis zou brengen"], "why": "Lukas 24:21" },
+        { "q": "Wat deed de Heere Jezus aan tafel?", "a": ["Hij nam het brood, zegende het en brak het", "Hij schonk voor iedereen wijn in", "Hij waste hun de voeten"], "why": "Lukas 24:30" },
+        { "q": "Wat hoorden de twee in Jeruzalem van de elf?", "a": ["De Heere is opgestaan en door Simon gezien", "Thomas had de Heere al gezien", "Het graf was weer gesloten"], "why": "Lukas 24:33–34" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Waar lag Emmaüs?", "t": "Lukas noemt Emmaüs ‘een vlek’, een dorp, dat ‘zestig stadiën van Jeruzalem’ lag (24:13). Een stadie is ongeveer 185 meter; zestig stadiën is dus ruim elf kilometer. Waar Emmaüs precies lag, is niet bekend. Er zijn verschillende plaatsen voorgesteld; daarom staat Emmaüs op de kaart als betwist. Volgens Kleopas was het ‘heden de derde dag’ sinds de kruisiging (24:21). Een jaartal noemt de Bijbel niet; meestal wordt 30 of 33 n.Chr. aangehouden.", "refs": ["Lukas 24:13", "Lukas 24:21"] },
+        { "kop": "Wat de Schriften over Hem zeggen", "t": "Lukas vertelt niet welke Schriftgedeelten de Heere Jezus onderweg uitlegde. Wel zegt de Bijbel op andere plaatsen dat Mozes en de profeten over Hem spraken. Over Mozes zei de Heere Jezus: ‘want hij heeft van Mij geschreven’ (Johannes 5:46). Petrus schrijft dat de Geest van Christus in de profeten ‘te voren getuigde, het lijden, dat op Christus komen zou, en de heerlijkheid daarna volgende’ (1 Petrus 1:11). Dat zijn dezelfde twee dingen als in Lukas 24:26: lijden en heerlijkheid.", "refs": ["Johannes 5:46", "1 Petrus 1:10–11", "Lukas 24:26"] },
+        { "kop": "Twee getuigen", "t": "Alleen Kleopas wordt bij name genoemd (24:18). Sommigen verbinden hem met Klopas uit Johannes 19:25, maar dat is onzeker. Markus vat deze ontmoeting kort samen: ‘na dezen is Hij geopenbaard in een andere gedaante, aan twee van hen, daar zij wandelden’ (Markus 16:12). Paulus noemt in zijn lijst van getuigen eerst Cefas, dat is Petrus (1 Korinthe 15:5). Dat past bij wat de elf tegen de twee zeiden: ‘is van Simon gezien’ (24:34).", "refs": ["Lukas 24:18", "Johannes 19:25", "Markus 16:12", "1 Korinthe 15:5", "Lukas 24:34"] }
+      ],
+      "vragen": [
+        { "q": "Hoeveel is zestig stadiën ongeveer?", "a": ["Ruim elf kilometer", "Ongeveer honderd kilometer", "Minder dan één kilometer"], "why": "Lukas 24:13" },
+        { "q": "Wat getuigden de profeten volgens 1 Petrus 1:11 vooraf?", "a": ["Het lijden van Christus en de heerlijkheid daarna", "De naam van het dorp Emmaüs", "Het jaartal van de opstanding"], "why": "1 Petrus 1:11" },
+        { "q": "Over wie zei de Heere Jezus in Johannes 5:46: ‘hij heeft van Mij geschreven’?", "a": ["Over Mozes", "Over Jesaja", "Over Kleopas"], "why": "Johannes 5:46" },
+        { "q": "Hoe vat Markus deze ontmoeting samen?", "a": ["Hij werd in een andere gedaante aan twee van hen geopenbaard", "Hij verscheen aan meer dan vijfhonderd broeders tegelijk", "Hij liep met twee discipelen naar Galilea"], "why": "Markus 16:12" }
+      ]
+    }
+  },
+  "131": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["salem"],
+      "delen": [
+        { "t": "Het is avond. De discipelen zijn bij elkaar. De deuren zijn dicht, want ze zijn bang voor de Joden.", "stap": "jezus-3:nt-opstanding:3" },
+        { "t": "Dan komt de Heere Jezus en staat in hun midden. Hij zegt: ‘Vrede zij ulieden!’ Dat betekent: vrede voor jullie.", "stap": "jezus-3:nt-opstanding:3" },
+        { "t": "Hij laat Zijn handen en Zijn zijde zien. De discipelen zijn blij dat ze de Heere zien." },
+        { "t": "Thomas is er niet bij. De anderen vertellen hem dat ze de Heere gezien hebben.", "stap": "jezus-3:nt-opstanding:4" },
+        { "t": "Maar Thomas wil het eerst zelf zien. Hij wil de tekens van de spijkers in Zijn handen zien en voelen." },
+        { "t": "Acht dagen later zijn de discipelen weer samen. Nu is Thomas er ook bij.", "stap": "jezus-3:nt-opstanding:4" },
+        { "t": "De Heere Jezus komt weer. Hij zegt tegen Thomas dat hij Zijn handen mag zien en voelen. Thomas moet niet ongelovig zijn, maar gelovig." },
+        { "t": "Dan zegt Thomas: ‘Mijn Heere en mijn God!’" }
+      ],
+      "samen": "Thomas wordt vaak de ongelovige Thomas genoemd. Die bijnaam staat niet in de Bijbel; Johannes noemt hem Thomas, ‘gezegd Didymus’ (Johannes 20:24). Er staat ook niet dat Thomas de wonden echt aanraakte. De Heere Jezus zegt: ‘Omdat gij Mij gezien hebt, Thomas, zo hebt gij geloofd’ (Johannes 20:29). Vraag samen: wat zegt de Heere Jezus daarna over wie Hem niet gezien hebben? (Johannes 20:29)",
+      "vragen": [
+        { "q": "Waarom zijn de deuren dicht?", "a": ["De discipelen zijn bang voor de Joden", "Het is heel koud buiten"], "why": "Johannes 20:19" },
+        { "q": "Wie wil het eerst zelf zien?", "a": ["Thomas", "Petrus"], "why": "Johannes 20:24–25" },
+        { "q": "Wat zegt Thomas als hij de Heere Jezus ziet?", "a": ["Mijn Heere en mijn God!", "Ik geloof het nog steeds niet"], "why": "Johannes 20:28" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Vrede zij ulieden", "stap": "jezus-3:nt-opstanding:3", "t": "Op de avond van de eerste dag van de week zijn de discipelen bij elkaar. De deuren zijn dicht, want ze zijn bang voor de Joden. Dan komt de Heere Jezus en staat in hun midden: ‘Vrede zij ulieden!’ Hij laat Zijn handen en Zijn zijde zien, en de discipelen worden blij. Hij blaast op hen en zegt: ‘Ontvangt den Heiligen Geest.’" },
+        { "kop": "Thomas wil het zien", "stap": "jezus-3:nt-opstanding:4", "t": "Thomas, een van de twaalf, is er niet bij. De anderen zeggen: ‘Wij hebben den Heere gezien.’ Maar Thomas wil het teken van de nagels in Zijn handen zien, en zijn vinger erin steken, en zijn hand in Zijn zijde. Anders zal hij het niet geloven." },
+        { "kop": "Mijn Heere en mijn God", "t": "Acht dagen later is Thomas erbij. De Heere Jezus staat weer in hun midden en zegt tegen Thomas: ‘zijt niet ongelovig, maar gelovig.’ Thomas antwoordt: ‘Mijn Heere en mijn God!’ Dan zegt de Heere Jezus: ‘zalig zijn zij, die niet zullen gezien hebben, en nochtans zullen geloofd hebben.’ Johannes schrijft dit op, ‘opdat gij gelooft, dat Jezus is de Christus, de Zone Gods’." }
+      ],
+      "vragen": [
+        { "q": "Wat zei de Heere Jezus toen Hij op de discipelen blies?", "a": ["Ontvangt den Heiligen Geest", "Werpt het net aan de rechterzijde", "Blijf met ons, want het is avond"], "why": "Johannes 20:22" },
+        { "q": "Wat wilde Thomas eerst zien en voelen?", "a": ["Het teken van de nagels in Zijn handen", "Het lege graf in de hof", "De engelen in witte klederen"], "why": "Johannes 20:25" },
+        { "q": "Wat zei Thomas toen hij de Heere Jezus zag?", "a": ["Mijn Heere en mijn God!", "Rabbouni!", "Het is de Heere!"], "why": "Johannes 20:28" },
+        { "q": "Waarom heeft Johannes dit opgeschreven?", "a": ["Opdat wij geloven dat Jezus de Christus is", "Opdat niemand Thomas zou vergeten", "Omdat Thomas hem dat gevraagd had"], "why": "Johannes 20:31" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Thomas in het evangelie van Johannes", "t": "Johannes noemt Thomas vaker dan de andere evangelisten. In de nacht voor het lijden vroeg hij: ‘Heere, wij weten niet, waar Gij heengaat; en hoe kunnen wij den weg weten?’ De Heere Jezus antwoordde: ‘Ik ben de Weg, en de Waarheid, en het Leven’ (Johannes 14:5–6). Bij het meer van Tiberias is hij er ook bij (Johannes 21:2). Didymus is Grieks en betekent tweeling.", "refs": ["Johannes 14:5–6", "Johannes 21:2"] },
+        { "kop": "Mijn Heere en mijn God", "t": "Hier noemt een discipel de Heere Jezus uitdrukkelijk God. Johannes begint zijn evangelie al zo: ‘het Woord was God’ (Johannes 1:1), en ‘het Woord is vlees geworden’ (Johannes 1:14). De Heere Jezus wijst de woorden van Thomas niet af. Hij zegt: ‘Omdat gij Mij gezien hebt, Thomas, zo hebt gij geloofd’ (20:29).", "refs": ["Johannes 1:1", "Johannes 1:14", "Johannes 20:29"] },
+        { "kop": "Wat de tekst zegt en wat niet", "t": "De bijnaam de ongelovige Thomas komt uit de traditie, niet uit de Bijbel. Johannes vertelt ook niet dat Thomas zijn vinger echt in de wonden stak. Bij ‘blies Hij op hen’ (20:22) wijzen veel uitleggers op Genesis 2:7, waar God de mens ‘den adem des levens’ inblies. De Heilige Geest wordt later op de Pinksterdag uitgestort (Handelingen 2:1–4). Uitleggers verschillen over hoe die twee momenten zich tot elkaar verhouden.", "refs": ["Johannes 20:22", "Genesis 2:7", "Handelingen 2:1–4"] }
+      ],
+      "vragen": [
+        { "q": "Wat vroeg Thomas in de nacht voor het lijden?", "a": ["Hoe kunnen wij den weg weten?", "Heere, wie is het, die U verraden zal?", "Zult Gij nu het Koninkrijk wederoprichten?"], "why": "Johannes 14:5" },
+        { "q": "Wat antwoordde de Heere Jezus op die vraag van Thomas?", "a": ["Ik ben de Weg, en de Waarheid, en het Leven", "Ik ben het Licht der wereld", "Ik ben de goede Herder"], "why": "Johannes 14:6" },
+        { "q": "Waardoor had Thomas geloofd, volgens de Heere Jezus?", "a": ["Doordat hij Hem gezien had", "Doordat de anderen het vertelden", "Doordat hij een engel had gezien"], "why": "Johannes 20:29" }
+      ]
+    }
+  },
+  "132": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_meer"],
+      "delen": [
+        { "t": "Petrus is bij het meer, samen met zes andere discipelen. Petrus zegt: Ik ga vissen. De anderen gaan mee.", "stap": "jezus-3:nt-opstanding:5" },
+        { "t": "Die nacht vangen ze niets." },
+        { "t": "’s Morgens staat de Heere Jezus op de oever. Maar de discipelen weten niet dat Hij het is.", "stap": "jezus-3:nt-opstanding:5" },
+        { "t": "Hij zegt dat ze het net aan de rechterkant van het schip moeten uitgooien. Dat doen ze." },
+        { "t": "Nu zit het net zo vol vis dat ze het niet meer kunnen binnenhalen." },
+        { "t": "De discipel die de Heere Jezus liefheeft, zegt: ‘Het is de Heere!’ Dan springt Petrus in het water." },
+        { "t": "Op de oever ligt een vuur met vis erop, en er is brood. De Heere Jezus geeft hun te eten.", "stap": "jezus-3:nt-opstanding:5" },
+        { "t": "Na het eten vraagt de Heere Jezus drie keer aan Petrus: Heb je Mij lief?", "stap": "jezus-3:nt-opstanding:6" },
+        { "t": "Elke keer zegt Petrus: Heere, U weet dat ik U liefheb. Dan zegt de Heere Jezus dat Petrus voor Zijn schapen moet zorgen." },
+        { "t": "Aan het eind zegt de Heere Jezus tegen Petrus: ‘Volg Mij.’" }
+      ],
+      "samen": "Petrus had eerder drie keer gezegd dat hij geen discipel van de Heere Jezus was (Johannes 18:17, 25–27). Hier vraagt de Heere hem drie keer of hij Hem liefheeft. Weiden en hoeden betekent: zorgen als een herder. Hier weggelaten: de Heere Jezus zegt ook met welke dood Petrus God zal verheerlijken (Johannes 21:18–19). Iets om samen te ontdekken: hoeveel grote vissen zitten er in het net? Honderddrieënvijftig (Johannes 21:11).",
+      "vragen": [
+        { "q": "Hoeveel vis vangen ze in de nacht?", "a": ["Niets", "Heel veel"], "why": "Johannes 21:3" },
+        { "q": "Wat doet Petrus als hij hoort dat het de Heere is?", "a": ["Hij springt in het water", "Hij gaat in het schip slapen"], "why": "Johannes 21:7" },
+        { "q": "Wat vraagt de Heere Jezus drie keer aan Petrus?", "a": ["Heb je Mij lief?", "Waar is het brood?"], "why": "Johannes 21:15–17" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Een nacht zonder vis", "stap": "jezus-3:nt-opstanding:5", "t": "Daarna laat de Heere Jezus Zich weer zien aan de zee van Tiberias. Simon Petrus is daar met zes andere discipelen, onder wie Thomas en Nathanaël. ‘Ik ga vissen’, zegt Petrus, en de anderen gaan mee. Maar die nacht vangen ze niets." },
+        { "kop": "Het is de Heere", "t": "’s Morgens staat de Heere Jezus op de oever, maar ze weten niet dat Hij het is. Hij zegt dat ze het net aan de rechterzijde van het schip moeten werpen. Nu kunnen ze het net niet meer binnenhalen, zoveel vis zit erin. De discipel die de Heere Jezus liefheeft, zegt: ‘Het is de Heere!’ Petrus springt in het water. Op de oever ligt een kolenvuur met vis en brood. In het net zitten honderddrieënvijftig grote vissen, en toch scheurt het niet." },
+        { "kop": "Hebt gij Mij lief", "stap": "jezus-3:nt-opstanding:6", "t": "Na de maaltijd vraagt de Heere Jezus drie keer aan Petrus of hij Hem liefheeft. De derde keer wordt Petrus bedroefd: ‘Heere! Gij weet alle dingen, Gij weet, dat ik U liefheb.’ Elke keer krijgt Petrus de opdracht om voor Zijn lammeren en schapen te zorgen, als een herder. Dan zegt de Heere Jezus: ‘Volg Mij.’" }
+      ],
+      "vragen": [
+        { "q": "Wat moesten de discipelen van de Heere Jezus doen?", "a": ["Het net aan de rechterzijde van het schip werpen", "Naar huis gaan en gaan slapen", "Verder de zee op varen"], "why": "Johannes 21:6" },
+        { "q": "Hoeveel grote vissen zaten er in het net?", "a": ["Honderddrieënvijftig", "Honderdtwintig", "Tweehonderd"], "why": "Johannes 21:11" },
+        { "q": "Waarom werd Petrus bedroefd?", "a": ["Omdat de Heere het hem voor de derde keer vroeg", "Omdat ze die nacht niets gevangen hadden", "Omdat het net was gescheurd"], "why": "Johannes 21:17" },
+        { "q": "Wat zei de Heere Jezus aan het eind tegen Petrus?", "a": ["Volg Mij", "Ga terug naar uw netten", "Blijf in Jeruzalem"], "why": "Johannes 21:19" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Twee keer een kolenvuur", "t": "In de hele Statenvertaling komt het woord kolenvuur maar twee keer voor: hier (21:9) en in de nacht van het verhoor. Toen warmde Petrus zich bij een kolenvuur en zei hij drie keer dat hij geen discipel van de Heere Jezus was (Johannes 18:17–18, 25–27). Nu vraagt de Heere hem drie keer: ‘hebt gij Mij lief?’ Veel uitleggers zien daarin dat Petrus hier hersteld wordt. In de nacht voor het lijden had de Heere Jezus tegen hem gezegd: ‘Waar Ik heenga, kunt gij Mij nu niet volgen; maar gij zult Mij namaals volgen’ (Johannes 13:36). Nu zegt Hij: ‘Volg Mij.’", "refs": ["Johannes 21:9", "Johannes 18:17–27", "Johannes 13:36"] },
+        { "kop": "De dood van Petrus", "t": "‘Een ander zal u gorden, en brengen, waar gij niet wilt’ (21:18). Johannes legt het zelf uit: zo zou Petrus God verheerlijken met zijn dood (21:19). Veel uitleggers zien in ‘zo zult gij uw handen uitstrekken’ een aanwijzing voor een kruisdood. Petrus schrijft later dat de Heere hem dit bekendgemaakt heeft: ‘gelijkerwijs ook onze Heere Jezus Christus mij heeft geopenbaard’ (2 Petrus 1:14). Hoe en waar Petrus stierf, vertelt de Bijbel niet. Volgens de overlevering is hij in Rome gekruisigd.", "refs": ["Johannes 21:18–19", "2 Petrus 1:14"] },
+        { "kop": "Waar en wanneer", "t": "De zee van Tiberias is ‘de zee van Galilea’ (Johannes 6:1); Lukas noemt haar ‘het meer Gennesareth’ (Lukas 5:1). Waar aan het meer dit gebeurde, zegt de tekst niet. Het schip was ‘omtrent tweehonderd ellen’ van het land (21:8), ongeveer honderd meter. Dit was ‘de derde maal’ dat de opgestane Heere Zich aan de discipelen liet zien (21:14). Het getal honderddrieënvijftig heeft uitleggers op veel ideeën gebracht, maar Johannes geeft er zelf geen betekenis aan.", "refs": ["Johannes 6:1", "Lukas 5:1", "Johannes 21:8–14"] }
+      ],
+      "vragen": [
+        { "q": "Waar warmde Petrus zich in de nacht dat hij de Heere verloochende?", "a": ["Bij een kolenvuur", "In de opperzaal", "Aan het meer"], "why": "Johannes 18:18" },
+        { "q": "Wat had de Heere Jezus eerder tegen Petrus gezegd over volgen?", "a": ["Gij zult Mij namaals volgen", "Gij zult Mij nooit kunnen volgen", "Volg Johannes, de discipel"], "why": "Johannes 13:36" },
+        { "q": "Hoe noemt Lukas het meer?", "a": ["Het meer Gennesareth", "De Zoutzee", "De Grote Zee"], "why": "Lukas 5:1" },
+        { "q": "Wat schrijft Petrus in 2 Petrus 1:14?", "a": ["De Heere had hem zijn sterven bekendgemaakt", "Hij zou nooit meer gaan vissen", "Hij wilde in Galilea begraven worden"], "why": "2 Petrus 1:14" }
+      ]
+    }
+  },
+  "133": {
+    "a": {
+      "status": "concept",
+      "plaatsen": ["nt_olijfberg", "salem"],
+      "delen": [
+        { "t": "Na Zijn opstanding laat de Heere Jezus Zich veertig dagen lang zien aan de apostelen." },
+        { "t": "Hij vertelt hun over het Koninkrijk van God." },
+        { "t": "Hij zegt: blijf in Jeruzalem. Wacht daar op wat de Vader beloofd heeft: de Heilige Geest.", "stap": "jezus-3:nt-opstanding:8" },
+        { "t": "Jullie zullen Mijn getuigen zijn, zegt Hij. Dat betekent: over Hem vertellen, tot aan het einde van de aarde." },
+        { "t": "Dan wordt de Heere Jezus opgenomen. De discipelen zien het. Een wolk neemt Hem weg voor hun ogen.", "stap": "jezus-3:nt-opstanding:8" },
+        { "t": "Ze blijven naar de hemel kijken. Dan staan er twee mannen in witte kleren bij hen." },
+        { "t": "De mannen zeggen: de Heere Jezus komt op dezelfde manier terug, zoals jullie Hem naar de hemel zagen gaan." },
+        { "t": "Dan gaan de discipelen van de Olijfberg terug naar Jeruzalem. Daar blijven ze samen bidden.", "stap": "jezus-3:nt-opstanding:8" }
+      ],
+      "samen": "Lukas vertelt de hemelvaart ook aan het eind van zijn evangelie: bij Bethanië zegende de Heere Jezus hen, en ze gingen met grote blijdschap terug naar Jeruzalem (Lukas 24:50–52). Bethanië lag bij de Olijfberg (Lukas 19:29). Samen aanwijzen: de Olijfberg en Jeruzalem op de kaart. Vraag: wat zeggen de twee mannen in witte kleding? (Handelingen 1:11)",
+      "vragen": [
+        { "q": "Waar moeten de discipelen wachten?", "a": ["In Jeruzalem", "In Bethlehem"], "why": "Handelingen 1:4" },
+        { "q": "Wat neemt de Heere Jezus weg voor hun ogen?", "a": ["Een wolk", "Een vurige wagen"], "why": "Handelingen 1:9" },
+        { "q": "Wat zeggen de twee mannen in witte kleren?", "a": ["De Heere Jezus komt terug", "Ga terug naar Galilea"], "why": "Handelingen 1:11" }
+      ]
+    },
+    "b": {
+      "status": "concept",
+      "delen": [
+        { "kop": "Veertig dagen", "t": "Na Zijn lijden laat de Heere Jezus Zich veertig dagen lang levend zien aan de apostelen. Hij spreekt met hen over het Koninkrijk van God. Ze moeten in Jeruzalem blijven en wachten op de belofte van de Vader: ze zullen met de Heilige Geest gedoopt worden." },
+        { "kop": "Mijn getuigen", "stap": "jezus-3:nt-opstanding:8", "t": "Ze vragen of Hij nu het koninkrijk voor Israël zal herstellen. Hij antwoordt dat het niet aan hen is om de tijden te weten die de Vader in Zijn macht heeft. Ze zullen de kracht van de Heilige Geest ontvangen: ‘gij zult Mijn getuigen zijn, zo te Jeruzalem, als in geheel Judea en Samaria, en tot aan het uiterste der aarde.’ Een getuige vertelt wat hij gezien heeft." },
+        { "kop": "Opgenomen in de hemel", "stap": "jezus-3:nt-opstanding:8", "t": "Terwijl ze kijken, wordt Hij opgenomen, en een wolk neemt Hem weg. Dan staan er twee mannen in witte kleding bij hen. Zij zeggen dat deze Jezus op dezelfde manier zal terugkomen. Ze gaan van de Olijfberg terug naar Jeruzalem, naar de opperzaal, een bovenkamer. Daar blijven ze eensgezind bidden, met de vrouwen, met Maria, de moeder van de Heere Jezus, en met Zijn broers." }
+      ],
+      "vragen": [
+        { "q": "Hoe lang liet de Heere Jezus Zich na Zijn lijden levend zien?", "a": ["Veertig dagen", "Zeven dagen", "Een heel jaar"], "why": "Handelingen 1:3" },
+        { "q": "Wat vroegen de apostelen aan de Heere Jezus?", "a": ["Of Hij nu het koninkrijk voor Israël zou herstellen", "Of zij met Hem mee mochten naar de hemel", "Of zij terug moesten gaan naar Galilea"], "why": "Handelingen 1:6" },
+        { "q": "Waarom moesten de apostelen in Jeruzalem blijven?", "a": ["Ze moesten wachten op de belofte van de Vader", "Ze moesten de tempel weer opbouwen", "Ze moesten eerst nog naar Pilatus"], "why": "Handelingen 1:4–5" },
+        { "q": "Wat deden ze in de opperzaal?", "a": ["Ze bleven eensgezind bidden", "Ze kozen een nieuwe koning", "Ze schreven het evangelie op"], "why": "Handelingen 1:13–14" }
+      ]
+    },
+    "c": {
+      "status": "concept",
+      "verdieping": [
+        { "kop": "Twee boeken van Lukas", "t": "Handelingen begint met: ‘Het eerste boek heb ik gemaakt, o Theofilus’. Ook het evangelie naar Lukas is geschreven aan ‘voortreffelijke Theofilus’ (Lukas 1:3). Daarom wordt dat evangelie algemeen gezien als het eerste boek. Lukas vertelt de hemelvaart dus twee keer: kort aan het eind van zijn evangelie (Lukas 24:50–53) en uitvoeriger aan het begin van Handelingen. Wie Theofilus was, vertelt de Bijbel niet.", "refs": ["Handelingen 1:1", "Lukas 1:1–4", "Lukas 24:50–53"] },
+        { "kop": "Waar en wanneer", "t": "De Olijfberg ligt ‘voor Jeruzalem ... tegen het oosten’ (Zacharia 14:4). Lukas 24:50 zegt dat de Heere Jezus hen leidde ‘tot aan Bethanië’. Dat dorp lag aan de Olijfberg (Lukas 19:29), ‘omtrent vijftien stadiën’ van Jeruzalem (Johannes 11:18). Een sabbatsreis (1:12) was de afstand die men op de sabbat mocht lopen; volgens latere Joodse uitleg tweeduizend el, ongeveer een kilometer. De hemelvaart was veertig dagen na de opstanding (1:3); het jaartal is onzeker, meestal 30 of 33 n.Chr.", "refs": ["Zacharia 14:4", "Lukas 24:50", "Lukas 19:29", "Johannes 11:18", "Handelingen 1:3", "Handelingen 1:12"] },
+        { "kop": "Elders in de Bijbel", "t": "Psalm 47 en 68 worden vaak met de hemelvaart verbonden: ‘God vaart op met gejuich’ (Psalm 47:6) en ‘Gij zijt opgevaren in de hoogte’ (Psalm 68:19). Paulus haalt dat laatste zelf aan (Efeze 4:8). De Heere Jezus had gezegd: ‘Het is u nut, dat Ik wegga; want indien Ik niet wegga, zo zal de Trooster tot u niet komen’ (Johannes 16:7). Over Zijn komst ‘op de wolken des hemels’ sprak Hij voor de hogepriester (Mattheüs 26:64); vergelijk Daniël 7:13.", "refs": ["Psalm 47:6", "Psalm 68:19", "Efeze 4:8", "Johannes 16:7", "Mattheüs 26:63–64", "Daniël 7:13"] }
+      ],
+      "vragen": [
+        { "q": "Aan wie schreef Lukas zijn evangelie en het boek Handelingen?", "a": ["Aan Theofilus", "Aan Timotheüs", "Aan Petrus"], "why": "Lukas 1:3; Handelingen 1:1" },
+        { "q": "Hoe ver lag Bethanië van Jeruzalem?", "a": ["Omtrent vijftien stadiën", "Zestig stadiën", "Een dagreis"], "why": "Johannes 11:18" },
+        { "q": "Welke psalm haalt Paulus aan in Efeze 4:8?", "a": ["Psalm 68", "Psalm 23", "Psalm 1"], "why": "Efeze 4:8; Psalm 68:19" },
+        { "q": "Waarom was het volgens de Heere Jezus goed dat Hij wegging?", "a": ["Anders zou de Trooster niet komen", "Anders kon Hij niet terugkomen in Galilea", "Anders zouden de discipelen niet gaan vissen"], "why": "Johannes 16:7" }
+      ]
+    }
+  }
+}

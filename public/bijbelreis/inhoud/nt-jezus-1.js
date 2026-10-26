@@ -48,7 +48,7 @@ BR.boeken.push({
   { ref: "Mattheüs 1:18–25", t: "Jozef krijgt een droom", stamp: "Droom", at: ["nt_nazareth"], zoom: 9,
     who: [["Jozef"], ["Maria"]],
     txt: "Maria is ondertrouwd met Jozef. Voordat ze samenwonen, blijkt dat ze zwanger is uit de Heilige Geest. Jozef is rechtvaardig en wil haar niet te schande maken; daarom wil hij haar in stilte verlaten. Dan verschijnt de engel van de Heere hem in een droom: “Jozef, zoon van David, wees niet bang om Maria, je vrouw, bij je te nemen, want wat in haar ontvangen is, is uit de Heilige Geest. Zij zal een Zoon krijgen, en je moet Hem Jezus noemen, want Hij zal Zijn volk zalig maken van hun zonden.” Als Jozef wakker wordt, doet hij wat de engel gezegd heeft.",
-    fs: "u", fact: "Ondertrouwd was meer dan verloofd: Jozef heet al ‘haar man’ en Maria ‘uw vrouw’ (Mattheüs 1:19–20), maar ze woonden nog niet samen. De naam Jezus is de Griekse vorm van Jozua en betekent ‘de HEERE redt’." },
+    fs: "u", fact: "Ondertrouwd was meer dan verloofd: Jozef heet al ‘haar man’ en Maria ‘uw vrouw’ (Mattheüs 1:19–20), maar ze woonden nog niet samen. De naam Jezus is de Griekse vorm van Jozua en betekent “de HEERE redt”." },
   { ref: "Lukas 1:39–56", t: "Maria bij Elisabeth", stamp: "Bezoek", at: ["nt1_judagebergte"],
     r: [{ p: ["nt_nazareth", "nt_galilea_zuid", "dothanw", "nt_samariaweg", "jeruz", "nt1_judagebergte"], recon: 1 }],
     who: [["Maria"], ["Elisabeth"]],
