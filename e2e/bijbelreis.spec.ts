@@ -3,6 +3,14 @@ import { expect, test, type Page } from "@playwright/test";
 // De Bijbelreis is een statische pagina (public/bijbelreis.html) met eigen JavaScript; deze tests lopen de
 // belangrijkste routes door: diepe links, voortgang bewaren, tabbladen, Bijbeltekst, speurtocht en de kaart.
 
+// Reisniveaus: de bestaande tests beschrijven de volledige weergave (Verder ontdekken, gelijk aan 3.1). Een test die
+// een ander niveau of het eerste bezoek test, zet of wist bijbelreis:niveau zelf (zijn init-script draait hierna).
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => { if (localStorage.getItem("bijbelreis:niveau") === null) localStorage.setItem("bijbelreis:niveau", JSON.stringify("c")); });
+});
+// Alleen bij de eerste keer laden: een herladen moet laten zien wat de app zelf onthoudt.
+const zetNiveau = (page: Page, n: "a" | "b" | "c" | null) => page.addInitScript((x) => { if (sessionStorage.getItem("niveauGezet")) return; sessionStorage.setItem("niveauGezet", "1"); if (x === null) localStorage.removeItem("bijbelreis:niveau"); else localStorage.setItem("bijbelreis:niveau", JSON.stringify(x)); }, n);
+
 function watchErrors(page: Page) {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(String(e)));
@@ -558,6 +566,7 @@ test("3.1: de startkaart toont de geschiedenis van nu; de hele Bijbelwereld is a
 });
 
 test("3.1: een nieuwe reiziger begint bij geschiedenis 1, met de hele Bijbelwereld op de kaart", async ({ page }) => {
+  await zetNiveau(page, "b");
   await page.goto("/bijbelreis");
   const etiket = page.locator("#welkom .reiskaart");
   await expect(etiket).toContainText("Je reis begint hier");
@@ -632,4 +641,139 @@ test("3.1: kaartbediening op een kleine telefoon (320 px): knoppen groot genoeg,
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
+});
+
+// ---------- reisniveaus (proef) ----------
+const opslag = (page: Page) => page.evaluate(() => Object.fromEntries(Object.keys(localStorage).filter((k) => k.startsWith("bijbelreis:")).map((k) => [k, localStorage.getItem(k)])));
+
+test("niveaus: bij het eerste bezoek een rustige keuze; daarna onthouden en niet opnieuw gevraagd", async ({ page }) => {
+  const errors = watchErrors(page);
+  await zetNiveau(page, null);
+  await page.goto("/bijbelreis");
+  const kaart = page.locator("#welkom .keuzekaart");
+  await expect(kaart).toContainText("Hoe wil je op reis?");
+  await expect(kaart.locator(".nivopt")).toHaveCount(3);
+  await kaart.getByRole("button", { name: /Samen ontdekken/ }).click();
+  await expect(page.locator("#welkom .keuzekaart")).toHaveCount(0);
+  await expect(page.locator("#niveauNaam")).toHaveText("Samen ontdekken");
+  expect(JSON.parse((await opslag(page))["bijbelreis:niveau"]!)).toBe("a");
+  // Alleen de keuze; geen naam, leeftijd of andere gegevens.
+  expect(Object.keys(await opslag(page)).sort()).toEqual(["bijbelreis:niveau"]);
+  await page.reload();
+  await expect(page.locator("#welkom .keuzekaart")).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
+
+test("niveaus: wie al onderweg was, krijgt geen keuzescherm en houdt de volledige inhoud", async ({ page }) => {
+  await zetNiveau(page, null);
+  await page.addInitScript(() => { if (!sessionStorage.getItem("gezet")) { localStorage.setItem("bijbelreis:gezien", JSON.stringify(["exodus:uittocht:4"])); localStorage.setItem("bijbelreis:laatst", JSON.stringify("exodus:uittocht:4")); sessionStorage.setItem("gezet", "1"); } });
+  await page.goto("/bijbelreis");
+  await expect(page.locator("#welkom .keuzekaart")).toHaveCount(0);
+  await expect(page.locator("#niveauNaam")).toHaveText("Verder ontdekken");
+  await expect(page.locator("#welkom .rk-tip")).toContainText("reisniveaus");
+  await page.goto("/bijbelreis#v26");
+  await expect(page.locator(".verhaal details.wanneer .dt")).toHaveText(["Bijbelse tijdrekening", "onzeker"]);
+});
+
+test("niveaus: wisselen via de knop bovenin wist en verdubbelt geen voortgang", async ({ page }) => {
+  await zetNiveau(page, "b");
+  await page.addInitScript(() => { if (!sessionStorage.getItem("gezet")) { localStorage.setItem("bijbelreis:gezien", JSON.stringify(["exodus:uittocht:4", "genesis:abraham:0"])); localStorage.setItem("bijbelreis:verhalen", JSON.stringify({ 26: { g: 1, q: 3 }, 8: { g: 1 } })); localStorage.setItem("bijbelreis:best:ruth:alles", "8"); sessionStorage.setItem("gezet", "1"); } });
+  await page.goto("/bijbelreis#v26");
+  const voor = await opslag(page);
+  for (const [n, naam] of [["a", "Samen ontdekken"], ["c", "Verder ontdekken"], ["b", "Zelf op reis"]] as const) {
+    await page.locator("#niveauBtn").click();
+    await expect(page.locator("#niveauKeuze")).toBeVisible();
+    await page.locator(`#niveauKeuze [data-niveau="${n}"]`).click();
+    await expect(page.locator("#niveauKeuze")).toBeHidden();
+    await expect(page.locator("#niveauNaam")).toHaveText(naam);
+  }
+  const na = await opslag(page);
+  for (const k of ["bijbelreis:gezien", "bijbelreis:verhalen", "bijbelreis:best:ruth:alles"]) expect(na[k], k).toBe(voor[k]);
+  await page.getByRole("tab", { name: "Paspoort" }).click();
+  await expect(page.locator("#pasStats")).toContainText("van 150 geschiedenissen gestempeld");
+  // Escape sluit het keuzevenster en de focus gaat terug naar de knop.
+  await page.locator("#niveauBtn").click();
+  await page.keyboard.press("Escape");
+  await expect(page.locator("#niveauKeuze")).toBeHidden();
+  await expect(page.locator("#niveauBtn")).toBeFocused();
+});
+
+test("niveaus: Samen ontdekken vertelt in korte stappen, toont alleen de belangrijkste plaatsen en vraagt met twee antwoorden", async ({ page }) => {
+  await kaartHaak(page);
+  await zetNiveau(page, "a");
+  await page.goto("/bijbelreis#v26");
+  const art = page.locator(".verhaal.samen");
+  await expect(art.locator(".conceptlabel")).toContainText("nog niet redactioneel gecontroleerd");
+  await expect(art.locator(".a-tekst")).toContainText("Nu staan ze bij de zee.");
+  await expect(art.locator(".a-stippen i")).toHaveCount(7);
+  // Geen jaartallen, geen kernwoord, geen kruisverwijzingen in de standaardweergave.
+  await expect(art).not.toContainText("1446");
+  await expect(art.locator(".xrefs, .kernwoord, .wanneer")).toHaveCount(0);
+  await expect.poll(() => kaartNamen(page)).toEqual(["Pi-Hachiroth"]);
+  for (let i = 0; i < 3; i++) await page.locator("#aVerder").click();
+  await expect(art.locator(".a-tekst")).toContainText("droge weg");
+  await expect.poll(async () => (await kaartNamen(page)).sort()).toEqual(["Pi-Hachiroth", "Schelfzee"]);
+  for (let i = 0; i < 4; i++) await page.locator("#aVerder").click();
+  // De vragen: steeds twee antwoorden.
+  for (let i = 0; i < 3; i++) {
+    await expect(page.locator("#vQuiz .opt")).toHaveCount(2);
+    await page.locator("#vQuiz .opt").first().click();
+    await page.locator("#vqVolgende").click();
+  }
+  await expect(page.locator("#vQuiz")).toContainText("Klaar:");
+  const v = JSON.parse((await opslag(page))["bijbelreis:verhalen"]!);
+  expect(v["26"].q).not.toBeNull();
+  expect(v["26"].lv.a).toBeGreaterThanOrEqual(0);
+});
+
+test("niveaus: zonder Samen-versie geen moeilijke tekst alsof die past, maar een duidelijke keuze", async ({ page }) => {
+  await zetNiveau(page, "a");
+  await page.goto("/bijbelreis#v76");
+  const art = page.locator(".verhaal.samen");
+  await expect(art).toContainText("nog niet bewerkt voor Samen ontdekken");
+  await expect(art).not.toContainText("Kores");
+  await art.getByRole("button", { name: "Lees de vertelling voor 7–10 jaar" }).click();
+  await expect(page.locator("#niveauNaam")).toHaveText("Zelf op reis");
+  await expect(page.locator(".verhaal")).toContainText("Kores");
+});
+
+test("niveaus: Zelf op reis en Verder ontdekken verschillen echt in tekst, tijd, verdieping en vragen", async ({ page }) => {
+  await zetNiveau(page, "b");
+  await page.goto("/bijbelreis#v26");
+  let art = page.locator(".verhaal");
+  await expect(art.locator(".conceptlabel")).toContainText("Zelf op reis");
+  await expect(art).toContainText("Dat betekent: wees niet bang");
+  await expect(art.locator("details.wanneer summary")).toContainText("Mozes en de uittocht");
+  await expect(art.locator("details.wanneer summary")).not.toContainText("1446");
+  await expect(art.locator("details.meer")).not.toHaveAttribute("open", "");
+  await page.locator("#vqStart").click();
+  await expect(page.locator("#vQuiz .opt")).toHaveCount(3);
+  await expect(page.locator("#vQuiz .label")).toContainText("van 4");
+
+  await page.locator("#niveauBtn").click();
+  await page.locator('#niveauKeuze [data-niveau="c"]').click();
+  art = page.locator(".verhaal");
+  await expect(art).not.toContainText("Dat betekent: wees niet bang");
+  await expect(art.locator("details.wanneer summary")).toContainText("ca. 1446 v.Chr.");
+  const verdieping = art.locator("details.blok", { hasText: "Verdieping" });
+  await verdieping.locator("summary").click();
+  await expect(verdieping).toContainText("Bittermeren");
+  await expect(verdieping).toContainText("1 Koningen 9:26");
+  await page.locator("#vqStart").click();
+  await expect(page.locator("#vQuiz .label")).toContainText("van 7");
+});
+
+test("niveaus: Samen speuren stelt vragen met twee antwoorden; tijdlijn zonder jaartallen; wie is wie met de personen van het verhaal", async ({ page }) => {
+  await zetNiveau(page, "a");
+  await page.goto("/bijbelreis#v26");
+  await page.getByRole("tab", { name: "Speurtocht" }).click();
+  await expect(page.locator("#p-quiz")).toContainText("Samen speuren");
+  await page.locator("#qGo").click();
+  await expect(page.locator("#p-quiz .opt")).toHaveCount(2);
+  await page.getByRole("tab", { name: "Tijdlijn" }).click();
+  await expect(page.locator("#p-tijd .samentijd li")).toHaveCount(16);
+  await expect(page.locator("#p-tijd")).not.toContainText("v.Chr.");
+  await page.getByRole("tab", { name: "Wie is wie" }).click();
+  await expect(page.locator("#p-wie .wiekaart")).toHaveCount(2);
+  await expect(page.locator("#p-wie")).toContainText("Mirjam");
 });

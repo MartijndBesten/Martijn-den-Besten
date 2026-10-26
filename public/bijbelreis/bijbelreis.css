@@ -197,7 +197,7 @@ button.chip:hover { border-color: var(--nacht); }
 #sProg { margin-top: -4px; }
 .tijd { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; margin: -4px 0 0 !important; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.03em; color: var(--fg-3); }
 .tijd .linkbtn { font-family: var(--font-sans); font-size: 0.82rem; letter-spacing: 0; }
-#sText, .verhaal > p:not(.tijd):not(.label):not(.ref), .vertelling p { font-size: 1.04rem; line-height: 1.68; }
+#sText, .verhaal > p:not(.tijd):not(.label):not(.ref):not(.conceptlabel), .vertelling p { font-size: 1.04rem; line-height: 1.68; }
 /* Lange geschiedenissen: onderdelen met een rustige tussenkop, een leesbare regellengte en een ontdekmoment op de kaart. */
 .vertelling { display: flex; flex-direction: column; gap: 4px; max-width: 64ch; }
 .vdeel { display: flex; flex-direction: column; gap: 6px; }
@@ -665,7 +665,8 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   .kop-terug svg { width: 22px; height: 22px; }
   .kop-kameel { width: 32px; height: 27px; }
   .kop h1 { font-size: 1.15rem; }
-  .kop-sub { display: none; }
+  .kop-sub { display: block; margin: 0; }
+  .kop-sub-tekst { display: none; }
   /* De zes onderdelen als vaste onderbalk: met de duim bereikbaar, nooit onder de browserbalk. */
   .tabs { position: fixed; z-index: 1400; left: 0; right: 0; bottom: 0; background: var(--wit); border-top: 1px solid var(--lijn); box-shadow: 0 -6px 18px -12px rgba(31, 36, 48, 0.35); padding: 0 max(4px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px) max(4px, env(safe-area-inset-left, 0px)); height: calc(var(--onderbalk-h) + env(safe-area-inset-bottom, 0px)); }
   .tabs button { color: var(--fg-3); font-size: 10.5px; font-weight: 620; gap: 4px; padding: 6px 0 4px; letter-spacing: -0.01em; }
@@ -737,10 +738,94 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
 @media (min-width: 901px) and (max-width: 1180px) {
   .kop { grid-template-columns: auto minmax(0, 1fr) 420px; }
   .app { grid-template-columns: minmax(0, 1fr) 420px; }
-  .kop-sub { display: none; }
+  .kop-sub-tekst { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .rt, .toast, .progress div, .prog div, .camel, .arr, .btn, .opt { transition: none; }
   .camel.walk .leg { animation: none; }
+}
+
+/* ===== Reisniveaus (proef) ===== */
+.kop-sub { display: flex; align-items: center; gap: 8px; }
+.kop-sub-tekst { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.niveauknop { flex: none; display: inline-flex; align-items: center; gap: 5px; min-height: 28px; padding: 2px 8px 2px 6px; margin-left: -6px; border: 1px solid rgba(255, 255, 255, 0.28); border-radius: 999px; background: rgba(255, 255, 255, 0.06); color: #f0d9b5; font: inherit; font-size: 0.78rem; font-weight: 620; cursor: pointer; }
+.niveauknop svg { width: 15px; height: 15px; }
+.niveauknop .pijl { width: 13px; height: 13px; opacity: 0.8; }
+.niveauknop:hover, .niveauknop[aria-expanded="true"] { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.niveaukeuze { position: fixed; z-index: 1500; top: calc(var(--kop-h) + 6px); left: max(12px, env(safe-area-inset-left, 0px)); width: min(380px, calc(100vw - 24px)); background: var(--wit); border-radius: var(--r); box-shadow: 0 12px 40px rgba(19, 32, 61, 0.28); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.niveaukeuze[hidden] { display: none; }
+.nk-kop { margin: 0; font-weight: 700; font-size: 1.05rem; }
+.nk-noot { margin: 0; font-size: 0.8rem; color: var(--fg-3); line-height: 1.4; }
+.nivopts { display: flex; flex-direction: column; gap: 8px; }
+.nivopt { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; text-align: left; padding: 11px 14px; min-height: 56px; border: 1px solid var(--lijn-sterk); border-radius: var(--r); background: var(--wit); color: var(--fg); font: inherit; cursor: pointer; }
+.nivopt b { font-size: 1rem; }
+.nivopt span { font-family: var(--font-mono); font-size: 11.5px; color: var(--terra-diep); align-self: center; }
+.nivopt small { grid-column: 1 / -1; color: var(--fg-2); font-size: 0.84rem; line-height: 1.35; }
+.nivopt:hover { border-color: var(--nacht); }
+.nivopt[aria-pressed="true"] { border: 2px solid var(--nacht); background: var(--nacht-zacht); padding: 10px 13px; }
+.keuzekaart { display: flex; flex-direction: column; gap: 10px; border-left-color: var(--nacht); padding: 14px; }
+.kk-titel { font-size: 1.25rem; margin: 0; }
+.keuzekaart .ref { margin: 0; font-size: 0.82rem; }
+.rk-tip { margin: 0; font-size: 0.82rem; color: var(--fg-2); background: var(--zand-zacht); border-radius: var(--r-klein); padding: 6px 10px; }
+.verhaal > p.conceptlabel, .conceptlabel { margin: 0; line-height: 1.4; align-self: flex-start; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--oker-diep); background: var(--oker-zacht); border: 1px dashed var(--oker); border-radius: 5px; padding: 2px 7px; }
+/* Verdieping en ‘Meer weten’: uitklapbaar, rustig, één lijn per blok. */
+.blok { border-top: 1px solid var(--lijn); padding-top: 4px; }
+.blok > summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; font-weight: 650; color: var(--nacht); list-style: none; }
+.blok > summary::-webkit-details-marker { display: none; }
+.blok > summary::after { content: "+"; margin-left: auto; font-weight: 400; font-size: 1.2rem; color: var(--fg-3); }
+.blok[open] > summary::after { content: "−"; }
+.blok-in { display: flex; flex-direction: column; gap: 8px; padding-bottom: 8px; }
+.blok-in h4 { margin: 6px 0 0; font-size: 0.95rem; }
+.blok-in p { margin: 0; line-height: 1.6; }
+.blok-in .refs { font-size: 0.86rem; }
+.wanneer .w-jaar { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+/* Samen ontdekken: één gedachte per scherm, grote tekst en grote knoppen. */
+.verhaal.samen { gap: 14px; }
+.a-stap { min-height: 7.5em; display: flex; align-items: center; background: var(--papier); border-radius: var(--r); padding: 18px 18px; }
+.a-tekst { margin: 0; font-size: 1.32rem; line-height: 1.55; font-weight: 520; }
+.a-stippen { display: flex; justify-content: center; gap: 8px; }
+.a-stippen i { width: 10px; height: 10px; border-radius: 50%; background: var(--zand); }
+.a-stippen i.af { background: var(--terra); }
+.a-stippen i.nu { background: var(--nacht); transform: scale(1.3); }
+.a-nav { display: grid; grid-template-columns: 64px 1fr; gap: 10px; }
+.a-nav .btn { min-height: 60px; font-size: 1.1rem; }
+.samenvoor { font-size: 0.9rem; color: var(--fg-2); }
+.samenvoor summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; color: var(--fg-3); }
+.samenvoor p { margin: 4px 0 8px; line-height: 1.5; }
+.leeg { display: flex; flex-direction: column; gap: 8px; background: var(--zand-zacht); border-radius: var(--r); padding: 14px; }
+.leeg p { margin: 0; }
+.samenkeus { display: flex; flex-direction: column; gap: 8px; }
+.samenkeus .btn { justify-content: flex-start; text-align: left; }
+body[data-niveau="a"] .opts .opt, body[data-niveau="a"] #vQuiz .opt { min-height: 60px; font-size: 1.15rem; }
+body[data-niveau="a"] .qtext { font-size: 1.3rem; }
+.samenlijst .vitem { min-height: 64px; }
+.samenlijst .vt b { font-size: 1.05rem; }
+.reiskaart.samen .btn { min-height: 52px; padding: 10px 22px; font-size: 1.05rem; }
+.samenwie { display: flex; flex-direction: column; gap: 8px; }
+.wiekaart { display: flex; align-items: center; gap: 12px; text-align: left; padding: 12px 14px; min-height: 64px; border: 1px solid var(--lijn); border-radius: var(--r); background: var(--wit); color: var(--fg); font: inherit; cursor: pointer; }
+.wiekaart i { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-style: normal; font-weight: 700; }
+.wiekaart span { display: flex; flex-direction: column; gap: 2px; }
+.wiekaart small { color: var(--fg-2); font-size: 0.88rem; line-height: 1.35; }
+.samentijd { list-style: none; margin: 0; padding: 0 0 0 6px; display: flex; flex-direction: column; }
+.samentijd li { position: relative; display: flex; gap: 14px; padding: 0 0 16px; }
+.samentijd li::before { content: ""; position: absolute; left: 7px; top: 18px; bottom: 0; border-left: 2px dotted var(--zand-diep); opacity: 0.6; }
+.samentijd li:last-child::before { display: none; }
+.st-stip { flex: none; width: 16px; height: 16px; border-radius: 50%; border: 3px solid var(--zand); background: var(--wit); margin-top: 3px; }
+.samentijd li.nu .st-stip { border-color: var(--nacht); box-shadow: 0 0 0 3px var(--nacht-zacht); }
+.samentijd li > div { display: flex; flex-direction: column; gap: 2px; align-items: flex-start; }
+.samentijd b { font-size: 1.02rem; }
+.samentijd small { color: var(--terra-diep); font-weight: 620; }
+.vcel.groot { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left; padding: 10px 12px; min-height: 64px; grid-column: 1 / -1; }
+.vcel.groot small { font-size: 0.85rem; }
+/* Samen ontdekken: minder kaartbediening. Zoom en ‘Groot’ blijven; geografie en zekerheidstekens blijven gelijk. */
+body[data-niveau="a"] .maptools .seg, body[data-niveau="a"] #legendBtn, body[data-niveau="a"] #wereldBtn, body[data-niveau="a"] #heleBtn, body[data-niveau="a"] #resetPas, body[data-niveau="a"] .legend { display: none !important; }
+@media (max-width: 900px) {
+  /* Samen ontdekken: een iets lagere kaart, zodat kaart en verhaalstap samen op het scherm passen. */
+  body[data-niveau="a"][data-modus="verhalen"] .mapwrap { height: 32vh; height: 32svh; min-height: 210px; }
+  .kop-titel > div { min-width: 0; }
+  .niveauknop { min-height: 24px; font-size: 0.74rem; padding: 1px 8px 1px 5px; }
+  .a-tekst { font-size: 1.25rem; }
+  .keuzekaart .nivopt small { display: none; }
+  .keuzekaart .nivopt { min-height: 48px; align-items: center; }
 }
