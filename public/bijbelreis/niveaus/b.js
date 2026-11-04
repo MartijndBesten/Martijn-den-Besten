@@ -5085,6 +5085,376 @@ BR.niveaus.voegToe("b", {
       },
     ],
   },
+  118: {
+    status: "gecontroleerd",
+    delen: [
+      {
+        kop: "Een ezelin en haar veulen",
+        stap: "jezus-3:nt-lijdensweek:0",
+        t: "De Heere Jezus is met Zijn discipelen bijna in Jeruzalem. Bij Bethfagé, aan de Olijfberg, stuurt Hij twee discipelen naar het dorp tegenover hen. Daar vinden ze een ezelin met haar veulen, een jong ezeltje. Als iemand iets vraagt, moeten ze zeggen dat de Heere ze nodig heeft. Ze leggen hun kleren op de dieren en zetten de Heere Jezus erop.",
+      },
+      {
+        kop: "Zoals de profeet gezegd had",
+        t: "Zo komt uit wat de profeet had gezegd: ‘Zie, uw Koning komt tot u, zachtmoedig en gezeten op een ezelin’. Zachtmoedig betekent: zacht en nederig.",
+      },
+      {
+        kop: "Hosanna voor de Zoon van David",
+        t: "Heel veel mensen spreiden hun kleren op de weg. Anderen hakken takken van de bomen. De scharen voor Hem en achter Hem roepen: ‘Hosanna den Zone Davids! Gezegend is Hij, Die komt in den Naam des Heeren!’",
+      },
+      {
+        kop: "De stad vraagt wie Hij is",
+        stap: "jezus-3:nt-lijdensweek:0",
+        t: "Als de Heere Jezus Jeruzalem binnenkomt, raakt de hele stad in beroering. De mensen vragen: ‘Wie is Deze?’ De scharen antwoorden: ‘Deze is Jezus, de Profeet van Nazareth in Galilea.’",
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat vinden de twee discipelen in het dorp?",
+        a: ["Een ezelin met haar veulen", "Een paard met een wagen", "Twee kamelen bij een put"],
+        why: "Mattheüs 21:2",
+      },
+      {
+        q: "Waarom rijdt de Heere Jezus zo Jeruzalem binnen?",
+        a: ["Zo komt uit wat de profeet had gezegd", "De discipelen hadden dat zelf bedacht", "Hij wil ongemerkt de stad in"],
+        why: "Mattheüs 21:4–5",
+      },
+      {
+        q: "Wat roepen de scharen?",
+        a: ["Hosanna den Zone Davids!", "Leve de keizer in Rome!", "Weg met de Farizeeën!"],
+        why: "Mattheüs 21:9",
+      },
+      {
+        q: "Wat vraagt de stad als de Heere Jezus binnenkomt?",
+        a: ["Wie is Deze?", "Wanneer begint het feest?", "Waar gaat Hij slapen?"],
+        why: "Mattheüs 21:10",
+      },
+      {
+        q: "Wie is Hij volgens de scharen?",
+        a: ["Jezus, de Profeet van Nazareth", "De nieuwe hogepriester", "Een koning uit Egypte"],
+        why: "Mattheüs 21:11",
+      },
+    ],
+  },
+  119: {
+    status: "gecontroleerd",
+    delen: [
+      {
+        kop: "Kopen en verkopen in de tempel",
+        stap: "jezus-3:nt-lijdensweek:1",
+        t: "De Heere Jezus gaat de tempel van God binnen. Daar wordt gekocht en verkocht. Hij drijft iedereen naar buiten die daar koopt en verkoopt. Hij gooit de tafels van de geldwisselaars om, en de stoelen van de duivenverkopers.",
+      },
+      {
+        kop: "Een huis des gebeds",
+        t: "Hij zegt: ‘Er is geschreven: Mijn huis zal een huis des gebeds genaamd worden; maar gij hebt dat tot een moordenaarskuil gemaakt.’ Een huis des gebeds is een huis om te bidden. Een moordenaarskuil is een schuilplaats voor misdadigers. Dan komen er blinden en kreupelen bij Hem in de tempel, en Hij geneest hen.",
+      },
+      {
+        kop: "Kinderen roepen Hosanna",
+        t: "Kinderen roepen in de tempel: ‘Hosanna den Zone Davids!’ De overpriesters en schriftgeleerden zien de wonderen en horen de kinderen. Ze nemen het zeer kwalijk. Maar de Heere Jezus wijst op de Schrift: uit de mond van jonge kinderen en zuigelingen heeft God Zich lof bereid. Zuigelingen zijn baby’s. Daarna gaat Hij de stad uit naar Bethanië en overnacht daar.",
+      },
+    ],
+    vragen: [
+      {
+        q: "Wiens tafels gooit de Heere Jezus om?",
+        a: ["Van de geldwisselaars", "Van de priesters", "Van de schriftgeleerden"],
+        why: "Mattheüs 21:12",
+      },
+      {
+        q: "Hoe moet Gods huis genoemd worden, zegt de Heere Jezus?",
+        a: ["Een huis des gebeds", "Een huis van koophandel", "Een huis van de koning"],
+        why: "Mattheüs 21:13",
+      },
+      {
+        q: "Wie komen er daarna bij Hem in de tempel?",
+        a: ["Blinden en kreupelen", "Melaatsen en doven", "Soldaten en tollenaars"],
+        why: "Mattheüs 21:14",
+      },
+      {
+        q: "Waarom nemen de overpriesters het zeer kwalijk?",
+        a: [
+          "Ze zien Zijn wonderen en horen de kinderen roepen",
+          "De Heere Jezus is de tempel uitgegaan",
+          "De kinderen roepen de naam van de keizer",
+        ],
+        why: "Mattheüs 21:15",
+      },
+      { q: "Waar gaat de Heere Jezus daarna heen?", a: ["Naar Bethanië", "Naar Nazareth", "Naar Jericho"], why: "Mattheüs 21:17" },
+    ],
+  },
+  120: {
+    status: "gecontroleerd",
+    delen: [
+      {
+        kop: "Vragen in de tempel",
+        stap: "jezus-3:nt-lijdensweek:2",
+        t: "De Heere Jezus leert in de tempel. De Farizeeën willen Hem met Zijn woorden vangen. Ze laten vragen of je belasting aan de keizer mag geven. Hij laat een munt brengen met het beeld van de keizer en zegt: ‘Geeft dan den keizer, dat des keizers is, en Gode, dat Gods is.’ Een wetgeleerde vraagt naar het grote gebod: God liefhebben met heel je hart, ziel en verstand, en je naaste als jezelf.",
+      },
+      {
+        kop: "Niemand weet de dag",
+        stap: "jezus-3:nt-lijdensweek:3",
+        t: "Op de Olijfberg zegt Hij dat de Zoon des mensen zal komen op de wolken van de hemel. Die dag en dat uur weet niemand, alleen de Vader. Hij vertelt over tien maagden. De vijf dwaze nemen geen olie mee voor hun lampen. Als de bruidegom om middernacht komt, gaan alleen de vijf wijze mee, en de deur gaat dicht. ‘Zo waakt dan’, zegt de Heere Jezus.",
+      },
+      {
+        kop: "Talenten, schapen en bokken",
+        t: "Een heer geeft zijn dienstknechten talenten: veel geld. Twee knechten handelen ermee en winnen erbij. De derde verbergt zijn talent in de aarde. Ook vertelt Hij hoe de Koning alle volken zal scheiden, zoals een herder de schapen van de bokken scheidt.",
+      },
+    ],
+    vragen: [
+      {
+        q: "Waarom laten de Farizeeën hun vraag over de belasting stellen?",
+        a: ["Ze willen Hem met Zijn woorden vangen", "Ze willen weten hoeveel ze moeten betalen", "Ze willen Hem helpen tegen de keizer"],
+        why: "Mattheüs 22:15",
+      },
+      { q: "Wiens beeld staat er op de munt?", a: ["Van de keizer", "Van koning David", "Van de hogepriester"], why: "Mattheüs 22:20–21" },
+      {
+        q: "Wat hebben de wijze maagden bij zich?",
+        a: ["Olie in hun vaten", "Een extra lamp", "Brood voor onderweg"],
+        why: "Mattheüs 25:4",
+      },
+      {
+        q: "Waarom zegt de Heere Jezus: ‘Zo waakt dan’?",
+        a: ["Niemand weet de dag of het uur", "Het is al bijna ochtend", "De bruidegom is al binnen"],
+        why: "Mattheüs 25:13",
+      },
+      {
+        q: "Hoe zal de Koning de volken scheiden?",
+        a: [
+          "Zoals een herder de schapen van de bokken",
+          "Zoals een boer het koren van het kaf",
+          "Zoals een visser de goede vissen van de slechte",
+        ],
+        why: "Mattheüs 25:32",
+      },
+    ],
+  },
+  121: {
+    status: "gecontroleerd",
+    delen: [
+      {
+        kop: "Lief tot het einde",
+        stap: "jezus-3:nt-lijdensweek:5",
+        t: "Het is vlak voor het feest van het pascha. De Heere Jezus weet dat Zijn uur gekomen is: Hij gaat uit de wereld naar de Vader. Hij heeft de Zijnen lief tot het einde. Hij staat op van de maaltijd, legt Zijn kleren af en bindt een linnen doek om. Hij giet water in een bekken: een kom. Dan begint Hij de voeten van de discipelen te wassen.",
+      },
+      {
+        kop: "Petrus wil het niet",
+        t: "Petrus zegt: ‘Gij zult mijn voeten niet wassen in der eeuwigheid!’ De Heere Jezus antwoordt: ‘Indiën Ik u niet wasse, gij hebt geen deel met Mij.’ Dat betekent: dan hoor je niet bij Mij. Dan wil Petrus ook handen en hoofd gewassen hebben.",
+      },
+      {
+        kop: "Een voorbeeld",
+        t: "Als Hij weer zit, zegt Hij: jullie noemen Mij Meester en Heere, en dat ben Ik ook. Als Ik jullie voeten gewassen heb, moeten jullie ook elkaars voeten wassen. ‘Want Ik heb u een voorbeeld gegeven’.",
+      },
+      {
+        kop: "Twist over de grootste",
+        t: "Lukas vertelt: de discipelen twisten over wie de grootste is. De Heere Jezus zegt: koningen heersen over hun volk, ‘doch gij niet alzo’. De grootste moet zijn als de minste. ‘Maar Ik ben in het midden van u, als een die dient.’",
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat doet de Heere Jezus om voordat Hij de voeten wast?",
+        a: ["Een linnen doek", "Een mantel van purper", "Een gordel van leer"],
+        why: "Johannes 13:4",
+      },
+      {
+        q: "Waarom wil Petrus het daarna toch?",
+        a: ["Anders heeft hij geen deel met de Heere Jezus", "Zijn voeten zijn erg vies geworden", "De andere discipelen lachen hem uit"],
+        why: "Johannes 13:8–9",
+      },
+      {
+        q: "Waarom wast de Heere Jezus de voeten, zegt Hij Zelf?",
+        a: ["Als voorbeeld, zodat zij ook zo doen", "Omdat Petrus Hem erom vroeg", "Omdat er geen dienaar was"],
+        why: "Johannes 13:15",
+      },
+      {
+        q: "Waarover twisten de discipelen?",
+        a: ["Wie van hen de grootste is", "Wie naast de Heere Jezus mag zitten", "Wie het pascha moet betalen"],
+        why: "Lukas 22:24",
+      },
+      {
+        q: "Hoe is de Heere Jezus in het midden van de discipelen?",
+        a: ["Als een die dient", "Als een koning die heerst", "Als een die aanzit en wacht"],
+        why: "Lukas 22:27",
+      },
+    ],
+  },
+  122: {
+    status: "gecontroleerd",
+    delen: [
+      {
+        kop: "Het pascha klaarmaken",
+        stap: "jezus-3:nt-lijdensweek:6",
+        t: "Het is de dag van de ongehevelde broden: broden zonder zuurdesem. Op die dag moet het paaslam geslacht worden. De Heere Jezus stuurt Petrus en Johannes vooruit. In de stad zien ze een man met een kruik water. Ze volgen hem naar een huis. Daar wijst de huisvader hun een grote opperzaal: een zaal boven in het huis. Alles is zoals de Heere Jezus gezegd had.",
+      },
+      {
+        kop: "Brood en beker",
+        t: "Als het uur gekomen is, zit Hij aan tafel met de twaalf apostelen. Hij neemt brood, dankt, breekt het en geeft het hun: ‘Dat is Mijn lichaam, hetwelk voor u gegeven wordt; doet dat tot Mijn gedachtenis.’ Na het avondmaal neemt Hij de beker: ‘Deze drinkbeker is het nieuwe testament in Mijn bloed, hetwelk voor u vergoten wordt.’ Een testament is hier een verbond.",
+      },
+      {
+        kop: "Een verrader aan tafel",
+        t: "Dan zegt de Heere Jezus: ‘Doch ziet, de hand desgenen, die Mij verraadt, is met Mij aan de tafel.’ De Zoon des mensen gaat heen zoals besloten is. Maar wee de mens die Hem verraadt! De discipelen vragen elkaar wie van hen dat zou kunnen zijn.",
+      },
+    ],
+    vragen: [
+      {
+        q: "Hoe vinden Petrus en Johannes het huis?",
+        a: ["Ze volgen een man met een kruik water", "Ze vragen het aan een priester", "Een engel wijst hun de weg"],
+        why: "Lukas 22:10",
+      },
+      {
+        q: "Waar maken ze het pascha klaar?",
+        a: ["In een grote opperzaal", "In de voorhof van de tempel", "In een huis in Bethanië"],
+        why: "Lukas 22:12–13",
+      },
+      {
+        q: "Wat zegt de Heere Jezus als Hij het brood geeft?",
+        a: ["Dat is Mijn lichaam, voor u gegeven", "Dat is het brood van de tempel", "Dat is het manna uit de woestijn"],
+        why: "Lukas 22:19",
+      },
+      {
+        q: "Waarom moeten de discipelen dit doen?",
+        a: ["Tot Zijn gedachtenis", "Om het feest af te sluiten", "Om de priesters te eren"],
+        why: "Lukas 22:19",
+      },
+      {
+        q: "Wie zit er volgens de Heere Jezus met Hem aan tafel?",
+        a: ["Degene die Hem verraadt", "Een engel uit de hemel", "De hogepriester"],
+        why: "Lukas 22:21",
+      },
+    ],
+  },
+  123: {
+    status: "gecontroleerd",
+    delen: [
+      {
+        kop: "Judas gaat naar de overpriesters",
+        t: "Judas Iskariot is een van de twaalf discipelen. Hij gaat naar de overpriesters om de Heere Jezus aan hen over te leveren. Zij zijn blij en beloven hem geld. Vanaf dan zoekt Judas een goede gelegenheid.",
+      },
+      {
+        kop: "Bidden in Gethsémané",
+        stap: "jezus-3:nt-lijdensweek:7",
+        t: "Na de lofzang gaat de Heere Jezus naar de Olijfberg, naar een plaats die Gethsémané heet. Hij neemt Petrus, Jakobus en Johannes mee. Hij is diep bedroefd. Hij valt op de grond en bidt: ‘Abba, Vader! alle dingen zijn U mogelijk; neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt.’ Abba betekent Vader. De drinkbeker wordt meestal uitgelegd als het lijden dat komt. Steeds als Hij terugkomt, slapen de discipelen.",
+      },
+      {
+        kop: "Verraden met een kus",
+        stap: "jezus-3:nt-lijdensweek:8",
+        t: "Dan komt Judas met een grote groep met zwaarden en stokken. Judas zegt: ‘Rabbi’, en kust Hem; dat was het afgesproken teken. Ze grijpen de Heere Jezus. Iemand slaat met een zwaard een oor af van de dienstknecht van de hogepriester. De Heere Jezus zegt dat dit gebeurt ‘opdat de Schriften vervuld zouden worden’. Dan verlaten alle discipelen Hem en vluchten.",
+      },
+    ],
+    vragen: [
+      {
+        q: "Waarom gaat Judas naar de overpriesters?",
+        a: ["Om de Heere Jezus aan hen over te leveren", "Om een offer te brengen in de tempel", "Om de Heere Jezus te waarschuwen"],
+        why: "Markus 14:10",
+      },
+      {
+        q: "Wie neemt de Heere Jezus mee als Hij gaat bidden?",
+        a: ["Petrus, Jakobus en Johannes", "Judas, Thomas en Andreas", "Mattheüs, Filippus en Bartholomeüs"],
+        why: "Markus 14:33",
+      },
+      {
+        q: "Hoe eindigt het gebed van de Heere Jezus?",
+        a: ["Niet wat Ik wil, maar wat Gij wilt", "Laat Mijn discipelen wakker blijven", "Stuur Judas weg van deze plaats"],
+        why: "Markus 14:36",
+      },
+      {
+        q: "Waarom kust Judas de Heere Jezus?",
+        a: ["Het is het afgesproken teken", "Hij wil afscheid van Hem nemen", "Hij wil Hem bedanken voor alles"],
+        why: "Markus 14:44–45",
+      },
+      {
+        q: "Wat doen de discipelen aan het eind?",
+        a: ["Ze verlaten Hem en vluchten", "Ze gaan met Hem mee naar de stad", "Ze vechten tot de morgen"],
+        why: "Markus 14:50",
+      },
+    ],
+  },
+  124: {
+    status: "gecontroleerd",
+    delen: [
+      {
+        kop: "Ik nooit",
+        t: "Op weg naar de Olijfberg zegt de Heere Jezus dat alle discipelen die nacht aan Hem geërgerd zullen worden: ze zullen Hem in de steek laten. Petrus zegt: ‘Al werden zij ook allen aan U geërgerd, ik zal nimmermeer geërgerd worden.’ Maar de Heere Jezus zegt dat Petrus Hem, voordat de haan kraait, driemaal zal verloochenen: zeggen dat hij Hem niet kent.",
+      },
+      {
+        kop: "Bij de hogepriester",
+        stap: "jezus-3:nt-lijden:0",
+        t: "Na de gevangenneming brengen ze de Heere Jezus naar de hogepriester Kajafas. Petrus volgt van ver en gaat bij de dienaren zitten. De hogepriester vraagt of Hij de Christus is, de Zoon van God. De Heere Jezus antwoordt: ‘Gij hebt het gezegd.’ Dan zeggen ze: ‘Hij is des doods schuldig.’ Ze vinden dat Hij moet sterven.",
+      },
+      {
+        kop: "Driemaal, en dan de haan",
+        stap: "jezus-3:nt-lijden:1",
+        t: "Een dienstmaagd zegt: ‘Gij waart ook met Jezus, den Galileër.’ Petrus ontkent het. Een andere zegt het ook, en hij zweert: ‘Ik ken den Mens niet.’ Even later zeggen omstanders dat zijn spraak hem verraadt. Weer zweert Petrus. Meteen kraait de haan. Petrus denkt aan het woord van de Heere Jezus, gaat naar buiten en huilt bitter.",
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat zegt Petrus als de Heere Jezus zegt dat ze Hem allemaal zullen verlaten?",
+        a: ["Ik zal nimmermeer geërgerd worden", "Ik ga alvast terug naar Galilea", "Ik wil eerst gaan slapen"],
+        why: "Mattheüs 26:33",
+      },
+      {
+        q: "Wat vraagt de hogepriester aan de Heere Jezus?",
+        a: ["Of Hij de Christus is, de Zoon van God", "Of Hij belasting betaalt aan de keizer", "Waarom Hij in Nazareth woont"],
+        why: "Mattheüs 26:63",
+      },
+      {
+        q: "Wie zegt als eerste tegen Petrus dat hij bij de Heere Jezus hoorde?",
+        a: ["Een dienstmaagd", "Een soldaat", "De hogepriester"],
+        why: "Mattheüs 26:69",
+      },
+      {
+        q: "Waaraan horen de omstanders dat Petrus erbij hoort?",
+        a: ["Aan zijn spraak", "Aan zijn kleren", "Aan zijn zwaard"],
+        why: "Mattheüs 26:73",
+      },
+      {
+        q: "Waarom huilt Petrus bitter?",
+        a: ["Hij denkt aan het woord van de Heere Jezus", "Hij heeft het erg koud", "Hij wordt gevangengenomen"],
+        why: "Mattheüs 26:75",
+      },
+    ],
+  },
+  125: {
+    status: "gecontroleerd",
+    delen: [
+      {
+        kop: "Voor de raad en voor Pilatus",
+        stap: "jezus-3:nt-lijden:3",
+        t: "’s Morgens staat de Heere Jezus voor de raad. Ze vragen: ‘Zijt Gij dan de Zoon Gods?’ Hij antwoordt: ‘Gij zegt, dat Ik het ben.’ Dan brengen ze Hem naar Pilatus. Ze beschuldigen Hem: Hij zegt dat Hij Christus, de Koning, is. Pilatus zegt: ‘Ik vind geen schuld in dezen Mens.’",
+      },
+      {
+        kop: "Naar Herodes en terug",
+        stap: "jezus-3:nt-lijden:4",
+        t: "Pilatus hoort dat Hij uit Galilea komt. Daarom stuurt hij Hem naar Herodes, de vorst van Galilea. Herodes is blij: hij hoopt een teken te zien. Maar de Heere Jezus zegt niets. Herodes en zijn soldaten bespotten Hem en sturen Hem terug.",
+      },
+      {
+        kop: "Barabbas of de Heere Jezus",
+        stap: "jezus-3:nt-lijden:5",
+        t: "Pilatus wil Hem laten kastijden (slaan) en loslaten. Maar de menigte roept: ‘Weg met Dezen, en laat ons Bar-abbas los.’ Barabbas zit vast om oproer en doodslag. Ze roepen: ‘Kruis Hem, kruis Hem!’ Driemaal zegt Pilatus dat hij geen schuld in Hem vindt, maar ze roepen steeds harder. Dan laat Pilatus Barabbas vrij en geeft de Heere Jezus over aan hun wil. Petrus schrijft waarom: ‘Christus heeft ook eens voor de zonden geleden, Hij rechtvaardig voor de onrechtvaardigen’ (1 Petrus 3:18).",
+      },
+    ],
+    vragen: [
+      {
+        q: "Waarvan beschuldigen ze de Heere Jezus bij Pilatus?",
+        a: ["Dat Hij zegt dat Hij Christus, de Koning, is", "Dat Hij geld uit de tempel heeft gestolen", "Dat Hij een soldaat heeft gedood"],
+        why: "Lukas 23:2",
+      },
+      {
+        q: "Waarom stuurt Pilatus Hem naar Herodes?",
+        a: ["Hij komt uit het gebied van Herodes", "Herodes is de hogepriester", "Herodes is de baas van Pilatus"],
+        why: "Lukas 23:6–7",
+      },
+      {
+        q: "Waarom is Herodes blij als hij de Heere Jezus ziet?",
+        a: ["Hij hoopt een teken van Hem te zien", "Hij wil Hem helpen ontsnappen", "Hij wil Zijn discipel worden"],
+        why: "Lukas 23:8",
+      },
+      { q: "Wie wil de menigte vrij hebben?", a: ["Barabbas", "Petrus", "Judas"], why: "Lukas 23:18" },
+      {
+        q: "Wat roept de menigte over de Heere Jezus?",
+        a: ["Kruis Hem, kruis Hem!", "Laat Hem vrij!", "Stuur Hem naar Rome!"],
+        why: "Lukas 23:21",
+      },
+    ],
+  },
   126: {
     status: "concept",
     delen: [
@@ -5424,7 +5794,7 @@ BR.niveaus.voegToe("b", {
     ],
   },
   134: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Wachten in Jeruzalem",
@@ -5437,7 +5807,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Ieder in zijn eigen taal",
-        t: "In Jeruzalem wonen godvrezende Joden uit veel landen, van Parthië en Egypte tot Rome, Kreta en Arabië. Ze komen erop af en horen de discipelen in hun eigen taal spreken over ‘de grote werken Gods’. Ze zijn verbaasd: zijn dit niet allemaal Galileërs? Maar anderen spotten: ‘Zij zijn vol zoeten wijns.’ Daarmee bedoelen ze: ze zijn dronken.",
+        t: "In Jeruzalem wonen godvrezende Joden uit veel landen, van Parthië en Egypte tot Rome, Kreta en Arabië. Ze komen erop af en horen de discipelen in hun eigen taal spreken over ‘de grote werken Gods’. Ze zijn verbaasd: zijn dit niet allemaal Galileërs, mensen uit Galilea? Maar anderen spotten: ‘Zij zijn vol zoeten wijns.’ Daarmee bedoelen ze: ze zijn dronken.",
       },
     ],
     vragen: [
@@ -5464,12 +5834,12 @@ BR.niveaus.voegToe("b", {
     ],
   },
   135: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Niet dronken",
         stap: "handelingen:nt-gemeente:1",
-        t: "Petrus gaat staan met de elf andere apostelen en spreekt de menigte toe. ‘Deze zijn niet dronken’, zegt hij, ‘want het is eerst de derde ure van de dag.’ Dat is in de ochtend. Wat hier gebeurt, had God beloofd door de profeet Joël: Hij zou Zijn Geest uitstorten op alle vlees.",
+        t: "Petrus gaat staan met de elf andere apostelen en spreekt de menigte toe. ‘Deze zijn niet dronken’, zegt hij, ‘want het is eerst de derde ure van de dag.’ Wat hier gebeurt, had God beloofd door de profeet Joël: Hij zou Zijn Geest uitstorten op alle vlees.",
       },
       {
         kop: "God heeft Hem opgewekt",
@@ -5477,7 +5847,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Geraakt in het hart",
-        t: "De mensen worden verslagen in het hart en vragen: ‘Wat zullen wij doen mannen broeders?’ Petrus antwoordt: ‘Bekeert u, en een iegelijk van u worde gedoopt in den Naam van Jezus Christus, tot vergeving der zonden’. Die dag worden ongeveer drieduizend mensen gedoopt. Ze blijven bij de leer van de apostelen, de gemeenschap, het breken van het brood en de gebeden.",
+        t: "De mensen worden verslagen in het hart en vragen: ‘Wat zullen wij doen mannen broeders?’ Petrus zegt: ‘Bekeert u, en een iegelijk van u worde gedoopt in den Naam van Jezus Christus, tot vergeving der zonden’. Bekeren is: met berouw terugkeren tot God. Die dag worden ongeveer drieduizend mensen gedoopt. Ze blijven bij de leer van de apostelen, de gemeenschap, het breken van het brood en de gebeden.",
       },
     ],
     vragen: [
@@ -5498,27 +5868,27 @@ BR.niveaus.voegToe("b", {
       },
       {
         q: "Wat gebeurt er met wie het woord van Petrus aanneemt?",
-        a: ["Ze worden gedoopt", "Ze gaan terug naar huis", "Ze worden apostel"],
+        a: ["Ze worden gedoopt", "Ze moeten Jeruzalem verlaten", "Ze worden apostel"],
         why: "Handelingen 2:41",
       },
     ],
   },
   136: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Bij de Schone Poort",
         stap: "handelingen:nt-gemeente:2",
-        t: "Petrus en Johannes gaan naar de tempel om te bidden. Bij de poort die de Schone heet, zit een man die vanaf zijn geboorte kreupel is. Hij vraagt om een aalmoes, een gift. Petrus zegt: ‘Zilver en goud heb ik niet, maar hetgeen ik heb, dat geve ik u; in den Naam van Jezus Christus, den Nazarener, sta op en wandel!’ De man springt op en gaat de tempel in, God lovend.",
+        t: "Petrus en Johannes gaan naar de tempel om te bidden. Bij de poort die de Schone heet, zit een man die vanaf zijn geboorte kreupel is. Hij vraagt om een aalmoes, een gift. Petrus zegt: ‘Zilver en goud heb ik niet … in den Naam van Jezus Christus, den Nazarener, sta op en wandel!’ De man springt op en gaat de tempel in, God lovend.",
       },
       {
         kop: "Voor de raad",
-        t: "Petrus zegt tegen het volk: niet hun eigen kracht maakte de man gezond, maar het geloof in de Naam van de Heere Jezus. Petrus en Johannes worden gevangengezet. De raad verbiedt hun nog in die Naam te spreken. Maar ze antwoorden: ‘wij kunnen niet laten te spreken, hetgeen wij gezien en gehoord hebben.’",
+        t: "Petrus zegt tegen het volk: niet wij hebben hem laten lopen, maar het geloof in de Naam van de Heere Jezus. Petrus en Johannes worden gevangengezet. De raad verbiedt hun nog in die Naam te spreken. Maar ze antwoorden: ‘wij kunnen niet laten te spreken, hetgeen wij gezien en gehoord hebben.’ Dan laten ze hen gaan.",
       },
       {
         kop: "De schaduw van Petrus",
         stap: "handelingen:nt-gemeente:4",
-        t: "Zieken worden op straat gelegd, zodat de schaduw van Petrus op hen valt. Weer worden de apostelen gevangengezet, maar ’s nachts opent een engel van de Heere de deuren. Voor de raad zegt Petrus: ‘Men moet Gode meer gehoorzaam zijn, dan den mensen.’ Op raad van Gamaliël laten ze hen gaan, maar eerst worden ze met de zweep geslagen.",
+        t: "Zieken worden op straat gelegd, zodat de schaduw van Petrus op hen valt. Weer worden de apostelen gevangengezet, maar ’s nachts opent een engel van de Heere de deuren. Voor de raad zeggen Petrus en de apostelen: ‘Men moet Gode meer gehoorzaam zijn, dan den mensen.’ Op raad van Gamaliël laten ze hen gaan, maar eerst worden ze met de zweep geslagen.",
       },
     ],
     vragen: [
@@ -5545,16 +5915,16 @@ BR.niveaus.voegToe("b", {
     ],
   },
   137: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Eén van hart en ziel",
         stap: "handelingen:nt-gemeente:3",
-        t: "De gelovigen in Jeruzalem zijn één van hart en ziel. Niemand zegt dat iets alleen van hem is. Wie land of een huis heeft, verkoopt het en legt het geld aan de voeten van de apostelen. Daarvan krijgt ieder wat hij nodig heeft. Zo doet ook Joses, een Leviet uit Cyprus. De apostelen noemen hem Barnabas: zoon der vertroosting.",
+        t: "De gelovigen in Jeruzalem zijn één van hart en ziel. Niemand zegt dat iets alleen van hem is. Wie land of een huis heeft, verkoopt het en legt het geld aan de voeten van de apostelen. Daarvan krijgt ieder wat hij nodig heeft. Zo doet ook Joses, een Leviet (iemand uit de stam Levi) uit Cyprus. De apostelen noemen hem Barnabas: zoon der vertroosting.",
       },
       {
         kop: "Een deel achtergehouden",
-        t: "Ook Ananias en zijn vrouw Saffira verkopen een stuk land. Maar met medeweten van zijn vrouw houdt Ananias een deel van het geld achter. De rest legt hij aan de voeten van de apostelen. Petrus vraagt waarom de satan zijn hart zo vervuld heeft dat hij tegen de Heilige Geest liegt. Het land was van hem, en het geld ook. ‘Gij hebt den mensen niet gelogen, maar Gode.’ Ananias valt neer en sterft.",
+        t: "Ook Ananias en zijn vrouw Saffira verkopen een stuk land. Maar Ananias houdt een deel van het geld achter, en zijn vrouw weet ervan. De rest legt hij aan de voeten van de apostelen. Petrus vraagt waarom de satan zijn hart zo vervuld heeft dat hij tegen de Heilige Geest liegt. Het land was van hem, en het geld ook. ‘Gij hebt den mensen niet gelogen, maar Gode.’ Ananias valt neer en sterft.",
       },
       {
         kop: "Grote vrees",
@@ -5581,7 +5951,7 @@ BR.niveaus.voegToe("b", {
     ],
   },
   138: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Zeven mannen om te dienen",
@@ -5618,21 +5988,21 @@ BR.niveaus.voegToe("b", {
     ],
   },
   139: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Grote blijdschap in Samaria",
         stap: "handelingen:nt-gemeente:7",
-        t: "Na de dood van Stefanus worden de gelovigen verstrooid. Filippus, een van de zeven, gaat naar de stad Samaria en predikt daar Christus. Zieken worden genezen, en er is grote blijdschap. Ook de tovenaar Simon laat zich dopen. Maar als hij de gave van God met geld wil kopen, zegt Petrus dat zijn hart niet recht is voor God.",
+        t: "Na de dood van Stefanus worden de gelovigen verstrooid. Filippus, een van de zeven, gaat naar de stad Samaria en predikt er Christus. Zieken worden genezen; er is grote blijdschap. Ook tovenaar Simon laat zich dopen. Petrus en Johannes komen; de gelovigen krijgen de Heilige Geest. Simon wil die gave van God met geld kopen, maar Petrus zegt: zijn hart is niet recht voor God.",
       },
       {
         kop: "Een kamerling op een wagen",
         stap: "handelingen:nt-gemeente:8",
-        t: "Een engel stuurt Filippus naar de weg van Jeruzalem naar Gaza. Daar rijdt een kamerling: een hoge dienaar van Candace, de koningin der Moren. Hij was in Jeruzalem om te aanbidden en leest nu de profeet Jesaja: ‘Hij is gelijk een schaap ter slachting geleid’. Filippus vraagt: ‘Verstaat gij ook, hetgeen gij leest?’",
+        t: "Een engel stuurt Filippus naar de weg van Jeruzalem naar Gaza. Daar rijdt een kamerling: een hoge dienaar van Candace, de koningin der Moren. Hij was in Jeruzalem om te aanbidden en leest de profeet Jesaja: ‘Hij is gelijk een schaap ter slachting geleid’. Filippus vraagt: ‘Verstaat gij ook, hetgeen gij leest?’",
       },
       {
         kop: "Gedoopt onderweg",
-        t: "Filippus begint bij die Schrift en verkondigt hem de Heere Jezus. Bij water zegt de kamerling: ‘Ik geloof, dat Jezus Christus de Zoon van God is.’ Filippus doopt hem. Dan neemt de Geest van de Heere Filippus weg, en de kamerling reist met blijdschap verder. Filippus komt in Azote (Asdod) en predikt in alle steden, tot hij in Caesarea komt.",
+        t: "Filippus begint bij die Schrift en verkondigt hem de Heere Jezus. Bij water zegt de kamerling: ‘Ik geloof, dat Jezus Christus de Zoon van God is.’ Filippus doopt hem. Dan neemt de Geest van de Heere Filippus weg, en de kamerling reist met blijdschap verder. Daarna predikt Filippus van Azote (Asdod) tot Caesarea.",
       },
     ],
     vragen: [
@@ -5659,7 +6029,7 @@ BR.niveaus.voegToe("b", {
     ],
   },
   140: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Eneas in Lydda",
@@ -5696,7 +6066,7 @@ BR.niveaus.voegToe("b", {
     ],
   },
   141: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Een hoofdman in Caesarea",

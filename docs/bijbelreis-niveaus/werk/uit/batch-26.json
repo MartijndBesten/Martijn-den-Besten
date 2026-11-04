@@ -1,7 +1,7 @@
 {
  "134": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "salem"
    ],
@@ -59,7 +59,7 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Wachten in Jeruzalem",
@@ -72,7 +72,7 @@
     },
     {
      "kop": "Ieder in zijn eigen taal",
-     "t": "In Jeruzalem wonen godvrezende Joden uit veel landen, van Parthië en Egypte tot Rome, Kreta en Arabië. Ze komen erop af en horen de discipelen in hun eigen taal spreken over ‘de grote werken Gods’. Ze zijn verbaasd: zijn dit niet allemaal Galileërs? Maar anderen spotten: ‘Zij zijn vol zoeten wijns.’ Daarmee bedoelen ze: ze zijn dronken."
+     "t": "In Jeruzalem wonen godvrezende Joden uit veel landen, van Parthië en Egypte tot Rome, Kreta en Arabië. Ze komen erop af en horen de discipelen in hun eigen taal spreken over ‘de grote werken Gods’. Ze zijn verbaasd: zijn dit niet allemaal Galileërs, mensen uit Galilea? Maar anderen spotten: ‘Zij zijn vol zoeten wijns.’ Daarmee bedoelen ze: ze zijn dronken."
     }
    ],
    "vragen": [
@@ -115,7 +115,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Belofte en vervulling",
@@ -159,9 +159,9 @@
     {
      "q": "Wat moesten de discipelen volgens Lukas 24:49 doen?",
      "a": [
-      "In Jeruzalem blijven tot de kracht uit de hoogte kwam",
+      "In Jeruzalem blijven tot de kracht kwam",
       "Meteen teruggaan naar Galilea",
-      "Teruggaan naar hun vissersboten"
+      "Meteen naar Rome reizen"
      ],
      "why": "Lukas 24:49"
     },
@@ -179,7 +179,7 @@
  },
  "135": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "salem"
    ],
@@ -211,7 +211,7 @@
      "t": "Op die dag worden ongeveer drieduizend mensen gedoopt. Samen luisteren ze naar de apostelen, ze bidden en ze loven God."
     }
    ],
-   "samen": "Petrus zegt erbij: ‘u komt de belofte toe, en uw kinderen’ (Handelingen 2:39). Daar kun je samen bij stilstaan. Weet je kind nog wat Petrus deed toen de Heere Jezus gevangengenomen was? Hij verloochende Hem driemaal (Lukas 22:61–62). Nu spreekt hij vrijmoedig over Hem, voor heel veel mensen.",
+   "samen": "Petrus zegt erbij: ‘u komt de belofte toe, en uw kinderen’ (Handelingen 2:39). Daar kun je samen bij stilstaan. Weet je kind nog wat Petrus deed toen de Heere Jezus gevangengenomen was? Hij verloochende Hem driemaal (Lukas 22:54–62). Nu spreekt hij vrijmoedig over Hem, voor heel veel mensen.",
    "vragen": [
     {
      "q": "Wat heeft God met de Heere Jezus gedaan, zegt Petrus?",
@@ -240,12 +240,12 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Niet dronken",
      "stap": "handelingen:nt-gemeente:1",
-     "t": "Petrus gaat staan met de elf andere apostelen en spreekt de menigte toe. ‘Deze zijn niet dronken’, zegt hij, ‘want het is eerst de derde ure van de dag.’ Dat is in de ochtend. Wat hier gebeurt, had God beloofd door de profeet Joël: Hij zou Zijn Geest uitstorten op alle vlees."
+     "t": "Petrus gaat staan met de elf andere apostelen en spreekt de menigte toe. ‘Deze zijn niet dronken’, zegt hij, ‘want het is eerst de derde ure van de dag.’ Wat hier gebeurt, had God beloofd door de profeet Joël: Hij zou Zijn Geest uitstorten op alle vlees."
     },
     {
      "kop": "God heeft Hem opgewekt",
@@ -253,7 +253,7 @@
     },
     {
      "kop": "Geraakt in het hart",
-     "t": "De mensen worden verslagen in het hart en vragen: ‘Wat zullen wij doen mannen broeders?’ Petrus antwoordt: ‘Bekeert u, en een iegelijk van u worde gedoopt in den Naam van Jezus Christus, tot vergeving der zonden’. Die dag worden ongeveer drieduizend mensen gedoopt. Ze blijven bij de leer van de apostelen, de gemeenschap, het breken van het brood en de gebeden."
+     "t": "De mensen worden verslagen in het hart en vragen: ‘Wat zullen wij doen mannen broeders?’ Petrus zegt: ‘Bekeert u, en een iegelijk van u worde gedoopt in den Naam van Jezus Christus, tot vergeving der zonden’. Bekeren is: met berouw terugkeren tot God. Die dag worden ongeveer drieduizend mensen gedoopt. Ze blijven bij de leer van de apostelen, de gemeenschap, het breken van het brood en de gebeden."
     }
    ],
    "vragen": [
@@ -288,7 +288,7 @@
      "q": "Wat gebeurt er met wie het woord van Petrus aanneemt?",
      "a": [
       "Ze worden gedoopt",
-      "Ze gaan terug naar huis",
+      "Ze moeten Jeruzalem verlaten",
       "Ze worden apostel"
      ],
      "why": "Handelingen 2:41"
@@ -296,7 +296,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Van verloochenaar tot prediker",
@@ -358,7 +358,7 @@
  },
  "136": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "nt_tempel"
    ],
@@ -423,21 +423,21 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Bij de Schone Poort",
      "stap": "handelingen:nt-gemeente:2",
-     "t": "Petrus en Johannes gaan naar de tempel om te bidden. Bij de poort die de Schone heet, zit een man die vanaf zijn geboorte kreupel is. Hij vraagt om een aalmoes, een gift. Petrus zegt: ‘Zilver en goud heb ik niet, maar hetgeen ik heb, dat geve ik u; in den Naam van Jezus Christus, den Nazarener, sta op en wandel!’ De man springt op en gaat de tempel in, God lovend."
+     "t": "Petrus en Johannes gaan naar de tempel om te bidden. Bij de poort die de Schone heet, zit een man die vanaf zijn geboorte kreupel is. Hij vraagt om een aalmoes, een gift. Petrus zegt: ‘Zilver en goud heb ik niet … in den Naam van Jezus Christus, den Nazarener, sta op en wandel!’ De man springt op en gaat de tempel in, God lovend."
     },
     {
      "kop": "Voor de raad",
-     "t": "Petrus zegt tegen het volk: niet hun eigen kracht maakte de man gezond, maar het geloof in de Naam van de Heere Jezus. Petrus en Johannes worden gevangengezet. De raad verbiedt hun nog in die Naam te spreken. Maar ze antwoorden: ‘wij kunnen niet laten te spreken, hetgeen wij gezien en gehoord hebben.’"
+     "t": "Petrus zegt tegen het volk: niet wij hebben hem laten lopen, maar het geloof in de Naam van de Heere Jezus. Petrus en Johannes worden gevangengezet. De raad verbiedt hun nog in die Naam te spreken. Maar ze antwoorden: ‘wij kunnen niet laten te spreken, hetgeen wij gezien en gehoord hebben.’ Dan laten ze hen gaan."
     },
     {
      "kop": "De schaduw van Petrus",
      "stap": "handelingen:nt-gemeente:4",
-     "t": "Zieken worden op straat gelegd, zodat de schaduw van Petrus op hen valt. Weer worden de apostelen gevangengezet, maar ’s nachts opent een engel van de Heere de deuren. Voor de raad zegt Petrus: ‘Men moet Gode meer gehoorzaam zijn, dan den mensen.’ Op raad van Gamaliël laten ze hen gaan, maar eerst worden ze met de zweep geslagen."
+     "t": "Zieken worden op straat gelegd, zodat de schaduw van Petrus op hen valt. Weer worden de apostelen gevangengezet, maar ’s nachts opent een engel van de Heere de deuren. Voor de raad zeggen Petrus en de apostelen: ‘Men moet Gode meer gehoorzaam zijn, dan den mensen.’ Op raad van Gamaliël laten ze hen gaan, maar eerst worden ze met de zweep geslagen."
     }
    ],
    "vragen": [
@@ -480,11 +480,11 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Sadduceeën en een Farizeeër",
-     "t": "De priesters en Sadduceeën waren ‘zeer ontevreden’, omdat de apostelen ‘in Jezus de opstanding uit de doden’ verkondigden (4:1–2). Later legt Lukas uit: ‘de Sadduceën zeggen, dat er geen opstanding is, noch engel, noch geest’ (Handelingen 23:8). Later treedt de hogepriester op met ‘de sekte der Sadduceën’ (5:17). Gamaliël was een Farizeeër en een geachte leraar der wet (5:34). Paulus vertelt later dat hij ‘aan de voeten van Gamaliël’ onderwezen was (Handelingen 22:3).",
+     "t": "De priesters en Sadduceeën waren ‘zeer ontevreden’, omdat de apostelen ‘in Jezus de opstanding uit de doden’ verkondigden (4:1–2). Later legt Lukas uit: ‘de Sadduceën zeggen, dat er geen opstanding is, noch engel, noch geest’ (Handelingen 23:8). In hoofdstuk 5 treedt de hogepriester op met ‘de sekte der Sadduceën’ (5:17). Gamaliël was een Farizeeër en een geachte leraar der wet (5:34). Paulus vertelt later dat hij ‘aan de voeten van Gamaliël’ onderwezen was (Handelingen 22:3).",
      "refs": [
       "Handelingen 4:1–2",
       "Handelingen 23:8",
@@ -556,7 +556,7 @@
  },
  "137": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "salem"
    ],
@@ -617,16 +617,16 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Eén van hart en ziel",
      "stap": "handelingen:nt-gemeente:3",
-     "t": "De gelovigen in Jeruzalem zijn één van hart en ziel. Niemand zegt dat iets alleen van hem is. Wie land of een huis heeft, verkoopt het en legt het geld aan de voeten van de apostelen. Daarvan krijgt ieder wat hij nodig heeft. Zo doet ook Joses, een Leviet uit Cyprus. De apostelen noemen hem Barnabas: zoon der vertroosting."
+     "t": "De gelovigen in Jeruzalem zijn één van hart en ziel. Niemand zegt dat iets alleen van hem is. Wie land of een huis heeft, verkoopt het en legt het geld aan de voeten van de apostelen. Daarvan krijgt ieder wat hij nodig heeft. Zo doet ook Joses, een Leviet (iemand uit de stam Levi) uit Cyprus. De apostelen noemen hem Barnabas: zoon der vertroosting."
     },
     {
      "kop": "Een deel achtergehouden",
-     "t": "Ook Ananias en zijn vrouw Saffira verkopen een stuk land. Maar met medeweten van zijn vrouw houdt Ananias een deel van het geld achter. De rest legt hij aan de voeten van de apostelen. Petrus vraagt waarom de satan zijn hart zo vervuld heeft dat hij tegen de Heilige Geest liegt. Het land was van hem, en het geld ook. ‘Gij hebt den mensen niet gelogen, maar Gode.’ Ananias valt neer en sterft."
+     "t": "Ook Ananias en zijn vrouw Saffira verkopen een stuk land. Maar Ananias houdt een deel van het geld achter, en zijn vrouw weet ervan. De rest legt hij aan de voeten van de apostelen. Petrus vraagt waarom de satan zijn hart zo vervuld heeft dat hij tegen de Heilige Geest liegt. Het land was van hem, en het geld ook. ‘Gij hebt den mensen niet gelogen, maar Gode.’ Ananias valt neer en sterft."
     },
     {
      "kop": "Grote vrees",
@@ -673,11 +673,11 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Wat de tekst zegt en wat niet",
-     "t": "Niemand was verplicht om land te verkopen. Petrus zegt: ‘Zo het gebleven ware, bleef het niet uw, en verkocht zijnde, was het niet in uw macht?’ (5:4). De zonde was niet dat ze geld hielden, maar dat ze logen. Ananias en Saffira hadden dat samen afgesproken: ‘Wat is het, dat gij onder u hebt overeengestemd te verzoeken den Geest des Heeren?’ (5:9). Veel uitleggers zien hierin dat de Heilige Geest God is: Petrus zegt eerst dat Ananias de Heilige Geest heeft gelogen (5:3) en daarna: ‘Gij hebt den mensen niet gelogen, maar Gode’ (5:4).",
+     "t": "Petrus zegt: ‘Zo het gebleven ware, bleef het niet uw, en verkocht zijnde, was het niet in uw macht?’ (5:4). Daaruit blijkt dat niemand verplicht was om land te verkopen. Petrus verwijt hun niet dat ze geld hadden, maar dat ze logen. Ananias en Saffira hadden dat samen afgesproken: ‘Wat is het, dat gij onder u hebt overeengestemd te verzoeken den Geest des Heeren?’ (5:9). Veel uitleggers zien hierin dat de Heilige Geest God is: Petrus zegt eerst dat Ananias de Heilige Geest heeft gelogen (5:3) en daarna: ‘Gij hebt den mensen niet gelogen, maar Gode’ (5:4).",
      "refs": [
       "Handelingen 5:3–4",
       "Handelingen 5:9"
@@ -730,7 +730,7 @@
  },
  "138": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "salem"
    ],
@@ -799,7 +799,7 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Zeven mannen om te dienen",
@@ -856,7 +856,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Stefanus en de profeten",
@@ -880,7 +880,7 @@
     },
     {
      "kop": "Waar en wanneer",
-     "t": "Ze werpen Stefanus ‘ter stad uit’ (7:58). De wet zei dat iemand die de Naam van de HEERE lasterde, buiten het leger gestenigd moest worden (Leviticus 24:14, 16); de beschuldiging tegen Stefanus was laster (6:11, 13). Waar het precies gebeurde, zegt de Bijbel niet. Een jaartal staat er ook niet; het valt na de eerste jaren van de gemeente en vóór de bekering van Saulus, daarom ca. 31–35 n.Chr.",
+     "t": "Ze werpen Stefanus ‘ter stad uit’ (7:58). De beschuldiging tegen Stefanus was laster (6:11, 13). Uitleggers wijzen erop dat de wet zei dat wie de Naam van de HEERE lasterde, buiten het leger gestenigd moest worden (Leviticus 24:14, 16). Waar het precies gebeurde, zegt de Bijbel niet. Een jaartal staat er ook niet; het valt na de eerste jaren van de gemeente en vóór de bekering van Saulus, daarom ca. 31–35 n.Chr.",
      "refs": [
       "Handelingen 7:58",
       "Leviticus 24:14–16",
@@ -905,23 +905,23 @@
       "Stefanus en Filippus",
       "Alle weduwen"
      ],
-     "why": "Handelingen 8:1"
+     "why": "Handelingen 8:1; Handelingen 8:14"
     },
     {
-     "q": "Hoe noemt Paulus Stefanus later in Handelingen 22:20?",
+     "q": "Wat schreef Paulus later over zichzelf in 1 Korinthe 15:9?",
      "a": [
-      "Uw getuige",
-      "Mijn leraar",
-      "De eerste apostel"
+      "Dat hij de minste van de apostelen is",
+      "Dat hij de eerste van de apostelen is",
+      "Dat hij Stefanus zelf begraven had"
      ],
-     "why": "Handelingen 22:20"
+     "why": "1 Korinthe 15:9"
     }
    ]
   }
  },
  "139": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "samaria",
     "salem",
@@ -988,21 +988,21 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Grote blijdschap in Samaria",
      "stap": "handelingen:nt-gemeente:7",
-     "t": "Na de dood van Stefanus worden de gelovigen verstrooid. Filippus, een van de zeven, gaat naar de stad Samaria en predikt daar Christus. Zieken worden genezen, en er is grote blijdschap. Ook de tovenaar Simon laat zich dopen. Maar als hij de gave van God met geld wil kopen, zegt Petrus dat zijn hart niet recht is voor God."
+     "t": "Na de dood van Stefanus worden de gelovigen verstrooid. Filippus, een van de zeven, gaat naar de stad Samaria en predikt er Christus. Zieken worden genezen; er is grote blijdschap. Ook tovenaar Simon laat zich dopen. Petrus en Johannes komen; de gelovigen krijgen de Heilige Geest. Simon wil die gave van God met geld kopen, maar Petrus zegt: zijn hart is niet recht voor God."
     },
     {
      "kop": "Een kamerling op een wagen",
      "stap": "handelingen:nt-gemeente:8",
-     "t": "Een engel stuurt Filippus naar de weg van Jeruzalem naar Gaza. Daar rijdt een kamerling: een hoge dienaar van Candace, de koningin der Moren. Hij was in Jeruzalem om te aanbidden en leest nu de profeet Jesaja: ‘Hij is gelijk een schaap ter slachting geleid’. Filippus vraagt: ‘Verstaat gij ook, hetgeen gij leest?’"
+     "t": "Een engel stuurt Filippus naar de weg van Jeruzalem naar Gaza. Daar rijdt een kamerling: een hoge dienaar van Candace, de koningin der Moren. Hij was in Jeruzalem om te aanbidden en leest de profeet Jesaja: ‘Hij is gelijk een schaap ter slachting geleid’. Filippus vraagt: ‘Verstaat gij ook, hetgeen gij leest?’"
     },
     {
      "kop": "Gedoopt onderweg",
-     "t": "Filippus begint bij die Schrift en verkondigt hem de Heere Jezus. Bij water zegt de kamerling: ‘Ik geloof, dat Jezus Christus de Zoon van God is.’ Filippus doopt hem. Dan neemt de Geest van de Heere Filippus weg, en de kamerling reist met blijdschap verder. Filippus komt in Azote (Asdod) en predikt in alle steden, tot hij in Caesarea komt."
+     "t": "Filippus begint bij die Schrift en verkondigt hem de Heere Jezus. Bij water zegt de kamerling: ‘Ik geloof, dat Jezus Christus de Zoon van God is.’ Filippus doopt hem. Dan neemt de Geest van de Heere Filippus weg, en de kamerling reist met blijdschap verder. Daarna predikt Filippus van Azote (Asdod) tot Caesarea."
     }
    ],
    "vragen": [
@@ -1045,7 +1045,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Samaria hoort het Woord",
@@ -1107,7 +1107,7 @@
  },
  "140": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "nt_lydda",
     "joppe"
@@ -1142,7 +1142,7 @@
      "t": "Tabitha doet haar ogen open en gaat overeind zitten. Petrus geeft haar de hand."
     },
     {
-     "t": "Hij laat haar levend aan iedereen zien. Veel mensen in Joppe gaan in de Heere geloven."
+     "t": "Hij laat haar levend aan de gelovigen en de weduwen zien. Veel mensen in Joppe gaan in de Heere geloven."
     }
    ],
    "samen": "Tabitha was echt gestorven en werd weer levend (Handelingen 9:37, 41). Petrus knielde eerst en bad (9:40). Hij was er zelf bij geweest toen de Heere Jezus het dochtertje van Jaïrus opwekte (Markus 5:37, 41). Weduwen zijn vrouwen van wie de man gestorven is. Vraag samen: wat lieten de weduwen aan Petrus zien?",
@@ -1174,7 +1174,7 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Eneas in Lydda",
@@ -1231,11 +1231,11 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Elders in de Bijbel",
-     "t": "Wat Petrus doet, lijkt op wat hij bij de Heere Jezus had gezien. Bij het dochtertje van Jaïrus stuurde de Heere eerst iedereen weg: ‘als Hij hen allen had uitgedreven’ (Markus 5:40). Ook Elisa sloot bij een dood kind ‘de deur voor hen beiden toe, en bad tot den HEERE’ (2 Koningen 4:33). Er is ook een verschil: bij de Heere Jezus staat geen gebed; Hij vat de hand van het kind en spreekt (Markus 5:41). Petrus ‘knielde neder en bad’ voordat hij sprak (9:40).",
+     "t": "Wat Petrus doet, lijkt op wat hij bij de Heere Jezus had gezien. Bij het dochtertje van Jaïrus stuurde de Heere eerst de mensen naar buiten: ‘als Hij hen allen had uitgedreven’ (Markus 5:40). Ook Elisa sloot bij een dood kind ‘de deur voor hen beiden toe, en bad tot den HEERE’ (2 Koningen 4:33). Er is ook een verschil: bij de Heere Jezus staat geen gebed; Hij vat de hand van het kind en spreekt (Markus 5:41). Petrus ‘knielde neder en bad’ voordat hij sprak (9:40).",
      "refs": [
       "Markus 5:40–41",
       "2 Koningen 4:32–35",
@@ -1252,10 +1252,11 @@
     },
     {
      "kop": "Waar en wanneer",
-     "t": "Lydda en Joppe liggen dicht bij elkaar (9:38). Joppe is een havenstad aan de zee; in het Oude Testament heet zij Jafo. Daarheen werd hout uit de Libanon voor de tempelbouw van Salomo met vlotten gebracht (2 Kronieken 2:16). Het gebeurt in een tijd van rust voor de gemeenten, na de bekering van Saulus (9:31). Een jaartal noemt de Bijbel niet.",
+     "t": "Lydda en Joppe liggen dicht bij elkaar (9:38). Joppe is een havenstad aan de zee; in het Oude Testament heet zij Jafo. Daarheen werd hout uit de Libanon voor de tempelbouw van Salomo met vlotten gebracht (2 Kronieken 2), en later opnieuw cederhout voor de herbouw van de tempel (Ezra 3:7). Het gebeurt in een tijd van rust voor de gemeenten, na de bekering van Saulus (9:31). Een jaartal noemt de Bijbel niet.",
      "refs": [
       "Handelingen 9:38",
-      "2 Kronieken 2:16",
+      "2 Kronieken 2",
+      "Ezra 3:7",
       "Handelingen 9:31"
      ]
     }
@@ -1273,7 +1274,7 @@
     {
      "q": "Wat deed Petrus net als de Heere Jezus bij het dochtertje van Jaïrus?",
      "a": [
-      "Hij stuurde eerst iedereen naar buiten",
+      "Hij stuurde eerst de mensen naar buiten",
       "Hij zalfde haar met olie",
       "Hij nam haar mee naar de tempel"
      ],
@@ -1286,14 +1287,14 @@
       "Jericho",
       "Jizreël"
      ],
-     "why": "2 Kronieken 2:16"
+     "why": "Ezra 3:7; Jona 1:3"
     }
    ]
   }
  },
  "141": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "nt_caesarea",
     "joppe"
@@ -1362,7 +1363,7 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Een hoofdman in Caesarea",
@@ -1418,7 +1419,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Rein en onrein",
@@ -1431,9 +1432,9 @@
     },
     {
      "kop": "Elders in de Bijbel",
-     "t": "Ook in de evangeliën komt een hoofdman over honderd voor: de Joden zeggen van hem dat hij ‘ons volk lief’ heeft en de synagoge heeft gebouwd (Lukas 7:5). Bij een hoofdman in Kapernaüm zei de Heere Jezus: ‘velen zullen komen van oosten en westen’ (Mattheüs 8:5–11). Toen de Geest op Cornelius en de zijnen viel, dacht Petrus aan het woord: ‘Johannes doopte wel met water, maar gijlieden zult gedoopt worden met den Heiligen Geest’ (11:16; vergelijk 1:5).",
+     "t": "Ook in de evangeliën komt een hoofdman over honderd voor, in Kapernaüm. De ouderlingen van de Joden zeggen van hem dat hij ‘ons volk lief’ heeft en de synagoge heeft gebouwd (Lukas 7:5). Volgens Mattheüs zei de Heere Jezus toen: ‘velen zullen komen van oosten en westen’ (Mattheüs 8:11). Toen de Geest op Cornelius en de zijnen viel, dacht Petrus aan het woord: ‘Johannes doopte wel met water, maar gijlieden zult gedoopt worden met den Heiligen Geest’ (11:16; vergelijk 1:5).",
      "refs": [
-      "Lukas 7:2–5",
+      "Lukas 7:1–5",
       "Mattheüs 8:5–11",
       "Handelingen 11:15–16",
       "Handelingen 1:5"

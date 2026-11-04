@@ -1,7 +1,7 @@
 {
  "118": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "nt_bethfage",
     "nt_olijfberg",
@@ -64,7 +64,7 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Een ezelin en haar veulen",
@@ -134,7 +134,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Wat de andere evangelisten vertellen",
@@ -205,7 +205,7 @@
  },
  "119": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "nt_tempel",
     "nt_bethanie"
@@ -267,7 +267,7 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Kopen en verkopen in de tempel",
@@ -332,7 +332,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Jeremia in de poort van de tempel",
@@ -402,7 +402,7 @@
  },
  "120": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "nt_tempel",
     "nt_olijfberg"
@@ -471,7 +471,7 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Vragen in de tempel",
@@ -537,7 +537,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Drie vragen en een tegenvraag",
@@ -611,7 +611,7 @@
  },
  "121": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "salem"
    ],
@@ -678,7 +678,7 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Lief tot het einde",
@@ -747,7 +747,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Achtergrond: voeten wassen",
@@ -819,7 +819,7 @@
  },
  "122": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "salem"
    ],
@@ -883,7 +883,7 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Het pascha klaarmaken",
@@ -948,7 +948,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Achtergrond: pascha en ongezuurd brood",
@@ -1021,7 +1021,7 @@
  },
  "123": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "nt_gethsemane",
     "salem"
@@ -1088,7 +1088,7 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Judas gaat naar de overpriesters",
@@ -1102,7 +1102,7 @@
     {
      "kop": "Verraden met een kus",
      "stap": "jezus-3:nt-lijdensweek:8",
-     "t": "Dan komt Judas met een grote schare, een grote groep mensen, met zwaarden en stokken. Judas zegt: ‘Rabbi’, en kust Hem; dat was het afgesproken teken. Ze grijpen de Heere Jezus. Iemand slaat met een zwaard een oor af van de dienstknecht van de hogepriester. De Heere Jezus zegt dat dit gebeurt ‘opdat de Schriften vervuld zouden worden’. Dan verlaten alle discipelen Hem en vluchten."
+     "t": "Dan komt Judas met een grote groep met zwaarden en stokken. Judas zegt: ‘Rabbi’, en kust Hem; dat was het afgesproken teken. Ze grijpen de Heere Jezus. Iemand slaat met een zwaard een oor af van de dienstknecht van de hogepriester. De Heere Jezus zegt dat dit gebeurt ‘opdat de Schriften vervuld zouden worden’. Dan verlaten alle discipelen Hem en vluchten."
     }
    ],
    "vragen": [
@@ -1154,7 +1154,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Waar en wanneer",
@@ -1226,7 +1226,7 @@
  },
  "124": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "salem"
    ],
@@ -1294,21 +1294,21 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Ik nooit",
-     "t": "Op weg naar de Olijfberg zegt de Heere Jezus dat alle discipelen die nacht aan Hem geërgerd zullen worden: ze zullen Hem in de steek laten. Petrus zegt: ‘Al werden zij ook allen aan U geërgerd, ik zal nimmermeer geërgerd worden.’ Maar de Heere Jezus zegt dat Petrus Hem die nacht, voordat de haan kraait, driemaal zal verloochenen: zeggen dat hij Hem niet kent."
+     "t": "Op weg naar de Olijfberg zegt de Heere Jezus dat alle discipelen die nacht aan Hem geërgerd zullen worden: ze zullen Hem in de steek laten. Petrus zegt: ‘Al werden zij ook allen aan U geërgerd, ik zal nimmermeer geërgerd worden.’ Maar de Heere Jezus zegt dat Petrus Hem, voordat de haan kraait, driemaal zal verloochenen: zeggen dat hij Hem niet kent."
     },
     {
      "kop": "Bij de hogepriester",
      "stap": "jezus-3:nt-lijden:0",
-     "t": "Na de gevangenneming brengen ze de Heere Jezus naar de hogepriester Kajafas. Petrus volgt van ver en gaat bij de dienaren zitten. De hogepriester vraagt of Hij de Christus is, de Zoon van God. De Heere Jezus antwoordt: ‘Gij hebt het gezegd.’ Dan zeggen ze: ‘Hij is des doods schuldig.’ Dat betekent: volgens hen moet Hij sterven."
+     "t": "Na de gevangenneming brengen ze de Heere Jezus naar de hogepriester Kajafas. Petrus volgt van ver en gaat bij de dienaren zitten. De hogepriester vraagt of Hij de Christus is, de Zoon van God. De Heere Jezus antwoordt: ‘Gij hebt het gezegd.’ Dan zeggen ze: ‘Hij is des doods schuldig.’ Ze vinden dat Hij moet sterven."
     },
     {
      "kop": "Driemaal, en dan de haan",
      "stap": "jezus-3:nt-lijden:1",
-     "t": "Een dienstmaagd zegt tegen Petrus: ‘Gij waart ook met Jezus, den Galileër.’ Petrus ontkent het. Een andere dienstmaagd zegt het ook, en hij zweert: ‘Ik ken den Mens niet.’ Even later zeggen omstanders dat zijn spraak hem verraadt. Weer zweert Petrus. Meteen kraait de haan. Petrus denkt aan het woord van de Heere Jezus, gaat naar buiten en huilt bitter."
+     "t": "Een dienstmaagd zegt: ‘Gij waart ook met Jezus, den Galileër.’ Petrus ontkent het. Een andere zegt het ook, en hij zweert: ‘Ik ken den Mens niet.’ Even later zeggen omstanders dat zijn spraak hem verraadt. Weer zweert Petrus. Meteen kraait de haan. Petrus denkt aan het woord van de Heere Jezus, gaat naar buiten en huilt bitter."
     }
    ],
    "vragen": [
@@ -1360,7 +1360,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Wat de andere evangelisten vertellen",
@@ -1434,7 +1434,7 @@
  },
  "125": {
   "a": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "plaatsen": [
     "nt3_gabbatha",
     "salem"
@@ -1503,22 +1503,22 @@
    ]
   },
   "b": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "delen": [
     {
      "kop": "Voor de raad en voor Pilatus",
      "stap": "jezus-3:nt-lijden:3",
-     "t": "Als het dag wordt, staat de Heere Jezus voor de raad. Ze vragen: ‘Zijt Gij dan de Zoon Gods?’ Hij antwoordt: ‘Gij zegt, dat Ik het ben.’ Dan brengen ze Hem naar Pilatus, de stadhouder. Ze beschuldigen Hem: Hij zegt dat Hij Christus, de Koning, is. Pilatus ondervraagt Hem en zegt: ‘Ik vind geen schuld in dezen Mens.’"
+     "t": "’s Morgens staat de Heere Jezus voor de raad. Ze vragen: ‘Zijt Gij dan de Zoon Gods?’ Hij antwoordt: ‘Gij zegt, dat Ik het ben.’ Dan brengen ze Hem naar Pilatus. Ze beschuldigen Hem: Hij zegt dat Hij Christus, de Koning, is. Pilatus zegt: ‘Ik vind geen schuld in dezen Mens.’"
     },
     {
      "kop": "Naar Herodes en terug",
      "stap": "jezus-3:nt-lijden:4",
-     "t": "Pilatus hoort dat de Heere Jezus uit Galilea komt. Daarom stuurt hij Hem naar Herodes, die over Galilea regeert. Herodes is blij: hij hoopt een teken te zien. Maar de Heere Jezus antwoordt hem niets. Herodes en zijn soldaten bespotten Hem en sturen Hem terug. Die dag worden Pilatus en Herodes vrienden."
+     "t": "Pilatus hoort dat Hij uit Galilea komt. Daarom stuurt hij Hem naar Herodes, de vorst van Galilea. Herodes is blij: hij hoopt een teken te zien. Maar de Heere Jezus zegt niets. Herodes en zijn soldaten bespotten Hem en sturen Hem terug."
     },
     {
      "kop": "Barabbas of de Heere Jezus",
      "stap": "jezus-3:nt-lijden:5",
-     "t": "Pilatus wil Hem laten kastijden (slaan) en loslaten. Maar de menigte roept: ‘Weg met Dezen, en laat ons Bar-abbas los.’ Barabbas zit gevangen om oproer en doodslag. Dan roepen ze: ‘Kruis Hem, kruis Hem!’ Driemaal zegt Pilatus dat hij geen schuld in Hem vindt, maar hun geroep wordt steeds harder. Dan laat Pilatus Barabbas vrij en geeft de Heere Jezus over aan hun wil. Waarom moest de Heere Jezus lijden? Petrus schrijft later: ‘Christus heeft ook eens voor de zonden geleden, Hij rechtvaardig voor de onrechtvaardigen’ (1 Petrus 3:18)."
+     "t": "Pilatus wil Hem laten kastijden (slaan) en loslaten. Maar de menigte roept: ‘Weg met Dezen, en laat ons Bar-abbas los.’ Barabbas zit vast om oproer en doodslag. Ze roepen: ‘Kruis Hem, kruis Hem!’ Driemaal zegt Pilatus dat hij geen schuld in Hem vindt, maar ze roepen steeds harder. Dan laat Pilatus Barabbas vrij en geeft de Heere Jezus over aan hun wil. Petrus schrijft waarom: ‘Christus heeft ook eens voor de zonden geleden, Hij rechtvaardig voor de onrechtvaardigen’ (1 Petrus 3:18)."
     }
    ],
    "vragen": [
@@ -1570,7 +1570,7 @@
    ]
   },
   "c": {
-   "status": "concept",
+   "status": "gecontroleerd",
    "verdieping": [
     {
      "kop": "Pilatus en Herodes",
