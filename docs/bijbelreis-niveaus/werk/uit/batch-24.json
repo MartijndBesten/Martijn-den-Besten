@@ -13,7 +13,7 @@
      "stap": "jezus-3:nt-lijdensweek:0"
     },
     {
-     "t": "Hij stuurt twee discipelen naar het dorp. Daar vinden ze een ezelin en haar jong, vastgebonden."
+     "t": "Hij stuurt twee discipelen naar het dorp. Daar vinden ze een ezelin die vastgebonden is, met haar jong."
     },
     {
      "t": "Ze brengen de dieren bij de Heere Jezus. Ze leggen hun kleren erop en zetten de Heere Jezus erop."
@@ -40,7 +40,7 @@
     {
      "q": "Waarop gaat de Heere Jezus zitten?",
      "a": [
-      "Op een ezel",
+      "Op een ezelin",
       "Op een paard"
      ],
      "why": "Mattheüs 21:7"
@@ -541,7 +541,7 @@
    "verdieping": [
     {
      "kop": "Drie vragen en een tegenvraag",
-     "t": "Na elkaar komen drie vragen. Farizeeën en Herodianen vragen naar de belasting. De Sadduceeën, ‘die zeggen, dat er geen opstanding is’, vertellen over een vrouw die zeven broers na elkaar als man had. De Heere Jezus wijst op wat God tegen Mozes zei (Exodus 3:6): ‘Ik ben de God Abrahams, en de God Izaks, en de God Jakobs’. God is ‘niet een God der doden, maar der levenden’. Een wetgeleerde vraagt naar het grote gebod; het tweede komt uit Leviticus 19:18. Dan vraagt de Heere Jezus hoe David de Christus ‘zijn Heere’ kan noemen (Psalm 110:1). Daarna durft niemand Hem nog iets te vragen.",
+     "t": "Na elkaar komen drie vragen. Discipelen van de Farizeeën vragen samen met de Herodianen naar de belasting. De Sadduceeën, ‘die zeggen, dat er geen opstanding is’, vertellen over een vrouw die zeven broers na elkaar als man had. De Heere Jezus wijst op wat God tegen Mozes zei (Exodus 3:6): ‘Ik ben de God Abrahams, en de God Izaks, en de God Jakobs’. God is ‘niet een God der doden, maar der levenden’. Een wetgeleerde vraagt naar het grote gebod; het tweede komt uit Leviticus 19:18. Dan vraagt de Heere Jezus hoe David de Christus ‘zijn Heere’ kan noemen (Psalm 110:1). Daarna durft niemand Hem nog iets te vragen.",
      "refs": [
       "Mattheüs 22:15–46",
       "Exodus 3:6",
@@ -551,7 +551,7 @@
     },
     {
      "kop": "Wat de tekst zegt en wat niet",
-     "t": "Soms wordt verteld dat alleen de dwaze maagden in slaap vielen. Maar er staat: ‘werden zij allen sluimerig, en vielen in slaap’ (Mattheüs 25:5). Het verschil is de olie. Bij de talenten krijgt ieder ‘naar zijn vermogen’ (Mattheüs 25:15). Een talent is in de tekst een bedrag aan geld (Mattheüs 25:18); ons woord talent, voor een gave, komt van deze gelijkenis. Bij de schapen en de bokken vragen de rechtvaardigen: ‘Heere! wanneer hebben wij U hongerig gezien’ (Mattheüs 25:37).",
+     "t": "Soms wordt verteld dat alleen de dwaze maagden in slaap vielen. Maar er staat: ‘werden zij allen sluimerig, en vielen in slaap’ (Mattheüs 25:5). Het verschil is de olie. Bij de talenten krijgt ieder ‘naar zijn vermogen’ (Mattheüs 25:15). Een talent is in de tekst een bedrag aan geld (Mattheüs 25:18); ons woord talent, voor een gave, komt van deze gelijkenis. Bij de schapen en de bokken weten de rechtvaardigen het zelf niet; ze vragen: ‘Heere! wanneer hebben wij U hongerig gezien’ (Mattheüs 25:37).",
      "refs": [
       "Mattheüs 25:5",
       "Mattheüs 25:15–18",
@@ -952,10 +952,10 @@
    "verdieping": [
     {
      "kop": "Achtergrond: pascha en ongezuurd brood",
-     "t": "Bij het eerste pascha in Egypte aten de Israëlieten het lam ‘met ongezuurde broden’ en ‘met bittere saus’ (Exodus 12:8). Daarna aten ze elk jaar zeven dagen ongezuurde broden (Exodus 12:15). Mozes gaf ook een antwoord voor de kinderen die vroegen: ‘Wat hebt gij daar voor een dienst?’ Ze moesten zeggen: ‘Dit is den HEERE een paasoffer, Die voor de huizen der kinderen Israëls voorbijging in Egypte’ (Exodus 12:26–27). Ongehevelde broden zijn ongezuurde broden, zonder zuurdesem.",
+     "t": "Bij het eerste pascha in Egypte aten de Israëlieten het lam ‘met ongezuurde broden’ en ‘met bittere saus’ (Exodus 12:8). Daarna moesten ze elk jaar zeven dagen ongezuurde broden eten (Exodus 12:14–15). Mozes gaf ook een antwoord voor de kinderen die vroegen: ‘Wat hebt gij daar voor een dienst?’ Ze moesten zeggen: ‘Dit is den HEERE een paasoffer, Die voor de huizen der kinderen Israëls voorbijging in Egypte’ (Exodus 12:26–27). Ongehevelde broden zijn ongezuurde broden, zonder zuurdesem.",
      "refs": [
       "Exodus 12:8",
-      "Exodus 12:15",
+      "Exodus 12:14–15",
       "Exodus 12:26–27"
      ]
     },
@@ -1102,7 +1102,7 @@
     {
      "kop": "Verraden met een kus",
      "stap": "jezus-3:nt-lijdensweek:8",
-     "t": "Dan komt Judas met een grote schare met zwaarden en stokken. Judas zegt: ‘Rabbi’, en kust Hem; dat was het afgesproken teken. Ze grijpen de Heere Jezus. Iemand slaat met een zwaard een oor af van de dienstknecht van de hogepriester. De Heere Jezus zegt dat dit gebeurt ‘opdat de Schriften vervuld zouden worden’. Dan verlaten alle discipelen Hem en vluchten."
+     "t": "Dan komt Judas met een grote schare, een grote groep mensen, met zwaarden en stokken. Judas zegt: ‘Rabbi’, en kust Hem; dat was het afgesproken teken. Ze grijpen de Heere Jezus. Iemand slaat met een zwaard een oor af van de dienstknecht van de hogepriester. De Heere Jezus zegt dat dit gebeurt ‘opdat de Schriften vervuld zouden worden’. Dan verlaten alle discipelen Hem en vluchten."
     }
    ],
    "vragen": [
@@ -1235,10 +1235,13 @@
      "t": "Onderweg naar de Olijfberg zegt de Heere Jezus: vannacht zullen jullie Mij allemaal in de steek laten."
     },
     {
-     "t": "Petrus zegt: ik niet! Al moet ik met U sterven, ik zal U niet verloochenen."
+     "t": "Petrus zegt: ik niet! Al laten de anderen U in de steek, ik nooit."
     },
     {
      "t": "De Heere Jezus zegt: vannacht, voordat de haan kraait, zul je drie keer zeggen dat je Mij niet kent."
+    },
+    {
+     "t": "Maar Petrus zegt: al moet ik met U sterven, ik zal nooit zeggen dat ik U niet ken."
     },
     {
      "t": "Later wordt de Heere Jezus gevangengenomen. Ze brengen Hem naar de hogepriester Kajafas.",
@@ -1278,7 +1281,7 @@
       "De haan kraait",
       "Er klinkt een bazuin"
      ],
-     "why": "Mattheüs 26:74"
+     "why": "Mattheüs 26:74–75"
     },
     {
      "q": "Wat doet Petrus als hij naar buiten gaat?",
@@ -1300,7 +1303,7 @@
     {
      "kop": "Bij de hogepriester",
      "stap": "jezus-3:nt-lijden:0",
-     "t": "Na de gevangenneming brengen ze de Heere Jezus naar de hogepriester Kajafas. Petrus volgt van ver en gaat bij de dienaren zitten. De hogepriester vraagt of Hij de Christus is, de Zoon van God. De Heere Jezus antwoordt: ‘Gij hebt het gezegd.’ Dan zeggen ze: ‘Hij is des doods schuldig.’"
+     "t": "Na de gevangenneming brengen ze de Heere Jezus naar de hogepriester Kajafas. Petrus volgt van ver en gaat bij de dienaren zitten. De hogepriester vraagt of Hij de Christus is, de Zoon van God. De Heere Jezus antwoordt: ‘Gij hebt het gezegd.’ Dan zeggen ze: ‘Hij is des doods schuldig.’ Dat betekent: volgens hen moet Hij sterven."
     },
     {
      "kop": "Driemaal, en dan de haan",
@@ -1449,7 +1452,7 @@
      "stap": "jezus-3:nt-lijden:3"
     },
     {
-     "t": "Pilatus zegt: ‘Ik vind geen schuld in dezen Mens.’ Dat betekent: Hij heeft niets verkeerds gedaan."
+     "t": "Pilatus zegt: ‘Ik vind geen schuld in dezen Mens.’ Dat betekent: Pilatus vindt niets wat Hij verkeerd gedaan heeft."
     },
     {
      "t": "Pilatus stuurt Hem naar Herodes. Herodes hoopt een wonder te zien. Maar de Heere Jezus zegt niets tegen hem.",
@@ -1515,7 +1518,7 @@
     {
      "kop": "Barabbas of de Heere Jezus",
      "stap": "jezus-3:nt-lijden:5",
-     "t": "Pilatus wil Hem laten kastijden (slaan) en loslaten. Maar de menigte roept: ‘Weg met Dezen, en laat ons Bar-abbas los.’ Barabbas zit gevangen om oproer en doodslag. Dan roepen ze: ‘Kruis Hem, kruis Hem!’ Driemaal zegt Pilatus dat hij geen schuld in Hem vindt, maar hun geroep wordt steeds harder. Dan laat Pilatus Barabbas vrij en geeft de Heere Jezus over aan hun wil."
+     "t": "Pilatus wil Hem laten kastijden (slaan) en loslaten. Maar de menigte roept: ‘Weg met Dezen, en laat ons Bar-abbas los.’ Barabbas zit gevangen om oproer en doodslag. Dan roepen ze: ‘Kruis Hem, kruis Hem!’ Driemaal zegt Pilatus dat hij geen schuld in Hem vindt, maar hun geroep wordt steeds harder. Dan laat Pilatus Barabbas vrij en geeft de Heere Jezus over aan hun wil. Waarom moest de Heere Jezus lijden? Petrus schrijft later: ‘Christus heeft ook eens voor de zonden geleden, Hij rechtvaardig voor de onrechtvaardigen’ (1 Petrus 3:18)."
     }
    ],
    "vragen": [
@@ -1575,7 +1578,8 @@
      "refs": [
       "Lukas 3:1",
       "Lukas 9:7–9",
-      "Lukas 13:31–32"
+      "Lukas 13:31–32",
+      "Lukas 23:9"
      ]
     },
     {
