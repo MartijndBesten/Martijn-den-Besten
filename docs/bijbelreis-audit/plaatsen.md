@@ -212,3 +212,16 @@ Afwijkingen kleiner dan ongeveer 1 km zijn niet aangepast. Voorbeelden: Haran, S
    - Lodebar, Tisbe, Ofra, Lechi en Makkeda (`o`)
    - Chebar (`w`)
 6. **Nieuwe velden in de pop-up.** `nu` verschijnt als klein label op de kaart en `bron` in de pop-up (‘Ligging: …’). De teksten zijn kort gehouden. Als `nu` op de kaart te druk wordt, kan de hoofdagent het daar verbergen.
+
+## Aanvulling november 2026: 2 Kronieken 20 (Josafat)
+
+Ligging volgens OpenBible.info Bible Geocoding Data (CC BY 4.0), geraadpleegd 4 november 2026.
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `beracha` | Dal van Beracha | `b` | Wadi el-Arrub (31.6089, 35.1716) | Twee voorstellen, 4,6 km uit elkaar: Wadi el-Arrub (score 259) en Khirbet Bereikut (score 99, als `alt`), waar de naam lijkt door te klinken. Beide zwak. |
+| `ziz` | Opgang van Ziz | `o` | Wadi Hasasa (31.5607, 35.3836) | Eén voorstel met score 365; onder de grens voor `w`. Punt illustratief. |
+| `jeruel` | Woestijn van Jeruël | `o` | punt in de streek (31.5797, 35.3092) | Alleen een punt in de streek tussen Tekoa en En-Gedi. |
+
+Tekoa en En-Gedi stonden al op de kaart (`v`). Hazezon-Thamar is volgens 2 Kronieken 20:2 En-Gedi zelf (‘hetwelk is Engedi’) en heeft daarom geen eigen punt.
+
