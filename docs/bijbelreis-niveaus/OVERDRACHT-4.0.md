@@ -146,7 +146,8 @@ Of de inhoud trouw is, beoordeelt de tweede lezer.
 
 ## 4. Nog te doen (in deze volgorde)
 
-Kijk eerst in `werk/STATUS.md` hoe ver het schrijven en controleren is.
+Stand 4 november 2026: stap 1 tot en met 8 zijn klaar. Alle 450 versies zijn gecontroleerd en de releasepoort is groen. Het citaatherstel en het invoerherstel zijn afgerond, met verslagen in `werk/`. De Statenvertaling is uit de app, de visuele baselines zijn vernieuwd en bekeken, en de README is bijgewerkt. 2 Kronieken 20 (live sinds 04-11-2026, PR #8) zit ook in deze branch.
+Open: stap 9 (opleveren).
 
 1. **Schrijven:** elke batch zonder `uit/batch-NN.json`, of met minder dan 3 versies per geschiedenis.
 2. **Controleren:** elke batch zonder `review/batch-NN.verslag.md`. De controleur zet de status op `gecontroleerd`.

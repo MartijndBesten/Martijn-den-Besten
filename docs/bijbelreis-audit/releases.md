@@ -18,3 +18,4 @@ Dat zet alleen de code terug. De voortgang van gebruikers staat in hun eigen bro
 |---|---|---|---|---|---|
 | 3.0 + afronding | 25-10-2026 | `6a3bc77` | `d5b8af16-ca11-466e-b060-5da3fe5de375` | zie OPLEVERING-3.md | zie OPLEVERING-3.md |
 | 3.1 ontdekkingsatlas | 26-10-2026 | `960c31b` (PR #7) | `177476eb-5e8c-42b4-9739-565f2eb9ce5a` | `d5b8af16-ca11-466e-b060-5da3fe5de375` | live-assets byte-gelijk aan de build; `/api/health` 200; e2e tegen productie: 106 geslaagd, 2 overgeslagen, 0 mislukt |
+| 3.1 + 2 Kronieken 20 (Josafat) | 04-11-2026 | `d86e003` (PR #8) | `3a428225-59ba-4280-967d-4c067d7fce10` | `177476eb-5e8c-42b4-9739-565f2eb9ce5a` | live-assets byte-gelijk aan de build; `/api/health` 200; e2e tegen productie (2 Kronieken 20, diepe link, stempels, verhalen): 12 geslaagd, 0 mislukt |
