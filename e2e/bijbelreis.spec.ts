@@ -876,3 +876,18 @@ test("4.0: Samen ontdekken in de reis: één zin per stap, de weg naar het verha
   await kaartje.getByRole("button", { name: /Lees samen: Droog door de Schelfzee/ }).click();
   await expect(page.locator(".verhaal.samen h2")).toHaveText("Droog door de Schelfzee");
 });
+
+test("2 Kronieken 20: Josafat, van het gebed in Jeruzalem tot het dal van Beracha", async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto("/bijbelreis#josafat/3");
+  await expect(page.locator("#sTitle")).toHaveText("3. De strijd is niet uwe, maar Gods");
+  await expect(page.locator("#sText")).toContainText("want de strijd is niet uwe, maar Gods");
+  await expect(page.locator("#sCrumb")).toContainText("2 Kronieken");
+  await page.goto("/bijbelreis#josafat/5");
+  await expect(page.locator("#sTitle")).toHaveText("5. Het dal van Beracha");
+  // De plaats staat op de kaart met de zekerheid ‘betwist’ en de andere kandidaat als ring.
+  await expect(page.locator("#map .plaats .lab", { hasText: "Dal van Beracha" })).toHaveCount(1);
+  await page.getByRole("tab", { name: "Wie is wie" }).click();
+  await expect(page.locator("#p-wie")).toContainText("Jahaziël");
+  expect(errors).toEqual([]);
+});

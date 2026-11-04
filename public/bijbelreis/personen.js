@@ -648,8 +648,15 @@ BR.mensen = {
   // ---------- Joas van Juda (versie 3.0) ----------
   // In 2 Koningen is ‘Joas’ de koning van Israël (joas_israel); deze Joas heet daarom ‘Joas van Juda’.
   // Athalia heet ‘de dochter van Omri’ (2 Koningen 8:26); 8:18 zegt dat ‘de dochter van Achab’ de vrouw van Joram was. Geen v.
-  joram_juda: { n: "Joram", alias: ["Jehoram"], boek: [], kort: "Zoon van Josafat, koning van Juda; vader van koning Ahazia en van Joseba.",
-    elders: [["2 Koningen 8:16–18", "Hij werd koning in Jeruzalem; de dochter van Achab was zijn vrouw."]] },
+  josafat: { n: "Josafat", boek: ["2kronieken"], kort: "Koning van Juda in Jeruzalem; toen een groot leger kwam, zocht hij de HEERE en riep een vasten uit.",
+    leeftijd: [[35, "2 Kronieken 20:31"]],
+    vervolg: [["2 Kronieken 20:3–12", "Hij bidt in het huis des HEEREN: ‘maar onze ogen zijn op U’."], ["2 Kronieken 20:20", "‘Gelooft in den HEERE, uw God, zo zult gij bevestigd worden’."]],
+    elders: [["1 Koningen 22:41–43", "Ook Koningen noemt zijn regering: vijf en twintig jaar in Jeruzalem."]] },
+  jahaziel: { n: "Jahaziël", boek: ["2kronieken"], kort: "Leviet uit de zonen van Asaf; op hem kwam de Geest des HEEREN, en hij zei tot Josafat en heel Juda: de strijd is niet uwe, maar Gods.",
+    vervolg: [["2 Kronieken 20:14–17", "Hij profeteert midden in de gemeente."]] },
+  joram_juda: { n: "Joram", alias: ["Jehoram"], v: "josafat", boek: [], kort: "Zoon van Josafat, koning van Juda; vader van koning Ahazia en van Joseba.",
+    elders: [["2 Koningen 8:16–18", "Hij werd koning in Jeruzalem; de dochter van Achab was zijn vrouw."]],
+    basis: { v: ["b", "2 Kronieken 21:1"] } },
   athalia: { n: "Athalia", boek: ["2koningen"],
     kort: "De moeder van koning Ahazia van Juda, ‘de dochter van Omri’. Toen haar zoon dood was, bracht zij het koninklijke zaad om en regeerde zes jaar over het land.",
     dood: "2 Koningen 11:16", elders: [["2 Koningen 8:26", "De moeder van Ahazia heette Athalia."], ["2 Kronieken 22:10–12", "Kronieken vertelt dezelfde geschiedenis."]] },

@@ -58,6 +58,8 @@ const GROEPEN = new Set(["Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen"
   "Discipelen", "Apostelen", "Schare", "Engelen", "Herders", "Wijzen", "Joden", "Ouders", "Farizeeën", "Sadduceeën", "Overpriesters",
   "Tollenaars", "Handelaars", "Moordenaars", "Raad", "Wachters", "Weduwen", "Broeders", "Reisgenoten", "Ouderlingen", "Bemanning",
   "Eilanders", "Gemeente",
+  // 2 Kronieken 20 (Josafat)
+  "Levieten", "De Levieten", "Zangers",
   // Wie-lijst Handelingen: één item over drie verschillende mannen met de naam Ananias (5:1, 9:10, 23:2).
   "Drie mannen Ananias"]);
 const ROLLEN = new Set(["Farao", "Bakker", "Farao’s dochter", "Knecht", "Schenker", "Losser", "De andere losser", "Wapendrager", "Koningin",

@@ -25,7 +25,7 @@ BR.dateringen = {
     "richteren:debora": ["bijbel", true], "richteren:simson": ["bijbel", true], "ruth:ruth": ["bijbel", true],
     "1samuel:samuel": ["bijbel", true], "1samuel:saul-david": ["bijbel", true],
     "2samuel:david": ["historie", false], "1koningen:salomo": ["historie", false], "1koningen:elia": ["historie", false],
-    "2koningen:elisa": ["historie", false], "2koningen:joas": ["historie", false], "2koningen:ballingschap": ["historie", false],
+    "2koningen:elisa": ["historie", false], "2kronieken:josafat": ["historie", false], "2koningen:joas": ["historie", false], "2koningen:ballingschap": ["historie", false],
     "daniel:daniel": ["historie", false], "esther:esther": ["historie", false], "ezra:terugkeer": ["historie", false], "ezra:nehemia": ["historie", false],
     "jona:jona": ["historie", false], "profeten:jesaja-troost": ["historie", false], "profeten:jeremia": ["historie", false], "profeten:zacharia-maleachi": ["historie", false],
     "jezus-1:nt-geboorte": ["historie", true], "jezus-1:nt-begin": ["historie", false], "jezus-1:nt-galilea": ["historie", false],

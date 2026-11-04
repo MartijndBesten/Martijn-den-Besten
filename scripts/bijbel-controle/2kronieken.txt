@@ -1,0 +1,49 @@
+# Controle voor public/bijbelreis/inhoud/2kronieken.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+2 Kronieken 20:31 | vijf en dertig jaren oud.*vijf en twintig jaren te Jeruzalem
+2 Kronieken 20:32 | En hij wandelde in den weg van zijn vader Asa
+2 Kronieken 20:14 | Geest des HEEREN.*Jahaziel.*Leviet, uit de zonen van Asaf
+2 Kronieken 20:15 | want de strijd is niet uwe, maar Gods
+2 Kronieken 20:19 | Levieten uit de kinderen der Kahathieten, en uit de kinderen der Korahieten
+2 Kronieken 20:21 | zangers.*voor de toegerusten uitgaande
+# --- Deel: datering en verwijzingen ---
+2 Kronieken 20:1 | na dezen
+2 Kronieken 18:28 | Ramoth in Gilead
+2 Kronieken 18:34 | hij stierf
+Deuteronomium 2:19 | Ammon
+Exodus 14:13 | staat vast, en ziet het heil des HEEREN
+Exodus 14:14 | De HEERE zal voor ulieden strijden, en gij zult stil zijn
+1 Samuël 17:47 | want de krijg is des HEEREN
+2 Kronieken 6:28 | honger
+2 Kronieken 20:9 | voor dit huis
+2 Kronieken 20:10 | gebergte Seir.*niet toeliet te trekken
+Deuteronomium 2:5 | Seir
+Deuteronomium 2:9 | Moab
+Psalm 136:1 | Looft den HEERE, want Hij is goed; want Zijn goedertierenheid is in der eeuwigheid
+1 Koningen 22:41 | Josafat
+# --- Stappen ---
+2 Kronieken 20:1 | Moabs.*Ammons.*anderen.*ten strijde
+2 Kronieken 20:2 | grote menigte.*van gene zijde der zee.*Hazezon-thamar, hetwelk is Engedi
+2 Kronieken 20:22 | gebergte Seir
+2 Kronieken 20:3 | Josafat nu vreesde.*den HEERE te zoeken.*vasten uit in gans Juda
+2 Kronieken 20:4 | uit alle steden van Juda
+2 Kronieken 20:5 | in het huis des HEEREN
+2 Kronieken 20:6 | God in den hemel.*Heerser over alle koninkrijken.*niemand zich tegen U stellen kan
+2 Kronieken 20:12 | wij weten niet, wat wij doen zullen; maar onze ogen zijn op U
+2 Kronieken 20:13 | kinderkens, hun vrouwen en hun zonen
+2 Kronieken 20:15 | Vreest gijlieden niet, en wordt niet ontzet vanwege deze grote menigte; want de strijd is niet uwe, maar Gods
+2 Kronieken 20:16 | Trekt morgen.*opgang van Ziz.*einde des dals, voor aan de woestijn van Jeru
+2 Kronieken 20:17 | niet te strijden.*staat en ziet het heil des HEEREN met u
+2 Kronieken 20:18 | Josafat met het aangezicht ter aarde
+2 Kronieken 20:19 | met luider stem
+2 Kronieken 20:20 | des morgens vroeg.*woestijn van Thekoa.*Gelooft in den HEERE, uw God, zo zult gij bevestigd worden; gelooft aan Zijn profeten, en gij zult voorspoedig zijn
+2 Kronieken 20:21 | Looft den HEERE, want Zijn goedertierenheid is tot in eeuwigheid
+2 Kronieken 20:22 | vreugdegeroep en lofzang.*achterlagen.*geslagen
+2 Kronieken 20:23 | Ammons en Moab stonden op tegen de inwoners van het gebergte Seir.*de een den ander ten verderve
+2 Kronieken 20:24 | wachttoren in de woestijn.*dode lichamen.*niemand was ontkomen
+2 Kronieken 20:25 | kostelijk gereedschap.*niet meer dragen konden.*drie dagen
+2 Kronieken 20:26 | vierden dag.*dal van Beracha.*loofden zij den HEERE
+2 Kronieken 20:27 | Josafat in de voorspitse.*met blijdschap.*want de HEERE had hen verblijd over hun vijanden
+2 Kronieken 20:28 | luiten.*harpen.*trompetten.*huis des HEEREN
+2 Kronieken 20:29 | verschrikking Gods over alle koninkrijken.*de HEERE tegen de vijanden van Israël gestreden had
+2 Kronieken 20:30 | stil.*rust rondom

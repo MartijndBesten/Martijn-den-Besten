@@ -13,7 +13,7 @@
     weg(k) { try { localStorage.removeItem("bijbelreis:" + k); } catch { /* geen opslag */ } },
   };
   const color = (key) => `var(--${key}-deep, var(--${key}))`;
-  const GROUPS = new Set(["Discipelen", "Schare", "Apostelen", "Farizeeën", "Tollenaars", "Herders", "Wijzen", "Engelen", "Overpriesters", "Sadduceeën", "Wachters", "Moordenaars", "Broeders", "Ouderlingen", "Weduwen", "Reisgenoten", "Bemanning", "Eilanders", "Joden", "Melaatsen", "Handelaars", "Raad", "Oudsten", "Gemeente", "Ouders", "Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen", "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters"]);
+  const GROUPS = new Set(["Discipelen", "Schare", "Apostelen", "Farizeeën", "Tollenaars", "Herders", "Wijzen", "Engelen", "Overpriesters", "Sadduceeën", "Wachters", "Moordenaars", "Broeders", "Ouderlingen", "Weduwen", "Reisgenoten", "Bemanning", "Eilanders", "Joden", "Melaatsen", "Handelaars", "Raad", "Oudsten", "Gemeente", "Ouders", "Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen", "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters", "Levieten", "Zangers"]);
 
   // ---------- rekenen ----------
   function hav(a, b) {
