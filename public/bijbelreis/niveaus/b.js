@@ -5456,7 +5456,7 @@ BR.niveaus.voegToe("b", {
     ],
   },
   126: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Naar Golgotha",
@@ -5465,7 +5465,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Zie, uw moeder",
-        t: "Bij het kruis staan Zijn moeder, Maria Magdalena en andere vrouwen. Ook de discipel die de Heere Jezus liefheeft, staat erbij. Tegen Zijn moeder zegt de Heere Jezus: ‘Vrouw, zie, uw zoon.’ En tegen de discipel: ‘Zie, uw moeder.’ Vanaf dat uur neemt die discipel haar in zijn huis.",
+        t: "Bij het kruis staan vrouwen, onder wie Zijn moeder en Maria Magdalena. Ook de discipel die de Heere Jezus liefheeft, staat erbij. Tegen Zijn moeder zegt de Heere Jezus: ‘Vrouw, zie, uw zoon.’ En tegen de discipel: ‘Zie, uw moeder.’ Vanaf dat uur neemt die discipel haar in zijn huis.",
       },
       {
         kop: "Het is volbracht",
@@ -5486,19 +5486,19 @@ BR.niveaus.voegToe("b", {
         why: "Johannes 19:27",
       },
       {
-        q: "Wat zegt de Heere Jezus als laatste, voordat Hij de geest geeft?",
+        q: "Wat zegt de Heere Jezus volgens Johannes als laatste, voordat Hij de geest geeft?",
         a: ["Het is volbracht!", "Mij dorst.", "Zie, uw moeder."],
         why: "Johannes 19:26–30",
       },
     ],
   },
   127: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Voor de grote sabbat",
         stap: "jezus-3:nt-lijden:8",
-        t: "Het is de voorbereiding; de volgende dag is een grote sabbat. De Joden vragen Pilatus de benen van de gekruisigden te laten breken, zodat de lichamen niet op de sabbat aan het kruis blijven. De soldaten breken de benen van de twee anderen. De Heere Jezus is al gestorven; daarom breken ze Zijn benen niet. Wel steekt een soldaat een speer in Zijn zijde; meteen komt er bloed en water uit. Zo wordt de Schrift vervuld: ‘Geen been van Hem zal verbroken worden.’",
+        t: "Het is de voorbereiding, de dag vóór een grote sabbat. De Joden vragen Pilatus de benen van de gekruisigden te laten breken, zodat de lichamen niet op de sabbat aan het kruis blijven. De soldaten breken de benen van de twee anderen. De Heere Jezus is al gestorven; daarom breken ze Zijn benen niet. Wel steekt een soldaat een speer in Zijn zijde; meteen komt er bloed en water uit. Zo wordt de Schrift vervuld: ‘Geen been van Hem zal verbroken worden.’",
       },
       {
         kop: "Jozef en Nicodemus",
@@ -5534,12 +5534,12 @@ BR.niveaus.voegToe("b", {
     ],
   },
   128: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Vroeg naar het graf",
         stap: "jezus-3:nt-opstanding:0",
-        t: "Na de sabbat, als het licht begint te worden op de eerste dag van de week, gaan Maria Magdalena en de andere Maria het graf bekijken. Het graf wordt bewaakt. De overpriesters hebben de steen laten verzegelen en er een wacht bij gezet, zodat de discipelen het lichaam niet kunnen stelen (Mattheüs 27:62–66).",
+        t: "Na de sabbat, als het licht begint te worden op de eerste dag van de week, gaan Maria Magdalena en de andere Maria het graf bekijken. Het graf wordt bewaakt. De overpriesters hebben de steen verzegeld en er een wacht bij gezet, zodat de discipelen het lichaam niet kunnen stelen (Mattheüs 27:62–66).",
       },
       {
         kop: "Een engel op de steen",
@@ -5566,9 +5566,9 @@ BR.niveaus.voegToe("b", {
         why: "Mattheüs 28:2",
       },
       {
-        q: "Waarom hoefden de vrouwen niet bang te zijn?",
+        q: "Welk nieuws vertelde de engel aan de vrouwen?",
         a: ["De Heere Jezus was opgestaan", "De discipelen waren al bij het graf", "Pilatus had het graf laten openen"],
-        why: "Mattheüs 28:5–6",
+        why: "Mattheüs 28:6",
       },
       {
         q: "Hoe liepen de vrouwen weg van het graf?",
@@ -5578,7 +5578,7 @@ BR.niveaus.voegToe("b", {
     ],
   },
   129: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "De vrouwen ontmoeten Hem",
@@ -5596,7 +5596,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Geld voor de soldaten",
-        t: "Intussen vertellen soldaten van de wacht aan de overpriesters wat er gebeurd is. Die geven hun veel geld. Ze moeten zeggen dat de discipelen het lichaam ’s nachts gestolen hebben, terwijl zij sliepen.",
+        t: "Terwijl de vrouwen op weg zijn, vertellen soldaten van de wacht aan de overpriesters wat er gebeurd is. Die geven hun veel geld. Ze moeten zeggen dat de discipelen het lichaam ’s nachts gestolen hebben, terwijl zij sliepen.",
       },
     ],
     vragen: [
@@ -5627,12 +5627,12 @@ BR.niveaus.voegToe("b", {
     ],
   },
   130: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Verdrietig onderweg",
         stap: "jezus-3:nt-opstanding:2",
-        t: "Op dezelfde dag lopen twee discipelen van Jeruzalem naar het dorp Emmaüs. Onderweg komt de Heere Jezus Zelf bij hen lopen. Maar hun ogen worden gehouden: ze herkennen Hem niet. Kleopas vertelt Hem over Jezus van Nazareth, Die gekruisigd is. ‘En wij hoopten, dat Hij was Degene, Die Israël verlossen zou.’ Nu zeggen vrouwen dat ze engelen gezien hebben, die zeggen dat Hij leeft.",
+        t: "Op dezelfde dag lopen twee discipelen van Jeruzalem naar het dorp Emmaüs. Onderweg komt de Heere Jezus Zelf bij hen lopen. Maar hun ogen worden gehouden: ze herkennen Hem niet. Een van hen heet Kleopas. Ze vertellen Hem over ‘Jezus den Nazarener’, Die gekruisigd is. ‘En wij hoopten, dat Hij was Degene, Die Israël verlossen zou.’ Nu zeggen vrouwen dat ze engelen gezien hebben, die zeggen dat Hij leeft.",
       },
       {
         kop: "De Schriften geopend",
@@ -5668,7 +5668,7 @@ BR.niveaus.voegToe("b", {
     ],
   },
   131: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Vrede zij ulieden",
@@ -5703,18 +5703,18 @@ BR.niveaus.voegToe("b", {
       },
       {
         q: "Waarom heeft Johannes dit opgeschreven?",
-        a: ["Opdat wij geloven dat Jezus de Christus is", "Opdat niemand Thomas zou vergeten", "Omdat Thomas hem dat gevraagd had"],
+        a: ["Opdat de lezers geloven dat Hij de Christus is", "Opdat niemand Thomas zou vergeten", "Omdat Thomas hem dat gevraagd had"],
         why: "Johannes 20:31",
       },
     ],
   },
   132: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Een nacht zonder vis",
         stap: "jezus-3:nt-opstanding:5",
-        t: "Daarna laat de Heere Jezus Zich weer zien aan de zee van Tiberias. Simon Petrus is daar met zes andere discipelen, onder wie Thomas en Nathanaël. ‘Ik ga vissen’, zegt Petrus, en de anderen gaan mee. Maar die nacht vangen ze niets.",
+        t: "Daarna laat de Heere Jezus Zich weer zien aan de zee van Tiberias, het meer van Galilea. Petrus is daar met zes andere discipelen, onder wie Thomas en Nathanaël. ‘Ik ga vissen’, zegt Petrus, en de anderen gaan mee. Maar die nacht vangen ze niets.",
       },
       {
         kop: "Het is de Heere",
@@ -5728,7 +5728,7 @@ BR.niveaus.voegToe("b", {
     ],
     vragen: [
       {
-        q: "Wat moesten de discipelen van de Heere Jezus doen?",
+        q: "Wat moesten de discipelen doen, zei de Heere Jezus vanaf de oever?",
         a: ["Het net aan de rechterzijde van het schip werpen", "Naar huis gaan en gaan slapen", "Verder de zee op varen"],
         why: "Johannes 21:6",
       },
@@ -5750,7 +5750,7 @@ BR.niveaus.voegToe("b", {
     ],
   },
   133: {
-    status: "concept",
+    status: "gecontroleerd",
     delen: [
       {
         kop: "Veertig dagen",
@@ -5763,7 +5763,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Opgenomen in de hemel",
         stap: "jezus-3:nt-opstanding:8",
-        t: "Terwijl ze kijken, wordt Hij opgenomen, en een wolk neemt Hem weg. Dan staan er twee mannen in witte kleding bij hen. Zij zeggen dat deze Jezus op dezelfde manier zal terugkomen. Ze gaan van de Olijfberg terug naar Jeruzalem, naar de opperzaal, een bovenkamer. Daar blijven ze eensgezind bidden, met de vrouwen, met Maria, de moeder van de Heere Jezus, en met Zijn broers.",
+        t: "Terwijl ze kijken, wordt Hij opgenomen, en een wolk neemt Hem weg. Dan staan er twee mannen in witte kleding bij hen. Zij zeggen dat de Heere Jezus op dezelfde manier zal terugkomen. Ze gaan van de Olijfberg terug naar Jeruzalem, naar de opperzaal, een bovenkamer. Daar blijven ze eensgezind bidden, met de vrouwen, met Maria, de moeder van de Heere Jezus, en met Zijn broers.",
       },
     ],
     vragen: [

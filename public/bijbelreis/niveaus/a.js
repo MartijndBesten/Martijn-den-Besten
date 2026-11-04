@@ -3714,7 +3714,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   126: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_golgotha"],
     delen: [
       { t: "Pilatus geeft de Heere Jezus over. Hij moet gekruisigd worden.", stap: "jezus-3:nt-lijden:6" },
@@ -3723,7 +3723,7 @@ BR.niveaus.voegToe("a", {
         stap: "jezus-3:nt-lijden:6",
       },
       { t: "Daar kruisigen de soldaten Hem. Naast Hem worden nog twee mannen gekruisigd, aan elke kant één.", stap: "jezus-3:nt-lijden:6" },
-      { t: "Pilatus laat op het kruis schrijven: Jezus, de Nazarener, de Koning der Joden." },
+      { t: "Pilatus laat op het kruis schrijven: ‘JEZUS, DE NAZARENER, DE KONING DER JODEN.’" },
       { t: "Bij het kruis staan Zijn moeder en een paar andere vrouwen. De discipel die Hij liefheeft, staat er ook." },
       { t: "De Heere Jezus zegt tegen die discipel: ‘Zie, uw moeder.’ Vanaf dat uur neemt de discipel haar in zijn huis." },
       { t: "Dan zegt de Heere Jezus: ‘Mij dorst.’ Dat betekent: Ik heb dorst. Ze brengen een spons met zure edik aan Zijn mond." },
@@ -3738,7 +3738,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   127: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_golgotha"],
     delen: [
       { t: "De Heere Jezus is aan het kruis gestorven. Het is bijna sabbat, de rustdag.", stap: "jezus-3:nt-lijden:8" },
@@ -3762,7 +3762,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   128: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_golgotha"],
     delen: [
       { t: "Het is de eerste dag van de week. Het begint net licht te worden." },
@@ -3775,7 +3775,7 @@ BR.niveaus.voegToe("a", {
       { t: "Ze moeten het snel aan de discipelen vertellen. De Heere Jezus gaat hen voor naar Galilea." },
       { t: "De vrouwen lopen snel weg. Ze zijn bang en ook heel blij." },
     ],
-    samen: "Het graf werd bewaakt: de overpriesters hadden de steen laten verzegelen en er een wacht bij gezet (Mattheüs 27:62–66). Mattheüs vertelt niet hoe of wanneer de Heere Jezus uit het graf ging; de engel zegt alleen: ‘Hij is hier niet; want Hij is opgestaan’ (Mattheüs 28:6). Markus en Lukas noemen meer vrouwen (Markus 16:1; Lukas 24:10). Vraag samen: had de Heere Jezus dit van tevoren gezegd? Ja, Hij zou ‘ten derden dage opgewekt worden’ (Mattheüs 16:21).",
+    samen: "Het graf werd bewaakt: de overpriesters hadden de steen verzegeld en er een wacht bij gezet (Mattheüs 27:62–66). Mattheüs vertelt niet hoe of wanneer de Heere Jezus uit het graf ging; de engel zegt alleen: ‘Hij is hier niet; want Hij is opgestaan’ (Mattheüs 28:6). Markus en Lukas noemen meer vrouwen (Markus 16:1; Lukas 24:10). Vraag samen: had de Heere Jezus dit van tevoren gezegd? Ja, Hij zou ‘ten derden dage opgewekt worden’ (Mattheüs 16:21).",
     vragen: [
       { q: "Wie rolt de steen weg?", a: ["Een engel van de Heere", "De twee vrouwen"], why: "Mattheüs 28:2" },
       { q: "Waarom is de Heere Jezus niet meer in het graf?", a: ["Hij is opgestaan", "Hij is weggedragen"], why: "Mattheüs 28:6" },
@@ -3783,7 +3783,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   129: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_golgotha"],
     delen: [
       { t: "Het is nog donker. Maria Magdalena gaat naar het graf. Ze ziet dat de steen weg is.", stap: "jezus-3:nt-opstanding:1" },
@@ -3814,7 +3814,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   130: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_emmaus", "salem"],
     delen: [
       { t: "Twee discipelen lopen van Jeruzalem naar Emmaüs. Ze praten over alles wat er gebeurd is.", stap: "jezus-3:nt-opstanding:2" },
@@ -3835,7 +3835,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   131: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["salem"],
     delen: [
       {
@@ -3848,7 +3848,9 @@ BR.niveaus.voegToe("a", {
       },
       { t: "Hij laat Zijn handen en Zijn zijde zien. De discipelen zijn blij dat ze de Heere zien." },
       { t: "Thomas is er niet bij. De anderen vertellen hem dat ze de Heere gezien hebben.", stap: "jezus-3:nt-opstanding:4" },
-      { t: "Maar Thomas wil het eerst zelf zien. Hij wil de tekens van de spijkers in Zijn handen zien en voelen." },
+      {
+        t: "Maar Thomas wil het eerst zelf zien. Hij zegt: als ik de tekens van de spijkers in Zijn handen niet zie en voel, geloof ik het niet.",
+      },
       { t: "Acht dagen later zijn de discipelen weer samen. Nu is Thomas er ook bij.", stap: "jezus-3:nt-opstanding:4" },
       {
         t: "De Heere Jezus komt weer. Hij zegt tegen Thomas dat hij Zijn handen mag zien en voelen. Thomas moet niet ongelovig zijn, maar gelovig.",
@@ -3867,7 +3869,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   132: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_meer"],
     delen: [
       {
@@ -3884,7 +3886,7 @@ BR.niveaus.voegToe("a", {
       { t: "Elke keer zegt Petrus: Heere, U weet dat ik U liefheb. Dan zegt de Heere Jezus dat Petrus voor Zijn schapen moet zorgen." },
       { t: "Aan het eind zegt de Heere Jezus tegen Petrus: ‘Volg Mij.’" },
     ],
-    samen: "Petrus had eerder drie keer gezegd dat hij geen discipel van de Heere Jezus was (Johannes 18:17, 25–27). Hier vraagt de Heere hem drie keer of hij Hem liefheeft. Weiden en hoeden betekent: zorgen als een herder. Hier weggelaten: de Heere Jezus zegt ook met welke dood Petrus God zal verheerlijken (Johannes 21:18–19). Iets om samen te ontdekken: hoeveel grote vissen zitten er in het net? Honderddrieënvijftig (Johannes 21:11).",
+    samen: "Petrus had eerder drie keer ontkend dat hij bij de Heere Jezus hoorde (Johannes 18:17, 25–27). Hier vraagt de Heere hem drie keer of hij Hem liefheeft. Weiden en hoeden betekent: zorgen als een herder. Hier weggelaten: de Heere Jezus zegt ook met welke dood Petrus God zal verheerlijken (Johannes 21:18–19). Iets om samen te ontdekken: hoeveel grote vissen zitten er in het net? Honderddrieënvijftig (Johannes 21:11).",
     vragen: [
       { q: "Hoeveel vis vangen ze in de nacht?", a: ["Niets", "Heel veel"], why: "Johannes 21:3" },
       {
@@ -3896,7 +3898,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   133: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_olijfberg", "salem"],
     delen: [
       { t: "Na Zijn opstanding laat de Heere Jezus Zich veertig dagen lang zien aan de apostelen." },

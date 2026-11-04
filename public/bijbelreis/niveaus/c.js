@@ -4877,7 +4877,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   126: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Zeven woorden aan het kruis",
@@ -4886,8 +4886,8 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wat Johannes vertelt en wat niet",
-        t: "Johannes schrijft dat de Heere Jezus Zijn kruis Zelf droeg (19:17). Mattheüs, Markus en Lukas vertellen dat de soldaten onderweg Simon van Cyrene dwongen het kruis te dragen (Mattheüs 27:32; Lukas 23:26). Uitleggers zien dat meestal als twee delen van dezelfde tocht. De naam van de discipel ‘dien Hij liefhad’ noemt Johannes nergens. Aan het eind van het evangelie staat dat deze discipel ‘deze dingen geschreven heeft’ (Johannes 21:20, 24); daarom wordt hij van oudsher gezien als de apostel Johannes. Of Johannes 19:25 drie of vier vrouwen noemt, daarover verschillen uitleggers.",
-        refs: ["Johannes 19:17", "Mattheüs 27:32", "Lukas 23:26", "Johannes 21:20–24", "Johannes 19:25"],
+        t: "Johannes schrijft dat de Heere Jezus uitging, ‘dragende Zijn kruis’ (19:17). Mattheüs, Markus en Lukas vertellen dat Simon van Cyrene onderweg het kruis moest dragen (Mattheüs 27:32; Markus 15:21; Lukas 23:26). Uitleggers zien dat meestal als twee delen van dezelfde tocht. De naam van de discipel ‘dien Hij liefhad’ noemt Johannes nergens. Aan het eind van het evangelie staat dat deze discipel ‘deze dingen geschreven heeft’ (Johannes 21:20, 24); daarom wordt hij van oudsher gezien als de apostel Johannes. Of Johannes 19:25 drie of vier vrouwen noemt, daarover verschillen uitleggers.",
+        refs: ["Johannes 19:17", "Mattheüs 27:32", "Markus 15:21", "Lukas 23:26", "Johannes 21:20–24", "Johannes 19:25"],
       },
       {
         kop: "Waar en wanneer",
@@ -4898,9 +4898,9 @@ BR.niveaus.voegToe("c", {
     vragen: [
       { q: "Welk kruiswoord vertelt Lukas?", a: ["Vader, vergeef het hun", "Mij dorst", "Het is volbracht"], why: "Lukas 23:34" },
       {
-        q: "Wie moest volgens Mattheüs en Lukas het kruis dragen?",
+        q: "Wie moest volgens Mattheüs, Markus en Lukas het kruis dragen?",
         a: ["Simon van Cyrene", "Jozef van Arimathea", "Simon Petrus"],
-        why: "Mattheüs 27:32; Lukas 23:26",
+        why: "Mattheüs 27:32; Markus 15:21; Lukas 23:26",
       },
       {
         q: "Waar heeft de Heere Jezus geleden, volgens Hebreeën 13:12?",
@@ -4915,7 +4915,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   127: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Geen been gebroken",
@@ -4924,7 +4924,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wie waren Jozef en Nicodemus?",
-        t: "De andere evangeliën vertellen meer over Jozef. Hij was ‘een rijk man’ (Mattheüs 27:57) en een raadsheer, ‘een goed en rechtvaardig man’, die ‘niet mede bewilligd’ had in wat de raad tegen de Heere Jezus besloot (Lukas 23:50–51). Mattheüs noemt het graf ‘zijn nieuw graf, hetwelk hij in een steenrots uitgehouwen had’ (Mattheüs 27:60). Nicodemus was een Farizeeër en een overste der Joden, die eerst ‘des nachts’ bij de Heere Jezus kwam (Johannes 3:1–2). Later vroeg hij de Farizeeën of hun wet iemand mag oordelen zonder hem eerst te horen (Johannes 7:50–51).",
+        t: "De andere evangeliën vertellen meer over Jozef. Hij was ‘een rijk man’ (Mattheüs 27:57) en een raadsheer, ‘een goed en rechtvaardig man’, die ‘niet mede bewilligd’ had ‘in hun raad en handel’ (Lukas 23:50–51). Mattheüs noemt het graf ‘zijn nieuw graf, hetwelk hij in een steenrots uitgehouwen had’ (Mattheüs 27:60). Nicodemus was een Farizeeër en een overste der Joden, die eerst ‘des nachts’ bij de Heere Jezus kwam (Johannes 3:1–2). Later vroeg hij de Farizeeën of ‘onze wet’ iemand oordeelt zonder hem eerst te horen (Johannes 7:50–51).",
         refs: ["Mattheüs 27:57–60", "Lukas 23:50–51", "Johannes 3:1–2", "Johannes 7:50–51"],
       },
       {
@@ -4951,13 +4951,13 @@ BR.niveaus.voegToe("c", {
       },
       {
         q: "Wat vertelt Lukas over Jozef van Arimathea?",
-        a: ["Hij had niet ingestemd met de raad", "Hij was de hogepriester", "Hij was een tollenaar"],
+        a: ["Hij had niet ingestemd met hun raad", "Hij was de hogepriester", "Hij was een tollenaar"],
         why: "Lukas 23:50–51",
       },
     ],
   },
   128: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Vier verslagen van één morgen",
@@ -4999,7 +4999,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   129: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Doeken en zweetdoek",
@@ -5026,7 +5026,7 @@ BR.niveaus.voegToe("c", {
       {
         q: "Wat vertelt Lukas over Maria Magdalena?",
         a: ["Uit haar waren zeven duivelen uitgegaan", "Zij was de moeder van Jakobus en Joses", "Zij was de vrouw van Klopas"],
-        why: "Lukas 8:2; Mattheüs 27:56; Johannes 19:25",
+        why: "Lukas 8:2",
       },
       {
         q: "Wat wisten de discipelen volgens Johannes 20:9 nog niet?",
@@ -5041,11 +5041,11 @@ BR.niveaus.voegToe("c", {
     ],
   },
   130: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Waar lag Emmaüs?",
-        t: "Lukas noemt Emmaüs ‘een vlek’, een dorp, dat ‘zestig stadiën van Jeruzalem’ lag (24:13). Een stadie is ongeveer 185 meter; zestig stadiën is dus ruim elf kilometer. Waar Emmaüs precies lag, is niet bekend. Er zijn verschillende plaatsen voorgesteld; daarom staat Emmaüs op de kaart als betwist. Volgens Kleopas was het ‘heden de derde dag’ sinds de kruisiging (24:21). Een jaartal noemt de Bijbel niet; meestal wordt 30 of 33 n.Chr. aangehouden.",
+        t: "Lukas noemt Emmaüs ‘een vlek’, een dorp, dat ‘zestig stadiën van Jeruzalem’ lag (24:13). Een stadie is ongeveer 185 meter; zestig stadiën is dus ongeveer elf kilometer. Waar Emmaüs precies lag, is niet bekend. Er zijn verschillende plaatsen voorgesteld; daarom staat Emmaüs op de kaart als betwist. Volgens de twee was het ‘heden de derde dag’ sinds de kruisiging (24:21). Een jaartal noemt de Bijbel niet; meestal wordt 30 of 33 n.Chr. aangehouden.",
         refs: ["Lukas 24:13", "Lukas 24:21"],
       },
       {
@@ -5061,8 +5061,8 @@ BR.niveaus.voegToe("c", {
     ],
     vragen: [
       {
-        q: "Hoeveel is zestig stadiën ongeveer?",
-        a: ["Ruim elf kilometer", "Ongeveer honderd kilometer", "Minder dan één kilometer"],
+        q: "Hoe ver lag Emmaüs van Jeruzalem, volgens Lukas?",
+        a: ["Zestig stadiën", "Vijftien stadiën", "Een sabbatsreis"],
         why: "Lukas 24:13",
       },
       {
@@ -5087,7 +5087,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   131: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Thomas in het evangelie van Johannes",
@@ -5124,16 +5124,16 @@ BR.niveaus.voegToe("c", {
     ],
   },
   132: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Twee keer een kolenvuur",
-        t: "In de hele Statenvertaling komt het woord kolenvuur maar twee keer voor: hier (21:9) en in de nacht van het verhoor. In die nacht zei Petrus drie keer dat hij geen discipel van de Heere Jezus was; intussen warmde hij zich bij een kolenvuur (Johannes 18:17–18, 25–27). Nu vraagt de Heere hem drie keer: ‘hebt gij Mij lief?’ Veel uitleggers zien daarin dat Petrus hier hersteld wordt. In de nacht voor het lijden had de Heere Jezus tegen hem gezegd: ‘Waar Ik heenga, kunt gij Mij nu niet volgen; maar gij zult Mij namaals volgen’ (Johannes 13:36). Nu zegt Hij: ‘Volg Mij.’",
+        t: "In de hele Statenvertaling komt het woord kolenvuur maar twee keer voor: hier (21:9) en in de nacht van het verhoor. In die nacht ontkende Petrus drie keer dat hij bij de Heere Jezus hoorde; intussen warmde hij zich bij een kolenvuur (Johannes 18:17–18, 25–27). Nu vraagt de Heere hem drie keer: ‘hebt gij Mij lief?’ Veel uitleggers zien daarin dat Petrus hier hersteld wordt. In de nacht voor het lijden had de Heere Jezus tegen hem gezegd: ‘Waar Ik heenga, kunt gij Mij nu niet volgen; maar gij zult Mij namaals volgen’ (Johannes 13:36). Nu zegt Hij: ‘Volg Mij.’",
         refs: ["Johannes 21:9", "Johannes 18:17–27", "Johannes 13:36"],
       },
       {
         kop: "De dood van Petrus",
-        t: "‘Een ander zal u gorden, en brengen, waar gij niet wilt’ (21:18). Johannes legt het zelf uit: zo zou Petrus God verheerlijken met zijn dood (21:19). Veel uitleggers zien in ‘zo zult gij uw handen uitstrekken’ een aanwijzing voor een kruisdood. Petrus schrijft later dat de Heere hem dit bekendgemaakt heeft: ‘gelijkerwijs ook onze Heere Jezus Christus mij heeft geopenbaard’ (2 Petrus 1:14). Hoe en waar Petrus stierf, vertelt de Bijbel niet. Volgens de overlevering is hij in Rome gekruisigd.",
+        t: "‘Een ander zal u gorden, en brengen, waar gij niet wilt’ (21:18). Johannes legt het zelf uit: zo zou Petrus God verheerlijken met zijn dood (21:19). Veel uitleggers zien in ‘zo zult gij uw handen uitstrekken’ een aanwijzing voor een kruisdood. Petrus schrijft later dat hij spoedig zal sterven, ‘gelijkerwijs ook onze Heere Jezus Christus mij heeft geopenbaard’ (2 Petrus 1:14); veel uitleggers denken daarbij aan deze woorden bij het meer. Hoe en waar Petrus stierf, vertelt de Bijbel niet. Volgens de overlevering is hij in Rome gekruisigd.",
         refs: ["Johannes 21:18–19", "2 Petrus 1:14"],
       },
       {
@@ -5162,7 +5162,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   133: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Twee boeken van Lukas",
