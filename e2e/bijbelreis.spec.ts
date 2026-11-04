@@ -43,6 +43,12 @@ async function zonderVragen(page: Page, soorten: ("tap" | "mc")[]) {
     const voor = `BR.boeken.forEach((b) => b.delen.forEach((d) => { if (d.quiz) { ${soorten.map((x) => `d.quiz.${x} = [];`).join(" ")} } }));\n`;
     await route.fulfill({ response: r, body: voor + (await r.text()) });
   });
+  // De verdiepende vragen (niveau c) komen ook in de meerkeuzepool; die komen uit niveaus/<n>.js.
+  if (soorten.includes("mc")) await page.route(/\/bijbelreis\/niveaus\/[abc]\.js/, async (route) => {
+    const r = await route.fetch();
+    const voor = "const __voegToe = BR.niveaus.voegToe.bind(BR.niveaus); BR.niveaus.voegToe = (n, vs) => { Object.values(vs).forEach((v) => { v.vragen = []; }); return __voegToe(n, vs); };\n";
+    await route.fulfill({ response: r, body: voor + (await r.text()) });
+  });
 }
 // Wacht tot de pagina niet meer scrolt en de kaart stilstaat. Een kind tikt pas als de kaart in beeld is; tijdens het
 // scrollen naar de kaart (telefoon) zouden schermcoördinaten nog verschuiven.
@@ -310,7 +316,7 @@ test("verhalen: overzicht, zoeken, een geschiedenis openen en de vragen maken", 
     await first.click();
     await expect(page.locator("#p-verhalen .verhaal")).toBeVisible();
     await page.locator("#vqStart").click();
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 12; i++) {
       await page.locator("#vQuiz .opt").first().click();
       await page.locator("#vqVolgende").click();
       if (await page.locator("#vQuiz").getByText(/Klaar:/).count()) break;
