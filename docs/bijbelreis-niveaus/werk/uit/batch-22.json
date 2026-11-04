@@ -1,7 +1,7 @@
 {
   "102": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt_bethesda",
         "nt_tempel"
@@ -35,7 +35,7 @@
           "t": "De Joden willen de Heere Jezus doden. Want Hij doet dit op de sabbat, en Hij noemt God Zijn eigen Vader."
         }
       ],
-      "samen": "Bij A is weggelaten dat volgens vers 4 een engel het water beroerde (Johannes 5:4), en ook het antwoord van de Heere Jezus: ‘Mijn Vader werkt tot nu toe, en Ik werk ook’ (Johannes 5:17). Het verhaal eindigt ermee dat de Joden Hem willen doden (Johannes 5:18); benoem dat eenvoudig en eerlijk. Vraag samen: wie hielp de man in het water, en wat gebeurde er toen de Heere Jezus sprak?",
+      "samen": "Bij A is weggelaten dat volgens vers 4 een engel het water beroerde (Johannes 5:4), en ook het antwoord van de Heere Jezus: ‘Mijn Vader werkt tot nu toe, en Ik werk ook’ (Johannes 5:17). Het verhaal eindigt ermee dat de Joden Hem willen doden (Johannes 5:18); benoem dat eenvoudig en eerlijk. Vraag samen: had de man iemand die hem in het water hielp, en wat gebeurde er toen de Heere Jezus sprak?",
       "vragen": [
         {
           "q": "Hoe lang is de man al ziek?",
@@ -64,7 +64,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Wachten bij het badwater",
@@ -121,7 +121,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Waar en wanneer",
@@ -182,7 +182,7 @@
   },
   "103": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt_siloam",
         "salem"
@@ -244,7 +244,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Blind vanaf de geboorte",
@@ -258,7 +258,7 @@
         {
           "kop": "Eén ding weet ik",
           "stap": "jezus-2:nt-feesten-jeruzalem:3",
-          "t": "Het is sabbat. De Farizeeën ondervragen de man en ook zijn ouders. De ouders zijn bang om uit de synagoge gezet te worden. De man zegt: ‘een ding weet ik, dat ik blind was, en nu zie.’ Ten slotte werpen ze hem uit. De Heere Jezus vindt hem en vraagt: ‘Gelooft gij in den Zoon van God?’ De man zegt: ‘Ik geloof, Heere!’ En hij aanbidt Hem."
+          "t": "Het is sabbat. De Farizeeën ondervragen de man en ook zijn ouders. De ouders zijn bang om uit de synagoge, het gebedshuis van de Joden, gezet te worden. De man zegt: ‘een ding weet ik, dat ik blind was, en nu zie.’ Ten slotte werpen ze hem uit. De Heere Jezus vindt hem en vraagt: ‘Gelooft gij in den Zoon van God?’ De man zegt: ‘Ik geloof, Heere!’ En hij aanbidt Hem."
         }
       ],
       "vragen": [
@@ -301,7 +301,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Elders in de Bijbel",
@@ -314,7 +314,7 @@
         },
         {
           "kop": "Uit de synagoge",
-          "t": "De Joden hadden besloten dat wie de Heere Jezus als de Christus beleed, ‘uit de synagoge zou geworpen worden’ (Johannes 9:22). Dat betekende dat zo iemand buiten de gemeenschap van de synagoge kwam te staan. Later schrijft Johannes dat zelfs veel oversten in Hem geloofden, maar het niet beleden, ‘opdat zij uit de synagoge niet zouden geworpen worden’ (Johannes 12:42). De Heere Jezus had Zijn discipelen gewaarschuwd: ‘Zij zullen u uit de synagogen werpen’ (Johannes 16:2).",
+          "t": "De Joden hadden besloten dat wie de Heere Jezus als de Christus beleed, ‘uit de synagoge zou geworpen worden’ (Johannes 9:22). Dat betekende dat zo iemand buiten de gemeenschap van de synagoge kwam te staan. Later schrijft Johannes dat zelfs veel oversten in Hem geloofden, maar het niet beleden, ‘opdat zij uit de synagoge niet zouden geworpen worden’ (Johannes 12:42). Later waarschuwt de Heere Jezus ook Zijn discipelen: ‘Zij zullen u uit de synagogen werpen’ (Johannes 16:2).",
           "refs": [
             "Johannes 9:22",
             "Johannes 12:42",
@@ -364,7 +364,7 @@
   },
   "104": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "salem",
         "nt_tempel"
@@ -387,7 +387,7 @@
           "t": "De Heere Jezus zegt: ‘Ik ben de goede Herder.’ De goede herder geeft zijn leven voor de schapen."
         },
         {
-          "t": "Iemand die alleen voor geld op de schapen past, vlucht als de wolf komt. Hij heeft geen zorg voor de schapen."
+          "t": "Iemand die voor loon op de schapen past, vlucht als de wolf komt. Hij heeft geen zorg voor de schapen."
         },
         {
           "t": "Het is winter. De Heere Jezus is in de tempel. Hij zegt: ‘Mijn schapen horen Mijn stem.’",
@@ -426,7 +426,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "De herder en de dief",
@@ -435,7 +435,7 @@
         },
         {
           "kop": "Ik ben de goede Herder",
-          "t": "Dan zegt de Heere Jezus: ‘Ik ben de Deur der schapen.’ En: ‘Ik ben de goede Herder; de goede herder stelt zijn leven voor de schapen.’ Dat betekent: Hij geeft Zijn leven voor hen. Een huurling, die alleen voor geld op de schapen past, vlucht als de wolf komt."
+          "t": "Dan zegt de Heere Jezus: ‘Ik ben de Deur der schapen.’ En: ‘Ik ben de goede Herder; de goede herder stelt zijn leven voor de schapen.’ Dat betekent: Hij geeft Zijn leven voor hen. Een huurling, iemand die voor loon op de schapen past, vlucht als de wolf komt."
         },
         {
           "kop": "Niemand rukt ze uit Zijn hand",
@@ -483,7 +483,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Herders in de Bijbel",
@@ -550,7 +550,7 @@
   },
   "105": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt_kaesareafilippi"
       ],
@@ -608,7 +608,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Een vraag bij Caesarea Filippi",
@@ -622,7 +622,7 @@
         {
           "kop": "Lijden, sterven en opstaan",
           "stap": "jezus-2:nt-brood-en-berg:5",
-          "t": "Daarna vertelt de Heere Jezus dat Hij naar Jeruzalem moet. Daar zal Hij veel lijden en gedood worden, en op de derde dag opgewekt worden. Petrus zegt: ‘dit zal U geenszins geschieden’. Dat betekent: dit mag U nooit overkomen. Maar de Heere Jezus zegt: ‘Ga weg achter Mij, satanas!’ Petrus denkt niet aan wat God wil, maar aan wat mensen willen."
+          "t": "Daarna vertelt de Heere Jezus dat Hij naar Jeruzalem moet. Daar zal Hij veel lijden en gedood worden, en op de derde dag opgewekt worden. Petrus zegt: ‘dit zal U geenszins geschieden’. Dat betekent: dit zal U nooit overkomen. Maar de Heere Jezus zegt: ‘Ga weg achter Mij, satanas!’ Petrus denkt niet aan wat God wil, maar aan wat mensen willen."
         }
       ],
       "vragen": [
@@ -654,27 +654,27 @@
           "why": "Mattheüs 16:21"
         },
         {
-          "q": "Wat wil Petrus tegenhouden?",
+          "q": "Wat verbiedt de Heere Jezus Zijn discipelen na de belijdenis van Petrus?",
           "a": [
-            "Dat de Heere Jezus moet lijden en sterven",
-            "Dat de discipelen naar huis gaan",
-            "Dat de mensen bij Hem komen"
+            "Aan iemand te zeggen dat Hij de Christus is",
+            "Met Hem naar Jeruzalem te gaan",
+            "Met de Farizeeën over Hem te praten"
           ],
-          "why": "Mattheüs 16:21–22"
+          "why": "Mattheüs 16:20"
         }
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Drie evangeliën",
-          "t": "Ook Markus en Lukas vertellen dit. Bij Markus zegt Petrus: ‘Gij zijt de Christus’ (Markus 8:29); bij Lukas: ‘De Christus Gods’ (Lukas 9:20). Lukas vertelt dat de Heere Jezus vlak daarvoor ‘alleen was biddende’ (Lukas 9:18). Alleen Mattheüs schrijft op wat de Heere Jezus daarna tegen Petrus zegt over de gemeente en de sleutels (Mattheüs 16:17–19). Bar-jona betekent ‘zoon van Jona’ in het Aramees; Johannes noemt hem ‘Simon, de zoon van Jonas’ (Johannes 1:43).",
+          "t": "Ook Markus en Lukas vertellen dit. Bij Markus zegt Petrus: ‘Gij zijt de Christus’ (Markus 8:29); bij Lukas: ‘De Christus Gods’ (Lukas 9:20). Lukas vertelt dat de Heere Jezus vlak daarvoor ‘alleen was biddende’ (Lukas 9:18). Alleen Mattheüs schrijft op wat de Heere Jezus daarna tegen Petrus zegt over de gemeente en de sleutels (Mattheüs 16:17–19). Bar-jona wordt uitgelegd als Aramees voor: zoon van Jona. Johannes noemt hem ‘Simon, de zoon van Jonas’ (Johannes 1:42–43).",
           "refs": [
             "Markus 8:27–31",
             "Lukas 9:18–22",
             "Mattheüs 16:17–19",
-            "Johannes 1:43"
+            "Johannes 1:42–43"
           ]
         },
         {
@@ -738,7 +738,7 @@
   },
   "106": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt_berg"
       ],
@@ -798,7 +798,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Bidden op de berg",
@@ -854,7 +854,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Wat de andere evangeliën vertellen",
@@ -917,7 +917,7 @@
   },
   "107": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt2_perea"
       ],
@@ -949,7 +949,7 @@
           "t": "Dan wordt de man verdrietig en gaat weg. Want hij heeft heel veel bezittingen."
         },
         {
-          "t": "De Heere Jezus zegt dat het voor rijke mensen heel moeilijk is. Maar bij God zijn alle dingen mogelijk."
+          "t": "De Heere Jezus zegt dat het voor rijke mensen heel moeilijk is om in Gods Koninkrijk te komen. Maar bij God zijn alle dingen mogelijk."
         }
       ],
       "samen": "Het beeld van de kemel en het oog van een naald (Markus 10:25) is bij A weggelaten. Het gaat om iets onmogelijks: de discipelen vragen dan ook ‘Wie kan dan zalig worden?’, en het antwoord is dat bij God alle dingen mogelijk zijn (Markus 10:26–27). Markus noemt de rijke man niet jong; Mattheüs noemt hem een jongeling (Mattheüs 19:20). Vraag samen: wat deed de Heere Jezus met de kinderen, en waarom ging de man verdrietig weg?",
@@ -981,7 +981,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Laat de kinderen komen",
@@ -991,7 +991,7 @@
         {
           "kop": "Eén ding ontbreekt",
           "stap": "jezus-2:nt-reis-naar-jeruzalem:8",
-          "t": "Dan valt een man voor Hem op de knieën. Hij vraagt hoe hij het eeuwige leven kan beërven (krijgen als erfenis). De Heere Jezus noemt de geboden. De man zegt dat hij die van jongs af gehouden heeft. De Heere Jezus kijkt hem aan, heeft hem lief en zegt: ‘Een ding ontbreekt u’. Hij moet alles verkopen, het aan de armen geven en Hem volgen. De man gaat bedroefd weg, want hij heeft veel bezittingen."
+          "t": "Dan valt een man voor Hem op de knieën. Hij vraagt hoe hij het eeuwige leven kan beërven (krijgen als erfenis). De Heere Jezus noemt de geboden, zoals ‘eer uw vader en uw moeder’. De man zegt dat hij die van jongs af gehouden heeft. De Heere Jezus kijkt hem aan, heeft hem lief en zegt: ‘Een ding ontbreekt u’. Hij moet alles verkopen, het aan de armen geven en Hem volgen. De man gaat bedroefd weg, want hij heeft veel bezittingen."
         },
         {
           "kop": "Bij God is alles mogelijk",
@@ -1038,11 +1038,11 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "De geboden die Hij noemt",
-          "t": "Eerst zegt de Heere Jezus: ‘Niemand is goed, dan Een, namelijk God’ (Markus 10:18). Dan noemt Hij geboden die over de naaste gaan: niet echtbreken, niet doden, niet stelen, geen valse getuigenis, en ‘eer uw vader en uw moeder’ (Markus 10:19; vergelijk Exodus 20:12–16). Hij voegt eraan toe: ‘gij zult niemand te kort doen’. De man zegt dat hij dat alles gehouden heeft. Toch zegt de Heere Jezus: ‘Een ding ontbreekt u’.",
+          "t": "Eerst zegt de Heere Jezus: ‘Niemand is goed, dan Een, namelijk God’ (Markus 10:18). Dan noemt Hij geboden die over de naaste gaan: niet echtbreken, niet doden, niet stelen, geen valse getuigenis, en ‘eer uw vader en uw moeder’ (Markus 10:19; vergelijk Exodus 20:12–16). Tussen deze geboden noemt Hij ook: ‘gij zult niemand te kort doen’; dat gebod staat niet zo in Exodus 20. De man zegt dat hij dat alles gehouden heeft. Toch zegt de Heere Jezus: ‘Een ding ontbreekt u’.",
           "refs": [
             "Markus 10:18–21",
             "Exodus 20:12–16"
@@ -1100,7 +1100,7 @@
   },
   "108": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt2_perea"
       ],
@@ -1160,12 +1160,12 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Op weg naar Jeruzalem",
           "stap": "jezus-2:nt-reis-naar-jeruzalem:9",
-          "t": "De Heere Jezus loopt voor Zijn discipelen uit naar Jeruzalem. Zij zijn verbaasd en bang. Opnieuw vertelt Hij de twaalf wat er gaat gebeuren. Hij zal overgeleverd worden aan de overpriesters en de Schriftgeleerden. Ze zullen Hem bespotten, geselen, bespuwen en doden. Maar op de derde dag zal Hij weer opstaan."
+          "t": "De Heere Jezus loopt voor Zijn discipelen uit naar Jeruzalem. Zij zijn verbaasd en bang. Opnieuw vertelt Hij de twaalf wat er gaat gebeuren. Hij zal overgeleverd worden aan de overpriesters en de Schriftgeleerden. Ze zullen Hem ter dood veroordelen en aan de heidenen overleveren. Hij zal bespot, gegeseld, bespuwd en gedood worden. Maar op de derde dag zal Hij weer opstaan."
         },
         {
           "kop": "Een vraag om de beste plaatsen",
@@ -1216,7 +1216,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "De drinkbeker",
@@ -1230,7 +1230,7 @@
         },
         {
           "kop": "Rechts en links",
-          "t": "Jakobus en Johannes vragen om de plaatsen aan Zijn rechter- en linkerhand ‘in Uw heerlijkheid’. Markus gebruikt die woorden later opnieuw: bij de kruisiging hangen er twee moordenaars, ‘een aan Zijn rechter-, en een aan Zijn linker zijde’ (Markus 15:27). Sommige uitleggers wijzen op dat verband. Mattheüs schrijft dat de plaatsen gegeven worden aan hen voor wie het ‘bereid is van Mijn Vader’ (Mattheüs 20:23).",
+          "t": "Jakobus en Johannes vragen om de plaatsen aan Zijn rechter- en linkerhand ‘in Uw heerlijkheid’. Markus gebruikt later bijna dezelfde woorden: bij de kruisiging hangen er twee moordenaars, ‘een aan Zijn rechter-, en een aan Zijn linker zijde’ (Markus 15:27). Sommige uitleggers wijzen op dat verband. Mattheüs schrijft dat de plaatsen gegeven worden aan hen voor wie het ‘bereid is van Mijn Vader’ (Mattheüs 20:23).",
           "refs": [
             "Markus 10:37",
             "Markus 15:27",
@@ -1281,7 +1281,7 @@
   },
   "109": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "t": "Een wetgeleerde kent Gods wet heel goed. Hij wil de Heere Jezus op de proef stellen en vraagt hoe hij het eeuwige leven krijgt."
@@ -1343,11 +1343,11 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "De vraag van de wetgeleerde",
-          "t": "Een wetgeleerde, een kenner van Gods wet, wil de Heere Jezus op de proef stellen. Hij vraagt hoe hij het eeuwige leven beërft. Hij zegt zelf wat in de wet staat: God liefhebben met heel je hart, ziel, kracht en verstand, en je naaste als jezelf. ‘Doe dat, en gij zult leven’, zegt de Heere Jezus. Maar de man wil zichzelf rechtvaardigen en vraagt: ‘En wie is mijn naaste?’"
+          "t": "Een wetgeleerde, een kenner van Gods wet, wil de Heere Jezus op de proef stellen. Hij vraagt hoe hij het eeuwige leven beërft. De Heere Jezus vraagt: ‘Wat is in de wet geschreven?’ De man antwoordt: God liefhebben met heel je hart, ziel, kracht en verstand, en je naaste als jezelf. ‘Doe dat, en gij zult leven’, zegt de Heere Jezus. Maar de man wil zichzelf rechtvaardigen en vraagt: ‘En wie is mijn naaste?’"
         },
         {
           "kop": "Een man langs de weg",
@@ -1355,7 +1355,7 @@
         },
         {
           "kop": "De Samaritaan helpt",
-          "t": "Dan komt een Samaritaan. Als hij de man ziet, krijgt hij medelijden. Hij verbindt zijn wonden met olie en wijn, zet hem op zijn eigen rijdier en brengt hem naar een herberg. De volgende dag geeft hij de waard twee penningen. Wie was de naaste? ‘Die barmhartigheid aan hem gedaan heeft’, zegt de wetgeleerde. De Heere Jezus zegt: ‘Ga heen, en doe gij desgelijks.’"
+          "t": "Dan komt een Samaritaan. Als hij de man ziet, krijgt hij medelijden. Hij verbindt zijn wonden met olie en wijn, zet hem op zijn eigen rijdier en brengt hem naar een herberg. De volgende dag geeft hij de waard twee penningen. De Heere Jezus vraagt wie de naaste van de gewonde man was. ‘Die barmhartigheid aan hem gedaan heeft’, zegt de wetgeleerde. De Heere Jezus zegt: ‘Ga heen, en doe gij desgelijks.’"
         }
       ],
       "vragen": [
@@ -1398,7 +1398,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Samaritanen",

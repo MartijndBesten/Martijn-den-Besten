@@ -3350,7 +3350,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Opgroeien in Nazareth",
-        t: "Lukas beschrijft het opgroeien van de Heere Jezus twee keer bijna op dezelfde manier. Eerst: ‘En het Kindeken wies op, en werd gesterkt in den geest, en vervuld met wijsheid; en de genade Gods was over Hem’ (Lukas 2:40). En na deze geschiedenis: ‘Jezus nam toe in wijsheid, en in grootte, en in genade bij God en de mensen’ (2:52). Die woorden lijken op wat over de jonge Samuël staat: ‘En de jongeling Samuël nam toe, en werd groot en aangenaam beide bij den HEERE en ook bij de mensen’ (1 Samuël 2:26). Ook na de geboorte staat al dat Maria ‘deze woorden alle te zamen’ bewaarde in haar hart (Lukas 2:19).",
+        t: "Lukas beschrijft het opgroeien van de Heere Jezus twee keer bijna op dezelfde manier. Eerst: ‘En het Kindeken wies op, en werd gesterkt in den geest, en vervuld met wijsheid; en de genade Gods was over Hem’ (Lukas 2:40). En na deze geschiedenis: ‘Jezus nam toe in wijsheid, en in grootte, en in genade bij God en de mensen’ (2:52). Die woorden lijken op wat over de jonge Samuël staat: ‘En de jongeling Samuël nam toe, en werd groot en aangenaam beide bij den HEERE en ook bij de mensen’ (1 Samuël 2:26). Ook na de geboorte staat al dat Maria ‘deze woorden alle te zamen’ bewaarde, ‘overleggende die in haar hart’ (Lukas 2:19).",
         refs: ["Lukas 2:40", "Lukas 2:52", "1 Samuël 2:26", "Lukas 2:19"],
       },
       {
@@ -3367,7 +3367,7 @@ BR.niveaus.voegToe("c", {
     vragen: [
       {
         q: "Over wie zegt de Bijbel bijna hetzelfde als in Lukas 2:52?",
-        a: ["Over Samuël", "Over Simson", "Over Salomo"],
+        a: ["Over Samuël", "Over Gideon", "Over Salomo"],
         why: "1 Samuël 2:26",
       },
       {
@@ -3444,7 +3444,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Lukas, Markus en de plaatsen",
-        t: "Lukas vertelt de laatste twee verzoekingen in een andere volgorde: eerst de hoge berg, dan de tinne van de tempel (Lukas 4:5–9). Hij eindigt met: ‘week hij van Hem voor een tijd’ (4:13). Markus noemt dat Hij ‘bij de wilde gedierten’ was (Markus 1:13). De woestijn van Juda is een gebied, de tempel in Jeruzalem is een bekende plaats. De zeer hoge berg wordt niet bij naam genoemd. De datering is een reconstructie: direct na de doop, ca. 27–29 n.Chr.",
+        t: "Lukas vertelt de laatste twee verzoekingen in een andere volgorde: eerst de hoge berg, dan de tinne van de tempel (Lukas 4:5–9). Hij eindigt met: ‘week hij van Hem voor een tijd’ (4:13). Markus noemt dat Hij ‘bij de wilde gedierten’ was (Markus 1:13). Welke woestijn het was, zegt Mattheüs niet; de kaart toont de woestijn van Juda, een gebied. De tempel in Jeruzalem is een bekende plaats. De zeer hoge berg wordt niet bij naam genoemd. De datering is een reconstructie: direct na de doop, ca. 27–29 n.Chr.",
         refs: ["Lukas 4:1–13", "Markus 1:12–13"],
       },
     ],
@@ -3476,18 +3476,18 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Twee momenten, twee plaatsen",
-        t: "Johannes 1 speelt kort na de doop, bij Bethabara over de Jordaan (Johannes 1:28); die plaats is betwist. De roeping aan het meer volgt nadat Johannes de Doper gevangengenomen was (Markus 1:14). Volgens Johannes 1 hadden Simon en Andreas de Heere Jezus dus al ontmoet toen Hij hen aan het meer riep. Uitleggers verschillen over de vraag of de grote visvangst in Lukas 5 bij dezelfde roeping hoort. Johannes noemt ook het tijdstip: ‘omtrent de tiende ure’ (1:40). Bij de gewone Joodse telling vanaf zonsopgang is dat ongeveer vier uur ’s middags; sommige uitleggers rekenen anders. De datering is een reconstructie: ca. 27–29 n.Chr.",
-        refs: ["Johannes 1:28", "Markus 1:14", "Johannes 1:40"],
+        t: "Johannes 1 speelt kort na de doop, bij Bethabara over de Jordaan (Johannes 1:28); die plaats is betwist. De roeping aan het meer volgt nadat Johannes de Doper gevangengenomen was (Markus 1:14). Wie beide verhalen zo achter elkaar leest, ziet dat Simon en Andreas de Heere Jezus al hadden ontmoet toen Hij hen aan het meer riep. Uitleggers verschillen over de vraag of de grote visvangst in Lukas 5 bij dezelfde roeping hoort. Johannes noemt ook het tijdstip: ‘omtrent de tiende ure’ (1:39–40). Bij de gewone Joodse telling vanaf zonsopgang is dat ongeveer vier uur ’s middags; sommige uitleggers rekenen anders. De datering is een reconstructie: ca. 27–29 n.Chr.",
+        refs: ["Johannes 1:28", "Markus 1:14", "Johannes 1:39–40"],
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Nathanaël kwam uit Kana: ‘Nathanaël, die van Kana in Galilea was’ (Johannes 21:2). De Heere Jezus belooft hem dat hij ‘de engelen Gods opklimmende en nederdalende op den Zoon des mensen’ zal zien (Johannes 1:52). Dat doet denken aan de droom van Jakob, waarin ‘de engelen Gods klommen daarbij op en neder’ (Genesis 28:12). Jakobus en Johannes krijgen later ook een bijnaam: ‘Boanerges, hetwelk is, zonen des donders’ (Markus 3:17).",
-        refs: ["Johannes 21:2", "Johannes 1:52", "Genesis 28:12", "Markus 3:17"],
+        t: "Nathanaël kwam uit Kana: ‘Nathanaël, die van Kana in Galilea was’ (Johannes 21:2). De Heere Jezus belooft hem dat hij ‘de engelen Gods opklimmende en nederdalende op den Zoon des mensen’ zal zien (Johannes 1:51–52). Dat doet denken aan de droom van Jakob, waarin ‘de engelen Gods klommen daarbij op en neder’ (Genesis 28:12). Jakobus en Johannes krijgen later ook een bijnaam: ‘Boanerges, hetwelk is, zonen des donders’ (Markus 3:17).",
+        refs: ["Johannes 21:2", "Johannes 1:51–52", "Genesis 28:12", "Markus 3:17"],
       },
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "Johannes noemt maar één van de twee discipelen die de Heere Jezus volgden: Andreas (Johannes 1:41). De naam van de ander staat er niet. Veel uitleggers denken aan Johannes, de zoon van Zebedeüs, maar de tekst zegt het niet. Ook wordt Nathanaël vaak gelijkgesteld met Bartholomeüs, die in de lijsten van apostelen naast Filippus staat (Mattheüs 10:3). Dat is een uitleg, geen tekst.",
-        refs: ["Johannes 1:41", "Mattheüs 10:3"],
+        t: "Johannes noemt maar één van de twee discipelen die de Heere Jezus volgden: Andreas (Johannes 1:40–41). De naam van de ander staat er niet. Veel uitleggers denken aan Johannes, de zoon van Zebedeüs, maar de tekst zegt het niet. Ook wordt Nathanaël vaak gelijkgesteld met Bartholomeüs, die in de lijsten van apostelen naast Filippus staat (Mattheüs 10:3). Dat is een uitleg, geen tekst.",
+        refs: ["Johannes 1:40–41", "Mattheüs 10:3"],
       },
     ],
     vragen: [
@@ -3499,7 +3499,7 @@ BR.niveaus.voegToe("c", {
       {
         q: "Aan welke droom doen de woorden over de engelen op de Zoon des mensen denken?",
         a: ["De droom van Jakob over de ladder", "De droom van Jozef over de schoven", "De droom van Farao over de koeien"],
-        why: "Johannes 1:52; Genesis 28:12",
+        why: "Johannes 1:51–52; Genesis 28:12",
       },
       {
         q: "Welke bijnaam gaf de Heere Jezus later aan Jakobus en Johannes?",
@@ -3523,12 +3523,12 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Mijn ure",
-        t: "Het woord ‘ure’ komt in Johannes vaker terug. Mensen zochten Hem te grijpen, ‘want Zijn ure was nog niet gekomen’ (Johannes 7:30). Later zegt Hij: ‘De ure is gekomen, dat de Zoon des mensen zal verheerlijkt worden’ (12:23). Voor het laatste Pascha wist Hij ‘dat Zijn ure gekomen was’ (13:1), en Hij bidt: ‘Vader, de ure is gekomen’ (17:1). Veel uitleggers zien daarom in ‘Mijn ure’ de tijd van Zijn lijden en verheerlijking.",
+        t: "Het woord ‘ure’ komt in Johannes vaker terug. Mensen zochten Hem te grijpen, ‘want Zijn ure was nog niet gekomen’ (Johannes 7:30). Later zegt Hij: ‘De ure is gekomen, dat de Zoon des mensen zal verheerlijkt worden’ (12:23). Voor het feest van het Pascha wist Hij ‘dat Zijn ure gekomen was’ (13:1), en Hij bidt: ‘Vader, de ure is gekomen’ (17:1). Veel uitleggers zien daarom in ‘Mijn ure’ de tijd van Zijn lijden en verheerlijking.",
         refs: ["Johannes 7:30", "Johannes 12:23", "Johannes 13:1", "Johannes 17:1"],
       },
       {
         kop: "Tekenen, en waar Kana lag",
-        t: "Johannes telt de tekenen: vanuit Kana doet de Heere Jezus later ook ‘Dit tweede teken’: de genezing van de zoon van een koninklijk hoveling (Johannes 4:46–54). Hij schrijft dat de Heere Jezus ‘nog wel vele andere tekenen’ deed die niet zijn opgeschreven (20:30). Waar Kana lag, is betwist: Khirbet Qana en Kafr Kanna worden allebei voorgesteld. De plek op de kaart is dus niet zeker. De datering is een reconstructie: kort na de doop, ca. 27–29 n.Chr.",
+        t: "Johannes telt de tekenen: vanuit Kana doet de Heere Jezus later ook ‘Dit tweede teken’: de genezing van de zoon van een koninklijk hoveling (Johannes 4:46–54). Hij schrijft dat de Heere Jezus ‘nog wel vele andere tekenen’ deed die niet zijn opgeschreven (20:30). Waar Kana lag, is betwist: Chirbet Qana en Kafr Kanna worden allebei voorgesteld. De kaart toont Chirbet Qana, maar die plek is dus niet zeker. De datering is een reconstructie: kort na de doop, ca. 27–29 n.Chr.",
         refs: ["Johannes 4:46–54", "Johannes 20:30"],
       },
     ],
@@ -3545,9 +3545,9 @@ BR.niveaus.voegToe("c", {
         why: "Johannes 17:1",
       },
       {
-        q: "Waarom staat Kana als onzeker op de kaart?",
-        a: ["Er worden verschillende plaatsen voorgesteld", "De Bijbel noemt Kana maar één keer", "Kana lag niet in Galilea"],
-        why: "Johannes 2:1",
+        q: "Wat doen de Joden volgens Markus 7:3 voordat ze eten?",
+        a: ["Ze wassen eerst de handen", "Ze lezen eerst een psalm", "Ze gaan eerst naar de tempel"],
+        why: "Markus 7:3",
       },
     ],
   },
@@ -3561,7 +3561,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "De Zoon des mensen",
-        t: "In Markus 2:10 noemt de Heere Jezus Zichzelf ‘de Zoon des mensen’. Daniël zag ‘Een met de wolken des hemels, als eens mensen zoon’, en ‘Hem werd gegeven heerschappij’ (Daniël 7:13–14). Voor de hogepriester verbindt de Heere Jezus die woorden zelf met Zich: ‘gijlieden zult den Zoon des mensen zien zitten ter rechter hand der kracht Gods, en komen met de wolken des hemels’ (Markus 14:62). Lukas vertelt dat de mannen de verlamde ‘door de tichelen’ neerlieten (Lukas 5:19): door de dakpannen.",
+        t: "In Markus 2:10 noemt de Heere Jezus Zichzelf ‘de Zoon des mensen’. Daniël zag ‘Een met de wolken des hemels, als eens mensen zoon’, en ‘Hem werd gegeven heerschappij’ (Daniël 7:13–14). Voor de hogepriester verbindt de Heere Jezus die woorden Zelf met Zich: ‘gijlieden zult den Zoon des mensen zien zitten ter rechter hand der kracht Gods, en komen met de wolken des hemels’ (Markus 14:62). Lukas vertelt dat de mannen de verlamde ‘door de tichelen’ neerlieten (Lukas 5:19): door de dakpannen.",
         refs: ["Markus 2:10", "Daniël 7:13–14", "Markus 14:62", "Lukas 5:19"],
       },
       {
@@ -3598,7 +3598,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Gij hebt gehoord, maar Ik zeg u",
-        t: "Steeds noemt de Heere Jezus wat ‘tot de ouden gezegd’ is, en zegt dan: ‘Maar Ik zeg u’. Hij noemt het zesde en het zevende gebod (Exodus 20:13–14), de regel ‘Oog voor oog, tand voor tand’ (Exodus 21:24) en ‘gij zult uw naaste liefhebben als uzelven’ (Leviticus 19:18). De woorden ‘uw vijand zult gij haten’ (Mattheüs 5:43) staan niet zo in de wet; uitleggers zien ze als de manier waarop men de wet toen uitlegde. Vooraf zegt Hij: ‘Ik ben niet gekomen, om die te ontbinden, maar te vervullen’ (5:17).",
+        t: "Zes keer noemt de Heere Jezus wat eerder gezegd is (‘Gij hebt gehoord, dat tot de ouden gezegd is’, 5:21), en daar zet Hij tegenover: ‘Maar Ik zeg u’. Hij noemt het zesde en het zevende gebod (Exodus 20:13–14), de regel ‘Oog voor oog, tand voor tand’ (Exodus 21:24) en ‘gij zult uw naaste liefhebben als uzelven’ (Leviticus 19:18). De woorden ‘uw vijand zult gij haten’ (Mattheüs 5:43) staan niet zo in de wet; uitleggers zien ze als de manier waarop men de wet toen uitlegde. Vooraf zegt Hij: ‘Ik ben niet gekomen, om die te ontbinden, maar te vervullen’ (5:17).",
         refs: ["Mattheüs 5:17–48", "Exodus 20:13–14", "Exodus 21:24", "Leviticus 19:18"],
       },
       {
@@ -3650,7 +3650,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "Johannes zegt niet waarom Nicodemus ’s nachts kwam; de tekst geeft geen reden. Het gesprek speelt in Jeruzalem, bij het eerste Pascha dat Johannes noemt (Johannes 2:13, 23); de datering is een reconstructie, ca. 27–29 n.Chr. De Statenvertaling heeft geen aanhalingstekens. Uitleggers verschillen over de vraag of de woorden vanaf Johannes 3:16 nog door de Heere Jezus gesproken worden, of dat Johannes ze erbij schrijft.",
+        t: "Johannes zegt niet waarom Nicodemus ’s nachts kwam; de tekst geeft geen reden. Waar het gesprek was, zegt Johannes 3 niet. Omdat het volgt op het verblijf in Jeruzalem bij het eerste Pascha dat Johannes noemt (Johannes 2:13, 23), wordt het meestal daar geplaatst. De datering is een reconstructie, ca. 27–29 n.Chr. De Statenvertaling heeft geen aanhalingstekens. Uitleggers verschillen over de vraag of de woorden vanaf Johannes 3:16 nog door de Heere Jezus gesproken worden, of dat Johannes ze erbij schrijft.",
         refs: ["Johannes 2:13", "Johannes 2:23", "Johannes 3:16–21"],
       },
     ],
@@ -3666,12 +3666,12 @@ BR.niveaus.voegToe("c", {
       },
       { q: "Welke profeet beloofde rein water én Gods Geest in het binnenste?", a: ["Ezechiël", "Jona", "Amos"], why: "Ezechiël 36:25–27" },
       {
-        q: "Wat zegt Johannes 12:33 over het verhoogd worden?",
-        a: ["Het wijst op de dood die Hij zou sterven", "Hij zou koning in Jeruzalem worden", "Hij zou op een berg gaan preken"],
-        why: "Johannes 12:32–33",
+        q: "Wat bracht Nicodemus mee bij de begrafenis van de Heere Jezus?",
+        a: ["Mirre en aloë", "Wierook en goud", "Brood en wijn"],
+        why: "Johannes 19:39",
       },
       {
-        q: "Bij welk feest was de Heere Jezus toen in Jeruzalem?",
+        q: "Bij welk feest was de Heere Jezus volgens Johannes 2:23 in Jeruzalem?",
         a: ["Het Pascha", "Het Loofhuttenfeest", "Het Pinksterfeest"],
         why: "Johannes 2:23",
       },
@@ -3962,308 +3962,6 @@ BR.niveaus.voegToe("c", {
           "Er zou een koning uit Egypte komen",
         ],
         why: "Deuteronomium 18:15",
-      },
-    ],
-  },
-  102: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Waar en wanneer",
-        t: "Bethesda lag ‘aan de Schaaps poort’ (Johannes 5:2). Een Schaapspoort komt ook voor bij de herbouw van de muur van Jeruzalem in de tijd van Nehemia: de hogepriester Eljasib en zijn broeders ‘bouwden de Schaapspoort’ (Nehemia 3:1). De plaats van het badwater geldt als identificeerbaar. Welk feest het was, zegt Johannes niet; hij schrijft alleen ‘een feest der Joden’ (Johannes 5:1). Daarom is de datering ca. 28 n.Chr. een onzekere reconstructie.",
-        refs: ["Johannes 5:1–2", "Nehemia 3:1"],
-      },
-      {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "De man vraagt zelf niet om genezing: de Heere Jezus begint het gesprek. De tekst zegt alleen dat de Heere Jezus wist ‘dat hij nu langen tijd gelegen had’ (Johannes 5:6). Over geloof van de man vooraf vertelt Johannes niets. Na zijn genezing weet de man zelfs niet wie hem gezond gemaakt heeft, ‘want Jezus was ontweken, alzo er een grote schare in die plaats was’ (Johannes 5:13).",
-        refs: ["Johannes 5:6", "Johannes 5:13"],
-      },
-      {
-        kop: "Meer genezingen op de sabbat",
-        t: "Ook de blindgeborene wordt op een sabbat genezen (Johannes 9:14). In een synagoge vraagt de Heere Jezus: ‘Is het geoorloofd op sabbatdagen goed te doen, of kwaad te doen, een mens te behouden, of te doden?’ (Markus 3:4). En als een overste van de synagoge het kwalijk neemt dat Hij op de sabbat geneest, wijst de Heere Jezus erop dat iedereen op de sabbat zijn os of ezel losmaakt om hem te laten drinken (Lukas 13:14–16).",
-        refs: ["Johannes 9:14", "Markus 3:4", "Lukas 13:14–16"],
-      },
-    ],
-    vragen: [
-      { q: "Welk Bijbelboek vertelt dat de Schaapspoort werd gebouwd?", a: ["Nehemia", "Ruth", "Jona"], why: "Nehemia 3:1" },
-      {
-        q: "Waarom kon de man eerst niet zeggen wie hem genezen had?",
-        a: [
-          "Hij wist het niet, want de Heere Jezus was ontweken",
-          "De Heere Jezus had hem verboden het te zeggen",
-          "Hij durfde het niet uit angst voor de Joden",
-        ],
-        why: "Johannes 5:13",
-      },
-      {
-        q: "Welk voorbeeld gebruikt de Heere Jezus in Lukas 13 over de sabbat?",
-        a: [
-          "Iedereen maakt zijn os of ezel los om te drinken",
-          "Iedereen bakt op de sabbat zijn brood",
-          "Iedereen gaat op de sabbat naar de markt",
-        ],
-        why: "Lukas 13:15",
-      },
-    ],
-  },
-  103: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Elders in de Bijbel",
-        t: "Dat God blinden laat zien, staat al in het Oude Testament: ‘De HEERE opent de ogen der blinden’ (Psalm 146:8). Bij Jesaja zegt de HEERE over Zijn Knecht dat Hij gegeven is ‘om te openen de blinde ogen’ (Jesaja 42:6–7). De genezen man zegt zelf: ‘Van alle eeuw is het niet gehoord, dat iemand eens blindgeborenen ogen geopend heeft’ (Johannes 9:32).",
-        refs: ["Psalm 146:8", "Jesaja 42:1–7", "Johannes 9:32"],
-      },
-      {
-        kop: "Uit de synagoge",
-        t: "De Joden hadden besloten dat wie de Heere Jezus als de Christus beleed, ‘uit de synagoge zou geworpen worden’ (Johannes 9:22). Dat betekende dat zo iemand buiten de gemeenschap van de synagoge kwam te staan. Later schrijft Johannes dat zelfs veel oversten in Hem geloofden, maar het niet beleden, ‘opdat zij uit de synagoge niet zouden geworpen worden’ (Johannes 12:42). De Heere Jezus had Zijn discipelen gewaarschuwd: ‘Zij zullen u uit de synagogen werpen’ (Johannes 16:2).",
-        refs: ["Johannes 9:22", "Johannes 12:42", "Johannes 16:2"],
-      },
-      {
-        kop: "Waar en wanneer",
-        t: "Het badwater Siloam geldt als identificeerbaar. Ook Lukas noemt Siloam: daar viel een toren op achttien mensen (Lukas 13:4). Johannes vertelt deze geschiedenis na zijn verslag van het Loofhuttenfeest (Johannes 7:2) en vóór het feest der vernieuwing in de winter (Johannes 10:22). Daarom wordt ze in het najaar gedateerd: ca. 29 n.Chr. als de kruisiging rond 30 was, of ca. 32 bij een kruisiging in 33. Dat is een reconstructie.",
-        refs: ["Lukas 13:4", "Johannes 7:2", "Johannes 10:22"],
-      },
-    ],
-    vragen: [
-      { q: "Welke psalm zegt: ‘De HEERE opent de ogen der blinden’?", a: ["Psalm 146", "Psalm 23", "Psalm 1"], why: "Psalm 146:8" },
-      {
-        q: "Waarom durfden veel oversten hun geloof in de Heere Jezus niet te belijden?",
-        a: ["Ze wilden niet uit de synagoge geworpen worden", "Ze hadden de Heere Jezus nooit gezien", "Ze woonden niet in Jeruzalem"],
-        why: "Johannes 12:42",
-      },
-      {
-        q: "Wat gebeurde er volgens Lukas 13:4 in Siloam?",
-        a: ["Er viel een toren op achttien mensen", "Er werd een melaatse genezen", "Er werd een nieuwe tempel gebouwd"],
-        why: "Lukas 13:4",
-      },
-    ],
-  },
-  104: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Herders in de Bijbel",
-        t: "Ezechiël moest profeteren tegen ‘de herders van Israël’, de leiders van het volk, die ‘zichzelven weiden’ en niet voor de schapen zorgden (Ezechiël 34:2–3). Daartegenover zegt God: ‘Ik, ja, Ik zal naar Mijn schapen vragen, en zal ze opzoeken’ (Ezechiël 34:11). In Psalm 80 staat: ‘O Herder Israëls! neem ter ore’ (Psalm 80:2). Later noemt de brief aan de Hebreeën de Heere Jezus ‘den grote Herder der schapen’, Die God uit de doden heeft wedergebracht (Hebreeën 13:20). Petrus noemt Hem ‘de overste Herder’ (1 Petrus 5:4).",
-        refs: ["Ezechiël 34:2–3", "Ezechiël 34:11", "Psalm 80:2", "Hebreeën 13:20", "1 Petrus 5:4"],
-      },
-      {
-        kop: "Ik ben",
-        t: "In het Evangelie naar Johannes zegt de Heere Jezus vaker ‘Ik ben’ met een beeld erbij: ‘Ik ben het Brood des levens’ (6:35), ‘het licht der wereld’ (8:12), ‘de Deur’ en ‘de goede Herder’ (10:9, 11), ‘de Opstanding en het Leven’ (11:25), ‘de Weg, en de Waarheid, en het Leven’ (14:6) en ‘de ware Wijnstok’ (15:1). Elk beeld zegt iets over wie Hij is.",
-        refs: ["Johannes 6:35", "Johannes 8:12", "Johannes 10:9–11", "Johannes 11:25", "Johannes 14:6", "Johannes 15:1"],
-      },
-      {
-        kop: "Het feest van de vernieuwing",
-        t: "Johannes noemt ‘het feest der vernieuwing des tempels’ (Johannes 10:22). Dat feest komt in het Oude Testament niet voor. Uit bronnen buiten de Bijbel weten we dat het herdacht dat de tempel opnieuw werd ingewijd nadat hij was ontheiligd, in de tijd van de Makkabeeën. Tegenwoordig heet het Chanoeka. De Heere Jezus wandelt ‘in het voorhof van Salomo’ (10:23). Na Zijn woorden ‘Ik en de Vader zijn een’ nemen de Joden stenen op om Hem te stenigen (10:31).",
-        refs: ["Johannes 10:22–23", "Johannes 10:30–31"],
-      },
-    ],
-    vragen: [
-      {
-        q: "Tegen wie moest Ezechiël profeteren in hoofdstuk 34?",
-        a: ["Tegen de herders van Israël", "Tegen de koning van Babel", "Tegen de Filistijnen"],
-        why: "Ezechiël 34:2",
-      },
-      {
-        q: "Welk ‘Ik ben’-woord staat in Johannes 11:25?",
-        a: ["Ik ben de Opstanding en het Leven", "Ik ben de ware Wijnstok", "Ik ben het Brood des levens"],
-        why: "Johannes 11:25",
-      },
-      {
-        q: "Wat deden de Joden na de woorden ‘Ik en de Vader zijn een’?",
-        a: ["Ze namen stenen op om Hem te stenigen", "Ze knielden voor Hem neer", "Ze vroegen Hem om een teken"],
-        why: "Johannes 10:31",
-      },
-    ],
-  },
-  105: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Drie evangeliën",
-        t: "Ook Markus en Lukas vertellen dit. Bij Markus zegt Petrus: ‘Gij zijt de Christus’ (Markus 8:29); bij Lukas: ‘De Christus Gods’ (Lukas 9:20). Lukas vertelt dat de Heere Jezus vlak daarvoor ‘alleen was biddende’ (Lukas 9:18). Alleen Mattheüs schrijft op wat de Heere Jezus daarna tegen Petrus zegt over de gemeente en de sleutels (Mattheüs 16:17–19). Bar-jona betekent ‘zoon van Jona’ in het Aramees; Johannes noemt hem ‘Simon, de zoon van Jonas’ (Johannes 1:43).",
-        refs: ["Markus 8:27–31", "Lukas 9:18–22", "Mattheüs 16:17–19", "Johannes 1:43"],
-      },
-      {
-        kop: "Opnieuw aangekondigd",
-        t: "‘Van toen aan’ begint de Heere Jezus over Zijn lijden te spreken (16:21). Daarna kondigt Hij het opnieuw aan, onder andere in Galilea (Mattheüs 17:22–23) en op weg naar Jeruzalem. Daar zegt Hij er ook bij dat de heidenen Hem zullen bespotten, geselen en kruisigen (Mattheüs 20:17–19). Na de woorden in Galilea staat er: ‘En zij werden zeer bedroefd’ (Mattheüs 17:23).",
-        refs: ["Mattheüs 16:21", "Mattheüs 17:22–23", "Mattheüs 20:17–19"],
-      },
-      {
-        kop: "De Zoon des mensen",
-        t: "In vers 13 noemt de Heere Jezus Zichzelf ‘de Zoon des mensen’. Die naam gebruikt Hij vaak. Veel uitleggers verbinden hem met het gezicht van Daniël, die iemand zag komen ‘met de wolken des hemels, als eens mensen zoon’ (Daniël 7:13). In vers 27 zegt de Heere Jezus dat de Zoon des mensen zal komen ‘in de heerlijkheid Zijns Vaders, met Zijn engelen’.",
-        refs: ["Mattheüs 16:13", "Daniël 7:13", "Mattheüs 16:27"],
-      },
-    ],
-    vragen: [
-      { q: "Wat zegt Petrus volgens Lukas 9:20?", a: ["De Christus Gods", "Gij zijt Elias", "Een van de profeten"], why: "Lukas 9:20" },
-      {
-        q: "Hoe noemt de Heere Jezus Petrus in Mattheüs 16:17?",
-        a: ["Simon, Bar-jona", "Simon de Zeloot", "Simon van Cyrene"],
-        why: "Mattheüs 16:17",
-      },
-      {
-        q: "Welke profeet zag iemand komen ‘met de wolken des hemels, als eens mensen zoon’?",
-        a: ["Daniël", "Jona", "Amos"],
-        why: "Daniël 7:13",
-      },
-      {
-        q: "Wat vertelt alleen Lukas over dit moment?",
-        a: ["Dat de Heere Jezus alleen was om te bidden", "Dat het bij Caesarea Filippi was", "Dat Petrus het antwoord gaf"],
-        why: "Lukas 9:18",
-      },
-    ],
-  },
-  106: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Wat de andere evangeliën vertellen",
-        t: "Markus schrijft dat Zijn kleren zo wit werden ‘als sneeuw, hoedanige geen voller op aarde zo wit maken kan’ (Markus 9:3). Een voller was iemand die stof reinigde en wit maakte. Mattheüs vertelt dat de discipelen op hun gezicht vielen, en dat de Heere Jezus hen aanraakte en zei: ‘Staat op en vreest niet’ (Mattheüs 17:6–7). Alleen Lukas vertelt dat ze over Zijn uitgang spraken en dat de discipelen ‘met slaap bezwaard’ waren (Lukas 9:31–32).",
-        refs: ["Markus 9:3", "Mattheüs 17:6–7", "Lukas 9:31–32"],
-      },
-      {
-        kop: "Mozes en Elia",
-        t: "Allebei hadden ze God ontmoet op een berg. Op de Sinaï bedekte een wolk de berg, en God riep Mozes ‘uit het midden der wolk’ (Exodus 24:15–16). Elia ging veertig dagen en veertig nachten ‘tot aan den berg Gods, Horeb’ (1 Koningen 19:8). Ook aan het eind van het Oude Testament staan ze samen: ‘Gedenk der wet van Mozes’ en ‘Ziet, Ik zende ulieden den profeet Elia’ (Maleachi 4:4–5). Veel uitleggers zien in hen de wet en de profeten, die getuigen van Christus.",
-        refs: ["Exodus 24:15–16", "1 Koningen 19:8", "Maleachi 4:4–5"],
-      },
-      {
-        kop: "Waar en wanneer",
-        t: "Lukas zegt alleen ‘den berg’ (Lukas 9:28); Mattheüs en Markus noemen ‘een hogen berg’ (Mattheüs 17:1; Markus 9:2). De naam staat niet in de Bijbel. De traditie noemt de Tabor; anderen denken aan de Hermon. De plaats op de kaart is daarom betwist. Lukas zegt ‘omtrent acht dagen’ na de belijdenis van Petrus; de datering ca. 29 n.Chr. (of 32) is een reconstructie.",
-        refs: ["Lukas 9:28", "Mattheüs 17:1", "Markus 9:2"],
-      },
-    ],
-    vragen: [
-      {
-        q: "Wat schrijft Markus over de witheid van Zijn kleren?",
-        a: ["Geen voller op aarde kan zo wit maken", "Ze waren wit als melk", "Ze waren wit als de wolken"],
-        why: "Markus 9:3",
-      },
-      { q: "Naar welke berg ging Elia veertig dagen en veertig nachten?", a: ["Horeb", "Karmel", "Tabor"], why: "1 Koningen 19:8" },
-      {
-        q: "Wat deed de Heere Jezus volgens Mattheüs toen de discipelen bang op hun gezicht lagen?",
-        a: ["Hij raakte hen aan en zei dat ze niet moesten vrezen", "Hij stuurde hen alleen de berg af", "Hij liet hen verder slapen"],
-        why: "Mattheüs 17:6–7",
-      },
-    ],
-  },
-  107: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "De geboden die Hij noemt",
-        t: "Eerst zegt de Heere Jezus: ‘Niemand is goed, dan Een, namelijk God’ (Markus 10:18). Dan noemt Hij geboden die over de naaste gaan: niet echtbreken, niet doden, niet stelen, geen valse getuigenis, en ‘eer uw vader en uw moeder’ (Markus 10:19; vergelijk Exodus 20:12–16). Hij voegt eraan toe: ‘gij zult niemand te kort doen’. De man zegt dat hij dat alles gehouden heeft. Toch zegt de Heere Jezus: ‘Een ding ontbreekt u’.",
-        refs: ["Markus 10:18–21", "Exodus 20:12–16"],
-      },
-      {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Soms wordt verteld dat ‘het oog van een naald’ een kleine poort in Jeruzalem was, waar een kameel nog net door kon. Dat staat niet in de Bijbel. De discipelen begrijpen het als iets onmogelijks, want ze vragen: ‘Wie kan dan zalig worden?’ En de Heere Jezus zegt het ook zo: ‘Bij de mensen is het onmogelijk’ (Markus 10:26–27). Mattheüs en Lukas gebruiken hetzelfde beeld (Mattheüs 19:24; Lukas 18:25).",
-        refs: ["Markus 10:25–27", "Mattheüs 19:24", "Lukas 18:25"],
-      },
-      {
-        kop: "Kinderen in de Bijbel",
-        t: "Psalm 8 zegt: ‘Uit den mond der kinderkens en der zuigelingen hebt Gij sterkte gegrondvest’ (Psalm 8:3). De Heere Jezus haalt die psalm later aan, als kinderen in de tempel roepen: ‘Hosanna den Zone Davids!’ (Mattheüs 21:15–16). Ook Lukas vertelt over de kinderen die bij Hem gebracht worden. Hij schrijft dat de Heere Jezus ‘dezelve kinderkens tot Zich’ riep (Lukas 18:16).",
-        refs: ["Psalm 8:3", "Mattheüs 21:15–16", "Lukas 18:15–17"],
-      },
-    ],
-    vragen: [
-      {
-        q: "Wat zei de Heere Jezus toen de man Hem ‘Goede Meester’ noemde?",
-        a: ["Niemand is goed, dan Een, namelijk God", "Ik ben de goede Herder", "Gij hebt recht geantwoord"],
-        why: "Markus 10:18",
-      },
-      {
-        q: "Hoe begrepen de discipelen het beeld van de kemel en de naald?",
-        a: ["Als iets wat onmogelijk is", "Als een poort in Jeruzalem", "Als een raadsel over dieren"],
-        why: "Markus 10:26–27",
-      },
-      {
-        q: "Welke psalm haalt de Heere Jezus aan als kinderen in de tempel Hosanna roepen?",
-        a: ["Psalm 8", "Psalm 23", "Psalm 100"],
-        why: "Mattheüs 21:15–16; Psalm 8:3",
-      },
-    ],
-  },
-  108: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "De drinkbeker",
-        t: "De Heere Jezus spreekt over ‘den drinkbeker’ die Hij drinkt (Markus 10:38). In Gethsemane bidt Hij later: ‘neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt’ (Markus 14:36). Tegen de broers zegt Hij dat zij Zijn drinkbeker ook zullen drinken (Markus 10:39). Jakobus werd later met het zwaard gedood (Handelingen 12:2); Johannes schrijft dat hij ‘medegenoot in de verdrukking’ was, op het eiland Patmos (Openbaring 1:9). Veel uitleggers zien hierin hoe dit woord uitkwam.",
-        refs: ["Markus 10:38–39", "Markus 14:32–36", "Handelingen 12:2", "Openbaring 1:9"],
-      },
-      {
-        kop: "Rechts en links",
-        t: "Jakobus en Johannes vragen om de plaatsen aan Zijn rechter- en linkerhand ‘in Uw heerlijkheid’. Markus gebruikt die woorden later opnieuw: bij de kruisiging hangen er twee moordenaars, ‘een aan Zijn rechter-, en een aan Zijn linker zijde’ (Markus 15:27). Sommige uitleggers wijzen op dat verband. Mattheüs schrijft dat de plaatsen gegeven worden aan hen voor wie het ‘bereid is van Mijn Vader’ (Mattheüs 20:23).",
-        refs: ["Markus 10:37", "Markus 15:27", "Mattheüs 20:23"],
-      },
-      {
-        kop: "Een rantsoen voor velen",
-        t: "Een rantsoen is een losprijs: wat betaald wordt om iemand vrij te maken. Paulus schrijft iets vergelijkbaars over Christus Jezus, ‘Die Zichzelven gegeven heeft tot een rantsoen voor allen’ (1 Timotheüs 2:6). Jesaja had over de Knecht van de HEERE gezegd dat Hij ‘veler zonden gedragen heeft’ (Jesaja 53:12). Markus vertelt ook eerder dat de Heere Jezus Zijn lijden aankondigt (Markus 8:31; 9:31); hier doet Hij dat het uitvoerigst.",
-        refs: ["1 Timotheüs 2:5–6", "Jesaja 53:12", "Markus 8:31", "Markus 9:31"],
-      },
-    ],
-    vragen: [
-      {
-        q: "Waar bidt de Heere Jezus later: ‘neem dezen drinkbeker van Mij weg’?",
-        a: ["In Gethsemane", "Op de berg van de verheerlijking", "In de tempel"],
-        why: "Markus 14:32–36",
-      },
-      {
-        q: "Wie hingen er bij de kruisiging aan Zijn rechter- en linkerzijde?",
-        a: ["Twee moordenaars", "Jakobus en Johannes", "Twee soldaten"],
-        why: "Markus 15:27",
-      },
-      {
-        q: "Wat schrijft Paulus in 1 Timotheüs 2:6 over Christus?",
-        a: [
-          "Hij heeft Zichzelf gegeven tot een rantsoen voor allen",
-          "Hij is gekomen om een aards koninkrijk te stichten",
-          "Hij heeft alleen voor Israël geleefd",
-        ],
-        why: "1 Timotheüs 2:6",
-      },
-    ],
-  },
-  109: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Samaritanen",
-        t: "De Samaritanen woonden in Samaria, tussen Judea en Galilea. Nadat Assyrië Samaria had ingenomen, liet de koning van Assyrië volken uit andere landen ‘wonen in de steden van Samaria’ (2 Koningen 17:6, 24). Daarmee wordt vaak verklaard waarom Joden en Samaritanen niet met elkaar omgingen. Kort voor deze gelijkenis wilde een dorp van de Samaritanen de Heere Jezus niet ontvangen (Lukas 9:52–53). Veel uitleggers wijzen erop dat het daarom extra opvalt dat juist een Samaritaan in deze gelijkenis barmhartig is.",
-        refs: ["2 Koningen 17:6", "2 Koningen 17:24", "Lukas 9:52–53"],
-      },
-      {
-        kop: "Priester, Leviet en penning",
-        t: "Priesters waren Aäron en zijn zonen en hun nakomelingen (Exodus 28:1; Numeri 3:10). De Levieten hielpen hen: ze werden ‘aan Aäron en aan zijn zonen’ gegeven (Numeri 3:9). Een penning was ongeveer het loon voor een dag werk: in een andere gelijkenis krijgen arbeiders ‘een penning des daags’ (Mattheüs 20:2). De Samaritaan belooft de waard bovendien terug te betalen wat hij meer uitgeeft (Lukas 10:35).",
-        refs: ["Exodus 28:1", "Numeri 3:9–10", "Mattheüs 20:2", "Lukas 10:35"],
-      },
-      {
-        kop: "Waar en wanneer",
-        t: "De man ‘kwam af van Jeruzalem naar Jericho’ (Lukas 10:30): Jeruzalem ligt hoog in het bergland, Jericho veel lager in het dal van de Jordaan. Lukas noemt geen plaats waar de Heere Jezus deze gelijkenis vertelde. Hij plaatst haar op de reis naar Jeruzalem (Lukas 9:51). De datering ca. 29–30 n.Chr. (of 32–33) is een reconstructie.",
-        refs: ["Lukas 10:30", "Lukas 9:51"],
-      },
-    ],
-    vragen: [
-      {
-        q: "Wie liet volgens 2 Koningen 17 volken uit andere landen in Samaria wonen?",
-        a: ["De koning van Assyrië", "De koning van Egypte", "Koning Salomo"],
-        why: "2 Koningen 17:24",
-      },
-      {
-        q: "Wat beloofde de Samaritaan aan de waard?",
-        a: ["Wat hij meer uitgaf, zou hij terugbetalen", "Dat de gewonde man later zelf zou betalen", "Dat hij nooit meer terug zou komen"],
-        why: "Lukas 10:35",
-      },
-      {
-        q: "Waarom vroeg de wetgeleerde: ‘En wie is mijn naaste?’",
-        a: ["Hij wilde zichzelf rechtvaardigen", "Hij kende de wet niet", "Hij zocht een buurman om te helpen"],
-        why: "Lukas 10:29",
-      },
-      {
-        q: "Hoeveel was een penning ongeveer waard?",
-        a: ["Het loon voor een dag werk", "De prijs van een huis", "Het loon voor een jaar werk"],
-        why: "Mattheüs 20:2",
       },
     ],
   },
@@ -5128,7 +4826,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Twee keer een kolenvuur",
-        t: "In de hele Statenvertaling komt het woord kolenvuur maar twee keer voor: hier (21:9) en in de nacht van het verhoor. Toen warmde Petrus zich bij een kolenvuur en zei hij drie keer dat hij geen discipel van de Heere Jezus was (Johannes 18:17–18, 25–27). Nu vraagt de Heere hem drie keer: ‘hebt gij Mij lief?’ Veel uitleggers zien daarin dat Petrus hier hersteld wordt. In de nacht voor het lijden had de Heere Jezus tegen hem gezegd: ‘Waar Ik heenga, kunt gij Mij nu niet volgen; maar gij zult Mij namaals volgen’ (Johannes 13:36). Nu zegt Hij: ‘Volg Mij.’",
+        t: "In de hele Statenvertaling komt het woord kolenvuur maar twee keer voor: hier (21:9) en in de nacht van het verhoor. In die nacht zei Petrus drie keer dat hij geen discipel van de Heere Jezus was; intussen warmde hij zich bij een kolenvuur (Johannes 18:17–18, 25–27). Nu vraagt de Heere hem drie keer: ‘hebt gij Mij lief?’ Veel uitleggers zien daarin dat Petrus hier hersteld wordt. In de nacht voor het lijden had de Heere Jezus tegen hem gezegd: ‘Waar Ik heenga, kunt gij Mij nu niet volgen; maar gij zult Mij namaals volgen’ (Johannes 13:36). Nu zegt Hij: ‘Volg Mij.’",
         refs: ["Johannes 21:9", "Johannes 18:17–27", "Johannes 13:36"],
       },
       {
@@ -5708,7 +5406,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   148: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Van Melite naar Rome",
@@ -5717,8 +5415,8 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Paulus en Jesaja",
-        t: "De woorden die Paulus aanhaalt, komen uit Jesaja 6. Daar zegt de Heere tegen Jesaja: ‘Ga henen, en zeg tot dit volk’ (Jesaja 6:9). De Heere Jezus haalde dezelfde profetie aan toen Hij in gelijkenissen sprak (Mattheüs 13:14–15). Dat Paulus zich tot de heidenen keert, gebeurde al eerder, in Antiochië in Pisidië: ‘ziet, wij keren ons tot de heidenen’ (Handelingen 13:46). En in de brief aan Efeze noemt Paulus zichzelf ‘een gezant … in een keten’ (Efeze 6:20), zoals hij hier ‘met deze keten omvangen’ is (28:20).",
-        refs: ["Jesaja 6:9–10", "Mattheüs 13:14–15", "Handelingen 13:46", "Efeze 6:20"],
+        t: "De woorden die Paulus aanhaalt, komen uit Jesaja 6. Daar zegt de Heere tegen Jesaja: ‘Ga henen, en zeg tot dit volk’ (Jesaja 6:9). De Heere Jezus haalde dezelfde profetie aan toen Hij in gelijkenissen sprak (Mattheüs 13:14–15). Dat Paulus zich tot de heidenen keert, gebeurde al eerder, in Antiochië in Pisidië: ‘ziet, wij keren ons tot de heidenen’ (Handelingen 13:46). Hier zegt hij ‘met deze keten omvangen’ te zijn (28:20). Ook in de brief aan Efeze noemt Paulus zichzelf ‘een gezant … in een keten’ (Efeze 6:20).",
+        refs: ["Jesaja 6:9–10", "Mattheüs 13:14–15", "Handelingen 13:46", "Handelingen 28:20", "Efeze 6:20"],
       },
       {
         kop: "Wat Handelingen niet vertelt",
@@ -5744,18 +5442,30 @@ BR.niveaus.voegToe("c", {
       },
       {
         q: "Wat vertelt Handelingen over de afloop van het proces van Paulus?",
-        a: ["Niets: het boek eindigt met zijn prediking", "Dat hij werd vrijgesproken", "Dat hij in Rome werd gedood"],
+        a: ["Niets, het boek vertelt het niet", "Dat hij werd vrijgesproken", "Dat hij in Rome werd gedood"],
         why: "Handelingen 28:30–31",
       },
     ],
   },
   149: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Beelden die al eerder voorkomen",
-        t: "Veel van wat Johannes ziet, staat al eerder in de Bijbel. De vier dieren roepen ‘Heilig, heilig, heilig’ (Openbaring 4:8), zoals de serafs bij Jesaja (Jesaja 6:3). Een leeuw, een kalf, een mens en een arend (Openbaring 4:7) lijken op de vier aangezichten bij Ezechiël: een mens, een leeuw, een os en een arend (Ezechiël 1:10). Het beest uit de zee, een pardel, een beer en een leeuw gelijk (Openbaring 13:1–2), doet denken aan de dieren die Daniël uit de zee zag opkomen (Daniël 7:3–7). En water dat bloed wordt, hagel en sprinkhanen kennen we van de plagen in Egypte. Uitleggers wijzen op die verbanden; wat de beelden precies betekenen, daarover verschillen zij.",
-        refs: ["Jesaja 6:3", "Ezechiël 1:10", "Daniël 7:3–7", "Exodus 7:20", "Exodus 9:23", "Exodus 10:14"],
+        t: "Veel van wat Johannes ziet, staat al eerder in de Bijbel. De vier dieren roepen ‘Heilig, heilig, heilig’ (Openbaring 4:8), zoals de serafs bij Jesaja (Jesaja 6:3). Een leeuw, een kalf, een mens en een arend (Openbaring 4:7) lijken op de vier aangezichten bij Ezechiël: een mens, een leeuw, een os en een arend (Ezechiël 1:10). Het beest uit de zee is een pardel gelijk, met voeten als van een beer en een mond als van een leeuw (Openbaring 13:1–2). Dat doet denken aan de dieren die Daniël uit de zee zag opkomen (Daniël 7:3–7). Hagel, water dat bloed wordt en sprinkhanen (Openbaring 8:7–8; 9:3; 16:3–4) kennen we van de plagen in Egypte. Uitleggers wijzen op die verbanden; wat de beelden precies betekenen, daarover verschillen zij.",
+        refs: [
+          "Openbaring 4:7–8",
+          "Jesaja 6:3",
+          "Ezechiël 1:10",
+          "Openbaring 13:1–2",
+          "Daniël 7:3–7",
+          "Openbaring 8:7–8",
+          "Openbaring 9:3",
+          "Openbaring 16:3–4",
+          "Exodus 7:20",
+          "Exodus 9:23",
+          "Exodus 10:14",
+        ],
       },
       {
         kop: "Reeksen van zeven",
@@ -5780,18 +5490,14 @@ BR.niveaus.voegToe("c", {
         why: "Openbaring 6:1; Openbaring 8:2; Openbaring 16:1",
       },
       {
-        q: "Wat zei de engel toen Johannes voor hem neerviel om hem te aanbidden?",
-        a: [
-          "Dat hij dat niet moest doen, maar God aanbidden",
-          "Dat hij moest opstaan en verder schrijven",
-          "Dat hij terug moest naar Patmos",
-        ],
-        why: "Openbaring 19:10",
+        q: "Bij welke profeet hebben de vier gedaanten het aangezicht van een mens, een leeuw, een os en een arend?",
+        a: ["Ezechiël", "Daniël", "Jeremia"],
+        why: "Ezechiël 1:10",
       },
     ],
   },
   150: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Al eerder beloofd",
@@ -5805,8 +5511,8 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wanneer?",
-        t: "Jesaja profeteerde in de tijd van de koningen Uzzia tot Hizkia (Jesaja 1:1), ongeveer 740–700 v.Chr. Openbaring wordt meestal rond 95 n.Chr. gedateerd; sommigen houden ca. 68 n.Chr. aan. Wat Openbaring 21–22 beschrijft, ligt in de toekomst; daarvoor noemt de Bijbel geen datum. Wel zegt de Heere: ‘Zie, Ik kom haastiglijk’ (22:7).",
-        refs: ["Jesaja 1:1", "Openbaring 22:7"],
+        t: "Jesaja profeteerde in de tijd van de koningen Uzzia tot Hizkia (Jesaja 1:1); volgens een reconstructie is dat ongeveer 740–700 v.Chr. Openbaring wordt meestal rond 95 n.Chr. gedateerd; sommigen houden ca. 68 n.Chr. aan. Wat Openbaring 21–22 beschrijft, ligt in de toekomst; daarvoor noemt de Bijbel geen datum. Wel staat er driemaal: ‘Ik kom haastiglijk’, dat is: snel (22:7, 12, 20).",
+        refs: ["Jesaja 1:1", "Openbaring 22:7", "Openbaring 22:12", "Openbaring 22:20"],
       },
     ],
     vragen: [
