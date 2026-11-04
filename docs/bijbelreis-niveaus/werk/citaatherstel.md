@@ -1,0 +1,139 @@
+# Citaten in de bestaande inhoud die niet letterlijk (of niet met de juiste hoofdletters) in de Statenvertaling staan
+
+Vindplaats: g<nr> = geschiedenissen/*.js (veld erachter); <boek>:<deel>[:<stap>] = inhoud/<boek>.js; kernwoorden = geschiedenissen/leidraad.js of kernwoordenbestand; mensen:<id> = personen.js.
+
+- [niet letterlijk] g4.cross: ‘spreekt betere dingen dan Abel’
+- [niet letterlijk] g7.uitleg: ‘Laten we een stad bouwen en een toren met de top in de hemel, en een naam voor onszelf maken, zodat we niet over de hele aarde verstrooid worden.’
+- [niet letterlijk] g9.ontdek.items: ‘God hoort’
+- [niet letterlijk] g9.ontdek.items: ‘put van de Levende, Die mij ziet’
+- [niet letterlijk] g10.betekenis: ‘God gedacht aan Abraham, en Hij leidde Lot uit het midden dezer omkering’
+- [hoofdletters] g13.uitleg: ‘De HEERE zal het voorzien!’
+- [niet letterlijk] g33.betekenis: ‘zij hebben niet kunnen ingaan vanwege hun ongeloof’
+- [niet letterlijk] g33.tijdNoot: ‘in de dagen der eerste vruchten van de wijndruiven’
+- [niet letterlijk] g35.cross: ‘heeft het loon der ongerechtigheid liefgehad’
+- [niet letterlijk] g37.betekenis: ‘is niet omgekomen met de ongehoorzamen’
+- [niet letterlijk] g41.betekenis: ‘den mond des HEEREN niet vraagden’
+- [niet letterlijk] g41.betekenis: ‘streed de HEERE voor Israël’
+- [niet letterlijk] g46.betekenis: ‘wist hij niet, dat de HEERE van hem geweken was’
+- [niet letterlijk] g51.uitleg: ‘Gij hebt zottelijk (dwaas) gedaan’
+- [niet letterlijk] g52.betekenis: ‘De HEERE verlost niet door het zwaard, noch door de spies; want de krijg is des HEEREN’
+- [niet letterlijk] g55.betekenis: ‘het is den mensen gezet, eenmaal te sterven, en daarna het oordeel.’
+- [niet letterlijk] g55.cross: ‘Het is den mensen gezet, eenmaal te sterven, en daarna het oordeel.’
+- [hoofdletters] g69.cross: ‘Woonde ik aan het uiterste der zee, ook daar zou Uw hand mij geleiden.’
+- [niet letterlijk] g70.uitleg: ‘Nog veertig dagen, dan zal Ninevé worden omgekeerd!’
+- [niet letterlijk] g80.cross: ‘de man Gabriel’
+- [niet letterlijk] g85.cross: ‘Er zal een ster voortkomen uit Jakob, en er zal een scepter uit Israel opkomen.’
+- [niet letterlijk] g85.cross: ‘uit u zal de Leidsman voortkomen, Die Mijn volk Israel weiden zal’
+- [niet letterlijk] g85.ontdek.items: ‘Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israel’
+- [niet letterlijk] g93.ontdek.items: ‘Zijt gij een leraar van Israel, en weet gij deze dingen niet?’
+- [niet letterlijk] g107.cross: ‘Indien gij u niet verandert, en wordt gelijk de kinderkens, zo zult gij in het Koninkrijk der hemelen geenszins ingaan.’
+- [hoofdletters] g110.uitleg: ‘Martha, Martha, gij bekommert en ontrust u over vele dingen; maar een ding is nodig.’
+- [niet letterlijk] g112.ontdek.beelden: ‘Er zal blijdschap zijn in den hemel over een zondaar, die zich bekeert.’
+- [niet letterlijk] g112.ontdek.beelden: ‘Er is blijdschap voor de engelen Gods over een zondaar, die zich bekeert.’
+- [niet letterlijk] g115.tijdNoot: ‘het pascha der Joden nabij’
+- [niet letterlijk] g122.tijdNoot: ‘de dag der ongehevelde broden, op denwelken het pascha moest geslacht worden’
+- [niet letterlijk] g124.uitleg: ‘Gij waart ook met Jezus, den Galileeër’
+- [niet letterlijk] g124.ontdek.items: ‘Gij waart ook met Jezus, den Galileeër.’
+- [hoofdletters] g126.uitleg: ‘Jezus de Nazarener, de Koning der Joden’
+- [hoofdletters] g127.cross: ‘Dat Christus gestorven is voor onze zonden, naar de Schriften; en dat Hij is begraven.’
+- [niet letterlijk] g133.betekenis: ‘gezeten is aan de rechter hand Gods’
+- [niet letterlijk] g133.ontdek.vraag: ‘van den berg, die genaamd wordt de Olijfberg’
+- [niet letterlijk] genesis:begin:2.fact: ‘Wie is wie’
+- [niet letterlijk] genesis:begin:6.fact: ‘Wie is wie’
+- [niet letterlijk] genesis:abraham:13.fact: ‘God hoort’
+- [niet letterlijk] genesis:abraham:13.fact: ‘de HEERE heeft uw verdrukking aangehoord’
+- [niet letterlijk] genesis:abraham:14.fact: ‘verheven vader’
+- [niet letterlijk] genesis:abraham:20.fact: ‘put van de eed’
+- [niet letterlijk] genesis:abraham:20.fact: ‘put van zeven’
+- [niet letterlijk] genesis:izak.cross: ‘Ik ben de God van Abraham, de God van Izak en de God van Jakob.’
+- [niet letterlijk] genesis:jakob:3.fact: ‘Wie is wie’
+- [niet letterlijk] genesis:jakob:4.fact: ‘hoop van getuigenis’
+- [niet letterlijk] genesis:jakob:6.fact: ‘strijder met God’
+- [niet letterlijk] genesis:jakob:6.fact: ‘vorst bij God’
+- [niet letterlijk] genesis:jakob:9.fact: ‘zoon van mijn smart’
+- [niet letterlijk] genesis:jakob:9.fact: ‘zoon van de rechterhand’
+- [niet letterlijk] genesis:jozef:0.fact: ‘veelvervige rok’
+- [niet letterlijk] genesis:jozef:2.fact: ‘wij zagen de benauwdheid van zijn ziel, toen hij ons om genade bad; maar wij hoorden niet’
+- [hoofdletters] genesis:jozef:9.txt: ‘Ik ben Jozef! Leeft mijn vader nog?’
+- [niet letterlijk] exodus:uittocht:quiz#a0: ‘Wie is de HEERE? Ik ken Hem niet’
+- [niet letterlijk] exodus:sinai:3.fact: ‘mijn God is hulp’
+- [niet letterlijk] exodus:sinai:4.fact: ‘berg van Mozes’
+- [niet letterlijk] numeri:woestijn.cross: ‘Verhard uw hart niet, zoals bij Meriba.’
+- [niet letterlijk] numeri:woestijn:2.fact: ‘zeer zachtmoedig, meer dan alle mensen op de aardbodem’
+- [niet letterlijk] numeri:woestijn:5.fact: ‘Verhard uw hart niet, zoals bij Meriba.’
+- [hoofdletters] numeri:woestijn:7.fact: ‘En gelijk Mozes de slang in de woestijn verhoogd heeft, alzo moet de Zoon des mensen verhoogd worden; opdat een iegelijk, die in Hem gelooft, niet verderve, maar het eeuwige leven hebbe’
+- [niet letterlijk] numeri:moab.cross: ‘Denk toch aan wat Balak bedacht en wat Bileam hem antwoordde.’
+- [niet letterlijk] numeri:moab.cross: ‘De mens zal niet van brood alleen leven.’
+- [niet letterlijk] numeri:moab.cross: ‘Wees sterk en heb goede moed. Ik zal met je zijn.’
+- [niet letterlijk] numeri:moab:quiz#a0: ‘Hoor, Israël! De HEERE, onze God, de HEERE is één’
+- [niet letterlijk] numeri:moab:2.fact: ‘de HEERE redt’
+- [niet letterlijk] numeri:moab:3.fact: ‘Sjema Jisraël’
+- [niet letterlijk] jozua:intocht.cross: ‘van Sittim tot Gilgal’
+- [niet letterlijk] jozua:intocht:0.fact: ‘de HEERE redt’
+- [niet letterlijk] jozua:intocht:1.fact: ‘De HEERE, uw God, is een God boven in de hemel en beneden op de aarde’
+- [niet letterlijk] jozua:land.cross: ‘Het volk diende de HEERE al de dagen van Jozua.’
+- [hoofdletters] jozua:land:5.onthul.items: ‘Bethlehem-Juda’
+- [niet letterlijk] richteren:debora.cross: ‘als met Sisera en Jabin bij de beek Kison’
+- [niet letterlijk] richteren:debora.cross: ‘als met Oreb en Zeëb’
+- [niet letterlijk] richteren:debora.cross: ‘de slachting van Midian bij de rots Oreb’
+- [niet letterlijk] richteren:debora:0.fact: ‘In die dagen was er geen koning in Israël; een ieder deed, wat recht was in zijn ogen’
+- [niet letterlijk] richteren:debora:3.fact: ‘de wolken dropen van water’
+- [niet letterlijk] richteren:debora:4.fact: ‘gezegend boven de vrouwen in de tent’
+- [hoofdletters] richteren:debora:5.txt: ‘De HEERE is vrede.’
+- [niet letterlijk] richteren:debora:8.fact: ‘Ik zal niet over u heersen, en mijn zoon ook niet. De HEERE zal over u heersen’
+- [niet letterlijk] richteren:simson:4.fact: ‘Tegenover Hebron’
+- [niet letterlijk] richteren:simson:5.fact: ‘Het haar van zijn hoofd begon weer te groeien’
+- [niet letterlijk] ruth:ruth.cross: ‘Boaz verwekte Obed bij Ruth, Obed verwekte Isaï, Isaï verwekte David, de koning.’
+- [niet letterlijk] ruth:ruth.cross: ‘Isaï, de Bethlehemiet’
+- [niet letterlijk] 1samuel:samuel.stat: ‘al de dagen van zijn leven’
+- [niet letterlijk] 1samuel:samuel.cross: ‘Gaat nu henen naar Mijn plaats, die te Silo was, en ziet, wat Ik daaraan gedaan heb.’
+- [niet letterlijk] 1samuel:samuel.tijdNoot: ‘ca. 1100’
+- [niet letterlijk] 1samuel:samuel:1.fact: ‘voordat de lamp van God uitging’
+- [niet letterlijk] 2samuel:david:7.fact: ‘geliefd door de HEERE’
+- [niet letterlijk] 2samuel:david:8.fact: ‘toen hij vluchtte voor zijn zoon Absalom’
+- [niet letterlijk] 1koningen:salomo.cross: ‘en zie, meer dan Salomo is hier’
+- [niet letterlijk] 1koningen:salomo.cross: ‘De spreuken van Salomo, de zoon van David, de koning van Israël.’
+- [niet letterlijk] 1koningen:elia.cross: ‘in de geest en de kracht van Elia’
+- [hoofdletters] 1koningen:elia:3.txt: ‘De HEERE is God! De HEERE is God!’
+- [hoofdletters] 2koningen:elisa:1.txt: ‘Kaalkop, ga op! Kaalkop, ga op!’
+- [niet letterlijk] 2koningen:ballingschap:3.fact: ‘als een vogel in een kooi’
+- [niet letterlijk] 2koningen:ballingschap:5.fact: ‘berg van Megiddo’
+- [niet letterlijk] 2koningen:ballingschap:8.fact: ‘Jaukin, koning van het land Juda’
+- [niet letterlijk] daniel:daniel.cross: ‘hebben de muilen der leeuwen toegestopt’
+- [niet letterlijk] daniel:daniel.cross: ‘de kracht des vuurs uitgeblust’
+- [niet letterlijk] daniel:daniel:3.fact: ‘Geen wijze kan dit; maar er is een God in de hemel Die verborgen dingen openbaart’
+- [niet letterlijk] daniel:daniel:7.fact: ‘De God van Daniël is de levende God; Zijn koninkrijk vergaat niet’
+- [niet letterlijk] jona:jona.cross: ‘En zie, meer dan Jona is hier.’
+- [niet letterlijk] jona:jona.cross: ‘Waar zou ik heengaan voor Uw Geest? Woonde ik aan het uiterste van de zee, ook daar zou Uw hand mij leiden.’
+- [hoofdletters] profeten:jeremia.cross: ‘Het zijn de goedertierenheden des HEEREN, dat wij niet vernield zijn, dat Zijn barmhartigheden geen einde hebben; zij zijn allen morgen nieuw, Uw trouw is groot.’
+- [niet letterlijk] jezus-1:nt-geboorte:2.fact: ‘de HEERE redt’
+- [hoofdletters] jezus-1:nt-geboorte:3.txt: ‘Mijn ziel maakt groot den Heere, en mijn geest verheugt zich in God, mijn Zaligmaker.’
+- [hoofdletters] jezus-2:nt-reis-naar-jeruzalem:2.txt: ‘Martha, Martha, gij bekommert en ontrust u over vele dingen; maar een ding is nodig.’
+- [hoofdletters] jezus-3:nt-lijden:6.fact: ‘Jezus de Nazarener, de Koning der Joden’
+- [hoofdletters] jezus-3:nt-lijden:7.txt: ‘Eli, Eli, lama sabachthani!’
+- [hoofdletters] jezus-3:nt-opstanding.cross: ‘Dat Christus gestorven is voor onze zonden, naar de Schriften; en dat Hij is begraven, en dat Hij is opgewekt ten derden dage.’
+- [hoofdletters] openbaring:nt-openbaring:0.txt: ‘Vrees niet; Ik ben de Eerste en de Laatste; en Die leef, en Ik ben dood geweest; en zie, Ik ben levend in alle eeuwigheid.’
+- [niet letterlijk] kernwoorden.refs: ‘Indien wij onze zonden belijden, Hij is getrouw en rechtvaardig.’
+- [niet letterlijk] kernwoorden.uitleg: ‘misschien gaat het goed’
+- [niet letterlijk] kernwoorden.refs: ‘heeft volhard’
+- [niet letterlijk] kernwoorden.uitleg: ‘het is den mensen gezet, eenmaal te sterven, en daarna het oordeel’
+- [niet letterlijk] kernwoorden.uitleg: ‘zijn al de schatten der wijsheid en der kennis verborgen’
+- [niet letterlijk] kernwoorden.refs: ‘Ik ben Gabriel, die voor God sta.’
+- [niet letterlijk] kernwoorden.uitleg: ‘opnieuw geboren worden’
+- [hoofdletters] kernwoorden.uitleg: ‘dat Christus gestorven is voor onze zonden, naar de Schriften; en dat Hij is begraven, en dat Hij is opgewekt ten derden dage’
+- [niet letterlijk] kernwoorden.refs: ‘Zalig zijn de zachtmoedigen; want zij zullen het aardrijk beerven.’
+- [niet letterlijk] mensen:lot.elders: ‘de rechtvaardige Lot’
+- [niet letterlijk] mensen:juda.elders: ‘De scepter zal van Juda niet wijken.’
+- [niet letterlijk] mensen:juda.elders: ‘De Leeuw, Die uit de stam van Juda is.’
+- [niet letterlijk] mensen:mozes.elders: ‘een gebed van Mozes, de man Gods’
+- [niet letterlijk] mensen:sihon.elders: ‘Sihon, de Amorietische koning; want Zijn goedertierenheid is in der eeuwigheid.’
+- [niet letterlijk] mensen:david.kort: ‘een man naar Zijn hart’
+- [niet letterlijk] mensen:ithai.kort: ‘In de plaats waar mijn heer de koning zal zijn, daar zal uw knecht voorzeker ook zijn!’
+- [niet letterlijk] mensen:kores.elders: ‘Kores, hij is Mijn herder.’
+- [niet letterlijk] mensen:kores.elders: ‘Alzo zegt de HEERE tot Zijn gezalfde, tot Kores.’
+- [niet letterlijk] mensen:sealthiel.basis.v: ‘Jechonias gewon Salathiël’
+- [niet letterlijk] mensen:zerubbabel.elders: ‘de vorst van Juda’
+- [hoofdletters] mensen:jozef_nt.elders: ‘En Jakob gewon Jozef, den man van Maria, uit welke geboren is Jezus, gezegd Christus.’
+- [niet letterlijk] mensen:johannes.overlevering: ‘de discipel, dien Jezus liefhad’
+- [niet letterlijk] mensen:paulus.elders: ‘een jongeling, genaamd Saulus’
+- [niet letterlijk] mensen:ananias_damascus.elders: ‘Deze is Mij een uitverkoren vat.’

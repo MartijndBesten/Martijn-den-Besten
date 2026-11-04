@@ -1,0 +1,1031 @@
+{
+  "43": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "ri_ofra",
+        "ri_harod",
+        "ri_more"
+      ],
+      "delen": [
+        {
+          "t": "Israël doet wat kwaad is in de ogen van de HEERE. Daarom geeft Hij de Midianieten macht over hen. Zeven jaar lang eten zij alles op.",
+          "stap": "richteren:debora:5"
+        },
+        {
+          "t": "In Ofra dorst Gideon tarwe bij de pers, verstopt voor de Midianieten. Daar komt de Engel van de HEERE bij hem.",
+          "stap": "richteren:debora:5"
+        },
+        {
+          "t": "De Engel zegt: ‘De HEERE is met u, gij, strijdbare held!’ Dat betekent: dappere held. Gideon moet Israël gaan verlossen."
+        },
+        {
+          "t": "Gideon zegt dat hij de kleinste is in zijn familie. Maar God belooft dat Hij met Gideon zal zijn."
+        },
+        {
+          "t": "In de nacht breekt Gideon het altaar van de afgod Baäl af. Hij bouwt een altaar voor de HEERE.",
+          "stap": "richteren:debora:6"
+        },
+        {
+          "t": "Gideon vraagt God om een teken met een wollen vlies. De ene nacht is alleen het vlies nat. De andere nacht is alleen het vlies droog.",
+          "stap": "richteren:debora:6"
+        },
+        {
+          "t": "Veel mannen zijn gekomen om te strijden. Maar God zegt: het zijn er te veel. Anders zegt Israël straks: dat hebben we zelf gedaan.",
+          "stap": "richteren:debora:7"
+        },
+        {
+          "t": "Wie bang is, mag naar huis. Bij het water kiest God er driehonderd uit. Alleen met hen gaat Gideon.",
+          "stap": "richteren:debora:7"
+        },
+        {
+          "t": "In de nacht staan de driehonderd rondom het kamp van de vijand. Ze hebben bazuinen, en kruiken met een fakkel erin.",
+          "stap": "richteren:debora:8"
+        },
+        {
+          "t": "Ze blazen, breken de kruiken en roepen: ‘Het zwaard van den HEERE, en van Gideon!’ Dan vluchten de vijanden. God heeft Israël gered.",
+          "stap": "richteren:debora:8"
+        }
+      ],
+      "samen": "Weggelaten: de droom in het kamp van Midian (Richteren 7:9–15) en wat na de nacht gebeurt: de achtervolging, de dood van de vorsten en koningen van Midian en de straf voor Sukkoth en Pnuël (7:22–8:21). Ook de efod die ‘tot een valstrik’ werd (8:27) staat hier niet. Let op: de tekst zegt niet dat de driehonderd gekozen werden omdat ze slimmer dronken. God zegt zelf waarom het leger klein moest zijn (7:2). Vraag samen: wie heeft hier eigenlijk gewonnen? (7:7)",
+      "vragen": [
+        {
+          "q": "Waarom wil God maar een klein leger?",
+          "a": [
+            "Zodat Israël niet zegt: dat deden we zelf",
+            "Omdat er te weinig zwaarden zijn"
+          ],
+          "why": "Richteren 7:2"
+        },
+        {
+          "q": "Waarom legt Gideon een vlies op de grond?",
+          "a": [
+            "Hij vraagt God om een teken",
+            "Hij wil het vlies laten drogen"
+          ],
+          "why": "Richteren 6:36–37"
+        },
+        {
+          "q": "Wat zit er in de kruiken?",
+          "a": [
+            "Een fakkel",
+            "Water"
+          ],
+          "why": "Richteren 7:16"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een held bij de pers",
+          "stap": "richteren:debora:5",
+          "t": "Israël doet kwaad in de ogen van de HEERE. Daarom geeft Hij hen zeven jaar in de hand van de Midianieten. Die komen zo talrijk als sprinkhanen en eten alles op. In Ofra dorst Gideon tarwe bij de pers, verstopt voor hen. De Engel van de HEERE zegt: ‘De HEERE is met u, gij, strijdbare held!’ Strijdbaar betekent: dapper in de strijd. Gideon moet Israël verlossen."
+        },
+        {
+          "kop": "Te veel soldaten",
+          "stap": "richteren:debora:7",
+          "t": "In opdracht van God breekt Gideon ’s nachts het altaar van de afgod Baäl af. Met het wollen vlies geeft God hem twee keer een teken. Dan zegt God: ‘Des volks is te veel’. Israël mag later niet denken dat het zichzelf verlost heeft. Wie bang is, gaat naar huis. Bij het water houdt God er driehonderd over."
+        },
+        {
+          "kop": "Bazuinen, kruiken en fakkels",
+          "stap": "richteren:debora:8",
+          "t": "’s Nachts staan de driehonderd rondom het kamp. Ze blazen op de bazuinen, breken de kruiken met de fakkels in hun linkerhand. Ze roepen: ‘Het zwaard van den HEERE, en van Gideon!’ De HEERE laat de vijanden elkaar aanvallen, en ze vluchten. Later wil Israël Gideon als koning. Maar hij zegt: ‘de HEERE zal over u heersen.’"
+        }
+      ],
+      "vragen": [
+        {
+          "q": "In welke plaats komt de Engel bij Gideon?",
+          "a": [
+            "Ofra",
+            "Harod",
+            "Gaza"
+          ],
+          "why": "Richteren 6:11"
+        },
+        {
+          "q": "Waarom dorst Gideon de tarwe bij de pers?",
+          "a": [
+            "Om die te verbergen voor de Midianieten",
+            "Omdat het daar het droogst was",
+            "Omdat zijn vader dat had gevraagd"
+          ],
+          "why": "Richteren 6:11"
+        },
+        {
+          "q": "Waarom stuurt God de meeste soldaten naar huis?",
+          "a": [
+            "Israël mag niet zeggen dat het zichzelf verlost heeft",
+            "Er is niet genoeg eten voor zoveel soldaten",
+            "De vijand is al weggevlucht"
+          ],
+          "why": "Richteren 7:2"
+        },
+        {
+          "q": "Wat gebeurt er eerst?",
+          "a": [
+            "Gideon breekt het altaar van Baäl af",
+            "De driehonderd breken hun kruiken",
+            "Israël wil Gideon als koning"
+          ],
+          "why": "Richteren 6:27–28"
+        },
+        {
+          "q": "Wat zegt Gideon als Israël hem koning wil maken?",
+          "a": [
+            "De HEERE zal over u heersen",
+            "Mijn zoon zal over u heersen",
+            "Ik zal veertig jaar over u heersen"
+          ],
+          "why": "Richteren 8:22–23"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Vaak hoor je dat God de driehonderd koos omdat zij waakzaam dronken. Dat staat er niet. De tekst noemt alleen het verschil: driehonderd hadden ‘met hun hand tot hun mond gelekt’, de anderen hadden ‘op hun knieën gebukt’ (7:6). Wel zegt God waarom het leger klein moest zijn: Israël mocht niet zeggen ‘Mijn hand heeft mij verlost’ (7:2). De vertelling stopt bij de vlucht van Midian, maar Richteren 8 gaat verder. Gideon weigert koning te worden (8:23), maar van het goud van de buit maakt hij een efod, en ‘het werd Gideon en zijn huis tot een valstrik’ (8:27). Na zijn dood dienen de Israëlieten Baäl-berith (8:33).",
+          "refs": [
+            "Richteren 7:2–7",
+            "Richteren 8:22–27",
+            "Richteren 8:33"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "De overwinning op Midian bleef bekend. Psalm 83 bidt: ‘Maak hen en hun prinsen als Oreb en als Zeëb, en al hun vorsten als Zebah en als Zalmuna’. Jesaja 10:26 spreekt van ‘de slachting van Midian … aan de rots van Oreb’ (vergelijk Richteren 7:25). En Samuël noemt Gideon bij zijn andere naam als een van de richters die de HEERE zond: ‘En de HEERE zond Jerubbaäl’ (1 Samuël 12:11). Die naam kreeg hij toen hij het altaar van Baäl had afgebroken (Richteren 6:32).",
+          "refs": [
+            "Psalm 83:10–12",
+            "Jesaja 10:26",
+            "Richteren 7:25",
+            "1 Samuël 12:11",
+            "Richteren 6:32"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Waar Ofra lag, is onbekend. De bron Harod en de heuvel More staan op de kaart als waarschijnlijke plaatsen. Gideon lag bij Harod, met het leger van Midian ten noorden, achter de heuvel More, in het dal (6:33; 7:1). De Bijbel noemt zeven jaar onder Midian en daarna veertig jaar rust (6:1; 8:28), maar geen jaartal. De perioden van de richters overlappen waarschijnlijk; Gideon valt dan ongeveer in de 12e eeuw v.Chr. Andere dateringen komen ruim een eeuw later uit.",
+          "refs": [
+            "Richteren 6:1",
+            "Richteren 6:33",
+            "Richteren 7:1",
+            "Richteren 8:28"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Hoe dronken de driehonderd mannen die met Gideon mochten gaan?",
+          "a": [
+            "Ze brachten het water met hun hand naar hun mond",
+            "Ze knielden en dronken uit het water",
+            "Ze dronken uit hun lege kruiken"
+          ],
+          "why": "Richteren 7:6"
+        },
+        {
+          "q": "Welke naam kreeg Gideon nadat hij het altaar van Baäl had afgebroken?",
+          "a": [
+            "Jerubbaäl",
+            "Abi-ezer",
+            "Oreb"
+          ],
+          "why": "Richteren 6:32"
+        },
+        {
+          "q": "Wat maakte Gideon van het goud uit de buit?",
+          "a": [
+            "Een efod",
+            "Een altaar",
+            "Een kroon"
+          ],
+          "why": "Richteren 8:27"
+        },
+        {
+          "q": "Welke psalm noemt Oreb, Zeëb, Zebah en Zalmuna?",
+          "a": [
+            "Psalm 83",
+            "Psalm 23",
+            "Psalm 136"
+          ],
+          "why": "Psalm 83:12"
+        }
+      ]
+    }
+  },
+  "44": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "zora",
+        "timna"
+      ],
+      "delen": [
+        {
+          "t": "Het volk Israël doet weer wat kwaad is in Gods ogen. Daarom heersen de Filistijnen over hen.",
+          "stap": "richteren:simson:0"
+        },
+        {
+          "t": "In Zora woont Manoach met zijn vrouw. Ze hebben geen kinderen.",
+          "stap": "richteren:simson:0"
+        },
+        {
+          "t": "De Engel van de HEERE komt bij de vrouw. Hij zegt dat ze een zoon zal krijgen."
+        },
+        {
+          "t": "Er mag nooit een scheermes op het hoofd van de jongen komen. Hij zal een nazireeër zijn: iemand die helemaal voor God apart is gezet."
+        },
+        {
+          "t": "Manoach brengt een offer. Dan gaat de Engel omhoog in de vlam van het altaar.",
+          "stap": "richteren:simson:0"
+        },
+        {
+          "t": "De vrouw krijgt een zoon. Ze noemt hem Simson. De jongen wordt groot, en de HEERE zegent hem."
+        },
+        {
+          "t": "Simson wil trouwen met een Filistijnse vrouw uit Timna. Zijn vader en moeder vragen: is er geen vrouw bij ons eigen volk?",
+          "stap": "richteren:simson:1"
+        },
+        {
+          "t": "Onderweg komt een jonge leeuw brullend op Simson af. De Geest van de HEERE komt over hem. Hij scheurt de leeuw met lege handen uiteen.",
+          "stap": "richteren:simson:1"
+        },
+        {
+          "t": "Later vindt Simson bijen en honing in het lichaam van de leeuw. Hij eet ervan en geeft zijn vader en moeder ook."
+        },
+        {
+          "t": "Op de bruiloft geeft Simson een raadsel op over de honing uit de leeuw. Maar zijn vrouw vertelt het antwoord verder.",
+          "stap": "richteren:simson:2"
+        }
+      ],
+      "samen": "Het einde van Richteren 14 is weggelaten: de Filistijnen dreigen Simsons vrouw en haar familie te verbranden (14:15), Simson doodt dertig man in Askelon (14:19), en zijn vrouw wordt aan een ander gegeven (14:20). Vraag samen: wisten de vader en moeder van Simson wat God van plan was? De Bijbel zegt dat zij niet wisten ‘dat dit van den HEERE was’ (Richteren 14:4).",
+      "vragen": [
+        {
+          "q": "Wie komt bij de vrouw van Manoach?",
+          "a": [
+            "De Engel van de HEERE",
+            "Een koning van de Filistijnen"
+          ],
+          "why": "Richteren 13:3"
+        },
+        {
+          "q": "Wat mag er nooit op Simsons hoofd komen?",
+          "a": [
+            "Een scheermes",
+            "Een helm"
+          ],
+          "why": "Richteren 13:5"
+        },
+        {
+          "q": "Wat vindt Simson in het lichaam van de leeuw?",
+          "a": [
+            "Bijen en honing",
+            "Een gouden ring"
+          ],
+          "why": "Richteren 14:8"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een belofte in Zora",
+          "stap": "richteren:simson:0",
+          "t": "Israël doet weer kwaad, en veertig jaar heersen de Filistijnen. In Zora woont Manoach. Zijn vrouw krijgt geen kinderen. De Engel van de HEERE zegt haar dat ze een zoon krijgt. Er mag nooit een scheermes op zijn hoofd komen, want hij is een nazireeër: apart gezet voor God. Ook zegt Hij: ‘hij zal beginnen Israël te verlossen uit der Filistijnen hand.’ Ze noemt hem Simson."
+        },
+        {
+          "kop": "De leeuw bij Timna",
+          "stap": "richteren:simson:1",
+          "t": "Simson wil trouwen met een Filistijnse vrouw uit Timna. Zijn ouders vragen of er geen vrouw bij hun eigen volk is. Zij weten niet ‘dat dit van den HEERE was’. Bij Timna komt een jonge leeuw brullend op hem af. De Geest van de HEERE komt over Simson, en hij scheurt de leeuw uiteen."
+        },
+        {
+          "kop": "Een raadsel op de bruiloft",
+          "stap": "richteren:simson:2",
+          "t": "Later vindt hij honing in de dode leeuw. Op de bruiloft geeft hij dertig Filistijnen een raadsel: ‘Spijze ging uit van den eter, en zoetigheid ging uit van den sterke.’ Ze dreigen zijn vrouw. Zij dringt aan tot hij het haar vertelt, en verraadt het antwoord. Simson doodt dertig man in Askelon en betaalt met hun kleren."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "In welke plaats woonden Manoach en zijn vrouw?",
+          "a": [
+            "Zora",
+            "Timna",
+            "Askelon"
+          ],
+          "why": "Richteren 13:2"
+        },
+        {
+          "q": "Waarom mocht er nooit een scheermes op Simsons hoofd komen?",
+          "a": [
+            "Hij zou een nazireeër van God zijn",
+            "Zijn moeder wilde dat hij lang haar had",
+            "Dat was een gewoonte van de Filistijnen"
+          ],
+          "why": "Richteren 13:5"
+        },
+        {
+          "q": "Wat vroegen Simsons ouders toen hij met een Filistijnse wilde trouwen?",
+          "a": [
+            "Of er geen vrouw bij hun eigen volk was",
+            "Of ze uit een rijke familie kwam",
+            "Of ze wel in Zora wilde wonen"
+          ],
+          "why": "Richteren 14:3"
+        },
+        {
+          "q": "Wat is het antwoord op het raadsel?",
+          "a": [
+            "Honing uit een leeuw",
+            "Brood uit een oven",
+            "Melk van een geit"
+          ],
+          "why": "Richteren 14:8–9, 14, 18"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Een nazireeër voor zijn hele leven",
+          "t": "Numeri 6 beschrijft een nazireeër die een gelofte doet voor een tijd: ‘totdat die dagen vervuld zullen zijn’ (Numeri 6:5). Bij Simson is dat anders. Hij is het niet door eigen keus, maar door Gods woord, ‘van moeders buik af tot op den dag zijns doods’ (Richteren 13:7). Daarom krijgt zijn moeder al vóór zijn geboorte regels: ‘drink geen wijn noch sterken drank, en eet niets onreins’ (13:4).",
+          "refs": [
+            "Numeri 6:5",
+            "Richteren 13:4–7",
+            "Richteren 13:14"
+          ]
+        },
+        {
+          "kop": "Wie is de Engel?",
+          "t": "Manoach vraagt naar de naam van de Engel en krijgt als antwoord: ‘Die is toch Wonderlijk’ (13:18). Daarna zegt Manoach: ‘Wij zullen zekerlijk sterven, omdat wij God gezien hebben’ (13:22). Veel uitleggers zien in de Engel des HEEREN de Zoon van God, nog vóór Zijn geboorte als mens. Zij wijzen op Jesaja 9:5, waar van het Kind staat: ‘men noemt Zijn naam Wonderlijk’. Dat is een uitleg; de tekst van Richteren zegt het niet met zoveel woorden.",
+          "refs": [
+            "Richteren 13:17–22",
+            "Jesaja 9:5"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Zora en Timna zijn allebei aan te wijzen. De Geest van de HEERE begint Simson te drijven ‘tussen Zora en tussen Esthaol’ (13:25), in het gebied waar de stam Dan woonde (vergelijk Richteren 18:2). De Bijbel noemt veertig jaar Filistijnse overheersing (13:1), maar geen jaartal. Veel uitleggers laten die tijd deels samenvallen met die van Eli en Samuël, kort vóór koning Saul (ca. 1050 v.Chr.). Andere dateringen schuiven dit op.",
+          "refs": [
+            "Richteren 13:1",
+            "Richteren 13:25",
+            "Richteren 18:2"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat antwoordde de Engel toen Manoach naar Zijn naam vroeg?",
+          "a": [
+            "Die is toch Wonderlijk",
+            "Mijn naam is Vrede",
+            "Ik ben een profeet uit Dan"
+          ],
+          "why": "Richteren 13:18"
+        },
+        {
+          "q": "Hoe lang moest Simson een nazireeër zijn?",
+          "a": [
+            "Van moeders buik af tot zijn dood",
+            "Zeven jaar lang",
+            "Tot de dag van zijn bruiloft"
+          ],
+          "why": "Richteren 13:7"
+        },
+        {
+          "q": "Wat mocht de moeder van Simson zelf niet drinken of eten?",
+          "a": [
+            "Wijn, sterke drank en iets onreins",
+            "Brood, water en olie",
+            "Vlees, vis en melk"
+          ],
+          "why": "Richteren 13:4"
+        }
+      ]
+    }
+  },
+  "45": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "timna",
+        "ri_lechi"
+      ],
+      "delen": [
+        {
+          "t": "Simson wil zijn vrouw in Timna bezoeken. Maar haar vader heeft haar aan een andere man gegeven.",
+          "stap": "richteren:simson:2"
+        },
+        {
+          "t": "Dan vangt Simson driehonderd vossen. Telkens zet hij twee vossen staart aan staart, met een fakkel ertussen."
+        },
+        {
+          "t": "Hij steekt de fakkels aan. De vossen rennen door het koren van de Filistijnen, en alles verbrandt."
+        },
+        {
+          "t": "De Filistijnen komen met een leger naar Juda. Ze willen Simson vastbinden.",
+          "stap": "richteren:simson:3"
+        },
+        {
+          "t": "Mannen van Juda binden Simson met twee nieuwe touwen. Ze brengen hem naar de Filistijnen.",
+          "stap": "richteren:simson:3"
+        },
+        {
+          "t": "Bij Lechi komt de Geest van de HEERE over Simson. De touwen vallen van zijn armen, alsof ze verbrand zijn.",
+          "stap": "richteren:simson:3"
+        },
+        {
+          "t": "Simson pakt het kaakbeen van een ezel. Daarmee verslaat hij duizend Filistijnen."
+        },
+        {
+          "t": "Daarna heeft Simson heel veel dorst. Hij roept tot de HEERE."
+        },
+        {
+          "t": "God maakt een holle plek in Lechi open. Er komt water uit. Simson drinkt en krijgt weer kracht.",
+          "stap": "richteren:simson:3"
+        },
+        {
+          "t": "Twintig jaar lang is Simson richter: hij leidt Israël."
+        }
+      ],
+      "samen": "Weggelaten: de Filistijnen verbranden Simsons vrouw en haar vader, en Simson neemt daarop wraak (Richteren 15:6–8). Dit hoofdstuk vertelt over strijd en dood; houd het sober, zoals de Bijbel. Simsons kracht komt doordat ‘de Geest des HEEREN’ over hem komt (15:14). Vraag samen: wat doet Simson als hij zo’n dorst heeft? Hij roept tot de HEERE, en God geeft water (15:18–19).",
+      "vragen": [
+        {
+          "q": "Wat zit er tussen de staarten van de vossen?",
+          "a": [
+            "Een fakkel",
+            "Een touw met een bel"
+          ],
+          "why": "Richteren 15:4"
+        },
+        {
+          "q": "Waarmee verslaat Simson de Filistijnen?",
+          "a": [
+            "Met het kaakbeen van een ezel",
+            "Met een groot zwaard"
+          ],
+          "why": "Richteren 15:15"
+        },
+        {
+          "q": "Wat doet Simson als hij grote dorst heeft?",
+          "a": [
+            "Hij roept tot de HEERE",
+            "Hij gaat naar huis"
+          ],
+          "why": "Richteren 15:18"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Driehonderd vossen",
+          "stap": "richteren:simson:2",
+          "t": "Simson wil naar zijn vrouw in Timna. Maar haar vader heeft haar aan een andere man gegeven. Simson vangt driehonderd vossen en zet telkens een fakkel tussen twee staarten. De vossen rennen door het koren van de Filistijnen, en alles brandt af, tot de wijngaarden en olijfbomen toe. Dan verbranden de Filistijnen Simsons vrouw en haar vader. Simson neemt wraak en gaat wonen op de rots Etam."
+        },
+        {
+          "kop": "Gebonden door Juda",
+          "stap": "richteren:simson:3",
+          "t": "Een leger van de Filistijnen komt naar Juda om Simson te binden. Drieduizend mannen van Juda gaan naar hem toe. Ze willen hem binden en aan de Filistijnen overgeven. Simson laat zich binden met twee nieuwe touwen. Zo brengen ze hem naar Lechi."
+        },
+        {
+          "kop": "Een ezelskaak en een bron",
+          "stap": "richteren:simson:3",
+          "t": "De Filistijnen juichen. Maar de Geest van de HEERE komt over Simson, en de touwen worden als verbrande draden. Met een verse ezelskaak verslaat hij duizend man. Daarna heeft hij grote dorst en roept tot de HEERE: ‘zou ik dan nu van dorst sterven’? God laat water komen uit een holle plaats in Lechi. Twintig jaar is Simson richter: hij leidt Israël."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat was er gebeurd voordat Simson de vossen ving?",
+          "a": [
+            "Zijn vrouw was aan een ander gegeven",
+            "De Filistijnen hadden zijn huis verbrand",
+            "Zijn ouders waren gestorven"
+          ],
+          "why": "Richteren 15:1–4"
+        },
+        {
+          "q": "Waarom kwamen de mannen van Juda naar Simson?",
+          "a": [
+            "Om hem te binden en aan de Filistijnen te geven",
+            "Om hem te vragen hun koning te worden",
+            "Om hem eten en water te brengen"
+          ],
+          "why": "Richteren 15:10–12"
+        },
+        {
+          "q": "Wat gebeurde er met de touwen bij Lechi?",
+          "a": [
+            "Ze werden als verbrande draden",
+            "Ze werden nog strakker vastgebonden",
+            "De Filistijnen sneden ze los"
+          ],
+          "why": "Richteren 15:14"
+        },
+        {
+          "q": "Waar liet God water uit komen?",
+          "a": [
+            "Uit een holle plaats in Lechi",
+            "Uit de rots Etam",
+            "Uit de beek bij Timna"
+          ],
+          "why": "Richteren 15:19"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Richteren 15 vertelt de vergelding over en weer: de vossen, de verbranding van Simsons vrouw en haar vader, en Simsons wraak (15:3–8). Simson zegt het zelf tegen de mannen van Juda: ‘Gelijk als zij mij gedaan hebben, alzo heb ik hunlieden gedaan’ (15:11). De schrijver geeft er hier geen oordeel bij. Wel had hij al gezegd dat het ‘van den HEERE was, dat hij gelegenheid zocht van de Filistijnen’ (14:4). Uitleggers verschillen over hoe Simsons eigen motieven en Gods plan zich tot elkaar verhouden.",
+          "refs": [
+            "Richteren 14:4",
+            "Richteren 15:3–11"
+          ]
+        },
+        {
+          "kop": "Lechi: namen, plaats en tijd",
+          "t": "Lechi betekent kaak. Na de strijd noemt Simson de plaats Ramath-lechi (15:17). In zijn woorden ‘een hoop, twee hopen’ (15:16) zien veel uitleggers een woordspeling: in het Hebreeuws lijken de woorden voor ezel en hoop op elkaar. De bron noemt hij ‘De fontein des aanroepers’ (15:19). Waar Lechi lag, is niet bekend; op de kaart staat de plaats als onbekend. Simson richtte Israël twintig jaar ‘in de dagen der Filistijnen’ (15:20); volgens veel uitleggers was dat kort vóór koning Saul (ca. 1050 v.Chr.), maar andere dateringen schuiven dit op.",
+          "refs": [
+            "Richteren 15:16–20"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Simson is niet de enige richter die met een ongewoon wapen tegen de Filistijnen strijdt. Van Samgar staat: hij ‘sloeg de Filistijnen, zeshonderd man, met een ossenstok; alzo verloste hij ook Israël’ (Richteren 3:31). En de nieuwe touwen komen terug: tegen Delila zegt Simson later dat hij zwak zou worden met ‘nieuwe touwen, met dewelke geen werk gedaan is’ (16:11). Ook die verbreekt hij ‘als een draad’ (16:12).",
+          "refs": [
+            "Richteren 3:31",
+            "Richteren 16:11–12"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Hoe noemde Simson de plaats waar hij het kinnebakken weggooide?",
+          "a": [
+            "Ramath-lechi",
+            "Beth-bara",
+            "Pnuël"
+          ],
+          "why": "Richteren 15:17"
+        },
+        {
+          "q": "Wie wilde de vader van Simsons vrouw hem in haar plaats geven?",
+          "a": [
+            "Haar kleinste zuster",
+            "Een vrouw uit Askelon",
+            "Een meisje uit Juda"
+          ],
+          "why": "Richteren 15:2"
+        },
+        {
+          "q": "Welke richter versloeg zeshonderd Filistijnen met een ossenstok?",
+          "a": [
+            "Samgar",
+            "Gideon",
+            "Jeftha"
+          ],
+          "why": "Richteren 3:31"
+        },
+        {
+          "q": "Waar woonde Simson toen de mannen van Juda hem kwamen binden?",
+          "a": [
+            "Op de rots Etam",
+            "In de stad Timna",
+            "In de stad Gaza"
+          ],
+          "why": "Richteren 15:8, 11"
+        }
+      ]
+    }
+  },
+  "46": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "gaza",
+        "ri_sorek"
+      ],
+      "delen": [
+        {
+          "t": "Simson is in Gaza, een stad van de Filistijnen. De mannen van de stad wachten bij de poort. ’s Morgens willen ze hem doden.",
+          "stap": "richteren:simson:4"
+        },
+        {
+          "t": "Maar midden in de nacht staat Simson op. Hij tilt de deuren van de stadspoort op zijn schouders en draagt ze een berg op.",
+          "stap": "richteren:simson:4"
+        },
+        {
+          "t": "Later krijgt Simson een vrouw lief. Ze heet Delila.",
+          "stap": "richteren:simson:5"
+        },
+        {
+          "t": "De vorsten van de Filistijnen beloven Delila heel veel geld. Ze moet ontdekken waar Simsons grote kracht in zit."
+        },
+        {
+          "t": "Drie keer vertelt Simson haar iets wat niet waar is. Elke keer breekt hij los."
+        },
+        {
+          "t": "Delila blijft elke dag aandringen. Dan vertelt Simson het: er is nooit een scheermes op zijn hoofd gekomen."
+        },
+        {
+          "t": "Simson slaapt op haar knieën. Delila laat een man zijn haar afscheren. Nu is de HEERE van hem geweken, en zijn kracht is weg."
+        },
+        {
+          "t": "De Filistijnen nemen hem gevangen en maken hem blind. In Gaza moet hij malen in de gevangenis. Maar zijn haar groeit weer.",
+          "stap": "richteren:simson:5"
+        },
+        {
+          "t": "De Filistijnen houden een feest voor hun afgod Dagon. Simson moet voor hen spelen. Dan bidt hij tot de HEERE om nog één keer kracht.",
+          "stap": "richteren:simson:6"
+        },
+        {
+          "t": "Simson pakt de twee middelste pilaren en buigt zich met kracht. Het huis stort in. Simson sterft samen met heel veel Filistijnen.",
+          "stap": "richteren:simson:6"
+        }
+      ],
+      "samen": "Weggelaten: Simson gaat in Gaza naar een vrouw die een hoer is (Richteren 16:1). In prentenboeken knipt Delila vaak zelf het haar; volgens 16:19 riep zij een man, die de zeven haarlokken afschoor. Simsons kracht zat niet in het haar zelf: ‘hij wist niet, dat de HEERE van hem geweken was’ (16:20). Het einde gaat over de dood van Simson en van veel Filistijnen (16:30). Vertel het rustig. Vraag samen: tot Wie bidt Simson aan het eind?",
+      "vragen": [
+        {
+          "q": "Wat draagt Simson weg uit Gaza?",
+          "a": [
+            "De deuren van de stadspoort",
+            "Een grote steen"
+          ],
+          "why": "Richteren 16:3"
+        },
+        {
+          "q": "Wat moet Delila ontdekken?",
+          "a": [
+            "Waar Simsons kracht in zit",
+            "Waar Simson woont"
+          ],
+          "why": "Richteren 16:5"
+        },
+        {
+          "q": "Waar vraagt Simson aan het eind om?",
+          "a": [
+            "Om nog één keer kracht",
+            "Om een groot feest"
+          ],
+          "why": "Richteren 16:28"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "De poort van Gaza",
+          "stap": "richteren:simson:4",
+          "t": "Simson is in de Filistijnse stad Gaza. De mannen van Gaza wachten de hele nacht bij de poort om hem ’s morgens te doden. Om middernacht neemt Simson de poortdeuren weg, met de posten. Hij draagt ze op zijn schouders een berg op, tegenover Hebron."
+        },
+        {
+          "kop": "Het geheim van Simson",
+          "stap": "richteren:simson:5",
+          "t": "Later krijgt Simson Delila lief, aan de beek Sorek. Elke Filistijnse vorst belooft haar elfhonderd zilverlingen als ze ontdekt waar zijn kracht in zit. Drie keer liegt hij. Ze dringt elke dag aan, tot hij zegt: ‘Er is nooit een scheermes op mijn hoofd gekomen’. Als hij slaapt, laat ze zijn haar scheren. Hij weet niet dat de HEERE van hem geweken is. De Filistijnen steken zijn ogen uit. In Gaza moet hij malen in de gevangenis."
+        },
+        {
+          "kop": "Een laatste gebed",
+          "stap": "richteren:simson:6",
+          "t": "De Filistijnen vieren feest voor hun god Dagon. Simson moet voor hen spelen. Hij bidt tot de HEERE: ‘sterk mij toch alleenlijk ditmaal’. Dat is: geef mij nog één keer kracht. Hij pakt de twee middelste pilaren en buigt zich met kracht. Het huis stort in. Bij zijn dood sterven meer Filistijnen dan hij in zijn leven doodde."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom wachtten de mannen van Gaza bij de stadspoort?",
+          "a": [
+            "Ze wilden Simson ’s morgens doden",
+            "Ze moesten de poort repareren",
+            "Ze wachtten op hun koning"
+          ],
+          "why": "Richteren 16:2"
+        },
+        {
+          "q": "Waarom kwamen de vorsten van de Filistijnen bij Delila?",
+          "a": [
+            "Ze moest ontdekken waar Simsons kracht in zat",
+            "Ze moest Simson naar Gaza brengen",
+            "Ze moest de deuren van de poort terughalen"
+          ],
+          "why": "Richteren 16:5"
+        },
+        {
+          "q": "Wat wist Simson niet toen hij wakker werd?",
+          "a": [
+            "Dat de HEERE van hem geweken was",
+            "Dat Delila was weggegaan",
+            "Dat het al middag was"
+          ],
+          "why": "Richteren 16:20"
+        },
+        {
+          "q": "Waar bad Simson om in het huis van Dagon?",
+          "a": [
+            "Om nog één keer kracht",
+            "Om zijn ogen terug te krijgen",
+            "Om vrij naar huis te mogen"
+          ],
+          "why": "Richteren 16:28"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Delila wordt vaak een Filistijnse genoemd. De tekst zegt niet tot welk volk zij hoorde. Er staat alleen dat Simson een vrouw liefkreeg ‘aan de beek Sorek’ (16:4), niet dat zij hem liefhad. Zij schoor het haar niet zelf: ze ‘riep een man en liet hem de zeven haarlokken zijns hoofds afscheren’ (16:19). En bij de pilaren staat niet dat Simson ze uit elkaar duwde. Hij vatte de twee middelste pilaren, ‘en hij boog zich met kracht’ (16:29–30).",
+          "refs": [
+            "Richteren 16:4",
+            "Richteren 16:19",
+            "Richteren 16:29–30"
+          ]
+        },
+        {
+          "kop": "Achtergrond",
+          "t": "In Jozua 13:3 staan ‘vijf vorsten der Filistijnen’, van Gaza, Asdod, Askelon, Gath en Ekron. Veel uitleggers denken dat de vorsten in Richteren 16 dezelfde stadsvorsten zijn. Malen was zwaar en eenvoudig werk. Exodus 11:5 noemt de eerstgeborene ‘der dienstmaagd, die achter den molen is’ tegenover de eerstgeborene van de farao, als het andere uiterste. Daarom zien uitleggers het malen van Simson als een diepe vernedering.",
+          "refs": [
+            "Jozua 13:3",
+            "Exodus 11:5",
+            "Richteren 16:5",
+            "Richteren 16:21"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Gaza is aan te wijzen; het dal Sorek staat op de kaart als gebied. Simson droeg de poortdeuren naar ‘de hoogte des bergs, die in het gezicht van Hebron is’ (16:3). Uitleggers verschillen of dat een berg bij Hebron zelf is, of een hoogte bij Gaza die in de richting van Hebron ligt. Simson wordt begraven ‘tussen Zora en tussen Esthaol’, in het graf van Manoach (16:31). Het jaartal is een reconstructie: aan het eind van de twintig jaar dat hij richtte, volgens veel uitleggers kort vóór koning Saul (ca. 1050 v.Chr.).",
+          "refs": [
+            "Richteren 16:3",
+            "Richteren 16:31",
+            "Richteren 15:20"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wie schoor volgens de tekst Simsons haar af?",
+          "a": [
+            "Een man die Delila had geroepen",
+            "Delila zelf, met een schaar",
+            "Een van de vorsten van de Filistijnen"
+          ],
+          "why": "Richteren 16:19"
+        },
+        {
+          "q": "Waar kreeg Simson Delila lief, volgens de tekst?",
+          "a": [
+            "Aan de beek Sorek",
+            "In de stad Gaza",
+            "In de stad Zora"
+          ],
+          "why": "Richteren 16:4"
+        },
+        {
+          "q": "Waarmee werd Simson in de gevangenis in Gaza gebonden?",
+          "a": [
+            "Met twee koperen ketenen",
+            "Met zeven verse zelen",
+            "Met twee nieuwe touwen"
+          ],
+          "why": "Richteren 16:21"
+        },
+        {
+          "q": "Hoeveel mannen en vrouwen keken er vanaf het dak toe?",
+          "a": [
+            "Omtrent drieduizend",
+            "Omtrent driehonderd",
+            "Omtrent dertigduizend"
+          ],
+          "why": "Richteren 16:27"
+        }
+      ]
+    }
+  },
+  "47": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "efrath",
+        "bethlehemmoab"
+      ],
+      "delen": [
+        {
+          "t": "Er is honger in het land. Elimelech en Naomi gaan met hun twee zonen van Bethlehem naar Moab.",
+          "stap": "ruth:ruth:0"
+        },
+        {
+          "t": "In Moab sterft Elimelech. De zonen trouwen met Orpa en Ruth. Daarna sterven ook de twee zonen.",
+          "stap": "ruth:ruth:0"
+        },
+        {
+          "t": "Naomi hoort dat God Zijn volk weer brood geeft. Ze gaat terug, en haar twee schoondochters gaan mee.",
+          "stap": "ruth:ruth:1"
+        },
+        {
+          "t": "Onderweg zegt Naomi: ga maar terug naar huis. Orpa gaat terug. Maar Ruth blijft bij Naomi.",
+          "stap": "ruth:ruth:1"
+        },
+        {
+          "t": "Ruth zegt: ‘uw volk is mijn volk, en uw God mijn God.’ Ze gaat met Naomi mee."
+        },
+        {
+          "t": "Ze komen in Bethlehem aan als de gerst geoogst wordt.",
+          "stap": "ruth:ruth:2"
+        },
+        {
+          "t": "Ruth raapt de aren op die de maaiers laten liggen. Ze komt op het veld van Boaz. Boaz is familie van Elimelech.",
+          "stap": "ruth:ruth:3"
+        },
+        {
+          "t": "Boaz is goed voor Ruth. Hij geeft haar te eten. En hij laat expres extra aren voor haar vallen.",
+          "stap": "ruth:ruth:3"
+        },
+        {
+          "t": "Boaz is een losser: hij mag de familie helpen. In de poort van de stad regelt hij alles. Dan trouwt hij met Ruth.",
+          "stap": "ruth:ruth:5"
+        },
+        {
+          "t": "De HEERE geeft Ruth en Boaz een zoon: Obed. Obed wordt de opa van koning David.",
+          "stap": "ruth:ruth:6"
+        }
+      ],
+      "samen": "Weggelaten: Naomi’s verdriet bij haar terugkomst (‘noemt mij Mara’, Ruth 1:20–21) en de nacht op de dorsvloer, waar Ruth Boaz vraagt haar losser te zijn (Ruth 3). Wijs samen Bethlehem en de velden van Moab aan op de kaart. Ruth komt uit Moab, en toch staat zij later in het geslachtsregister van de Heere Jezus (Mattheüs 1:5). Vraag samen: Wie zorgde er in dit verhaal voor brood en voor een zoon? (Ruth 1:6; 4:13)",
+      "vragen": [
+        {
+          "q": "Wie blijft bij Naomi?",
+          "a": [
+            "Ruth",
+            "Orpa"
+          ],
+          "why": "Ruth 1:14"
+        },
+        {
+          "q": "Op wiens veld raapt Ruth aren?",
+          "a": [
+            "Op het veld van Boaz",
+            "Op het veld van Naomi"
+          ],
+          "why": "Ruth 2:3"
+        },
+        {
+          "q": "Hoe heet de zoon van Ruth en Boaz?",
+          "a": [
+            "Obed",
+            "David"
+          ],
+          "why": "Ruth 4:17"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Van Bethlehem naar Moab",
+          "stap": "ruth:ruth:0",
+          "t": "In de tijd van de richters is er honger. Elimelech uit Bethlehem trekt met zijn vrouw Naomi en twee zonen naar Moab. Daar sterft Elimelech. De zonen trouwen met Orpa en Ruth, twee Moabitische vrouwen. Ze wonen er ongeveer tien jaar. Dan sterven ook de zonen."
+        },
+        {
+          "kop": "Uw God is mijn God",
+          "stap": "ruth:ruth:1",
+          "t": "Naomi hoort dat de HEERE Zijn volk weer brood geeft, en gaat terug. Orpa keert terug naar haar volk, maar Ruth zegt: ‘uw volk is mijn volk, en uw God mijn God.’ Aan het begin van de gersteoogst komen ze in Bethlehem."
+        },
+        {
+          "kop": "Aren rapen bij Boaz",
+          "stap": "ruth:ruth:3",
+          "t": "Ruth raapt de aren op die achter de maaiers blijven liggen. Ze komt op het veld van Boaz, familie van Elimelech. Boaz zorgt dat ze veilig kan werken en genoeg krijgt. Naomi zegt: ‘hij is een van onze lossers.’ Een losser is een familielid dat land en naam van de familie mag redden."
+        },
+        {
+          "kop": "Boaz lost",
+          "stap": "ruth:ruth:5",
+          "t": "Er is nog een losser, die meer familie is. In de poort, met tien oudsten als getuigen, ziet hij ervan af. Dan neemt Boaz het land over en trouwt met Ruth. De HEERE geeft hun een zoon: Obed, de vader van Isaï, de vader van David."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom ging Elimelech met zijn gezin naar Moab?",
+          "a": [
+            "Er was honger in het land",
+            "Er was oorlog in Bethlehem",
+            "Hij had land gekocht in Moab"
+          ],
+          "why": "Ruth 1:1"
+        },
+        {
+          "q": "Waarom ging Naomi terug naar Bethlehem?",
+          "a": [
+            "Ze hoorde dat de HEERE weer brood gaf",
+            "Haar zonen wilden graag terug",
+            "Boaz had haar laten roepen"
+          ],
+          "why": "Ruth 1:6"
+        },
+        {
+          "q": "Wat is een losser?",
+          "a": [
+            "Een familielid dat land en naam mag redden",
+            "Een knecht die het koren maait",
+            "Een oudste die in de poort zit"
+          ],
+          "why": "Ruth 4:4–10; Leviticus 25:25"
+        },
+        {
+          "q": "Wat gebeurt er eerst?",
+          "a": [
+            "Ruth raapt aren op het veld van Boaz",
+            "Boaz trouwt met Ruth",
+            "Obed wordt geboren"
+          ],
+          "why": "Ruth 2:3; Ruth 4:13"
+        },
+        {
+          "q": "Wie wordt de grootvader van koning David?",
+          "a": [
+            "Obed",
+            "Boaz",
+            "Elimelech"
+          ],
+          "why": "Ruth 4:17"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Lossen en de schoen",
+          "t": "De wet zegt: wie arm wordt en grond verkoopt, ‘zo zal zijn losser, die hem nabestaande is, komen, en zal het verkochte zijns broeders lossen’ (Leviticus 25:25). Deuteronomium 25 spreekt over de broer die de weduwe van zijn gestorven broer neemt, ‘opdat zijn naam niet uitgedelgd worde uit Israël’. Wie weigert, krijgt daar de schoen uitgetrokken. In Ruth 4 is het anders: Boaz is geen broer, en de losser trekt zelf zijn schoen uit, als ‘een getuigenis in Israël’ (4:7). Uitleggers verschillen over hoe Ruth 4 en Deuteronomium 25 precies samenhangen.",
+          "refs": [
+            "Leviticus 25:25",
+            "Deuteronomium 25:5–10",
+            "Ruth 4:7–10"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Het volk in de poort wenst dat het huis van Boaz zal zijn ‘als het huis van Perez’, de zoon van Juda en Thamar (4:12), en de stamboom aan het eind begint bij Perez. Mattheüs noemt in het geslachtsregister ook de moeder van Boaz: ‘Salmon gewon Booz bij Rachab’ (Mattheüs 1:5). Veel uitleggers zien in haar Rachab uit Jericho (Jozua 6:25). Later stuurt God Samuël ‘tot Isaï, den Bethlehemiet’ om een koning te zalven (1 Samuël 16:1). En Micha profeteert: ‘En gij, Bethlehem Efratha!’ (Micha 5:1).",
+          "refs": [
+            "Ruth 4:12",
+            "Ruth 4:18–22",
+            "Mattheüs 1:5",
+            "Jozua 6:25",
+            "1 Samuël 16:1",
+            "Micha 5:1"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Bethlehem is aan te wijzen. ‘De velden Moabs’ is een gebied, geen stad. Welke weg Naomi en Ruth namen, vertelt de Bijbel niet; de route op de kaart is een reconstructie. Ruth 1:1 zegt alleen: ‘In de dagen, als de richters richtten’. Terugrekenen vanaf David (koning ca. 1010 v.Chr.) met gewone generaties geeft ruwweg 1150–1100 v.Chr. Omdat het geslachtsregister misschien niet alle generaties noemt, kan het ook eerder zijn.",
+          "refs": [
+            "Ruth 1:1–2"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Welke naam wilde Naomi liever hebben toen ze terugkwam?",
+          "a": [
+            "Mara",
+            "Orpa",
+            "Efratha"
+          ],
+          "why": "Ruth 1:20"
+        },
+        {
+          "q": "Wat deed de andere losser om de zaak te bevestigen?",
+          "a": [
+            "Hij trok zijn schoen uit",
+            "Hij gaf Boaz zijn mantel",
+            "Hij schreef zijn naam op"
+          ],
+          "why": "Ruth 4:7–8"
+        },
+        {
+          "q": "Met welke vrouwen vergeleek het volk in de poort Ruth?",
+          "a": [
+            "Met Rachel en Lea",
+            "Met Sara en Rebekka",
+            "Met Mirjam en Debora"
+          ],
+          "why": "Ruth 4:11"
+        },
+        {
+          "q": "Wie was volgens Mattheüs 1:5 de moeder van Boaz?",
+          "a": [
+            "Rachab",
+            "Ruth",
+            "Naomi"
+          ],
+          "why": "Mattheüs 1:5"
+        }
+      ]
+    }
+  }
+}

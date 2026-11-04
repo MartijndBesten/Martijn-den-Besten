@@ -1,0 +1,669 @@
+{
+  "48": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "rama",
+        "silo"
+      ],
+      "delen": [
+        {
+          "t": "Elkana en Hanna wonen in Rama. Elk jaar gaan ze naar Silo, naar het huis van de HEERE. Daar aanbidden ze God.",
+          "stap": "1samuel:samuel:0"
+        },
+        {
+          "t": "Hanna heeft geen kinderen. Ze is heel verdrietig. Ze huilt en eet niet."
+        },
+        {
+          "t": "In Silo bidt Hanna tot de HEERE om een zoon. Ze belooft: die zoon geef ik aan de HEERE, zijn hele leven lang.",
+          "stap": "1samuel:samuel:0"
+        },
+        {
+          "t": "Ze bidt in haar hart, alleen haar lippen bewegen. Priester Eli denkt dat ze dronken is. Maar Hanna heeft tot de HEERE gebeden."
+        },
+        {
+          "t": "Eli zegt: ‘Ga heen in vrede.’ En de HEERE denkt aan Hanna. Ze krijgt een zoon en noemt hem Samuël."
+        },
+        {
+          "t": "Als Samuël geen baby meer is, brengt Hanna hem naar Eli in Silo. Daar blijft Samuël, en hij dient de HEERE.",
+          "stap": "1samuel:samuel:0"
+        },
+        {
+          "t": "Hanna looft de HEERE: ‘Mijn hart springt van vreugde op in den HEERE.’"
+        },
+        {
+          "t": "Op een nacht ligt Samuël te slapen in het huis van de HEERE. Dan roept de HEERE zijn naam.",
+          "stap": "1samuel:samuel:1"
+        },
+        {
+          "t": "Samuël loopt naar Eli: ‘Zie, hier ben ik.’ Maar Eli heeft niet geroepen. Dat gebeurt drie keer.",
+          "stap": "1samuel:samuel:1"
+        },
+        {
+          "t": "Dan begrijpt Eli dat de HEERE roept. Als de HEERE weer roept, zegt Samuël: ‘Spreek, want Uw knecht hoort.’",
+          "stap": "1samuel:samuel:1"
+        }
+      ],
+      "samen": "Bij A is weggelaten dat Elkana twee vrouwen had en dat Peninna Hanna plaagde (1 Samuël 1:2, 6–7). Ook de zonde van Eli’s zonen staat er niet in, en wat de HEERE die nacht tegen Samuël zegt: Hij zal het huis van Eli straffen (1 Samuël 2:12–17, 22–25; 3:11–14). Aan het eind van hoofdstuk 3 weet heel Israël dat Samuël een profeet van de HEERE is (3:20). Een vraag om samen over te praten: waarom noemt Hanna haar zoon Samuël? (1:20)",
+      "vragen": [
+        {
+          "q": "Waar bidt Hanna om?",
+          "a": [
+            "Om een zoon",
+            "Om een huis"
+          ],
+          "why": "1 Samuël 1:11"
+        },
+        {
+          "q": "Wat denkt Eli als hij Hanna ziet bidden?",
+          "a": [
+            "Dat ze dronken is",
+            "Dat ze slaapt"
+          ],
+          "why": "1 Samuël 1:13"
+        },
+        {
+          "q": "Wie roept Samuël in de nacht?",
+          "a": [
+            "De HEERE",
+            "Eli"
+          ],
+          "why": "1 Samuël 3:4–10"
+        },
+        {
+          "q": "Wat zegt Samuël als de HEERE weer roept?",
+          "a": [
+            "Spreek, want Uw knecht hoort",
+            "Laat mij nog even slapen"
+          ],
+          "why": "1 Samuël 3:10"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een gebed in Silo",
+          "stap": "1samuel:samuel:0",
+          "t": "Elk jaar gaat Elkana met zijn gezin naar Silo om de HEERE te aanbidden en te offeren. Zijn vrouw Hanna heeft geen kinderen, en Peninna, zijn andere vrouw, plaagt haar daarom. Daar bidt Hanna huilend. Ze belooft: als de HEERE haar een zoon geeft, geeft ze hem aan de HEERE, zijn hele leven. Priester Eli ziet alleen haar lippen bewegen en denkt dat ze dronken is. Maar ze bidt. Eli zegt: ‘Ga heen in vrede.’"
+        },
+        {
+          "kop": "Van de HEERE gebeden",
+          "t": "De HEERE denkt aan Hanna. Ze krijgt een zoon en noemt hem Samuël, want ze zegt: ‘ik heb hem van den HEERE gebeden.’ Als hij gespeend is (geen moedermelk meer drinkt), brengt ze hem naar Eli in Silo."
+        },
+        {
+          "kop": "Spreek, want Uw knecht hoort",
+          "stap": "1samuel:samuel:1",
+          "t": "In die tijd spreekt de HEERE zelden. Op een nacht roept Hij Samuël. Samuël denkt dat Eli roept. Na drie keer begrijpt Eli dat de HEERE roept. De volgende keer zegt Samuël: ‘Spreek, want Uw knecht hoort.’ De HEERE zegt dat Hij het huis van Eli zal straffen, omdat Eli’s zonen kwaad doen en Eli hen niet tegenhoudt. Later weet heel Israël: Samuël is een profeet, iemand door wie de HEERE spreekt."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom gaat Elkana elk jaar naar Silo?",
+          "a": [
+            "Om de HEERE te aanbidden en te offeren",
+            "Om daar op de markt te verkopen",
+            "Om de familie van Hanna te bezoeken"
+          ],
+          "why": "1 Samuël 1:3"
+        },
+        {
+          "q": "Waarom noemt Hanna haar zoon Samuël?",
+          "a": [
+            "Ze heeft hem van de HEERE gebeden",
+            "Zo heette de vader van Elkana",
+            "Eli heeft die naam gekozen"
+          ],
+          "why": "1 Samuël 1:1, 20"
+        },
+        {
+          "q": "Waarom loopt Samuël in de nacht naar Eli?",
+          "a": [
+            "Hij denkt dat Eli hem roept",
+            "Eli heeft hem gevraagd te komen",
+            "Hij moet de lamp aansteken"
+          ],
+          "why": "1 Samuël 3:4–5"
+        },
+        {
+          "q": "Waarom zal de HEERE het huis van Eli straffen?",
+          "a": [
+            "Eli’s zonen doen kwaad en Eli houdt hen niet tegen",
+            "Eli is te oud om nog priester te zijn",
+            "Eli heeft Samuël in Silo laten wonen"
+          ],
+          "why": "1 Samuël 3:13"
+        },
+        {
+          "q": "Wat weet heel Israël later over Samuël?",
+          "a": [
+            "Dat hij een profeet van de HEERE is",
+            "Dat hij de nieuwe koning wordt",
+            "Dat hij een sterke soldaat is"
+          ],
+          "why": "1 Samuël 3:20"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Hanna’s lied en Maria’s lied",
+          "t": "Hanna zingt: ‘De HEERE maakt arm en maakt rijk; Hij vernedert, ook verhoogt Hij’ (1 Samuël 2:7). Eeuwen later zingt Maria iets wat daar sterk op lijkt: ‘Hij heeft machtigen van de tronen afgetrokken, en nederigen heeft Hij verhoogd’ (Lukas 1:52). Opvallend is het slot van Hanna’s lied. Israël heeft dan nog geen koning (Richteren 21:25), maar Hanna zegt dat de HEERE ‘Zijn Koning sterkte geven, en den hoorn Zijns Gezalfden verhogen’ zal (1 Samuël 2:10). Het Hebreeuwse woord voor gezalfde is het woord waar ons woord Messias vandaan komt. Veel uitleggers zien hier een vooruitwijzing naar de koningen die Samuël later zal zalven, en verder naar Christus.",
+          "refs": [
+            "1 Samuël 2:7–10",
+            "Lukas 1:52",
+            "Richteren 21:25"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Elkana komt uit ‘Ramathaim-zofim, van het gebergte van Efraïm’ (1:1); in 1:19 heet zijn woonplaats Rama. Welke plaats dat precies is, is betwist. Silo is wel goed te identificeren. Daar had Israël in de tijd van Jozua de tent der samenkomst opgericht (Jozua 18:1). De Statenvertaling noemt het heiligdom in Silo zowel ‘de tent der samenkomst’ (2:22) als ‘den tempel des HEEREN’ (1:9; 3:3). Wanneer Samuël geboren werd, staat niet in de Bijbel. Terugrekenend vanaf Saul en David komt men rond 1100 v.Chr. uit; dat is een ruwe schatting, en andere dateringen schuiven dit op.",
+          "refs": [
+            "1 Samuël 1:1, 9, 19",
+            "Jozua 18:1",
+            "1 Samuël 2:22",
+            "1 Samuël 3:3"
+          ]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Hanna belooft ook: ‘er zal geen scheermes op zijn hoofd komen’ (1:11). Dat lijkt op de gelofte van een Nazireër (Numeri 6:5) en op wat over Simson gezegd werd (Richteren 13:5), maar het woord Nazireër staat niet bij Samuël. Hoe oud Samuël was toen de HEERE hem riep, zegt de Bijbel niet. Er staat alleen dat ‘het jongsken was zeer jong’ toen hij naar Silo kwam (1:24), en in hoofdstuk 3 heet hij een jongeling. Wat de HEERE over het huis van Eli zei, kwam uit: koning Salomo verdreef later de priester Abjathar, ‘om te vervullen het woord des HEEREN, hetwelk Hij over het huis van Eli te Silo gesproken had’ (1 Koningen 2:27).",
+          "refs": [
+            "1 Samuël 1:11",
+            "Numeri 6:5",
+            "Richteren 13:5",
+            "1 Samuël 1:24",
+            "1 Samuël 3:1",
+            "1 Koningen 2:27"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Welke woorden van Hanna lijken op wat Maria zingt in Lukas 1:52?",
+          "a": [
+            "Hij vernedert, ook verhoogt Hij",
+            "Ga heen in vrede",
+            "Spreek, want Uw knecht hoort"
+          ],
+          "why": "1 Samuël 2:7; Lukas 1:52"
+        },
+        {
+          "q": "Over welke koning spreekt Hanna aan het eind van haar lied?",
+          "a": [
+            "Over de Koning en Gezalfde van de HEERE",
+            "Over de koning van de Filistijnen",
+            "Over de koning van Egypte"
+          ],
+          "why": "1 Samuël 2:10"
+        },
+        {
+          "q": "Wat belooft Hanna ook, naast het geven van haar zoon aan de HEERE?",
+          "a": [
+            "Er zal geen scheermes op zijn hoofd komen",
+            "Hij zal altijd in Rama blijven wonen",
+            "Hij zal later priester in Silo worden"
+          ],
+          "why": "1 Samuël 1:11"
+        },
+        {
+          "q": "Hoe heet de woonplaats van Elkana in 1 Samuël 1:1?",
+          "a": [
+            "Ramathaim-zofim",
+            "Kirjath-Jearim",
+            "Beth-Semes"
+          ],
+          "why": "1 Samuël 1:1"
+        }
+      ]
+    }
+  },
+  "49": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "asdod",
+        "bethsemes",
+        "mizpa"
+      ],
+      "delen": [
+        {
+          "t": "Israël vecht tegen de Filistijnen en verliest. Dan halen ze de ark van de HEERE, de heilige kist, uit Silo. Ze denken: die zal ons redden.",
+          "stap": "1samuel:samuel:2"
+        },
+        {
+          "t": "Maar Israël verliest opnieuw. De Filistijnen nemen de ark mee. Als de oude Eli dat hoort, sterft hij.",
+          "stap": "1samuel:samuel:2"
+        },
+        {
+          "t": "De Filistijnen zetten de ark in Asdod, in het huis van hun god Dagon. Dagon is een beeld.",
+          "stap": "1samuel:samuel:3"
+        },
+        {
+          "t": "De volgende morgen ligt Dagon voorover op de grond, voor de ark. Ze zetten hem terug. De morgen erna ligt hij er weer.",
+          "stap": "1samuel:samuel:3"
+        },
+        {
+          "t": "De HEERE maakt de mensen in Asdod ziek. In Gath en in Ekron, waar de ark daarna heen gaat, ook.",
+          "stap": "1samuel:samuel:3"
+        },
+        {
+          "t": "Dan zetten de Filistijnen de ark op een nieuwe wagen. Twee koeien trekken hem. Ze loeien, maar ze lopen recht naar Beth-Semes.",
+          "stap": "1samuel:samuel:3"
+        },
+        {
+          "t": "De mensen in Beth-Semes zijn blij als ze de ark zien. Later komt de ark in Kirjath-Jearim. Daar blijft hij heel lang.",
+          "stap": "1samuel:samuel:3"
+        },
+        {
+          "t": "Samuël zegt tegen het volk: doe de vreemde goden weg en dien alleen de HEERE. Dat doen ze.",
+          "stap": "1samuel:samuel:4"
+        },
+        {
+          "t": "Het volk komt samen in Mizpa. Dan komen de Filistijnen. Samuël bidt, en de HEERE laat het hard donderen: de Filistijnen worden verslagen.",
+          "stap": "1samuel:samuel:4"
+        },
+        {
+          "t": "Samuël zet een steen neer en noemt hem Eben-Haëzer. Hij zegt: ‘Tot hiertoe heeft de HEERE ons geholpen.’",
+          "stap": "1samuel:samuel:4"
+        }
+      ],
+      "samen": "Bij A is weggelaten dat Hofni en Pinehas, de zonen van Eli, in de strijd sterven en dat Eli’s schoondochter sterft bij de geboorte van Ikabod (1 Samuël 4:11, 19–22). Ook staat er niet in dat de HEERE mannen van Beth-Semes sloeg, omdat ze in de ark hadden gekeken (1 Samuël 6:19). Om samen te bespreken: het volk dacht dat de ark hen zou redden (4:3), maar de HEERE hielp pas toen ze de vreemde goden weggedaan hadden (7:3–4).",
+      "vragen": [
+        {
+          "q": "Waar zetten de Filistijnen de ark neer?",
+          "a": [
+            "In het huis van Dagon",
+            "In de tent van Eli"
+          ],
+          "why": "1 Samuël 5:2"
+        },
+        {
+          "q": "Wie trekken de wagen met de ark?",
+          "a": [
+            "Twee koeien",
+            "Twee paarden"
+          ],
+          "why": "1 Samuël 6:10–12"
+        },
+        {
+          "q": "Wat zegt Samuël bij de steen?",
+          "a": [
+            "Tot hiertoe heeft de HEERE ons geholpen",
+            "Hier hebben wij zelf goed gevochten"
+          ],
+          "why": "1 Samuël 7:12"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "De ark mee de strijd in",
+          "stap": "1samuel:samuel:2",
+          "t": "Israël verliest van de Filistijnen. De oudsten laten de ark, de heilige kist van het verbond, uit Silo halen. Die zal hen redden, denken ze. Maar Israël verliest opnieuw. Eli’s zonen Hofni en Pinehas sterven en de ark wordt meegenomen. Eli hoort het, valt van zijn stoel en sterft."
+        },
+        {
+          "kop": "Dagon valt voor de ark",
+          "stap": "1samuel:samuel:3",
+          "t": "In Asdod zetten ze de ark bij hun god Dagon. Twee morgens na elkaar ligt Dagon voorover voor de ark, de tweede keer zonder hoofd en handen. De HEERE slaat Asdod, Gath en Ekron met bulten. Na zeven maanden sturen ze de ark terug op een nieuwe wagen. Twee koeien lopen loeiend recht naar Beth-Semes. Daar kijken mannen in de ark; de HEERE slaat hen."
+        },
+        {
+          "kop": "Een steen van hulp",
+          "stap": "1samuel:samuel:4",
+          "t": "De ark gaat naar Kirjath-Jearim. Twintig jaar later doet het volk op Samuëls woord de vreemde goden weg en dient de HEERE alleen. In Mizpa zeggen ze: ‘Wij hebben tegen den HEERE gezondigd.’ Samuël bidt, en als de Filistijnen aanvallen, laat de HEERE het hard donderen. Zo verslaat Hij hen. Samuël zet een steen neer, Eben-Haëzer: ‘Tot hiertoe heeft de HEERE ons geholpen.’"
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat gebeurt er met Eli als hij hoort dat de ark genomen is?",
+          "a": [
+            "Hij valt van zijn stoel en sterft",
+            "Hij gaat zelf naar het slagveld",
+            "Hij vlucht naar Rama"
+          ],
+          "why": "1 Samuël 4:18"
+        },
+        {
+          "q": "In welke stad staat het huis van Dagon waar de ark komt?",
+          "a": [
+            "Asdod",
+            "Beth-Semes",
+            "Silo"
+          ],
+          "why": "1 Samuël 5:1–2"
+        },
+        {
+          "q": "Waar lopen de koeien met de wagen naartoe?",
+          "a": [
+            "Naar Beth-Semes",
+            "Naar Silo",
+            "Naar Mizpa"
+          ],
+          "why": "1 Samuël 6:12"
+        },
+        {
+          "q": "Wat moet het volk doen voordat de HEERE hen helpt?",
+          "a": [
+            "De vreemde goden wegdoen en de HEERE alleen dienen",
+            "Een nieuwe tent bouwen in Silo",
+            "De ark terugbrengen naar het slagveld"
+          ],
+          "why": "1 Samuël 7:3–4"
+        },
+        {
+          "q": "Hoe verslaat de HEERE de Filistijnen bij Mizpa?",
+          "a": [
+            "Hij laat het hard donderen",
+            "Hij laat de zon stilstaan",
+            "Hij stuurt een grote storm op zee"
+          ],
+          "why": "1 Samuël 7:10"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Het teken voor Eli komt uit",
+          "t": "Een man Gods had tegen Eli gezegd over Hofni en Pinehas: ‘op een dag zullen zij beiden sterven’ (1 Samuël 2:34). Dat gebeurt hier: ze sterven in dezelfde slag (4:11). De schoondochter van Eli noemt haar zoon Ikabod en zegt: ‘De eer is weggevoerd uit Israël!’ (4:21). Ikabod komt later nog één keer voor: in de dagen van Saul is Ahia priester, ‘de zoon van Ahitub, den broeder van Ikabod’ (1 Samuël 14:3). Eeuwen later wijst de HEERE nog terug naar wat Hij aan Silo gedaan heeft, als waarschuwing voor de tempel in Jeruzalem: ‘gelijk als Ik aan Silo gedaan heb’ (Jeremia 7:14).",
+          "refs": [
+            "1 Samuël 2:34",
+            "1 Samuël 4:11, 21",
+            "1 Samuël 14:3",
+            "Jeremia 7:14"
+          ]
+        },
+        {
+          "kop": "Hoe de ark gedragen moest worden",
+          "t": "In de wet moest de ark gedragen worden: de zonen van Kohath droegen de heilige dingen ‘op de schouderen’ (Numeri 7:9). De Filistijnen zetten de ark op een nieuwe wagen, maar in Beth-Semes zijn het de Levieten die de ark eraf nemen (6:15). Daarna blijft de ark in het huis van Abinadab in Kirjath-Jearim. Als David hem later ophaalt, gebruikt hij ook ‘een nieuwen wagen’ (2 Samuël 6:3), en dat loopt slecht af (2 Samuël 6:6–7). David zegt daarna: ‘Niemand mag de ark Gods dragen, dan de Levieten’ (1 Kronieken 15:2).",
+          "refs": [
+            "Numeri 7:9",
+            "1 Samuël 6:15",
+            "1 Samuël 7:1",
+            "2 Samuël 6:3–7",
+            "1 Kronieken 15:2"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Afek, Silo, Asdod, Gath, Ekron, Beth-Semes en Kirjath-Jearim zijn identificeerbaar, Mizpa waarschijnlijk. De ligging van Eben-haezer is onbekend. In 4:1 heet de plek waar Israël zich legert al Eben-haezer, terwijl Samuël die naam pas in 7:12 aan een steen geeft, ‘tussen Mizpa en tussen Sen’. Of het om dezelfde plek gaat, is onzeker. Dit alles gebeurt vóór koning Saul (ca. 1050 v.Chr.). Eli richtte Israël veertig jaar (4:18) en de ark bleef twintig jaar in Kirjath-Jearim (7:2), maar de precieze jaren zijn niet uit de Bijbel te berekenen.",
+          "refs": [
+            "1 Samuël 4:1",
+            "1 Samuël 7:12",
+            "1 Samuël 4:18",
+            "1 Samuël 7:2"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Welk teken uit 1 Samuël 2:34 komt in hoofdstuk 4 uit?",
+          "a": [
+            "Hofni en Pinehas sterven op één dag",
+            "Eli krijgt nog een zoon",
+            "De ark wordt naar Silo teruggebracht"
+          ],
+          "why": "1 Samuël 2:34; 1 Samuël 4:11"
+        },
+        {
+          "q": "Wat zegt de moeder van Ikabod bij zijn naam?",
+          "a": [
+            "De eer is weggevoerd uit Israël",
+            "De HEERE heeft ons geholpen",
+            "Ik heb hem van de HEERE gebeden"
+          ],
+          "why": "1 Samuël 4:21"
+        },
+        {
+          "q": "Wie nemen in Beth-Semes de ark van de wagen af?",
+          "a": [
+            "De Levieten",
+            "De vorsten der Filistijnen",
+            "De oudsten van Israël"
+          ],
+          "why": "1 Samuël 6:15"
+        },
+        {
+          "q": "Waar zet Samuël de steen Eben-haezer neer?",
+          "a": [
+            "Tussen Mizpa en Sen",
+            "In Kirjath-Jearim",
+            "Bij Asdod"
+          ],
+          "why": "1 Samuël 7:12"
+        }
+      ]
+    }
+  },
+  "50": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "rama",
+        "mizpa"
+      ],
+      "delen": [
+        {
+          "t": "Samuël is oud geworden. Zijn zonen zijn rechters, maar ze zijn oneerlijk.",
+          "stap": "1samuel:samuel:5"
+        },
+        {
+          "t": "De leiders van Israël komen naar Samuël in Rama. Ze zeggen: ‘Geef ons een koning.’ Ze willen zijn zoals alle volken.",
+          "stap": "1samuel:samuel:5"
+        },
+        {
+          "t": "Samuël vindt dat niet goed. Hij bidt tot de HEERE. De HEERE zegt: ze willen Mij niet meer als hun Koning."
+        },
+        {
+          "t": "Samuël waarschuwt: een koning zal veel van jullie nemen. Maar het volk zegt: ‘Neen, maar er zal een koning over ons zijn.’"
+        },
+        {
+          "t": "Saul is een jonge man uit de stam Benjamin. Hij is langer dan alle andere mensen in Israël.",
+          "stap": "1samuel:samuel:6"
+        },
+        {
+          "t": "De ezelinnen van zijn vader Kis zijn weg. Saul zoekt ze met een knecht, maar ze vinden ze niet.",
+          "stap": "1samuel:samuel:6"
+        },
+        {
+          "t": "Dan gaan ze naar Samuël, de man Gods. De HEERE had Samuël al gezegd dat deze man zou komen.",
+          "stap": "1samuel:samuel:6"
+        },
+        {
+          "t": "Samuël giet olie uit op het hoofd van Saul. Dat heet zalven: zo wordt Saul de leider van Gods volk.",
+          "stap": "1samuel:samuel:6"
+        },
+        {
+          "t": "Later roept Samuël het volk bij elkaar in Mizpa. Saul wordt aangewezen, maar waar is hij?",
+          "stap": "1samuel:samuel:7"
+        },
+        {
+          "t": "Saul heeft zich verstopt tussen de bagage. Ze halen hem. Het volk juicht: ‘de koning leve!’",
+          "stap": "1samuel:samuel:7"
+        }
+      ],
+      "samen": "Het volk vraagt om een koning ‘gelijk al de volken hebben’ (1 Samuël 8:5). De HEERE zegt dat ze daarmee Hém verwerpen als hun Koning (8:7), en toch geeft Hij hun een koning (8:22). Bij A is weggelaten dat Samuëls zonen geschenken aannamen (8:3), wat een koning allemaal zou nemen (8:11–17) en de tekenen die Saul onderweg krijgt (10:2–13). Een vraag om samen over te praten: wie is volgens de HEERE eigenlijk de Koning van Israël? (8:7)",
+      "vragen": [
+        {
+          "q": "Wat wil het volk hebben?",
+          "a": [
+            "Een koning",
+            "Een nieuw land"
+          ],
+          "why": "1 Samuël 8:5"
+        },
+        {
+          "q": "Wat zoekt Saul?",
+          "a": [
+            "De ezelinnen van zijn vader",
+            "Een plek om te wonen"
+          ],
+          "why": "1 Samuël 9:3"
+        },
+        {
+          "q": "Wat giet Samuël op het hoofd van Saul?",
+          "a": [
+            "Olie",
+            "Water"
+          ],
+          "why": "1 Samuël 10:1"
+        },
+        {
+          "q": "Waar heeft Saul zich verstopt?",
+          "a": [
+            "Tussen de bagage",
+            "In een grot"
+          ],
+          "why": "1 Samuël 10:22"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Wij willen een koning",
+          "stap": "1samuel:samuel:5",
+          "t": "Samuël is oud. Zijn zonen zijn rechters in Berseba, maar ze nemen geschenken aan en spreken oneerlijk recht. Daarom komen de oudsten naar Rama. Ze willen een koning, ‘gelijk al de volken hebben.’ Samuël vindt dat kwaad. Maar de HEERE zegt: ‘zij hebben u niet verworpen, maar zij hebben Mij verworpen’. Samuël waarschuwt wat een koning van hen zal nemen, maar het volk wil toch een koning."
+        },
+        {
+          "kop": "Op zoek naar ezelinnen",
+          "stap": "1samuel:samuel:6",
+          "t": "Saul, de zoon van Kis, komt uit de stam Benjamin. Met hoofd en schouders steekt hij boven iedereen uit. Met een knecht zoekt hij de ezelinnen van zijn vader. Zo komen ze bij Samuël, de ziener: zo noemde men vroeger een profeet. De HEERE had Samuël al gezegd dat Hij een man uit Benjamin zou sturen. Samuël giet olie op Sauls hoofd: de HEERE heeft hem gezalfd tot voorganger (leider) over Zijn volk."
+        },
+        {
+          "kop": "Leve de koning",
+          "stap": "1samuel:samuel:7",
+          "t": "In Mizpa wordt eerst de stam Benjamin aangewezen, dan de familie van Matri, en dan Saul. Maar hij heeft zich verstopt tussen de bagage. Het volk juicht: ‘de koning leve!’ Saul gaat naar huis in Gibea."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat doen de zonen van Samuël verkeerd?",
+          "a": [
+            "Ze nemen geschenken aan en buigen het recht",
+            "Ze weigeren om rechter te zijn",
+            "Ze verliezen een oorlog tegen de Filistijnen"
+          ],
+          "why": "1 Samuël 8:3"
+        },
+        {
+          "q": "Wie verwerpt het volk volgens de HEERE, als het om een koning vraagt?",
+          "a": [
+            "De HEERE Zelf",
+            "Alleen Samuël",
+            "De zonen van Samuël"
+          ],
+          "why": "1 Samuël 8:7"
+        },
+        {
+          "q": "Hoe komt Saul bij Samuël terecht?",
+          "a": [
+            "Hij zoekt de ezelinnen van zijn vader",
+            "Samuël stuurt een bode naar Gibea",
+            "Kis brengt hem naar de stad"
+          ],
+          "why": "1 Samuël 9:3–10"
+        },
+        {
+          "q": "Hoe noemde men een profeet vroeger in Israël?",
+          "a": [
+            "Een ziener",
+            "Een richter",
+            "Een priester"
+          ],
+          "why": "1 Samuël 9:9"
+        },
+        {
+          "q": "Waar gaat Saul naartoe als het volk naar huis gaat?",
+          "a": [
+            "Naar zijn huis in Gibea",
+            "Naar Samuël in Rama",
+            "Naar de tempel in Silo"
+          ],
+          "why": "1 Samuël 10:26"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "De stad waar Saul Samuël ontmoet, wordt in hoofdstuk 9 niet bij naam genoemd; er staat alleen dat ze in het land van Zuf ligt (9:5–6). Samuël woonde in Rama (7:17), en veel uitleggers denken daarom aan Rama, maar de tekst zegt het niet. Ook het woord lot staat niet in 10:20–21: er staat dat de stam, het geslacht en Saul ‘geraakt’ werden. Zo werd ook Achan aangewezen, stam na stam en geslacht na geslacht (Jozua 7:16–18). In 1 Samuël 14:42 wordt bij zo’n aanwijzing wel gezegd: ‘Werpt het lot’.",
+          "refs": [
+            "1 Samuël 9:5–6",
+            "1 Samuël 7:17",
+            "1 Samuël 10:20–21",
+            "Jozua 7:16–18",
+            "1 Samuël 14:42"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Toen Israël wilde dat Gideon over hen zou heersen, zei hij: ‘de HEERE zal over u heersen’ (Richteren 8:23). Samuëls zonen ‘namen geschenken’ (8:3). Als Saul koning is, vraagt Samuël het volk te getuigen ‘van wiens hand ik een geschenk genomen heb’, en het volk zegt dat hij van niemand iets genomen heeft (1 Samuël 12:3–4). Samuël zegt Saul ook zeven dagen te wachten in Gilgal (10:8). Later wacht Saul in Gilgal zeven dagen, ‘tot den tijd, dien Samuël bestemd had’, en offert dan zelf het brandoffer voordat Samuël er is (1 Samuël 13:8–14). Veel uitleggers verbinden dat met 10:8. En de spreuk ‘Is Saul ook onder de profeten?’ (10:12) komt nog een keer terug, bij een tweede gebeurtenis (1 Samuël 19:24).",
+          "refs": [
+            "Richteren 8:22–23",
+            "1 Samuël 8:3",
+            "1 Samuël 12:1–4",
+            "1 Samuël 10:8",
+            "1 Samuël 13:8–14",
+            "1 Samuël 10:11–12",
+            "1 Samuël 19:24"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Rama is betwist, Gibea en Mizpa zijn waarschijnlijk. Saul regeerde veertig jaar (Handelingen 13:21) en stierf vlak voordat David koning werd, ca. 1010 v.Chr. in de gangbare chronologie. Zo komt het begin van zijn koningschap rond 1050 v.Chr. Dat is een reconstructie: andere dateringen schuiven deze jaren enkele tientallen jaren op.",
+          "refs": [
+            "Handelingen 13:21"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat zegt 1 Samuël 9 over de naam van de stad waar Saul Samuël vindt?",
+          "a": [
+            "Er staat geen naam, alleen het land van Zuf",
+            "Het is Silo, waar de tent der samenkomst stond",
+            "Het is Gibea, de stad waar Saul woonde"
+          ],
+          "why": "1 Samuël 9:5–6"
+        },
+        {
+          "q": "Waar moet Saul volgens Samuël zeven dagen wachten?",
+          "a": [
+            "In Gilgal",
+            "In Mizpa",
+            "In Bethel"
+          ],
+          "why": "1 Samuël 10:8"
+        },
+        {
+          "q": "Wat vertelt Saul aan zijn oom?",
+          "a": [
+            "Dat de ezelinnen gevonden zijn",
+            "Dat hij koning gaat worden",
+            "Dat Samuël hem gezalfd heeft"
+          ],
+          "why": "1 Samuël 10:16"
+        },
+        {
+          "q": "Welke spreuk ontstaat als Saul met de profeten profeteert?",
+          "a": [
+            "Is Saul ook onder de profeten?",
+            "Tot hiertoe heeft de HEERE geholpen",
+            "Spreek, want Uw knecht hoort"
+          ],
+          "why": "1 Samuël 10:11–12"
+        }
+      ]
+    }
+  }
+}

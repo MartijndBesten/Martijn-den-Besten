@@ -1,0 +1,865 @@
+{
+  "20": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "berseba",
+        "egypte",
+        "gosen"
+      ],
+      "delen": [
+        {
+          "t": "Ook in het land Kanaän is honger. Jakob stuurt tien zonen naar Egypte om graan te kopen. Benjamin, de jongste, blijft thuis.",
+          "stap": "genesis:jozef:7"
+        },
+        {
+          "t": "In Egypte buigen de broers diep voor Jozef. Zij herkennen hem niet, maar Jozef herkent hen wel.",
+          "stap": "genesis:jozef:7"
+        },
+        {
+          "t": "Jozef doet streng tegen hen. Simeon moet in Egypte blijven, totdat de broers Benjamin meebrengen.",
+          "stap": "genesis:jozef:7"
+        },
+        {
+          "t": "Als het graan op is, gaan de broers opnieuw naar Egypte. Nu gaat Benjamin mee.",
+          "stap": "genesis:jozef:8"
+        },
+        {
+          "t": "Jozef laat zijn zilveren beker in de zak van Benjamin leggen. De beker wordt gevonden. Nu moet Benjamin slaaf worden.",
+          "stap": "genesis:jozef:8"
+        },
+        {
+          "t": "Dan vraagt Juda of hij slaaf mag blijven in plaats van Benjamin. Zo kan de jongen terug naar zijn vader.",
+          "stap": "genesis:jozef:8"
+        },
+        {
+          "t": "Nu kan Jozef zich niet meer inhouden. Hij huilt hard en zegt: ‘Ik ben Jozef!’ De broers schrikken.",
+          "stap": "genesis:jozef:9"
+        },
+        {
+          "t": "Jozef zegt dat God hem vooruit gestuurd heeft. Zo kan hij zijn familie in leven houden.",
+          "stap": "genesis:jozef:9"
+        },
+        {
+          "t": "Jakob hoort dat Jozef leeft en gaat op weg. In Berseba zegt God dat hij niet bang hoeft te zijn om naar Egypte te gaan.",
+          "stap": "genesis:jakob:12"
+        },
+        {
+          "t": "In Gosen ziet Jakob zijn zoon Jozef terug. Jozef valt zijn vader om de hals en huilt lang.",
+          "stap": "genesis:jozef:10"
+        }
+      ],
+      "samen": "Jozef had gedroomd dat de schoven van zijn broers voor zijn schoof bogen (Genesis 37:7). Nu buigen zij echt voor hem (42:6), en Jozef denkt aan zijn dromen (42:9). De broers zeggen zelf: ‘Voorwaar, wij zijn schuldig aan onzen broeder’ (42:21). Weggelaten zijn onder meer het geld in de zakken (42:25–35) en de maaltijd (43:16–34). Vraag samen: wie heeft Jozef volgens hemzelf naar Egypte gestuurd? (45:8)",
+      "vragen": [
+        {
+          "q": "Wie blijft er de eerste keer thuis bij Jakob?",
+          "a": [
+            "Benjamin",
+            "Juda"
+          ],
+          "why": "Genesis 42:4"
+        },
+        {
+          "q": "In wiens zak wordt de zilveren beker gevonden?",
+          "a": [
+            "In de zak van Benjamin",
+            "In de zak van Juda"
+          ],
+          "why": "Genesis 44:12"
+        },
+        {
+          "q": "Wat zegt Jozef als hij zich niet meer kan inhouden?",
+          "a": [
+            "Ik ben Jozef!",
+            "Ik ben de farao!"
+          ],
+          "why": "Genesis 45:3"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Koren kopen in Egypte",
+          "stap": "genesis:jozef:7",
+          "t": "Ook in Kanaän is honger. Jakob stuurt tien zonen naar Egypte om koren, graan, te kopen; Benjamin blijft thuis. De broers buigen voor Jozef met hun gezicht naar de grond, zoals hij gedroomd had. Zij herkennen hem niet. Jozef noemt hen verspieders, dat zijn spionnen, en houdt Simeon gevangen."
+        },
+        {
+          "kop": "Juda staat borg voor Benjamin",
+          "stap": "genesis:jozef:8",
+          "t": "De tweede keer moet Benjamin mee. Juda zegt tegen zijn vader: ‘Ik zal borg voor hem zijn’. Dat betekent: ik sta ervoor in. Jozef laat zijn zilveren beker in de zak van Benjamin leggen. Als de beker gevonden is, vraagt Juda of hij zelf slaaf mag blijven in plaats van Benjamin."
+        },
+        {
+          "kop": "Jozef maakt zich bekend",
+          "stap": "genesis:jozef:9",
+          "t": "Nu huilt Jozef en zegt: ‘Ik ben Jozef!’ De broers schrikken. Maar Jozef zegt dat God hem vooruit gestuurd heeft, om hen in leven te houden."
+        },
+        {
+          "kop": "Naar Gosen",
+          "stap": "genesis:jakob:12",
+          "t": "Jakob trekt met de hele familie naar Egypte. In Berseba zegt God tegen hem: ‘vrees niet van af te trekken naar Egypte’. In Gosen valt Jozef zijn vader om de hals en huilt lang."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom gingen de broers naar Egypte?",
+          "a": [
+            "Om koren te kopen tegen de honger",
+            "Om hun broer Jozef te zoeken",
+            "Om voor de farao te werken"
+          ],
+          "why": "Genesis 42:2–5"
+        },
+        {
+          "q": "Wie bood aan slaaf te blijven in plaats van Benjamin?",
+          "a": [
+            "Juda",
+            "Ruben",
+            "Simeon"
+          ],
+          "why": "Genesis 44:33"
+        },
+        {
+          "q": "Waarom was Jozef in Egypte, volgens wat hij zelf zei?",
+          "a": [
+            "God had hem gezonden om hen in leven te houden",
+            "Hij was zelf uit Kanaän weggevlucht",
+            "De farao had hem uit Kanaän gehaald"
+          ],
+          "why": "Genesis 45:5–8"
+        },
+        {
+          "q": "Wat gebeurde er het eerst?",
+          "a": [
+            "Simeon werd gevangen gehouden",
+            "De beker werd gevonden",
+            "Jakob kwam in Gosen"
+          ],
+          "why": "Genesis 42:24; Genesis 44:12; Genesis 46:29"
+        },
+        {
+          "q": "Waar sprak God in de nacht tot Jakob?",
+          "a": [
+            "In Berseba",
+            "In Gosen",
+            "In Sichem"
+          ],
+          "why": "Genesis 46:1–2"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Dromen die uitkomen",
+          "t": "Jozef had gedroomd: ‘uw schoven kwamen rondom, en bogen zich neder voor mijn schoof’ (Genesis 37:7). Zijn broers vroegen toen: ‘Zult gij dan ganselijk over ons regeren’ (37:8). Toen ze hem wilden doden, zeiden ze: ‘zo zullen wij zien, wat van zijn dromen worden zal’ (37:20). In Egypte buigen ze zich ‘met de aangezichten ter aarde’ (42:6), en er staat: ‘Toen gedacht Jozef aan de dromen’ (42:9). Zo bracht juist wat de broers deden, Jozef in Egypte, waar de dromen uitkwamen.",
+          "refs": [
+            "Genesis 37:7–8",
+            "Genesis 37:20",
+            "Genesis 42:6–9"
+          ]
+        },
+        {
+          "kop": "Juda, de borg",
+          "t": "Het was Juda die voorstelde om Jozef aan de Ismaëlieten te verkopen (Genesis 37:26–27). Nu zegt hij: ‘Ik zal borg voor hem zijn’ (43:9), en hij vraagt: ‘laat toch uw knecht voor dezen jongeling slaaf van mijn heer blijven’ (44:33). Later zegent Jakob hem: ‘De schepter zal van Juda niet wijken’ (Genesis 49:10). Uit Juda komt de Heere Jezus voort: ‘onze Heere uit Juda gesproten is’ (Hebreeën 7:14). Veel uitleggers zien in Juda die borg wil staan een heenwijzing naar Christus, Die ‘Borg geworden’ is (Hebreeën 7:22).",
+          "refs": [
+            "Genesis 37:26–27",
+            "Genesis 43:8–9",
+            "Genesis 44:33",
+            "Genesis 49:10",
+            "Hebreeën 7:14",
+            "Hebreeën 7:22"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Berseba en Hebron (Mamre) zijn identificeerbaar. Gosen staat op de kaart als gebied; precieze grenzen geeft de Bijbel niet. Jakob kwam in het tweede jaar van de honger (45:6) en was toen honderd en dertig jaar (47:9). Rekenend vanaf een uittocht rond 1446 v.Chr. (1 Koningen 6:1) en de 430 jaar van Exodus 12:40 komt deze geschiedenis uit rond 1878–1876 v.Chr. Wie de uittocht in de 13e eeuw v.Chr. plaatst, of de 430 jaar ook over de tijd in Kanaän laat lopen (vergelijk Galaten 3:17), komt enkele eeuwen later uit.",
+          "refs": [
+            "Genesis 45:6",
+            "Genesis 47:9",
+            "Exodus 12:40",
+            "1 Koningen 6:1",
+            "Galaten 3:17"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Welke broer had eerder voorgesteld om Jozef te verkopen?",
+          "a": [
+            "Juda",
+            "Ruben",
+            "Benjamin"
+          ],
+          "why": "Genesis 37:26–27"
+        },
+        {
+          "q": "Waarom merkten de broers niet dat Jozef hen verstond?",
+          "a": [
+            "Er was een tolk tussen hen",
+            "Jozef was even weggegaan",
+            "Zij spraken heel zacht"
+          ],
+          "why": "Genesis 42:23"
+        },
+        {
+          "q": "Hoe oud was Jakob toen hij voor de farao stond?",
+          "a": [
+            "Honderd en dertig jaar",
+            "Honderd en twintig jaar",
+            "Honderd en tachtig jaar"
+          ],
+          "why": "Genesis 47:9"
+        },
+        {
+          "q": "Wat zei Jakob over Juda bij zijn zegen?",
+          "a": [
+            "De schepter zal niet van hem wijken",
+            "Hij zal over Egypte regeren",
+            "Hij zal een priester worden"
+          ],
+          "why": "Genesis 49:10"
+        }
+      ]
+    }
+  },
+  "21": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "gosen",
+        "ramses",
+        "pithom"
+      ],
+      "delen": [
+        {
+          "t": "De familie van Jakob woont in Egypte. Ze krijgen heel veel kinderen. Zo worden ze een groot volk.",
+          "stap": "exodus:mozes:0"
+        },
+        {
+          "t": "Dan komt er een nieuwe koning in Egypte. Hij kent Jozef niet. Hij vindt het volk Israël te groot en te sterk.",
+          "stap": "exodus:mozes:0"
+        },
+        {
+          "t": "De Israëlieten moeten heel zwaar werken voor de farao. Ze bouwen steden voor hem. Maar het volk wordt steeds groter.",
+          "stap": "exodus:mozes:0"
+        },
+        {
+          "t": "Dan beveelt de farao: alle jongetjes die geboren worden, moeten in de rivier gegooid worden.",
+          "stap": "exodus:mozes:0"
+        },
+        {
+          "t": "Een vrouw uit de familie van Levi krijgt een zoontje. Ze verbergt hem drie maanden.",
+          "stap": "exodus:mozes:1"
+        },
+        {
+          "t": "Als het niet langer kan, neemt ze een kistje van biezen, een soort riet. Ze legt hem erin, tussen de biezen aan de rivier.",
+          "stap": "exodus:mozes:1"
+        },
+        {
+          "t": "Zijn zus blijft een eind verderop staan. Ze wil zien wat er met hem gebeurt.",
+          "stap": "exodus:mozes:1"
+        },
+        {
+          "t": "De dochter van de farao komt bij de rivier. Ze ziet het kistje en laat het halen. Het jongetje huilt, en zij heeft medelijden.",
+          "stap": "exodus:mozes:1"
+        },
+        {
+          "t": "De zus haalt de moeder van het jongetje. Nu mag zijn eigen moeder voor hem zorgen.",
+          "stap": "exodus:mozes:1"
+        },
+        {
+          "t": "Als hij groter is, wordt hij de zoon van de dochter van de farao. Ze noemt hem Mozes, want ze heeft hem uit het water gehaald."
+        }
+      ],
+      "samen": "Het bevel van de farao over de jongetjes (Exodus 1:22) staat hier in één zin. Weggelaten zijn de vroedvrouwen Sifra en Pua: zij vreesden God en lieten de jongetjes leven, en God deed hun goed (1:15–21). Prentenboeken spreken vaak van een mandje; de Bijbel noemt ‘een kistje van biezen’, dichtgemaakt met lijm en pek (2:3). De naam van de zus staat hier niet. Vraag samen: wie helpen er allemaal mee dat het kindje blijft leven?",
+      "vragen": [
+        {
+          "q": "Waar legt de moeder het kistje neer?",
+          "a": [
+            "Tussen de biezen aan de rivier",
+            "In het huis van de farao"
+          ],
+          "why": "Exodus 2:3"
+        },
+        {
+          "q": "Wie vindt het kistje?",
+          "a": [
+            "De dochter van de farao",
+            "De farao zelf"
+          ],
+          "why": "Exodus 2:5"
+        },
+        {
+          "q": "Waarom heet het jongetje Mozes?",
+          "a": [
+            "Hij is uit het water gehaald",
+            "Hij is in de stad geboren"
+          ],
+          "why": "Exodus 2:10"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een volk dat steeds groter wordt",
+          "stap": "exodus:mozes:0",
+          "t": "In Egypte wordt de familie van Jakob een groot volk. Dan komt er een nieuwe koning, die Jozef niet gekend heeft. Hij vindt Israël te machtig. De Israëlieten moeten voor de farao de steden Pitom en Raämses bouwen. Maar hoe slechter ze behandeld worden, hoe meer het volk groeit."
+        },
+        {
+          "kop": "Vroedvrouwen die God vrezen",
+          "t": "De koning zegt tegen Sifra en Pua, vroedvrouwen die helpen bij een geboorte, dat ze de jongetjes moeten doden. Maar zij vrezen God en laten de jongetjes leven. Dan beveelt de farao: alle zonen die geboren worden, moeten in de rivier geworpen worden."
+        },
+        {
+          "kop": "Een kistje van biezen",
+          "stap": "exodus:mozes:1",
+          "t": "Een vrouw uit het huis van Levi verbergt haar zoon drie maanden. Dan legt ze hem in een kistje van biezen, dichtgemaakt met lijm en pek, aan de oever van de rivier. Zijn zus kijkt van een afstand toe. De dochter van de farao vindt het kistje en krijgt medelijden met het huilende kind. De zus haalt de eigen moeder om het kind te voeden. Later wordt hij de zoon van de dochter van de farao. Zij noemt hem Mozes: ‘Want ik heb hem uit het water getogen’, dat is: getrokken."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom liet de nieuwe koning de Israëlieten zo zwaar werken?",
+          "a": [
+            "Hij vond het volk te machtig",
+            "Ze hadden hem geld afgepakt",
+            "Jozef had dat zo bevolen"
+          ],
+          "why": "Exodus 1:9–11"
+        },
+        {
+          "q": "Waarom lieten de vroedvrouwen de jongetjes leven?",
+          "a": [
+            "Ze vreesden God",
+            "De koning had het gevraagd",
+            "De moeders betaalden hen"
+          ],
+          "why": "Exodus 1:17"
+        },
+        {
+          "q": "Wie keek van een afstand wat er met het kistje gebeurde?",
+          "a": [
+            "Zijn zus",
+            "Zijn vader",
+            "Een vroedvrouw"
+          ],
+          "why": "Exodus 2:4"
+        },
+        {
+          "q": "Wie mocht het kind voeden?",
+          "a": [
+            "Zijn eigen moeder",
+            "Een Egyptische vrouw",
+            "Een vroedvrouw"
+          ],
+          "why": "Exodus 2:8–9"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Al tegen Abram zei God: ‘uw zaad vreemd zal zijn in een land, dat het hunne niet is, en zij zullen hen dienen, en zij zullen hen verdrukken’ (Genesis 15:13). Maar ook: ‘daarna zullen zij uittrekken met grote have’ (15:14). De zus van Mozes wordt hier niet bij naam genoemd. Numeri 26:59 noemt de kinderen van Amram en Jochebed: ‘Aäron, en Mozes, en Mirjam, hun zuster’. Stefanus vertelt dat Mozes ‘werd onderwezen in alle wijsheid der Egyptenaren’ (Handelingen 7:22).",
+          "refs": [
+            "Genesis 15:13–14",
+            "Numeri 26:59",
+            "Handelingen 7:22"
+          ]
+        },
+        {
+          "kop": "Een kistje met pek",
+          "t": "Het Hebreeuwse woord dat hier met kistje is vertaald, wordt in de Bijbel verder alleen gebruikt voor de ark van Noach. Beide worden dichtgemaakt met pek: Noach moet de ark bestrijken ‘van binnen en van buiten met pek’ (Genesis 6:14), de moeder van Mozes ‘belijmde het met lijm en met pek’ (Exodus 2:3). Veel uitleggers wijzen op die overeenkomst: twee keer bewaart God leven midden in het water. Prentenboeken spreken vaak van een mandje; de tekst noemt een kistje van biezen.",
+          "refs": [
+            "Genesis 6:14",
+            "Exodus 2:3"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Gosen staat op de kaart als gebied. De ligging van Raämses is waarschijnlijk bekend; waar Pitom lag, is betwist. De rivier wordt in deze hoofdstukken niet bij naam genoemd; meestal wordt uitgelegd dat de Nijl bedoeld is. Mozes was tachtig jaar toen hij tot de farao sprak (Exodus 7:7). Gerekend vanaf een uittocht rond 1446 v.Chr. (1 Koningen 6:1) is hij dus rond 1526 v.Chr. geboren. Veel onderzoekers dateren de uittocht later, in de 13e eeuw v.Chr. Hoe lang de verdrukking al duurde toen Mozes geboren werd, is niet precies te zeggen.",
+          "refs": [
+            "Exodus 7:7",
+            "1 Koningen 6:1"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat deed God voor de vroedvrouwen die Hem vreesden?",
+          "a": [
+            "Hij deed hun goed en bouwde hun huizen",
+            "Hij liet hen naar Kanaän vertrekken",
+            "Hij maakte hen rijk met goud"
+          ],
+          "why": "Exodus 1:20–21"
+        },
+        {
+          "q": "Wat had God al tegen Abram gezegd?",
+          "a": [
+            "Zijn nakomelingen zouden in een vreemd land verdrukt worden",
+            "Zijn nakomelingen zouden in Egypte koningen worden",
+            "Zijn nakomelingen zouden nooit Kanaän verlaten"
+          ],
+          "why": "Genesis 15:13"
+        },
+        {
+          "q": "Waarmee werden zowel de ark van Noach als het kistje van Mozes dichtgemaakt?",
+          "a": [
+            "Met pek",
+            "Met goud",
+            "Met was"
+          ],
+          "why": "Genesis 6:14; Exodus 2:3"
+        },
+        {
+          "q": "Waarin werd Mozes volgens Stefanus onderwezen?",
+          "a": [
+            "In alle wijsheid der Egyptenaren",
+            "In het werk van een herder",
+            "In de wet van de Levieten"
+          ],
+          "why": "Handelingen 7:22"
+        }
+      ]
+    }
+  },
+  "22": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "ramses",
+        "ex_midian"
+      ],
+      "delen": [
+        {
+          "t": "Mozes is groot geworden. Hij gaat kijken bij zijn eigen volk. Hij ziet hoe zwaar ze moeten werken.",
+          "stap": "exodus:mozes:2"
+        },
+        {
+          "t": "Mozes ziet hoe een Egyptenaar een man van zijn volk slaat. Hij kijkt om zich heen en ziet niemand.",
+          "stap": "exodus:mozes:2"
+        },
+        {
+          "t": "Dan slaat Mozes de Egyptenaar dood. Hij verbergt hem in het zand.",
+          "stap": "exodus:mozes:2"
+        },
+        {
+          "t": "De volgende dag merkt Mozes dat het bekend is. De farao hoort het en wil Mozes doden.",
+          "stap": "exodus:mozes:2"
+        },
+        {
+          "t": "Mozes vlucht naar het land Midian. Daar gaat hij bij een waterput zitten.",
+          "stap": "exodus:mozes:2"
+        },
+        {
+          "t": "De zeven dochters van de priester van Midian komen water geven aan de kudde van hun vader.",
+          "stap": "exodus:mozes:3"
+        },
+        {
+          "t": "Herders jagen de dochters weg. Maar Mozes staat op en helpt hen. Hij geeft de kudde water.",
+          "stap": "exodus:mozes:3"
+        },
+        {
+          "t": "Hun vader nodigt Mozes uit om te eten. Mozes blijft bij hem wonen en trouwt met zijn dochter Zippora.",
+          "stap": "exodus:mozes:3"
+        },
+        {
+          "t": "Ze krijgen een zoon. Mozes noemt hem Gersom.",
+          "stap": "exodus:mozes:3"
+        },
+        {
+          "t": "In Egypte zuchten en roepen de Israëlieten, omdat ze zo zwaar moeten werken. God hoort hen. Hij denkt aan wat Hij beloofd heeft."
+        }
+      ],
+      "samen": "Kinderen kunnen vragen of Mozes de Egyptenaar mocht doden (Exodus 2:12). Exodus 2 vertelt het zonder uitleg, en uitleggers denken er verschillend over. Stefanus zegt dat Mozes meende ‘dat God door zijn hand hun verlossing geven zou; maar zij hebben het niet verstaan’ (Handelingen 7:25). God hoort Zijn volk en denkt aan Zijn verbond met Abraham, Izak en Jakob (2:24). Vraag samen: wie hoort het zuchten van het volk in Egypte?",
+      "vragen": [
+        {
+          "q": "Waar vlucht Mozes naartoe?",
+          "a": [
+            "Naar het land Midian",
+            "Naar het land Kanaän"
+          ],
+          "why": "Exodus 2:15"
+        },
+        {
+          "q": "Wie krijgen hulp van Mozes bij de waterput?",
+          "a": [
+            "De zeven dochters van de priester",
+            "De herders die daar zijn"
+          ],
+          "why": "Exodus 2:16–17"
+        },
+        {
+          "q": "Wie hoort het zuchten van het volk in Egypte?",
+          "a": [
+            "God",
+            "De farao"
+          ],
+          "why": "Exodus 2:23–24"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Mozes gaat naar zijn broeders",
+          "stap": "exodus:mozes:2",
+          "t": "Mozes is de zoon geworden van de dochter van de farao. Als hij groot is, gaat hij naar zijn broeders, de Hebreeën: zijn eigen volk. Hij ziet dat een Egyptenaar een Hebreeuwse man slaat. Mozes kijkt om zich heen, en als er niemand is, slaat hij de Egyptenaar dood en verbergt hem in het zand."
+        },
+        {
+          "kop": "Op de vlucht",
+          "stap": "exodus:mozes:2",
+          "t": "De volgende dag ziet hij twee Hebreeën vechten. Een van hen zegt: ‘Wie heeft u tot een overste en rechter over ons gezet?’ Nu weet Mozes dat het bekend is. De farao wil hem doden, en Mozes vlucht naar het land Midian."
+        },
+        {
+          "kop": "Bij de waterput in Midian",
+          "stap": "exodus:mozes:3",
+          "t": "Herders jagen de zeven dochters van de priester van Midian weg bij de put, maar Mozes helpt hen. Hun vader Rehuël nodigt hem uit. Mozes trouwt met zijn dochter Zippora. Hun zoon heet Gersom, want Mozes zegt: ‘Ik ben een vreemdeling geworden in een vreemd land.’"
+        },
+        {
+          "kop": "God hoort Zijn volk",
+          "t": "Na lange tijd sterft de koning van Egypte. De Israëlieten zuchten en roepen om het zware werk. God hoort hen en denkt aan Zijn verbond met Abraham, Izak en Jakob. Een verbond is een plechtige belofte die God gedaan heeft."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom moest Mozes vluchten?",
+          "a": [
+            "De farao wilde hem doden",
+            "Er was honger in Egypte",
+            "Hij zocht een vrouw"
+          ],
+          "why": "Exodus 2:15"
+        },
+        {
+          "q": "Hoe heette de vrouw van Mozes?",
+          "a": [
+            "Zippora",
+            "Mirjam",
+            "Jochebed"
+          ],
+          "why": "Exodus 2:21"
+        },
+        {
+          "q": "Waarom noemde Mozes zijn zoon Gersom?",
+          "a": [
+            "Hij was een vreemdeling in een vreemd land",
+            "Hij was blij dat hij gered was",
+            "Zo heette zijn schoonvader"
+          ],
+          "why": "Exodus 2:22"
+        },
+        {
+          "q": "Wat gebeurde er het eerst?",
+          "a": [
+            "Mozes verborg de Egyptenaar in het zand",
+            "Mozes hielp de zeven dochters",
+            "Mozes trouwde met Zippora"
+          ],
+          "why": "Exodus 2:12; Exodus 2:17; Exodus 2:21"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Stefanus zegt dat Mozes meende ‘dat zijn broeders zouden verstaan, dat God door zijn hand hun verlossing geven zou; maar zij hebben het niet verstaan’ (Handelingen 7:25). Hij wijst erop dat God juist deze Mozes stuurde, die zij hadden afgewezen met de woorden ‘Wie heeft u tot een overste en rechter gesteld?’: ‘dezen … heeft God tot een overste en verlosser gezonden’ (Handelingen 7:35). Mozes had later twee zonen; de tweede heette Eliëzer, ‘want, zeide hij, de God mijns vaders is tot mijn Hulpe geweest’ (Exodus 18:4).",
+          "refs": [
+            "Handelingen 7:25",
+            "Handelingen 7:35",
+            "Exodus 18:3–4"
+          ]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Er staat niet dat Mozes in een paleis woonde of een prins was. Er staat dat hij de zoon werd van de dochter van de farao (2:10), en dat hij ‘werd onderwezen in alle wijsheid der Egyptenaren’ (Handelingen 7:22). De vader van Zippora heet hier Rehuël (2:18), in Exodus 3:1 en 18:1 Jethro, en Numeri 10:29 spreekt van ‘Hobab, den zoon van Rehuël, den Midianiet, den schoonvader van Mozes’. Uitleggers verschillen over hoe deze namen bij elkaar horen.",
+          "refs": [
+            "Exodus 2:10",
+            "Handelingen 7:22",
+            "Exodus 2:18",
+            "Exodus 3:1",
+            "Exodus 18:1",
+            "Numeri 10:29"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Midian staat op de kaart als gebied. Midian was een zoon van Abraham en Ketura (Genesis 25:1–2); de Midianieten worden gezien als zijn nakomelingen. Welke weg Mozes nam, vertelt de Bijbel niet; de plaatsen onderweg op de kaart zijn onzeker. Stefanus zegt dat Mozes veertig jaar was toen hij zijn broeders bezocht (Handelingen 7:23), en dat de Engel des Heeren hem veertig jaar later verscheen (Handelingen 7:30). Gerekend vanaf een uittocht rond 1446 v.Chr. (1 Koningen 6:1) is dat ongeveer 1486–1446 v.Chr.; veel onderzoekers dateren de uittocht in de 13e eeuw v.Chr.",
+          "refs": [
+            "Genesis 25:1–2",
+            "Handelingen 7:23",
+            "Handelingen 7:30",
+            "1 Koningen 6:1"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Hoe oud was Mozes volgens Stefanus toen hij zijn broeders bezocht?",
+          "a": [
+            "Veertig jaar",
+            "Twintig jaar",
+            "Tachtig jaar"
+          ],
+          "why": "Handelingen 7:23"
+        },
+        {
+          "q": "Wat meende Mozes volgens Stefanus dat zijn broeders zouden begrijpen?",
+          "a": [
+            "Dat God door hem verlossing zou geven",
+            "Dat hij de nieuwe farao zou worden",
+            "Dat hij naar Midian zou gaan"
+          ],
+          "why": "Handelingen 7:25"
+        },
+        {
+          "q": "Hoe heette de tweede zoon van Mozes?",
+          "a": [
+            "Eliëzer",
+            "Gersom",
+            "Aäron"
+          ],
+          "why": "Exodus 18:3–4"
+        },
+        {
+          "q": "Wie was Midian volgens Genesis 25?",
+          "a": [
+            "Een zoon van Abraham en Ketura",
+            "Een zoon van Ezau en Ada",
+            "Een zoon van Lot"
+          ],
+          "why": "Genesis 25:1–2"
+        }
+      ]
+    }
+  },
+  "23": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "ex_midian",
+        "sinai"
+      ],
+      "delen": [
+        {
+          "t": "Mozes past op de kudde van Jethro, de vader van zijn vrouw. Hij komt bij Horeb, de berg van God.",
+          "stap": "exodus:mozes:4"
+        },
+        {
+          "t": "Daar ziet Mozes een braamstruik die in brand staat. Maar de struik brandt niet op!",
+          "stap": "exodus:mozes:4"
+        },
+        {
+          "t": "Mozes gaat kijken. Dan roept God uit de struik: ‘Mozes, Mozes!’ En Mozes zegt: ‘Zie, hier ben ik!’",
+          "stap": "exodus:mozes:4"
+        },
+        {
+          "t": "God zegt dat Mozes niet dichterbij moet komen. Hij moet zijn schoenen uittrekken, want de plaats is heilig.",
+          "stap": "exodus:mozes:4"
+        },
+        {
+          "t": "God heeft gezien hoe zwaar Zijn volk het heeft in Egypte. Hij stuurt Mozes naar de farao, om het volk uit Egypte te leiden.",
+          "stap": "exodus:mozes:4"
+        },
+        {
+          "t": "Mozes vraagt: ‘Wie ben ik?’ God zegt: ‘Ik zal voorzeker met u zijn.’ Dat betekent: Ik zal zeker bij je zijn.",
+          "stap": "exodus:mozes:4"
+        },
+        {
+          "t": "God geeft Mozes tekenen, zodat het volk hem zal geloven. Zijn staf wordt een slang, en daarna weer een staf.",
+          "stap": "exodus:mozes:5"
+        },
+        {
+          "t": "Mozes zegt dat hij niet goed kan spreken. Dan geeft God hem zijn broer Aäron. Aäron mag voor hem spreken.",
+          "stap": "exodus:mozes:5"
+        },
+        {
+          "t": "Mozes gaat terug naar Egypte, met de staf van God in zijn hand. Aäron komt hem tegemoet.",
+          "stap": "exodus:mozes:6"
+        },
+        {
+          "t": "Aäron vertelt het volk alles wat God gezegd heeft. Het volk gelooft. Ze buigen zich en aanbidden God.",
+          "stap": "exodus:mozes:6"
+        }
+      ],
+      "samen": "Weggelaten: onderweg wil de HEERE Mozes doden, totdat Zippora haar zoon besnijdt (Exodus 4:24–26); de tekst zegt niet precies waarom. Ook weggelaten: de Naam ‘IK ZAL ZIJN, Die IK ZIJN ZAL’ (3:14), de twee andere tekenen (4:6–9) en dat de HEERE toornig werd toen Mozes vroeg om iemand anders te sturen (4:13–14). Vraag samen: waarom moet Mozes zijn schoenen uittrekken? (3:5)",
+      "vragen": [
+        {
+          "q": "Wat is er bijzonder aan de braamstruik?",
+          "a": [
+            "Hij brandt, maar brandt niet op",
+            "Hij heeft gouden bloemen"
+          ],
+          "why": "Exodus 3:2"
+        },
+        {
+          "q": "Wat moet Mozes uittrekken?",
+          "a": [
+            "Zijn schoenen",
+            "Zijn mantel"
+          ],
+          "why": "Exodus 3:5"
+        },
+        {
+          "q": "Wie mag voor Mozes spreken?",
+          "a": [
+            "Zijn broer Aäron",
+            "Zijn schoonvader Jethro"
+          ],
+          "why": "Exodus 4:14–16"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een braambos dat niet verbrandt",
+          "stap": "exodus:mozes:4",
+          "t": "Mozes hoedt de kudde van zijn schoonvader Jethro. Bij Horeb, de berg van God, ziet hij een braambos dat brandt, maar niet verteerd wordt. God roept hem: ‘Mozes, Mozes!’ Hij moet zijn schoenen uittrekken, want de plaats waar hij staat, is heilig land."
+        },
+        {
+          "kop": "Ik zal met u zijn",
+          "stap": "exodus:mozes:4",
+          "t": "God heeft gezien hoe Zijn volk verdrukt wordt. Hij stuurt Mozes naar de farao om Israël uit Egypte te leiden. Mozes vraagt: ‘Wie ben ik?’ God antwoordt: ‘Ik zal voorzeker met u zijn.’ God noemt ook Zijn Naam: ‘IK ZAL ZIJN, Die IK ZIJN ZAL’."
+        },
+        {
+          "kop": "Tekenen en een helper",
+          "stap": "exodus:mozes:5",
+          "t": "Mozes zegt dat het volk hem niet zal geloven. Daarom geeft God hem tekenen: zijn staf wordt een slang, en zijn hand wordt ‘melaats, wit als sneeuw’ en weer gezond. Mozes zegt dat hij niet goed kan spreken, en vraagt God iemand anders te sturen. Dan wordt de HEERE toornig: boos. Toch geeft Hij Aäron, de broer van Mozes, om voor hem te spreken."
+        },
+        {
+          "kop": "Het volk gelooft",
+          "stap": "exodus:mozes:6",
+          "t": "Mozes gaat terug naar Egypte, met de staf van God in zijn hand. Aäron komt hem tegemoet. Aäron spreekt tot de oudsten en doet de tekenen. Het volk gelooft en aanbidt."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom moest Mozes zijn schoenen uittrekken?",
+          "a": [
+            "Hij stond op heilig land",
+            "Hij had een lange tocht gemaakt",
+            "Het vuur was te heet"
+          ],
+          "why": "Exodus 3:5"
+        },
+        {
+          "q": "Waarom gaf God Mozes tekenen?",
+          "a": [
+            "Zodat het volk hem zou geloven",
+            "Zodat Jethro hem liet gaan",
+            "Zodat de herders hem volgden"
+          ],
+          "why": "Exodus 4:1–5"
+        },
+        {
+          "q": "Wat gebeurde er met de staf op de grond?",
+          "a": [
+            "Hij werd een slang",
+            "Hij begon te bloeien",
+            "Hij brak in tweeën"
+          ],
+          "why": "Exodus 4:3"
+        },
+        {
+          "q": "Wie kwam Mozes tegemoet bij de berg van God?",
+          "a": [
+            "Aäron",
+            "Jethro",
+            "Zippora"
+          ],
+          "why": "Exodus 4:27"
+        },
+        {
+          "q": "Wat deed het volk toen Aäron de tekenen deed?",
+          "a": [
+            "Het geloofde en aanbad",
+            "Het lachte Mozes uit",
+            "Het trok meteen weg"
+          ],
+          "why": "Exodus 4:30–31"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Horeb, de berg van God",
+          "t": "God geeft Mozes een teken: ‘wanneer gij dit volk uit Egypte geleid hebt, zult gijlieden God dienen op dezen berg’ (3:12). Dat gebeurt: Israël legert zich in de woestijn Sinaï ‘tegenover dien berg’ (Exodus 19:2), en Mozes zegt later: ‘De HEERE, onze God, heeft een verbond met ons gemaakt aan Horeb’ (Deuteronomium 5:2). Horeb en Sinaï worden meestal uitgelegd als namen voor dezelfde berg; Stefanus spreekt bij de braamstruik van ‘den berg Sinaï’ (Handelingen 7:30). Waar die berg lag, is betwist; de plek op de kaart is een van de voorstellen.",
+          "refs": [
+            "Exodus 3:12",
+            "Exodus 19:1–2",
+            "Deuteronomium 5:2",
+            "Handelingen 7:30"
+          ]
+        },
+        {
+          "kop": "De Naam van God",
+          "t": "Waar de Statenvertaling HEERE met hoofdletters schrijft, staat in het Hebreeuws de eigen Naam van God. In Exodus 3 verbindt God die Naam met ‘IK ZAL ZIJN, Die IK ZIJN ZAL’ (3:14), en Hij zegt: ‘dat is Mijn Naam eeuwiglijk, en dat is Mijn gedachtenis van geslacht tot geslacht’ (3:15). Opvallend is ook dat in 3:2 ‘de Engel des HEEREN’ verschijnt, terwijl in 3:4 God Zelf roept. Veel uitleggers zien in deze Engel de Zoon van God; anderen denken aan een engel die namens God spreekt.",
+          "refs": [
+            "Exodus 3:2–4",
+            "Exodus 3:14–15"
+          ]
+        },
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "Onderweg, in de herberg, kwam de HEERE Mozes tegen en ‘zocht hem te doden’ (4:24). Waarom, zegt de tekst niet uitdrukkelijk. Omdat Zippora dan haar zoon besnijdt, verbinden veel uitleggers het met Genesis 17:14: wie niet besneden werd, ‘heeft Mijn verbond gebroken’. Over welke zoon het gaat en wie met ‘bloedbruidegom’ bedoeld is, verschillen uitleggers. Exodus 4:20 spreekt van ‘zijn zonen’; de tweede zoon, Eliëzer, wordt pas in Exodus 18:4 bij naam genoemd.",
+          "refs": [
+            "Exodus 4:20",
+            "Exodus 4:24–26",
+            "Genesis 17:10–14",
+            "Exodus 18:3–4"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat zou het teken zijn dat God Mozes gezonden had?",
+          "a": [
+            "Het volk zou God dienen op deze berg",
+            "Het braambos zou altijd blijven branden",
+            "De farao zou het volk meteen laten gaan"
+          ],
+          "why": "Exodus 3:12"
+        },
+        {
+          "q": "Wat zei God vooraf over het hart van de farao?",
+          "a": [
+            "Hij zou het verstokken",
+            "Hij zou het zacht maken",
+            "Hij zou het niet aanraken"
+          ],
+          "why": "Exodus 4:21"
+        },
+        {
+          "q": "Welke berg noemt Stefanus als hij over het braambos vertelt?",
+          "a": [
+            "Sinaï",
+            "Karmel",
+            "Sion"
+          ],
+          "why": "Handelingen 7:30"
+        },
+        {
+          "q": "Waar kwam de HEERE Mozes tegen om hem te doden?",
+          "a": [
+            "In de herberg onderweg",
+            "Bij de waterput in Midian",
+            "Aan de oever van de rivier"
+          ],
+          "why": "Exodus 4:24"
+        }
+      ]
+    }
+  }
+}

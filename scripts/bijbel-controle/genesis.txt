@@ -519,3 +519,8 @@ Exodus 1:8 | nieuwe koning.*Jozef niet gekend
 # --- Tijdnoten (chronologie)
 1 Koningen 6:1 | vierhonderd en tachtigste jaar.*vierde jaar
 Galaten 3:17 | vierhonderd en dertig jaren
+# --- Invoerherstel 2026-11-04 (docs/bijbelreis-niveaus/werk/invoerherstel-verslag.md)
+Genesis 3:20 | Heva
+Genesis 27:15-16 | Rebekka.*trok ze Jakob.*aan.*vellen van de geitenbokjes trok zij
+Genesis 30:22-24 | God dacht ook aan Rachel.*Jozef
+Genesis 29:26 | te dezer onzer plaatse

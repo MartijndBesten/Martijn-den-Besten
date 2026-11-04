@@ -22,13 +22,13 @@ BR.geschiedenissen.push(
     { q: "Wie was de moeder van Joas?", a: ["Zibja uit Berseba", "Athalia", "Joseba"], why: "2 Koningen 12:1" },
     { q: "Hoe lang regeerde Joas in Jeruzalem?", a: ["40 jaar", "7 jaar", "23 jaar"], why: "2 Koningen 12:1" },
     { q: "Wie werd voor de altaren in het huis van Baäl gedood?", a: ["Mattan, de priester van Baäl", "Athalia", "Jojada"], why: "2 Koningen 11:18" },
-    { q: "Waarom hoefde niemand na te rekenen wat de bouwlieden met het geld deden?", a: ["Ze handelden trouw", "Ze kregen helemaal geen geld", "De koning betaalde alles zelf"], why: "2 Koningen 12:15" },
+    { q: "Waarom hoefde niemand na te rekenen wat de opzichters met het geld deden?", a: ["Ze handelden trouw", "Ze kregen helemaal geen geld", "De koning betaalde alles zelf"], why: "2 Koningen 12:15" },
     { q: "Welke stad nam Hazaël in voordat hij naar Jeruzalem wilde?", a: ["Gath", "Samaria", "Jericho"], why: "2 Koningen 12:17" }],
   cross: [["2 Kronieken 24:20–22", "Na de dood van Jojada waarschuwt zijn zoon Zacharia het volk. Op bevel van koning Joas wordt hij in het voorhof van de tempel gestenigd."],
     ["2 Samuël 7:16", "God beloofde David: ‘Uw huis zal bestendig zijn.’"],
     ["Deuteronomium 17:18–19", "Een koning moest een afschrift van de wet hebben en daar al de dagen van zijn leven in lezen."]],
   tl: [-841, -796], tijd: "ca. 841–796 v.Chr.",
-  tijdNoot: "Reconstructie. Athalia nam de macht in het jaar dat Jehu koning van Israël werd; Joas werd koning in het zevende jaar van Jehu en regeerde veertig jaar (2 Koningen 11:4; 12:1). In de gangbare chronologie (Thiele) is dat ca. 841–835 v.Chr. voor Athalia en ca. 835–796 v.Chr. voor Joas. Andere schema’s verschillen enkele jaren.",
+  tijdNoot: "Reconstructie. Athalia nam de macht in het jaar dat Jehu koning van Israël werd; Joas werd koning in het zevende jaar van Jehu en regeerde veertig jaar (2 Koningen 9:27; 11:1–4; 12:1). In de gangbare chronologie (Thiele) is dat ca. 841–835 v.Chr. voor Athalia en ca. 835–796 v.Chr. voor Joas. Andere schema’s verschillen enkele jaren.",
 },
 {
   nr: 66, t: "Samaria valt en Israël wordt weggevoerd", ref: "2 Koningen 17; 18:9–12", sectie: "profeten",
@@ -55,7 +55,7 @@ BR.geschiedenissen.push(
 {
   nr: 67, t: "Hizkia bidt en Jesaja brengt Gods antwoord", ref: "2 Koningen 18–20", sectie: "profeten",
   stappen: ["2koningen:ballingschap:1", "2koningen:ballingschap:2", "2koningen:ballingschap:3"], vorm: "route",
-  uitleg: "Hizkia wordt op zijn 25e koning van Juda. Hij vertrouwt op de HEERE als geen andere koning van Juda. Hij haalt de offerhoogten weg en verbrijzelt zelfs de koperen slang van Mozes. Dan valt Sanherib, de koning van Assyrië, Juda binnen. Zijn bevelhebber Rabsake roept bij de muur van Jeruzalem dat de HEERE de stad niet kan redden. Hizkia spreidt de dreigbrief van Sanherib uit in het huis van de HEERE en bidt. Door de profeet Jesaja antwoordt God dat Hij het gebed gehoord heeft. In één nacht slaat de Engel van de HEERE 185.000 man in het kamp van Assyrië. Later wordt Hizkia doodziek. Hij bidt en huilt, en God geeft hem nog vijftien jaar. Als teken gaat de schaduw tien graden terug. Maar Hizkia laat gezanten uit Babel al zijn schatten zien. Dan zegt Jesaja dat alles eens naar Babel weggevoerd zal worden.",
+  uitleg: "Hizkia wordt op zijn 25e koning van Juda. Hij vertrouwt op de HEERE als geen andere koning van Juda. Hij haalt de offerhoogten weg en verbrijzelt zelfs de koperen slang van Mozes. Dan valt Sanherib, de koning van Assyrië, Juda binnen. Zijn gezant Rabsake roept bij de muur van Jeruzalem dat de HEERE de stad niet kan redden. Hizkia spreidt de dreigbrief van Sanherib uit in het huis van de HEERE en bidt. Door de profeet Jesaja antwoordt God dat Hij het gebed gehoord heeft. In één nacht slaat de Engel van de HEERE 185.000 man in het kamp van Assyrië. In die dagen wordt Hizkia doodziek. Hij bidt en huilt, en God geeft hem nog vijftien jaar. Als teken gaat de schaduw tien graden terug. Maar Hizkia laat gezanten uit Babel al zijn schatten zien. Dan zegt Jesaja dat alles eens naar Babel weggevoerd zal worden.",
   betekenis: "Hizkia bad: ‘Verlos ons toch uit zijn hand; zo zullen alle koninkrijken der aarde weten, dat Gij, HEERE, alleen God zijt’ (2 Koningen 19:19). God liet zien dat Hij gebed hoort en machtiger is dan het grootste leger. En Hij kondigde toen al de ballingschap in Babel aan (2 Koningen 20:17).",
   wie: ["Hizkia", "Jesaja", "Sanherib", "Rabsake"],
   ontdek: { soort: "wiezei", titel: "Wie zei het?", items: [
@@ -103,7 +103,7 @@ BR.geschiedenissen.push(
   uitleg: "God zegt tegen de profeet Jona: ga naar de grote stad Ninevé en preek tegen haar, want haar boosheid is tot bij Mij gekomen. Maar Jona vlucht de andere kant op. In Jafo (Joppe) stapt hij op een schip naar Tarsis. De HEERE werpt een grote wind op de zee, en het schip dreigt te breken. De zeelieden werpen het lot, en het valt op Jona. Hij zegt: ‘Neemt mij op, en werpt mij in de zee, zo zal de zee stil worden.’ Als ze dat doen, wordt de zee stil. De zeelieden vrezen de HEERE en brengen Hem een offer. De HEERE beschikt een grote vis die Jona inslokt. Drie dagen en drie nachten zit hij in de vis. Daar bidt hij tot de HEERE, en op Gods woord spuwt de vis hem uit op het droge.",
   betekenis: "Jona kon niet voor God weglopen. God bleef hem zoeken en hoorde zijn gebed uit de diepte: ‘Het heil is des HEEREN’ (Jona 2:9). De Heere Jezus noemt de drie dagen van Jona in de vis een teken van Zijn eigen dood en opstanding (Mattheüs 12:40).",
   wie: ["Jona", "Zeelieden"],
-  ontdek: { soort: "kaart", vraag: "Jona moest naar Ninevé, ver in het oosten. Maar in welke haven stapte hij op een schip naar het westen?", id: "joppe", v: "kanaan" },
+  ontdek: { soort: "kaart", vraag: "Jona moest naar Ninevé, ver in het oosten. Maar in welke haven stapte hij op een schip naar Tarsis?", id: "joppe", v: "kanaan" },
   quiz: [
     { q: "Wat zei Jona over zichzelf tegen de zeelieden?", a: ["Ik ben een Hebreeër en ik vrees de HEERE", "Ik ben een koopman uit Tarsis", "Ik kom uit Ninevé"], why: "Jona 1:9" },
     { q: "Wat vroegen de zeelieden aan de HEERE voordat ze Jona in zee wierpen?", a: ["Laat ons toch niet vergaan om dezes mans ziel", "Geef ons een betere wind", "Breng ons veilig naar Tarsis"], why: "Jona 1:14" },
@@ -111,7 +111,7 @@ BR.geschiedenissen.push(
     { q: "Wie beschikte de grote vis?", a: ["De HEERE", "De zeelieden", "De koning van Ninevé"], why: "Jona 1:17" },
     { q: "Waarmee eindigt het gebed van Jona in de vis?", a: ["Het heil is des HEEREN", "Ik wil naar Tarsis", "Laat mij sterven"], why: "Jona 2:9" }],
   cross: [["Mattheüs 12:40", "‘Gelijk Jonas drie dagen en drie nachten was in den buik van den walvis, alzo zal de Zoon des mensen drie dagen en drie nachten wezen in het hart der aarde.’"],
-    ["Psalm 139:9–10", "‘Woonde ik aan het uiterste der zee, ook daar zou Uw hand mij geleiden.’"],
+    ["Psalm 139:9–10", "‘Woonde ik aan het uiterste der zee; Ook daar zou Uw hand mij geleiden.’"],
     ["2 Koningen 14:25", "Jona, de zoon van Amitthai, kwam uit Gath-Hefer en profeteerde in de tijd van koning Jerobeam."]],
   tl: [-793, -753], tijd: "ca. 790–750 v.Chr.",
   tijdNoot: "Reconstructie. De Bijbel zegt alleen dat Jona profeteerde in de tijd van Jerobeam II, koning van Israël (2 Koningen 14:23–25). Diens regering wordt in de gangbare chronologie (Thiele) op ca. 793–753 v.Chr. gezet. Wanneer Jona naar Ninevé moest, staat er niet.",
@@ -119,7 +119,7 @@ BR.geschiedenissen.push(
 {
   nr: 70, t: "Ninevé bekeert zich en God is genadig", ref: "Jona 3–4", sectie: "profeten",
   stappen: ["jona:jona:4", "jona:jona:5", "jona:jona:6"], vorm: "plek", kw: "genade",
-  uitleg: "Voor de tweede keer zegt God tegen Jona: ga naar Ninevé. Nu gaat hij. Jona loopt een dag de grote stad in en roept: ‘Nog veertig dagen, dan zal Ninevé worden omgekeerd!’ De mensen van Ninevé geloven God. Ze roepen een vasten uit en trekken zakken aan, van de grootste tot de kleinste. Ook de koning staat op van zijn troon en gaat in de as zitten. Zelfs de dieren mogen niet eten of drinken. God ziet dat ze zich bekeren van hun boze weg, en Hij doet het kwaad niet dat Hij gezegd had. Daarover wordt Jona heel boos, want hij wist dat God genadig en barmhartig is. Met een wonderboom, een worm en een oostenwind laat God Jona iets zien. Hij heeft medelijden met de grote stad, met meer dan 120.000 mensen en veel vee.",
+  uitleg: "Voor de tweede keer zegt God tegen Jona: ga naar Ninevé. Nu gaat hij. Jona loopt een dag de grote stad in en roept: ‘Nog veertig dagen, dan zal Nineve worden omgekeerd.’ De mensen van Ninevé geloven God. Ze roepen een vasten uit en trekken zakken aan, van de grootste tot de kleinste. Ook de koning staat op van zijn troon en gaat in de as zitten. Zelfs de dieren mogen niet eten of drinken. God ziet dat ze zich bekeren van hun boze weg, en Hij doet het kwaad niet dat Hij gezegd had. Daarover wordt Jona heel boos, want hij wist dat God genadig en barmhartig is. Met een wonderboom, een worm en een oostenwind laat God Jona iets zien. Hij heeft medelijden met de grote stad, met meer dan 120.000 mensen en veel vee.",
   betekenis: "Genade is dat God spaart wie straf verdient. Jona wist het al: ‘Gij een genadig en barmhartig God zijt, lankmoedig en groot van goedertierenheid’ (Jona 4:2). De Heere Jezus zegt dat de mannen van Ninevé zich bekeerden op de prediking van Jona, ‘en ziet, meer dan Jona is hier!’ (Mattheüs 12:41).",
   wie: ["Jona", "Koning"],
   ontdek: { soort: "koppel", titel: "Wie of wat deed wat?", paren: [
@@ -202,7 +202,7 @@ BR.geschiedenissen.push(
   quiz: [
     { q: "Welke naam kreeg Daniël in Babel?", a: ["Beltsazar", "Sadrach", "Abed-Nego"], why: "Daniël 1:7" },
     { q: "Hoe lang werden de vier jongens getest met groente en water?", a: ["10 dagen", "40 dagen", "3 jaar"], why: "Daniël 1:12" },
-    { q: "Hoeveel keer wijzer vond de koning hen dan al zijn wijzen?", a: ["Tien keer", "Twee keer", "Honderd keer"], why: "Daniël 1:20" },
+    { q: "Hoeveel keer wijzer vond de koning hen dan al zijn tovenaars en sterrekijkers?", a: ["Tien keer", "Twee keer", "Honderd keer"], why: "Daniël 1:20" },
     { q: "Wat deden Daniël en zijn vrienden toen de koning zijn droom wilde weten?", a: ["Ze vroegen de God van de hemel om barmhartigheid", "Ze vluchtten de stad uit", "Ze raadpleegden de sterren"], why: "Daniël 2:18" },
     { q: "Wat werd de steen die het beeld verbrijzelde?", a: ["Een grote berg die de hele aarde vulde", "Een gouden kroon op het hoofd van de koning", "Een rivier die door het hele land stroomde"], why: "Daniël 2:35" }],
   cross: [["Ezechiël 14:14", "Daniël wordt genoemd met Noach en Job als rechtvaardige mannen."],
@@ -265,7 +265,7 @@ BR.geschiedenissen.push(
   wie: ["Kores", "Sesbazar", "Zerubbabel", "Jesua", "Haggaï", "Zacharia", "Darius"],
   ontdek: { soort: "koppel", titel: "Wie deed wat?", paren: [
     ["Kores", "liet bekendmaken dat het huis van de HEERE gebouwd moest worden"], ["Sesbazar", "kreeg de tempelvaten mee naar Jeruzalem"],
-    ["Jesua en Zerubbabel", "bouwden eerst het altaar"], ["De oude priesters en Levieten", "huilden toen ze het fundament zagen"],
+    ["Jesua en Zerubbabel", "bouwden eerst het altaar"], ["De oude priesters, Levieten en hoofden der vaderen", "huilden toen ze het fundament zagen"],
     ["Haggaï en Zacharia", "profeteerden tot de Joden in Juda en Jeruzalem"], ["Darius", "gaf bevel om de rol van Kores te zoeken"]] },
   quiz: [
     { q: "Door wiens mond had de HEERE dit gesproken?", a: ["Jeremia", "Jona", "Elia"], why: "Ezra 1:1" },
@@ -313,7 +313,7 @@ BR.geschiedenissen.push(
     ["‘Wanneer ik dan omkome, zo kom ik om.’", "Esther", ["Mordechai", "Vasthi"]],
     ["‘Wat is u, koningin Esther! of wat is uw verzoek?’", "Koning Ahasveros", ["Haman", "Mordechai"]],
     ["‘Tot wien heeft de koning een welbehagen, om hem eer te doen, meer dan tot mij?’", "Haman, in zijn hart", ["Mordechai", "Ahasveros"]],
-    ["‘Ook zie, de galg, welke Haman gemaakt heeft voor Mordechai ... vijftig ellen hoog.’", "Charbona, een kamerling", ["Esther", "Mordechai"]]] },
+    ["‘Ook zie, de galg, welke Haman gemaakt heeft voor Mordechai … vijftig ellen hoog.’", "Charbona, een kamerling", ["Esther", "Mordechai"]]] },
   quiz: [
     { q: "Hoeveel dagen vastten de Joden in Susan voor Esther?", a: ["Drie dagen", "Veertig dagen", "Eén dag"], why: "Esther 4:16" },
     { q: "Wat stak de koning naar Esther uit?", a: ["De gouden scepter", "Zijn zwaard", "Zijn zegelring"], why: "Esther 5:2" },

@@ -1,0 +1,584 @@
+{
+  "36": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "sittim",
+        "nebo"
+      ],
+      "delen": [
+        {
+          "t": "Het volk Israël is aan het eind van de lange reis door de woestijn. Ze zijn in het land Moab, vlak bij de Jordaan.",
+          "stap": "numeri:moab:3"
+        },
+        {
+          "t": "Mozes spreekt lang tegen het volk. Hij zegt: ‘Kiest dan het leven’. Dat betekent: heb de HEERE lief en luister naar Hem.",
+          "stap": "numeri:moab:3"
+        },
+        {
+          "t": "Mozes is heel oud: honderdtwintig jaar. Hij mag niet mee het land in. Maar de HEERE Zelf gaat voor het volk uit."
+        },
+        {
+          "t": "Mozes roept Jozua. Heel Israël kijkt toe. Mozes zegt tegen hem: ‘Wees sterk en heb goeden moed’."
+        },
+        {
+          "t": "Mozes zegent de stammen van Israël. Daarna klimt hij de berg Nebo op.",
+          "stap": "numeri:moab:4"
+        },
+        {
+          "t": "Vanaf de berg laat de HEERE hem het hele land zien. Dat land heeft God beloofd aan Abraham, Izak en Jakob.",
+          "stap": "numeri:moab:4"
+        },
+        {
+          "t": "Daar sterft Mozes, de knecht van de HEERE. God begraaft hem. Niemand weet waar zijn graf is.",
+          "stap": "numeri:moab:5"
+        },
+        {
+          "t": "Het volk huilt dertig dagen om Mozes. Daarna luistert het volk naar Jozua."
+        }
+      ],
+      "samen": "Mozes mocht het land niet in, omdat hij God bij het twistwater van Kades niet geheiligd had (Numeri 20:12; Deuteronomium 32:51–52). Hij had nog gevraagd of hij toch mocht overtrekken (Deuteronomium 3:25–26). Toch noemt de Bijbel hem bij zijn dood ‘de knecht des HEEREN’ (Deuteronomium 34:5). De lange reeks vloeken in Deuteronomium 28 is hier weggelaten. Vraag samen: wat zag Mozes vanaf de berg?",
+      "vragen": [
+        {
+          "q": "Op welke berg klimt Mozes?",
+          "a": [
+            "De berg Nebo",
+            "De berg Sinaï"
+          ],
+          "why": "Deuteronomium 34:1"
+        },
+        {
+          "q": "Wat laat de HEERE aan Mozes zien?",
+          "a": [
+            "Het land dat God beloofd heeft",
+            "Het land Egypte"
+          ],
+          "why": "Deuteronomium 34:1–4"
+        },
+        {
+          "q": "Naar wie luistert het volk na de dood van Mozes?",
+          "a": [
+            "Naar Jozua",
+            "Naar Aäron"
+          ],
+          "why": "Deuteronomium 34:9"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Laatste woorden in Moab",
+          "stap": "numeri:moab:3",
+          "t": "Het volk Israël is in de vlakten van Moab, vlak bij de Jordaan. Daar spreekt Mozes het volk toe. Hij zet zegen en vloek voor hen: zegen als ze naar de HEERE luisteren, vloek als ze dat niet doen. Hij zegt: ‘Kiest dan het leven’. Dat betekent: heb de HEERE lief en wees Hem gehoorzaam."
+        },
+        {
+          "kop": "Jozua wordt de nieuwe leider",
+          "t": "Mozes is honderdtwintig jaar oud. Hij mag de Jordaan niet over, omdat hij God bij het water van Kades niet geheiligd had. Dat betekent: hij had God daar voor het volk niet als heilig geëerd. Mozes roept Jozua. Voor de ogen van heel Israël zegt hij: ‘Wees sterk en heb goeden moed’. Mozes schrijft de wet op en geeft die aan de priesters. Voor zijn dood zegent hij de stammen van Israël."
+        },
+        {
+          "kop": "Mozes op de berg Nebo",
+          "stap": "numeri:moab:4",
+          "t": "Dan klimt Mozes de berg Nebo op, tegenover Jericho. De HEERE laat hem het hele land zien dat Hij aan Abraham, Izak en Jakob beloofd heeft. Mozes mag het zien, maar er niet heen gaan. Daar sterft Mozes, ‘de knecht des HEEREN’. God begraaft hem in een dal in Moab. Niemand weet waar zijn graf is. Israël rouwt dertig dagen om hem."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom mocht Mozes de Jordaan niet over?",
+          "a": [
+            "Hij had God bij Kades niet geheiligd",
+            "Hij wilde liever in Moab blijven",
+            "Het volk wilde hem niet mee"
+          ],
+          "why": "Deuteronomium 32:51–52"
+        },
+        {
+          "q": "Wat geeft Mozes aan de priesters?",
+          "a": [
+            "De wet die hij opgeschreven heeft",
+            "De staf waarmee hij wonderen deed",
+            "Twaalf stenen uit de Jordaan"
+          ],
+          "why": "Deuteronomium 31:9"
+        },
+        {
+          "q": "Wat gebeurt er eerst?",
+          "a": [
+            "Mozes zegent de stammen",
+            "Mozes sterft op de berg",
+            "Israël rouwt dertig dagen"
+          ],
+          "why": "Deuteronomium 33:1; Deuteronomium 34:5–8"
+        },
+        {
+          "q": "Wat zegt de HEERE op de berg tegen Mozes?",
+          "a": [
+            "Je mag het land zien, maar er niet heen gaan",
+            "Je mag morgen als eerste het land in",
+            "Je moet terug naar de berg Sinaï"
+          ],
+          "why": "Deuteronomium 34:4"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Mozes had gevraagd om mee te mogen",
+          "t": "Aan het begin van Deuteronomium vertelt Mozes dat hij de HEERE om genade had gebeden: ‘Laat mij toch overtrekken, en dat goede land bezien’. De HEERE antwoordde: ‘Het zij u genoeg; spreek niet meer tot Mij van deze zaak.’ Wel mocht hij het land zien vanaf de hoogte van Pisga (Deuteronomium 3:27). De reden staat in Numeri 20:12: ‘Omdat gijlieden Mij niet geloofd hebt, dat gij Mij heiligdet voor de ogen der kinderen van Israël’. Deuteronomium 32:51 noemt dezelfde plaats: ‘het twistwater te Kades, in de woestijn Zin’.",
+          "refs": [
+            "Deuteronomium 3:23–27",
+            "Numeri 20:12",
+            "Deuteronomium 32:51–52"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Jozua was vol van de Geest der wijsheid, ‘want Mozes had zijn handen op hem gelegd’ (Deuteronomium 34:9). Dat staat in Numeri 27: Mozes vroeg om een leider, ‘opdat de vergadering des HEEREN niet zij als schapen, die geen herder hebben’, en legde zijn handen op Jozua voor Eleazar, de priester, en de hele vergadering. Dat de HEERE Mozes kende ‘van aangezicht tot aangezicht’ (Deuteronomium 34:10), past bij Exodus 33:11: ‘de HEERE sprak tot Mozes aangezicht aan aangezicht, gelijk een man met zijn vriend spreekt’. En de woorden ‘dit woord is zeer nabij u, in uw mond, en in uw hart’ (Deuteronomium 30:14) haalt Paulus aan in Romeinen 10:8.",
+          "refs": [
+            "Numeri 27:15–23",
+            "Exodus 33:11",
+            "Deuteronomium 30:11–14",
+            "Romeinen 10:6–8"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Het volk lag in de vlakke velden van Moab, ‘tot aan Abel-sittim’ (Numeri 33:49); Sittim staat op de kaart als waarschijnlijke plaats. De berg Nebo heet ook ‘den berg Abarim’ (Deuteronomium 32:49) en ligt ‘op de hoogten van Pisga’ (34:1); de Nebo is aan te wijzen. Het graf van Mozes niet: ‘niemand heeft zijn graf geweten, tot op dezen dag’ (34:6). Mozes sprak ‘in het veertigste jaar, in de elfde maand’ (Deuteronomium 1:3) en stierf kort daarna. Dat is een reconstructie: gerekend met 1 Koningen 6:1 komt dat rond 1406 v.Chr.; wie de uittocht in de 13e eeuw v.Chr. plaatst, komt bijna twee eeuwen later uit.",
+          "refs": [
+            "Numeri 33:48–49",
+            "Deuteronomium 32:49",
+            "Deuteronomium 34:1–6",
+            "Deuteronomium 1:3",
+            "1 Koningen 6:1"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat had Mozes de HEERE gevraagd, volgens Deuteronomium 3?",
+          "a": [
+            "Of hij toch over de Jordaan mocht trekken",
+            "Of Aäron weer bij hem mocht komen",
+            "Of het volk terug mocht naar Egypte"
+          ],
+          "why": "Deuteronomium 3:25"
+        },
+        {
+          "q": "Waarom was Jozua vol van de Geest der wijsheid, volgens Deuteronomium 34:9?",
+          "a": [
+            "Mozes had zijn handen op hem gelegd",
+            "Hij had veertig dagen gevast",
+            "Hij had de wet zelf opgeschreven"
+          ],
+          "why": "Deuteronomium 34:9"
+        },
+        {
+          "q": "Welke woorden van Mozes haalt Paulus aan in Romeinen 10:8?",
+          "a": [
+            "Het woord is zeer nabij u, in uw mond en in uw hart",
+            "Ik ben heden honderd en twintig jaren oud",
+            "Wees sterk en heb goeden moed"
+          ],
+          "why": "Deuteronomium 30:14; Romeinen 10:8"
+        },
+        {
+          "q": "Waar werd Mozes begraven?",
+          "a": [
+            "In een dal tegenover Beth-peor",
+            "Op de top van de berg Nebo",
+            "Bij Aäron op de berg Hor"
+          ],
+          "why": "Deuteronomium 34:6"
+        }
+      ]
+    }
+  },
+  "37": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "sittim",
+        "jericho"
+      ],
+      "delen": [
+        {
+          "t": "Mozes is gestorven. Nu spreekt de HEERE tegen Jozua.",
+          "stap": "jozua:intocht:0"
+        },
+        {
+          "t": "God zegt: ‘Wees sterk en heb goeden moed’. Hij belooft: Ik ben met je, overal waar je heen gaat.",
+          "stap": "jozua:intocht:0"
+        },
+        {
+          "t": "Jozua laat het volk weten: over drie dagen gaan we de Jordaan over."
+        },
+        {
+          "t": "Jozua stuurt in het geheim twee mannen naar de stad Jericho. Ze moeten het land bekijken.",
+          "stap": "jozua:intocht:1"
+        },
+        {
+          "t": "In Jericho komen ze in het huis van een vrouw. Ze heet Rachab. Haar huis staat op de stadsmuur.",
+          "stap": "jozua:intocht:1"
+        },
+        {
+          "t": "De koning van Jericho hoort van de twee mannen. Hij stuurt mensen naar Rachab om hen op te halen."
+        },
+        {
+          "t": "Maar Rachab heeft de mannen verstopt op het dak, onder het vlas. De mannen van de koning gaan hen zoeken bij de Jordaan."
+        },
+        {
+          "t": "Rachab zegt tegen de twee mannen: ‘Ik weet, dat de HEERE u dit land gegeven heeft.’"
+        },
+        {
+          "t": "Ze laat hen met een touw door het raam zakken. Ze moet een rood koord aan het raam binden. Wie bij haar in huis is, blijft dan in leven."
+        },
+        {
+          "t": "De twee mannen verstoppen zich drie dagen in de bergen. Dan gaan ze terug naar Jozua."
+        }
+      ],
+      "samen": "Jozua 2:1 noemt Rachab ‘een hoer’; dat is hier weggelaten. Hebreeën 11:31 zegt dat zij ‘door het geloof’ niet omkwam. Ook is weggelaten dat Rachab tegen de mannen van de koning zei dat de verspieders al weg waren (Jozua 2:4–5). Jozua 2 geeft daar geen oordeel over. Vraag samen: wat wist Rachab over de HEERE?",
+      "vragen": [
+        {
+          "q": "Waar verstopt Rachab de twee mannen?",
+          "a": [
+            "Op het dak",
+            "In de kelder"
+          ],
+          "why": "Jozua 2:6"
+        },
+        {
+          "q": "Wat moet Rachab aan het raam binden?",
+          "a": [
+            "Een rood koord",
+            "Een witte doek"
+          ],
+          "why": "Jozua 2:18"
+        },
+        {
+          "q": "Wat zegt God tegen Jozua?",
+          "a": [
+            "Wees sterk en heb goeden moed",
+            "Ga terug naar de woestijn"
+          ],
+          "why": "Jozua 1:9"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Jozua krijgt de leiding",
+          "stap": "jozua:intocht:0",
+          "t": "Na de dood van Mozes spreekt de HEERE tot Jozua: trek met het volk over de Jordaan, naar het land dat Ik hun geef. Overdenk het wetboek dag en nacht. Drie keer zegt God: ‘wees sterk en heb goeden moed’. Hij belooft: ‘Ik zal u niet begeven, en zal u niet verlaten.’ Dat betekent: Ik laat je niet alleen."
+        },
+        {
+          "kop": "Twee verspieders in Jericho",
+          "stap": "jozua:intocht:1",
+          "t": "Vanuit Sittim stuurt Jozua in het geheim twee verspieders naar Jericho, om het land te verkennen. Ze komen bij Rachab, die op de stadsmuur woont. De koning laat zeggen: ‘Breng de mannen uit’. Maar Rachab heeft hen op het dak verborgen, onder het vlas. Ze zegt dat ze al weg zijn. De achtervolgers zoeken hen op de weg naar de Jordaan."
+        },
+        {
+          "kop": "Een rood koord aan het venster",
+          "t": "Rachab zegt: ‘Ik weet, dat de HEERE u dit land gegeven heeft.’ Ze heeft gehoord dat Hij de Schelfzee droog maakte. Omdat ze hen geholpen heeft, vraagt ze of ze haar familie willen sparen. Ze laat hen met een touw door het venster zakken. Bindt ze daar een rood koord aan, dan wordt iedereen in haar huis gespaard. Na drie dagen in het gebergte gaan ze naar Jozua."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat moet Jozua dag en nacht overdenken?",
+          "a": [
+            "Het boek van de wet",
+            "De kaart van het land",
+            "De namen van de stammen"
+          ],
+          "why": "Jozua 1:8"
+        },
+        {
+          "q": "Waarom jagen de mannen van de koning de verspieders achterna?",
+          "a": [
+            "Rachab zegt dat ze al weg zijn",
+            "Ze hebben hen op het dak gezien",
+            "Rachab stuurt hen naar het gebergte"
+          ],
+          "why": "Jozua 2:4–7; Jozua 2:22"
+        },
+        {
+          "q": "Wat heeft Rachab over Israël gehoord?",
+          "a": [
+            "Dat de HEERE de Schelfzee droog maakte",
+            "Dat Israël de Jordaan al over was",
+            "Dat Mozes koning van Egypte was"
+          ],
+          "why": "Jozua 2:10"
+        },
+        {
+          "q": "Waarom beloven de verspieders Rachab en haar familie te sparen?",
+          "a": [
+            "Zij heeft de verspieders geholpen",
+            "Zij is familie van Jozua",
+            "Zij heeft de koning gewaarschuwd"
+          ],
+          "why": "Jozua 2:12–14"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Eerder: twaalf verspieders",
+          "t": "Het is niet de eerste keer dat Israël verspieders stuurt. Vanuit de woestijn Paran zond Mozes twaalf mannen, uit elke stam één (Numeri 13:2–3). Een van hen was Hosea, de zoon van Nun: ‘Mozes noemde Hosea, den zoon van Nun, Jozua’ (Numeri 13:16). De andere verspieders zeiden toen: ‘Wij zullen tot dat volk niet kunnen optrekken, want het is sterker dan wij.’ Alleen Jozua en Kaleb zeiden: ‘de HEERE is met ons; vreest hen niet!’ (Numeri 14:9). Nu komen de twee verspieders terug met: ‘Zekerlijk, de HEERE heeft dat ganse land in onze handen gegeven’ (Jozua 2:24).",
+          "refs": [
+            "Numeri 13:2–3",
+            "Numeri 13:16",
+            "Numeri 13:31",
+            "Numeri 14:6–9",
+            "Jozua 2:24"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "God belooft Jozua: ‘Ik zal u niet begeven, en zal u niet verlaten’ (Jozua 1:5). Mozes had dat ook al gezegd (Deuteronomium 31:8), en bijna dezelfde woorden staan in Hebreeën 13:5: ‘Ik zal u niet begeven, en Ik zal u niet verlaten.’ Het bevel om het wetboek ‘dag en nacht’ te overleggen (Jozua 1:8) lijkt op Psalm 1:2: ‘hij overdenkt Zijn wet dag en nacht.’ Hoe het Rachab later gaat, vertelt Jozua 6:25: ‘zij heeft gewoond in het midden van Israël tot op dezen dag’.",
+          "refs": [
+            "Jozua 1:5",
+            "Deuteronomium 31:8",
+            "Hebreeën 13:5",
+            "Psalm 1:2",
+            "Jozua 6:22–25"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Sittim staat op de kaart als waarschijnlijke plaats; Numeri 33:49 noemt het kamp ‘tot aan Abel-sittim’. Jericho is aan te wijzen. De verspieders moesten dus de Jordaan over: op de terugweg staat er dat zij ‘voeren over’ (Jozua 2:23). De achtervolgers zochten ‘op den weg van de Jordaan, tot aan de veren’ (Jozua 2:7). Met ‘veren’ worden de plaatsen bedoeld waar men de rivier overstak. Waar die precies lagen, zegt de Bijbel niet. De intocht is veertig jaar na de uittocht (Numeri 14:33–34). Gerekend met 1 Koningen 6:1 is dat rond 1406 v.Chr.; wie de uittocht in de 13e eeuw v.Chr. dateert, plaatst de intocht rond 1230–1200 v.Chr.",
+          "refs": [
+            "Numeri 33:49",
+            "Jozua 2:7",
+            "Jozua 2:23",
+            "Numeri 14:33–34",
+            "1 Koningen 6:1"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Welke twee verspieders zeiden lang daarvoor al: vreest hen niet?",
+          "a": [
+            "Jozua en Kaleb",
+            "Mozes en Aäron",
+            "Nadab en Abihu"
+          ],
+          "why": "Numeri 14:6–9"
+        },
+        {
+          "q": "Welke belofte aan Jozua staat bijna gelijk in Hebreeën 13:5?",
+          "a": [
+            "Ik zal u niet begeven, en zal u niet verlaten",
+            "Wees sterk en heb zeer goeden moed",
+            "Trek over deze Jordaan met al dit volk"
+          ],
+          "why": "Jozua 1:5; Hebreeën 13:5"
+        },
+        {
+          "q": "Wat zegt Jozua 6:25 over Rachab?",
+          "a": [
+            "Zij woonde daarna in het midden van Israël",
+            "Zij ging terug naar haar eigen volk",
+            "Zij werd koningin van Jericho"
+          ],
+          "why": "Jozua 6:25"
+        }
+      ]
+    }
+  },
+  "38": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "sittim",
+        "gilgal"
+      ],
+      "delen": [
+        {
+          "t": "Het volk Israël trekt van Sittim naar de rivier de Jordaan. Daar slapen ze, voordat ze oversteken.",
+          "stap": "jozua:intocht:2"
+        },
+        {
+          "t": "Het is oogsttijd. De Jordaan staat helemaal vol water, tot aan de kanten."
+        },
+        {
+          "t": "De priesters dragen de ark voorop: de kist van het verbond van de HEERE. Het volk komt erachteraan."
+        },
+        {
+          "t": "Zodra de voeten van de priesters in het water komen, stopt het water. Ver weg blijft het staan, als een hoop.",
+          "stap": "jozua:intocht:2"
+        },
+        {
+          "t": "De priesters blijven met de ark midden in de rivier staan, op droge grond. Het hele volk loopt over het droge naar de overkant."
+        },
+        {
+          "t": "Twaalf mannen nemen elk een steen uit het midden van de rivier. Ze dragen hem op hun schouder."
+        },
+        {
+          "t": "Dan komen de priesters uit de Jordaan. Meteen stroomt het water weer, net als eerst."
+        },
+        {
+          "t": "Het volk slaat een kamp op in Gilgal. Daar zet Jozua de twaalf stenen neer.",
+          "stap": "jozua:intocht:3"
+        },
+        {
+          "t": "Jozua zegt: vragen jullie kinderen later wat de stenen betekenen? Zeg dan: ‘Op het droge is Israël door deze Jordaan gegaan.’"
+        }
+      ],
+      "samen": "Jozua 4:23 legt zelf het verband met de Schelfzee: daar maakte de HEERE ook een droge weg voor Zijn volk. De stenen waren bedoeld voor kinderen die later zouden vragen: ‘Wat zijn deze stenen?’ (Jozua 4:21). Wijs op de kaart de Jordaan aan, en Gilgal aan de kant van Jericho. Vraag samen: welk ander verhaal lijkt hierop?",
+      "vragen": [
+        {
+          "q": "Wie dragen de ark voorop?",
+          "a": [
+            "De priesters",
+            "De kinderen"
+          ],
+          "why": "Jozua 3:6"
+        },
+        {
+          "q": "Wat doet het water als de voeten van de priesters erin komen?",
+          "a": [
+            "Het blijft staan als een hoop",
+            "Het stroomt nog harder"
+          ],
+          "why": "Jozua 3:15–16"
+        },
+        {
+          "q": "Waar zet Jozua de twaalf stenen neer?",
+          "a": [
+            "In Gilgal",
+            "In Egypte"
+          ],
+          "why": "Jozua 4:20"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "De ark gaat voorop",
+          "stap": "jozua:intocht:2",
+          "t": "Het volk trekt van Sittim naar de Jordaan. Ze moeten de ark van het verbond volgen, de kist van de HEERE, op tweeduizend el afstand: bijna een kilometer. Zo weten ze de weg, want die zijn ze nooit gegaan. Jozua zegt: ‘Heiligt u! want morgen zal de HEERE wonderheden in het midden van ulieden doen.’ Dat betekent: maak je klaar voor de HEERE. Dan dragen de priesters de ark voorop."
+        },
+        {
+          "kop": "Droog door de volle rivier",
+          "t": "Het is oogsttijd, en de Jordaan staat tot aan de oevers vol. Zodra de voeten van de priesters in het water komen, blijft het water van boven staan, als een hoop, heel ver weg. De priesters staan met de ark midden in de Jordaan op het droge. Zo trekt heel Israël over, tegenover Jericho."
+        },
+        {
+          "kop": "Twaalf stenen in Gilgal",
+          "stap": "jozua:intocht:3",
+          "t": "Uit elke stam neemt één man een steen uit de rivier, waar de priesters staan. Als de priesters uit de Jordaan komen, stroomt het water weer zoals eerst. In Gilgal zet Jozua de twaalf stenen neer. Als kinderen later vragen wat die stenen betekenen, moeten de ouders vertellen: ‘Op het droge is Israël door deze Jordaan gegaan.’"
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom moest het volk de ark volgen?",
+          "a": [
+            "Ze waren die weg nog nooit gegaan",
+            "De ark was te zwaar voor de priesters",
+            "Ze moesten de priesters beschermen"
+          ],
+          "why": "Jozua 3:3–4"
+        },
+        {
+          "q": "Wie mochten een steen uit de rivier halen?",
+          "a": [
+            "Uit elke stam één man",
+            "Alleen de priesters",
+            "Alleen Jozua en Kaleb"
+          ],
+          "why": "Jozua 4:2–5"
+        },
+        {
+          "q": "Wanneer begon de Jordaan weer te stromen?",
+          "a": [
+            "Toen de priesters uit de rivier kwamen",
+            "Toen Jozua de stenen neerzette",
+            "Toen het weer begon te regenen"
+          ],
+          "why": "Jozua 4:18"
+        },
+        {
+          "q": "Waarom moesten de stenen in Gilgal staan?",
+          "a": [
+            "Zodat kinderen later horen wat God deed",
+            "Om er een huis van te bouwen",
+            "Om de weg naar Jericho te wijzen"
+          ],
+          "why": "Jozua 4:21–22"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Wat de tekst nog meer zegt",
+          "t": "Voor de doortocht belooft de HEERE: ‘Dezen dag zal Ik beginnen u groot te maken voor de ogen van gans Israël’ (Jozua 3:7). Na de doortocht staat er dat het gebeurd is: ‘zij vreesden hem, gelijk als zij Mozes gevreesd hadden’ (Jozua 4:14). Vaak wordt alleen het gedenkteken in Gilgal verteld. Maar Jozua 4:9 zegt in de Statenvertaling ook: ‘Jozua richtte ook twaalf stenen op, midden in de Jordaan, ter standplaats van de voeten der priesteren’. Uitleggers verschillen over de vraag of dat andere stenen zijn dan die in Gilgal.",
+          "refs": [
+            "Jozua 3:7",
+            "Jozua 4:14",
+            "Jozua 4:8–9",
+            "Jozua 4:20"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Het volk komt ‘den tienden der eerste maand’ uit de Jordaan (Jozua 4:19). Op de tiende dag van die maand moest in Egypte elk huis een lam nemen voor het Pascha (Exodus 12:2–3). In Gilgal houdt het volk dan het Pascha, op de veertiende dag (Jozua 5:10); dat is de volgende geschiedenis (39). Later gaan ook Elia en Elisa op het droge door de Jordaan: Elia ‘sloeg het water, en het werd herwaarts en derwaarts verdeeld’ (2 Koningen 2:8). Elisa gaat daarna alleen terug, op dezelfde manier (2 Koningen 2:14).",
+          "refs": [
+            "Jozua 4:19",
+            "Exodus 12:2–3",
+            "Jozua 5:10",
+            "2 Koningen 2:8",
+            "2 Koningen 2:14"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Het volk trekt over ‘tegenover Jericho’ (Jozua 3:16). Het water blijft staan ‘zeer verre van de stad Adam af, die ter zijde van Sarthan ligt’; een afstand noemt de Bijbel niet. Gilgal ligt ‘aan het oosteinde van Jericho’ (Jozua 4:19). Gilgal en Sittim staan op de kaart als waarschijnlijke plaatsen; de precieze plek van de doortocht noemt de Bijbel niet. De datering is een reconstructie: veertig jaar na de uittocht, die op grond van 1 Koningen 6:1 rond 1446 v.Chr. wordt gedateerd, dus ca. 1406 v.Chr. Wie de uittocht in de 13e eeuw v.Chr. dateert, plaatst de intocht rond 1230–1200 v.Chr.",
+          "refs": [
+            "Jozua 3:16",
+            "Jozua 4:19",
+            "1 Koningen 6:1"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat belooft de HEERE aan Jozua, voordat het volk de Jordaan over gaat?",
+          "a": [
+            "Hij zal Jozua groot maken voor heel Israël",
+            "Jozua zal het land zien, maar er niet heen gaan",
+            "Jozua zal koning worden over Israël"
+          ],
+          "why": "Jozua 3:7; Jozua 4:14"
+        },
+        {
+          "q": "Wat moest Israël in Egypte doen op de tiende dag van de eerste maand?",
+          "a": [
+            "Elk huis een lam nemen voor het Pascha",
+            "Bij de berg Sinaï de stenen tafelen halen",
+            "Voor het eerst het manna verzamelen"
+          ],
+          "why": "Exodus 12:3; Jozua 4:19"
+        },
+        {
+          "q": "Wie gingen later ook op het droge door de Jordaan?",
+          "a": [
+            "Elia en Elisa",
+            "David en Jonathan",
+            "Simson en Gideon"
+          ],
+          "why": "2 Koningen 2:8"
+        }
+      ]
+    }
+  }
+}

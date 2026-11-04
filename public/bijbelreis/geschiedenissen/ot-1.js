@@ -89,7 +89,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "begin",
       stappen: ["genesis:begin:1"],
       vorm: "plek",
-      uitleg: "De slang is listiger dan alle dieren. Ze vraagt de vrouw: ‘Is het ook, dat God gezegd heeft: Gijlieden zult niet eten van allen boom dezes hofs?’ Daarna zegt de slang: ‘Gijlieden zult den dood niet sterven.’ De vrouw ziet dat de boom mooi en begeerlijk is, en ze eet van de vrucht. Ze geeft ook haar man, en hij eet. Dan merken ze dat ze naakt zijn, en ze verbergen zich voor God tussen de bomen. God roept Adam: ‘Waar zijt gij?’ Adam geeft de vrouw de schuld, en de vrouw de slang. God vervloekt de slang. Tegen de vrouw zegt Hij dat zij met smart kinderen zal baren. En de man zal in het zweet van zijn gezicht brood eten, tot hij terugkeert tot de aarde: ‘want gij zijt stof, en gij zult tot stof wederkeren.’ Maar God belooft ook dat het zaad van de vrouw de slang de kop zal vermorzelen. Hij maakt kleren van vellen voor Adam en Eva en drijft hen uit de hof. Cherubs met een vlammend zwaard bewaken de weg naar de boom des levens.",
+      uitleg: "De slang is listiger dan alle dieren. Ze vraagt de vrouw: ‘Is het ook, dat God gezegd heeft: Gijlieden zult niet eten van allen boom dezes hofs?’ Daarna zegt de slang: ‘Gijlieden zult den dood niet sterven.’ De vrouw ziet dat de boom mooi en begeerlijk is, en ze eet van de vrucht. Ze geeft ook haar man, en hij eet. Dan merken ze dat ze naakt zijn, en ze verbergen zich voor God tussen de bomen. God roept Adam: ‘Waar zijt gij?’ Adam geeft de vrouw de schuld, en de vrouw de slang. God vervloekt de slang. Maar God belooft ook dat het zaad van de vrouw de slang de kop zal vermorzelen. Tegen de vrouw zegt Hij dat zij met smart kinderen zal baren. En de man zal in het zweet van zijn gezicht brood eten, tot hij terugkeert tot de aarde: ‘want gij zijt stof, en gij zult tot stof wederkeren.’ Hij maakt kleren van vellen voor Adam en Eva en drijft hen uit de hof. Cherubs en een vlammend zwaard bewaken de weg naar de boom des levens.",
       betekenis: "Zo kwam de zonde in de wereld, en door de zonde de dood (Romeinen 5:12). Toch belooft God meteen een Overwinnaar: het zaad van de vrouw (3:15). Het Nieuwe Testament zegt dat de Zoon van God gekomen is om de werken van de duivel te verbreken (1 Johannes 3:8).",
       wie: ["Adam", "Eva"],
       kw: "zonde",
@@ -146,7 +146,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       cross: [
         ["Hebreeën 11:4", "Door het geloof bracht Abel een beter offer dan Kaïn."],
         ["1 Johannes 3:12", "Kaïn was uit de boze en sloeg zijn broer dood."],
-        ["Hebreeën 12:24", "Het bloed van de Heere Jezus ‘spreekt betere dingen dan Abel’."],
+        ["Hebreeën 12:24", "Het bloed van de Heere Jezus is het bloed ‘dat betere dingen spreekt dan Abel’."],
       ],
       tl: null,
       tijd: null,
@@ -232,7 +232,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "begin",
       stappen: ["genesis:begin:5"],
       vorm: "plek",
-      uitleg: "Alle mensen op aarde spreken dezelfde taal. Ze trekken naar het oosten en gaan wonen in een laagte in het land Sinear. Daar bakken ze stenen, en ze gebruiken lijm (aardpek) als specie. Ze zeggen: ‘Laten we een stad bouwen en een toren met de top in de hemel, en een naam voor onszelf maken, zodat we niet over de hele aarde verstrooid worden.’ De HEERE komt neer om de stad en de toren te bekijken. Hij verwart hun taal, zodat ze elkaar niet meer verstaan. Zo verstrooit de HEERE hen over de hele aarde, en ze houden op met het bouwen van de stad. Die stad heet Babel, want daar verwarde de HEERE de taal van de hele aarde.",
+      uitleg: "Alle mensen op aarde spreken dezelfde taal. Ze trekken naar het oosten en gaan wonen in een laagte in het land Sinear. Daar bakken ze stenen, en ze gebruiken lijm (aardpek) als specie. Ze zeggen: “Laten we een stad bouwen en een toren met de top in de hemel, en een naam voor onszelf maken, zodat we niet over de hele aarde verstrooid worden.” De HEERE komt neer om de stad en de toren te bekijken. Hij verwart hun taal, zodat ze elkaar niet meer verstaan. Zo verstrooit de HEERE hen over de hele aarde, en ze houden op met het bouwen van de stad. Die stad heet Babel, want daar verwarde de HEERE de taal van de hele aarde.",
       betekenis: "De mensen wilden een naam voor zichzelf maken, maar God laat zien dat Hij regeert. Op de Pinksterdag hoort iedereen de grote werken van God in zijn eigen taal (Handelingen 2:6–11).",
       wie: [],
       ontdek: {
@@ -305,9 +305,9 @@ BR.kernwoorden = BR.kernwoorden || {};
         soort: "onthul",
         titel: "Namen met een betekenis",
         items: [
-          ["Ismaël", "‘God hoort’: ‘omdat de HEERE uw verdrukking aangehoord heeft’ (16:11)."],
+          ["Ismaël", "“God hoort”: ‘omdat de HEERE uw verdrukking aangehoord heeft’ (16:11)."],
           ["God des aanziens", "Zo noemt Hagar de HEERE: Hij is de God Die haar ziet (16:13)."],
-          ["Lachai-Roï", "De naam van de put (16:14). Meestal uitgelegd als ‘put van de Levende, Die mij ziet’."],
+          ["Lachai-Roï", "De naam van de put (16:14). Meestal uitgelegd als “put van de Levende, Die mij ziet”."],
           ["Tussen Kades en Bered", "Daar lag de put (16:14). Waar precies, weet niemand; daarom is de plek op de kaart onzeker."],
         ],
       },
@@ -332,8 +332,8 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "aartsvaders",
       stappen: ["genesis:abraham:5", "genesis:abraham:6", "genesis:abraham:7", "genesis:abraham:8", "genesis:abraham:15", "genesis:abraham:16"],
       vorm: "route",
-      uitleg: "Abram en Lot komen terug uit Egypte. Ze hebben zoveel vee dat het land hen niet samen kan dragen, en hun herders krijgen twist. Abram zegt: ‘Laat toch geen twisting zijn tussen mij en tussen u’, en hij laat Lot kiezen. Lot kiest de Jordaanvlakte, waar overal water is. Hij zet zijn tenten op tot bij Sodom, waar de mannen boos zijn en grote zondaars tegen de HEERE. God belooft Abram al het land dat hij ziet. Abram gaat wonen bij de eikenbossen van Mamre, bij Hebron. Later krijgt Abraham bezoek van drie mannen. De HEERE belooft dat Sara een zoon zal krijgen, en Hij zegt dat Hij Sodom en Gomorra gaat bezien. Abraham pleit voor Sodom: van vijftig rechtvaardigen tot tien. God zegt: ‘Ik zal haar niet verderven om der tienen wil.’ In Sodom omsingelen de mannen het huis van Lot, omdat ze zijn twee gasten kwaad willen doen; die gasten zijn engelen. De engelen trekken Lot, zijn vrouw en zijn twee dochters aan de hand de stad uit. De HEERE laat zwavel en vuur regenen op Sodom en Gomorra. Lots vrouw kijkt om en wordt een zoutpilaar. Daarna woont Lot met zijn dochters in een spelonk. Zij geven hun vader wijn te drinken en worden zwanger van hem; zo ontstaan de Moabieten en de Ammonieten.",
-      betekenis: "Sodom laat zien dat God de zonde oordeelt (2 Petrus 2:6). Maar ‘God gedacht aan Abraham, en Hij leidde Lot uit het midden dezer omkering’ (19:29). De Heere Jezus waarschuwt: ‘Gedenkt aan de vrouw van Lot’ (Lukas 17:32).",
+      uitleg: "Abram en Lot komen terug uit Egypte. Ze hebben zoveel vee dat het land hen niet samen kan dragen, en hun herders krijgen twist. Abram zegt: ‘Laat toch geen twisting zijn tussen mij en tussen u’, en hij laat Lot kiezen. Lot kiest de Jordaanvlakte, waar overal water is. Hij zet zijn tenten op tot bij Sodom, waar de mannen slecht zijn en grote zondaars tegen de HEERE. God belooft Abram al het land dat hij ziet. Abram gaat wonen bij de eikenbossen van Mamre, bij Hebron. Later krijgt Abraham bezoek van drie mannen. De HEERE belooft dat Sara een zoon zal krijgen, en Hij zegt dat Hij Sodom en Gomorra gaat bezien. Abraham pleit voor Sodom: van vijftig rechtvaardigen tot tien. God zegt: ‘Ik zal haar niet verderven om der tienen wil.’ In Sodom omsingelen de mannen het huis van Lot, omdat ze zijn twee gasten kwaad willen doen; die gasten zijn engelen. De engelen trekken Lot, zijn vrouw en zijn twee dochters aan de hand de stad uit. De HEERE laat zwavel en vuur regenen op Sodom en Gomorra. Lots vrouw kijkt om en wordt een zoutpilaar. Daarna woont Lot met zijn dochters in een spelonk. Zij geven hun vader wijn te drinken en worden zwanger van hem; zo ontstaan de Moabieten en de Ammonieten.",
+      betekenis: "Sodom laat zien dat God de zonde oordeelt (2 Petrus 2:6). Maar God heeft ‘aan Abraham gedacht’, en ‘Hij leidde Lot uit het midden dezer omkering’ (19:29). De Heere Jezus waarschuwt: ‘Gedenkt aan de vrouw van Lot’ (Lukas 17:32).",
       wie: ["Abraham", "Sara", "Lot"],
       ontdek: {
         soort: "koppel",
@@ -434,7 +434,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "aartsvaders",
       stappen: ["genesis:abraham:21"],
       vorm: "route",
-      uitleg: "God stelt Abraham op de proef: ‘Neem nu uw zoon, uw enige, dien gij liefhebt, Izak’, en offer hem als brandoffer op een berg in het land Moria. Vroeg in de morgen vertrekt Abraham met Izak, twee knechten, een ezel en gekloofd hout. Op de derde dag ziet hij de plaats van verre. Tegen de knechten zegt hij: ‘als wij aangebeden zullen hebben, dan zullen wij tot u wederkeren.’ Izak draagt het hout en vraagt: ‘waar is het lam tot het brandoffer?’ Abraham antwoordt: ‘God zal Zichzelven een lam ten brandoffer voorzien, mijn zoon!’ Op de berg bouwt Abraham een altaar. Hij bindt Izak en neemt het mes. Maar de Engel van de HEERE roept uit de hemel: ‘Strek uw hand niet uit aan den jongen.’ Abraham ziet een ram die met zijn horens vastzit in de struiken. Hij offert de ram in de plaats van zijn zoon en noemt de plaats ‘De HEERE zal het voorzien!’ God zweert bij Zichzelf dat in Abrahams zaad alle volken van de aarde gezegend zullen worden. Daarna gaat Abraham terug naar Berseba.",
+      uitleg: "God stelt Abraham op de proef: ‘Neem nu uw zoon, uw enige, dien gij liefhebt, Izak’, en offer hem als brandoffer op een berg in het land Moria. Vroeg in de morgen vertrekt Abraham met Izak, twee knechten, een ezel en gekloofd hout. Op de derde dag ziet hij de plaats van verre. Tegen de knechten zegt hij: ‘als wij aangebeden zullen hebben, dan zullen wij tot u wederkeren.’ Izak draagt het hout en vraagt: ‘waar is het lam tot het brandoffer?’ Abraham antwoordt: ‘God zal Zichzelven een lam ten brandoffer voorzien, mijn zoon!’ Op de berg bouwt Abraham een altaar. Hij bindt Izak en neemt het mes. Maar de Engel van de HEERE roept uit de hemel: ‘Strek uw hand niet uit aan den jongen.’ Abraham ziet een ram die met zijn horens vastzit in de struiken. Hij offert de ram in de plaats van zijn zoon en noemt de plaats ‘De Heere zal het voorzien!’ God zweert bij Zichzelf dat in Abrahams zaad alle volken van de aarde gezegend zullen worden. Daarna gaat Abraham terug naar Berseba.",
       betekenis: "Abraham rekende erop dat God machtig was om Izak zelfs uit de doden op te wekken (Hebreeën 11:17–19). God spaarde Izak, maar Romeinen 8:32 zegt dat God ‘Zijn eigen Zoon niet gespaard heeft, maar heeft Hem voor ons allen overgegeven’.",
       wie: ["Abraham", "Izak"],
       kw: "geloof",
@@ -453,7 +453,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         { q: "Op de hoeveelste dag zag Abraham de plaats van verre?", a: ["Op de derde dag", "Op de zevende dag", "Op de eerste dag"], why: "Genesis 22:4" },
         { q: "Wie droeg het hout voor het brandoffer?", a: ["Izak", "Abraham", "De twee knechten"], why: "Genesis 22:6" },
         { q: "Wat offerde Abraham in de plaats van zijn zoon?", a: ["Een ram", "Een lam", "Een duif"], why: "Genesis 22:13" },
-        { q: "Welke naam gaf Abraham aan die plaats?", a: ["De HEERE zal het voorzien", "Bethel", "Pniël"], why: "Genesis 22:14" },
+        { q: "Welke naam gaf Abraham aan die plaats?", a: ["De Heere zal het voorzien", "Bethel", "Pniël"], why: "Genesis 22:14" },
       ],
       cross: [
         ["Hebreeën 11:17–19", "Abraham rekende erop dat God Izak ook uit de doden kon opwekken."],
@@ -543,7 +543,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "aartsvaders",
       stappen: ["genesis:jakob:1", "genesis:jakob:2", "genesis:jakob:3"],
       vorm: "stamboom",
-      uitleg: "Bij een put in het veld bij Haran ontmoet Jakob Rachel, de dochter van zijn oom Laban. Hij rolt de steen van de put, geeft haar schapen water, kust haar en huilt. Jakob heeft Rachel lief en dient Laban zeven jaar om haar; die jaren zijn in zijn ogen ‘als enige dagen’. Maar na de bruiloft blijkt dat Laban hem Lea gegeven heeft, de oudste dochter. ‘Waarom hebt gij mij dan bedrogen?’ vraagt Jakob. Na een week krijgt hij ook Rachel, en daarvoor dient hij nog zeven jaar. Jakob heeft Rachel meer lief dan Lea. De HEERE ziet dat Lea ‘gehaat’ (minder bemind) wordt en geeft haar kinderen, maar Rachel blijft onvruchtbaar. Van Lea, Rachel en hun slavinnen Bilha en Zilpa krijgt Jakob elf zonen en een dochter, Dina. Als laatste denkt God aan Rachel, en zij krijgt Jozef. Daarna werkt Jakob nog voor Laban. Zijn loon is het gespikkelde en gevlekte vee, en hij wordt heel rijk.",
+      uitleg: "Bij een put in het veld bij Haran ontmoet Jakob Rachel, de dochter van zijn oom Laban. Hij rolt de steen van de put, geeft haar schapen water, kust haar en huilt. Jakob heeft Rachel lief en dient Laban zeven jaar om haar; die jaren zijn in zijn ogen ‘als enige dagen’. Maar na de bruiloft blijkt dat Laban hem Lea gegeven heeft, de oudste dochter. ‘Waarom hebt gij mij dan bedrogen?’ vraagt Jakob. Na een week krijgt hij ook Rachel, en daarvoor dient hij nog zeven jaar. Jakob heeft Rachel meer lief dan Lea. De HEERE ziet dat Lea ‘gehaat’ (minder bemind) wordt en geeft haar kinderen, maar Rachel blijft onvruchtbaar. Van Lea, Rachel en hun slavinnen Bilha en Zilpa krijgt Jakob elf zonen en een dochter, Dina. De laatste van die elf is Jozef: God denkt aan Rachel, en zij krijgt een zoon. Daarna werkt Jakob nog voor Laban. Zijn loon is het gespikkelde en gevlekte vee, en hij wordt heel rijk.",
       betekenis: "Uit de zonen van Jakob komen de twaalf stammen van Israël (Genesis 49:28). God ziet Lea, die minder geliefd is (29:31), en Hij denkt ook aan Rachel (30:22).",
       wie: ["Jakob", "Laban", "Lea", "Rachel", "Bilha", "Zilpa"],
       ontdek: {
@@ -560,7 +560,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         { q: "Hoeveel jaar diende Jakob eerst om Rachel?", a: ["Zeven jaar", "Veertien jaar", "Twintig jaar"], why: "Genesis 29:20" },
         { q: "Wie gaf Laban na de bruiloft aan Jakob?", a: ["Lea", "Rachel", "Bilha"], why: "Genesis 29:23–25" },
         { q: "Wie was de oudste zoon van Jakob?", a: ["Ruben", "Jozef", "Juda"], why: "Genesis 29:32" },
-        { q: "Waarom gaf Laban eerst Lea, volgens wat hij zelf zei?", a: ["In zijn plaats gaf men de jongste niet vóór de oudste weg", "Rachel wilde nog niet met Jakob trouwen", "Jakob had zelf om Lea gevraagd"], why: "Genesis 29:26" },
+        { q: "Waarom gaf Laban eerst Lea, volgens wat hij zelf zei?", a: ["In hun woonplaats gaf men de jongste niet vóór de oudste weg", "Rachel wilde nog niet met Jakob trouwen", "Jakob had zelf om Lea gevraagd"], why: "Genesis 29:26" },
       ],
       cross: [
         ["Genesis 49:28", "‘Al deze stammen van Israël zijn twaalf.’"],
@@ -792,7 +792,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "mozes",
       stappen: ["exodus:mozes:4", "exodus:mozes:5", "exodus:mozes:6"],
       vorm: "plek",
-      uitleg: "Mozes hoedt de schapen van zijn schoonvader Jethro en komt bij Horeb, de berg van God. Daar ziet hij een braamstruik die brandt, maar niet verteerd wordt. God roept hem uit de struik: ‘Mozes, Mozes!’ Hij zegt: ‘trek uw schoenen uit van uw voeten; want de plaats, waarop gij staat, is heilig land.’ God heeft de verdrukking van Zijn volk gezien, en Hij stuurt Mozes naar de farao. Mozes vraagt: ‘Wie ben ik?’ God antwoordt: ‘Ik zal voorzeker met u zijn.’ Hij maakt Zijn Naam bekend: ‘IK ZAL ZIJN, Die IK ZIJN ZAL’. Hij geeft Mozes drie tekenen: de staf wordt een slang, de hand wordt melaats en weer gezond, en water uit de rivier wordt bloed. Mozes zegt dat hij zwaar van mond is, en hij vraagt God iemand anders te zenden. Dan wordt de HEERE toornig, maar Hij geeft Aäron, de broer van Mozes, om voor hem te spreken. Onderweg naar Egypte komt de HEERE Mozes tegen en wil Hij hem doden, totdat Zippora haar zoon besnijdt. Aäron ontmoet Mozes bij de berg van God. In Egypte doet Aäron de tekenen voor het volk; het volk gelooft en buigt zich neer.",
+      uitleg: "Mozes hoedt de schapen van zijn schoonvader Jethro en komt bij Horeb, de berg van God. Daar ziet hij een braamstruik die brandt, maar niet verteerd wordt. God roept hem uit de struik: ‘Mozes, Mozes!’ Hij zegt: ‘trek uw schoenen uit van uw voeten; want de plaats, waarop gij staat, is heilig land.’ God heeft de verdrukking van Zijn volk gezien, en Hij stuurt Mozes naar de farao. Mozes vraagt: ‘Wie ben ik?’ God antwoordt: ‘Ik zal voorzeker met u zijn.’ Hij maakt Zijn Naam bekend: ‘IK ZAL ZIJN, Die IK ZIJN ZAL’. Hij geeft Mozes drie tekenen: de staf wordt een slang, de hand wordt melaats en weer gezond, en water uit de rivier zal bloed worden. Mozes zegt dat hij zwaar van mond is, en hij vraagt God iemand anders te zenden. Dan wordt de HEERE toornig, maar Hij geeft Aäron, de broer van Mozes, om voor hem te spreken. Onderweg naar Egypte komt de HEERE Mozes tegen en wil Hij hem doden, totdat Zippora haar zoon besnijdt. Aäron ontmoet Mozes bij de berg van God. In Egypte doet Aäron de tekenen voor het volk; het volk gelooft en buigt zich neer.",
       betekenis: "God gaat niet uit van wat Mozes kan, maar belooft: ‘Ik zal voorzeker met u zijn’ (3:12). De Heere Jezus gebruikt de woorden bij de braamstruik om te laten zien dat God ‘niet een God der doden, maar een God der levenden’ is (Markus 12:26–27).",
       wie: ["Mozes", "Jethro", "Aäron", "Zippora"],
       ontdek: {
@@ -802,7 +802,7 @@ BR.kernwoorden = BR.kernwoorden || {};
           ["De braamstruik", "Die brandt in het vuur, maar wordt niet verteerd (3:2)."],
           ["De staf", "Wordt een slang als Mozes hem op de grond gooit, en weer een staf als hij haar bij de staart pakt (4:3–4)."],
           ["De hand", "Wordt melaats, wit als sneeuw, en daarna weer gezond (4:6–7)."],
-          ["Het water", "Water uit de rivier wordt bloed op het droge land (4:9)."],
+          ["Het water", "Als het volk de eerste twee tekenen niet gelooft, zal water uit de rivier bloed worden op het droge land (4:9)."],
         ],
       },
       quiz: [
@@ -998,7 +998,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "mozes",
       stappen: ["exodus:sinai:4", "exodus:sinai:5", "exodus:sinai:6"],
       vorm: "plek",
-      uitleg: "In de derde maand na de uittocht legert Israël zich tegenover de berg Sinaï. God zegt dat Hij hen ‘op vleugelen der arenden’ gedragen heeft. Als ze Zijn verbond houden, zullen ze Zijn eigendom zijn uit alle volken. Het volk antwoordt: ‘Al wat de HEERE gesproken heeft, zullen wij doen!’ Op de derde dag dondert en bliksemt het. Er ligt een zware wolk op de berg en er klinkt een heel sterke bazuin. De hele berg rookt en beeft, want de HEERE daalt erop neer in vuur. Dan spreekt God: ‘Ik ben de HEERE uw God, Die u uit Egypteland, uit het diensthuis, uitgeleid heb.’ Het diensthuis is het slavenhuis. Dan geeft Hij de tien geboden: geen andere goden, geen gesneden beeld, Zijn Naam niet ijdel gebruiken, de sabbat heiligen, vader en moeder eren, niet doodslaan, niet echtbreken, niet stelen, geen valse getuigenis en niet begeren. Het volk is bang en blijft van verre staan. Later schrijft Mozes de woorden op. Hij bouwt een altaar met twaalf kolommen voor de twaalf stammen, en hij sprengt het bloed van het verbond op het volk. Daarna gaat hij de berg op en blijft hij veertig dagen en veertig nachten in de wolk.",
+      uitleg: "In de derde maand na de uittocht legert Israël zich tegenover de berg Sinaï. God zegt dat Hij hen ‘op vleugelen der arenden’ gedragen heeft. Als ze Zijn verbond houden, zullen ze Zijn eigendom zijn uit alle volken. Het volk antwoordt: ‘Al wat de HEERE gesproken heeft, zullen wij doen!’ Op de derde dag dondert en bliksemt het. Er ligt een zware wolk op de berg en er klinkt een heel sterke bazuin. De hele berg rookt en beeft, want de HEERE daalt erop neer in vuur. Dan spreekt God: ‘Ik ben de HEERE uw God, Die u uit Egypteland, uit het diensthuis, uitgeleid heb.’ Het diensthuis is het slavenhuis. Dan geeft Hij de tien geboden: geen andere goden, geen gesneden beeld, Zijn Naam niet ijdel gebruiken, de sabbat heiligen, vader en moeder eren, niet doodslaan, niet echtbreken, niet stelen, geen valse getuigenis en niet begeren. Het volk is bang en blijft van verre staan. Later schrijft Mozes de woorden op. Hij bouwt een altaar en twaalf kolommen voor de twaalf stammen, en hij sprengt het bloed van het verbond op het volk. Daarna gaat hij de berg op en blijft hij veertig dagen en veertig nachten in de wolk.",
       betekenis: "God geeft Zijn geboden aan een volk dat Hij al verlost heeft: Hij begint met wat Hij gedaan heeft (20:2). De Heere Jezus vat de wet samen: God liefhebben met heel je hart, en je naaste als jezelf (Mattheüs 22:37–40).",
       wie: ["Mozes", "Aäron", "Jozua"],
       kw: "tien-geboden",
@@ -1124,7 +1124,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         ["Genesis 3:6", "Eva en Adam eten van de verboden boom."],
         ["Romeinen 5:12", "Door één mens kwam de zonde in de wereld, en door de zonde de dood."],
         ["Romeinen 3:23", "‘Want zij hebben allen gezondigd.’"],
-        ["1 Johannes 1:9", "‘Indien wij onze zonden belijden, Hij is getrouw en rechtvaardig.’"],
+        ["1 Johannes 1:9", "‘Indiën wij onze zonden belijden, Hij is getrouw en rechtvaardig.’"],
       ],
     },
     verbond: {
@@ -1169,7 +1169,7 @@ BR.kernwoorden = BR.kernwoorden || {};
     },
     hoop: {
       n: "Hoop",
-      uitleg: "Hoop in de Bijbel is niet ‘misschien gaat het goed’, maar vast verwachten wat God belooft. Israël zuchtte in Egypte, en God hoorde hun gekerm en dacht aan Zijn verbond. Wie op God hoopt, heeft een anker voor de ziel dat zeker en vast is. Daarom zegt de psalmdichter tegen zichzelf: ‘Hoop op God.’",
+      uitleg: "Hoop in de Bijbel is niet “misschien gaat het goed”, maar vast verwachten wat God belooft. Israël zuchtte in Egypte, en God hoorde hun gekerm en dacht aan Zijn verbond. Wie op God hoopt, heeft een anker voor de ziel dat zeker en vast is. Daarom zegt de psalmdichter tegen zichzelf: ‘Hoop op God.’",
       refs: [
         ["Psalm 42:6", "‘Hoop op God, want ik zal Hem nog loven.’"],
         ["Exodus 2:24", "God hoorde het gekerm van Zijn volk."],

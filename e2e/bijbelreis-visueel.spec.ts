@@ -44,16 +44,20 @@ async function stil(page: Page) {
 }
 const OPTIES = { maxDiffPixelRatio: 0.02, animations: "disabled" as const };
 
-const SCHERMEN: [string, string, ((p: Page) => Promise<void>)?][] = [
+const SCHERMEN: [string, string, ((p: Page) => Promise<void>)?, ("a" | "b")?][] = [
   ["start", "/bijbelreis"],
   ["wereld", "/bijbelreis", (p) => p.locator("#wereldBtn").click()],
   ["reis", "/bijbelreis#terugkeer/4"],
   ["verhaal", "/bijbelreis#v26"],
   ["paspoort", "/bijbelreis#ruth", (p) => p.getByRole("tab", { name: "Paspoort" }).click()],
+  // Reisniveaus: dezelfde geschiedenis bij Samen ontdekken en Zelf op reis (Verder ontdekken is ‘verhaal’ hierboven).
+  ["samen-verhaal", "/bijbelreis#v26", undefined, "a"],
+  ["zelf-verhaal", "/bijbelreis#v26", undefined, "b"],
 ];
-for (const [naam, url, actie] of SCHERMEN) {
+for (const [naam, url, actie, niveau] of SCHERMEN) {
   test(`visueel: ${naam}`, async ({ page }) => {
     await voorbereid(page);
+    if (niveau) await page.addInitScript((n) => localStorage.setItem("bijbelreis:niveau", JSON.stringify(n)), niveau);
     await page.goto(url);
     if (actie) await actie(page);
     await stil(page);

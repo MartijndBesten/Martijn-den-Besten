@@ -90,7 +90,6 @@ console.log(`postbuild: ${ROUTES.length} routes + 404.html + sitemap.xml`);
   const kort = (p) => createHash("sha256").update(readFileSync(join(dist, "bijbelreis", p))).digest("hex").slice(0, 10);
   const data = {};
   for (const p of ["geo.json", "relief.json", "grenzen.json", "relief-regio.webp", "relief-kanaan.webp"]) data[p] = kort(p);
-  for (const f of readdirSync(join(dist, "bijbelreis", "bijbel")).filter((f) => f.endsWith(".json"))) data["bijbel/" + f] = kort("bijbel/" + f);
   const meta = `<meta name="bijbelreis-data" content='${JSON.stringify(data)}' />`;
   writeFileSync(file, html.replace("</head>", `    ${meta}\n  </head>`));
 }

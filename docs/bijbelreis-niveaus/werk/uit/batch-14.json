@@ -1,0 +1,852 @@
+{
+  "57": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "kirjathjearim",
+        "salem"
+      ],
+      "delen": [
+        {
+          "t": "Koning David wil de ark van God naar zijn stad Jeruzalem halen. De ark is de heilige kist van God.",
+          "stap": "2samuel:david:4"
+        },
+        {
+          "t": "Ze zetten de ark op een nieuwe wagen. Runderen trekken de wagen. David en het volk spelen muziek voor de HEERE.",
+          "stap": "2samuel:david:4"
+        },
+        {
+          "t": "Dan struikelen de runderen. Uza steekt zijn hand uit en houdt de ark vast. God slaat hem, en Uza sterft bij de ark."
+        },
+        {
+          "t": "David is bang voor de HEERE. Hij durft de ark niet naar zijn stad te brengen."
+        },
+        {
+          "t": "De ark blijft drie maanden in het huis van Obed-Edom. De HEERE zegent Obed-Edom en zijn hele huis."
+        },
+        {
+          "t": "Dan haalt David de ark toch, met vreugde. Nu dragen ze de ark. David danst met alle macht voor de HEERE.",
+          "stap": "2samuel:david:4"
+        },
+        {
+          "t": "De ark krijgt een plaats in een tent in Jeruzalem. David zegent het volk en geeft iedereen brood, vlees en wijn."
+        },
+        {
+          "t": "David woont in een huis van cederhout. Maar de ark van God staat in een tent. David wil een huis voor God bouwen.",
+          "stap": "2samuel:david:5"
+        },
+        {
+          "t": "Die nacht spreekt God tot de profeet Nathan. God zegt: niet David, maar zijn zoon zal een huis voor Mij bouwen."
+        },
+        {
+          "t": "God belooft David: Ik zal jou een huis maken. Jouw koninkrijk blijft altijd bestaan. David zegt: ‘Wie ben ik, Heere HEERE?’"
+        }
+      ],
+      "samen": "Uza sterft als hij de ark vasthoudt (2 Samuël 6:6–7). De Bijbel legt later uit wat er misging: alleen de Levieten mochten de ark dragen, op hun schouders, zoals Mozes geboden had (1 Kronieken 15:2, 13–15; Numeri 4:15). Weggelaten: Michal, de dochter van Saul, veracht David omdat hij danst (2 Samuël 6:16, 20–23). Met een ‘huis’ voor David bedoelt God zijn koningshuis: zijn zoon en de koningen na hem (7:12–16). Vraag samen: wie gaat het huis voor God bouwen?",
+      "vragen": [
+        {
+          "q": "Waarop zetten ze de ark eerst?",
+          "a": [
+            "Op een nieuwe wagen",
+            "Op een kameel"
+          ],
+          "why": "2 Samuël 6:3"
+        },
+        {
+          "q": "Bij wie blijft de ark drie maanden?",
+          "a": [
+            "Bij Obed-Edom",
+            "Bij Nathan"
+          ],
+          "why": "2 Samuël 6:11"
+        },
+        {
+          "q": "Wat doet David als de ark naar Jeruzalem gaat?",
+          "a": [
+            "Hij danst voor de HEERE",
+            "Hij blijft in zijn huis"
+          ],
+          "why": "2 Samuël 6:14"
+        },
+        {
+          "q": "Wie zal het huis voor God bouwen?",
+          "a": [
+            "De zoon van David",
+            "De profeet Nathan"
+          ],
+          "why": "2 Samuël 7:12–13"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "De ark op een nieuwe wagen",
+          "stap": "2samuel:david:4",
+          "t": "David wil de ark van God, de heilige kist, naar Jeruzalem halen. Ze halen hem uit het huis van Abinadab in Kirjath-Jearim, op een nieuwe wagen, en spelen muziek voor de HEERE. Dan struikelen de runderen. Uza houdt de ark vast, en God slaat hem; hij sterft bij de ark. David is bang voor de HEERE. Drie maanden blijft de ark in het huis van Obed-Edom, en de HEERE zegent dat huis."
+        },
+        {
+          "kop": "David danst voor de HEERE",
+          "t": "Dan haalt David de ark toch, met vreugde. Nu wordt de ark gedragen. David danst met alle macht voor de HEERE. Michal, de dochter van Saul, ziet het door het venster en veracht hem: ze kijkt op hem neer. De ark krijgt een plaats in een tent."
+        },
+        {
+          "kop": "Een huis voor David",
+          "stap": "2samuel:david:5",
+          "t": "David woont in een huis van cederhout, maar de ark staat in een tent. Hij wil een huis voor God bouwen. Maar God zegt door Nathan, de profeet die Gods woorden doorgeeft, dat Davids zoon dat huis zal bouwen. En God belooft: ‘uw huis zal bestendig zijn’. Dat betekent: Davids koningshuis blijft altijd bestaan. David bidt: ‘Wie ben ik, Heere HEERE?’"
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom bracht David de ark eerst niet naar zijn stad?",
+          "a": [
+            "Hij was bang na de dood van Uza",
+            "De wagen was gebroken",
+            "Nathan had het hem verboden"
+          ],
+          "why": "2 Samuël 6:9–10"
+        },
+        {
+          "q": "Wat gebeurde er met Obed-Edom toen de ark bij hem stond?",
+          "a": [
+            "De HEERE zegende hem en zijn huis",
+            "Hij werd ziek en stierf",
+            "Hij moest het land uit"
+          ],
+          "why": "2 Samuël 6:11–12"
+        },
+        {
+          "q": "Hoe werd de ark de tweede keer vervoerd?",
+          "a": [
+            "Hij werd gedragen",
+            "Op een nieuwe wagen",
+            "Op een ezel"
+          ],
+          "why": "2 Samuël 6:13"
+        },
+        {
+          "q": "Waarom wilde David een huis voor God bouwen?",
+          "a": [
+            "Hij woonde zelf in cederhout en de ark in een tent",
+            "Het oude huis van God was afgebrand",
+            "De priesters hadden erom gevraagd"
+          ],
+          "why": "2 Samuël 7:2"
+        },
+        {
+          "q": "Wat beloofde God aan David?",
+          "a": [
+            "Zijn koninkrijk blijft tot in eeuwigheid",
+            "Hij zal zelf het huis van God bouwen",
+            "Hij zal nooit sterven"
+          ],
+          "why": "2 Samuël 7:12–16"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Waarom ging het de eerste keer mis?",
+          "t": "De wet gaf duidelijke regels voor het vervoer van de heilige dingen. De zonen van Kohath, Levieten, moesten ze dragen, maar ‘zij zullen dat heilige niet aanroeren, dat zij niet sterven’ (Numeri 4:15). Ze kregen geen wagens, omdat zij de heilige dingen ‘op de schouderen droegen’ (Numeri 7:9). Op een nieuwe wagen hadden eerder de Filistijnen de ark teruggestuurd (1 Samuël 6:7); uitleggers zien hierin vaak dat Israël hun manier volgde in plaats van de wet. Na wat er met Uza gebeurde, zegt David zelf: ‘Niemand mag de ark Gods dragen, dan de Levieten’ (1 Kronieken 15:2). 2 Samuël 6:7 noemt wat Uza deed een ‘onbedachtzaamheid’.",
+          "refs": [
+            "Numeri 4:15",
+            "Numeri 7:9",
+            "1 Samuël 6:7",
+            "1 Kronieken 15:2",
+            "2 Samuël 6:7"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "2 Samuël 6:2 zegt dat David de ark ophaalde ‘van Baälim-juda’. Dat is een andere naam voor Kirjath-jearim (Jozua 15:9; 1 Kronieken 13:6). Daar stond de ark sinds 1 Samuël 7:1 in het huis van Abinadab. Kirjath-jearim en Jeruzalem zijn allebei identificeerbaar. David noemde de plaats waar Uza stierf Perez-uza, omdat de HEERE ‘een scheur gescheurd had aan Uza’ (6:8). Wanneer dit precies gebeurde, staat niet in de Bijbel. In de gangbare chronologie is het kort nadat David koning over heel Israël werd en Jeruzalem innam (ca. 1003 v.Chr.); daarom staat hier ca. 1003–990 v.Chr. met het label onzeker.",
+          "refs": [
+            "2 Samuël 6:2",
+            "Jozua 15:9",
+            "1 Kronieken 13:6",
+            "1 Samuël 7:1",
+            "2 Samuël 6:8"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "1 Kronieken 17 vertelt hetzelfde gesprek met Nathan. Later zegt David tegen Salomo waarom hij het huis niet mocht bouwen: ‘Gij hebt bloed in menigte vergoten, want gij hebt grote krijgen gevoerd’ (1 Kronieken 22:8). Over de zoon zegt God daar: ‘die zal een man der rust zijn’ (1 Kronieken 22:9). Psalm 132 zingt over Davids verlangen naar een plaats voor de ark: ‘Sta op, HEERE! tot Uw rust, Gij en de ark Uwer sterkte!’",
+          "refs": [
+            "1 Kronieken 17:1–4",
+            "1 Kronieken 22:7–10",
+            "Psalm 132:1–8"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wie mochten de ark dragen, volgens David in 1 Kronieken 15:2?",
+          "a": [
+            "Alleen de Levieten",
+            "Alleen de koning en zijn zonen",
+            "Iedereen uit Israël"
+          ],
+          "why": "1 Kronieken 15:2"
+        },
+        {
+          "q": "Welke naam kreeg de plaats waar Uza stierf?",
+          "a": [
+            "Perez-uza",
+            "Baälim-juda",
+            "Kirjath-jearim"
+          ],
+          "why": "2 Samuël 6:8"
+        },
+        {
+          "q": "Waarom mocht David het huis van God niet bouwen, volgens 1 Kronieken 22:8?",
+          "a": [
+            "Hij had veel bloed vergoten in oorlogen",
+            "Hij was daar te oud voor",
+            "Hij had geen cederhout"
+          ],
+          "why": "1 Kronieken 22:8"
+        },
+        {
+          "q": "Wie verachtte David toen hij voor de ark danste?",
+          "a": [
+            "Michal, de dochter van Saul",
+            "Abigaïl, de vrouw van Nabal",
+            "Bathseba, de vrouw van Uria"
+          ],
+          "why": "2 Samuël 6:16"
+        }
+      ]
+    }
+  },
+  "58": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "salem",
+        "rabba"
+      ],
+      "delen": [
+        {
+          "t": "Het leger van Israël vecht bij de stad Rabba. Maar koning David blijft thuis in Jeruzalem.",
+          "stap": "2samuel:david:7"
+        },
+        {
+          "t": "Op een avond loopt David op het dak van zijn paleis. Hij ziet een mooie vrouw. Ze heet Bathseba.",
+          "stap": "2samuel:david:7"
+        },
+        {
+          "t": "Bathseba is getrouwd met Uria, een soldaat. Toch laat David haar bij zich halen. Daarna verwacht Bathseba een kindje."
+        },
+        {
+          "t": "David schrijft Joab, de aanvoerder van het leger: zet Uria vooraan in de zwaarste strijd, zodat hij sterft. Zo sneuvelt Uria."
+        },
+        {
+          "t": "Daarna trouwt David met Bathseba. Maar wat David gedaan heeft, is kwaad in de ogen van de HEERE."
+        },
+        {
+          "t": "God stuurt de profeet Nathan naar David. Nathan vertelt over een rijke man met heel veel schapen, en een arme man met één lammetje."
+        },
+        {
+          "t": "De rijke man pakt het lammetje van de arme man af. David wordt heel boos. Hij zegt: die man moet sterven!"
+        },
+        {
+          "t": "Dan zegt Nathan tegen David: ‘Gij zijt die man!’ Dat betekent: u bent die man. Het verhaal gaat over u."
+        },
+        {
+          "t": "David zegt: ‘Ik heb gezondigd tegen den HEERE!’ En Nathan zegt: de HEERE heeft uw zonde weggenomen."
+        },
+        {
+          "t": "Het kindje van David en Bathseba wordt ziek en sterft. Later krijgen ze nog een zoon: Salomo. De HEERE heeft hem lief."
+        }
+      ],
+      "samen": "Deze geschiedenis gaat over de zonde van David: hij neemt Bathseba, de vrouw van Uria, en laat Uria doden (2 Samuël 11:2–17; 12:9). De Bijbel noemt dat kwaad in de ogen van de HEERE (11:27). Weggelaten: dat David Uria eerst naar huis stuurde (11:6–13). Het kindje sterft op de zevende dag (12:14–18). Wijs vooral op het einde: David belijdt zijn zonde en God vergeeft (12:13). Psalm 51 is het gebed van David hierna (Psalm 51:1–4).",
+      "vragen": [
+        {
+          "q": "Wie stuurt God naar David?",
+          "a": [
+            "De profeet Nathan",
+            "De soldaat Uria"
+          ],
+          "why": "2 Samuël 12:1"
+        },
+        {
+          "q": "Wat zegt David als Nathan zegt dat hij die man is?",
+          "a": [
+            "Ik heb gezondigd tegen de HEERE",
+            "Ik heb niets fout gedaan"
+          ],
+          "why": "2 Samuël 12:13"
+        },
+        {
+          "q": "Hoe heet de zoon die David en Bathseba later krijgen?",
+          "a": [
+            "Salomo",
+            "Absalom"
+          ],
+          "why": "2 Samuël 12:24"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "David blijft in Jeruzalem",
+          "stap": "2samuel:david:7",
+          "t": "Het leger van Israël vecht tegen Rabba, de stad van de Ammonieten. Koning David blijft in Jeruzalem. Vanaf het dak van zijn paleis ziet hij een mooie vrouw: Bathseba, de vrouw van Uria de Hethiet. David laat haar halen en neemt haar, terwijl ze met Uria getrouwd is. Daarna is Bathseba zwanger."
+        },
+        {
+          "kop": "Een brief voor Joab",
+          "t": "David laat Uria uit het leger komen en stuurt hem naar huis. Maar Uria gaat niet, want de ark en het leger zijn ook in tenten en op het veld. Dan geeft David hem een brief mee voor Joab: zet Uria vooraan in de zwaarste strijd, zodat hij sterft. Uria sneuvelt, en David trouwt met Bathseba. ‘Doch deze zaak, die David gedaan had, was kwaad in de ogen des HEEREN.’"
+        },
+        {
+          "kop": "Gij zijt die man",
+          "t": "God stuurt de profeet Nathan. Hij vertelt over een rijke man die het enige lammetje van een arme man pakt. David wordt woedend. Dan zegt Nathan: ‘Gij zijt die man!’ Dus: u bent die man. David zegt: ‘Ik heb gezondigd tegen den HEERE!’ De HEERE neemt zijn zonde weg, maar het kind sterft. Later wordt Salomo geboren, en de HEERE heeft hem lief."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waar bleef David toen zijn leger naar Rabba trok?",
+          "a": [
+            "In Jeruzalem",
+            "In Hebron",
+            "In Bethlehem"
+          ],
+          "why": "2 Samuël 11:1"
+        },
+        {
+          "q": "Waarom wilde Uria niet naar zijn huis gaan?",
+          "a": [
+            "Het leger lag ook in tenten en op het veld",
+            "Hij was ziek geworden",
+            "Hij was bang voor zijn vrouw"
+          ],
+          "why": "2 Samuël 11:11"
+        },
+        {
+          "q": "Waarom vertelde Nathan het verhaal van de arme man?",
+          "a": [
+            "Om David te laten zien wat hij zelf had gedaan",
+            "Om David te leren hoe je schapen hoedt",
+            "Om de rijke man uit de stad te laten zetten"
+          ],
+          "why": "2 Samuël 12:7–9"
+        },
+        {
+          "q": "Wat zei Nathan nadat David zijn zonde had beleden?",
+          "a": [
+            "De HEERE heeft uw zonde weggenomen",
+            "U bent geen koning meer",
+            "U moet Jeruzalem verlaten"
+          ],
+          "why": "2 Samuël 12:13"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Wat de tekst zegt en wat niet",
+          "t": "De tekst zegt dat David ‘wandelde op het dak van het koningshuis’ en van daar een vrouw zag (11:2); waar zij zelf was, staat er niet. Wat Bathseba dacht of wilde, vertelt de tekst ook niet; Nathan spreekt David aan (12:7–9). De tekst begint met een tijdsaanduiding: het was de tijd ‘als de koningen uittrekken’, maar ‘David bleef te Jeruzalem’ (11:1). Uria liet zich niet overhalen om naar huis te gaan, ook niet toen David hem dronken maakte (11:13). Hij bracht zelf de brief naar Joab, met daarin het bevel over zijn eigen dood (11:14–15).",
+          "refs": [
+            "2 Samuël 11:1–2",
+            "2 Samuël 11:13–15"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Uria de Hethiet staat in de lijst van de helden van David (2 Samuël 23:39). Bij de koning Abiam wordt later over David gezegd dat hij deed ‘wat recht was in de ogen des HEEREN’, ‘dan alleen in de zaak van Uria, den Hethiet’ (1 Koningen 15:5). Het opschrift van Psalm 51 verbindt die psalm met deze geschiedenis: ‘Toen de profeet Nathan tot hem was gekomen’. In die psalm bidt David: ‘Tegen U, U alleen, heb ik gezondigd’ (Psalm 51:6).",
+          "refs": [
+            "2 Samuël 23:39",
+            "1 Koningen 15:5",
+            "Psalm 51:2",
+            "Psalm 51:6"
+          ]
+        },
+        {
+          "kop": "Vergeven, en toch gevolgen",
+          "t": "Nathan zegt twee dingen. Eerst: ‘het zwaard zal van uw huis niet afwijken tot in eeuwigheid’ (12:10). Als David dan zijn zonde belijdt: ‘De HEERE heeft ook uw zonde weggenomen, gij zult niet sterven’ (12:13). Toch zal het kind sterven (12:14). In de volgende hoofdstukken komt er strijd in Davids eigen huis, tot de opstand van Absalom toe (geschiedenis 59); uitleggers zien daarin dit woord van Nathan uitkomen. De Bijbel vertelt dus allebei: God vergeeft David, en toch heeft de zonde gevolgen.",
+          "refs": [
+            "2 Samuël 12:10–14"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Door wie liet David de brief aan Joab brengen?",
+          "a": [
+            "Door Uria zelf",
+            "Door de profeet Nathan",
+            "Door een knecht van Bathseba"
+          ],
+          "why": "2 Samuël 11:14"
+        },
+        {
+          "q": "Hoeveel moest de rijke man volgens David teruggeven?",
+          "a": [
+            "Het ooilam viervoudig",
+            "Het ooilam dubbel",
+            "Al zijn schapen"
+          ],
+          "why": "2 Samuël 12:6"
+        },
+        {
+          "q": "Wat zegt 1 Koningen 15:5 over David?",
+          "a": [
+            "Hij deed wat recht was, behalve in de zaak van Uria",
+            "Hij heeft nooit iets verkeerds gedaan",
+            "Hij deed alles wat kwaad was in Gods ogen"
+          ],
+          "why": "1 Koningen 15:5"
+        },
+        {
+          "q": "Wat kondigde Nathan aan over het huis van David?",
+          "a": [
+            "Het zwaard zal er niet van afwijken",
+            "Het zal nooit meer strijd kennen",
+            "Het zal rijker worden dan alle andere"
+          ],
+          "why": "2 Samuël 12:10"
+        }
+      ]
+    }
+  },
+  "59": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "mamre",
+        "salem",
+        "mahanaim"
+      ],
+      "delen": [
+        {
+          "t": "Absalom is een zoon van koning David. Elke morgen staat hij bij de poort. Hij zegt: was ik maar rechter in het land!"
+        },
+        {
+          "t": "Zo steelt Absalom het hart van het volk. In Hebron laat hij zich koning noemen.",
+          "stap": "2samuel:david:8"
+        },
+        {
+          "t": "David vlucht met zijn mannen uit Jeruzalem. De Levieten dragen de ark van God mee, maar David stuurt de ark terug naar de stad.",
+          "stap": "2samuel:david:8"
+        },
+        {
+          "t": "Hij zegt: als de HEERE wil, brengt Hij mij terug. Dan gaat David huilend en op blote voeten de Olijfberg op.",
+          "stap": "2samuel:david:8"
+        },
+        {
+          "t": "Onderweg scheldt een man, Simeï, David uit. Hij gooit met stenen. David laat hem begaan.",
+          "stap": "2samuel:david:8"
+        },
+        {
+          "t": "David gaat over de Jordaan en komt in Mahanaïm. Daar brengen mensen hem bedden en eten.",
+          "stap": "2samuel:david:8"
+        },
+        {
+          "t": "David stuurt zijn leger uit tegen Absalom. Hij zegt tegen de legeroversten: wees zacht voor de jongen, voor Absalom.",
+          "stap": "2samuel:david:9"
+        },
+        {
+          "t": "Absalom rijdt op een muildier, een soort ezel, onder een grote eik. Zijn hoofd raakt vast in de takken. Joab en zijn mannen doden hem."
+        },
+        {
+          "t": "Als David het hoort, huilt hij: ‘Mijn zoon Absalom, mijn zoon, mijn zoon Absalom!’"
+        },
+        {
+          "t": "Daarna halen de mannen van Juda de koning terug. David gaat weer over de Jordaan, naar Gilgal.",
+          "stap": "2samuel:david:9"
+        }
+      ],
+      "samen": "Absalom sterft in deze geschiedenis (2 Samuël 18:14–15). Vertel het rustig; daarna vertelt de Bijbel vooral over het verdriet van David (18:33; 19:4). Weggelaten: de raad van Achitofel en Husai (16:15–17:14), wat Absalom deed met de bijwijven van zijn vader (16:21–22) en de dood van Achitofel (17:23). Wijs op de kaart de vlucht aan: van Jeruzalem over de Jordaan naar Mahanaïm. Psalm 3 is een psalm van David uit deze vlucht (Psalm 3:1). Vraag samen: waarom stuurt David de ark terug?",
+      "vragen": [
+        {
+          "q": "Waar laat Absalom zich koning noemen?",
+          "a": [
+            "In Hebron",
+            "In Bethlehem"
+          ],
+          "why": "2 Samuël 15:10"
+        },
+        {
+          "q": "Wat doet David met de ark?",
+          "a": [
+            "Hij stuurt de ark terug naar de stad",
+            "Hij neemt de ark mee over de Jordaan"
+          ],
+          "why": "2 Samuël 15:25"
+        },
+        {
+          "q": "Waarin blijft het hoofd van Absalom vastzitten?",
+          "a": [
+            "In een grote eik",
+            "In een doornstruik"
+          ],
+          "why": "2 Samuël 18:9"
+        },
+        {
+          "q": "Wat doet David als hij hoort dat Absalom dood is?",
+          "a": [
+            "Hij huilt om zijn zoon",
+            "Hij houdt een feest"
+          ],
+          "why": "2 Samuël 18:33"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Absalom wil koning worden",
+          "stap": "2samuel:david:8",
+          "t": "Absalom, een zoon van David, staat elke morgen bij de poort. Tegen ieder met een rechtszaak zegt hij: was ik maar rechter in het land! ‘Alzo stal Absalom het hart der mannen van Israël.’ De mensen gaan hem volgen. In Hebron laat hij zich tot koning uitroepen. Ook Achitofel, Davids raadsman, kiest zijn kant."
+        },
+        {
+          "kop": "David op de vlucht",
+          "stap": "2samuel:david:8",
+          "t": "David vlucht uit Jeruzalem, over de beek Kidron. De ark stuurt hij terug naar de stad. Huilend en op blote voeten gaat hij de Olijfberg op. Zijn vriend Husai stuurt hij naar Absalom, om de raad van Achitofel te laten mislukken. Bij Bahurim vervloekt Simeï, uit de familie van Saul, David en gooit met stenen. David laat hem begaan. Over de Jordaan komt David in Mahanaïm."
+        },
+        {
+          "kop": "Mijn zoon Absalom",
+          "stap": "2samuel:david:9",
+          "t": "David beveelt zijn legeroversten: ‘Handelt mij zachtkens met den jongeling’. Dus: wees zacht voor Absalom. In het woud van Efraïm wordt het leger van Absalom verslagen. Absalom blijft met zijn hoofd in een eik hangen, en Joab en zijn wapendragers doden hem. David huilt: ‘Mijn zoon Absalom, mijn zoon, mijn zoon Absalom!’"
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waar liet Absalom zich tot koning uitroepen?",
+          "a": [
+            "In Hebron",
+            "In Bethlehem",
+            "In Mahanaïm"
+          ],
+          "why": "2 Samuël 15:10"
+        },
+        {
+          "q": "Waarom stuurde David zijn vriend Husai naar Absalom?",
+          "a": [
+            "Om de raad van Achitofel te laten mislukken",
+            "Om de ark van God te bewaken",
+            "Om vrede te sluiten met Absalom"
+          ],
+          "why": "2 Samuël 15:34"
+        },
+        {
+          "q": "Waarom liet David Simeï begaan?",
+          "a": [
+            "Hij zei dat de HEERE het Simeï gezegd had",
+            "Hij hoorde niet wat Simeï riep",
+            "Simeï was een broer van David"
+          ],
+          "why": "2 Samuël 16:10–11"
+        },
+        {
+          "q": "Wat gebeurde er eerst?",
+          "a": [
+            "David ging over de Jordaan",
+            "Absalom bleef in een eik hangen",
+            "David huilde om Absalom"
+          ],
+          "why": "2 Samuël 17:22; 2 Samuël 18:9; 2 Samuël 18:33"
+        },
+        {
+          "q": "Waar werd het leger van Absalom verslagen?",
+          "a": [
+            "In het woud van Efraïm",
+            "Bij de beek Kidron",
+            "Op de Olijfberg"
+          ],
+          "why": "2 Samuël 18:6–7"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Wat eraan voorafging",
+          "t": "Absalom was de derde zoon van David, en zijn moeder Maacha was een dochter van Thalmai, de koning van Gesur (2 Samuël 3:3). Jaren eerder had Absalom zijn broer Amnon laten doden (13:28–29). Daarna vluchtte hij naar Gesur en bleef daar drie jaar (13:37–38). Terug in Jeruzalem zag hij twee jaar lang het gezicht van de koning niet (14:28). Pas daarna kuste de koning Absalom (14:33). Waarom Absalom later in opstand kwam, zegt de tekst niet met zoveel woorden; hij beloofde het volk recht (15:4).",
+          "refs": [
+            "2 Samuël 3:3",
+            "2 Samuël 13:28–29",
+            "2 Samuël 13:37–38",
+            "2 Samuël 14:28",
+            "2 Samuël 14:33",
+            "2 Samuël 15:4"
+          ]
+        },
+        {
+          "kop": "Achitofel en Husai",
+          "t": "Achitofel was zo’n gezaghebbende raadsman, dat zijn raad was ‘als of men naar Gods woord gevraagd had’ (16:23). Toen David hoorde dat hij bij Absalom was, bad hij: ‘O, HEERE! maak toch Achitofels raad tot zotheid’ (15:31). Absalom en de mannen van Israël vonden de raad van Husai beter. De tekst zegt erbij: ‘de HEERE had het geboden, om den goeden raad van Achitofel te vernietigen’ (17:14). Toen Achitofel zag dat zijn raad niet werd opgevolgd, ging hij naar huis en verhing zich (17:23).",
+          "refs": [
+            "2 Samuël 16:23",
+            "2 Samuël 15:31",
+            "2 Samuël 17:14",
+            "2 Samuël 17:23"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Hebron en Jeruzalem zijn identificeerbaar. Bahurim is niet met zekerheid teruggevonden; Mahanaïm lag aan de oostkant van de Jordaan; de plek op de kaart is waarschijnlijk, niet zeker. Mahanaïm kreeg zijn naam van Jakob, toen engelen hem daar ontmoetten (Genesis 32:1–2). Het jaar van de opstand is niet te geven: het getal in 2 Samuël 15:7 (‘ten einde nu van veertig jaren’) wordt door uitleggers verschillend gelezen. Daarom staat hier ca. 990–975 v.Chr. met het label onzeker.",
+          "refs": [
+            "Genesis 32:1–2",
+            "2 Samuël 15:7"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat bad David toen hij hoorde dat Achitofel bij Absalom was?",
+          "a": [
+            "Dat God de raad van Achitofel tot zotheid zou maken",
+            "Dat Achitofel weer naar hem terug zou komen",
+            "Dat God Absalom snel zou straffen"
+          ],
+          "why": "2 Samuël 15:31"
+        },
+        {
+          "q": "Waarom werd de goede raad van Achitofel niet gevolgd, volgens 17:14?",
+          "a": [
+            "De HEERE had het zo geboden",
+            "Husai was ouder dan Achitofel",
+            "Achitofel was er die dag niet bij"
+          ],
+          "why": "2 Samuël 17:14"
+        },
+        {
+          "q": "Waar woonde Absalom drie jaar na de dood van Amnon?",
+          "a": [
+            "In Gesur",
+            "In Hebron",
+            "In Mahanaïm"
+          ],
+          "why": "2 Samuël 13:38"
+        },
+        {
+          "q": "Wie brachten David eten en bedden in Mahanaïm?",
+          "a": [
+            "Sobi, Machir en Barzillai",
+            "Joab, Abisai en Ithai",
+            "Zadok, Abjathar en Husai"
+          ],
+          "why": "2 Samuël 17:27–29"
+        }
+      ]
+    }
+  },
+  "60": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "gibeon",
+        "salem",
+        "kon_scheba"
+      ],
+      "delen": [
+        {
+          "t": "Salomo is koning geworden, in de plaats van zijn vader David. Hij gaat naar Gibeon om offers te brengen.",
+          "stap": "1koningen:salomo:1"
+        },
+        {
+          "t": "In de nacht verschijnt de HEERE aan Salomo in een droom. God zegt: vraag wat Ik je geven zal.",
+          "stap": "1koningen:salomo:1"
+        },
+        {
+          "t": "Salomo zegt: ik ben nog jong. Geef mij een verstandig hart. Dan kan ik goed recht spreken en goed en kwaad onderscheiden."
+        },
+        {
+          "t": "Die vraag is goed in de ogen van de HEERE. God geeft Salomo een wijs hart, en ook rijkdom en eer."
+        },
+        {
+          "t": "Op een dag komen er twee vrouwen bij de koning. Er is één kindje dat leeft. Allebei zeggen ze: het is van mij!",
+          "stap": "1koningen:salomo:2"
+        },
+        {
+          "t": "Salomo laat een zwaard halen. Hij zegt: snijd het levende kind in tweeën, en geef ieder een helft."
+        },
+        {
+          "t": "Dan zegt de echte moeder: geef haar het kind maar, en dood het niet! Salomo zegt: geef het kind aan haar, zij is de moeder."
+        },
+        {
+          "t": "Heel Israël hoort ervan. Ze zien dat de wijsheid van God in Salomo is."
+        },
+        {
+          "t": "De koningin van Scheba hoort over Salomo. Ze komt naar Jeruzalem, met kamelen vol specerijen, goud en edelstenen.",
+          "stap": "1koningen:salomo:5"
+        },
+        {
+          "t": "Ze test Salomo met raadsels, en hij kan alles uitleggen. Ze zegt: de helft was mij niet verteld! En ze looft de HEERE.",
+          "stap": "1koningen:salomo:5"
+        }
+      ],
+      "samen": "Het zwaard kan een kind laten schrikken. Vertel erbij dat het kind blijft leven: het bevel van Salomo laat zien wie de echte moeder is (1 Koningen 3:26–27). Weggelaten: dat het kind van de andere vrouw ’s nachts gestorven was (3:19), en dat de twee vrouwen ‘hoeren’ waren (3:16). Ook weggelaten: het goud, de schepen en de paarden van Salomo (10:14–29). Vraag samen: wat vroeg Salomo aan God, en wat kreeg hij er nog bij (3:9–13)?",
+      "vragen": [
+        {
+          "q": "Waar spreekt God met Salomo in een droom?",
+          "a": [
+            "In Gibeon",
+            "In Bethlehem"
+          ],
+          "why": "1 Koningen 3:4–5"
+        },
+        {
+          "q": "Wat vraagt Salomo aan God?",
+          "a": [
+            "Een verstandig hart",
+            "Heel veel goud"
+          ],
+          "why": "1 Koningen 3:9"
+        },
+        {
+          "q": "Wie komt Salomo testen met raadsels?",
+          "a": [
+            "De koningin van Scheba",
+            "De koning van Egypte"
+          ],
+          "why": "1 Koningen 10:1"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Een droom in Gibeon",
+          "stap": "1koningen:salomo:1",
+          "t": "Salomo is koning in de plaats van zijn vader David. In Gibeon offert hij duizend brandoffers: dieren die op het altaar worden verbrand. ’s Nachts zegt de HEERE in een droom: ‘Begeer wat Ik u geven zal.’ Begeer is: vraag. Salomo vraagt ‘een verstandig hart, om Uw volk te richten’: om recht te spreken en goed en kwaad te onderscheiden. Dat is goed in de ogen van de HEERE. Hij geeft Salomo een wijs hart, en ook rijkdom en eer."
+        },
+        {
+          "kop": "Twee moeders en één kind",
+          "stap": "1koningen:salomo:2",
+          "t": "Twee vrouwen uit één huis staan voor de koning. Het kind van de een is gestorven; nu zeggen ze allebei dat het levende kind van haar is. Salomo laat een zwaard halen en zegt dat het kind in tweeën moet. De echte moeder zegt: geef het haar, en dood het niet! Dan zegt Salomo: zij is de moeder. Heel Israël ziet dat de wijsheid van God in hem is."
+        },
+        {
+          "kop": "Bezoek uit Scheba",
+          "stap": "1koningen:salomo:5",
+          "t": "De koningin van Scheba komt met raadsels naar Jeruzalem, en Salomo legt alles uit. Ze zegt: ‘de helft is mij niet aangezegd’. Dus: het is meer dan ik hoorde. Ze looft de HEERE en geeft Salomo goud, specerijen en edelstenen."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom ging Salomo naar Gibeon?",
+          "a": [
+            "Om daar te offeren",
+            "Om daar tegen vijanden te strijden",
+            "Om daar een paleis te bouwen"
+          ],
+          "why": "1 Koningen 3:4"
+        },
+        {
+          "q": "Waarom vroeg Salomo om een verstandig hart?",
+          "a": [
+            "Om het volk goed te kunnen richten",
+            "Om rijker te worden dan andere koningen",
+            "Om heel lang te mogen leven"
+          ],
+          "why": "1 Koningen 3:9"
+        },
+        {
+          "q": "Wat zei de echte moeder tegen de koning?",
+          "a": [
+            "Geef haar het kind, en dood het niet",
+            "Het kind is van geen van ons beiden",
+            "Doorsnijd het kind maar"
+          ],
+          "why": "1 Koningen 3:26"
+        },
+        {
+          "q": "Wat zag heel Israël na dit oordeel?",
+          "a": [
+            "Dat de wijsheid van God in Salomo was",
+            "Dat Salomo het zwaard graag gebruikte",
+            "Dat de vrouwen de koning bedrogen hadden"
+          ],
+          "why": "1 Koningen 3:28"
+        },
+        {
+          "q": "Wat gaf de koningin van Scheba aan Salomo?",
+          "a": [
+            "Goud, specerijen en edelstenen",
+            "Paarden en strijdwagens",
+            "Schepen en zeilen"
+          ],
+          "why": "1 Koningen 10:10"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Waarom Gibeon?",
+          "t": "Er was nog geen tempel: ‘geen huis was den Naam des HEEREN gebouwd’ (1 Koningen 3:2). 2 Kronieken 1:3 vertelt waarom Salomo naar Gibeon ging: ‘want daar was de tent der samenkomst Gods, die Mozes, de knecht des HEEREN, in de woestijn gemaakt had’. De ark stond toen al in Jeruzalem, in de tent die David ervoor had gespannen (2 Kronieken 1:4; geschiedenis 57). Na de droom offert Salomo in Jeruzalem ‘voor de ark des verbonds des HEEREN’ (3:15). Gibeon is identificeerbaar. De droom valt aan het begin van zijn regering, rond 970 v.Chr. in de gangbare chronologie.",
+          "refs": [
+            "1 Koningen 3:2",
+            "2 Kronieken 1:3–4",
+            "1 Koningen 3:15"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "1 Koningen 4 vertelt hoe groot die wijsheid was: Salomo ‘sprak drie duizend spreuken; daartoe waren zijn liederen duizend en vijf’ (1 Koningen 4:32). Het boek Spreuken begint met ‘De spreuken van Salomo, den zoon van David’ (Spreuken 1:1). 2 Kronieken 1 vertelt de droom ook; daar vraagt Salomo ‘wijsheid en wetenschap’ (2 Kronieken 1:10). De Heere Jezus noemt Salomo ook bij de lelies: ‘dat ook Salomo, in al zijn heerlijkheid, niet is bekleed geweest, gelijk een van deze’ (Mattheüs 6:29).",
+          "refs": [
+            "1 Koningen 4:29–34",
+            "Spreuken 1:1",
+            "2 Kronieken 1:7–12",
+            "Mattheüs 6:29"
+          ]
+        },
+        {
+          "kop": "Rijkdom en een waarschuwing",
+          "t": "1 Koningen 10 beschrijft veel goud, een troon van ivoor en paarden uit Egypte (10:14–29). In Deuteronomium 17 stond al over een koning: ‘hij zal voor zich de paarden niet vermenigvuldigen’, ‘Ook zal hij voor zich de vrouwen niet vermenigvuldigen, opdat zijn hart niet afwijke’ en ‘hij zal ook voor zich geen zilver en goud zeer vermenigvuldigen’. 1 Koningen 11:4 vertelt dat zijn vrouwen in zijn ouderdom ‘zijn hart achter andere goden neigden’. Hoofdstuk 10 zelf geeft geen oordeel, maar veel uitleggers lezen het daarom ook als een waarschuwing.",
+          "refs": [
+            "1 Koningen 10:14–29",
+            "Deuteronomium 17:16–17",
+            "1 Koningen 11:4"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat stond er volgens 2 Kronieken 1:3 in Gibeon?",
+          "a": [
+            "De tent der samenkomst van Mozes",
+            "De ark van het verbond",
+            "De tempel van Salomo"
+          ],
+          "why": "2 Kronieken 1:3–4"
+        },
+        {
+          "q": "Wat deed Salomo in Jeruzalem na de droom?",
+          "a": [
+            "Hij offerde voor de ark en hield een maaltijd",
+            "Hij begon aan de bouw van de tempel",
+            "Hij trok ten strijde tegen Egypte"
+          ],
+          "why": "1 Koningen 3:15"
+        },
+        {
+          "q": "Hoeveel spreuken sprak Salomo volgens 1 Koningen 4:32?",
+          "a": [
+            "Drieduizend",
+            "Duizend",
+            "Driehonderd"
+          ],
+          "why": "1 Koningen 4:32"
+        },
+        {
+          "q": "Wat zegt Deuteronomium 17:16–17 over een koning?",
+          "a": [
+            "Hij mag niet veel paarden, zilver en goud verzamelen",
+            "Hij moet elk jaar naar Egypte reizen",
+            "Hij moet duizend brandoffers brengen"
+          ],
+          "why": "Deuteronomium 17:16–17"
+        }
+      ]
+    }
+  }
+}

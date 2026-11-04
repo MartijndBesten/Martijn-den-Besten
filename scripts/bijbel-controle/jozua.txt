@@ -291,3 +291,9 @@ Jozua 20:7 | Sichem op het gebergte van Efraim
 Jozua 19:50 | Thimnath-Serah, op het gebergte van Efraim
 Richteren 4:2 | Jabin.*Hazor
 Jozua 15:63 | Jebusieten.*Jeruzalem
+# --- Invoerherstel 2026-11-04
+Jozua 2:9 | Ik weet, dat de HEERE u dit land gegeven heeft
+Jozua 2:15 | liet hen dan neder met een zeel door het venster
+Jozua 7:24 | Achan.*zijn zonen, en zijn dochteren.*dal Achor
+Jozua 9:14 | namen de mannen van hun reiskost
+Jozua 9:15 | de oversten der vergadering zwoeren hun

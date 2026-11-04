@@ -7,7 +7,7 @@ BR.kernwoorden = BR.kernwoorden || {};
 BR.geschiedenissen.push(
 { nr: 100, t: "Herodes en Johannes de Doper", ref: "Markus 6:14–29", sectie: "galilea",
   stappen: ["jezus-2:nt-brood-en-berg:0"], vorm: "plek",
-  uitleg: "Koning Herodes, de viervorst van Galilea, hoort over de wonderen van de Heere Jezus. Hij is bang dat Johannes de Doper uit de doden is opgestaan. Herodes had Johannes gevangengezet. Johannes had hem namelijk eerlijk gezegd dat hij niet met Herodias mocht leven, de vrouw van zijn broer Filippus. Herodes wist dat Johannes een rechtvaardig en heilig man was, en hij luisterde zelfs graag naar hem. Maar Herodias wilde Johannes doden. Op het verjaardagsfeest van Herodes danst haar dochter, en Herodes belooft haar met een eed alles wat ze vraagt. Op aanraden van haar moeder vraagt ze het hoofd van Johannes de Doper. Herodes wordt zeer bedroefd. Maar vanwege zijn eden en zijn gasten laat hij Johannes in de gevangenis onthoofden.",
+  uitleg: "Koning Herodes, de viervorst van Galilea, hoort over de wonderen van de Heere Jezus. Hij zegt dat Johannes de Doper uit de doden is opgewekt. Herodes had Johannes gevangengezet. Johannes had hem namelijk eerlijk gezegd dat hij niet met Herodias mocht leven, de vrouw van zijn broer Filippus. Herodes wist dat Johannes een rechtvaardig en heilig man was, en hij luisterde zelfs graag naar hem. Maar Herodias wilde Johannes doden. Op het verjaardagsfeest van Herodes danst haar dochter, en Herodes belooft haar met een eed alles wat ze vraagt. Op aanraden van haar moeder vraagt ze het hoofd van Johannes de Doper. Herodes wordt zeer bedroefd. Maar vanwege zijn eden en zijn gasten laat hij Johannes in de gevangenis onthoofden.",
   betekenis: "Johannes bleef de waarheid zeggen, ook tegen een koning, en betaalde dat met zijn leven. De Heere Jezus zei over hem: ‘onder degenen, die van vrouwen geboren zijn, is niemand opgestaan meerder dan Johannes de Doper’ (Mattheüs 11:11).",
   wie: ["Herodes Antipas", "Herodias", "Johannes de Doper"],
   ontdek: { soort: "wiezei", titel: "Wie zei het?", items: [
@@ -16,7 +16,7 @@ BR.geschiedenissen.push(
     ["Het hoofd van Johannes den Doper.", "Herodias", ["Herodes", "de discipelen van Johannes"]],
     ["Deze is Johannes, dien ik onthoofd heb; die is van de doden opgewekt.", "Herodes", ["Herodias", "Filippus"]]] },
   quiz: [
-    { q: "Waarom schrok Herodes toen hij over de Heere Jezus hoorde?", a: ["Hij dacht dat Johannes de Doper was opgestaan", "Hij dacht dat de Romeinen kwamen", "Hij dacht dat Mozes was teruggekomen"], why: "Markus 6:16" },
+    { q: "Wat dacht Herodes toen hij over de Heere Jezus hoorde?", a: ["Hij dacht dat Johannes de Doper was opgestaan", "Hij dacht dat de Romeinen kwamen", "Hij dacht dat Mozes was teruggekomen"], why: "Markus 6:16" },
     { q: "Met wie was Herodias eerst getrouwd?", a: ["Met Filippus, de broer van Herodes", "Met de keizer in Rome", "Met een koning van Arabië"], why: "Markus 6:17" },
     { q: "Wat wist Herodes eigenlijk van Johannes?", a: ["Dat hij een rechtvaardig en heilig man was", "Dat hij een bedrieger was", "Niets, hij kende hem niet"], why: "Markus 6:20" },
     { q: "Waarom liet Herodes Johannes toch onthoofden?", a: ["Vanwege zijn eden en zijn gasten", "Omdat Johannes wilde vluchten", "Omdat de Romeinen het eisten"], why: "Markus 6:26" }],
@@ -28,7 +28,7 @@ BR.geschiedenissen.push(
 
 { nr: 101, t: "Vijfduizend mannen eten", ref: "Johannes 6:1–15", sectie: "galilea",
   stappen: ["jezus-2:nt-brood-en-berg:1", "jezus-2:nt-brood-en-berg:2", "jezus-2:nt-brood-en-berg:3"], vorm: "plek",
-  uitleg: "De Heere Jezus gaat naar de overkant van het meer van Galilea. Een grote menigte volgt Hem, omdat ze Zijn tekenen bij de zieken gezien hebben. Het is kort voor het Pascha. Om Filippus op de proef te stellen, vraagt Hij waar ze brood kunnen kopen; Hij wist zelf al wat Hij zou doen. Filippus rekent uit dat tweehonderd penningen brood niet genoeg is. Andreas wijst op een jongen met vijf gerstebroden en twee visjes. De Heere Jezus laat ongeveer vijfduizend mannen in het gras gaan zitten. Hij dankt en laat het eten uitdelen, zoveel als iedereen wil. Er blijven twaalf korven met brokken over, want er mag niets verloren gaan. De mensen zeggen: ‘Deze is waarlijk de Profeet, Die in de wereld komen zou.’ Ze willen Hem koning maken, maar Hij gaat alleen de berg op. De volgende dag legt Hij in Kapernaüm uit waar dit teken op wijst: ‘Ik ben het Brood des levens.’",
+  uitleg: "De Heere Jezus gaat naar de overkant van het meer van Galilea. Een grote menigte volgt Hem, omdat ze Zijn tekenen bij de zieken gezien hebben. Het is kort voor het Pascha. Om Filippus op de proef te stellen, vraagt Hij waar ze brood kunnen kopen; Hij wist zelf al wat Hij zou doen. Filippus rekent uit dat tweehonderd penningen brood niet genoeg is. Andreas wijst op een jongen met vijf gerstebroden en twee visjes. De Heere Jezus laat ongeveer vijfduizend mannen in het gras gaan zitten. Hij dankt en laat het eten uitdelen, zoveel als iedereen wil. De discipelen verzamelen de overgebleven brokken, opdat er niets verloren gaat: twaalf korven vol. De mensen zeggen: ‘Deze is waarlijk de Profeet, Die in de wereld komen zou.’ Ze willen Hem koning maken, maar Hij gaat alleen de berg op. De volgende dag legt Hij in Kapernaüm uit waar dit teken op wijst: ‘Ik ben het Brood des levens.’",
   betekenis: "Het teken wijst naar de Heere Jezus Zelf: zoals brood het lichaam voedt, geeft Hij het eeuwige leven aan wie in Hem gelooft (Johannes 6:35, 47–51).",
   wie: ["Jezus", "Filippus", "Andreas"],
   ontdek: { soort: "koppel", titel: "Welk getal hoort erbij?", paren: [
@@ -91,7 +91,7 @@ BR.geschiedenissen.push(
 
 { nr: 104, t: "De goede Herder", ref: "Johannes 10:1–30", sectie: "galilea",
   stappen: ["jezus-2:nt-feesten-jeruzalem:4", "jezus-2:nt-feesten-jeruzalem:5"], vorm: "gelijkenis",
-  uitleg: "Na de genezing van de blindgeborene spreekt de Heere Jezus nog tegen de Farizeeën die zeiden: ‘Wij zien’ (Johannes 9:40–41). Hij vertelt hun een gelijkenis. Een dief klimt ergens anders over de muur van de schaapskooi, maar de herder gaat door de deur naar binnen. Hij roept zijn schapen bij hun naam en gaat voor ze uit. De schapen volgen hem, omdat ze zijn stem kennen. De Farizeeën begrijpen niet wat Hij bedoelt (Johannes 10:6). Daarom legt de Heere Jezus het uit: ‘Ik ben de Deur der schapen’ en ‘Ik ben de goede Herder; de goede herder stelt zijn leven voor de schapen.’ Een huurling vlucht als de wolf komt, maar Hij legt Zijn leven af, en neemt het weer terug. Op het feest van de vernieuwing zegt Hij: ‘Mijn schapen horen Mijn stem, en Ik ken dezelve, en zij volgen Mij.’ Niemand zal ze uit Zijn hand rukken.",
+  uitleg: "Na de genezing van de blindgeborene spreekt de Heere Jezus nog tegen de Farizeeën die zeiden: ‘Wij zien’ (Johannes 9:40–41). Hij vertelt hun een gelijkenis. Een dief klimt van elders in de schaapskooi, maar de herder gaat door de deur naar binnen. Hij roept zijn schapen bij hun naam en gaat voor ze uit. De schapen volgen hem, omdat ze zijn stem kennen. De Farizeeën begrijpen niet wat Hij bedoelt (Johannes 10:6). Daarom legt de Heere Jezus het uit: ‘Ik ben de Deur der schapen’ en ‘Ik ben de goede Herder; de goede herder stelt zijn leven voor de schapen.’ Een huurling vlucht als de wolf komt, maar Hij legt Zijn leven af, en neemt het weer terug. Op het feest van de vernieuwing zegt Hij: ‘Mijn schapen horen Mijn stem, en Ik ken dezelve, en zij volgen Mij.’ Niemand zal ze uit Zijn hand rukken.",
   betekenis: "In het Oude Testament wordt God de Herder van Zijn volk genoemd, en Hij beloofde één Herder te verwekken (Psalm 23:1; Ezechiël 34:23). De Heere Jezus zegt dat Hij die goede Herder is, Die Zijn leven geeft voor de schapen (Johannes 10:11, 15).",
   wie: ["Jezus", "Farizeeën"],
   ontdek: { soort: "gelijkenis", titel: "Wat betekenen de beelden?", beelden: [
@@ -166,7 +166,7 @@ BR.geschiedenissen.push(
     { q: "Wat zei de Heere Jezus dat de rijke man moest doen?", a: ["Alles verkopen, het de armen geven en Hem volgen", "Elke dag drie keer bidden en vasten", "Vaker naar de tempel gaan en offeren"], why: "Markus 10:21" },
     { q: "Waarom ging de rijke man bedroefd weg?", a: ["Hij had vele goederen", "Hij was ziek", "Hij was te laat"], why: "Markus 10:22" },
     { q: "Wat is volgens de Heere Jezus nog moeilijker dan een kemel door het oog van een naald?", a: ["Dat een rijke in het Koninkrijk Gods ingaat", "Dat een visser rijk wordt", "Dat een kind de wet leert"], why: "Markus 10:25" }],
-  cross: [["Mattheüs 18:3", "‘Indien gij u niet verandert, en wordt gelijk de kinderkens, zo zult gij in het Koninkrijk der hemelen geenszins ingaan.’"],
+  cross: [["Mattheüs 18:3", "‘Indiën gij u niet verandert, en wordt gelijk de kinderkens, zo zult gij in het Koninkrijk der hemelen geenszins ingaan.’"],
     ["Mattheüs 19:20–22", "Mattheüs vertelt dat het een jongeling was."],
     ["Mattheüs 6:19–20", "‘Vergadert u schatten in den hemel.’"]],
   tl: [30, 30], tijd: "ca. 30 n.Chr. (of 33)",
@@ -214,7 +214,7 @@ BR.geschiedenissen.push(
 
 { nr: 110, t: "Martha en Maria", ref: "Lukas 10:38–42", sectie: "onderweg",
   stappen: ["jezus-2:nt-reis-naar-jeruzalem:2"], vorm: "plek", kw: "liefde",
-  uitleg: "Op de reis komt de Heere Jezus in een dorp, en Martha ontvangt Hem in haar huis. Haar zuster Maria gaat aan Zijn voeten zitten en luistert naar Zijn woord. Martha heeft het erg druk met het vele werk om alles klaar te maken. Ze komt naar de Heere Jezus en vraagt of het Hem niets kan schelen dat haar zuster haar alleen laat werken: ‘Zeg dan haar, dat zij mij helpe.’ Maar de Heere Jezus antwoordt: ‘Martha, Martha, gij bekommert en ontrust u over vele dingen; maar een ding is nodig.’ Maria heeft het goede deel gekozen, en dat zal haar niet worden afgenomen. Johannes vertelt dat de Heere Jezus Martha, haar zuster en Lazarus liefhad (Johannes 11:5).",
+  uitleg: "Op de reis komt de Heere Jezus in een dorp, en Martha ontvangt Hem in haar huis. Haar zuster Maria gaat aan Zijn voeten zitten en luistert naar Zijn woord. Martha heeft het erg druk met het vele werk om alles klaar te maken. Ze komt naar de Heere Jezus en vraagt of het Hem niets kan schelen dat haar zuster haar alleen laat werken: ‘Zeg dan haar, dat zij mij helpe.’ Maar de Heere Jezus antwoordt: ‘Martha, Martha, gij bekommert en ontrust u over vele dingen; Maar een ding is nodig.’ Maria heeft het goede deel gekozen, en dat zal haar niet worden afgenomen. Johannes vertelt dat de Heere Jezus Martha, haar zuster en Lazarus liefhad (Johannes 11:5).",
   betekenis: "Dit verhaal staat direct na het grote gebod om God lief te hebben met heel je hart, en je naaste als jezelf (Lukas 10:27). Maria zit aan Zijn voeten en hoort Zijn woord: dat noemt de Heere Jezus ‘het goede deel’ (Lukas 10:42).",
   wie: ["Jezus", "Martha", "Maria van Bethanië"],
   ontdek: { soort: "onthul", titel: "De familie uit Bethanië", items: [
@@ -258,14 +258,14 @@ BR.geschiedenissen.push(
 
 { nr: 112, t: "De verloren zoon", ref: "Lukas 15:11–32", sectie: "onderweg",
   stappen: ["jezus-2:nt-reis-naar-jeruzalem:4"], vorm: "gelijkenis",
-  uitleg: "Tollenaars en zondaars komen naar de Heere Jezus om naar Hem te luisteren. De Farizeeën en schriftgeleerden mopperen: ‘Deze ontvangt de zondaars, en eet met hen’ (Lukas 15:1–2). Daarom vertelt Hij drie gelijkenissen. De derde gaat over een vader met twee zonen. De jongste vraagt zijn deel van de erfenis en vertrekt naar een ver land. Daar verkwist hij alles met een losbandig leven. Als er hongersnood komt, moet hij zwijnen hoeden, en hij zou zelfs graag van hun voer eten. Dan komt hij tot zichzelf: ik zal opstaan, naar mijn vader gaan en zeggen dat ik gezondigd heb. Zijn vader ziet hem al van ver, krijgt medelijden, rent naar hem toe en kust hem. Hij laat het beste kleed, een ring en schoenen brengen en het gemeste kalf slachten: ‘deze mijn zoon was dood, en is weder levend geworden.’ Maar de oudste zoon wordt boos en wil niet naar binnen. De vader gaat naar buiten en smeekt hem: ‘Kind, gij zijt altijd bij mij, en al het mijne is uwe.’",
-  betekenis: "De Heere Jezus zegt zelf waar de gelijkenissen van Lukas 15 over gaan: er is blijdschap in de hemel over één zondaar die zich bekeert (Lukas 15:7, 10). De boze oudste zoon doet denken aan de Farizeeën, die mopperden dat Hij zondaars ontving (Lukas 15:2, 28–30).",
+  uitleg: "Tollenaars en zondaars komen naar de Heere Jezus om naar Hem te luisteren. De Farizeeën en schriftgeleerden mopperen: ‘Deze ontvangt de zondaars, en eet met hen’ (Lukas 15:1–2). Daarom vertelt Hij drie gelijkenissen. De derde gaat over een vader met twee zonen. De jongste vraagt zijn deel van de erfenis en vertrekt naar een ver land. Daar verkwist hij alles met een losbandig leven. Als er hongersnood komt, moet hij zwijnen hoeden, en hij zou zelfs graag van hun voer eten. Dan komt hij tot zichzelf: ik zal opstaan, naar mijn vader gaan en zeggen dat ik gezondigd heb. Zijn vader ziet hem al van ver, krijgt medelijden, rent naar hem toe en kust hem. Hij laat het beste kleed, een ring en schoenen brengen en het gemeste kalf slachten: ‘deze mijn zoon was dood, en is weder levend geworden.’ Maar de oudste zoon wordt boos en wil niet naar binnen. De vader gaat naar buiten en smeekt hem. Op zijn verwijt antwoordt de vader: ‘Kind, gij zijt altijd bij mij, en al het mijne is uwe.’",
+  betekenis: "De Heere Jezus zegt zelf waar de gelijkenissen van Lukas 15 over gaan: er is blijdschap in de hemel over één zondaar die zich bekeert (Lukas 15:7, 10). Veel uitleggers zien in de boze oudste zoon een beeld van de Farizeeën, die mopperden dat Hij zondaars ontving (Lukas 15:2, 28–30).",
   wie: ["Jezus", "Tollenaars", "Farizeeën"],
   ontdek: { soort: "gelijkenis", titel: "Verloren en gevonden", beelden: [
-    ["Het verloren schaap", "‘Er zal blijdschap zijn in den hemel over een zondaar, die zich bekeert.’", "Lukas 15:7"],
-    ["De verloren penning", "‘Er is blijdschap voor de engelen Gods over een zondaar, die zich bekeert.’", "Lukas 15:10"],
+    ["Het verloren schaap", "‘Dat er alzo blijdschap zal zijn in den hemel over een zondaar, die zich bekeert.’", "Lukas 15:7"],
+    ["De verloren penning", "‘Alzo, zeg Ik ulieden, is er blijdschap voor de engelen Gods over een zondaar, die zich bekeert.’", "Lukas 15:10"],
     ["De jongste zoon", "‘Deze mijn zoon was dood, en is weder levend geworden; en hij was verloren, en is gevonden!’", "Lukas 15:24"],
-    ["De oudste zoon", "Hij wordt boos en wil niet naar binnen, zoals de Farizeeën mopperden dat de Heere Jezus zondaars ontving.", "Lukas 15:2, 28"]] },
+    ["De oudste zoon", "Hij wordt boos en wil niet naar binnen. Veel uitleggers denken hierbij aan de Farizeeën, die mopperden dat de Heere Jezus zondaars ontving.", "Lukas 15:2, 28"]] },
   quiz: [
     { q: "Waarom mopperden de Farizeeën en schriftgeleerden?", a: ["De Heere Jezus ontving zondaars en at met hen", "De Heere Jezus genas op de sabbat", "De discipelen wasten hun handen niet"], why: "Lukas 15:2" },
     { q: "Hoeveel schapen had de herder in de eerste gelijkenis?", a: ["Honderd", "Tien", "Negenennegentig"], why: "Lukas 15:4" },
@@ -297,7 +297,7 @@ BR.geschiedenissen.push(
 
 { nr: 114, t: "De Farizeeër en de tollenaar", ref: "Lukas 18:9–14", sectie: "onderweg",
   stappen: ["jezus-2:nt-reis-naar-jeruzalem:6"], vorm: "gelijkenis",
-  uitleg: "De Heere Jezus vertelt deze gelijkenis aan sommige mensen die op zichzelf vertrouwden dat ze rechtvaardig waren, en de anderen niets waard vonden (Lukas 18:9). Twee mannen gaan naar de tempel om te bidden: een Farizeeër en een tollenaar. De Farizeeër staat daar en dankt God dat hij niet is zoals andere mensen: rovers, onrechtvaardigen, overspelers, of zoals die tollenaar. Hij vast twee keer per week en geeft tienden van alles wat hij bezit. De tollenaar blijft op afstand staan. Hij durft zelfs niet naar de hemel op te kijken, slaat op zijn borst en bidt: ‘O God! wees mij zondaar genadig!’ De Heere Jezus zegt: deze tollenaar ging gerechtvaardigd naar huis, en de Farizeeër niet. ‘Want een ieder, die zichzelven verhoogt, zal vernederd worden, en die zichzelven vernedert, zal verhoogd worden.’",
+  uitleg: "De Heere Jezus vertelt deze gelijkenis aan sommige mensen die op zichzelf vertrouwden dat ze rechtvaardig waren, en de anderen niets waard vonden (Lukas 18:9). Twee mannen gaan naar de tempel om te bidden: een Farizeeër en een tollenaar. De Farizeeër staat daar en dankt God dat hij niet is zoals andere mensen: rovers, onrechtvaardigen, overspelers, of zoals die tollenaar. Hij vast twee keer per week en geeft tienden van alles wat hij bezit. De tollenaar blijft op afstand staan. Hij wil zelfs zijn ogen niet naar de hemel opheffen, slaat op zijn borst en bidt: ‘O God! wees mij zondaar genadig!’ De Heere Jezus zegt: deze tollenaar ging gerechtvaardigd naar huis, en de Farizeeër niet. ‘Want een ieder, die zichzelven verhoogt, zal vernederd worden, en die zichzelven vernedert, zal verhoogd worden.’",
   betekenis: "Niet wie zichzelf rechtvaardig vindt, maar wie zijn zonde belijdt en om genade vraagt, gaat volgens de Heere Jezus gerechtvaardigd naar huis (Lukas 18:14). ‘God wederstaat de hovaardigen, maar den nederigen geeft Hij genade’ (1 Petrus 5:5).",
   wie: ["Jezus"],
   ontdek: { soort: "wiezei", titel: "Wie bad zo?", items: [
@@ -332,11 +332,11 @@ BR.geschiedenissen.push(
     ["Johannes 5:28–29", "‘De ure komt, in dewelke allen, die in de graven zijn, Zijn stem zullen horen.’"],
     ["Johannes 18:14", "Johannes herinnert aan de raad van Kajafas: ‘dat het nut was, dat een Mens voor het volk stierve’."]],
   tl: [30, 30], tijd: "ca. 30 n.Chr. (of 33)",
-  tijdNoot: "Reconstructie. Na dit wonder was ‘het pascha der Joden nabij’ (Johannes 11:55): het gebeurde weken vóór het laatste Pascha. Wie de kruisiging ca. 30 n.Chr. stelt, komt op het begin van 30; wie 33 n.Chr. aanhoudt, op het begin van 33." },
+  tijdNoot: "Reconstructie. Na dit wonder staat er: ‘het pascha der Joden was nabij’ (Johannes 11:55); het gebeurde weken vóór het laatste Pascha. Wie de kruisiging ca. 30 n.Chr. stelt, komt op het begin van 30; wie 33 n.Chr. aanhoudt, op het begin van 33." },
 
 { nr: 116, t: "De blinde Bartimeüs", ref: "Markus 10:46–52", sectie: "onderweg",
   stappen: ["jezus-2:nt-reis-naar-jeruzalem:10"], vorm: "plek",
-  uitleg: "De Heere Jezus komt met Zijn discipelen in Jericho, op weg naar Jeruzalem. Als Hij met een grote menigte de stad weer uitgaat, zit Bartimeüs, de blinde zoon van Timeüs, langs de weg te bedelen. Als hij hoort dat Jezus van Nazareth voorbijkomt, roept hij: ‘Jezus, Gij Zone Davids! ontferm U mijner.’ Veel mensen bestraffen hem: hij moet zwijgen. Maar hij roept nog veel harder. De Heere Jezus blijft staan en laat hem roepen: ‘Heb goeden moed; sta op; Hij roept u.’ Bartimeüs gooit zijn mantel af, staat op en komt bij de Heere Jezus. De Heere Jezus vraagt wat hij wil, en Bartimeüs zegt: ‘Rabboni! dat ik ziende mag worden.’ ‘Ga heen, uw geloof heeft u behouden’, zegt de Heere Jezus. Meteen kan Bartimeüs zien, en hij volgt Hem op de weg.",
+  uitleg: "De Heere Jezus komt met Zijn discipelen in Jericho, op weg naar Jeruzalem. Als Hij met een grote menigte de stad weer uitgaat, zit Bartimeüs, de blinde zoon van Timeüs, langs de weg te bedelen. Als hij hoort dat Jezus van Nazareth voorbijkomt, roept hij: ‘Jezus, Gij Zone Davids! ontferm U mijner.’ Veel mensen bestraffen hem: hij moet zwijgen. Maar hij roept nog veel harder. De Heere Jezus blijft staan en laat hem roepen. De mensen zeggen tegen hem: ‘Heb goeden moed; sta op; Hij roept u.’ Bartimeüs gooit zijn mantel af, staat op en komt bij de Heere Jezus. De Heere Jezus vraagt wat hij wil, en Bartimeüs zegt: ‘Rabboni! dat ik ziende mag worden.’ ‘Ga heen, uw geloof heeft u behouden’, zegt de Heere Jezus. Meteen kan Bartimeüs zien, en hij volgt Hem op de weg.",
   betekenis: "Bartimeüs noemt de Heere Jezus ‘Zone Davids’: de Koning uit het huis van David, Die God beloofd had (2 Samuël 7:12–13). Zijn roepen wordt gehoord, en hij volgt de Heere Jezus (Markus 10:47, 52).",
   wie: ["Jezus", "Bartimeüs"],
   ontdek: { soort: "kaart", titel: "Waar zat Bartimeüs?", vraag: "Bartimeüs zat langs de weg bij Jericho, de laatste stad op weg naar Jeruzalem. Wijs Jericho aan.", id: "jericho", v: "kanaan" },
@@ -366,7 +366,7 @@ BR.geschiedenissen.push(
     { q: "Waarom kon Zacheüs de Heere Jezus niet zien?", a: ["Hij was klein en de menigte stond ervoor", "Hij was blind", "Hij zat in de gevangenis"], why: "Lukas 19:3" },
     { q: "In wat voor boom klom Zacheüs?", a: ["Een wilde vijgenboom", "Een olijfboom", "Een palmboom"], why: "Lukas 19:4" },
     { q: "Hoeveel keer wilde Zacheüs teruggeven wat hij door bedrog had gekregen?", a: ["Vier keer", "Twee keer", "Zeven keer"], why: "Lukas 19:8" }],
-  cross: [["Exodus 22:1", "De wet: wie een schaap stal, moest er vier teruggeven."],
+  cross: [["Exodus 22:1", "De wet: wie een schaap stal en het slachtte of verkocht, moest er vier teruggeven."],
     ["Ezechiël 34:16", "God zegt: ‘Het verlorene zal Ik zoeken.’"],
     ["Lukas 15:2", "Ook daar mopperen mensen dat de Heere Jezus zondaars ontvangt."],
     ["Mattheüs 9:13", "‘Ik ben niet gekomen om te roepen rechtvaardigen, maar zondaars tot bekering.’"]],
@@ -396,7 +396,7 @@ BR.kernwoorden.dankbaarheid = { n: "Dankbaarheid",
     ["1 Thessalonicenzen 5:18", "Dankt God in alles."]] };
 
 BR.kernwoorden.evangelie = { n: "Evangelie",
-  uitleg: "Evangelie betekent ‘goede boodschap’. Het is het goede nieuws over Jezus Christus, de Zoon van God (Markus 1:1). De kern is ‘dat Christus gestorven is voor onze zonden, naar de Schriften; en dat Hij is begraven, en dat Hij is opgewekt ten derden dage’ (1 Korinthe 15:3–4). De Heere Jezus riep: ‘bekeert u, en gelooft het Evangelie’ (Markus 1:15). Bij Zacheüs zegt Hij waarvoor Hij kwam: ‘om te zoeken en zalig te maken, dat verloren was’ (Lukas 19:10).",
+  uitleg: "Evangelie betekent ‘goede boodschap’. Het is het goede nieuws over Jezus Christus, de Zoon van God (Markus 1:1). De kern is ‘dat Christus gestorven is voor onze zonden, naar de Schriften; En dat Hij is begraven, en dat Hij is opgewekt ten derden dage’ (1 Korinthe 15:3–4). De Heere Jezus riep: ‘bekeert u, en gelooft het Evangelie’ (Markus 1:15). Bij Zacheüs zegt Hij waarvoor Hij kwam: ‘om te zoeken en zalig te maken, dat verloren was’ (Lukas 19:10).",
   refs: [["Markus 1:1", "Het begin van het Evangelie van Jezus Christus, de Zoon van God."],
     ["Markus 1:15", "Bekeert u en gelooft het Evangelie."],
     ["Romeinen 1:16", "Het Evangelie is een kracht van God tot zaligheid voor ieder die gelooft."],

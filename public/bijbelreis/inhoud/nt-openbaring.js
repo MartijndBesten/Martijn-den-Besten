@@ -9,14 +9,14 @@ BR.boeken.push({
   intro: "Op het eiland Patmos krijgt Johannes een openbaring van de Heere Jezus Christus, met brieven aan zeven gemeenten in Asia en gezichten van Gods troon, het Lam en de nieuwe hemel en aarde.",
   wie: [
     { n: "Johannes", rol: "dienstknecht van Jezus Christus", i: "Hij noemt zich ‘uw broeder … en medegenoot in de verdrukking’ en was op Patmos ‘om het Woord Gods, en om de getuigenis van Jezus Christus’ (Openbaring 1:9). Volgens de oude overlevering is dit de apostel Johannes.", deel: "nt-openbaring" },
-    { n: "De Zoon des mensen", rol: "de verheerlijkte Heere Jezus", i: "Johannes ziet Hem tussen zeven gouden kandelaren, met zeven sterren in Zijn rechterhand. Hij zegt: ‘Ik ben de Eerste en de Laatste; en Die leef, en Ik ben dood geweest; en zie, Ik ben levend in alle eeuwigheid’ (Openbaring 1:17–18).", deel: "nt-openbaring" },
+    { n: "De Zoon des mensen", rol: "de verheerlijkte Heere Jezus", i: "Johannes ziet Hem tussen zeven gouden kandelaren, met zeven sterren in Zijn rechterhand. Hij zegt: ‘Ik ben de Eerste en de Laatste; En Die leef, en Ik ben dood geweest; en zie, Ik ben levend in alle eeuwigheid’ (Openbaring 1:17–18).", deel: "nt-openbaring" },
     { n: "Antipas", rol: "getrouwe getuige in Pergamus", i: "De Heere noemt hem ‘Mijn getrouwe getuige’, die in Pergamus gedood is (Openbaring 2:13). Meer vertelt de Bijbel niet over hem." },
   ],
   delen: [
 { id: "nt-openbaring", n: "Johannes op Patmos", short: "Openbaring", ref: "Openbaring 1–3", c: "lila", init: "J",
   tijd: "ca. 95 n.Chr.", tl: [95, 95],
   tijdNoot: "Reconstructie; de Bijbel noemt geen jaartal. De kerkvader Irenaeus (ca. 180 n.Chr.) schrijft dat Johannes de Openbaring zag aan het einde van de regering van keizer Domitianus (81–96 n.Chr.); daarom wordt meestal ca. 95 aangehouden. Sommige uitleggers dateren het boek eerder, rond 68 n.Chr.",
-  intro: "Johannes is op het eiland Patmos, om het Woord van God. Op de dag des Heeren hoort hij een stem als een bazuin: ‘Schrijf wat u ziet, en stuur het naar de zeven gemeenten.’ Hij ziet de verheerlijkte Heere Jezus. Daarna volgen zeven brieven, aan echte gemeenten in echte steden, die je op de kaart kunt vinden.",
+  intro: "Johannes is op het eiland Patmos, om het Woord van God. Op de dag des Heeren hoort hij een stem als een bazuin: “Schrijf wat u ziet, en stuur het naar de zeven gemeenten.” Hij ziet de verheerlijkte Heere Jezus. Daarna volgen zeven brieven, aan echte gemeenten in echte steden, die je op de kaart kunt vinden.",
   who: [["Johannes"], ["Gemeente", "7 gemeenten"]],
   stat: "In Openbaring komt het getal zeven steeds terug: zeven gemeenten, zeven sterren, zeven kandelaren (1:20) en een boek met zeven zegels (5:1).",
   cross: [["Daniël 7:9", "Ook Daniël zag in een gezicht Iemand met haar ‘als zuivere wol’ en kleren wit als sneeuw, net als Johannes in Openbaring 1:14."],
@@ -27,7 +27,7 @@ BR.boeken.push({
   steps: [
   { ref: "Openbaring 1:9–20", t: "Johannes op Patmos", stamp: "Patmos", at: ["nt_patmos"], zoom: 8,
     who: [["Johannes"]],
-    txt: "Johannes is op het eiland Patmos, ‘om het Woord Gods, en om de getuigenis van Jezus Christus.’ Op de dag des Heeren hoort hij achter zich een luide stem als van een bazuin: schrijf wat u ziet in een boek en stuur het naar de zeven gemeenten in Asia: Efeze, Smyrna, Pergamus, Thyatira, Sardis, Filadelfia en Laodicea. Hij keert zich om en ziet zeven gouden kandelaren, en in het midden Iemand als de Zoon des mensen, met ogen als een vuurvlam, zeven sterren in Zijn rechterhand, en een gezicht dat straalt als de zon. Johannes valt als dood aan Zijn voeten neer. Maar Hij legt Zijn rechterhand op hem: ‘Vrees niet; Ik ben de Eerste en de Laatste; en Die leef, en Ik ben dood geweest; en zie, Ik ben levend in alle eeuwigheid.’",
+    txt: "Johannes is op het eiland Patmos, ‘om het Woord Gods, en om de getuigenis van Jezus Christus.’ Op de dag des Heeren hoort hij achter zich een luide stem als van een bazuin: schrijf wat u ziet in een boek en stuur het naar de zeven gemeenten in Asia: Efeze, Smyrna, Pergamus, Thyatira, Sardis, Filadelfia en Laodicea. Hij keert zich om en ziet zeven gouden kandelaren, en in het midden Iemand als de Zoon des mensen, met ogen als een vuurvlam, zeven sterren in Zijn rechterhand, en een gezicht dat straalt als de zon. Johannes valt als dood aan Zijn voeten neer. Maar Hij legt Zijn rechterhand op hem: ‘Vrees niet; Ik ben de Eerste en de Laatste; En Die leef, en Ik ben dood geweest; en zie, Ik ben levend in alle eeuwigheid.’",
     fs: "u", fact: "Met ‘de dag des Heeren’ (1:10) wordt meestal de zondag bedoeld, de eerste dag van de week, waarop de Heere Jezus opstond. Op die dag kwam de gemeente samen (Handelingen 20:7)." },
   { ref: "Openbaring 2:1–7", t: "Brief aan Efeze", stamp: "Efeze", at: ["nt_efeze"], zoom: 8,
     who: [["Gemeente", "Efeze"]],

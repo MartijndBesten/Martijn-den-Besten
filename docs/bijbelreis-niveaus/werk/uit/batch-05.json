@@ -1,0 +1,305 @@
+{
+  "24": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["egypte", "gosen"],
+      "delen": [
+        { "t": "Mozes en Aäron gaan naar de farao, de koning van Egypte. Ze zeggen wat God zegt: ‘Laat Mijn volk trekken’.", "stap": "exodus:uittocht:0" },
+        { "t": "Maar de farao wil niet luisteren. Hij zegt: ‘Ik ken den HEERE niet’.", "stap": "exodus:uittocht:0" },
+        { "t": "De farao laat het volk nog harder werken. Ze moeten zelf stro zoeken, en toch net zoveel stenen maken.", "stap": "exodus:uittocht:0" },
+        { "t": "Dan stuurt God plagen over Egypte. Een plaag is iets ergs dat over het hele land komt. Eerst wordt het water in de rivier bloed.", "stap": "exodus:uittocht:1" },
+        { "t": "Daarna komen er kikvorsen over het hele land. Dan komen er luizen op mensen en dieren.", "stap": "exodus:uittocht:1" },
+        { "t": "Er komen nog meer plagen: ongedierte, ziekte onder het vee, zweren, hagel en sprinkhanen.", "stap": "exodus:uittocht:1" },
+        { "t": "In Gosen, waar Gods volk woont, komt geen ongedierte en geen hagel. God maakt verschil tussen Zijn volk en Egypte.", "stap": "exodus:uittocht:1" },
+        { "t": "Soms belooft de farao dat het volk mag gaan. Maar als de plaag weg is, maakt hij zijn hart weer hard." },
+        { "t": "Dan wordt het drie dagen heel donker in Egypte. Maar bij Gods volk is het licht in de huizen." },
+        { "t": "Nog steeds laat de farao het volk niet gaan. Hij zegt tegen Mozes: ‘Ga van mij!’" }
+      ],
+      "samen": "Hier komen negen plagen voorbij; de tiende plaag is de volgende geschiedenis (25). Bij de hagel kwam om wat op het veld bleef, mens en dier (Exodus 9:19–25). De Bijbel zegt dat de farao zijn hart verzwaarde (Exodus 8:15), en ook dat de HEERE zijn hart verstokte (Exodus 9:12). Kinderen vragen soms waarom God de plagen stuurt. Exodus 9:14 zegt: ‘opdat gij weet, dat er niemand is gelijk Ik, op de ganse aarde.’",
+      "vragen": [
+        { "q": "Wat zeggen Mozes en Aäron tegen de farao?", "a": ["Laat Gods volk gaan", "Geef ons meer stenen"], "why": "Exodus 5:1" },
+        { "q": "Wat wordt het water in de rivier?", "a": ["Bloed", "Melk"], "why": "Exodus 7:20" },
+        { "q": "Wat doet de farao als een plaag weg is?", "a": ["Hij maakt zijn hart weer hard", "Hij laat het volk gaan"], "why": "Exodus 8:15" },
+        { "q": "Waar is het licht als het donker is in Egypte?", "a": ["Bij Gods volk in de huizen", "Bij de farao in het paleis"], "why": "Exodus 10:22–23" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "De farao zegt nee",
+          "stap": "exodus:uittocht:0",
+          "t": "Mozes en Aäron brengen de farao een boodschap van de HEERE: ‘Laat Mijn volk trekken’. Maar de farao zegt: ‘Wie is de HEERE, Wiens stem ik gehoorzamen zou?’ Hij geeft de Israëlieten geen stro meer voor de tichelstenen (bakstenen), maar ze moeten er evenveel maken. Toch belooft God dat Hij hen zal verlossen."
+        },
+        {
+          "kop": "Plaag na plaag",
+          "stap": "exodus:uittocht:1",
+          "t": "Dan stuurt God plagen over Egypte. Het water in de rivier wordt bloed. Daarna komen er kikvorsen, luizen en ongedierte. Het vee van de Egyptenaren sterft, en mensen en dieren krijgen zweren. Hagel slaat alles op het veld kapot, en sprinkhanen eten op wat over is. Dan is het drie dagen dik duister. Maar in Gosen, waar Israël woont, komt geen ongedierte en geen hagel, en bij Israël is het licht."
+        },
+        {
+          "kop": "Een hart dat hard blijft",
+          "t": "Soms belooft de farao dat het volk mag gaan. Bij de hagel zegt hij zelfs: ‘Ik heb mij ditmaal verzondigd’. Maar daarna verzwaart hij zijn hart weer: hij maakt het hard. Er staat ook dat de HEERE zijn hart verstokte. Met de plagen laat God weten ‘dat er niemand is gelijk Ik, op de ganse aarde’."
+        }
+      ],
+      "vragen": [
+        { "q": "Wat kregen de Israëlieten niet meer om tichelstenen te maken?", "a": ["Stro", "Klei", "Water"], "why": "Exodus 5:7" },
+        { "q": "Wat gebeurde er met het water in de rivier?", "a": ["Het werd bloed", "Het werd zout", "Het droogde op"], "why": "Exodus 7:20" },
+        { "q": "Waarom viel er in Gosen geen hagel?", "a": ["Daar woonde Israël, Gods volk", "Daar was het te warm voor hagel", "Daar woonde de farao"], "why": "Exodus 8:22; Exodus 9:26" },
+        { "q": "Wat deed de farao als een plaag voorbij was?", "a": ["Hij verzwaarde zijn hart weer", "Hij liet het volk meteen gaan", "Hij bedankte Mozes en Aäron"], "why": "Exodus 8:15; Exodus 9:34" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Verharden, verzwaren, verstokken",
+          "t": "Steeds komt terug dat het hart van de farao hard wordt. De Statenvertaling gebruikt woorden als verharden, verzwaren, verstokken en verstijven. Soms staat er dat de farao zelf zijn hart verzwaarde (Exodus 8:15, 32). Soms staat er dat de HEERE het deed (Exodus 9:12; 10:20, 27). Al vóór de plagen had God gezegd: ‘Doch Ik zal Farao’s hart verharden’ (Exodus 7:3). De tekst noemt beide naast elkaar, en pleit de farao niet vrij: na de hagel ‘verzondigde hij zich verder’ (Exodus 9:34). Later zeggen de priesters en waarzeggers van de Filistijnen: ‘Waarom toch zoudt gijlieden uw hart verzwaren, gelijk de Egyptenaars en Farao hun hart verzwaard hebben?’ (1 Samuël 6:6).",
+          "refs": ["Exodus 7:3", "Exodus 8:15, 32", "Exodus 9:12, 34", "Exodus 10:20, 27", "1 Samuël 6:2–6"]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Psalm 78 bezingt de plagen ook, in een andere volgorde: ‘En hun vloeden in bloed veranderde’, en ‘Hij doodde hun wijnstok door den hagel’. De tovenaars blijven in Exodus naamloos. Paulus noemt twee mannen: ‘Jannes en Jambres’, die ‘Mozes tegenstonden’ (2 Timotheüs 3:8). Die namen staan niet in Exodus; ze worden meestal op de tovenaars van de farao betrokken en komen waarschijnlijk uit de Joodse overlevering. Dezelfde uitdrukking als in ‘Dit is Gods vinger’ gebruikt later de Heere Jezus: ‘indien Ik door den vinger Gods de duivelen uitwerp, zo is dan het Koninkrijk Gods tot u gekomen’ (Lukas 11:20).",
+          "refs": ["Psalm 78:43–51", "2 Timotheüs 3:8", "Lukas 11:20"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Egypte en Gosen zijn op de kaart gebieden. Gosen wordt meestal gezocht in het oosten van de Nijldelta; hoe groot het precies was, weten we niet. De plagen vallen vlak vóór de uittocht. Gerekend met 1 Koningen 6:1 komt die rond 1446 v.Chr.; veel onderzoekers dateren de uittocht later, in de 13e eeuw v.Chr. Hoe lang de plagen samen duurden, vertelt de Bijbel niet. Wel staat er dat er na de eerste plaag zeven dagen voorbijgingen (Exodus 7:25).",
+          "refs": ["1 Koningen 6:1", "Exodus 7:25"]
+        }
+      ],
+      "vragen": [
+        { "q": "Welke plagen konden de tovenaars met hun bezweringen nadoen?", "a": ["Het water in bloed en de kikvorsen", "De luizen en de hagel", "De sprinkhanen en de duisternis"], "why": "Exodus 7:22; Exodus 8:7, 18" },
+        { "q": "Welke namen noemt Paulus van mannen die Mozes tegenstonden?", "a": ["Jannes en Jambres", "Nadab en Abihu", "Hofni en Pinehas"], "why": "2 Timotheüs 3:8" },
+        { "q": "Waarbij gebruikt de Heere Jezus de woorden ‘den vinger Gods’?", "a": ["Bij het uitwerpen van de duivelen", "Bij het genezen van een blinde", "Bij het stillen van de storm"], "why": "Lukas 11:20" },
+        { "q": "Bij welk volk klinkt later de waarschuwing: verzwaar je hart niet zoals de farao?", "a": ["Bij de Filistijnen", "Bij de Moabieten", "Bij de Edomieten"], "why": "1 Samuël 6:2–6" }
+      ]
+    }
+  },
+  "25": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["gosen", "ramses", "etham"],
+      "delen": [
+        { "t": "God zegt tegen Mozes: er komt nog één plaag over Egypte. Daarna laat de farao het volk gaan.", "stap": "exodus:uittocht:1" },
+        { "t": "Elk gezin van Israël neemt een lam zonder gebrek. Ze slachten het lam.", "stap": "exodus:uittocht:2" },
+        { "t": "Met het bloed van het lam bestrijken ze de deurposten en de balk boven de deur.", "stap": "exodus:uittocht:2" },
+        { "t": "Ze eten het vlees met ongezuurd brood en bittere saus. Ze hebben hun schoenen al aan en hun staf in de hand.", "stap": "exodus:uittocht:2" },
+        { "t": "In die nacht gaat God door Egypte. Waar Hij het bloed ziet, gaat Hij het huis voorbij." },
+        { "t": "In die nacht sterven in Egypte de eerstgeborenen, ook de eerstgeborene van de farao." },
+        { "t": "Nog in de nacht roept de farao Mozes en Aäron. Hij zegt: ‘Trekt uit het midden van mijn volk’.", "stap": "exodus:uittocht:3" },
+        { "t": "Het volk gaat weg uit Egypte, met heel veel mensen en heel veel vee.", "stap": "exodus:uittocht:3" },
+        { "t": "God gaat voor hen uit. Overdag is Hij in een wolkkolom, en ’s nachts in een vuurkolom.", "stap": "exodus:uittocht:3" }
+      ],
+      "samen": "De dood van de eerstgeborenen staat in Exodus 12:29–30; hier is het kort verteld. Bij de huizen met het bloed kwam de plaag niet: ‘wanneer Ik het bloed zie, zal Ik ulieden voorbijgaan’ (Exodus 12:13). Exodus 12:26–27 zegt dat kinderen later zullen vragen wat dit feest betekent, en dat de ouders het dan vertellen. Vraag samen: waarom ging God aan de huizen van Israël voorbij?",
+      "vragen": [
+        { "q": "Waar strijken ze het bloed van het lam?", "a": ["Aan de deurposten", "Op het dak"], "why": "Exodus 12:7" },
+        { "q": "Wat doet God als Hij het bloed ziet?", "a": ["Hij gaat het huis voorbij", "Hij klopt op de deur"], "why": "Exodus 12:13" },
+        { "q": "Hoe gaat God overdag voor het volk uit?", "a": ["In een wolkkolom", "In een gouden wagen"], "why": "Exodus 13:21" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Het lam en het bloed",
+          "stap": "exodus:uittocht:2",
+          "t": "God zegt tegen Mozes: ‘Ik zal nog een plaag over Farao, en over Egypte brengen’. Elk gezin slacht een lam zonder gebrek. Met een bosje hysop (een plant) strijken ze het bloed aan de deurposten en de bovendorpel: de balk boven de deur. God zegt: ‘wanneer Ik het bloed zie, zal Ik ulieden voorbijgaan’."
+        },
+        {
+          "kop": "Een maaltijd met haast",
+          "stap": "exodus:uittocht:2",
+          "t": "Ze eten het vlees aan het vuur gebraden, met ongezuurde broden en bittere saus. Ongezuurd brood is brood zonder zuurdesem. Ze eten met de schoenen aan en de staf in de hand: ‘het is des HEEREN pascha’. Pascha betekent voorbijgaan. Elk jaar houdt Israël dit feest, en de ouders vertellen hun kinderen wat het betekent."
+        },
+        {
+          "kop": "Weg uit Egypte",
+          "stap": "exodus:uittocht:3",
+          "t": "Om middernacht slaat de HEERE alle eerstgeborenen in Egypte. Er is geen huis zonder dode. Nog in de nacht stuurt de farao het volk weg. Ze nemen het deeg mee voordat het gerezen is, en trekken van Raämses naar Sukkoth. God leidt hen niet door het land van de Filistijnen, want dan zouden ze strijd zien en terug willen. De HEERE gaat voor hen uit, in een wolkkolom en een vuurkolom."
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom moest het bloed aan de deur?", "a": ["Het was een teken, zodat God dat huis voorbijging", "Zo konden de Egyptenaren de huizen vinden", "Zo bleef het ongedierte buiten"], "why": "Exodus 12:13" },
+        { "q": "Wat moesten ouders doen als hun kinderen naar het pascha vroegen?", "a": ["Vertellen dat de HEERE hun huizen voorbijging", "Zeggen dat het een oud gebruik was", "Hen naar Mozes sturen"], "why": "Exodus 12:26–27" },
+        { "q": "Waarom was het deeg nog niet gerezen?", "a": ["Ze werden weggestuurd en konden niet wachten", "Ze hadden geen meel meer", "Het was te koud in de nacht"], "why": "Exodus 12:34, 39" },
+        { "q": "Waarom ging God niet langs het land van de Filistijnen?", "a": ["Het volk zou de strijd zien en terug willen", "Die weg was veel langer", "Daar was geen water"], "why": "Exodus 13:17" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Van het paaslam mocht geen been gebroken worden (Exodus 12:46; Numeri 9:12). Bij het kruis schrijft Johannes dat de Schrift vervuld werd: ‘Geen been van Hem zal verbroken worden’ (Johannes 19:36). Meestal wordt dat betrokken op het paaslam; sommigen denken ook aan Psalm 34:21. Petrus schrijft zijn lezers dat zij verlost zijn ‘door het dierbaar bloed van Christus, als van een onbestraffelijk en onbevlekt Lam’ (1 Petrus 1:19). Paulus gebruikt de ongezuurde broden als beeld: feest houden ‘in de ongezuurde broden der oprechtheid en der waarheid’ (1 Korinthe 5:8). En de beenderen van Jozef worden na de intocht begraven ‘te Sichem’ (Jozua 24:32).",
+          "refs": ["Exodus 12:46", "Numeri 9:12", "Johannes 19:36", "Psalm 34:21", "1 Petrus 1:18–19", "1 Korinthe 5:8", "Jozua 24:32"]
+        },
+        {
+          "kop": "De eerstgeborenen",
+          "t": "Toen Mozes naar Egypte terugging, gaf God hem al de boodschap mee: ‘Mijn zoon, Mijn eerstgeborene, is Israël’ (Exodus 4:22). Na de uittocht zegt God: ‘Heilig Mij alle eerstgeborenen’ (Exodus 13:2). De eerstgeboren zonen van Israël moesten worden gelost, dat is: vrijgekocht. De reden staat erbij: de HEERE doodde de eerstgeborenen van Egypte toen de farao het volk niet liet gaan (Exodus 13:13, 15). Ouders moesten hun kinderen uitleggen waarom: ‘De HEERE heeft ons door een sterke hand uit Egypte, uit het diensthuis, uitgevoerd’ (Exodus 13:14). Zo brachten later ook Jozef en Maria de Heere Jezus naar Jeruzalem, naar wat geschreven is: ‘Al wat mannelijk is, dat de moeder opent, zal den Heere heilig genaamd worden’ (Lukas 2:23).",
+          "refs": ["Exodus 4:22–23", "Exodus 13:2, 13–15", "Lukas 2:22–23"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Israël trok uit ‘op den vijftienden dag der eerste maand, des anderen daags van het pascha’ (Numeri 33:3), in de maand Abib (Exodus 13:4). Raämses lag waarschijnlijk in het oosten van de Nijldelta; Sukkoth en Etham zijn onbekend, de plaatsen op de kaart zijn een reconstructie. Gerekend met 1 Koningen 6:1 was de uittocht rond 1446 v.Chr.; veel onderzoekers dateren hem later, in de 13e eeuw v.Chr.",
+          "refs": ["Numeri 33:3–6", "Exodus 13:4", "1 Koningen 6:1"]
+        }
+      ],
+      "vragen": [
+        { "q": "Welke regel voor het paaslam lijkt op de woorden in Johannes 19:36?", "a": ["Er mocht geen been gebroken worden", "Het moest aan het vuur gebraden worden", "Het moest een jaar oud zijn"], "why": "Exodus 12:46; Johannes 19:36" },
+        { "q": "Waar werden de beenderen van Jozef uiteindelijk begraven?", "a": ["In Sichem", "In Hebron", "In Bethlehem"], "why": "Jozua 24:32" },
+        { "q": "Wat zegt God in Exodus 13:2 over alle eerstgeborenen van Israël?", "a": ["Die zijn van Mij", "Die moeten in Egypte blijven", "Die krijgen het land Gosen"], "why": "Exodus 13:2" },
+        { "q": "Op welke dag trok Israël weg uit Raämses?", "a": ["De dag na het pascha", "Veertig dagen na het pascha", "Een jaar na het pascha"], "why": "Numeri 33:3" }
+      ]
+    }
+  },
+  "27": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["mara", "sin", "refidim"],
+      "delen": [
+        { "t": "Na de zee trekt het volk de woestijn in. Drie dagen lang vinden ze geen water.", "stap": "exodus:uittocht:7" },
+        { "t": "In Mara is wel water, maar het is bitter. Het volk moppert tegen Mozes: ‘Wat zullen wij drinken?’", "stap": "exodus:uittocht:7" },
+        { "t": "Mozes roept tot de HEERE. God wijst hem een stuk hout. Mozes gooit het in het water, en het water wordt zoet.", "stap": "exodus:uittocht:7" },
+        { "t": "Daarna komen ze in Elim. Daar zijn twaalf waterbronnen en zeventig palmbomen.", "stap": "exodus:uittocht:7" },
+        { "t": "In de woestijn Sin moppert het volk weer. In Egypte hadden ze tenminste brood genoeg, zeggen ze.", "stap": "exodus:sinai:0" },
+        { "t": "God hoort het. ’s Avonds komen er kwartels: vogels die ze kunnen eten.", "stap": "exodus:sinai:0" },
+        { "t": "’s Morgens ligt er iets kleins en ronds op de grond. Het is brood uit de hemel: manna.", "stap": "exodus:sinai:0" },
+        { "t": "Elke dag rapen ze genoeg voor die dag. Op de zesde dag rapen ze voor twee dagen, want op de sabbat is er niets." },
+        { "t": "In Rafidim is er weer geen water. God zegt tegen Mozes dat hij met zijn staf op de rots moet slaan.", "stap": "exodus:sinai:1" },
+        { "t": "Mozes slaat op de rots, en er komt water uit. Zo kan het volk drinken.", "stap": "exodus:sinai:1" }
+      ],
+      "samen": "Weggelaten: wie manna bewaarde tot de volgende morgen, vond er wormen in (Exodus 16:19–20); alleen wat ze voor de sabbat bewaarden, bleef goed (Exodus 16:24). In Rafidim riep Mozes tot de HEERE dat het volk hem bijna zou stenigen (Exodus 17:4). Vraag samen: waarom hoefden ze op de sabbat geen manna te rapen? De Heere Jezus wijst later op het manna en zegt: ‘Ik ben het Brood des levens’ (Johannes 6:35).",
+      "vragen": [
+        { "q": "Hoe wordt het bittere water zoet?", "a": ["Mozes gooit er een hout in", "Het gaat hard regenen"], "why": "Exodus 15:25" },
+        { "q": "Wat komt er ’s avonds?", "a": ["Kwartels", "Sprinkhanen"], "why": "Exodus 16:13" },
+        { "q": "Wat ligt er ’s morgens op de grond?", "a": ["Manna", "Stenen"], "why": "Exodus 16:14–15" },
+        { "q": "Waar komt in Rafidim het water uit?", "a": ["Uit de rots", "Uit een put"], "why": "Exodus 17:6" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Bitter water wordt zoet",
+          "stap": "exodus:uittocht:7",
+          "t": "Drie dagen vindt Israël geen water in de woestijn Sur. In Mara is het water bitter. Het volk murmureert (moppert) tegen Mozes. De HEERE wijst Mozes een hout. Hij werpt het in het water, en het wordt zoet. God zegt: ‘Ik ben de HEERE, uw Heelmeester!’ Een heelmeester is iemand die geneest."
+        },
+        {
+          "kop": "Brood uit de hemel",
+          "stap": "exodus:sinai:0",
+          "t": "In de woestijn Sin zegt het volk dat ze liever in Egypte waren gestorven, bij de vleespotten. ’s Avonds geeft God kwartels. ’s Morgens ligt er iets kleins en ronds op de grond. ‘Het is Man’, zeggen ze, want ze weten niet wat het is."
+        },
+        {
+          "kop": "Genoeg voor elke dag",
+          "t": "Wie veel verzamelt, heeft niets over, en wie weinig verzamelt, komt niets tekort. Wat ze tot de morgen bewaren, krijgt wormen en stinkt. Maar op de zesde dag rapen ze dubbel, en dat blijft goed voor de sabbat, de rustdag."
+        },
+        {
+          "kop": "Water uit de rots",
+          "stap": "exodus:sinai:1",
+          "t": "In Rafidim twist het volk met Mozes om water. Op Gods bevel slaat Mozes met zijn staf op de rots bij Horeb, en er komt water uit. Hij noemt de plaats Massa en Meriba: verzoeking en twist. Want het volk vroeg: ‘Is de HEERE in het midden van ons, of niet?’"
+        }
+      ],
+      "vragen": [
+        { "q": "Waarom konden ze het water van Mara eerst niet drinken?", "a": ["Het was bitter", "Het was vies van de modder", "Het was te warm"], "why": "Exodus 15:23" },
+        { "q": "Wat gebeurde er met manna dat tot de morgen werd bewaard?", "a": ["Er kwamen wormen in en het stonk", "Het werd hard als steen", "Het werd vanzelf meer"], "why": "Exodus 16:20" },
+        { "q": "Waarom rapen ze op de zesde dag dubbel?", "a": ["Op de sabbat is er geen manna", "Ze hebben dan meer honger", "Dan komen er gasten"], "why": "Exodus 16:23–26" },
+        { "q": "Waarom heet de plaats Massa en Meriba?", "a": ["Het volk twistte en verzocht de HEERE", "Er kwam veel water uit de rots", "Er stonden veel palmbomen"], "why": "Exodus 17:7" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Het manna elders in de Bijbel",
+          "t": "Psalm 78 zingt: ‘En regende op hen het Man om te eten, en gaf hun hemels koren.’ Een gomer manna moest bewaard worden ‘voor uw geslachten’ (Exodus 16:32–34); Hebreeën 9:4 noemt ‘de gouden kruik, daar het Manna in was’. Paulus haalt de regel van het verzamelen aan als hij over geven schrijft: ‘Die veel verzameld had, had niet over’ (2 Korinthe 8:15). Het manna hield op in Kanaän, ‘nadat zij van des lands overjarige koren gegeten hadden’ (Jozua 5:12).",
+          "refs": ["Psalm 78:24–25", "Exodus 16:32–34", "Hebreeën 9:4", "2 Korinthe 8:15", "Jozua 5:12"]
+        },
+        {
+          "kop": "Massa en Meriba",
+          "t": "Deze namen blijven in de Bijbel een waarschuwing. Mozes zegt later: ‘Gij zult den HEERE, uw God, niet verzoeken, gelijk als gij Hem verzocht hebt te Massa’ (Deuteronomium 6:16). De Heere Jezus antwoordt de duivel met dat gebod (Mattheüs 4:7). Psalm 95:8 zegt: ‘Verhardt uw hart niet, gelijk te Meriba’. Numeri 20 vertelt een andere, latere geschiedenis bij Kades, ook ‘de wateren van Meriba’ genoemd. Daar moest Mozes tot de rots spreken, maar hij sloeg haar tweemaal. Houd die twee geschiedenissen uit elkaar.",
+          "refs": ["Deuteronomium 6:16", "Mattheüs 4:7", "Psalm 95:8–9", "Numeri 20:1, 8–13"]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Mara en Rafidim zijn niet teruggevonden; Elim staat op de kaart als waarschijnlijke plaats, aan de westkant van het Sinaïschiereiland. De woestijn Sin ligt volgens de tekst ‘tussen Elim en tussen Sinaï’ (Exodus 16:1). Israël kwam daar op de vijftiende dag van de tweede maand na de uittocht. Gerekend met 1 Koningen 6:1 was de uittocht rond 1446 v.Chr.; veel onderzoekers dateren hem later, in de 13e eeuw v.Chr.",
+          "refs": ["Exodus 16:1", "1 Koningen 6:1"]
+        }
+      ],
+      "vragen": [
+        { "q": "Welke regel van het manna haalt Paulus aan in 2 Korinthe 8?", "a": ["Wie veel verzameld had, had niets over", "Op de sabbat lag er geen manna", "Het manna smaakte als honingkoeken"], "why": "2 Korinthe 8:15" },
+        { "q": "Wanneer hield het manna op?", "a": ["Toen Israël van het koren van Kanaän at", "Toen Israël bij de Sinaï kwam", "Na het eerste jaar in de woestijn"], "why": "Jozua 5:12" },
+        { "q": "Wat moest Aäron doen met een gomer manna?", "a": ["Het in een kruik voor de HEERE bewaren", "Het op het altaar verbranden", "Het aan de oudsten uitdelen"], "why": "Exodus 16:33–34" },
+        { "q": "Met welk gebod over Massa antwoordt de Heere Jezus de duivel?", "a": ["Gij zult den Heere, uw God, niet verzoeken", "Gij zult niet stelen", "Eert uw vader en uw moeder"], "why": "Deuteronomium 6:16; Mattheüs 4:7" }
+      ]
+    }
+  },
+  "28": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["refidim"],
+      "delen": [
+        { "t": "In Rafidim komt het volk Amalek. Ze vechten tegen Israël.", "stap": "exodus:sinai:2" },
+        { "t": "Mozes zegt tegen Jozua: kies mannen uit en vecht tegen Amalek.", "stap": "exodus:sinai:2" },
+        { "t": "Mozes gaat boven op de heuvel staan, met de staf van God in zijn hand. Aäron en Hur gaan met hem mee.", "stap": "exodus:sinai:2" },
+        { "t": "Zolang Mozes zijn hand omhoog houdt, is Israël het sterkst. Laat hij zijn hand zakken, dan is Amalek het sterkst." },
+        { "t": "Maar de handen van Mozes worden zwaar. Aäron en Hur leggen een steen neer, en Mozes gaat erop zitten." },
+        { "t": "Aäron en Hur houden zijn handen omhoog, ieder aan een kant. Zo blijft het tot de zon ondergaat." },
+        { "t": "Zo verslaat Jozua Amalek. God zegt tegen Mozes dat hij dit moet opschrijven in een boek." },
+        { "t": "Mozes bouwt een altaar. Hij noemt het: ‘De HEERE is mijn Banier!’ Een banier is een vlag die hoog wordt opgestoken." }
+      ],
+      "samen": "In veel vertellingen bidt Mozes op de heuvel. Exodus 17 zegt dat niet met zoveel woorden; wel zijn opgeheven handen in de Bijbel een gebaar van gebed (Psalm 28:2). Het is een echte strijd: Jozua vecht met het zwaard (Exodus 17:13). De naam van het altaar zegt wie de overwinning geeft (Exodus 17:15). Weggelaten: God zegt dat Hij de gedachtenis van Amalek zal uitdelgen (Exodus 17:14). Vraag samen: wie hielpen Mozes toen zijn handen zwaar werden?",
+      "vragen": [
+        { "q": "Wie gaat met de mannen vechten tegen Amalek?", "a": ["Jozua", "Aäron"], "why": "Exodus 17:9–10" },
+        { "q": "Wie houden de handen van Mozes omhoog?", "a": ["Aäron en Hur", "Jozua en Kaleb"], "why": "Exodus 17:12" },
+        { "q": "Waar gaat Mozes zitten?", "a": ["Op een steen", "Op een stoel"], "why": "Exodus 17:12" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Amalek valt aan",
+          "stap": "exodus:sinai:2",
+          "t": "Terwijl Israël in Rafidim is, komt Amalek en strijdt tegen Israël. Mozes zegt tegen Jozua: ‘Kies ons mannen, en trek uit, strijd tegen Amalek’. Zelf zal hij de volgende dag op de heuvel staan, met de staf van God in zijn hand. Later wordt Jozua de opvolger van Mozes."
+        },
+        {
+          "kop": "Handen omhoog",
+          "t": "Mozes, Aäron en Hur klimmen op de heuvel. Zolang Mozes zijn hand opheft, is Israël de sterkste. Laat hij zijn hand zakken, dan is Amalek de sterkste. Als de handen van Mozes zwaar worden, leggen Aäron en Hur een steen neer, en Mozes gaat erop zitten. Zij ondersteunen zijn handen, de een aan de ene kant en de ander aan de andere kant, tot de zon ondergaat."
+        },
+        {
+          "kop": "De HEERE is mijn Banier",
+          "t": "Zo verslaat Jozua Amalek met het zwaard. De HEERE zegt tegen Mozes dat hij dit moet opschrijven in een boek, om het te onthouden. Ook zegt God dat Hij Amalek helemaal zal laten verdwijnen. Mozes bouwt een altaar en noemt het: ‘De HEERE is mijn Banier!’ Een banier is een vaandel dat hoog wordt opgestoken. De naam wordt vaak zo uitgelegd: de overwinning komt van de HEERE."
+        }
+      ],
+      "vragen": [
+        { "q": "Wat had Mozes in zijn hand op de heuvel?", "a": ["De staf van God", "Een zwaard", "Een boekrol"], "why": "Exodus 17:9" },
+        { "q": "Waarom legden Aäron en Hur een steen onder Mozes?", "a": ["Zijn handen werden zwaar", "Hij wilde er een altaar van bouwen", "Hij moest hoger staan"], "why": "Exodus 17:12" },
+        { "q": "Hoe lang hielden Aäron en Hur zijn handen omhoog?", "a": ["Tot de zon onderging", "Drie dagen lang", "Tot de volgende morgen"], "why": "Exodus 17:12" },
+        { "q": "Waarom moest Mozes dit opschrijven in een boek?", "a": ["Om het te onthouden", "Omdat de farao het moest lezen", "Omdat Aäron erom vroeg"], "why": "Exodus 17:14" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Wie is Amalek?",
+          "t": "Amalek is de naam van een kleinzoon van Ezau: Timna ‘baarde aan Elifaz Amalek’ (Genesis 36:12). Het volk Amalek wordt meestal als zijn nakomelingen gezien. Bileam zegt later: ‘Amalek is de eersteling der heidenen; maar zijn uiterste is ten verderve!’ (Numeri 24:20). De Bijbel beschrijft de strijd tegen Amalek als Gods oordeel over wat Amalek Israël onderweg had aangedaan. Later krijgt koning Saul de opdracht Amalek te slaan, omdat God zegt: ‘Ik heb bezocht, hetgeen Amalek aan Israël gedaan heeft’ (1 Samuël 15:2–3). Ook David vecht tegen de Amalekieten (1 Samuël 30:1, 17).",
+          "refs": ["Genesis 36:12", "Numeri 24:20", "1 Samuël 15:2–3", "1 Samuël 30:1, 17"]
+        },
+        {
+          "kop": "Jozua, Aäron en Hur",
+          "t": "Jozua wordt hier voor het eerst genoemd. Later heet hij ‘Jozua, zijn dienaar’ (Exodus 24:13). Volgens Numeri 13:16 heette hij eerst Hosea en noemde Mozes hem Jozua; wanneer dat was, zegt de tekst niet. Hur staat ook later naast Aäron: als Mozes de berg op gaat, zegt hij tegen de oudsten ‘ziet, Aäron en Hur zijn bij u’ (Exodus 24:14). Bezaleël is ‘den zoon van Uri, den zoon van Hur, van den stam van Juda’ (Exodus 31:2); of dat dezelfde Hur is, zegt de tekst niet. Dat Hur de man van Mirjam was, komt uit de Joodse overlevering, niet uit de Bijbel.",
+          "refs": ["Exodus 24:13–14", "Numeri 13:16", "Exodus 31:2"]
+        },
+        {
+          "kop": "Banier en opgeheven handen",
+          "t": "Een banier is een veldteken waar een leger zich omheen verzamelt. Jesaja noemt de Wortel van Isaï, ‘Die staan zal tot een banier der volken’ (Jesaja 11:10); Paulus haalt dat vers aan over Christus, zonder het woord banier (Romeinen 15:8, 12). Psalm 60:6 zegt: ‘Maar nu hebt Gij dengenen, die U vrezen, een banier gegeven’. Opgeheven handen zijn in de Psalmen een gebaar van gebed: ‘de opheffing mijner handen als het avondoffer’ (Psalm 141:2). Exodus 17 zegt niet met zoveel woorden dat Mozes bad; veel uitleggers zien het wel zo.",
+          "refs": ["Jesaja 11:10", "Romeinen 15:8, 12", "Psalm 60:6", "Psalm 141:2"]
+        }
+      ],
+      "vragen": [
+        { "q": "Van wie was de man Amalek een kleinzoon?", "a": ["Van Ezau", "Van Ismaël", "Van Lot"], "why": "Genesis 36:12" },
+        { "q": "Welke koning kreeg later de opdracht om Amalek te slaan?", "a": ["Saul", "Salomo", "Achab"], "why": "1 Samuël 15:2–3" },
+        { "q": "Wie bleef met Aäron bij de oudsten toen Mozes de berg op ging?", "a": ["Hur", "Jozua", "Kaleb"], "why": "Exodus 24:13–14" }
+      ]
+    }
+  }
+}

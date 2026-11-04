@@ -71,7 +71,7 @@ BR.indeling = {
   64: [["Een meisje uit Israël",""],["Zevenmaal in de Jordaan","Naäman reist met een brief, veel"],["Naäman keert terug, Gehazi liegt","Hij keert terug en zegt"]],
   65: [["Joas gered en verborgen","","2koningen:joas:0"],["Gekroond in de tempel","In het zevende jaar laat de","2koningen:joas:1"],["Joas als koning","Zolang Jojada hem onderwijst, doet Joas","2koningen:joas:2"]],
   66: [["Hosea, de laatste koning",""],["Samaria valt","Dan belegert de koning van Assyrië"],["De zonde van Israël","De Bijbel zegt duidelijk waarom: Israël"]],
-  67: [["Hizkia vertrouwt op de HEERE",""],["Sanherib en de dreigbrief","Dan valt Sanherib, de koning van Assyrië","2koningen:ballingschap:2"],["Hizkia’s ziekte en de gezanten","Later wordt Hizkia doodziek."]],
+  67: [["Hizkia vertrouwt op de HEERE",""],["Sanherib en de dreigbrief","Dan valt Sanherib, de koning van Assyrië","2koningen:ballingschap:2"],["Hizkia’s ziekte en de gezanten","In die dagen wordt Hizkia doodziek."]],
   68: [["Het wetboek gevonden","","2koningen:ballingschap:4"],["De profetes Hulda","Hij laat de HEERE raadplegen bij"],["Josia sluit een verbond","Josia leest het boek voor aan"]],
   69: [["Gods opdracht en Jona’s vlucht","","jona:jona:1"],["Storm en een grote vis","De HEERE werpt een grote wind","jona:jona:2"]],
   70: [["Jona roept in Ninevé","","jona:jona:4"],["Ninevé bekeert zich","De mensen van Ninevé geloven God.","jona:jona:5"],["Jona boos en de wonderboom","Daarover wordt Jona heel boos, want","jona:jona:6"]],

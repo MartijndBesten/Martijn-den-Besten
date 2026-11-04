@@ -1,8 +1,9 @@
 // Gegevenscontrole van de Bijbelreis (public/bijbelreis): verwijzingen, plaatsen, personen en de stapsleutels
 // waaraan de voortgang van kinderen (stempels in localStorage) hangt.
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { runInNewContext } from "node:vm";
+import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 
 type Route = { p: (string | [number, number])[]; recon?: number; w?: string };
@@ -14,8 +15,10 @@ type Mens = { n: string; v?: string; m?: string; p?: string[]; boek?: string[] }
 type BR = { boeken: Boek[]; plaatsen: Record<string, Plaats>; W: Record<string, [number, number]>; personen: Record<string, string>; mensen?: Record<string, Mens> };
 
 const PUB = join(__dirname, "..", "public");
+const SVDIR = join(__dirname, "..", "data", "statenvertaling");
 const html = readFileSync(join(PUB, "bijbelreis.html"), "utf8");
-const scripts = [...html.matchAll(/src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s));
+// De teksten per reisniveau laadt de pagina zelf na (niveaus.js); hier gewoon alle drie.
+const scripts = [...html.matchAll(/src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s)).concat(["niveaus/a.js", "niveaus/b.js", "niveaus/c.js"]);
 const ctx: { window: { BR?: BR } } = { window: {} };
 for (const s of scripts) {
   const src = readFileSync(join(PUB, "bijbelreis", s), "utf8").replace(/\bBR\./g, "window.BR.");
@@ -26,7 +29,7 @@ const P = BR.plaatsen, W = BR.W;
 const DELEN = BR.boeken.flatMap((b) => b.delen.map((d) => ({ b, d })));
 const STEPS = DELEN.flatMap(({ b, d }) => d.steps.map((s, i) => ({ b, d, s, i, key: `${b.id}:${d.id}:${i}` })));
 
-// Bijbelverwijzing → bestaat ze in de Statenvertaling (public/bijbelreis/bijbel/<slug>.json)? Zelfde lezer als de app.
+// Bijbelverwijzing → bestaat ze in de Statenvertaling (data/statenvertaling/<slug>.json, alleen voor controle; niet in de app)?
 type Range = { slug: string; c1: number; v1: number; c2: number; v2: number };
 const parseRef = (BR as unknown as { parseRef: (r: string) => { ranges: Range[] } | null }).parseRef;
 const bible: Record<string, { hoofdstukken: Record<string, string[]> }> = {};
@@ -34,7 +37,7 @@ function verses(ref: string): string {
   const q = parseRef(ref);
   if (!q) return "onleesbaar";
   for (const rg of q.ranges) {
-    const file = join(PUB, "bijbelreis", "bijbel", rg.slug + ".json");
+    const file = join(SVDIR, rg.slug + ".json");
     if (!existsSync(file)) continue; // boek niet aanwezig: niet te controleren
     bible[rg.slug] ??= JSON.parse(readFileSync(file, "utf8"));
     const H = bible[rg.slug].hoofdstukken, n = Object.keys(H).length;
@@ -319,5 +322,68 @@ describe("bijbelreis: grond van de jaartallen", () => {
     for (const key of ["genesis:abraham", "exodus:uittocht", "jozua:intocht", "richteren:debora", "jezus-3:nt-lijden"]) expect(DAT.delen[key]?.[1], key).toBe(true);
     for (const nr of [8, 26, 37, 42, 126]) expect(vanVerhaal(nr)?.[3], `#${nr}`).toBe(true);
     for (const nr of [8, 26, 42]) expect(vanVerhaal(nr)?.[2], `#${nr}`).toBe("bijbel");
+  });
+});
+
+// Reisniveaus: drie leeftijdsversies per geschiedenis in niveaus/{a,b,c}.js. Alle vormregels, verwijzingen en
+// letterlijke citaten controleert scripts/niveaus-controle.mjs (één bron voor schrijvers, redacteuren en deze test).
+describe("bijbelreis: reisniveaus", () => {
+  const controle = (...args: string[]) => {
+    try { return { ok: true, uit: execFileSync(process.execPath, [join(__dirname, "..", "scripts", "niveaus-controle.mjs"), ...args], { encoding: "utf8" }) }; }
+    catch (e) { return { ok: false, uit: String((e as { stdout?: string }).stdout || e) }; }
+  };
+  const NV = (BR as unknown as { niveaus: { soorten: Record<string, { n: string }> } }).niveaus;
+  it("drie niveaus: Samen ontdekken, Zelf op reis, Verder ontdekken", () => {
+    expect(Object.keys(NV.soorten)).toEqual(["a", "b", "c"]);
+  });
+  it("alle niveauteksten in de app halen het controlescript (vorm, verwijzingen, antwoorden, citaten letterlijk in de genoemde verzen)", () => {
+    const r = controle();
+    expect(r.uit.trim().split("\n").slice(-20).join("\n"), r.uit).toMatch(/^OK: /m);
+    expect(r.ok).toBe(true);
+  });
+  // Releasepoort: alle 150 geschiedenissen op alle drie niveaus, niets meer op ‘concept’.
+  it("alle 150 geschiedenissen hebben a, b en c, en geen enkele versie staat nog op concept", () => {
+    const r = controle("--volledig");
+    expect(r.ok, r.uit.split("\n").slice(0, 15).join("\n")).toBe(true);
+    expect(r.uit).toMatch(/OK: 150 geschiedenis\(sen\), 450 versies\./);
+  });
+});
+
+// Tekst tussen ‘enkele aanhalingstekens’ is letterlijk Statenvertaling (met haar hoofdletters: HEERE/Heere); wat iemand
+// in eigen woorden zegt, staat tussen “dubbele”. Geldt voor alle bestaande inhoud. Foute antwoorden in een quiz mogen een
+// verzonnen ‘citaat’ zijn (zo werkt de vraag); het goede antwoord niet.
+describe("bijbelreis: citaten in de bestaande inhoud", () => {
+  const ruw = readdirSync(SVDIR).filter((f) => f.endsWith(".json")).map((f) => Object.values((JSON.parse(readFileSync(join(SVDIR, f), "utf8")) as { hoofdstukken: Record<string, string[]> }).hoofdstukken).flat().join(" ")).join(" ");
+  const klein = (t: string) => t.toLowerCase().normalize("NFC").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  const hl = (t: string) => t.normalize("NFC").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  const SVK = klein(ruw), SVH = hl(ruw);
+  it("elk citaat tussen ‘ ’ staat letterlijk in de Statenvertaling", () => {
+    const bad: string[] = [];
+    const chk = (waar: string, t: unknown) => {
+      if (typeof t !== "string") return;
+      for (const m of t.matchAll(/‘([^’]+)’/g)) for (const st of m[1].split(/…|\.\.\./)) {
+        const k = klein(st); if (!k || k.split(" ").length < 2) continue;
+        const h = hl(st);
+        if (!SVK.includes(k)) bad.push(`${waar}: ‘${st}’`);
+        else if (![h, h[0].toLowerCase() + h.slice(1), h[0].toUpperCase() + h.slice(1)].some((x) => SVH.includes(x))) bad.push(`${waar} (hoofdletters): ‘${st}’`);
+      }
+    };
+    const walk = (waar: string, x: unknown): void => {
+      if (typeof x === "string") chk(waar, x);
+      else if (Array.isArray(x)) x.forEach((y) => walk(waar, y));
+      else if (x && typeof x === "object") Object.entries(x).forEach(([k, v]) => { if (!["r", "ll", "at", "pts", "line", "casing", "deel", "boek", "quiz"].includes(k)) walk(waar, v); });
+    };
+    type Q = { q: string; a: string[] };
+    const quiz = (waar: string, qs: Q[] = []) => qs.forEach((q) => { chk(waar, q.q); chk(waar, (q.a || [])[0]); });
+    const B = BR as unknown as { geschiedenissen: (Record<string, unknown> & { nr: number; quiz?: Q[] })[]; kernwoorden?: unknown; mensen?: unknown };
+    for (const g of B.geschiedenissen) { walk("g" + g.nr, { uitleg: g.uitleg, betekenis: g.betekenis, tijdNoot: g.tijdNoot, cross: g.cross, ontdek: g.ontdek }); quiz("g" + g.nr, g.quiz); }
+    for (const { b, d } of DELEN) {
+      const dd = d as unknown as Record<string, unknown> & { quiz?: { mc?: Q[]; tap?: Q[] }; steps: Record<string, unknown>[] };
+      walk(`${b.id}:${d.id}`, { intro: dd.intro, stat: dd.stat, cross: dd.cross, tijdNoot: dd.tijdNoot });
+      quiz(`${b.id}:${d.id}`, [...(dd.quiz?.mc || []), ...(dd.quiz?.tap || [])]);
+      dd.steps.forEach((s, i) => walk(`${b.id}:${d.id}:${i}`, { t: s.t, txt: s.txt, fact: s.fact, onthul: s.onthul, who: s.who }));
+    }
+    walk("kernwoorden", B.kernwoorden); walk("mensen", B.mensen);
+    expect(bad).toEqual([]);
   });
 });
