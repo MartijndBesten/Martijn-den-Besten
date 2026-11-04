@@ -348,3 +348,42 @@ describe("bijbelreis: reisniveaus", () => {
     expect(r.uit).toMatch(/OK: 150 geschiedenis\(sen\), 450 versies\./);
   });
 });
+
+// Tekst tussen ‘enkele aanhalingstekens’ is letterlijk Statenvertaling (met haar hoofdletters: HEERE/Heere); wat iemand
+// in eigen woorden zegt, staat tussen “dubbele”. Geldt voor alle bestaande inhoud. Foute antwoorden in een quiz mogen een
+// verzonnen ‘citaat’ zijn (zo werkt de vraag); het goede antwoord niet.
+describe("bijbelreis: citaten in de bestaande inhoud", () => {
+  const ruw = readdirSync(SVDIR).filter((f) => f.endsWith(".json")).map((f) => Object.values((JSON.parse(readFileSync(join(SVDIR, f), "utf8")) as { hoofdstukken: Record<string, string[]> }).hoofdstukken).flat().join(" ")).join(" ");
+  const klein = (t: string) => t.toLowerCase().normalize("NFC").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  const hl = (t: string) => t.normalize("NFC").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  const SVK = klein(ruw), SVH = hl(ruw);
+  it("elk citaat tussen ‘ ’ staat letterlijk in de Statenvertaling", () => {
+    const bad: string[] = [];
+    const chk = (waar: string, t: unknown) => {
+      if (typeof t !== "string") return;
+      for (const m of t.matchAll(/‘([^’]+)’/g)) for (const st of m[1].split(/…|\.\.\./)) {
+        const k = klein(st); if (!k || k.split(" ").length < 2) continue;
+        const h = hl(st);
+        if (!SVK.includes(k)) bad.push(`${waar}: ‘${st}’`);
+        else if (![h, h[0].toLowerCase() + h.slice(1), h[0].toUpperCase() + h.slice(1)].some((x) => SVH.includes(x))) bad.push(`${waar} (hoofdletters): ‘${st}’`);
+      }
+    };
+    const walk = (waar: string, x: unknown): void => {
+      if (typeof x === "string") chk(waar, x);
+      else if (Array.isArray(x)) x.forEach((y) => walk(waar, y));
+      else if (x && typeof x === "object") Object.entries(x).forEach(([k, v]) => { if (!["r", "ll", "at", "pts", "line", "casing", "deel", "boek", "quiz"].includes(k)) walk(waar, v); });
+    };
+    type Q = { q: string; a: string[] };
+    const quiz = (waar: string, qs: Q[] = []) => qs.forEach((q) => { chk(waar, q.q); chk(waar, (q.a || [])[0]); });
+    const B = BR as unknown as { geschiedenissen: (Record<string, unknown> & { nr: number; quiz?: Q[] })[]; kernwoorden?: unknown; mensen?: unknown };
+    for (const g of B.geschiedenissen) { walk("g" + g.nr, { uitleg: g.uitleg, betekenis: g.betekenis, tijdNoot: g.tijdNoot, cross: g.cross, ontdek: g.ontdek }); quiz("g" + g.nr, g.quiz); }
+    for (const { b, d } of DELEN) {
+      const dd = d as unknown as Record<string, unknown> & { quiz?: { mc?: Q[]; tap?: Q[] }; steps: Record<string, unknown>[] };
+      walk(`${b.id}:${d.id}`, { intro: dd.intro, stat: dd.stat, cross: dd.cross, tijdNoot: dd.tijdNoot });
+      quiz(`${b.id}:${d.id}`, [...(dd.quiz?.mc || []), ...(dd.quiz?.tap || [])]);
+      dd.steps.forEach((s, i) => walk(`${b.id}:${d.id}:${i}`, { t: s.t, txt: s.txt, fact: s.fact, onthul: s.onthul, who: s.who }));
+    }
+    walk("kernwoorden", B.kernwoorden); walk("mensen", B.mensen);
+    expect(bad).toEqual([]);
+  });
+});
