@@ -3020,7 +3020,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   77: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Waar en wanneer",
@@ -3029,7 +3029,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Agagiet en Benjaminiet",
-        t: "Haman wordt ‘den Agagiet’ genoemd (3:1). Veel uitleggers verbinden die naam met Agag, ‘den koning der Amalekieten’, die koning Saul gevangennam (1 Samuël 15:8). Na de strijd tegen Amalek zei Mozes: ‘zo zal de oorlog des HEEREN tegen Amalek zijn, van geslacht tot geslacht!’ (Exodus 17:16). Mordechai is een Benjaminiet, een nakomeling van Kis (2:5). Ook de vader van Saul heette Kis en kwam uit Benjamin (1 Samuël 9:1–2). Het boek Esther legt dit verband zelf niet; het is een uitleg.",
+        t: "Haman wordt ‘den Agagiet’ genoemd (3:1). Veel uitleggers verbinden die naam met Agag, ‘den koning der Amalekieten’, die door koning Saul levend gevangen werd genomen (1 Samuël 15:8). Na de strijd tegen Amalek zei Mozes: ‘zo zal de oorlog des HEEREN tegen Amalek zijn, van geslacht tot geslacht!’ (Exodus 17:16). Mordechai is een Benjaminiet, een nakomeling van Kis (2:5). Ook de vader van Saul heette Kis en kwam uit Benjamin (1 Samuël 9:1–2). Het boek Esther legt dit verband zelf niet; het is een uitleg.",
         refs: ["Esther 3:1", "1 Samuël 15:8", "Exodus 17:16", "Esther 2:5", "1 Samuël 9:1–2"],
       },
       {
@@ -3057,7 +3057,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   78: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Een wet die niet terug kan",
@@ -3094,7 +3094,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   79: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Waar en wanneer",
@@ -3127,7 +3127,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   80: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Priesters in beurten",
@@ -3136,7 +3136,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Elders in de Bijbel",
-        t: "De engel zegt over Johannes: ‘noch wijn, noch sterken drank zal hij drinken’ (Lukas 1:15). Dat doet denken aan de wet voor de nazireeër: ‘Van wijn en sterken drank zal hij zich afzonderen’ (Numeri 6:3). Lukas noemt Johannes geen nazireeër; veel uitleggers wijzen wel op de overeenkomst met Simson (Richteren 13:4–5). Ook Elisabeth staat niet alleen. Van Rebekka, de moeder van Simson en Hanna vertelt de Bijbel dat ze onvruchtbaar waren of geen kinderen hadden, voordat God hun een zoon gaf (Genesis 25:21; Richteren 13:2–3; 1 Samuël 1:2, 20).",
+        t: "De engel zegt over Johannes: ‘noch wijn, noch sterken drank zal hij drinken’ (Lukas 1:15). Dat doet denken aan de wet voor de nazireeër: ‘Van wijn en sterken drank zal hij zich afzonderen’ (Numeri 6:3). Lukas noemt Johannes geen nazireeër; veel uitleggers wijzen wel op de overeenkomst met Simson (Richteren 13:4–5). Ook Elisabeth staat niet alleen. Van Rebekka, de moeder van Simson en Hanna vertelt de Bijbel dat ze onvruchtbaar waren of geen kinderen hadden, voordat God hun kinderen gaf (Genesis 25:21; Richteren 13:2–3; 1 Samuël 1:2, 20).",
         refs: ["Lukas 1:15", "Numeri 6:3", "Richteren 13:2–5", "Genesis 25:21", "1 Samuël 1:2, 20"],
       },
       {
@@ -3173,7 +3173,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   81: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Twee vragen aan Gabriël",
@@ -3206,12 +3206,12 @@ BR.niveaus.voegToe("c", {
     ],
   },
   82: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Elders in de Bijbel",
-        t: "De woorden van Zacharias zitten vol Oude Testament. Hij spreekt over ‘een hoorn der zaligheid’ in het huis van David (1:69), een verwijzing naar de belofte aan David; een hoorn is in de Bijbel een beeld van kracht. ‘Den eed, dien Hij Abraham, onzen vader, gezworen heeft’ (1:73) wijst naar Genesis 22:16: ‘Ik zweer bij Mijzelven, spreekt de HEERE’. Bij ‘de Opgang uit de hoogte’ (1:78) denken veel uitleggers aan Maleachi 4:2: ‘de Zon der gerechtigheid’.",
-        refs: ["Lukas 1:69–73", "Genesis 22:16–18", "Lukas 1:78", "Maleachi 4:2"],
+        t: "De woorden van Zacharias zitten vol Oude Testament. Hij spreekt over ‘een hoorn der zaligheid’ in het huis van David (1:69). Dat doet denken aan Psalm 132:17, waar God zegt: ‘Daar zal Ik David een hoorn doen uitspruiten’. Een hoorn is in de Bijbel een beeld van kracht. ‘Den eed, dien Hij Abraham, onzen vader, gezworen heeft’ (1:73) wijst naar Genesis 22:16: ‘Ik zweer bij Mijzelven, spreekt de HEERE’. Bij ‘de Opgang uit de hoogte’ (1:78) denken veel uitleggers aan Maleachi 4:2: ‘de Zon der gerechtigheid’.",
+        refs: ["Lukas 1:69–73", "Psalm 132:17", "Genesis 22:16–18", "Lukas 1:78", "Maleachi 4:2"],
       },
       {
         kop: "De dag dat Johannes verschijnt",
@@ -3276,7 +3276,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   84: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Simeon en Anna",
@@ -3309,7 +3309,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   85: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Wat de tekst zegt en wat niet",
@@ -3323,8 +3323,8 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Nazarener, en de route",
-        t: "Mattheüs schrijft dat vervuld werd ‘wat door de profeten gezegd is, dat Hij Nazarener zal geheten worden’ (2:23). Er is geen tekst in het Oude Testament die letterlijk zo luidt, en Mattheüs spreekt van de profeten, meervoud. Uitleggers verschillen over wat bedoeld is. Sommigen denken aan de Scheut uit Jesaja 11:1, omdat dat woord in het Hebreeuws op Nazareth lijkt; anderen aan het geringe aanzien van Nazareth (Johannes 1:47). Mattheüs noemt geen route naar Egypte of terug; de route op de kaart is een reconstructie.",
-        refs: ["Mattheüs 2:23", "Jesaja 11:1", "Johannes 1:47"],
+        t: "Mattheüs schrijft dat vervuld werd ‘wat door de profeten gezegd is, dat Hij Nazarener zal geheten worden’ (2:23). Er is geen tekst in het Oude Testament die letterlijk zo luidt, en Mattheüs spreekt van de profeten, meervoud. Uitleggers verschillen over wat bedoeld is. Sommigen denken aan de Scheut uit Jesaja 11:1, omdat dat woord in het Hebreeuws op Nazareth lijkt; anderen aan het geringe aanzien van Nazareth: ‘Kan uit Nazareth iets goeds zijn?’ (Johannes 1:46–47). Mattheüs noemt geen route naar Egypte of terug; de route op de kaart is een reconstructie.",
+        refs: ["Mattheüs 2:23", "Jesaja 11:1", "Johannes 1:46–47"],
       },
     ],
     vragen: [
@@ -3346,7 +3346,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   86: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Opgroeien in Nazareth",
@@ -3388,7 +3388,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   87: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Johannes en Elia",
@@ -3430,7 +3430,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   88: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Drie antwoorden uit Deuteronomium",
@@ -3472,7 +3472,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   89: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Twee momenten, twee plaatsen",
@@ -3514,7 +3514,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   90: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Water voor de reiniging",
@@ -3552,7 +3552,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   91: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Een melaatse aanraken",
@@ -3594,7 +3594,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   92: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Gij hebt gehoord, maar Ik zeg u",
@@ -3636,7 +3636,7 @@ BR.niveaus.voegToe("c", {
     ],
   },
   93: {
-    status: "concept",
+    status: "gecontroleerd",
     verdieping: [
       {
         kop: "Nicodemus later",
@@ -3962,6 +3962,308 @@ BR.niveaus.voegToe("c", {
           "Er zou een koning uit Egypte komen",
         ],
         why: "Deuteronomium 18:15",
+      },
+    ],
+  },
+  102: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Waar en wanneer",
+        t: "Bethesda lag ‘aan de Schaaps poort’ (Johannes 5:2). Een Schaapspoort komt ook voor bij de herbouw van de muur van Jeruzalem in de tijd van Nehemia: de hogepriester Eljasib en zijn broeders ‘bouwden de Schaapspoort’ (Nehemia 3:1). De plaats van het badwater geldt als identificeerbaar. Welk feest het was, zegt Johannes niet; hij schrijft alleen ‘een feest der Joden’ (Johannes 5:1). Daarom is de datering ca. 28 n.Chr. een onzekere reconstructie.",
+        refs: ["Johannes 5:1–2", "Nehemia 3:1"],
+      },
+      {
+        kop: "Wat de tekst zegt en wat niet",
+        t: "De man vraagt zelf niet om genezing: de Heere Jezus begint het gesprek. De tekst zegt alleen dat de Heere Jezus wist ‘dat hij nu langen tijd gelegen had’ (Johannes 5:6). Over geloof van de man vooraf vertelt Johannes niets. Na zijn genezing weet de man zelfs niet wie hem gezond gemaakt heeft, ‘want Jezus was ontweken, alzo er een grote schare in die plaats was’ (Johannes 5:13).",
+        refs: ["Johannes 5:6", "Johannes 5:13"],
+      },
+      {
+        kop: "Meer genezingen op de sabbat",
+        t: "Ook de blindgeborene wordt op een sabbat genezen (Johannes 9:14). In een synagoge vraagt de Heere Jezus: ‘Is het geoorloofd op sabbatdagen goed te doen, of kwaad te doen, een mens te behouden, of te doden?’ (Markus 3:4). En als een overste van de synagoge het kwalijk neemt dat Hij op de sabbat geneest, wijst de Heere Jezus erop dat iedereen op de sabbat zijn os of ezel losmaakt om hem te laten drinken (Lukas 13:14–16).",
+        refs: ["Johannes 9:14", "Markus 3:4", "Lukas 13:14–16"],
+      },
+    ],
+    vragen: [
+      { q: "Welk Bijbelboek vertelt dat de Schaapspoort werd gebouwd?", a: ["Nehemia", "Ruth", "Jona"], why: "Nehemia 3:1" },
+      {
+        q: "Waarom kon de man eerst niet zeggen wie hem genezen had?",
+        a: [
+          "Hij wist het niet, want de Heere Jezus was ontweken",
+          "De Heere Jezus had hem verboden het te zeggen",
+          "Hij durfde het niet uit angst voor de Joden",
+        ],
+        why: "Johannes 5:13",
+      },
+      {
+        q: "Welk voorbeeld gebruikt de Heere Jezus in Lukas 13 over de sabbat?",
+        a: [
+          "Iedereen maakt zijn os of ezel los om te drinken",
+          "Iedereen bakt op de sabbat zijn brood",
+          "Iedereen gaat op de sabbat naar de markt",
+        ],
+        why: "Lukas 13:15",
+      },
+    ],
+  },
+  103: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Elders in de Bijbel",
+        t: "Dat God blinden laat zien, staat al in het Oude Testament: ‘De HEERE opent de ogen der blinden’ (Psalm 146:8). Bij Jesaja zegt de HEERE over Zijn Knecht dat Hij gegeven is ‘om te openen de blinde ogen’ (Jesaja 42:6–7). De genezen man zegt zelf: ‘Van alle eeuw is het niet gehoord, dat iemand eens blindgeborenen ogen geopend heeft’ (Johannes 9:32).",
+        refs: ["Psalm 146:8", "Jesaja 42:1–7", "Johannes 9:32"],
+      },
+      {
+        kop: "Uit de synagoge",
+        t: "De Joden hadden besloten dat wie de Heere Jezus als de Christus beleed, ‘uit de synagoge zou geworpen worden’ (Johannes 9:22). Dat betekende dat zo iemand buiten de gemeenschap van de synagoge kwam te staan. Later schrijft Johannes dat zelfs veel oversten in Hem geloofden, maar het niet beleden, ‘opdat zij uit de synagoge niet zouden geworpen worden’ (Johannes 12:42). Later waarschuwt de Heere Jezus ook Zijn discipelen: ‘Zij zullen u uit de synagogen werpen’ (Johannes 16:2).",
+        refs: ["Johannes 9:22", "Johannes 12:42", "Johannes 16:2"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Het badwater Siloam geldt als identificeerbaar. Ook Lukas noemt Siloam: daar viel een toren op achttien mensen (Lukas 13:4). Johannes vertelt deze geschiedenis na zijn verslag van het Loofhuttenfeest (Johannes 7:2) en vóór het feest der vernieuwing in de winter (Johannes 10:22). Daarom wordt ze in het najaar gedateerd: ca. 29 n.Chr. als de kruisiging rond 30 was, of ca. 32 bij een kruisiging in 33. Dat is een reconstructie.",
+        refs: ["Lukas 13:4", "Johannes 7:2", "Johannes 10:22"],
+      },
+    ],
+    vragen: [
+      { q: "Welke psalm zegt: ‘De HEERE opent de ogen der blinden’?", a: ["Psalm 146", "Psalm 23", "Psalm 1"], why: "Psalm 146:8" },
+      {
+        q: "Waarom durfden veel oversten hun geloof in de Heere Jezus niet te belijden?",
+        a: ["Ze wilden niet uit de synagoge geworpen worden", "Ze hadden de Heere Jezus nooit gezien", "Ze woonden niet in Jeruzalem"],
+        why: "Johannes 12:42",
+      },
+      {
+        q: "Wat gebeurde er volgens Lukas 13:4 in Siloam?",
+        a: ["Er viel een toren op achttien mensen", "Er werd een melaatse genezen", "Er werd een nieuwe tempel gebouwd"],
+        why: "Lukas 13:4",
+      },
+    ],
+  },
+  104: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Herders in de Bijbel",
+        t: "Ezechiël moest profeteren tegen ‘de herders van Israël’, de leiders van het volk, die ‘zichzelven weiden’ en niet voor de schapen zorgden (Ezechiël 34:2–3). Daartegenover zegt God: ‘Ik, ja, Ik zal naar Mijn schapen vragen, en zal ze opzoeken’ (Ezechiël 34:11). In Psalm 80 staat: ‘O Herder Israëls! neem ter ore’ (Psalm 80:2). Later noemt de brief aan de Hebreeën de Heere Jezus ‘den grote Herder der schapen’, Die God uit de doden heeft wedergebracht (Hebreeën 13:20). Petrus noemt Hem ‘de overste Herder’ (1 Petrus 5:4).",
+        refs: ["Ezechiël 34:2–3", "Ezechiël 34:11", "Psalm 80:2", "Hebreeën 13:20", "1 Petrus 5:4"],
+      },
+      {
+        kop: "Ik ben",
+        t: "In het Evangelie naar Johannes zegt de Heere Jezus vaker ‘Ik ben’ met een beeld erbij: ‘Ik ben het Brood des levens’ (6:35), ‘het licht der wereld’ (8:12), ‘de Deur’ en ‘de goede Herder’ (10:9, 11), ‘de Opstanding en het Leven’ (11:25), ‘de Weg, en de Waarheid, en het Leven’ (14:6) en ‘de ware Wijnstok’ (15:1). Elk beeld zegt iets over wie Hij is.",
+        refs: ["Johannes 6:35", "Johannes 8:12", "Johannes 10:9–11", "Johannes 11:25", "Johannes 14:6", "Johannes 15:1"],
+      },
+      {
+        kop: "Het feest van de vernieuwing",
+        t: "Johannes noemt ‘het feest der vernieuwing des tempels’ (Johannes 10:22). Dat feest komt in het Oude Testament niet voor. Uit bronnen buiten de Bijbel weten we dat het herdacht dat de tempel opnieuw werd ingewijd nadat hij was ontheiligd, in de tijd van de Makkabeeën. Tegenwoordig heet het Chanoeka. De Heere Jezus wandelt ‘in het voorhof van Salomo’ (10:23). Na Zijn woorden ‘Ik en de Vader zijn een’ nemen de Joden stenen op om Hem te stenigen (10:31).",
+        refs: ["Johannes 10:22–23", "Johannes 10:30–31"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Tegen wie moest Ezechiël profeteren in hoofdstuk 34?",
+        a: ["Tegen de herders van Israël", "Tegen de koning van Babel", "Tegen de Filistijnen"],
+        why: "Ezechiël 34:2",
+      },
+      {
+        q: "Welk ‘Ik ben’-woord staat in Johannes 11:25?",
+        a: ["Ik ben de Opstanding en het Leven", "Ik ben de ware Wijnstok", "Ik ben het Brood des levens"],
+        why: "Johannes 11:25",
+      },
+      {
+        q: "Wat deden de Joden na de woorden ‘Ik en de Vader zijn een’?",
+        a: ["Ze namen stenen op om Hem te stenigen", "Ze knielden voor Hem neer", "Ze vroegen Hem om een teken"],
+        why: "Johannes 10:31",
+      },
+    ],
+  },
+  105: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Drie evangeliën",
+        t: "Ook Markus en Lukas vertellen dit. Bij Markus zegt Petrus: ‘Gij zijt de Christus’ (Markus 8:29); bij Lukas: ‘De Christus Gods’ (Lukas 9:20). Lukas vertelt dat de Heere Jezus vlak daarvoor ‘alleen was biddende’ (Lukas 9:18). Alleen Mattheüs schrijft op wat de Heere Jezus daarna tegen Petrus zegt over de gemeente en de sleutels (Mattheüs 16:17–19). Bar-jona wordt uitgelegd als Aramees voor: zoon van Jona. Johannes noemt hem ‘Simon, de zoon van Jonas’ (Johannes 1:42–43).",
+        refs: ["Markus 8:27–31", "Lukas 9:18–22", "Mattheüs 16:17–19", "Johannes 1:42–43"],
+      },
+      {
+        kop: "Opnieuw aangekondigd",
+        t: "‘Van toen aan’ begint de Heere Jezus over Zijn lijden te spreken (16:21). Daarna kondigt Hij het opnieuw aan, onder andere in Galilea (Mattheüs 17:22–23) en op weg naar Jeruzalem. Daar zegt Hij er ook bij dat de heidenen Hem zullen bespotten, geselen en kruisigen (Mattheüs 20:17–19). Na de woorden in Galilea staat er: ‘En zij werden zeer bedroefd’ (Mattheüs 17:23).",
+        refs: ["Mattheüs 16:21", "Mattheüs 17:22–23", "Mattheüs 20:17–19"],
+      },
+      {
+        kop: "De Zoon des mensen",
+        t: "In vers 13 noemt de Heere Jezus Zichzelf ‘de Zoon des mensen’. Die naam gebruikt Hij vaak. Veel uitleggers verbinden hem met het gezicht van Daniël, die iemand zag komen ‘met de wolken des hemels, als eens mensen zoon’ (Daniël 7:13). In vers 27 zegt de Heere Jezus dat de Zoon des mensen zal komen ‘in de heerlijkheid Zijns Vaders, met Zijn engelen’.",
+        refs: ["Mattheüs 16:13", "Daniël 7:13", "Mattheüs 16:27"],
+      },
+    ],
+    vragen: [
+      { q: "Wat zegt Petrus volgens Lukas 9:20?", a: ["De Christus Gods", "Gij zijt Elias", "Een van de profeten"], why: "Lukas 9:20" },
+      {
+        q: "Hoe noemt de Heere Jezus Petrus in Mattheüs 16:17?",
+        a: ["Simon, Bar-jona", "Simon de Zeloot", "Simon van Cyrene"],
+        why: "Mattheüs 16:17",
+      },
+      {
+        q: "Welke profeet zag iemand komen ‘met de wolken des hemels, als eens mensen zoon’?",
+        a: ["Daniël", "Jona", "Amos"],
+        why: "Daniël 7:13",
+      },
+      {
+        q: "Wat vertelt alleen Lukas over dit moment?",
+        a: ["Dat de Heere Jezus alleen was om te bidden", "Dat het bij Caesarea Filippi was", "Dat Petrus het antwoord gaf"],
+        why: "Lukas 9:18",
+      },
+    ],
+  },
+  106: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Wat de andere evangeliën vertellen",
+        t: "Markus schrijft dat Zijn kleren zo wit werden ‘als sneeuw, hoedanige geen voller op aarde zo wit maken kan’ (Markus 9:3). Een voller was iemand die stof reinigde en wit maakte. Mattheüs vertelt dat de discipelen op hun gezicht vielen, en dat de Heere Jezus hen aanraakte en zei: ‘Staat op en vreest niet’ (Mattheüs 17:6–7). Alleen Lukas vertelt dat ze over Zijn uitgang spraken en dat de discipelen ‘met slaap bezwaard’ waren (Lukas 9:31–32).",
+        refs: ["Markus 9:3", "Mattheüs 17:6–7", "Lukas 9:31–32"],
+      },
+      {
+        kop: "Mozes en Elia",
+        t: "Allebei hadden ze God ontmoet op een berg. Op de Sinaï bedekte een wolk de berg, en God riep Mozes ‘uit het midden der wolk’ (Exodus 24:15–16). Elia ging veertig dagen en veertig nachten ‘tot aan den berg Gods, Horeb’ (1 Koningen 19:8). Ook aan het eind van het Oude Testament staan ze samen: ‘Gedenk der wet van Mozes’ en ‘Ziet, Ik zende ulieden den profeet Elia’ (Maleachi 4:4–5). Veel uitleggers zien in hen de wet en de profeten, die getuigen van Christus.",
+        refs: ["Exodus 24:15–16", "1 Koningen 19:8", "Maleachi 4:4–5"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Lukas zegt alleen ‘den berg’ (Lukas 9:28); Mattheüs en Markus noemen ‘een hogen berg’ (Mattheüs 17:1; Markus 9:2). De naam staat niet in de Bijbel. De traditie noemt de Tabor; anderen denken aan de Hermon. De plaats op de kaart is daarom betwist. Lukas zegt ‘omtrent acht dagen’ na de belijdenis van Petrus; de datering ca. 29 n.Chr. (of 32) is een reconstructie.",
+        refs: ["Lukas 9:28", "Mattheüs 17:1", "Markus 9:2"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat schrijft Markus over de witheid van Zijn kleren?",
+        a: ["Geen voller op aarde kan zo wit maken", "Ze waren wit als melk", "Ze waren wit als de wolken"],
+        why: "Markus 9:3",
+      },
+      { q: "Naar welke berg ging Elia veertig dagen en veertig nachten?", a: ["Horeb", "Karmel", "Tabor"], why: "1 Koningen 19:8" },
+      {
+        q: "Wat deed de Heere Jezus volgens Mattheüs toen de discipelen bang op hun gezicht lagen?",
+        a: ["Hij raakte hen aan en zei dat ze niet moesten vrezen", "Hij stuurde hen alleen de berg af", "Hij liet hen verder slapen"],
+        why: "Mattheüs 17:6–7",
+      },
+    ],
+  },
+  107: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "De geboden die Hij noemt",
+        t: "Eerst zegt de Heere Jezus: ‘Niemand is goed, dan Een, namelijk God’ (Markus 10:18). Dan noemt Hij geboden die over de naaste gaan: niet echtbreken, niet doden, niet stelen, geen valse getuigenis, en ‘eer uw vader en uw moeder’ (Markus 10:19; vergelijk Exodus 20:12–16). Tussen deze geboden noemt Hij ook: ‘gij zult niemand te kort doen’; dat gebod staat niet zo in Exodus 20. De man zegt dat hij dat alles gehouden heeft. Toch zegt de Heere Jezus: ‘Een ding ontbreekt u’.",
+        refs: ["Markus 10:18–21", "Exodus 20:12–16"],
+      },
+      {
+        kop: "Wat de tekst zegt en wat niet",
+        t: "Soms wordt verteld dat ‘het oog van een naald’ een kleine poort in Jeruzalem was, waar een kameel nog net door kon. Dat staat niet in de Bijbel. De discipelen begrijpen het als iets onmogelijks, want ze vragen: ‘Wie kan dan zalig worden?’ En de Heere Jezus zegt het ook zo: ‘Bij de mensen is het onmogelijk’ (Markus 10:26–27). Mattheüs en Lukas gebruiken hetzelfde beeld (Mattheüs 19:24; Lukas 18:25).",
+        refs: ["Markus 10:25–27", "Mattheüs 19:24", "Lukas 18:25"],
+      },
+      {
+        kop: "Kinderen in de Bijbel",
+        t: "Psalm 8 zegt: ‘Uit den mond der kinderkens en der zuigelingen hebt Gij sterkte gegrondvest’ (Psalm 8:3). De Heere Jezus haalt die psalm later aan, als kinderen in de tempel roepen: ‘Hosanna den Zone Davids!’ (Mattheüs 21:15–16). Ook Lukas vertelt over de kinderen die bij Hem gebracht worden. Hij schrijft dat de Heere Jezus ‘dezelve kinderkens tot Zich’ riep (Lukas 18:16).",
+        refs: ["Psalm 8:3", "Mattheüs 21:15–16", "Lukas 18:15–17"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat zei de Heere Jezus toen de man Hem ‘Goede Meester’ noemde?",
+        a: ["Niemand is goed, dan Een, namelijk God", "Ik ben de goede Herder", "Gij hebt recht geantwoord"],
+        why: "Markus 10:18",
+      },
+      {
+        q: "Hoe begrepen de discipelen het beeld van de kemel en de naald?",
+        a: ["Als iets wat onmogelijk is", "Als een poort in Jeruzalem", "Als een raadsel over dieren"],
+        why: "Markus 10:26–27",
+      },
+      {
+        q: "Welke psalm haalt de Heere Jezus aan als kinderen in de tempel Hosanna roepen?",
+        a: ["Psalm 8", "Psalm 23", "Psalm 100"],
+        why: "Mattheüs 21:15–16; Psalm 8:3",
+      },
+    ],
+  },
+  108: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "De drinkbeker",
+        t: "De Heere Jezus spreekt over ‘den drinkbeker’ die Hij drinkt (Markus 10:38). In Gethsemane bidt Hij later: ‘neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt’ (Markus 14:36). Tegen de broers zegt Hij dat zij Zijn drinkbeker ook zullen drinken (Markus 10:39). Jakobus werd later met het zwaard gedood (Handelingen 12:2); Johannes schrijft dat hij ‘medegenoot in de verdrukking’ was, op het eiland Patmos (Openbaring 1:9). Veel uitleggers zien hierin hoe dit woord uitkwam.",
+        refs: ["Markus 10:38–39", "Markus 14:32–36", "Handelingen 12:2", "Openbaring 1:9"],
+      },
+      {
+        kop: "Rechts en links",
+        t: "Jakobus en Johannes vragen om de plaatsen aan Zijn rechter- en linkerhand ‘in Uw heerlijkheid’. Markus gebruikt later bijna dezelfde woorden: bij de kruisiging hangen er twee moordenaars, ‘een aan Zijn rechter-, en een aan Zijn linker zijde’ (Markus 15:27). Sommige uitleggers wijzen op dat verband. Mattheüs schrijft dat de plaatsen gegeven worden aan hen voor wie het ‘bereid is van Mijn Vader’ (Mattheüs 20:23).",
+        refs: ["Markus 10:37", "Markus 15:27", "Mattheüs 20:23"],
+      },
+      {
+        kop: "Een rantsoen voor velen",
+        t: "Een rantsoen is een losprijs: wat betaald wordt om iemand vrij te maken. Paulus schrijft iets vergelijkbaars over Christus Jezus, ‘Die Zichzelven gegeven heeft tot een rantsoen voor allen’ (1 Timotheüs 2:6). Jesaja had over de Knecht van de HEERE gezegd dat Hij ‘veler zonden gedragen heeft’ (Jesaja 53:12). Markus vertelt ook eerder dat de Heere Jezus Zijn lijden aankondigt (Markus 8:31; 9:31); hier doet Hij dat het uitvoerigst.",
+        refs: ["1 Timotheüs 2:5–6", "Jesaja 53:12", "Markus 8:31", "Markus 9:31"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Waar bidt de Heere Jezus later: ‘neem dezen drinkbeker van Mij weg’?",
+        a: ["In Gethsemane", "Op de berg van de verheerlijking", "In de tempel"],
+        why: "Markus 14:32–36",
+      },
+      {
+        q: "Wie hingen er bij de kruisiging aan Zijn rechter- en linkerzijde?",
+        a: ["Twee moordenaars", "Jakobus en Johannes", "Twee soldaten"],
+        why: "Markus 15:27",
+      },
+      {
+        q: "Wat schrijft Paulus in 1 Timotheüs 2:6 over Christus?",
+        a: [
+          "Hij heeft Zichzelf gegeven tot een rantsoen voor allen",
+          "Hij is gekomen om een aards koninkrijk te stichten",
+          "Hij heeft alleen voor Israël geleefd",
+        ],
+        why: "1 Timotheüs 2:6",
+      },
+    ],
+  },
+  109: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Samaritanen",
+        t: "De Samaritanen woonden in Samaria, tussen Judea en Galilea. Nadat Assyrië Samaria had ingenomen, liet de koning van Assyrië volken uit andere landen ‘wonen in de steden van Samaria’ (2 Koningen 17:6, 24). Daarmee wordt vaak verklaard waarom Joden en Samaritanen niet met elkaar omgingen. Kort voor deze gelijkenis wilde een dorp van de Samaritanen de Heere Jezus niet ontvangen (Lukas 9:52–53). Veel uitleggers wijzen erop dat het daarom extra opvalt dat juist een Samaritaan in deze gelijkenis barmhartig is.",
+        refs: ["2 Koningen 17:6", "2 Koningen 17:24", "Lukas 9:52–53"],
+      },
+      {
+        kop: "Priester, Leviet en penning",
+        t: "Priesters waren Aäron en zijn zonen en hun nakomelingen (Exodus 28:1; Numeri 3:10). De Levieten hielpen hen: ze werden ‘aan Aäron en aan zijn zonen’ gegeven (Numeri 3:9). Een penning was ongeveer het loon voor een dag werk: in een andere gelijkenis krijgen arbeiders ‘een penning des daags’ (Mattheüs 20:2). De Samaritaan belooft de waard bovendien terug te betalen wat hij meer uitgeeft (Lukas 10:35).",
+        refs: ["Exodus 28:1", "Numeri 3:9–10", "Mattheüs 20:2", "Lukas 10:35"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "De man ‘kwam af van Jeruzalem naar Jericho’ (Lukas 10:30): Jeruzalem ligt hoog in het bergland, Jericho veel lager in het dal van de Jordaan. Lukas noemt geen plaats waar de Heere Jezus deze gelijkenis vertelde. Hij plaatst haar op de reis naar Jeruzalem (Lukas 9:51). De datering ca. 29–30 n.Chr. (of 32–33) is een reconstructie.",
+        refs: ["Lukas 10:30", "Lukas 9:51"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wie liet volgens 2 Koningen 17 volken uit andere landen in Samaria wonen?",
+        a: ["De koning van Assyrië", "De koning van Egypte", "Koning Salomo"],
+        why: "2 Koningen 17:24",
+      },
+      {
+        q: "Wat beloofde de Samaritaan aan de waard?",
+        a: ["Wat hij meer uitgaf, zou hij terugbetalen", "Dat de gewonde man later zelf zou betalen", "Dat hij nooit meer terug zou komen"],
+        why: "Lukas 10:35",
+      },
+      {
+        q: "Waarom vroeg de wetgeleerde: ‘En wie is mijn naaste?’",
+        a: ["Hij wilde zichzelf rechtvaardigen", "Hij kende de wet niet", "Hij zocht een buurman om te helpen"],
+        why: "Lukas 10:29",
+      },
+      {
+        q: "Hoeveel was een penning ongeveer waard?",
+        a: ["Het loon voor een dag werk", "De prijs van een huis", "Het loon voor een jaar werk"],
+        why: "Mattheüs 20:2",
       },
     ],
   },
@@ -5179,230 +5481,6 @@ BR.niveaus.voegToe("c", {
         why: "Handelingen 10:25–26",
       },
       { q: "Hoeveel broeders gingen er met Petrus mee naar Caesarea?", a: ["Zes", "Twee", "Twaalf"], why: "Handelingen 11:12" },
-    ],
-  },
-  142: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Welke Herodes?",
-        t: "In het Nieuwe Testament komen verschillende vorsten met de naam Herodes voor. Bij de geboorte van de Heere Jezus regeert koning Herodes (Mattheüs 2:1). ‘Herodes, de viervorst’ laat Johannes de Doper onthoofden (Mattheüs 14:1–10). In Handelingen 12 staat alleen ‘de koning Herodes’; geschiedschrijvers noemen hem Herodes Agrippa I. Volgens de Joodse geschiedschrijver Josephus stierf hij in 44 n.Chr. Daarom wordt deze geschiedenis rond 43–44 n.Chr. gedateerd. De koning Agrippa voor wie Paulus later spreekt (Handelingen 25:13), is een andere vorst.",
-        refs: ["Mattheüs 2:1", "Mattheüs 14:1–10", "Handelingen 12:1", "Handelingen 25:13"],
-      },
-      {
-        kop: "Twee keer Jakobus",
-        t: "Petrus zegt: ‘Boodschapt dit aan Jakobus en de broederen’ (12:17). Dat kan niet Jakobus de broer van Johannes zijn: die was al gedood (12:2). Meestal wordt deze Jakobus uitgelegd als ‘Jakobus, den broeder des Heeren’ (Galaten 1:19), die later in Jeruzalem een leidende plaats heeft (Handelingen 15:13; 21:18). Waar Petrus daarna heen gaat, zegt de tekst niet; hij ‘reisde naar een andere plaats’. En wat de biddende mensen bedoelden met ‘Het is zijn engel’ (12:15), daarover verschillen uitleggers.",
-        refs: ["Handelingen 12:2", "Handelingen 12:15–17", "Galaten 1:19", "Handelingen 15:13", "Handelingen 21:18"],
-      },
-      {
-        kop: "De eer die God toekomt",
-        t: "Het volk roept tegen Herodes: ‘Een stem Gods, en niet eens mensen!’ en hij weigert die eer niet. Andere dienaren van God doen dat juist wel. Als Cornelius voor Petrus neervalt, zegt Petrus: ‘Sta op, ik ben ook zelf een mens’ (Handelingen 10:26). In Lystre roepen Barnabas en Paulus: ‘Wij zijn ook mensen’ (Handelingen 14:15). De engel in Openbaring 19:10 zegt: ‘aanbid God.’ Het hoofdstuk eindigt niet bij Herodes, maar bij het Woord: ‘En het Woord Gods wies, en vermenigvuldigde’ (12:24).",
-        refs: ["Handelingen 12:21–24", "Handelingen 10:25–26", "Handelingen 14:14–15", "Openbaring 19:10"],
-      },
-    ],
-    vragen: [
-      {
-        q: "Waarom kan de Jakobus van Handelingen 12:17 niet de broer van Johannes zijn?",
-        a: ["Die was al door Herodes gedood", "Die was op reis naar Antiochië", "Die zat ook in de gevangenis"],
-        why: "Handelingen 12:2, 17",
-      },
-      {
-        q: "Wat zei Petrus toen Cornelius voor hem neerviel?",
-        a: ["Sta op, ik ben ook zelf een mens", "Bid voor mij, want ik ben zwak", "Ga heen, ik ken u niet"],
-        why: "Handelingen 10:26",
-      },
-      {
-        q: "In welke dagen werd Petrus gevangengenomen?",
-        a: ["In de dagen der ongehevelde broden", "In de dagen van het Loofhuttenfeest", "Op de Grote Verzoendag"],
-        why: "Handelingen 12:3",
-      },
-    ],
-  },
-  143: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Een paard wordt in Handelingen 9 niet genoemd; Saulus is ‘ter aarde gevallen’ (9:4). Hij krijgt hier ook geen nieuwe naam. Pas op Cyprus staat dat Saulus ‘ook Paulus genaamd is’ (Handelingen 13:9); uitleggers zien Paulus als een tweede, Romeinse naam. In 9:7 horen de reisgenoten ‘wel de stem’, maar in 22:9 zegt Paulus dat zij ‘de stem Desgenen, Die tot mij sprak’ niet hoorden. Veel uitleggers verklaren dat zij wel geluid hoorden, maar de woorden niet verstonden.",
-        refs: ["Handelingen 9:4", "Handelingen 9:7", "Handelingen 13:9", "Handelingen 22:9"],
-      },
-      {
-        kop: "Paulus vertelt het zelf",
-        t: "Paulus vertelt later twee keer over deze dag: aan het volk in Jeruzalem (Handelingen 22) en aan koning Agrippa (Handelingen 26). Daar zegt hij dat het gebeurde ‘in het midden van den dag’ en dat de stem sprak ‘in de Hebreeuwse taal’ (26:13–14). In Galaten 1:17 schrijft hij dat hij ging ‘naar Arabië, en keerde wederom naar Damaskus’; Handelingen 9 noemt dat niet, maar spreekt wel van ‘vele dagen’ (9:23). De vlucht beschrijft hij zo: ‘ik werd door een venster in een mand over den muur nedergelaten’ (2 Korinthe 11:33).",
-        refs: ["Handelingen 26:12–15", "Galaten 1:15–18", "Handelingen 9:23–25", "2 Korinthe 11:32–33"],
-      },
-      {
-        kop: "De verzenen tegen de prikkels",
-        t: "In de Statenvertaling zegt de Heere ook: ‘Het is u hard, de verzenen tegen de prikkels te slaan’ (9:5; vergelijk 26:14). Dat is een beeld uit het boerenleven. Verzenen zijn hielen. Een prikkel is een puntige stok waarmee ossen werden voortgedreven. Een os die achteruit trapt tegen die stok, doet alleen zichzelf pijn. Zo wordt het meestal uitgelegd: tegen de Heere ingaan heeft geen zin. Later noemt Paulus zich ‘de minste van de apostelen’, ‘daarom dat ik de Gemeente Gods vervolgd heb’ (1 Korinthe 15:9).",
-        refs: ["Handelingen 9:5", "Handelingen 26:14", "1 Korinthe 15:9"],
-      },
-    ],
-    vragen: [
-      {
-        q: "Waar ging Paulus volgens Galaten 1 heen voordat hij naar Damascus terugkeerde?",
-        a: ["Naar Arabië", "Naar Egypte", "Naar Cyprus"],
-        why: "Galaten 1:17",
-      },
-      {
-        q: "Hoe beschrijft Paulus zelf zijn vlucht uit Damascus?",
-        a: ["Door een venster, in een mand over de muur", "Verkleed als soldaat door de poort", "Met een schip over de rivier"],
-        why: "2 Korinthe 11:33",
-      },
-      {
-        q: "Op welk moment van de dag zag Saulus het licht, volgens Handelingen 26?",
-        a: ["In het midden van de dag", "Midden in de nacht", "Bij zonsondergang"],
-        why: "Handelingen 26:13",
-      },
-    ],
-  },
-  144: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Twee keer Antiochië",
-        t: "De reis begint en eindigt in Antiochië in Syrië (15:23), waar de discipelen voor het eerst christenen heten (11:26). Onderweg komen Paulus en Barnabas in een andere stad met dezelfde naam: ‘Antiochië, een stad in Pisidië’ (13:14). Op de kaart zijn de plaatsen identificeerbaar, behalve Derbe, dat als waarschijnlijk staat. De Bijbel noemt geen jaartallen. De hongersnood ‘onder den keizer Claudius’ (11:28) geeft wel houvast. De eerste reis wordt meestal rond 46–48 n.Chr. gedateerd.",
-        refs: ["Handelingen 11:26–28", "Handelingen 13:14", "Handelingen 15:23"],
-      },
-      {
-        kop: "Saulus, die ook Paulus heet",
-        t: "In Handelingen 13:9 staat voor het eerst dat Saulus ‘ook Paulus genaamd is’. Vanaf dan gebruikt de schrijver die naam. Ook de volgorde verandert: eerst ‘Barnabas en Saulus’ (13:2, 7), daarna meestal ‘Paulus en Barnabas’ (13:43, 46, 50). In 13:13 staat zelfs: ‘Paulus, en die met hem waren’. In Lystre staat Barnabas weer voorop (14:14). Een naamswisseling bij zijn bekering noemt de Bijbel niet; veel uitleggers zien Paulus als zijn Romeinse naam naast de Joodse naam Saulus.",
-        refs: ["Handelingen 13:2–13", "Handelingen 13:43–50", "Handelingen 14:14"],
-      },
-      {
-        kop: "Paulus preekt uit de Schriften",
-        t: "In de synagoge van Antiochië in Pisidië haalt Paulus het Oude Testament aan. Uit ‘den tweeden psalm’: ‘Gij zijt Mijn Zoon, heden heb Ik U gegenereerd’ (Psalm 2:7). Uit Psalm 16:10: ‘Gij zult niet toelaten, dat Uw Heilige de verderving zie’. David heeft wel verderving gezien, zegt Paulus, maar Hij Die door God is opgewekt, niet (13:35–37). En hij waarschuwt met de woorden van Habakuk 1:5: ‘Ik werk een werk in uw dagen’ (13:41).",
-        refs: ["Handelingen 13:33–41", "Psalm 2:7", "Psalm 16:10", "Habakuk 1:5"],
-      },
-    ],
-    vragen: [
-      {
-        q: "Welke psalm haalt Paulus aan met ‘Gij zijt Mijn Zoon, heden heb Ik U gegenereerd’?",
-        a: ["De tweede psalm", "Psalm 23", "Psalm 51"],
-        why: "Handelingen 13:33; Psalm 2:7",
-      },
-      {
-        q: "Welke profeet voorzei in Antiochië een grote hongersnood?",
-        a: ["Agabus", "Simeon, genaamd Niger", "Lucius van Cyrene"],
-        why: "Handelingen 11:28",
-      },
-      {
-        q: "Hoe noemden de mensen in Lystre Barnabas en Paulus?",
-        a: ["Jupiter en Mercurius", "Mozes en Elia", "Petrus en Johannes"],
-        why: "Handelingen 14:12",
-      },
-      {
-        q: "Bij welke gebeurtenis heet Saulus voor het eerst ook Paulus?",
-        a: ["Bij de tovenaar Elymas op Cyprus", "Bij zijn doop in Damascus", "Bij de genezing in Lystre"],
-        why: "Handelingen 13:8–9",
-      },
-    ],
-  },
-  145: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Barnabas, Markus en Paulus",
-        t: "Na de ‘verbittering’ (15:39) wordt Barnabas in Handelingen niet meer genoemd. Maar uit de brieven blijkt dat Markus later weer bij Paulus is. Paulus noemt ‘Markus, de neef van Barnabas’ (Kolossenzen 4:10) en schrijft: ‘Markus, Aristarchus, Demas, Lukas, mijn medearbeiders’ (Filemon 1:24). En aan Timotheüs: ‘Neem Markus mede, en breng hem met u; want hij is mij zeer nut tot den dienst’ (2 Timotheüs 4:11). Ook over Timotheüs schrijft Paulus later: het geloof woonde eerst ‘in uw grootmoeder Lois, en in uw moeder Eunice’ (2 Timotheüs 1:5).",
-        refs: ["Handelingen 15:37–39", "Kolossenzen 4:10", "Filemon 1:24", "2 Timotheüs 4:11", "2 Timotheüs 1:5"],
-      },
-      {
-        kop: "Van zij naar wij",
-        t: "Tot Troas vertelt de schrijver over ‘zij’. Vanaf 16:10 staat er: ‘zo zochten wij terstond naar Macedonië te reizen’. Veel uitleggers zien hierin dat de schrijver van Handelingen, meestal Lukas genoemd, in Troas bij Paulus kwam. Het ‘wij’ stopt in Filippi (16:17) en komt later terug, als Paulus weer uit Filippi vertrekt (Handelingen 20:5–6). Het is een uitleg; de schrijver noemt zijn eigen naam niet.",
-        refs: ["Handelingen 16:8–17", "Handelingen 20:5–6"],
-      },
-      {
-        kop: "Romeinen in Filippi",
-        t: "Filippi was ‘een kolonie’ (16:12): een Romeinse stad buiten Italië, met Romeinse burgers en Romeins bestuur. Daarom zeggen de eigenaars van de slavin: ‘alzo wij Romeinen zijn’ (16:21). Maar Paulus en Silas zijn zelf ook Romeinen. Een Romein mocht niet zonder vonnis gegeseld worden; zie ook Handelingen 22:25. Daarom zegt Paulus de volgende morgen: ‘dat zij zelven komen, en ons uitleiden’ (16:37), en worden de hoofdmannen bang.",
-        refs: ["Handelingen 16:12", "Handelingen 16:20–21", "Handelingen 16:35–39", "Handelingen 22:25"],
-      },
-    ],
-    vragen: [
-      {
-        q: "Wat schrijft Paulus later over Markus in 2 Timotheüs 4:11?",
-        a: ["Neem hem mee, want hij is mij zeer nuttig", "Laat hem thuis, hij verlaat ons toch", "Stuur hem terug naar Barnabas"],
-        why: "2 Timotheüs 4:11",
-      },
-      {
-        q: "Wat valt op aan de vertelling vanaf Handelingen 16:10?",
-        a: ["De schrijver zegt ‘wij’", "De schrijver noemt jaartallen", "Paulus vertelt het zelf in een brief"],
-        why: "Handelingen 16:10–11",
-      },
-      {
-        q: "Waarom werden de hoofdmannen van Filippi bang?",
-        a: ["Ze hoorden dat Paulus en Silas Romeinen waren", "Er kwam opnieuw een aardbeving", "De bewaker was gevlucht"],
-        why: "Handelingen 16:37–38",
-      },
-    ],
-  },
-  146: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Paulus vertelt zijn roeping opnieuw",
-        t: "Op de trappen vertelt Paulus wat ook in Handelingen 9 staat, met nieuwe details. Het gebeurde ‘omtrent den middag’ (22:6). De stem zei: ‘Ik ben Jezus, de Nazarener’ (22:8). Ananias was ‘een godvruchtig man naar de wet’ (22:12). En hij vertelt iets wat Handelingen 9 niet noemt: later, in de tempel, zei de Heere: ‘Ga heen; want Ik zal u ver tot de heidenen afzenden’ (22:21). Tot dat woord luistert het volk; dan roepen ze: ‘Weg van de aarde met zulk een’ (22:22).",
-        refs: ["Handelingen 22:6–22", "Handelingen 9:3–18"],
-      },
-      {
-        kop: "Farizeeën en Sadduceeën",
-        t: "Paulus weet dat de raad uit twee groepen bestaat. ‘De Sadduceën zeggen, dat er geen opstanding is, noch engel, noch geest, maar de Farizeën belijden het beide’ (23:8). Ook de Heere Jezus sprak met Sadduceeën, ‘die zeggen, dat er geen opstanding is’ (Mattheüs 22:23). Paulus noemt zich ‘een Farizeër, eens Farizeërs zoon’, en zegt dat het gaat om ‘de hoop en opstanding der doden’ (23:6). Daardoor raakt de raad verdeeld, en Schriftgeleerden van de Farizeeën zeggen: ‘Wij vinden geen kwaad in dezen mens’ (23:9).",
-        refs: ["Handelingen 23:6–9", "Mattheüs 22:23"],
-      },
-      {
-        kop: "Een gewitte wand",
-        t: "Als de hogepriester Ananias hem op de mond laat slaan, zegt Paulus: ‘God zal u slaan, gij gewitte wand!’ (23:3). Dit is een andere Ananias dan de discipel in Damascus. Een gewitte wand is een muur die van buiten met kalk wit gemaakt is; meestal wordt het uitgelegd als: van buiten mooi, van binnen anders. De Heere Jezus gebruikte een vergelijkbaar beeld: ‘witgepleisterden graven’ (Mattheüs 23:27). Als Paulus hoort wie het is, wijst hij op de wet: ‘Den overste uws volks zult gij niet vloeken’ (23:5; vergelijk Exodus 22:28).",
-        refs: ["Handelingen 23:2–5", "Mattheüs 23:27", "Exodus 22:28"],
-      },
-    ],
-    vragen: [
-      {
-        q: "Wat zeiden de Sadduceeën volgens Handelingen 23:8?",
-        a: ["Dat er geen opstanding is, noch engel, noch geest", "Dat Paulus een engel gezien had", "Dat de doden zeker zullen opstaan"],
-        why: "Handelingen 23:8",
-      },
-      {
-        q: "Wat zei de Heere tegen Paulus in de tempel, volgens zijn toespraak?",
-        a: ["Dat Hij hem ver naar de heidenen zou sturen", "Dat hij in Jeruzalem moest blijven", "Dat hij hogepriester zou worden"],
-        why: "Handelingen 22:17–21",
-      },
-      { q: "Wie was de hogepriester die Paulus op de mond liet slaan?", a: ["Ananias", "Kajafas", "Gamaliël"], why: "Handelingen 23:2" },
-    ],
-  },
-  147: {
-    status: "concept",
-    verdieping: [
-      {
-        kop: "Na de vasten",
-        t: "Paulus waarschuwt ‘omdat ook de vasten nu voorbij was’ (27:9). Meestal wordt dit uitgelegd als de Grote Verzoendag, ‘op den tienden dezer zevende maand’ (Leviticus 23:27), in de herfst. De tekst zegt zelf dat de vaart ‘nu zorgelijk was’, en dat de haven ongeschikt was ‘om te overwinteren’ (27:12). De reis wordt meestal rond 59–60 n.Chr. gedateerd; de Bijbel noemt geen jaartal.",
-        refs: ["Handelingen 27:9–12", "Leviticus 23:27"],
-      },
-      {
-        kop: "Waar strandde het schip?",
-        t: "De naam van het eiland staat pas in het volgende hoofdstuk: ‘het eiland Melite’ (Handelingen 28:1). Dat wordt meestal gelijkgesteld met Malta; op de kaart staat het als waarschijnlijk, net als Salmone. Myra, Knidus, Schone Havens en Klauda zijn identificeerbaar. Fenix, de haven waar men wilde overwinteren (27:12), haalt het schip niet. De Bijbel vertelt niet waar op het eiland het schip vastliep, alleen dat het ‘een plaats, die de zee aan beide zijden had’ was (27:41).",
-        refs: ["Handelingen 27:5–16", "Handelingen 27:41", "Handelingen 28:1"],
-      },
-      {
-        kop: "Een woord dat vaststaat",
-        t: "In Jeruzalem zei de Heere al: ‘alzo moet gij ook te Rome getuigen’ (Handelingen 23:11). In de storm zegt de engel: ‘gij moet voor den keizer gesteld worden’ (27:24). Paulus zegt: ‘niemand van u zal een haar van het hoofd vallen’ (27:34), woorden die lijken op wat de Heere Jezus zei: ‘Doch niet een haar uit uw hoofd zal verloren gaan’ (Lukas 21:18). Toch zegt Paulus ook: ‘Indiën dezen in het schip niet blijven, gij kunt niet behouden worden’ (27:31). Veel uitleggers wijzen erop dat Gods belofte en het gebruik van middelen hier samengaan.",
-        refs: ["Handelingen 23:11", "Handelingen 27:24", "Handelingen 27:31–34", "Lukas 21:18"],
-      },
-    ],
-    vragen: [
-      {
-        q: "Waarom hakten de soldaten de touwen van de boot af?",
-        a: ["De scheepslieden wilden met de boot vluchten", "De boot was lek geslagen", "Ze wilden met de boot land zoeken"],
-        why: "Handelingen 27:30–32",
-      },
-      {
-        q: "Voor wie moest Paulus volgens de engel nog komen te staan?",
-        a: ["Voor de keizer", "Voor de hogepriester", "Voor de stadhouder van Kreta"],
-        why: "Handelingen 27:24",
-      },
-      {
-        q: "Waarom verbood de hoofdman de soldaten de gevangenen te doden?",
-        a: ["Hij wilde Paulus behouden", "Hij had het schip al verlaten", "De gevangenen konden niet zwemmen"],
-        why: "Handelingen 27:42–43",
-      },
-      { q: "Hoe heet het eiland van de schipbreuk in de Statenvertaling?", a: ["Melite", "Klauda", "Kreta"], why: "Handelingen 28:1" },
     ],
   },
   148: {

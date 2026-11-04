@@ -2428,7 +2428,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   77: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["susan"],
     delen: [
       {
@@ -2450,7 +2450,7 @@ BR.niveaus.voegToe("a", {
         t: "Mordechai hoort dat twee mannen de koning willen doden. Hij laat het via Esther aan de koning weten. Het wordt opgeschreven in een boek.",
       },
       {
-        t: "Dan maakt de koning Haman de belangrijkste van al zijn vorsten. Iedereen moet voor Haman buigen. Maar Mordechai buigt niet.",
+        t: "Dan maakt de koning Haman de belangrijkste vorst. De dienaren van de koning moeten voor Haman buigen. Maar Mordechai buigt niet.",
         stap: "esther:esther:2",
       },
       {
@@ -2466,7 +2466,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   78: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["susan"],
     delen: [
       {
@@ -2512,7 +2512,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   79: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["salem"],
     delen: [
       {
@@ -2542,7 +2542,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   80: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_tempel"],
     delen: [
       { t: "Zacharias is een priester. Hij en zijn vrouw Elisabeth leven allebei naar Gods geboden." },
@@ -2563,21 +2563,21 @@ BR.niveaus.voegToe("a", {
     ],
   },
   81: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_nazareth", "nt1_judagebergte"],
     delen: [
       { t: "God stuurt de engel Gabriël naar Nazareth, naar Maria. Maria gaat trouwen met Jozef.", stap: "jezus-1:nt-geboorte:1" },
       { t: "De engel zegt: Wees niet bang, Maria. Je hebt genade gevonden bij God.", stap: "jezus-1:nt-geboorte:1" },
       { t: "Je krijgt een Zoon, en je moet Hem Jezus noemen. Hij zal Koning zijn, en aan Zijn Koninkrijk komt geen einde." },
       { t: "Maria vraagt hoe dat kan. De engel zegt: De Heilige Geest zal over je komen. Bij God is niets onmogelijk." },
-      { t: "Maria zegt: ‘Zie, de dienstmaagd des Heeren; mij geschiede naar uw woord.’" },
+      { t: "Maria zegt: ‘Zie, de dienstmaagd des Heeren; mij geschiede naar uw woord.’ Dat betekent: laat het gebeuren zoals u zegt." },
       {
         t: "Dan reist Maria haastig naar Elisabeth, in het bergland van Juda. Elisabeth verwacht ook een kindje.",
         stap: "jezus-1:nt-geboorte:3",
       },
       { t: "Als Elisabeth Maria hoort groeten, springt het kindje in haar buik op van vreugde.", stap: "jezus-1:nt-geboorte:3" },
       { t: "Maria looft God: ‘Mijn ziel maakt groot den Heere’. Ze blijft ongeveer drie maanden bij Elisabeth." },
-      { t: "Ook Jozef hoort dat Maria een kindje verwacht. Hij wil eerst stilletjes bij haar weggaan.", stap: "jezus-1:nt-geboorte:2" },
+      { t: "Jozef merkt dat Maria een kindje verwacht. Hij wil eerst stilletjes bij haar weggaan.", stap: "jezus-1:nt-geboorte:2" },
       {
         t: "Maar een engel zegt in een droom: Neem Maria als je vrouw, het Kind is uit de Heilige Geest. Jozef doet wat de engel zegt.",
         stap: "jezus-1:nt-geboorte:2",
@@ -2595,7 +2595,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   82: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt1_judagebergte"],
     delen: [
       { t: "Elisabeth krijgt een zoon. Haar buren en familie zijn blij met haar.", stap: "jezus-1:nt-geboorte:4" },
@@ -2641,7 +2641,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   84: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["efrath"],
     delen: [
       { t: "Bij Bethlehem zijn herders in het veld. Het is nacht, en ze houden de wacht bij hun kudde.", stap: "jezus-1:nt-geboorte:6" },
@@ -2656,7 +2656,7 @@ BR.niveaus.voegToe("a", {
       { t: "Ze vertellen aan iedereen wat er over dit Kindje gezegd is. De mensen verwonderen zich." },
       { t: "Maria onthoudt al deze woorden in haar hart. De herders gaan terug en loven God." },
     ],
-    samen: "Lukas zegt dat de engelen God prezen, ‘prijzende God en zeggende’ (Lukas 2:13); dat ze zongen, staat er niet. Ook hoeveel herders er waren, en een stal, een os of een ezel worden niet genoemd. Bij deze geschiedenis hoort op de kaart ook het verhaal van Simeon en Anna in de tempel (Lukas 2:21–38); lees dat gedeelte er eventueel bij. Vraag samen: waaraan zouden de herders het Kind herkennen?",
+    samen: "Lukas zegt dat de engelen God prezen, ‘prijzende God en zeggende’ (Lukas 2:13); dat ze zongen, staat er niet. Ook staat er niet hoeveel herders er waren, en een stal, een os of een ezel worden niet genoemd. Bij deze geschiedenis hoort op de kaart ook het verhaal van Simeon en Anna in de tempel (Lukas 2:21–38); lees dat gedeelte er eventueel bij. Vraag samen: waaraan zouden de herders het Kind herkennen?",
     vragen: [
       { q: "Wie komt er bij de herders?", a: ["Een engel van de Heere", "Koning Herodes"], why: "Lukas 2:9" },
       { q: "Waar ligt het Kindje?", a: ["In een kribbe", "In een paleis"], why: "Lukas 2:12, 16" },
@@ -2664,7 +2664,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   85: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["salem", "efrath", "egypte"],
     delen: [
       {
@@ -2693,7 +2693,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   86: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_nazareth", "salem", "nt_tempel"],
     delen: [
       { t: "Elk jaar gaan Jozef en Maria naar Jeruzalem. Daar vieren ze het Pascha, een groot feest.", stap: "jezus-1:nt-geboorte:11" },
@@ -2718,7 +2718,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   87: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_woestijn", "nt_doopplaats", "nt_nazareth"],
     delen: [
       { t: "Johannes de Doper preekt in de woestijn. Hij roept: ‘Bekeert u’.", stap: "jezus-1:nt-begin:0" },
@@ -2742,7 +2742,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   88: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_woestijn", "nt_tempel"],
     delen: [
       { t: "Na Zijn doop leidt de Geest de Heere Jezus naar de woestijn. Daar zal de duivel Hem verzoeken.", stap: "jezus-1:nt-begin:2" },
@@ -2770,7 +2770,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   89: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_doopplaats", "nt_meer"],
     delen: [
       { t: "Johannes de Doper is bij de Jordaan, met twee van zijn leerlingen. Hij ziet de Heere Jezus lopen.", stap: "jezus-1:nt-begin:3" },
@@ -2799,7 +2799,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   90: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_kana"],
     delen: [
       { t: "In Kana is een bruiloft. Maria, de moeder van de Heere Jezus, is er ook.", stap: "jezus-1:nt-begin:4" },
@@ -2823,7 +2823,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   91: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt_kapernaum"],
     delen: [
       {
@@ -2855,7 +2855,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   92: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["nt1_bergrede"],
     delen: [
       {
@@ -2880,7 +2880,7 @@ BR.niveaus.voegToe("a", {
     ],
   },
   93: {
-    status: "concept",
+    status: "gecontroleerd",
     plaatsen: ["salem"],
     delen: [
       { t: "Nicodemus is een Farizeeër. Hij is een van de leiders van de Joden." },
@@ -3091,6 +3091,206 @@ BR.niveaus.voegToe("a", {
       { q: "Wat heeft de jongen bij zich?", a: ["Vijf broden en twee visjes", "Twee broden en vijf visjes"], why: "Johannes 6:9" },
       { q: "Hoeveel manden met stukken blijven er over?", a: ["Twaalf", "Eén"], why: "Johannes 6:13" },
       { q: "Waar gaat de Heere Jezus daarna heen?", a: ["Alleen de berg op", "Naar Nazareth"], why: "Johannes 6:15" },
+    ],
+  },
+  102: {
+    status: "gecontroleerd",
+    plaatsen: ["nt_bethesda", "nt_tempel"],
+    delen: [
+      {
+        t: "De Heere Jezus gaat naar Jeruzalem. Daar is een badwater, een bad met water. Het heet Bethesda.",
+        stap: "jezus-2:nt-feesten-jeruzalem:0",
+      },
+      {
+        t: "Bij het water liggen heel veel zieke mensen. Ook mensen die blind zijn of niet goed kunnen lopen.",
+        stap: "jezus-2:nt-feesten-jeruzalem:0",
+      },
+      { t: "Daar ligt ook een man die al heel lang ziek is: achtendertig jaar." },
+      { t: "De Heere Jezus vraagt hem: ‘Wilt gij gezond worden?’ De man zegt dat niemand hem in het water helpt." },
+      { t: "Dan zegt de Heere Jezus: ‘Sta op, neem uw beddeken op, en wandel.’ Meteen is de man gezond. Hij pakt zijn bed op en loopt." },
+      { t: "Het is die dag sabbat, de rustdag. De Joden zeggen tegen de man dat hij zijn bed niet mag dragen." },
+      {
+        t: "Later vindt de Heere Jezus de man in de tempel. Hij zegt tegen hem: ‘zondig niet meer’.",
+        stap: "jezus-2:nt-feesten-jeruzalem:1",
+      },
+      { t: "De Joden willen de Heere Jezus doden. Want Hij doet dit op de sabbat, en Hij noemt God Zijn eigen Vader." },
+    ],
+    samen: "Bij A is weggelaten dat volgens vers 4 een engel het water beroerde (Johannes 5:4), en ook het antwoord van de Heere Jezus: ‘Mijn Vader werkt tot nu toe, en Ik werk ook’ (Johannes 5:17). Het verhaal eindigt ermee dat de Joden Hem willen doden (Johannes 5:18); benoem dat eenvoudig en eerlijk. Vraag samen: had de man iemand die hem in het water hielp, en wat gebeurde er toen de Heere Jezus sprak?",
+    vragen: [
+      { q: "Hoe lang is de man al ziek?", a: ["Achtendertig jaar", "Een paar dagen"], why: "Johannes 5:5" },
+      {
+        q: "Wat zegt de Heere Jezus tegen de man?",
+        a: ["Sta op, neem je bed op en loop", "Ga gauw in het water liggen"],
+        why: "Johannes 5:8",
+      },
+      { q: "Waar vindt de Heere Jezus de man later?", a: ["In de tempel", "Bij de zee"], why: "Johannes 5:14" },
+    ],
+  },
+  103: {
+    status: "gecontroleerd",
+    plaatsen: ["nt_siloam", "salem"],
+    delen: [
+      { t: "De Heere Jezus ziet een man die blind is. Hij is al blind vanaf zijn geboorte." },
+      { t: "De discipelen vragen: wie heeft er gezondigd, hij of zijn ouders? De Heere Jezus zegt: geen van beiden." },
+      { t: "Het is gebeurd, zegt Hij, zodat in deze man te zien is wat God doet." },
+      { t: "Dan spuugt de Heere Jezus op de grond en maakt modder. Die strijkt Hij op de ogen van de blinde man." },
+      {
+        t: "Hij zegt: ‘Ga heen, was u in het badwater Siloam.’ De man gaat en wast zich. Nu kan hij zien!",
+        stap: "jezus-2:nt-feesten-jeruzalem:2",
+      },
+      {
+        t: "Het is sabbat. De Farizeeën vragen de man hoe hij kan zien. Sommigen zeggen dat de Heere Jezus niet van God is.",
+        stap: "jezus-2:nt-feesten-jeruzalem:3",
+      },
+      { t: "De man zegt: ‘een ding weet ik, dat ik blind was, en nu zie.’ Dan zetten de Farizeeën hem eruit." },
+      { t: "De Heere Jezus vindt hem. De man zegt: ‘Ik geloof, Heere!’ En hij aanbidt Hem." },
+    ],
+    samen: "Bij A is weggelaten dat ook de ouders worden ondervraagd. Zij zijn bang om uit de synagoge gezet te worden en zeggen: ‘Hij heeft zijn ouderdom, vraagt hemzelven’ (Johannes 9:18–23). Bij de vraag van de discipelen (Johannes 9:2–3) kun je stilstaan: de Heere Jezus zegt dat niet deze man of zijn ouders gezondigd hebben, maar dat de werken van God in hem zichtbaar moeten worden. Vraag samen: wat zegt de man als hij weer kan zien?",
+    vragen: [
+      { q: "Waar moet de man zich wassen?", a: ["In het badwater Siloam", "In de rivier de Jordaan"], why: "Johannes 9:7" },
+      { q: "Wat strijkt de Heere Jezus op zijn ogen?", a: ["Modder", "Olie"], why: "Johannes 9:6" },
+      { q: "Wat zegt de man aan het eind tegen de Heere Jezus?", a: ["Ik geloof, Heere!", "Ik ga nu naar huis"], why: "Johannes 9:38" },
+    ],
+  },
+  104: {
+    status: "gecontroleerd",
+    plaatsen: ["salem", "nt_tempel"],
+    delen: [
+      { t: "De Heere Jezus vertelt een gelijkenis. Het gaat over een herder en zijn schapen.", stap: "jezus-2:nt-feesten-jeruzalem:4" },
+      { t: "De herder gaat door de deur de schaapskooi in. Een dief klimt er ergens anders in." },
+      { t: "De herder roept zijn schapen bij hun naam. Hij gaat voor ze uit, en ze volgen hem. Want ze kennen zijn stem." },
+      { t: "Een vreemde volgen de schapen niet. Van hem vluchten ze weg." },
+      { t: "De Heere Jezus zegt: ‘Ik ben de goede Herder.’ De goede herder geeft zijn leven voor de schapen." },
+      { t: "Iemand die voor loon op de schapen past, vlucht als de wolf komt. Hij heeft geen zorg voor de schapen." },
+      {
+        t: "Het is winter. De Heere Jezus is in de tempel. Hij zegt: ‘Mijn schapen horen Mijn stem.’",
+        stap: "jezus-2:nt-feesten-jeruzalem:5",
+      },
+      { t: "Hij geeft hun het eeuwige leven. Niemand zal ze uit Zijn hand rukken." },
+    ],
+    samen: "In de gelijkenis is de goede Herder de Heere Jezus Zelf (Johannes 10:11, 14). Dat Hij Zijn leven geeft voor de schapen, wijst vooruit naar Zijn sterven; Hij zegt er ook bij dat Hij het weer terugneemt (Johannes 10:17–18). Bij A is weggelaten dat Hij ook zegt: ‘Ik ben de Deur der schapen’ (Johannes 10:7–9). Vraag samen: wat doet een herder voor zijn schapen, en waaraan kennen de schapen hun herder?",
+    vragen: [
+      { q: "Waaraan kennen de schapen hun herder?", a: ["Aan zijn stem", "Aan zijn jas"], why: "Johannes 10:4" },
+      { q: "Hoe roept de herder zijn schapen?", a: ["Bij hun naam", "Met een fluitje"], why: "Johannes 10:3" },
+      { q: "Wat doet de goede herder voor de schapen?", a: ["Hij geeft zijn leven voor ze", "Hij laat ze alleen"], why: "Johannes 10:11" },
+    ],
+  },
+  105: {
+    status: "gecontroleerd",
+    plaatsen: ["nt_kaesareafilippi"],
+    delen: [
+      { t: "De Heere Jezus is met Zijn discipelen ver in het noorden, bij Caesarea Filippi.", stap: "jezus-2:nt-brood-en-berg:4" },
+      { t: "Hij vraagt wie de mensen zeggen dat Hij is. Sommigen zeggen: Johannes de Doper. Anderen: Elia, of een andere profeet." },
+      { t: "Dan vraagt Hij: ‘Maar gij, wie zegt gij, dat Ik ben?’" },
+      { t: "Petrus antwoordt: ‘Gij zijt de Christus, de Zoon des levenden Gods.’" },
+      { t: "De Heere Jezus zegt: dat hebben geen mensen je laten weten, maar Mijn Vader in de hemel." },
+      {
+        t: "Dan vertelt Hij dat Hij in Jeruzalem veel moet lijden en gedood zal worden. Op de derde dag zal Hij weer opstaan.",
+        stap: "jezus-2:nt-brood-en-berg:5",
+      },
+      { t: "Petrus wil niet dat dit gebeurt. Maar de Heere Jezus zegt: jij denkt niet aan wat God wil, maar aan wat mensen willen." },
+    ],
+    samen: "Bij A is weggelaten dat de Heere Jezus tegen Petrus zegt: ‘Ga weg achter Mij, satanas!’ (Mattheüs 16:23), en wat Hij zegt over het opnemen van het kruis (Mattheüs 16:24). Ook de woorden over de gemeente en de sleutels (Mattheüs 16:18–19) staan er niet in. De aankondiging van Zijn lijden, sterven en opstaan staat er wel (Mattheüs 16:21); je kunt vertellen dat het later in Jeruzalem zo gebeurd is. Vraag samen: wat zei Petrus over wie de Heere Jezus is?",
+    vragen: [
+      { q: "Wat zegt Petrus wie de Heere Jezus is?", a: ["De Christus, de Zoon van God", "Johannes de Doper"], why: "Mattheüs 16:16" },
+      { q: "Naar welke stad moet de Heere Jezus gaan om te lijden?", a: ["Naar Jeruzalem", "Naar Nazareth"], why: "Mattheüs 16:21" },
+      { q: "Wanneer zal Hij weer opstaan?", a: ["Op de derde dag", "Na een jaar"], why: "Mattheüs 16:21" },
+    ],
+  },
+  106: {
+    status: "gecontroleerd",
+    plaatsen: ["nt_berg"],
+    delen: [
+      { t: "De Heere Jezus neemt Petrus, Johannes en Jakobus mee. Ze gaan een berg op om te bidden.", stap: "jezus-2:nt-brood-en-berg:6" },
+      { t: "Terwijl Hij bidt, verandert Zijn gezicht. Zijn kleren worden wit en stralend." },
+      { t: "Dan spreken er twee mannen met Hem: Mozes en Elia. Ze spreken over wat Hij in Jeruzalem zal volbrengen." },
+      { t: "De discipelen zijn erg slaperig. Als ze wakker worden, zien ze Zijn heerlijkheid en de twee mannen." },
+      { t: "Petrus zegt: ‘Meester, het is goed, dat wij hier zijn’. Hij wil drie tenten maken. Maar hij weet niet wat hij zegt." },
+      { t: "Dan komt er een wolk over hen heen. De discipelen worden bang." },
+      { t: "Uit de wolk klinkt een stem: ‘Deze is Mijn geliefde Zoon; hoort Hem!’" },
+      { t: "Daarna is de Heere Jezus weer alleen. De discipelen vertellen in die dagen aan niemand wat ze gezien hebben." },
+    ],
+    samen: "Mozes en Elia leefden lang daarvoor. Mozes stierf in het land van Moab (Deuteronomium 34:5); Elia voer ‘met een onweder ten hemel’ (2 Koningen 2:11). Hier verschijnen ze ‘in heerlijkheid’ (Lukas 9:31). Welke berg het was, zegt de Bijbel niet; de plek op de kaart is onzeker. Vraag samen: wie spreekt er uit de wolk, en wat zegt Hij over de Heere Jezus?",
+    vragen: [
+      { q: "Wie spreken er met de Heere Jezus op de berg?", a: ["Mozes en Elia", "Abraham en David"], why: "Lukas 9:30" },
+      { q: "Wat wil Petrus maken?", a: ["Drie tenten", "Een groot vuur"], why: "Lukas 9:33" },
+      {
+        q: "Wat zegt de stem uit de wolk?",
+        a: ["Dit is Mijn geliefde Zoon, hoor naar Hem", "Ga nu snel de berg weer af"],
+        why: "Lukas 9:35",
+      },
+    ],
+  },
+  107: {
+    status: "gecontroleerd",
+    plaatsen: ["nt2_perea"],
+    delen: [
+      {
+        t: "Mensen brengen kleine kinderen bij de Heere Jezus. Ze willen dat Hij de kinderen aanraakt.",
+        stap: "jezus-2:nt-reis-naar-jeruzalem:7",
+      },
+      { t: "De discipelen spreken die mensen streng toe. Maar daar is de Heere Jezus boos om." },
+      { t: "Hij zegt: ‘Laat de kinderkens tot Mij komen, en verhindert ze niet’." },
+      { t: "Hij neemt de kinderen in Zijn armen. Hij legt hun de handen op en zegent ze." },
+      {
+        t: "Dan komt er een man naar Hem toe. Hij valt op zijn knieën en vraagt wat hij moet doen om het eeuwige leven te krijgen.",
+        stap: "jezus-2:nt-reis-naar-jeruzalem:8",
+      },
+      { t: "De Heere Jezus noemt Gods geboden. De man zegt dat hij die al van jongs af gehouden heeft." },
+      { t: "De Heere Jezus kijkt hem aan en heeft hem lief. Hij zegt: verkoop alles, geef het aan de armen, en volg Mij." },
+      { t: "Dan wordt de man verdrietig en gaat weg. Want hij heeft heel veel bezittingen." },
+      {
+        t: "De Heere Jezus zegt dat het voor rijke mensen heel moeilijk is om in Gods Koninkrijk te komen. Maar bij God zijn alle dingen mogelijk.",
+      },
+    ],
+    samen: "Het beeld van de kemel en het oog van een naald (Markus 10:25) is bij A weggelaten. Het gaat om iets onmogelijks: de discipelen vragen dan ook ‘Wie kan dan zalig worden?’, en het antwoord is dat bij God alle dingen mogelijk zijn (Markus 10:26–27). Markus noemt de rijke man niet jong; Mattheüs noemt hem een jongeling (Mattheüs 19:20). Vraag samen: wat deed de Heere Jezus met de kinderen, en waarom ging de man verdrietig weg?",
+    vragen: [
+      { q: "Wat doet de Heere Jezus met de kinderen?", a: ["Hij zegent ze", "Hij stuurt ze weg"], why: "Markus 10:16" },
+      { q: "Waarom gaat de man verdrietig weg?", a: ["Hij heeft veel bezittingen", "Hij is erg ziek"], why: "Markus 10:22" },
+      { q: "Wat is er mogelijk bij God?", a: ["Alle dingen", "Bijna niets"], why: "Markus 10:27" },
+    ],
+  },
+  108: {
+    status: "gecontroleerd",
+    plaatsen: ["nt2_perea"],
+    delen: [
+      { t: "De Heere Jezus is met Zijn discipelen op weg naar Jeruzalem. Hij loopt voorop.", stap: "jezus-2:nt-reis-naar-jeruzalem:9" },
+      { t: "Hij vertelt wat er in Jeruzalem gaat gebeuren. Mensen zullen Hem bespotten en doden. Maar op de derde dag zal Hij opstaan." },
+      { t: "Dan komen Jakobus en Johannes bij Hem. Ze zijn broers, de zonen van Zebedeüs." },
+      { t: "Ze vragen of ze naast Hem mogen zitten, de één rechts en de ander links, in Zijn heerlijkheid." },
+      { t: "De Heere Jezus zegt: ‘Gij weet niet, wat gij begeert.’ Dat betekent: jullie weten niet wat jullie vragen." },
+      { t: "De andere tien discipelen horen het. Ze worden boos op Jakobus en Johannes." },
+      { t: "Dan zegt de Heere Jezus: wie groot wil zijn, moet de anderen dienen." },
+      { t: "Want Hij is Zelf niet gekomen om gediend te worden, maar om te dienen. En om Zijn leven te geven voor velen." },
+    ],
+    samen: "Bij A is weggelaten het gesprek over de drinkbeker en de doop (Markus 10:38–40). Het lijden staat er kort in; volgens de tekst zal de Heere Jezus bespot, gegeseld, bespuwd en gedood worden, en op de derde dag opstaan (Markus 10:33–34). Vertel dat sober. Het woord ‘rantsoen’ in vers 45 betekent losprijs: wat betaald wordt om iemand vrij te maken. Vraag samen: wat vroegen Jakobus en Johannes, en wat zei de Heere Jezus over groot zijn?",
+    vragen: [
+      { q: "Wat vragen Jakobus en Johannes?", a: ["Om naast de Heere Jezus te zitten", "Om eten voor onderweg"], why: "Markus 10:37" },
+      { q: "Hoe reageren de andere discipelen?", a: ["Ze worden boos", "Ze gaan zingen"], why: "Markus 10:41" },
+      { q: "Waarvoor is de Heere Jezus gekomen?", a: ["Om te dienen", "Om gediend te worden"], why: "Markus 10:45" },
+    ],
+  },
+  109: {
+    status: "gecontroleerd",
+    delen: [
+      {
+        t: "Een wetgeleerde kent Gods wet heel goed. Hij wil de Heere Jezus op de proef stellen en vraagt hoe hij het eeuwige leven krijgt.",
+      },
+      { t: "De Heere Jezus vraagt wat er in de wet staat. De man zegt: heb God lief met heel je hart, en je naaste als jezelf." },
+      { t: "Dan vraagt hij: ‘En wie is mijn naaste?’ De Heere Jezus vertelt een gelijkenis." },
+      { t: "Een man reist van Jeruzalem naar Jericho. Onderweg wordt hij overvallen. De rovers laten hem half dood liggen." },
+      { t: "Er komt een priester langs. Hij ziet de man, maar loopt aan de overkant voorbij. Een Leviet doet hetzelfde." },
+      { t: "Dan komt er een Samaritaan. Als hij de man ziet, krijgt hij medelijden met hem." },
+      { t: "Hij verbindt zijn wonden en zet hem op zijn eigen dier. Hij brengt hem naar een herberg en zorgt voor hem." },
+      { t: "De volgende dag geeft hij de waard twee penningen. Hij vraagt de waard om voor de man te zorgen." },
+      { t: "De Heere Jezus vraagt: wie was de naaste van die man? De wetgeleerde zegt: die barmhartig voor hem was." },
+      { t: "Dan zegt de Heere Jezus: ‘Ga heen, en doe gij desgelijks.’" },
+    ],
+    samen: "De overval wordt in Lukas 10:30 sober verteld: de man werd uitgekleed, kreeg zware slagen en bleef half dood liggen; bij A staat alleen dat hij overvallen werd. Joden en Samaritanen gingen niet met elkaar om (Johannes 4:9); daarom is het opvallend dat juist een Samaritaan helpt. Vraag samen: wie kwamen er langs, en wie hielp de man?",
+    vragen: [
+      { q: "Wie helpt de man die gewond langs de weg ligt?", a: ["Een Samaritaan", "Een priester"], why: "Lukas 10:33–34" },
+      { q: "Waar brengt de Samaritaan de man naartoe?", a: ["Naar een herberg", "Naar de tempel"], why: "Lukas 10:34" },
+      { q: "Wat doen de priester en de Leviet?", a: ["Ze lopen voorbij", "Ze helpen de man"], why: "Lukas 10:31–32" },
     ],
   },
   110: {
@@ -3928,215 +4128,6 @@ BR.niveaus.voegToe("a", {
         a: ["De Heilige Geest", "Een engel met een zwaard"],
         why: "Handelingen 10:44",
       },
-    ],
-  },
-  142: {
-    status: "concept",
-    plaatsen: ["salem"],
-    delen: [
-      { t: "Koning Herodes doet de gemeente kwaad. Hij laat Jakobus, de broer van Johannes, doden.", stap: "handelingen:nt-gemeente:13" },
-      { t: "Dan laat hij ook Petrus gevangennemen. Veel soldaten moeten hem bewaken.", stap: "handelingen:nt-gemeente:13" },
-      { t: "Maar de gemeente bidt steeds tot God voor Petrus." },
-      { t: "Het is nacht. Petrus slaapt tussen twee soldaten. Hij zit vast met twee kettingen." },
-      {
-        t: "Dan staat er een engel van de Heere bij hem, en er schijnt licht. De engel zegt: Sta snel op! De kettingen vallen van zijn handen.",
-      },
-      {
-        t: "Petrus loopt achter de engel aan, langs de wachten. De ijzeren poort naar de stad gaat vanzelf open.",
-        stap: "handelingen:nt-gemeente:13",
-      },
-      { t: "Op straat is de engel ineens weg. Nu weet Petrus zeker: de Heere heeft Zijn engel gestuurd om hem te verlossen." },
-      { t: "Petrus gaat naar het huis van Maria. Daar zijn veel mensen bij elkaar. Ze bidden." },
-      { t: "Rhode hoort Petrus aan de deur. Ze is zo blij dat ze niet opendoet, maar naar binnen rent om het te vertellen." },
-      { t: "Petrus blijft kloppen. Als ze opendoen, zien ze hem echt staan. Wat zijn ze verbaasd!" },
-    ],
-    samen: "Aan het eind van Handelingen 12 sterft koning Herodes in Caesarea: een engel van de Heere slaat hem, ‘daarom dat hij Gode de eer niet gaf’ (Handelingen 12:23). Dat is hier weggelaten. De dood van Jakobus vertelt de Bijbel in één zin (12:2); meer hoeft u er ook niet over te zeggen. Vraag samen: wat deed de gemeente terwijl Petrus gevangen zat? (12:5, 12)",
-    vragen: [
-      {
-        q: "Wat doet de gemeente als Petrus gevangen zit?",
-        a: ["Ze bidden tot God voor hem", "Ze gaan naar de koning"],
-        why: "Handelingen 12:5",
-      },
-      { q: "Wie maakt Petrus wakker in de nacht?", a: ["Een engel van de Heere", "Een van de soldaten"], why: "Handelingen 12:7" },
-      { q: "Wat doet Rhode als ze Petrus hoort?", a: ["Ze rent blij naar binnen", "Ze doet meteen de deur open"], why: "Handelingen 12:14" },
-    ],
-  },
-  143: {
-    status: "concept",
-    plaatsen: ["salem", "damascusst"],
-    delen: [
-      {
-        t: "Saulus is tegen de discipelen van de Heere. Hij wil hen gevangennemen. Daarom gaat hij op weg naar Damascus.",
-        stap: "handelingen:nt-paulus:0",
-      },
-      {
-        t: "Vlak bij Damascus schijnt er ineens een licht uit de hemel om hem heen. Saulus valt op de grond.",
-        stap: "handelingen:nt-paulus:0",
-      },
-      { t: "Hij hoort een stem: ‘Saul, Saul! wat vervolgt gij Mij?’ Dat betekent: waarom doe je Mij kwaad?" },
-      { t: "Saulus vraagt: Wie bent U, Heere? De stem zegt: Ik ben Jezus. Het is de Heere Jezus zelf!" },
-      {
-        t: "Saulus staat op, maar hij kan niets zien. Ze nemen hem bij de hand en brengen hem in Damascus.",
-        stap: "handelingen:nt-paulus:0",
-      },
-      { t: "Drie dagen lang ziet hij niets. Hij eet niet en drinkt niet. Hij bidt." },
-      {
-        t: "De Heere zegt tegen Ananias: Ga naar Saulus. Maar Ananias zegt: Heere, die man heeft Uw volk veel kwaad gedaan.",
-        stap: "handelingen:nt-paulus:1",
-      },
-      { t: "De Heere zegt: Ga heen. Ik heb hem uitgekozen. Hij zal Mijn Naam bekendmaken aan volken en koningen." },
-      {
-        t: "Ananias legt Saulus de handen op. Er valt iets als schubben van zijn ogen. Hij ziet weer en wordt gedoopt.",
-        stap: "handelingen:nt-paulus:1",
-      },
-      { t: "Nu vertelt Saulus dat Jezus de Zoon van God is. Later laten de discipelen hem ’s nachts in een mand langs de muur zakken." },
-    ],
-    samen: "Op schilderijen valt Saulus vaak van een paard. Handelingen 9 noemt geen paard: er staat alleen dat hij ‘ter aarde gevallen’ was (9:4). Saulus had de gelovigen veel kwaad gedaan (9:1–2, 13); de Bijbel vertelt dat zonder details, en dat kan bij het voorlezen ook. Vraag samen: wat deed Saulus in de drie dagen dat hij niet kon zien? (9:9, 11)",
-    vragen: [
-      { q: "Wat ziet Saulus vlak bij Damascus?", a: ["Een licht uit de hemel", "Een groot vuur"], why: "Handelingen 9:3" },
-      { q: "Wie spreekt tegen Saulus?", a: ["De Heere Jezus", "Een van zijn reisgenoten"], why: "Handelingen 9:5" },
-      {
-        q: "Hoe komt Saulus later uit Damascus weg?",
-        a: ["In een mand langs de muur", "Op een kameel door de poort"],
-        why: "Handelingen 9:25",
-      },
-    ],
-  },
-  144: {
-    status: "concept",
-    plaatsen: ["nt_antiochie", "nt_pafos", "nt_lystre"],
-    delen: [
-      {
-        t: "In Jeruzalem zijn de discipelen bang voor Saulus. Maar Barnabas neemt hem mee naar de apostelen.",
-        stap: "handelingen:nt-paulus:2",
-      },
-      {
-        t: "Later haalt Barnabas Saulus op uit Tarsus. Een heel jaar onderwijzen ze samen de gemeente in Antiochië.",
-        stap: "handelingen:nt-paulus:3",
-      },
-      { t: "In Antiochië worden de discipelen voor het eerst christenen genoemd.", stap: "handelingen:nt-paulus:3" },
-      {
-        t: "De Heilige Geest zegt dat Barnabas en Saulus apart gezet moeten worden voor een werk. Na vasten en bidden laat men hen gaan.",
-        stap: "handelingen:nt-paulus:4",
-      },
-      { t: "Ze varen naar het eiland Cyprus. Daar vertellen ze het Woord van God.", stap: "handelingen:nt-paulus:4" },
-      {
-        t: "In Pafos werkt een tovenaar hen tegen. Hij wordt een tijd blind. De stadhouder ziet het en gaat geloven.",
-        stap: "handelingen:nt-paulus:4",
-      },
-      {
-        t: "In Lystre zit een man die nog nooit gelopen heeft. Paulus roept: Sta recht op je voeten! De man springt op en loopt.",
-        stap: "handelingen:nt-paulus:6",
-      },
-      { t: "De mensen denken dat Paulus en Barnabas goden zijn. Maar zij roepen: Wij zijn ook mensen!", stap: "handelingen:nt-paulus:6" },
-      {
-        t: "Later gooien mensen stenen naar Paulus. Ze denken dat hij dood is. Maar hij staat op en gaat verder.",
-        stap: "handelingen:nt-paulus:6",
-      },
-      {
-        t: "Terug in Antiochië vertellen ze wat God gedaan heeft. Hij heeft ook voor de heidenen de deur van het geloof geopend.",
-        stap: "handelingen:nt-paulus:7",
-      },
-    ],
-    samen: "Paulus wordt in Lystre gestenigd (Handelingen 14:19). De Bijbel vertelt het kort: men dacht dat hij dood was, maar hij stond op. Paulus schrijft er later zelf over: ‘eens ben ik gestenigd’ (2 Korinthe 11:25). Weggelaten zijn onder andere de preek in Antiochië in Pisidië (13:14–52) en de vervolging in Ikonium (14:1–6). Heidenen zijn mensen die geen Joden zijn. Vraag samen: wie neemt het voor Saulus op als iedereen bang voor hem is? (9:27)",
-    vragen: [
-      { q: "Wie gaat met Saulus op reis?", a: ["Barnabas", "Petrus"], why: "Handelingen 13:2–4" },
-      {
-        q: "Wat doet de man in Lystre die nooit gelopen heeft?",
-        a: ["Hij springt op en loopt", "Hij blijft stil zitten"],
-        why: "Handelingen 14:10",
-      },
-      { q: "Waar worden de discipelen voor het eerst christenen genoemd?", a: ["In Antiochië", "In Jeruzalem"], why: "Handelingen 11:26" },
-    ],
-  },
-  145: {
-    status: "concept",
-    plaatsen: ["nt_lystre", "nt_troas", "nt_filippi"],
-    delen: [
-      { t: "Paulus gaat weer op reis, nu met Silas. In Lystre gaat ook Timotheüs mee.", stap: "handelingen:nt-paulus:8" },
-      {
-        t: "In Troas ziet Paulus in de nacht een gezicht. Een man uit Macedonië vraagt: ‘Kom over in Macedonië, en help ons.’",
-        stap: "handelingen:nt-paulus:8",
-      },
-      { t: "Ze varen met een schip over de zee naar Macedonië. Daar gaan ze naar de stad Filippi.", stap: "handelingen:nt-paulus:9" },
-      { t: "Bij de rivier vertelt Paulus over de Heere. Lydia luistert. De Heere opent haar hart.", stap: "handelingen:nt-paulus:9" },
-      { t: "Lydia wordt gedoopt, met haar huis. Ze vraagt of Paulus en de anderen bij haar in huis willen blijven." },
-      {
-        t: "Later worden Paulus en Silas geslagen en in de gevangenis gezet. Hun voeten zitten vast in een blok.",
-        stap: "handelingen:nt-paulus:10",
-      },
-      { t: "Om middernacht bidden Paulus en Silas en zingen ze voor God. De andere gevangenen luisteren." },
-      { t: "Dan komt er een grote aardbeving. Alle deuren gaan open en alle boeien raken los." },
-      { t: "De bewaker denkt dat iedereen gevlucht is. Maar Paulus roept: ‘Doe uzelven geen kwaad; want wij zijn allen hier.’" },
-      {
-        t: "De bewaker vraagt hoe hij zalig kan worden. Ze zeggen: Geloof in de Heere Jezus Christus. Nog die nacht wordt hij gedoopt, met al de zijnen.",
-      },
-    ],
-    samen: "Weggelaten: Paulus en Barnabas gaan in onenigheid uit elkaar (Handelingen 15:37–39), en Paulus drijft een waarzeggende geest uit een slavin; daarom worden hij en Silas gevangengezet (16:16–24). De bewaker wilde zichzelf doden toen hij de deuren open zag (16:27). Daarom roept Paulus: ‘Doe uzelven geen kwaad’. Zalig worden betekent: gered worden van de zonden. Vraag samen: wat deden Paulus en Silas midden in de nacht? (16:25)",
-    vragen: [
-      { q: "Wie ziet Paulus in de nacht in Troas?", a: ["Een man uit Macedonië", "Een engel met een zwaard"], why: "Handelingen 16:9" },
-      { q: "Wat opent de Heere bij Lydia?", a: ["Haar hart", "Haar winkel"], why: "Handelingen 16:14" },
-      {
-        q: "Wat doen Paulus en Silas om middernacht?",
-        a: ["Ze bidden en zingen voor God", "Ze liggen te slapen"],
-        why: "Handelingen 16:25",
-      },
-    ],
-  },
-  146: {
-    status: "concept",
-    plaatsen: ["nt_caesarea", "salem", "nt_tempel"],
-    delen: [
-      { t: "Paulus en zijn vrienden varen met een schip naar Tyrus. Daarna gaan ze naar Caesarea.", stap: "handelingen:nt-paulusrome:0" },
-      {
-        t: "Daar neemt de profeet Agabus de gordel van Paulus. Hij bindt er zijn eigen handen en voeten mee.",
-        stap: "handelingen:nt-paulusrome:0",
-      },
-      { t: "Agabus zegt: Zo zullen ze Paulus in Jeruzalem binden. Iedereen vraagt Paulus om niet te gaan." },
-      { t: "Maar Paulus is bereid om voor de Naam van de Heere Jezus te sterven. Dan zeggen ze: ‘De wil des Heeren geschiede.’" },
-      { t: "In de tempel in Jeruzalem grijpen mensen Paulus vast. Ze willen hem doden.", stap: "handelingen:nt-paulusrome:1" },
-      { t: "Maar Romeinse soldaten komen eraan. Ze nemen Paulus mee.", stap: "handelingen:nt-paulusrome:1" },
-      { t: "Op de trap vertelt Paulus hoe de Heere Jezus hem op weg naar Damascus geroepen heeft." },
-      { t: "In de nacht staat de Heere bij Paulus. Hij zegt: ‘Heb goeden moed, Paulus’. Je moet ook in Rome over Mij vertellen." },
-      { t: "Een groep mannen spreekt af om Paulus te doden. Maar de zoon van zijn zus hoort het en vertelt het." },
-      { t: "Dan stuurt de overste Paulus in de nacht met heel veel soldaten naar Caesarea.", stap: "handelingen:nt-paulusrome:2" },
-    ],
-    samen: "Een gordel is een riem om het middel. Weggelaten zijn onder andere de ruzie in de raad tussen Farizeeën en Sadduceeën (Handelingen 23:6–10) en dat de hogepriester Paulus op de mond laat slaan (23:2). De geschiedenis eindigt met Paulus als gevangene, maar de Heere heeft hem beloofd dat hij ook in Rome zal getuigen (23:11). Vraag samen: wie hoorde van het plan en waarschuwde Paulus? (23:16)",
-    vragen: [
-      {
-        q: "Wat doet Agabus met de gordel van Paulus?",
-        a: ["Hij bindt er zijn handen en voeten mee", "Hij gooit hem in de zee"],
-        why: "Handelingen 21:11",
-      },
-      { q: "Wat zegt de Heere in de nacht tegen Paulus?", a: ["Heb goeden moed", "Ga terug naar huis"], why: "Handelingen 23:11" },
-      { q: "Wie hoort het plan om Paulus te doden?", a: ["De zoon van zijn zus", "De profeet Agabus"], why: "Handelingen 23:16" },
-    ],
-  },
-  147: {
-    status: "concept",
-    plaatsen: ["nt_caesarea", "nt_schonehavens", "nt_malta"],
-    delen: [
-      {
-        t: "Paulus is gevangen in Caesarea. Hij zegt: ‘Ik beroep mij op den keizer.’ Dat betekent: de keizer moet over mij oordelen.",
-        stap: "handelingen:nt-paulusrome:3",
-      },
-      { t: "Daarom gaat Paulus met een schip op weg naar Italië. Hij is samen met andere gevangenen. De hoofdman Julius past op hen." },
-      { t: "Paulus waarschuwt: deze reis wordt gevaarlijk. Maar ze varen toch verder.", stap: "handelingen:nt-paulusrome:4" },
-      { t: "Dan komt er een zware storm. Vele dagen zien ze geen zon en geen sterren. Ze hebben geen hoop meer." },
-      { t: "Paulus zegt: Een engel van God is bij mij geweest. Niemand zal sterven, alleen het schip gaat verloren." },
-      {
-        t: "In de nacht komen ze dicht bij land. Paulus zegt dat iedereen moet eten. Hij dankt God voor het brood.",
-        stap: "handelingen:nt-paulusrome:5",
-      },
-      { t: "Het schip loopt vast. De golven slaan het achterste deel stuk.", stap: "handelingen:nt-paulusrome:5" },
-      { t: "Wie kan zwemmen, springt in het water. De anderen drijven op planken naar het land." },
-      { t: "Zo komen ze allemaal veilig aan land, zoals God beloofd had." },
-    ],
-    samen: "De storm kan spannend zijn voor jonge kinderen; benadruk dat God beloofde dat niemand zou omkomen, en dat dat ook gebeurde (Handelingen 27:22–24, 44). Weggelaten: de soldaten wilden de gevangenen doden, zodat niemand zou ontvluchten, maar de hoofdman verbood het om Paulus te redden (27:42–43). Op het schip waren 276 mensen (27:37). Vraag samen: wat deed Paulus voordat hij het brood at? (27:35)",
-    vragen: [
-      { q: "Wat zegt Paulus na het bezoek van de engel?", a: ["Niemand zal sterven", "Het schip blijft heel"], why: "Handelingen 27:22–24" },
-      { q: "Wat doet Paulus voordat hij het brood eet?", a: ["Hij dankt God", "Hij gaat slapen"], why: "Handelingen 27:35" },
-      { q: "Hoe komen de mensen aan land?", a: ["Zwemmend of op planken", "Met een andere boot"], why: "Handelingen 27:43–44" },
     ],
   },
   148: {

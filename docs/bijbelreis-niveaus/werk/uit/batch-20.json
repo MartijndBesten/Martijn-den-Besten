@@ -1,7 +1,7 @@
 {
   "86": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt_nazareth",
         "salem",
@@ -71,7 +71,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Elk jaar naar het Pascha",
@@ -136,7 +136,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Opgroeien in Nazareth",
@@ -206,7 +206,7 @@
   },
   "87": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt_woestijn",
         "nt_doopplaats",
@@ -274,7 +274,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Een stem in de woestijn",
@@ -340,7 +340,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Johannes en Elia",
@@ -415,7 +415,7 @@
   },
   "88": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt_woestijn",
         "nt_tempel"
@@ -480,7 +480,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Veertig dagen zonder eten",
@@ -545,7 +545,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Drie antwoorden uit Deuteronomium",
@@ -618,7 +618,7 @@
   },
   "89": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt_doopplaats",
         "nt_meer"
@@ -687,7 +687,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Ziet, het Lam Gods",
@@ -753,7 +753,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Twee momenten, twee plaatsen",
@@ -825,7 +825,7 @@
   },
   "90": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt_kana"
       ],
@@ -889,7 +889,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Geen wijn meer",
@@ -954,7 +954,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Water voor de reiniging",
@@ -1025,7 +1025,7 @@
   },
   "91": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt_kapernaum"
       ],
@@ -1093,7 +1093,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Een sabbat in Kapernaüm",
@@ -1159,7 +1159,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Een melaatse aanraken",
@@ -1230,7 +1230,7 @@
   },
   "92": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "nt1_bergrede"
       ],
@@ -1296,7 +1296,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Zalig zijn",
@@ -1361,7 +1361,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Gij hebt gehoord, maar Ik zeg u",
@@ -1432,7 +1432,7 @@
   },
   "93": {
     "a": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "plaatsen": [
         "salem"
       ],
@@ -1498,7 +1498,7 @@
       ]
     },
     "b": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "delen": [
         {
           "kop": "Een bezoek in de nacht",
@@ -1554,7 +1554,7 @@
       ]
     },
     "c": {
-      "status": "concept",
+      "status": "gecontroleerd",
       "verdieping": [
         {
           "kop": "Nicodemus later",
