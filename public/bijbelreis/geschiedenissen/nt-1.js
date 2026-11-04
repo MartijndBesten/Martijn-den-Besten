@@ -73,7 +73,7 @@ BR.geschiedenissen.push(
     { q: "Waarom moest Jozef naar Bethlehem?", a: ["Hij was uit het huis en geslacht van David", "Hij had daar een huis gekocht", "Zijn ouders woonden daar"], why: "Lukas 2:4" },
     { q: "Waar legde Maria het Kind neer?", a: ["In een kribbe", "In een wieg", "In een mandje"], why: "Lukas 2:7" },
     { q: "Waarom lag het Kind in een kribbe?", a: ["Er was geen plaats in de herberg", "Het was er warmer", "De herders hadden dat gevraagd"], why: "Lukas 2:7" }],
-  cross: [["Micha 5:1", "‘En gij, Bethlehem Efratha! … uit u zal Mij voortkomen, Die een Heerser zal zijn in Israël.’"],
+  cross: [["Micha 5:1", "‘En gij, Bethlehem Efratha! … Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israël.’"],
     ["Jesaja 9:5", "‘Want een Kind is ons geboren, een Zoon is ons gegeven.’"],
     ["2 Korinthe 8:9", "‘Dat Hij om uwentwil is arm geworden, daar Hij rijk was.’"],
     ["Galaten 4:4", "God zond Zijn Zoon ‘wanneer de volheid des tijds gekomen is’."]],
