@@ -130,7 +130,7 @@ BR.geschiedenissen.push(
   cross: [["Exodus 20:12", "‘Eert uw vader en uw moeder.’"],
     ["Deuteronomium 16:16", "Drie keer per jaar voor de HEERE verschijnen, onder andere op het feest van de ongezuurde broden."],
     ["Johannes 2:16", "Later noemt de Heere Jezus de tempel ‘het huis Mijns Vaders’."]],
-  tl: [6, 8], tijd: "ca. 6–8 n.Chr.", tijdNoot: "Reconstructie: twaalf jaar na de geboorte (ca. 6–4 v.Chr.); er is geen jaar 0. Andere dateringen bestaan." },
+  tl: [7, 9], tijd: "ca. 7–9 n.Chr.", tijdNoot: "Reconstructie: twaalf jaar na de geboorte (ca. 6–4 v.Chr.); er is geen jaar 0. Andere dateringen bestaan." },
 
 { nr: 87, t: "De doop van de Heere Jezus in de Jordaan", ref: "Mattheüs 3", sectie: "galilea",
   stappen: ["jezus-1:nt-begin:0", "jezus-1:nt-begin:1"], vorm: "plek",
@@ -179,7 +179,7 @@ BR.geschiedenissen.push(
   quiz: [{ q: "Wat zei Johannes de Doper toen hij de Heere Jezus zag lopen?", a: ["Ziet, het Lam Gods!", "Bekeert u!", "Hosanna!"], why: "Johannes 1:36" },
     { q: "Welke nieuwe naam gaf de Heere Jezus aan Simon?", a: ["Cefas (Petrus)", "Boanerges", "Thaddeüs"], why: "Johannes 1:43" },
     { q: "Waar zag de Heere Jezus Nathanaël voordat Filippus hem riep?", a: ["Onder de vijgenboom", "In de synagoge", "In een schip"], why: "Johannes 1:49" },
-    { q: "Wat deden Simon en Andreas toen ze bij het meer geroepen werden?", a: ["Ze wierpen een net in de zee", "Ze verkochten hun schip", "Ze herstelden netten met hun vader"], why: "Markus 1:16" },
+    { q: "Wat deden Simon en Andreas toen de Heere Jezus hen bij het meer zag?", a: ["Ze wierpen een net in de zee", "Ze verkochten hun schip", "Ze herstelden netten met hun vader"], why: "Markus 1:16" },
     { q: "Wie lieten Jakobus en Johannes in het schip achter?", a: ["Hun vader Zebedeüs met de huurlingen", "Hun broer Andreas", "Niemand, ze namen het schip mee"], why: "Markus 1:20" }],
   cross: [["Lukas 5:1–11", "De grote visvangst: ‘Vrees niet; van nu aan zult gij mensen vangen.’"],
     ["Mattheüs 4:18–22", "Mattheüs vertelt dezelfde roeping aan het meer."],
@@ -275,7 +275,7 @@ BR.geschiedenissen.push(
 
 { nr: 95, t: "De man met het legioen boze geesten", ref: "Markus 5:1–20", sectie: "galilea",
   stappen: ["jezus-1:nt-galilea:9"], vorm: "plek",
-  uitleg: "Aan de overkant van het meer, in het land van de Gadarenen, komt een man uit de graven op de Heere Jezus af. Hij heeft een onreine geest. Niemand kan hem temmen: hij trekt zelfs ketenen stuk, roept dag en nacht en slaat zichzelf met stenen. Hij valt voor de Heere Jezus neer en noemt Hem de Zoon van God, de Allerhoogste. De boze geesten noemen zich Legio, ‘want wij zijn velen’. Ze smeken om in een kudde varkens te mogen gaan. De Heere Jezus laat het toe, en ongeveer tweeduizend varkens storten zich in de zee en verdrinken. De mensen uit de streek zien de man zitten, aangekleed en bij zijn verstand. Ze worden bang en vragen de Heere Jezus om weg te gaan. De man wil met Hem mee, maar hij moet thuis vertellen wat de Heere voor hem gedaan heeft. Dat doet hij in heel Dekapolis.",
+  uitleg: "Aan de overkant van het meer, in het land van de Gadarenen, komt een man uit de graven op de Heere Jezus af. Hij heeft een onreine geest. Niemand kan hem temmen: hij trekt zelfs ketenen stuk, roept dag en nacht en slaat zichzelf met stenen. Hij valt voor de Heere Jezus neer en noemt Hem de Zoon van de allerhoogste God. De boze geesten noemen zich Legio, ‘want wij zijn velen’. Ze smeken om in een kudde varkens te mogen gaan. De Heere Jezus laat het toe, en ongeveer tweeduizend varkens storten zich in de zee en verdrinken. De mensen uit de streek zien de man zitten, aangekleed en bij zijn verstand. Ze worden bang en vragen de Heere Jezus om weg te gaan. De man wil met Hem mee, maar hij moet thuis vertellen wat de Heere voor hem gedaan heeft. Dat doet hij in heel Dekapolis.",
   betekenis: "Zelfs een heel legioen boze geesten moet de Heere Jezus gehoorzamen; Hij is gekomen ‘opdat Hij de werken des duivels verbreken zou’ (1 Johannes 3:8). Wie door Hem verlost is, krijgt de opdracht het te vertellen (Markus 5:19).",
   wie: ["Jezus", "Discipelen"],
   ontdek: { soort: "onthul", titel: "Vóór en na", items: [

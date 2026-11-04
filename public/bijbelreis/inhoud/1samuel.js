@@ -75,7 +75,7 @@ BR.boeken.push({
   { ref: "1 Samuël 10:17–27", t: "Leve de koning!", stamp: "Mizpa", at: ["mizpa", "gibea"],
     r: [{ w: "bruin", p: ["mizpa", "gibea"] }],
     who: [["Samuël"], ["Saul"], ["Volk"]],
-    txt: "Samuël roept het volk weer bij elkaar in Mizpa. Hij laat het lot werpen: eerst komt de stam Benjamin eruit, dan de familie van Matri, dan Saul. Maar waar is Saul? Hij heeft zich verstopt tussen de bagage! Ze halen hem tevoorschijn, en hij steekt boven iedereen uit. Samuël zegt: “Zien jullie wie de HEERE heeft uitgekozen?” Het volk juicht: ‘Leve de koning!’ Saul gaat naar huis, naar Gibea. Sommige mannen mopperen: “Moet díe ons redden?” Saul doet alsof hij het niet hoort.",
+    txt: "Samuël roept het volk weer bij elkaar in Mizpa. Hij laat het lot werpen: eerst komt de stam Benjamin eruit, dan de familie van Matri, dan Saul. Maar waar is Saul? Hij heeft zich verstopt tussen de bagage! Ze halen hem tevoorschijn, en hij steekt boven iedereen uit. Samuël zegt: “Zien jullie wie de HEERE heeft uitgekozen?” Het volk juicht: ‘De koning leve!’ Saul gaat naar huis, naar Gibea. Sommige mannen mopperen: “Moet díe ons redden?” Saul doet alsof hij het niet hoort.",
     fact: "Samuël schreef de regels voor de koning op en legde het boek bij de HEERE neer (10:25).", fs: "b" },
   { ref: "1 Samuël 11", t: "Jabes gered", stamp: "Jabes", at: ["jabes", "sam_bezek", "gilgal"],
     r: [{ w: "bruin", p: ["gibea", "bethel", "ridge", "sam_bezek", "jvalley", "jabes"] }, { w: "bruin", p: ["jabes", "jvalley", "jordanford", "gilgal"], recon: 1 }],

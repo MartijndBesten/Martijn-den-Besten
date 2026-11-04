@@ -175,3 +175,6 @@ Johannes 5:2 | Schaaps poort.*Bethesda
 Spreuken 21:1 | Des konings hart is in de hand des HEEREN
 Mattheüs 23:2 | stoel van Mozes
 Jeremia 29:10 | zeventig jaren
+# --- Invoerherstel 2026-11-04
+Ezra 2:65 | knechten en hun maagden.*zangers en zangeressen
+Ezra 3:12 | priesteren, en de Levieten, en hoofden der vaderen, die oud waren
