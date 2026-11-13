@@ -28,6 +28,14 @@ body{background:var(--lucht);color:var(--tekst);font-family:var(--lopend);font-s
 #opties summary::after{content:"▾";color:var(--tekst);font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:var(--knop);flex:none}
 #opties[open] summary::after{content:"▴"}
 .blok{padding:4px 14px 12px;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--paneel-rand)}
+.pijlen{display:grid;grid-template-columns:repeat(3,52px);gap:6px;justify-content:center}
+.pijlen button{font:600 18px var(--lopend);height:52px;border:0;border-radius:10px;background:var(--knop);color:var(--tekst);cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
+.pijlen button:active{background:var(--knop-actief);color:var(--knop-actief-tekst)}
+#routebalk{bottom:calc(12px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);padding:5px;display:flex;gap:5px;border-radius:999px;background:rgba(251,252,249,.85)}
+#routebalk button{font:500 13px var(--lopend);border:0;border-radius:999px;padding:8px 14px;background:var(--knop);color:var(--tekst);cursor:pointer}
+body.lopen #kop{display:none}
+#looppaneel{bottom:12px;left:50%;transform:translateX(-50%);padding:10px;display:flex;flex-direction:column;gap:8px;width:220px;max-width:calc(100% - 32px)}
+#looppaneel p{margin:0;font-size:12.5px;color:var(--zacht);text-align:center}
 .knopTerug{font:500 13px var(--lopend);color:var(--tekst);background:var(--knop);border:1px solid var(--paneel-rand);border-radius:7px;padding:8px 12px;cursor:pointer;width:100%}
 .segment{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 #kop .segment{margin-top:10px}
