@@ -262,10 +262,10 @@ haagM(16.4,51,-17.3,1.8); haagM(51,60.2,-17.3,1.0);
 (function(){
   var T=new THREE.Group(); nieuwGroep.add(T);
   function plat(w,d,x,z,kleur,y){var m=doos(w,0.06,d,M(kleur)); m.castShadow=false; m.position.set(x,(y||0.09),z); T.add(m); return m;}
-  plat(4.8,10.2,35.4,-25.4,0xa8a398);                                        // terras natuursteen
-  for(var i=0;i<5;i++){var v=doos(0.04,0.04,10.2,M(0x8f8a80)); v.castShadow=false; v.position.set(33.4+i*0.95,0.125,-25.4); T.add(v);}
-  var tafel=doos(1.6,0.75,0.9,M(0x6b5642)); tafel.position.set(35.6,0.38,-24.2); T.add(tafel);
-  [[34.5,-24.2],[36.7,-24.2]].forEach(function(c){var st=doos(0.55,0.9,0.55,M(0x2f3437)); st.position.set(c[0],0.45,c[1]); T.add(st);});
+  plat(4.8,8.2,35.4,-26.4,0xa8a398);                                        // terras natuursteen
+  for(var i=0;i<5;i++){var v=doos(0.04,0.04,8.2,M(0x8f8a80)); v.castShadow=false; v.position.set(33.4+i*0.95,0.125,-26.4); T.add(v);}
+  var tafel=doos(1.6,0.75,0.9,M(0x6b5642)); tafel.position.set(35.9,0.38,-25.2); T.add(tafel);
+  [[34.8,-25.2],[37.0,-25.2]].forEach(function(c){var st=doos(0.55,0.9,0.55,M(0x2f3437)); st.position.set(c[0],0.45,c[1]); T.add(st);});
   var pot=new THREE.Mesh(new THREE.CylinderGeometry(0.35,0.28,0.6,12),M(0x9a8a78)); pot.position.set(37.4,0.3,-21.0); T.add(pot);
   var potp=new THREE.Mesh(new THREE.IcosahedronGeometry(0.45,1),M(0x5f8a4a)); potp.position.set(37.4,0.85,-21.0); T.add(potp);
   // stapstenen in een flauwe boog naar de zitplek
@@ -287,7 +287,7 @@ haagM(16.4,51,-17.3,1.8); haagM(51,60.2,-17.3,1.0);
   // meerstammige krentenbomen (Amelanchier)
   boom(PX(40.2),PZ(-19.9),4.2,0x9bb55a,false,T); boom(PX(54.6),PZ(-23.4),4.0,0x9bb55a,false,T);
 })();
-var DIER=[-11.34,-1.74], SLUIS=[-7.34,-1.74];
+var DIER=[-11.25,-0.8], SLUIS=[-7.25,-0.8];
 tuinhuis(koppel,DIER[0],DIER[1]);
 // glazen sluis tussen dierenschuur en mantelzorgwoning
 (function(){
@@ -382,36 +382,34 @@ var raster=new THREE.GridHelper(200,20,0x33443a,0x33443a); raster.position.y=0.1
 })();
 
 /* ---------- Mantelzorgwoning (nieuwe situatie) ---------- */
-// Vorm volgens de plattegrond van het voorbeeldtype: 10,0 x 7,5 m, L-vorm, zadeldak, nok 4,60 m (opgave Martijn 13-11).
+// Rechthoekig 13 x 8 m, zadeldak, nok 4,60 m (opgave Martijn 13-11).
 // Lokale assen: x = lengte 10 m (glazen kopgevel op x = -5), z = diepte 7,5 m.
-var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.34,0,-25.56); scene.add(vol);
+var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.25,0,-26.5); scene.add(vol);
 (function(){
-  var STUC=0xf3f0e9, STRIP=0x8a5a48, DAK=0x2e3033, KOZIJN=0x1f2326, NOK=4.6, GOOT=2.7;
-  var woon=gebouw({m:[-5,-3.75,0.64,0.61],as:'x',goot:GOOT,nok:NOK,wand:STUC,dak:DAK,plint:0.9,plintKleur:STRIP,ouder:vol});
-  gebouw({m:[0.55,-3.75,5,3.75],as:'z',goot:GOOT,nok:NOK,wand:STUC,dak:DAK,plint:0.9,plintKleur:STRIP,ouder:vol});
-  // glazen kopgevel met openslaande deuren
-  var zc=-1.57, sh=new THREE.Shape(); [[-1.9,0.12],[1.9,0.12],[1.9,2.55],[0,4.15],[-1.9,2.55]].forEach(function(p,i){ if(i) sh.lineTo(p[0],p[1]); else sh.moveTo(p[0],p[1]); });
+  // Martijn 13-11: rechthoekig, 13 x 8 m (104 m²), zadeldak met nok 4,60 m, goot 2,70 m (goot is een schatting).
+  // Lokale assen: x = lengte 13 m (glazen kopgevel op x = -6,5, bij 180° naar de weg), z = diepte 8 m (z = +4 aan de slootkant).
+  var STUC=0xf3f0e9, STRIP=0x8a5a48, DAK=0x2e3033, KOZIJN=0x1f2326, NOK=4.6, GOOT=2.7, HL=6.5, HD=4;
+  gebouw({m:[-HL,-HD,HL,HD],as:'x',goot:GOOT,nok:NOK,wand:STUC,dak:DAK,plint:0.9,plintKleur:STRIP,ouder:vol});
+  function dakH(z){return GOOT+(NOK-GOOT)*(1-Math.abs(z)/HD);}
+  // glazen kopgevel met openslaande deuren, 5,2 m breed
+  var gb=2.6, sh=new THREE.Shape(); [[-gb,0.12],[gb,0.12],[gb,dakH(gb)-0.25],[0,NOK-0.3],[-gb,dakH(gb)-0.25]].forEach(function(p,i){ if(i) sh.lineTo(p[0],p[1]); else sh.moveTo(p[0],p[1]); });
   var gl=new THREE.ShapeGeometry(sh); gl.rotateY(-Math.PI/2);
-  var glas=new THREE.Mesh(gl,M(0x3d5563)); glas.position.set(-5.07,0,zc); vol.add(glas);
-  [[-1.9,2.55],[-0.65,3.6],[0.65,3.6],[1.9,2.55]].forEach(function(k){var st=doos(0.1,k[1]-0.1,0.09,M(KOZIJN)); st.castShadow=false; st.position.set(-5.09,0.1+(k[1]-0.1)/2,zc+k[0]); vol.add(st);});
-  [0.14,2.3].forEach(function(y){var l=doos(0.1,0.09,3.8,M(KOZIJN)); l.castShadow=false; l.position.set(-5.09,y,zc); vol.add(l);});
-  // ramen en deur volgens de plattegrond
+  var glas=new THREE.Mesh(gl,M(0x3d5563)); glas.position.set(-HL-0.07,0,0); vol.add(glas);
+  [-gb,-1.3,0,1.3,gb].forEach(function(z){var h=(z===0?NOK-0.3:dakH(z)-0.25); var st=doos(0.1,h-0.1,0.09,M(KOZIJN)); st.castShadow=false; st.position.set(-HL-0.09,0.1+(h-0.1)/2,z); vol.add(st);});
+  [0.14,2.3].forEach(function(y){var l=doos(0.1,0.09,2*gb,M(KOZIJN)); l.castShadow=false; l.position.set(-HL-0.09,y,0); vol.add(l);});
+  // ramen en deuren (indeling volgt uit de Vilaro-tekening; nu een redelijke verdeling)
   function raam(cx,cz,breed,richting,hoog,cy){gevelvlak(cx,cy||1.75,cz,breed,hoog||1.3,richting,0x3d5563,true,vol,KOZIJN);}
-  raam(-0.85,-3.79,0.9,'z'); raam(-1.7,0.65,1.8,'z');
-  raam(1.2,-3.79,0.45,'z',0.9,1.9); raam(3.55,-3.79,0.45,'z',0.9,1.9);
-  raam(5.04,-0.4,0.55,'x'); raam(5.04,2.1,0.85,'x'); raam(1.2,3.79,0.4,'z',0.6,2.0);
-  gevelvlak(0.51,1.1,1.33,0.95,2.15,'x',KOZIJN,false,vol);
-  // glazen overkapping in de open hoek (x -5..0,55, z 0,61..3,75), licht aflopend naar buiten
+  raam(-2.5,HD+0.04,1.8,'z'); raam(1.5,HD+0.04,1.2,'z'); raam(4.6,HD+0.04,0.9,'z');      // slootkant
+  raam(-3.6,-HD-0.04,1.2,'z'); raam(4.8,-HD-0.04,0.6,'z',0.9,1.9);                      // haagkant
+  gevelvlak(1.6,1.1,-HD-0.04,1.0,2.15,'z',KOZIJN,false,vol);                            // voordeur haagkant
+  gevelvlak(HL+0.04,1.1,0.8,1.0,2.15,'x',KOZIJN,false,vol);                             // deur naar de glazen sluis
+  // glazen overkapping voor de glazen kopgevel, 3 m diep over het terras
   var gm=new THREE.MeshLambertMaterial({color:lin(0xbfdbe6),transparent:true,opacity:0.38,side:THREE.DoubleSide});
-  var gp=new THREE.Mesh(new THREE.BoxGeometry(5.55,0.03,3.2),gm); gp.position.set(-2.225,2.58,2.18); gp.rotation.x=0.064; vol.add(gp);
-  var b1=doos(5.6,0.16,0.12,M(KOZIJN)); b1.position.set(-2.225,2.42,3.72); vol.add(b1);
-  var b2=doos(0.12,0.16,3.15,M(KOZIJN)); b2.position.set(-4.95,2.52,2.18); vol.add(b2);
-  [-4.95,-1.9].forEach(function(px){var st=doos(0.1,2.4,0.1,M(KOZIJN)); st.position.set(px,1.2,3.7); vol.add(st);});
-  [-4.0,-3.0,-2.0,-1.0,0.0].forEach(function(px){var r=doos(0.05,0.06,3.15,M(KOZIJN)); r.castShadow=false; r.position.set(px,2.6,2.18); r.rotation.x=0.064; vol.add(r);});
+  var gp=new THREE.Mesh(new THREE.BoxGeometry(3.0,0.03,2*HD),gm); gp.position.set(-HL-1.5,2.6,0); gp.rotation.z=-0.06; vol.add(gp);
+  var b1=doos(0.12,0.16,2*HD,M(KOZIJN)); b1.position.set(-HL-2.95,2.45,0); vol.add(b1);
+  [-HD+0.1,HD-0.1].forEach(function(z){var b=doos(3.0,0.16,0.12,M(KOZIJN)); b.position.set(-HL-1.5,2.55,z); vol.add(b); var st=doos(0.1,2.45,0.1,M(KOZIJN)); st.position.set(-HL-2.95,1.22,z); vol.add(st);});
+  [-2,-0.7,0.7,2].forEach(function(z){var r=doos(3.0,0.06,0.05,M(KOZIJN)); r.castShadow=false; r.position.set(-HL-1.5,2.62,z); r.rotation.z=-0.06; vol.add(r);});
   vol.userData.nok=NOK;
-  // Martijn 13-11: circa 100 m² zonder overkapping. Plattegrond van het Chopin-type naar verhouding vergroot
-  // (57,6 m² x 1,318² = 100 m²): circa 13,2 x 9,9 m. Hoogtes blijven gelijk (nok 4,60 m).
-  vol.scale.set(1.318,1,1.318);
 })();
 function nl(n){return String(n).replace('.',',');}
 var sR=document.getElementById('sR'), oR=document.getElementById('oR'), volInfo=document.getElementById('volInfo');
@@ -493,7 +491,7 @@ function situatie(nieuw){
 }
 document.getElementById('bHuidig').addEventListener('click',function(){situatie(false);});
 document.getElementById('bNieuw').addEventListener('click',function(){situatie(true);});
-document.getElementById('bTerug').addEventListener('click',function(){vol.position.set(26.34,0,-25.56); sR.value=180; werkVol();});
+document.getElementById('bTerug').addEventListener('click',function(){vol.position.set(26.25,0,-26.5); sR.value=180; werkVol();});
 if(window.matchMedia('(max-width:640px)').matches) document.getElementById('opties').open=false;
 
 /* ---------- Lus ---------- */
