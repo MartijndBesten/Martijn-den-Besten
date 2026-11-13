@@ -561,6 +561,7 @@ sR.addEventListener('input',werkVol); werkVol();
 var straal=new THREE.Raycaster(), muis=new THREE.Vector2(), vloer=new THREE.Plane(new THREE.Vector3(0,1,0),0), sleept=false, sleepVerschil=new THREE.Vector3(), raak=new THREE.Vector3();
 function zetMuis(e){var r=renderer.domElement.getBoundingClientRect(); muis.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1); straal.setFromCamera(muis,camera);}
 renderer.domElement.addEventListener('pointerdown',function(e){
+  return; // verplaatsen uitgezet (Martijn 13-11)
   if(!vol.visible||loop.actief) return; zetMuis(e);
   if(straal.intersectObjects(vol.children.concat(koppel.children),true).length && straal.ray.intersectPlane(vloer,raak)){
     sleept=true; controls.enabled=false; sleepVerschil.copy(vol.position).sub(raak); renderer.domElement.setPointerCapture(e.pointerId); e.stopPropagation();
