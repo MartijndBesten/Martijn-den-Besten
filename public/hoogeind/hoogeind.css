@@ -18,7 +18,9 @@ body{background:var(--lucht);color:var(--tekst);font-family:var(--lopend);font-s
 #toneel{position:relative;width:100%;height:100%;overflow:hidden;touch-action:none}
 #toneel canvas{display:block;width:100%;height:100%}
 .paneel{position:absolute;z-index:2;background:var(--paneel);border:1px solid var(--paneel-rand);border-radius:10px;box-shadow:0 6px 24px rgba(20,35,25,.18)}
-#kop{top:12px;left:max(16px,env(safe-area-inset-left,0px));padding:10px 14px;max-width:min(330px,calc(100% - 32px))}
+#kop{top:12px;left:max(16px,env(safe-area-inset-left,0px));padding:5px;border-radius:999px;width:auto}
+.verborgen{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+#kop .segment button{border-radius:999px;padding:8px 16px}
 #kop h1{font-family:var(--kop);font-size:19px;font-weight:600;margin:0;letter-spacing:-.01em}
 #kop p{margin:2px 0 0;color:var(--zacht);font-size:12.5px}
 #opties{top:12px;right:max(16px,env(safe-area-inset-right,0px));width:250px;max-width:calc(100% - 32px)}
@@ -38,7 +40,7 @@ body.lopen #kop{display:none}
 #looppaneel p{margin:0;font-size:12.5px;color:var(--zacht);text-align:center}
 .knopTerug{font:500 13px var(--lopend);color:var(--tekst);background:var(--knop);border:1px solid var(--paneel-rand);border-radius:7px;padding:8px 12px;cursor:pointer;width:100%}
 .segment{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-#kop .segment{margin-top:10px}
+#kop .segment{margin:0;display:flex}
 .blok h2{font-family:var(--kop);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--zacht);margin:8px 0 0}
 label.vink{display:flex;gap:8px;align-items:center;cursor:pointer}
 label.vink input{accent-color:var(--accent);width:16px;height:16px}
@@ -60,6 +62,8 @@ button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid
 #fout{top:50%;left:50%;transform:translate(-50%,-50%);padding:16px 20px;max-width:320px}
 @media (max-width:640px){
   #opties{top:auto;bottom:calc(68px + env(safe-area-inset-bottom,0px));width:calc(100% - 32px)}
+  #opties:not([open]){width:auto}
+  #opties:not([open]) summary{gap:10px}
   #inhoud{max-height:46vh}
   #aanzichten{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;width:calc(100% - 32px);box-sizing:border-box}
   #aanzichten button{flex:none}

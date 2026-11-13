@@ -694,7 +694,12 @@ function situatie(nieuw){
 document.getElementById('bHuidig').addEventListener('click',function(){situatie(false);});
 document.getElementById('bNieuw').addEventListener('click',function(){situatie(true);});
 document.getElementById('bTerug').addEventListener('click',function(){vol.position.set(26.25,0,-23.5); sR.value=180; werkVol();});
-if(window.matchMedia('(max-width:640px)').matches) document.getElementById('opties').open=false;
+// Optiemenu sluit bij een tik in het 3D-beeld of met Escape.
+(function(){var o=document.getElementById('opties'), start=null;
+  renderer.domElement.addEventListener('pointerdown',function(e){start=[e.clientX,e.clientY];},true);
+  renderer.domElement.addEventListener('pointerup',function(e){ if(start&&o.open&&Math.hypot(e.clientX-start[0],e.clientY-start[1])<8) o.open=false; start=null;});
+  window.addEventListener('keydown',function(e){ if(e.key==='Escape') o.open=false; });
+})();
 
 /* ---------- Indeling en rondlopen ---------- */
 function indeling(aan){
