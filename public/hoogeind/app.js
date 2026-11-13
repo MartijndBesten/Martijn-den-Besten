@@ -427,15 +427,36 @@ var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.25,0,-23.5); s
   // Lokale assen: x = lengte 13 m (glazen kopgevel op x = -6,5, bij 180° naar de weg), z = diepte 8 m (z = +4 aan de slootkant).
   var STUC=0xf3f0e9, STRIP=0x8a5a48, DAK=0x2e3033, KOZIJN=0x1f2326, NOK=4.6, GOOT=2.7, HL=6.5, HD=4;
   var n0=vol.children.length;
-  gebouw({m:[-HL,-HD,HL,HD],as:'x',goot:GOOT,nok:NOK,wand:STUC,dak:DAK,plint:0.9,plintKleur:STRIP,ouder:vol});
+  var gw=gebouw({m:[-HL,-HD,HL,HD],as:'x',goot:GOOT,nok:NOK,wand:STUC,dak:DAK,plint:0.9,plintKleur:STRIP,ouder:vol});
   function dakH(z){return GOOT+(NOK-GOOT)*(1-Math.abs(z)/HD);}
   // Gevelopeningen volgens de Vilaro-plattegrond (13-11-2026): 12,99 x 8,00 m. d = afstand vanaf de kopgevel aan de wegkant.
   // Kopgevel wegkant: twee vaste glaspuien 1800x2200. Slootkant (z +4): 2x 900x2200, 2x 700x1200, 600x800.
   // Haagkant (z -4): openslaande deuren 1800x2200, 900x2200, 2x 650x1200, 800x800. Kopgevel erfzijde: voordeur 1150x2200 (naar de sluis), raam 600x800.
-  function op(d,zijde,b,h,borst,deur){var hoog=h, cy=borst+hoog/2;
-    if(zijde==='weg') gevelvlak(-HL-0.04,cy,d,b,hoog,'x',deur?KOZIJN:0x3d5563,true,vol,KOZIJN);
-    else if(zijde==='erf') gevelvlak(HL+0.04,cy,d,b,hoog,'x',deur?KOZIJN:0x3d5563,deur?false:true,vol,KOZIJN);
-    else gevelvlak(-HL+d,cy,zijde==='sloot'?HD+0.04:-HD-0.04,b,hoog,'z',deur?KOZIJN:0x3d5563,true,vol,KOZIJN);}
+  // Gedetailleerde kozijnen: zwart aluminium kader, glas iets terug, bovenlicht bij hoge puien, middenstijl bij brede puien,
+  // waterslag onder ramen met borstwering, voordeur als dicht paneel met glasstrook en greep.
+  var GLAS=new THREE.MeshLambertMaterial({color:lin(0x46606e)}), ALU=M(0xb8bcc0), DEURP=M(0x2b2f33);
+  function zet(m,n,sg,u,y,off){ if(n==='z') m.position.set(u,y,sg*(HD+off)); else m.position.set(sg*(HL+off),y,u); m.castShadow=false; vol.add(m); return m; }
+  function blok(n,wu,h,d){ return n==='z'?[wu,h,d]:[d,h,wu]; }
+  function stuk(n,sg,u,y,wu,h,d,off,mat){ var a=blok(n,wu,h,d); return zet(doos(a[0],a[1],a[2],mat),n,sg,u,y,off); }
+  function raamD(n,sg,u,b,h,borst,soort){
+    var y0=borst, k=0.07;
+    if(soort==='voordeur'){ stuk(n,sg,u,y0+h/2,b,h,0.03,0.015,DEURP); stuk(n,sg,u-b*0.22,y0+h/2,0.16,h-0.4,0.02,0.035,GLAS);
+      stuk(n,sg,u+b*0.3,y0+1.05,0.04,0.45,0.05,0.06,ALU); }
+    else stuk(n,sg,u,y0+h/2,b,h,0.02,0.012,GLAS);
+    stuk(n,sg,u,y0+h-k/2,b+0.02,k,0.08,0.04,M(KOZIJN)); stuk(n,sg,u,y0+k/2,b+0.02,k,0.08,0.04,M(KOZIJN));
+    stuk(n,sg,u-b/2,y0+h/2,k,h,0.08,0.04,M(KOZIJN)); stuk(n,sg,u+b/2,y0+h/2,k,h,0.08,0.04,M(KOZIJN));
+    if(h>=2.0&&soort!=='voordeur') stuk(n,sg,u,y0+h-0.45,b,0.06,0.07,0.04,M(KOZIJN));          // bovenlicht
+    if(b>=1.6) stuk(n,sg,u,y0+(h>=2?(h-0.45)/2:h/2),0.07,(h>=2?h-0.45:h),0.07,0.04,M(KOZIJN)); // middenstijl
+    if(soort==='openslaand'){ [-0.12,0.12].forEach(function(dx){stuk(n,sg,u+dx,y0+1.05,0.03,0.22,0.05,0.07,ALU);}); }
+    if(soort==='deurraam'){ stuk(n,sg,u+b/2-0.12,y0+1.05,0.03,0.2,0.05,0.07,ALU); }
+    if(borst>0.3) stuk(n,sg,u,y0-0.02,b+0.12,0.04,0.16,0.07,ALU);                               // waterslag
+  }
+  function op(d,zijde,b,h,borst,deur){
+    var soort=deur?'voordeur':(b>=1.6&&h>=2?(zijde==='haag'?'openslaand':'pui'):(h>=2?'deurraam':'raam'));
+    if(zijde==='weg') raamD('x',-1,d,b,h,borst,soort);
+    else if(zijde==='erf') raamD('x',1,d,b,h,borst,soort);
+    else raamD('z',zijde==='sloot'?1:-1,-HL+d,b,h,borst,soort);
+  }
   op(2.0,'weg',1.8,2.2,0.1); op(-2.0,'weg',1.8,2.2,0.1);
   op(1.75,'sloot',0.9,2.2,0.1); op(4.2,'sloot',0.9,2.2,0.1); op(6.8,'sloot',0.7,1.2,0.9); op(7.8,'sloot',0.7,1.2,0.9); op(10.15,'sloot',0.6,0.8,1.3);
   op(1.0,'haag',1.8,2.2,0.1); op(5.0,'haag',0.9,2.2,0.1); op(6.95,'haag',0.65,1.2,0.9); op(9.65,'haag',0.65,1.2,0.9); op(10.9,'haag',0.8,0.8,1.3);
@@ -446,12 +467,42 @@ var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.25,0,-23.5); s
   var pen=doos(0.45,5.35,1.0,M(STUC)); pen.position.set(-HL-0.2,5.35/2,0); vol.add(pen);
   var kap=doos(0.6,0.1,1.15,M(0x3a3d40)); kap.position.set(-HL-0.2,5.4,0); vol.add(kap);
   var pl=doos(0.47,0.9,1.02,M(STRIP)); pl.position.set(-HL-0.2,0.45,0); vol.add(pl);
-  [2.0,-2.0].forEach(function(z){var r=doos(0.1,0.08,1.8,M(KOZIJN)); r.castShadow=false; r.position.set(-HL-0.09,1.75,z); vol.add(r);});
   function boei(x){ [-1,1].forEach(function(k){
     var z0=k*(HD+0.32), y0=GOOT-0.12, z1=0, y1=NOK+0.12, l=Math.hypot(z1-z0,y1-y0);
     var b=doos(0.06,0.22,l,WIT); b.castShadow=false; b.position.set(x,(y0+y1)/2,(z0+z1)/2); b.rotation.x=k*Math.atan2(y1-y0,Math.abs(z1-z0)); vol.add(b); }); }
   boei(-HL-0.34); boei(HL+0.34);
   [-1,1].forEach(function(k){var g=doos(2*HL+0.7,0.2,0.12,WIT); g.castShadow=false; g.position.set(0,GOOT-0.08,k*(HD+0.32)); vol.add(g);});
+  // ---------- Detaillering buitenkant ----------
+  function tex(w,h,teken,ru,rv){var c=document.createElement('canvas'); c.width=w; c.height=h; teken(c.getContext('2d'),w,h);
+    var t=new THREE.CanvasTexture(c); t.encoding=THREE.sRGBEncoding; t.wrapS=t.wrapT=THREE.RepeatWrapping; t.repeat.set(ru,rv); t.anisotropy=4; return t;}
+  // dakpannen: rijen langs de nok, verspringende pannen
+  var panTex=tex(128,128,function(x,w,h){x.fillStyle='#2f3236';x.fillRect(0,0,w,h);
+    for(var r=0;r<4;r++){var u=r*32; x.fillStyle='#24272a'; x.fillRect(u,0,5,h); x.fillStyle='#3a3e42'; x.fillRect(u+5,0,4,h);
+      for(var k=0;k<4;k++){var v=k*32+(r%2?16:0); x.fillStyle='#282b2e'; x.fillRect(u+5,v%h,27,2);}}},1,1);
+  var panMat=new THREE.MeshLambertMaterial({map:panTex});
+  gw.children.forEach(function(m){ if(m.material===M(DAK)){ var len=m.geometry.parameters.width, br=m.geometry.parameters.depth;
+    var t=panTex.clone(); t.needsUpdate=true; t.repeat.set(len/1.32,br/1.2); m.material=new THREE.MeshLambertMaterial({map:t}); }});
+  // stucwerk: fijne korrel
+  var stucTex=tex(128,128,function(x,w,h){x.fillStyle='#f3f0e9';x.fillRect(0,0,w,h); for(var i=0;i<1400;i++){var g=225+Math.floor(Math.random()*30); x.fillStyle='rgb('+g+','+(g-2)+','+(g-8)+')'; x.fillRect(Math.random()*w,Math.random()*h,1.2,1.2);}},1,1);
+  gw.children[0].material=new THREE.MeshLambertMaterial({map:stucTex});
+  // steenstrips in halfsteensverband
+  function stripTex(lengte){return tex(128,64,function(x,w,h){x.fillStyle='#b9b1a6';x.fillRect(0,0,w,h);
+    for(var r=0;r<4;r++){for(var k=-1;k<3;k++){var u=k*64+(r%2?32:0); var tint=['#8a5a48','#7f5242','#94604c','#865746'][(r+k+4)%4]; x.fillStyle=tint; x.fillRect(u+2,r*16+2,60,13);}}},lengte/0.44,0.9/0.26);}
+  gw.children.forEach(function(m){ if(m.geometry&&m.geometry.parameters&&Math.abs(m.geometry.parameters.height-0.9)<0.01){
+    var P=m.geometry.parameters; m.material=[new THREE.MeshLambertMaterial({map:stripTex(P.depth)}),new THREE.MeshLambertMaterial({map:stripTex(P.depth)}),M(STRIP),M(STRIP),
+      new THREE.MeshLambertMaterial({map:stripTex(P.width)}),new THREE.MeshLambertMaterial({map:stripTex(P.width)})]; }});
+  pl.material=[new THREE.MeshLambertMaterial({map:stripTex(1.0)}),new THREE.MeshLambertMaterial({map:stripTex(1.0)}),M(STRIP),M(STRIP),new THREE.MeshLambertMaterial({map:stripTex(0.47)}),new THREE.MeshLambertMaterial({map:stripTex(0.47)})];
+  // nokvorsten
+  var nk=new THREE.Mesh(new THREE.CylinderGeometry(0.12,0.12,2*HL+0.6,12,1,false,0,Math.PI),M(0x26282b)); nk.rotation.z=Math.PI/2; nk.rotation.x=Math.PI/2; nk.position.set(0,NOK+0.14,0); nk.castShadow=true; vol.add(nk);
+  // mastgoten en hemelwaterafvoeren
+  [-1,1].forEach(function(k){var gt=new THREE.Mesh(new THREE.CylinderGeometry(0.08,0.08,2*HL+0.66,10,1,false,0,Math.PI),WIT); gt.rotation.z=Math.PI/2; gt.rotation.y=k>0?0:Math.PI; gt.position.set(0,GOOT-0.1,k*(HD+0.42)); vol.add(gt);
+    [-1,1].forEach(function(e){var hw=new THREE.Mesh(new THREE.CylinderGeometry(0.04,0.04,GOOT-0.1,8),M(0x8b9095)); hw.position.set(e*(HL-0.15),(GOOT-0.1)/2,k*(HD+0.1)); vol.add(hw);});});
+  // buitenlampen bij de voordeur, de openslaande deuren en op de penant
+  function lamp(x,y,z,rotY){var l=new THREE.Group(); var hus=doos(0.14,0.24,0.12,M(0x1c1e20)); l.add(hus); var gl=doos(0.1,0.16,0.02,M(0xfff1c9)); gl.position.z=0.065; l.add(gl);
+    l.position.set(x,y,z); l.rotation.y=rotY; vol.add(l);}
+  lamp(HL+0.07,2.05,0.6+0.9,Math.PI/2); lamp(-HL+1.0+1.25,2.15,-HD-0.07,Math.PI); lamp(-HL-0.44,2.4,0,-Math.PI/2);
+  // dorpels onder de deuren
+  [[-HL+1.0,1.9],[-HL+5.0,1.0],[-HL+1.75,1.0],[-HL+4.2,1.0]].forEach(function(q,i){var z=i<2?-HD-0.08:HD+0.08; var dp=doos(q[1],0.06,0.16,ALU); dp.position.set(q[0],0.1,z); vol.add(dp);});
   vol.userData.buiten=vol.children.slice(n0);
   // ---------- Indeling volgens de Vilaro-plattegrond ----------
   // Plattegrondmaten: d = afstand vanaf de kopgevel aan de wegkant, t = afstand vanaf de slootgevel. Lokaal: x = -HL + d, z = HD - t.
