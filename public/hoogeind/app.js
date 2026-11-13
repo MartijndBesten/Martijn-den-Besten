@@ -287,7 +287,7 @@ haagM(16.4,51,-17.3,1.8); haagM(51,60.2,-17.3,1.0);
   // meerstammige krentenbomen (Amelanchier)
   boom(PX(40.2),PZ(-19.9),4.2,0x9bb55a,false,T); boom(PX(54.6),PZ(-23.4),4.0,0x9bb55a,false,T);
 })();
-var DIER=[-11.25,-0.8], SLUIS=[-7.25,-0.8];
+var DIER=[-11.25,-0.2], SLUIS=[-7.25,-0.2];
 tuinhuis(koppel,DIER[0],DIER[1]);
 // glazen sluis tussen dierenschuur en mantelzorgwoning
 (function(){
@@ -391,18 +391,17 @@ var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.25,0,-26.5); s
   var STUC=0xf3f0e9, STRIP=0x8a5a48, DAK=0x2e3033, KOZIJN=0x1f2326, NOK=4.6, GOOT=2.7, HL=6.5, HD=4;
   gebouw({m:[-HL,-HD,HL,HD],as:'x',goot:GOOT,nok:NOK,wand:STUC,dak:DAK,plint:0.9,plintKleur:STRIP,ouder:vol});
   function dakH(z){return GOOT+(NOK-GOOT)*(1-Math.abs(z)/HD);}
-  // glazen kopgevel met openslaande deuren, 5,2 m breed
-  var gb=2.6, sh=new THREE.Shape(); [[-gb,0.12],[gb,0.12],[gb,dakH(gb)-0.25],[0,NOK-0.3],[-gb,dakH(gb)-0.25]].forEach(function(p,i){ if(i) sh.lineTo(p[0],p[1]); else sh.moveTo(p[0],p[1]); });
-  var gl=new THREE.ShapeGeometry(sh); gl.rotateY(-Math.PI/2);
-  var glas=new THREE.Mesh(gl,M(0x3d5563)); glas.position.set(-HL-0.07,0,0); vol.add(glas);
-  [-gb,-1.3,0,1.3,gb].forEach(function(z){var h=(z===0?NOK-0.3:dakH(z)-0.25); var st=doos(0.1,h-0.1,0.09,M(KOZIJN)); st.castShadow=false; st.position.set(-HL-0.09,0.1+(h-0.1)/2,z); vol.add(st);});
-  [0.14,2.3].forEach(function(y){var l=doos(0.1,0.09,2*gb,M(KOZIJN)); l.castShadow=false; l.position.set(-HL-0.09,y,0); vol.add(l);});
-  // ramen en deuren (indeling volgt uit de Vilaro-tekening; nu een redelijke verdeling)
-  function raam(cx,cz,breed,richting,hoog,cy){gevelvlak(cx,cy||1.75,cz,breed,hoog||1.3,richting,0x3d5563,true,vol,KOZIJN);}
-  raam(-2.5,HD+0.04,1.8,'z'); raam(1.5,HD+0.04,1.2,'z'); raam(4.6,HD+0.04,0.9,'z');      // slootkant
-  raam(-3.6,-HD-0.04,1.2,'z'); raam(4.8,-HD-0.04,0.6,'z',0.9,1.9);                      // haagkant
-  gevelvlak(1.6,1.1,-HD-0.04,1.0,2.15,'z',KOZIJN,false,vol);                            // voordeur haagkant
-  gevelvlak(HL+0.04,1.1,0.8,1.0,2.15,'x',KOZIJN,false,vol);                             // deur naar de glazen sluis
+  // Gevelopeningen volgens de Vilaro-plattegrond (13-11-2026): 12,99 x 8,00 m. d = afstand vanaf de kopgevel aan de wegkant.
+  // Kopgevel wegkant: twee vaste glaspuien 1800x2200. Slootkant (z +4): 2x 900x2200, 2x 700x1200, 600x800.
+  // Haagkant (z -4): openslaande deuren 1800x2200, 900x2200, 2x 650x1200, 800x800. Kopgevel erfzijde: voordeur 1150x2200 (naar de sluis), raam 600x800.
+  function op(d,zijde,b,h,borst,deur){var hoog=h, cy=borst+hoog/2;
+    if(zijde==='weg') gevelvlak(-HL-0.04,cy,d,b,hoog,'x',deur?KOZIJN:0x3d5563,true,vol,KOZIJN);
+    else if(zijde==='erf') gevelvlak(HL+0.04,cy,d,b,hoog,'x',deur?KOZIJN:0x3d5563,deur?false:true,vol,KOZIJN);
+    else gevelvlak(-HL+d,cy,zijde==='sloot'?HD+0.04:-HD-0.04,b,hoog,'z',deur?KOZIJN:0x3d5563,true,vol,KOZIJN);}
+  op(2.0,'weg',1.8,2.2,0.1); op(-2.0,'weg',1.8,2.2,0.1);
+  op(1.75,'sloot',0.9,2.2,0.1); op(4.2,'sloot',0.9,2.2,0.1); op(6.8,'sloot',0.7,1.2,0.9); op(7.8,'sloot',0.7,1.2,0.9); op(10.15,'sloot',0.6,0.8,1.3);
+  op(1.0,'haag',1.8,2.2,0.1); op(5.0,'haag',0.9,2.2,0.1); op(6.95,'haag',0.65,1.2,0.9); op(9.65,'haag',0.65,1.2,0.9); op(10.9,'haag',0.8,0.8,1.3);
+  op(0.2,'erf',1.15,2.2,0.0,true); op(2.65,'erf',0.6,0.8,1.3);
   // glazen overkapping voor de glazen kopgevel, 3 m diep over het terras
   var gm=new THREE.MeshLambertMaterial({color:lin(0xbfdbe6),transparent:true,opacity:0.38,side:THREE.DoubleSide});
   var gp=new THREE.Mesh(new THREE.BoxGeometry(3.0,0.03,2*HD),gm); gp.position.set(-HL-1.5,2.6,0); gp.rotation.z=-0.06; vol.add(gp);
