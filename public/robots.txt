@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /beheer
 Disallow: /api/
+Disallow: /hoogeind
 
 Sitemap: https://martijndenbesten.com/sitemap.xml

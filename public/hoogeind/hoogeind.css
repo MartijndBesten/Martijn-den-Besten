@@ -1,0 +1,64 @@
+@font-face{font-family:"Geist";src:url("/fonts/geist.woff2") format("woff2-variations");font-weight:100 900;font-display:swap}
+
+/* Layout: schermvullend 3D-beeld; bediening zweeft als twee rustige panelen (titel linksboven, opties rechts) en een rij aanzichten onderin. */
+:root{
+  --paneel:#fbfcf9; --paneel-rand:#d5dccf; --tekst:#1d2a22; --zacht:#5a6a5f;
+  --accent:#b4531f; --accent-tekst:#ffffff; --knop:#eef2ea; --knop-actief:#1f4a36; --knop-actief-tekst:#ffffff;
+  --lucht:#cfe3ee;
+  --kop:"Geist",system-ui,sans-serif; --lopend:"Geist",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paneel:#18211c; --paneel-rand:#33423a; --tekst:#e9efe9; --zacht:#a3b2a8;
+  --accent:#e58a55; --accent-tekst:#1a120c; --knop:#243029; --knop-actief:#cfe6d6; --knop-actief-tekst:#12211a; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --paneel:#18211c; --paneel-rand:#33423a; --tekst:#e9efe9; --zacht:#a3b2a8;
+  --accent:#e58a55; --accent-tekst:#1a120c; --knop:#243029; --knop-actief:#cfe6d6; --knop-actief-tekst:#12211a; color-scheme:dark }
+html,body{height:100%}
+body{background:var(--lucht);color:var(--tekst);font-family:var(--lopend);font-size:14px;line-height:1.45;overflow:hidden}
+#toneel{position:relative;width:100%;height:100%;overflow:hidden;touch-action:none}
+#toneel canvas{display:block;width:100%;height:100%}
+.paneel{position:absolute;z-index:2;background:var(--paneel);border:1px solid var(--paneel-rand);border-radius:10px;box-shadow:0 6px 24px rgba(20,35,25,.18)}
+#kop{top:12px;left:max(16px,env(safe-area-inset-left,0px));padding:10px 14px;max-width:min(330px,calc(100% - 32px))}
+#kop h1{font-family:var(--kop);font-size:19px;font-weight:600;margin:0;letter-spacing:-.01em}
+#kop p{margin:2px 0 0;color:var(--zacht);font-size:12.5px}
+#opties{top:12px;right:max(16px,env(safe-area-inset-right,0px));width:250px;max-width:calc(100% - 32px)}
+#inhoud{max-height:calc(100vh - 150px);overflow:auto}
+#opties summary{cursor:pointer;padding:10px 14px;font-family:var(--kop);font-weight:600;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+#opties summary::-webkit-details-marker{display:none}
+#opties summary::after{content:"▾";color:var(--zacht)}
+#opties[open] summary::after{content:"▴"}
+.blok{padding:4px 14px 12px;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--paneel-rand)}
+.knopTerug{font:500 13px var(--lopend);color:var(--tekst);background:var(--knop);border:1px solid var(--paneel-rand);border-radius:7px;padding:8px 12px;cursor:pointer;width:100%}
+.segment{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+#kop .segment{margin-top:10px}
+.blok h2{font-family:var(--kop);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--zacht);margin:8px 0 0}
+label.vink{display:flex;gap:8px;align-items:center;cursor:pointer}
+label.vink input{accent-color:var(--accent);width:16px;height:16px}
+.schuif{display:grid;grid-template-columns:70px 1fr 48px;gap:8px;align-items:center;font-size:13px}
+.schuif input{accent-color:var(--accent);width:100%;min-width:0}
+.schuif output{text-align:right;font-variant-numeric:tabular-nums;color:var(--zacht)}
+#volInfo{font-size:12.5px;color:var(--zacht)}
+#volInfo strong{color:var(--tekst);font-variant-numeric:tabular-nums}
+.maten{width:100%;border-collapse:collapse;font-size:12.5px}
+.maten td{padding:3px 0;border-bottom:1px solid var(--paneel-rand)}
+.maten td:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--zacht);white-space:nowrap}
+.noot{font-size:12px;color:var(--zacht);margin:0}
+#aanzichten{bottom:12px;left:50%;transform:translateX(-50%);padding:6px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:calc(100% - 32px)}
+#aanzichten button,.segment button{font:500 13px var(--lopend);color:var(--tekst);background:var(--knop);border:0;border-radius:7px;padding:8px 12px;cursor:pointer}
+#aanzichten button[aria-pressed="true"],.segment button[aria-pressed="true"]{background:var(--knop-actief);color:var(--knop-actief-tekst)}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.etiket{position:absolute;left:0;top:0;transform:translate(-50%,-100%);font:600 11.5px var(--lopend);color:#16241c;background:rgba(255,255,255,.9);border:1px solid rgba(22,36,28,.25);border-radius:5px;padding:2px 6px;white-space:nowrap;pointer-events:none;will-change:transform}
+.etiket.vol{background:#b4531f;color:#fff;border-color:#b4531f}
+#fout{top:50%;left:50%;transform:translate(-50%,-50%);padding:16px 20px;max-width:320px}
+@media (max-width:640px){
+  #opties{top:auto;bottom:calc(68px + env(safe-area-inset-bottom,0px));width:calc(100% - 32px)}
+  #inhoud{max-height:46vh}
+  #aanzichten{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;width:calc(100% - 32px);box-sizing:border-box}
+  #aanzichten button{flex:none}
+  #kop h1{font-size:16px}
+  #aanzichten button{padding:8px 9px;font-size:12.5px}
+}
+
+html,body{margin:0}
+[hidden]{display:none!important}
+body{font-size:14px}
