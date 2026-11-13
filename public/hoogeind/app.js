@@ -268,11 +268,12 @@ function tuinhuis(ouder,cx,cz,metBijkeuken){ // dierenschuur: 6,5 x 6,4 m (BAG),
     // Nieuwe situatie: overkapping = fietsenstalling, dichte deel = bijkeuken (Martijn 13-11).
     // Lokaal: dichte deel x -1,1..3,2; overkapping x -3,2..-1,1; z +3,2 ligt aan de kant van de glazen sluis.
     var bk=new THREE.Group(); bk.visible=false; g.add(bk); g.userData.binnen=bk;
+    var sd=doos(0.9,2.05,0.06,M(0x1f2326)); sd.position.set(0.3,1.03,3.24); g.add(sd); g.userData.buiten.push(sd); // buitendeur naar de sluis
     var hout=M(K.groenhout);
     wand(bk,-3.2,3.2,3.2,'z',[],0.15,2.2,hout);                                  // achterwand
     wand(bk,-3.2,3.2,-1.1,'z',[{c:2.0,w:0.9,s:0,h:2.05}],0.15,2.2,hout);         // wand naar de fietsenstalling met deur
     wand(bk,-1.1,3.2,-3.2,'x',[{c:1.2,w:1.0,s:1.0,h:0.8,glas:true}],0.15,2.2,hout);
-    wand(bk,-1.1,3.2,3.2,'x',[],0.15,2.2,hout);
+    wand(bk,-1.1,3.2,3.2,'x',[{c:0.3,w:0.9,s:0,h:2.05}],0.15,2.2,hout);   // deur naar de glazen sluis
     meubel(bk,-1.0,-3.1,3.1,3.1,0.06,0xb9b2a4,0.06);                             // vloer
     meubel(bk,2.45,-2.9,3.1,0.6,0.9,0xe9e6df);                                   // werkblad met spoelbak
     meubel(bk,2.45,0.7,3.1,1.35,1.8,0xf4f4f2);                                   // wasmachine + droger
@@ -323,7 +324,7 @@ haagM(16.4,51,-17.3,1.8); haagM(51,60.2,-17.3,1.0);
   // meerstammige krentenbomen (Amelanchier)
   boom(PX(40.2),PZ(-19.9),4.2,0x9bb55a,false,T); boom(PX(54.6),PZ(-23.4),4.0,0x9bb55a,false,T);
 })();
-var DIER=[-11.25,-3.2], SLUIS=[-7.25,-0.6];
+var DIER=[-11.25,-0.3], SLUIS=[-7.25,-0.6]; // sluis vanuit het dichte deel (bijkeuken), niet vanuit de overkapping
 var dierNieuw=tuinhuis(koppel,DIER[0],DIER[1],true);
 // glazen sluis tussen dierenschuur en mantelzorgwoning
 (function(){
@@ -589,8 +590,8 @@ function indeling(aan){
 document.getElementById('tIndeling').addEventListener('change',function(){indeling(this.checked);});
 var loop={actief:false,yaw:0,pitch:0,toets:{},route:null,oogHoogte:1.6};
 // Route in koppel-coördinaten (X naar de weg, Z naar de haag, ten opzichte van het midden van de woning bij 180°):
-// voor de fietsenstalling, onder de overkapping door, langs de deur van de bijkeuken, door de glazen sluis, de hal in en naar de woonkamer.
-var ROUTE=[[-11.0,5.5],[-11.0,2.6],[-11.0,-0.9],[-9.3,-0.9],[-8.0,-0.6],[-6.0,-0.6],[-3.2,-1.0],[0.6,-1.0],[1.4,-0.9],[3.3,0.0],[5.2,0.0]];
+// voor de fietsenstalling, onder de overkapping door, de bijkeuken in en vandaar door de glazen sluis, de hal in en naar de woonkamer.
+var ROUTE=[[-11.0,6.5],[-11.0,1.9],[-9.25,1.9],[-9.25,0.0],[-8.6,-0.6],[-7.25,-0.6],[-6.0,-0.6],[-3.2,-1.0],[0.6,-1.0],[1.4,-0.9],[3.3,0.0],[5.2,0.0]];
 function routePunt(i){var v=new THREE.Vector3(ROUTE[i][0],loop.oogHoogte,ROUTE[i][1]); koppel.updateMatrixWorld(true); return koppel.localToWorld(v);}
 function startLopen(metRoute){
   if(!vol.visible) situatie(true);
