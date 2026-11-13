@@ -242,8 +242,8 @@ gevelvlak(-8.74,1.5,13.9,4.2,3.0,'x',K.groenhout,false);
 gebouw({m:[-35.1,-11.4,-28.2,-3.7],as:'z',goot:2.5,nok:4.8,wand:K.groenhout,dak:K.pandonker});
 gevelvlak(-28.16,1.15,-7.55,2.2,2.3,'x',K.wit,false);
 var huidigGroep=new THREE.Group(), nieuwGroep=new THREE.Group(); nieuwGroep.visible=false; scene.add(huidigGroep); scene.add(nieuwGroep);
-function tuinhuis(ouder,cx,cz){ // dierenschuur: 6,5 x 6,4 m (BAG), nok haaks op de weg, dichte kant naar de weg, open overkapping aan de erfzijde
-  var g=new THREE.Group(); g.position.set(cx,0,cz); ouder.add(g);
+function tuinhuis(ouder,cx,cz){ // dierenschuur: 6,5 x 6,4 m (BAG), open overkapping aan de kant van het oude huis
+  var g=new THREE.Group(); g.position.set(cx,0,cz); g.rotation.y=Math.PI/2; ouder.add(g); // open overkapping naar het oude huis (Martijn 13-11)
   var b=gebouw({m:[-1.1,-3.2,3.2,3.2],as:'x',goot:2.2,nok:3.6,wand:K.groenhout,dak:K.pan,ouder:g}), pr=b.userData.prof, L=b.userData.L;
   dakplaat(b,pr[2],pr[3],-0.06,1.02,-L/2-2.4,-L/2-0.3,0.16,0.08,M(K.pan)); dakplaat(b,pr[3],pr[4],-0.06,1.02,-L/2-2.4,-L/2-0.3,0.16,0.08,M(K.pan));
   [-3.05,0,3.05].forEach(function(dz){var st=doos(0.14,2.2,0.14,M(K.groenhout)); st.position.set(-3.2,1.1,dz); g.add(st);});
