@@ -427,7 +427,7 @@ var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.25,0,-23.5); s
   // Lokale assen: x = lengte 13 m (glazen kopgevel op x = -6,5, bij 180° naar de weg), z = diepte 8 m (z = +4 aan de slootkant).
   var STUC=0xf3f0e9, STRIP=0x8a5a48, DAK=0x2e3033, KOZIJN=0x1f2326, NOK=4.6, GOOT=2.7, HL=6.5, HD=4;
   var n0=vol.children.length;
-  var gw=gebouw({m:[-HL,-HD,HL,HD],as:'x',goot:GOOT,nok:NOK,wand:STUC,dak:DAK,plint:0.9,plintKleur:STRIP,ouder:vol});
+  var gw=gebouw({m:[-HL,-HD,HL,HD],as:'x',goot:GOOT,nok:NOK,wand:STUC,dak:DAK,ouder:vol});
   function dakH(z){return GOOT+(NOK-GOOT)*(1-Math.abs(z)/HD);}
   // Gevelopeningen volgens de Vilaro-plattegrond (13-11-2026): 12,99 x 8,00 m. d = afstand vanaf de kopgevel aan de wegkant.
   // Kopgevel wegkant: twee vaste glaspuien 1800x2200. Slootkant (z +4): 2x 900x2200, 2x 700x1200, 600x800.
@@ -466,7 +466,7 @@ var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.25,0,-23.5); s
   var WIT=M(0xf6f5f1);
   var pen=doos(0.45,5.35,1.0,M(STUC)); pen.position.set(-HL-0.2,5.35/2,0); vol.add(pen);
   var kap=doos(0.6,0.1,1.15,M(0x3a3d40)); kap.position.set(-HL-0.2,5.4,0); vol.add(kap);
-  var pl=doos(0.47,0.9,1.02,M(STRIP)); pl.position.set(-HL-0.2,0.45,0); vol.add(pl);
+  var pl=doos(0.47,0.45,1.02,M(STRIP)); pl.position.set(-HL-0.2,0.225,0); vol.add(pl);
   function boei(x){ [-1,1].forEach(function(k){
     var z0=k*(HD+0.32), y0=GOOT-0.12, z1=0, y1=NOK+0.12, l=Math.hypot(z1-z0,y1-y0);
     var b=doos(0.06,0.22,l,WIT); b.castShadow=false; b.position.set(x,(y0+y1)/2,(z0+z1)/2); b.rotation.x=k*Math.atan2(y1-y0,Math.abs(z1-z0)); vol.add(b); }); }
@@ -487,10 +487,21 @@ var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.25,0,-23.5); s
   gw.children[0].material=new THREE.MeshLambertMaterial({map:stucTex});
   // steenstrips in halfsteensverband
   function stripTex(lengte){return tex(128,64,function(x,w,h){x.fillStyle='#b9b1a6';x.fillRect(0,0,w,h);
-    for(var r=0;r<4;r++){for(var k=-1;k<3;k++){var u=k*64+(r%2?32:0); var tint=['#8a5a48','#7f5242','#94604c','#865746'][(r+k+4)%4]; x.fillStyle=tint; x.fillRect(u+2,r*16+2,60,13);}}},lengte/0.44,0.9/0.26);}
-  gw.children.forEach(function(m){ if(m.geometry&&m.geometry.parameters&&Math.abs(m.geometry.parameters.height-0.9)<0.01){
-    var P=m.geometry.parameters; m.material=[new THREE.MeshLambertMaterial({map:stripTex(P.depth)}),new THREE.MeshLambertMaterial({map:stripTex(P.depth)}),M(STRIP),M(STRIP),
-      new THREE.MeshLambertMaterial({map:stripTex(P.width)}),new THREE.MeshLambertMaterial({map:stripTex(P.width)})]; }});
+    for(var r=0;r<4;r++){for(var k=-1;k<3;k++){var u=k*64+(r%2?32:0); var tint=['#8a5a48','#7f5242','#94604c','#865746'][(r+k+4)%4]; x.fillStyle=tint; x.fillRect(u+2,r*16+2,60,13);}}},lengte/0.44,PH/0.26);}
+  // Plint van steenstrips, 45 cm hoog, onderbroken bij deuren en puien tot de vloer (Martijn 13-11).
+  var PH=0.45;
+  function plintMat(lang,kort){return [new THREE.MeshLambertMaterial({map:stripTex(kort)}),new THREE.MeshLambertMaterial({map:stripTex(kort)}),M(STRIP),M(STRIP),new THREE.MeshLambertMaterial({map:stripTex(lang)}),new THREE.MeshLambertMaterial({map:stripTex(lang)})];}
+  function plintZijde(langs,vast,a0,a1,gaten){ var a=a0; gaten.concat([[a1+1,0]]).sort(function(p,q){return p[0]-q[0];}).forEach(function(g){
+      var b=Math.min(g[0]-g[1]/2,a1); if(b-a>0.02){ var l=b-a, m;
+        if(langs==='x'){ m=new THREE.Mesh(new THREE.BoxGeometry(l,PH,0.06),plintMat(l,0.06)); m.position.set((a+b)/2,PH/2,vast); }
+        else { m=new THREE.Mesh(new THREE.BoxGeometry(0.06,PH,l),[new THREE.MeshLambertMaterial({map:stripTex(l)}),new THREE.MeshLambertMaterial({map:stripTex(l)}),M(STRIP),M(STRIP),M(STRIP),M(STRIP)]); m.position.set(vast,PH/2,(a+b)/2); }
+        m.castShadow=true; m.receiveShadow=true; vol.add(m); }
+      a=Math.max(a,g[0]+g[1]/2); }); }
+  var e=0.03, G=0.14;
+  plintZijde('x',HD+e,-HL-0.06,HL+0.06,[[-HL+1.75,0.9+G],[-HL+4.2,0.9+G]]);              // slootkant
+  plintZijde('x',-HD-e,-HL-0.06,HL+0.06,[[-HL+1.0,1.8+G],[-HL+5.0,0.9+G]]);              // haagkant
+  plintZijde('z',-HL-e,-HD,HD,[[2.0,1.8+G],[-2.0,1.8+G]]);                                // wegkant
+  plintZijde('z',HL+e,-HD,HD,[[0.6,1.15+G]]);                                             // erfzijde
   pl.material=[new THREE.MeshLambertMaterial({map:stripTex(1.0)}),new THREE.MeshLambertMaterial({map:stripTex(1.0)}),M(STRIP),M(STRIP),new THREE.MeshLambertMaterial({map:stripTex(0.47)}),new THREE.MeshLambertMaterial({map:stripTex(0.47)})];
   // nokvorsten
   var nk=new THREE.Mesh(new THREE.CylinderGeometry(0.12,0.12,2*HL+0.6,12,1,false,0,Math.PI),M(0x26282b)); nk.rotation.z=Math.PI/2; nk.rotation.x=Math.PI/2; nk.position.set(0,NOK+0.14,0); nk.castShadow=true; vol.add(nk);
