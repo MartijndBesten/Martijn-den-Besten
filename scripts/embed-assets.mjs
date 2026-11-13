@@ -2,7 +2,7 @@
 // Bedoeld voor deployments vanuit omgevingen waar de Static Assets-upload niet werkt (zie docs/DEPLOYMENT.md).
 
 import { createHash } from "node:crypto";
-import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { extname, join, relative } from "node:path";
 
 const root = "dist/client";
@@ -12,6 +12,8 @@ const TYPES = {
   ".css": "text/css; charset=utf-8",
   ".svg": "image/svg+xml",
   ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
   ".webp": "image/webp",
   ".woff2": "font/woff2",
   ".txt": "text/plain; charset=utf-8",
@@ -52,6 +54,7 @@ for (const line of readFileSync(join(root, "_headers"), "utf8").split("\n")) {
   }
 }
 
+mkdirSync("worker/generated", { recursive: true });
 writeFileSync(
   "worker/generated/files.ts",
   `// Automatisch gegenereerd door scripts/embed-assets.mjs. Niet handmatig bewerken.\n` +
