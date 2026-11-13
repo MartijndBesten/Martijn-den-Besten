@@ -9,7 +9,7 @@
     <meta name="theme-color" content="#cfe3ee" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/hoogeind/hoogeind.css?v=7c0867cda1" />
+    <link rel="stylesheet" href="/hoogeind/hoogeind.css?v=0a40ac7403" />
   </head>
   <body>
 <div id="toneel">
@@ -38,6 +38,8 @@
         <div class="schuif"><label for="sR">Draaiing</label><input type="range" id="sR" min="0" max="355" step="5" value="180"><output id="oR">180°</output></div>
         <p id="volInfo"></p>
         <button type="button" id="bTerug" class="knopTerug">Terug naar ontworpen plek</button>
+        <label class="vink"><input type="checkbox" id="tIndeling"> Indeling tonen (daken weg)</label>
+        <div class="segment"><button type="button" id="bRoute">Loop de route</button><button type="button" id="bLopen">Zelf rondlopen</button></div>
         <p class="noot">Nieuwe situatie met tuin richting de weg (terras, stapstenen, zitplek, border langs de haag); de oude haag is ingekort. Mantelzorgwoning volgens de Vilaro-plattegrond: 12,99 × 8,00 m, nok 4,60 m, wit stucwerk op een plint van steenstrips, pannendak; ramen en deuren op de getekende plekken. Glazen overkapping van 3 m langs de slootkant; de overkapping staat op de rand van het beton, de woning zelf 3 m verder van de sloot. Binnen de lijn van de kopgevel van de koeienschuur. De dierenschuur zit met een glazen sluis aan de woning vast en schuift en draait mee.</p>
       </div>
     </div>
@@ -56,12 +58,20 @@
     <button type="button" data-v="achter" aria-pressed="false">Achtererf</button>
     <button type="button" data-v="tuin" aria-pressed="false">Tuinzijde</button>
   </div>
+  <div class="paneel" id="looppaneel" hidden>
+    <p id="loopUitleg">Sleep om rond te kijken. Lopen met de pijlen of W A S D.</p>
+    <div class="pijlen">
+      <span></span><button type="button" data-k="vooruit" aria-label="Vooruit">▲</button><span></span>
+      <button type="button" data-k="links" aria-label="Draai naar links">◀</button><button type="button" data-k="achteruit" aria-label="Achteruit">▼</button><button type="button" data-k="rechts" aria-label="Draai naar rechts">▶</button>
+    </div>
+    <button type="button" id="bStop" class="knopTerug">Stoppen met lopen</button>
+  </div>
   <div class="paneel" id="fout" hidden>Het 3D-beeld kon niet starten. Open de pagina in een recente browser met WebGL.</div>
 </div>
 
 
     <script src="/hoogeind/three.min.js?v=9274bbcec8"></script>
     <script src="/hoogeind/OrbitControls.js?v=02bb4ade71"></script>
-    <script src="/hoogeind/app.js?v=55968327a6"></script>
+    <script src="/hoogeind/app.js?v=f961626e68"></script>
   </body>
 </html>

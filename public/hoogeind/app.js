@@ -26,7 +26,7 @@ var scene=new THREE.Scene();
 var luchtKleur=new THREE.Color(0xcfe3ee).convertSRGBToLinear();
 scene.background=luchtKleur;
 scene.fog=new THREE.Fog(luchtKleur,260,620);
-var camera=new THREE.PerspectiveCamera(40,1,1,1500);
+var camera=new THREE.PerspectiveCamera(40,1,0.5,1500);
 var controls=new THREE.OrbitControls(camera,renderer.domElement);
 controls.enableDamping=true; controls.dampingFactor=.08;
 controls.maxPolarAngle=Math.PI/2-0.03; controls.minDistance=12; controls.maxDistance=330;
@@ -150,6 +150,21 @@ function gevelvlak(cx,cy,cz,breed,hoog,richting,kleur,rand,ouder,randKleur){
   if(rand){var r=doos(richting==='x'?d*0.6:breed+0.24,hoog+0.24,richting==='x'?breed+0.24:d*0.6,M(rand===true?(randKleur||K.wit):rand)); r.position.set(cx,cy,cz); r.castShadow=false; gebouwen.add(r);}
 }
 
+// Wand met openingen. langs='x': wand loopt van a0 tot a1 langs x op z=vast; langs='z': langs z op x=vast.
+// ops: [{c:midden, w:breedte, s:borstwering, h:hoogte, glas:true/false}]
+function wand(ouder,a0,a1,vast,langs,ops,dikte,hoogte,mat){
+  var glasMat=new THREE.MeshLambertMaterial({color:lin(0x9fc3d1),transparent:true,opacity:0.35});
+  function stuk(b0,b1,y0,y1,m){ if(b1-b0<0.01||y1-y0<0.01) return; var l=b1-b0, h=y1-y0, mm=m||mat;
+    var d=doos(langs==='x'?l:dikte,h,langs==='x'?dikte:l,mm); if(m===glasMat){d.castShadow=false;}
+    if(langs==='x') d.position.set((b0+b1)/2,(y0+y1)/2,vast); else d.position.set(vast,(y0+y1)/2,(b0+b1)/2); ouder.add(d); }
+  var a=a0; (ops||[]).slice().sort(function(p,q){return p.c-q.c;}).forEach(function(o){
+    var l=o.c-o.w/2, r=o.c+o.w/2; stuk(a,l,0,hoogte); stuk(l,r,0,o.s); stuk(l,r,Math.min(hoogte,o.s+o.h),hoogte);
+    if(o.glas){ var g=doos(langs==='x'?o.w:0.03,o.h,langs==='x'?0.03:o.w,glasMat); g.castShadow=false; if(langs==='x') g.position.set(o.c,o.s+o.h/2,vast); else g.position.set(vast,o.s+o.h/2,o.c); ouder.add(g); }
+    a=r; });
+  stuk(a,a1,0,hoogte);
+}
+function meubel(ouder,x0,z0,x1,z1,h,kleur,y0){var m=doos(Math.abs(x1-x0),h,Math.abs(z1-z0),M(kleur)); m.position.set((x0+x1)/2,(y0||0)+h/2,(z0+z1)/2); ouder.add(m); return m;}
+
 // Woonhuis: voorhuis (nok evenwijdig aan de weg) met achterhuis
 var voorhuis=gebouw({m:[37.0,0.8,42.1,13.3],as:'z',goot:3.6,nok:6.5,wand:K.baksteen,dak:K.pan});
 var achterhuis=gebouw({m:[18.2,0.8,37.0,12.9],as:'x',goot:3.0,nok:7.9,wand:K.baksteen,dak:K.pandonker});
@@ -242,12 +257,33 @@ gevelvlak(-8.74,1.5,13.9,4.2,3.0,'x',K.groenhout,false);
 gebouw({m:[-35.1,-11.4,-28.2,-3.7],as:'z',goot:2.5,nok:4.8,wand:K.groenhout,dak:K.pandonker});
 gevelvlak(-28.16,1.15,-7.55,2.2,2.3,'x',K.wit,false);
 var huidigGroep=new THREE.Group(), nieuwGroep=new THREE.Group(); nieuwGroep.visible=false; scene.add(huidigGroep); scene.add(nieuwGroep);
-function tuinhuis(ouder,cx,cz){ // dierenschuur: 6,5 x 6,4 m (BAG), open overkapping aan de kant van het oude huis
+function tuinhuis(ouder,cx,cz,metBijkeuken){ // dierenschuur: 6,5 x 6,4 m (BAG), open overkapping aan de kant van het oude huis
   var g=new THREE.Group(); g.position.set(cx,0,cz); g.rotation.y=Math.PI/2; ouder.add(g); // open overkapping naar het oude huis (Martijn 13-11)
   var b=gebouw({m:[-1.1,-3.2,3.2,3.2],as:'x',goot:2.2,nok:3.6,wand:K.groenhout,dak:K.pan,ouder:g}), pr=b.userData.prof, L=b.userData.L;
   dakplaat(b,pr[2],pr[3],-0.06,1.02,-L/2-2.4,-L/2-0.3,0.16,0.08,M(K.pan)); dakplaat(b,pr[3],pr[4],-0.06,1.02,-L/2-2.4,-L/2-0.3,0.16,0.08,M(K.pan));
   [-3.05,0,3.05].forEach(function(dz){var st=doos(0.14,2.2,0.14,M(K.groenhout)); st.position.set(-3.2,1.1,dz); g.add(st);});
   var vl=doos(2.1,0.12,6.4,M(0x6b5a4a)); vl.position.set(-2.15,0.06,0); g.add(vl);
+  g.userData.buiten=[b];
+  if(metBijkeuken){
+    // Nieuwe situatie: overkapping = fietsenstalling, dichte deel = bijkeuken (Martijn 13-11).
+    // Lokaal: dichte deel x -1,1..3,2; overkapping x -3,2..-1,1; z +3,2 ligt aan de kant van de glazen sluis.
+    var bk=new THREE.Group(); bk.visible=false; g.add(bk); g.userData.binnen=bk;
+    var hout=M(K.groenhout);
+    wand(bk,-3.2,3.2,3.2,'z',[],0.15,2.2,hout);                                  // achterwand
+    wand(bk,-3.2,3.2,-1.1,'z',[{c:2.0,w:0.9,s:0,h:2.05}],0.15,2.2,hout);         // wand naar de fietsenstalling met deur
+    wand(bk,-1.1,3.2,-3.2,'x',[{c:1.2,w:1.0,s:1.0,h:0.8,glas:true}],0.15,2.2,hout);
+    wand(bk,-1.1,3.2,3.2,'x',[],0.15,2.2,hout);
+    meubel(bk,-1.0,-3.1,3.1,3.1,0.06,0xb9b2a4,0.06);                             // vloer
+    meubel(bk,2.45,-2.9,3.1,0.6,0.9,0xe9e6df);                                   // werkblad met spoelbak
+    meubel(bk,2.45,0.7,3.1,1.35,1.8,0xf4f4f2);                                   // wasmachine + droger
+    meubel(bk,-0.95,-3.05,0.6,-2.5,2.0,0xdad4c8);                                // kast
+    // fietsen onder de overkapping
+    [-2.7,-1.6].forEach(function(z){var f=new THREE.Group(); f.position.set(-2.2,0,z); f.rotation.y=Math.PI/2;
+      [-0.55,0.55].forEach(function(x){var w=new THREE.Mesh(new THREE.TorusGeometry(0.33,0.035,6,18),M(0x22262a)); w.position.set(x,0.35,0); f.add(w);});
+      var fr=doos(1.1,0.05,0.05,M(0x8a3b2b)); fr.position.set(0,0.62,0); f.add(fr); var st=doos(0.05,0.35,0.05,M(0x8a3b2b)); st.position.set(-0.2,0.8,0); f.add(st);
+      var stuur=doos(0.05,0.05,0.5,M(0x22262a)); stuur.position.set(0.5,0.95,0); f.add(stuur); g.add(f);});
+  }
+  return g;
 }
 tuinhuis(huidigGroep,20.65,-21.6);
 // Nieuwe situatie: dierenschuur en glazen sluis zitten vast aan de mantelzorgwoning en schuiven/draaien mee.
@@ -287,8 +323,8 @@ haagM(16.4,51,-17.3,1.8); haagM(51,60.2,-17.3,1.0);
   // meerstammige krentenbomen (Amelanchier)
   boom(PX(40.2),PZ(-19.9),4.2,0x9bb55a,false,T); boom(PX(54.6),PZ(-23.4),4.0,0x9bb55a,false,T);
 })();
-var DIER=[-11.25,-3.2], SLUIS=[-7.25,-0.2];
-tuinhuis(koppel,DIER[0],DIER[1]);
+var DIER=[-11.25,-3.2], SLUIS=[-7.25,-0.6];
+var dierNieuw=tuinhuis(koppel,DIER[0],DIER[1],true);
 // glazen sluis tussen dierenschuur en mantelzorgwoning
 (function(){
   var gl=new THREE.Mesh(new THREE.BoxGeometry(1.5,2.3,1.8),new THREE.MeshLambertMaterial({color:lin(0x9fc3d1),transparent:true,opacity:0.55})); gl.position.set(SLUIS[0],1.15,SLUIS[1]); koppel.add(gl);
@@ -389,6 +425,7 @@ var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.25,0,-23.5); s
   // Martijn 13-11: rechthoekig, 13 x 8 m (104 m²), zadeldak met nok 4,60 m, goot 2,70 m (goot is een schatting).
   // Lokale assen: x = lengte 13 m (glazen kopgevel op x = -6,5, bij 180° naar de weg), z = diepte 8 m (z = +4 aan de slootkant).
   var STUC=0xf3f0e9, STRIP=0x8a5a48, DAK=0x2e3033, KOZIJN=0x1f2326, NOK=4.6, GOOT=2.7, HL=6.5, HD=4;
+  var n0=vol.children.length;
   gebouw({m:[-HL,-HD,HL,HD],as:'x',goot:GOOT,nok:NOK,wand:STUC,dak:DAK,plint:0.9,plintKleur:STRIP,ouder:vol});
   function dakH(z){return GOOT+(NOK-GOOT)*(1-Math.abs(z)/HD);}
   // Gevelopeningen volgens de Vilaro-plattegrond (13-11-2026): 12,99 x 8,00 m. d = afstand vanaf de kopgevel aan de wegkant.
@@ -401,7 +438,42 @@ var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.25,0,-23.5); s
   op(2.0,'weg',1.8,2.2,0.1); op(-2.0,'weg',1.8,2.2,0.1);
   op(1.75,'sloot',0.9,2.2,0.1); op(4.2,'sloot',0.9,2.2,0.1); op(6.8,'sloot',0.7,1.2,0.9); op(7.8,'sloot',0.7,1.2,0.9); op(10.15,'sloot',0.6,0.8,1.3);
   op(1.0,'haag',1.8,2.2,0.1); op(5.0,'haag',0.9,2.2,0.1); op(6.95,'haag',0.65,1.2,0.9); op(9.65,'haag',0.65,1.2,0.9); op(10.9,'haag',0.8,0.8,1.3);
-  op(0.2,'erf',1.15,2.2,0.0,true); op(2.65,'erf',0.6,0.8,1.3);
+  op(0.6,'erf',1.15,2.2,0.0,true); op(2.65,'erf',0.6,0.8,1.3);
+  vol.userData.buiten=vol.children.slice(n0);
+  // ---------- Indeling volgens de Vilaro-plattegrond ----------
+  // Plattegrondmaten: d = afstand vanaf de kopgevel aan de wegkant, t = afstand vanaf de slootgevel. Lokaal: x = -HL + d, z = HD - t.
+  var IN=new THREE.Group(); IN.visible=false; vol.add(IN); vol.userData.binnen=IN;
+  function X(d){return -HL+d;} function Z(t){return HD-t;}
+  var buitenW=M(STUC), binnenW=M(0xf7f5f0), D=0.25, WH=2.7, IH=2.6;
+  meubel(IN,-HL,-HD,HL,HD,0.06,0xc8a97e,0.06);                                       // houten vloer
+  function o(d,w,s,h,glas){return {c:d,w:w,s:s,h:h,glas:glas!==false};}
+  wand(IN,-HD,HD,-HL+D/2,'z',[{c:2.0,w:1.8,s:0.1,h:2.2,glas:true},{c:-2.0,w:1.8,s:0.1,h:2.2,glas:true}],D,WH,buitenW);   // wegkant
+  wand(IN,-HD,HD,HL-D/2,'z',[{c:0.6,w:1.15,s:0,h:2.2,glas:false},{c:2.65,w:0.6,s:1.3,h:0.8,glas:true}],D,WH,buitenW);   // erfzijde
+  wand(IN,-HL,HL,HD-D/2,'x',[o(X(1.75),0.9,0.1,2.2),o(X(4.2),0.9,0.1,2.2),o(X(6.8),0.7,0.9,1.2),o(X(7.8),0.7,0.9,1.2),o(X(10.15),0.6,1.3,0.8)],D,WH,buitenW); // sloot
+  wand(IN,-HL,HL,-HD+D/2,'x',[o(X(1.0),1.8,0.1,2.2),o(X(5.0),0.9,0.1,2.2),o(X(6.95),0.65,0.9,1.2),o(X(9.65),0.65,0.9,1.2),o(X(10.9),0.8,1.3,0.8)],D,WH,buitenW); // haag
+  function deur(c){return {c:c,w:0.9,s:0,h:2.1,glas:false};}
+  var t=0.1;
+  wand(IN,Z(3.65),Z(0),X(5.41),'z',[deur(Z(3.05))],t,IH,binnenW);                    // woonkamer | hal
+  wand(IN,X(5.41),X(12.75),Z(2.35),'x',[deur(X(6.45)),deur(X(7.6)),deur(X(9.4))],t,IH,binnenW); // hal | berging, kamer, badkamer
+  wand(IN,Z(2.35),Z(0),X(7.16),'z',[],t,IH,binnenW); wand(IN,Z(2.35),Z(0),X(8.91),'z',[],t,IH,binnenW);
+  wand(IN,X(5.41),X(11.35),Z(3.65),'x',[deur(X(6.7))],t,IH,binnenW);                 // hal | slaapkamer
+  wand(IN,Z(8),Z(3.65),X(6.11),'z',[],t,IH,binnenW);                                 // kastenwand woonkamer | slaapkamer
+  wand(IN,Z(8),Z(3.65),X(10.04),'z',[],t,IH,binnenW);                                // slaapkamer | meterkast, toilet
+  wand(IN,Z(8),Z(3.65),X(11.35),'z',[{c:Z(4.6),w:0.6,s:0,h:2.1},{c:Z(6.8),w:0.7,s:0,h:2.1}],t,IH,binnenW);
+  wand(IN,X(10.04),X(11.35),Z(5.65),'x',[],t,IH,binnenW);
+  // meubels (naar de tekening)
+  meubel(IN,X(0.65),Z(0.95),X(1.5),Z(2.35),0.8,0x6f7a86);                            // bank
+  meubel(IN,X(2.2),Z(0.7),X(2.7),Z(1.2),0.75,0x9a8a78); meubel(IN,X(3.0),Z(0.7),X(3.5),Z(1.2),0.75,0x9a8a78); // fauteuils
+  meubel(IN,X(0.8),Z(5.4),X(1.8),Z(6.8),0.75,0x8a6a4c);                              // eettafel
+  meubel(IN,X(3.2),Z(5.1),X(4.4),Z(7.4),0.9,0xe9e6df);                               // kookeiland
+  meubel(IN,X(5.45),Z(3.8),X(6.06),Z(7.8),2.2,0xefece6);                             // kastenwand
+  meubel(IN,X(5.5),Z(0.15),X(6.3),Z(1.9),0.5,0xb8c4cf);                              // slaapbank in de werkkamer (4,4 m²)
+  meubel(IN,X(7.2),Z(5.5),X(9.05),Z(7.6),0.55,0xd8dee6);                             // bed
+  meubel(IN,X(7.2),Z(3.75),X(9.7),Z(4.4),2.2,0xefece6);                              // kledingkast
+  meubel(IN,X(9.3),Z(0.1),X(12.2),Z(0.85),0.55,0xf4f4f2);                            // douche/bad
+  meubel(IN,X(12.2),Z(1.3),X(12.7),Z(1.9),0.45,0xf4f4f2); meubel(IN,X(10.3),Z(1.7),X(10.9),Z(2.25),0.85,0xf4f4f2); // toilet, wastafel
+  meubel(IN,X(10.4),Z(7.1),X(10.95),Z(7.7),0.45,0xf4f4f2);                           // toilet
+  vol.userData.route=[];
   // glazen overkapping langs de slootkant (Martijn 13-11), 3 m diep over de volle lengte, licht aflopend naar de sloot
   var gm=new THREE.MeshLambertMaterial({color:lin(0xbfdbe6),transparent:true,opacity:0.38,side:THREE.DoubleSide});
   var gp=new THREE.Mesh(new THREE.BoxGeometry(2*HL,0.03,3.0),gm); gp.position.set(0,2.6,HD+1.5); gp.rotation.x=0.06; vol.add(gp);
@@ -425,7 +497,7 @@ sR.addEventListener('input',werkVol); werkVol();
 var straal=new THREE.Raycaster(), muis=new THREE.Vector2(), vloer=new THREE.Plane(new THREE.Vector3(0,1,0),0), sleept=false, sleepVerschil=new THREE.Vector3(), raak=new THREE.Vector3();
 function zetMuis(e){var r=renderer.domElement.getBoundingClientRect(); muis.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1); straal.setFromCamera(muis,camera);}
 renderer.domElement.addEventListener('pointerdown',function(e){
-  if(!vol.visible) return; zetMuis(e);
+  if(!vol.visible||loop.actief) return; zetMuis(e);
   if(straal.intersectObjects(vol.children.concat(koppel.children),true).length && straal.ray.intersectPlane(vloer,raak)){
     sleept=true; controls.enabled=false; sleepVerschil.copy(vol.position).sub(raak); renderer.domElement.setPointerCapture(e.pointerId); e.stopPropagation();
   }
@@ -485,8 +557,10 @@ document.getElementById('tBomen').addEventListener('change',function(){groen.vis
 document.getElementById('tRaster').addEventListener('change',function(){raster.visible=this.checked;});
 document.getElementById('tLucht').addEventListener('change',function(){luchtfoto.visible=this.checked; grond.visible=!this.checked; inrichting.visible=!this.checked;});
 function situatie(nieuw){
-  groenH.visible=!nieuw; groenN.visible=nieuw; vol.visible=nieuw; if(!nieuw){var th=etiketten.filter(function(e){return e.el.textContent==='Dierenschuur';})[0]; if(th) th.p.set(20.65,4.3,-21.6);} else werkVol();
-   nieuwGroep.visible=nieuw; huidigGroep.visible=!nieuw; document.getElementById('volBediening').hidden=!nieuw; document.getElementById('blokWoning').hidden=!nieuw;
+  if(!nieuw && loop.actief) stopLopen();
+  groenH.visible=!nieuw; groenN.visible=nieuw; vol.visible=nieuw; nieuwGroep.visible=nieuw; huidigGroep.visible=!nieuw;
+  if(!nieuw){var th=etiketten.filter(function(e){return e.el.textContent==='Dierenschuur';})[0]; if(th) th.p.set(20.65,4.3,-21.6);} else werkVol();
+  document.getElementById('volBediening').hidden=!nieuw; document.getElementById('blokWoning').hidden=!nieuw;
   document.getElementById('bHuidig').setAttribute('aria-pressed',nieuw?'false':'true'); document.getElementById('bNieuw').setAttribute('aria-pressed',nieuw?'true':'false');
 }
 document.getElementById('bHuidig').addEventListener('click',function(){situatie(false);});
@@ -494,14 +568,73 @@ document.getElementById('bNieuw').addEventListener('click',function(){situatie(t
 document.getElementById('bTerug').addEventListener('click',function(){vol.position.set(26.25,0,-23.5); sR.value=180; werkVol();});
 if(window.matchMedia('(max-width:640px)').matches) document.getElementById('opties').open=false;
 
+/* ---------- Indeling en rondlopen ---------- */
+function indeling(aan){
+  document.getElementById('tIndeling').checked=aan;
+  vol.userData.buiten.forEach(function(o){o.visible=!aan;}); vol.userData.binnen.visible=aan;
+  dierNieuw.userData.buiten.forEach(function(o){o.visible=!aan;}); dierNieuw.userData.binnen.visible=aan;
+}
+document.getElementById('tIndeling').addEventListener('change',function(){indeling(this.checked);});
+var loop={actief:false,yaw:0,pitch:0,toets:{},route:null,oogHoogte:1.6};
+// Route in koppel-coördinaten (X naar de weg, Z naar de haag, ten opzichte van het midden van de woning bij 180°):
+// voor de fietsenstalling, onder de overkapping door, langs de deur van de bijkeuken, door de glazen sluis, de hal in en naar de woonkamer.
+var ROUTE=[[-11.0,5.5],[-11.0,2.6],[-11.0,-0.9],[-9.3,-0.9],[-8.0,-0.6],[-6.0,-0.6],[-3.2,-1.0],[0.6,-1.0],[1.4,-0.9],[3.3,0.0],[5.2,0.0]];
+function routePunt(i){var v=new THREE.Vector3(ROUTE[i][0],loop.oogHoogte,ROUTE[i][1]); koppel.updateMatrixWorld(true); return koppel.localToWorld(v);}
+function startLopen(metRoute){
+  if(!vol.visible) situatie(true);
+  indeling(true); loop.actief=true; controls.enabled=false; vlucht=null; camera.fov=70; camera.updateProjectionMatrix(); document.getElementById('opties').hidden=true;
+  document.getElementById('aanzichten').hidden=true; document.getElementById('looppaneel').hidden=false;
+  if(window.matchMedia('(max-width:640px)').matches) document.getElementById('opties').open=false;
+  var p0=routePunt(0), p1=routePunt(1); camera.position.copy(p0);
+  loop.yaw=Math.atan2(-(p1.x-p0.x),-(p1.z-p0.z)); loop.pitch=-0.05;
+  loop.route=metRoute?{i:0,t:0}:null;
+  document.getElementById('loopUitleg').textContent=metRoute?'De route loopt vanzelf. Sleep om rond te kijken; een pijl neemt het over.':'Sleep om rond te kijken. Lopen met de pijlen of W A S D.';
+}
+function stopLopen(){
+  loop.actief=false; loop.route=null; controls.enabled=true; camera.fov=40; camera.updateProjectionMatrix(); document.getElementById('opties').hidden=false;
+  document.getElementById('aanzichten').hidden=false; document.getElementById('looppaneel').hidden=true;
+  naar('vogel');
+}
+document.getElementById('bRoute').addEventListener('click',function(){startLopen(true);});
+document.getElementById('bLopen').addEventListener('click',function(){startLopen(false);});
+document.getElementById('bStop').addEventListener('click',stopLopen);
+var kijk=null;
+renderer.domElement.addEventListener('pointerdown',function(e){ if(!loop.actief) return; kijk={x:e.clientX,y:e.clientY}; renderer.domElement.setPointerCapture(e.pointerId); e.stopImmediatePropagation(); },true);
+renderer.domElement.addEventListener('pointermove',function(e){ if(!loop.actief||!kijk) return;
+  loop.yaw-=(e.clientX-kijk.x)*0.005; loop.pitch=Math.max(-1.2,Math.min(1.2,loop.pitch-(e.clientY-kijk.y)*0.005)); kijk={x:e.clientX,y:e.clientY}; });
+['pointerup','pointercancel'].forEach(function(n){renderer.domElement.addEventListener(n,function(){kijk=null;});});
+var TOETS={ArrowUp:'vooruit',KeyW:'vooruit',ArrowDown:'achteruit',KeyS:'achteruit',ArrowLeft:'links',KeyA:'links',ArrowRight:'rechts',KeyD:'rechts'};
+window.addEventListener('keydown',function(e){ if(loop.actief&&TOETS[e.code]){loop.toets[TOETS[e.code]]=true; loop.route=null; e.preventDefault();} });
+window.addEventListener('keyup',function(e){ if(TOETS[e.code]) loop.toets[TOETS[e.code]]=false; });
+document.querySelectorAll('.pijlen button').forEach(function(b){
+  function aan(e){loop.toets[b.dataset.k]=true; loop.route=null; e.preventDefault();} function uit(){loop.toets[b.dataset.k]=false;}
+  b.addEventListener('pointerdown',aan); ['pointerup','pointerleave','pointercancel'].forEach(function(n){b.addEventListener(n,uit);});
+});
+function werkLopen(dt){
+  if(loop.route){
+    var r=loop.route; if(r.i>=ROUTE.length-1){loop.route=null;} else {
+      var a=routePunt(r.i), b=routePunt(r.i+1), len=a.distanceTo(b)||0.01; r.t+=dt*1.1/len;
+      if(r.t>=1){r.i++; r.t=0; a=b; if(r.i<ROUTE.length-1) b=routePunt(r.i+1);}
+      camera.position.lerpVectors(a,b,Math.min(1,r.t));
+      var doelYaw=Math.atan2(-(b.x-a.x),-(b.z-a.z)), dy=doelYaw-loop.yaw; dy=Math.atan2(Math.sin(dy),Math.cos(dy)); loop.yaw+=dy*Math.min(1,dt*3);
+    }
+  }
+  var v=0, tk=loop.toets; if(tk.vooruit) v+=1.4; if(tk.achteruit) v-=1.4; if(tk.links) loop.yaw+=dt*1.6; if(tk.rechts) loop.yaw-=dt*1.6;
+  if(v){ camera.position.x-=Math.sin(loop.yaw)*v*dt; camera.position.z-=Math.cos(loop.yaw)*v*dt; camera.position.y=loop.oogHoogte; }
+  camera.rotation.set(loop.pitch,loop.yaw,0,'YXZ');
+}
+
 /* ---------- Lus ---------- */
 function maat(){
   breed=toneel.clientWidth||1; hoog=toneel.clientHeight||1;
   renderer.setSize(breed,hoog,false); camera.aspect=breed/hoog; camera.updateProjectionMatrix();
 }
 window.addEventListener('resize',maat); maat(); naar('vogel',true);
+var vorige=0;
 function lus(nu){
   requestAnimationFrame(lus);
+  var dt=Math.min(0.1,(nu-(vorige||nu))/1000); vorige=nu;
+  if(loop.actief){ werkLopen(dt); renderer.render(scene,camera); werkEtiketten(); return; }
   if(vlucht){
     var t=Math.min(1,(nu-vlucht.start)/900), k=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
     camera.position.lerpVectors(vlucht.p0,vlucht.p1,k); controls.target.lerpVectors(vlucht.t0,vlucht.t1,k); if(t>=1) vlucht=null;
@@ -509,5 +642,5 @@ function lus(nu){
   controls.update(); renderer.render(scene,camera); werkEtiketten();
 }
 requestAnimationFrame(lus);
-window.__erf={naar:naar,vol:vol,camera:camera,controls:controls};
+window.__erf={naar:naar,vol:vol,camera:camera,controls:controls,indeling:indeling,startLopen:startLopen,loop:loop};
 })();
