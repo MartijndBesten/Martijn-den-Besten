@@ -450,7 +450,7 @@ etiketten.push(volEtiket);
 var toonLabels=true, v3=new THREE.Vector3(), breed=1, hoog=1;
 function werkEtiketten(){
   etiketten.forEach(function(e){
-    if(e.vol){ if(!vol.visible){e.el.hidden=true;return;} e.p.set(vol.position.x,(vol.userData.nok||4)+0.8,vol.position.z); }
+    if(e.vol){ if(!vol.visible||!toonLabels){e.el.hidden=true;return;} e.p.set(vol.position.x,(vol.userData.nok||4)+0.8,vol.position.z); }
     else if(!toonLabels){e.el.hidden=true;return;}
     v3.copy(e.p).project(camera);
     var zicht=v3.z<1&&v3.x>-1.05&&v3.x<1.05&&v3.y>-1.05&&v3.y<1.05; e.el.hidden=!zicht;
