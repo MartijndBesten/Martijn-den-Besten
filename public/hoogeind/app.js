@@ -548,6 +548,58 @@ var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.25,0,-23.5); s
   meubel(IN,X(9.3),Z(0.1),X(12.2),Z(0.85),0.55,0xf4f4f2);                            // douche/bad
   meubel(IN,X(12.2),Z(1.3),X(12.7),Z(1.9),0.45,0xf4f4f2); meubel(IN,X(10.3),Z(1.7),X(10.9),Z(2.25),0.85,0xf4f4f2); // toilet, wastafel
   meubel(IN,X(10.4),Z(7.1),X(10.95),Z(7.7),0.45,0xf4f4f2);                           // toilet
+  // ---------- Binnendetaillering ----------
+  function vlak(x0,z0,x1,z1,kleur,y){var m=doos(Math.abs(x1-x0),0.012,Math.abs(z1-z0),M(kleur)); m.castShadow=false; m.position.set((x0+x1)/2,(y||0.125),(z0+z1)/2); IN.add(m); return m;}
+  function cyl(x,z,r,h,kleur,y){var c=new THREE.Mesh(new THREE.CylinderGeometry(r,r,h,16),M(kleur)); c.position.set(x,(y||0.12)+h/2,z); IN.add(c); return c;}
+  // tegelvloer in badkamer, toilet, meterkast en berging; deurmat bij de voordeur
+  vlak(X(8.91),Z(2.35),X(12.75),Z(0.12),0xb9bcbf); vlak(X(10.04),Z(8),X(11.35),Z(5.65),0xb9bcbf); vlak(X(7.16),Z(2.35),X(8.91),Z(0.12),0xc9c4ba);
+  vlak(X(12.0),Z(3.0),X(12.7),Z(4.2),0x55524e);
+  // plinten langs de buitenwanden
+  [[-HL+0.3,HL-0.3,HD-0.3,'x'],[-HL+0.3,HL-0.3,-HD+0.3,'x']].forEach(function(q){var m=doos(q[1]-q[0],0.07,0.015,M(0xffffff)); m.position.set((q[0]+q[1])/2,0.155,q[2]); IN.add(m);});
+  // binnendeuren: deurbladen half open
+  function deurblad(x,z,richting,draai){var d=new THREE.Group(); var b=doos(0.82,2.05,0.04,M(0xf2efe8)); b.position.set(0.41,1.15,0); d.add(b);
+    var k=doos(0.12,0.03,0.05,M(0x7d8287)); k.position.set(0.72,1.15,0.04); d.add(k); d.position.set(x,0,z); d.rotation.y=richting+draai; IN.add(d);}
+  deurblad(X(5.41),Z(3.05)-0.45,Math.PI/2,0.9);  deurblad(X(6.45)-0.45,Z(2.35),0,-0.9); deurblad(X(7.6)-0.45,Z(2.35),0,-0.9);
+  deurblad(X(9.4)-0.45,Z(2.35),0,-0.9); deurblad(X(6.7)-0.45,Z(3.65),0,0.9);
+  // woonkamer: vloerkleed, salontafel, tv-meubel met tv, boekenkast, staande lamp, planten, eetstoelen, hanglampen
+  vlak(X(0.5),Z(0.6),X(3.8),Z(3.2),0xb7a58c,0.13);
+  cyl(X(2.45),Z(1.9),0.42,0.42,0x6b5642);
+  meubel(IN,X(4.95),Z(0.6),X(5.3),Z(2.6),0.5,0x3b3f43); meubel(IN,X(5.25),Z(0.9),X(5.3),Z(2.3),0.7,0x111315,0.62);
+  meubel(IN,X(0.2),Z(2.7),X(0.55),Z(3.6),1.9,0xb08b62);
+  cyl(X(0.4),Z(0.45),0.03,1.5,0x2a2c2e); cyl(X(0.4),Z(0.45),0.18,0.25,0xf3e7cf,1.62);
+  [[X(4.9),Z(0.35)],[X(0.35),Z(4.3)],[X(4.9),Z(7.7)]].forEach(function(q){cyl(q[0],q[1],0.2,0.35,0x8d7a64); var pl=new THREE.Mesh(new THREE.IcosahedronGeometry(0.33,1),M(0x5f8a4a)); pl.position.set(q[0],0.85,q[1]); IN.add(pl);});
+  [[0.6,5.6],[0.6,6.2],[2.0,5.6],[2.0,6.2]].forEach(function(q){meubel(IN,X(q[0])-0.22,Z(q[1])-0.22,X(q[0])+0.22,Z(q[1])+0.22,0.46,0x3a3d40);
+    meubel(IN,X(q[0])+(q[0]<1?-0.24:0.2),Z(q[1])-0.22,X(q[0])+(q[0]<1?-0.2:0.24),Z(q[1])+0.22,0.45,0x3a3d40,0.46);});
+  [[X(1.3),Z(6.1)],[X(3.8),Z(5.9)],[X(3.8),Z(6.7)]].forEach(function(q){cyl(q[0],q[1],0.01,0.8,0x2a2c2e,1.8); cyl(q[0],q[1],0.16,0.18,0x1f2124,1.62);});
+  // keuken: werkblad met spoelbak en kookplaat op het eiland, achterwand met kasten en koelkast
+  meubel(IN,X(3.18),Z(5.08),X(4.42),Z(7.42),0.04,0x3d3f42,1.02);
+  meubel(IN,X(3.5),Z(6.6),X(4.1),Z(7.1),0.02,0x9aa0a6,1.06); cyl(X(3.8),Z(7.25),0.02,0.3,0x9aa0a6,1.06);
+  meubel(IN,X(3.45),Z(5.3),X(4.15),Z(5.95),0.01,0x121314,1.065);
+  meubel(IN,X(2.6),Z(7.75),X(4.35),Z(7.98),0.9,0xe9e6df); meubel(IN,X(2.6),Z(7.7),X(4.35),Z(7.98),0.04,0x3d3f42,0.9);
+  meubel(IN,X(2.6),Z(7.65),X(4.35),Z(7.98),0.7,0xe9e6df,1.6); meubel(IN,X(2.0),Z(7.3),X(2.6),Z(7.98),2.1,0xdcdad4);
+  // hal: garderobe, kapstok, bankje
+  meubel(IN,X(11.0),Z(3.45),X(12.5),Z(3.62),0.04,0x8a6a4c,1.75); [11.3,11.7,12.1].forEach(function(d){meubel(IN,X(d)-0.04,Z(3.4),X(d)+0.04,Z(3.48),0.06,0x2a2c2e,1.62);});
+  // werkkamer: bureau en stoel
+  meubel(IN,X(5.55),Z(1.95),X(6.95),Z(2.25),0.75,0xb08b62); meubel(IN,X(6.05),Z(1.6),X(6.5),Z(1.95),0.5,0x3a3d40);
+  // berging: stellingkast
+  meubel(IN,X(7.25),Z(0.15),X(8.8),Z(0.55),1.9,0xa8a9aa);
+  // slaapkamer: kussens, dekbed, nachtkastjes, lampjes, kleed
+  meubel(IN,X(7.25),Z(7.55),X(9.0),Z(7.6),0.9,0x8a6a4c,0.12);
+  meubel(IN,X(7.3),Z(5.55),X(8.95),Z(6.9),0.08,0xb9c9d8,0.67);
+  [7.75,8.5].forEach(function(d){meubel(IN,X(d)-0.32,Z(7.05),X(d)+0.32,Z(7.45),0.14,0xffffff,0.67);});
+  [6.75,9.45].forEach(function(d){meubel(IN,X(d)-0.22,Z(7.2),X(d)+0.22,Z(7.6),0.5,0x8a6a4c); cyl(X(d),Z(7.4),0.08,0.22,0xf3e7cf,0.62);});
+  vlak(X(6.9),Z(4.7),X(9.4),Z(5.6),0xc7b8a3,0.13);
+  // badkamer: inloopdouche met glaswand, wastafelmeubel met spiegel, handdoekradiator, wandcloset
+  meubel(IN,X(9.3),Z(0.15),X(11.0),Z(1.15),0.03,0xe2e2e0,0.12);
+  var gw2=doos(0.02,2.0,0.95,new THREE.MeshLambertMaterial({color:lin(0xbfdbe6),transparent:true,opacity:0.35})); gw2.position.set(X(11.0),1.12,Z(0.65)); IN.add(gw2);
+  cyl(X(9.5),Z(0.3),0.12,0.02,0x9aa0a6,2.1);
+  meubel(IN,X(10.25),Z(1.85),X(11.35),Z(2.3),0.5,0x8a6a4c,0.45); meubel(IN,X(10.35),Z(1.9),X(11.25),Z(2.28),0.04,0xffffff,0.95);
+  meubel(IN,X(10.35),Z(2.27),X(11.25),Z(2.3),0.7,0xc9d6dd,1.2);
+  meubel(IN,X(12.68),Z(0.25),X(12.72),Z(0.85),1.1,0x2a2c2e,0.5);
+  meubel(IN,X(12.15),Z(1.35),X(12.7),Z(1.85),0.4,0xffffff,0.35);
+  // toilet en meterkast
+  meubel(IN,X(10.1),Z(6.0),X(10.25),Z(6.4),0.3,0xffffff,0.8);
+  meubel(IN,X(10.1),Z(4.0),X(10.6),Z(4.6),1.4,0x9aa0a6,0.6);
   vol.userData.route=[];
   // glazen overkapping langs de slootkant (Martijn 13-11), 3 m diep over de volle lengte, licht aflopend naar de sloot
   var gm=new THREE.MeshLambertMaterial({color:lin(0xbfdbe6),transparent:true,opacity:0.38,side:THREE.DoubleSide});
@@ -654,12 +706,13 @@ document.getElementById('tIndeling').addEventListener('change',function(){indeli
 var loop={actief:false,yaw:0,pitch:0,toets:{},route:null,oogHoogte:1.6};
 // Route in koppel-coördinaten (X naar de weg, Z naar de haag, ten opzichte van het midden van de woning bij 180°):
 // voor de fietsenstalling, onder de overkapping door, de bijkeuken in en vandaar door de glazen sluis, de hal in en naar de woonkamer.
-var ROUTE=[[-11.0,6.5],[-11.0,1.9],[-9.25,1.9],[-9.25,0.0],[-8.6,-0.6],[-7.25,-0.6],[-6.0,-0.6],[-3.2,-1.0],[0.6,-1.0],[1.4,-0.9],[3.3,0.0],[5.2,0.0]];
+var ROUTE=[[-11.0,6.5],[-11.0,1.9],[-9.25,1.9],[-9.25,0.0],[-8.6,-0.6],[-7.25,-0.6],[-6.0,-0.6],[-3.2,-1.0],[0.6,-1.0],[1.4,-0.9],[3.3,0.0],[4.2,0.0]];
 function routePunt(i){var v=new THREE.Vector3(ROUTE[i][0],loop.oogHoogte,ROUTE[i][1]); koppel.updateMatrixWorld(true); return koppel.localToWorld(v);}
 function startLopen(metRoute){
   if(!vol.visible) situatie(true);
-  indeling(true); loop.actief=true; controls.enabled=false; vlucht=null; camera.fov=70; camera.updateProjectionMatrix(); document.getElementById('opties').hidden=true;
-  document.getElementById('aanzichten').hidden=true; document.getElementById('looppaneel').hidden=false;
+  indeling(true); loop.actief=true; controls.enabled=false; vlucht=null; camera.fov=Math.min(100,Math.max(70,2*Math.atan(Math.tan(Math.PI/4)/camera.aspect)*180/Math.PI)); camera.updateProjectionMatrix(); document.getElementById('opties').hidden=true;
+  document.getElementById('aanzichten').hidden=true; document.body.classList.add('lopen');
+  document.getElementById('looppaneel').hidden=!!metRoute; document.getElementById('routebalk').hidden=!metRoute;
   if(window.matchMedia('(max-width:640px)').matches) document.getElementById('opties').open=false;
   var p0=routePunt(0), p1=routePunt(1); camera.position.copy(p0);
   loop.yaw=Math.atan2(-(p1.x-p0.x),-(p1.z-p0.z)); loop.pitch=-0.05;
@@ -668,27 +721,31 @@ function startLopen(metRoute){
 }
 function stopLopen(){
   loop.actief=false; loop.route=null; controls.enabled=true; camera.fov=40; camera.updateProjectionMatrix(); document.getElementById('opties').hidden=false;
-  document.getElementById('aanzichten').hidden=false; document.getElementById('looppaneel').hidden=true;
+  document.getElementById('aanzichten').hidden=false; document.getElementById('looppaneel').hidden=true; document.getElementById('routebalk').hidden=true; document.body.classList.remove('lopen');
   naar('vogel');
 }
 document.getElementById('bRoute').addEventListener('click',function(){startLopen(true);});
 document.getElementById('bLopen').addEventListener('click',function(){startLopen(false);});
 document.getElementById('bStop').addEventListener('click',stopLopen);
+document.getElementById('bStop2').addEventListener('click',stopLopen);
+function zelfOvernemen(){ loop.route=null; document.getElementById('routebalk').hidden=true; document.getElementById('looppaneel').hidden=false;
+  document.getElementById('loopUitleg').textContent='Sleep om rond te kijken. Lopen met de pijlen of W A S D.'; }
+document.getElementById('bZelf').addEventListener('click',zelfOvernemen);
 var kijk=null;
 renderer.domElement.addEventListener('pointerdown',function(e){ if(!loop.actief) return; kijk={x:e.clientX,y:e.clientY}; renderer.domElement.setPointerCapture(e.pointerId); e.stopImmediatePropagation(); },true);
 renderer.domElement.addEventListener('pointermove',function(e){ if(!loop.actief||!kijk) return;
   loop.yaw-=(e.clientX-kijk.x)*0.005; loop.pitch=Math.max(-1.2,Math.min(1.2,loop.pitch-(e.clientY-kijk.y)*0.005)); kijk={x:e.clientX,y:e.clientY}; });
 ['pointerup','pointercancel'].forEach(function(n){renderer.domElement.addEventListener(n,function(){kijk=null;});});
 var TOETS={ArrowUp:'vooruit',KeyW:'vooruit',ArrowDown:'achteruit',KeyS:'achteruit',ArrowLeft:'links',KeyA:'links',ArrowRight:'rechts',KeyD:'rechts'};
-window.addEventListener('keydown',function(e){ if(loop.actief&&TOETS[e.code]){loop.toets[TOETS[e.code]]=true; loop.route=null; e.preventDefault();} });
+window.addEventListener('keydown',function(e){ if(loop.actief&&TOETS[e.code]){loop.toets[TOETS[e.code]]=true; if(loop.route) zelfOvernemen(); e.preventDefault();} });
 window.addEventListener('keyup',function(e){ if(TOETS[e.code]) loop.toets[TOETS[e.code]]=false; });
 document.querySelectorAll('.pijlen button').forEach(function(b){
-  function aan(e){loop.toets[b.dataset.k]=true; loop.route=null; e.preventDefault();} function uit(){loop.toets[b.dataset.k]=false;}
+  function aan(e){loop.toets[b.dataset.k]=true; if(loop.route) zelfOvernemen(); e.preventDefault();} function uit(){loop.toets[b.dataset.k]=false;}
   b.addEventListener('pointerdown',aan); ['pointerup','pointerleave','pointercancel'].forEach(function(n){b.addEventListener(n,uit);});
 });
 function werkLopen(dt){
   if(loop.route){
-    var r=loop.route; if(r.i>=ROUTE.length-1){loop.route=null;} else {
+    var r=loop.route; if(r.i>=ROUTE.length-1){zelfOvernemen();} else {
       var a=routePunt(r.i), b=routePunt(r.i+1), len=a.distanceTo(b)||0.01; r.t+=dt*1.1/len;
       if(r.t>=1){r.i++; r.t=0; a=b; if(r.i<ROUTE.length-1) b=routePunt(r.i+1);}
       camera.position.lerpVectors(a,b,Math.min(1,r.t));
