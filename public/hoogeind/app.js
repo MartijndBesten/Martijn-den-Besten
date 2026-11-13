@@ -447,7 +447,7 @@ var etiketten=[
 ].map(function(e){var d=document.createElement('div'); d.className='etiket'; d.textContent=e[0]; toneel.appendChild(d); return {el:d,p:new THREE.Vector3(X(e[1]),e[3],Z(e[2]))};});
 var volEtiket=(function(){var d=document.createElement('div'); d.className='etiket vol'; d.textContent='Mantelzorgwoning'; d.hidden=true; toneel.appendChild(d); return {el:d,p:new THREE.Vector3(),vol:true};})();
 etiketten.push(volEtiket);
-var toonLabels=true, v3=new THREE.Vector3(), breed=1, hoog=1;
+var toonLabels=false, v3=new THREE.Vector3(), breed=1, hoog=1;
 function werkEtiketten(){
   etiketten.forEach(function(e){
     if(e.vol){ if(!vol.visible||!toonLabels){e.el.hidden=true;return;} e.p.set(vol.position.x,(vol.userData.nok||4)+0.8,vol.position.z); }
