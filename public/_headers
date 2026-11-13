@@ -19,5 +19,12 @@
 /bijbelreis/*
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
+/hoogeind
+  X-Robots-Tag: noindex, nofollow
+
+/hoogeind/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
 /beheer
   X-Robots-Tag: noindex, nofollow

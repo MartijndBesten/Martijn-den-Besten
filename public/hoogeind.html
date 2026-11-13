@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Hoogeind 30 – erf in 3D</title>
+    <meta name="description" content="3D-model van het erf Hoogeind 30 en 30a met de huidige en de nieuwe situatie, inclusief mantelzorgwoning." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#cfe3ee" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/hoogeind/hoogeind.css?v=7da13958f5" />
+  </head>
+  <body>
+<div id="toneel">
+  <div class="paneel" id="kop">
+    <h1>Hoogeind 30 en 30a</h1>
+    <p>Schematisch 3D-model van het erf op BAG-contouren en luchtfoto, aangevuld met dronebeelden. Slepen draait, scrollen of knijpen zoomt.</p>
+    <div class="segment" role="group" aria-label="Situatie">
+      <button type="button" id="bHuidig" aria-pressed="true">Huidige situatie</button>
+      <button type="button" id="bNieuw" aria-pressed="false">Nieuwe situatie</button>
+    </div>
+  </div>
+
+  <details class="paneel" id="opties" open>
+    <summary>Opties en maten</summary>
+    <div id="inhoud">
+    <div class="blok">
+      <h2>Weergave</h2>
+      <label class="vink"><input type="checkbox" id="tLabels" checked> Namen van gebouwen</label>
+      <label class="vink"><input type="checkbox" id="tBomen" checked> Bomen en hagen</label>
+      <label class="vink"><input type="checkbox" id="tRaster"> Raster van 10 m</label>
+      <label class="vink"><input type="checkbox" id="tLucht"> Luchtfoto als ondergrond</label>
+    </div>
+    <div class="blok" id="blokWoning" hidden>
+      <h2>Mantelzorgwoning</h2>
+      <div id="volBediening" hidden>
+        <div class="schuif"><label for="sR">Draaiing</label><input type="range" id="sR" min="0" max="355" step="5" value="180"><output id="oR">180°</output></div>
+        <p id="volInfo"></p>
+        <button type="button" id="bTerug" class="knopTerug">Terug naar ontworpen plek</button>
+        <p class="noot">Nieuwe situatie met tuin richting de weg (terras, stapstenen, zitplek, border langs de haag); de oude haag is ingekort. Mantelzorgwoning van circa 13,2 × 9,9 m, circa 100 m² zonder overkapping (L-vorm van het Chopin-type, naar verhouding vergroot), nok 4,60 m: wit stucwerk op een plint van steenstrips, pannendak, glazen kopgevel. Op de rand van het beton, circa 1 m uit de waterkant, en binnen de lijn van de kopgevel van de koeienschuur. Glazen overkapping in de open hoek. De dierenschuur zit met een glazen sluis aan de woning vast en schuift en draait mee.</p>
+      </div>
+    </div>
+    <div class="blok">
+      <h2>Maten (BAG)</h2>
+      <table class="maten" id="maten"></table>
+      <p class="noot">Gebouwen volgen de contouren uit de BAG (Kadaster), sloten en verharding zijn gemeten op de actuele luchtfoto van PDOK. Hoogtes zijn geschat uit de dronebeelden. Luchtfoto: Beeldmateriaal Nederland, CC BY 4.0.</p>
+    </div>
+    </div>
+  </details>
+
+  <div class="paneel" id="aanzichten" role="group" aria-label="Aanzichten">
+    <button type="button" data-v="vogel" aria-pressed="true">Vogelvlucht</button>
+    <button type="button" data-v="boven" aria-pressed="false">Bovenaanzicht</button>
+    <button type="button" data-v="weg" aria-pressed="false">Vanaf de weg</button>
+    <button type="button" data-v="achter" aria-pressed="false">Achtererf</button>
+    <button type="button" data-v="tuin" aria-pressed="false">Tuinzijde</button>
+  </div>
+  <div class="paneel" id="fout" hidden>Het 3D-beeld kon niet starten. Open de pagina in een recente browser met WebGL.</div>
+</div>
+
+
+    <script src="/hoogeind/three.min.js?v=9274bbcec8"></script>
+    <script src="/hoogeind/OrbitControls.js?v=02bb4ade71"></script>
+    <script src="/hoogeind/app.js?v=8c8a44185c"></script>
+  </body>
+</html>
