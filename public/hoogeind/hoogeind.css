@@ -23,9 +23,9 @@ body{background:var(--lucht);color:var(--tekst);font-family:var(--lopend);font-s
 #kop p{margin:2px 0 0;color:var(--zacht);font-size:12.5px}
 #opties{top:12px;right:max(16px,env(safe-area-inset-right,0px));width:250px;max-width:calc(100% - 32px)}
 #inhoud{max-height:calc(100vh - 150px);overflow:auto}
-#opties summary{cursor:pointer;padding:10px 14px;font-family:var(--kop);font-weight:600;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+#opties summary{cursor:pointer;padding:6px 6px 6px 14px;min-height:44px;box-sizing:border-box;font-family:var(--kop);font-weight:600;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center}
 #opties summary::-webkit-details-marker{display:none}
-#opties summary::after{content:"▾";color:var(--zacht)}
+#opties summary::after{content:"▾";color:var(--tekst);font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:var(--knop);flex:none}
 #opties[open] summary::after{content:"▴"}
 .blok{padding:4px 14px 12px;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--paneel-rand)}
 .knopTerug{font:500 13px var(--lopend);color:var(--tekst);background:var(--knop);border:1px solid var(--paneel-rand);border-radius:7px;padding:8px 12px;cursor:pointer;width:100%}
