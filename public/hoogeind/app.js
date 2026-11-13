@@ -439,6 +439,18 @@ var vol=new THREE.Group(); vol.visible=false; vol.position.set(26.25,0,-23.5); s
   op(1.75,'sloot',0.9,2.2,0.1); op(4.2,'sloot',0.9,2.2,0.1); op(6.8,'sloot',0.7,1.2,0.9); op(7.8,'sloot',0.7,1.2,0.9); op(10.15,'sloot',0.6,0.8,1.3);
   op(1.0,'haag',1.8,2.2,0.1); op(5.0,'haag',0.9,2.2,0.1); op(6.95,'haag',0.65,1.2,0.9); op(9.65,'haag',0.65,1.2,0.9); op(10.9,'haag',0.8,0.8,1.3);
   op(0.6,'erf',1.15,2.2,0.0,true); op(2.65,'erf',0.6,0.8,1.3);
+  // Voorgevel (wegkant) naar het voorbeeld van Martijn (13-11): middenpenant in wit stucwerk die als schoorsteen door het dak loopt,
+  // geveltop ook wit gestuct (geen hout), witte boeiboorden en gootlijsten; de glaspuien krijgen een bovenlicht.
+  var WIT=M(0xf6f5f1);
+  var pen=doos(0.45,5.35,1.0,M(STUC)); pen.position.set(-HL-0.2,5.35/2,0); vol.add(pen);
+  var kap=doos(0.6,0.1,1.15,M(0x3a3d40)); kap.position.set(-HL-0.2,5.4,0); vol.add(kap);
+  var pl=doos(0.47,0.9,1.02,M(STRIP)); pl.position.set(-HL-0.2,0.45,0); vol.add(pl);
+  [2.0,-2.0].forEach(function(z){var r=doos(0.1,0.08,1.8,M(KOZIJN)); r.castShadow=false; r.position.set(-HL-0.09,1.75,z); vol.add(r);});
+  function boei(x){ [-1,1].forEach(function(k){
+    var z0=k*(HD+0.32), y0=GOOT-0.12, z1=0, y1=NOK+0.12, l=Math.hypot(z1-z0,y1-y0);
+    var b=doos(0.06,0.22,l,WIT); b.castShadow=false; b.position.set(x,(y0+y1)/2,(z0+z1)/2); b.rotation.x=k*Math.atan2(y1-y0,Math.abs(z1-z0)); vol.add(b); }); }
+  boei(-HL-0.34); boei(HL+0.34);
+  [-1,1].forEach(function(k){var g=doos(2*HL+0.7,0.2,0.12,WIT); g.castShadow=false; g.position.set(0,GOOT-0.08,k*(HD+0.32)); vol.add(g);});
   vol.userData.buiten=vol.children.slice(n0);
   // ---------- Indeling volgens de Vilaro-plattegrond ----------
   // Plattegrondmaten: d = afstand vanaf de kopgevel aan de wegkant, t = afstand vanaf de slootgevel. Lokaal: x = -HL + d, z = HD - t.
