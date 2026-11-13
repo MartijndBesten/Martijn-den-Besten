@@ -203,10 +203,9 @@ geveltop(18.2,6.85,6.05,3.0,7.9); geveltop(-8.7,13.9,4.9,2.6,6.4);
 // tussenlid tussen schuur, lange schuur en woonhuis
 (function(){// Tussen koeienschuur en woonhuis: open straatje (Martijn 13-11), alleen bestrating.
     var str=doos(2.0,0.06,16.3,M(K.tegel)); str.castShadow=false; str.position.set(17.2,0.09,5.15); gebouwen.add(str);
-    // Tussen koeienschuur en garage/werkplaats: over de volle breedte (Z 5,8-9,0) verbonden.
-    // Bij de erfzijde (X 3,9-5,8) een doorloop met dakje, de rest (X 5,8-15,7) is dicht.
-    var dicht=doos(9.9,3.0,3.2,M(K.groenhout)); dicht.position.set(10.75,1.5,7.4); gebouwen.add(dicht);
-    var dichtDak=doos(10.1,0.14,3.5,M(K.pandonker)); dichtDak.position.set(10.75,3.07,7.4); gebouwen.add(dichtDak);
+    // Tussen koeienschuur en garage/werkplaats (Z 5,8-9,0):
+    // Alleen bij de erfzijde (X 3,9-5,8) een laag dakje over de doorloop; de rest (X 5,8-15,7) is open en bestraat.
+    var open=doos(9.9,0.06,3.2,M(K.tegel)); open.castShadow=false; open.position.set(10.75,0.09,7.4); gebouwen.add(open);
     var doorDak=doos(2.1,0.12,3.5,M(K.pandonker)); doorDak.position.set(4.85,2.65,7.4); gebouwen.add(doorDak);
     [[3.95,5.95],[3.95,8.85]].forEach(function(q){var st=doos(0.12,2.6,0.12,M(0x2a2d30)); st.position.set(q[0],1.3,q[1]); gebouwen.add(st);});
     var doorVl=doos(1.9,0.06,3.2,M(K.tegel)); doorVl.castShadow=false; doorVl.position.set(4.85,0.09,7.4); gebouwen.add(doorVl);})();
