@@ -75,6 +75,7 @@ export function Footer() {
             <li><Link to="/museum">Museum van Onafgemaakte Ideeën</Link></li>
             <li><Link to="/over">Over Martijn</Link></li>
             <li><a href="/bijbelreis">Bijbelreis: het Oude Testament op de kaart</a></li>
+            <li><a href="https://stroom.martijndenbesten.com">STROOM!: gastles over stroom (groep 1/2)</a></li>
           </ul>
         </div>
         <div>
