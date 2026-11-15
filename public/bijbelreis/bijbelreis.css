@@ -911,3 +911,90 @@ body[data-niveau="a"] #sTijd, body[data-niveau="a"] #sProg { display: none !impo
 .orij .zk-r i { background: color-mix(in srgb, var(--terra) 35%, transparent); border-radius: 3px; }
 #plZoek { width: 100%; }
 body[data-niveau="a"] #reizenBtn, body[data-niveau="a"] #plaatsenBtn { display: none; }
+
+/* ===== Taferelen: getekende, licht bewegende beelden bij een stap of geschiedenis =====
+   Motor en tekeningen: taferelen*.js; regels en tekenafspraken: docs/bijbelreis-taferelen/README.md.
+   De tekening zelf is de eindstand. Beweging komt alleen uit de klassen tf-l-… (trage lus) en tf-e-… (eenmalig)
+   en loopt alleen zolang het beeld in beeld is (.tf-loopt). Bij ‘minder beweging’ staat alles stil in de eindstand. */
+.tafereel { margin: 0; display: flex; flex-direction: column; gap: 6px; width: 100%; max-width: 460px; }
+.tf-kader { position: relative; border-radius: var(--r); overflow: hidden; border: 1px solid var(--lijn); line-height: 0; }
+.tf-svg { display: block; width: 100%; height: auto; aspect-ratio: 16 / 7; background: var(--tf-lucht); --tf-lucht: color-mix(in srgb, var(--water-zacht) 55%, var(--papier)); }
+.tafereel figcaption { font-size: 0.86rem; line-height: 1.45; color: var(--fg-2); }
+.tafereel figcaption b { font-weight: 650; color: var(--fg); margin-right: 3px; }
+.tafereel figcaption small { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--fg-3); white-space: nowrap; }
+.tf-opnieuw { position: absolute; right: 6px; bottom: 6px; display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 1px solid var(--lijn-sterk); border-radius: 50%; background: color-mix(in srgb, var(--wit) 88%, transparent); color: var(--fg); cursor: pointer; }
+.tf-opnieuw::after { content: ""; position: absolute; inset: -7px; }
+.tf-opnieuw svg { width: 17px; height: 17px; }
+.tf-opnieuw:hover { border-color: var(--nacht); }
+.tf-kader:has(.tf-opnieuw) { cursor: pointer; }
+.vdeel .tafereel { margin: 4px 0 2px; }
+body[data-niveau="a"] .tafereel { max-width: 620px; }
+body[data-niveau="a"] .tafereel figcaption { font-size: 1rem; padding-inline: 8px; }
+body[data-niveau="a"] .card > .tafereel { width: auto; margin-inline: -8px; }
+body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
+
+/* Kleuren van de tekening: alleen de variabelen van de atlas. k- = vlak, l- = lijn, o = warme omlijning (zoals de kameel). */
+.tf-svg .k-nacht { fill: var(--night); } .tf-svg .k-land { fill: var(--land); } .tf-svg .k-duin { fill: var(--zand-zacht); }
+.tf-svg .k-zand { fill: var(--zand); } .tf-svg .k-zand2 { fill: var(--zand-diep); } .tf-svg .k-wit { fill: var(--wit); }
+.tf-svg .k-terra { fill: var(--terra); } .tf-svg .k-terra2 { fill: var(--terra-diep); }
+.tf-svg .k-salie { fill: var(--salie); } .tf-svg .k-salie2 { fill: var(--salie-diep); } .tf-svg .k-groen { fill: var(--groen); }
+.tf-svg .k-zee { fill: var(--zee); } .tf-svg .k-zee2 { fill: var(--zee-diep); } .tf-svg .k-water { fill: var(--water); } .tf-svg .k-water2 { fill: var(--water-diep); }
+.tf-svg .k-oker { fill: var(--oker); } .tf-svg .k-okerz { fill: var(--oker-zacht); } .tf-svg .k-hout { fill: var(--camel); } .tf-svg .k-hout2 { fill: var(--camel-dark); }
+.tf-svg .k-berg { fill: var(--berg); } .tf-svg .k-berg2 { fill: color-mix(in srgb, var(--berg) 38%, var(--papier)); }
+.tf-svg .k-steen { fill: color-mix(in srgb, var(--grijs) 45%, var(--papier)); }
+.tf-svg .k-schaduw { fill: var(--inkt); fill-opacity: 0.14; } .tf-svg .k-gloed { fill: var(--oker); fill-opacity: 0.13; }
+.tf-svg .k-rook { fill: var(--grijs); fill-opacity: 0.42; } .tf-svg .k-stof { fill: var(--zand-diep); fill-opacity: 0.4; }
+.tf-svg .k-wolk { fill: var(--wit); fill-opacity: 0.92; } .tf-svg .k-donker { fill: color-mix(in srgb, var(--inkt-2) 62%, var(--papier)); } .tf-svg .k-donker2 { fill: color-mix(in srgb, var(--inkt-2) 82%, var(--papier)); }
+.tf-svg .o { stroke: var(--camel-dark); stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; }
+.tf-svg .o2 { stroke: var(--camel-dark); stroke-width: 0.7; stroke-linejoin: round; }
+.tf-svg [class^="l-"], .tf-svg [class*=" l-"] { fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.tf-svg .l-hout2 { stroke: var(--camel-dark); } .tf-svg .l-hout { stroke: var(--camel); } .tf-svg .l-zand2 { stroke: var(--zand-diep); stroke-width: 0.8; }
+.tf-svg .l-wit { stroke: var(--wit); stroke-opacity: 0.85; } .tf-svg .l-zee { stroke: var(--zee); stroke-opacity: 0.6; } .tf-svg .l-duin { stroke: var(--zand-zacht); }
+.tf-svg .l-salie2 { stroke: var(--salie-diep); } .tf-svg .l-salie { stroke: var(--salie); } .tf-svg .l-terra { stroke: var(--terra); } .tf-svg .l-oker { stroke: var(--oker); }
+.tf-svg .l-water { stroke: var(--water); } .tf-svg .l-lila { stroke: var(--lila); } .tf-svg .l-licht { stroke: var(--oker-zacht); }
+.tf-svg .dik { stroke-width: 2.4; } .tf-svg .breed { stroke-width: 5; } .tf-svg .boog { stroke-width: 3.2; stroke-linecap: butt; }
+/* Tichelstenen: een gestreepte lijn op een donkere ondergrond (de voegen). */
+.tf-svg .steen { fill: none; stroke: var(--terra); stroke-width: 4.4; stroke-dasharray: 7 1; stroke-linecap: butt; }
+.tf-svg .steen.s2 { stroke-dashoffset: 4; }
+
+/* Beweging. Alles draait om het eigen vlak van het onderdeel; een onderdeel met een bewegingsklasse heeft zelf geen transform-attribuut. */
+.tf-svg [class*="tf-l-"], .tf-svg [class*="tf-e-"] { transform-box: fill-box; transform-origin: 50% 100%; animation-play-state: paused; }
+.tf-loopt .tf-svg [class*="tf-l-"], .tf-loopt .tf-svg [class*="tf-e-"] { animation-play-state: running; }
+.tf-svg .tf-l-rook { animation: tf-rook 5.4s linear infinite; transform-origin: 50% 50%; }
+.tf-svg .tf-l-rook.tf-w4 { transform: translate(2px, -8px) scale(1.3); } .tf-svg .tf-l-rook.tf-w8 { transform: translate(-1px, -17px) scale(1.65); } /* stilstand: een kolom rook */
+.tf-svg .tf-l-drijf { animation: tf-drijf 26s ease-in-out infinite alternate; }
+.tf-svg .tf-l-golf { animation: tf-golf 5s ease-in-out infinite alternate; }
+.tf-svg .tf-l-vlam { animation: tf-vlam 1.9s ease-in-out infinite alternate; }
+.tf-svg .tf-l-gloed { animation: tf-gloed 3.2s ease-in-out infinite alternate; transform-origin: 50% 50%; }
+.tf-svg .tf-l-flits { animation: tf-flits 7s linear infinite; }
+.tf-svg .tf-e-in { animation: tf-in 1.4s ease-out both; }
+.tf-svg .tf-e-teken { stroke-dasharray: 1; animation: tf-teken 3.2s ease-in-out both; }
+.tf-svg .tf-e-zak { animation: tf-zak 7s var(--ease-out) both; }
+.tf-svg .tf-e-wijk-l { animation: tf-wijk-l 3.6s var(--ease-out) both; }
+.tf-svg .tf-e-wijk-r { animation: tf-wijk-r 3.6s var(--ease-out) both; }
+/* Wat verdwijnt, is in de eindstand onzichtbaar. */
+.tf-svg .tf-e-uit, .tf-svg .tf-e-stort, .tf-svg .tf-e-stof { opacity: 0; }
+.tf-svg .tf-e-uit { animation: tf-uit 1.6s ease-in both; }
+.tf-svg .tf-e-stort { animation: tf-stort 1.1s ease-in both; }
+.tf-svg .tf-e-stof { animation: tf-stof 2.6s ease-out both; transform-origin: 50% 50%; }
+.tf-svg .tf-w1 { animation-delay: 0.45s; } .tf-svg .tf-w2 { animation-delay: 0.9s; } .tf-svg .tf-w3 { animation-delay: 1.35s; }
+.tf-svg .tf-w4 { animation-delay: 1.8s; } .tf-svg .tf-w5 { animation-delay: 2.25s; } .tf-svg .tf-w6 { animation-delay: 2.7s; }
+.tf-svg .tf-w7 { animation-delay: 3.15s; } .tf-svg .tf-w8 { animation-delay: 3.6s; } .tf-svg .tf-w9 { animation-delay: 4.05s; }
+@keyframes tf-rook { 0% { transform: translateY(2px) scale(0.6); opacity: 0; } 18% { opacity: 1; } 100% { transform: translate(2px, -25px) scale(1.9); opacity: 0; } }
+@keyframes tf-drijf { from { transform: translateX(-7px); } to { transform: translateX(7px); } }
+@keyframes tf-golf { from { transform: translateX(-4px); } to { transform: translateX(4px); } }
+@keyframes tf-vlam { 0% { transform: scale(1, 0.9) skewX(-3deg); } 50% { transform: scale(0.94, 1.06); } 100% { transform: scale(1.04, 0.95) skewX(4deg); } }
+@keyframes tf-gloed { from { opacity: 0.55; transform: scale(0.94); } to { opacity: 1; transform: scale(1.04); } }
+@keyframes tf-flits { 0%, 8%, 100% { opacity: 0; } 2%, 5% { opacity: 1; } 3.5% { opacity: 0.35; } }
+@keyframes tf-in { from { opacity: 0; } }
+@keyframes tf-teken { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes tf-zak { from { transform: translateY(-26px); } }
+@keyframes tf-wijk-l { from { transform: translateX(48px); } }
+@keyframes tf-wijk-r { from { transform: translateX(-48px); } }
+@keyframes tf-uit { from { opacity: 1; } to { opacity: 0; } }
+@keyframes tf-stort { 0%, 35% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(6px) scaleY(0.18); } }
+@keyframes tf-stof { 0% { opacity: 0; transform: scale(0.5); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(-10px) scale(1.5); } }
+@media (prefers-reduced-motion: reduce) {
+  .tf-svg [class*="tf-l-"], .tf-svg [class*="tf-e-"] { animation: none !important; }
+  .tf-opnieuw { display: none; }
+}

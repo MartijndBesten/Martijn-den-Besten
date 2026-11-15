@@ -723,6 +723,8 @@
       if (!opts.noFly) fit(partBounds(deel), 9.5);
       $("where").textContent = deel.n;
     }
+    // Tafereel: een getekend beeld bij de tekst van een stap zonder reis (taferelen.js).
+    if (BR.tafereel) BR.tafereel.bijStap($("sText"), cur >= 0 ? deel.steps[cur] : null);
     const idx = ALLPARTS.indexOf(deel), atEnd = cur >= deel.steps.length - 1, next = ALLPARTS[idx + 1];
     $("prev").disabled = $("prev2").disabled = cur <= -1 && idx === 0;
     $("next").disabled = $("next2").disabled = atEnd && !next;
@@ -1046,6 +1048,7 @@
       </article>`;
       renderOntdek($("vOntdek"), g);
       renderVQuiz($("vQuiz"), g, c ? (g.quiz || []).concat((v && v.vragen) || []) : (v && v.vragen) || g.quiz);
+      if (BR.tafereel) BR.tafereel.inVerhaal(box, steps, (k) => STEP_BY_KEY.get(k));
     }
     $("vTerug").onclick = () => { vOpen = null; history.replaceState(null, "", "#verhalen"); renderVerhalen(); heleZichtbaar(); };
     if (niveau === "a" && heeftSamen(g)) samenKoppelen(g); else focusStory(g);
@@ -1076,6 +1079,7 @@
     const n = v.delen.length;
     if (vStap >= n) { renderVQuiz($("vQuiz"), g, v.vragen, true); focusStory(g); return; }
     const d = v.delen[vStap];
+    if (BR.tafereel) BR.tafereel.bijStap($("aStap"), d.stap && STEP_BY_KEY.get(d.stap));
     const ga = (j) => { vStap = j; renderVerhaal(g.nr); };
     $("aVerder").onclick = () => ga(vStap + 1);
     $("aTerug").onclick = () => ga(Math.max(0, vStap - 1));
