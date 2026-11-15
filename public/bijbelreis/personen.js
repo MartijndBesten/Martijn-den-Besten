@@ -957,6 +957,15 @@ BR.mensen = {
   // [meer-reizen:nt-paulus2] mensen
   //
   // [meer-reizen:nt-paulus3] mensen
+  apollos: { n: "Apollos", boek: ["handelingen"],
+    kort: "Een Jood uit Alexandrië, welsprekend en ‘machtig zijnde in de Schriften’. In Efeze legden Aquila en Priscilla hem de weg van God nauwkeuriger uit; daarna hielp hij de gelovigen in Achaje en bewees hij uit de Schriften dat Jezus de Christus is.",
+    elders: [["Handelingen 18:24–28", "Zijn komst in Efeze en zijn reis naar Achaje."], ["Handelingen 19:1", "Hij is in Korinthe als Paulus in Efeze komt."], ["1 Korinthe 3:6", "‘Ik heb geplant, Apollos heeft nat gemaakt; maar God heeft den wasdom gegeven.’"], ["1 Korinthe 16:12", "Paulus heeft hem zeer gevraagd om naar Korinthe te gaan; hij zal komen als het hem gelegen komt."], ["Titus 3:13", "Titus moet Zenas en Apollos zorgvuldig verder helpen, zodat hun niets ontbreekt."]] },
+  demetrius_efeze: { n: "Demetrius", boek: ["handelingen"],
+    kort: "Een zilversmid in Efeze die kleine zilveren tempels van de godin Artemis (Statenvertaling: Diana) maakte. Hij riep de vaklieden bijeen tegen Paulus, en daaruit kwam een oproer in de hele stad.",
+    elders: [["Handelingen 19:24–27", "Zijn toespraak tot de handwerkers."], ["Handelingen 19:38", "De stadsschrijver zegt: heeft Demetrius een klacht, dan zijn er rechtsdagen en stadhouders."]] },
+  eutychus: { n: "Eutychus", boek: ["handelingen"],
+    kort: "Een jongeman in Troas. Terwijl Paulus tot middernacht sprak, viel hij in een diepe slaap, stortte van de derde verdieping naar beneden en werd dood opgenomen. Hij werd levend teruggebracht.",
+    elders: [["Handelingen 20:9–10", "‘Weest niet beroerd; want zijn ziel is in hem.’"], ["Handelingen 20:12", "‘En zij brachten den knecht levende, en waren bovenmate vertroost.’"]] },
   //
   // [meer-reizen:nt-samaria-nain] mensen
   //
