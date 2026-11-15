@@ -899,14 +899,14 @@ test("overzichten: alle reizen (per boek en langste eerst) en alle plaatsen (zoe
   const reizen = page.getByRole("dialog", { name: "Reizen in de Bijbel" });
   await expect(reizen).toBeVisible();
   await expect(reizen.locator(".o-kop").first()).toHaveText("Genesis");
-  await expect(reizen.locator(".orij", { hasText: "Ur → Haran" })).toContainText("km");
+  await expect(reizen.locator('.orij[data-reis="genesis:abraham|0"]')).toContainText("km");
   // Langste eerst: de afstanden lopen af.
   await reizen.getByRole("button", { name: "Langste eerst" }).click();
   const km = (await reizen.locator(".o-km").allTextContents()).map((t) => +t.replace(/\D/g, ""));
   expect(km.length).toBeGreaterThan(50);
   expect(km).toEqual([...km].sort((a, b) => b - a));
   await reizen.getByRole("button", { name: "Per Bijbelboek" }).click();
-  await reizen.locator(".orij", { hasText: "Ur → Haran" }).click();
+  await reizen.locator('.orij[data-reis="genesis:abraham|0"]').click();
   await expect(reizen).toBeHidden();
   await expect(page.locator("#trip option:checked")).toHaveText("Ur → Haran");
   await expect(page.locator("#tripKm")).toContainText("km");
@@ -997,9 +997,9 @@ test("meer reizen: de brieven staan in de boekenkast en de boekenrij schuift naa
   await page.locator("#kastBtn").click();
   const romeinen = page.locator("#kastLijst .kb", { hasText: "Romeinen" });
   await expect(romeinen).toContainText("in ‘De brieven’");
-  await page.goto("/bijbelreis#abraham/4");
-  await page.locator("#kastBtn").click();
+  // Vanuit de boekenkast: Filemon opent het boek ‘De brieven’.
   await page.locator("#kastLijst .kb", { hasText: "Filemon" }).click();
+  await expect(page.locator("#kast")).toBeHidden();
   await expect(page.locator('#boeken .boek[aria-pressed="true"]')).toContainText("De brieven");
 });
 
