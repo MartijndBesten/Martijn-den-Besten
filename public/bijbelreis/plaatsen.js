@@ -684,6 +684,21 @@ Object.assign(BR.plaatsen, {
 });
 //
 // [meer-reizen:asa] plaatsen
+// 2 Kronieken 14–16 (Asa). Ligging volgens OpenBible.info Bible Geocoding Data (CC BY 4.0), november 2026.
+Object.assign(BR.plaatsen, {
+  as_maresa: { n: "Maresa", ll: [31.593, 34.8982], c: "v", s: "t", z: 8, t: "stad", d: "Vestingstad van Juda, gebouwd door Rehabeam (2 Kronieken 11:8). Tot hier kwam Zerah met zijn grote leger (2 Kronieken 14:9).",
+    nu: "Tel Maresha (Tell Sandahannah), Israël", bron: "Tel Maresha; identificatie algemeen aanvaard (OpenBible 1000)." },
+  as_zefatha: { n: "Dal Zefatha", ll: [31.6106, 34.9531], c: "o", s: "r", z: 9, t: "gebied", d: "‘Het dal Zefatha bij Maresa’: hier stelden de legers zich op, en hier riep Asa tot de HEERE (2 Kronieken 14:10–11). Welk dal bij Maresa het was, weten we niet zeker.",
+    nu: "Onzeker; punt in de Wadi es-Safiyeh, enkele kilometers ten noordoosten van Tel Maresha, Israël", bron: "Niet zeker. Het punt ligt bij het meest genoemde voorstel, Wadi es-Safiyeh (OpenBible 488; andere voorstellen onder 100). De naam komt alleen hier voor; de Griekse vertaling leest “in het dal ten noorden van Maresa”." },
+  as_ijon: { n: "Ijon", ll: [33.3453, 35.59], c: "w", s: "r", z: 8.5, t: "stad", d: "Stad in het uiterste noorden van Israël. De legeroversten van Benhadad sloegen Ijon, Dan en Abel-Maïm (2 Kronieken 16:4).",
+    nu: "Tell ed-Dibbin bij Marjayoun, Zuid-Libanon", bron: "Tell ed-Dibbin (OpenBible 661); de naam klinkt nog door in Marj Ayyun. Waarschijnlijk, niet zeker." },
+  as_abelmaim: { n: "Abel-Maïm", ll: [33.2581, 35.581], c: "w", s: "l", z: 8.5, t: "stad", d: "Stad in het noorden van Israël, dicht bij Dan. De legeroversten van Benhadad sloegen haar (2 Kronieken 16:4). In 1 Koningen 15:20 heet zij ‘Abel Beth-maacha’.",
+    nu: "Tel Abel Beth Maacah (Tell Abil el-Qamh), Noord-Israël", bron: "Tel Abel Beth Maacah (OpenBible 756, onder Abel-beth-maacah; daar hoort ook 2 Kronieken 16:4 bij). Gangbare identificatie." },
+  as_geba: { n: "Geba", ll: [31.8575, 35.2611], c: "w", s: "r", z: 9, t: "stad", d: "Stad in Benjamin. Asa bouwde Geba en Mizpa met de stenen en het hout van Rama (2 Kronieken 16:6).",
+    nu: "Jaba, Westelijke Jordaanoever", bron: "Jaba (OpenBible 740); de naam bleef bewaard. Waarschijnlijk." },
+});
+// Tussenpunten voor het leger van Benhadad: van Damascus ten noorden van de Hermon langs en door het dal naar Ijon (reconstructie).
+Object.assign(BR.W, { as_wpas: [33.57, 35.95], as_wtaym: [33.42, 35.7] });
 //
 // [meer-reizen:hizkia-josia] plaatsen
 //

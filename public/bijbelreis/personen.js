@@ -648,10 +648,11 @@ BR.mensen = {
   // ---------- Joas van Juda (versie 3.0) ----------
   // In 2 Koningen is ‘Joas’ de koning van Israël (joas_israel); deze Joas heet daarom ‘Joas van Juda’.
   // Athalia heet ‘de dochter van Omri’ (2 Koningen 8:26); 8:18 zegt dat ‘de dochter van Achab’ de vrouw van Joram was. Geen v.
-  josafat: { n: "Josafat", boek: ["2kronieken"], kort: "Koning van Juda in Jeruzalem; toen een groot leger kwam, zocht hij de HEERE en riep een vasten uit.",
+  josafat: { n: "Josafat", v: "asa", boek: ["2kronieken"], kort: "Koning van Juda in Jeruzalem; toen een groot leger kwam, zocht hij de HEERE en riep een vasten uit.",
     leeftijd: [[35, "2 Kronieken 20:31"]],
     vervolg: [["2 Kronieken 20:3–12", "Hij bidt in het huis des HEEREN: ‘maar onze ogen zijn op U’."], ["2 Kronieken 20:20", "‘Gelooft in den HEERE, uw God, zo zult gij bevestigd worden’."]],
-    elders: [["1 Koningen 22:41–43", "Ook Koningen noemt zijn regering: vijf en twintig jaar in Jeruzalem."]] },
+    elders: [["1 Koningen 22:41–43", "Ook Koningen noemt zijn regering: vijf en twintig jaar in Jeruzalem."]],
+    basis: { v: ["b", "2 Kronieken 17:1"] } },
   jahaziel: { n: "Jahaziël", boek: ["2kronieken"], kort: "Leviet uit de zonen van Asaf; op hem kwam de Geest des HEEREN, en hij zei tot Josafat en heel Juda: de strijd is niet uwe, maar Gods.",
     vervolg: [["2 Kronieken 20:14–17", "Hij profeteert midden in de gemeente."]] },
   joram_juda: { n: "Joram", alias: ["Jehoram"], v: "josafat", boek: [], kort: "Zoon van Josafat, koning van Juda; vader van koning Ahazia en van Joseba.",
@@ -1048,6 +1049,39 @@ BR.mensen = {
     vervolg: [["2 Koningen 10:15–16", "‘Ga met mij, en zie mijn ijver aan voor den HEERE.’"], ["2 Koningen 10:23", "Met Jehu gaat hij het huis van Baäl binnen."]] },
   //
   // [meer-reizen:asa] mensen
+  // Asa (2 Kronieken 14–16). Abia heet in Koningen Abiam; hij staat hier alleen als vader van Asa (boek: []).
+  // Maächa heet ‘de moeder van den koning Asa’ (2 Kronieken 15:16), maar ook de moeder van Abia heet Maächa (1 Koningen 15:2):
+  // veel uitleggers zien haar als grootmoeder. Daarom bewust geen m bij Asa.
+  // ‘Benhadad’, ‘Azarja’ en ‘Hanani’ bestaan al als naam van een ander (2 Koningen, Daniël, Ezra): deze drie hebben daarom een
+  // onderscheidende naam.
+  abia_juda: { n: "Abia van Juda", v: "rehabeam", boek: [], kort: "Zoon van Rehabeam en vader van Asa; hij regeerde drie jaar in Jeruzalem. In het boek Koningen heet hij Abiam.",
+    dood: "2 Kronieken 14:1", elders: [["2 Kronieken 13:1–2", "Hij wordt koning over Juda en regeert drie jaar."], ["1 Koningen 15:1–8", "Koningen noemt hem Abiam."], ["Mattheüs 1:7", "Hij staat in het geslachtsregister van de Heere Jezus."]],
+    basis: { v: ["b", "2 Kronieken 12:16"] } },
+  asa: { n: "Asa", v: "abia_juda", boek: ["2kronieken"],
+    kort: "Koning van Juda in Jeruzalem, zoon van Abia en vader van Josafat. Hij zei tegen Juda dat zij de HEERE moesten zoeken. Tegen het leger van Zerah steunde hij op de HEERE; later steunde hij op de koning van Syrië.",
+    dood: "2 Kronieken 16:13",
+    vervolg: [["2 Kronieken 16:12", "In het negenendertigste jaar van zijn regering wordt hij ziek aan zijn voeten."], ["2 Kronieken 16:14", "Hij wordt begraven in zijn eigen graf in de stad van David."]],
+    elders: [["1 Koningen 15:9–24", "Ook Koningen vertelt over Asa: hij regeerde eenenveertig jaar in Jeruzalem."], ["Jeremia 41:9", "Bij Mizpa was nog lang een kuil ‘dien de koning Asa maakte vanwege Baësa’."], ["Mattheüs 1:7–8", "Hij staat in het geslachtsregister van de Heere Jezus."]],
+    basis: { v: ["b", "2 Kronieken 14:1"] } },
+  maacha_asa: { n: "Maächa", boek: ["2kronieken"],
+    kort: "‘De moeder van den koning Asa’. Asa zette haar af als koningin, omdat zij een afgodsbeeld had gemaakt. Ook de moeder van Abia, de vader van Asa, heet Maächa, een dochter van Abisalom; daarom denken veel uitleggers dat zij de grootmoeder van Asa was.",
+    elders: [["2 Kronieken 15:16", "Asa verbrandt haar afgodsbeeld bij de beek Kidron."], ["1 Koningen 15:2", "De moeder van Abiam heet Maächa, een dochter van Abisalom."], ["1 Koningen 15:10", "Zo heet ook de moeder van Asa."]] },
+  zerah_cusjiet: { n: "Zerah", boek: ["2kronieken"],
+    kort: "‘Zerah, de Moor’ (Herziene Statenvertaling: de Cusjiet). Hij kwam met een zeer groot leger tot Maresa; de HEERE versloeg zijn leger voor Asa en Juda. Meer vertelt de Bijbel niet over hem.",
+    elders: [["2 Kronieken 14:9", "Hij komt met ‘een heir van duizend maal duizend, en driehonderd wagenen’."], ["2 Kronieken 16:8", "Hanani herinnert Asa aan ‘de Moren en de Libyers’."]] },
+  azarja_oded: { n: "Azarja (zoon van Oded)", boek: ["2kronieken"],
+    kort: "Op hem kwam ‘de Geest Gods’. Hij ging Asa tegemoet en zei: ‘De HEERE is met ulieden, terwijl gij met Hem zijt’. De Bijbel noemt hem alleen in 2 Kronieken 15.",
+    elders: [["2 Kronieken 15:1–7", "Zijn woord tot Asa, heel Juda en Benjamin."]] },
+  baesa: { n: "Baësa", boek: ["2kronieken"],
+    kort: "Koning van Israël, de zoon van Ahia. Hij bouwde Rama om de weg naar Asa af te sluiten, en hield daarmee op toen het leger van Benhadad de steden in het noorden sloeg.",
+    dood: "1 Koningen 16:6",
+    elders: [["1 Koningen 15:27–28", "Hij doodt koning Nadab, de zoon van Jerobeam, en wordt koning in zijn plaats."], ["1 Koningen 15:33", "Hij regeert vierentwintig jaar in Tirza."], ["1 Koningen 16:1–4", "Jehu, de zoon van Hanani, spreekt het woord van de HEERE tegen hem."]] },
+  benhadad_asa: { n: "Benhadad van Syrië", boek: ["2kronieken"],
+    kort: "Koning van Syrië in de tijd van Asa; hij woonde in Damascus en was de zoon van Tabrimmon. Voor het zilver en goud van Asa verbrak hij zijn verbond met Baësa. De Bijbel noemt meer koningen van Syrië die Benhadad heten.",
+    elders: [["1 Koningen 15:18–20", "Koningen noemt zijn vader Tabrimmon en zijn grootvader Hezion."], ["2 Koningen 13:24", "Veel later heet ook een zoon van Hazaël Benhadad."]] },
+  hanani_ziener: { n: "Hanani de ziener", boek: ["2kronieken"],
+    kort: "Ziener die tegen Asa zei dat hij op de koning van Syrië had gesteund en niet op de HEERE. Asa werd toornig en zette hem gevangen. De profeet Jehu heet ‘de zoon van Hanani’; meestal wordt aangenomen dat dit dezelfde Hanani is.",
+    elders: [["1 Koningen 16:1", "Jehu, de zoon van Hanani, spreekt tegen Baësa."], ["2 Kronieken 19:2", "‘Jehu, de zoon van Hanani, de ziener’ gaat koning Josafat tegemoet."]] },
   //
   // [meer-reizen:hizkia-josia] mensen
   //
