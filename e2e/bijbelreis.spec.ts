@@ -973,3 +973,31 @@ test("Samen speuren bij een reis zonder eigen verhalen: de vragen van de reis, m
   await page.locator("#qGo").click();
   await expect(page.locator("#p-quiz .opt")).toHaveCount(2);
 });
+
+const NIEUWE_REIZEN = ["stammen", "ehud-jefta", "davids-rijk", "scheuring", "jehu", "asa", "hizkia-josia", "jeremia-egypte", "nt-samaria-nain", "nt-over-de-grens", "nt-paulus2", "nt-paulus3", "brieven"];
+
+test("meer reizen: elk nieuw deel opent via een diepe link, met kaart, stappen en zonder fouten", async ({ page }) => {
+  test.setTimeout(120_000);
+  const errors = watchErrors(page);
+  for (const id of NIEUWE_REIZEN) {
+    await page.goto(`/bijbelreis#${id}/1`);
+    await expect(page.locator("#sTitle"), id).toHaveText(/^1\. \S/);
+    await expect(page.locator(`#delen .deel[data-deel="${id}"]`), id).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator("#p-reis"), id).toContainText("Lees in je Bijbel:");
+  }
+  expect(errors).toEqual([]);
+});
+
+test("meer reizen: de brieven staan in de boekenkast en de boekenrij schuift naar het gekozen boek", async ({ page }) => {
+  await page.goto("/bijbelreis#brieven");
+  const gekozen = page.locator('#boeken .boek[aria-pressed="true"]');
+  await expect(gekozen).toContainText("De brieven");
+  await expect(gekozen).toBeInViewport({ ratio: 0.9 });
+  await page.locator("#kastBtn").click();
+  const romeinen = page.locator("#kastLijst .kb", { hasText: "Romeinen" });
+  await expect(romeinen).toContainText("in ‘De brieven’");
+  await page.goto("/bijbelreis#abraham/4");
+  await page.locator("#kastBtn").click();
+  await page.locator("#kastLijst .kb", { hasText: "Filemon" }).click();
+  await expect(page.locator('#boeken .boek[aria-pressed="true"]')).toContainText("De brieven");
+});
