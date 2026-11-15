@@ -46,6 +46,8 @@ BR.dateringen = {
     "jozua:stammen": ["bijbel", true],
     "2samuel:davids-rijk": ["historie", true],
     "brieven:brieven": ["historie", true], // brieven zonder jaartal; ijkpunten: Gallio (Handelingen 18:12) en de overlevering over Nero
+    "kerst:kerst-belofte": ["bijbel", true], // Kerst A: begint zonder jaartal (Genesis 5 en 11); vanaf Abraham als bij Genesis, tot de zalving van David
+    "kerst:kerst-koningen": ["historie", true], // Kerst A: David tot Jozef; de eeuwen na Zerubbabel zonder jaren
   },
   // Geschiedenissen per reeks: [van, tot, soort, onzeker?]
   verhalen: [

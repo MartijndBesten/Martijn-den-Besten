@@ -80,7 +80,7 @@ const ONGEKOPPELD = {
   "g16|Bilha (slavin van Rachel)": "naam met toelichting; de app koppelt dit vakje niet (Bilha staat los in de wie-lijst)",
   "g16|Zilpa (slavin van Lea)": "naam met toelichting; de app koppelt dit vakje niet (Zilpa staat los in de wie-lijst)",
   "g16|Benjamin (later geboren, 35:18)": "naam met toelichting; de app koppelt dit vakje niet",
-  "g47|Perez": "voorvader in Ruth 4:18–22, niet in BR.mensen", "g47|Hezron": "voorvader in Ruth 4:18–22, niet in BR.mensen",
+  "g47|Hezron": "voorvader in Ruth 4:18–22, niet in BR.mensen",
   "g47|Ram": "voorvader in Ruth 4:18–22, niet in BR.mensen", "g47|Amminadab": "voorvader in Ruth 4:18–22, niet in BR.mensen",
   "g47|Nahesson": "voorvader in Ruth 4:18–22, niet in BR.mensen",
   "g65|Amazia": "zoon van Joas van Juda, niet in BR.mensen",
@@ -108,6 +108,8 @@ const VERWACHT = {
   "1koningen|Obadja": "obadja", "profeten|Johanan": "johanan", "2koningen|Joram": "joram_juda", "2koningen|Ahazia": "ahazia_juda",
   "ezra|Zacharia": "zacharia", "profeten|Zacharia": "zacharia", "jezus-1|Zacharias": "zacharias", "jezus-1|Herodes": "herodes",
   "handelingen|Herodes": "herodes_agrippa", "jezus-1|Maria": "maria", "jezus-3|Maria": "maria", "jezus-2|Maria": "maria_bethanie",
+  // Kerst A (inhoud/kerst-1.js): Jozef de man van Maria, Maria de moeder van de Heere Jezus, Nathan de profeet (2 Samuël 7).
+  "kerst|Jozef": "jozef_nt", "kerst|Maria": "maria", "kerst|Nathan": "nathan",
   "jezus-1|Johannes": "johannes", "jezus-2|Johannes": "johannes", "jezus-3|Johannes": "johannes", "handelingen|Johannes": "johannes",
   "openbaring|Johannes": "johannes_patmos", "jezus-1|Jakobus": "jakobus", "jezus-2|Jakobus": "jakobus", "jezus-3|Jakobus": "jakobus",
   "jezus-1|Filippus": "filippus", "jezus-2|Filippus": "filippus", "handelingen|Filippus": "filippus_evangelist",

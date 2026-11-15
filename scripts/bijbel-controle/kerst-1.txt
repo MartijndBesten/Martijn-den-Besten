@@ -1,0 +1,302 @@
+# Controle Kerst A (public/bijbelreis/inhoud/kerst-1.js): delen kerst-belofte en kerst-koningen, wie-lijst en personen.
+# ref | regex (Statenvertaling, hoofdletterongevoelig). SV-spelling in Mattheüs/Lukas: Booz, Jessai, Fares, Zara, Esrom,
+# Aram, Nahasson, Salomon, Roboam, Ozias, Joatham, Ezekias, Josias, Jechonias, Salathiël, Zorobabel, Heli, Thara, Noe.
+# --- wie-lijst
+Lukas 3:38 | den zoon van Adam, den zoon van God
+Genesis 22:18 | in uw zaad zullen gezegend worden alle volken der aarde
+Galaten 3:16 | En uw zade; hetwelk is Christus
+Genesis 49:10 | De schepter zal van Juda niet wijken, noch de wetgever van tussen zijn voeten, totdat Silo komt
+Hebreeën 7:14 | onze Heere uit Juda gesproten is
+Mattheüs 1:3 | Juda gewon Fares en Zara bij Thamar
+Mattheüs 1:5 | Salmon gewon Booz bij Rachab, en Booz gewon Obed bij Ruth
+Mattheüs 1:6 | David, de koning, gewon Salomon bij degene, die Uria’s vrouw was geweest
+1 Samuël 16:13 | zalfde hem in het midden zijner broederen
+2 Samuël 7:16 | uw stoel zal vast zijn tot in eeuwigheid
+Mattheüs 1:1 | den Zoon van David, den zoon van Abraham
+2 Koningen 24:8 | Jojachin was achttien jaren oud, toen hij koning werd, en regeerde drie maanden
+2 Koningen 24:15 | Zo voerde hij Jojachin weg naar Babel
+Mattheüs 1:12 | gewon Jechonias Salathiël, en Salathiël gewon Zorobabel
+Ezra 2:2 | Dewelken kwamen met Zerubbabel, Jesua
+Haggaï 2:24 | Ik zal u stellen, als een zegelring
+# === deel kerst-belofte: intro, stat, cross
+Genesis 5:3 | Adam leefde honderd en dertig jaren, en gewon.*Seth
+Genesis 11:26 | gewon Abram
+Mattheüs 1:17 | van Abraham tot David, zijn veertien geslachten
+Mattheüs 1:1 | Het boek des geslachts van JEZUS CHRISTUS, den Zoon van David, den zoon van Abraham
+Lukas 3:38 | Den zoon van Enos, den zoon van Seth, den zoon van Adam, den zoon van God
+Galaten 3:16 | Hij zegt niet: En den zaden, als van velen; maar als van een: En uw zade; hetwelk is Christus
+Hebreeën 7:14 | Want het is openbaar, dat onze Heere uit Juda gesproten is
+Handelingen 13:22 | David, den zoon van Jesse
+Handelingen 13:23 | Van het zaad dezes heeft God Israël, naar de belofte, verwekt den Zaligmaker Jezus
+Romeinen 5:19 | Want gelijk door de ongehoorzaamheid van dien enen mens velen tot zondaars gesteld zijn geworden, alzo zullen ook door de gehoorzaamheid van Enen velen tot rechtvaardigen gesteld worden
+# tijdNoot
+Genesis 12:4 | Abram was vijf en zeventig jaren oud, toen hij uit Haran ging
+2 Samuël 5:4 | Dertig jaar was David oud, als hij koning werd
+# --- stap 0: Genesis 3:1–15
+Genesis 3:4 | Toen zeide de slang tot de vrouw
+Genesis 3:13 | De slang heeft mij bedrogen, en ik heb gegeten
+Genesis 3:6 | zij gaf ook haar man met haar, en hij at
+Genesis 3:11 | van dien boom gegeten, van welken Ik u gebood, dat gij daarvan niet eten zoudt
+Genesis 3:15 | En Ik zal vijandschap zetten tussen u en tussen deze vrouw, en tussen uw zaad en tussen haar zaad; datzelve zal u den kop vermorzelen, en gij zult het de verzenen vermorzelen
+Genesis 3:14 | zeide de HEERE God tot die slang
+1 Johannes 3:8 | Hiertoe is de Zoon van God geopenbaard, opdat Hij de werken des duivels verbreken zou
+# --- stap 1: Genesis 4:25–5:32; 8:4
+Genesis 4:25 | een ander zaad gezet voor Habel
+Genesis 4:25 | zij noemde zijn naam Seth
+Genesis 4:26 | Toen begon men den Naam des HEEREN aan te roepen
+Genesis 5:5 | negenhonderd jaren, en dertig jaren; en hij stierf
+Genesis 5:8 | negenhonderd en twaalf jaren; en hij stierf
+Genesis 5:11 | negenhonderd en vijf jaren; en hij stierf
+Genesis 5:14 | negenhonderd en tien jaren
+Genesis 5:17 | achthonderd vijf en negentig jaren
+Genesis 5:20 | negenhonderd twee en zestig jaren
+Genesis 5:23 | driehonderd vijf en zestig jaren
+Genesis 5:24 | Henoch dan wandelde met God; en hij was niet meer; want God nam hem weg
+Genesis 5:27 | negenhonderd negen en zestig jaren
+Genesis 5:29 | Deze zal ons troosten over ons werk
+Genesis 5:31 | zevenhonderd zeven en zeventig jaren
+Genesis 5:32 | Noach was vijfhonderd jaren oud; en Noach gewon Sem, Cham en Jafeth
+Genesis 9:29 | negenhonderd en vijftig jaren
+Genesis 6:8 | Maar Noach vond genade in de ogen des HEEREN
+Genesis 8:4 | de ark rustte.*op de bergen van Ararat
+Lukas 3:36 | den zoon van Noe, den zoon van Lamech
+Lukas 3:37 | Den zoon van Mathusala, den zoon van Enoch, den zoon van Jared, den zoon van Malaleel, den zoon van Kaïnan
+Lukas 3:38 | Den zoon van Enos, den zoon van Seth, den zoon van Adam
+# --- stap 2: Genesis 9:26; 11:10–28
+Genesis 9:26 | Gezegend zij de HEERE, de God van Sem
+Genesis 11:10 | Sem was honderd jaren oud, en gewon, Arfachsad, twee jaren na den vloed
+Genesis 11:12 | Arfachsad leefde vijf en dertig jaren, en hij gewon Selah
+Genesis 11:14 | Selah leefde dertig jaren, en hij gewon Heber
+Genesis 11:16 | Heber leefde vier en dertig jaren, en gewon Peleg
+Genesis 11:18 | Peleg leefde dertig jaren, en hij gewon Rehu
+Genesis 10:25 | in zijn dagen is de aarde verdeeld
+Genesis 11:20 | Rehu leefde twee en dertig jaren, en hij gewon Serug
+Genesis 11:22 | Serug leefde dertig jaren, en gewon Nahor
+Genesis 11:24 | Nahor leefde negen en twintig jaren, en gewon Terah
+Genesis 11:26 | Terah leefde zeventig jaren, en gewon Abram, Nahor en Haran
+Genesis 11:32 | tweehonderd en vijf jaren
+Genesis 17:5 | uw naam zal wezen Abraham
+Genesis 11:28 | Ur der Chaldeen
+Lukas 3:34 | den zoon van Abraham, den zoon van Thara
+Lukas 3:36 | Den zoon van Kaïnan, den zoon van Arfaxad, den zoon van Sem
+Lukas 3:35 | den zoon van Sala
+1 Kronieken 1:24 | Sem, Arfachsad, Selah
+1 Kronieken 1:27 | Abram; die is Abraham
+# --- stap 3: Genesis 11:31–12:7
+Genesis 11:31 | Terah nam Abram, zijn zoon, en Lot.*en Sarai.*uit Ur der Chaldeen, om te gaan naar het land Kanaän; en zij kwamen tot Haran, en woonden aldaar
+Genesis 12:1 | Ga gij uit uw land, en uit uw maagschap, en uit uws vaders huis, naar het land, dat Ik u wijzen zal
+Genesis 12:3 | in u zullen alle geslachten des aardrijks gezegend worden
+Genesis 12:4 | Abram was vijf en zeventig jaren oud, toen hij uit Haran ging
+Genesis 12:5 | zij kwamen in het land Kanaän
+Genesis 12:6 | tot aan de plaats Sichem
+Genesis 12:7 | Zo verscheen de HEERE aan Abram, en zeide: Aan uw zaad zal Ik dit land geven
+Genesis 11:30 | En Sarai was onvruchtbaar; zij had geen kind
+Galaten 3:8 | te voren aan Abraham het Evangelie verkondigd
+# --- stap 4: Genesis 22:1–18
+Genesis 22:2 | Neem nu uw zoon, uw enige, dien gij liefhebt, Izak, en ga heen naar het land Moria, en offer hem aldaar tot een brandoffer, op een van de bergen
+Genesis 22:10 | nam het mes
+Genesis 22:12 | Strek uw hand niet uit aan den jongen, en doe hem niets
+Genesis 22:13 | offerde hem ten brandoffer in zijns zoons plaats
+Genesis 22:15 | ten tweeden male
+Genesis 22:16 | Ik zweer bij Mijzelven, spreekt de HEERE
+Genesis 22:18 | En in uw zaad zullen gezegend worden alle volken der aarde
+2 Kronieken 3:1 | Salomo begon het huis des HEEREN te bouwen te Jeruzalem, op den berg Moria
+Genesis 22:19 | zij gingen samen naar Ber-seba
+# --- stap 5: Genesis 26:1–5; 28:10–19
+Genesis 26:1 | er was honger in dat land.*naar Gerar
+Genesis 26:2 | De HEERE verscheen hem en zeide: Trek niet af naar Egypte
+Genesis 26:4 | en in uw zaad zullen gezegend worden alle volken der aarde
+Genesis 28:10 | Jakob dan toog uit van Ber-seba, en ging naar Haran
+Genesis 28:12 | een ladder was gesteld op de aarde, welker opperste aan den hemel raakte
+Genesis 28:14 | en in u, en in uw zaad zullen alle geslachten des aardbodems gezegend worden
+Genesis 28:19 | hij noemde den naam dier plaats Beth-el
+Genesis 25:25 | de eerste kwam uit.*Ezau
+Genesis 25:26 | daarna kwam zijn broeder uit.*Jakob
+Exodus 3:15 | de God van Abraham, de God van Izak, en de God van Jakob
+# --- stap 6: Genesis 38:27–30; 46:5–12; 49:1–10
+Genesis 38:6 | Thamar
+Genesis 38:11 | Thamar, zijn schoondochter
+Genesis 38:27 | tweelingen in haar buik
+Genesis 38:29 | Perez
+Genesis 38:30 | Zera
+Genesis 46:5 | maakte zich Jakob op van Ber-seba
+Genesis 46:6 | zij kwamen in Egypte, Jakob en al zijn zaad met hem
+Genesis 46:12 | En de zonen van Juda: Er, en Onan, en Sela, en Perez, en Zerah
+Genesis 46:12 | in het land van Kanaän
+Genesis 49:1 | Daarna riep Jakob zijn zonen
+Genesis 49:8 | u zullen uw broeders loven
+Genesis 49:10 | De schepter zal van Juda niet wijken, noch de wetgever van tussen zijn voeten, totdat Silo komt, en Denzelven zullen de volken gehoorzaam zijn
+Genesis 49:9 | Juda is een leeuwenwelp
+Genesis 47:28 | Jakob leefde in het land van Egypte zeventien jaar
+Hebreeën 7:14 | onze Heere uit Juda gesproten is
+Openbaring 5:5 | de Leeuw, Die uit den stam van Juda is
+Mattheüs 1:3 | En Juda gewon Fares en Zara bij Thamar
+# --- stap 7: Mattheüs 1:3–5; Numeri 2:3; Jozua 6:22–25
+Ruth 4:18 | Perez gewon Hezron
+Genesis 46:12 | de zonen van Perez waren Hezron en Hamul
+Ruth 4:19 | Hezron gewon Ram; en Ram gewon Amminadab
+Mattheüs 1:3 | Esrom gewon Aram
+Mattheüs 1:4 | Aram gewon Aminadab, en Aminadab gewon Nahasson, en Nahasson gewon Salmon
+1 Kronieken 2:10 | Amminadab gewon Nahesson
+Numeri 2:3 | Nahesson, de zoon van Amminadab, zal de overste der zonen van Juda zijn
+Mattheüs 1:5 | En Salmon gewon Booz bij Rachab
+Jozua 2:1 | twee mannen.*verspieden.*Rachab
+Jozua 2:4 | die vrouw had die beide mannen genomen, en zij had hen verborgen
+Jozua 6:23 | brachten er Rachab uit, en haar vader, en haar moeder, en haar broeders
+Jozua 6:25 | zij heeft gewoond in het midden van Israël
+Jozua 2:11 | de HEERE, ulieder God, is een God boven in den hemel, en beneden op de aarde
+Hebreeën 11:31 | Door het geloof is Rachab, de hoer, niet omgekomen met de ongehoorzamen
+# --- stap 8: Ruth 1:22; 4:13–22
+Ruth 1:22 | Ruth, de Moabietische.*zij kwamen te Bethlehem in het begin van den gersteoogst
+Ruth 4:13 | Alzo nam Boaz Ruth.*een zoon baarde
+Ruth 4:17 | de naburinnen gaven hem een naam.*Obed; deze is de vader van Isaï, Davids vader
+Ruth 4:18 | Perez gewon Hezron
+Ruth 4:22 | En Obed gewon Isaï; en Isaï gewon David
+Mattheüs 1:5 | en Booz gewon Obed bij Ruth
+Ruth 4:11 | handel kloekelijk in Efratha, en maak uw naam vermaard in Bethlehem
+# --- stap 9: 1 Samuël 16:1–13
+1 Samuël 16:1 | Ik zal u zenden tot Isaï, den Bethlehemiet; want Ik heb Mij een koning onder zijn zonen uitgezien
+1 Samuël 16:4 | hij kwam te Bethlehem
+1 Samuël 16:7 | de mens ziet aan, wat voor ogen is, maar de HEERE ziet het hart aan
+1 Samuël 16:10 | Alzo liet Isaï zijn zeven zonen voorbij het aangezicht van Samuël gaan; doch Samuël zeide tot Isaï: De HEERE heeft dezen niet verkoren
+1 Samuël 16:11 | De kleinste is nog overig, en zie, hij weidt de schapen
+1 Samuël 16:12 | Sta op, zalf hem, want deze is het
+1 Samuël 16:13 | hij zalfde hem in het midden zijner broederen. En de Geest des HEEREN werd vaardig over David van dien dag af
+Mattheüs 1:17 | van Abraham tot David, zijn veertien geslachten
+# --- quiz kerst-belofte
+Genesis 4:25 | zij noemde zijn naam Seth
+Genesis 28:19 | Beth-el
+Jozua 6:25 | omdat zij de boden verborgen had
+Ruth 4:22 | Isaï gewon David
+# === deel kerst-koningen: intro, stat, cross
+2 Samuël 7:16 | uw huis zal bestendig zijn, en uw koninkrijk tot in eeuwigheid
+Mattheüs 1:17 | Al de geslachten dan, van Abraham tot David, zijn veertien geslachten; en van David tot de Babylonische overvoering, zijn veertien geslachten; en van de Babylonische overvoering tot Christus, zijn veertien geslachten
+Psalm 132:11 | De HEERE heeft David de waarheid gezworen, waarvan Hij niet wijken zal, zeggende: Van de vrucht uws buiks zal Ik op uw troon zetten
+Jeremia 23:5 | Ziet, de dagen komen, spreekt de HEERE, dat Ik aan David een rechtvaardige Spruit zal verwekken
+Lukas 1:32 | God, de Heere, zal Hem den troon van Zijn vader David geven
+Lukas 1:33 | Zijns Koninkrijks zal geen einde zijn
+Romeinen 1:3 | Die geworden is uit het zaad van David, naar het vlees
+Handelingen 2:30 | dat God hem met ede gezworen had, dat hij uit de vrucht zijner lenden, zoveel het vlees aangaat, den Christus verwekken zou
+Openbaring 22:16 | Ik ben de Wortel en het geslacht Davids, de blinkende Morgenster
+# tijdNoot
+2 Samuël 5:5 | te Jeruzalem regeerde hij drie en dertig jaren
+Ezra 1:1 | In het eerste jaar nu van Kores, koning van Perzië
+# --- stap 0: 2 Samuël 7:1–17
+2 Samuël 7:2 | ik woon in een cederen huis, en de ark Gods woont in het midden der gordijnen
+2 Samuël 7:4 | in denzelfden nacht, dat het woord des HEEREN tot Nathan geschiedde
+2 Samuël 7:5 | Zoudt gij Mij een huis bouwen tot Mijn woning
+2 Samuël 7:11 | dat de HEERE u een huis maken zal
+2 Samuël 7:12 | zo zal Ik uw zaad na u doen opstaan
+2 Samuël 7:13 | Die zal Mijn Naam een huis bouwen
+2 Samuël 7:16 | Doch uw huis zal bestendig zijn, en uw koninkrijk tot in eeuwigheid
+Psalm 132:11 | Van de vrucht uws buiks zal Ik op uw troon zetten
+# --- stap 1: Mattheüs 1:6; Lukas 3:31; 1 Kronieken 3:5
+2 Samuël 5:14 | die hem te Jeruzalem geboren zijn: Schammua, en Schobab, en Nathan, en Salomo
+1 Kronieken 3:5 | Nathan, en Salomo; deze vier zijn van Bath-sua
+Mattheüs 1:6 | gewon Salomon bij degene, die Uria’s vrouw was geweest
+Mattheüs 1:7 | En Salomon gewon Roboam
+Lukas 3:31 | Den zoon van Nathan, den zoon van David
+1 Koningen 2:12 | Salomo zat op den troon van zijn vader David
+2 Samuël 12:9 | Gij hebt Uria, den Hethiet, met het zwaard verslagen, en zijn huisvrouw hebt gij u ter vrouwe genomen
+2 Samuël 12:24 | en de HEERE had hem lief
+# --- stap 2: Mattheüs 1:7–11; 1 Koningen 12:20; 2 Koningen 8:19
+1 Koningen 11:42 | De tijd nu, dien Salomo te Jeruzalem over het ganse Israël regeerde, was veertig jaar
+1 Koningen 14:21 | regeerde zeventien jaren te Jeruzalem
+1 Koningen 12:20 | hem over gans Israël koning maakten; niemand volgde het huis Davids, dan de stam van Juda alleen
+1 Koningen 15:1 | werd Abiam koning over Juda
+1 Koningen 15:2 | Hij regeerde drie jaren te Jeruzalem
+1 Koningen 15:10 | regeerde een en veertig jaren te Jeruzalem
+1 Koningen 15:11 | En Asa deed wat recht was in de ogen des HEEREN, gelijk zijn vader David
+1 Koningen 22:42 | regeerde vijf en twintig jaren te Jeruzalem
+2 Koningen 8:17 | hij regeerde acht jaren te Jeruzalem
+2 Koningen 8:18 | hij deed dat kwaad was in de ogen des HEEREN
+2 Koningen 8:19 | Doch de HEERE wilde Juda niet verderven, om Davids Zijns knechts wil; gelijk als Hij hem gezegd had, dat Hij hem te allen tijde voor zijn zonen een lamp zou geven
+2 Kronieken 26:3 | Zestien jaren was Uzzia oud, toen hij koning werd, en hij regeerde twee en vijftig jaren te Jeruzalem
+2 Koningen 15:1 | werd koning Azaria, de zoon van Amazia
+2 Koningen 15:33 | regeerde zestien jaren te Jeruzalem
+2 Koningen 16:2 | hij regeerde zestien jaren te Jeruzalem; en hij deed niet dat recht was in de ogen des HEEREN
+2 Koningen 18:2 | hij regeerde negen en twintig jaren te Jeruzalem
+2 Koningen 18:3 | naar alles, wat zijn vader David gedaan had
+2 Koningen 21:1 | Manasse was twaalf jaren oud, toen hij koning werd, en hij regeerde vijf en vijftig jaren
+2 Koningen 21:2 | hij deed dat kwaad was in de ogen des HEEREN
+2 Koningen 21:19 | hij regeerde twee jaren te Jeruzalem
+2 Koningen 22:1 | Josia was acht jaren oud, toen hij koning werd, en regeerde een en dertig jaren
+2 Koningen 22:2 | hij deed dat recht was in de ogen des HEEREN
+2 Koningen 24:8 | regeerde drie maanden te Jeruzalem
+Mattheüs 1:8 | Joram gewon Ozias
+Mattheüs 1:11 | En Josias gewon Jechonias, en zijn broeders, omtrent de Babylonische overvoering
+1 Kronieken 3:11 | zijn zoon was Joram; zijn zoon was Ahazia; zijn zoon was Joas
+1 Kronieken 3:12 | Zijn zoon was Amazia; zijn zoon was Azaria; zijn zoon was Jotham
+1 Kronieken 3:15 | de tweede Jojakim
+1 Kronieken 3:16 | De kinderen van Jojakim nu waren: Jechonia zijn zoon
+# --- stap 3: Jesaja 7:1–14; 9:5–6; 11:1
+Jesaja 7:1 | in de dagen van Achaz.*Rezin, de koning van Syrië, en Pekah.*de koning van Israël, optoog naar Jeruzalem
+Jesaja 7:2 | zo bewoog zich zijn hart en het hart zijns volks
+Jesaja 7:3 | aan het einde van den watergang des oppersten vijvers
+Jesaja 7:11 | Eis u een teken van den HEERE
+Jesaja 7:12 | Ik zal het niet eisen
+Jesaja 7:13 | gij, huis van David
+Jesaja 7:14 | Daarom zal de Heere Zelf ulieden een teken geven; ziet, een maagd zal zwanger worden, en zij zal een Zoon baren, en Zijn naam IMMANUEL heten
+Mattheüs 1:23 | Emmanuël; hetwelk is, overgezet zijnde, God met ons
+Jesaja 9:5 | Want een Kind is ons geboren, een Zoon is ons gegeven, en de heerschappij is op Zijn schouder
+Jesaja 9:6 | op den troon van David
+Jesaja 11:1 | Want er zal een Rijsje voortkomen uit den afgehouwen tronk van Isaï
+Mattheüs 1:22 | opdat vervuld zou worden, hetgeen van den Heere gesproken is, door den profeet
+# --- stap 4: Micha 1:1; 5:1
+Micha 1:1 | Micha, den Morastiet, in de dagen van Jotham, Achaz en Jehizkia, koningen van Juda
+Micha 1:14 | Morescheth-gath
+Micha 5:1 | En gij, Bethlehem Efratha! zijt gij klein om te wezen onder de duizenden van Juda\? Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israël, en Wiens uitgangen zijn van ouds, van de dagen der eeuwigheid
+Mattheüs 2:4 | waar de Christus zou geboren worden
+Mattheüs 2:5 | Te Bethlehem, in Judea gelegen; want alzo is geschreven door den profeet
+Johannes 7:42 | Zegt de Schrift niet, dat de Christus komen zal uit den zade Davids, en van het vlek Bethlehem, waar David was
+# --- stap 5: 2 Koningen 24:8–17; Mattheüs 1:11–12
+2 Koningen 24:8 | Jojachin was achttien jaren oud, toen hij koning werd, en regeerde drie maanden
+2 Koningen 24:11 | Nebukadnezar, de koning van Babel, tegen de stad
+2 Koningen 24:12 | Jojachin, de koning van Juda, uit tot den koning van Babel, hij, en zijn moeder, en zijn knechten, en zijn vorsten
+2 Koningen 24:14 | al de vorsten, en alle strijdbare helden.*alle timmerlieden en smeden
+2 Koningen 24:15 | Zo voerde hij Jojachin weg naar Babel
+Jeremia 24:1 | Jechonia, den zoon van Jojakim
+Mattheüs 1:12 | En na de Babylonische overvoering gewon Jechonias Salathiël
+2 Koningen 25:27 | in het zeven en dertigste jaar der wegvoering van Jojachin
+2 Koningen 25:29 | hij at geduriglijk brood voor zijn aangezicht
+Jeremia 23:5 | Ziet, de dagen komen, spreekt de HEERE, dat Ik aan David een rechtvaardige Spruit zal verwekken
+# --- stap 6: Ezra 1:1–3; 2:1–2; Haggaï 2:21–24
+Ezra 1:1 | Kores, koning van Perzië
+Ezra 1:3 | Wie is onder ulieden van al Zijn volk\? Zijn God zij met hem, en hij trekke op naar Jeruzalem.*en hij bouwe het huis des HEEREN
+Ezra 2:1 | die naar Jeruzalem en Juda zijn wedergekeerd
+Ezra 2:2 | Dewelken kwamen met Zerubbabel, Jesua
+Haggaï 1:1 | Zerubbabel, den zoon van Sealthiël, den vorst van Juda
+Haggaï 2:24 | Ik zal u stellen, als een zegelring; want u heb Ik verkoren
+Mattheüs 1:12 | Salathiël gewon Zorobabel
+Lukas 3:27 | den zoon van Zorobabel, den zoon van Salathiël
+Zacharia 4:9 | De handen van Zerubbabel hebben dit huis gegrondvest, zijn handen zullen het ook voleinden
+# --- stap 7: Mattheüs 1:13–15; Lukas 3:23–27
+Mattheüs 1:13 | En Zorobabel gewon Abiud, en Abiud gewon Eljakim, en Eljakim gewon Azor
+Mattheüs 1:14 | En Azor gewon Sadok, en Sadok gewon Achim, en Achim gewon Elihud
+Mattheüs 1:15 | En Elihud gewon Eleazar, en Eleazar gewon Matthan, en Matthan gewon Jakob
+Lukas 3:23 | de zoon van Jozef, den zoon van Heli
+Lukas 3:24 | Den zoon van Matthat, den zoon van Levi, den zoon van Melchi, den zoon van Janna, den zoon van Jozef
+Lukas 3:25 | Den zoon van Mattathias, den zoon van Amos, den zoon van Naum, den zoon van Esli, den zoon van Naggai
+Lukas 3:26 | Den zoon van Maath, den zoon van Mattathias, den zoon van Semeï, den zoon van Jozef, den zoon van Juda
+Lukas 3:27 | Den zoon van Johannes, den zoon van Rhesa, den zoon van Zorobabel
+Jesaja 11:1 | afgehouwen tronk van Isaï
+# --- stap 8: Mattheüs 1:16; Lukas 1:26–27; 2:4; 3:23
+Lukas 1:26 | een stad in Galilea, genaamd Nazareth
+Lukas 1:27 | Tot een maagd, die ondertrouwd was met een man, wiens naam was Jozef, uit den huize Davids; en de naam der maagd was Maria
+Lukas 2:4 | Jozef ging ook op van Galilea, uit de stad Nazareth.*omdat hij uit het huis en geslacht van David was
+Mattheüs 1:16 | En Jakob gewon Jozef, den man van Maria, uit welke geboren is JEZUS, gezegd Christus
+Lukas 3:23 | zijnde \( alzo men meende\) de zoon van Jozef, den zoon van Heli
+Lukas 1:35 | Dat uit u geboren zal worden, zal Gods Zoon genaamd worden
+Romeinen 1:3 | Die geworden is uit het zaad van David, naar het vlees
+# --- stap 9: Mattheüs 1:17
+Mattheüs 1:17 | van Abraham tot David, zijn veertien geslachten; en van David tot de Babylonische overvoering, zijn veertien geslachten; en van de Babylonische overvoering tot Christus, zijn veertien geslachten
+Mattheüs 1:2 | Abraham gewon Izak, en Izak gewon Jakob, en Jakob gewon Juda
+Mattheüs 1:6 | Jessai gewon David, den koning
+Mattheüs 1:7 | Salomon gewon Roboam, en Roboam gewon Abia, en Abia gewon Asa
+Mattheüs 1:8 | Asa gewon Josafat, en Josafat gewon Joram, en Joram gewon Ozias
+Mattheüs 1:9 | Ozias gewon Joatham, en Joatham gewon Achaz, en Achaz gewon Ezekias
+Mattheüs 1:10 | Ezekias gewon Manasse, en Manasse gewon Amon, en Amon gewon Josias
+Mattheüs 1:1 | Het boek des geslachts van JEZUS CHRISTUS, den Zoon van David, den zoon van Abraham
+# --- quiz kerst-koningen
+2 Samuël 7:17 | alzo sprak Nathan tot David
+Mattheüs 1:16 | den man van Maria

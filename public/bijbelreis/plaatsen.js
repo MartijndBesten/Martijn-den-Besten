@@ -831,3 +831,8 @@ Object.assign(BR.W, {
   br_kreta1: [35.55, 24.7], br_kreta2: [35.78, 23.95], br_kreta3: [35.76, 23.45], br_malea: [36.2, 22.3], br_methone: [36.55, 21.45], br_ion4: [37.3, 21.2],
   br_ion5: [37.6, 20.4], br_ion6: [38.2, 20.2], br_ion7: [38.75, 20.4], br_ion8: [38.98, 20.6],
 });
+// Kerst A (inhoud/kerst-1.js): de woonplaats van de profeet Micha.
+Object.assign(BR.plaatsen, {
+  ka_moreseth: { n: "Moreseth", ll: [31.6334, 34.9166], c: "w", s: "l", z: 8.5, t: "stad", d: "De woonplaats van de profeet Micha, ‘den Morastiet’ (Micha 1:1). In Micha 1:14 heet de plaats Moreseth-Gath. Hij lag in het heuvelland van Juda, ten westen van Bethlehem.",
+    nu: "Tel Goded (Tell ej-Judeideh), Israël", bron: "OpenBible: Moresheth-gath, beste identificatie Tel Goded (score 467); geen serieuze tegenkandidaat (Tel Zayit 43). Gangbare identificatie, niet zeker." },
+});
