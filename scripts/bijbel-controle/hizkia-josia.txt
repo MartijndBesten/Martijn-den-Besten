@@ -1,0 +1,228 @@
+# Controle voor het deel hizkia-josia in public/bijbelreis/inhoud/2kronieken.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+2 Kronieken 29:1 | Jehizkia werd koning, vijf en twintig jaren oud zijnde, en regeerde negen en twintig jaren te Jeruzalem
+2 Kronieken 29:3 | in het eerste jaar zijner regering, in de eerste maand, de deuren van het huis des HEEREN open
+2 Kronieken 30:1 | zond Jehizkia tot het ganse Israël en Juda.*pascha te houden
+2 Kronieken 32:8 | maar met ons is de HEERE, onze God, om ons te helpen
+2 Kronieken 33:1 | Manasse was twaalf jaren oud, als hij koning werd, en regeerde vijf en vijftig jaren te Jeruzalem
+2 Kronieken 32:33 | zijn zoon Manasse werd koning
+2 Kronieken 33:2 | hij deed dat kwaad was in de ogen des HEEREN
+2 Kronieken 33:11 | twee koperen ketenen, en voerden hem naar Babel
+2 Kronieken 33:12 | vernederde zich zeer
+2 Kronieken 33:13 | bracht hem weder te Jeruzalem, in zijn koninkrijk. Toen erkende Manasse, dat de HEERE God is
+Genesis 41:51 | Jozef noemde den naam des eerstgeborenen Manasse
+2 Kronieken 34:1 | Josia was acht jaren oud, toen hij koning werd, en regeerde een en dertig jaren te Jeruzalem
+2 Kronieken 34:3 | toen hij nog een jongeling was, begon hij den God zijns vaders Davids te zoeken
+2 Kronieken 34:6 | tot Nafthali toe
+2 Kronieken 34:30 | men las voor hun oren al de woorden van het boek des verbonds
+2 Kronieken 35:1 | hield Josia het pascha
+2 Kronieken 35:22 | in het dal Megiddo
+2 Kronieken 35:23 | ik ben zeer gewond
+2 Kronieken 35:24 | brachten hem te Jeruzalem; en hij stierf, en werd begraven
+2 Kronieken 34:22 | profetes Hulda, de huisvrouw van Sallum.*den klederbewaarder.*woonde te Jeruzalem
+2 Kronieken 34:21 | vraagt den HEERE voor mij.*over de woorden dezes boeks, dat gevonden is
+2 Kronieken 34:24 | Ik zal kwaad over deze plaats en over haar inwoners brengen
+2 Kronieken 34:27 | gij u voor het aangezicht Gods vernederd hebt
+2 Kronieken 34:28 | uw ogen zullen al dat kwaad niet zien
+2 Kronieken 35:20 | toog Necho, de koning van Egypte, op, om te krijgen tegen Karchemis, aan den Frath; en Josia toog uit hem tegemoet
+2 Kronieken 35:21 | ik ben heden tegen u niet
+2 Kronieken 35:23 | de schutters schoten den koning Josia
+# --- Deel: datering, intro, stat en kruisverwijzingen ---
+2 Koningen 18:13 | in het veertiende jaar van den koning Hizkia kwam Sanherib
+2 Kronieken 33:21 | Amon was twee en twintig jaren oud, als hij koning werd, en regeerde twee jaren
+2 Koningen 18:1 | in het derde jaar van Hosea.*dat Hizkia koning werd
+2 Koningen 18:9 | in het vierde jaar van den koning Hizkia.*zevende jaar van Hosea
+2 Koningen 18:10 | in het zesde jaar van Hizkia.*negende jaar van Hosea
+2 Kronieken 34:8 | In het achttiende jaar nu zijner regering
+2 Kronieken 35:19 | In het achttiende jaar van het koninkrijk van Josia, werd dit pascha gehouden
+2 Kronieken 30:5 | van Ber-seba tot Dan
+2 Kronieken 26:3 | Uzzia.*regeerde twee en vijftig jaren te Jeruzalem
+2 Koningen 14:23 | Jerobeam.*een en veertig jaren
+1 Koningen 15:10 | regeerde een en veertig jaren te Jeruzalem
+1 Koningen 2:11 | veertig jaren
+1 Koningen 11:42 | Salomo.*veertig jaar
+2 Koningen 12:1 | veertig jaren
+Handelingen 13:21 | Saul.*veertig jaren
+2 Koningen 18:13 | Sanherib
+2 Koningen 20:1 | In die dagen werd Hizkia krank
+2 Kronieken 7:14 | zich verootmoedigt en bidt.*zo zal Ik uit den hemel horen
+2 Kronieken 7:12 | de HEERE verscheen Salomo
+2 Kronieken 30:11 | verootmoedigden zich sommigen van Aser, en Manasse, en van Zebulon
+2 Kronieken 32:26 | Jehizkia verootmoedigde zich
+2 Koningen 21:2 | hij deed dat kwaad was in de ogen des HEEREN
+2 Koningen 21:16 | vergoot Manasse ook zeer veel onschuldig bloed
+2 Koningen 21:18 | Manasse ontsliep met zijn vaderen
+2 Koningen 22:8 | Ik heb het wetboek in het huis des HEEREN gevonden
+2 Koningen 23:15 | het altaar, dat te Beth-el was.*brak hij af
+2 Koningen 23:21 | Houdt den HEERE, uw God, pascha
+2 Koningen 23:29 | hij doodde hem te Megiddo
+Zacharia 12:11 | zal te Jeruzalem de rouwklage groot zijn, gelijk die rouwklage van Hadadrimmon, in het dal van Megiddon
+Mattheüs 1:10 | Ezekias gewon Manasse, en Manasse gewon Amon, en Amon gewon Josias
+Mattheüs 1:1 | geslachts van JEZUS CHRISTUS
+# --- Stap 1: de deuren gaan weer open (29:1–19) ---
+2 Kronieken 29:2 | hij deed dat recht was in de ogen des HEEREN
+2 Kronieken 29:3 | de deuren van het huis des HEEREN open, en beterde ze
+2 Kronieken 29:4 | bracht de priesteren en de Levieten in, en hij verzamelde ze
+2 Kronieken 29:5 | heiligt nu uzelven, en heiligt het huis des HEEREN
+2 Kronieken 29:6 | onze vaders hebben overtreden.*hebben Hem verlaten
+2 Kronieken 29:7 | de deuren van het voorhuis toegesloten, en de lampen uitgeblust
+2 Kronieken 29:16 | brachten uit in het voorhof van het huis des HEEREN al de onreinigheid.*de Levieten namen ze op, om naar buiten uit te brengen, in de beek Kidron
+2 Kronieken 29:17 | op den zestienden dag der eerste maand maakten zij een einde
+2 Kronieken 29:18 | Wij hebben het gehele huis des HEEREN gereinigd
+2 Kronieken 28:24 | Achaz.*sloot de deuren van het huis des HEEREN toe
+2 Kronieken 28:27 | zijn zoon Jehizkia werd koning
+2 Koningen 18:4 | Hij nam de hoogten weg, en brak de opgerichte beelden
+# --- Stap 2: het lied begint opnieuw (29:20–36) ---
+2 Kronieken 29:20 | maakte zich de koning Jehizkia vroeg op, en verzamelde de oversten der stad, en hij ging op in het huis des HEEREN
+2 Kronieken 29:21 | zeven varren, en zeven rammen, en zeven lammeren, en zeven geitenbokken
+2 Kronieken 29:24 | de priesteren slachtten ze.*om verzoening te doen voor het ganse Israël
+2 Kronieken 29:25 | de Levieten in het huis des HEEREN, met cimbalen, met luiten en harpen
+2 Kronieken 29:26 | de priesters met de trompetten
+2 Kronieken 29:27 | als dat brandoffer begon, begon het gezang des HEEREN
+2 Kronieken 29:28 | De ganse gemeente nu boog zich neder
+2 Kronieken 29:31 | de gemeente bracht slachtofferen en lofofferen
+2 Kronieken 29:34 | van de priesteren waren er te weinig.*daarom hielpen hen hun broederen, de Levieten, totdat het werk geëindigd was
+2 Kronieken 29:36 | Jehizkia nu en al het volk verblijdden zich over hetgeen God het volk voorbereid had; want deze zaak geschiedde haastelijk
+2 Kronieken 29:30 | met de woorden van David en van Asaf, den ziener
+Psalm 50:1 | Asaf
+Psalm 73:1 | Asaf
+Psalm 74:1 | Asaf
+Psalm 75:1 | Asaf
+Psalm 76:1 | Asaf
+Psalm 77:1 | Asaf
+Psalm 78:1 | Asaf
+Psalm 79:1 | Asaf
+Psalm 80:1 | Asaf
+Psalm 81:1 | Asaf
+Psalm 82:1 | Asaf
+Psalm 83:1 | Asaf
+# --- Stap 3: lopers van Berseba tot Dan (30:1–12) ---
+2 Kronieken 30:1 | schreef ook brieven tot Efraïm en Manasse, dat zij zouden komen tot het huis des HEEREN te Jeruzalem
+2 Kronieken 30:2 | om het pascha te houden, in de tweede maand
+2 Kronieken 30:3 | omdat de priesteren zich niet genoeg geheiligd hadden, en het volk zich niet verzameld had te Jeruzalem
+2 Kronieken 30:5 | een stem door gans Israël, van Ber-seba tot Dan, zou laten doorgaan
+2 Kronieken 30:6 | bekeert u tot den HEERE.*zo zal Hij Zich keren tot de ontkomenen, die ulieden overgebleven zijn uit de hand der koningen van Assyrië
+2 Kronieken 30:9 | de HEERE, uw God, is genadig en barmhartig
+2 Kronieken 30:10 | de lopers door, van stad tot stad, door het land van Efraïm en Manasse, tot Zebulon toe; doch zij belachten hen, en bespotten hen
+2 Kronieken 30:11 | Evenwel verootmoedigden zich sommigen van Aser, en Manasse, en van Zebulon, en kwamen te Jeruzalem
+2 Kronieken 30:12 | de hand Gods in Juda, hun enerlei hart gevende, dat zij het gebod des konings en der vorsten deden
+Numeri 9:10 | over een dood lichaam onrein, of op een verren weg
+Numeri 9:11 | In de tweede maand, op den veertienden dag
+# --- Stap 4: het Pascha in de tweede maand (30:13–27) ---
+2 Kronieken 30:13 | het feest der ongezuurde broden te houden, in de tweede maand, een zeer grote gemeente
+2 Kronieken 30:14 | namen de altaren weg, die te Jeruzalem waren; daartoe namen zij alle rooktuig weg, hetwelk zij in de beek Kidron wierpen
+2 Kronieken 30:15 | slachtten zij het pascha, op den veertienden der tweede maand
+2 Kronieken 30:18 | velen van Efraïm en Manasse, Issaschar en Zebulon, hadden zich niet gereinigd, maar aten het pascha.*Jehizkia bad voor hen, zeggende: De HEERE, die goed is, make verzoening voor dien
+2 Kronieken 30:19 | Die zijn ganse hart gericht heeft, om God den HEERE.*te zoeken
+2 Kronieken 30:20 | de HEERE verhoorde Jehizkia, en heelde het volk
+2 Kronieken 30:21 | zeven dagen, met grote blijdschap
+2 Kronieken 30:23 | hielden zij nog zeven dagen met blijdschap
+2 Kronieken 30:26 | van de dagen van Salomo.*was desgelijks in Jeruzalem niet geweest
+2 Kronieken 31:1 | togen alle Israëlieten.*uit, tot de steden van Juda, en braken de opgerichte beelden.*hoogten en de altaren af, uit gans Juda en Benjamin, ook in Efraïm en Manasse
+2 Kronieken 31:5 | brachten zij de tienden van alles in met menigte
+2 Kronieken 31:6 | maakten vele hopen
+# --- Stap 5: Sanherib (32:1–23) ---
+2 Kronieken 32:1 | kwam Sanherib, de koning van Assyrië, en toog in Juda, en legerde zich tegen de vaste steden
+2 Kronieken 32:3 | hield hij raad met zijn vorsten en zijn helden, om de fonteinwateren te stoppen, die buiten de stad waren; en zij hielpen hem
+2 Kronieken 32:4 | veel volks werd vergaderd, dat al de fonteinen stopte
+2 Kronieken 32:6 | sprak naar hun hart
+2 Kronieken 32:7 | Zijt sterk, en hebt een goeden moed
+2 Kronieken 32:8 | Met hem is een vleselijke arm, maar met ons is de HEERE, onze God, om ons te helpen
+2 Kronieken 32:9 | zond Sanherib.*zijn knechten naar Jeruzalem, \(doch hij zelf was voor Lachis
+2 Kronieken 32:15 | geen god van enige natie en koninkrijk heeft zijn volk uit mijn hand.*kunnen redden
+2 Kronieken 32:18 | zij riepen met luider stem, in het Joods, tegen het volk van Jeruzalem, dat op den muur was
+2 Kronieken 32:20 | de koning Jehizkia en de profeet Jesaja, de zoon van Amoz, baden daartegen, en zij riepen naar den hemel
+2 Kronieken 32:21 | de HEERE zond een engel, die alle strijdbare helden, en vorsten, en oversten in het leger des konings van Assyrië verdelgde. Zo is hij met schaamte des aangezichts in zijn land wedergekeerd
+2 Koningen 18:17 | zond de koning van Assyrië
+2 Koningen 19:35 | honderd vijf en tachtig duizend
+Jesaja 36:1 | Sanherib
+Jesaja 37:36 | honderd vijf en tachtig duizend
+2 Kronieken 32:30 | stopte ook den opperuitgang der wateren van Gihon, en leidde ze recht af beneden naar het westen der stad Davids
+# --- Stap 6: Manasse (33:1–20) ---
+2 Kronieken 33:3 | hij bouwde de hoogten weder op, die zijn vader Jehizkia afgebroken had
+2 Kronieken 33:4 | bouwde altaren in het huis des HEEREN
+2 Kronieken 33:7 | de gelijkenis van een gesneden beeld, die hij gemaakt had, in het huis Gods
+2 Kronieken 33:10 | De HEERE sprak wel tot Manasse en tot zijn volk; maar zij merkten daar niet op
+2 Kronieken 33:11 | bracht de HEERE over hen de krijgsoversten, die de koning van Assyrië had, dewelke Manasse gevangen namen.*bonden hem met twee koperen ketenen, en voerden hem naar Babel
+2 Kronieken 33:12 | als hij hem benauwde, bad hij het aangezicht des HEEREN.*vernederde zich zeer voor het aangezicht van den God zijner vaderen
+2 Kronieken 33:13 | hoorde zijn smeking, en Hij bracht hem weder te Jeruzalem
+2 Kronieken 33:15 | hij nam de vreemde goden en die gelijkenis uit het huis des HEEREN weg
+2 Kronieken 33:16 | hij richtte het altaar des HEEREN toe
+# --- Stap 7: Josia reinigt het land (33:21–34:7) ---
+2 Kronieken 33:24 | zijn knechten maakten een verbintenis tegen hem, en doodden hem in zijn huis
+2 Kronieken 33:25 | het volk des lands maakte zijn zoon Josia koning
+2 Kronieken 33:22 | hij deed dat kwaad was in de ogen des HEEREN
+2 Kronieken 34:2 | hij deed dat recht was in de ogen des HEEREN.*week niet af ter rechter hand, noch ter linkerhand
+2 Kronieken 34:3 | in het achtste jaar zijner regering.*in het twaalfde jaar begon hij Juda en Jeruzalem van de hoogten en de bossen, en de gesneden en de gegoten beelden te reinigen
+2 Kronieken 34:4 | men brak voor zijn aangezicht af de altaren der Baäls
+2 Kronieken 34:6 | in de steden van Manasse, en Efraïm, en Simeon, ja, tot Nafthali toe
+2 Kronieken 34:7 | in het ganse land van Israël; daarna keerde hij weder naar Jeruzalem
+1 Koningen 13:1 | een man Gods kwam uit Juda.*tot Beth-el
+1 Koningen 13:2 | een zoon zal aan het huis Davids geboren worden, wiens naam zal zijn Josia
+2 Koningen 23:15 | het altaar, dat te Beth-el was, en de hoogte, die Jerobeam
+2 Koningen 23:16 | naar het woord des HEEREN, dat de man Gods uitgeroepen had
+# --- Stap 8: het wetboek gevonden (34:8–33) ---
+2 Kronieken 34:8 | om het huis des HEEREN, zijns Gods, te verbeteren
+2 Kronieken 34:14 | als zij het geld uitnamen.*vond de priester Hilkia het wetboek des HEEREN, gegeven door de hand van Mozes
+2 Kronieken 34:9 | Hilkia, den hogepriester
+2 Kronieken 34:18 | Safan las daarin voor het aangezicht des konings
+2 Kronieken 34:15 | Safan, den schrijver
+2 Kronieken 34:19 | dat hij zijn klederen scheurde
+2 Kronieken 34:20 | de koning gebood Hilkia, en Ahikam
+2 Kronieken 34:22 | Toen ging Hilkia henen, en die des konings waren, tot de profetes Hulda
+2 Kronieken 34:24 | al de vloeken, die geschreven zijn in het boek
+2 Kronieken 34:27 | Omdat uw hart week geworden is
+2 Kronieken 34:30 | de koning ging op in het huis des HEEREN.*al het volk, van den grote tot den kleine toe
+2 Kronieken 34:31 | maakte een verbond voor des HEEREN aangezicht, om den HEERE na te wandelen, en om Zijn geboden.*met zijn ganse hart en met zijn ganse ziel
+Deuteronomium 28:15 | zo zullen al deze vloeken over u komen
+Deuteronomium 31:26 | Neemt dit wetboek, en legt het aan de zijde van de ark des verbonds
+# --- Stap 9: het Pascha van Josia (35:1–19) ---
+2 Kronieken 35:1 | hield Josia het pascha den HEERE te Jeruzalem; en zij slachtten het pascha op den veertienden der eerste maand
+2 Kronieken 35:3 | Zet de heilige ark in het huis, hetwelk Salomo.*gebouwd heeft; gij hebt geen last op de schouderen
+2 Kronieken 35:7 | lammeren en jonge geitenbokken.*in getal dertig duizend; maar van runderen drie duizend
+2 Kronieken 35:8 | gaven zijn vorsten tot een vrijwillig offer
+2 Kronieken 35:11 | de priesters sprengden het bloed
+2 Kronieken 35:6 | slacht het pascha, en heiligt u, en bereidt dat voor uw broederen
+2 Kronieken 35:14 | bereidden de Levieten voor zichzelven, en voor de priesteren
+2 Kronieken 35:15 | de zangers, de zonen van Asaf.*mitsgaders de poortiers.*overmits hun broeders, de Levieten, voor hen bereidden
+2 Kronieken 35:17 | het feest der ongezuurde broden, zeven dagen
+2 Kronieken 35:18 | geen pascha als dat in Israël gehouden, van de dagen van Samuël, den profeet, af
+2 Kronieken 35:18 | gans Juda en Israël
+2 Koningen 23:22 | gelijk dit pascha was er geen gehouden, van de dagen der richteren af
+1 Samuël 7:15 | Samuël nu richtte Israël al de dagen zijns levens
+# --- Stap 10: Josia en Necho (35:20–27) ---
+2 Kronieken 35:20 | Na dit alles
+2 Kronieken 35:21 | Toen zond hij boden tot hem, zeggende: Wat heb ik met u te doen, gij, koning van Juda.*God heeft gezegd, dat ik mij haasten zou; houd u af van God, Die met mij is
+2 Kronieken 35:22 | Josia keerde zijn aangezicht niet van hem; maar hij verstelde zich, om tegen hem te strijden, en hoorde niet naar de woorden van Necho uit den mond van God
+2 Kronieken 35:23 | Voert mij weg, want ik ben zeer gewond
+2 Kronieken 35:24 | voerden hem op den tweeden wagen, dien hij had, en brachten hem te Jeruzalem; en hij stierf, en werd begraven in de graven zijner vaderen; en gans Juda en Jeruzalem bedreven rouw over Josia
+2 Kronieken 35:25 | Jeremia maakte een klaaglied over Josia
+Jeremia 46:2 | het heir van Farao Necho, koning van Egypte, dat aan de rivier Frath, bij Karchemis was, dat Nebukadrezar, de koning van Babel, sloeg, in het vierde jaar van Jojakim, den zoon van Josia
+2 Kronieken 36:1 | nam het volk des lands Joahaz, den zoon van Josia, en zij maakten hem koning
+2 Koningen 23:33 | Farao Necho liet hem binden te Ribla in het land van Hamath
+# --- Speurtocht ---
+2 Kronieken 29:3 | deed.*de deuren van het huis des HEEREN open
+2 Kronieken 30:2 | in de tweede maand
+2 Kronieken 30:10 | zij belachten hen, en bespotten hen
+2 Kronieken 32:8 | met ons is de HEERE, onze God, om ons te helpen
+2 Kronieken 33:11 | voerden hem naar Babel
+2 Kronieken 33:12 | bad hij.*vernederde zich zeer
+2 Kronieken 34:6 | tot Nafthali toe
+2 Kronieken 34:22 | tot de profetes Hulda
+# --- Plaatsen (plaatsen.js, hj_) ---
+2 Kronieken 35:20 | Karchemis, aan den Frath
+Jozua 16:5 | De landpale nu der kinderen van Efraïm
+Jozua 19:50 | Thimnath-serah, op het gebergte van Efraïm
+Jozua 17:7 | de landpale van Manasse was van Aser af tot Michmetath, die voor aan Sichem is
+Jozua 19:10 | het derde lot op voor de kinderen van Zebulon.*tot aan Sarid
+Jozua 19:13 | Gath-hefer
+Jozua 19:14 | Hannathon
+Jozua 19:24 | het vijfde lot voor den stam der kinderen van Aser
+Jozua 19:29 | Achzib
+Richteren 1:31 | Aser verdreef de inwoners van Acco niet
+Jozua 19:32 | Het zesde lot ging uit voor de kinderen van Nafthali
+Jozua 19:36 | Hazor
+Jozua 19:37 | Kedes
+Jozua 19:1 | Simeon.*hun erfdeel was in het midden van het erfdeel der kinderen van Juda
+Jozua 19:2 | Beer-seba
+Jozua 19:5 | Ziklag

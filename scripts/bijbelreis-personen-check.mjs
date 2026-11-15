@@ -129,6 +129,7 @@ const VERWACHT = {
   "1koningen|Jerobeam": "jerobeam_1", "jona|Jerobeam": "jerobeam_2", "daniel|Darius": "darius_meder", "ezra|Darius": "darius_pers",
   "esther|Ahasveros": "ahasveros", "genesis|Abimelech": "abimelech", "2koningen|Benhadad": "benhadad", "1samuel|Achis": "achis",
   "1koningen|Hiram": "hiram", "2koningen|Hilkia": "hilkia", "1samuel|Jonathan": "jonathan", "1koningen|Nathan": "nathan", "2samuel|Nathan": "nathan",
+  "2kronieken|Manasse": "manasse_juda", "2kronieken|Hilkia": "hilkia", // [meer-reizen:hizkia-josia] verwacht: koning Manasse (2 Kronieken 33) en de hogepriester Hilkia (34:9)
   "1koningen|Obadja": "obadja", "profeten|Johanan": "johanan", "2koningen|Joram": "joram_juda", "2koningen|Ahazia": "ahazia_juda",
   "ezra|Zacharia": "zacharia", "profeten|Zacharia": "zacharia", "jezus-1|Zacharias": "zacharias", "jezus-1|Herodes": "herodes",
   "handelingen|Herodes": "herodes_agrippa", "jezus-1|Maria": "maria", "jezus-3|Maria": "maria", "jezus-2|Maria": "maria_bethanie",

@@ -701,6 +701,26 @@ Object.assign(BR.plaatsen, {
 Object.assign(BR.W, { as_wpas: [33.57, 35.95], as_wtaym: [33.42, 35.7] });
 //
 // [meer-reizen:hizkia-josia] plaatsen
+// 2 Kronieken 29–35 (Hizkia, Manasse en Josia). De stamgebieden staan niet als plaats in OpenBible: het zijn gebieden (c: "r"),
+// met het label tussen plaatsen die Jozua 16–19 bij die stam noemt. Verantwoording: docs/bijbelreis-reizen/werk/hizkia-josia.notities.md.
+Object.assign(BR.plaatsen, {
+  hj_karchemis: { n: "Karchemis", ll: [36.8297, 38.015], c: "v", s: "t", z: 5.5, t: "stad", d: "Stad aan de rivier de Eufraat (in de Statenvertaling: de Frath). Hierheen trok Necho, de koning van Egypte, toen Josia hem tegemoet ging (2 Kronieken 35:20). Later werd het leger van Necho hier verslagen door Nebukadnezar (Jeremia 46:2).",
+    nu: "Karkamış/Jarabulus (grens Turkije–Syrië)", bron: "OpenBible: Carchemish = Jerablus (Jarabulus), score 880, punt op de tell; geen tegenkandidaat. Zelfde plek als het contextlabel karkemis en het tussenpunt karkw." },
+  hj_efraim: { n: "Efraïm", ll: [32.05, 35.1], c: "r", s: "c", z: 7.5, t: "gebied", d: "Het gebied van de stam Efraïm: het bergland ten noorden van Bethel. De lopers van Hizkia gingen ‘van stad tot stad, door het land van Efraïm en Manasse’ (2 Kronieken 30:10). Later brak Josia ook hier de altaren af (34:6).",
+    nu: "Bergland tussen Ramallah en Nablus (Westelijke Jordaanoever)", bron: "Gebied: stamgebied volgens Jozua 16:5–10. Niet als plaats in OpenBible; het label ligt tussen Timnath-Serah (‘op het gebergte van Efraïm’, Jozua 19:50) en Silo (OpenBible: Shiloh, score 1000)." },
+  hj_manasse: { n: "Manasse", ll: [32.43, 35.1], c: "r", s: "c", z: 7.5, t: "gebied", d: "Het gebied van de stam Manasse ten westen van de Jordaan, ten noorden van Efraïm. Dit is de stam, niet koning Manasse. Hizkia schreef brieven aan Efraïm en Manasse (2 Kronieken 30:1); Josia brak hier de altaren af (34:6).",
+    nu: "Bergland ten noorden van Nablus (Westelijke Jordaanoever)", bron: "Gebied: het westelijke deel van Manasse volgens Jozua 17:7–11 (grens bij Michmetath ‘voor aan Sichem’). Niet als plaats in OpenBible; het label ligt in het bergland tussen Sichem (score 1000) en Megiddo (score 1000), die Jozua 17:7 en 17:11 bij Manasse noemt." },
+  hj_zebulon: { n: "Zebulon", ll: [32.78, 35.24], c: "r", s: "c", z: 7.5, t: "gebied", d: "Het gebied van de stam Zebulon, in het zuiden van Galilea. Tot hier kwamen de lopers van Hizkia: ‘tot Zebulon toe’ (2 Kronieken 30:10). Sommigen uit Zebulon vernederden zich en kwamen naar Jeruzalem (30:11).",
+    nu: "Heuvels van Beneden-Galilea bij Nazareth, Israël", bron: "Gebied: stamgebied volgens Jozua 19:10–16. Niet als plaats in OpenBible; het label ligt tussen de grensplaatsen Sarid (score 760), Gath-Hefer (789) en Hannathon (847)." },
+  hj_aser: { n: "Aser", ll: [32.98, 35.15], c: "r", s: "c", z: 7.5, t: "gebied", d: "Het gebied van de stam Aser, in het noordwesten, langs de zee. Ook uit Aser kwamen mensen naar het Pascha van Hizkia in Jeruzalem (2 Kronieken 30:11).",
+    nu: "Kuststreek en heuvels bij Akko, Noord-Israël", bron: "Gebied: stamgebied volgens Jozua 19:24–31. Niet als plaats in OpenBible; het label ligt tussen Acco (score 1000; Richteren 1:31) en Achzib (score 794; Jozua 19:29)." },
+  hj_naftali: { n: "Naftali", ll: [33.05, 35.45], c: "r", s: "c", z: 7.5, t: "gebied", d: "Het gebied van de stam Naftali, in het noorden van Galilea. Zo ver naar het noorden brak Josia de altaren en de afgodsbeelden af: ‘tot Nafthali toe’ (2 Kronieken 34:6).",
+    nu: "Boven-Galilea, Noord-Israël", bron: "Gebied: stamgebied volgens Jozua 19:32–39. Niet als plaats in OpenBible; het label ligt bij Hazor (score 928) en Kedes (score 599), die Jozua 19:36–37 als steden van Naftali noemt." },
+  hj_simeon: { n: "Simeon", ll: [31.3, 34.7], c: "r", s: "c", z: 7.5, t: "gebied", d: "Het gebied van de stam Simeon lag in het zuiden, midden in het land van Juda, met onder meer Berseba (Jozua 19:1–2). Ook de steden van Simeon worden genoemd bij het land dat Josia reinigde (2 Kronieken 34:6).",
+    nu: "Noordelijke Negev bij Beër Sheva, Israël", bron: "Gebied: stamgebied volgens Jozua 19:1–9. Niet als plaats in OpenBible; het label ligt tussen Berseba (Beersheba, score 823) en Ziklag, beide in Jozua 19:2–5 genoemd." },
+});
+// Tussenpunten: het eind van de getekende route in Zebulon (bij Gath-Hefer) en in Naftali (bij Hazor), net naast het label.
+Object.assign(BR.W, { hj_zebw: [32.72, 35.29], hj_nafw: [32.97, 35.5] });
 //
 // [meer-reizen:jeremia-egypte] plaatsen
 //
