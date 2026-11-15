@@ -112,6 +112,37 @@ test("bij ‘minder beweging’ beweegt er niets en staat het beeld in de eindst
   expect(errors).toEqual([]);
 });
 
+test("Nieuwe Testament: het veld van de herders en het open graf; bij de kruisiging staat geen tafereel", async ({ page }) => {
+  const errors = watchErrors(page);
+  // Lukas 2:8–20: geen stad en geen figuren, maar het veld bij nacht, de kudde en het licht.
+  await page.goto("/bijbelreis#nt-geboorte/7");
+  await expect(page.locator("#sTitle")).toContainText("Herders in het veld");
+  await expect(beeld(page)).toHaveAttribute("data-tf", "herders-veld");
+  await expect(beeld(page).getByRole("img", { name: /nacht.*schapen.*licht/i })).toBeVisible();
+  await expect(beeld(page).locator("figcaption")).toContainText("Lukas 2:8–9");
+  await expect(beeld(page).locator("figcaption")).not.toContainText("Algemene tekening");
+  expect(await page.evaluate(() => { const f = document.querySelector(".stapkaart .tafereel")!.getBoundingClientRect(), k = document.querySelector(".stapkaart")!.getBoundingClientRect(); return f.left >= k.left - 1 && f.right <= k.right + 1 && document.documentElement.scrollWidth <= innerWidth; })).toBe(true);
+  const axe = await new AxeBuilder({ page }).include(".stapkaart .tafereel").analyze();
+  expect(axe.violations.map((v) => v.id)).toEqual([]);
+  // Markus 16:2–4: het graf in de hof met de afgewentelde steen. Eindstand: de duisternis is weg en niets beweegt.
+  await page.goto("/bijbelreis#nt-opstanding/1");
+  await expect(page.locator("#sTitle")).toContainText("De steen is weggerold");
+  await expect(beeld(page)).toHaveAttribute("data-tf", "graf-open");
+  await expect(beeld(page).getByRole("img", { name: /steen.*graf.*open/i })).toBeVisible();
+  await expect(beeld(page).locator("figcaption")).toContainText("Markus 16:2–4");
+  await beeld(page).scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => document.querySelector(".stapkaart .tafereel")!.getAnimations({ subtree: true }).length)).toBe(0);
+  expect(await page.evaluate(() => [...document.querySelectorAll(".stapkaart .tafereel .tf-e-dooft")].every((e) => getComputedStyle(e).opacity === "0"))).toBe(true);
+  await expect(beeld(page).locator(".tf-opnieuw")).toHaveCount(0);
+  // Golgotha: bij de kruisiging en het sterven staat bewust geen beeld.
+  for (const [hash, titel] of [["#nt-lijden/7", "Gekruisigd op Golgotha"], ["#nt-lijden/8", "Het is volbracht"]]) {
+    await page.goto("/bijbelreis" + hash);
+    await expect(page.locator("#sTitle")).toContainText(titel);
+    await expect(page.locator(".tafereel")).toHaveCount(0);
+  }
+  expect(errors).toEqual([]);
+});
+
 test.describe("met beweging", () => {
   test.use({ reducedMotion: "no-preference" });
   test("de beweging loopt alleen als het tafereel in beeld is en is opnieuw te zien", async ({ page }) => {
@@ -120,6 +151,11 @@ test.describe("met beweging", () => {
     await expect(beeld(page)).toHaveCount(1);
     await beeld(page).scrollIntoViewIfNeeded();
     await expect(beeld(page)).toHaveClass(/tf-loopt/);
+    await expect.poll(() => lopend(page, ".stapkaart .tafereel")).toBeGreaterThan(0);
+    // Zonder de klasse tf-loopt (buiten beeld) staat de beweging stil; met de klasse loopt ze weer.
+    await page.evaluate(() => document.querySelector(".stapkaart .tafereel")!.classList.remove("tf-loopt"));
+    expect(await lopend(page, ".stapkaart .tafereel")).toBe(0);
+    await page.evaluate(() => document.querySelector(".stapkaart .tafereel")!.classList.add("tf-loopt"));
     await expect.poll(() => lopend(page, ".stapkaart .tafereel")).toBeGreaterThan(0);
     // De eenmalige beweging komt tot rust; daarna is ze opnieuw te zien met de knop.
     await expect.poll(() => lopend(page, ".stapkaart .tafereel"), { timeout: 12_000 }).toBe(0);

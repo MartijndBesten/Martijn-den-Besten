@@ -39,6 +39,19 @@ const OT2 = ["kistje", "manna", "rots", "tabernakel", "slang", "jordaan", "twaal
 const ot2: { window: { BR: { beelden: Record<string, Koppeling> } } } = { window: { BR: { beelden: {} } } };
 runInNewContext(readFileSync(join(PUB, "bijbelreis", "taferelen-koppeling-ot-2.js"), "utf8").replace(/\bBR\./g, "window.BR."), ot2);
 const KOPPEL_OT2 = ot2.window.BR.beelden;
+// De reeks van het Nieuwe Testament (taferelen-nt.js) en de stappen waar ze bij horen (taferelen-koppeling-nt.js).
+const NT: Record<string, string[]> = {
+  "herders-veld": ["jezus-1:nt-geboorte:6"], "ster-bethlehem": ["jezus-1:nt-geboorte:8"],
+  "jordaan-woestijn": ["jezus-1:nt-begin:0", "jezus-1:nt-begin:1", "jezus-1:nt-begin:3"],
+  jakobsput: ["jezus-1:nt-samaria-nain:1", "jezus-1:nt-samaria-nain:2", "jezus-1:nt-samaria-nain:3"],
+  vissersboot: ["jezus-1:nt-galilea:1", "jezus-1:nt-galilea:7"], "storm-stil": ["jezus-1:nt-galilea:8"],
+  "broden-vissen": ["jezus-2:nt-brood-en-berg:1"], vijgenboom: ["jezus-2:nt-reis-naar-jeruzalem:11"],
+  "intocht-weg": ["jezus-3:nt-lijdensweek:0"], gethsemane: ["jezus-3:nt-lijdensweek:7", "jezus-3:nt-lijdensweek:8"],
+  "graf-dicht": ["jezus-3:nt-lijden:8"], "graf-open": ["jezus-3:nt-opstanding:0", "jezus-3:nt-opstanding:1"],
+  "net-vol": ["jezus-3:nt-opstanding:5", "jezus-3:nt-opstanding:6"], "olijfberg-wolk": ["jezus-3:nt-opstanding:8"],
+  pinksterhuis: ["handelingen:nt-gemeente:0"], "damascus-licht": ["handelingen:nt-paulus:0"], "gevangenis-filippi": ["handelingen:nt-paulus:10"],
+  "malta-schip": ["handelingen:nt-paulusrome:5"], "malta-vuur": ["handelingen:nt-paulusrome:6"], kandelaren: ["openbaring:nt-openbaring:0"],
+};
 
 // Bestaat de verwijzing in de Statenvertaling (data/statenvertaling, alleen voor controle)?
 const bijbel: Record<string, { hoofdstukken: Record<string, string[]> }> = {};
@@ -75,6 +88,9 @@ describe("taferelen: register", () => {
     for (const id of OT2) { expect(T[id], id).toBeTruthy(); expect(gebruikt.has(id), `${id} hangt aan geen enkele stap`).toBe(true); }
     expect(html.indexOf("/bijbelreis/taferelen-ot-2.js")).toBeLessThan(html.indexOf("/bijbelreis/taferelen-koppeling-ot-2.js"));
     expect(html.indexOf("/bijbelreis/taferelen-koppeling-ot-2.js")).toBeLessThan(html.indexOf("/bijbelreis/app.js"));
+  });
+  it("heeft de eigen taferelen van het Nieuwe Testament", () => {
+    for (const id of Object.keys(NT)) expect(T[id], id).toBeTruthy();
   });
   it("elk tafereel heeft een naam en een label dat zegt wat er te zien is", () => {
     for (const id of IDS) {
@@ -189,6 +205,19 @@ describe("taferelen: koppeling", () => {
     const palen = [...T.tabernakel.svg.matchAll(/<path class="o2" d="((?:M[\d. ]+L[\d. ]+)+)"\/>/g)].map((m) => m[1].split("M").length - 1);
     expect(palen).toEqual([10, 20, 4, 20, 10]); // achter, rechts, de vier hoornen van het altaar, links, voor
     expect(T.tabernakel.svg.match(/<path class="l-oker" d="([^"]+)"/)![1].split("M").length - 1).toBe(5);
+  });
+  it("Nieuwe Testament: elke koppeling hoort bij een bestaande stap en elke afgesproken stap heeft zijn tafereel", () => {
+    const nt = new Set(Object.keys(NT));
+    for (const [key, k] of K) if (nt.has(k.t)) { expect(STAP.has(key), `stap ${key} bestaat niet`).toBe(true); expect(NT[k.t], `${key} → ${k.t}`).toContain(key); }
+    for (const [id, keys] of Object.entries(NT)) for (const key of keys) {
+      expect(BR.beelden[key]?.t, key).toBe(id);
+      const b = BR.tafereel.van(STAP.get(key)!)!;
+      expect(b.id, key).toBe(id); expect(b.algemeen, key).toBeUndefined(); expect(b.tekst, key).toMatch(/\)\.$/);
+    }
+  });
+  it("Nieuwe Testament: bij de kruisiging staat geen tafereel, en geen label noemt een gestalte", () => {
+    for (const key of ["jezus-3:nt-lijden:6", "jezus-3:nt-lijden:7"]) { expect(STAP.get(key)!.at, key).toContain("nt_golgotha"); expect(BR.tafereel.van(STAP.get(key)!), key).toBeNull(); }
+    for (const id of Object.keys(NT)) expect(T[id].label, id).not.toMatch(/engel|Kind|gestalte|silhouet|duif|\bman\b|vrouw|herder\b|discipel/i);
   });
   it("de afwijkende soorten per plaats kloppen met plaatsen en register", () => {
     for (const [id, v] of Object.entries(BR.beeldSoort)) {
