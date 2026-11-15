@@ -271,3 +271,7 @@ Er is niets afgesneden of overlappend. Eén eerdere versie van *wereld* is afgek
 - `desktop-overzicht.jpg`.
 
 **Niet gedaan in deze ronde.** Er zijn geen nieuwe functies buiten de zeven punten. Er is niets gepubliceerd of gemerged. De werkwijze-les uit de reviewronde (`werkwijze/LESSEN.md`) moet nog in de workbench worden vastgelegd. Deze sessie heeft daar alleen leestoegang.
+
+### Nieuwe referentiebeelden 15-11-2026 (telefoonopzet, ‘Verder met’, Jakob)
+
+Alle 21 beelden opnieuw gemaakt met `sh scripts/visueel.sh --update-snapshots=all` en daarna met een tweede run bevestigd (21 geslaagd). Bekeken: telefoon en tablet met de nieuwe indeling (grote kaart, kiesregel, stap direct onder de kaart, vaste balk ◀/Verder, één knop ‘Kaart’); de start met één knop ‘Verder met: …’ in plaats van de reiskaart; desktop alleen gewijzigd door ‘Verder met’ en de kop van Verhalen. Niets afgesneden of overlappend. De test ‘wereld’ opent op smalle schermen eerst het kaartpaneel.
