@@ -831,3 +831,9 @@ Object.assign(BR.W, {
   br_kreta1: [35.55, 24.7], br_kreta2: [35.78, 23.95], br_kreta3: [35.76, 23.45], br_malea: [36.2, 22.3], br_methone: [36.55, 21.45], br_ion4: [37.3, 21.2],
   br_ion5: [37.6, 20.4], br_ion6: [38.2, 20.2], br_ion7: [38.75, 20.4], br_ion8: [38.98, 20.6],
 });
+// Deel jakob-jabbok (Genesis 32, ingezoomd op de Jabbok). Geen nieuwe plaatsen: Mahanaïm, Pniël, de Jabbok, Sukkoth, Gilead
+// en Seïr stonden er al. Alleen twee tussenpunten (geen Bijbelse plaatsen; sleutels beginnen met jj_):
+//   jj_zuid   ruim 2 km ten zuiden van Mahanaïm en Pniël, aan de overkant van de Jabbok: de richting waarin het geschenk
+//             vooruit gaat en waaruit Ezau komt. De Bijbel noemt geen richting; reconstructie (zie het weetje bij de stap).
+//   jj_hoogte de hoogte bij het huidige es-Salt, op de weg van de Jabbok naar de hoogvlakte in het zuiden (route van de boden).
+Object.assign(BR.W, { jj_zuid: [32.166, 35.692], jj_hoogte: [32.04, 35.73] });

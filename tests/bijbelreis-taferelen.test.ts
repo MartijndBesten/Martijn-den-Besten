@@ -52,6 +52,12 @@ const NT: Record<string, string[]> = {
   pinksterhuis: ["handelingen:nt-gemeente:0"], "damascus-licht": ["handelingen:nt-paulus:0"], "gevangenis-filippi": ["handelingen:nt-paulus:10"],
   "malta-schip": ["handelingen:nt-paulusrome:5"], "malta-vuur": ["handelingen:nt-paulusrome:6"], kandelaren: ["openbaring:nt-openbaring:0"],
 };
+// Het beeldverhaal bij Genesis 32 (taferelen-jakob.js): bij elke stap van het deel genesis:jakob-jabbok een eigen tafereel
+// (taferelen-koppeling-jakob.js). Het deel wordt op een andere tak geschreven; zolang het er niet is, doen de sleutels niets.
+const JAKOB = ["jabbok-mahanaim", "jabbok-boden", "jabbok-heiren", "jabbok-gebed", "jabbok-geschenk", "jabbok-veer", "jabbok-nacht", "jabbok-dageraad", "jabbok-pniel", "jabbok-ezau"];
+const jk: { window: { BR: { beelden: Record<string, Koppeling> } } } = { window: { BR: { beelden: {} } } };
+runInNewContext(readFileSync(join(PUB, "bijbelreis", "taferelen-koppeling-jakob.js"), "utf8").replace(/\bBR\./g, "window.BR."), jk);
+const KOPPEL_JAKOB = jk.window.BR.beelden;
 
 // Bestaat de verwijzing in de Statenvertaling (data/statenvertaling, alleen voor controle)?
 const bijbel: Record<string, { hoofdstukken: Record<string, string[]> }> = {};
@@ -218,6 +224,49 @@ describe("taferelen: koppeling", () => {
   it("Nieuwe Testament: bij de kruisiging staat geen tafereel, en geen label noemt een gestalte", () => {
     for (const key of ["jezus-3:nt-lijden:6", "jezus-3:nt-lijden:7"]) { expect(STAP.get(key)!.at, key).toContain("nt_golgotha"); expect(BR.tafereel.van(STAP.get(key)!), key).toBeNull(); }
     for (const id of Object.keys(NT)) expect(T[id].label, id).not.toMatch(/engel|Kind|gestalte|silhouet|duif|\bman\b|vrouw|herder\b|discipel/i);
+  });
+  it("Genesis 32: de tien stappen van genesis:jakob-jabbok hebben elk een eigen tafereel, in volgorde", () => {
+    expect(Object.keys(KOPPEL_JAKOB)).toEqual(JAKOB.map((_, i) => `genesis:jakob-jabbok:${i}`));
+    expect(new Set(Object.values(KOPPEL_JAKOB).map((k) => k.t)).size).toBe(10);
+    const plek = (s: string) => html.indexOf(`/bijbelreis/${s}`);
+    expect(plek("taferelen-jakob.js")).toBeLessThan(plek("taferelen-koppeling-jakob.js"));
+    expect(plek("taferelen-koppeling-nt.js")).toBeLessThan(plek("taferelen-koppeling-jakob.js"));
+    expect(plek("taferelen-koppeling-jakob.js")).toBeLessThan(plek("app.js"));
+    // Bestaat het deel, dan heeft het tien stappen en krijgt elke stap zijn eigen tafereel. Bestaat het (nog) niet, dan
+    // hangen deze taferelen aan geen enkele stap en doen de sleutels niets.
+    const deel = BR.boeken.find((b) => b.id === "genesis")?.delen.find((d) => d.id === "jakob-jabbok");
+    if (deel) expect(deel.steps.length, "genesis:jakob-jabbok").toBe(10);
+    JAKOB.forEach((id, i) => {
+      const key = `genesis:jakob-jabbok:${i}`;
+      expect(T[id], id).toBeTruthy();
+      expect(KOPPEL_JAKOB[key].t, key).toBe(id);
+      expect(BR.beelden[key], key).toEqual(KOPPEL_JAKOB[key]);
+      if (deel) { const b = BR.tafereel.van(STAP.get(key)!)!; expect(b.id, key).toBe(id); expect(b.algemeen, key).toBeUndefined(); }
+      else expect(STAP.has(key), key).toBe(false);
+    });
+    for (const [key, k] of Object.entries(BR.beelden)) if (JAKOB.includes(k.t)) expect(key.startsWith("genesis:jakob-jabbok:"), key).toBe(true);
+  });
+  it("Genesis 32: de Man en de engelen zijn nergens afgebeeld, en de aantallen kloppen", () => {
+    // Het label zegt wat er te zien is; het noemt de Man, God, een engel of de worsteling dus niet als iets wat er staat.
+    for (const id of JAKOB) expect(T[id].label, id).not.toMatch(/engel|\bman\b|\bGod|gestalte|silhouet|worstel/i);
+    expect(T["jabbok-nacht"].label).toMatch(/helemaal alleen/);
+    expect(T["jabbok-dageraad"].label).toMatch(/niemand anders/);
+    // Het gezin (32:22): twee vrouwen, twee dienstmaagden, elf kinderen. Een vrouw is een lijf met een doek (twee
+    // deelpaden), een kind een lijf; de kinderen staan in twee kleuren (zand en terra).
+    const delen = (id: string, k: string) => (T[id].svg.match(new RegExp(`<path class="${k} o2" d="([^"]+)"`)) || ["", ""])[1].split("M").length - 1;
+    for (const id of ["jabbok-mahanaim", "jabbok-veer", "jabbok-ezau"]) {
+      expect(delen(id, "k-oker"), `${id}: twee vrouwen`).toBe(4);
+      expect(delen(id, "k-salie"), `${id}: twee dienstmaagden`).toBe(4);
+      expect(delen(id, "k-zand") + delen(id, "k-terra"), `${id}: elf kinderen`).toBe(11);
+    }
+    // Twee heiren (32:7): twee groepen die uit elkaar wijken.
+    expect(T["jabbok-heiren"].svg.match(/tf-e-wijk-[lr]/g)).toEqual(["tf-e-wijk-l", "tf-e-wijk-r"]);
+    // Het geschenk (32:14–15): vijf soorten, elk een eigen kudde, in de volgorde van de tekst; geen label noemt een aantal dieren.
+    const volgorde = ["geiten", "schapen", "kamelen", "runderen", "ezels"].map((d) => T["jabbok-geschenk"].label.indexOf(d));
+    expect(volgorde.every((p, i) => p > 0 && (i === 0 || p > volgorde[i - 1])), "volgorde van de kudden").toBe(true);
+    for (const id of JAKOB) expect(T[id].label, id).not.toMatch(/\b(?:tien|twintig|dertig|veertig|honderd|tweehonderd|vierhonderd)\b/i);
+    // Zeven keer buigen (33:3).
+    expect(css).toMatch(/\.tf-e-buig \{ animation: tf-buig [\d.]+s [a-z-]+ 7 both; \}/);
   });
   it("de afwijkende soorten per plaats kloppen met plaatsen en register", () => {
     for (const [id, v] of Object.entries(BR.beeldSoort)) {

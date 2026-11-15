@@ -1,0 +1,17 @@
+// Koppelingen van het beeldverhaal bij Genesis 32 (taferelen-jakob.js): elke stap van het deel genesis:jakob-jabbok
+// (‘Jakob bij de Jabbok’) krijgt een eigen tafereel, zodat het hoofdstuk in tien beelden te volgen is. Uitleg van de
+// velden: taferelen-koppeling.js. Dit bestand wordt ná de andere koppelingen geladen en voegt alleen toe. Bestaat het
+// deel (nog) niet, dan doen deze sleutels niets.
+window.BR = window.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} };
+BR.beelden = Object.assign(BR.beelden || {}, {
+  "genesis:jakob-jabbok:0": { t: "jabbok-mahanaim", tekst: "Jakob trok verder; de engelen van God ontmoetten hem, en hij noemde die plaats Mahanaïm (Genesis 32:1–2)." },
+  "genesis:jakob-jabbok:1": { t: "jabbok-boden", tekst: "De boden kwamen terug: Ezau trekt u tegemoet, en vierhonderd mannen met hem (Genesis 32:6)." },
+  "genesis:jakob-jabbok:2": { t: "jabbok-heiren", tekst: "Jakob was zeer bevreesd en verdeelde het volk en het vee in twee heiren (Genesis 32:7)." },
+  "genesis:jakob-jabbok:3": { t: "jabbok-gebed", tekst: "Jakob bad: met mijn staf ging ik over de Jordaan, en nu ben ik tot twee heiren geworden (Genesis 32:10)." },
+  "genesis:jakob-jabbok:4": { t: "jabbok-geschenk", tekst: "Het geschenk voor Ezau ging vooruit: elke kudde apart, met ruimte tussen kudde en kudde (Genesis 32:16)." },
+  "genesis:jakob-jabbok:5": { t: "jabbok-veer", tekst: "In die nacht bracht Jakob zijn vrouwen en zijn elf kinderen over het veer van de Jabbok (Genesis 32:22)." },
+  "genesis:jakob-jabbok:6": { t: "jabbok-nacht", tekst: "Jakob bleef alleen over, en een Man worstelde met hem totdat de dageraad opging (Genesis 32:24)." },
+  "genesis:jakob-jabbok:7": { t: "jabbok-dageraad", tekst: "‘Uw naam zal voortaan niet Jakob heten, maar Israël’; en Hij zegende hem daar (Genesis 32:28–29)." },
+  "genesis:jakob-jabbok:8": { t: "jabbok-pniel", tekst: "De zon ging over hem op toen hij door Pniël gegaan was, en hij hinkte aan zijn heup (Genesis 32:31)." },
+  "genesis:jakob-jabbok:9": { t: "jabbok-ezau", tekst: "Ezau liep hem tegemoet, omhelsde hem en kuste hem; en zij weenden (Genesis 33:4)." },
+});
