@@ -101,3 +101,28 @@ test("Genesis 32: het bestaande deel Jakob houdt zijn stappen", async ({ page })
     "Terug in Bethel", "Benjamin en Rachel", "Thuis bij Izak", "Jozef verdwenen", "Naar Egypte", "Jakob zegent", "Begraven in Machpela"]);
   expect(errors).toEqual([]);
 });
+
+test("Jakob: ‘Om over na te denken’ staat bij de intro en de laatste stap, ingeklapt, niet bij een tussenstap", async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto("/bijbelreis#jakob-jabbok");
+  const denk = page.locator("#sDenk");
+  await expect(denk).toBeVisible();
+  await expect(denk).not.toHaveAttribute("open", "");
+  await denk.locator("summary").click();
+  await expect(denk.locator("li")).toHaveCount(4);
+  await expect(denk.locator("li").first()).toContainText("Genesis 31:3");
+  await page.goto("/bijbelreis#jakob-jabbok/7");
+  await expect(denk).toBeHidden();
+  await page.goto("/bijbelreis#jakob-jabbok/12");
+  await expect(page.locator("#sTitle")).toContainText("Sukkoth");
+  await expect(denk).toBeVisible();
+  await page.goto("/bijbelreis#jakob");
+  await expect(denk.locator("li")).toHaveCount(3);
+  expect(errors).toEqual([]);
+});
+
+test("Jakob: bij Samen ontdekken geen vragen om over na te denken", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("bijbelreis:niveau", JSON.stringify("a")));
+  await page.goto("/bijbelreis#jakob-jabbok");
+  await expect(page.locator("#sDenk")).toBeHidden();
+});

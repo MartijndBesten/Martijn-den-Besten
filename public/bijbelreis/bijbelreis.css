@@ -1027,6 +1027,10 @@ body[data-niveau="a"] #sTijd, body[data-niveau="a"] #sProg { display: none !impo
 body[data-niveau="a"] #reizenBtn, body[data-niveau="a"] #plaatsenBtn { display: none; }
 /* Verdiepende delen (bij: …): geen eigen knop in de delenrij, maar een ingang bij het hoofddeel en een weg terug. */
 .verdiep { display: flex; flex-direction: column; gap: 6px; }
+/* Om over na te denken: open vragen bij een deel, ingeklapt; rustig, zonder antwoord. */
+.denk { border: 1px solid var(--line); border-left: 4px solid var(--water); border-radius: var(--r); background: var(--water-zacht); padding: 0 12px; }
+.denk summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 650; color: var(--water-diep); }
+.denk ul { margin: 0 0 12px; padding-left: 1.1em; display: flex; flex-direction: column; gap: 8px; line-height: 1.5; }
 .verdiep-in { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; width: 100%; text-align: left; padding: 9px 12px; min-height: 48px; border: 1px solid color-mix(in srgb, var(--oker-diep) 35%, transparent); border-left: 4px solid var(--oker); border-radius: var(--r); background: var(--oker-zacht); color: var(--fg); font: inherit; font-size: 0.92rem; line-height: 1.35; cursor: pointer; }
 .verdiep-in .label { color: var(--oker-diep); }
 .verdiep-in b { font-weight: 680; }

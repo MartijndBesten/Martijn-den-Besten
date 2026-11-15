@@ -7,7 +7,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Hoe Genesis 1 vertelt",
-        t: "Steeds komt hetzelfde terug: God spreekt, ‘en het was alzo’, en ‘God zag, dat het goed was’. Elk van de zes dagen sluit af met ‘Toen was het avond geweest, en het was morgen geweest’. In de eerste drie dagen maakt God scheiding: licht en duisternis, wateren en wateren, zee en droog land. In de volgende drie dagen vult Hij wat Hij gemaakt heeft: met lichten, met vissen en vogels, met dieren en mensen. Die indeling staat niet letterlijk in de tekst; veel uitleggers wijzen erop.",
+        t: "Steeds komt hetzelfde terug: God spreekt, ‘en het was alzo’, en ‘God zag, dat het goed was’. Elk van de zes dagen sluit af met ‘Toen was het avond geweest, en het was morgen geweest’.",
         refs: ["Genesis 1:3–31"],
       },
       {
@@ -44,8 +44,8 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Waar lag Eden?",
-        t: "De hof lag ‘in Eden, tegen het oosten’ (2:8). Van de vier rivieren komen er twee elders in de Bijbel terug: de Hiddekel bij Daniël (Daniël 10:4) en de Frath, ‘die grote rivier’ (Genesis 15:18). Ze worden meestal uitgelegd als de Tigris en de Eufraat. De Pison en de Gihon zijn niet met zekerheid aan te wijzen. Er is ook een Gihon bij de stad Davids (1 Koningen 1:33; 2 Kronieken 32:30), maar die wordt meestal niet als dezelfde gezien. Daarom staat Eden op de kaart met een vraagteken. Een jaartal noemt de Bijbel niet; daarom staat deze geschiedenis niet op de tijdlijn.",
-        refs: ["Genesis 2:8–14", "Daniël 10:4", "Genesis 15:18", "1 Koningen 1:33", "2 Kronieken 32:30"],
+        t: "De hof lag ‘in Eden, tegen het oosten’ (2:8). Van de vier rivieren komen er twee elders in de Bijbel terug: de Hiddekel bij Daniël (Daniël 10:4) en de Frath, ‘die grote rivier’ (Genesis 15:18). Dat zijn de Tigris en de Eufraat. De Pison en de Gihon zijn niet met zekerheid aan te wijzen. Daarom staat Eden op de kaart met een vraagteken. Een jaartal noemt de Bijbel niet; daarom staat deze geschiedenis niet op de tijdlijn.",
+        refs: ["Genesis 2:8–14", "Daniël 10:4", "Genesis 15:18"],
       },
       {
         kop: "Man en Manninne",
@@ -81,13 +81,13 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "Een appel wordt niet genoemd; er staat ‘vrucht’ (3:6). Dat het een appel was, komt uit de traditie. Opvallend is ook dat de vrouw zegt: ‘Gij zult van die niet eten, noch die aanroeren’ (3:3). Dat de vrucht niet aangeraakt mocht worden, staat niet in Gods gebod in 2:17. Uitleggers verschillen over wat dat betekent. Genesis 3 noemt de slang alleen slang; pas Openbaring 12:9 spreekt van ‘de oude slang, welke genaamd wordt duivel en satanas’.",
-        refs: ["Genesis 3:3, 6", "Genesis 2:17", "Openbaring 12:9"],
+        t: "Opvallend is dat de vrouw zegt: ‘Gij zult van die niet eten, noch die aanroeren’ (3:3). Dat de vrucht niet aangeraakt mocht worden, staat niet in Gods gebod in 2:17. Door de slang spreekt de duivel: Openbaring 12:9 noemt hem ‘de oude slang, welke genaamd wordt duivel en satanas’.",
+        refs: ["Genesis 3:3", "Genesis 2:17", "Openbaring 12:9"],
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Paulus schrijft: ‘de slang Eva door haar arglistigheid bedrogen heeft’ (2 Korinthe 11:3). En: ‘Want gelijk zij allen in Adam sterven, alzo zullen zij ook in Christus allen levend gemaakt worden’ (1 Korinthe 15:22). Veel uitleggers horen in Romeinen 16:20 een echo van Genesis 3:15: ‘En de God des vredes zal den satan haast onder uw voeten verpletteren.’ De boom des levens komt terug aan het eind van de Bijbel: ‘Zalig zijn zij, die Zijn geboden doen, opdat hun macht zij aan den boom des levens’ (Openbaring 22:14).",
-        refs: ["2 Korinthe 11:3", "1 Korinthe 15:22", "Romeinen 16:20", "Openbaring 22:14"],
+        t: "Paulus schrijft: ‘de slang Eva door haar arglistigheid bedrogen heeft’ (2 Korinthe 11:3). En: ‘Want gelijk zij allen in Adam sterven, alzo zullen zij ook in Christus allen levend gemaakt worden’ (1 Korinthe 15:22). De boom des levens komt terug aan het eind van de Bijbel: ‘Zalig zijn zij, die Zijn geboden doen, opdat hun macht zij aan den boom des levens’ (Openbaring 22:14).",
+        refs: ["2 Korinthe 11:3", "1 Korinthe 15:22", "Openbaring 22:14"],
       },
       {
         kop: "Moeilijke woorden",
@@ -130,12 +130,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "Genesis 4 vertelt niet hoe de HEERE liet merken dat Hij het offer van Abel aanzag. Wel zegt God tegen Kaïn: ‘Is er niet, indien gij weldoet, verhoging?’ (4:7). Hebreeën 11:4 zegt dat Abel zijn offer ‘door het geloof’ bracht. Hoe het teken van Kaïn eruitzag, staat er niet; de tekst zegt alleen waarvoor het was (4:15). Wie de vrouw van Kaïn was, vertelt de Bijbel ook niet. Genesis 5:4 zegt alleen dat Adam ‘zonen en dochteren’ gewon.",
+        t: "God zegt tegen Kaïn: ‘Is er niet, indien gij weldoet, verhoging?’ (4:7). Hebreeën 11:4 zegt dat Abel zijn offer ‘door het geloof’ bracht. Hoe het teken van Kaïn eruitzag, staat er niet; de tekst zegt alleen waarvoor het was (4:15). Genesis 5:4 zegt dat Adam ook ‘zonen en dochteren’ gewon.",
         refs: ["Genesis 4:4–7, 15", "Hebreeën 11:4", "Genesis 5:4"],
       },
       {
         kop: "Elders in de Bijbel",
-        t: "De Heere Jezus noemt ‘het bloed des rechtvaardigen Abels’ als begin van al het rechtvaardige bloed dat vergoten is (Mattheüs 23:35; Lukas 11:51). Judas waarschuwt voor mensen die ‘den weg van Kaïn ingegaan’ zijn (Judas 1:11). Lamech zegt dat hij ‘zeventigmaal zevenmaal’ gewroken zal worden (Genesis 4:24). Veel uitleggers wijzen op het contrast met wat de Heere Jezus over vergeven zegt: ‘niet tot zevenmaal, maar tot zeventigmaal zeven maal’ (Mattheüs 18:22).",
+        t: "De Heere Jezus noemt ‘het bloed des rechtvaardigen Abels’ als begin van al het rechtvaardige bloed dat vergoten is (Mattheüs 23:35; Lukas 11:51). Judas waarschuwt voor mensen die ‘den weg van Kaïn ingegaan’ zijn (Judas 1:11). Lamech zegt dat hij ‘zeventigmaal zevenmaal’ gewroken zal worden (Genesis 4:24). De Heere Jezus zegt over vergeven: ‘niet tot zevenmaal, maar tot zeventigmaal zeven maal’ (Mattheüs 18:22).",
         refs: ["Mattheüs 23:35", "Lukas 11:51", "Judas 1:11", "Genesis 4:23–24", "Mattheüs 18:21–22"],
       },
       {
@@ -170,8 +170,8 @@ BR.niveaus.voegToe("c", {
     status: "gecontroleerd",
     verdieping: [
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Vaak wordt verteld dat de dieren alleen twee aan twee gingen. Maar God zegt dat Noach van het reine vee en van de vogels ‘zeven en zeven’ moet nemen, en van het vee dat niet rein is twee (7:2–3). Hoe lang Noach over de bouw deed, vertelt de Bijbel niet. Over de ‘honderd en twintig jaren’ in 6:3 verschillen uitleggers: gaat het om de tijd tot de vloed, of om de levensduur van de mens? Dat Noach werd uitgelachen, staat nergens in de Bijbel; dat wordt er in vertellingen bij verteld.",
+        kop: "Uitstel en een ark vol dieren",
+        t: "God geeft de mensen nog ‘honderd en twintig jaren’ voordat de vloed komt (6:3). Van het reine vee en van de vogels moet Noach ‘zeven en zeven’ meenemen, en van het vee dat niet rein is twee (7:2–3).",
         refs: ["Genesis 7:2–3", "Genesis 6:3"],
       },
       {
@@ -253,7 +253,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Genesis 10, dat vlak voor deze geschiedenis staat, verdeelt de volken al ‘elk naar zijn spraak’ (10:5). Veel uitleggers zien Genesis 11:1–9 als de uitleg hoe dat zo gekomen is. De profeet Sefanja kijkt vooruit: ‘dan zal Ik tot de volken een reine spraak wenden; opdat zij allen den Naam des HEEREN aanroepen’ (Sefanja 3:9). Op de Pinksterdag worden de talen niet opgeheven, maar in al die talen horen de mensen ‘de grote werken Gods’ (Handelingen 2:11).",
+        t: "Genesis 10, dat vlak voor deze geschiedenis staat, verdeelt de volken al ‘elk naar zijn spraak’ (10:5). Genesis 11:1–9 vertelt hoe dat zo gekomen is. De profeet Sefanja kijkt vooruit: ‘dan zal Ik tot de volken een reine spraak wenden; opdat zij allen den Naam des HEEREN aanroepen’ (Sefanja 3:9). Op de Pinksterdag worden de talen niet opgeheven, maar in al die talen horen de mensen ‘de grote werken Gods’ (Handelingen 2:11).",
         refs: ["Genesis 10:5", "Sefanja 3:9", "Handelingen 2:11"],
       },
     ],
@@ -281,8 +281,8 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Geroepen in Ur",
-        t: "De Statenvertaling zegt in 12:1: ‘De HEERE nu had tot Abram gezegd’. Stefanus vertelt dat God al aan Abraham verscheen ‘nog zijnde in Mesopotamië, eer hij woonde in Charran’ (Handelingen 7:2); Charran is Haran. Ook Genesis 15:7 zegt: ‘Ik ben de HEERE, Die u uitgeleid heb uit Ur der Chaldeen’, en Nehemia 9:7 zegt hetzelfde. Volgens Stefanus riep God hem dus al vóór Haran, in ‘het land der Chaldeen’ (Handelingen 7:4). Genesis noemt de farao niet bij naam, en zegt ook niet welke plagen hem troffen.",
-        refs: ["Genesis 12:1", "Handelingen 7:2–4", "Genesis 15:7", "Nehemia 9:7", "Genesis 12:17"],
+        t: "De Statenvertaling zegt in 12:1: ‘De HEERE nu had tot Abram gezegd’. Stefanus vertelt dat God al aan Abraham verscheen ‘nog zijnde in Mesopotamië, eer hij woonde in Charran’ (Handelingen 7:2); Charran is Haran. Ook Genesis 15:7 zegt: ‘Ik ben de HEERE, Die u uitgeleid heb uit Ur der Chaldeen’, en Nehemia 9:7 zegt hetzelfde. God riep hem dus al vóór Haran, in ‘het land der Chaldeen’ (Handelingen 7:4).",
+        refs: ["Genesis 12:1", "Handelingen 7:2–4", "Genesis 15:7", "Nehemia 9:7"],
       },
       {
         kop: "Elders in de Bijbel",
@@ -314,12 +314,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Waar en wanneer",
-        t: "De Engel vindt Hagar ‘aan de fontein op den weg van Sur’ (16:7). Sur ligt ‘tegenover Egypte’ (Genesis 25:18). Veel uitleggers denken daarom dat Hagar op weg was naar Egypte, haar eigen land; de tekst zegt dat niet. De put Lachai-roi ligt ‘tussen Kades en tussen Bered’ (16:14), maar waar precies, is onbekend. De Bijbelreis plaatst deze geschiedenis rond 2081–2080 v.Chr., tien jaar na de aankomst in Kanaän (16:3). Dat is een reconstructie; andere dateringen komen enkele eeuwen later uit.",
+        t: "De Engel vindt Hagar ‘aan de fontein op den weg van Sur’ (16:7). Sur ligt ‘tegenover Egypte’ (Genesis 25:18). Die weg liep naar Egypte, het land van Hagar. De put Lachai-roi ligt ‘tussen Kades en tussen Bered’ (16:14), maar waar precies, is onbekend. De Bijbelreis plaatst deze geschiedenis rond 2081–2080 v.Chr., tien jaar na de aankomst in Kanaän (16:3). Dat is een reconstructie; andere dateringen komen enkele eeuwen later uit.",
         refs: ["Genesis 16:7, 14", "Genesis 25:18", "Genesis 16:3, 16"],
       },
       {
         kop: "De Engel des HEEREN",
-        t: "De Engel spreekt alsof God Zelf spreekt: ‘Ik zal uw zaad grotelijks vermenigvuldigen’ (16:10). En Hagar noemt ‘den Naam des HEEREN, Die tot haar sprak’ (16:13). Veel uitleggers zien in de Engel des HEEREN daarom de Zoon van God, vóór Hij mens werd. Anderen zien een engel die namens God spreekt. Uitleggers verschillen hierover.",
+        t: "De Engel spreekt alsof God Zelf spreekt: ‘Ik zal uw zaad grotelijks vermenigvuldigen’ (16:10). En Hagar noemt ‘den Naam des HEEREN, Die tot haar sprak’ (16:13). De Engel des HEEREN is dus niet zomaar een engel: Hij is de Zoon van God, vóór Hij mens werd.",
         refs: ["Genesis 16:10, 13"],
       },
       {
@@ -362,8 +362,8 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "Er komen drie mannen bij Abraham (18:2). Twee gaan naar Sodom; Genesis 19:1 noemt hen ‘twee engelen’. Abraham blijft ‘nog staande voor het aangezicht des HEEREN’ (18:22). Daarom zien veel uitleggers in de derde man de HEERE Zelf. Abraham pleit met een vraag: ‘zou de Rechter der ganse aarde geen recht doen?’ (18:25). De vrouw van Lot krijgt in de Bijbel geen naam, en de tekst zegt niet waarom zij omkeek.",
-        refs: ["Genesis 18:2", "Genesis 18:22–25", "Genesis 19:1"],
+        t: "Er komen drie mannen bij Abraham (18:2). Twee gaan naar Sodom; Genesis 19:1 noemt hen ‘twee engelen’. Abraham blijft ‘nog staande voor het aangezicht des HEEREN’ (18:22). Abraham pleit met een vraag: ‘zou de Rechter der ganse aarde geen recht doen?’ (18:25). De vrouw van Lot keek om, terwijl gezegd was: ‘zie niet achter u om’ (19:17).",
+        refs: ["Genesis 18:2", "Genesis 18:22–25", "Genesis 19:1", "Genesis 19:17, 26"],
       },
     ],
     vragen: [
@@ -394,8 +394,8 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Tussen de stukken door",
-        t: "In Genesis 15 deelt Abram dieren middendoor en legt hij de helften tegenover elkaar (15:9–10). Jeremia 34:18 laat zien dat zo een verbond werd gesloten: de mensen gingen tussen de stukken door ‘met het kalf, dat zij in tweeën hadden gehouwen’. In Genesis 15 ligt Abram in een diepe slaap (15:12). De tekst noemt alleen ‘een rokende oven en vurige fakkel’ die tussen de stukken door gaan (15:17). Veel uitleggers zien daarin dat God hier Zelf de belofte op Zich neemt.",
-        refs: ["Genesis 15:9–17", "Jeremia 34:18"],
+        t: "In Genesis 15 deelt Abram dieren middendoor en legt hij de helften tegenover elkaar (15:9–10). Jeremia 34:18 laat zien dat zo een verbond werd gesloten: de mensen gingen tussen de stukken door ‘met het kalf, dat zij in tweeën hadden gehouwen’. In Genesis 15 ligt Abram in een diepe slaap (15:12). De tekst noemt alleen ‘een rokende oven en vurige fakkel’ die tussen de stukken door gaan (15:17). Zo maakt de HEERE die dag een verbond met Abram (15:18).",
+        refs: ["Genesis 15:9–18", "Jeremia 34:18"],
       },
       {
         kop: "Een blik vooruit",
@@ -432,7 +432,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "God hoort",
-        t: "Dit is niet de eerste keer dat Hagar in de woestijn is. Voor de geboorte van Ismaël vluchtte ze al eens voor Sarai (16:6–7). Toen zei de Engel van de HEERE dat ze haar zoon Ismaël moest noemen, ‘omdat de HEERE uw verdrukking aangehoord heeft’ (16:11). De naam Ismaël wordt meestal uitgelegd als: God hoort. Nu klinkt het opnieuw: ‘God heeft naar des jongens stem gehoord’ (21:17).",
+        t: "Dit is niet de eerste keer dat Hagar in de woestijn is. Voor de geboorte van Ismaël vluchtte ze al eens voor Sarai (16:6–7). Toen zei de Engel van de HEERE dat ze haar zoon Ismaël moest noemen, ‘omdat de HEERE uw verdrukking aangehoord heeft’ (16:11). De naam Ismaël betekent: God hoort. Nu klinkt het opnieuw: ‘God heeft naar des jongens stem gehoord’ (21:17).",
         refs: ["Genesis 16:6–14", "Genesis 21:17"],
       },
       {
@@ -470,18 +470,18 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Waar lag Moria?",
-        t: "Genesis 22:2 noemt ‘het land Moria’ en een van de bergen daar. 2 Kronieken 3:1 zegt dat Salomo de tempel bouwde ‘te Jeruzalem, op den berg Moria’. Veel uitleggers zien daarin dezelfde plaats als in Genesis 22, waar 22:14 al spreekt van ‘den berg des HEEREN’. Met zoveel woorden zegt de Bijbel dat niet. De kaart toont Jeruzalem; Berseba, waar Abraham woonde, is goed aan te wijzen.",
+        t: "Genesis 22:2 noemt ‘het land Moria’ en een van de bergen daar. 2 Kronieken 3:1 zegt dat Salomo de tempel bouwde ‘te Jeruzalem, op den berg Moria’. Dat is dezelfde plaats als in Genesis 22, waar 22:14 al spreekt van ‘den berg des HEEREN’. De kaart toont Jeruzalem; Berseba, waar Abraham woonde, is goed aan te wijzen.",
         refs: ["Genesis 22:2", "Genesis 22:14", "2 Kronieken 3:1"],
       },
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "‘God Abraham verzocht’ (22:1) betekent hier: God stelde hem op de proef. Hoe oud Izak was, zegt de Bijbel niet. Hij was oud genoeg om het hout te dragen (22:6). Het gebeurde na zijn geboorte en vóór de dood van Sara (23:1), toen Abraham honderdzevenendertig was. Daarom staat het in de Bijbelreis tussen ca. 2066 en 2029 v.Chr. Wat Abraham en Izak onderweg voelden, vertelt de tekst niet.",
+        t: "‘God Abraham verzocht’ (22:1) betekent hier: God stelde hem op de proef. Hoe oud Izak was, zegt de Bijbel niet. Hij was oud genoeg om het hout te dragen (22:6). Het gebeurde na zijn geboorte en vóór de dood van Sara (23:1), toen Abraham honderdzevenendertig was. Daarom staat het in de Bijbelreis tussen ca. 2066 en 2029 v.Chr.",
         refs: ["Genesis 22:1", "Genesis 22:6", "Genesis 23:1"],
       },
       {
         kop: "Elders in de Bijbel",
-        t: "God zweert hier ‘bij Mijzelven’ (22:16). Hebreeën 6:13 legt uit: omdat Hij bij niemand die meerder was kon zweren, ‘zwoer Hij bij Zichzelven’. Hier klinkt ook de belofte ‘in uw zaad zullen gezegend worden alle volken der aarde’ (22:18). Over de beloften aan Abraham en zijn zaad schrijft Paulus: ‘En uw zade; hetwelk is Christus’ (Galaten 3:16). Veel uitleggers wijzen ook op Johannes 3:16, waar God ‘Zijn eniggeboren Zoon gegeven heeft’.",
-        refs: ["Genesis 22:16–18", "Hebreeën 6:13–14", "Galaten 3:16", "Johannes 3:16"],
+        t: "God zweert hier ‘bij Mijzelven’ (22:16). Hebreeën 6:13 legt uit: omdat Hij bij niemand die meerder was kon zweren, ‘zwoer Hij bij Zichzelven’. Hier klinkt ook de belofte ‘in uw zaad zullen gezegend worden alle volken der aarde’ (22:18). Over de beloften aan Abraham en zijn zaad schrijft Paulus: ‘En uw zade; hetwelk is Christus’ (Galaten 3:16).",
+        refs: ["Genesis 22:16–18", "Hebreeën 6:13–14", "Galaten 3:16"],
       },
     ],
     vragen: [
@@ -507,8 +507,8 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "De knecht heeft in Genesis 24 geen naam. Vaak wordt hij gelijkgesteld met Eliëzer, ‘de bezorger van mijn huis’ in Genesis 15:2, maar Genesis 24 noemt die naam niet. Hij wordt genoemd ‘den oudste van zijn huis, regerende over alles, wat hij had’ (24:2). Hoeveel water de kamelen dronken, staat er niet; wel dat Rebekka bleef putten ‘totdat zij voleindigd hebben te drinken’ (24:19). Met Rebekka gaat haar voedster mee (24:59); in Genesis 35:8 horen we haar naam: Debora.",
-        refs: ["Genesis 15:2", "Genesis 24:2", "Genesis 24:19", "Genesis 24:59", "Genesis 35:8"],
+        t: "De knecht van Abraham heet in Genesis 24 ‘den oudste van zijn huis, regerende over alles, wat hij had’ (24:2). Rebekka bleef putten ‘totdat zij voleindigd hebben te drinken’ (24:19). Met Rebekka gaat haar voedster mee (24:59); in Genesis 35:8 horen we haar naam: Debora.",
+        refs: ["Genesis 24:2", "Genesis 24:19", "Genesis 24:59", "Genesis 35:8"],
       },
       {
         kop: "Achtergrond: de eed en de familie",
@@ -575,13 +575,13 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "De gespikkelde kudde",
-        t: "Na de geboorte van Jozef wil Jakob terug naar zijn land. Laban wil hem houden en zegt: ‘ik heb waargenomen, dat de HEERE mij om uwentwil gezegend heeft’. Jakobs loon wordt het gespikkelde en geplekte vee. Hij legt geschilde roeden (stokken) bij de drinkbakken, en zijn kudde groeit sterk. Uitleggers verschillen over wat die roeden deden. Jakob zegt later zelf dat God dit bestuurde: ‘Alzo heeft God uw vader het vee ontrukt, en aan mij gegeven’ (Genesis 31:9). In een droom had de Engel Gods tegen hem gezegd: ‘Ik heb gezien alles, wat Laban u doet.’",
+        t: "Na de geboorte van Jozef wil Jakob terug naar zijn land. Laban wil hem houden en zegt: ‘ik heb waargenomen, dat de HEERE mij om uwentwil gezegend heeft’. Jakobs loon wordt het gespikkelde en geplekte vee. Hij legt geschilde roeden (stokken) bij de drinkbakken, en zijn kudde groeit sterk. Jakob zegt later zelf dat God dit bestuurde: ‘Alzo heeft God uw vader het vee ontrukt, en aan mij gegeven’ (Genesis 31:9). In een droom had de Engel Gods tegen hem gezegd: ‘Ik heb gezien alles, wat Laban u doet.’",
         refs: ["Genesis 30:25–43", "Genesis 31:9–12"],
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Jakob had eerder zijn vader Izak bedrogen. Izak zei toen tegen Ezau: ‘Uw broeder is gekomen met bedrog’ (Genesis 27:35). Nu wordt Jakob zelf bedrogen; veel uitleggers wijzen op die overeenkomst. Lea, de minder geliefde vrouw, wordt later begraven in het graf waar ook Abraham en Izak liggen (Genesis 49:31). Rachel wordt veel later genoemd door de profeet Jeremia: ‘Rachel weent over haar kinderen’ (Jeremia 31:15). Mattheüs haalt die woorden aan bij de kinderen van Bethlehem (Mattheüs 2:17–18).",
-        refs: ["Genesis 27:35", "Genesis 49:31", "Jeremia 31:15", "Mattheüs 2:17–18"],
+        t: "Jakob had eerder zijn vader Izak bedrogen. Izak zei toen tegen Ezau: ‘Uw broeder is gekomen met bedrog’ (Genesis 27:35). Nu wordt Jakob zelf bedrogen (Genesis 29:25). Lea, de minder geliefde vrouw, wordt later begraven in het graf waar ook Abraham en Izak liggen (Genesis 49:31). Rachel wordt veel later genoemd door de profeet Jeremia: ‘Rachel weent over haar kinderen’ (Jeremia 31:15). Mattheüs haalt die woorden aan bij de kinderen van Bethlehem (Mattheüs 2:17–18).",
+        refs: ["Genesis 27:35", "Genesis 29:25", "Genesis 49:31", "Jeremia 31:15", "Mattheüs 2:17–18"],
       },
     ],
     vragen: [
@@ -615,19 +615,19 @@ BR.niveaus.voegToe("c", {
     status: "gecontroleerd",
     verdieping: [
       {
-        kop: "Van Jakob naar Israël",
-        t: "Bij zijn geboorte hield Jakob de hiel van Ezau vast; ‘daarom noemde men zijn naam Jakob’ (Genesis 25:26). Later zegt Ezau: ‘Is het niet omdat men zijn naam noemt Jakob, dat hij mij nu twee reizen heeft bedrogen?’ (Genesis 27:36). Bij de Jabbok vraagt de Man: ‘Hoe is uw naam?’ Dan krijgt Jakob de naam Israël, ‘want gij hebt u vorstelijk gedragen met God en met de mensen, en hebt overmocht’. In Bethel bevestigt God die naam (Genesis 35:10). Later heet het hele volk naar hem: de kinderen Israëls (Genesis 32:32).",
-        refs: ["Genesis 25:26", "Genesis 27:36", "Genesis 32:27–28", "Genesis 35:10", "Genesis 32:32"],
-      },
-      {
         kop: "Wie is de Man?",
-        t: "Genesis 32 noemt Hem eerst ‘een man’. Zijn naam geeft Hij niet: ‘Waarom is het, dat gij naar Mijn naam vraagt?’ Toch zegt Jakob: ‘ik heb God gezien van aangezicht tot aangezicht’. Hosea noemt Hem ‘den Engel’. In Genesis 31 spreekt ook ‘de Engel Gods’ tot Jakob, en Hij zegt: ‘Ik ben die God van Beth-el’. Veel uitleggers zien hierin de Engel des HEEREN, Die als God spreekt. In de reformatorische uitleg wordt Hij vaak gezien als de Zoon van God, voordat Hij mens werd. De tekst zelf noemt geen naam.",
+        t: "Genesis 32 noemt Hem eerst ‘een man’ (32:24). Zijn naam geeft Hij niet: ‘Waarom is het, dat gij naar Mijn naam vraagt?’ Toch zegt Jakob: ‘ik heb God gezien van aangezicht tot aangezicht’ (32:30). Hosea noemt Hem ‘den Engel’ en zegt: ‘Te Beth-el vond hij Hem’ (Hosea 12:5). In Genesis 31 spreekt ‘de Engel Gods’ tot Jakob en zegt: ‘Ik ben die God van Beth-el’ (31:11–13). Dit is uitleg, niet de tekst zelf: veel christelijke uitleggers, ook de kanttekeningen bij de Statenvertaling, zien in deze Man de Zoon van God, Die Zich hier in een menselijke gedaante liet zien en later mens werd.",
         refs: ["Genesis 32:24–30", "Genesis 31:11–13", "Hosea 12:4–5"],
       },
       {
         kop: "Waar en wanneer",
         t: "Gilead is het bergland ten oosten van de Jordaan. Laban noemt de steenhoop Jegar-sahadutha, Jakob noemt hem Gilead. Beide namen betekenen: hoop van de getuigenis, de ene in het Aramees, de taal van Laban, de andere in het Hebreeuws. Mahanaïm betekent: twee legers. Jakob zag ‘een heirleger Gods’, en kort daarna verdeelde hij zijn eigen mensen ‘in twee heiren’. Mahanaïm en Pniël worden gezocht bij de Jabbok, een zijrivier van de Jordaan; die ligging is waarschijnlijk, niet zeker. In de reconstructie van de reis is dit ca. 1909 v.Chr.; andere dateringen komen enkele eeuwen later.",
         refs: ["Genesis 31:47–48", "Genesis 32:2", "Genesis 32:7"],
+      },
+      {
+        kop: "Om over na te denken",
+        t: "Bij zijn geboorte hield Jakob de hiel van Ezau vast; ‘daarom noemde men zijn naam Jakob’ (Genesis 25:26). Ezau zegt later: ‘Is het niet omdat men zijn naam noemt Jakob, dat hij mij nu twee reizen heeft bedrogen?’ (Genesis 27:36). Bij de Jabbok krijgt hij de naam Israël (Genesis 32:28). Twee vragen waar de tekst zelf geen antwoord op geeft. Izak vroeg: ‘wie zijt gij, mijn zoon?’ (Genesis 27:18), en de Man vraagt: ‘Hoe is uw naam?’ (Genesis 32:27). Wat valt je op als je die vragen naast elkaar legt? En Jakob bidt met Gods eigen woorden (Genesis 32:9–12): waarom zou hij dat doen?",
+        refs: ["Genesis 25:26", "Genesis 27:18", "Genesis 27:36", "Genesis 32:9–12", "Genesis 32:27–28"],
       },
     ],
     vragen: [
@@ -654,18 +654,18 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Ismaëlieten en Midianieten",
-        t: "De kooplieden heten in Genesis 37 ‘een reisgezelschap van Ismaëlieten’, maar ook ‘Midianietische kooplieden’. Volgens Genesis 37:36 verkopen ‘de Midianieten’ Jozef aan Potifar, en volgens Genesis 39:1 koopt Potifar hem van de Ismaëlieten. Uitleggers verklaren dat verschillend. Sommigen denken aan één groep met twee namen; in Richteren 8:24 worden Midianieten ook Ismaëlieten genoemd. Anderen denken aan Midianietische handelaars die met een karavaan van Ismaëlieten meereisden. De karavaan kwam uit Gilead met ‘specerijen en balsem, en mirre’.",
-        refs: ["Genesis 37:25–28", "Genesis 37:36", "Genesis 39:1", "Richteren 8:24"],
+        t: "De kooplieden heten in Genesis 37 ‘een reisgezelschap van Ismaëlieten’, maar ook ‘Midianietische kooplieden’. Volgens Genesis 37:36 verkopen ‘de Midianieten’ Jozef aan Potifar, en volgens Genesis 39:1 koopt Potifar hem van de Ismaëlieten. De karavaan kwam uit Gilead met ‘specerijen en balsem, en mirre’.",
+        refs: ["Genesis 37:25–28", "Genesis 37:36", "Genesis 39:1"],
       },
       {
         kop: "Later in het verhaal",
-        t: "Genesis 37 vertelt niet wat Jozef zei toen zijn broers hem in de kuil wierpen en verkochten. Jaren later zeggen de broers tegen elkaar: ‘wij zijn schuldig aan onzen broeder, wiens benauwdheid der ziele wij zagen, toen hij ons om genade bad; maar wij hoorden niet!’ (Genesis 42:21). Ruben herinnert hen eraan dat hij hen gewaarschuwd had. Jozef zegt later zelf: ‘God heeft mij voor uw aangezicht gezonden, tot behoudenis des levens’ (Genesis 45:5), en: ‘gij hebt kwaad tegen mij gedacht; doch God heeft dat ten goede gedacht’ (Genesis 50:20).",
+        t: "Pas jaren later horen we wat Jozef deed toen ze hem in de kuil wierpen. De broers zeggen dan tegen elkaar: ‘wij zijn schuldig aan onzen broeder, wiens benauwdheid der ziele wij zagen, toen hij ons om genade bad; maar wij hoorden niet!’ (Genesis 42:21). Ruben herinnert hen eraan dat hij hen gewaarschuwd had. Jozef zegt later zelf: ‘God heeft mij voor uw aangezicht gezonden, tot behoudenis des levens’ (Genesis 45:5), en: ‘gij hebt kwaad tegen mij gedacht; doch God heeft dat ten goede gedacht’ (Genesis 50:20).",
         refs: ["Genesis 42:21–22", "Genesis 45:5", "Genesis 50:20"],
       },
       {
         kop: "Waar en wanneer",
-        t: "Jozef reist van het dal van Hebron naar Sichem, hemelsbreed bijna tachtig kilometer naar het noorden, en dan nog ruim twintig kilometer verder naar Dothan. Die drie plaatsen zijn goed te identificeren. In de reconstructie van de reis is dit ca. 1898 v.Chr., toen Jozef zeventien was; andere dateringen komen enkele eeuwen later. Opvallend: in de wet van Mozes is twintig sikkelen de schatting voor een jongen van vijf tot twintig jaar (Leviticus 27:5). Sommige uitleggers wijzen op die overeenkomst met de twintig zilverlingen; Genesis zelf legt dat verband niet.",
-        refs: ["Genesis 37:14–17", "Genesis 37:28", "Leviticus 27:5"],
+        t: "Jozef reist van het dal van Hebron naar Sichem, hemelsbreed bijna tachtig kilometer naar het noorden, en dan nog ruim twintig kilometer verder naar Dothan. Die drie plaatsen zijn goed te identificeren. In de reconstructie van de reis is dit ca. 1898 v.Chr., toen Jozef zeventien was; andere dateringen komen enkele eeuwen later.",
+        refs: ["Genesis 37:14–17", "Genesis 37:28"],
       },
     ],
     vragen: [
@@ -691,7 +691,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Een Egyptische naam en twee zonen",
-        t: "De farao geeft Jozef een Egyptische naam: Zafnath Paaneah. Wat die naam precies betekent, daarover verschillen onderzoekers. Jozef trouwt met Asnath, de dochter van Potifera, de overste van On. Potifera heeft in de Bijbel een andere naam en een andere taak dan Potifar. On wordt meestal gelijkgesteld aan de latere stad Heliopolis. Bij de namen van zijn zonen spreekt Jozef over God: Manasse, want ‘God heeft mij doen vergeten al mijn moeite’, en Efraïm, want ‘God heeft mij doen wassen in het land mijner verdrukking’. Later neemt Jakob hen aan als zijn eigen zonen (Genesis 48:5).",
+        t: "De farao geeft Jozef een Egyptische naam: Zafnath Paaneah. Jozef trouwt met Asnath, de dochter van Potifera, de overste van On. Potifera heeft in de Bijbel een andere naam en een andere taak dan Potifar. On wordt meestal gelijkgesteld aan de latere stad Heliopolis. Bij de namen van zijn zonen spreekt Jozef over God: Manasse, want ‘God heeft mij doen vergeten al mijn moeite’, en Efraïm, want ‘God heeft mij doen wassen in het land mijner verdrukking’. Later neemt Jakob hen aan als zijn eigen zonen (Genesis 48:5).",
         refs: ["Genesis 41:45", "Genesis 41:50–52", "Genesis 48:5"],
       },
       {
@@ -742,8 +742,8 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Juda, de borg",
-        t: "Het was Juda die voorstelde om Jozef aan de Ismaëlieten te verkopen (Genesis 37:26–27). Nu zegt hij: ‘Ik zal borg voor hem zijn’ (43:9), en hij vraagt: ‘laat toch uw knecht voor dezen jongeling slaaf van mijn heer blijven’ (44:33). Later zegent Jakob hem: ‘De schepter zal van Juda niet wijken’ (Genesis 49:10). Uit Juda komt de Heere Jezus voort: ‘onze Heere uit Juda gesproten is’ (Hebreeën 7:14). Veel uitleggers zien in Juda die borg wil staan een heenwijzing naar Christus, Die ‘Borg geworden’ is (Hebreeën 7:22).",
-        refs: ["Genesis 37:26–27", "Genesis 43:8–9", "Genesis 44:33", "Genesis 49:10", "Hebreeën 7:14", "Hebreeën 7:22"],
+        t: "Het was Juda die voorstelde om Jozef aan de Ismaëlieten te verkopen (Genesis 37:26–27). Nu zegt hij: ‘Ik zal borg voor hem zijn’ (43:9), en hij vraagt: ‘laat toch uw knecht voor dezen jongeling slaaf van mijn heer blijven’ (44:33). Later zegent Jakob hem: ‘De schepter zal van Juda niet wijken’ (Genesis 49:10). Uit Juda komt de Heere Jezus voort: ‘onze Heere uit Juda gesproten is’ (Hebreeën 7:14).",
+        refs: ["Genesis 37:26–27", "Genesis 43:8–9", "Genesis 44:33", "Genesis 49:10", "Hebreeën 7:14"],
       },
       {
         kop: "Waar en wanneer",
@@ -780,12 +780,12 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Een kistje met pek",
-        t: "Het Hebreeuwse woord dat hier met kistje is vertaald, wordt in de Bijbel verder alleen gebruikt voor de ark van Noach. Beide worden dichtgemaakt met pek: Noach moet de ark bestrijken ‘van binnen en van buiten met pek’ (Genesis 6:14), de moeder van Mozes ‘belijmde het met lijm en met pek’ (Exodus 2:3). Veel uitleggers wijzen op die overeenkomst: twee keer bewaart God leven midden in het water. Prentenboeken spreken vaak van een mandje; de tekst noemt een kistje van biezen.",
+        t: "Het Hebreeuwse woord dat hier met kistje is vertaald, wordt in de Bijbel verder alleen gebruikt voor de ark van Noach. Beide worden dichtgemaakt met pek: Noach moet de ark bestrijken ‘van binnen en van buiten met pek’ (Genesis 6:14), de moeder van Mozes ‘belijmde het met lijm en met pek’ (Exodus 2:3). Prentenboeken spreken vaak van een mandje; de tekst noemt een kistje van biezen.",
         refs: ["Genesis 6:14", "Exodus 2:3"],
       },
       {
         kop: "Waar en wanneer",
-        t: "Gosen staat op de kaart als gebied. De ligging van Raämses is waarschijnlijk bekend; waar Pitom lag, is betwist. De rivier wordt in deze hoofdstukken niet bij naam genoemd; meestal wordt uitgelegd dat de Nijl bedoeld is. Mozes was tachtig jaar toen hij tot de farao sprak (Exodus 7:7). Gerekend vanaf een uittocht rond 1446 v.Chr. (1 Koningen 6:1) is hij dus rond 1526 v.Chr. geboren. Veel onderzoekers dateren de uittocht later, in de 13e eeuw v.Chr. Hoe lang de verdrukking al duurde toen Mozes geboren werd, is niet precies te zeggen.",
+        t: "Gosen staat op de kaart als gebied. De ligging van Raämses is waarschijnlijk bekend; waar Pitom lag, is betwist. De rivier is de Nijl. Mozes was tachtig jaar toen hij tot de farao sprak (Exodus 7:7). Gerekend vanaf een uittocht rond 1446 v.Chr. (1 Koningen 6:1) is hij dus rond 1526 v.Chr. geboren. Veel onderzoekers dateren de uittocht later, in de 13e eeuw v.Chr. Hoe lang de verdrukking al duurde toen Mozes geboren werd, is niet precies te zeggen.",
         refs: ["Exodus 7:7", "1 Koningen 6:1"],
       },
     ],
@@ -825,13 +825,13 @@ BR.niveaus.voegToe("c", {
         refs: ["Handelingen 7:25", "Handelingen 7:35", "Exodus 18:3–4"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Er staat niet dat Mozes in een paleis woonde of een prins was. Er staat dat hij de zoon werd van de dochter van de farao (2:10), en dat hij ‘werd onderwezen in alle wijsheid der Egyptenaren’ (Handelingen 7:22). De vader van Zippora heet hier Rehuël (2:18), in Exodus 3:1 en 18:1 Jethro, en Numeri 10:29 spreekt van ‘Hobab, den zoon van Rehuël, den Midianiet, den schoonvader van Mozes’. Uitleggers verschillen over hoe deze namen bij elkaar horen.",
+        kop: "Aan het hof en in Midian",
+        t: "Mozes groeit op aan het hof van de farao: hij wordt de zoon van zijn dochter (2:10), en hij ‘werd onderwezen in alle wijsheid der Egyptenaren’ (Handelingen 7:22). De vader van Zippora heet hier Rehuël (2:18), in Exodus 3:1 en 18:1 Jethro, en Numeri 10:29 spreekt van ‘Hobab, den zoon van Rehuël, den Midianiet, den schoonvader van Mozes’.",
         refs: ["Exodus 2:10", "Handelingen 7:22", "Exodus 2:18", "Exodus 3:1", "Exodus 18:1", "Numeri 10:29"],
       },
       {
         kop: "Waar en wanneer",
-        t: "Midian staat op de kaart als gebied. Midian was een zoon van Abraham en Ketura (Genesis 25:1–2); de Midianieten worden gezien als zijn nakomelingen. Welke weg Mozes nam, vertelt de Bijbel niet; de plaatsen onderweg op de kaart zijn onzeker. Stefanus zegt dat Mozes veertig jaar was toen hij zijn broeders bezocht (Handelingen 7:23), en dat de Engel des Heeren hem veertig jaar later verscheen (Handelingen 7:30). Gerekend vanaf een uittocht rond 1446 v.Chr. (1 Koningen 6:1) is dat ongeveer 1486–1446 v.Chr.; veel onderzoekers dateren de uittocht in de 13e eeuw v.Chr.",
+        t: "Midian staat op de kaart als gebied. Midian was een zoon van Abraham en Ketura (Genesis 25:1–2); de Midianieten zijn zijn nakomelingen. Welke weg Mozes nam, vertelt de Bijbel niet; de plaatsen onderweg op de kaart zijn onzeker. Stefanus zegt dat Mozes veertig jaar was toen hij zijn broeders bezocht (Handelingen 7:23), en dat de Engel des Heeren hem veertig jaar later verscheen (Handelingen 7:30). Gerekend vanaf een uittocht rond 1446 v.Chr. (1 Koningen 6:1) is dat ongeveer 1486–1446 v.Chr.; veel onderzoekers dateren de uittocht in de 13e eeuw v.Chr.",
         refs: ["Genesis 25:1–2", "Handelingen 7:23", "Handelingen 7:30", "1 Koningen 6:1"],
       },
     ],
@@ -859,17 +859,17 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Horeb, de berg van God",
-        t: "God geeft Mozes een teken: ‘wanneer gij dit volk uit Egypte geleid hebt, zult gijlieden God dienen op dezen berg’ (3:12). Dat gebeurt: Israël legert zich in de woestijn Sinaï ‘tegenover dien berg’ (Exodus 19:2), en Mozes zegt later: ‘De HEERE, onze God, heeft een verbond met ons gemaakt aan Horeb’ (Deuteronomium 5:2). Horeb en Sinaï worden meestal uitgelegd als namen voor dezelfde berg; Stefanus spreekt bij de braamstruik van ‘den berg Sinaï’ (Handelingen 7:30). Waar die berg lag, is betwist; de plek op de kaart is een van de voorstellen.",
+        t: "God geeft Mozes een teken: ‘wanneer gij dit volk uit Egypte geleid hebt, zult gijlieden God dienen op dezen berg’ (3:12). Dat gebeurt: Israël legert zich in de woestijn Sinaï ‘tegenover dien berg’ (Exodus 19:2), en Mozes zegt later: ‘De HEERE, onze God, heeft een verbond met ons gemaakt aan Horeb’ (Deuteronomium 5:2). Horeb en Sinaï zijn namen voor dezelfde berg; Stefanus spreekt bij de braamstruik van ‘den berg Sinaï’ (Handelingen 7:30). Waar die berg lag, is betwist; de plek op de kaart is een van de voorstellen.",
         refs: ["Exodus 3:12", "Exodus 19:1–2", "Deuteronomium 5:2", "Handelingen 7:30"],
       },
       {
         kop: "De Naam van God",
-        t: "Waar de Statenvertaling HEERE met hoofdletters schrijft, staat in het Hebreeuws de eigen Naam van God. In Exodus 3 verbindt God die Naam met ‘IK ZAL ZIJN, Die IK ZIJN ZAL’ (3:14), en Hij zegt: ‘dat is Mijn Naam eeuwiglijk, en dat is Mijn gedachtenis van geslacht tot geslacht’ (3:15). Opvallend is ook dat in 3:2 ‘de Engel des HEEREN’ verschijnt, terwijl in 3:4 God Zelf roept. Veel uitleggers zien in deze Engel de Zoon van God; anderen denken aan een engel die namens God spreekt.",
+        t: "Waar de Statenvertaling HEERE met hoofdletters schrijft, staat in het Hebreeuws de eigen Naam van God. In Exodus 3 verbindt God die Naam met ‘IK ZAL ZIJN, Die IK ZIJN ZAL’ (3:14), en Hij zegt: ‘dat is Mijn Naam eeuwiglijk, en dat is Mijn gedachtenis van geslacht tot geslacht’ (3:15). Opvallend is ook dat in 3:2 ‘de Engel des HEEREN’ verschijnt, terwijl in 3:4 God Zelf roept.",
         refs: ["Exodus 3:2–4", "Exodus 3:14–15"],
       },
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "Onderweg, in de herberg, kwam de HEERE Mozes tegen en ‘zocht hem te doden’ (4:24). Waarom, zegt de tekst niet uitdrukkelijk. Omdat Zippora dan haar zoon besnijdt, verbinden veel uitleggers het met Genesis 17:14: wie niet besneden werd, ‘heeft Mijn verbond gebroken’. Over welke zoon het gaat en wie met ‘bloedbruidegom’ bedoeld is, verschillen uitleggers. Exodus 4:20 spreekt van ‘zijn zonen’; de tweede zoon, Eliëzer, wordt pas in Exodus 18:4 bij naam genoemd.",
+        t: "Onderweg, in de herberg, kwam de HEERE Mozes tegen en ‘zocht hem te doden’ (4:24). Dat is omdat Mozes zijn zoon niet besneden had, terwijl God gezegd had: wie niet besneden werd, ‘heeft Mijn verbond gebroken’ (Genesis 17:14). Als Zippora haar zoon besnijdt, laat de HEERE van Mozes af (4:26). Exodus 4:20 spreekt van ‘zijn zonen’; de tweede zoon, Eliëzer, wordt pas in Exodus 18:4 bij naam genoemd.",
         refs: ["Exodus 4:20", "Exodus 4:24–26", "Genesis 17:10–14", "Exodus 18:3–4"],
       },
     ],
@@ -902,7 +902,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Psalm 78 bezingt de plagen ook, in een andere volgorde: ‘En hun vloeden in bloed veranderde’, en ‘Hij doodde hun wijnstok door den hagel’. De tovenaars blijven in Exodus naamloos. Paulus noemt twee mannen: ‘Jannes en Jambres’, die ‘Mozes tegenstonden’ (2 Timotheüs 3:8). Die namen staan niet in Exodus; ze worden meestal op de tovenaars van de farao betrokken en komen waarschijnlijk uit de Joodse overlevering. Dezelfde uitdrukking als in ‘Dit is Gods vinger’ gebruikt later de Heere Jezus: ‘indien Ik door den vinger Gods de duivelen uitwerp, zo is dan het Koninkrijk Gods tot u gekomen’ (Lukas 11:20).",
+        t: "Psalm 78 bezingt de plagen ook, in een andere volgorde: ‘En hun vloeden in bloed veranderde’, en ‘Hij doodde hun wijnstok door den hagel’. De tovenaars blijven in Exodus naamloos. Paulus noemt twee van hen bij naam: ‘Jannes en Jambres’, die ‘Mozes tegenstonden’ (2 Timotheüs 3:8). Dezelfde uitdrukking als in ‘Dit is Gods vinger’ gebruikt later de Heere Jezus: ‘indien Ik door den vinger Gods de duivelen uitwerp, zo is dan het Koninkrijk Gods tot u gekomen’ (Lukas 11:20).",
         refs: ["Psalm 78:43–51", "2 Timotheüs 3:8", "Lukas 11:20"],
       },
       {
@@ -939,7 +939,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Elders in de Bijbel",
-        t: "Van het paaslam mocht geen been gebroken worden (Exodus 12:46; Numeri 9:12). Bij het kruis schrijft Johannes dat de Schrift vervuld werd: ‘Geen been van Hem zal verbroken worden’ (Johannes 19:36). Meestal wordt dat betrokken op het paaslam; sommigen denken ook aan Psalm 34:21. Petrus schrijft zijn lezers dat zij verlost zijn ‘door het dierbaar bloed van Christus, als van een onbestraffelijk en onbevlekt Lam’ (1 Petrus 1:19). Paulus gebruikt de ongezuurde broden als beeld: feest houden ‘in de ongezuurde broden der oprechtheid en der waarheid’ (1 Korinthe 5:8). En de beenderen van Jozef worden na de intocht begraven ‘te Sichem’ (Jozua 24:32).",
+        t: "Van het paaslam mocht geen been gebroken worden (Exodus 12:46; Numeri 9:12). Bij het kruis schrijft Johannes dat de Schrift vervuld werd: ‘Geen been van Hem zal verbroken worden’ (Johannes 19:36). Daarmee wijst Johannes terug naar het paaslam. Petrus schrijft zijn lezers dat zij verlost zijn ‘door het dierbaar bloed van Christus, als van een onbestraffelijk en onbevlekt Lam’ (1 Petrus 1:19). Paulus gebruikt de ongezuurde broden als beeld: feest houden ‘in de ongezuurde broden der oprechtheid en der waarheid’ (1 Korinthe 5:8). En de beenderen van Jozef worden na de intocht begraven ‘te Sichem’ (Jozua 24:32).",
         refs: ["Exodus 12:46", "Numeri 9:12", "Johannes 19:36", "Psalm 34:21", "1 Petrus 1:18–19", "1 Korinthe 5:8", "Jozua 24:32"],
       },
       {
@@ -1069,12 +1069,12 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Jozua, Aäron en Hur",
-        t: "Jozua wordt hier voor het eerst genoemd. Later heet hij ‘Jozua, zijn dienaar’ (Exodus 24:13). Volgens Numeri 13:16 heette hij eerst Hosea en noemde Mozes hem Jozua; wanneer dat was, zegt de tekst niet. Hur staat ook later naast Aäron: als Mozes de berg op gaat, zegt hij tegen de oudsten ‘ziet, Aäron en Hur zijn bij u’ (Exodus 24:14). Bezaleël is ‘den zoon van Uri, den zoon van Hur, van den stam van Juda’ (Exodus 31:2); of dat dezelfde Hur is, zegt de tekst niet. Dat Hur de man van Mirjam was, komt uit de Joodse overlevering, niet uit de Bijbel.",
+        t: "Jozua wordt hier voor het eerst genoemd. Later heet hij ‘Jozua, zijn dienaar’ (Exodus 24:13). Volgens Numeri 13:16 heette hij eerst Hosea en noemde Mozes hem Jozua. Hur staat ook later naast Aäron: als Mozes de berg op gaat, zegt hij tegen de oudsten ‘ziet, Aäron en Hur zijn bij u’ (Exodus 24:14). Bezaleël is ‘den zoon van Uri, den zoon van Hur, van den stam van Juda’ (Exodus 31:2).",
         refs: ["Exodus 24:13–14", "Numeri 13:16", "Exodus 31:2"],
       },
       {
         kop: "Banier en opgeheven handen",
-        t: "Een banier is een veldteken waar een leger zich omheen verzamelt. Jesaja noemt de Wortel van Isaï, ‘Die staan zal tot een banier der volken’ (Jesaja 11:10); Paulus haalt dat vers aan over Christus, zonder het woord banier (Romeinen 15:8, 12). Psalm 60:6 zegt: ‘Maar nu hebt Gij dengenen, die U vrezen, een banier gegeven’. Opgeheven handen zijn in de Psalmen een gebaar van gebed: ‘de opheffing mijner handen als het avondoffer’ (Psalm 141:2). Exodus 17 zegt niet met zoveel woorden dat Mozes bad; veel uitleggers zien het wel zo.",
+        t: "Een banier is een veldteken waar een leger zich omheen verzamelt. Jesaja noemt de Wortel van Isaï, ‘Die staan zal tot een banier der volken’ (Jesaja 11:10); Paulus haalt dat vers aan over Christus, zonder het woord banier (Romeinen 15:8, 12). Psalm 60:6 zegt: ‘Maar nu hebt Gij dengenen, die U vrezen, een banier gegeven’. Opgeheven handen zijn in de Psalmen een gebaar van gebed: ‘de opheffing mijner handen als het avondoffer’ (Psalm 141:2). Zo bidt Mozes op de heuvel voor het volk.",
         refs: ["Jesaja 11:10", "Romeinen 15:8, 12", "Psalm 60:6", "Psalm 141:2"],
       },
     ],
@@ -1089,12 +1089,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Tien woorden",
-        t: "In Exodus 20 worden de geboden niet geteld. Elders noemt de Bijbel ze ‘de tien woorden’, op twee stenen tafelen geschreven (Exodus 34:28; Deuteronomium 4:13). Hoe je tot tien telt, verschilt per traditie. In de gereformeerde traditie, zoals in de Heidelbergse Catechismus, is het verbod op het gesneden beeld het tweede gebod. De rooms-katholieke en de lutherse traditie nemen het eerste en tweede samen en splitsen het verbod op begeren in tweeën. Hoe de woorden over de twee tafelen verdeeld waren, zegt de Bijbel niet.",
+        t: "In Exodus 20 worden de geboden niet geteld. Elders noemt de Bijbel ze ‘de tien woorden’, op twee stenen tafelen geschreven (Exodus 34:28; Deuteronomium 4:13). Het verbod op het gesneden beeld is het tweede gebod; het tiende verbiedt al het begeren. De eerste tafel leert in vier geboden hoe wij ons tegenover God moeten houden, de tweede in zes geboden wat wij onze naaste schuldig zijn (vergelijk Mattheüs 22:37–40).",
         refs: ["Exodus 34:28", "Deuteronomium 4:13"],
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Hebreeën 12 zet de Sinaï tegenover de berg Sion: ‘Want gij zijt niet gekomen tot den tastelijken berg, en het brandende vuur’ … ‘Maar gij zijt gekomen tot den berg Sion, en de stad des levenden Gods’. Ook het bloed uit Exodus 24:8 komt terug. Hebreeën 9:19–20 haalt het aan: ‘Dit is het bloed des testaments’. Veel uitleggers horen het ook in wat de Heere Jezus bij het avondmaal zegt: ‘dat is Mijn bloed, het bloed des Nieuwen Testaments, hetwelk voor velen vergoten wordt, tot vergeving der zonden’ (Mattheüs 26:28).",
+        t: "Hebreeën 12 zet de Sinaï tegenover de berg Sion: ‘Want gij zijt niet gekomen tot den tastelijken berg, en het brandende vuur’ … ‘Maar gij zijt gekomen tot den berg Sion, en de stad des levenden Gods’. Ook het bloed uit Exodus 24:8 komt terug. Hebreeën 9:19–20 haalt het aan: ‘Dit is het bloed des testaments’. Bij het avondmaal zegt de Heere Jezus: ‘dat is Mijn bloed, het bloed des Nieuwen Testaments, hetwelk voor velen vergoten wordt, tot vergeving der zonden’ (Mattheüs 26:28).",
         refs: ["Hebreeën 12:18–24", "Hebreeën 9:19–20", "Mattheüs 26:28"],
       },
       {
@@ -1126,12 +1126,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Een feest voor de HEERE?",
-        t: "Het volk noemt het kalf ‘uw goden’ (32:4, 8). Toch bouwt Aäron er een altaar voor en roept: ‘Morgen zal den HEERE een feest zijn!’ (32:5). Veel uitleggers zien daarom in het kalf ook een overtreding van het gebod tegen het gesneden beeld (20:4–5): men wilde de HEERE dienen op een manier die Hij verboden had. Opvallend is ook wat Aäron later zegt: ‘ik wierp het in het vuur, en dit kalf is er uit gekomen’ (32:24). Maar vers 4 vertelt dat hij het goud zelf bewerkte ‘met een griffie’, een graveerstift, en er een gegoten kalf van maakte.",
+        t: "Het volk noemt het kalf ‘uw goden’ (32:4, 8). Toch bouwt Aäron er een altaar voor en roept: ‘Morgen zal den HEERE een feest zijn!’ (32:5). Daarom is het kalf ook een overtreding van het gebod tegen het gesneden beeld (20:4–5): men wilde de HEERE dienen op een manier die Hij verboden had. Opvallend is ook wat Aäron later zegt: ‘ik wierp het in het vuur, en dit kalf is er uit gekomen’ (32:24). Maar vers 4 vertelt dat hij het goud zelf bewerkte ‘met een griffie’, een graveerstift, en er een gegoten kalf van maakte.",
         refs: ["Exodus 32:4–5", "Exodus 32:24", "Exodus 20:4–5"],
       },
       {
         kop: "Mozes vertelt het opnieuw",
-        t: "In Deuteronomium 9 en 10 vertelt Mozes deze geschiedenis zelf, met details die Exodus niet noemt. Hij wierp zich ‘veertig dagen en veertig nachten’ neer voor het aangezicht van de HEERE, om de zonde van het volk (Deuteronomium 9:18). Uitleggers verschillen over hoe die periode samenvalt met Exodus 32–34. Mozes bad ook voor Aäron, op wie de HEERE zeer vertoornd was (Deuteronomium 9:20). Het stof van het kalf wierp hij ‘in de beek, die van den berg afvliet’ (Deuteronomium 9:21). En de nieuwe tafelen legde hij in een kist van sittimhout (Deuteronomium 10:3–5).",
+        t: "In Deuteronomium 9 en 10 vertelt Mozes deze geschiedenis zelf, met details die Exodus niet noemt. Hij wierp zich ‘veertig dagen en veertig nachten’ neer voor het aangezicht van de HEERE, om de zonde van het volk (Deuteronomium 9:18). Mozes bad ook voor Aäron, op wie de HEERE zeer vertoornd was (Deuteronomium 9:20). Het stof van het kalf wierp hij ‘in de beek, die van den berg afvliet’ (Deuteronomium 9:21). En de nieuwe tafelen legde hij in een kist van sittimhout (Deuteronomium 10:3–5).",
         refs: ["Deuteronomium 9:18–21", "Deuteronomium 10:1–5"],
       },
       {
@@ -1164,12 +1164,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Zoals de HEERE geboden had",
-        t: "In Exodus 39 en 40 klinkt steeds: ‘gelijk als de HEERE aan Mozes geboden had’. Niets wordt naar eigen idee gemaakt. God had gezegd: ‘Zie dan toe, dat gij het maakt naar hun voorbeeld, hetwelk u op den berg getoond is’ (25:40). Hebreeën 8:5 haalt dat aan en zegt dat de priesters daar ‘het voorbeeld en de schaduw der hemelse dingen’ dienen. Uitleggers wijzen vaak op het verschil met het gouden kalf (Exodus 32): daar maakten mensen zelf iets om God te dienen, hier gebeurt alles zoals God het geboden had.",
+        t: "In Exodus 39 en 40 klinkt steeds: ‘gelijk als de HEERE aan Mozes geboden had’. Niets wordt naar eigen idee gemaakt. God had gezegd: ‘Zie dan toe, dat gij het maakt naar hun voorbeeld, hetwelk u op den berg getoond is’ (25:40). Hebreeën 8:5 haalt dat aan en zegt dat de priesters daar ‘het voorbeeld en de schaduw der hemelse dingen’ dienen. Dat is anders dan bij het gouden kalf (Exodus 32): daar maakten mensen zelf iets om God te dienen, hier gebeurt alles zoals God het geboden had.",
         refs: ["Exodus 39:21, 31", "Exodus 40:19, 21", "Exodus 25:40", "Hebreeën 8:5"],
       },
       {
         kop: "Wat lag er in de ark?",
-        t: "Mozes legt ‘de getuigenis’ in de ark (40:20). Dat zijn de twee stenen tafelen; Exodus 31:18 noemt ze ‘de twee tafelen der getuigenis’. Als de ark later in de tempel van Salomo komt, staat er: ‘Er was niets in de ark, dan alleen de twee stenen tafelen’ (1 Koningen 8:9). Hebreeën 9:4 noemt in de ark ook ‘de gouden kruik, daar het Manna in was, en de staf van Aäron, die gebloeid had’. Volgens Exodus 16:34 en Numeri 17:10 werden de kruik en de staf ‘voor de getuigenis’ gezet. Uitleggers verschillen over hoe deze teksten samengaan.",
+        t: "Mozes legt ‘de getuigenis’ in de ark (40:20). Dat zijn de twee stenen tafelen; Exodus 31:18 noemt ze ‘de twee tafelen der getuigenis’. Als de ark later in de tempel van Salomo komt, staat er: ‘Er was niets in de ark, dan alleen de twee stenen tafelen’ (1 Koningen 8:9). Hebreeën 9:4 noemt in de ark ook ‘de gouden kruik, daar het Manna in was, en de staf van Aäron, die gebloeid had’. Volgens Exodus 16:34 en Numeri 17:10 werden de kruik en de staf ‘voor de getuigenis’ gezet.",
         refs: ["Exodus 40:20", "Exodus 31:18", "1 Koningen 8:9", "Hebreeën 9:4", "Exodus 16:34", "Numeri 17:10"],
       },
       {
@@ -1214,8 +1214,8 @@ BR.niveaus.voegToe("c", {
         refs: ["Leviticus 23:27–28", "Leviticus 16:27", "Hebreeën 13:11–12", "Mattheüs 27:50–51"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Wat het ‘vreemd vuur’ van Nadab en Abihu precies was, zegt de tekst niet. Er staat alleen: ‘hetwelk hij hen niet geboden had’ (Leviticus 10:1). Kort daarna verbiedt God de priesters wijn en sterke drank als ze in de tent der samenkomst gaan (Leviticus 10:9). Sommige uitleggers zien daarin een aanwijzing over wat er misging; de tekst legt dat verband zelf niet. Numeri 3:4 voegt toe dat Nadab en Abihu geen kinderen hadden. Voor ‘den weggaanden bok’ (Leviticus 16:8) staat in het Hebreeuws het woord azazel. Uitleggers en vertalingen verschillen over wat dat woord precies betekent.",
+        kop: "Vreemd vuur",
+        t: "Het ‘vreemd vuur’ van Nadab en Abihu is vuur dat niet van het altaar komt: ‘hetwelk hij hen niet geboden had’ (Leviticus 10:1). Ook de hogepriester moet zijn wierookvat ‘vol vurige kolen nemen van het altaar’ (Leviticus 16:12). Kort daarna verbiedt God de priesters wijn en sterke drank als ze in de tent der samenkomst gaan (Leviticus 10:9). Numeri 3:4 voegt toe dat Nadab en Abihu geen kinderen hadden.",
         refs: ["Leviticus 10:1–2", "Leviticus 10:9", "Numeri 3:4", "Leviticus 16:8"],
       },
       {
@@ -1294,7 +1294,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "Het volk vraagt Mozes te bidden ‘dat Hij deze slangen van ons wegneme’ (21:7). De tekst zegt niet dat God de slangen weghaalt. Er staat wel: ‘als een slang iemand beet, zo zag hij de koperen slang aan, en hij bleef levend’ (21:9). Over de rots zegt Psalm 106:33 dat Mozes ‘wat onbedachtelijk voortbracht met zijn lippen’. Hoe de zonde van Mozes bij Meriba precies moet worden omschreven, daarover verschillen uitleggers. Numeri 20:12 noemt als reden dat Mozes en Aäron God niet geloofden en Hem niet heiligden voor de ogen van het volk.",
+        t: "Het volk vraagt Mozes te bidden ‘dat Hij deze slangen van ons wegneme’ (21:7). De tekst zegt niet dat God de slangen weghaalt. Er staat wel: ‘als een slang iemand beet, zo zag hij de koperen slang aan, en hij bleef levend’ (21:9). Over de rots zegt Psalm 106:33 dat Mozes ‘wat onbedachtelijk voortbracht met zijn lippen’. Numeri 20:12 noemt als reden dat Mozes en Aäron God niet geloofden en Hem niet heiligden voor de ogen van het volk.",
         refs: ["Numeri 21:7–9", "Psalm 106:32–33", "Numeri 20:12"],
       },
       {
@@ -1331,13 +1331,13 @@ BR.niveaus.voegToe("c", {
         refs: ["Numeri 24:25", "Numeri 31:15–16", "Numeri 25:1–3", "Openbaring 2:14", "Numeri 31:8", "Jozua 13:22", "Micha 6:5"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "God zegt: ‘sta op, ga met hen’ (22:20). Toch wordt direct daarna ‘de toorn van God’ ontstoken, ‘omdat hij heentoog’ (22:22). De Engel zegt dat Bileams weg van Hem ‘afwijkt’ (22:32). Verder legt de tekst dit niet uit. Veel uitleggers verbinden het met 2 Petrus 2:15, waar staat dat Bileam het loon liefhad; dat is een uitleg. Bileam is geen profeet uit Israël: hij ging meermalen ‘tot de toverijen’ (24:1), en Jozua 13:22 noemt hem ‘den voorzegger’. Toch legt de HEERE het woord in zijn mond (23:5).",
+        kop: "Waarom God toornig wordt",
+        t: "God zegt: ‘sta op, ga met hen’ (22:20). Toch wordt direct daarna ‘de toorn van God’ ontstoken, ‘omdat hij heentoog’ (22:22). De Engel zegt dat Bileams weg van Hem ‘afwijkt’ (22:32). Bileam gaat met het voornemen om Gods volk te vervloeken; 2 Petrus 2:15 zegt dat hij ‘het loon der ongerechtigheid liefgehad’ heeft. Bileam is geen profeet uit Israël: hij ging meermalen ‘tot de toverijen’ (24:1), en Jozua 13:22 noemt hem ‘den voorzegger’. Toch legt de HEERE het woord in zijn mond (23:5).",
         refs: ["Numeri 22:20–22", "Numeri 22:32", "2 Petrus 2:15", "Numeri 24:1", "Jozua 13:22", "Numeri 23:5"],
       },
       {
         kop: "Waar en wanneer",
-        t: "Pethor ligt ‘aan de rivier’ (22:5); daarmee wordt meestal de Eufraat bedoeld. Deuteronomium 23:4 zegt: ‘van Pethor uit Mesopotamië’. Waar Pethor precies lag, is waarschijnlijk, niet zeker. Balak gaat Bileam tegemoet tot de stad aan de Arnon, de grens van Moab (22:36). Daarna neemt hij hem mee naar de hoogten van Baäl, het veld Zofim op de Pisga en de hoogte van Peor (22:41; 23:14, 28). Een reconstructie: het gebeurt na de dood van Aäron in het veertigste jaar (Numeri 33:38) en vóór de toespraken van Mozes in de elfde maand (Deuteronomium 1:3). Met 1 Koningen 6:1 is dat ca. 1407–1406 v.Chr.; andere onderzoekers komen bijna twee eeuwen later uit.",
+        t: "Pethor ligt ‘aan de rivier’ (22:5). Deuteronomium 23:4 zegt: ‘van Pethor uit Mesopotamië’. Waar Pethor precies lag, is waarschijnlijk, niet zeker. Balak gaat Bileam tegemoet tot de stad aan de Arnon, de grens van Moab (22:36). Daarna neemt hij hem mee naar de hoogten van Baäl, het veld Zofim op de Pisga en de hoogte van Peor (22:41; 23:14, 28). Een reconstructie: het gebeurt na de dood van Aäron in het veertigste jaar (Numeri 33:38) en vóór de toespraken van Mozes in de elfde maand (Deuteronomium 1:3). Met 1 Koningen 6:1 is dat ca. 1407–1406 v.Chr.; andere onderzoekers komen bijna twee eeuwen later uit.",
         refs: ["Numeri 22:5", "Deuteronomium 23:4", "Numeri 22:36–41", "Numeri 33:38", "Deuteronomium 1:3", "1 Koningen 6:1"],
       },
     ],
@@ -1416,7 +1416,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Waar en wanneer",
-        t: "Sittim staat op de kaart als waarschijnlijke plaats; Numeri 33:49 noemt het kamp ‘tot aan Abel-sittim’. Jericho is aan te wijzen. De verspieders moesten dus de Jordaan over: op de terugweg staat er dat zij ‘voeren over’ (Jozua 2:23). De achtervolgers zochten ‘op den weg van de Jordaan, tot aan de veren’ (Jozua 2:7). Met ‘veren’ worden de plaatsen bedoeld waar men de rivier overstak. Waar die precies lagen, zegt de Bijbel niet. De intocht is veertig jaar na de uittocht (Numeri 14:33–34). Gerekend met 1 Koningen 6:1 is dat rond 1406 v.Chr.; wie de uittocht in de 13e eeuw v.Chr. dateert, plaatst de intocht rond 1230–1200 v.Chr.",
+        t: "Sittim staat op de kaart als waarschijnlijke plaats; Numeri 33:49 noemt het kamp ‘tot aan Abel-sittim’. Jericho is aan te wijzen. De verspieders moesten dus de Jordaan over: op de terugweg staat er dat zij ‘voeren over’ (Jozua 2:23). De achtervolgers zochten ‘op den weg van de Jordaan, tot aan de veren’ (Jozua 2:7). ‘Veren’ zijn de plaatsen waar men de rivier overstak. Waar die precies lagen, zegt de Bijbel niet. De intocht is veertig jaar na de uittocht (Numeri 14:33–34). Gerekend met 1 Koningen 6:1 is dat rond 1406 v.Chr.; wie de uittocht in de 13e eeuw v.Chr. dateert, plaatst de intocht rond 1230–1200 v.Chr.",
         refs: ["Numeri 33:49", "Jozua 2:7", "Jozua 2:23", "Numeri 14:33–34", "1 Koningen 6:1"],
       },
     ],
@@ -1443,7 +1443,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Wat de tekst nog meer zegt",
-        t: "Voor de doortocht belooft de HEERE: ‘Dezen dag zal Ik beginnen u groot te maken voor de ogen van gans Israël’ (Jozua 3:7). Na de doortocht staat er dat het gebeurd is: ‘zij vreesden hem, gelijk als zij Mozes gevreesd hadden’ (Jozua 4:14). Vaak wordt alleen het gedenkteken in Gilgal verteld. Maar Jozua 4:9 zegt in de Statenvertaling ook: ‘Jozua richtte ook twaalf stenen op, midden in de Jordaan, ter standplaats van de voeten der priesteren’. Uitleggers verschillen over de vraag of dat andere stenen zijn dan die in Gilgal.",
+        t: "Voor de doortocht belooft de HEERE: ‘Dezen dag zal Ik beginnen u groot te maken voor de ogen van gans Israël’ (Jozua 3:7). Na de doortocht staat er dat het gebeurd is: ‘zij vreesden hem, gelijk als zij Mozes gevreesd hadden’ (Jozua 4:14). Naast het gedenkteken in Gilgal staat er nog een tweede: ‘Jozua richtte ook twaalf stenen op, midden in de Jordaan, ter standplaats van de voeten der priesteren’ (Jozua 4:9). Dat zijn twaalf andere stenen dan die in Gilgal.",
         refs: ["Jozua 3:7", "Jozua 4:14", "Jozua 4:8–9", "Jozua 4:20"],
       },
       {
@@ -1484,12 +1484,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Oordeel over de volken van Kanaän",
-        t: "Jozua 6:21 vertelt dat Israël alles in Jericho doodde. De Bijbel beschrijft dit als Gods oordeel over de volken van Kanaän. Al tegen Abram zei God dat zijn nakomelingen pas in het vierde geslacht zouden terugkomen, ‘want de ongerechtigheid der Amorieten is tot nog toe niet volkomen’ (Genesis 15:16). Mozes zei tegen Israël: ‘Niet om uw gerechtigheid’, ‘maar om de goddeloosheid dezer volken, verdrijft hen de HEERE’ (Deuteronomium 9:5). Het woord ‘verbannen’ (6:17) wordt uitgelegd als: helemaal aan de HEERE gegeven, zodat niemand er iets van mocht nemen (6:18; vgl. Leviticus 27:28). Mensen en dieren werden gedood; het zilver, het goud en de koperen en ijzeren vaten kwamen in Zijn schat (6:19).",
+        t: "Jozua 6:21 vertelt dat Israël alles in Jericho doodde. De Bijbel beschrijft dit als Gods oordeel over de volken van Kanaän. Al tegen Abram zei God dat zijn nakomelingen pas in het vierde geslacht zouden terugkomen, ‘want de ongerechtigheid der Amorieten is tot nog toe niet volkomen’ (Genesis 15:16). Mozes zei tegen Israël: ‘Niet om uw gerechtigheid’, ‘maar om de goddeloosheid dezer volken, verdrijft hen de HEERE’ (Deuteronomium 9:5). Het woord ‘verbannen’ (6:17) betekent: helemaal aan de HEERE gegeven, zodat niemand er iets van mocht nemen (6:18; vgl. Leviticus 27:28). Mensen en dieren werden gedood; het zilver, het goud en de koperen en ijzeren vaten kwamen in Zijn schat (6:19).",
         refs: ["Jozua 6:17–21", "Genesis 15:16", "Deuteronomium 9:5", "Leviticus 27:28"],
       },
       {
         kop: "Rachab elders in de Bijbel",
-        t: "Toen Rachab de verspieders verborg, zei ze: ‘de HEERE, ulieder God, is een God boven in den hemel, en beneden op de aarde’ (Jozua 2:11). Hebreeën 11:31 zegt: ‘Door het geloof is Rachab, de hoer, niet omgekomen met de ongehoorzamen’. Jakobus noemt haar als voorbeeld bij de woorden ‘Toon mij uw geloof uit uw werken’ (Jakobus 2:18, 25). In het geslachtsregister van de Heere Jezus staat: ‘Salmon gewon Booz bij Rachab’ (Mattheüs 1:5). Uitleggers zien haar meestal als dezelfde Rachab.",
+        t: "Toen Rachab de verspieders verborg, zei ze: ‘de HEERE, ulieder God, is een God boven in den hemel, en beneden op de aarde’ (Jozua 2:11). Hebreeën 11:31 zegt: ‘Door het geloof is Rachab, de hoer, niet omgekomen met de ongehoorzamen’. Jakobus noemt haar als voorbeeld bij de woorden ‘Toon mij uw geloof uit uw werken’ (Jakobus 2:18, 25). Dezelfde Rachab staat in het geslachtsregister van de Heere Jezus: ‘Salmon gewon Booz bij Rachab’ (Mattheüs 1:5).",
         refs: ["Jozua 2:11", "Hebreeën 11:31", "Jakobus 2:18, 25", "Mattheüs 1:5"],
       },
       {
@@ -1526,7 +1526,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Beroering",
-        t: "Al bij Jericho had Jozua gewaarschuwd: wie van het verbannene neemt, maakt het leger van Israël tot een ban en brengt het in beroering (Jozua 6:18). Dat woord komt terug als Jozua tegen Achan zegt: ‘Hoe hebt gij ons beroerd? De HEERE zal u beroeren te dezen dage!’ (7:25). Vers 26 zegt: ‘Daarom noemde men den naam dier plaats het dal van Achor’; uitleggers verbinden die naam met het woord voor beroeren. Ook 1 Kronieken 2:7 noemt hem ‘de beroerder van Israël, die zich aan het verbannene vergreep’.",
+        t: "Al bij Jericho had Jozua gewaarschuwd: wie van het verbannene neemt, maakt het leger van Israël tot een ban en brengt het in beroering (Jozua 6:18). Dat woord komt terug als Jozua tegen Achan zegt: ‘Hoe hebt gij ons beroerd? De HEERE zal u beroeren te dezen dage!’ (7:25). Vers 26 zegt: ‘Daarom noemde men den naam dier plaats het dal van Achor’; Achor betekent beroering. Ook 1 Kronieken 2:7 noemt hem ‘de beroerder van Israël, die zich aan het verbannene vergreep’.",
         refs: ["Jozua 6:18", "Jozua 7:25–26", "1 Kronieken 2:7"],
       },
       {
@@ -1568,17 +1568,17 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Het boek des oprechten",
-        t: "Na de woorden van Jozua tegen de zon vraagt de tekst: ‘Is dit niet geschreven in het boek des oprechten?’ (Jozua 10:13). Dat boek wordt ook genoemd bij de klaagzang van David over Saul en Jonathan (2 Samuël 1:17–18). Het boek zelf is niet bewaard gebleven. Hoe de zon stilstond, legt de Bijbel niet uit. Wel zegt de tekst wat er zo bijzonder was: ‘dat de HEERE de stem eens mans alzo verhoorde; want de HEERE streed voor Israël’ (10:14).",
+        t: "Na de woorden van Jozua tegen de zon vraagt de tekst: ‘Is dit niet geschreven in het boek des oprechten?’ (Jozua 10:13). Dat boek wordt ook genoemd bij de klaagzang van David over Saul en Jonathan (2 Samuël 1:17–18). Het boek zelf is niet bewaard gebleven. Wel zegt de tekst wat er zo bijzonder was: ‘dat de HEERE de stem eens mans alzo verhoorde; want de HEERE streed voor Israël’ (10:14).",
         refs: ["Jozua 10:12–14", "2 Samuël 1:17–18"],
       },
       {
         kop: "Sichem en de eik",
-        t: "Jozua neemt afscheid in Sichem. Daar bouwde Abram een altaar, toen de HEERE zei: ‘Aan uw zaad zal Ik dit land geven’ (Genesis 12:6–7). Daar verborg Jakob de vreemde goden ‘onder den eikeboom, die bij Sichem is’ (Genesis 35:4). Jozua zegt nu: ‘doet de vreemde goden weg’ (24:23), en hij richt een grote steen op ‘onder den eik’ (24:26). Veel uitleggers zien hier bewuste verbanden. In Sichem worden ook de beenderen van Jozef begraven, op het veld dat Jakob gekocht had (Genesis 33:19). Jozef had de zonen van Israël laten zweren dat ze zijn beenderen zouden meenemen (Genesis 50:25).",
+        t: "Jozua neemt afscheid in Sichem. Daar bouwde Abram een altaar, toen de HEERE zei: ‘Aan uw zaad zal Ik dit land geven’ (Genesis 12:6–7). Daar verborg Jakob de vreemde goden ‘onder den eikeboom, die bij Sichem is’ (Genesis 35:4). Jozua zegt nu: ‘doet de vreemde goden weg’ (24:23), en hij richt een grote steen op ‘onder den eik’ (24:26). In Sichem worden ook de beenderen van Jozef begraven, op het veld dat Jakob gekocht had (Genesis 33:19). Jozef had de zonen van Israël laten zweren dat ze zijn beenderen zouden meenemen (Genesis 50:25).",
         refs: ["Genesis 12:6–7", "Genesis 35:2–4", "Jozua 24:23–26", "Jozua 24:32", "Genesis 33:19", "Genesis 50:25"],
       },
       {
         kop: "Waar en wanneer",
-        t: "Gibeon is identificeerbaar; het was ‘een grote stad, als een der koninklijke steden’ (Jozua 10:2). Gilgal en Timnath-serah zijn waarschijnlijk; de ligging van Makkeda is onbekend. Richteren 2:9 noemt de plaats van Jozua’s graf Timnath-heres; meestal ziet men dat als dezelfde plaats. De list en de slag vallen kort na de intocht, ca. 1406 v.Chr. Hoe oud Jozua bij de intocht was, zegt de Bijbel niet; daarom is het jaar van zijn afscheid en dood een ruwe schatting. Wie de uittocht in de 13e eeuw v.Chr. dateert, komt bijna twee eeuwen later uit.",
+        t: "Gibeon is identificeerbaar; het was ‘een grote stad, als een der koninklijke steden’ (Jozua 10:2). Gilgal en Timnath-serah zijn waarschijnlijk; de ligging van Makkeda is onbekend. Richteren 2:9 noemt de plaats van Jozua’s graf Timnath-heres: zo heet Timnath-serah daar. De list en de slag vallen kort na de intocht, ca. 1406 v.Chr. Hoe oud Jozua bij de intocht was, zegt de Bijbel niet; daarom is het jaar van zijn afscheid en dood een ruwe schatting. Wie de uittocht in de 13e eeuw v.Chr. dateert, komt bijna twee eeuwen later uit.",
         refs: ["Jozua 10:2", "Jozua 24:29–30", "Richteren 2:8–9"],
       },
     ],
@@ -1615,7 +1615,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Jabin, Heber en Sisera",
-        t: "Jozua had al eerder een Jabin, koning van Hazor, verslagen en Hazor verbrand (Jozua 11:1, 10–11). Hier regeert weer een Jabin in Hazor. Uitleggers verklaren dat verschillend: de stad kan herbouwd zijn, en Jabin was misschien een naam die vaker in dat koningshuis voorkwam. Heber de Keniet kwam ‘uit de kinderen van Hobab’, de schoonvader van Mozes (4:11). Er was vrede tussen Jabin en het huis van Heber (4:17); daarom vluchtte Sisera naar die tent. Samuël noemt Sisera later nog: ‘zo verkocht Hij hen in de hand van Sisera, den krijgsoverste, te Hazor’ (1 Samuël 12:9).",
+        t: "Jozua had al eerder een Jabin, koning van Hazor, verslagen en Hazor verbrand (Jozua 11:1, 10–11). Hier regeert weer een Jabin in Hazor: een andere koning met dezelfde naam, in de weer opgebouwde stad. Heber de Keniet kwam ‘uit de kinderen van Hobab’, de schoonvader van Mozes (4:11). Er was vrede tussen Jabin en het huis van Heber (4:17); daarom vluchtte Sisera naar die tent. Samuël noemt Sisera later nog: ‘zo verkocht Hij hen in de hand van Sisera, den krijgsoverste, te Hazor’ (1 Samuël 12:9).",
         refs: ["Jozua 11:1, 10–11", "Richteren 4:11, 17", "1 Samuël 12:9"],
       },
       {
@@ -1648,7 +1648,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "Vaak hoor je dat God de driehonderd koos omdat zij waakzaam dronken. Dat staat er niet. De tekst noemt alleen het verschil: driehonderd hadden ‘met hun hand tot hun mond gelekt’, de anderen hadden ‘op hun knieën gebukt’ (7:6). Wel zegt God waarom het leger klein moest zijn: Israël mocht niet zeggen ‘Mijn hand heeft mij verlost’ (7:2). De vertelling stopt bij de vlucht van Midian, maar Richteren 8 gaat verder. Gideon weigert koning te worden (8:23), maar van het goud van de buit maakt hij een efod, en ‘het werd Gideon en zijn huis tot een valstrik’ (8:27). Na zijn dood dienen de Israëlieten Baäl-berith (8:33).",
+        t: "De tekst noemt het verschil: driehonderd hadden ‘met hun hand tot hun mond gelekt’, de anderen hadden ‘op hun knieën gebukt’ (7:6). Wel zegt God waarom het leger klein moest zijn: Israël mocht niet zeggen ‘Mijn hand heeft mij verlost’ (7:2). De vertelling stopt bij de vlucht van Midian, maar Richteren 8 gaat verder. Gideon weigert koning te worden (8:23), maar van het goud van de buit maakt hij een efod, en ‘het werd Gideon en zijn huis tot een valstrik’ (8:27). Na zijn dood dienen de Israëlieten Baäl-berith (8:33).",
         refs: ["Richteren 7:2–7", "Richteren 8:22–27", "Richteren 8:33"],
       },
       {
@@ -1687,7 +1687,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wie is de Engel?",
-        t: "Manoach vraagt naar de naam van de Engel en krijgt als antwoord: ‘Die is toch Wonderlijk’ (13:18). Daarna zegt Manoach: ‘Wij zullen zekerlijk sterven, omdat wij God gezien hebben’ (13:22). Veel uitleggers zien in de Engel des HEEREN de Zoon van God, nog vóór Zijn geboorte als mens. Zij wijzen op Jesaja 9:5, waar van het Kind staat: ‘men noemt Zijn naam Wonderlijk’. Dat is een uitleg; de tekst van Richteren zegt het niet met zoveel woorden.",
+        t: "Manoach vraagt naar de naam van de Engel en krijgt als antwoord: ‘Die is toch Wonderlijk’ (13:18). Daarna zegt Manoach: ‘Wij zullen zekerlijk sterven, omdat wij God gezien hebben’ (13:22). De Engel des HEEREN is de Zoon van God, nog vóór Zijn geboorte als mens. Van het Kind dat geboren zou worden, zegt Jesaja 9:5: ‘men noemt Zijn naam Wonderlijk’.",
         refs: ["Richteren 13:17–22", "Jesaja 9:5"],
       },
       {
@@ -1719,12 +1719,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "Richteren 15 vertelt de vergelding over en weer: de vossen, de verbranding van Simsons vrouw en haar vader, en Simsons wraak (15:3–8). Simson zegt het zelf tegen de mannen van Juda: ‘Gelijk als zij mij gedaan hebben, alzo heb ik hunlieden gedaan’ (15:11). De schrijver geeft er hier geen oordeel bij. Wel had hij al gezegd dat het ‘van den HEERE was, dat hij gelegenheid zocht van de Filistijnen’ (14:4). Uitleggers verschillen over hoe Simsons eigen motieven en Gods plan zich tot elkaar verhouden.",
+        t: "Richteren 15 vertelt de vergelding over en weer: de vossen, de verbranding van Simsons vrouw en haar vader, en Simsons wraak (15:3–8). Simson zegt het zelf tegen de mannen van Juda: ‘Gelijk als zij mij gedaan hebben, alzo heb ik hunlieden gedaan’ (15:11). De schrijver geeft er hier geen oordeel bij. Wel had hij al gezegd dat het ‘van den HEERE was, dat hij gelegenheid zocht van de Filistijnen’ (14:4).",
         refs: ["Richteren 14:4", "Richteren 15:3–11"],
       },
       {
         kop: "Lechi: namen, plaats en tijd",
-        t: "Lechi betekent kaak. Na de strijd noemt Simson de plaats Ramath-lechi (15:17). In zijn woorden ‘een hoop, twee hopen’ (15:16) zien veel uitleggers een woordspeling: in het Hebreeuws lijken de woorden voor ezel en hoop op elkaar. De bron noemt hij ‘De fontein des aanroepers’ (15:19). Waar Lechi lag, is niet bekend; op de kaart staat de plaats als onbekend. Simson richtte Israël twintig jaar ‘in de dagen der Filistijnen’ (15:20); volgens veel uitleggers was dat kort vóór koning Saul (ca. 1050 v.Chr.), maar andere dateringen schuiven dit op.",
+        t: "Lechi betekent kaak. Na de strijd noemt Simson de plaats Ramath-lechi (15:17). De bron noemt hij ‘De fontein des aanroepers’ (15:19). Waar Lechi lag, is niet bekend; op de kaart staat de plaats als onbekend. Simson richtte Israël twintig jaar ‘in de dagen der Filistijnen’ (15:20); volgens veel uitleggers was dat kort vóór koning Saul (ca. 1050 v.Chr.), maar andere dateringen schuiven dit op.",
         refs: ["Richteren 15:16–20"],
       },
       {
@@ -1757,17 +1757,17 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "Delila wordt vaak een Filistijnse genoemd. De tekst zegt niet tot welk volk zij hoorde. Er staat alleen dat Simson een vrouw liefkreeg ‘aan de beek Sorek’ (16:4), niet dat zij hem liefhad. Zij schoor het haar niet zelf: ze ‘riep een man en liet hem de zeven haarlokken zijns hoofds afscheren’ (16:19). En bij de pilaren staat niet dat Simson ze uit elkaar duwde. Hij vatte de twee middelste pilaren, ‘en hij boog zich met kracht’ (16:29–30).",
+        t: "Er staat dat Simson een vrouw liefkreeg ‘aan de beek Sorek’ (16:4), niet dat zij hem liefhad. Zij schoor het haar niet zelf: ze ‘riep een man en liet hem de zeven haarlokken zijns hoofds afscheren’ (16:19). En bij de pilaren staat: hij vatte de twee middelste pilaren, ‘en hij boog zich met kracht’ (16:29–30).",
         refs: ["Richteren 16:4", "Richteren 16:19", "Richteren 16:29–30"],
       },
       {
         kop: "Achtergrond",
-        t: "In Jozua 13:3 staan ‘vijf vorsten der Filistijnen’, van Gaza, Asdod, Askelon, Gath en Ekron. Veel uitleggers denken dat de vorsten in Richteren 16 dezelfde stadsvorsten zijn. Malen was zwaar en eenvoudig werk. Exodus 11:5 noemt de eerstgeborene ‘der dienstmaagd, die achter den molen is’ tegenover de eerstgeborene van de farao, als het andere uiterste. Daarom zien uitleggers het malen van Simson als een diepe vernedering.",
+        t: "Bij Delila komen ‘de vorsten der Filistijnen’ (16:5). In Jozua 13:3 staan ‘vijf vorsten der Filistijnen’, van Gaza, Asdod, Askelon, Gath en Ekron. Malen was zwaar en eenvoudig werk. Exodus 11:5 noemt de eerstgeborene ‘der dienstmaagd, die achter den molen is’ tegenover de eerstgeborene van de farao, als het andere uiterste. Zo werd Simson diep vernederd.",
         refs: ["Jozua 13:3", "Exodus 11:5", "Richteren 16:5", "Richteren 16:21"],
       },
       {
         kop: "Waar en wanneer",
-        t: "Gaza is aan te wijzen; het dal Sorek staat op de kaart als gebied. Simson droeg de poortdeuren naar ‘de hoogte des bergs, die in het gezicht van Hebron is’ (16:3). Uitleggers verschillen of dat een berg bij Hebron zelf is, of een hoogte bij Gaza die in de richting van Hebron ligt. Simson wordt begraven ‘tussen Zora en tussen Esthaol’, in het graf van Manoach (16:31). Het jaartal is een reconstructie: aan het eind van de twintig jaar dat hij richtte, volgens veel uitleggers kort vóór koning Saul (ca. 1050 v.Chr.).",
+        t: "Gaza is aan te wijzen; het dal Sorek staat op de kaart als gebied. Simson droeg de poortdeuren naar ‘de hoogte des bergs, die in het gezicht van Hebron is’ (16:3). Simson wordt begraven ‘tussen Zora en tussen Esthaol’, in het graf van Manoach (16:31). Het jaartal is een reconstructie: aan het eind van de twintig jaar dat hij richtte, volgens veel uitleggers kort vóór koning Saul (ca. 1050 v.Chr.).",
         refs: ["Richteren 16:3", "Richteren 16:31", "Richteren 15:20"],
       },
     ],
@@ -1799,12 +1799,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Lossen en de schoen",
-        t: "De wet zegt: wie arm wordt en grond verkoopt, ‘zo zal zijn losser, die hem nabestaande is, komen, en zal het verkochte zijns broeders lossen’ (Leviticus 25:25). Deuteronomium 25 spreekt over de broer die de weduwe van zijn gestorven broer neemt, ‘opdat zijn naam niet uitgedelgd worde uit Israël’. Wie weigert, krijgt daar de schoen uitgetrokken. In Ruth 4 is het anders: Boaz is geen broer, en de losser trekt zelf zijn schoen uit, als ‘een getuigenis in Israël’ (4:7). Uitleggers verschillen over hoe Ruth 4 en Deuteronomium 25 precies samenhangen.",
+        t: "De wet zegt: wie arm wordt en grond verkoopt, ‘zo zal zijn losser, die hem nabestaande is, komen, en zal het verkochte zijns broeders lossen’ (Leviticus 25:25). Deuteronomium 25 spreekt over de broer die de weduwe van zijn gestorven broer neemt, ‘opdat zijn naam niet uitgedelgd worde uit Israël’. Wie weigert, krijgt daar de schoen uitgetrokken. In Ruth 4 is het anders: Boaz is geen broer, en de losser trekt zelf zijn schoen uit, als ‘een getuigenis in Israël’ (4:7).",
         refs: ["Leviticus 25:25", "Deuteronomium 25:5–10", "Ruth 4:7–10"],
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Het volk in de poort wenst dat het huis van Boaz zal zijn ‘als het huis van Perez’, de zoon van Juda en Thamar (4:12), en de stamboom aan het eind begint bij Perez. Mattheüs noemt in het geslachtsregister ook de moeder van Boaz: ‘Salmon gewon Booz bij Rachab’ (Mattheüs 1:5). Veel uitleggers zien in haar Rachab uit Jericho (Jozua 6:25). Later stuurt God Samuël ‘tot Isaï, den Bethlehemiet’ om een koning te zalven (1 Samuël 16:1). En Micha profeteert: ‘En gij, Bethlehem Efratha!’ (Micha 5:1).",
+        t: "Het volk in de poort wenst dat het huis van Boaz zal zijn ‘als het huis van Perez’, de zoon van Juda en Thamar (4:12), en de stamboom aan het eind begint bij Perez. Mattheüs noemt in het geslachtsregister ook de moeder van Boaz: ‘Salmon gewon Booz bij Rachab’ (Mattheüs 1:5). Dat is Rachab uit Jericho (Jozua 6:25). Later stuurt God Samuël ‘tot Isaï, den Bethlehemiet’ om een koning te zalven (1 Samuël 16:1). En Micha profeteert: ‘En gij, Bethlehem Efratha!’ (Micha 5:1).",
         refs: ["Ruth 4:12", "Ruth 4:18–22", "Mattheüs 1:5", "Jozua 6:25", "1 Samuël 16:1", "Micha 5:1"],
       },
       {
@@ -1833,7 +1833,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Hanna’s lied en Maria’s lied",
-        t: "Hanna zingt: ‘De HEERE maakt arm en maakt rijk; Hij vernedert, ook verhoogt Hij’ (1 Samuël 2:7). Eeuwen later zingt Maria iets wat daar sterk op lijkt: ‘Hij heeft machtigen van de tronen afgetrokken, en nederigen heeft Hij verhoogd’ (Lukas 1:52). Opvallend is het slot van Hanna’s lied. Israël heeft dan nog geen koning (Richteren 21:25), maar Hanna zegt dat de HEERE ‘Zijn Koning sterkte geven, en den hoorn Zijns Gezalfden verhogen’ zal (1 Samuël 2:10). Het Hebreeuwse woord voor gezalfde is het woord waar ons woord Messias vandaan komt. Veel uitleggers zien hier een vooruitwijzing naar de koningen die Samuël later zal zalven, en verder naar Christus.",
+        t: "Hanna zingt: ‘De HEERE maakt arm en maakt rijk; Hij vernedert, ook verhoogt Hij’ (1 Samuël 2:7). Eeuwen later zingt Maria iets wat daar sterk op lijkt: ‘Hij heeft machtigen van de tronen afgetrokken, en nederigen heeft Hij verhoogd’ (Lukas 1:52). Opvallend is het slot van Hanna’s lied. Israël heeft dan nog geen koning (Richteren 21:25), maar Hanna zegt dat de HEERE ‘Zijn Koning sterkte geven, en den hoorn Zijns Gezalfden verhogen’ zal (1 Samuël 2:10). Het Hebreeuwse woord voor gezalfde is het woord waar ons woord Messias vandaan komt. Hanna wijst hier vooruit naar de koningen die Samuël later zal zalven, en verder naar Christus.",
         refs: ["1 Samuël 2:7–10", "Lukas 1:52", "Richteren 21:25"],
       },
       {
@@ -1842,8 +1842,8 @@ BR.niveaus.voegToe("c", {
         refs: ["1 Samuël 1:1, 9, 19", "Jozua 18:1", "1 Samuël 2:22", "1 Samuël 3:3"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Hanna belooft ook: ‘er zal geen scheermes op zijn hoofd komen’ (1:11). Dat lijkt op de gelofte van een Nazireër (Numeri 6:5) en op wat over Simson gezegd werd (Richteren 13:5), maar het woord Nazireër staat niet bij Samuël. Hoe oud Samuël was toen de HEERE hem riep, zegt de Bijbel niet. Er staat alleen dat ‘het jongsken was zeer jong’ toen hij naar Silo kwam (1:24), en in hoofdstuk 3 heet hij een jongeling. Wat de HEERE over het huis van Eli zei, kwam uit: koning Salomo verdreef later de priester Abjathar, ‘om te vervullen het woord des HEEREN, hetwelk Hij over het huis van Eli te Silo gesproken had’ (1 Koningen 2:27).",
+        kop: "Een Nazireër, en een woord dat uitkwam",
+        t: "Hanna belooft ook: ‘er zal geen scheermes op zijn hoofd komen’ (1:11). Daarmee belooft ze dat hij een Nazireër zal zijn, iemand die afgezonderd is voor de HEERE (Numeri 6:5), zoals ook over Simson gezegd werd (Richteren 13:5). Toen hij naar Silo kwam, staat er: ‘het jongsken was zeer jong’ (1:24), en in hoofdstuk 3 heet hij een jongeling. Wat de HEERE over het huis van Eli zei, kwam uit: koning Salomo verdreef later de priester Abjathar, ‘om te vervullen het woord des HEEREN, hetwelk Hij over het huis van Eli te Silo gesproken had’ (1 Koningen 2:27).",
         refs: ["1 Samuël 1:11", "Numeri 6:5", "Richteren 13:5", "1 Samuël 1:24", "1 Samuël 3:1", "1 Koningen 2:27"],
       },
     ],
@@ -1917,12 +1917,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "De stad waar Saul Samuël ontmoet, wordt in hoofdstuk 9 niet bij naam genoemd; er staat alleen dat ze in het land van Zuf ligt (9:5–6). Samuël woonde in Rama (7:17), en veel uitleggers denken daarom aan Rama, maar de tekst zegt het niet. Ook het woord lot staat niet in 10:20–21: er staat dat de stam, het geslacht en Saul ‘geraakt’ werden. Zo werd ook Achan aangewezen, stam na stam en geslacht na geslacht (Jozua 7:16–18). In 1 Samuël 14:42 wordt bij zo’n aanwijzing wel gezegd: ‘Werpt het lot’.",
-        refs: ["1 Samuël 9:5–6", "1 Samuël 7:17", "1 Samuël 10:20–21", "Jozua 7:16–18", "1 Samuël 14:42"],
+        t: "De stad waar Saul Samuël ontmoet, wordt in hoofdstuk 9 niet bij naam genoemd; er staat alleen dat ze in het land van Zuf ligt (9:5–6). In Mizpa werden de stam, het geslacht en Saul ‘geraakt’ (10:20–21): het lot viel op hen. Zo werd ook Achan aangewezen, stam na stam en geslacht na geslacht (Jozua 7:16–18). In 1 Samuël 14:42 staat er ook: ‘Werpt het lot’.",
+        refs: ["1 Samuël 9:5–6", "1 Samuël 10:20–21", "Jozua 7:16–18", "1 Samuël 14:42"],
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Toen Israël wilde dat Gideon over hen zou heersen, zei hij: ‘de HEERE zal over u heersen’ (Richteren 8:23). Samuëls zonen ‘namen geschenken’ (8:3). Als Saul koning is, vraagt Samuël het volk te getuigen ‘van wiens hand ik een geschenk genomen heb’, en het volk zegt dat hij van niemand iets genomen heeft (1 Samuël 12:3–4). Samuël zegt Saul ook zeven dagen te wachten in Gilgal (10:8). Later wacht Saul in Gilgal zeven dagen, ‘tot den tijd, dien Samuël bestemd had’, en offert dan zelf het brandoffer voordat Samuël er is (1 Samuël 13:8–14). Veel uitleggers verbinden dat met 10:8. En de spreuk ‘Is Saul ook onder de profeten?’ (10:12) komt nog een keer terug, bij een tweede gebeurtenis (1 Samuël 19:24).",
+        t: "Toen Israël wilde dat Gideon over hen zou heersen, zei hij: ‘de HEERE zal over u heersen’ (Richteren 8:23). Samuëls zonen ‘namen geschenken’ (8:3). Als Saul koning is, vraagt Samuël het volk te getuigen ‘van wiens hand ik een geschenk genomen heb’, en het volk zegt dat hij van niemand iets genomen heeft (1 Samuël 12:3–4). Samuël zegt Saul ook zeven dagen te wachten in Gilgal (10:8). Later wacht Saul daar inderdaad zeven dagen, ‘tot den tijd, dien Samuël bestemd had’, en offert dan zelf het brandoffer voordat Samuël er is (1 Samuël 13:8–14). En de spreuk ‘Is Saul ook onder de profeten?’ (10:12) komt nog een keer terug, bij een tweede gebeurtenis (1 Samuël 19:24).",
         refs: [
           "Richteren 8:22–23",
           "1 Samuël 8:3",
@@ -1967,7 +1967,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Twee keer niet gehoorzaam",
-        t: "Veel uitleggers verbinden het wachten in Gilgal met wat Samuël eerder tegen Saul zei: ‘zeven dagen zult gij daar beiden, totdat ik tot u kome’ (1 Samuël 10:8). Saul wacht zeven dagen, ‘tot den tijd, dien Samuël bestemd had’ (13:8), maar offert voordat Samuël er is. Beide keren geeft Saul redenen: het volk liep weg en de Filistijnen zouden naar Gilgal komen (13:11–12); bij Amalek zegt hij dat het volk de dieren gespaard heeft om te offeren (15:15, 21). Samuël antwoordt: ‘gehoorzamen is beter dan slachtoffer, opmerken dan het vette der rammen’ (15:22). Opmerken betekent hier: aandachtig luisteren. Pas daarna zegt Saul: ‘ik heb het volk gevreesd en naar hun stem gehoord’ (15:24).",
+        t: "Het wachten in Gilgal hoort bij wat Samuël eerder tegen Saul zei: ‘zeven dagen zult gij daar beiden, totdat ik tot u kome’ (1 Samuël 10:8). Saul wacht zeven dagen, ‘tot den tijd, dien Samuël bestemd had’ (13:8), maar offert voordat Samuël er is. Beide keren geeft Saul redenen: het volk liep weg en de Filistijnen zouden naar Gilgal komen (13:11–12); bij Amalek zegt hij dat het volk de dieren gespaard heeft om te offeren (15:15, 21). Samuël antwoordt: ‘gehoorzamen is beter dan slachtoffer, opmerken dan het vette der rammen’ (15:22). Opmerken betekent hier: aandachtig luisteren. Pas daarna zegt Saul: ‘ik heb het volk gevreesd en naar hun stem gehoord’ (15:24).",
         refs: ["1 Samuël 10:8", "1 Samuël 13:8–14", "1 Samuël 15:15–24"],
       },
       {
@@ -1977,7 +1977,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Waar en wanneer",
-        t: "Bethlehem is op de kaart identificeerbaar; Gilgal en Gibea zijn waarschijnlijk; de ligging van Rama, waar Samuël heengaat (15:34; 16:13), is betwist. Het Karmel waar Saul een pilaar voor zichzelf opricht (15:12), wordt meestal gezien als de stad Karmel bij Maon in Juda (vergelijk Jozua 15:55; 1 Samuël 25:2), niet de berg Karmel aan zee. Een jaartal noemt de Bijbel niet. Handelingen 13:21 geeft Saul veertig jaar; als reconstructie werd hij koning ca. 1050 v.Chr. David was dertig toen hij koning werd (2 Samuël 5:4), in de gangbare chronologie ca. 1010 v.Chr. Hoe oud David bij de zalving was, zegt de Bijbel niet.",
+        t: "Bethlehem is op de kaart identificeerbaar; Gilgal en Gibea zijn waarschijnlijk; de ligging van Rama, waar Samuël heengaat (15:34; 16:13), is betwist. Het Karmel waar Saul een pilaar voor zichzelf opricht (15:12), is de stad Karmel bij Maon in Juda (vergelijk Jozua 15:55; 1 Samuël 25:2), niet de berg Karmel aan zee. Een jaartal noemt de Bijbel niet. Handelingen 13:21 geeft Saul veertig jaar; als reconstructie werd hij koning ca. 1050 v.Chr. David was dertig toen hij koning werd (2 Samuël 5:4), in de gangbare chronologie ca. 1010 v.Chr. Hoe oud David bij de zalving was, zegt de Bijbel niet.",
         refs: ["1 Samuël 15:12", "Jozua 15:55", "1 Samuël 25:2", "Handelingen 13:21", "2 Samuël 5:4"],
       },
     ],
@@ -2014,7 +2014,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "In tekeningen wordt David soms als klein jongetje getoond. De tekst noemt hem ‘een jongeling, roodachtig, mitsgaders schoon van aanzien’ (17:42), en een knecht van Saul noemde hem al ‘een dapper held, en een krijgsman’ (16:18). Waarom David vijf stenen koos, zegt de tekst niet; hij gebruikte er één. Opvallend is ook dat Saul aan Abner vraagt: ‘Wiens zoon is deze jongeling’ (17:55), terwijl David al eerder bij Saul was geweest als harpspeler en wapendrager (16:21–23). Uitleggers geven daar verschillende verklaringen voor.",
+        t: "In tekeningen wordt David soms als klein jongetje getoond. De tekst noemt hem ‘een jongeling, roodachtig, mitsgaders schoon van aanzien’ (17:42), en een knecht van Saul noemde hem al ‘een dapper held, en een krijgsman’ (16:18). Als David naar Goliath toe gaat, vraagt Saul aan Abner: ‘Wiens zoon is deze jongeling’ (17:55). Na het gevecht zegt David het zelf tegen Saul: hij is een zoon van Isaï uit Bethlehem (17:58).",
         refs: ["1 Samuël 17:42", "1 Samuël 16:18–23", "1 Samuël 17:55–58"],
       },
       {
@@ -2089,7 +2089,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Psalmen uit de vluchttijd",
-        t: "Boven sommige psalmen staat bij welke gebeurtenis David ze dichtte. Psalm 59 hoort bij de nacht ‘toen Saul gezonden had, die zijn huis bewaren zouden, om hem te doden’ (vergelijk 1 Samuël 19:11). Psalm 52 hoort bij de tijd ‘als Doeg, de Edomiet, gekomen was, en Saul te kennen gegeven’. Psalm 34 is van David ‘als hij zijn gelaat veranderd had voor het aangezicht van Abimelech’. In 1 Samuël 21 heet de koning van Gath Achis. Veel uitleggers zien Abimelech als een titel van Filistijnse koningen, zoals farao in Egypte; zeker is dat niet.",
+        t: "Boven sommige psalmen staat bij welke gebeurtenis David ze dichtte. Psalm 59 hoort bij de nacht ‘toen Saul gezonden had, die zijn huis bewaren zouden, om hem te doden’ (vergelijk 1 Samuël 19:11). Psalm 52 hoort bij de tijd ‘als Doeg, de Edomiet, gekomen was, en Saul te kennen gegeven’. Psalm 34 is van David ‘als hij zijn gelaat veranderd had voor het aangezicht van Abimelech’. In 1 Samuël 21 heet de koning van Gath bij zijn eigen naam Achis. Abimelech was een naam die de koningen van de Filistijnen droegen, zoals farao in Egypte.",
         refs: ["Psalm 59:1", "Psalm 52:1–2", "Psalm 34:1", "1 Samuël 21:10–14"],
       },
       {
@@ -2130,17 +2130,17 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "De vrouw in Endor",
-        t: "De tekst noemt de vrouw niet bij naam. De Statenvertaling spreekt van ‘een vrouw, die een waarzeggenden geest heeft’; de bekende benaming heks van Endor komt uit de traditie. De vrouw ziet ‘een oud man’ opkomen, ‘met een mantel bekleed’, en Saul ‘vernam, dat het Samuël was’. Uitleggers verschillen over hoe dit te verstaan is: sommigen zien hier Samuël zelf, door God gezonden; anderen een bedrieglijke verschijning. De Bijbel oordeelt wel duidelijk over wat Saul deed: hij stierf ook ‘omdat hij de waarzegster gevraagd had’ (1 Kronieken 10:13).",
+        t: "De Statenvertaling spreekt van ‘een vrouw, die een waarzeggenden geest heeft’. De vrouw ziet ‘een oud man’ opkomen, ‘met een mantel bekleed’, en Saul ‘vernam, dat het Samuël was’. De Bijbel oordeelt duidelijk over wat Saul deed: hij stierf ook ‘omdat hij de waarzegster gevraagd had’ (1 Kronieken 10:13).",
         refs: ["1 Samuël 28:7–19", "1 Kronieken 10:13–14"],
       },
       {
         kop: "Twee verhalen over Sauls dood",
-        t: "Volgens 1 Samuël 31 valt Saul in zijn eigen zwaard, als zijn wapendrager hem niet wil doden. In 2 Samuël 1 zegt een Amalekiet dat hij Saul op diens verzoek gedood heeft, en hij brengt ‘de kroon, die op zijn hoofd was, en het armgesmijde’. Veel uitleggers denken dat de man loog om beloning te krijgen. David zegt later dat de man meende ‘dat ik hem bodenloon zou geven’ (2 Samuël 4:10). David oordeelt de man naar zijn eigen woorden: ‘uw mond heeft tegen u getuigd’ (2 Samuël 1:16).",
+        t: "Volgens 1 Samuël 31 valt Saul in zijn eigen zwaard, als zijn wapendrager hem niet wil doden. In 2 Samuël 1 zegt een Amalekiet dat hij Saul op diens verzoek gedood heeft, en hij brengt ‘de kroon, die op zijn hoofd was, en het armgesmijde’. David zegt later dat de man meende ‘dat ik hem bodenloon zou geven’ (2 Samuël 4:10). David oordeelt de man naar zijn eigen woorden: ‘uw mond heeft tegen u getuigd’ (2 Samuël 1:16).",
         refs: ["1 Samuël 31:3–5", "2 Samuël 1:6–16", "2 Samuël 4:10"],
       },
       {
         kop: "De mannen van Jabes",
-        t: "Aan het begin van zijn koningschap had Saul Jabes in Gilead verlost, toen Nahas de Ammoniet de stad belegerde (1 Samuël 11). Veel uitleggers zien daarin de reden dat juist de mannen van Jabes ‘den gehelen nacht’ gaan om de lichamen van Saul en zijn zonen van de muur van Beth-San te halen. David laat hun later zeggen: ‘Gezegend zijt gij den HEERE, dat gij deze weldadigheid gedaan hebt aan uw heer’ (2 Samuël 2:5). Beth-San, de Gilboa en Sunem zijn goed te identificeren; waar Jabes en Ziklag lagen, is betwist.",
+        t: "Aan het begin van zijn koningschap had Saul Jabes in Gilead verlost, toen Nahas de Ammoniet de stad belegerde (1 Samuël 11). Uit dankbaarheid daarvoor gaan juist de mannen van Jabes ‘den gehelen nacht’ om de lichamen van Saul en zijn zonen van de muur van Beth-San te halen. David laat hun later zeggen: ‘Gezegend zijt gij den HEERE, dat gij deze weldadigheid gedaan hebt aan uw heer’ (2 Samuël 2:5). Beth-San, de Gilboa en Sunem zijn goed te identificeren; waar Jabes en Ziklag lagen, is betwist.",
         refs: ["1 Samuël 11:1–11", "1 Samuël 31:11–13", "2 Samuël 2:4–7"],
       },
     ],
@@ -2167,17 +2167,17 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Hoe Jeruzalem werd ingenomen",
-        t: "2 Samuël 5 vertelt kort dat David de burcht Sion innam. Hij beloofde: wie de Jebusieten slaat ‘en geraakt aan die watergoot’, wordt hoofd en overste. Wat die watergoot precies was, weten we niet zeker; vaak wordt gedacht aan een waterschacht van de bron naar de stad. 1 Kronieken 11 noemt Jeruzalem ook Jebus en vertelt wie als eerste naar boven ging: ‘Toen beklom Joab, de zoon van Zeruja, dien het eerst; daarom werd hij tot een hoofd.’",
+        t: "2 Samuël 5 vertelt kort dat David de burcht Sion innam. Hij beloofde: wie de Jebusieten slaat ‘en geraakt aan die watergoot’, wordt hoofd en overste. 1 Kronieken 11 noemt Jeruzalem ook Jebus en vertelt wie als eerste naar boven ging: ‘Toen beklom Joab, de zoon van Zeruja, dien het eerst; daarom werd hij tot een hoofd.’",
         refs: ["2 Samuël 5:6–9", "1 Kronieken 11:4–7"],
       },
       {
         kop: "Sion in de rest van de Bijbel",
-        t: "Na David komt de naam Sion vaak terug in de Bijbel. Psalm 132 zingt: ‘Want de HEERE heeft Sion verkoren, Hij heeft het begeerd tot Zijn woonplaats’. Psalm 48 noemt de berg Sion ‘de stad des groten Konings’. En Hebreeën 12:22 schrijft aan de gelovigen: ‘Maar gij zijt gekomen tot den berg Sion, en de stad des levenden Gods, tot het hemelse Jeruzalem’. Veel uitleggers zien zo een lijn van Davids burcht naar de plaats waar God bij Zijn volk woont.",
+        t: "Na David komt de naam Sion vaak terug in de Bijbel. Psalm 132 zingt: ‘Want de HEERE heeft Sion verkoren, Hij heeft het begeerd tot Zijn woonplaats’. Psalm 48 noemt de berg Sion ‘de stad des groten Konings’. En Hebreeën 12:22 schrijft aan de gelovigen: ‘Maar gij zijt gekomen tot den berg Sion, en de stad des levenden Gods, tot het hemelse Jeruzalem’. Zo loopt er een lijn van Davids burcht naar de plaats waar God bij Zijn volk woont.",
         refs: ["Psalm 132:13–14", "Psalm 48:2–3", "Hebreeën 12:22"],
       },
       {
         kop: "Waar en wanneer",
-        t: "Hebron, Gibeon en Jeruzalem zijn goed te identificeren. De ligging van Mahanaïm, aan de overkant van de Jordaan (2 Samuël 2:29), is waarschijnlijk, maar niet zeker. David regeerde ‘zeven jaren en zes maanden’ in Hebron. Over Isboseth staat dat hij ‘regeerde het tweede jaar’, meestal uitgelegd als twee jaar. Hoe die twee perioden in elkaar passen, zegt de tekst niet; uitleggers geven verschillende verklaringen. De jaartallen (ca. 1010–1003 v.Chr.) zijn teruggerekend vanaf het vierde jaar van Salomo (1 Koningen 6:1); andere schema’s verschillen enkele jaren.",
+        t: "Hebron, Gibeon en Jeruzalem zijn goed te identificeren. De ligging van Mahanaïm, aan de overkant van de Jordaan (2 Samuël 2:29), is waarschijnlijk, maar niet zeker. David regeerde ‘zeven jaren en zes maanden’ in Hebron. De jaartallen (ca. 1010–1003 v.Chr.) zijn teruggerekend vanaf het vierde jaar van Salomo (1 Koningen 6:1); andere schema’s verschillen enkele jaren.",
         refs: ["2 Samuël 2:10–11", "2 Samuël 5:4–5", "1 Koningen 6:1"],
       },
     ],
@@ -2209,7 +2209,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Waarom ging het de eerste keer mis?",
-        t: "De wet gaf duidelijke regels voor het vervoer van de heilige dingen. De zonen van Kohath, Levieten, moesten ze dragen, maar ‘zij zullen dat heilige niet aanroeren, dat zij niet sterven’ (Numeri 4:15). Ze kregen geen wagens, omdat zij de heilige dingen ‘op de schouderen droegen’ (Numeri 7:9). Op een nieuwe wagen hadden eerder de Filistijnen de ark teruggestuurd (1 Samuël 6:7); uitleggers zien hierin vaak dat Israël hun manier volgde in plaats van de wet. Na wat er met Uza gebeurde, zegt David zelf: ‘Niemand mag de ark Gods dragen, dan de Levieten’ (1 Kronieken 15:2). 2 Samuël 6:7 noemt wat Uza deed een ‘onbedachtzaamheid’.",
+        t: "De wet gaf duidelijke regels voor het vervoer van de heilige dingen. De zonen van Kohath, Levieten, moesten ze dragen, maar ‘zij zullen dat heilige niet aanroeren, dat zij niet sterven’ (Numeri 4:15). Ze kregen geen wagens, omdat zij de heilige dingen ‘op de schouderen droegen’ (Numeri 7:9). Op een nieuwe wagen hadden eerder de Filistijnen de ark teruggestuurd (1 Samuël 6:7); Israël deed het nu op hun manier, en niet zoals de wet het gebood. Na wat er met Uza gebeurde, zegt David zelf: ‘Niemand mag de ark Gods dragen, dan de Levieten’ (1 Kronieken 15:2). 2 Samuël 6:7 noemt wat Uza deed een ‘onbedachtzaamheid’.",
         refs: ["Numeri 4:15", "Numeri 7:9", "1 Samuël 6:7", "1 Kronieken 15:2", "2 Samuël 6:7"],
       },
       {
@@ -2246,8 +2246,8 @@ BR.niveaus.voegToe("c", {
     status: "gecontroleerd",
     verdieping: [
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "De tekst zegt dat David ‘wandelde op het dak van het koningshuis’ en van daar een vrouw zag (11:2); waar zij zelf was, staat er niet. Wat Bathseba dacht of wilde, vertelt de tekst ook niet; Nathan spreekt David aan (12:7–9). De tekst begint met een tijdsaanduiding: het was de tijd ‘als de koningen uittrekken’, maar ‘David bleef te Jeruzalem’ (11:1). Uria liet zich niet overhalen om naar huis te gaan, ook niet toen David hem dronken maakte (11:13). Hij bracht zelf de brief naar Joab, met daarin het bevel over zijn eigen dood (11:14–15).",
+        kop: "Wat de tekst vertelt",
+        t: "De tekst zegt dat David ‘wandelde op het dak van het koningshuis’ en van daar een vrouw zag (11:2). Nathan spreekt David aan over wat er gebeurd is (12:7–9). De tekst begint met een tijdsaanduiding: het was de tijd ‘als de koningen uittrekken’, maar ‘David bleef te Jeruzalem’ (11:1). Uria liet zich niet overhalen om naar huis te gaan, ook niet toen David hem dronken maakte (11:13). Hij bracht zelf de brief naar Joab, met daarin het bevel over zijn eigen dood (11:14–15).",
         refs: ["2 Samuël 11:1–2", "2 Samuël 11:13–15"],
       },
       {
@@ -2257,7 +2257,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Vergeven, en toch gevolgen",
-        t: "Nathan zegt twee dingen. Eerst: ‘het zwaard zal van uw huis niet afwijken tot in eeuwigheid’ (12:10). Als David dan zijn zonde belijdt: ‘De HEERE heeft ook uw zonde weggenomen, gij zult niet sterven’ (12:13). Toch zal het kind sterven (12:14). In de volgende hoofdstukken komt er strijd in Davids eigen huis, tot de opstand van Absalom toe (geschiedenis 59); uitleggers zien daarin dit woord van Nathan uitkomen. De Bijbel vertelt dus allebei: God vergeeft David, en toch heeft de zonde gevolgen.",
+        t: "Nathan zegt twee dingen. Eerst: ‘het zwaard zal van uw huis niet afwijken tot in eeuwigheid’ (12:10). Als David dan zijn zonde belijdt: ‘De HEERE heeft ook uw zonde weggenomen, gij zult niet sterven’ (12:13). Toch zal het kind sterven (12:14). In de volgende hoofdstukken komt er strijd in Davids eigen huis, tot de opstand van Absalom toe (geschiedenis 59); daarin komt dit woord van Nathan uit. De Bijbel vertelt dus allebei: God vergeeft David, en toch heeft de zonde gevolgen.",
         refs: ["2 Samuël 12:10–14"],
       },
     ],
@@ -2293,7 +2293,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Wat eraan voorafging",
-        t: "Absalom was de derde zoon van David, en zijn moeder Maacha was een dochter van Thalmai, de koning van Gesur (2 Samuël 3:3). Jaren eerder had Absalom zijn broer Amnon laten doden (13:28–29). Daarna vluchtte hij naar Gesur en bleef daar drie jaar (13:37–38). Terug in Jeruzalem zag hij twee jaar lang het gezicht van de koning niet (14:28). Pas daarna kuste de koning Absalom (14:33). Waarom Absalom later in opstand kwam, zegt de tekst niet met zoveel woorden; hij beloofde het volk recht (15:4).",
+        t: "Absalom was de derde zoon van David, en zijn moeder Maacha was een dochter van Thalmai, de koning van Gesur (2 Samuël 3:3). Jaren eerder had Absalom zijn broer Amnon laten doden (13:28–29). Daarna vluchtte hij naar Gesur en bleef daar drie jaar (13:37–38). Terug in Jeruzalem zag hij twee jaar lang het gezicht van de koning niet (14:28). Pas daarna kuste de koning Absalom (14:33). Later beloofde hij het volk recht te doen, als hij maar rechter was in het land (15:4).",
         refs: ["2 Samuël 3:3", "2 Samuël 13:28–29", "2 Samuël 13:37–38", "2 Samuël 14:28", "2 Samuël 14:33", "2 Samuël 15:4"],
       },
       {
@@ -2345,7 +2345,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Rijkdom en een waarschuwing",
-        t: "1 Koningen 10 beschrijft veel goud, een troon van ivoor en paarden uit Egypte (10:14–29). In Deuteronomium 17 stond al over een koning: ‘hij zal voor zich de paarden niet vermenigvuldigen’, ‘Ook zal hij voor zich de vrouwen niet vermenigvuldigen, opdat zijn hart niet afwijke’ en ‘hij zal ook voor zich geen zilver en goud zeer vermenigvuldigen’. 1 Koningen 11:4 vertelt dat zijn vrouwen in zijn ouderdom ‘zijn hart achter andere goden neigden’. Hoofdstuk 10 zelf geeft geen oordeel, maar veel uitleggers lezen het daarom ook als een waarschuwing.",
+        t: "1 Koningen 10 beschrijft veel goud, een troon van ivoor en paarden uit Egypte (10:14–29). In Deuteronomium 17 stond al over een koning: ‘hij zal voor zich de paarden niet vermenigvuldigen’, ‘Ook zal hij voor zich de vrouwen niet vermenigvuldigen, opdat zijn hart niet afwijke’ en ‘hij zal ook voor zich geen zilver en goud zeer vermenigvuldigen’. 1 Koningen 11:4 vertelt dat zijn vrouwen in zijn ouderdom ‘zijn hart achter andere goden neigden’.",
         refs: ["1 Koningen 10:14–29", "Deuteronomium 17:16–17", "1 Koningen 11:4"],
       },
     ],
@@ -2420,7 +2420,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Hoogten en vreemde goden",
-        t: "Een hoogte is een offerplaats. De tekst noemt Astoreth, ‘den god der Sidoniërs’, Kamos, de god van de Moabieten, en voor de Ammonieten zowel Milchom als Molech (11:5, 7, 33). Veel uitleggers zien Milchom en Molech als dezelfde god; 2 Koningen 23:13 noemt bij dezelfde hoogten Milchom. Salomo bouwde ‘op den berg, die voor Jeruzalem is’ (11:7). Ze staan er nog in de tijd van koning Josia, die ze verontreinigt: ‘die Salomo, de koning van Israël, voor Astoreth’ en de andere goden ‘gebouwd had’ (2 Koningen 23:13). Jerobeam maakt priesters ‘die niet waren uit de zonen van Levi’ (12:31). 2 Kronieken 11:13–14 vertelt dat priesters en Levieten uit heel Israël naar Juda en Jeruzalem kwamen, omdat Jerobeam hen verstoten had.",
+        t: "Een hoogte is een offerplaats. De tekst noemt Astoreth, ‘den god der Sidoniërs’, Kamos, de god van de Moabieten, en voor de Ammonieten zowel Milchom als Molech (11:5, 7, 33). Milchom en Molech zijn twee namen voor dezelfde god; 2 Koningen 23:13 noemt bij dezelfde hoogten Milchom. Salomo bouwde ‘op den berg, die voor Jeruzalem is’ (11:7). Ze staan er nog in de tijd van koning Josia, die ze verontreinigt: ‘die Salomo, de koning van Israël, voor Astoreth’ en de andere goden ‘gebouwd had’ (2 Koningen 23:13). Jerobeam maakt priesters ‘die niet waren uit de zonen van Levi’ (12:31). 2 Kronieken 11:13–14 vertelt dat priesters en Levieten uit heel Israël naar Juda en Jeruzalem kwamen, omdat Jerobeam hen verstoten had.",
         refs: ["1 Koningen 11:5–8", "1 Koningen 11:33", "2 Koningen 23:13", "1 Koningen 12:31", "2 Kronieken 11:13–14"],
       },
       {
@@ -2462,13 +2462,13 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Waar en wanneer",
-        t: "Zarfath ‘bij Sidon’, de berg Karmel en Jizreël zijn identificeerbaar. Waar Tisbe en de beek Krith lagen, is onbekend. De Bijbel zegt alleen dat Elia ‘van de inwoneren van Gilead’ was, en dat de beek ‘voor aan de Jordaan’ lag. Achab regeerde tweeëntwintig jaar in Samaria, in de gangbare chronologie (Thiele) ca. 874–853 v.Chr. In welke jaren de droogte viel, staat niet in de Bijbel. 1 Koningen 18:1 spreekt van ‘het derde jaar’; de Heere Jezus en Jakobus noemen ‘drie jaren en zes maanden’ (Lukas 4:25; Jakobus 5:17). Uitleggers verklaren dat verschil op verschillende manieren.",
+        t: "Zarfath ‘bij Sidon’, de berg Karmel en Jizreël zijn identificeerbaar. Waar Tisbe en de beek Krith lagen, is onbekend. De Bijbel zegt alleen dat Elia ‘van de inwoneren van Gilead’ was, en dat de beek ‘voor aan de Jordaan’ lag. Achab regeerde tweeëntwintig jaar in Samaria, in de gangbare chronologie (Thiele) ca. 874–853 v.Chr. In welke jaren de droogte viel, staat niet in de Bijbel. 1 Koningen 18:1 spreekt van ‘het derde jaar’: het derde jaar dat Elia bij de weduwe in Zarfath was. De hele droogte duurde ‘drie jaren en zes maanden’, zeggen de Heere Jezus en Jakobus (Lukas 4:25; Jakobus 5:17).",
         refs: ["1 Koningen 17:1–9", "1 Koningen 16:29", "1 Koningen 18:1", "Lukas 4:25", "Jakobus 5:17"],
       },
       {
         kop: "Baäl en de regen",
-        t: "Uit teksten van buiten de Bijbel is bekend dat de Kanaänieten en Feniciërs Baäl vereerden als god van onweer en regen. Veel uitleggers zien daarom in de droogte en het vuur een duidelijke boodschap: juist waar Baäl macht zou hebben, geeft hij geen antwoord. Elia spot: ‘misschien slaapt hij en zal wakker worden’ (1 Koningen 18:27). Opvallend: Elia vraagt ook om ‘de vierhonderd profeten van het bos’, waarmee meestal de godin Asjera wordt bedoeld (18:19). Bij het offer worden alleen de profeten van Baäl genoemd; of de anderen kwamen, zegt de tekst niet.",
-        refs: ["1 Koningen 18:19–29"],
+        t: "Uit teksten van buiten de Bijbel is bekend dat de Kanaänieten en Feniciërs Baäl vereerden als god van onweer en regen. Elia spot: ‘misschien slaapt hij en zal wakker worden’ (1 Koningen 18:27). Elia vraagt ook om ‘de vierhonderd profeten van het bos’ (18:19): het afgodische bos dat Achab gemaakt had (16:33). De Herziene Statenvertaling zegt hier: Asjera. Bij het offer worden alleen de profeten van Baäl genoemd.",
+        refs: ["1 Koningen 18:19–29", "1 Koningen 16:33"],
       },
     ],
     vragen: [
@@ -2496,7 +2496,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Aarde uit Israël en het huis van Rimmon",
-        t: "Naäman vraagt ‘een last aarde van een juk muildieren’: zoveel aarde als een span muildieren kan dragen. Hij wil geen offers meer brengen aan andere goden, ‘maar den HEERE’ (2 Koningen 5:17). Veel uitleggers denken dat hij de HEERE wilde dienen op aarde uit Zijn land; de tekst zegt niet precies waarom. Naäman vraagt vergeving als hij met zijn koning moet buigen ‘in het huis van Rimmon’, een afgod in Syrië (5:18). Elisa antwoordt alleen: ‘Ga in vrede.’ Wat Elisa daarmee bedoelde, daarover verschillen uitleggers.",
+        t: "Naäman vraagt ‘een last aarde van een juk muildieren’: zoveel aarde als een span muildieren kan dragen. Van die aarde uit Israël wil hij thuis een altaar maken, want hij wil geen offers meer brengen aan andere goden, ‘maar den HEERE’ (2 Koningen 5:17). Naäman vraagt vergeving als hij met zijn koning moet buigen ‘in het huis van Rimmon’, een afgod in Syrië (5:18). Elisa antwoordt alleen: ‘Ga in vrede.’",
         refs: ["2 Koningen 5:17–19"],
       },
       {
@@ -2538,7 +2538,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "De kroon en de getuigenis",
-        t: "Jojada zet Joas de kroon op, ‘en gaf hem de getuigenis’ (2 Koningen 11:12). Wat die getuigenis precies was, legt de tekst niet uit. Veel uitleggers denken aan een boekrol met de wet van God. Deuteronomium 17 zegt dat een koning een afschrift van de wet moest hebben, ‘en hij zal daarin lezen al de dagen zijns levens’ (Deuteronomium 17:19). Daarna sluit Jojada een verbond tussen de HEERE, de koning en het volk, ‘dat het den HEERE tot een volk zou zijn’ (11:17). Daarna breekt het volk het huis van Baäl af (11:18).",
+        t: "Jojada zet Joas de kroon op, ‘en gaf hem de getuigenis’ (2 Koningen 11:12). Die getuigenis is het boek van de wet van God, waarin God zegt hoe een koning moet regeren. Deuteronomium 17 zegt dat een koning een afschrift van de wet moest hebben, ‘en hij zal daarin lezen al de dagen zijns levens’ (Deuteronomium 17:19). Daarna sluit Jojada een verbond tussen de HEERE, de koning en het volk, ‘dat het den HEERE tot een volk zou zijn’ (11:17). Daarna breekt het volk het huis van Baäl af (11:18).",
         refs: ["2 Koningen 11:12", "Deuteronomium 17:18–19", "2 Koningen 11:17–18"],
       },
       {
@@ -2575,7 +2575,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Nieuwe bewoners in Samaria",
-        t: "In de steden van Samaria komen volken uit Babel, Chuta, Avva, Hamath en Sefarvaim wonen (2 Koningen 17:24). Als zij de HEERE niet vrezen, zendt Hij leeuwen onder hen (17:25). De koning van Assyrië stuurt dan een weggevoerde priester terug. Die gaat in Beth-el wonen en leert hen ‘hoe zij den HEERE vrezen zouden’ (17:28). Toch staat er: ‘Zij vreesden den HEERE, en dienden ook hun goden’ (17:33). Veel uitleggers zien hierin een begin van de latere Samaritanen uit het Nieuwe Testament (vergelijk Johannes 4:9); over hun precieze herkomst verschillen onderzoekers.",
+        t: "In de steden van Samaria komen volken uit Babel, Chuta, Avva, Hamath en Sefarvaim wonen (2 Koningen 17:24). Als zij de HEERE niet vrezen, zendt Hij leeuwen onder hen (17:25). De koning van Assyrië stuurt dan een weggevoerde priester terug. Die gaat in Beth-el wonen en leert hen ‘hoe zij den HEERE vrezen zouden’ (17:28). Toch staat er: ‘Zij vreesden den HEERE, en dienden ook hun goden’ (17:33). Hier begint de geschiedenis van de Samaritanen die je in het Nieuwe Testament tegenkomt (vergelijk Johannes 4:9).",
         refs: ["2 Koningen 17:24–33", "Johannes 4:9"],
       },
       {
@@ -2609,12 +2609,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "De koperen slang",
-        t: "In de woestijn maakte Mozes een koperen slang en zette die op een stang; wie gebeten was en haar aanzag, bleef leven (Numeri 21:8–9). Tot in de tijd van Hizkia brandden de Israëlieten er reukwerk voor. Daarom verbrijzelt Hizkia haar en noemt haar Nehustan (2 Koningen 18:4). Die naam wordt meestal uitgelegd als: een stuk koper. Veel uitleggers zien daarin dat Hizkia wilde laten zien dat het niet meer was dan koper. De Heere Jezus wijst op dezelfde slang: ‘gelijk Mozes de slang in de woestijn verhoogd heeft, alzo moet de Zoon des mensen verhoogd worden’ (Johannes 3:14).",
+        t: "In de woestijn maakte Mozes een koperen slang en zette die op een stang; wie gebeten was en haar aanzag, bleef leven (Numeri 21:8–9). Tot in de tijd van Hizkia brandden de Israëlieten er reukwerk voor. Daarom verbrijzelt Hizkia haar en noemt haar Nehustan (2 Koningen 18:4). Die naam betekent: een stuk koper. Zo laat Hizkia zien dat het niet meer is dan koper. De Heere Jezus wijst op dezelfde slang: ‘gelijk Mozes de slang in de woestijn verhoogd heeft, alzo moet de Zoon des mensen verhoogd worden’ (Johannes 3:14).",
         refs: ["Numeri 21:8–9", "2 Koningen 18:4", "Johannes 3:14"],
       },
       {
         kop: "In die dagen",
-        t: "Hoofdstuk 20 begint met ‘In die dagen’. De ziekte van Hizkia wordt na het verhaal van Sanherib verteld, maar de tekst zegt niet dat zij daarna kwam. Wel belooft God hem dat Hij hem ‘uit de hand des konings van Assyrië verlossen’ zal, ‘mitsgaders deze stad’ (20:6). Daarom denken veel uitleggers dat Hizkia ziek werd vóór of tijdens de dreiging van Sanherib. Ook de gezanten uit Babel kwamen ‘te dier tijd’ (20:12). Volgens 2 Kronieken 32:31 kwamen zij vragen ‘naar dat wonderteken’, en ‘verliet hem God, om hem te verzoeken, om te weten al wat in zijn hart was’.",
+        t: "Hoofdstuk 20 begint met ‘In die dagen’: in hetzelfde jaar dat Sanherib tegen Juda optrok. God belooft de zieke Hizkia dat Hij hem ‘uit de hand des konings van Assyrië verlossen’ zal, ‘mitsgaders deze stad’ (20:6). Ook de gezanten uit Babel kwamen ‘te dier tijd’ (20:12). Volgens 2 Kronieken 32:31 kwamen zij vragen ‘naar dat wonderteken’, en ‘verliet hem God, om hem te verzoeken, om te weten al wat in zijn hart was’.",
         refs: ["2 Koningen 20:1–12", "2 Kronieken 32:31"],
       },
       {
@@ -2652,8 +2652,8 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Welk boek werd gevonden?",
-        t: "De tekst noemt het ‘het wetboek’ en ‘het boek des verbonds’ (2 Koningen 23:2). Welk deel van de wet van Mozes het precies was, zegt de tekst niet. Veel uitleggers denken aan (een deel van) Deuteronomium, omdat wat Josia daarna doet daar sterk bij aansluit; anderen denken aan de hele wet van Mozes. Mozes had bevolen: ‘Neemt dit wetboek, en legt het aan de zijde van de ark des verbonds’ (Deuteronomium 31:26). En een koning moest een afschrift van de wet bij zich hebben en ‘daarin lezen al de dagen zijns levens’ (Deuteronomium 17:19).",
-        refs: ["2 Koningen 23:2", "Deuteronomium 31:24–26", "Deuteronomium 17:18–19"],
+        t: "De tekst noemt het ‘het wetboek’ en ‘het boek des verbonds’ (2 Koningen 23:2). Kronieken zegt: ‘het wetboek des HEEREN, gegeven door de hand van Mozes’ (2 Kronieken 34:14). Mozes had bevolen: ‘Neemt dit wetboek, en legt het aan de zijde van de ark des verbonds’ (Deuteronomium 31:26). En een koning moest een afschrift van de wet bij zich hebben en ‘daarin lezen al de dagen zijns levens’ (Deuteronomium 17:19).",
+        refs: ["2 Koningen 23:2", "2 Kronieken 34:14", "Deuteronomium 31:24–26", "Deuteronomium 17:18–19"],
       },
       {
         kop: "Waar en wanneer",
@@ -2689,7 +2689,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Steeds verder naar beneden",
-        t: "Wie goed leest, ziet dat Jona telkens naar beneden gaat. Hij ‘kwam af te Jafo’, ging ‘neder in hetzelve’ (het schip) en ‘was nedergegaan aan de zijden van het schip’. In zijn gebed zegt hij: ‘Ik was nedergedaald tot de gronden der bergen’ (2:6). Veel uitleggers wijzen erop dat de vlucht van God weg zo een weg omlaag is. Dan keert het: ‘maar Gij hebt mijn leven uit het verderf opgevoerd, o HEERE, mijn God!’ Ook het woord ‘beschikte’ valt op: de HEERE beschikte de vis (1:17), en later een wonderboom, een worm en een oostenwind (Jona 4:6–8).",
+        t: "Wie goed leest, ziet dat Jona telkens naar beneden gaat. Hij ‘kwam af te Jafo’, ging ‘neder in hetzelve’ (het schip) en ‘was nedergegaan aan de zijden van het schip’. In zijn gebed zegt hij: ‘Ik was nedergedaald tot de gronden der bergen’ (2:6). Dan keert het: ‘maar Gij hebt mijn leven uit het verderf opgevoerd, o HEERE, mijn God!’ Ook het woord ‘beschikte’ valt op: de HEERE beschikte de vis (1:17), en later een wonderboom, een worm en een oostenwind (Jona 4:6–8).",
         refs: ["Jona 1:3", "Jona 1:5", "Jona 2:6", "Jona 1:17", "Jona 4:6–8"],
       },
       {
@@ -2699,7 +2699,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Waar en wanneer",
-        t: "De Bijbel zegt alleen dat Jona profeteerde in de tijd van Jerobeam, de zoon van Joas, koning van Israël (2 Koningen 14:23–25). Diens regering wordt in de gangbare chronologie op ongeveer 793–753 v.Chr. gezet. Wanneer Jona naar Ninevé moest, staat er niet. Jafo (Joppe) en Ninevé zijn aanwijsbare plaatsen; Gath-Hefer, waar Jona vandaan kwam, is waarschijnlijk teruggevonden. Waar Tarsis lag, zegt de tekst niet; daarover verschillen uitleggers.",
+        t: "De Bijbel zegt alleen dat Jona profeteerde in de tijd van Jerobeam, de zoon van Joas, koning van Israël (2 Koningen 14:23–25). Diens regering wordt in de gangbare chronologie op ongeveer 793–753 v.Chr. gezet. Wanneer Jona naar Ninevé moest, staat er niet. Jafo (Joppe) en Ninevé zijn aanwijsbare plaatsen; Gath-Hefer, waar Jona vandaan kwam, is waarschijnlijk teruggevonden. Waar Tarsis lag, is niet zeker.",
         refs: ["2 Koningen 14:23–25"],
       },
     ],
@@ -2736,8 +2736,8 @@ BR.niveaus.voegToe("c", {
         refs: ["Genesis 37:33–34", "Esther 4:1", "Daniël 9:3", "Jona 3:8"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Jona 3:10 zegt: ‘het berouwde God over het kwaad’. Numeri 23:19 zegt dat God geen mens is, ‘dat het Hem berouwen zou’. In de reformatorische uitleg wordt Jona 3:10 meestal gezien als een menselijke manier van spreken: God doet het aangekondigde oordeel niet, zoals Jeremia 18:8 zegt. Over de mensen ‘die geen onderscheid weten tussen hun rechterhand, en hun linkerhand’ verschillen uitleggers: sommigen denken aan jonge kinderen, anderen aan mensen zonder kennis van God. Het boek eindigt met Gods vraag; Jona’s antwoord staat er niet.",
+        kop: "Berouw van God en kleine kinderen",
+        t: "Jona 3:10 zegt: ‘het berouwde God over het kwaad’. Numeri 23:19 zegt dat God geen mens is, ‘dat het Hem berouwen zou’. God verandert niet; de Bijbel spreekt hier op een menselijke manier. In Zijn waarschuwing lag al besloten dat Hij zou sparen als Ninevé zich bekeerde, zoals Jeremia 18:8 zegt. De mensen ‘die geen onderscheid weten tussen hun rechterhand, en hun linkerhand’ zijn de kleine kinderen. Het boek eindigt met Gods vraag.",
         refs: ["Jona 3:10", "Numeri 23:19", "Jeremia 18:8", "Jona 4:11"],
       },
     ],
@@ -2774,7 +2774,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Gedalja, de kleinzoon van Safan",
-        t: "Gedalja wordt genoemd ‘de zoon van Ahikam, den zoon van Safan’ (Jeremia 40:9). Een Ahikam, zoon van Safan, was een van de mannen die koning Josia naar de profetes Hulda stuurde, samen met Safan de schrijver (2 Koningen 22:12–14). Uitleggers gaan er meestal van uit dat dit dezelfde familie is. Ahikam beschermde later Jeremia: ‘de hand van Ahikam, den zoon van Safan, was met Jeremia’ (Jeremia 26:24). Nu wordt Jeremia aan zijn zoon Gedalja toevertrouwd.",
+        t: "Gedalja wordt genoemd ‘de zoon van Ahikam, den zoon van Safan’ (Jeremia 40:9). Een Ahikam, zoon van Safan, was een van de mannen die koning Josia naar de profetes Hulda stuurde, samen met Safan de schrijver (2 Koningen 22:12–14). Toen Jeremia in gevaar was, staat er: ‘de hand van Ahikam, den zoon van Safan, was met Jeremia’ (Jeremia 26:24). Nu wordt Jeremia toevertrouwd aan Gedalja, de zoon van Ahikam.",
         refs: ["Jeremia 40:9", "2 Koningen 22:12–14", "Jeremia 26:24", "Jeremia 39:14"],
       },
       {
@@ -2811,17 +2811,17 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Waar en wanneer",
-        t: "Jesaja profeteerde in de dagen van Uzzia, Jotham, Achaz en Hizkia (Jesaja 1:1), ongeveer 740–700 v.Chr. De troost van Jesaja 40–43 is gericht aan het volk in de ballingschap, die toen nog moest komen. Babel en de Chaldeeën worden al genoemd (Jesaja 43:14), en even verderop wordt zelfs Cores bij name genoemd (Jesaja 44:28; 45:1). Veel bijbelwetenschappers dateren deze hoofdstukken later, rond 540 v.Chr. In de reformatorische traditie geldt Jesaja zelf als de schrijver, zoals ook het Nieuwe Testament hem noemt (Mattheüs 3:3).",
+        t: "Jesaja profeteerde in de dagen van Uzzia, Jotham, Achaz en Hizkia (Jesaja 1:1), ongeveer 740–700 v.Chr. De troost van Jesaja 40–43 is gericht aan het volk in de ballingschap, die toen nog moest komen. Babel en de Chaldeeën worden al genoemd (Jesaja 43:14), en even verderop wordt zelfs Cores bij name genoemd (Jesaja 44:28; 45:1). Jesaja zelf schreef ook deze hoofdstukken; het Nieuwe Testament noemt hem erbij (Mattheüs 3:3).",
         refs: ["Jesaja 1:1", "Jesaja 43:14", "Jesaja 44:28", "Jesaja 45:1", "Mattheüs 3:3"],
       },
       {
         kop: "Mijn knecht",
-        t: "Het woord knecht wordt in deze hoofdstukken op meer manieren gebruikt. God noemt het volk ‘Israël, Mijn knecht’ (Jesaja 41:8), en Hij spreekt ook over een knecht die blind en doof is (Jesaja 42:19). In Jesaja 42:1 gaat het over ‘Mijn Knecht, Dien Ik ondersteun’, op Wie God Zijn Geest geeft en Die het recht brengt. Mattheüs 12:17–21 zegt dat dit vervuld is in de Heere Jezus. Veel uitleggers horen Jesaja 42:1 ook in de stem bij Zijn doop: ‘Deze is Mijn Zoon, Mijn Geliefde, in Denwelken Ik Mijn welbehagen heb!’ (Mattheüs 3:17).",
+        t: "Het woord knecht wordt in deze hoofdstukken op meer manieren gebruikt. God noemt het volk ‘Israël, Mijn knecht’ (Jesaja 41:8), en Hij spreekt ook over een knecht die blind en doof is (Jesaja 42:19). In Jesaja 42:1 gaat het over ‘Mijn Knecht, Dien Ik ondersteun’, op Wie God Zijn Geest geeft en Die het recht brengt. Mattheüs 12:17–21 zegt dat dit vervuld is in de Heere Jezus. Jesaja 42:1 klinkt ook in de stem bij Zijn doop: ‘Deze is Mijn Zoon, Mijn Geliefde, in Denwelken Ik Mijn welbehagen heb!’ (Mattheüs 3:17).",
         refs: ["Jesaja 41:8", "Jesaja 42:1", "Jesaja 42:19", "Mattheüs 12:17–21", "Mattheüs 3:17"],
       },
       {
         kop: "Riet, vlaswiek en losgeld",
-        t: "Een gekrookt riet is een geknakte rietstengel. Een vlaswiek is de pit van een olielamp, gemaakt van vlas; een rokende vlaswiek brandt bijna niet meer. Van de Knecht zegt Jesaja: ‘Het gekrookte riet zal Hij niet verbreken, en de rokende vlaswiek zal Hij niet uitblussen’. Veel uitleggers lezen dit zo: wat zwak is, maakt Hij niet kapot. In Jesaja 43:3 noemt God Egypte, Morenland en Seba als ‘losgeld’: de prijs die betaald wordt om iemand vrij te krijgen. De reden staat erbij: ‘dat gij kostelijk zijt geweest in Mijn ogen’ (Jesaja 43:4).",
+        t: "Een gekrookt riet is een geknakte rietstengel. Een vlaswiek is de pit van een olielamp, gemaakt van vlas; een rokende vlaswiek brandt bijna niet meer. Van de Knecht zegt Jesaja: ‘Het gekrookte riet zal Hij niet verbreken, en de rokende vlaswiek zal Hij niet uitblussen’. Dat betekent: wie zwak is, maakt Hij niet kapot, maar Hij richt hem op. In Jesaja 43:3 noemt God Egypte, Morenland en Seba als ‘losgeld’: de prijs die betaald wordt om iemand vrij te krijgen. De reden staat erbij: ‘dat gij kostelijk zijt geweest in Mijn ogen’ (Jesaja 43:4).",
         refs: ["Jesaja 42:3", "Jesaja 43:3–4"],
       },
     ],
@@ -2848,8 +2848,8 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Waar en wanneer",
-        t: "Daniël 1:1 noemt het derde jaar van koning Jojakim. Jeremia 25:1 noemt het vierde jaar van Jojakim ‘het eerste jaar van Nebukadnezar’: een andere manier van tellen. Babylonische bronnen plaatsen de eerste tocht van Nebukadnezar naar het westen in 605 v.Chr. De droom kwam in zijn tweede jaar (Daniël 2:1), ca. 603 v.Chr. Hoe dat samengaat met de opleiding van drie jaar (Daniël 1:5), leggen uitleggers verschillend uit. Jeruzalem en Babel kunnen we aanwijzen. Het land Sinear (1:2) is het land rond Babel (Genesis 10:10).",
-        refs: ["Daniël 1:1", "Jeremia 25:1", "Daniël 2:1", "Daniël 1:5", "Genesis 10:10"],
+        t: "Daniël 1:1 noemt het derde jaar van koning Jojakim. Jeremia 25:1 noemt het vierde jaar van Jojakim ‘het eerste jaar van Nebukadnezar’: een andere manier van tellen. Babylonische bronnen plaatsen de eerste tocht van Nebukadnezar naar het westen in 605 v.Chr. De droom kwam in zijn tweede jaar (Daniël 2:1), ca. 603 v.Chr. Jeruzalem en Babel kunnen we aanwijzen. Het land Sinear (1:2) is het land rond Babel (Genesis 10:10).",
+        refs: ["Daniël 1:1", "Jeremia 25:1", "Daniël 2:1", "Genesis 10:10"],
       },
       {
         kop: "De vaten uit de tempel",
@@ -2858,7 +2858,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Achtergrond: Syrisch en Chaldeeën",
-        t: "In Daniël 2:4 spreken de Chaldeeën ‘tot den koning in het Syrisch’. Daarmee wordt het Aramees bedoeld, een taal die toen in het rijk veel werd gebruikt. Vanaf dit vers tot het einde van hoofdstuk 7 is het boek Daniël in het Aramees geschreven; de rest in het Hebreeuws. Het woord Chaldeeën betekent in Daniël het volk van Babel, maar ook een groep wijzen naast de tovenaars en sterrenkijkers (Daniël 2:2). ‘Het gezaaide’ (1:12) is wat uit zaad groeit; uitleggers denken aan groente, peulvruchten en graan.",
+        t: "In Daniël 2:4 spreken de Chaldeeën ‘tot den koning in het Syrisch’. Daarmee wordt het Aramees bedoeld, een taal die toen in het rijk veel werd gebruikt. Vanaf dit vers tot het einde van hoofdstuk 7 is het boek Daniël in het Aramees geschreven; de rest in het Hebreeuws. Het woord Chaldeeën betekent in Daniël het volk van Babel, maar ook een groep wijzen naast de tovenaars en sterrenkijkers (Daniël 2:2). ‘Het gezaaide’ (1:12) is wat uit zaad groeit, zoals groente en peulvruchten.",
         refs: ["Daniël 2:4", "Daniël 2:2", "Daniël 1:12"],
       },
     ],
@@ -2895,12 +2895,12 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Een hoofd van goud, een beeld van goud",
-        t: "Bij de uitleg van zijn droom zei Daniël tegen Nebukadnezar: ‘gij zijt dat gouden hoofd’ (Daniël 2:38). In hoofdstuk 3 laat hij een beeld van goud maken, en iedereen moet het aanbidden. De tekst legt dat verband niet zelf; veel uitleggers wijzen erop. Daniël wordt in hoofdstuk 3 niet genoemd. Waar hij toen was, vertelt de Bijbel niet.",
+        t: "Bij de uitleg van zijn droom zei Daniël tegen Nebukadnezar: ‘gij zijt dat gouden hoofd’ (Daniël 2:38). In hoofdstuk 3 laat hij een beeld van goud maken, en iedereen moet het aanbidden. Daniël wordt in hoofdstuk 3 niet genoemd.",
         refs: ["Daniël 2:38", "Daniël 3:1–7"],
       },
       {
         kop: "Wie was de vierde?",
-        t: "Nebukadnezar zegt: ‘de gedaante des vierden is gelijk eens zoons der goden’ (3:25). Hij spreekt als heidense koning. In vers 28 zegt hij dat God ‘Zijn engel gezonden’ heeft. Uitleggers verschillen: sommigen zien hier een engel, anderen de Zoon van God Zelf, al vóór Hij mens werd. Een vergelijkbare redding staat in Daniël 6: ook daar een wet van de koning, aanklagers, een engel en een koning die God looft (Daniël 6:23, 27).",
+        t: "Nebukadnezar zegt: ‘de gedaante des vierden is gelijk eens zoons der goden’ (3:25). Hij spreekt als heidense koning. In vers 28 zegt hij dat God ‘Zijn engel gezonden’ heeft. Een vergelijkbare redding staat in Daniël 6: ook daar een wet van de koning, aanklagers, een engel en een koning die God looft (Daniël 6:23, 27).",
         refs: ["Daniël 3:25", "Daniël 3:28", "Daniël 6:23", "Daniël 6:27"],
       },
     ],
@@ -2932,7 +2932,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Waar en wanneer",
-        t: "Darius de Meder ontving het koninkrijk na de dood van Belsazar, toen Babel viel (Daniël 5:30; 6:1). Dat was in 539 v.Chr. Wie deze Darius buiten de Bijbel was, is niet zeker; daarover bestaan verschillende opvattingen. Daniël 9:1 noemt hem ‘den zoon van Ahasveros, uit het zaad der Meden’. Daniël was in het derde jaar van Jojakim naar Babel gebracht (Daniël 1:1–6); volgens de reconstructie rond 605 v.Chr., dus ruim zestig jaar eerder. Hij is hier dus geen jonge man meer, al noemt de Bijbel zijn leeftijd niet.",
+        t: "Darius de Meder ontving het koninkrijk na de dood van Belsazar, toen Babel viel (Daniël 5:30; 6:1). Dat was in 539 v.Chr. Wie deze Darius buiten de Bijbel was, is niet zeker. Daniël 9:1 noemt hem ‘den zoon van Ahasveros, uit het zaad der Meden’. Daniël was in het derde jaar van Jojakim naar Babel gebracht (Daniël 1:1–6); volgens de reconstructie rond 605 v.Chr., dus ruim zestig jaar eerder. Hij is hier dus geen jonge man meer.",
         refs: ["Daniël 5:30", "Daniël 6:1", "Daniël 9:1", "Daniël 1:1–6"],
       },
       {
@@ -2941,8 +2941,8 @@ BR.niveaus.voegToe("c", {
         refs: ["Daniël 6:11", "1 Koningen 8:48–49", "Daniël 9:1–3", "Psalm 55:18"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "De aanklagers gebruiken tegen Daniël dezelfde woorden als eerder de Chaldeeën tegen zijn drie vrienden: hij heeft ‘op u geen acht gesteld’ (Daniël 6:14; Daniël 3:12). Hoeveel leeuwen er in de kuil waren en hoe de kuil eruitzag, vertelt de Bijbel niet. Wel zegt de tekst dat er geen schade aan Daniël gevonden werd, ‘dewijl hij in zijn God geloofd had’ (6:24). Darius noemt hem ‘gij knecht des levenden Gods’ (6:21), en in zijn brief noemt hij God ‘de levende God’ (6:27).",
+        kop: "Dezelfde aanklacht",
+        t: "De aanklagers gebruiken tegen Daniël dezelfde woorden als eerder de Chaldeeën tegen zijn drie vrienden: hij heeft ‘op u geen acht gesteld’ (Daniël 6:14; Daniël 3:12). Wel zegt de tekst dat er geen schade aan Daniël gevonden werd, ‘dewijl hij in zijn God geloofd had’ (6:24). Darius noemt hem ‘gij knecht des levenden Gods’ (6:21), en in zijn brief noemt hij God ‘de levende God’ (6:27).",
         refs: ["Daniël 6:14", "Daniël 3:12", "Daniël 6:24", "Daniël 6:21", "Daniël 6:27"],
       },
     ],
@@ -2982,8 +2982,8 @@ BR.niveaus.voegToe("c", {
         refs: ["Ezra 1:1", "Ezra 4:24", "Ezra 6:15", "Ezra 6:2"],
       },
       {
-        kop: "Ezra 4: wie waren deze koningen?",
-        t: "Ezra 4:6–23 gaat over tegenwerking onder Ahasveros en Arthahsasta. De brief aan Arthahsasta klaagt over het herbouwen van de stad en haar muren, niet over de tempel (Ezra 4:12–13). Uitleggers verschillen over wie deze koningen waren. Sommigen zien hier koningen die na Darius regeerden; dan is dit stuk een vooruitblik, en gaat vers 24 verder waar vers 5 ophield. Anderen denken aan koningen tussen Kores en Darius. Vanaf Ezra 4:8 tot en met 6:18 is het boek in het Aramees geschreven, dat in 4:7 ‘Syrisch’ heet.",
+        kop: "Ezra 4: brieven tegen de bouw",
+        t: "Ezra 4:6–23 gaat over tegenwerking onder Ahasveros en Arthahsasta. De brief aan Arthahsasta klaagt over het herbouwen van de stad en haar muren, niet over de tempel (Ezra 4:12–13). Vanaf Ezra 4:8 tot en met 6:18 is het boek in het Aramees geschreven, dat in 4:7 ‘Syrisch’ heet.",
         refs: ["Ezra 4:6–24", "Ezra 4:12–13", "Ezra 4:7"],
       },
       {
@@ -3029,12 +3029,12 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Agagiet en Benjaminiet",
-        t: "Haman wordt ‘den Agagiet’ genoemd (3:1). Veel uitleggers verbinden die naam met Agag, ‘den koning der Amalekieten’, die door koning Saul levend gevangen werd genomen (1 Samuël 15:8). Na de strijd tegen Amalek zei Mozes: ‘zo zal de oorlog des HEEREN tegen Amalek zijn, van geslacht tot geslacht!’ (Exodus 17:16). Mordechai is een Benjaminiet, een nakomeling van Kis (2:5). Ook de vader van Saul heette Kis en kwam uit Benjamin (1 Samuël 9:1–2). Het boek Esther legt dit verband zelf niet; het is een uitleg.",
-        refs: ["Esther 3:1", "1 Samuël 15:8", "Exodus 17:16", "Esther 2:5", "1 Samuël 9:1–2"],
+        t: "Haman wordt ‘den Agagiet’ genoemd (3:1). De naam Agag staat ook in 1 Samuël 15:8: Agag, ‘den koning der Amalekieten’, werd door koning Saul levend gevangen genomen. Mordechai is een Benjaminiet (2:5), uit dezelfde stam als koning Saul (1 Samuël 9:1–2).",
+        refs: ["Esther 3:1", "1 Samuël 15:8", "Esther 2:5", "1 Samuël 9:1–2"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "De tekst zegt niet waarom Vasthi weigerde te komen. Er staat alleen dat zij ‘niet gedaan had het woord van den koning’ (1:15). Ook waarom Mordechai niet voor Haman boog, wordt niet uitgelegd. Er staat alleen dat ‘hij had hun te kennen gegeven, dat hij een Jood was’ (3:4). Uitleggers verschillen over de reden.",
+        kop: "Vasthi en Mordechai",
+        t: "Over Vasthi vraagt de koning wat er met haar moet gebeuren, ‘omdat zij niet gedaan had het woord van den koning’ (1:15). Mordechai buigt niet voor Haman. De knechten van de koning spreken hem daar dag na dag op aan, maar hij luistert niet naar hen; ‘hij had hun te kennen gegeven, dat hij een Jood was’ (3:4).",
         refs: ["Esther 1:12–15", "Esther 3:2–4"],
       },
     ],
@@ -3066,7 +3066,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Zak, as en vasten",
-        t: "Mordechai ‘trok een zak aan met as’ (4:1). Een zak is een kleed van grove stof. Samen met as was het een teken van rouw en verootmoediging. Zo deed ook de koning van Nineve toen Jona preekte (Jona 3:6), en Daniël toen hij voor zijn volk bad (Daniël 9:3). Esther vraagt om drie dagen vasten (4:16). Dat er ook gebeden werd, staat er niet; wel horen vasten en bidden elders in de Bijbel vaak bij elkaar (Ezra 8:23; Nehemia 1:4).",
+        t: "Mordechai ‘trok een zak aan met as’ (4:1). Een zak is een kleed van grove stof. Samen met as was het een teken van rouw en verootmoediging. Zo deed ook de koning van Nineve toen Jona preekte (Jona 3:6), en Daniël toen hij voor zijn volk bad (Daniël 9:3). Esther vraagt om drie dagen vasten (4:16). Zo’n vasten is een smeken tot God, zoals bij Ezra en Nehemia (Ezra 8:23; Nehemia 1:4).",
         refs: ["Esther 4:1–3", "Esther 4:16", "Jona 3:6", "Daniël 9:3", "Ezra 8:23", "Nehemia 1:4"],
       },
       {
@@ -3103,7 +3103,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Is Johannes nu Elia?",
-        t: "De Heere Jezus zegt over Johannes de Doper dat Elias al gekomen is (Mattheüs 17:12–13). Maar als men Johannes zelf vraagt: ‘Zijt gij Elias?’, zegt hij: ‘Ik ben die niet’ (Johannes 1:21). Hoe gaat dat samen? De engel zei tegen Zacharias dat Johannes zou gaan ‘in den geest en de kracht van Elias’ (Lukas 1:17). Veel uitleggers zien daarin het antwoord: Johannes is niet Elia zelf die terugkomt, maar hij komt met dezelfde opdracht.",
+        t: "De Heere Jezus zegt over Johannes de Doper dat Elias al gekomen is (Mattheüs 17:12–13). Maar als men Johannes zelf vraagt: ‘Zijt gij Elias?’, zegt hij: ‘Ik ben die niet’ (Johannes 1:21). Hoe gaat dat samen? De engel zei tegen Zacharias dat Johannes zou gaan ‘in den geest en de kracht van Elias’ (Lukas 1:17). Daarin ligt het antwoord: Johannes is niet Elia zelf die terugkomt, maar hij komt met dezelfde opdracht.",
         refs: ["Mattheüs 17:10–13", "Johannes 1:21", "Lukas 1:17"],
       },
       {
@@ -3136,7 +3136,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Elders in de Bijbel",
-        t: "De engel zegt over Johannes: ‘noch wijn, noch sterken drank zal hij drinken’ (Lukas 1:15). Dat doet denken aan de wet voor de nazireeër: ‘Van wijn en sterken drank zal hij zich afzonderen’ (Numeri 6:3). Lukas noemt Johannes geen nazireeër; veel uitleggers wijzen wel op de overeenkomst met Simson (Richteren 13:4–5). Ook Elisabeth staat niet alleen. Van Rebekka, de moeder van Simson en Hanna vertelt de Bijbel dat ze onvruchtbaar waren of geen kinderen hadden, voordat God hun kinderen gaf (Genesis 25:21; Richteren 13:2–3; 1 Samuël 1:2, 20).",
+        t: "De engel zegt over Johannes: ‘noch wijn, noch sterken drank zal hij drinken’ (Lukas 1:15). Dat is de wet voor de nazireeër: ‘Van wijn en sterken drank zal hij zich afzonderen’ (Numeri 6:3). Johannes is dus zijn hele leven een nazireeër, aan God gewijd, net als Simson (Richteren 13:4–5). Ook Elisabeth staat niet alleen. Van Rebekka, de moeder van Simson en Hanna vertelt de Bijbel dat ze onvruchtbaar waren of geen kinderen hadden, voordat God hun kinderen gaf (Genesis 25:21; Richteren 13:2–3; 1 Samuël 1:2, 20).",
         refs: ["Lukas 1:15", "Numeri 6:3", "Richteren 13:2–5", "Genesis 25:21", "1 Samuël 1:2, 20"],
       },
       {
@@ -3177,7 +3177,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Twee vragen aan Gabriël",
-        t: "Zacharias vroeg: ‘Waarbij zal ik dat weten?’ (Lukas 1:18) en moest zwijgen, omdat hij niet geloofde (1:20). Maria vraagt: ‘Hoe zal dat wezen?’ (1:34), en de engel legt het uit. Veel uitleggers zien het verschil in de vraag zelf: Zacharias vroeg om een bewijs, Maria vroeg hoe het zou gebeuren. Elisabeth zegt over Maria: ‘zalig is zij, die geloofd heeft’ (1:45).",
+        t: "Zacharias vroeg: ‘Waarbij zal ik dat weten?’ (Lukas 1:18) en moest zwijgen, omdat hij niet geloofde (1:20). Maria vraagt: ‘Hoe zal dat wezen?’ (1:34). Zij vraagt dat niet uit ongeloof, zoals Zacharias, maar omdat ze wil weten hoe het zal gebeuren. De engel legt het haar uit. Elisabeth zegt over Maria: ‘zalig is zij, die geloofd heeft’ (1:45).",
         refs: ["Lukas 1:18–20", "Lukas 1:34–35", "Lukas 1:45"],
       },
       {
@@ -3187,7 +3187,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Waar en wanneer",
-        t: "Nazareth, ‘een stad in Galilea’ (1:26), is goed aan te wijzen. De woonplaats van Zacharias en Elisabeth wordt niet bij naam genoemd: alleen ‘een stad van Juda’ in het gebergte (1:39). Daarom staat die plaats op de kaart als onbekend. Het woord nicht (1:36) betekent hier: familielid; hoe Maria en Elisabeth precies familie waren, zegt de tekst niet. Datering: een reconstructie, ongeveer negen maanden vóór de geboorte van de Heere Jezus (ca. 6–4 v.Chr., vóór de dood van Herodes). Andere dateringen bestaan.",
+        t: "Nazareth, ‘een stad in Galilea’ (1:26), is goed aan te wijzen. De woonplaats van Zacharias en Elisabeth wordt niet bij naam genoemd: alleen ‘een stad van Juda’ in het gebergte (1:39). Daarom staat die plaats op de kaart als onbekend. Het woord nicht (1:36) betekent hier: familielid. Datering: een reconstructie, ongeveer negen maanden vóór de geboorte van de Heere Jezus (ca. 6–4 v.Chr., vóór de dood van Herodes). Andere dateringen bestaan.",
         refs: ["Lukas 1:26", "Lukas 1:36", "Lukas 1:39–40"],
       },
     ],
@@ -3210,7 +3210,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Elders in de Bijbel",
-        t: "De woorden van Zacharias zitten vol Oude Testament. Hij spreekt over ‘een hoorn der zaligheid’ in het huis van David (1:69). Dat doet denken aan Psalm 132:17, waar God zegt: ‘Daar zal Ik David een hoorn doen uitspruiten’. Een hoorn is in de Bijbel een beeld van kracht. ‘Den eed, dien Hij Abraham, onzen vader, gezworen heeft’ (1:73) wijst naar Genesis 22:16: ‘Ik zweer bij Mijzelven, spreekt de HEERE’. Bij ‘de Opgang uit de hoogte’ (1:78) denken veel uitleggers aan Maleachi 4:2: ‘de Zon der gerechtigheid’.",
+        t: "De woorden van Zacharias zitten vol Oude Testament. Hij spreekt over ‘een hoorn der zaligheid’ in het huis van David (1:69). Dat doet denken aan Psalm 132:17, waar God zegt: ‘Daar zal Ik David een hoorn doen uitspruiten’. Een hoorn is in de Bijbel een beeld van kracht. ‘Den eed, dien Hij Abraham, onzen vader, gezworen heeft’ (1:73) wijst naar Genesis 22:16: ‘Ik zweer bij Mijzelven, spreekt de HEERE’. ‘De Opgang uit de hoogte’ (1:78) is de Heere Jezus Zelf: Hij gaat op als ‘de Zon der gerechtigheid’ uit Maleachi 4:2.",
         refs: ["Lukas 1:69–73", "Psalm 132:17", "Genesis 22:16–18", "Lukas 1:78", "Maleachi 4:2"],
       },
       {
@@ -3248,8 +3248,8 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Van Nazareth naar Bethlehem",
-        t: "Nazareth ligt in Galilea, Bethlehem in Judea, hemelsbreed ruim honderd kilometer verder naar het zuiden. Hoe Jozef en Maria reisden en hoe lang ze erover deden, vertelt de Bijbel niet; de route op de kaart is een reconstructie. Een kribbe is een voerbak voor dieren. Een stal, een os en een ezel worden in Lukas 2 niet genoemd. Het Griekse woord dat de Statenvertaling hier met herberg vertaalt, staat ook in Lukas 22:11; daar heeft de Statenvertaling ‘eetzaal’. Het kan dus ook een gastenkamer betekenen; uitleggers verschillen over wat hier bedoeld is.",
-        refs: ["Lukas 2:4", "Lukas 2:7", "Lukas 22:11"],
+        t: "Nazareth ligt in Galilea, Bethlehem in Judea, hemelsbreed ruim honderd kilometer verder naar het zuiden. Hoe Jozef en Maria reisden en hoe lang ze erover deden, vertelt de Bijbel niet; de route op de kaart is een reconstructie. Omdat er in de herberg geen plaats voor hen is, wordt het Kind geboren op een plaats waar dieren staan. Maria legt Hem in een kribbe: een voerbak voor dieren (Lukas 2:7).",
+        refs: ["Lukas 2:4", "Lukas 2:7"],
       },
       {
         kop: "Elders in de Bijbel",
@@ -3280,17 +3280,17 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Simeon en Anna",
-        t: "Op de achtste dag krijgt het Kind de naam Jezus, ‘welke genaamd was van den engel’ (2:21). Later brengen Jozef en Maria Hem naar de tempel in Jeruzalem. Ze geven ‘een paar tortelduiven, of twee jonge duiven’ (2:24). Volgens Leviticus 12:8 was dat het offer voor wie geen lam kon betalen; uitleggers leiden daaruit af dat Jozef en Maria arm waren. In de tempel neemt Simeon, ‘rechtvaardig en godvrezende’, het Kind in zijn armen. Ook de profetes Anna looft de Heere en spreekt over Hem ‘tot allen, die de verlossing in Jeruzalem verwachtten’ (2:38).",
+        t: "Op de achtste dag krijgt het Kind de naam Jezus, ‘welke genaamd was van den engel’ (2:21). Later brengen Jozef en Maria Hem naar de tempel in Jeruzalem. Ze geven ‘een paar tortelduiven, of twee jonge duiven’ (2:24). Volgens Leviticus 12:8 was dat het offer voor wie geen lam kon betalen: Jozef en Maria waren arm. In de tempel neemt Simeon, ‘rechtvaardig en godvrezende’, het Kind in zijn armen. Ook de profetes Anna looft de Heere en spreekt over Hem ‘tot allen, die de verlossing in Jeruzalem verwachtten’ (2:38).",
         refs: ["Lukas 2:21–38", "Leviticus 12:8"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Lukas zegt niet hoeveel herders er waren. De hemelse menigte is ‘prijzende God en zeggende’ (2:13); dat de engelen zongen, staat er niet. Een stal, een os en een ezel worden niet genoemd, alleen de kribbe (2:12, 16). De datum van 25 december komt uit de traditie van de kerk, niet uit de Bijbel. Uitleggers verschillen over de vraag of herders ’s nachts in het veld iets zeggen over het seizoen.",
-        refs: ["Lukas 2:8–16"],
+        kop: "Wat de engel verkondigt",
+        t: "Zaligmaker betekent Redder, en Christus betekent Gezalfde (2:11). Het teken is een Kindje in doeken, liggend in een kribbe: een voerbak voor dieren (2:12). De menigte van het hemelse heirleger (2:13) zijn de engelen. Zij zijn als een leger van de Heere en doen Zijn wil (Psalm 103:20–21). De vrede op aarde (2:14) is de vrede met God, die Hij geeft door dit Kind (Romeinen 5:1).",
+        refs: ["Lukas 2:11–14", "Psalm 103:20–21", "Romeinen 5:1"],
       },
       {
         kop: "Waar en wanneer",
-        t: "Bethlehem is goed aan te wijzen. Waar de herders precies waren, zegt Lukas niet: ‘in diezelfde landstreek’ (2:8). Plekken die nu als herdersvelden worden aangewezen, komen uit de overlevering. De datering is een reconstructie: dit gebeurde in de nacht van de geboorte (geschiedenis 83), ca. 6–4 v.Chr. Andere dateringen bestaan.",
+        t: "Bethlehem is goed aan te wijzen. Waar de herders precies waren, zegt Lukas niet: ‘in diezelfde landstreek’ (2:8). De datering is een reconstructie: dit gebeurde in de nacht van de geboorte (geschiedenis 83), ca. 6–4 v.Chr. Andere dateringen bestaan.",
         refs: ["Lukas 2:8", "Lukas 2:15"],
       },
     ],
@@ -3312,19 +3312,19 @@ BR.niveaus.voegToe("c", {
     status: "gecontroleerd",
     verdieping: [
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Mattheüs zegt niet hoeveel wijzen er waren; dat het er drie waren, is afgeleid uit de drie geschenken. Dat ze koningen waren en namen als Caspar, Melchior en Balthasar hadden, komt uit de traditie. Ze vinden het Kind ‘in het huis’ (2:11), niet bij de kribbe. Herodes laat kinderen doden ‘van twee jaren oud en daaronder, naar den tijd, dien hij van de wijzen naarstiglijk onderzocht had’ (2:16). Daarom denken veel uitleggers dat de wijzen enige tijd na de geboorte kwamen. Hoe lang, zegt de tekst niet.",
+        kop: "Wijzen uit het oosten",
+        t: "Wijzen zijn geleerde mannen die de loop van de sterren bestuderen. Deze wijzen komen uit het oosten, enige tijd na de geboorte van de Heere Jezus. Herodes vraagt hun precies wanneer de ster verschenen is (2:7). Ze vinden het Kind ‘in het huis’ in Bethlehem (2:11). Later laat Herodes kinderen doden ‘van twee jaren oud en daaronder, naar den tijd, dien hij van de wijzen naarstiglijk onderzocht had’ (2:16).",
         refs: ["Mattheüs 2:7–11", "Mattheüs 2:16"],
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Rachel was begraven ‘aan den weg naar Efrath, hetwelk is Bethlehem’ (Genesis 35:19). In Jeremia volgt op haar geween direct een belofte: ‘uw kinderen zullen wederkomen tot hun landpale’ (Jeremia 31:17). De engel zegt tegen Jozef: ‘zij zijn gestorven, die de ziel van het Kindeken zochten’ (2:20). Dat lijkt sterk op wat God tegen Mozes zei: ‘al de mannen zijn dood, die uw ziel zochten’ (Exodus 4:19). Veel uitleggers zien hier een bewust verband tussen Mozes en de Heere Jezus.",
+        t: "Rachel was begraven ‘aan den weg naar Efrath, hetwelk is Bethlehem’ (Genesis 35:19). In Jeremia volgt op haar geween direct een belofte: ‘uw kinderen zullen wederkomen tot hun landpale’ (Jeremia 31:17). De engel zegt tegen Jozef: ‘zij zijn gestorven, die de ziel van het Kindeken zochten’ (2:20). Dat lijkt sterk op wat God tegen Mozes zei: ‘al de mannen zijn dood, die uw ziel zochten’ (Exodus 4:19).",
         refs: ["Genesis 35:19", "Jeremia 31:15–17", "Mattheüs 2:19–20", "Exodus 4:19"],
       },
       {
         kop: "Nazarener, en de route",
-        t: "Mattheüs schrijft dat vervuld werd ‘wat door de profeten gezegd is, dat Hij Nazarener zal geheten worden’ (2:23). Er is geen tekst in het Oude Testament die letterlijk zo luidt, en Mattheüs spreekt van de profeten, meervoud. Uitleggers verschillen over wat bedoeld is. Sommigen denken aan de Scheut uit Jesaja 11:1, omdat dat woord in het Hebreeuws op Nazareth lijkt; anderen aan het geringe aanzien van Nazareth: ‘Kan uit Nazareth iets goeds zijn?’ (Johannes 1:46–47). Mattheüs noemt geen route naar Egypte of terug; de route op de kaart is een reconstructie.",
-        refs: ["Mattheüs 2:23", "Jesaja 11:1", "Johannes 1:46–47"],
+        t: "Mattheüs schrijft dat vervuld werd ‘wat door de profeten gezegd is, dat Hij Nazarener zal geheten worden’ (2:23). Hij spreekt van de profeten, meervoud. Mattheüs noemt geen route naar Egypte of terug; de route op de kaart is een reconstructie.",
+        refs: ["Mattheüs 2:23"],
       },
     ],
     vragen: [
@@ -3354,9 +3354,9 @@ BR.niveaus.voegToe("c", {
         refs: ["Lukas 2:40", "Lukas 2:52", "1 Samuël 2:26", "Lukas 2:19"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Vaak wordt verteld dat de twaalfjarige de leraars onderwees. Lukas zegt dat Hij in hun midden zat, ‘hen horende, en hen ondervragende’, en dat allen zich verbaasden over Zijn ‘verstand en antwoorden’ (Lukas 2:46–47). Waar Hij die dagen at of sliep, vertelt de tekst niet. Ook zegt Lukas niet precies hoe de drie dagen geteld worden: vanaf het vertrek uit Jeruzalem of vanaf de terugkeer. En Lukas zegt eerlijk dat Jozef en Maria ‘het woord niet’ verstonden dat Hij tot hen sprak (2:50).",
-        refs: ["Lukas 2:46–47", "Lukas 2:50"],
+        kop: "In de dingen Mijns Vaders",
+        t: "Op de terugweg denken Jozef en Maria dat Hij in het reisgezelschap is (Lukas 2:44): de mensen trokken samen op naar de grote feesten en samen weer terug naar huis. Met ‘de dingen Mijns Vaders’ (2:49) bedoelt de Heere Jezus het werk waarvoor God, Zijn hemelse Vader, Hem gezonden heeft. Lukas zegt eerlijk dat Jozef en Maria ‘het woord niet’ verstonden dat Hij tot hen sprak (2:50).",
+        refs: ["Lukas 2:43–44", "Lukas 2:49–50"],
       },
       {
         kop: "Waar en wanneer",
@@ -3397,8 +3397,8 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Vier evangeliën over de doop",
-        t: "Bij Markus en Lukas spreekt de stem de Heere Jezus Zelf aan: ‘Gij zijt Mijn geliefde Zoon’ (Markus 1:11; Lukas 3:22). Lukas vertelt ook dat de Heere Jezus bad toen de hemel geopend werd (Lukas 3:21), en dat de Geest neerdaalde ‘in lichamelijke gedaante, gelijk een duif’ (3:22). In Johannes getuigt Johannes de Doper: ‘Ik heb den Geest zien nederdalen uit den hemel, gelijk een duif, en bleef op Hem’ (Johannes 1:32). Veel uitleggers horen in de woorden van de stem Psalm 2:7 en Jesaja 42:1.",
-        refs: ["Markus 1:9–11", "Lukas 3:21–22", "Johannes 1:32–34", "Psalm 2:7", "Jesaja 42:1"],
+        t: "Bij Markus en Lukas spreekt de stem de Heere Jezus Zelf aan: ‘Gij zijt Mijn geliefde Zoon’ (Markus 1:11; Lukas 3:22). Lukas vertelt ook dat de Heere Jezus bad toen de hemel geopend werd (Lukas 3:21), en dat de Geest neerdaalde ‘in lichamelijke gedaante, gelijk een duif’ (3:22). In Johannes getuigt Johannes de Doper: ‘Ik heb den Geest zien nederdalen uit den hemel, gelijk een duif, en bleef op Hem’ (Johannes 1:32).",
+        refs: ["Markus 1:9–11", "Lukas 3:21–22", "Johannes 1:32–34"],
       },
       {
         kop: "Waar en wanneer",
@@ -3439,7 +3439,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Veertig dagen en een psalm",
-        t: "Ook Mozes was ‘veertig dagen en veertig nachten’ bij de HEERE en ‘at geen brood’ (Exodus 34:28), en Elia ging ‘veertig dagen en veertig nachten, tot aan den berg Gods, Horeb’ (1 Koningen 19:8). Psalm 91:11 zegt: ‘Want Hij zal Zijn engelen van u bevelen, dat zij u bewaren in al uw wegen.’ Wie dat naast Mattheüs 4:6 legt, ziet dat de woorden ‘in al uw wegen’ daar niet worden aangehaald. Sommige uitleggers zien daarin dat de duivel de tekst naar zijn hand zet.",
+        t: "Ook Mozes was ‘veertig dagen en veertig nachten’ bij de HEERE en ‘at geen brood’ (Exodus 34:28), en Elia ging ‘veertig dagen en veertig nachten, tot aan den berg Gods, Horeb’ (1 Koningen 19:8). Psalm 91:11 zegt: ‘Want Hij zal Zijn engelen van u bevelen, dat zij u bewaren in al uw wegen.’ In Mattheüs 4:6 laat de duivel de woorden ‘in al uw wegen’ weg. Zo verdraait hij de belofte: die geldt voor wie gaat op de wegen die God wijst.",
         refs: ["Exodus 34:28", "1 Koningen 19:8", "Psalm 91:11–12", "Mattheüs 4:6"],
       },
       {
@@ -3476,8 +3476,8 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Twee momenten, twee plaatsen",
-        t: "Johannes 1 speelt kort na de doop, bij Bethabara over de Jordaan (Johannes 1:28); die plaats is betwist. De roeping aan het meer volgt nadat Johannes de Doper gevangengenomen was (Markus 1:14). Wie beide verhalen zo achter elkaar leest, ziet dat Simon en Andreas de Heere Jezus al hadden ontmoet toen Hij hen aan het meer riep. Uitleggers verschillen over de vraag of de grote visvangst in Lukas 5 bij dezelfde roeping hoort. Johannes noemt ook het tijdstip: ‘omtrent de tiende ure’ (1:39–40). Bij de gewone Joodse telling vanaf zonsopgang is dat ongeveer vier uur ’s middags; sommige uitleggers rekenen anders. De datering is een reconstructie: ca. 27–29 n.Chr.",
-        refs: ["Johannes 1:28", "Markus 1:14", "Johannes 1:39–40"],
+        t: "Johannes 1 speelt kort na de doop, bij Bethabara over de Jordaan (Johannes 1:28); die plaats is betwist. De roeping aan het meer volgt nadat Johannes de Doper gevangengenomen was (Markus 1:14). Wie beide verhalen zo achter elkaar leest, ziet dat Simon en Andreas de Heere Jezus al hadden ontmoet toen Hij hen aan het meer riep. De datering is een reconstructie: ca. 27–29 n.Chr.",
+        refs: ["Johannes 1:28", "Markus 1:14"],
       },
       {
         kop: "Elders in de Bijbel",
@@ -3485,9 +3485,9 @@ BR.niveaus.voegToe("c", {
         refs: ["Johannes 21:2", "Johannes 1:51–52", "Genesis 28:12", "Markus 3:17"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Johannes noemt maar één van de twee discipelen die de Heere Jezus volgden: Andreas (Johannes 1:40–41). De naam van de ander staat er niet. Veel uitleggers denken aan Johannes, de zoon van Zebedeüs, maar de tekst zegt het niet. Ook wordt Nathanaël vaak gelijkgesteld met Bartholomeüs, die in de lijsten van apostelen naast Filippus staat (Mattheüs 10:3). Dat is een uitleg, geen tekst.",
-        refs: ["Johannes 1:40–41", "Mattheüs 10:3"],
+        kop: "Twee discipelen en Nathanaël",
+        t: "Van de twee discipelen die de Heere Jezus volgden, noemt Johannes er maar één bij naam: Andreas (Johannes 1:40–41). Als Nathanaël komt, zegt de Heere Jezus: ‘Zie, waarlijk een Israëliet, in welken geen bedrog is’ (Johannes 1:48). Nathanaël belijdt: ‘Rabbi! Gij zijt de Zone Gods, Gij zijt de Koning Israëls’ (Johannes 1:50).",
+        refs: ["Johannes 1:40–41", "Johannes 1:48–50"],
       },
     ],
     vragen: [
@@ -3518,13 +3518,13 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Water voor de reiniging",
-        t: "De watervaten stonden er ‘naar de reiniging der Joden’ (Johannes 2:6). Markus legt dat gebruik uit: de Joden eten niet ‘tenzij dat zij eerst de handen dikmaals wassen’, en ze kennen ‘de wassingen der drinkbekers, en kannen, en koperen vaten’ (Markus 7:3–4). Elk vat hield ‘twee of drie metreten’. Een metreet is een inhoudsmaat; een gangbare schatting is ongeveer veertig liter. Het ging dus om veel water. Johannes zegt niet hoeveel wijn er precies uit werd geschept.",
+        t: "De watervaten stonden er ‘naar de reiniging der Joden’ (Johannes 2:6). Markus legt dat gebruik uit: de Joden eten niet ‘tenzij dat zij eerst de handen dikmaals wassen’, en ze kennen ‘de wassingen der drinkbekers, en kannen, en koperen vaten’ (Markus 7:3–4). Elk vat hield ‘twee of drie metreten’. Een metreet is een inhoudsmaat; een gangbare schatting is ongeveer veertig liter. Het ging dus om veel water.",
         refs: ["Johannes 2:6", "Markus 7:3–4"],
       },
       {
         kop: "Mijn ure",
-        t: "Het woord ‘ure’ komt in Johannes vaker terug. Mensen zochten Hem te grijpen, ‘want Zijn ure was nog niet gekomen’ (Johannes 7:30). Later zegt Hij: ‘De ure is gekomen, dat de Zoon des mensen zal verheerlijkt worden’ (12:23). Voor het feest van het Pascha wist Hij ‘dat Zijn ure gekomen was’ (13:1), en Hij bidt: ‘Vader, de ure is gekomen’ (17:1). Veel uitleggers zien daarom in ‘Mijn ure’ de tijd van Zijn lijden en verheerlijking.",
-        refs: ["Johannes 7:30", "Johannes 12:23", "Johannes 13:1", "Johannes 17:1"],
+        t: "‘Mijn ure is nog niet gekomen’ betekent in Kana: het is nog niet de juiste tijd (Johannes 2:4). Het woord ‘ure’ komt in Johannes vaker terug. Mensen zochten Hem te grijpen, ‘want Zijn ure was nog niet gekomen’ (Johannes 7:30). Later zegt Hij: ‘De ure is gekomen, dat de Zoon des mensen zal verheerlijkt worden’ (12:23). Voor het feest van het Pascha wist Hij ‘dat Zijn ure gekomen was’ (13:1), en Hij bidt: ‘Vader, de ure is gekomen’ (17:1).",
+        refs: ["Johannes 2:4", "Johannes 7:30", "Johannes 12:23", "Johannes 13:1", "Johannes 17:1"],
       },
       {
         kop: "Tekenen, en waar Kana lag",
@@ -3556,7 +3556,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Een melaatse aanraken",
-        t: "Volgens de wet moest een melaatse roepen: ‘Onrein, onrein!’ En verder: ‘onrein is hij, hij zal alleen wonen; buiten het leger zal zijn woning wezen’ (Leviticus 13:45–46). Een melaatse moest dus afstand houden. De Heere Jezus raakt hem juist aan, ‘met barmhartigheid innerlijk bewogen’, en de melaatsheid gaat weg (Markus 1:41–42). Het woord melaatsheid in de Bijbel wordt meestal uitgelegd als een naam voor verschillende huidziekten, niet alleen wat wij nu lepra noemen.",
+        t: "Volgens de wet moest een melaatse roepen: ‘Onrein, onrein!’ En verder: ‘onrein is hij, hij zal alleen wonen; buiten het leger zal zijn woning wezen’ (Leviticus 13:45–46). Een melaatse moest dus afstand houden. De Heere Jezus raakt hem juist aan, ‘met barmhartigheid innerlijk bewogen’, en de melaatsheid gaat weg (Markus 1:41–42).",
         refs: ["Leviticus 13:45–46", "Markus 1:41–42"],
       },
       {
@@ -3566,7 +3566,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Waar en wanneer",
-        t: "Kapernaüm is een bekende plaats aan het meer. Mattheüs zegt dat de Heere Jezus er kwam wonen, ‘gelegen aan de zee, in de landpale van Zebulon en Nafthali’ (Mattheüs 4:13). De zieken worden gebracht ‘toen de zon onderging’ (Markus 1:32). Veel uitleggers wijzen erop dat de sabbat dan voorbij was; de tekst zegt dat niet met zoveel woorden. De datering is een reconstructie: in het begin van het optreden in Galilea, ca. 28–30 n.Chr.",
+        t: "Kapernaüm is een bekende plaats aan het meer. Mattheüs zegt dat de Heere Jezus er kwam wonen, ‘gelegen aan de zee, in de landpale van Zebulon en Nafthali’ (Mattheüs 4:13). De zieken worden gebracht ‘toen de zon onderging’ (Markus 1:32). De datering is een reconstructie: in het begin van het optreden in Galilea, ca. 28–30 n.Chr.",
         refs: ["Mattheüs 4:13", "Markus 1:32"],
       },
     ],
@@ -3598,12 +3598,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Gij hebt gehoord, maar Ik zeg u",
-        t: "Zes keer noemt de Heere Jezus wat eerder gezegd is (‘Gij hebt gehoord, dat tot de ouden gezegd is’, 5:21), en daar zet Hij tegenover: ‘Maar Ik zeg u’. Hij noemt het zesde en het zevende gebod (Exodus 20:13–14), de regel ‘Oog voor oog, tand voor tand’ (Exodus 21:24) en ‘gij zult uw naaste liefhebben als uzelven’ (Leviticus 19:18). De woorden ‘uw vijand zult gij haten’ (Mattheüs 5:43) staan niet zo in de wet; uitleggers zien ze als de manier waarop men de wet toen uitlegde. Vooraf zegt Hij: ‘Ik ben niet gekomen, om die te ontbinden, maar te vervullen’ (5:17).",
+        t: "Zes keer noemt de Heere Jezus wat eerder gezegd is (‘Gij hebt gehoord, dat tot de ouden gezegd is’, 5:21), en daar zet Hij tegenover: ‘Maar Ik zeg u’. Hij noemt het zesde en het zevende gebod (Exodus 20:13–14), de regel ‘Oog voor oog, tand voor tand’ (Exodus 21:24) en ‘gij zult uw naaste liefhebben als uzelven’ (Leviticus 19:18). De woorden ‘uw vijand zult gij haten’ (Mattheüs 5:43) staan niet in de wet; zo legden de schriftgeleerden de wet toen verkeerd uit. Vooraf zegt Hij: ‘Ik ben niet gekomen, om die te ontbinden, maar te vervullen’ (5:17).",
         refs: ["Mattheüs 5:17–48", "Exodus 20:13–14", "Exodus 21:24", "Leviticus 19:18"],
       },
       {
         kop: "Mattheüs en Lukas",
-        t: "Lukas vertelt een rede met veel van dezelfde woorden, maar daar ‘stond Hij op een vlakke plaats’ (Lukas 6:17), en Hij begint: ‘Zalig zijt gij, armen’ (6:20). Ook daar eindigt Hij met de twee bouwers (6:47–49). Uitleggers verschillen over de vraag of Mattheüs en Lukas dezelfde toespraak vertellen of dat de Heere Jezus dit vaker heeft gezegd. Mattheüs sluit af met: ‘Toen Hij nu van den berg afgeklommen was, zijn Hem vele scharen gevolgd’ (Mattheüs 8:1).",
+        t: "Lukas vertelt een rede met veel van dezelfde woorden, maar daar ‘stond Hij op een vlakke plaats’ (Lukas 6:17), en Hij begint: ‘Zalig zijt gij, armen’ (6:20). Ook daar eindigt Hij met de twee bouwers (6:47–49). Mattheüs sluit af met: ‘Toen Hij nu van den berg afgeklommen was, zijn Hem vele scharen gevolgd’ (Mattheüs 8:1).",
         refs: ["Lukas 6:17–20", "Lukas 6:47–49", "Mattheüs 8:1"],
       },
       {
@@ -3645,13 +3645,13 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Water en Geest",
-        t: "Over ‘water en Geest’ (Johannes 3:5) verschillen uitleggers. Sommigen denken aan de belofte: ‘Dan zal Ik rein water op u sprengen’ en ‘Ik zal Mijn Geest geven in het binnenste van u’ (Ezechiël 36:25, 27). Anderen denken aan de doop. Titus 3:5 spreekt van ‘het bad der wedergeboorte en vernieuwing des Heiligen Geestes’. Het Griekse woord dat met ‘wederom’ is vertaald, kan ook betekenen: van boven. Nicodemus vat het op als ‘andermaal’ (3:4).",
-        refs: ["Johannes 3:5", "Ezechiël 36:25–27", "Titus 3:5", "Johannes 3:4"],
+        t: "Met ‘water en Geest’ (Johannes 3:5) bedoelt de Heere Jezus de Heilige Geest, Die een mens van de zonde reinigt, zoals water het vuil afwast. God had beloofd: ‘Dan zal Ik rein water op u sprengen’ en ‘Ik zal Mijn Geest geven in het binnenste van u’ (Ezechiël 36:25, 27). Titus 3:5 spreekt van ‘het bad der wedergeboorte en vernieuwing des Heiligen Geestes’.",
+        refs: ["Johannes 3:5", "Ezechiël 36:25–27", "Titus 3:5"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Johannes zegt niet waarom Nicodemus ’s nachts kwam; de tekst geeft geen reden. Waar het gesprek was, zegt Johannes 3 niet. Omdat het volgt op het verblijf in Jeruzalem bij het eerste Pascha dat Johannes noemt (Johannes 2:13, 23), wordt het meestal daar geplaatst. De datering is een reconstructie, ca. 27–29 n.Chr. De Statenvertaling heeft geen aanhalingstekens. Uitleggers verschillen over de vraag of de woorden vanaf Johannes 3:16 nog door de Heere Jezus gesproken worden, of dat Johannes ze erbij schrijft.",
-        refs: ["Johannes 2:13", "Johannes 2:23", "Johannes 3:16–21"],
+        kop: "In Jeruzalem, bij het Pascha",
+        t: "Het gesprek is in Jeruzalem, bij het eerste Pascha dat Johannes noemt (Johannes 2:13, 23). Daar deed de Heere Jezus tekenen, en velen geloofden in Zijn naam (2:23). Ook Nicodemus noemt die tekenen (3:2). De datering is een reconstructie, ca. 27–29 n.Chr.",
+        refs: ["Johannes 2:13", "Johannes 2:23", "Johannes 3:2"],
       },
     ],
     vragen: [
@@ -3715,7 +3715,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Eén man of twee",
-        t: "Mattheüs vertelt over ‘twee, van den duivel bezeten’ (Mattheüs 8:28). Markus en Lukas vertellen alleen over één man. Veel uitleggers verklaren dat zo: Markus en Lukas richten zich op de man die daarna met de Heere Jezus mee wilde en die ging vertellen wat er gebeurd was. Ook de naam van de streek verschilt: Gadarenen bij Markus en Lukas, Gergesenen bij Mattheüs. Waar het precies was, is onbekend; daarom staat de plaats op de kaart als onzeker.",
+        t: "Mattheüs vertelt over ‘twee, van den duivel bezeten’ (Mattheüs 8:28). Markus en Lukas vertellen alleen over één van hen: de man die het ergst bezeten was en die met de Heere Jezus sprak. Ook de naam van de streek verschilt: Gadarenen bij Markus en Lukas, Gergesenen bij Mattheüs. Waar het precies was, is onbekend; daarom staat de plaats op de kaart als onzeker.",
         refs: ["Mattheüs 8:28", "Markus 5:1–2", "Lukas 8:26–27"],
       },
       {
@@ -3725,7 +3725,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Elders in de Bijbel",
-        t: "De boze geesten weten wie de Heere Jezus is. Ook in de synagoge van Kapernaüm roept een onreine geest: ‘Ik ken U, wie Gij zijt, namelijk de Heilige Gods’ (Markus 1:24). Jakobus schrijft: ‘de duivelen geloven het ook, en zij sidderen’ (Jakobus 2:19). Opvallend is ook het slot. De Heere Jezus zegt dat de man moet vertellen wat ‘de Heere’ gedaan heeft (Markus 5:19), en de man vertelt ‘wat grote dingen hem Jezus gedaan had’ (Markus 5:20). Veel uitleggers zien hierin dat de Heere Jezus Zelf de Heere is.",
+        t: "De boze geesten weten wie de Heere Jezus is. Ook in de synagoge van Kapernaüm roept een onreine geest: ‘Ik ken U, wie Gij zijt, namelijk de Heilige Gods’ (Markus 1:24). Jakobus schrijft: ‘de duivelen geloven het ook, en zij sidderen’ (Jakobus 2:19). Opvallend is ook het slot. De Heere Jezus zegt dat de man moet vertellen wat ‘de Heere’ gedaan heeft (Markus 5:19), en de man vertelt ‘wat grote dingen hem Jezus gedaan had’ (Markus 5:20).",
         refs: ["Markus 1:21–24", "Jakobus 2:19", "Markus 5:19–20"],
       },
     ],
@@ -3748,12 +3748,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Mattheüs en Lukas",
-        t: "Mattheüs vertelt deze geschiedenis anders. Daar spreekt de hoofdman zelf met de Heere Jezus (Mattheüs 8:5–8). Lukas vertelt dat hij eerst oudsten en daarna vrienden stuurde. Veel uitleggers verklaren het verschil zo: wat iemand via boden laat zeggen, zegt hij zelf. Mattheüs geeft ook het woord van de Heere Jezus aan de hoofdman: ‘Ga heen, en u geschiede, gelijk gij geloofd hebt.’ De knecht werd gezond ‘te dierzelver ure’ (Mattheüs 8:13).",
+        t: "Mattheüs vertelt deze geschiedenis anders. Daar spreekt de hoofdman zelf met de Heere Jezus (Mattheüs 8:5–8). Lukas vertelt dat hij eerst oudsten en daarna vrienden stuurde. Dat is geen tegenspraak: Mattheüs vertelt het korter, en wat iemand via boden laat zeggen, zegt hij zelf. Mattheüs geeft ook het woord van de Heere Jezus aan de hoofdman: ‘Ga heen, en u geschiede, gelijk gij geloofd hebt.’ De knecht werd gezond ‘te dierzelver ure’ (Mattheüs 8:13).",
         refs: ["Mattheüs 8:5–13", "Lukas 7:3–6"],
       },
       {
         kop: "Achtergrond",
-        t: "Een hoofdman over honderd was een officier, die over honderd soldaten ging. Lukas noemt zijn naam niet. Uit ‘ons volk’ (Lukas 7:5) en ‘zelfs in Israël’ (Lukas 7:9) blijkt dat hij geen Israëliet was. In het Nieuwe Testament komen meer hoofdmannen over honderd voor. Bij het kruis zegt er een: ‘Waarlijk, deze Mens was rechtvaardig’ (Lukas 23:47). En Cornelius in Cesarea was ‘vrezende God, met geheel zijn huis’ (Handelingen 10:1–2).",
+        t: "Een hoofdman over honderd was een officier, die over honderd soldaten ging. Uit ‘ons volk’ (Lukas 7:5) en ‘zelfs in Israël’ (Lukas 7:9) blijkt dat hij geen Israëliet was. In het Nieuwe Testament komen meer hoofdmannen over honderd voor. Bij het kruis zegt er een: ‘Waarlijk, deze Mens was rechtvaardig’ (Lukas 23:47). En Cornelius in Cesarea was ‘vrezende God, met geheel zijn huis’ (Handelingen 10:1–2).",
         refs: ["Lukas 7:5", "Lukas 7:9", "Lukas 23:47", "Handelingen 10:1–2"],
       },
       {
@@ -3784,9 +3784,9 @@ BR.niveaus.voegToe("c", {
     status: "gecontroleerd",
     verdieping: [
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Lukas noemt de naam van de vrouw niet, en ook niet welke zonden ze gedaan had. In de traditie is ze vaak gelijkgesteld met Maria Magdalena, die kort daarna wordt genoemd (Lukas 8:2). Lukas legt dat verband niet. De Bijbel vertelt ook over een zalving in Bethanië, kort voor het lijden: Maria zalft daar Zijn voeten (Johannes 12:1–3), en in het huis van ‘Simon, den melaatse’ zalft een vrouw Zijn hoofd (Mattheüs 26:6–7). Veel uitleggers zien Lukas 7 als een andere gebeurtenis: het speelt veel eerder, en Lukas noemt daar geen plaats.",
-        refs: ["Lukas 8:2", "Johannes 12:1–3", "Mattheüs 26:6–7"],
+        kop: "Een andere zalving",
+        t: "De Bijbel vertelt later nog over een zalving in Bethanië, kort voor het lijden: Maria zalft daar Zijn voeten (Johannes 12:1–3), en in het huis van ‘Simon, den melaatse’ zalft een vrouw Zijn hoofd (Mattheüs 26:6–7). Lukas 7 is een andere gebeurtenis: die speelt veel eerder, in het huis van Simon de Farizeeër (Lukas 7:36, 40).",
+        refs: ["Johannes 12:1–3", "Mattheüs 26:6–7", "Lukas 7:36–40"],
       },
       {
         kop: "Achtergrond",
@@ -3933,7 +3933,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Elders in de Bijbel",
-        t: "De vraag aan Filippus lijkt op wat Mozes in de woestijn vroeg: ‘Van waar zou ik het vlees hebben, om al dit volk te geven?’ (Numeri 11:13). De mensen noemen de Heere Jezus ‘de Profeet, Die in de wereld komen zou’. Veel uitleggers zien daarin een verwijzing naar de belofte van Mozes: ‘Een Profeet, uit het midden van u, uit uw broederen, als mij, zal u de HEERE, uw God, verwekken’ (Deuteronomium 18:15). De volgende dag zegt de Heere Jezus dat ze Hem zoeken ‘omdat gij van de broden gegeten hebt, en verzadigd zijt’ (Johannes 6:26).",
+        t: "De vraag aan Filippus lijkt op wat Mozes in de woestijn vroeg: ‘Van waar zou ik het vlees hebben, om al dit volk te geven?’ (Numeri 11:13). De mensen noemen de Heere Jezus ‘de Profeet, Die in de wereld komen zou’: de Profeet die Mozes had beloofd: ‘Een Profeet, uit het midden van u, uit uw broederen, als mij, zal u de HEERE, uw God, verwekken’ (Deuteronomium 18:15). De volgende dag zegt de Heere Jezus dat ze Hem zoeken ‘omdat gij van de broden gegeten hebt, en verzadigd zijt’ (Johannes 6:26).",
         refs: ["Numeri 11:13", "Deuteronomium 18:15", "Johannes 6:14", "Johannes 6:26"],
       },
       {
@@ -3975,7 +3975,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "De man vraagt zelf niet om genezing: de Heere Jezus begint het gesprek. De tekst zegt alleen dat de Heere Jezus wist ‘dat hij nu langen tijd gelegen had’ (Johannes 5:6). Over geloof van de man vooraf vertelt Johannes niets. Na zijn genezing weet de man zelfs niet wie hem gezond gemaakt heeft, ‘want Jezus was ontweken, alzo er een grote schare in die plaats was’ (Johannes 5:13).",
+        t: "De man vraagt zelf niet om genezing: de Heere Jezus begint het gesprek. De tekst zegt alleen dat de Heere Jezus wist ‘dat hij nu langen tijd gelegen had’ (Johannes 5:6). Na zijn genezing weet de man zelfs niet wie hem gezond gemaakt heeft, ‘want Jezus was ontweken, alzo er een grote schare in die plaats was’ (Johannes 5:13).",
         refs: ["Johannes 5:6", "Johannes 5:13"],
       },
       {
@@ -4081,7 +4081,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Drie evangeliën",
-        t: "Ook Markus en Lukas vertellen dit. Bij Markus zegt Petrus: ‘Gij zijt de Christus’ (Markus 8:29); bij Lukas: ‘De Christus Gods’ (Lukas 9:20). Lukas vertelt dat de Heere Jezus vlak daarvoor ‘alleen was biddende’ (Lukas 9:18). Alleen Mattheüs schrijft op wat de Heere Jezus daarna tegen Petrus zegt over de gemeente en de sleutels (Mattheüs 16:17–19). Bar-jona wordt uitgelegd als Aramees voor: zoon van Jona. Johannes noemt hem ‘Simon, de zoon van Jonas’ (Johannes 1:42–43).",
+        t: "Ook Markus en Lukas vertellen dit. Bij Markus zegt Petrus: ‘Gij zijt de Christus’ (Markus 8:29); bij Lukas: ‘De Christus Gods’ (Lukas 9:20). Lukas vertelt dat de Heere Jezus vlak daarvoor ‘alleen was biddende’ (Lukas 9:18). Alleen Mattheüs schrijft op wat de Heere Jezus daarna tegen Petrus zegt over de gemeente en de sleutels (Mattheüs 16:17–19). Bar-jona is Aramees voor: zoon van Jona. Johannes noemt hem ‘Simon, de zoon van Jonas’ (Johannes 1:42–43).",
         refs: ["Markus 8:27–31", "Lukas 9:18–22", "Mattheüs 16:17–19", "Johannes 1:42–43"],
       },
       {
@@ -4091,7 +4091,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "De Zoon des mensen",
-        t: "In vers 13 noemt de Heere Jezus Zichzelf ‘de Zoon des mensen’. Die naam gebruikt Hij vaak. Veel uitleggers verbinden hem met het gezicht van Daniël, die iemand zag komen ‘met de wolken des hemels, als eens mensen zoon’ (Daniël 7:13). In vers 27 zegt de Heere Jezus dat de Zoon des mensen zal komen ‘in de heerlijkheid Zijns Vaders, met Zijn engelen’.",
+        t: "In vers 13 noemt de Heere Jezus Zichzelf ‘de Zoon des mensen’. Die naam gebruikt Hij vaak. In vers 27 zegt de Heere Jezus dat de Zoon des mensen zal komen ‘in de heerlijkheid Zijns Vaders, met Zijn engelen’. De profeet Daniël zag in een gezicht iemand komen ‘met de wolken des hemels, als eens mensen zoon’ (Daniël 7:13).",
         refs: ["Mattheüs 16:13", "Daniël 7:13", "Mattheüs 16:27"],
       },
     ],
@@ -4124,7 +4124,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Mozes en Elia",
-        t: "Allebei hadden ze God ontmoet op een berg. Op de Sinaï bedekte een wolk de berg, en God riep Mozes ‘uit het midden der wolk’ (Exodus 24:15–16). Elia ging veertig dagen en veertig nachten ‘tot aan den berg Gods, Horeb’ (1 Koningen 19:8). Ook aan het eind van het Oude Testament staan ze samen: ‘Gedenk der wet van Mozes’ en ‘Ziet, Ik zende ulieden den profeet Elia’ (Maleachi 4:4–5). Veel uitleggers zien in hen de wet en de profeten, die getuigen van Christus.",
+        t: "Allebei hadden ze God ontmoet op een berg. Op de Sinaï bedekte een wolk de berg, en God riep Mozes ‘uit het midden der wolk’ (Exodus 24:15–16). Elia ging veertig dagen en veertig nachten ‘tot aan den berg Gods, Horeb’ (1 Koningen 19:8). Ook aan het eind van het Oude Testament staan ze samen: ‘Gedenk der wet van Mozes’ en ‘Ziet, Ik zende ulieden den profeet Elia’ (Maleachi 4:4–5). In hen getuigen de wet en de profeten van Christus.",
         refs: ["Exodus 24:15–16", "1 Koningen 19:8", "Maleachi 4:4–5"],
       },
       {
@@ -4156,8 +4156,8 @@ BR.niveaus.voegToe("c", {
         refs: ["Markus 10:18–21", "Exodus 20:12–16"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Soms wordt verteld dat ‘het oog van een naald’ een kleine poort in Jeruzalem was, waar een kameel nog net door kon. Dat staat niet in de Bijbel. De discipelen begrijpen het als iets onmogelijks, want ze vragen: ‘Wie kan dan zalig worden?’ En de Heere Jezus zegt het ook zo: ‘Bij de mensen is het onmogelijk’ (Markus 10:26–27). Mattheüs en Lukas gebruiken hetzelfde beeld (Mattheüs 19:24; Lukas 18:25).",
+        kop: "Een kemel en een naald",
+        t: "Een kemel door ‘het oog van een naald’: dat is iets onmogelijks. Zo begrijpen de discipelen het ook, want ze vragen: ‘Wie kan dan zalig worden?’ En de Heere Jezus zegt Zelf: ‘Bij de mensen is het onmogelijk’ (Markus 10:26–27). Mattheüs en Lukas gebruiken hetzelfde beeld (Mattheüs 19:24; Lukas 18:25).",
         refs: ["Markus 10:25–27", "Mattheüs 19:24", "Lukas 18:25"],
       },
       {
@@ -4174,7 +4174,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         q: "Hoe begrepen de discipelen het beeld van de kemel en de naald?",
-        a: ["Als iets wat onmogelijk is", "Als een poort in Jeruzalem", "Als een raadsel over dieren"],
+        a: ["Als iets wat onmogelijk is", "Als iets wat met moeite lukt", "Als een raadsel over dieren"],
         why: "Markus 10:26–27",
       },
       {
@@ -4189,12 +4189,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "De drinkbeker",
-        t: "De Heere Jezus spreekt over ‘den drinkbeker’ die Hij drinkt (Markus 10:38). In Gethsemane bidt Hij later: ‘neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt’ (Markus 14:36). Tegen de broers zegt Hij dat zij Zijn drinkbeker ook zullen drinken (Markus 10:39). Jakobus werd later met het zwaard gedood (Handelingen 12:2); Johannes schrijft dat hij ‘medegenoot in de verdrukking’ was, op het eiland Patmos (Openbaring 1:9). Veel uitleggers zien hierin hoe dit woord uitkwam.",
+        t: "De Heere Jezus spreekt over ‘den drinkbeker’ die Hij drinkt (Markus 10:38). In Gethsemane bidt Hij later: ‘neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt’ (Markus 14:36). Tegen de broers zegt Hij dat zij Zijn drinkbeker ook zullen drinken (Markus 10:39). Bij Jakobus kwam dat uit: hij werd later met het zwaard gedood (Handelingen 12:2). Johannes schrijft dat hij ‘medegenoot in de verdrukking’ was, op het eiland Patmos (Openbaring 1:9).",
         refs: ["Markus 10:38–39", "Markus 14:32–36", "Handelingen 12:2", "Openbaring 1:9"],
       },
       {
         kop: "Rechts en links",
-        t: "Jakobus en Johannes vragen om de plaatsen aan Zijn rechter- en linkerhand ‘in Uw heerlijkheid’. Markus gebruikt later bijna dezelfde woorden: bij de kruisiging hangen er twee moordenaars, ‘een aan Zijn rechter-, en een aan Zijn linker zijde’ (Markus 15:27). Sommige uitleggers wijzen op dat verband. Mattheüs schrijft dat de plaatsen gegeven worden aan hen voor wie het ‘bereid is van Mijn Vader’ (Mattheüs 20:23).",
+        t: "Jakobus en Johannes vragen om de plaatsen aan Zijn rechter- en linkerhand ‘in Uw heerlijkheid’. Markus gebruikt later bijna dezelfde woorden: bij de kruisiging hangen er twee moordenaars, ‘een aan Zijn rechter-, en een aan Zijn linker zijde’ (Markus 15:27). Mattheüs schrijft dat de plaatsen gegeven worden aan hen voor wie het ‘bereid is van Mijn Vader’ (Mattheüs 20:23).",
         refs: ["Markus 10:37", "Markus 15:27", "Mattheüs 20:23"],
       },
       {
@@ -4230,7 +4230,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Samaritanen",
-        t: "De Samaritanen woonden in Samaria, tussen Judea en Galilea. Nadat Assyrië Samaria had ingenomen, liet de koning van Assyrië volken uit andere landen ‘wonen in de steden van Samaria’ (2 Koningen 17:6, 24). Daarmee wordt vaak verklaard waarom Joden en Samaritanen niet met elkaar omgingen. Kort voor deze gelijkenis wilde een dorp van de Samaritanen de Heere Jezus niet ontvangen (Lukas 9:52–53). Veel uitleggers wijzen erop dat het daarom extra opvalt dat juist een Samaritaan in deze gelijkenis barmhartig is.",
+        t: "De Samaritanen woonden in Samaria, tussen Judea en Galilea. Nadat Assyrië Samaria had ingenomen, liet de koning van Assyrië volken uit andere landen ‘wonen in de steden van Samaria’ (2 Koningen 17:6, 24). Dat is een van de redenen waarom Joden en Samaritanen niet met elkaar omgingen. Kort voor deze gelijkenis wilde een dorp van de Samaritanen de Heere Jezus niet ontvangen (Lukas 9:52–53). Toch is het in deze gelijkenis juist een Samaritaan die barmhartig is.",
         refs: ["2 Koningen 17:6", "2 Koningen 17:24", "Lukas 9:52–53"],
       },
       {
@@ -4272,7 +4272,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Aan de voeten zitten",
-        t: "Maria zit ‘aan de voeten van Jezus’ en hoort Zijn woord (Lukas 10:39). Uitleggers zien daarin de plaats van een leerling bij zijn leraar. Paulus zegt over zichzelf dat hij ‘aan de voeten van Gamaliël onderwezen’ is (Handelingen 22:3). Lukas gebruikt dezelfde woorden voor de man uit wie de duivelen waren uitgevaren: hij zat ‘aan de voeten van Jezus, gekleed en wel bij zijn verstand’ (Lukas 8:35).",
+        t: "Maria zit ‘aan de voeten van Jezus’ en hoort Zijn woord (Lukas 10:39). Zo zit een leerling bij zijn leraar. Paulus zegt over zichzelf dat hij ‘aan de voeten van Gamaliël onderwezen’ is (Handelingen 22:3). Lukas gebruikt dezelfde woorden voor de man uit wie de duivelen waren uitgevaren: hij zat ‘aan de voeten van Jezus, gekleed en wel bij zijn verstand’ (Lukas 8:35).",
         refs: ["Lukas 10:39", "Handelingen 22:3", "Lukas 8:35"],
       },
       {
@@ -4310,12 +4310,12 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Twee keer uitgenodigd",
-        t: "De heer nodigt eerst ‘velen’ uit. Op het uur van de maaltijd stuurt hij zijn knecht ‘om den genoden te zeggen: Komt’ (Lukas 14:16–17). De gasten wisten het dus al. Toch verontschuldigen ze zich ‘allen’ (Lukas 14:18). Een akker, ossen en een huwelijk zijn op zichzelf gewone dingen; veel uitleggers wijzen erop dat het er in de gelijkenis om gaat dat de genodigden daardoor niet komen. Het slot is ernstig: ‘niemand van die mannen, die genood waren, mijn avondmaal smaken zal’ (Lukas 14:24).",
+        t: "De heer nodigt eerst ‘velen’ uit. Op het uur van de maaltijd stuurt hij zijn knecht ‘om den genoden te zeggen: Komt’ (Lukas 14:16–17). De gasten wisten het dus al. Toch verontschuldigen ze zich ‘allen’ (Lukas 14:18). Een akker, ossen en een huwelijk zijn op zichzelf gewone dingen, maar de genodigden laten zich erdoor tegenhouden. Het slot is ernstig: ‘niemand van die mannen, die genood waren, mijn avondmaal smaken zal’ (Lukas 14:24).",
         refs: ["Lukas 14:16–18", "Lukas 14:24"],
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Jesaja roept: ‘O alle gij dorstigen! komt tot de wateren, en gij, die geen geld hebt, komt, koopt en eet’ (Jesaja 55:1). In Spreuken nodigt de Wijsheid uit: ‘Komt, eet van Mijn brood’ (Spreuken 9:5). De Heere Jezus zegt elders: ‘daar zullen er komen van Oosten en Westen, en van Noorden en Zuiden, en zullen aanzitten in het Koninkrijk Gods’ (Lukas 13:29). Veel uitleggers zien in de mensen van de wegen en heggen ook mensen van buiten Israël; de gelijkenis zelf zegt dat niet.",
+        t: "Jesaja roept: ‘O alle gij dorstigen! komt tot de wateren, en gij, die geen geld hebt, komt, koopt en eet’ (Jesaja 55:1). In Spreuken nodigt de Wijsheid uit: ‘Komt, eet van Mijn brood’ (Spreuken 9:5). De Heere Jezus zegt elders: ‘daar zullen er komen van Oosten en Westen, en van Noorden en Zuiden, en zullen aanzitten in het Koninkrijk Gods’ (Lukas 13:29). In de mensen van de wegen en heggen zijn de heidenen te zien, mensen van buiten Israël, die ook geroepen worden.",
         refs: ["Jesaja 55:1", "Spreuken 9:5", "Lukas 13:29"],
       },
     ],
@@ -4364,12 +4364,12 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Erfdeel en zwijnen",
-        t: "De jongste vraagt ‘het deel des goeds, dat mij toekomt’ terwijl zijn vader nog leeft. De vader ‘deelde hun het goed’: beide zonen krijgen hun deel (Lukas 15:12). Later zegt de vader tegen de oudste: ‘al het mijne is uwe’ (Lukas 15:31). Volgens de wet kreeg de eerstgeborene ‘het dubbele deel’ (Deuteronomium 21:17). Het zwijn was voor Israël een onrein dier (Leviticus 11:7). Veel uitleggers zien in het zwijnen hoeden hoe diep de zoon gezonken is.",
+        t: "De jongste vraagt ‘het deel des goeds, dat mij toekomt’ terwijl zijn vader nog leeft. De vader ‘deelde hun het goed’: beide zonen krijgen hun deel (Lukas 15:12). Later zegt de vader tegen de oudste: ‘al het mijne is uwe’ (Lukas 15:31). Volgens de wet kreeg de eerstgeborene ‘het dubbele deel’ (Deuteronomium 21:17). Het zwijn was voor Israël een onrein dier (Leviticus 11:7). Dat hij zwijnen moet hoeden, laat zien hoe diep de zoon gezonken is.",
         refs: ["Lukas 15:12", "Lukas 15:31", "Deuteronomium 21:17", "Leviticus 11:7"],
       },
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "De bekende naam “de verloren zoon” staat niet in de Bijbel. De gelijkenis begint met: ‘Een zeker mens had twee zonen’ (Lukas 15:11). Ze gaat dus ook over de oudste zoon, die toornig wordt. De gelijkenis eindigt met de woorden van de vader (Lukas 15:32), zonder te vertellen of de oudste zoon nog naar binnen gaat. Veel uitleggers zien in de oudste zoon de Farizeeën en schriftgeleerden, die mopperden dat de Heere Jezus zondaars ontving (Lukas 15:2).",
+        t: "De bekende naam “de verloren zoon” staat niet in de Bijbel. De gelijkenis begint met: ‘Een zeker mens had twee zonen’ (Lukas 15:11). Ze gaat dus ook over de oudste zoon, die toornig wordt. De gelijkenis eindigt met de woorden van de vader (Lukas 15:32), zonder te vertellen of de oudste zoon nog naar binnen gaat. De oudste zoon is een beeld van de Farizeeën en schriftgeleerden, die mopperden dat de Heere Jezus zondaars ontving (Lukas 15:2).",
         refs: ["Lukas 15:11", "Lukas 15:28–32", "Lukas 15:2"],
       },
     ],
@@ -4475,7 +4475,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Waar en wanneer",
-        t: "Toen het bericht kwam, was de Heere Jezus ‘over de Jordaan, tot de plaats, waar Johannes eerst doopte’ (Johannes 10:40). Die plaats wordt meestal gelijkgesteld met Bethabara, waar Johannes doopte (Johannes 1:28); waar die lag, is betwist. Bethanië is identificeerbaar en lag ‘nabij Jeruzalem, omtrent vijftien stadiën van daar’ (Johannes 11:18). Met een stadie van ongeveer 185 meter is dat bijna drie kilometer. Daarna gaat de Heere Jezus naar Efraïm, ‘bij de woestijn’ (Johannes 11:54); de ligging daarvan is waarschijnlijk bekend. Daarna staat er: ‘En het pascha der Joden was nabij’ (Johannes 11:55). Het jaar is een reconstructie: begin ca. 30 n.Chr., of begin 33.",
+        t: "Toen het bericht kwam, was de Heere Jezus ‘over de Jordaan, tot de plaats, waar Johannes eerst doopte’ (Johannes 10:40). Die plaats is Bethabara, waar Johannes doopte (Johannes 1:28); waar die lag, is betwist. Bethanië is identificeerbaar en lag ‘nabij Jeruzalem, omtrent vijftien stadiën van daar’ (Johannes 11:18). Met een stadie van ongeveer 185 meter is dat bijna drie kilometer. Daarna gaat de Heere Jezus naar Efraïm, ‘bij de woestijn’ (Johannes 11:54); de ligging daarvan is waarschijnlijk bekend. Daarna staat er: ‘En het pascha der Joden was nabij’ (Johannes 11:55). Het jaar is een reconstructie: begin ca. 30 n.Chr., of begin 33.",
         refs: ["Johannes 10:40", "Johannes 1:28", "Johannes 11:18", "Johannes 11:54–55"],
       },
       {
@@ -4485,7 +4485,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "De discipelen begrijpen ‘slaapt’ eerst verkeerd: ‘zij meenden, dat Hij sprak van de rust des slaaps’ (Johannes 11:13). Van Lazarus zelf staat in Johannes 11 en 12 geen enkel woord; de Bijbel vertelt niet wat hij in die vier dagen heeft meegemaakt. Kajafas zegt in de raad ‘dat het ons nut is, dat een mens sterve voor het volk’. Johannes schrijft dat hij dat ‘niet uit zichzelven’ zei: hij profeteerde ‘dat Jezus sterven zou voor het volk’ (Johannes 11:50–51).",
+        t: "De discipelen begrijpen ‘slaapt’ eerst verkeerd: ‘zij meenden, dat Hij sprak van de rust des slaaps’ (Johannes 11:13). Lazarus zelf zegt in Johannes 11 en 12 geen enkel woord. Kajafas zegt in de raad ‘dat het ons nut is, dat een mens sterve voor het volk’. Johannes schrijft dat hij dat ‘niet uit zichzelven’ zei: hij profeteerde ‘dat Jezus sterven zou voor het volk’ (Johannes 11:50–51).",
         refs: ["Johannes 11:11–13", "Johannes 11:47–53"],
       },
     ],
@@ -4513,7 +4513,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Eén blinde of twee?",
-        t: "Markus noemt één blinde, met naam: Bartimeüs. Lukas vertelt over ‘een zeker blinde’ toen de Heere Jezus ‘nabij Jericho kwam’ (Lukas 18:35). Mattheüs noemt ‘twee blinden’, toen ze ‘van Jericho uitgingen’ (Mattheüs 20:29–30). Uitleggers verschillen over hoe deze berichten precies samengaan. In alle drie roept de blinde de Heere Jezus aan als ‘Zone Davids’ (Markus 10:47; Lukas 18:38; Mattheüs 20:30).",
+        t: "Markus noemt één blinde, met naam: Bartimeüs. Lukas vertelt over ‘een zeker blinde’ toen de Heere Jezus ‘nabij Jericho kwam’ (Lukas 18:35). Mattheüs noemt ‘twee blinden’, toen ze ‘van Jericho uitgingen’ (Mattheüs 20:29–30). De evangeliën vullen elkaar aan: Markus vertelt alleen over de bekendste van de blinden. In alle drie roept de blinde de Heere Jezus aan als ‘Zone Davids’ (Markus 10:47; Lukas 18:38; Mattheüs 20:30).",
         refs: ["Markus 10:46–47", "Lukas 18:35–38", "Mattheüs 20:29–30"],
       },
       {
@@ -4590,7 +4590,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Hosanna en kleren op de weg",
-        t: "Het woord Hosanna wordt meestal uitgelegd als een roep om redding. Het lijkt op Psalm 118:25: ‘Och HEERE! geef nu heil’. Het volgende vers lijkt op wat de scharen roepen: ‘Gezegend zij hij, die daar komt in den Naam des HEEREN!’ (Psalm 118:26). Kleren op de weg leggen zie je ook bij Jehu: ‘een iegelijk nam zijn kleed, en leide het onder hem’, en ze riepen: ‘Jehu is koning geworden!’ (2 Koningen 9:13). Veel uitleggers zien daarin een manier om iemand als koning te begroeten.",
+        t: "Het woord Hosanna is een roep om redding. Het komt uit Psalm 118:25: ‘Och HEERE! geef nu heil’. Het volgende vers lijkt op wat de scharen roepen: ‘Gezegend zij hij, die daar komt in den Naam des HEEREN!’ (Psalm 118:26). Kleren op de weg leggen zie je ook bij Jehu: ‘een iegelijk nam zijn kleed, en leide het onder hem’, en ze riepen: ‘Jehu is koning geworden!’ (2 Koningen 9:13). Zo begroette men iemand als koning.",
         refs: ["Psalm 118:25–26", "2 Koningen 9:13"],
       },
       {
@@ -4629,7 +4629,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Psalm 8, waar en wanneer",
-        t: "In Psalm 8:3 staat in de Statenvertaling ‘hebt Gij sterkte gegrondvest’, in Mattheüs 21:16 ‘hebt Gij U lof toebereid’. De meeste uitleggers verklaren dat verschil zo: Mattheüs volgt hier de Griekse vertaling van het Oude Testament. De tempel en Bethanië zijn identificeerbaar. Mattheüs vertelt de tempelreiniging direct na de intocht; Markus zegt dat het de volgende dag was (Markus 11:11–15). Het jaartal is een reconstructie: ca. 30 of 33 n.Chr.",
+        t: "In Psalm 8:3 staat in de Statenvertaling ‘hebt Gij sterkte gegrondvest’, in Mattheüs 21:16 ‘hebt Gij U lof toebereid’. De tempel en Bethanië zijn identificeerbaar. Mattheüs vertelt de tempelreiniging direct na de intocht; Markus zegt dat het de volgende dag was (Markus 11:11–15). Het jaartal is een reconstructie: ca. 30 of 33 n.Chr.",
         refs: ["Psalm 8:3", "Mattheüs 21:16", "Markus 11:11–15"],
       },
     ],
@@ -4743,7 +4743,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Vier verslagen van één avond",
-        t: "Mattheüs, Markus en Lukas vertellen over het brood en de beker; Johannes vertelt over die avond de voetwassing (Johannes 13). Paulus geeft door wat hij ‘van den Heere ontvangen’ heeft, en noemt de tijd: ‘in den nacht, in welken Hij verraden werd’ (1 Korinthe 11:23). Mattheüs vertelt over de verrader vóór het brood, Lukas daarna (Mattheüs 26:21–26; Lukas 22:21). Waar de opperzaal was, zegt de Bijbel niet; Jeruzalem is identificeerbaar. Het jaartal is een reconstructie: ca. 30 of 33 n.Chr.",
+        t: "Mattheüs, Markus en Lukas vertellen over het brood en de beker; Johannes vertelt over die avond de voetwassing (Johannes 13). Paulus geeft door wat hij ‘van den Heere ontvangen’ heeft, en noemt de tijd: ‘in den nacht, in welken Hij verraden werd’ (1 Korinthe 11:23). Mattheüs vertelt over de verrader vóór het brood, Lukas daarna (Mattheüs 26:21–26; Lukas 22:21). Jeruzalem is identificeerbaar. Het jaartal is een reconstructie: ca. 30 of 33 n.Chr.",
         refs: ["1 Korinthe 11:23", "Mattheüs 26:21–26", "Lukas 22:21"],
       },
     ],
@@ -4767,7 +4767,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Waar en wanneer",
-        t: "Johannes vertelt dat de Heere Jezus ging ‘over de beek Kedron, waar een hof was’. Judas kende die plaats, ‘dewijl Jezus aldaar dikwijls vergaderd was geweest met Zijn discipelen’ (Johannes 18:1–2). Het Kedrondal ligt tussen Jeruzalem en de Olijfberg. Gethsémané staat op de kaart als waarschijnlijke plaats; de naam wordt meestal uitgelegd als oliepers. Het gebeurde in de nacht na de paasmaaltijd; het jaartal is een reconstructie: ca. 30 of 33 n.Chr.",
+        t: "Johannes vertelt dat de Heere Jezus ging ‘over de beek Kedron, waar een hof was’. Judas kende die plaats, ‘dewijl Jezus aldaar dikwijls vergaderd was geweest met Zijn discipelen’ (Johannes 18:1–2). Het Kedrondal ligt tussen Jeruzalem en de Olijfberg. Gethsémané staat op de kaart als waarschijnlijke plaats. Het gebeurde in de nacht na de paasmaaltijd; het jaartal is een reconstructie: ca. 30 of 33 n.Chr.",
         refs: ["Johannes 18:1–2", "Markus 14:26, 32"],
       },
       {
@@ -4806,12 +4806,12 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Het verhoor bij Kajafas",
-        t: "Twee valse getuigen zeggen dat de Heere Jezus gezegd heeft: ‘Ik kan den tempel Gods afbreken, en in drie dagen denzelven opbouwen’ (Mattheüs 26:61). Johannes 2:19–21 vertelt wat Hij werkelijk zei, en dat Hij sprak ‘van den tempel Zijns lichaams’. Op de vraag van de hogepriester zegt de Heere Jezus dat de Zoon des mensen zal zitten ‘ter rechter hand der kracht Gods’ en komen ‘op de wolken des hemels’ (Mattheüs 26:64). Veel uitleggers horen hierin Psalm 110:1 en Daniël 7:13.",
+        t: "Twee valse getuigen zeggen dat de Heere Jezus gezegd heeft: ‘Ik kan den tempel Gods afbreken, en in drie dagen denzelven opbouwen’ (Mattheüs 26:61). Johannes 2:19–21 vertelt wat Hij werkelijk zei, en dat Hij sprak ‘van den tempel Zijns lichaams’. Op de vraag van de hogepriester zegt de Heere Jezus dat de Zoon des mensen zal zitten ‘ter rechter hand der kracht Gods’ en komen ‘op de wolken des hemels’ (Mattheüs 26:64). Hij spreekt hier met woorden uit Psalm 110:1 en Daniël 7:13.",
         refs: ["Mattheüs 26:61–64", "Johannes 2:19–21", "Psalm 110:1", "Daniël 7:13"],
       },
       {
         kop: "Achtergrond: zijn spraak",
-        t: "Markus schrijft dat de omstanders zeiden: ‘gij zijt ook een Galileër, en uw spraak gelijkt’ (Markus 14:70). Aan de uitspraak hoorde je dus waar iemand vandaan kwam. Dat gebeurt ook in Richteren 12:6: de Efraïmieten konden ‘Schibboleth’ niet goed uitspreken en zeiden ‘Sibbolet’. Waar het huis van de hogepriester stond, zegt de Bijbel niet; Jeruzalem is identificeerbaar. Het gebeurde in de nacht van het verhoor, ca. 30 of 33 n.Chr. (reconstructie).",
+        t: "Markus schrijft dat de omstanders zeiden: ‘gij zijt ook een Galileër, en uw spraak gelijkt’ (Markus 14:70). Aan de uitspraak hoorde je dus waar iemand vandaan kwam. Dat gebeurt ook in Richteren 12:6: de Efraïmieten konden ‘Schibboleth’ niet goed uitspreken en zeiden ‘Sibbolet’. Jeruzalem is identificeerbaar. Het gebeurde in de nacht van het verhoor, ca. 30 of 33 n.Chr. (reconstructie).",
         refs: ["Markus 14:70", "Richteren 12:6"],
       },
     ],
@@ -4886,8 +4886,8 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wat Johannes vertelt en wat niet",
-        t: "Johannes schrijft dat de Heere Jezus uitging, ‘dragende Zijn kruis’ (19:17). Mattheüs, Markus en Lukas vertellen dat Simon van Cyrene onderweg het kruis moest dragen (Mattheüs 27:32; Markus 15:21; Lukas 23:26). Uitleggers zien dat meestal als twee delen van dezelfde tocht. De naam van de discipel ‘dien Hij liefhad’ noemt Johannes nergens. Aan het eind van het evangelie staat dat deze discipel ‘deze dingen geschreven heeft’ (Johannes 21:20, 24); daarom wordt hij van oudsher gezien als de apostel Johannes. Of Johannes 19:25 drie of vier vrouwen noemt, daarover verschillen uitleggers.",
-        refs: ["Johannes 19:17", "Mattheüs 27:32", "Markus 15:21", "Lukas 23:26", "Johannes 21:20–24", "Johannes 19:25"],
+        t: "Johannes schrijft dat de Heere Jezus uitging, ‘dragende Zijn kruis’ (19:17). Mattheüs, Markus en Lukas vertellen dat Simon van Cyrene onderweg het kruis moest dragen (Mattheüs 27:32; Markus 15:21; Lukas 23:26). Eerst droeg de Heere Jezus Zijn kruis Zelf; onderweg moest Simon het achter Hem aan dragen. De naam van de discipel ‘dien Hij liefhad’ noemt Johannes nergens. Aan het eind van het evangelie staat dat deze discipel ‘deze dingen geschreven heeft’ (Johannes 21:20, 24): het is de apostel Johannes zelf.",
+        refs: ["Johannes 19:17", "Mattheüs 27:32", "Markus 15:21", "Lukas 23:26", "Johannes 21:20–24"],
       },
       {
         kop: "Waar en wanneer",
@@ -4919,7 +4919,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Geen been gebroken",
-        t: "Johannes haalt twee Schriftwoorden aan. Bij het eerste denken uitleggers aan het paaslam: ‘gij zult geen been daaraan breken’ (Exodus 12:46; Numeri 9:12), en aan Psalm 34 over de rechtvaardige: ‘niet een van die wordt gebroken’ (Psalm 34:21). Paulus schrijft: ‘ook ons Pascha is voor ons geslacht, namelijk Christus’ (1 Korinthe 5:7). Het tweede woord komt uit Zacharia 12:10: ‘zij zullen Mij aanschouwen, Dien zij doorstoken hebben’. In Openbaring 1:7 klinkt het opnieuw: ‘alle oog zal Hem zien, ook degenen, die Hem doorstoken hebben’.",
+        t: "Johannes haalt twee Schriftwoorden aan. Het eerste gaat over het paaslam: ‘gij zult geen been daaraan breken’ (Exodus 12:46; Numeri 9:12). Psalm 34 zegt over de rechtvaardige: ‘niet een van die wordt gebroken’ (Psalm 34:21). Paulus schrijft: ‘ook ons Pascha is voor ons geslacht, namelijk Christus’ (1 Korinthe 5:7). Het tweede woord komt uit Zacharia 12:10: ‘zij zullen Mij aanschouwen, Dien zij doorstoken hebben’. In Openbaring 1:7 klinkt het opnieuw: ‘alle oog zal Hem zien, ook degenen, die Hem doorstoken hebben’.",
         refs: ["Exodus 12:46", "Numeri 9:12", "Psalm 34:21", "1 Korinthe 5:7", "Zacharia 12:10", "Openbaring 1:7"],
       },
       {
@@ -4929,7 +4929,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Waarom zo snel?",
-        t: "Uitleggers wijzen op de wet: wie aan een hout was opgehangen, mocht daar niet blijven: ‘Zo zal zijn dood lichaam aan het hout niet overnachten’ (Deuteronomium 21:23). Bovendien begon de sabbat. Lukas vertelt dat de vrouwen zagen hoe het lichaam werd neergelegd. Daarna maakten ze specerijen klaar, maar ‘op den sabbat rustten zij naar het gebod’ (Lukas 23:55–56). Ongeveer honderd pond mirre en aloë is veel. Uitleggers rekenen dat om tot ruim dertig kilo.",
+        t: "De wet zei: wie aan een hout was opgehangen, mocht daar niet blijven: ‘Zo zal zijn dood lichaam aan het hout niet overnachten’ (Deuteronomium 21:23). Bovendien begon de sabbat. Lukas vertelt dat de vrouwen zagen hoe het lichaam werd neergelegd. Daarna maakten ze specerijen klaar, maar ‘op den sabbat rustten zij naar het gebod’ (Lukas 23:55–56). Ongeveer honderd pond mirre en aloë is veel. Het is ruim dertig kilo.",
         refs: ["Deuteronomium 21:22–23", "Lukas 23:55–56", "Johannes 19:39"],
       },
     ],
@@ -4961,7 +4961,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Vier verslagen van één morgen",
-        t: "Mattheüs noemt twee vrouwen en één engel, die op de steen zit. Markus noemt ook Salome en vertelt van ‘een jongeling’ in het graf, ‘bekleed met een wit lang kleed’ (Markus 16:1, 5). Lukas noemt onder anderen Johanna en spreekt van ‘twee mannen’ in ‘blinkende klederen’ (Lukas 24:4, 10). Johannes vertelt vooral over Maria Magdalena (Johannes 20:1). Uitleggers leggen deze verslagen op verschillende manieren naast elkaar. Alle vier vertellen dat het graf leeg is, en dat de Heere is opgestaan.",
+        t: "Mattheüs noemt twee vrouwen en één engel, die op de steen zit. Markus noemt ook Salome en vertelt van ‘een jongeling’ in het graf, ‘bekleed met een wit lang kleed’ (Markus 16:1, 5). Lukas noemt onder anderen Johanna en spreekt van ‘twee mannen’ in ‘blinkende klederen’ (Lukas 24:4, 10). Johannes vertelt vooral over Maria Magdalena (Johannes 20:1). Alle vier vertellen dat het graf leeg is, en dat de Heere is opgestaan.",
         refs: ["Markus 16:1–6", "Lukas 24:1–10", "Johannes 20:1"],
       },
       {
@@ -4971,7 +4971,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "De eerste dag der week",
-        t: "De vrouwen komen ‘tegen den eersten dag der week’ (28:1): de dag na de sabbat, onze zondag. Later kwamen de discipelen in Troas samen ‘op den eersten dag der week’ om brood te breken (Handelingen 20:7). Paulus vraagt de gemeente in Korinthe om ‘op elken eersten dag der week’ iets weg te leggen voor de verzameling voor de heiligen (1 Korinthe 16:1–2). Johannes spreekt van ‘den dag des Heeren’ (Openbaring 1:10); veel uitleggers zien daarin de zondag.",
+        t: "De vrouwen komen ‘tegen den eersten dag der week’ (28:1): de dag na de sabbat, onze zondag. Later kwamen de discipelen in Troas samen ‘op den eersten dag der week’ om brood te breken (Handelingen 20:7). Paulus vraagt de gemeente in Korinthe om ‘op elken eersten dag der week’ iets weg te leggen voor de verzameling voor de heiligen (1 Korinthe 16:1–2). Johannes spreekt van ‘den dag des Heeren’ (Openbaring 1:10): de zondag.",
         refs: ["Mattheüs 28:1", "Handelingen 20:6–7", "1 Korinthe 16:1–2", "Openbaring 1:10"],
       },
     ],
@@ -5003,17 +5003,17 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Doeken en zweetdoek",
-        t: "Johannes beschrijft precies wat er in het graf ligt: de doeken, en ‘den zweetdoek, die op Zijn hoofd geweest was’, ‘in het bijzonder in een andere plaats samengerold’ (20:6–7). Vergelijk Lazarus: hij kwam naar buiten ‘gebonden aan handen en voeten met grafdoeken’ en moest nog worden losgemaakt (Johannes 11:44). Veel uitleggers zien in de opgerolde zweetdoek een aanwijzing dat het lichaam niet in haast is weggehaald. Van de andere discipel zegt Johannes: hij ‘zag het, en geloofde’ (20:8). Toch staat er: ‘zij wisten nog de Schrift niet, dat Hij van de doden moest opstaan’ (20:9).",
+        t: "Johannes beschrijft precies wat er in het graf ligt: de doeken, en ‘den zweetdoek, die op Zijn hoofd geweest was’, ‘in het bijzonder in een andere plaats samengerold’ (20:6–7). Vergelijk Lazarus: hij kwam naar buiten ‘gebonden aan handen en voeten met grafdoeken’ en moest nog worden losgemaakt (Johannes 11:44). Van de andere discipel zegt Johannes: hij ‘zag het, en geloofde’ (20:8). Toch staat er: ‘zij wisten nog de Schrift niet, dat Hij van de doden moest opstaan’ (20:9).",
         refs: ["Johannes 20:6–9", "Johannes 11:44"],
       },
       {
         kop: "Wie was Maria Magdalena?",
-        t: "Lukas vertelt dat uit Maria Magdalena ‘zeven duivelen uitgegaan waren’ (Lukas 8:2). Zij stond bij het kruis (Johannes 19:25) en zag waar Hij gelegd werd (Markus 15:47). Markus schrijft dat de opgestane Heere ‘eerst aan Maria Magdalena’ verscheen (Markus 16:9). Dat zij vroeger een zondares was, zoals vaak wordt verteld, staat niet in de Bijbel. Dat komt uit latere overlevering, die haar gelijkstelde met de vrouw uit Lukas 7:37.",
-        refs: ["Lukas 8:2", "Johannes 19:25", "Markus 15:47", "Markus 16:9", "Lukas 7:37"],
+        t: "Lukas vertelt dat uit Maria Magdalena ‘zeven duivelen uitgegaan waren’ (Lukas 8:2). Zij stond bij het kruis (Johannes 19:25) en zag waar Hij gelegd werd (Markus 15:47). Markus schrijft dat de opgestane Heere ‘eerst aan Maria Magdalena’ verscheen (Markus 16:9).",
+        refs: ["Lukas 8:2", "Johannes 19:25", "Markus 15:47", "Markus 16:9"],
       },
       {
         kop: "Mijn Vader en uw Vader",
-        t: "De Heere Jezus zegt tegen Maria: ‘Raak Mij niet aan, want Ik ben nog niet opgevaren tot Mijn Vader’ (20:17). Uitleggers verschillen over wat Hij daarmee precies bedoelt. Duidelijk is de boodschap die zij moet brengen: ‘Ik vare op tot Mijn Vader en uw Vader, en tot Mijn God en uw God.’ Hij noemt de discipelen hier ‘Mijn broeders’, en in Mattheüs 28:10 ‘Mijn broederen’. Hebreeën 2:11 zegt dat Hij ‘Zich niet schaamt hen broeders te noemen’.",
+        t: "De Heere Jezus zegt tegen Maria: ‘Raak Mij niet aan, want Ik ben nog niet opgevaren tot Mijn Vader’ (20:17). Zij moet een boodschap brengen: ‘Ik vare op tot Mijn Vader en uw Vader, en tot Mijn God en uw God.’ Hij noemt de discipelen hier ‘Mijn broeders’, en in Mattheüs 28:10 ‘Mijn broederen’. Hebreeën 2:11 zegt dat Hij ‘Zich niet schaamt hen broeders te noemen’.",
         refs: ["Johannes 20:17", "Mattheüs 28:10", "Hebreeën 2:11"],
       },
     ],
@@ -5050,13 +5050,13 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wat de Schriften over Hem zeggen",
-        t: "Lukas vertelt niet welke Schriftgedeelten de Heere Jezus onderweg uitlegde. Wel zegt de Bijbel op andere plaatsen dat Mozes en de profeten over Hem spraken. Over Mozes zei de Heere Jezus: ‘want hij heeft van Mij geschreven’ (Johannes 5:46). Petrus schrijft dat de Geest van Christus in de profeten ‘te voren getuigde, het lijden, dat op Christus komen zou, en de heerlijkheid daarna volgende’ (1 Petrus 1:11). Dat zijn dezelfde twee dingen als in Lukas 24:26: lijden en heerlijkheid.",
+        t: "De Bijbel zegt ook op andere plaatsen dat Mozes en de profeten over Hem spraken. Over Mozes zei de Heere Jezus: ‘want hij heeft van Mij geschreven’ (Johannes 5:46). Petrus schrijft dat de Geest van Christus in de profeten ‘te voren getuigde, het lijden, dat op Christus komen zou, en de heerlijkheid daarna volgende’ (1 Petrus 1:11). Dat zijn dezelfde twee dingen als in Lukas 24:26: lijden en heerlijkheid.",
         refs: ["Johannes 5:46", "1 Petrus 1:10–11", "Lukas 24:26"],
       },
       {
         kop: "Twee getuigen",
-        t: "Alleen Kleopas wordt bij name genoemd (24:18). Sommigen verbinden hem met Klopas uit Johannes 19:25, maar dat is onzeker. Markus vat deze ontmoeting kort samen: ‘na dezen is Hij geopenbaard in een andere gedaante, aan twee van hen, daar zij wandelden’ (Markus 16:12). Paulus noemt in zijn lijst van getuigen eerst Cefas, dat is Petrus (1 Korinthe 15:5). Dat past bij wat de elf tegen de twee zeiden: ‘is van Simon gezien’ (24:34).",
-        refs: ["Lukas 24:18", "Johannes 19:25", "Markus 16:12", "1 Korinthe 15:5", "Lukas 24:34"],
+        t: "Alleen Kleopas wordt bij name genoemd (24:18). Markus vat deze ontmoeting kort samen: ‘na dezen is Hij geopenbaard in een andere gedaante, aan twee van hen, daar zij wandelden’ (Markus 16:12). Paulus noemt in zijn lijst van getuigen eerst Cefas, dat is Petrus (1 Korinthe 15:5). Dat past bij wat de elf tegen de twee zeiden: ‘is van Simon gezien’ (24:34).",
+        refs: ["Lukas 24:18", "Markus 16:12", "1 Korinthe 15:5", "Lukas 24:34"],
       },
     ],
     vragen: [
@@ -5100,9 +5100,9 @@ BR.niveaus.voegToe("c", {
         refs: ["Johannes 1:1", "Johannes 1:14", "Johannes 20:29"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "De bijnaam de ongelovige Thomas komt uit de traditie, niet uit de Bijbel. Johannes vertelt ook niet dat Thomas zijn vinger echt in de wonden stak. Bij ‘blies Hij op hen’ (20:22) wijzen veel uitleggers op Genesis 2:7, waar God de mens ‘den adem des levens’ inblies. De Heilige Geest wordt later op de Pinksterdag uitgestort (Handelingen 2:1–4). Uitleggers verschillen over hoe die twee momenten zich tot elkaar verhouden.",
-        refs: ["Johannes 20:22", "Genesis 2:7", "Handelingen 2:1–4"],
+        kop: "De Heilige Geest",
+        t: "De Heere Jezus blies op de discipelen en zei: ‘Ontvangt den Heiligen Geest’ (20:22). Toen kregen ze al gaven van de Heilige Geest. Op de Pinksterdag werd de Geest in volle maat over hen uitgestort (Handelingen 2:1–4).",
+        refs: ["Johannes 20:22", "Handelingen 2:1–4"],
       },
     ],
     vragen: [
@@ -5128,17 +5128,17 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Twee keer een kolenvuur",
-        t: "In de hele Statenvertaling komt het woord kolenvuur maar twee keer voor: hier (21:9) en in de nacht van het verhoor. In die nacht ontkende Petrus drie keer dat hij bij de Heere Jezus hoorde; intussen warmde hij zich bij een kolenvuur (Johannes 18:17–18, 25–27). Nu vraagt de Heere hem drie keer: ‘hebt gij Mij lief?’ Veel uitleggers zien daarin dat Petrus hier hersteld wordt. In de nacht voor het lijden had de Heere Jezus tegen hem gezegd: ‘Waar Ik heenga, kunt gij Mij nu niet volgen; maar gij zult Mij namaals volgen’ (Johannes 13:36). Nu zegt Hij: ‘Volg Mij.’",
+        t: "In de hele Statenvertaling komt het woord kolenvuur maar twee keer voor: hier (21:9) en in de nacht van het verhoor. In die nacht ontkende Petrus drie keer dat hij bij de Heere Jezus hoorde; intussen warmde hij zich bij een kolenvuur (Johannes 18:17–18, 25–27). Nu vraagt de Heere hem drie keer: ‘hebt gij Mij lief?’ Zo neemt de Heere hem weer aan als Zijn apostel. In de nacht voor het lijden had de Heere Jezus tegen hem gezegd: ‘Waar Ik heenga, kunt gij Mij nu niet volgen; maar gij zult Mij namaals volgen’ (Johannes 13:36). Nu zegt Hij: ‘Volg Mij.’",
         refs: ["Johannes 21:9", "Johannes 18:17–27", "Johannes 13:36"],
       },
       {
         kop: "De dood van Petrus",
-        t: "‘Een ander zal u gorden, en brengen, waar gij niet wilt’ (21:18). Johannes legt het zelf uit: zo zou Petrus God verheerlijken met zijn dood (21:19). Veel uitleggers zien in ‘zo zult gij uw handen uitstrekken’ een aanwijzing voor een kruisdood. Petrus schrijft later dat hij spoedig zal sterven, ‘gelijkerwijs ook onze Heere Jezus Christus mij heeft geopenbaard’ (2 Petrus 1:14); veel uitleggers denken daarbij aan deze woorden bij het meer. Hoe en waar Petrus stierf, vertelt de Bijbel niet. Volgens de overlevering is hij in Rome gekruisigd.",
+        t: "‘Een ander zal u gorden, en brengen, waar gij niet wilt’ (21:18). Johannes legt het zelf uit: zo zou Petrus God verheerlijken met zijn dood (21:19). Petrus schrijft later dat hij spoedig zal sterven, ‘gelijkerwijs ook onze Heere Jezus Christus mij heeft geopenbaard’ (2 Petrus 1:14).",
         refs: ["Johannes 21:18–19", "2 Petrus 1:14"],
       },
       {
         kop: "Waar en wanneer",
-        t: "De zee van Tiberias is ‘de zee van Galilea’ (Johannes 6:1); Lukas noemt haar ‘het meer Gennesareth’ (Lukas 5:1). Waar aan het meer dit gebeurde, zegt de tekst niet. Het schip was ‘omtrent tweehonderd ellen’ van het land (21:8), ongeveer honderd meter. Dit was ‘de derde maal’ dat de opgestane Heere Zich aan de discipelen liet zien (21:14). Het getal honderddrieënvijftig heeft uitleggers op veel ideeën gebracht, maar Johannes geeft er zelf geen betekenis aan.",
+        t: "De zee van Tiberias is ‘de zee van Galilea’ (Johannes 6:1); Lukas noemt haar ‘het meer Gennesareth’ (Lukas 5:1). Het schip was ‘omtrent tweehonderd ellen’ van het land (21:8), ongeveer honderd meter. Dit was ‘de derde maal’ dat de opgestane Heere Zich aan de discipelen liet zien (21:14).",
         refs: ["Johannes 6:1", "Lukas 5:1", "Johannes 21:8–14"],
       },
     ],
@@ -5166,7 +5166,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Twee boeken van Lukas",
-        t: "Handelingen begint met: ‘Het eerste boek heb ik gemaakt, o Theofilus’. Ook het evangelie naar Lukas is geschreven aan ‘voortreffelijke Theofilus’ (Lukas 1:3). Daarom wordt dat evangelie algemeen gezien als het eerste boek. Lukas vertelt de hemelvaart dus twee keer: kort aan het eind van zijn evangelie (Lukas 24:50–53) en uitvoeriger aan het begin van Handelingen. Wie Theofilus was, vertelt de Bijbel niet.",
+        t: "Handelingen begint met: ‘Het eerste boek heb ik gemaakt, o Theofilus’. Ook het evangelie naar Lukas is geschreven aan ‘voortreffelijke Theofilus’ (Lukas 1:3). Dat evangelie is dus het eerste boek. Lukas vertelt de hemelvaart dus twee keer: kort aan het eind van zijn evangelie (Lukas 24:50–53) en uitvoeriger aan het begin van Handelingen.",
         refs: ["Handelingen 1:1", "Lukas 1:1–4", "Lukas 24:50–53"],
       },
       {
@@ -5176,7 +5176,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Elders in de Bijbel",
-        t: "Psalm 47 en 68 worden vaak met de hemelvaart verbonden: ‘God vaart op met gejuich’ (Psalm 47:6) en ‘Gij zijt opgevaren in de hoogte’ (Psalm 68:19). Paulus haalt dat laatste zelf aan (Efeze 4:8). De Heere Jezus had gezegd: ‘Het is u nut, dat Ik wegga; want indien Ik niet wegga, zo zal de Trooster tot u niet komen’ (Johannes 16:7). Over Zijn komst ‘op de wolken des hemels’ sprak Hij voor de hogepriester (Mattheüs 26:64); vergelijk Daniël 7:13.",
+        t: "Psalm 47 en 68 wijzen al vooruit naar de hemelvaart: ‘God vaart op met gejuich’ (Psalm 47:6) en ‘Gij zijt opgevaren in de hoogte’ (Psalm 68:19). Paulus haalt dat laatste zelf aan (Efeze 4:8). De Heere Jezus had gezegd: ‘Het is u nut, dat Ik wegga; want indien Ik niet wegga, zo zal de Trooster tot u niet komen’ (Johannes 16:7). Over Zijn komst ‘op de wolken des hemels’ sprak Hij voor de hogepriester (Mattheüs 26:64); vergelijk Daniël 7:13.",
         refs: ["Psalm 47:6", "Psalm 68:19", "Efeze 4:8", "Johannes 16:7", "Mattheüs 26:63–64", "Daniël 7:13"],
       },
     ],
@@ -5213,8 +5213,8 @@ BR.niveaus.voegToe("c", {
         refs: ["Exodus 34:22", "Deuteronomium 16:9–10", "Handelingen 2:10"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Het geluid vulde ‘het gehele huis, waar zij zaten’ (2:2), maar welk huis dat was, zegt Lukas niet. Veel uitleggers zien een tegenhanger van Babel: daar verwarde de HEERE de spraak (Genesis 11:9), hier hoort ieder ‘de grote werken Gods’ in zijn eigen taal (2:11). Handelingen 2 noemt Babel zelf niet. Ook het jaar staat er niet: Pinksteren valt vijftig dagen na het Pascha van de kruisiging, en daarvoor worden vooral 30 en 33 n.Chr. verdedigd.",
+        kop: "Babel en Pinksteren",
+        t: "Het geluid vulde ‘het gehele huis, waar zij zaten’ (2:2). Pinksteren is de tegenhanger van Babel: daar verwarde de HEERE de spraak (Genesis 11:9), hier hoort ieder ‘de grote werken Gods’ in zijn eigen taal (2:11). Een jaartal noemt de Bijbel niet: Pinksteren valt vijftig dagen na het Pascha van de kruisiging, en daarvoor worden vooral 30 en 33 n.Chr. verdedigd.",
         refs: ["Handelingen 2:2", "Genesis 11:9", "Handelingen 2:11"],
       },
     ],
@@ -5246,12 +5246,12 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Het derde uur en het breken van het brood",
-        t: "De Joden telden de uren van de dag vanaf zonsopgang. Het derde uur is dus in de ochtend, ongeveer negen uur. Over ‘de breking des broods’ (2:42) verschillen uitleggers: sommigen denken aan het Heilig Avondmaal, anderen aan de gewone maaltijden, of aan allebei. De tekst zegt verder dat ze ‘van huis tot huis brood brekende’ samen aten ‘met verheuging en eenvoudigheid des harten’ (2:46).",
+        t: "De Joden telden de uren van de dag vanaf zonsopgang. Het derde uur is dus in de ochtend, ongeveer negen uur. De gelovigen bleven volharden ‘in de breking des broods’ (2:42). Ze aten ‘van huis tot huis brood brekende’ samen, ‘met verheuging en eenvoudigheid des harten’ (2:46).",
         refs: ["Handelingen 2:15", "Handelingen 2:42", "Handelingen 2:46"],
       },
       {
         kop: "Wie de Heere roepen zal",
-        t: "Petrus begint met Joël en houdt op bij de woorden: ‘een iegelijk, die den Naam des Heeren zal aanroepen, zalig zal worden’ (2:21). Aan het eind van zijn preek zegt hij: ‘zo velen als er de Heere, onze God, toe roepen zal’ (2:39). Dat lijkt op het slot van Joël 2:32, dat in Handelingen 2 niet wordt aangehaald: ‘bij de overgeblevenen, die de HEERE zal roepen’. Veel uitleggers zien hier beide kanten: de mens roept de Naam des Heeren aan, en God roept de mens.",
+        t: "Petrus begint met Joël en houdt op bij de woorden: ‘een iegelijk, die den Naam des Heeren zal aanroepen, zalig zal worden’ (2:21). Aan het eind van zijn preek zegt hij: ‘zo velen als er de Heere, onze God, toe roepen zal’ (2:39). Dat lijkt op het slot van Joël 2:32, dat in Handelingen 2 niet wordt aangehaald: ‘bij de overgeblevenen, die de HEERE zal roepen’. Zo staan beide kanten in deze preek: de mens roept de Naam des Heeren aan, en God roept de mens.",
         refs: ["Handelingen 2:21", "Handelingen 2:39", "Joël 2:32"],
       },
     ],
@@ -5288,7 +5288,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Waar en wanneer",
-        t: "Welke tempelpoort de Schone heette, zegt de Bijbel niet; uitleggers verschillen daarover. Salomo’s voorhof was een zuilengang bij de tempel, waar ook de Heere Jezus gewandeld had (Johannes 10:23). Het negende uur was in de middag, ongeveer drie uur. Een jaartal noemt de Bijbel niet: het gebeurt kort na Pinksteren, afhankelijk van het jaar van de kruisiging (30 of 33) in de eerste jaren daarna.",
+        t: "Salomo’s voorhof was een zuilengang bij de tempel, waar ook de Heere Jezus gewandeld had (Johannes 10:23). Het negende uur was in de middag, ongeveer drie uur. Een jaartal noemt de Bijbel niet: het gebeurt kort na Pinksteren, afhankelijk van het jaar van de kruisiging (30 of 33) in de eerste jaren daarna.",
         refs: ["Handelingen 3:1–2", "Handelingen 3:11", "Johannes 10:23"],
       },
     ],
@@ -5316,7 +5316,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Wat de tekst zegt en wat niet",
-        t: "Petrus zegt: ‘Zo het gebleven ware, bleef het niet uw, en verkocht zijnde, was het niet in uw macht?’ (5:4). Daaruit blijkt dat niemand verplicht was om land te verkopen. Petrus verwijt hun niet dat ze geld hadden, maar dat ze logen. Ananias en Saffira hadden dat samen afgesproken: ‘Wat is het, dat gij onder u hebt overeengestemd te verzoeken den Geest des Heeren?’ (5:9). Veel uitleggers zien hierin dat de Heilige Geest God is: Petrus zegt eerst dat Ananias de Heilige Geest heeft gelogen (5:3) en daarna: ‘Gij hebt den mensen niet gelogen, maar Gode’ (5:4).",
+        t: "Petrus zegt: ‘Zo het gebleven ware, bleef het niet uw, en verkocht zijnde, was het niet in uw macht?’ (5:4). Daaruit blijkt dat niemand verplicht was om land te verkopen. Petrus verwijt hun niet dat ze geld hadden, maar dat ze logen. Ananias en Saffira hadden dat samen afgesproken: ‘Wat is het, dat gij onder u hebt overeengestemd te verzoeken den Geest des Heeren?’ (5:9). Hieruit blijkt dat de Heilige Geest God is: Petrus zegt eerst dat Ananias de Heilige Geest heeft gelogen (5:3) en daarna: ‘Gij hebt den mensen niet gelogen, maar Gode’ (5:4).",
         refs: ["Handelingen 5:3–4", "Handelingen 5:9"],
       },
       {
@@ -5352,7 +5352,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Stefanus en de profeten",
-        t: "Stefanus haalt in zijn rede de profeten aan. ‘Hebt gij ook slachtofferen en offeranden Mij opgeofferd, veertig jaren in de woestijn’ (7:42) komt uit Amos 5:25. ‘De hemel is Mij een troon, en de aarde een voetbank Mijner voeten’ (7:49) komt uit Jesaja 66:1, waar staat: ‘De hemel is Mijn troon’. Hij zegt erbij: ‘Maar de Allerhoogste woont niet in tempelen met handen gemaakt’ (7:48). Veel uitleggers zien hierin zijn antwoord op de beschuldiging over de tempel (6:13–14).",
+        t: "Stefanus haalt in zijn rede de profeten aan. ‘Hebt gij ook slachtofferen en offeranden Mij opgeofferd, veertig jaren in de woestijn’ (7:42) komt uit Amos 5:25. ‘De hemel is Mij een troon, en de aarde een voetbank Mijner voeten’ (7:49) komt uit Jesaja 66:1, waar staat: ‘De hemel is Mijn troon’. Hij zegt erbij: ‘Maar de Allerhoogste woont niet in tempelen met handen gemaakt’ (7:48). Daarmee antwoordt hij op de beschuldiging over de tempel (6:13–14).",
         refs: ["Handelingen 7:42–43", "Amos 5:25–27", "Handelingen 7:48–50", "Jesaja 66:1–2"],
       },
       {
@@ -5362,7 +5362,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Waar en wanneer",
-        t: "Ze werpen Stefanus ‘ter stad uit’ (7:58). De beschuldiging tegen Stefanus was laster (6:11, 13). Uitleggers wijzen erop dat de wet zei dat wie de Naam van de HEERE lasterde, buiten het leger gestenigd moest worden (Leviticus 24:14, 16). Waar het precies gebeurde, zegt de Bijbel niet. Een jaartal staat er ook niet; het valt na de eerste jaren van de gemeente en vóór de bekering van Saulus, daarom ca. 31–35 n.Chr.",
+        t: "Ze werpen Stefanus ‘ter stad uit’ (7:58). De beschuldiging tegen Stefanus was laster (6:11, 13). Zo wilden ze de wet volgen: wie de Naam van de HEERE lasterde, moest buiten het leger gestenigd worden (Leviticus 24:14, 16). Een jaartal staat er niet; het valt na de eerste jaren van de gemeente en vóór de bekering van Saulus, daarom ca. 31–35 n.Chr.",
         refs: ["Handelingen 7:58", "Leviticus 24:14–16", "Handelingen 6:11–13"],
       },
     ],
@@ -5394,12 +5394,12 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Jesaja 53 op de wagen",
-        t: "De kamerling leest Jesaja 53:7–8. Lukas geeft de woorden anders weer dan Jesaja 53 in de Statenvertaling. Waar Jesaja zegt ‘wie zal Zijn leeftijd uitspreken?’, staat in Handelingen 8:33 ‘wie zal Zijn geslacht verhalen?’ Uitleggers verklaren dat meestal doordat Lukas de Griekse vertaling van het Oude Testament volgt. De vraag van de kamerling is de kern: ‘van Wien zegt de profeet dit, van zichzelven, of van iemand anders?’ (8:34).",
+        t: "De kamerling leest Jesaja 53:7–8. Lukas geeft de woorden anders weer dan Jesaja 53 in de Statenvertaling. Waar Jesaja zegt ‘wie zal Zijn leeftijd uitspreken?’, staat in Handelingen 8:33 ‘wie zal Zijn geslacht verhalen?’ Dat komt doordat Lukas hier de Griekse vertaling van het Oude Testament volgt. De vraag van de kamerling is de kern: ‘van Wien zegt de profeet dit, van zichzelven, of van iemand anders?’ (8:34).",
         refs: ["Jesaja 53:7–8", "Handelingen 8:32–34"],
       },
       {
         kop: "Waar en wanneer",
-        t: "De weg ‘die van Jeruzalem afdaalt naar Gaza’ heet ‘woest’ (8:26); uitleggers verschillen over de vraag of dat op de weg of op Gaza slaat. Welk water het was, zegt de Bijbel niet; de plek op de kaart is onbekend. Azote is Asdod. Het rijk van Candace wordt meestal gezocht ten zuiden van Egypte. Het gebeurt kort na de dood van Stefanus; een jaartal noemt de Bijbel niet.",
+        t: "De weg ‘die van Jeruzalem afdaalt naar Gaza’ heet ‘woest’ (8:26). Azote is Asdod. Het rijk van Candace, de koningin der Moren, lag ten zuiden van Egypte. Het gebeurt kort na de dood van Stefanus; een jaartal noemt de Bijbel niet.",
         refs: ["Handelingen 8:26", "Handelingen 8:36", "Handelingen 8:40"],
       },
     ],
@@ -5493,7 +5493,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Twee keer Jakobus",
-        t: "Petrus zegt: ‘Boodschapt dit aan Jakobus en de broederen’ (12:17). Dat kan niet Jakobus de broer van Johannes zijn: die was al gedood (12:2). Meestal wordt deze Jakobus uitgelegd als ‘Jakobus, den broeder des Heeren’ (Galaten 1:19), die later in Jeruzalem een leidende plaats heeft (Handelingen 15:13; 21:18). Waar Petrus daarna heen gaat, zegt de tekst niet; hij ‘reisde naar een andere plaats’. En wat de biddende mensen bedoelden met ‘Het is zijn engel’ (12:15), daarover verschillen uitleggers.",
+        t: "Petrus zegt: ‘Boodschapt dit aan Jakobus en de broederen’ (12:17). Dat kan niet Jakobus de broer van Johannes zijn: die was al gedood (12:2). Deze Jakobus is ‘Jakobus, den broeder des Heeren’ (Galaten 1:19), die later in Jeruzalem een leidende plaats heeft (Handelingen 15:13; 21:18). Petrus zelf ‘reisde naar een andere plaats’ (12:17).",
         refs: ["Handelingen 12:2", "Handelingen 12:15–17", "Galaten 1:19", "Handelingen 15:13", "Handelingen 21:18"],
       },
       {
@@ -5524,18 +5524,18 @@ BR.niveaus.voegToe("c", {
     status: "gecontroleerd",
     verdieping: [
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Een paard wordt in Handelingen 9 niet genoemd; Saulus is ‘ter aarde gevallen’ (9:4). Hij krijgt hier ook geen nieuwe naam. Pas op Cyprus staat dat Saulus ‘ook Paulus genaamd is’ (Handelingen 13:9); uitleggers zien Paulus als een tweede, Romeinse naam. In 9:7 horen de reisgenoten ‘wel de stem’, maar in 22:9 zegt Paulus dat zij ‘de stem Desgenen, Die tot mij sprak’ niet hoorden. Veel uitleggers verklaren dat zij wel geluid hoorden, maar de woorden niet verstonden.",
+        kop: "Gevallen en geroepen",
+        t: "Saulus is ‘ter aarde gevallen’ (9:4). Pas op Cyprus staat dat Saulus ‘ook Paulus genaamd is’ (Handelingen 13:9). In 9:7 horen de reisgenoten ‘wel de stem’, maar in 22:9 zegt Paulus dat zij ‘de stem Desgenen, Die tot mij sprak’ niet hoorden. Zij hoorden wel geluid, maar verstonden de woorden niet.",
         refs: ["Handelingen 9:4", "Handelingen 9:7", "Handelingen 13:9", "Handelingen 22:9"],
       },
       {
         kop: "Paulus vertelt het zelf",
-        t: "Paulus vertelt later twee keer over deze dag: aan het volk in Jeruzalem (Handelingen 22) en aan koning Agrippa (Handelingen 26). Daar zegt hij dat het gebeurde ‘in het midden van den dag’ en dat de stem sprak ‘in de Hebreeuwse taal’ (26:13–14). In Galaten 1:17 schrijft hij dat hij ging ‘naar Arabië, en keerde wederom naar Damaskus’; Handelingen 9 noemt die reis niet; waar ze in het verhaal past, daarover verschillen uitleggers. De vlucht beschrijft hij zo: ‘ik werd door een venster in een mand over den muur nedergelaten’ (2 Korinthe 11:33).",
+        t: "Paulus vertelt later twee keer over deze dag: aan het volk in Jeruzalem (Handelingen 22) en aan koning Agrippa (Handelingen 26). Daar zegt hij dat het gebeurde ‘in het midden van den dag’ en dat de stem sprak ‘in de Hebreeuwse taal’ (26:13–14). In Galaten 1:17 schrijft hij dat hij ging ‘naar Arabië, en keerde wederom naar Damaskus’; Handelingen 9 noemt die reis niet. De vlucht beschrijft hij zo: ‘ik werd door een venster in een mand over den muur nedergelaten’ (2 Korinthe 11:33).",
         refs: ["Handelingen 26:12–15", "Galaten 1:15–18", "Handelingen 9:23–25", "2 Korinthe 11:32–33"],
       },
       {
         kop: "De verzenen tegen de prikkels",
-        t: "In de Statenvertaling zegt de Heere ook: ‘Het is u hard, de verzenen tegen de prikkels te slaan’ (9:5; vergelijk 26:14). Dat is een beeld uit het boerenleven. Verzenen zijn hielen. Een prikkel is een puntige stok waarmee ossen werden voortgedreven. Een os die achteruit trapt tegen die stok, doet alleen zichzelf pijn. Zo wordt het meestal uitgelegd: tegen de Heere ingaan heeft geen zin. Later noemt Paulus zich ‘de minste van de apostelen’, ‘daarom dat ik de Gemeente Gods vervolgd heb’ (1 Korinthe 15:9).",
+        t: "In de Statenvertaling zegt de Heere ook: ‘Het is u hard, de verzenen tegen de prikkels te slaan’ (9:5; vergelijk 26:14). Dat is een beeld uit het boerenleven. Verzenen zijn hielen. Een prikkel is een puntige stok waarmee ossen werden voortgedreven. Een os die achteruit trapt tegen die stok, doet alleen zichzelf pijn. Zo is het ook hier: tegen de Heere ingaan heeft geen zin. Later noemt Paulus zich ‘de minste van de apostelen’, ‘daarom dat ik de Gemeente Gods vervolgd heb’ (1 Korinthe 15:9).",
         refs: ["Handelingen 9:5", "Handelingen 26:14", "1 Korinthe 15:9"],
       },
     ],
@@ -5567,7 +5567,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Saulus, die ook Paulus heet",
-        t: "In Handelingen 13:9 staat voor het eerst dat Saulus ‘ook Paulus genaamd is’. Vanaf dan gebruikt de schrijver die naam. Ook de volgorde verandert: eerst ‘Barnabas en Saulus’ (13:2, 7), daarna meestal ‘Paulus en Barnabas’ (13:43, 46, 50). In 13:13 staat zelfs: ‘Paulus, en die met hem waren’. In Lystre staat Barnabas weer voorop (14:14). Een naamswisseling bij zijn bekering noemt de Bijbel niet; veel uitleggers zien Paulus als zijn Romeinse naam naast de Joodse naam Saulus.",
+        t: "In Handelingen 13:9 staat voor het eerst dat Saulus ‘ook Paulus genaamd is’. Vanaf dan gebruikt de schrijver die naam. Ook de volgorde verandert: eerst ‘Barnabas en Saulus’ (13:2, 7), daarna meestal ‘Paulus en Barnabas’ (13:43, 46, 50). In 13:13 staat zelfs: ‘Paulus, en die met hem waren’. In Lystre staat Barnabas weer voorop (14:14). Saulus is zijn Joodse naam; bij Romeinen en Grieken heet hij Paulus.",
         refs: ["Handelingen 13:2–13", "Handelingen 13:43–50", "Handelingen 14:14"],
       },
       {
@@ -5609,7 +5609,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Van zij naar wij",
-        t: "Tot Troas vertelt de schrijver over ‘zij’. Vanaf 16:10 staat er: ‘zo zochten wij terstond naar Macedonië te reizen’. Veel uitleggers zien hierin dat de schrijver van Handelingen, meestal Lukas genoemd, in Troas bij Paulus kwam. Het ‘wij’ stopt in Filippi (16:17) en komt later terug, als Paulus weer uit Filippi vertrekt (Handelingen 20:5–6). Het is een uitleg; de schrijver noemt zijn eigen naam niet.",
+        t: "Tot Troas vertelt de schrijver over ‘zij’. Vanaf 16:10 staat er: ‘zo zochten wij terstond naar Macedonië te reizen’. Hieruit blijkt dat Lukas, de schrijver van Handelingen, in Troas bij Paulus kwam. Het ‘wij’ stopt in Filippi (16:17) en komt later terug, als Paulus weer uit Filippi vertrekt (Handelingen 20:5–6).",
         refs: ["Handelingen 16:8–17", "Handelingen 20:5–6"],
       },
       {
@@ -5651,7 +5651,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Een gewitte wand",
-        t: "Als de hogepriester Ananias hem op de mond laat slaan, zegt Paulus: ‘God zal u slaan, gij gewitte wand!’ (23:3). Dit is een andere Ananias dan de discipel in Damascus. Een gewitte wand is een muur die van buiten met kalk wit gemaakt is; meestal wordt het uitgelegd als: van buiten mooi, van binnen anders. De Heere Jezus gebruikte een vergelijkbaar beeld: ‘witgepleisterden graven’ (Mattheüs 23:27). Als Paulus hoort wie het is, wijst hij op de wet: ‘Den overste uws volks zult gij niet vloeken’ (23:5; vergelijk Exodus 22:28).",
+        t: "Als de hogepriester Ananias hem op de mond laat slaan, zegt Paulus: ‘God zal u slaan, gij gewitte wand!’ (23:3). Dit is een andere Ananias dan de discipel in Damascus. Een gewitte wand is een muur die van buiten met kalk wit gemaakt is; het betekent: van buiten mooi, van binnen anders. De Heere Jezus gebruikte een vergelijkbaar beeld: ‘witgepleisterden graven’ (Mattheüs 23:27). Als Paulus hoort wie het is, wijst hij op de wet: ‘Den overste uws volks zult gij niet vloeken’ (23:5; vergelijk Exodus 22:28).",
         refs: ["Handelingen 23:2–5", "Mattheüs 23:27", "Exodus 22:28"],
       },
     ],
@@ -5674,17 +5674,17 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Na de vasten",
-        t: "Paulus waarschuwt ‘omdat ook de vasten nu voorbij was’ (27:9). Meestal wordt dit uitgelegd als de Grote Verzoendag, ‘op den tienden dezer zevende maand’ (Leviticus 23:27), in de herfst. De tekst zegt zelf dat de vaart ‘nu zorgelijk was’, en dat de haven ongeschikt was ‘om te overwinteren’ (27:12). De reis wordt meestal rond 59–60 n.Chr. gedateerd; de Bijbel noemt geen jaartal.",
+        t: "Paulus waarschuwt ‘omdat ook de vasten nu voorbij was’ (27:9). Dat is de vasten van de Grote Verzoendag, ‘op den tienden dezer zevende maand’ (Leviticus 23:27), in de herfst. De tekst zegt zelf dat de vaart ‘nu zorgelijk was’, en dat de haven ongeschikt was ‘om te overwinteren’ (27:12). De reis wordt meestal rond 59–60 n.Chr. gedateerd; de Bijbel noemt geen jaartal.",
         refs: ["Handelingen 27:9–12", "Leviticus 23:27"],
       },
       {
         kop: "Waar strandde het schip?",
-        t: "De naam van het eiland staat pas in het volgende hoofdstuk: ‘het eiland Melite’ (Handelingen 28:1). Dat wordt meestal gelijkgesteld met Malta; op de kaart staat het als waarschijnlijk, net als Salmone. Myra, Knidus, Schone Havens en Klauda zijn identificeerbaar. Fenix, de haven waar men wilde overwinteren (27:12), haalt het schip niet. De Bijbel vertelt niet waar op het eiland het schip vastliep, alleen dat het ‘een plaats, die de zee aan beide zijden had’ was (27:41).",
+        t: "De naam van het eiland staat pas in het volgende hoofdstuk: ‘het eiland Melite’ (Handelingen 28:1). Dat is Malta. Salmone staat op de kaart als waarschijnlijk. Myra, Knidus, Schone Havens en Klauda zijn identificeerbaar. Fenix, de haven waar men wilde overwinteren (27:12), haalt het schip niet. Het schip liep vast op ‘een plaats, die de zee aan beide zijden had’ (27:41).",
         refs: ["Handelingen 27:5–16", "Handelingen 27:41", "Handelingen 28:1"],
       },
       {
         kop: "Een woord dat vaststaat",
-        t: "In Jeruzalem zei de Heere al: ‘alzo moet gij ook te Rome getuigen’ (Handelingen 23:11). In de storm zegt de engel: ‘gij moet voor den keizer gesteld worden’ (27:24). Paulus zegt: ‘niemand van u zal een haar van het hoofd vallen’ (27:34), woorden die lijken op wat de Heere Jezus zei: ‘Doch niet een haar uit uw hoofd zal verloren gaan’ (Lukas 21:18). Toch zegt Paulus ook: ‘Indiën dezen in het schip niet blijven, gij kunt niet behouden worden’ (27:31). Veel uitleggers wijzen erop dat Gods belofte en het gebruik van middelen hier samengaan.",
+        t: "In Jeruzalem zei de Heere al: ‘alzo moet gij ook te Rome getuigen’ (Handelingen 23:11). In de storm zegt de engel: ‘gij moet voor den keizer gesteld worden’ (27:24). Paulus zegt: ‘niemand van u zal een haar van het hoofd vallen’ (27:34), woorden die lijken op wat de Heere Jezus zei: ‘Doch niet een haar uit uw hoofd zal verloren gaan’ (Lukas 21:18). Toch zegt Paulus ook: ‘Indiën dezen in het schip niet blijven, gij kunt niet behouden worden’ (27:31). Gods belofte en het gebruik van middelen gaan hier samen.",
         refs: ["Handelingen 23:11", "Handelingen 27:24", "Handelingen 27:31–34", "Lukas 21:18"],
       },
     ],
@@ -5712,7 +5712,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Van Melite naar Rome",
-        t: "Melite wordt meestal uitgelegd als Malta; op de kaart staat het daarom als waarschijnlijk. Syrakuse ligt op Sicilië, Regium aan de punt van Italië en Puteoli aan de baai van Napels. Appiusmarkt lag aan de Via Appia, de weg naar Rome; Drie Tabernen waarschijnlijk ook. Het schip had als teken Kastor en Pollux: in de Grieks-Romeinse godsdienst tweelingbroers die als beschermers van zeelieden golden. De tekst noemt alleen het teken. Het jaartal is een reconstructie: na de winter op Malta komt Paulus in Rome en blijft er twee jaar (28:11, 30). Met de gangbare datering van Festus (ca. 59) komt dat op ongeveer 60–62 n.Chr.",
+        t: "Melite is het eiland Malta. Syrakuse ligt op Sicilië, Regium aan de punt van Italië en Puteoli aan de baai van Napels. Appiusmarkt lag aan de Via Appia, de weg naar Rome; Drie Tabernen waarschijnlijk ook. Het schip had als teken Kastor en Pollux: in de Grieks-Romeinse godsdienst tweelingbroers die als beschermers van zeelieden golden. De tekst noemt alleen het teken. Het jaartal is een reconstructie: na de winter op Malta komt Paulus in Rome en blijft er twee jaar (28:11, 30). Met de gangbare datering van Festus (ca. 59) komt dat op ongeveer 60–62 n.Chr.",
         refs: ["Handelingen 28:1", "Handelingen 28:11–16", "Handelingen 28:30"],
       },
       {
@@ -5722,7 +5722,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Wat Handelingen niet vertelt",
-        t: "Handelingen eindigt zonder te vertellen hoe het proces voor de keizer afliep. Het boek zegt ook niet welke brieven Paulus in Rome schreef. Veel uitleggers rekenen de brieven aan Efeze, Filippi, Kolosse en Filemon tot deze gevangenschap; anderen denken aan een andere gevangenschap. In 2 Timotheüs 4:6 schrijft Paulus: ‘de tijd mijner ontbinding is aanstaande’. Uitleggers verschillen erover of dat in deze of in een latere gevangenschap was. Dat Paulus in Rome om zijn geloof is gedood, komt uit de overlevering van de vroege kerk, niet uit de Bijbel.",
+        t: "Handelingen eindigt zonder te vertellen hoe het proces voor de keizer afliep. In deze gevangenschap in Rome schreef Paulus de brieven aan Efeze, Filippi, Kolosse en Filemon. Later schrijft hij aan Timotheüs: ‘de tijd mijner ontbinding is aanstaande’ (2 Timotheüs 4:6).",
         refs: ["Handelingen 28:30–31", "2 Timotheüs 4:6"],
       },
     ],
@@ -5754,7 +5754,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Beelden die al eerder voorkomen",
-        t: "Veel van wat Johannes ziet, staat al eerder in de Bijbel. De vier dieren roepen ‘Heilig, heilig, heilig’ (Openbaring 4:8), zoals de serafs bij Jesaja (Jesaja 6:3). Een leeuw, een kalf, een mens en een arend (Openbaring 4:7) lijken op de vier aangezichten bij Ezechiël: een mens, een leeuw, een os en een arend (Ezechiël 1:10). Het beest uit de zee is een pardel gelijk, met voeten als van een beer en een mond als van een leeuw (Openbaring 13:1–2). Dat doet denken aan de dieren die Daniël uit de zee zag opkomen (Daniël 7:3–7). Hagel, water dat bloed wordt en sprinkhanen (Openbaring 8:7–8; 9:3; 16:3–4) kennen we van de plagen in Egypte. Uitleggers wijzen op die verbanden; wat de beelden precies betekenen, daarover verschillen zij.",
+        t: "Veel van wat Johannes ziet, staat al eerder in de Bijbel. De vier dieren roepen ‘Heilig, heilig, heilig’ (Openbaring 4:8), zoals de serafs bij Jesaja (Jesaja 6:3). Een leeuw, een kalf, een mens en een arend (Openbaring 4:7) lijken op de vier aangezichten bij Ezechiël: een mens, een leeuw, een os en een arend (Ezechiël 1:10). Het beest uit de zee is een pardel gelijk, met voeten als van een beer en een mond als van een leeuw (Openbaring 13:1–2). Dat doet denken aan de dieren die Daniël uit de zee zag opkomen (Daniël 7:3–7). Hagel, water dat bloed wordt en sprinkhanen (Openbaring 8:7–8; 9:3; 16:3–4) kennen we van de plagen in Egypte.",
         refs: [
           "Openbaring 4:7–8",
           "Jesaja 6:3",
@@ -5771,13 +5771,13 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Reeksen van zeven",
-        t: "Openbaring is opgebouwd in reeksen van zeven: zeven brieven (hoofdstuk 2–3), zeven zegels (6:1–8:1), zeven bazuinen (8:2–11:19) en zeven fiolen (16:1–21). Dat staat in de tekst zelf. Hoe die reeksen zich tot elkaar verhouden, daarover verschillen uitleggers. Sommigen lezen ze als gebeurtenissen die na elkaar komen. Anderen zien dezelfde tijd steeds opnieuw, telkens van een andere kant. Na de zesde bazuin staat dat de overige mensen ‘hebben zich niet bekeerd’ (9:20); bij de vierde en vijfde fiool staat iets dergelijks (16:9, 11).",
+        t: "Openbaring is opgebouwd in reeksen van zeven: zeven brieven (hoofdstuk 2–3), zeven zegels (6:1–8:1), zeven bazuinen (8:2–11:19) en zeven fiolen (16:1–21). Dat staat in de tekst zelf. Na de zesde bazuin staat dat de overige mensen ‘hebben zich niet bekeerd’ (9:20); bij de vierde en vijfde fiool staat iets dergelijks (16:9, 11).",
         refs: ["Openbaring 6:1", "Openbaring 8:2", "Openbaring 16:1", "Openbaring 9:20", "Openbaring 16:9–11"],
       },
       {
-        kop: "Uitleg en datering",
-        t: "Uitleggers lezen Openbaring op verschillende manieren. Sommigen zien vooral wat in de eerste eeuwen gebeurde, anderen de hele geschiedenis van de kerk, weer anderen vooral de eindtijd of de strijd in alle tijden. Ook over de duizend jaren (20:2–7) verschillen zij sterk. Vaste grond geeft de Bijbel zelf: het is ‘De openbaring van Jezus Christus’ (1:1), en ‘het Lam zal hen overwinnen’ (17:14). Een jaartal noemt de Bijbel niet. Irenaeus (ca. 180 n.Chr.) schrijft dat Johannes het zag aan het einde van de regering van keizer Domitianus (81–96 n.Chr.); daarom staat hier ca. 95 n.Chr. Sommige uitleggers dateren het boek rond 68 n.Chr.",
-        refs: ["Openbaring 1:1", "Openbaring 17:14", "Openbaring 20:2–7"],
+        kop: "Kern en datering",
+        t: "Waar het boek om gaat, zegt het zelf: het is ‘De openbaring van Jezus Christus’ (1:1), en ‘het Lam zal hen overwinnen’ (17:14). Een jaartal noemt de Bijbel niet. Irenaeus (ca. 180 n.Chr.) schrijft dat Johannes het zag aan het einde van de regering van keizer Domitianus (81–96 n.Chr.); daarom staat hier ca. 95 n.Chr. Sommige uitleggers dateren het boek rond 68 n.Chr.",
+        refs: ["Openbaring 1:1", "Openbaring 17:14"],
       },
     ],
     vragen: [
@@ -5807,9 +5807,9 @@ BR.niveaus.voegToe("c", {
         refs: ["Jesaja 25:8", "Jesaja 60:19", "Ezechiël 47:1–12", "2 Petrus 3:13"],
       },
       {
-        kop: "Wat de tekst zegt en wat niet",
-        t: "Bij de hemelpoort denken veel mensen aan Petrus met de sleutels. Dat beeld komt uit de traditie, met Mattheüs 16:19 als aanleiding, niet uit Openbaring 21. Daar staan in de twaalf poorten twaalf engelen, en op de poorten de namen van de twaalf geslachten van Israël. Op de twaalf fundamenten staan de namen van de twaalf apostelen (21:12–14). Over de maten van de stad (21:16–17) verschillen uitleggers: sommigen lezen ze letterlijk, anderen als beeldtaal. Ook bij de wolf en het lam in Jesaja 11 verschillen uitleggers of het letterlijk of als beeld bedoeld is.",
-        refs: ["Openbaring 21:12–17", "Mattheüs 16:19", "Jesaja 11:6–9"],
+        kop: "Twaalf poorten en twaalf fundamenten",
+        t: "De stad heeft een grote, hoge muur met twaalf poorten: drie aan elke kant. In de poorten staan twaalf engelen, en op de poorten staan de namen van de twaalf geslachten van Israël. De muur heeft twaalf fundamenten, met de namen van de twaalf apostelen van het Lam (21:12–14). De stad ligt vierkant; ze is even lang als breed en hoog (21:16).",
+        refs: ["Openbaring 21:12–14", "Openbaring 21:16"],
       },
       {
         kop: "Wanneer?",

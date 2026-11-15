@@ -840,6 +840,10 @@
     const verdiep = cur < 0 ? deel.verdiep || [] : deel.steps[cur].verdiep || [];
     $("sVerdiep").hidden = !verdiep.length;
     $("sVerdiep").innerHTML = verdiep.map((v) => `<button type="button" class="verdiep-in" data-go="${v.key}:-1"><span class="label">Van dichtbij</span><span><b>${esc(v.n)}</b> · ${esc(v.ref)}</span><small>${v.steps.length} stappen</small></button>`).join("");
+    // Om over na te denken: open vragen bij een deel (veld `denk`), bij de intro en de laatste stap; niet bij Samen ontdekken.
+    const denk = niveau !== "a" && (cur < 0 || atEnd) && Array.isArray(deel.denk) ? deel.denk : [];
+    $("sDenk").hidden = !denk.length;
+    if (denk.length) { $("sDenkLijst").innerHTML = denk.map((q) => `<li>${esc(q)}</li>`).join(""); $("sDenk").open = false; }
     renderDots(); renderCrumb(); meerKnoppen();
     if (cur >= 0) { store.set("laatst", deel.steps[cur].key); store.set("huidig", { k: deel.steps[cur].key }); }
     if (!opts.keepHash) history.replaceState(null, "", "#" + deel.id + (cur >= 0 ? "/" + (cur + 1) : ""));
