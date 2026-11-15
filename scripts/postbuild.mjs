@@ -89,7 +89,7 @@ console.log(`postbuild: ${ROUTES.length} routes + 404.html + sitemap.xml`);
   const { readdirSync } = await import("node:fs");
   const kort = (p) => createHash("sha256").update(readFileSync(join(dist, "bijbelreis", p))).digest("hex").slice(0, 10);
   const data = {};
-  for (const p of ["geo.json", "relief.json", "grenzen.json", "relief-regio.webp", "relief-kanaan.webp"]) data[p] = kort(p);
+  for (const p of ["geo.json", "toen.json", "relief.json", "grenzen.json", "relief-regio.webp", "relief-kanaan.webp"]) data[p] = kort(p);
   const meta = `<meta name="bijbelreis-data" content='${JSON.stringify(data)}' />`;
   writeFileSync(file, html.replace("</head>", `    ${meta}\n  </head>`));
 }
