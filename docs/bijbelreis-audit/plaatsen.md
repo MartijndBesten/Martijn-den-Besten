@@ -225,3 +225,159 @@ Ligging volgens OpenBible.info Bible Geocoding Data (CC BY 4.0), geraadpleegd 4 
 
 Tekoa en En-Gedi stonden al op de kaart (`v`). Hazezon-Thamar is volgens 2 Kronieken 20:2 En-Gedi zelf (‘hetwelk is Engedi’) en heeft daarom geen eigen punt.
 
+
+## Aanvulling november 2026: meer reizen
+
+Dertien nieuwe reisdelen; zie [`docs/bijbelreis-reizen/README.md`](../bijbelreis-reizen/README.md). Ligging volgens OpenBible.info Bible Geocoding Data (CC BY 4.0), geraadpleegd 15 november 2026. De zekerheid volgt de score van de beste identificatie (zie Werkwijze); de scores en de afwegingen per plaats staan in `docs/bijbelreis-reizen/werk/<deel>.notities.md` en `.review.md`. Deze tabel is gemaakt uit `public/bijbelreis/plaatsen.js`.
+
+### Gedeeld door meer dan één deel
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `nt_thessalonica` | Thessalonica | `v` | 40.6378, 22.9458 (Thessaloniki, Griekenland) | Thessaloniki; de stad bleef bewoond en hield haar naam. |
+| `nt_berea` | Berea | `v` | 40.5183, 22.2 (Veria, Griekenland) | Veria; de naam bleef in gebruik. |
+| `nt_athene` | Athene | `v` | 37.9719, 23.7267 (Athene, Griekenland) | Athene; de stad bleef bewoond en hield haar naam. |
+| `nt_korinthe` | Korinthe | `v` | 37.9058, 22.8787 (Oud-Korinthe, Griekenland) | Archaia Korinthos; opgravingen, identificatie algemeen aanvaard. |
+| `nt_kenchreeen` | Kenchreeën | `v` | 37.8843, 22.9968 (Kechries, Griekenland) | Kechries; resten van de haven, de naam bleef bewaard. |
+| `nt_macedonie` | Macedonië | `r` | 41.6, 22.54 (Noord-Griekenland en Noord-Macedonië) | Gebied: de Romeinse provincie Macedonia. |
+| `nt_achaje` | Achaje | `r` | 38.72, 22.54 (Midden- en Zuid-Griekenland) | Gebied: de Romeinse provincie Achaia. |
+| `nt_galatie` | Galatië | `r` | 39.2667, 32.9833 (Midden-Turkije) | Gebied: de landstreek en Romeinse provincie Galatia. |
+| `nt_asia` | Asia | `r` | 38.4, 28.3 (West-Turkije) | Gebied: de Romeinse provincie Asia. |
+| `ramothgilead` | Ramoth in Gilead | `v` | 32.4999, 36.015 (Tell er-Rumeith, Noord-Jordanië) | Meestal Tell er-Rumeith (score 808); andere voorstellen zijn zwak. |
+
+### `stammen` (Jozua 13–22)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `st_ruben` | Ruben | `r` | 31.65, 35.75 (Hoogvlakte rond Madaba, Jordanië) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de zes plaatsen uit Jozua 13:16–20 die OpenBible met score 500 of hoger thuisbrengt (o.a. Aroër, Dibon, Medeba, Baäl-Meon). Illustratief. |
+| `st_gad` | Gad | `r` | 32.2, 35.69 (Oostelijke Jordaanvallei en het bergland van Gilead, Jordanië) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de acht plaatsen uit Jozua 13:25–27 en 20:8 met score 500 of hoger (o.a. Mahanaïm, Sukkoth, Beth-Nimra, Ramoth in Gilead). Illustratief. |
+| `st_manasse_oost` | Half Manasse (oost) | `r` | 32.74, 36.02 (Hauran en het zuiden van de Golan, Zuid-Syrië) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de drie plaatsen met score 500 of hoger: Astharoth en Edreï (Jozua 13:31) en Golan (20:8). Illustratief. |
+| `st_juda` | Juda | `r` | 31.5, 34.95 (Bergland van Judea, het heuvelland en de noordelijke Negev) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de 52 plaatsen uit de stedenlijst Jozua 15:21–62 die OpenBible met score 500 of hoger thuisbrengt. Illustratief. |
+| `st_efraim` | Efraïm | `r` | 32.02, 35.21 (Bergland tussen Ramallah en Nablus, Westelijke Jordaanoever) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de negen plaatsen uit Jozua 16:5–8, 19:50, 20:7 en 21:21–22 met score 500 of hoger (o.a. Beth-Horon, Gezer, Tappuah, Sichem, Timnath-Serah). Jericho is niet meegeteld: de grens stoot eraan (16:7), maar het is een stad van Benjamin (18:21). Illustratief. |
+| `st_manasse_west` | Half Manasse (west) | `r` | 32.45, 35.25 (Noordelijk bergland van Samaria, Westelijke Jordaanoever en Israël) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de acht plaatsen uit Jozua 17:7–11 met score 500 of hoger (Sichem, Tappuah, Beth-Sean, Jibleam, Dor, Endor, Taänach, Megiddo). Zes daarvan lagen volgens 17:11 in Issaschar en Aser; het label staat daardoor wat noordelijk. Illustratief. |
+| `st_benjamin` | Benjamin | `r` | 31.86, 35.25 (Bergland ten noorden van Jeruzalem, Westelijke Jordaanoever) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de dertien plaatsen uit de stedenlijst Jozua 18:21–28 met score 500 of hoger. Illustratief. |
+| `st_simeon` | Simeon | `r` | 31.26, 34.8 (Noordelijke Negev rond Beër Sjeva, Israël) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de acht plaatsen uit Jozua 19:2–8 met score 500 of hoger. Illustratief. |
+| `st_zebulon` | Zebulon | `r` | 32.7, 35.23 (Beneden-Galilea rond Nazareth, Israël) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de dertien plaatsen uit Jozua 19:10–15 met score 500 of hoger. Illustratief. |
+| `st_issaschar` | Issaschar | `r` | 32.63, 35.41 (Vlakte van Jizreël en het land ten oosten ervan, Israël) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de zes plaatsen uit Jozua 19:18–22 met score 500 of hoger. Illustratief. |
+| `st_aser` | Aser | `r` | 33.01, 35.17 (West-Galilea (Israël) en Zuid-Libanon) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de elf plaatsen uit Jozua 19:25–30 met score 500 of hoger. Sidon en Tyrus zijn niet meegeteld: de grens loopt “tot aan” die steden. Illustratief. |
+| `st_naftali` | Naftali | `r` | 32.89, 35.48 (Oost-Galilea, ten westen en noorden van het Meer van Galilea, Israël) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de tien plaatsen uit Jozua 19:33–38 met score 500 of hoger. Illustratief. |
+| `st_dan` | Dan (stamgebied) | `r` | 31.88, 34.9 (Kustvlakte en heuvelland tussen Tel Aviv en Beth-Semes, Israël) | Stamgebied, geen punt en geen grens. OpenBible kent de stammen niet als plaats; het label staat op het middelpunt van de elf plaatsen uit Jozua 19:41–46 met score 500 of hoger. Jafo is niet meegeteld: het gebied ligt “tegenover Jafo”. Illustratief. |
+| `st_bezer` | Bezer | `o` | 31.786, 35.9017 (Onbekend; punt bij Umm el-Amad, ten noordoosten van Madaba, Jordanië) | Geen zekere identificatie. OpenBible: Umm el-Amad (score 442, onder de grens van 500 voor “waarschijnlijk”) is het meest genoemd; daarnaast Tall Jalul (62), 9 km zuidwestelijk, dat de opgravers daar voorstellen. De naam bleef nergens bewaard. Punt illustratief op Umm el-Amad. |
+| `st_golan` | Golan | `w` | 32.7811, 35.9347 (Sahm al-Jawlan, Zuid-Syrië) | OpenBible: Saham al Jawlan (score 680), de gangbare identificatie; de naam bleef bewaard. Waarschijnlijk. |
+
+### `ehud-jefta` (Richteren 3 en 10–12)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `ej_efraim` | Bergland van Efraïm | `r` | 31.9878, 35.3332 (Bergland ten noorden van Jeruzalem, Westelijke Jordaanoever) | Gebied. OpenBible plaatst Seirah (Richteren 3:26) alleen in het bergland van Efraïm (punt in de streek, score 465); dat punt is hier het ankerpunt van het gebied. Sehira zelf (Statenvertaling: Sehirath) is niet geïdentificeerd. |
+| `ej_veren` | Veren van de Jordaan | `r` | 31.8371, 35.5503 (De Jordaan ten oosten van Jericho) | Gebied, geen punt: de tekst noemt geen plaatsnaam, alleen de richting naar Moab. OpenBible heeft deze veren niet als afzonderlijke plaats; het ankerpunt is de bekende oversteekplaats tegenover Jericho (al-Maghtas, in OpenBible het punt van Bethabara). |
+| `ej_tob` | Tob | `w` | 32.5633, 36.2439 (Et-Taiyibeh, ten zuidoosten van Dera (Zuid-Syrië)) | Meestal et-Taiyibeh, waar de naam bewaard lijkt (OpenBible 651); waarschijnlijk, niet zeker. De Bijbel spreekt van een land, niet van een stad. |
+| `ej_mizpa` | Mizpa in Gilead | `o` | 32.1185, 35.777 (Onbekend; een voorstel is Khirbet Jelad, ten noorden van es-Salt (Jordanië)) | Niet geïdentificeerd; alleen zwakke voorstellen: Khirbet Jelad (OpenBible 171), Tall er-Rumeith (80), Khirbet er-Rasuni (76), Suf (26). Het punt staat illustratief bij Khirbet Jelad. De Herziene Statenvertaling schrijft in 11:29 Mizpe in Gilead. |
+| `ej_jabbok` | Beek Jabbok | `v` | 32.1153, 35.5431 (Nahr ez-Zarqa, Jordanië) | Nahr ez-Zarqa; algemeen aanvaard (OpenBible 1000). Punt bij de monding in de Jordaan. |
+| `ej_aroer` | Aroër | `o` | 31.9702, 35.8713 (Onbekend; voorstellen ten westen van Amman (Jordanië)) | Aroër voor Rabba (Jozua 13:25); alleen zwakke voorstellen: Khirbet Udena (OpenBible 219), Umm Sweiwineh (120), Erjan (83). Het punt staat illustratief bij Khirbet Udena. Het Aroër aan de Arnon (Arair, OpenBible 872) is een andere plaats. |
+| `ej_minnith` | Minnith | `w` | 31.8202, 35.8747 (Umm el-Hanafish, tussen Hesban en Amman (Jordanië)) | Meestal Umm el-Hanafish (Umm el-Basatin), ten noordoosten van Hesbon (OpenBible 551); waarschijnlijk, niet zeker. |
+| `ej_abelkeramim` | Abel-Keramim | `o` | 31.8756, 36.0049 (Onbekend; voorstellen ten zuiden en zuidoosten van Amman (Jordanië)) | Niet geïdentificeerd; alleen zwakke voorstellen: Sahab (OpenBible 236), Tall al-Umayri (106), Naur (38). Het punt staat illustratief bij Sahab. |
+
+### `davids-rijk` (2 Samuël 5, 8 en 10)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `dr_refaim` | Dal Refaïm | `v` | 31.7632, 35.2191 (Emek Refaim (Wadi el-Ward), ten zuidwesten van de oude stad van Jeruzalem) | Het dal is bekend (OpenBible 1000: Wadi el-Ward). Het punt ligt in het dal; het is geen exacte plek. |
+| `dr_baalperazim` | Baäl-Perazim | `o` | 31.7419, 35.1833 (Onbekend; punt bij ez-Zuhur, ten zuidwesten van Jeruzalem) | Onbekend. Alleen zwakke voorstellen (OpenBible: ez-Zuhur 240, Abu Tor 99, Gilo 63). Het punt is illustratief en ligt bij het best ondersteunde voorstel. |
+| `dr_gezer` | Gezer | `v` | 31.8592, 34.9192 (Tel Gezer, Israël) | Tel Gezer (OpenBible 942); bij de tell zijn grensstenen met de naam Gezer gevonden. |
+| `dr_zoba` | Zoba | `r` | 33.9353, 36.1508 (Bekaa-vallei en omgeving, Libanon en Syrië) | Gebied. Meestal gezocht in de noordelijke Bekaa-vallei en het Anti-Libanon, tussen Damascus en Hamath; de grenzen zijn onbekend. Het punt is de plaatsaanduiding van OpenBible in de Bekaa. |
+| `dr_hamath` | Hamath | `v` | 35.1365, 36.75 (Hama, Syrië) | Hama (OpenBible 957); de naam bleef in gebruik. |
+| `dr_zoutdal` | Zoutdal | `b` | 31.0505, 35.4063 (Es-Sebkha, de zoutvlakte ten zuiden van de Dode Zee) | Betwist. Hier: es-Sebkha, de zoutvlakte ten zuiden van de Dode Zee (OpenBible 451). Ook genoemd: Wadi el-Milh, ten oosten van Berseba (340). Andere kandidaat: Wadi el-Milh (bij Berseba). |
+| `dr_medeba` | Medeba | `v` | 31.7161, 35.7955 (Madaba, Jordanië) | Madaba (OpenBible 1000); de naam bleef in gebruik. |
+| `dr_maacha` | Maächa | `r` | 33.2581, 35.581 (Noordelijke Golan en het dal van de bovenloop van de Jordaan) | Gebied; grenzen onbekend. Het punt is de plaatsaanduiding van OpenBible (bij Abel-Beth-Maächa). |
+| `dr_helam` | Helam | `o` | 32.75, 36.2408 (Onbekend; punt bij Alma in de Hauran (Zuid-Syrië)) | Onbekend. Het bekendste voorstel is Alma in de Hauran (OpenBible 335); andere voorstellen liggen veel noordelijker (128 en lager). Het punt is illustratief. |
+
+### `scheuring` (1 Koningen 11–14)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `sc_tirza` | Tirza | `v` | 32.2874, 35.3378 (Tell el-Far’ah (Noord), Westelijke Jordaanoever) | Tell el-Far’ah (Noord), ca. 10 km ten noordoosten van Sichem (OpenBible, score 834); geen serieuze tegenkandidaat. |
+| `sc_zereda` | Zereda | `o` | 32.0464, 35.0972 (Mogelijk Deir Ghassaneh, Westelijke Jordaanoever) | Onzeker. Meest genoemd: Deir Ghassaneh (OpenBible, score 441, onder de grens van 500); ook de bron Ain Seridah, 3,7 km westelijker, is voorgesteld (score 203). Verder alleen zwakke voorstellen; het punt is illustratief. Andere kandidaat: Ain Seridah. |
+
+### `jehu` (2 Koningen 8–10)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `jh_bethhaggan` | Beth-Haggan | `w` | 32.4608, 35.2987 (Jenin, Westelijke Jordaanoever) | Tell Jenin (OpenBible, score 782); gangbare identificatie. De Statenvertaling leest hier geen plaatsnaam maar ‘het huis des hofs’. |
+| `jh_jibleam` | Jibleam | `v` | 32.4462, 35.292 (Khirbet Belameh, bij Jenin (Westelijke Jordaanoever)) | Khirbet Belameh (OpenBible, score 860); de naam bleef bewaard. De opgang naar Gur wordt gezocht bij Khirbet en-Najjar, een halve kilometer verder (score 566), en staat niet apart op de kaart. |
+| `jh_betheked` | Beth-Heked | `o` | 32.4697, 35.3563 (misschien Beit Qad, bij Jenin (Westelijke Jordaanoever)) | Onzeker. Meest genoemd: Beit Qad, ruim 5 km ten oosten van Jenin (OpenBible, score 380); ook Kafr Rai is voorgesteld (score 190). Het punt is illustratief. |
+| `jh_basan` | Basan | `r` | 32.95, 36.1 (Zuid-Syrië en de Golan) | Gebied. Het label staat midden in het hoogland, op dezelfde plek als het streeklabel van de kaart; OpenBible legt zijn punt voor Bashan bij de stad Golan. |
+
+### `asa` (2 Kronieken 14–16)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `as_maresa` | Maresa | `v` | 31.593, 34.8982 (Tel Maresha (Tell Sandahannah), Israël) | Tel Maresha; identificatie algemeen aanvaard (OpenBible 1000). |
+| `as_zefatha` | Dal Zefatha | `o` | 31.6106, 34.9531 (Onzeker; punt in de Wadi es-Safiyeh, enkele kilometers ten noordoosten van Tel Maresha, Israël) | Niet zeker. Het punt ligt bij het meest genoemde voorstel, Wadi es-Safiyeh (OpenBible 488; andere voorstellen onder 100). De naam komt alleen hier voor; de Griekse vertaling leest “in het dal ten noorden van Maresa”. |
+| `as_ijon` | Ijon | `w` | 33.3453, 35.59 (Tell ed-Dibbin bij Marjayoun, Zuid-Libanon) | Tell ed-Dibbin (OpenBible 661); de naam klinkt nog door in Marj Ayyun. Waarschijnlijk, niet zeker. |
+| `as_abelmaim` | Abel-Maïm | `w` | 33.2581, 35.581 (Tel Abel Beth Maacah (Tell Abil el-Qamh), Noord-Israël) | Tel Abel Beth Maacah (OpenBible 756, onder Abel-beth-maacah; daar hoort ook 2 Kronieken 16:4 bij). Gangbare identificatie. |
+| `as_geba` | Geba | `w` | 31.8575, 35.2611 (Jaba, Westelijke Jordaanoever) | Jaba (OpenBible 740); de naam bleef bewaard. Waarschijnlijk. |
+
+### `hizkia-josia` (2 Kronieken 29–35)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `hj_karchemis` | Karchemis | `v` | 36.8297, 38.015 (Karkamış/Jarabulus (grens Turkije–Syrië)) | OpenBible: Carchemish = Jerablus (Jarabulus), score 880, punt op de tell; geen tegenkandidaat. Zelfde plek als het contextlabel karkemis en het tussenpunt karkw. |
+
+### `jeremia-egypte` (Jeremia 41–44)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `je_tachpanhes` | Tachpanhes | `v` | 30.8606, 32.1714 (Tell Defenneh, oostelijke Nijldelta, Egypte) | Tell Defenneh, het Daphnae van de Grieken (OpenBible, score 1000); identificatie algemeen aanvaard. |
+| `je_migdol` | Migdol | `o` | 30.9648, 32.4929 (Onbekend; punt bij Tell el-Herr, Noord-Sinaï, Egypte) | Alleen zwakke voorstellen (OpenBible): Tell el-Herr (227) en Tell Qedua (102), 2,6 km uit elkaar, bij de oostrand van de Nijldelta. Punt illustratief op Tell el-Herr. |
+| `je_nof` | Nof (Memphis) | `v` | 29.8488, 31.253 (Mit Rahina, ten zuiden van Caïro, Egypte) | Ruïnes van Memphis bij Mit Rahina (OpenBible, score 1000). |
+| `je_on` | On (Beth-Semes) | `v` | 30.1294, 31.3075 (Ain Shams en Matariya (Heliopolis), Caïro, Egypte) | Heliopolis, Tell el-Hisn bij Ain Shams; OpenBible rekent Jeremia 43:13 bij Heliopolis (score 1000). De HSV vertaalt Beth-Semes hier als “de zonnetempel”. |
+| `je_pathros` | Pathros | `r` | 24.1, 32.7 (Opper-Egypte (het Nijldal in het zuiden van Egypte)) | Gebied: Opper-Egypte. Het punt is dat van OpenBible (punt in de streek, bij Aswan); de streek loopt van ten zuiden van Memphis tot Aswan. |
+
+### `nt-samaria-nain` (Johannes 4; Lukas 4 en 7)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `sn_gerizim` | Berg Gerizim | `v` | 32.1994, 35.2728 (Jabal at-Tur (Gerizim) bij Nablus, Westelijke Jordaanoever) | OpenBible: Mount Gerizim = Jabal at Tur (score 1000), ook bij Johannes 4:20; de naam bleef in gebruik. Dat ‘dezen berg’ in Johannes 4:20 de Gerizim is, is uitleg: de tekst noemt geen naam. |
+
+### `nt-over-de-grens` (Markus 7:24–8:26)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `og_gennesaret` | Gennesaret | `r` | 32.8606, 35.5072 (Vlakte van Ginosar (el-Ghuweir), Israël) | Vlakte el-Ghuweir (OpenBible 1000, gebied); het punt ligt in de vlakte. |
+| `og_dekapolis` | Dekapolis | `r` | 32.7167, 35.8 (Noord-Jordanië, de Golan en Zuid-Syrië) | Gebied (OpenBible 1000, punt in de streek, ten zuidoosten van het meer). De steden lagen verspreid; een vaste grens is niet bekend. |
+
+### `nt-paulus2` (Handelingen 17:1–18:22)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `p2_amfipolis` | Amfipolis | `v` | 40.8202, 23.8472 (Amfipoli, Griekenland) | Opgegraven stad Amphipolis (OpenBible 1000, punt in zichtbare resten). |
+| `p2_apollonia` | Apollonia | `w` | 40.6237, 23.4697 (bij Nea Apollonia, Griekenland) | Apollonia in Mygdonië, ten zuiden van het Volvimeer (OpenBible 1000 voor de identificatie; Pleiades 491526). OpenBible geeft een nauwkeurigheid van 5 km: de precieze plek is niet duidelijk. Daarom ‘waarschijnlijk’. |
+| `p2_areopagus` | Areopagus | `v` | 37.9722, 23.7236 (Areopagus (Areios Pagos), Athene, Griekenland) | Heuvel Areios Pagos naast de Akropolis (OpenBible 1000, punt in zichtbare resten). De heuvel staat vast; of Paulus op de heuvel zelf sprak of voor de raad die zo heette (mogelijk bij de markt), is niet zeker. |
+
+### `nt-paulus3` (Handelingen 18:23–20:38)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `p3_frygie` | Frygië | `r` | 39, 31 (Binnenland van West-Turkije) | Gebied: de landstreek Phrygia (OpenBible 1000, punt in de streek). In de tijd van Paulus lag zij deels in de provincie Asia en deels in de provincie Galatië. |
+| `p3_alexandrie` | Alexandrië | `v` | 31.1825, 29.8965 (Alexandrië, Egypte) | Alexandrië; de stad bleef bewoond en hield haar naam (OpenBible 1000). |
+| `p3_assus` | Assus | `v` | 39.4906, 26.3367 (Behramkale, Turkije) | Opgegraven stad Assos (OpenBible 1000, punt in de zichtbare resten). |
+| `p3_mitylene` | Mitylene | `v` | 39.1105, 26.547 (Mytilini (Lesbos), Griekenland) | Mytilini; de stad bleef bewoond en hield haar naam (OpenBible 1000, punt bij het antieke theater). |
+| `p3_chios` | Chios | `v` | 38.3725, 26.1375 (Chios, Griekenland) | Eiland Chios; naam bleef in gebruik (OpenBible 1000, punt op de stad Chios aan de oostkust). |
+| `p3_samos` | Samos | `v` | 37.75, 26.8333 (Samos, Griekenland) | Eiland Samos; naam bleef in gebruik (OpenBible 1000, punt op het eiland). Welke haven het schip aandeed, zegt de tekst niet. |
+| `p3_trogyllium` | Trogyllion | `w` | 37.6594, 27.0033 (Kaap van Mykale (schiereiland Dilek), Turkije) | Kaap Trogilium aan het voorgebergte Mykale (OpenBible 1000, maar alleen een punt in de streek); de ankerplaats zelf is niet bekend, daarom waarschijnlijk. De woorden ‘en bleven te Trogyllion’ ontbreken in een deel van de oude handschriften; de Statenvertaling en de HSV hebben ze. |
+
+### `brieven` (de brieven)
+
+| Sleutel | Plaats | `c` | Punt | Grond |
+| --- | --- | --- | --- | --- |
+| `br_kolosse` | Kolosse | `v` | 37.7866, 29.2599 (bij Honaz, Turkije) | Heuvel van Colossae bij Honaz (OpenBible 1000, punt op de tell); identificatie algemeen aanvaard. |
+| `br_kreta` | Kreta | `v` | 35.3097, 24.8933 (Kreta, Griekenland) | Eiland Kreta; de naam bleef in gebruik (OpenBible 1000, punt op het eiland). |
+| `br_nikopolis` | Nikopolis | `w` | 39.0235, 20.7374 (bij Preveza, Griekenland) | Nicopolis in Epirus (OpenBible 1000, zichtbare resten). De brief zegt niet welk Nikopolis bedoeld is; daarom zekerheid w (waarschijnlijk) en niet v. |
+| `br_pontus` | Pontus | `r` | 40.68, 37.83 (Noord-Turkije, aan de Zwarte Zee) | Gebied: de landstreek Pontus (OpenBible 1000, punt in de streek). |
+| `br_kappadocie` | Kappadocië | `r` | 38.6706, 34.8392 (Midden-Turkije (Cappadocië)) | Gebied: de landstreek Cappadocia (OpenBible 1000, punt in de streek). |
+| `br_bithynie` | Bithynië | `r` | 40.5, 31 (Noordwest-Turkije) | Gebied: de landstreek Bithynia (OpenBible 1000, punt in de streek). |
+
+Verdeling van de nieuwe plaatsen: 28 identificeerbaar, 10 waarschijnlijk, 1 betwist, 10 onbekend (punt illustratief), 29 gebied.
+
+Samengevoegd bij de integratie: Tob (Richteren 11 en 2 Samuël 10) is één plaats (`ej_tob`); de stamgebieden in 2 Kronieken 30 en 34 gebruiken de labels van Jozua 13–22 (`st_…`); het label van Basan staat midden in het hoogland en niet op het punt van de stad Golan. Na de tweede lezing gingen Bezer en Zereda van waarschijnlijk/betwist naar onbekend: hun score ligt onder de 500.

@@ -338,7 +338,7 @@ Object.assign(BR.W, { jo_libna: [31.62, 34.87] });
 Object.assign(BR.plaatsen, {
   ri_palm: { n: "Palmboom van Debora", ll: [31.89, 35.23], c: "o", s: "r", z: 8.5, t: "tent", d: "Debora woonde onder een palmboom ‘tussen Rama en tussen Beth-el, op het gebergte van Efraïm’ (Richteren 4:5). Precies welke plek, weten we niet.",
     nu: "Onbekend; tussen ar-Ram en Beitin", bron: "Onbekend; punt halverwege Rama en Bethel (Richteren 4:5)." },
-  ri_kedes: { n: "Kedes-Naftali", ll: [33.1116, 35.5295], c: "b", s: "r", z: 7.5, t: "stad", d: "Woonplaats van Barak. Hier verzamelde hij zijn leger, en vlakbij stonden de tenten van Heber, de man van Jaël (Richteren 4:6, 10–11). Welk Kedes dit was, weten we niet zeker.",
+  ri_kedes: { n: "Kedes-Naftali", ll: [33.1116, 35.5295], c: "b", s: "r", z: 7.5, t: "stad", d: "Woonplaats van Barak. Hier verzamelde hij zijn leger, en vlakbij stonden de tenten van Heber, de man van Jaël (Richteren 4:6, 10–11). Welk Kedes dit was, weten we niet zeker. Kedes in Galilea, op het gebergte van Naftali, was ook een vrijstad (Jozua 20:7).",
     nu: "Tel Kedesh, Boven-Galilea, Israël", bron: "Betwist. Kedes in Naftali is Tel Kedesh; sommigen denken bij Richteren 4 aan Khirbet Qedish bij het Meer van Galilea.",
     alt: [[32.735, 35.5555, "Kh. Qedish"]] },
   ri_tabor: { n: "Berg Tabor", ll: [32.687, 35.39], c: "v", s: "r", z: 7, t: "berg", d: "Vanaf deze berg viel Barak met tienduizend man aan (Richteren 4:14). Een ronde berg die alleen in de vlakte staat.",

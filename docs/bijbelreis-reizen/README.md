@@ -63,3 +63,16 @@ Nog niet gedaan, wel geschikt (duidelijke plaatsen in de tekst):
 - 2 Koningen 3 en 11–14;
 - Ezra 7–8 en Nehemia 2–3;
 - Handelingen 8–11 uitgebreider (Filippus, Petrus in Lydda, Joppe en Caesarea).
+
+## 6. Open punten voor een menselijke redacteur
+
+De tweede lezers hebben hersteld wat aantoonbaar fout was. Deze punten zijn een keuze en staan per deel in `werk/<deel-id>.review.md`:
+
+- **Gedalja of Gedalia.** De HSV schrijft Gedalia (Jeremia 41 en 43); de app heeft overal Gedalja, ook in bestaande delen. Niet gewijzigd.
+- **Handelingen 19:5** (`nt-paulus3`): nu letterlijk aangehaald, met in het weetje dat uitleggers verschillen over wie hier gedoopt worden.
+- **Richteren 11** (`ehud-jefta`): de gelofte van Jefta staat er met beide lezingen, zonder keuze. De toegevoegde zin “Of Jefta deze gelofte had mogen doen, zegt Richteren 11 niet” kan weg als de redactie dat liever heeft.
+- **2 Koningen 9:22** (`jehu`): ‘hoererijen’ staat nu letterlijk in de tekst, met de uitleg in het weetje.
+- **De lijn van Febe** (`brieven`, Kenchreeën → Rome): rust alleen op Romeinen 16:1–2; het weetje zegt dat erbij. Schrappen kan zonder de tekst te raken.
+- **Zekerheid van Bezer en Zereda**: nu `o` (score onder de 500); terug naar `w`/`b` kan zonder de tekst te wijzigen.
+- **Statenvertaling en HSV lopen uiteen** in 2 Samuël 8:4, 8:18 en 10:18 en in 2 Koningen 8:10. De tekst volgt de Statenvertaling of vertelt alleen wat in beide staat.
+- **Buitenbijbelse weetjes**: bevestigd via naslagwerken; de catalogus van het British Museum en enkele wetenschappelijke uitgaven waren niet bereikbaar. Waar dat speelde, is de formulering voorzichtiger gemaakt.

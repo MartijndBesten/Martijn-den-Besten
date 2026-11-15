@@ -41,7 +41,7 @@ BR.dateringen = {
     "1koningen:scheuring": ["historie", false],
     "2koningen:jehu": ["historie", false],
     "2kronieken:asa": ["historie", false],
-    "2kronieken:hizkia-josia": ["historie", false],
+    "2kronieken:hizkia-josia": ["historie", true],
     "profeten:jeremia-egypte": ["historie", false],
     "jozua:stammen": ["bijbel", true],
     "2samuel:davids-rijk": ["historie", true],
