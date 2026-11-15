@@ -13,6 +13,17 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
+// Telefoon (tot 900 px): Toen/Nu, Vandaag, Bijbelwereld en Legenda staan achter de knop ‘Kaart’, de overzichten in het
+// blad ‘Kies een reis’ en de acties bij de stappenlijst achter ‘Alle stappen’. Is de knop niet in beeld, dan eerst die ene
+// tik die de gebruiker ook doet; daarna dezelfde klik als op de desktop.
+async function telefoonKlik(page: Page, sel: string) {
+  const knop = page.locator(sel);
+  if (!(await knop.isVisible())) {
+    const via = await knop.evaluate((e) => (e.closest("#kaartPaneel") ? "#kaartBtn" : e.closest("#kiesLade, #kiezen") ? "#kiesBtn" : e.closest("#stappenBlok, #deelActies") ? '#sMeer [data-meer="stappenBlok"]' : ""));
+    if (via && (await page.locator(via).isVisible())) await page.locator(via).click();
+  }
+  await knop.click();
+}
 function watchErrors(page: Page) {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(String(e)));
@@ -65,7 +76,7 @@ test("landschap: Toen toont het oude landschap, Nu het moderne", async ({ page, 
   await expect(page.locator("#lgToen")).not.toHaveAttribute("hidden", "");
   await expect(page.locator("#lgNu")).toHaveAttribute("hidden", "");
 
-  await page.locator("#nuBtn").click();
+  await telefoonKlik(page, "#nuBtn");
   await expect(page.locator("#map")).toHaveClass(/\bnu\b/);
   expect(await tel(page, "alleen-toen")).toEqual({ alle: nToen, zichtbaar: 0 });
   expect(await tel(page, "alleen-nu")).toEqual({ alle: nNu, zichtbaar: nNu });
@@ -73,7 +84,7 @@ test("landschap: Toen toont het oude landschap, Nu het moderne", async ({ page, 
   await expect(page.locator("#lgNu")).not.toHaveAttribute("hidden", "");
   await expect(page.locator("#lgNu")).toContainText("stuwmeren");
 
-  await page.locator("#toenBtn").click();
+  await telefoonKlik(page, "#toenBtn");
   await expect(page.locator("#map")).not.toHaveClass(/\bnu\b/);
   expect(await tel(page, "alleen-nu")).toEqual({ alle: nNu, zichtbaar: 0 });
   expect(errors).toEqual([]);
@@ -93,7 +104,7 @@ test("landschap: het Hulameer, de haven van Efeze en de stuwmeren liggen op de g
   await page.evaluate(() => (window as unknown as { __kaart: { setView: (ll: [number, number], z: number, o: object) => void } }).__kaart.setView([33.07, 35.625], 10, { animate: false }));
   await expect(page.locator(".region.toen", { hasText: "Hulameer" })).toBeVisible();
   // Nu: het Hulameer en de baai zijn weg, het Assadmeer (stuwmeer in de Eufraat) staat er.
-  await page.locator("#nuBtn").click();
+  await telefoonKlik(page, "#nuBtn");
   await expect(page.locator(".region.toen", { hasText: "Hulameer" })).toBeHidden();
   expect(await inVlak(page, "toen-meer", hula, 10)).toBe(false);
   expect(await inVlak(page, "toen-zee", havenEfeze, 10)).toBe(false);
@@ -101,7 +112,7 @@ test("landschap: het Hulameer, de haven van Efeze en de stuwmeren liggen op de g
   expect(await inVlak(page, "alleen-nu", assad, 8)).toBe(true);
   // Efeze zelf blijft in beide standen op het land liggen (geen plaats in zee).
   const efeze = await page.evaluate(() => (window as unknown as { BR: { plaatsen: Record<string, { ll: [number, number] }> } }).BR.plaatsen.nt_efeze.ll);
-  await page.locator("#toenBtn").click();
+  await telefoonKlik(page, "#toenBtn");
   expect(await inVlak(page, "toen-zee", efeze, 10)).toBe(false);
   expect(errors).toEqual([]);
 });
@@ -109,7 +120,7 @@ test("landschap: het Hulameer, de haven van Efeze en de stuwmeren liggen op de g
 test("landschap: vaak omschakelen en een ontbrekend toen.json geven geen fouten", async ({ page }) => {
   const errors = watchErrors(page);
   await open(page);
-  for (let i = 0; i < 6; i++) await page.locator(i % 2 ? "#toenBtn" : "#nuBtn").click();
+  for (let i = 0; i < 6; i++) await telefoonKlik(page, i % 2 ? "#toenBtn" : "#nuBtn");
   await expect(page.locator("#toenBtn")).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator("#map path.land")).toHaveCount(1);
   expect(errors).toEqual([]);
@@ -124,8 +135,8 @@ test("landschap: vaak omschakelen en een ontbrekend toen.json geven geen fouten"
   expect((await tel(page, "alleen-toen")).alle).toBe(0);
   const meren = await tel(page, "lake");
   expect(meren.zichtbaar).toBe(meren.alle);
-  await page.locator("#nuBtn").click();
+  await telefoonKlik(page, "#nuBtn");
   await expect(page.locator("#map")).toHaveClass(/\bnu\b/);
-  await page.locator("#toenBtn").click();
+  await telefoonKlik(page, "#toenBtn");
   expect(pagefouten).toEqual([]);
 });

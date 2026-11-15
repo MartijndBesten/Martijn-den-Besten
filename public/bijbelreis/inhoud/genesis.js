@@ -69,7 +69,7 @@ BR.boeken.push({
 
 // Een kort Bijbelgedeelte van dichtbij: Genesis 11:27–12:5. De eerste twee stappen van het deel Abraham vertellen
 // hetzelfde in het kort; dit deel volgt de tekst vers voor vers. Controle: scripts/bijbel-controle/ur-kanaan.txt.
-{ id: "ur-kanaan", n: "Van Ur naar Kanaän", short: "Ur–Kanaän", ref: "Genesis 11:27–12:5", c: "oker", init: "U",
+{ id: "ur-kanaan", bij: "abraham", n: "Van Ur naar Kanaän", short: "Ur–Kanaän", ref: "Genesis 11:27–12:5", c: "oker", init: "U",
   tijd: "ca. 2091 v.Chr.", tl: [-2091, -2091],
   tijdNoot: "Reconstructie; de Bijbel geeft hier geen jaartallen. Abram was 75 jaar toen hij uit Haran ging (12:4). In de tijdrekening die bij het deel Abraham staat uitgelegd, is dat ca. 2091 v.Chr. Wanneer de familie uit Ur vertrok en hoe lang zij in Haran woonde, zegt de Bijbel niet. Er bestaan ook andere dateringen, die enkele eeuwen later uitkomen.",
   intro: "Dit deel volgt één kort Bijbelgedeelte van dichtbij: het slot van Genesis 11 en het begin van Genesis 12. Terach trekt met zijn familie weg uit Ur, maar zij blijven in Haran wonen. Dan gaat Abram verder, op het woord van de HEERE, naar een land dat God hem wijzen zal. Hoe het daarna verdergaat, staat in het deel Abraham.",

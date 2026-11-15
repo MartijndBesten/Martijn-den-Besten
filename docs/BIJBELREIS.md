@@ -4,7 +4,7 @@ Interactieve kaart voor kinderen (ca. 8–12 jaar) over het Oude Testament. Een 
 
 | Bestand | Inhoud |
 | --- | --- |
-| `public/bijbelreis.html` | de pagina (kaart links, reisboek rechts; op een telefoon onder elkaar) |
+| `public/bijbelreis.html` | de pagina (kaart links, reisboek rechts; op een telefoon een eigen opzet, zie `docs/bijbelreis-audit/telefoon.md`) |
 | `public/bijbelreis/app.js` | de engine: kaart (Leaflet), reisboek, Wie is wie, speurtocht, Hoe ver?, paspoort, Bijbeltekst-lade |
 | `public/bijbelreis/bijbelreis.css` | stijl, met de kleur- en lettertokens van de site; donkere uiterlijken via `data-theme` |
 | `public/bijbelreis/plaatsen.js` | alle plaatsen (`BR.plaatsen`), tussenpunten (`BR.W`) en kleuren per persoon (`BR.personen`) |
@@ -46,8 +46,17 @@ Een **deel** (één hoofdpersoon of één verhaallijn, 6–15 stappen):
           mc: [{ q: "…", a: ["GOED", "fout", "fout"], why: "Exodus 3:2" }],
           ord: [{ q: "…", items: ["eerst", "dan", "daarna", "laatst"] }] },     // ca. 3 tap, 6–8 mc, 1 ord
   trips: [{ n: "Ramses → Sinaï", s: 4 }, { n: "Alles wat Mozes reisde", s: "alles" }],  // s = stapindex, r = routeindex (optioneel)
+  bij: "abraham",                        // optioneel: verdiepend deel; id van het hoofddeel in hetzelfde boek (zie onder)
 }
 ```
+
+**Verdiepende delen** (`bij`). Een deel dat een stuk van een ander deel van dichtbij volgt (zoals `ur-kanaan` bij
+`abraham`, `kies-het-leven` bij `moab`), krijgt `bij: "<id van het hoofddeel>"`. Het heeft dan geen eigen knop in de
+delenrij; in de intro van het hoofddeel en bij de stappen van het hoofddeel over hetzelfde Bijbelgedeelte (de ene
+verwijzing valt binnen de andere) staat de ingang ‘Van dichtbij’. Het kruimelpad loopt via het hoofddeel, er is een knop
+‘Terug naar …’, en na de laatste stap gaat ‘Verder’ naar de stap van het hoofddeel ná dat gedeelte (of naar de intro).
+In Alle reizen, Hoe ver?, de tijdlijn, de speurtocht en het paspoort staat het direct onder het hoofddeel. Diepe links
+(`#ur-kanaan/5`) en stapsleutels (`genesis:ur-kanaan:4`) blijven die van het deel zelf.
 
 Een **stap**:
 

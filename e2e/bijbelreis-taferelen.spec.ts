@@ -177,6 +177,8 @@ test("ook in de verhaalweergave staat het tafereel van de stap, één keer per b
   await expect(page.locator("#vTitel")).toContainText("Jericho");
   const f = page.locator('#p-verhalen .tafereel[data-tf="jericho"]');
   await expect(f).toHaveCount(1);
+  // Op de telefoon begint het verhaal met het eerste stuk; het beeld kan in een volgend stuk staan, één tik verder.
+  if (await page.locator("#vLeesVerder").isVisible()) await page.locator("#vLeesVerder").click();
   await expect(f.getByRole("img", { name: /Jericho/ })).toBeVisible();
   expect(await page.evaluate(() => { const ids = [...document.querySelectorAll("#p-verhalen .tafereel")].map((e) => (e as HTMLElement).dataset.tf); return new Set(ids).size === ids.length; })).toBe(true);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

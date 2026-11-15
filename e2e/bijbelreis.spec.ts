@@ -11,6 +11,17 @@ test.beforeEach(async ({ page }) => {
 // Alleen bij de eerste keer laden: een herladen moet laten zien wat de app zelf onthoudt.
 const zetNiveau = (page: Page, n: "a" | "b" | "c" | null) => page.addInitScript((x) => { if (sessionStorage.getItem("niveauGezet")) return; sessionStorage.setItem("niveauGezet", "1"); if (x === null) localStorage.removeItem("bijbelreis:niveau"); else localStorage.setItem("bijbelreis:niveau", JSON.stringify(x)); }, n);
 
+// Telefoon (tot 900 px): Toen/Nu, Vandaag, Bijbelwereld en Legenda staan achter de knop ‘Kaart’, de overzichten in het
+// blad ‘Kies een reis’ en de acties bij de stappenlijst achter ‘Alle stappen’. Is de knop niet in beeld, dan eerst die ene
+// tik die de gebruiker ook doet; daarna dezelfde klik als op de desktop.
+async function telefoonKlik(page: Page, sel: string) {
+  const knop = page.locator(sel);
+  if (!(await knop.isVisible())) {
+    const via = await knop.evaluate((e) => (e.closest("#kaartPaneel") ? "#kaartBtn" : e.closest("#kiesLade, #kiezen") ? "#kiesBtn" : e.closest("#stappenBlok, #deelActies") ? '#sMeer [data-meer="stappenBlok"]' : ""));
+    if (via && (await page.locator(via).isVisible())) await page.locator(via).click();
+  }
+  await knop.click();
+}
 function watchErrors(page: Page) {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(String(e)));
@@ -115,8 +126,10 @@ test("bestaande stempels uit de vorige versie blijven bewaard en nieuwe worden o
     }
   });
   await page.goto("/bijbelreis#abraham");
-  await page.locator("#next2").click();
-  await page.locator("#next2").click();
+  // ‘Verder’: op de telefoon in de vaste balk onderaan, op de desktop onder de stap.
+  const verder = page.locator((await page.locator("#next2").isVisible()) ? "#next2" : "#next");
+  await verder.click();
+  await verder.click();
   await expect(page.locator("#sCrumb")).toContainText("Stap 2 van");
   await page.reload();
   const seen = await page.evaluate(() => JSON.parse(localStorage.getItem("bijbelreis:gezien") || "[]"));
@@ -140,10 +153,10 @@ test("tabbladen: tijdlijn, wie is wie, hoe ver en boekenkast", async ({ page }) 
   await page.getByRole("tab", { name: "Wie is wie" }).click();
   await expect(page.locator("#wieInfo")).not.toBeEmpty();
   await page.getByRole("tab", { name: "Reis" }).click();
-  await page.getByRole("button", { name: "Hoe ver?" }).click();
+  await telefoonKlik(page, '#deelActies [data-tab="ver"]');
   await expect(page.locator("#tripKm")).toContainText("km");
   await page.getByRole("tab", { name: "Reis" }).click();
-  await page.getByRole("button", { name: "Alle 66 boeken" }).click();
+  await telefoonKlik(page, "#kastBtn");
   const kast = page.getByRole("dialog", { name: "De Bijbel: 66 boeken" });
   await expect(kast).toBeVisible();
   await expect(kast.locator(".kb")).toHaveCount(66);
@@ -283,13 +296,13 @@ test("kaartbediening: zoomknoppen, slepen of vegen, knijpen en een plaats aantik
 test("kaart: Toen/Nu, legenda en een plaats met zekerheid", async ({ page, isMobile }) => {
   const errors = watchErrors(page);
   await page.goto("/bijbelreis#abraham/4");
-  await page.locator("#nuBtn").click();
+  await telefoonKlik(page, "#nuBtn");
   await expect(page.locator(".border").first()).toBeAttached();
-  await page.locator("#toenBtn").click();
-  await page.locator("#legendBtn").click();
+  await telefoonKlik(page, "#toenBtn");
+  await telefoonKlik(page, "#legendBtn");
   await expect(page.locator("#legend")).toContainText("Identificeerbaar");
   await expect(page.locator("#legend")).toContainText("Onbekend");
-  await page.locator("#legendBtn").click();
+  await telefoonKlik(page, "#legendBtn");
   if (isMobile) {
     await page.locator("#fullBtn").click();
     await expect(page.locator("body")).toHaveClass(/mapfull/);
@@ -494,7 +507,7 @@ test("3.1: ‘Hele reis’ gaat terug naar de volledige route, in de reis en bij
 
 test("3.1: legenda met ‘Waar ligt dit?’ opent, past in beeld en sluit weer", async ({ page }) => {
   await page.goto("/bijbelreis#abraham/4");
-  await page.locator("#legendBtn").click();
+  await telefoonKlik(page, "#legendBtn");
   const lg = page.locator("#legend");
   await expect(lg).toBeVisible();
   const b = (await lg.boundingBox())!, vp = page.viewportSize()!;
@@ -559,10 +572,10 @@ test("3.1: de startkaart toont de geschiedenis van nu; de hele Bijbelwereld is a
   await expect(etiket).toContainText("Babel → Jeruzalem");
   await expect.poll(() => kaartNamen(page)).toEqual(expect.arrayContaining(["Babel", "Jeruzalem"]));
   // Hele Bijbelwereld: ankerplaatsen van Ur tot Efeze; daarna terug naar je eigen reis.
-  await page.locator("#wereldBtn").click();
+  await telefoonKlik(page, "#wereldBtn");
   await expect(page.locator("#wereldBtn")).toHaveAttribute("aria-pressed", "true");
   await expect.poll(() => kaartNamen(page)).toEqual(expect.arrayContaining(["Jeruzalem", "Haran", "Efeze"]));
-  await page.locator("#wereldBtn").click();
+  await telefoonKlik(page, "#wereldBtn");
   await expect(page.locator("#wereldBtn")).toHaveAttribute("aria-pressed", "false");
   await expect.poll(() => kaartNamen(page)).toEqual(expect.arrayContaining(["Babel", "Jeruzalem"]));
   await etiket.getByRole("button", { name: "Ga verder" }).click();
@@ -592,6 +605,8 @@ test("3.1: een lange geschiedenis leest in onderdelen met tussenkoppen; alle tek
   }));
   expect(tekst.replace(/\s+/g, " ").trim()).toBe(uitleg.replace(/\s+/g, " ").trim());
   // Ontdekmoment: alleen die stap op de kaart, ‘Hele reis’ brengt de hele geschiedenis terug.
+  // Op de telefoon begint het verhaal met het eerste stuk en ‘Lees verder’.
+  if (await page.locator("#vLeesVerder").isVisible()) await page.locator("#vLeesVerder").click();
   const moment = page.locator("[data-stapkaart]").nth(1);
   await moment.click();
   await expect(moment).toHaveAttribute("aria-pressed", "true");
@@ -895,7 +910,7 @@ test("2 Kronieken 20: Josafat, van het gebed in Jeruzalem tot het dal van Berach
 test("overzichten: alle reizen (per boek en langste eerst) en alle plaatsen (zoeken, zekerheid, naar de kaart)", async ({ page }) => {
   const errors = watchErrors(page);
   await page.goto("/bijbelreis#abraham");
-  await page.getByRole("button", { name: "Alle reizen" }).click();
+  await telefoonKlik(page, "#reizenBtn");
   const reizen = page.getByRole("dialog", { name: "Reizen in de Bijbel" });
   await expect(reizen).toBeVisible();
   await expect(reizen.locator(".o-kop").first()).toHaveText("Genesis");
@@ -912,7 +927,7 @@ test("overzichten: alle reizen (per boek en langste eerst) en alle plaatsen (zoe
   await expect(page.locator("#tripKm")).toContainText("km");
 
   await page.getByRole("tab", { name: "Reis" }).click();
-  await page.getByRole("button", { name: "Alle plaatsen", exact: true }).click();
+  await telefoonKlik(page, "#plaatsenBtn");
   const plaatsen = page.getByRole("dialog", { name: "Plaatsen in de Bijbel" });
   await expect(plaatsen).toBeVisible();
   const alle = await plaatsen.locator(".orij").count();
@@ -943,6 +958,7 @@ test("overzichten: alle reizen (per boek en langste eerst) en alle plaatsen (zoe
 test("overzichten: bij Samen ontdekken alleen de boekenkast", async ({ page }) => {
   await zetNiveau(page, "a");
   await page.goto("/bijbelreis#abraham");
+  if (await page.locator("#kiesBtn").isVisible()) await page.locator("#kiesBtn").click(); // telefoon: de overzichten staan in het keuzeblad
   await expect(page.getByRole("button", { name: "Alle 66 boeken" })).toBeVisible();
   await expect(page.locator("#reizenBtn")).toBeHidden();
   await expect(page.locator("#plaatsenBtn")).toBeHidden();
@@ -991,6 +1007,7 @@ test("meer reizen: elk nieuw deel opent via een diepe link, met kaart, stappen e
 
 test("meer reizen: de brieven staan in de boekenkast en de boekenrij schuift naar het gekozen boek", async ({ page }) => {
   await page.goto("/bijbelreis#brieven");
+  if (await page.locator("#kiesBtn").isVisible()) { await expect(page.locator("#kiesBtn")).toContainText("De brieven"); await page.locator("#kiesBtn").click(); } // telefoon: de boekenrij staat in het keuzeblad
   const gekozen = page.locator('#boeken .boek[aria-pressed="true"]');
   await expect(gekozen).toContainText("De brieven");
   await expect(gekozen).toBeInViewport({ ratio: 0.9 });
