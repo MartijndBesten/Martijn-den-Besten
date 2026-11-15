@@ -91,7 +91,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Een listige vraag",
         stap: "genesis:begin:1",
-        t: "De slang is listiger dan alle dieren. Ze vraagt de vrouw of God gezegd heeft dat ze van geen enkele boom mogen eten. De vrouw zegt dat ze alleen van de boom in het midden niet mogen eten, anders sterven ze. De slang zegt: ‘Gijlieden zult den dood niet sterven’.",
+        t: "De slang is listiger dan alle dieren, en de duivel spreekt door haar. Ze vraagt of God gezegd heeft dat ze van geen enkele boom mogen eten. De vrouw zegt dat ze alleen van de boom in het midden niet mogen eten, anders sterven ze. De slang zegt: ‘Gijlieden zult den dood niet sterven’.",
       },
       {
         kop: "Ongehoorzaam aan God",
@@ -99,7 +99,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Straf en een belofte",
-        t: "God vervloekt de slang. Hij zegt dat het zaad van de vrouw de slang de kop zal vermorzelen. Zaad betekent: nakomeling; vermorzelen: verpletteren. De vrouw zal met pijn kinderen krijgen. Adam zal hard werken voor zijn brood, tot hij sterft en weer stof wordt. God maakt hun kleren van vellen en drijft hen uit de hof. Cherubim bewaken de weg naar de boom des levens.",
+        t: "God vervloekt de slang. Hij zegt dat het zaad van de vrouw de slang de kop zal vermorzelen. Zaad betekent: nakomeling; vermorzelen: verpletteren. De vrouw zal met pijn kinderen krijgen, en Adam zal hard werken tot hij weer stof wordt. God maakt hun kleren van vellen en drijft hen uit de hof. Cherubim bewaken de weg naar de boom des levens.",
       },
     ],
     vragen: [
@@ -312,12 +312,12 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Op weg naar het beloofde land",
         stap: "genesis:abraham:1",
-        t: "De HEERE zegt tegen Abram dat hij moet gaan ‘naar het land, dat Ik u wijzen zal’. God belooft dat Hij hem tot een groot volk zal maken en hem zal zegenen. Abram is vijfenzeventig jaar. Hij gaat met Sarai, Lot en al hun bezit. Bij Sichem zegt de HEERE: ‘Aan uw zaad zal Ik dit land geven.’ Zaad betekent: nakomelingen. Abram bouwt daar een altaar, en ook tussen Bethel en Ai.",
+        t: "Al in Ur heeft de HEERE tegen Abram gezegd dat hij moet gaan ‘naar het land, dat Ik u wijzen zal’. God belooft dat Hij hem tot een groot volk zal maken en hem zal zegenen. Abram is vijfenzeventig jaar. Hij gaat met Sarai, Lot en al hun bezit. Bij Sichem zegt de HEERE: ‘Aan uw zaad zal Ik dit land geven.’ Zaad betekent: nakomelingen. Abram bouwt daar een altaar, en ook tussen Bethel en Ai.",
       },
       {
         kop: "Honger en angst in Egypte",
         stap: "genesis:abraham:4",
-        t: "Er komt een zware honger, en Abram trekt naar Egypte. Hij is bang dat de Egyptenaren hem zullen doden om zijn mooie vrouw. Daarom vraagt hij Sarai te zeggen dat ze zijn zuster is. De farao neemt Sarai in zijn huis. Maar de HEERE plaagt de farao met grote plagen. De farao zegt tegen Abram: ‘Wat is dit, dat gij mij gedaan hebt?’ Hij geeft Sarai terug en laat hen wegbrengen.",
+        t: "Er komt een zware honger, en Abram trekt naar Egypte. Hij is bang dat de Egyptenaren hem zullen doden om zijn mooie vrouw. Daarom vraagt hij Sarai te zeggen dat ze zijn zuster is. De farao neemt Sarai in zijn huis. Maar de HEERE plaagt de farao met grote plagen. De farao zegt tegen Abram: ‘Wat is dit, dat gij mij gedaan hebt?’ Hij stuurt hen weg.",
       },
     ],
     vragen: [
@@ -358,7 +358,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "De Engel bij de bron",
         stap: "genesis:abraham:13",
-        t: "Bij een waterbron in de woestijn, op de weg naar Sur, vindt de Engel van de HEERE haar. Hij vraagt: ‘van waar komt gij, en waar zult gij heengaan?’ Hij zegt dat ze terug moet gaan naar Sarai. Ze zal een zoon krijgen en hem Ismaël noemen, ‘omdat de HEERE uw verdrukking aangehoord heeft’. Verdrukking betekent: nood en ellende.",
+        t: "Bij een waterbron in de woestijn, op de weg naar Sur, vindt de Engel van de HEERE haar. Deze Engel is de Zoon van God Zelf. Hij vraagt: ‘van waar komt gij, en waar zult gij heengaan?’ Hij zegt dat ze terug moet gaan naar Sarai. Ze zal een zoon krijgen en hem Ismaël noemen, ‘omdat de HEERE uw verdrukking aangehoord heeft’. Verdrukking betekent: nood en ellende.",
       },
       {
         kop: "De God Die mij ziet",
@@ -689,22 +689,22 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Terug naar het land van je vaderen",
         stap: "genesis:jakob:4",
-        t: "Jakob is twintig jaar bij Laban geweest. Laban is tegen hem niet meer zoals vroeger. Dan zegt de HEERE: ‘Keer weder tot het land uwer vaderen, en tot uw maagschap, en Ik zal met u zijn.’ Maagschap betekent familie. Jakob vertrekt met zijn gezin en zijn vee, zonder het Laban te zeggen.",
-      },
-      {
-        kop: "Een steenhoop als getuige",
-        stap: "genesis:jakob:4",
-        t: "Laban jaagt hen achterna en haalt hen in op het gebergte Gilead. Maar God waarschuwt hem in een droom. Jakob en Laban maken een hoop stenen als getuige: ze zullen elkaar geen kwaad doen.",
+        t: "Jakob is twintig jaar bij Laban geweest. Dan zegt de HEERE: ‘Keer weder tot het land uwer vaderen, en tot uw maagschap, en Ik zal met u zijn.’ Maagschap betekent familie. Jakob vertrekt met gezin en vee, zonder het Laban te zeggen. Laban haalt hem in op het gebergte Gilead, maar God waarschuwt hem in een droom.",
       },
       {
         kop: "Bang voor Ezau",
         stap: "genesis:jakob:5",
-        t: "Bij Mahanaïm ontmoeten engelen van God Jakob. Dan hoort hij dat Ezau eraan komt met vierhonderd man. Jakob is erg bang. Hij bidt: ‘Ruk mij toch uit mijns broeders hand’. Dat is: red mij van mijn broer. Hij stuurt een groot geschenk van vee vooruit.",
+        t: "Dan hoort Jakob dat Ezau eraan komt met vierhonderd man. Jakob is erg bang. Hij bidt: ‘Ruk mij toch uit mijns broeders hand’. Dat is: red mij van mijn broer. Hij herinnert God aan Zijn eigen belofte en stuurt een groot geschenk vooruit.",
       },
       {
         kop: "Worstelen in de nacht",
         stap: "genesis:jakob:6",
-        t: "’s Nachts blijft Jakob alleen achter bij de beek de Jabbok. Een Man worstelt met hem tot het licht wordt en raakt zijn heup aan. Jakob zegt: ‘Ik zal U niet laten gaan, tenzij dat Gij mij zegent.’ Hij krijgt de naam Israël. Jakob noemt de plaats Pniël, want hij heeft God gezien.",
+        t: "’s Nachts blijft Jakob alleen bij de beek de Jabbok. Een Man worstelt met hem tot het licht wordt en raakt zijn heup aan. Jakob zegt: ‘Ik zal U niet laten gaan, tenzij dat Gij mij zegent.’ Hij krijgt de naam Israël. Jakob noemt de plaats Pniël, want hij heeft God gezien. Veel uitleggers zien in de Man de Zoon van God; dat is uitleg.",
+      },
+      {
+        kop: "Ezau komt",
+        stap: "genesis:jakob:7",
+        t: "Dan komt Ezau. Jakob buigt zich zeven keer, maar Ezau loopt hem tegemoet, omhelst hem en kust hem, en ze huilen.",
       },
     ],
     vragen: [
@@ -721,8 +721,8 @@ BR.niveaus.voegToe("b", {
       },
       {
         q: "Wat gebeurt er als eerste?",
-        a: ["Jakob en Laban maken een steenhoop", "Jakob hoort dat Ezau eraan komt", "Jakob worstelt bij de Jabbok"],
-        why: "Genesis 31:46; Genesis 32:6; Genesis 32:24",
+        a: ["Laban haalt Jakob in op het gebergte Gilead", "Jakob hoort dat Ezau eraan komt", "Jakob worstelt bij de Jabbok"],
+        why: "Genesis 31:23; Genesis 32:6; Genesis 32:24",
       },
       {
         q: "Waarom noemt Jakob de plaats Pniël?",
@@ -880,7 +880,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Een kistje van biezen",
         stap: "exodus:mozes:1",
-        t: "Een vrouw uit het huis van Levi verbergt haar zoon drie maanden. Dan legt ze hem in een kistje van biezen, dichtgemaakt met lijm en pek, aan de oever van de rivier. Zijn zus kijkt van een afstand toe. De dochter van de farao vindt het kistje en krijgt medelijden met het huilende kind. De zus haalt de eigen moeder om het kind te voeden. Later wordt hij de zoon van de dochter van de farao. Zij noemt hem Mozes: ‘Want ik heb hem uit het water getogen’, dat is: getrokken.",
+        t: "Een vrouw uit het huis van Levi verbergt haar zoon drie maanden. Dan legt ze hem in een kistje van biezen, dichtgemaakt met lijm en pek, aan de rivier. Zijn zus Mirjam kijkt van een afstand toe. De dochter van de farao vindt het kistje en krijgt medelijden met het huilende kind. De zus haalt de eigen moeder om het kind te voeden. Later wordt hij de zoon van de dochter van de farao. Zij noemt hem Mozes: ‘Want ik heb hem uit het water getogen’, dat is: getrokken.",
       },
     ],
     vragen: [
@@ -1173,7 +1173,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "De HEERE is mijn Banier",
-        t: "Zo verslaat Jozua Amalek met het zwaard. De HEERE zegt tegen Mozes dat hij dit moet opschrijven in een boek, om het te onthouden. Ook zegt God dat Hij Amalek helemaal zal laten verdwijnen. Mozes bouwt een altaar en noemt het: ‘De HEERE is mijn Banier!’ Een banier is een vaandel dat hoog wordt opgestoken. De naam wordt vaak zo uitgelegd: de overwinning komt van de HEERE.",
+        t: "Zo verslaat Jozua Amalek met het zwaard. De HEERE zegt tegen Mozes dat hij dit moet opschrijven in een boek, om het te onthouden. Ook zegt God dat Hij Amalek helemaal zal laten verdwijnen. Mozes bouwt een altaar en noemt het: ‘De HEERE is mijn Banier!’ Een banier is een vaandel dat hoog wordt opgestoken. De naam zegt: de overwinning komt van de HEERE.",
       },
     ],
     vragen: [
@@ -1329,12 +1329,12 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Aäron wordt priester",
         stap: "leviticus:verzoendag:0",
-        t: "Bij de berg Sinaï wast Mozes Aäron en zijn zonen met water. Hij doet Aäron de priesterkleren aan en zalft hem met olie. Zo wordt Aäron geheiligd: apart gezet om God te dienen. Op de achtste dag brengt Aäron zelf de offers. Dan gaat er vuur uit van de HEERE en verteert het offer op het altaar. Het volk juicht en buigt zich met het gezicht naar de grond.",
+        t: "Bij de berg Sinaï wast Mozes Aäron en zijn zonen met water. Hij doet Aäron de priesterkleren aan en zalft hem met olie. Zo wordt Aäron geheiligd: apart gezet om God te dienen. Op de achtste dag brengt Aäron zelf de offers. Dan verteert vuur van de HEERE het offer op het altaar. Het volk juicht en buigt zich neer.",
       },
       {
         kop: "Vreemd vuur",
         stap: "leviticus:verzoendag:2",
-        t: "Maar Nadab en Abihu, zonen van Aäron, brengen ‘vreemd vuur’ voor de HEERE: vuur dat Hij niet geboden had. Er gaat vuur uit van de HEERE, en ze sterven. Mozes zegt dat God geheiligd wil worden door wie dicht bij Hem komen. Dat betekent: God is heilig, en wie bij Hem komt, doet wat Hij zegt. Aäron zwijgt.",
+        t: "Maar Nadab en Abihu, zonen van Aäron, brengen ‘vreemd vuur’ voor de HEERE: vuur dat niet van het altaar komt en dat Hij niet geboden had. Er gaat vuur uit van de HEERE, en ze sterven. Mozes zegt dat God geheiligd wil worden door wie dicht bij Hem komen. Dat betekent: God is heilig, en wie bij Hem komt, doet wat Hij zegt. Aäron zwijgt.",
       },
       {
         kop: "Eén dag in het jaar",
@@ -1624,12 +1624,12 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Pascha in Gilgal",
         stap: "jozua:intocht:3",
-        t: "Israël is door de Jordaan getrokken en heeft zijn kamp in Gilgal, bij Jericho. Daar vieren ze het Pascha. Ze eten van het koren van het land, en de volgende dag houdt het manna op.",
+        t: "Israël heeft zijn kamp in Gilgal, bij Jericho. Daar vieren ze het Pascha. Ze eten van het koren van het land, en de volgende dag houdt het manna op.",
       },
       {
         kop: "De Vorst van het leger",
         stap: "jozua:intocht:4",
-        t: "Bij Jericho ziet Jozua een Man met een getrokken zwaard. Hij zegt: ‘Ik ben de Vorst van het heir des HEEREN’. Dat betekent: de Aanvoerder van het leger van de HEERE. Jozua valt op zijn gezicht en aanbidt. Hij moet zijn schoenen uittrekken: de plaats is heilig.",
+        t: "Bij Jericho ziet Jozua een Man met een getrokken zwaard. Hij zegt: ‘Ik ben de Vorst van het heir des HEEREN’. Dat betekent: de Aanvoerder van het leger van de HEERE. Het is de Zoon van God. Jozua valt op zijn gezicht en aanbidt Hem. Hij moet zijn schoenen uittrekken: de plaats is heilig.",
       },
       {
         kop: "Zeven dagen om de stad",
@@ -1805,7 +1805,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Een held bij de pers",
         stap: "richteren:debora:5",
-        t: "Israël doet kwaad in de ogen van de HEERE. Daarom geeft Hij hen zeven jaar in de hand van de Midianieten. Die komen zo talrijk als sprinkhanen en eten alles op. In Ofra dorst Gideon tarwe bij de pers, verstopt voor hen. De Engel van de HEERE zegt: ‘De HEERE is met u, gij, strijdbare held!’ Strijdbaar betekent: dapper in de strijd. Gideon moet Israël verlossen.",
+        t: "Israël doet kwaad in de ogen van de HEERE. Daarom geeft Hij hen zeven jaar in de hand van de Midianieten. Die komen als sprinkhanen en eten alles op. In Ofra dorst Gideon tarwe bij de pers, verstopt voor hen. De Engel van de HEERE, de Zoon van God, zegt: ‘De HEERE is met u, gij, strijdbare held!’ Strijdbaar betekent: dapper in de strijd. Gideon moet Israël verlossen.",
       },
       {
         kop: "Te veel soldaten",
@@ -2173,7 +2173,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Harp voor de koning",
         stap: "1samuel:saul-david:3",
-        t: "De Geest van de HEERE wijkt van Saul, en een boze geest van de HEERE maakt hem bang. Zijn knechten zoeken iemand die goed harp speelt. Zo komt David bij Saul. Als hij speelt, wordt het beter met Saul.",
+        t: "De Geest van de HEERE wijkt van Saul. Als straf maakt een boze geest van de HEERE hem bang. Zijn knechten zoeken iemand die goed harp speelt. Zo komt David bij Saul. Zijn spel doet Saul goed.",
       },
     ],
     vragen: [
@@ -2988,7 +2988,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Weg van de HEERE",
         stap: "jona:jona:1",
-        t: "De HEERE zegt tegen Jona: ga naar de grote stad Ninevé en preek tegen haar, want hun boosheid is tot bij Mij gekomen. Maar Jona vlucht naar Tarsis, ‘van het aangezicht des HEEREN’: weg van de HEERE. In Jafo vindt hij een schip. Hij betaalt de reis en gaat aan boord.",
+        t: "De HEERE zegt tegen Jona: ga naar de grote stad Ninevé en preek tegen haar, want hun boosheid is tot bij Mij gekomen. Maar Jona vlucht naar Tarsis, ‘van het aangezicht des HEEREN’: hij loopt weg uit de dienst van de HEERE. In Jafo vindt hij een schip. Hij betaalt de reis en gaat aan boord.",
       },
       {
         kop: "Storm op zee",
@@ -3041,7 +3041,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Jona en de wonderboom",
         stap: "jona:jona:6",
-        t: "Jona wordt heel boos. Hij zegt: ik wist dat U een genadig en barmhartig God bent; daarom vluchtte ik. Aan de oostkant van de stad wacht hij af. God laat een wonderboom opschieten voor schaduw. Maar de volgende morgen laat God een worm de boom steken, en hij verdort. Dan zegt God: jij hebt medelijden met die boom. ‘En Ik zou die grote stad Nineve niet verschonen?’ Verschonen betekent: sparen.",
+        t: "Jona wordt heel boos. Hij zegt: ik wist dat U een genadig en barmhartig God bent; daarom vluchtte ik. God laat een wonderboom opschieten voor schaduw. De volgende morgen laat God een worm de boom steken, en hij verdort. Dan zegt God: jij hebt medelijden met die boom. ‘En Ik zou die grote stad Nineve niet verschonen?’ Verschonen betekent: sparen. Er wonen alleen al meer dan 120.000 kleine kinderen.",
       },
     ],
     vragen: [
@@ -3166,7 +3166,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Van Jeruzalem naar Babel",
         stap: "daniel:daniel:1",
-        t: "Nebukadnezar, de koning van Babel, belegert Jeruzalem. Hij laat jongens uit de koninklijke familie naar Babel brengen. Drie jaar leren ze de taal en de boeken van Babel. Daniël, Hananja, Misaël en Azarja zijn erbij. Ze krijgen nieuwe namen: Beltsazar, Sadrach, Mesach en Abed-Nego.",
+        t: "Nebukadnezar, de koning van Babel, belegert Jeruzalem. Hij laat jongens van koninklijke afkomst naar Babel brengen. Drie jaar leren ze de taal en de boeken van Babel. Daniël, Hananja, Misaël en Azarja zijn erbij. Ze krijgen nieuwe namen: Beltsazar, Sadrach, Mesach en Abed-Nego.",
       },
       {
         kop: "Groente en water",
@@ -3176,11 +3176,11 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Een droom die niemand weet",
         stap: "daniel:daniel:3",
-        t: "De koning wil dat zijn wijzen de droom én de uitleg vertellen. Niemand kan het. Dan wil hij alle wijzen doden, ook Daniël en zijn vrienden. Ze bidden tot God, en in de nacht maakt God de droom aan Daniël bekend.",
+        t: "De koning wil dat zijn wijzen de droom én de uitleg vertellen. Niemand kan het, en dan wil hij alle wijzen doden, ook Daniël en zijn vrienden. Ze bidden, en in de nacht maakt God de droom aan Daniël bekend.",
       },
       {
         kop: "Een steen wordt een berg",
-        t: "Daniël zegt: ‘er is een God in den hemel, Die verborgenheden openbaart’ (geheimen bekendmaakt). De koning zag een groot beeld van goud, zilver, koper, ijzer en leem. Een steen sloeg het kapot en werd een grote berg. Daniël legt uit: God richt een Koninkrijk op dat nooit vergaat.",
+        t: "Daniël zegt: ‘er is een God in den hemel, Die verborgenheden openbaart’ (geheimen bekendmaakt). De koning zag een groot beeld van goud, zilver, koper, ijzer en leem. Een steen sloeg het kapot en werd een berg. De steen is Gods Koninkrijk, dat nooit vergaat: het Rijk van de Heere Jezus.",
       },
     ],
     vragen: [
@@ -3315,12 +3315,12 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Kores laat het volk gaan",
         stap: "ezra:terugkeer:0",
-        t: "In het eerste jaar van Kores, de koning van Perzië, wekt de HEERE zijn geest op. Dat betekent: de HEERE maakt dat Kores dit wil. Zo gebeurt wat God door Jeremia zei. Kores laat bekendmaken: wie bij Gods volk hoort, mag naar Jeruzalem gaan om het huis van de HEERE te bouwen. Hij geeft ook de vaten terug die Nebukadnezar uit de tempel had weggehaald.",
+        t: "In het eerste jaar van Kores, de koning van Perzië, wekt de HEERE zijn geest op. Dat betekent: de HEERE maakt dat Kores dit wil. Zo gebeurt wat God door Jeremia zei. Kores laat bekendmaken: wie bij Gods volk hoort, mag naar Jeruzalem gaan om het huis van de HEERE te bouwen. Hij geeft ook de tempelvaten terug.",
       },
       {
         kop: "Juichen en huilen",
         stap: "ezra:terugkeer:3",
-        t: "Een grote groep keert terug met Zerubbabel en Jesua. Eerst bouwen ze het altaar voor brandoffers. In het tweede jaar leggen ze het fundament, de onderkant, van de tempel. Ze loven de HEERE, dat Hij goed is, en het volk juicht. Maar oude mannen die de eerste tempel nog gezien hebben, huilen hardop.",
+        t: "Een grote groep keert terug met Zerubbabel en Jesua. Eerst bouwen ze het altaar voor brandoffers. In het tweede jaar leggen ze het fundament, de onderkant, van de tempel. Ze loven de HEERE en het volk juicht. Maar oude mannen die de eerste tempel nog gezien hebben, huilen hardop: dit huis wordt veel minder dan het eerste.",
       },
       {
         kop: "Stilgelegd en toch klaar",
@@ -3697,7 +3697,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Wijzen zoeken een Koning",
         stap: "jezus-1:nt-geboorte:8",
-        t: "Wijzen uit het oosten komen in Jeruzalem en vragen: ‘Waar is de geboren Koning der Joden?’ Ze hebben Zijn ster gezien. Koning Herodes schrikt. De schriftgeleerden zeggen: in Bethlehem, want dat heeft de profeet geschreven. Herodes stuurt de wijzen erheen en zegt dat hij het Kind ook wil aanbidden.",
+        t: "Wijzen uit het oosten, geleerde mannen die de sterren bestuderen, komen in Jeruzalem en vragen: ‘Waar is de geboren Koning der Joden?’ Ze hebben Zijn ster gezien. Koning Herodes schrikt. De schriftgeleerden zeggen: in Bethlehem, want dat heeft de profeet geschreven. Herodes stuurt de wijzen erheen en zegt dat hij het Kind ook wil aanbidden.",
       },
       {
         kop: "Goud, wierook en mirre",
@@ -4375,7 +4375,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Een grote menigte",
         stap: "jezus-2:nt-brood-en-berg:1",
-        t: "De Heere Jezus gaat over de zee van Galilea, die ook de zee van Tiberias heet. Een grote menigte volgt Hem, omdat ze de tekenen gezien hebben: de wonderen die Hij bij de zieken deed. Het is kort voor het Pascha, het feest van de Joden. Hij gaat met Zijn discipelen op een berg zitten.",
+        t: "De Heere Jezus gaat over de zee van Galilea. Een grote menigte volgt Hem, omdat ze de tekenen gezien hebben: de wonderen die Hij bij de zieken deed. Het is kort voor het Pascha, het feest van de Joden. Hij gaat met Zijn discipelen op een berg zitten.",
       },
       {
         kop: "Vijf broden en twee visjes",
@@ -4383,7 +4383,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Twaalf korven over",
-        t: "Ongeveer vijfduizend mannen gaan zitten in het gras. De Heere Jezus dankt en laat brood en vis uitdelen, zoveel als ze willen. Daarna worden de brokken verzameld, ‘opdat er niets verloren ga’. Ze vullen twaalf korven. De mensen zeggen: ‘Deze is waarlijk de Profeet, Die in de wereld komen zou.’ Ze willen Hem met geweld koning maken, maar Hij gaat alleen de berg op.",
+        t: "Ongeveer vijfduizend mannen gaan zitten in het gras. De Heere Jezus dankt en laat brood en vis uitdelen, zoveel als ze willen. Daarna worden de brokken verzameld, ‘opdat er niets verloren ga’. Ze vullen twaalf korven. De mensen zeggen: ‘Deze is waarlijk de Profeet, Die in de wereld komen zou.’ Dat is de Profeet die Mozes had beloofd. Ze willen Hem met geweld koning maken, maar Hij gaat alleen de berg op.",
       },
     ],
     vragen: [
@@ -4571,7 +4571,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Bidden op de berg",
         stap: "jezus-2:nt-brood-en-berg:6",
-        t: "Ongeveer acht dagen na de belijdenis van Petrus neemt de Heere Jezus Petrus, Johannes en Jakobus mee een berg op om te bidden. Terwijl Hij bidt, verandert Zijn gezicht, en Zijn kleren worden wit en zeer blinkend. Twee mannen spreken met Hem: Mozes en Elia. Ze verschijnen in heerlijkheid en spreken over Zijn uitgang, die Hij in Jeruzalem zou volbrengen. Dat wordt meestal uitgelegd als Zijn sterven in Jeruzalem.",
+        t: "Ongeveer acht dagen na de belijdenis van Petrus neemt de Heere Jezus Petrus, Johannes en Jakobus mee een berg op om te bidden. Terwijl Hij bidt, verandert Zijn gezicht, en Zijn kleren worden wit en zeer blinkend. Twee mannen spreken met Hem: Mozes en Elia. Ze verschijnen in heerlijkheid en spreken over Zijn uitgang, die Hij in Jeruzalem zou volbrengen. Daarmee is Zijn sterven in Jeruzalem bedoeld.",
       },
       {
         kop: "Drie tenten",
@@ -4656,7 +4656,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Een vraag om de beste plaatsen",
-        t: "Dan vragen Jakobus en Johannes, de zonen van Zebedeüs, of ze in Zijn heerlijkheid naast Hem mogen zitten, rechts en links. De Heere Jezus zegt: ‘Gij weet niet, wat gij begeert.’ Hij vraagt of ze de drinkbeker kunnen drinken die Hij drinkt. Dat wordt meestal uitgelegd als het lijden dat Hem wacht. ‘Wij kunnen’, zeggen ze.",
+        t: "Dan vragen Jakobus en Johannes, de zonen van Zebedeüs, of ze in Zijn heerlijkheid naast Hem mogen zitten, rechts en links. De Heere Jezus zegt: ‘Gij weet niet, wat gij begeert.’ Hij vraagt of ze de drinkbeker kunnen drinken die Hij drinkt. Daarmee bedoelt Hij het lijden dat Hem wacht. ‘Wij kunnen’, zeggen ze.",
       },
       {
         kop: "Wie groot wil zijn",
@@ -5232,15 +5232,15 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Lief tot het einde",
         stap: "jezus-3:nt-lijdensweek:5",
-        t: "Het is vlak voor het feest van het pascha. De Heere Jezus weet dat Zijn uur gekomen is: Hij gaat uit de wereld naar de Vader. Hij heeft de Zijnen lief tot het einde. Hij staat op van de maaltijd, legt Zijn kleren af en bindt een linnen doek om. Hij giet water in een bekken: een kom. Dan begint Hij de voeten van de discipelen te wassen.",
+        t: "Het is vlak voor het feest van het pascha. De Heere Jezus weet dat Zijn uur gekomen is: Hij gaat uit de wereld naar de Vader. Hij heeft de Zijnen lief tot het einde. Hij staat op van de maaltijd, legt Zijn kleren af en bindt een linnen doek om. Hij giet water in een kom en begint de voeten van de discipelen te wassen.",
       },
       {
         kop: "Petrus wil het niet",
-        t: "Petrus zegt: ‘Gij zult mijn voeten niet wassen in der eeuwigheid!’ De Heere Jezus antwoordt: ‘Indiën Ik u niet wasse, gij hebt geen deel met Mij.’ Dat betekent: dan hoor je niet bij Mij. Dan wil Petrus ook handen en hoofd gewassen hebben.",
+        t: "Petrus zegt: ‘Gij zult mijn voeten niet wassen in der eeuwigheid!’ De Heere Jezus antwoordt: ‘Indiën Ik u niet wasse, gij hebt geen deel met Mij.’ Dat betekent: wie Hij niet van zijn zonden wast, hoort niet bij Hem. Dan wil Petrus ook handen en hoofd gewassen hebben.",
       },
       {
         kop: "Een voorbeeld",
-        t: "Als Hij weer zit, zegt Hij: jullie noemen Mij Meester en Heere, en dat ben Ik ook. Als Ik jullie voeten gewassen heb, moeten jullie ook elkaars voeten wassen. ‘Want Ik heb u een voorbeeld gegeven’.",
+        t: "Daarna zegt Hij: jullie noemen Mij Meester en Heere, en dat ben Ik ook. Als Ik jullie voeten gewassen heb, moeten jullie ook elkaars voeten wassen. ‘Want Ik heb u een voorbeeld gegeven’.",
       },
       {
         kop: "Twist over de grootste",
@@ -5330,7 +5330,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Bidden in Gethsémané",
         stap: "jezus-3:nt-lijdensweek:7",
-        t: "Na de lofzang gaat de Heere Jezus naar de Olijfberg, naar een plaats die Gethsémané heet. Hij neemt Petrus, Jakobus en Johannes mee. Hij is diep bedroefd. Hij valt op de grond en bidt: ‘Abba, Vader! alle dingen zijn U mogelijk; neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt.’ Abba betekent Vader. De drinkbeker wordt meestal uitgelegd als het lijden dat komt. Steeds als Hij terugkomt, slapen de discipelen.",
+        t: "Na de lofzang gaat de Heere Jezus naar de Olijfberg, naar een plaats die Gethsémané heet. Hij neemt Petrus, Jakobus en Johannes mee. Hij is diep bedroefd. Hij valt op de grond en bidt: ‘Abba, Vader! alle dingen zijn U mogelijk; neem dezen drinkbeker van Mij weg, doch niet wat Ik wil, maar wat Gij wilt.’ Abba betekent Vader. De drinkbeker is het lijden dat voor Hem ligt. Steeds als Hij terugkomt, slapen de discipelen.",
       },
       {
         kop: "Verraden met een kus",
@@ -5465,12 +5465,12 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Zie, uw moeder",
-        t: "Bij het kruis staan vrouwen, onder wie Zijn moeder en Maria Magdalena. Ook de discipel die de Heere Jezus liefheeft, staat erbij. Tegen Zijn moeder zegt de Heere Jezus: ‘Vrouw, zie, uw zoon.’ En tegen de discipel: ‘Zie, uw moeder.’ Vanaf dat uur neemt die discipel haar in zijn huis.",
+        t: "Bij het kruis staan vrouwen, onder wie Zijn moeder en Maria Magdalena. Ook de discipel die Hij liefheeft, staat erbij. Tegen Zijn moeder zegt de Heere Jezus: ‘Vrouw, zie, uw zoon.’ En tegen de discipel: ‘Zie, uw moeder.’ Vanaf dat uur neemt die discipel haar in zijn huis.",
       },
       {
         kop: "Het is volbracht",
         stap: "jezus-3:nt-lijden:7",
-        t: "Dan zegt de Heere Jezus: ‘Mij dorst.’ Zo wordt de Schrift vervuld. Ze geven Hem edik, een zure drank, met een spons. Dan zegt Hij: ‘Het is volbracht!’ Hij buigt Zijn hoofd en geeft de geest: Hij sterft. Petrus schrijft later waarom: Hij heeft ‘onze zonden in Zijn lichaam gedragen’ (1 Petrus 2:24).",
+        t: "Dan zegt de Heere Jezus: ‘Mij dorst.’ Zo wordt de Schrift vervuld. Ze geven Hem zure edik met een spons. Dan zegt Hij: ‘Het is volbracht!’ Alles wat Hij moest lijden om zondaren met God te verzoenen, is gedaan. Hij buigt Zijn hoofd en geeft de geest: Hij sterft. Petrus schrijft: Hij heeft ‘onze zonden in Zijn lichaam gedragen’ (1 Petrus 2:24).",
       },
     ],
     vragen: [
@@ -6371,7 +6371,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Een adder op Melite",
         stap: "handelingen:nt-paulusrome:6",
-        t: "Na de schipbreuk komen Paulus en de anderen aan land op Melite, waarschijnlijk Malta. Het regent en is koud; de bewoners maken een groot vuur. Als Paulus takken op het vuur legt, komt er een adder uit, die aan zijn hand hangt. Ze denken dat hij een moordenaar is. Maar Paulus schudt de slang af in het vuur; hem gebeurt niets. Dan zeggen ze dat hij een god is.",
+        t: "Na de schipbreuk komen Paulus en de anderen aan land op Melite, dat is Malta. Het regent en is koud; de bewoners maken een groot vuur. Als Paulus takken op het vuur legt, komt er een adder uit, die aan zijn hand hangt. Ze denken dat hij een moordenaar is. Maar Paulus schudt de slang af in het vuur; hem gebeurt niets. Dan zeggen ze dat hij een god is.",
       },
       {
         kop: "Zieken worden genezen",
@@ -6422,7 +6422,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Een stem als een bazuin",
         stap: "openbaring:nt-openbaring:0",
-        t: "Johannes is op het eiland Patmos, ‘om het Woord Gods’. Op de dag des Heeren hoort hij achter zich een grote stem. Hij kijkt om en ziet zeven gouden kandelaren: standaards voor lampen. In het midden is Iemand als de Zoon des mensen. Johannes valt als dood neer. Maar Hij zegt: ‘Vrees niet; Ik ben de Eerste en de Laatste’.",
+        t: "Johannes is op het eiland Patmos, ‘om het Woord Gods’. Op de dag des Heeren, de zondag, hoort hij een grote stem. Hij kijkt om en ziet zeven gouden kandelaren: standaards voor lampen. In het midden is Iemand als de Zoon des mensen. Johannes valt als dood neer. Maar Hij zegt: ‘Vrees niet; Ik ben de Eerste en de Laatste’.",
       },
       {
         kop: "Zeven brieven",
@@ -6480,11 +6480,11 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Alle dingen nieuw",
         stap: "openbaring:nt-openbaring:0",
-        t: "Veel later ziet Johannes een nieuwe hemel en een nieuwe aarde, en het nieuwe Jeruzalem dat uit de hemel neerdaalt. God zal alle tranen van hun ogen afwissen. Dood, rouw en moeite zullen er niet meer zijn. Hij Die op de troon zit, zegt: ‘Ziet, Ik maak alle dingen nieuw.’",
+        t: "Veel later ziet Johannes een nieuwe hemel en een nieuwe aarde, en het nieuwe Jeruzalem dat uit de hemel neerdaalt. God zal alle tranen van hun ogen afwissen. Dood, rouw en moeite zullen er niet meer zijn. God zegt: ‘Ziet, Ik maak alle dingen nieuw.’",
       },
       {
         kop: "De stad met de boom des levens",
-        t: "De poorten zijn parels. Er is geen tempel, want God en het Lam zijn haar tempel. Gods heerlijkheid verlicht haar. Uit de troon stroomt de rivier van het water des levens, met aan beide kanten de boom des levens. Het laatste gebed is: ‘Ja, kom, Heere Jezus!’",
+        t: "De poorten zijn parels. Er is geen tempel, want God en het Lam, de Heere Jezus, zijn haar tempel. Gods heerlijkheid verlicht haar. Uit de troon stroomt de rivier van het water des levens, met aan beide kanten de boom des levens. Het laatste gebed is: ‘Ja, kom, Heere Jezus!’",
       },
     ],
     vragen: [

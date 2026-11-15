@@ -96,6 +96,25 @@
     ALLPARTS.push(d);
   }));
   if (missing.size) console.error("Bijbelreis: onbekende plaatsen of tussenpunten:", [...missing].join(", "));
+  // Verdiepende delen: een deel met bij: "<id>" werkt een stuk van een ander deel (het hoofddeel, in hetzelfde boek) van
+  // dichtbij uit. Het krijgt geen eigen knop in de delenrij, maar staat onder zijn hoofddeel: als ingang in de intro en bij
+  // de stappen die over hetzelfde Bijbelgedeelte gaan. Diepe links en stapsleutels blijven die van het deel zelf.
+  const refBereik = (ref) => { const p = BR.parseRef && BR.parseRef(ref); return p ? p.ranges.map((r) => [r.slug, r.c1 * 1000 + r.v1, r.c2 * 1000 + r.v2]) : []; };
+  const omvat = (a, b) => b.length > 0 && b.every(([sl, v, t]) => a.some(([sl2, v2, t2]) => sl === sl2 && v >= v2 && t <= t2)); // ligt b helemaal binnen a?
+  ALLPARTS.forEach((d) => {
+    const h = d.bij && d.boek.delen.find((x) => x.id === d.bij && !x.bij);
+    if (!h) return;
+    d.hoofd = h; (h.verdiep = h.verdiep || []).push(d);
+    const vb = refBereik(d.ref);
+    // Stappen van het hoofddeel over hetzelfde gedeelte: hun verwijzing valt binnen die van het verdiepende deel, of omgekeerd.
+    const bij = h.steps.filter((s) => { const sb = refBereik(s.ref); return omvat(vb, sb) || omvat(sb, vb); });
+    bij.forEach((s) => (s.verdiep = (s.verdiep || []).concat(d)));
+    // Na de laatste stap gaat ‘Verder’ terug naar het hoofddeel: naar de stap ná dat gedeelte, anders naar de intro.
+    d.verder = bij.length && bij[bij.length - 1].i + 1 < h.steps.length ? bij[bij.length - 1].i + 1 : -1;
+  });
+  const VOLG = ALLPARTS.filter((d) => !d.hoofd); // de volgorde van Vorige/Verder tussen delen
+  const metVerdiep = (delen) => delen.filter((d) => !d.hoofd).flatMap((d) => [d].concat(d.verdiep || []));
+  const deelNaam = (d) => (d.hoofd ? `${d.hoofd.n} › ${d.n}` : d.n);
   const partKm = (d) => d.steps.reduce((a, s) => a + (s.r || []).filter((r) => r.w === d.c).reduce((b, r) => b + r.len, 0), 0);
   const scrollToMap = () => { if (isNarrow()) document.querySelector(".mapwrap").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }); };
 
@@ -338,7 +357,7 @@
     const size = map.getSize(), items = [];
     // Op een smal scherm met veel actieve namen (Paulus’ reizen) houden alleen begin en eind voorrang; de rest wijkt bij
     // botsing en verschijnt bij inzoomen of op de grote kaart.
-    const veel = isNarrow() && !document.body.classList.contains("mapfull") && on.size > 6;
+    const veel = isNarrow() && !document.body.classList.contains("mapfull") && on.size > 4;
     const kern = new Set(focus ? focus.kern || [] : cur >= 0 ? [] : [deel.steps[0].at[0], deel.steps[deel.steps.length - 1].at.slice(-1)[0]]);
     Object.entries(markers).forEach(([id, m]) => {
       const el = m.getElement(); if (!el || !map.hasLayer(m)) return;
@@ -346,6 +365,7 @@
       const vis = z >= (P[id].z || 7) || on.has(id);
       lab.classList.toggle("off", !vis);
       lab.classList.toggle("on", on.has(id));
+      lab.classList.toggle("metnu", on.has(id) && (!isNarrow() || ((cur >= 0 || focus) && on.size <= 3)));
       if (m.options.zIndexOffset !== (on.has(id) ? 600 : 0)) m.setZIndexOffset(on.has(id) ? 600 : 0);
       lab.classList.remove("clash");
       const pt = map.latLngToContainerPoint(P[id].ll);
@@ -716,14 +736,17 @@
   const datUitleg = (dt) => dt ? [(DAT.soorten[dt.soort] || {}).uitleg, dt.onzeker && DAT.soorten.onzeker ? DAT.soorten.onzeker.uitleg : ""].filter(Boolean).join(" ") : "";
   function renderCrumb() {
     const n = deel.steps.length, got = deel.steps.filter((s) => seen.has(s.key)).length;
-    $("sCrumb").innerHTML = `<button type="button" class="linkbtn" data-crumb="boek">${esc(boek.n)}</button><span aria-hidden="true">›</span><button type="button" class="linkbtn" data-crumb="deel"${cur < 0 ? ' aria-current="page"' : ""}>${esc(deel.n)}</button>${cur >= 0 ? `<span aria-hidden="true">›</span><span aria-current="step">Stap ${cur + 1} van ${n}</span>` : `<span class="muted">${got} van ${n} gezien</span>`}`;
+    $("sCrumb").innerHTML = `<button type="button" class="linkbtn" data-crumb="boek">${esc(boek.n)}</button><span aria-hidden="true">›</span>${deel.hoofd ? `<button type="button" class="linkbtn" data-crumb="hoofd">${esc(deel.hoofd.n)}</button><span aria-hidden="true">›</span>` : ""}<button type="button" class="linkbtn" data-crumb="deel"${cur < 0 ? ' aria-current="page"' : ""}>${esc(deel.n)}</button>${cur >= 0 ? `<span aria-hidden="true">›</span><span aria-current="step">Stap ${cur + 1} van ${n}</span>` : `<span class="muted">${got} van ${n} gezien</span>`}`;
+    $("sTerug").hidden = !deel.hoofd;
+    $("sTerug").innerHTML = deel.hoofd ? `<button type="button" class="linkbtn" data-crumb="hoofd">← Terug naar ${esc(deel.hoofd.n)}</button>` : "";
+    kiesRegel(n);
     $("sProg").firstElementChild.style.width = ((cur >= 0 ? (cur + 1) / n : got / n) * 100).toFixed(1) + "%";
     const dt = datering(deel);
     $("sTijd").hidden = !dt; $("sTijd").innerHTML = dt ? `<span>${esc(dt.tekst)}</span>${datTags(dt)}${deel.tijdNoot ? `<button type="button" class="linkbtn" data-tab="tijd">Hoe weten we dat?</button>` : ""}` : "";
   }
   function setAccent() {
     document.body.style.setProperty("--rc", color(deel.c));
-    document.querySelectorAll(".deel").forEach((b) => b.setAttribute("aria-pressed", b.dataset.deel === deel.id));
+    document.querySelectorAll(".deel").forEach((b) => b.setAttribute("aria-pressed", b.dataset.deel === (deel.hoofd || deel).id));
     document.querySelectorAll(".boek").forEach((b) => b.setAttribute("aria-pressed", b.dataset.boek === boek.id));
     toonGekozen("boeken"); toonGekozen("delen");
   }
@@ -736,7 +759,7 @@
     if (e.width && (r.left < e.left || r.right > e.right)) el.scrollLeft += r.left - e.left - (e.width - r.width) / 2;
   }
   function chooseBoek(b, d, step = -1, opts) {
-    boek = b; d = d || b.delen[0];
+    boek = b; d = d || b.delen.find((x) => !x.hoofd) || b.delen[0];
     renderDelen();
     chooseDeel(d, step, opts);
   }
@@ -809,11 +832,19 @@
     }
     // Tafereel: een getekend beeld bij de tekst van een stap zonder reis (taferelen.js).
     if (BR.tafereel) BR.tafereel.bijStap($("sText"), cur >= 0 ? deel.steps[cur] : null);
-    const idx = ALLPARTS.indexOf(deel), atEnd = cur >= deel.steps.length - 1, next = ALLPARTS[idx + 1];
+    const idx = VOLG.indexOf(deel), atEnd = cur >= deel.steps.length - 1, next = VOLG[idx + 1];
     $("prev").disabled = $("prev2").disabled = cur <= -1 && idx === 0;
-    $("next").disabled = $("next2").disabled = atEnd && !next;
-    $("next").textContent = $("next2").textContent = cur < 0 ? "Start ▶" : atEnd && next ? `Naar ${next.short} ▶` : "Verder ▶";
-    renderDots(); renderCrumb();
+    $("next").disabled = $("next2").disabled = atEnd && !next && !deel.hoofd;
+    $("next").textContent = $("next2").textContent = cur < 0 ? "Start ▶" : atEnd && deel.hoofd ? `Verder met ${deel.hoofd.short} ▶` : atEnd && next ? `Naar ${next.short} ▶` : "Verder ▶";
+    // Verdiepende delen: de ingang in de intro van het hoofddeel en bij de stappen over hetzelfde Bijbelgedeelte.
+    const verdiep = cur < 0 ? deel.verdiep || [] : deel.steps[cur].verdiep || [];
+    $("sVerdiep").hidden = !verdiep.length;
+    $("sVerdiep").innerHTML = verdiep.map((v) => `<button type="button" class="verdiep-in" data-go="${v.key}:-1"><span class="label">Van dichtbij</span><span><b>${esc(v.n)}</b> · ${esc(v.ref)}</span><small>${v.steps.length} stappen</small></button>`).join("");
+    // Om over na te denken: open vragen bij een deel (veld `denk`), bij de intro en de laatste stap; niet bij Samen ontdekken.
+    const denk = niveau !== "a" && (cur < 0 || atEnd) && Array.isArray(deel.denk) ? deel.denk : [];
+    $("sDenk").hidden = !denk.length;
+    if (denk.length) { $("sDenkLijst").innerHTML = denk.map((q) => `<li>${esc(q)}</li>`).join(""); $("sDenk").open = false; }
+    renderDots(); renderCrumb(); meerKnoppen();
     if (cur >= 0) { store.set("laatst", deel.steps[cur].key); store.set("huidig", { k: deel.steps[cur].key }); }
     if (!opts.keepHash) history.replaceState(null, "", "#" + deel.id + (cur >= 0 ? "/" + (cur + 1) : ""));
     queueLabels();
@@ -831,8 +862,9 @@
     const pts = d.steps.flatMap((s) => (s.r ? s.r.filter((r) => r.w !== "rood").flatMap((r) => r.pts) : []).concat(s.at.filter((id) => P[id] && !P[id].k).map(ll)));
     return pts.length ? pts : WIDE;
   }
-  function goNext() { if (cur < deel.steps.length - 1) select(cur + 1); else { const n = ALLPARTS[ALLPARTS.indexOf(deel) + 1]; if (n) { if (n.boek !== boek) chooseBoek(n.boek, n); else chooseDeel(n); } } }
-  function goPrev() { if (cur > -1) select(cur - 1); else { const p = ALLPARTS[ALLPARTS.indexOf(deel) - 1]; if (p) { if (p.boek !== boek) chooseBoek(p.boek, p, p.steps.length - 1); else chooseDeel(p, p.steps.length - 1); } } }
+  // Een verdiepend deel begint en eindigt bij zijn hoofddeel; verder gaat het van deel naar deel in de volgorde VOLG.
+  function goNext() { if (cur < deel.steps.length - 1) select(cur + 1); else if (deel.hoofd) chooseDeel(deel.hoofd, deel.verder); else { const n = VOLG[VOLG.indexOf(deel) + 1]; if (n) { if (n.boek !== boek) chooseBoek(n.boek, n); else chooseDeel(n); } } }
+  function goPrev() { if (cur > -1) select(cur - 1); else if (deel.hoofd) chooseDeel(deel.hoofd); else { const p = VOLG[VOLG.indexOf(deel) - 1]; if (p) { if (p.boek !== boek) chooseBoek(p.boek, p, p.steps.length - 1); else chooseDeel(p, p.steps.length - 1); } } }
 
   // Jaartal van een boek, met de grond van de delen erbij (berekend uit de Bijbel / reconstructie / onzeker).
   function boekTijd(b) {
@@ -846,10 +878,16 @@
     $("boeken").innerHTML = BOEKEN.map((b) => `<button type="button" class="boek" data-boek="${b.id}" aria-pressed="${b === boek}">${esc(b.n)}<small>${esc(boekTijd(b))}</small></button>`).join("");
   }
   function renderDelen() {
-    $("delen").innerHTML = boek.delen.map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.refKort || d.ref.split(/;|,/)[0].replace(/^(\d\s)?[^\d\s]+\s/, ""))}</small></button>`).join("");
+    $("delenLabel").querySelector(".dl-boek").textContent = ` uit ${boek.n}`; // alleen zichtbaar in het keuzeblad (telefoon)
+    $("delen").innerHTML = boek.delen.filter((d) => !d.hoofd).map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.refKort || d.ref.split(/;|,/)[0].replace(/^(\d\s)?[^\d\s]+\s/, ""))}</small></button>`).join("");
   }
-  $("boeken").addEventListener("click", (e) => { const b = e.target.closest(".boek"); if (b) chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek)); });
-  $("delen").addEventListener("click", (e) => { const b = e.target.closest(".deel"); if (b) chooseDeel(boek.delen.find((x) => x.id === b.dataset.deel)); });
+  $("boeken").addEventListener("click", (e) => {
+    const b = e.target.closest(".boek"); if (!b) return;
+    chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek));
+    // In het keuzeblad (telefoon) staan de delen bovenaan: na de keuze van een boek komen die in beeld.
+    if (!$("kiesLade").hidden) $("kiesLade").querySelector(".lade__box").scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+  $("delen").addEventListener("click", (e) => { const b = e.target.closest(".deel"); if (!b) return; chooseDeel(boek.delen.find((x) => x.id === b.dataset.deel)); if (!$("kiesLade").hidden) { sluitLade("kiesLade"); naarBoven(); } });
   function renderDots() {
     const box = $("chapters"); const by = {};
     deel.steps.forEach((s, i) => { const m = s.ref.match(/(\d+)(?::|$|–|;| )/); const ch = m ? m[1] : "?"; (by[ch] = by[ch] || []).push(i); });
@@ -1026,12 +1064,12 @@
           return `<details class="samensectie"${nu >= a && nu <= b ? " open" : ""}><summary class="vsectie"><span class="vs-n${k === items.length ? " af" : k ? " half" : ""}" aria-hidden="true">${si + 1}</span><span class="vs-t">${esc(naam)}</span><small>${k ? `${k} van ${items.length}` : `${items.length} verhalen`}</small></summary>
           <ul class="vul samenlijst">${items.map((g) => { const st = verhaalStore[g.nr]; return `<li><button type="button" class="vitem${st && st.q != null ? " klaar" : st ? " gezien" : ""}" data-v="${g.nr}"><span class="vnr">${g.nr}</span><span class="vt"><b>${esc(g.t)}</b></span>${st && st.q != null ? '<span class="vok" aria-label="gestempeld">✓</span>' : ""}</button></li>`; }).join("")}</ul></details>`;
         }).join("")}`;
-      if (!welkomDicht && !$("welkom").hidden) renderWelkom();
+      if (!$("welkom").hidden) renderWelkom();
       focusHuidig();
       return;
     }
     const done = G.filter((g) => verhaalStore[g.nr]).length;
-    box.innerHTML = `<h2>150 <em>geschiedenissen</em></h2>
+    box.innerHTML = `<h2>${G.length} <em>geschiedenissen</em></h2>
       <p class="ref">Van de schepping tot Openbaring. Kies een geschiedenis, of zoek op Bijbelboek, persoon, plaats of thema.${done ? ` Je hebt er ${done} gelezen.` : " Je kunt ook gewoon bij 1 beginnen en steeds ‘Volgende’ kiezen."}</p>
       <label class="label" for="vZoek">Zoeken</label>
       <input type="search" id="vZoek" placeholder="Bijvoorbeeld: Jozef, Jericho, Lukas, gebed" value="${esc(vZoek)}" autocomplete="off">
@@ -1042,7 +1080,7 @@
     box.querySelectorAll("[data-vt]").forEach((b) => (b.onclick = () => { vTest = b.dataset.vt; box.querySelectorAll("[data-vt]").forEach((x) => x.setAttribute("aria-pressed", x === b)); renderLijst(); }));
     box.querySelectorAll("[data-kw]").forEach((b) => (b.onclick = () => { vZoek = KW[b.dataset.kw].n; $("vZoek").value = vZoek; renderLijst(); $("vZoek").scrollIntoView({ block: "nearest" }); }));
     renderLijst();
-    if (!welkomDicht && !$("welkom").hidden) renderWelkom();
+    if (!$("welkom").hidden) renderWelkom();
     focusHuidig();
   }
   function renderLijst() {
@@ -1116,7 +1154,7 @@
         : blok("Meer weten", [g.betekenis ? `<h4>Uitleg</h4><p>${esc(g.betekenis)}</p>` : "", k ? `<h4>Kernwoord: ${esc(k.n)}</h4><p>${esc(k.uitleg)}</p>` : "", steps.length ? `<h4>Volg het op de kaart</h4>${golist}` : "", (g.cross || []).length ? `<h4>Elders in de Bijbel</h4>${xrefList(g.cross.slice(0, 2))}` : ""].join(""), false, " meer");
       box.innerHTML = `${crumb}
       <article class="card verhaal" aria-labelledby="vTitel">
-        <div class="top"><b>Geschiedenis ${nr} van 150</b><span>${esc(VORM[g.vorm] || "")}</span></div>
+        <div class="top"><b>Geschiedenis ${nr}</b><span>${esc(VORM[g.vorm] || "")}</span></div>
         <h2 id="vTitel">${esc(g.t)}</h2>
         <p class="tijd"><span>${esc(g.ref)}</span></p>
         ${wanneer}
@@ -1130,6 +1168,7 @@
         <div id="vQuiz" class="stack"></div>
         ${nav}
       </article>`;
+      leesVerder($("vVertelling"));
       renderOntdek($("vOntdek"), g);
       renderVQuiz($("vQuiz"), g, c ? (g.quiz || []).concat((v && v.vragen) || []) : (v && v.vragen) || g.quiz);
       if (BR.tafereel) BR.tafereel.inVerhaal(box, steps, (k) => STEP_BY_KEY.get(k));
@@ -1455,17 +1494,20 @@
   $("p-tijd").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
   function renderTijd() {
     if (niveau === "a") return renderTijdSamen();
-    const undated = ALLPARTS.filter((d) => !d.tl), dated = ALLPARTS.filter((d) => d.tl).sort((a, b) => a.tl[0] - b.tl[0] || a.tl[1] - b.tl[1]);
+    const undated = VOLG.filter((d) => !d.tl), dated = VOLG.filter((d) => d.tl).sort((a, b) => a.tl[0] - b.tl[0] || a.tl[1] - b.tl[1]);
     const jaar = (y) => (y < 0 ? `${fmt(-y)} v.Chr.` : `${fmt(y)} n.Chr.`);
+    // Verdiepende delen staan onder hun hoofddeel, niet als eigen punt op de tijdlijn.
+    const onder = (d) => (d.verdiep || []).map((v) => `<button type="button" class="tl-sub" data-go="${v.key}:-1"${v === deel ? ' aria-current="true"' : ""}><span>Van dichtbij: <b>${esc(v.n)}</b></span><small>${esc(v.ref)}</small></button>`).join("");
+    const isCur = (d) => d === deel || d === deel.hoofd;
     const wanneer = (d) => { const dt = datering(d); return !dt ? "" : `<span>${dt.soort === "geen" ? "Oergeschiedenis" : esc(dt.tekst)}</span><span class="tl-grond">${datTags(dt)}</span>`; };
     // Zelf op reis: de volgorde en de naam van het deel; het jaartal met zijn grond staat achter ‘Wanneer was dat?’.
     if (niveau === "b") {
-      const rij = (d) => { const dt = datering(d); return `<li class="tl-item${d === deel ? " cur" : ""}" style="--pc:${color(d.c)}"><span class="tl-dot" aria-hidden="true"></span><div><button type="button" class="tl-go" data-go="${d.key}:-1"${d === deel ? ' aria-current="true"' : ""}><b>${esc(d.n)}</b><small>${esc(d.boek.n)} · ${esc(d.ref)}</small></button>${dt ? `<details><summary>Wanneer was dat?</summary><p class="tl-when">${dt.soort === "geen" ? "Oergeschiedenis" : esc(dt.tekst)}<span class="tl-grond">${datTags(dt)}</span></p>${d.tijdNoot ? `<p>${esc(d.tijdNoot)}</p>` : ""}</details>` : ""}</div></li>`; };
+      const rij = (d) => { const dt = datering(d); return `<li class="tl-item${isCur(d) ? " cur" : ""}" style="--pc:${color(d.c)}"><span class="tl-dot" aria-hidden="true"></span><div><button type="button" class="tl-go" data-go="${d.key}:-1"${d === deel ? ' aria-current="true"' : ""}><b>${esc(d.n)}</b><small>${esc(d.boek.n)} · ${esc(d.ref)}</small></button>${onder(d)}${dt ? `<details><summary>Wanneer was dat?</summary><p class="tl-when">${dt.soort === "geen" ? "Oergeschiedenis" : esc(dt.tekst)}<span class="tl-grond">${datTags(dt)}</span></p>${d.tijdNoot ? `<p>${esc(d.tijdNoot)}</p>` : ""}</details>` : ""}</div></li>`; };
       $("p-tijd").innerHTML = `<h2>Wanneer <em>gebeurde</em> het?</h2><p class="ref">Van boven naar beneden: in deze volgorde vertelt de Bijbel het. Bij elk deel kun je zien wanneer dat ongeveer was, en hoe zeker dat is.</p><ol class="tijdlijn">${undated.concat(dated).map(rij).join("")}</ol>`;
       const c = $("p-tijd").querySelector(".cur"); if (c) requestAnimationFrame(() => c.scrollIntoView({ block: "nearest" }));
       return;
     }
-    const row = (d) => `<li class="tl-item${d === deel ? " cur" : ""}" style="--pc:${color(d.c)}"><span class="tl-dot" aria-hidden="true"></span><div><p class="tl-when">${wanneer(d)}</p><button type="button" class="tl-go" data-go="${d.key}:-1"${d === deel ? ' aria-current="true"' : ""}><b>${esc(d.n)}</b><small>${esc(d.boek.n)} · ${esc(d.ref)}</small></button>${d.tijdNoot ? `<details><summary>Hoe weten we dat?</summary><p>${esc(d.tijdNoot)}</p></details>` : ""}</div></li>`;
+    const row = (d) => `<li class="tl-item${isCur(d) ? " cur" : ""}" style="--pc:${color(d.c)}"><span class="tl-dot" aria-hidden="true"></span><div><p class="tl-when">${wanneer(d)}</p><button type="button" class="tl-go" data-go="${d.key}:-1"${d === deel ? ' aria-current="true"' : ""}><b>${esc(d.n)}</b><small>${esc(d.boek.n)} · ${esc(d.ref)}</small></button>${onder(d)}${d.tijdNoot ? `<details><summary>Hoe weten we dat?</summary><p>${esc(d.tijdNoot)}</p></details>` : ""}</div></li>`;
     let h = "", prev = null;
     dated.forEach((d) => {
       if (prev && d.tl[0] - prev.tl[1] >= 40) h += `<li class="tl-gap" aria-hidden="true">ruim ${fmt(Math.floor((d.tl[0] - prev.tl[1]) / 10) * 10)} jaar later</li>`;
@@ -1495,10 +1537,24 @@
     }).join("")}</div>`).join("");
   }
   // De overzichtsvensters (boekenkast, alle reizen, alle plaatsen) openen en sluiten op dezelfde manier.
-  const LADEN = ["kast", "reizenLade", "plaatsenLade", "vandaagLade", "vandaagVenster"];
-  let kastFrom = null;
-  const openLade = (id) => { kastFrom = document.activeElement; $(id).hidden = false; $(id).querySelector(".lade__head button").focus(); };
-  const sluitLade = (id, terug = true) => { $(id).hidden = true; if (terug && kastFrom && kastFrom.isConnected) kastFrom.focus(); };
+  const LADEN = ["kast", "reizenLade", "plaatsenLade", "vandaagLade", "vandaagVenster", "kiesLade"];
+  // Er is altijd hooguit één venster zichtbaar. Opent een venster vanuit een ander (een overzicht uit het keuzeblad op de
+  // telefoon), dan komt dat andere na Sluiten of Escape terug, met de focus op de knop waarmee je wegging.
+  const ladeStapel = [];
+  const openLade = (id) => {
+    const boven = ladeStapel[ladeStapel.length - 1];
+    if (boven && boven.id !== id && !$(boven.id).hidden) $(boven.id).hidden = true; else if (boven && $(boven.id).hidden) ladeStapel.length = 0;
+    ladeStapel.push({ id, van: document.activeElement });
+    $(id).hidden = false; $(id).querySelector(".lade__head button").focus();
+  };
+  const sluitLade = (id, terug = true) => {
+    $(id).hidden = true;
+    const i = ladeStapel.map((x) => x.id).lastIndexOf(id), weg = i >= 0 ? ladeStapel.splice(i)[0] : null;
+    if (!terug) { ladeStapel.forEach((x) => ($(x.id).hidden = true)); ladeStapel.length = 0; return; }
+    const onder = ladeStapel[ladeStapel.length - 1];
+    if (onder) $(onder.id).hidden = false;
+    if (weg && weg.van && weg.van.isConnected) weg.van.focus();
+  };
   LADEN.forEach((id) => { $(id).querySelector(".lade__head button").onclick = () => sluitLade(id); $(id).addEventListener("click", (e) => { if (e.target === $(id)) sluitLade(id); }); });
   const closeKast = () => sluitLade("kast");
   $("kastBtn").onclick = () => { renderKast(); openLade("kast"); };
@@ -1509,11 +1565,11 @@
   let reizenSort = "boek";
   function renderReizen() {
     const rijen = [];
-    BOEKEN.forEach((b) => b.delen.forEach((d) => (d.trips || []).forEach((t, ti) => {
+    BOEKEN.forEach((b) => metVerdiep(b.delen).forEach((d) => (d.trips || []).forEach((t, ti) => {
       const routes = tripRoutes(d, t);
       if (routes.length) rijen.push({ b, d, t, ti, heel: t.s === "alles", km: roundKm(routes.reduce((a, r) => a + r.len, 0)) });
     })));
-    const rij = (x) => `<li><button type="button" class="orij" data-reis="${x.d.key}|${x.ti}"><span class="o-n"><b>${esc(x.t.n)}</b><small>${esc(x.b.n)} · ${esc(x.d.n)} · ${x.heel ? "alles bij elkaar" : esc(x.d.steps[x.t.s].ref)}</small></span><span class="o-km">ca. ${fmt(x.km)} km</span></button></li>`;
+    const rij = (x) => `<li${x.d.hoofd && reizenSort !== "lang" ? ' class="sub"' : ""}><button type="button" class="orij" data-reis="${x.d.key}|${x.ti}"><span class="o-n"><b>${esc(x.t.n)}</b><small>${esc(x.b.n)} · ${esc(deelNaam(x.d))} · ${x.heel ? "alles bij elkaar" : esc(x.d.steps[x.t.s].ref)}</small></span><span class="o-km">ca. ${fmt(x.km)} km</span></button></li>`;
     const los = rijen.filter((x) => !x.heel);
     $("reizenSort").innerHTML = [["boek", "Per Bijbelboek"], ["lang", "Langste eerst"]].map(([k, n]) => `<button type="button" data-rs="${k}" aria-pressed="${k === reizenSort}" style="--pc:var(--acc)">${n}</button>`).join("");
     $("reizenAantal").textContent = `${los.length} reizen in ${new Set(rijen.map((x) => x.d)).size} delen. Tik op een reis om haar op de kaart te zien.`;
@@ -1689,13 +1745,15 @@
   // De speurtocht per reisniveau, over het gekozen Bijbelboek of één deel daarvan. Elk niveau heeft een eigen beste
   // score: Samen speuren (a) in samen:<boek>:<deel>, Zelf op reis (b) in speur:b:<boek>:<deel>, Verder ontdekken (c)
   // in de bestaande best:<boek>:<deel> (zo blijven de scores van vóór de reisniveaus staan).
+  // ‘Over wie?’: een verdiepend deel staat direct achter zijn hoofddeel, als ‘Abraham › Van Ur naar Kanaän’.
+  const speurOpties = () => [["alles", "Alles uit " + boek.n, "var(--boter)"]].concat(metVerdiep(boek.delen).map((d) => [d.id, deelNaam(d), color(d.c)]));
   const speurSleutel = (n, b, deelId) => (n === "a" ? "samen:" : n === "b" ? "speur:b:" : "best:") + b + ":" + deelId;
   const verhalenIn = (delen) => G.filter((g) => (g.stappen || []).some((k) => delen.includes((STEP_BY_KEY.get(k) || {}).deel)));
   const delenVan = (id) => (id === "alles" ? boek.delen : [boek.delen.find((d) => d.id === id)]);
   // Samen speuren (4–6): zes vragen met twee antwoorden uit de verhalen van dit boek of deel. Over begrip van het
   // verhaal, niet over plaatsnamen of jaartallen.
   function samenSpeur() {
-    const opts = [["alles", "Alles uit " + boek.n, "var(--boter)"]].concat(boek.delen.map((d) => [d.id, d.n, color(d.c)]));
+    const opts = speurOpties();
     if (!boek.delen.find((d) => d.id === qPart) && qPart !== "alles") qPart = "alles";
     const best = store.get(speurSleutel("a", boek.id, qPart), null);
     $("p-quiz").innerHTML = `<div class="card samenspeur"><h2>Samen <em>speuren</em></h2><p>Zes vragen over de verhalen. Kies het goede antwoord: er zijn steeds twee mogelijkheden.</p><p class="label">Over welke verhalen?</p><div class="pick">${opts.map(([id, n, c]) => `<button type="button" data-q="${id}" style="--pc:${c}" aria-pressed="${id === qPart}">${esc(n)}</button>`).join("")}</div>${best != null ? `<p><b>Beste score: ${fmt(best)} van 6</b></p>` : ""}<button type="button" class="btn primary" id="qGo">Begin</button></div>`;
@@ -1712,7 +1770,7 @@
   let quizKey = null;
   function quizIntro() {
     if (niveau === "a") return samenSpeur();
-    const opts = [["alles", "Alles uit " + boek.n, "var(--boter)"]].concat(boek.delen.map((d) => [d.id, d.n, color(d.c)]));
+    const opts = speurOpties();
     if (!boek.delen.find((d) => d.id === qPart) && qPart !== "alles") qPart = "alles";
     const best = store.get(speurSleutel(niveau, boek.id, qPart), null);
     $("p-quiz").innerHTML = `<div class="card"><h2>Speur<em>tocht</em></h2><p>10 vragen. Soms wijs je een plek aan op de kaart, soms kies je het goede antwoord of zet je dingen in de goede volgorde.</p><p class="label">Over wie?</p><div class="pick">${opts.map(([id, n, c]) => `<button type="button" data-q="${id}" style="--pc:${c}" aria-pressed="${id === qPart}">${esc(n)}</button>`).join("")}</div><p class="ref">In de speurtocht staan er geen namen op de kaart. Kijk goed naar de zeeën en rivieren!</p>${best != null ? `<p><b>Jouw beste score hier: ${fmt(best)} van 10</b></p>` : ""}<button type="button" class="btn primary" id="qGo">Start de speurtocht</button></div>`;
@@ -1825,9 +1883,9 @@
   function renderTrips() {
     TRIP_LIST = [];
     if (stepTrip) TRIP_LIST.push({ g: "Deze stap", n: `${stepTrip.deel.short}: ${stepTrip.t}`, routes: stepTrip.r, deel: stepTrip.deel });
-    BOEKEN.forEach((b) => b.delen.forEach((d) => (d.trips || []).forEach((t) => {
+    BOEKEN.forEach((b) => metVerdiep(b.delen).forEach((d) => (d.trips || []).forEach((t) => {
       const routes = tripRoutes(d, t);
-      if (routes.length) TRIP_LIST.push({ g: b.n + " · " + d.n, n: t.n, routes, deel: d });
+      if (routes.length) TRIP_LIST.push({ g: b.n + " · " + deelNaam(d), n: t.n, routes, deel: d });
     })));
     const groups = [...new Set(TRIP_LIST.map((t) => t.g))];
     const sel = $("trip");
@@ -1890,24 +1948,24 @@
   function renderStamps() {
     const total = ALLPARTS.reduce((a, d) => a + d.steps.length, 0);
     // Per Bijbelboek een uitklapbaar blad; boeken met stempels staan open.
-    $("stamps").innerHTML = BOEKEN.map((b) => { const gotB = b.delen.reduce((x, d) => x + d.steps.filter((t) => seen.has(t.key)).length, 0), totB = b.delen.reduce((x, d) => x + d.steps.length, 0); return `<details class="pasboek"${gotB ? " open" : ""}><summary><b>${esc(b.n)}</b><span>${gotB} van ${totB}</span></summary>` + b.delen.map((d) => {
+    $("stamps").innerHTML = BOEKEN.map((b) => { const gotB = b.delen.reduce((x, d) => x + d.steps.filter((t) => seen.has(t.key)).length, 0), totB = b.delen.reduce((x, d) => x + d.steps.length, 0); return `<details class="pasboek"${gotB ? " open" : ""}><summary><b>${esc(b.n)}</b><span>${gotB} van ${totB}</span></summary>` + metVerdiep(b.delen).map((d) => {
       const got = d.steps.filter((s) => seen.has(s.key)).length;
-      return `<div class="stack" style="gap:6px"><p class="label" style="color:${color(d.c)}">${esc(d.n)} · ${got} van ${d.steps.length}</p><div class="stamps">${d.steps.map((s) => `<button type="button" class="stamp${seen.has(s.key) ? "" : " no"}" data-key="${d.key}" data-s="${s.i}" aria-label="${esc(d.n)}, stap ${s.i + 1}: ${esc(s.t)}${seen.has(s.key) ? ", gestempeld" : ", nog niet bezocht"}">${stampSVG(s)}</button>`).join("")}</div></div>`;
+      return `<div class="stack${d.hoofd ? " pas-sub" : ""}" style="gap:6px"><p class="label" style="color:${color(d.c)}">${esc(deelNaam(d))} · ${got} van ${d.steps.length}</p><div class="stamps">${d.steps.map((s) => `<button type="button" class="stamp${seen.has(s.key) ? "" : " no"}" data-key="${d.key}" data-s="${s.i}" aria-label="${esc(d.n)}, stap ${s.i + 1}: ${esc(s.t)}${seen.has(s.key) ? ", gestempeld" : ", nog niet bezocht"}">${stampSVG(s)}</button>`).join("")}</div></div>`;
     }).join("") + "</details>"; }).join("");
     const n = ALLPARTS.reduce((a, d) => a + d.steps.filter((s) => seen.has(s.key)).length, 0);
     $("pasText").textContent = n === total ? `Alle ${total} stempels! Jij hebt de hele reis gemaakt.` : `Je hebt ${n} van de ${total} stempels. Ga verder met de reis om ze allemaal te verzamelen.`;
     const nV = Object.values(verhaalStore).filter((v) => v.q != null).length, nG = Object.keys(verhaalStore).length;
-    $("vPasText").textContent = nG ? `${nG} van de 150 geschiedenissen gelezen, ${nV} gestempeld (vragen gemaakt).` : "Lees een geschiedenis bij ‘Verhalen’ en maak de vragen om een stempel te krijgen.";
-    $("vGrid").innerHTML = Array.from({ length: 150 }, (_, i) => { const nr = i + 1, v = verhaalStore[nr], g = GBYNR.get(nr); return `<button type="button" class="vcel${v && v.q != null ? " klaar" : v ? " gezien" : ""}" ${g ? `data-v="${nr}"` : "disabled"} aria-label="Geschiedenis ${nr}${g ? ": " + esc(g.t) : " (nog niet beschikbaar)"}${v && v.q != null ? ", gestempeld" : v ? ", gelezen" : ""}">${nr}</button>`; }).join("");
+    $("vPasText").textContent = nG ? `${nG} van de ${G.length} geschiedenissen gelezen, ${nV} gestempeld (vragen gemaakt).` : "Lees een geschiedenis bij ‘Verhalen’ en maak de vragen om een stempel te krijgen.";
+    $("vGrid").innerHTML = Array.from({ length: G.length }, (_, i) => { const nr = i + 1, v = verhaalStore[nr], g = GBYNR.get(nr); return `<button type="button" class="vcel${v && v.q != null ? " klaar" : v ? " gezien" : ""}" ${g ? `data-v="${nr}"` : "disabled"} aria-label="Geschiedenis ${nr}${g ? ": " + esc(g.t) : " (nog niet beschikbaar)"}${v && v.q != null ? ", gestempeld" : v ? ", gelezen" : ""}">${nr}</button>`; }).join("");
     // Beste scores van alle niveaus; een speurtocht over hetzelfde deel telt één keer mee.
     const bests = [], gedaan = new Set();
-    BOEKEN.forEach((b) => [["alles", "alles uit " + b.n]].concat(b.delen.map((d) => [d.id, d.n])).forEach(([id, nm]) => NIVS.forEach((n) => {
+    BOEKEN.forEach((b) => [["alles", "alles uit " + b.n]].concat(metVerdiep(b.delen).map((d) => [d.id, deelNaam(d)])).forEach(([id, nm]) => NIVS.forEach((n) => {
       const v = store.get(speurSleutel(n, b.id, id), null); if (v == null) return;
       gedaan.add(b.id + ":" + id); bests.push(`${nm} ${fmt(v)}/${n === "a" ? 6 : 10}${n !== niveau ? ` (${nivNaam(n)})` : ""}`);
     })));
     $("bestText").textContent = bests.length ? "Beste scores speurtocht: " + bests.join(" · ") : "Je hebt de speurtocht nog niet gedaan.";
     const pct = (x, t) => `<div class="prog" aria-hidden="true"><div style="width:${t ? ((x / t) * 100).toFixed(1) : 0}%"></div></div>`;
-    $("pasStats").innerHTML = `<div><b>${fmt(n)}</b><span>van ${fmt(total)} reisstempels</span>${pct(n, total)}</div><div><b>${nV}</b><span>van 150 geschiedenissen gestempeld</span>${pct(nV, 150)}</div><div><b>${gedaan.size}</b><span>${gedaan.size === 1 ? "speurtocht gedaan" : "speurtochten gedaan"}</span></div>`;
+    $("pasStats").innerHTML = `<div><b>${fmt(n)}</b><span>van ${fmt(total)} reisstempels</span>${pct(n, total)}</div><div><b>${nV}</b><span>van ${G.length} geschiedenissen gestempeld</span>${pct(nV, 150)}</div><div><b>${gedaan.size}</b><span>${gedaan.size === 1 ? "speurtocht gedaan" : "speurtochten gedaan"}</span></div>`;
     // Samen ontdekken: dezelfde stempels (niets per niveau, niets dubbel), maar eenvoudiger: twee getallen, de verhalen
     // die je al gelezen hebt, en de stempelbladen dicht.
     if (niveau === "a") {
@@ -1955,6 +2013,7 @@
     else if (t.dataset.place) showPlace(t.dataset.place);
     else if (t.dataset.crumb === "boek") chooseBoek(boek);
     else if (t.dataset.crumb === "deel") select(-1);
+    else if (t.dataset.crumb === "hoofd") chooseDeel(deel.hoofd || deel);
     else if (t.dataset.tab) setMode(t.dataset.tab);
   });
 
@@ -1965,6 +2024,7 @@
     $("nuBtn").setAttribute("aria-pressed", on); $("toenBtn").setAttribute("aria-pressed", !on);
     $("lgNu").hidden = !on; $("lgToen").hidden = on;
     map.getContainer().classList.toggle("nu", on);
+    $("kaartBtn").querySelector("span").textContent = on ? "Kaart · nu" : "Kaart";
     if (on) loadModern().then(() => { if (nuAan) { map.addLayer(lyModern); queueLabels(); } }); else map.removeLayer(lyModern);
     syncVandaag();
   }
@@ -2028,9 +2088,110 @@
   }, { passive: true });
   window.addEventListener("resize", () => { syncDrag(); queueLabels(); });
 
+  // ---------- telefoon (tot 900 px): het beeld eerst, de rest één tik verder ----------
+  // Zie docs/bijbelreis-audit/telefoon.md. Op de telefoon verhuizen twee onderdelen (de keuze van boek en deel met de
+  // overzichten naar het blad ‘Kies een reis’, Bijbelwereld naar het kaartpaneel); de rest is opmaak in het telefoonblok
+  // van bijbelreis.css. Boven 900 px verandert er niets.
+  const smalMq = window.matchMedia("(max-width: 900px)");
+  function telefoonIndeling() {
+    if (smalMq.matches) { $("kiesPlek").appendChild($("kiezen")); $("kaartPaneel").appendChild($("wereldBtn")); }
+    else {
+      $("p-reis").insertBefore($("kiezen"), $("p-reis").firstChild); $("heleBtn").before($("wereldBtn"));
+      if (!$("kiesLade").hidden) sluitLade("kiesLade", false);
+      kaartMenu(false);
+    }
+  }
+  smalMq.addEventListener("change", () => { telefoonIndeling(); toonGekozen("boeken"); toonGekozen("delen"); });
+  // Eén regel boven de stap: ‘Genesis › Abraham · 2 van 25’; een tik opent het keuzeblad.
+  function kiesRegel(n) {
+    // Niets wordt afgekapt: is de regel te lang, dan loopt hij door op een tweede regel (CSS .kr-pad).
+    // Bij een verdiepend deel staat het hoofddeel vooraan in plaats van het boek: ‘Jakob › Bij de Jabbok’.
+    const pad = [deel.hoofd ? deel.hoofd.short : boek.n].map((x) => `<span class="kr-kort">${esc(x)}</span><span aria-hidden="true">›</span>`).join("");
+    const waar = cur >= 0 ? `${cur + 1} van ${n}` : `${n} stappen`;
+    $("kiesBtn").innerHTML = `<span class="kr-pad">${pad}<b>${esc(deel.hoofd ? deel.n : deel.short)}</b></span><span class="kr-stap">${waar}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>`;
+    $("kiesBtn").setAttribute("aria-label", `Kies een reis. Nu: ${boek.n}, ${deelNaam(deel)}, ${cur >= 0 ? "stap " + waar : "overzicht"}`);
+  }
+  $("kiesBtn").onclick = () => { openLade("kiesLade"); toonGekozen("boeken"); };
+  // Na een tik op een boek blijft het blad open voor de keuze van het deel.
+  const naarBoven = () => { if (isNarrow() && window.scrollY > 0) window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); };
+  // Wat niet nodig is om de stap te volgen, staat achter een knop met een naam. Een opengeklapt weetje, de afstand of het
+  // jaartal blijft open bij de volgende stap (tot de pagina herladen wordt); de stappenlijst en ‘Elders’ niet.
+  const meerOpen = new Set();
+  function meerZet(b, open) {
+    const wat = b.dataset.meer;
+    b.setAttribute("aria-expanded", open);
+    (wat === "stappenBlok" ? $("p-reis") : document.querySelector(".stapkaart")).classList.toggle("open-" + wat, open);
+    if (wat === "sFact" || wat === "sVer" || wat === "sTijd") open ? meerOpen.add(wat) : meerOpen.delete(wat);
+  }
+  function meerKnoppen() {
+    document.querySelector(".stapkaart").classList.toggle("intro", cur < 0);
+    document.querySelectorAll("#sMeer [data-meer]").forEach((b) => {
+      const wat = b.dataset.meer, t = $(wat);
+      b.hidden = t.hidden || !t.textContent.trim() || (wat === "sSpecial" && cur >= 0);
+      if (wat === "stappenBlok") b.textContent = `Alle stappen (${deel.steps.length})`;
+      meerZet(b, !b.hidden && meerOpen.has(wat));
+    });
+  }
+  $("sMeer").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-meer]"); if (!b) return;
+    const open = b.getAttribute("aria-expanded") !== "true";
+    meerZet(b, open);
+    if (open && b.dataset.meer === "stappenBlok") $("stappenBlok").scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" });
+  });
+  // De ballon van een plaats (of van Vandaag) ligt op de telefoon vrij: zolang hij open is, wijken de zwevende
+  // kaartknoppen (CSS: .kaartvlak.ballon), en hij past in de kaart (kleine marges, met een schuifbalk als hij lang is).
+  // Boven 900 px gelden de oorspronkelijke instellingen van de ballon.
+  map.on("popupopen", (e) => {
+    const pop = e.popup, o = pop.options;
+    if (!pop._breed) pop._breed = { tl: o.autoPanPaddingTopLeft, br: o.autoPanPaddingBottomRight, mh: o.maxHeight };
+    const smal = isNarrow();
+    o.autoPanPaddingTopLeft = smal ? [8, 8] : pop._breed.tl;
+    o.autoPanPaddingBottomRight = smal ? [8, 8] : pop._breed.br;
+    o.maxHeight = smal ? Math.max(120, map.getSize().y - 60) : pop._breed.mh;
+    document.querySelector(".kaartvlak").classList.toggle("ballon", smal);
+    if (smal) { kaartMenu(false); pop.update(); }
+  });
+  map.on("popupclose", () => document.querySelector(".kaartvlak").classList.remove("ballon"));
+  // Het verhaal (Zelf op reis en Verder ontdekken) begint op de telefoon met het eerste onderdeel en ‘Lees verder’.
+  function leesVerder(v) {
+    if (!v) return;
+    const delen = v.querySelectorAll(".vdeel");
+    if (delen.length < 2 && v.textContent.length < 700) return;
+    v.classList.add("kort");
+    v.insertAdjacentHTML("afterend", `<button type="button" class="btn leesverder" id="vLeesVerder" aria-expanded="false" aria-controls="vVertelling">Lees verder${delen.length > 1 ? ` <small>nog ${delen.length - 1} ${delen.length === 2 ? "stuk" : "stukken"}</small>` : ""}</button>`);
+    $("vLeesVerder").onclick = () => {
+      v.classList.remove("kort"); $("vLeesVerder").remove();
+      const kop = delen[1] && delen[1].querySelector(".vkop");
+      if (kop) { kop.tabIndex = -1; kop.focus({ preventScroll: true }); }
+    };
+  }
+  // Kaartpaneel: Toen/Nu, Vandaag, Bijbelwereld en Legenda achter één knop. Een tik ernaast sluit het paneel.
+  function kaartMenu(open) { $("kaartPaneel").classList.toggle("open", open); $("kaartBtn").setAttribute("aria-expanded", open); queueLabels(); }
+  $("kaartBtn").onclick = () => kaartMenu(!$("kaartPaneel").classList.contains("open"));
+  // Bijbelwereld laat de hele kaart zien: het paneel gaat dan dicht, anders ligt het over een deel van de wereld.
+  $("wereldBtn").addEventListener("click", () => { if ($("kaartPaneel").contains($("wereldBtn"))) kaartMenu(false); });
+  document.addEventListener("click", (e) => { if ($("kaartPaneel").classList.contains("open") && !e.target.closest("#kaartPaneel, #legend")) kaartMenu(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !e.defaultPrevented && $("kaartPaneel").classList.contains("open") && LADEN.every((id) => $(id).hidden)) { kaartMenu(false); $("kaartBtn").focus(); } });
+  // Vooruit en terug met de duim: de vaste balk onderaan begint de nieuwe stap bovenaan (kaart en titel in beeld), en
+  // vegen over de stapkaart (niet over de kaart) gaat naar de volgende of vorige stap.
+  ["prev", "next"].forEach((id) => $(id).addEventListener("click", naarBoven));
+  (() => {
+    const k = document.querySelector(".stapkaart"); let x0 = null, y0 = 0, t0 = 0;
+    k.addEventListener("touchstart", (e) => { x0 = isNarrow() && e.touches.length === 1 && !e.target.closest("canvas, input, select, .days, .koppel") ? e.touches[0].clientX : null; if (x0 !== null) { y0 = e.touches[0].clientY; t0 = Date.now(); } }, { passive: true });
+    k.addEventListener("touchend", (e) => {
+      if (x0 === null) return;
+      const t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0; x0 = null;
+      if (Date.now() - t0 > 800 || Math.abs(dx) < 70 || Math.abs(dx) < 2 * Math.abs(dy) || String(window.getSelection() || "")) return;
+      const knop = $(dx < 0 ? "next" : "prev"); if (knop.disabled) return;
+      dx < 0 ? goNext() : goPrev(); naarBoven();
+    }, { passive: true });
+  })();
+  telefoonIndeling();
+
   // ---------- welkom en verder waar je was ----------
-  // Een reisetiket: welke geschiedenis nu, waar die op de kaart loopt, en waar je bent op de hele route door de Bijbel
-  // (16 etappes). Bij het eerste bezoek staat hier de keuze van het reisniveau; daarna niet meer.
+  // Bij het eerste bezoek staat hier de keuze van het reisniveau. Daarna alleen één knop, en alleen als er echt iets is
+  // om verder te gaan: ‘Verder met: <geschiedenis>’ of, na een reisstap, ‘Verder met: Jakob – Bedrogen!’. Een nieuwe
+  // bezoeker zonder voortgang ziet niets: de lijst begint gewoon bij 1. Op elk reisniveau hetzelfde.
   function renderWelkom() {
     const box = $("welkom");
     if (niveauOpen && !store.get("niveau", null)) {
@@ -2039,34 +2200,13 @@
       return;
     }
     const h = huidigeGeschiedenis(), g = h.g;
-    if (!g || (h.hoe === "nieuw" && store.get("welkomWeg", false))) { box.hidden = true; return; }
+    if (!g || h.hoe === "nieuw") { box.hidden = true; box.innerHTML = ""; return; }
     box.hidden = false;
     const tip = store.get("niveauTip", false) ? `<p class="rk-tip">Nieuw: Bijbelreis heeft nu reisniveaus. Je kijkt met <b>${esc(nivNaam())}</b>. <button type="button" class="linkbtn" data-open-niveau>Wijzigen</button></p>` : "";
-    // Samen ontdekken: alleen wat nodig is: de geschiedenis en één grote knop.
-    if (niveau === "a") {
-      box.innerHTML = `<div class="verder reiskaart samen"><p class="label">${h.hoe === "nieuw" ? "Samen beginnen" : "Samen verder"}</p><div class="rk-hoofd"><div class="v-wat"><b>${esc(g.t)}</b></div><button type="button" class="btn primary" data-v="${g.nr}">${h.hoe === "verhaal" ? "Verder" : "Begin"}</button></div>${tip}</div>`;
-      return;
-    }
-    const si = SECTIES.findIndex(([, a, b]) => g.nr >= a && g.nr <= b);
-    const steps = (g.stappen || []).map((k) => STEP_BY_KEY.get(k)).filter(Boolean);
-    const naam = (x) => (typeof x === "string" && P[x] && !P[x].ctx ? P[x].n.replace(/\?$/, "") : "");
-    const r0 = steps.find((s) => s.r || s.at.length), r1 = steps.slice().reverse().find((s) => s.r || s.at.length);
-    const van = r0 ? naam(r0.r ? r0.r[0].p[0] : r0.at[0]) : "", lr = r1 && r1.r && r1.r[r1.r.length - 1];
-    const naar = r1 ? naam(lr ? lr.p[lr.p.length - 1] : r1.at[r1.at.length - 1]) : "";
-    const km = steps.reduce((a, s) => a + (s.km || 0), 0);
-    const st = h.hoe === "stap" && STEP_BY_KEY.get(h.key), sd = st && st.deel, si2 = st ? sd.steps.indexOf(st) : -1;
-    // Eén regel onder de titel: de reisstap waar je was, anders de route van de geschiedenis.
-    const regel = st ? `${esc(sd.n)} · stap ${si2 + 1} van ${sd.steps.length}: ${esc(st.t)}` : [van && naar && van !== naar ? `${esc(van)} → ${esc(naar)}` : esc(van || naar), km >= 15 ? `ca. ${fmt(Math.round(km / 10) * 10)} km` : "", esc(g.ref)].filter(Boolean).join(" · ");
-    const kop = { verhaal: "Je reis nu", stap: "Verder waar je was", volgende: "Volgende op je reis", nieuw: "Je reis begint hier" }[h.hoe];
-    const knop = st ? `<button type="button" class="btn primary" data-go="${h.key}">Ga verder</button>` : `<button type="button" class="btn primary" data-v="${g.nr}">${h.hoe === "verhaal" ? "Ga verder" : "Begin"}</button>`;
-    box.innerHTML = `<div class="verder reiskaart${h.hoe === "nieuw" ? " nieuw" : ""}">
-      <div class="rk-kop"><p class="label">${kop}</p><span class="rk-etappe">Etappe ${si + 1} van ${SECTIES.length}</span></div>
-      <div class="rk-hoofd"><div class="v-wat"><b><span class="rk-nr">${g.nr}</span>${esc(g.t)}</b><span class="rk-route">${regel}</span></div>${knop}</div>
-      ${tip}
-    </div><button type="button" class="linkbtn small" id="welkomWeg">Ergens anders beginnen</button>`;
-    $("welkomWeg").onclick = () => { store.set("welkomWeg", true); welkomDicht = true; box.hidden = true; };
+    const st = h.hoe === "stap" && STEP_BY_KEY.get(h.key);
+    const wat = st ? `${esc(st.deel.n)} – ${esc(st.t)}` : esc(g.t);
+    box.innerHTML = `<button type="button" class="btn primary verdermet" ${st ? `data-go="${h.key}"` : `data-v="${g.nr}"`}><span>Verder met: <b>${wat}</b></span><span aria-hidden="true">▶</span></button>${tip}`;
   }
-  let welkomDicht = false;
 
   // Reisniveau kiezen en wisselen: overal dezelfde knoppen (data-niveau). Wisselen bouwt het huidige scherm opnieuw op.
   function niveauKnop() {
@@ -2089,7 +2229,7 @@
       if (niveau !== n) return;
       if (mode === "verhalen") { if (vOpen) renderVerhaal(vOpen); else renderVerhalen(); }
       else setMode(mode);
-      if (!welkomDicht && (vOpen === null || !$("welkom").hidden)) renderWelkom();
+      if (vOpen === null || !$("welkom").hidden) renderWelkom();
     };
     laadNiveau(n).then(toon);
     if (n !== was) toast(`Reisniveau: ${nivNaam()}`);

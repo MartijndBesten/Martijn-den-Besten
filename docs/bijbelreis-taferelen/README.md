@@ -12,7 +12,7 @@ motor onderhoudt. Wie alleen wil zien wat er is: open `docs/bijbelreis-taferelen
 | `public/bijbelreis/taferelen-koppeling-ot-2.js` | De koppelingen van die tweede reeks; wordt ná `taferelen-koppeling.js` geladen en voegt toe |
 | `public/bijbelreis/taferelen-nt.js` | Eigen taferelen bij het Nieuwe Testament |
 | `public/bijbelreis/taferelen-koppeling-nt.js` | De koppelingen van het Nieuwe Testament; wordt ná `taferelen-koppeling.js` geladen en voegt toe |
-| `public/bijbelreis/taferelen-jakob.js` | Beeldverhaal bij Genesis 32: tien taferelen in één doorlopend landschap, met eigen bouwstenen (het dal van de Jabbok, mensen als pictogram, Jakob, kudden) |
+| `public/bijbelreis/taferelen-jakob.js` | Beeldverhaal bij Genesis 32–33: twaalf taferelen in één doorlopend landschap, met eigen bouwstenen (het dal van de Jabbok, mensen als pictogram, Jakob, kudden), en de ladder bij Bethel (Genesis 28); de koppelingen ook aan `genesis:jakob:0` en `genesis:jakob-jabbok:10`–`11` |
 | `public/bijbelreis/taferelen-koppeling-jakob.js` | De koppelingen daarvan aan `genesis:jakob-jabbok:0` tot en met `9`; wordt als laatste koppeling geladen |
 | `public/bijbelreis/taferelen-kerst.js` | De reeks bij het thema Kerst: twintig taferelen met een eigen toon (avond en nacht, warm licht), met eigen bouwstenen (stadje op een heuvel, Bethlehem, Nazareth, olielamp, de ster, een kamer met venster) |
 | `public/bijbelreis/taferelen-koppeling-kerst.js` | De koppelingen daarvan aan het boek `kerst` (`kerst:kerst-…:n`), met de stappen die bewust geen beeld hebben; wordt na `taferelen-koppeling-jakob.js` geladen |
@@ -73,7 +73,9 @@ deel dat op een andere tak wordt geschreven (nu: `numeri:kies-het-leven:0` tot e
 Waar het beeld staat:
 
 - **Stapkaart** (tab Reis): direct onder de tekst ‘Wat de Bijbel vertelt’, boven ‘Lees in je Bijbel’. Op alle drie de
-  reisniveaus; bij Samen ontdekken iets breder.
+  reisniveaus; bij Samen ontdekken iets breder. Op de telefoon (tot 900 px) staat het direct ná de tekst van de stap, op volle
+  breedte; de kaart houdt haar hoogte, zodat titel en tekst in het eerste scherm blijven. ‘Nog een keer’ staat dan naast
+  het onderschrift in plaats van over de tekening (docs/bijbelreis-audit/telefoon.md).
 - **Geschiedenis** (tab Verhalen): bij het onderdeel van de vertelling dat bij die kaartstap hoort, boven de knop ‘Op de
   kaart’. Elk beeld staat hooguit één keer per geschiedenis. Heeft de vertelling geen onderdelen, dan staat het eerste
   beeld onder de vertelling.
@@ -131,6 +133,7 @@ af op hele of halve eenheden.
 | `k-venster`, `k-schijn` | Kerst: warm licht in een venster, en de zachte schijn rond een venster of lamp |
 | `k-lila`, `l-rood` | vlak in lila (purper van het voorhangsel), lijn in rood (het scharlaken koord) |
 | `rand` | lijndikte 6,8: een donkere lijn (`l-hout2 rand`) ónder een brede lijn (`breed`) geeft die lijn een omlijning (de slang, de stang) |
+| `vaag`, `vaag2`, `vaag3` | op een groep: steeds doorzichtiger (0,6 · 0,34 · 0,14), om iets in stukken te laten oplossen (de ladder bij Bethel) |
 
 Een stip (een ster, een vonk) is een lijntje zonder lengte: `<path class="l-licht" d="M30 14h.1"/>`.
 
@@ -173,6 +176,7 @@ zoals `taferelen-kerst.js`, gebruiken ze. Een onderdeel dat je twee keer nodig h
 | `tf-e-trek` | een stoet komt in twaalf seconden van links het beeld in (begint 300 naar links; eenmalig) |
 | `tf-e-hink` | komt hinkend van links: zes keer een slingerende stap, dan staat hij stil (eenmalig) |
 | `tf-e-buig` | buigt zeven keer voorover en staat dan recht (Genesis 33:3; eenmalig) |
+| `tf-l-adem` | licht wordt heel traag zachter en weer voller, zonder te bewegen: de ladder bij Bethel (lus, zeven seconden) |
 | `tf-w1` … `tf-w9` | wacht 0,45 s per stap voordat de beweging begint |
 
 Regels bij beweging:
@@ -341,11 +345,18 @@ Keuzes in deze reeks, voor wie verder tekent:
 - **Wat de tekst niet zegt, staat er niet**: geen os en ezel, geen aantal wijzen, geen kamelen, geen herdersstaf, geen
   maan boven de hof. Op de kandelaren staat wel een vlam: de tekst noemt die niet, maar een kandelaar draagt licht.
 
-### Beeldverhaal bij Genesis 32 (`taferelen-jakob.js`)
+### Beeldverhaal bij Genesis 32 en 33 (`taferelen-jakob.js`)
 
 Op verzoek van de eigenaar is Genesis 32 (met 33:1–4) in detail uitgebeeld: elke stap van het deel `genesis:jakob-jabbok`
 (‘Jakob bij de Jabbok’) heeft een eigen tafereel, zodat het hoofdstuk als een beeldverhaal in tien beelden te volgen is.
-Het deel zelf wordt op een andere tak geschreven; tot het er is, doen de koppelingen niets.
+Het deel zelf wordt op een andere tak geschreven; tot het er is, doen de koppelingen niets. Op zijn opdracht van
+15 november 2026 (de reis van Jakob: vertrek, belofte, terugkeer, worsteling en ontmoeting) kwamen erbij: de ladder bij
+Bethel, en het vervolg in Genesis 33 (stap 10 en 11, die de schrijver achteraan het deel zet; zolang ze er niet zijn,
+doen die twee sleutels niets en slaagt de test toch).
+
+| Stap | Id | Wat je ziet | Wat beweegt | Tekst |
+|---|---|---|---|---|
+| `genesis:jakob:0` | `betel-nacht` | nacht in kaal, steenachtig bergland; Jakob slaapt naast de weg met zijn hoofd op een steen, zijn staf naast zich; een lichte ladder van de aarde omhoog die bovenaan in drie stukken steeds vager wordt en opgaat in de sterrenhemel; een zacht schijnsel op de grond bij de voet | de ladder tekent zich van onder naar boven, de vage stukken verschijnen na elkaar, daarna wordt de hele ladder heel traag zachter en voller (`tf-l-adem`); twee sterren twinkelen | Genesis 28:11–12 |
 
 | Stap | Id | Wat je ziet | Wat beweegt | Tekst |
 |---|---|---|---|---|
@@ -358,14 +369,16 @@ Het deel zelf wordt op een andere tak geschreven; tot het er is, doen de koppeli
 | 6 | `jabbok-nacht` | diepe nacht; Jakob helemaal alleen bij de eik, de overkant leeg | twee sterren, de beek | 32:24–26 |
 | 7 | `jabbok-dageraad` | nog nacht in het dal; achter de kloof komt het eerste licht op, Jakob knielt | het licht rijst, de sterren verbleken | 32:26–29 |
 | 8 | `jabbok-pniel` | de zon boven de kloof; Jakob aan de overkant, leunend op zijn staf | de zon komt op, het wordt dag, Jakob hinkt het beeld in | 32:30–31 |
-| 9 | `jabbok-ezau` | dag aan de overkant; het gezin in drie groepen, de menigte van Ezau, Jakob en Ezau (in het rood) samen | Jakob buigt zeven keer; Ezau loopt naar hem toe en slaat zijn arm om hem heen | 33:1–4 |
+| 9 | `jabbok-ezau` | dag aan de overkant; het gezin in drie groepen, de menigte van Ezau, Jakob en Ezau (in het rood) groot vooraan, Ezau leunt naar Jakob met zijn arm om hem heen | Jakob buigt zeven keer; Ezau komt uit de menigte naar hem toe | 33:1–4 |
+| 10 | `jabbok-aangezicht` | dag; de vijf kudden van het geschenk op de helling, Jakob en Ezau dicht bij elkaar, Jakob wijst naar de kudden; het gezin in drie groepen (dienstmaagden met vier kinderen, Lea met zes, Rachel met Jozef), rechts een deel van de mannen van Ezau | de drie groepen komen na elkaar naderbij, eerst de dienstmaagden | 33:5–11 |
+| 11 | `jabbok-sukkoth` | een breed groen dal met een beek; vier hutten van palen met daken van takken, met runderen en schapen eronder; een eenvoudig huis met een plat dak; Jakob met zijn staf | de daken komen er een voor een bij | 33:17 |
 
 Keuzes in deze reeks:
 
 - **Eén landschap.** Elk tafereel kijkt door een eigen venster naar hetzelfde dal (de bouwsteen `dal`): links de ronde
   berg, in het midden de kloof waar de Jabbok uit komt, rechts de vlakke berg, de eik bij het veer, de grijze rots aan
   de overkant. Het verhaal loopt van links (het kamp) naar rechts (de overkant, waar Ezau vandaan komt). Dag (0–4),
-  nacht (5–7), ochtend (8), dag (9).
+  nacht (5–7), ochtend (8), dag (9–11). Sukkoth (11) ligt verderop in het Jordaandal en heeft een eigen, open dal.
 - **De Man en de engelen zijn niet getekend.** Niet als figuur, silhouet, hand of licht in mensvorm. Bij Mahanaïm is
   de weg vóór Jakob leeg; bij de worsteling staat Jakob alleen in de nacht; daarna doen de dageraad en de opgaande zon
   het werk. Een test bewaakt dat geen label de Man, God, een engel of de worsteling noemt.
@@ -376,8 +389,25 @@ Keuzes in deze reeks:
   zeven keer buigen. Het geschenk toont de **soorten in de volgorde** van 32:14–15, niet de aantallen: drie of vier dieren
   per kudde. De vierhonderd man zijn een menigte in rijen die buiten het beeld doorloopt, niet telbaar. Bij stap 9 staan
   de dienstmaagden vooraan (bij Jakob), Lea in het midden, Rachel achteraan (33:2); welk kind bij wie hoort, is niet uitgewerkt.
-- **Bij Ezau** (33:4: ‘nam hem in den arm, en viel hem aan den hals, en kuste hem; en zij weenden’) staan twee kleine
-  figuren tegen elkaar, met één arm; geen kus en geen tranen te zien.
+- **Bij Ezau** (33:4: ‘nam hem in den arm, en viel hem aan den hals, en kuste hem; en zij weenden’) staan twee figuren
+  tegen elkaar, met één arm; geen kus en geen tranen te zien. Sinds 15 november 2026 zijn de broers bij stap 9 en 10
+  groter (schaal 2,3 tegen 1,5) dan het gezin, zodat de omhelzing ook op een telefoon leest; Ezau leunt in de eindstand naar
+  Jakob toe. In de beginstand staat Ezau nog in de menigte: de spanning (Jakob buigt) gaat zo zichtbaar over in de omhelzing.
+- **Ezau** heeft een rood kleed (25:25: ‘ros’) en geen hoofddoek; zo blijft Jakob met zijn blauwe hoofddoek herkenbaar.
+- **Genesis 33:5–11** (`jabbok-aangezicht`): de groepen komen in de volgorde van 33:6–7. Welk kind bij wie hoort, volgt hier
+  wel Genesis 29:31–30:24 (vier zonen van de dienstmaagden, zes van Lea, Jozef van Rachel; een test telt het). Dat Jakob naar
+  de kudden wijst, staat er niet letterlijk; het laat zien waar ‘al dit heir’ (33:8) en het geschenk (33:10–11) over gaan.
+  33:10 (‘als had ik Gods aangezicht gezien’) is bewust niet in beeld gebracht: dat is een woord, geen tafereel.
+- **Genesis 33:12–20** (`jabbok-sukkoth`): één beeld, de hutten die de naam Sukkoth uitleggen (33:17). Het altaar bij
+  Sichem (33:20) is niet getekend; vier hutten is geen getal uit de tekst; hoe het huis eruitzag, zegt de tekst niet.
+- **Bethel** (`betel-nacht`): de engelen die op en neer klommen en de HEERE Die op de ladder stond (28:12–13) zijn niet
+  getekend, ook niet als lichtjes op de ladder of als gestalte in het licht. Bovenaan staat **geen licht**: Genesis 28 noemt
+  daar geen licht, en een schijf boven de ladder zou gelezen kunnen worden als een afbeelding van Wie erop stond (28:13).
+  Een eerdere versie had zo’n ronde opening van licht; die is op aanwijzing weggehaald. Nu lost de ladder bovenaan op in de
+  sterrenhemel: drie stukken met afnemende doorzichtigheid (`vaag`, `vaag2`, `vaag3`), geen kleurverloop. De beweging gaat nergens op en neer (een test bewaakt welke bewegingsklassen er staan, en dat er één mens
+  is). Het oprichten van de steen met olie (28:18) is niet getekend: dat gebeurt ’s morgens; één beeld bij de stap, en de
+  nacht van de droom is de kern. Jakob ligt; zijn staf (32:10: ‘ik ben met mijn staf over deze Jordaan gegaan’ gaat over deze reis)
+  maakt hem herkenbaar. De stap heeft een reis (Berseba → Bethel); de koppeling op de stapsleutel geeft hem toch dit beeld.
 
 Wat een mens moet beoordelen:
 
@@ -385,6 +415,11 @@ Wat een mens moet beoordelen:
   gebed en de dageraad passend is.
 - Of de dageraad (stap 7) op deze manier niet als ‘licht van God’ gelezen wordt: het is het gewone morgenlicht achter de
   bergen, dat in stap 8 de zon wordt.
+- Bethel: of de ladder die bovenaan vervaagt in de sterren ‘aan den hemel raakte’ genoeg laat zien, zonder iets boven de
+  ladder te tekenen; en of de lichte ladder zelf (de Bijbel noemt geen licht) ingetogen genoeg is. En of het tweede beeld, de opgerichte steen met olie in het eerste
+  licht (28:18), er toch moet komen: dat kan bij `genesis:jakob:8` (Terug in Bethel; 35:14 noemt weer een opgericht teken
+  met olie), niet bij dezelfde stap.
+- Genesis 33:5–11: of het wijzen naar de kudden passend is, en of de broers naast het gezin niet te groot ogen.
 - Of de menigte van Ezau dreigend genoeg (32:7: ‘toen vreesde Jakob zeer’) of juist te dreigend oogt.
 
 ### Thema Kerst (`taferelen-kerst.js`)
@@ -504,7 +539,7 @@ Dan de taferelen uit de opdracht:
 - De nachtbeelden zijn onder de sluier grijsblauw; de huizen van Bethlehem zouden iets warmer mogen.
 - Genesis 32: de figuren zijn op telefoonbreedte heel klein (ongeveer 8 bij 16 beeldpunten); Jakob is te herkennen aan
   wit en staf, de vrouwen en kinderen vooral als groep. Het gezin bij het veer staat ‘in’ het water zonder dat je ziet
-  dat ze waden. De omhelzing bij Ezau is klein en leest pas groot goed. Het morgenrood bij de dageraad is een paar
+  dat ze waden. De omhelzing bij Ezau is nu groter en leest ook op een telefoon; Jakob die slaapt bij Bethel blijft daar klein. Het morgenrood bij de dageraad is een paar
   vlakke banden. Het geschenk is het zwaarste tafereel van de reeks (4,8 kB).
 - Kerst: de mensen zijn ook hier klein; de wijzen zijn op telefoonbreedte vooral vijf gekleurde stipjes. Het reisgezelschap
   naar het Pascha is een paar rijen streepjes. De tempel van Herodes is een eenvoudig blok met een zuilengang. Nazareth en

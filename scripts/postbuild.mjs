@@ -77,16 +77,16 @@ console.log(`postbuild: ${ROUTES.length} routes + 404.html + sitemap.xml`);
 
 // Bijbelreis: versienummer (inhoudshash) achter de eigen scripts en stijlen, zodat een nieuwe versie niet
 // half uit de browsercache komt (oude app.js met nieuwe inhoud of andersom).
-{
+// Hetzelfde voor de pagina Presentatie en boekje (bijbelreis/boekje.html), die dezelfde bestanden laadt.
+for (const pagina of ["bijbelreis.html", "bijbelreis/boekje.html"]) {
   const { createHash } = await import("node:crypto");
-  const file = join(dist, "bijbelreis.html");
+  const file = join(dist, pagina);
   const html = readFileSync(file, "utf8").replace(/((?:src|href)=")(\/bijbelreis\/[^"?]+\.(?:js|css))"/g, (m, attr, url) => {
     const hash = createHash("sha256").update(readFileSync(join(dist, url))).digest("hex").slice(0, 10);
     return `${attr}${url}?v=${hash}"`;
   });
   // Ook de gegevens die app.js zelf ophaalt (ondergrond, reliëf, grenzen, Bijbeltekst) krijgen een inhoudshash,
   // in een meta-tag (CSP staat geen inline script toe). app.js zet die achter de URL.
-  const { readdirSync } = await import("node:fs");
   const kort = (p) => createHash("sha256").update(readFileSync(join(dist, "bijbelreis", p))).digest("hex").slice(0, 10);
   const data = {};
   for (const p of ["geo.json", "toen.json", "relief.json", "grenzen.json", "relief-regio.webp", "relief-kanaan.webp"]) data[p] = kort(p);

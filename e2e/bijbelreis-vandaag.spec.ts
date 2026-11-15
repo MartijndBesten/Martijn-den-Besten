@@ -9,6 +9,17 @@ test.use({ reducedMotion: "reduce" });
 const zetNiveau = (page: Page, n: "a" | "b" | "c") => page.addInitScript((x) => { if (sessionStorage.getItem("niveauGezet")) return; sessionStorage.setItem("niveauGezet", "1"); localStorage.setItem("bijbelreis:niveau", JSON.stringify(x)); localStorage.setItem("bijbelreis:welkomWeg", "true"); }, n);
 test.beforeEach(async ({ page }) => { await zetNiveau(page, "c"); });
 
+// Telefoon (tot 900 px): Toen/Nu, Vandaag, Bijbelwereld en Legenda staan achter de knop ‘Kaart’, de overzichten in het
+// blad ‘Kies een reis’ en de acties bij de stappenlijst achter ‘Alle stappen’. Is de knop niet in beeld, dan eerst die ene
+// tik die de gebruiker ook doet; daarna dezelfde klik als op de desktop.
+async function telefoonKlik(page: Page, sel: string) {
+  const knop = page.locator(sel);
+  if (!(await knop.isVisible())) {
+    const via = await knop.evaluate((e) => (e.closest("#kaartPaneel") ? "#kaartBtn" : e.closest("#kiesLade, #kiezen") ? "#kiesBtn" : e.closest("#stappenBlok, #deelActies") ? '#sMeer [data-meer="stappenBlok"]' : ""));
+    if (via && (await page.locator(via).isVisible())) await page.locator(via).click();
+  }
+  await knop.click();
+}
 function watchErrors(page: Page) {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(String(e)));
@@ -39,7 +50,7 @@ test("stand Nu: landnamen, gebiedsnamen en twee soorten lijnen", async ({ page }
   // Toen: geen moderne grenzen, namen of knop.
   await expect(page.locator("#map .border")).toHaveCount(0);
   await expect(page.locator("#vandaagBtn")).toBeHidden();
-  await page.locator("#nuBtn").click();
+  await telefoonKlik(page, "#nuBtn");
   await expect(page.locator("#map .border").first()).toBeAttached();
   // Een erkende landsgrens (doorgetrokken, met band) en een bestandslijn of omstreden grens (gestippeld) zijn eigen lijnsoorten.
   await expect(page.locator("#map path.border.band").first()).toBeAttached();
@@ -47,6 +58,8 @@ test("stand Nu: landnamen, gebiedsnamen en twee soorten lijnen", async ({ page }
   const stijl = await page.evaluate(() => { const s = (q: string) => getComputedStyle(document.querySelector("#map path.border" + q)!).strokeDasharray; return { vast: s(":not(.band):not(.omstreden):not(.fijn)"), omstreden: s(".omstreden") }; });
   expect(stijl.vast).toBe("none");
   expect(stijl.omstreden).not.toBe("none");
+  // Telefoon: het open kaartpaneel ligt over de kaart (en landnamen wijken ervoor); dicht het eerst, zoals de gebruiker doet.
+  if ((await page.locator("#kaartBtn").getAttribute("aria-expanded")) === "true") await page.locator("#kaartBtn").click();
   await uitsnede(page, REGIO);
   await expect.poll(() => zichtbareNamen(page, ".country")).toEqual(expect.arrayContaining(["Syrië", "Irak", "Turkije", "Jordanië", "Israël"]));
   const alle = await page.evaluate(() => [...document.querySelectorAll("#map .country, #map .gebied")].map((e) => e.textContent!.trim()));
@@ -68,7 +81,7 @@ test("stand Nu: landnamen, gebiedsnamen en twee soorten lijnen", async ({ page }
   });
   expect(botsing).toBe(false);
   // De legenda legt de lijnen uit.
-  await page.locator("#legendBtn").click();
+  await telefoonKlik(page, "#legendBtn");
   await expect(page.locator("#legend")).toContainText("Landsgrens");
   await expect(page.locator("#legend")).toContainText("bestandslijn of omstreden grens");
   await expect(page.locator("#legend")).toContainText("alleen landen die Nederland erkent");
@@ -76,7 +89,7 @@ test("stand Nu: landnamen, gebiedsnamen en twee soorten lijnen", async ({ page }
   await expect(page.locator("#legend")).toContainText("gebied waarover de partijen het niet eens zijn");
   await page.locator("#legendSluit").click();
   // Terug naar Toen: alles van nu is weg.
-  await page.locator("#toenBtn").click();
+  await telefoonKlik(page, "#toenBtn");
   await expect(page.locator("#map .border")).toHaveCount(0);
   await expect(page.locator("#map .country")).toHaveCount(0);
   expect(errors).toEqual([]);
@@ -88,7 +101,7 @@ test("laag Vandaag: standaard uit, aan en uit te zetten, keuze wordt onthouden",
   await expect(page.locator("#map .land").first()).toBeAttached();
   const voor = await opslag(page);
   expect(voor["bijbelreis:vandaag"]).toBeUndefined();
-  await page.locator("#nuBtn").click();
+  await telefoonKlik(page, "#nuBtn");
   const knop = page.locator("#vandaagBtn");
   await expect(knop).toBeVisible();
   await expect(knop).toHaveAttribute("aria-pressed", "false");
@@ -105,14 +118,14 @@ test("laag Vandaag: standaard uit, aan en uit te zetten, keuze wordt onthouden",
   const { "bijbelreis:vandaag": _nieuw, ...rest } = na;
   expect(rest).toEqual(voor);
   // In de stand Toen is de laag weg; terug in Nu staat ze er weer.
-  await page.locator("#toenBtn").click();
+  await telefoonKlik(page, "#toenBtn");
   await expect(page.locator("#map .vandaag")).toHaveCount(0);
   await expect(knop).toBeHidden();
   // Na herladen: onthouden, maar pas zichtbaar in de stand Nu.
   await page.reload();
   await expect(page.locator("#map .land").first()).toBeAttached();
   await expect(page.locator("#map .vandaag")).toHaveCount(0);
-  await page.locator("#nuBtn").click();
+  await telefoonKlik(page, "#nuBtn");
   await expect(page.locator("#map .leaflet-marker-icon.vandaag")).toHaveCount(n);
   await expect(knop).toHaveAttribute("aria-pressed", "true");
   await knop.click();
@@ -126,8 +139,8 @@ test("laag Vandaag: een plek openen met het toetsenbord en door naar de Bijbelse
   await kaartHaak(page);
   await page.goto("/bijbelreis#abraham/4");
   await expect(page.locator("#map .land").first()).toBeAttached();
-  await page.locator("#nuBtn").click();
-  await page.locator("#vandaagBtn").click();
+  await telefoonKlik(page, "#nuBtn");
+  await telefoonKlik(page, "#vandaagBtn");
   await uitsnede(page, [[31.2, 34.6], [32.4, 35.9]]);
   const bord = page.locator('#map .leaflet-marker-icon.vandaag[title="Vandaag: Hebron"]');
   await expect(bord.locator(".vd-bord")).toBeVisible(); // het kaartteken zelf is 0×0 (Leaflet); het bordje is wat je ziet
@@ -166,7 +179,7 @@ test("lijst Vandaag: peildatum, vaste zin, zoeken en naar de kaart", async ({ pa
   await page.goto("/bijbelreis#abraham/4");
   await expect(page.locator("#map .land").first()).toBeAttached();
   const open = page.locator("#vandaagLijstBtn");
-  await open.click();
+  await telefoonKlik(page, "#vandaagLijstBtn");
   const lade = page.locator("#vandaagLade");
   await expect(lade).toBeVisible();
   await expect(lade).toHaveAttribute("role", "dialog");
@@ -203,7 +216,7 @@ test("lijst Vandaag: peildatum, vaste zin, zoeken en naar de kaart", async ({ pa
   expect((await opslag(page))["bijbelreis:vandaag"]).toBe("true");
   // De lijst is ook vanuit de legenda te openen.
   if (!breed(page)) await page.locator("#vandaagVenster .lade__head button").click();
-  await page.locator("#legendBtn").click();
+  await telefoonKlik(page, "#legendBtn");
   await page.locator("#vandaagLegendaBtn").click();
   await expect(lade).toBeVisible();
   expect(errors).toEqual([]);
@@ -212,13 +225,13 @@ test("lijst Vandaag: peildatum, vaste zin, zoeken en naar de kaart", async ({ pa
 test("laag Vandaag: een plek zonder Bijbelse plaats heeft geen knop, een gevoelige plek noemt beide partijen", async ({ page }) => {
   await page.goto("/bijbelreis#abraham/4");
   await expect(page.locator("#map .land").first()).toBeAttached();
-  await page.locator("#vandaagLijstBtn").click();
+  await telefoonKlik(page, "#vandaagLijstBtn");
   await page.locator('#vandaagLade [data-vandaag="beiroet"]').click();
   const v = venster(page);
   await expect(v).toContainText("Beiroet zelf komt in de Bijbel niet voor");
   await expect(v.locator("[data-place]")).toHaveCount(0);
   if (!breed(page)) await page.locator("#vandaagVenster .lade__head button").click();
-  await page.locator("#vandaagLijstBtn").click();
+  await telefoonKlik(page, "#vandaagLijstBtn");
   await page.locator('#vandaagLade [data-vandaag="jeruzalem"]').click();
   await expect(v).toContainText("Israël bestuurt sinds 1967 de hele stad en noemt haar zijn hoofdstad; de Palestijnen willen dat Oost-Jeruzalem de hoofdstad van hun staat wordt.");
   await expect(v).toContainText("Jeroesjalajim");
@@ -242,8 +255,8 @@ test("Samen ontdekken (4–6 jaar): geen laag Vandaag, ook niet als ze eerder aa
 test("wisselen naar Samen ontdekken haalt de laag weg; terug komt ze weer", async ({ page }) => {
   await page.goto("/bijbelreis#abraham/4");
   await expect(page.locator("#map .land").first()).toBeAttached();
-  await page.locator("#nuBtn").click();
-  await page.locator("#vandaagBtn").click();
+  await telefoonKlik(page, "#nuBtn");
+  await telefoonKlik(page, "#vandaagBtn");
   await expect(page.locator("#map .leaflet-marker-icon.vandaag").first()).toBeAttached();
   await page.locator("#niveauBtn").click();
   await page.locator('#niveauOpties [data-niveau="a"]').click();
@@ -252,7 +265,7 @@ test("wisselen naar Samen ontdekken haalt de laag weg; terug komt ze weer", asyn
   await page.locator('#niveauOpties [data-niveau="b"]').click();
   await expect(page.locator("#map .leaflet-marker-icon.vandaag").first()).toBeAttached();
   // Zelf op reis: het venster zonder bronnenregel.
-  await page.locator("#vandaagLijstBtn").click();
+  await telefoonKlik(page, "#vandaagLijstBtn");
   await page.locator('#vandaagLade [data-vandaag="rome"]').click();
   const v = venster(page);
   await expect(v).toContainText("Rome is de hoofdstad van Italië");
@@ -262,8 +275,8 @@ test("wisselen naar Samen ontdekken haalt de laag weg; terug komt ze weer", asyn
 test("op elk scherm passen de kaartknoppen en het venster binnen beeld", async ({ page }) => {
   await page.goto("/bijbelreis#abraham/4");
   await expect(page.locator("#map .land").first()).toBeAttached();
-  await page.locator("#nuBtn").click();
-  await page.locator("#vandaagBtn").click();
+  await telefoonKlik(page, "#nuBtn");
+  await telefoonKlik(page, "#vandaagBtn");
   const vp = page.viewportSize()!;
   for (const id of ["#toenBtn", "#nuBtn", "#legendBtn", "#vandaagBtn"]) {
     const r = (await page.locator(id).boundingBox())!;
@@ -274,7 +287,7 @@ test("op elk scherm passen de kaartknoppen en het venster binnen beeld", async (
   const zoom = (await page.locator(".leaflet-control-zoom").boundingBox())!, seg = (await page.locator(".maptools .seg").boundingBox())!;
   expect(seg.x >= zoom.x + zoom.width || seg.y >= zoom.y + zoom.height).toBe(true);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
-  await page.locator("#vandaagLijstBtn").click();
+  await telefoonKlik(page, "#vandaagLijstBtn");
   await page.locator('#vandaagLade [data-vandaag="gaza"]').click();
   const v = venster(page);
   await expect(v).toBeVisible();
@@ -290,14 +303,14 @@ test("toegankelijkheid: kaart van nu met de laag, het venster en de lijst", asyn
   const ernstig = async () => (await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations.filter((v) => v.impact === "serious" || v.impact === "critical").map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).slice(0, 3).join(" | ")}`);
   await page.goto("/bijbelreis#abraham/4");
   await expect(page.locator("#map .land").first()).toBeAttached();
-  await page.locator("#nuBtn").click();
-  await page.locator("#vandaagBtn").click();
-  await page.locator("#legendBtn").click();
+  await telefoonKlik(page, "#nuBtn");
+  await telefoonKlik(page, "#vandaagBtn");
+  await telefoonKlik(page, "#legendBtn");
   await expect(page.locator("#lgNu")).toBeVisible();
   await page.waitForTimeout(400);
   expect(await ernstig(), "kaart van nu met legenda").toEqual([]);
   await page.locator("#legendSluit").click();
-  await page.locator("#vandaagLijstBtn").click();
+  await telefoonKlik(page, "#vandaagLijstBtn");
   await expect(page.locator("#vandaagLade")).toBeVisible();
   expect(await ernstig(), "lijst").toEqual([]);
   await page.locator('#vandaagLade [data-vandaag="hebron"]').click();

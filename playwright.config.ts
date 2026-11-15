@@ -26,7 +26,7 @@ export default defineConfig({
   webServer: process.env.E2E_BASE_URL
     ? undefined
     : {
-        command: `rm -rf .wrangler/e2e && npx wrangler d1 migrations apply martijndenbesten --local --persist-to .wrangler/e2e && npx wrangler dev --local --port ${PORT} --persist-to .wrangler/e2e --var ADMIN_TOKEN:e2e-admin-token-0123456789abcdef --var HASH_SECRET:e2e`,
+        command: `rm -rf .wrangler/e2e && npx wrangler d1 migrations apply martijndenbesten --local --persist-to .wrangler/e2e && npx wrangler dev --local --port ${PORT} --persist-to .wrangler/e2e --var ADMIN_TOKEN:e2e-admin-token-0123456789abcdef --var HASH_SECRET:e2e --var BIJBELREIS_VERHUISD:uit`,
         url: `${BASE_URL}/api/health`,
         timeout: 120_000,
         reuseExistingServer: false,

@@ -158,6 +158,9 @@ describe("taferelen: gewicht", () => {
 });
 
 describe("taferelen: koppeling", () => {
+  // Het vervolg in Genesis 33 (twee stappen achteraan in genesis:jakob-jabbok) en de ladder bij Bethel (genesis:jakob:0).
+  const JAKOB_33: Record<string, string> = { "genesis:jakob-jabbok:10": "jabbok-aangezicht", "genesis:jakob-jabbok:11": "jabbok-sukkoth" };
+  const BETEL = "betel-nacht";
   const K = Object.entries(BR.beelden);
   it("elke koppeling verwijst naar een bestaand tafereel (of is bewust leeg)", () => {
     expect(K.length).toBeGreaterThan(20);
@@ -231,17 +234,74 @@ describe("taferelen: koppeling", () => {
     for (const key of ["jezus-3:nt-lijden:6", "jezus-3:nt-lijden:7"]) { expect(STAP.get(key)!.at, key).toContain("nt_golgotha"); expect(BR.tafereel.van(STAP.get(key)!), key).toBeNull(); }
     for (const id of Object.keys(NT)) expect(T[id].label, id).not.toMatch(/engel|Kind|gestalte|silhouet|duif|\bman\b|vrouw|herder\b|discipel/i);
   });
+  it("Genesis 33: de twee stappen na de omhelzing krijgen hun tafereel zodra ze bestaan", () => {
+    for (const [key, id] of Object.entries(JAKOB_33)) {
+      expect(T[id], id).toBeTruthy();
+      expect(KOPPEL_JAKOB[key].t, key).toBe(id);
+      expect(BR.beelden[key], key).toEqual(KOPPEL_JAKOB[key]);
+      expect(KOPPEL_JAKOB[key].tekst, key).toMatch(/\(Genesis 33:[\d–]+\)\.$/);
+      // De stap wordt op een andere tak geschreven. Bestaat hij, dan hoort hij bij Genesis 33 en krijgt hij dit tafereel.
+      const stap = STAP.get(key);
+      if (stap) {
+        expect(stap.ref, key).toMatch(/^Genesis 33:/);
+        const b = BR.tafereel.van(stap)!;
+        expect(b.id, key).toBe(id); expect(b.algemeen, key).toBeUndefined();
+      }
+    }
+    for (const [key, k] of Object.entries(BR.beelden)) if (Object.values(JAKOB_33).includes(k.t)) expect(JAKOB_33[key], key).toBe(k.t);
+    // 33:6–7: het gezin komt in drie groepen naderbij (de dienstmaagden met vier zonen, Lea met zes, Rachel met Jozef;
+    // Genesis 29:31–30:24), samen twee vrouwen, twee dienstmaagden en elf kinderen.
+    const svg = T["jabbok-aangezicht"].svg;
+    const groepen = [...svg.matchAll(/<g class="tf-e-kom[^"]*">(.*?)<\/g>/g)].map((m) => m[1]);
+    const tel = (s: string, k: string) => [...s.matchAll(new RegExp(`<path class="${k} o2" d="([^"]+)"`, "g"))].reduce((a, m) => a + m[1].split("M").length - 1, 0);
+    expect(groepen.length).toBe(3);
+    expect(groepen.map((g) => tel(g, "k-zand") + tel(g, "k-terra")).sort((a, b) => a - b)).toEqual([1, 4, 6]);
+    expect(tel(svg, "k-oker"), "Lea en Rachel").toBe(4);
+    expect(tel(svg, "k-salie"), "twee dienstmaagden").toBe(4);
+    for (const id of Object.values(JAKOB_33)) expect(T[id].label, id).not.toMatch(/engel|\bman\b|\bGod|HEERE|Heere|gestalte|silhouet|worstel/i);
+  });
+  it("Bethel: de ladder bij genesis:jakob:0, zonder engel of gestalte, en alleen een rustige beweging", () => {
+    const key = "genesis:jakob:0", stap = STAP.get(key)!;
+    expect(stap.ref).toMatch(/^Genesis 28:1\d/);
+    expect(KOPPEL_JAKOB[key]).toEqual(BR.beelden[key]);
+    expect(BR.tafereel.van(stap)!.id).toBe(BETEL);
+    expect(BR.tafereel.van(stap)!.algemeen).toBeUndefined();
+    // Een eerdere koppeling bij deze stap was er niet (of bewust leeg): er wordt geen ander tafereel vervangen.
+    const eerste: { window: { BR: { beelden: Record<string, Koppeling>; beeldSoort: object } } } = { window: { BR: { beelden: {}, beeldSoort: {} } } };
+    runInNewContext(readFileSync(join(PUB, "bijbelreis", "taferelen-koppeling.js"), "utf8").replace(/\bBR\./g, "window.BR."), eerste);
+    expect(eerste.window.BR.beelden[key]?.t || "").toBe("");
+    for (const [k, v] of Object.entries(BR.beelden)) if (v.t === BETEL) expect(k).toBe(key);
+    // Het label noemt geen engel, geen gestalte en niet de HEERE als iets wat er te zien is (28:12–13).
+    expect(T[BETEL].label).not.toMatch(/engel|\bman\b|\bGod|HEERE|Heere|gestalte|silhouet|figuur|persoon|mensen|op en neer|klim/i);
+    expect(T[BETEL].label).toMatch(/ladder/);
+    // Precies één mens (Jakob, één hoofd), en alleen beweging die niet op en neer gaat: de ladder tekent zich, licht verschijnt
+    // en ademt, sterren twinkelen. Geen lichtjes die over de ladder bewegen.
+    expect(T[BETEL].svg.match(/<circle class="k-hout o2"[^>]*r="2.2"/g)?.length).toBe(1);
+    const beweging = new Set([...T[BETEL].svg.matchAll(/\btf-[el]-[a-z-]+/g)].map((m) => m[0]));
+    expect([...beweging].sort()).toEqual(["tf-e-in", "tf-e-teken", "tf-l-adem", "tf-l-gloed"]);
+    expect(css).toMatch(/@keyframes tf-adem \{ from \{ opacity: [\d.]+; \} \}/);
+    // Geen licht of schijf boven de ladder (28:13: daar stond de HEERE; Genesis 28 noemt geen licht): de enige cirkels zijn
+    // het hoofd van Jakob en twee twinkelende sterren, de enige ellips is het schijnsel op de grond bij de voet. De ladder
+    // lost bovenaan op in drie steeds vagere stukken.
+    for (const m of T[BETEL].svg.matchAll(/<circle [^>]*>/g)) expect(m[0], "cirkel bij Bethel").toMatch(/r="(?:2\.2|1\.3)"/);
+    expect([...T[BETEL].svg.matchAll(/<ellipse [^>]*cy="([\d.]+)"/g)].map((m) => Number(m[1]))).toEqual([114]);
+    expect([...T[BETEL].svg.matchAll(/<g class="(vaag\d?)">/g)].map((m) => m[1])).toEqual(["vaag", "vaag2", "vaag3"]);
+    const vaag = (k: string) => Number(css.match(new RegExp(`\\.tf-svg \\.${k} \\{ opacity: ([\\d.]+); \\}`))![1]);
+    expect(vaag("vaag")).toBeGreaterThan(vaag("vaag2")); expect(vaag("vaag2")).toBeGreaterThan(vaag("vaag3"));
+    expect(T[BETEL].label).not.toMatch(/open|opening|schijf/i);
+  });
   it("Genesis 32: de tien stappen van genesis:jakob-jabbok hebben elk een eigen tafereel, in volgorde", () => {
-    expect(Object.keys(KOPPEL_JAKOB)).toEqual(JAKOB.map((_, i) => `genesis:jakob-jabbok:${i}`));
-    expect(new Set(Object.values(KOPPEL_JAKOB).map((k) => k.t)).size).toBe(10);
+    expect(Object.keys(KOPPEL_JAKOB).filter((k) => k.startsWith("genesis:jakob-jabbok:"))).toEqual([...JAKOB.map((_, i) => `genesis:jakob-jabbok:${i}`), ...Object.keys(JAKOB_33)]);
+    expect(Object.keys(KOPPEL_JAKOB)).toEqual(["genesis:jakob:0", ...JAKOB.map((_, i) => `genesis:jakob-jabbok:${i}`), ...Object.keys(JAKOB_33)]);
+    expect(new Set(Object.values(KOPPEL_JAKOB).map((k) => k.t)).size).toBe(13);
     const plek = (s: string) => html.indexOf(`/bijbelreis/${s}`);
     expect(plek("taferelen-jakob.js")).toBeLessThan(plek("taferelen-koppeling-jakob.js"));
     expect(plek("taferelen-koppeling-nt.js")).toBeLessThan(plek("taferelen-koppeling-jakob.js"));
     expect(plek("taferelen-koppeling-jakob.js")).toBeLessThan(plek("app.js"));
-    // Bestaat het deel, dan heeft het tien stappen en krijgt elke stap zijn eigen tafereel. Bestaat het (nog) niet, dan
-    // hangen deze taferelen aan geen enkele stap en doen de sleutels niets.
+    // Bestaat het deel, dan heeft het minstens tien stappen (Genesis 33 komt er achteraan bij) en krijgt elke stap zijn eigen
+    // tafereel. Bestaat het (nog) niet, dan hangen deze taferelen aan geen enkele stap en doen de sleutels niets.
     const deel = BR.boeken.find((b) => b.id === "genesis")?.delen.find((d) => d.id === "jakob-jabbok");
-    if (deel) expect(deel.steps.length, "genesis:jakob-jabbok").toBe(10);
+    if (deel) expect(deel.steps.length, "genesis:jakob-jabbok").toBe(12);
     JAKOB.forEach((id, i) => {
       const key = `genesis:jakob-jabbok:${i}`;
       expect(T[id], id).toBeTruthy();
@@ -254,7 +314,7 @@ describe("taferelen: koppeling", () => {
   });
   it("Genesis 32: de Man en de engelen zijn nergens afgebeeld, en de aantallen kloppen", () => {
     // Het label zegt wat er te zien is; het noemt de Man, God, een engel of de worsteling dus niet als iets wat er staat.
-    for (const id of JAKOB) expect(T[id].label, id).not.toMatch(/engel|\bman\b|\bGod|gestalte|silhouet|worstel/i);
+    for (const id of [...JAKOB, ...Object.values(JAKOB_33), BETEL]) expect(T[id].label, id).not.toMatch(/engel|\bman\b|\bGod|gestalte|silhouet|worstel/i);
     expect(T["jabbok-nacht"].label).toMatch(/helemaal alleen/);
     expect(T["jabbok-dageraad"].label).toMatch(/niemand anders/);
     // Het gezin (32:22): twee vrouwen, twee dienstmaagden, elf kinderen. Een vrouw is een lijf met een doek (twee
