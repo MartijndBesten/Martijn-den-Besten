@@ -38,6 +38,7 @@ BR.dateringen = {
     // [meer-reizen:nt-paulus3] datering
     //
     // [meer-reizen:nt-samaria-nain] datering
+    "jezus-1:nt-samaria-nain": ["historie", false],
     //
     // [meer-reizen:nt-over-de-grens] datering
     //

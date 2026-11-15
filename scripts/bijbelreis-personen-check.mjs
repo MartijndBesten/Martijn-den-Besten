@@ -65,6 +65,7 @@ const GROEPEN = new Set(["Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen"
   // [meer-reizen:nt-paulus3] groepen
   //
   // [meer-reizen:nt-samaria-nain] groepen
+  "De Samaritaanse vrouw", "De koninklijke hoveling", "De weduwe van Naïn",
   //
   // [meer-reizen:nt-over-de-grens] groepen
   //

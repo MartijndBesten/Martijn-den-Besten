@@ -594,6 +594,17 @@ Object.assign(BR.plaatsen, {
 // [meer-reizen:nt-paulus3] plaatsen
 //
 // [meer-reizen:nt-samaria-nain] plaatsen
+// Johannes 4 en Lukas 4 en 7. Coördinaten: OpenBible.info Bible Geocoding Data (CC BY 4.0). Sleutels beginnen met sn_.
+Object.assign(BR.plaatsen, {
+  sn_gerizim: { n: "Berg Gerizim", ll: [32.1994, 35.2728], c: "v", s: "l", z: 9.5, t: "berg",
+    d: "De berg bij Sichem en Sichar, tegenover de berg Ebal. Hier moest Israël de zegen uitspreken (Deuteronomium 11:29). De Samaritaanse vrouw zei: ‘Onze vaders hebben op dezen berg aangebeden’ (Johannes 4:20). Johannes noemt de naam van de berg niet.",
+    nu: "Jabal at-Tur (Gerizim) bij Nablus, Westelijke Jordaanoever",
+    bron: "OpenBible: Mount Gerizim = Jabal at Tur (score 1000), ook bij Johannes 4:20; de naam bleef in gebruik." },
+});
+// Tussenpunten: de vlakte van Jizreël ten westen van Sunem, de heuvels ten oosten van Nazareth, het dal tussen Kana en het meer,
+// de noordwestoever van het meer bij Tabgha, de vlakte van Gennesareth en de weg ten oosten van de Tabor.
+Object.assign(BR.W, { sn_vlakte: [32.61, 35.27], sn_nazarethpas: [32.72, 35.335], sn_kanaweg: [32.84, 35.4],
+  sn_meer_nw: [32.875, 35.54], sn_ginosar: [32.855, 35.512], sn_taborweg: [32.7, 35.45] });
 //
 // [meer-reizen:nt-over-de-grens] plaatsen
 //
