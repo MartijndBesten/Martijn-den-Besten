@@ -596,6 +596,14 @@ Object.assign(BR.plaatsen, {
 // [meer-reizen:nt-samaria-nain] plaatsen
 //
 // [meer-reizen:nt-over-de-grens] plaatsen
+Object.assign(BR.plaatsen, {
+  og_gennesaret: { n: "Gennesaret", ll: [32.8606, 35.5072], c: "r", s: "c", z: 8.5, t: "gebied", d: "Streek aan de westkant van het meer van Galilea. Hier kwam het schip aan land, en de mensen brachten hun zieken bij de Heere Jezus (Markus 6:53–56). Daarvandaan ging Hij naar het gebied van Tyrus en Sidon (Mattheüs 14:34; 15:21).",
+    nu: "Vlakte van Ginosar (el-Ghuweir), Israël", bron: "Vlakte el-Ghuweir (OpenBible 1000, gebied); het punt ligt in de vlakte." },
+  og_dekapolis: { n: "Dekapolis", ll: [32.7167, 35.8], c: "r", s: "c", z: 7.5, t: "gebied", d: "Gebied van Griekse steden, vooral ten oosten van het meer van Galilea en de Jordaan; de naam is Grieks voor tien steden. De Heere Jezus kwam er middendoor naar het meer (Markus 7:31). Een man die Hij had verlost, had daar al verteld wat Hij gedaan had (Markus 5:20).",
+    nu: "Noord-Jordanië, de Golan en Zuid-Syrië", bron: "Gebied (OpenBible 1000, punt in de streek, ten zuidoosten van het meer). De steden lagen verspreid; een vaste grens is niet bekend." },
+});
+// Tussenpunt: oostoever van het meer, aan de kant van Dekapolis. Illustratief; de Bijbel noemt de plek niet (Markus 7:31; 8:10).
+Object.assign(BR.W, { og_oostoever: [32.775, 35.647] });
 //
 // [meer-reizen:ehud-jefta] plaatsen
 //
