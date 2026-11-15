@@ -48,6 +48,7 @@ BR.dateringen = {
     // [meer-reizen:jehu] datering
     //
     // [meer-reizen:asa] datering
+    "2kronieken:asa": ["historie", false],
     //
     // [meer-reizen:hizkia-josia] datering
     //
