@@ -21,7 +21,7 @@ BR.dateringen = {
   delen: {
     "genesis:ur-kanaan": ["bijbel", true], "genesis:abraham": ["bijbel", true], "genesis:izak": ["bijbel", true], "genesis:jakob": ["bijbel", true], "genesis:jozef": ["bijbel", true],
     "exodus:mozes": ["bijbel", true], "exodus:uittocht": ["bijbel", true], "exodus:sinai": ["bijbel", true], "leviticus:verzoendag": ["bijbel", true],
-    "numeri:woestijn": ["bijbel", true], "numeri:moab": ["bijbel", true], "jozua:intocht": ["bijbel", true], "jozua:land": ["bijbel", true],
+    "numeri:woestijn": ["bijbel", true], "numeri:moab": ["bijbel", true], "numeri:kies-het-leven": ["bijbel", true], "jozua:intocht": ["bijbel", true], "jozua:land": ["bijbel", true],
     "richteren:debora": ["bijbel", true], "richteren:simson": ["bijbel", true], "ruth:ruth": ["bijbel", true],
     "1samuel:samuel": ["bijbel", true], "1samuel:saul-david": ["bijbel", true],
     "2samuel:david": ["historie", false], "1koningen:salomo": ["historie", false], "1koningen:elia": ["historie", false],
