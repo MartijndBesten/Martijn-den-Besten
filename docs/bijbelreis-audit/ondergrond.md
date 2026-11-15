@@ -216,3 +216,290 @@ python3 -I scripts/bijbelreis-ondergrond.py --cache ... --test              # al
 Vereist: Python 3.10+, numpy, Pillow met WebP en shapely 2. Er zijn geen npm-afhankelijkheden. De eerste run
 downloadt ongeveer 13 MB aan tegels (z7 en z9) en 15 MB aan Natural Earth-data. Parameters (bounds, zoom,
 WebP-kwaliteit, overdrijving, lichtrichting, maximale schaduw, overgangsbreedte) staan bovenin het script.
+
+# Het landschap van toen
+
+Status: gemaakt en gecontroleerd op 15-11-2026. Opdracht van de eigenaar: „Pas de kaart aan, aan hoe het er eerst
+uitzag. Want wellicht is het in de loop van de bijbeltijd aangepast.”
+
+Tot nu toe toonden de standen **Toen** en **Nu** dezelfde ondergrond (`geo.json`, Natural Earth: de wereld van
+vandaag). Nu geldt:
+
+- **Nu** = `geo.json` plus de stuwmeren van vandaag en de moderne grenzen en namen.
+- **Toen** = `geo.json` met de verschillen uit `toen.json`: dichtgeslibde baaien zijn weer zee, verdwenen meren staan
+  er weer, de oude Nijlarmen zijn getekend, en meren en stuwmeren die er toen niet (zo) waren, zijn weg.
+
+De Bijbelse tijd duurt ruim tweeduizend jaar. Er is niet één landschap van toen. Bij elk punt staat daarom voor welke
+tijd de tekening geldt. Twee stijlen maken het verschil in zekerheid zichtbaar, en beide staan in de legenda:
+
+| stijl | betekenis | regel in de legenda |
+|---|---|---|
+| water met een **gestreepte** oever | reconstructie: er was water, de oever is ongeveer bekend | „Streepjes om water: hier lag de oever toen ongeveer” |
+| **vaag** water met een **gestippelde** oever | onzeker: misschien stond hier water | „Vaag water met stippels: misschien stond hier water. Zeker is het niet” |
+
+## Bestanden
+
+| bestand | inhoud | grootte |
+|---|---|---|
+| `public/bijbelreis/toen.json` | de verschillen tussen toen en nu (zie de sleutels hieronder) | 54 619 B (53 kB), gezipt 11 312 B (11 kB) |
+| `scripts/bijbelreis-toen.py` | maakt `toen.json` opnieuw uit de bronnen en controleert plaatsen en routes | – |
+| `e2e/bijbelreis-landschap.spec.ts` | drie schermtests (desktop, telefoon, tablet) | – |
+
+Sleutels in `toen.json` (GeoJSON-features, WGS84, afgerond op 0,001°):
+
+- `zee`: vlakken die toen zee waren en nu land zijn. Ze lopen 0,02° door over de zee van nu, zodat de kustlijn van nu
+  eronder verdwijnt.
+- `kust`: de oever van die vlakken waar die nu in het land ligt (gestreept).
+- `meren`: meren van toen (gestreepte oever).
+- `onzeker` en `rand`: vlakken waar misschien water stond, en hun oever (gestippeld).
+- `rivieren`: oude Nijlarmen (gestreept) en de Jordaan van toen (`vast: 1`, gewone rivierlijn).
+- `weg`, `wegRivier`: namen van meren en rivieren uit `geo.json` die in de stand Toen niet getekend worden.
+- `nu`: stuwmeren van vandaag, alleen in de stand Nu.
+
+`app.js` (`drawToen`) geeft elk onderdeel de klasse `alleen-toen` of `alleen-nu`; `bijbelreis.css` verbergt de ene of
+de andere met de klasse `nu` op `#map`. Laadt `toen.json` niet, dan toont de kaart in beide standen het landschap van
+nu en werkt alles verder gewoon.
+
+## Bronnen
+
+| bron | licentie | gebruikt voor | geraadpleegd |
+|---|---|---|---|
+| **Ancient World Mapping Center (AWMC), geodata**, <https://github.com/AWMC/geodata>, commit `7ecf8bc` (22-04-2024), bestand `Physical Shapefiles Apr 2024.zip`. Volgens de README afgeleid van de *Barrington Atlas of the Greek and Roman World* en van OpenStreetMap, met bewerkingen van AWMC. | Open Database License (ODbL) 1.0 | baaien, meren, Dode Zee, Nijlarmen, bovenloop van de Jordaan | 15-11-2026 |
+| **Forti e.a. 2022**, „The paleoenvironment and depositional context of the Sumerian site of Abu Tbeirah (Nasiriyah, southern Mesopotamia, Iraq)”, *Quaternary Research*, <https://doi.org/10.1017/qua.2022.22>; PDF via <https://iris.uniroma1.it/retrieve/e383532f-2729-15e8-e053-a505fe0a3de9/Forti_The-paleoenvironment_2022.pdf>. Figuur 14: „Suggested position of the Persian Gulf coastline between 5000–4000 years ago”. | CC BY 4.0 | kop van de Perzische Golf | 15-11-2026 |
+| **Natural Earth 1:10m**, `ne_10m_lakes` (stuwmeren: `featurecla = Reservoir`) en de bestaande `geo.json` | publiek domein | stuwmeren in de stand Nu; omtrek van de Bittermeren | 15-11-2026 |
+
+**Licentie van `toen.json`.** De ODbL staat hergebruik op een openbare website toe, met naamsvermelding. Een bestand
+dat uit de AWMC-gegevens is afgeleid, valt zelf weer onder de ODbL („share-alike”). `toen.json` is zo’n afgeleid
+bestand: het staat openbaar op de site, noemt in `_info` zijn bronnen en licentie, en mag onder dezelfde licentie
+worden hergebruikt. De kaart zelf (het beeld) is een „produced work”: daarvoor volstaat de vermelding in het colofon.
+`geo.json`, `grenzen.json` en het reliëf blijven wat ze waren (Natural Earth en hoogtedata, publiek domein).
+
+**Voorgestelde aanvulling van het colofon** (de integrator plaatst die; `bijbelreis.html` is hier alleen in de
+legenda gewijzigd):
+
+> Het landschap van toen (oude kust, meren en Nijlarmen): Ancient World Mapping Center, geodata, naar de Barrington
+> Atlas en © OpenStreetMap-bijdragers, Open Database License 1.0; het bestand /bijbelreis/toen.json is daarvan
+> afgeleid en heeft dezelfde licentie. Kop van de Perzische Golf rond 3000–2000 v.Chr.: naar Forti e.a. 2022,
+> Quaternary Research, figuur 14 (CC BY 4.0), bewerkt.
+
+De regel onder **Kaart** in het blok „Over deze atlas” klopt niet meer („Moderne kustlijnen, rivieren en meren …
+Rond 2000 v.Chr. stroomde de Eufraat vlak langs Ur en was de Dode Zee groter”). Voorstel:
+
+> De stand ‘Toen’ toont het land zoals het in de Bijbelse tijd ongeveer was: baaien die later zijn dichtgeslibd
+> (Efeze, Milete), het Hulameer en de oude armen van de Nijl. Een gestreepte oever is een reconstructie; vaag water
+> is onzeker. Zo weet niemand precies hoe ver de zee in Abrahams tijd bij Ur kwam, en stond het zuiden van de Dode
+> Zee alleen bij hoog water onder. De stand ‘Nu’ toont het land van vandaag, met stuwmeren, moderne grenzen en
+> namen. Kustlijnen, rivieren en meren van nu: Natural Earth (publiek domein), met reliëf uit hoogtegegevens.
+
+## Per punt: wat is er veranderd, voor welke tijd, hoe zeker
+
+### 1. Stuwmeren en kanalen van nu
+
+- **Stond er iets op de kaart van toen dat er niet hoorde?** Bijna niets. `geo.json` bevat negen meren en geen
+  enkel stuwmeer in de rivieren; het landvlak van Natural Earth heeft geen Suezkanaal. Wel stonden erop: het Meer
+  van Habbaniyah, het Hammarmeer, de Dode Zee in haar vorm van nu (twee stukken, het zuidelijke zijn
+  verdampingsbekkens) en het Grote Bittermeer in zijn vorm van na 1869.
+- **Besluit: getekend.** Die vier staan nu alleen in de stand Nu (`weg`). In de stand Nu zijn zeven stuwmeren
+  toegevoegd uit Natural Earth (`featurecla = Reservoir`): Nassermeer (1970, alleen het stuk ten noorden van 23,5° N),
+  Assadmeer (1974), Tharthar, Atatürk (1992), Keban (1974), Karakaya („Saksak Dagi”, 1987) en Mingəçevir (1953).
+  De jaartallen zijn die van Natural Earth.
+- **Habbaniyah:** Natural Earth noemt het een stuwmeer. Of er in de oudheid een (kleiner) meer in deze laagte lag,
+  is hier niet uitgezocht. Het is daarom in de stand Toen **niet getekend**; dat is een keuze, geen vaststelling.
+- **Hammarmeer:** ligt in het gebied dat Forti e.a. voor 3000–2000 v.Chr. als zee tekenen (zie 4). De omtrek in
+  `geo.json` is die van de twintigste eeuw. In de stand Toen niet getekend.
+- **Zekerheid:** dat de stuwmeren er toen niet waren, is zeker.
+- **Niet geverifieerd:** het peil van het Meer van Galilea (nu geregeld met een dam) is niet met een bron
+  onderzocht. De omtrek is in beide standen dezelfde gebleven.
+
+### 2. Het Hulameer
+
+- **Getekend** (gestreepte oever) als meer in de stand Toen, met het label „Hulameer” vanaf zoom 9,5. Omtrek:
+  AWMC, „Semachonitis L.” (Barrington Atlas kaart 69, Pleiades 678385), 10 km².
+- **Feiten:** vóór de drooglegging was het meer 5,3 km lang en 4,4 km breed (12–14 km²), met moeras eromheen. Het
+  Joods Nationaal Fonds legde het droog van 1951 tot 1958. Josephus noemt het in de eerste eeuw Semechonitis.
+  Bron: Wikipedia (Engels), „Hula Valley”, <https://en.wikipedia.org/wiki/Hula_Valley>, geraadpleegd 15-11-2026
+  (een naslagbron; de cijfers zijn niet in een vakpublicatie nagekeken).
+- **Tijd:** het meer bestond in elk geval van de eerste eeuw tot 1958. De omtrek is die van de Barrington Atlas; hoe
+  groot het meer in de tijd van Jozua was, is niet bekend. Vandaar de gestreepte oever.
+- **Wateren van Merom:** de kaart noemt het meer **niet** „Wateren van Merom”. Die plaats staat al op de kaart
+  (`jo_merom`, ten westen van Hazor, als onbekend). Dat men Merom vroeger met het Hulameer gelijkstelde, is hier
+  alleen genoteerd.
+- **De Jordaan** loopt in de stand Toen door het meer: ten noorden van het Meer van Galilea vervangt de AWMC-lijn
+  („Iordanes”, Pleiades 687932) de lijn van Natural Earth. De AWMC-lijn houdt op bij de noordoever zoals AWMC die
+  tekent; het script trekt haar 2 km recht door tot de oever in `geo.json` (een aansluitstukje tussen twee bronnen).
+- **Niet getekend:** het moeras ten noorden van het meer. AWMC heeft er een vlak voor, maar zonder naam en zonder
+  herkomst in de gegevens.
+
+### 3. De Dode Zee (Zoutzee)
+
+- **Feiten:** de waterstand schommelde in de laatste vierduizend jaar tussen 390 en 415 m onder zeeniveau. Tussen
+  het diepe noordelijke en het ondiepe zuidelijke bekken ligt een drempel op ongeveer 402 m onder zeeniveau. Het
+  meer stond meestal onder die drempel en bleef dan beperkt tot het noordelijke bekken; hoge standen waren er onder
+  meer in de tweede en eerste eeuw v.Chr. en in de vierde eeuw n.Chr. Bron: Bookman (Ken-Tor), Enzel, Agnon en
+  Stein 2004, „Late Holocene lake levels of the Dead Sea”, *GSA Bulletin* 116, 555–571,
+  <https://doi.org/10.1130/B25286.1>; samenvatting gelezen op
+  <https://cris.huji.ac.il/en/publications/late-holocene-lake-levels-of-the-dead-sea/>, 15-11-2026. Het zuidelijke
+  bekken zou nu droog liggen zonder de verdampingsbekkens.
+- **Getekend:** het noordelijke bekken als meer (gestreepte oever). **Als onzeker getekend:** het zuidelijke
+  bekken (vaag, gestippeld), want dat stond alleen bij hoog water onder.
+- **Omtrek:** AWMC, „Mortuum Mare/Asphaltitis L.” (Barrington Atlas kaart 69, Pleiades 697709): één meer met het
+  schiereiland Lisan, ongeveer de vorm van vóór de daling van de twintigste eeuw. Het script knipt dat vlak op de
+  smalste plek van de zeestraat bij Lisan (31,260° N, 4,0 km breed). Die kniplijn is een indeling, geen oever.
+- **Zekerheid:** de oever is een benadering. Bij 415 m onder zeeniveau was het noordelijke bekken iets kleiner dan
+  getekend, bij 390 m iets groter.
+
+### 4. De kust bij de monding van Eufraat en Tigris (Ur)
+
+- **De discussie is niet beslist.** Heyvaert en Baeteman (2007) geven het overzicht: De Morgan (1900) liet de Golf
+  ver landinwaarts reiken; Lees en Falcon (1952) verklaarden alles uit bodembeweging en zagen weinig verandering;
+  Larsen, Evans en anderen wezen in de jaren zeventig weer op de zeespiegel; Sanlaville (1989, 2002) tekende de kust
+  rond 4300 v.Chr. bij Nasiriyah, Amara en Ahwaz, zodat Ur en Eridu in het derde millennium dicht bij de kust lagen.
+  Heyvaert en Baeteman zelf vinden in Zuidwest-Iran een getijdengebied dat na ca. 5500 jaar geleden min of meer op
+  zijn plaats bleef en pas vanaf ca. 2500 jaar geleden zeewaarts opschoof, en geen bewijs dat de zee tot Ahwaz kwam.
+  Bron: *Marine Geology* 242, 83–108, <https://doi.org/10.1016/j.margeo.2007.01.008>, gelezen via
+  <https://www.ancientportsantiques.com/wp-content/uploads/Documents/PLACES/IndOc-Gulf/CharaxSpasinou-Heyvaert2007.pdf>,
+  15-11-2026.
+- Forti e.a. (2022) tekenen de kust tussen 5000 en 4000 jaar geleden (ca. 3000–2000 v.Chr.) vlak ten oosten van Ur:
+  Abu Tbeirah, 16 km van Ur, lag „∼30 km inland from the Gulf coastline”, in een delta met moerassen en geulen.
+  Volgens hen kreeg de Golf zijn vorm van nu waarschijnlijk pas rond 1000 n.Chr.
+- **Als onzeker getekend** (vaag, gestippeld, met het label „zee rond 2000 v.Chr.?”): het stuk van figuur 14 van
+  Forti e.a. dat nu land is (18 788 km²). **Tijd:** alleen de tijd van Abraham. Voor de tijd van Daniël en Ezra
+  (zesde en vijfde eeuw v.Chr.) is er geen bruikbare tekening; de kust lag toen waarschijnlijk al zuidelijker.
+- **Hoe de omtrek is overgenomen** (niet op het oog): het script haalt de figuur (875 × 623 px) uit de PDF, zoekt
+  in het kader de graadstreepjes (46°30′ en 48°00′ O, 31°54′ en 30°48′ N; 210,7 px per graad in beide richtingen,
+  dus een platte kaart in graden), neemt alle lichtblauwe pixels, dicht de letters in het blauw en zet de rand om
+  naar graden. Controle: de rode stippen van Ur en Uruk in de figuur komen 0,4 en 0,6 km van hun bekende plek uit.
+  Eén pixel is 0,53 km; de lijn is vereenvoudigd met 0,006°.
+- **Grenzen van de bron:** de figuur houdt op bij 49,1° O en 29,7° N. Waar het vlak die rand raakt (kort, in het
+  oosten), heeft het geen oever. Het losse stuk op het eiland Bubiyan, dat door de onderrand wordt afgesneden, is
+  weggelaten.
+- **Niet gebruikt:** het vlak „late open water” van AWMC bij de kop van de Golf. Het geldt voor de late oudheid en
+  de gegevens zeggen niet waarop het berust.
+- **Gevolg:** de plaats „Eden?” ligt in de stand Toen in het onzekere water (zie de controle hieronder).
+
+### 5. De Nijldelta
+
+- **Getekend** (gestreept): vijf oude armen uit AWMC (Barrington Atlas kaart 74, elk met een Pleiades-nummer):
+  de Pelusische (727189), Tanitische (727240), Mendesische (727158), Sebennytische (727225) en Kanopische (727138)
+  arm. De armen van Rosetta en Damiate staan al in `geo.json`.
+- **Tijd:** de Griekse en Romeinse tijd (de „zeven mondingen”). De Pelusische arm bestond ook al in de tijd van
+  Ramses: Pi-Ramesse (Qantir) lag eraan, en de lijn loopt op de kaart langs Raämses naar Pelusium. Hoe de armen in
+  de tijd van Jozef en Mozes precies liepen, is niet bekend; vandaar de streepjes.
+- **Niet getekend:** de kust en de lagunes van de delta in de oudheid. AWMC heeft daar alleen de vorm van nu
+  (uit OpenStreetMap), en een betrouwbare tekening voor de Bijbelse tijd is niet gevonden.
+- **Niet geverifieerd:** de bewering dat de Pelusische arm rond 1060 v.Chr. bij Pi-Ramesse begon te verzanden,
+  komt uit een zoekresultaat (Wikipedia, „Pi-Ramesses”) en is niet in de vakliteratuur nagekeken. Ze staat nergens
+  op de kaart.
+
+### 6. De Bittermeren en het Suezkanaal
+
+- **Feiten:** vóór de aanleg van het Suezkanaal (geopend in 1869) was het Grote Bittermeer een droge zoutlaagte
+  (Wikipedia, „Great Bitter Lake”, met verwijzing naar NASA Earth Observatory 2009,
+  <https://en.wikipedia.org/wiki/Great_Bitter_Lake>, 15-11-2026). In de oudheid lag er een meer of moeras: een
+  kanaal van de Nijl naar de Bittermeren bestond vanaf ongeveer 600 v.Chr. en werd rond 100 n.Chr. hersteld (Stiros
+  2007, *Méditerranée* 108, <https://doi.org/10.4000/mediterranee.162>, 15-11-2026). Of en hoe ver er water stond in
+  de tijd van de uittocht, is niet vastgesteld.
+- **Als onzeker getekend** met de omtrek van nu uit `geo.json` (Natural Earth). In de stand Nu staat het meer er
+  gewoon. Het Suezkanaal zat niet in de ondergrond en is niet getekend.
+
+### 7. Dichtgeslibde havens: Efeze, Milete, de Thermaïsche Golf en de Tiber
+
+Methode voor alle vier, in een venster per baai: *zee volgens AWMC in de Romeinse tijd* (de zee die AWMC voor alle
+perioden tekent, plus de vlakken „roman open water” en de Golf van Latmus met het Bafameer) **doorsneden met** *land
+volgens Natural Earth nu*. Verschillen smaller dan ongeveer 600 m (twee keer 0,003°) en vlakken kleiner dan 2 km²
+vervallen: dat is tekenverschil tussen de twee kustlijnen, geen oude baai.
+
+| baai | was zee, is nu land | tijd | achtergrond |
+|---|---|---|---|
+| **Haven van Efeze** | 33 km² | eerste eeuw n.Chr. (Paulus) | De delta van de Kaystros (Küçük Menderes) schoof op; de stad moest haar haven meermalen naar het westen verleggen. Stock e.a. 2016, *Earth Surface Processes and Landforms*, <https://doi.org/10.1002/esp.3914> (alleen de samenvatting gezien). |
+| **Golf van Latmus (Milete)** | 207 km² | eerste eeuw n.Chr. | De Meander (Büyük Menderes) vulde de golf; het Bafameer is het overblijfsel. Vanaf de middeleeuwen had Milete geen toegang meer tot de zee. Opgraving Milete, Universiteit Hamburg, <https://www.miletgrabung.uni-hamburg.de/en/milet/milet-landschaft.html>, 15-11-2026. |
+| **Thermaïsche Golf** | 99 km² | Romeinse tijd | De delta van Axios en Haliakmon groeide. Daarnaast het **Meer van Loudias** (AWMC „Loudias L.”, Pleiades 491654, 153 km²), bij Pella; drooggelegd in 1928–1932. Ghilardi e.a., EGU 2008, <https://meetings.copernicus.org/www.cosis.net/abstracts/EGU2008/07503/EGU2008-A-07503.pdf>: Pella lag in de Griekse tijd aan een groot meer en was sinds de Romeinse tijd van het water afgesloten. |
+| **Monding van de Tiber** | 41 km² | Romeinse tijd | Ostia ligt nu 4 km van de kust (Salomon e.a. 2018, *Earth-Science Reviews* 177, 265–283; alleen via een zoekresultaat gezien). |
+
+- **Getekend** als zee met een gestreepte oever. Milete ligt in de stand Toen weer op een landtong aan de golf;
+  bij Efeze reikt de baai tot ongeveer 1,5 km van het punt van de stad.
+- **Tijd:** de kust van de Romeinse tijd. Eerder in de Bijbelse tijd reikten deze baaien verder landinwaarts (AWMC
+  heeft grotere vlakken voor de archaïsche en klassieke tijd). Die zijn niet getekend: de reizen op de kaart die
+  hier komen, zijn die van Paulus.
+- **Zekerheid:** reconstructies uit de Barrington Atlas, die op boringen en opgravingen steunen; de oever kan
+  honderden meters tot een kilometer afwijken.
+- **Kanttekening Thessaloniki:** in het oosten van het venster, bij de stad zelf, komt een deel van het verschil
+  niet door verlanding maar doordat de kustlijn van Natural Earth daar grof is. Het is ook nu water. Thessalonica
+  zelf ligt in beide standen op land.
+- **Niet getekend:** de Thermaïsche Golf van de klassieke tijd (tot bij Pella) en het eiland Tyrus van vóór
+  Alexander de Grote (kleiner dan de kustlijn van `geo.json` kan tonen).
+
+### 8. De loop van de Jordaan en van de Eufraat
+
+- **Jordaan:** alleen de bovenloop is anders getekend (door het Hulameer, zie 2). Ten zuiden van het Meer van
+  Galilea is de lijn dezelfde als in de stand Nu; het stuk dat in `geo.json` als hartlijn door de Dode Zee loopt,
+  is in de stand Toen weggelaten. Dat de Jordaan nu veel minder water voert, is op de kaart niet te zien.
+- **Eufraat:** **niet anders getekend, alleen hier uitgelegd.** Ur lag aan een arm van de Eufraat in een delta met
+  veel geulen (Forti e.a. 2022); de rivier loopt nu kilometers verderop. Een bruikbaar bestand met de rivierlopen
+  van het tweede millennium v.Chr. is niet gevonden, en AWMC geeft voor Zuid-Mesopotamië de lopen van de klassieke
+  oudheid met vraagtekens. De rivierlijnen van `geo.json` lopen in de stand Toen daarom ook door het onzekere water.
+
+## Controle van plaatsen en routes
+
+`python3 -I scripts/bijbelreis-toen.py --alleen-controle` legt alle 308 plaatsen, 198 tussenpunten, de andere
+mogelijke plekken (`alt`) en alle 374 routes (bemonsterd per 250 m) tegen het water van toen en van nu. Het script
+verplaatst niets. Uitkomst op 15-11-2026:
+
+**Geen enkele plaats komt door deze wijziging in zee of in een meer te liggen.** Vier punten liggen in een vlak
+van toen of veranderen van stand:
+
+| punt | nu | toen | opmerking |
+|---|---|---|---|
+| plaats **Eden?** (`eden`, [31.05, 47.5]) | land | onzeker water (kop van de Perzische Golf) | Het punt is zelf al een gok bij de samenvloeiing van Tigris en Eufraat. Ter beoordeling: laten staan, of in de tekst noemen dat hier toen misschien zee was. |
+| tussenpunt `siddim` ([31.2, 35.45]) | meer (verdampingsbekkens) | onzeker water (zuidelijk bekken) | Past bij Genesis 14:3 („het dal Siddim, dat is de Zoutzee”). |
+| andere mogelijke plek van de **Schelfzee** ([30.3383, 32.3778]) | meer | onzeker water (Bittermeren) | Zo bedoeld. |
+| tussenpunt `br_ostia` ([41.74, 12.23]) | zee | zee (monding van de Tiber) | Geen verandering. |
+
+72 andere punten lagen al in het water en liggen daar nog (kustplaatsen op de grove kustlijn van `geo.json`, zoals
+Caesarea, Pafos en Attalia; tussenpunten van zeereizen; plaatsen van de soort water). Dat komt niet door deze
+wijziging.
+
+**Routes ter beoordeling door de integrator** (46 routes raken een vlak; de volledige lijst geeft het script):
+
+- **Hulameer, 2,3 km – 26 routes** over de grote weg Hazor–Damascus (onder meer `genesis:abraham:1:0`,
+  `genesis:jakob:1:0`, `2koningen:ballingschap:*`, `jona:jona:4:0`, `ezra:*`, `daniel:daniel:1:0`,
+  `jezus-2:nt-brood-en-berg:4:0`). De rechte lijn snijdt de zuidpunt van het meer. De weg stak de Jordaan even ten
+  zuiden van het meer over; een tussenpunt daar lost het op.
+- **Dode Zee, noordelijk bekken, 6–19 km:** `1samuel:saul-david:6:1` en `7:0` (bij En-Gedi), `genesis:abraham:6:0`,
+  `9:0` en `9:1` (de veldtocht van de koningen). Deze lijnen liepen ook al langs of door het meer van nu.
+- **Dode Zee, zuidelijk bekken (onzeker), 5–7 km:** `genesis:abraham:16:0` (Sodom–Zoar) en `genesis:abraham:9:0`.
+- **Bittermeren (onzeker), 1,5–4,5 km:** `exodus:mozes:2:0`, `6:0` en `exodus:uittocht:4:0`, `4:1`. Onveranderd ten
+  opzichte van het meer van nu.
+- **Golf van Latmus, 4,8 km over water:** `handelingen:nt-paulus3:9:0`, de landreis van de ouderlingen van Efeze
+  naar Milete. In de Romeinse tijd liep de weg om de golf heen, of men stak over per boot.
+- **Zeereizen naar Efeze en Milete** lopen in de stand Toen korter over land: Milete 12,9 → 6,1 km
+  (`nt-paulus3:8:2`), Efeze 6–18 → 5–16 km. Het laatste stuk naar Efeze loopt nog over land, omdat de lijn recht
+  uit het westen komt en de baai ten noordwesten van de stad ligt.
+- **Brieven:** `brieven:brieven:0:0` loopt door de monding van de Tiber en verder 38,6 km over land naar Rome.
+- **Alleen in de stand Nu:** 12 routes langs de Eufraat lopen 9–16 km door het Meer van Habbaniyah. Dat was al zo.
+
+Geen route loopt door een van de zeven nieuwe stuwmeren en geen landroute loopt door de kop van de Perzische Golf.
+
+## Wat de integrator nog moet doen
+
+1. `scripts/postbuild.mjs`, regel 92: `"toen.json"` toevoegen aan de lijst met gegevensbestanden, zodat het bestand
+   een versienummer in de URL krijgt. (Buiten de grenzen van deze opdracht gelaten.)
+2. De twee teksten voor het colofon hierboven plaatsen.
+3. De referentiebeelden bijwerken: de Dode Zee, het Hulameer en de kusten bij Efeze en Milete zien er in de stand
+   Toen anders uit.
+4. De routes hierboven beoordelen.
+5. Het reliëf is niet opnieuw gemaakt. Het masker van het reliëf volgt `geo.json`; de vlakken van toen liggen er
+   in een hogere laag overheen, dus dat is niet nodig.
+
+## Reproduceren
+
+```sh
+python3 -I scripts/bijbelreis-toen.py --cache /pad/buiten/de/repo              # maakt toen.json
+python3 -I scripts/bijbelreis-toen.py --cache ... --controle                   # en legt plaatsen en routes ertegen
+python3 -I scripts/bijbelreis-toen.py --alleen-controle                        # alleen de controle
+```
+
+Vereist: Python 3.10+, numpy, Pillow en shapely 2; voor de controle ook node. De eerste run haalt 20 MB (AWMC),
+2,3 MB (Forti e.a.) en 5 MB (Natural Earth) op. Shapefiles en de figuur uit de PDF leest het script zelf, zonder
+extra pakketten. Wordt `geo.json` opnieuw gemaakt, draai dit script dan ook opnieuw: de baaien, de Bittermeren en
+de Jordaan hangen ervan af. Vensters, drempels en namen staan bovenin het script.

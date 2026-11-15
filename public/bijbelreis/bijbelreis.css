@@ -501,6 +501,15 @@ details.parents dd { margin: 0; }
 .lake { fill: var(--zee); fill-opacity: 1; stroke: var(--kust); stroke-width: 0.9; }
 .river { stroke: var(--rivier); stroke-width: 1.6; stroke-opacity: 0.9; fill: none; stroke-linecap: round; }
 .river.klein { stroke-width: 1; stroke-opacity: 0.75; }
+/* Toen en nu (toen.json): het landschap van de Bijbelse tijd tegenover dat van vandaag. Een gestreepte oever is een
+   reconstructie; vaag water met een stippellijn is onzeker (misschien stond er water). */
+#map:not(.nu) .alleen-nu, #map.nu .alleen-toen, #map.nu .region.toen { display: none; }
+.toen-zee { fill: var(--zee); fill-opacity: 1; stroke: none; }
+.toen-meer, .toen-oever, .toen-rivier { stroke-dasharray: 5 4; }
+.toen-oever { fill: none; stroke: var(--kust); stroke-width: 1.1; }
+.toen-onzeker { fill: var(--zee); fill-opacity: 0.55; stroke: none; }
+.toen-rand { fill: none; stroke: var(--kust); stroke-width: 1.3; stroke-dasharray: 0.1 4; stroke-linecap: round; }
+.toen-rivier { stroke-width: 1.3; }
 .rg-woestijn { fill: var(--zand); fill-opacity: 0.38; stroke: none; }
 .rg-berg { fill: var(--berg); fill-opacity: 0.1; stroke: none; }
 .rg-vruchtbaar { fill: var(--groen); fill-opacity: 0.55; stroke: none; }
@@ -622,6 +631,9 @@ details.parents dd { margin: 0; }
 .legend .area { width: 26px; height: 16px; }
 .legend .altpin { width: 10px; height: 10px; margin-left: 4px; }
 .legend .lg-nu { margin: 4px 0 0; color: var(--fg-3); }
+.legend .lg-toen { flex-direction: column; align-items: stretch; gap: 5px; }
+.legend .oever { width: 26px; height: 12px; flex: none; background: var(--zee); border: 1.5px dashed var(--kust); border-radius: 5px; box-sizing: border-box; }
+.legend .oever.vaag { background: color-mix(in srgb, var(--zee) 55%, var(--land)); border-style: dotted; }
 .legend .waar { display: flex; flex-direction: column; align-items: stretch; gap: 6px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--lijn); }
 .legend .waar .linkbtn { align-self: flex-start; font-size: 0.86rem; }
 .inset { background: var(--papier); border-radius: var(--r-klein); padding: 8px; }

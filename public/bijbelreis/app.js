@@ -140,6 +140,8 @@
     { t: "Achaje", ll: [37.6, 22.0], z: [4.75, 7.5], k: "land", tijd: "nt" }, { t: "Italië", ll: [41.2, 15.2], z: [4, 7], k: "land", tijd: "nt" },
     { t: "Kreta", ll: [35.25, 24.6], z: [5, 8], k: "land", tijd: "nt" }, { t: "Cyprus", ll: [35.1, 33.15], z: [5, 8], k: "land", tijd: "nt" },
     { t: "Adria", ll: [38.0, 18.6], z: [4, 7], k: "sea", tijd: "nt" },
+    // Alleen in de stand Toen (toen.json): een meer dat er nu niet meer is, en een kust die niet zeker is.
+    { t: "Hulameer", ll: [33.07, 35.72], z: [9.5, 12], k: "sea toen" }, { t: "zee rond 2000 v.Chr.?", ll: [30.85, 47.75], z: [6, 9], k: "sea toen" },
   ];
 
   const lyRoutes = L.layerGroup().addTo(map), lyPlaces = L.layerGroup().addTo(map), lyKings = L.layerGroup();
@@ -154,12 +156,30 @@
     L.geoJSON(geo.land, { ...base, className: "landglow" }).addTo(map);
     L.geoJSON(geo.land, { ...base, className: "land" }).addTo(map);
     geo.regions.forEach((f) => L.geoJSON(f, { ...base, className: "rg-" + f.properties.k }).addTo(map));
-    geo.lakes.forEach((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "lake" }).addTo(map));
-    geo.rivers.forEach((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "river" }).addTo(map));
+    const meerLagen = geo.lakes.map((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "lake" }).addTo(map));
+    const rivierLagen = geo.rivers.map((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "river" }).addTo(map));
     KLEINE_RIVIEREN.forEach((r) => L.polyline(r.p, { pane: "water", className: "river klein", interactive: false }).addTo(map));
     insetGeo = geo;
     geoReady = true;
     drawInset();
+    drawToen(geo, meerLagen, rivierLagen);
+  }
+  // Het landschap van toen (toen.json): wat in de Bijbelse tijd anders was dan nu. geo.json is het landschap van vandaag.
+  // In de stand Toen staan de dichtgeslibde baaien, de verdwenen meren en de oude Nijlarmen op de kaart en zijn de
+  // meren en stuwmeren weg die er toen niet (zo) waren; in de stand Nu is het omgekeerd. De klassen alleen-toen en
+  // alleen-nu regelen dat in bijbelreis.css. Laadt het bestand niet, dan toont de kaart in beide standen het landschap van nu.
+  function drawToen(geo, meerLagen, rivierLagen) {
+    fetch(dataUrl("toen.json")).then((r) => (r.ok ? r.json() : null)).then((t) => {
+      if (!t) return;
+      const teken = (lijst, cls, onder) => (lijst || []).forEach((f) => { const l = L.geoJSON(f, { pane: "water", interactive: false, className: cls }).addTo(map); if (onder) l.bringToBack(); });
+      // Vlakken onder de meren en rivieren van geo.json; oevers en oude rivierarmen erbovenop.
+      teken(t.onzeker, "alleen-toen toen-onzeker", true); teken(t.meren, "lake alleen-toen toen-meer", true); teken(t.zee, "alleen-toen toen-zee", true);
+      teken(t.nu, "lake alleen-nu", true);
+      teken(t.kust, "alleen-toen toen-oever"); teken(t.rand, "alleen-toen toen-rand"); teken((t.rivieren || []).filter((f) => f.properties.vast), "river alleen-toen"); teken((t.rivieren || []).filter((f) => !f.properties.vast), "river alleen-toen toen-rivier");
+      const alleenNu = (namen, features, lagen) => { const weg = new Set(namen || []); features.forEach((f, i) => { if (weg.has(f.properties.n)) lagen[i].eachLayer((l) => { const el = l.getElement(); if (el) el.classList.add("alleen-nu"); }); }); };
+      alleenNu(t.weg, geo.lakes, meerLagen); alleenNu(t.wegRivier, geo.rivers, rivierLagen);
+      map.getContainer().classList.add("toen-geladen");
+    }).catch(() => {});
   }
   // Reliëf (schaduw van bergen en dalen) en moderne grenzen zijn aanvullingen: als ze niet laden, werkt de kaart gewoon.
   fetch(dataUrl("relief.json")).then((r) => (r.ok ? r.json() : null)).then((rel) => {
@@ -1730,7 +1750,7 @@
   // ---------- kaartbediening: toen/nu, legenda, grote kaart, twee vingers op een telefoon ----------
   function setNu(on) {
     $("nuBtn").setAttribute("aria-pressed", on); $("toenBtn").setAttribute("aria-pressed", !on);
-    $("lgNu").hidden = !on;
+    $("lgNu").hidden = !on; $("lgToen").hidden = on;
     map.getContainer().classList.toggle("nu", on);
     if (on) loadModern().then(() => map.addLayer(lyModern)); else map.removeLayer(lyModern);
     queueLabels();
