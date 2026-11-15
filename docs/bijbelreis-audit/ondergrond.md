@@ -132,6 +132,14 @@ De `.landglow`-rand en de zeekleur blijven ongemoeid, omdat zee en meren transpa
 
 ## grenzen.json
 
+> **Bijgewerkt op 15-11-2026.** `grenzen.json` volgt sindsdien één vaste maatstaf: het standpunt van Nederland
+> (`FCLASS_NL` in Natural Earth; een landnaam alleen voor staten die Nederland erkent). De lijnsoorten zijn `grens`,
+> `onbepaald`, `bestandslijn` en `betwist` (`overlay` staat niet meer in het bestand), de punten hebben `soort: "land"` of
+> `soort: "gebied"` en een rij `ankers`, en ‘Palestijnse gebieden’ en ‘Noord-Cyprus’ zijn geen landnaam meer. De actuele
+> beschrijving, de maatstaf met bronnen en de aantallen staan in
+> [`docs/bijbelreis-vandaag/README.md`](../bijbelreis-vandaag/README.md). De tekst hieronder beschrijft de eerste versie
+> van 25-10-2026 en blijft staan als verantwoording van de bron en de vereenvoudiging.
+
 Het bestand is één FeatureCollection, de projectie is WGS84. Het is uitgesneden op de maxBounds, vereenvoudigd met
 Douglas-Peucker 0,01° en afgerond op 3 decimalen. Lijnstukken van dezelfde soort zijn samengevoegd.
 

@@ -564,8 +564,55 @@ details.parents dd { margin: 0; }
 .pl.stil { visibility: hidden; }
 .lab.off, .lab.clash, .region.off, .region.clash, .peak.off, .peak.clash { display: none; }
 .nu .region.land { opacity: 0.35; }
-.border { stroke: var(--inkt-2); stroke-width: 1.3; stroke-dasharray: 5 3 1 3; stroke-opacity: 0.55; fill: none; }
-.country { position: absolute; transform: translate(-50%, -50%); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--inkt-2); background: color-mix(in srgb, var(--wit) 70%, transparent); padding: 1px 6px; border-radius: 5px; white-space: nowrap; pointer-events: none; }
+/* Stand ‘Nu’: landsgrenzen met een zachte band (zoals in een schoolatlas), landnamen in kapitalen, gebieden schuin.
+   Een eigen, ingetogen pruimkleur: niet de inktkleur van de Bijbelse plaatsen en niet het terracotta van de routes. */
+#map { --nu-lijn: #6d4f66; --nu-naam: #57384f; --nu-band: #a98aa3; }
+.border { stroke: var(--nu-lijn); stroke-width: 1.5; stroke-opacity: 0.9; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+.border.band { stroke: var(--nu-band); stroke-width: 7; stroke-opacity: 0.3; }
+.border.omstreden { stroke-width: 2.4; stroke-dasharray: 0.1 5.4; stroke-opacity: 0.95; }
+.border.fijn { display: none; }
+.z-fijn .border.fijn { display: inline; stroke-width: 1.1; }
+.z-ver .border { stroke-width: 1.2; } .z-ver .border.band { stroke-width: 5; } .z-ver .border.omstreden { stroke-width: 2; stroke-dasharray: 0.1 4.4; }
+.z-dicht .border { stroke-width: 1.8; } .z-dicht .border.band { stroke-width: 10; } .z-dicht .border.omstreden { stroke-width: 2.8; stroke-dasharray: 0.1 6.4; }
+.country, .gebied { position: absolute; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; color: var(--nu-naam); text-shadow: 0 0 2px var(--halo), 0 0 3px var(--halo), 0 0 4px var(--halo), 0 0 1px var(--halo); }
+.country { font-family: var(--font-sans); font-weight: 650; font-size: 13px; line-height: 1; letter-spacing: 0.2em; text-indent: 0.2em; text-transform: uppercase; }
+.country.groot { font-size: 15.5px; letter-spacing: 0.26em; text-indent: 0.26em; }
+.z-ver .country { font-size: 11.5px; letter-spacing: 0.14em; text-indent: 0.14em; } .z-ver .country.groot { font-size: 14px; letter-spacing: 0.22em; text-indent: 0.22em; }
+.z-dicht .country { font-size: 15.5px; letter-spacing: 0.26em; text-indent: 0.26em; } .z-dicht .country.groot { font-size: 17.5px; letter-spacing: 0.3em; text-indent: 0.3em; }
+.gebied { width: min-content; white-space: normal; text-align: center; font-family: var(--font-sans); font-style: italic; font-weight: 600; font-size: 12.5px; line-height: 1.15; letter-spacing: 0.04em; }
+.z-dicht .gebied { font-size: 13.5px; }
+.country.clash, .gebied.off, .gebied.clash { display: none; }
+.quizmode .country, .quizmode .gebied { display: none; }
+/* Laag ‘Vandaag’: een nachtblauw bordje boven de plek (geen stip), met de naam van nu ernaast. */
+.vd-bord { position: absolute; left: -12px; top: -31px; width: 24px; height: 31px; cursor: pointer; filter: drop-shadow(0 1px 2px rgba(31, 36, 48, 0.4)); }
+.vd-bord svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.vd-bord .b { fill: var(--nacht); stroke: var(--wit); stroke-width: 1.5; stroke-linejoin: round; }
+.vd-bord .w { fill: var(--wit); }
+.vd-bord .s { fill: none; stroke: var(--nacht); stroke-width: 1.6; stroke-linecap: round; }
+.vd-bord.klein { position: static; flex: none; width: 18px; height: 23px; filter: none; cursor: inherit; }
+.vd-lab { position: absolute; left: 15px; top: -28px; white-space: nowrap; font-weight: 650; font-size: 12.5px; line-height: 1; color: var(--nacht); background: color-mix(in srgb, var(--wit) 88%, transparent); padding: 3px 6px; border-radius: 6px; box-shadow: 0 0 0 1px color-mix(in srgb, var(--nacht) 22%, transparent); pointer-events: none; }
+.vd-lab.links { left: auto; right: 15px; }
+.vd-lab.off, .vd-lab.clash { display: none; }
+.leaflet-marker-icon.vandaag:focus-visible > .vd-bord { outline: 3px solid var(--oker); outline-offset: 2px; border-radius: 7px; }
+.leaflet-marker-icon.vandaag:hover .vd-bord .b, .leaflet-marker-icon.vandaag:focus-visible .vd-bord .b { fill: var(--nacht-2); }
+.quizmode .vandaag { visibility: hidden; }
+.leaflet-marker-icon.vandaag.dicht { display: none; }
+.leaflet-popup .vdpop { font-size: 14px; line-height: 1.4; max-height: max(180px, min(calc(100vh - 390px), 500px)); overflow-y: auto; padding-right: 4px; }
+.leaflet-popup .vdpop:focus-visible { outline: 2px solid var(--oker); outline-offset: 4px; }
+.vd-blad { display: flex; flex-direction: column; gap: 6px; }
+.vd-blad p { margin: 0; } .vd-blad .label { margin-top: 6px; } .vd-blad .btn.small { align-self: flex-start; margin-top: 4px; }
+.vd-blad .st { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--fg-3); }
+.vdpop .vd-waar { margin: 0 0 2px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--nacht); }
+.vdpop .vd-lees { margin-top: 8px; font-size: 0.9rem; color: var(--fg-2); }
+.vdpop .st a { color: inherit; }
+.vd-peil { margin: 0; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--fg-3); }
+.vd-neutraal { margin: 0; padding: 10px 12px; border-left: 3px solid var(--nacht); background: var(--nacht-zacht); border-radius: 0 var(--r-klein) var(--r-klein) 0; font-size: 0.92rem; }
+.legend .lg-nublok { flex-direction: column; align-items: stretch; gap: 5px; }
+.legend .sw.grens { border-top: 2px solid #6d4f66; box-shadow: 0 0 0 3px rgba(169, 138, 163, 0.3); }
+.legend .sw.omstreden { border-top: 3px dotted #6d4f66; }
+.legend .lg-gebied { flex: none; width: 26px; text-align: center; font-style: italic; font-weight: 600; font-size: 10.5px; color: #57384f; }
+.legend .lg-vandaag .linkbtn { font-size: inherit; }
+body[data-niveau="a"] #vandaagBtn, body[data-niveau="a"] #vandaagLijstBtn, body[data-niveau="a"] .leaflet-marker-icon.vandaag { display: none !important; }
 /* Historische streken: rustig, ze mogen niet alle aandacht vragen. */
 .region { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: color-mix(in srgb, var(--inkt-3) 85%, transparent); white-space: nowrap; transform: translate(-50%, -50%); position: absolute; pointer-events: none; text-shadow: 0 0 3px var(--halo), 0 0 3px var(--halo); }
 .region.sea { font-family: var(--font-serif); font-style: italic; text-transform: none; letter-spacing: 0.06em; font-size: 15px; color: #2f5562; text-shadow: 0 0 3px var(--zee), 0 0 3px var(--zee); }
@@ -606,7 +653,7 @@ details.parents dd { margin: 0; }
 .leaflet-marker-icon.pl:focus-visible > :first-child { outline: 3px solid var(--oker); outline-offset: 3px; border-radius: 50%; }
 
 /* ===== Kaartbediening ===== */
-.maptools { position: absolute; z-index: 800; right: max(10px, env(safe-area-inset-right, 0px)); top: 10px; display: flex; align-items: center; gap: 6px; }
+.maptools { position: absolute; z-index: 800; right: max(10px, env(safe-area-inset-right, 0px)); top: 10px; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 6px; max-width: calc(100% - 76px); }
 .mapacties { position: absolute; z-index: 800; right: max(10px, env(safe-area-inset-right, 0px)); bottom: 12px; display: flex; gap: 6px; align-items: flex-end; }
 .mbtn { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; border: 0; border-radius: var(--r); background: var(--wit); color: var(--fg); font-weight: 620; font-size: 0.86rem; cursor: pointer; box-shadow: var(--schaduw-kaart); white-space: nowrap; }
 .mbtn svg { width: 18px; height: 18px; flex: none; }
