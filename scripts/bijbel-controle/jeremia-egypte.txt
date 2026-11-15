@@ -1,0 +1,149 @@
+# Controle voor het deel ‘jeremia-egypte’ in public/bijbelreis/inhoud/profeten.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+Jeremia 41:11 | Johanan, de zoon van Kareah, en al de oversten der heiren
+Jeremia 41:16 | het ganse overblijfsel des volks, dat hij wedergebracht had van Ismael
+Jeremia 42:1 | Johanan, de zoon van Kareah
+Jeremia 42:2 | bid voor ons tot den HEERE, uw God
+Jeremia 42:6 | wij zullen der stem des HEEREN, onzes Gods.*gehoorzaam zijn
+Jeremia 43:2 | Johanan, de zoon van Kareah.*Gij spreekt leugen
+Jeremia 43:5 | Johanan.*namen het ganse overblijfsel van Juda
+Jeremia 40:8 | Ismael, de zoon van Nethanja, en Johanan
+Jeremia 40:7 | oversten der heiren
+Jeremia 40:14 | Baalis, de koning der kinderen Ammons, Ismael.*uitgezonden
+Jeremia 41:1 | van koninklijken zade
+Jeremia 41:2 | sloegen Gedalia
+Jeremia 41:15 | met acht mannen
+Genesis 16:15 | Ismael
+Jeremia 36:4 | Baruch, den zoon van Nerija; en Baruch schreef uit den mond van Jeremia alle woorden des HEEREN
+Jeremia 43:3 | Baruch, de zoon van Nerija, hitst u tegen ons op
+Jeremia 43:6 | Baruch, den zoon van Nerija
+# --- Deel: datering, intro, stat en verwijzingen ---
+Jeremia 41:1 | in de zevende maand
+Jeremia 44:30 | Farao Hofra, den koning van Egypte
+Jeremia 40:6 | kwam Jeremia tot Gedalia.*te Mizpa.*woonde bij hem
+Jeremia 40:16 | gij spreekt vals van Ismael
+Jeremia 42:7 | ten einde van tien dagen
+Jeremia 42:10 | in dit land zult blijven wonen
+Jeremia 43:7 | togen in Egypteland
+2 Koningen 25:25 | Ismael.*sloegen Gedalia, dat hij stierf
+2 Koningen 25:26 | al het volk.*kwamen in Egypte; want zij vreesden voor de Chaldeen
+Deuteronomium 17:15 | koning
+Deuteronomium 17:16 | het volk niet doen wederkeren naar Egypte.*Gij zult voortaan niet wederkeren door dezen weg
+Jeremia 24:1 | twee vijgenkorven.*nadat Nebukadnezar.*weggevoerd Jechonia
+Jeremia 24:8 | boze vijgen.*die in Egypteland wonen
+Jeremia 7:17 | straten van Jeruzalem
+Jeremia 7:18 | de vrouwen kneden het deeg, om gebeelde koeken te maken voor de Melecheth des hemels
+Jeremia 46:13 | aankomst van Nebukadrezar.*om Egypteland te slaan
+Jeremia 46:14 | Migdol.*Nof en Tachpanhes
+Ezechiël 30:18 | En te Tachpanhes zal de dag verduisterd worden
+# --- Stap 1: Jeremia 41:1–3 ---
+Jeremia 41:1 | zevende maand.*Ismael, de zoon van Nethanja.*tien mannen.*Gedalia.*te Mizpa.*aten aldaar brood te zamen
+Jeremia 41:2 | maakte zich op, mitsgaders de tien mannen.*sloegen Gedalia.*met het zwaard.*dien de koning van Babel over het land gesteld had
+Jeremia 41:3 | sloeg Ismael al de Joden, die met hem.*te Mizpa waren, en de Chaldeen, de krijgslieden
+Jeremia 40:13 | Johanan, de zoon van Kareah
+Jeremia 40:14 | om u aan het leven te slaan.*Gedalia.*geloofde hen niet
+# --- Stap 2: Jeremia 41:4–9 ---
+Jeremia 41:4 | op den tweeden dag, nadat hij Gedalia gedood had, en niemand het wist
+Jeremia 41:5 | van Sichem, van Silo, en van Samaria, tachtig man, hebbende den baard afgeschoren, en de klederen gescheurd
+Jeremia 41:5 | spijsoffer en wierook waren in hun hand, om ten huize des HEEREN te brengen
+Jeremia 41:6 | ging uit van Mizpa hun tegemoet, al gaande en wenende.*Komt tot Gedalia, den zoon van Ahikam
+Jeremia 41:7 | in het midden der stad.*keelde.*wierp hen in het midden des kuils, hij en de mannen, die met hem waren
+Jeremia 41:8 | tien mannen.*Dood ons niet.*verborgen schatten in het veld, van tarwe, en gerst, en olie, en honig.*doodde ze niet
+Jeremia 41:9 | De kuil.*dien de koning Asa maakte vanwege Baesa, den koning Israels
+1 Koningen 15:17 | Baesa, de koning van Israel.*bouwde Rama
+1 Koningen 15:22 | stenen van Rama, en het hout daarvan.*de koning Asa bouwde daarmede Geba-benjamins, en Mizpa
+# --- Stap 3: Jeremia 41:10–15 ---
+Jeremia 41:10 | voerde het ganse overblijfsel des volks, dat te Mizpa was, gevankelijk.*des konings dochteren.*om over te gaan tot de kinderen Ammons
+Jeremia 41:11 | Johanan.*al de oversten der heiren.*al het kwaad hoorden, dat Ismael.*gedaan had
+Jeremia 41:12 | namen zij al de mannen.*om met Ismael.*te strijden.*vonden hem aan het grote water, dat bij Gibeon is
+Jeremia 41:13 | al het volk, dat met Ismael was, Johanan zag.*en al de oversten der heiren.*werden zij verblijd
+Jeremia 41:14 | wendde zich om.*gingen over tot Johanan
+Jeremia 41:15 | Ismael.*ontkwam.*met acht mannen, en hij toog tot de kinderen Ammons
+2 Samuël 2:12 | Abner.*met de knechten van Isboseth.*naar Gibeon
+2 Samuël 2:13 | Joab.*knechten van David.*bij den vijver van Gibeon.*deze aan deze zijde des vijvers, en die aan gene zijde
+# --- Stap 4: Jeremia 41:16–18 ---
+Jeremia 41:16 | Johanan.*al de oversten der heiren.*wedergebracht had van Ismael.*mannen, die krijgslieden waren, en de vrouwen, en kinderkens, en kamerlingen, die hij van Gibeon had wedergebracht
+Jeremia 41:17 | togen henen, en sloegen zich neder te Geruth-chimham, dat bij Bethlehem is, om voort te trekken, dat zij in Egypte kwamen
+Jeremia 41:18 | zij vreesden voor hunlieder aangezicht, omdat Ismael.*Gedalia.*geslagen had, dien de koning van Babel over het land gesteld had
+2 Samuël 19:37 | uw knecht Chimham
+2 Samuël 19:39 | Barzillai.*keerde hij weder naar zijn plaats
+2 Samuël 19:40 | Chimham toog met hem voort
+2 Samuël 19:32 | Barzillai nu was zeer oud
+# --- Stap 5: Jeremia 42:1–6 ---
+Jeremia 42:1 | alle oversten der heiren, Johanan, de zoon van Kareah, en Jezanja, de zoon van Hosaja, en al het volk, van den kleinste tot den grootste
+Jeremia 42:2 | tot den profeet Jeremia.*bid voor ons tot den HEERE, uw God, voor dit ganse overblijfsel; want wij zijn weinigen van velen overgelaten
+Jeremia 42:3 | bekend make den weg, dien wij zullen ingaan, en de zaak, die wij zullen doen
+Jeremia 42:4 | ik zal tot den HEERE, uw God, bidden.*ik zal u niet een woord onthouden
+Jeremia 42:5 | De HEERE zij tussen ons tot een waarachtig en gewis Getuige.*alzo zullen doen
+Jeremia 42:6 | Hetzij dan goed of kwaad, wij zullen der stem des HEEREN, onzes Gods, tot Welken wij u zenden, gehoorzaam zijn
+Jeremia 40:6 | in het midden des volks
+# --- Stap 6: Jeremia 42:7–22 ---
+Jeremia 42:7 | ten einde van tien dagen, dat des HEEREN woord tot Jeremia geschiedde
+Jeremia 42:8 | riep hij Johanan.*alle oversten der heiren.*al het volk
+Jeremia 42:10 | in dit land zult blijven wonen, zo zal Ik u bouwen en niet afbreken, en u planten en niet uitrukken
+Jeremia 42:11 | Vreest niet voor het aangezicht des konings van Babel.*want Ik zal met u zijn
+Jeremia 42:14 | Egypteland, alwaar wij geen krijg zullen zien.*noch naar brood hongeren
+Jeremia 42:16 | het zwaard, waar gij voor vreest, u aldaar in Egypteland zal achterhalen; en de honger.*gij zult aldaar sterven
+Jeremia 42:19 | De HEERE heeft tegen ulieden gesproken, gij overblijfsel van Juda! Gaat niet in Egypte
+Jeremia 42:21 | gij hebt niet gehoord naar de stem des HEEREN
+Jeremia 1:5 | profeet gesteld
+Jeremia 1:10 | om uit te rukken, en af te breken.*om te bouwen en te planten
+# --- Stap 7: Jeremia 43:1–7 ---
+Jeremia 43:1 | als Jeremia geeindigd had tot het ganse volk te spreken al de woorden des HEEREN
+Jeremia 43:2 | Azaria, de zoon van Hosaja, en Johanan, de zoon van Kareah, en al de trotse mannen.*Gij spreekt leugen; de HEERE, onze God, heeft u niet gezonden
+Jeremia 43:3 | Baruch, de zoon van Nerija, hitst u tegen ons op, opdat hij ons overgeve in de hand der Chaldeen
+Jeremia 43:4 | gehoorzaamde Johanan.*al de oversten der heiren, en al het volk, der stem des HEEREN niet
+Jeremia 43:5 | namen het ganse overblijfsel van Juda
+Jeremia 43:6 | De mannen, en de vrouwen, en de kinderkens, en des konings dochteren.*ook den profeet Jeremia, en Baruch
+Jeremia 43:7 | togen in Egypteland.*kwamen tot Tachpanhes
+Jeremia 36:4 | schreef uit den mond van Jeremia alle woorden des HEEREN.*op een rol des boeks
+Jeremia 36:32 | den schrijver Baruch
+Jeremia 45:1 | tot Baruch, den zoon van Nerija
+Jeremia 45:5 | Ik zal u uw ziel tot een buit geven, in alle plaatsen, waar gij zult henentrekken
+# --- Stap 8: Jeremia 43:8–13 ---
+Jeremia 43:8 | geschiedde des HEEREN woord tot Jeremia te Tachpanhes
+Jeremia 43:9 | Neem grote stenen in uw hand, en verberg ze in de klei.*bij de deur van Farao.?s huis te Tachpanhes is, voor de ogen der Joodse mannen
+Jeremia 43:10 | Nebukadrezar, den koning van Babel, Mijn knecht, halen, en Ik zal zijn troon zetten boven op deze stenen.*zijn schone tent daarover spannen
+Jeremia 43:11 | hij zal komen en Egypteland slaan
+Jeremia 43:12 | vuur aansteken in de huizen der goden van Egypte.*en hij zal Egypteland aantrekken, gelijk als een herder zijn kleed aantrekt
+Jeremia 43:13 | de opgerichte beelden van Beth-semes, hetwelk in Egypteland is, verbreken
+Jeremia 39:11 | Nebukadrezar
+# --- Stap 9: Jeremia 44:1–14 ---
+Jeremia 44:1 | aan al de Joden, die in Egypteland woonden, die te Migdol woonden, en te Tachpanhes, en te Nof, en in het land Pathros
+Jeremia 44:2 | Gij hebt gezien al het kwaad, dat Ik gebracht heb over Jeruzalem en over alle steden van Juda.*woestheid.*niemand woont daarin
+Jeremia 44:3 | gaande om te roken en andere goden te dienen
+Jeremia 44:4 | al Mijn knechten, de profeten.*Doet toch deze gruwelijke zaak niet, die Ik haat
+Jeremia 44:5 | Maar zij hebben niet gehoord
+Jeremia 44:8 | rokende anderen goden in het land van Egypte
+Jeremia 44:12 | door het zwaard en door den honger zullen zij sterven
+Jeremia 44:14 | om weder te keren in het land van Juda.*zij zullen er niet wederkeren, behalve die ontkomen zullen
+# --- Stap 10: Jeremia 44:15–30 ---
+Jeremia 44:15 | al de mannen, die wisten, dat hun vrouwen anderen goden rookten, en al de vrouwen.*een grote hoop.*al het volk, die in Egypteland, in Pathros, woonde
+Jeremia 44:16 | wij zullen naar u niet horen
+Jeremia 44:17 | rokende aan Melecheth des hemels, en haar drankofferen offerende.*wij en onze vaders.*in de steden van Juda.*toen werden wij met brood verzadigd
+Jeremia 44:18 | van toen af, dat wij opgehouden hebben.*hebben wij van alles gebrek gehad
+Jeremia 44:22 | daarom is uw land geworden tot een woestheid
+Jeremia 44:23 | Vanwege dat gij gerookt hebt.*des HEEREN stem niet gehoorzaam zijt geweest.*daarom is u dit kwaad wedervaren
+Jeremia 44:26 | Ik zweer bij Mijn groten Naam.*zo Mijn Naam met den mond van enig man van Juda in gans Egypteland meer zal genoemd worden
+Jeremia 44:28 | die van het zwaard ontkomen, zullen uit Egypteland wederkeren in het land van Juda, weinig in getal.*zullen weten, wiens woord bestaan zal, het Mijn of het hunne
+Jeremia 44:29 | dit zal ulieden het teken zijn
+Jeremia 44:30 | Ik zal Farao Hofra, den koning van Egypte, geven in de hand zijner vijanden.*gelijk als Ik Zedekia, den koning van Juda, gegeven heb in de hand van Nebukadrezar
+# --- Speurtocht ---
+Jeremia 41:2 | Gedalia
+Jeremia 41:12 | aan het grote water, dat bij Gibeon is
+Jeremia 42:3 | bekend make den weg
+Jeremia 42:7 | tien dagen
+Jeremia 42:10 | in dit land zult blijven wonen
+Jeremia 43:7 | kwamen tot Tachpanhes
+Jeremia 43:9 | grote stenen
+Jeremia 44:30 | Farao Hofra
+2 Koningen 23:29 | Farao Necho
+1 Koningen 14:25 | Sisak, de koning van Egypte
+Jeremia 13:1 | linnen gordel
+# --- Plaatsen (plaatsen.js) ---
+Jeremia 43:9 | Farao.?s huis te Tachpanhes
+Jeremia 44:1 | te Migdol woonden.*te Nof
+Genesis 41:45 | Asnath, de dochter van Potifera, overste van On, tot een vrouw
+Jeremia 43:13 | de opgerichte beelden van Beth-semes, hetwelk in Egypteland is
+Jeremia 44:15 | in Egypteland, in Pathros, woonde
+Jeremia 44:16 | wij zullen naar u niet horen

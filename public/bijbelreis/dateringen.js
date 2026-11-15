@@ -60,6 +60,7 @@ BR.dateringen = {
     "2kronieken:hizkia-josia": ["historie", false],
     //
     // [meer-reizen:jeremia-egypte] datering
+    "profeten:jeremia-egypte": ["historie", false],
     //
     // [meer-reizen:stammen] datering
     //
