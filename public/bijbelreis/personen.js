@@ -426,7 +426,7 @@ BR.mensen = {
   joab: { n: "Joab", m: "zeruja", boek: ["2samuel"], kort: "Zoon van Zeruja, legeroverste van David; dapper, maar hard en eigenzinnig.",
     dood: "1 Koningen 2:34", vervolg: [["1 Koningen 2:28–34", "Salomo laat hem doden om het bloed van Abner en Amasa."]],
     basis: { m: ["b", "2 Samuël 2:18"] } },
-  abisai: { n: "Abisaï", m: "zeruja", boek: ["1samuel"], kort: "Zoon van Zeruja en broer van Joab. Hij ging met David ’s nachts het legerkamp van Saul in en wilde Saul doden, maar David liet het niet toe.",
+  abisai: { n: "Abisaï", m: "zeruja", boek: ["1samuel", "2samuel"], kort: "Zoon van Zeruja en broer van Joab. Hij ging met David ’s nachts het legerkamp van Saul in en wilde Saul doden, maar David liet het niet toe.",
     elders: [["1 Samuël 26:6–9", "‘Wie heeft zijn hand aan den gezalfde des HEEREN gelegd, en is onschuldig gebleven?’"], ["2 Samuël 23:18", "Hij was een hoofd van drieën en versloeg driehonderd man."]],
     basis: { m: ["b", "2 Samuël 2:18"] } },
   abner: { n: "Abner", boek: ["2samuel"], kort: "Zoon van Ner en neef van Saul, legeroverste van Saul; Joab doodde hem in de poort van Hebron.",
@@ -1108,6 +1108,16 @@ BR.mensen = {
     basis: { v: ["b", "Jozua 15:16"], p: { othniel: ["b", "Jozua 15:17"] } } },
   //
   // [meer-reizen:davids-rijk] mensen
+  hadadezer: { n: "Hadadezer", boek: ["2samuel"], kort: "Zoon van Rehob, koning van Zoba. David versloeg hem en nam hem duizend wagens af. Hij liet de Syriërs van de overkant van de rivier naar Helam komen; ook zij werden verslagen.",
+    elders: [["1 Kronieken 18:3", "De Statenvertaling schrijft daar Hadar-ezer; David versloeg hem ‘naar Hamath toe’."], ["1 Koningen 11:23", "Rezon vluchtte weg van zijn heer Hadadezer en werd later een tegenstander van Salomo."]],
+    vervolg: [["2 Samuël 10:16–19", "Hij laat de Syriërs van de overkant van de rivier komen; bij Helam worden ze verslagen."]] },
+  thoi: { n: "Thoï", boek: ["2samuel"], kort: "Koning van Hamath. Hadadezer voerde steeds oorlog tegen hem. Toen David Hadadezer verslagen had, stuurde Thoï zijn zoon Joram met geschenken naar David.",
+    elders: [["1 Kronieken 18:9–10", "De Statenvertaling noemt hem daar Thou, en zijn zoon Hadoram."]] },
+  hanun: { n: "Hanun", boek: ["2samuel"], kort: "Zoon van Nahas, koning van de Ammonieten. David stuurde knechten om hem te troosten, maar Hanun liet hun baard half afscheren en hun kleren half afsnijden. Zo begon de oorlog met Ammon.",
+    elders: [["1 Kronieken 19:1–5", "Kronieken vertelt dezelfde geschiedenis."]],
+    vervolg: [["2 Samuël 12:26–29", "Joab en David nemen Rabba in, de koninklijke stad van de Ammonieten."]] },
+  sobach: { n: "Sobach", boek: ["2samuel"], kort: "Legeroverste van Hadadezer. Hij trok voor de Syriërs uit naar Helam en stierf daar in de strijd tegen David.",
+    dood: "2 Samuël 10:18", elders: [["1 Kronieken 19:16", "De Statenvertaling noemt hem daar Sofach."]] },
   //
   // [meer-reizen:brieven] mensen
   //
