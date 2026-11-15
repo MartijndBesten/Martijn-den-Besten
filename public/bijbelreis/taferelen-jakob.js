@@ -146,4 +146,6 @@ BR.taferelen = BR.taferelen || {};
         `<g ${K.op(178, 124, 1.5)}>${STAF(-5.5)}<path class="k-wit o2" d="M-3 0l.5-5h5l.5 5z"/><g class="tf-e-buig"><path class="k-wit o2" d="M-2.5-4.5l.5-4q2-1.5 4 0l.5 4z"/>${KOP}</g><path class="k-water2" d="M-2.5-5.5h5v1.5h-5z"/></g>` +
         `<g class="tf-e-kom-r tf-w9"><g ${K.op(187, 124, 1.5)}><path class="k-terra2 o2" d="${LIJF}"/><circle class="k-hout o2" cy="-11" r="2.2"/><path class="l-terra dik" d="M-1-7.5l-5.5-1"/></g></g>` },
   });
+  // Bouwstenen die ook andere reeksen gebruiken (taferelen-kerst.js): mensen als pictogram, sterren, en de hulpjes voor paden.
+  Object.assign(K, { mensen, vrouwen, sterren, cirkel, vorm, rij });
 })();

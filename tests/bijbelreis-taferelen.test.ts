@@ -33,7 +33,8 @@ const SOORTEN = ["stad", "berg", "water", "put", "kamp", "altaar", "tent", "gebi
 // Gewicht: de hele reeks samen (de tekenbestanden zoals ze geladen worden, zonder de koppelingen) en één tafereel.
 // De grens voor samen was 60 kB bij de eerste reeks (31 kB); met de tweede reeks van het Oude Testament (40 kB) is het
 // 72 kB, en er komt een reeks voor het Nieuwe Testament bij. Het is tekst die goed samenpakt (gzip: ongeveer een derde).
-const MAX_SAMEN = 130_000, MAX_TAFEREEL = 6_000;
+// Voor de reeks Kerst (taferelen-kerst.js, twintig taferelen, ongeveer 31 kB) is de grens van 130 naar 175 kB gegaan.
+const MAX_SAMEN = 175_000, MAX_TAFEREEL = 6_000;
 // De tweede reeks van het Oude Testament (taferelen-ot-2.js) en haar koppelingen (taferelen-koppeling-ot-2.js).
 const OT2 = ["kistje", "manna", "rots", "tabernakel", "slang", "jordaan", "twaalf-stenen", "gideon", "ruth-veld", "eikdal", "tempel", "karmel", "elia", "muur-puin", "muur-herbouw", "oven", "leeuwenkuil", "jona-storm", "jona-vis", "wonderboom"];
 const ot2: { window: { BR: { beelden: Record<string, Koppeling> } } } = { window: { BR: { beelden: {} } } };
@@ -58,6 +59,11 @@ const JAKOB = ["jabbok-mahanaim", "jabbok-boden", "jabbok-heiren", "jabbok-gebed
 const jk: { window: { BR: { beelden: Record<string, Koppeling> } } } = { window: { BR: { beelden: {} } } };
 runInNewContext(readFileSync(join(PUB, "bijbelreis", "taferelen-koppeling-jakob.js"), "utf8").replace(/\bBR\./g, "window.BR."), jk);
 const KOPPEL_JAKOB = jk.window.BR.beelden;
+// De reeks Kerst (taferelen-kerst.js, ids met voorvoegsel kerst-) en haar koppelingen (taferelen-koppeling-kerst.js) aan het boek kerst.
+const KERST = IDS.filter((id) => id.startsWith("kerst-"));
+const kr: { window: { BR: { beelden: Record<string, Koppeling> } } } = { window: { BR: { beelden: {} } } };
+runInNewContext(readFileSync(join(PUB, "bijbelreis", "taferelen-koppeling-kerst.js"), "utf8").replace(/\bBR\./g, "window.BR."), kr);
+const KOPPEL_KERST = kr.window.BR.beelden;
 
 // Bestaat de verwijzing in de Statenvertaling (data/statenvertaling, alleen voor controle)?
 const bijbel: Record<string, { hoofdstukken: Record<string, string[]> }> = {};
@@ -267,6 +273,58 @@ describe("taferelen: koppeling", () => {
     for (const id of JAKOB) expect(T[id].label, id).not.toMatch(/\b(?:tien|twintig|dertig|veertig|honderd|tweehonderd|vierhonderd)\b/i);
     // Zeven keer buigen (33:3).
     expect(css).toMatch(/\.tf-e-buig \{ animation: tf-buig [\d.]+s [a-z-]+ 7 both; \}/);
+  });
+  it("Kerst: elke koppeling hoort bij een bestaande Kerst-stap en een bestaand tafereel, en elk Kerst-tafereel hangt aan een stap", () => {
+    const plek = (s: string) => html.indexOf(`/bijbelreis/${s}`);
+    expect(plek("taferelen-koppeling-jakob.js")).toBeLessThan(plek("taferelen-kerst.js"));
+    expect(plek("taferelen-kerst.js")).toBeLessThan(plek("taferelen-koppeling-kerst.js"));
+    expect(plek("taferelen-koppeling-kerst.js")).toBeLessThan(plek("app.js"));
+    expect(KERST.length).toBeGreaterThanOrEqual(15);
+    expect(KERST.length).toBeLessThanOrEqual(22);
+    expect(Object.keys(KOPPEL_KERST).length).toBeGreaterThan(30);
+    for (const [key, k] of Object.entries(KOPPEL_KERST)) {
+      expect(key.startsWith("kerst:kerst-"), key).toBe(true);
+      expect(STAP.has(key), `stap ${key} bestaat niet`).toBe(true);
+      expect(BR.beelden[key], key).toEqual(k);
+      // Een Kerst-tafereel, of een bestaand tafereel dat hier klopt (het gersteveld van Ruth bij Bethlehem).
+      if (k.t !== "") expect(k.t.startsWith("kerst-") || k.t === "ruth-veld", `${key} → ${k.t}`).toBe(true);
+      if (k.t !== "") expect(T[k.t], `${key} → ${k.t}`).toBeTruthy();
+    }
+    const gebruikt = new Set(STAPPEN.map((s) => BR.tafereel.van(s)?.id));
+    for (const id of KERST) expect(gebruikt.has(id), `${id} hangt aan geen enkele stap`).toBe(true);
+    for (const [key, k] of Object.entries(BR.beelden)) if (k.t.startsWith("kerst-")) expect(key.startsWith("kerst:"), key).toBe(true);
+  });
+  it("Kerst: de geboorte (Lukas 2:6–7), de achtste dag en Rama hebben bewust geen beeld", () => {
+    const kerst = BR.boeken.find((b) => b.id === "kerst")!;
+    const sleutel = (deel: string, ref: RegExp) => {
+      const d = kerst.delen.find((x) => x.id === deel)!, i = d.steps.findIndex((s) => ref.test(s.ref));
+      expect(i, `${deel}: ${ref}`).toBeGreaterThanOrEqual(0);
+      return `kerst:${deel}:${i}`;
+    };
+    for (const key of [sleutel("kerst-geboorte", /^Lukas 2:6–7$/), sleutel("kerst-geboorte", /^Lukas 2:21$/), sleutel("kerst-wijzen", /^Mattheüs 2:16–18$/)]) {
+      expect(BR.beelden[key], key).toEqual({ t: "" });
+      expect(BR.tafereel.van(STAP.get(key)!), key).toBeNull();
+    }
+  });
+  it("Kerst: geen naam of label noemt het Kind, de Heere Jezus, God, een engel, os, ezel, koning of kroon", () => {
+    for (const id of KERST) for (const tekst of [T[id].n, T[id].label])
+      expect(tekst, id).not.toMatch(/\bkind(?:je|eke|eken)?\b|jezus|\bheere\b|\bgod\b|engel|\bos\b|\bossen\b|\bezels?\b|koning|kroon|kribbe|kerstboom|sneeuw|kameel|kamelen/i);
+    // De wijzen: een groepje zonder vast aantal, niet drie (Mattheüs 2:1 noemt geen aantal).
+    for (const id of ["kerst-poort", "kerst-ster-weg"]) expect(T[id].label, id).not.toMatch(/\bdrie\b/i);
+  });
+  it("Kerst: één ster, en de aantallen die de Bijbel noemt kloppen in de tekening", () => {
+    const STER = 'class="k-okerz" d="M0-14l1 11.5';
+    // De ster staat alleen bij Mattheüs 2:9–11, en daar alleen zij: geen andere sterren aan die hemel.
+    for (const id of KERST) expect(T[id].svg.split(STER).length - 1, id).toBe(["kerst-ster-weg", "kerst-geschenken"].includes(id) ? 1 : 0);
+    for (const id of ["kerst-ster-weg", "kerst-geschenken"]) expect(T[id].svg, id).not.toMatch(/class="l-licht(?: dik)?" d="M[\d.]+ [\d.]+h\.1/);
+    // Driemaal veertien geslachten (Mattheüs 1:17): drie kolommen van veertien regels.
+    const kolommen = [...T["kerst-geslacht"].svg.matchAll(/<path class="l-zand2 tf-e-teken[^"]*" pathLength="1" d="([^"]+)"/g)].map((m) => m[1].split("M").length - 1);
+    expect(kolommen).toEqual([14, 14, 14]);
+    // De kandelaar met zeven lampen (Exodus 25:37).
+    const vlammen = [...T["kerst-reukaltaar"].svg.matchAll(/<path class="k-okerz tf-l-vlam[^"]*" d="([^"]+)"/g)].reduce((a, m) => a + m[1].split("M").length - 1, 0);
+    expect(vlammen).toBe(7);
+    // Een paar tortelduiven of twee jonge duiven (Lukas 2:24).
+    expect(T["kerst-duiven"].svg.match(/<path class="k-wit o2" d="([^"]+)"/)![1].split("M").length - 1).toBe(2);
   });
   it("de afwijkende soorten per plaats kloppen met plaatsen en register", () => {
     for (const [id, v] of Object.entries(BR.beeldSoort)) {

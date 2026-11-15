@@ -999,6 +999,14 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
 .tf-svg .menigte { fill: none; stroke: var(--zand-diep); stroke-width: 6; stroke-dasharray: 3 3; }
 .tf-svg .menigte.m2 { stroke: var(--terra); }
 .tf-svg .menigte.kop { stroke: var(--camel-dark); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0.1 5.9; }
+/* Kerst (taferelen-kerst.js): een diepblauwe avond- en nachtlucht met een lichtere band aan de einder, een lichtere
+   sluier zodat het land warm blijft, en warm licht in vensters en van lampen. */
+.tf-svg .k-avond { fill: color-mix(in srgb, var(--nacht) 80%, var(--night)); }
+.tf-svg .k-avond2 { fill: color-mix(in srgb, var(--nacht) 55%, var(--lila)); }
+.tf-svg .k-schemer { fill: color-mix(in srgb, var(--nacht-2) 80%, var(--lila)); fill-opacity: 0.3; }
+.tf-svg .k-venster { fill: color-mix(in srgb, var(--boter) 70%, var(--oker-zacht)); }
+.tf-svg .k-schijn { fill: var(--boter); fill-opacity: 0.2; }
+.tf-svg .k-lila { fill: var(--lila); } .tf-svg .l-rood { stroke: var(--rood); }
 .tf-svg .tf-e-kom-r { animation: tf-kom-r 4s ease-out both; } /* begint 90 naar rechts en komt naar zijn plaats */
 .tf-svg .tf-e-trek { animation: tf-trek 12s cubic-bezier(0.3, 0.3, 0.5, 1) both; } /* een stoet komt van links het beeld in (begint 300 naar links) */
 .tf-svg .tf-e-hink { animation: tf-hink-weg 9s ease-out both, tf-hink-stap 1.5s ease-in-out 6 both; } /* komt hinkend van links (begint 66 naar links) */
