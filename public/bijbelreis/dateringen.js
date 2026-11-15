@@ -34,6 +34,7 @@ BR.dateringen = {
     "handelingen:nt-gemeente": ["historie", false], "handelingen:nt-paulus": ["historie", false], "handelingen:nt-paulusrome": ["historie", false],
     "openbaring:nt-openbaring": ["historie", true],
     // [meer-reizen:nt-paulus2] datering
+    "handelingen:nt-paulus2": ["historie", false],
     //
     // [meer-reizen:nt-paulus3] datering
     //
