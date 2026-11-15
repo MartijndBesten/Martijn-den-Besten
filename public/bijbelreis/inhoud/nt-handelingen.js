@@ -12,12 +12,8 @@
   Eilanders: "grijs", Joden: "grijs", Reisgenoten: "grijs", Boden: "grijs", Volk: "boter", Soldaten: "rood",
 });
 
-// [meer-reizen:nt-paulus2] kleuren
 Object.assign(BR.personen, { Jason: "bruin", Dionysius: "lila", Damaris: "koraal", Aquila: "olijf", Priscilla: "koraal", Justus: "grijs", Crispus: "kobalt", Gallio: "grijs", Sosthenes: "bruin" });
-//
-// [meer-reizen:nt-paulus3] kleuren
 Object.assign(BR.personen, { Apollos: "oker", Demetrius: "rood", Eutychus: "lila" });
-//
 BR.boeken.push({
   id: "handelingen", n: "Handelingen", nt: true, tijd: "ca. 30–62 n.Chr.", kleur: "terra",
   intro: "Na de hemelvaart komt de Heilige Geest. Petrus en de apostelen getuigen in Jeruzalem, het Evangelie gaat naar Samaria, de kust en de heidenen, en Saulus de vervolger wordt Paulus de apostel, die het tot in Rome brengt.",
@@ -33,18 +29,14 @@ BR.boeken.push({
     { n: "Barnabas", rol: "‘zoon der vertroosting’", i: "Een Leviet uit Cyprus (Handelingen 4:36). Hij neemt Saulus mee naar de apostelen, haalt hem naar Antiochië en gaat met hem op de eerste reis. Later gaan ze uit elkaar om Johannes Markus (15:39).", deel: "nt-paulus" },
     { n: "Silas, Timotheüs en Lydia", rol: "op de tweede reis", i: "Silas reist met Paulus en zit met hem in de gevangenis van Filippi. Timotheüs uit Lystre gaat mee (16:1–3). Lydia, een purperverkoopster uit Thyatira, komt tot geloof bij de rivier van Filippi (16:14).", deel: "nt-paulus" },
     { n: "Felix, Festus en Julius", rol: "Romeinen rond Paulus", i: "Felix laat Paulus twee jaar gevangen in Caesarea; zijn opvolger Festus hoort hem als Paulus zich op de keizer beroept (24:27–25:12). De hoofdman Julius brengt Paulus naar Italië en redt zijn leven bij de schipbreuk (27:1, 43).", deel: "nt-paulusrome" },
-    // [meer-reizen:nt-paulus2] wie
     { n: "Jason", rol: "gastheer in Thessalonica", i: "Hij neemt Paulus en Silas in zijn huis. Als de Joden hen daar niet vinden, slepen ze Jason en enkele broeders voor de oversten van de stad; die laten hen pas gaan als ze een borg hebben gegeven (Handelingen 17:5–9).", deel: "nt-paulus2" },
     { n: "Dionysius en Damaris", rol: "gelovigen in Athene", i: "Na de woorden van Paulus op de Areopagus spotten sommigen, maar enkelen geloven: ‘onder welke was ook Dionysius, de Areopagiet, en een vrouw, met name Damaris’ (Handelingen 17:34).", deel: "nt-paulus2" },
     { n: "Aquila en Priscilla", rol: "tentenmakers", i: "Aquila is een Jood, geboren in Pontus; Priscilla is zijn vrouw. Ze komen uit Italië naar Korinthe, omdat Claudius bevolen had dat alle Joden uit Rome moesten vertrekken. Paulus blijft bij hen en werkt met hen (Handelingen 18:2–3). Later varen ze met hem mee naar Efeze (18:18–19).", deel: "nt-paulus2" },
     { n: "Crispus en Sosthenes", rol: "oversten van de synagoge in Korinthe", i: "Crispus ‘geloofde aan den Heere met geheel zijn huis’ (Handelingen 18:8). Sosthenes wordt later door de Grieken geslagen, vóór de rechterstoel van Gallio (18:17).", deel: "nt-paulus2" },
     { n: "Gallio", rol: "stadhouder van Achaje", i: "De Joden brengen Paulus voor zijn rechterstoel, maar hij wil geen rechter zijn over hun wet en drijft hen weg (Handelingen 18:12–16). Een inscriptie uit Delphi laat zien dat hij omstreeks 51–52 n.Chr. stadhouder was.", deel: "nt-paulus2" },
-    //
-    // [meer-reizen:nt-paulus3] wie
     { n: "Apollos", rol: "welsprekend leraar uit Alexandrië", i: "Een Jood, ‘machtig zijnde in de Schriften’ (Handelingen 18:24). In Efeze leggen Aquila en Priscilla hem de weg van God nauwkeuriger uit. Daarna helpt hij de gelovigen in Achaje en bewijst hij uit de Schriften dat Jezus de Christus is (18:26–28).", deel: "nt-paulus3" },
     { n: "Demetrius", rol: "zilversmid in Efeze", i: "Hij maakt kleine zilveren tempels van de godin Artemis (Statenvertaling: Diana). Omdat Paulus zegt dat goden die met handen gemaakt worden geen goden zijn, roept hij de vaklieden bijeen, en de hele stad raakt in oproer (Handelingen 19:24–29).", deel: "nt-paulus3" },
     { n: "Eutychus", rol: "jongeman in Troas", i: "Terwijl Paulus tot middernacht spreekt, valt hij in een diepe slaap, stort uit het venster van de derde verdieping en wordt dood opgenomen. Paulus zegt: ‘Weest niet beroerd; want zijn ziel is in hem’, en ze brengen hem levend terug (Handelingen 20:9–12).", deel: "nt-paulus3" },
-    //
   ],
   delen: [
 { id: "nt-gemeente", n: "De eerste gemeente", short: "Gemeente", ref: "Handelingen 2–12", c: "kobalt", init: "P",
@@ -229,7 +221,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Jeruzalem → Damascus", s: 0 }, { n: "Antiochië → Cyprus", s: 4 }, { n: "Troas → Filippi", s: 9 }, { n: "Alles wat Paulus reisde (tot Filippi)", s: "alles" }],
 },
-// [meer-reizen:nt-paulus2] deel
 { id: "nt-paulus2", n: "Paulus: van Thessalonica tot Antiochië", short: "Korinthe", ref: "Handelingen 17:1–18:22", c: "teal", init: "K",
   tijd: "ca. 50–52 n.Chr.", tl: [50, 52],
   tijdNoot: "Reconstructie; de Bijbel noemt geen jaartallen. Het vaste punt is Gallio, de stadhouder van Achaje (Handelingen 18:12). In Delphi is een inscriptie gevonden met een brief van keizer Claudius waarin Gallio genoemd wordt; daaruit volgt dat hij omstreeks 51–52 n.Chr. stadhouder was. Paulus bleef ‘een jaar en zes maanden’ in Korinthe (18:11) en daarna ‘nog vele dagen’ (18:18). Daarom wordt zijn komst in Korinthe meestal omstreeks 50 n.Chr. gedateerd en zijn terugkeer in Antiochië omstreeks 52. Het bevel van Claudius dat de Joden uit Rome moesten vertrekken (18:2) wordt vaak in 49 n.Chr. gezet, maar dat jaartal is minder zeker. Andere chronologieën liggen een jaar eerder of later.",
@@ -308,9 +299,7 @@ BR.boeken.push({
   trips: [{ n: "Filippi → Thessalonica", s: 0 }, { n: "Berea → Athene (reconstructie over zee)", s: 2 }, { n: "Athene → Korinthe", s: 4 }, { n: "Kenchreeën → Efeze", s: 7, r: 1 },
     { n: "Efeze → Caesarea", s: 8, r: 0 }, { n: "Alles wat Paulus reisde, van Filippi tot Antiochië", s: "alles" }],
 },
-//
-// [meer-reizen:nt-paulus3] deel
-{ id: "nt-paulus3", n: "Paulus: de derde reis", short: "Derde reis", ref: "Handelingen 18:23–20:38", c: "teal", init: "E",
+{ id: "nt-paulus3", n: "Paulus: de derde reis", short: "Derde reis", ref: "Handelingen 18:23–20:38", c: "lila", init: "E",
   tijd: "ca. 52–57 n.Chr.", tl: [52, 57],
   tijdNoot: "Reconstructie; de Bijbel noemt geen jaartallen. Het houvast is de stadhouder Gallio, voor wie Paulus in Korinthe stond (Handelingen 18:12): een inscriptie plaatst diens ambtsjaar ca. 51–52 n.Chr. Daarna ging Paulus naar Antiochië en begon hij aan deze reis. In Efeze sprak hij drie maanden in de synagoge en twee jaar in de school van Tyrannus (19:8–10); zelf spreekt hij van ‘drie jaren lang’ (20:31). Daarna volgden Macedonië, drie maanden in Griekenland (20:3) en de terugreis in het voorjaar: na ‘de dagen der ongehevelde broden’ (20:6) en vóór de Pinksterdag (20:16). Zo komt men meestal uit op ca. 52–57 n.Chr.; andere chronologieën liggen een of twee jaar eerder of later.",
   intro: "Vanuit Antiochië gaat Paulus opnieuw op reis. Eerst versterkt hij de discipelen in Galatië en Frygië. Dan blijft hij lang in Efeze, de grote stad van Asia: het Woord van de Heere groeit er met macht, maar er komt ook een oproer om de godin Artemis. Door Macedonië en Griekenland reist hij terug, en in Milete neemt hij afscheid van de ouderlingen van Efeze.",
@@ -331,7 +320,7 @@ BR.boeken.push({
     fs: "h", fact: "De Bijbel noemt hier alleen de streken, geen steden. De Romeinse provincie Galatië reikte in die tijd tot Ikonium, Lystre en Derbe, waar Paulus op de eerste reis gepredikt had (Handelingen 14). Uitleggers verschillen: sommigen denken aan die steden in het zuiden, anderen aan het oude land van de Galaten, meer naar het noorden. De lijn op de kaart volgt de steden van de eerste reis en is een reconstructie." },
   { ref: "Handelingen 18:24–28", t: "Apollos in Efeze", stamp: "Apollos", at: ["nt_efeze", "p3_alexandrie", "nt_korinthe"],
     r: [{ p: ["nt_efeze", "p3_zee_efeze", [37.95, 26.4], [38.07, 24.72], [37.72, 24.2], [37.58, 24.02], [37.85, 23.4], "nt_kenchreeen", "nt_korinthe"], recon: 1, w: "oker" }],
-    who: [["Apollos"], ["Broeders", "broeders in Efeze"]],
+    who: [["Apollos"], ["Aquila"], ["Priscilla"], ["Broeders", "broeders in Efeze"]],
     txt: "In Efeze komt een Jood die Apollos heet, geboren in Alexandrië: een welsprekend man, machtig in de Schriften. Hij is onderwezen in de weg van de Heere; vurig van geest spreekt en leert hij nauwkeurig over de Heere, maar hij kent alleen de doop van Johannes. Vrijmoedig begint hij te spreken in de synagoge. Als Aquila en Priscilla hem horen, nemen zij hem bij zich en leggen hem de weg van God nauwkeuriger uit. Apollos wil naar Achaje reizen; de broeders moedigen hem aan en schrijven aan de discipelen daar dat zij hem moeten ontvangen. Daar is hij tot grote hulp voor hen die door de genade geloven: in het openbaar weerlegt hij de Joden met kracht en bewijst hij uit de Schriften ‘dat Jezus de Christus was’.",
     fs: "b", fact: "Aquila en Priscilla waren tentenmakers, net als Paulus. Hij had hen in Korinthe leren kennen en in Efeze achtergelaten (Handelingen 18:2–3, 18–19). Apollos ging naar Achaje en was daarna in Korinthe (18:27; 19:1); hoe hij reisde, staat er niet, dus de lijn is een reconstructie. Later schreef Paulus: ‘Ik heb geplant, Apollos heeft nat gemaakt; maar God heeft den wasdom gegeven’ (1 Korinthe 3:6)." },
   { ref: "Handelingen 19:1–10", t: "Paulus komt in Efeze", stamp: "Efeze", at: ["nt_efeze"],
@@ -394,7 +383,6 @@ BR.boeken.push({
   trips: [{ n: "Antiochië → door Galatië en Frygië", s: 0 }, { n: "Door het binnenland naar Efeze", s: 2 }, { n: "Filippi → Troas", s: 6, r: 1 },
     { n: "Troas → Assus (te voet)", s: 8, r: 0 }, { n: "Assus → Milete", s: 8, r: 2 }, { n: "Alles wat Paulus reisde op de derde reis", s: "alles" }],
 },
-//
 { id: "nt-paulusrome", n: "Paulus: van Jeruzalem naar Rome", short: "Naar Rome", ref: "Handelingen 21–28", c: "koraal", init: "R",
   tijd: "ca. 57–62 n.Chr.", tl: [57, 62],
   tijdNoot: "Reconstructie; de Bijbel noemt geen jaartallen. Paulus werd in Jeruzalem gevangengenomen en zat daarna twee jaar in Caesarea, tot Festus Felix opvolgde (Handelingen 24:27). Die wisseling wordt meestal rond 59 n.Chr. gedateerd (ook 55–60 wordt verdedigd). De zeereis begon na ‘de vasten’ (27:9), de Grote Verzoendag in de herfst; na de winter op Malta kwam Paulus in Rome, waar hij twee jaar bleef (28:30): ongeveer 60–62 n.Chr.",

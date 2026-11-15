@@ -5,9 +5,7 @@ Object.assign(BR.personen, {
   Barzillai: "salie", Arauna: "grijs", Gad: "lila", Ziba: "grijs", Ithaï: "teal",
 });
 
-// [meer-reizen:davids-rijk] kleuren
 Object.assign(BR.personen, { Hadadezer: "rood", Hanun: "rood", Sobach: "rood", "Thoï": "salie", Edomieten: "rood" });
-//
 BR.boeken.push({
   id: "2samuel", n: "2 Samuël", tijd: "ca. 1010–970 v.Chr.", kleur: "kobalt",
   intro: "David wordt koning: eerst in Hebron, dan over heel Israël in Jeruzalem. God belooft hem een koningshuis voor altijd, maar David zondigt ook zwaar, en zijn eigen zoon komt tegen hem in opstand.",
@@ -24,12 +22,10 @@ BR.boeken.push({
     { n: "Absalom", rol: "zoon van David", i: "De knapste man van Israël, met heel zwaar haar (14:25–26). Hij stal het hart van het volk, liet zich koning uitroepen in Hebron en joeg zijn vader de stad uit. Hij bleef met zijn hoofd in een eik hangen en werd daar door Joab en zijn mannen gedood (18:9–15).", deel: "david" },
     { n: "Husai", rol: "vriend van David", i: "Op de Olijfberg stuurde David hem terug naar Jeruzalem om te doen alsof hij bij Absalom hoorde (15:32–37). Zijn raad was ‘beter’ dan die van Achitofel, want zo wilde God het (17:14).", deel: "david" },
     { n: "Arauna", rol: "Jebusiet met een dorsvloer", i: "Op zijn dorsvloer bleef de engel staan toen de plaag ophield (24:16). David kocht de dorsvloer voor vijftig sikkels zilver en bouwde er een altaar (24:24–25). Later bouwde Salomo daar de tempel (2 Kronieken 3:1).", deel: "david" },
-    // [meer-reizen:davids-rijk] wie
     { n: "Abisaï", rol: "broer van Joab", i: "Zoon van Zeruja, net als Joab (2:18). Joab gaf hem de rest van het leger om tegen de Ammonieten te strijden (10:10). 1 Kronieken 18:12 vertelt dat hij in het Zoutdal achttienduizend Edomieten versloeg.", deel: "davids-rijk" },
     { n: "Hadadezer", rol: "koning van Zoba", i: "Zoon van Rehob. David nam hem duizend wagens af (8:3–4). Hoofdstuk 10 vertelt dat hij de Syriërs van de overkant van de rivier naar Helam liet komen; ook zij werden verslagen (10:16–18).", deel: "davids-rijk" },
     { n: "Thoï", rol: "koning van Hamath", i: "Hadadezer voerde steeds oorlog tegen hem. Toen David Hadadezer verslagen had, stuurde Thoï zijn zoon Joram naar David, met voorwerpen van zilver, goud en koper (8:9–10).", deel: "davids-rijk" },
     { n: "Hanun", rol: "koning van de Ammonieten", i: "Zoon van Nahas. David stuurde knechten om hem te troosten over zijn vader, maar Hanun luisterde naar zijn vorsten en maakte Davids knechten te schande (10:1–4). Daarna huurden de Ammonieten Syriërs tegen David (10:6).", deel: "davids-rijk" },
-    //
   ],
   delen: [
 { id: "david", n: "David", short: "David", ref: "2 Samuël 1–24", c: "kobalt", init: "D",
@@ -119,7 +115,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Ziklag → Hebron", s: 1, r: 0 }, { n: "Op de vlucht: Jeruzalem → Mahanaïm", s: 8, r: 1 }, { n: "Joab telt het volk (9 maanden en 20 dagen)", s: 10, r: 0 }, { n: "Alles wat David reisde", s: "alles" }],
 },
-// [meer-reizen:davids-rijk] deel
 { id: "davids-rijk", n: "Davids rijk groeit", short: "Davids rijk", ref: "2 Samuël 5:17–25; 8; 10", c: "olijf", init: "R",
   tijd: "ca. 1003–990 v.Chr.", tl: [-1003, -990],
   tijdNoot: "Reconstructie. De Bijbel noemt geen jaar. David regeerde drieëndertig jaar in Jeruzalem (5:5); in de gangbare chronologie (Thiele e.a.) is dat ca. 1003–970 v.Chr. De strijd in het dal Refaïm begint als de Filistijnen horen dat David tot koning over Israël gezalfd is (5:17). De oorlog met Ammon loopt door in hoofdstuk 11–12, waar ook de geboorte van Salomo staat (12:24). Salomo was koning toen David stierf (1 Koningen 2:10–12), maar hoe oud hij toen was, zegt de Bijbel niet. Daarom is het eindjaar een schatting. Hoofdstuk 8 is een overzicht. De tekst zegt alleen ‘daarna’ (8:1; 10:1); in welk jaar en in welke volgorde de oorlogen precies waren, weten we niet. Sommige uitleggers denken dat de overwinning op Hadadezer in hoofdstuk 8 dezelfde is als de slag bij Helam in hoofdstuk 10.",
@@ -198,6 +193,5 @@ BR.boeken.push({
   trips: [{ n: "Gibeon → Gezer", s: 1 }, { n: "Jeruzalem → Damascus", s: 3 }, { n: "Hamath → Jeruzalem (de zoon van Thoï)", s: 4 }, { n: "Jeruzalem → Ammon → Jericho (de knechten)", s: 7 },
     { n: "Jeruzalem → Medeba (Joab)", s: 8 }, { n: "Jeruzalem → Helam", s: 9 }, { n: "Alles wat David en zijn leger trokken", s: "alles" }],
 },
-//
   ],
 });

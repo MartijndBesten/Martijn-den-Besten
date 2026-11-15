@@ -1222,7 +1222,8 @@
     ["Brieven en Openbaring", "Romeinen 1_Korinthe 2_Korinthe Galaten Efeze Filippenzen Kolossenzen 1_Thessalonicenzen 2_Thessalonicenzen 1_Timotheüs 2_Timotheüs Titus Filemon Hebreeën Jakobus 1_Petrus 2_Petrus 1_Johannes 2_Johannes 3_Johannes Judas Openbaring"],
   ];
   const slugOf = (n) => n.toLowerCase().replace(/_/g, "").replace(/[ëéïü]/g, (c) => ({ ë: "e", é: "e", ï: "i", ü: "u" })[c]);
-  const SAMEN = { deuteronomium: "numeri", nehemia: "ezra", mattheus: "jezus-1", markus: "jezus-1", lukas: "jezus-1", johannes: "jezus-1", jesaja: "profeten", jeremia: "profeten", zacharia: "profeten", maleachi: "profeten" };
+  const SAMEN = { deuteronomium: "numeri", nehemia: "ezra", mattheus: "jezus-1", markus: "jezus-1", lukas: "jezus-1", johannes: "jezus-1", jesaja: "profeten", jeremia: "profeten", zacharia: "profeten", maleachi: "profeten",
+    romeinen: "brieven", "1korinthe": "brieven", "2korinthe": "brieven", galaten: "brieven", efeze: "brieven", filippenzen: "brieven", kolossenzen: "brieven", "1thessalonicenzen": "brieven", "2thessalonicenzen": "brieven", "1timotheus": "brieven", "2timotheus": "brieven", titus: "brieven", filemon: "brieven" };
   function renderKast() {
     $("kastLijst").innerHTML = KAST.map(([g, list], gi) => `${gi === 4 ? '<p class="label nt">Nieuwe Testament</p>' : gi === 0 ? '<p class="label nt">Oude Testament</p>' : ""}<p class="label">${g}</p><div class="kastrij">${list.split(" ").map((x) => {
       const n = x.replace(/_/g, " "), id = SAMEN[slugOf(x)] || slugOf(x), b = BOEKEN.find((q) => q.id === id);

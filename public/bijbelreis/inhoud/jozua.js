@@ -2,9 +2,7 @@
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
 Object.assign(BR.personen, { Achan: "bruin", Gibeonieten: "grijs", Eleazar: "grijs", Mozes: "boter", Jabin: "rood" });
 
-// [meer-reizen:stammen] kleuren
 Object.assign(BR.personen, { "Othniël": "olijf", Achsa: "koraal" });
-//
 BR.boeken.push({
   id: "jozua", n: "Jozua", tijd: "ca. 1406–1375 v.Chr.", kleur: "teal",
   intro: "Na Mozes leidt Jozua het volk door de Jordaan het beloofde land in: Jericho, Ai, de zon die stilstaat bij Gibeon, en de verdeling van het land onder de twaalf stammen.",
@@ -18,12 +16,10 @@ BR.boeken.push({
     { n: "Gibeonieten", rol: "sloten een verbond met een list", i: "Ze deden alsof ze van heel ver kwamen, met oud brood en kapotte schoenen. Jozua hield zijn woord: ze bleven leven en werden houthakkers en waterputters (Jozua 9).", deel: "land" },
     { n: "Jabin", rol: "koning van Hazor", i: "Hij riep de koningen van het noorden bij elkaar bij de wateren van Merom. Jozua versloeg hen en verbrandde Hazor (Jozua 11).", deel: "land" },
     { n: "Jozef", rol: "begraven in Sichem", i: "Zijn beenderen gingen al die jaren mee uit Egypte, door de woestijn, het land in. Aan het eind van het boek worden ze begraven in Sichem (Jozua 24:32).", deel: "land" },
-    // [meer-reizen:stammen] wie
     { n: "Othniël", rol: "nam Kirjath-Sefer in", i: "Zoon van Kenaz. Hij nam Kirjath-Sefer (Debir) in en kreeg Achsa, de dochter van Kaleb, tot vrouw (Jozua 15:16–17). Later verwekte de HEERE hem als verlosser voor Israël (Richteren 3:9–11).", deel: "stammen" },
     { n: "Achsa", rol: "dochter van Kaleb", i: "Zij vroeg haar vader om een zegen: waterbronnen bij haar dorre land. Kaleb gaf haar de hoge en de lage bronnen (Jozua 15:18–19).", deel: "stammen" },
     { n: "Pinehas", rol: "zoon van de priester Eleazar", i: "Met tien vorsten ging hij naar de stammen aan de overkant van de Jordaan, om te vragen waarom zij een altaar hadden gebouwd. Na hun antwoord zei hij: ‘Heden weten wij, dat de HEERE in het midden van ons is’ (Jozua 22:13–14, 31).", deel: "stammen" },
     { n: "De Levieten", rol: "stam zonder eigen gebied", i: "De HEERE Zelf was hun erfdeel (Jozua 13:33). Zij kregen achtenveertig steden met weidegrond voor hun vee, midden tussen de andere stammen (Jozua 21:41).", deel: "stammen" },
-    //
   ],
   delen: [
 { id: "intocht", n: "De intocht", short: "Intocht", ref: "Jozua 1–8", c: "teal", init: "I",
@@ -168,7 +164,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Gilgal → Gibeon (één nacht)", s: 1, r: 1 }, { n: "Veldtocht naar het zuiden", s: 2, r: 0 }, { n: "Gilgal → wateren van Merom", s: 3, r: 0 }, { n: "Kaleb: Gilgal → Hebron", s: 4 }, { n: "Alles wat Jozua reisde in het land", s: "alles" }],
 },
-// [meer-reizen:stammen] deel
 { id: "stammen", n: "Twaalf stammen en zes vrijsteden", short: "Stammen", ref: "Jozua 13–22", c: "olijf", init: "S",
   tijd: "ca. 1400 v.Chr.", tl: [-1400, -1400],
   tijdNoot: "Reconstructie. De Bijbel noemt geen jaar. Kaleb was veertig jaar toen Mozes hem uitzond om het land te verspieden, en hij is nu vijfentachtig (Jozua 14:7, 10): dat is vijfenveertig jaar later. De verspieders gingen in het tweede jaar na de uittocht (Numeri 10:11; 13). Wie de uittocht op grond van 1 Koningen 6:1 rond 1446 v.Chr. dateert, komt voor de verdeling van het land dus op ongeveer 1400 v.Chr. Hoe lang de verdeling duurde en wanneer het altaar bij de Jordaan werd gebouwd, zegt de Bijbel niet. Wie de uittocht in de 13e eeuw v.Chr. dateert, plaatst dit alles bijna twee eeuwen later.",
@@ -249,7 +244,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Kaleb: Hebron → Debir", s: 1 }, { n: "Gilgal → Silo", s: 3 }, { n: "Silo → Timnath-Serah", s: 5 }, { n: "Silo → Gilead (naar huis)", s: 8 }, { n: "Pinehas: Silo → Gilead en terug", s: 9 }, { n: "Alle routes in dit deel", s: "alles" }],
 },
-//
   ],
   ordAlles: [{ q: "Wat gebeurde eerst? Zet het in de goede volgorde.", items: ["Door de Jordaan", "De muren van Jericho", "De zon staat stil bij Gibeon", "Het land wordt verdeeld", "Jozua sterft"] }],
 });

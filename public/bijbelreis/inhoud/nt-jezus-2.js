@@ -15,9 +15,7 @@ Object.entries({
   Discipelen: "kobalt", "Johannes de Doper": "olijf", "Herodes Antipas": "bruin", Farizeeën: "bruin", Thomas: "boter", Kajafas: "bruin",
 }).forEach(([k, v]) => { if (!BR.personen[k]) BR.personen[k] = v; });
 
-// [meer-reizen:nt-over-de-grens] kleuren
 Object.assign(BR.personen, { "Syro-Fenicische vrouw": "koraal", "Dove man": "boter", "Blinde man": "salie" });
-//
 BR.boeken.push({
   id: "jezus-2", n: "De Heere Jezus onderweg", nt: true, tijd: "ca. 28–30 n.Chr. (of 31–33)", kleur: "teal",
   intro: "Brood voor vijfduizend mannen, een blinde die gaat zien, Lazarus die uit het graf komt, en gelijkenissen over een Samaritaan, een verloren zoon en een tollenaar. De Heere Jezus trekt door Galilea, gaat naar de feesten in Jeruzalem, en reist ten slotte via Jericho naar Jeruzalem.",
@@ -33,9 +31,7 @@ BR.boeken.push({
     { n: "Kajafas", rol: "hogepriester", i: "Hij zei dat het beter was dat één mens stierf voor het volk. Johannes schrijft dat hij dat niet uit zichzelf zei: hij profeteerde dat Jezus zou sterven voor het volk (Johannes 11:49–51)." },
     { n: "Bartimeüs", rol: "blinde bedelaar bij Jericho", i: "De zoon van Timeüs. Hij riep: ‘Jezus, Gij Zone Davids! ontferm U mijner’, en werd ziende (Markus 10:46–52).", deel: "nt-reis-naar-jeruzalem" },
     { n: "Zacheüs", rol: "oppertollenaar in Jericho", i: "Rijk en klein van stuk. Hij klom in een wilde vijgenboom om de Heere Jezus te zien, en de Heere Jezus kwam in zijn huis (Lukas 19:1–10).", deel: "nt-reis-naar-jeruzalem" },
-    // [meer-reizen:nt-over-de-grens] wie
     { n: "Syro-Fenicische vrouw", rol: "Griekse vrouw uit het gebied van Tyrus en Sidon", i: "Markus noemt haar ‘een Griekse vrouw, van geboorte uit Syro-fenicië’ (Markus 7:26), Mattheüs ‘een Kananese vrouw’ (Mattheüs 15:22). Haar naam staat niet in de Bijbel. Zij vroeg de Heere Jezus om hulp voor haar dochter, en Hij zei tegen haar: ‘O vrouw! groot is uw geloof’ (Mattheüs 15:28).", deel: "nt-over-de-grens" },
-    //
   ],
   delen: [
 { id: "nt-brood-en-berg", n: "Brood, belijdenis en berg", short: "Galilea", ref: "Markus 6:14–29; Johannes 6; Mattheüs 16:13–28; Lukas 9:28–36", c: "teal", init: "G",
@@ -95,7 +91,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Bethsaïda → Caesarea Filippi", s: 4 }],
 },
-// [meer-reizen:nt-over-de-grens] deel
 { id: "nt-over-de-grens", n: "Tyrus, Sidon en Dekapolis", short: "Over de grens", ref: "Markus 7:24–8:26; Mattheüs 15:21–39", c: "terra", init: "T",
   tijd: "ca. 29 n.Chr. (of 32)", tl: [29, 29],
   tijdNoot: "Reconstructie. De Bijbel noemt geen jaartal. Markus en Mattheüs vertellen deze reis na de spijziging van de vijfduizend, toen het Pascha nabij was (Johannes 6:4), en vóór de belijdenis van Petrus bij Caesarea Filippi (Markus 8:27). Johannes noemt daarna nog één Pascha: het Pascha waarop de Heere Jezus stierf (Johannes 11:55). Wie de kruisiging ca. 30 n.Chr. stelt, komt voor dit deel op ca. 29; wie 33 n.Chr. aanhoudt, op ca. 32. Hoe lang de reis duurde, staat er niet. De volgorde volgt Markus; Mattheüs 15:29–31 staat op de plaats waar Mattheüs het vertelt, vlak voor de zeven broden. Ook de lijnen op de kaart zijn reconstructies: de Bijbel noemt hier gebieden, geen wegen.",
@@ -159,7 +154,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Gennesaret → gebied van Tyrus", s: 0 }, { n: "Tyrus → Dekapolis en het meer", s: 1 }, { n: "Over het meer naar Magdala", s: 4 }, { n: "Magdala → Bethsaïda", s: 5 }, { n: "Alles in dit deel", s: "alles" }],
 },
-//
 { id: "nt-feesten-jeruzalem", n: "Op de feesten in Jeruzalem", short: "Jeruzalem", ref: "Johannes 5; 9–11", c: "kobalt", init: "J",
   tijd: "ca. 28–30 n.Chr. (of 31–33)", tl: [28, 30],
   tijdNoot: "Reconstructie. Johannes ordent dit deel naar de feesten: ‘een feest der Joden’ (Johannes 5:1, er staat niet welk), het Loofhuttenfeest (7:2), het feest van de vernieuwing van de tempel in de winter (10:22) en het laatste Pascha (11:55). Wie de kruisiging ca. 30 n.Chr. stelt, komt op ca. 28–30; wie 33 n.Chr. aanhoudt, op ca. 31–33. De Bijbel geeft geen jaartallen, en welk feest in Johannes 5 bedoeld is, is onzeker.",

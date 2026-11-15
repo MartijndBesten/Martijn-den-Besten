@@ -588,8 +588,7 @@ Object.assign(BR.plaatsen, {
   ramothgilead: { n: "Ramoth in Gilead", ll: [32.4999, 36.015], c: "v", s: "r", z: 7.5, t: "stad", d: "Vrijstad en grensvesting ten oosten van de Jordaan (Jozua 20:8). Achab sneuvelde hier (1 Koningen 22), en Jehu werd er tot koning gezalfd (2 Koningen 9:1–6).",
     nu: "Tell er-Rumeith, Noord-Jordanië", bron: "Meestal Tell er-Rumeith (score 808); andere voorstellen zijn zwak." },
 });
-//
-// [meer-reizen:nt-paulus2] plaatsen
+// Deel nt-paulus2
 // Handelingen 17:1–18:22. Ligging volgens OpenBible.info Bible Geocoding Data (CC BY 4.0), november 2026. Sleutels beginnen met p2_.
 Object.assign(BR.plaatsen, {
   p2_amfipolis: { n: "Amfipolis", ll: [40.8202, 23.8472], c: "v", s: "t", z: 8, t: "stad", d: "Stad in Macedonië, bij de monding van de rivier de Strymon. Paulus en Silas namen hun weg door deze stad naar Thessalonica (Handelingen 17:1).",
@@ -604,8 +603,7 @@ Object.assign(BR.W, {
   p2_pydnakust: [40.395, 22.61], p2_thermaisch: [39.9, 23.0], p2_kafireus: [38.02, 24.66], p2_sounion: [37.57, 23.95], p2_piraeus: [37.93, 23.62],
   p2_isthmus: [37.93, 22.98], p2_saronisch: [37.82, 23.5], p2_cycladen: [37.36, 25.55], p2_samosstraat: [37.69, 27.0], p2_cyprus_zuid: [34.4, 33.2],
 });
-//
-// [meer-reizen:nt-paulus3] plaatsen
+// Deel nt-paulus3
 // Handelingen 18:23–20:38. Ligging volgens OpenBible.info Bible Geocoding Data (CC BY 4.0); sleutels beginnen met p3_.
 Object.assign(BR.plaatsen, {
   p3_frygie: { n: "Frygië", ll: [39.0, 31.0], c: "r", s: "c", z: 5, t: "gebied", d: "Landstreek in het binnenland van Klein-Azië. Paulus trok erdoorheen en versterkte de discipelen (Handelingen 18:23). Op de Pinksterdag waren er ook Joden uit Frygië in Jeruzalem (Handelingen 2:10).",
@@ -629,8 +627,7 @@ Object.assign(BR.W, {
   p3_weg_amfipolis: [40.82, 23.85], p3_weg_apollonia: [40.68, 23.5], p3_weg_golf: [40.72, 22.75], p3_weg_pieria: [40.27, 22.5], p3_weg_tempe: [39.88, 22.6],
   p3_weg_thessalie: [39.64, 22.42], p3_weg_thermopylae: [38.9, 22.45], p3_weg_boeotie: [38.32, 23.32], p3_weg_megara: [38.0, 23.34], p3_weg_isthmus: [37.93, 23.0],
 });
-//
-// [meer-reizen:nt-samaria-nain] plaatsen
+// Deel nt-samaria-nain
 // Johannes 4 en Lukas 4 en 7. Coördinaten: OpenBible.info Bible Geocoding Data (CC BY 4.0). Sleutels beginnen met sn_.
 Object.assign(BR.plaatsen, {
   sn_gerizim: { n: "Berg Gerizim", ll: [32.1994, 35.2728], c: "v", s: "l", z: 9.5, t: "berg",
@@ -642,8 +639,7 @@ Object.assign(BR.plaatsen, {
 // de noordwestoever van het meer bij Tabgha, de vlakte van Gennesareth en de weg ten oosten van de Tabor.
 Object.assign(BR.W, { sn_vlakte: [32.61, 35.27], sn_nazarethpas: [32.72, 35.335], sn_kanaweg: [32.84, 35.4],
   sn_meer_nw: [32.875, 35.54], sn_ginosar: [32.855, 35.512], sn_taborweg: [32.7, 35.45] });
-//
-// [meer-reizen:nt-over-de-grens] plaatsen
+// Deel nt-over-de-grens
 Object.assign(BR.plaatsen, {
   og_gennesaret: { n: "Gennesaret", ll: [32.8606, 35.5072], c: "r", s: "c", z: 8.5, t: "gebied", d: "Streek aan de westkant van het meer van Galilea. Hier kwam het schip aan land, en de mensen brachten hun zieken bij de Heere Jezus (Markus 6:53–56). Daarvandaan ging Hij naar het gebied van Tyrus en Sidon (Mattheüs 14:34; 15:21).",
     nu: "Vlakte van Ginosar (el-Ghuweir), Israël", bron: "Vlakte el-Ghuweir (OpenBible 1000, gebied); het punt ligt in de vlakte." },
@@ -652,8 +648,7 @@ Object.assign(BR.plaatsen, {
 });
 // Tussenpunt: oostoever van het meer, aan de kant van Dekapolis. Illustratief; de Bijbel noemt de plek niet (Markus 7:31; 8:10).
 Object.assign(BR.W, { og_oostoever: [32.775, 35.647] });
-//
-// [meer-reizen:ehud-jefta] plaatsen
+// Deel ehud-jefta
 Object.assign(BR.plaatsen, {
   ej_efraim: { n: "Bergland van Efraïm", ll: [31.9878, 35.3332], c: "r", s: "c", z: 7.5, t: "gebied", d: "Het bergland in het midden van het land, genoemd naar de stam Efraïm. Hier blies Ehud op de bazuin, nadat hij naar Sehira was ontkomen (Richteren 3:26–27). Waar Sehira lag, weten we niet; daarom staat het niet als punt op de kaart.",
     nu: "Bergland ten noorden van Jeruzalem, Westelijke Jordaanoever", bron: "Gebied. OpenBible plaatst Seirah (Richteren 3:26) alleen in het bergland van Efraïm (punt in de streek, score 465); dat punt is hier het ankerpunt van het gebied. Sehira zelf (Statenvertaling: Sehirath) is niet geïdentificeerd." },
@@ -672,8 +667,7 @@ Object.assign(BR.plaatsen, {
   ej_abelkeramim: { n: "Abel-Keramim", ll: [31.8756, 36.0049], c: "o", s: "r", z: 9, t: "stad", d: "Tot hier versloeg Jefta de Ammonieten (Richteren 11:33). De naam betekent “weide van de wijngaarden”. Waar het lag, weten we niet.",
     nu: "Onbekend; voorstellen ten zuiden en zuidoosten van Amman (Jordanië)", bron: "Niet geïdentificeerd; alleen zwakke voorstellen: Sahab (OpenBible 236), Tall al-Umayri (106), Naur (38). Het punt staat illustratief bij Sahab." },
 });
-//
-// [meer-reizen:scheuring] plaatsen
+// Deel scheuring
 Object.assign(BR.plaatsen, {
   sc_tirza: { n: "Tirza", ll: [32.2874, 35.3378], c: "v", s: "r", z: 8, t: "stad", d: "Stad in het bergland bij Sichem (Statenvertaling: Thirza). Hier kwam de vrouw van Jerobeam thuis toen haar zoon Abia stierf (1 Koningen 14:17). Later regeerden de koningen Baësa, Ela en Omri hier, totdat Omri Samaria bouwde (1 Koningen 15:33; 16:8; 16:23–24).",
     nu: "Tell el-Far’ah (Noord), Westelijke Jordaanoever", bron: "Tell el-Far’ah (Noord), ca. 10 km ten noordoosten van Sichem (OpenBible, score 834); geen serieuze tegenkandidaat." },
@@ -681,8 +675,7 @@ Object.assign(BR.plaatsen, {
     nu: "Mogelijk Deir Ghassaneh, Westelijke Jordaanoever", bron: "Betwist. Deir Ghassaneh (OpenBible, score 441) of de bron Ain Seridah, 3,7 km westelijker (score 203); verder alleen zwakke voorstellen.",
     alt: [[32.046, 35.0578, "Ain Seridah"]] },
 });
-//
-// [meer-reizen:jehu] plaatsen
+// Deel jehu
 Object.assign(BR.plaatsen, {
   jh_bethhaggan: { n: "Beth-Haggan", ll: [32.4608, 35.2987], c: "w", s: "r", z: 8.5, t: "stad", d: "In deze richting vluchtte koning Ahazia van Juda voor Jehu (2 Koningen 9:27). De Statenvertaling vertaalt de naam: ‘het huis des hofs’, het tuinhuis.",
     nu: "Jenin, Westelijke Jordaanoever", bron: "Tell Jenin (OpenBible, score 782); gangbare identificatie. De Statenvertaling leest hier geen plaatsnaam maar ‘het huis des hofs’." },
@@ -693,8 +686,7 @@ Object.assign(BR.plaatsen, {
   jh_basan: { n: "Basan", ll: [32.95, 36.1], c: "r", s: "r", z: 7.5, t: "gebied", d: "Hoogland ten oosten van het Meer van Galilea, eens het koninkrijk van Og (Deuteronomium 3:13). In de dagen van Jehu sloeg Hazaël Israël hier en in Gilead (2 Koningen 10:32–33).",
     nu: "Zuid-Syrië en de Golan", bron: "Gebied. Het label staat midden in het hoogland, op dezelfde plek als het streeklabel van de kaart; OpenBible legt zijn punt voor Bashan bij de stad Golan." },
 });
-//
-// [meer-reizen:asa] plaatsen
+// Deel asa
 // 2 Kronieken 14–16 (Asa). Ligging volgens OpenBible.info Bible Geocoding Data (CC BY 4.0), november 2026.
 Object.assign(BR.plaatsen, {
   as_maresa: { n: "Maresa", ll: [31.593, 34.8982], c: "v", s: "t", z: 8, t: "stad", d: "Vestingstad van Juda, gebouwd door Rehabeam (2 Kronieken 11:8). Tot hier kwam Zerah met zijn grote leger (2 Kronieken 14:9).",
@@ -710,8 +702,7 @@ Object.assign(BR.plaatsen, {
 });
 // Tussenpunten voor het leger van Benhadad: van Damascus ten noorden van de Hermon langs en door het dal naar Ijon (reconstructie).
 Object.assign(BR.W, { as_wpas: [33.57, 35.95], as_wtaym: [33.42, 35.7] });
-//
-// [meer-reizen:hizkia-josia] plaatsen
+// Deel hizkia-josia
 // 2 Kronieken 29–35 (Hizkia, Manasse en Josia). De stamgebieden staan niet als plaats in OpenBible: het zijn gebieden (c: "r"),
 // met het label tussen plaatsen die Jozua 16–19 bij die stam noemt. Verantwoording: docs/bijbelreis-reizen/werk/hizkia-josia.notities.md.
 Object.assign(BR.plaatsen, {
@@ -720,8 +711,7 @@ Object.assign(BR.plaatsen, {
 });
 // Tussenpunten: het eind van de getekende route in Zebulon (bij Gath-Hefer) en in Naftali (bij Hazor), net naast het label.
 Object.assign(BR.W, { hj_zebw: [32.72, 35.29], hj_nafw: [32.97, 35.5] });
-//
-// [meer-reizen:jeremia-egypte] plaatsen
+// Deel jeremia-egypte
 Object.assign(BR.plaatsen, {
   je_tachpanhes: { n: "Tachpanhes", ll: [30.8606, 32.1714], c: "v", s: "l", z: 6.5, t: "stad", d: "Stad in het noordoosten van Egypte, waar een huis van Farao stond. Hierheen trokken Johanan en het volk, tegen het woord van de HEERE in, en zij namen Jeremia mee (Jeremia 43:7–9).",
     nu: "Tell Defenneh, oostelijke Nijldelta, Egypte", bron: "Tell Defenneh, het Daphnae van de Grieken (OpenBible, score 1000); identificatie algemeen aanvaard." },
@@ -734,8 +724,7 @@ Object.assign(BR.plaatsen, {
   je_pathros: { n: "Pathros", ll: [24.1, 32.7], c: "r", s: "c", z: 5, t: "gebied", d: "Het zuiden van Egypte, langs de Nijl. Ook daar woonden Joden, en zij antwoordden Jeremia dat zij niet naar hem wilden luisteren (Jeremia 44:1, 15–16).",
     nu: "Opper-Egypte (het Nijldal in het zuiden van Egypte)", bron: "Gebied: Opper-Egypte. Het punt is dat van OpenBible (punt in de streek, bij Aswan); de streek loopt van ten zuiden van Memphis tot Aswan." },
 });
-//
-// [meer-reizen:stammen] plaatsen
+// Deel stammen
 Object.assign(BR.plaatsen, {
   // Jozua 13–22. Stamgebieden zijn streken (c: "r"): OpenBible heeft er geen punt voor. Het label staat op het middelpunt van de
   // plaatsen die Jozua bij de stam noemt en die OpenBible met score 500 of hoger thuisbrengt (zie docs/bijbelreis-reizen/werk/stammen.notities.md).
@@ -770,8 +759,7 @@ Object.assign(BR.plaatsen, {
   st_golan: { n: "Golan", ll: [32.7811, 35.9347], c: "w", s: "l", z: 8, t: "stad", d: "Vrijstad in Basan, in het gebied van de halve stam Manasse (Jozua 20:8). De naam leeft voort in de Golan, de streek ten oosten van het Meer van Galilea.",
     nu: "Sahm al-Jawlan, Zuid-Syrië", bron: "OpenBible: Saham al Jawlan (score 680), de gangbare identificatie; de naam bleef bewaard. Waarschijnlijk." },
 });
-//
-// [meer-reizen:davids-rijk] plaatsen
+// Deel davids-rijk
 Object.assign(BR.plaatsen, {
   dr_refaim: { n: "Dal Refaïm", ll: [31.7632, 35.2191], c: "v", s: "b", z: 9, t: "gebied", d: "Dal vlak bij Jeruzalem; de grens van Juda liep erlangs (Jozua 15:8). Twee keer verspreidden de Filistijnen zich hier, toen David koning over Israël was geworden (2 Samuël 5:18, 22).",
     nu: "Emek Refaim (Wadi el-Ward), ten zuidwesten van de oude stad van Jeruzalem", bron: "Het dal is bekend (OpenBible 1000: Wadi el-Ward). Het punt ligt in het dal; het is geen exacte plek." },
@@ -794,8 +782,7 @@ Object.assign(BR.plaatsen, {
     nu: "Onbekend; punt bij Alma in de Hauran (Zuid-Syrië)", bron: "Onbekend. Het bekendste voorstel is Alma in de Hauran (OpenBible 335); andere voorstellen liggen veel noordelijker (128 en lager). Het punt is illustratief." },
 });
 Object.assign(BR.W, { dr_gileadweg: [32.2, 35.82] });
-//
-// [meer-reizen:brieven] plaatsen
+// Deel brieven
 // De brieven (Romeinen–Filemon en 1 Petrus 1:1). Sleutels beginnen met br_. Ligging: OpenBible.info Bible Geocoding Data (CC BY 4.0).
 Object.assign(BR.plaatsen, {
   br_kolosse: { n: "Kolosse", ll: [37.7866, 29.2599], c: "v", s: "b", z: 8, t: "stad", d: "Stad in Asia, dicht bij Laodicea en Hiërapolis (Kolossenzen 4:13). Paulus en Timotheüs schreven de gemeente een brief, die daarna ook in Laodicea gelezen moest worden (Kolossenzen 1:1–2; 4:16).",
@@ -835,4 +822,3 @@ Object.assign(BR.W, {
   br_kreta1: [35.55, 24.7], br_kreta2: [35.78, 23.95], br_kreta3: [35.76, 23.45], br_malea: [36.2, 22.3], br_methone: [36.55, 21.45], br_ion4: [37.3, 21.2],
   br_ion5: [37.6, 20.4], br_ion6: [38.2, 20.2], br_ion7: [38.75, 20.4], br_ion8: [38.98, 20.6],
 });
-//

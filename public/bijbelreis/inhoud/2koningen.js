@@ -5,9 +5,7 @@ Object.assign(BR.personen, {
   Sanherib: "rood", Rabsake: "rood", Hilkia: "grijs", Safan: "grijs", Jojachin: "grijs", Zedekia: "grijs", Nebuzaradan: "rood", Gedalja: "grijs", "Evil-Merodach": "grijs", Engel: "boter", Zoon: "koraal",
 });
 
-// [meer-reizen:jehu] kleuren
 Object.assign(BR.personen, { Jehu: "bruin", "Joram van Israël": "grijs", Ahazia: "olijf", Jonadab: "teal" });
-//
 BR.boeken.push({
   id: "2koningen", n: "2 Koningen", tijd: "ca. 850–560 v.Chr.", kleur: "salie",
   intro: "De profeet Elisa doet wonderen in Israël. Maar de koningen blijven zondigen: eerst wordt Israël weggevoerd naar Assyrië, en ruim honderd jaar later Juda naar Babel. De tempel gaat in vlammen op.",
@@ -24,14 +22,12 @@ BR.boeken.push({
     { n: "Josia", rol: "koning van Juda, koning vanaf zijn achtste", i: "Hij liet de tempel herstellen; daar werd het wetboek gevonden. Hij las het voor aan het volk, ruimde de afgoden op en vierde het Pascha. Hij sneuvelde bij Megiddo (2 Koningen 22–23).", deel: "ballingschap" },
     { n: "Nebukadnezar", rol: "koning van Babel", i: "Hij kwam meer dan eens tegen Jeruzalem (Daniël 1:1; 2 Koningen 24–25). In zijn achtste jaar voerde hij koning Jojachin en tienduizend mensen weg; in zijn negentiende jaar liet hij de stad en de tempel verbranden (24:12; 25:8).", deel: "ballingschap" },
     { n: "Jojachin", rol: "koning van Juda, achttien jaar oud", i: "Hij was maar drie maanden koning en werd naar Babel weggevoerd. Na 37 jaar gevangenis mocht hij aan de tafel van de koning van Babel eten. Daarmee eindigt 2 Koningen.", deel: "ballingschap" },
-    // [meer-reizen:jehu] wie
     { n: "Jehu", rol: "koning van Israël", i: "Een hoofdman van het leger, de zoon van Josafat, de zoon van Nimsi. In Ramoth in Gilead werd hij tot koning gezalfd. Hij voerde het oordeel uit over het huis van Achab en verdelgde Baäl uit Israël, maar de gouden kalveren liet hij staan. Hij regeerde achtentwintig jaar (2 Koningen 9–10).", deel: "jehu" },
     { n: "Hazaël", rol: "koning van Syrië (Aram) in Damascus", i: "Elisa huilde toen hij hem aankeek, want hij wist wat voor kwaad Hazaël Israël zou doen. Hazaël werd koning na Benhadad. Later sloeg hij Israël in het hele land ten oosten van de Jordaan (2 Koningen 8:7–15; 10:32–33).", deel: "jehu" },
     { n: "Joram van Israël", rol: "koning van Israël, zoon van Achab", i: "Hij regeerde twaalf jaar in Samaria (2 Koningen 3:1). Bij Ramoth in Gilead raakte hij gewond. Bij Jizreël werd hij door Jehu gedood en neergelegd op het stuk land van Naboth (9:24–26). Er was in die tijd ook een Joram koning van Juda: de vader van Ahazia.", deel: "jehu" },
     { n: "Ahazia", rol: "koning van Juda", i: "De zoon van Joram van Juda en Athalia. Hij was tweeëntwintig jaar toen hij koning werd en regeerde één jaar in Jeruzalem (2 Koningen 8:26). Hij was op bezoek bij Joram in Jizreël toen Jehu kwam. Hij vluchtte en stierf in Megiddo (9:27).", deel: "jehu" },
     { n: "Izebel", rol: "vrouw van Achab, moeder van Joram", i: "De dochter van de koning van de Sidoniërs. Zij roeide de profeten van de HEERE uit (1 Koningen 18:4) en liet Naboth stenigen (1 Koningen 21). In Jizreël kwam het woord van Elia over haar uit (2 Koningen 9:30–37).", deel: "jehu" },
     { n: "Jonadab", rol: "zoon van Rechab", i: "Jehu nam hem mee op zijn wagen naar Samaria, en samen gingen ze het huis van Baäl binnen (2 Koningen 10:15–23). In de dagen van Jeremia hielden zijn nakomelingen, de Rechabieten, zich nog aan wat hij geboden had (Jeremia 35).", deel: "jehu" },
-    //
   ],
   delen: [
 { id: "elisa", n: "Elisa", short: "Elisa", ref: "2 Koningen 2–13", c: "salie", init: "E",
@@ -107,7 +103,6 @@ BR.boeken.push({
   },
   trips: [{ n: "De vrouw van Sunem rijdt naar de Karmel", s: 3, r: 0 }, { n: "Naäman: Damascus → Samaria → Jordaan", s: 4 }, { n: "Syriërs: Damascus → Dothan", s: 6, r: 0 }, { n: "Alles wat Elisa reisde", s: "alles" }],
 },
-// [meer-reizen:jehu] deel
 // Hazaël en Jehu (2 Koningen 8:7–15; 8:25–10:36). "Joram van Israël" i.p.v. "Joram": in dit boek is "Joram" in personen.js de
 // koning van Juda (joram_juda). Tekst tussen ‘ ’ is letterlijk Statenvertaling; tussen “ ” staat wat iemand zegt, in eigen woorden.
 { id: "jehu", n: "Hazaël en Jehu", short: "Jehu", ref: "2 Koningen 8:7–15; 8:25–10:36", c: "bruin", init: "J",
@@ -185,7 +180,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Jehu: Ramoth in Gilead → Jizreël", s: 3 }, { n: "Ahazia vlucht: Jizreël → Megiddo", s: 5, r: 0 }, { n: "Jehu: Jizreël → Samaria", s: 7 }, { n: "Alles wat Jehu reed", s: "alles" }],
 },
-//
 
 // Joas van Juda (versie 3.0, geschiedenis 65). Kleuren van de nieuwe namen staan in inhoud/profeten.js.
 // "Joas van Juda" i.p.v. "Joas": in dit boek is "Joas" in personen.js de koning van Israël (joas_israel).

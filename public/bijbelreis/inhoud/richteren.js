@@ -2,9 +2,7 @@
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
 Object.assign(BR.personen, { Jaël: "lila", Sisera: "rood", Jabin: "rood", Midianieten: "rood", Filistijnen: "rood", Manoach: "terra", Pura: "salie" });
 
-// [meer-reizen:ehud-jefta] kleuren
 Object.assign(BR.personen, { "Othniël": "teal", "Cusjan Risjataïm": "rood", Eglon: "rood", Ehud: "kobalt", Samgar: "olijf", Jefta: "oker" });
-//
 BR.boeken.push({
   id: "richteren", n: "Richteren", tijd: "ca. 1380–1050 v.Chr.", kleur: "lila",
   intro: "Na Jozua vergeet het volk God steeds weer. Dan komen er vijanden, het volk roept tot God, en God stuurt een richter: Debora, Gideon, Simson.",
@@ -20,13 +18,11 @@ BR.boeken.push({
     { n: "Manoach", rol: "vader van Simson", i: "Uit Zora, van de stam Dan. De Engel van de HEERE vertelde hem en zijn vrouw dat ze een zoon zouden krijgen die nazireeër zou zijn (Richteren 13).", deel: "simson" },
     { n: "Simson", rol: "richter, 20 jaar", i: "De Geest van de HEERE gaf hem grote kracht. Toen zijn haar was afgeschoren, was de HEERE van hem geweken (Richteren 16:20). Hij vocht in zijn eentje tegen de Filistijnen en stierf in de tempel van Dagon in Gaza (Richteren 13–16).", deel: "simson" },
     { n: "Delila", rol: "vrouw uit het dal Sorek", i: "De Filistijnse vorsten boden haar elk 1100 zilverstukken als ze het geheim van Simsons kracht ontdekte. Ze bleef net zo lang zeuren tot hij het vertelde (Richteren 16:4–20).", deel: "simson" },
-    // [meer-reizen:ehud-jefta] wie
     { n: "Othniël", rol: "de eerste richter", i: "‘Othniël, zoon van Kenaz, broeder van Kaleb, die jonger was dan hij’ (Richteren 3:9). De Geest van de HEERE was over hem. De HEERE gaf Cusjan Risjataïm in zijn hand, en het land had veertig jaar rust (3:10–11).", deel: "ehud-jefta" },
     { n: "Ehud", rol: "richter uit Benjamin", i: "Zoon van Gera, ‘een man, die links was’ (Richteren 3:15). Hij doodde koning Eglon, blies de bazuin in het bergland van Efraïm en bezette met Israël de veren van de Jordaan. Later telde Benjamin zevenhonderd uitgelezen mannen die links waren (20:16).", deel: "ehud-jefta" },
     { n: "Eglon", rol: "koning van Moab", i: "De HEERE maakte hem sterk tegen Israël. Met de Ammonieten en de Amalekieten nam hij de Palmstad in, en Israël diende hem achttien jaar (Richteren 3:12–14).", deel: "ehud-jefta" },
     { n: "Samgar", rol: "zoon van Anath", i: "Hij versloeg zeshonderd Filistijnen met een ossenstok; ‘alzo verloste hij ook Israël’ (Richteren 3:31). Het lied van Debora noemt ‘de dagen van Samgar’ (5:6).", deel: "ehud-jefta" },
     { n: "Jefta", rol: "richter uit Gilead, 6 jaar", i: "Een strijdbare held, door zijn broers verstoten en naar het land Tob gevlucht. De oudsten van Gilead haalden hem terug. Hij versloeg de Ammonieten en richtte Israël zes jaar (Richteren 11:1–11, 33; 12:7). Zijn enige kind was een dochter (11:34).", deel: "ehud-jefta" },
-    //
   ],
   delen: [
 { id: "debora", n: "Debora en Gideon", short: "Debora en Gideon", ref: "Richteren 4–8", c: "lila", init: "D",
@@ -103,7 +99,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Debora: palmboom → Kedes", s: 2, r: 0 }, { n: "Barak: Kedes → Tabor", s: 2, r: 1 }, { n: "Gideon: Ofra → bron Harod", s: 7 }, { n: "Alles wat Debora en Gideon reisden", s: "alles" }],
 },
-// [meer-reizen:ehud-jefta] deel
 // Tekst tussen ‘ ’ is letterlijk Statenvertaling; tussen “ ” staat wat iemand zegt, in eigen woorden.
 { id: "ehud-jefta", n: "Ehud en Jefta", short: "Ehud en Jefta", ref: "Richteren 3:7–31; 10:6–12:7", c: "kobalt", init: "E",
   tijd: "ca. 1380–1100 v.Chr. (onzeker)", tl: [-1380, -1100],
@@ -182,7 +177,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Ehud: Gilgal → bergland van Efraïm → de Jordaan", s: 3 }, { n: "Jefta: Tob → Mizpa in Gilead", s: 5 }, { n: "Jefta: Mizpa → Aroër → Abel-Keramim", s: 7 }, { n: "Alles wat Ehud en Jefta trokken", s: "alles" }],
 },
-//
 
 { id: "simson", n: "Simson", short: "Simson", ref: "Richteren 13–16", c: "terra", init: "S",
   tijd: "ca. 1100–1050 v.Chr. (onzeker)", tl: [-1100, -1050],

@@ -60,36 +60,10 @@ const GROEPEN = new Set(["Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen"
   "Eilanders", "Gemeente",
   // 2 Kronieken 20 (Josafat)
   "Levieten", "De Levieten", "Zangers",
-  // [meer-reizen:nt-paulus2] groepen
-  //
-  // [meer-reizen:nt-paulus3] groepen
-  //
-  // [meer-reizen:nt-samaria-nain] groepen
   "De Samaritaanse vrouw", "De koninklijke hoveling", "De weduwe van Naïn",
-  //
-  // [meer-reizen:nt-over-de-grens] groepen
   // Geen groepen maar naamloze personen (rollen); ze hoeven niet in GROUPS in app.js.
   "Syro-Fenicische vrouw", "Dove man", "Blinde man",
-  //
-  // [meer-reizen:ehud-jefta] groepen
-  //
-  // [meer-reizen:scheuring] groepen
   "Man Gods",
-  //
-  // [meer-reizen:jehu] groepen
-  //
-  // [meer-reizen:asa] groepen
-  //
-  // [meer-reizen:hizkia-josia] groepen
-  //
-  // [meer-reizen:jeremia-egypte] groepen
-  //
-  // [meer-reizen:stammen] groepen
-  //
-  // [meer-reizen:davids-rijk] groepen
-  //
-  // [meer-reizen:brieven] groepen
-  //
   // Wie-lijst Handelingen: één item over drie verschillende mannen met de naam Ananias (5:1, 9:10, 23:2).
   "Drie mannen Ananias"]);
 const ROLLEN = new Set(["Farao", "Bakker", "Farao’s dochter", "Knecht", "Schenker", "Losser", "De andere losser", "Wapendrager", "Koningin",
@@ -130,7 +104,7 @@ const VERWACHT = {
   "1koningen|Jerobeam": "jerobeam_1", "jona|Jerobeam": "jerobeam_2", "daniel|Darius": "darius_meder", "ezra|Darius": "darius_pers",
   "esther|Ahasveros": "ahasveros", "genesis|Abimelech": "abimelech", "2koningen|Benhadad": "benhadad", "1samuel|Achis": "achis",
   "1koningen|Hiram": "hiram", "2koningen|Hilkia": "hilkia", "1samuel|Jonathan": "jonathan", "1koningen|Nathan": "nathan", "2samuel|Nathan": "nathan",
-  "2kronieken|Manasse": "manasse_juda", "2kronieken|Hilkia": "hilkia", // [meer-reizen:hizkia-josia] verwacht: koning Manasse (2 Kronieken 33) en de hogepriester Hilkia (34:9)
+  "2kronieken|Manasse": "manasse_juda", "2kronieken|Hilkia": "hilkia", // koning Manasse (2 Kronieken 33) en de hogepriester Hilkia (34:9)
   "1koningen|Obadja": "obadja", "profeten|Johanan": "johanan", "2koningen|Joram": "joram_juda", "2koningen|Ahazia": "ahazia_juda",
   "ezra|Zacharia": "zacharia", "profeten|Zacharia": "zacharia", "jezus-1|Zacharias": "zacharias", "jezus-1|Herodes": "herodes",
   "handelingen|Herodes": "herodes_agrippa", "jezus-1|Maria": "maria", "jezus-3|Maria": "maria", "jezus-2|Maria": "maria_bethanie",

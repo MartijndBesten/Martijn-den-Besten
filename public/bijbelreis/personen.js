@@ -955,7 +955,7 @@ BR.mensen = {
     kort: "‘Mijn getrouwe getuige’, zegt de Heere; hij werd gedood in Pergamus, ‘daar de satan woont’. Meer vertelt de Bijbel niet over hem.",
     elders: [["Openbaring 2:12–13", "De brief aan de gemeente in Pergamus."]] },
   // ---------- Meer reizen (november 2026) ----------
-  // [meer-reizen:nt-paulus2] mensen
+  // Deel nt-paulus2
   jason: { n: "Jason", boek: ["handelingen"],
     kort: "Een man in Thessalonica die Paulus en Silas in zijn huis nam. De Joden vielen zijn huis aan en trokken hem met enkele broeders voor de oversten van de stad; hij kwam vrij nadat hij een borg had gegeven.",
     elders: [["Handelingen 17:5–7", "‘Welke Jason in zijn huis genomen heeft.’"], ["Handelingen 17:9", "De oversten laten Jason en de anderen gaan."], ["Romeinen 16:21", "Paulus noemt een Jason bij zijn bloedverwanten; of dat dezelfde man is, zegt de Bijbel niet."]] },
@@ -985,8 +985,7 @@ BR.mensen = {
   sosthenes: { n: "Sosthenes", boek: ["handelingen"],
     kort: "Een overste van de synagoge in Korinthe. De Grieken sloegen hem vóór de rechterstoel van Gallio. Paulus begint de eerste brief aan de Korinthiërs samen met ‘Sosthenes, de broeder’; of dat dezelfde man is, zegt de Bijbel niet.",
     elders: [["Handelingen 18:17", "Hij wordt geslagen voor de rechterstoel."], ["1 Korinthe 1:1", "‘Paulus … en Sosthenes, de broeder.’"]] },
-  //
-  // [meer-reizen:nt-paulus3] mensen
+  // Deel nt-paulus3
   apollos: { n: "Apollos", boek: ["handelingen"],
     kort: "Een Jood uit Alexandrië, welsprekend en ‘machtig zijnde in de Schriften’. In Efeze legden Aquila en Priscilla hem de weg van God nauwkeuriger uit; daarna hielp hij de gelovigen in Achaje en bewees hij uit de Schriften dat Jezus de Christus is.",
     elders: [["Handelingen 18:24–28", "Zijn komst in Efeze en zijn reis naar Achaje."], ["Handelingen 19:1", "Hij is in Korinthe als Paulus in Efeze komt."], ["1 Korinthe 3:6", "‘Ik heb geplant, Apollos heeft nat gemaakt; maar God heeft den wasdom gegeven.’"], ["1 Korinthe 16:12", "Paulus heeft hem zeer gevraagd om naar Korinthe te gaan; hij zal komen als het hem gelegen komt."], ["Titus 3:13", "Titus moet Zenas en Apollos zorgvuldig verder helpen, zodat hun niets ontbreekt."]] },
@@ -996,12 +995,9 @@ BR.mensen = {
   eutychus: { n: "Eutychus", boek: ["handelingen"],
     kort: "Een jongeman in Troas. Terwijl Paulus tot middernacht sprak, viel hij in een diepe slaap, stortte van de derde verdieping naar beneden en werd dood opgenomen. Hij werd levend teruggebracht.",
     elders: [["Handelingen 20:9–10", "‘Weest niet beroerd; want zijn ziel is in hem.’"], ["Handelingen 20:12", "‘En zij brachten den knecht levende, en waren bovenmate vertroost.’"]] },
-  //
-  // [meer-reizen:nt-samaria-nain] mensen
-  //
-  // [meer-reizen:nt-over-de-grens] mensen
-  //
-  // [meer-reizen:ehud-jefta] mensen
+  // Deel nt-samaria-nain
+  // Deel nt-over-de-grens
+  // Deel ehud-jefta
   othniel: { n: "Othniël", p: ["achsa"], boek: ["jozua", "richteren"],
     kort: "Zoon van Kenaz. Hij nam Kirjath-Sefer (Debir) in en kreeg Achsa, de dochter van Kaleb, tot vrouw. Later was hij de eerste richter: de HEERE gaf Cusjan Risjataïm in zijn hand, en het land had veertig jaar rust.",
     dood: "Richteren 3:11",
@@ -1015,8 +1011,7 @@ BR.mensen = {
     elders: [["Richteren 5:6", "Het lied van Debora noemt ‘de dagen van Samgar, den zoon van Anath’."]] },
   jefta: { n: "Jefta", boek: ["richteren"], kort: "De Gileadiet, een strijdbare held; door zijn broers verstoten en later hoofd van Gilead. Hij versloeg de Ammonieten en richtte Israël zes jaar.",
     dood: "Richteren 12:7", elders: [["1 Samuël 12:11", "Samuël noemt Jefta bij de mannen die de HEERE zond om Israël te verlossen."], ["Hebreeën 11:32", "Genoemd bij de helden van het geloof."]] },
-  //
-  // [meer-reizen:scheuring] mensen
+  // Deel scheuring
   sisak: { n: "Sisak", boek: ["1koningen"],
     kort: "Koning van Egypte. Jerobeam vluchtte naar hem; later trok hij op tegen Jeruzalem en nam de schatten van het huis van de HEERE en van het huis van de koning mee.",
     vervolg: [["1 Koningen 14:25–26", "In het vijfde jaar van Rehabeam trekt hij op tegen Jeruzalem."]],
@@ -1031,8 +1026,7 @@ BR.mensen = {
     kort: "Zoon van Jerobeam. Hij werd ziek en stierf toen zijn moeder terugkwam van de profeet Ahia; alleen hij uit het huis van Jerobeam kwam in een graf.",
     dood: "1 Koningen 14:17", vervolg: [["1 Koningen 14:12–13", "Ahia zegt dat het kind zal sterven en dat heel Israël over hem zal rouwen."]],
     basis: { v: ["b", "1 Koningen 14:1"] } },
-  //
-  // [meer-reizen:jehu] mensen
+  // Deel jehu
   // De vader van Jehu heet Josafat, de zoon van Nimsi (2 Koningen 9:2): een andere Josafat dan de koning van Juda. Geen v.
   // In 2 Koningen is ‘Joram’ in who de koning van Juda (joram_juda); de zoon van Achab heet daarom ‘Joram van Israël’.
   jehu: { n: "Jehu", boek: ["2koningen"],
@@ -1050,8 +1044,7 @@ BR.mensen = {
     kort: "Zoon van Rechab. Jehu nam hem mee op zijn wagen naar Samaria en ging met hem het huis van Baäl binnen.",
     elders: [["Jeremia 35:6–10", "Hij had zijn nakomelingen geboden geen wijn te drinken en in tenten te wonen; de Rechabieten hielden zich daaraan."], ["Jeremia 35:18–19", "God zegt dat het Jonadab niet zal ontbreken aan een man die voor Zijn aangezicht staat."]],
     vervolg: [["2 Koningen 10:15–16", "‘Ga met mij, en zie mijn ijver aan voor den HEERE.’"], ["2 Koningen 10:23", "Met Jehu gaat hij het huis van Baäl binnen."]] },
-  //
-  // [meer-reizen:asa] mensen
+  // Deel asa
   // Asa (2 Kronieken 14–16). Abia heet in Koningen Abiam; hij staat hier alleen als vader van Asa (boek: []).
   // Maächa heet ‘de moeder van den koning Asa’ (2 Kronieken 15:16), maar ook de moeder van Abia heet Maächa (1 Koningen 15:2):
   // veel uitleggers zien haar als grootmoeder. Daarom bewust geen m bij Asa.
@@ -1085,10 +1078,8 @@ BR.mensen = {
   hanani_ziener: { n: "Hanani de ziener", boek: ["2kronieken"],
     kort: "Ziener die tegen Asa zei dat hij op de koning van Syrië had gesteund en niet op de HEERE. Asa werd toornig en zette hem gevangen. De profeet Jehu heet ‘de zoon van Hanani’; meestal wordt aangenomen dat dit dezelfde Hanani is.",
     elders: [["1 Koningen 16:1", "Jehu, de zoon van Hanani, spreekt tegen Baësa."], ["2 Kronieken 19:2", "‘Jehu, de zoon van Hanani, de ziener’ gaat koning Josafat tegemoet."]] },
-  //
-  // [meer-reizen:hizkia-josia] mensen
-  //
-  // [meer-reizen:jeremia-egypte] mensen
+  // Deel hizkia-josia
+  // Deel jeremia-egypte
   // Een andere Ismaël dan de zoon van Abraham (ismael, Genesis). De naam in `n` is bewust onderscheidend: zo is er geen naamgenoot.
   ismael_nethanja: { n: "Ismaël (zoon van Nethanja)", boek: ["profeten"],
     kort: "Zoon van Nethanja, de zoon van Elisama, van koninklijke afkomst; een van de legeroversten. Hij doodde Gedalja in Mizpa en ontkwam naar de Ammonieten.",
@@ -1098,14 +1089,12 @@ BR.mensen = {
     kort: "Zoon van Neria en schrijver van Jeremia; hij schreef de woorden van de HEERE op een boekrol. Hij werd met Jeremia meegenomen naar Egypte.",
     elders: [["Jeremia 32:12", "Jeremia geeft hem de koopbrief van het veld bij Anathoth."], ["Jeremia 36:4", "Hij schrijft de woorden van de HEERE op uit de mond van Jeremia."], ["Jeremia 45:5", "God zegt tegen hem: ‘Ik zal u uw ziel tot een buit geven, in alle plaatsen, waar gij zult henentrekken.’"]],
     vervolg: [["Jeremia 43:3", "De leiders zeggen dat hij Jeremia tegen hen opstookt."], ["Jeremia 43:6–7", "Hij wordt met Jeremia meegenomen naar Tachpanhes in Egypte."]] },
-  //
-  // [meer-reizen:stammen] mensen
+  // Deel stammen
   achsa: { n: "Achsa", v: "kaleb", p: ["othniel"], boek: ["jozua"],
     kort: "Dochter van Kaleb en vrouw van Othniël; zij vroeg haar vader om waterbronnen bij haar dorre land.",
     elders: [["Richteren 1:14–15", "Ook in Richteren staat hoe zij haar vader om een zegen vroeg."]],
     basis: { v: ["b", "Jozua 15:16"], p: { othniel: ["b", "Jozua 15:17"] } } },
-  //
-  // [meer-reizen:davids-rijk] mensen
+  // Deel davids-rijk
   hadadezer: { n: "Hadadezer", boek: ["2samuel"], kort: "Zoon van Rehob, koning van Zoba. David versloeg hem en nam hem duizend wagens af. Hij liet de Syriërs van de overkant van de rivier naar Helam komen; ook zij werden verslagen.",
     elders: [["1 Kronieken 18:3", "De Statenvertaling schrijft daar Hadar-ezer; David versloeg hem ‘naar Hamath toe’."], ["1 Koningen 11:23", "Rezon vluchtte weg van zijn heer Hadadezer en werd later een tegenstander van Salomo."]],
     vervolg: [["2 Samuël 10:16–19", "Hij laat de Syriërs van de overkant van de rivier komen; bij Helam worden ze verslagen."]] },
@@ -1116,8 +1105,7 @@ BR.mensen = {
     vervolg: [["2 Samuël 12:26–29", "Joab en David nemen Rabba in, de koninklijke stad van de Ammonieten."]] },
   sobach: { n: "Sobach", boek: ["2samuel"], kort: "Legeroverste van Hadadezer. Hij trok voor de Syriërs uit naar Helam en stierf daar in de strijd tegen David.",
     dood: "2 Samuël 10:18", elders: [["1 Kronieken 19:16", "De Statenvertaling noemt hem daar Sofach."]] },
-  //
-  // [meer-reizen:brieven] mensen
+  // Deel brieven
   // De brieven: wie een brief bracht, kreeg of erin wordt gestuurd. Paulus, Timotheüs en Petrus staan hierboven (boek ook "brieven").
   febe: { n: "Febe", boek: ["brieven"],
     kort: "‘Onze zuster’, een dienares van de gemeente in Kenchreeën. Paulus beveelt haar aan bij de gemeente in Rome: zij moeten haar ontvangen en bijstaan, want zij heeft velen geholpen, ook Paulus zelf.",
@@ -1137,5 +1125,4 @@ BR.mensen = {
   filemon: { n: "Filemon", boek: ["brieven"],
     kort: "Paulus schrijft hem een korte brief en noemt hem ‘den geliefde, en onzen medearbeider’. In zijn huis komt een gemeente samen. Paulus vraagt hem Onesimus weer aan te nemen.",
     elders: [["Filemon 1:1–2", "De brief is gericht aan Filemon, Appia, Archippus en de gemeente in zijn huis."], ["Filemon 1:7", "Door hem zijn de heiligen verkwikt."], ["Filemon 1:17", "‘Zo neem hem aan, gelijk als mij.’"], ["Filemon 1:22", "Paulus hoopt bij hem te komen: ‘bereid mij ook tegelijk een herberg’."]] },
-  //
 };

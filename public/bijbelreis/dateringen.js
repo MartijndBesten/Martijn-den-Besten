@@ -33,45 +33,19 @@ BR.dateringen = {
     "jezus-3:nt-lijdensweek": ["historie", true], "jezus-3:nt-lijden": ["historie", true], "jezus-3:nt-opstanding": ["historie", true],
     "handelingen:nt-gemeente": ["historie", false], "handelingen:nt-paulus": ["historie", false], "handelingen:nt-paulusrome": ["historie", false],
     "openbaring:nt-openbaring": ["historie", true],
-    // [meer-reizen:nt-paulus2] datering
     "handelingen:nt-paulus2": ["historie", false],
-    //
-    // [meer-reizen:nt-paulus3] datering
     "handelingen:nt-paulus3": ["historie", false],
-    //
-    // [meer-reizen:nt-samaria-nain] datering
     "jezus-1:nt-samaria-nain": ["historie", false],
-    //
-    // [meer-reizen:nt-over-de-grens] datering
     "jezus-2:nt-over-de-grens": ["historie", true],
-    //
-    // [meer-reizen:ehud-jefta] datering
     "richteren:ehud-jefta": ["bijbel", true],
-    //
-    // [meer-reizen:scheuring] datering
     "1koningen:scheuring": ["historie", false],
-    //
-    // [meer-reizen:jehu] datering
     "2koningen:jehu": ["historie", false],
-    //
-    // [meer-reizen:asa] datering
     "2kronieken:asa": ["historie", false],
-    //
-    // [meer-reizen:hizkia-josia] datering
     "2kronieken:hizkia-josia": ["historie", false],
-    //
-    // [meer-reizen:jeremia-egypte] datering
     "profeten:jeremia-egypte": ["historie", false],
-    //
-    // [meer-reizen:stammen] datering
     "jozua:stammen": ["bijbel", true],
-    //
-    // [meer-reizen:davids-rijk] datering
     "2samuel:davids-rijk": ["historie", true],
-    //
-    // [meer-reizen:brieven] datering
     "brieven:brieven": ["historie", true], // brieven zonder jaartal; ijkpunten: Gallio (Handelingen 18:12) en de overlevering over Nero
-    //
   },
   // Geschiedenissen per reeks: [van, tot, soort, onzeker?]
   verhalen: [

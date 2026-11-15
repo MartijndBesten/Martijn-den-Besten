@@ -5,9 +5,7 @@ Object.assign(BR.personen, {
   Jongen: "grijs", Engel: "boter", Naboth: "olijf", Obadja: "grijs",
 });
 
-// [meer-reizen:scheuring] kleuren
 Object.assign(BR.personen, { Sisak: "rood", Semaja: "lila", "Man Gods": "lila", Abia: "koraal", Adoram: "grijs" });
-//
 BR.boeken.push({
   id: "1koningen", n: "1 Koningen", tijd: "ca. 970–850 v.Chr.", kleur: "boter",
   intro: "Salomo bouwt de tempel en wordt de rijkste en wijste koning. Maar na hem scheurt het rijk in tweeën, en in het noorden gaat de profeet Elia de strijd aan met koning Achab en de Baäl.",
@@ -24,12 +22,10 @@ BR.boeken.push({
     { n: "Obadja", rol: "hofmeester van Achab", i: "Hij vreesde de HEERE en verborg honderd profeten in twee grotten, vijftig en vijftig, toen Izebel hen liet doden (1 Koningen 18:3–4).", deel: "elia" },
     { n: "Naboth", rol: "man uit Jizreël met een wijngaard", i: "Hij wilde de grond van zijn vaderen niet aan de koning verkopen. Izebel liet hem met valse getuigen veroordelen en stenigen (1 Koningen 21).", deel: "elia" },
     { n: "Elisa", rol: "boerenzoon uit Abel-Mehola, later profeet", i: "Hij ploegde met twaalf span runderen toen Elia zijn mantel over hem gooide. Hij volgde Elia en werd na hem profeet. Zijn eigen verhaal lees je in 2 Koningen.", deel: "elia" },
-    // [meer-reizen:scheuring] wie
     { n: "Semaja", rol: "man Gods in Juda", i: "Toen Rehabeam met 180.000 soldaten tegen de tien stammen wilde strijden, bracht hij het woord van de HEERE: ‘Gij zult niet optrekken, noch strijden tegen uw broederen’ (1 Koningen 12:24). En ze keerden terug naar huis.", deel: "scheuring" },
     { n: "Man Gods", rol: "profeet uit Juda; zijn naam staat er niet", i: "Hij riep in Bethel tegen het altaar van Jerobeam en noemde de naam van koning Josia, lang voordat die geboren werd. Daarna ging hij toch mee terug om in Bethel te eten, tegen het gebod van de HEERE in, en een leeuw doodde hem (1 Koningen 13).", deel: "scheuring" },
     { n: "Abia", rol: "zoon van Jerobeam", i: "Hij werd als kind ziek. De profeet Ahia zei dat hij zou sterven, maar ook dat alleen hij uit het huis van Jerobeam in een graf zou komen, ‘omdat in hem wat goeds voor den HEERE, den God Israëls, in het huis van Jerobeam gevonden is’ (1 Koningen 14:13).", deel: "scheuring" },
     { n: "Sisak", rol: "koning van Egypte", i: "Naar hem vluchtte Jerobeam toen Salomo hem wilde doden (1 Koningen 11:40). In het vijfde jaar van Rehabeam trok hij op tegen Jeruzalem en nam de schatten en de gouden schilden van Salomo mee (14:25–26).", deel: "scheuring" },
-    //
   ],
   delen: [
 { id: "salomo", n: "Salomo", short: "Salomo", ref: "1 Koningen 1–11", c: "boter", init: "S",
@@ -105,7 +101,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Jeruzalem → Gibeon", s: 1, r: 0 }, { n: "Hirams hout: Tyrus → Joppe → Jeruzalem", s: 3 }, { n: "Jerobeam vlucht: Jeruzalem → Egypte", s: 7 }, { n: "Alles wat Salomo reisde", s: "alles" }],
 },
-// [meer-reizen:scheuring] deel
 { id: "scheuring", n: "Het rijk scheurt: Rehabeam en Jerobeam", short: "De scheuring", ref: "1 Koningen 11:26–14:31", c: "teal", init: "R",
   tijd: "ca. 931–910 v.Chr.", tl: [-931, -910],
   tijdNoot: "Reconstructie. De Bijbel noemt geen jaartallen, maar regeringsjaren: Rehabeam regeerde zeventien jaar (14:21), Jerobeam tweeëntwintig jaar (14:20), en Sisak kwam in het vijfde jaar van Rehabeam (14:25). In de gangbare chronologie (Thiele) valt de scheuring van het rijk ca. 931/930 v.Chr., de tocht van Sisak ca. 926/925 v.Chr. en het einde van de regering van Jerobeam ca. 910/909 v.Chr. Andere schema’s verschillen enkele jaren. De ontmoeting met Ahia en de vlucht naar Egypte waren eerder, in de laatste jaren van Salomo; in welk jaar, staat er niet.",
@@ -181,7 +176,6 @@ BR.boeken.push({
   trips: [{ n: "Jeruzalem → Egypte (Jerobeam vlucht)", s: 1 }, { n: "Jeruzalem → Sichem (Rehabeam)", s: 2, r: 0 }, { n: "Egypte → Sichem (Jerobeam terug)", s: 2, r: 1 }, { n: "Sichem → Pniël", s: 4 },
     { n: "Tirza → Silo (de vrouw van Jerobeam)", s: 7, r: 0 }, { n: "Egypte → Jeruzalem (Sisak)", s: 8 }, { n: "Alles wat Jerobeam reisde", s: "alles" }],
 },
-//
 
 { id: "elia", n: "Elia", short: "Elia", ref: "1 Koningen 16 – 2 Koningen 2", c: "terra", init: "E",
   tijd: "ca. 874–850 v.Chr.", tl: [-874, -850],

@@ -1,39 +1,30 @@
-// 2 Kronieken 20: Josafat en de strijd die van God is. Namen volgens de Herziene Statenvertaling.
+// 2 Kronieken: Asa (14–16), Josafat (20) en Hizkia, Manasse en Josia (29–35). Namen volgens de Herziene Statenvertaling.
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
 // Tekst tussen ‘ ’ is letterlijk Statenvertaling; tussen “ ” staat wat iemand zegt, in eigen woorden.
 Object.assign(BR.personen, { Josafat: "oker", "Jahaziël": "boter", Levieten: "grijs", Zangers: "grijs" });
 
-// [meer-reizen:asa] kleuren
 Object.assign(BR.personen, { Asa: "kobalt", Zerah: "rood", "Azarja (zoon van Oded)": "boter", "Maächa": "koraal", "Baësa": "bruin", "Benhadad van Syrië": "rood", "Hanani de ziener": "lila" });
-//
-// [meer-reizen:hizkia-josia] kleuren
 Object.assign(BR.personen, { Manasse: "bruin", Amon: "grijs", Hulda: "koraal", Necho: "rood" });
-//
 BR.boeken.push({
-  id: "2kronieken", n: "2 Kronieken", tijd: "ca. 853–848 v.Chr.", kleur: "oker",
-  intro: "Kronieken vertelt de geschiedenis van de koningen van Juda opnieuw, met veel aandacht voor de tempel en het gebed. Hier: koning Josafat, een groot leger bij En-Gedi, en een strijd die God Zelf voert.",
+  id: "2kronieken", n: "2 Kronieken", tijd: "ca. 911–609 v.Chr.", kleur: "oker",
+  intro: "Kronieken vertelt de geschiedenis van de koningen van Juda opnieuw, met veel aandacht voor de tempel en het gebed. Hier: koning Asa, die op de HEERE steunt; koning Josafat en de strijd die God Zelf voert; en de koningen Hizkia, Manasse en Josia.",
   wie: [
     { n: "Josafat", rol: "koning van Juda", i: "Hij was vijfendertig jaar toen hij koning werd en regeerde vijfentwintig jaar in Jeruzalem. ‘En hij wandelde in den weg van zijn vader Asa’ (2 Kronieken 20:31–32). Toen een groot leger kwam, riep hij een vasten uit en bad in het huis van de HEERE.", deel: "josafat" },
     { n: "Jahaziël", rol: "Leviet uit de zonen van Asaf", i: "Op hem kwam ‘de Geest des HEEREN’ midden in de gemeente. Hij bracht Gods antwoord: ‘want de strijd is niet uwe, maar Gods’ (2 Kronieken 20:14–15).", deel: "josafat" },
     { n: "De Levieten", rol: "zangers van de tempel", i: "Levieten uit de Kahathieten en de Korahieten prezen God met luide stem (20:19). Daarna gingen zangers vóór het leger uit (20:21).", deel: "josafat" },
-    // [meer-reizen:asa] wie
     { n: "Asa", rol: "koning van Juda", i: "Zoon van Abia en vader van Josafat. Hij regeerde eenenveertig jaar in Jeruzalem (1 Koningen 15:10) en ‘deed dat goed en dat recht was in de ogen des HEEREN, zijns Gods’ (2 Kronieken 14:2). Tegen het leger van Zerah steunde hij op de HEERE; later steunde hij op de koning van Syrië.", deel: "asa" },
     { n: "Zerah", rol: "aanvoerder van een groot leger", i: "‘Zerah, de Moor’ (Herziene Statenvertaling: de Cusjiet) kwam met ‘een heir van duizend maal duizend, en driehonderd wagenen’ tot Maresa (2 Kronieken 14:9). De HEERE versloeg zijn leger voor Asa en Juda.", deel: "asa" },
     { n: "Azarja (zoon van Oded)", rol: "bracht een woord van God", i: "‘Toen kwam de Geest Gods op Azaria, den zoon van Oded’ (2 Kronieken 15:1). Hij ging Asa tegemoet en zei dat de HEERE Zich laat vinden door wie Hem zoekt.", deel: "asa" },
     { n: "Baësa", rol: "koning van Israël", i: "Hij trok op tegen Juda en bouwde Rama, ‘opdat hij niemand toeliet uit te gaan en in te komen tot Asa’ (2 Kronieken 16:1).", deel: "asa" },
     { n: "Benhadad van Syrië", rol: "koning in Damascus", i: "‘Benhadad, den koning van Syrië, die te Damaskus woonde’ (2 Kronieken 16:2). Voor het zilver en goud van Asa verbrak hij zijn verbond met Baësa. De Bijbel noemt later nog andere koningen van Syrië die Benhadad heten.", deel: "asa" },
     { n: "Hanani de ziener", rol: "ziener", i: "Hij zei tegen Asa: ‘gij hebt hierin zottelijk gedaan’ (2 Kronieken 16:9), omdat Asa op de koning van Syrië had gesteund en niet op de HEERE. Asa zette hem gevangen.", deel: "asa" },
-    //
-    // [meer-reizen:hizkia-josia] wie
     { n: "Hizkia", rol: "koning van Juda", i: "Hij was vijfentwintig jaar toen hij koning werd en regeerde negenentwintig jaar in Jeruzalem (2 Kronieken 29:1). In zijn eerste maand deed hij de deuren van de tempel weer open; daarna nodigde hij heel Israël uit voor het Pascha. Toen Sanherib kwam, zei hij: ‘met ons is de HEERE, onze God, om ons te helpen’ (32:8).", deel: "hizkia-josia" },
     { n: "Manasse", rol: "koning van Juda, zoon van Hizkia", i: "Hij werd koning toen hij twaalf jaar was en regeerde vijfenvijftig jaar (33:1). Hij deed veel kwaad en werd in ketenen naar Babel gevoerd. Daar vernederde hij zich, en God bracht hem terug naar Jeruzalem. ‘Toen erkende Manasse, dat de HEERE God is’ (33:13). Dit is een andere Manasse dan de zoon van Jozef, naar wie de stam Manasse heet.", deel: "hizkia-josia" },
     { n: "Josia", rol: "koning van Juda, koning vanaf zijn achtste", i: "Hij regeerde eenendertig jaar in Jeruzalem (34:1). Toen hij nog jong was, begon hij God te zoeken. Hij reinigde het land tot in Naftali, liet het gevonden wetboek voorlezen en hield het Pascha. In het dal van Megiddo raakte hij zwaargewond; hij stierf en werd in Jeruzalem begraven (35:22–24).", deel: "hizkia-josia" },
     { n: "Hulda", rol: "profetes in Jeruzalem", i: "De vrouw van Sallum, de klerenbewaarder. Josia liet haar vragen wat de HEERE zei over het gevonden wetboek. Haar antwoord: het onheil komt over Jeruzalem, maar Josia zal het niet zien, omdat hij zich voor God vernederd heeft (34:22–28).", deel: "hizkia-josia" },
     { n: "Necho", rol: "koning van Egypte", i: "Hij trok op om te strijden bij Karchemis aan de Eufraat. Josia ging hem tegemoet, al liet Necho hem zeggen: “Ik trek vandaag niet tegen u op.” In het dal van Megiddo werd Josia door de schutters geraakt (35:20–23).", deel: "hizkia-josia" },
-    //
   ],
   delen: [
-// [meer-reizen:asa] deel
 { id: "asa", n: "Asa: steunen op de HEERE", short: "Asa", ref: "2 Kronieken 14–16", c: "kobalt", init: "A",
   tijd: "ca. 911–870 v.Chr.", tl: [-911, -870],
   tijdNoot: "Reconstructie. De Bijbel noemt geen jaartal, maar regeringsjaren: Asa regeerde eenenveertig jaar (1 Koningen 15:10; 2 Kronieken 16:13). In de gangbare chronologie (Thiele) is dat ca. 911–870 v.Chr. Kronieken noemt daarbinnen tien jaar rust (14:1), het vijftiende jaar (15:10), het zesendertigste (16:1), het negenendertigste (16:12) en het eenenveertigste jaar (16:13). Over het zesendertigste jaar verschillen uitleggers: volgens 1 Koningen 16:8 werd Ela, de zoon van Baësa, al in het zesentwintigste jaar van Asa koning. Sommigen tellen daarom vanaf de scheuring van het rijk; anderen denken aan een fout bij het overschrijven van het getal.",
@@ -110,7 +101,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Jeruzalem → Maresa", s: 1 }, { n: "Maresa → Gerar", s: 2 }, { n: "Gerar → Jeruzalem", s: 3 }, { n: "Damascus → Ijon, Dan en Abel-Maïm (leger van Benhadad)", s: 6 }, { n: "Alles wat Asa en Juda trokken", s: "alles" }],
 },
-//
 { id: "josafat", n: "Josafat: de strijd is Gods", short: "Josafat", ref: "2 Kronieken 20:1–30", c: "oker", init: "J",
   tijd: "ca. 853–848 v.Chr.", tl: [-853, -848],
   tijdNoot: "Reconstructie. De Bijbel noemt geen jaar. Deze oorlog komt na de veldtocht met Achab, die bij Ramoth in Gilead sneuvelde (2 Kronieken 18; 20:1 ‘na dezen’). Josafat regeerde vijfentwintig jaar (20:31). In de gangbare chronologie (Thiele) stierf Achab ca. 853 v.Chr. en eindigde de regering van Josafat ca. 848 v.Chr. Daartussen lag deze geschiedenis; welk jaar precies, weten we niet.",
@@ -168,8 +158,7 @@ BR.boeken.push({
   },
   trips: [{ n: "Jeruzalem → woestijn van Tekoa", s: 3 }, { n: "Alles wat Juda trok", s: "alles" }],
 },
-// [meer-reizen:hizkia-josia] deel
-{ id: "hizkia-josia", n: "Hizkia, Manasse en Josia", short: "Hizkia en Josia", ref: "2 Kronieken 29–35", c: "kobalt", init: "H",
+{ id: "hizkia-josia", n: "Hizkia, Manasse en Josia", short: "Hizkia en Josia", ref: "2 Kronieken 29–35", c: "teal", init: "H",
   tijd: "ca. 715–609 v.Chr.", tl: [-715, -609],
   tijdNoot: "Reconstructie op grond van de regeringsjaren in de Bijbel en Assyrische en Babylonische bronnen. Het einde staat het vastst: Josia sterft in 609 v.Chr., het jaar waarin volgens een Babylonische kroniek een groot Egyptisch leger de Eufraat overtrok. Terugtellen met de regeringsjaren (Josia 31, Amon 2 en Manasse 55 jaar: 34:1; 33:21; 33:1) en de veldtocht van Sanherib in 701 v.Chr., ‘in het veertiende jaar van den koning Hizkia’ (2 Koningen 18:13), geeft voor het eerste jaar van Hizkia ca. 715 v.Chr. (Thiele). Hizkia en Manasse moeten dan ongeveer tien jaar samen hebben geregeerd; dat staat niet in de Bijbel. Wie rekent vanaf 2 Koningen 18:1 en 18:9–10, komt voor het eerste jaar van Hizkia ruim tien jaar eerder uit. Het wetboek en het Pascha van Josia vallen in zijn achttiende jaar (34:8; 35:19): ca. 622 v.Chr.",
   intro: "In dit deel volgen we drie koningen van Juda: Hizkia, die de tempel weer opent, Manasse, die zich in Babel voor God vernedert, en Josia, die het gevonden wetboek laat voorlezen. Hizkia nodigt heel Israël uit voor het Pascha, van Berseba tot Dan. Josia reinigt het land tot in Naftali en trekt ten slotte Necho tegemoet in het dal van Megiddo. Kronieken vertelt hier veel dat in 2 Koningen niet staat.",
@@ -251,6 +240,5 @@ BR.boeken.push({
   trips: [{ n: "Lopers: Jeruzalem → Zebulon", s: 2 }, { n: "Manasse: Jeruzalem → Babel", s: 5, r: 0 }, { n: "Josia: Jeruzalem → Naftali", s: 6, r: 0 },
     { n: "Necho: Egypte → Megiddo", s: 9, r: 0 }, { n: "Alles wat de lopers en de koningen van Juda reisden", s: "alles" }],
 },
-//
   ],
 });

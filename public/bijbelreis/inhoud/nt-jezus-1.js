@@ -8,8 +8,6 @@ Object.assign(BR.personen, {
   Discipelen: "kobalt", Nicodemus: "lila", Hoofdman: "grijs", "Simon de Farizeeër": "grijs", Jaïrus: "terra",
 });
 
-// [meer-reizen:nt-samaria-nain] kleuren
-//
 BR.boeken.push({
   id: "jezus-1", n: "De Heere Jezus: geboorte en Galilea", nt: true, tijd: "ca. 7 v.Chr. – 30 n.Chr. (reconstructie)", kleur: "kobalt",
   intro: "Van de engel in de tempel tot het meer van Galilea: de geboorte van Johannes en van de Heere Jezus, Zijn doop en de eerste discipelen, en wat Hij deed en leerde in Kapernaüm en rond het meer.",
@@ -24,11 +22,9 @@ BR.boeken.push({
     { n: "Jakobus en Johannes", rol: "broers, vissers", i: "Zonen van Zebedeüs. Ze lieten hun vader met de knechten in de boot achter en volgden de Heere Jezus (Markus 1:19–20).", deel: "nt-galilea" },
     { n: "Nicodemus", rol: "Farizeeër, overste van de Joden", i: "Hij kwam ’s nachts bij de Heere Jezus (Johannes 3:1–2). Later hielp hij bij Zijn begrafenis (Johannes 19:39).", deel: "nt-begin" },
     { n: "Jaïrus", rol: "overste van de synagoge", i: "Zijn enige dochter van ongeveer twaalf jaar lag op sterven. De Heere Jezus wekte haar op: ‘Kind, sta op!’ (Lukas 8:41–42, 54).", deel: "nt-galilea" },
-    // [meer-reizen:nt-samaria-nain] wie
     { n: "De Samaritaanse vrouw", rol: "vrouw uit Samaria, bij de bron van Jakob", i: "Zij kwam water putten bij de bron van Jakob, bij Sichar, en sprak daar met de Heere Jezus. In de stad zei ze: ‘Komt, ziet een Mens, Die mij gezegd heeft alles, wat ik gedaan heb; is Deze niet de Christus?’ (Johannes 4:29). Veel Samaritanen uit die stad geloofden in Hem om haar woord (Johannes 4:39). Haar naam staat niet in de Bijbel.", deel: "nt-samaria-nain" },
     { n: "De koninklijke hoveling", rol: "vader van een zieke zoon in Kapernaüm", i: "Zijn zoon lag in Kapernaüm op sterven. Hij ging naar de Heere Jezus in Kana en geloofde het woord: ‘Ga heen, uw zoon leeft’ (Johannes 4:50). Toen hij hoorde op welk uur de koorts geweken was, staat er: ‘En hij geloofde zelf, en zijn gehele huis’ (Johannes 4:53). Zijn naam staat niet in de Bijbel.", deel: "nt-samaria-nain" },
     { n: "De weduwe van Naïn", rol: "moeder van een enige zoon", i: "Toen de Heere Jezus bij de poort van Naïn kwam, werd haar enige zoon als dode naar buiten gedragen. De Heere ‘werd innerlijk met ontferming over haar bewogen’ en zei: ‘Ween niet’ (Lukas 7:13). Hij wekte de jongeman op, ‘En Hij gaf hem aan zijn moeder’ (Lukas 7:15).", deel: "nt-samaria-nain" },
-    //
   ],
   delen: [
 { id: "nt-geboorte", n: "Geboorte en jeugd", short: "Geboorte", ref: "Lukas 1–2", c: "boter", init: "G",
@@ -171,7 +167,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Nazareth → de Jordaan", s: 1 }, { n: "De Jordaan → Kana", s: 4 }, { n: "Kana → Kapernaüm → Jeruzalem", s: 5 }, { n: "Alle reizen in dit deel", s: "alles" }],
 },
-// [meer-reizen:nt-samaria-nain] deel
 { id: "nt-samaria-nain", n: "Samaria, Nazareth en Naïn", short: "Samaria en Naïn", ref: "Johannes 4:1–54; Lukas 4:16–30; Lukas 7:11–17", c: "terra", init: "S",
   tijd: "ca. 28–29 n.Chr.", tl: [28, 29],
   tijdNoot: "Reconstructie. De Bijbel noemt geen jaartal. De reis door Samaria valt na het eerste Pascha dat Johannes noemt (Johannes 2:13, 23) en na een tijd in Judea (Johannes 3:22; 4:3). Lukas vertelt over de sabbat in Nazareth aan het begin van het werk in Galilea (Lukas 4:14–16); uitleggers verschillen erover of dit hetzelfde bezoek is als in Mattheüs 13:54–58 en Markus 6:1–6. De opwekking in Naïn is later: de dag na de genezing van de knecht van de hoofdman in Kapernaüm (Lukas 7:1, 11). Zij valt dus in de tijd van het deel “Rond het meer van Galilea”. Met een begin van het openbare optreden rond 27 n.Chr. (Lukas 3:1, 23) kom je voor deze geschiedenissen op ca. 28–29 n.Chr.; wie de kruisiging in 33 n.Chr. plaatst, komt ongeveer drie jaar later uit.",
@@ -239,7 +234,6 @@ BR.boeken.push({
   trips: [{ n: "Judea → Sichar", s: 0 }, { n: "Sichar → Kana", s: 4, r: 0 }, { n: "Kapernaüm → Kana (de hoveling)", s: 4, r: 1 }, { n: "Kapernaüm → Naïn", s: 7 },
     { n: "Alle reizen van de Heere Jezus in dit deel", s: "alles" }],
 },
-//
 { id: "nt-galilea", n: "Rond het meer van Galilea", short: "Galilea", ref: "Mattheüs 4:12–8:13; Markus 1:14–5:43; Lukas 7–8", c: "kobalt", init: "M",
   tijd: "ca. 28–30 n.Chr.", tl: [28, 30],
   tijdNoot: "Reconstructie. Deze gebeurtenissen vallen in het eerste deel van het openbare optreden van de Heere Jezus, dat drie tot vier jaar duurde (Johannes noemt minstens drie Paasfeesten: 2:13; 6:4; 11:55). Met een begin rond 27 n.Chr. kom je op ca. 28–30 n.Chr.; wie de kruisiging in 33 n.Chr. plaatst, komt ongeveer drie jaar later uit. De evangelisten vertellen niet alles in dezelfde volgorde; hier is Markus aangehouden.",

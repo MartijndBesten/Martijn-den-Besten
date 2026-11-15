@@ -6,9 +6,7 @@ Object.assign(BR.personen, {
   Jeremia: "teal", "Ebed-Melech": "bruin", Johanan: "olijf", Maleachi: "lila",
 });
 
-// [meer-reizen:jeremia-egypte] kleuren
 Object.assign(BR.personen, { "Ismaël (zoon van Nethanja)": "rood", Baruch: "kobalt" });
-//
 BR.boeken.push({
   id: "profeten", n: "Profeten", tijd: "ca. 740–430 v.Chr.", kleur: "lila",
   intro: "Profeten brachten het woord van God. Jesaja troost het volk dat naar Babel zal gaan. Jeremia maakt mee hoe Jeruzalem valt. Zacharia en Maleachi spreken na de terugkeer over de Koning en de bode die zullen komen.",
@@ -19,11 +17,9 @@ BR.boeken.push({
     { n: "Gedalja", rol: "aangesteld over het volk in Juda", i: "De zoon van Ahikam, de zoon van Safan. Nebukadnezar stelde hem aan over het volk dat in het land achterbleef. Hij werd gewaarschuwd voor Ismaël, maar geloofde het niet (Jeremia 40:13–16).", deel: "jeremia" },
     { n: "Zacharia", rol: "profeet na de ballingschap", i: "De zoon van Berechja, de zoon van Iddo (Zacharia 1:1). Samen met Haggaï moedigde hij het volk aan om de tempel af te bouwen (Ezra 5:1). Hij kondigde een Koning aan Die op een ezel zou komen.", deel: "zacharia-maleachi" },
     { n: "Maleachi", rol: "profeet, het laatste boek van het Oude Testament", i: "Over hemzelf vertelt de Bijbel niets meer dan zijn naam (Maleachi 1:1). Zijn boek eindigt met de belofte dat God de profeet Elia zal zenden (Maleachi 4:5).", deel: "zacharia-maleachi" },
-    // [meer-reizen:jeremia-egypte] wie
     { n: "Johanan", rol: "legeroverste, de zoon van Kareah", i: "Hij haalde het volk terug dat Ismaël uit Mizpa had weggevoerd (Jeremia 41:11–16). Hij vroeg Jeremia om te bidden en beloofde te gehoorzamen. Maar toen Gods antwoord kwam, zei hij met de anderen: ‘Gij spreekt leugen’ (Jeremia 43:2), en hij nam het volk mee naar Egypte.", deel: "jeremia-egypte" },
     { n: "Ismaël (zoon van Nethanja)", rol: "legeroverste van koninklijke afkomst", i: "Hij kwam met de andere legeroversten naar Gedalja in Mizpa (Jeremia 40:8). Baälis, de koning van de Ammonieten, had hem gestuurd (Jeremia 40:14). Hij doodde Gedalja en ontkwam met acht mannen naar de Ammonieten (Jeremia 41:2, 15). Hij is een andere Ismaël dan de zoon van Abraham.", deel: "jeremia-egypte" },
     { n: "Baruch", rol: "schrijver van Jeremia", i: "De zoon van Neria. Hij schreef de woorden van de HEERE op uit de mond van Jeremia (Jeremia 36:4). De leiders zeiden dat hij Jeremia tegen hen opstookte, en ze namen hem met Jeremia mee naar Egypte (Jeremia 43:3, 6).", deel: "jeremia-egypte" },
-    //
   ],
   delen: [
 { id: "jesaja-troost", n: "Troost voor Gods volk", short: "Jesaja 40–43", ref: "Jesaja 40–43", c: "lila", init: "T",
@@ -124,7 +120,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Jeremia: Jeruzalem → Rama", s: 2 }, { n: "Jeremia: Rama → Mizpa", s: 3 }, { n: "Alles wat Jeremia reisde", s: "alles" }],
 },
-// [meer-reizen:jeremia-egypte] deel
 { id: "jeremia-egypte", n: "Jeremia: naar Egypte", short: "Naar Egypte", ref: "Jeremia 41–44", c: "oker", init: "E",
   tijd: "ca. 586–570 v.Chr.", tl: [-586, -570],
   tijdNoot: "Reconstructie. Gedalja werd gedood ‘in de zevende maand’ (Jeremia 41:1); het jaar noemt de Bijbel niet. Meestal denkt men aan het jaar waarin Jeruzalem viel, in de gangbare chronologie 586 v.Chr. (sommigen rekenen 587); anderen denken aan enkele jaren later. Ook Jeremia 44 heeft geen datum. Farao Hofra (44:30) regeerde volgens de gangbare chronologie van ca. 589 tot 570 v.Chr.; het woord van Jeremia 44 is dus vóór het einde van zijn regering gesproken. Preciezer weten we het niet.",
@@ -200,7 +195,6 @@ BR.boeken.push({
   },
   trips: [{ n: "Mizpa → Gibeon", s: 2, r: 0 }, { n: "Gibeon → Bethlehem", s: 3 }, { n: "Bethlehem → Tachpanhes", s: 6 }, { n: "Alles wat het volk trok", s: "alles" }],
 },
-//
 
 { id: "zacharia-maleachi", n: "Zacharia en Maleachi", short: "Zacharia en Maleachi", ref: "Zacharia 1–14; Maleachi 1–4", c: "kobalt", init: "Z",
   tijd: "ca. 520–430 v.Chr.", tl: [-520, -430],
