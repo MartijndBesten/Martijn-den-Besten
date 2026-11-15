@@ -946,6 +946,7 @@ test("overzichten: bij Samen ontdekken alleen de boekenkast", async ({ page }) =
   await expect(page.getByRole("button", { name: "Alle 66 boeken" })).toBeVisible();
   await expect(page.locator("#reizenBtn")).toBeHidden();
   await expect(page.locator("#plaatsenBtn")).toBeHidden();
+});
 
 test("Genesis 11:27–12:5: de losse reis van Ur naar Kanaän, met deelbare link", async ({ page }) => {
   const errors = watchErrors(page);
@@ -1000,6 +1001,7 @@ test("meer reizen: de brieven staan in de boekenkast en de boekenrij schuift naa
   await page.locator("#kastBtn").click();
   await page.locator("#kastLijst .kb", { hasText: "Filemon" }).click();
   await expect(page.locator('#boeken .boek[aria-pressed="true"]')).toContainText("De brieven");
+});
 
 test("eigen adres: de atlas staat los van het Instituut, met de makersvermelding van Denckh", async ({ page }) => {
   const errors = watchErrors(page);
