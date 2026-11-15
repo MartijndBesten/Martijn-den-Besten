@@ -167,7 +167,7 @@
       const eerste = stappen[0] && stapVan.get(stappen[0]);
       pk.titel = g.t; pk.ref = g.ref; pk.kleur = eerste ? eerste.d.c : g.nr >= 80 ? "lila" : "kobalt"; pk.nt = eerste ? !!eerste.b.nt : g.nr >= 80; pk.nr = g.nr;
       const alleen = niveau === "a" && v && v.plaatsen ? v.plaatsen : null;
-      const titel = { s: "titel", kop: `Geschiedenis ${g.nr} van 150`, t: g.t, ref: g.ref, lees: g.ref, intro: "", kaart: overzicht(stappen, alleen) };
+      const titel = { s: "titel", kop: `Geschiedenis ${g.nr}`, t: g.t, ref: g.ref, lees: g.ref, intro: "", kaart: overzicht(stappen, alleen) };
       if (niveau === "c") { const dt = g.tl === null || g.tijd === null ? null : g.tijd ? datering(g) : eerste ? datering({ ...eerste.d, tijdNoot: g.tijdNoot || eerste.d.tijdNoot }, `${eerste.b.id}:${eerste.d.id}`) : null; if (dt) titel.tijd = dt; if ((g.wie || []).length) titel.wie = g.wie.slice(); }
       pk.dias.push(titel);
       // De vertelling op dit niveau, in onderdelen: a korte stappen, b een eigen vertelling, c de bestaande vertelling.

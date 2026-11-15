@@ -46,7 +46,7 @@ const OPTIES = { maxDiffPixelRatio: 0.02, animations: "disabled" as const };
 
 const SCHERMEN: [string, string, ((p: Page) => Promise<void>)?, ("a" | "b")?][] = [
   ["start", "/bijbelreis"],
-  ["wereld", "/bijbelreis", (p) => p.locator("#wereldBtn").click()],
+  ["wereld", "/bijbelreis", async (p) => { if (!(await p.locator("#wereldBtn").isVisible())) await p.locator("#kaartBtn").click(); await p.locator("#wereldBtn").click(); }],
   ["reis", "/bijbelreis#terugkeer/4"],
   ["verhaal", "/bijbelreis#v26"],
   ["paspoort", "/bijbelreis#ruth", (p) => p.getByRole("tab", { name: "Paspoort" }).click()],

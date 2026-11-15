@@ -6,10 +6,9 @@
   "main": "./worker/bijbelreis.ts",
   "compatibility_date": "2026-10-13",
   "account_id": "c5472db2163a42a463916a6a525d8353",
-  // workers.dev staat aan zolang bijbelreis.nl nog niet op Cloudflare staat (nameservers bij Theory7). Daarna:
-  // "workers_dev": false en de twee routes hieronder aanzetten.
-  "workers_dev": true,
+  // bijbelreis.nl staat sinds 15-11-2026 op Cloudflare (zone actief); het adres op workers.dev is uit.
+  "workers_dev": false,
   "preview_urls": false,
-  // "routes": [{ "pattern": "bijbelreis.nl", "custom_domain": true }, { "pattern": "www.bijbelreis.nl", "custom_domain": true }],
+  "routes": [{ "pattern": "bijbelreis.nl", "custom_domain": true }, { "pattern": "www.bijbelreis.nl", "custom_domain": true }],
   "observability": { "enabled": true }
 }

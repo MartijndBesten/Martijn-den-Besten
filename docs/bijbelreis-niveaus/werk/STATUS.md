@@ -1,6 +1,6 @@
 # Status reisniveaus (gegenereerd door scripts/niveaus/samenvoegen.mjs)
 
-In de app: 150 geschiedenissen, 450 versies (alleen gecontroleerde). Doel: 150 × 3 = 450.
+In de app: 150 geschiedenissen, 450 versies. Doel: 150 × 3 = 450.
 
 | Batch | Geschiedenissen | Geschreven | Gecontroleerd | Controleverslag |
 |---|---|---|---|---|

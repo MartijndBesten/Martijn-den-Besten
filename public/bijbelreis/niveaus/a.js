@@ -46,7 +46,10 @@ BR.niveaus.voegToe("a", {
     status: "gecontroleerd",
     plaatsen: ["eden"],
     delen: [
-      { t: "In de hof is ook een slang. De slang is listiger dan alle dieren: slim op een stiekeme manier.", stap: "genesis:begin:1" },
+      {
+        t: "In de hof is ook een slang, listiger dan alle dieren: slim op een stiekeme manier. De duivel spreekt door haar.",
+        stap: "genesis:begin:1",
+      },
       { t: "De slang vraagt de vrouw of God echt gezegd heeft dat ze van geen enkele boom mogen eten." },
       { t: "De vrouw zegt: van de boom in het midden mogen we niet eten, anders sterven we. De slang zegt: jullie zullen niet sterven." },
       { t: "De vrouw kijkt naar de boom. De vruchten zien er goed en mooi uit. Ze neemt een vrucht en eet ervan." },
@@ -59,7 +62,7 @@ BR.niveaus.voegToe("a", {
       { t: "Daarna straft God ook de vrouw en Adam. Het leven wordt zwaar, en de mens zal sterven en weer stof worden." },
       { t: "Adam noemt zijn vrouw Eva. God maakt kleren van vellen voor hen. Dan moeten ze de hof uit.", stap: "genesis:begin:1" },
     ],
-    samen: "De Bijbel noemt geen appel, maar ‘vrucht’ (Genesis 3:6). Dit verhaal gaat over zonde en straf: door één mens kwam de zonde in de wereld, en door de zonde de dood (Romeinen 5:12). Vertel het rustig en sta stil bij de belofte in vers 15. ‘Zaad’ betekent nakomeling. De kerk heeft hierin van oudsher de eerste belofte van de Verlosser gelezen (vergelijk Galaten 4:4; 1 Johannes 3:8). Vraag bijvoorbeeld: wie zoekt Adam op als hij zich verbergt?",
+    samen: "Dit verhaal gaat over zonde en straf: door één mens kwam de zonde in de wereld, en door de zonde de dood (Romeinen 5:12). Vertel het rustig en sta stil bij de belofte in vers 15. ‘Zaad’ betekent nakomeling. Dit is de eerste belofte van de Verlosser, de Heere Jezus (vergelijk Galaten 4:4; 1 Johannes 3:8). Vraag bijvoorbeeld: wie zoekt Adam op als hij zich verbergt?",
     vragen: [
       { q: "Waar verbergen Adam en zijn vrouw zich?", a: ["Tussen de bomen in de hof", "In een grot bij de rivier"], why: "Genesis 3:8" },
       { q: "Wat vraagt God aan Adam?", a: ["Waar zijt gij?", "Waarom slaapt gij?"], why: "Genesis 3:9" },
@@ -102,7 +105,7 @@ BR.niveaus.voegToe("a", {
       { t: "Het regent veertig dagen en veertig nachten. Het water komt zo hoog dat zelfs de hoge bergen bedekt worden." },
       { t: "De ark drijft op het water. Alles wat op het land leeft, sterft. Alleen Noach blijft over, en wie bij hem in de ark is." },
     ],
-    samen: "Dit verhaal vertelt ook dat alle mensen en dieren buiten de ark omkwamen (Genesis 7:21–23). De Bijbel zegt dat God dat deed om de boosheid op aarde (6:5–7, 13), en vertelt tegelijk hoe God Noach en zijn gezin redt. Prentenboeken laten de dieren vaak alleen twee aan twee gaan; God zegt ook dat Noach van het reine vee en van de vogels zeven en zeven moet nemen (7:2–3). Vraag samen: wie sluit de deur van de ark?",
+    samen: "Dit verhaal vertelt ook dat alle mensen en dieren buiten de ark omkwamen (Genesis 7:21–23). De Bijbel zegt dat God dat deed om de boosheid op aarde (6:5–7, 13), en vertelt tegelijk hoe God Noach en zijn gezin redt. God zegt ook dat Noach van het reine vee en van de vogels zeven en zeven moet nemen (7:2–3). Vraag samen: wie sluit de deur van de ark?",
     vragen: [
       { q: "Wie sluit de deur van de ark?", a: ["De HEERE", "Noach"], why: "Genesis 7:16" },
       {
@@ -146,7 +149,7 @@ BR.niveaus.voegToe("a", {
       { t: "De HEERE verspreidt hen over de hele aarde. Ze houden op met het bouwen van de stad." },
       { t: "Daarom heet de stad Babel. Daar heeft de HEERE de taal van de hele aarde verward.", stap: "genesis:begin:5" },
     ],
-    samen: "De Bijbel zegt niet dat de toren instortte of werd verwoest; er staat dat de mensen ophielden de stad te bouwen (Genesis 11:8). Een naam maken betekent: zelf groot en beroemd worden. Op de Pinksterdag hoort iedereen de grote werken van God in zijn eigen taal (Handelingen 2:6–11). Vraag samen: waarom wilden de mensen de toren bouwen?",
+    samen: "Er staat dat de mensen ophielden de stad te bouwen (Genesis 11:8). Een naam maken betekent: zelf groot en beroemd worden. Op de Pinksterdag hoort iedereen de grote werken van God in zijn eigen taal (Handelingen 2:6–11). Vraag samen: waarom wilden de mensen de toren bouwen?",
     vragen: [
       { q: "Wat willen de mensen bouwen?", a: ["Een stad met een hoge toren", "Een groot schip van hout"], why: "Genesis 11:4" },
       { q: "Wat doet de HEERE met hun taal?", a: ["Hij verwart hun taal", "Hij leert hun een lied"], why: "Genesis 11:7, 9" },
@@ -305,7 +308,7 @@ BR.niveaus.voegToe("a", {
         stap: "genesis:abraham:21",
       },
     ],
-    samen: "Dit is een spannend verhaal voor jonge kinderen. De Bijbel vertelt niet wat Abraham of Izak voelde. Hebreeën 11:19 zegt dat Abraham erop rekende dat God Izak zelfs uit de doden kon opwekken. En de Engel van de HEERE riep: ‘Doe hem niets!’ (Genesis 22:12). Vraag samen: wie zorgde voor het lam? (Genesis 22:8, 13).",
+    samen: "Dit is een spannend verhaal voor jonge kinderen. Hebreeën 11:19 zegt dat Abraham erop rekende dat God Izak zelfs uit de doden kon opwekken. En de Engel van de HEERE riep: ‘Doe hem niets!’ (Genesis 22:12). Vraag samen: wie zorgde voor het lam? (Genesis 22:8, 13).",
     vragen: [
       { q: "Wat vraagt Izak onderweg?", a: ["Waar is het lam?", "Waar is de ezel?"], why: "Genesis 22:7" },
       { q: "Wie roept uit de hemel?", a: ["De Engel van de HEERE", "Sara"], why: "Genesis 22:11" },
@@ -329,7 +332,7 @@ BR.niveaus.voegToe("a", {
       { t: "Rebekka wil mee. Ze zegt: ‘Ik zal trekken.’ Dat betekent: ik ga mee." },
       { t: "’s Avonds ziet Izak in het veld de kamelen komen. Hij trouwt met Rebekka en hij heeft haar lief." },
     ],
-    samen: "De knecht heeft in Genesis 24 geen naam. Vaak wordt hij Eliëzer genoemd, naar Genesis 15:2, maar dat staat in dit hoofdstuk niet. Vraag samen: wat vraagt de knecht aan God bij de put, en wat doet hij als God antwoordt? (Genesis 24:12–14, 26–27).",
+    samen: "Abraham vertrouwde erop dat God Zijn Engel voor de knecht uit zou zenden (Genesis 24:7). Vraag samen: wat vraagt de knecht aan God bij de put, en wat doet hij als God antwoordt? (Genesis 24:12–14, 26–27).",
     vragen: [
       { q: "Waar bidt de knecht?", a: ["Bij een waterput", "In de tent van Abraham"], why: "Genesis 24:11–12" },
       { q: "Wat doet Rebekka voor de kamelen?", a: ["Ze geeft ze water", "Ze jaagt ze weg"], why: "Genesis 24:19–20" },
@@ -419,16 +422,12 @@ BR.niveaus.voegToe("a", {
     plaatsen: ["haran", "gilead", "pniel"],
     delen: [
       {
-        t: "Jakob is al twintig jaar bij Laban. Dan zegt de HEERE: ga terug naar het land van je vaderen. Ik zal met je zijn.",
+        t: "Na twintig jaar zegt de HEERE tegen Jakob: ga terug naar het land van je vaderen. Ik zal met je zijn.",
         stap: "genesis:jakob:4",
       },
-      { t: "Jakob vertrekt met zijn vrouwen, zijn kinderen en al zijn dieren. Hij zegt het niet tegen Laban.", stap: "genesis:jakob:4" },
+      { t: "Jakob vertrekt met zijn vrouwen, zijn kinderen en al zijn dieren. Laban gaat hen achterna.", stap: "genesis:jakob:4" },
       {
-        t: "Laban gaat hen achterna en haalt hen in op de bergen van Gilead. Maar God waarschuwt Laban in een droom.",
-        stap: "genesis:jakob:4",
-      },
-      {
-        t: "Jakob en Laban maken een hoop stenen. Die hoop is een getuige: ze zullen elkaar geen kwaad doen. Dan gaat Laban terug.",
+        t: "Laban haalt hen in, maar God waarschuwt hem in een droom. Ze maken een hoop stenen als getuige, en Laban gaat terug.",
         stap: "genesis:jakob:4",
       },
       { t: "Onderweg komen engelen van God Jakob tegemoet.", stap: "genesis:jakob:5" },
@@ -449,12 +448,14 @@ BR.niveaus.voegToe("a", {
         t: "Jakob krijgt een nieuwe naam: Israël. Hij zegt: ik heb God gezien. Als de zon opkomt, loopt hij mank.",
         stap: "genesis:jakob:6",
       },
+      { t: "Dan komt Ezau. Hij loopt naar Jakob toe, slaat zijn armen om hem heen en kust hem. Ze huilen samen.", stap: "genesis:jakob:7" },
     ],
-    samen: "Weggelaten: Rachel nam stiekem de huisgoden (terafim) van haar vader mee en verborg ze (Genesis 31:19, 34). Wie de Man bij de Jabbok is, zegt Genesis 32 niet met een naam. Jakob zegt dat hij God gezien heeft (32:30), en Hosea 12:5 noemt Hem de Engel. Jakob was bang, maar hij bad en hield God Zijn belofte voor (32:9–12). Vraag samen: wat vraagt Jakob aan de Man?",
+    samen: "Weggelaten: Rachel nam stiekem de huisgoden (terafim) van haar vader mee en verborg ze (Genesis 31:19, 34). Genesis noemt Hem met Wie Jakob worstelt ‘een man’ (32:24); Jakob zegt dat hij God gezien heeft (32:30), en Hosea 12:5 spreekt van ‘den Engel’. Uitleg, niet uit de tekst zelf: veel uitleggers, ook de kanttekeningen bij de Statenvertaling, zien in Hem de Zoon van God. Vraag samen: wat vraagt Jakob aan de Man?",
     vragen: [
       { q: "Wie zegt tegen Jakob dat hij terug moet gaan?", a: ["De HEERE", "Laban"], why: "Genesis 31:3" },
       { q: "Waarom is Jakob bang?", a: ["Ezau komt eraan met heel veel mannen", "Hij is zijn schapen kwijt"], why: "Genesis 32:6–7" },
       { q: "Welke nieuwe naam krijgt Jakob?", a: ["Israël", "Jozef"], why: "Genesis 32:28" },
+      { q: "Wat doet Ezau als hij Jakob ziet?", a: ["Hij kust Jakob", "Hij slaat Jakob"], why: "Genesis 33:4" },
     ],
   },
   18: {
@@ -591,7 +592,7 @@ BR.niveaus.voegToe("a", {
         t: "Als het niet langer kan, neemt ze een kistje van biezen, een soort riet. Ze legt hem erin, tussen de biezen aan de rivier.",
         stap: "exodus:mozes:1",
       },
-      { t: "Zijn zus blijft een eind verderop staan. Ze wil zien wat er met hem gebeurt.", stap: "exodus:mozes:1" },
+      { t: "Zijn zus Mirjam blijft een eind verderop staan. Ze wil zien wat er met hem gebeurt.", stap: "exodus:mozes:1" },
       {
         t: "De dochter van de farao komt bij de rivier. Ze ziet het kistje en laat het halen. Het jongetje huilt, en zij heeft medelijden.",
         stap: "exodus:mozes:1",
@@ -601,7 +602,7 @@ BR.niveaus.voegToe("a", {
         t: "Als hij groter is, wordt hij de zoon van de dochter van de farao. Ze noemt hem Mozes, want ze heeft hem uit het water gehaald.",
       },
     ],
-    samen: "Het bevel van de farao over de jongetjes (Exodus 1:22) staat hier in één zin. Weggelaten zijn de vroedvrouwen Sifra en Pua: zij vreesden God en lieten de jongetjes leven, en God deed hun goed (1:15–21). Prentenboeken spreken vaak van een mandje; de Bijbel noemt ‘een kistje van biezen’, dichtgemaakt met lijm en pek (2:3). De naam van de zus staat hier niet. Vraag samen: wie helpen er allemaal mee dat het kindje blijft leven?",
+    samen: "Het bevel van de farao over de jongetjes (Exodus 1:22) staat hier in één zin. Weggelaten zijn de vroedvrouwen Sifra en Pua: zij vreesden God en lieten de jongetjes leven, en God deed hun goed (1:15–21). Prentenboeken spreken vaak van een mandje; de Bijbel noemt ‘een kistje van biezen’, dichtgemaakt met lijm en pek (2:3). Vraag samen: wie helpen er allemaal mee dat het kindje blijft leven?",
     vragen: [
       { q: "Waar legt de moeder het kistje neer?", a: ["Tussen de biezen aan de rivier", "In het huis van de farao"], why: "Exodus 2:3" },
       { q: "Wie vindt het kistje?", a: ["De dochter van de farao", "De farao zelf"], why: "Exodus 2:5" },
@@ -625,7 +626,7 @@ BR.niveaus.voegToe("a", {
         t: "In Egypte zuchten en roepen de Israëlieten, omdat ze zo zwaar moeten werken. God hoort hen. Hij denkt aan wat Hij beloofd heeft.",
       },
     ],
-    samen: "Kinderen kunnen vragen of Mozes de Egyptenaar mocht doden (Exodus 2:12). Exodus 2 vertelt het zonder uitleg, en uitleggers denken er verschillend over. Stefanus zegt dat Mozes meende ‘dat God door zijn hand hun verlossing geven zou; maar zij hebben het niet verstaan’ (Handelingen 7:25). God hoort Zijn volk en denkt aan Zijn verbond met Abraham, Izak en Jakob (2:24). Vraag samen: wie hoort het zuchten van het volk in Egypte?",
+    samen: "Kinderen kunnen vragen of Mozes de Egyptenaar mocht doden (Exodus 2:12). Mozes deed het omdat God hem had aangewezen om Zijn volk te verlossen. Stefanus zegt dat Mozes meende ‘dat God door zijn hand hun verlossing geven zou; maar zij hebben het niet verstaan’ (Handelingen 7:25). God hoort Zijn volk en denkt aan Zijn verbond met Abraham, Izak en Jakob (2:24). Vraag samen: wie hoort het zuchten van het volk in Egypte?",
     vragen: [
       { q: "Waar vlucht Mozes naartoe?", a: ["Naar het land Midian", "Naar het land Kanaän"], why: "Exodus 2:15" },
       {
@@ -666,7 +667,7 @@ BR.niveaus.voegToe("a", {
       { t: "Mozes gaat terug naar Egypte, met de staf van God in zijn hand. Aäron komt hem tegemoet.", stap: "exodus:mozes:6" },
       { t: "Aäron vertelt het volk alles wat God gezegd heeft. Het volk gelooft. Ze buigen zich en aanbidden God.", stap: "exodus:mozes:6" },
     ],
-    samen: "Weggelaten: onderweg wil de HEERE Mozes doden, totdat Zippora haar zoon besnijdt (Exodus 4:24–26); de tekst zegt niet precies waarom. Ook weggelaten: de Naam ‘IK ZAL ZIJN, Die IK ZIJN ZAL’ (3:14), de twee andere tekenen (4:6–9) en dat de HEERE toornig werd toen Mozes vroeg om iemand anders te sturen (4:13–14). Vraag samen: waarom moet Mozes zijn schoenen uittrekken? (3:5)",
+    samen: "Weggelaten: onderweg wil de HEERE Mozes doden, omdat zijn zoon niet besneden is; Zippora besnijdt hem dan (Exodus 4:24–26). Ook weggelaten: de Naam ‘IK ZAL ZIJN, Die IK ZIJN ZAL’ (3:14), de twee andere tekenen (4:6–9) en dat de HEERE toornig werd toen Mozes vroeg om iemand anders te sturen (4:13–14). Vraag samen: waarom moet Mozes zijn schoenen uittrekken? (3:5)",
     vragen: [
       {
         q: "Wat is er bijzonder aan de braamstruik?",
@@ -1126,7 +1127,7 @@ BR.niveaus.voegToe("a", {
       },
       { t: "In Gilgal vieren ze het Pascha. Ze eten van het koren van het land. Daarna is er geen manna meer.", stap: "jozua:intocht:3" },
       {
-        t: "Bij Jericho ziet Jozua een Man met een zwaard in Zijn hand. Hij is de Vorst van het leger van de HEERE.",
+        t: "Bij Jericho ziet Jozua een Man met een zwaard in Zijn hand. Hij is de Vorst van het leger van de HEERE: de Zoon van God.",
         stap: "jozua:intocht:4",
       },
       { t: "Jozua valt met zijn gezicht op de grond. Hij moet zijn schoenen uittrekken, want de plaats is heilig." },
@@ -1294,7 +1295,7 @@ BR.niveaus.voegToe("a", {
         stap: "richteren:debora:8",
       },
     ],
-    samen: "Weggelaten: de droom in het kamp van Midian (Richteren 7:9–15) en wat na de nacht gebeurt: de achtervolging, de dood van de vorsten en koningen van Midian en de straf voor Sukkoth en Pnuël (7:22–8:21). Ook de efod die ‘tot een valstrik’ werd (8:27) staat hier niet. Let op: de tekst zegt niet dat de driehonderd gekozen werden omdat ze slimmer dronken. God zegt zelf waarom het leger klein moest zijn (7:2). Vraag samen: wie heeft hier eigenlijk gewonnen? (7:7)",
+    samen: "Weggelaten: de droom in het kamp van Midian (Richteren 7:9–15) en wat na de nacht gebeurt: de achtervolging, de dood van de vorsten en koningen van Midian en de straf voor Sukkoth en Pnuël (7:22–8:21). Ook de efod die ‘tot een valstrik’ werd (8:27) staat hier niet. God zegt zelf waarom het leger klein moest zijn (7:2). Vraag samen: wie heeft hier eigenlijk gewonnen? (7:7)",
     vragen: [
       {
         q: "Waarom wil God maar een klein leger?",
@@ -1397,7 +1398,7 @@ BR.niveaus.voegToe("a", {
         stap: "richteren:simson:6",
       },
     ],
-    samen: "Weggelaten: Simson gaat in Gaza naar een vrouw die een hoer is (Richteren 16:1). In prentenboeken knipt Delila vaak zelf het haar; volgens 16:19 riep zij een man, die de zeven haarlokken afschoor. Simsons kracht zat niet in het haar zelf: ‘hij wist niet, dat de HEERE van hem geweken was’ (16:20). Het einde gaat over de dood van Simson en van veel Filistijnen (16:30). Vertel het rustig. Vraag samen: tot Wie bidt Simson aan het eind?",
+    samen: "Weggelaten: Simson gaat in Gaza naar een vrouw die een hoer is (Richteren 16:1). Delila schoor het haar niet zelf: volgens 16:19 riep zij een man, die de zeven haarlokken afschoor. Simsons kracht zat niet in het haar zelf: ‘hij wist niet, dat de HEERE van hem geweken was’ (16:20). Het einde gaat over de dood van Simson en van veel Filistijnen (16:30). Vertel het rustig. Vraag samen: tot Wie bidt Simson aan het eind?",
     vragen: [
       { q: "Wat draagt Simson weg uit Gaza?", a: ["De deuren van de stadspoort", "Een grote steen"], why: "Richteren 16:3" },
       { q: "Wat moet Delila ontdekken?", a: ["Waar Simsons kracht in zit", "Waar Simson woont"], why: "Richteren 16:5" },
@@ -1582,7 +1583,7 @@ BR.niveaus.voegToe("a", {
         stap: "1samuel:saul-david:3",
       },
     ],
-    samen: "Weggelaten: de opdracht om Amalek helemaal te vernietigen en de dood van koning Agag (1 Samuël 15:3, 32–33). De Bijbel noemt het een straf voor wat Amalek Israël aandeed na de uittocht uit Egypte (15:2). Over ‘een boze geest van den HEERE’ (16:14) zegt de Bijbel niet precies wat dat was; houd het bij wat er staat: Saul werd erg bang. Vraag samen: waar kijken mensen naar, en waar kijkt de HEERE naar (16:7)?",
+    samen: "Weggelaten: de opdracht om Amalek helemaal te vernietigen en de dood van koning Agag (1 Samuël 15:3, 32–33). De Bijbel noemt het een straf voor wat Amalek Israël aandeed na de uittocht uit Egypte (15:2). ‘Een boze geest van den HEERE’ (16:14) is een boze geest die Saul kwelde en bang maakte. God liet dat toe als straf, omdat Saul het woord van de HEERE verworpen had (15:23). Vraag samen: waar kijken mensen naar, en waar kijkt de HEERE naar (16:7)?",
     vragen: [
       { q: "Waar kijkt de HEERE naar?", a: ["Naar het hart", "Naar hoe lang iemand is"], why: "1 Samuël 16:7" },
       { q: "Wat doet David als Samuël in Bethlehem komt?", a: ["Hij past op de schapen", "Hij werkt op het land"], why: "1 Samuël 16:11" },
@@ -1716,7 +1717,7 @@ BR.niveaus.voegToe("a", {
       { t: "In Ziklag hoort David dat Saul en Jonathan dood zijn. David scheurt zijn kleren en huilt.", stap: "2samuel:david:0" },
       { t: "David maakt een treurlied over Saul en Jonathan: ‘hoe zijn de helden gevallen!’", stap: "2samuel:david:0" },
     ],
-    samen: "Saul ging naar een vrouw ‘die een waarzeggenden geest heeft’; God verbiedt dat (Deuteronomium 18:10–12). Over wat daar precies gebeurde, verschillen uitleggers (1 Samuël 28:11–19). Weggelaten: Saul kwam in het nauw door de boogschutters en liet zich in zijn eigen zwaard vallen (1 Samuël 31:3–4). Ook de Amalekiet die David het nieuws bracht en werd gedood, is weggelaten (2 Samuël 1:1–16). Om samen over te praten: waarom huilt David om Saul, terwijl Saul hem wilde doden?",
+    samen: "Saul ging naar een vrouw ‘die een waarzeggenden geest heeft’; God verbiedt dat (Deuteronomium 18:10–12). Weggelaten: Saul kwam in het nauw door de boogschutters en liet zich in zijn eigen zwaard vallen (1 Samuël 31:3–4). Ook de Amalekiet die David het nieuws bracht en werd gedood, is weggelaten (2 Samuël 1:1–16). Om samen over te praten: waarom huilt David om Saul, terwijl Saul hem wilde doden?",
     vragen: [
       { q: "Wat neemt David mee uit het kamp van Saul?", a: ["De speer en de waterfles", "De kroon en de mantel"], why: "1 Samuël 26:12" },
       { q: "Waar gaat Saul ’s nachts verkleed heen?", a: ["Naar een vrouw in Endor", "Naar David in de woestijn"], why: "1 Samuël 28:7–8" },
@@ -2202,7 +2203,7 @@ BR.niveaus.voegToe("a", {
       { t: "Drie dagen en drie nachten zit Jona in de vis. Daar bidt hij tot de HEERE, zijn God." },
       { t: "Dan spreekt de HEERE tot de vis. De vis spuwt Jona uit op het droge land." },
     ],
-    samen: "Jona 1:17 spreekt van ‘een groten vis’; in Mattheüs 12:40 staat ‘den walvis’. Meer zegt de Bijbel niet over de soort vis. Bij A is weggelaten dat de zeelieden eerst nog naar het land probeerden te roeien en tot de HEERE baden (Jona 1:13–14), en wat Jona in de vis bad (Jona 2). Let samen op het eind van Jona 1: de zeelieden riepen eerst ieder tot hun eigen god, maar nu vrezen zij de HEERE en brengen Hem een offer (Jona 1:5, 16).",
+    samen: "Jona 1:17 spreekt van ‘een groten vis’; in Mattheüs 12:40 staat ‘den walvis’. Bij A is weggelaten dat de zeelieden eerst nog naar het land probeerden te roeien en tot de HEERE baden (Jona 1:13–14), en wat Jona in de vis bad (Jona 2). Let samen op het eind van Jona 1: de zeelieden riepen eerst ieder tot hun eigen god, maar nu vrezen zij de HEERE en brengen Hem een offer (Jona 1:5, 16).",
     vragen: [
       { q: "Waar moet Jona van de HEERE naartoe?", a: ["Naar Ninevé", "Naar Jeruzalem"], why: "Jona 1:2" },
       { q: "Wat doet Jona in het schip als het stormt?", a: ["Hij slaapt", "Hij helpt roeien"], why: "Jona 1:5" },
@@ -2222,9 +2223,9 @@ BR.niveaus.voegToe("a", {
       { t: "Maar Jona wordt heel boos. Hij zegt tegen de HEERE: ik wist wel dat U genadig en barmhartig bent.", stap: "jona:jona:6" },
       { t: "Jona gaat buiten de stad zitten, aan de oostkant. God laat een wonderboom groeien, voor schaduw. Jona is er heel blij mee." },
       { t: "De volgende morgen stuurt God een worm. Die steekt de boom, en de boom verdort. Jona wordt weer boos." },
-      { t: "God zegt: jij hebt medelijden met die boom. Zou Ik dan geen medelijden hebben met die grote stad?" },
+      { t: "God zegt: jij hebt medelijden met die boom. Zou Ik dan geen medelijden hebben met die grote stad, met al die kleine kinderen?" },
     ],
-    samen: "Bij A is weggelaten dat Jona liever wilde sterven dan leven (Jona 4:3, 8). Het boek eindigt met een vraag van God aan Jona; wat Jona antwoordde, staat er niet (Jona 4:10–11). Vraag samen: met wie heeft God medelijden? Met de mensen in de grote stad, en ook met het vee (Jona 4:11).",
+    samen: "Bij A is weggelaten dat Jona liever wilde sterven dan leven (Jona 4:3, 8). Het boek eindigt met een vraag van God aan Jona (Jona 4:10–11). Vraag samen: met wie heeft God medelijden? Met de grote stad, met de vele kleine kinderen die rechts en links nog niet kennen, en ook met het vee (Jona 4:11).",
     vragen: [
       { q: "Wat doen de mensen van Ninevé als Jona preekt?", a: ["Ze geloven God", "Ze jagen Jona weg"], why: "Jona 3:5" },
       { q: "Waar gaat de koning zitten?", a: ["In de as", "Op een kameel"], why: "Jona 3:6" },
@@ -2320,7 +2321,7 @@ BR.niveaus.voegToe("a", {
         t: "De koning zag een groot beeld. Een steen sloeg het kapot en werd een grote berg. Daarna maakt de koning Daniël heerser over Babel.",
       },
     ],
-    samen: "Bij A is weggelaten dat de koning bevel gaf alle wijzen van Babel te doden, en dat men ook Daniël en zijn vrienden zocht (Daniël 2:12–13). Daarom vroegen ze God om barmhartigheid (Daniël 2:18). Waarom het eten van de koning Daniël onrein zou maken, zegt de tekst niet (Daniël 1:8); uitleggers geven verschillende redenen. Vraag samen: wat deed Daniël toen God hem de droom liet zien? Hij loofde God (Daniël 2:19).",
+    samen: "Bij A is weggelaten dat de koning bevel gaf alle wijzen van Babel te doden, en dat men ook Daniël en zijn vrienden zocht (Daniël 2:12–13). Daarom vroegen ze God om barmhartigheid (Daniël 2:18). Vraag samen: wat deed Daniël toen God hem de droom liet zien? Hij loofde God (Daniël 2:19).",
     vragen: [
       { q: "Welke nieuwe naam krijgt Daniël?", a: ["Beltsazar", "Nebukadnezar"], why: "Daniël 1:7" },
       { q: "Wat eten en drinken de vier vrienden tien dagen lang?", a: ["Groente en water", "Brood en wijn"], why: "Daniël 1:12" },
@@ -2350,7 +2351,7 @@ BR.niveaus.voegToe("a", {
       { t: "De koning roept de drie vrienden naar buiten. Zelfs hun haar is niet verbrand, en ze ruiken niet naar rook." },
       { t: "Nebukadnezar zegt: geloofd zij hun God! Hij heeft Zijn engel gestuurd en Zijn knechten gered." },
     ],
-    samen: "Bij A is weggelaten dat de mannen die de drie vrienden in de oven wierpen, zelf door het vuur stierven (Daniël 3:22). Wie de vierde man in het vuur was, zegt de tekst niet met zoveel woorden; Nebukadnezar spreekt van ‘Zijn engel’ (Daniël 3:28). Vraag samen: wat zeiden de vrienden tegen de koning, en wat zouden ze doen als God hen niet zou redden (Daniël 3:17–18)?",
+    samen: "Bij A is weggelaten dat de mannen die de drie vrienden in de oven wierpen, zelf door het vuur stierven (Daniël 3:22). Over de vierde man in het vuur zegt Nebukadnezar later dat God ‘Zijn engel gezonden’ heeft (Daniël 3:28). Vraag samen: wat zeiden de vrienden tegen de koning, en wat zouden ze doen als God hen niet zou redden (Daniël 3:17–18)?",
     vragen: [
       { q: "Waarvan is het grote beeld gemaakt?", a: ["Van goud", "Van steen"], why: "Daniël 3:1" },
       {
@@ -2379,7 +2380,7 @@ BR.niveaus.voegToe("a", {
       { t: "Daniël wordt uit de kuil gehaald. Hij is helemaal niet gewond, want hij geloofde in zijn God." },
       { t: "Dan schrijft koning Darius aan alle volken: beef voor de God van Daniël, want Hij is de levende God." },
     ],
-    samen: "Bij A is weggelaten wat er daarna met de aanklagers gebeurde: ze werden met hun vrouwen en kinderen in de kuil geworpen, en de leeuwen doodden hen (Daniël 6:25). Als uw kind ernaar vraagt, houd het dan bij wat de Bijbel zegt. Bespreek samen het open venster: Daniël bad met de vensters open naar Jeruzalem (Daniël 6:11). Veel uitleggers verbinden dat met het gebed van Salomo (1 Koningen 8:48).",
+    samen: "Bij A is weggelaten wat er daarna met de aanklagers gebeurde: ze werden met hun vrouwen en kinderen in de kuil geworpen, en de leeuwen doodden hen (Daniël 6:25). Als uw kind ernaar vraagt, houd het dan bij wat de Bijbel zegt. Bespreek samen het open venster: Daniël bad met de vensters open naar Jeruzalem (Daniël 6:11).",
     vragen: [
       { q: "Hoe vaak per dag bidt Daniël?", a: ["Drie keer", "Eén keer"], why: "Daniël 6:11" },
       { q: "Waar wordt Daniël in gegooid?", a: ["In de kuil van de leeuwen", "In een brandende oven"], why: "Daniël 6:17" },
@@ -2408,7 +2409,7 @@ BR.niveaus.voegToe("a", {
         t: "Dan leggen ze het fundament: de onderkant van de tempel. Ze zingen dat de HEERE goed is. Het volk juicht.",
         stap: "ezra:terugkeer:3",
       },
-      { t: "Maar oude mannen huilen hardop. Zij hebben de eerste tempel nog gezien.", stap: "ezra:terugkeer:3" },
+      { t: "Maar oude mannen huilen hardop. Zij hebben de eerste tempel nog gezien, en die was veel mooier.", stap: "ezra:terugkeer:3" },
       { t: "Dan zijn er mensen die het bouwen tegenwerken. Het werk ligt lange tijd stil.", stap: "ezra:terugkeer:4" },
       { t: "Twee profeten, Haggaï en Zacharia, spreken in de naam van God. Dan gaat het volk weer bouwen.", stap: "ezra:terugkeer:5" },
       {
@@ -2583,7 +2584,7 @@ BR.niveaus.voegToe("a", {
         stap: "jezus-1:nt-geboorte:2",
       },
     ],
-    samen: "Maria werd zwanger ‘uit den Heiligen Geest’ voordat zij en Jozef samenwoonden (Mattheüs 1:18). Leg dat niet verder uit dan de Bijbel zelf doet. De Bijbel zegt niet of de droom van Jozef vóór of na het bezoek aan Elisabeth was. De engel zegt ook waarom het Kind Jezus moet heten: ‘want Hij zal Zijn volk zalig maken van hun zonden’ (Mattheüs 1:21). Lees dat er gerust bij.",
+    samen: "Maria werd zwanger ‘uit den Heiligen Geest’ voordat zij en Jozef samenwoonden (Mattheüs 1:18). Leg dat niet verder uit dan de Bijbel zelf doet. De engel zegt ook waarom het Kind Jezus moet heten: ‘want Hij zal Zijn volk zalig maken van hun zonden’ (Mattheüs 1:21). Lees dat er gerust bij.",
     vragen: [
       { q: "Wie stuurt God naar Maria?", a: ["De engel Gabriël", "De profeet Elia"], why: "Lukas 1:26–27" },
       { q: "Naar wie gaat Maria op reis?", a: ["Naar Elisabeth", "Naar de koning"], why: "Lukas 1:39–40" },
@@ -2629,7 +2630,7 @@ BR.niveaus.voegToe("a", {
       { t: "Er is geen plaats voor hen in de herberg. Daarom legt Maria het Kind in een kribbe: een voerbak voor dieren." },
       { t: "Het Kind krijgt de naam Jezus, zoals de engel gezegd had. Hij is de Zoon van God." },
     ],
-    samen: "Lukas 2 noemt een kribbe en een herberg (Lukas 2:7). Een stal, een os en een ezel worden in dit gedeelte niet genoemd; die komen uit de traditie en uit prentenboeken. De herders bij de kribbe zijn de volgende geschiedenis (84).",
+    samen: "Een kribbe is een voerbak voor dieren. Omdat er in de herberg geen plaats voor hen is, wordt het Kind geboren op een plaats waar dieren staan, en Maria legt Hem in een kribbe (Lukas 2:7). Vraag samen: waar legt Maria het Kind neer, en waarom? De herders bij de kribbe zijn de volgende geschiedenis (84).",
     vragen: [
       {
         q: "Waarom gaan Jozef en Maria op reis?",
@@ -2656,7 +2657,7 @@ BR.niveaus.voegToe("a", {
       { t: "Ze vertellen aan iedereen wat er over dit Kindje gezegd is. De mensen verwonderen zich." },
       { t: "Maria onthoudt al deze woorden in haar hart. De herders gaan terug en loven God." },
     ],
-    samen: "Lukas zegt dat de engelen God prezen, ‘prijzende God en zeggende’ (Lukas 2:13); dat ze zongen, staat er niet. Ook staat er niet hoeveel herders er waren, en een stal, een os of een ezel worden niet genoemd. Bij deze geschiedenis hoort op de kaart ook het verhaal van Simeon en Anna in de tempel (Lukas 2:21–38); lees dat gedeelte er eventueel bij. Vraag samen: waaraan zouden de herders het Kind herkennen?",
+    samen: "De menigte van het hemelse heirleger is ‘prijzende God en zeggende’: ‘Ere zij God in de hoogste hemelen’ (Lukas 2:13–14). Het teken is een Kindje in een kribbe, een voerbak voor dieren (2:12). Bij deze geschiedenis hoort op de kaart ook het verhaal van Simeon en Anna in de tempel (Lukas 2:21–38); lees dat gedeelte er eventueel bij. Vraag samen: waaraan zouden de herders het Kind herkennen?",
     vragen: [
       { q: "Wie komt er bij de herders?", a: ["Een engel van de Heere", "Koning Herodes"], why: "Lukas 2:9" },
       { q: "Waar ligt het Kindje?", a: ["In een kribbe", "In een paleis"], why: "Lukas 2:12, 16" },
@@ -2685,7 +2686,7 @@ BR.niveaus.voegToe("a", {
       },
       { t: "Als Herodes gestorven is, gaan ze terug. Jozef gaat met Maria en het Kind in Nazareth wonen.", stap: "jezus-1:nt-geboorte:10" },
     ],
-    samen: "Weggelaten: Herodes liet in Bethlehem en omgeving alle kinderen van twee jaar en jonger doden (Mattheüs 2:16–18). Vertel dat sober als je kind ernaar vraagt; het Kind Jezus was toen al in Egypte, want God had Jozef gewaarschuwd (Mattheüs 2:13–14). Mattheüs zegt niet hoeveel wijzen er waren, en ook niet dat het koningen waren. Ze vonden het Kind in een huis (Mattheüs 2:11), niet bij de kribbe.",
+    samen: "Weggelaten: Herodes liet in Bethlehem en omgeving alle kinderen van twee jaar en jonger doden (Mattheüs 2:16–18). Vertel dat sober als je kind ernaar vraagt; het Kind Jezus was toen al in Egypte, want God had Jozef gewaarschuwd (Mattheüs 2:13–14). De wijzen kwamen enige tijd na de geboorte. Ze vonden het Kind in een huis in Bethlehem (Mattheüs 2:11).",
     vragen: [
       { q: "Wat hebben de wijzen gezien?", a: ["Zijn ster", "Een engel"], why: "Mattheüs 2:2" },
       { q: "Wat geven de wijzen aan het Kind?", a: ["Goud, wierook en mirre", "Brood en vis"], why: "Mattheüs 2:11" },
@@ -2710,7 +2711,7 @@ BR.niveaus.voegToe("a", {
       { t: "Dan gaat Hij met Jozef en Maria mee naar Nazareth. Daar is Hij hun gehoorzaam.", stap: "jezus-1:nt-geboorte:11" },
       { t: "De Heere Jezus groeit op. Hij neemt toe in wijsheid en in grootte." },
     ],
-    samen: "Lukas zegt niet dat de Heere Jezus de leraars les gaf. Hij zat tussen hen in, ‘hen horende, en hen ondervragende’, en ze waren verbaasd over Zijn verstand en antwoorden (Lukas 2:46–47). Vraag samen: Maria zegt ‘Uw vader’, de Heere Jezus zegt ‘Mijns Vaders’ (2:48–49). Wie bedoelen ze? Jozef en Maria begrepen het toen zelf ook niet (2:50).",
+    samen: "De Heere Jezus zat tussen de leraars in, ‘hen horende, en hen ondervragende’, en ze waren verbaasd over Zijn verstand en antwoorden (Lukas 2:46–47). Vraag samen: Maria zegt ‘Uw vader’, de Heere Jezus zegt ‘Mijns Vaders’ (2:48–49). Wie bedoelen ze? Jozef en Maria begrepen het toen zelf ook niet (2:50).",
     vragen: [
       { q: "Hoe oud is de Heere Jezus in dit verhaal?", a: ["Twaalf jaar", "Zes jaar"], why: "Lukas 2:42" },
       { q: "Waar vinden Jozef en Maria de Heere Jezus?", a: ["In de tempel", "Bij de rivier"], why: "Lukas 2:46" },
@@ -2872,7 +2873,7 @@ BR.niveaus.voegToe("a", {
       { t: "Dan komen er regen, water en wind. Maar het huis op de rots blijft staan." },
       { t: "Wie Zijn woorden hoort maar niet doet, lijkt op een dwaze man. Hij bouwt op het zand, en dat huis valt." },
     ],
-    samen: "De Bergrede is lang (Mattheüs 5–7). Bij A staan maar een paar stukken. Je kunt samen de zaligsprekingen lezen (5:3–12) of het gebed (6:9–13). Vraag samen: wat is het verschil tussen de twee bouwers? Ze horen allebei de woorden van de Heere Jezus, maar alleen de een doet ze (7:24–27). De Bijbel noemt de naam van de berg niet.",
+    samen: "De Bergrede is lang (Mattheüs 5–7). Bij A staan maar een paar stukken. Je kunt samen de zaligsprekingen lezen (5:3–12) of het gebed (6:9–13). Vraag samen: wat is het verschil tussen de twee bouwers? Ze horen allebei de woorden van de Heere Jezus, maar alleen de een doet ze (7:24–27).",
     vragen: [
       { q: "Waar gaat de Heere Jezus zitten?", a: ["Op een berg", "In een schip"], why: "Mattheüs 5:1" },
       { q: "Wie geeft de vogels te eten?", a: ["De Vader in de hemel", "De boeren op het land"], why: "Mattheüs 6:26" },
@@ -3014,7 +3015,7 @@ BR.niveaus.voegToe("a", {
       { t: "Hij pakt haar hand en roept: ‘Kind, sta op!’ En meteen staat ze op." },
       { t: "De Heere Jezus zegt dat ze haar te eten moeten geven. Haar ouders zijn heel erg verbaasd." },
     ],
-    samen: "Deze geschiedenis vertelt over de dood van een kind. De Bijbel zegt het eerlijk: de mensen weten ‘dat zij gestorven was’ (Lukas 8:53). Dat de Heere Jezus zegt dat ze slaapt, wordt meestal zo uitgelegd: voor Hem is de dood als een slaap waaruit Hij kan opwekken (vergelijk Johannes 11:11). Bij A is weggelaten dat de vrouw al twaalf jaar bloedverlies had (Lukas 8:43). Vraag samen: wat zegt de Heere Jezus tegen Jaïrus als het slechte bericht komt?",
+    samen: "Deze geschiedenis vertelt over de dood van een kind. De Bijbel zegt het eerlijk: de mensen weten ‘dat zij gestorven was’ (Lukas 8:53). Als de Heere Jezus zegt dat ze slaapt, bedoelt Hij: haar dood is als een slaap, waaruit Hij haar zal opwekken (vergelijk Johannes 11:11). Bij A is weggelaten dat de vrouw al twaalf jaar bloedverlies had (Lukas 8:43). Vraag samen: wat zegt de Heere Jezus tegen Jaïrus als het slechte bericht komt?",
     vragen: [
       { q: "Wie is er erg ziek in het huis van Jaïrus?", a: ["Zijn dochter", "Zijn vrouw"], why: "Lukas 8:42" },
       { q: "Wat zegt de Heere Jezus tegen het meisje?", a: ["Kind, sta op!", "Ga maar verder slapen"], why: "Lukas 8:54" },
@@ -3064,7 +3065,7 @@ BR.niveaus.voegToe("a", {
         stap: "jezus-2:nt-brood-en-berg:0",
       },
     ],
-    samen: "Dit is een verdrietige geschiedenis: Johannes wordt gedood. Markus vertelt dat het meisje vroeg om ‘het hoofd van Johannes den Doper’, op een schotel (Markus 6:24–25); bij A staat dat in eenvoudiger woorden. De naam van de dochter staat niet in de Bijbel. Je kunt samen bespreken wat Johannes tegen Herodes had gezegd (Markus 6:18), en dat hij dat zei, ook al was Herodes de koning.",
+    samen: "Dit is een verdrietige geschiedenis: Johannes wordt gedood. Markus vertelt dat het meisje vroeg om ‘het hoofd van Johannes den Doper’, op een schotel (Markus 6:24–25); bij A staat dat in eenvoudiger woorden. Je kunt samen bespreken wat Johannes tegen Herodes had gezegd (Markus 6:18), en dat hij dat zei, ook al was Herodes de koning.",
     vragen: [
       { q: "Waar zit Johannes de Doper?", a: ["In de gevangenis", "In de woestijn"], why: "Markus 6:17" },
       { q: "Wie danst er op het feest?", a: ["De dochter van Herodias", "Herodias zelf"], why: "Markus 6:22" },
@@ -3086,7 +3087,7 @@ BR.niveaus.voegToe("a", {
       { t: "Daarna halen de discipelen de stukken op die over zijn. Ze vullen er twaalf manden mee!" },
       { t: "De mensen willen de Heere Jezus koning maken. Maar Hij gaat alleen de berg op." },
     ],
-    samen: "Johannes vertelt niet dat de jongen zijn eten zelf naar de Heere Jezus bracht; Andreas wijst hem alleen aan (Johannes 6:8–9). De vijfduizend zijn alleen de mannen; Mattheüs zegt erbij: ‘zonder de vrouwen en kinderen’ (Mattheüs 14:21). Bij A is weggelaten dat de Heere Jezus de volgende dag zegt: ‘Ik ben het Brood des levens’ (Johannes 6:35). Vraag samen: hoeveel bleef er over toen iedereen gegeten had?",
+    samen: "De vijfduizend zijn alleen de mannen; Mattheüs zegt erbij: ‘zonder de vrouwen en kinderen’ (Mattheüs 14:21). Bij A is weggelaten dat de Heere Jezus de volgende dag zegt: ‘Ik ben het Brood des levens’ (Johannes 6:35). Vraag samen: hoeveel bleef er over toen iedereen gegeten had?",
     vragen: [
       { q: "Wat heeft de jongen bij zich?", a: ["Vijf broden en twee visjes", "Twee broden en vijf visjes"], why: "Johannes 6:9" },
       { q: "Hoeveel manden met stukken blijven er over?", a: ["Twaalf", "Eén"], why: "Johannes 6:13" },
@@ -3327,7 +3328,7 @@ BR.niveaus.voegToe("a", {
       { t: "Er is nog plaats. Daarom stuurt de heer zijn knecht ook naar de wegen en de heggen. Zijn huis moet vol worden." },
       { t: "Maar de mensen die eerst uitgenodigd waren, zullen niet van zijn maaltijd proeven." },
     ],
-    samen: "Dit is een gelijkenis: een verhaal waarmee de Heere Jezus antwoordt op de woorden van een gast over eten in het Koninkrijk van God (Lukas 14:15). Lukas legt de gelijkenis niet verder uit. Kort daarvoor zei de Heere Jezus dat je juist armen, verminkten, kreupelen en blinden moet uitnodigen (Lukas 14:13). Vraag samen: wie kwamen er niet, en wie mochten er wel binnen?",
+    samen: "Dit is een gelijkenis: een verhaal waarmee de Heere Jezus antwoordt op de woorden van een gast over eten in het Koninkrijk van God (Lukas 14:15). Kort daarvoor zei de Heere Jezus dat je juist armen, verminkten, kreupelen en blinden moet uitnodigen (Lukas 14:13). Vraag samen: wie kwamen er niet, en wie mochten er wel binnen?",
     vragen: [
       { q: "Wat maakt de man klaar?", a: ["Een grote maaltijd", "Een groot huis"], why: "Lukas 14:16" },
       {
@@ -3510,7 +3511,7 @@ BR.niveaus.voegToe("a", {
       },
       { t: "De mensen antwoorden: ‘Deze is Jezus, de Profeet van Nazareth in Galilea.’" },
     ],
-    samen: "Mattheüs noemt een ezelin en haar veulen (Mattheüs 21:2, 7). Markus, Lukas en Johannes noemen alleen het veulen (Markus 11:2; Lukas 19:30; Johannes 12:14). Takken van palmbomen staan in Johannes 12:13. Hosanna wordt meestal uitgelegd als een roep om redding, zoals in Psalm 118:25: ‘Och HEERE! geef nu heil’. Vraag samen: wat leggen de mensen op de weg?",
+    samen: "Mattheüs noemt een ezelin en haar veulen (Mattheüs 21:2, 7). Markus, Lukas en Johannes noemen alleen het veulen (Markus 11:2; Lukas 19:30; Johannes 12:14). Takken van palmbomen staan in Johannes 12:13. Hosanna is een roep om redding, uit Psalm 118:25: ‘Och HEERE! geef nu heil’. Vraag samen: wat leggen de mensen op de weg?",
     vragen: [
       { q: "Waarop gaat de Heere Jezus zitten?", a: ["Op een ezelin", "Op een paard"], why: "Mattheüs 21:7" },
       { q: "Wat leggen de mensen op de weg?", a: ["Kleren en takken", "Stenen en zand"], why: "Mattheüs 21:8" },
@@ -3775,7 +3776,7 @@ BR.niveaus.voegToe("a", {
       { t: "Ze moeten het snel aan de discipelen vertellen. De Heere Jezus gaat hen voor naar Galilea." },
       { t: "De vrouwen lopen snel weg. Ze zijn bang en ook heel blij." },
     ],
-    samen: "Het graf werd bewaakt: de overpriesters hadden de steen verzegeld en er een wacht bij gezet (Mattheüs 27:62–66). Mattheüs vertelt niet hoe of wanneer de Heere Jezus uit het graf ging; de engel zegt alleen: ‘Hij is hier niet; want Hij is opgestaan’ (Mattheüs 28:6). Markus en Lukas noemen meer vrouwen (Markus 16:1; Lukas 24:10). Vraag samen: had de Heere Jezus dit van tevoren gezegd? Ja, Hij zou ‘ten derden dage opgewekt worden’ (Mattheüs 16:21).",
+    samen: "Het graf werd bewaakt: de overpriesters hadden de steen verzegeld en er een wacht bij gezet (Mattheüs 27:62–66). De engel zegt: ‘Hij is hier niet; want Hij is opgestaan’ (Mattheüs 28:6). Markus en Lukas noemen meer vrouwen (Markus 16:1; Lukas 24:10). Vraag samen: had de Heere Jezus dit van tevoren gezegd? Ja, Hij zou ‘ten derden dage opgewekt worden’ (Mattheüs 16:21).",
     vragen: [
       { q: "Wie rolt de steen weg?", a: ["Een engel van de Heere", "De twee vrouwen"], why: "Mattheüs 28:2" },
       { q: "Waarom is de Heere Jezus niet meer in het graf?", a: ["Hij is opgestaan", "Hij is weggedragen"], why: "Mattheüs 28:6" },
@@ -3827,7 +3828,7 @@ BR.niveaus.voegToe("a", {
       { t: "Dan gaan hun ogen open, en ze herkennen Hem. Daarna verdwijnt Hij uit hun gezicht." },
       { t: "Meteen gaan ze terug naar Jeruzalem. Daar vertellen ze wat er gebeurd is.", stap: "jezus-3:nt-opstanding:2" },
     ],
-    samen: "Lukas noemt maar één van de twee bij name: Kleopas (Lukas 24:18). Wie de ander was, zegt de Bijbel niet. Waar Emmaüs precies lag, is niet zeker; daarom staat het op de kaart als betwist. Vraag samen: waaraan herkennen de twee de Heere Jezus? Lukas zegt: ‘in het breken des broods’ (Lukas 24:35).",
+    samen: "Lukas noemt maar één van de twee bij name: Kleopas (Lukas 24:18). Waar Emmaüs precies lag, is niet zeker; daarom staat het op de kaart als betwist. Vraag samen: waaraan herkennen de twee de Heere Jezus? Lukas zegt: ‘in het breken des broods’ (Lukas 24:35).",
     vragen: [
       { q: "Waar lopen de twee discipelen naartoe?", a: ["Naar Emmaüs", "Naar Bethlehem"], why: "Lukas 24:13" },
       { q: "Wanneer herkennen ze de Heere Jezus?", a: ["Als Hij het brood breekt", "Als Hij hun naam noemt"], why: "Lukas 24:30–31" },
@@ -3857,7 +3858,7 @@ BR.niveaus.voegToe("a", {
       },
       { t: "Dan zegt Thomas: ‘Mijn Heere en mijn God!’" },
     ],
-    samen: "Thomas wordt vaak de ongelovige Thomas genoemd. Die bijnaam staat niet in de Bijbel; Johannes noemt hem Thomas, ‘gezegd Didymus’ (Johannes 20:24). Er staat ook niet dat Thomas de wonden echt aanraakte. De Heere Jezus zegt: ‘Omdat gij Mij gezien hebt, Thomas, zo hebt gij geloofd’ (Johannes 20:29). Vraag samen: wat zegt de Heere Jezus daarna over wie Hem niet gezien hebben? (Johannes 20:29)",
+    samen: "Johannes noemt hem Thomas, ‘gezegd Didymus’ (Johannes 20:24). Didymus betekent tweeling. De Heere Jezus zegt: ‘Omdat gij Mij gezien hebt, Thomas, zo hebt gij geloofd’ (Johannes 20:29). Vraag samen: wat zegt de Heere Jezus daarna over wie Hem niet gezien hebben? (Johannes 20:29)",
     vragen: [
       { q: "Waarom zijn de deuren dicht?", a: ["De discipelen zijn bang voor de Joden", "Het is heel koud buiten"], why: "Johannes 20:19" },
       { q: "Wie wil het eerst zelf zien?", a: ["Thomas", "Petrus"], why: "Johannes 20:24–25" },
@@ -4196,7 +4197,7 @@ BR.niveaus.voegToe("a", {
         t: "Nu vertelt Saulus dat de Heere Jezus de Zoon van God is. Later laten de discipelen hem ’s nachts in een mand langs de muur zakken.",
       },
     ],
-    samen: "Op schilderijen valt Saulus vaak van een paard. Handelingen 9 noemt geen paard: er staat alleen dat hij ‘ter aarde gevallen’ was (9:4). Saulus had de gelovigen veel kwaad gedaan (9:1–2, 13); de Bijbel vertelt dat zonder details, en dat kan bij het voorlezen ook. Weggelaten: de Joden wilden Saulus doden; daarom gaat hij in de mand (9:23–25). Vraag samen: wat deed Saulus in de drie dagen dat hij niet kon zien? (9:9, 11)",
+    samen: "Saulus had de gelovigen veel kwaad gedaan (9:1–2, 13); de Bijbel vertelt dat zonder details, en dat kan bij het voorlezen ook. Weggelaten: de Joden wilden Saulus doden; daarom gaat hij in de mand (9:23–25). Vraag samen: wat deed Saulus in de drie dagen dat hij niet kon zien? (9:9, 11)",
     vragen: [
       { q: "Wat ziet Saulus vlak bij Damascus?", a: ["Een licht uit de hemel", "Een groot vuur"], why: "Handelingen 9:3" },
       { q: "Wie spreekt tegen Saulus?", a: ["De Heere Jezus", "Een van zijn reisgenoten"], why: "Handelingen 9:5" },
@@ -4377,7 +4378,7 @@ BR.niveaus.voegToe("a", {
         stap: "handelingen:nt-paulusrome:8",
       },
     ],
-    samen: "Paulus is in Rome nog steeds een gevangene: hij draagt een keten (Handelingen 28:16, 20). Bij A is het gesprek met de Joden in Rome weggelaten; sommigen geloven, anderen niet (Handelingen 28:17–29). Vraag samen: wat zeggen de mensen op het eiland eerst over Paulus, en wat zeggen ze later? (Handelingen 28:4, 6) In Lystra zeggen Paulus en Barnabas: ‘Wij zijn ook mensen’ (Handelingen 14:14–15). Hoe het daarna met Paulus ging, vertelt Handelingen niet.",
+    samen: "Paulus is in Rome nog steeds een gevangene: hij draagt een keten (Handelingen 28:16, 20). Bij A is het gesprek met de Joden in Rome weggelaten; sommigen geloven, anderen niet (Handelingen 28:17–29). Vraag samen: wat zeggen de mensen op het eiland eerst over Paulus, en wat zeggen ze later? (Handelingen 28:4, 6) In Lystra zeggen Paulus en Barnabas: ‘Wij zijn ook mensen’ (Handelingen 14:14–15).",
     vragen: [
       { q: "Wat komt er uit het vuur?", a: ["Een slang", "Een vogel"], why: "Handelingen 28:3" },
       { q: "Wie is er ziek op het eiland?", a: ["De vader van Publius", "De vrouw van Publius"], why: "Handelingen 28:8" },
@@ -4449,7 +4450,7 @@ BR.niveaus.voegToe("a", {
       { t: "Uit de troon van God en van het Lam stroomt een rivier met het water des levens. Aan beide kanten staat de boom des levens." },
       { t: "De Heere Jezus zegt: ‘Ik kom haastiglijk’, dat is: Ik kom snel. Het laatste gebed in de Bijbel is: ‘Ja, kom, Heere Jezus!’" },
     ],
-    samen: "Jesaja 11 en Openbaring 21–22 vertellen wat God belooft. Isaï is de vader van koning David (Ruth 4:22). De Heere Jezus zegt: ‘Ik ben de Wortel en het geslacht Davids’ (Openbaring 22:16). Bij A is weggelaten wie niet in de stad komen (Openbaring 21:8, 27; 22:15). Petrus bij de hemelpoort komt uit de traditie, niet uit Openbaring 21. Vraag samen: wat zal er dan niet meer zijn? (Openbaring 21:4)",
+    samen: "Jesaja 11 en Openbaring 21–22 vertellen wat God belooft. Isaï is de vader van koning David (Ruth 4:22). De Heere Jezus zegt: ‘Ik ben de Wortel en het geslacht Davids’ (Openbaring 22:16). Bij A is weggelaten wie niet in de stad komen (Openbaring 21:8, 27; 22:15). Vraag samen: wat zal er dan niet meer zijn? (Openbaring 21:4)",
     vragen: [
       { q: "Wie zal er bij het lam wonen?", a: ["De wolf", "De vos"], why: "Jesaja 11:6" },
       { q: "Wat zal God van hun ogen afwissen?", a: ["Alle tranen", "Al het stof"], why: "Openbaring 21:4" },

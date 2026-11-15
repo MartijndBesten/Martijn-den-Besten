@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 
-// Het deel ‘Jakob bij de Jabbok’ (Genesis 32, vers voor vers): opent via een diepe link, heeft tien stappen met vaste
+// Het deel ‘Jakob bij de Jabbok’ (Genesis 32, vers voor vers): opent via een diepe link, heeft twaalf stappen met vaste
 // titels (bij elke stap hoort een tafereel), zoomt in op het gebied van de Jabbok en laat het deel Jakob ongemoeid.
 // Hulpjes overgenomen uit e2e/bijbelreis.spec.ts.
 
@@ -34,15 +34,15 @@ async function wachtTotKaartStil(page: Page) {
 type Deel = { id: string; steps: { t: string; ref: string }[] };
 const delenVanGenesis = (page: Page) => page.evaluate(() => (window as unknown as { BR: { boeken: { id: string; delen: Deel[] }[] } }).BR.boeken.find((b) => b.id === "genesis")!.delen.map((d) => ({ id: d.id, steps: d.steps.map((s) => ({ t: s.t, ref: s.ref })) })));
 
-const TITELS = ["Engelen bij Mahanaïm", "Boden naar Ezau", "Jakob vreest zeer", "Jakob bidt", "Een geschenk voor Ezau", "Over de Jabbok", "De worsteling", "Een nieuwe naam: Israël", "Pniël: de zon gaat op", "De ontmoeting met Ezau"];
-const REFS = ["Genesis 32:1–2", "Genesis 32:3–6", "Genesis 32:7–8", "Genesis 32:9–12", "Genesis 32:13–21", "Genesis 32:22–23", "Genesis 32:24–26", "Genesis 32:27–29", "Genesis 32:30–32", "Genesis 33:1–4"];
+const TITELS = ["Engelen bij Mahanaïm", "Boden naar Ezau", "Jakob vreest zeer", "Jakob bidt", "Een geschenk voor Ezau", "Over de Jabbok", "De worsteling", "Een nieuwe naam: Israël", "Pniël: de zon gaat op", "De ontmoeting met Ezau", "Als het aangezicht van God", "Sukkoth en Sichem: een altaar"];
+const REFS = ["Genesis 32:1–2", "Genesis 32:3–6", "Genesis 32:7–8", "Genesis 32:9–12", "Genesis 32:13–21", "Genesis 32:22–23", "Genesis 32:24–26", "Genesis 32:27–29", "Genesis 32:30–32", "Genesis 33:1–4", "Genesis 33:5–11", "Genesis 33:12–20"];
 
-test("Genesis 32: ‘Jakob bij de Jabbok’ opent als eigen deel met tien stappen", async ({ page }) => {
+test("Genesis 32: ‘Jakob bij de Jabbok’ opent als eigen deel met twaalf stappen", async ({ page }) => {
   const errors = watchErrors(page);
   await page.goto("/bijbelreis#jakob-jabbok");
   await expect(page.locator("#p-reis")).toContainText("Jakob bij de Jabbok");
   await expect(page.locator("#p-reis")).toContainText("Genesis 32");
-  await expect(page.locator(".dot")).toHaveCount(10);
+  await expect(page.locator(".dot")).toHaveCount(12);
   // De indeling ligt vast: bij elke stap hoort een tafereel. Het deel staat direct na Jakob en vóór Jozef.
   const delen = await delenVanGenesis(page);
   const ids = delen.map((d) => d.id);
@@ -100,4 +100,29 @@ test("Genesis 32: het bestaande deel Jakob houdt zijn stappen", async ({ page })
   expect(jakob.steps.map((s) => s.t)).toEqual(["De ladder naar de hemel", "Rachel bij de put", "Bedrogen!", "Een grote familie", "Stiekem weg", "Bang voor Ezau", "Worstelen in de nacht", "Broers weer samen",
     "Terug in Bethel", "Benjamin en Rachel", "Thuis bij Izak", "Jozef verdwenen", "Naar Egypte", "Jakob zegent", "Begraven in Machpela"]);
   expect(errors).toEqual([]);
+});
+
+test("Jakob: ‘Om over na te denken’ staat bij de intro en de laatste stap, ingeklapt, niet bij een tussenstap", async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto("/bijbelreis#jakob-jabbok");
+  const denk = page.locator("#sDenk");
+  await expect(denk).toBeVisible();
+  await expect(denk).not.toHaveAttribute("open", "");
+  await denk.locator("summary").click();
+  await expect(denk.locator("li")).toHaveCount(4);
+  await expect(denk.locator("li").first()).toContainText("Genesis 31:3");
+  await page.goto("/bijbelreis#jakob-jabbok/7");
+  await expect(denk).toBeHidden();
+  await page.goto("/bijbelreis#jakob-jabbok/12");
+  await expect(page.locator("#sTitle")).toContainText("Sukkoth");
+  await expect(denk).toBeVisible();
+  await page.goto("/bijbelreis#jakob");
+  await expect(denk.locator("li")).toHaveCount(3);
+  expect(errors).toEqual([]);
+});
+
+test("Jakob: bij Samen ontdekken geen vragen om over na te denken", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("bijbelreis:niveau", JSON.stringify("a")));
+  await page.goto("/bijbelreis#jakob-jabbok");
+  await expect(page.locator("#sDenk")).toBeHidden();
 });

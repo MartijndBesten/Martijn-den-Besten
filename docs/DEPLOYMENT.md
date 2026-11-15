@@ -86,6 +86,8 @@ Besluit van Martijn (15-11-2026): de Bijbelreis staat als zelfstandige website o
 1. **Zone op Cloudflare** (alleen de accounteigenaar kan dit): dashboard → *Add a domain* → `bijbelreis.nl` → Free. Het deploy-token mag geen zones aanmaken.
 2. **Nameservers bij Theory7** omzetten naar de twee nameservers die Cloudflare toont (bij de andere domeinen in dit account: `kayden.ns.cloudflare.com` en `sloan.ns.cloudflare.com`).
 3. Zodra de zone actief is: in `wrangler.bijbelreis.jsonc` de twee `routes` aanzetten en `workers_dev` op `false`, daarna `npm run deploy:bijbelreis`. Controleer `https://bijbelreis.nl/` en `https://www.bijbelreis.nl/` (verwijst door naar het hoofddomein).
+Stand 15-11-2026: stap 1–3 zijn gedaan (zone actief, beide adressen gekoppeld aan de Worker `bijbelreis`, `www` verwijst door). Stap 4 gaat mee met de eerstvolgende uitrol van de hoofdsite.
+
 4. **Pas daarna** `BIJBELREIS_VERHUISD` in `shared/bijbelreis.ts` op `true` zetten en de hoofdsite uitrollen. Vanaf dan toont `martijndenbesten.com/bijbelreis` de verhuispagina.
 
 ### Voortgang van gebruikers

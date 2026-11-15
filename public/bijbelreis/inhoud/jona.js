@@ -34,7 +34,7 @@ BR.boeken.push({
   { ref: "Jona 1:3", t: "Op de vlucht naar Joppe", stamp: "Joppe", at: ["jona_gathhefer", "joppe"],
     r: [{ p: ["jona_gathhefer", "megiddo", "coast1", "joppe"], recon: 1 }],
     who: [["Jona"]],
-    txt: "Maar Jona staat op om te vluchten, weg van de HEERE. Hij gaat naar de havenstad Jafo (Joppe) en vindt daar een schip dat naar Tarsis gaat. Hij betaalt de reis en gaat aan boord.",
+    txt: "Maar Jona staat op om te vluchten, weg van de HEERE, als een knecht die wegloopt uit de dienst van zijn heer. Hij gaat naar de havenstad Jafo (Joppe) en vindt daar een schip dat naar Tarsis gaat. Hij betaalt de reis en gaat aan boord.",
     fact: "Dat is precies de andere kant op: Ninevé ligt in het oosten, Tarsis ver in het westen. Waar Tarsis lag, is niet zeker. Veel onderzoekers denken aan Tartessus in het zuiden van Spanje; anderen aan Sardinië of aan Tarsus in Klein-Azië.", fs: "h" },
   { ref: "Jona 1:4–16", t: "Storm op zee", stamp: "Storm", at: [],
     r: [{ p: ["joppe", [32.7, 33.6], [33.2, 31.8]], recon: 1 }], later: { p: [[33.2, 31.8], [33.9, 28.0], [34.3, 24.5], "tarsis"], lab: "Zo ver wilde Jona: naar Tarsis", at: [34.1, 26.0] },
@@ -59,7 +59,7 @@ BR.boeken.push({
   { ref: "Jona 4", t: "Jona boos, en de wonderboom", stamp: "Boom", at: ["jona_verdek"], zoom: 9,
     who: [["Jona"]],
     txt: "Jona is woedend. Hij bidt: “HEERE, dit wist ik wel toen ik nog thuis was! Daarom vluchtte ik naar Tarsis. Ik wist dat U genadig en barmhartig bent, geduldig en vol goedheid. Neem mijn leven maar; ik sterf liever dan dat ik leef.” Hij gaat buiten de stad zitten, aan de oostkant, onder een hutje, en wacht af. God laat een wonderboom opschieten als schaduw voor zijn hoofd. Jona is er heel blij mee. Maar de volgende morgen stuurt God een worm, en de boom verdort. De zon brandt op Jona’s hoofd. “Ik sterf liever!” Dan zegt de HEERE: “Jij hebt medelijden met een boom waar je niets voor deed. Zou Ik dan geen medelijden hebben met die grote stad, waar meer dan 120.000 mensen wonen die het verschil tussen links en rechts niet kennen, en zoveel dieren?”",
-    fact: "Zo eindigt het boek, met een vraag van God. Of Jona nog antwoord gaf, staat er niet. Ruim 120.000 mensen: dat is ongeveer zoveel als er nu in Leiden wonen.", fs: "u" },
+    fact: "Zo eindigt het boek: met een vraag van God. De meer dan 120.000 mensen die links en rechts niet kennen, zijn de kleine kinderen. Alleen al zij waren ongeveer zoveel als er nu mensen in Leiden wonen.", fs: "u" },
   ],
   quiz: {
     tap: [{ id: "ninivest", q: "Tik op Ninevé, de stad waar Jona heen moest.", v: "wide" }, { id: "joppe", q: "Tik op Joppe, de haven waar Jona een schip nam.", v: "kanaan" },

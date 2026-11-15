@@ -39,7 +39,8 @@ const report = await page.evaluate(() => {
 // Alle delen en stappen doorlopen, zodat fouten in de inhoud naar boven komen.
 const nParts = await page.evaluate(() => BR.boeken.reduce((a, b) => a + b.delen.length, 0));
 for (let i = 0; i < nParts; i++) {
-  const ok = await page.evaluate((i) => { const all = BR.boeken.flatMap((b) => b.delen); const d = all[i]; const btn = [...document.querySelectorAll(".boek")].find((x) => x.dataset.boek === d.boek.id); btn && btn.click(); const dl = [...document.querySelectorAll(".deel")].find((x) => x.dataset.deel === d.id); if (!dl) return false; dl.click(); return true; }, i);
+  // Een verdiepend deel (bij: …) heeft geen eigen knop: dat opent via de ingang bij zijn hoofddeel.
+  const ok = await page.evaluate((i) => { const all = BR.boeken.flatMap((b) => b.delen); const d = all[i]; const btn = [...document.querySelectorAll(".boek")].find((x) => x.dataset.boek === d.boek.id); btn && btn.click(); const dl = [...document.querySelectorAll(".deel")].find((x) => x.dataset.deel === (d.bij || d.id)); if (!dl) return false; dl.click(); if (!d.bij) return true; const v = document.querySelector(`#sVerdiep [data-go="${d.boek.id}:${d.id}:-1"]`); if (!v) return false; v.click(); return true; }, i);
   if (!ok) problems.push(`deel ${i} niet aanklikbaar`);
   const steps = await page.evaluate(() => document.querySelectorAll(".dot").length);
   for (let s = 0; s < steps; s++) { await page.evaluate((s) => document.querySelector(`.dot[data-step="${s}"]`).click(), s); await page.waitForTimeout(30); }
@@ -49,7 +50,7 @@ const nrs = await page.evaluate(() => (BR.geschiedenissen || []).map((g) => g.nr
 for (const nr of nrs) {
   await page.evaluate((nr) => { location.hash = "v" + nr; }, nr);
   await page.waitForTimeout(60);
-  const ok = await page.evaluate((nr) => !!document.querySelector("#p-verhalen .verhaal") && document.querySelector("#p-verhalen .top b").textContent.includes("Geschiedenis " + nr + " "), nr);
+  const ok = await page.evaluate((nr) => !!document.querySelector("#p-verhalen .verhaal") && document.querySelector("#p-verhalen .top b").textContent.trim() === "Geschiedenis " + nr, nr);
   if (!ok) { problems.push(`geschiedenis ${nr} opent niet`); continue; }
   await page.evaluate(() => { const b = document.querySelector("#vOntdek button"); b && b.click(); });
   await page.evaluate(() => document.querySelector("#vqStart") && document.querySelector("#vqStart").click());

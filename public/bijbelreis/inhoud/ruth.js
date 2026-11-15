@@ -11,7 +11,7 @@ BR.boeken.push({
     { n: "Machlon en Chiljon", rol: "zonen van Naomi", i: "Ze trouwden in Moab met Orpa en Ruth, en stierven allebei na ongeveer tien jaar (Ruth 1:4–5). Ruth was de vrouw van Machlon (4:10)." },
     { n: "Orpa", rol: "schoondochter van Naomi", i: "Ze huilde, kuste Naomi en ging terug naar haar eigen volk en haar goden (Ruth 1:14–15)." },
     { n: "Ruth", rol: "Moabitische, schoondochter van Naomi", i: "Ze bleef bij Naomi: ‘Uw volk is mijn volk en uw God is mijn God.’ Ze raapte aren op de akker van Boaz en trouwde met hem. Ze werd de overgrootmoeder van David (Ruth 1:16, 4:17).", deel: "ruth" },
-    { n: "Boaz", rol: "rijke boer, losser", i: "Familie van Elimelech (Ruth 2:1). Hij was goed voor Ruth op zijn akker en loste het land van Naomi bij de poort. Volgens Mattheüs 1:5 was Rachab zijn moeder; meestal wordt aangenomen dat dit Rachab uit Jericho is.", deel: "ruth" },
+    { n: "Boaz", rol: "rijke boer, losser", i: "Familie van Elimelech (Ruth 2:1). Hij was goed voor Ruth op zijn akker en loste het land van Naomi bij de poort. Zijn moeder was Rachab uit Jericho (Mattheüs 1:5).", deel: "ruth" },
     { n: "De andere losser", rol: "nog nadere familie", i: "Hij wilde het land wel kopen, maar niet met Ruth trouwen. Hij trok zijn schoen uit en gaf hem aan Boaz als teken (Ruth 4:6–8)." },
     { n: "Obed", rol: "zoon van Boaz en Ruth", i: "De buurvrouwen gaven hem zijn naam. Hij werd de vader van Isaï en de opa van David (Ruth 4:17)." },
     { n: "Isaï", rol: "zoon van Obed", i: "Hij woonde in Bethlehem en had acht zonen. De jongste was David (1 Samuël 16:1, 17:12)." },

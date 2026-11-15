@@ -42,7 +42,7 @@
         <fieldset><legend>Wat wil je laten zien?</legend>
           <div class="bk-keuzes" style="grid-template-columns:repeat(2,minmax(0,1fr))">
             <label><input type="radio" name="soort" value="reis" checked><b>Een reis</b><small>Een deel van een Bijbelboek, een stuk ervan of het hele boek</small></label>
-            <label><input type="radio" name="soort" value="verhaal"><b>Een geschiedenis</b><small>Eén van de 150 geschiedenissen</small></label>
+            <label><input type="radio" name="soort" value="verhaal"><b>Een geschiedenis</b><small>Eén van de geschiedenissen uit ‘Verhalen’</small></label>
           </div>
         </fieldset>
         <div id="kiesReis" class="bk-kaartje" style="box-shadow:none;padding:0;border:0">
@@ -98,7 +98,7 @@
     await Promise.all([basisKlaar, letters]);
     if (IN.lees(location.hash).soort !== k.soort) return; // intussen iets anders gekozen
     const pk = IN.maak(BR, { ...k, niveau });
-    if (!pk) { toonKies(k.soort === "verhaal" ? `Geschiedenis ${k.nr} bestaat niet. Er zijn er 150.` : "Dit deel of boek staat niet in de Bijbelreis. Kies hieronder wat je wilt laten zien."); return; }
+    if (!pk) { toonKies(k.soort === "verhaal" ? `Geschiedenis ${k.nr} bestaat niet.` : "Dit deel of boek staat niet in de Bijbelreis. Kies hieronder wat je wilt laten zien."); return; }
     pakket = pk;
     stopSpeler();
     $("kies").hidden = true; $("laden").hidden = true;

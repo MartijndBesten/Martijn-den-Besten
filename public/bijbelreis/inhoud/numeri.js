@@ -124,7 +124,7 @@ BR.boeken.push({
     r: [{ p: ["edrei", [32.45, 35.95], [32.15, 35.78], "hesbon", "sittim"], recon: 1 },
         { w: "grijs", p: ["pethor", "karkw", "aleppo", "qatna", "damw", "basan", "edrei", [32.45, 35.95], [32.15, 35.78], "hesbon", "medeba", "arnon"], recon: 1 }],
     who: [["Bileam"], ["Balak"], ["Volk"]],
-    txt: "Israël slaat zijn kamp op in de vlakten van Moab, bij de Jordaan tegenover Jericho. Moab is zeer bang voor dit volk. Balak, de koning van Moab, stuurt boden naar Bileam, een waarzegger bij de rivier (meestal uitgelegd als de Eufraat): “Kom en vervloek dit volk!” God zegt eerst nee, maar laat Bileam dan gaan: hij mag alleen zeggen wat God zegt. Onderweg ziet zijn ezelin de Engel van de HEERE op de weg staan met een getrokken zwaard. Drie keer wijkt ze uit, en drie keer slaat Bileam haar. Dan laat God de ezelin praten: ‘Wat heb ik u gedaan?’ Nu ziet Bileam de Engel ook. In Moab probeert Balak hem drie keer te laten vloeken, maar elke keer zegent Bileam Israël: ‘Hoe goed zijn uw tenten, Jakob!’ Hij ziet zelfs een ster uit Jakob opgaan.",
+    txt: "Israël slaat zijn kamp op in de vlakten van Moab, bij de Jordaan tegenover Jericho. Moab is zeer bang voor dit volk. Balak, de koning van Moab, stuurt boden naar Bileam, een waarzegger bij de rivier: “Kom en vervloek dit volk!” God zegt eerst nee, maar laat Bileam dan gaan: hij mag alleen zeggen wat God zegt. Onderweg ziet zijn ezelin de Engel van de HEERE op de weg staan met een getrokken zwaard. Drie keer wijkt ze uit, en drie keer slaat Bileam haar. Dan laat God de ezelin praten: ‘Wat heb ik u gedaan?’ Nu ziet Bileam de Engel ook. In Moab probeert Balak hem drie keer te laten vloeken, maar elke keer zegent Bileam Israël: ‘Hoe goed zijn uw tenten, Jakob!’ Hij ziet zelfs een ster uit Jakob opgaan.",
     fs: "h", fact: "Pethor lag ‘in Mesopotamië’ (Deuteronomium 23:4), waarschijnlijk bij de Eufraat in het noorden van Syrië. Dat is hemelsbreed bijna 600 km van Moab: te voet of op een ezel waarschijnlijk een reis van enkele weken." },
   { ref: "Numeri 25–26", t: "Zonde en telling bij Sittim", stamp: "Sittim", at: ["sittim"], zoom: 8,
     who: [["Volk", "601.730 mannen"], ["Pinehas"], ["Mozes"], ["Eleazar"]],
@@ -167,7 +167,7 @@ BR.boeken.push({
 
 // Eén Bijbelgedeelte van dichtbij: Deuteronomium 30:11–20, uit de afscheidsrede van Mozes in de velden van Moab.
 // Het deel ‘In Moab’ vertelt de hele rede in één stap; dit deel volgt deze verzen. Controle: scripts/bijbel-controle/kies-het-leven.txt.
-{ id: "kies-het-leven", n: "Kies dan het leven", short: "Kies het leven", ref: "Deuteronomium 30:11–20", c: "oker", init: "K",
+{ id: "kies-het-leven", bij: "moab", n: "Kies dan het leven", short: "Kies het leven", ref: "Deuteronomium 30:11–20", c: "oker", init: "K",
   tijd: "ca. 1406 v.Chr.", tl: [-1406, -1406],
   tijdNoot: "Reconstructie, uitgaande van een uittocht ca. 1446 v.Chr. (1 Koningen 6:1). Mozes sprak het volk toe in het veertigste jaar, in de elfde maand (Deuteronomium 1:3). De Bijbel noemt geen jaartal in onze jaartelling; er bestaan ook dateringen die ruim twee eeuwen later uitkomen.",
   intro: "Israël staat aan de grens van het beloofde land, in de velden van Moab, met de Jordaan vóór zich. Mozes spreekt voor het laatst tot het volk. In Deuteronomium 30:11–20 zegt hij waar het op aankomt: het woord van God is dichtbij, en hij stelt het volk het leven en de dood voor. Dit deel volgt die verzen één voor één.",

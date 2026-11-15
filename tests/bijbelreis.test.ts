@@ -379,12 +379,34 @@ describe("bijbelreis: citaten in de bestaande inhoud", () => {
     for (const g of B.geschiedenissen) { walk("g" + g.nr, { uitleg: g.uitleg, betekenis: g.betekenis, tijdNoot: g.tijdNoot, cross: g.cross, ontdek: g.ontdek }); quiz("g" + g.nr, g.quiz); }
     for (const { b, d } of DELEN) {
       const dd = d as unknown as Record<string, unknown> & { quiz?: { mc?: Q[]; tap?: Q[] }; steps: Record<string, unknown>[] };
-      walk(`${b.id}:${d.id}`, { intro: dd.intro, stat: dd.stat, cross: dd.cross, tijdNoot: dd.tijdNoot });
+      walk(`${b.id}:${d.id}`, { intro: dd.intro, stat: dd.stat, cross: dd.cross, tijdNoot: dd.tijdNoot, denk: dd.denk });
       quiz(`${b.id}:${d.id}`, [...(dd.quiz?.mc || []), ...(dd.quiz?.tap || [])]);
       dd.steps.forEach((s, i) => walk(`${b.id}:${d.id}:${i}`, { t: s.t, txt: s.txt, fact: s.fact, onthul: s.onthul, who: s.who }));
     }
     walk("kernwoorden", B.kernwoorden); walk("mensen", B.mensen);
     for (const [id, pl] of Object.entries(P)) chk("plaats " + id, (pl as unknown as { d?: string }).d);
+    expect(bad).toEqual([]);
+  }, 60_000);
+  // Reflectievragen (`denk`, sinds de herziening van Jakob, 15-11-2026): 2–4 open vragen per deel, elk eindigend op een
+  // vraagteken. Elke ‘ ’-aanhaling erin is letterlijk Statenvertaling, ook als ze maar één woord is.
+  it("reflectievragen (denk) zijn 2–4 vragen met alleen letterlijke Statenvertaling tussen ‘ ’", () => {
+    const bad: string[] = [];
+    const metDenk = DELEN.filter(({ d }) => (d as unknown as { denk?: unknown }).denk !== undefined);
+    expect(metDenk.map(({ d }) => d.id)).toEqual(expect.arrayContaining(["jakob", "jakob-jabbok"]));
+    for (const { b, d } of metDenk) {
+      const waar = `${b.id}:${d.id} denk`, denk = (d as unknown as { denk: unknown }).denk;
+      if (!Array.isArray(denk) || denk.length < 2 || denk.length > 4) { bad.push(`${waar}: geen lijst van 2–4 vragen`); continue; }
+      denk.forEach((v, i) => {
+        if (typeof v !== "string" || !v.trim()) { bad.push(`${waar} ${i}: geen tekst`); return; }
+        if (!/\?$/.test(v.trim())) bad.push(`${waar} ${i}: eindigt niet op een vraagteken`);
+        if ((v.match(/‘/g) || []).length !== (v.match(/’(?!\p{L})/gu) || []).length) bad.push(`${waar} ${i}: aanhalingstekens ‘ ’ niet in paren`);
+        for (const m of v.matchAll(/‘([^’]+)’/g)) for (const st of m[1].split(/…|\.\.\./)) {
+          const k = klein(st), h = hl(st); if (!k) continue;
+          if (!SVK.includes(k)) bad.push(`${waar} ${i}: ‘${st}’ staat niet in de Statenvertaling`);
+          else if (![h, h[0].toLowerCase() + h.slice(1), h[0].toUpperCase() + h.slice(1)].some((x) => SVH.includes(x))) bad.push(`${waar} ${i} (hoofdletters): ‘${st}’`);
+        }
+      });
+    }
     expect(bad).toEqual([]);
   }, 60_000);
 });

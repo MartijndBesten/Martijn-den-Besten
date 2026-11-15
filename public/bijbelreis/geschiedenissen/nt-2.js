@@ -99,7 +99,7 @@ BR.geschiedenissen.push(
     ["De goede herder", "De Heere Jezus, Die Zijn leven geeft voor de schapen.", "Johannes 10:11"],
     ["De huurling", "Iemand voor wie de schapen niet van hemzelf zijn; hij vlucht als de wolf komt.", "Johannes 10:12–13"],
     ["De stem van de herder", "Zijn schapen horen Zijn stem en volgen Hem.", "Johannes 10:27"],
-    ["Andere schapen", "Schapen ‘die van dezen stal niet zijn’: ook die moet Hij toebrengen, tot één kudde en één Herder.", "Johannes 10:16"]] },
+    ["Andere schapen", "Schapen ‘die van dezen stal niet zijn’: mensen uit de heidenen. Ook die moet Hij toebrengen, tot één kudde en één Herder.", "Johannes 10:16"]] },
   quiz: [
     { q: "Waaraan kennen de schapen de herder?", a: ["Aan zijn stem", "Aan zijn kleren", "Aan zijn staf"], why: "Johannes 10:4" },
     { q: "Wat doet de huurling als de wolf komt?", a: ["Hij vlucht", "Hij vecht tegen de wolf", "Hij roept de herder"], why: "Johannes 10:12" },
@@ -114,7 +114,7 @@ BR.geschiedenissen.push(
 
 { nr: 105, t: "Petrus belijdt: Gij zijt de Christus", ref: "Mattheüs 16:13–28", sectie: "galilea",
   stappen: ["jezus-2:nt-brood-en-berg:4", "jezus-2:nt-brood-en-berg:5"], vorm: "plek",
-  uitleg: "In de streek van Caesarea Filippi vraagt de Heere Jezus Zijn discipelen wie de mensen zeggen dat Hij is. Sommigen zeggen Johannes de Doper, anderen Elia, en anderen Jeremia of een van de profeten. Dan vraagt Hij: ‘Maar gij, wie zegt gij, dat Ik ben?’ Simon Petrus antwoordt: ‘Gij zijt de Christus, de Zoon des levenden Gods.’ De Heere Jezus noemt hem zalig, want niet mensen, maar de Vader in de hemel heeft hem dat geopenbaard. Hij zegt: ‘gij zijt Petrus, en op deze petra zal Ik Mijn gemeente bouwen, en de poorten der hel zullen dezelve niet overweldigen.’ Daarna begint Hij te vertellen wat er gaat gebeuren. Hij moet in Jeruzalem lijden, Hij zal gedood worden en op de derde dag opgewekt worden. Als Petrus dat wil tegenhouden, zegt de Heere Jezus: ‘Ga weg achter Mij, satanas!’ Wie Hem wil volgen, moet zichzelf verloochenen, zijn kruis opnemen en Hem volgen.",
+  uitleg: "In de streek van Caesarea Filippi vraagt de Heere Jezus Zijn discipelen wie de mensen zeggen dat Hij is. Sommigen zeggen Johannes de Doper, anderen Elia, en anderen Jeremia of een van de profeten. Dan vraagt Hij: ‘Maar gij, wie zegt gij, dat Ik ben?’ Simon Petrus antwoordt: ‘Gij zijt de Christus, de Zoon des levenden Gods.’ De Heere Jezus noemt hem zalig, want niet mensen, maar de Vader in de hemel heeft hem dat geopenbaard. Hij zegt: ‘gij zijt Petrus, en op deze petra zal Ik Mijn gemeente bouwen, en de poorten der hel zullen dezelve niet overweldigen.’ Die rots is Christus Zelf, Die Petrus belijdt. Daarna begint Hij te vertellen wat er gaat gebeuren. Hij moet in Jeruzalem lijden, Hij zal gedood worden en op de derde dag opgewekt worden. Als Petrus dat wil tegenhouden, zegt de Heere Jezus: ‘Ga weg achter Mij, satanas!’ Wie Hem wil volgen, moet zichzelf verloochenen, zijn kruis opnemen en Hem volgen.",
   betekenis: "Petrus belijdt wie de Heere Jezus is: de Christus, de door God beloofde Gezalfde, de Zoon van God (Mattheüs 16:16). Direct daarna maakt de Heere Jezus duidelijk dat de Christus moet lijden en sterven, en op de derde dag opgewekt worden (Mattheüs 16:21).",
   wie: ["Jezus", "Petrus"],
   ontdek: { soort: "kaart", titel: "Waar was het?", vraag: "Petrus zei het in het uiterste noorden van het land, bij de bronnen van de Jordaan. Wijs Caesarea Filippi aan.", id: "nt_kaesareafilippi", v: "kanaan" },
@@ -259,13 +259,13 @@ BR.geschiedenissen.push(
 { nr: 112, t: "De verloren zoon", ref: "Lukas 15:11–32", sectie: "onderweg",
   stappen: ["jezus-2:nt-reis-naar-jeruzalem:4"], vorm: "gelijkenis",
   uitleg: "Tollenaars en zondaars komen naar de Heere Jezus om naar Hem te luisteren. De Farizeeën en schriftgeleerden mopperen: ‘Deze ontvangt de zondaars, en eet met hen’ (Lukas 15:1–2). Daarom vertelt Hij drie gelijkenissen. De derde gaat over een vader met twee zonen. De jongste vraagt zijn deel van de erfenis en vertrekt naar een ver land. Daar verkwist hij alles met een losbandig leven. Als er hongersnood komt, moet hij zwijnen hoeden, en hij zou zelfs graag van hun voer eten. Dan komt hij tot zichzelf: ik zal opstaan, naar mijn vader gaan en zeggen dat ik gezondigd heb. Zijn vader ziet hem al van ver, krijgt medelijden, rent naar hem toe en kust hem. Hij laat het beste kleed, een ring en schoenen brengen en het gemeste kalf slachten: ‘deze mijn zoon was dood, en is weder levend geworden.’ Maar de oudste zoon wordt boos en wil niet naar binnen. De vader gaat naar buiten en smeekt hem. Op zijn verwijt antwoordt de vader: ‘Kind, gij zijt altijd bij mij, en al het mijne is uwe.’",
-  betekenis: "De Heere Jezus zegt zelf waar de gelijkenissen van Lukas 15 over gaan: er is blijdschap in de hemel over één zondaar die zich bekeert (Lukas 15:7, 10). Veel uitleggers zien in de boze oudste zoon een beeld van de Farizeeën, die mopperden dat Hij zondaars ontving (Lukas 15:2, 28–30).",
+  betekenis: "De Heere Jezus zegt zelf waar de gelijkenissen van Lukas 15 over gaan: er is blijdschap in de hemel over één zondaar die zich bekeert (Lukas 15:7, 10). De boze oudste zoon is een beeld van de Farizeeën, die mopperden dat Hij zondaars ontving (Lukas 15:2, 28–30).",
   wie: ["Jezus", "Tollenaars", "Farizeeën"],
   ontdek: { soort: "gelijkenis", titel: "Verloren en gevonden", beelden: [
     ["Het verloren schaap", "‘Dat er alzo blijdschap zal zijn in den hemel over een zondaar, die zich bekeert.’", "Lukas 15:7"],
     ["De verloren penning", "‘Alzo, zeg Ik ulieden, is er blijdschap voor de engelen Gods over een zondaar, die zich bekeert.’", "Lukas 15:10"],
     ["De jongste zoon", "‘Deze mijn zoon was dood, en is weder levend geworden; en hij was verloren, en is gevonden!’", "Lukas 15:24"],
-    ["De oudste zoon", "Hij wordt boos en wil niet naar binnen. Veel uitleggers denken hierbij aan de Farizeeën, die mopperden dat de Heere Jezus zondaars ontving.", "Lukas 15:2, 28"]] },
+    ["De oudste zoon", "Hij wordt boos en wil niet naar binnen. Zo mopperden de Farizeeën dat de Heere Jezus zondaars ontving.", "Lukas 15:2, 28"]] },
   quiz: [
     { q: "Waarom mopperden de Farizeeën en schriftgeleerden?", a: ["De Heere Jezus ontving zondaars en at met hen", "De Heere Jezus genas op de sabbat", "De discipelen wasten hun handen niet"], why: "Lukas 15:2" },
     { q: "Hoeveel schapen had de herder in de eerste gelijkenis?", a: ["Honderd", "Tien", "Negenennegentig"], why: "Lukas 15:4" },

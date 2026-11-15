@@ -10,6 +10,9 @@ export interface Env {
   ASSETS: Fetcher;
   ADMIN_TOKEN?: string;
   HASH_SECRET?: string;
+  // Alleen voor tests: "uit" zet de doorverwijzing naar bijbelreis.nl uit (wrangler dev geeft verzoeken de hostnaam
+  // van de route, martijndenbesten.com, waardoor de doorverwijzing anders ook lokaal afgaat).
+  BIJBELREIS_VERHUISD?: string;
 }
 
 const MAX_BODY_BYTES = 4096;
@@ -268,7 +271,7 @@ export default {
     const url = new URL(request.url);
     if (url.pathname.startsWith("/api/")) return handleApi(request, env, ctx);
     // De Bijbelreis heeft een eigen adres (shared/bijbelreis.ts): het oude pad toont de verhuispagina.
-    if (verwijstDoor(url.hostname, url.pathname)) return env.ASSETS.fetch(new Request(new URL("/bijbelreis-verhuisd", url), request));
+    if (env.BIJBELREIS_VERHUISD !== "uit" && verwijstDoor(url.hostname, url.pathname)) return env.ASSETS.fetch(new Request(new URL("/bijbelreis-verhuisd", url), request));
     return env.ASSETS.fetch(request);
   },
 } satisfies ExportedHandler<Env>;
