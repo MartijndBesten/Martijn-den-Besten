@@ -663,6 +663,13 @@ Object.assign(BR.plaatsen, {
 });
 //
 // [meer-reizen:scheuring] plaatsen
+Object.assign(BR.plaatsen, {
+  sc_tirza: { n: "Tirza", ll: [32.2874, 35.3378], c: "v", s: "r", z: 8, t: "stad", d: "Stad in het bergland bij Sichem (Statenvertaling: Thirza). Hier kwam de vrouw van Jerobeam thuis toen haar zoon Abia stierf (1 Koningen 14:17). Later regeerden de koningen Baësa, Ela en Omri hier, totdat Omri Samaria bouwde (1 Koningen 15:33; 16:8; 16:23–24).",
+    nu: "Tell el-Far’ah (Noord), Westelijke Jordaanoever", bron: "Tell el-Far’ah (Noord), ca. 10 km ten noordoosten van Sichem (OpenBible, score 834); geen serieuze tegenkandidaat." },
+  sc_zereda: { n: "Zereda", ll: [32.0464, 35.0972], c: "b", s: "t", z: 9, t: "stad", d: "Hier kwam Jerobeam vandaan, de zoon van Nebat (1 Koningen 11:26). Waar Zereda precies lag, is niet zeker; het wordt gezocht in het bergland van Efraïm.",
+    nu: "Mogelijk Deir Ghassaneh, Westelijke Jordaanoever", bron: "Betwist. Deir Ghassaneh (OpenBible, score 441) of de bron Ain Seridah, 3,7 km westelijker (score 203); verder alleen zwakke voorstellen.",
+    alt: [[32.046, 35.0578, "Ain Seridah"]] },
+});
 //
 // [meer-reizen:jehu] plaatsen
 //

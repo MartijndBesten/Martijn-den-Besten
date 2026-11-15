@@ -48,6 +48,7 @@ BR.dateringen = {
     "richteren:ehud-jefta": ["bijbel", true],
     //
     // [meer-reizen:scheuring] datering
+    "1koningen:scheuring": ["historie", false],
     //
     // [meer-reizen:jehu] datering
     //
