@@ -58,6 +58,7 @@
             <button type="button" id="nuBtn" aria-pressed="false">Nu</button>
           </div>
           <button type="button" class="mbtn" id="legendBtn" aria-expanded="false" aria-controls="legend" aria-label="Legenda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span>Legenda</span></button>
+          <button type="button" class="mbtn" id="vandaagBtn" aria-pressed="false" aria-label="Vandaag: belangrijke plekken van nu op de kaart" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="2"/><path d="M4 10.5h16M8.5 3.5v4M15.5 3.5v4"/></svg><span>Vandaag</span></button>
         </div>
         <div class="mapacties">
           <button type="button" class="mbtn" id="wereldBtn" aria-pressed="false" aria-label="Hele Bijbelwereld: alle plaatsen op de kaart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>Bijbelwereld</span></button>
@@ -77,7 +78,19 @@
           <div><span class="fuzz" aria-hidden="true">?</span>Onbekend: alleen de streek is bekend</div>
           <div><span class="area" aria-hidden="true"></span>Gebied of gebergte</div>
           <div><span class="pin t-altaar"><svg viewBox="0 0 14 14" aria-hidden="true"><path class="f" d="M7 1 13 7 7 13 1 7z"/></svg></span>Altaar <span class="pin t-tent"><svg viewBox="0 0 14 14" aria-hidden="true"><path class="f" d="M7 1.5 13 12.5H1z"/></svg></span>Tent <span class="pin t-put"><svg viewBox="0 0 14 14" aria-hidden="true"><circle class="f" cx="7" cy="7" r="4.6"/></svg></span>Put</div>
-          <p class="lg-nu" id="lgNu" hidden>Stand ‘Nu’: moderne grenzen en namen, alleen om te weten waar het nu ligt.</p>
+          <div class="lg-toen" id="lgToen">
+            <p class="lg-h">Het land van toen</p>
+            <div><span class="oever" aria-hidden="true"></span>Streepjes om water: hier lag de oever toen ongeveer</div>
+            <div><span class="oever vaag" aria-hidden="true"></span>Vaag water met stippels: misschien stond hier water. Zeker is het niet</div>
+          </div>
+          <div class="lg-nublok" id="lgNu" hidden>
+            <p class="lg-h">Kaart van nu</p>
+            <div><span class="sw grens"></span>Landsgrens</div>
+            <div><span class="sw omstreden"></span>Gestippeld: bestandslijn of omstreden grens</div>
+            <div><span class="lg-gebied">naam</span>Schuin: gebied waarover de partijen het niet eens zijn</div>
+            <div class="lg-vandaag"><span class="vd-bord klein" aria-hidden="true"><svg viewBox="0 0 24 31"><path class="b" d="M4 1.5h16A2.5 2.5 0 0 1 22.5 4v15a2.5 2.5 0 0 1-2.5 2.5h-4.4L12 29.5l-3.6-8H4A2.5 2.5 0 0 1 1.5 19V4A2.5 2.5 0 0 1 4 1.5z"/><path class="w" d="M6.2 7.2h11.6v10.2H6.2z"/><path class="s" d="M6.2 10.6h11.6M9.4 5.4v3.2M14.6 5.4v3.2"/></svg></span><span>Vandaag: wat is hier nu? <button type="button" class="linkbtn" id="vandaagLegendaBtn" aria-haspopup="dialog">Bekijk de lijst</button></span></div>
+            <p class="lg-nu">Stand ‘Nu’: het land van vandaag, met stuwmeren, moderne grenzen en namen, alleen om te weten waar het nu ligt. Een landnaam krijgen alleen landen die Nederland erkent. Dat is een vaste maatstaf, geen oordeel van de atlas.</p>
+          </div>
           <div class="waar">
             <button type="button" class="linkbtn" id="insetBtn" aria-expanded="false" aria-controls="inset">Waar ligt dit?</button>
             <div class="inset" id="inset" hidden>
@@ -104,7 +117,7 @@
 
         <section id="p-reis" role="tabpanel" aria-labelledby="t-reis" class="stack">
           <div>
-            <div class="rowhead"><p class="label">Bijbelboek</p><span class="overz"><button type="button" class="linkbtn" id="kastBtn" aria-haspopup="dialog">Alle 66 boeken</button><button type="button" class="linkbtn" id="reizenBtn" aria-haspopup="dialog">Alle reizen</button><button type="button" class="linkbtn" id="plaatsenBtn" aria-haspopup="dialog">Alle plaatsen</button></span></div>
+            <div class="rowhead"><p class="label">Bijbelboek</p><span class="overz"><button type="button" class="linkbtn" id="kastBtn" aria-haspopup="dialog">Alle 66 boeken</button><button type="button" class="linkbtn" id="reizenBtn" aria-haspopup="dialog">Alle reizen</button><button type="button" class="linkbtn" id="plaatsenBtn" aria-haspopup="dialog">Alle plaatsen</button><button type="button" class="linkbtn" id="vandaagLijstBtn" aria-haspopup="dialog">Vandaag</button></span></div>
             <div class="boeken" id="boeken" role="group" aria-label="Kies een bijbelboek"></div>
           </div>
           <div>
@@ -192,12 +205,12 @@
             <dt>Gelijkenissen, profetieën en Openbaring</dt>
             <dd>Gelijkenissen zijn verhalen die de Heere Jezus vertelde: daar staat geen route op de kaart, hooguit de plek waar Hij ze vertelde. Profetieën laten zien wat God belooft en hoe het Nieuwe Testament dat zelf aanwijst. Bij Openbaring staan alleen Patmos en de zeven gemeenten op de kaart; de visioenen zijn beelden en worden alleen uitgelegd waar de Bijbel zelf de betekenis geeft. In het Nieuwe Testament is de reiziger op de kaart een stip, zonder afbeelding.</dd>
             <dt>Kaart</dt>
-            <dd>Moderne kustlijnen, rivieren en meren (Natural Earth, publiek domein) met reliëf uit hoogtegegevens. Rond 2000 v.Chr. stroomde de Eufraat vlak langs Ur en was de Dode Zee groter. De stand ‘Nu’ toont moderne grenzen en namen, alleen om te weten waar iets nu ligt.</dd>
+            <dd>De stand “Toen” toont het land zoals het in de Bijbelse tijd ongeveer was: baaien die later zijn dichtgeslibd (Efeze, Milete), het Hulameer en de oude armen van de Nijl. Een gestreepte oever is een reconstructie; vaag water is onzeker. Zo weet niemand precies hoe ver de zee in Abrahams tijd bij Ur kwam, en stond het zuiden van de Dode Zee alleen bij hoog water onder. De stand “Nu” toont het land van vandaag, met stuwmeren, moderne grenzen en namen, om te weten waar iets nu ligt. De ondergrond is Natural Earth (publiek domein), met reliëf uit hoogtegegevens. Voor namen en grenzen van nu geldt één vaste maatstaf die iedereen kan nagaan: een landnaam krijgen alleen landen die Nederland erkent. Daarom staat er geen landnaam bij de Westelijke Jordaanoever en de Gazastrook (de meeste landen van de wereld erkennen een Palestijnse staat, Nederland op de peildatum niet) en geen landnaam in het noorden van Cyprus (alleen door Turkije erkend). Bestandslijnen en omstreden grenzen zijn gestippeld; de Westelijke Jordaanoever, de Gazastrook en de Golanhoogten staan er schuin, als gebied, met hun gangbare Nederlandse naam. Die maatstaf is een keuze om niet zelf te hoeven kiezen; het is geen oordeel van de atlas over wie gelijk heeft. De laag “Vandaag” (stand “Nu”, vanaf Zelf op reis) vertelt kort wat er nu op een plek is en waar je die plek in de Bijbel tegenkomt, met een peildatum. De atlas wil daarbij geen partij kiezen: hij beschrijft wat er is en wat de betrokken partijen zelf zeggen, en legt geen verband tussen Bijbelse beloften en de politiek van nu.</dd>
             <dt>Privacy</dt>
             <dd>Stempels, scores en waar je was, worden alleen in deze browser bewaard. Geen account, geen cookies, geen trackers.</dd>
           </dl>
         </details>
-        <p class="colofon">Kaart: <a href="/bijbelreis/LICENSE-leaflet.txt">Leaflet</a> (BSD) en Natural Earth (publiek domein). Reliëf: AWS Terrain Tiles (Mapzen/Tilezen) met hoogtedata van SRTM en GMTED2010 (courtesy of the U.S. Geological Survey) en ETOPO1 (NOAA National Centers for Environmental Information). Ligging van Bijbelse plaatsen mede gebaseerd op <a href="https://github.com/openbibleinfo/Bible-Geocoding-Data">OpenBible.info Bible Geocoding Data</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; bewerkt (eigen keuze van identificaties, zekerheid en teksten). Bijbeltekst: Statenvertaling, editie 1888 (publiek domein), digitale transcriptie <a href="https://github.com/jajpater/statenvertaling">jajpater/statenvertaling</a> (CC0). Geen cookies, geen trackers.</p>
+        <p class="colofon">Kaart: <a href="/bijbelreis/LICENSE-leaflet.txt">Leaflet</a> (BSD) en Natural Earth (publiek domein). Reliëf: AWS Terrain Tiles (Mapzen/Tilezen) met hoogtedata van SRTM en GMTED2010 (courtesy of the U.S. Geological Survey) en ETOPO1 (NOAA National Centers for Environmental Information). Het landschap van toen (oude kust, meren en Nijlarmen): <a href="https://github.com/AWMC/geodata">Ancient World Mapping Center, geodata</a>, naar de Barrington Atlas en © OpenStreetMap-bijdragers, <a href="https://opendatacommons.org/licenses/odbl/1-0/">Open Database License 1.0</a>; het bestand /bijbelreis/toen.json is daarvan afgeleid en heeft dezelfde licentie. Kop van de Perzische Golf rond 3000–2000 v.Chr.: naar Forti e.a. 2022, Quaternary Research, figuur 14 (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>), bewerkt. Ligging van Bijbelse plaatsen mede gebaseerd op <a href="https://github.com/openbibleinfo/Bible-Geocoding-Data">OpenBible.info Bible Geocoding Data</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; bewerkt (eigen keuze van identificaties, zekerheid en teksten). Bijbeltekst: Statenvertaling, editie 1888 (publiek domein), digitale transcriptie <a href="https://github.com/jajpater/statenvertaling">jajpater/statenvertaling</a> (CC0). Geen cookies, geen trackers.</p>
         <p class="maker"><a href="https://denckh.nl" rel="noopener"><span>Gemaakt door</span><img src="/bijbelreis/denckh-logo-signature.svg" alt="Denckh" width="93" height="28" /></a></p>
       </aside>
     </div>
@@ -227,6 +240,23 @@
         <div class="pick" id="plSoort" role="group" aria-label="Hoe zeker is de ligging?"></div>
         <p class="ref" id="plAantal" role="status"></p>
         <div id="plaatsenLijst" class="overzicht"></div>
+      </div>
+    </div>
+    <div class="lade" id="vandaagLade" hidden role="dialog" aria-modal="true" aria-labelledby="vandaagTitel">
+      <div class="lade__box wide">
+        <div class="lade__head"><h3 id="vandaagTitel">Vandaag in de landen van de Bijbel</h3><button type="button" class="btn small">Sluiten</button></div>
+        <p class="vd-peil" id="vdPeil"></p>
+        <p class="vd-neutraal" id="vdToelichting"></p>
+        <label class="label" for="vdZoek">Zoeken</label>
+        <input type="search" id="vdZoek" placeholder="Bijvoorbeeld: Jeruzalem, Irak, Athene" autocomplete="off">
+        <p class="ref" id="vdAantal" role="status"></p>
+        <div id="vandaagLijst" class="overzicht"></div>
+      </div>
+    </div>
+    <div class="lade" id="vandaagVenster" hidden role="dialog" aria-modal="true" aria-labelledby="vvTitel">
+      <div class="lade__box wide vdpop">
+        <div class="lade__head"><div><p class="vd-waar" id="vvLand"></p><h3 id="vvTitel"></h3></div><button type="button" class="btn small">Sluiten</button></div>
+        <div class="vd-blad" id="vvTekst"></div>
       </div>
     </div>
 
@@ -268,6 +298,10 @@
     <script src="/bijbelreis/niveaus.js"></script>
     <script src="/bijbelreis/indeling.js"></script>
     <script src="/bijbelreis/verwijzing.js"></script>
+    <script src="/bijbelreis/vandaag.js"></script>
+    <script src="/bijbelreis/taferelen.js"></script>
+    <script src="/bijbelreis/taferelen-ot.js"></script>
+    <script src="/bijbelreis/taferelen-koppeling.js"></script>
     <script src="/bijbelreis/app.js"></script>
   </body>
 </html>

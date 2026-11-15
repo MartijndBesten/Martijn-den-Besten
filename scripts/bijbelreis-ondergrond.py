@@ -10,7 +10,9 @@ Maakt (en overschrijft) in public/bijbelreis/:
                       uit (crossfade over relief-regio). Bedoeld voor mix-blend-mode: multiply op de PANE
                       (zie docs/bijbelreis-audit/ondergrond.md voor de CSS);
   relief.json         exacte bounds ([[zuid, west], [noord, oost]]) voor L.imageOverlay;
-  grenzen.json        GeoJSON: moderne landsgrenzen (lijnen) + landnamen in het Nederlands (punten).
+  grenzen.json        GeoJSON: moderne landsgrenzen (lijnen, met soort: grens/onbepaald/bestandslijn/betwist) + landnamen en
+                      namen van omstreden gebieden in het Nederlands (punten met ankers). Maatstaf: wat Nederland erkent;
+                      zie docs/bijbelreis-vandaag/README.md.
 
 Gebruik (Python 3.10+, numpy, Pillow met WebP, shapely 2):
   python3 -I scripts/bijbelreis-ondergrond.py [--cache MAP] [--alleen relief|grenzen] [--test]
@@ -250,42 +252,61 @@ def make_relief(cache, geo):
 
 
 # ---------- grenzen ----------
-NAMEN = {  # Nederlandse namen; afwijkingen van NAME_NL in Natural Earth staan hier expliciet
-    "PSX": "Palestijnse gebieden",  # Natural Earth ADMIN 'Palestine' (Westelijke Jordaanoever + Gaza)
-}
+# Maatstaf voor namen en grenzen (zie docs/bijbelreis-vandaag/README.md):
+#   1. lijnen en landen volgen de Nederlandse zienswijze in Natural Earth (FCLASS_NL); waar die leeg is, de standaardweergave;
+#   2. alleen landen die Nederland als staat erkent krijgen een landnaam;
+#   3. gebieden waarvan de status omstreden is, krijgen hun gangbare Nederlandse naam als gebied (geen landnaam).
+NAMEN = {}  # Nederlandse namen die afwijken van NAME_NL in Natural Earth
 SKIP_TYPES = {"Dependency", "Lease"}  # Akrotiri/Dhekelia e.d.: geen landnaam
 SKIP_ADMIN = {"Cyprus No Mans Area", "Bir Tawil"}  # VN-bufferzone en niet-geclaimd gebied: geen landnaam
+# Niet door Nederland als staat erkend op de peildatum (15-11-2026), aanvullend op FCLASS_NL = "Unrecognized" (Noord-Cyprus):
+# de Palestijnse staat. Bron: rijksoverheid.nl, ‘Nederlands beleid over Israël en Palestijnse Gebieden’ (erkenning ‘moet
+# dienstbaar zijn aan het politieke proces’). Erkent Nederland de Palestijnse staat later wel, haal PSX dan hier weg.
+GEEN_LANDNAAM = {"PSX"}
+# Gebieden met een omstreden status: naam in Natural Earth (ne_10m_admin_0_disputed_areas, BRK_NAME) -> Nederlandse naam, zoomniveau.
+GEBIEDEN = {"West Bank": ("Westelijke Jordaanoever", 7), "Gaza": ("Gazastrook", 7), "Golan Heights": ("Golanhoogten", 7.25)}
+SOORT = {"International boundary (verify)": "grens", "Indefinite (please verify)": "onbepaald", "Indeterminant frontier": "onbepaald",
+         "Disputed (please verify)": "betwist", "Claim boundary": "betwist", "Line of control (please verify)": "bestandslijn"}
+# Niet getekend: ‘Unrecognized’, ‘Overlay limit’ en ‘Lease limit’ (VN-bufferzones, Britse bases), ‘Breakaway’ en ‘Reference line’.
+KERN = {"ISR", "LBN", "JOR", "SYR", "EGY", "IRQ", "IRN", "TUR", "GRC", "ITA", "CYP", "SAU"}  # landen van de Bijbelreis: ook fijne ankers
+# Een smal land is op de overzichtskaart smaller dan zijn naam; dan staat de naam in zee voor de kust, zoals in een atlas.
+# [lat, lng]; in grenzen.json herkenbaar aan straal -1.
+IN_ZEE = {"ISR": [[31.9, 33.3]], "LBN": [[34.0, 34.2]], "Gaza": [[31.5, 34.0]]}
 
 
 def make_grenzen(cache):
-    from shapely.geometry import box, shape, mapping, Point
-    from shapely.ops import polylabel, linemerge
+    from shapely.geometry import box, shape, Point
+    from shapely.ops import polylabel, linemerge, unary_union
     from shapely.geometry import MultiLineString
     from shapely import set_precision
 
     (S, Wb), (N, E) = MAXBOUNDS
     frame = box(Wb, S, E, N)
-    inner = box(Wb + 0.4, S + 0.4, E - 0.4, N - 0.4)
-    lines_p = fetch(NE_URL.format("ne_10m_admin_0_boundary_lines_land"), os.path.join(cache, "ne", "ne_10m_admin_0_boundary_lines_land.geojson"))
-    ctry_p = fetch(NE_URL.format("ne_10m_admin_0_countries"), os.path.join(cache, "ne", "ne_10m_admin_0_countries.geojson"))
+    # Namen alleen waar de kaart land tekent (geo.json), niet in de lege rand eromheen.
+    lw, ls, le, ln = shape(json.load(open(GEO, encoding="utf-8"))["land"]["geometry"]).bounds
+    inner = box(max(Wb, lw) + 0.4, max(S, ls) + 0.4, min(E, le) - 0.4, min(N, ln) - 0.4)
+    ne = lambda naam: json.load(open(fetch(NE_URL.format(naam), os.path.join(cache, "ne", naam + ".geojson")), encoding="utf-8"))["features"]
     feats, groups = [], {}
 
-    SOORT = {"International boundary (verify)": "grens", "Disputed (please verify)": "betwist", "Indefinite (please verify)": "onbepaald",
-             "Line of control (please verify)": "bestandslijn", "Indeterminant frontier": "onbepaald", "Overlay limit": "overlay", "Lease limit": "overlay"}
-    for f in json.load(open(lines_p, encoding="utf-8"))["features"]:
-        p = f["properties"]
-        cla = p.get("FEATURECLA")
-        if cla not in SOORT:  # o.a. 'Unrecognized': niet in de Natural Earth-standaardweergave
-            continue
+    def lijn(f, cla):
+        if cla not in SOORT:
+            return
         g = shape(f["geometry"])
         if not g.intersects(frame):
-            continue
+            return
         g = g.intersection(frame).simplify(0.01, preserve_topology=False)
         g = set_precision(g, 0.001)
         if g.is_empty:
-            continue
+            return
         parts = [g] if g.geom_type == "LineString" else [x for x in getattr(g, "geoms", []) if x.geom_type == "LineString"]
-        groups.setdefault((SOORT[cla], p.get("MIN_ZOOM", 0)), []).extend(parts)
+        groups.setdefault((SOORT[cla], f["properties"].get("MIN_ZOOM") or 0), []).extend(parts)
+
+    for f in ne("ne_10m_admin_0_boundary_lines_land"):
+        lijn(f, f["properties"].get("FCLASS_NL") or f["properties"].get("FEATURECLA"))
+    # Lijnen van omstreden gebieden tellen alleen mee waar Nederland ze als landsgrens ziet (de grens van vóór 1967 langs de Golan).
+    for f in ne("ne_10m_admin_0_boundary_lines_disputed_areas"):
+        if f["properties"].get("FCLASS_NL") == "International boundary (verify)":
+            lijn(f, "International boundary (verify)")
     for (soort, mz), parts in sorted(groups.items()):
         merged = linemerge(MultiLineString(parts))  # losse stukjes per soort samenvoegen (kleiner bestand)
         for part in ([merged] if merged.geom_type == "LineString" else list(merged.geoms)):
@@ -296,41 +317,83 @@ def make_grenzen(cache):
             feats.append({"type": "Feature", "properties": {"soort": soort, "minzoom": mz},
                           "geometry": {"type": "LineString", "coordinates": cs}})
 
+    betwist = ne("ne_10m_admin_0_disputed_areas")
+    deel = lambda g: max(getattr(g, "geoms", [g]), key=lambda x: x.area)
+
+    def ankers(vis, eerste, fijn, stappen=None):
+        """Plekken voor de landnaam, van grof naar fijn: [lat, lng, straal in graden tot de dichtstbijzijnde grens of kust].
+        Zo staat er op elk zoomniveau een naam in beeld, midden in het land."""
+        rand = vis.boundary
+        uit = [(eerste.x, eerste.y)]
+        stappen = stappen or ((4.0, 2.0) if not fijn else (4.0, 2.0, 1.0, 0.5) if vis.area < 30 else (4.0, 2.0, 1.0))
+        for R in stappen:  # R = kleinste afstand tussen twee ankers van dit niveau, in graden
+            for _ in range(60):
+                rest = vis.difference(unary_union([Point(x, y).buffer(R) for x, y in uit]))
+                if rest.is_empty:
+                    break
+                grootste = deel(rest)
+                if grootste.geom_type != "Polygon" or grootste.area < 0.02:
+                    break
+                p = polylabel(grootste, tolerance=0.03)
+                if p.distance(grootste.boundary) < min(0.07, R * 0.2) or p.distance(rand) < min(max(0.07, R * 0.15), R * 0.2):
+                    break
+                uit.append((p.x, p.y))
+        return [[round(y, 2), round(x, 2), round(Point(x, y).distance(rand), 2)] for x, y in uit]
+
     labels = []
-    for f in json.load(open(ctry_p, encoding="utf-8"))["features"]:
+    for f in ne("ne_10m_admin_0_countries"):
         p = f["properties"]
-        if p.get("TYPE") in SKIP_TYPES or p.get("ADMIN") in SKIP_ADMIN:
+        a3 = p.get("ADM0_A3")
+        if p.get("TYPE") in SKIP_TYPES or p.get("ADMIN") in SKIP_ADMIN or p.get("FCLASS_NL") == "Unrecognized" or a3 in GEEN_LANDNAAM:
             continue
         g = shape(f["geometry"])
         if not g.intersects(frame):
             continue
+        # Omstreden gebieden die Natural Earth bij een land tekent (Golan, Krim ...) horen niet bij het vlak waarin de landnaam komt.
+        eraf = [shape(d["geometry"]) for d in betwist if d["properties"].get("ADMIN") == p.get("ADMIN") and d["properties"].get("BRK_NAME") != p.get("ADMIN")]
+        if eraf:
+            g = g.difference(unary_union(eraf).buffer(0.01))
         vis = g.intersection(frame)
-        heel = vis.area >= 0.95 * g.area
-        if vis.area < (0.05 if heel else 2.0):  # klein land helemaal in beeld, of een flink stuk van een groot land
+        binnen = vis.intersection(inner)
+        heel = binnen.area >= 0.95 * g.area
+        if binnen.area < (0.02 if heel else 2.0):  # klein land helemaal in beeld (ook Malta), of een flink stuk van een groot land
             continue
         pt = Point(p["LABEL_X"], p["LABEL_Y"])
         if not (inner.contains(pt) and g.contains(pt)):
-            big = max(getattr(vis, "geoms", [vis]), key=lambda x: x.area).intersection(inner)
-            big = max(getattr(big, "geoms", [big]), key=lambda x: x.area)
-            pt = polylabel(big, tolerance=0.02)
-        a3 = p.get("ADM0_A3")
+            pt = polylabel(deel(binnen), tolerance=0.02)
         labels.append({"type": "Feature", "properties": {
-            "naam": NAMEN.get(a3) or p.get("NAME_NL") or p.get("NAME"), "ne_naam": p.get("NAME"), "a3": a3, "ne_type": p.get("TYPE"),
-            "minzoom": p.get("MIN_LABEL"), "rang": p.get("LABELRANK")},
+            "soort": "land", "naam": NAMEN.get(a3) or p.get("NAME_NL") or p.get("NAME"), "ne_naam": p.get("NAME"), "a3": a3,
+            "minzoom": p.get("MIN_LABEL"), "rang": p.get("LABELRANK"),
+            "ankers": ankers(binnen.simplify(0.02), pt, a3 in KERN) + [[la, lo, -1] for la, lo in IN_ZEE.get(a3, [])]},
             "geometry": {"type": "Point", "coordinates": [round(pt.x, 3), round(pt.y, 3)]}})
     labels.sort(key=lambda x: (x["properties"]["rang"], x["properties"]["naam"]))
+
+    gebieden = []
+    for d in betwist:
+        naam = GEBIEDEN.get(d["properties"].get("BRK_NAME"))
+        if naam:
+            vlak = deel(shape(d["geometry"]))
+            pt = polylabel(vlak, tolerance=0.01)
+            gebieden.append({"type": "Feature", "properties": {"soort": "gebied", "naam": naam[0], "ne_naam": d["properties"]["BRK_NAME"], "minzoom": naam[1],
+                                                                "ankers": ankers(vlak, pt, True, (0.3, 0.15)) + [[la, lo, -1] for la, lo in IN_ZEE.get(d["properties"]["BRK_NAME"], [])]},
+                             "geometry": {"type": "Point", "coordinates": [round(pt.x, 3), round(pt.y, 3)]}})
+    gebieden.sort(key=lambda x: x["properties"]["naam"])
+
     fc = {"type": "FeatureCollection",
-          "bron": "Natural Earth 1:10m (publiek domein), standaardweergave (FEATURECLA); vereenvoudigd 0.01 graad, 3 decimalen",
-          "features": feats + labels}
+          "bron": "Natural Earth 1:10m (publiek domein), Nederlandse zienswijze (FCLASS_NL), anders de standaardweergave; vereenvoudigd 0.01 graad, 3 decimalen",
+          "maatstaf": "Landnaam: alleen staten die Nederland erkent. Omstreden gebieden: gangbare Nederlandse naam als gebied. Zie docs/bijbelreis-vandaag/README.md.",
+          "features": feats + labels + gebieden}
     path = os.path.join(OUT, "grenzen.json")
     with open(path, "w", encoding="utf-8") as fh:
         json.dump(fc, fh, ensure_ascii=False, separators=(",", ":"))
-    print(f"grenzen.json  {len(feats)} lijnen, {len(labels)} landnamen, {os.path.getsize(path) / 1024:.0f} KB")
-    for l in labels:
-        print("   ", l["properties"]["naam"], l["geometry"]["coordinates"], "minzoom", l["properties"]["minzoom"])
+    soorten = {}
+    for x in feats:
+        soorten[x["properties"]["soort"]] = soorten.get(x["properties"]["soort"], 0) + 1
+    print(f"grenzen.json  {len(feats)} lijnen {soorten}, {len(labels)} landnamen, {len(gebieden)} gebieden, {os.path.getsize(path) / 1024:.0f} KB")
+    for l in labels + gebieden:
+        print("   ", l["properties"]["naam"], l["geometry"]["coordinates"], "minzoom", l["properties"]["minzoom"], "ankers", len(l["properties"].get("ankers", [])))
 
 
-# ---------- zelftest ----------
 def selftest(cache, geo):
     ok = True
     for z in (6, 7, 9):

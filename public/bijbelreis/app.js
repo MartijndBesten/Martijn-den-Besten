@@ -140,6 +140,8 @@
     { t: "Achaje", ll: [37.6, 22.0], z: [4.75, 7.5], k: "land", tijd: "nt" }, { t: "Italië", ll: [41.2, 15.2], z: [4, 7], k: "land", tijd: "nt" },
     { t: "Kreta", ll: [35.25, 24.6], z: [5, 8], k: "land", tijd: "nt" }, { t: "Cyprus", ll: [35.1, 33.15], z: [5, 8], k: "land", tijd: "nt" },
     { t: "Adria", ll: [38.0, 18.6], z: [4, 7], k: "sea", tijd: "nt" },
+    // Alleen in de stand Toen (toen.json): een meer dat er nu niet meer is, en een kust die niet zeker is.
+    { t: "Hulameer", ll: [33.07, 35.72], z: [9.5, 12], k: "sea toen" }, { t: "zee rond 2000 v.Chr.?", ll: [30.85, 47.75], z: [6, 9], k: "sea toen" },
   ];
 
   const lyRoutes = L.layerGroup().addTo(map), lyPlaces = L.layerGroup().addTo(map), lyKings = L.layerGroup();
@@ -154,30 +156,96 @@
     L.geoJSON(geo.land, { ...base, className: "landglow" }).addTo(map);
     L.geoJSON(geo.land, { ...base, className: "land" }).addTo(map);
     geo.regions.forEach((f) => L.geoJSON(f, { ...base, className: "rg-" + f.properties.k }).addTo(map));
-    geo.lakes.forEach((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "lake" }).addTo(map));
-    geo.rivers.forEach((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "river" }).addTo(map));
+    const meerLagen = geo.lakes.map((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "lake" }).addTo(map));
+    const rivierLagen = geo.rivers.map((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "river" }).addTo(map));
     KLEINE_RIVIEREN.forEach((r) => L.polyline(r.p, { pane: "water", className: "river klein", interactive: false }).addTo(map));
     insetGeo = geo;
     geoReady = true;
     drawInset();
+    drawToen(geo, meerLagen, rivierLagen);
+  }
+  // Het landschap van toen (toen.json): wat in de Bijbelse tijd anders was dan nu. geo.json is het landschap van vandaag.
+  // In de stand Toen staan de dichtgeslibde baaien, de verdwenen meren en de oude Nijlarmen op de kaart en zijn de
+  // meren en stuwmeren weg die er toen niet (zo) waren; in de stand Nu is het omgekeerd. De klassen alleen-toen en
+  // alleen-nu regelen dat in bijbelreis.css. Laadt het bestand niet, dan toont de kaart in beide standen het landschap van nu.
+  function drawToen(geo, meerLagen, rivierLagen) {
+    fetch(dataUrl("toen.json")).then((r) => (r.ok ? r.json() : null)).then((t) => {
+      if (!t) return;
+      const teken = (lijst, cls, onder) => (lijst || []).forEach((f) => { const l = L.geoJSON(f, { pane: "water", interactive: false, className: cls }).addTo(map); if (onder) l.bringToBack(); });
+      // Vlakken onder de meren en rivieren van geo.json; oevers en oude rivierarmen erbovenop.
+      teken(t.onzeker, "alleen-toen toen-onzeker", true); teken(t.meren, "lake alleen-toen toen-meer", true); teken(t.zee, "alleen-toen toen-zee", true);
+      teken(t.nu, "lake alleen-nu", true);
+      teken(t.kust, "alleen-toen toen-oever"); teken(t.rand, "alleen-toen toen-rand"); teken((t.rivieren || []).filter((f) => f.properties.vast), "river alleen-toen"); teken((t.rivieren || []).filter((f) => !f.properties.vast), "river alleen-toen toen-rivier");
+      const alleenNu = (namen, features, lagen) => { const weg = new Set(namen || []); features.forEach((f, i) => { if (weg.has(f.properties.n)) lagen[i].eachLayer((l) => { const el = l.getElement(); if (el) el.classList.add("alleen-nu"); }); }); };
+      alleenNu(t.weg, geo.lakes, meerLagen); alleenNu(t.wegRivier, geo.rivers, rivierLagen);
+      map.getContainer().classList.add("toen-geladen");
+    }).catch(() => {});
   }
   // Reliëf (schaduw van bergen en dalen) en moderne grenzen zijn aanvullingen: als ze niet laden, werkt de kaart gewoon.
   fetch(dataUrl("relief.json")).then((r) => (r.ok ? r.json() : null)).then((rel) => {
     if (!rel) return;
     Object.values(rel).filter((o) => o && o.src && o.bounds).forEach((o) => L.imageOverlay(dataUrl(o.src.replace(/^\/bijbelreis\//, "")), o.bounds, { pane: "relief", interactive: false, className: "relief", alt: "" }).addTo(map));
   }).catch(() => {});
+  // Stand ‘Nu’: landsgrenzen, landnamen en gebiedsnamen uit grenzen.json. Maatstaf (docs/bijbelreis-vandaag/README.md): een landnaam
+  // krijgen alleen staten die Nederland erkent; een erkende landsgrens is een doorgetrokken lijn met een zachte band, een
+  // bestandslijn of omstreden grens is gestippeld; omstreden gebieden staan er met hun gangbare Nederlandse naam, schuin gedrukt.
   const lyModern = L.layerGroup();
+  const landNamen = [], gebiedNamen = [];
   let modernLoaded = false;
   function loadModern() {
     if (modernLoaded) return Promise.resolve();
     modernLoaded = true;
     return fetch(dataUrl("grenzen.json")).then((r) => r.json()).then((g) => {
-      const feats = g.features || [];
-      L.geoJSON({ type: "FeatureCollection", features: feats.filter((f) => f.geometry.type !== "Point") }, { pane: "modern", interactive: false, className: "border" }).addTo(lyModern);
-      // Alleen landen die Nederland erkent krijgen een naam (geen ‘Noord-Cyprus’).
-      feats.filter((f) => f.geometry.type === "Point" && f.properties.naam !== "Noord-Cyprus").forEach((f) => lyModern.addLayer(L.marker([f.geometry.coordinates[1], f.geometry.coordinates[0]], { interactive: false, keyboard: false, icon: icon(`<span class="country">${esc(f.properties.naam)}</span>`) })));
+      const feats = g.features || [], vast = (f) => f.properties.soort === "grens" || f.properties.soort === "onbepaald";
+      const lijnen = (kies, cls) => L.geoJSON({ type: "FeatureCollection", features: feats.filter((f) => f.geometry.type === "LineString" && kies(f)) }, { pane: "modern", interactive: false, className: cls }).addTo(lyModern);
+      // Kleine lijnen (minzoom 6: de Britse bases op Cyprus) pas van dichtbij.
+      const grof = (f) => (f.properties.minzoom || 0) < 6;
+      lijnen((f) => vast(f) && grof(f), "border band"); lijnen((f) => vast(f) && grof(f), "border"); lijnen((f) => vast(f) && !grof(f), "border fijn");
+      lijnen((f) => !vast(f) && grof(f), "border omstreden"); lijnen((f) => !vast(f) && !grof(f), "border omstreden fijn");
+      const naam = (f, cls) => L.marker([f.geometry.coordinates[1], f.geometry.coordinates[0]], { interactive: false, keyboard: false, zIndexOffset: -400, icon: icon(`<span class="${cls}">${esc(f.properties.naam)}</span>`) }).addTo(lyModern);
+      feats.filter((f) => f.geometry.type === "Point").forEach((f) => {
+        const q = f.properties;
+        const ankers = q.ankers && q.ankers.length ? q.ankers : [[f.geometry.coordinates[1], f.geometry.coordinates[0], 0]];
+        if (q.soort === "gebied") gebiedNamen.push({ m: naam(f, "gebied"), z: q.minzoom || 7, ankers });
+        else landNamen.push({ m: naam(f, "country" + (q.rang <= 3 ? " groot" : "")), rang: q.rang || 9, ankers });
+      });
     }).catch(() => { modernLoaded = false; toast("De moderne grenzen konden niet worden geladen."); });
   }
+  // ---------- laag ‘Vandaag’ (alleen in de stand ‘Nu’) ----------
+  // Wat is er nu op de plekken van de Bijbelreis? Gegevens: vandaag.js (BR.vandaag); regels: docs/bijbelreis-vandaag/README.md.
+  // Een eigen bordje boven de plek (geen stip, zoals de Bijbelse plaatsen), zodat beide naast elkaar zichtbaar blijven.
+  const VD = BR.vandaag || { peil: "", toelichting: "", plekken: [] };
+  const lyVandaag = L.layerGroup(), vdMarkers = {};
+  const vdLL = (x) => x.ll || (P[x.plaats] ? P[x.plaats].ll : null);
+  const VD_BORD = '<svg viewBox="0 0 24 31" aria-hidden="true"><path class="b" d="M4 1.5h16A2.5 2.5 0 0 1 22.5 4v15a2.5 2.5 0 0 1-2.5 2.5h-4.4L12 29.5l-3.6-8H4A2.5 2.5 0 0 1 1.5 19V4A2.5 2.5 0 0 1 4 1.5z"/><path class="w" d="M6.2 7.2h11.6v10.2H6.2z"/><path class="s" d="M6.2 10.6h11.6M9.4 5.4v3.2M14.6 5.4v3.2"/></svg>';
+  const vdBron = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return u; } };
+  // Het venster van een plek: op een breed scherm een tekstballon op de kaart, op een telefoon of tablet een blad van onderen
+  // (de kaart is daar te klein voor de tekst).
+  function vandaagTekst(x) {
+    const bp = x.plaats && P[x.plaats];
+    const bronnen = niveau === "c" && (x.bronnen || []).length ? `<p class="st">Bronnen: ${x.bronnen.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(vdBron(u))}</a>`).join(", ")}</p>` : "";
+    return `<p class="label">Vandaag</p><p>${esc(x.vandaag)}</p><p class="label">In de Bijbel</p><p>${esc(x.bijbel)}</p><p class="vd-lees">Lees in je Bijbel: <b>${esc((x.refs || []).join(" · "))}</b></p>${bp ? `<button type="button" class="btn small" data-place="${esc(x.plaats)}">${esc(bp.n.replace(/\?$/, ""))} in de Bijbelreis</button>` : ""}<p class="st">Peildatum: ${esc(VD.peil)}. De atlas kiest geen partij.</p>${bronnen}`;
+  }
+  let vdOpen = null;
+  const vdBallon = L.popup({ maxWidth: 320, offset: [0, -24], autoPanPaddingTopLeft: [50, 150], autoPanPaddingBottomRight: [20, 90] });
+  vdBallon.on("remove", () => { vdOpen = null; });
+  function openVandaag(x) {
+    if (isNarrow()) {
+      map.closePopup();
+      $("vvLand").textContent = x.land; $("vvTitel").textContent = x.n; $("vvTekst").innerHTML = vandaagTekst(x);
+      openLade("vandaagVenster"); return;
+    }
+    vdBallon.setLatLng(vdMarkers[x.id].getLatLng()).setContent(`<div class="pop vdpop" tabindex="0" role="group" aria-label="Vandaag: ${esc(x.n)}"><p class="vd-waar">${esc(x.land)}</p><h3>${esc(x.n)}</h3>${vandaagTekst(x)}</div>`).openOn(map);
+    vdOpen = x.id; queueLabels();
+  }
+  VD.plekken.forEach((x) => {
+    const ll = vdLL(x); if (!ll) return;
+    const m = L.marker(ll, { icon: icon(`<span class="vd-bord">${VD_BORD}</span><span class="vd-lab">${esc(x.n)}</span>`, "pl vandaag"), keyboard: true, title: `Vandaag: ${x.n}`, alt: `Vandaag: ${x.n}`, zIndexOffset: 300 });
+    m.on("add", () => { const el = m.getElement(); if (el) el.setAttribute("aria-label", `Vandaag: ${x.n}, ${x.land}`); });
+    m.on("click", () => openVandaag(x));
+    m.on("keypress", (e) => { if (e.originalEvent && e.originalEvent.key === "Enter") openVandaag(x); });
+    m.vd = x; vdMarkers[x.id] = m; lyVandaag.addLayer(m);
+  });
   const peakMarkers = PEAKS.map((p) => L.marker(p.ll, { interactive: false, keyboard: false, icon: icon(`<span class="peak off"><i></i><span>${esc(p.n)} ${fmt(p.h)} m</span></span>`) }).addTo(map));
   const regionMarkers = REGIONS.map((r) => L.marker(r.ll, { interactive: false, keyboard: false, icon: icon(`<span class="region ${r.k}">${esc(r.t)}</span>`) }).addTo(map));
 
@@ -225,6 +293,7 @@
 
   const CAMEL = `<div class="camel"><svg viewBox="0 0 48 40" aria-hidden="true"><path class="leg a" d="M12 30v8"/><path class="leg b" d="M17 30v8"/><path class="leg b" d="M29 30v8"/><path class="leg a" d="M34 30v8"/><path class="body" d="M6 25c0-6 4-10 9-9 2-6 9-7 11 0 1-3 6-3 7 1 1 2 2 3 2 6l3-12c1-3 4-4 7-3l3 1-1 3h-4l-4 16c-1 2-2 3-4 3H9c-2 0-3-2-3-6z"/><path class="saddle" d="M15 17c4-2 10-2 15 1l-2 6H16z"/><circle class="eye" cx="42.5" cy="11.5" r="1"/></svg><span class="walker"></span></div>`;
   const camel = L.marker([31.5, 35.2], { icon: icon(CAMEL), interactive: false, keyboard: false, zIndexOffset: 1000 }).addTo(map);
+  camel.getElement().querySelector(".camel").classList.add("gone"); // nog nergens: de eerste stap of het overzicht zet hem neer
   function camelStyle(who, walking, flip, gone) {
     const e = camel.getElement(); const el = e && e.querySelector(".camel"); if (!el) return;
     el.querySelector(".saddle").style.fill = color(who || "kobalt");
@@ -286,8 +355,31 @@
     lyAlt.eachLayer((m) => { const el = m.getElement(), lab = el && el.querySelector(".lab"); if (!lab) return; lab.classList.remove("clash"); const pt = map.latLngToContainerPoint(m.getLatLng()); if (pt.x > -150 && pt.y > -40 && pt.x < size.x + 150 && pt.y < size.y + 40) items.push({ el: lab, pt, side: "r", pr: 0.8, z: 0, pin: true }); });
     const tst = boek.nt ? "nt" : "ot";
     const plaatsNamen = new Set(items.map((it) => it.el.firstChild && it.el.firstChild.textContent));
-    REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1] || (r.tijd && r.tijd !== tst) || plaatsNamen.has(r.t); el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
+    // In de stand Nu staan de landen van vandaag op de kaart: de streeknamen van toen (Kanaän, Filistijnen, Aram …) gaan dan uit,
+    // zodat een oude naam niet naast een gebied van nu komt te staan.
+    const inNu = map.getContainer().classList.contains("nu");
+    REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1] || (r.tijd && r.tijd !== tst) || plaatsNamen.has(r.t) || (r.k === "land" && inNu); el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
     PEAKS.forEach((p, i) => { const el = peakMarkers[i].getElement(); if (!el) return; el.firstChild.classList.toggle("off", z < p.z); el.firstChild.classList.remove("clash"); if (z >= p.z) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(p.ll), side: "peak", pr: 0.5, z: p.z }); });
+    // Stand ‘Nu’: landnamen en namen van omstreden gebieden krijgen eerst een plek (de plaatsnamen wijken ervoor uit); daarna de bordjes van ‘Vandaag’.
+    const kaartEl = map.getContainer();
+    kaartEl.classList.toggle("z-ver", z < 5.5); kaartEl.classList.toggle("z-dicht", z >= 7.5); kaartEl.classList.toggle("z-fijn", z >= 6);
+    if (map.hasLayer(lyModern)) {
+      landNamen.forEach((c) => { const el = c.m.getElement(), lab = el && el.firstChild; if (!lab) return; lab.classList.remove("clash"); items.push({ el: lab, side: "land", pr: 3.2, z: c.rang, land: c }); });
+      gebiedNamen.forEach((c) => { const el = c.m.getElement(), lab = el && el.firstChild; if (!lab) return; lab.classList.toggle("off", z < c.z); lab.classList.remove("clash"); if (z >= c.z) items.push({ el: lab, side: "land", pr: 3.1, z: c.z, land: c }); });
+    }
+    // Bordjes van ‘Vandaag’: op de overzichtskaart staan ze rond Jeruzalem te dicht op elkaar; dan blijft het eerste uit de
+    // lijst staan en komen de andere bij inzoomen (in de lijst ‘Vandaag’ staan ze altijd allemaal).
+    const vdBorden = [];
+    if (map.hasLayer(lyVandaag)) VD.plekken.map((x) => vdMarkers[x.id]).filter(Boolean).sort((a, b) => (b.vd.id === vdOpen) - (a.vd.id === vdOpen)).forEach((m) => {
+      const el = m.getElement(), lab = el && el.querySelector(".vd-lab"); if (!lab) return;
+      const pt = map.latLngToContainerPoint(m.getLatLng()), r = [pt.x - 12, pt.y - 31, 24, 31]; lab.classList.remove("clash");
+      const dek = (q) => Math.max(0, Math.min(r[0] + 24, q[0] + 24) - Math.max(r[0], q[0])) * Math.max(0, Math.min(r[1] + 31, q[1] + 31) - Math.max(r[1], q[1])) / (24 * 31);
+      const weg = m.vd.id !== vdOpen && vdBorden.some((q) => dek(q) > 0.3);
+      el.classList.toggle("dicht", weg);
+      if (weg || pt.x < -40 || pt.y < -10 || pt.x > size.x + 40 || pt.y > size.y + 60) return;
+      vdBorden.push(r);
+      lab.classList.toggle("off", z < 6.5); if (z >= 6.5) items.push({ el: lab, pt, side: "vd", pr: 1.2, z: 0 });
+    });
     // Eén leesronde voor alle maten, daarna alleen schrijven.
     items.forEach((it) => { it.w = it.el.offsetWidth; it.h = it.el.offsetHeight; });
     const placed = uiRects();
@@ -295,11 +387,42 @@
     const ce = camel.getElement(), cel = ce && ce.querySelector(".camel");
     let reiziger = null;
     if (cel && map.hasLayer(camel) && !cel.classList.contains("gone")) { const box = map.getContainer().getBoundingClientRect(), r = (cel.classList.contains("nt") ? cel.querySelector(".walker") : cel).getBoundingClientRect(); reiziger = [r.left - box.left - 3, r.top - box.top - 3, r.width + 6, r.height + 6]; placed.push(reiziger); }
+    vdBorden.forEach((r) => placed.push(r));
+    // Wat een landnaam nooit mag raken: knoppen, de reiziger, de bordjes van ‘Vandaag’ en de plaatsen van de stap. Is de kaart
+    // erg vol (Bijbelwereld), dan mag een landnaam wel over de stip van een andere plaats heen.
+    const hard = placed.slice();
+    items.filter((it) => it.pin && it.pr >= 2.5).forEach((it) => hard.push([it.pt.x - 7, it.pt.y - 7, 14, 14]));
     items.filter((it) => it.pin).forEach((it) => placed.push([it.pt.x - 7, it.pt.y - 7, 14, 14]));
     items.sort((a, b) => b.pr - a.pr || a.z - b.z);
     // Overlap met wat er al staat; de reiziger telt zwaar: een naam onder de kameel of stip is onleesbaar.
     const overlap = (r) => placed.reduce((a, q) => a + Math.max(0, Math.min(r[0] + r[2], q[0] + q[2]) - Math.max(r[0], q[0])) * Math.max(0, Math.min(r[1] + r[3], q[1] + q[3]) - Math.max(r[1], q[1])) * (q === reiziger ? 12 : 1), 0);
+    const ppg = (256 * 2 ** z) / 360; // schermpixels per graad (lengte)
     items.forEach((it) => {
+      if (it.side === "land") {
+        // Landnaam of gebiedsnaam: het eerste anker (van grof naar fijn) dat in beeld ligt, waar de naam in het land past en
+        // niets raakt; de naam mag een regel omhoog of omlaag schuiven. Past de naam nergens in het land (een smal land op de
+        // overzichtskaart), dan in zee voor de kust (straal -1) en anders op het eerste vrije anker.
+        const hw = it.w / 2, hh = it.h / 2;
+        const vrij = (a, lijst) => {
+          const p = map.latLngToContainerPoint([a[0], a[1]]);
+          for (const dy of [0, -it.h - 3, it.h + 3]) { const r = [p.x - hw, p.y - hh + dy, it.w, it.h]; if (r[0] > 4 && r[1] > 4 && r[0] + it.w < size.x - 4 && r[1] + it.h < size.y - 4 && !lijst.some((q) => hits(r, q))) return { a, dy, r }; }
+          return null;
+        };
+        const A = it.land.ankers, past = (a) => a[2] > 0 && hw <= a[2] * ppg * 1.6;
+        const eerste = (kies, lijst) => { for (const a of A) { const v = kies(a) && vrij(a, lijst); if (v) return v; } return null; };
+        const zoek = (lijst) => eerste(past, lijst) || eerste((a) => a[2] < 0, lijst) || (A.some(past) ? null : eerste((a) => a[2] >= 0, lijst));
+        const plek = zoek(placed) || zoek(hard);
+        if (!plek) { it.el.classList.add("clash"); return; }
+        const ll = it.land.m.getLatLng(); if (ll.lat !== plek.a[0] || ll.lng !== plek.a[1]) it.land.m.setLatLng([plek.a[0], plek.a[1]]);
+        it.el.style.margin = plek.dy ? `${plek.dy}px 0 0 0` : "";
+        placed.push(plek.r); hard.push(plek.r); return;
+      }
+      if (it.side === "vd") {
+        // Naam bij een bordje van ‘Vandaag’: rechts of links van het bordje; past dat niet, dan alleen het bordje.
+        const r = [[it.pt.x + 15, it.pt.y - 28, it.w, it.h], [it.pt.x - 15 - it.w, it.pt.y - 28, it.w, it.h]].find((q) => q[0] > 2 && q[0] + q[2] < size.x - 2 && !placed.some((x) => hits(q, x)));
+        if (!r) { it.el.classList.add("clash"); return; }
+        it.el.classList.toggle("links", r[0] < it.pt.x); placed.push(r); return;
+      }
       if (it.side === "c" || it.side === "peak") {
         // Gebiedsnamen staan midden in hun gebied, maar mogen iets omhoog of omlaag uitwijken (voor de reiziger of een plaats).
         const sx = it.w / 2 + 12, sy = it.h + 6;
@@ -410,46 +533,125 @@
       r.arrows.forEach((a) => { const e = a.getElement(); if (e) { e.firstChild.classList.toggle("off", st === "future"); e.firstChild.classList.toggle("dim", st === "past"); } });
     }));
   }
-  function partial(r, d) {
-    if (d >= r.len) return r.pts.slice();
-    let i = 1; while (i < r.pts.length && r.cum[i] < d) i++;
-    const a = r.pts[i - 1], b = r.pts[i], t = (d - r.cum[i - 1]) / (r.cum[i] - r.cum[i - 1] || 1);
-    return r.pts.slice(0, i).concat([[a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]]);
+  // ---------- de reiziger op de kaart ----------
+  // De kameel (in het Nieuwe Testament een wandelaar) loopt per stap langs de lijn van de route. De regels staan in
+  // docs/BIJBELREIS.md (‘De reiziger op de kaart’). Er loopt nooit meer dan één reis: alles wat animToken verhoogt
+  // (een nieuwe stap, het overzicht, een ander deel, een geschiedenis) breekt de vorige af, ook als die nog wacht.
+  // Duur in ms uit de lengte op het scherm: per route vast + perPx × pixels, tussen routeMin en max; de hele stap tussen
+  // min en totaal. aanloop: versnellen en vertragen; wissel: verdwijnen en verschijnen (gelijk aan de overgang van .camel
+  // in de CSS); kaartWacht: langste wachttijd op een bewegende kaart; vooruit/draai: pixels voor de kijkrichting; dichtbij:
+  // zoveel pixels of minder is dezelfde plek (dan loopt hij door in plaats van te verdwijnen en te verschijnen).
+  const REIS = { perPx: 4.5, vast: 400, routeMin: 600, max: 5500, min: 1000, totaal: 7000, aanloop: 350, wissel: 300, kaartWacht: 1500, vooruit: 20, draai: 5, dichtbij: 3 };
+  const reisDuur = (px) => Math.max(REIS.routeMin, Math.min(REIS.max, REIS.vast + REIS.perPx * px));
+  // Gelijkmatige snelheid met een zachte start en stop: aandeel a van de tijd versnellen, even lang vertragen.
+  function zacht(f, a) {
+    const v = 1 / (1 - a);
+    if (f < a) return (v * f * f) / (2 * a);
+    if (f > 1 - a) return 1 - (v * (1 - f) * (1 - f)) / (2 * a);
+    return v * (f - a / 2);
   }
-  function animate(s) {
-    const token = ++animToken;
+  const kameelEl = () => { const e = camel.getElement(); return e && e.querySelector(".camel"); };
+  // Staat hij zichtbaar op (of vlak bij) dit punt? Gemeten in pixels op zoomniveau z: het niveau waarop de plek getoond wordt.
+  const kameelStaatOp = (p, z = map.getMaxZoom()) => { const el = kameelEl(); return !!el && map.hasLayer(camel) && !el.classList.contains("gone") && map.project(camel.getLatLng(), z).distanceTo(map.project(p, z)) <= REIS.dichtbij; };
+  const kameelWeg = () => { const el = kameelEl(); if (el) { el.classList.remove("walk"); el.classList.add("gone"); } };
+  // Buiten een reis (overzicht van een deel, een geschiedenis): staat hij ergens anders, dan verdwijnt hij daar meteen;
+  // de camelStyle-aanroep erna laat hem op de nieuwe plek rustig verschijnen. Zo vliegt hij nooit zichtbaar door de kaart.
+  function kameelZet(p) {
+    const el = kameelEl();
+    if (el && !kameelStaatOp(p)) { el.style.transition = "none"; el.classList.add("gone"); void el.offsetWidth; el.style.transition = ""; }
+    camel.setLatLng(p);
+  }
+  // Staat de kaart stil? Leaflet meldt begin en eind van elke verschuiving of zoom; kaartWacht is het vangnet.
+  let kaartBezig = false;
+  map.on("movestart", () => { kaartBezig = true; });
+  // Na een vlucht schuift Leaflet de kaart soms nog terug binnen de grenzen: dan is hij nog niet stil.
+  map.on("moveend", () => { kaartBezig = !!(map._animatingZoom || (map._panAnim && map._panAnim._inProgress)); });
+  function alsKaartStil(fn) {
+    if (!kaartBezig) { fn(); return; }
+    let gedaan = false, t = 0;
+    const go = (e) => { if (gedaan || (e && kaartBezig)) return; gedaan = true; map.off("moveend", go); clearTimeout(t); fn(); };
+    map.on("moveend", go);
+    t = setTimeout(go, REIS.kaartWacht);
+  }
+  const volleLijn = (r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); };
+  const eindVan = (s) => (s.r && s.r.length ? s.r[s.r.length - 1].pts.slice(-1)[0] : s.at.length ? ll(s.at[0]) : null);
+  // Breekt de lopende of wachtende reis af; de reiziger staat daarna stil op de bestemming van de stap.
+  function reisStop() {
+    animToken++;
+    const s = cur >= 0 ? deel.steps[cur] : null, end = s && eindVan(s);
+    if (!end) return;
+    kameelZet(end);
+    camelStyle(s.r && s.r.length ? s.r[s.r.length - 1].w : deel.c, false, undefined, false);
+  }
+  // Zet de reis van een stap klaar, meteen bij het kiezen van de stap: de lijn begint leeg en de reiziger blijft staan
+  // als de route begint waar hij staat, en verdwijnt anders. Geeft de functie terug die de reis laat beginnen; select
+  // roept die aan als de kaart de stap in beeld heeft.
+  function reis(s) {
+    const token = ++animToken, leeft = () => token === animToken;
     const routes = s.r || [];
     const who = routes.length ? routes[0].w : deel.c;
-    if (!routes.length && !s.at.length) { camelStyle(who, false, undefined, true); return; }
-    const end = routes.length ? routes[routes.length - 1].pts.slice(-1)[0] : ll(s.at[0]);
-    if (!routes.length || reduceMotion) { routes.forEach((r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); }); camel.setLatLng(end); camelStyle(who, false, undefined, false); queueLabels(); return; }
-    const total = routes.reduce((a, r) => a + r.len, 0);
-    const dur = Math.max(1400, Math.min(5200, total * 3.2));
+    const start = routes.length ? routes[0].pts[0] : s.at.length ? ll(s.at[0]) : null, end = eindVan(s);
+    if (!start) { camelStyle(who, false, undefined, true); return () => {}; }
+    if (reduceMotion) return () => { if (!leeft()) return; routes.forEach(volleLijn); camel.setLatLng(end); camelStyle(who, false, undefined, false); queueLabels(); };
     routes.forEach((r) => { r.line.setLatLngs([r.pts[0], r.pts[0]]); r.casing.setLatLngs([r.pts[0], r.pts[0]]); });
-    camel.setLatLng(routes[0].pts[0]); camelStyle(who, true, undefined, false);
-    const t0 = performance.now();
-    let lastLL = routes[0].pts[0], lastWho = who;
-    function frame(now) {
-      if (token !== animToken) return;
-      const f = Math.min(1, (now - t0) / dur);
-      const e = f < 0.5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
-      let d = e * total, pos = null, w = who;
-      routes.forEach((r) => {
-        const dd = Math.max(0, Math.min(r.len, d));
-        const pts = partial(r, dd);
-        const drawn = pts.length > 1 ? pts : [r.pts[0], r.pts[0]];
-        r.line.setLatLngs(drawn); r.casing.setLatLngs(drawn);
-        if (d > 0 && !pos) { pos = pts[pts.length - 1]; w = r.w; }
-        if (dd === r.len && d > r.len) pos = null;
-        d -= r.len;
-      });
-      if (!pos) pos = end;
-      const pa = map.latLngToLayerPoint(lastLL), pb = map.latLngToLayerPoint(pos);
-      camelStyle(w, true, Math.abs(pb.x - pa.x) > 0.5 ? pb.x < pa.x : undefined, false);
-      camel.setLatLng(pos); lastLL = pos; lastWho = w;
-      if (f < 1) requestAnimationFrame(frame); else { camelStyle(lastWho, false); queueLabels(); }
+    const sluitAan = kameelStaatOp(start, s.zoom || 9);
+    if (sluitAan) camelStyle(who, false, undefined, false); else kameelWeg();
+    const straks = (fn) => setTimeout(() => { if (leeft()) fn(); }, REIS.wissel);
+    function loop() {
+      // De weg in schermpixels, zoals de lijn getekend is: zo ligt de reiziger precies op de lijn en is de snelheid op het
+      // scherm gelijkmatig.
+      const z = map.getZoom();
+      const paden = routes.map((r) => { const px = r.pts.map((p) => map.project(p, z)), cum = [0]; px.slice(1).forEach((q, j) => cum.push(cum[j] + q.distanceTo(px[j]))); return { r, px, cum, len: cum[cum.length - 1] }; });
+      const ruw = paden.map((p) => reisDuur(p.len)), som = ruw.reduce((a, b) => a + b, 0);
+      const duren = ruw.map((d) => d * (som > REIS.totaal ? REIS.totaal / som : som < REIS.min ? REIS.min / som : 1));
+      const puntOp = (pad, d) => { let k = 1; while (k < pad.cum.length - 1 && pad.cum[k] < d) k++; const a = pad.px[k - 1], b = pad.px[k], t = Math.max(0, Math.min(1, (d - pad.cum[k - 1]) / (pad.cum[k] - pad.cum[k - 1] || 1))); return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t, k }; };
+      const el0 = kameelEl();
+      let flip = !!el0 && el0.classList.contains("flip");
+      // Kijkrichting: de richting van het stuk lijn dat voor hem ligt; loopt dat bijna recht omhoog of omlaag, dan
+      // blijft hij kijken zoals hij keek.
+      const kijk = (pad, d) => { const a = puntOp(pad, d), b = puntOp(pad, Math.min(pad.len, d + REIS.vooruit)), dx = b.x - a.x; if (Math.abs(dx) >= REIS.draai) flip = dx < 0; return flip; };
+      // Bij vertrek geeft, als het eerste stuk recht omhoog of omlaag loopt, de richting van de hele route de doorslag.
+      const kijkBegin = (pad) => { const dx = puntOp(pad, Math.min(pad.len, REIS.vooruit)).x - pad.px[0].x, net = pad.px[pad.px.length - 1].x - pad.px[0].x; if (Math.abs(dx) >= REIS.draai) flip = dx < 0; else if (Math.abs(net) >= REIS.draai) flip = net < 0; return flip; };
+      // Het schermpunt waar hij zichtbaar staat; null zolang hij weg is.
+      let staat = sluitAan ? paden[0].px[0] : null;
+      function been(i) {
+        if (i >= paden.length) { camel.setLatLng(end); camelStyle(routes[routes.length - 1].w, false); queueLabels(); return; }
+        const pad = paden[i], r = pad.r, T = duren[i], a = Math.min(0.3, REIS.aanloop / T);
+        if (pad.len < 1) { volleLijn(r); been(i + 1); return; } // geen zichtbare lengte: niets te lopen
+        const stap = () => {
+          camelStyle(r.w, true, kijkBegin(pad), false);
+          let verstreken = 0, vorige = null;
+          // Per beeldje telt hooguit 100 ms mee: na een hapering of een verborgen tabblad loopt hij verder, zonder sprong.
+          function kameelFrame(now) {
+            if (!leeft()) return;
+            if (vorige !== null) verstreken += Math.min(100, now - vorige);
+            vorige = now;
+            const f = Math.min(1, verstreken / T), d = zacht(f, a) * pad.len, q = puntOp(pad, d);
+            const u = map.unproject([q.x, q.y], z), pos = f >= 1 ? r.pts[r.pts.length - 1] : [u.lat, u.lng];
+            const lijn = f >= 1 ? r.pts : r.pts.slice(0, q.k).concat([pos]);
+            r.line.setLatLngs(lijn); r.casing.setLatLngs(lijn);
+            const was = flip; if (kijk(pad, d) !== was) camelStyle(r.w, true, flip, false);
+            camel.setLatLng(pos);
+            if (f < 1) requestAnimationFrame(kameelFrame); else { staat = pad.px[pad.px.length - 1]; been(i + 1); }
+          }
+          requestAnimationFrame(kameelFrame);
+        };
+        const verschijn = () => { camel.setLatLng(r.pts[0]); camelStyle(r.w, false, kijkBegin(pad), false); straks(stap); };
+        // Begint deze route waar hij staat, dan loopt hij door; anders verdwijnt hij en verschijnt hij op het begin.
+        if (staat && staat.distanceTo(pad.px[0]) <= REIS.dichtbij) stap();
+        else if (!staat) verschijn();
+        else { staat = null; kameelWeg(); straks(verschijn); }
+      }
+      been(0);
     }
-    requestAnimationFrame(frame);
+    return () => {
+      if (!leeft()) return;
+      alsKaartStil(() => {
+        if (!leeft()) return;
+        if (routes.length) { loop(); return; }
+        camel.setLatLng(start); camelStyle(who, false, undefined, false); queueLabels();
+      });
+    };
   }
   function drawSpecial(s) {
     lySpecial.clearLayers();
@@ -577,10 +779,11 @@
       if (s.later) pts = pts.concat(s.later.p.map(ll));
       if (s.look) pts = pts.concat(s.look.slice(0, 2).map(ll));
       // Geen plaats bekend (bijv. ‘ergens in Israël’): toon de streek in plaats van een verzonnen punt.
-      if (!pts.length) fit(Array.isArray(s.view) ? s.view : s.view === "kanaan" ? KANAAN : WIDE, Array.isArray(s.view) ? 9 : 6, () => animate(s));
+      const loop = reis(s);
+      if (!pts.length) fit(Array.isArray(s.view) ? s.view : s.view === "kanaan" ? KANAAN : WIDE, Array.isArray(s.view) ? 9 : 6, loop);
       else if (pts.every((p) => p[0] === pts[0][0] && p[1] === pts[0][1])) {
-        const z = s.zoom || 9; reduceMotion ? map.setView(pts[0], z, { animate: false }) : map.flyTo(pts[0], z, { duration: 0.8 }); setTimeout(() => animate(s), reduceMotion ? 0 : 850);
-      } else fit(pts, s.zoom || 9, () => animate(s));
+        const z = s.zoom || 9; reduceMotion ? map.setView(pts[0], z, { animate: false }) : map.flyTo(pts[0], z, { duration: 0.8 }); setTimeout(loop, reduceMotion ? 0 : 850);
+      } else fit(pts, s.zoom || 9, loop);
       $("where").textContent = `${deel.short} · ${cur + 1} van ${deel.steps.length}`;
     } else {
       $("sRef").textContent = deel.ref;
@@ -599,11 +802,13 @@
       animToken++;
       const first = deel.steps.find((s) => s.at.length || s.r);
       const startLL = first ? (first.r ? first.r[0].pts[0] : ll(first.at[0])) : null;
-      if (startLL) camel.setLatLng(startLL);
+      if (startLL) kameelZet(startLL);
       camelStyle(deel.c, false, false, !startLL || deel.id === "begin");
       if (!opts.noFly) fit(partBounds(deel), 9.5);
       $("where").textContent = deel.n;
     }
+    // Tafereel: een getekend beeld bij de tekst van een stap zonder reis (taferelen.js).
+    if (BR.tafereel) BR.tafereel.bijStap($("sText"), cur >= 0 ? deel.steps[cur] : null);
     const idx = ALLPARTS.indexOf(deel), atEnd = cur >= deel.steps.length - 1, next = ALLPARTS[idx + 1];
     $("prev").disabled = $("prev2").disabled = cur <= -1 && idx === 0;
     $("next").disabled = $("next2").disabled = atEnd && !next;
@@ -655,7 +860,7 @@
   $("prev").onclick = $("prev2").onclick = goPrev;
   $("next").onclick = $("next2").onclick = goNext;
   $("whole").onclick = () => {
-    showAll = true; animToken++;
+    showAll = true; reisStop();
     deel.steps.forEach((t) => (t.r || []).forEach((r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); }));
     routeState(); lySpecial.clearLayers(); map.removeLayer(lyKings);
     fit(partBounds(deel), 8); scrollToMap();
@@ -927,6 +1132,7 @@
       </article>`;
       renderOntdek($("vOntdek"), g);
       renderVQuiz($("vQuiz"), g, c ? (g.quiz || []).concat((v && v.vragen) || []) : (v && v.vragen) || g.quiz);
+      if (BR.tafereel) BR.tafereel.inVerhaal(box, steps, (k) => STEP_BY_KEY.get(k));
     }
     $("vTerug").onclick = () => { vOpen = null; history.replaceState(null, "", "#verhalen"); renderVerhalen(); heleZichtbaar(); };
     if (niveau === "a" && heeftSamen(g)) samenKoppelen(g); else focusStory(g);
@@ -957,6 +1163,7 @@
     const n = v.delen.length;
     if (vStap >= n) { renderVQuiz($("vQuiz"), g, v.vragen, true); focusStory(g); return; }
     const d = v.delen[vStap];
+    if (BR.tafereel) BR.tafereel.bijStap($("aStap"), d.stap && STEP_BY_KEY.get(d.stap));
     const ga = (j) => { vStap = j; renderVerhaal(g.nr); };
     $("aVerder").onclick = () => ga(vStap + 1);
     $("aTerug").onclick = () => ga(Math.max(0, vStap - 1));
@@ -1046,7 +1253,7 @@
     const pts = steps.flatMap((s) => (s.r || []).filter((r) => r.w !== "rood" && binnenSamen(r)).flatMap((r) => r.pts)).concat(focus.at.map(ll));
     const last = steps[steps.length - 1], lr = last.r && last.r[last.r.length - 1];
     const end = lr ? lr.pts[lr.pts.length - 1] : focus.at.length ? ll(focus.at[0]) : null;
-    if (end) camel.setLatLng(end);
+    if (end) kameelZet(end);
     // Zonder route geen reisstip: die zou precies op de plaats (en het zekerheidsteken) staan.
     camelStyle(lr ? lr.w : d0.c, false, undefined, !lr);
     $("map").classList.toggle("gelijkenis", g.vorm === "gelijkenis" && !focus.at.length);
@@ -1288,7 +1495,7 @@
     }).join("")}</div>`).join("");
   }
   // De overzichtsvensters (boekenkast, alle reizen, alle plaatsen) openen en sluiten op dezelfde manier.
-  const LADEN = ["kast", "reizenLade", "plaatsenLade"];
+  const LADEN = ["kast", "reizenLade", "plaatsenLade", "vandaagLade", "vandaagVenster"];
   let kastFrom = null;
   const openLade = (id) => { kastFrom = document.activeElement; $(id).hidden = false; $(id).querySelector(".lade__head button").focus(); };
   const sluitLade = (id, terug = true) => { $(id).hidden = true; if (terug && kastFrom && kastFrom.isConnected) kastFrom.focus(); };
@@ -1348,6 +1555,30 @@
     const s = e.target.closest("[data-ps]"); if (s) { plSoort = s.dataset.ps; renderPlaatsen(); $("plSoort").querySelector('[aria-pressed="true"]').focus(); return; }
     if (e.target.closest("[data-place]")) sluitLade("plaatsenLade", false); // de plaats zelf opent de algemene klikafhandeling (showPlace)
   });
+
+  // ---------- overzicht: vandaag ----------
+  // De plekken van de laag ‘Vandaag’ per streek, met de peildatum en de vaste zin dat de atlas geen partij kiest. Zoeken op naam en land.
+  const VD_LIJST = VD.plekken.filter(vdLL).map((x) => ({ x, zoek: norm([x.n, x.land, x.plaats && P[x.plaats] ? P[x.plaats].n : ""].join(" ")) }));
+  let vdZoek = "";
+  function renderVandaag() {
+    const q = norm(vdZoek).split(/\s+/).filter(Boolean);
+    const lijst = VD_LIJST.filter((v) => q.every((w) => v.zoek.includes(w)));
+    const rij = ({ x }) => { const bp = x.plaats && P[x.plaats]; return `<li><button type="button" class="orij" data-vandaag="${esc(x.id)}"><span class="vd-bord klein" aria-hidden="true">${VD_BORD}</span><span class="o-n"><b>${esc(x.n)}</b><small>${esc(x.land)}${bp ? ` · in de Bijbel: ${esc(bp.n.replace(/\?$/, ""))}` : ""}</small></span></button></li>`; };
+    $("vdPeil").textContent = `Peildatum: ${VD.peil}.`;
+    $("vdToelichting").textContent = VD.toelichting;
+    $("vdAantal").textContent = lijst.length === VD_LIJST.length ? `${lijst.length} plekken. Tik op een plek om haar op de kaart van nu te zien.` : `${lijst.length} van de ${VD_LIJST.length} plekken`;
+    if (!lijst.length) { $("vandaagLijst").innerHTML = `<p class="ref">Niets gevonden. Probeer een andere naam of een land.</p>`; return; }
+    if (q.length) { $("vandaagLijst").innerHTML = `<ul class="olijst">${lijst.map(rij).join("")}</ul>`; return; }
+    const streken = [...new Set(lijst.map((v) => v.x.streek || v.x.land))];
+    $("vandaagLijst").innerHTML = streken.map((l) => `<h4 class="o-kop">${esc(l)}</h4><ul class="olijst">${lijst.filter((v) => (v.x.streek || v.x.land) === l).map(rij).join("")}</ul>`).join("");
+  }
+  const openVandaagLade = () => { renderVandaag(); $("vdZoek").value = vdZoek; openLade("vandaagLade"); };
+  $("vandaagLijstBtn").onclick = openVandaagLade;
+  $("vandaagLegendaBtn").onclick = openVandaagLade;
+  $("vdZoek").addEventListener("input", (e) => { vdZoek = e.target.value; renderVandaag(); });
+  $("vandaagLade").addEventListener("click", (e) => { const b = e.target.closest("[data-vandaag]"); if (b) { sluitLade("vandaagLade", false); showVandaag(b.dataset.vandaag); } });
+  // Het blad van een plek (telefoon): de knop naar de Bijbelse plaats sluit het blad; de plaats zelf opent de algemene klikafhandeling.
+  $("vandaagVenster").addEventListener("click", (e) => { if (e.target.closest("[data-place]")) sluitLade("vandaagVenster", false); });
 
   // ---------- wie is wie ----------
   let wieSel = null;
@@ -1728,13 +1959,39 @@
   });
 
   // ---------- kaartbediening: toen/nu, legenda, grote kaart, twee vingers op een telefoon ----------
+  let nuAan = false;
   function setNu(on) {
+    nuAan = !!on;
     $("nuBtn").setAttribute("aria-pressed", on); $("toenBtn").setAttribute("aria-pressed", !on);
-    $("lgNu").hidden = !on;
+    $("lgNu").hidden = !on; $("lgToen").hidden = on;
     map.getContainer().classList.toggle("nu", on);
-    if (on) loadModern().then(() => map.addLayer(lyModern)); else map.removeLayer(lyModern);
+    if (on) loadModern().then(() => { if (nuAan) { map.addLayer(lyModern); queueLabels(); } }); else map.removeLayer(lyModern);
+    syncVandaag();
+  }
+  // Laag ‘Vandaag’: alleen in de stand ‘Nu’, standaard uit; de keuze wordt onthouden (bijbelreis:vandaag). Niet bij Samen ontdekken.
+  let vandaagAan = store.get("vandaag", false) === true;
+  function syncVandaag() {
+    const aan = nuAan && vandaagAan && niveau !== "a";
+    $("vandaagBtn").hidden = !nuAan; $("vandaagBtn").setAttribute("aria-pressed", vandaagAan);
+    if (aan) map.addLayer(lyVandaag); else { map.removeLayer(lyVandaag); if (vdOpen) map.closePopup(vdBallon); }
     queueLabels();
   }
+  function setVandaag(on, zeg) {
+    vandaagAan = !!on; store.set("vandaag", vandaagAan); syncVandaag();
+    if (zeg) toast(vandaagAan ? `Vandaag: ${Object.keys(vdMarkers).length} plekken. Tik op een blauw bordje.` : "Laag ‘Vandaag’ uit");
+  }
+  $("vandaagBtn").onclick = () => setVandaag(!vandaagAan, true);
+  function showVandaag(id) {
+    const m = vdMarkers[id]; if (!m || niveau === "a") return;
+    map.closePopup();
+    if (!nuAan) setNu(true);
+    if (!vandaagAan) setVandaag(true);
+    map.flyTo(m.getLatLng(), Math.max(map.getZoom(), 7), { duration: reduceMotion ? 0 : 0.6 });
+    setTimeout(() => { if (!map.hasLayer(lyVandaag)) return; const el = m.getElement(); if (el) el.focus({ preventScroll: true }); openVandaag(m.vd); }, reduceMotion ? 0 : 650);
+    scrollToMap();
+  }
+  // Wisselt het reisniveau, dan volgt de laag (bij Samen ontdekken is ze er niet).
+  document.addEventListener("click", (e) => { if (e.target.closest("button[data-niveau]")) setTimeout(syncVandaag, 0); });
   $("toenBtn").onclick = () => setNu(false);
   $("nuBtn").onclick = () => setNu(true);
   function setLegend(open) { $("legend").classList.toggle("open", open); $("legendBtn").setAttribute("aria-expanded", open); $("legendBtn").querySelector("span").textContent = open ? "Sluit" : "Legenda"; $("legendBtn").setAttribute("aria-label", open ? "Sluit legenda" : "Legenda"); queueLabels(); }

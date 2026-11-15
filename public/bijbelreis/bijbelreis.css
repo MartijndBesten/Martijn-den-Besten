@@ -501,6 +501,15 @@ details.parents dd { margin: 0; }
 .lake { fill: var(--zee); fill-opacity: 1; stroke: var(--kust); stroke-width: 0.9; }
 .river { stroke: var(--rivier); stroke-width: 1.6; stroke-opacity: 0.9; fill: none; stroke-linecap: round; }
 .river.klein { stroke-width: 1; stroke-opacity: 0.75; }
+/* Toen en nu (toen.json): het landschap van de Bijbelse tijd tegenover dat van vandaag. Een gestreepte oever is een
+   reconstructie; vaag water met een stippellijn is onzeker (misschien stond er water). */
+#map:not(.nu) .alleen-nu, #map.nu .alleen-toen, #map.nu .region.toen { display: none; }
+.toen-zee { fill: var(--zee); fill-opacity: 1; stroke: none; }
+.toen-meer, .toen-oever, .toen-rivier { stroke-dasharray: 5 4; }
+.toen-oever { fill: none; stroke: var(--kust); stroke-width: 1.1; }
+.toen-onzeker { fill: var(--zee); fill-opacity: 0.55; stroke: none; }
+.toen-rand { fill: none; stroke: var(--kust); stroke-width: 1.3; stroke-dasharray: 0.1 4; stroke-linecap: round; }
+.toen-rivier { stroke-width: 1.3; }
 .rg-woestijn { fill: var(--zand); fill-opacity: 0.38; stroke: none; }
 .rg-berg { fill: var(--berg); fill-opacity: 0.1; stroke: none; }
 .rg-vruchtbaar { fill: var(--groen); fill-opacity: 0.55; stroke: none; }
@@ -555,8 +564,55 @@ details.parents dd { margin: 0; }
 .pl.stil { visibility: hidden; }
 .lab.off, .lab.clash, .region.off, .region.clash, .peak.off, .peak.clash { display: none; }
 .nu .region.land { opacity: 0.35; }
-.border { stroke: var(--inkt-2); stroke-width: 1.3; stroke-dasharray: 5 3 1 3; stroke-opacity: 0.55; fill: none; }
-.country { position: absolute; transform: translate(-50%, -50%); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--inkt-2); background: color-mix(in srgb, var(--wit) 70%, transparent); padding: 1px 6px; border-radius: 5px; white-space: nowrap; pointer-events: none; }
+/* Stand ‘Nu’: landsgrenzen met een zachte band (zoals in een schoolatlas), landnamen in kapitalen, gebieden schuin.
+   Een eigen, ingetogen pruimkleur: niet de inktkleur van de Bijbelse plaatsen en niet het terracotta van de routes. */
+#map { --nu-lijn: #6d4f66; --nu-naam: #57384f; --nu-band: #a98aa3; }
+.border { stroke: var(--nu-lijn); stroke-width: 1.5; stroke-opacity: 0.9; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+.border.band { stroke: var(--nu-band); stroke-width: 7; stroke-opacity: 0.3; }
+.border.omstreden { stroke-width: 2.4; stroke-dasharray: 0.1 5.4; stroke-opacity: 0.95; }
+.border.fijn { display: none; }
+.z-fijn .border.fijn { display: inline; stroke-width: 1.1; }
+.z-ver .border { stroke-width: 1.2; } .z-ver .border.band { stroke-width: 5; } .z-ver .border.omstreden { stroke-width: 2; stroke-dasharray: 0.1 4.4; }
+.z-dicht .border { stroke-width: 1.8; } .z-dicht .border.band { stroke-width: 10; } .z-dicht .border.omstreden { stroke-width: 2.8; stroke-dasharray: 0.1 6.4; }
+.country, .gebied { position: absolute; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; color: var(--nu-naam); text-shadow: 0 0 2px var(--halo), 0 0 3px var(--halo), 0 0 4px var(--halo), 0 0 1px var(--halo); }
+.country { font-family: var(--font-sans); font-weight: 650; font-size: 13px; line-height: 1; letter-spacing: 0.2em; text-indent: 0.2em; text-transform: uppercase; }
+.country.groot { font-size: 15.5px; letter-spacing: 0.26em; text-indent: 0.26em; }
+.z-ver .country { font-size: 11.5px; letter-spacing: 0.14em; text-indent: 0.14em; } .z-ver .country.groot { font-size: 14px; letter-spacing: 0.22em; text-indent: 0.22em; }
+.z-dicht .country { font-size: 15.5px; letter-spacing: 0.26em; text-indent: 0.26em; } .z-dicht .country.groot { font-size: 17.5px; letter-spacing: 0.3em; text-indent: 0.3em; }
+.gebied { width: min-content; white-space: normal; text-align: center; font-family: var(--font-sans); font-style: italic; font-weight: 600; font-size: 12.5px; line-height: 1.15; letter-spacing: 0.04em; }
+.z-dicht .gebied { font-size: 13.5px; }
+.country.clash, .gebied.off, .gebied.clash { display: none; }
+.quizmode .country, .quizmode .gebied { display: none; }
+/* Laag ‘Vandaag’: een nachtblauw bordje boven de plek (geen stip), met de naam van nu ernaast. */
+.vd-bord { position: absolute; left: -12px; top: -31px; width: 24px; height: 31px; cursor: pointer; filter: drop-shadow(0 1px 2px rgba(31, 36, 48, 0.4)); }
+.vd-bord svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.vd-bord .b { fill: var(--nacht); stroke: var(--wit); stroke-width: 1.5; stroke-linejoin: round; }
+.vd-bord .w { fill: var(--wit); }
+.vd-bord .s { fill: none; stroke: var(--nacht); stroke-width: 1.6; stroke-linecap: round; }
+.vd-bord.klein { position: static; flex: none; width: 18px; height: 23px; filter: none; cursor: inherit; }
+.vd-lab { position: absolute; left: 15px; top: -28px; white-space: nowrap; font-weight: 650; font-size: 12.5px; line-height: 1; color: var(--nacht); background: color-mix(in srgb, var(--wit) 88%, transparent); padding: 3px 6px; border-radius: 6px; box-shadow: 0 0 0 1px color-mix(in srgb, var(--nacht) 22%, transparent); pointer-events: none; }
+.vd-lab.links { left: auto; right: 15px; }
+.vd-lab.off, .vd-lab.clash { display: none; }
+.leaflet-marker-icon.vandaag:focus-visible > .vd-bord { outline: 3px solid var(--oker); outline-offset: 2px; border-radius: 7px; }
+.leaflet-marker-icon.vandaag:hover .vd-bord .b, .leaflet-marker-icon.vandaag:focus-visible .vd-bord .b { fill: var(--nacht-2); }
+.quizmode .vandaag { visibility: hidden; }
+.leaflet-marker-icon.vandaag.dicht { display: none; }
+.leaflet-popup .vdpop { font-size: 14px; line-height: 1.4; max-height: max(180px, min(calc(100vh - 390px), 500px)); overflow-y: auto; padding-right: 4px; }
+.leaflet-popup .vdpop:focus-visible { outline: 2px solid var(--oker); outline-offset: 4px; }
+.vd-blad { display: flex; flex-direction: column; gap: 6px; }
+.vd-blad p { margin: 0; } .vd-blad .label { margin-top: 6px; } .vd-blad .btn.small { align-self: flex-start; margin-top: 4px; }
+.vd-blad .st { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--fg-3); }
+.vdpop .vd-waar { margin: 0 0 2px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--nacht); }
+.vdpop .vd-lees { margin-top: 8px; font-size: 0.9rem; color: var(--fg-2); }
+.vdpop .st a { color: inherit; }
+.vd-peil { margin: 0; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--fg-3); }
+.vd-neutraal { margin: 0; padding: 10px 12px; border-left: 3px solid var(--nacht); background: var(--nacht-zacht); border-radius: 0 var(--r-klein) var(--r-klein) 0; font-size: 0.92rem; }
+.legend .lg-nublok { flex-direction: column; align-items: stretch; gap: 5px; }
+.legend .sw.grens { border-top: 2px solid #6d4f66; box-shadow: 0 0 0 3px rgba(169, 138, 163, 0.3); }
+.legend .sw.omstreden { border-top: 3px dotted #6d4f66; }
+.legend .lg-gebied { flex: none; width: 26px; text-align: center; font-style: italic; font-weight: 600; font-size: 10.5px; color: #57384f; }
+.legend .lg-vandaag .linkbtn { font-size: inherit; }
+body[data-niveau="a"] #vandaagBtn, body[data-niveau="a"] #vandaagLijstBtn, body[data-niveau="a"] .leaflet-marker-icon.vandaag { display: none !important; }
 /* Historische streken: rustig, ze mogen niet alle aandacht vragen. */
 .region { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: color-mix(in srgb, var(--inkt-3) 85%, transparent); white-space: nowrap; transform: translate(-50%, -50%); position: absolute; pointer-events: none; text-shadow: 0 0 3px var(--halo), 0 0 3px var(--halo); }
 .region.sea { font-family: var(--font-serif); font-style: italic; text-transform: none; letter-spacing: 0.06em; font-size: 15px; color: #2f5562; text-shadow: 0 0 3px var(--zee), 0 0 3px var(--zee); }
@@ -597,7 +653,7 @@ details.parents dd { margin: 0; }
 .leaflet-marker-icon.pl:focus-visible > :first-child { outline: 3px solid var(--oker); outline-offset: 3px; border-radius: 50%; }
 
 /* ===== Kaartbediening ===== */
-.maptools { position: absolute; z-index: 800; right: max(10px, env(safe-area-inset-right, 0px)); top: 10px; display: flex; align-items: center; gap: 6px; }
+.maptools { position: absolute; z-index: 800; right: max(10px, env(safe-area-inset-right, 0px)); top: 10px; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 6px; max-width: calc(100% - 76px); }
 .mapacties { position: absolute; z-index: 800; right: max(10px, env(safe-area-inset-right, 0px)); bottom: 12px; display: flex; gap: 6px; align-items: flex-end; }
 .mbtn { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; border: 0; border-radius: var(--r); background: var(--wit); color: var(--fg); font-weight: 620; font-size: 0.86rem; cursor: pointer; box-shadow: var(--schaduw-kaart); white-space: nowrap; }
 .mbtn svg { width: 18px; height: 18px; flex: none; }
@@ -622,6 +678,9 @@ details.parents dd { margin: 0; }
 .legend .area { width: 26px; height: 16px; }
 .legend .altpin { width: 10px; height: 10px; margin-left: 4px; }
 .legend .lg-nu { margin: 4px 0 0; color: var(--fg-3); }
+.legend .lg-toen { flex-direction: column; align-items: stretch; gap: 5px; }
+.legend .oever { width: 26px; height: 12px; flex: none; background: var(--zee); border: 1.5px dashed var(--kust); border-radius: 5px; box-sizing: border-box; }
+.legend .oever.vaag { background: color-mix(in srgb, var(--zee) 55%, var(--land)); border-style: dotted; }
 .legend .waar { display: flex; flex-direction: column; align-items: stretch; gap: 6px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--lijn); }
 .legend .waar .linkbtn { align-self: flex-start; font-size: 0.86rem; }
 .inset { background: var(--papier); border-radius: var(--r-klein); padding: 8px; }
@@ -852,3 +911,90 @@ body[data-niveau="a"] #sTijd, body[data-niveau="a"] #sProg { display: none !impo
 .orij .zk-r i { background: color-mix(in srgb, var(--terra) 35%, transparent); border-radius: 3px; }
 #plZoek { width: 100%; }
 body[data-niveau="a"] #reizenBtn, body[data-niveau="a"] #plaatsenBtn { display: none; }
+
+/* ===== Taferelen: getekende, licht bewegende beelden bij een stap of geschiedenis =====
+   Motor en tekeningen: taferelen*.js; regels en tekenafspraken: docs/bijbelreis-taferelen/README.md.
+   De tekening zelf is de eindstand. Beweging komt alleen uit de klassen tf-l-… (trage lus) en tf-e-… (eenmalig)
+   en loopt alleen zolang het beeld in beeld is (.tf-loopt). Bij ‘minder beweging’ staat alles stil in de eindstand. */
+.tafereel { margin: 0; display: flex; flex-direction: column; gap: 6px; width: 100%; max-width: 460px; }
+.tf-kader { position: relative; border-radius: var(--r); overflow: hidden; border: 1px solid var(--lijn); line-height: 0; }
+.tf-svg { display: block; width: 100%; height: auto; aspect-ratio: 16 / 7; background: var(--tf-lucht); --tf-lucht: color-mix(in srgb, var(--water-zacht) 55%, var(--papier)); }
+.tafereel figcaption { font-size: 0.86rem; line-height: 1.45; color: var(--fg-2); }
+.tafereel figcaption b { font-weight: 650; color: var(--fg); margin-right: 3px; }
+.tafereel figcaption small { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--fg-3); white-space: nowrap; }
+.tf-opnieuw { position: absolute; right: 6px; bottom: 6px; display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 1px solid var(--lijn-sterk); border-radius: 50%; background: color-mix(in srgb, var(--wit) 88%, transparent); color: var(--fg); cursor: pointer; }
+.tf-opnieuw::after { content: ""; position: absolute; inset: -7px; }
+.tf-opnieuw svg { width: 17px; height: 17px; }
+.tf-opnieuw:hover { border-color: var(--nacht); }
+.tf-kader:has(.tf-opnieuw) { cursor: pointer; }
+.vdeel .tafereel { margin: 4px 0 2px; }
+body[data-niveau="a"] .tafereel { max-width: 620px; }
+body[data-niveau="a"] .tafereel figcaption { font-size: 1rem; padding-inline: 8px; }
+body[data-niveau="a"] .card > .tafereel { width: auto; margin-inline: -8px; }
+body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
+
+/* Kleuren van de tekening: alleen de variabelen van de atlas. k- = vlak, l- = lijn, o = warme omlijning (zoals de kameel). */
+.tf-svg .k-nacht { fill: var(--night); } .tf-svg .k-land { fill: var(--land); } .tf-svg .k-duin { fill: var(--zand-zacht); }
+.tf-svg .k-zand { fill: var(--zand); } .tf-svg .k-zand2 { fill: var(--zand-diep); } .tf-svg .k-wit { fill: var(--wit); }
+.tf-svg .k-terra { fill: var(--terra); } .tf-svg .k-terra2 { fill: var(--terra-diep); }
+.tf-svg .k-salie { fill: var(--salie); } .tf-svg .k-salie2 { fill: var(--salie-diep); } .tf-svg .k-groen { fill: var(--groen); }
+.tf-svg .k-zee { fill: var(--zee); } .tf-svg .k-zee2 { fill: var(--zee-diep); } .tf-svg .k-water { fill: var(--water); } .tf-svg .k-water2 { fill: var(--water-diep); }
+.tf-svg .k-oker { fill: var(--oker); } .tf-svg .k-okerz { fill: var(--oker-zacht); } .tf-svg .k-hout { fill: var(--camel); } .tf-svg .k-hout2 { fill: var(--camel-dark); }
+.tf-svg .k-berg { fill: var(--berg); } .tf-svg .k-berg2 { fill: color-mix(in srgb, var(--berg) 38%, var(--papier)); }
+.tf-svg .k-steen { fill: color-mix(in srgb, var(--grijs) 45%, var(--papier)); }
+.tf-svg .k-schaduw { fill: var(--inkt); fill-opacity: 0.14; } .tf-svg .k-gloed { fill: var(--oker); fill-opacity: 0.13; }
+.tf-svg .k-rook { fill: var(--grijs); fill-opacity: 0.42; } .tf-svg .k-stof { fill: var(--zand-diep); fill-opacity: 0.4; }
+.tf-svg .k-wolk { fill: var(--wit); fill-opacity: 0.92; } .tf-svg .k-donker { fill: color-mix(in srgb, var(--inkt-2) 62%, var(--papier)); } .tf-svg .k-donker2 { fill: color-mix(in srgb, var(--inkt-2) 82%, var(--papier)); }
+.tf-svg .o { stroke: var(--camel-dark); stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; }
+.tf-svg .o2 { stroke: var(--camel-dark); stroke-width: 0.7; stroke-linejoin: round; }
+.tf-svg [class^="l-"], .tf-svg [class*=" l-"] { fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.tf-svg .l-hout2 { stroke: var(--camel-dark); } .tf-svg .l-hout { stroke: var(--camel); } .tf-svg .l-zand2 { stroke: var(--zand-diep); stroke-width: 0.8; }
+.tf-svg .l-wit { stroke: var(--wit); stroke-opacity: 0.85; } .tf-svg .l-zee { stroke: var(--zee); stroke-opacity: 0.6; } .tf-svg .l-duin { stroke: var(--zand-zacht); }
+.tf-svg .l-salie2 { stroke: var(--salie-diep); } .tf-svg .l-salie { stroke: var(--salie); } .tf-svg .l-terra { stroke: var(--terra); } .tf-svg .l-oker { stroke: var(--oker); }
+.tf-svg .l-water { stroke: var(--water); } .tf-svg .l-lila { stroke: var(--lila); } .tf-svg .l-licht { stroke: var(--oker-zacht); }
+.tf-svg .dik { stroke-width: 2.4; } .tf-svg .breed { stroke-width: 5; } .tf-svg .boog { stroke-width: 3.2; stroke-linecap: butt; }
+/* Tichelstenen: een gestreepte lijn op een donkere ondergrond (de voegen). */
+.tf-svg .steen { fill: none; stroke: var(--terra); stroke-width: 4.4; stroke-dasharray: 7 1; stroke-linecap: butt; }
+.tf-svg .steen.s2 { stroke-dashoffset: 4; }
+
+/* Beweging. Alles draait om het eigen vlak van het onderdeel; een onderdeel met een bewegingsklasse heeft zelf geen transform-attribuut. */
+.tf-svg [class*="tf-l-"], .tf-svg [class*="tf-e-"] { transform-box: fill-box; transform-origin: 50% 100%; animation-play-state: paused; }
+.tf-loopt .tf-svg [class*="tf-l-"], .tf-loopt .tf-svg [class*="tf-e-"] { animation-play-state: running; }
+.tf-svg .tf-l-rook { animation: tf-rook 5.4s linear infinite; transform-origin: 50% 50%; }
+.tf-svg .tf-l-rook.tf-w4 { transform: translate(2px, -8px) scale(1.3); } .tf-svg .tf-l-rook.tf-w8 { transform: translate(-1px, -17px) scale(1.65); } /* stilstand: een kolom rook */
+.tf-svg .tf-l-drijf { animation: tf-drijf 26s ease-in-out infinite alternate; }
+.tf-svg .tf-l-golf { animation: tf-golf 5s ease-in-out infinite alternate; }
+.tf-svg .tf-l-vlam { animation: tf-vlam 1.9s ease-in-out infinite alternate; }
+.tf-svg .tf-l-gloed { animation: tf-gloed 3.2s ease-in-out infinite alternate; transform-origin: 50% 50%; }
+.tf-svg .tf-l-flits { animation: tf-flits 7s linear infinite; }
+.tf-svg .tf-e-in { animation: tf-in 1.4s ease-out both; }
+.tf-svg .tf-e-teken { stroke-dasharray: 1; animation: tf-teken 3.2s ease-in-out both; }
+.tf-svg .tf-e-zak { animation: tf-zak 7s var(--ease-out) both; }
+.tf-svg .tf-e-wijk-l { animation: tf-wijk-l 3.6s var(--ease-out) both; }
+.tf-svg .tf-e-wijk-r { animation: tf-wijk-r 3.6s var(--ease-out) both; }
+/* Wat verdwijnt, is in de eindstand onzichtbaar. */
+.tf-svg .tf-e-uit, .tf-svg .tf-e-stort, .tf-svg .tf-e-stof { opacity: 0; }
+.tf-svg .tf-e-uit { animation: tf-uit 1.6s ease-in both; }
+.tf-svg .tf-e-stort { animation: tf-stort 1.1s ease-in both; }
+.tf-svg .tf-e-stof { animation: tf-stof 2.6s ease-out both; transform-origin: 50% 50%; }
+.tf-svg .tf-w1 { animation-delay: 0.45s; } .tf-svg .tf-w2 { animation-delay: 0.9s; } .tf-svg .tf-w3 { animation-delay: 1.35s; }
+.tf-svg .tf-w4 { animation-delay: 1.8s; } .tf-svg .tf-w5 { animation-delay: 2.25s; } .tf-svg .tf-w6 { animation-delay: 2.7s; }
+.tf-svg .tf-w7 { animation-delay: 3.15s; } .tf-svg .tf-w8 { animation-delay: 3.6s; } .tf-svg .tf-w9 { animation-delay: 4.05s; }
+@keyframes tf-rook { 0% { transform: translateY(2px) scale(0.6); opacity: 0; } 18% { opacity: 1; } 100% { transform: translate(2px, -25px) scale(1.9); opacity: 0; } }
+@keyframes tf-drijf { from { transform: translateX(-7px); } to { transform: translateX(7px); } }
+@keyframes tf-golf { from { transform: translateX(-4px); } to { transform: translateX(4px); } }
+@keyframes tf-vlam { 0% { transform: scale(1, 0.9) skewX(-3deg); } 50% { transform: scale(0.94, 1.06); } 100% { transform: scale(1.04, 0.95) skewX(4deg); } }
+@keyframes tf-gloed { from { opacity: 0.55; transform: scale(0.94); } to { opacity: 1; transform: scale(1.04); } }
+@keyframes tf-flits { 0%, 8%, 100% { opacity: 0; } 2%, 5% { opacity: 1; } 3.5% { opacity: 0.35; } }
+@keyframes tf-in { from { opacity: 0; } }
+@keyframes tf-teken { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes tf-zak { from { transform: translateY(-26px); } }
+@keyframes tf-wijk-l { from { transform: translateX(48px); } }
+@keyframes tf-wijk-r { from { transform: translateX(-48px); } }
+@keyframes tf-uit { from { opacity: 1; } to { opacity: 0; } }
+@keyframes tf-stort { 0%, 35% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(6px) scaleY(0.18); } }
+@keyframes tf-stof { 0% { opacity: 0; transform: scale(0.5); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(-10px) scale(1.5); } }
+@media (prefers-reduced-motion: reduce) {
+  .tf-svg [class*="tf-l-"], .tf-svg [class*="tf-e-"] { animation: none !important; }
+  .tf-opnieuw { display: none; }
+}
