@@ -399,7 +399,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "Een blik vooruit",
-        t: "God zegt tegen Abram dat zijn nakomelingen vreemdelingen zullen zijn in een land dat niet van hen is, en dat ze daar ‘vierhonderd jaren’ verdrukt zullen worden (15:13). Daarna zullen ze ‘uittrekken met grote have’ (15:14). Dat gebeurt bij de uittocht uit Egypte. Exodus 12:40 noemt vierhonderddertig jaar; over hoe die getallen samenhangen, verschillen uitleggers. Stefanus haalt de belofte aan in Handelingen 7:6. Paulus noemt de besnijdenis van Abraham ‘een zegel der rechtvaardigheid des geloofs’ (Romeinen 4:11).",
+        t: "God zegt tegen Abram dat zijn nakomelingen vreemdelingen zullen zijn in een land dat niet van hen is, en dat ze daar ‘vierhonderd jaren’ verdrukt zullen worden (15:13). Daarna zullen ze ‘uittrekken met grote have’ (15:14). Dat gebeurt bij de uittocht uit Egypte. Exodus 12:40 noemt vierhonderddertig jaar. Stefanus haalt de belofte aan in Handelingen 7:6. Paulus noemt de besnijdenis van Abraham ‘een zegel der rechtvaardigheid des geloofs’ (Romeinen 4:11).",
         refs: ["Genesis 15:13–14", "Exodus 12:40–41", "Handelingen 7:6", "Romeinen 4:11"],
       },
       {
@@ -775,12 +775,12 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Elders in de Bijbel",
-        t: "Al tegen Abram zei God: ‘uw zaad vreemd zal zijn in een land, dat het hunne niet is, en zij zullen hen dienen, en zij zullen hen verdrukken’ (Genesis 15:13). Maar ook: ‘daarna zullen zij uittrekken met grote have’ (15:14). De zus van Mozes wordt hier niet bij naam genoemd. Numeri 26:59 noemt de kinderen van Amram en Jochebed: ‘Aäron, en Mozes, en Mirjam, hun zuster’. Stefanus vertelt dat Mozes ‘werd onderwezen in alle wijsheid der Egyptenaren’ (Handelingen 7:22).",
+        t: "Al tegen Abram zei God: ‘uw zaad vreemd zal zijn in een land, dat het hunne niet is, en zij zullen hen dienen, en zij zullen hen verdrukken’ (Genesis 15:13). Maar ook: ‘daarna zullen zij uittrekken met grote have’ (15:14). De zus van Mozes is Mirjam. Numeri 26:59 noemt de kinderen van Amram en Jochebed: ‘Aäron, en Mozes, en Mirjam, hun zuster’. Stefanus vertelt dat Mozes ‘werd onderwezen in alle wijsheid der Egyptenaren’ (Handelingen 7:22).",
         refs: ["Genesis 15:13–14", "Numeri 26:59", "Handelingen 7:22"],
       },
       {
         kop: "Een kistje met pek",
-        t: "Het Hebreeuwse woord dat hier met kistje is vertaald, wordt in de Bijbel verder alleen gebruikt voor de ark van Noach. Beide worden dichtgemaakt met pek: Noach moet de ark bestrijken ‘van binnen en van buiten met pek’ (Genesis 6:14), de moeder van Mozes ‘belijmde het met lijm en met pek’ (Exodus 2:3). Prentenboeken spreken vaak van een mandje; de tekst noemt een kistje van biezen.",
+        t: "Het Hebreeuwse woord dat hier met kistje is vertaald, wordt in de Bijbel verder alleen gebruikt voor de ark van Noach. Beide worden dichtgemaakt met pek: Noach moet de ark bestrijken ‘van binnen en van buiten met pek’ (Genesis 6:14), de moeder van Mozes ‘belijmde het met lijm en met pek’ (Exodus 2:3).",
         refs: ["Genesis 6:14", "Exodus 2:3"],
       },
       {
@@ -864,7 +864,7 @@ BR.niveaus.voegToe("c", {
       },
       {
         kop: "De Naam van God",
-        t: "Waar de Statenvertaling HEERE met hoofdletters schrijft, staat in het Hebreeuws de eigen Naam van God. In Exodus 3 verbindt God die Naam met ‘IK ZAL ZIJN, Die IK ZIJN ZAL’ (3:14), en Hij zegt: ‘dat is Mijn Naam eeuwiglijk, en dat is Mijn gedachtenis van geslacht tot geslacht’ (3:15). Opvallend is ook dat in 3:2 ‘de Engel des HEEREN’ verschijnt, terwijl in 3:4 God Zelf roept.",
+        t: "Waar de Statenvertaling HEERE met hoofdletters schrijft, staat in het Hebreeuws de eigen Naam van God. In Exodus 3 verbindt God die Naam met ‘IK ZAL ZIJN, Die IK ZIJN ZAL’ (3:14), en Hij zegt: ‘dat is Mijn Naam eeuwiglijk, en dat is Mijn gedachtenis van geslacht tot geslacht’ (3:15). In 3:2 verschijnt ‘de Engel des HEEREN’ in het braambos, en in 3:4 roept God Zelf uit het braambos. De Engel des HEEREN is de Zoon van God, vóór Hij mens werd.",
         refs: ["Exodus 3:2–4", "Exodus 3:14–15"],
       },
       {
@@ -1064,7 +1064,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Wie is Amalek?",
-        t: "Amalek is de naam van een kleinzoon van Ezau: Timna ‘baarde aan Elifaz Amalek’ (Genesis 36:12). Het volk Amalek wordt meestal als zijn nakomelingen gezien. Bileam zegt later: ‘Amalek is de eersteling der heidenen; maar zijn uiterste is ten verderve!’ (Numeri 24:20). De Bijbel beschrijft de strijd tegen Amalek als Gods oordeel over wat Amalek Israël onderweg had aangedaan. Later krijgt koning Saul de opdracht Amalek te slaan, omdat God zegt: ‘Ik heb bezocht, hetgeen Amalek aan Israël gedaan heeft’ (1 Samuël 15:2–3). Ook David vecht tegen de Amalekieten (1 Samuël 30:1, 17).",
+        t: "Amalek is de naam van een kleinzoon van Ezau: Timna ‘baarde aan Elifaz Amalek’ (Genesis 36:12). Van hem stamt het volk Amalek af. Bileam zegt later: ‘Amalek is de eersteling der heidenen; maar zijn uiterste is ten verderve!’ (Numeri 24:20). De Bijbel beschrijft de strijd tegen Amalek als Gods oordeel over wat Amalek Israël onderweg had aangedaan. Later krijgt koning Saul de opdracht Amalek te slaan, omdat God zegt: ‘Ik heb bezocht, hetgeen Amalek aan Israël gedaan heeft’ (1 Samuël 15:2–3). Ook David vecht tegen de Amalekieten (1 Samuël 30:1, 17).",
         refs: ["Genesis 36:12", "Numeri 24:20", "1 Samuël 15:2–3", "1 Samuël 30:1, 17"],
       },
       {
@@ -1842,8 +1842,8 @@ BR.niveaus.voegToe("c", {
         refs: ["1 Samuël 1:1, 9, 19", "Jozua 18:1", "1 Samuël 2:22", "1 Samuël 3:3"],
       },
       {
-        kop: "Een Nazireër, en een woord dat uitkwam",
-        t: "Hanna belooft ook: ‘er zal geen scheermes op zijn hoofd komen’ (1:11). Daarmee belooft ze dat hij een Nazireër zal zijn, iemand die afgezonderd is voor de HEERE (Numeri 6:5), zoals ook over Simson gezegd werd (Richteren 13:5). Toen hij naar Silo kwam, staat er: ‘het jongsken was zeer jong’ (1:24), en in hoofdstuk 3 heet hij een jongeling. Wat de HEERE over het huis van Eli zei, kwam uit: koning Salomo verdreef later de priester Abjathar, ‘om te vervullen het woord des HEEREN, hetwelk Hij over het huis van Eli te Silo gesproken had’ (1 Koningen 2:27).",
+        kop: "Een nazireeër, en een woord dat uitkwam",
+        t: "Hanna belooft ook: ‘er zal geen scheermes op zijn hoofd komen’ (1:11). Daarmee belooft ze dat hij een nazireeër zal zijn, iemand die afgezonderd is voor de HEERE (Numeri 6:5), zoals ook over Simson gezegd werd (Richteren 13:5). Toen hij naar Silo kwam, staat er: ‘het jongsken was zeer jong’ (1:24), en in hoofdstuk 3 heet hij een jongeling. Wat de HEERE over het huis van Eli zei, kwam uit: koning Salomo verdreef later de priester Abjathar, ‘om te vervullen het woord des HEEREN, hetwelk Hij over het huis van Eli te Silo gesproken had’ (1 Koningen 2:27).",
         refs: ["1 Samuël 1:11", "Numeri 6:5", "Richteren 13:5", "1 Samuël 1:24", "1 Samuël 3:1", "1 Koningen 2:27"],
       },
     ],
@@ -2575,7 +2575,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Nieuwe bewoners in Samaria",
-        t: "In de steden van Samaria komen volken uit Babel, Chuta, Avva, Hamath en Sefarvaim wonen (2 Koningen 17:24). Als zij de HEERE niet vrezen, zendt Hij leeuwen onder hen (17:25). De koning van Assyrië stuurt dan een weggevoerde priester terug. Die gaat in Beth-el wonen en leert hen ‘hoe zij den HEERE vrezen zouden’ (17:28). Toch staat er: ‘Zij vreesden den HEERE, en dienden ook hun goden’ (17:33). Hier begint de geschiedenis van de Samaritanen die je in het Nieuwe Testament tegenkomt (vergelijk Johannes 4:9).",
+        t: "In de steden van Samaria komen volken uit Babel, Chuta, Avva, Hamath en Sefarvaim wonen (2 Koningen 17:24). Als zij de HEERE niet vrezen, zendt Hij leeuwen onder hen (17:25). De koning van Assyrië stuurt dan een weggevoerde priester terug. Die gaat in Beth-el wonen en leert hen ‘hoe zij den HEERE vrezen zouden’ (17:28). Toch staat er: ‘Zij vreesden den HEERE, en dienden ook hun goden’ (17:33). Van deze volken stammen de Samaritanen af die je in het Nieuwe Testament tegenkomt (vergelijk Johannes 4:9).",
         refs: ["2 Koningen 17:24–33", "Johannes 4:9"],
       },
       {
@@ -4230,7 +4230,7 @@ BR.niveaus.voegToe("c", {
     verdieping: [
       {
         kop: "Samaritanen",
-        t: "De Samaritanen woonden in Samaria, tussen Judea en Galilea. Nadat Assyrië Samaria had ingenomen, liet de koning van Assyrië volken uit andere landen ‘wonen in de steden van Samaria’ (2 Koningen 17:6, 24). Dat is een van de redenen waarom Joden en Samaritanen niet met elkaar omgingen. Kort voor deze gelijkenis wilde een dorp van de Samaritanen de Heere Jezus niet ontvangen (Lukas 9:52–53). Toch is het in deze gelijkenis juist een Samaritaan die barmhartig is.",
+        t: "De Samaritanen woonden in Samaria, tussen Judea en Galilea. Nadat Assyrië Samaria had ingenomen, liet de koning van Assyrië volken uit andere landen ‘wonen in de steden van Samaria’ (2 Koningen 17:6, 24). Van die volken stammen de Samaritanen af. Dat is een van de redenen waarom Joden en Samaritanen niet met elkaar omgingen. Kort voor deze gelijkenis wilde een dorp van de Samaritanen de Heere Jezus niet ontvangen (Lukas 9:52–53). Toch is het in deze gelijkenis juist een Samaritaan die barmhartig is.",
         refs: ["2 Koningen 17:6", "2 Koningen 17:24", "Lukas 9:52–53"],
       },
       {

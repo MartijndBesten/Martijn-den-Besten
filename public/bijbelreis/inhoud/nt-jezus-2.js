@@ -31,7 +31,7 @@ BR.boeken.push({
     { n: "Kajafas", rol: "hogepriester", i: "Hij zei dat het beter was dat één mens stierf voor het volk. Johannes schrijft dat hij dat niet uit zichzelf zei: hij profeteerde dat Jezus zou sterven voor het volk (Johannes 11:49–51)." },
     { n: "Bartimeüs", rol: "blinde bedelaar bij Jericho", i: "De zoon van Timeüs. Hij riep: ‘Jezus, Gij Zone Davids! ontferm U mijner’, en werd ziende (Markus 10:46–52).", deel: "nt-reis-naar-jeruzalem" },
     { n: "Zacheüs", rol: "oppertollenaar in Jericho", i: "Rijk en klein van stuk. Hij klom in een wilde vijgenboom om de Heere Jezus te zien, en de Heere Jezus kwam in zijn huis (Lukas 19:1–10).", deel: "nt-reis-naar-jeruzalem" },
-    { n: "Syro-Fenicische vrouw", rol: "Griekse vrouw uit het gebied van Tyrus en Sidon", i: "Markus noemt haar ‘een Griekse vrouw, van geboorte uit Syro-fenicië’ (Markus 7:26), Mattheüs ‘een Kananese vrouw’ (Mattheüs 15:22). Haar naam staat niet in de Bijbel. Zij vroeg de Heere Jezus om hulp voor haar dochter, en Hij zei tegen haar: ‘O vrouw! groot is uw geloof’ (Mattheüs 15:28).", deel: "nt-over-de-grens" },
+    { n: "Syro-Fenicische vrouw", rol: "Griekse vrouw uit het gebied van Tyrus en Sidon", i: "Markus noemt haar ‘een Griekse vrouw, van geboorte uit Syro-fenicië’ (Markus 7:26), Mattheüs ‘een Kananese vrouw’ (Mattheüs 15:22). Zij vroeg de Heere Jezus om hulp voor haar dochter, en Hij zei tegen haar: ‘O vrouw! groot is uw geloof’ (Mattheüs 15:28).", deel: "nt-over-de-grens" },
   ],
   delen: [
 { id: "nt-brood-en-berg", n: "Brood, belijdenis en berg", short: "Galilea", ref: "Markus 6:14–29; Johannes 6; Mattheüs 16:13–28; Lukas 9:28–36", c: "teal", init: "G",

@@ -64,7 +64,7 @@ BR.boeken.push({
   { ref: "Lukas 2:1–7", t: "Van Nazareth naar Bethlehem", stamp: "Bethlehem", at: ["efrath"],
     r: [{ p: ["nt_nazareth", "nt_galilea_zuid", "dothanw", "nt_samariaweg", "jeruz", "efrath"], recon: 1 }],
     who: [["Jozef"], ["Maria"], ["Jezus", "pasgeboren"]],
-    txt: "Keizer Augustus beveelt dat iedereen zich moet laten inschrijven, ieder in zijn eigen stad. Daarom gaat Jozef van Nazareth in Galilea naar Bethlehem in Judea, de stad van David, want hij is uit het huis en geslacht van David. Hij gaat met Maria, zijn ondertrouwde vrouw, die zwanger is. Terwijl ze in Bethlehem zijn, wordt haar eerstgeboren Zoon geboren. Ze wikkelt Hem in doeken en legt Hem in een kribbe, omdat er voor hen geen plaats is in de herberg.",
+    txt: "Keizer Augustus beveelt dat iedereen zich moet laten inschrijven, ieder in zijn eigen stad. Daarom gaat Jozef van Nazareth in Galilea naar Bethlehem in Judea, de stad van David, want hij is uit het huis en geslacht van David. Hij gaat met Maria, zijn ondertrouwde vrouw, die zwanger is. Terwijl ze in Bethlehem zijn, wordt haar eerstgeboren Zoon geboren. Ze wikkelt Hem in doeken en legt Hem in een kribbe, een voerbak voor dieren, omdat er voor hen geen plaats is in de herberg.",
     fs: "b", fact: "Lang daarvoor had de profeet Micha gezegd: ‘En gij, Bethlehem Efratha! … Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israël’ (Micha 5:1). Welke weg Jozef en Maria namen, zegt de Bijbel niet; de route is een reconstructie." },
   { ref: "Lukas 2:8–20", t: "Herders in het veld", stamp: "Herders", at: ["efrath"], zoom: 9,
     who: [["Herders"], ["Engelen", "een menigte"], ["Maria"], ["Jozef"]],

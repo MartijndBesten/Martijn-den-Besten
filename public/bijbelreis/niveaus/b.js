@@ -946,7 +946,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Een braambos dat niet verbrandt",
         stap: "exodus:mozes:4",
-        t: "Mozes hoedt de kudde van zijn schoonvader Jethro. Bij Horeb, de berg van God, ziet hij een braambos dat brandt, maar niet verteerd wordt. God roept hem: ‘Mozes, Mozes!’ Hij moet zijn schoenen uittrekken, want de plaats waar hij staat, is heilig land.",
+        t: "Mozes hoedt de kudde van zijn schoonvader Jethro. Bij Horeb, de berg van God, verschijnt de Engel van de HEERE, de Zoon van God, hem in een vlam uit een braambos. Het brandt, maar wordt niet verteerd. God roept: ‘Mozes, Mozes!’ Hij moet zijn schoenen uittrekken, want hij staat op heilig land.",
       },
       {
         kop: "Ik zal met u zijn",
@@ -956,12 +956,12 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Tekenen en een helper",
         stap: "exodus:mozes:5",
-        t: "Mozes zegt dat het volk hem niet zal geloven. Daarom geeft God hem tekenen: zijn staf wordt een slang, en zijn hand wordt ‘melaats, wit als sneeuw’ en weer gezond. Mozes zegt dat hij niet goed kan spreken, en vraagt God iemand anders te sturen. Dan wordt de HEERE toornig: boos. Toch geeft Hij Aäron, de broer van Mozes, om voor hem te spreken.",
+        t: "Mozes zegt dat het volk hem niet zal geloven. Daarom geeft God hem tekenen: zijn staf wordt een slang, en zijn hand wordt ‘melaats, wit als sneeuw’ en weer gezond. Mozes zegt dat hij niet goed kan spreken, en vraagt God iemand anders te sturen. Dan wordt de HEERE toornig: boos. Toch mag zijn broer Aäron voor hem spreken.",
       },
       {
         kop: "Het volk gelooft",
         stap: "exodus:mozes:6",
-        t: "Mozes gaat terug naar Egypte, met de staf van God in zijn hand. Aäron komt hem tegemoet. Aäron spreekt tot de oudsten en doet de tekenen. Het volk gelooft en aanbidt.",
+        t: "Mozes gaat terug naar Egypte. Aäron komt hem tegemoet. Aäron spreekt tot de oudsten en doet de tekenen. Het volk gelooft en aanbidt.",
       },
     ],
     vragen: [
@@ -1852,7 +1852,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Een belofte in Zora",
         stap: "richteren:simson:0",
-        t: "Israël doet weer kwaad, en veertig jaar heersen de Filistijnen. In Zora woont Manoach. Zijn vrouw krijgt geen kinderen. De Engel van de HEERE zegt haar dat ze een zoon krijgt. Er mag nooit een scheermes op zijn hoofd komen, want hij is een nazireeër: apart gezet voor God. Ook zegt Hij: ‘hij zal beginnen Israël te verlossen uit der Filistijnen hand.’ Ze noemt hem Simson.",
+        t: "Israël doet weer kwaad, en veertig jaar heersen de Filistijnen. In Zora woont Manoach. Zijn vrouw krijgt geen kinderen. De Engel van de HEERE, de Zoon van God, zegt haar dat ze een zoon krijgt. Er mag nooit een scheermes op zijn hoofd komen, want hij is een nazireeër: apart gezet voor God. Ook zegt Hij: ‘hij zal beginnen Israël te verlossen uit der Filistijnen hand.’ Ze noemt hem Simson.",
       },
       {
         kop: "De leeuw bij Timna",
@@ -3624,7 +3624,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Geboren in Bethlehem",
-        t: "Terwijl ze in Bethlehem zijn, wordt Maria’s eerstgeboren Zoon geboren. Ze wikkelt Hem in doeken en legt Hem in een kribbe, een voerbak voor dieren, omdat er voor hen geen plaats is in de herberg. Op de achtste dag krijgt het Kind de naam Jezus. Die naam had de engel al genoemd, aan Maria en later ook aan Jozef. Tegen Jozef zei de engel erbij waarom: ‘want Hij zal Zijn volk zalig maken van hun zonden’ (Mattheüs 1:21). Zalig maken betekent hier: redden.",
+        t: "Terwijl ze in Bethlehem zijn, wordt Maria’s eerstgeboren Zoon geboren. Ze wikkelt Hem in doeken en legt Hem in een kribbe, een voerbak voor dieren. Er is voor hen geen plaats in de herberg; het Kind wordt geboren op een plaats waar dieren staan. Op de achtste dag krijgt het Kind de naam Jezus. Die naam had de engel al genoemd. Tegen Jozef zei hij waarom: ‘want Hij zal Zijn volk zalig maken van hun zonden’ (Mattheüs 1:21). Zalig maken betekent hier: redden.",
       },
       {
         kop: "Zoals God beloofd had",
@@ -3697,7 +3697,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Wijzen zoeken een Koning",
         stap: "jezus-1:nt-geboorte:8",
-        t: "Wijzen uit het oosten, geleerde mannen die de sterren bestuderen, komen in Jeruzalem en vragen: ‘Waar is de geboren Koning der Joden?’ Ze hebben Zijn ster gezien. Koning Herodes schrikt. De schriftgeleerden zeggen: in Bethlehem, want dat heeft de profeet geschreven. Herodes stuurt de wijzen erheen en zegt dat hij het Kind ook wil aanbidden.",
+        t: "Enige tijd na de geboorte van de Heere Jezus komen wijzen uit het oosten in Jeruzalem: geleerde mannen die de sterren bestuderen. Ze vragen: ‘Waar is de geboren Koning der Joden?’ Ze hebben Zijn ster gezien. Koning Herodes schrikt. De schriftgeleerden zeggen: in Bethlehem, want dat heeft de profeet geschreven. Herodes stuurt de wijzen erheen en zegt dat hij het Kind ook wil aanbidden.",
       },
       {
         kop: "Goud, wierook en mirre",
@@ -5465,7 +5465,7 @@ BR.niveaus.voegToe("b", {
       },
       {
         kop: "Zie, uw moeder",
-        t: "Bij het kruis staan vrouwen, onder wie Zijn moeder en Maria Magdalena. Ook de discipel die Hij liefheeft, staat erbij. Tegen Zijn moeder zegt de Heere Jezus: ‘Vrouw, zie, uw zoon.’ En tegen de discipel: ‘Zie, uw moeder.’ Vanaf dat uur neemt die discipel haar in zijn huis.",
+        t: "Bij het kruis staan vrouwen, onder wie Zijn moeder en Maria Magdalena, en ook Johannes, de discipel die Hij liefheeft. Tegen Zijn moeder zegt de Heere Jezus: ‘Vrouw, zie, uw zoon.’ En tegen de discipel: ‘Zie, uw moeder.’ Vanaf dat uur neemt die discipel haar in zijn huis.",
       },
       {
         kop: "Het is volbracht",
@@ -6422,7 +6422,7 @@ BR.niveaus.voegToe("b", {
       {
         kop: "Een stem als een bazuin",
         stap: "openbaring:nt-openbaring:0",
-        t: "Johannes is op het eiland Patmos, ‘om het Woord Gods’. Op de dag des Heeren, de zondag, hoort hij een grote stem. Hij kijkt om en ziet zeven gouden kandelaren: standaards voor lampen. In het midden is Iemand als de Zoon des mensen. Johannes valt als dood neer. Maar Hij zegt: ‘Vrees niet; Ik ben de Eerste en de Laatste’.",
+        t: "De apostel Johannes is op het eiland Patmos, ‘om het Woord Gods’. Op de dag des Heeren, de zondag, hoort hij een grote stem. Hij kijkt om en ziet zeven gouden kandelaren: standaards voor lampen. In het midden is Iemand als de Zoon des mensen. Johannes valt als dood neer. Maar Hij zegt: ‘Vrees niet; Ik ben de Eerste en de Laatste’.",
       },
       {
         kop: "Zeven brieven",
