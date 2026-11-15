@@ -1020,7 +1020,7 @@ BR.mensen = {
     kort: "Man Gods in de dagen van Rehabeam. Door hem verbood de HEERE Juda en Benjamin om tegen hun broeders, de kinderen van Israël, te strijden.",
     elders: [["2 Kronieken 11:2–4", "Kronieken vertelt dezelfde boodschap."], ["2 Kronieken 12:5–7", "Als Sisak komt, zegt Semaja waarom; de koning en de oversten verootmoedigen zich."], ["2 Kronieken 12:15", "De geschiedenissen van Rehabeam staan geschreven in de woorden van Semaja, de profeet."]] },
   adoram: { n: "Adoram", boek: ["1koningen"],
-    kort: "Hij ging bij Rehabeam over de schatting (de verplichte arbeid). Toen Rehabeam hem naar het volk stuurde, stenigde heel Israël hem.",
+    kort: "Hij ging bij Rehabeam over de herendienst, het verplichte werk voor de koning (Statenvertaling: ‘de schatting’). Toen Rehabeam hem naar het volk stuurde, stenigde heel Israël hem.",
     dood: "1 Koningen 12:18", elders: [["2 Kronieken 10:18", "In Kronieken heet hij Hadoram."]] },
   abia_jerobeam: { n: "Abia", v: "jerobeam_1", boek: ["1koningen"],
     kort: "Zoon van Jerobeam. Hij werd ziek en stierf toen zijn moeder terugkwam van de profeet Ahia; alleen hij uit het huis van Jerobeam kwam in een graf.",
@@ -1038,7 +1038,7 @@ BR.mensen = {
     kort: "Zoon van Achab en Izebel, koning van Israël in Samaria; hij regeerde twaalf jaar. Bij Ramoth in Gilead raakte hij gewond, en bij Jizreël werd hij door Jehu gedood.",
     dood: "2 Koningen 9:24",
     elders: [["2 Koningen 3:1–3", "Hij deed wat kwaad was, ‘doch niet gelijk zijn vader en gelijk zijn moeder’: het beeld van Baäl deed hij weg."]],
-    vervolg: [["2 Koningen 8:28–29", "Bij Ramoth in Gilead verwonden de Syriërs hem; in Jizreël wil hij genezen."], ["2 Koningen 9:25–26", "Hij wordt neergelegd op het stuk land van Naboth, naar het woord van de HEERE."]],
+    vervolg: [["2 Koningen 8:28–29", "Bij Ramoth in Gilead verwonden de Syriërs hem; in Jizreël wil hij genezen."], ["2 Koningen 9:25–26", "Hij wordt op het stuk land van Naboth geworpen, naar het woord van de HEERE."]],
     basis: { v: ["b", "2 Koningen 3:1"], m: ["b", "2 Koningen 9:22"] } },
   jonadab: { n: "Jonadab", boek: ["2koningen"],
     kort: "Zoon van Rechab. Jehu nam hem mee op zijn wagen naar Samaria en ging met hem het huis van Baäl binnen.",
@@ -1048,7 +1048,7 @@ BR.mensen = {
   // Asa (2 Kronieken 14–16). Abia heet in Koningen Abiam; hij staat hier alleen als vader van Asa (boek: []).
   // Maächa heet ‘de moeder van den koning Asa’ (2 Kronieken 15:16), maar ook de moeder van Abia heet Maächa (1 Koningen 15:2):
   // veel uitleggers zien haar als grootmoeder. Daarom bewust geen m bij Asa.
-  // ‘Benhadad’, ‘Azarja’ en ‘Hanani’ bestaan al als naam van een ander (2 Koningen, Daniël, Ezra): deze drie hebben daarom een
+  // ‘Benhadad’ en ‘Hanani’ bestaan al als naam van een ander (2 Koningen, Ezra), en in Kronieken heten meer mannen Azaria: deze drie hebben daarom een
   // onderscheidende naam.
   abia_juda: { n: "Abia van Juda", v: "rehabeam", boek: [], kort: "Zoon van Rehabeam en vader van Asa; hij regeerde drie jaar in Jeruzalem. In het boek Koningen heet hij Abiam.",
     dood: "2 Kronieken 14:1", elders: [["2 Kronieken 13:1–2", "Hij wordt koning over Juda en regeert drie jaar."], ["1 Koningen 15:1–8", "Koningen noemt hem Abiam."], ["Mattheüs 1:7", "Hij staat in het geslachtsregister van de Heere Jezus."]],
@@ -1060,12 +1060,12 @@ BR.mensen = {
     elders: [["1 Koningen 15:9–24", "Ook Koningen vertelt over Asa: hij regeerde eenenveertig jaar in Jeruzalem."], ["Jeremia 41:9", "Bij Mizpa was nog lang een kuil ‘dien de koning Asa maakte vanwege Baësa’."], ["Mattheüs 1:7–8", "Hij staat in het geslachtsregister van de Heere Jezus."]],
     basis: { v: ["b", "2 Kronieken 14:1"] } },
   maacha_asa: { n: "Maächa", boek: ["2kronieken"],
-    kort: "‘De moeder van den koning Asa’. Asa zette haar af als koningin, omdat zij een afgodsbeeld had gemaakt. Ook de moeder van Abia, de vader van Asa, heet Maächa, een dochter van Abisalom; daarom denken veel uitleggers dat zij de grootmoeder van Asa was.",
+    kort: "‘De moeder van den koning Asa’. Asa zette haar af als koningin, omdat zij een afgodsbeeld had gemaakt. Ook de moeder van Abia, de vader van Asa, heet Maächa, een dochter van Abisalom; daarom denken veel uitleggers dat zij de grootmoeder van Asa was. Zo vertaalt ook de Herziene Statenvertaling.",
     elders: [["2 Kronieken 15:16", "Asa verbrandt haar afgodsbeeld bij de beek Kidron."], ["1 Koningen 15:2", "De moeder van Abiam heet Maächa, een dochter van Abisalom."], ["1 Koningen 15:10", "Zo heet ook de moeder van Asa."]] },
   zerah_cusjiet: { n: "Zerah", boek: ["2kronieken"],
     kort: "‘Zerah, de Moor’ (Herziene Statenvertaling: de Cusjiet). Hij kwam met een zeer groot leger tot Maresa; de HEERE versloeg zijn leger voor Asa en Juda. Meer vertelt de Bijbel niet over hem.",
     elders: [["2 Kronieken 14:9", "Hij komt met ‘een heir van duizend maal duizend, en driehonderd wagenen’."], ["2 Kronieken 16:8", "Hanani herinnert Asa aan ‘de Moren en de Libyers’."]] },
-  azarja_oded: { n: "Azarja (zoon van Oded)", boek: ["2kronieken"],
+  azarja_oded: { n: "Azaria (zoon van Oded)", boek: ["2kronieken"],
     kort: "Op hem kwam ‘de Geest Gods’. Hij ging Asa tegemoet en zei: ‘De HEERE is met ulieden, terwijl gij met Hem zijt’. De Bijbel noemt hem alleen in 2 Kronieken 15.",
     elders: [["2 Kronieken 15:1–7", "Zijn woord tot Asa, heel Juda en Benjamin."]] },
   baesa: { n: "Baësa", boek: ["2kronieken"],

@@ -671,17 +671,17 @@ Object.assign(BR.plaatsen, {
 Object.assign(BR.plaatsen, {
   sc_tirza: { n: "Tirza", ll: [32.2874, 35.3378], c: "v", s: "r", z: 8, t: "stad", d: "Stad in het bergland bij Sichem (Statenvertaling: Thirza). Hier kwam de vrouw van Jerobeam thuis toen haar zoon Abia stierf (1 Koningen 14:17). Later regeerden de koningen Baësa, Ela en Omri hier, totdat Omri Samaria bouwde (1 Koningen 15:33; 16:8; 16:23–24).",
     nu: "Tell el-Far’ah (Noord), Westelijke Jordaanoever", bron: "Tell el-Far’ah (Noord), ca. 10 km ten noordoosten van Sichem (OpenBible, score 834); geen serieuze tegenkandidaat." },
-  sc_zereda: { n: "Zereda", ll: [32.0464, 35.0972], c: "b", s: "t", z: 9, t: "stad", d: "Hier kwam Jerobeam vandaan, de zoon van Nebat (1 Koningen 11:26). Waar Zereda precies lag, is niet zeker; het wordt gezocht in het bergland van Efraïm.",
-    nu: "Mogelijk Deir Ghassaneh, Westelijke Jordaanoever", bron: "Betwist. Deir Ghassaneh (OpenBible, score 441) of de bron Ain Seridah, 3,7 km westelijker (score 203); verder alleen zwakke voorstellen.",
+  sc_zereda: { n: "Zereda", ll: [32.0464, 35.0972], c: "o", s: "t", z: 9, t: "stad", d: "Hier kwam Jerobeam vandaan, de zoon van Nebat (1 Koningen 11:26). Waar Zereda precies lag, is niet zeker; het wordt gezocht in het bergland van Efraïm.",
+    nu: "Mogelijk Deir Ghassaneh, Westelijke Jordaanoever", bron: "Onzeker. Meest genoemd: Deir Ghassaneh (OpenBible, score 441, onder de grens van 500); ook de bron Ain Seridah, 3,7 km westelijker, is voorgesteld (score 203). Verder alleen zwakke voorstellen; het punt is illustratief.",
     alt: [[32.046, 35.0578, "Ain Seridah"]] },
 });
 // Deel jehu
 Object.assign(BR.plaatsen, {
   jh_bethhaggan: { n: "Beth-Haggan", ll: [32.4608, 35.2987], c: "w", s: "r", z: 8.5, t: "stad", d: "In deze richting vluchtte koning Ahazia van Juda voor Jehu (2 Koningen 9:27). De Statenvertaling vertaalt de naam: ‘het huis des hofs’, het tuinhuis.",
     nu: "Jenin, Westelijke Jordaanoever", bron: "Tell Jenin (OpenBible, score 782); gangbare identificatie. De Statenvertaling leest hier geen plaatsnaam maar ‘het huis des hofs’." },
-  jh_jibleam: { n: "Jibleam", ll: [32.4462, 35.292], c: "v", s: "b", z: 8.5, t: "stad", d: "Stad van Manasse (Jozua 17:11). Vlakbij lag de opgang van Gur, waar Jehu koning Ahazia op zijn vlucht liet slaan (2 Koningen 9:27).",
-    nu: "Khirbet Belameh, bij Jenin (Westelijke Jordaanoever)", bron: "Khirbet Belameh (OpenBible, score 860); de naam bleef bewaard. De opgang van Gur wordt gezocht bij Khirbet en-Najjar, een halve kilometer verder (score 566), en staat niet apart op de kaart." },
-  jh_betheked: { n: "Beth-Eked", ll: [32.4697, 35.3563], c: "o", s: "r", z: 9, t: "put", d: "Plaats ‘op den weg’ van Jizreël naar Samaria. Hier kwam Jehu tweeënveertig broeders van koning Ahazia tegen; bij de put werden zij gedood (2 Koningen 10:12–14). Waar het lag, weten we niet zeker.",
+  jh_jibleam: { n: "Jibleam", ll: [32.4462, 35.292], c: "v", s: "b", z: 8.5, t: "stad", d: "Stad van Manasse (Jozua 17:11). Bij Jibleam was de opgang naar Gur (Herziene Statenvertaling: de weg omhoog naar Gur), waar Jehu koning Ahazia op zijn vlucht liet slaan (2 Koningen 9:27).",
+    nu: "Khirbet Belameh, bij Jenin (Westelijke Jordaanoever)", bron: "Khirbet Belameh (OpenBible, score 860); de naam bleef bewaard. De opgang naar Gur wordt gezocht bij Khirbet en-Najjar, een halve kilometer verder (score 566), en staat niet apart op de kaart." },
+  jh_betheked: { n: "Beth-Heked", ll: [32.4697, 35.3563], c: "o", s: "r", z: 9, t: "put", d: "Plaats ‘op den weg’ van Jizreël naar Samaria. Hier kwam Jehu tweeënveertig broeders van koning Ahazia tegen; bij de put werden zij gedood (2 Koningen 10:12–14). De Statenvertaling zegt: ‘Beth-heked der herderen’. Waar het lag, weten we niet zeker.",
     nu: "misschien Beit Qad, bij Jenin (Westelijke Jordaanoever)", bron: "Onzeker. Meest genoemd: Beit Qad, ruim 5 km ten oosten van Jenin (OpenBible, score 380); ook Kafr Rai is voorgesteld (score 190). Het punt is illustratief." },
   jh_basan: { n: "Basan", ll: [32.95, 36.1], c: "r", s: "r", z: 7.5, t: "gebied", d: "Hoogland ten oosten van het Meer van Galilea, eens het koninkrijk van Og (Deuteronomium 3:13). In de dagen van Jehu sloeg Hazaël Israël hier en in Gilead (2 Koningen 10:32–33).",
     nu: "Zuid-Syrië en de Golan", bron: "Gebied. Het label staat midden in het hoogland, op dezelfde plek als het streeklabel van de kaart; OpenBible legt zijn punt voor Bashan bij de stad Golan." },
@@ -703,8 +703,9 @@ Object.assign(BR.plaatsen, {
 // Tussenpunten voor het leger van Benhadad: van Damascus ten noorden van de Hermon langs en door het dal naar Ijon (reconstructie).
 Object.assign(BR.W, { as_wpas: [33.57, 35.95], as_wtaym: [33.42, 35.7] });
 // Deel hizkia-josia
-// 2 Kronieken 29–35 (Hizkia, Manasse en Josia). De stamgebieden staan niet als plaats in OpenBible: het zijn gebieden (c: "r"),
-// met het label tussen plaatsen die Jozua 16–19 bij die stam noemt. Verantwoording: docs/bijbelreis-reizen/werk/hizkia-josia.notities.md.
+// 2 Kronieken 29–35 (Hizkia, Manasse en Josia). De stamgebieden van dit deel zijn samengevoegd met die van het deel stammen
+// (st_efraim, st_manasse_west, st_zebulon, st_aser, st_naftali, st_simeon); hier staat alleen nog Karchemis.
+// Verantwoording: docs/bijbelreis-reizen/werk/hizkia-josia.notities.md en hizkia-josia.review.md.
 Object.assign(BR.plaatsen, {
   hj_karchemis: { n: "Karchemis", ll: [36.8297, 38.015], c: "v", s: "t", z: 5.5, t: "stad", d: "Stad aan de rivier de Eufraat (in de Statenvertaling: de Frath). Hierheen trok Necho, de koning van Egypte, toen Josia hem tegemoet ging (2 Kronieken 35:20). Later werd het leger van Necho hier verslagen door Nebukadnezar (Jeremia 46:2).",
     nu: "Karkamış/Jarabulus (grens Turkije–Syrië)", bron: "OpenBible: Carchemish = Jerablus (Jarabulus), score 880, punt op de tell; geen tegenkandidaat. Zelfde plek als het contextlabel karkemis en het tussenpunt karkw." },

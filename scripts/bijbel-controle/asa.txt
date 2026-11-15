@@ -71,7 +71,7 @@ Jeremia 41:3 | te Mizpa
 2 Kronieken 14:13 | want zij waren verbroken voor den HEERE en voor Zijn leger
 2 Kronieken 14:13 | zij droegen zeer veel roofs daarvan
 2 Kronieken 14:14 | zij sloegen alle steden rondom Gerar; want de verschrikking des HEEREN was over hen
-# --- Stap 3: Azarja gaat Asa tegemoet (14:15–15:7) ---
+# --- Stap 3: Azaria gaat Asa tegemoet (14:15–15:7) ---
 2 Kronieken 14:15 | schapen in menigte, en kemelen; en kwamen weder te Jeruzalem
 2 Kronieken 15:2 | Hoort mij, Asa, en gans Juda, en Benjamin
 2 Kronieken 15:2 | De HEERE is met ulieden, terwijl gij met Hem zijt; en zo gij Hem zoekt, Hij zal van u gevonden worden; maar zo gij Hem verlaat, Hij zal u verlaten
@@ -149,3 +149,10 @@ Psalm 33:18 | Ziet, des HEEREN oog is over degenen, die Hem vrezen
 2 Kronieken 16:4 | Ijon, en Dan, en Abel-maim
 1 Koningen 15:20 | Abel Beth-maacha
 2 Kronieken 16:6 | Geba en Mizpa
+# --- Tweede lezer (review): gewijzigde of aangescherpte beweringen ---
+2 Kronieken 15:1 | Azaria, den zoon van Oded
+2 Kronieken 15:16 | Maacha, de moeder van den koning Asa
+2 Kronieken 16:1 | In het zes en dertigste jaar van het koninkrijk van Asa
+1 Koningen 16:8 | In het zes en twintigste jaar van Asa.*werd Ela, de zoon van Baesa, koning over Israel
+1 Koningen 15:33 | In het derde jaar van Asa.*werd Baesa.*regeerde vier en twintig jaren
+2 Koningen 13:24 | Hazael, de koning van Syrie, stierf, en zijn zoon Benhadad werd koning
