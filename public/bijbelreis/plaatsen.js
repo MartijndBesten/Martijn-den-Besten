@@ -606,6 +606,29 @@ Object.assign(BR.W, {
 });
 //
 // [meer-reizen:nt-paulus3] plaatsen
+// Handelingen 18:23–20:38. Ligging volgens OpenBible.info Bible Geocoding Data (CC BY 4.0); sleutels beginnen met p3_.
+Object.assign(BR.plaatsen, {
+  p3_frygie: { n: "Frygië", ll: [39.0, 31.0], c: "r", s: "c", z: 5, t: "gebied", d: "Landstreek in het binnenland van Klein-Azië. Paulus trok erdoorheen en versterkte de discipelen (Handelingen 18:23). Op de Pinksterdag waren er ook Joden uit Frygië in Jeruzalem (Handelingen 2:10).",
+    nu: "Binnenland van West-Turkije", bron: "Gebied: de landstreek Phrygia (OpenBible 1000, punt in de streek). In de tijd van Paulus lag zij deels in de provincie Asia en deels in de provincie Galatië." },
+  p3_alexandrie: { n: "Alexandrië", ll: [31.1825, 29.8965], c: "v", s: "b", z: 5.5, t: "stad", d: "Grote havenstad in Egypte. Apollos was hier geboren (Handelingen 18:24). Ook de schepen waarmee Paulus later naar Italië voer, kwamen uit Alexandrië (Handelingen 27:6; 28:11).",
+    nu: "Alexandrië, Egypte", bron: "Alexandrië; de stad bleef bewoond en hield haar naam (OpenBible 1000)." },
+  p3_assus: { n: "Assus", ll: [39.4906, 26.3367], c: "v", s: "r", z: 8, t: "stad", d: "Havenstad ten zuiden van Troas. Paulus ging er te voet heen, en daar nam het schip hem aan boord (Handelingen 20:13–14).",
+    nu: "Behramkale, Turkije", bron: "Opgegraven stad Assos (OpenBible 1000, punt in de zichtbare resten)." },
+  p3_mitylene: { n: "Mitylene", ll: [39.1105, 26.547], c: "v", s: "l", z: 7.5, t: "stad", d: "Havenstad op het eiland Lesbos. Het schip van Paulus kwam hier na Assus (Handelingen 20:14).",
+    nu: "Mytilini (Lesbos), Griekenland", bron: "Mytilini; de stad bleef bewoond en hield haar naam (OpenBible 1000, punt bij het antieke theater)." },
+  p3_chios: { n: "Chios", ll: [38.3725, 26.1375], c: "v", s: "l", z: 7.5, t: "gebied", d: "Eiland voor de kust van Asia. Het schip van Paulus kwam ‘tegen Chios over’, dus tegenover het eiland (Handelingen 20:15).",
+    nu: "Chios, Griekenland", bron: "Eiland Chios; naam bleef in gebruik (OpenBible 1000, punt op de stad Chios aan de oostkust)." },
+  p3_samos: { n: "Samos", ll: [37.75, 26.8333], c: "v", s: "l", z: 7.5, t: "gebied", d: "Eiland vlak voor de kust van Asia. Het schip van Paulus legde hier aan, een dag voordat het in Milete kwam (Handelingen 20:15).",
+    nu: "Samos, Griekenland", bron: "Eiland Samos; naam bleef in gebruik (OpenBible 1000, punt op het eiland). Welke haven het schip aandeed, zegt de tekst niet." },
+  p3_trogyllium: { n: "Trogyllium", ll: [37.6594, 27.0033], c: "w", s: "r", z: 8.5, t: "berg", d: "Kaap aan het vasteland, tegenover Samos. Na Samos bleef het schip hier, en de dag daarna kwam het in Milete (Handelingen 20:15; Statenvertaling: Trogyllion).",
+    nu: "Kaap van Mykale (schiereiland Dilek), Turkije", bron: "Kaap Trogilium aan het voorgebergte Mykale (OpenBible 1000, maar alleen een punt in de streek); de ankerplaats zelf is niet bekend, daarom waarschijnlijk. De woorden over Trogyllium ontbreken in een deel van de oude handschriften; de Statenvertaling en de HSV hebben ze." },
+});
+// Tussenpunten: zee voor Efeze, ten noorden van Samos en in de straat van Chios; de weg door Macedonië en Griekenland (reconstructie).
+Object.assign(BR.W, {
+  p3_zee_efeze: [37.96, 27.2], p3_zee_samos: [37.9, 26.75], p3_zee_chios: [38.37, 26.24],
+  p3_weg_amfipolis: [40.82, 23.85], p3_weg_apollonia: [40.68, 23.5], p3_weg_golf: [40.72, 22.75], p3_weg_pieria: [40.27, 22.5], p3_weg_tempe: [39.88, 22.6],
+  p3_weg_thessalie: [39.64, 22.42], p3_weg_thermopylae: [38.9, 22.45], p3_weg_boeotie: [38.32, 23.32], p3_weg_megara: [38.0, 23.34], p3_weg_isthmus: [37.93, 23.0],
+});
 //
 // [meer-reizen:nt-samaria-nain] plaatsen
 //
