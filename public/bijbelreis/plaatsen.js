@@ -831,3 +831,12 @@ Object.assign(BR.W, {
   br_kreta1: [35.55, 24.7], br_kreta2: [35.78, 23.95], br_kreta3: [35.76, 23.45], br_malea: [36.2, 22.3], br_methone: [36.55, 21.45], br_ion4: [37.3, 21.2],
   br_ion5: [37.6, 20.4], br_ion6: [38.2, 20.2], br_ion7: [38.75, 20.4], br_ion8: [38.98, 20.6],
 });
+
+// Kerst C (inhoud/kerst-3.js): de wijzen, Egypte en Nazareth. Coördinaten uit OpenBible.info Bible Geocoding Data (CC BY 4.0).
+// kc_rama ligt op hetzelfde punt als rama, maar zonder de alternatieven die bij het Rama van Samuël horen: Jeremia 31:15 en
+// Mattheüs 2:18 bedoelen Rama in Benjamin (zoals babel en babelst hetzelfde punt delen).
+Object.assign(BR.plaatsen, {
+  kc_rama: { n: "Rama", ll: [31.8543, 35.2316], c: "w", s: "l", z: 8.5, t: "stad",
+    d: "Stad in het gebied van Benjamin (Jozua 18:25), ten noorden van Jeruzalem. Jeremia schreef: ‘Er is een stem gehoord in Rama, een klage, een zeer bitter geween; Rachel weent over haar kinderen’ (Jeremia 31:15). Mattheüs haalt dat woord aan bij de kinderen van Bethlehem (Mattheüs 2:17–18).",
+    nu: "ar-Ram, ten noorden van Jeruzalem", bron: "OpenBible Ramah 1 (Jeremia 31:15; Mattheüs 2:18): Er Ram, score 723; zelfde punt als rama." },
+});

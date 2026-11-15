@@ -65,7 +65,9 @@ const GROEPEN = new Set(["Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen"
   "Syro-Fenicische vrouw", "Dove man", "Blinde man",
   "Man Gods",
   // Wie-lijst Handelingen: één item over drie verschillende mannen met de naam Ananias (5:1, 9:10, 23:2).
-  "Drie mannen Ananias"]);
+  "Drie mannen Ananias",
+  // Kerst C (inhoud/kerst-3.js): Mattheüs 2:4 en Lukas 2:46. Moeten ook in GROUPS in app.js.
+  "Schriftgeleerden", "Leraren"]);
 const ROLLEN = new Set(["Farao", "Bakker", "Farao’s dochter", "Knecht", "Schenker", "Losser", "De andere losser", "Wapendrager", "Koningin",
   "De koningin van Scheba", "Koning", "Weduwe", "Zoon", "Jongen", "Engel", "Meisje", "Het meisje uit Israël", "Sunamitische", "De Sunamitische",
   // Nieuwe Testament (versie 3.0). ‘Discipel’ is de discipel die Jezus liefhad (of de tweede Emmaüsganger): niet invullen.
@@ -112,6 +114,8 @@ const VERWACHT = {
   "openbaring|Johannes": "johannes_patmos", "jezus-1|Jakobus": "jakobus", "jezus-2|Jakobus": "jakobus", "jezus-3|Jakobus": "jakobus",
   "jezus-1|Filippus": "filippus", "jezus-2|Filippus": "filippus", "handelingen|Filippus": "filippus_evangelist",
   "handelingen|Ananias": "ananias", "handelingen:wie|Ananias": null, "jezus-2|Lazarus": "lazarus", "1samuel|Eli": "eli",
+  // Kerst C (inhoud/kerst-3.js)
+  "kerst|Jozef": "jozef_nt", "kerst|Maria": "maria", "kerst|Herodes": "herodes",
 };
 // Bekende inhoudsfouten die alleen buiten personen.js op te lossen zijn (inhoud of geschiedenissen). Ze staan hier met de
 // koppeling die de app nu geeft; verandert die, dan meldt de check dat de lijst bijgewerkt moet worden. Met --streng: fout.

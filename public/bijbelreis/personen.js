@@ -706,20 +706,20 @@ BR.mensen = {
   // ---------- Het Nieuwe Testament (versie 3.0) ----------
   // De Heere Jezus: geen vader (v). De Bijbel noemt Hem de Zoon van God (Lukas 1:35); Maria is Zijn moeder (m), Jozef haar man
   // (Mattheüs 1:18–25; ‘alzo men meende’ de zoon van Jozef, Lukas 3:23). Geen afbeelding.
-  jezus: { n: "Jezus", alias: ["De Heere Jezus", "De Zoon des mensen"], m: "maria", boek: ["jezus-1", "jezus-2", "jezus-3", "openbaring"],
+  jezus: { n: "Jezus", alias: ["De Heere Jezus", "De Zoon des mensen"], m: "maria", boek: ["jezus-1", "jezus-2", "jezus-3", "openbaring", "kerst"],
     kort: "De Zoon van God (Lukas 1:35). Maria, de ondertrouwde vrouw van Jozef, werd zwanger uit de Heilige Geest; Jozef gaf Hem de naam Jezus, ‘want Hij zal Zijn volk zalig maken van hun zonden’ (Mattheüs 1:18–25).",
     geb: "Lukas 2:6–7", dood: "Johannes 19:30", leeftijd: [[12, "Lukas 2:42"]],
     elders: [["Johannes 1:14", "‘Het Woord is vlees geworden, en heeft onder ons gewoond.’"], ["Lukas 3:23", "Toen Hij begon, was Hij omtrent dertig jaar; men meende dat Hij de zoon van Jozef was."], ["Mattheüs 16:16", "Petrus belijdt: ‘Gij zijt de Christus, de Zoon des levenden Gods.’"], ["Johannes 14:6", "‘Ik ben de Weg, en de Waarheid, en het Leven.’"]],
     vervolg: [["Mattheüs 28:6", "‘Hij is hier niet; want Hij is opgestaan, gelijk Hij gezegd heeft.’"], ["Handelingen 1:9", "Hij werd opgenomen, en een wolk nam Hem weg van hun ogen."], ["Openbaring 1:17–18", "‘Ik ben de Eerste en de Laatste … Ik ben levend in alle eeuwigheid.’"]],
     basis: { m: ["b", "Mattheüs 1:16"] } },
-  maria: { n: "Maria", p: ["jozef_nt"], boek: ["jezus-1", "jezus-3"],
+  maria: { n: "Maria", p: ["jozef_nt"], boek: ["jezus-1", "jezus-3", "kerst"],
     kort: "Een maagd uit Nazareth, ondertrouwd met Jozef uit het huis van David; de moeder van de Heere Jezus. Tegen de engel zei ze: ‘Zie, de dienstmaagd des Heeren; mij geschiede naar uw woord.’",
     elders: [["Lukas 1:46–47", "Haar lofzang: ‘Mijn ziel maakt groot den Heere.’"], ["Lukas 1:36", "Elisabeth was haar nicht."], ["Johannes 2:5", "Op de bruiloft in Kana: ‘Zo wat Hij ulieden zal zeggen, doet dat.’"]],
     vervolg: [["Johannes 19:25–27", "Zij staat bij het kruis; de Heere Jezus vertrouwt haar toe aan de discipel die Hij liefhad."], ["Handelingen 1:14", "Na de hemelvaart bidt zij met de apostelen in Jeruzalem."]],
     basis: { p: { jozef_nt: ["b", "Mattheüs 1:16"] } } },
   // Mattheüs 1:16 ‘Jakob gewon Jozef’; Lukas 3:23 ‘de zoon van Jozef, den zoon van Heli’ (SV-spelling Heli). Twee
   // geslachtsregisters; de Bijbel legt niet uit hoe ze samenhangen. Daarom geen v en geen keuze.
-  jozef_nt: { n: "Jozef", p: ["maria"], boek: ["jezus-1"],
+  jozef_nt: { n: "Jozef", p: ["maria"], boek: ["jezus-1", "kerst"],
     kort: "De man van Maria, een rechtvaardig man uit het huis van David. Niet dezelfde als Jozef uit Genesis. Mattheüs noemt Jakob als zijn vader (Mattheüs 1:16); in het geslachtsregister van Lukas staat na Jozef ‘den zoon van Heli’ (Lukas 3:23). Hoe die twee geslachtsregisters samenhangen, zegt de Bijbel niet.",
     elders: [["Mattheüs 1:16", "‘En Jakob gewon Jozef, den man van Maria, uit welke geboren is JEZUS, gezegd Christus.’"], ["Lukas 3:23", "‘zijnde (alzo men meende) de zoon van Jozef, den zoon van Heli’."], ["Mattheüs 1:19–24", "Hij deed wat de engel van de Heere hem in een droom bevolen had."], ["Mattheüs 2:13–14", "Gewaarschuwd in een droom vlucht hij met het Kind en Zijn moeder naar Egypte."], ["Mattheüs 2:19–23", "Na de dood van Herodes gaat hij terug en woont in Nazareth."]],
     basis: { p: { maria: ["b", "Mattheüs 1:16"] } } },
@@ -747,7 +747,7 @@ BR.mensen = {
     kort: "Een profetes, dochter van Fanuël, uit de stam van Aser. Ze ging niet weg uit de tempel en diende God met vasten en bidden, nacht en dag.",
     elders: [["Lukas 2:38", "Ze sprak over het Kind tot allen die de verlossing in Jeruzalem verwachtten."]] },
   // Drie koningen Herodes: Mattheüs 2 (stierf, 2:19), de viervorst (Lukas 3:1) en die van Handelingen 12.
-  herodes: { n: "Herodes", boek: ["jezus-1"],
+  herodes: { n: "Herodes", boek: ["jezus-1", "kerst"],
     kort: "Koning van Judea toen de Heere Jezus geboren werd. Hij liet in Bethlehem de kinderen van twee jaar en jonger doden. Historici noemen hem Herodes de Grote.",
     dood: "Mattheüs 2:19", elders: [["Lukas 1:5", "Zacharias leefde ‘in de dagen van Herodes, den koning van Judea’."], ["Mattheüs 2:16", "De kinderen in Bethlehem."]],
     vervolg: [["Mattheüs 2:22", "Na hem werd zijn zoon Archelaüs koning in Judea."]] },
@@ -1125,4 +1125,10 @@ BR.mensen = {
   filemon: { n: "Filemon", boek: ["brieven"],
     kort: "Paulus schrijft hem een korte brief en noemt hem ‘den geliefde, en onzen medearbeider’. In zijn huis komt een gemeente samen. Paulus vraagt hem Onesimus weer aan te nemen.",
     elders: [["Filemon 1:1–2", "De brief is gericht aan Filemon, Appia, Archippus en de gemeente in zijn huis."], ["Filemon 1:7", "Door hem zijn de heiligen verkwikt."], ["Filemon 1:17", "‘Zo neem hem aan, gelijk als mij.’"], ["Filemon 1:22", "Paulus hoopt bij hem te komen: ‘bereid mij ook tegelijk een herberg’."]] },
+  // Kerst C (inhoud/kerst-3.js)
+  // Archelaüs: alleen Mattheüs 2:22. Dat hij een zoon van Herodes was, staat er letterlijk (‘zijn vader Herodes’).
+  archelaus: { n: "Archelaüs", v: "herodes", boek: ["kerst"],
+    kort: "Zoon van koning Herodes. Na de dood van zijn vader was hij koning in Judea. Daarom was Jozef bang om daar te gaan wonen, en hij ging naar Galilea, naar Nazareth. De Bijbel noemt hem één keer.",
+    elders: [["Mattheüs 2:22", "‘Maar als hij hoorde, dat Archelaüs in Judea koning was, in de plaats van zijn vader Herodes, vreesde hij daarheen te gaan’."]],
+    basis: { v: ["b", "Mattheüs 2:22"] } },
 };

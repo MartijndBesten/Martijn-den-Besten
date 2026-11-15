@@ -46,6 +46,8 @@ BR.dateringen = {
     "jozua:stammen": ["bijbel", true],
     "2samuel:davids-rijk": ["historie", true],
     "brieven:brieven": ["historie", true], // brieven zonder jaartal; ijkpunten: Gallio (Handelingen 18:12) en de overlevering over Nero
+    "kerst:kerst-wijzen": ["historie", true], // vóór en na de dood van Herodes de Grote (ca. 4 v.Chr. volgens Josephus; sommigen later)
+    "kerst:kerst-twaalf": ["historie", true], // twaalf jaar na de geboorte (Lukas 2:42)
   },
   // Geschiedenissen per reeks: [van, tot, soort, onzeker?]
   verhalen: [
