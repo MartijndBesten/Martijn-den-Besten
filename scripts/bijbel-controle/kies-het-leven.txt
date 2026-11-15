@@ -1,0 +1,46 @@
+# Controle deel Kies dan het leven (public/bijbelreis/inhoud/numeri.js, deel kies-het-leven): ref | regex (Statenvertaling, hoofdletterongevoelig)
+# --- deel: tijdNoot, stat, cross
+Deuteronomium 1:3 | in het veertigste jaar, in de elfde maand
+Deuteronomium 30:11 | hetwelk ik u heden gebiede
+Deuteronomium 30:15 | ik heb u heden voorgesteld
+Deuteronomium 30:16 | Want ik gebiede u heden
+Deuteronomium 30:18 | Zo verkondig ik ulieden heden
+Deuteronomium 30:19 | Ik neem heden tegen ulieden tot getuigen
+Romeinen 10:6-8 | Wie zal in den hemel opklimmen.*Nabij u is het Woord, in uw mond en in uw hart. Dit is het Woord des geloofs, hetwelk wij prediken
+Deuteronomium 6:5 | Zo zult gij den HEERE, uw God, liefhebben, met uw ganse hart, en met uw ganse ziel, en met al uw vermogen
+Deuteronomium 4:26 | den hemel en de aarde tot getuige.*voorzeker haast zult omkomen.*over de Jordaan
+Jozua 24:15 | kiest u heden, wien gij dienen zult.*maar aangaande mij, en mijn huis, wij zullen den HEERE dienen
+Jozua 24:1 | Sichem
+Jeremia 21:8 | Ziet, Ik stel voor ulieder aangezicht den weg des levens en den weg des doods
+Deuteronomium 29:1 | woorden des verbonds.*in het land van Moab, boven het verbond, dat Hij met hen gemaakt had aan Horeb
+# --- stap 0: Deuteronomium 29:1
+Deuteronomium 1:5 | Aan deze zijde van de Jordaan, in het land van Moab
+Deuteronomium 1:1 | tot gans Israël gesproken
+Numeri 33:48 | in de vlakke velden der Moabieten, aan de Jordaan van Jericho
+Numeri 33:49 | Beth-jesimoth, tot aan Abel-sittim
+# --- stap 1: 30:11–14
+Deuteronomium 30:11 | dat is van u niet verborgen, en dat is niet verre
+Deuteronomium 30:12 | Het is niet in den hemel.*Wie zal voor ons ten hemel varen, dat hij het voor ons hale
+Deuteronomium 30:13 | niet op gene zijde der zee.*overvaren
+Deuteronomium 30:14 | Want dit woord is zeer nabij u, in uw mond, en in uw hart, om dat te doen
+# --- stap 2: 30:15–16
+Deuteronomium 30:15 | Ziet, ik heb u heden voorgesteld het leven, en het goede, en den dood, en het kwade
+Deuteronomium 30:16 | den HEERE, uw God, lief te hebben, in Zijn wegen te wandelen, en te houden Zijn geboden, en Zijn inzettingen, en Zijn rechten, opdat gij levet en vermenigvuldiget, en de HEERE, uw God, u zegene in het land, waar gij naar toe gaat
+# --- stap 3: 30:17–18
+Deuteronomium 30:17 | indien uw hart zich zal afwenden, en gij niet horen zult, en gij gedreven zult worden, dat gij u voor andere goden buigt, en dezelve dient
+Deuteronomium 30:18 | voorzeker zult omkomen; gij zult de dagen niet verlengen op het land, naar hetwelk gij over de Jordaan zijt heengaande
+# --- stap 4: 30:19
+Deuteronomium 30:19 | tot getuigen den hemel en de aarde; het leven en den dood heb ik u voorgesteld, den zegen en den vloek! Kiest dan het leven, opdat gij levet, gij en uw zaad
+# --- stap 5: 30:20
+Deuteronomium 30:20 | Liefhebbende den HEERE, uw God, Zijner stem gehoorzaam zijnde, en Hem aanhangende; want Hij is uw leven en de lengte uwer dagen
+Deuteronomium 30:20 | Abraham, Izak en Jakob, gezworen heeft hun te zullen geven
+Genesis 15:18 | Aan uw zaad heb Ik dit land gegeven
+Genesis 26:3 | want aan u en uw zaad zal Ik al deze landen geven, en Ik zal den eed bevestigen, dien Ik Abraham uw vader gezworen heb
+Genesis 28:13 | dit land, waarop gij ligt te slapen, zal Ik aan u geven, en aan uw zaad
+# --- stap 6: 31:1–8
+Deuteronomium 31:1 | Daarna ging Mozes heen, en sprak deze woorden tot gans Israël
+Deuteronomium 31:2 | honderd en twintig jaren oud.*Gij zult over deze Jordaan niet gaan
+Deuteronomium 31:3 | De HEERE, uw God, Die zal voor uw aangezicht overgaan.*Jozua zal voor uw aangezicht overgaan
+Deuteronomium 31:7 | Wees sterk en heb goeden moed
+Deuteronomium 34:1 | naar den berg Nebo
+Deuteronomium 34:5 | Alzo stierf Mozes.*in het land van Moab

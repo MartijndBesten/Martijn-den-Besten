@@ -1076,3 +1076,19 @@ test("verhuizing: het oude adres geeft de voortgang mee, het nieuwe adres voegt 
   await expect(page.locator("#sTitle")).toHaveText("4. Een tent bij Bethel");
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem("bijbelreis:gezien") || "[]"))).not.toContain("exodus:mozes:2");
 });
+
+test("Deuteronomium 30:11–20: ‘Kies dan het leven’ als eigen reis in de velden van Moab", async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto("/bijbelreis#kies-het-leven");
+  await expect(page.locator("#p-reis")).toContainText("Kies dan het leven");
+  await expect(page.locator("#p-reis")).toContainText("Deuteronomium 30:11–20");
+  await page.goto("/bijbelreis#kies-het-leven/5");
+  await expect(page.locator("#sTitle")).toHaveText("5. Kies dan het leven");
+  await expect(page.locator("#sText")).toContainText("Kiest dan het leven, opdat gij levet, gij en uw zaad");
+  await expect(page.locator("#p-reis")).toContainText("Lees in je Bijbel: Deuteronomium 30:19");
+  await expect(page.locator("#map .plaats .lab", { hasText: "Sittim" })).toHaveCount(1);
+  // Het bestaande deel ‘In Moab’ houdt zijn eigen stappen.
+  await page.goto("/bijbelreis#moab/4");
+  await expect(page.locator("#sTitle")).toHaveText("4. De afscheidstoespraken");
+  expect(errors).toEqual([]);
+});
