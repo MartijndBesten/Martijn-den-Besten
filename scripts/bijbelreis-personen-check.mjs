@@ -71,6 +71,7 @@ const GROEPEN = new Set(["Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen"
   // [meer-reizen:ehud-jefta] groepen
   //
   // [meer-reizen:scheuring] groepen
+  "Man Gods",
   //
   // [meer-reizen:jehu] groepen
   //

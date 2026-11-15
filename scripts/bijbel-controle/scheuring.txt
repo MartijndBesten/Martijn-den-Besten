@@ -1,0 +1,169 @@
+# Controle voor het deel "scheuring" in public/bijbelreis/inhoud/1koningen.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+1 Koningen 12:21 | honderd en tachtig duizend uitgelezenen
+1 Koningen 12:22 | Semaja, den man Gods
+1 Koningen 12:24 | Gij zult niet optrekken, noch strijden tegen uw broederen
+1 Koningen 12:24 | keerden weder
+1 Koningen 13:1 | een man Gods kwam uit Juda.*tot Beth-el
+1 Koningen 13:2 | riep tegen het altaar.*wiens naam zal zijn Josia
+1 Koningen 13:19 | keerde met hem wederom, en at brood in zijn huis
+1 Koningen 13:21 | niet gehouden hebt het gebod, dat u de HEERE, uw God, geboden had
+1 Koningen 13:24 | een leeuw vond hem op den weg, en doodde hem
+1 Koningen 14:1 | Abia, de zoon van Jerobeam, krank
+1 Koningen 14:3 | dezen jongen
+1 Koningen 14:12 | zo zal het kind sterven
+1 Koningen 14:13 | deze alleen van Jerobeam zal in het graf komen, omdat in hem wat goeds voor den HEERE, den God Israels, in het huis van Jerobeam gevonden is
+1 Koningen 11:40 | zocht Salomo Jerobeam te doden.*vlood in Egypte, tot Sisak, den koning van Egypte
+1 Koningen 14:25 | vijfde jaar van den koning Rehabeam.*Sisak, de koning van Egypte, optoog tegen Jeruzalem
+1 Koningen 14:26 | schatten.*al de gouden schilden weg, die Salomo gemaakt had
+# --- Deel: datering, intro, weetje en verwijzingen ---
+1 Koningen 14:21 | regeerde zeventien jaren te Jeruzalem
+1 Koningen 14:20 | twee en twintig jaren
+1 Koningen 14:25 | in het vijfde jaar van den koning Rehabeam
+1 Koningen 11:43 | ontsliep Salomo.*Rehabeam, zijn zoon, werd koning
+1 Koningen 11:30 | scheurde het, in twaalf stukken
+1 Koningen 12:1 | Rehabeam toog naar Sichem
+1 Koningen 12:13 | antwoordde het volk hardelijk
+1 Koningen 12:20 | hem over gans Israel koning maakten
+1 Koningen 12:28 | twee gouden kalveren.*Het is ulieden te veel om op te gaan naar Jeruzalem
+1 Koningen 12:29 | het ene te Beth-el, en het andere stelde hij te Dan
+1 Koningen 13:33 | keerde zich Jerobeam niet van zijn bozen weg
+1 Koningen 10:16 | tweehonderd rondassen van geslagen goud
+1 Koningen 10:17 | driehonderd schilden van geslagen goud
+1 Koningen 14:26 | hij nam ook al de gouden schilden weg, die Salomo gemaakt had
+1 Koningen 14:27 | maakte, in plaats van die, koperen schilden
+2 Kronieken 10:1 | Rehabeam toog naar Sichem
+2 Kronieken 11:2 | Semaja, den man Gods
+2 Kronieken 12:2 | Sisak, de koning van Egypte, tegen Jeruzalem optoog
+Exodus 32:4 | gegoten kalf.*Dit zijn uw goden, Israel! die u uit Egypteland opgevoerd hebben
+1 Koningen 12:28 | zie uw goden, o Israel, die u uit Egypteland opgebracht hebben
+2 Koningen 23:15 | het altaar, dat te Beth-el was.*brak hij af
+2 Koningen 23:16 | Josia.*nam de beenderen uit de graven, en verbrandde ze op dat altaar.*naar het woord des HEEREN, dat de man Gods uitgeroepen had
+2 Koningen 23:17 | het graf van den man Gods, die uit Juda kwam
+2 Koningen 23:18 | Laat hem liggen, dat niemand zijn beenderen verroere
+1 Koningen 15:27 | Baesa.*sloeg hem
+1 Koningen 15:28 | Baesa doodde hem
+1 Koningen 15:25 | Nadab nu, de zoon van Jerobeam
+1 Koningen 15:29 | het ganse huis van Jerobeam sloeg; hij liet niets over.*door den dienst van Zijn knecht Ahia, den Siloniet
+2 Koningen 17:22 | wandelden de kinderen Israels in alle zonden van Jerobeam
+2 Koningen 17:23 | weggevoerd uit zijn land naar Assyrie
+Mattheüs 1:7 | Salomon gewon Roboam
+# --- Stap 0: 1 Koningen 11:26–39 ---
+1 Koningen 11:26 | Jerobeam, de zoon van Nebat, een Efrathiet van Zereda, Salomo.?s knecht
+1 Koningen 11:28 | dat hij arbeidzaam was, zo stelde hij hem over al den last van het huis van Jozef
+1 Koningen 11:29 | als Jerobeam uit Jeruzalem uitging, dat de profeet Ahia, de Siloniet, hem op den weg vond.*nieuw kleed aangedaan.*beiden alleen op het veld
+1 Koningen 11:30 | vatte Ahia het nieuwe kleed, dat aan hem was, en scheurde het, in twaalf stukken
+1 Koningen 11:31 | Neem u tien stukken; want alzo zegt de HEERE.*Ik zal het koninkrijk van de hand van Salomo scheuren, en u tien stammen geven
+1 Koningen 11:32 | een stam zal hij hebben, om Mijns knechts Davids wil, en om Jeruzalems wil
+1 Koningen 11:33 | Daarom dat zij Mij verlaten, en zich nedergebogen hebben voor Astoreth, den god der Sidoniers, Kamos, den god der Moabieten, en Milchom, den god der kinderen Ammons
+1 Koningen 11:34 | niets van dit koninkrijk zal Ik uit zijn hand nemen
+1 Koningen 11:35 | uit de hand zijns zoons zal Ik het koninkrijk nemen
+1 Koningen 11:36 | zijn zoon zal Ik een stam geven
+1 Koningen 11:38 | doen wat recht in Mijn ogen is.*gelijk als Mijn knecht David gedaan heeft; dat Ik met u zal zijn
+1 Koningen 12:21 | het ganse huis van Juda en den stam van Benjamin
+# --- Stap 1: 1 Koningen 11:40–43 ---
+1 Koningen 11:40 | was in Egypte, totdat Salomo stierf
+1 Koningen 11:42 | te Jeruzalem over het ganse Israel regeerde, was veertig jaar
+1 Koningen 11:43 | begraven in de stad van zijn vader David; en Rehabeam, zijn zoon, werd koning in zijn plaats
+# --- Stap 2: 1 Koningen 12:1–15 ---
+1 Koningen 12:1 | het ganse Israel was te Sichem gekomen, om hem koning te maken
+1 Koningen 12:2 | daar hij nog in Egypte was
+1 Koningen 12:3 | lieten hem roepen; en Jerobeam en de ganse gemeente van Israel kwamen en spraken tot Rehabeam
+1 Koningen 12:4 | Uw vader heeft ons juk hard gemaakt.*zwaar juk.*lichter, en wij zullen u dienen
+1 Koningen 12:5 | Gaat heen tot aan den derden dag, komt dan weder tot mij
+1 Koningen 12:6 | oudsten, die gestaan hadden voor het aangezicht van zijn vader Salomo
+1 Koningen 12:7 | knecht van dit volk wezen zult, en hen dienen.*goede woorden spreken zult, zo zullen zij te allen dage uw knechten zijn
+1 Koningen 12:8 | verliet den raad der oudsten.*hield raad met de jongelingen, die met hem opgewassen waren
+1 Koningen 12:12 | op den derden dag
+1 Koningen 12:13 | de koning antwoordde het volk hardelijk
+1 Koningen 12:14 | naar den raad der jongelingen.*Mijn vader heeft uw juk zwaar gemaakt, maar ik zal boven uw juk nog daartoe doen; mijn vader heeft u met geselen gekastijd, maar ik zal u met schorpioenen kastijden
+1 Koningen 12:15 | hoorde de koning naar het volk niet; want deze omwending was van den HEERE, opdat Hij Zijn woord bevestigde.*Ahia, den Siloniet, gesproken had tot Jerobeam
+# --- Stap 3: 1 Koningen 12:16–24 ---
+1 Koningen 12:16 | Wat deel hebben wij aan David\?.*naar uw tenten, o Israel!.*Zo ging Israel naar zijn tenten
+1 Koningen 12:18 | zond de koning Rehabeam Adoram, die over de schatting was; en het ganse Israel stenigde hem met stenen, dat hij stierf.*op een wagen te klimmen, dat hij naar Jeruzalem vluchtte
+1 Koningen 12:20 | hem over gans Israel koning maakten; niemand volgde het huis Davids, dan de stam van Juda alleen
+1 Koningen 12:21 | te Jeruzalem gekomen was.*huis van Juda en den stam van Benjamin, honderd en tachtig duizend uitgelezenen.*opdat hij het koninkrijk weder aan Rehabeam
+1 Koningen 12:22 | het woord van God geschiedde tot Semaja, den man Gods
+1 Koningen 12:24 | Gij zult niet optrekken, noch strijden tegen uw broederen, de kinderen Israels; een ieder kere weder tot zijn huis, want deze zaak is van Mij geschied. En zij hoorden het woord des HEEREN, en keerden weder
+2 Samuël 20:1 | Seba.*Wij hebben geen deel aan David
+# --- Stap 4: 1 Koningen 12:25–33 ---
+1 Koningen 12:25 | Jerobeam nu bouwde Sichem op het gebergte van Efraim, en woonde daarin, en toog van daar uit, en bouwde Penuel
+1 Koningen 12:26 | Jerobeam zeide in zijn hart
+1 Koningen 12:27 | offeranden te doen in het huis des HEEREN te Jeruzalem, zo zal het hart dezes volks.*tot Rehabeam.*zij zullen mij doden
+1 Koningen 12:30 | En deze zaak werd tot zonde
+1 Koningen 12:31 | priesteren.*die niet waren uit de zonen van Levi
+1 Koningen 12:32 | een feest in de achtste maand, op den vijftienden dag der maand, gelijk het feest, dat in Juda was
+1 Koningen 12:33 | offerde op het altaar, dat hij te Beth-el gemaakt had.*dewelke hij uit zijn hart verdacht had
+Leviticus 23:34 | Op den vijftienden dag van deze zevende maand zal het feest der loofhutten
+# --- Stap 5: 1 Koningen 13:1–10 ---
+1 Koningen 13:1 | een man Gods kwam uit Juda, door het woord des HEEREN tot Beth-el; en Jerobeam stond bij het altaar, om te roken
+1 Koningen 13:2 | Altaar, altaar, zo zegt de HEERE: Zie, een zoon zal aan het huis Davids geboren worden, wiens naam zal zijn Josia; die zal op u offeren de priesters der hoogten
+1 Koningen 13:3 | wonderteken.*het altaar zal vaneen gescheurd, en de as, die daarop is, afgestort worden
+1 Koningen 13:4 | Jerobeam zijn hand van op het altaar uitstrekte, zeggende: Grijpt hem! Maar zijn hand.*verdorde, dat hij ze niet weder tot zich trekken kon
+1 Koningen 13:5 | het altaar werd vaneen gescheurd, en de as van het altaar afgestort
+1 Koningen 13:6 | bid voor mij.*Toen bad de man Gods.*de hand des konings kwam weder tot hem, en werd gelijk te voren
+1 Koningen 13:7 | Kom met mij naar huis
+1 Koningen 13:8 | zo zou ik niet met u gaan
+1 Koningen 13:9 | Gij zult geen brood eten, noch water drinken; en gij zult niet wederkeren door den weg, dien gij gegaan zijt
+1 Koningen 13:10 | hij ging door een anderen weg
+2 Koningen 17:23 | Israel weggevoerd
+# --- Stap 6: 1 Koningen 13:11–34 ---
+1 Koningen 13:11 | Een oud profeet nu woonde te Beth-el.*vertelden zij ook hun vader
+1 Koningen 13:13 | Zadelt mij den ezel
+1 Koningen 13:14 | vond hem zittende onder een eik
+1 Koningen 13:15 | Kom met mij naar huis, en eet brood
+1 Koningen 13:16 | Ik kan niet met u wederkeren
+1 Koningen 13:18 | een engel heeft tot mij gesproken.*Breng hem weder met u in uw huis.*Doch hij loog hem
+1 Koningen 13:19 | at brood in zijn huis, en dronk water
+1 Koningen 13:20 | als zij aan de tafel zaten, dat het woord des HEEREN geschiedde tot den profeet, die hem had doen wederkeren
+1 Koningen 13:22 | zo zal uw dood lichaam in uw vaderen graf niet komen
+1 Koningen 13:24 | Zo toog hij heen, en een leeuw vond hem op den weg, en doodde hem.*de ezel stond daarbij; ook stond de leeuw bij het dode lichaam
+1 Koningen 13:28 | de leeuw had het dode lichaam niet gegeten, en den ezel niet gebroken
+1 Koningen 13:30 | hij leide zijn dood lichaam in zijn graf
+1 Koningen 13:31 | begraaft mij in dat graf, waarin de man Gods begraven is
+1 Koningen 13:32 | de zaak zal gewisselijk geschieden, die hij door het woord des HEEREN uitgeroepen heeft tegen het altaar, dat te Beth-el is
+1 Koningen 13:33 | Na deze geschiedenis keerde zich Jerobeam niet van zijn bozen weg
+2 Koningen 23:17 | Wat is dat voor een grafteken
+# --- Stap 7: 1 Koningen 14:1–20 ---
+1 Koningen 14:1 | Te dierzelfder tijd was Abia, de zoon van Jerobeam, krank
+1 Koningen 14:2 | verstel u, dat men niet merkte, dat gij Jerobeams huisvrouw zijt, en ga heen naar Silo, zie, daar is de profeet Ahia
+1 Koningen 14:3 | tien broden, en koeken, en een kruik honig
+1 Koningen 14:4 | Ahia nu kon niet zien, want zijn ogen stonden stijf vanwege zijn ouderdom
+1 Koningen 14:5 | de HEERE zeide tot Ahia: Zie, Jerobeams huisvrouw komt
+1 Koningen 14:6 | het geruis harer voeten hoorde.*Kom in, gij huisvrouw van Jerobeam.*met een harde boodschap
+1 Koningen 14:9 | andere goden en gegotene beelden gemaakt
+1 Koningen 14:10 | Ik zal kwaad over het huis van Jerobeam brengen
+1 Koningen 14:12 | ga naar uw huis; als uw voeten in de stad zullen gekomen zijn, zo zal het kind sterven
+1 Koningen 14:13 | deze alleen van Jerobeam zal in het graf komen
+1 Koningen 14:15 | uitrukken uit dit goede land.*verstrooien op gene zijde der rivier
+1 Koningen 14:17 | ging heen, en kwam te Thirza.*op den dorpel van het huis kwam, zo stierf de jongeling
+1 Koningen 14:18 | zij begroeven hem, en gans Israel beklaagde hem
+1 Koningen 14:20 | twee en twintig jaren.*Nadab, zijn zoon, regeerde in zijn plaats
+# --- Stap 8: 1 Koningen 14:21–31 ---
+1 Koningen 14:21 | Rehabeam nu, de zoon van Salomo, regeerde in Juda; een en veertig jaren was Rehabeam oud, als hij koning werd, en regeerde zeventien jaren te Jeruzalem
+1 Koningen 14:22 | Juda deed, wat kwaad was in de ogen des HEEREN
+1 Koningen 14:23 | zij bouwden zich hoogten, en opgerichte beelden, en bossen, op allen hogen heuvel, en onder allen groenen boom
+1 Koningen 14:25 | in het vijfde jaar van den koning Rehabeam, dat Sisak, de koning van Egypte, optoog tegen Jeruzalem
+1 Koningen 14:26 | hij nam de schatten van het huis des HEEREN, en de schatten van het huis des konings weg.*al de gouden schilden weg, die Salomo gemaakt had
+1 Koningen 14:27 | koperen schilden.*oversten der trawanten
+1 Koningen 14:28 | wanneer de koning in het huis des HEEREN ging, dat de trawanten dezelve droegen
+1 Koningen 14:30 | er was krijg tussen Rehabeam en tussen Jerobeam, al hun dagen
+1 Koningen 14:31 | Rehabeam ontsliep met zijn vaderen, en werd begraven bij zijn vaderen in de stad Davids.*zijn zoon Abiam regeerde in zijn plaats
+2 Kronieken 12:3 | Met duizend en tweehonderd wagenen, en met zestig duizend ruiteren
+2 Kronieken 12:5 | Semaja, de profeet.*Gij hebt Mij verlaten, daarom heb Ik u ook verlaten in de hand van Sisak
+2 Kronieken 12:6 | verootmoedigden zich de oversten van Israel en de koning
+2 Kronieken 12:7 | Ik zal hen niet verderven
+# --- Speurtocht ---
+1 Koningen 11:29 | Ahia, de Siloniet
+1 Koningen 14:4 | ging naar Silo, en kwam in het huis van Ahia
+1 Koningen 11:31 | Neem u tien stukken
+1 Koningen 12:8 | hield raad met de jongelingen, die met hem opgewassen waren
+1 Koningen 13:4 | zijn hand.*verdorde
+1 Koningen 13:24 | een leeuw
+# --- Plaatsen (plaatsen.js) ---
+1 Koningen 14:17 | kwam te Thirza
+1 Koningen 15:33 | Baesa.*koning over gans Israel, te Thirza
+1 Koningen 16:8 | Ela.*te Thirza
+1 Koningen 16:23 | Omri.*te Thirza regeerde hij zes jaren
+1 Koningen 16:24 | hij kocht den berg Samaria
+1 Koningen 11:26 | een Efrathiet van Zereda

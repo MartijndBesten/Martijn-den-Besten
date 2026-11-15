@@ -44,6 +44,7 @@ BR.dateringen = {
     // [meer-reizen:ehud-jefta] datering
     //
     // [meer-reizen:scheuring] datering
+    "1koningen:scheuring": ["historie", false],
     //
     // [meer-reizen:jehu] datering
     //

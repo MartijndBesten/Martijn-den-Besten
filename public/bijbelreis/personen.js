@@ -965,6 +965,20 @@ BR.mensen = {
   // [meer-reizen:ehud-jefta] mensen
   //
   // [meer-reizen:scheuring] mensen
+  sisak: { n: "Sisak", boek: ["1koningen"],
+    kort: "Koning van Egypte. Jerobeam vluchtte naar hem; later trok hij op tegen Jeruzalem en nam de schatten van het huis van de HEERE en van het huis van de koning mee.",
+    vervolg: [["1 Koningen 14:25–26", "In het vijfde jaar van Rehabeam trekt hij op tegen Jeruzalem."]],
+    elders: [["2 Kronieken 12:2–9", "Kronieken vertelt uitvoeriger over zijn tocht tegen Jeruzalem."]] },
+  semaja: { n: "Semaja", boek: ["1koningen"],
+    kort: "Man Gods in de dagen van Rehabeam. Door hem verbood de HEERE Juda en Benjamin om tegen hun broeders, de kinderen van Israël, te strijden.",
+    elders: [["2 Kronieken 11:2–4", "Kronieken vertelt dezelfde boodschap."], ["2 Kronieken 12:5–7", "Als Sisak komt, zegt Semaja waarom; de koning en de oversten verootmoedigen zich."], ["2 Kronieken 12:15", "De geschiedenissen van Rehabeam staan geschreven in de woorden van Semaja, de profeet."]] },
+  adoram: { n: "Adoram", boek: ["1koningen"],
+    kort: "Hij ging bij Rehabeam over de schatting (de verplichte arbeid). Toen Rehabeam hem naar het volk stuurde, stenigde heel Israël hem.",
+    dood: "1 Koningen 12:18", elders: [["2 Kronieken 10:18", "In Kronieken heet hij Hadoram."]] },
+  abia_jerobeam: { n: "Abia", v: "jerobeam_1", boek: ["1koningen"],
+    kort: "Zoon van Jerobeam. Hij werd ziek en stierf toen zijn moeder terugkwam van de profeet Ahia; alleen hij uit het huis van Jerobeam kwam in een graf.",
+    dood: "1 Koningen 14:17", vervolg: [["1 Koningen 14:12–13", "Ahia zegt dat het kind zal sterven en dat heel Israël over hem zal rouwen."]],
+    basis: { v: ["b", "1 Koningen 14:1"] } },
   //
   // [meer-reizen:jehu] mensen
   //
