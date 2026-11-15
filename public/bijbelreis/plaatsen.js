@@ -799,4 +799,43 @@ Object.assign(BR.plaatsen, {
 Object.assign(BR.W, { dr_gileadweg: [32.2, 35.82] });
 //
 // [meer-reizen:brieven] plaatsen
+// De brieven (Romeinen–Filemon en 1 Petrus 1:1). Sleutels beginnen met br_. Ligging: OpenBible.info Bible Geocoding Data (CC BY 4.0).
+Object.assign(BR.plaatsen, {
+  br_kolosse: { n: "Kolosse", ll: [37.7866, 29.2599], c: "v", s: "b", z: 8, t: "stad", d: "Stad in Asia, dicht bij Laodicea en Hiërapolis (Kolossenzen 4:13). Paulus en Timotheüs schreven de gemeente een brief, die daarna ook in Laodicea gelezen moest worden (Kolossenzen 1:1–2; 4:16).",
+    nu: "bij Honaz, Turkije", bron: "Heuvel van Colossae bij Honaz (OpenBible 1000, punt op de tell); identificatie algemeen aanvaard." },
+  br_kreta: { n: "Kreta", ll: [35.3097, 24.8933], c: "v", s: "t", z: 6, t: "gebied", d: "Groot eiland in de Middellandse Zee. Paulus liet Titus hier achter om ‘van stad tot stad’ ouderlingen aan te stellen (Titus 1:5). Ook het schip waarmee Paulus als gevangene naar Italië voer, kwam langs Kreta (Handelingen 27:7–8).",
+    nu: "Kreta, Griekenland", bron: "Eiland Kreta; de naam bleef in gebruik (OpenBible 1000, punt op het eiland)." },
+  br_nikopolis: { n: "Nikopolis", ll: [39.0235, 20.7374], c: "w", s: "r", z: 7, t: "stad", d: "Hier wilde Paulus overwinteren; Titus moest naar hem toe komen (Titus 3:12). Er waren meer steden met deze naam. Meestal denkt men aan Nikopolis aan de westkust van Griekenland.",
+    nu: "bij Preveza, Griekenland", bron: "Nicopolis in Epirus (OpenBible 1000, zichtbare resten). De brief zegt niet welk Nikopolis bedoeld is; daarom zekerheid w (waarschijnlijk) en niet v." },
+  br_pontus: { n: "Pontus", ll: [40.68, 37.83], c: "r", s: "c", z: 5, t: "gebied", d: "Landstreek aan de zuidkust van de Zwarte Zee. Petrus schreef aan de gelovigen hier (1 Petrus 1:1). Aquila, de tentenmaker, was hier geboren (Handelingen 18:2).",
+    nu: "Noord-Turkije, aan de Zwarte Zee", bron: "Gebied: de landstreek Pontus (OpenBible 1000, punt in de streek)." },
+  br_kappadocie: { n: "Kappadocië", ll: [38.6706, 34.8392], c: "r", s: "c", z: 5, t: "gebied", d: "Landstreek in het oosten van Klein-Azië. Op de Pinksterdag waren er mensen uit Kappadocië in Jeruzalem (Handelingen 2:9). Petrus schreef aan de gelovigen hier (1 Petrus 1:1).",
+    nu: "Midden-Turkije (Cappadocië)", bron: "Gebied: de landstreek Cappadocia (OpenBible 1000, punt in de streek)." },
+  br_bithynie: { n: "Bithynië", ll: [40.5, 31.0], c: "r", s: "c", z: 5, t: "gebied", d: "Landstreek in het noordwesten van Klein-Azië. Paulus probeerde erheen te reizen, maar de Geest liet het niet toe (Handelingen 16:7). Petrus schreef aan de gelovigen hier (1 Petrus 1:1).",
+    nu: "Noordwest-Turkije", bron: "Gebied: de landstreek Bithynia (OpenBible 1000, punt in de streek)." },
+});
+// Tussenpunten voor de routes uit de brieven. Op zee: zo loopt een lijn niet over land. Op land: langs bekende Romeinse wegen
+// (de weg van Efeze naar Troas, de Via Egnatia, de weg door Thessalië naar Korinthe en de Via Appia). Geen Bijbelse plaatsen.
+Object.assign(BR.W, {
+  // Golf van Korinthe, Ionische Zee, Straat van Messina, Tyrreense Zee (Febe naar Rome; Romeinen 16:1–2)
+  br_lechaion: [37.97, 22.88], br_golf1: [38.1, 22.65], br_golf2: [38.24, 22.3], br_golf3: [38.37, 22.05], br_rion1: [38.36, 21.86], br_rion2: [38.345, 21.78],
+  br_rion3: [38.32, 21.74], br_patras: [38.3, 21.6], br_ion0: [38.2, 21.3], br_ion1: [38.02, 20.98], br_ion2: [37.85, 20.3], br_ion3: [37.75, 16.6],
+  br_mess0: [37.86, 15.62], br_mess1: [38.0, 15.52], br_mess2: [38.12, 15.59], br_mess3: [38.2, 15.61], br_mess4: [38.27, 15.68], br_mess5: [38.45, 15.55],
+  br_tyr1: [38.95, 15.5], br_tyr2: [40.6, 13.45], br_tyr3: [41.4, 12.35], br_ostia: [41.74, 12.23],
+  // Paulus’ plan na de brief aan de Romeinen (15:25–28): stippellijn van Jeruzalem via Rome naar het westen
+  br_plan1: [32.8, 34.3], br_plan2: [34.3, 25.0], br_bonifacio: [41.3, 9.2], br_west: [41.3, 5.5],
+  // Van Efeze over land naar Troas; van Troas over zee naar Neapolis (1 Korinthe 16:5–8; 2 Korinthe 2:12–13)
+  br_adramyttium: [39.6, 27.0], br_ida: [39.63, 26.55], br_egeo1: [39.76, 25.98], br_egeo2: [40.05, 25.55], br_egeo3: [40.5, 25.15], br_egeo4: [40.83, 24.95], br_egeo5: [40.84, 24.5],
+  // Via Egnatia en de weg naar het zuiden (Macedonië – Thessalië – Korinthe/Athene)
+  br_amfipolis: [40.82, 23.85], br_apollonia: [40.63, 23.47], br_golfrand: [40.68, 22.75], br_pydna: [40.5, 22.58], br_dion: [40.27, 22.5], br_dion2: [40.12, 22.46],
+  br_tempe: [39.88, 22.58], br_larissa: [39.64, 22.42], br_lamia: [38.9, 22.43], br_thermopylae: [38.8, 22.55], br_thebe: [38.32, 23.32], br_megara: [37.995, 23.345],
+  br_isthmus: [37.93, 22.97], br_eleusis: [38.08, 23.62],
+  // Via Egnatia naar het westen, de oversteek naar Italië en de Via Appia (2 Timotheüs 4:9, 13: van Troas naar Rome)
+  br_pella: [40.76, 22.52], br_edessa: [40.8, 22.05], br_heraklea: [41.01, 21.34], br_lychnidos: [41.11, 20.8], br_dyrrachium: [41.32, 19.45], br_adria: [41.0, 18.7],
+  br_brundisium: [40.64, 17.94], br_tarente: [40.5, 17.25], br_venusia: [40.96, 15.82], br_benevent: [41.13, 14.78], br_capua: [41.08, 14.25], br_minturnae: [41.25, 13.8],
+  br_fundi: [41.36, 13.43], br_tarracina: [41.34, 13.22],
+  // Van Kreta om de Peloponnesos naar Nikopolis (Titus 3:12)
+  br_kreta1: [35.55, 24.7], br_kreta2: [35.78, 23.95], br_kreta3: [35.76, 23.45], br_malea: [36.2, 22.3], br_methone: [36.55, 21.45], br_ion4: [37.3, 21.2],
+  br_ion5: [37.6, 20.4], br_ion6: [38.2, 20.2], br_ion7: [38.75, 20.4], br_ion8: [38.98, 20.6],
+});
 //

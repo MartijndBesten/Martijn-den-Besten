@@ -1,0 +1,160 @@
+# Controle voor public/bijbelreis/inhoud/brieven.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+# Dertien brieven beginnen met de naam Paulus
+Romeinen 1:1 | ^Paulus, een dienstknecht van Jezus Christus
+1 Korinthe 1:1 | ^Paulus, een geroepen apostel
+2 Korinthe 1:1 | ^Paulus, een apostel.*en Timotheus, de broeder
+Galaten 1:1 | ^Paulus, een apostel
+Efeze 1:1 | ^Paulus, een apostel
+Filippenzen 1:1 | ^Paulus en Timotheus
+Kolossenzen 1:1 | ^Paulus, een apostel.*en Timotheus, de broeder
+1 Thessalonicenzen 1:1 | ^Paulus, en Silvanus, en Timotheus
+2 Thessalonicenzen 1:1 | ^Paulus, en Silvanus, en Timotheus
+1 Timotheüs 1:1 | ^Paulus, een apostel
+2 Timotheüs 1:1 | ^Paulus, een apostel
+Titus 1:1 | ^Paulus, een dienstknecht Gods
+Filemon 1:1 | ^Paulus, een gevangene van Christus Jezus, en Timotheus, de broeder
+Romeinen 16:22 | Ik, Tertius, die den brief geschreven heb
+2 Thessalonicenzen 3:17 | De groetenis met mijn hand, van Paulus; hetwelk is een teken in iederen zendbrief
+Efeze 6:20 | een gezant ben in een keten
+2 Timotheüs 1:8 | mijns die Zijn gevangene ben
+1 Korinthe 4:17 | heb ik Timotheus tot u gezonden
+1 Thessalonicenzen 3:2 | hebben gezonden Timotheus
+1 Timotheüs 1:3 | dat gij te Efeze zoudt blijven, als ik naar Macedonie reisde
+1 Timotheüs 1:2 | Aan Timotheus, mijn oprechten zoon in het geloof
+2 Timotheüs 1:2 | Aan Timotheus, mijn geliefden zoon
+Galaten 2:3 | Titus.*een Griek zijnde
+2 Korinthe 7:6 | getroost door de komst van Titus
+2 Korinthe 7:7 | uw verlangen, uw kermen, uw ijver voor mij
+Titus 1:5 | heb ik u te Kreta gelaten.*hetgeen nog ontbrak.*te recht brengen.*van stad tot stad zoudt ouderlingen stellen
+Efeze 6:21 | Tychikus, de geliefde broeder en getrouwe dienaar in den Heere
+Efeze 6:22 | tot u gezonden heb, opdat gij onze zaken zoudt weten, en hij uw harten zou vertroosten
+Kolossenzen 4:7 | Al mijn zaken zal u bekend maken Tychikus
+Kolossenzen 4:8 | tot u gezonden heb
+Romeinen 16:2 | want zij is een voorstandster geweest van velen, ook van mijzelven
+Filippenzen 4:18 | van Epafroditus ontvangen heb, dat van u gezonden was
+Filippenzen 2:27 | tot nabij den dood; maar God heeft Zich zijner ontfermd
+Filippenzen 2:25 | nodig geacht tot u te zenden Epafroditus.*uw afgezondene
+Filemon 1:17 | zo neem hem aan, gelijk als mij
+Kolossenzen 4:9 | Met Onesimus.*dewelke uit de uwen is
+1 Petrus 1:1 | Petrus, een apostel van Jezus Christus, aan de vreemdelingen, verstrooid in Pontus, Galatie, Kappadocie, Azie en Bithynie
+2 Petrus 3:16 | in welke sommige dingen zwaar zijn om te verstaan
+# --- Deel: datering, intro, weetje en verwijzingen ---
+Handelingen 18:1 | scheidde Paulus van Athene en kwam te Korinthe
+Handelingen 18:5 | als Silas en Timotheus van Macedonie afgekomen waren
+Handelingen 18:12 | Gallio stadhouder van Achaje
+2 Timotheüs 4:6 | de tijd mijner ontbinding is aanstaande
+Handelingen 28:16 | te Rome gekomen.*met den krijgsknecht, die hem bewaarde
+Handelingen 28:30 | twee gehele jaren in zijn eigen gehuurde woning; en ontving allen, die tot hem kwamen
+Handelingen 24:27 | twee jaren.*liet Paulus gevangen
+Filippenzen 1:13 | mijn banden
+Kolossenzen 4:18 | Gedenkt mijner banden
+Filemon 1:9 | nu ook een gevangene van Jezus Christus
+2 Petrus 3:15 | onze geliefde broeder Paulus
+2 Petrus 3:16 | in alle zendbrieven
+Handelingen 19:21 | Macedonie en Achaje doorgegaan hebbende, naar Jeruzalem te reizen.*moet ik ook Rome zien
+Handelingen 19:22 | naar Macedonie gezonden had.*Timotheus en Erastus
+1 Korinthe 16:5 | wanneer ik Macedonie zal doorgegaan zijn
+Romeinen 15:25 | Maar nu reis ik naar Jeruzalem
+Romeinen 15:28 | door ulieder stad naar Spanje
+1 Thessalonicenzen 3:6 | als Timotheus nu van ulieden tot ons gekomen was
+Handelingen 2:9 | Cappadocie, Pontus en Azie
+Openbaring 3:14 | Gemeente der Laodicensen
+# --- Stap 1: Romeinen ---
+Romeinen 1:7 | Allen, die te Rome zijt, geliefden Gods
+Romeinen 15:23 | van over vele jaren groot verlangen hebbende, om tot u te komen
+Romeinen 15:22 | menigmaal verhinderd geweest ben tot u te komen
+Romeinen 1:13 | menigmaal voorgenomen heb tot u te komen.*tot nog toe verhinderd
+Romeinen 15:26 | Macedonie en Achaje.*handreiking te doen aan de armen onder de heiligen, die te Jeruzalem zijn
+Romeinen 15:24 | wanneer ik naar Spanje reis, tot u komen.*in het doorreizen u te zien
+Romeinen 16:1 | ik beveel u Febe, onze zuster, die een dienares is der Gemeente, die te Kenchreen is
+Romeinen 16:2 | Opdat gij haar ontvangt in den Heere.*en haar bijstaat, in wat zaak zij u zou mogen van doen hebben
+Romeinen 16:23 | Gajus, de huiswaard van mij
+1 Korinthe 1:14 | Krispus en Gajus
+# --- Stap 2: 1 en 2 Korinthe ---
+1 Korinthe 1:2 | Aan de Gemeente Gods, die te Korinthe is
+2 Korinthe 1:1 | aan de Gemeente Gods, die te Korinthe is
+1 Korinthe 16:8 | Maar ik zal te Efeze blijven tot den pinkster dag
+1 Korinthe 16:9 | Want mij is een grote en krachtige deur geopend, en er zijn vele tegenstanders
+1 Korinthe 16:5 | ik zal tot u komen, wanneer ik Macedonie zal doorgegaan zijn
+1 Korinthe 16:6 | mogelijk bij u blijven, of ook overwinteren
+1 Korinthe 16:10 | Zo nu Timotheus komt
+2 Korinthe 2:12 | als ik te Troas kwam.*geen rust gehad voor mijn geest, omdat ik Titus, mijn broeder, niet vond
+2 Korinthe 2:13 | vertrok ik naar Macedonie
+2 Korinthe 7:5 | als wij in Macedonie gekomen zijn
+2 Korinthe 7:6 | Doch God, Die de nederigen vertroost, heeft ons getroost door de komst van Titus
+# --- Stap 3: Galaten ---
+Galaten 1:2 | En al de broeders, die met mij zijn, aan de Gemeenten van Galatie
+Galaten 1:6 | Ik verwonder mij, dat gij zo haast wijkende.*overgebracht wordt tot een ander Evangelie
+Galaten 1:7 | Daar er geen ander is; maar er zijn sommigen, die u ontroeren, en het Evangelie van Christus willen verkeren
+Galaten 6:11 | Ziet, hoe groten brief ik u geschreven heb met mijn hand
+Handelingen 14:21 | keerden zij weder naar Lystre, en Ikonium, en Antiochie
+Handelingen 14:23 | in elke Gemeente.*ouderlingen verkoren
+Handelingen 14:6 | Lystre en Derbe
+Handelingen 13:14 | Antiochie, een stad in Pisidie
+# --- Stap 4: Efeze ---
+Efeze 1:1 | aan de heiligen, die te Efeze zijn
+Efeze 3:1 | ik Paulus de gevangene van Christus Jezus
+Efeze 6:19 | En voor mij.*met vrijmoedigheid, om de verborgenheid van het Evangelie bekend te maken
+Efeze 6:18 | biddende te allen tijd
+Efeze 6:21 | wat ik doe, dat alles zal u Tychikus
+Handelingen 19:8 | in de synagoge.*drie maanden lang
+Handelingen 19:9 | dagelijks handelende in de school van zekeren Tyrannus
+Handelingen 19:10 | twee jaren lang, alzo dat allen, die in Azie woonden, het Woord van den Heere Jezus hoorden
+# --- Stap 5: Filippenzen ---
+Filippenzen 1:1 | al den heiligen in Christus Jezus, die te Filippi zijn, met de opzieners en diakenen
+Filippenzen 1:12 | meer tot bevordering van het Evangelie gekomen is
+Filippenzen 1:14 | het meerder deel der broederen.*door mijn banden.*overvloediger het Woord onbevreesd durven spreken
+Filippenzen 2:28 | hem te spoediger gezonden, opdat gij, hem ziende, wederom u zoudt verblijden
+Filippenzen 2:19 | ik hoop in den Heere Jezus Timotheus haast tot u te zenden
+Filippenzen 2:24 | ik vertrouw in den Heere, dat ik ook zelf haast tot u komen zal
+Filippenzen 1:13 | in het ganse rechthuis
+Filippenzen 4:22 | die van het huis des keizers zijn
+# --- Stap 6: Kolossenzen en Filemon ---
+Kolossenzen 1:2 | broederen in Christus, die te Kolosse zijn
+Kolossenzen 4:16 | wanneer deze zendbrief van u zal gelezen zijn, maakt, dat hij ook in de gemeente der Laodicensen gelezen worde, en dat ook gij dien leest, die uit Laodicea geschreven is
+Kolossenzen 4:13 | in Laodicea zijn, en degenen, die in Hierapolis zijn
+Kolossenzen 4:17 | zegt aan Archippus
+Filemon 1:2 | aan Archippus
+Filemon 1:11 | denwelken ik wedergezonden heb
+Filemon 1:12 | neem hem.*weder aan
+Filemon 1:16 | niet als een dienstknecht, maar meer dan een dienstknecht, namelijk een geliefden broeder
+Filemon 1:10 | Onesimus
+# --- Stap 7: 1 en 2 Thessalonicenzen ---
+1 Thessalonicenzen 1:1 | aan de Gemeente der Thessalonicensen
+2 Thessalonicenzen 1:1 | aan de Gemeente der Thessalonicensen
+1 Thessalonicenzen 2:18 | tot u willen komen.*eenmaal en andermaal, maar de satanas heeft ons belet
+1 Thessalonicenzen 3:1 | te Athene alleen gelaten worden
+1 Thessalonicenzen 3:2 | om u te versterken
+1 Thessalonicenzen 3:3 | Opdat niemand bewogen worde in deze verdrukkingen
+1 Thessalonicenzen 3:6 | de goede boodschap gebracht had van uw geloof en liefde
+1 Thessalonicenzen 3:7 | vertroost geworden door uw geloof
+1 Thessalonicenzen 3:8 | Want nu leven wij, indien gij vast staat in den Heere
+2 Korinthe 1:19 | door mij, en Silvanus, en Timotheus
+# --- Stap 8: 1 en 2 Timotheüs ---
+1 Timotheüs 1:3 | opdat gij sommigen beveelt geen andere leer te leren
+2 Timotheüs 1:16 | Onesiforus.*heeft zich mijner keten niet geschaamd
+2 Timotheüs 1:17 | als hij te Rome gekomen was, heeft hij mij zeer naarstiglijk gezocht, en heeft mij gevonden
+2 Timotheüs 4:7 | Ik heb den goeden strijd gestreden, ik heb den loop geeindigd, ik heb het geloof behouden
+2 Timotheüs 4:9 | Benaarstig u haastelijk tot mij te komen
+2 Timotheüs 4:21 | Benaarstig u, om voor den winter te komen
+2 Timotheüs 4:13 | Breng den reismantel mede, dien ik te Troas bij Karpus gelaten heb, als gij komt, en de boeken, inzonderheid de perkamenten
+# --- Stap 9: Titus ---
+Titus 1:3 | aan Titus, mijn oprechten zoon, naar het gemeen geloof
+Titus 3:12 | Als ik Artemas tot u zal zenden, of Tychikus, zo benaarstig u tot mij te komen te Nikopolis; want aldaar heb ik voorgenomen te overwinteren
+Titus 3:13 | Geleid Zenas, den wetgeleerde, en Apollos zorgvuldiglijk, opdat hun niets ontbreke
+# --- Stap 10: 1 Petrus ---
+1 Petrus 1:2 | Den uitverkorenen naar de voorkennis van God den Vader.*genade en vrede zij u vermenigvuldigd
+1 Petrus 5:13 | de medeuitverkorene Gemeente, die in Babylon is
+1 Petrus 5:12 | Door Silvanus, die u een getrouw broeder is, zo ik acht, heb ik met weinige woorden geschreven
+# --- Plaatsen (plaatsen.js, br_) ---
+Handelingen 27:7 | voeren wij onder Kreta heen
+Handelingen 27:1 | naar Italie zouden afvaren.*Paulus en enige andere gevangenen
+Kolossenzen 1:1 | Paulus.*en Timotheus
+Kolossenzen 4:16 | in de gemeente der Laodicensen gelezen worde
+Handelingen 18:2 | Aquila, van geboorte uit Pontus
+Handelingen 18:3 | tentenmakers
+Handelingen 16:7 | poogden zij naar Bithynie te reizen; en de Geest liet het hun niet toe
+# --- Speurtocht ---
+2 Timotheüs 4:13 | reismantel.*boeken.*perkamenten
+1 Korinthe 16:8 | te Efeze blijven tot den pinkster dag
