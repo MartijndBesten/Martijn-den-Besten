@@ -891,3 +891,30 @@ test("2 Kronieken 20: Josafat, van het gebed in Jeruzalem tot het dal van Berach
   await expect(page.locator("#p-wie")).toContainText("Jahaziël");
   expect(errors).toEqual([]);
 });
+
+test("Genesis 11:27–12:5: de losse reis van Ur naar Kanaän, met deelbare link", async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto("/bijbelreis#ur-kanaan");
+  await expect(page.locator("#p-reis")).toContainText("Van Ur naar Kanaän");
+  await expect(page.locator("#p-reis")).toContainText("Genesis 11:27–12:5");
+  await page.goto("/bijbelreis#ur-kanaan/5");
+  await expect(page.locator("#sTitle")).toHaveText("5. De HEERE roept Abram");
+  await expect(page.locator("#sText")).toContainText("Ga gij uit uw land, en uit uw maagschap, en uit uws vaders huis");
+  await expect(page.locator("#p-reis")).toContainText("Lees in je Bijbel: Genesis 12:1");
+  await page.goto("/bijbelreis#ur-kanaan/8");
+  await expect(page.locator("#sTitle")).toHaveText("8. In het land Kanaän");
+  await expect(page.locator("#map .plaats .lab", { hasText: "Sichem" })).toHaveCount(1);
+  // Het bestaande deel Abraham houdt zijn eigen stappen en sleutels.
+  await page.goto("/bijbelreis#abraham/1");
+  await expect(page.locator("#sTitle")).toHaveText("1. Weg uit Ur");
+  expect(errors).toEqual([]);
+});
+
+test("Samen speuren bij een reis zonder eigen verhalen: de vragen van de reis, met twee antwoorden", async ({ page }) => {
+  await zetNiveau(page, "a");
+  await page.goto("/bijbelreis#ur-kanaan");
+  await page.getByRole("tab", { name: "Speurtocht" }).click();
+  await page.locator('#p-quiz [data-q="ur-kanaan"]').click();
+  await page.locator("#qGo").click();
+  await expect(page.locator("#p-quiz .opt")).toHaveCount(2);
+});

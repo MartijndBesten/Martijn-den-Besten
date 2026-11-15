@@ -82,6 +82,8 @@ Alleen lokaal en zonder persoonsgegevens:
 | Speurtocht | Samen speuren: 6 vragen met 2 antwoorden per boek of deel | kaart-, volgorde- en meerkeuzevragen uit de B-vertellingen | idem, plus verdiepende vragen |
 | Paspoort | twee getallen en de gelezen verhalen | volledig | volledig |
 
+Een reisdeel zonder eigen geschiedenis onder de 150 (zoals `ur-kanaan`, Genesis 11:27–12:5) heeft geen A- en B-vragen. Samen speuren gebruikt daar de meerkeuzevragen van het deel zelf, met het goede en één fout antwoord.
+
 Op alle niveaus:
 - de dubbele voortgang is weg uit de reisetiket en uit de lijstintro;
 - verwijzingen staan als tekst;
