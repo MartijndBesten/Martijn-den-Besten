@@ -891,3 +891,59 @@ test("2 Kronieken 20: Josafat, van het gebed in Jeruzalem tot het dal van Berach
   await expect(page.locator("#p-wie")).toContainText("Jahaziël");
   expect(errors).toEqual([]);
 });
+
+test("overzichten: alle reizen (per boek en langste eerst) en alle plaatsen (zoeken, zekerheid, naar de kaart)", async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto("/bijbelreis#abraham");
+  await page.getByRole("button", { name: "Alle reizen" }).click();
+  const reizen = page.getByRole("dialog", { name: "Reizen in de Bijbel" });
+  await expect(reizen).toBeVisible();
+  await expect(reizen.locator(".o-kop").first()).toHaveText("Genesis");
+  await expect(reizen.locator(".orij", { hasText: "Ur → Haran" })).toContainText("km");
+  // Langste eerst: de afstanden lopen af.
+  await reizen.getByRole("button", { name: "Langste eerst" }).click();
+  const km = (await reizen.locator(".o-km").allTextContents()).map((t) => +t.replace(/\D/g, ""));
+  expect(km.length).toBeGreaterThan(50);
+  expect(km).toEqual([...km].sort((a, b) => b - a));
+  await reizen.getByRole("button", { name: "Per Bijbelboek" }).click();
+  await reizen.locator(".orij", { hasText: "Ur → Haran" }).click();
+  await expect(reizen).toBeHidden();
+  await expect(page.locator("#trip option:checked")).toHaveText("Ur → Haran");
+  await expect(page.locator("#tripKm")).toContainText("km");
+
+  await page.getByRole("tab", { name: "Reis" }).click();
+  await page.getByRole("button", { name: "Alle plaatsen", exact: true }).click();
+  const plaatsen = page.getByRole("dialog", { name: "Plaatsen in de Bijbel" });
+  await expect(plaatsen).toBeVisible();
+  const alle = await plaatsen.locator(".orij").count();
+  expect(alle).toBeGreaterThan(200);
+  await plaatsen.locator("#plZoek").fill("bethel");
+  await expect(plaatsen.locator(".orij").first()).toContainText("Bethel");
+  await expect(plaatsen.locator(".orij").first()).toContainText("waarschijnlijk");
+  await plaatsen.locator("#plZoek").fill("");
+  await plaatsen.locator('[data-ps="o"]').click();
+  const onbekend = await plaatsen.locator(".orij").count();
+  expect(onbekend).toBeGreaterThan(5);
+  expect(onbekend).toBeLessThan(alle);
+  await expect(plaatsen.locator(".orij").first()).toContainText("onbekend");
+  // Escape sluit en geeft de focus terug.
+  await page.keyboard.press("Escape");
+  await expect(plaatsen).toBeHidden();
+  await expect(page.getByRole("button", { name: "Alle plaatsen", exact: true })).toBeFocused();
+  // Een plaats kiezen toont haar op de kaart.
+  await page.getByRole("button", { name: "Alle plaatsen", exact: true }).click();
+  await plaatsen.locator('[data-ps="alle"]').click();
+  await plaatsen.locator("#plZoek").fill("bethel");
+  await plaatsen.locator(".orij").first().click();
+  await expect(plaatsen).toBeHidden();
+  await expect(page.locator(".leaflet-popup h3")).toHaveText("Bethel");
+  expect(errors).toEqual([]);
+});
+
+test("overzichten: bij Samen ontdekken alleen de boekenkast", async ({ page }) => {
+  await zetNiveau(page, "a");
+  await page.goto("/bijbelreis#abraham");
+  await expect(page.getByRole("button", { name: "Alle 66 boeken" })).toBeVisible();
+  await expect(page.locator("#reizenBtn")).toBeHidden();
+  await expect(page.locator("#plaatsenBtn")).toBeHidden();
+});

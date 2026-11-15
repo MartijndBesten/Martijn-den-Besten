@@ -608,7 +608,7 @@
     fit(partBounds(deel), 8); scrollToMap();
   };
   document.addEventListener("keydown", (e) => {
-    if (mode !== "reis" || e.target.closest("input, select, textarea, [role='tablist']") || e.altKey || e.ctrlKey || e.metaKey || !$("kast").hidden) return;
+    if (mode !== "reis" || e.target.closest("input, select, textarea, [role='tablist']") || e.altKey || e.ctrlKey || e.metaKey || LADEN.some((id) => !$(id).hidden)) return;
     if (e.key === "ArrowRight") { e.preventDefault(); goNext(); }
     if (e.key === "ArrowLeft") { e.preventDefault(); goPrev(); }
   });
@@ -619,11 +619,11 @@
   const parseRef = BR.parseRef;
   const refTekst = (r) => `<span class="bref">${esc(r)}</span>`;
   document.addEventListener("keydown", (e) => {
-    const open = !$("kast").hidden ? $("kast") : null; if (!open) return;
-    if (e.key === "Escape") { e.preventDefault(); closeKast(); return; }
+    const open = LADEN.map($).find((x) => !x.hidden); if (!open) return;
+    if (e.key === "Escape") { e.preventDefault(); sluitLade(open.id); return; }
     if (e.key !== "Tab") return;
     // Focus blijft in het venster zolang het open is.
-    const f = [...open.querySelectorAll("button, a[href], [tabindex]:not([tabindex='-1'])")].filter((x) => x.offsetParent);
+    const f = [...open.querySelectorAll("button, input, a[href], [tabindex]:not([tabindex='-1'])")].filter((x) => x.offsetParent);
     if (!f.length) return;
     if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
     else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
@@ -1230,11 +1230,67 @@
       return b ? `<button type="button" class="kb" data-boek="${b.id}"${b === boek ? ' aria-current="true"' : ""}><b>${esc(n)}</b><small>${esc(st)}</small></button>` : `<span class="kb off"><b>${esc(n)}</b><small>${st}</small></span>`;
     }).join("")}</div>`).join("");
   }
+  // De overzichtsvensters (boekenkast, alle reizen, alle plaatsen) openen en sluiten op dezelfde manier.
+  const LADEN = ["kast", "reizenLade", "plaatsenLade"];
   let kastFrom = null;
-  $("kastBtn").onclick = () => { kastFrom = document.activeElement; renderKast(); $("kast").hidden = false; $("kastSluit").focus(); };
-  const closeKast = () => { $("kast").hidden = true; if (kastFrom) kastFrom.focus(); };
-  $("kastSluit").onclick = closeKast;
-  $("kast").addEventListener("click", (e) => { const b = e.target.closest(".kb[data-boek]"); if (b) { closeKast(); setMode("reis"); chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek)); } else if (e.target === $("kast")) closeKast(); });
+  const openLade = (id) => { kastFrom = document.activeElement; $(id).hidden = false; $(id).querySelector(".lade__head button").focus(); };
+  const sluitLade = (id, terug = true) => { $(id).hidden = true; if (terug && kastFrom && kastFrom.isConnected) kastFrom.focus(); };
+  LADEN.forEach((id) => { $(id).querySelector(".lade__head button").onclick = () => sluitLade(id); $(id).addEventListener("click", (e) => { if (e.target === $(id)) sluitLade(id); }); });
+  const closeKast = () => sluitLade("kast");
+  $("kastBtn").onclick = () => { renderKast(); openLade("kast"); };
+  $("kast").addEventListener("click", (e) => { const b = e.target.closest(".kb[data-boek]"); if (b) { closeKast(); setMode("reis"); chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek)); } });
+
+  // ---------- overzicht: alle reizen ----------
+  // Elke reis uit `trips`, met de afstand langs de getekende route. Per Bijbelboek, of de langste eerst.
+  let reizenSort = "boek";
+  function renderReizen() {
+    const rijen = [];
+    BOEKEN.forEach((b) => b.delen.forEach((d) => (d.trips || []).forEach((t, ti) => {
+      const routes = tripRoutes(d, t);
+      if (routes.length) rijen.push({ b, d, t, ti, heel: t.s === "alles", km: roundKm(routes.reduce((a, r) => a + r.len, 0)) });
+    })));
+    const rij = (x) => `<li><button type="button" class="orij" data-reis="${x.d.key}|${x.ti}"><span class="o-n"><b>${esc(x.t.n)}</b><small>${esc(x.b.n)} · ${esc(x.d.n)} · ${x.heel ? "alles bij elkaar" : esc(x.d.steps[x.t.s].ref)}</small></span><span class="o-km">ca. ${fmt(x.km)} km</span></button></li>`;
+    const los = rijen.filter((x) => !x.heel);
+    $("reizenSort").innerHTML = [["boek", "Per Bijbelboek"], ["lang", "Langste eerst"]].map(([k, n]) => `<button type="button" data-rs="${k}" aria-pressed="${k === reizenSort}" style="--pc:var(--acc)">${n}</button>`).join("");
+    $("reizenAantal").textContent = `${los.length} reizen in ${new Set(rijen.map((x) => x.d)).size} delen. Tik op een reis om haar op de kaart te zien.`;
+    $("reizenLijst").innerHTML = reizenSort === "lang"
+      ? `<ol class="olijst">${los.slice().sort((a, b) => b.km - a.km).map(rij).join("")}</ol>`
+      : BOEKEN.filter((b) => rijen.some((x) => x.b === b)).map((b) => `<h4 class="o-kop">${esc(b.n)}</h4><ul class="olijst">${rijen.filter((x) => x.b === b).map(rij).join("")}</ul>`).join("");
+  }
+  $("reizenBtn").onclick = () => { renderReizen(); openLade("reizenLade"); };
+  $("reizenLade").addEventListener("click", (e) => {
+    const s = e.target.closest("[data-rs]"); if (s) { reizenSort = s.dataset.rs; renderReizen(); $("reizenSort").querySelector('[aria-pressed="true"]').focus(); return; }
+    const b = e.target.closest("[data-reis]"); if (!b) return;
+    const [key, ti] = b.dataset.reis.split("|"), d = ALLPARTS.find((x) => x.key === key);
+    sluitLade("reizenLade", false); tripWens = { deel: d, n: d.trips[+ti].n }; setMode("ver"); scrollToMap();
+  });
+
+  // ---------- overzicht: alle plaatsen ----------
+  // Alle plaatsen op naam, met hoe zeker de ligging is en hoe vaak ze in de reis voorkomen. Tikken toont de plaats op de kaart.
+  const PL_SOORT = [["alle", "Alles"], ["v", "Identificeerbaar"], ["wb", "Waarschijnlijk of betwist"], ["o", "Onbekend"], ["r", "Gebied"]];
+  const PLAATSLIJST = Object.entries(P).filter(([, p]) => !p.ctx).map(([id, p]) => ({ id, p, n: p.n.replace(/\?$/, ""), c: certOf(p), naam: norm(p.n), zoek: norm([p.n, p.nu || "", p.d || ""].join(" ")) })).sort((a, b) => a.n.localeCompare(b.n, "nl"));
+  // Het soort staat er alleen bij als het geen stad of dorp is (het icoon ‘altaar’ of ‘tent’ hoort bij een verhaal, niet bij de plaats).
+  const PL_TYPE = { berg: "berg", water: "water", put: "put of bron", kamp: "legerplaats", gebied: "gebied" };
+  let plZoek = "", plSoort = "alle";
+  function renderPlaatsen() {
+    const q = norm(plZoek).split(/\s+/).filter(Boolean);
+    const lijst = PLAATSLIJST.filter((x) => (plSoort === "alle" || plSoort.includes(x.c)) && q.every((w) => x.zoek.includes(w)));
+    // Bij zoeken eerst de plaatsen waarvan de naam past, dan die waar het woord in de uitleg staat.
+    const rang = (x) => (x.naam.startsWith(q[0]) ? 0 : q.every((w) => x.naam.includes(w)) ? 1 : 2);
+    if (q.length) lijst.sort((a, b) => rang(a) - rang(b) || a.n.localeCompare(b.n, "nl"));
+    const rij = (x) => { const hier = (STEPS_AT[x.id] || []).length; return `<li><button type="button" class="orij" data-place="${x.id}"><span class="zk zk-${x.c}" aria-hidden="true"><i></i></span><span class="o-n"><b>${esc(x.n)}</b><small>${x.c === "r" ? "gebied" : `${PL_TYPE[x.p.t] ? PL_TYPE[x.p.t] + " · " : ""}${ZEKER[x.c][0].toLowerCase()}`}${hier ? ` · ${hier} keer in de reis` : ""}${x.p.nu ? ` · nu: ${esc(x.p.nu)}` : ""}</small></span></button></li>`; };
+    $("plSoort").innerHTML = PL_SOORT.map(([k, n]) => `<button type="button" data-ps="${k}" aria-pressed="${k === plSoort}" style="--pc:var(--acc)">${n}</button>`).join("");
+    $("plAantal").textContent = lijst.length === PLAATSLIJST.length ? `${lijst.length} plaatsen en gebieden. Tik op een plaats om haar op de kaart te zien.` : `${lijst.length} van de ${PLAATSLIJST.length} plaatsen`;
+    if (q.length || plSoort !== "alle") { $("plaatsenLijst").innerHTML = lijst.length ? `<ul class="olijst">${lijst.map(rij).join("")}</ul>` : `<p class="ref">Niets gevonden. Probeer een andere naam.</p>`; return; }
+    const letters = [...new Set(lijst.map((x) => x.naam[0].toUpperCase()))];
+    $("plaatsenLijst").innerHTML = letters.map((l) => `<h4 class="o-kop">${esc(l)}</h4><ul class="olijst">${lijst.filter((x) => x.naam[0].toUpperCase() === l).map(rij).join("")}</ul>`).join("");
+  }
+  $("plaatsenBtn").onclick = () => { renderPlaatsen(); $("plZoek").value = plZoek; openLade("plaatsenLade"); };
+  $("plZoek").addEventListener("input", (e) => { plZoek = e.target.value; renderPlaatsen(); });
+  $("plaatsenLade").addEventListener("click", (e) => {
+    const s = e.target.closest("[data-ps]"); if (s) { plSoort = s.dataset.ps; renderPlaatsen(); $("plSoort").querySelector('[aria-pressed="true"]').focus(); return; }
+    if (e.target.closest("[data-place]")) sluitLade("plaatsenLade", false); // de plaats zelf opent de algemene klikafhandeling (showPlace)
+  });
 
   // ---------- wie is wie ----------
   let wieSel = null;
@@ -1473,11 +1529,14 @@
     return `${d} ${d === 1 ? "dag" : "dagen"}${extra}`;
   }
   let TRIP_LIST = [], tripLines = [], nlOn = false, nlCenter = null, stepTrip = null;
+  // De routes van één reis uit `trips`: één stap (eventueel één route daarvan) of alles van de hoofdpersoon van het deel.
+  const tripRoutes = (d, t) => (t.s === "alles" ? d.steps.flatMap((s) => (s.r || []).filter((r) => r.w === d.c)) : ((d.steps[t.s] && d.steps[t.s].r) || []).filter((r, i) => t.r == null || i === t.r));
+  let tripWens = null; // gekozen in het overzicht ‘Alle reizen’: { deel, n }
   function renderTrips() {
     TRIP_LIST = [];
     if (stepTrip) TRIP_LIST.push({ g: "Deze stap", n: `${stepTrip.deel.short}: ${stepTrip.t}`, routes: stepTrip.r, deel: stepTrip.deel });
     BOEKEN.forEach((b) => b.delen.forEach((d) => (d.trips || []).forEach((t) => {
-      const routes = t.s === "alles" ? d.steps.flatMap((s) => (s.r || []).filter((r) => r.w === d.c)) : (d.steps[t.s] && d.steps[t.s].r || []).filter((r, i) => t.r == null || i === t.r);
+      const routes = tripRoutes(d, t);
       if (routes.length) TRIP_LIST.push({ g: b.n + " · " + d.n, n: t.n, routes, deel: d });
     })));
     const groups = [...new Set(TRIP_LIST.map((t) => t.g))];
@@ -1487,6 +1546,7 @@
     sel.innerHTML = groups.map((g) => `<optgroup label="${esc(g)}">${TRIP_LIST.map((t, i) => (t.g === g ? `<option value="${i}">${esc(t.n)}</option>` : "")).join("")}</optgroup>`).join("");
     const first = TRIP_LIST.findIndex((t) => t.deel === deel);
     sel.value = keep && TRIP_LIST[+keep] ? keep : String(first >= 0 ? first : 0);
+    if (tripWens) { const i = TRIP_LIST.findIndex((t) => t.deel === tripWens.deel && t.n === tripWens.n); if (i >= 0) sel.value = String(i); tripWens = null; }
   }
   function showTrip() {
     const t = TRIP_LIST[+$("trip").value]; if (!t) return;

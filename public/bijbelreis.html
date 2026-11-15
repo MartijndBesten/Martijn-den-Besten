@@ -103,7 +103,7 @@
 
         <section id="p-reis" role="tabpanel" aria-labelledby="t-reis" class="stack">
           <div>
-            <div class="rowhead"><p class="label">Bijbelboek</p><button type="button" class="linkbtn" id="kastBtn" aria-haspopup="dialog">Alle 66 boeken</button></div>
+            <div class="rowhead"><p class="label">Bijbelboek</p><span class="overz"><button type="button" class="linkbtn" id="kastBtn" aria-haspopup="dialog">Alle 66 boeken</button><button type="button" class="linkbtn" id="reizenBtn" aria-haspopup="dialog">Alle reizen</button><button type="button" class="linkbtn" id="plaatsenBtn" aria-haspopup="dialog">Alle plaatsen</button></span></div>
             <div class="boeken" id="boeken" role="group" aria-label="Kies een bijbelboek"></div>
           </div>
           <div>
@@ -206,6 +206,25 @@
         <div class="lade__head"><h3 id="kastTitel">De Bijbel: 66 boeken</h3><button type="button" class="btn small" id="kastSluit">Sluiten</button></div>
         <p class="ref">Boeken met een reis kun je openen. De andere zijn nog in ontwikkeling: die worden pas toegevoegd als de inhoud gecontroleerd is.</p>
         <div id="kastLijst" class="kast"></div>
+      </div>
+    </div>
+    <div class="lade" id="reizenLade" hidden role="dialog" aria-modal="true" aria-labelledby="reizenTitel">
+      <div class="lade__box wide">
+        <div class="lade__head"><h3 id="reizenTitel">Reizen in de Bijbel</h3><button type="button" class="btn small">Sluiten</button></div>
+        <p class="ref">De afstand is gemeten langs de getekende route en afgerond. De Bijbel noemt plaatsen, geen wegen: waar alleen begin en eind bekend zijn, is de route een reconstructie.</p>
+        <div class="pick" id="reizenSort" role="group" aria-label="Volgorde"></div>
+        <p class="ref" id="reizenAantal" role="status"></p>
+        <div id="reizenLijst" class="overzicht"></div>
+      </div>
+    </div>
+    <div class="lade" id="plaatsenLade" hidden role="dialog" aria-modal="true" aria-labelledby="plaatsenTitel">
+      <div class="lade__box wide">
+        <div class="lade__head"><h3 id="plaatsenTitel">Plaatsen in de Bijbel</h3><button type="button" class="btn small">Sluiten</button></div>
+        <label class="label" for="plZoek">Zoeken</label>
+        <input type="search" id="plZoek" placeholder="Bijvoorbeeld: Bethel, Efeze, Jordaan" autocomplete="off">
+        <div class="pick" id="plSoort" role="group" aria-label="Hoe zeker is de ligging?"></div>
+        <p class="ref" id="plAantal" role="status"></p>
+        <div id="plaatsenLijst" class="overzicht"></div>
       </div>
     </div>
 

@@ -834,3 +834,23 @@ body[data-niveau="a"] #sKm, body[data-niveau="a"] #sFact, body[data-niveau="a"] 
 .leesbijbel svg { width: 20px; height: 20px; flex: none; color: var(--terra-diep); }
 .leesbijbel[hidden] { display: none; }
 body[data-niveau="a"] #sTijd, body[data-niveau="a"] #sProg { display: none !important; }
+/* Overzichten bij de reis: alle reizen en alle plaatsen (zelfde venster als de boekenkast). */
+.rowhead { flex-wrap: wrap; }
+.overz { display: flex; flex-wrap: wrap; gap: 4px 14px; justify-content: flex-end; }
+.overzicht { display: flex; flex-direction: column; gap: 4px; }
+.o-kop { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); margin: 12px 0 2px; }
+.olijst { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border: 1px solid var(--lijn); border-radius: var(--r); overflow: hidden; background: var(--wit); }
+.olijst li + li { border-top: 1px solid var(--lijn); }
+.orij { width: 100%; display: flex; align-items: center; gap: 10px; text-align: left; background: none; border: 0; padding: 8px 12px; min-height: 48px; cursor: pointer; color: var(--fg); font: inherit; }
+.orij:hover { background: var(--zand-zacht); }
+.o-n { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.o-n b { font-weight: 650; }
+.o-n small { color: var(--fg-2); font-size: 0.82rem; line-height: 1.35; }
+.o-km { flex: none; font-family: var(--font-mono); font-size: 12px; color: var(--fg-2); white-space: nowrap; }
+.orij .zk { flex: none; display: grid; place-items: center; width: 14px; }
+.orij .zk i { width: 11px; height: 11px; border-radius: 50%; background: var(--fg); }
+.orij .zk-w i, .orij .zk-b i { background: var(--wit); box-shadow: inset 0 0 0 2.4px var(--fg); }
+.orij .zk-o i { background: none; border: 1.5px dashed var(--fg-2); }
+.orij .zk-r i { background: color-mix(in srgb, var(--terra) 35%, transparent); border-radius: 3px; }
+#plZoek { width: 100%; }
+body[data-niveau="a"] #reizenBtn, body[data-niveau="a"] #plaatsenBtn { display: none; }
