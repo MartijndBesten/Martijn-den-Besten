@@ -55,7 +55,7 @@ kerst.delen.push(
       ["Wierook", "Geurige hars. Voor het reukwerk in de tabernakel moest Mozes ‘zuiveren wierook’ nemen (Exodus 30:34)."],
       ["Mirre", "Kostbare, geurige hars; zij hoorde bij ‘de voornaamste specerijen’ voor de olie van de heilige zalving (Exodus 30:23–25). Bij de begrafenis van de Heere Jezus bracht Nicodemus ‘een mengsel van mirre en aloë’ (Johannes 19:39)."]] },
     who: [["Wijzen"], ["Maria"], ["Jezus", "het Kind"]],
-    txt: "De wijzen komen in het huis en vinden het Kind met Maria, Zijn moeder. Zij vallen neer en aanbidden Hem. Dan doen zij hun schatten open en brengen Hem geschenken: ‘goud en wierook, en mirre’. In een droom krijgen zij een Goddelijke waarschuwing: zij moeten niet terugkeren naar Herodes. Daarom vertrekken zij ‘door een anderen weg weder naar hun land’.",
+    txt: "De wijzen komen in het huis en vinden het Kind met Maria, Zijn moeder. Jozef en Maria wonen nu in een huis in Bethlehem: de geboorte is al enige tijd geleden. Zij vallen neer en aanbidden Hem. Dan doen zij hun schatten open en brengen Hem geschenken: ‘goud en wierook, en mirre’. In een droom krijgen zij een Goddelijke waarschuwing: zij moeten niet terugkeren naar Herodes. Daarom vertrekken zij ‘door een anderen weg weder naar hun land’.",
     fs: "u", fact: "De wijzen eren het Kind zoals men in het Oosten een koning eert: zij buigen zich voor Hem neer en brengen het kostbaarste dat zij hebben. Zo aanbidden deze mannen uit de heidenen de Koning van de Joden. Naar Jeruzalem gaan zij niet meer terug; Herodes wacht tevergeefs." },
   { ref: "Mattheüs 2:13–15", t: "De vlucht naar Egypte", stamp: "Egypte", at: ["egypte"],
     r: [{ p: ["efrath", "hebron", "lachisw", "gaza", [31.271, 34.154], "arish", [31.035, 33.179], "pelusium"], recon: 1 }],
