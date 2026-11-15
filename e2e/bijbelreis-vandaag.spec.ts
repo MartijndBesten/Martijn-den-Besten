@@ -72,6 +72,8 @@ test("stand Nu: landnamen, gebiedsnamen en twee soorten lijnen", async ({ page }
   await expect(page.locator("#legend")).toContainText("Landsgrens");
   await expect(page.locator("#legend")).toContainText("bestandslijn of omstreden grens");
   await expect(page.locator("#legend")).toContainText("alleen landen die Nederland erkent");
+  await expect(page.locator("#legend")).toContainText("vaste maatstaf, geen oordeel van de atlas");
+  await expect(page.locator("#legend")).toContainText("gebied waarover de partijen het niet eens zijn");
   await page.locator("#legendSluit").click();
   // Terug naar Toen: alles van nu is weg.
   await page.locator("#toenBtn").click();
@@ -218,7 +220,7 @@ test("laag Vandaag: een plek zonder Bijbelse plaats heeft geen knop, een gevoeli
   if (!breed(page)) await page.locator("#vandaagVenster .lade__head button").click();
   await page.locator("#vandaagLijstBtn").click();
   await page.locator('#vandaagLade [data-vandaag="jeruzalem"]').click();
-  await expect(v).toContainText("Israël bestuurt de hele stad en noemt haar zijn hoofdstad; de Palestijnen willen dat Oost-Jeruzalem de hoofdstad van hun staat wordt.");
+  await expect(v).toContainText("Israël bestuurt sinds 1967 de hele stad en noemt haar zijn hoofdstad; de Palestijnen willen dat Oost-Jeruzalem de hoofdstad van hun staat wordt.");
   await expect(v).toContainText("Jeroesjalajim");
   await expect(v).toContainText("Al-Quds");
 });

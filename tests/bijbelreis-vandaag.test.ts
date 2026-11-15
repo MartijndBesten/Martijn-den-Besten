@@ -42,7 +42,9 @@ const VERBODEN: [string, RegExp][] = [
   // 1. Oordeel of schuldvraag: de atlas beschrijft, hij beoordeelt niet.
   ["oordeel", /terroris|terreur|moordenaar|moorddadig|misdadig|misdaad|wreed|barbaars|\blaf(fe)?\b|slachting|bloedbad|massamoord|genocide|volkerenmoord|etnische zuivering|apartheid|onschuldig|\bschuld|schandalig|schandelijk|helaas|gelukkig|\b(on)?terecht\b|heldhaftig|\bheld(en)?\b|martelaar|agressor|agressie|\bregime|dictator|extremis|fanatiek|\bradica/i],
   // 2. Woorden die één partij als de hare herkent (de ander gebruikt een ander woord voor hetzelfde).
-  ["partijwoord", /\bbezet|bezetting|bezetter|kolonist|nederzetting|\bbevrijd|verzetsbeweging|verzetsstrijd|zionis|jihad|intifada|nakba|\bPalestina\b|Groot-Israël|apartheidsmuur|veiligheidshek|scheidingsmuur|betwiste gebieden|illega|onrechtmatig|annex|militant|vrijheidsstrijd/i],
+  ["partijwoord", /\bbezet|bezetting|bezetter|kolonist|nederzetting|\bbevrijd|verzetsbeweging|verzetsstrijd|zionis|jihad|intifada|nakba|\bPalestina\b|Groot-Israël|apartheidsmuur|veiligheidshek|scheidingsmuur|betwiste? gebied|omstreden gebied|illega|onrechtmatig|annex|militant|vrijheidsstrijd|herenigd|ingelijfd|invasie|binnengevallen/i],
+  // 2b. Zinnen die oorzaak en gevolg aanwijzen en zo de schuldvraag beantwoorden: de één ‘valt aan’, de ander ‘reageert’.
+  ["oorzaak en gevolg", /vergelding|\bwraak|als reactie op|in antwoord op|als antwoord op|reageerde|sloeg terug|terugslaan|uitgelokt|provocatie|provoceer|zelfverdediging|verdedigde zich|daarom viel|waardoor .* oorlog|\bNa een aanval\b[^.]*\bvolgde|leidde tot|veroorzaakt door|was begonnen door/i],
   // 3. Gruwelijke details en bangmakerij: het is voor kinderen.
   ["gruwel", /gruwel|afgeslacht|onthoofd|verkracht|gemarteld|\blijken\b|\bbloed|verminkt|uitgehongerd|doodsbang|angstaanjagend|verschrikkelijk|vreselijk/i],
   // 4. Wat snel verandert: geen aantallen slachtoffers, geen frontlijnen, geen ‘op dit moment’.
@@ -88,7 +90,8 @@ describe("vandaag: het gegevensbestand", () => {
       const v = zinnen(x.vandaag).length, b = zinnen(x.bijbel).length;
       expect(v >= 2 && v <= 4, `${x.id}: ${v} zinnen ‘Vandaag’`).toBe(true);
       expect(b >= 1 && b <= 2, `${x.id}: ${b} zinnen ‘In de Bijbel’`).toBe(true);
-      expect(x.vandaag.length, `${x.id}: te lang`).toBeLessThanOrEqual(520);
+      // Gaza en Hebron hebben ruimte nodig om beide kanten te noemen; verder blijft alles ruim onder de 500 tekens.
+      expect(x.vandaag.length, `${x.id}: te lang`).toBeLessThanOrEqual(620);
       expect(x.bijbel.length, `${x.id}: te lang`).toBeLessThanOrEqual(240);
     }
   });
@@ -115,7 +118,9 @@ describe("vandaag: neutraal, sober en duurzaam", () => {
   it("noemt een naam van één partij alleen samen met die van de ander, en zegt erbij wie hem gebruikt", () => {
     for (const x of V.plekken) {
       const t = x.vandaag;
-      if (/Judea en Samaria/.test(t)) expect(/Israëlische regering noemt de Westelijke Jordaanoever Judea en Samaria/.test(t), x.id).toBe(true);
+      // De naam van de Israëlische regering staat er alleen met wie hem gebruikt, en in dezelfde zin wat de Palestijnen willen.
+      if (/Judea en Samaria/.test(t)) expect(/Israëlische regering noemt de Westelijke Jordaanoever Judea en Samaria; de Palestijnen willen [^.]+\./.test(t), x.id).toBe(true);
+      if (/Klaagmuur|Westelijke Muur/.test(t)) expect(/Klaagmuur/.test(t) && /Westelijke Muur/.test(t), x.id).toBe(true);
       if (/Tempelberg|Haram/.test(t)) expect(/Tempelberg/.test(t) && /Haram/.test(t), x.id).toBe(true);
       if (/Ibrahimi|Aartsvaders/.test(t)) expect(/Ibrahimi/.test(t) && /Aartsvaders/.test(t), x.id).toBe(true);
       if (/Al-Quds|Jeroesjalajim/.test(t)) expect(/Al-Quds/.test(t) && /Jeroesjalajim/.test(t), x.id).toBe(true);
@@ -128,6 +133,38 @@ describe("vandaag: neutraal, sober en duurzaam", () => {
     expect(m, "zin met beide standpunten").toBeTruthy();
     const a = m[1].split(/\s+/).length, b = m[2].split(/\s+/).length;
     expect(Math.abs(a - b), `${a} tegen ${b} woorden`).toBeLessThanOrEqual(4);
+  });
+  it("beschrijft de oorlog in Gaza met dezelfde woorden voor beide partijen en noemt het leed aan beide kanten", () => {
+    const g = V.plekken.find((x) => x.id === "gaza")!.vandaag;
+    // Hetzelfde werkwoord, bedrijvende vorm, de dader genoemd: ‘viel Hamas … Israël aan’ en ‘viel het Israëlische leger Gaza aan’.
+    expect(g).toMatch(/viel Hamas, [^.;]+, Israël aan; daar kwamen veel mensen om/);
+    expect(g).toMatch(/viel het Israëlische leger Gaza aan; daar kwamen zeer veel mensen om/);
+    expect(g).toMatch(/gijzelaar/);
+    expect(g).toMatch(/huis verlaten/);
+    // Geen zin die de oorlog als gevolg van één daad neerzet.
+    expect(g).not.toMatch(/\bNa\b[^.]*volgde|daarna|daarop|vervolgens|als gevolg/i);
+  });
+  it("geeft gewapende bewegingen dezelfde aanduiding", () => {
+    const alle = V.plekken.map((x) => x.vandaag).join(" ");
+    expect(alle).toMatch(/Hamas, de gewapende beweging/);
+    expect(alle).toMatch(/de Libanese gewapende beweging Hezbollah/);
+  });
+  it("noemt bij oorlog over een grens heen beide kanten", () => {
+    const t = (id: string) => V.plekken.find((x) => x.id === id)!.vandaag;
+    expect(t("tyrus")).toMatch(/aan beide kanten van de grens/);
+    expect(t("susa")).toMatch(/steden in Iran en in Israël/);
+    expect(t("telaviv")).toMatch(/oorlog tussen Israël en Iran/);
+    // De Golan: wie het met Syrië eens is én wie met Israël.
+    expect(t("golan")).toMatch(/Verenigde Naties/);
+    expect(t("golan")).toMatch(/Verenigde Staten/);
+    // Cyprus: beide besturen met hetzelfde woord.
+    expect(t("cyprus")).toMatch(/Republiek Cyprus, [^.;]+, bestuurt het zuiden; het noorden heeft een eigen bestuur/);
+  });
+  it("noemt geen reisadvies als vast feit (dat verandert het snelst)", () => {
+    for (const x of V.plekken) expect(/reisadvies|geldt het advies|niet heen te reizen|kleurcode/i.test(x.vandaag), x.id).toBe(false);
+  });
+  it("schrijft in ‘In de Bijbel’ het volk Israël waar een kind anders aan het land van nu kan denken", () => {
+    for (const id of ["jericho", "sinai"]) expect(V.plekken.find((x) => x.id === id)!.bijbel, id).toMatch(/het volk Israël/);
   });
   it("gebruikt geen enkele aanhalingstekens (die betekenen in de Bijbelreis letterlijk Statenvertaling)", () => {
     for (const [waar, t] of teksten) expect(/[‘’']/.test(t), waar).toBe(false);
@@ -171,5 +208,9 @@ describe("vandaag: de pagina", () => {
     expect(html.indexOf("/bijbelreis/vandaag.js")).toBeLessThan(html.indexOf("/bijbelreis/app.js"));
     for (const id of ["vandaagBtn", "vandaagLijstBtn", "vandaagLade", "vandaagVenster", "vdPeil", "vdToelichting", "vdZoek"]) expect(html, id).toContain(`id="${id}"`);
     expect(html).toContain("bestandslijn of omstreden grens");
+    // De legenda zegt eerlijk dat de maatstaf een keuze is, en noemt een gebied niet ‘omstreden’ of ‘betwist’ (dat is het woord van één partij).
+    expect(html).toContain("alleen landen die Nederland erkent");
+    expect(html).toMatch(/vaste maatstaf/);
+    expect(html).not.toMatch(/omstreden gebied|gebied waarvan de status omstreden|betwiste? gebied/);
   });
 });
