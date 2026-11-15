@@ -1079,7 +1079,10 @@
   }
   // De hele Bijbelwereld: alle plaatsen uit alle reizen, zonder routes; namen naar zoomniveau.
   let wereldAan = false;
-  const WERELD = [...new Set(ALLPARTS.flatMap((d) => d.steps.flatMap((s) => s.at)))].filter((id) => P[id] && !P[id].k && !P[id].ctx);
+  // Dezelfde plaats staat soms twee keer in de gegevens, voor twee tijden (Babel van de toren en Babel van
+  // Nebukadnezar): op de wereldkaart één keer, anders staat de naam er dubbel.
+  const WERELD = [...new Set(ALLPARTS.flatMap((d) => d.steps.flatMap((s) => s.at)))].filter((id) => P[id] && !P[id].k && !P[id].ctx)
+    .filter((id, i, a) => a.findIndex((o) => P[o].n === P[id].n && P[o].ll[0] === P[id].ll[0] && P[o].ll[1] === P[id].ll[1]) === i);
   // Ankerplaatsen met een vaste naam, verspreid over de hele Bijbel: van Ur tot Rome. De rest verschijnt bij inzoomen.
   const ANKERS = ["ur", "haran", "babelst", "ninivest", "susan", "damascusst", "salem", "sinai", "egypte", "nt_nazareth", "nt_antiochie", "nt_tarsus", "nt_efeze", "nt_filippi", "nt_patmos", "nt_malta", "nt_rome"].filter((id) => WERELD.includes(id));
   function focusWereld() {
