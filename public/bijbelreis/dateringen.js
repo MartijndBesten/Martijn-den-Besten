@@ -54,6 +54,7 @@ BR.dateringen = {
     // [meer-reizen:jeremia-egypte] datering
     //
     // [meer-reizen:stammen] datering
+    "jozua:stammen": ["bijbel", true],
     //
     // [meer-reizen:davids-rijk] datering
     //

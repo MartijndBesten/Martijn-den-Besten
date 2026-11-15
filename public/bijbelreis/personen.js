@@ -280,7 +280,7 @@ BR.mensen = {
   eleazar: { n: "Eleazar", v: "aaron", boek: ["leviticus", "numeri", "jozua"],
     kort: "Zoon van Aäron en na hem hogepriester; met Jozua verdeelde hij het land.", dood: "Jozua 24:33",
     basis: { v: ["b", "Exodus 6:22"] } },
-  pinehas: { n: "Pinehas", v: "eleazar", boek: ["numeri"],
+  pinehas: { n: "Pinehas", v: "eleazar", boek: ["numeri", "jozua"],
     kort: "Kleinzoon van Aäron; hij greep in toen Israël zondigde bij Baäl-Peor, en de plaag hield op.",
     elders: [["Psalm 106:30–31", "‘Toen stond Pinehas op, en hij oefende gericht, en de plaag werd opgehouden.’"]],
     vervolg: [["Jozua 22:13", "Hij gaat namens Israël naar de stammen aan de overkant van de Jordaan."], ["Richteren 20:28", "Nog in de tijd van de Richteren staat hij voor de ark."]],
@@ -975,6 +975,15 @@ BR.mensen = {
   // [meer-reizen:jeremia-egypte] mensen
   //
   // [meer-reizen:stammen] mensen
+  othniel: { n: "Othniël", p: ["achsa"], boek: ["jozua"],
+    kort: "Zoon van Kenaz; hij nam Kirjath-Sefer (Debir) in en kreeg Achsa, de dochter van Kaleb, tot vrouw.", dood: "Richteren 3:11",
+    elders: [["Richteren 1:12–13", "Dezelfde geschiedenis staat ook aan het begin van Richteren."]],
+    vervolg: [["Richteren 3:9–10", "De HEERE verwekt hem als verlosser; de Geest van de HEERE is over hem en hij richt Israël."]],
+    basis: { p: { achsa: ["b", "Jozua 15:17"] } } },
+  achsa: { n: "Achsa", v: "kaleb", p: ["othniel"], boek: ["jozua"],
+    kort: "Dochter van Kaleb en vrouw van Othniël; zij vroeg haar vader om waterbronnen bij haar dorre land.",
+    elders: [["Richteren 1:14–15", "Ook in Richteren staat hoe zij haar vader om een zegen vroeg."]],
+    basis: { v: ["b", "Jozua 15:16"], p: { othniel: ["b", "Jozua 15:17"] } } },
   //
   // [meer-reizen:davids-rijk] mensen
   //
