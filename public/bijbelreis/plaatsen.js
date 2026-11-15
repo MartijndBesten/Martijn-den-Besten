@@ -855,3 +855,9 @@ Object.assign(BR.plaatsen, {
     d: "Stad in het gebied van Benjamin (Jozua 18:25), ten noorden van Jeruzalem. Jeremia schreef: ‘Er is een stem gehoord in Rama, een klage, een zeer bitter geween; Rachel weent over haar kinderen’ (Jeremia 31:15). Mattheüs haalt dat woord aan bij de kinderen van Bethlehem (Mattheüs 2:17–18).",
     nu: "ar-Ram, ten noorden van Jeruzalem", bron: "OpenBible Ramah 1 (Jeremia 31:15; Mattheüs 2:18): Er Ram, score 723; zelfde punt als rama." },
 });
+// Deel jakob-jabbok (Genesis 32, ingezoomd op de Jabbok). Geen nieuwe plaatsen: Mahanaïm, Pniël, de Jabbok, Sukkoth, Gilead
+// en Seïr stonden er al. Alleen twee tussenpunten (geen Bijbelse plaatsen; sleutels beginnen met jj_):
+//   jj_zuid   ruim 2 km ten zuiden van Mahanaïm en Pniël, aan de overkant van de Jabbok: de richting waarin het geschenk
+//             vooruit gaat en waaruit Ezau komt. De Bijbel noemt geen richting; reconstructie (zie het weetje bij de stap).
+//   jj_hoogte de hoogte bij het huidige es-Salt, op de weg van de Jabbok naar de hoogvlakte in het zuiden (route van de boden).
+Object.assign(BR.W, { jj_zuid: [32.166, 35.692], jj_hoogte: [32.04, 35.73] });
