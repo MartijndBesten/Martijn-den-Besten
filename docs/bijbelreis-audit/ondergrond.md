@@ -449,11 +449,11 @@ vervallen: dat is tekenverschil tussen de twee kustlijnen, geen oude baai.
 
 ## Controle van plaatsen en routes
 
-`python3 -I scripts/bijbelreis-toen.py --alleen-controle` legt alle 308 plaatsen, 198 tussenpunten, de andere
-mogelijke plekken (`alt`) en alle 374 routes (bemonsterd per 250 m) tegen het water van toen en van nu. Het script
-verplaatst niets. Uitkomst op 15-11-2026:
+`python3 -I scripts/bijbelreis-toen.py --alleen-controle` legt alle 308 plaatsen, 210 tussenpunten (198 vóór de
+aanpassing van de routes), de andere mogelijke plekken (`alt`) en alle 374 routes (bemonsterd per 250 m) tegen het
+water van toen en van nu. Het script verplaatst niets. Uitkomst op 15-11-2026:
 
-**Geen enkele plaats komt door deze wijziging in zee of in een meer te liggen.** Vier punten liggen in een vlak
+**Geen enkele plaats komt door deze wijziging in zee of in een meer te liggen.** Vijf punten liggen in een vlak
 van toen of veranderen van stand:
 
 | punt | nu | toen | opmerking |
@@ -462,12 +462,15 @@ van toen of veranderen van stand:
 | tussenpunt `siddim` ([31.2, 35.45]) | meer (verdampingsbekkens) | onzeker water (zuidelijk bekken) | Past bij Genesis 14:3 („het dal Siddim, dat is de Zoutzee”). |
 | andere mogelijke plek van de **Schelfzee** ([30.3383, 32.3778]) | meer | onzeker water (Bittermeren) | Zo bedoeld. |
 | tussenpunt `br_ostia` ([41.74, 12.23]) | zee | zee (monding van de Tiber) | Geen verandering. |
+| tussenpunt `efeze_haven` ([37.958, 27.326]) | land | zee (haven van Efeze) | Zo bedoeld: hier komen de schepen binnen (zie „Routes aangepast aan het landschap van toen”). |
 
 72 andere punten lagen al in het water en liggen daar nog (kustplaatsen op de grove kustlijn van `geo.json`, zoals
 Caesarea, Pafos en Attalia; tussenpunten van zeereizen; plaatsen van de soort water). Dat komt niet door deze
 wijziging.
 
-**Routes ter beoordeling door de integrator** (46 routes raken een vlak; de volledige lijst geeft het script):
+**Routes: de stand vóór de aanpassing** (46 routes raakten een vlak). Deze lijst is de aanleiding voor de paragraaf
+„Routes aangepast aan het landschap van toen” hieronder; daar staat wat er nu van over is (11 routes, alle met een
+reden).
 
 - **Hulameer, 2,3 km – 26 routes** over de grote weg Hazor–Damascus (onder meer `genesis:abraham:1:0`,
   `genesis:jakob:1:0`, `2koningen:ballingschap:*`, `jona:jona:4:0`, `ezra:*`, `daniel:daniel:1:0`,
@@ -488,6 +491,173 @@ wijziging.
 
 Geen route loopt door een van de zeven nieuwe stuwmeren en geen landroute loopt door de kop van de Perzische Golf.
 
+## Routes aangepast aan het landschap van toen
+
+Status: gedaan en gecontroleerd op 15-11-2026. Regel: een **landreis loopt over land** en een **zeereis over water**,
+op de kaart van Toen en zo mogelijk ook op de kaart van Nu. Geen plaats is verplaatst, geen stap is toegevoegd,
+verwijderd of verplaatst en geen tekst is gewijzigd. Alleen tussenpunten (`BR.W` in `plaatsen.js`) en de lijsten `p`
+van routes zijn aangepast: 43 van de 374 routes.
+
+**Uitkomst van de controle** (`python3 -I scripts/bijbelreis-toen.py --alleen-controle`):
+
+| | vóór | na |
+|---|---|---|
+| routes die een vlak van toen of een (stuw)meer van nu raken | 46 | 11 |
+| landreizen door water dat op de kaart van toen zeker water is | 33 | 1 (de overtocht naar Milete, zo bedoeld) |
+| landreizen die alleen onzeker water raken | 5 | 3 (dal Siddim; twee routes van de uittocht) |
+| landreizen die alleen een meer van nu raken (Habbaniyah) | 2 | 0 |
+| routes door het Meer van Habbaniyah in de stand Nu | 12 | 0 |
+| zeereizen in de lijst | 6 | 7 (alle zeven varen nu door de baai van toen; zie „Bewust zo gelaten”) |
+
+Het script noemt een zeereis ook als ze goed loopt: ze vaart dan door een baai van toen. Daarom blijft de lijst niet
+leeg.
+
+### Bronnen voor de wegen
+
+| bron | gebruikt voor | geraadpleegd |
+|---|---|---|
+| **AWMC, geodata**, `Cultural-Data/roads/roads.geojson` en `Cultural-Data/canals/canals.geojson`, <https://github.com/AWMC/geodata>, commit `7ecf8bc` (22-04-2024), ODbL 1.0. De wegen en het kanaal van de *Barrington Atlas* (kaarten 56, 61, 69, 70/71, 74); bij elke weg staat of het tracé bekend of bij benadering is. | wegen bij het Hulameer, de Dode Zee, Efeze en Milete; het kanaal langs de Bittermeren | 15-11-2026 |
+| Wikipedia (Engels), „Daughters of Jacob Bridge”, <https://en.wikipedia.org/wiki/Daughters_of_Jacob_Bridge>: „the last natural ford of the Jordan”, „used as a crossing point for thousands of years”, coördinaten 33°0′51″ N, 35°37′43″ O. „Via Maris”, <https://en.wikipedia.org/wiki/Via_Maris>: „From Hazor it crossed the northern River Jordan at what later became known as Jacob's Ford, then climbed sharply over the Golan Heights and wound its way northeast into Damascus.” Y. Ben-Arieh, „Gesher Benot Ya'akov”, *Encyclopaedia Judaica*, <https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/gesher-benot-yaakov>: „a natural ford of the Jordan … one of the most important links between Ereẓ Israel and Damascus via Galilee and the Golan”. | de voorde ten zuiden van het Hulameer | 15-11-2026 |
+| Wikipedia (Engels), „Rapiqum”, <https://en.wikipedia.org/wiki/Rapiqum> (een droomreis „follows the Euphrates road from Sippar … to Ra-pi-qum to Id-da-an to Mari”, naar Oppenheim 1956 en Goetze 1957; „the most likely location is Tell Anbar”, naar Lacambre 2006) en „Anbar (town)”, <https://en.wikipedia.org/wiki/Anbar_(town)> (linkeroever van de Eufraat, „a major crossing point of the Euphrates”, 33°22,5′ N, 43°43′ O). Naslagbronnen; de vakliteratuur zelf is niet gelezen. | de weg langs de Eufraat tussen Sippar en Hit | 15-11-2026 |
+| **M. Wilson 2013**, „The Ephesian elders come to Miletus: An Annaliste reading of Acts 20:15–18a”, *Verbum et Ecclesia* 34(1), art. 744, <https://doi.org/10.4102/ve.v34i1.744>, gelezen op <https://verbumetecclesia.org.za/index.php/ve/article/view/744/1757>. De ouderlingen gingen over land: door de Magnesische poort naar Magnesia aan de Meander (24 km), dan 31 km langs de voet van de Mycale naar Priene, en van de haven van Priene (ongeveer 6 km westelijker, bij het huidige Atburgazı) met een veerboot 11 km over de Golf van Latmus naar Milete; samen ongeveer 72 km, twee lange dagen. | de weg van Efeze naar Milete | 15-11-2026 |
+| E.J. Banks, „Miletus”, *International Standard Bible Encyclopedia* (1915), gelezen op <https://biblehub.com/atlas/full/miletus.htm>: „in the days of Paul, Ephesus could be reached from Miletus by land only by making a long detour about the head of the gulf. To go directly from one of these cities to the other, one would have been obliged to cross the gulf by boat and then continue by land.” | idem | 15-11-2026 |
+| **Pleiades**: Magnesia ad Maeandrum, <https://pleiades.stoa.org/places/599778>; Priene, <https://pleiades.stoa.org/places/599905> (CC BY). | ligging van Magnesia en Priene | 15-11-2026 |
+| BiblePlaces.com, „1 Samuel 22”, <https://www.bibleplaces.com/1samuel22/> (alleen via een zoekresultaat gezien): David kan ook bij En-Gedi zijn afgedaald en bij het schiereiland Lisan zijn overgestoken, als het water laag stond. | de andere mogelijkheid voor Davids weg naar Moab | 15-11-2026 |
+
+De punten hieronder die „hoekpunt van de Barrington Atlas” heten, zijn één op één een coördinaat uit het
+wegenbestand van AWMC. Het zijn er vijf. Dat is geen wezenlijk deel van de databank; de naamsvermelding staat hier
+en in het colofon (AWMC, ODbL).
+
+### Nieuwe tussenpunten
+
+| sleutel | ligging | reden | bron | routes |
+|---|---|---|---|---|
+| `jakobsvoorde` | [33.014, 35.629] | De grote weg Hazor–Damascus stak de Jordaan over bij de voorde 4 km ten zuiden van het Hulameer (later de Jakobsbrug, Gesher Bnot Ya'akov). De rechte lijn Hazor–Damascus liep 2,3 km door de zuidpunt van het meer. | Wikipedia „Daughters of Jacob Bridge” (coördinaten) en „Via Maris”; *Encyclopaedia Judaica* | 21 routes met `damw`–`hazor` (o.a. `genesis:abraham:1:0`, `genesis:jakob:1:0`, `2koningen:ballingschap:*`, `daniel:daniel:1:0`, `ezra:*`, `esther:esther:7:0`, `jona:jona:4:0`) en 4 routes van Damascus naar Samaria, waar het de plaats van `golan` inneemt (`2koningen:elisa:4:0`, `6:0`, `7:0`, `2koningen:joas:3:0`) |
+| `hula_oost` | [33.09, 35.649] | De weg van Bethsaïda naar Caesarea Filippi liep langs de oostoever van het Hulameer. Vervangt het losse punt [33.08, 35.64], dat in het meer lag. | hoekpunt van de Barrington Atlas (kaart 69, AWMC-weg 3040, tracé bekend) | `jezus-2:nt-brood-en-berg:4:0` |
+| `anbar` | [33.375, 43.717] | De weg langs de Eufraat van Sippar naar Hit liep over Rapiqum, waarschijnlijk Tell Anbar bij Fallujah, een bekende oversteekplaats op de linkeroever. De rechte lijn Sippar–Hit liep in de stand Nu 9 km door het Meer van Habbaniyah; de lijn volgt nu de rivier, ook in de stand Toen. | Wikipedia „Rapiqum” en „Anbar (town)” | 10 routes met `sippar`–`hit`; en `2koningen:ballingschap:6:1` en `7:2`, waar `euphmid`–`dura` is vervangen door `euphmid`–`hit`–`anbar`–`dura` |
+| `dz_west_n` | [31.42, 35.368] | De weg langs de westoever van de Dode Zee, ten zuiden van En-Gedi. De lijn van de atlas valt daar op de getekende oever; het punt ligt 1 km landinwaarts. | Barrington Atlas (kaart 70/71, AWMC-weg 3010, tracé bij benadering), 1 km naar het westen gelegd | `genesis:abraham:9:0` |
+| `dz_west_z` | [31.21, 35.345] | Waar de weg van Arad de Dode Zee bereikt. | Barrington Atlas (weg van Arad naar de westoever, tracé bij benadering); het punt ligt op die lijn | `genesis:abraham:9:0`, `1samuel:saul-david:6:1`, `7:0` |
+| `dz_zuid` | [31.043, 35.369] | De weg langs de westkant van het zuidelijke bekken, bij de zuidpunt. | hoekpunt van de Barrington Atlas (AWMC-weg 3010) | `1samuel:saul-david:6:1`, `7:0` |
+| `ghor_z` | [31.103, 35.537] | De weg door de Ghor langs de oostkant van het zuidelijke bekken, tussen Zoar en Bab edh-Dhra. | hoekpunt van de Barrington Atlas (kaart 71, AWMC-weg 3007, tracé bij benadering) | `genesis:abraham:16:0`, `1samuel:saul-david:6:1`, `7:0` |
+| `ghor_n` | [31.179, 35.545] | Dezelfde weg, waar de weg naar Kerak (Charachmoba) omhooggaat. Samen met `ghor_z` vervangt dit het losse punt [31.138, 35.535]: dat lag wel op de weg, maar de rechte lijnen ernaartoe sneden het onzekere water. | hoekpunt van de Barrington Atlas (AWMC-weg 3006, tracé bekend) | idem |
+| `efeze_haven` | [37.958, 27.326] | De zuidoosthoek van de baai van Efeze zoals `toen.json` die tekent, 2,5 km van het punt van de stad. Schepen komen via de baai binnen in plaats van recht uit het westen over land. | `toen.json` (AWMC, kust van de Romeinse tijd); zie punt 7 hierboven | `handelingen:nt-paulus2:7:1`, `8:0`, `nt-paulus3:1:0`, `5:0` |
+| `efeze_noordweg` | [38.033, 27.43] | De hoofdweg van Efeze naar Smyrna liep eerst naar het noordoosten, om de baai en het dal van de Kaystros heen. De rechte lijn Efeze–Smyrna liep 2,5 km door de baai. | hoekpunt van de Barrington Atlas (kaart 56/61, AWMC-weg 642, hoofdweg, tracé bij benadering) | `brieven:brieven:1:0` |
+| `magnesia` | [37.8505, 27.526] | Magnesia aan de Meander: eerste stad op de weg van de ouderlingen van Efeze naar Milete. | Wilson 2013; ligging Pleiades 599778; weg in de Barrington Atlas (AWMC-weg 614) | `handelingen:nt-paulus3:9:0` |
+| `priene` | [37.6608, 27.2966] | Priene, aan de noordkant van de Golf van Latmus. | Wilson 2013; ligging Pleiades 599905; weg in de Barrington Atlas (AWMC-weg 620) | idem |
+| `priene_haven` | [37.588, 27.25] | Waar de overtocht naar Milete begint: de noordoever van de golf zoals `toen.json` die tekent, recht ten zuiden van Atburgazı. | Wilson 2013 (haven bij Atburgazı); de oever uit `toen.json` | idem |
+
+Vervallen: `lisan` ([31.28, 35.5], het schiereiland in de Dode Zee). Geen route gebruikt het nog.
+
+### Per gebied
+
+- **Hulameer (26 routes).** Opgelost met `jakobsvoorde` en `hula_oost`. Bij de routes van Naäman en van de Syrische
+  legers (`damascusst`–`golan`–`galil`) is `golan` vervangen door `jakobsvoorde`: de grote weg liep van Damascus
+  recht over de Golan naar de voorde, en `golan` ligt 19 km ten noorden daarvan, aan de voet van de Hermon. Zo
+  volgen alle 25 routes tussen Damascus en Galilea dezelfde weg; deze vier worden 4 km korter. `golan` blijft in
+  gebruik voor de weg van Dan naar Damascus. De weg van Saulus naar Damascus (`handelingen:nt-paulus:0:0` en
+  `2:0`) had de voorde al als los punt [33.0, 35.63] en is niet gewijzigd.
+- **Dode Zee, noordelijk bekken.**
+  - *Lot* (`genesis:abraham:6:0`) en *de terugtocht van de koningen* (`9:1`): het punt `lisan` is uit de lijst gehaald.
+    De lijn loopt nu van de hoogvlakte van Moab recht naar Sodom, oostelijk van de baai bij het schiereiland.
+    Voorheen sneed ze die baai (7 km).
+  - *De veldtocht van de koningen* (`9:0`): van Hazezon-Thamar (En-Gedi) langs de westoever (`dz_west_n`,
+    `dz_west_z`) en dan het dal Siddim in. Voorheen 19 km dwars door het noordelijke bekken.
+  - *David naar Mizpa in Moab en terug* (`1samuel:saul-david:6:1` en `7:0`): om de zuidkant van de Dode Zee heen:
+    Arad – `dz_west_z` – `dz_zuid` – Zoar – `ghor_z` – `ghor_n` – `kerak` – Mizpa. Voorheen stak de lijn bij het
+    schiereiland Lisan 6 km water over. De weg om het zuiden is de weg die de Barrington Atlas tekent en die ook
+    de koningen van Israël, Juda en Edom namen toen ze Moab vanuit het zuiden aanvielen (2 Koningen 3:8–9). **Dit is
+    een keuze.** De andere mogelijkheid is een oversteek bij Lisan (zie de bron BiblePlaces): bij laag water lag
+    daar een doorwaadbare plaats, en volgens de bron bij punt 3 stond het water meestal onder de drempel. Op de
+    kaart van toen is die zeestraat als water getekend; daarom volgt de route de oever. De reis wordt 46 km langer
+    (109 → 155 km en 105 → 151 km).
+- **Dode Zee, zuidelijk bekken (onzeker).** *Lot vlucht naar Zoar* (`genesis:abraham:16:0`) loopt nu over de weg
+  door de Ghor (`ghor_n`, `ghor_z`) en raakt het onzekere water niet meer.
+- **Efeze.** De vier zeereizen lopen nu `p3_zee_efeze` – `efeze_haven` – Efeze. Twee losse punten ([37.95, 27.15]
+  en [37.93, 27.2]) zijn vervangen door het bestaande punt `p3_zee_efeze`, zodat alle schepen dezelfde vaarweg
+  nemen. Over land bij Efeze in de stand Toen: 1,9 km (van de baai naar het punt van de stad); dat was 5 km. De
+  16 km die de controle eerst bij `nt-paulus3:1:0` noemde, was voor 10,5 km de weg van Kenchreeën naar Korinthe.
+- **Milete.**
+  - *De ouderlingen van Efeze* (`handelingen:nt-paulus3:9:0`, Handelingen 20:17): Efeze – Magnesia – Priene –
+    `priene_haven` en dan **met een boot** over de golf naar Milete. Dat is de weg die Wilson (2013) onderbouwt;
+    volgens Banks (ISBE) was de weg helemaal over land een lange omweg om de kop van de golf. De route is en blijft
+    een reconstructie (`recon: 1`). De lijn is 64 km (was 46 km; Wilson rekent 72 km over de weg). Op de kaart van
+    toen is de overtocht 4,9 km water en niet de 11 km van Wilson: AWMC tekent de oever van de Romeinse tijd 5 km
+    zuidelijker dan Atburgazı. De `fact` bij deze stap („hemelsbreed ruim 45 km; de lijn op de kaart is de weg van
+    de ouderlingen, een reconstructie”) klopt nog en is niet gewijzigd. Dat het laatste stuk een overtocht is,
+    staat niet in de tekst; dat kan de redactie toevoegen.
+  - *Het vertrek uit Milete* (`handelingen:nt-paulusrome:0:0`) stond niet in de controle, maar liep 11 km over het
+    schiereiland van Milete. De lijn gaat nu eerst door de golf naar het westen (los punt [37.53, 27.17], hetzelfde
+    punt als bij de aankomst) en dan naar het zuiden.
+  - *De aankomst in Milete* (`handelingen:nt-paulus3:8:2`) is niet gewijzigd. De 9,3 km die de controle noemt, is
+    water van toen (de golf), geen land; over land is het daar 1,2 km (de landtong van de stad).
+- **Bittermeren.** *Mozes vlucht* en *Terug naar Egypte* (`exodus:mozes:2:0` en `6:0`, reconstructies): het punt
+  `etham` is uit de lijst gehaald. De lijn loopt nu van Sukkoth (Tell el-Maskhuta) recht naar de kop van de Golf
+  van Suez en blijft ten westen van de meren. Dat is de streek waar ook het oude kanaal van de Nijl naar de Rode
+  Zee liep (AWMC, `canals.geojson`). Etham is een halte van de uittocht en hoort niet bij de reis van Mozes.
+- **Habbaniyah (alleen in de stand Nu).** Opgelost met `anbar`; de route volgt de Eufraat nu ook in de stand Toen
+  beter. De twee routes van de ballingen naar Babel (`2koningen:ballingschap:6:1` en `7:2`) liepen van `euphmid`
+  recht door de woestijn naar `dura` en gaan nu langs de rivier (`hit`, `anbar`); ze worden 15 km langer.
+- **Efeze–Smyrna** (`brieven:brieven:1:0`): opgelost met `efeze_noordweg`.
+
+### Bewust zo gelaten
+
+- **Het dal Siddim** (`genesis:abraham:9:0`, tussenpunt `siddim`): 10,6 km door het onzekere water van het
+  zuidelijke bekken. „Het dal Siddim, dat is de Zoutzee” (Genesis 14:3): de slag was op de plek waar later de zee
+  stond. Het punt is niet verplaatst.
+- **De uittocht langs de Bittermeren** (`exodus:uittocht:4:0` en `4:1`, Etham → Pi-Hachiroth): 4,5 km door het
+  onzekere water, op de smalle plek tussen het Grote en het Kleine Bittermeer. Niet gewijzigd, om drie redenen.
+  Etham en Pi-Hachiroth zijn onbekende plaatsen (`c: "o"`, „punt illustratief”). Het water is onzeker en heeft de
+  omtrek van na 1869. En een weg om het meer heen is een keuze voor één reconstructie: de Bijbel zegt dat het volk
+  moest „wederkeren” (Exodus 14:2), wat past bij een weg langs de westkant van de meren, maar daarvoor zijn drie
+  punten op het oog nodig en de afstand verdubbelt (25 → ongeveer 49 km). De plek van de doortocht (`schelfzee`) en
+  de route erdoorheen (`exodus:uittocht:5:0`) zijn niet aangeraakt. **Ter beslissing door de eigenaar.** Wie het
+  toch wil: `etham` – [30.44, 32.29] – [30.34, 32.28] – [30.26, 32.37] – `pihachiroth` blijft overal ruim 1 km van
+  het getekende water.
+- **De overtocht naar Milete** (`handelingen:nt-paulus3:9:0`): een landreis met 4,9 km water. Zo bedoeld (zie
+  boven).
+- **Zeven zeereizen door een baai van toen**: `handelingen:nt-paulus2:7:1` en `8:0`, `nt-paulus3:1:0`, `5:0` en
+  `8:2`, `nt-paulusrome:0:0` en `brieven:brieven:0:0`. In de stand Toen varen ze over water tot bij de stad. Het
+  land dat de controle nog telt, is: de laatste 1,9 km naar het punt van Efeze en 1,2 km naar dat van Milete (de
+  plaatsen zijn niet verplaatst), echte stukken over land (Kenchreeën–Korinthe–Lechaion, 14 km; Ostia–Rome, 23 km)
+  en havens op de grove kustlijn van `geo.json` (Troas, Assus, Mitylene, Kos, Rhodos).
+- **In de stand Nu** liggen Efeze en Milete 6 tot 8 km van zee. Een zeereis daarheen eindigt dan over land: bij
+  Efeze 8,5 km (was 6 tot 7 km; de lijn buigt nu mee met de baai van toen), bij Milete 8 km (onveranderd). Dat is
+  niet op te lossen zonder de plaatsen te verplaatsen. De overtocht van de ouderlingen loopt in de stand Nu over
+  land.
+
+### Afstanden
+
+De afstand bij ‘Hoe ver?’ wordt uit de lijn berekend. Van de 43 gewijzigde routes veranderen er 33 minder dan 5 km.
+Groter: David naar Moab en terug (+46 km), de ouderlingen naar Milete (+18 km), de ballingen naar Babel (+15 km),
+Mozes (−11 km), de veldtocht van de koningen (+9 km), het vertrek uit Milete (+7 km), de brief via Smyrna (+7 km).
+In geen tekst en in geen test staat een vast aantal kilometers dat hierdoor niet meer klopt („ongeveer 1400 tot
+1600 km” bij Daniël: de lijn is 1557 km; „ongeveer 1000 km” bij Jona: 914 km, 2 km meer dan eerst).
+
+### Kanttekeningen
+
+- `dz_west_n`, `dz_west_z`, `dz_zuid` en `ghor_z` liggen op wegen die de Barrington Atlas alleen bij benadering
+  tekent. De weg van de voorde over de Golan naar Damascus staat niet in de Barrington Atlas (die geeft de wegen
+  van de Romeinse tijd); ze berust op de naslagbronnen bij `jakobsvoorde`, en de lijn is recht.
+- De afdaling van de hoogvlakte van Moab naar Sodom (Lot, de koningen) is een rechte lijn tussen twee bestaande
+  punten en volgt geen bekende weg. Dat was al zo; alleen het punt `lisan` is eruit.
+- `anbar` = Rapiqum is waarschijnlijk, niet zeker; dat de weg langs de Eufraat liep, staat wel vast.
+- De referentiebeelden van de schermtests kunnen een gewijzigde lijn bevatten (Dode Zee, Efeze, Milete).
+
+### Gezien, niet aangepast (buiten de controle)
+
+De controle noemt alleen routes die een vlak van toen of een meer van nu raken. Los daarvan lopen er routes over
+water of land door de grove kustlijn van `geo.json` of doordat een bootreis als gewone route is getekend. Dat komt
+niet door het landschap van toen en is hier niet gewijzigd:
+
+- `exodus:uittocht:7:0` (Schelfzee → Mara) loopt 25 km over de Golf van Suez, en `exodus:uittocht:5:0` 7 km (de
+  doortocht zelf).
+- De overtochten over het Meer van Galilea (`jezus-1:nt-galilea:8:0` en `10:0`, `jezus-2:nt-over-de-grens:4:0` en
+  `5:0`) zijn bootreizen.
+- Kustplaatsen op de grove kustlijn: onder meer Tyrus, Sidon, Caesarea, Troas, Neapolis, Perge, Myra, Malta
+  (0,3 tot 30 km per route).
+- De lijn `later` bij `2kronieken:hizkia-josia` (Necho naar Karchemis, `hazor`–`riblah`) raakt de westoever van het
+  Hulameer. Het is een verwijzende lijn, geen route.
+
 ## Wat de integrator nog moet doen
 
 1. `scripts/postbuild.mjs`, regel 92: `"toen.json"` toevoegen aan de lijst met gegevensbestanden, zodat het bestand
@@ -495,7 +665,9 @@ Geen route loopt door een van de zeven nieuwe stuwmeren en geen landroute loopt 
 2. De twee teksten voor het colofon hierboven plaatsen.
 3. De referentiebeelden bijwerken: de Dode Zee, het Hulameer en de kusten bij Efeze en Milete zien er in de stand
    Toen anders uit.
-4. De routes hierboven beoordelen.
+4. ~~De routes hierboven beoordelen.~~ Gedaan: zie „Routes aangepast aan het landschap van toen”. Nog te
+   beslissen door de eigenaar: de twee routes van de uittocht langs de Bittermeren en de weg van David naar Moab
+   (beide daar beschreven).
 5. Het reliëf is niet opnieuw gemaakt. Het masker van het reliëf volgt `geo.json`; de vlakken van toen liggen er
    in een hogere laag overheen, dus dat is niet nodig.
 
