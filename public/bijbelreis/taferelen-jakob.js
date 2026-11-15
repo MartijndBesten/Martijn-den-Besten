@@ -79,16 +79,21 @@ BR.taferelen = BR.taferelen || {};
   // twee broers ook op een telefoon te lezen zijn. Met arm: zijn arm om Jakob heen (33:4).
   const EZAU = `<path class="k-terra2 o2" d="${LIJF}"/><circle class="k-hout o2" cy="-11" r="2.2"/>`;
   // Een groep uit het gezin die naderbij komt (33:6–7): vrouwen, haar kinderen, en wanneer de groep begint te lopen.
+  // De ladder bij Bethel (Genesis 28:12): een punt op een stijl bij t (0 = op de aarde, 1 = de bovenrand), en een stuk van de
+  // ladder van t = a tot b: het schijnsel eromheen, de stijlen (st) en de sporten bij sp, samen in één groep met klasse k.
+  const lp = (t, x, dx) => `${h(x + dx * t)} ${h(112 - 112 * t)}`;
+  const ladder = (a, b, st, k, sp) => `<g class="${k}"><path class="k-licht" d="M${lp(a, 150, 46)} ${lp(b, 150, 46)}H${h(168 + 46 * b)}L${lp(a, 168, 46)}z"/>` + st +
+    `<path class="l-licht" d="${sp.map((t) => `M${lp(t, 156, 44)}H${h(168 + 41 * t)}`).join("")}"/></g>`;
   const groep = (w, vr, k, kind, kk) => `<g class="tf-e-kom${w ? " tf-w" + w : ""}">${vrouwen(vr, k) + mensen(kind, kk)}</g>`;
 
   Object.assign(BR.taferelen, {
     // Genesis 28:10–22, Betel. ‘hij nam van de stenen dier plaats, en maakte zijn hoofdpeluw’ (28:11); ‘een ladder was gesteld
     // op de aarde, welker opperste aan den hemel raakte’ (28:12). De engelen die op en neer klommen en de HEERE Die erop stond
     // (28:12–13) zijn niet getekend: geen figuur en ook geen lichtjes die op en neer gaan. Alleen de ladder, die van onder naar
-    // boven verschijnt, en bovenaan een opening van licht. Het oprichten van de steen met olie (28:18) is niet getekend: dat
+    // boven verschijnt en bovenaan vervaagt in de sterren; geen licht bovenaan. Het oprichten van de steen met olie (28:18) is niet getekend: dat
     // gebeurt ’s morgens, en dit beeld is de nacht van de droom.
     "betel-nacht": { n: "De ladder bij Bethel",
-      label: "Het is nacht in een kaal, steenachtig bergland. Naast de weg ligt Jakob te slapen, zijn hoofd op een steen en zijn staf naast zich. Van de aarde tot aan de hemel staat een lichte ladder; bovenaan is de hemel open en licht. De ladder verschijnt van onder naar boven, daarna wordt het licht heel traag zachter en weer voller en twinkelen de sterren.",
+      label: "Het is nacht in een kaal, steenachtig bergland. Naast de weg ligt Jakob te slapen, zijn hoofd op een steen en zijn staf naast zich. Van de aarde reikt een lichte ladder omhoog; bovenaan wordt hij steeds vager en gaat hij op in de sterrenhemel. Bij de voet ligt een zacht schijnsel op de grond. De ladder verschijnt van onder naar boven; daarna wordt hij heel traag zachter en weer voller, en twinkelen de sterren.",
       svg: nacht + `<path class="k-berg2" d="M0 72l20-12 16 7 26-17 22 12 18-5 28 15 24-18 30 13 20-7 32 16 24-11 20 6 40-8v77H0z"/>` +
         `<path class="k-land" d="M0 94q70-12 150-6t170-8v60H0z"/><path class="k-zand" d="M0 124q90-10 170-2t150-6v24H0z"/>` +
         // de weg, van ver weg (rechts achter, naar Haran) tot vooraan
@@ -97,13 +102,16 @@ BR.taferelen = BR.taferelen || {};
         // Jakob slaapt: liggend, het hoofd op een steen, de staf naast zich
         `<g ${K.op(142, 120, 2.4)}><path class="l-hout2" d="M14-1.5-5-9.5q-2.5-1-3.5 1"/><path class="k-steen o" d="M-16 0l-.5-2.5 2-1.5h5l1.5 1.5L-8.5 0z"/>` +
         `<path class="k-wit o2" d="M-9 0q0-5 5-5h9q3 0 3 4V0z"/><path class="k-water2" d="M-1-5h1.5V0H-1z"/><circle class="k-hout o2" cx="-11.5" cy="-5.5" r="2.2"/><path class="k-water2" d="M-11.5-7.7a2.2 2.2 0 0 0 0 4.4z"/></g>` +
-        sluier + sterren([[18, 12], [46, 30], [84, 10], [110, 26], [290, 34], [306, 12], [262, 44]]) + sterren([[30, 20], [72, 44], [298, 24]], 1) +
+        sluier + sterren([[18, 12], [46, 30], [84, 10], [110, 26], [290, 34], [306, 12], [262, 44], [154, 14], [176, 30], [236, 10], [248, 30], [222, 22]]) + sterren([[30, 20], [72, 44], [298, 24], [170, 6], [228, 38]], 1) +
         `<circle class="k-okerz tf-l-gloed" cx="58" cy="16" r="1.3"/><circle class="k-okerz tf-l-gloed tf-w5" cx="284" cy="20" r="1.3"/>` +
-        // de opening van licht in de hemel, en de ladder van de aarde tot daar
-        `<g class="tf-e-in tf-w5"><circle class="k-licht" cx="205" cy="-8" r="44"/><circle class="k-licht tf-l-adem" cx="205" cy="-8" r="29"/><ellipse class="k-okerz" cx="205" cy="-6" rx="19" ry="12"/></g>` +
-        `<g class="tf-e-in tf-w3"><path class="k-licht tf-l-adem" d="M150 112 196 0h18l-46 112z"/><ellipse class="k-licht" cx="146" cy="114" rx="44" ry="8"/></g>` +
-        `<path class="l-licht dik tf-e-teken" pathLength="1" d="M156 112 200 0"/><path class="l-licht dik tf-e-teken" pathLength="1" d="M168 112 209 0"/>` +
-        `<path class="l-licht tf-e-in tf-w4" d="${rij([0.06, 0.16, 0.26, 0.36, 0.46, 0.56, 0.66, 0.76, 0.86].map((t) => [t]), (t) => `M${h(156 + 44 * t)} ${h(112 - 112 * t)}H${h(168 + 41 * t)}`)}"/>` },
+        // De ladder van de aarde omhoog. Het onderste stuk tekent zich; de bovenste stukken worden steeds vager (vaag, vaag2,
+        // vaag3) en lossen op in de sterrenhemel. Geen licht bovenaan: Genesis 28 noemt daar geen licht, en wie daar stond
+        // (28:13) wordt niet afgebeeld. De hele ladder ademt traag; het schijnsel bij de voet ligt op de grond.
+        `<g class="tf-e-in tf-w3"><ellipse class="k-licht" cx="146" cy="114" rx="44" ry="8"/></g><g class="tf-l-adem">` +
+        ladder(0, 0.62, "", "tf-e-in tf-w3", [0.06, 0.16, 0.26, 0.36, 0.46, 0.56]) +
+        `<path class="l-licht dik tf-e-teken" pathLength="1" d="M156 112 ${lp(0.62, 156, 44)}"/><path class="l-licht dik tf-e-teken" pathLength="1" d="M168 112 ${lp(0.62, 168, 41)}"/>` +
+        [[0.62, 0.74, "vaag", 6, [0.68]], [0.74, 0.84, "vaag2", 7, [0.79]], [0.84, 0.92, "vaag3", 8, [0.88]]].map(([a, b, k, w, sp]) =>
+          `<g class="${k}">${ladder(a, b, `<path class="l-licht dik" d="M${lp(a, 156, 44)} ${lp(b, 156, 44)}M${lp(a, 168, 41)} ${lp(b, 168, 41)}"/>`, `tf-e-in tf-w${w}`, sp)}</g>`).join("") + `</g>` },
 
     // Genesis 32:1–2: ‘Jakob toog ook zijns weegs; en de engelen Gods ontmoetten hem.’ Getekend is de stoet op weg door Gilead
     // (31:17–18: zijn zonen, zijn vrouwen, zijn vee) en Jakob die stilstaat. De engelen zijn niet getekend: de weg vóór hem is leeg.

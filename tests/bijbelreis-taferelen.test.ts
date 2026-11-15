@@ -275,6 +275,15 @@ describe("taferelen: koppeling", () => {
     const beweging = new Set([...T[BETEL].svg.matchAll(/\btf-[el]-[a-z-]+/g)].map((m) => m[0]));
     expect([...beweging].sort()).toEqual(["tf-e-in", "tf-e-teken", "tf-l-adem", "tf-l-gloed"]);
     expect(css).toMatch(/@keyframes tf-adem \{ from \{ opacity: [\d.]+; \} \}/);
+    // Geen licht of schijf boven de ladder (28:13: daar stond de HEERE; Genesis 28 noemt geen licht): de enige cirkels zijn
+    // het hoofd van Jakob en twee twinkelende sterren, de enige ellips is het schijnsel op de grond bij de voet. De ladder
+    // lost bovenaan op in drie steeds vagere stukken.
+    for (const m of T[BETEL].svg.matchAll(/<circle [^>]*>/g)) expect(m[0], "cirkel bij Bethel").toMatch(/r="(?:2\.2|1\.3)"/);
+    expect([...T[BETEL].svg.matchAll(/<ellipse [^>]*cy="([\d.]+)"/g)].map((m) => Number(m[1]))).toEqual([114]);
+    expect([...T[BETEL].svg.matchAll(/<g class="(vaag\d?)">/g)].map((m) => m[1])).toEqual(["vaag", "vaag2", "vaag3"]);
+    const vaag = (k: string) => Number(css.match(new RegExp(`\\.tf-svg \\.${k} \\{ opacity: ([\\d.]+); \\}`))![1]);
+    expect(vaag("vaag")).toBeGreaterThan(vaag("vaag2")); expect(vaag("vaag2")).toBeGreaterThan(vaag("vaag3"));
+    expect(T[BETEL].label).not.toMatch(/open|opening|schijf/i);
   });
   it("Genesis 32: de tien stappen van genesis:jakob-jabbok hebben elk een eigen tafereel, in volgorde", () => {
     expect(Object.keys(KOPPEL_JAKOB).filter((k) => k.startsWith("genesis:jakob-jabbok:"))).toEqual([...JAKOB.map((_, i) => `genesis:jakob-jabbok:${i}`), ...Object.keys(JAKOB_33)]);

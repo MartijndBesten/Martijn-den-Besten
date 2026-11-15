@@ -125,6 +125,7 @@ af op hele of halve eenheden.
 | `k-morgen` | doorschijnend rood: het eerste morgenlicht aan de rand van de nachtlucht |
 | `menigte` (+ `m2`, `kop`) | een rij mensen in de verte als gestreepte lijn: lijven in zand of (`m2`) terra, met `kop` de hoofden erboven |
 | `rand` | lijndikte 6,8: een donkere lijn (`l-hout2 rand`) ónder een brede lijn (`breed`) geeft die lijn een omlijning (de slang, de stang) |
+| `vaag`, `vaag2`, `vaag3` | op een groep: steeds doorzichtiger (0,6 · 0,34 · 0,14), om iets in stukken te laten oplossen (de ladder bij Bethel) |
 
 Een stip (een ster, een vonk) is een lijntje zonder lengte: `<path class="l-licht" d="M30 14h.1"/>`.
 
@@ -345,7 +346,7 @@ doen die twee sleutels niets en slaagt de test toch).
 
 | Stap | Id | Wat je ziet | Wat beweegt | Tekst |
 |---|---|---|---|---|
-| `genesis:jakob:0` | `betel-nacht` | nacht in kaal, steenachtig bergland; Jakob slaapt naast de weg met zijn hoofd op een steen, zijn staf naast zich; een lichte ladder van de aarde tot een opening van licht in de hemel | de ladder tekent zich van onder naar boven, het licht verschijnt en wordt heel traag zachter en voller (`tf-l-adem`), twee sterren twinkelen | Genesis 28:11–12 |
+| `genesis:jakob:0` | `betel-nacht` | nacht in kaal, steenachtig bergland; Jakob slaapt naast de weg met zijn hoofd op een steen, zijn staf naast zich; een lichte ladder van de aarde omhoog die bovenaan in drie stukken steeds vager wordt en opgaat in de sterrenhemel; een zacht schijnsel op de grond bij de voet | de ladder tekent zich van onder naar boven, de vage stukken verschijnen na elkaar, daarna wordt de hele ladder heel traag zachter en voller (`tf-l-adem`); twee sterren twinkelen | Genesis 28:11–12 |
 
 | Stap | Id | Wat je ziet | Wat beweegt | Tekst |
 |---|---|---|---|---|
@@ -390,8 +391,10 @@ Keuzes in deze reeks:
 - **Genesis 33:12–20** (`jabbok-sukkoth`): één beeld, de hutten die de naam Sukkoth uitleggen (33:17). Het altaar bij
   Sichem (33:20) is niet getekend; vier hutten is geen getal uit de tekst; hoe het huis eruitzag, zegt de tekst niet.
 - **Bethel** (`betel-nacht`): de engelen die op en neer klommen en de HEERE Die op de ladder stond (28:12–13) zijn niet
-  getekend, ook niet als lichtjes op de ladder of als gestalte in het licht: alleen de ladder en een ronde opening van licht
-  aan de bovenrand. De beweging gaat nergens op en neer (een test bewaakt welke bewegingsklassen er staan, en dat er één mens
+  getekend, ook niet als lichtjes op de ladder of als gestalte in het licht. Bovenaan staat **geen licht**: Genesis 28 noemt
+  daar geen licht, en een schijf boven de ladder zou gelezen kunnen worden als een afbeelding van Wie erop stond (28:13).
+  Een eerdere versie had zo’n ronde opening van licht; die is op aanwijzing weggehaald. Nu lost de ladder bovenaan op in de
+  sterrenhemel: drie stukken met afnemende doorzichtigheid (`vaag`, `vaag2`, `vaag3`), geen kleurverloop. De beweging gaat nergens op en neer (een test bewaakt welke bewegingsklassen er staan, en dat er één mens
   is). Het oprichten van de steen met olie (28:18) is niet getekend: dat gebeurt ’s morgens; één beeld bij de stap, en de
   nacht van de droom is de kern. Jakob ligt; zijn staf (32:10: ‘ik ben met mijn staf over deze Jordaan gegaan’ gaat over deze reis)
   maakt hem herkenbaar. De stap heeft een reis (Berseba → Bethel); de koppeling op de stapsleutel geeft hem toch dit beeld.
@@ -402,8 +405,8 @@ Wat een mens moet beoordelen:
   gebed en de dageraad passend is.
 - Of de dageraad (stap 7) op deze manier niet als ‘licht van God’ gelezen wordt: het is het gewone morgenlicht achter de
   bergen, dat in stap 8 de zon wordt.
-- Bethel: of een ladder van licht met een opening van licht aan de bovenrand passend en ingetogen genoeg is, of dat het licht
-  bovenaan als ‘de plaats van God’ te letterlijk wordt. En of het tweede beeld, de opgerichte steen met olie in het eerste
+- Bethel: of de ladder die bovenaan vervaagt in de sterren ‘aan den hemel raakte’ genoeg laat zien, zonder iets boven de
+  ladder te tekenen; en of de lichte ladder zelf (de Bijbel noemt geen licht) ingetogen genoeg is. En of het tweede beeld, de opgerichte steen met olie in het eerste
   licht (28:18), er toch moet komen: dat kan bij `genesis:jakob:8` (Terug in Bethel; 35:14 noemt weer een opgericht teken
   met olie), niet bij dezelfde stap.
 - Genesis 33:5–11: of het wijzen naar de kudden passend is, en of de broers naast het gezin niet te groot ogen.
