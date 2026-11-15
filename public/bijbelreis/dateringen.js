@@ -49,6 +49,8 @@ BR.dateringen = {
     "kerst:kerst-belofte": ["bijbel", true], // Kerst A: begint zonder jaartal (Genesis 5 en 11); vanaf Abraham als bij Genesis, tot de zalving van David
     "kerst:kerst-koningen": ["historie", true], // Kerst A: David tot Jozef; de eeuwen na Zerubbabel zonder jaren
     "kerst:kerst-aankondiging": ["historie", true], "kerst:kerst-geboorte": ["historie", true], // Kerst B: vóór de dood van Herodes (Lukas 1:5; Mattheüs 2:1)
+    "kerst:kerst-wijzen": ["historie", true], // vóór en na de dood van Herodes de Grote (ca. 4 v.Chr. volgens Josephus; sommigen later)
+    "kerst:kerst-twaalf": ["historie", true], // twaalf jaar na de geboorte (Lukas 2:42)
   },
   // Geschiedenissen per reeks: [van, tot, soort, onzeker?]
   verhalen: [

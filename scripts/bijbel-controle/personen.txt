@@ -1535,3 +1535,5 @@ Mattheüs 2:5 | Te Bethlehem, in Judea gelegen; want alzo is geschreven door den
 # --- Kerst B (inhoud/kerst-2.js): Augustus en Cyrenius
 Lukas 2:1 | een gebod uitging van den Keizer Augustus, dat de gehele wereld beschreven zou worden
 Lukas 2:2 | Deze eerste beschrijving geschiedde, als Cyrenius over Syri. stadhouder was
+# --- Kerst C (inhoud/kerst-3.js): Archelaüs
+Mattheüs 2:22 | als hij hoorde, dat Archelaus in Judea koning was, in de plaats van zijn vader Herodes, vreesde hij daarheen te gaan

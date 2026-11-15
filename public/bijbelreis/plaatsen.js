@@ -846,3 +846,12 @@ Object.assign(BR.plaatsen, {
     nu: "Omgeving van Beit Sahour, Westelijke Jordaanoever",
     bron: "Gebied: Lukas 2:8 zegt ‘in diezelfde landstreek’. Midden illustratief ten oosten van Bethlehem (Khirbet Siyar el-Ghanam; OpenBible bij Eder, Genesis 35:21, score 632)." },
 });
+
+// Kerst C (inhoud/kerst-3.js): de wijzen, Egypte en Nazareth. Coördinaten uit OpenBible.info Bible Geocoding Data (CC BY 4.0).
+// kc_rama ligt op hetzelfde punt als rama, maar zonder de alternatieven die bij het Rama van Samuël horen: Jeremia 31:15 en
+// Mattheüs 2:18 bedoelen Rama in Benjamin (zoals babel en babelst hetzelfde punt delen).
+Object.assign(BR.plaatsen, {
+  kc_rama: { n: "Rama", ll: [31.8543, 35.2316], c: "w", s: "l", z: 8.5, t: "stad",
+    d: "Stad in het gebied van Benjamin (Jozua 18:25), ten noorden van Jeruzalem. Jeremia schreef: ‘Er is een stem gehoord in Rama, een klage, een zeer bitter geween; Rachel weent over haar kinderen’ (Jeremia 31:15). Mattheüs haalt dat woord aan bij de kinderen van Bethlehem (Mattheüs 2:17–18).",
+    nu: "ar-Ram, ten noorden van Jeruzalem", bron: "OpenBible Ramah 1 (Jeremia 31:15; Mattheüs 2:18): Er Ram, score 723; zelfde punt als rama." },
+});

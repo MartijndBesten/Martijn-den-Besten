@@ -747,7 +747,7 @@ BR.mensen = {
     kort: "Een profetes, dochter van Fanuël, uit de stam van Aser. Ze ging niet weg uit de tempel en diende God met vasten en bidden, nacht en dag.",
     elders: [["Lukas 2:38", "Ze sprak over het Kind tot allen die de verlossing in Jeruzalem verwachtten."]] },
   // Drie koningen Herodes: Mattheüs 2 (stierf, 2:19), de viervorst (Lukas 3:1) en die van Handelingen 12.
-  herodes: { n: "Herodes", boek: ["jezus-1"],
+  herodes: { n: "Herodes", boek: ["jezus-1", "kerst"],
     kort: "Koning van Judea toen de Heere Jezus geboren werd. Hij liet in Bethlehem de kinderen van twee jaar en jonger doden. Historici noemen hem Herodes de Grote.",
     dood: "Mattheüs 2:19", elders: [["Lukas 1:5", "Zacharias leefde ‘in de dagen van Herodes, den koning van Judea’."], ["Mattheüs 2:16", "De kinderen in Bethlehem."]],
     vervolg: [["Mattheüs 2:22", "Na hem werd zijn zoon Archelaüs koning in Judea."]] },
@@ -1148,4 +1148,10 @@ BR.mensen = {
   cyrenius: { n: "Cyrenius", boek: ["kerst"],
     kort: "Stadhouder van Syrië in de tijd van de eerste beschrijving onder keizer Augustus. In Romeinse geschriften heet hij Quirinius.",
     elders: [["Lukas 2:2", "‘Deze eerste beschrijving geschiedde, als Cyrenius over Syrië stadhouder was.’"]] },
+  // Kerst C (inhoud/kerst-3.js)
+  // Archelaüs: alleen Mattheüs 2:22. Dat hij een zoon van Herodes was, staat er letterlijk (‘zijn vader Herodes’).
+  archelaus: { n: "Archelaüs", v: "herodes", boek: ["kerst"],
+    kort: "Zoon van koning Herodes. Na de dood van zijn vader was hij koning in Judea. Daarom was Jozef bang om daar te gaan wonen, en hij ging naar Galilea, naar Nazareth. De Bijbel noemt hem één keer.",
+    elders: [["Mattheüs 2:22", "‘Maar als hij hoorde, dat Archelaüs in Judea koning was, in de plaats van zijn vader Herodes, vreesde hij daarheen te gaan’."]],
+    basis: { v: ["b", "Mattheüs 2:22"] } },
 };
