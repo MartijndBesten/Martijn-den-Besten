@@ -722,7 +722,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "mozes",
       stappen: ["exodus:mozes:0", "exodus:mozes:1"],
       vorm: "plek",
-      uitleg: "In Egypte worden de kinderen van Israël heel talrijk. Een nieuwe koning, die Jozef niet gekend heeft, is bang voor hen. Hij maakt hen tot slaven: ze moeten de voorraadsteden Pitom en Raämses bouwen. Maar hoe meer ze verdrukt worden, hoe meer het volk groeit. De vroedvrouwen Sifra en Pua, die helpen als er kinderen geboren worden, vrezen God en laten de jongetjes leven. Dan beveelt de farao dat alle pasgeboren jongens in de rivier gegooid moeten worden. Een vrouw uit de stam Levi verbergt haar zoontje drie maanden. Daarna legt ze hem in een kistje van biezen, dichtgesmeerd met lijm en pek, tussen het riet aan de oever. De dochter van de farao vindt het kistje en krijgt medelijden met het huilende kind. Zijn zus haalt de eigen moeder erbij om het te voeden. Als het kind groot is, wordt het de zoon van de prinses. Zij noemt hem Mozes: ‘Want ik heb hem uit het water getogen.’",
+      uitleg: "In Egypte worden de kinderen van Israël heel talrijk. Een nieuwe koning, die Jozef niet gekend heeft, is bang voor hen. Hij maakt hen tot slaven: ze moeten de voorraadsteden Pitom en Raämses bouwen. Maar hoe meer ze verdrukt worden, hoe meer het volk groeit. De vroedvrouwen Sifra en Pua, die helpen als er kinderen geboren worden, vrezen God en laten de jongetjes leven. Dan beveelt de farao dat alle pasgeboren jongens in de rivier gegooid moeten worden. Een vrouw uit de stam Levi verbergt haar zoontje drie maanden. Daarna legt ze hem in een kistje van biezen, dichtgesmeerd met lijm en pek, tussen het riet aan de oever. De dochter van de farao vindt het kistje en krijgt medelijden met het huilende kind. Zijn zus Mirjam haalt de eigen moeder erbij om het te voeden. Als het kind groot is, wordt het de zoon van de prinses. Zij noemt hem Mozes: ‘Want ik heb hem uit het water getogen.’",
       betekenis: "Terwijl het volk geen uitweg ziet, laat God het groeien en bewaart Hij het kind door wie Hij Zijn volk zal verlossen. Hebreeën 11:23 zegt dat de ouders van Mozes hem door het geloof verborgen en het gebod van de koning niet vreesden.",
       wie: ["Mozes", "Mirjam"],
       kw: "hoop",
@@ -732,7 +732,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         items: [
           ["Sifra en Pua", "Twee vroedvrouwen die God vreesden en de jongetjes lieten leven; God deed hun goed (1:17, 20)."],
           ["De moeder", "Een vrouw uit de stam Levi, die hem drie maanden verborg (2:2). Exodus 6:19 noemt haar Jochebed."],
-          ["De zus", "Zij keek van een afstand toe en riep de moeder erbij (2:4, 7). Hier staat haar naam niet; de enige zus van Mozes die de Bijbel noemt, is Mirjam."],
+          ["De zus", "Mirjam, de zus van Mozes en Aäron (Numeri 26:59). Zij keek van een afstand toe en riep de moeder erbij (2:4, 7)."],
           ["De dochter van de farao", "Zij kreeg medelijden en nam het kind aan als haar zoon (2:6, 10)."],
         ],
       },
@@ -792,7 +792,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "mozes",
       stappen: ["exodus:mozes:4", "exodus:mozes:5", "exodus:mozes:6"],
       vorm: "plek",
-      uitleg: "Mozes hoedt de schapen van zijn schoonvader Jethro en komt bij Horeb, de berg van God. Daar ziet hij een braamstruik die brandt, maar niet verteerd wordt. God roept hem uit de struik: ‘Mozes, Mozes!’ Hij zegt: ‘trek uw schoenen uit van uw voeten; want de plaats, waarop gij staat, is heilig land.’ God heeft de verdrukking van Zijn volk gezien, en Hij stuurt Mozes naar de farao. Mozes vraagt: ‘Wie ben ik?’ God antwoordt: ‘Ik zal voorzeker met u zijn.’ Hij maakt Zijn Naam bekend: ‘IK ZAL ZIJN, Die IK ZIJN ZAL’. Hij geeft Mozes drie tekenen: de staf wordt een slang, de hand wordt melaats en weer gezond, en water uit de rivier zal bloed worden. Mozes zegt dat hij zwaar van mond is, en hij vraagt God iemand anders te zenden. Dan wordt de HEERE toornig, maar Hij geeft Aäron, de broer van Mozes, om voor hem te spreken. Onderweg naar Egypte komt de HEERE Mozes tegen en wil Hij hem doden, totdat Zippora haar zoon besnijdt. Aäron ontmoet Mozes bij de berg van God. In Egypte doet Aäron de tekenen voor het volk; het volk gelooft en buigt zich neer.",
+      uitleg: "Mozes hoedt de schapen van zijn schoonvader Jethro en komt bij Horeb, de berg van God. Daar ziet hij een braamstruik die brandt, maar niet verteerd wordt. God roept hem uit de struik: ‘Mozes, Mozes!’ Hij zegt: ‘trek uw schoenen uit van uw voeten; want de plaats, waarop gij staat, is heilig land.’ God heeft de verdrukking van Zijn volk gezien, en Hij stuurt Mozes naar de farao. Mozes vraagt: ‘Wie ben ik?’ God antwoordt: ‘Ik zal voorzeker met u zijn.’ Hij maakt Zijn Naam bekend: ‘IK ZAL ZIJN, Die IK ZIJN ZAL’. Hij geeft Mozes drie tekenen: de staf wordt een slang, de hand wordt melaats en weer gezond, en water uit de rivier zal bloed worden. Mozes zegt dat hij zwaar van mond is, en hij vraagt God iemand anders te zenden. Dan wordt de HEERE toornig, maar Hij geeft Aäron, de broer van Mozes, om voor hem te spreken. Onderweg naar Egypte komt de HEERE Mozes tegen en wil Hij hem doden, omdat zijn zoon niet besneden is. Zippora besnijdt hem, en de HEERE laat Mozes gaan. Aäron ontmoet Mozes bij de berg van God. In Egypte doet Aäron de tekenen voor het volk; het volk gelooft en buigt zich neer.",
       betekenis: "God gaat niet uit van wat Mozes kan, maar belooft: ‘Ik zal voorzeker met u zijn’ (3:12). De Heere Jezus gebruikt de woorden bij de braamstruik om te laten zien dat God ‘niet een God der doden, maar een God der levenden’ is (Markus 12:26–27).",
       wie: ["Mozes", "Jethro", "Aäron", "Zippora"],
       ontdek: {
@@ -965,7 +965,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       stappen: ["exodus:sinai:2"],
       vorm: "plek",
       uitleg: "In Rafidim valt Amalek Israël aan. Mozes zegt tegen Jozua: ‘Kies ons mannen, en trek uit, strijd tegen Amalek.’ Zelf gaat Mozes met Aäron en Hur op de top van de heuvel staan, met de staf van God in zijn hand. Zolang Mozes zijn hand omhoog houdt, is Israël het sterkst; laat hij zijn hand zakken, dan is Amalek het sterkst. Als zijn handen zwaar worden, laten Aäron en Hur hem op een steen zitten. Ze ondersteunen zijn handen, de een aan de ene kant en de ander aan de andere kant, tot de zon ondergaat. Zo verslaat Jozua Amalek met het zwaard. De HEERE zegt tegen Mozes dat hij dit moet opschrijven in een boek. Mozes bouwt een altaar en noemt het: ‘De HEERE is mijn Banier!’",
-      betekenis: "De overwinning komt niet uit de kracht van het leger, maar van de HEERE: Hij is de Banier van Zijn volk (17:15). De tekst zegt niet met zoveel woorden dat Mozes bad, maar opgeheven handen zijn in de Bijbel wel een gebaar van gebed (Psalm 28:2; 1 Timotheüs 2:8).",
+      betekenis: "De overwinning komt niet uit de kracht van het leger, maar van de HEERE: Hij is de Banier van Zijn volk (17:15). Mozes bidt met opgeheven handen, zoals biddende mensen in de Bijbel doen (Psalm 28:2; 1 Timotheüs 2:8).",
       wie: ["Mozes", "Jozua", "Aäron", "Hur"],
       ontdek: {
         soort: "koppel",
