@@ -34,7 +34,7 @@ BR.boeken.push({
     txt: "In het derde jaar van koning Jojakim van Juda komt Nebukadnezar, de koning van Babel, naar Jeruzalem en belegert de stad. God geeft koning Jojakim in zijn hand. Nebukadnezar neemt een deel van de vaten uit de tempel mee en zet ze in het huis van zijn god in het land Sinear.",
     fact: "Volgens de gangbare reconstructie was dit in 605 v.Chr. Bijna twintig jaar later werd Jeruzalem helemaal verwoest en de tempel verbrand (2 Koningen 25:9).", fs: "h" },
   { ref: "Daniël 1:3–7", t: "Naar Babel", stamp: "Babel", at: ["salem", "babelst"],
-    r: [{ p: ["salem", "bethel", "ridge", "sichem", "dothanw", "galil", "hazor", "damw", "qatna", "riblah", "hamath", "aleppo", "karkw", "balich", "tuttul", "deir", "mariw", "anah", "euphmid", "hit", "sippar", "babelst"], recon: 1 }],
+    r: [{ p: ["salem", "bethel", "ridge", "sichem", "dothanw", "galil", "hazor", "jakobsvoorde", "damw", "qatna", "riblah", "hamath", "aleppo", "karkw", "balich", "tuttul", "deir", "mariw", "anah", "euphmid", "hit", "anbar", "sippar", "babelst"], recon: 1 }],
     who: [["Daniël", "jongen"], ["Vrienden", "Hananja, Misaël en Azarja"]],
     txt: "De koning laat jongens uit de koninklijke familie van Juda meenemen naar Babel: knap, gezond en slim. Ze moeten drie jaar lang de taal en de boeken van de Chaldeeën leren, om daarna de koning te dienen. Daniël en zijn vrienden Hananja, Misaël en Azarja horen erbij. Ze krijgen nieuwe namen: Beltsazar, Sadrach, Mesach en Abed-Nego.",
     fact: "De weg van Jeruzalem naar Babel liep niet dwars door de woestijn, maar met een grote boog: naar het noorden en dan langs de rivier de Eufraat naar beneden. Dat is ongeveer 1400 tot 1600 km lopen.", fs: "h" },

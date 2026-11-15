@@ -89,10 +89,18 @@ Object.assign(BR.W, {
   hazor: [33.017, 35.568], galil: [32.82, 35.45], dothanw: [32.46, 35.3], ridge: [32.07, 35.26],
   jeruz: [31.777, 35.235], bethlehem: [31.705, 35.2], hebron: [31.53, 35.095], halfway: [31.62, 35.15],
   nitz: [30.88, 34.42], sinaiw: [30.8, 33.7], sur: [30.62, 32.8], timsah: [30.61, 32.28],
-  golan: [33.35, 35.85], jvalley: [32.5, 35.52], lisan: [31.28, 35.5],
+  golan: [33.35, 35.85], jvalley: [32.5, 35.52],
   ham: [32.6, 35.8], seirw: [30.55, 35.55], hazezon: [31.46, 35.39], siddim: [31.2, 35.45], gerarw: [31.42, 34.85], paranw: [30.75, 34.65],
   blrgerar: [31.1, 34.5], gerarval: [31.2, 34.6], ford: [32.2, 35.55], sichemvalley: [32.22, 35.4], moab: [31.3, 35.75],
   coast1: [32.45, 34.95], jaffa: [32.0, 34.78], arish: [31.13, 33.8], pelusium: [31.04, 32.55],
+});
+
+// Tussenpunten voor het landschap van toen (toen.json): wegen om het water van de Bijbelse tijd heen en havens aan de
+// baaien van toen. Reden en bron per punt: docs/bijbelreis-audit/ondergrond.md, "Routes aangepast aan het landschap van toen".
+Object.assign(BR.W, {
+  jakobsvoorde: [33.014, 35.629], hula_oost: [33.09, 35.649], anbar: [33.375, 43.717],
+  dz_west_n: [31.42, 35.368], dz_west_z: [31.21, 35.345], dz_zuid: [31.043, 35.369], ghor_z: [31.103, 35.537], ghor_n: [31.179, 35.545],
+  efeze_haven: [37.958, 27.326], efeze_noordweg: [38.033, 27.43], magnesia: [37.8505, 27.526], priene: [37.6608, 27.2966], priene_haven: [37.588, 27.25],
 });
 
 // Kleur per persoon (paletsleutel uit app.js). Inhoudsbestanden mogen aanvullen.
