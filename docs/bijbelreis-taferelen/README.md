@@ -8,6 +8,8 @@ motor onderhoudt. Wie alleen wil zien wat er is: open `docs/bijbelreis-taferelen
 |---|---|
 | `public/bijbelreis/taferelen.js` | De motor (`BR.tafereel`), de tekenbouwstenen (`BR.tfTeken`) en de standaardbeelden per soort plaats |
 | `public/bijbelreis/taferelen-ot.js` | Eigen taferelen bij het Oude Testament (later ook `taferelen-nt.js`) |
+| `public/bijbelreis/taferelen-ot-2.js` | Tweede reeks bij het Oude Testament, met eigen bouwstenen (riet, stapel stenen, kruik, stad in de verte, schip, scheve projectie voor een bouwwerk) |
+| `public/bijbelreis/taferelen-koppeling-ot-2.js` | De koppelingen van die tweede reeks; wordt ná `taferelen-koppeling.js` geladen en voegt toe |
 | `public/bijbelreis/taferelen-koppeling.js` | Welke stap welk beeld krijgt (`BR.beelden`) en afwijkende soorten per plaats (`BR.beeldSoort`) |
 | `public/bijbelreis/bijbelreis.css` | Onderaan: opmaak, kleurklassen en beweging van de taferelen |
 | `public/bijbelreis/app.js` | Drie regels die de motor aanroepen (stapkaart, verhaalweergave, Samen ontdekken) |
@@ -38,7 +40,8 @@ Deze regels zijn hard. Twijfel je, teken het dan niet en zet het bij de vragen i
    Nachtblauw alleen waar de tekst nacht zegt (de Schelfzee).
 6. **Techniek.** Alleen SVG-vormen en CSS-animaties. Geen script, geen afbeeldingen, geen lettertypen, geen
    verwijzingen naar buiten, geen `style`-attribuut. Een tafereel blijft liefst onder de 4000 tekens; de test staat
-   hooguit 6000 toe. Alle tekenbestanden samen blijven onder 60 kB (nu ruim 31 kB).
+   hooguit 6000 toe. Alle tekenbestanden samen (zonder de koppelingen) blijven onder 130 kB (nu 72 kB; de grens was 60 kB bij de
+   eerste reeks van 31 kB en is verruimd voor de tweede reeks van het Oude Testament en de reeks van het Nieuwe Testament).
 
 Een algemeen beeld is geen foto van die plaats. Daarom staat onder elk standaardbeeld ‘Algemene tekening’ en zegt de
 zin eronder wat je ziet (‘Zo zag een stad er toen vaak uit’), niet hoe het daar precies was.
@@ -102,6 +105,10 @@ af op hele of halve eenheden.
 | `l-hout2`, `l-hout`, `l-zand2`, `l-wit`, `l-zee`, `l-duin`, `l-salie`, `l-salie2`, `l-terra`, `l-oker`, `l-water`, `l-lila`, `l-licht` | lijnen zonder vulling |
 | `dik`, `breed`, `boog` | lijndikte 2,4 · 5 · 3,2 |
 | `steen` (+ `s2`) | een rij tichelstenen als gestreepte lijn |
+| `korrel` (+ `s2`) | een rij witte korrels als gestippelde lijn (manna) |
+| `rand` | lijndikte 6,8: een donkere lijn (`l-hout2 rand`) ónder een brede lijn (`breed`) geeft die lijn een omlijning (de slang, de stang) |
+
+Een stip (een ster, een vonk) is een lijntje zonder lengte: `<path class="l-licht" d="M30 14h.1"/>`.
 
 Een nieuwe kleur nodig? Voeg een klasse toe in `bijbelreis.css` die een bestaande variabele gebruikt (eventueel met
 `color-mix` van twee variabelen). Geen hexwaarden in een tafereel; de test weigert ze.
@@ -128,6 +135,9 @@ dat houdt de stijl gelijk en het bestand klein. Een onderdeel dat je twee keer n
 | `tf-e-uit` | verdwijnt (eenmalig; in de eindstand onzichtbaar) |
 | `tf-e-stort` | zakt in elkaar en verdwijnt, voor een muur (eenmalig; in de eindstand onzichtbaar) |
 | `tf-e-stof` | stofwolk komt op en trekt weg (eenmalig; in de eindstand onzichtbaar) |
+| `tf-l-wieg` | wiegt een paar graden heen en weer om het midden van de onderkant, voor iets wat drijft (lus) |
+| `tf-e-val` | valt van boven op zijn plaats (eenmalig) |
+| `tf-e-groei` | schiet op vanuit het midden van de onderkant (eenmalig) |
 | `tf-w1` … `tf-w9` | wacht 0,45 s per stap voordat de beweging begint |
 
 Regels bij beweging:
@@ -139,7 +149,8 @@ Regels bij beweging:
 - **Minder beweging** hoef je per tafereel niet af te vangen. De css zet bij `prefers-reduced-motion` alle `tf-l-…` en
   `tf-e-…` uit; dan blijft de eindstand staan. Controleer wel dat die eindstand het verhaal vertelt: de muur ligt om, het
   water staat als een muur, de boog staat in de wolken.
-- De motor herkent een eenmalige beweging aan `tf-e-` in de tekening en zet dan het knopje ‘Nog een keer’.
+- De motor herkent een eenmalige beweging aan `tf-e-` in de tekening en zet dan het knopje ‘Nog een keer’. Dat knopje
+  staat rechtsonder en dekt daar ongeveer 34 bij 34 eenheden af: zet in die hoek niets wat geteld moet kunnen worden.
 - Nieuwe beweging nodig? Voeg een klasse `tf-l-…` of `tf-e-…` met eigen `@keyframes` toe in `bijbelreis.css`, bij de
   andere. Houd de naamgeving aan, anders pauzeert ze niet buiten beeld en staat ze niet stil bij minder beweging.
 
@@ -182,6 +193,12 @@ Regels bij beweging:
    E2E_BASE_URL=http://127.0.0.1:8816 npx playwright test e2e/bijbelreis-taferelen.spec.ts --trace off
    ```
 
+Een nieuwe reeks naast een andere tekenaar: zet de tekeningen in een eigen bestand (`taferelen-<reeks>.js`) en de
+koppelingen in een eigen bestand waarvan de naam met `taferelen-koppeling` begint (dan telt het niet mee bij het gewicht
+van de tekeningen). Dat koppelingsbestand voegt toe met `Object.assign(BR.beelden || {}, {…})` en wordt ná
+`taferelen-koppeling.js` geladen; een sleutel die er al was, wordt dan vervangen. De test staat dat alleen toe als de
+eerdere koppeling bewust leeg was (`t: ""`).
+
 ## 5. Het overzicht maken
 
 ```sh
@@ -218,6 +235,35 @@ Eigen taferelen:
 | `moab` | het kamp aan de Jordaan, het land aan de overkant | Numeri 22:1; Deuteronomium 34:1–3 | `numeri:moab:1`–`3`, `jozua:intocht:0`, `numeri:kies-het-leven:0`–`5` |
 | `jericho` | de muur stort in | Jozua 6:20 | `jozua:intocht:4` |
 
+Tweede reeks bij het Oude Testament (`taferelen-ot-2.js`):
+
+| Id | Wat | Tekst | Stappen |
+|---|---|---|---|
+| `kistje` | het kistje van biezen in het riet; het wiegt | Exodus 2:3 | `exodus:mozes:1` |
+| `manna` | de dauw trekt op, het manna ligt rondom het kamp | Exodus 16:13–15, 31 | `exodus:sinai:0` |
+| `rots` | water stroomt uit de rots | Exodus 17:6; Numeri 20:11 | `exodus:sinai:1`, `numeri:woestijn:5` |
+| `tabernakel` | de voorhof, het altaar, het wasvat, de tent en de wolk, midden in het kamp | Exodus 26–27; 40:34–38 | `exodus:sinai:8`, `leviticus:verzoendag:0`–`4` |
+| `slang` | de koperen slang op de stang | Numeri 21:8–9 | `numeri:woestijn:7` |
+| `jordaan` | het water blijft op een hoop staan; twaalf stenen in de droge bedding | Jozua 3:16–17; 4:9 | `jozua:intocht:2` |
+| `twaalf-stenen` | de twaalf stenen bij het kamp in Gilgal | Jozua 4:19–20 | `jozua:intocht:3` |
+| `gideon` | nacht; de fakkels verschijnen in drie groepen rondom het kamp van Midian | Richteren 7:16–22 | `richteren:debora:8` |
+| `ruth-veld` | het gersteveld bij Bethlehem: garven, losse aren, de vaten | Ruth 1:22; 2:3–16 | `ruth:ruth:2`, `3` |
+| `eikdal` | het dal tussen de twee legers; de beek, de tas, de staf, de slinger, vijf stenen | 1 Samuël 17:2–3, 40 | `1samuel:saul-david:4` |
+| `tempel` | het huis van zestig bij twintig bij dertig el, de zijkamers, het voorhuis, de twee pilaren | 1 Koningen 6:2–10; 7:15–21 | `1koningen:salomo:4`, `2koningen:joas:0`–`2`, `2koningen:ballingschap:4`, `2kronieken:hizkia-josia:0`, `1`, `7` |
+| `karmel` | het altaar van twaalf stenen, de groeve met water, vier kruiken; het vuur valt | 1 Koningen 18:31–38 | `1koningen:elia:3` |
+| `elia` | een wervelwind en vuur boven de Jordaan; de mantel op de grond | 2 Koningen 2:11–13 | `1koningen:elia:9` |
+| `muur-puin` | nacht; de muur van Jeruzalem afgebroken, de poort verbrand | Nehemia 2:13, 17 | `ezra:nehemia:3` |
+| `muur-herbouw` | de muur tot de helft, er komen lagen bij; spies en schild bij het werk | Nehemia 4:6, 16–18; 6:1 | `ezra:nehemia:4` |
+| `oven` | de oven in het dal Dura, met in de verte het gouden beeld | Daniël 3:1, 19–26 | `daniel:daniel:4` |
+| `leeuwenkuil` | doorsnede: de steen met twee zegels op de opening, de leeuwen rustig; het wordt morgen | Daniël 6:17–24 | `daniel:daniel:7` |
+| `jona-storm` | het schip in de storm; vaten in zee | Jona 1:4–5, 13 | `jona:jona:2` |
+| `jona-vis` | de zee is stil; de grote vis; het droge | Jona 1:15, 17; 2:10 | `jona:jona:3` |
+| `wonderboom` | het verdek ten oosten van Ninevé; de wonderboom schiet op | Jona 4:5–8 | `jona:jona:6` |
+
+Wat in deze reeks bewust **niet** is getekend: geen mensen (ook Mozes, de dragers van de ark, David, Elia, Daniël en
+Jona niet), geen engel, geen wagen en paarden bij Elia (alleen vuur en wind), geen offerdier op de Karmel, geen kind in
+het kistje (het deksel is dicht), geen vorm voor het gouden beeld behalve de maten uit Daniël 3:1.
+
 ## 7. Wat nog getekend moet worden
 
 Eerst de plekken die nu **geen** beeld hebben omdat het standaardbeeld daar iets zou tonen wat de Bijbel niet zegt
@@ -227,17 +273,21 @@ Eerst de plekken die nu **geen** beeld hebben omdat het standaardbeeld daar iets
 - Gethsémané: de hof met olijfbomen, nacht;
 - de herders in het veld bij nacht (Lukas 2:8; zonder engel als figuur: licht mag);
 - de tempel (bij `nt_tempel` staat nu de stad Jeruzalem);
-- Jeruzalem met de afgebroken muur en de muur van Nehemia in aanbouw (Ezra, Nehemia, Zacharia);
+- Jeruzalem met de afgebroken muur bij daglicht (Ezra 3–6, Zacharia, Jeremia 39; `muur-puin` is een nachtbeeld bij
+  Nehemia 2) en de tweede tempel in aanbouw (Ezra 3:8–13; 6:13–22);
 - het schip in de storm bij Malta; Patmos en de zeven kandelaren;
-- de palmboom van Debora; de hut en de wonderboom van Jona; de Areopagus; een dorp zonder muur (Bethanië, de tien
+- de palmboom van Debora; de Areopagus; een dorp zonder muur (Bethanië, de tien
   melaatsen); de lege kuil bij Dothan; de hof van Eden wordt niet getekend.
 
 Dan de taferelen uit de opdracht:
 
-- de tabernakel (Exodus 25–27; 35–40); manna; het water uit de rots; de koperen slang;
-- de Jordaan die stilstaat en de twaalf stenen (Jozua 3–4);
-- Gideons kruiken en fakkels; de tempel van Salomo; het vuur op de Karmel; de wagen en paarden van vuur;
-- de muur van Nehemia; de leeuwenkuil; de vurige oven; de storm en de grote vis;
+- (getekend in de tweede reeks van het Oude Testament: het kistje in het riet, manna, het water uit de rots, de
+  tabernakel, de koperen slang, de Jordaan en de twaalf stenen, Gideon, het veld van Ruth, het Eikdal, de tempel van
+  Salomo, de Karmel, Elia bij de Jordaan, de muur van Nehemia, de vurige oven, de leeuwenkuil, de storm, de grote vis
+  en de wonderboom)
+- nog niet, uit het Oude Testament: de dorsvloer van Boaz (Ruth 3); de gouden kandelaar, de tafel en de ark in de tent
+  (Exodus 25); het gouden kalf wordt niet getekend; de beek Krith en de raven (1 Koningen 17); de regenwolk uit de zee
+  (1 Koningen 18:44); het schrift op de muur (Daniël 5; zonder hand: alleen de wand en de kandelaar);
 - de ster boven Bethlehem; de kribbe (zonder het Kind af te beelden);
 - een vissersboot op het meer; vijf broden en twee vissen;
 - het lege graf; de tongen als van vuur; het schip in de storm bij Malta; de zeven kandelaren.
@@ -249,3 +299,9 @@ Dan de taferelen uit de opdracht:
 - De standaardstad heeft altijd een muur. Bij een plaats die de Bijbel een ‘vlek’ (dorp) noemt, hoort dat beeld niet;
   zet zo’n plaats in `BR.beeldSoort` op `""` tot er een dorp getekend is.
 - In het Samen-verhaal op een telefoon schuift het beeld de knop ‘Verder’ verder naar beneden.
+- Tweede reeks: de tabernakel is het zwaarste tafereel (bijna 4800 tekens) en op een telefoon zijn het altaar, het
+  wasvat en de kleuren van de poort klein. De hoop water in de Jordaan oogt als een koepel. `muur-puin` heeft een
+  nachtlucht met het land in daglichtkleuren onder één laag `k-schaduw`; een eigen kleurklasse voor nachtland zou mooier zijn. Het gouden beeld bij de
+  oven is alleen een hoge smalle vorm, omdat de Bijbel geen gedaante noemt. De leeuwenkuil is een doorsnede: dat is
+  een keuze, de Bijbel zegt alleen dat de steen op de mond van de kuil lag.
+- `rots` dient voor twee geschiedenissen (Rafidim en Kades); de tekening toont daarom geen berg Horeb.

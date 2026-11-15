@@ -30,8 +30,15 @@ const T = BR.taferelen, IDS = Object.keys(T);
 const STAPPEN: Stap[] = BR.boeken.flatMap((b) => b.delen.flatMap((d) => d.steps.map((s, i) => ({ ...s, at: s.at || [], key: `${b.id}:${d.id}:${i}` }))));
 const STAP = new Map(STAPPEN.map((s) => [s.key, s]));
 const SOORTEN = ["stad", "berg", "water", "put", "kamp", "altaar", "tent", "gebied", "rivier"];
-// Gewicht: de hele reeks samen (de tekenbestanden zoals ze geladen worden) en één tafereel.
-const MAX_SAMEN = 60_000, MAX_TAFEREEL = 6_000;
+// Gewicht: de hele reeks samen (de tekenbestanden zoals ze geladen worden, zonder de koppelingen) en één tafereel.
+// De grens voor samen was 60 kB bij de eerste reeks (31 kB); met de tweede reeks van het Oude Testament (40 kB) is het
+// 72 kB, en er komt een reeks voor het Nieuwe Testament bij. Het is tekst die goed samenpakt (gzip: ongeveer een derde).
+const MAX_SAMEN = 130_000, MAX_TAFEREEL = 6_000;
+// De tweede reeks van het Oude Testament (taferelen-ot-2.js) en haar koppelingen (taferelen-koppeling-ot-2.js).
+const OT2 = ["kistje", "manna", "rots", "tabernakel", "slang", "jordaan", "twaalf-stenen", "gideon", "ruth-veld", "eikdal", "tempel", "karmel", "elia", "muur-puin", "muur-herbouw", "oven", "leeuwenkuil", "jona-storm", "jona-vis", "wonderboom"];
+const ot2: { window: { BR: { beelden: Record<string, Koppeling> } } } = { window: { BR: { beelden: {} } } };
+runInNewContext(readFileSync(join(PUB, "bijbelreis", "taferelen-koppeling-ot-2.js"), "utf8").replace(/\bBR\./g, "window.BR."), ot2);
+const KOPPEL_OT2 = ot2.window.BR.beelden;
 
 // Bestaat de verwijzing in de Statenvertaling (data/statenvertaling, alleen voor controle)?
 const bijbel: Record<string, { hoofdstukken: Record<string, string[]> }> = {};
@@ -62,6 +69,12 @@ describe("taferelen: register", () => {
   });
   it("heeft de eigen taferelen van de eerste reeks", () => {
     for (const id of ["ararat-ark", "ararat-boog", "babel", "braamstruik", "schelfzee", "sinai", "jericho", "moab", "stad-rivier"]) expect(T[id], id).toBeTruthy();
+  });
+  it("heeft de eigen taferelen van de tweede reeks bij het Oude Testament, elk aan minstens één stap", () => {
+    const gebruikt = new Set(STAPPEN.map((s) => BR.tafereel.van(s)?.id));
+    for (const id of OT2) { expect(T[id], id).toBeTruthy(); expect(gebruikt.has(id), `${id} hangt aan geen enkele stap`).toBe(true); }
+    expect(html.indexOf("/bijbelreis/taferelen-ot-2.js")).toBeLessThan(html.indexOf("/bijbelreis/taferelen-koppeling-ot-2.js"));
+    expect(html.indexOf("/bijbelreis/taferelen-koppeling-ot-2.js")).toBeLessThan(html.indexOf("/bijbelreis/app.js"));
   });
   it("elk tafereel heeft een naam en een label dat zegt wat er te zien is", () => {
     for (const id of IDS) {
@@ -108,7 +121,7 @@ describe("taferelen: tekening", () => {
 
 describe("taferelen: gewicht", () => {
   it(`de tekenbestanden blijven samen onder ${MAX_SAMEN} bytes en één tafereel onder ${MAX_TAFEREEL} tekens`, () => {
-    const bestanden = readdirSync(join(PUB, "bijbelreis")).filter((f) => /^taferelen.*\.js$/.test(f) && f !== "taferelen-koppeling.js");
+    const bestanden = readdirSync(join(PUB, "bijbelreis")).filter((f) => /^taferelen.*\.js$/.test(f) && !f.startsWith("taferelen-koppeling"));
     for (const f of bestanden) expect(scripts, `${f} staat niet in bijbelreis.html`).toContain(f);
     const samen = bestanden.reduce((a, f) => a + readFileSync(join(PUB, "bijbelreis", f)).length, 0);
     expect(samen).toBeLessThan(MAX_SAMEN);
@@ -143,6 +156,39 @@ describe("taferelen: koppeling", () => {
       ...Object.fromEntries([0, 1, 2, 3, 4, 5].map((i) => [`numeri:kies-het-leven:${i}`, "moab"])),
     };
     for (const [key, id] of Object.entries(wil)) expect(BR.beelden[key]?.t, key).toBe(id);
+  });
+  it("tweede reeks OT: elke koppeling hoort bij een bestaande stap en een tafereel van die reeks, en overschrijft geen eerder tafereel", () => {
+    const eerste: { window: { BR: { beelden: Record<string, Koppeling>; beeldSoort: object } } } = { window: { BR: { beelden: {}, beeldSoort: {} } } };
+    runInNewContext(readFileSync(join(PUB, "bijbelreis", "taferelen-koppeling.js"), "utf8").replace(/\bBR\./g, "window.BR."), eerste);
+    expect(Object.keys(KOPPEL_OT2).length).toBeGreaterThan(25);
+    for (const [key, k] of Object.entries(KOPPEL_OT2)) {
+      expect(STAP.has(key), `stap ${key} bestaat niet`).toBe(true);
+      expect(OT2, `${key} → ${k.t}`).toContain(k.t);
+      expect(BR.beelden[key], key).toEqual(k);
+      // Een eerdere koppeling mag alleen vervangen worden als die bewust leeg was (t: "").
+      expect(eerste.window.BR.beelden[key]?.t || "", `${key} had al een tafereel`).toBe("");
+    }
+    const wil: Record<string, string> = {
+      "exodus:mozes:1": "kistje", "exodus:sinai:0": "manna", "exodus:sinai:1": "rots", "numeri:woestijn:5": "rots", "exodus:sinai:8": "tabernakel", "numeri:woestijn:7": "slang",
+      "jozua:intocht:2": "jordaan", "jozua:intocht:3": "twaalf-stenen", "richteren:debora:8": "gideon", "ruth:ruth:3": "ruth-veld", "1samuel:saul-david:4": "eikdal",
+      "1koningen:salomo:4": "tempel", "1koningen:elia:3": "karmel", "1koningen:elia:9": "elia", "ezra:nehemia:3": "muur-puin", "ezra:nehemia:4": "muur-herbouw",
+      "daniel:daniel:4": "oven", "daniel:daniel:7": "leeuwenkuil", "jona:jona:2": "jona-storm", "jona:jona:3": "jona-vis", "jona:jona:6": "wonderboom",
+    };
+    for (const [key, id] of Object.entries(wil)) expect(BR.tafereel.van(STAP.get(key)!)?.id, key).toBe(id);
+  });
+  it("tweede reeks OT: aantallen die de Bijbel noemt, kloppen in de tekening", () => {
+    const tel = (id: string, re: RegExp) => (T[id].svg.match(re) || []).length;
+    const steen = /<path class="k-(?:zand|steen|duin) o" d="M-?[\d.]+ -?[\d.]+l/g; // een ruwe steen (st): een pad dat met l verdergaat
+    expect(tel("twaalf-stenen", steen)).toBe(12); // Jozua 4:20
+    expect(tel("jordaan", steen)).toBe(12); // Jozua 4:9
+    expect(tel("karmel", steen)).toBe(12); // 1 Koningen 18:31
+    expect(tel("karmel", /<path class="k-terra o" transform/g)).toBe(4); // vier kruiken (1 Koningen 18:33)
+    expect(tel("eikdal", /<ellipse class="k-steen o2"/g)).toBe(5); // vijf gladde stenen (1 Samuël 17:40)
+    expect(tel("leeuwenkuil", /<circle class="k-terra o2"/g)).toBe(2); // de ring van de koning en van zijn geweldigen (Daniël 6:18)
+    // De voorhof: twintig pilaren aan de lange zijden, tien aan de korte; vijf aan de deur van de tent (Exodus 26:37; 27:9–16).
+    const palen = [...T.tabernakel.svg.matchAll(/<path class="o2" d="((?:M[\d. ]+L[\d. ]+)+)"\/>/g)].map((m) => m[1].split("M").length - 1);
+    expect(palen).toEqual([10, 20, 4, 20, 10]); // achter, rechts, de vier hoornen van het altaar, links, voor
+    expect(T.tabernakel.svg.match(/<path class="l-oker" d="([^"]+)"/)![1].split("M").length - 1).toBe(5);
   });
   it("de afwijkende soorten per plaats kloppen met plaatsen en register", () => {
     for (const [id, v] of Object.entries(BR.beeldSoort)) {
@@ -180,7 +226,8 @@ describe("taferelen: welke stap krijgt welk beeld", () => {
     expect(tempel.id).toBe("stad"); expect(tempel.plaats).toBe("Jeruzalem");
     expect(van("genesis:jozef:4")!.id).toBe("rivier");
     expect(van("genesis:begin:1")).toBeNull(); // Eden: geen standaardbeeld
-    expect(van("ezra:nehemia:3")).toBeNull(); // de muur ligt in puin: geen ommuurde stad
+    expect(van("ezra:terugkeer:3")).toBeNull(); // de muur ligt in puin: geen ommuurde stad
+    expect(van("ezra:nehemia:3")!.id).toBe("muur-puin"); // sinds de tweede reeks: een eigen tafereel in plaats van geen beeld
   });
   it("de meeste stappen zonder reis hebben een beeld", () => {
     const zonder = STAPPEN.filter((s) => !(s.r && s.r.length));
