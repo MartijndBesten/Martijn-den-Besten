@@ -58,6 +58,7 @@ BR.dateringen = {
     // [meer-reizen:davids-rijk] datering
     //
     // [meer-reizen:brieven] datering
+    "brieven:brieven": ["historie", true], // brieven zonder jaartal; ijkpunten: Gallio (Handelingen 18:12) en de overlevering over Nero
     //
   },
   // Geschiedenissen per reeks: [van, tot, soort, onzeker?]

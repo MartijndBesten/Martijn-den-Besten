@@ -766,7 +766,7 @@ BR.mensen = {
   // De twaalf en hun families
   jonas: { n: "Jonas", boek: [], kort: "De vader van Simon Petrus (Johannes 1:43; 21:15). Andreas is ‘de broeder van Simon Petrus’ (Johannes 1:41). Meer vertelt de Bijbel niet over hem." },
   zebedeus: { n: "Zebedeüs", boek: [], kort: "De vader van Jakobus en Johannes. Zijn zonen lieten hem met de huurlingen in het schip achter om de Heere Jezus te volgen." },
-  petrus: { n: "Petrus", alias: ["Simon", "Simon Petrus", "Cefas"], v: "jonas", boek: ["jezus-1", "jezus-2", "jezus-3", "handelingen"],
+  petrus: { n: "Petrus", alias: ["Simon", "Simon Petrus", "Cefas"], v: "jonas", boek: ["jezus-1", "jezus-2", "jezus-3", "handelingen", "brieven"],
     kort: "Simon, de zoon van Jonas, een visser uit Bethsaïda en een van de twaalf apostelen. De Heere Jezus gaf hem de naam Cefas, dat is Petrus.",
     elders: [["Mattheüs 16:16–18", "‘Gij zijt de Christus, de Zoon des levenden Gods.’"], ["Mattheüs 26:75", "Na zijn verloochening weende hij bitterlijk."], ["Galaten 2:9", "Paulus noemt Jakobus, Cefas en Johannes ‘pilaren’."], ["1 Petrus 1:1", "‘Petrus, een apostel van Jezus Christus.’"]],
     vervolg: [["Johannes 21:15–17", "Driemaal vraagt de Heere Jezus hem: ‘hebt gij Mij lief?’"], ["Handelingen 2:14", "Met Pinksteren verheft hij zijn stem en preekt."], ["Handelingen 12:7–11", "Een engel bevrijdt hem uit de gevangenis."]],
@@ -890,7 +890,7 @@ BR.mensen = {
   gamaliel: { n: "Gamaliël", boek: ["handelingen"],
     kort: "Een Farizeeër en leraar van de wet, in ere bij het hele volk. In de raad zei hij: als dit werk uit God is, kunt gij het niet breken.",
     elders: [["Handelingen 5:34–39", "Zijn raad over de apostelen."], ["Handelingen 22:3", "Paulus werd ‘aan de voeten van Gamaliël’ onderwezen."]] },
-  paulus: { n: "Paulus", alias: ["Saulus"], boek: ["handelingen"],
+  paulus: { n: "Paulus", alias: ["Saulus"], boek: ["handelingen", "brieven"],
     kort: "Saulus, ‘die ook Paulus genaamd is’: een Jood uit Tarsus in Cilicië, uit de stam van Benjamin, een Farizeeër. Eerst vervolgde hij de gemeente; op de weg naar Damascus verscheen de Heere Jezus hem. Daarna werd hij ‘der heidenen apostel’.",
     elders: [["Handelingen 7:58", "Bij de steniging van Stefanus legden de getuigen hun kleren neer ‘aan de voeten eens jongelings, genaamd Saulus’."], ["Handelingen 9:3–5", "‘Saul, Saul! wat vervolgt gij Mij?’"], ["Handelingen 22:3", "Geboren in Tarsus, onderwezen aan de voeten van Gamaliël."], ["Filippenzen 3:5", "‘Van den stam van Benjamin, een Hebreër uit de Hebreën.’"], ["Romeinen 11:13", "‘Voor zoveel ik der heidenen apostel ben.’"], ["1 Korinthe 15:9", "‘Ik ben de minste van de apostelen … daarom dat ik de Gemeente Gods vervolgd heb.’"], ["2 Timotheüs 4:7", "‘Ik heb den goeden strijd gestreden.’"]],
     vervolg: [["Handelingen 13:9", "Vanaf hier heet hij Paulus."], ["Handelingen 28:30–31", "Twee jaar predikt hij in Rome het Koninkrijk Gods, onverhinderd."]] },
@@ -927,7 +927,7 @@ BR.mensen = {
   silas: { n: "Silas", boek: ["handelingen"],
     kort: "Een voorganger onder de broeders in Jeruzalem; Paulus koos hem als reisgenoot. In de gevangenis van Filippi baden en zongen Paulus en Silas.",
     elders: [["Handelingen 15:22", "Met Judas Barsabas met Paulus en Barnabas naar Antiochië gezonden."], ["Handelingen 15:40", "‘Maar Paulus verkoos Silas.’"], ["Handelingen 16:25", "Omtrent middernacht zongen zij Gode lofzangen."]] },
-  timotheus: { n: "Timotheüs", boek: ["handelingen"],
+  timotheus: { n: "Timotheüs", boek: ["handelingen", "brieven"],
     kort: "Een discipel uit de streek van Derbe en Lystre, zoon van een gelovige Joodse vrouw en een Griekse vader; Paulus nam hem mee op reis. Zijn moeder heette Eunice en zijn grootmoeder Lois.",
     elders: [["Handelingen 16:1–3", "Paulus neemt hem mee."], ["2 Timotheüs 1:5", "Het ongeveinsd geloof van zijn grootmoeder Lois en zijn moeder Eunice."], ["1 Timotheüs 1:2", "‘Mijn oprechten zoon in het geloof.’"], ["Filippenzen 2:19–22", "‘Als een kind zijn vader, met mij gediend heeft in het Evangelie.’"]] },
   lydia: { n: "Lydia", boek: ["handelingen"],
@@ -979,5 +979,24 @@ BR.mensen = {
   // [meer-reizen:davids-rijk] mensen
   //
   // [meer-reizen:brieven] mensen
+  // De brieven: wie een brief bracht, kreeg of erin wordt gestuurd. Paulus, Timotheüs en Petrus staan hierboven (boek ook "brieven").
+  febe: { n: "Febe", boek: ["brieven"],
+    kort: "‘Onze zuster’, een dienares van de gemeente in Kenchreeën. Paulus beveelt haar aan bij de gemeente in Rome: zij moeten haar ontvangen en bijstaan, want zij heeft velen geholpen, ook Paulus zelf.",
+    elders: [["Romeinen 16:1", "‘Febe, onze zuster, die een dienares is der Gemeente, die te Kenchreen is.’"], ["Romeinen 16:2", "‘Want zij is een voorstandster geweest van velen, ook van mijzelven.’"]] },
+  titus: { n: "Titus", boek: ["brieven"],
+    kort: "Een Griek en medewerker van Paulus; in Handelingen komt zijn naam niet voor. Paulus nam hem mee naar Jeruzalem, stuurde hem naar Korinthe en liet hem op Kreta achter om ouderlingen aan te stellen.",
+    elders: [["Galaten 2:1–3", "Paulus neemt hem mee naar Jeruzalem; hij is een Griek en wordt niet gedwongen zich te laten besnijden."], ["2 Korinthe 7:6", "‘Doch God, Die de nederigen vertroost, heeft ons getroost door de komst van Titus.’"], ["2 Korinthe 8:16–17", "Hij reist gewillig naar Korinthe."], ["2 Korinthe 8:23", "‘Hij is mijn metgezel en medearbeider bij u.’"], ["Titus 1:3–5", "‘Mijn oprechten zoon, naar het gemeen geloof’; op Kreta gelaten."], ["Titus 3:12", "Hij moet naar Paulus komen in Nikopolis."], ["2 Timotheüs 4:10", "Titus is naar Dalmatië gereisd."]] },
+  tychikus: { n: "Tychikus", boek: ["brieven"],
+    kort: "Een reisgenoot van Paulus uit Asia. Paulus noemt hem ‘de geliefde broeder en getrouwe dienaar in den Heere’ en stuurt hem naar Efeze en naar Kolosse, om te vertellen hoe het met hem gaat.",
+    elders: [["Handelingen 20:4", "Met Trofimus een van de reisgenoten uit Asia."], ["Efeze 6:21–22", "Hij zal de gemeente alles bekendmaken en hun harten troosten."], ["Kolossenzen 4:7–9", "Met Onesimus naar Kolosse gestuurd."], ["2 Timotheüs 4:12", "‘Maar Tychikus heb ik naar Efeze gezonden.’"], ["Titus 3:12", "Paulus wil Artemas of Tychikus naar Titus sturen."]] },
+  epafroditus: { n: "Epafroditus", boek: ["brieven"],
+    kort: "De gemeente van Filippi stuurde hem met een gave naar de gevangen Paulus. Hij is ziek geweest, tot nabij de dood, maar God ontfermde Zich over hem; Paulus stuurt hem terug naar Filippi.",
+    elders: [["Filippenzen 2:25", "‘Mijn broeder, en medearbeider en medestrijder, en uw afgezondene.’"], ["Filippenzen 2:27", "‘Maar God heeft Zich zijner ontfermd.’"], ["Filippenzen 4:18", "Hij bracht Paulus wat de gemeente gestuurd had."]] },
+  onesimus: { n: "Onesimus", boek: ["brieven"],
+    kort: "Paulus noemt hem ‘mijn zoon, denwelken ik in mijn banden heb geteeld’. Hij stuurt hem terug naar Filemon, ‘niet als een dienstknecht, maar meer dan een dienstknecht, namelijk een geliefden broeder’.",
+    elders: [["Filemon 1:10–12", "Paulus stuurt hem terug en vraagt Filemon hem weer aan te nemen."], ["Filemon 1:16", "‘Namelijk een geliefden broeder.’"], ["Kolossenzen 4:9", "‘Den getrouwen en geliefden broeder, dewelke uit de uwen is.’"]] },
+  filemon: { n: "Filemon", boek: ["brieven"],
+    kort: "Paulus schrijft hem een korte brief en noemt hem ‘den geliefde, en onzen medearbeider’. In zijn huis komt een gemeente samen. Paulus vraagt hem Onesimus weer aan te nemen.",
+    elders: [["Filemon 1:1–2", "De brief is gericht aan Filemon, Appia, Archippus en de gemeente in zijn huis."], ["Filemon 1:7", "Door hem zijn de heiligen verkwikt."], ["Filemon 1:17", "‘Zo neem hem aan, gelijk als mij.’"], ["Filemon 1:22", "Paulus hoopt bij hem te komen: ‘bereid mij ook tegelijk een herberg’."]] },
   //
 };

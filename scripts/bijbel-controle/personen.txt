@@ -1289,4 +1289,38 @@ Lukas 3:23 | zoon van Jozef, den zoon van Heli
 # [meer-reizen:davids-rijk]
 #
 # [meer-reizen:brieven]
+# De brieven: febe, titus, tychikus, epafroditus, onesimus, filemon (public/bijbelreis/personen.js)
+Romeinen 16:1 | Febe, onze zuster, die een dienares is der Gemeente, die te Kenchreen is
+Romeinen 16:2 | Opdat gij haar ontvangt in den Heere.*haar bijstaat.*want zij is een voorstandster geweest van velen, ook van mijzelven
+Galaten 2:1 | wederom naar Jeruzalem opgegaan met Barnabas, ook Titus medegenomen
+Galaten 2:3 | Titus, die met mij was, een Griek zijnde, werd niet genoodzaakt zich te laten besnijden
+2 Korinthe 7:6 | Doch God, Die de nederigen vertroost, heeft ons getroost door de komst van Titus
+2 Korinthe 8:16 | in het hart van Titus
+2 Korinthe 8:17 | gewillig tot u gereisd is
+2 Korinthe 8:23 | Titus, hij is mijn metgezel en medearbeider bij u
+Titus 1:3 | aan Titus, mijn oprechten zoon, naar het gemeen geloof
+Titus 1:5 | heb ik u te Kreta gelaten.*van stad tot stad zoudt ouderlingen stellen
+Titus 3:12 | Artemas tot u zal zenden, of Tychikus, zo benaarstig u tot mij te komen te Nikopolis
+2 Timotheüs 4:10 | Titus naar Dalmatie
+Handelingen 20:4 | van die van Azie Tychikus en Trofimus
+Efeze 6:21 | dat alles zal u Tychikus, de geliefde broeder en getrouwe dienaar in den Heere, bekend maken
+Efeze 6:22 | tot u gezonden heb.*hij uw harten zou vertroosten
+Kolossenzen 4:7 | Al mijn zaken zal u bekend maken Tychikus
+Kolossenzen 4:8 | tot u gezonden heb
+Kolossenzen 4:9 | Met Onesimus, den getrouwen en geliefden broeder, dewelke uit de uwen is
+2 Timotheüs 4:12 | Maar Tychikus heb ik naar Efeze gezonden
+Filippenzen 2:25 | Epafroditus, mijn broeder, en medearbeider en medestrijder, en uw afgezondene
+Filippenzen 2:27 | krank geweest tot nabij den dood; maar God heeft Zich zijner ontfermd
+Filippenzen 2:28 | hem te spoediger gezonden
+Filippenzen 4:18 | als ik van Epafroditus ontvangen heb, dat van u gezonden was
+Filippenzen 1:13 | mijn banden
+Filemon 1:10 | mijn zoon, denwelken ik in mijn banden heb geteeld, namelijk Onesimus
+Filemon 1:11 | denwelken ik wedergezonden heb
+Filemon 1:12 | neem hem.*weder aan
+Filemon 1:16 | niet als een dienstknecht, maar meer dan een dienstknecht, namelijk een geliefden broeder
+Filemon 1:1 | aan Filemon, den geliefde, en onzen medearbeider
+Filemon 1:2 | Appia.*Archippus.*de Gemeente, die te uwen huize is
+Filemon 1:7 | de ingewanden der heiligen verkwikt zijn geworden door u
+Filemon 1:17 | zo neem hem aan, gelijk als mij
+Filemon 1:22 | bereid mij ook tegelijk een herberg
 #
