@@ -6,7 +6,7 @@
       "delen": [
         { "t": "Het volk Israël is door de Jordaan gegaan. Bij Gilgal slaan ze hun kamp op, vlak bij de stad Jericho.", "stap": "jozua:intocht:3" },
         { "t": "In Gilgal vieren ze het Pascha. Ze eten van het koren van het land. Daarna is er geen manna meer.", "stap": "jozua:intocht:3" },
-        { "t": "Bij Jericho ziet Jozua een Man met een zwaard in Zijn hand. Hij is de Vorst van het leger van de HEERE.", "stap": "jozua:intocht:4" },
+        { "t": "Bij Jericho ziet Jozua een Man met een zwaard in Zijn hand. Hij is de Vorst van het leger van de HEERE: de Zoon van God.", "stap": "jozua:intocht:4" },
         { "t": "Jozua valt met zijn gezicht op de grond. Hij moet zijn schoenen uittrekken, want de plaats is heilig." },
         { "t": "De poorten van Jericho zijn dicht. Niemand gaat de stad uit, en niemand gaat erin.", "stap": "jozua:intocht:4" },
         { "t": "De HEERE zegt hoe het moet. Zes dagen lang lopen ze één keer om de stad heen." },
@@ -29,12 +29,12 @@
         {
           "kop": "Pascha in Gilgal",
           "stap": "jozua:intocht:3",
-          "t": "Israël is door de Jordaan getrokken en heeft zijn kamp in Gilgal, bij Jericho. Daar vieren ze het Pascha. Ze eten van het koren van het land, en de volgende dag houdt het manna op."
+          "t": "Israël heeft zijn kamp in Gilgal, bij Jericho. Daar vieren ze het Pascha. Ze eten van het koren van het land, en de volgende dag houdt het manna op."
         },
         {
           "kop": "De Vorst van het leger",
           "stap": "jozua:intocht:4",
-          "t": "Bij Jericho ziet Jozua een Man met een getrokken zwaard. Hij zegt: ‘Ik ben de Vorst van het heir des HEEREN’. Dat betekent: de Aanvoerder van het leger van de HEERE. Jozua valt op zijn gezicht en aanbidt. Hij moet zijn schoenen uittrekken: de plaats is heilig."
+          "t": "Bij Jericho ziet Jozua een Man met een getrokken zwaard. Hij zegt: ‘Ik ben de Vorst van het heir des HEEREN’. Dat betekent: de Aanvoerder van het leger van de HEERE. Het is de Zoon van God. Jozua valt op zijn gezicht en aanbidt Hem. Hij moet zijn schoenen uittrekken: de plaats is heilig."
         },
         {
           "kop": "Zeven dagen om de stad",
@@ -58,12 +58,12 @@
       "verdieping": [
         {
           "kop": "Oordeel over de volken van Kanaän",
-          "t": "Jozua 6:21 vertelt dat Israël alles in Jericho doodde. De Bijbel beschrijft dit als Gods oordeel over de volken van Kanaän. Al tegen Abram zei God dat zijn nakomelingen pas in het vierde geslacht zouden terugkomen, ‘want de ongerechtigheid der Amorieten is tot nog toe niet volkomen’ (Genesis 15:16). Mozes zei tegen Israël: ‘Niet om uw gerechtigheid’, ‘maar om de goddeloosheid dezer volken, verdrijft hen de HEERE’ (Deuteronomium 9:5). Het woord ‘verbannen’ (6:17) wordt uitgelegd als: helemaal aan de HEERE gegeven, zodat niemand er iets van mocht nemen (6:18; vgl. Leviticus 27:28). Mensen en dieren werden gedood; het zilver, het goud en de koperen en ijzeren vaten kwamen in Zijn schat (6:19).",
+          "t": "Jozua 6:21 vertelt dat Israël alles in Jericho doodde. De Bijbel beschrijft dit als Gods oordeel over de volken van Kanaän. Al tegen Abram zei God dat zijn nakomelingen pas in het vierde geslacht zouden terugkomen, ‘want de ongerechtigheid der Amorieten is tot nog toe niet volkomen’ (Genesis 15:16). Mozes zei tegen Israël: ‘Niet om uw gerechtigheid’, ‘maar om de goddeloosheid dezer volken, verdrijft hen de HEERE’ (Deuteronomium 9:5). Het woord ‘verbannen’ (6:17) betekent: helemaal aan de HEERE gegeven, zodat niemand er iets van mocht nemen (6:18; vgl. Leviticus 27:28). Mensen en dieren werden gedood; het zilver, het goud en de koperen en ijzeren vaten kwamen in Zijn schat (6:19).",
           "refs": ["Jozua 6:17–21", "Genesis 15:16", "Deuteronomium 9:5", "Leviticus 27:28"]
         },
         {
           "kop": "Rachab elders in de Bijbel",
-          "t": "Toen Rachab de verspieders verborg, zei ze: ‘de HEERE, ulieder God, is een God boven in den hemel, en beneden op de aarde’ (Jozua 2:11). Hebreeën 11:31 zegt: ‘Door het geloof is Rachab, de hoer, niet omgekomen met de ongehoorzamen’. Jakobus noemt haar als voorbeeld bij de woorden ‘Toon mij uw geloof uit uw werken’ (Jakobus 2:18, 25). In het geslachtsregister van de Heere Jezus staat: ‘Salmon gewon Booz bij Rachab’ (Mattheüs 1:5). Uitleggers zien haar meestal als dezelfde Rachab.",
+          "t": "Toen Rachab de verspieders verborg, zei ze: ‘de HEERE, ulieder God, is een God boven in den hemel, en beneden op de aarde’ (Jozua 2:11). Hebreeën 11:31 zegt: ‘Door het geloof is Rachab, de hoer, niet omgekomen met de ongehoorzamen’. Jakobus noemt haar als voorbeeld bij de woorden ‘Toon mij uw geloof uit uw werken’ (Jakobus 2:18, 25). Dezelfde Rachab staat in het geslachtsregister van de Heere Jezus: ‘Salmon gewon Booz bij Rachab’ (Mattheüs 1:5).",
           "refs": ["Jozua 2:11", "Hebreeën 11:31", "Jakobus 2:18, 25", "Mattheüs 1:5"]
         },
         {
@@ -140,7 +140,7 @@
       "verdieping": [
         {
           "kop": "Beroering",
-          "t": "Al bij Jericho had Jozua gewaarschuwd: wie van het verbannene neemt, maakt het leger van Israël tot een ban en brengt het in beroering (Jozua 6:18). Dat woord komt terug als Jozua tegen Achan zegt: ‘Hoe hebt gij ons beroerd? De HEERE zal u beroeren te dezen dage!’ (7:25). Vers 26 zegt: ‘Daarom noemde men den naam dier plaats het dal van Achor’; uitleggers verbinden die naam met het woord voor beroeren. Ook 1 Kronieken 2:7 noemt hem ‘de beroerder van Israël, die zich aan het verbannene vergreep’.",
+          "t": "Al bij Jericho had Jozua gewaarschuwd: wie van het verbannene neemt, maakt het leger van Israël tot een ban en brengt het in beroering (Jozua 6:18). Dat woord komt terug als Jozua tegen Achan zegt: ‘Hoe hebt gij ons beroerd? De HEERE zal u beroeren te dezen dage!’ (7:25). Vers 26 zegt: ‘Daarom noemde men den naam dier plaats het dal van Achor’; Achor betekent beroering. Ook 1 Kronieken 2:7 noemt hem ‘de beroerder van Israël, die zich aan het verbannene vergreep’.",
           "refs": ["Jozua 6:18", "Jozua 7:25–26", "1 Kronieken 2:7"]
         },
         {
@@ -217,17 +217,17 @@
       "verdieping": [
         {
           "kop": "Het boek des oprechten",
-          "t": "Na de woorden van Jozua tegen de zon vraagt de tekst: ‘Is dit niet geschreven in het boek des oprechten?’ (Jozua 10:13). Dat boek wordt ook genoemd bij de klaagzang van David over Saul en Jonathan (2 Samuël 1:17–18). Het boek zelf is niet bewaard gebleven. Hoe de zon stilstond, legt de Bijbel niet uit. Wel zegt de tekst wat er zo bijzonder was: ‘dat de HEERE de stem eens mans alzo verhoorde; want de HEERE streed voor Israël’ (10:14).",
+          "t": "Na de woorden van Jozua tegen de zon vraagt de tekst: ‘Is dit niet geschreven in het boek des oprechten?’ (Jozua 10:13). Dat boek wordt ook genoemd bij de klaagzang van David over Saul en Jonathan (2 Samuël 1:17–18). Het boek zelf is niet bewaard gebleven. Wel zegt de tekst wat er zo bijzonder was: ‘dat de HEERE de stem eens mans alzo verhoorde; want de HEERE streed voor Israël’ (10:14).",
           "refs": ["Jozua 10:12–14", "2 Samuël 1:17–18"]
         },
         {
           "kop": "Sichem en de eik",
-          "t": "Jozua neemt afscheid in Sichem. Daar bouwde Abram een altaar, toen de HEERE zei: ‘Aan uw zaad zal Ik dit land geven’ (Genesis 12:6–7). Daar verborg Jakob de vreemde goden ‘onder den eikeboom, die bij Sichem is’ (Genesis 35:4). Jozua zegt nu: ‘doet de vreemde goden weg’ (24:23), en hij richt een grote steen op ‘onder den eik’ (24:26). Veel uitleggers zien hier bewuste verbanden. In Sichem worden ook de beenderen van Jozef begraven, op het veld dat Jakob gekocht had (Genesis 33:19). Jozef had de zonen van Israël laten zweren dat ze zijn beenderen zouden meenemen (Genesis 50:25).",
+          "t": "Jozua neemt afscheid in Sichem. Daar bouwde Abram een altaar, toen de HEERE zei: ‘Aan uw zaad zal Ik dit land geven’ (Genesis 12:6–7). Daar verborg Jakob de vreemde goden ‘onder den eikeboom, die bij Sichem is’ (Genesis 35:4). Jozua zegt nu: ‘doet de vreemde goden weg’ (24:23), en hij richt een grote steen op ‘onder den eik’ (24:26). In Sichem worden ook de beenderen van Jozef begraven, op het veld dat Jakob gekocht had (Genesis 33:19). Jozef had de zonen van Israël laten zweren dat ze zijn beenderen zouden meenemen (Genesis 50:25).",
           "refs": ["Genesis 12:6–7", "Genesis 35:2–4", "Jozua 24:23–26", "Jozua 24:32", "Genesis 33:19", "Genesis 50:25"]
         },
         {
           "kop": "Waar en wanneer",
-          "t": "Gibeon is identificeerbaar; het was ‘een grote stad, als een der koninklijke steden’ (Jozua 10:2). Gilgal en Timnath-serah zijn waarschijnlijk; de ligging van Makkeda is onbekend. Richteren 2:9 noemt de plaats van Jozua’s graf Timnath-heres; meestal ziet men dat als dezelfde plaats. De list en de slag vallen kort na de intocht, ca. 1406 v.Chr. Hoe oud Jozua bij de intocht was, zegt de Bijbel niet; daarom is het jaar van zijn afscheid en dood een ruwe schatting. Wie de uittocht in de 13e eeuw v.Chr. dateert, komt bijna twee eeuwen later uit.",
+          "t": "Gibeon is identificeerbaar; het was ‘een grote stad, als een der koninklijke steden’ (Jozua 10:2). Gilgal en Timnath-serah zijn waarschijnlijk; de ligging van Makkeda is onbekend. Richteren 2:9 noemt de plaats van Jozua’s graf Timnath-heres: zo heet Timnath-serah daar. De list en de slag vallen kort na de intocht, ca. 1406 v.Chr. Hoe oud Jozua bij de intocht was, zegt de Bijbel niet; daarom is het jaar van zijn afscheid en dood een ruwe schatting. Wie de uittocht in de 13e eeuw v.Chr. dateert, komt bijna twee eeuwen later uit.",
           "refs": ["Jozua 10:2", "Jozua 24:29–30", "Richteren 2:8–9"]
         }
       ],
@@ -305,7 +305,7 @@
         },
         {
           "kop": "Jabin, Heber en Sisera",
-          "t": "Jozua had al eerder een Jabin, koning van Hazor, verslagen en Hazor verbrand (Jozua 11:1, 10–11). Hier regeert weer een Jabin in Hazor. Uitleggers verklaren dat verschillend: de stad kan herbouwd zijn, en Jabin was misschien een naam die vaker in dat koningshuis voorkwam. Heber de Keniet kwam ‘uit de kinderen van Hobab’, de schoonvader van Mozes (4:11). Er was vrede tussen Jabin en het huis van Heber (4:17); daarom vluchtte Sisera naar die tent. Samuël noemt Sisera later nog: ‘zo verkocht Hij hen in de hand van Sisera, den krijgsoverste, te Hazor’ (1 Samuël 12:9).",
+          "t": "Jozua had al eerder een Jabin, koning van Hazor, verslagen en Hazor verbrand (Jozua 11:1, 10–11). Hier regeert weer een Jabin in Hazor: een andere koning met dezelfde naam, in de weer opgebouwde stad. Heber de Keniet kwam ‘uit de kinderen van Hobab’, de schoonvader van Mozes (4:11). Er was vrede tussen Jabin en het huis van Heber (4:17); daarom vluchtte Sisera naar die tent. Samuël noemt Sisera later nog: ‘zo verkocht Hij hen in de hand van Sisera, den krijgsoverste, te Hazor’ (1 Samuël 12:9).",
           "refs": ["Jozua 11:1, 10–11", "Richteren 4:11, 17", "1 Samuël 12:9"]
         },
         {

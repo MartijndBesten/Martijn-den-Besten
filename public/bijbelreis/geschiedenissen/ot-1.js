@@ -62,7 +62,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         titel: "Kijk goed rond in de hof",
         items: [
           ["De boom des levens", "Die stond midden in de hof (2:9). Helemaal aan het eind van de Bijbel komt hij terug (Openbaring 22:2)."],
-          ["Vier rivieren", "Pison, Gihon, Hiddekel en Frath (2:11–14). Hiddekel en Frath worden meestal uitgelegd als de Tigris en de Eufraat."],
+          ["Vier rivieren", "Pison, Gihon, Hiddekel en Frath (2:11–14). Hiddekel is de Tigris en Frath de Eufraat."],
           ["Namen voor de dieren", "Adam gaf al het vee, de vogels en de wilde dieren een naam (2:20)."],
           ["De naam Eva", "Pas na de zondeval geeft Adam zijn vrouw haar naam, ‘omdat zij een moeder aller levenden is’ (3:20)."],
         ],
@@ -89,7 +89,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "begin",
       stappen: ["genesis:begin:1"],
       vorm: "plek",
-      uitleg: "De slang is listiger dan alle dieren. Ze vraagt de vrouw: ‘Is het ook, dat God gezegd heeft: Gijlieden zult niet eten van allen boom dezes hofs?’ Daarna zegt de slang: ‘Gijlieden zult den dood niet sterven.’ De vrouw ziet dat de boom mooi en begeerlijk is, en ze eet van de vrucht. Ze geeft ook haar man, en hij eet. Dan merken ze dat ze naakt zijn, en ze verbergen zich voor God tussen de bomen. God roept Adam: ‘Waar zijt gij?’ Adam geeft de vrouw de schuld, en de vrouw de slang. God vervloekt de slang. Maar God belooft ook dat het zaad van de vrouw de slang de kop zal vermorzelen. Tegen de vrouw zegt Hij dat zij met smart kinderen zal baren. En de man zal in het zweet van zijn gezicht brood eten, tot hij terugkeert tot de aarde: ‘want gij zijt stof, en gij zult tot stof wederkeren.’ Hij maakt kleren van vellen voor Adam en Eva en drijft hen uit de hof. Cherubs en een vlammend zwaard bewaken de weg naar de boom des levens.",
+      uitleg: "De slang is listiger dan alle dieren, en de duivel spreekt door haar. Ze vraagt de vrouw: ‘Is het ook, dat God gezegd heeft: Gijlieden zult niet eten van allen boom dezes hofs?’ Daarna zegt de slang: ‘Gijlieden zult den dood niet sterven.’ De vrouw ziet dat de boom mooi en begeerlijk is, en ze eet van de vrucht. Ze geeft ook haar man, en hij eet. Dan merken ze dat ze naakt zijn, en ze verbergen zich voor God tussen de bomen. God roept Adam: ‘Waar zijt gij?’ Adam geeft de vrouw de schuld, en de vrouw de slang. God vervloekt de slang. Maar God belooft ook dat het zaad van de vrouw de slang de kop zal vermorzelen. Tegen de vrouw zegt Hij dat zij met smart kinderen zal baren. En de man zal in het zweet van zijn gezicht brood eten, tot hij terugkeert tot de aarde: ‘want gij zijt stof, en gij zult tot stof wederkeren.’ Hij maakt kleren van vellen voor Adam en Eva en drijft hen uit de hof. Cherubs en een vlammend zwaard bewaken de weg naar de boom des levens.",
       betekenis: "Zo kwam de zonde in de wereld, en door de zonde de dood (Romeinen 5:12). Toch belooft God meteen een Overwinnaar: het zaad van de vrouw (3:15). Het Nieuwe Testament zegt dat de Zoon van God gekomen is om de werken van de duivel te verbreken (1 Johannes 3:8).",
       wie: ["Adam", "Eva"],
       kw: "zonde",
@@ -307,7 +307,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         items: [
           ["Ismaël", "“God hoort”: ‘omdat de HEERE uw verdrukking aangehoord heeft’ (16:11)."],
           ["God des aanziens", "Zo noemt Hagar de HEERE: Hij is de God Die haar ziet (16:13)."],
-          ["Lachai-Roï", "De naam van de put (16:14). Meestal uitgelegd als “put van de Levende, Die mij ziet”."],
+          ["Lachai-Roï", "De naam van de put (16:14). Dat betekent: “put van de Levende, Die mij ziet”."],
           ["Tussen Kades en Bered", "Daar lag de put (16:14). Waar precies, weet niemand; daarom is de plek op de kaart onzeker."],
         ],
       },
@@ -377,7 +377,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         items: [
           ["Abram wordt Abraham", "‘want Ik heb u gesteld tot een vader van menigte der volken’ (17:5)."],
           ["Sarai wordt Sara", "God geeft ook haar een nieuwe naam en belooft: ‘koningen der volken zullen uit haar worden!’ (17:15–16)."],
-          ["Izak", "God kiest de naam al vóór de geboorte (17:19). Izak betekent ‘hij lacht’; Abraham en Sara hadden eerst zelf gelachen (17:17; 18:12)."],
+          ["Izak", "God kiest de naam al vóór de geboorte (17:19). Izak betekent “hij lacht”; Abraham en Sara hadden eerst zelf gelachen (17:17; 18:12)."],
           ["Het teken", "De besnijdenis is het teken van het verbond tussen God en Abraham (17:11)."],
         ],
       },
@@ -508,7 +508,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "aartsvaders",
       stappen: ["genesis:izak:0", "genesis:izak:1", "genesis:izak:5", "genesis:izak:6", "genesis:jakob:0"],
       vorm: "route",
-      uitleg: "Rebekka krijgt geen kinderen, maar Izak bidt en de HEERE verhoort hem. Nog vóór de geboorte zegt de HEERE: ‘de meerdere zal den mindere dienen.’ Eerst wordt Ezau geboren, rood en harig, en dan Jakob, die de hiel van zijn broer vasthoudt. Ezau wordt een jager; Jakob is een oprecht man en woont in tenten. Op een dag verkoopt Ezau zijn eerstgeboorterecht aan Jakob voor brood en rode linzensoep. Jaren later is Izak oud en kan hij niet meer zien. Hij wil Ezau zegenen. Maar Rebekka en Jakob bedriegen hem met de kleren van Ezau en met geitenvellen, en Jakob krijgt de zegen. Ezau haat Jakob en wil hem doden, en Jakob vlucht naar zijn oom Laban in Haran. Onderweg droomt hij van een ladder tot aan de hemel, en de HEERE belooft: ‘Ik ben met u, en Ik zal u behoeden overal, waarheen gij trekken zult.’ Jakob noemt die plaats Bethel.",
+      uitleg: "Rebekka krijgt geen kinderen, maar Izak bidt en de HEERE verhoort hem. Nog vóór de geboorte zegt de HEERE: ‘de meerdere zal den mindere dienen.’ Eerst wordt Ezau geboren, rood en harig, en dan Jakob, die de hiel van zijn broer vasthoudt. Ezau wordt een jager; Jakob is een oprecht man en woont in tenten. Op een dag verkoopt Ezau zijn eerstgeboorterecht, het recht van de oudste zoon, aan Jakob voor brood en rode linzensoep. Jaren later is Izak oud en kan hij niet meer zien. Hij wil Ezau zegenen. Maar Rebekka en Jakob bedriegen hem met de kleren van Ezau en met geitenvellen, en Jakob krijgt de zegen. Ezau haat Jakob en wil hem doden, en Jakob vlucht naar zijn oom Laban in Haran. Onderweg droomt hij van een ladder tot aan de hemel, en de HEERE belooft: ‘Ik ben met u, en Ik zal u behoeden overal, waarheen gij trekken zult.’ Jakob noemt die plaats Bethel.",
       betekenis: "God had al vóór de geboorte gezegd dat de oudste de jongste zou dienen (Romeinen 9:10–12). De Bijbel praat het bedrog niet goed, maar God blijft trouw aan Zijn belofte (28:15). Hebreeën 12:16 waarschuwt om niet te zijn zoals Ezau, die zijn eerstgeboorterecht weggaf voor één maaltijd.",
       wie: ["Izak", "Rebekka", "Ezau", "Jakob"],
       ontdek: {
@@ -578,7 +578,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "aartsvaders",
       stappen: ["genesis:jakob:4", "genesis:jakob:5", "genesis:jakob:6"],
       vorm: "route",
-      uitleg: "Laban is tegenover Jakob niet meer zoals vroeger. De HEERE zegt: ‘Keer weder tot het land uwer vaderen, en tot uw maagschap, en Ik zal met u zijn.’ Jakob vertrekt met zijn vrouwen, kinderen en vee, zonder het Laban te zeggen. Rachel steelt de terafim, de huisgoden van haar vader. Laban jaagt Jakob zeven dagen achterna en haalt hem in op het gebergte Gilead, maar God waarschuwt Laban in een droom. Jakob zegt dat hij twintig jaar voor Laban gewerkt heeft, en dat zijn loon tien keer veranderd is. Ze maken een steenhoop als getuige en gaan in vrede uiteen. Daarna ontmoeten engelen van God Jakob bij Mahanaïm. Dan hoort Jakob dat Ezau hem tegemoet komt met vierhonderd man. Hij is heel bang, bidt om redding en stuurt een groot geschenk van vee vooruit. ’s Nachts, bij het veer van de Jabbok, worstelt een Man met hem tot de dageraad en raakt Hij zijn heup aan. Jakob zegt: ‘Ik zal U niet laten gaan, tenzij dat Gij mij zegent’, en hij krijgt de naam Israël. Hij noemt de plaats Pniël, want: ‘ik heb God gezien van aangezicht tot aangezicht.’",
+      uitleg: "Laban is tegenover Jakob niet meer zoals vroeger. De HEERE zegt: ‘Keer weder tot het land uwer vaderen, en tot uw maagschap, en Ik zal met u zijn.’ Jakob vertrekt met zijn vrouwen, kinderen en vee, zonder het Laban te zeggen. Rachel steelt de terafim, de huisgoden van haar vader. Laban jaagt Jakob zeven dagen achterna en haalt hem in op het gebergte Gilead, maar God waarschuwt Laban in een droom. Jakob zegt dat hij twintig jaar voor Laban gewerkt heeft, en dat zijn loon tien keer veranderd is. Ze maken een steenhoop als getuige en gaan in vrede uiteen. Daarna ontmoeten engelen van God Jakob bij Mahanaïm. Dan hoort Jakob dat Ezau hem tegemoet komt met vierhonderd man. Hij is heel bang, bidt om redding en stuurt een groot geschenk van vee vooruit. ’s Nachts, bij het veer van de Jabbok, worstelt een Man met hem tot de dageraad en raakt Hij zijn heup aan. Jakob zegt: ‘Ik zal U niet laten gaan, tenzij dat Gij mij zegent’, en hij krijgt de naam Israël. Hij noemt de plaats Pniël (aangezicht van God), want: ‘ik heb God gezien van aangezicht tot aangezicht.’",
       betekenis: "In zijn angst bidt Jakob en houdt hij God Zijn eigen belofte voor (32:9–12). Hosea 12:5 zegt dat Jakob bij het worstelen ‘weende en smeekte Hem’.",
       wie: ["Jakob", "Laban", "Rachel", "Ezau"],
       ontdek: {
@@ -722,7 +722,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "mozes",
       stappen: ["exodus:mozes:0", "exodus:mozes:1"],
       vorm: "plek",
-      uitleg: "In Egypte worden de kinderen van Israël heel talrijk. Een nieuwe koning, die Jozef niet gekend heeft, is bang voor hen. Hij maakt hen tot slaven: ze moeten de voorraadsteden Pitom en Raämses bouwen. Maar hoe meer ze verdrukt worden, hoe meer het volk groeit. De vroedvrouwen Sifra en Pua, die helpen als er kinderen geboren worden, vrezen God en laten de jongetjes leven. Dan beveelt de farao dat alle pasgeboren jongens in de rivier gegooid moeten worden. Een vrouw uit de stam Levi verbergt haar zoontje drie maanden. Daarna legt ze hem in een kistje van biezen, dichtgesmeerd met lijm en pek, tussen het riet aan de oever. De dochter van de farao vindt het kistje en krijgt medelijden met het huilende kind. Zijn zus haalt de eigen moeder erbij om het te voeden. Als het kind groot is, wordt het de zoon van de prinses. Zij noemt hem Mozes: ‘Want ik heb hem uit het water getogen.’",
+      uitleg: "In Egypte worden de kinderen van Israël heel talrijk. Een nieuwe koning, die Jozef niet gekend heeft, is bang voor hen. Hij maakt hen tot slaven: ze moeten de voorraadsteden Pitom en Raämses bouwen. Maar hoe meer ze verdrukt worden, hoe meer het volk groeit. De vroedvrouwen Sifra en Pua, die helpen als er kinderen geboren worden, vrezen God en laten de jongetjes leven. Dan beveelt de farao dat alle pasgeboren jongens in de rivier gegooid moeten worden. Een vrouw uit de stam Levi verbergt haar zoontje drie maanden. Daarna legt ze hem in een kistje van biezen, dichtgesmeerd met lijm en pek, tussen het riet aan de oever. De dochter van de farao vindt het kistje en krijgt medelijden met het huilende kind. Zijn zus Mirjam haalt de eigen moeder erbij om het te voeden. Als het kind groot is, wordt het de zoon van de prinses. Zij noemt hem Mozes: ‘Want ik heb hem uit het water getogen.’",
       betekenis: "Terwijl het volk geen uitweg ziet, laat God het groeien en bewaart Hij het kind door wie Hij Zijn volk zal verlossen. Hebreeën 11:23 zegt dat de ouders van Mozes hem door het geloof verborgen en het gebod van de koning niet vreesden.",
       wie: ["Mozes", "Mirjam"],
       kw: "hoop",
@@ -732,7 +732,7 @@ BR.kernwoorden = BR.kernwoorden || {};
         items: [
           ["Sifra en Pua", "Twee vroedvrouwen die God vreesden en de jongetjes lieten leven; God deed hun goed (1:17, 20)."],
           ["De moeder", "Een vrouw uit de stam Levi, die hem drie maanden verborg (2:2). Exodus 6:19 noemt haar Jochebed."],
-          ["De zus", "Zij keek van een afstand toe en riep de moeder erbij (2:4, 7). Hier staat haar naam niet; de enige zus van Mozes die de Bijbel noemt, is Mirjam."],
+          ["De zus", "Mirjam, de zus van Mozes en Aäron (Numeri 26:59). Zij keek van een afstand toe en riep de moeder erbij (2:4, 7)."],
           ["De dochter van de farao", "Zij kreeg medelijden en nam het kind aan als haar zoon (2:6, 10)."],
         ],
       },
@@ -792,7 +792,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       sectie: "mozes",
       stappen: ["exodus:mozes:4", "exodus:mozes:5", "exodus:mozes:6"],
       vorm: "plek",
-      uitleg: "Mozes hoedt de schapen van zijn schoonvader Jethro en komt bij Horeb, de berg van God. Daar ziet hij een braamstruik die brandt, maar niet verteerd wordt. God roept hem uit de struik: ‘Mozes, Mozes!’ Hij zegt: ‘trek uw schoenen uit van uw voeten; want de plaats, waarop gij staat, is heilig land.’ God heeft de verdrukking van Zijn volk gezien, en Hij stuurt Mozes naar de farao. Mozes vraagt: ‘Wie ben ik?’ God antwoordt: ‘Ik zal voorzeker met u zijn.’ Hij maakt Zijn Naam bekend: ‘IK ZAL ZIJN, Die IK ZIJN ZAL’. Hij geeft Mozes drie tekenen: de staf wordt een slang, de hand wordt melaats en weer gezond, en water uit de rivier zal bloed worden. Mozes zegt dat hij zwaar van mond is, en hij vraagt God iemand anders te zenden. Dan wordt de HEERE toornig, maar Hij geeft Aäron, de broer van Mozes, om voor hem te spreken. Onderweg naar Egypte komt de HEERE Mozes tegen en wil Hij hem doden, totdat Zippora haar zoon besnijdt. Aäron ontmoet Mozes bij de berg van God. In Egypte doet Aäron de tekenen voor het volk; het volk gelooft en buigt zich neer.",
+      uitleg: "Mozes hoedt de schapen van zijn schoonvader Jethro en komt bij Horeb, de berg van God. Daar ziet hij een braamstruik die brandt, maar niet verteerd wordt. God roept hem uit de struik: ‘Mozes, Mozes!’ Hij zegt: ‘trek uw schoenen uit van uw voeten; want de plaats, waarop gij staat, is heilig land.’ God heeft de verdrukking van Zijn volk gezien, en Hij stuurt Mozes naar de farao. Mozes vraagt: ‘Wie ben ik?’ God antwoordt: ‘Ik zal voorzeker met u zijn.’ Hij maakt Zijn Naam bekend: ‘IK ZAL ZIJN, Die IK ZIJN ZAL’. Hij geeft Mozes drie tekenen: de staf wordt een slang, de hand wordt melaats en weer gezond, en water uit de rivier zal bloed worden. Mozes zegt dat hij zwaar van mond is, en hij vraagt God iemand anders te zenden. Dan wordt de HEERE toornig, maar Hij geeft Aäron, de broer van Mozes, om voor hem te spreken. Onderweg naar Egypte komt de HEERE Mozes tegen en wil Hij hem doden, omdat zijn zoon niet besneden is. Zippora besnijdt hem, en de HEERE laat Mozes gaan. Aäron ontmoet Mozes bij de berg van God. In Egypte doet Aäron de tekenen voor het volk; het volk gelooft en buigt zich neer.",
       betekenis: "God gaat niet uit van wat Mozes kan, maar belooft: ‘Ik zal voorzeker met u zijn’ (3:12). De Heere Jezus gebruikt de woorden bij de braamstruik om te laten zien dat God ‘niet een God der doden, maar een God der levenden’ is (Markus 12:26–27).",
       wie: ["Mozes", "Jethro", "Aäron", "Zippora"],
       ontdek: {
@@ -965,7 +965,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       stappen: ["exodus:sinai:2"],
       vorm: "plek",
       uitleg: "In Rafidim valt Amalek Israël aan. Mozes zegt tegen Jozua: ‘Kies ons mannen, en trek uit, strijd tegen Amalek.’ Zelf gaat Mozes met Aäron en Hur op de top van de heuvel staan, met de staf van God in zijn hand. Zolang Mozes zijn hand omhoog houdt, is Israël het sterkst; laat hij zijn hand zakken, dan is Amalek het sterkst. Als zijn handen zwaar worden, laten Aäron en Hur hem op een steen zitten. Ze ondersteunen zijn handen, de een aan de ene kant en de ander aan de andere kant, tot de zon ondergaat. Zo verslaat Jozua Amalek met het zwaard. De HEERE zegt tegen Mozes dat hij dit moet opschrijven in een boek. Mozes bouwt een altaar en noemt het: ‘De HEERE is mijn Banier!’",
-      betekenis: "De overwinning komt niet uit de kracht van het leger, maar van de HEERE: Hij is de Banier van Zijn volk (17:15). De tekst zegt niet met zoveel woorden dat Mozes bad, maar opgeheven handen zijn in de Bijbel wel een gebaar van gebed (Psalm 28:2; 1 Timotheüs 2:8).",
+      betekenis: "De overwinning komt niet uit de kracht van het leger, maar van de HEERE: Hij is de Banier van Zijn volk (17:15). Mozes bidt met opgeheven handen, zoals biddende mensen in de Bijbel doen (Psalm 28:2; 1 Timotheüs 2:8).",
       wie: ["Mozes", "Jozua", "Aäron", "Hur"],
       ontdek: {
         soort: "koppel",
