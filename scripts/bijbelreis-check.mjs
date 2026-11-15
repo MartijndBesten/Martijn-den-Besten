@@ -49,7 +49,7 @@ const nrs = await page.evaluate(() => (BR.geschiedenissen || []).map((g) => g.nr
 for (const nr of nrs) {
   await page.evaluate((nr) => { location.hash = "v" + nr; }, nr);
   await page.waitForTimeout(60);
-  const ok = await page.evaluate((nr) => !!document.querySelector("#p-verhalen .verhaal") && document.querySelector("#p-verhalen .top b").textContent.includes("Geschiedenis " + nr + " "), nr);
+  const ok = await page.evaluate((nr) => !!document.querySelector("#p-verhalen .verhaal") && document.querySelector("#p-verhalen .top b").textContent.trim() === "Geschiedenis " + nr, nr);
   if (!ok) { problems.push(`geschiedenis ${nr} opent niet`); continue; }
   await page.evaluate(() => { const b = document.querySelector("#vOntdek button"); b && b.click(); });
   await page.evaluate(() => document.querySelector("#vqStart") && document.querySelector("#vqStart").click());

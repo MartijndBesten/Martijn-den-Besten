@@ -1,6 +1,6 @@
-// Beeldverhaal bij Genesis 32 en 33:1–4: Jakob bij de Jabbok, in tien taferelen (één bij elke stap van het deel
-// genesis:jakob-jabbok). Motor, bouwstenen (BR.tfTeken) en standaardbeelden: taferelen.js. Regels en tekenafspraken:
-// docs/bijbelreis-taferelen/README.md. Elk tafereel is gecontroleerd met de Statenvertaling (node scripts/sv.mjs "Genesis 32").
+// Beeldverhaal bij Genesis 32 en 33: Jakob bij de Jabbok, in twaalf taferelen (één bij elke stap van het deel
+// genesis:jakob-jabbok), en daarvoor de ladder bij Bethel (Genesis 28:10–22, stap genesis:jakob:0). Motor, bouwstenen
+// (BR.tfTeken) en standaardbeelden: taferelen.js. Regels en tekenafspraken: docs/bijbelreis-taferelen/README.md. Elk tafereel is gecontroleerd met de Statenvertaling (node scripts/sv.mjs "Genesis 32").
 // God wordt niet afgebeeld, en de Man Die met Jakob worstelt dus ook niet (32:30: ‘ik heb God gezien van aangezicht tot
 // aangezicht’); de engelen van 32:1 evenmin. Mensen staan er wel: klein, als pictogram en zonder gezicht. Jakob herken je
 // aan zijn staf (32:10), zijn witte kleed en zijn blauwe hoofddoek. Het is steeds hetzelfde dal: links de ronde berg, in
@@ -75,8 +75,36 @@ BR.taferelen = BR.taferelen || {};
   // Het gezin van Jakob (Genesis 32:22): twee vrouwen (oker), twee dienstmaagden (groen) en elf kinderen. p = de plaatsen,
   // in die volgorde: [vrouw, vrouw, dienstmaagd, dienstmaagd, elf kinderen].
   const gezin = (p, m = 1.15) => ((p) => vrouwen(p.slice(0, 2), "k-oker") + vrouwen(p.slice(2, 4), "k-salie") + mensen(p.slice(4, 10), "k-zand") + mensen(p.slice(10, 15), "k-terra"))(p.map(([x, y, s]) => [x, y, s * m]));
+  // Ezau: een rood kleed (Genesis 25:25: ‘ros’), zonder hoofddoek; groter getekend dan het gezin, zodat de
+  // twee broers ook op een telefoon te lezen zijn. Met arm: zijn arm om Jakob heen (33:4).
+  const EZAU = `<path class="k-terra2 o2" d="${LIJF}"/><circle class="k-hout o2" cy="-11" r="2.2"/>`;
+  // Een groep uit het gezin die naderbij komt (33:6–7): vrouwen, haar kinderen, en wanneer de groep begint te lopen.
+  const groep = (w, vr, k, kind, kk) => `<g class="tf-e-kom${w ? " tf-w" + w : ""}">${vrouwen(vr, k) + mensen(kind, kk)}</g>`;
 
   Object.assign(BR.taferelen, {
+    // Genesis 28:10–22, Betel. ‘hij nam van de stenen dier plaats, en maakte zijn hoofdpeluw’ (28:11); ‘een ladder was gesteld
+    // op de aarde, welker opperste aan den hemel raakte’ (28:12). De engelen die op en neer klommen en de HEERE Die erop stond
+    // (28:12–13) zijn niet getekend: geen figuur en ook geen lichtjes die op en neer gaan. Alleen de ladder, die van onder naar
+    // boven verschijnt, en bovenaan een opening van licht. Het oprichten van de steen met olie (28:18) is niet getekend: dat
+    // gebeurt ’s morgens, en dit beeld is de nacht van de droom.
+    "betel-nacht": { n: "De ladder bij Bethel",
+      label: "Het is nacht in een kaal, steenachtig bergland. Naast de weg ligt Jakob te slapen, zijn hoofd op een steen en zijn staf naast zich. Van de aarde tot aan de hemel staat een lichte ladder; bovenaan is de hemel open en licht. De ladder verschijnt van onder naar boven, daarna wordt het licht heel traag zachter en weer voller en twinkelen de sterren.",
+      svg: nacht + `<path class="k-berg2" d="M0 72l20-12 16 7 26-17 22 12 18-5 28 15 24-18 30 13 20-7 32 16 24-11 20 6 40-8v77H0z"/>` +
+        `<path class="k-land" d="M0 94q70-12 150-6t170-8v60H0z"/><path class="k-zand" d="M0 124q90-10 170-2t150-6v24H0z"/>` +
+        // de weg, van ver weg (rechts achter, naar Haran) tot vooraan
+        `<path class="l-duin dik" d="M318 82q-40 6-70 12"/><path class="l-duin breed" d="M248 94q-50 10-90 20T40 140"/>` +
+        `<path class="k-steen o" d="${rij([[18, 104, 1.1], [62, 98, 0.8], [226, 106, 1], [270, 100, 0.7], [292, 116, 1.2], [36, 128, 1.3], [196, 128, 0.9], [244, 132, 1.1], [120, 96, 0.6]], (x, y, s) => vorm("M0 0l-1-4 4-4 7 1 3 5-1 2z", x, y, s))}"/>` +
+        // Jakob slaapt: liggend, het hoofd op een steen, de staf naast zich
+        `<g ${K.op(142, 120, 2.4)}><path class="l-hout2" d="M14-1.5-5-9.5q-2.5-1-3.5 1"/><path class="k-steen o" d="M-16 0l-.5-2.5 2-1.5h5l1.5 1.5L-8.5 0z"/>` +
+        `<path class="k-wit o2" d="M-9 0q0-5 5-5h9q3 0 3 4V0z"/><path class="k-water2" d="M-1-5h1.5V0H-1z"/><circle class="k-hout o2" cx="-11.5" cy="-5.5" r="2.2"/><path class="k-water2" d="M-11.5-7.7a2.2 2.2 0 0 0 0 4.4z"/></g>` +
+        sluier + sterren([[18, 12], [46, 30], [84, 10], [110, 26], [290, 34], [306, 12], [262, 44]]) + sterren([[30, 20], [72, 44], [298, 24]], 1) +
+        `<circle class="k-okerz tf-l-gloed" cx="58" cy="16" r="1.3"/><circle class="k-okerz tf-l-gloed tf-w5" cx="284" cy="20" r="1.3"/>` +
+        // de opening van licht in de hemel, en de ladder van de aarde tot daar
+        `<g class="tf-e-in tf-w5"><circle class="k-licht" cx="205" cy="-8" r="44"/><circle class="k-licht tf-l-adem" cx="205" cy="-8" r="29"/><ellipse class="k-okerz" cx="205" cy="-6" rx="19" ry="12"/></g>` +
+        `<g class="tf-e-in tf-w3"><path class="k-licht tf-l-adem" d="M150 112 196 0h18l-46 112z"/><ellipse class="k-licht" cx="146" cy="114" rx="44" ry="8"/></g>` +
+        `<path class="l-licht dik tf-e-teken" pathLength="1" d="M156 112 200 0"/><path class="l-licht dik tf-e-teken" pathLength="1" d="M168 112 209 0"/>` +
+        `<path class="l-licht tf-e-in tf-w4" d="${rij([0.06, 0.16, 0.26, 0.36, 0.46, 0.56, 0.66, 0.76, 0.86].map((t) => [t]), (t) => `M${h(156 + 44 * t)} ${h(112 - 112 * t)}H${h(168 + 41 * t)}`)}"/>` },
+
     // Genesis 32:1–2: ‘Jakob toog ook zijns weegs; en de engelen Gods ontmoetten hem.’ Getekend is de stoet op weg door Gilead
     // (31:17–18: zijn zonen, zijn vrouwen, zijn vee) en Jakob die stilstaat. De engelen zijn niet getekend: de weg vóór hem is leeg.
     "jabbok-mahanaim": { n: "Jakob trekt verder",
@@ -143,7 +171,34 @@ BR.taferelen = BR.taferelen || {};
       svg: `<g class="tf-l-drijf">${K.wolk(120, 20, 0.9)}</g>` + dal(E) +
         `<path class="menigte" d="M262 100h70M238 116h94M258 132h74"/><path class="menigte m2" d="M248 108h84M244 124h88"/><path class="menigte kop" d="M263.5 95.5h70M249.5 103.5h84M239.5 111.5h94M245.5 119.5h88M259.5 127.5h74"/>` +
         gezin([[66, 117, 1.1], [34, 121, 1.1], [124, 119, 1.1], [138, 122, 1.1], [44, 123, 0.6], [78, 119, 0.9], [88, 122, 0.8], [58, 122, 0.75], [72, 125, 0.7], [82, 128, 0.6], [96, 125, 0.65], [132, 126, 0.7], [118, 125, 0.6], [146, 126, 0.75], [128, 130, 0.55]]) +
-        `<g ${K.op(178, 124, 1.5)}>${STAF(-5.5)}<path class="k-wit o2" d="M-3 0l.5-5h5l.5 5z"/><g class="tf-e-buig"><path class="k-wit o2" d="M-2.5-4.5l.5-4q2-1.5 4 0l.5 4z"/>${KOP}</g><path class="k-water2" d="M-2.5-5.5h5v1.5h-5z"/></g>` +
-        `<g class="tf-e-kom-r tf-w9"><g ${K.op(187, 124, 1.5)}><path class="k-terra2 o2" d="${LIJF}"/><circle class="k-hout o2" cy="-11" r="2.2"/><path class="l-terra dik" d="M-1-7.5l-5.5-1"/></g></g>` },
+        `<g ${K.op(192, 130, 2.3)}>${STAF(-5.5)}<path class="k-wit o2" d="M-3 0l.5-5h5l.5 5z"/><g class="tf-e-buig"><path class="k-wit o2" d="M-2.5-4.5l.5-4q2-1.5 4 0l.5 4z"/>${KOP}</g><path class="k-water2" d="M-2.5-5.5h5v1.5h-5z"/></g>` +
+        `<g class="tf-e-kom-r tf-w9"><g ${K.op(204, 130, 2.3)}><g transform="rotate(-14)">${EZAU}<path class="l-terra dik" d="M-.5-7.5l-7.5-1.5"/></g></g></g>` },
+    // Genesis 33:5–11: ‘Toen traden de dienstmaagden toe, zij en haar kinderen … En Lea trad ook toe, met haar kinderen … en daarna
+    // trad Jozef toe en Rachel’ (33:6–7); ‘Voor wien is u al dit heir, dat ik ontmoet heb?’ (33:8); ‘neem mijn geschenk van mijn
+    // hand’ (33:10); ‘hij hield bij hem aan, zodat hij het nam’ (33:11). De kinderen per moeder: Genesis 29:31–30:24 (de
+    // dienstmaagden vier zonen, Lea zes, Rachel Jozef). Het geschenk zijn de vijf kudden uit 32:14–15, op de helling.
+    "jabbok-aangezicht": { n: "Neem toch mijn geschenk",
+      label: "Het is dag aan de overkant van de Jabbok. Op de helling grazen de kudden van het geschenk: geiten, schapen, kamelen, runderen en ezels. Vooraan staan Jakob en Ezau, in het rood, dicht bij elkaar; Jakob wijst naar de kudden. Van links komt het gezin in drie groepen naderbij: eerst de dienstmaagden met haar kinderen, dan Lea met haar kinderen, als laatste Rachel met Jozef. Rechts staan de mannen van Ezau.",
+      svg: `<g class="tf-l-drijf">${K.wolk(70, 22, 0.9)}</g>` + dal(E) +
+        vee(geiten([[118, 86, 0.6], [128, 89, 0.6]]), schapen([[150, 88, 0.7], [162, 86, 0.7], [158, 92, 0.7]]), kamelen([[190, 88, 0.7], [204, 90, 0.45]]), runderen([[232, 90, 0.65]], "k-zand2 o2"), ezels([[256, 90, 0.7], [266, 87, 0.6]])) +
+        `<path class="menigte" d="M296 104h40M284 120h52"/><path class="menigte m2" d="M290 112h46"/><path class="menigte kop" d="M297.5 99.5h40M291.5 107.5h46M285.5 115.5h52"/>` +
+        groep(6, [[52, 118, 1.25]], "k-oker", [[62, 122, 0.85]], "k-zand") +
+        groep(3, [[104, 120, 1.25]], "k-oker", [[116, 124, 0.85], [92, 122, 0.9], [84, 126, 0.75], [126, 128, 0.7], [108, 129, 0.65], [96, 130, 0.7]], "k-terra") +
+        groep(0, [[160, 121, 1.25], [146, 119, 1.25]], "k-salie", [[170, 125, 0.8], [154, 127, 0.7], [138, 124, 0.85], [166, 130, 0.65]], "k-zand") +
+        `<g ${K.op(200, 132, 2.3)}>${STAF(5.5) + KLEED + KOP}<path class="l-hout2" d="M-2-7.5l-5-4"/></g><g ${K.op(222, 132, 2.3)}>${EZAU}</g>` },
+    // Genesis 33:16–17: ‘Alzo keerde Ezau dien dag wederom zijns weegs naar Seir toe. Maar Jakob reisde naar Sukkoth, en bouwde
+    // een huis voor zich, en maakte hutten voor zijn vee; daarom noemde hij den naam dier plaats Sukkoth.’ Sukkoth betekent
+    // ‘hutten’. Het altaar bij Sichem (33:18–20) is niet getekend: één beeld, en dit is het beeld dat de naam uitlegt. Hoe het
+    // huis eruitzag, zegt de tekst niet; het is een eenvoudig huis met een plat dak. Vier hutten: geen getal uit de tekst.
+    "jabbok-sukkoth": { n: "Hutten in Sukkoth",
+      label: "Een breed, groen dal met een beek en bergen erachter. Jakob staat met zijn staf bij een eenvoudig huis met een plat dak. Daarnaast staan hutten van palen met daken van groene takken, en daaronder staan de schapen en de runderen in de schaduw. De daken komen er een voor een bij.",
+      svg: `<g class="tf-l-drijf">${K.wolk(250, 24, 0.9)}</g><path class="k-berg2" d="M0 66q40-18 90-8t84-12 80 10 66-6v90H0z"/>` +
+        `<path class="k-groen" d="M0 84q80-8 170-4t150-4v64H0z"/><path class="k-land" d="M0 106q90-8 170-2t150-6v42H0z"/><path class="k-zand" d="M0 130q100-8 200-2t120-4v16H0z"/>` +
+        `<path class="k-zee oever" d="M30 80c4 6-12 10-8 18s18 12 6 22-16 14-14 20h20c0-8 18-12 10-22S22 104 30 96s6-10 6-16z"/><path class="l-wit tf-l-golf" d="M20 104q2-2 4 0t4 0M16 128q2.5-2 5 0t5 0"/>` +
+        // de hutten: palen, en daken van takken die er een voor een bij komen
+        `<path class="l-hout2 dik" d="${rij([[72], [112], [152], [192]], (x) => `M${x - 14} 122v-18M${x + 14} 122v-18`)}"/>` +
+        vee(runderen([[72, 120, 0.9], [154, 121, 0.9]]), runderen([[112, 122, 0.85]], "k-zand2 o2"), schapen([[146, 124, 0.75], [186, 121, 0.8], [200, 124, 0.8], [244, 130, 0.8]])) +
+        [72, 112, 152, 192].map((x, i) => `<g class="tf-e-in tf-w${2 * i + 2}"><path class="k-salie2 o2" d="M${x - 19} 106q0-6 6-6 3-5 9-3 4-4 10 0 6-3 9 2 6 0 6 7z"/><path class="l-salie" d="M${x - 12} 102h6M${x + 2} 101h7"/></g>`).join("") +
+        `<path class="k-duin o" d="M220 124v-24h44v24z"/><path class="k-hout2" d="M216 100h52v-4h-52zM238 124v-12h7v12zM252 108h5v-4h-5z"/>` + K.struik(300, 116) + jakob(276, 128, 1.6) },
   });
 })();
