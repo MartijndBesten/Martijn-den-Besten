@@ -31,7 +31,22 @@ const STAPPEN: Stap[] = BR.boeken.flatMap((b) => b.delen.flatMap((d) => d.steps.
 const STAP = new Map(STAPPEN.map((s) => [s.key, s]));
 const SOORTEN = ["stad", "berg", "water", "put", "kamp", "altaar", "tent", "gebied", "rivier"];
 // Gewicht: de hele reeks samen (de tekenbestanden zoals ze geladen worden) en één tafereel.
-const MAX_SAMEN = 60_000, MAX_TAFEREEL = 6_000;
+// Samen: de motor met de standaardbeelden en het Oude Testament wegen 31 kB, het Nieuwe Testament 34 kB voor twintig
+// taferelen (ongeveer 1,7 kB per tafereel, bouwstenen meegerekend). 120 kB laat ruimte voor nog zo'n dertig taferelen.
+const MAX_SAMEN = 120_000, MAX_TAFEREEL = 6_000;
+// De reeks van het Nieuwe Testament (taferelen-nt.js) en de stappen waar ze bij horen (taferelen-koppeling-nt.js).
+const NT: Record<string, string[]> = {
+  "herders-veld": ["jezus-1:nt-geboorte:6"], "ster-bethlehem": ["jezus-1:nt-geboorte:8"],
+  "jordaan-woestijn": ["jezus-1:nt-begin:0", "jezus-1:nt-begin:1", "jezus-1:nt-begin:3"],
+  jakobsput: ["jezus-1:nt-samaria-nain:1", "jezus-1:nt-samaria-nain:2", "jezus-1:nt-samaria-nain:3"],
+  vissersboot: ["jezus-1:nt-galilea:1", "jezus-1:nt-galilea:7"], "storm-stil": ["jezus-1:nt-galilea:8"],
+  "broden-vissen": ["jezus-2:nt-brood-en-berg:1"], vijgenboom: ["jezus-2:nt-reis-naar-jeruzalem:11"],
+  "intocht-weg": ["jezus-3:nt-lijdensweek:0"], gethsemane: ["jezus-3:nt-lijdensweek:7", "jezus-3:nt-lijdensweek:8"],
+  "graf-dicht": ["jezus-3:nt-lijden:8"], "graf-open": ["jezus-3:nt-opstanding:0", "jezus-3:nt-opstanding:1"],
+  "net-vol": ["jezus-3:nt-opstanding:5", "jezus-3:nt-opstanding:6"], "olijfberg-wolk": ["jezus-3:nt-opstanding:8"],
+  pinksterhuis: ["handelingen:nt-gemeente:0"], "damascus-licht": ["handelingen:nt-paulus:0"], "gevangenis-filippi": ["handelingen:nt-paulus:10"],
+  "malta-schip": ["handelingen:nt-paulusrome:5"], "malta-vuur": ["handelingen:nt-paulusrome:6"], kandelaren: ["openbaring:nt-openbaring:0"],
+};
 
 // Bestaat de verwijzing in de Statenvertaling (data/statenvertaling, alleen voor controle)?
 const bijbel: Record<string, { hoofdstukken: Record<string, string[]> }> = {};
@@ -62,6 +77,9 @@ describe("taferelen: register", () => {
   });
   it("heeft de eigen taferelen van de eerste reeks", () => {
     for (const id of ["ararat-ark", "ararat-boog", "babel", "braamstruik", "schelfzee", "sinai", "jericho", "moab", "stad-rivier"]) expect(T[id], id).toBeTruthy();
+  });
+  it("heeft de eigen taferelen van het Nieuwe Testament", () => {
+    for (const id of Object.keys(NT)) expect(T[id], id).toBeTruthy();
   });
   it("elk tafereel heeft een naam en een label dat zegt wat er te zien is", () => {
     for (const id of IDS) {
@@ -143,6 +161,19 @@ describe("taferelen: koppeling", () => {
       ...Object.fromEntries([0, 1, 2, 3, 4, 5].map((i) => [`numeri:kies-het-leven:${i}`, "moab"])),
     };
     for (const [key, id] of Object.entries(wil)) expect(BR.beelden[key]?.t, key).toBe(id);
+  });
+  it("Nieuwe Testament: elke koppeling hoort bij een bestaande stap en elke afgesproken stap heeft zijn tafereel", () => {
+    const nt = new Set(Object.keys(NT));
+    for (const [key, k] of K) if (nt.has(k.t)) { expect(STAP.has(key), `stap ${key} bestaat niet`).toBe(true); expect(NT[k.t], `${key} → ${k.t}`).toContain(key); }
+    for (const [id, keys] of Object.entries(NT)) for (const key of keys) {
+      expect(BR.beelden[key]?.t, key).toBe(id);
+      const b = BR.tafereel.van(STAP.get(key)!)!;
+      expect(b.id, key).toBe(id); expect(b.algemeen, key).toBeUndefined(); expect(b.tekst, key).toMatch(/\)\.$/);
+    }
+  });
+  it("Nieuwe Testament: bij de kruisiging staat geen tafereel, en geen label noemt een gestalte", () => {
+    for (const key of ["jezus-3:nt-lijden:6", "jezus-3:nt-lijden:7"]) { expect(STAP.get(key)!.at, key).toContain("nt_golgotha"); expect(BR.tafereel.van(STAP.get(key)!), key).toBeNull(); }
+    for (const id of Object.keys(NT)) expect(T[id].label, id).not.toMatch(/engel|Kind|gestalte|silhouet|duif|\bman\b|vrouw|herder\b|discipel/i);
   });
   it("de afwijkende soorten per plaats kloppen met plaatsen en register", () => {
     for (const [id, v] of Object.entries(BR.beeldSoort)) {

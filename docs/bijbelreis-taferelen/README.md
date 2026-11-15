@@ -7,8 +7,10 @@ motor onderhoudt. Wie alleen wil zien wat er is: open `docs/bijbelreis-taferelen
 | Bestand | Wat |
 |---|---|
 | `public/bijbelreis/taferelen.js` | De motor (`BR.tafereel`), de tekenbouwstenen (`BR.tfTeken`) en de standaardbeelden per soort plaats |
-| `public/bijbelreis/taferelen-ot.js` | Eigen taferelen bij het Oude Testament (later ook `taferelen-nt.js`) |
+| `public/bijbelreis/taferelen-ot.js` | Eigen taferelen bij het Oude Testament |
+| `public/bijbelreis/taferelen-nt.js` | Eigen taferelen bij het Nieuwe Testament |
 | `public/bijbelreis/taferelen-koppeling.js` | Welke stap welk beeld krijgt (`BR.beelden`) en afwijkende soorten per plaats (`BR.beeldSoort`) |
+| `public/bijbelreis/taferelen-koppeling-nt.js` | De koppelingen voor het Nieuwe Testament (voegt toe aan `BR.beelden`; een latere sleutel gaat vóór een eerdere) |
 | `public/bijbelreis/bijbelreis.css` | Onderaan: opmaak, kleurklassen en beweging van de taferelen |
 | `public/bijbelreis/app.js` | Drie regels die de motor aanroepen (stapkaart, verhaalweergave, Samen ontdekken) |
 | `scripts/taferelen-overzicht.mjs` | Alle taferelen op één pagina, met schermafbeeldingen |
@@ -38,7 +40,8 @@ Deze regels zijn hard. Twijfel je, teken het dan niet en zet het bij de vragen i
    Nachtblauw alleen waar de tekst nacht zegt (de Schelfzee).
 6. **Techniek.** Alleen SVG-vormen en CSS-animaties. Geen script, geen afbeeldingen, geen lettertypen, geen
    verwijzingen naar buiten, geen `style`-attribuut. Een tafereel blijft liefst onder de 4000 tekens; de test staat
-   hooguit 6000 toe. Alle tekenbestanden samen blijven onder 60 kB (nu ruim 31 kB).
+   hooguit 6000 toe. Alle tekenbestanden samen blijven onder 120 kB (nu ruim 65 kB: motor en standaardbeelden 17,
+   Oude Testament 14, Nieuwe Testament 34).
 
 Een algemeen beeld is geen foto van die plaats. Daarom staat onder elk standaardbeeld ‘Algemene tekening’ en zegt de
 zin eronder wat je ziet (‘Zo zag een stad er toen vaak uit’), niet hoe het daar precies was.
@@ -81,6 +84,11 @@ nacht (`<path class="k-nacht" d="M0 0h320v140H0z"/>`).
 (`k-land`, daarvoor `k-zand`) · het onderwerp · voorgrond (struiken, bomen, riet). Laat vlakken onder elkaar doorlopen
 tot de onderrand; dan vallen er geen kieren.
 
+**Nacht.** Teken het land in de gewone kleuren en leg er daarna een sluier over (`k-sluier`, over het hele vlak); de
+nachtlucht (`k-nacht`) komt helemaal achteraan. Wat licht geeft (sterren, een verlicht venster, het schijnsel uit de hemel)
+teken je ná de sluier. Zo zijn alle nachtbeelden gelijk van toon (het veld van de herders, de ster, Gethsémané). Dezelfde
+sluier met `tf-e-dooft` laat het dag worden (het open graf).
+
 **Vormen.** Alleen `g`, `path`, `circle`, `ellipse`, `rect`, met de attributen `class`, `d`, `transform`, `cx`, `cy`,
 `r`, `rx`, `ry`, `x`, `y`, `width`, `height`, `pathLength`. Geen `id`, `fill`, `stroke`, `style`, `href`. Rond getallen
 af op hele of halve eenheden.
@@ -98,6 +106,8 @@ af op hele of halve eenheden.
 | `k-wit`, `k-steen` | witte muur, grijze steen |
 | `k-wolk`, `k-donker`, `k-donker2`, `k-rook`, `k-stof`, `k-gloed`, `k-schaduw` | wolk, onweerswolk, rook, stof, gloed, schaduwvlak |
 | `k-nacht` | nachtlucht, spaarzaam |
+| `k-sluier` | doorschijnende nachtsluier over het land (zie ‘Nacht’) |
+| `k-licht` | doorschijnend licht: een schijnsel uit de hemel, de krans om een ster; stapel twee of drie vlakken voor een heldere kern |
 | `o`, `o2` | warme omlijning (1,2 en 0,7 dik), zoals bij de kameel |
 | `l-hout2`, `l-hout`, `l-zand2`, `l-wit`, `l-zee`, `l-duin`, `l-salie`, `l-salie2`, `l-terra`, `l-oker`, `l-water`, `l-lila`, `l-licht` | lijnen zonder vulling |
 | `dik`, `breed`, `boog` | lijndikte 2,4 · 5 · 3,2 |
@@ -128,6 +138,11 @@ dat houdt de stijl gelijk en het bestand klein. Een onderdeel dat je twee keer n
 | `tf-e-uit` | verdwijnt (eenmalig; in de eindstand onzichtbaar) |
 | `tf-e-stort` | zakt in elkaar en verdwijnt, voor een muur (eenmalig; in de eindstand onzichtbaar) |
 | `tf-e-stof` | stofwolk komt op en trekt weg (eenmalig; in de eindstand onzichtbaar) |
+| `tf-e-dooft` | trekt langzaam weg, in vijf seconden: de storm, de duisternis (eenmalig; in de eindstand onzichtbaar) |
+| `tf-e-deint` | schommelt en komt tot rust, voor een schip (eenmalig) |
+| `tf-e-rijs` | begint 18 lager en stijgt naar zijn plaats: de zon, de wolk (eenmalig) |
+| `tf-e-kom` | begint 90 naar links en komt naar zijn plaats: de ster (eenmalig) |
+| `tf-e-beef` | schudt kort, voor een aardbeving; zet het op de groep om het hele beeld (eenmalig) |
 | `tf-w1` … `tf-w9` | wacht 0,45 s per stap voordat de beweging begint |
 
 Regels bij beweging:
@@ -142,12 +157,14 @@ Regels bij beweging:
 - De motor herkent een eenmalige beweging aan `tf-e-` in de tekening en zet dan het knopje ‘Nog een keer’.
 - Nieuwe beweging nodig? Voeg een klasse `tf-l-…` of `tf-e-…` met eigen `@keyframes` toe in `bijbelreis.css`, bij de
   andere. Houd de naamgeving aan, anders pauzeert ze niet buiten beeld en staat ze niet stil bij minder beweging.
+  Zet de regel bóven de regels met `tf-w1` en de pauzeregel eronder: de korte schrijfwijze `animation` wist een
+  wachttijd en de pauze die eerder in het bestand staan.
 
 ## 4. Een tafereel toevoegen
 
 1. Lees de tekst: `node scripts/sv.mjs "Jozua 4:1–9"`. Schrijf op wat er letterlijk staat en wat niet.
 2. Voeg het tafereel toe in `taferelen-ot.js` of `taferelen-nt.js` (een nieuw bestand laad je in `bijbelreis.html`
-   tussen `taferelen.js` en `taferelen-koppeling.js`):
+   na `taferelen.js` en vóór `app.js`):
 
    ```js
    // Jozua 4:8–9, 20: twaalf stenen uit de Jordaan, opgericht in Gilgal.
@@ -159,7 +176,7 @@ Regels bij beweging:
    - `n`: korte naam, komt vet onder het beeld.
    - `label`: wat je ziet, in hele zinnen, voor wie het beeld niet ziet. Noem ook wat er beweegt.
    - De ids `stad`, `berg`, `water`, `put`, `kamp`, `altaar`, `tent`, `gebied` en `rivier` zijn van de standaardbeelden.
-3. Koppel het in `taferelen-koppeling.js`:
+3. Koppel het in `taferelen-koppeling.js` (Nieuwe Testament: `taferelen-koppeling-nt.js`):
 
    ```js
    "jozua:intocht:3": { t: "twaalf-stenen", tekst: "Jozua richtte de twaalf stenen uit de Jordaan op in Gilgal (Jozua 4:20)." },
@@ -178,7 +195,8 @@ Regels bij beweging:
    node --check public/bijbelreis/taferelen-ot.js
    npx vitest run tests/bijbelreis.test.ts tests/bijbelreis-taferelen.test.ts
    node scripts/bijbelreis-check.mjs desktop
-   # e2e: eerst een server die public/ serveert (zie de kop van e2e/bijbelreis-taferelen.spec.ts), dan
+   # e2e: eerst een server die public/ serveert en /bijbelreis naar bijbelreis.html stuurt (zoals het servertje in
+   # scripts/bijbelreis-check.mjs, op een vaste poort), dan
    E2E_BASE_URL=http://127.0.0.1:8816 npx playwright test e2e/bijbelreis-taferelen.spec.ts --trace off
    ```
 
@@ -218,19 +236,56 @@ Eigen taferelen:
 | `moab` | het kamp aan de Jordaan, het land aan de overkant | Numeri 22:1; Deuteronomium 34:1–3 | `numeri:moab:1`–`3`, `jozua:intocht:0`, `numeri:kies-het-leven:0`–`5` |
 | `jericho` | de muur stort in | Jozua 6:20 | `jozua:intocht:4` |
 
+Nieuwe Testament (`taferelen-nt.js`; de sleutels beginnen met `jezus-1:`, `jezus-2:`, `jezus-3:`, `handelingen:` of
+`openbaring:`). In deze reeks staat geen enkel mens; de Heere Jezus, engelen en de Heilige Geest zijn nergens afgebeeld.
+
+| Id | Wat | Tekst | Stappen |
+|---|---|---|---|
+| `herders-veld` | nacht, de kudde in het veld, Bethlehem in de verte; het licht komt over het veld | Lukas 2:8–9 | `jezus-1:nt-geboorte:6` |
+| `ster-bethlehem` | de ster komt en blijft staan boven één huis met licht in de deur | Mattheüs 2:9–11 | `jezus-1:nt-geboorte:8` |
+| `jordaan-woestijn` | de Jordaan in de kale woestijn van Judea | Mattheüs 3:1–6; Johannes 1:28 | `jezus-1:nt-begin:0`, `1`, `3` |
+| `jakobsput` | de diepe put, de waterkruik die bleef staan, de witte velden, Sichar onder aan de berg | Johannes 4:5–6, 11, 28, 35 | `jezus-1:nt-samaria-nain:1`–`3` |
+| `vissersboot` | twee schepen aan de oever, de netten op het zand | Markus 1:16–20; Lukas 5:2 | `jezus-1:nt-galilea:1`, `7` |
+| `storm-stil` | het schip slingert in de storm; de storm trekt weg en het wordt stil | Markus 4:37–39 | `jezus-1:nt-galilea:8` |
+| `broden-vissen` | vijf broden en twee vissen op het gras; de twaalf korven komen erbij | Johannes 6:9–13 | `jezus-2:nt-brood-en-berg:1` |
+| `vijgenboom` | de wilde vijgenboom langs de weg door Jericho | Lukas 19:1–4 | `jezus-2:nt-reis-naar-jeruzalem:11` |
+| `intocht-weg` | de weg naar de poort van Jeruzalem; kleden en takken komen op de weg te liggen | Mattheüs 21:8; Johannes 12:13 | `jezus-3:nt-lijdensweek:0` |
+| `gethsemane` | de hof met olijfbomen in de nacht, de beek Kedron, de muur van de stad | Mattheüs 26:36; Johannes 18:1 | `jezus-3:nt-lijdensweek:7`, `8` |
+| `graf-dicht` | het graf in de rots, in een hof; de grote steen ligt voor de ingang | Mattheüs 27:60; Johannes 19:41 | `jezus-3:nt-lijden:8` |
+| `graf-open` | de steen is afgewenteld; het is eerst nog donker, dan komt de zon op | Markus 16:2–4; Johannes 20:1 | `jezus-3:nt-opstanding:0`, `1` |
+| `net-vol` | het net vol grote vissen op het land, het kolenvuur met vis en brood | Johannes 21:9–11 | `jezus-3:nt-opstanding:5`, `6` |
+| `olijfberg-wolk` | de Olijfberg bij Jeruzalem; de wolk stijgt op | Handelingen 1:9–12 | `jezus-3:nt-opstanding:8` |
+| `pinksterhuis` | het huis met de bovenzaal: lijnen als van wind, daarna licht als van vuur in de vensters | Handelingen 1:13; 2:1–3 | `handelingen:nt-gemeente:0` |
+| `damascus-licht` | de weg naar Damascus; het licht uit de hemel valt op de weg | Handelingen 9:3 | `handelingen:nt-paulus:0` |
+| `gevangenis-filippi` | de binnenste kerker beeft; de deur staat open, het blok open, de ketens los | Handelingen 16:24–26 | `handelingen:nt-paulus:10` |
+| `malta-schip` | het schip op de zandbank: het voorschip vast, het achterschip gebroken | Handelingen 27:39–41 | `handelingen:nt-paulusrome:5` |
+| `malta-vuur` | het grote vuur in de regen, de bos takken en de adder | Handelingen 28:1–3 | `handelingen:nt-paulusrome:6` |
+| `kandelaren` | zeven gouden kandelaren in een boog | Openbaring 1:12, 20 | `openbaring:nt-openbaring:0` |
+
+Keuzes in deze reeks, voor wie verder tekent:
+
+- **Golgotha heeft geen tafereel** (`jezus-3:nt-lijden:6` en `7`). De kruisiging wordt niet afgebeeld; de duisternis
+  over het land en het gescheurde voorhangsel zijn overwogen en niet getekend. Een test bewaakt dat het zo blijft.
+- **Het lijden is sober**: de weg zonder ruiter, de hof zonder mensen, het graf dicht en het graf open. Geen fakkels,
+  geen zwaarden, geen wachters.
+- **Licht is nooit een gestalte**: een bundel uit de bovenrand van het beeld (herders, Damascus), een krans om de ster,
+  gloed in de vensters (Pinksteren). Bij Pinksteren staan geen vlammen die je kunt tellen: de tekst noemt geen aantal.
+- **Aantallen**: vijf broden, twee vissen, twaalf korven, twee schepen (Lukas 5:2), zeven kandelaren; in het blok vier
+  gaten en aan de muur twee ketens (Paulus en Silas). Waar de tekst geen aantal noemt, is een getal gekozen dat niets
+  suggereert (negen schapen, zes olijfbomen in de hof, vier vensters, elf vissen in het net).
+- **Wat de tekst niet zegt, staat er niet**: geen os en ezel, geen aantal wijzen, geen kamelen, geen herdersstaf, geen
+  maan boven de hof. Op de kandelaren staat wel een vlam: de tekst noemt die niet, maar een kandelaar draagt licht.
+
 ## 7. Wat nog getekend moet worden
 
 Eerst de plekken die nu **geen** beeld hebben omdat het standaardbeeld daar iets zou tonen wat de Bijbel niet zegt
 (zie `BR.beeldSoort` en de lege koppelingen):
 
-- het lege graf met de afgewentelde steen (Golgotha heeft nu geen beeld; vier stappen);
-- Gethsémané: de hof met olijfbomen, nacht;
-- de herders in het veld bij nacht (Lukas 2:8; zonder engel als figuur: licht mag);
 - de tempel (bij `nt_tempel` staat nu de stad Jeruzalem);
 - Jeruzalem met de afgebroken muur en de muur van Nehemia in aanbouw (Ezra, Nehemia, Zacharia);
-- het schip in de storm bij Malta; Patmos en de zeven kandelaren;
 - de palmboom van Debora; de hut en de wonderboom van Jona; de Areopagus; een dorp zonder muur (Bethanië, de tien
-  melaatsen); de lege kuil bij Dothan; de hof van Eden wordt niet getekend.
+  melaatsen, Bethsaïda); de lege kuil bij Dothan; de hof van Eden wordt niet getekend;
+- Golgotha blijft zonder beeld (zie de keuzes onder de tabel van het Nieuwe Testament).
 
 Dan de taferelen uit de opdracht:
 
@@ -238,9 +293,9 @@ Dan de taferelen uit de opdracht:
 - de Jordaan die stilstaat en de twaalf stenen (Jozua 3–4);
 - Gideons kruiken en fakkels; de tempel van Salomo; het vuur op de Karmel; de wagen en paarden van vuur;
 - de muur van Nehemia; de leeuwenkuil; de vurige oven; de storm en de grote vis;
-- de ster boven Bethlehem; de kribbe (zonder het Kind af te beelden);
-- een vissersboot op het meer; vijf broden en twee vissen;
-- het lege graf; de tongen als van vuur; het schip in de storm bij Malta; de zeven kandelaren.
+- de kribbe (Lukas 2:7: een lege voederbak met doeken, zonder het Kind; nog niet getekend, de stap heeft een reis);
+- Nieuwe Testament, nog open: de bruiloft in Kana (zes stenen watervaten, Johannes 2:6); het dak dat opengebroken is
+  (Markus 2:4); de zeven broden en zeven manden (Markus 8:5–8, nu het standaardbeeld water); Patmos als eiland.
 
 ## 8. Wat nog beter kan
 
@@ -249,3 +304,9 @@ Dan de taferelen uit de opdracht:
 - De standaardstad heeft altijd een muur. Bij een plaats die de Bijbel een ‘vlek’ (dorp) noemt, hoort dat beeld niet;
   zet zo’n plaats in `BR.beeldSoort` op `""` tot er een dorp getekend is.
 - In het Samen-verhaal op een telefoon schuift het beeld de knop ‘Verder’ verder naar beneden.
+- Het knopje ‘Nog een keer’ staat rechtsonder over de tekening. Houd die hoek vrij van wat belangrijk is (bij de
+  gevangenis van Filippi raakt het de open deur net).
+- Nieuwe Testament: de netten bij `vissersboot` zijn een hoop met mazen en drijvers; hangend aan palen zouden ze
+  duidelijker zijn. Het afgebroken achterschip bij `malta-schip` lijkt op een tweede bootje. De
+  wilde vijgenboom is een grote boom met vijgen, geen botanisch juiste sycomoor. De regen op Malta beweegt niet.
+- De nachtbeelden zijn onder de sluier grijsblauw; de huizen van Bethlehem zouden iets warmer mogen.
