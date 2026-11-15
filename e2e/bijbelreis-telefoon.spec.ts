@@ -61,7 +61,7 @@ test.describe("telefoon (360×740)", () => {
       await page.goto("/bijbelreis");
       await page.evaluate((n) => { localStorage.setItem("bijbelreis:niveau", JSON.stringify(n)); localStorage.setItem("bijbelreis:welkomWeg", "true"); }, niveau);
       for (const hash of ["", "#abraham", "#abraham/2", "#uittocht/6", "#v26", "#ur-kanaan/3"]) {
-        await page.goto("/bijbelreis" + hash); await page.reload();
+        await page.goto("about:blank"); await page.goto("/bijbelreis" + hash);
         await expect(page.locator("#map")).toBeVisible();
         expect(await geenHorizontaalScrollen(page), `${niveau} ${hash}`).toBe(true);
       }
@@ -245,7 +245,7 @@ test.describe("telefoon (360×740)", () => {
     await page.goto("/bijbelreis#v26");
     await expect(page.locator("#vTitel")).toHaveText("Droog door de Schelfzee");
     // Een boek als diepe link (bij het laden van de pagina).
-    await page.goto("/bijbelreis#exodus"); await page.reload();
+    await page.goto("about:blank"); await page.goto("/bijbelreis#exodus");
     await expect(page.locator("#kiesBtn")).toContainText("Exodus");
     await expect(page.locator("#sTitle")).not.toHaveText(/^\d+\. /);
   });
@@ -254,13 +254,13 @@ test.describe("telefoon (360×740)", () => {
     await page.goto("/bijbelreis");
     const zet = (n: string) => page.evaluate((n) => { localStorage.setItem("bijbelreis:niveau", JSON.stringify(n)); localStorage.setItem("bijbelreis:welkomWeg", "true"); }, n);
     // Samen ontdekken: één zin, de weg naar het verhaal, geen extra's en geen kaartpaneel.
-    await zet("a"); await page.goto("/bijbelreis#abraham/2"); await page.reload();
+    await zet("a"); await page.goto("about:blank"); await page.goto("/bijbelreis#abraham/2");
     await expect(page.locator("#sText .a-reisverhaal")).toBeVisible();
     await expect(page.locator("#sMeer")).toBeHidden();
     await expect(page.locator("#kaartBtn")).toBeHidden();
     await expect(page.locator("#next")).toBeVisible();
     // Zelf op reis: het verhaal begint met het eerste stuk en ‘Lees verder’.
-    await zet("b"); await page.goto("/bijbelreis#v26"); await page.reload();
+    await zet("b"); await page.goto("about:blank"); await page.goto("/bijbelreis#v26");
     const stukken = page.locator("#vVertelling .vdeel");
     const n = await stukken.count();
     expect(n).toBeGreaterThan(1);
@@ -268,7 +268,7 @@ test.describe("telefoon (360×740)", () => {
     await page.getByRole("button", { name: /Lees verder/ }).click();
     for (let i = 0; i < n; i++) await expect(stukken.nth(i)).toBeVisible();
     // Verder ontdekken: dezelfde stap met weetje, afstand en jaartal achter ‘meer’.
-    await zet("c"); await page.goto("/bijbelreis#abraham/2"); await page.reload();
+    await zet("c"); await page.goto("about:blank"); await page.goto("/bijbelreis#abraham/2");
     await expect(page.locator("#sMeer [data-meer]:visible")).toHaveCount(4);
     await page.goto("/bijbelreis#v26");
     await expect(page.getByRole("button", { name: /Lees verder/ })).toBeVisible();
@@ -311,7 +311,7 @@ for (const [w, h] of [[360, 740], [390, 844], [412, 915]] as const) {
         await page.goto("/bijbelreis");
         await page.evaluate((n) => { localStorage.setItem("bijbelreis:niveau", JSON.stringify(n)); localStorage.setItem("bijbelreis:welkomWeg", "true"); }, niveau);
         for (const hash of ["abraham/2", "jakob", "jakob-jabbok/6", "uittocht/6", "sinai/3", "nt-paulusrome/5"]) {
-          await page.goto(`/bijbelreis#${hash}`); await page.reload();
+          await page.goto("about:blank"); await page.goto(`/bijbelreis#${hash}`);
           await expect(page.locator("#sTitle"), hash).not.toBeEmpty();
           await page.waitForTimeout(250);
           const m = await page.evaluate(() => {
