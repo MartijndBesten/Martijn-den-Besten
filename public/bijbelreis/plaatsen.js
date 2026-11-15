@@ -631,9 +631,9 @@ Object.assign(BR.W, {
 // Johannes 4 en Lukas 4 en 7. Coördinaten: OpenBible.info Bible Geocoding Data (CC BY 4.0). Sleutels beginnen met sn_.
 Object.assign(BR.plaatsen, {
   sn_gerizim: { n: "Berg Gerizim", ll: [32.1994, 35.2728], c: "v", s: "l", z: 9.5, t: "berg",
-    d: "De berg bij Sichem en Sichar, tegenover de berg Ebal. Hier moest Israël de zegen uitspreken (Deuteronomium 11:29). De Samaritaanse vrouw zei: ‘Onze vaders hebben op dezen berg aangebeden’ (Johannes 4:20). Johannes noemt de naam van de berg niet.",
+    d: "De berg bij Sichem en Sichar, tegenover de berg Ebal. Hier moest Israël de zegen uitspreken (Deuteronomium 11:29). Bij Sichar zei de Samaritaanse vrouw: ‘Onze vaders hebben op dezen berg aangebeden’ (Johannes 4:20). Johannes noemt de naam van de berg niet; uitleggers nemen aan dat zij de Gerizim bedoelde.",
     nu: "Jabal at-Tur (Gerizim) bij Nablus, Westelijke Jordaanoever",
-    bron: "OpenBible: Mount Gerizim = Jabal at Tur (score 1000), ook bij Johannes 4:20; de naam bleef in gebruik." },
+    bron: "OpenBible: Mount Gerizim = Jabal at Tur (score 1000), ook bij Johannes 4:20; de naam bleef in gebruik. Dat ‘dezen berg’ in Johannes 4:20 de Gerizim is, is uitleg: de tekst noemt geen naam." },
 });
 // Tussenpunten: de vlakte van Jizreël ten westen van Sunem, de heuvels ten oosten van Nazareth, het dal tussen Kana en het meer,
 // de noordwestoever van het meer bij Tabgha, de vlakte van Gennesareth en de weg ten oosten van de Tabor.
@@ -641,7 +641,7 @@ Object.assign(BR.W, { sn_vlakte: [32.61, 35.27], sn_nazarethpas: [32.72, 35.335]
   sn_meer_nw: [32.875, 35.54], sn_ginosar: [32.855, 35.512], sn_taborweg: [32.7, 35.45] });
 // Deel nt-over-de-grens
 Object.assign(BR.plaatsen, {
-  og_gennesaret: { n: "Gennesaret", ll: [32.8606, 35.5072], c: "r", s: "c", z: 8.5, t: "gebied", d: "Streek aan de westkant van het meer van Galilea. Hier kwam het schip aan land, en de mensen brachten hun zieken bij de Heere Jezus (Markus 6:53–56). Daarvandaan ging Hij naar het gebied van Tyrus en Sidon (Mattheüs 14:34; 15:21).",
+  og_gennesaret: { n: "Gennesaret", ll: [32.8606, 35.5072], c: "r", s: "c", z: 8.5, t: "gebied", d: "Streek aan de westkant van het meer van Galilea. Hier kwam het schip aan land, en de mensen brachten hun zieken bij de Heere Jezus (Markus 6:53–56). Het is de laatste streek die Markus en Mattheüs noemen voordat Hij naar het gebied van Tyrus en Sidon ging (Mattheüs 14:34; 15:21).",
     nu: "Vlakte van Ginosar (el-Ghuweir), Israël", bron: "Vlakte el-Ghuweir (OpenBible 1000, gebied); het punt ligt in de vlakte." },
   og_dekapolis: { n: "Dekapolis", ll: [32.7167, 35.8], c: "r", s: "c", z: 7.5, t: "gebied", d: "Gebied van Griekse steden, vooral ten oosten van het meer van Galilea en de Jordaan; de naam is Grieks voor tien steden. De Heere Jezus kwam er middendoor naar het meer (Markus 7:31). Een man die Hij had verlost, had daar al verteld wat Hij gedaan had (Markus 5:20).",
     nu: "Noord-Jordanië, de Golan en Zuid-Syrië", bron: "Gebied (OpenBible 1000, punt in de streek, ten zuidoosten van het meer). De steden lagen verspreid; een vaste grens is niet bekend." },
@@ -660,7 +660,7 @@ Object.assign(BR.plaatsen, {
     nu: "Onbekend; een voorstel is Khirbet Jelad, ten noorden van es-Salt (Jordanië)", bron: "Niet geïdentificeerd; alleen zwakke voorstellen: Khirbet Jelad (OpenBible 171), Tall er-Rumeith (80), Khirbet er-Rasuni (76), Suf (26). Het punt staat illustratief bij Khirbet Jelad. De Herziene Statenvertaling schrijft in 11:29 Mizpe in Gilead." },
   ej_jabbok: { n: "Beek Jabbok", ll: [32.1153, 35.5431], c: "v", s: "l", z: 8, t: "water", d: "Een zijrivier van de Jordaan. Het land dat Israël van Sihon kreeg, liep ‘van de Arnon af tot aan de Jabbok’ (Richteren 11:22). Bij deze beek worstelde Jakob (Genesis 32:22–24).",
     nu: "Nahr ez-Zarqa, Jordanië", bron: "Nahr ez-Zarqa; algemeen aanvaard (OpenBible 1000). Punt bij de monding in de Jordaan." },
-  ej_aroer: { n: "Aroër", ll: [31.9702, 35.8713], c: "o", s: "l", z: 9, t: "stad", d: "Jefta versloeg de Ammonieten ‘van Aroer af tot daar gij komt te Minnith’ (Richteren 11:33). Welk Aroër bedoeld is, is niet zeker: het Aroër bij Rabba (Jozua 13:25) of het Aroër aan de Arnon (Richteren 11:26). Waar het eerste lag, weten we niet.",
+  ej_aroer: { n: "Aroër", ll: [31.9702, 35.8713], c: "o", s: "l", z: 9, t: "stad", d: "Jefta versloeg de Ammonieten ‘van Aroer af tot daar gij komt te Minnith’ (Richteren 11:33). Welk Aroër bedoeld is, is niet zeker: het Aroër bij Rabba (Jozua 13:25) of het Aroër aan de Arnon (Deuteronomium 2:36; Richteren 11:26). Waar het eerste lag, weten we niet; het punt op de kaart is een voorstel.",
     nu: "Onbekend; voorstellen ten westen van Amman (Jordanië)", bron: "Aroër voor Rabba (Jozua 13:25); alleen zwakke voorstellen: Khirbet Udena (OpenBible 219), Umm Sweiwineh (120), Erjan (83). Het punt staat illustratief bij Khirbet Udena. Het Aroër aan de Arnon (Arair, OpenBible 872) is een andere plaats." },
   ej_minnith: { n: "Minnith", ll: [31.8202, 35.8747], c: "w", s: "r", z: 9, t: "stad", d: "Tot bij Minnith versloeg Jefta de Ammonieten: twintig steden (Richteren 11:33). Later handelden Juda en Israël met Tyrus in ‘tarwe van Minnit’ (Ezechiël 27:17).",
     nu: "Umm el-Hanafish, tussen Hesban en Amman (Jordanië)", bron: "Meestal Umm el-Hanafish (Umm el-Basatin), ten noordoosten van Hesbon (OpenBible 551); waarschijnlijk, niet zeker." },
