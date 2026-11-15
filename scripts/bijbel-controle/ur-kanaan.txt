@@ -1,0 +1,51 @@
+# Controle deel Van Ur naar Kanaän (public/bijbelreis/inhoud/genesis.js, deel ur-kanaan): ref | regex (Statenvertaling, hoofdletterongevoelig)
+# SV-spelling: Terah, Chaldeen, Charran.
+# --- deel: stat, cross
+Genesis 11:31 | om te gaan naar het land Kanaän; en zij kwamen tot Haran
+Genesis 12:5 | om te gaan naar het land Kanaän, en zij kwamen in het land Kanaän
+Handelingen 7:2 | nog zijnde in Mesopotamië, eer hij woonde in Charran
+Handelingen 7:3 | Ga uit uw land en uit uw maagschap
+Handelingen 7:4 | nadat zijn vader gestorven was
+Hebreeën 11:8 | niet wetende, waar hij komen zou
+Hebreeën 11:8 | Door het geloof is Abraham, geroepen zijnde, gehoorzaam geweest, om uit te gaan naar de plaats, die hij tot een erfdeel ontvangen zou
+Jozua 24:2 | gene zijde der rivier.*Terah, de vader van Abraham.*en zij hebben andere goden gediend
+Jozua 24:3 | nam Ik uw vader Abraham van gene zijde der rivier
+Nehemia 9:7 | Abram hebt verkoren, en hem uit Ur der Chaldeen uitgevoerd
+Genesis 15:7 | Ik ben de HEERE, Die u uitgeleid heb uit Ur der Chaldeen, om u dit land te geven
+Jesaja 51:2 | Abraham.*Ik riep hem, toen hij nog alleen was, en Ik zegende hem
+Galaten 3:8 | te voren aan Abraham het Evangelie verkondigd, zeggende: In u zullen al de volken gezegend worden
+Handelingen 3:25 | Abraham.*in uw zade zullen alle geslachten der aarde gezegend worden
+# --- stap 0: Genesis 11:27–28
+Genesis 11:27 | Terah gewon Abram, Nahor en Haran; en Haran gewon Lot
+Genesis 11:28 | Haran stierf voor het aangezicht zijns vaders Terah, in het land zijner geboorte, in Ur der Chaldeen
+# --- stap 1: Genesis 11:29–30
+Genesis 11:29 | Abram en Nahor namen zich vrouwen
+Genesis 11:29 | Abrams huisvrouw was Sarai
+Genesis 11:29 | Nahors huisvrouw was Milka, een dochter van Haran, vader van Milka, en vader van Jiska
+Genesis 11:30 | En Sarai was onvruchtbaar; zij had geen kind
+Genesis 11:24 | Nahor leefde negen en twintig jaren, en gewon Terah
+Genesis 17:5 | uw naam zal wezen Abraham
+Genesis 17:15 | haar naam zal zijn Sara
+Genesis 22:20-23 | Milka.*Bethuël gewon Rebekka
+# --- stap 2: Genesis 11:31
+Genesis 11:31 | Terah nam Abram, zijn zoon, en Lot, Harans zoon, zijns zoons zoon, en Sarai, zijn schoondochter
+Genesis 11:31 | togen met hen uit Ur der Chaldeen
+Genesis 11:31 | kwamen tot Haran, en woonden aldaar
+Genesis 24:10 | naar Mesopotamië, naar de stad van Nahor
+Genesis 27:43 | vlied gij naar Haran, tot Laban
+# --- stap 3: Genesis 11:32
+Genesis 11:32 | de dagen van Terah waren tweehonderd en vijf jaren, en Terah stierf te Haran
+Genesis 11:26 | Terah leefde zeventig jaren, en gewon Abram, Nahor en Haran
+# --- stap 4: Genesis 12:1
+Genesis 12:1 | De HEERE nu had tot Abram gezegd
+Genesis 12:1 | Ga gij uit uw land, en uit uw maagschap, en uit uws vaders huis, naar het land, dat Ik u wijzen zal
+# --- stap 5: Genesis 12:2–3
+Genesis 12:2 | En Ik zal u tot een groot volk maken, en u zegenen, en uw naam groot maken; en wees een zegen
+Genesis 12:3 | En Ik zal zegenen, die u zegenen, en vervloeken, die u vloekt; en in u zullen alle geslachten des aardrijks gezegend worden
+# --- stap 6: Genesis 12:4
+Genesis 12:4 | Abram toog heen, gelijk de HEERE tot hem gesproken had; en Lot toog met hem
+Genesis 12:4 | Abram was vijf en zeventig jaren oud, toen hij uit Haran ging
+# --- stap 7: Genesis 12:5
+Genesis 12:5 | Abram nam Sarai, zijn huisvrouw, en Lot, zijns broeders zoon, en al hun have
+Genesis 12:5 | de zielen, die zij verkregen hadden in Haran
+Genesis 12:6 | doorgetogen in dat land, tot aan de plaats Sichem
