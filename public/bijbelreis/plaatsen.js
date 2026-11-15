@@ -842,7 +842,7 @@ Object.assign(BR.plaatsen, {
 // OpenBible.info (CC BY 4.0) bij Eder/Migdal-Eder (Genesis 35:21) Khirbet Siyar el-Ghanam geeft (score 632).
 Object.assign(BR.plaatsen, {
   kb_herdersveld: { n: "Velden bij Bethlehem", ll: [31.7073, 35.2301], c: "r", s: "c", z: 10.5, t: "gebied",
-    d: "In de velden bij Bethlehem hielden herders ’s nachts de wacht bij hun kudde, toen een engel hun vertelde dat de Zaligmaker geboren was (Lukas 2:8–11). Ook David weidde hier de schapen van zijn vader (1 Samuël 17:15).",
+    d: "In de velden bij Bethlehem hielden herders ’s nachts de wacht bij hun kudde, toen een engel hun vertelde dat de Zaligmaker geboren was (Lukas 2:8–11). Ook David weidde bij Bethlehem de schapen van zijn vader (1 Samuël 17:15).",
     nu: "Omgeving van Beit Sahour, Westelijke Jordaanoever",
     bron: "Gebied: Lukas 2:8 zegt ‘in diezelfde landstreek’. Midden illustratief ten oosten van Bethlehem (Khirbet Siyar el-Ghanam; OpenBible bij Eder, Genesis 35:21, score 632)." },
 });

@@ -305,7 +305,7 @@ BR.mensen = {
     elders: [["Deuteronomium 3:11", "Het ijzeren bed van Og."], ["Psalm 136:20", "‘En Og, den koning van Basan.’"]] },
   rachab: { n: "Rachab", p: ["salmon"], boek: ["jozua", "kerst"],
     kort: "Vrouw uit Jericho die de verspieders verborg; zij en haar familie bleven leven toen Jericho viel.",
-    elders: [["Mattheüs 1:5", "In het geslachtsregister van de Heere Jezus heet de moeder van Boaz Rachab; dat is vermoedelijk deze Rachab (dat volgt uit de naam en de tijd, het staat er niet letterlijk)."], ["Hebreeën 11:31", "Door het geloof is Rachab niet omgekomen."], ["Jakobus 2:25", "Zij ontving de boden en liet ze langs een andere weg gaan."]],
+    elders: [["Mattheüs 1:5", "In het geslachtsregister van de Heere Jezus is zij de moeder van Boaz: ‘Salmon gewon Booz bij Rachab’."], ["Hebreeën 11:31", "Door het geloof is Rachab niet omgekomen."], ["Jakobus 2:25", "Zij ontving de boden en liet ze langs een andere weg gaan."]],
     vervolg: [["Jozua 6:25", "Zij woont daarna midden in Israël."]],
     basis: { p: { salmon: ["a", "Mattheüs 1:5", "Mattheüs 1:5: ‘Salmon gewon Booz bij Rachab’. Een huwelijk wordt niet met zoveel woorden genoemd. Dat deze Rachab de vrouw uit Jericho is, staat er ook niet letterlijk; het volgt uit de naam en de tijd: Salmon is de zoon van Nahesson (Ruth 4:20), de overste van Juda in de woestijn (Numeri 2:3), en Rachab bleef in Israël wonen (Jozua 6:25)."] } } },
   salmon: { n: "Salmon", p: ["rachab"], boek: ["kerst"], kort: "Vader van Boaz; Mattheüs noemt Rachab als de moeder van Boaz.",
@@ -717,10 +717,11 @@ BR.mensen = {
     elders: [["Lukas 1:46–47", "Haar lofzang: ‘Mijn ziel maakt groot den Heere.’"], ["Lukas 1:36", "Elisabeth was haar nicht."], ["Johannes 2:5", "Op de bruiloft in Kana: ‘Zo wat Hij ulieden zal zeggen, doet dat.’"]],
     vervolg: [["Johannes 19:25–27", "Zij staat bij het kruis; de Heere Jezus vertrouwt haar toe aan de discipel die Hij liefhad."], ["Handelingen 1:14", "Na de hemelvaart bidt zij met de apostelen in Jeruzalem."]],
     basis: { p: { jozef_nt: ["b", "Mattheüs 1:16"] } } },
-  // Mattheüs 1:16 ‘Jakob gewon Jozef’; Lukas 3:23 ‘de zoon van Jozef, den zoon van Heli’ (SV-spelling Heli). Twee
-  // geslachtsregisters; de Bijbel legt niet uit hoe ze samenhangen. Daarom geen v en geen keuze.
+  // Mattheüs 1:16 ‘Jakob gewon Jozef’; Lukas 3:23 ‘de zoon van Jozef, den zoon van Heli’ (SV-spelling Heli). Gangbare
+  // lezing (zoals in kerst-1.js): Mattheüs geeft de lijn van Jozef (via Salomo), Lukas die van Maria (via Nathan); Heli is
+  // de vader van Maria en de schoonvader van Jozef. Geen v: Jakob, de vader van Jozef, is geen eigen persoon.
   jozef_nt: { n: "Jozef", p: ["maria"], boek: ["jezus-1", "kerst"],
-    kort: "De man van Maria, een rechtvaardig man uit het huis van David. Niet dezelfde als Jozef uit Genesis. Mattheüs noemt Jakob als zijn vader (Mattheüs 1:16); in het geslachtsregister van Lukas staat na Jozef ‘den zoon van Heli’ (Lukas 3:23). Hoe die twee geslachtsregisters samenhangen, zegt de Bijbel niet.",
+    kort: "De man van Maria, een rechtvaardig man uit het huis van David. Niet dezelfde als Jozef uit Genesis. Mattheüs geeft zijn geslachtsregister: de lijn van de koningen, via Salomo, met Jakob als zijn vader (Mattheüs 1:16). Lukas geeft de lijn van Maria, via Nathan; Heli is de vader van Maria en de schoonvader van Jozef (Lukas 3:23).",
     elders: [["Mattheüs 1:16", "‘En Jakob gewon Jozef, den man van Maria, uit welke geboren is JEZUS, gezegd Christus.’"], ["Lukas 3:23", "‘zijnde (alzo men meende) de zoon van Jozef, den zoon van Heli’."], ["Mattheüs 1:19–24", "Hij deed wat de engel van de Heere hem in een droom bevolen had."], ["Mattheüs 2:13–14", "Gewaarschuwd in een droom vlucht hij met het Kind en Zijn moeder naar Egypte."], ["Mattheüs 2:19–23", "Na de dood van Herodes gaat hij terug en woont in Nazareth."]],
     basis: { p: { maria: ["b", "Mattheüs 1:16"] } } },
   zacharias: { n: "Zacharias", p: ["elisabeth"], boek: ["jezus-1", "kerst"],

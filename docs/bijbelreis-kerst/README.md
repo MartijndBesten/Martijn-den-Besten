@@ -34,9 +34,9 @@ Een eigen boek `kerst` (`public/bijbelreis/inhoud/kerst.js`, `thema: "kerst"`), 
 
 ## Vaste regels voor dit thema
 
-- **Alleen wat de Bijbel zegt.** Geen kersttraditie als feit: geen os en ezel, geen drie koningen (de tekst noemt geen aantal en geen koningen), geen herbergier, geen stal als de tekst die niet noemt, geen winter of 25 december. De wijzen komen ‘in het huis’ (Mattheüs 2:11).
+- **Alleen wat de Bijbel zegt.** Geen kersttraditie als feit: geen os en ezel, geen drie koningen (de tekst noemt geen aantal en geen koningen), geen herbergier, geen winter of 25 december. De wijzen komen ‘in het huis’ (Mattheüs 2:11). Sinds de regel ‘de gangbare uitleg hoort bij het verhaal’ (`docs/bijbelreis-uitleg/README.md`, 15-11-2026) wordt algemeen aanvaarde uitleg wel meeverteld, zonder voorbehoud: de kribbe als voederbak in een stal (Lukas 2:7, zoals de kanttekeningen, Calvijn en Henry).
 - **De Heere Jezus wordt niet afgebeeld**, ook niet als Kind in de kribbe of als jongen van twaalf; God en engelen ook niet. Wat de Bijbel als zichtbaar teken noemt (de ster, het licht), mag.
-- **Twee geslachtsregisters** (Mattheüs 1 en Lukas 3): vertellen wat er staat; hoe ze bij elkaar passen is uitleg, zonder te kiezen.
+- **Twee geslachtsregisters** (Mattheüs 1 en Lukas 3): volgens de gangbare lezing (uitlegregel van 15-11-2026) geeft Mattheüs de lijn van Jozef (via Salomo, de koningen) en Lukas de lijn van Maria (via Nathan); Heli is de vader van Maria. Zo verteld in `kerst-koningen` en bij `jozef_nt` in `personen.js`.
 - **Sober en eerbiedig**: het eigen uiterlijk is nachtblauw met warm licht en de ster; geen kerstboom, sneeuw, kerstman of versiering.
 - Verder gelden de regels van `docs/bijbelreis-reizen/schrijfopdracht.md` en `docs/bijbelreis-taferelen/README.md`.
 
@@ -46,5 +46,5 @@ Een eigen boek `kerst` (`public/bijbelreis/inhoud/kerst.js`, `thema: "kerst"`), 
 2. Samenvoegen; personen en plaatsen ontdubbelen.
 3. Tekenaars: taferelen bij de stappen.
 4. Het eigen uiterlijk en de ingang (zie de besluiten hierboven); het boek heeft delen uit het Oude én het Nieuwe Testament, dus de reiziger (kameel of stip) en de streeknamen moeten per deel kunnen verschillen (`nt` op het deel).
-5. Tweede lezer over alle zes delen.
+5. Tweede lezer over alle zes delen (verslag: `docs/bijbelreis-reizen/werk/kerst.review.md`).
 6. Tests, referentiebeelden, PR, uitrol naar beide adressen, controle op productie, releaselog.
