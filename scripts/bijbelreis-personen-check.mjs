@@ -67,6 +67,8 @@ const GROEPEN = new Set(["Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen"
   // [meer-reizen:nt-samaria-nain] groepen
   //
   // [meer-reizen:nt-over-de-grens] groepen
+  // Geen groepen maar naamloze personen (rollen); ze hoeven niet in GROUPS in app.js.
+  "Syro-Fenicische vrouw", "Dove man", "Blinde man",
   //
   // [meer-reizen:ehud-jefta] groepen
   //

@@ -42,6 +42,7 @@ BR.dateringen = {
     // [meer-reizen:nt-samaria-nain] datering
     //
     // [meer-reizen:nt-over-de-grens] datering
+    "jezus-2:nt-over-de-grens": ["historie", true],
     //
     // [meer-reizen:ehud-jefta] datering
     //
