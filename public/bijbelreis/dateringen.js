@@ -40,6 +40,7 @@ BR.dateringen = {
     "handelingen:nt-paulus3": ["historie", false],
     //
     // [meer-reizen:nt-samaria-nain] datering
+    "jezus-1:nt-samaria-nain": ["historie", false],
     //
     // [meer-reizen:nt-over-de-grens] datering
     "jezus-2:nt-over-de-grens": ["historie", true],
