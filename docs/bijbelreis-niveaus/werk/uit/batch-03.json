@@ -228,19 +228,15 @@
       ],
       "delen": [
         {
-          "t": "Jakob is al twintig jaar bij Laban. Dan zegt de HEERE: ga terug naar het land van je vaderen. Ik zal met je zijn.",
+          "t": "Na twintig jaar zegt de HEERE tegen Jakob: ga terug naar het land van je vaderen. Ik zal met je zijn.",
           "stap": "genesis:jakob:4"
         },
         {
-          "t": "Jakob vertrekt met zijn vrouwen, zijn kinderen en al zijn dieren. Hij zegt het niet tegen Laban.",
+          "t": "Jakob vertrekt met zijn vrouwen, zijn kinderen en al zijn dieren. Laban gaat hen achterna.",
           "stap": "genesis:jakob:4"
         },
         {
-          "t": "Laban gaat hen achterna en haalt hen in op de bergen van Gilead. Maar God waarschuwt Laban in een droom.",
-          "stap": "genesis:jakob:4"
-        },
-        {
-          "t": "Jakob en Laban maken een hoop stenen. Die hoop is een getuige: ze zullen elkaar geen kwaad doen. Dan gaat Laban terug.",
+          "t": "Laban haalt hen in, maar God waarschuwt hem in een droom. Ze maken een hoop stenen als getuige, en Laban gaat terug.",
           "stap": "genesis:jakob:4"
         },
         {
@@ -266,9 +262,13 @@
         {
           "t": "Jakob krijgt een nieuwe naam: Israël. Hij zegt: ik heb God gezien. Als de zon opkomt, loopt hij mank.",
           "stap": "genesis:jakob:6"
+        },
+        {
+          "t": "Dan komt Ezau. Hij loopt naar Jakob toe, slaat zijn armen om hem heen en kust hem. Ze huilen samen.",
+          "stap": "genesis:jakob:7"
         }
       ],
-      "samen": "Weggelaten: Rachel nam stiekem de huisgoden (terafim) van haar vader mee en verborg ze (Genesis 31:19, 34). Jakob zegt dat hij God gezien heeft (32:30), en Hosea 12:5 noemt Hem de Engel. Jakob was bang, maar hij bad en hield God Zijn belofte voor (32:9–12). Vraag samen: wat vraagt Jakob aan de Man?",
+      "samen": "Weggelaten: Rachel nam stiekem de huisgoden (terafim) van haar vader mee en verborg ze (Genesis 31:19, 34). Genesis noemt Hem met Wie Jakob worstelt ‘een man’ (32:24); Jakob zegt dat hij God gezien heeft (32:30), en Hosea 12:5 spreekt van ‘den Engel’. Uitleg, niet uit de tekst zelf: veel uitleggers, ook de kanttekeningen bij de Statenvertaling, zien in Hem de Zoon van God. Vraag samen: wat vraagt Jakob aan de Man?",
       "vragen": [
         {
           "q": "Wie zegt tegen Jakob dat hij terug moet gaan?",
@@ -293,6 +293,14 @@
             "Jozef"
           ],
           "why": "Genesis 32:28"
+        },
+        {
+          "q": "Wat doet Ezau als hij Jakob ziet?",
+          "a": [
+            "Hij kust Jakob",
+            "Hij slaat Jakob"
+          ],
+          "why": "Genesis 33:4"
         }
       ]
     },
@@ -302,22 +310,22 @@
         {
           "kop": "Terug naar het land van je vaderen",
           "stap": "genesis:jakob:4",
-          "t": "Jakob is twintig jaar bij Laban geweest. Laban is tegen hem niet meer zoals vroeger. Dan zegt de HEERE: ‘Keer weder tot het land uwer vaderen, en tot uw maagschap, en Ik zal met u zijn.’ Maagschap betekent familie. Jakob vertrekt met gezin en vee, zonder het Laban te zeggen."
-        },
-        {
-          "kop": "Een steenhoop als getuige",
-          "stap": "genesis:jakob:4",
-          "t": "Laban jaagt hen achterna en haalt hen in op het gebergte Gilead. Maar God waarschuwt hem in een droom. Jakob en Laban maken een hoop stenen als getuige: ze zullen elkaar geen kwaad doen."
+          "t": "Jakob is twintig jaar bij Laban geweest. Dan zegt de HEERE: ‘Keer weder tot het land uwer vaderen, en tot uw maagschap, en Ik zal met u zijn.’ Maagschap betekent familie. Jakob vertrekt met gezin en vee, zonder het Laban te zeggen. Laban haalt hem in op het gebergte Gilead, maar God waarschuwt hem in een droom."
         },
         {
           "kop": "Bang voor Ezau",
           "stap": "genesis:jakob:5",
-          "t": "Bij Mahanaïm ontmoeten engelen van God Jakob. Dan hoort hij dat Ezau eraan komt met vierhonderd man. Jakob is erg bang. Hij bidt: ‘Ruk mij toch uit mijns broeders hand’. Dat is: red mij van mijn broer. Hij stuurt een groot geschenk vooruit."
+          "t": "Dan hoort Jakob dat Ezau eraan komt met vierhonderd man. Jakob is erg bang. Hij bidt: ‘Ruk mij toch uit mijns broeders hand’. Dat is: red mij van mijn broer. Hij herinnert God aan Zijn eigen belofte en stuurt een groot geschenk vooruit."
         },
         {
           "kop": "Worstelen in de nacht",
           "stap": "genesis:jakob:6",
-          "t": "’s Nachts blijft Jakob alleen bij de beek de Jabbok. Een Man worstelt met hem tot het licht wordt en raakt zijn heup aan. Jakob zegt: ‘Ik zal U niet laten gaan, tenzij dat Gij mij zegent.’ Hij krijgt de naam Israël. Jakob noemt de plaats Pniël, aangezicht van God, want hij heeft God gezien."
+          "t": "’s Nachts blijft Jakob alleen bij de beek de Jabbok. Een Man worstelt met hem tot het licht wordt en raakt zijn heup aan. Jakob zegt: ‘Ik zal U niet laten gaan, tenzij dat Gij mij zegent.’ Hij krijgt de naam Israël. Jakob noemt de plaats Pniël, want hij heeft God gezien. Veel uitleggers zien in de Man de Zoon van God; dat is uitleg."
+        },
+        {
+          "kop": "Ezau komt",
+          "stap": "genesis:jakob:7",
+          "t": "Dan komt Ezau. Jakob buigt zich zeven keer, maar Ezau loopt hem tegemoet, omhelst hem en kust hem, en ze huilen."
         }
       ],
       "vragen": [
@@ -351,11 +359,11 @@
         {
           "q": "Wat gebeurt er als eerste?",
           "a": [
-            "Jakob en Laban maken een steenhoop",
+            "Laban haalt Jakob in op het gebergte Gilead",
             "Jakob hoort dat Ezau eraan komt",
             "Jakob worstelt bij de Jabbok"
           ],
-          "why": "Genesis 31:46; Genesis 32:6; Genesis 32:24"
+          "why": "Genesis 31:23; Genesis 32:6; Genesis 32:24"
         },
         {
           "q": "Waarom noemt Jakob de plaats Pniël?",
@@ -372,19 +380,8 @@
       "status": "gecontroleerd",
       "verdieping": [
         {
-          "kop": "Van Jakob naar Israël",
-          "t": "Bij zijn geboorte hield Jakob de hiel van Ezau vast; ‘daarom noemde men zijn naam Jakob’ (Genesis 25:26). Later zegt Ezau: ‘Is het niet omdat men zijn naam noemt Jakob, dat hij mij nu twee reizen heeft bedrogen?’ (Genesis 27:36). Bij de Jabbok vraagt de Man: ‘Hoe is uw naam?’ Dan krijgt Jakob de naam Israël, ‘want gij hebt u vorstelijk gedragen met God en met de mensen, en hebt overmocht’. In Bethel bevestigt God die naam (Genesis 35:10). Later heet het hele volk naar hem: de kinderen Israëls (Genesis 32:32).",
-          "refs": [
-            "Genesis 25:26",
-            "Genesis 27:36",
-            "Genesis 32:27–28",
-            "Genesis 35:10",
-            "Genesis 32:32"
-          ]
-        },
-        {
           "kop": "Wie is de Man?",
-          "t": "Genesis 32 noemt Hem eerst ‘een man’. Zijn naam geeft Hij niet: ‘Waarom is het, dat gij naar Mijn naam vraagt?’ Toch zegt Jakob: ‘ik heb God gezien van aangezicht tot aangezicht’. Hosea noemt Hem ‘den Engel’. In Genesis 31 spreekt ook ‘de Engel Gods’ tot Jakob, en Hij zegt: ‘Ik ben die God van Beth-el’.",
+          "t": "Genesis 32 noemt Hem eerst ‘een man’ (32:24). Zijn naam geeft Hij niet: ‘Waarom is het, dat gij naar Mijn naam vraagt?’ Toch zegt Jakob: ‘ik heb God gezien van aangezicht tot aangezicht’ (32:30). Hosea noemt Hem ‘den Engel’ en zegt: ‘Te Beth-el vond hij Hem’ (Hosea 12:5). In Genesis 31 spreekt ‘de Engel Gods’ tot Jakob en zegt: ‘Ik ben die God van Beth-el’ (31:11–13). Dit is uitleg, niet de tekst zelf: veel christelijke uitleggers, ook de kanttekeningen bij de Statenvertaling, zien in deze Man de Zoon van God, Die Zich hier in een menselijke gedaante liet zien en later mens werd.",
           "refs": [
             "Genesis 32:24–30",
             "Genesis 31:11–13",
@@ -398,6 +395,17 @@
             "Genesis 31:47–48",
             "Genesis 32:2",
             "Genesis 32:7"
+          ]
+        },
+        {
+          "kop": "Om over na te denken",
+          "t": "Bij zijn geboorte hield Jakob de hiel van Ezau vast; ‘daarom noemde men zijn naam Jakob’ (Genesis 25:26). Ezau zegt later: ‘Is het niet omdat men zijn naam noemt Jakob, dat hij mij nu twee reizen heeft bedrogen?’ (Genesis 27:36). Bij de Jabbok krijgt hij de naam Israël (Genesis 32:28). Twee vragen waar de tekst zelf geen antwoord op geeft. Izak vroeg: ‘wie zijt gij, mijn zoon?’ (Genesis 27:18), en de Man vraagt: ‘Hoe is uw naam?’ (Genesis 32:27). Wat valt je op als je die vragen naast elkaar legt? En Jakob bidt met Gods eigen woorden (Genesis 32:9–12): waarom zou hij dat doen?",
+          "refs": [
+            "Genesis 25:26",
+            "Genesis 27:18",
+            "Genesis 27:36",
+            "Genesis 32:9–12",
+            "Genesis 32:27–28"
           ]
         }
       ],

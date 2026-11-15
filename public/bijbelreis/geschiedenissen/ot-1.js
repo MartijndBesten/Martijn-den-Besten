@@ -509,7 +509,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       stappen: ["genesis:izak:0", "genesis:izak:1", "genesis:izak:5", "genesis:izak:6", "genesis:jakob:0"],
       vorm: "route",
       uitleg: "Rebekka krijgt geen kinderen, maar Izak bidt en de HEERE verhoort hem. Nog vóór de geboorte zegt de HEERE: ‘de meerdere zal den mindere dienen.’ Eerst wordt Ezau geboren, rood en harig, en dan Jakob, die de hiel van zijn broer vasthoudt. Ezau wordt een jager; Jakob is een oprecht man en woont in tenten. Op een dag verkoopt Ezau zijn eerstgeboorterecht, het recht van de oudste zoon, aan Jakob voor brood en rode linzensoep. Jaren later is Izak oud en kan hij niet meer zien. Hij wil Ezau zegenen. Maar Rebekka en Jakob bedriegen hem met de kleren van Ezau en met geitenvellen, en Jakob krijgt de zegen. Ezau haat Jakob en wil hem doden, en Jakob vlucht naar zijn oom Laban in Haran. Onderweg droomt hij van een ladder tot aan de hemel, en de HEERE belooft: ‘Ik ben met u, en Ik zal u behoeden overal, waarheen gij trekken zult.’ Jakob noemt die plaats Bethel.",
-      betekenis: "God had al vóór de geboorte gezegd dat de oudste de jongste zou dienen (Romeinen 9:10–12). De Bijbel praat het bedrog niet goed, maar God blijft trouw aan Zijn belofte (28:15). Hebreeën 12:16 waarschuwt om niet te zijn zoals Ezau, die zijn eerstgeboorterecht weggaf voor één maaltijd.",
+      betekenis: "God had al vóór de geboorte gezegd dat de oudste de jongste zou dienen (Romeinen 9:10–12). Izak noemt wat Jakob deed ‘bedrog’ (27:35), en Ezau wil hem doden (27:41). Toch belooft God de vluchtende Jakob: ‘Ik ben met u … en Ik zal u wederbrengen in dit land’ (28:15). Hebreeën 12:16 waarschuwt om niet te zijn zoals Ezau, die zijn eerstgeboorterecht weggaf voor één maaltijd.",
       wie: ["Izak", "Rebekka", "Ezau", "Jakob"],
       ontdek: {
         soort: "koppel",
@@ -530,7 +530,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       cross: [
         ["Romeinen 9:10–13", "Paulus wijst op wat God al vóór de geboorte van de tweeling zei."],
         ["Hebreeën 12:16–17", "Ezau gaf om een spijs het recht van zijn eerstgeboorte weg."],
-        ["Johannes 1:52", "De Heere Jezus zegt dat de engelen van God zullen opklimmen en neerdalen op de Zoon des mensen."],
+        ["Johannes 1:51–52", "De Heere Jezus zegt dat men ‘de engelen Gods opklimmende en nederdalende op den Zoon des mensen’ zal zien. Christelijke uitleggers (zoals Calvijn en Matthew Henry) zien daarom in de ladder een beeld van Christus; dat is uitleg vanuit het Nieuwe Testament."],
       ],
       tl: [-2006, -1929],
       tijd: "ca. 2006–1929 v.Chr.",
@@ -574,12 +574,12 @@ BR.kernwoorden = BR.kernwoorden || {};
     {
       nr: 17,
       t: "Jakob keert terug en worstelt bij de Jabbok",
-      ref: "Genesis 31–32",
+      ref: "Genesis 31–33",
       sectie: "aartsvaders",
-      stappen: ["genesis:jakob:4", "genesis:jakob:5", "genesis:jakob:6"],
+      stappen: ["genesis:jakob:4", "genesis:jakob:5", "genesis:jakob:6", "genesis:jakob:7"],
       vorm: "route",
-      uitleg: "Laban is tegenover Jakob niet meer zoals vroeger. De HEERE zegt: ‘Keer weder tot het land uwer vaderen, en tot uw maagschap, en Ik zal met u zijn.’ Jakob vertrekt met zijn vrouwen, kinderen en vee, zonder het Laban te zeggen. Rachel steelt de terafim, de huisgoden van haar vader. Laban jaagt Jakob zeven dagen achterna en haalt hem in op het gebergte Gilead, maar God waarschuwt Laban in een droom. Jakob zegt dat hij twintig jaar voor Laban gewerkt heeft, en dat zijn loon tien keer veranderd is. Ze maken een steenhoop als getuige en gaan in vrede uiteen. Daarna ontmoeten engelen van God Jakob bij Mahanaïm. Dan hoort Jakob dat Ezau hem tegemoet komt met vierhonderd man. Hij is heel bang, bidt om redding en stuurt een groot geschenk van vee vooruit. ’s Nachts, bij het veer van de Jabbok, worstelt een Man met hem tot de dageraad en raakt Hij zijn heup aan. Jakob zegt: ‘Ik zal U niet laten gaan, tenzij dat Gij mij zegent’, en hij krijgt de naam Israël. Hij noemt de plaats Pniël (aangezicht van God), want: ‘ik heb God gezien van aangezicht tot aangezicht.’",
-      betekenis: "In zijn angst bidt Jakob en houdt hij God Zijn eigen belofte voor (32:9–12). Hosea 12:5 zegt dat Jakob bij het worstelen ‘weende en smeekte Hem’.",
+      uitleg: "Laban is tegenover Jakob niet meer zoals vroeger. De HEERE zegt: ‘Keer weder tot het land uwer vaderen, en tot uw maagschap, en Ik zal met u zijn.’ Jakob vertrekt met zijn vrouwen, kinderen en vee, zonder het Laban te zeggen. Rachel steelt de terafim, de huisgoden van haar vader. Laban jaagt Jakob zeven dagen achterna en haalt hem in op het gebergte Gilead, maar God waarschuwt Laban in een droom. Jakob zegt dat hij twintig jaar voor Laban gewerkt heeft, en dat zijn loon tien keer veranderd is. Ze maken een steenhoop als getuige en gaan in vrede uiteen. Daarna ontmoeten engelen van God Jakob bij Mahanaïm. Dan hoort Jakob dat Ezau hem tegemoet komt met vierhonderd man. Hij is heel bang, bidt om redding en stuurt een groot geschenk van vee vooruit. ’s Nachts, bij het veer van de Jabbok, worstelt een Man met hem tot de dageraad en raakt Hij zijn heup aan. Jakob zegt: ‘Ik zal U niet laten gaan, tenzij dat Gij mij zegent’, en hij krijgt de naam Israël. Hij noemt de plaats Pniël (aangezicht van God), want: ‘ik heb God gezien van aangezicht tot aangezicht.’ Als de zon opgaat, hinkt hij aan zijn heup. Dan komt Ezau. Jakob buigt zich zeven keer ter aarde, maar Ezau loopt hem tegemoet, omhelst hem en kust hem, en zij huilen. Jakob vraagt Ezau zijn geschenk aan te nemen, ‘omdat ik uw aangezicht gezien heb, als had ik Gods aangezicht gezien’. Ezau gaat terug naar Seïr, en Jakob trekt via Sukkoth naar Sichem.",
+      betekenis: "In zijn angst bidt Jakob met de woorden die God Zelf gesproken had (32:9–12; vergelijk 31:3 en de belofte in Bethel, 28:15). Genesis noemt Hem met Wie Jakob worstelt ‘een man’ (32:24); Jakob zegt dat hij God gezien heeft (32:30), en Hosea spreekt van ‘den Engel’ (Hosea 12:5). Dit is uitleg: veel christelijke uitleggers, ook de kanttekeningen bij de Statenvertaling, zien in Hem de Zoon van God, Die later mens werd.",
       wie: ["Jakob", "Laban", "Rachel", "Ezau"],
       ontdek: {
         soort: "volgorde",
@@ -591,6 +591,7 @@ BR.kernwoorden = BR.kernwoorden || {};
           "Engelen van God ontmoeten Jakob bij Mahanaïm",
           "Jakob stuurt een geschenk vooruit naar Ezau",
           "Jakob worstelt bij het veer van de Jabbok",
+          "Ezau loopt Jakob tegemoet en kust hem",
         ],
       },
       quiz: [
@@ -603,6 +604,7 @@ BR.kernwoorden = BR.kernwoorden || {};
       cross: [
         ["Hosea 12:4–5", "Jakob gedroeg zich vorstelijk tegen de Engel; hij weende en smeekte Hem."],
         ["Genesis 28:15", "De belofte uit Bethel: ‘Ik zal u wederbrengen in dit land.’"],
+        ["Genesis 35:3", "Terug in Bethel spreekt Jakob over God ‘Die mij antwoordt ten dage mijner benauwdheid, en met mij geweest is op den weg, die ik gewandeld heb’."],
       ],
       tl: [-1909, -1909],
       tijd: "ca. 1909 v.Chr.",

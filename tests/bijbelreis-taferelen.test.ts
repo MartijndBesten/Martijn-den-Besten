@@ -235,7 +235,7 @@ describe("taferelen: koppeling", () => {
     // Bestaat het deel, dan heeft het tien stappen en krijgt elke stap zijn eigen tafereel. Bestaat het (nog) niet, dan
     // hangen deze taferelen aan geen enkele stap en doen de sleutels niets.
     const deel = BR.boeken.find((b) => b.id === "genesis")?.delen.find((d) => d.id === "jakob-jabbok");
-    if (deel) expect(deel.steps.length, "genesis:jakob-jabbok").toBe(10);
+    if (deel) expect(deel.steps.length, "genesis:jakob-jabbok").toBe(12);
     JAKOB.forEach((id, i) => {
       const key = `genesis:jakob-jabbok:${i}`;
       expect(T[id], id).toBeTruthy();

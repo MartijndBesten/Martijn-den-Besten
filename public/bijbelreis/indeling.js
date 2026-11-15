@@ -21,7 +21,7 @@ BR.indeling = {
   14: [["De knecht moet zweren",""],["Gebed bij de waterput","De knecht reist met"],["Rebekka trekt naar Izak","Laban en Bethuël zeggen"]],
   15: [["Tweelingbroers en het eerstgeboorterecht","","genesis:izak:0"],["Izaks zegen en Jakobs vlucht","Jaren later is Izak","genesis:izak:5"],["De droom van de ladder","Onderweg droomt hij van","genesis:jakob:0"]],
   16: [["Jakob ontmoet Rachel","","genesis:jakob:1"],["Lea en Rachel","Jakob heeft Rachel lief","genesis:jakob:2"],["Jakobs kinderen en zijn loon","De HEERE ziet dat Lea","genesis:jakob:3"]],
-  17: [["Vertrek zonder afscheid","","genesis:jakob:4"],["Laban haalt Jakob in","Laban jaagt Jakob zeven"],["Ezau komt Jakob tegemoet","Daarna ontmoeten engelen van","genesis:jakob:5"],["Worstelen bij de Jabbok","’s Nachts, bij het","genesis:jakob:6"]],
+  17: [["Vertrek zonder afscheid","","genesis:jakob:4"],["Laban haalt Jakob in","Laban jaagt Jakob zeven"],["Ezau komt Jakob tegemoet","Daarna ontmoeten engelen van","genesis:jakob:5"],["De Jabbok en de ontmoeting met Ezau","’s Nachts, bij het","genesis:jakob:6"]],
   18: [["De rok en de dromen","","genesis:jozef:0"],["In de put bij Dothan","Jakob stuurt Jozef naar","genesis:jozef:2"],["Verkocht voor twintig zilverlingen","Op voorstel van Juda","genesis:jozef:3"]],
   19: [["Trouw in het huis van Potifar",""],["Jozef in de gevangenis","Zij beschuldigt hem, en","genesis:jozef:5"],["De dromen van de farao","Na twee volle jaren","genesis:jozef:6"]],
   20: [["De broers kopen koren","","genesis:jozef:7"],["Benjamin en de zilveren beker","De tweede keer staat","genesis:jozef:8"],["Jozef maakt zich bekend","Nu kan Jozef zich niet","genesis:jozef:9"]],
