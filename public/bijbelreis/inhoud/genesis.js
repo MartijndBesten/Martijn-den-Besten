@@ -69,7 +69,7 @@ BR.boeken.push({
 
 // Een kort Bijbelgedeelte van dichtbij: Genesis 11:27–12:5. De eerste twee stappen van het deel Abraham vertellen
 // hetzelfde in het kort; dit deel volgt de tekst vers voor vers. Controle: scripts/bijbel-controle/ur-kanaan.txt.
-{ id: "ur-kanaan", n: "Van Ur naar Kanaän", short: "Ur–Kanaän", ref: "Genesis 11:27–12:5", c: "oker", init: "U",
+{ id: "ur-kanaan", bij: "abraham", n: "Van Ur naar Kanaän", short: "Ur–Kanaän", ref: "Genesis 11:27–12:5", c: "oker", init: "U",
   tijd: "ca. 2091 v.Chr.", tl: [-2091, -2091],
   tijdNoot: "Reconstructie; de Bijbel geeft hier geen jaartallen. Abram was 75 jaar toen hij uit Haran ging (12:4). In de tijdrekening die bij het deel Abraham staat uitgelegd, is dat ca. 2091 v.Chr. Wanneer de familie uit Ur vertrok en hoe lang zij in Haran woonde, zegt de Bijbel niet. Er bestaan ook andere dateringen, die enkele eeuwen later uitkomen.",
   intro: "Dit deel volgt één kort Bijbelgedeelte van dichtbij: het slot van Genesis 11 en het begin van Genesis 12. Terach trekt met zijn familie weg uit Ur, maar zij blijven in Haran wonen. Dan gaat Abram verder, op het woord van de HEERE, naar een land dat God hem wijzen zal. Hoe het daarna verdergaat, staat in het deel Abraham.",
@@ -469,7 +469,7 @@ BR.boeken.push({
 // Eén hoofdstuk van dichtbij: Genesis 32 (met het begin van 33), ingezoomd op het gebied van de Jabbok. Het deel Jakob
 // vertelt dit hoofdstuk in twee stappen; dit deel volgt de tekst vers voor vers. De indeling in tien stappen ligt vast:
 // bij elke stap hoort een tafereel. Controle: scripts/bijbel-controle/jakob-jabbok.txt.
-{ id: "jakob-jabbok", n: "Jakob bij de Jabbok", short: "Jabbok", ref: "Genesis 32", c: "teal", init: "J",
+{ id: "jakob-jabbok", bij: "jakob", n: "Jakob bij de Jabbok", short: "Jabbok", ref: "Genesis 32", c: "teal", init: "J",
   tijd: "ca. 1909 v.Chr.", tl: [-1909, -1909],
   tijdNoot: "Reconstructie; de Bijbel geeft hier geen jaartal. Jakob was twintig jaar bij Laban geweest (31:41). Toen Jozef geboren was, wilde Jakob naar huis; daarna diende hij nog zes jaar om de kudde (30:25; 31:41). Jozef was bij de Jabbok dus ongeveer zes jaar. In de tijdrekening die bij de delen Jakob en Jozef staat uitgelegd (Jakob 130 jaar toen hij in Egypte kwam, 47:9; Jozef toen ongeveer 39), is dat ca. 1909 v.Chr.; Jakob was toen ongeveer 97. Er bestaan ook andere dateringen, die enkele eeuwen later uitkomen.",
   intro: "Dit deel volgt één hoofdstuk van dichtbij: Genesis 32. Jakob komt na twintig jaar terug uit Haran, met zijn vrouwen, zijn kinderen en zijn kudden. Dan hoort hij dat zijn broer Ezau hem tegemoet komt, met vierhonderd man. Jakob bidt en stuurt een geschenk vooruit. In de nacht, bij de beek Jabbok, worstelt een Man met hem tot de dageraad opgaat. Wat eraan voorafgaat en hoe het daarna verdergaat, staat in het deel Jakob.",

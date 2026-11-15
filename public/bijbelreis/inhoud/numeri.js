@@ -167,7 +167,7 @@ BR.boeken.push({
 
 // Eén Bijbelgedeelte van dichtbij: Deuteronomium 30:11–20, uit de afscheidsrede van Mozes in de velden van Moab.
 // Het deel ‘In Moab’ vertelt de hele rede in één stap; dit deel volgt deze verzen. Controle: scripts/bijbel-controle/kies-het-leven.txt.
-{ id: "kies-het-leven", n: "Kies dan het leven", short: "Kies het leven", ref: "Deuteronomium 30:11–20", c: "oker", init: "K",
+{ id: "kies-het-leven", bij: "moab", n: "Kies dan het leven", short: "Kies het leven", ref: "Deuteronomium 30:11–20", c: "oker", init: "K",
   tijd: "ca. 1406 v.Chr.", tl: [-1406, -1406],
   tijdNoot: "Reconstructie, uitgaande van een uittocht ca. 1446 v.Chr. (1 Koningen 6:1). Mozes sprak het volk toe in het veertigste jaar, in de elfde maand (Deuteronomium 1:3). De Bijbel noemt geen jaartal in onze jaartelling; er bestaan ook dateringen die ruim twee eeuwen later uitkomen.",
   intro: "Israël staat aan de grens van het beloofde land, in de velden van Moab, met de Jordaan vóór zich. Mozes spreekt voor het laatst tot het volk. In Deuteronomium 30:11–20 zegt hij waar het op aankomt: het woord van God is dichtbij, en hij stelt het volk het leven en de dood voor. Dit deel volgt die verzen één voor één.",
