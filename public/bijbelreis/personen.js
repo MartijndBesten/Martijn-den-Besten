@@ -1002,8 +1002,11 @@ BR.mensen = {
   // [meer-reizen:nt-over-de-grens] mensen
   //
   // [meer-reizen:ehud-jefta] mensen
-  othniel: { n: "Othniël", boek: ["richteren"], kort: "Zoon van Kenaz en de eerste richter; de HEERE gaf Cusjan Risjataïm in zijn hand, en het land had veertig jaar rust.",
-    dood: "Richteren 3:11", elders: [["Jozua 15:16–17", "Hij neemt Kirjath-Sefer (Debir) in en krijgt Achsa, de dochter van Kaleb, tot vrouw."], ["1 Kronieken 4:13", "Zijn naam staat in het geslachtsregister van Juda."]] },
+  othniel: { n: "Othniël", p: ["achsa"], boek: ["jozua", "richteren"],
+    kort: "Zoon van Kenaz. Hij nam Kirjath-Sefer (Debir) in en kreeg Achsa, de dochter van Kaleb, tot vrouw. Later was hij de eerste richter: de HEERE gaf Cusjan Risjataïm in zijn hand, en het land had veertig jaar rust.",
+    dood: "Richteren 3:11",
+    elders: [["Jozua 15:16–17", "Hij neemt Kirjath-Sefer (Debir) in en krijgt Achsa, de dochter van Kaleb, tot vrouw."], ["Richteren 1:12–13", "Dezelfde geschiedenis staat ook aan het begin van Richteren."], ["Richteren 3:9–10", "De HEERE verwekt hem als verlosser; de Geest van de HEERE is over hem en hij richt Israël."], ["1 Kronieken 4:13", "Zijn naam staat in het geslachtsregister van Juda."]],
+    basis: { p: { achsa: ["b", "Jozua 15:17"] } } },
   cusjan: { n: "Cusjan Risjataïm", boek: ["richteren"], kort: "Koning van Mesopotamië; Israël diende hem acht jaar, tot de HEERE hem in de hand van Othniël gaf." },
   eglon: { n: "Eglon", boek: ["richteren"], kort: "Koning van Moab; met de Ammonieten en de Amalekieten nam hij de Palmstad in, en Israël diende hem achttien jaar.",
     dood: "Richteren 3:25" },
@@ -1097,11 +1100,6 @@ BR.mensen = {
     vervolg: [["Jeremia 43:3", "De leiders zeggen dat hij Jeremia tegen hen opstookt."], ["Jeremia 43:6–7", "Hij wordt met Jeremia meegenomen naar Tachpanhes in Egypte."]] },
   //
   // [meer-reizen:stammen] mensen
-  othniel: { n: "Othniël", p: ["achsa"], boek: ["jozua"],
-    kort: "Zoon van Kenaz; hij nam Kirjath-Sefer (Debir) in en kreeg Achsa, de dochter van Kaleb, tot vrouw.", dood: "Richteren 3:11",
-    elders: [["Richteren 1:12–13", "Dezelfde geschiedenis staat ook aan het begin van Richteren."]],
-    vervolg: [["Richteren 3:9–10", "De HEERE verwekt hem als verlosser; de Geest van de HEERE is over hem en hij richt Israël."]],
-    basis: { p: { achsa: ["b", "Jozua 15:17"] } } },
   achsa: { n: "Achsa", v: "kaleb", p: ["othniel"], boek: ["jozua"],
     kort: "Dochter van Kaleb en vrouw van Othniël; zij vroeg haar vader om waterbronnen bij haar dorre land.",
     elders: [["Richteren 1:14–15", "Ook in Richteren staat hoe zij haar vader om een zegen vroeg."]],
