@@ -1,0 +1,15 @@
+{
+  // De Bijbelreis op een eigen adres: bijbelreis.nl. Alleen de atlas, zonder API of database.
+  // Deploy: npm run build && node scripts/embed-assets.mjs && npx wrangler deploy -c wrangler.bijbelreis.jsonc
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "bijbelreis",
+  "main": "./worker/bijbelreis.ts",
+  "compatibility_date": "2026-10-13",
+  "account_id": "c5472db2163a42a463916a6a525d8353",
+  // workers.dev staat aan zolang bijbelreis.nl nog niet op Cloudflare staat (nameservers bij Theory7). Daarna:
+  // "workers_dev": false en de twee routes hieronder aanzetten.
+  "workers_dev": true,
+  "preview_urls": false,
+  // "routes": [{ "pattern": "bijbelreis.nl", "custom_domain": true }, { "pattern": "www.bijbelreis.nl", "custom_domain": true }],
+  "observability": { "enabled": true }
+}

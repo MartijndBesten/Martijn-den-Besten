@@ -61,5 +61,15 @@ writeFileSync(
     `export const FILES: Record<string, [type: string, etag: string, base64: string]> = ${JSON.stringify(files)};\n` +
     `export const HEADER_RULES: { pattern: string; headers: Record<string, string> }[] = ${JSON.stringify(rules)};\n`,
 );
+// De Bijbelreis heeft een eigen Worker (bijbelreis.nl, worker/bijbelreis.ts) met alleen haar eigen bestanden.
+const eigen = (p) => p === "/bijbelreis.html" || p.startsWith("/bijbelreis/") || p.startsWith("/fonts/");
+const reisFiles = Object.fromEntries(Object.entries(files).filter(([p]) => eigen(p)));
+const reisRules = rules.filter((r) => ["/*", "/fonts/*", "/bijbelreis/*"].includes(r.pattern));
+writeFileSync(
+  "worker/generated/bijbelreis-files.ts",
+  `// Automatisch gegenereerd door scripts/embed-assets.mjs. Niet handmatig bewerken.\n` +
+    `export const FILES: Record<string, [type: string, etag: string, base64: string]> = ${JSON.stringify(reisFiles)};\n` +
+    `export const HEADER_RULES: { pattern: string; headers: Record<string, string> }[] = ${JSON.stringify(reisRules)};\n`,
+);
 const total = Object.values(files).reduce((n, f) => n + f[2].length, 0);
-console.log(`embed-assets: ${Object.keys(files).length} bestanden, ${(total / 1024).toFixed(0)} kB base64`);
+console.log(`embed-assets: ${Object.keys(files).length} bestanden, ${(total / 1024).toFixed(0)} kB base64; Bijbelreis apart: ${Object.keys(reisFiles).length} bestanden`);

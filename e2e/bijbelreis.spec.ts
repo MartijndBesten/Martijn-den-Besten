@@ -918,3 +918,77 @@ test("Samen speuren bij een reis zonder eigen verhalen: de vragen van de reis, m
   await page.locator("#qGo").click();
   await expect(page.locator("#p-quiz .opt")).toHaveCount(2);
 });
+
+test("eigen adres: de atlas staat los van het Instituut, met de makersvermelding van Denckh", async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto("/bijbelreis");
+  await expect(page).toHaveTitle("Bijbelreis — Op reis door de Bijbel");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://bijbelreis.nl/");
+  await expect(page.locator("body")).not.toContainText("Hoofdkwartier");
+  await expect(page.locator("body")).not.toContainText("Instituut Martijn den Besten");
+  await expect(page.locator(".kop")).not.toContainText("Afd. 06");
+  // De officiële Denckh-signatuur met krul, als eigen bestand (niet nagetekend) en met een link naar Denckh.
+  const maker = page.locator(".maker a");
+  await expect(maker).toHaveAttribute("href", "https://denckh.nl");
+  await expect(maker).toContainText("Gemaakt door");
+  const logo = maker.locator("img");
+  await expect(logo).toHaveAttribute("alt", "Denckh");
+  await expect(logo).toHaveAttribute("src", /\/bijbelreis\/denckh-logo-signature\.svg/);
+  expect(await logo.evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0)).toBe(true);
+  expect(errors).toEqual([]);
+});
+
+test("verhuizing: het oude adres geeft de voortgang mee, het nieuwe adres voegt samen en telt niets dubbel", async ({ page }) => {
+  // 1. Het oude adres: de voortgang uit deze browser gaat mee in het fragment van het nieuwe adres.
+  await page.addInitScript(() => {
+    if (location.pathname !== "/bijbelreis-verhuisd" || sessionStorage.getItem("gezet")) return;
+    sessionStorage.setItem("gezet", "1");
+    localStorage.setItem("bijbelreis:gezien", JSON.stringify(["genesis:abraham:0", "exodus:mozes:2"]));
+    localStorage.setItem("bijbelreis:best:genesis:abraham", "7");
+    localStorage.setItem("bijbelreis:verhalen", JSON.stringify({ 8: { g: 1, q: 3, lv: { c: 3 } }, 26: { g: 1 } }));
+    localStorage.setItem("bijbelreis:niveau", JSON.stringify("b"));
+    localStorage.setItem("iets-anders", "blijft");
+  });
+  let doel = "";
+  await page.route("https://bijbelreis.nl/**", (route) => { doel = route.request().url(); return route.fulfill({ contentType: "text/html", body: "<title>nieuw adres</title>" }); });
+  await page.goto("/bijbelreis-verhuisd#abraham/4");
+  await expect(page).toHaveTitle("nieuw adres");
+  const fragment = await page.evaluate(() => location.hash);
+  expect(doel).toBe("https://bijbelreis.nl/");
+  expect(fragment).toMatch(/^#verhuis=[jz]\.[A-Za-z0-9_-]+&naar=abraham%2F4$/);
+  expect(fragment).not.toContain("iets-anders");
+
+  // 2. Het nieuwe adres, waar al iets stond: samenvoegen, de hoogste score blijft, instellingen van hier blijven.
+  await page.goto("/bijbelreis-verhuisd-leeg-bestaat-niet");
+  await page.evaluate(() => {
+    localStorage.clear();
+    localStorage.setItem("bijbelreis:gezien", JSON.stringify(["genesis:abraham:1", "genesis:abraham:0"]));
+    localStorage.setItem("bijbelreis:best:genesis:abraham", "9");
+    localStorage.setItem("bijbelreis:verhalen", JSON.stringify({ 8: { g: 1, q: 2, lv: { b: 2 } } }));
+    localStorage.setItem("bijbelreis:niveau", JSON.stringify("c"));
+    localStorage.setItem("bijbelreis:welkomWeg", "true");
+  });
+  await page.goto("/bijbelreis" + fragment);
+  await expect(page.locator("#sTitle")).toHaveText("4. Een tent bij Bethel");
+  expect(await page.evaluate(() => location.hash)).toBe("#abraham/4");
+  const na = await page.evaluate(() => ({
+    gezien: JSON.parse(localStorage.getItem("bijbelreis:gezien") || "[]"),
+    best: JSON.parse(localStorage.getItem("bijbelreis:best:genesis:abraham") || "null"),
+    verhalen: JSON.parse(localStorage.getItem("bijbelreis:verhalen") || "{}"),
+    niveau: JSON.parse(localStorage.getItem("bijbelreis:niveau") || "null"),
+    verhuisd: localStorage.getItem("bijbelreis:verhuisd"),
+  }));
+  expect(na.gezien).toEqual(expect.arrayContaining(["genesis:abraham:0", "genesis:abraham:1", "exodus:mozes:2"]));
+  expect(new Set(na.gezien).size).toBe(na.gezien.length);
+  expect(na.best).toBe(9);
+  expect(na.verhalen[8]).toMatchObject({ g: 1, q: 3, lv: { b: 2, c: 3 } });
+  expect(na.verhalen[26]).toMatchObject({ g: 1 });
+  expect(na.niveau).toBe("c");
+  expect(na.verhuisd).toBe("true");
+
+  // 3. Een tweede keer hetzelfde pakket (iemand opent weer een oude link): er verandert niets meer.
+  await page.evaluate(() => localStorage.setItem("bijbelreis:gezien", JSON.stringify(["genesis:abraham:1"])));
+  await page.goto("/bijbelreis" + fragment);
+  await expect(page.locator("#sTitle")).toHaveText("4. Een tent bij Bethel");
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem("bijbelreis:gezien") || "[]"))).not.toContain("exodus:mozes:2");
+});

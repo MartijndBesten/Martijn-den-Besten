@@ -68,6 +68,30 @@ Extra slot op de deur, gratis tot 50 gebruikers: alleen jouw e-mailadres komt no
    - Policy: *Allow* → *Include* → *Emails* → `m.denbesten@live.nl`.
 4. Opslaan. Bij `/beheer` vraagt Cloudflare nu eerst om een code per e-mail; daarna werkt het beheertoken zoals voorheen.
 
+## De Bijbelreis op een eigen adres: bijbelreis.nl
+
+Besluit van Martijn (15-11-2026): de Bijbelreis staat als zelfstandige website op `bijbelreis.nl` (domein gekocht bij Theory7), los van martijndenbesten.com, met de makersvermelding ‘Gemaakt door Denckh’.
+
+| Onderdeel | Waarde |
+| --- | --- |
+| Worker | `bijbelreis` (`wrangler.bijbelreis.jsonc`, `worker/bijbelreis.ts`): alleen de atlas, geen API, geen database |
+| Bestanden | dezelfde build (`dist/client`); `scripts/embed-assets.mjs` maakt er `worker/generated/bijbelreis-files.ts` van (alleen `/bijbelreis.html`, `/bijbelreis/*`, `/fonts/*`) |
+| Adressen | `/` is de atlas; `/bijbelreis` verwijst door naar `/`; diepe links: `https://bijbelreis.nl/#ur-kanaan` |
+| Deploy | `npm run deploy:bijbelreis` |
+| Terugdraaien | `npx wrangler rollback <versie-id> -c wrangler.bijbelreis.jsonc` |
+| Kosten | € 0 (gratis Workers-plan); het domein zelf loopt via Theory7 |
+
+### Volgorde van de verhuizing
+
+1. **Zone op Cloudflare** (alleen de accounteigenaar kan dit): dashboard → *Add a domain* → `bijbelreis.nl` → Free. Het deploy-token mag geen zones aanmaken.
+2. **Nameservers bij Theory7** omzetten naar de twee nameservers die Cloudflare toont (bij de andere domeinen in dit account: `kayden.ns.cloudflare.com` en `sloan.ns.cloudflare.com`).
+3. Zodra de zone actief is: in `wrangler.bijbelreis.jsonc` de twee `routes` aanzetten en `workers_dev` op `false`, daarna `npm run deploy:bijbelreis`. Controleer `https://bijbelreis.nl/` en `https://www.bijbelreis.nl/` (verwijst door naar het hoofddomein).
+4. **Pas daarna** `BIJBELREIS_VERHUISD` in `shared/bijbelreis.ts` op `true` zetten en de hoofdsite uitrollen. Vanaf dan toont `martijndenbesten.com/bijbelreis` de verhuispagina.
+
+### Voortgang van gebruikers
+
+Stempels en scores staan in de browser (localStorage) en horen bij het adres. De verhuispagina (`public/bijbelreis-verhuisd.html` met `public/bijbelreis/verhuis.js`) pakt alle sleutels `bijbelreis:*` in en geeft ze mee in het fragment van het nieuwe adres (`#verhuis=…`). Een fragment gaat niet naar een server. De atlas op het nieuwe adres (`verhuisIn` in `app.js`) voegt samen: stempels verenigd, van scores de hoogste, instellingen alleen als daar nog niets stond. Dat gebeurt één keer per browser (`bijbelreis:verhuisd`).
+
 ## Twee deploy-varianten
 
 | Variant | Config | Wanneer |

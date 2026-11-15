@@ -12,7 +12,7 @@ export const WERK = join(ROOT, "docs", "bijbelreis-niveaus", "werk");
 
 export function laadBR() {
   const html = readFileSync(join(PUB, "bijbelreis.html"), "utf8");
-  const scripts = [...html.matchAll(/src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s)).concat(["niveaus/a.js", "niveaus/b.js", "niveaus/c.js"]);
+  const scripts = [...html.matchAll(/<script src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s)).concat(["niveaus/a.js", "niveaus/b.js", "niveaus/c.js"]);
   const ctx = { window: {} };
   for (const s of scripts) runInNewContext(readFileSync(join(PUB, "bijbelreis", s), "utf8").replace(/\bBR\./g, "window.BR."), ctx);
   return ctx.window.BR;

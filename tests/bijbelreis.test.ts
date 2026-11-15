@@ -18,7 +18,7 @@ const PUB = join(__dirname, "..", "public");
 const SVDIR = join(__dirname, "..", "data", "statenvertaling");
 const html = readFileSync(join(PUB, "bijbelreis.html"), "utf8");
 // De teksten per reisniveau laadt de pagina zelf na (niveaus.js); hier gewoon alle drie.
-const scripts = [...html.matchAll(/src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s)).concat(["niveaus/a.js", "niveaus/b.js", "niveaus/c.js"]);
+const scripts = [...html.matchAll(/<script src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s)).concat(["niveaus/a.js", "niveaus/b.js", "niveaus/c.js"]);
 const ctx: { window: { BR?: BR } } = { window: {} };
 for (const s of scripts) {
   const src = readFileSync(join(PUB, "bijbelreis", s), "utf8").replace(/\bBR\./g, "window.BR.");

@@ -2,6 +2,50 @@
 // Inhoud komt uit plaatsen.js en inhoud/*.js (BR.boeken). Geen externe bronnen: alles staat op deze site.
 (() => {
   "use strict";
+  // Verhuizing van het oude adres (martijndenbesten.com/bijbelreis): de voortgang komt één keer mee in het fragment
+  // ‘#verhuis=…’ (zie verhuis.js). Eerst samenvoegen met wat hier al staat, dan de pagina gewoon opnieuw laden.
+  if (/^#verhuis=/.test(location.hash)) { verhuisIn(); return; }
+  async function verhuisIn() {
+    const m = /^#verhuis=([jz])\.([A-Za-z0-9_-]+)(?:&naar=([^&]*))?$/.exec(location.hash);
+    let naar = "";
+    try {
+      naar = m && m[3] ? decodeURIComponent(m[3]) : "";
+      if (!/^[\w\-\/]{1,60}$/.test(naar)) naar = "";
+      if (m && localStorage.getItem("bijbelreis:verhuisd") == null) {
+        let bytes = Uint8Array.from(atob(m[2].replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0));
+        if (m[1] === "z") bytes = new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer());
+        verhuisSamenvoegen(JSON.parse(new TextDecoder().decode(bytes)));
+        localStorage.setItem("bijbelreis:verhuisd", "true");
+      }
+    } catch { /* onleesbaar pakket of geen opslag: gewoon beginnen */ }
+    history.replaceState(null, "", location.pathname + location.search + (naar ? "#" + naar : ""));
+    location.reload();
+  }
+  // Niets gaat verloren en niets telt dubbel: stempels worden verenigd, van scores blijft de hoogste, en instellingen
+  // (niveau, waar je was) komen alleen mee als hier nog niets staat.
+  function verhuisSamenvoegen(oud) {
+    const lees = (v) => { try { return JSON.parse(v); } catch { return undefined; } };
+    const hoogste = (a, b) => (typeof a === "number" && typeof b === "number" ? Math.max(a, b) : a ?? b);
+    Object.entries(oud || {}).forEach(([k, ruw]) => {
+      if (typeof ruw !== "string" || !/^[\w:.\-]{1,80}$/.test(k) || k === "verhuisd") return;
+      const nieuw = lees(ruw), sleutel = "bijbelreis:" + k, hier = localStorage.getItem(sleutel), al = hier == null ? undefined : lees(hier);
+      if (nieuw === undefined) return;
+      let uit;
+      if (al === undefined || al === null) uit = nieuw;
+      else if (k === "gezien" && Array.isArray(al) && Array.isArray(nieuw)) uit = [...new Set(al.concat(nieuw))];
+      else if (/^(best|samen|speur):/.test(k)) uit = hoogste(al, nieuw);
+      else if (k === "verhalen" && typeof al === "object" && nieuw && typeof nieuw === "object") {
+        uit = { ...nieuw, ...al };
+        Object.keys(nieuw).forEach((nr) => {
+          const a = al[nr], b = nieuw[nr];
+          if (!a || !b) return;
+          const lv = { ...(b.lv || {}) }; Object.entries(a.lv || {}).forEach(([n, v]) => { lv[n] = hoogste(v, lv[n]); });
+          uit[nr] = { ...b, ...a, ...(a.q != null || b.q != null ? { q: hoogste(a.q, b.q) } : {}), ...(Object.keys(lv).length ? { lv } : {}) };
+        });
+      } else return;
+      localStorage.setItem(sleutel, JSON.stringify(uit));
+    });
+  }
   const $ = (id) => document.getElementById(id);
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isNarrow = () => window.matchMedia("(max-width: 900px)").matches;
