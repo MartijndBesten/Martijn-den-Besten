@@ -18,7 +18,7 @@ const PUB = join(__dirname, "..", "public");
 const SVDIR = join(__dirname, "..", "data", "statenvertaling");
 const html = readFileSync(join(PUB, "bijbelreis.html"), "utf8");
 // De teksten per reisniveau laadt de pagina zelf na (niveaus.js); hier gewoon alle drie.
-const scripts = [...html.matchAll(/src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s)).concat(["niveaus/a.js", "niveaus/b.js", "niveaus/c.js"]);
+const scripts = [...html.matchAll(/<script src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => !/leaflet|app\.js/.test(s)).concat(["niveaus/a.js", "niveaus/b.js", "niveaus/c.js"]);
 const ctx: { window: { BR?: BR } } = { window: {} };
 for (const s of scripts) {
   const src = readFileSync(join(PUB, "bijbelreis", s), "utf8").replace(/\bBR\./g, "window.BR.");
@@ -384,6 +384,7 @@ describe("bijbelreis: citaten in de bestaande inhoud", () => {
       dd.steps.forEach((s, i) => walk(`${b.id}:${d.id}:${i}`, { t: s.t, txt: s.txt, fact: s.fact, onthul: s.onthul, who: s.who }));
     }
     walk("kernwoorden", B.kernwoorden); walk("mensen", B.mensen);
+    for (const [id, pl] of Object.entries(P)) chk("plaats " + id, (pl as unknown as { d?: string }).d);
     expect(bad).toEqual([]);
-  });
+  }, 60_000);
 });

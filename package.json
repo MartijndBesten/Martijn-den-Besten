@@ -16,6 +16,7 @@
     "deploy": "npm run build && wrangler d1 migrations apply martijndenbesten --remote && wrangler deploy && wrangler deploy -c wrangler.www.jsonc",
     "check": "npm run typecheck && npm test && npm run build",
     "deploy:embedded": "npm run build && node scripts/embed-assets.mjs && tsc -p worker/tsconfig.embedded.json --noEmit && wrangler d1 migrations apply martijndenbesten --remote && wrangler deploy -c wrangler.embedded.jsonc && wrangler deploy -c wrangler.www.jsonc",
+    "deploy:bijbelreis": "npm run build && node scripts/embed-assets.mjs && tsc -p worker/tsconfig.embedded.json --noEmit && wrangler deploy -c wrangler.bijbelreis.jsonc",
     "test:visueel": "sh scripts/visueel.sh"
   },
   "dependencies": {

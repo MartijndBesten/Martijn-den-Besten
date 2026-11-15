@@ -3,6 +3,7 @@
 
 import { handleApi, type Env } from "./index";
 import { FILES, HEADER_RULES } from "./generated/files";
+import { verwijstDoor } from "../shared/bijbelreis";
 
 const decoded = new Map<string, Uint8Array>();
 
@@ -57,6 +58,9 @@ export default {
     }
     if (url.pathname.startsWith("/api/")) return handleApi(request, env, ctx);
     if (request.method !== "GET" && request.method !== "HEAD") return new Response("Methode niet toegestaan", { status: 405, headers: { Allow: "GET, HEAD" } });
+
+    // De Bijbelreis heeft een eigen adres (shared/bijbelreis.ts): het oude pad toont de verhuispagina.
+    if (verwijstDoor(url.hostname, url.pathname)) return serve(request, "/bijbelreis-verhuisd.html");
 
     // Gelijk aan html_handling "auto-trailing-slash": /pagina.html en /pagina/ worden /pagina.
     if (url.pathname !== "/" && (url.pathname.endsWith(".html") || url.pathname.endsWith("/"))) {

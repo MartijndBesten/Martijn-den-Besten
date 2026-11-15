@@ -1,0 +1,143 @@
+# Controle voor het deel nt-over-de-grens (Tyrus, Sidon en Dekapolis) in public/bijbelreis/inhoud/nt-jezus-2.js,
+# met de plaatsen og_gennesaret en og_dekapolis in public/bijbelreis/plaatsen.js. Regel: verwijzing | regex.
+# Trema's en accenten tellen niet mee; de Statenvertaling schrijft Farizeën, Sadduceën, Syro-fenicië, Bethsaida.
+
+# ===== Wie is wie: de Syro-Fenicische vrouw =====
+Markus 7:26 | een Griekse vrouw, van geboorte uit Syro-fenicie
+Mattheüs 15:22 | een Kananese vrouw
+Mattheüs 15:28 | O vrouw. groot is uw geloof
+
+# ===== Deel: tijdNoot, intro, stat =====
+Johannes 6:4 | het pascha, het feest der Joden, was nabij
+Markus 8:27 | naar de vlekken van Cesarea Filippi
+Johannes 11:55 | het pascha der Joden was nabij
+Markus 7:24 | ging Hij weg naar de landpalen van Tyrus en Sidon
+Markus 7:31 | kwam aan de zee van Galilea, door het midden der landpalen van Dekapolis
+Markus 8:9 | omtrent vier duizend
+Markus 8:10 | in de delen van Dalmanutha
+Markus 8:22 | Hij kwam te Bethsaida
+Markus 8:19 | vijf broden brak onder de vijf duizend mannen.*Twaalf
+Markus 8:20 | de zeven brak onder de vier duizend mannen.*Zeven
+
+# ===== Kruisverwijzingen =====
+Mattheüs 15:22 | een Kananese vrouw
+Mattheüs 15:28 | O vrouw. groot is uw geloof
+Markus 3:8 | van omtrent Tyrus en Sidon, een grote menigte, gehoord hebbende, hoe grote dingen Hij deed, kwamen tot Hem
+Markus 5:18 | degene, die bezeten was geweest
+Markus 5:20 | begon te verkondigen in het land van Dekapolis, wat grote dingen hem Jezus gedaan had
+Jesaja 35:5 | Alsdan zullen der blinden ogen opengedaan worden, en der doven oren zullen geopend worden
+Markus 6:38 | Vijf, en twee vissen
+Markus 6:43 | twaalf volle korven brokken
+Markus 6:44 | omtrent vijf duizend mannen
+Mattheüs 16:4 | het teken van Jona, den profeet
+Mattheüs 16:12 | van de leer der Farizeen en Sadduceen
+
+# ===== Stap 1: Markus 7:24–30 =====
+Markus 7:24 | in een huis gegaan zijnde, wilde Hij niet, dat het iemand wist
+Markus 7:24 | Hij kon nochtans niet verborgen zijn
+Markus 7:25 | een vrouw, welker dochtertje een onreinen geest had, van Hem gehoord hebbende, kwam en viel neder aan Zijn voeten
+Markus 7:26 | Griekse vrouw, van geboorte uit Syro-fenicie
+Markus 7:26 | zij bad Hem, dat Hij den duivel uitwierp uit haar dochter
+Markus 7:27 | Laat eerst de kinderen verzadigd worden
+Markus 7:27 | het is niet betamelijk dat men het brood der kinderen neme, en den hondekens voor werpe
+Markus 7:28 | Ja, Heere, doch ook de hondekens eten onder de tafel van de kruimkens der kinderen
+Markus 7:29 | Om dezes woords wil ga heen, de duivel is uit uw dochter uitgevaren
+Markus 7:30 | als zij in haar huis kwam, vond zij, dat de duivel uitgevaren was, en de dochter liggende op het bed
+Mattheüs 15:22 | Heere. Gij Zone Davids, ontferm U mijner
+Mattheüs 15:23 | Hij antwoordde haar niet een woord
+Mattheüs 15:23 | Zijn discipelen.*baden Hem, zeggende: Laat haar van U
+Mattheüs 15:24 | Ik ben niet gezonden, dan tot de verloren schapen van het huis Israels
+
+# ===== Stap 2: Markus 7:31–37 =====
+Markus 7:31 | wederom weggegaan zijnde van de landpalen van Tyrus en Sidon
+Markus 7:32 | zij brachten tot Hem een dove, die zwaarlijk sprak, en baden Hem, dat Hij de hand op hem legde
+Markus 7:33 | hem van de schare alleen genomen hebbende, stak Hij Zijn vingeren in zijn oren, en gespogen hebbende, raakte Hij zijn tong aan
+Markus 7:34 | opwaarts ziende naar den hemel, zuchtte Hij, en zeide tot hem: Effatha. dat is: wordt geopend
+Markus 7:35 | terstond werden zijn oren geopend, en de band zijner tong werd los, en hij sprak recht
+Markus 7:36 | Hij gebood hunlieden, dat zij het niemand zeggen zouden; maar wat Hij hun ook gebood, zo verkondigden zij het des te meer
+Markus 7:37 | zij ontzetten zich bovenmate zeer
+Markus 7:37 | Hij heeft alles wel gedaan, en Hij maakt, dat de doven horen, en de stommen spreken
+Markus 5:41 | Talitha kumi. hetwelk is, zijnde overgezet
+
+# ===== Stap 3: Mattheüs 15:29–31 =====
+Mattheüs 15:29 | kwam aan de zee van Galilea, en klom op den berg, en zat daar neder
+Mattheüs 15:30 | vele scharen zijn tot Hem gekomen
+Mattheüs 15:30 | kreupelen, blinden, stommen, lammen, en vele anderen
+Mattheüs 15:30 | wierpen ze voor de voeten van Jezus; en Hij genas dezelve
+Mattheüs 15:31 | de scharen zich verwonderden, ziende de stommen sprekende, de lammen gezond, de kreupelen wandelende, en de blinden ziende
+Mattheüs 15:31 | zij verheerlijkten den God Israels
+Jesaja 35:5 | Alsdan zullen der blinden ogen opengedaan worden, en der doven oren zullen geopend worden
+Jesaja 35:6 | Alsdan zal de kreupele springen als een hert, en de tong des stommen zal juichen
+Markus 8:1 | In dezelfde dagen
+
+# ===== Stap 4: Markus 8:1–9 =====
+Markus 8:1 | als er een geheel grote schare was, en zij niet hadden, wat zij eten zouden, riep Jezus Zijn discipelen tot Zich
+Markus 8:2 | Ik word innerlijk met ontferming bewogen over de schare; want zij zijn nu drie dagen bij Mij gebleven, en hebben niet, wat zij eten zouden
+Markus 8:3 | indien Ik hen nuchteren naar hun huis laat gaan, zo zullen zij op den weg bezwijken; want sommigen van hen komen van verre
+Markus 8:4 | Van waar zal iemand dezen met broden hier in de woestijn kunnen verzadigen
+Markus 8:5 | Hoeveel broden hebt gij. En zij zeiden: Zeven
+Markus 8:6 | Hij gebood de schare neder te zitten op de aarde, en Hij nam de zeven broden, en gedankt hebbende, brak Hij ze, en gaf ze Zijn discipelen
+Markus 8:6 | zij leiden ze der schare voor
+Markus 8:7 | zij hadden weinige visjes; en als Hij gezegend had, zeide Hij, dat zij ook die zouden voorleggen
+Markus 8:8 | zij hebben gegeten, en zijn verzadigd geworden, en zij namen het overschot der brokken op, zeven manden
+Markus 8:9 | Die nu gegeten hadden, waren omtrent vier duizend; en Hij liet hen gaan
+Mattheüs 15:38 | vier duizend mannen, zonder de vrouwen en kinderen
+
+# ===== Stap 5: Markus 8:10–13 =====
+Markus 8:10 | terstond in het schip gegaan zijnde met Zijn discipelen, is Hij gekomen in de delen van Dalmanutha
+Markus 8:11 | de Farizeen gingen uit, en begonnen met Hem te twisten, begerende van Hem een teken van den hemel, Hem verzoekende
+Markus 8:12 | zwaarlijk zuchtende in Zijn geest
+Markus 8:12 | Wat begeert dit geslacht een teken
+Markus 8:12 | Zo aan dit geslacht een teken gegeven zal worden
+Markus 8:13 | Hij verliet hen, en wederom in het schip gegaan zijnde, voer Hij weg naar de andere zijde
+Mattheüs 15:39 | ging Hij in het schip, en kwam in de landpalen van Magdala
+
+# ===== Stap 6: Markus 8:14–21 =====
+Markus 8:14 | Zijn discipelen hadden vergeten brood mede te nemen, en hadden niet dan een brood met zich in het schip
+Markus 8:15 | Ziet toe, wacht u van den zuurdesem der Farizeen, en van den zuurdesem van Herodes
+Markus 8:16 | zij overleiden onder elkander, zeggende: Het is, omdat wij geen broden hebben
+Markus 8:17 | Jezus, dat bekennende, zeide tot hen: Wat overlegt gij, dat gij geen broden hebt
+Markus 8:18 | Ogen hebbende, ziet gij niet. En oren hebbende, hoort gij niet
+Markus 8:19 | hoeveel volle korven met brokken gij opnaamt. Zij zeiden Hem: Twaalf
+Markus 8:20 | hoeveel volle manden met brokken gij opnaamt. En zij zeiden: Zeven
+Markus 8:21 | Hoe verstaat gij niet
+1 Korinthe 5:6 | een weinig zuurdesem het gehele deeg zuur maakt
+Mattheüs 16:12 | niet gezegd had, dat zij zich wachten zouden van den zuurdesem des broods, maar van de leer der Farizeen en Sadduceen
+
+# ===== Stap 7: Markus 8:22–26 =====
+Markus 8:22 | Hij kwam te Bethsaida; en zij brachten tot Hem een blinde, en baden Hem, dat Hij hem aanraakte
+Markus 8:23 | de hand des blinden genomen hebbende, leidde Hij hem uit buiten het vlek, en spoog in zijn ogen, en leide de handen op hem, en vraagde hem, of hij iets zag
+Markus 8:24 | hij, opziende, zeide: Ik zie de mensen, want ik zie hen, als bomen, wandelen
+Markus 8:25 | Daarna leide Hij de handen wederom op zijn ogen, en deed hem opzien. En hij werd hersteld, en zag hen allen ver en klaar
+Markus 8:26 | Hij zond hem naar zijn huis, zeggende: Ga niet in het vlek, en zeg het niemand in het vlek
+Johannes 12:21 | Filippus, die van Bethsaida in Galilea was
+
+# ===== Speurtocht =====
+Markus 7:26 | van geboorte uit Syro-fenicie
+Markus 7:28 | de hondekens eten onder de tafel van de kruimkens der kinderen
+Markus 7:34 | Effatha. dat is: wordt geopend
+Markus 8:2 | nu drie dagen bij Mij gebleven
+Markus 8:8 | zeven manden
+Markus 8:11 | een teken van den hemel
+Markus 8:15 | zuurdesem der Farizeen, en van den zuurdesem van Herodes
+Markus 8:24 | Ik zie de mensen, want ik zie hen, als bomen, wandelen
+
+# ===== Plaatsen (plaatsen.js: og_gennesaret, og_dekapolis) =====
+Markus 6:53 | kwamen zij in het land Gennesareth, en havenden aldaar
+Markus 6:55 | degenen, die kwalijk gesteld waren, om te dragen, ter plaatse, waar zij hoorden, dat Hij was
+Mattheüs 14:34 | kwamen zij in het land Gennesaret
+Mattheüs 15:21 | Jezus van daar gaande, vertrok naar de delen van Tyrus en Sidon
+Markus 7:31 | door het midden der landpalen van Dekapolis
+Markus 5:20 | begon te verkondigen in het land van Dekapolis
+Mattheüs 4:25 | van Galilea en van Dekapolis
+# --- Redactie (tweede lezer): gewijzigde beweringen ---
+Markus 7:31 | wederom weggegaan zijnde van de landpalen van Tyrus en Sidon, kwam aan de zee van Galilea
+Markus 7:24 | van daar opstaande, ging Hij weg naar de landpalen van Tyrus en Sidon
+Markus 6:53 | kwamen zij in het land Gennesareth
+Mattheüs 14:34 | kwamen zij in het land Gennesaret
+Mattheüs 15:21 | van daar gaande, vertrok naar de delen van Tyrus en Sidon
+Markus 8:3 | indien Ik hen nuchteren naar hun huis laat gaan, zo zullen zij op den weg bezwijken; want sommigen van hen komen van verre
+Markus 7:32 | brachten tot Hem een dove, die zwaarlijk sprak
+Markus 8:22 | brachten tot Hem een blinde
+Markus 8:27 | Jezus ging uit en Zijn discipelen naar de vlekken van Cesarea Filippi
+Mattheüs 16:13 | in de delen van Cesarea Filippi

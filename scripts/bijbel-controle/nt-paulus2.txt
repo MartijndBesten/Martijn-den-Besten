@@ -1,0 +1,127 @@
+# Controle voor het deel nt-paulus2 (Handelingen 17:1–18:22) in public/bijbelreis/inhoud/nt-handelingen.js. Regel: verwijzing | regex
+# --- Wie is wie ---
+Handelingen 17:5 | op het huis van Jason aanvallende
+Handelingen 17:6 | als zij hen niet vonden, trokken zij Jason en enige broeders voor de oversten der stad
+Handelingen 17:7 | Welke Jason in zijn huis genomen heeft
+Handelingen 17:9 | van Jason en de anderen vergenoeging ontvangen hadden, lieten zij hen gaan
+Handelingen 17:32 | spotten sommigen
+Handelingen 17:34 | onder welke was ook Dionysius, de Areopagiet, en een vrouw, met name Damaris
+Handelingen 18:2 | Jood, met name Aquila, van geboorte uit Pontus.*van Italie gekomen.*Priscilla, zijn vrouw.*Claudius bevolen had, dat al de Joden uit Rome vertrekken zouden
+Handelingen 18:3 | bleef hij bij hen, en wrocht
+Handelingen 18:18 | Priscilla en Aquila met hem
+Handelingen 18:19 | kwam te Efeze aan, en liet hen aldaar
+Handelingen 18:8 | Crispus, de overste der synagoge, geloofde aan den Heere met geheel zijn huis
+Handelingen 18:17 | al de Grieken namen Sosthenes, den overste der synagoge, en sloegen hem voor den rechterstoel
+Handelingen 18:12 | Gallio stadhouder van Achaje was.*brachten hem voor den rechterstoel
+Handelingen 18:15 | ik wil over deze dingen geen rechter zijn
+Handelingen 18:16 | hij dreef hen weg van den rechterstoel
+# --- Deel: datering, intro, weetje en kruisverwijzingen ---
+Handelingen 18:12 | Gallio stadhouder van Achaje
+Handelingen 18:11 | een jaar en zes maanden
+Handelingen 18:18 | nog vele dagen
+Handelingen 18:2 | Claudius bevolen had
+Handelingen 16:40 | uitgegaan zijnde uit de gevangenis.*gingen uit de stad
+Handelingen 16:12 | Filippi
+Handelingen 17:2 | drie sabbatten lang
+Handelingen 17:16 | de stad zo zeer afgodisch was
+Handelingen 17:24 | De God, Die de wereld gemaakt heeft
+Handelingen 18:3 | tentenmakers
+Handelingen 18:19 | Efeze
+Handelingen 18:22 | Cesarea.*Antiochie
+1 Thessalonicenzen 1:9 | hoe gij tot God bekeerd zijt van de afgoden, om den levenden en waarachtigen God te dienen
+1 Thessalonicenzen 2:2 | ons smaadheid aangedaan was.*te Filippi.*vrijmoedigheid gebruikt.*om het Evangelie van God tot u te spreken in veel strijds
+1 Thessalonicenzen 3:1 | te Athene alleen gelaten worden
+1 Thessalonicenzen 3:2 | hebben gezonden Timotheus.*om u te versterken
+Johannes 5:39 | Onderzoekt de Schriften.*die zijn het, die van Mij getuigen
+1 Korinthe 2:2 | niet voorgenomen iets te weten onder u, dan Jezus Christus, en Dien gekruisigd
+Romeinen 16:3 | Groet Priscilla en Aquila, mijn medewerkers in Christus Jezus
+Romeinen 16:4 | Die voor mijn leven hun hals gesteld hebben
+# --- Stap 1: Thessalonica (17:1–9) ---
+Handelingen 17:1 | door Amfipolis en Apollonia hun weg genomen hebbende, kwamen zij te Thessalonica, alwaar een synagoge der Joden was
+Handelingen 17:2 | Paulus, gelijk hij gewoon was, ging tot hen in, en drie sabbatten lang handelde hij met hen uit de Schriften
+Handelingen 17:3 | dat de Christus moest lijden en opstaan uit de doden, en dat deze Jezus is de Christus
+Handelingen 17:4 | sommigen uit hen geloofden, en werden Paulus en Silas toegevoegd, en van de godsdienstige Grieken een grote menigte, en van de voornaamste vrouwen niet weinige
+Handelingen 17:5 | de Joden, die ongehoorzaam waren, dit benijdende, namen tot zich enige boze mannen uit de marktboeven.*beroerden de stad; en op het huis van Jason aanvallende
+Handelingen 17:6 | Dezen, die de wereld in roer hebben gesteld, zijn ook hier gekomen
+Handelingen 17:7 | zeggende, dat er een andere Koning is, namelijk een Jezus
+Handelingen 17:8 | de oversten der stad
+# --- Stap 2: Berea (17:10–13) ---
+Handelingen 17:10 | de broeders zonden terstond des nachts Paulus en Silas weg naar Berea.*gingen heen naar de synagoge der Joden
+Handelingen 17:11 | dezen waren edeler, dan die te Thessalonica waren.*het woord ontvingen met alle toegenegenheid, onderzoekende dagelijks de Schriften, of deze dingen alzo waren
+Handelingen 17:12 | Velen dan uit hen geloofden, en van de Griekse eerlijke vrouwen en van de mannen niet weinige
+Handelingen 17:13 | de Joden van Thessalonica verstonden, dat het Woord Gods ook te Berea van Paulus verkondigd werd, kwamen zij ook daar en bewogen de scharen
+Handelingen 20:4 | Sopater van Berea
+Johannes 5:39 | die zijn het, die van Mij getuigen
+# --- Stap 3: naar Athene (17:14–21) ---
+Handelingen 17:14 | de broeders zonden toen van stonde aan Paulus weg, dat hij ging als naar de zee; maar Silas en Timotheus bleven aldaar
+Handelingen 17:15 | die Paulus geleidden, brachten hem tot Athene toe.*bevel gekregen hadden aan Silas en Timotheus, dat zij op het spoedigste tot hem zouden komen
+Handelingen 17:16 | terwijl Paulus hen te Athene verwachtte, werd zijn geest in hem ontstoken, ziende, dat de stad zo zeer afgodisch was
+Handelingen 17:17 | in de synagoge met de Joden, en met degenen, die godsdienstig waren, en op de markt alle dagen met degenen, die hem voorkwamen
+Handelingen 17:18 | Epikureische en Stoische wijsgeren streden met hem.*Wat wil toch deze klapper zeggen.*verkondiger te zijn van vreemde goden; omdat hij hun Jezus en de opstanding verkondigde
+Handelingen 17:19 | brachten hem op de plaats, genaamd Areopagus.*Kunnen wij niet weten, welke deze nieuwe leer zij
+# --- Stap 4: de Areopagus (17:22–34) ---
+Handelingen 17:22 | staande in het midden van de plaats, genaamd Areopagus, zeide: Gij mannen van Athene
+Handelingen 17:23 | een altaar gevonden, op hetwelk een opschrift stond: DEN ONBEKENDEN GOD. Dezen dan, Dien gij niet kennende dient, verkondig ik ulieden
+Handelingen 17:24 | De God, Die de wereld gemaakt heeft en alles wat daarin is.*woont niet in tempelen met handen gemaakt
+Handelingen 17:25 | Hij Zelf allen het leven, en den adem, en alle dingen geeft
+Handelingen 17:26 | uit een bloede het ganse geslacht der mensen gemaakt
+Handelingen 17:27 | Opdat zij den Heere zouden zoeken.*Hij niet verre is van een iegelijk van ons
+Handelingen 17:28 | Want in Hem leven wij, en bewegen ons, en zijn wij; gelijk ook enigen van uw poeten gezegd hebben: Want wij zijn ook Zijn geslacht
+Handelingen 17:30 | verkondigt nu allen mensen alom, dat zij zich bekeren
+Handelingen 17:31 | een dag gesteld heeft, op welken Hij den aardbodem rechtvaardiglijk zal oordelen, door een Man.*dewijl Hij Hem uit de doden opgewekt heeft
+Handelingen 17:32 | van de opstanding der doden hoorden, spotten sommigen daarmede; en sommigen zeiden: Wij zullen u wederom hiervan horen
+Handelingen 17:33 | alzo is Paulus uit het midden van hen uitgegaan
+Handelingen 17:34 | sommige mannen hingen hem aan, en geloofden; onder welke was ook Dionysius, de Areopagiet, en een vrouw, met name Damaris, en anderen met dezelve
+# --- Stap 5: tentenmakers in Korinthe (18:1–4) ---
+Handelingen 18:1 | na dezen scheidde Paulus van Athene en kwam te Korinthe
+Handelingen 18:2 | vond een zekeren Jood, met name Aquila, van geboorte uit Pontus, die onlangs van Italie gekomen was, en Priscilla, zijn vrouw.*en hij ging tot hen
+Handelingen 18:3 | omdat hij van hetzelfde handwerk was, bleef hij bij hen, en wrocht; want zij waren tentenmakers van handwerk
+Handelingen 18:4 | hij handelde op elken sabbat in de synagoge, en bewoog tot het geloof Joden en Grieken
+Handelingen 11:28 | onder den keizer Claudius
+# --- Stap 6: veel volk in deze stad (18:5–11) ---
+Handelingen 18:5 | als Silas en Timotheus van Macedonie afgekomen waren, werd Paulus door den Geest gedrongen, betuigende den Joden, dat Jezus is de Christus
+Handelingen 18:6 | als zij wederstonden en lasterden, schudde hij zijn klederen af, en zeide tot hen: Uw bloed zij op uw hoofd; ik ben rein; en van nu voortaan zal ik tot de heidenen heengaan
+Handelingen 18:7 | vandaar gegaan zijnde, kwam hij in het huis van een man, met name Justus, die God diende, wiens huis paalde aan de synagoge
+Handelingen 18:8 | Crispus, de overste der synagoge, geloofde aan den Heere met geheel zijn huis; en velen van de Korinthiers, hem horende, geloofden, en werden gedoopt
+Handelingen 18:9 | de Heere zeide tot Paulus door een gezicht in den nacht: Zijt niet bevreesd, maar spreek en zwijg niet
+Handelingen 18:10 | Want Ik ben met u, en niemand zal de hand aan u leggen om u kwaad te doen; want Ik heb veel volks in deze stad
+Handelingen 18:11 | hij onthield zich aldaar een jaar en zes maanden, lerende onder hen het Woord Gods
+1 Korinthe 2:3 | ik was bij ulieden in zwakheid, en in vreze, en in vele beving
+1 Korinthe 1:14 | dat ik niemand van ulieden gedoopt heb, dan Krispus en Gajus
+# --- Stap 7: Gallio (18:12–17) ---
+Handelingen 18:12 | als Gallio stadhouder van Achaje was, stonden de Joden eendrachtelijk tegen Paulus op, en brachten hem voor den rechterstoel
+Handelingen 18:13 | Deze raadt den mensen aan, dat zij God zouden dienen tegen de wet
+Handelingen 18:14 | als Paulus zijn mond zou opendoen, zeide Gallio tot de Joden: Zo er enig ongelijk, of kwaad stuk begaan ware, o Joden, zo zou ik met reden ulieden verdragen
+Handelingen 18:15 | indien er geschil is over een woord, en namen, en over de wet, die onder u is, zo zult gij zelven toezien; want ik wil over deze dingen geen rechter zijn
+Handelingen 18:16 | hij dreef hen weg van den rechterstoel
+Handelingen 18:17 | al de Grieken namen Sosthenes, den overste der synagoge, en sloegen hem voor den rechterstoel; en Gallio trok zich geen van deze dingen aan
+# --- Stap 8: over zee naar Efeze (18:18–21) ---
+Handelingen 18:18 | als Paulus er nog vele dagen gebleven was, nam hij afscheid van de broederen, en scheepte van daar naar Syrie; en Priscilla en Aquila met hem, zijn hoofd te Kenchreen geschoren hebbende; want hij had een gelofte gedaan
+Handelingen 18:19 | hij kwam te Efeze aan, en liet hen aldaar; maar hij ging in de synagoge, en handelde met de Joden
+Handelingen 18:20 | als zij baden, dat hij langer bij hen blijven zoude, bewilligde hij het niet
+Handelingen 18:21 | Ik moet ganselijk het toekomende feest te Jeruzalem houden; doch ik zal tot u wederkeren, zo God wil. En hij voer weg van Efeze
+Numeri 6:5 | Al de dagen der gelofte van zijn Nazireerschap zal het scheermes over zijn hoofd niet gaan
+Numeri 6:18 | zal de Nazireer.*het hoofd van zijn Nazireerschap bescheren
+# --- Stap 9: via Jeruzalem naar Antiochië (18:21–22) ---
+Handelingen 18:21 | hij voer weg van Efeze
+Handelingen 18:22 | als hij te Cesarea was gekomen, ging hij op naar Jeruzalem, en de Gemeente gegroet hebbende, ging hij af naar Antiochie
+# --- Speurtocht ---
+Handelingen 17:2 | drie sabbatten
+Handelingen 17:5 | het huis van Jason
+Handelingen 17:11 | onderzoekende dagelijks de Schriften
+Handelingen 17:23 | DEN ONBEKENDEN GOD
+Handelingen 18:3 | tentenmakers
+Handelingen 18:9 | Zijt niet bevreesd, maar spreek en zwijg niet
+Handelingen 18:11 | een jaar en zes maanden
+Handelingen 18:15 | want ik wil over deze dingen geen rechter zijn
+# --- Plaatsen (d in plaatsen.js) ---
+Handelingen 17:1 | Amfipolis en Apollonia
+Handelingen 17:19 | Areopagus
+Handelingen 17:24 | Die de wereld gemaakt heeft
+# --- Redactie (tweede lezer, november 2026) ---
+Handelingen 17:7 | alle dezen doen tegen de geboden des keizers, zeggende, dat er een andere Koning is
+Handelingen 17:18 | sommigen van de Epikureische en Stoische wijsgeren streden met hem
+Handelingen 17:18 | anderen zeiden: Hij schijnt een verkondiger te zijn van vreemde goden
+Handelingen 17:34 | Dionysius, de Areopagiet
+Handelingen 18:18 | scheepte van daar naar Syrie.*zijn hoofd te Kenchreen geschoren hebbende
+Handelingen 18:22 | ging hij op naar Jeruzalem, en de Gemeente gegroet hebbende

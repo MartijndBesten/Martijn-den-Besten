@@ -161,3 +161,19 @@ describe("router", () => {
     expect((await req("/api/votes", { method: "DELETE" })).status).toBe(405);
   });
 });
+
+describe("Bijbelreis op een eigen adres", () => {
+  it("verwijst alleen door als de schakelaar aan staat, alleen op het oude adres en alleen voor de pagina zelf", async () => {
+    const { verwijstDoor, BIJBELREIS_OUD_PAD } = await import("../shared/bijbelreis");
+    expect(verwijstDoor("martijndenbesten.com", "/bijbelreis", true)).toBe(true);
+    expect(verwijstDoor("martijndenbesten.com", "/bijbelreis/", true)).toBe(true);
+    expect(verwijstDoor("martijndenbesten.com", "/bijbelreis.html", true)).toBe(true);
+    // Bestanden van de atlas blijven bereikbaar (een open tabblad met de oude pagina vraagt ze nog op).
+    expect(verwijstDoor("martijndenbesten.com", "/bijbelreis/app.js", true)).toBe(false);
+    expect(verwijstDoor("martijndenbesten.com", "/bijbelreis-verhuisd", true)).toBe(false);
+    // Lokaal en in de tests blijft de atlas op /bijbelreis staan.
+    expect(verwijstDoor("localhost", "/bijbelreis", true)).toBe(false);
+    expect(verwijstDoor("martijndenbesten.com", "/bijbelreis", false)).toBe(false);
+    expect(BIJBELREIS_OUD_PAD.test("/museum")).toBe(false);
+  });
+});

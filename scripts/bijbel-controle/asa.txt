@@ -1,0 +1,158 @@
+# Controle voor het deel ‘asa’ in public/bijbelreis/inhoud/2kronieken.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+2 Kronieken 14:1 | zijn zoon Asa werd koning in zijn plaats
+2 Kronieken 17:1 | zijn zoon Josafat werd koning in zijn plaats
+1 Koningen 15:10 | een en veertig jaren te Jeruzalem
+2 Kronieken 14:2 | Asa deed dat goed en dat recht was in de ogen des HEEREN, zijns Gods
+2 Kronieken 14:9 | Zerah, de Moor
+2 Kronieken 14:9 | een heir van duizend maal duizend, en driehonderd wagenen
+2 Kronieken 14:9 | tot Maresa toe
+2 Kronieken 14:12 | de HEERE plaagde de Moren voor Asa en voor Juda
+2 Kronieken 15:1 | Toen kwam de Geest Gods op Azaria, den zoon van Oded
+2 Kronieken 15:2 | hij ging uit, Asa tegen
+2 Kronieken 15:2 | zo gij Hem zoekt, Hij zal van u gevonden worden
+2 Kronieken 16:1 | toog Baësa, de koning van Israël, op tegen Juda, en bouwde Rama
+2 Kronieken 16:1 | opdat hij niemand toeliet uit te gaan en in te komen tot Asa
+2 Kronieken 16:2 | Benhadad, den koning van Syrië, die te Damaskus woonde
+2 Kronieken 16:3 | maak uw verbond te niet met Baësa
+2 Kronieken 16:4 | Benhadad hoorde naar den koning Asa
+2 Koningen 13:24 | Hazaël, de koning van Syrië, stierf, en zijn zoon Benhadad werd koning
+2 Koningen 6:24 | Benhadad, de koning van Syrië
+2 Kronieken 16:7 | de ziener Hanani
+2 Kronieken 16:9 | gij hebt hierin zottelijk gedaan
+2 Kronieken 16:7 | Omdat gij gesteund hebt op den koning van Syrië, en niet gesteund hebt op den HEERE
+2 Kronieken 16:10 | leidde hem in het gevangenhuis
+# --- Deel: datering, intro, stat en verwijzingen ---
+2 Kronieken 16:13 | hij stierf in het een en veertigste jaar zijner regering
+2 Kronieken 14:1 | In zijn dagen was het land tien jaren stil
+2 Kronieken 15:10 | in de derde maand, in het vijftiende jaar van het koninkrijk van Asa
+2 Kronieken 16:1 | In het zes en dertigste jaar van het koninkrijk van Asa
+2 Kronieken 16:12 | in het negen en dertigste jaar van zijn koninkrijk
+1 Koningen 16:8 | In het zes en twintigste jaar van Asa, den koning van Juda, werd Ela, de zoon van Baësa, koning over Israël
+1 Koningen 15:33 | In het derde jaar van Asa.*werd Baësa.*vier en twintig jaren
+2 Kronieken 14:4 | hij zeide tot Juda, dat zij den HEERE, den God hunner vaderen, zoeken
+2 Kronieken 14:11 | wij steunen op U
+2 Kronieken 14:8 | een heir van driehonderd duizend uit Juda
+2 Kronieken 14:8 | tweehonderd en tachtig duizend uit Benjamin
+1 Koningen 15:9 | werd Asa koning over Juda
+1 Koningen 15:16 | krijg tussen Asa en tussen Baësa
+1 Koningen 15:24 | zijn zoon Josafat werd koning in zijn plaats
+1 Samuël 14:6 | want bij den HEERE is geen verhindering, om te verlossen door velen of door weinigen
+Jeremia 29:13 | En gij zult Mij zoeken en vinden, wanneer gij naar Mij zult vragen met uw ganse hart
+Jeremia 17:5 | Vervloekt is de man, die op een mens vertrouwt
+Jeremia 17:7 | Gezegend daarentegen is de man, die op den HEERE vertrouwt
+2 Kronieken 19:2 | Jehu, de zoon van Hanani, de ziener, ging uit, hem tegen, en zeide tot den koning Josafat
+2 Kronieken 19:2 | Zoudt gij den goddeloze helpen
+Jeremia 41:9 | dien de koning Asa maakte vanwege Baësa
+Jeremia 41:3 | te Mizpa
+# --- Stap 0: Asa zoekt de HEERE (14:1–8) ---
+2 Kronieken 14:1 | ontsliep Abia met zijn vaderen
+2 Kronieken 14:3 | hij nam de altaren der vreemden, en de hoogten weg, en brak de opgerichte beelden, en hieuw de bossen af
+2 Kronieken 14:4 | dat zij de wet en het gebod doen zouden
+2 Kronieken 14:5 | het koninkrijk was voor hem stil
+2 Kronieken 14:6 | bouwde hij vaste steden in Juda.*dewijl de HEERE hem rust gaf
+2 Kronieken 14:7 | muren daarom trekken, en torens, deuren en grendelen
+# --- Stap 1: Zerah komt tot Maresa (14:9–11) ---
+2 Kronieken 14:9 | kwam tegen hen uit
+2 Kronieken 14:10 | Toen toog Asa tegen hem uit; en zij stelden de slagorde in het dal Zefatha bij Maresa
+2 Kronieken 14:11 | Asa riep tot den HEERE, zijn God
+2 Kronieken 14:11 | het is niets bij U, te helpen hetzij den machtige, hetzij den krachteloze
+2 Kronieken 14:11 | help ons, o HEERE, onze God! Want wij steunen op U, en in Uw Naam zijn wij gekomen tegen deze menigte
+2 Kronieken 12:16 | Rehabeam ontsliep.*zijn zoon Abia werd koning
+2 Kronieken 11:5 | hij bouwde steden tot vastigheden in Juda
+2 Kronieken 11:6 | Bethlehem
+2 Kronieken 11:7 | Adullam
+2 Kronieken 11:8 | Maresa
+2 Kronieken 11:9 | Lachis
+# --- Stap 2: De HEERE verslaat het leger van Zerah (14:12–14) ---
+2 Kronieken 14:12 | de Moren vloden
+2 Kronieken 14:13 | Asa nu en het volk, dat met hem was, jaagden hen na tot Gerar toe
+2 Kronieken 14:13 | zo velen vielen er van de Moren, dat er voor hen geen hervatting was
+2 Kronieken 14:13 | want zij waren verbroken voor den HEERE en voor Zijn leger
+2 Kronieken 14:13 | zij droegen zeer veel roofs daarvan
+2 Kronieken 14:14 | zij sloegen alle steden rondom Gerar; want de verschrikking des HEEREN was over hen
+# --- Stap 3: Azaria gaat Asa tegemoet (14:15–15:7) ---
+2 Kronieken 14:15 | schapen in menigte, en kemelen; en kwamen weder te Jeruzalem
+2 Kronieken 15:2 | Hoort mij, Asa, en gans Juda, en Benjamin
+2 Kronieken 15:2 | De HEERE is met ulieden, terwijl gij met Hem zijt; en zo gij Hem zoekt, Hij zal van u gevonden worden; maar zo gij Hem verlaat, Hij zal u verlaten
+2 Kronieken 15:3 | vele dagen geweest zonder den waren God, en zonder een lerenden priester, en zonder de wet
+2 Kronieken 15:4 | als zij zich in hun nood bekeerden tot den HEERE.*en Hem zochten, zo werd Hij van hen gevonden
+2 Kronieken 15:7 | weest gij sterk, en laat uw handen niet verslappen; want er is loon naar uw werk
+1 Kronieken 28:9 | indien gij Hem zoekt, Hij zal van u gevonden worden; maar indien gij Hem verlaat, Hij zal u tot in eeuwigheid verstoten
+1 Kronieken 28:9 | mijn zoon Salomo
+# --- Stap 4: Het verbond in Jeruzalem (15:8–15) ---
+2 Kronieken 15:8 | sterkte hij zich, en hij deed weg de verfoeiselen uit het ganse land van Juda en Benjamin
+2 Kronieken 15:8 | vernieuwde het altaar des HEEREN
+2 Kronieken 15:9 | het ganse Juda en Benjamin, en de vreemdelingen met hen uit Efraïm, en Manasse, en uit Simeon
+2 Kronieken 15:9 | uit Israël vielen zij tot hem in menigte, als zij zagen, dat de HEERE, zijn God, met hem was
+2 Kronieken 15:10 | zij vergaderden zich te Jeruzalem
+2 Kronieken 15:11 | van den roof, dien zij gebracht hadden, zevenhonderd runderen en zeven duizend schapen
+2 Kronieken 15:12 | zij traden in een verbond, dat zij den HEERE.*zoeken zouden met hun ganse hart en met hun ganse ziel
+2 Kronieken 15:13 | al wie den HEERE, den God Israëls, niet zou zoeken, zou gedood worden
+2 Kronieken 15:14 | met luider stem en met gejuich, desgelijks met trompetten en met bazuinen
+2 Kronieken 15:15 | gans Juda was verblijd over dezen eed
+2 Kronieken 15:15 | de HEERE gaf hun rust rondom henen
+Deuteronomium 4:29 | als gij Hem zoeken zult met uw ganse hart en met uw ganse ziel
+# --- Stap 5: Maächa is geen koningin meer (15:16–19) ---
+2 Kronieken 15:16 | Maacha, de moeder van den koning Asa, hij zette haar af, dat zij geen koningin ware
+2 Kronieken 15:16 | omdat zij een afgrijselijken afgod in een bos gemaakt had
+2 Kronieken 15:16 | verbrijzelde en verbrandde hem aan de beek Kidron
+2 Kronieken 15:17 | De hoogten werden wel niet weggenomen uit Israël
+2 Kronieken 15:17 | het hart van Asa nochtans was volkomen al zijn dagen
+2 Kronieken 15:18 | hij bracht in het huis Gods de geheiligde dingen zijns vaders, en zijn geheiligde dingen, zilver en goud, en vaten
+2 Kronieken 15:19 | geen oorlog tot in het vijf en dertigste jaar van het koninkrijk van Asa
+1 Koningen 15:2 | de naam zijner moeder was Maacha, een dochter van Abisalom
+1 Koningen 15:1 | werd Abiam koning over Juda
+2 Kronieken 11:20 | Maacha, de dochter van Absalom; deze baarde hem Abia
+# --- Stap 6: Baësa bouwt Rama (16:1–4) ---
+2 Kronieken 16:2 | Toen bracht Asa het zilver en het goud voort, uit de schatten van het huis des HEEREN en van het huis des konings
+2 Kronieken 16:3 | Er is een verbond tussen mij en tussen u
+2 Kronieken 16:3 | dat hij van tegen mij aftrekke
+2 Kronieken 16:4 | zond de oversten der heiren, die hij had, tegen de steden van Israël
+2 Kronieken 16:4 | zij sloegen Ijon, en Dan, en Abel-maim, en alle schatsteden van Nafthali
+1 Koningen 15:20 | Ijon, en Dan, en Abel Beth-maacha, en het ganse Cinneroth, met het ganse land Nafthali
+1 Koningen 12:29 | het andere stelde hij te Dan
+# --- Stap 7: Geba en Mizpa (16:5–6) ---
+2 Kronieken 16:5 | als Baësa zulks hoorde, dat hij afliet van Rama te bouwen, en zijn werk staakte
+2 Kronieken 16:6 | Toen nam de koning Asa gans Juda, en zij droegen weg de stenen van Rama, en het hout daarvan, waarmede Baësa gebouwd had
+2 Kronieken 16:6 | hij bouwde daarmede Geba en Mizpa
+1 Koningen 15:21 | hij bleef te Thirza
+1 Koningen 15:22 | liet de koning Asa door gans Juda uitroepen \(niemand was vrij\)
+1 Koningen 15:22 | Geba-benjamins, en Mizpa
+2 Koningen 23:8 | van Geba af tot Ber-seba toe
+# --- Stap 8: De ziener Hanani (16:7–10) ---
+2 Kronieken 16:7 | in denzelfden tijd kwam de ziener Hanani tot Asa, den koning van Juda
+2 Kronieken 16:7 | daarom is het heir des konings van Syrië uit uw hand ontkomen
+2 Kronieken 16:8 | Waren niet de Moren en de Libyers een groot heir met zeer veel wagenen en ruiteren
+2 Kronieken 16:8 | Toen gij nochtans op den HEERE steundet, heeft Hij hen in uw hand gegeven
+2 Kronieken 16:9 | Want den HEERE aangaande, Zijn ogen doorlopen de ganse aarde, om Zich sterk te bewijzen aan degenen, welker hart volkomen is tot Hem
+2 Kronieken 16:9 | van nu af zullen oorlogen tegen u zijn
+2 Kronieken 16:10 | Asa werd toornig tegen den ziener
+2 Kronieken 16:10 | onderdrukte Asa enigen uit het volk ter zelfder tijd
+Spreuken 15:3 | De ogen des HEEREN zijn in alle plaatsen, beschouwende de kwaden en de goeden
+Psalm 33:18 | Ziet, des HEEREN oog is over degenen, die Hem vrezen
+# --- Stap 9: Asa wordt ziek en sterft (16:12–14) ---
+2 Kronieken 16:12 | krank aan zijn voeten; tot op het hoogste toe was zijn krankheid
+2 Kronieken 16:12 | zocht hij den HEERE niet in zijn krankheid, maar de medicijnmeesters
+2 Kronieken 16:13 | Alzo ontsliep Asa met zijn vaderen
+2 Kronieken 16:14 | zij begroeven hem in zijn graf, dat hij voor zich gegraven had in de stad Davids
+2 Kronieken 16:14 | op het bed, hetwelk hij gevuld had met specerijen, en dat van verscheidene soorten
+2 Kronieken 16:14 | zij brandden over hem een gans grote branding
+2 Kronieken 20:32 | En hij wandelde in den weg van zijn vader Asa
+# --- Speurtocht ---
+2 Kronieken 14:13 | tot Gerar toe
+2 Kronieken 16:2 | zond tot Benhadad
+# --- Plaatsen (plaatsen.js, voorvoegsel as_) ---
+2 Kronieken 11:8 | Maresa
+2 Kronieken 14:10 | in het dal Zefatha bij Maresa
+2 Kronieken 14:11 | Asa riep tot den HEERE
+2 Kronieken 16:4 | Ijon, en Dan, en Abel-maim
+1 Koningen 15:20 | Abel Beth-maacha
+2 Kronieken 16:6 | Geba en Mizpa
+# --- Tweede lezer (review): gewijzigde of aangescherpte beweringen ---
+2 Kronieken 15:1 | Azaria, den zoon van Oded
+2 Kronieken 15:16 | Maacha, de moeder van den koning Asa
+2 Kronieken 16:1 | In het zes en dertigste jaar van het koninkrijk van Asa
+1 Koningen 16:8 | In het zes en twintigste jaar van Asa.*werd Ela, de zoon van Baesa, koning over Israel
+1 Koningen 15:33 | In het derde jaar van Asa.*werd Baesa.*regeerde vier en twintig jaren
+2 Koningen 13:24 | Hazael, de koning van Syrie, stierf, en zijn zoon Benhadad werd koning

@@ -1,0 +1,171 @@
+# Controle van het deel nt-paulus3 (Handelingen 18:23–20:38: Paulus, de derde reis).
+# Elke regel: verwijzing | regex die in de Statenvertaling moet voorkomen (zie scripts/bijbel-check.py).
+
+# --- deel: tijdNoot, intro, stat, cross ---
+Handelingen 18:12 | Gallio stadhouder van Achaje
+Handelingen 18:22 | ging hij af naar Antiochië
+Handelingen 19:8 | drie maanden lang
+Handelingen 19:10 | twee jaren lang
+Handelingen 20:31 | drie jaren lang
+Handelingen 20:3 | drie maanden
+Handelingen 20:6 | na de dagen der ongehevelde broden
+Handelingen 20:16 | op den pinksterdag te Jeruzalem
+Handelingen 19:19 | vijftig duizend zilveren penningen
+Handelingen 19:20 | wies het Woord des Heeren met macht
+1 Korinthe 16:8 | ik zal te Efeze blijven tot den pinkster dag
+1 Korinthe 16:9 | Want mij is een grote en krachtige deur geopend, en er zijn vele tegenstanders
+1 Korinthe 3:6 | Ik heb geplant, Apollos heeft nat gemaakt; maar God heeft den wasdom gegeven
+2 Korinthe 2:12–13 | als ik te Troas kwam.*vertrok ik naar Macedonië
+Romeinen 15:25 | Maar nu reis ik naar Jeruzalem, dienende de heiligen
+Romeinen 15:26 | Macedonië en Achaje.*handreiking te doen aan de armen onder de heiligen, die te Jeruzalem zijn
+1 Timotheüs 1:3 | dat gij te Efeze zoudt blijven.*geen andere leer te leren
+Openbaring 2:1 | Gemeente van Efeze
+Openbaring 2:2–3 | degenen, die uitgeven, dat zij apostelen zijn, en zij zijn het niet.*gij hebt verdragen, en hebt geduld
+Openbaring 2:4 | Maar Ik heb tegen u, dat gij uw eerste liefde hebt verlaten
+
+# --- stap 0: Handelingen 18:23 ---
+Handelingen 18:23 | als hij aldaar enigen tijd geweest was, ging hij weg
+Handelingen 18:23 | doorreisde vervolgens het land van Galatië en Frygië, versterkende al de discipelen
+Handelingen 14:6 | Lystre en Derbe
+Handelingen 14:1 | Ikonium
+
+# --- stap 1: Handelingen 18:24–28 ---
+Handelingen 18:24 | een zeker Jood, met name Apollos, van geboorte een Alexandriër, een welsprekend man, kwam te Efeze, machtig zijnde in de Schriften
+Handelingen 18:25 | in den weg des Heeren onderwezen; en vurig zijnde van geest, sprak hij en leerde naarstiglijk de zaken des Heeren, wetende alleenlijk den doop van Johannes
+Handelingen 18:26 | begon vrijmoediglijk te spreken in de synagoge
+Handelingen 18:26 | Aquila en Priscilla gehoord hadden, namen zij hem tot zich, en legden hem den weg Gods bescheidenlijker uit
+Handelingen 18:27 | als hij wilde naar Achaje reizen, de broeders, hem vermaand hebbende, schreven aan de discipelen, dat zij hem ontvangen zouden
+Handelingen 18:27 | veel toegebracht aan degenen, die geloofden door de genade
+Handelingen 18:28 | overtuigde de Joden met groten ernst in het openbaar, bewijzende door de Schriften, dat Jezus de Christus was
+Handelingen 18:2–3 | Aquila.*Priscilla, zijn vrouw.*van hetzelfde handwerk.*tentenmakers
+Handelingen 18:18–19 | Priscilla en Aquila met hem.*kwam te Efeze aan, en liet hen aldaar
+Handelingen 19:1 | terwijl Apollos te Korinthe was
+
+# --- stap 2: Handelingen 19:1–10 ---
+Handelingen 19:1 | Paulus, de bovenste delen des lands doorreisd hebbende, te Efeze kwam; en enige discipelen aldaar vindende
+Handelingen 19:2 | Hebt gij den Heiligen Geest ontvangen, als gij geloofd hebt\?
+Handelingen 19:2 | Wij hebben zelfs niet gehoord, of er een Heiligen Geest is
+Handelingen 19:3 | In den doop van Johannes
+Handelingen 19:4 | Johannes heeft wel gedoopt den doop der bekering, zeggende tot het volk, dat zij geloven zouden in Dengene, Die na hem kwam, dat is, in Christus Jezus
+Handelingen 19:5 | werden gedoopt in den Naam van den Heere Jezus
+Handelingen 19:6 | als Paulus hun de handen opgelegd had, kwam de Heilige Geest op hen; en zij spraken met vreemde talen, en profeteerden
+Handelingen 19:7 | omtrent twaalf mannen
+Handelingen 19:8 | ging in de synagoge, en sprak vrijmoediglijk, drie maanden lang.*de zaken van het Koninkrijk Gods
+Handelingen 19:9 | als sommigen verhard werden.*kwaadsprekende van den weg des Heeren voor de menigte.*scheidde de discipelen af, dagelijks handelende in de school van zekeren Tyrannus
+Handelingen 19:10 | twee jaren lang, alzo dat allen, die in Azië woonden, het Woord van den Heere Jezus hoorden, beiden Joden en Grieken
+
+# --- stap 3: Handelingen 19:11–20 ---
+Handelingen 19:11 | God deed ongewone krachten door de handen van Paulus
+Handelingen 19:12 | van zijn lijf op de kranken gedragen werden de zweetdoeken of gordeldoeken, en dat de ziekten van hen weken, en de boze geesten van hen uitvoeren
+Handelingen 19:13 | sommigen van de omzwervende Joden, zijnde duivel bezweerders.*den Naam van den Heere Jezus te noemen over degenen, die boze geesten hadden
+Handelingen 19:13 | Wij bezweren u bij Jezus, Dien Paulus predikt!
+Handelingen 19:14 | zeven zonen van Sceva, een Joodsen overpriester
+Handelingen 19:15 | Jezus ken ik, en Paulus weet ik; maar gijlieden, wie zijt gij\?
+Handelingen 19:16 | de mens, in welken de boze geest was, sprong op hen.*naakt en gewond uit dat huis ontvloden
+Handelingen 19:17 | beiden Joden en Grieken, die te Efeze woonden; en er viel een vreze over hen allen, en de Naam van den Heere Jezus werd groot gemaakt
+Handelingen 19:18 | velen dergenen, die geloofden, kwamen, belijdende en verkondigende hun daden
+Handelingen 19:19 | ijdele kunsten gepleegd hadden, brachten de boeken bijeen, en verbrandden ze in aller tegenwoordigheid.*vijftig duizend zilveren penningen
+Handelingen 19:20 | Alzo wies het Woord des Heeren met macht, en nam de overhand
+Mattheüs 20:2 | voor een penning des daags
+
+# --- stap 4: Handelingen 19:21–41 ---
+Handelingen 19:21 | Macedonië en Achaje doorgegaan hebbende, naar Jeruzalem te reizen
+Handelingen 19:21 | Nadat ik aldaar zal geweest zijn, moet ik ook Rome zien
+Handelingen 19:22 | naar Macedonië gezonden had.*Timotheüs en Erastus, bleef hij zelf een tijd lang in Azië
+Handelingen 19:23 | geen kleine beroerte, vanwege den weg des Heeren
+Handelingen 19:24 | Demetrius, een zilversmid, die kleine zilveren tempelen van Diana maakte
+Handelingen 19:25 | samenvergaderd hebbende, met de handwerkers
+Handelingen 19:26 | deze Paulus veel volk.*overreed en afgekeerd heeft, zeggende, dat het geen goden zijn, die met handen gemaakt worden
+Handelingen 19:27 | dat dit deel in verachting kome, maar dat ook de tempel van de grote godin Diana als niets geacht zal worden
+Handelingen 19:28 | werden zij vol van toornigheid, en riepen
+Handelingen 19:34 | Groot is de Diana der Efezeren!
+Handelingen 19:29 | de gehele stad werd vol verwarring; en zij liepen.*naar de schouwplaats, met zich trekkende Gajus en Aristarchus, Macedoniërs, metgezellen van Paulus op de reis
+Handelingen 19:30 | als Paulus tot het volk wilde ingaan, lieten het hem de discipelen niet toe
+Handelingen 19:34 | roepende omtrent twee uren lang
+Handelingen 19:35 | als de stads schrijver de schare gestild had
+Handelingen 19:37 | die noch kerkrovers zijn, noch uw godin lasteren
+Handelingen 19:38 | de rechtsdagen worden gehouden, en er zijn stadhouders; laat hen elkander verklagen
+Handelingen 19:41 | liet hij de vergadering gaan
+
+# --- stap 5: Handelingen 20:1–3 ---
+Handelingen 20:1 | Nadat nu het oproer gestild was, Paulus, de discipelen tot zich geroepen en gegroet hebbende, ging uit om naar Macedonië te reizen
+Handelingen 20:2 | als hij die delen doorgereisd, en hen met vele redenen vermaand had, kwam hij in Griekenland
+Handelingen 20:3 | aldaar drie maanden overgebracht had, en hem van de Joden lagen gelegd werden, als hij naar Syrië zoude varen, zo werd hij van zin weder te keren door Macedonië
+1 Korinthe 16:5 | Doch ik zal tot u komen, wanneer ik Macedonië zal doorgegaan zijn
+1 Korinthe 16:6 | ik zal mogelijk bij u blijven, of ook overwinteren
+
+# --- stap 6: Handelingen 20:4–6 ---
+Handelingen 20:4 | hem vergezelschapte tot in Azië Sopater van Berea; en van de Thessalonicensen Aristarchus en Sekundus; en Gajus van Derbe, en Timotheüs en van die van Azië Tychikus en Trofimus
+Handelingen 20:5 | Dezen, vooraf heengegaan zijnde, wachtten ons te Troas
+Handelingen 20:6 | Wij nu scheepten af van Filippi na de dagen der ongehevelde broden, en kwamen in vijf dagen bij hen te Troas, alwaar wij ons zeven dagen onthielden
+Handelingen 16:10 | zochten wij terstond naar Macedonië te reizen
+Handelingen 16:11 | Van Troas dan afgevaren zijnde, liepen wij recht naar Samothrace, en den volgende dag naar Neapolis
+Leviticus 23:5–6 | des HEEREN pascha.*het feest van de ongezuurde broden
+
+# --- stap 7: Handelingen 20:7–12 ---
+Handelingen 20:7 | op den eersten dag der week, als de discipelen bijeengekomen waren om brood te breken
+Handelingen 20:7 | zullende des anderen daags verreizen; en hij strekte zijne rede uit tot den middernacht
+Handelingen 20:8 | vele lichten in de opperzaal
+Handelingen 20:9 | een zeker jongeling, met name Eutychus, zat in het venster en met een diepen slaap overvallen zijnde, alzo Paulus lang tot hen sprak
+Handelingen 20:9 | viel van de derde zoldering nederwaarts, en werd dood opgenomen
+Handelingen 20:10 | Paulus, afgekomen zijnde, viel op hem, en hem omvangende
+Handelingen 20:10 | Weest niet beroerd; want zijn ziel is in hem
+Handelingen 20:11 | weder boven gegaan was, en brood gebroken en wat gegeten had, en lang, tot den dageraad toe, met hen gesproken had, vertrok hij alzo
+Handelingen 20:12 | zij brachten den knecht levende, en waren bovenmate vertroost
+Lukas 24:1–3 | op den eersten dag der week.*gingen zij naar het graf.*vonden zij het lichaam van den Heere Jezus niet
+1 Koningen 17:21–22 | hij mat zich driemaal uit over dat kind.*dat het weder levend werd
+2 Koningen 4:34–35 | breidde zich over hem uit.*deed de jongen zijn ogen open
+
+# --- stap 8: Handelingen 20:13–16 ---
+Handelingen 20:13 | wij, vooruit naar het schip gegaan zijnde, voeren af naar Assus, waar wij Paulus zouden innemen; want hij had het alzo bevolen, en hij zelf zou te voet gaan
+Handelingen 20:14 | als hij zich te Assus bij ons gevoegd had, namen wij hem in, en kwamen te Mitylene
+Handelingen 20:15 | kwamen wij den volgenden dag tegen Chios over, en des anderen daags legden wij aan te Samos, en bleven te Trogyllion, en den dag daaraan kwamen wij te Milete
+Handelingen 20:16 | Paulus had voorgenomen Efeze voorbij te varen, opdat hij niet den tijd in Azië zou verslijten
+Handelingen 20:16 | hij spoedde zich, om .*op den pinksterdag te Jeruzalem te zijn
+
+# --- stap 9: Handelingen 20:17–38 ---
+Handelingen 20:17 | hij zond van Milete naar Efeze, en hij ontbood de ouderlingen der Gemeente
+Handelingen 20:19 | Dienende den Heere met alle ootmoedigheid, en vele tranen
+Handelingen 20:21 | Betuigende, beiden Joden en Grieken, de bekering tot God en het geloof in onzen Heere Jezus Christus
+Handelingen 20:22 | ik, gebonden zijnde door den Geest, reis naar Jeruzalem
+Handelingen 20:23 | de Heilige Geest van stad tot stad betuigt, zeggende, dat mij banden en verdrukkingen aanstaande zijn
+Handelingen 20:25 | mijn aangezicht niet meer zien zult
+Handelingen 20:28 | Zo hebt dan acht op uzelven, en op de gehele kudde, over dewelke u de Heilige Geest tot opzieners gesteld heeft, om de Gemeente Gods te weiden, welke Hij verkregen heeft door Zijn eigen bloed
+Handelingen 20:29 | zware wolven tot u inkomen zullen, die de kudde niet sparen
+Handelingen 20:32 | ik bevele u Gode, en den woorde Zijner genade
+Handelingen 20:35 | gedenken aan de woorden van den Heere Jezus, dat Hij gezegd heeft: Het is zaliger te geven, dan te ontvangen
+Handelingen 20:36 | heeft hij nederknielende met hen allen gebeden
+Handelingen 20:37 | een groot geween van hen allen; en zij, vallende om den hals van Paulus, kusten hem
+Handelingen 20:38 | Zeer bedroefd zijnde, allermeest over het woord, dat hij gezegd had, dat zij zijn aangezicht niet meer zien zouden; en zij geleidden hem naar het schip
+Johannes 21:25 | er zijn nog vele andere dingen, die Jezus gedaan heeft
+
+# --- wie-lijst en plaatsbeschrijvingen ---
+Handelingen 2:10 | Frygië
+Handelingen 27:6 | een schip gevonden hebbende van Alexandrië, dat naar Italië voer
+Handelingen 28:11 | een schip van Alexandrië
+Handelingen 20:15 | tegen Chios over
+
+# --- speurtocht ---
+Handelingen 18:25 | wetende alleenlijk den doop van Johannes
+Handelingen 19:9–10 | in de school van zekeren Tyrannus.*twee jaren lang
+Handelingen 19:15 | Jezus ken ik, en Paulus weet ik
+Handelingen 19:19 | vijftig duizend zilveren penningen
+Handelingen 19:24 | kleine zilveren tempelen van Diana
+Handelingen 19:34 | omtrent twee uren lang: Groot is de Diana der Efezeren
+Handelingen 20:13 | hij zelf zou te voet gaan
+Handelingen 20:35 | Het is zaliger te geven, dan te ontvangen
+Handelingen 16:9 | Kom over in Macedonië, en help ons
+
+# --- Redactie (tweede lezer, november 2026) ---
+1 Timotheüs 1:3 | dat gij te Efeze zoudt blijven, als ik naar Macedonië reisde.*opdat gij sommigen beveelt geen andere leer te leren
+Handelingen 19:4 | Johannes heeft wel gedoopt den doop der bekering
+Handelingen 19:5 | En die hem hoorden werden gedoopt in den Naam van den Heere Jezus
+Handelingen 19:14 | zeven zonen van Sceva, een Joodsen overpriester
+Handelingen 19:27 | wij zijn niet alleen in gevaar, dat dit deel in verachting kome
+Handelingen 19:35 | als de stads schrijver de schare gestild had
+Handelingen 19:37 | deze mannen hier gebracht, die noch kerkrovers zijn, noch uw godin lasteren
+Handelingen 19:38 | de rechtsdagen worden gehouden
+Handelingen 19:41 | liet hij de vergadering gaan
+Handelingen 20:4 | Aristarchus en Sekundus
+Handelingen 20:15 | en bleven te Trogyllion
+2 Korinthe 2:12–13 | als ik te Troas kwam.*vertrok ik naar Macedonië

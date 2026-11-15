@@ -1,0 +1,151 @@
+# Controle voor het deel nt-samaria-nain in public/bijbelreis/inhoud/nt-jezus-1.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+Johannes 4:7 | een vrouw uit Samaria om water te putten
+Johannes 4:29 | Komt, ziet een Mens, Die mij gezegd heeft alles, wat ik gedaan heb; is Deze niet de Christus
+Johannes 4:39 | velen der Samaritanen uit die stad geloofden in Hem, om het woord der vrouw
+Johannes 4:46 | koninklijk hoveling, wiens zoon krank was, te Kapernaum
+Johannes 4:47 | ging tot Hem.*want hij lag op zijn sterven
+Johannes 4:50 | Ga heen, uw zoon leeft.*geloofde het woord
+Johannes 4:52 | verliet hem de koorts
+Johannes 4:53 | En hij geloofde zelf, en zijn gehele huis
+Lukas 7:12 | poort der stad.*een dode werd uitgedragen.*eniggeboren zoon zijner moeder.*weduwe
+Lukas 7:13 | de Heere, haar ziende, werd innerlijk met ontferming over haar bewogen.*Ween niet
+Lukas 7:15 | En Hij gaf hem aan zijn moeder
+# --- Deel: datering, intro, weetje en verwijzingen ---
+Johannes 2:13 | het pascha der Joden was nabij
+Johannes 2:23 | te Jeruzalem was, op het pascha.*ziende Zijn tekenen, die Hij deed
+Johannes 3:22 | in het land van Judea
+Johannes 4:3 | verliet Hij Judea, en ging wederom heen naar Galilea
+Lukas 4:14 | keerde wederom.*naar Galilea
+Lukas 4:16 | Hij kwam te Nazareth
+Mattheüs 13:54 | in Zijn vaderland, leerde Hij hen in hun synagoge
+Mattheüs 13:57 | Een profeet is niet ongeeerd, dan in zijn vaderland
+Markus 6:1 | kwam in Zijn vaderland
+Markus 6:4 | Een profeet is niet ongeeerd dan in zijn vaderland
+Lukas 7:1 | ging Hij in te Kapernaum
+Lukas 7:2 | dienstknecht van een zeker hoofdman over honderd
+Lukas 7:11 | op den volgenden dag.*een stad, genaamd Nain
+Lukas 3:1 | vijftiende jaar der regering van den keizer Tiberius.*Herodes een viervorst over Galilea
+Lukas 3:23 | omtrent dertig jaren
+Johannes 2:11 | Dit beginsel der tekenen heeft Jezus gedaan te Kana in Galilea
+Johannes 4:54 | Dit tweede teken heeft Jezus wederom gedaan, als Hij uit Judea in Galilea gekomen was
+Johannes 4:46 | wederom te Kana in Galilea, waar Hij het water wijn gemaakt had
+Jozua 24:32 | beenderen van Jozef.*te Sichem, in dat stuk velds, hetwelk Jakob gekocht had
+Johannes 4:5 | het stuk land, hetwelk Jakob zijn zoon Jozef gaf
+2 Koningen 17:24 | koning nu van Assyrie bracht volk.*in de steden van Samaria
+2 Koningen 17:33 | Zij vreesden den HEERE, en dienden ook hun goden
+Jesaja 61:1 | De Geest des Heeren HEEREN is op Mij, omdat de HEERE Mij gezalfd heeft
+Jesaja 61:2 | het jaar van het welbehagen des HEEREN, en den dag der wraak onzes Gods
+1 Koningen 17:9 | Zarfath, dat bij Sidon is.*weduwvrouw
+1 Koningen 17:22 | de ziel van het kind kwam weder in hem, dat het weder levend werd
+1 Koningen 17:23 | gaf het aan zijn moeder
+2 Koningen 5:1 | Naaman.*krijgsoverste van den koning van Syrie.*melaats
+2 Koningen 5:14 | doopte zich in de Jordaan zevenmaal.*hij werd rein
+Lukas 4:27 | Naaman, de Syrier
+Handelingen 8:5 | Filippus kwam af in de stad van Samaria, en predikte hun Christus
+Handelingen 8:8 | En er werd grote blijdschap in die stad
+# --- Stap 1: Johannes 4:1-6 ---
+Johannes 4:1 | de Farizeen gehoord hadden, dat Jezus meer discipelen maakte en doopte dan Johannes
+Johannes 4:2 | Jezus zelf niet doopte, maar Zijn discipelen
+Johannes 3:23 | Johannes doopte ook in Enon bij Salim
+Johannes 4:4 | En Hij moest door Samaria gaan
+Johannes 4:5 | een stad van Samaria, genaamd Sichar, nabij het stuk land
+Johannes 4:6 | aldaar was de fontein Jakobs.*vermoeid zijnde van de reize, zat alzo neder nevens de fontein.*omtrent de zesde ure
+# --- Stap 2: Johannes 4:7-15 ---
+Johannes 4:7 | Geef Mij te drinken
+Johannes 4:8 | Zijn discipelen waren heengegaan in de stad, opdat zij zouden spijze kopen
+Johannes 4:9 | Hoe begeert Gij, Die een Jood zijt, van mij te drinken, die een Samaritaanse vrouw ben.*de Joden houden geen gemeenschap met de Samaritanen
+Johannes 4:10 | gij de gave Gods kendet, en Wie Hij is, Die tot u zegt: Geef Mij te drinken.*van Hem hebben begeerd.*levend water gegeven
+Johannes 4:11 | Gij hebt niet om mede te putten, en de put is diep
+Johannes 4:12 | Zijt Gij meerder dan onze vader Jakob, die ons den put gegeven heeft
+Johannes 4:13 | Een ieder, die van dit water drinkt, zal wederom dorsten
+Johannes 4:14 | Maar zo wie gedronken zal hebben van het water, dat Ik hem geven zal, dien zal in eeuwigheid niet dorsten
+Johannes 4:15 | Heere, geef mij dat water
+Jeremia 2:13 | Mij, den Springader des levenden waters
+Johannes 7:37 | Zo iemand dorst, die kome tot Mij en drinke
+Johannes 7:39 | En dit zeide Hij van den Geest
+# --- Stap 3: Johannes 4:16-26 ---
+Johannes 4:16 | Ga heen, roep uw man, en kom hier
+Johannes 4:17 | Ik heb geen man.*Gij hebt wel gezegd
+Johannes 4:18 | gij hebt vijf mannen gehad, en dien gij nu hebt, is uw man niet
+Johannes 4:19 | Heere, ik zie, dat Gij een profeet zijt
+Johannes 4:20 | Onze vaders hebben op dezen berg aangebeden.*te Jeruzalem de plaats is, waar men moet aanbidden
+Johannes 4:21 | de ure komt, wanneer gijlieden, noch op dezen berg, noch te Jeruzalem, den Vader zult aanbidden
+Johannes 4:22 | de zaligheid is uit de Joden
+Johannes 4:24 | God is een Geest, en die Hem aanbidden, moeten Hem aanbidden in geest en waarheid
+Johannes 4:25 | Ik weet, dat de Messias komt.*Die genaamd wordt Christus.*zal Hij ons alle dingen verkondigen
+Johannes 4:26 | Ik ben het, Die met u spreek
+Deuteronomium 11:29 | dan zult gij den zegen uitspreken op den berg Gerizim, en den vloek op den berg Ebal
+# --- Stap 4: Johannes 4:27-42 ---
+Johannes 4:27 | kwamen Zijn discipelen en verwonderden zich, dat Hij met een vrouw sprak. Nochtans zeide niemand
+Johannes 4:28 | verliet de vrouw dan haar watervat, en ging heen in de stad
+Johannes 4:30 | Zij dan gingen uit de stad, en kwamen tot Hem
+Johannes 4:31 | Rabbi, eet
+Johannes 4:34 | Mijn spijs is, dat Ik doe den wil Desgenen, Die Mij gezonden heeft, en Zijn werk volbrenge
+Johannes 4:35 | Heft uw ogen op en aanschouwt de landen; want zij zijn alrede wit om te oogsten
+Johannes 4:40 | baden zij Hem, dat Hij bij hen bleef; en Hij bleef aldaar twee dagen
+Johannes 4:41 | er geloofden er veel meer om Zijns woords wil
+Johannes 4:42 | zeiden tot de vrouw.*wij zelven hebben Hem gehoord, en weten, dat Deze waarlijk is de Christus, de Zaligmaker der wereld
+Handelingen 1:8 | Mijn getuigen zijn, zo te Jeruzalem, als in geheel Judea en Samaria, en tot aan het uiterste der aarde
+# --- Stap 5: Johannes 4:43-54 ---
+Johannes 4:43 | na de twee dagen ging Hij van daar en ging heen naar Galilea
+Johannes 4:44 | Jezus heeft Zelf getuigd, dat een profeet in zijn eigen vaderland geen eer heeft
+Johannes 4:45 | ontvingen Hem de Galileers, gezien hebbende al de dingen, die Hij te Jeruzalem op het feest gedaan had
+Johannes 4:45 | want ook zij waren tot het feest gegaan
+Johannes 4:47 | gehoord hebbende, dat Jezus uit Judea in Galilea kwam, ging tot Hem
+Johannes 4:47 | bad Hem, dat Hij afkwame, en zijn zoon gezond maakte
+Johannes 4:48 | Tenzij dat gijlieden tekenen en wonderen ziet, zo zult gij niet geloven
+Johannes 4:49 | Heere, kom af, eer mijn kind sterft
+Johannes 4:50 | de mens geloofde het woord, dat Jezus tot hem zeide, en ging heen
+Johannes 4:51 | als hij nu afging, kwamen hem zijn dienstknechten tegemoet.*Uw kind leeft
+Johannes 4:52 | vraagde hij dan van hen de ure, in welke het beter met hem geworden was.*Gisteren te zeven ure verliet hem de koorts
+Johannes 4:53 | De vader bekende dan, dat het in dezelve ure was, in dewelke Jezus tot hem gezegd had: Uw zoon leeft
+# --- Stap 6: Lukas 4:16-22 ---
+Lukas 4:16 | Nazareth, daar Hij opgevoed was, en ging, naar Zijn gewoonte, op den dag des sabbats in de synagoge; en stond op om te lezen
+Lukas 4:17 | het boek van den profeet Jesaja.*vond Hij de plaats, daar geschreven was
+Lukas 4:18 | De Geest des Heeren is op Mij, daarom heeft Hij Mij gezalfd; Hij heeft Mij gezonden, om den armen het Evangelie te verkondigen
+Lukas 4:19 | om te prediken het aangename jaar des Heeren
+Lukas 4:20 | het boek toegedaan en den dienaar wedergegeven had, zat Hij neder; en de ogen van allen in de synagoge waren op Hem geslagen
+Lukas 4:21 | Hij begon tot hen te zeggen: Heden is deze Schrift in uw oren vervuld
+Lukas 4:22 | zij gaven Hem allen getuigenis
+Lukas 4:22 | verwonderden zich over de aangename woorden, die uit Zijn mond voortkwamen.*Is deze niet de Zoon van Jozef
+# --- Stap 7: Lukas 4:23-30 ---
+Lukas 4:23 | dit spreekwoord zeggen: Medicijnmeester! genees Uzelven; al wat wij gehoord hebben, dat in Kapernaum geschied is, doe dat ook hier in Uw vaderland
+Lukas 4:24 | Voorwaar Ik zeg u, dat geen profeet aangenaam is in zijn vaderland
+Lukas 4:25 | vele weduwen in Israel in de dagen van Elias, toen de hemel drie jaren en zes maanden gesloten was
+Lukas 4:26 | tot geen van haar werd Elias gezonden, dan naar Sarepta Sidonis, tot een vrouw, die weduwe was
+Lukas 4:27 | vele melaatsen in Israel, ten tijde van den profeet Elisa; en geen van hen werd gereinigd, dan Naaman, de Syrier
+Lukas 4:28 | zij werden allen in de synagoge met toorn vervuld, als zij dit hoorden
+Lukas 4:29 | opstaande, wierpen zij Hem uit, buiten de stad, en leidden Hem op den top des bergs, op denwelken hun stad gebouwd was, om Hem van de steilte af te werpen
+Lukas 4:30 | Maar Hij, door het midden van hen doorgegaan zijnde, ging weg
+Lukas 4:31 | Hij kwam af te Kapernaum
+Mattheüs 4:13 | Nazareth verlaten hebbende, is komen wonen te Kapernaum
+1 Koningen 17:10 | ging naar Zarfath
+2 Koningen 5:15 | geen God is op de ganse aarde, dan in Israel
+# --- Stap 8: Lukas 7:11-17 ---
+Lukas 7:11 | met Hem gingen velen van Zijn discipelen, en een grote schare
+Lukas 7:12 | een grote schare van de stad was met haar
+Lukas 7:14 | raakte de baar aan.*de dragers nu stonden stil.*Jongeling, Ik zeg u, sta op
+Lukas 7:15 | de dode zat overeind, en begon te spreken
+Lukas 7:16 | vreze beving hen allen, en zij verheerlijkten God, zeggende: Een groot Profeet is onder ons opgestaan, en God heeft Zijn volk bezocht
+Lukas 7:17 | dit gerucht van Hem ging uit in geheel Judea, en in al het omliggende land
+Lukas 7:10 | vonden den kranken dienstknecht gezond
+2 Koningen 4:8 | Elisa naar Sunem doortrok
+2 Koningen 4:33 | bad tot den HEERE
+2 Koningen 4:35 | daarna deed de jongen zijn ogen open
+# --- Speurtocht (antwoorden) ---
+Johannes 4:6 | zat alzo neder nevens de fontein
+Johannes 4:23 | de ware aanbidders den Vader aanbidden zullen in geest en waarheid
+Johannes 4:40 | twee dagen
+Lukas 4:17 | profeet Jesaja
+Lukas 4:29 | van de steilte af te werpen
+Lukas 7:13 | Ween niet
+# --- Plaats sn_gerizim ---
+Deuteronomium 27:12 | om het volk te zegenen op den berg Gerizim
+Johannes 4:20 | Onze vaders hebben op dezen berg aangebeden
+# --- Redactie (tweede lezer): gewijzigde beweringen ---
+Johannes 4:20 | gijlieden zegt, dat te Jeruzalem de plaats is, waar men moet aanbidden
+Johannes 4:20 | Onze vaders hebben op dezen berg aangebeden
+Johannes 4:21 | noch op dezen berg, noch te Jeruzalem
+Deuteronomium 11:29 | den zegen uitspreken op den berg Gerizim
+Jozua 24:32 | begroeven ook de beenderen van Jozef.*te Sichem, in dat stuk velds, hetwelk Jakob gekocht had
