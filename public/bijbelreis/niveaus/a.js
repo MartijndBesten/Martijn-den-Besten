@@ -602,7 +602,7 @@ BR.niveaus.voegToe("a", {
         t: "Als hij groter is, wordt hij de zoon van de dochter van de farao. Ze noemt hem Mozes, want ze heeft hem uit het water gehaald.",
       },
     ],
-    samen: "Het bevel van de farao over de jongetjes (Exodus 1:22) staat hier in één zin. Weggelaten zijn de vroedvrouwen Sifra en Pua: zij vreesden God en lieten de jongetjes leven, en God deed hun goed (1:15–21). Prentenboeken spreken vaak van een mandje; de Bijbel noemt ‘een kistje van biezen’, dichtgemaakt met lijm en pek (2:3). Vraag samen: wie helpen er allemaal mee dat het kindje blijft leven?",
+    samen: "Het bevel van de farao over de jongetjes (Exodus 1:22) staat hier in één zin. Weggelaten zijn de vroedvrouwen Sifra en Pua: zij vreesden God en lieten de jongetjes leven, en God deed hun goed (1:15–21). De moeder legt het kind in ‘een kistje van biezen’, dichtgemaakt met lijm en pek (2:3). Vraag samen: wie helpen er allemaal mee dat het kindje blijft leven?",
     vragen: [
       { q: "Waar legt de moeder het kistje neer?", a: ["Tussen de biezen aan de rivier", "In het huis van de farao"], why: "Exodus 2:3" },
       { q: "Wie vindt het kistje?", a: ["De dochter van de farao", "De farao zelf"], why: "Exodus 2:5" },
@@ -667,7 +667,7 @@ BR.niveaus.voegToe("a", {
       { t: "Mozes gaat terug naar Egypte, met de staf van God in zijn hand. Aäron komt hem tegemoet.", stap: "exodus:mozes:6" },
       { t: "Aäron vertelt het volk alles wat God gezegd heeft. Het volk gelooft. Ze buigen zich en aanbidden God.", stap: "exodus:mozes:6" },
     ],
-    samen: "Weggelaten: onderweg wil de HEERE Mozes doden, omdat zijn zoon niet besneden is; Zippora besnijdt hem dan (Exodus 4:24–26). Ook weggelaten: de Naam ‘IK ZAL ZIJN, Die IK ZIJN ZAL’ (3:14), de twee andere tekenen (4:6–9) en dat de HEERE toornig werd toen Mozes vroeg om iemand anders te sturen (4:13–14). Vraag samen: waarom moet Mozes zijn schoenen uittrekken? (3:5)",
+    samen: "Weggelaten: onderweg wil de HEERE Mozes doden, omdat zijn zoon niet besneden is; Zippora besnijdt hem dan (Exodus 4:24–26). Ook weggelaten: de Naam ‘IK ZAL ZIJN, Die IK ZIJN ZAL’ (3:14), de twee andere tekenen (4:6–9) en dat de HEERE toornig werd toen Mozes vroeg om iemand anders te sturen (4:13–14). In het braambos verschijnt ‘de Engel des HEEREN’ (3:2): de Zoon van God. Vraag samen: waarom moet Mozes zijn schoenen uittrekken? (3:5)",
     vragen: [
       {
         q: "Wat is er bijzonder aan de braamstruik?",
@@ -935,7 +935,7 @@ BR.niveaus.voegToe("a", {
       },
       { t: "Een man brengt de bok ver weg, de woestijn in. Zo draagt de bok de zonden weg.", stap: "leviticus:verzoendag:4" },
     ],
-    samen: "Nadab en Abihu sterven, omdat ze ‘vreemd vuur’ brengen dat God niet geboden had (Leviticus 10:1–2). Wat dat vuur precies was, zegt de tekst niet. Mozes zegt daarna: ‘In degenen, die tot Mij naderen, zal Ik geheiligd worden’ (Leviticus 10:3). Vraag samen: waarom mocht Aäron niet zomaar achter het voorhangsel komen? (Leviticus 16:2). Hebreeën 9:11–12 wijst van de hogepriester naar de Heere Jezus, Die met Zijn eigen bloed is ingegaan.",
+    samen: "Nadab en Abihu sterven, omdat ze ‘vreemd vuur’ brengen dat God niet geboden had (Leviticus 10:1–2). Het was vuur dat niet van het altaar kwam (vergelijk Leviticus 16:12). Mozes zegt daarna: ‘In degenen, die tot Mij naderen, zal Ik geheiligd worden’ (Leviticus 10:3). Vraag samen: waarom mocht Aäron niet zomaar achter het voorhangsel komen? (Leviticus 16:2). Hebreeën 9:11–12 wijst van de hogepriester naar de Heere Jezus, Die met Zijn eigen bloed is ingegaan.",
     vragen: [
       { q: "Wat gaat er van God uit naar het altaar?", a: ["Vuur", "Water"], why: "Leviticus 9:24" },
       { q: "Hoe vaak mag Aäron achter het voorhangsel komen?", a: ["Eén dag in het jaar", "Elke dag"], why: "Leviticus 16:2, 34" },
@@ -1268,7 +1268,7 @@ BR.niveaus.voegToe("a", {
         stap: "richteren:debora:5",
       },
       {
-        t: "In Ofra dorst Gideon tarwe bij de pers, verstopt voor de Midianieten. Daar komt de Engel van de HEERE bij hem.",
+        t: "In Ofra dorst Gideon tarwe bij de pers, verstopt voor de Midianieten. Daar komt de Engel van de HEERE, de Zoon van God, bij hem.",
         stap: "richteren:debora:5",
       },
       { t: "De Engel zegt: ‘De HEERE is met u, gij, strijdbare held!’ Dat betekent: dappere held. Gideon moet Israël gaan verlossen." },
@@ -1316,7 +1316,7 @@ BR.niveaus.voegToe("a", {
     delen: [
       { t: "Het volk Israël doet weer wat kwaad is in Gods ogen. Daarom heersen de Filistijnen over hen.", stap: "richteren:simson:0" },
       { t: "In Zora woont Manoach met zijn vrouw. Ze hebben geen kinderen.", stap: "richteren:simson:0" },
-      { t: "De Engel van de HEERE komt bij de vrouw. Hij zegt dat ze een zoon zal krijgen." },
+      { t: "De Engel van de HEERE, de Zoon van God, komt bij de vrouw. Hij zegt dat ze een zoon zal krijgen." },
       {
         t: "Er mag nooit een scheermes op het hoofd van de jongen komen. Hij zal een nazireeër zijn: iemand die helemaal voor God apart is gezet.",
       },
@@ -2686,7 +2686,7 @@ BR.niveaus.voegToe("a", {
       },
       { t: "Als Herodes gestorven is, gaan ze terug. Jozef gaat met Maria en het Kind in Nazareth wonen.", stap: "jezus-1:nt-geboorte:10" },
     ],
-    samen: "Weggelaten: Herodes liet in Bethlehem en omgeving alle kinderen van twee jaar en jonger doden (Mattheüs 2:16–18). Vertel dat sober als je kind ernaar vraagt; het Kind Jezus was toen al in Egypte, want God had Jozef gewaarschuwd (Mattheüs 2:13–14). De wijzen kwamen enige tijd na de geboorte. Ze vonden het Kind in een huis in Bethlehem (Mattheüs 2:11).",
+    samen: "Weggelaten: Herodes liet in Bethlehem en omgeving alle kinderen van twee jaar en jonger doden (Mattheüs 2:16–18). Vertel dat sober als je kind ernaar vraagt; het Kind Jezus was toen al in Egypte, want God had Jozef gewaarschuwd (Mattheüs 2:13–14). De wijzen waren geleerde mannen uit het oosten die de sterren bestudeerden. Ze kwamen enige tijd na de geboorte en vonden het Kind in een huis in Bethlehem (Mattheüs 2:11).",
     vragen: [
       { q: "Wat hebben de wijzen gezien?", a: ["Zijn ster", "Een engel"], why: "Mattheüs 2:2" },
       { q: "Wat geven de wijzen aan het Kind?", a: ["Goud, wierook en mirre", "Brood en vis"], why: "Mattheüs 2:11" },
@@ -4399,11 +4399,11 @@ BR.niveaus.voegToe("a", {
     plaatsen: ["nt_patmos", "nt_efeze", "nt4_smyrna"],
     delen: [
       {
-        t: "Johannes is op het eiland Patmos, om het Woord van God. Daar laat God hem dingen zien die gaan gebeuren.",
+        t: "De apostel Johannes is op het eiland Patmos, om het Woord van God. Daar laat God hem dingen zien die gaan gebeuren.",
         stap: "openbaring:nt-openbaring:0",
       },
       {
-        t: "Op de dag des Heeren hoort hij achter zich een grote stem, als van een bazuin. De stem zegt: schrijf op wat je ziet.",
+        t: "Op de dag des Heeren, de zondag, hoort hij achter zich een grote stem, als van een bazuin. De stem zegt: schrijf op wat je ziet.",
         stap: "openbaring:nt-openbaring:0",
       },
       {

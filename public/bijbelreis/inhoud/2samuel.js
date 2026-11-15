@@ -46,7 +46,7 @@ BR.boeken.push({
   { ref: "2 Samuël 1", t: "David rouwt om Saul en Jonathan", stamp: "Klaaglied", at: ["ziklag", "gilboa"], look: ["gilboa", "ziklag", "een bode brengt het nieuws"],
     who: [["David"], ["Boden", "een Amalekiet"]],
     txt: "Twee dagen na zijn terugkeer in Ziklag ziet David een man aankomen met gescheurde kleren en aarde op zijn hoofd. Hij komt uit het leger van Saul: “Het volk is gevlucht, en Saul en Jonathan zijn dood.” De man zegt dat hij Saul zelf gedood heeft, en geeft David Sauls kroon en armband. David en zijn mannen scheuren hun kleren, huilen en vasten tot de avond. De man wordt gedood, omdat hij zijn hand had opgeheven tegen de gezalfde van de HEERE. David maakt een klaaglied: “Hoe zijn de helden gevallen! Saul en Jonathan, geliefd in hun leven, ook in hun dood niet gescheiden. Ik ben benauwd om jou, mijn broeder Jonathan.”",
-    fact: "In 1 Samuël 31:4 staat dat Saul zichzelf doodde. De Amalekiet vertelde dus niet de waarheid; hij hoopte op een beloning (4:10). David liet het lied aan heel Juda leren (1:18).", fs: "u" },
+    fact: "In 1 Samuël 31:4 staat: ‘Toen nam Saul het zwaard, en viel daarin.’ De Amalekiet hoopte op een beloning: hij meende dat David hem ‘bodenloon zou geven’ (4:10). David liet het lied aan heel Juda leren (1:18).", fs: "u" },
   { ref: "2 Samuël 2–4", t: "Koning in Hebron", stamp: "Hebron", at: ["mamre", "mahanaim", "gibeon"],
     r: [{ p: ["ziklag", "lachisw", "mamre"], recon: 1 }, { w: "bruin", p: ["mahanaim", "jordanford", "jericho", "gibeon"], recon: 1 }, { w: "teal", p: ["mamre", "bethlehem", "jeruz", "gibeon"], recon: 1 }],
     who: [["David", "30"], ["Joab"], ["Abner"], ["Isboseth", "40"]],

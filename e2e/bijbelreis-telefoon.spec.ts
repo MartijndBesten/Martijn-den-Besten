@@ -542,3 +542,14 @@ test.describe("verdiepende delen", () => {
     await expect(rijen.nth(eersteUr)).toHaveClass(/sub/);
   });
 });
+
+test("‘Verder met’ staat alleen bij Verhalen, niet in de reis", async ({ page }) => {
+  await page.addInitScript(() => { localStorage.setItem("bijbelreis:niveau", JSON.stringify("b")); localStorage.setItem("bijbelreis:laatst", JSON.stringify("genesis:jakob:8")); localStorage.setItem("bijbelreis:gezien", JSON.stringify(["genesis:jakob:8"])); });
+  await page.goto("/bijbelreis");
+  await expect(page.locator("#welkom")).toBeVisible();
+  await expect(page.locator("#welkom")).toContainText("Verder met");
+  await page.getByRole("tab", { name: "Reis" }).click();
+  await expect(page.locator("#welkom")).toBeHidden();
+  await page.getByRole("tab", { name: "Verhalen" }).click();
+  await expect(page.locator("#welkom")).toBeVisible();
+});

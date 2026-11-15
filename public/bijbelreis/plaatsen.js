@@ -487,7 +487,7 @@ Object.assign(BR.plaatsen, {
   nt_salmone: { n: "Salmone", ll: [35.316, 26.3116], c: "w", s: "r", z: 7.5, t: "berg", d: "Kaap aan de oostpunt van Kreta (Handelingen 27:7).", nu: "Kaap Sideros, Kreta", bron: "Kaap Sideros, de oostpunt van Kreta (OpenBible 1000)." },
   nt_schonehavens: { n: "Schone Havens", ll: [34.9297, 24.8003], c: "v", s: "b", z: 7.5, t: "stad", d: "Baai aan de zuidkust van Kreta, bij de stad Lasea (Handelingen 27:8).", nu: "Kali Limenes, Kreta", bron: "Naam bleef in gebruik." },
   nt_clauda: { n: "Klauda", ll: [34.84, 24.08], c: "v", s: "b", z: 7.5, t: "gebied", d: "Klein eiland ten zuiden van Kreta (Handelingen 27:16).", nu: "Gavdos, Griekenland", bron: "Eiland Gavdos (OpenBible 1000)." },
-  nt_malta: { n: "Malta", ll: [35.9335, 14.4117], c: "w", s: "r", z: 6.5, t: "gebied", d: "Het eiland waar het schip van Paulus strandde (Handelingen 28:1; Statenvertaling: Melite). Meestal gelijkgesteld aan Malta.", nu: "Malta", bron: "Malta (gangbaar); enkelen denken aan het Kroatische Mljet." },
+  nt_malta: { n: "Malta", ll: [35.9335, 14.4117], c: "w", s: "r", z: 6.5, t: "gebied", d: "Het eiland waar het schip van Paulus strandde (Handelingen 28:1). De Statenvertaling noemt het Melite.", nu: "Malta", bron: "Malta (gangbaar); enkelen denken aan het Kroatische Mljet." },
   nt_syracuse: { n: "Syracuse", ll: [37.0639, 15.2931], c: "v", s: "r", z: 7, t: "stad", d: "Stad op Sicilië; Paulus bleef hier drie dagen (Handelingen 28:12).", nu: "Siracusa, Italië", bron: "Siracusa; naam bleef in gebruik (OpenBible 1000)." },
   nt_regium: { n: "Regium", ll: [38.1088, 15.6441], c: "v", s: "r", z: 7, t: "stad", d: "Haven aan de punt van Italië (Handelingen 28:13).", nu: "Reggio Calabria, Italië", bron: "Reggio Calabria (OpenBible 1000)." },
   nt_puteoli: { n: "Puteoli", ll: [40.8261, 14.1206], c: "v", s: "r", z: 7, t: "stad", d: "Havenstad bij Napels; hier woonden al broeders (Handelingen 28:13–14).", nu: "Pozzuoli, Italië", bron: "Pozzuoli (OpenBible 1000)." },
@@ -639,7 +639,7 @@ Object.assign(BR.W, {
 // Johannes 4 en Lukas 4 en 7. Coördinaten: OpenBible.info Bible Geocoding Data (CC BY 4.0). Sleutels beginnen met sn_.
 Object.assign(BR.plaatsen, {
   sn_gerizim: { n: "Berg Gerizim", ll: [32.1994, 35.2728], c: "v", s: "l", z: 9.5, t: "berg",
-    d: "De berg bij Sichem en Sichar, tegenover de berg Ebal. Hier moest Israël de zegen uitspreken (Deuteronomium 11:29). Bij Sichar zei de Samaritaanse vrouw: ‘Onze vaders hebben op dezen berg aangebeden’ (Johannes 4:20). Johannes noemt de naam van de berg niet; uitleggers nemen aan dat zij de Gerizim bedoelde.",
+    d: "De berg bij Sichem en Sichar, tegenover de berg Ebal. Hier moest Israël de zegen uitspreken (Deuteronomium 11:29). Bij Sichar zei de Samaritaanse vrouw: ‘Onze vaders hebben op dezen berg aangebeden’ (Johannes 4:20): zij bedoelde de Gerizim.",
     nu: "Jabal at-Tur (Gerizim) bij Nablus, Westelijke Jordaanoever",
     bron: "OpenBible: Mount Gerizim = Jabal at Tur (score 1000), ook bij Johannes 4:20; de naam bleef in gebruik. Dat ‘dezen berg’ in Johannes 4:20 de Gerizim is, is uitleg: de tekst noemt geen naam." },
 });

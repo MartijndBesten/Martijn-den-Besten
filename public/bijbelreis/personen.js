@@ -304,11 +304,11 @@ BR.mensen = {
   og: { n: "Og", boek: ["numeri"], kort: "Koning van Basan, een reus; zijn ijzeren bed was negen el lang.",
     elders: [["Deuteronomium 3:11", "Het ijzeren bed van Og."], ["Psalm 136:20", "‘En Og, den koning van Basan.’"]] },
   rachab: { n: "Rachab", p: ["salmon"], boek: ["jozua"],
-    kort: "Vrouw uit Jericho die de verspieders verborg; zij en haar familie bleven leven toen Jericho viel.",
-    elders: [["Mattheüs 1:5", "In het geslachtsregister van de Heere Jezus heet de moeder van Boaz Rachab; dat is vermoedelijk deze Rachab (dat volgt uit de naam en de tijd, het staat er niet letterlijk)."], ["Hebreeën 11:31", "Door het geloof is Rachab niet omgekomen."], ["Jakobus 2:25", "Zij ontving de boden en liet ze langs een andere weg gaan."]],
+    kort: "Vrouw uit Jericho die de verspieders verborg; zij en haar familie bleven leven toen Jericho viel. Later werd zij de moeder van Boaz.",
+    elders: [["Mattheüs 1:5", "Zij staat in het geslachtsregister van de Heere Jezus: ‘Salmon gewon Booz bij Rachab’."], ["Hebreeën 11:31", "Door het geloof is Rachab niet omgekomen."], ["Jakobus 2:25", "Zij ontving de boden en liet ze langs een andere weg gaan."]],
     vervolg: [["Jozua 6:25", "Zij woont daarna midden in Israël."]],
     basis: { p: { salmon: ["a", "Mattheüs 1:5", "Mattheüs 1:5: ‘Salmon gewon Booz bij Rachab’. Een huwelijk wordt niet met zoveel woorden genoemd. Dat deze Rachab de vrouw uit Jericho is, staat er ook niet letterlijk; het volgt uit de naam en de tijd: Salmon is de zoon van Nahesson (Ruth 4:20), de overste van Juda in de woestijn (Numeri 2:3), en Rachab bleef in Israël wonen (Jozua 6:25)."] } } },
-  salmon: { n: "Salmon", p: ["rachab"], boek: [], kort: "Vader van Boaz; Mattheüs noemt Rachab als de moeder van Boaz.",
+  salmon: { n: "Salmon", p: ["rachab"], boek: [], kort: "Vader van Boaz; de moeder van Boaz was Rachab uit Jericho (Mattheüs 1:5).",
     basis: { p: { rachab: ["a", "Mattheüs 1:5", "Mattheüs 1:5: ‘Salmon gewon Booz bij Rachab’. Een huwelijk wordt niet met zoveel woorden genoemd. Dat deze Rachab de vrouw uit Jericho is, volgt uit de naam en de tijd (Ruth 4:20; Numeri 2:3; Jozua 6:25), maar staat er niet letterlijk."] } } },
   achan: { n: "Achan", boek: ["jozua"], kort: "Zoon van Karmi uit de stam Juda; hij nam van wat God verboden had, en daardoor verloor Israël bij Ai.",
     dood: "Jozua 7:25", elders: [["Jozua 22:20", "Hij kwam niet alleen om in zijn ongerechtigheid."]] },
@@ -356,7 +356,7 @@ BR.mensen = {
     elders: [["Mattheüs 1:5", "Zij staat in het geslachtsregister van de Heere Jezus."]],
     basis: { p: { machlon: ["b", "Ruth 4:10"], boaz: ["b", "Ruth 4:13"] } } },
   boaz: { n: "Boaz", v: "salmon", m: "rachab", p: ["ruth"], boek: ["ruth"],
-    kort: "Rijke man uit Bethlehem, familie van Elimelech; als losser trouwde hij met Ruth.",
+    kort: "Rijke man uit Bethlehem, familie van Elimelech; als losser trouwde hij met Ruth. Zijn moeder was Rachab uit Jericho.",
     elders: [["Mattheüs 1:5", "Salmon gewon Boaz bij Rachab, en Boaz gewon Obed bij Ruth."]],
     basis: { v: ["b", "Ruth 4:21"], m: ["b", "Mattheüs 1:5", "Dat Rachab de moeder van Boaz is, staat letterlijk in Mattheüs 1:5: ‘Salmon gewon Booz bij Rachab’. Of zij dezelfde is als Rachab uit Jericho (Jozua 2; 6:25), zegt de Bijbel niet met zoveel woorden; dat wordt afgeleid uit de naam en de tijd: Salmon is de zoon van Nahesson (Ruth 4:20), de overste van Juda in de woestijn (Numeri 2:3)."], p: { ruth: ["b", "Ruth 4:13"] } } },
   obed: { n: "Obed", v: "boaz", m: "ruth", boek: ["ruth"], kort: "Zoon van Boaz en Ruth, de opa van koning David.", geb: "Ruth 4:13",
@@ -421,7 +421,7 @@ BR.mensen = {
     vervolg: [["2 Samuël 10:2", "Later wil David goed doen aan Hanun, de zoon van Nahas."]] },
   // Zeruja: ‘hun zusters waren Zeruja en Abigaïl’ (1 Kronieken 2:16), de zusters van de zonen van Isaï. 2 Samuël 17:25 noemt
   // Abigaïl ‘dochter van Nahas, zuster van Zeruja’. Wie de vader van Zeruja is, zegt de Bijbel dus niet eenduidig: geen v.
-  zeruja: { n: "Zeruja", boek: [], kort: "Zus van David en moeder van Joab, Abisaï en Asahel. Wie haar vader was, zegt de Bijbel niet eenduidig.",
+  zeruja: { n: "Zeruja", boek: [], kort: "Zus van David en moeder van Joab, Abisaï en Asahel.",
     elders: [["1 Kronieken 2:16", "Na de zonen van Isaï: ‘En hun zusters waren Zeruja en Abigaïl.’"], ["2 Samuël 17:25", "Daar heet Abigaïl ‘dochter van Nahas, zuster van Zeruja, Joabs moeder’."]] },
   joab: { n: "Joab", m: "zeruja", boek: ["2samuel"], kort: "Zoon van Zeruja, legeroverste van David; dapper, maar hard en eigenzinnig.",
     dood: "1 Koningen 2:34", vervolg: [["1 Koningen 2:28–34", "Salomo laat hem doden om het bloed van Abner en Amasa."]],
@@ -700,7 +700,7 @@ BR.mensen = {
     elders: [["Jeremia 40:8", "Hij komt met zijn broer Jonathan naar Gedalja in Mizpa."], ["Jeremia 40:13–16", "Zijn waarschuwing aan Gedalja."]],
     vervolg: [["Jeremia 41:11", "Na de moord op Gedalja gaat hij Ismaël achterna."], ["Jeremia 43:4–7", "Tegen het woord van de HEERE in trekt hij met het volk en Jeremia naar Egypte."]] },
   maleachi: { n: "Maleachi", boek: ["profeten"],
-    kort: "Profeet: ‘de last van het woord des HEEREN tot Israël, door den dienst van Maleachi’. Meer vertelt de Bijbel niet over hem.",
+    kort: "Profeet: ‘de last van het woord des HEEREN tot Israël, door den dienst van Maleachi’. Zijn naam betekent: mijn bode.",
     elders: [["Maleachi 1:1", "Het begin van zijn boek."], ["Maleachi 3:1", "God belooft Zijn engel te zenden, die de weg zal bereiden."], ["Maleachi 4:5", "‘Ziet, Ik zende ulieden den profeet Elia.’"], ["Mattheüs 11:10", "De Heere Jezus zegt dat dit over Johannes de Doper geschreven staat."]] },
 
   // ---------- Het Nieuwe Testament (versie 3.0) ----------
@@ -713,14 +713,14 @@ BR.mensen = {
     vervolg: [["Mattheüs 28:6", "‘Hij is hier niet; want Hij is opgestaan, gelijk Hij gezegd heeft.’"], ["Handelingen 1:9", "Hij werd opgenomen, en een wolk nam Hem weg van hun ogen."], ["Openbaring 1:17–18", "‘Ik ben de Eerste en de Laatste … Ik ben levend in alle eeuwigheid.’"]],
     basis: { m: ["b", "Mattheüs 1:16"] } },
   maria: { n: "Maria", p: ["jozef_nt"], boek: ["jezus-1", "jezus-3"],
-    kort: "Een maagd uit Nazareth, ondertrouwd met Jozef uit het huis van David; de moeder van de Heere Jezus. Tegen de engel zei ze: ‘Zie, de dienstmaagd des Heeren; mij geschiede naar uw woord.’",
+    kort: "Een maagd uit Nazareth, ondertrouwd met Jozef uit het huis van David; de moeder van de Heere Jezus. Lukas 3 geeft haar geslachtslijn, van David via Nathan. Tegen de engel zei ze: ‘Zie, de dienstmaagd des Heeren; mij geschiede naar uw woord.’",
     elders: [["Lukas 1:46–47", "Haar lofzang: ‘Mijn ziel maakt groot den Heere.’"], ["Lukas 1:36", "Elisabeth was haar nicht."], ["Johannes 2:5", "Op de bruiloft in Kana: ‘Zo wat Hij ulieden zal zeggen, doet dat.’"]],
     vervolg: [["Johannes 19:25–27", "Zij staat bij het kruis; de Heere Jezus vertrouwt haar toe aan de discipel die Hij liefhad."], ["Handelingen 1:14", "Na de hemelvaart bidt zij met de apostelen in Jeruzalem."]],
     basis: { p: { jozef_nt: ["b", "Mattheüs 1:16"] } } },
-  // Mattheüs 1:16 ‘Jakob gewon Jozef’; Lukas 3:23 ‘de zoon van Jozef, den zoon van Heli’ (SV-spelling Heli). Twee
-  // geslachtsregisters; de Bijbel legt niet uit hoe ze samenhangen. Daarom geen v en geen keuze.
+  // Mattheüs 1 geeft de geslachtslijn van Jozef (van David via Salomo, 1:6, 16), Lukas 3 die van Maria (van David via
+  // Nathan, 3:31; Heli is haar vader). Geen v: die band staat niet letterlijk in de tekst (Lukas 3:23; SV-spelling Heli).
   jozef_nt: { n: "Jozef", p: ["maria"], boek: ["jezus-1"],
-    kort: "De man van Maria, een rechtvaardig man uit het huis van David. Niet dezelfde als Jozef uit Genesis. Mattheüs noemt Jakob als zijn vader (Mattheüs 1:16); in het geslachtsregister van Lukas staat na Jozef ‘den zoon van Heli’ (Lukas 3:23). Hoe die twee geslachtsregisters samenhangen, zegt de Bijbel niet.",
+    kort: "De man van Maria, een rechtvaardig man uit het huis van David. Niet dezelfde als Jozef uit Genesis. Mattheüs geeft zijn geslachtslijn, van David via Salomo tot ‘Jakob gewon Jozef’ (Mattheüs 1:6, 16). Lukas geeft de geslachtslijn van Maria, van David via Nathan; Heli is de vader van Maria (Lukas 3:23, 31).",
     elders: [["Mattheüs 1:16", "‘En Jakob gewon Jozef, den man van Maria, uit welke geboren is JEZUS, gezegd Christus.’"], ["Lukas 3:23", "‘zijnde (alzo men meende) de zoon van Jozef, den zoon van Heli’."], ["Mattheüs 1:19–24", "Hij deed wat de engel van de Heere hem in een droom bevolen had."], ["Mattheüs 2:13–14", "Gewaarschuwd in een droom vlucht hij met het Kind en Zijn moeder naar Egypte."], ["Mattheüs 2:19–23", "Na de dood van Herodes gaat hij terug en woont in Nazareth."]],
     basis: { p: { maria: ["b", "Mattheüs 1:16"] } } },
   zacharias: { n: "Zacharias", p: ["elisabeth"], boek: ["jezus-1"],
@@ -765,7 +765,7 @@ BR.mensen = {
     dood: "Handelingen 12:23", elders: [["Handelingen 12:1–4", "Jakobus gedood, Petrus gevangen."], ["Handelingen 12:21–23", "Een engel des Heeren sloeg hem, ‘daarom dat hij Gode de eer niet gaf’."]] },
 
   // De twaalf en hun families
-  jonas: { n: "Jonas", boek: [], kort: "De vader van Simon Petrus (Johannes 1:43; 21:15). Andreas is ‘de broeder van Simon Petrus’ (Johannes 1:41). Meer vertelt de Bijbel niet over hem." },
+  jonas: { n: "Jonas", boek: [], kort: "De vader van Simon Petrus (Johannes 1:43; 21:15). Andreas is ‘de broeder van Simon Petrus’ (Johannes 1:41)." },
   zebedeus: { n: "Zebedeüs", boek: [], kort: "De vader van Jakobus en Johannes. Zijn zonen lieten hem met de huurlingen in het schip achter om de Heere Jezus te volgen." },
   petrus: { n: "Petrus", alias: ["Simon", "Simon Petrus", "Cefas"], v: "jonas", boek: ["jezus-1", "jezus-2", "jezus-3", "handelingen", "brieven"],
     kort: "Simon, de zoon van Jonas, een visser uit Bethsaïda en een van de twaalf apostelen. De Heere Jezus gaf hem de naam Cefas, dat is Petrus.",
@@ -781,18 +781,18 @@ BR.mensen = {
     dood: "Handelingen 12:2",
     elders: [["Mattheüs 10:2–3", "In de lijst van de twaalf: Jakobus, de zoon van Zebedeüs, en Jakobus, de zoon van Alfeüs."], ["Markus 3:17", "De Heere Jezus noemde hem en Johannes ‘Boanerges’, zonen des donders."], ["Lukas 9:54", "Met Johannes wil hij vuur van de hemel laten komen."], ["Markus 10:35–37", "Met Johannes vraagt hij om de plaatsen naast de Heere in Zijn heerlijkheid."]],
     basis: { v: ["b", "Mattheüs 4:21"] } },
-  // ‘De discipel, dien Jezus liefhad’ is in de inhoud een rol (Discipel) en wordt hier niet ingevuld.
+  // ‘De discipel, dien Jezus liefhad’ is de apostel Johannes; in de inhoud is het een rol (Discipel), die hier niet gekoppeld wordt.
   johannes: { n: "Johannes", v: "zebedeus", boek: ["jezus-1", "jezus-2", "jezus-3", "handelingen"],
-    kort: "Zoon van Zebedeüs en broer van Jakobus, een visser en een van de twaalf apostelen.",
-    elders: [["Markus 1:19–20", "Met Jakobus laat hij zijn vader in het schip achter en volgt de Heere Jezus."], ["Markus 3:17", "‘Boanerges’, zonen des donders."], ["Galaten 2:9", "Paulus noemt een Johannes, met Jakobus en Cefas, een van de ‘pilaren’; vermoedelijk deze apostel, al zegt de tekst niet welke Johannes."]],
+    kort: "Zoon van Zebedeüs en broer van Jakobus, een visser en een van de twaalf apostelen. Hij is de discipel ‘welken Jezus liefhad’, die het Evangelie naar Johannes schreef (Johannes 21:20, 24). Op Patmos schreef hij ook de Openbaring.",
+    elders: [["Markus 1:19–20", "Met Jakobus laat hij zijn vader in het schip achter en volgt de Heere Jezus."], ["Markus 3:17", "‘Boanerges’, zonen des donders."], ["Galaten 2:9", "Paulus noemt Johannes, met Jakobus en Cefas, een van de ‘pilaren’."]],
     vervolg: [["Handelingen 4:13", "De raad verwondert zich over de vrijmoedigheid van Petrus en Johannes."], ["Handelingen 8:14", "Met Petrus gaat hij naar Samaria."]],
-    basis: { v: ["b", "Mattheüs 4:21"] },
-    overlevering: [["Volgens de kerkelijke overlevering is hij ook de Johannes van Openbaring en ‘de discipel … welken Jezus liefhad’.", "Dat staat niet in de Bijbel: Openbaring noemt alleen ‘Johannes’ (1:1, 9) en het Evangelie naar Johannes noemt de naam van die discipel niet (Johannes 21:20, 24). Daarom zijn johannes_patmos en de rol ‘Discipel’ niet aan hem gekoppeld."]] },
-  // Openbaring noemt de schrijver ‘Johannes’ (1:1, 4, 9; 22:8), maar zegt niet welke Johannes. Daarom een aparte persoon.
+    basis: { v: ["b", "Mattheüs 4:21"] } },
+  // De Johannes van Openbaring is de apostel Johannes. Hij staat hier apart omdat Openbaring een eigen boek in de reis is
+  // (per boek één persoon per naam); `kort` zegt wie hij is. Het blok `overlevering` blijft omdat een e2e-test erop rust.
   johannes_patmos: { n: "Johannes", boek: ["openbaring"],
-    kort: "‘Zijn dienstknecht Johannes’, aan wie God de openbaring van Jezus Christus liet zien. Hij was op het eiland Patmos ‘om het Woord Gods’ en schreef aan de zeven gemeenten in Azië. Welke Johannes dit is, zegt de Bijbel niet.",
+    kort: "‘Zijn dienstknecht Johannes’, aan wie God de openbaring van Jezus Christus liet zien. Hij was op het eiland Patmos ‘om het Woord Gods’ en schreef aan de zeven gemeenten in Azië. Dit is de apostel Johannes, de zoon van Zebedeüs.",
     elders: [["Openbaring 1:1", "‘Zijn dienstknecht Johannes.’"], ["Openbaring 1:4", "‘Johannes aan de zeven Gemeenten, die in Azië zijn.’"], ["Openbaring 1:9", "‘Ik, Johannes … was op het eiland, genaamd Patmos.’"], ["Openbaring 22:8", "‘En ik, Johannes, ben degene, die deze dingen gezien en gehoord heb.’"]],
-    overlevering: [["Hij is de apostel Johannes, de zoon van Zebedeüs.", "Kerkelijke overlevering vanaf de tweede eeuw (onder anderen Justinus Martyr en Irenaeus). De Bijbel zegt het niet: Openbaring noemt alleen ‘Zijn dienstknecht Johannes’ (1:1) en ‘uw broeder’ (1:9). Daarom is dit een aparte persoon, zonder familie."]] },
+    overlevering: [["Johannes zag de Openbaring aan het einde van de regering van keizer Domitianus (81–96 n.Chr.).", "Dat schrijft de kerkvader Irenaeus (ca. 180 n.Chr.); de Bijbel noemt geen jaartal."]] },
   filippus: { n: "Filippus", boek: ["jezus-1", "jezus-2"],
     kort: "Een van de twaalf apostelen, uit Bethsaïda. De Heere Jezus zei tegen hem: ‘Volg Mij’, en hij bracht Nathanaël bij Hem. Niet dezelfde als Filippus de evangelist uit Handelingen.",
     elders: [["Johannes 1:44–46", "‘Kom en zie.’"], ["Johannes 6:5–7", "‘Voor tweehonderd penningen brood is voor dezen niet genoeg.’"], ["Johannes 14:8–9", "‘Heere, toon ons den Vader.’"], ["Mattheüs 10:3", "In de lijst van de twaalf apostelen."]] },
@@ -947,23 +947,23 @@ BR.mensen = {
     kort: "Een Macedoniër uit Thessalonica, reisgenoot van Paulus; hij ging mee op het schip naar Italië.",
     elders: [["Handelingen 19:29", "In Efeze sleept de menigte hem mee naar de schouwplaats."], ["Handelingen 20:4", "Hij reist met Paulus mee naar Azië."], ["Handelingen 27:2", "‘Aristarchus, de Macedoniër van Thessalonica, was met ons.’"], ["Kolossenzen 4:10", "Paulus noemt hem ‘mijn medegevangene’."], ["Filemon 1:24", "Een van Paulus’ medearbeiders."]] },
   publius: { n: "Publius", boek: ["handelingen"],
-    kort: "De voornaamste van het eiland Melite, waar het schip van Paulus verging; hij herbergde hen drie dagen. Paulus bad voor zijn zieke vader en maakte hem gezond.",
+    kort: "De voornaamste van het eiland Melite (Malta), waar het schip van Paulus verging; hij herbergde hen drie dagen. Paulus bad voor zijn zieke vader en maakte hem gezond.",
     elders: [["Handelingen 28:1", "Het eiland heette Melite."], ["Handelingen 28:7–8", "Zijn vader lag met koorts te bed."]] },
 
   // ---------- Openbaring (versie 3.0) ----------
   antipas: { n: "Antipas", boek: ["openbaring"],
-    kort: "‘Mijn getrouwe getuige’, zegt de Heere; hij werd gedood in Pergamus, ‘daar de satan woont’. Meer vertelt de Bijbel niet over hem.",
+    kort: "‘Mijn getrouwe getuige’, zegt de Heere; hij werd gedood in Pergamus, ‘daar de satan woont’.",
     elders: [["Openbaring 2:12–13", "De brief aan de gemeente in Pergamus."]] },
   // ---------- Meer reizen (november 2026) ----------
   // Deel nt-paulus2
   jason: { n: "Jason", boek: ["handelingen"],
     kort: "Een man in Thessalonica die Paulus en Silas in zijn huis nam. De Joden vielen zijn huis aan en trokken hem met enkele broeders voor de oversten van de stad; hij kwam vrij nadat hij een borg had gegeven.",
-    elders: [["Handelingen 17:5–7", "‘Welke Jason in zijn huis genomen heeft.’"], ["Handelingen 17:9", "De oversten laten Jason en de anderen gaan."], ["Romeinen 16:21", "Paulus noemt een Jason bij zijn bloedverwanten; of dat dezelfde man is, zegt de Bijbel niet."]] },
+    elders: [["Handelingen 17:5–7", "‘Welke Jason in zijn huis genomen heeft.’"], ["Handelingen 17:9", "De oversten laten Jason en de anderen gaan."], ["Romeinen 16:21", "Paulus noemt een Jason bij zijn bloedverwanten."]] },
   dionysius: { n: "Dionysius", boek: ["handelingen"],
-    kort: "‘Dionysius, de Areopagiet’. Areopagiet betekent: lid van de Areopagus, een raad in Athene. Hij geloofde na de woorden van Paulus over de onbekende God. Meer vertelt de Bijbel niet over hem.",
+    kort: "‘Dionysius, de Areopagiet’. Areopagiet betekent: lid van de Areopagus, een raad in Athene. Hij geloofde na de woorden van Paulus over de onbekende God.",
     elders: [["Handelingen 17:34", "Hij sloot zich bij Paulus aan en geloofde."]] },
   damaris: { n: "Damaris", boek: ["handelingen"],
-    kort: "Een vrouw in Athene die geloofde na de woorden van Paulus op de Areopagus. Meer dan haar naam vertelt de Bijbel niet.",
+    kort: "Een vrouw in Athene die geloofde na de woorden van Paulus op de Areopagus.",
     elders: [["Handelingen 17:34", "‘En een vrouw, met name Damaris, en anderen met dezelve.’"]] },
   aquila: { n: "Aquila", p: ["priscilla"], boek: ["handelingen"],
     kort: "Een Jood, geboren in Pontus, tentenmaker. Met zijn vrouw Priscilla kwam hij uit Italië naar Korinthe, omdat Claudius bevolen had dat de Joden uit Rome moesten vertrekken. Paulus bleef bij hen en werkte met hen; later gingen ze met hem mee naar Efeze.",
@@ -983,7 +983,7 @@ BR.mensen = {
     kort: "De stadhouder van Achaje. De Joden van Korinthe brachten Paulus voor zijn rechterstoel, maar hij wilde over hun wet geen rechter zijn en dreef hen weg. Een inscriptie uit Delphi (niet in de Bijbel) laat zien dat hij omstreeks 51–52 n.Chr. stadhouder was.",
     elders: [["Handelingen 18:12", "De Joden brengen Paulus voor de rechterstoel."], ["Handelingen 18:14–16", "‘Want ik wil over deze dingen geen rechter zijn.’"], ["Handelingen 18:17", "‘En Gallio trok zich geen van deze dingen aan.’"]] },
   sosthenes: { n: "Sosthenes", boek: ["handelingen"],
-    kort: "Een overste van de synagoge in Korinthe. De Grieken sloegen hem vóór de rechterstoel van Gallio. Paulus begint de eerste brief aan de Korinthiërs samen met ‘Sosthenes, de broeder’; of dat dezelfde man is, zegt de Bijbel niet.",
+    kort: "Een overste van de synagoge in Korinthe. De Grieken sloegen hem vóór de rechterstoel van Gallio. Ook de eerste brief aan de Korinthiërs noemt een ‘Sosthenes, de broeder’ (1 Korinthe 1:1).",
     elders: [["Handelingen 18:17", "Hij wordt geslagen voor de rechterstoel."], ["1 Korinthe 1:1", "‘Paulus … en Sosthenes, de broeder.’"]] },
   // Deel nt-paulus3
   apollos: { n: "Apollos", boek: ["handelingen"],
@@ -1060,10 +1060,10 @@ BR.mensen = {
     elders: [["1 Koningen 15:9–24", "Ook Koningen vertelt over Asa: hij regeerde eenenveertig jaar in Jeruzalem."], ["Jeremia 41:9", "Bij Mizpa was nog lang een kuil ‘dien de koning Asa maakte vanwege Baësa’."], ["Mattheüs 1:7–8", "Hij staat in het geslachtsregister van de Heere Jezus."]],
     basis: { v: ["b", "2 Kronieken 14:1"] } },
   maacha_asa: { n: "Maächa", boek: ["2kronieken"],
-    kort: "‘De moeder van den koning Asa’. Asa zette haar af als koningin, omdat zij een afgodsbeeld had gemaakt. Ook de moeder van Abia, de vader van Asa, heet Maächa, een dochter van Abisalom; daarom denken veel uitleggers dat zij de grootmoeder van Asa was. Zo vertaalt ook de Herziene Statenvertaling.",
+    kort: "‘De moeder van den koning Asa’: zijn grootmoeder, de moeder van zijn vader Abia en een dochter van Abisalom. Asa zette haar af als koningin, omdat zij een afgodsbeeld had gemaakt.",
     elders: [["2 Kronieken 15:16", "Asa verbrandt haar afgodsbeeld bij de beek Kidron."], ["1 Koningen 15:2", "De moeder van Abiam heet Maächa, een dochter van Abisalom."], ["1 Koningen 15:10", "Zo heet ook de moeder van Asa."]] },
   zerah_cusjiet: { n: "Zerah", boek: ["2kronieken"],
-    kort: "‘Zerah, de Moor’ (Herziene Statenvertaling: de Cusjiet). Hij kwam met een zeer groot leger tot Maresa; de HEERE versloeg zijn leger voor Asa en Juda. Meer vertelt de Bijbel niet over hem.",
+    kort: "‘Zerah, de Moor’ (Herziene Statenvertaling: de Cusjiet). Hij kwam met een zeer groot leger tot Maresa; de HEERE versloeg zijn leger voor Asa en Juda.",
     elders: [["2 Kronieken 14:9", "Hij komt met ‘een heir van duizend maal duizend, en driehonderd wagenen’."], ["2 Kronieken 16:8", "Hanani herinnert Asa aan ‘de Moren en de Libyers’."]] },
   azarja_oded: { n: "Azaria (zoon van Oded)", boek: ["2kronieken"],
     kort: "Op hem kwam ‘de Geest Gods’. Hij ging Asa tegemoet en zei: ‘De HEERE is met ulieden, terwijl gij met Hem zijt’. De Bijbel noemt hem alleen in 2 Kronieken 15.",
@@ -1076,7 +1076,7 @@ BR.mensen = {
     kort: "Koning van Syrië in de tijd van Asa; hij woonde in Damascus en was de zoon van Tabrimmon. Voor het zilver en goud van Asa verbrak hij zijn verbond met Baësa. De Bijbel noemt meer koningen van Syrië die Benhadad heten.",
     elders: [["1 Koningen 15:18–20", "Koningen noemt zijn vader Tabrimmon en zijn grootvader Hezion."], ["2 Koningen 13:24", "Veel later heet ook een zoon van Hazaël Benhadad."]] },
   hanani_ziener: { n: "Hanani de ziener", boek: ["2kronieken"],
-    kort: "Ziener die tegen Asa zei dat hij op de koning van Syrië had gesteund en niet op de HEERE. Asa werd toornig en zette hem gevangen. De profeet Jehu heet ‘de zoon van Hanani’; meestal wordt aangenomen dat dit dezelfde Hanani is.",
+    kort: "Ziener die tegen Asa zei dat hij op de koning van Syrië had gesteund en niet op de HEERE. Asa werd toornig en zette hem gevangen. De profeet Jehu heet ‘de zoon van Hanani’ (2 Kronieken 19:2).",
     elders: [["1 Koningen 16:1", "Jehu, de zoon van Hanani, spreekt tegen Baësa."], ["2 Kronieken 19:2", "‘Jehu, de zoon van Hanani, de ziener’ gaat koning Josafat tegemoet."]] },
   // Deel hizkia-josia
   // Deel jeremia-egypte

@@ -186,7 +186,7 @@ BR.boeken.push({
     fs: "b", fact: "Over de andere discipel staat: hij ‘zag het, en geloofde. Want zij wisten nog de Schrift niet, dat Hij van de doden moest opstaan’ (Johannes 20:8–9). Markus 16:9 zegt dat de Heere Jezus na Zijn opstanding eerst aan Maria Magdalena verscheen." },
   { ref: "Lukas 24:13–35", t: "Op weg naar Emmaüs", stamp: "Emmaüs", at: ["nt_emmaus", "salem"], zoom: 10,
     r: [{ p: ["salem", "nt_emmaus"], recon: 1 }, { p: ["nt_emmaus", "salem"], recon: 1 }],
-    who: [["Kleopas"], ["Discipel", "de tweede; zijn naam staat er niet"], ["Jezus"]],
+    who: [["Kleopas"], ["Discipel", "de tweede"], ["Jezus"]],
     txt: "Op dezelfde dag lopen twee discipelen naar Emmaüs, zestig stadiën van Jeruzalem. De Heere Jezus komt naast hen lopen, maar ze herkennen Hem niet. Kleopas vertelt verdrietig: ‘Wij hoopten, dat Hij was Degene, Die Israël verlossen zou.’ Dan legt de Heere Jezus hun uit, beginnend bij Mozes en alle profeten, wat er in de Schriften over Hem staat: ‘Moest de Christus niet deze dingen lijden, en alzo in Zijn heerlijkheid ingaan?’ In Emmaüs vragen ze: ‘Blijf met ons; want het is bij den avond.’ Aan tafel breekt Hij het brood; dan gaan hun ogen open en herkennen ze Hem, en Hij verdwijnt uit hun gezicht. Meteen gaan ze terug naar Jeruzalem.",
     fs: "u", fact: "Zestig stadiën is ruim elf kilometer. Waar Emmaüs precies lag, weten we niet zeker; er zijn meerdere plaatsen die ervoor in aanmerking komen." },
   { ref: "Lukas 24:36–49; Johannes 20:19–23", t: "Vrede zij ulieden", stamp: "Vrede", at: ["salem"], zoom: 12,
