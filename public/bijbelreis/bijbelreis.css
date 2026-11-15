@@ -988,6 +988,22 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
 @keyframes tf-rijs { from { transform: translateY(18px); } }
 @keyframes tf-kom { from { transform: translate(-90px, 6px); } }
 @keyframes tf-beef { 0%, 100% { transform: none; } 10%, 50% { transform: translate(-2px, 1px); } 20%, 60% { transform: translate(2px, -1px); } 30%, 70% { transform: translate(-1.5px, -1px); } 40%, 85% { transform: translate(1.5px, 1px); } }
+/* Beeldverhaal bij Genesis 32 (taferelen-jakob.js): een menigte als gestreepte lijnen (rijen lijven, ‘m2’ in een
+   tweede kleur, en met ‘kop’ de hoofden erboven), groen langs de beek (oever), het eerste morgenlicht, en vier bewegingen die tot rust komen. */
+.tf-svg .oever { stroke: var(--salie); stroke-width: 8; stroke-linejoin: round; paint-order: stroke; }
+.tf-svg .k-morgen { fill: var(--terra); fill-opacity: 0.3; }
+.tf-svg .menigte { fill: none; stroke: var(--zand-diep); stroke-width: 6; stroke-dasharray: 3 3; }
+.tf-svg .menigte.m2 { stroke: var(--terra); }
+.tf-svg .menigte.kop { stroke: var(--camel-dark); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0.1 5.9; }
+.tf-svg .tf-e-kom-r { animation: tf-kom-r 4s ease-out both; } /* begint 90 naar rechts en komt naar zijn plaats */
+.tf-svg .tf-e-trek { animation: tf-trek 12s cubic-bezier(0.3, 0.3, 0.5, 1) both; } /* een stoet komt van links het beeld in (begint 300 naar links) */
+.tf-svg .tf-e-hink { animation: tf-hink-weg 9s ease-out both, tf-hink-stap 1.5s ease-in-out 6 both; } /* komt hinkend van links (begint 66 naar links) */
+.tf-svg .tf-e-buig { animation: tf-buig 0.75s ease-in-out 7 both; } /* buigt zeven keer voorover (Genesis 33:3) en staat dan recht */
+@keyframes tf-kom-r { from { transform: translateX(90px); } }
+@keyframes tf-trek { from { transform: translateX(-300px); } }
+@keyframes tf-hink-weg { from { translate: -66px 0; } }
+@keyframes tf-hink-stap { 0%, 60%, 100% { transform: none; } 32% { transform: translateY(1px) rotate(7deg); } }
+@keyframes tf-buig { 0%, 100% { transform: none; } 50% { transform: rotate(64deg); } }
 .tf-svg .tf-w1 { animation-delay: 0.45s; } .tf-svg .tf-w2 { animation-delay: 0.9s; } .tf-svg .tf-w3 { animation-delay: 1.35s; }
 .tf-svg .tf-w4 { animation-delay: 1.8s; } .tf-svg .tf-w5 { animation-delay: 2.25s; } .tf-svg .tf-w6 { animation-delay: 2.7s; }
 .tf-svg .tf-w7 { animation-delay: 3.15s; } .tf-svg .tf-w8 { animation-delay: 3.6s; } .tf-svg .tf-w9 { animation-delay: 4.05s; }
