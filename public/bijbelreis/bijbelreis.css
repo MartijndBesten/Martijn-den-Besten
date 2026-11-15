@@ -467,6 +467,10 @@ details.parents dd { margin: 0; }
 .maker { margin: 18px 0 4px; }
 .maker a { display: inline-flex; align-items: center; gap: 10px; padding: 6px 0; text-decoration: none; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.03em; color: var(--fg-3); }
 .maker img { display: block; height: 28px; width: auto; }
+/* Verwijzing naar Raadkoord, ook van Denckh: bescheiden, onder de makersvermelding. */
+.ook { margin: 0 0 4px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.03em; color: var(--fg-3); }
+.ook a { color: var(--fg-2); display: inline-block; padding: 6px 0; }
+.ook b { font-weight: 650; }
 
 /* ===== Kaart: een atlas ===== */
 .leaflet-container { background: var(--zee); font-family: var(--font-sans); }

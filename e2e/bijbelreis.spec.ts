@@ -1019,6 +1019,11 @@ test("eigen adres: de atlas staat los van het Instituut, met de makersvermelding
   await expect(logo).toHaveAttribute("alt", "Denckh");
   await expect(logo).toHaveAttribute("src", /\/bijbelreis\/denckh-logo-signature\.svg/);
   expect(await logo.evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0)).toBe(true);
+  // Verwijzing naar Raadkoord (ook van Denckh): een gewone link, zonder target.
+  const ook = page.locator(".ook a");
+  await expect(ook).toHaveAttribute("href", "https://raadkoord.nl/");
+  await expect(ook).toHaveAttribute("rel", "noopener");
+  await expect(ook).toContainText("Raadkoord");
   expect(errors).toEqual([]);
 });
 
