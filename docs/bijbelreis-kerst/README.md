@@ -10,6 +10,7 @@ Dit bestand is de overdracht: wie verder werkt (Claude, Codex of een mens) begin
 | --- | --- | --- |
 | Zichtbaarheid | **Extra zichtbaar vanaf Advent tot en met 6 januari. Daarna niet weg, maar op de achtergrond.** | 15-11-2026 |
 | Uiterlijk | Het thema moet er "enigszins anders" uitzien dan de rest van de atlas. | 15-11-2026 |
+| Raadkoord | "Verwijs als mogelijk en logisch is naar Raadkoord." Bij Kerst: één verwijzing naar het kerstspel van Raadkoord (ook van Denckh), `https://raadkoord.nl/kerst`, bijvoorbeeld onder de inleiding van het thema of na het laatste deel: “Kerstliederen samen raden: Raadkoord Kerst”. Gewone link, `rel="noopener"`, geen target, geen logo. | 15-11-2026 |
 
 Uitwerking van de zichtbaarheid:
 
