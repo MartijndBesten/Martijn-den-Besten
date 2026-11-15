@@ -490,7 +490,7 @@ BR.mensen = {
   achab: { n: "Achab", p: ["izebel"], boek: ["1koningen"], kort: "Zoon van Omri, koning van Israël in Samaria; hij diende de Baäl en deed meer kwaad dan alle koningen voor hem.",
     dood: "1 Koningen 22:37", vervolg: [["1 Koningen 22:34–38", "Hij sneuvelt bij Ramoth in Gilead."]], elders: [["Micha 6:16", "Micha waarschuwt voor ‘het ganse werk van het huis van Achab’."]],
     basis: { p: { izebel: ["b", "1 Koningen 16:30–31"] } } },
-  izebel: { n: "Izebel", p: ["achab"], boek: ["1koningen"], kort: "Dochter van de koning van de Sidoniërs en vrouw van Achab; zij vervolgde de profeten van de HEERE.",
+  izebel: { n: "Izebel", p: ["achab"], boek: ["1koningen", "2koningen"], kort: "Dochter van de koning van de Sidoniërs en vrouw van Achab; zij vervolgde de profeten van de HEERE.",
     dood: "2 Koningen 9:33", vervolg: [["2 Koningen 9:30–37", "Het woord van Elia over haar komt uit."]], elders: [["Openbaring 2:20", "Haar naam wordt gebruikt voor een valse profetes in Thyatire."]],
     basis: { p: { achab: ["b", "1 Koningen 16:30–31"] } } },
   elia: { n: "Elia", boek: ["1koningen", "jezus-2"], kort: "Profeet uit Tisbe; hij bad om vuur op de Karmel en voer in een storm naar de hemel zonder te sterven.",
@@ -660,7 +660,7 @@ BR.mensen = {
   athalia: { n: "Athalia", boek: ["2koningen"],
     kort: "De moeder van koning Ahazia van Juda, ‘de dochter van Omri’. Toen haar zoon dood was, bracht zij het koninklijke zaad om en regeerde zes jaar over het land.",
     dood: "2 Koningen 11:16", elders: [["2 Koningen 8:26", "De moeder van Ahazia heette Athalia."], ["2 Kronieken 22:10–12", "Kronieken vertelt dezelfde geschiedenis."]] },
-  ahazia_juda: { n: "Ahazia", v: "joram_juda", m: "athalia", boek: [],
+  ahazia_juda: { n: "Ahazia", v: "joram_juda", m: "athalia", boek: ["2koningen"],
     kort: "Zoon van Joram en Athalia, koning van Juda; na één jaar werd hij gedood toen Jehu koning werd.",
     leeftijd: [[22, "2 Koningen 8:26"]], dood: "2 Koningen 9:27",
     basis: { v: ["b", "2 Koningen 8:24"], m: ["b", "2 Koningen 8:26"] } },
@@ -1029,6 +1029,23 @@ BR.mensen = {
     basis: { v: ["b", "1 Koningen 14:1"] } },
   //
   // [meer-reizen:jehu] mensen
+  // De vader van Jehu heet Josafat, de zoon van Nimsi (2 Koningen 9:2): een andere Josafat dan de koning van Juda. Geen v.
+  // In 2 Koningen is ‘Joram’ in who de koning van Juda (joram_juda); de zoon van Achab heet daarom ‘Joram van Israël’.
+  jehu: { n: "Jehu", boek: ["2koningen"],
+    kort: "Zoon van Josafat, de zoon van Nimsi; een hoofdman van het leger, in Ramoth in Gilead tot koning over Israël gezalfd. Hij voerde het oordeel uit over het huis van Achab en verdelgde Baäl uit Israël, maar week niet af van de zonden van Jerobeam.",
+    dood: "2 Koningen 10:35",
+    elders: [["1 Koningen 19:16–17", "God zei tegen Elia dat Jehu, de zoon van Nimsi, koning over Israël moest worden."], ["2 Kronieken 22:7–9", "De HEERE had Jehu gezalfd ‘om het huis van Achab uit te roeien’."], ["Hosea 1:4", "God zal ‘de bloedschulden van Jizreël’ bezoeken over het huis van Jehu."]],
+    vervolg: [["2 Koningen 10:30", "Zijn zonen zullen tot het vierde gelid op de troon van Israël zitten."], ["2 Koningen 10:36", "Hij regeerde achtentwintig jaar over Israël in Samaria."], ["2 Koningen 15:12", "De belofte komt uit: ‘en het is alzo geschied’."]] },
+  joram_israel: { n: "Joram van Israël", v: "achab", m: "izebel", boek: ["2koningen"],
+    kort: "Zoon van Achab en Izebel, koning van Israël in Samaria; hij regeerde twaalf jaar. Bij Ramoth in Gilead raakte hij gewond, en bij Jizreël werd hij door Jehu gedood.",
+    dood: "2 Koningen 9:24",
+    elders: [["2 Koningen 3:1–3", "Hij deed wat kwaad was, ‘doch niet gelijk zijn vader en gelijk zijn moeder’: het beeld van Baäl deed hij weg."]],
+    vervolg: [["2 Koningen 8:28–29", "Bij Ramoth in Gilead verwonden de Syriërs hem; in Jizreël wil hij genezen."], ["2 Koningen 9:25–26", "Hij wordt neergelegd op het stuk land van Naboth, naar het woord van de HEERE."]],
+    basis: { v: ["b", "2 Koningen 3:1"], m: ["b", "2 Koningen 9:22"] } },
+  jonadab: { n: "Jonadab", boek: ["2koningen"],
+    kort: "Zoon van Rechab. Jehu nam hem mee op zijn wagen naar Samaria en ging met hem het huis van Baäl binnen.",
+    elders: [["Jeremia 35:6–10", "Hij had zijn nakomelingen geboden geen wijn te drinken en in tenten te wonen; de Rechabieten hielden zich daaraan."], ["Jeremia 35:18–19", "God zegt dat het Jonadab niet zal ontbreken aan een man die voor Zijn aangezicht staat."]],
+    vervolg: [["2 Koningen 10:15–16", "‘Ga met mij, en zie mijn ijver aan voor den HEERE.’"], ["2 Koningen 10:23", "Met Jehu gaat hij het huis van Baäl binnen."]] },
   //
   // [meer-reizen:asa] mensen
   //

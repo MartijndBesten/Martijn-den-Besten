@@ -1,0 +1,144 @@
+# Controle voor het deel "jehu" in public/bijbelreis/inhoud/2koningen.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+2 Koningen 9:2 | Jehu, de zoon van Josafat, den zoon van Nimsi
+2 Koningen 9:5 | hoofdmannen van het heir.*o hoofdman
+2 Koningen 10:36 | acht en twintig jaren
+2 Koningen 8:12 | omdat ik weet, wat kwaad gij den kinderen Israëls doen zult
+2 Koningen 8:15 | Hazaël werd koning in zijn plaats
+2 Koningen 10:33 | Van de Jordaan af, tegen den opgang der zon
+2 Koningen 3:1 | Joram nu, de zoon van Achab, werd koning over Israël te Samaria.*twaalf jaren
+2 Koningen 9:24 | schoot Joram tussen zijn armen
+2 Koningen 9:26 | werp hem op dat stuk lands, naar het woord des HEEREN
+2 Koningen 8:24 | Joram ontsliep.*Ahazia, zijn zoon, werd koning in zijn plaats
+2 Koningen 8:26 | Twee en twintig jaren was Ahazia oud.*regeerde een jaar te Jeruzalem.*moeder was Athalia
+2 Koningen 9:27 | hij vlood naar Megiddo, en stierf aldaar
+1 Koningen 16:31 | Izebel, de dochter van Eth-baal, den koning der Sidoniërs
+1 Koningen 18:4 | Izebel de profeten des HEEREN uitroeide
+1 Koningen 21:14 | Naboth is gestenigd
+2 Koningen 9:22 | uw moeder Izebel
+2 Koningen 10:15 | Jonadab, den zoon van Rechab.*op den wagen klimmen
+2 Koningen 10:23 | Jehu kwam met Jonadab, den zoon van Rechab, in het huis van Baäl
+Jeremia 35:2 | Rechabieten
+Jeremia 35:8 | Zo hebben wij der stemme van Jonadab.*gehoorzaamd
+# --- Deel: datering, intro, stat en verwijzingen ---
+2 Koningen 9:29 | Ahazia koning geworden over Juda
+2 Koningen 10:28 | Alzo verdelgde Jehu Baäl uit Israël
+2 Koningen 10:29 | gouden kalveren, die te Beth-el en die te Dan waren
+2 Koningen 10:30 | tot het vierde gelid
+2 Koningen 13:1 | Joahaz, de zoon van Jehu, koning over Israël
+2 Koningen 13:10 | Joas, de zoon van Joahaz, koning over Israël
+2 Koningen 14:23 | Jerobeam, de zoon van Joas, koning van Israël
+2 Koningen 15:8 | Zacharia, de zoon van Jerobeam, over Israël
+2 Koningen 15:12 | U zullen zonen van het vierde gelid op den troon van Israël zitten; en het is alzo geschied
+1 Koningen 19:15 | zalf Hazaël ten koning over Syrië
+1 Koningen 19:16 | Jehu, den zoon van Nimsi, zalven ten koning over Israël
+1 Koningen 21:18 | in den wijngaard van Naboth.*om dien erfelijk te bezitten
+1 Koningen 21:21 | Ik zal van Achab uitroeien wat mannelijk is
+1 Koningen 21:23 | De honden zullen Izebel eten, aan den voorwal van Jizreël
+2 Kronieken 22:7 | De vertreding nu van Ahazia was van God.*om het huis van Achab uit te roeien
+2 Kronieken 22:8 | Jehu het oordeel uitvoerde tegen het huis van Achab
+Hosea 1:4 | de bloedschulden van Jizreël bezoeken over het huis van Jehu
+Jeremia 35:18 | het gebod van uw vader Jonadab zijt gehoorzaam geweest
+Jeremia 35:19 | Er zal Jonadab, den zoon van Rechab, niet worden afgesneden een man, die voor Mijn aangezicht sta, al de dagen
+# --- Stap 1: Elisa in Damascus (8:7–15) ---
+2 Koningen 8:7 | kwam Elisa te Damaskus, als Benhadad, de koning van Syrië, krank was
+2 Koningen 8:8 | Toen zeide de koning tot Hazaël.*geschenk.*vraag door hem den HEERE.*Zal ik van deze krankheid genezen\?
+2 Koningen 8:9 | een last van veertig kemelen
+2 Koningen 8:10 | de HEERE heeft mij getoond, dat hij den dood sterven zal
+2 Koningen 8:11 | hield zijn gezicht staande.*de man Gods weende
+2 Koningen 8:12 | Waarom weent mijn heer
+2 Koningen 8:13 | uw knecht, die een hond is.*De HEERE heeft mij getoond, dat gij koning zijn zult over Syrië
+2 Koningen 8:14 | kwam tot zijn heer.*Gij zult zekerlijk genezen
+2 Koningen 8:15 | des anderen daags, dat hij een deken nam, en in het water doopte, en over zijn aangezicht uitspreidde, dat hij stierf
+# --- Stap 2: Joram gewond (8:25–29) ---
+2 Koningen 8:25 | begon Ahazia.*te regeren
+2 Koningen 8:27 | deed dat kwaad was in de ogen des HEEREN, gelijk het huis van Achab; want hij was een schoonzoon van het huis van Achab
+2 Koningen 8:28 | toog met Joram, den zoon van Achab, naar den strijd, te Ramoth in Gilead, tegen Hazaël, den koning van Syrië; en de Syriërs sloegen Joram
+2 Koningen 8:29 | keerde Joram, de koning, wederom, opdat hij zich te Jizreël helen liet.*te Rama.*Ahazia.*kwam af, om Joram.*te Jizreël te bezien, want hij was krank
+2 Koningen 8:16 | Jehoram, de zoon van Josafat, den koning van Juda
+# --- Stap 3: Jehu gezalfd (9:1–13) ---
+2 Koningen 9:1 | riep de profeet Elisa een van de zonen der profeten.*oliekruik.*Ramoth in Gilead
+2 Koningen 9:2 | breng hem in een binnenste kamer
+2 Koningen 9:3 | giet ze uit op zijn hoofd.*Doe daarna de deur open, en vlied, en vertoef niet
+2 Koningen 9:4 | de jongeling, die jongeling van den profeet
+2 Koningen 9:5 | Ik heb een woord aan u, o hoofdman
+2 Koningen 9:6 | ging in huis.*Zo zegt de HEERE, de God Israëls: Ik heb u gezalfd tot koning over het volk des HEEREN, over Israël
+2 Koningen 9:7 | gij zult het huis van Achab, uw heer, slaan, opdat Ik het bloed van Mijn knechten, de profeten.*wreke van de hand van Izebel
+2 Koningen 9:10 | Toen deed hij de deur open en vlood
+2 Koningen 9:12 | geef het ons nu te kennen
+2 Koningen 9:13 | haastten zij zich, en een iegelijk nam zijn kleed, en leide het onder hem, op den hoogsten trap; en zij bliezen met de bazuin, en zeiden: Jehu is koning geworden
+1 Koningen 21:29 | in de dagen zijns zoons zal Ik dat kwaad over zijn huis brengen
+# --- Stap 4: de rit naar Jizreël (9:14–20) ---
+2 Koningen 9:15 | laat niemand van de stad uittrekken.*om dit in Jizreël te gaan verkondigen
+2 Koningen 9:16 | reed Jehu, en toog naar Jizreël; want Joram lag aldaar; en Ahazia, de koning van Juda, was afgekomen
+2 Koningen 9:17 | De wachter nu stond op den toren te Jizreël.*Ik zie een hoop.*Neem een ruiter.*Is het vrede\?
+2 Koningen 9:18 | Wat hebt gij met den vrede te doen\? Keer om naar achter mij
+2 Koningen 9:19 | Toen zond hij een anderen ruiter
+2 Koningen 9:20 | maar hij komt niet weder; en het drijven is als het drijven van Jehu, den zoon van Nimsi, want hij drijft onzinniglijk
+# --- Stap 5: op het land van Naboth (9:21–26) ---
+2 Koningen 9:21 | Span aan.*een ieder op zijn wagen.*vonden hem op het stuk lands van Naboth, den Jizreëliet
+2 Koningen 9:22 | Is het ook vrede, Jehu\?.*Wat vrede, zo lang als de hoererijen van uw moeder Izebel, en haar toverijen zo vele zijn
+2 Koningen 9:23 | keerde Joram zijn hand, en vlood.*Het is bedrog, Ahazia!
+2 Koningen 9:24 | Jehu spande den boog.*hij kromde zich in zijn wagen
+2 Koningen 9:25 | Bidkar, zijn hoofdman.*als ik en gij nevens elkander achter zijn vader Achab reden
+2 Koningen 9:26 | het bloed van Naboth, en het bloed zijner zonen.*vergelde op dit stuk lands.*naar het woord des HEEREN
+1 Koningen 21:19 | Hebt gij doodgeslagen, en ook een erfelijke bezitting ingenomen
+# --- Stap 6: Ahazia vlucht (9:27–29) ---
+2 Koningen 9:27 | vlood hij door den weg van het huis des hofs; doch Jehu vervolgde hem achterna.*Slaat hem ook op den wagen, aan den opgang naar Gur, die bij Jibleam is; en hij vlood naar Megiddo, en stierf aldaar
+2 Koningen 9:28 | zijn knechten voerden hem naar Jeruzalem, en zij begroeven hem in zijn graf, bij zijn vaderen in de stad Davids
+2 Kronieken 22:9 | want hij was verstoken in Samaria
+# --- Stap 7: Izebel (9:30–37) ---
+2 Koningen 9:30 | Jehu kwam te Jizreël. Als Izebel dat hoorde, zo blankette zij haar aangezicht, en versierde haar hoofd, en keek ten venster uit
+2 Koningen 9:31 | ter poorte inkwam.*Zimri, doodslager van zijn heer
+2 Koningen 9:32 | hief zijn aangezicht op naar het venster.*Wie is met mij\? Wie\?.*twee, drie kamerlingen
+2 Koningen 9:33 | Stoot ze van boven neder
+2 Koningen 9:34 | gegeten en gedronken had.*begraaf ze; want zij is eens konings dochter
+2 Koningen 9:35 | zij vonden niet van haar, dan
+2 Koningen 9:36 | Dit is het woord des HEEREN, dat Hij gesproken heeft door den dienst van Zijn knecht Elia
+1 Koningen 16:10 | Zimri.*sloeg hem, en doodde hem
+1 Koningen 16:15 | regeerde Zimri zeven dagen
+# --- Stap 8: het huis van Achab (10:1–17) ---
+2 Koningen 10:1 | Achab nu had zeventig zonen te Samaria; en Jehu schreef brieven
+2 Koningen 10:3 | den beste en gerechtigste van de zonen uws heren, zet dien op zijns vaders troon; en strijdt voor het huis uws heren
+2 Koningen 10:4 | zij vreesden gans zeer
+2 Koningen 10:5 | de oudsten.*Wij zijn uw knechten
+2 Koningen 10:6 | zeventig mannen, waren bij de groten der stad, die hen opvoedden
+2 Koningen 10:7 | zij de zonen des konings namen, en zeventig mannen sloegen
+2 Koningen 10:11 | sloeg Jehu al de overgeblevenen van het huis van Achab te Jizreël
+2 Koningen 10:12 | ging naar Samaria; en zijnde te Beth-heked der herderen, op den weg
+2 Koningen 10:13 | Wij zijn de broederen van Ahazia
+2 Koningen 10:14 | bij den bornput van Beth-heked, twee en veertig mannen
+2 Koningen 10:16 | Ga met mij, en zie mijn ijver aan voor den HEERE
+2 Koningen 10:17 | toen hij te Samaria kwam, sloeg hij allen, die aan Achab te Samaria overgebleven waren.*naar het woord des HEEREN, dat Hij tot Elia gesproken had
+Jeremia 35:6 | Jonadab, de zoon van Rechab, onze vader.*Gijlieden zult geen wijn drinken
+Jeremia 35:7 | gij zult in tenten wonen
+Jeremia 35:1 | Het woord, dat tot Jeremia geschied is
+# --- Stap 9: het huis van Baäl (10:18–28) ---
+2 Koningen 10:18 | Jehu verzamelde al het volk.*Achab heeft Baäl een weinig gediend; Jehu zal hem veel dienen
+2 Koningen 10:19 | alle profeten van Baäl, al zijn dienaren, en al zijn priesteren.*grote offerande.*Jehu deed dat door listigheid, opdat hij de dienaren van Baäl ombracht
+2 Koningen 10:21 | zond Jehu in het ganse Israël.*vervuld werd van het ene einde tot het andere einde
+2 Koningen 10:23 | dat hier misschien bij u niemand zij van de dienaren des HEEREN
+2 Koningen 10:24 | bestelde zich Jehu daarbuiten tachtig mannen
+2 Koningen 10:25 | als hij voleind had het brandoffer te doen.*sloegen hen met de scherpte des zwaard
+2 Koningen 10:26 | opgerichte beelden uit het huis van Baäl, en verbrandden ze
+2 Koningen 10:27 | braken zij het huis van Baäl af
+1 Koningen 16:32 | richtte voor Baäl een altaar op, in het huis van Baäl, hetwelk hij te Samaria gebouwd had
+1 Koningen 16:31 | ter vrouwe nam Izebel.*diende Baäl
+# --- Stap 10: de gouden kalveren blijven staan (10:29–36) ---
+2 Koningen 10:29 | van de zonden van Jerobeam.*week Jehu niet af
+2 Koningen 10:30 | Daarom dat gij welgedaan hebt.*zullen u zonen tot het vierde gelid op den troon van Israël zitten
+2 Koningen 10:31 | Jehu nam niet waar te wandelen in de wet des HEEREN.*met zijn ganse hart
+2 Koningen 10:32 | In die dagen begon de HEERE Israël af te korten, want Hazaël sloeg ze in alle landpalen van Israël
+2 Koningen 10:33 | het ganse land van Gilead.*van Aroer, dat aan de beek van Arnon is, en Gilead, en Basan
+2 Koningen 10:35 | zij begroeven hem te Samaria, en zijn zoon Joahaz werd koning in zijn plaats
+2 Koningen 10:36 | Jehu over Israël geregeerd heeft in Samaria, zijn acht en twintig jaren
+1 Koningen 12:29 | hij zette het ene te Beth-el, en het andere stelde hij te Dan
+# --- Speurtocht ---
+2 Koningen 9:4 | ging de jongeling.*naar Ramoth in Gilead
+2 Koningen 9:20 | hij drijft onzinniglijk
+2 Koningen 9:21 | op het stuk lands van Naboth
+2 Koningen 10:15 | deed hem tot zich op den wagen klimmen
+# --- Plaatsen (plaatsen.js) ---
+Jozua 17:11 | Manasse had.*Jibleam en haar onderhorige plaatsen
+Deuteronomium 3:13 | het ganse Bazan, het koninkrijk van Og
+2 Koningen 10:12 | op den weg

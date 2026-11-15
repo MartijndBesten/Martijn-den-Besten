@@ -672,6 +672,16 @@ Object.assign(BR.plaatsen, {
 });
 //
 // [meer-reizen:jehu] plaatsen
+Object.assign(BR.plaatsen, {
+  jh_bethhaggan: { n: "Beth-Haggan", ll: [32.4608, 35.2987], c: "w", s: "r", z: 8.5, t: "stad", d: "In deze richting vluchtte koning Ahazia van Juda voor Jehu (2 Koningen 9:27). De Statenvertaling vertaalt de naam: ‘het huis des hofs’, het tuinhuis.",
+    nu: "Jenin, Westelijke Jordaanoever", bron: "Tell Jenin (OpenBible, score 782); gangbare identificatie. De Statenvertaling leest hier geen plaatsnaam maar ‘het huis des hofs’." },
+  jh_jibleam: { n: "Jibleam", ll: [32.4462, 35.292], c: "v", s: "b", z: 8.5, t: "stad", d: "Stad van Manasse (Jozua 17:11). Vlakbij lag de opgang van Gur, waar Jehu koning Ahazia op zijn vlucht liet slaan (2 Koningen 9:27).",
+    nu: "Khirbet Belameh, bij Jenin (Westelijke Jordaanoever)", bron: "Khirbet Belameh (OpenBible, score 860); de naam bleef bewaard. De opgang van Gur wordt gezocht bij Khirbet en-Najjar, een halve kilometer verder (score 566), en staat niet apart op de kaart." },
+  jh_betheked: { n: "Beth-Eked", ll: [32.4697, 35.3563], c: "o", s: "r", z: 9, t: "put", d: "Plaats ‘op den weg’ van Jizreël naar Samaria. Hier kwam Jehu tweeënveertig broeders van koning Ahazia tegen; bij de put werden zij gedood (2 Koningen 10:12–14). Waar het lag, weten we niet zeker.",
+    nu: "misschien Beit Qad, bij Jenin (Westelijke Jordaanoever)", bron: "Onzeker. Meest genoemd: Beit Qad, ruim 5 km ten oosten van Jenin (OpenBible, score 380); ook Kafr Rai is voorgesteld (score 190). Het punt is illustratief." },
+  jh_basan: { n: "Basan", ll: [32.7811, 35.9347], c: "r", s: "r", z: 7.5, t: "gebied", d: "Hoogland ten oosten van het Meer van Galilea, eens het koninkrijk van Og (Deuteronomium 3:13). In de dagen van Jehu sloeg Hazaël Israël hier en in Gilead (2 Koningen 10:32–33).",
+    nu: "Zuid-Syrië en de Golan", bron: "Gebied; het punt is dat van OpenBible (Bashan)." },
+});
 //
 // [meer-reizen:asa] plaatsen
 //

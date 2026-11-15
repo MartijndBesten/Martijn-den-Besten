@@ -51,6 +51,7 @@ BR.dateringen = {
     "1koningen:scheuring": ["historie", false],
     //
     // [meer-reizen:jehu] datering
+    "2koningen:jehu": ["historie", false],
     //
     // [meer-reizen:asa] datering
     //
