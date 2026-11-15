@@ -45,6 +45,11 @@
   --land: #ede3cb; --berg: #8a7353; --groen: #cbd5ae; --halo: #f4ecda;
   --camel: #b27a3d; --camel-dark: #6e4520; --night: #13203d;
 
+  /* Thema Kerst (alleen in het thema en in het seizoen): avond en lamplicht, de toon van de avondtaferelen */
+  --kerst-nacht: #14213f; --kerst-nacht-2: #1b2b55; --kerst-schemer: #39407a;
+  --kerst-licht: #ecc978; --kerst-licht-zacht: #fbf0d6; --kerst-licht-diep: #7a5a12;
+  --kerst-ster: polygon(50% 0, 56% 38%, 68% 32%, 62% 44%, 100% 50%, 62% 56%, 68% 68%, 56% 62%, 50% 100%, 44% 62%, 32% 68%, 38% 56%, 0 50%, 38% 44%, 32% 32%, 44% 38%);
+
   --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -1043,6 +1048,142 @@ body[data-niveau="a"] #reizenBtn, body[data-niveau="a"] #plaatsenBtn { display: 
 .tl-sub[aria-current="true"] b { color: var(--nacht); }
 .olijst li.sub .orij { padding-left: 30px; }
 .pas-sub { margin-left: 12px; padding-left: 10px; border-left: 2px solid var(--lijn); }
+
+/* ===== Thema’s en het thema Kerst =====
+   Besluiten en regels: docs/bijbelreis-kerst/README.md. Drie lagen:
+   1. Thema’s staan apart van de Bijbelboeken (.themarij, .kthema, .tl-thema, .pas-themas): altijd.
+   2. In het seizoen (app.js zet body[data-seizoen="kerst"], van de eerste adventszondag tot en met 6 januari) staat het
+      thema bovenaan en is er één rustige ingang bovenaan Verhalen (.seizoen).
+   3. Het eigen uiterlijk (body[data-thema="kerst"]) staat alleen aan zolang je in het thema bent: avond en lamplicht,
+      in de toon van de avondtaferelen (k-avond, k-venster), met de ster als enige terugkerende teken. Geen kerstboom,
+      sneeuw, glitter of rood-groen. De kaart en de tekeningen houden hun eigen kleuren. */
+.kster { flex: none; width: 1em; height: 1em; fill: currentColor; }
+.themarij { display: flex; align-items: center; gap: 4px 10px; margin-top: 8px; min-width: 0; }
+.themarij .label { flex: none; }
+.themas { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+.boek.thema { flex: 0 1 auto; flex-direction: row; align-items: center; gap: 7px; min-height: 36px; padding: 5px 12px; text-align: left; line-height: 1.25; }
+.boek.thema .kster { font-size: 0.82rem; color: var(--oker-diep); }
+.kastthemas { display: flex; flex-direction: column; gap: 6px; }
+.kthema { display: flex; flex-direction: column; gap: 1px; text-align: left; padding: 7px 10px; border-radius: var(--r-klein); border: 1px solid color-mix(in srgb, var(--oker-diep) 45%, transparent); background: var(--oker-zacht); color: var(--fg); font: inherit; font-size: 0.88rem; cursor: pointer; }
+.kthema:hover { border-color: var(--oker-diep); }
+.kthema[aria-current="true"] { box-shadow: 0 0 0 2px var(--oker-diep); }
+.kthema b { display: flex; align-items: center; gap: 6px; font-weight: 650; }
+.kthema .kster { font-size: 0.8rem; color: var(--oker-diep); }
+.kthema small { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.03em; color: var(--fg-3); }
+.tl-thema { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; margin: 22px 0 8px; padding-top: 14px; border-top: 1px solid var(--lijn); font-size: 1.05rem; }
+.tl-thema .kster { align-self: center; font-size: 0.9rem; color: var(--oker-diep); }
+.tl-thema small { flex-basis: 100%; font-family: var(--font-sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0; color: var(--fg-3); }
+.pas-themas { margin: 12px 0 0; padding-top: 10px; border-top: 1px solid var(--lijn); }
+.pas-themas + .pasboek { border-top: 0; }
+
+/* In het seizoen: het thema vóór de Bijbelboeken, met het licht van de ster. */
+body[data-seizoen="kerst"] .kiezen > div:first-child { display: flex; flex-direction: column; min-width: 0; }
+body[data-seizoen="kerst"] .kiezen > div:first-child > * { flex: none; }
+body[data-seizoen="kerst"] .themarij { order: -1; margin: 0 0 10px; }
+body[data-seizoen="kerst"] .boek.thema[data-thema="kerst"], body[data-seizoen="kerst"] .kthema[data-thema="kerst"] { background: var(--kerst-nacht-2); border-color: var(--kerst-nacht-2); color: var(--kerst-licht-zacht); }
+body[data-seizoen="kerst"] .boek.thema[data-thema="kerst"] .kster, body[data-seizoen="kerst"] .kthema[data-thema="kerst"] .kster { color: var(--kerst-licht); }
+body[data-seizoen="kerst"] .kthema[data-thema="kerst"] small { color: color-mix(in srgb, var(--kerst-licht-zacht) 78%, var(--kerst-nacht-2)); }
+body[data-seizoen="kerst"] .boek.thema[data-thema="kerst"]:hover, body[data-seizoen="kerst"] .kthema[data-thema="kerst"]:hover { border-color: var(--kerst-licht); }
+body[data-seizoen="kerst"] .boek.thema[data-thema="kerst"][aria-pressed="true"] { border-color: var(--kerst-licht); box-shadow: inset 0 0 0 1px var(--kerst-licht); }
+body[data-seizoen="kerst"] .kthema[data-thema="kerst"][aria-current="true"] { box-shadow: 0 0 0 2px var(--kerst-licht-diep); }
+
+/* De ingang bovenaan Verhalen (alleen in het seizoen): een avondlucht met één ster, een heuvel met één verlicht venster. */
+.seizoen { flex: none; position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 18px; border-radius: var(--radius); color: #f6f1e4; box-shadow: var(--schaduw);
+  background:
+    radial-gradient(circle, #fff6de 0 0.9px, transparent 1.5px) 70% 13px / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.7px, transparent 1.3px) 78% 36px / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.9px, transparent 1.5px) 98% 60px / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.7px, transparent 1.3px) 84% 8px / 4px 4px no-repeat,
+    radial-gradient(circle at calc(100% - 37px) 33px, color-mix(in srgb, var(--kerst-licht) 30%, transparent) 0, transparent 64px),
+    radial-gradient(130% 70px at 78% calc(100% + 34px), #0c1530 0 70%, transparent 71%),
+    linear-gradient(180deg, var(--kerst-nacht) 0%, var(--kerst-nacht-2) 58%, var(--kerst-schemer) 100%); }
+.seizoen::before { content: ""; position: absolute; z-index: -1; right: 22px; top: 18px; width: 30px; height: 30px; background: var(--kerst-licht); clip-path: var(--kerst-ster); }
+.seizoen::after { content: ""; position: absolute; z-index: -1; right: 64px; bottom: 9px; width: 4px; height: 5px; border-radius: 1px; background: var(--kerst-licht); box-shadow: 0 0 8px 3px color-mix(in srgb, var(--kerst-licht) 45%, transparent); }
+.seizoen > * { margin: 0; }
+.sz-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--kerst-licht); }
+.sz-titel { font-size: 1.3rem; color: #fff; padding-right: 52px; }
+.sz-zin { max-width: 34em; padding-right: 8px; font-size: 0.96rem; line-height: 1.5; color: #e9e6dc; }
+.sz-stand { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.03em; color: var(--kerst-licht-zacht); }
+.btn.sz-knop { margin-top: 4px; min-height: 46px; background: var(--kerst-licht); border-color: var(--kerst-licht); color: var(--kerst-nacht); font-weight: 680; box-shadow: none; }
+.btn.sz-knop:hover:not(:disabled) { background: var(--kerst-licht-zacht); border-color: var(--kerst-licht-zacht); }
+.seizoen :focus-visible { outline-color: #fff; }
+
+/* Waar ben je in het thema: de delen op een rij, het deel van nu als lamp. Alleen in de intro van een deel. */
+.themapad { display: flex; flex-direction: column; gap: 9px; padding: 10px 12px 12px; border-radius: var(--r); background: linear-gradient(180deg, var(--kerst-nacht) 0%, var(--kerst-nacht-2) 100%); color: #fff; }
+.tp-kop { display: flex; align-items: center; gap: 7px; margin: 0; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--kerst-licht-zacht); }
+.tp-kop .kster { font-size: 12px; color: var(--kerst-licht); }
+.tp-kop b { font-weight: 700; color: #fff; }
+.tp-rij { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, auto); justify-content: space-between; gap: 4px 2px; }
+.tp-deel { width: 100%; min-height: 36px; display: flex; align-items: center; gap: 6px; padding: 3px 7px 3px 3px; border: 1px solid transparent; border-radius: 999px; background: none; color: #e3e6f0; font: inherit; font-size: 0.8rem; font-weight: 560; line-height: 1.2; text-align: left; cursor: pointer; }
+.tp-deel:hover { border-color: rgba(255, 255, 255, 0.4); }
+.tp-deel i { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-weight: 700; font-size: 12px; border: 1.5px solid rgba(255, 255, 255, 0.6); color: #fff; }
+.tp-deel.af i { background: rgba(255, 255, 255, 0.18); }
+.tp-deel span { min-width: 0; white-space: nowrap; }
+@media (max-width: 1180px) { .tp-deel span { white-space: normal; } }
+.tp-deel[aria-current="step"] { color: #fff; font-weight: 700; }
+.tp-deel[aria-current="step"] i { background: var(--kerst-licht); border-color: var(--kerst-licht); color: var(--kerst-nacht); box-shadow: 0 0 0 4px color-mix(in srgb, var(--kerst-licht) 26%, transparent); }
+.themapad :focus-visible { outline-color: #fff; }
+/* Na de laatste stap van het thema: een slotzin, en één bescheiden verwijzing naar een ander werk van dezelfde maker. */
+.themaslot { display: flex; align-items: flex-start; gap: 9px; margin: 0; padding: 11px 14px; border-radius: var(--r); background: linear-gradient(180deg, var(--kerst-nacht) 0%, var(--kerst-nacht-2) 100%); color: #f6f1e4; font-size: 0.95rem; line-height: 1.45; }
+.themaslot .kster { margin-top: 3px; font-size: 14px; color: var(--kerst-licht); }
+.ookvan { margin: 0; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.02em; line-height: 1.5; color: var(--fg-3); }
+.ookvan a { display: inline-block; padding: 4px 0; color: var(--fg-2); text-underline-offset: 3px; }
+.ookvan b { font-weight: 650; color: var(--fg); }
+
+/* Het eigen uiterlijk binnen het thema Kerst. */
+body[data-thema="kerst"] { --nacht: var(--kerst-nacht-2); --nacht-2: var(--kerst-nacht); }
+/* De kaart en de tekeningen houden hun eigen blauw: routes, bordjes en de avondlucht van de taferelen veranderen niet. */
+body[data-thema="kerst"] #map, body[data-thema="kerst"] .tf-svg { --nacht: #243d70; --nacht-2: #1b2f58; }
+body[data-thema="kerst"] .kop { box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--kerst-licht) 50%, transparent);
+  background:
+    radial-gradient(circle, #fff6de 0 0.8px, transparent 1.4px) var(--s1, 40% 14px) / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.6px, transparent 1.2px) var(--s2, 45% 42px) / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.8px, transparent 1.4px) var(--s3, 51% 24px) / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.6px, transparent 1.2px) var(--s4, 57% 48px) / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.8px, transparent 1.4px) var(--s5, 62% 12px) / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.6px, transparent 1.2px) var(--s6, 65% 36px) / 4px 4px no-repeat,
+    linear-gradient(180deg, var(--kerst-nacht) 0%, var(--kerst-nacht-2) 70%, var(--kerst-schemer) 135%); }
+body[data-thema="kerst"] .kop h1::after { content: ""; display: inline-block; width: 0.82em; height: 0.82em; margin-left: 0.4em; vertical-align: -0.02em; background: var(--kerst-licht); clip-path: var(--kerst-ster); animation: kerst-adem 7s ease-in-out infinite alternate; }
+@keyframes kerst-adem { from { opacity: 0.72; } to { opacity: 1; } }
+body[data-thema="kerst"] .btn.primary { color: var(--kerst-licht-zacht); }
+/* De stapkaart: een smalle strook avondlucht met sterren in plaats van de gekleurde rand, en lamplicht in de hoek. */
+body[data-thema="kerst"] .stapkaart { --strook: 9px; border-top: 0; padding-top: calc(18px + var(--strook));
+  background:
+    radial-gradient(circle, #fff6de 0 0.7px, transparent 1.2px) 6% 2px / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.7px, transparent 1.2px) 19% 4px / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.7px, transparent 1.2px) 33% 1px / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.7px, transparent 1.2px) 47% 4px / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.7px, transparent 1.2px) 58% 2px / 4px 4px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.7px, transparent 1.2px) 71% 4px / 4px 4px no-repeat,
+    radial-gradient(circle, var(--kerst-licht) 0 1.4px, transparent 2px) 86% 2px / 5px 5px no-repeat,
+    radial-gradient(circle, #fff6de 0 0.7px, transparent 1.2px) 95% 4px / 4px 4px no-repeat,
+    linear-gradient(var(--kerst-licht), var(--kerst-licht)) 0 var(--strook) / 100% 1px no-repeat,
+    linear-gradient(90deg, var(--kerst-nacht), var(--kerst-nacht-2) 60%, var(--kerst-schemer)) 0 0 / 100% var(--strook) no-repeat,
+    radial-gradient(85% 220px at 0 0, color-mix(in srgb, var(--kerst-licht) 17%, var(--wit)) 0, transparent 100%),
+    var(--card); }
+body[data-thema="kerst"] #sTitle { color: var(--kerst-nacht-2); }
+body[data-thema="kerst"] .crumb .kster { align-self: center; font-size: 13px; color: var(--oker); }
+body[data-thema="kerst"] .mapbar .where::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px; background: var(--oker); clip-path: var(--kerst-ster); }
+body[data-thema="kerst"] .mapbar { box-shadow: var(--schaduw-kaart), inset 0 2px 0 var(--kerst-nacht-2); }
+@media (max-width: 900px) {
+  /* Keuzeblad: de thema’s als eigen groep onder de Bijbelboeken, in het seizoen bovenaan. */
+  #kiesLade .themarij { order: 4; flex-direction: column; align-items: stretch; gap: 8px; margin: 10px 0 0; }
+  #kiesLade .themas { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 6px; }
+  #kiesLade .boek.thema { min-height: 46px; justify-content: flex-start; grid-column: 1 / -1; }
+  #kiesLade .overz { order: 5; }
+  body[data-seizoen="kerst"] #kiesLade .themarij { order: 0; margin: 0 0 12px; }
+  /* In de intro staat ‘waar ben je’ onder de tekst (de kiesregel zegt al ‘deel 3 van 6’): titel en tekst blijven in beeld. */
+  #sThema { order: 8; } #sSlot { order: 18; } #sOok { order: 19; }
+  .tp-rij { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px 4px; }
+  .tp-deel { min-height: 50px; flex-direction: column; justify-content: center; gap: 3px; padding: 4px 2px; border-radius: var(--r-klein); text-align: center; font-size: 0.8rem; }
+  body[data-thema="kerst"] .stapkaart { padding-top: calc(12px + var(--strook)); }
+  body[data-thema="kerst"] .kiesregel { background: color-mix(in srgb, var(--kerst-licht) 14%, var(--wit)); border-color: color-mix(in srgb, var(--kerst-nacht-2) 28%, transparent); }
+  body[data-thema="kerst"] .kiesregel .kster { width: 14px; height: 14px; color: var(--oker-diep); }
+  body[data-thema="kerst"] .kop { --s1: 72% 12px; --s2: 79% 34px; --s3: 86% 16px; --s4: 91% 40px; --s5: 96% 10px; --s6: 67% 42px; }
+  body[data-thema="kerst"] .mapbar { box-shadow: 0 -6px 16px -12px rgba(31, 36, 48, 0.4); border-top-color: var(--kerst-nacht-2); }
+  .sz-titel { font-size: 1.2rem; }
+}
+@media (prefers-reduced-motion: reduce) { body[data-thema="kerst"] .kop h1::after { animation: none; } }
 
 /* ===== Taferelen: getekende, licht bewegende beelden bij een stap of geschiedenis =====
    Motor en tekeningen: taferelen*.js; regels en tekenafspraken: docs/bijbelreis-taferelen/README.md.

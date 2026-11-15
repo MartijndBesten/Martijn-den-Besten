@@ -113,6 +113,7 @@
 
 
         <div class="welkom" id="welkom" hidden></div>
+        <section class="seizoen" id="seizoen" aria-labelledby="szTitel" hidden></section>
 
         <section id="p-verhalen" role="tabpanel" aria-labelledby="t-verhalen" class="stack" hidden></section>
 
@@ -121,6 +122,7 @@
           <div>
             <div class="rowhead"><p class="label">Bijbelboek</p><span class="overz"><button type="button" class="linkbtn" id="kastBtn" aria-haspopup="dialog">Alle 66 boeken</button><button type="button" class="linkbtn" id="reizenBtn" aria-haspopup="dialog">Alle reizen</button><button type="button" class="linkbtn" id="plaatsenBtn" aria-haspopup="dialog">Alle plaatsen</button><button type="button" class="linkbtn" id="vandaagLijstBtn" aria-haspopup="dialog">Vandaag</button></span></div>
             <div class="boeken" id="boeken" role="group" aria-label="Kies een bijbelboek"></div>
+            <div class="themarij" id="themaRij"><p class="label" id="themaLabel">Thema’s</p><div class="themas" id="themas" role="group" aria-labelledby="themaLabel"></div></div>
           </div>
           <div>
             <p class="label" id="delenLabel">Deel<span class="dl-boek"></span></p>
@@ -131,6 +133,7 @@
             <nav class="crumb" id="sCrumb" aria-label="Waar ben je"></nav>
             <button type="button" class="kiesregel" id="kiesBtn" aria-haspopup="dialog" aria-controls="kiesLade"></button>
             <p class="terughoofd" id="sTerug" hidden></p>
+            <nav class="themapad" id="sThema" aria-label="De delen van dit thema" hidden></nav>
             <div class="prog" id="sProg" aria-hidden="true"><div></div></div>
             <div class="top"><b id="sRef"></b><span id="sKm"></span></div>
             <h2 id="sTitle"></h2>
@@ -151,6 +154,8 @@
             </div>
             <div class="fact" id="sFact"></div>
             <div class="afstand" id="sVer" hidden></div>
+            <p class="themaslot" id="sSlot" hidden></p>
+            <p class="ookvan" id="sOok" hidden></p>
             <div class="navrow">
               <button type="button" class="btn" id="prev2">◀ Terug</button>
               <button type="button" class="btn primary" id="next2">Verder ▶</button>
@@ -335,6 +340,7 @@
     <script src="/bijbelreis/taferelen-koppeling-jakob.js"></script>
     <script src="/bijbelreis/taferelen-kerst.js"></script>
     <script src="/bijbelreis/taferelen-koppeling-kerst.js"></script>
+    <script src="/bijbelreis/seizoen.js"></script>
     <script src="/bijbelreis/app.js"></script>
   </body>
 </html>
