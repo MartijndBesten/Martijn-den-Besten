@@ -318,7 +318,7 @@
         { "t": "De koning wordt heel bedroefd. Maar hij heeft het gezworen, en zijn gasten hebben het gehoord." },
         { "t": "Dan laat hij Johannes doden in de gevangenis. De discipelen van Johannes leggen hem in een graf.", "stap": "jezus-2:nt-brood-en-berg:0" }
       ],
-      "samen": "Dit is een verdrietige geschiedenis: Johannes wordt gedood. Markus vertelt dat het meisje vroeg om ‘het hoofd van Johannes den Doper’, op een schotel (Markus 6:24–25); bij A staat dat in eenvoudiger woorden. De naam van de dochter staat niet in de Bijbel. Je kunt samen bespreken wat Johannes tegen Herodes had gezegd (Markus 6:18), en dat hij dat zei, ook al was Herodes de koning.",
+      "samen": "Dit is een verdrietige geschiedenis: Johannes wordt gedood. Markus vertelt dat het meisje vroeg om ‘het hoofd van Johannes den Doper’, op een schotel (Markus 6:24–25); bij A staat dat in eenvoudiger woorden. Je kunt samen bespreken wat Johannes tegen Herodes had gezegd (Markus 6:18), en dat hij dat zei, ook al was Herodes de koning.",
       "vragen": [
         { "q": "Waar zit Johannes de Doper?", "a": ["In de gevangenis", "In de woestijn"], "why": "Markus 6:17" },
         { "q": "Wie danst er op het feest?", "a": ["De dochter van Herodias", "Herodias zelf"], "why": "Markus 6:22" },
@@ -369,7 +369,7 @@
         { "t": "Daarna halen de discipelen de stukken op die over zijn. Ze vullen er twaalf manden mee!" },
         { "t": "De mensen willen de Heere Jezus koning maken. Maar Hij gaat alleen de berg op." }
       ],
-      "samen": "Johannes vertelt niet dat de jongen zijn eten zelf naar de Heere Jezus bracht; Andreas wijst hem alleen aan (Johannes 6:8–9). De vijfduizend zijn alleen de mannen; Mattheüs zegt erbij: ‘zonder de vrouwen en kinderen’ (Mattheüs 14:21). Bij A is weggelaten dat de Heere Jezus de volgende dag zegt: ‘Ik ben het Brood des levens’ (Johannes 6:35). Vraag samen: hoeveel bleef er over toen iedereen gegeten had?",
+      "samen": "De vijfduizend zijn alleen de mannen; Mattheüs zegt erbij: ‘zonder de vrouwen en kinderen’ (Mattheüs 14:21). Bij A is weggelaten dat de Heere Jezus de volgende dag zegt: ‘Ik ben het Brood des levens’ (Johannes 6:35). Vraag samen: hoeveel bleef er over toen iedereen gegeten had?",
       "vragen": [
         { "q": "Wat heeft de jongen bij zich?", "a": ["Vijf broden en twee visjes", "Twee broden en vijf visjes"], "why": "Johannes 6:9" },
         { "q": "Hoeveel manden met stukken blijven er over?", "a": ["Twaalf", "Eén"], "why": "Johannes 6:13" },
@@ -379,9 +379,9 @@
     "b": {
       "status": "gecontroleerd",
       "delen": [
-        { "kop": "Een grote menigte", "stap": "jezus-2:nt-brood-en-berg:1", "t": "De Heere Jezus gaat over de zee van Galilea, die ook de zee van Tiberias heet. Een grote menigte volgt Hem, omdat ze de tekenen gezien hebben: de wonderen die Hij bij de zieken deed. Het is kort voor het Pascha, het feest van de Joden. Hij gaat met Zijn discipelen op een berg zitten." },
+        { "kop": "Een grote menigte", "stap": "jezus-2:nt-brood-en-berg:1", "t": "De Heere Jezus gaat over de zee van Galilea. Een grote menigte volgt Hem, omdat ze de tekenen gezien hebben: de wonderen die Hij bij de zieken deed. Het is kort voor het Pascha, het feest van de Joden. Hij gaat met Zijn discipelen op een berg zitten." },
         { "kop": "Vijf broden en twee visjes", "t": "Hij vraagt Filippus: ‘Van waar zullen wij broden kopen, opdat deze eten mogen?’ Hij wil Filippus op de proef stellen, want Hij weet Zelf al wat Hij gaat doen. Filippus rekent: zelfs voor tweehonderd penningen brood is het niet genoeg. Andreas wijst op een jongen met vijf gerstebroden en twee visjes, ‘maar wat zijn deze onder zo velen?’" },
-        { "kop": "Twaalf korven over", "t": "Ongeveer vijfduizend mannen gaan zitten in het gras. De Heere Jezus dankt en laat brood en vis uitdelen, zoveel als ze willen. Daarna worden de brokken verzameld, ‘opdat er niets verloren ga’. Ze vullen twaalf korven. De mensen zeggen: ‘Deze is waarlijk de Profeet, Die in de wereld komen zou.’ Ze willen Hem met geweld koning maken, maar Hij gaat alleen de berg op." }
+        { "kop": "Twaalf korven over", "t": "Ongeveer vijfduizend mannen gaan zitten in het gras. De Heere Jezus dankt en laat brood en vis uitdelen, zoveel als ze willen. Daarna worden de brokken verzameld, ‘opdat er niets verloren ga’. Ze vullen twaalf korven. De mensen zeggen: ‘Deze is waarlijk de Profeet, Die in de wereld komen zou.’ Dat is de Profeet die Mozes had beloofd. Ze willen Hem met geweld koning maken, maar Hij gaat alleen de berg op." }
       ],
       "vragen": [
         { "q": "Waarom stelde de Heere Jezus Filippus de vraag over brood?", "a": ["Om hem op de proef te stellen", "Omdat Hij zelf niet wist wat te doen", "Omdat Filippus het geld bewaarde"], "why": "Johannes 6:5–6" },
@@ -393,7 +393,7 @@
     "c": {
       "status": "gecontroleerd",
       "verdieping": [
-        { "kop": "Elders in de Bijbel", "t": "De vraag aan Filippus lijkt op wat Mozes in de woestijn vroeg: ‘Van waar zou ik het vlees hebben, om al dit volk te geven?’ (Numeri 11:13). De mensen noemen de Heere Jezus ‘de Profeet, Die in de wereld komen zou’. Veel uitleggers zien daarin een verwijzing naar de belofte van Mozes: ‘Een Profeet, uit het midden van u, uit uw broederen, als mij, zal u de HEERE, uw God, verwekken’ (Deuteronomium 18:15). De volgende dag zegt de Heere Jezus dat ze Hem zoeken ‘omdat gij van de broden gegeten hebt, en verzadigd zijt’ (Johannes 6:26).", "refs": ["Numeri 11:13", "Deuteronomium 18:15", "Johannes 6:14", "Johannes 6:26"] },
+        { "kop": "Elders in de Bijbel", "t": "De vraag aan Filippus lijkt op wat Mozes in de woestijn vroeg: ‘Van waar zou ik het vlees hebben, om al dit volk te geven?’ (Numeri 11:13). De mensen noemen de Heere Jezus ‘de Profeet, Die in de wereld komen zou’: de Profeet die Mozes had beloofd: ‘Een Profeet, uit het midden van u, uit uw broederen, als mij, zal u de HEERE, uw God, verwekken’ (Deuteronomium 18:15). De volgende dag zegt de Heere Jezus dat ze Hem zoeken ‘omdat gij van de broden gegeten hebt, en verzadigd zijt’ (Johannes 6:26).", "refs": ["Numeri 11:13", "Deuteronomium 18:15", "Johannes 6:14", "Johannes 6:26"] },
         { "kop": "Vier evangeliën", "t": "Behalve de opstanding is dit het enige wonder dat alle vier de evangeliën vertellen (Mattheüs 14:13–21; Markus 6:30–44; Lukas 9:10–17). Alleen Johannes noemt Filippus, Andreas en de jongen met de gerstebroden. Markus vertelt dat de mensen gingen zitten ‘bij honderd te zamen, en bij vijftig te zamen’ (Markus 6:40). Mattheüs en Markus vertellen dat de Heere Jezus ‘innerlijk met ontferming’ over de schare bewogen werd (Mattheüs 14:14; Markus 6:34).", "refs": ["Mattheüs 14:13–21", "Markus 6:30–44", "Lukas 9:10–17"] },
         { "kop": "Waar en wanneer", "t": "Johannes noemt geen stad of dorp, alleen ‘de zee van Galilea, welke is de zee van Tiberias’ en een berg. Lukas noemt de stad Bethsaïda (Lukas 9:10); waar die plaats precies lag, is betwist. Het Pascha was nabij (Johannes 6:4). Dat is waarschijnlijk een jaar vóór het Pascha waarop de Heere Jezus stierf (Johannes 11:55). Wie de kruisiging ca. 30 n.Chr. stelt, komt op ca. 29; wie 33 n.Chr. aanhoudt, op ca. 32.", "refs": ["Johannes 6:1–4", "Lukas 9:10", "Johannes 11:55"] }
       ],
