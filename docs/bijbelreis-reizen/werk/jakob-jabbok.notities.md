@@ -19,6 +19,16 @@ gewijzigd (stappen 5 en 6 vertellen hetzelfde in het kort). Controle: `scripts/b
 | 7 | Genesis 32:27–29 | Een nieuwe naam: Israël | Israël | Pniël, zoom 13 |
 | 8 | Genesis 32:30–32 | Pniël: de zon gaat op | Pniël | Pniël, zoom 12 |
 | 9 | Genesis 33:1–4 | De ontmoeting met Ezau | Ezau | Ezau komt van het zuiden (bruin), zoom 12 |
+| 10 | Genesis 33:5–11 | Als het aangezicht van God | Aangezicht | Pniël, zoom 12 (toegevoegd 15-11-2026) |
+| 11 | Genesis 33:12–20 | Sukkoth en Sichem: een altaar | Altaar | Ezau terug naar Seïr (bruin, zelfde tussenpunten als de boden); Jakob Pniël → Sukkoth → Sichem (teal), beide `recon: 1` (toegevoegd 15-11-2026) |
+
+**Herziening 15-11-2026.** Op opdracht van Martijn (Jakob: vertrek, belofte, terugkeer, worsteling, ontmoeting) is het
+deel uitgebreid tot Genesis 32–33 (`ref`), met de stappen 10 en 11 achteraan (sleutels `genesis:jakob-jabbok:10` en
+`:11`; de tekenaar koppelt er taferelen aan). Het deel heeft nu `bij: "jakob"`, een veld `denk` met vier
+reflectievragen, twee extra meerkeuzevragen (33:10, 33:16–17), een kaartvraag (Sukkoth) en twee extra reizen. Uitleg is
+voortaan als uitleg benoemd: zie de uitzondering in `docs/bijbelreis-uitleg/README.md` §7 en
+`jakob.verantwoording.md`. De tabel ‘Meeverteld zonder aparte vermelding’ hieronder geldt daarom niet meer voor stap 6:
+wie de Man is, staat nu in stap 7 als uitleg.
 
 Kleur van het deel: `teal` (Jakob is `lila`, Jozef `koraal`). Geschenk en boden: `grijs`; Ezau: `bruin`, zoals in het deel Jakob.
 
@@ -70,7 +80,7 @@ Waar de tekst iets openlaat en er een algemeen aanvaarde uitleg is, staat die al
 | --- | --- | --- |
 | 0, 2, 8 (onthul) | Mahanaïm betekent “twee legers” | de tekst zelf: ‘heirleger’ (32:2) en ‘twee heiren’ (32:7, 10), in het Hebreeuws hetzelfde woord; zo in de gangbare naslagwerken en verklaringen |
 | 2 | ‘twee heiren’ is hetzelfde woord als in de naam Mahanaïm | Hebreeuws *machaneh* / *machanayim* |
-| 6 | de Man is de Engel van de HEERE, de Zoon van God, in de gedaante van een man | Genesis 32:30 (‘ik heb God gezien’), Hosea 12:4–5 (‘den Engel’); de gereformeerde uitleg (kanttekeningen bij de Statenvertaling, Calvijn, Matthew Henry); de HSV schrijft ‘een Man’ met hoofdletter |
+| ~~6~~ | ~~de Man is de Engel van de HEERE, de Zoon van God~~ — vervallen 15-11-2026: staat nu in stap 7 als uitleg benoemd (“Dit is uitleg: veel christelijke uitleggers, ook de kanttekeningen …”) | kanttekeningen Genesis 32:24 (dbnl, nagekeken 15-11-2026); Calvijn: “God himself”; Henry laat het open |
 | 7, 8 (onthul) | Israël betekent “strijder met God” of “vorst van God” | de reden in 32:28 (‘vorstelijk gedragen met God’) en Hosea 12:4; de twee gangbare weergaven, zoals ook in het deel Jakob |
 | 8, 8 (onthul) | Pniël betekent “aangezicht van God” | de tekst zelf (32:30); zo ook in `plaatsen.js` |
 | 5 | de elf kinderen zijn de elf zonen; Dina is er niet bij geteld | 29:31–30:24 en 35:16–18: bij de Jabbok waren er elf zonen en één dochter |
@@ -81,9 +91,9 @@ gedragen met de mensen’ precies betekent, aan welke kant van de Jabbok Jakob w
 
 ## Twijfelpunten
 
-- **Kanttekeningen bij de Statenvertaling** waren online niet als tekst te raadplegen (de geraadpleegde sites tonen de
-  kanttekeningen bij Genesis 32 niet). De uitleg van stap 6 rust daarom op de tekst zelf (32:30; Hosea 12:4–5) en op de
-  gereformeerde uitlegtraditie zoals de coördinator die aangaf; een menselijke redacteur kan dit naast de kanttekeningen leggen.
+- **Kanttekeningen bij de Statenvertaling**: op 15-11-2026 wel geraadpleegd via dbnl.org (tekst 1637). Bij 32:24: “D. de
+  Sone Gods, die sich in een menschelick lichaem hier vertoonde; gelijckmen afnemen kan uyt vers 28. en de 30.” Zie
+  `jakob.verantwoording.md`.
 - **‘een man’ / ‘een Man’**: de controletekst (Statenvertaling 1888) heeft ‘een man’ in kleine letter; de tekst in de app
   schrijft ‘een Man’ (zoals de HSV), alleen buiten aanhalingstekens.
 - **Datering**: ca. 1909 v.Chr. volgt rekenkundig uit de bestaande delen; de Bijbel zegt niet hoe lang de reis van Gilead
@@ -93,3 +103,6 @@ gedragen met de mensen’ precies betekent, aan welke kant van de Jabbok Jakob w
 - **Speurtocht**: de kaartvragen liggen dicht bij elkaar (Mahanaïm en Pniël een halve kilometer); een tik op de ene
   telt ook voor de andere. Dat is bewust zo gelaten: het gaat om het gebied van de Jabbok.
 - In stap 4 wordt in `txt` alleen “honderden dieren” genoemd; de getallen staan in het onthulspel en het weetje.
+- **Genesis 33:14** (‘totdat ik bij mijn heer te Seir kome’): Jakob gaat daarna naar Sukkoth en Sichem (33:17–18). De
+  tekst vertelt dat zonder het uit te leggen; het deel doet dat ook niet.
+- **Waar Ezau en Jakob elkaar ontmoetten** (33:1–16) zegt de tekst niet; stap 10 staat, net als stap 9, op Pniël.

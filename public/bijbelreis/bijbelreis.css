@@ -1132,6 +1132,9 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
 @keyframes tf-hink-weg { from { translate: -66px 0; } }
 @keyframes tf-hink-stap { 0%, 60%, 100% { transform: none; } 32% { transform: translateY(1px) rotate(7deg); } }
 @keyframes tf-buig { 0%, 100% { transform: none; } 50% { transform: rotate(64deg); } }
+.tf-svg .tf-l-adem { animation: tf-adem 7s ease-in-out infinite alternate; } /* licht wordt heel traag zachter en weer voller, zonder te bewegen (Betel) */
+@keyframes tf-adem { from { opacity: 0.4; } }
+.tf-svg .vaag { opacity: 0.6; } .tf-svg .vaag2 { opacity: 0.34; } .tf-svg .vaag3 { opacity: 0.14; } /* steeds vager: het bovenste van de ladder bij Bethel lost op in de sterrenhemel */
 .tf-svg .tf-w1 { animation-delay: 0.45s; } .tf-svg .tf-w2 { animation-delay: 0.9s; } .tf-svg .tf-w3 { animation-delay: 1.35s; }
 .tf-svg .tf-w4 { animation-delay: 1.8s; } .tf-svg .tf-w5 { animation-delay: 2.25s; } .tf-svg .tf-w6 { animation-delay: 2.7s; }
 .tf-svg .tf-w7 { animation-delay: 3.15s; } .tf-svg .tf-w8 { animation-delay: 3.6s; } .tf-svg .tf-w9 { animation-delay: 4.05s; }

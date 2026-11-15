@@ -47,15 +47,15 @@ Schrijf in de **tegenwoordige tijd**, zoals de bestaande vertellingen ("Mozes st
 
 ## 2. Bijbeltekst, uitleg, interpretatie en overlevering
 
-Maak altijd duidelijk wat wat is.
+Sinds 15-11-2026 geldt het besluit ‘de gangbare uitleg hoort bij het verhaal’: zie [`../bijbelreis-uitleg/README.md`](../bijbelreis-uitleg/README.md). De tabel hieronder is daarop aangepast.
 
 | Soort | Hoe schrijf je het |
 |---|---|
 | **Bijbeltekst** | Letterlijk citaat tussen ‘ en ’ (Nederlandse enkele aanhalingstekens), exact zoals in de Statenvertaling in de invoer, inclusief spelling (‘HEERE’, ‘den’, ‘zult’). Een citaat mag ingekort worden met … ertussen. Het controlescript vergelijkt elk citaat met de Statenvertaling. |
 | **Navertelling** | Gewone tekst die precies volgt wat de Bijbel zegt, in eigen woorden. Geen dialogen, gevoelens, namen of details die niet in de tekst staan. Een gevoel mag alleen als de tekst het noemt of als het onmiskenbaar is ("het volk is bang", Exodus 14:10). |
-| **Uitleg** | Een verklaring van een woord of een verband. Zeg erbij als het een uitleg is: "Dat betekent…", "Hiddekel en Frath worden meestal uitgelegd als…". |
-| **Interpretatie** | Iets waarover uitleggers verschillen: zeg dat ook. "Veel uitleggers zien hierin…", "Uitleggers verschillen over…". Kies geen kant in theologisch omstreden kwesties. |
-| **Overlevering** | Wat uit traditie of prentenboeken komt, benoem je als zodanig: "De os en de ezel komen uit de traditie, niet uit Lukas 2." Nooit als feit vertellen. |
+| **Uitleg** | Een verklaring van een woord, een naam, een gebruik of een verband. Is de uitleg algemeen aanvaard onder gereformeerde uitleggers, dan vertel je haar gewoon mee als deel van het verhaal, zonder erbij te zeggen dat het uitleg is. Zie [`../bijbelreis-uitleg/README.md`](../bijbelreis-uitleg/README.md). |
+| **Interpretatie** | Iets waarover uitleggers echt verschillen: vertel alleen wat de tekst zegt. Kies geen kant en zeg ook niet dat men verschilt. |
+| **Overlevering** | Wat uit traditie of prentenboeken komt (os en ezel, drie koningen), blijft weg. Nooit als feit vertellen, en ook niet noemen om het te weerleggen. |
 
 Verder:
 - **Verzin niets.** Geen namen voor naamloze personen (de vrouw van Lot, de farao), geen aantallen, geen leeftijden, geen kleuren, geen uitgewerkte gesprekken. Weet je iets niet zeker uit de invoer: laat het weg.
@@ -128,7 +128,7 @@ Per versie:
    - klopt elke bewering met de Statenvertaling uit de invoer?
    - staat er niets in wat de tekst niet zegt (namen, aantallen, gevoelens, dialogen, motieven)?
    - is de volgorde juist?
-2. **Onderscheid**: zijn uitleg, interpretatie en overlevering als zodanig benoemd?
+2. **Uitleg**: is alleen algemeen aanvaarde uitleg meeverteld, zonder voorbehoud en zonder overlevering? Zie `../bijbelreis-uitleg/README.md`.
 3. **Moeilijke onderwerpen**: past de behandeling bij §3, en heeft A een passende `samen`-tip?
 4. **Leeftijd**:
    - A te begrijpen voor een kind van 5 als het wordt voorgelezen;
