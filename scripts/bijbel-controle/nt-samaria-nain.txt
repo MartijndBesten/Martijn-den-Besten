@@ -143,3 +143,9 @@ Lukas 7:13 | Ween niet
 # --- Plaats sn_gerizim ---
 Deuteronomium 27:12 | om het volk te zegenen op den berg Gerizim
 Johannes 4:20 | Onze vaders hebben op dezen berg aangebeden
+# --- Redactie (tweede lezer): gewijzigde beweringen ---
+Johannes 4:20 | gijlieden zegt, dat te Jeruzalem de plaats is, waar men moet aanbidden
+Johannes 4:20 | Onze vaders hebben op dezen berg aangebeden
+Johannes 4:21 | noch op dezen berg, noch te Jeruzalem
+Deuteronomium 11:29 | den zegen uitspreken op den berg Gerizim
+Jozua 24:32 | begroeven ook de beenderen van Jozef.*te Sichem, in dat stuk velds, hetwelk Jakob gekocht had
