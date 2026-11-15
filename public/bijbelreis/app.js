@@ -479,6 +479,15 @@
     document.body.style.setProperty("--rc", color(deel.c));
     document.querySelectorAll(".deel").forEach((b) => b.setAttribute("aria-pressed", b.dataset.deel === deel.id));
     document.querySelectorAll(".boek").forEach((b) => b.setAttribute("aria-pressed", b.dataset.boek === boek.id));
+    toonGekozen("boeken"); toonGekozen("delen");
+  }
+  // De rij met boeken en de rij met delen schuiven opzij. Staat het gekozen boek of deel buiten beeld (bijvoorbeeld na
+  // een diepe link als #brieven), dan schuift de rij ernaartoe. Alleen de rij zelf schuift, de pagina niet.
+  function toonGekozen(id) {
+    const el = $(id), b = el && el.querySelector('[aria-pressed="true"]');
+    if (!b) return;
+    const r = b.getBoundingClientRect(), e = el.getBoundingClientRect();
+    if (e.width && (r.left < e.left || r.right > e.right)) el.scrollLeft += r.left - e.left - (e.width - r.width) / 2;
   }
   function chooseBoek(b, d, step = -1, opts) {
     boek = b; d = d || b.delen[0];
@@ -588,7 +597,7 @@
     $("boeken").innerHTML = BOEKEN.map((b) => `<button type="button" class="boek" data-boek="${b.id}" aria-pressed="${b === boek}">${esc(b.n)}<small>${esc(boekTijd(b))}</small></button>`).join("");
   }
   function renderDelen() {
-    $("delen").innerHTML = boek.delen.map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.ref.split(/;|,/)[0].replace(/^(\d\s)?[^\d\s]+\s/, ""))}</small></button>`).join("");
+    $("delen").innerHTML = boek.delen.map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.refKort || d.ref.split(/;|,/)[0].replace(/^(\d\s)?[^\d\s]+\s/, ""))}</small></button>`).join("");
   }
   $("boeken").addEventListener("click", (e) => { const b = e.target.closest(".boek"); if (b) chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek)); });
   $("delen").addEventListener("click", (e) => { const b = e.target.closest(".deel"); if (b) chooseDeel(boek.delen.find((x) => x.id === b.dataset.deel)); });
