@@ -1031,7 +1031,7 @@
       return;
     }
     const done = G.filter((g) => verhaalStore[g.nr]).length;
-    box.innerHTML = `<h2>150 <em>geschiedenissen</em></h2>
+    box.innerHTML = `<h2>${G.length} <em>geschiedenissen</em></h2>
       <p class="ref">Van de schepping tot Openbaring. Kies een geschiedenis, of zoek op Bijbelboek, persoon, plaats of thema.${done ? ` Je hebt er ${done} gelezen.` : " Je kunt ook gewoon bij 1 beginnen en steeds ‘Volgende’ kiezen."}</p>
       <label class="label" for="vZoek">Zoeken</label>
       <input type="search" id="vZoek" placeholder="Bijvoorbeeld: Jozef, Jericho, Lukas, gebed" value="${esc(vZoek)}" autocomplete="off">
@@ -1116,7 +1116,7 @@
         : blok("Meer weten", [g.betekenis ? `<h4>Uitleg</h4><p>${esc(g.betekenis)}</p>` : "", k ? `<h4>Kernwoord: ${esc(k.n)}</h4><p>${esc(k.uitleg)}</p>` : "", steps.length ? `<h4>Volg het op de kaart</h4>${golist}` : "", (g.cross || []).length ? `<h4>Elders in de Bijbel</h4>${xrefList(g.cross.slice(0, 2))}` : ""].join(""), false, " meer");
       box.innerHTML = `${crumb}
       <article class="card verhaal" aria-labelledby="vTitel">
-        <div class="top"><b>Geschiedenis ${nr} van 150</b><span>${esc(VORM[g.vorm] || "")}</span></div>
+        <div class="top"><b>Geschiedenis ${nr}</b><span>${esc(VORM[g.vorm] || "")}</span></div>
         <h2 id="vTitel">${esc(g.t)}</h2>
         <p class="tijd"><span>${esc(g.ref)}</span></p>
         ${wanneer}
@@ -1897,8 +1897,8 @@
     const n = ALLPARTS.reduce((a, d) => a + d.steps.filter((s) => seen.has(s.key)).length, 0);
     $("pasText").textContent = n === total ? `Alle ${total} stempels! Jij hebt de hele reis gemaakt.` : `Je hebt ${n} van de ${total} stempels. Ga verder met de reis om ze allemaal te verzamelen.`;
     const nV = Object.values(verhaalStore).filter((v) => v.q != null).length, nG = Object.keys(verhaalStore).length;
-    $("vPasText").textContent = nG ? `${nG} van de 150 geschiedenissen gelezen, ${nV} gestempeld (vragen gemaakt).` : "Lees een geschiedenis bij ‘Verhalen’ en maak de vragen om een stempel te krijgen.";
-    $("vGrid").innerHTML = Array.from({ length: 150 }, (_, i) => { const nr = i + 1, v = verhaalStore[nr], g = GBYNR.get(nr); return `<button type="button" class="vcel${v && v.q != null ? " klaar" : v ? " gezien" : ""}" ${g ? `data-v="${nr}"` : "disabled"} aria-label="Geschiedenis ${nr}${g ? ": " + esc(g.t) : " (nog niet beschikbaar)"}${v && v.q != null ? ", gestempeld" : v ? ", gelezen" : ""}">${nr}</button>`; }).join("");
+    $("vPasText").textContent = nG ? `${nG} van de ${G.length} geschiedenissen gelezen, ${nV} gestempeld (vragen gemaakt).` : "Lees een geschiedenis bij ‘Verhalen’ en maak de vragen om een stempel te krijgen.";
+    $("vGrid").innerHTML = Array.from({ length: G.length }, (_, i) => { const nr = i + 1, v = verhaalStore[nr], g = GBYNR.get(nr); return `<button type="button" class="vcel${v && v.q != null ? " klaar" : v ? " gezien" : ""}" ${g ? `data-v="${nr}"` : "disabled"} aria-label="Geschiedenis ${nr}${g ? ": " + esc(g.t) : " (nog niet beschikbaar)"}${v && v.q != null ? ", gestempeld" : v ? ", gelezen" : ""}">${nr}</button>`; }).join("");
     // Beste scores van alle niveaus; een speurtocht over hetzelfde deel telt één keer mee.
     const bests = [], gedaan = new Set();
     BOEKEN.forEach((b) => [["alles", "alles uit " + b.n]].concat(b.delen.map((d) => [d.id, d.n])).forEach(([id, nm]) => NIVS.forEach((n) => {
@@ -1907,7 +1907,7 @@
     })));
     $("bestText").textContent = bests.length ? "Beste scores speurtocht: " + bests.join(" · ") : "Je hebt de speurtocht nog niet gedaan.";
     const pct = (x, t) => `<div class="prog" aria-hidden="true"><div style="width:${t ? ((x / t) * 100).toFixed(1) : 0}%"></div></div>`;
-    $("pasStats").innerHTML = `<div><b>${fmt(n)}</b><span>van ${fmt(total)} reisstempels</span>${pct(n, total)}</div><div><b>${nV}</b><span>van 150 geschiedenissen gestempeld</span>${pct(nV, 150)}</div><div><b>${gedaan.size}</b><span>${gedaan.size === 1 ? "speurtocht gedaan" : "speurtochten gedaan"}</span></div>`;
+    $("pasStats").innerHTML = `<div><b>${fmt(n)}</b><span>van ${fmt(total)} reisstempels</span>${pct(n, total)}</div><div><b>${nV}</b><span>van ${G.length} geschiedenissen gestempeld</span>${pct(nV, 150)}</div><div><b>${gedaan.size}</b><span>${gedaan.size === 1 ? "speurtocht gedaan" : "speurtochten gedaan"}</span></div>`;
     // Samen ontdekken: dezelfde stempels (niets per niveau, niets dubbel), maar eenvoudiger: twee getallen, de verhalen
     // die je al gelezen hebt, en de stempelbladen dicht.
     if (niveau === "a") {

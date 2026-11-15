@@ -65,7 +65,7 @@ test("een heel boek, een geschiedenis en een bereik van stappen", async ({ page 
   expect(await page.evaluate(() => BR.boekjePagina.pakket.dias.filter((d: { s: string }) => d.s === "stap").length)).toBe(nJona);
 
   await open(page, "#v26&niveau=b");
-  await expect(dia(page).locator(".bk-kop")).toHaveText("Geschiedenis 26 van 150");
+  await expect(dia(page).locator(".bk-kop")).toHaveText("Geschiedenis 26");
   await expect(dia(page).locator(".bk-titel")).toHaveText("Droog door de Schelfzee");
   await page.keyboard.press("ArrowRight");
   const b = await page.evaluate(() => BR.niveaus.verhalen[26].b.delen[0]);
