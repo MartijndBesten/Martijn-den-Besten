@@ -590,6 +590,20 @@ Object.assign(BR.plaatsen, {
 });
 //
 // [meer-reizen:nt-paulus2] plaatsen
+// Handelingen 17:1–18:22. Ligging volgens OpenBible.info Bible Geocoding Data (CC BY 4.0), november 2026. Sleutels beginnen met p2_.
+Object.assign(BR.plaatsen, {
+  p2_amfipolis: { n: "Amfipolis", ll: [40.8202, 23.8472], c: "v", s: "t", z: 8, t: "stad", d: "Stad in Macedonië, bij de monding van de rivier de Strymon. Paulus en Silas namen hun weg door deze stad naar Thessalonica (Handelingen 17:1).",
+    nu: "Amfipoli, Griekenland", bron: "Opgegraven stad Amphipolis (OpenBible 1000, punt in zichtbare resten)." },
+  p2_apollonia: { n: "Apollonia", ll: [40.6237, 23.4697], c: "w", s: "b", z: 8.5, t: "stad", d: "Stad in Macedonië, tussen Amfipolis en Thessalonica (Handelingen 17:1). Waar zij precies lag, is niet helemaal zeker; het punt staat ten zuiden van het Volvimeer.",
+    nu: "bij Nea Apollonia, Griekenland", bron: "Apollonia in Mygdonië, ten zuiden van het Volvimeer (OpenBible 1000 voor de identificatie; Pleiades 491526). OpenBible geeft een nauwkeurigheid van 5 km: de precieze plek is niet duidelijk. Daarom ‘waarschijnlijk’." },
+  p2_areopagus: { n: "Areopagus", ll: [37.9722, 23.7236], c: "v", s: "l", z: 10, t: "berg", d: "Rotsheuvel in Athene, vlak bij de Akropolis. De naam betekent: heuvel van Ares; ook de raad van Athene heette zo. Hier, of voor die raad, verkondigde Paulus de God Die de wereld gemaakt heeft (Handelingen 17:19–24).",
+    nu: "Areopagus (Areios Pagos), Athene, Griekenland", bron: "Heuvel Areios Pagos naast de Akropolis (OpenBible 1000, punt in zichtbare resten). De heuvel staat vast; of Paulus op de heuvel zelf sprak of voor de raad die zo heette (mogelijk bij de markt), is niet zeker." },
+});
+// Tussenpunten voor de routes van Handelingen 17–18: op zee of langs de weg; geen plaatsen uit de tekst.
+Object.assign(BR.W, {
+  p2_pydnakust: [40.395, 22.61], p2_thermaisch: [39.9, 23.0], p2_kafireus: [38.02, 24.66], p2_sounion: [37.57, 23.95], p2_piraeus: [37.93, 23.62],
+  p2_isthmus: [37.93, 22.98], p2_saronisch: [37.82, 23.5], p2_cycladen: [37.36, 25.55], p2_samosstraat: [37.69, 27.0], p2_cyprus_zuid: [34.4, 33.2],
+});
 //
 // [meer-reizen:nt-paulus3] plaatsen
 //
