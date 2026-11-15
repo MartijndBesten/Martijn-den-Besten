@@ -19,7 +19,7 @@ BR.dateringen = {
   },
   // [soort, onzeker?]
   delen: {
-    "genesis:abraham": ["bijbel", true], "genesis:izak": ["bijbel", true], "genesis:jakob": ["bijbel", true], "genesis:jozef": ["bijbel", true],
+    "genesis:ur-kanaan": ["bijbel", true], "genesis:abraham": ["bijbel", true], "genesis:izak": ["bijbel", true], "genesis:jakob": ["bijbel", true], "genesis:jozef": ["bijbel", true],
     "exodus:mozes": ["bijbel", true], "exodus:uittocht": ["bijbel", true], "exodus:sinai": ["bijbel", true], "leviticus:verzoendag": ["bijbel", true],
     "numeri:woestijn": ["bijbel", true], "numeri:moab": ["bijbel", true], "jozua:intocht": ["bijbel", true], "jozua:land": ["bijbel", true],
     "richteren:debora": ["bijbel", true], "richteren:simson": ["bijbel", true], "ruth:ruth": ["bijbel", true],

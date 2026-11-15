@@ -1424,6 +1424,8 @@
     $("p-quiz").querySelectorAll("[data-q]").forEach((b) => (b.onclick = () => { qPart = b.dataset.q; samenSpeur(); }));
     $("qGo").onclick = () => {
       Q = shuffle(verhalenIn(delenVan(qPart)).flatMap((g) => ((versie(g, "a") || {}).vragen || []).map((x) => ({ t: "mc", ...x })))).slice(0, 6);
+      // Een deel zonder eigen verhalen (een losse reis): de vragen van de reis zelf, met twee antwoorden.
+      if (!Q.length) Q = shuffle(delenVan(qPart).flatMap((d) => quizOf(d).mc || [])).slice(0, 6).map((x) => ({ t: "mc", ...x, a: x.a.slice(0, 2) }));
       if (!Q.length) { $("p-quiz").innerHTML = "<div class='card'><p>Voor deze verhalen zijn nog geen vragen.</p></div>"; return; }
       quizKey = speurSleutel("a", boek.id, qPart); qi = 0; score = 0; ask();
     };
