@@ -21,6 +21,7 @@ Dit bestand is de overdracht: wie verder werkt (Claude, Codex of een mens) begin
 | Deel-id | Boek in de app | Bijbelgedeelte |
 | --- | --- | --- |
 | `ur-kanaan` | Genesis | Genesis 11:27–12:5 (losse, uitgebreide route; apart gepubliceerd) |
+| `jakob-jabbok` | Genesis | Genesis 32 (vers voor vers, ingezoomd op de Jabbok; met een tafereel per stap) |
 | `kies-het-leven` | Numeri en Deuteronomium | Deuteronomium 30:11–20 (losse, uitgebreide route; apart gepubliceerd) |
 | `stammen` | Jozua | Jozua 13–22 |
 | `ehud-jefta` | Richteren | Richteren 3:7–31; 10:6–12:7 |

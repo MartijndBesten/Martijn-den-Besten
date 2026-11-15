@@ -12,6 +12,8 @@ motor onderhoudt. Wie alleen wil zien wat er is: open `docs/bijbelreis-taferelen
 | `public/bijbelreis/taferelen-koppeling-ot-2.js` | De koppelingen van die tweede reeks; wordt ná `taferelen-koppeling.js` geladen en voegt toe |
 | `public/bijbelreis/taferelen-nt.js` | Eigen taferelen bij het Nieuwe Testament |
 | `public/bijbelreis/taferelen-koppeling-nt.js` | De koppelingen van het Nieuwe Testament; wordt ná `taferelen-koppeling.js` geladen en voegt toe |
+| `public/bijbelreis/taferelen-jakob.js` | Beeldverhaal bij Genesis 32: tien taferelen in één doorlopend landschap, met eigen bouwstenen (het dal van de Jabbok, mensen als pictogram, Jakob, kudden) |
+| `public/bijbelreis/taferelen-koppeling-jakob.js` | De koppelingen daarvan aan `genesis:jakob-jabbok:0` tot en met `9`; wordt als laatste koppeling geladen |
 | `public/bijbelreis/taferelen-koppeling.js` | Welke stap welk beeld krijgt (`BR.beelden`) en afwijkende soorten per plaats (`BR.beeldSoort`) |
 | `public/bijbelreis/taferelen-koppeling-nt.js` | De koppelingen voor het Nieuwe Testament (voegt toe aan `BR.beelden`; een latere sleutel gaat vóór een eerdere) |
 | `public/bijbelreis/bijbelreis.css` | Onderaan: opmaak, kleurklassen en beweging van de taferelen |
@@ -43,8 +45,9 @@ Deze regels zijn hard. Twijfel je, teken het dan niet en zet het bij de vragen i
    Nachtblauw alleen waar de tekst nacht zegt (de Schelfzee).
 6. **Techniek.** Alleen SVG-vormen en CSS-animaties. Geen script, geen afbeeldingen, geen lettertypen, geen
    verwijzingen naar buiten, geen `style`-attribuut. Een tafereel blijft liefst onder de 4000 tekens; de test staat
-   hooguit 6000 toe. Alle tekenbestanden samen (zonder de koppelingen) blijven onder 130 kB (nu 72 kB; de grens was 60 kB bij de
+   hooguit 6000 toe. Alle tekenbestanden samen (zonder de koppelingen) blijven onder 130 kB (nu 124 kB; de grens was 60 kB bij de
    eerste reeks van 31 kB en is verruimd voor de tweede reeks van het Oude Testament en de reeks van het Nieuwe Testament).
+   Er is nog 6 kB ruimte: een volgende reeks vraagt een besluit over de grens of over lichter tekenen.
 
 Een algemeen beeld is geen foto van die plaats. Daarom staat onder elk standaardbeeld ‘Algemene tekening’ en zegt de
 zin eronder wat je ziet (‘Zo zag een stad er toen vaak uit’), niet hoe het daar precies was.
@@ -118,6 +121,9 @@ af op hele of halve eenheden.
 | `dik`, `breed`, `boog` | lijndikte 2,4 · 5 · 3,2 |
 | `steen` (+ `s2`) | een rij tichelstenen als gestreepte lijn |
 | `korrel` (+ `s2`) | een rij witte korrels als gestippelde lijn (manna) |
+| `oever` | een groene rand om een vlak (de beek met groen langs het water, in één pad) |
+| `k-morgen` | doorschijnend rood: het eerste morgenlicht aan de rand van de nachtlucht |
+| `menigte` (+ `m2`, `kop`) | een rij mensen in de verte als gestreepte lijn: lijven in zand of (`m2`) terra, met `kop` de hoofden erboven |
 | `rand` | lijndikte 6,8: een donkere lijn (`l-hout2 rand`) ónder een brede lijn (`breed`) geeft die lijn een omlijning (de slang, de stang) |
 
 Een stip (een ster, een vonk) is een lijntje zonder lengte: `<path class="l-licht" d="M30 14h.1"/>`.
@@ -155,6 +161,10 @@ dat houdt de stijl gelijk en het bestand klein. Een onderdeel dat je twee keer n
 | `tf-e-rijs` | begint 18 lager en stijgt naar zijn plaats: de zon, de wolk (eenmalig) |
 | `tf-e-kom` | begint 90 naar links en komt naar zijn plaats: de ster (eenmalig) |
 | `tf-e-beef` | schudt kort, voor een aardbeving; zet het op de groep om het hele beeld (eenmalig) |
+| `tf-e-kom-r` | begint 90 naar rechts en komt naar zijn plaats: wie van de overkant komt (eenmalig) |
+| `tf-e-trek` | een stoet komt in twaalf seconden van links het beeld in (begint 300 naar links; eenmalig) |
+| `tf-e-hink` | komt hinkend van links: zes keer een slingerende stap, dan staat hij stil (eenmalig) |
+| `tf-e-buig` | buigt zeven keer voorover en staat dan recht (Genesis 33:3; eenmalig) |
 | `tf-w1` … `tf-w9` | wacht 0,45 s per stap voordat de beweging begint |
 
 Regels bij beweging:
@@ -323,6 +333,52 @@ Keuzes in deze reeks, voor wie verder tekent:
 - **Wat de tekst niet zegt, staat er niet**: geen os en ezel, geen aantal wijzen, geen kamelen, geen herdersstaf, geen
   maan boven de hof. Op de kandelaren staat wel een vlam: de tekst noemt die niet, maar een kandelaar draagt licht.
 
+### Beeldverhaal bij Genesis 32 (`taferelen-jakob.js`)
+
+Op verzoek van de eigenaar is Genesis 32 (met 33:1–4) in detail uitgebeeld: elke stap van het deel `genesis:jakob-jabbok`
+(‘Jakob bij de Jabbok’) heeft een eigen tafereel, zodat het hoofdstuk als een beeldverhaal in tien beelden te volgen is.
+Het deel zelf wordt op een andere tak geschreven; tot het er is, doen de koppelingen niets.
+
+| Stap | Id | Wat je ziet | Wat beweegt | Tekst |
+|---|---|---|---|---|
+| 0 | `jabbok-mahanaim` | de stoet over de weg door Gilead: Jakob voorop, kamelen, vrouwen en kinderen, schapen; de weg vóór Jakob is leeg | de stoet komt van links aan | Genesis 32:1–2 |
+| 1 | `jabbok-boden` | het kamp op de linkeroever; drie boden komen van de overkant terug, Jakob wacht | de boden komen van rechts | 32:3–6 |
+| 2 | `jabbok-heiren` | Jakob in het midden, het kamp in twee groepen met tenten, mensen, kameel, runderen en schapen | de groepen wijken uit elkaar | 32:7–8 |
+| 3 | `jabbok-gebed` | Jakob knielt alleen bij de beek, de twee kampen verderop | rook, de beek | 32:9–12 |
+| 4 | `jabbok-geschenk` | vijf kudden achter elkaar met ruimte ertussen, elk met een knecht: geiten, schapen, kamelen met veulens, runderen, ezels; Jakob blijft bij het kamp | de kudden trekken een voor een over het veer | 32:13–21 |
+| 5 | `jabbok-veer` | nacht; het gezin trekt door het veer: twee vrouwen (oker), twee dienstmaagden (groen), elf kinderen; Jakob blijft op de linkeroever | het gezin trekt naar de overkant | 32:22–23 |
+| 6 | `jabbok-nacht` | diepe nacht; Jakob helemaal alleen bij de eik, de overkant leeg | twee sterren, de beek | 32:24–26 |
+| 7 | `jabbok-dageraad` | nog nacht in het dal; achter de kloof komt het eerste licht op, Jakob knielt | het licht rijst, de sterren verbleken | 32:26–29 |
+| 8 | `jabbok-pniel` | de zon boven de kloof; Jakob aan de overkant, leunend op zijn staf | de zon komt op, het wordt dag, Jakob hinkt het beeld in | 32:30–31 |
+| 9 | `jabbok-ezau` | dag aan de overkant; het gezin in drie groepen, de menigte van Ezau, Jakob en Ezau (in het rood) samen | Jakob buigt zeven keer; Ezau loopt naar hem toe en slaat zijn arm om hem heen | 33:1–4 |
+
+Keuzes in deze reeks:
+
+- **Eén landschap.** Elk tafereel kijkt door een eigen venster naar hetzelfde dal (de bouwsteen `dal`): links de ronde
+  berg, in het midden de kloof waar de Jabbok uit komt, rechts de vlakke berg, de eik bij het veer, de grijze rots aan
+  de overkant. Het verhaal loopt van links (het kamp) naar rechts (de overkant, waar Ezau vandaan komt). Dag (0–4),
+  nacht (5–7), ochtend (8), dag (9).
+- **De Man en de engelen zijn niet getekend.** Niet als figuur, silhouet, hand of licht in mensvorm. Bij Mahanaïm is
+  de weg vóór Jakob leeg; bij de worsteling staat Jakob alleen in de nacht; daarna doen de dageraad en de opgaande zon
+  het werk. Een test bewaakt dat geen label de Man, God, een engel of de worsteling noemt.
+- **Mensen** zijn pictogrammen zonder gezicht: een lang kleed en een rond hoofd; een vrouw heeft een doek over het
+  hoofd. Jakob is herkenbaar aan zijn staf (32:10), zijn witte kleed en blauwe hoofddoek. Hij **knielt** bij stap 3 en 7:
+  dat staat niet in de tekst, maar laat zien dat hij bidt (vergelijk Hosea 12:5: ‘hij weende en smeekte Hem’).
+- **Aantallen**: twee heiren; twee vrouwen, twee dienstmaagden en elf kinderen (in stap 0, 5 en 9; een test telt ze);
+  zeven keer buigen. Het geschenk toont de **soorten in de volgorde** van 32:14–15, niet de aantallen: drie of vier dieren
+  per kudde. De vierhonderd man zijn een menigte in rijen die buiten het beeld doorloopt, niet telbaar. Bij stap 9 staan
+  de dienstmaagden vooraan (bij Jakob), Lea in het midden, Rachel achteraan (33:2); welk kind bij wie hoort, is niet uitgewerkt.
+- **Bij Ezau** (33:4: ‘nam hem in den arm, en viel hem aan den hals, en kuste hem; en zij weenden’) staan twee kleine
+  figuren tegen elkaar, met één arm; geen kus en geen tranen te zien.
+
+Wat een mens moet beoordelen:
+
+- Of Jakob als figuur mag (de opdracht stond het toe, klein en zonder gezicht), en of de knielende houding bij het
+  gebed en de dageraad passend is.
+- Of de dageraad (stap 7) op deze manier niet als ‘licht van God’ gelezen wordt: het is het gewone morgenlicht achter de
+  bergen, dat in stap 8 de zon wordt.
+- Of de menigte van Ezau dreigend genoeg (32:7: ‘toen vreesde Jakob zeer’) of juist te dreigend oogt.
+
 ## 7. Wat nog getekend moet worden
 
 Eerst de plekken die nu **geen** beeld hebben omdat het standaardbeeld daar iets zou tonen wat de Bijbel niet zegt
@@ -373,3 +429,7 @@ Dan de taferelen uit de opdracht:
   duidelijker zijn. Het afgebroken achterschip bij `malta-schip` lijkt op een tweede bootje. De
   wilde vijgenboom is een grote boom met vijgen, geen botanisch juiste sycomoor. De regen op Malta beweegt niet.
 - De nachtbeelden zijn onder de sluier grijsblauw; de huizen van Bethlehem zouden iets warmer mogen.
+- Genesis 32: de figuren zijn op telefoonbreedte heel klein (ongeveer 8 bij 16 beeldpunten); Jakob is te herkennen aan
+  wit en staf, de vrouwen en kinderen vooral als groep. Het gezin bij het veer staat ‘in’ het water zonder dat je ziet
+  dat ze waden. De omhelzing bij Ezau is klein en leest pas groot goed. Het morgenrood bij de dageraad is een paar
+  vlakke banden. Het geschenk is het zwaarste tafereel van de reeks (4,8 kB).

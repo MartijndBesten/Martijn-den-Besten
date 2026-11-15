@@ -1,0 +1,107 @@
+# Controle deel Jakob bij de Jabbok (public/bijbelreis/inhoud/genesis.js, deel jakob-jabbok): ref | regex (Statenvertaling, hoofdletterongevoelig)
+# SV-spelling: Mahanaim, Seir, kemels/kemelinnen, heiren, Pnuël/Penuël (Richteren 8; 1 Koningen 12:25).
+# --- deel: tijdNoot, intro, stat, cross
+Genesis 31:41 | Ik ben nu twintig jaren in uw huis geweest; ik heb u veertien jaren gediend om uw beide dochteren, en zes jaren om uw kudde
+Genesis 30:25 | dat Rachel Jozef gebaard had, dat Jakob tot Laban zeide: Laat mij vertrekken
+Genesis 47:9 | honderd en dertig jaren
+Genesis 41:46 | Jozef nu was dertig jaren oud
+Genesis 45:6 | twee jaren des hongers
+Genesis 32:6 | vierhonderd mannen met hem
+Genesis 32:20 | aangezicht.*aangezicht.*aangezicht.*aangezicht
+Genesis 32:3 | voor zijn aangezicht
+Genesis 32:16 | voor mijn aangezicht
+Genesis 32:17 | voor uw aangezicht
+Genesis 32:21 | voor zijn aangezicht
+Genesis 32:20 | Ik zal zijn aangezicht verzoenen met dit geschenk
+Genesis 32:30 | ik heb God gezien van aangezicht tot aangezicht
+Hosea 12:4 | in zijn kracht gedroeg hij zich vorstelijk met God
+Hosea 12:5 | hij gedroeg zich vorstelijk tegen den Engel, en overmocht Hem; hij weende en smeekte Hem
+Genesis 35:9 | God verscheen Jakob wederom
+Genesis 35:10 | uw naam zal voortaan niet Jakob genoemd worden, maar Israël zal uw naam zijn
+Genesis 35:15 | Beth-el
+Genesis 28:14 | uw zaad zal wezen als het stof der aarde
+Genesis 28:15 | Ik zal u wederbrengen in dit land
+Genesis 28:19 | Beth-el
+Genesis 31:3 | Keer weder tot het land uwer vaderen, en tot uw maagschap, en Ik zal met u zijn
+Genesis 27:41 | ik zal mijn broeder Jakob doden
+Genesis 27:43 | vlied gij naar Haran, tot Laban
+Genesis 33:10 | neem mijn geschenk van mijn hand; daarom, omdat ik uw aangezicht gezien heb, als had ik Gods aangezicht gezien
+2 Samuël 17:24 | David nu kwam te Mahanaim, en Absalom toog over de Jordaan
+# --- stap 0: Genesis 32:1–2
+Genesis 32:1 | Jakob toog ook zijns weegs; en de engelen Gods ontmoetten hem
+Genesis 32:2 | met dat hij hen zag: Dit is een heirleger Gods! en hij noemde den naam derzelver plaats Mahanaim
+Genesis 31:25 | op het gebergte van Gilead
+Genesis 31:54 | vernachtten op dat gebergte
+Genesis 31:55 | Laban trok heen, en keerde weder tot zijn plaats
+Genesis 28:12 | hij droomde; en ziet, een ladder.*de engelen Gods klommen daarbij op en neder
+# --- stap 1: Genesis 32:3–6
+Genesis 32:3 | Jakob zond boden uit voor zijn aangezicht tot Ezau, zijn broeder, naar het land Seir, de landstreek van Edom
+Genesis 32:4 | tot mijn heer, tot Ezau: Zo zegt Jakob, uw knecht: Ik heb als vreemdeling gewoond bij Laban, en heb er tot nu toe vertoefd
+Genesis 32:5 | ik heb ossen en ezelen, schapen en knechten en maagden
+Genesis 32:5 | opdat ik genade vinde in uw ogen
+Genesis 32:6 | de boden kwamen weder tot Jakob, zeggende: Wij zijn gekomen tot uw broeder, tot Ezau; en ook trekt hij u tegemoet, en vierhonderd mannen met hem
+Genesis 36:8 | woonde Ezau op het gebergte Seir. Ezau is Edom
+# --- stap 2: Genesis 32:7–8
+Genesis 32:7 | Toen vreesde Jakob zeer, en hem was bange
+Genesis 32:7 | hij verdeelde het volk, dat met hem was, en de schapen, en de runderen, en de kemels, in twee heiren
+Genesis 32:8 | Ezau op het ene heir komt, en slaat het, zo zal het overgeblevene heir ontkomen
+Genesis 27:35 | Uw broeder is gekomen met bedrog, en heeft uw zegen weggenomen
+Genesis 28:10 | ging naar Haran
+# --- stap 3: Genesis 32:9–12
+Genesis 32:9 | O, God mijns vaders Abrahams, en God mijns vaders Izaks, o HEERE
+Genesis 32:9 | Keer weder tot uw land, en tot uw maagschap, en Ik zal wel bij u doen
+Genesis 32:10 | Ik ben geringer dan al deze weldadigheden, en dan al deze trouw, die Gij aan Uw knecht gedaan hebt
+Genesis 32:10 | ik ben met mijn staf over deze Jordaan gegaan, en nu ben ik tot twee heiren geworden
+Genesis 32:11 | Ruk mij toch uit mijns broeders hand
+Genesis 32:11 | ik vreze hem, dat hij niet misschien kome, en mij sla, de moeder met de zonen
+Genesis 32:12 | Gij hebt immers gezegd: Ik zal gewisselijk bij u weldoen, en Ik zal uw zaad stellen als het zand der zee, dat vanwege de menigte niet geteld kan worden
+# --- stap 4: Genesis 32:13–21
+Genesis 32:13 | hij vernachtte aldaar dienzelfden nacht; en hij nam van hetgeen, dat hem in zijn hand kwam, een geschenk voor Ezau zijn broeder
+Genesis 32:14 | Tweehonderd geiten en twintig bokken, tweehonderd ooien en twintig rammen
+Genesis 32:15 | Dertig zogende kemelinnen met haar veulens, veertig koeien en tien varren, twintig ezelinnen en tien jonge ezels
+Genesis 32:16 | in de hand zijner knechten, elke kudde bijzonder
+Genesis 32:16 | Gaat gijlieden door, voor mijn aangezicht, en stelt ruimte tussen kudde en tussen kudde
+Genesis 32:17 | Wiens zijt gij\? en waarheen gaat gij\? en wiens zijn deze voor uw aangezicht
+Genesis 32:18 | Dat is een geschenk van uw knecht Jakob, gezonden tot mijn heer, tot Ezau, en zie, hij zelf is ook achter ons
+Genesis 32:19 | ook den tweede, ook den derde, ook allen, die de kudden nagingen
+Genesis 32:21 | Alzo ging dat geschenk heen voor zijn aangezicht; doch hij zelf vernachtte dienzelfden nacht in het leger
+# --- stap 5: Genesis 32:22–23
+Genesis 32:22 | hij stond op in dienzelfden nacht, en hij nam zijn twee vrouwen, en zijn twee dienstmaagden, en zijn elf kinderen, en hij toog over het veer van de Jabbok
+Genesis 32:23 | deed hen over die beek trekken; en hij deed overtrekken hetgeen hij had
+Genesis 29:24 | Zilpa, zijn dienstmaagd, aan Lea
+Genesis 29:29 | Rachel zijn dienstmaagd Bilha
+Genesis 30:21 | een dochter; en zij noemde haar naam Dina
+Genesis 30:24 | zij noemde zijn naam Jozef
+Genesis 35:18 | zijn vader noemde hem Benjamin
+# --- stap 6: Genesis 32:24–26
+Genesis 32:24 | Doch Jakob bleef alleen over; en een man worstelde met hem, totdat de dageraad opging
+Genesis 32:25 | toen Hij zag, dat Hij hem niet overmocht, roerde Hij het gewricht zijner heup aan, zodat het gewricht van Jakobs heup verwrongen werd, als Hij met hem worstelde
+Genesis 32:26 | Laat Mij gaan, want de dageraad is opgegaan
+Genesis 32:26 | Ik zal U niet laten gaan, tenzij dat Gij mij zegent
+# --- stap 7: Genesis 32:27–29
+Genesis 32:27 | Hoe is uw naam\? En hij zeide: Jakob
+Genesis 32:28 | Uw naam zal voortaan niet Jakob heten, maar Israël; want gij hebt u vorstelijk gedragen met God en met de mensen, en hebt overmocht
+Genesis 32:29 | Geef toch Uw naam te kennen
+Genesis 32:29 | Waarom is het, dat gij naar Mijn naam vraagt\? En Hij zegende hem aldaar
+Genesis 25:26 | wiens hand Ezau.?s verzenen hield; daarom noemde men zijn naam Jakob
+# --- stap 8: Genesis 32:30–32
+Genesis 32:30 | Jakob noemde den naam dier plaats Pniël
+Genesis 32:30 | ik heb God gezien van aangezicht tot aangezicht, en mijn ziel is gered geweest
+Genesis 32:31 | de zon rees hem op, als hij door Pniël gegaan was; en hij was hinkende aan zijn heup
+Genesis 32:32 | Daarom eten de kinderen Israëls de verrukte zenuw niet, die op het gewricht der heup is, tot op dezen dag
+Genesis 32:32 | omdat Hij het gewricht van Jakobs heup aangeroerd had, aan de verrukte zenuw
+Richteren 8:17 | den toren van Pnuël wierp hij af
+1 Koningen 12:25 | Jerobeam.*bouwde Penuël
+# --- stap 9: Genesis 33:1–4
+Genesis 33:1 | Jakob hief zijn ogen op en zag; en ziet, Ezau kwam, en vierhonderd mannen met hem
+Genesis 33:1 | verdeelde hij de kinderen onder Lea, en onder Rachel, en onder de twee dienstmaagden
+Genesis 33:2 | de dienstmaagden en haar kinderen vooraan; en Lea en haar kinderen meer achterwaarts; maar Rachel en Jozef de achterste
+Genesis 33:3 | hij ging voorbij hun aangezicht heen, en hij boog zich zeven malen ter aarde, totdat hij bij zijn broeder kwam
+Genesis 33:4 | Toen liep Ezau hem tegemoet, en nam hem in den arm, en viel hem aan den hals, en kuste hem; en zij weenden
+Genesis 33:11 | hij hield bij hem aan, zodat hij het nam
+Genesis 33:16 | keerde Ezau dien dag wederom zijns weegs naar Seir toe
+Genesis 33:17 | Jakob reisde naar Sukkoth
+Genesis 33:18 | Jakob kwam behouden tot de stad Sichem
+# --- speurtocht (elk goed antwoord staat ook hierboven)
+Genesis 32:14 | Tweehonderd geiten
+Genesis 32:10 | met mijn staf
