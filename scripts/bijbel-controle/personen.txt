@@ -1532,3 +1532,6 @@ Jeremia 26:18 | Micha, de Morastiet, heeft in de dagen van Hizkia
 Jeremia 26:17 | oudsten des lands
 Mattheüs 2:4 | waar de Christus zou geboren worden
 Mattheüs 2:5 | Te Bethlehem, in Judea gelegen; want alzo is geschreven door den profeet
+# --- Kerst B (inhoud/kerst-2.js): Augustus en Cyrenius
+Lukas 2:1 | een gebod uitging van den Keizer Augustus, dat de gehele wereld beschreven zou worden
+Lukas 2:2 | Deze eerste beschrijving geschiedde, als Cyrenius over Syri. stadhouder was

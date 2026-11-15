@@ -48,6 +48,7 @@ BR.dateringen = {
     "brieven:brieven": ["historie", true], // brieven zonder jaartal; ijkpunten: Gallio (Handelingen 18:12) en de overlevering over Nero
     "kerst:kerst-belofte": ["bijbel", true], // Kerst A: begint zonder jaartal (Genesis 5 en 11); vanaf Abraham als bij Genesis, tot de zalving van David
     "kerst:kerst-koningen": ["historie", true], // Kerst A: David tot Jozef; de eeuwen na Zerubbabel zonder jaren
+    "kerst:kerst-aankondiging": ["historie", true], "kerst:kerst-geboorte": ["historie", true], // Kerst B: vóór de dood van Herodes (Lukas 1:5; Mattheüs 2:1)
   },
   // Geschiedenissen per reeks: [van, tot, soort, onzeker?]
   verhalen: [

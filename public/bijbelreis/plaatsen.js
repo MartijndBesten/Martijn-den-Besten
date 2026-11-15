@@ -836,3 +836,13 @@ Object.assign(BR.plaatsen, {
   ka_moreseth: { n: "Moreseth", ll: [31.6334, 34.9166], c: "w", s: "l", z: 8.5, t: "stad", d: "De woonplaats van de profeet Micha, ‘den Morastiet’ (Micha 1:1). In Micha 1:14 heet de plaats Moreseth-Gath. Hij lag in het heuvelland van Juda, ten westen van Bethlehem.",
     nu: "Tel Goded (Tell ej-Judeideh), Israël", bron: "OpenBible: Moresheth-gath, beste identificatie Tel Goded (score 467); geen serieuze tegenkandidaat (Tel Zayit 43). Gangbare identificatie, niet zeker." },
 });
+
+// Kerst B (inhoud/kerst-2.js): de aankondiging en de geboorte in Bethlehem.
+// Lukas 2:8 noemt geen plaats (‘in diezelfde landstreek’): een gebied, geen punt. Het midden ligt ten oosten van Bethlehem, waar
+// OpenBible.info (CC BY 4.0) bij Eder/Migdal-Eder (Genesis 35:21) Khirbet Siyar el-Ghanam geeft (score 632).
+Object.assign(BR.plaatsen, {
+  kb_herdersveld: { n: "Velden bij Bethlehem", ll: [31.7073, 35.2301], c: "r", s: "c", z: 10.5, t: "gebied",
+    d: "In de velden bij Bethlehem hielden herders ’s nachts de wacht bij hun kudde, toen een engel hun vertelde dat de Zaligmaker geboren was (Lukas 2:8–11). Ook David weidde hier de schapen van zijn vader (1 Samuël 17:15).",
+    nu: "Omgeving van Beit Sahour, Westelijke Jordaanoever",
+    bron: "Gebied: Lukas 2:8 zegt ‘in diezelfde landstreek’. Midden illustratief ten oosten van Bethlehem (Khirbet Siyar el-Ghanam; OpenBible bij Eder, Genesis 35:21, score 632)." },
+});
