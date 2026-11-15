@@ -3,6 +3,7 @@
 
 import { isVotableId } from "../shared/museum";
 import { validateIdea, LIMITS } from "../shared/validation";
+import { verwijstDoor } from "../shared/bijbelreis";
 
 export interface Env {
   DB: D1Database;
@@ -266,6 +267,8 @@ export default {
   async fetch(request, env, ctx): Promise<Response> {
     const url = new URL(request.url);
     if (url.pathname.startsWith("/api/")) return handleApi(request, env, ctx);
+    // De Bijbelreis heeft een eigen adres (shared/bijbelreis.ts): het oude pad toont de verhuispagina.
+    if (verwijstDoor(url.hostname, url.pathname)) return env.ASSETS.fetch(new Request(new URL("/bijbelreis-verhuisd", url), request));
     return env.ASSETS.fetch(request);
   },
 } satisfies ExportedHandler<Env>;

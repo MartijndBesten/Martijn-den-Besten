@@ -1,4 +1,4 @@
-/* Bijbelreis 3.1 — een ontdekkingsatlas. Afdeling van het Instituut Martijn den Besten.
+/* Bijbelreis — een ontdekkingsatlas (bijbelreis.nl). Gemaakt door Denckh.
    Ontwerp: warm papier en gebroken wit voor inhoud, nachtblauw alleen voor kop, navigatie en de hoofdknop,
    een atlaskaart met zandkleurig land en licht water, routes in aardse kleuren met terracotta als hoofdkleur.
    Lay-out: desktop kaart links en reisboek rechts onder één kopbalk; telefoon kop, kaart, inhoud en een vaste onderbalk.
@@ -70,10 +70,7 @@ button { font: inherit; }
 .skip-link:focus { top: 12px; }
 
 /* ===== Kop met titel en de zes onderdelen ===== */
-.kop { flex: none; background: var(--nacht); color: #fff; display: grid; grid-template-columns: auto minmax(0, 1fr) 470px; align-items: center; gap: 4px 16px; min-height: var(--kop-h); padding: 0 0 0 max(14px, env(safe-area-inset-left, 0px)); position: relative; z-index: 1300; }
-.kop-terug { display: inline-flex; align-items: center; gap: 4px; text-decoration: none; color: rgba(255, 255, 255, 0.78); font-size: 0.82rem; font-weight: 550; padding: 8px 10px 8px 4px; border-radius: var(--r-klein); white-space: nowrap; }
-.kop-terug:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
-.kop-terug svg { width: 18px; height: 18px; }
+.kop { flex: none; background: var(--nacht); color: #fff; display: grid; grid-template-columns: minmax(0, 1fr) 470px; align-items: center; gap: 4px 16px; min-height: var(--kop-h); padding: 0 0 0 max(18px, env(safe-area-inset-left, 0px)); position: relative; z-index: 1300; }
 .kop-titel { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .kop-kameel { flex: none; width: 40px; height: 34px; }
 .kop h1 { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -466,6 +463,10 @@ details.parents dt { font-weight: 650; color: var(--fg); }
 details.parents dd { margin: 0; }
 .colofon { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.03em; color: var(--fg-3); }
 .colofon a { color: var(--fg-2); }
+/* Makersvermelding: de officiële Denckh-signatuur met krul (bibliotheek/DENCKH_MERKVERMELDING.md), ongewijzigd. */
+.maker { margin: 18px 0 4px; }
+.maker a { display: inline-flex; align-items: center; gap: 10px; padding: 6px 0; text-decoration: none; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.03em; color: var(--fg-3); }
+.maker img { display: block; height: 28px; width: auto; }
 
 /* ===== Kaart: een atlas ===== */
 .leaflet-container { background: var(--zee); font-family: var(--font-sans); }
@@ -648,10 +649,7 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   :root { --kop-h: 52px; --onderbalk-h: 62px; }
   html, body { height: auto; }
   body { display: block; padding-bottom: calc(var(--onderbalk-h) + env(safe-area-inset-bottom, 0px)); }
-  .kop { grid-template-columns: auto minmax(0, 1fr); padding: env(safe-area-inset-top, 0px) max(12px, env(safe-area-inset-right, 0px)) 0 max(6px, env(safe-area-inset-left, 0px)); gap: 6px; }
-  .kop-terug span { display: none; }
-  .kop-terug { padding: 10px 6px; }
-  .kop-terug svg { width: 22px; height: 22px; }
+  .kop { grid-template-columns: minmax(0, 1fr); padding: env(safe-area-inset-top, 0px) max(12px, env(safe-area-inset-right, 0px)) 0 max(12px, env(safe-area-inset-left, 0px)); gap: 6px; }
   .kop-kameel { width: 32px; height: 27px; }
   .kop h1 { font-size: 1.15rem; }
   .kop-sub { display: block; margin: 0; }
@@ -725,7 +723,7 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   .leaflet-control-scale { display: none; }
 }
 @media (min-width: 901px) and (max-width: 1180px) {
-  .kop { grid-template-columns: auto minmax(0, 1fr) 420px; }
+  .kop { grid-template-columns: minmax(0, 1fr) 420px; }
   .app { grid-template-columns: minmax(0, 1fr) 420px; }
   .kop-sub-tekst { display: none; }
 }
