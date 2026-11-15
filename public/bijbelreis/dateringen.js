@@ -42,6 +42,7 @@ BR.dateringen = {
     // [meer-reizen:nt-over-de-grens] datering
     //
     // [meer-reizen:ehud-jefta] datering
+    "richteren:ehud-jefta": ["bijbel", true],
     //
     // [meer-reizen:scheuring] datering
     //

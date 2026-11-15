@@ -963,6 +963,16 @@ BR.mensen = {
   // [meer-reizen:nt-over-de-grens] mensen
   //
   // [meer-reizen:ehud-jefta] mensen
+  othniel: { n: "Othniël", boek: ["richteren"], kort: "Zoon van Kenaz en de eerste richter; de HEERE gaf Cusjan Risjataïm in zijn hand, en het land had veertig jaar rust.",
+    dood: "Richteren 3:11", elders: [["Jozua 15:16–17", "Hij neemt Kirjath-Sefer (Debir) in en krijgt Achsa, de dochter van Kaleb, tot vrouw."], ["1 Kronieken 4:13", "Zijn naam staat in het geslachtsregister van Juda."]] },
+  cusjan: { n: "Cusjan Risjataïm", boek: ["richteren"], kort: "Koning van Mesopotamië; Israël diende hem acht jaar, tot de HEERE hem in de hand van Othniël gaf." },
+  eglon: { n: "Eglon", boek: ["richteren"], kort: "Koning van Moab; met de Ammonieten en de Amalekieten nam hij de Palmstad in, en Israël diende hem achttien jaar.",
+    dood: "Richteren 3:25" },
+  ehud: { n: "Ehud", boek: ["richteren"], kort: "Zoon van Gera uit de stam Benjamin, een man die links was; de HEERE verwekte hem als verlosser toen Moab over Israël heerste." },
+  samgar: { n: "Samgar", boek: ["richteren"], kort: "Zoon van Anath; hij versloeg zeshonderd Filistijnen met een ossenstok en verloste zo ook Israël.",
+    elders: [["Richteren 5:6", "Het lied van Debora noemt ‘de dagen van Samgar, den zoon van Anath’."]] },
+  jefta: { n: "Jefta", boek: ["richteren"], kort: "De Gileadiet, een strijdbare held; door zijn broers verstoten en later hoofd van Gilead. Hij versloeg de Ammonieten en richtte Israël zes jaar.",
+    dood: "Richteren 12:7", elders: [["1 Samuël 12:11", "Samuël noemt Jefta bij de mannen die de HEERE zond om Israël te verlossen."], ["Hebreeën 11:32", "Genoemd bij de helden van het geloof."]] },
   //
   // [meer-reizen:scheuring] mensen
   //

@@ -598,6 +598,24 @@ Object.assign(BR.plaatsen, {
 // [meer-reizen:nt-over-de-grens] plaatsen
 //
 // [meer-reizen:ehud-jefta] plaatsen
+Object.assign(BR.plaatsen, {
+  ej_efraim: { n: "Bergland van Efraïm", ll: [31.9878, 35.3332], c: "r", s: "c", z: 7.5, t: "gebied", d: "Het bergland in het midden van het land, genoemd naar de stam Efraïm. Hier blies Ehud op de bazuin, nadat hij naar Sehira was ontkomen (Richteren 3:26–27). Waar Sehira lag, weten we niet; daarom staat het niet als punt op de kaart.",
+    nu: "Bergland ten noorden van Jeruzalem, Westelijke Jordaanoever", bron: "Gebied. OpenBible plaatst Seirah (Richteren 3:26) alleen in het bergland van Efraïm (punt in de streek, score 465); dat punt is hier het ankerpunt van het gebied. Sehira zelf (Statenvertaling: Sehirath) is niet geïdentificeerd." },
+  ej_veren: { n: "Veren van de Jordaan", ll: [31.8371, 35.5503], c: "r", s: "c", z: 8.5, t: "water", d: "Veren zijn ondiepe plaatsen waar je door de rivier kunt lopen. Ehud en de Israëlieten bezetten ‘de veren van de Jordaan’ naar Moab en lieten niemand oversteken (Richteren 3:28). Welke oversteekplaatsen het waren, zegt de Bijbel niet.",
+    nu: "De Jordaan ten oosten van Jericho", bron: "Gebied, geen punt: de tekst noemt geen plaatsnaam, alleen de richting naar Moab. OpenBible heeft deze veren niet als afzonderlijke plaats; het ankerpunt is de bekende oversteekplaats tegenover Jericho (al-Maghtas, in OpenBible het punt van Bethabara)." },
+  ej_tob: { n: "Land Tob", ll: [32.5633, 36.2439], c: "w", s: "r", z: 7.5, t: "gebied", d: "Hierheen vluchtte Jefta voor zijn broers. De oudsten van Gilead haalden hem er later vandaan om tegen de Ammonieten te strijden (Richteren 11:3–5).",
+    nu: "Et-Taiyibeh, ten zuidoosten van Dera (Zuid-Syrië)", bron: "Meestal et-Taiyibeh, waar de naam bewaard lijkt (OpenBible 651); waarschijnlijk, niet zeker. De Bijbel spreekt van een land, niet van een stad." },
+  ej_mizpa: { n: "Mizpa in Gilead", ll: [32.1185, 35.777], c: "o", s: "r", z: 8, t: "stad", d: "Hier legerde Israël zich tegen de Ammonieten, en hier stond het huis van Jefta (Richteren 10:17; 11:34). Het is een ander Mizpa dan dat van Samuël, ten noorden van Jeruzalem. Waar het lag, weten we niet.",
+    nu: "Onbekend; een voorstel is Khirbet Jelad, ten noorden van es-Salt (Jordanië)", bron: "Niet geïdentificeerd; alleen zwakke voorstellen: Khirbet Jelad (OpenBible 171), Tall er-Rumeith (80), Khirbet er-Rasuni (76), Suf (26). Het punt staat illustratief bij Khirbet Jelad. De Herziene Statenvertaling schrijft in 11:29 Mizpe in Gilead." },
+  ej_jabbok: { n: "Beek Jabbok", ll: [32.1153, 35.5431], c: "v", s: "l", z: 8, t: "water", d: "Een zijrivier van de Jordaan. Het land dat Israël van Sihon kreeg, liep ‘van de Arnon af tot aan de Jabbok’ (Richteren 11:22). Bij deze beek worstelde Jakob (Genesis 32:22–24).",
+    nu: "Nahr ez-Zarqa, Jordanië", bron: "Nahr ez-Zarqa; algemeen aanvaard (OpenBible 1000). Punt bij de monding in de Jordaan." },
+  ej_aroer: { n: "Aroër", ll: [31.9702, 35.8713], c: "o", s: "l", z: 9, t: "stad", d: "Jefta versloeg de Ammonieten ‘van Aroer af tot daar gij komt te Minnith’ (Richteren 11:33). Welk Aroër bedoeld is, is niet zeker: het Aroër bij Rabba (Jozua 13:25) of het Aroër aan de Arnon (Richteren 11:26). Waar het eerste lag, weten we niet.",
+    nu: "Onbekend; voorstellen ten westen van Amman (Jordanië)", bron: "Aroër voor Rabba (Jozua 13:25); alleen zwakke voorstellen: Khirbet Udena (OpenBible 219), Umm Sweiwineh (120), Erjan (83). Het punt staat illustratief bij Khirbet Udena. Het Aroër aan de Arnon (Arair, OpenBible 872) is een andere plaats." },
+  ej_minnith: { n: "Minnith", ll: [31.8202, 35.8747], c: "w", s: "r", z: 9, t: "stad", d: "Tot bij Minnith versloeg Jefta de Ammonieten: twintig steden (Richteren 11:33). Later handelden Juda en Israël met Tyrus in ‘tarwe van Minnit’ (Ezechiël 27:17).",
+    nu: "Umm el-Hanafish, tussen Hesban en Amman (Jordanië)", bron: "Meestal Umm el-Hanafish (Umm el-Basatin), ten noordoosten van Hesbon (OpenBible 551); waarschijnlijk, niet zeker." },
+  ej_abelkeramim: { n: "Abel-Keramim", ll: [31.8756, 36.0049], c: "o", s: "r", z: 9, t: "stad", d: "Tot hier versloeg Jefta de Ammonieten (Richteren 11:33). De naam betekent “weide van de wijngaarden”. Waar het lag, weten we niet.",
+    nu: "Onbekend; voorstellen ten zuiden en zuidoosten van Amman (Jordanië)", bron: "Niet geïdentificeerd; alleen zwakke voorstellen: Sahab (OpenBible 236), Tall al-Umayri (106), Naur (38). Het punt staat illustratief bij Sahab." },
+});
 //
 // [meer-reizen:scheuring] plaatsen
 //
