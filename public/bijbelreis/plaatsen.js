@@ -575,7 +575,7 @@ Object.assign(BR.plaatsen, {
     nu: "Athene, Griekenland", bron: "Athene; de stad bleef bewoond en hield haar naam." },
   nt_korinthe: { n: "Korinthe", ll: [37.9058, 22.8787], c: "v", s: "l", z: 6, t: "stad", d: "Grote handelsstad in Achaje. Paulus bleef er een jaar en zes maanden en werkte er als tentenmaker (Handelingen 18:1–11). Hij schreef de gemeente later brieven.",
     nu: "Oud-Korinthe, Griekenland", bron: "Archaia Korinthos; opgravingen, identificatie algemeen aanvaard." },
-  nt_kenchreeen: { n: "Kenchreeën", ll: [37.8843, 22.9968], c: "v", s: "r", z: 9, t: "stad", d: "De oostelijke haven van Korinthe. Paulus scheepte hier in naar Syrië (Handelingen 18:18). Febe diende de gemeente hier (Romeinen 16:1).",
+  nt_kenchreeen: { n: "Kenchreeën", ll: [37.8843, 22.9968], c: "v", s: "r", z: 9, t: "stad", d: "De oostelijke haven van Korinthe. Hier liet Paulus zijn hoofd scheren, vóór de vaart naar Syrië (Handelingen 18:18). Febe diende de gemeente hier (Romeinen 16:1).",
     nu: "Kechries, Griekenland", bron: "Kechries; resten van de haven, de naam bleef bewaard." },
   nt_macedonie: { n: "Macedonië", ll: [41.6, 22.54], c: "r", s: "c", z: 5, t: "gebied", d: "Romeinse provincie ten noorden van Griekenland, met Filippi, Thessalonica en Berea. In een visioen riep een Macedonische man: ‘Kom over in Macedonië, en help ons!’ (Handelingen 16:9).",
     nu: "Noord-Griekenland en Noord-Macedonië", bron: "Gebied: de Romeinse provincie Macedonia." },
@@ -591,11 +591,11 @@ Object.assign(BR.plaatsen, {
 // Deel nt-paulus2
 // Handelingen 17:1–18:22. Ligging volgens OpenBible.info Bible Geocoding Data (CC BY 4.0), november 2026. Sleutels beginnen met p2_.
 Object.assign(BR.plaatsen, {
-  p2_amfipolis: { n: "Amfipolis", ll: [40.8202, 23.8472], c: "v", s: "t", z: 8, t: "stad", d: "Stad in Macedonië, bij de monding van de rivier de Strymon. Paulus en Silas namen hun weg door deze stad naar Thessalonica (Handelingen 17:1).",
+  p2_amfipolis: { n: "Amfipolis", ll: [40.8202, 23.8472], c: "v", s: "t", z: 8, t: "stad", d: "Stad in Macedonië, aan de rivier de Strymon. Paulus en Silas namen hun weg door deze stad naar Thessalonica (Handelingen 17:1).",
     nu: "Amfipoli, Griekenland", bron: "Opgegraven stad Amphipolis (OpenBible 1000, punt in zichtbare resten)." },
   p2_apollonia: { n: "Apollonia", ll: [40.6237, 23.4697], c: "w", s: "b", z: 8.5, t: "stad", d: "Stad in Macedonië, tussen Amfipolis en Thessalonica (Handelingen 17:1). Waar zij precies lag, is niet helemaal zeker; het punt staat ten zuiden van het Volvimeer.",
     nu: "bij Nea Apollonia, Griekenland", bron: "Apollonia in Mygdonië, ten zuiden van het Volvimeer (OpenBible 1000 voor de identificatie; Pleiades 491526). OpenBible geeft een nauwkeurigheid van 5 km: de precieze plek is niet duidelijk. Daarom ‘waarschijnlijk’." },
-  p2_areopagus: { n: "Areopagus", ll: [37.9722, 23.7236], c: "v", s: "l", z: 10, t: "berg", d: "Rotsheuvel in Athene, vlak bij de Akropolis. De naam betekent: heuvel van Ares; ook de raad van Athene heette zo. Hier, of voor die raad, verkondigde Paulus de God Die de wereld gemaakt heeft (Handelingen 17:19–24).",
+  p2_areopagus: { n: "Areopagus", ll: [37.9722, 23.7236], c: "v", s: "l", z: 10, t: "berg", d: "Rotsheuvel in Athene, vlak bij de Akropolis. De naam betekent: heuvel van Ares; ook een raad in Athene heette zo. Hier, of voor die raad, verkondigde Paulus de God Die de wereld gemaakt heeft (Handelingen 17:19–24).",
     nu: "Areopagus (Areios Pagos), Athene, Griekenland", bron: "Heuvel Areios Pagos naast de Akropolis (OpenBible 1000, punt in zichtbare resten). De heuvel staat vast; of Paulus op de heuvel zelf sprak of voor de raad die zo heette (mogelijk bij de markt), is niet zeker." },
 });
 // Tussenpunten voor de routes van Handelingen 17–18: op zee of langs de weg; geen plaatsen uit de tekst.
@@ -618,8 +618,8 @@ Object.assign(BR.plaatsen, {
     nu: "Chios, Griekenland", bron: "Eiland Chios; naam bleef in gebruik (OpenBible 1000, punt op de stad Chios aan de oostkust)." },
   p3_samos: { n: "Samos", ll: [37.75, 26.8333], c: "v", s: "l", z: 7.5, t: "gebied", d: "Eiland vlak voor de kust van Asia. Het schip van Paulus legde hier aan, een dag voordat het in Milete kwam (Handelingen 20:15).",
     nu: "Samos, Griekenland", bron: "Eiland Samos; naam bleef in gebruik (OpenBible 1000, punt op het eiland). Welke haven het schip aandeed, zegt de tekst niet." },
-  p3_trogyllium: { n: "Trogyllium", ll: [37.6594, 27.0033], c: "w", s: "r", z: 8.5, t: "berg", d: "Kaap aan het vasteland, tegenover Samos. Na Samos bleef het schip hier, en de dag daarna kwam het in Milete (Handelingen 20:15; Statenvertaling: Trogyllion).",
-    nu: "Kaap van Mykale (schiereiland Dilek), Turkije", bron: "Kaap Trogilium aan het voorgebergte Mykale (OpenBible 1000, maar alleen een punt in de streek); de ankerplaats zelf is niet bekend, daarom waarschijnlijk. De woorden over Trogyllium ontbreken in een deel van de oude handschriften; de Statenvertaling en de HSV hebben ze." },
+  p3_trogyllium: { n: "Trogyllion", ll: [37.6594, 27.0033], c: "w", s: "r", z: 8.5, t: "berg", d: "Kaap aan het vasteland, tegenover Samos. Na Samos bleef het schip hier, en de dag daarna kwam het in Milete (Handelingen 20:15).",
+    nu: "Kaap van Mykale (schiereiland Dilek), Turkije", bron: "Kaap Trogilium aan het voorgebergte Mykale (OpenBible 1000, maar alleen een punt in de streek); de ankerplaats zelf is niet bekend, daarom waarschijnlijk. De woorden ‘en bleven te Trogyllion’ ontbreken in een deel van de oude handschriften; de Statenvertaling en de HSV hebben ze." },
 });
 // Tussenpunten: zee voor Efeze, ten noorden van Samos en in de straat van Chios; de weg door Macedonië en Griekenland (reconstructie).
 Object.assign(BR.W, {
