@@ -973,6 +973,15 @@ BR.mensen = {
   // [meer-reizen:hizkia-josia] mensen
   //
   // [meer-reizen:jeremia-egypte] mensen
+  // Een andere Ismaël dan de zoon van Abraham (ismael, Genesis). De naam in `n` is bewust onderscheidend: zo is er geen naamgenoot.
+  ismael_nethanja: { n: "Ismaël (zoon van Nethanja)", boek: ["profeten"],
+    kort: "Zoon van Nethanja, de zoon van Elisama, van koninklijke afkomst; een van de legeroversten. Hij doodde Gedalja in Mizpa en ontkwam naar de Ammonieten.",
+    elders: [["Jeremia 40:8", "Hij komt met de andere legeroversten naar Gedalja in Mizpa."], ["Jeremia 40:14", "Johanan zegt dat Baälis, de koning van de Ammonieten, hem gestuurd heeft."], ["2 Koningen 25:25", "Ook Koningen vertelt dat hij Gedalja doodde."]],
+    vervolg: [["Jeremia 41:1–2", "In de zevende maand slaat hij Gedalja met het zwaard."], ["Jeremia 41:10", "Hij voert het volk uit Mizpa gevangen weg."], ["Jeremia 41:15", "Hij ontkomt met acht mannen naar de Ammonieten."]] },
+  baruch: { n: "Baruch", boek: ["profeten"],
+    kort: "Zoon van Neria en schrijver van Jeremia; hij schreef de woorden van de HEERE op een boekrol. Hij werd met Jeremia meegenomen naar Egypte.",
+    elders: [["Jeremia 32:12", "Jeremia geeft hem de koopbrief van het veld bij Anathoth."], ["Jeremia 36:4", "Hij schrijft de woorden van de HEERE op uit de mond van Jeremia."], ["Jeremia 45:5", "God zegt tegen hem: ‘Ik zal u uw ziel tot een buit geven, in alle plaatsen, waar gij zult henentrekken.’"]],
+    vervolg: [["Jeremia 43:3", "De leiders zeggen dat hij Jeremia tegen hen opstookt."], ["Jeremia 43:6–7", "Hij wordt met Jeremia meegenomen naar Tachpanhes in Egypte."]] },
   //
   // [meer-reizen:stammen] mensen
   //

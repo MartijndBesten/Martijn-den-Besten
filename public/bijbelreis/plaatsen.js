@@ -608,6 +608,18 @@ Object.assign(BR.plaatsen, {
 // [meer-reizen:hizkia-josia] plaatsen
 //
 // [meer-reizen:jeremia-egypte] plaatsen
+Object.assign(BR.plaatsen, {
+  je_tachpanhes: { n: "Tachpanhes", ll: [30.8606, 32.1714], c: "v", s: "l", z: 6.5, t: "stad", d: "Stad in het noordoosten van Egypte, waar een huis van Farao stond. Hierheen trokken Johanan en het volk, tegen het woord van de HEERE in, en zij namen Jeremia mee (Jeremia 43:7–9).",
+    nu: "Tell Defenneh, oostelijke Nijldelta, Egypte", bron: "Tell Defenneh, het Daphnae van de Grieken (OpenBible, score 1000); identificatie algemeen aanvaard." },
+  je_migdol: { n: "Migdol", ll: [30.9648, 32.4929], c: "o", s: "r", z: 7.5, t: "stad", d: "Plaats in Egypte waar na de val van Jeruzalem Joden woonden (Jeremia 44:1). De naam betekent “toren” of “vesting”. Waar Migdol lag, weten we niet zeker; meestal wordt het in het noordoosten gezocht, bij de grens.",
+    nu: "Onbekend; punt bij Tell el-Herr, Noord-Sinaï, Egypte", bron: "Alleen zwakke voorstellen (OpenBible): Tell el-Herr (227) en Tell Qedua (102), 2,6 km uit elkaar, bij de oostrand van de Nijldelta. Punt illustratief op Tell el-Herr." },
+  je_nof: { n: "Nof (Memphis)", ll: [29.8488, 31.253], c: "v", s: "l", z: 6.5, t: "stad", d: "Oude hoofdstad van Egypte aan de Nijl. De Bijbel noemt haar Nof; de Grieken zeiden Memphis. Ook hier woonden Joden toen Jeremia in Egypte was (Jeremia 44:1).",
+    nu: "Mit Rahina, ten zuiden van Caïro, Egypte", bron: "Ruïnes van Memphis bij Mit Rahina (OpenBible, score 1000)." },
+  je_on: { n: "On (Beth-Semes)", ll: [30.1294, 31.3075], c: "v", s: "r", z: 7.5, t: "stad", d: "De stad On, waar Potifera overste was, de schoonvader van Jozef (Genesis 41:45). Jeremia spreekt over ‘de opgerichte beelden van Beth-semes, hetwelk in Egypteland is’ (Jeremia 43:13). Beth-Semes betekent “huis van de zon”; de Grieken noemden de stad Heliopolis, zonnestad.",
+    nu: "Ain Shams en Matariya (Heliopolis), Caïro, Egypte", bron: "Heliopolis, Tell el-Hisn bij Ain Shams; OpenBible rekent Jeremia 43:13 bij Heliopolis (score 1000). De HSV vertaalt Beth-Semes hier als “de zonnetempel”." },
+  je_pathros: { n: "Pathros", ll: [24.1, 32.7], c: "r", s: "c", z: 5, t: "gebied", d: "Het zuiden van Egypte, langs de Nijl. Ook daar woonden Joden, en zij antwoordden Jeremia dat zij niet naar hem wilden luisteren (Jeremia 44:1, 15–16).",
+    nu: "Opper-Egypte (het Nijldal in het zuiden van Egypte)", bron: "Gebied: Opper-Egypte. Het punt is dat van OpenBible (punt in de streek, bij Aswan); de streek loopt van ten zuiden van Memphis tot Aswan." },
+});
 //
 // [meer-reizen:stammen] plaatsen
 //

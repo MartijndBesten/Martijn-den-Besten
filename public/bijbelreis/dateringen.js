@@ -52,6 +52,7 @@ BR.dateringen = {
     // [meer-reizen:hizkia-josia] datering
     //
     // [meer-reizen:jeremia-egypte] datering
+    "profeten:jeremia-egypte": ["historie", false],
     //
     // [meer-reizen:stammen] datering
     //
