@@ -45,6 +45,7 @@ BR.dateringen = {
     "jezus-2:nt-over-de-grens": ["historie", true],
     //
     // [meer-reizen:ehud-jefta] datering
+    "richteren:ehud-jefta": ["bijbel", true],
     //
     // [meer-reizen:scheuring] datering
     //
