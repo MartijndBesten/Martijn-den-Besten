@@ -117,6 +117,22 @@ Groepen (Volk, Leger, Broers) staan niet in `BR.mensen`.
 **Stapsleutels** (`boek:deel:index`) zijn de sleutels van de voortgang in `localStorage` (`bijbelreis:gezien`). Stappen
 dus nooit herordenen, invoegen of verwijderen; alleen aan het eind toevoegen.
 
+## De reiziger op de kaart
+
+De kameel (in het Nieuwe Testament een wandelaar) loopt bij elke stap langs de lijn van de route, door alle
+tussenpunten (`reis()` in `app.js`, instellingen in `REIS`). Eerst komt de kaart tot rust, dan loopt hij; de lijn groeit
+met hem mee. De duur volgt uit de lengte van de lijn **op het scherm**, niet uit de kilometers: per route 400 ms +
+4,5 ms per pixel, minstens 0,6 s en hoogstens 5,5 s (op een lange route is dat ruim 200 pixels per seconde), met een
+gelijkmatige snelheid en ongeveer 0,35 s versnellen en vertragen. Heeft een stap meer routes, dan loopt hij ze na elkaar.
+Het lopen van één stap duurt samen minstens 1 s (een kort stukje flitst niet) en hoogstens 7 s (een lange reis duurt niet
+eindeloos); daarbuiten worden alle routes van de stap evenveel vertraagd of versneld. Begint een route niet waar hij staat
+(meer dan 3 pixels ervandaan: een andere stap gekozen, terug, of een tweede route die elders begint), dan verdwijnt hij in
+0,3 s en verschijnt hij op het nieuwe begin; hij vliegt nooit zichtbaar door de kaart. Hij kijkt in de looprichting en staat aan het eind precies
+op de bestemming (het laatste punt van de laatste route, of de eerste plaats van een stap zonder route). Er loopt nooit
+meer dan één reis: een nieuwe stap, het overzicht, ‘Laat dit hele deel zien’, een ander deel of een geschiedenis breekt
+de lopende of nog wachtende reis af (`animToken`). Bij `prefers-reduced-motion` staat hij meteen op de bestemming en is
+de lijn meteen af. De tests staan in `e2e/bijbelreis-kameel.spec.ts`.
+
 ## Controleren
 
 - `node --check public/bijbelreis/inhoud/<boek>.js`; open de pagina lokaal (`npx vite preview` of `python3 -m http.server` in `public/`) en kijk in de console: `Bijbelreis: onbekende plaatsen…` betekent een id die niet bestaat.

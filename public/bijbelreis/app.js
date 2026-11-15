@@ -225,6 +225,7 @@
 
   const CAMEL = `<div class="camel"><svg viewBox="0 0 48 40" aria-hidden="true"><path class="leg a" d="M12 30v8"/><path class="leg b" d="M17 30v8"/><path class="leg b" d="M29 30v8"/><path class="leg a" d="M34 30v8"/><path class="body" d="M6 25c0-6 4-10 9-9 2-6 9-7 11 0 1-3 6-3 7 1 1 2 2 3 2 6l3-12c1-3 4-4 7-3l3 1-1 3h-4l-4 16c-1 2-2 3-4 3H9c-2 0-3-2-3-6z"/><path class="saddle" d="M15 17c4-2 10-2 15 1l-2 6H16z"/><circle class="eye" cx="42.5" cy="11.5" r="1"/></svg><span class="walker"></span></div>`;
   const camel = L.marker([31.5, 35.2], { icon: icon(CAMEL), interactive: false, keyboard: false, zIndexOffset: 1000 }).addTo(map);
+  camel.getElement().querySelector(".camel").classList.add("gone"); // nog nergens: de eerste stap of het overzicht zet hem neer
   function camelStyle(who, walking, flip, gone) {
     const e = camel.getElement(); const el = e && e.querySelector(".camel"); if (!el) return;
     el.querySelector(".saddle").style.fill = color(who || "kobalt");
@@ -410,46 +411,125 @@
       r.arrows.forEach((a) => { const e = a.getElement(); if (e) { e.firstChild.classList.toggle("off", st === "future"); e.firstChild.classList.toggle("dim", st === "past"); } });
     }));
   }
-  function partial(r, d) {
-    if (d >= r.len) return r.pts.slice();
-    let i = 1; while (i < r.pts.length && r.cum[i] < d) i++;
-    const a = r.pts[i - 1], b = r.pts[i], t = (d - r.cum[i - 1]) / (r.cum[i] - r.cum[i - 1] || 1);
-    return r.pts.slice(0, i).concat([[a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]]);
+  // ---------- de reiziger op de kaart ----------
+  // De kameel (in het Nieuwe Testament een wandelaar) loopt per stap langs de lijn van de route. De regels staan in
+  // docs/BIJBELREIS.md (‘De reiziger op de kaart’). Er loopt nooit meer dan één reis: alles wat animToken verhoogt
+  // (een nieuwe stap, het overzicht, een ander deel, een geschiedenis) breekt de vorige af, ook als die nog wacht.
+  // Duur in ms uit de lengte op het scherm: per route vast + perPx × pixels, tussen routeMin en max; de hele stap tussen
+  // min en totaal. aanloop: versnellen en vertragen; wissel: verdwijnen en verschijnen (gelijk aan de overgang van .camel
+  // in de CSS); kaartWacht: langste wachttijd op een bewegende kaart; vooruit/draai: pixels voor de kijkrichting; dichtbij:
+  // zoveel pixels of minder is dezelfde plek (dan loopt hij door in plaats van te verdwijnen en te verschijnen).
+  const REIS = { perPx: 4.5, vast: 400, routeMin: 600, max: 5500, min: 1000, totaal: 7000, aanloop: 350, wissel: 300, kaartWacht: 1500, vooruit: 20, draai: 5, dichtbij: 3 };
+  const reisDuur = (px) => Math.max(REIS.routeMin, Math.min(REIS.max, REIS.vast + REIS.perPx * px));
+  // Gelijkmatige snelheid met een zachte start en stop: aandeel a van de tijd versnellen, even lang vertragen.
+  function zacht(f, a) {
+    const v = 1 / (1 - a);
+    if (f < a) return (v * f * f) / (2 * a);
+    if (f > 1 - a) return 1 - (v * (1 - f) * (1 - f)) / (2 * a);
+    return v * (f - a / 2);
   }
-  function animate(s) {
-    const token = ++animToken;
+  const kameelEl = () => { const e = camel.getElement(); return e && e.querySelector(".camel"); };
+  // Staat hij zichtbaar op (of vlak bij) dit punt? Gemeten in pixels op zoomniveau z: het niveau waarop de plek getoond wordt.
+  const kameelStaatOp = (p, z = map.getMaxZoom()) => { const el = kameelEl(); return !!el && map.hasLayer(camel) && !el.classList.contains("gone") && map.project(camel.getLatLng(), z).distanceTo(map.project(p, z)) <= REIS.dichtbij; };
+  const kameelWeg = () => { const el = kameelEl(); if (el) { el.classList.remove("walk"); el.classList.add("gone"); } };
+  // Buiten een reis (overzicht van een deel, een geschiedenis): staat hij ergens anders, dan verdwijnt hij daar meteen;
+  // de camelStyle-aanroep erna laat hem op de nieuwe plek rustig verschijnen. Zo vliegt hij nooit zichtbaar door de kaart.
+  function kameelZet(p) {
+    const el = kameelEl();
+    if (el && !kameelStaatOp(p)) { el.style.transition = "none"; el.classList.add("gone"); void el.offsetWidth; el.style.transition = ""; }
+    camel.setLatLng(p);
+  }
+  // Staat de kaart stil? Leaflet meldt begin en eind van elke verschuiving of zoom; kaartWacht is het vangnet.
+  let kaartBezig = false;
+  map.on("movestart", () => { kaartBezig = true; });
+  // Na een vlucht schuift Leaflet de kaart soms nog terug binnen de grenzen: dan is hij nog niet stil.
+  map.on("moveend", () => { kaartBezig = !!(map._animatingZoom || (map._panAnim && map._panAnim._inProgress)); });
+  function alsKaartStil(fn) {
+    if (!kaartBezig) { fn(); return; }
+    let gedaan = false, t = 0;
+    const go = (e) => { if (gedaan || (e && kaartBezig)) return; gedaan = true; map.off("moveend", go); clearTimeout(t); fn(); };
+    map.on("moveend", go);
+    t = setTimeout(go, REIS.kaartWacht);
+  }
+  const volleLijn = (r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); };
+  const eindVan = (s) => (s.r && s.r.length ? s.r[s.r.length - 1].pts.slice(-1)[0] : s.at.length ? ll(s.at[0]) : null);
+  // Breekt de lopende of wachtende reis af; de reiziger staat daarna stil op de bestemming van de stap.
+  function reisStop() {
+    animToken++;
+    const s = cur >= 0 ? deel.steps[cur] : null, end = s && eindVan(s);
+    if (!end) return;
+    kameelZet(end);
+    camelStyle(s.r && s.r.length ? s.r[s.r.length - 1].w : deel.c, false, undefined, false);
+  }
+  // Zet de reis van een stap klaar, meteen bij het kiezen van de stap: de lijn begint leeg en de reiziger blijft staan
+  // als de route begint waar hij staat, en verdwijnt anders. Geeft de functie terug die de reis laat beginnen; select
+  // roept die aan als de kaart de stap in beeld heeft.
+  function reis(s) {
+    const token = ++animToken, leeft = () => token === animToken;
     const routes = s.r || [];
     const who = routes.length ? routes[0].w : deel.c;
-    if (!routes.length && !s.at.length) { camelStyle(who, false, undefined, true); return; }
-    const end = routes.length ? routes[routes.length - 1].pts.slice(-1)[0] : ll(s.at[0]);
-    if (!routes.length || reduceMotion) { routes.forEach((r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); }); camel.setLatLng(end); camelStyle(who, false, undefined, false); queueLabels(); return; }
-    const total = routes.reduce((a, r) => a + r.len, 0);
-    const dur = Math.max(1400, Math.min(5200, total * 3.2));
+    const start = routes.length ? routes[0].pts[0] : s.at.length ? ll(s.at[0]) : null, end = eindVan(s);
+    if (!start) { camelStyle(who, false, undefined, true); return () => {}; }
+    if (reduceMotion) return () => { if (!leeft()) return; routes.forEach(volleLijn); camel.setLatLng(end); camelStyle(who, false, undefined, false); queueLabels(); };
     routes.forEach((r) => { r.line.setLatLngs([r.pts[0], r.pts[0]]); r.casing.setLatLngs([r.pts[0], r.pts[0]]); });
-    camel.setLatLng(routes[0].pts[0]); camelStyle(who, true, undefined, false);
-    const t0 = performance.now();
-    let lastLL = routes[0].pts[0], lastWho = who;
-    function frame(now) {
-      if (token !== animToken) return;
-      const f = Math.min(1, (now - t0) / dur);
-      const e = f < 0.5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
-      let d = e * total, pos = null, w = who;
-      routes.forEach((r) => {
-        const dd = Math.max(0, Math.min(r.len, d));
-        const pts = partial(r, dd);
-        const drawn = pts.length > 1 ? pts : [r.pts[0], r.pts[0]];
-        r.line.setLatLngs(drawn); r.casing.setLatLngs(drawn);
-        if (d > 0 && !pos) { pos = pts[pts.length - 1]; w = r.w; }
-        if (dd === r.len && d > r.len) pos = null;
-        d -= r.len;
-      });
-      if (!pos) pos = end;
-      const pa = map.latLngToLayerPoint(lastLL), pb = map.latLngToLayerPoint(pos);
-      camelStyle(w, true, Math.abs(pb.x - pa.x) > 0.5 ? pb.x < pa.x : undefined, false);
-      camel.setLatLng(pos); lastLL = pos; lastWho = w;
-      if (f < 1) requestAnimationFrame(frame); else { camelStyle(lastWho, false); queueLabels(); }
+    const sluitAan = kameelStaatOp(start, s.zoom || 9);
+    if (sluitAan) camelStyle(who, false, undefined, false); else kameelWeg();
+    const straks = (fn) => setTimeout(() => { if (leeft()) fn(); }, REIS.wissel);
+    function loop() {
+      // De weg in schermpixels, zoals de lijn getekend is: zo ligt de reiziger precies op de lijn en is de snelheid op het
+      // scherm gelijkmatig.
+      const z = map.getZoom();
+      const paden = routes.map((r) => { const px = r.pts.map((p) => map.project(p, z)), cum = [0]; px.slice(1).forEach((q, j) => cum.push(cum[j] + q.distanceTo(px[j]))); return { r, px, cum, len: cum[cum.length - 1] }; });
+      const ruw = paden.map((p) => reisDuur(p.len)), som = ruw.reduce((a, b) => a + b, 0);
+      const duren = ruw.map((d) => d * (som > REIS.totaal ? REIS.totaal / som : som < REIS.min ? REIS.min / som : 1));
+      const puntOp = (pad, d) => { let k = 1; while (k < pad.cum.length - 1 && pad.cum[k] < d) k++; const a = pad.px[k - 1], b = pad.px[k], t = Math.max(0, Math.min(1, (d - pad.cum[k - 1]) / (pad.cum[k] - pad.cum[k - 1] || 1))); return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t, k }; };
+      const el0 = kameelEl();
+      let flip = !!el0 && el0.classList.contains("flip");
+      // Kijkrichting: de richting van het stuk lijn dat voor hem ligt; loopt dat bijna recht omhoog of omlaag, dan
+      // blijft hij kijken zoals hij keek.
+      const kijk = (pad, d) => { const a = puntOp(pad, d), b = puntOp(pad, Math.min(pad.len, d + REIS.vooruit)), dx = b.x - a.x; if (Math.abs(dx) >= REIS.draai) flip = dx < 0; return flip; };
+      // Bij vertrek geeft, als het eerste stuk recht omhoog of omlaag loopt, de richting van de hele route de doorslag.
+      const kijkBegin = (pad) => { const dx = puntOp(pad, Math.min(pad.len, REIS.vooruit)).x - pad.px[0].x, net = pad.px[pad.px.length - 1].x - pad.px[0].x; if (Math.abs(dx) >= REIS.draai) flip = dx < 0; else if (Math.abs(net) >= REIS.draai) flip = net < 0; return flip; };
+      // Het schermpunt waar hij zichtbaar staat; null zolang hij weg is.
+      let staat = sluitAan ? paden[0].px[0] : null;
+      function been(i) {
+        if (i >= paden.length) { camel.setLatLng(end); camelStyle(routes[routes.length - 1].w, false); queueLabels(); return; }
+        const pad = paden[i], r = pad.r, T = duren[i], a = Math.min(0.3, REIS.aanloop / T);
+        if (pad.len < 1) { volleLijn(r); been(i + 1); return; } // geen zichtbare lengte: niets te lopen
+        const stap = () => {
+          camelStyle(r.w, true, kijkBegin(pad), false);
+          let verstreken = 0, vorige = null;
+          // Per beeldje telt hooguit 100 ms mee: na een hapering of een verborgen tabblad loopt hij verder, zonder sprong.
+          function kameelFrame(now) {
+            if (!leeft()) return;
+            if (vorige !== null) verstreken += Math.min(100, now - vorige);
+            vorige = now;
+            const f = Math.min(1, verstreken / T), d = zacht(f, a) * pad.len, q = puntOp(pad, d);
+            const u = map.unproject([q.x, q.y], z), pos = f >= 1 ? r.pts[r.pts.length - 1] : [u.lat, u.lng];
+            const lijn = f >= 1 ? r.pts : r.pts.slice(0, q.k).concat([pos]);
+            r.line.setLatLngs(lijn); r.casing.setLatLngs(lijn);
+            const was = flip; if (kijk(pad, d) !== was) camelStyle(r.w, true, flip, false);
+            camel.setLatLng(pos);
+            if (f < 1) requestAnimationFrame(kameelFrame); else { staat = pad.px[pad.px.length - 1]; been(i + 1); }
+          }
+          requestAnimationFrame(kameelFrame);
+        };
+        const verschijn = () => { camel.setLatLng(r.pts[0]); camelStyle(r.w, false, kijkBegin(pad), false); straks(stap); };
+        // Begint deze route waar hij staat, dan loopt hij door; anders verdwijnt hij en verschijnt hij op het begin.
+        if (staat && staat.distanceTo(pad.px[0]) <= REIS.dichtbij) stap();
+        else if (!staat) verschijn();
+        else { staat = null; kameelWeg(); straks(verschijn); }
+      }
+      been(0);
     }
-    requestAnimationFrame(frame);
+    return () => {
+      if (!leeft()) return;
+      alsKaartStil(() => {
+        if (!leeft()) return;
+        if (routes.length) { loop(); return; }
+        camel.setLatLng(start); camelStyle(who, false, undefined, false); queueLabels();
+      });
+    };
   }
   function drawSpecial(s) {
     lySpecial.clearLayers();
@@ -577,10 +657,11 @@
       if (s.later) pts = pts.concat(s.later.p.map(ll));
       if (s.look) pts = pts.concat(s.look.slice(0, 2).map(ll));
       // Geen plaats bekend (bijv. ‘ergens in Israël’): toon de streek in plaats van een verzonnen punt.
-      if (!pts.length) fit(Array.isArray(s.view) ? s.view : s.view === "kanaan" ? KANAAN : WIDE, Array.isArray(s.view) ? 9 : 6, () => animate(s));
+      const loop = reis(s);
+      if (!pts.length) fit(Array.isArray(s.view) ? s.view : s.view === "kanaan" ? KANAAN : WIDE, Array.isArray(s.view) ? 9 : 6, loop);
       else if (pts.every((p) => p[0] === pts[0][0] && p[1] === pts[0][1])) {
-        const z = s.zoom || 9; reduceMotion ? map.setView(pts[0], z, { animate: false }) : map.flyTo(pts[0], z, { duration: 0.8 }); setTimeout(() => animate(s), reduceMotion ? 0 : 850);
-      } else fit(pts, s.zoom || 9, () => animate(s));
+        const z = s.zoom || 9; reduceMotion ? map.setView(pts[0], z, { animate: false }) : map.flyTo(pts[0], z, { duration: 0.8 }); setTimeout(loop, reduceMotion ? 0 : 850);
+      } else fit(pts, s.zoom || 9, loop);
       $("where").textContent = `${deel.short} · ${cur + 1} van ${deel.steps.length}`;
     } else {
       $("sRef").textContent = deel.ref;
@@ -599,7 +680,7 @@
       animToken++;
       const first = deel.steps.find((s) => s.at.length || s.r);
       const startLL = first ? (first.r ? first.r[0].pts[0] : ll(first.at[0])) : null;
-      if (startLL) camel.setLatLng(startLL);
+      if (startLL) kameelZet(startLL);
       camelStyle(deel.c, false, false, !startLL || deel.id === "begin");
       if (!opts.noFly) fit(partBounds(deel), 9.5);
       $("where").textContent = deel.n;
@@ -655,7 +736,7 @@
   $("prev").onclick = $("prev2").onclick = goPrev;
   $("next").onclick = $("next2").onclick = goNext;
   $("whole").onclick = () => {
-    showAll = true; animToken++;
+    showAll = true; reisStop();
     deel.steps.forEach((t) => (t.r || []).forEach((r) => { r.line.setLatLngs(r.pts); r.casing.setLatLngs(r.pts); }));
     routeState(); lySpecial.clearLayers(); map.removeLayer(lyKings);
     fit(partBounds(deel), 8); scrollToMap();
@@ -1046,7 +1127,7 @@
     const pts = steps.flatMap((s) => (s.r || []).filter((r) => r.w !== "rood" && binnenSamen(r)).flatMap((r) => r.pts)).concat(focus.at.map(ll));
     const last = steps[steps.length - 1], lr = last.r && last.r[last.r.length - 1];
     const end = lr ? lr.pts[lr.pts.length - 1] : focus.at.length ? ll(focus.at[0]) : null;
-    if (end) camel.setLatLng(end);
+    if (end) kameelZet(end);
     // Zonder route geen reisstip: die zou precies op de plaats (en het zekerheidsteken) staan.
     camelStyle(lr ? lr.w : d0.c, false, undefined, !lr);
     $("map").classList.toggle("gelijkenis", g.vorm === "gelijkenis" && !focus.at.length);
