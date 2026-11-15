@@ -1,0 +1,209 @@
+# Controle voor het deel "stammen" (Jozua 13–22) in public/bijbelreis/inhoud/jozua.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+Jozua 15:16 | Wie Kirjath-sefer zal slaan, en nemen haar in, dien zal ik ook mijn dochter Achsa tot een vrouw geven
+Jozua 15:17 | Othniel nu, de zoon van Kenaz, den broeder van Kaleb, nam haar in
+Richteren 3:9 | de HEERE verwekte den kinderen Israels een verlosser.*Othniel
+Jozua 15:19 | Geef mij een zegen.*dor land.*hoge waterwellingen en lage waterwellingen
+Jozua 22:13 | Pinehas, den zoon van Eleazar, den priester
+Jozua 22:14 | tien vorsten met hem
+Jozua 22:31 | Heden weten wij, dat de HEERE in het midden van ons is
+Jozua 13:33 | aan den stam van Levi gaf Mozes geen erfdeel; de HEERE, de God Israels, is Zelf hunlieder Erfdeel
+Jozua 21:41 | acht en veertig steden en haar voorsteden
+Jozua 21:2 | steden te bewonen.*voorsteden voor onze beesten
+# --- Deel: datering, intro, stat, verwijzingen ---
+Jozua 14:7 | veertig jaren oud.*Mozes.*uitgezonden.*land te verspieden
+Jozua 14:10 | vijf en veertig jaren.*vijf en tachtig jaren oud
+Numeri 10:11 | in het tweede jaar, in de tweede maand
+Numeri 13:17 | Mozes dan zond hen, om het land Kanaan te verspieden
+1 Koningen 6:1 | vierhonderd en tachtigste jaar
+Jozua 14:15 | het land rustte van den krijg
+Jozua 18:1 | verzamelde zich te Silo.*tent der samenkomst
+Jozua 18:2 | zeven stammen
+Jozua 21:4 | Kahathieten.*kinderen van Aaron, den priester.*Juda.*Simeon.*Benjamin.*dertien steden
+Jozua 21:5 | overgebleven kinderen van Kahath.*Efraim.*Dan.*halven stam van Manasse, tien steden
+Jozua 21:6 | kinderen van Gerson.*Issaschar.*Aser.*Nafthali.*Manasse, in Bazan.*dertien steden
+Jozua 21:7 | kinderen van Merari.*Ruben.*Gad.*Zebulon, twaalf steden
+Numeri 34:17 | het land ten erve zullen uitdelen: Eleazar, de priester, en Jozua, de zoon van Nun
+Numeri 26:55 | Het land nochtans zal door het lot gedeeld worden
+Numeri 35:13 | zes vrijsteden
+Numeri 35:14 | Drie dezer vrijsteden.*op deze zijde van de Jordaan, en drie.*in het land Kanaan
+Deuteronomium 4:41 | scheidde Mozes drie steden uit
+Deuteronomium 4:43 | Bezer in de woestijn.*Ramoth in Gilead.*Golan in Bazan
+Richteren 18:27 | Lais
+Richteren 18:29 | noemden den naam der stad Dan.*te voren Lais
+Jozua 19:47 | noemden Lesem Dan
+1 Koningen 8:56 | Niet een enig woord is er gevallen van al Zijn goede woorden
+# --- Stap 1: Jozua 13 ---
+Jozua 13:1 | Jozua nu was oud.*zeer veel lands overgebleven, om dat erfelijk te bezitten
+Jozua 13:7 | deel dit land tot een erfdeel aan de negen stammen, en aan den halven stam van Manasse
+Jozua 13:8 | Rubenieten en Gadieten hun erfenis ontvangen.*Mozes hunlieden gaf aan gene zijde van de Jordaan tegen het oosten
+Jozua 13:16 | Aroer af, dat aan den oever der beek Arnon is.*al het vlakke land
+Jozua 13:17 | Hesbon en al haar steden
+Jozua 13:21 | Sihon, den koning der Amorieten, die te Hesbon regeerde
+Jozua 13:25 | Jaezer, en al de steden van Gilead
+Jozua 13:27 | tot aan het einde der zee van Cinnereth
+Jozua 13:30 | het ganse Bazan, het ganse koninkrijk van Og.*vlekken van Jair.*zestig steden
+Jozua 13:33 | de HEERE, de God Israels, is Zelf hunlieder Erfdeel
+Numeri 32:1 | Ruben nu hadden veel vee.*Gad hadden machtig veel.*een plaats voor vee
+Numeri 32:5 | dat ditzelve land aan uw knechten gegeven worde
+Numeri 32:21 | die toegerust is, over de Jordaan zal trekken
+Numeri 32:22 | zo zult gij daarna wederkeren.*dit land zal u ter bezitting zijn
+# --- Stap 2: Jozua 15 ---
+Jozua 15:1 | lot voor den stam der kinderen van Juda.*landpale van Edom.*zuiden
+Jozua 15:5 | tegen het oosten zal de Zoutzee zijn
+Jozua 15:12 | tegen het westen zal zijn tot de grote zee
+Jozua 15:13 | Kaleb.*een deel gegeven in het midden der kinderen van Juda.*dat is Hebron
+Jozua 15:14 | Kaleb verdreef van daar de drie zonen van Enak, Sesai, en Ahiman, en Talmai
+Jozua 15:15 | toog hij opwaarts tot de inwoners van Debir.*te voren Kirjath-sefer
+Jozua 15:16 | Kaleb zeide: Wie Kirjath-sefer zal slaan
+Jozua 15:17 | hij gaf hem Achsa, zijn dochter, tot een vrouw
+Jozua 15:19 | Geef mij een zegen; dewijl gij mij een dor land gegeven hebt, geef mij ook waterwellingen
+Jozua 15:63 | konden de Jebusieten, inwoners van Jeruzalem, niet verdrijven.*woonden de Jebusieten bij de kinderen van Juda te Jeruzalem
+Richteren 1:13 | Othniel.*Achsa
+Richteren 3:10 | hij richtte Israel
+Richteren 3:11 | Toen was het land veertig jaren stil
+2 Samuël 5:6 | Jeruzalem, tegen de Jebusieten
+2 Samuël 5:7 | David nam den burg Sion in
+# --- Stap 3: Jozua 16–17 ---
+Jozua 16:1 | lot der kinderen van Jozef.*van de Jordaan bij Jericho.*door het gebergte Beth-el
+Jozua 16:3 | haar uitgangen zijn aan de zee
+Jozua 16:4 | de kinderen van Jozef, Manasse en Efraim
+Jozua 17:3 | Zelafead.*had geen zonen, maar dochters.*Machla en Noa, Hogla, Milka en Tirza
+Jozua 17:4 | Eleazar, den priester.*Jozua.*De HEERE heeft Mozes geboden, dat men ons een erfdeel geven zou in het midden onzer broederen. Daarom gaf hij haar
+Jozua 17:14 | Waarom hebt gij mij ten erfdeel maar een lot en een snoer gegeven, daar ik toch een groot volk ben
+Jozua 17:15 | ga op naar het woud, en houw daar voor u af
+Jozua 17:16 | Dat gebergte zou ons niet genoegzaam zijn.*ijzeren wagens.*Beth-sean.*dal van Jizreel
+Jozua 17:18 | het gebergte zal het uwe zijn.*gij zult de Kanaanieten verdrijven, al hebben zij ijzeren wagens, al zijn zij sterk
+Numeri 27:2 | aan de deur van de tent der samenkomst
+Numeri 27:7 | De dochteren van Zelafead spreken recht
+1 Samuël 31:10 | Beth-san
+# --- Stap 4: Jozua 18:1–10 ---
+Jozua 18:1 | ganse vergadering.*te Silo.*richtten aldaar op de tent der samenkomst, nadat het land voor hen onderworpen was
+Jozua 18:3 | Hoe lang houdt gij u zo slap, om voort te gaan, om het land te beerven
+Jozua 18:4 | drie mannen van elken stam
+Jozua 18:9 | togen het land door en beschreven het, naar de steden, in zeven delen, in een boek.*tot Jozua in het leger te Silo
+Jozua 18:10 | wierp Jozua het lot voor hen te Silo, voor het aangezicht des HEEREN.*deelde aldaar
+Jozua 10:43 | naar het leger te Gilgal
+Jozua 14:6 | tot Jozua, te Gilgal
+1 Samuël 1:3 | te Silo.*zonen van Eli
+1 Samuël 1:24 | in het huis des HEEREN te Silo
+# --- Stap 5: Jozua 18:11–19:48 ---
+Jozua 18:11 | lot van den stam der kinderen van Benjamin kwam op.*tussen de kinderen van Juda, en tussen de kinderen van Jozef
+Jozua 18:21 | Jericho
+Jozua 18:22 | Beth-el
+Jozua 18:25 | Gibeon
+Jozua 18:28 | Jebusi \( deze is Jeruzalem\)
+Jozua 19:1 | tweede lot uit voor Simeon.*in het midden van het erfdeel der kinderen van Juda
+Jozua 19:2 | Beer-seba
+Jozua 19:5 | Ziklag
+Jozua 19:9 | het erfdeel der kinderen van Juda was te groot voor hen
+Jozua 19:10 | derde lot op voor de kinderen van Zebulon
+Jozua 19:15 | Bethlehem; twaalf steden
+Jozua 19:17 | vierde lot ging uit voor Issaschar
+Jozua 19:18 | Jizreela.*Sunem
+Jozua 19:22 | reikt aan Thabor.*aan de Jordaan; zestien steden
+Jozua 19:24 | vijfde lot voor den stam der kinderen van Aser
+Jozua 19:26 | reikt aan Karmel westwaarts
+Jozua 19:28 | tot aan groot Sidon
+Jozua 19:29 | tot aan de vaste stad Tyrus
+Jozua 19:30 | twee en twintig steden
+Jozua 19:32 | zesde lot ging uit voor de kinderen van Nafthali
+Jozua 19:35 | vaste steden.*Cinnereth
+Jozua 19:36 | Hazor
+Jozua 19:37 | Kedes
+Jozua 19:38 | negentien steden
+Jozua 19:40 | zevende lot ging uit voor den stam der kinderen van Dan
+Jozua 19:41 | Zora, en Esthaol
+Jozua 19:42 | Ajalon
+Jozua 19:43 | Ekron
+Jozua 19:46 | tegenover Jafo
+Jozua 19:47 | was hun te klein uitgekomen.*togen de kinderen van Dan op, en krijgden tegen Lesem, en namen haar in.*woonden daarin.*naar den naam van hun vader Dan
+Richteren 18:28 | zij was verre van Sidon.*zij lag in het dal.*herbouwden zij de stad
+# --- Stap 6: Jozua 19:49–51 ---
+Jozua 19:49 | geeindigd hadden het land erfelijk te delen.*gaven de kinderen Israels aan Jozua.*een erfdeel in het midden van hen
+Jozua 19:50 | Naar den mond des HEEREN gaven zij hem die stad, welke hij begeerde, Thimnath-serah, op het gebergte van Efraim; en hij bouwde die stad, en woonde in dezelve
+Jozua 19:51 | Eleazar, de priester, en Jozua.*hoofden der vaderen van de stammen, door het lot.*te Silo, voor het aangezicht des HEEREN, aan de deur van de tent der samenkomst.*een einde van het uitdelen des lands
+Numeri 13:8 | Van den stam van Efraim, Hosea, de zoon van Nun
+Numeri 13:16 | Mozes noemde Hosea, den zoon van Nun, Jozua
+Jozua 24:30 | begroeven hem.*te Timnath-serah
+# --- Stap 7: Jozua 20 ---
+Jozua 20:2 | Geeft voor ulieden de vrijsteden, waarvan Ik met ulieden gesproken heb door den dienst van Mozes
+Jozua 20:3 | door dwaling, niet met wetenschap.*toevlucht voor den bloedwreker
+Jozua 20:4 | deur der stadspoort.*oudsten derzelver stad.*tot zich in de stad nemen
+Jozua 20:5 | den doodslager in zijn hand niet overgeven.*gisteren en eergisteren niet heeft gehaat
+Jozua 20:6 | totdat hij sta voor het aangezicht der vergadering voor het gericht, totdat de hogepriester sterve.*tot zijn stad, en tot zijn huis
+Jozua 20:7 | Kedes in Galilea, op het gebergte van Nafthali, en Sichem op het gebergte van Efraim, en Kirjath-arba, deze is Hebron, op het gebergte van Juda
+Jozua 20:8 | Bezer in de woestijn, in het platte land, van den stam van Ruben; en Ramoth in Gilead, van den stam van Gad; en Golan in Bazan, van den stam van Manasse
+Jozua 20:9 | voor al de kinderen Israels, en voor den vreemdeling
+Numeri 35:19 | De wreker des bloeds, die zal den doodslager doden
+Numeri 35:20 | door haat.*met opzet
+Numeri 35:21 | de bloedwreker zal dezen doodslager doden
+Deuteronomium 19:11 | die zijn naaste haat.*vliedt tot een van die steden
+Deuteronomium 19:12 | in de hand des bloedwrekers geven
+# --- Stap 8: Jozua 21 ---
+Jozua 21:1 | hoofden der vaderen van de Levieten tot Eleazar, den priester, en tot Jozua.*hoofden der vaderen van de stammen
+Jozua 21:2 | te Silo.*De HEERE heeft geboden door den dienst van Mozes, dat men ons steden te bewonen geven zou
+Jozua 21:3 | van hun erfdeel, naar den mond des HEEREN
+Jozua 21:8 | bij het lot
+Jozua 21:41 | in het midden van de erfenis der kinderen Israels, waren acht en veertig steden
+Jozua 21:43 | gaf de HEERE aan Israel het ganse land, dat Hij gezworen had hun vaderen te geven
+Jozua 21:44 | de HEERE gaf hun rust rondom
+Jozua 21:45 | Er viel niet een woord van al de goede woorden, die de HEERE gesproken had tot het huis van Israel; het kwam altemaal
+Jozua 21:11 | \( zij is Hebron\).*haar voorsteden rondom haar
+Jozua 21:12 | het veld der stad en haar dorpen, gaven zij aan Kaleb
+Jozua 21:13 | vrijstad des doodslagers, Hebron
+Jozua 21:18 | Anathoth
+Jozua 21:19 | kinderen van Aaron, de priesteren, waren dertien steden
+Jozua 21:21 | Sichem, een vrijstad des doodslagers
+Jozua 21:27 | vrijstad des doodslagers, Golan in Bazan
+Jozua 21:32 | vrijstad des doodslagers, Kedes in Galilea
+Jozua 21:36 | Bezer
+Jozua 21:38 | vrijstad des doodslagers, Ramoth in Gilead
+Jeremia 1:1 | Jeremia.*uit de priesteren, die te Anathoth waren
+# --- Stap 9: Jozua 22:1–9 ---
+Jozua 22:1 | Rubenieten, en de Gadieten, en den halven stam van Manasse
+Jozua 22:2 | onderhouden alles, wat u Mozes.*geboden heeft
+Jozua 22:3 | uw broederen niet verlaten nu langen tijd
+Jozua 22:4 | uw broederen rust gegeven.*keert dan nu wederom.*op gene zijde van de Jordaan
+Jozua 22:5 | dat gij den HEERE, uw God, liefhebt, en dat gij wandelt in al Zijn wegen, en Zijn geboden houdt.*met uw ganse hart en met uw ganse ziel
+Jozua 22:6 | zegende hen Jozua, en hij liet hen gaan
+Jozua 22:8 | zeer veel vee, met zilver, en met goud, en met koper, en met ijzer, en met zeer veel klederen; deelt den roof uwer vijanden met uw broederen
+Jozua 22:9 | van Silo, dat in het land Kanaan is, om te gaan naar het land van Gilead
+Jozua 4:12 | Ruben.*Gad.*halve stam van Manasse, trokken gewapend voor het aangezicht der kinderen Israels, gelijk als Mozes tot hen gesproken had
+Jozua 4:13 | Omtrent veertig duizend toegeruste krijgsmannen
+# --- Stap 10: Jozua 22:10–34 ---
+Jozua 22:10 | een altaar aan de Jordaan, een altaar groot in het aanzien
+Jozua 22:12 | verzamelde de ganse vergadering der kinderen Israels te Silo, dat zij tegen hen optogen met een heir
+Jozua 22:13 | in het land Gilead, Pinehas
+Jozua 22:16 | afkerende van achter den HEERE, mits dat gij een altaar voor u gebouwd hebt
+Jozua 22:17 | ongerechtigheid van Peor.*plaag in de vergadering des HEEREN
+Jozua 22:20 | Achan.*verbolgenheid over de ganse vergadering van Israel
+Jozua 22:22 | de God der goden, de HEERE, Die weet het
+Jozua 22:26 | niet ten brandoffer, noch ten offer
+Jozua 22:27 | een getuige zij tussen ons en tussen ulieden.*dat uw kinderen tot onze kinderen morgen niet zeggen: Gijlieden hebt geen deel aan den HEERE
+Jozua 22:30 | zo was het goed in hun ogen
+Jozua 22:32 | uit het land Gilead, naar het land Kanaan
+Jozua 22:33 | de kinderen Israels loofden God, en zeiden niet meer van tegen hen op te trekken met een heir
+Jozua 22:34 | noemden dat altaar: Dat het een getuige zij tussen ons, dat de HEERE God is
+Deuteronomium 12:13 | dat gij uw brandofferen niet offert in alle plaats
+Deuteronomium 12:14 | in de plaats, die de HEERE in een uwer stammen zal verkiezen
+# --- Speurtocht ---
+Jozua 13:7 | negen stammen
+Jozua 13:8 | Rubenieten en Gadieten
+Jozua 19:50 | Thimnath-serah
+Jozua 20:3 | door dwaling
+Jozua 22:27 | getuige
+# --- Plaatsen (plaatsen.js, voorvoegsel st_) ---
+Jozua 13:15 | stam der kinderen van Ruben
+Jozua 13:24 | stam van Gad
+Jozua 13:26 | Mahanaim
+Jozua 13:27 | Sukkoth
+Jozua 13:29 | halven stam van Manasse
+Jozua 13:31 | Astharoth, en Edrei, steden des koninkrijks van Og in Bazan
+Jozua 16:5 | landpale nu der kinderen van Efraim
+Jozua 20:7 | Sichem op het gebergte van Efraim
+Jozua 17:10 | van Efraim tegen het zuiden, en tegen het noorden was het van Manasse, en de zee was zijn landpale
+Jozua 18:21 | steden nu van den stam der kinderen van Benjamin
+Jozua 19:13 | Gath-hefer
+Jozua 19:18 | Jizreela
+Jozua 20:8 | in de woestijn, in het platte land

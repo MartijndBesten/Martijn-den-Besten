@@ -63,6 +63,7 @@ BR.dateringen = {
     "profeten:jeremia-egypte": ["historie", false],
     //
     // [meer-reizen:stammen] datering
+    "jozua:stammen": ["bijbel", true],
     //
     // [meer-reizen:davids-rijk] datering
     //
