@@ -354,7 +354,10 @@
     lyAlt.eachLayer((m) => { const el = m.getElement(), lab = el && el.querySelector(".lab"); if (!lab) return; lab.classList.remove("clash"); const pt = map.latLngToContainerPoint(m.getLatLng()); if (pt.x > -150 && pt.y > -40 && pt.x < size.x + 150 && pt.y < size.y + 40) items.push({ el: lab, pt, side: "r", pr: 0.8, z: 0, pin: true }); });
     const tst = boek.nt ? "nt" : "ot";
     const plaatsNamen = new Set(items.map((it) => it.el.firstChild && it.el.firstChild.textContent));
-    REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1] || (r.tijd && r.tijd !== tst) || plaatsNamen.has(r.t); el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
+    // In de stand Nu staan de landen van vandaag op de kaart: de streeknamen van toen (Kanaän, Filistijnen, Aram …) gaan dan uit,
+    // zodat een oude naam niet naast een gebied van nu komt te staan.
+    const inNu = map.getContainer().classList.contains("nu");
+    REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1] || (r.tijd && r.tijd !== tst) || plaatsNamen.has(r.t) || (r.k === "land" && inNu); el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
     PEAKS.forEach((p, i) => { const el = peakMarkers[i].getElement(); if (!el) return; el.firstChild.classList.toggle("off", z < p.z); el.firstChild.classList.remove("clash"); if (z >= p.z) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(p.ll), side: "peak", pr: 0.5, z: p.z }); });
     // Stand ‘Nu’: landnamen en namen van omstreden gebieden krijgen eerst een plek (de plaatsnamen wijken ervoor uit); daarna de bordjes van ‘Vandaag’.
     const kaartEl = map.getContainer();
