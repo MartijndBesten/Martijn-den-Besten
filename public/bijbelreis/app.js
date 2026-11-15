@@ -166,18 +166,66 @@
     if (!rel) return;
     Object.values(rel).filter((o) => o && o.src && o.bounds).forEach((o) => L.imageOverlay(dataUrl(o.src.replace(/^\/bijbelreis\//, "")), o.bounds, { pane: "relief", interactive: false, className: "relief", alt: "" }).addTo(map));
   }).catch(() => {});
+  // Stand ‘Nu’: landsgrenzen, landnamen en gebiedsnamen uit grenzen.json. Maatstaf (docs/bijbelreis-vandaag/README.md): een landnaam
+  // krijgen alleen staten die Nederland erkent; een erkende landsgrens is een doorgetrokken lijn met een zachte band, een
+  // bestandslijn of omstreden grens is gestippeld; omstreden gebieden staan er met hun gangbare Nederlandse naam, schuin gedrukt.
   const lyModern = L.layerGroup();
+  const landNamen = [], gebiedNamen = [];
   let modernLoaded = false;
   function loadModern() {
     if (modernLoaded) return Promise.resolve();
     modernLoaded = true;
     return fetch(dataUrl("grenzen.json")).then((r) => r.json()).then((g) => {
-      const feats = g.features || [];
-      L.geoJSON({ type: "FeatureCollection", features: feats.filter((f) => f.geometry.type !== "Point") }, { pane: "modern", interactive: false, className: "border" }).addTo(lyModern);
-      // Alleen landen die Nederland erkent krijgen een naam (geen ‘Noord-Cyprus’).
-      feats.filter((f) => f.geometry.type === "Point" && f.properties.naam !== "Noord-Cyprus").forEach((f) => lyModern.addLayer(L.marker([f.geometry.coordinates[1], f.geometry.coordinates[0]], { interactive: false, keyboard: false, icon: icon(`<span class="country">${esc(f.properties.naam)}</span>`) })));
+      const feats = g.features || [], vast = (f) => f.properties.soort === "grens" || f.properties.soort === "onbepaald";
+      const lijnen = (kies, cls) => L.geoJSON({ type: "FeatureCollection", features: feats.filter((f) => f.geometry.type === "LineString" && kies(f)) }, { pane: "modern", interactive: false, className: cls }).addTo(lyModern);
+      // Kleine lijnen (minzoom 6: de Britse bases op Cyprus) pas van dichtbij.
+      const grof = (f) => (f.properties.minzoom || 0) < 6;
+      lijnen((f) => vast(f) && grof(f), "border band"); lijnen((f) => vast(f) && grof(f), "border"); lijnen((f) => vast(f) && !grof(f), "border fijn");
+      lijnen((f) => !vast(f) && grof(f), "border omstreden"); lijnen((f) => !vast(f) && !grof(f), "border omstreden fijn");
+      const naam = (f, cls) => L.marker([f.geometry.coordinates[1], f.geometry.coordinates[0]], { interactive: false, keyboard: false, zIndexOffset: -400, icon: icon(`<span class="${cls}">${esc(f.properties.naam)}</span>`) }).addTo(lyModern);
+      feats.filter((f) => f.geometry.type === "Point").forEach((f) => {
+        const q = f.properties;
+        const ankers = q.ankers && q.ankers.length ? q.ankers : [[f.geometry.coordinates[1], f.geometry.coordinates[0], 0]];
+        if (q.soort === "gebied") gebiedNamen.push({ m: naam(f, "gebied"), z: q.minzoom || 7, ankers });
+        else landNamen.push({ m: naam(f, "country" + (q.rang <= 3 ? " groot" : "")), rang: q.rang || 9, ankers });
+      });
     }).catch(() => { modernLoaded = false; toast("De moderne grenzen konden niet worden geladen."); });
   }
+  // ---------- laag ‘Vandaag’ (alleen in de stand ‘Nu’) ----------
+  // Wat is er nu op de plekken van de Bijbelreis? Gegevens: vandaag.js (BR.vandaag); regels: docs/bijbelreis-vandaag/README.md.
+  // Een eigen bordje boven de plek (geen stip, zoals de Bijbelse plaatsen), zodat beide naast elkaar zichtbaar blijven.
+  const VD = BR.vandaag || { peil: "", toelichting: "", plekken: [] };
+  const lyVandaag = L.layerGroup(), vdMarkers = {};
+  const vdLL = (x) => x.ll || (P[x.plaats] ? P[x.plaats].ll : null);
+  const VD_BORD = '<svg viewBox="0 0 24 31" aria-hidden="true"><path class="b" d="M4 1.5h16A2.5 2.5 0 0 1 22.5 4v15a2.5 2.5 0 0 1-2.5 2.5h-4.4L12 29.5l-3.6-8H4A2.5 2.5 0 0 1 1.5 19V4A2.5 2.5 0 0 1 4 1.5z"/><path class="w" d="M6.2 7.2h11.6v10.2H6.2z"/><path class="s" d="M6.2 10.6h11.6M9.4 5.4v3.2M14.6 5.4v3.2"/></svg>';
+  const vdBron = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return u; } };
+  // Het venster van een plek: op een breed scherm een tekstballon op de kaart, op een telefoon of tablet een blad van onderen
+  // (de kaart is daar te klein voor de tekst).
+  function vandaagTekst(x) {
+    const bp = x.plaats && P[x.plaats];
+    const bronnen = niveau === "c" && (x.bronnen || []).length ? `<p class="st">Bronnen: ${x.bronnen.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(vdBron(u))}</a>`).join(", ")}</p>` : "";
+    return `<p class="label">Vandaag</p><p>${esc(x.vandaag)}</p><p class="label">In de Bijbel</p><p>${esc(x.bijbel)}</p><p class="vd-lees">Lees in je Bijbel: <b>${esc((x.refs || []).join(" · "))}</b></p>${bp ? `<button type="button" class="btn small" data-place="${esc(x.plaats)}">${esc(bp.n.replace(/\?$/, ""))} in de Bijbelreis</button>` : ""}<p class="st">Peildatum: ${esc(VD.peil)}. De atlas kiest geen partij.</p>${bronnen}`;
+  }
+  let vdOpen = null;
+  const vdBallon = L.popup({ maxWidth: 320, offset: [0, -24], autoPanPaddingTopLeft: [50, 150], autoPanPaddingBottomRight: [20, 90] });
+  vdBallon.on("remove", () => { vdOpen = null; });
+  function openVandaag(x) {
+    if (isNarrow()) {
+      map.closePopup();
+      $("vvLand").textContent = x.land; $("vvTitel").textContent = x.n; $("vvTekst").innerHTML = vandaagTekst(x);
+      openLade("vandaagVenster"); return;
+    }
+    vdBallon.setLatLng(vdMarkers[x.id].getLatLng()).setContent(`<div class="pop vdpop" tabindex="0" role="group" aria-label="Vandaag: ${esc(x.n)}"><p class="vd-waar">${esc(x.land)}</p><h3>${esc(x.n)}</h3>${vandaagTekst(x)}</div>`).openOn(map);
+    vdOpen = x.id; queueLabels();
+  }
+  VD.plekken.forEach((x) => {
+    const ll = vdLL(x); if (!ll) return;
+    const m = L.marker(ll, { icon: icon(`<span class="vd-bord">${VD_BORD}</span><span class="vd-lab">${esc(x.n)}</span>`, "pl vandaag"), keyboard: true, title: `Vandaag: ${x.n}`, alt: `Vandaag: ${x.n}`, zIndexOffset: 300 });
+    m.on("add", () => { const el = m.getElement(); if (el) el.setAttribute("aria-label", `Vandaag: ${x.n}, ${x.land}`); });
+    m.on("click", () => openVandaag(x));
+    m.on("keypress", (e) => { if (e.originalEvent && e.originalEvent.key === "Enter") openVandaag(x); });
+    m.vd = x; vdMarkers[x.id] = m; lyVandaag.addLayer(m);
+  });
   const peakMarkers = PEAKS.map((p) => L.marker(p.ll, { interactive: false, keyboard: false, icon: icon(`<span class="peak off"><i></i><span>${esc(p.n)} ${fmt(p.h)} m</span></span>`) }).addTo(map));
   const regionMarkers = REGIONS.map((r) => L.marker(r.ll, { interactive: false, keyboard: false, icon: icon(`<span class="region ${r.k}">${esc(r.t)}</span>`) }).addTo(map));
 
@@ -288,6 +336,26 @@
     const plaatsNamen = new Set(items.map((it) => it.el.firstChild && it.el.firstChild.textContent));
     REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1] || (r.tijd && r.tijd !== tst) || plaatsNamen.has(r.t); el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
     PEAKS.forEach((p, i) => { const el = peakMarkers[i].getElement(); if (!el) return; el.firstChild.classList.toggle("off", z < p.z); el.firstChild.classList.remove("clash"); if (z >= p.z) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(p.ll), side: "peak", pr: 0.5, z: p.z }); });
+    // Stand ‘Nu’: landnamen en namen van omstreden gebieden krijgen eerst een plek (de plaatsnamen wijken ervoor uit); daarna de bordjes van ‘Vandaag’.
+    const kaartEl = map.getContainer();
+    kaartEl.classList.toggle("z-ver", z < 5.5); kaartEl.classList.toggle("z-dicht", z >= 7.5); kaartEl.classList.toggle("z-fijn", z >= 6);
+    if (map.hasLayer(lyModern)) {
+      landNamen.forEach((c) => { const el = c.m.getElement(), lab = el && el.firstChild; if (!lab) return; lab.classList.remove("clash"); items.push({ el: lab, side: "land", pr: 3.2, z: c.rang, land: c }); });
+      gebiedNamen.forEach((c) => { const el = c.m.getElement(), lab = el && el.firstChild; if (!lab) return; lab.classList.toggle("off", z < c.z); lab.classList.remove("clash"); if (z >= c.z) items.push({ el: lab, side: "land", pr: 3.1, z: c.z, land: c }); });
+    }
+    // Bordjes van ‘Vandaag’: op de overzichtskaart staan ze rond Jeruzalem te dicht op elkaar; dan blijft het eerste uit de
+    // lijst staan en komen de andere bij inzoomen (in de lijst ‘Vandaag’ staan ze altijd allemaal).
+    const vdBorden = [];
+    if (map.hasLayer(lyVandaag)) VD.plekken.map((x) => vdMarkers[x.id]).filter(Boolean).sort((a, b) => (b.vd.id === vdOpen) - (a.vd.id === vdOpen)).forEach((m) => {
+      const el = m.getElement(), lab = el && el.querySelector(".vd-lab"); if (!lab) return;
+      const pt = map.latLngToContainerPoint(m.getLatLng()), r = [pt.x - 12, pt.y - 31, 24, 31]; lab.classList.remove("clash");
+      const dek = (q) => Math.max(0, Math.min(r[0] + 24, q[0] + 24) - Math.max(r[0], q[0])) * Math.max(0, Math.min(r[1] + 31, q[1] + 31) - Math.max(r[1], q[1])) / (24 * 31);
+      const weg = m.vd.id !== vdOpen && vdBorden.some((q) => dek(q) > 0.3);
+      el.classList.toggle("dicht", weg);
+      if (weg || pt.x < -40 || pt.y < -10 || pt.x > size.x + 40 || pt.y > size.y + 60) return;
+      vdBorden.push(r);
+      lab.classList.toggle("off", z < 6.5); if (z >= 6.5) items.push({ el: lab, pt, side: "vd", pr: 1.2, z: 0 });
+    });
     // Eén leesronde voor alle maten, daarna alleen schrijven.
     items.forEach((it) => { it.w = it.el.offsetWidth; it.h = it.el.offsetHeight; });
     const placed = uiRects();
@@ -295,11 +363,42 @@
     const ce = camel.getElement(), cel = ce && ce.querySelector(".camel");
     let reiziger = null;
     if (cel && map.hasLayer(camel) && !cel.classList.contains("gone")) { const box = map.getContainer().getBoundingClientRect(), r = (cel.classList.contains("nt") ? cel.querySelector(".walker") : cel).getBoundingClientRect(); reiziger = [r.left - box.left - 3, r.top - box.top - 3, r.width + 6, r.height + 6]; placed.push(reiziger); }
+    vdBorden.forEach((r) => placed.push(r));
+    // Wat een landnaam nooit mag raken: knoppen, de reiziger, de bordjes van ‘Vandaag’ en de plaatsen van de stap. Is de kaart
+    // erg vol (Bijbelwereld), dan mag een landnaam wel over de stip van een andere plaats heen.
+    const hard = placed.slice();
+    items.filter((it) => it.pin && it.pr >= 2.5).forEach((it) => hard.push([it.pt.x - 7, it.pt.y - 7, 14, 14]));
     items.filter((it) => it.pin).forEach((it) => placed.push([it.pt.x - 7, it.pt.y - 7, 14, 14]));
     items.sort((a, b) => b.pr - a.pr || a.z - b.z);
     // Overlap met wat er al staat; de reiziger telt zwaar: een naam onder de kameel of stip is onleesbaar.
     const overlap = (r) => placed.reduce((a, q) => a + Math.max(0, Math.min(r[0] + r[2], q[0] + q[2]) - Math.max(r[0], q[0])) * Math.max(0, Math.min(r[1] + r[3], q[1] + q[3]) - Math.max(r[1], q[1])) * (q === reiziger ? 12 : 1), 0);
+    const ppg = (256 * 2 ** z) / 360; // schermpixels per graad (lengte)
     items.forEach((it) => {
+      if (it.side === "land") {
+        // Landnaam of gebiedsnaam: het eerste anker (van grof naar fijn) dat in beeld ligt, waar de naam in het land past en
+        // niets raakt; de naam mag een regel omhoog of omlaag schuiven. Past de naam nergens in het land (een smal land op de
+        // overzichtskaart), dan in zee voor de kust (straal -1) en anders op het eerste vrije anker.
+        const hw = it.w / 2, hh = it.h / 2;
+        const vrij = (a, lijst) => {
+          const p = map.latLngToContainerPoint([a[0], a[1]]);
+          for (const dy of [0, -it.h - 3, it.h + 3]) { const r = [p.x - hw, p.y - hh + dy, it.w, it.h]; if (r[0] > 4 && r[1] > 4 && r[0] + it.w < size.x - 4 && r[1] + it.h < size.y - 4 && !lijst.some((q) => hits(r, q))) return { a, dy, r }; }
+          return null;
+        };
+        const A = it.land.ankers, past = (a) => a[2] > 0 && hw <= a[2] * ppg * 1.6;
+        const eerste = (kies, lijst) => { for (const a of A) { const v = kies(a) && vrij(a, lijst); if (v) return v; } return null; };
+        const zoek = (lijst) => eerste(past, lijst) || eerste((a) => a[2] < 0, lijst) || (A.some(past) ? null : eerste((a) => a[2] >= 0, lijst));
+        const plek = zoek(placed) || zoek(hard);
+        if (!plek) { it.el.classList.add("clash"); return; }
+        const ll = it.land.m.getLatLng(); if (ll.lat !== plek.a[0] || ll.lng !== plek.a[1]) it.land.m.setLatLng([plek.a[0], plek.a[1]]);
+        it.el.style.margin = plek.dy ? `${plek.dy}px 0 0 0` : "";
+        placed.push(plek.r); hard.push(plek.r); return;
+      }
+      if (it.side === "vd") {
+        // Naam bij een bordje van ‘Vandaag’: rechts of links van het bordje; past dat niet, dan alleen het bordje.
+        const r = [[it.pt.x + 15, it.pt.y - 28, it.w, it.h], [it.pt.x - 15 - it.w, it.pt.y - 28, it.w, it.h]].find((q) => q[0] > 2 && q[0] + q[2] < size.x - 2 && !placed.some((x) => hits(q, x)));
+        if (!r) { it.el.classList.add("clash"); return; }
+        it.el.classList.toggle("links", r[0] < it.pt.x); placed.push(r); return;
+      }
       if (it.side === "c" || it.side === "peak") {
         // Gebiedsnamen staan midden in hun gebied, maar mogen iets omhoog of omlaag uitwijken (voor de reiziger of een plaats).
         const sx = it.w / 2 + 12, sy = it.h + 6;
@@ -1285,7 +1384,7 @@
     }).join("")}</div>`).join("");
   }
   // De overzichtsvensters (boekenkast, alle reizen, alle plaatsen) openen en sluiten op dezelfde manier.
-  const LADEN = ["kast", "reizenLade", "plaatsenLade"];
+  const LADEN = ["kast", "reizenLade", "plaatsenLade", "vandaagLade", "vandaagVenster"];
   let kastFrom = null;
   const openLade = (id) => { kastFrom = document.activeElement; $(id).hidden = false; $(id).querySelector(".lade__head button").focus(); };
   const sluitLade = (id, terug = true) => { $(id).hidden = true; if (terug && kastFrom && kastFrom.isConnected) kastFrom.focus(); };
@@ -1345,6 +1444,30 @@
     const s = e.target.closest("[data-ps]"); if (s) { plSoort = s.dataset.ps; renderPlaatsen(); $("plSoort").querySelector('[aria-pressed="true"]').focus(); return; }
     if (e.target.closest("[data-place]")) sluitLade("plaatsenLade", false); // de plaats zelf opent de algemene klikafhandeling (showPlace)
   });
+
+  // ---------- overzicht: vandaag ----------
+  // De plekken van de laag ‘Vandaag’ per streek, met de peildatum en de vaste zin dat de atlas geen partij kiest. Zoeken op naam en land.
+  const VD_LIJST = VD.plekken.filter(vdLL).map((x) => ({ x, zoek: norm([x.n, x.land, x.plaats && P[x.plaats] ? P[x.plaats].n : ""].join(" ")) }));
+  let vdZoek = "";
+  function renderVandaag() {
+    const q = norm(vdZoek).split(/\s+/).filter(Boolean);
+    const lijst = VD_LIJST.filter((v) => q.every((w) => v.zoek.includes(w)));
+    const rij = ({ x }) => { const bp = x.plaats && P[x.plaats]; return `<li><button type="button" class="orij" data-vandaag="${esc(x.id)}"><span class="vd-bord klein" aria-hidden="true">${VD_BORD}</span><span class="o-n"><b>${esc(x.n)}</b><small>${esc(x.land)}${bp ? ` · in de Bijbel: ${esc(bp.n.replace(/\?$/, ""))}` : ""}</small></span></button></li>`; };
+    $("vdPeil").textContent = `Peildatum: ${VD.peil}.`;
+    $("vdToelichting").textContent = VD.toelichting;
+    $("vdAantal").textContent = lijst.length === VD_LIJST.length ? `${lijst.length} plekken. Tik op een plek om haar op de kaart van nu te zien.` : `${lijst.length} van de ${VD_LIJST.length} plekken`;
+    if (!lijst.length) { $("vandaagLijst").innerHTML = `<p class="ref">Niets gevonden. Probeer een andere naam of een land.</p>`; return; }
+    if (q.length) { $("vandaagLijst").innerHTML = `<ul class="olijst">${lijst.map(rij).join("")}</ul>`; return; }
+    const streken = [...new Set(lijst.map((v) => v.x.streek || v.x.land))];
+    $("vandaagLijst").innerHTML = streken.map((l) => `<h4 class="o-kop">${esc(l)}</h4><ul class="olijst">${lijst.filter((v) => (v.x.streek || v.x.land) === l).map(rij).join("")}</ul>`).join("");
+  }
+  const openVandaagLade = () => { renderVandaag(); $("vdZoek").value = vdZoek; openLade("vandaagLade"); };
+  $("vandaagLijstBtn").onclick = openVandaagLade;
+  $("vandaagLegendaBtn").onclick = openVandaagLade;
+  $("vdZoek").addEventListener("input", (e) => { vdZoek = e.target.value; renderVandaag(); });
+  $("vandaagLade").addEventListener("click", (e) => { const b = e.target.closest("[data-vandaag]"); if (b) { sluitLade("vandaagLade", false); showVandaag(b.dataset.vandaag); } });
+  // Het blad van een plek (telefoon): de knop naar de Bijbelse plaats sluit het blad; de plaats zelf opent de algemene klikafhandeling.
+  $("vandaagVenster").addEventListener("click", (e) => { if (e.target.closest("[data-place]")) sluitLade("vandaagVenster", false); });
 
   // ---------- wie is wie ----------
   let wieSel = null;
@@ -1725,13 +1848,39 @@
   });
 
   // ---------- kaartbediening: toen/nu, legenda, grote kaart, twee vingers op een telefoon ----------
+  let nuAan = false;
   function setNu(on) {
+    nuAan = !!on;
     $("nuBtn").setAttribute("aria-pressed", on); $("toenBtn").setAttribute("aria-pressed", !on);
     $("lgNu").hidden = !on;
     map.getContainer().classList.toggle("nu", on);
-    if (on) loadModern().then(() => map.addLayer(lyModern)); else map.removeLayer(lyModern);
+    if (on) loadModern().then(() => { if (nuAan) { map.addLayer(lyModern); queueLabels(); } }); else map.removeLayer(lyModern);
+    syncVandaag();
+  }
+  // Laag ‘Vandaag’: alleen in de stand ‘Nu’, standaard uit; de keuze wordt onthouden (bijbelreis:vandaag). Niet bij Samen ontdekken.
+  let vandaagAan = store.get("vandaag", false) === true;
+  function syncVandaag() {
+    const aan = nuAan && vandaagAan && niveau !== "a";
+    $("vandaagBtn").hidden = !nuAan; $("vandaagBtn").setAttribute("aria-pressed", vandaagAan);
+    if (aan) map.addLayer(lyVandaag); else { map.removeLayer(lyVandaag); if (vdOpen) map.closePopup(vdBallon); }
     queueLabels();
   }
+  function setVandaag(on, zeg) {
+    vandaagAan = !!on; store.set("vandaag", vandaagAan); syncVandaag();
+    if (zeg) toast(vandaagAan ? `Vandaag: ${Object.keys(vdMarkers).length} plekken. Tik op een blauw bordje.` : "Laag ‘Vandaag’ uit");
+  }
+  $("vandaagBtn").onclick = () => setVandaag(!vandaagAan, true);
+  function showVandaag(id) {
+    const m = vdMarkers[id]; if (!m || niveau === "a") return;
+    map.closePopup();
+    if (!nuAan) setNu(true);
+    if (!vandaagAan) setVandaag(true);
+    map.flyTo(m.getLatLng(), Math.max(map.getZoom(), 7), { duration: reduceMotion ? 0 : 0.6 });
+    setTimeout(() => { if (!map.hasLayer(lyVandaag)) return; const el = m.getElement(); if (el) el.focus({ preventScroll: true }); openVandaag(m.vd); }, reduceMotion ? 0 : 650);
+    scrollToMap();
+  }
+  // Wisselt het reisniveau, dan volgt de laag (bij Samen ontdekken is ze er niet).
+  document.addEventListener("click", (e) => { if (e.target.closest("button[data-niveau]")) setTimeout(syncVandaag, 0); });
   $("toenBtn").onclick = () => setNu(false);
   $("nuBtn").onclick = () => setNu(true);
   function setLegend(open) { $("legend").classList.toggle("open", open); $("legendBtn").setAttribute("aria-expanded", open); $("legendBtn").querySelector("span").textContent = open ? "Sluit" : "Legenda"; $("legendBtn").setAttribute("aria-label", open ? "Sluit legenda" : "Legenda"); queueLabels(); }
