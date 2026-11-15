@@ -1,0 +1,143 @@
+# Controle voor het deel davids-rijk in public/bijbelreis/inhoud/2samuel.js (Statenvertaling). Regel: verwijzing | regex
+# --- Wie is wie ---
+2 Samuël 2:18 | drie zonen van Zeruja, Joab, en Abisai
+2 Samuël 10:10 | het overige des volks gaf hij onder de hand van zijn broeder Abisai.*tegen de kinderen Ammons
+1 Kronieken 18:12 | Abisai, de zoon van Zeruja, de Edomieten in het Zoutdal, achttien duizend
+2 Samuël 8:3 | Hadad-ezer, den zoon van Rechob, den koning van Zoba
+2 Samuël 8:4 | duizend wagens af
+2 Samuël 10:16 | Hadad-ezer zond heen.*Syriërs uitkomen, die op gene zijde der rivier zijn.*Helam
+2 Samuël 10:18 | Syriërs vloden voor Israëls aangezicht
+2 Samuël 8:9 | Thoi, de koning van Hamath
+2 Samuël 8:10 | zond Thoi zijn zoon Joram.*Hadad-ezer voerde steeds krijg tegen Thoi.*zilveren vaten, en gouden vaten, en koperen vaten
+2 Samuël 10:1 | koning der kinderen Ammons stierf, en zijn zoon Hanun werd koning
+2 Samuël 10:2 | Hanun, den zoon van Nahas.*troosten over zijn vader
+2 Samuël 10:3 | vorsten der kinderen Ammons tot hun heer Hanun
+2 Samuël 10:4 | Hanun.*baard half af.*klederen half af.*liet hen gaan
+2 Samuël 10:6 | huurden van de Syriërs
+# --- Deel: datering, intro, stat en verwijzingen ---
+2 Samuël 5:5 | te Jeruzalem regeerde hij drie en dertig jaren
+2 Samuël 5:17 | Filistijnen hoorden, dat zij David ten koning over Israël gezalfd hadden
+2 Samuël 12:24 | Salomo
+2 Samuël 12:29 | Rabba.*nam ze in
+1 Koningen 2:10 | David ontsliep
+1 Koningen 2:12 | Salomo zat op den troon van zijn vader David
+2 Samuël 8:1 | daarna
+2 Samuël 10:1 | daarna
+2 Samuël 8:6 | de HEERE behoedde David overal, waar hij heentoog
+2 Samuël 8:14 | de HEERE behoedde David overal, waar hij heentoog
+2 Samuël 8:4 | duizend wagens.*hield daarvan honderd wagenen over
+Deuteronomium 17:16 | de paarden niet vermenigvuldigen
+1 Kronieken 18:1 | Gath
+1 Kronieken 18:12 | Abisai.*Zoutdal
+1 Kronieken 19:7 | Medeba
+Jesaja 28:21 | Want de HEERE zal Zich opmaken, gelijk op den berg Perazim, Hij zal beroerd zijn, gelijk in het dal van Gibeon
+Psalm 60:1 | David
+Psalm 60:2 | Syriërs van Zoba.*Joab wederkwam, en de Edomieten sloeg in het Zoutdal, twaalf duizend
+2 Samuël 7:9 | En Ik ben met u geweest, overal, waar gij gegaan zijt
+1 Samuël 14:47 | Moab.*kinderen Ammons.*Edom.*koningen van Zoba.*Filistijnen
+Jeremia 23:5 | aan David een rechtvaardige Spruit.*Koning.*recht en gerechtigheid doen op de aarde
+2 Samuël 8:15 | recht en gerechtigheid
+# --- Stap 1: Baäl-Perazim (5:17–21) ---
+2 Samuël 5:17 | togen alle Filistijnen op om David te zoeken; en David, dat horende, toog af, naar den burg
+2 Samuël 5:18 | Filistijnen kwamen en verspreidden zich in het dal Refaim
+2 Samuël 5:19 | vraagde David den HEERE.*Zal ik optrekken tegen de Filistijnen\? Zult Gij ze in mijn hand geven\?
+2 Samuël 5:19 | Trek op, want Ik zal de Filistijnen zekerlijk in uw hand geven
+2 Samuël 5:20 | Baäl-perazim; en David sloeg hen aldaar
+2 Samuël 5:20 | De HEERE heeft mijn vijanden voor mijn aangezicht gescheurd, als een scheur der wateren
+2 Samuël 5:21 | lieten hun afgoden aldaar; en David en zijn mannen namen ze op
+1 Kronieken 14:12 | David gebood, en zij werden met vuur verbrand
+Deuteronomium 7:5 | hun gesnedene beelden met vuur verbranden
+# --- Stap 2: de moerbeibomen (5:22–25) ---
+2 Samuël 5:22 | togen de Filistijnen weder op.*verspreidden zich in het dal Refaim
+2 Samuël 5:23 | David vraagde den HEERE.*Gij zult niet optrekken; maar trek om tot achter hen.*van tegenover de moerbezienbomen
+2 Samuël 5:24 | geruis van een gang in de toppen der moerbezienbomen, dan rep u.*is de HEERE voor uw aangezicht uitgegaan, om het heirleger der Filistijnen te slaan
+2 Samuël 5:25 | David deed alzo, gelijk als de HEERE hem geboden had.*van Geba af, totdat gij komt te Gezer
+1 Kronieken 14:16 | van Gibeon af tot aan Gezer
+1 Kronieken 14:17 | Alzo ging Davids naam uit in al die landen; en de HEERE gaf Zijn verschrikking over al die heidenen
+# --- Stap 3: Filistijnen en Moab (8:1–2) ---
+2 Samuël 8:1 | daarna, dat David de Filistijnen sloeg, en bracht hen ten onder.*Meteg-amma uit der Filistijnen hand
+2 Samuël 8:2 | sloeg hij de Moabieten, en mat hen met een snoer, doende hen ter aarde nederliggen
+2 Samuël 8:2 | twee snoeren om te doden, en met een vol snoer om in het leven te laten
+2 Samuël 8:2 | Moabieten David tot knechten, brengende geschenken
+1 Kronieken 18:1 | hij nam Gath, en haar onderhorige plaatsen, uit der Filistijnen hand
+1 Samuël 22:3 | koning der Moabieten.*mijn vader en mijn moeder
+1 Samuël 22:4 | bracht hen voor het aangezicht van den koning der Moabieten
+1 Samuël 22:1 | Adullam
+# --- Stap 4: Hadadezer en Damascus (8:3–8) ---
+2 Samuël 8:3 | toen hij heen toog, om zijn hand te wenden naar de rivier Frath
+2 Samuël 8:4 | duizend wagens af, en zevenhonderd ruiteren, en twintig duizend man te voet
+2 Samuël 8:4 | ontzenuwde alle wagenpaarden, en hield daarvan honderd wagenen over
+2 Samuël 8:5 | Syriërs van Damaskus kwamen om Hadad-ezer.*te helpen.*twee en twintig duizend man
+2 Samuël 8:6 | bezettingen in Syrië van Damaskus.*tot knechten, brengende geschenken
+2 Samuël 8:7 | gouden schilden die bij Hadad-ezers knechten geweest waren, en bracht ze te Jeruzalem
+2 Samuël 8:8 | zeer veel kopers uit Betach, en uit Berothai, steden van Hadad-ezer
+1 Kronieken 18:8 | heeft Salomo de koperen zee, en de pilaren, en de koperen vaten gemaakt
+1 Kronieken 18:4 | zeven duizend ruiters
+1 Kronieken 18:3 | naar Hamath toe
+# --- Stap 5: Thoï van Hamath (8:9–12) ---
+2 Samuël 8:9 | Thoi, de koning van Hamath, hoorde, dat David het ganse heir van Hadad-ezer geslagen had
+2 Samuël 8:10 | om hem te vragen naar zijn welstand, en om hem te zegenen
+2 Samuël 8:11 | Welke de koning David ook den HEERE heiligde, met het zilver en het goud.*van alle heidenen, die hij zich onderworpen had
+2 Samuël 8:12 | Van Syrië, en van Moab, en van de kinderen Ammons, en van de Filistijnen, en van Amalek, en van den roof van Hadad-ezer
+1 Kronieken 18:9 | Thou, de koning van Hamath
+1 Kronieken 18:10 | zijn zoon Hadoram
+1 Koningen 7:51 | bracht Salomo de geheiligde dingen van zijn vader David.*onder de schatten van het huis des HEEREN
+# --- Stap 6: Zoutdal en Edom (8:13–14) ---
+2 Samuël 8:13 | maakte zich David een naam, als hij wederkwam, nadat hij de Syriërs geslagen had, in het Zoutdal, achttien duizend
+2 Samuël 8:14 | bezettingen in Edom; in gans Edom.*alle Edomieten werden David tot knechten
+1 Kronieken 18:12 | sloeg Abisai, de zoon van Zeruja, de Edomieten in het Zoutdal, achttien duizend
+Psalm 60:2 | Joab wederkwam, en de Edomieten sloeg in het Zoutdal, twaalf duizend
+# --- Stap 7: David doet recht (8:15–18) ---
+2 Samuël 8:15 | Alzo regeerde David over gans Israël, en David deed aan zijn ganse volk recht en gerechtigheid
+2 Samuël 8:16 | Joab nu, de zoon van Zeruja, was over het heir; en Josafat, zoon van Achilud, was kanselier
+2 Samuël 8:17 | Zadok, zoon van Ahitub, en Achimelech, zoon van Abjathar, waren priesters; en Seraja was schrijver
+2 Samuël 8:18 | Benaja, zoon van Jojada, met de Krethi en de Plethi; maar Davids zonen waren prinsen
+2 Samuël 15:18 | al de Krethi en al de Plethi
+2 Samuël 15:14 | vlieden.*Absalom
+# --- Stap 8: Hanun en de gezanten (10:1–5) ---
+2 Samuël 10:2 | Ik zal weldadigheid doen aan Hanun.*gelijk als zijn vader weldadigheid aan mij gedaan heeft
+2 Samuël 10:2 | knechten van David kwamen in het land van de kinderen Ammons
+2 Samuël 10:3 | Eert David uw vader in uw ogen.*deze stad doorzoeke, en die verspiede, en die omkere
+2 Samuël 10:5 | zond hij hun tegemoet; want deze mannen waren zeer beschaamd
+2 Samuël 10:5 | Blijft te Jericho, totdat uw baard weder gewassen zal zijn, komt dan weder
+2 Samuël 12:26 | Rabba der kinderen Ammons; en hij nam de koninklijke stad in
+# --- Stap 9: Joab en Abisaï (10:6–14) ---
+2 Samuël 10:6 | zich bij David stinkende gemaakt hadden
+2 Samuël 10:6 | Syriërs van Beth-rechob, en van de Syriërs van Zoba, twintig duizend voetvolks, en van den koning van Maacha duizend man, en van de mannen van Tob twaalf duizend man
+2 Samuël 10:7 | zond hij Joab heen, en het ganse heir met de helden
+2 Samuël 10:8 | slagorde voor de deur der poort.*bijzonder in het veld
+2 Samuël 10:9 | van voren en van achteren, zo verkoos hij uit alle uitgelezenen van Israël.*tegen de Syriërs aan
+2 Samuël 10:10 | zijn broeder Abisai
+2 Samuël 10:11 | Zo de Syriërs mij te sterk zullen zijn, zo zult gij mij komen verlossen.*zo zal ik komen om u te verlossen
+2 Samuël 10:12 | Wees sterk, en laat ons sterk zijn voor ons volk, en voor de steden onzes Gods; de HEERE nu doe, wat goed is in Zijn ogen
+2 Samuël 10:13 | tegen de Syriërs; en zij vloden voor zijn aangezicht
+2 Samuël 10:14 | vloden zij ook voor het aangezicht van Abisai, en kwamen in de stad. En Joab keerde weder.*kwam te Jeruzalem
+1 Kronieken 19:7 | de koning van Maacha en zijn volk kwamen en legerden zich voor Medeba
+1 Kronieken 19:6 | duizend talenten zilvers
+# --- Stap 10: Helam (10:15–19) ---
+2 Samuël 10:15 | Syriërs zagen, dat zij voor Israëls aangezicht geslagen waren, zo vergaderden zij zich weder te zamen
+2 Samuël 10:16 | zij kwamen te Helam; en Sobach, Hadad-ezers krijgsoverste, toog voor hun aangezicht heen
+2 Samuël 10:17 | verzamelde hij gans Israël, en toog over de Jordaan, en kwam te Helam.*streden met hem
+2 Samuël 10:18 | zevenhonderd wagenen, en veertig duizend ruiteren.*Sobach, hun krijgsoverste, dat hij aldaar stierf
+2 Samuël 10:19 | koningen, die Hadad-ezers knechten waren.*maakten zij vrede met Israël, en dienden hen; en de Syriërs vreesden de kinderen Ammons meer te verlossen
+1 Kronieken 19:18 | zeven duizend wagenen, en veertig duizend mannen te voet.*Sofach
+2 Samuël 11:1 | wederkomst van het jaar.*Joab.*Rabba belegeren
+# --- Speurtocht ---
+2 Samuël 5:19 | vraagde David den HEERE
+2 Samuël 5:24 | geruis van een gang in de toppen der moerbezienbomen
+2 Samuël 5:25 | Gezer
+2 Samuël 8:4 | honderd wagenen over
+2 Samuël 8:11 | den HEERE heiligde
+2 Samuël 8:15 | recht en gerechtigheid
+2 Samuël 10:2 | troosten over zijn vader
+2 Samuël 10:12 | Wees sterk.*de HEERE nu doe, wat goed is in Zijn ogen
+# --- Plaatsen (plaatsen.js, sleutels dr_) ---
+Jozua 15:8 | dal der Refaieten
+2 Samuël 5:22 | dal Refaim
+1 Koningen 9:16 | Farao.*Gezer ingenomen.*aan zijn dochter, de huisvrouw van Salomo, tot een geschenk gegeven
+1 Samuël 14:47 | koningen van Zoba
+2 Samuël 8:13 | Zoutdal, achttien duizend
+Richteren 11:3 | Jeftha.*woonde in het land Tob
+Jozua 12:5 | berg Hermon.*geheel Bazan, tot aan de landpale der Gezurieten, en der Maachathieten
+Jozua 12:4 | Og
+2 Samuël 10:6 | koning van Maacha duizend man

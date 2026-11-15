@@ -56,6 +56,7 @@ BR.dateringen = {
     // [meer-reizen:stammen] datering
     //
     // [meer-reizen:davids-rijk] datering
+    "2samuel:davids-rijk": ["historie", true],
     //
     // [meer-reizen:brieven] datering
     //

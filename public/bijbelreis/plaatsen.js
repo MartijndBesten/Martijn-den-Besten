@@ -612,6 +612,30 @@ Object.assign(BR.plaatsen, {
 // [meer-reizen:stammen] plaatsen
 //
 // [meer-reizen:davids-rijk] plaatsen
+Object.assign(BR.plaatsen, {
+  dr_refaim: { n: "Dal Refaïm", ll: [31.7632, 35.2191], c: "v", s: "b", z: 9, t: "gebied", d: "Dal vlak bij Jeruzalem; de grens van Juda liep erlangs (Jozua 15:8). Twee keer verspreidden de Filistijnen zich hier, toen David koning over Israël was geworden (2 Samuël 5:18, 22).",
+    nu: "Emek Refaim (Wadi el-Ward), ten zuidwesten van de oude stad van Jeruzalem", bron: "Het dal is bekend (OpenBible 1000: Wadi el-Ward). Het punt ligt in het dal; het is geen exacte plek." },
+  dr_baalperazim: { n: "Baäl-Perazim", ll: [31.7419, 35.1833], c: "o", s: "l", z: 9, t: "kamp", d: "Hier versloeg David de Filistijnen. Hij zei: ‘De HEERE heeft mijn vijanden voor mijn aangezicht gescheurd, als een scheur der wateren’ (2 Samuël 5:20). Perazim betekent “doorbraken”. Waar de plaats precies lag, weten we niet; ergens bij het dal Refaïm.",
+    nu: "Onbekend; punt bij ez-Zuhur, ten zuidwesten van Jeruzalem", bron: "Onbekend. Alleen zwakke voorstellen (OpenBible: ez-Zuhur 240, Abu Tor 99, Gilo 63). Het punt is illustratief en ligt bij het best ondersteunde voorstel." },
+  dr_gezer: { n: "Gezer", ll: [31.8592, 34.9192], c: "v", s: "l", z: 7.5, t: "stad", d: "Stad aan de rand van het heuvelland, op de weg naar de kust. David sloeg de Filistijnen ‘van Geba af, totdat gij komt te Gezer’ (2 Samuël 5:25). Later gaf de farao Gezer als geschenk aan zijn dochter, de vrouw van Salomo (1 Koningen 9:16).",
+    nu: "Tel Gezer, Israël", bron: "Tel Gezer (OpenBible 942); bij de tell zijn grensstenen met de naam Gezer gevonden." },
+  dr_zoba: { n: "Zoba", ll: [33.9353, 36.1508], c: "r", s: "c", z: 6.5, t: "gebied", d: "Koninkrijk van de Syriërs ten noorden van Israël. David versloeg Hadadezer, de koning van Zoba (2 Samuël 8:3). Ook Saul streed al tegen de koningen van Zoba (1 Samuël 14:47). Waar de grenzen precies liepen, weten we niet.",
+    nu: "Bekaa-vallei en omgeving, Libanon en Syrië", bron: "Gebied. Meestal gezocht in de noordelijke Bekaa-vallei en het Anti-Libanon, tussen Damascus en Hamath; de grenzen zijn onbekend. Het punt is de plaatsaanduiding van OpenBible in de Bekaa." },
+  dr_hamath: { n: "Hamath", ll: [35.1365, 36.75], c: "v", s: "r", z: 5.5, t: "stad", d: "Stad ver in het noorden, aan de rivier de Orontes. Koning Thoï van Hamath stuurde zijn zoon met geschenken naar David, toen die Hadadezer verslagen had (2 Samuël 8:9–10).",
+    nu: "Hama, Syrië", bron: "Hama (OpenBible 957); de naam bleef in gebruik." },
+  dr_zoutdal: { n: "Zoutdal", ll: [31.0505, 35.4063], c: "b", s: "l", z: 8, t: "gebied", d: "In het Zoutdal werden achttienduizend man verslagen (2 Samuël 8:13); 1 Kronieken 18:12 zegt dat het Edomieten waren. Waar het dal lag, is niet zeker. Op de kaart staan twee voorstellen.",
+    nu: "Es-Sebkha, de zoutvlakte ten zuiden van de Dode Zee", bron: "Betwist. Hier: es-Sebkha, de zoutvlakte ten zuiden van de Dode Zee (OpenBible 451). Ook genoemd: Wadi el-Milh, ten oosten van Berseba (340).",
+    alt: [[31.216, 35.0506, "Wadi el-Milh (bij Berseba)"]] },
+  dr_medeba: { n: "Medeba", ll: [31.7161, 35.7955], c: "v", s: "r", z: 7.5, t: "stad", d: "Stad op de hoogvlakte ten oosten van de Zoutzee. De koning van Maächa en zijn volk, door de Ammonieten gehuurd, legerden zich voor Medeba (1 Kronieken 19:7).",
+    nu: "Madaba, Jordanië", bron: "Madaba (OpenBible 1000); de naam bleef in gebruik." },
+  dr_tob: { n: "Tob", ll: [32.5633, 36.2439], c: "w", s: "r", z: 8, t: "stad", d: "Uit Tob huurden de Ammonieten twaalfduizend man tegen David (2 Samuël 10:6). Lang daarvoor woonde Jefta in het land Tob (Richteren 11:3).",
+    nu: "Et-Tayyibeh, tussen Daraa en Bosra (Zuid-Syrië)", bron: "Meestal et-Tayyibeh, waar de naam lijkt door te klinken (OpenBible 651); waarschijnlijk, niet zeker." },
+  dr_maacha: { n: "Maächa", ll: [33.2581, 35.581], c: "r", s: "c", z: 7.5, t: "gebied", d: "Klein koninkrijk in het noorden. Het rijk van Og, met de berg Hermon en heel Basan, reikte tot aan de grens van de Maächathieten (Jozua 12:5). De koning van Maächa kwam de Ammonieten helpen met duizend man (2 Samuël 10:6).",
+    nu: "Noordelijke Golan en het dal van de bovenloop van de Jordaan", bron: "Gebied; grenzen onbekend. Het punt is de plaatsaanduiding van OpenBible (bij Abel-Beth-Maächa)." },
+  dr_helam: { n: "Helam", ll: [32.75, 36.2408], c: "o", s: "t", z: 8, t: "kamp", d: "Hier versloeg David de Syriërs die Hadadezer had laten komen; hun legeroverste Sobach stierf er (2 Samuël 10:16–18). Helam lag aan de overkant van de Jordaan; waar precies, weten we niet.",
+    nu: "Onbekend; punt bij Alma in de Hauran (Zuid-Syrië)", bron: "Onbekend. Het bekendste voorstel is Alma in de Hauran (OpenBible 335); andere voorstellen liggen veel noordelijker (128 en lager). Het punt is illustratief." },
+});
+Object.assign(BR.W, { dr_gileadweg: [32.2, 35.82] });
 //
 // [meer-reizen:brieven] plaatsen
 //
