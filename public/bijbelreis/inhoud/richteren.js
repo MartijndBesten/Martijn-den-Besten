@@ -2,6 +2,8 @@
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
 Object.assign(BR.personen, { Jaël: "lila", Sisera: "rood", Jabin: "rood", Midianieten: "rood", Filistijnen: "rood", Manoach: "terra", Pura: "salie" });
 
+// [meer-reizen:ehud-jefta] kleuren
+//
 BR.boeken.push({
   id: "richteren", n: "Richteren", tijd: "ca. 1380–1050 v.Chr.", kleur: "lila",
   intro: "Na Jozua vergeet het volk God steeds weer. Dan komen er vijanden, het volk roept tot God, en God stuurt een richter: Debora, Gideon, Simson.",
@@ -17,6 +19,8 @@ BR.boeken.push({
     { n: "Manoach", rol: "vader van Simson", i: "Uit Zora, van de stam Dan. De Engel van de HEERE vertelde hem en zijn vrouw dat ze een zoon zouden krijgen die nazireeër zou zijn (Richteren 13).", deel: "simson" },
     { n: "Simson", rol: "richter, 20 jaar", i: "De Geest van de HEERE gaf hem grote kracht. Toen zijn haar was afgeschoren, was de HEERE van hem geweken (Richteren 16:20). Hij vocht in zijn eentje tegen de Filistijnen en stierf in de tempel van Dagon in Gaza (Richteren 13–16).", deel: "simson" },
     { n: "Delila", rol: "vrouw uit het dal Sorek", i: "De Filistijnse vorsten boden haar elk 1100 zilverstukken als ze het geheim van Simsons kracht ontdekte. Ze bleef net zo lang zeuren tot hij het vertelde (Richteren 16:4–20).", deel: "simson" },
+    // [meer-reizen:ehud-jefta] wie
+    //
   ],
   delen: [
 { id: "debora", n: "Debora en Gideon", short: "Debora en Gideon", ref: "Richteren 4–8", c: "lila", init: "D",
@@ -93,6 +97,8 @@ BR.boeken.push({
   },
   trips: [{ n: "Debora: palmboom → Kedes", s: 2, r: 0 }, { n: "Barak: Kedes → Tabor", s: 2, r: 1 }, { n: "Gideon: Ofra → bron Harod", s: 7 }, { n: "Alles wat Debora en Gideon reisden", s: "alles" }],
 },
+// [meer-reizen:ehud-jefta] deel
+//
 
 { id: "simson", n: "Simson", short: "Simson", ref: "Richteren 13–16", c: "terra", init: "S",
   tijd: "ca. 1100–1050 v.Chr. (onzeker)", tl: [-1100, -1050],

@@ -5,6 +5,8 @@ Object.assign(BR.personen, {
   Sanherib: "rood", Rabsake: "rood", Hilkia: "grijs", Safan: "grijs", Jojachin: "grijs", Zedekia: "grijs", Nebuzaradan: "rood", Gedalja: "grijs", "Evil-Merodach": "grijs", Engel: "boter", Zoon: "koraal",
 });
 
+// [meer-reizen:jehu] kleuren
+//
 BR.boeken.push({
   id: "2koningen", n: "2 Koningen", tijd: "ca. 850–560 v.Chr.", kleur: "salie",
   intro: "De profeet Elisa doet wonderen in Israël. Maar de koningen blijven zondigen: eerst wordt Israël weggevoerd naar Assyrië, en ruim honderd jaar later Juda naar Babel. De tempel gaat in vlammen op.",
@@ -21,6 +23,8 @@ BR.boeken.push({
     { n: "Josia", rol: "koning van Juda, koning vanaf zijn achtste", i: "Hij liet de tempel herstellen; daar werd het wetboek gevonden. Hij las het voor aan het volk, ruimde de afgoden op en vierde het Pascha. Hij sneuvelde bij Megiddo (2 Koningen 22–23).", deel: "ballingschap" },
     { n: "Nebukadnezar", rol: "koning van Babel", i: "Hij kwam meer dan eens tegen Jeruzalem (Daniël 1:1; 2 Koningen 24–25). In zijn achtste jaar voerde hij koning Jojachin en tienduizend mensen weg; in zijn negentiende jaar liet hij de stad en de tempel verbranden (24:12; 25:8).", deel: "ballingschap" },
     { n: "Jojachin", rol: "koning van Juda, achttien jaar oud", i: "Hij was maar drie maanden koning en werd naar Babel weggevoerd. Na 37 jaar gevangenis mocht hij aan de tafel van de koning van Babel eten. Daarmee eindigt 2 Koningen.", deel: "ballingschap" },
+    // [meer-reizen:jehu] wie
+    //
   ],
   delen: [
 { id: "elisa", n: "Elisa", short: "Elisa", ref: "2 Koningen 2–13", c: "salie", init: "E",
@@ -96,6 +100,8 @@ BR.boeken.push({
   },
   trips: [{ n: "De vrouw van Sunem rijdt naar de Karmel", s: 3, r: 0 }, { n: "Naäman: Damascus → Samaria → Jordaan", s: 4 }, { n: "Syriërs: Damascus → Dothan", s: 6, r: 0 }, { n: "Alles wat Elisa reisde", s: "alles" }],
 },
+// [meer-reizen:jehu] deel
+//
 
 // Joas van Juda (versie 3.0, geschiedenis 65). Kleuren van de nieuwe namen staan in inhoud/profeten.js.
 // "Joas van Juda" i.p.v. "Joas": in dit boek is "Joas" in personen.js de koning van Israël (joas_israel).

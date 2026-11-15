@@ -15,6 +15,8 @@ Object.entries({
   Discipelen: "kobalt", "Johannes de Doper": "olijf", "Herodes Antipas": "bruin", Farizeeën: "bruin", Thomas: "boter", Kajafas: "bruin",
 }).forEach(([k, v]) => { if (!BR.personen[k]) BR.personen[k] = v; });
 
+// [meer-reizen:nt-over-de-grens] kleuren
+//
 BR.boeken.push({
   id: "jezus-2", n: "De Heere Jezus onderweg", nt: true, tijd: "ca. 28–30 n.Chr. (of 31–33)", kleur: "teal",
   intro: "Brood voor vijfduizend mannen, een blinde die gaat zien, Lazarus die uit het graf komt, en gelijkenissen over een Samaritaan, een verloren zoon en een tollenaar. De Heere Jezus trekt door Galilea, gaat naar de feesten in Jeruzalem, en reist ten slotte via Jericho naar Jeruzalem.",
@@ -30,6 +32,8 @@ BR.boeken.push({
     { n: "Kajafas", rol: "hogepriester", i: "Hij zei dat het beter was dat één mens stierf voor het volk. Johannes schrijft dat hij dat niet uit zichzelf zei: hij profeteerde dat Jezus zou sterven voor het volk (Johannes 11:49–51)." },
     { n: "Bartimeüs", rol: "blinde bedelaar bij Jericho", i: "De zoon van Timeüs. Hij riep: ‘Jezus, Gij Zone Davids! ontferm U mijner’, en werd ziende (Markus 10:46–52).", deel: "nt-reis-naar-jeruzalem" },
     { n: "Zacheüs", rol: "oppertollenaar in Jericho", i: "Rijk en klein van stuk. Hij klom in een wilde vijgenboom om de Heere Jezus te zien, en de Heere Jezus kwam in zijn huis (Lukas 19:1–10).", deel: "nt-reis-naar-jeruzalem" },
+    // [meer-reizen:nt-over-de-grens] wie
+    //
   ],
   delen: [
 { id: "nt-brood-en-berg", n: "Brood, belijdenis en berg", short: "Galilea", ref: "Markus 6:14–29; Johannes 6; Mattheüs 16:13–28; Lukas 9:28–36", c: "teal", init: "G",
@@ -89,6 +93,8 @@ BR.boeken.push({
   },
   trips: [{ n: "Bethsaïda → Caesarea Filippi", s: 4 }],
 },
+// [meer-reizen:nt-over-de-grens] deel
+//
 { id: "nt-feesten-jeruzalem", n: "Op de feesten in Jeruzalem", short: "Jeruzalem", ref: "Johannes 5; 9–11", c: "kobalt", init: "J",
   tijd: "ca. 28–30 n.Chr. (of 31–33)", tl: [28, 30],
   tijdNoot: "Reconstructie. Johannes ordent dit deel naar de feesten: ‘een feest der Joden’ (Johannes 5:1, er staat niet welk), het Loofhuttenfeest (7:2), het feest van de vernieuwing van de tempel in de winter (10:22) en het laatste Pascha (11:55). Wie de kruisiging ca. 30 n.Chr. stelt, komt op ca. 28–30; wie 33 n.Chr. aanhoudt, op ca. 31–33. De Bijbel geeft geen jaartallen, en welk feest in Johannes 5 bedoeld is, is onzeker.",

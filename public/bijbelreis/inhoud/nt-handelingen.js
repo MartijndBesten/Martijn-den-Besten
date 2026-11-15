@@ -12,6 +12,10 @@
   Eilanders: "grijs", Joden: "grijs", Reisgenoten: "grijs", Boden: "grijs", Volk: "boter", Soldaten: "rood",
 });
 
+// [meer-reizen:nt-paulus2] kleuren
+//
+// [meer-reizen:nt-paulus3] kleuren
+//
 BR.boeken.push({
   id: "handelingen", n: "Handelingen", nt: true, tijd: "ca. 30–62 n.Chr.", kleur: "terra",
   intro: "Na de hemelvaart komt de Heilige Geest. Petrus en de apostelen getuigen in Jeruzalem, het Evangelie gaat naar Samaria, de kust en de heidenen, en Saulus de vervolger wordt Paulus de apostel, die het tot in Rome brengt.",
@@ -27,6 +31,10 @@ BR.boeken.push({
     { n: "Barnabas", rol: "‘zoon der vertroosting’", i: "Een Leviet uit Cyprus (Handelingen 4:36). Hij neemt Saulus mee naar de apostelen, haalt hem naar Antiochië en gaat met hem op de eerste reis. Later gaan ze uit elkaar om Johannes Markus (15:39).", deel: "nt-paulus" },
     { n: "Silas, Timotheüs en Lydia", rol: "op de tweede reis", i: "Silas reist met Paulus en zit met hem in de gevangenis van Filippi. Timotheüs uit Lystre gaat mee (16:1–3). Lydia, een purperverkoopster uit Thyatira, komt tot geloof bij de rivier van Filippi (16:14).", deel: "nt-paulus" },
     { n: "Felix, Festus en Julius", rol: "Romeinen rond Paulus", i: "Felix laat Paulus twee jaar gevangen in Caesarea; zijn opvolger Festus hoort hem als Paulus zich op de keizer beroept (24:27–25:12). De hoofdman Julius brengt Paulus naar Italië en redt zijn leven bij de schipbreuk (27:1, 43).", deel: "nt-paulusrome" },
+    // [meer-reizen:nt-paulus2] wie
+    //
+    // [meer-reizen:nt-paulus3] wie
+    //
   ],
   delen: [
 { id: "nt-gemeente", n: "De eerste gemeente", short: "Gemeente", ref: "Handelingen 2–12", c: "kobalt", init: "P",
@@ -211,6 +219,10 @@ BR.boeken.push({
   },
   trips: [{ n: "Jeruzalem → Damascus", s: 0 }, { n: "Antiochië → Cyprus", s: 4 }, { n: "Troas → Filippi", s: 9 }, { n: "Alles wat Paulus reisde (tot Filippi)", s: "alles" }],
 },
+// [meer-reizen:nt-paulus2] deel
+//
+// [meer-reizen:nt-paulus3] deel
+//
 { id: "nt-paulusrome", n: "Paulus: van Jeruzalem naar Rome", short: "Naar Rome", ref: "Handelingen 21–28", c: "koraal", init: "R",
   tijd: "ca. 57–62 n.Chr.", tl: [57, 62],
   tijdNoot: "Reconstructie; de Bijbel noemt geen jaartallen. Paulus werd in Jeruzalem gevangengenomen en zat daarna twee jaar in Caesarea, tot Festus Felix opvolgde (Handelingen 24:27). Die wisseling wordt meestal rond 59 n.Chr. gedateerd (ook 55–60 wordt verdedigd). De zeereis begon na ‘de vasten’ (27:9), de Grote Verzoendag in de herfst; na de winter op Malta kwam Paulus in Rome, waar hij twee jaar bleef (28:30): ongeveer 60–62 n.Chr.",

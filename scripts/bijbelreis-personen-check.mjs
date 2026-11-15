@@ -60,6 +60,32 @@ const GROEPEN = new Set(["Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen"
   "Eilanders", "Gemeente",
   // 2 Kronieken 20 (Josafat)
   "Levieten", "De Levieten", "Zangers",
+  // [meer-reizen:nt-paulus2] groepen
+  //
+  // [meer-reizen:nt-paulus3] groepen
+  //
+  // [meer-reizen:nt-samaria-nain] groepen
+  //
+  // [meer-reizen:nt-over-de-grens] groepen
+  //
+  // [meer-reizen:ehud-jefta] groepen
+  //
+  // [meer-reizen:scheuring] groepen
+  //
+  // [meer-reizen:jehu] groepen
+  //
+  // [meer-reizen:asa] groepen
+  //
+  // [meer-reizen:hizkia-josia] groepen
+  //
+  // [meer-reizen:jeremia-egypte] groepen
+  //
+  // [meer-reizen:stammen] groepen
+  //
+  // [meer-reizen:davids-rijk] groepen
+  //
+  // [meer-reizen:brieven] groepen
+  //
   // Wie-lijst Handelingen: één item over drie verschillende mannen met de naam Ananias (5:1, 9:10, 23:2).
   "Drie mannen Ananias"]);
 const ROLLEN = new Set(["Farao", "Bakker", "Farao’s dochter", "Knecht", "Schenker", "Losser", "De andere losser", "Wapendrager", "Koningin",

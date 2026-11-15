@@ -5,6 +5,8 @@ Object.assign(BR.personen, {
   Barzillai: "salie", Arauna: "grijs", Gad: "lila", Ziba: "grijs", Ithaï: "teal",
 });
 
+// [meer-reizen:davids-rijk] kleuren
+//
 BR.boeken.push({
   id: "2samuel", n: "2 Samuël", tijd: "ca. 1010–970 v.Chr.", kleur: "kobalt",
   intro: "David wordt koning: eerst in Hebron, dan over heel Israël in Jeruzalem. God belooft hem een koningshuis voor altijd, maar David zondigt ook zwaar, en zijn eigen zoon komt tegen hem in opstand.",
@@ -21,6 +23,8 @@ BR.boeken.push({
     { n: "Absalom", rol: "zoon van David", i: "De knapste man van Israël, met heel zwaar haar (14:25–26). Hij stal het hart van het volk, liet zich koning uitroepen in Hebron en joeg zijn vader de stad uit. Hij bleef met zijn hoofd in een eik hangen en werd daar door Joab en zijn mannen gedood (18:9–15).", deel: "david" },
     { n: "Husai", rol: "vriend van David", i: "Op de Olijfberg stuurde David hem terug naar Jeruzalem om te doen alsof hij bij Absalom hoorde (15:32–37). Zijn raad was ‘beter’ dan die van Achitofel, want zo wilde God het (17:14).", deel: "david" },
     { n: "Arauna", rol: "Jebusiet met een dorsvloer", i: "Op zijn dorsvloer bleef de engel staan toen de plaag ophield (24:16). David kocht de dorsvloer voor vijftig sikkels zilver en bouwde er een altaar (24:24–25). Later bouwde Salomo daar de tempel (2 Kronieken 3:1).", deel: "david" },
+    // [meer-reizen:davids-rijk] wie
+    //
   ],
   delen: [
 { id: "david", n: "David", short: "David", ref: "2 Samuël 1–24", c: "kobalt", init: "D",
@@ -110,5 +114,7 @@ BR.boeken.push({
   },
   trips: [{ n: "Ziklag → Hebron", s: 1, r: 0 }, { n: "Op de vlucht: Jeruzalem → Mahanaïm", s: 8, r: 1 }, { n: "Joab telt het volk (9 maanden en 20 dagen)", s: 10, r: 0 }, { n: "Alles wat David reisde", s: "alles" }],
 },
+// [meer-reizen:davids-rijk] deel
+//
   ],
 });

@@ -5,6 +5,8 @@ Object.assign(BR.personen, {
   Jongen: "grijs", Engel: "boter", Naboth: "olijf", Obadja: "grijs",
 });
 
+// [meer-reizen:scheuring] kleuren
+//
 BR.boeken.push({
   id: "1koningen", n: "1 Koningen", tijd: "ca. 970–850 v.Chr.", kleur: "boter",
   intro: "Salomo bouwt de tempel en wordt de rijkste en wijste koning. Maar na hem scheurt het rijk in tweeën, en in het noorden gaat de profeet Elia de strijd aan met koning Achab en de Baäl.",
@@ -21,6 +23,8 @@ BR.boeken.push({
     { n: "Obadja", rol: "hofmeester van Achab", i: "Hij vreesde de HEERE en verborg honderd profeten in twee grotten, vijftig en vijftig, toen Izebel hen liet doden (1 Koningen 18:3–4).", deel: "elia" },
     { n: "Naboth", rol: "man uit Jizreël met een wijngaard", i: "Hij wilde de grond van zijn vaderen niet aan de koning verkopen. Izebel liet hem met valse getuigen veroordelen en stenigen (1 Koningen 21).", deel: "elia" },
     { n: "Elisa", rol: "boerenzoon uit Abel-Mehola, later profeet", i: "Hij ploegde met twaalf span runderen toen Elia zijn mantel over hem gooide. Hij volgde Elia en werd na hem profeet. Zijn eigen verhaal lees je in 2 Koningen.", deel: "elia" },
+    // [meer-reizen:scheuring] wie
+    //
   ],
   delen: [
 { id: "salomo", n: "Salomo", short: "Salomo", ref: "1 Koningen 1–11", c: "boter", init: "S",
@@ -96,6 +100,8 @@ BR.boeken.push({
   },
   trips: [{ n: "Jeruzalem → Gibeon", s: 1, r: 0 }, { n: "Hirams hout: Tyrus → Joppe → Jeruzalem", s: 3 }, { n: "Jerobeam vlucht: Jeruzalem → Egypte", s: 7 }, { n: "Alles wat Salomo reisde", s: "alles" }],
 },
+// [meer-reizen:scheuring] deel
+//
 
 { id: "elia", n: "Elia", short: "Elia", ref: "1 Koningen 16 – 2 Koningen 2", c: "terra", init: "E",
   tijd: "ca. 874–850 v.Chr.", tl: [-874, -850],

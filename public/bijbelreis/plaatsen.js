@@ -249,8 +249,8 @@ Object.assign(BR.plaatsen, {
   beracha: { n: "Dal van Beracha", ll: [31.6089, 35.1716], c: "b", s: "l", z: 9, t: "gebied", d: "Hier kwam Juda samen op de vierde dag na de overwinning en loofde de HEERE; daarom kreeg het dal deze naam (2 Kronieken 20:26).",
     nu: "Wadi el-Arrub, tussen Bethlehem en Hebron", bron: "Betwist. Hier: Wadi el-Arrub (het meest genoemde voorstel). Ook genoemd: Khirbet Bereikut, waar de naam lijkt door te klinken.",
     alt: [[31.6433, 35.143, "Khirbet Bereikut"]] },
-  ziz: { n: "Opgang van Ziz", ll: [31.5607, 35.3836], c: "o", s: "r", z: 9, t: "berg", d: "‘Ziet, zij komen op bij den opgang van Ziz’: langs deze weg kwamen de vijanden van Josafat omhoog (2 Kronieken 20:16).",
-    nu: "Onbekend; punt bij Wadi Hasasa, ten noorden van En-Gedi", bron: "Onbekend. Het meest genoemde voorstel is Wadi Hasasa, een pas van de Zoutzee naar het bergland; daar staat het punt." },
+  ziz: { n: "Opgang van Ziz", ll: [31.5607, 35.3836], c: "w", s: "r", z: 9, t: "berg", d: "‘Ziet, zij komen op bij den opgang van Ziz’: langs deze weg kwamen de vijanden van Josafat omhoog (2 Kronieken 20:16).",
+    nu: "Wadi Hasasa, ten noorden van En-Gedi", bron: "Meestal Wadi Hasasa, een pas van de Zoutzee naar het bergland; waarschijnlijk, niet zeker." },
   jeruel: { n: "Woestijn van Jeruël", ll: [31.5797, 35.3092], c: "o", s: "l", z: 9, t: "gebied", d: "Aan het eind van het dal, ‘voor aan de woestijn van Jeruël’, zou Juda de vijanden vinden (2 Kronieken 20:16).",
     nu: "Onbekend; punt in de Woestijn van Juda tussen Tekoa en En-Gedi", bron: "Onbekend. Alleen de streek is bekend: tussen Tekoa en de opgang van Ziz." },
   anathoth: { n: "Anathoth", ll: [31.81, 35.26], c: "v", s: "r", z: 9, t: "stad", d: "Jeremia kwam uit een familie van priesters in Anathoth (Jeremia 1:1).",
@@ -562,3 +562,32 @@ Object.assign(BR.plaatsen, {
   nt4_filadelfia: { n: "Filadelfia", ll: [38.35, 28.5167], c: "v", s: "b", z: 7, t: "stad", d: "Stad in Asia; de zesde van de zeven gemeenten. Voor haar had de Heere ‘een geopende deur’ gegeven (Openbaring 3:7–13).", nu: "Alaşehir, Turkije", bron: "Alaşehir (OpenBible)." },
   nt4_laodicea: { n: "Laodicea", ll: [37.8358, 29.1075], c: "v", s: "r", z: 7, t: "stad", d: "Rijke stad in Asia; de zevende gemeente, die ‘noch koud, noch heet’ was (Openbaring 3:14–22). Paulus noemt haar ook in Kolossenzen 4:13–16.", nu: "bij Denizli, Turkije", bron: "Opgegraven stad Laodicea aan de Lycus (OpenBible)." },
 });
+
+// ---------- Meer reizen (november 2026) ----------
+// Ligging volgens OpenBible.info Bible Geocoding Data (CC BY 4.0); verantwoording in docs/bijbelreis-audit/plaatsen.md.
+// [meer-reizen:nt-paulus2] plaatsen
+//
+// [meer-reizen:nt-paulus3] plaatsen
+//
+// [meer-reizen:nt-samaria-nain] plaatsen
+//
+// [meer-reizen:nt-over-de-grens] plaatsen
+//
+// [meer-reizen:ehud-jefta] plaatsen
+//
+// [meer-reizen:scheuring] plaatsen
+//
+// [meer-reizen:jehu] plaatsen
+//
+// [meer-reizen:asa] plaatsen
+//
+// [meer-reizen:hizkia-josia] plaatsen
+//
+// [meer-reizen:jeremia-egypte] plaatsen
+//
+// [meer-reizen:stammen] plaatsen
+//
+// [meer-reizen:davids-rijk] plaatsen
+//
+// [meer-reizen:brieven] plaatsen
+//

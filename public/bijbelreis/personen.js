@@ -953,4 +953,31 @@ BR.mensen = {
   antipas: { n: "Antipas", boek: ["openbaring"],
     kort: "‘Mijn getrouwe getuige’, zegt de Heere; hij werd gedood in Pergamus, ‘daar de satan woont’. Meer vertelt de Bijbel niet over hem.",
     elders: [["Openbaring 2:12–13", "De brief aan de gemeente in Pergamus."]] },
+  // ---------- Meer reizen (november 2026) ----------
+  // [meer-reizen:nt-paulus2] mensen
+  //
+  // [meer-reizen:nt-paulus3] mensen
+  //
+  // [meer-reizen:nt-samaria-nain] mensen
+  //
+  // [meer-reizen:nt-over-de-grens] mensen
+  //
+  // [meer-reizen:ehud-jefta] mensen
+  //
+  // [meer-reizen:scheuring] mensen
+  //
+  // [meer-reizen:jehu] mensen
+  //
+  // [meer-reizen:asa] mensen
+  //
+  // [meer-reizen:hizkia-josia] mensen
+  //
+  // [meer-reizen:jeremia-egypte] mensen
+  //
+  // [meer-reizen:stammen] mensen
+  //
+  // [meer-reizen:davids-rijk] mensen
+  //
+  // [meer-reizen:brieven] mensen
+  //
 };

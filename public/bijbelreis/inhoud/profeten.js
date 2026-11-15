@@ -6,6 +6,8 @@ Object.assign(BR.personen, {
   Jeremia: "teal", "Ebed-Melech": "bruin", Johanan: "olijf", Maleachi: "lila",
 });
 
+// [meer-reizen:jeremia-egypte] kleuren
+//
 BR.boeken.push({
   id: "profeten", n: "Profeten", tijd: "ca. 740–430 v.Chr.", kleur: "lila",
   intro: "Profeten brachten het woord van God. Jesaja troost het volk dat naar Babel zal gaan. Jeremia maakt mee hoe Jeruzalem valt. Zacharia en Maleachi spreken na de terugkeer over de Koning en de bode die zullen komen.",
@@ -16,6 +18,8 @@ BR.boeken.push({
     { n: "Gedalja", rol: "aangesteld over het volk in Juda", i: "De zoon van Ahikam, de zoon van Safan. Nebukadnezar stelde hem aan over het volk dat in het land achterbleef. Hij werd gewaarschuwd voor Ismaël, maar geloofde het niet (Jeremia 40:13–16).", deel: "jeremia" },
     { n: "Zacharia", rol: "profeet na de ballingschap", i: "De zoon van Berechja, de zoon van Iddo (Zacharia 1:1). Samen met Haggaï moedigde hij het volk aan om de tempel af te bouwen (Ezra 5:1). Hij kondigde een Koning aan Die op een ezel zou komen.", deel: "zacharia-maleachi" },
     { n: "Maleachi", rol: "profeet, het laatste boek van het Oude Testament", i: "Over hemzelf vertelt de Bijbel niets meer dan zijn naam (Maleachi 1:1). Zijn boek eindigt met de belofte dat God de profeet Elia zal zenden (Maleachi 4:5).", deel: "zacharia-maleachi" },
+    // [meer-reizen:jeremia-egypte] wie
+    //
   ],
   delen: [
 { id: "jesaja-troost", n: "Troost voor Gods volk", short: "Jesaja 40–43", ref: "Jesaja 40–43", c: "lila", init: "T",
@@ -116,6 +120,8 @@ BR.boeken.push({
   },
   trips: [{ n: "Jeremia: Jeruzalem → Rama", s: 2 }, { n: "Jeremia: Rama → Mizpa", s: 3 }, { n: "Alles wat Jeremia reisde", s: "alles" }],
 },
+// [meer-reizen:jeremia-egypte] deel
+//
 
 { id: "zacharia-maleachi", n: "Zacharia en Maleachi", short: "Zacharia en Maleachi", ref: "Zacharia 1–14; Maleachi 1–4", c: "kobalt", init: "Z",
   tijd: "ca. 520–430 v.Chr.", tl: [-520, -430],

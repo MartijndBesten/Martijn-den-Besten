@@ -3,6 +3,10 @@
 // Tekst tussen ‘ ’ is letterlijk Statenvertaling; tussen “ ” staat wat iemand zegt, in eigen woorden.
 Object.assign(BR.personen, { Josafat: "oker", "Jahaziël": "boter", Levieten: "grijs", Zangers: "grijs" });
 
+// [meer-reizen:asa] kleuren
+//
+// [meer-reizen:hizkia-josia] kleuren
+//
 BR.boeken.push({
   id: "2kronieken", n: "2 Kronieken", tijd: "ca. 853–848 v.Chr.", kleur: "oker",
   intro: "Kronieken vertelt de geschiedenis van de koningen van Juda opnieuw, met veel aandacht voor de tempel en het gebed. Hier: koning Josafat, een groot leger bij En-Gedi, en een strijd die God Zelf voert.",
@@ -10,8 +14,14 @@ BR.boeken.push({
     { n: "Josafat", rol: "koning van Juda", i: "Hij was vijfendertig jaar toen hij koning werd en regeerde vijfentwintig jaar in Jeruzalem. ‘En hij wandelde in den weg van zijn vader Asa’ (2 Kronieken 20:31–32). Toen een groot leger kwam, riep hij een vasten uit en bad in het huis van de HEERE.", deel: "josafat" },
     { n: "Jahaziël", rol: "Leviet uit de zonen van Asaf", i: "Op hem kwam ‘de Geest des HEEREN’ midden in de gemeente. Hij bracht Gods antwoord: ‘want de strijd is niet uwe, maar Gods’ (2 Kronieken 20:14–15).", deel: "josafat" },
     { n: "De Levieten", rol: "zangers van de tempel", i: "Levieten uit de Kahathieten en de Korahieten prezen God met luide stem (20:19). Daarna gingen zangers vóór het leger uit (20:21).", deel: "josafat" },
+    // [meer-reizen:asa] wie
+    //
+    // [meer-reizen:hizkia-josia] wie
+    //
   ],
   delen: [
+// [meer-reizen:asa] deel
+//
 { id: "josafat", n: "Josafat: de strijd is Gods", short: "Josafat", ref: "2 Kronieken 20:1–30", c: "oker", init: "J",
   tijd: "ca. 853–848 v.Chr.", tl: [-853, -848],
   tijdNoot: "Reconstructie. De Bijbel noemt geen jaar. Deze oorlog komt na de veldtocht met Achab, die bij Ramoth in Gilead sneuvelde (2 Kronieken 18; 20:1 ‘na dezen’). Josafat regeerde vijfentwintig jaar (20:31). In de gangbare chronologie (Thiele) stierf Achab ca. 853 v.Chr. en eindigde de regering van Josafat ca. 848 v.Chr. Daartussen lag deze geschiedenis; welk jaar precies, weten we niet.",
@@ -69,5 +79,7 @@ BR.boeken.push({
   },
   trips: [{ n: "Jeruzalem → woestijn van Tekoa", s: 3 }, { n: "Alles wat Juda trok", s: "alles" }],
 },
+// [meer-reizen:hizkia-josia] deel
+//
   ],
 });

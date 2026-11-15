@@ -8,6 +8,8 @@ Object.assign(BR.personen, {
   Discipelen: "kobalt", Nicodemus: "lila", Hoofdman: "grijs", "Simon de Farizeeër": "grijs", Jaïrus: "terra",
 });
 
+// [meer-reizen:nt-samaria-nain] kleuren
+//
 BR.boeken.push({
   id: "jezus-1", n: "De Heere Jezus: geboorte en Galilea", nt: true, tijd: "ca. 7 v.Chr. – 30 n.Chr. (reconstructie)", kleur: "kobalt",
   intro: "Van de engel in de tempel tot het meer van Galilea: de geboorte van Johannes en van de Heere Jezus, Zijn doop en de eerste discipelen, en wat Hij deed en leerde in Kapernaüm en rond het meer.",
@@ -22,6 +24,8 @@ BR.boeken.push({
     { n: "Jakobus en Johannes", rol: "broers, vissers", i: "Zonen van Zebedeüs. Ze lieten hun vader met de knechten in de boot achter en volgden de Heere Jezus (Markus 1:19–20).", deel: "nt-galilea" },
     { n: "Nicodemus", rol: "Farizeeër, overste van de Joden", i: "Hij kwam ’s nachts bij de Heere Jezus (Johannes 3:1–2). Later hielp hij bij Zijn begrafenis (Johannes 19:39).", deel: "nt-begin" },
     { n: "Jaïrus", rol: "overste van de synagoge", i: "Zijn enige dochter van ongeveer twaalf jaar lag op sterven. De Heere Jezus wekte haar op: ‘Kind, sta op!’ (Lukas 8:41–42, 54).", deel: "nt-galilea" },
+    // [meer-reizen:nt-samaria-nain] wie
+    //
   ],
   delen: [
 { id: "nt-geboorte", n: "Geboorte en jeugd", short: "Geboorte", ref: "Lukas 1–2", c: "boter", init: "G",
@@ -164,6 +168,8 @@ BR.boeken.push({
   },
   trips: [{ n: "Nazareth → de Jordaan", s: 1 }, { n: "De Jordaan → Kana", s: 4 }, { n: "Kana → Kapernaüm → Jeruzalem", s: 5 }, { n: "Alle reizen in dit deel", s: "alles" }],
 },
+// [meer-reizen:nt-samaria-nain] deel
+//
 { id: "nt-galilea", n: "Rond het meer van Galilea", short: "Galilea", ref: "Mattheüs 4:12–8:13; Markus 1:14–5:43; Lukas 7–8", c: "kobalt", init: "M",
   tijd: "ca. 28–30 n.Chr.", tl: [28, 30],
   tijdNoot: "Reconstructie. Deze gebeurtenissen vallen in het eerste deel van het openbare optreden van de Heere Jezus, dat drie tot vier jaar duurde (Johannes noemt minstens drie Paasfeesten: 2:13; 6:4; 11:55). Met een begin rond 27 n.Chr. kom je op ca. 28–30 n.Chr.; wie de kruisiging in 33 n.Chr. plaatst, komt ongeveer drie jaar later uit. De evangelisten vertellen niet alles in dezelfde volgorde; hier is Markus aangehouden.",

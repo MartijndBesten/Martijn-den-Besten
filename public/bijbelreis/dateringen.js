@@ -33,6 +33,32 @@ BR.dateringen = {
     "jezus-3:nt-lijdensweek": ["historie", true], "jezus-3:nt-lijden": ["historie", true], "jezus-3:nt-opstanding": ["historie", true],
     "handelingen:nt-gemeente": ["historie", false], "handelingen:nt-paulus": ["historie", false], "handelingen:nt-paulusrome": ["historie", false],
     "openbaring:nt-openbaring": ["historie", true],
+    // [meer-reizen:nt-paulus2] datering
+    //
+    // [meer-reizen:nt-paulus3] datering
+    //
+    // [meer-reizen:nt-samaria-nain] datering
+    //
+    // [meer-reizen:nt-over-de-grens] datering
+    //
+    // [meer-reizen:ehud-jefta] datering
+    //
+    // [meer-reizen:scheuring] datering
+    //
+    // [meer-reizen:jehu] datering
+    //
+    // [meer-reizen:asa] datering
+    //
+    // [meer-reizen:hizkia-josia] datering
+    //
+    // [meer-reizen:jeremia-egypte] datering
+    //
+    // [meer-reizen:stammen] datering
+    //
+    // [meer-reizen:davids-rijk] datering
+    //
+    // [meer-reizen:brieven] datering
+    //
   },
   // Geschiedenissen per reeks: [van, tot, soort, onzeker?]
   verhalen: [

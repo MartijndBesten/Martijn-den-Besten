@@ -2,6 +2,8 @@
 // Routes zijn lijsten van sleutels uit BR.plaatsen of BR.W (of [lat, lng]). recon: 1 = de Bijbel noemt alleen begin en eind.
 Object.assign(BR.personen, { Achan: "bruin", Gibeonieten: "grijs", Eleazar: "grijs", Mozes: "boter", Jabin: "rood" });
 
+// [meer-reizen:stammen] kleuren
+//
 BR.boeken.push({
   id: "jozua", n: "Jozua", tijd: "ca. 1406–1375 v.Chr.", kleur: "teal",
   intro: "Na Mozes leidt Jozua het volk door de Jordaan het beloofde land in: Jericho, Ai, de zon die stilstaat bij Gibeon, en de verdeling van het land onder de twaalf stammen.",
@@ -15,6 +17,8 @@ BR.boeken.push({
     { n: "Gibeonieten", rol: "sloten een verbond met een list", i: "Ze deden alsof ze van heel ver kwamen, met oud brood en kapotte schoenen. Jozua hield zijn woord: ze bleven leven en werden houthakkers en waterputters (Jozua 9).", deel: "land" },
     { n: "Jabin", rol: "koning van Hazor", i: "Hij riep de koningen van het noorden bij elkaar bij de wateren van Merom. Jozua versloeg hen en verbrandde Hazor (Jozua 11).", deel: "land" },
     { n: "Jozef", rol: "begraven in Sichem", i: "Zijn beenderen gingen al die jaren mee uit Egypte, door de woestijn, het land in. Aan het eind van het boek worden ze begraven in Sichem (Jozua 24:32).", deel: "land" },
+    // [meer-reizen:stammen] wie
+    //
   ],
   delen: [
 { id: "intocht", n: "De intocht", short: "Intocht", ref: "Jozua 1–8", c: "teal", init: "I",
@@ -159,6 +163,8 @@ BR.boeken.push({
   },
   trips: [{ n: "Gilgal → Gibeon (één nacht)", s: 1, r: 1 }, { n: "Veldtocht naar het zuiden", s: 2, r: 0 }, { n: "Gilgal → wateren van Merom", s: 3, r: 0 }, { n: "Kaleb: Gilgal → Hebron", s: 4 }, { n: "Alles wat Jozua reisde in het land", s: "alles" }],
 },
+// [meer-reizen:stammen] deel
+//
   ],
   ordAlles: [{ q: "Wat gebeurde eerst? Zet het in de goede volgorde.", items: ["Door de Jordaan", "De muren van Jericho", "De zon staat stil bij Gibeon", "Het land wordt verdeeld", "Jozua sterft"] }],
 });
