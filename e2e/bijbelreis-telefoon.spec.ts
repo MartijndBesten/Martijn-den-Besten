@@ -15,7 +15,7 @@ const geenHorizontaalScrollen = (page: Page) => page.evaluate(() => document.doc
 async function inEersteScherm(page: Page, sel: string) {
   return page.evaluate((sel) => {
     const e = document.querySelector(sel); if (!e || !(e as HTMLElement).offsetParent) return false;
-    const r = e.getBoundingClientRect(), onder = Math.min(...[...document.querySelectorAll(".tabs, .mapbar")].filter((x) => (x as HTMLElement).offsetParent && getComputedStyle(x).position === "fixed").map((x) => x.getBoundingClientRect().top), window.innerHeight);
+    const r = e.getBoundingClientRect(), onder = Math.min(...[...document.querySelectorAll(".tabs, .mapbar")].filter((x) => x.getClientRects().length && getComputedStyle(x).position === "fixed").map((x) => x.getBoundingClientRect().top), window.innerHeight);
     return window.scrollY === 0 && r.top >= 0 && r.bottom <= window.innerHeight && (sel === "#next" || r.top < onder);
   }, sel);
 }
@@ -33,18 +33,17 @@ test.describe("telefoon (360×740)", () => {
   test.beforeEach(({}, ti) => { test.skip(ti.project.name !== "mobiel", "telefoontests één keer, in het project mobiel"); });
 
   for (const niveau of ["a", "b", "c"] as const) {
-    test(`niveau ${niveau}: bij een stap staan kaart of tafereel, titel en ‘Verder’ in het eerste scherm`, async ({ page }) => {
+    test(`niveau ${niveau}: bij een stap staan een grote kaart, de titel en ‘Verder’ in het eerste scherm`, async ({ page }) => {
       const errors = watchErrors(page);
       await zetNiveau(page, niveau);
       for (const hash of ["abraham/2", "uittocht/6", "kies-het-leven/3", "nt-paulusrome/5"]) {
         await page.goto(`/bijbelreis#${hash}`);
         await expect(page.locator("#sTitle"), hash).toHaveText(/^\d+\. /);
         await page.waitForTimeout(300);
-        const beeld = (await page.locator(".stapkaart > .tafereel").count()) ? ".stapkaart > .tafereel .tf-svg" : "#map";
         const kaart = (await page.locator("#map").boundingBox())!;
         expect(kaart.y, `${hash}: kaart bovenaan`).toBeLessThan(80);
-        expect(kaart.height, `${hash}: kaart groot genoeg`).toBeGreaterThanOrEqual(110);
-        expect(await inEersteScherm(page, beeld), `${hash}: ${beeld} in het eerste scherm`).toBe(true);
+        expect(kaart.height, `${hash}: kaart groot genoeg`).toBeGreaterThanOrEqual(270);
+        expect(await inEersteScherm(page, "#map"), `${hash}: kaart in het eerste scherm`).toBe(true);
         expect(await inEersteScherm(page, "#sTitle"), `${hash}: titel in het eerste scherm`).toBe(true);
         expect(await inEersteScherm(page, "#next"), `${hash}: Verder in het eerste scherm`).toBe(true);
         expect(await geenHorizontaalScrollen(page), hash).toBe(true);
@@ -52,7 +51,7 @@ test.describe("telefoon (360×740)", () => {
       // Bij een stap met reis staan ook de eerste regels van de tekst in het eerste scherm.
       await page.goto("/bijbelreis#abraham/2");
       const tekst = (await page.locator("#sText").boundingBox())!, balk = (await page.locator(".mapbar").boundingBox())!;
-      expect(balk.y - tekst.y, "minstens drie regels tekst boven de balk").toBeGreaterThan(3 * 26);
+      expect(balk.y - tekst.y, "minstens twee regels tekst boven de balk").toBeGreaterThan(2 * 26);
       expect(errors).toEqual([]);
     });
   }
@@ -198,7 +197,7 @@ test.describe("telefoon (360×740)", () => {
     await zetNiveau(page, "c");
     await page.goto("/bijbelreis#abraham/2");
     const zichtbaar = () => page.evaluate(() => [...document.querySelectorAll(".maptools > *, .mapacties > *, .leaflet-control-zoom, .leaflet-control-scale")].filter((e) => (e as HTMLElement).offsetParent).map((e) => e.id || e.className.split(" ")[0]));
-    expect(await zichtbaar()).toEqual(["kaartBtn", "heleBtn", "fullBtn", "leaflet-control-zoom"]);
+    expect((await zichtbaar()).sort()).toEqual(["fullBtn", "heleBtn", "kaartBtn", "leaflet-control-zoom"]);
     await page.locator("#kaartBtn").click();
     await expect(page.locator("#kaartBtn")).toHaveAttribute("aria-expanded", "true");
     for (const sel of ["#toenBtn", "#nuBtn", "#wereldBtn", "#legendBtn"]) await expect(page.locator(sel), sel).toBeVisible();
@@ -245,7 +244,8 @@ test.describe("telefoon (360×740)", () => {
     await expect(page.locator("#kiesBtn")).toContainText("Van Ur naar Kanaän");
     await page.goto("/bijbelreis#v26");
     await expect(page.locator("#vTitel")).toHaveText("Droog door de Schelfzee");
-    await page.goto("/bijbelreis#exodus");
+    // Een boek als diepe link (bij het laden van de pagina).
+    await page.goto("/bijbelreis#exodus"); await page.reload();
     await expect(page.locator("#kiesBtn")).toContainText("Exodus");
     await expect(page.locator("#sTitle")).not.toHaveText(/^\d+\. /);
   });
@@ -297,6 +297,125 @@ test.describe("telefoon (360×740)", () => {
     await expect(page.locator("#nuBtn")).toBeVisible();
   });
 });
+
+// Eisen van de eigenaar (november 2026), op de drie telefoonformaten: grote kaart met titel en tekst in het eerste scherm,
+// een vrije ballon, kiezen zonder afgesneden kaarten, niets onder de statusbalk. Eén keer, in het project ‘mobiel’.
+for (const [w, h] of [[360, 740], [390, 844], [412, 915]] as const) {
+  test.describe(`telefoon ${w}×${h}`, () => {
+    test.use({ viewport: { width: w, height: h }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
+    test.beforeEach(({}, ti) => { test.skip(ti.project.name !== "mobiel", "telefoontests één keer, in het project mobiel"); });
+
+    test("eis 1: grotere kaart; titel en het begin van de hoofdtekst (minstens 16 px) in het eerste scherm; de rest één tik verder", async ({ page }) => {
+      const errors = watchErrors(page);
+      for (const niveau of ["a", "b", "c"] as const) {
+        await page.goto("/bijbelreis");
+        await page.evaluate((n) => { localStorage.setItem("bijbelreis:niveau", JSON.stringify(n)); localStorage.setItem("bijbelreis:welkomWeg", "true"); }, niveau);
+        for (const hash of ["abraham/2", "jakob", "jakob-jabbok/6", "uittocht/6", "sinai/3", "nt-paulusrome/5"]) {
+          await page.goto(`/bijbelreis#${hash}`); await page.reload();
+          await expect(page.locator("#sTitle"), hash).not.toBeEmpty();
+          await page.waitForTimeout(250);
+          const m = await page.evaluate(() => {
+            const vh = innerHeight, r = (id: string) => document.getElementById(id)!.getBoundingClientRect();
+            const onder = Math.min(...[...document.querySelectorAll(".tabs, .mapbar")].filter((x) => x.getClientRects().length && getComputedStyle(x).position === "fixed").map((x) => x.getBoundingClientRect().top));
+            const t = r("sTitle"), tx = r("sText"), stijl = getComputedStyle(document.getElementById("sText")!);
+            const lh = parseFloat(stijl.lineHeight) || parseFloat(stijl.fontSize) * 1.5;
+            const zichtbaar = (sel: string) => [...document.querySelectorAll(sel)].some((e) => (e as HTMLElement).offsetParent && e.getBoundingClientRect().top < onder);
+            return { vh, onder, kaart: r("map").height, kaartTop: r("map").top, titel: [t.top, t.bottom], tekstTop: tx.top, tekstBodem: tx.bottom, lh, px: parseFloat(stijl.fontSize), titelPx: parseFloat(getComputedStyle(document.getElementById("sTitle")!).fontSize), scrollY,
+              extra: ["#boeken", "#delen", "#chapters", "#sFact", "#sTijd", "#sVer", ".tl-grond", "#kastBtn"].filter((sel) => zichtbaar(sel)) };
+          });
+          const wie = `${niveau} #${hash}`;
+          expect(m.scrollY, wie).toBe(0);
+          // Groter dan de kaart van vóór de telefoonopzet (42 % van de schermhoogte).
+          expect(m.kaart, `${wie}: kaart`).toBeGreaterThan(0.42 * m.vh);
+          expect(m.kaartTop, `${wie}: kaart direct onder de kop`).toBeLessThan(80);
+          expect(m.titel[1], `${wie}: titel in het eerste scherm`).toBeLessThanOrEqual(m.onder);
+          expect(m.titelPx, `${wie}: titel leesbaar`).toBeGreaterThanOrEqual(18);
+          expect(m.px, `${wie}: tekst minstens 16 px`).toBeGreaterThanOrEqual(16);
+          const regels = Math.max(1, Math.round((m.tekstBodem - m.tekstTop) / m.lh)), inBeeld = m.tekstBodem <= m.onder ? regels : Math.floor((m.onder - m.tekstTop) / m.lh);
+          expect(inBeeld, `${wie}: begin van de hoofdtekst in het eerste scherm`).toBeGreaterThanOrEqual(Math.min(regels, 3));
+          expect(m.extra, `${wie}: boekenrij, delenrij, weetjes, jaartal en stappenlijst staan niet in het eerste scherm`).toEqual([]);
+        }
+      }
+      expect(errors).toEqual([]);
+    });
+
+    test("eis 2: de ballon van een plaats wordt niet bedekt door kaartknoppen", async ({ page }) => {
+      await zetNiveau(page, "c");
+      await page.goto("/bijbelreis#sinai/3");
+      await expect(page.locator("#sTitle")).toHaveText(/^3\. /);
+      await page.waitForTimeout(1200);
+      const knoppenZichtbaar = () => page.evaluate(() => [...document.querySelectorAll(".maptools > *, .mapacties > *, .leaflet-control-zoom")].filter((e) => (e as HTMLElement).offsetParent && getComputedStyle(e).visibility !== "hidden").length);
+      expect(await knoppenZichtbaar()).toBeGreaterThan(0);
+      for (const plaats of ["Berg Sinaï", "Rafidim"]) {
+        await page.evaluate((p) => { const m = [...document.querySelectorAll(".leaflet-marker-icon")].find((e) => (e.textContent || "").includes(p)); m!.dispatchEvent(new MouseEvent("click", { bubbles: true })); }, plaats);
+        const ballon = page.locator(".leaflet-popup-content-wrapper");
+        await expect(ballon).toBeVisible();
+        await expect(ballon).toContainText(plaats);
+        await page.waitForTimeout(600);
+        const r = await page.evaluate(() => {
+          const p = document.querySelector(".leaflet-popup-content-wrapper")!.getBoundingClientRect(), k = document.getElementById("map")!.getBoundingClientRect();
+          const knoppen = [...document.querySelectorAll(".maptools > *, .mapacties > *, .leaflet-control-zoom, .mapbar, .tabs")].filter((e) => e.getClientRects().length && getComputedStyle(e).visibility !== "hidden").map((e) => e.getBoundingClientRect());
+          return { bedekt: knoppen.filter((b) => b.left < p.right && b.right > p.left && b.top < p.bottom && b.bottom > p.top).length, inKaart: p.top >= k.top - 1 && p.bottom <= k.bottom + 1 && p.left >= k.left - 1 && p.right <= k.right + 1 };
+        });
+        expect(r.bedekt, `${plaats}: knoppen over de ballon`).toBe(0);
+        expect(r.inKaart, `${plaats}: ballon past in de kaart`).toBe(true);
+        await page.locator(".leaflet-popup-close-button").click();
+        await expect(ballon).toBeHidden();
+        expect(await knoppenZichtbaar(), "na sluiten zijn de knoppen terug").toBeGreaterThan(0);
+      }
+    });
+
+    test("eis 3: kiezen in één regel en een blad, zonder afgesneden of overlopende kaarten", async ({ page }) => {
+      await zetNiveau(page, "b");
+      for (const hash of ["abraham/2", "ur-kanaan/3", "jakob-jabbok/6", "kies-het-leven", "nt-paulusrome/5", "exodus"]) {
+        await page.goto(`/bijbelreis#${hash}`);
+        await expect(page.locator("#kiesBtn")).toBeVisible();
+        // De naam van het deel staat helemaal in de kiesregel.
+        expect(await page.locator("#kiesBtn .kr-pad b").evaluate((b) => b.scrollWidth <= b.clientWidth + 1), `${hash}: deelnaam in de kiesregel`).toBe(true);
+        for (const sel of ["#boeken", "#delen"]) await expect(page.locator(sel), `${hash}: ${sel} niet boven de stap`).toBeHidden();
+      }
+      await page.locator("#kiesBtn").click();
+      const blad = page.getByRole("dialog", { name: "Kies een reis" });
+      await expect(blad).toBeVisible();
+      for (const boek of ["genesis", "exodus", "numeri", "handelingen"]) {
+        const knop = blad.locator(`.boek[data-boek="${boek}"]`);
+        if (!(await knop.count())) continue;
+        await knop.click();
+        await expect(blad).toBeVisible();
+        const fout = await page.evaluate(() => {
+          const box = document.querySelector("#kiesLade .lade__box")!, b = box.getBoundingClientRect(), uit: string[] = [];
+          if (box.scrollWidth > box.clientWidth + 1) uit.push("blad schuift opzij");
+          document.querySelectorAll("#kiesLade .boek, #kiesLade .deel, #kiesLade .overz button").forEach((e) => {
+            const r = e.getBoundingClientRect();
+            if (r.left < b.left - 1 || r.right > b.right + 1) uit.push(`${e.textContent} steekt uit het blad`);
+            if (e.scrollWidth > e.clientWidth + 1) uit.push(`${e.textContent} loopt over`);
+          });
+          ["#kiesLade .boeken", "#kiesLade .delen"].forEach((s) => { const e = document.querySelector(s)!; if (e.scrollWidth > e.clientWidth + 1) uit.push(`${s} schuift opzij`); });
+          return uit;
+        });
+        expect(fout, boek).toEqual([]);
+        // Na de keuze van een boek staan de delen bovenaan in beeld.
+        await expect(blad.locator(".deel").first()).toBeInViewport();
+      }
+    });
+
+    test("eis 4: niets schuift onder de statusbalk door; de kop blijft bovenaan", async ({ page }) => {
+      await zetNiveau(page, "b");
+      for (const hash of ["v26", "abraham/2"]) {
+        await page.goto(`/bijbelreis#${hash}`);
+        await page.waitForTimeout(400);
+        await page.evaluate(() => window.scrollTo(0, 700));
+        await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(300);
+        const boven = await page.evaluate(() => { const k = document.querySelector(".kop")!.getBoundingClientRect(), e = document.elementFromPoint(innerWidth / 2, 1); return { top: k.top, inKop: !!e && !!e.closest(".kop") }; });
+        expect(boven.top, `${hash}: kop bovenaan`).toBe(0);
+        expect(boven.inKop, `${hash}: bovenste rij pixels hoort bij de kop`).toBe(true);
+      }
+      // De kop houdt rekening met de notch (viewport-fit=cover): de bovenrand gebruikt safe-area-inset-top.
+      const css = await page.evaluate(() => [...document.styleSheets].flatMap((s) => { try { return [...s.cssRules].map((r) => r.cssText); } catch { return []; } }).join("\n"));
+      expect(css).toMatch(/\.kop \{[^}]*padding: env\(safe-area-inset-top/);
+    });
+  });
+}
 
 // Verdiepende delen (bij: "<hoofddeel>"): geen eigen knop, maar onder het hoofddeel. Op desktop, tablet en telefoon.
 test.describe("verdiepende delen", () => {
@@ -367,6 +486,30 @@ test.describe("verdiepende delen", () => {
     await expect(knop).toHaveText("Verder met Moab ▶");
     await knop.click();
     await expect(page).toHaveURL(/#moab\/5$/);
+  });
+
+  test("eis 5: elk deel met bij heeft geen eigen knop, is bereikbaar vanuit zijn hoofddeel en houdt diepe link en opslag", async ({ page }) => {
+    const errors = watchErrors(page);
+    for (const [id, hoofd, naam] of [["jakob-jabbok", "jakob", "Jakob bij de Jabbok"], ["ur-kanaan", "abraham", "Van Ur naar Kanaän"], ["kies-het-leven", "moab", "Kies dan het leven"]] as const) {
+      await page.goto(`/bijbelreis#${hoofd}`);
+      await expect(page.locator("#sTitle")).not.toHaveText(/^\d+\. /);
+      // Geen eigen knop: niet in de delenrij (desktop) en niet in het keuzeblad (telefoon); die delenrij is hetzelfde element.
+      await expect(page.locator(`#delen .deel[data-deel="${id}"]`), id).toHaveCount(0);
+      await expect(page.locator(`#delen .deel[data-deel="${hoofd}"]`), hoofd).toHaveCount(1);
+      // Bereikbaar vanuit het hoofddeel: ‘Van dichtbij: …’.
+      const ingang = page.locator("#sVerdiep .verdiep-in").filter({ hasText: naam });
+      await expect(ingang).toBeVisible();
+      await expect(ingang).toContainText("Van dichtbij");
+      await ingang.click();
+      await expect(page).toHaveURL(new RegExp(`#${id}$`));
+      await expect(page.locator("#sTitle")).toHaveText(naam);
+      // De diepe link naar een stap werkt, en de stapsleutel blijft die van het deel zelf.
+      await page.goto(`/bijbelreis#${id}/2`);
+      await expect(page.locator("#sTitle")).toHaveText(/^2\. /);
+      await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem("bijbelreis:gezien") || "[]"))).toContainEqual(expect.stringMatching(new RegExp(`^[a-z0-9-]+:${id}:1$`)));
+      expect(await page.evaluate(() => JSON.parse(localStorage.getItem("bijbelreis:laatst") || "null"))).toMatch(new RegExp(`:${id}:1$`));
+    }
+    expect(errors).toEqual([]);
   });
 
   test("in tijdlijn, alle reizen, speurtocht en paspoort onder het hoofddeel", async ({ page }) => {

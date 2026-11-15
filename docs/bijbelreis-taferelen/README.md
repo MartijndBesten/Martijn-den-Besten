@@ -69,8 +69,8 @@ deel dat op een andere tak wordt geschreven (nu: `numeri:kies-het-leven:0` tot e
 Waar het beeld staat:
 
 - **Stapkaart** (tab Reis): direct onder de tekst ‘Wat de Bijbel vertelt’, boven ‘Lees in je Bijbel’. Op alle drie de
-  reisniveaus; bij Samen ontdekken iets breder. Op de telefoon (tot 900 px) staat het, met dezelfde plek in de HTML, met
-  CSS (`order`) direct onder de titel, op volle breedte, en is de kaart bij die stap lager; ‘Nog een keer’ staat dan naast
+  reisniveaus; bij Samen ontdekken iets breder. Op de telefoon (tot 900 px) staat het direct ná de tekst van de stap, op volle
+  breedte; de kaart houdt haar hoogte, zodat titel en tekst in het eerste scherm blijven. ‘Nog een keer’ staat dan naast
   het onderschrift in plaats van over de tekening (docs/bijbelreis-audit/telefoon.md).
 - **Geschiedenis** (tab Verhalen): bij het onderdeel van de vertelling dat bij die kaartstap hoort, boven de knop ‘Op de
   kaart’. Elk beeld staat hooguit één keer per geschiedenis. Heeft de vertelling geen onderdelen, dan staat het eerste

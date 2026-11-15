@@ -302,7 +302,9 @@ test("kaart: Toen/Nu, legenda en een plaats met zekerheid", async ({ page, isMob
   await telefoonKlik(page, "#legendBtn");
   await expect(page.locator("#legend")).toContainText("Identificeerbaar");
   await expect(page.locator("#legend")).toContainText("Onbekend");
-  await telefoonKlik(page, "#legendBtn");
+  // Op de telefoon ligt de legenda als blad over de kaart en het kaartpaneel: sluiten met de knop in de legenda.
+  await telefoonKlik(page, isMobile ? "#legendSluit" : "#legendBtn");
+  await expect(page.locator("#legend")).toBeHidden();
   if (isMobile) {
     await page.locator("#fullBtn").click();
     await expect(page.locator("body")).toHaveClass(/mapfull/);
@@ -476,16 +478,18 @@ test("3.1: de zes onderdelen zijn altijd bereikbaar, groot genoeg en zonder hori
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
-test("3.1: compacte voortgang met de naam, de stap en ‘Ga verder’", async ({ page }) => {
+test("3.1: verder waar je was: één knop ‘Verder met: <deel> – <stap>’", async ({ page }) => {
   await page.addInitScript(() => { if (!sessionStorage.getItem("gezet")) { localStorage.setItem("bijbelreis:laatst", JSON.stringify("ezra:terugkeer:4")); sessionStorage.setItem("gezet", "1"); } });
   await page.goto("/bijbelreis");
-  const v = page.locator("#welkom .verder");
-  await expect(v).toContainText("Verder waar je was");
-  await expect(v).toContainText("Terugkeer en tempel");
-  await expect(v).toContainText("stap 5 van 7");
-  // Reisetiket met etappelijn: nog steeds compact.
-  expect((await v.boundingBox())!.height).toBeLessThan(230);
-  await v.getByRole("button", { name: "Ga verder" }).click();
+  // Eén knop, geen kaartje eromheen: geen etappe, nummer, routeregel of ‘Ergens anders beginnen’.
+  const v = page.locator("#welkom .verdermet");
+  await expect(v).toHaveCount(1);
+  await expect(page.locator("#welkom button")).toHaveCount(1);
+  const stap = await page.evaluate(() => { const br = (window as unknown as { BR: { boeken: { id: string; delen: { id: string; n: string; steps: { t: string }[] }[] }[] } }).BR; const d = br.boeken.find((b) => b.id === "ezra")!.delen.find((x) => x.id === "terugkeer")!; return `${d.n} – ${d.steps[4].t}`; });
+  await expect(v).toHaveText(new RegExp("^Verder met: " + stap.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  await expect(page.locator("#welkom")).not.toContainText(/Etappe|Ergens anders|Verder waar je was/);
+  expect((await v.boundingBox())!.height).toBeLessThan(80);
+  await v.click();
   await expect(page.locator("#sCrumb")).toContainText("Stap 5 van 7");
   const opgeslagen = await page.evaluate(() => localStorage.getItem("bijbelreis:laatst"));
   expect(JSON.parse(opgeslagen!)).toBe("ezra:terugkeer:4");
@@ -565,11 +569,9 @@ test("3.1: de startkaart toont de geschiedenis van nu; de hele Bijbelwereld is a
   const errors = watchErrors(page);
   await page.addInitScript(() => { if (!sessionStorage.getItem("gezet")) { localStorage.setItem("bijbelreis:verhalen", JSON.stringify({ 26: { g: 1 }, 76: { g: 1 } })); localStorage.setItem("bijbelreis:huidig", JSON.stringify({ v: 76 })); sessionStorage.setItem("gezet", "1"); } });
   await page.goto("/bijbelreis");
-  const etiket = page.locator("#welkom .reiskaart");
-  await expect(etiket).toContainText("Je reis nu");
-  await expect(etiket).toContainText("76");
-  await expect(etiket).toContainText("Etappe 9 van 16");
-  await expect(etiket).toContainText("Babel → Jeruzalem");
+  // Verder met de geschiedenis van nu: één knop met haar titel.
+  const etiket = page.locator("#welkom .verdermet");
+  await expect(etiket).toHaveText(/^Verder met: Terug naar Jeruzalem/);
   await expect.poll(() => kaartNamen(page)).toEqual(expect.arrayContaining(["Babel", "Jeruzalem"]));
   // Hele Bijbelwereld: ankerplaatsen van Ur tot Efeze; daarna terug naar je eigen reis.
   await telefoonKlik(page, "#wereldBtn");
@@ -578,7 +580,7 @@ test("3.1: de startkaart toont de geschiedenis van nu; de hele Bijbelwereld is a
   await telefoonKlik(page, "#wereldBtn");
   await expect(page.locator("#wereldBtn")).toHaveAttribute("aria-pressed", "false");
   await expect.poll(() => kaartNamen(page)).toEqual(expect.arrayContaining(["Babel", "Jeruzalem"]));
-  await etiket.getByRole("button", { name: "Ga verder" }).click();
+  await etiket.click();
   await expect(page.locator("#vTitel")).toContainText("Terug naar Jeruzalem");
   // Een nieuwe geschiedenis openen wordt de nieuwe ‘nu’.
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem("bijbelreis:huidig")!))).toEqual({ v: 76 });
@@ -588,11 +590,11 @@ test("3.1: de startkaart toont de geschiedenis van nu; de hele Bijbelwereld is a
 test("3.1: een nieuwe reiziger begint bij geschiedenis 1, met de hele Bijbelwereld op de kaart", async ({ page }) => {
   await zetNiveau(page, "b");
   await page.goto("/bijbelreis");
-  const etiket = page.locator("#welkom .reiskaart");
-  await expect(etiket).toContainText("Je reis begint hier");
-  await expect(etiket).toContainText("Etappe 1 van 16");
+  // Zonder voortgang geen ‘Verder met’: de lijst begint gewoon bij 1.
+  await expect(page.locator("#welkom")).toBeHidden();
+  await expect(page.locator("#welkom .verdermet")).toHaveCount(0);
   await expect(page.locator("#wereldBtn")).toHaveAttribute("aria-pressed", "true");
-  await etiket.getByRole("button", { name: "Begin" }).click();
+  await page.locator('#vLijst [data-v="1"]').click();
   await expect(page.locator("#vTitel")).toContainText("God schept hemel en aarde");
 });
 
@@ -1010,7 +1012,9 @@ test("meer reizen: de brieven staan in de boekenkast en de boekenrij schuift naa
   if (await page.locator("#kiesBtn").isVisible()) { await expect(page.locator("#kiesBtn")).toContainText("De brieven"); await page.locator("#kiesBtn").click(); } // telefoon: de boekenrij staat in het keuzeblad
   const gekozen = page.locator('#boeken .boek[aria-pressed="true"]');
   await expect(gekozen).toContainText("De brieven");
-  await expect(gekozen).toBeInViewport({ ratio: 0.9 });
+  // Telefoon: het keuzeblad begint met de delen van het gekozen boek, met de naam van het boek erboven.
+  if (await page.locator("#kiesLade").isVisible()) { await expect(page.locator("#delenLabel")).toContainText("De brieven"); await expect(page.locator("#delen")).toBeInViewport(); }
+  else await expect(gekozen).toBeInViewport({ ratio: 0.9 });
   await page.locator("#kastBtn").click();
   const romeinen = page.locator("#kastLijst .kb", { hasText: "Romeinen" });
   await expect(romeinen).toContainText("in ‘De brieven’");

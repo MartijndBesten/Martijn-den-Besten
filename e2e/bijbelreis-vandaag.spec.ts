@@ -58,6 +58,8 @@ test("stand Nu: landnamen, gebiedsnamen en twee soorten lijnen", async ({ page }
   const stijl = await page.evaluate(() => { const s = (q: string) => getComputedStyle(document.querySelector("#map path.border" + q)!).strokeDasharray; return { vast: s(":not(.band):not(.omstreden):not(.fijn)"), omstreden: s(".omstreden") }; });
   expect(stijl.vast).toBe("none");
   expect(stijl.omstreden).not.toBe("none");
+  // Telefoon: het open kaartpaneel ligt over de kaart (en landnamen wijken ervoor); dicht het eerst, zoals de gebruiker doet.
+  if ((await page.locator("#kaartBtn").getAttribute("aria-expanded")) === "true") await page.locator("#kaartBtn").click();
   await uitsnede(page, REGIO);
   await expect.poll(() => zichtbareNamen(page, ".country")).toEqual(expect.arrayContaining(["Syrië", "Irak", "Turkije", "Jordanië", "Israël"]));
   const alle = await page.evaluate(() => [...document.querySelectorAll("#map .country, #map .gebied")].map((e) => e.textContent!.trim()));
