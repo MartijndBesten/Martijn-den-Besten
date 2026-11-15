@@ -302,7 +302,8 @@ button.vitem:hover { background: var(--zand-zacht); }
 .koppel .opt { font-size: 0.92rem; padding: 9px 11px; }
 .opt.sel { border-color: var(--nacht); box-shadow: 0 0 0 2px var(--nacht); }
 .wiezei { display: flex; flex-direction: column; gap: 6px; padding: 10px 0; border-bottom: 1px solid var(--lijn); }
-.citaat { font-family: var(--font-serif); font-size: 1.2rem; margin: 0; }
+/* Citaten in ‘Wie zei het?’: een gewone, brede boekletter (Instrument Serif is een smalle koppenletter en leest lastig als lopende tekst). */
+.citaat { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; font-size: 1.08rem; line-height: 1.45; margin: 0; }
 .wiezei .pick button.ok { border-color: var(--goed); background: color-mix(in srgb, var(--goed) 14%, var(--wit)); color: var(--fg); }
 .wiezei .pick button.no { border-color: var(--fout); }
 .verbanden { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 10px; }
