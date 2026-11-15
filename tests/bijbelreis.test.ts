@@ -384,6 +384,7 @@ describe("bijbelreis: citaten in de bestaande inhoud", () => {
       dd.steps.forEach((s, i) => walk(`${b.id}:${d.id}:${i}`, { t: s.t, txt: s.txt, fact: s.fact, onthul: s.onthul, who: s.who }));
     }
     walk("kernwoorden", B.kernwoorden); walk("mensen", B.mensen);
+    for (const [id, pl] of Object.entries(P)) chk("plaats " + id, (pl as unknown as { d?: string }).d);
     expect(bad).toEqual([]);
-  });
+  }, 60_000);
 });
