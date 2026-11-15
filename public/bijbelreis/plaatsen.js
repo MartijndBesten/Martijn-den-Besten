@@ -831,3 +831,13 @@ Object.assign(BR.W, {
   br_kreta1: [35.55, 24.7], br_kreta2: [35.78, 23.95], br_kreta3: [35.76, 23.45], br_malea: [36.2, 22.3], br_methone: [36.55, 21.45], br_ion4: [37.3, 21.2],
   br_ion5: [37.6, 20.4], br_ion6: [38.2, 20.2], br_ion7: [38.75, 20.4], br_ion8: [38.98, 20.6],
 });
+
+// Kerst B (inhoud/kerst-2.js): de aankondiging en de geboorte in Bethlehem.
+// Lukas 2:8 noemt geen plaats (‘in diezelfde landstreek’): een gebied, geen punt. Het midden ligt ten oosten van Bethlehem, waar
+// OpenBible.info (CC BY 4.0) bij Eder/Migdal-Eder (Genesis 35:21) Khirbet Siyar el-Ghanam geeft (score 632).
+Object.assign(BR.plaatsen, {
+  kb_herdersveld: { n: "Velden bij Bethlehem", ll: [31.7073, 35.2301], c: "r", s: "c", z: 10.5, t: "gebied",
+    d: "In de velden bij Bethlehem hielden herders ’s nachts de wacht bij hun kudde, toen een engel hun vertelde dat de Zaligmaker geboren was (Lukas 2:8–11). Ook David weidde hier de schapen van zijn vader (1 Samuël 17:15).",
+    nu: "Omgeving van Beit Sahour, Westelijke Jordaanoever",
+    bron: "Gebied: Lukas 2:8 zegt ‘in diezelfde landstreek’. Midden illustratief ten oosten van Bethlehem (Khirbet Siyar el-Ghanam; OpenBible bij Eder, Genesis 35:21, score 632)." },
+});

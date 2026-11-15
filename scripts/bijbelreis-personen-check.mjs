@@ -112,6 +112,8 @@ const VERWACHT = {
   "openbaring|Johannes": "johannes_patmos", "jezus-1|Jakobus": "jakobus", "jezus-2|Jakobus": "jakobus", "jezus-3|Jakobus": "jakobus",
   "jezus-1|Filippus": "filippus", "jezus-2|Filippus": "filippus", "handelingen|Filippus": "filippus_evangelist",
   "handelingen|Ananias": "ananias", "handelingen:wie|Ananias": null, "jezus-2|Lazarus": "lazarus", "1samuel|Eli": "eli",
+  // Kerst B (inhoud/kerst-2.js): de aankondiging en de geboorte
+  "kerst|Maria": "maria", "kerst|Jozef": "jozef_nt", "kerst|Zacharias": "zacharias", "kerst|Simeon": "simeon_nt",
 };
 // Bekende inhoudsfouten die alleen buiten personen.js op te lossen zijn (inhoud of geschiedenissen). Ze staan hier met de
 // koppeling die de app nu geeft; verandert die, dan meldt de check dat de lijst bijgewerkt moet worden. Met --streng: fout.

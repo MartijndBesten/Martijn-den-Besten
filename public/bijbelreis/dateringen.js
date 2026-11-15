@@ -46,6 +46,7 @@ BR.dateringen = {
     "jozua:stammen": ["bijbel", true],
     "2samuel:davids-rijk": ["historie", true],
     "brieven:brieven": ["historie", true], // brieven zonder jaartal; ijkpunten: Gallio (Handelingen 18:12) en de overlevering over Nero
+    "kerst:kerst-aankondiging": ["historie", true], "kerst:kerst-geboorte": ["historie", true], // Kerst B: vóór de dood van Herodes (Lukas 1:5; Mattheüs 2:1)
   },
   // Geschiedenissen per reeks: [van, tot, soort, onzeker?]
   verhalen: [

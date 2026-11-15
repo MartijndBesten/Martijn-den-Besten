@@ -1511,3 +1511,6 @@ Filemon 1:2 | Appia.*Archippus.*de Gemeente, die te uwen huize is
 Filemon 1:7 | de ingewanden der heiligen verkwikt zijn geworden door u
 Filemon 1:17 | zo neem hem aan, gelijk als mij
 Filemon 1:22 | bereid mij ook tegelijk een herberg
+# --- Kerst B (inhoud/kerst-2.js): Augustus en Cyrenius
+Lukas 2:1 | een gebod uitging van den Keizer Augustus, dat de gehele wereld beschreven zou worden
+Lukas 2:2 | Deze eerste beschrijving geschiedde, als Cyrenius over Syri. stadhouder was
