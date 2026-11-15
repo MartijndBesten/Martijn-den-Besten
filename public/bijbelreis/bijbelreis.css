@@ -994,6 +994,17 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
 @keyframes tf-uit { from { opacity: 1; } to { opacity: 0; } }
 @keyframes tf-stort { 0%, 35% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(6px) scaleY(0.18); } }
 @keyframes tf-stof { 0% { opacity: 0; transform: scale(0.5); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(-10px) scale(1.5); } }
+/* Tweede reeks Oude Testament (taferelen-ot-2.js): korrels (manna) als gestippelde lijn, een donkere rand onder
+   een brede lijn, en drie bewegingen: wiegen (lus), vallen en opschieten (eenmalig). */
+.tf-svg .korrel { fill: none; stroke: var(--wit); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 0.1 5.3; }
+.tf-svg .korrel.s2 { stroke-dasharray: 0.1 7.9; stroke-dashoffset: 3; }
+.tf-svg .rand { stroke-width: 6.8; }
+.tf-svg .tf-l-wieg { animation: tf-wieg 4.2s ease-in-out infinite alternate; }
+.tf-svg .tf-e-val { animation: tf-val 1s ease-in both; }
+.tf-svg .tf-e-groei { animation: tf-groei 3.6s var(--ease-out) both; }
+@keyframes tf-wieg { from { transform: rotate(-2.2deg); } to { transform: rotate(2.2deg); } }
+@keyframes tf-val { from { transform: translateY(-84px); opacity: 0; } }
+@keyframes tf-groei { 0% { transform: scale(0.12); opacity: 0; } 25% { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
   .tf-svg [class*="tf-l-"], .tf-svg [class*="tf-e-"] { animation: none !important; }
   .tf-opnieuw { display: none; }

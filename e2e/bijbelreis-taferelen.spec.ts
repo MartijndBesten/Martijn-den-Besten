@@ -52,6 +52,35 @@ test("een eigen koppeling gaat vóór het standaardbeeld, ook bij een stap met r
   expect(errors).toEqual([]);
 });
 
+test("tweede reeks OT: de tabernakel bij een stap zonder reis en het vuur op de Karmel bij een stap met reis", async ({ page }) => {
+  const errors = watchErrors(page);
+  // De tabernakel hing eerst aan het standaardbeeld van de berg Sinaï.
+  await page.goto("/bijbelreis#sinai/9");
+  await expect(page.locator("#sTitle")).toContainText("De tabernakel");
+  await expect(beeld(page)).toHaveAttribute("data-tf", "tabernakel");
+  await expect(beeld(page).getByRole("img", { name: /tabernakel.*voorhof.*wolk/i })).toBeVisible();
+  await expect(beeld(page).locator("figcaption")).toContainText("Exodus 40:34–38");
+  await expect(beeld(page).locator("figcaption")).not.toContainText("Algemene tekening");
+  // De tekening heeft echte afmetingen: ze vult het kader en loopt de kaart niet uit.
+  const maat = await page.evaluate(() => { const f = document.querySelector(".stapkaart .tafereel .tf-svg")!.getBoundingClientRect(), k = document.querySelector(".stapkaart")!.getBoundingClientRect(); return { breed: f.width, hoog: f.height, binnen: f.left >= k.left - 1 && f.right <= k.right + 1, pagina: document.documentElement.scrollWidth <= innerWidth }; });
+  expect(maat.breed).toBeGreaterThan(200);
+  expect(maat.hoog / maat.breed).toBeCloseTo(7 / 16, 1);
+  expect(maat.binnen && maat.pagina).toBe(true);
+  // Het vuur op de Karmel is een stap mét reis; bij ‘minder beweging’ staat het vuur er al (eindstand) en is er geen knop.
+  await page.goto("/bijbelreis#elia/4");
+  await expect(page.locator("#sTitle")).toContainText("Karmel");
+  await expect(page.locator("#sKm")).toContainText("km");
+  await expect(beeld(page)).toHaveAttribute("data-tf", "karmel");
+  await expect(beeld(page).getByRole("img", { name: /altaar van twaalf stenen/ })).toBeVisible();
+  await expect(beeld(page).locator("figcaption")).toContainText("1 Koningen 18:38");
+  expect(await page.evaluate(() => document.querySelector(".stapkaart .tafereel")!.getAnimations({ subtree: true }).length)).toBe(0);
+  expect(await page.evaluate(() => { const v = document.querySelector(".stapkaart .tafereel .tf-e-val")!; return getComputedStyle(v).opacity + " " + getComputedStyle(v).transform; })).toBe("1 none");
+  await expect(beeld(page).locator(".tf-opnieuw")).toHaveCount(0);
+  const axe = await new AxeBuilder({ page }).include(".stapkaart .tafereel").analyze();
+  expect(axe.violations.map((v) => v.id)).toEqual([]);
+  expect(errors).toEqual([]);
+});
+
 test("een stap met reis en zonder koppeling toont geen tafereel; het beeld wisselt met de stap", async ({ page }) => {
   const errors = watchErrors(page);
   await page.goto("/bijbelreis#uittocht/4");
