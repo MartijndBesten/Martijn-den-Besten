@@ -84,3 +84,13 @@ npx vitest run
 Daarna de e2e-tests en de visuele vergelijking zoals in [`../bijbelreis-audit/releases.md`](../bijbelreis-audit/releases.md).
 
 **Wat ‘gecontroleerd’ hier betekent:** een schrijver heeft de toets gedaan en een aparte AI-redacteur heeft de wijzigingen nagelezen tegen de Statenvertaling en tegen de maatstaf van §1. Er heeft geen theoloog naar gekeken. Omdat uitleg nu als vertelling staat, is juist dit onderdeel de moeite waard om door een predikant of ouderling te laten lezen; de werkbestanden in `werk/` zijn daarvoor de ingang.
+
+## 7. Besluiten bij twijfelgevallen (coördinator)
+
+Bij het samenvoegen van de pakketten zorgt de eindredactie dat deze keuzes overal gelijk zijn.
+
+| Onderwerp | Besluit | Grond |
+| --- | --- | --- |
+| De Engel des HEEREN (Exodus 3; Richteren 6 en 13; Jozua 5:13–15; Genesis 32) | Overal vertellen: de Engel des HEEREN is de Zoon van God. Eén pakket liet het in Exodus 3 open omdat Matthew Henry daar geen keuze zou maken; de kanttekeningen (‘de HEERE zelf’) en Calvijn (‘de Zoon van God’) zeggen het wel, en elders in de atlas staat het al zo. Consistentie gaat voor. | Kanttekeningen, Calvijn; Hosea 12:4–5; Maleachi 3:1 |
+| Mirjam als de zus bij het kistje (Exodus 2:4) | Als feit vertellen. | Kanttekeningen; Numeri 26:59 |
+| Reüel en Jethro | Alleen de tekst; geen keuze. | Kanttekeningen en Calvijn verschillen |
