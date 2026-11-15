@@ -74,7 +74,7 @@ Deuteronomium 7:5 | hun gesnedene beelden met vuur verbranden
 1 Kronieken 18:8 | heeft Salomo de koperen zee, en de pilaren, en de koperen vaten gemaakt
 1 Kronieken 18:4 | zeven duizend ruiters
 1 Kronieken 18:3 | naar Hamath toe
-# --- Stap 5: Thoï van Hamath (8:9–12) ---
+# --- Stap 5: Toï van Hamath (8:9–12) ---
 2 Samuël 8:9 | Thoi, de koning van Hamath, hoorde, dat David het ganse heir van Hadad-ezer geslagen had
 2 Samuël 8:10 | om hem te vragen naar zijn welstand, en om hem te zegenen
 2 Samuël 8:11 | Welke de koning David ook den HEERE heiligde, met het zilver en het goud.*van alle heidenen, die hij zich onderworpen had
@@ -141,3 +141,21 @@ Richteren 11:3 | Jeftha.*woonde in het land Tob
 Jozua 12:5 | berg Hermon.*geheel Bazan, tot aan de landpale der Gezurieten, en der Maachathieten
 Jozua 12:4 | Og
 2 Samuël 10:6 | koning van Maacha duizend man
+# --- Redactie (tweede lezer): namen (HSV: Meteg-Amma, Rechob, Betach, Toï, Beth-Rechob) en gewijzigde beweringen ---
+2 Samuël 8:1 | Meteg-amma
+2 Samuël 8:3 | Hadad-ezer, den zoon van Rechob
+2 Samuël 8:8 | Betach, en uit Berothai
+2 Samuël 8:9 | Thoi, de koning van Hamath
+2 Samuël 8:10 | zond Thoi zijn zoon Joram
+2 Samuël 10:6 | Syriers van Beth-rechob.*twintig duizend voetvolks
+2 Samuël 8:4 | duizend wagens af, en zevenhonderd ruiteren.*ontzenuwde alle wagenpaarden, en hield daarvan honderd wagenen over
+1 Kronieken 18:4 | zeven duizend ruiters
+1 Kronieken 18:8 | Tibchath, en uit Chun
+1 Kronieken 18:9 | Thou, de koning van Hamath
+1 Kronieken 18:10 | zijn zoon Hadoram
+1 Kronieken 19:6 | duizend talenten zilvers
+1 Kronieken 19:7 | twee en dertig duizend wagenen.*legerden zich voor Medeba
+2 Samuël 12:26 | Rabba der kinderen Ammons.*koninklijke stad
+2 Samuël 10:10 | zijn broeder Abisai
+2 Samuël 10:12 | Wees sterk.*de HEERE nu doe, wat goed is in Zijn ogen
+Jozua 12:5 | landpale der Gezurieten, en der Maachathieten
