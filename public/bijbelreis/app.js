@@ -116,7 +116,9 @@
   const metVerdiep = (delen) => delen.filter((d) => !d.hoofd).flatMap((d) => [d].concat(d.verdiep || []));
   const deelNaam = (d) => (d.hoofd ? `${d.hoofd.n} › ${d.n}` : d.n);
   const partKm = (d) => d.steps.reduce((a, s) => a + (s.r || []).filter((r) => r.w === d.c).reduce((b, r) => b + r.len, 0), 0);
-  const scrollToMap = () => { if (isNarrow()) document.querySelector(".mapwrap").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }); };
+  // Naar de kaart: op de telefoon scrolt de pagina naar de kaart; in de reis ís de kaart het scherm en gaat het stapblad
+  // terug naar de korte stand.
+  const scrollToMap = () => { if (!isNarrow()) return; if (bladAan()) bladZet(false); else document.querySelector(".mapwrap").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }); };
 
   // ---------- kaart ----------
   const WIDE = [[29.0, 30.5], [38.6, 47.6]], KANAAN = [[30.9, 34.2], [33.4, 36.4]];
@@ -125,7 +127,7 @@
   L.control.scale({ imperial: false, maxWidth: 120, position: "bottomleft" }).addTo(map);
   map.fitBounds(WIDE, { padding: [20, 20] });
   // Lagen van onder naar boven: land en streken, reliëf (vermenigvuldigd), moderne grenzen, water, routes (overlayPane), plaatsen.
-  [["basis", 250], ["relief", 300], ["water", 360], ["modern", 380]].forEach(([n, z]) => { map.createPane(n).style.zIndex = z; map.getPane(n).style.pointerEvents = "none"; });
+  [["basis", 250], ["relief", 300], ["water", 360], ["modern", 380], ["kader", 390]].forEach(([n, z]) => { map.createPane(n).style.zIndex = z; map.getPane(n).style.pointerEvents = "none"; });
   const icon = (html, cls = "pl") => L.divIcon({ className: cls, iconSize: [0, 0], html });
 
   const KLEINE_RIVIEREN = [
@@ -178,6 +180,17 @@
     const meerLagen = geo.lakes.map((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "lake" }).addTo(map));
     const rivierLagen = geo.rivers.map((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "river" }).addTo(map));
     KLEINE_RIVIEREN.forEach((r) => L.polyline(r.p, { pane: "water", className: "river klein", interactive: false }).addTo(map));
+    // De rand van de kaartplaat: waar het land van de ondergrond ophoudt. Op de telefoon is de kaart in de reis zo hoog
+    // dat het overzicht van een lange reis (Paulus naar Rome) verder reikt dan de ondergrond; daar ligt dan papier met een
+    // kaderlijn, zoals een kaart in een atlas, in plaats van een zee waar het land recht is afgesneden. Alleen daar
+    // zichtbaar (bijbelreis.css: .kader-buiten, .kader-rand).
+    let w = 180, z = 90, o = -180, n = -90;
+    const loop = (c) => { if (typeof c[0] === "number") { w = Math.min(w, c[0]); o = Math.max(o, c[0]); z = Math.min(z, c[1]); n = Math.max(n, c[1]); } else c.forEach(loop); };
+    (geo.land.features || [geo.land]).forEach((f) => loop((f.geometry || f).coordinates));
+    if (w < o && z < n) {
+      L.polygon([[[-5, -40], [-5, 100], [72, 100], [72, -40]], [[z, w], [z, o], [n, o], [n, w]]], { pane: "kader", interactive: false, className: "kader-buiten" }).addTo(map);
+      L.rectangle([[z, w], [n, o]], { pane: "kader", interactive: false, className: "kader-rand" }).addTo(map);
+    }
     insetGeo = geo;
     geoReady = true;
     drawInset();
@@ -348,7 +361,8 @@
   const hits = (a, b) => a[0] < b[0] + b[2] + 2 && b[0] < a[0] + a[2] + 2 && a[1] < b[1] + b[3] + 1 && b[1] < a[1] + a[3] + 1;
   function uiRects() {
     const box = map.getContainer().getBoundingClientRect();
-    return [...document.querySelectorAll(".leaflet-control-zoom, .maptools > *, .mapacties > *, .mapbar, .legend, .leaflet-control-scale")].filter((e) => e.offsetParent).map((e) => { const r = e.getBoundingClientRect(); return [r.left - box.left, r.top - box.top, r.width, r.height]; });
+    // Op de telefoon ligt in de reis het stapblad over de kaart: daar komen geen namen onder.
+    return [...document.querySelectorAll(".leaflet-control-zoom, .maptools > *, .mapacties > *, .mapbar, .legend, .leaflet-control-scale")].filter((e) => e.offsetParent).concat(bladAan() ? [$("reisboek")] : []).map((e) => { const r = e.getBoundingClientRect(); return [r.left - box.left, r.top - box.top, r.width, r.height]; });
   }
   function refreshLabels() {
     const z = map.getZoom();
@@ -449,7 +463,11 @@
         const opties = it.side === "peak" ? [[0, 0]] : [[0, 0], [0, -sy], [0, sy], [sx, 0], [-sx, 0]];
         const rect = ([dx, dy]) => (it.side === "peak" ? [it.pt.x - 6, it.pt.y - 8, it.w, it.h] : (([x, y, w, h]) => [x + dx, y + dy, w, h])(labelRect(it.pt, it.w, it.h, "c")));
         const buiten = (r) => r[0] < 0 || r[1] < 0 || r[0] + r[2] > size.x || r[1] + r[3] > size.y;
-        let d = opties.find((o) => !(it.pr < 1 && buiten(rect(o))) && !placed.some((q) => hits(rect(o), q)));
+        // Telefoon, in de reis: een gebiedsnaam van de stap staat liever een plek opzij (of naar binnen geschoven) dan
+        // half buiten beeld.
+        const klem = (o) => { const r = rect(o); return [o[0] + Math.round(Math.max(4 - r[0], Math.min(0, size.x - 4 - r[0] - r[2]))), o[1]]; };
+        let d = it.pr >= 2.5 && bladAan() ? opties.concat(opties.map(klem)).find((o) => !buiten(rect(o)) && !placed.some((q) => hits(rect(o), q))) : undefined;
+        if (d === undefined) d = opties.find((o) => !(it.pr < 1 && buiten(rect(o))) && !placed.some((q) => hits(rect(o), q)));
         if (d === undefined && it.pr < 3) { it.el.classList.add("clash"); it.el.style.margin = ""; return; }
         if (d === undefined) d = opties.slice().sort((a, b) => overlap(rect(a)) + (buiten(rect(a)) ? 1e6 : 0) - overlap(rect(b)) - (buiten(rect(b)) ? 1e6 : 0))[0];
         if (it.side === "c") it.el.style.margin = d[0] || d[1] ? `${d[1]}px 0 0 ${d[0]}px` : "";
@@ -459,6 +477,15 @@
       let side = null, rect = null;
       const binnen = (r) => r[0] >= 2 && r[1] >= 2 && r[0] + r[2] <= size.x - 2 && r[1] + r[3] <= size.y - 2;
       for (const s of order) { const r = labelRect(it.pt, it.w, it.h, s); if (binnen(r) && !placed.some((q) => hits(r, q))) { side = s; rect = r; break; } }
+      // Telefoon, in de reis: past de naam van een plaats van de stap aan geen kant binnen de kaart (een lange naam, of
+      // een plaats aan de rand), dan komt hij onder of boven de plaats: zo nodig naar binnen geschoven en een regel
+      // verder van de plaats af (voorbij de reiziger of een buurplaats), in plaats van half buiten beeld te vallen.
+      let marge = "";
+      if (!side && it.pr >= 2.5 && bladAan()) for (const [s, dy] of [["b", 0], ["t", 0], ["t", 14], ["b", 14], ["t", 28], ["b", 28]]) {
+        const r = labelRect(it.pt, it.w, it.h, s), dx = Math.round(Math.max(4 - r[0], Math.min(0, size.x - 4 - r[0] - r[2]))), q = [r[0] + dx, r[1] + (s === "b" ? dy : -dy), r[2], r[3]];
+        if ((dx || dy) && Math.abs(dx) < it.w / 2 + 4 && binnen(q) && !placed.some((x) => hits(q, x))) { side = s; rect = q; marge = s === "b" ? `${dy}px 0 0 ${dx}px` : `0 0 ${dy}px ${dx}px`; break; }
+      }
+      it.el.style.margin = marge;
       if (!side) for (const s of order) { const r = labelRect(it.pt, it.w, it.h, s); if (!placed.some((q) => hits(r, q))) { side = s; rect = r; break; } }
       if (!side && it.pr < 3) { it.el.classList.add("clash"); return; }
       if (!side) {
@@ -488,6 +515,16 @@
     // Telefoon: de stappenbalk staat onder de kaart, dus onderin alleen ruimte voor ‘Hele reis’/‘Groot’ en de schaal.
     const smal = isNarrow(), balk = !smal && !$("mapbar").hidden;
     const opts = { paddingTopLeft: [smal ? 52 : 64, smal ? 54 : 60], paddingBottomRight: [smal ? 18 : Math.max(40, lgW),  balk ? 96 : smal ? 70 : 64], maxZoom: maxZoom || 9 };
+    // Telefoon, in de reis: de kaart is het scherm en het stapblad ligt eroverheen. De route past in het vrije deel: onder
+    // de kaartknoppen (met ruimte voor de kameel) en boven het korte blad (met ruimte voor een naam onder de plaats).
+    if (bladAan()) {
+      Object.assign(opts, bladRuimte());
+      // Schuift de kaart nog (Leaflet haalt hem na een maatwissel terug binnen de ondergrond), dan eerst stilzetten:
+      // anders loopt die verschuiving door ná de nieuwe uitsnede en staat de route buiten beeld.
+      map._enforcingBounds = true; map.stop(); map._enforcingBounds = false;
+      // De zuidgrens hoort bij de zoom waar de kaart naartoe gaat (zie kaartGrenzen), niet bij die van de vorige stap.
+      kaartGrenzen(Math.min(opts.maxZoom, map.getBoundsZoom(b, false, L.point(opts.paddingTopLeft).add(opts.paddingBottomRight))));
+    }
     // Loopt er nog een zoomanimatie (snel na elkaar tikken), dan zou Leaflet de nieuwe uitsnede negeren: eerst afwachten.
     if (map._animatingZoom) { map.once("zoomend", () => fit(pts, maxZoom, done)); return; }
     if (reduceMotion) { map.fitBounds(b, { ...opts, animate: false }); done && done(); return; }
@@ -776,6 +813,8 @@
     cur = Math.max(-1, Math.min(deel.steps.length - 1, i));
     showAll = false; heleZichtbaar();
     map.closePopup();
+    // Telefoon: na elke stap is het stapblad kort, zodat je de kaart ziet bewegen.
+    bladZet(false);
     const sp = $("sSpecial"); sp.innerHTML = "";
     const lees = $("leesBtn");
     if (cur >= 0) {
@@ -801,11 +840,15 @@
       let pts = s.rays4 ? [[ll(s.rays4)[0] + 0.8, ll(s.rays4)[1] - 1], [ll(s.rays4)[0] - 0.8, ll(s.rays4)[1] + 1]] : (s.r ? s.r.flatMap((r) => r.pts) : []).concat(s.at.map(ll));
       if (s.later) pts = pts.concat(s.later.p.map(ll));
       if (s.look) pts = pts.concat(s.look.slice(0, 2).map(ll));
+      bladKort();
       // Geen plaats bekend (bijv. ‘ergens in Israël’): toon de streek in plaats van een verzonnen punt.
       const loop = reis(s);
       if (!pts.length) fit(Array.isArray(s.view) ? s.view : s.view === "kanaan" ? KANAAN : WIDE, Array.isArray(s.view) ? 9 : 6, loop);
       else if (pts.every((p) => p[0] === pts[0][0] && p[1] === pts[0][1])) {
-        const z = s.zoom || 9; reduceMotion ? map.setView(pts[0], z, { animate: false }) : map.flyTo(pts[0], z, { duration: 0.8 }); setTimeout(loop, reduceMotion ? 0 : 850);
+        const z = s.zoom || 9;
+        // Eén plek: in het midden van de kaart; op de telefoon in het midden van het vrije deel boven het stapblad.
+        if (bladAan()) fit([pts[0], pts[0]], z, loop);
+        else { reduceMotion ? map.setView(pts[0], z, { animate: false }) : map.flyTo(pts[0], z, { duration: 0.8 }); setTimeout(loop, reduceMotion ? 0 : 850); }
       } else fit(pts, s.zoom || 9, loop);
       $("where").textContent = `${deel.short} · ${cur + 1} van ${deel.steps.length}`;
     } else {
@@ -827,6 +870,7 @@
       const startLL = first ? (first.r ? first.r[0].pts[0] : ll(first.at[0])) : null;
       if (startLL) kameelZet(startLL);
       camelStyle(deel.c, false, false, !startLL || deel.id === "begin");
+      bladKort();
       if (!opts.noFly) fit(partBounds(deel), 9.5);
       $("where").textContent = deel.n;
     }
@@ -979,8 +1023,13 @@
     tapHandler = null;
     $("mapbar").hidden = m !== "reis";
     const voor = document.body.dataset.modus; document.body.dataset.modus = m;
-    // Op de telefoon is de kaart per onderdeel anders van hoogte: Leaflet moet dat weten.
-    if (voor !== m && isNarrow()) requestAnimationFrame(() => { map.invalidateSize(); queueLabels(); });
+    // Op de telefoon is de kaart per onderdeel anders van maat (in de reis is de kaart het scherm): Leaflet moet dat weten
+    // vóórdat de uitsnede van het onderdeel gekozen wordt. Buiten de reis is er geen stapblad en geen grote kaart nodig.
+    if (isNarrow()) {
+      if (m !== "reis") bladZet(false, true); else if (document.body.classList.contains("mapfull")) setFull(false);
+      if (voor !== m) { kaartGrenzen(); map.invalidateSize({ pan: false }); }
+      syncDrag();
+    }
     heleZichtbaar();
     $("legend").hidden = !(m === "reis" || m === "verhalen"); $("legendBtn").hidden = !(m === "reis" || m === "verhalen");
     $("wereldBtn").hidden = !(m === "reis" || m === "verhalen");
@@ -2076,8 +2125,9 @@
   };
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !e.defaultPrevented && document.body.classList.contains("mapfull") && $("lade").hidden && $("kast").hidden) setFull(false); });
   // Op een telefoon in het reisboek: met één vinger scroll je de pagina, met twee vingers beweeg je de kaart (Leaflet-knijpzoom verschuift ook).
+  // In de reis is de kaart het scherm en scrolt de pagina niet: daar sleep je de kaart gewoon met één vinger.
   function syncDrag() {
-    const embed = touchy.matches && isNarrow() && !document.body.classList.contains("mapfull");
+    const embed = touchy.matches && isNarrow() && !document.body.classList.contains("mapfull") && !bladAan();
     embed ? map.dragging.disable() : map.dragging.enable();
     map.getContainer().classList.toggle("embed", embed);
   }
@@ -2086,7 +2136,7 @@
     if (!map.getContainer().classList.contains("embed") || e.touches.length !== 1) return;
     $("gesture").hidden = false; clearTimeout(gestureT); gestureT = setTimeout(() => ($("gesture").hidden = true), 1400);
   }, { passive: true });
-  window.addEventListener("resize", () => { syncDrag(); queueLabels(); });
+  window.addEventListener("resize", () => { syncDrag(); bladKort(); queueLabels(); });
 
   // ---------- telefoon (tot 900 px): het beeld eerst, de rest één tik verder ----------
   // Zie docs/bijbelreis-audit/telefoon.md. Op de telefoon verhuizen twee onderdelen (de keuze van boek en deel met de
@@ -2094,23 +2144,129 @@
   // van bijbelreis.css. Boven 900 px verandert er niets.
   const smalMq = window.matchMedia("(max-width: 900px)");
   function telefoonIndeling() {
-    if (smalMq.matches) { $("kiesPlek").appendChild($("kiezen")); $("kaartPaneel").appendChild($("wereldBtn")); }
+    // De stappenbalk (◀ en Verder) hoort op de telefoon bij het stapblad: onderaan het blad, na de tekst.
+    if (smalMq.matches) { $("kiesPlek").appendChild($("kiezen")); $("kaartPaneel").appendChild($("wereldBtn")); $("reisboek").appendChild($("mapbar")); }
     else {
-      $("p-reis").insertBefore($("kiezen"), $("p-reis").firstChild); $("heleBtn").before($("wereldBtn"));
+      $("p-reis").insertBefore($("kiezen"), $("p-reis").firstChild); $("heleBtn").before($("wereldBtn")); document.querySelector(".mapwrap").appendChild($("mapbar"));
       if (!$("kiesLade").hidden) sluitLade("kiesLade", false);
-      kaartMenu(false);
+      kaartMenu(false); bladZet(false, true);
     }
   }
-  smalMq.addEventListener("change", () => { telefoonIndeling(); toonGekozen("boeken"); toonGekozen("delen"); });
-  // Eén regel boven de stap: ‘Genesis › Abraham · 2 van 25’; een tik opent het keuzeblad.
+  smalMq.addEventListener("change", () => { telefoonIndeling(); syncDrag(); kaartGrenzen(); map.invalidateSize({ pan: false }); bladKort(); toonGekozen("boeken"); toonGekozen("delen"); });
+  // Eén kleine regel bovenaan het stapblad: ‘Genesis › Abraham · 2 van 25’; een tik opent het keuzeblad.
   function kiesRegel(n) {
-    // Niets wordt afgekapt: is de regel te lang, dan loopt hij door op een tweede regel (CSS .kr-pad).
-    // Bij een verdiepend deel staat het hoofddeel vooraan in plaats van het boek: ‘Jakob › Bij de Jabbok’.
-    const pad = [deel.hoofd ? deel.hoofd.short : boek.n].map((x) => `<span class="kr-kort">${esc(x)}</span><span aria-hidden="true">›</span>`).join("");
+    // Bij een verdiepend deel staat het hoofddeel vooraan in plaats van het boek: ‘Jakob › Jakob bij de Jabbok’.
+    // Past de regel niet naast ‘Lees meer’, dan valt het boek (of hoofddeel) weg: het deel en de stap blijven staan
+    // (bladPast zet .smal). In het overzicht van een deel staat de naam van het deel al als titel eronder.
+    const pad = [deel.hoofd ? deel.hoofd.short : boek.n].map((x) => `<span class="kr-kort">${esc(x)}</span><span class="kr-pijl" aria-hidden="true">›</span>`).join("");
     const waar = cur >= 0 ? `${cur + 1} van ${n}` : `${n} stappen`;
     $("kiesBtn").innerHTML = `<span class="kr-pad">${pad}<b>${esc(deel.hoofd ? deel.n : deel.short)}</b></span><span class="kr-stap">${waar}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>`;
     $("kiesBtn").setAttribute("aria-label", `Kies een reis. Nu: ${boek.n}, ${deelNaam(deel)}, ${cur >= 0 ? "stap " + waar : "overzicht"}`);
+    // De rustige voortgangsstreep in het blad (boven ◀ en Verder): zo ver ben je in dit deel.
+    $("reisboek").style.setProperty("--voortgang", ((cur >= 0 ? (cur + 1) / n : 0) * 100).toFixed(1) + "%");
+    document.querySelector(".stapkaart").classList.toggle("intro", cur < 0);
+    bladPast();
   }
+
+  // ---------- telefoon, in de reis: de kaart is het scherm, met één stapblad eroverheen ----------
+  // Zie docs/bijbelreis-audit/telefoon.md §4 (‘Kaart voorop’). Het reisboek (.panel) is op de telefoon in de reis een
+  // blad onderaan, over de kaart. Kort (standaard, en na elke stap): waar je bent, de titel, hooguit twee regels tekst en
+  // ◀ / Verder. Open: het blad schuift omhoog en scrolt binnenin, met alles wat bij de stap hoort; ◀ en Verder blijven
+  // onderaan staan. De opmaak staat in het telefoonblok van bijbelreis.css (body[data-modus="reis"]).
+  const zijMq = window.matchMedia("(max-width: 900px) and (orientation: landscape) and (max-height: 520px)");
+  function bladAan() { return isNarrow() && document.body.dataset.modus === "reis"; }
+  // De maat van het korte blad: daarmee houdt de kaart ruimte vrij (fit, ballon). Gemeten zodra het blad kort is.
+  let kortH = 156, bladB = 320;
+  function bladMeet() {
+    const b = $("reisboek");
+    if (!bladAan() || b.classList.contains("open") || !b.offsetParent) return;
+    const r = b.getBoundingClientRect(); if (r.height > 60) { kortH = r.height; bladB = r.width; }
+    kaartGrenzen();
+  }
+  // Vrije ruimte op de kaart voor fit(): boven de kaartknoppen (met de kameel erboven), opzij een rand, onder het korte
+  // blad. Een liggende telefoon heeft het blad links: dan blijft de ruimte ernaast vrij.
+  function bladRuimte() {
+    bladMeet();
+    return zijMq.matches ? { paddingTopLeft: [bladB + 44, 62], paddingBottomRight: [40, 44] } : { paddingTopLeft: [44, 84], paddingBottomRight: [44, kortH + 30] };
+  }
+  // De ondergrond houdt op bij 22° en 47° noorderbreedte; Leaflet houdt de kaart daarbinnen (maxBounds). Onder het
+  // korte blad is de kaart toch niet te zien: daar mag de uitsnede zo hoog als het blad voorbij de zuidrand, zodat een
+  // route in het zuiden boven het blad past en een overzicht van een lange reis de hoge kaart kan vullen.
+  const GRENZEN = L.latLngBounds([[22, 4], [47, 57]]);
+  function kaartGrenzen(z = map.getZoom()) {
+    let b = GRENZEN;
+    if (bladAan() && !zijMq.matches) { const p = map.project([22, 4], z); b = L.latLngBounds([[Math.max(8, map.unproject([p.x, p.y + kortH + 34], z).lat), 4], [47, 57]]); }
+    map.options.maxBounds = b;
+  }
+  map.on("zoomend", () => kaartGrenzen());
+  // Een hoge kaart ziet op een lage zoom meer dan de ondergrond: Leaflet wil de kaart dan na elke beweging terugschuiven,
+  // ook halverwege een vlucht naar de volgende stap, en breekt die vlucht daarmee af. Tijdens een vlucht wacht dat
+  // terugschuiven dus tot de kaart er is (alleen op de telefoon in de reis; verder gedraagt de kaart zich als altijd).
+  const vliegNaar = map.flyTo.bind(map); let vluchtT = 0;
+  map.flyTo = (c, z, o) => {
+    if (bladAan() && !(o && o.animate === false)) {
+      map._enforcingBounds = true; clearTimeout(vluchtT);
+      vluchtT = setTimeout(() => { map._enforcingBounds = false; kaartGrenzen(); map._panInsideMaxBounds(); }, ((o && o.duration) || 0.8) * 1000 + 120);
+    }
+    return vliegNaar(c, z, o);
+  };
+  // De kleine regel past naast ‘Lees meer’? Anders valt het boek weg (niet in het overzicht van een deel).
+  function bladPast() {
+    const k = $("kiesBtn"); k.classList.remove("smal");
+    if (!bladAan() || cur < 0) return;
+    k.classList.add("meet"); const teBreed = k.scrollWidth > k.clientWidth + 1; k.classList.remove("meet");
+    k.classList.toggle("smal", teBreed);
+  }
+  // De korte tekst: het begin van de staptekst. Eindigt de tekst na hele zinnen op de laatste regel, dan stopt hij daar;
+  // anders loopt hij door en kapt de opmaak hem af met … (Samen ontdekken: de ene zin die er al staat). Titel en tekst
+  // samen zijn altijd even hoog (drie regels, op een laag scherm twee), zodat het blad en de knop Verder bij elke stap op
+  // dezelfde plek staan.
+  function bladKort() {
+    const el = $("sKort"), titel = $("sTitle");
+    if (!bladAan()) { el.textContent = ""; return; }
+    const open = $("reisboek").classList.contains("open");
+    const bron = String((cur >= 0 ? deel.steps[cur].txt : deel.intro) || ""), tekst = niveau === "a" ? eersteZin(bron) : bron;
+    if (open) { el.textContent = tekst; return; } // pas meten als het blad weer kort is (bladZet roept dit opnieuw aan)
+    const regels = window.matchMedia("(max-height: 600px)").matches ? 2 : 3;
+    const lhT = parseFloat(getComputedStyle(titel).lineHeight) || 23, nT = Math.max(1, Math.min(2, Math.round(titel.getBoundingClientRect().height / lhT)));
+    const n = regels - nT;
+    el.hidden = n < 1;
+    if (n >= 1) {
+      const lh = parseFloat(getComputedStyle(el).lineHeight) || 22;
+      el.style.webkitLineClamp = String(n); el.style.minHeight = (n * lh).toFixed(1) + "px";
+      const hoog = (t) => { el.classList.add("meet"); el.textContent = t; const h = el.getBoundingClientRect().height; el.classList.remove("meet"); return Math.round(h / lh); };
+      const past = (t) => hoog(t) <= n;
+      // Zinnen: tot en met een punt, vraagteken of uitroepteken (met het aanhalingsteken erachter) dat door een spatie
+      // en een hoofdletter of aanhalingsteken gevolgd wordt; ‘ca. 1446’ en ‘v.Chr. werd’ breken dus niet.
+      const zinnen = tekst.match(/.+?(?:[.!?…]["’”»)]*(?=\s+["‘“«(]?[A-ZÀ-Ý])|$)\s*/gs) || [tekst];
+      let k = 0, deelT = "";
+      while (k < zinnen.length && past((deelT + zinnen[k]).trim())) deelT += zinnen[k++];
+      el.textContent = (k === zinnen.length || (k && hoog(deelT.trim()) === n) ? deelT : tekst).trim();
+    }
+    bladMeet();
+  }
+  function bladZet(open, stil) {
+    const b = $("reisboek"); open = !!open && bladAan();
+    if (b.classList.contains("open") === open) return;
+    const h0 = b.getBoundingClientRect().height;
+    b.classList.toggle("open", open); document.body.classList.toggle("bladopen", open);
+    const knop = $("bladBtn"); knop.setAttribute("aria-expanded", open); knop.querySelector("span").textContent = open ? "Sluiten" : "Lees meer";
+    b.scrollTop = 0;
+    if (open) kaartMenu(false); else bladKort();
+    // Stond de focus op iets dat nu verborgen is, dan gaat hij naar de knop van het blad.
+    const f = document.activeElement; if (!open && f && f !== knop && b.contains(f) && !f.getClientRects().length) knop.focus({ preventScroll: true });
+    // Het blad schuift (hoogte van kort naar open of terug); bij ‘minder beweging’ staat het er meteen.
+    if (!stil && !reduceMotion && b.animate && bladAan()) b.animate([{ height: h0 + "px" }, { height: b.getBoundingClientRect().height + "px" }], { duration: 260, easing: "cubic-bezier(0.22, 1, 0.36, 1)" });
+    queueLabels();
+  }
+  $("bladBtn").onclick = () => bladZet(!$("reisboek").classList.contains("open"));
+  // De regels zijn geteld met het lettertype dat er op dat moment was: opnieuw als de webletters geladen zijn.
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { bladKort(); bladPast(); });
+  // Een tik op de titel of de korte tekst opent het blad ook (de knop ‘Lees meer’ blijft de bediening voor toetsenbord
+  // en schermlezer); een tik op de kaart of op een kaartknop sluit het.
+  $("reisboek").addEventListener("click", (e) => { if (bladAan() && !$("reisboek").classList.contains("open") && e.target.closest("#sTitle, #sKort")) bladZet(true); });
+  document.querySelector(".kaartvlak").addEventListener("pointerdown", () => bladZet(false), true);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !e.defaultPrevented && $("reisboek").classList.contains("open") && LADEN.every((id) => $(id).hidden) && $("niveauKeuze").hidden) { e.preventDefault(); bladZet(false); $("bladBtn").focus({ preventScroll: true }); } });
   $("kiesBtn").onclick = () => { openLade("kiesLade"); toonGekozen("boeken"); };
   // Na een tik op een boek blijft het blad open voor de keuze van het deel.
   const naarBoven = () => { if (isNarrow() && window.scrollY > 0) window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); };
@@ -2141,13 +2297,17 @@
   // De ballon van een plaats (of van Vandaag) ligt op de telefoon vrij: zolang hij open is, wijken de zwevende
   // kaartknoppen (CSS: .kaartvlak.ballon), en hij past in de kaart (kleine marges, met een schuifbalk als hij lang is).
   // Boven 900 px gelden de oorspronkelijke instellingen van de ballon.
+  // In de reis ligt het stapblad over de onderkant van de kaart: de ballon blijft daarboven (of, bij een liggende
+  // telefoon, ernaast) en het blad gaat terug naar kort.
   map.on("popupopen", (e) => {
     const pop = e.popup, o = pop.options;
     if (!pop._breed) pop._breed = { tl: o.autoPanPaddingTopLeft, br: o.autoPanPaddingBottomRight, mh: o.maxHeight };
-    const smal = isNarrow();
-    o.autoPanPaddingTopLeft = smal ? [8, 8] : pop._breed.tl;
-    o.autoPanPaddingBottomRight = smal ? [8, 8] : pop._breed.br;
-    o.maxHeight = smal ? Math.max(120, map.getSize().y - 60) : pop._breed.mh;
+    const smal = isNarrow(), blad = bladAan(), zij = blad && zijMq.matches;
+    if (blad) { bladZet(false); bladMeet(); }
+    const onder = blad && !zij ? kortH + 8 : 8;
+    o.autoPanPaddingTopLeft = smal ? [zij ? bladB + 16 : 8, 8] : pop._breed.tl;
+    o.autoPanPaddingBottomRight = smal ? [8, onder] : pop._breed.br;
+    o.maxHeight = smal ? Math.max(120, map.getSize().y - 52 - onder) : pop._breed.mh;
     document.querySelector(".kaartvlak").classList.toggle("ballon", smal);
     if (smal) { kaartMenu(false); pop.update(); }
   });
@@ -2172,21 +2332,33 @@
   $("wereldBtn").addEventListener("click", () => { if ($("kaartPaneel").contains($("wereldBtn"))) kaartMenu(false); });
   document.addEventListener("click", (e) => { if ($("kaartPaneel").classList.contains("open") && !e.target.closest("#kaartPaneel, #legend")) kaartMenu(false); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !e.defaultPrevented && $("kaartPaneel").classList.contains("open") && LADEN.every((id) => $(id).hidden)) { kaartMenu(false); $("kaartBtn").focus(); } });
-  // Vooruit en terug met de duim: de vaste balk onderaan begint de nieuwe stap bovenaan (kaart en titel in beeld), en
-  // vegen over de stapkaart (niet over de kaart) gaat naar de volgende of vorige stap.
+  // Vooruit en terug met de duim: ◀ en Verder onderaan het stapblad; vegen naar links of rechts over het blad (niet over
+  // de kaart) gaat ook naar de volgende of vorige stap. Omhoog vegen over het korte blad opent het, omlaag vegen (aan de
+  // greep, of als de tekst bovenaan staat) sluit het. Buiten de reis vegen over de stapkaart, zoals het was.
   ["prev", "next"].forEach((id) => $(id).addEventListener("click", naarBoven));
   (() => {
-    const k = document.querySelector(".stapkaart"); let x0 = null, y0 = 0, t0 = 0;
-    k.addEventListener("touchstart", (e) => { x0 = isNarrow() && e.touches.length === 1 && !e.target.closest("canvas, input, select, .days, .koppel") ? e.touches[0].clientX : null; if (x0 !== null) { y0 = e.touches[0].clientY; t0 = Date.now(); } }, { passive: true });
-    k.addEventListener("touchend", (e) => {
+    const b = $("reisboek"); let x0 = null, y0 = 0, t0 = 0, greep = false, top0 = 0;
+    b.addEventListener("touchstart", (e) => {
+      x0 = isNarrow() && mode === "reis" && e.touches.length === 1 && e.target.closest(".stapkaart, .mapbar") && !e.target.closest("canvas, input, select, .days, .koppel") ? e.touches[0].clientX : null;
+      if (x0 !== null) { y0 = e.touches[0].clientY; t0 = Date.now(); greep = !!e.target.closest(".bladbalk"); top0 = b.scrollTop; }
+    }, { passive: true });
+    b.addEventListener("touchend", (e) => {
       if (x0 === null) return;
-      const t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0; x0 = null;
-      if (Date.now() - t0 > 800 || Math.abs(dx) < 70 || Math.abs(dx) < 2 * Math.abs(dy) || String(window.getSelection() || "")) return;
+      const t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0, open = b.classList.contains("open"); x0 = null;
+      if (Date.now() - t0 > 800 || String(window.getSelection() || "")) return;
+      if (bladAan() && Math.abs(dy) >= 36 && Math.abs(dy) > 1.5 * Math.abs(dx)) {
+        if (dy < 0 && !open) bladZet(true); else if (dy > 0 && open && (greep || (top0 <= 0 && b.scrollTop <= 0))) bladZet(false);
+        return;
+      }
+      if (Math.abs(dx) < 70 || Math.abs(dx) < 2 * Math.abs(dy)) return;
       const knop = $(dx < 0 ? "next" : "prev"); if (knop.disabled) return;
       dx < 0 ? goNext() : goPrev(); naarBoven();
     }, { passive: true });
   })();
   telefoonIndeling();
+  // De indeling van het eerste scherm staat meteen vast (nog vóór de teksten van het reisniveau binnen zijn): een diepe
+  // link naar een stap begint op de telefoon met de kaart als scherm, niet met een pagina die daarna verspringt.
+  { const h = decodeURIComponent(location.hash.slice(1)).split("/")[0]; document.body.dataset.modus = !h || h === "verhalen" || /^v\d+$/.test(h) ? "verhalen" : "reis"; }
 
   // ---------- welkom en verder waar je was ----------
   // Bij het eerste bezoek staat hier de keuze van het reisniveau. Daarna alleen één knop, en alleen als er echt iets is
@@ -2262,10 +2434,15 @@
       $("map").insertAdjacentHTML("beforeend", '<p class="maperr" role="status">De kaart kon niet helemaal worden geladen. Controleer de verbinding en laad de pagina opnieuw.</p>');
     });
     TABS.forEach((t) => ($("t-" + t).tabIndex = t === "reis" ? 0 : -1));
-    chooseBoek(startDeel.boek, startDeel, startStep, { keepHash: true });
     const vHash = /^v(\d+)$/.exec(hashId || "");
-    if (vHash && GBYNR.has(+vHash[1])) openVerhaal(+vHash[1], { keepHash: true });
-    else if (!hashId || hashId === "verhalen") setMode("verhalen");
+    const naarVerhaal = vHash && GBYNR.has(+vHash[1]), naarVerhalen = !hashId || hashId === "verhalen";
+    // Op de telefoon hangt de maat van de kaart af van het onderdeel (in de reis is de kaart het scherm): die staat vast
+    // vóór de eerste uitsnede.
+    document.body.dataset.modus = naarVerhaal || naarVerhalen ? "verhalen" : "reis";
+    if (isNarrow()) { kaartGrenzen(); map.invalidateSize({ pan: false }); }
+    chooseBoek(startDeel.boek, startDeel, startStep, { keepHash: true });
+    if (naarVerhaal) openVerhaal(+vHash[1], { keepHash: true });
+    else if (naarVerhalen) setMode("verhalen");
     else setMode("reis");
     if (!hashId) renderWelkom();
     syncDrag();

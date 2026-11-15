@@ -500,6 +500,8 @@ details.parents dd { margin: 0; }
 .lake { fill: var(--zee); fill-opacity: 1; stroke: var(--kust); stroke-width: 0.9; }
 .river { stroke: var(--rivier); stroke-width: 1.6; stroke-opacity: 0.9; fill: none; stroke-linecap: round; }
 .river.klein { stroke-width: 1; stroke-opacity: 0.75; }
+/* De rand van de kaartplaat: alleen op de telefoon in de reis, waar de hoge kaart verder kan reiken dan de ondergrond. */
+.kader-buiten, .kader-rand { display: none; }
 /* Toen en nu (toen.json): het landschap van de Bijbelse tijd tegenover dat van vandaag. Een gestreepte oever is een
    reconstructie; vaag water met een stippellijn is onzeker (misschien stond er water). */
 #map:not(.nu) .alleen-nu, #map.nu .alleen-toen, #map.nu .region.toen { display: none; }
@@ -666,7 +668,7 @@ body[data-niveau="a"] #vandaagBtn, body[data-niveau="a"] #vandaagLijstBtn, body[
 .kiezen { display: contents; }
 /* Alleen voor de telefoon (zie het telefoonblok): kiesregel, kaartknop, ‘meer’-knoppen, ‘Lees verder’ en de boeknaam
    boven de delen in het keuzeblad. */
-#kaartBtn, .kiesregel, .meerbalk, .leesverder, .dl-boek { display: none; }
+#kaartBtn, .kiesregel, .meerbalk, .leesverder, .dl-boek, .bladbalk, .bladkort { display: none; }
 .legend { position: absolute; z-index: 820; right: max(10px, env(safe-area-inset-right, 0px)); top: 58px; width: 300px; max-height: calc(100% - 128px); overflow: auto; background: var(--wit); border-radius: var(--r); padding: 12px 14px; font-size: 0.8rem; color: var(--fg-2); display: flex; flex-direction: column; gap: 5px; box-shadow: var(--schaduw-kaart); }
 .legend:not(.open) { display: none; }
 .legend .lg-titel { margin: 0; font-weight: 700; font-size: 0.95rem; color: var(--fg); }
@@ -709,24 +711,27 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
 
 /* ===== Telefoon en kleine tablet ===== */
 @media (max-width: 900px) {
-  :root { --kop-h: 52px; --onderbalk-h: 62px; --stapbalk-h: 58px; }
+  /* Kop en onderbalk zo laag als redelijk (één regel in de kop; tikdoelen in de onderbalk blijven 44 px of meer): de
+     ruimte is voor de kaart en de inhoud. In elk onderdeel even hoog, zodat er bij het wisselen niets verspringt. */
+  :root { --kop-h: 44px; --onderbalk-h: 48px; }
   html, body { height: auto; }
   body { display: block; padding-bottom: calc(var(--onderbalk-h) + env(safe-area-inset-bottom, 0px)); }
-  body[data-modus="reis"] { padding-bottom: calc(var(--onderbalk-h) + var(--stapbalk-h) + env(safe-area-inset-bottom, 0px)); }
-  .kop { grid-template-columns: minmax(0, 1fr); padding: env(safe-area-inset-top, 0px) max(12px, env(safe-area-inset-right, 0px)) 0 max(12px, env(safe-area-inset-left, 0px)); gap: 6px; }
+  .kop { grid-template-columns: minmax(0, 1fr); height: calc(var(--kop-h) + env(safe-area-inset-top, 0px)); min-height: 0; padding: env(safe-area-inset-top, 0px) max(12px, env(safe-area-inset-right, 0px)) 0 max(12px, env(safe-area-inset-left, 0px)); gap: 6px; }
+  .kop-titel { gap: 8px; }
+  .kop-titel > div { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
   /* De kop blijft bovenaan staan: niets schuift onder de statusbalk van de telefoon door (met viewport-fit=cover staat
      de kop zelf onder de notch, dankzij safe-area-inset-top; Safari kleurt de statusbalk dan mee met de kop). */
   .kop { position: sticky; top: 0; }
   /* De melding (nieuwe stempel) onder de kop, niet eroverheen. */
   .toast { top: calc(var(--kop-h) + env(safe-area-inset-top, 0px) + 8px); max-width: calc(100vw - 24px); }
-  .kop-kameel { width: 32px; height: 27px; }
-  .kop h1 { font-size: 1.15rem; }
-  .kop-sub { display: block; margin: 0; }
+  .kop-kameel { width: 28px; height: 23px; }
+  .kop h1 { font-size: 1.06rem; min-width: 0; }
+  .kop-sub { display: block; flex: none; margin: 0; overflow: visible; }
   .kop-sub-tekst { display: none; }
   /* De zes onderdelen als vaste onderbalk: met de duim bereikbaar, nooit onder de browserbalk. */
   .tabs { position: fixed; z-index: 1400; left: 0; right: 0; bottom: 0; background: var(--wit); border-top: 1px solid var(--lijn); box-shadow: 0 -6px 18px -12px rgba(31, 36, 48, 0.35); padding: 0 max(4px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px) max(4px, env(safe-area-inset-left, 0px)); height: calc(var(--onderbalk-h) + env(safe-area-inset-bottom, 0px)); }
-  .tabs button { color: var(--fg-3); font-size: 10.5px; font-weight: 620; gap: 4px; padding: 6px 0 4px; letter-spacing: -0.01em; }
-  .tabs button svg { width: 22px; height: 22px; }
+  .tabs button { color: var(--fg-3); font-size: 10.5px; font-weight: 620; gap: 2px; padding: 5px 0 3px; letter-spacing: -0.01em; line-height: 1.2; }
+  .tabs button svg { width: 21px; height: 21px; }
   .tabs button:hover { color: var(--fg); background: none; }
   .tabs button[aria-selected="true"] { color: var(--nacht); background: none; }
   .tabs button[aria-selected="true"]::after { top: 0; bottom: auto; left: 22%; right: 22%; border-radius: 0 0 3px 3px; background: var(--nacht); }
@@ -734,20 +739,12 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   .app { display: block; }
   /* De kaart: compact, en kleiner bij onderdelen die de kaart minder nodig hebben. */
   .mapwrap { height: 42vh; height: 42svh; min-height: 250px; max-height: 470px; display: flex; flex-direction: column; }
-  /* In de reis is de kaart het grootst: de stappenbalk staat niet meer onder de kaart maar vast onderaan, en wat niet
-     nodig is om de stap te volgen staat één tik verder. Titel en het begin van de tekst passen nog in het eerste scherm. */
-  body[data-modus="reis"] .mapwrap { height: 46vh; height: 46svh; min-height: 270px; max-height: 520px; }
   body[data-modus="wie"] .mapwrap, body[data-modus="tijd"] .mapwrap, body[data-modus="pas"] .mapwrap { height: 30vh; height: 30svh; min-height: 190px; }
   .kaartvlak { position: relative; inset: auto; flex: 1; min-height: 0; }
-  /* De stappenbalk staat vast onderaan, boven de onderdelen: vooruit en terug met de duim. Waar je bent, staat in de
-     kiesregel boven de stap; hier alleen voor schermlezers (aria-live). */
-  .mapbar { position: fixed; z-index: 1390; left: 0; right: 0; bottom: calc(var(--onderbalk-h) + env(safe-area-inset-bottom, 0px)); transform: none; max-width: none; border-radius: 0; background: var(--wit); border-top: 1px solid var(--lijn); box-shadow: 0 -6px 16px -12px rgba(31, 36, 48, 0.4); padding: 6px max(10px, env(safe-area-inset-right, 0px)) 6px max(10px, env(safe-area-inset-left, 0px)); gap: 10px; min-height: var(--stapbalk-h); }
+  /* ◀ en Verder staan onderaan het stapblad (app.js zet de balk op de telefoon in het reisboek). Waar je bent, staat in
+     de kleine regel bovenaan het blad; hier alleen voor schermlezers (aria-live). */
   .mapbar .where { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; padding: 0; }
-  .mapbar .btn { min-height: 46px; }
-  .mapbar { padding-top: 5px; padding-bottom: 5px; }
-  .mapbar #prev { flex: none; width: 58px; }
-  .mapbar { justify-content: center; }
-  .mapbar #next { flex: 1; max-width: 520px; font-size: 1.02rem; }
+  body:not([data-modus="reis"]) .mapbar { display: none; }
   /* Op een brede telefoon of kleine tablet blijven de regels kort. */
   .panel > * { width: 100%; max-width: 680px; align-self: center; }
   body[data-modus="reis"] .mapacties { bottom: 10px; }
@@ -778,7 +775,6 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   /* Grote kaart: de kaart vult het scherm, met ruimte voor notch en thuisbalk; de onderbalk wijkt. */
   body.mapfull { overflow: hidden; }
   body.mapfull .mapwrap { position: fixed; inset: 0; z-index: 1450; height: auto; max-height: none; min-height: 0; padding-top: env(safe-area-inset-top, 0px); background: var(--wit); }
-  body.mapfull .mapbar { position: static; flex: none; box-shadow: none; padding-bottom: max(6px, env(safe-area-inset-bottom, 0px)); }
 
   /* ===== Telefoonopzet: het beeld eerst, de rest één tik verder (docs/bijbelreis-audit/telefoon.md) ===== */
   /* Kaart: weinig knoppen. Toen/Nu, Vandaag, Bijbelwereld en Legenda zitten achter de knop ‘Kaart’; de schaalbalk
@@ -797,17 +793,9 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   #kaartPaneel.open .seg { height: 48px; box-shadow: none; background: var(--papier); }
   #kaartPaneel.open .seg button { flex: 1; }
   #kaartPaneel .seg { order: 1; } #vandaagBtn { order: 2; } #kaartPaneel #wereldBtn { order: 3; } #legendBtn { order: 4; }
-  body[data-modus="reis"] .legend { bottom: calc(var(--onderbalk-h) + var(--stapbalk-h) + env(safe-area-inset-bottom, 0px) + 8px); }
-  /* Kiezen: één regel boven de stap; boeken, delen en overzichten staan in het blad ‘Kies een reis’. */
-  #p-reis > .kiezen, #sCrumb, .stapkaart > .navrow { display: none; }
-  .kiesregel { display: flex; align-items: center; gap: 8px; min-height: 44px; margin: -4px -4px 0; padding: 6px 10px; border: 1px solid var(--lijn); border-radius: var(--r); background: var(--papier); color: var(--fg); font: inherit; font-size: 0.92rem; line-height: 1.3; text-align: left; cursor: pointer; }
-  /* Niets wordt afgekapt: is de regel te lang (een lang boek of een verdiepend deel op een smal scherm), dan loopt hij
-     door op een tweede regel. */
-  .kr-pad { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 5px; color: var(--fg-2); }
-  .kr-kort { flex: 0 1 auto; min-width: 0; overflow-wrap: anywhere; }
-  .kr-pad b { flex: 0 1 auto; min-width: 0; overflow-wrap: anywhere; color: var(--fg); font-weight: 680; }
-  .kr-stap { flex: none; font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--rc); }
-  .kiesregel svg { flex: none; width: 18px; height: 18px; color: var(--fg-3); }
+  /* Kiezen: boeken, delen en overzichten staan in het blad ‘Kies een reis’; de ingang is de kleine regel bovenaan het
+     stapblad (zie ‘Kaart voorop’ hieronder). */
+  #p-reis > .kiezen, #sCrumb, .stapkaart > .navrow, #sProg { display: none; }
   /* Stand Nu: de moderne naam alleen bij de plaatsen van de stap (app.js zet .metnu), niet bij alle plaatsen van een deel. */
   .nu .lab.on:not(.metnu) .nu { display: none; }
   /* Een open ballon van een plaats ligt vrij: de zwevende kaartknoppen wijken zolang hij open is (app.js zet .ballon). */
@@ -830,43 +818,115 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   #kiesLade .overz { order: 4; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--lijn); }
   #kiesLade .overz::before { content: "Overzichten"; grid-column: 1 / -1; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); }
   #kiesLade .overz .linkbtn { display: flex; align-items: center; min-height: 46px; padding: 8px 12px; border: 1px solid var(--lijn); border-radius: var(--r); background: var(--papier); font-size: 0.92rem; text-decoration: none; }
-  /* Een stap is één scherm: kiesregel, titel, tekst, tafereel, personen. Wat niet nodig is om de stap te
-     volgen, staat achter de knoppen eronder (Wist je dat?, Hoe ver?, Wanneer?, Elders in de Bijbel, Alle stappen). */
-  body[data-modus="reis"] .panel { padding-top: 8px; }
-  .stapkaart { gap: 10px; padding: 12px 14px 16px; }
-  .stapkaart > * { order: 20; }
-  .stapkaart > .kiesregel { order: 1; } #sProg { order: 2; } .stapkaart > .top { order: 4; } #sTitle { order: 5; }
-  #sTextLabel { order: 6; } #sText { order: 7; } .stapkaart > .tafereel { order: 8; } #sWho { order: 9; } #leesBtn { order: 10; }
-  /* ‘← Terug naar …’ (verdiepend deel) onder de tekst: het hoofddeel staat al vooraan in de kiesregel. */
-  #sTerug { order: 10; }
-  /* Titel en tekst direct onder elkaar: het label ‘Wat de Bijbel vertelt’ en de regel met de afstand vallen weg (de
-     afstand staat onder ‘Hoe ver?’). Het tafereel staat ná de tekst, zodat de kaart groot blijft en de tekst in beeld. */
+  /* ===== Kaart voorop: in de reis is de kaart het scherm (docs/bijbelreis-audit/telefoon.md §4) =====
+     De pagina scrolt niet. Onder de kop ligt de kaart tot aan de onderbalk; het reisboek is één stapblad over de onderkant
+     van de kaart. Kort: waar je bent, de titel, hooguit twee regels tekst, ◀ en Verder. Open (app.js zet .open): het blad
+     schuift omhoog tot driekwart van het venster en scrolt binnenin; ◀ en Verder blijven onderaan staan. */
+  html:has(body[data-modus="reis"]) { overscroll-behavior: none; }
+  body[data-modus="reis"] { display: flex; flex-direction: column; height: 100vh; height: 100dvh; overflow: hidden; }
+  body[data-modus="reis"] .kop { flex: none; }
+  body[data-modus="reis"] .app { position: relative; flex: 1; min-height: 0; }
+  body[data-modus="reis"] .mapwrap { position: absolute; inset: 0; height: auto; min-height: 0; max-height: none; }
+  /* Voorbij de ondergrond ligt papier met een kaderlijn (het overzicht van een lange reis op een hoog scherm). */
+  body[data-modus="reis"] #map { background: var(--papier); }
+  body[data-modus="reis"] .kader-buiten { display: inline; fill: var(--papier); fill-opacity: 1; stroke: none; }
+  body[data-modus="reis"] .kader-rand { display: inline; fill: none; stroke: var(--kust); stroke-width: 1.4; stroke-opacity: 0.85; }
+  /* Kaartknoppen: alles in één rij bovenaan (zoom, ‘Hele reis’ links; ‘Kaart’ rechts). ‘Groot’ is niet nodig: de kaart is
+     groot, en je sleept hem met één vinger. */
+  body[data-modus="reis"] .leaflet-top.leaflet-left { top: 8px; left: max(8px, env(safe-area-inset-left, 0px)); }
+  body[data-modus="reis"] .leaflet-control-zoom { margin: 0; display: flex; flex-direction: row-reverse; }
+  body[data-modus="reis"] .leaflet-control-zoom a { border-bottom: 0 !important; border-radius: 0 !important; }
+  body[data-modus="reis"] .leaflet-control-zoom a:first-child { border-left: 1px solid var(--lijn); }
+  body[data-modus="reis"] .mapacties { top: 8px; bottom: auto; right: auto; left: calc(max(8px, env(safe-area-inset-left, 0px)) + 94px); }
+  body[data-modus="reis"] #fullBtn { display: none; }
+  body[data-modus="reis"] #heleBtn { width: auto; padding: 0 11px; }
+  body[data-modus="reis"] #heleBtn span { display: inline; }
+  /* Het kaartpaneel (Toen/Nu, Vandaag, Bijbelwereld, Legenda) klapt over ‘Hele reis’ heen: die wijkt zolang het open is. */
+  .kaartvlak:has(#kaartPaneel.open) .mapacties { visibility: hidden; }
+  /* De melding (nieuwe stempel) onder de rij kaartknoppen: niet over de kop en niet over het blad. */
+  body[data-modus="reis"] .toast { top: calc(var(--kop-h) + env(safe-area-inset-top, 0px) + 58px); padding: 7px 14px; font-size: 0.92rem; }
+
+  /* Het stapblad. Het reisboek en de stapkaart leveren zelf geen kader meer (display: contents): alles wat erin staat,
+     ligt in één kolom in het blad, in de volgorde hieronder. */
+  body[data-modus="reis"] .panel { --bl: max(14px, env(safe-area-inset-left, 0px)); --br: max(14px, env(safe-area-inset-right, 0px)); position: absolute; z-index: 1350; left: 0; right: 0; bottom: 0; width: auto; max-width: 560px; margin: 0 auto; padding: 0 var(--br) 0 var(--bl); gap: 0; overflow: hidden; overscroll-behavior: contain; background: var(--wit); border: 0; border-radius: 18px 18px 0 0; box-shadow: 0 -1px 0 var(--lijn), 0 -10px 28px -12px rgba(31, 36, 48, 0.45); }
+  body[data-modus="reis"] .panel.open { height: min(75vh, 100% - 56px); height: min(75dvh, 100% - 56px); overflow-y: auto; }
+  body[data-modus="reis"] #p-reis, body[data-modus="reis"] .stapkaart { display: contents; }
+  .panel > *, #p-reis > *, .stapkaart > * { order: 20; }
+  body[data-modus="reis"] .panel > *, body[data-modus="reis"] #p-reis > *, body[data-modus="reis"] .stapkaart > * { flex: none; margin-top: 12px; }
+  /* Kort: alleen de regel bovenaan, de titel, de korte tekst en de knoppen. */
+  body[data-modus="reis"] .panel:not(.open) > :not(#p-reis, #mapbar), body[data-modus="reis"] .panel:not(.open) #p-reis > :not(.stapkaart), body[data-modus="reis"] .panel:not(.open) .stapkaart > :not(.bladbalk, #sTitle, #sKort) { display: none; }
+  /* Bovenaan: waar je bent (tik: ‘Kies een reis’) en de knop van het blad, met de greep ertussen. Eén lage regel (26 px):
+     de ruimte is voor de kaart. Een tik op de titel of de korte tekst opent het blad ook. Blijft staan als het blad scrolt. */
+  body[data-modus="reis"] .bladbalk { order: 1; position: sticky; top: 0; z-index: 3; display: flex; height: 26px; margin: 0 calc(-1 * var(--br)) 0 calc(-1 * var(--bl)); padding: 0 calc(var(--br) - 8px) 0 calc(var(--bl) - 8px); background: var(--wit); }
+  .bladbalk::before { content: ""; position: absolute; left: 50%; top: 4px; width: 34px; height: 4px; margin-left: -17px; border-radius: 4px; background: color-mix(in srgb, var(--inkt) 24%, transparent); pointer-events: none; }
+  .kiesregel { flex: 0 1 auto; min-width: 0; display: flex; align-items: flex-start; gap: 5px; height: 26px; margin: 0; padding: 9px 8px 0; border: 0; border-radius: 10px; background: none; color: var(--fg-2); font: inherit; font-size: 13px; line-height: 17px; text-align: left; white-space: nowrap; overflow: hidden; cursor: pointer; }
+  .kr-pad { flex: 0 1 auto; min-width: 0; display: flex; gap: 5px; overflow: hidden; }
+  .kr-kort, .kr-pad b { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .kr-pad b { color: var(--fg); font-weight: 680; }
+  .kr-pijl { flex: none; color: var(--fg-3); }
+  .kr-stap { flex: none; color: var(--rc); font-weight: 650; font-variant-numeric: tabular-nums; }
+  .kr-stap::before { content: "·"; margin-right: 5px; color: var(--fg-3); font-weight: 400; }
+  .kiesregel svg { flex: none; width: 15px; height: 15px; margin: 1px 0 0 -2px; color: var(--fg-3); }
+  /* Past de regel niet naast ‘Lees meer’ (app.js meet met .meet en zet .smal), dan valt het boek weg. In het overzicht
+     van een deel staat de naam van het deel al als titel: daar blijft het boek met het aantal stappen. */
+  .kiesregel.meet * { flex-shrink: 0; }
+  .kiesregel.smal .kr-kort, .kiesregel.smal .kr-pijl, .stapkaart.intro .kr-pijl, .stapkaart.intro .kr-pad b { display: none; }
+  .bladknop { flex: 1 0 auto; display: flex; align-items: flex-start; justify-content: flex-end; gap: 3px; height: 26px; padding: 9px 8px 0; border: 0; border-radius: 10px; background: none; color: var(--nacht); font: inherit; font-size: 14px; font-weight: 680; line-height: 17px; white-space: nowrap; cursor: pointer; }
+  .bladknop svg { flex: none; width: 16px; height: 16px; transition: transform var(--t-micro); }
+  .bladknop[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .kiesregel:focus-visible, .bladknop:focus-visible { outline-offset: -4px; }
+  /* Titel en korte tekst: samen altijd drie regels (op een laag scherm twee), zodat Verder op zijn plek blijft. */
+  body[data-modus="reis"] #sTitle { order: 5; margin: 0; font-size: 1.19rem; line-height: 1.2; letter-spacing: -0.02em; }
+  body[data-modus="reis"] .panel:not(.open) #sTitle { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+  body[data-modus="reis"] #sKort { order: 6; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; margin: 2px 0 0; font-size: 1rem; line-height: 1.36; cursor: pointer; }
+  body[data-modus="reis"] #sKort.meet { display: block; -webkit-line-clamp: unset !important; min-height: 0 !important; }
+  body[data-modus="reis"] .panel.open #sKort { display: none; }
+  /* Samen ontdekken: de ene zin, groot. */
+  body[data-niveau="a"][data-modus="reis"] #sKort { font-size: 1.14rem; line-height: 1.3; }
+  /* ◀ en Verder onderaan het blad, met de voortgang in dit deel als rustige streep erboven. */
+  body[data-modus="reis"] #mapbar { order: 99; position: sticky; bottom: 0; left: auto; z-index: 2; transform: none; display: flex; align-items: stretch; gap: 8px; max-width: none; margin: auto calc(-1 * var(--br)) 0 calc(-1 * var(--bl)); padding: 12px var(--br) 5px var(--bl); border-radius: 0; box-shadow: none; background: var(--wit); }
+  body[data-modus="reis"] #mapbar::before { content: ""; position: absolute; left: var(--bl); right: var(--br); top: 3px; height: 3px; border-radius: 3px; background: linear-gradient(to right, var(--rc) var(--voortgang, 0%), color-mix(in srgb, var(--inkt) 11%, transparent) var(--voortgang, 0%)); }
+  .mapbar .btn { min-height: 44px; }
+  .mapbar #prev { flex: none; width: 54px; }
+  .mapbar #next { flex: 1; font-size: 1.04rem; }
+  /* Open: eerst het tafereel, dan de hele tekst, personen, ‘Lees in je Bijbel’, ‘Van dichtbij’, ‘Om over na te denken’,
+     en wat niet nodig is om de stap te volgen achter de knoppen (Wist je dat?, Hoe ver?, Wanneer?, Elders in de Bijbel,
+     Alle stappen). Daaronder ‘Voor ouders en leiders’ en de makersvermelding. */
+  body[data-modus="reis"] .stapkaart > .top { order: 4; margin: 6px 0 0; }
+  .stapkaart > .bladbalk { order: 1; } #sTitle { order: 5; } #sKort { order: 6; } #mapbar { order: 99; }
+  .stapkaart > .tafereel { order: 6; } #sText { order: 7; } #sTerug { order: 8; } #sWho { order: 9; } #leesBtn { order: 10; }
+  #sVerdiep { order: 11; } #sDenk { order: 12; } #sSpecial { order: 13; } #sMeer { order: 14; } #sTijd { order: 15; } #sFact { order: 16; } #sVer { order: 17; }
+  .stapkaart.intro #sSpecial { order: 18; }
+  #stappenBlok { order: 30; scroll-margin-top: 34px; } #deelActies { order: 31; }
+  .panel > details.parents { order: 40; } .panel > .colofon { order: 41; } .panel > .maker { order: 42; } .panel > .ook { order: 43; }
+  body[data-modus="reis"] .ook { margin-bottom: 6px; }
+  body[data-modus="reis"] .panel.open .stapkaart.intro #sTitle { margin-top: 4px; }
+  /* ‘← Terug naar …’ (verdiepend deel) onder de tekst: het hoofddeel staat al vooraan in de kleine regel. */
+  body[data-modus="reis"] #sTerug { margin: 4px 0 0 !important; }
+  /* Het label ‘Wat de Bijbel vertelt’ en de regel met de afstand vallen weg (de afstand staat onder ‘Hoe ver?’, de
+     verwijzing bij ‘Lees in je Bijbel’); in het overzicht van een deel blijft de regel met verwijzing en aantal stappen. */
   .stapkaart:not(.intro) > .top, .stapkaart #sTextLabel { display: none; }
-  .stapkaart #sTitle { margin: 0; font-size: 1.32rem; line-height: 1.25; }
-  #sVerdiep { order: 11; } #sSpecial { order: 12; } #sMeer { order: 13; } #sTijd { order: 14; } #sFact { order: 15; } #sVer { order: 16; }
-  .stapkaart.intro #sSpecial { order: 17; }
-  /* De voortgang als lijn onder de kiesregel; de verwijzing van een stap staat al bij ‘Lees in je Bijbel’ (de afstand blijft). */
-  #sProg { margin: -13px 10px 3px; height: 3px; position: relative; }
-  .stapkaart:not(.intro) #sRef { display: none; }
-  .stapkaart:not(.intro) > .top:has(#sKm:empty) { display: none; }
   .stapkaart:not(.open-sFact) #sFact, .stapkaart:not(.open-sVer) #sVer, .stapkaart:not(.open-sTijd) #sTijd, .stapkaart.intro:not(.open-sSpecial) #sSpecial { display: none; }
   #p-reis:not(.open-stappenBlok) > #stappenBlok, #p-reis:not(.open-stappenBlok) > #deelActies { display: none; }
-  #sTijd { margin: 0 !important; padding: 10px 12px; border-radius: var(--r); background: var(--papier); }
-  .meerbalk { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
-  .meerknop { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--lijn-sterk); border-radius: 999px; background: var(--wit); color: var(--fg); font: inherit; font-size: 0.9rem; font-weight: 620; line-height: 1.2; cursor: pointer; }
+  #sTijd { margin: 12px 0 0 !important; padding: 10px 12px; border-radius: var(--r); background: var(--papier); }
+  .meerbalk { display: flex; flex-wrap: wrap; gap: 6px; }
+  .meerknop { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--lijn-sterk); border-radius: 999px; background: var(--wit); color: var(--fg); font: inherit; font-size: 1rem; font-weight: 620; line-height: 1.2; cursor: pointer; }
   .meerknop::after { content: "+" / ""; font-weight: 400; font-size: 1.1rem; line-height: 1; color: var(--fg-3); }
   .meerknop[aria-expanded="true"] { border-color: var(--nacht); background: var(--nacht-zacht); }
   .meerknop[aria-expanded="true"]::after { content: "−" / ""; }
+  /* Leestekst in het blad minstens 16 px (etiketten en jaartallabels blijven klein). */
+  .stapkaart .fact, .stapkaart .afstand, .stapkaart .leesbijbel, .stapkaart .denk, .stapkaart .xrefs li, .stapkaart .verdiep-in, .stapkaart .chip, .stapkaart .tijd > span:first-child, .stapkaart .tijd .linkbtn, .stapkaart .terughoofd, .stapkaart .compare, .stapkaart .day, .stapkaart .sky .msg { font-size: 1rem; }
+  .stapkaart .day b { font-size: 1.05rem; }
   /* Tikdoelen van minstens 44 px in de stap, de stappenlijst en op de kaart. */
   .stapkaart .linkbtn, #deelActies .btn { min-height: 44px; display: inline-flex; align-items: center; }
   .stapkaart button.chip, .stapkaart .btn.small, .lade__head .btn { min-height: 44px; }
   .dot { width: 44px; height: 44px; }
   .leaflet-touch .leaflet-bar a, .leaflet-bar a { width: 44px; height: 44px; line-height: 42px; }
   body[data-niveau="a"] .meerbalk, body[data-niveau="a"] #kaartBtn { display: none !important; }
-  /* Het tafereel op volle breedte, onder de tekst; ‘nog een keer’ naast het onderschrift, niet over de tekening. */
-  #p-reis .stapkaart > .tafereel { width: auto; max-width: none; margin: 0 -14px; }
+  /* Het tafereel op volle breedte van het blad, boven de tekst; ‘nog een keer’ naast het onderschrift, niet over de tekening. */
+  #p-reis .stapkaart > .tafereel { width: auto; max-width: none; margin: 10px calc(-1 * var(--br)) 0 calc(-1 * var(--bl)); }
   #p-reis .stapkaart > .tafereel .tf-kader { border-radius: 0; border-left: 0; border-right: 0; }
-  #p-reis .stapkaart > .tafereel figcaption { padding: 0 14px; font-size: 0.82rem; line-height: 1.4; }
+  #p-reis .stapkaart > .tafereel figcaption { padding: 0 var(--br) 0 var(--bl); font-size: 1rem; line-height: 1.4; }
   .tafereel { position: relative; }
   .tf-kader { position: static; }
   .tf-opnieuw { top: auto; bottom: 0; right: 4px; width: 44px; height: 44px; }
@@ -891,7 +951,6 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
 @media (max-width: 360px) {
   .tabs button { font-size: 9.5px; letter-spacing: -0.02em; }
   .tabs button svg { width: 20px; height: 20px; }
-  .kop h1 { font-size: 1.05rem; }
   .mbtn:not(#wereldBtn) span { display: none; }
   #legendBtn { width: 44px; padding: 0; justify-content: center; }
   .seg button { padding: 0 9px; }
@@ -899,6 +958,32 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
 }
 @media (max-width: 340px) {
   .leaflet-control-scale { display: none; }
+  .kop-kameel { display: none; }
+  .kop h1 { font-size: 0.97rem; }
+  body[data-modus="reis"] #heleBtn { width: 44px; padding: 0; justify-content: center; }
+  body[data-modus="reis"] #heleBtn span { display: none; }
+}
+/* Heel smal (een telefoon op 200 % zoom): ‘Hele reis’ onder de zoomknoppen, anders valt hij onder ‘Kaart’. */
+@media (max-width: 300px) {
+  body[data-modus="reis"] .mapacties { top: 58px; left: max(8px, env(safe-area-inset-left, 0px)); }
+}
+@media (max-width: 380px) {
+  .kop h1 { font-size: 1rem; }
+  .kop-titel, .kop-titel > div { gap: 6px; }
+  .kop-kameel { width: 26px; height: 22px; }
+}
+/* Kaart voorop op een laag scherm (een kleine telefoon met de browserbalken in beeld): kop en knoppenrij iets lager;
+   titel en korte tekst samen twee regels (app.js). */
+@media (max-width: 900px) and (max-height: 600px) {
+  :root { --kop-h: 40px; }
+  body[data-modus="reis"] #mapbar { padding-top: 9px; padding-bottom: 4px; }
+  body[data-modus="reis"] #mapbar::before { top: 2px; }
+  body[data-niveau="a"][data-modus="reis"] #sKort { font-size: 1rem; line-height: 1.36; }
+}
+/* Kaart voorop op een liggende telefoon: het blad staat links onderin en de kaart blijft ernaast vrij. */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
+  body[data-modus="reis"] .panel { --bl: 14px; --br: 14px; left: max(8px, env(safe-area-inset-left, 0px)); right: auto; width: min(340px, 46vw); margin: 0; }
+  body[data-modus="reis"] .panel.open { height: calc(100% - 8px); }
 }
 @media (min-width: 901px) and (max-width: 1180px) {
   .kop { grid-template-columns: minmax(0, 1fr) 420px; }
@@ -907,7 +992,7 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rt, .toast, .progress div, .prog div, .camel, .arr, .btn, .opt { transition: none; }
+  .rt, .toast, .progress div, .prog div, .camel, .arr, .btn, .opt, .bladknop svg { transition: none; }
   .camel.walk .leg { animation: none; }
 }
 
@@ -988,7 +1073,9 @@ body[data-niveau="a"] .maptools .seg, body[data-niveau="a"] #legendBtn, body[dat
   /* Samen ontdekken: een iets lagere kaart, zodat kaart en verhaalstap samen op het scherm passen. */
   body[data-niveau="a"][data-modus="verhalen"] .mapwrap { height: 32vh; height: 32svh; min-height: 210px; }
   .kop-titel > div { min-width: 0; }
-  .niveauknop { min-height: 24px; font-size: 0.74rem; padding: 1px 8px 1px 5px; }
+  /* De kop is één regel: titel links, reisniveau rechts (zonder het kompasje, dat past niet naast de titel). */
+  .niveauknop { min-height: 32px; font-size: 0.76rem; padding: 2px 8px 2px 10px; margin-left: 0; }
+  .niveauknop > svg:first-child { display: none; }
   .a-tekst { font-size: 1.25rem; }
   .keuzekaart .nivopt small { display: none; }
   .keuzekaart .nivopt { min-height: 48px; align-items: center; }
