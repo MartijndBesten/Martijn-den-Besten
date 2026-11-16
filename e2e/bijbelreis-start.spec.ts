@@ -419,6 +419,6 @@ test("delen: het deelvoorbeeld van de pagina wijst naar bijbelreis.nl", async ({
   await open(page);
   const og = (p: string) => page.locator(`meta[property="og:${p}"]`).getAttribute("content");
   expect(await og("url")).toBe("https://bijbelreis.nl/");
-  expect(await og("image")).toBe("https://bijbelreis.nl/bijbelreis/og.png");
+  expect(await og("image")).toBe("https://bijbelreis.nl/bijbelreis/og.jpg");
   expect(await og("title")).toContain("Bijbelreis");
 });
