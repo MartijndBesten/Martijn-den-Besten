@@ -90,7 +90,7 @@
   const BIJBELBOEKEN = BOEKEN.filter((b) => !b.thema), THEMAS = BOEKEN.filter((b) => b.thema);
   const THEMA_UI = {
     kerst: {
-      kort: "Kerst", reis: "de kerstreis", begin: "Begin de kerstreis", verder: "Verder met de kerstreis", opnieuw: "Bekijk de kerstreis nog eens",
+      kort: "Kerst", reis: "de kerstreis",
       zin: "Van Adam langs het geslachtsregister naar Bethlehem, waar de Heere Jezus geboren wordt, en verder tot Hij twaalf jaar is.",
       zinA: "Van Adam tot de geboorte van de Heere Jezus in Bethlehem.",
       einde: "Hier eindigt de kerstreis: van Adam tot Nazareth, waar de Heere Jezus opgroeit.",
@@ -920,6 +920,8 @@
     $("next").disabled = $("next2").disabled = atEnd && !next && !deel.hoofd;
     $("next").textContent = $("next2").textContent = cur < 0 ? "Start ▶" : atEnd && deel.hoofd ? `Verder met ${deel.hoofd.short} ▶` : atEnd && next ? `Naar ${next.short} ▶` : slot ? `Einde van ${tu.reis}` : "Verder ▶";
     themaPad(slot);
+    // Deel: bij de intro en de laatste stap van een deel (niet in het korte stapblad, niet bij Samen ontdekken).
+    $("sDeel").innerHTML = cur < 0 || atEnd ? deelKnop(deel.id, deel.n, "Deel deze reis") : ""; $("sDeel").hidden = !$("sDeel").innerHTML;
     // Verdiepende delen: de ingang in de intro van het hoofddeel en bij de stappen over hetzelfde Bijbelgedeelte.
     const verdiep = cur < 0 ? deel.verdiep || [] : deel.steps[cur].verdiep || [];
     $("sVerdiep").hidden = !verdiep.length;
@@ -1148,19 +1150,20 @@
   // ---------- reisniveaus ----------
   // a Samen ontdekken (4–6), b Zelf op reis (7–10), c Verder ontdekken (11+); inhoud in niveaus/*.js. Alleen de keuze wordt
   // lokaal bewaard (bijbelreis:niveau); voortgang en stempels zijn niet per niveau en blijven bij wisselen staan.
-  // Wie al onderweg was, houdt de uitgebreide inhoud (c) zonder keuzescherm; een nieuwe reiziger kiest bij de start.
+  // Wie al onderweg was (van vóór de reisniveaus), houdt de uitgebreide inhoud (c). Een nieuwe reiziger begint met
+  // ‘Zelf op reis’ (b) en hoeft niet eerst te kiezen: de keuze staat klein op de startkaart en bovenin (renderWelkom).
+  // Die standaard wordt meteen bewaard, anders zou een nieuwe reiziger bij het tweede bezoek voor ‘al onderweg’ doorgaan.
   const NIV = BR.niveaus || { soorten: {}, verhalen: {} };
   const NIVS = ["a", "b", "c"];
   const eerderOnderweg = store.get("gezien", []).length > 0 || Object.keys(verhaalStore).length > 0 || store.get("laatst", null) != null;
   let niveau = NIVS.includes(store.get("niveau", null)) ? store.get("niveau", null) : null;
-  const niveauOpen = !niveau && !eerderOnderweg; // eerste bezoek: de keuze staat bovenaan
   if (!niveau && eerderOnderweg) { niveau = "c"; store.set("niveau", "c"); store.set("niveauTip", true); }
-  if (!niveau) niveau = "b"; // voorlopig, tot er gekozen is
+  if (!niveau) { niveau = "b"; store.set("niveau", "b"); }
   document.body.dataset.niveau = niveau;
   const versie = (g, n = niveau) => (g && (NIV.verhalen[g.nr] || {})[n]) || null;
   const heeftSamen = (g) => !!versie(g, "a");
   const nivNaam = (n = niveau) => (NIV.soorten[n] || {}).n || "";
-  const nivOpties = () => NIVS.map((k) => `<button type="button" class="nivopt" data-niveau="${k}" aria-pressed="${k === niveau && !niveauOpen}"><b>${esc(nivNaam(k))}</b><span>${esc(NIV.soorten[k].leeftijd)}</span><small>${esc(NIV.soorten[k].uitleg)}</small></button>`).join("");
+  const nivOpties = () => NIVS.map((k) => `<button type="button" class="nivopt" data-niveau="${k}" aria-pressed="${k === niveau}"><b>${esc(nivNaam(k))}</b><span>${esc(NIV.soorten[k].leeftijd)}</span><small>${esc(NIV.soorten[k].uitleg)}</small></button>`).join("");
   // Een nieuwe tekst die nog niet inhoudelijk is gecontroleerd, staat er nooit uit als ‘af’.
   const conceptLabel = (v, wat) => (v && v.status === "concept" ? `<p class="conceptlabel">Proefversie ${esc(wat)} · nog niet inhoudelijk gecontroleerd</p>` : "");
   const norm = (t) => String(t || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "");
@@ -1183,7 +1186,7 @@
           return `<details class="samensectie"${nu >= a && nu <= b ? " open" : ""}><summary class="vsectie"><span class="vs-n${k === items.length ? " af" : k ? " half" : ""}" aria-hidden="true">${si + 1}</span><span class="vs-t">${esc(naam)}</span><small>${k ? `${k} van ${items.length}` : `${items.length} verhalen`}</small></summary>
           <ul class="vul samenlijst">${items.map((g) => { const st = verhaalStore[g.nr]; return `<li><button type="button" class="vitem${st && st.q != null ? " klaar" : st ? " gezien" : ""}" data-v="${g.nr}"><span class="vnr">${g.nr}</span><span class="vt"><b>${esc(g.t)}</b></span>${st && st.q != null ? '<span class="vok" aria-label="gestempeld">✓</span>' : ""}</button></li>`; }).join("")}</ul></details>`;
         }).join("")}`;
-      if (!$("welkom").hidden) renderWelkom();
+      if (welkomAan) renderWelkom();
       focusHuidig();
       return;
     }
@@ -1199,7 +1202,7 @@
     box.querySelectorAll("[data-vt]").forEach((b) => (b.onclick = () => { vTest = b.dataset.vt; box.querySelectorAll("[data-vt]").forEach((x) => x.setAttribute("aria-pressed", x === b)); renderLijst(); }));
     box.querySelectorAll("[data-kw]").forEach((b) => (b.onclick = () => { vZoek = KW[b.dataset.kw].n; $("vZoek").value = vZoek; renderLijst(); $("vZoek").scrollIntoView({ block: "nearest" }); }));
     renderLijst();
-    if (!$("welkom").hidden) renderWelkom();
+    if (welkomAan) renderWelkom();
     focusHuidig();
   }
   function renderLijst() {
@@ -1246,6 +1249,7 @@
   function renderVerhaal(nr) {
     const g = GBYNR.get(nr), box = $("p-verhalen"); if (!g) { vOpen = null; return renderVerhalen(); }
     renderSeizoen();
+    if (welkomAan) renderWelkom();
     // Een open kaartvraag van de vorige geschiedenis vervalt.
     tapHandler = null; $("map").classList.remove("quizmode"); lyQuiz.clearLayers();
     const steps = (g.stappen || []).map((x) => STEP_BY_KEY.get(x)).filter(Boolean);
@@ -1276,7 +1280,7 @@
       <article class="card verhaal" aria-labelledby="vTitel">
         <div class="top"><b>Geschiedenis ${nr}</b><span>${esc(VORM[g.vorm] || "")}</span></div>
         <h2 id="vTitel">${esc(g.t)}</h2>
-        <p class="tijd"><span>${esc(g.ref)}</span></p>
+        <p class="tijd metdeel"><span>${esc(g.ref)}</span>${deelKnop("v" + nr, g.t)}</p>
         ${wanneer}
         <div class="chips">${(g.wie || []).map((n) => personChip([n], verhaalBoek(g), true)).join("")}</div>
         ${!c ? conceptLabel(v, "voor Zelf op reis") : ""}
@@ -1286,6 +1290,7 @@
         <div id="vOntdek" class="stack"></div>
         ${meer}
         <div id="vQuiz" class="stack"></div>
+        <p class="deelrij">${deelKnop("v" + nr, g.t, "Deel deze geschiedenis")}</p>
         ${nav}
       </article>`;
       leesVerder($("vVertelling"));
@@ -2442,19 +2447,51 @@
   telefoonIndeling();
   // De indeling van het eerste scherm staat meteen vast (nog vóór de teksten van het reisniveau binnen zijn): een diepe
   // link naar een stap begint op de telefoon met de kaart als scherm, niet met een pagina die daarna verspringt.
-  { const h = decodeURIComponent(location.hash.slice(1)).split("/")[0]; document.body.dataset.modus = !h || h === "verhalen" || /^v\d+$/.test(h) ? "verhalen" : "reis"; }
+  { const h = decodeURIComponent(location.hash.slice(1)).split("/")[0]; document.body.dataset.modus = !h || h === "verhalen" || /^v\d+$/.test(h) ? "verhalen" : "reis";
+    // Eerste bezoek zonder diepe link: de kaart is op de telefoon meteen lager (startkaart in het eerste scherm).
+    if (!h && seen.size === 0 && huidigeGeschiedenis().hoe === "nieuw") document.body.classList.add("eerste"); }
 
-  // ---------- welkom en verder waar je was ----------
-  // Bij het eerste bezoek staat hier de keuze van het reisniveau. Daarna alleen één knop, en alleen als er echt iets is
-  // om verder te gaan: ‘Verder met: <geschiedenis>’ of, na een reisstap, ‘Verder met: Jakob – Bedrogen!’. Een nieuwe
-  // bezoeker zonder voortgang ziet niets: de lijst begint gewoon bij 1. Op elk reisniveau hetzelfde.
+  // ---------- welkom, de start en verder waar je was ----------
+  // Een nieuwe bezoeker (nog niets geopend) ziet bovenaan Verhalen de startkaart: één zin die zegt wat dit is, één grote
+  // knop die meteen begint (Abraham, van Ur naar Kanaän), klein de keuze voor wie het is, en dat je ook zelf een verhaal
+  // kunt kiezen. Niemand hoeft eerst een niveau te kiezen. In de kersttijd is de seizoenskaart de hoofdingang: dan staat
+  // hier alleen de zin, en komt Abraham als tweede keuze ónder die kaart (#welkomNa). Zodra er voortgang is, staat er
+  // alleen nog één knop: ‘Verder met: <geschiedenis>’ of, na een reisstap, ‘Verder met: Jakob – Bedrogen!’.
+  // Aanleiding en metingen: docs/bijbelreis-audit/telefoon.md §4.7.
+  const START_ZIN = "Volg de reizen uit de Bijbel op de kaart, stap voor stap. Voor naast je eigen Bijbel.";
+  const startDeel = () => ALLPARTS.find((d) => d.id === "abraham") || ALLPARTS[0];
+  const isEerste = () => seen.size === 0 && huidigeGeschiedenis().hoe === "nieuw";
+  let welkomAan = false; // pas waar als de start van Verhalen getoond is (niet na een diepe link)
+  function zetEerste(aan) {
+    const was = document.body.classList.contains("eerste");
+    document.body.classList.toggle("eerste", aan);
+    // Op de telefoon is de kaart bij het eerste bezoek lager, zodat de startknop in het eerste scherm staat.
+    if (was !== aan && isNarrow() && mode === "verhalen") map.invalidateSize({ pan: false });
+  }
   function renderWelkom() {
-    const box = $("welkom");
-    if (niveauOpen && !store.get("niveau", null)) {
+    const box = $("welkom"), na = $("welkomNa");
+    welkomAan = true;
+    // Bij een geopende geschiedenis hoort de startkaart niet; ‘Verder met’ blijft staan zoals het stond.
+    if (vOpen) { if (box.querySelector(".startkaart")) { box.hidden = true; box.innerHTML = ""; } na.hidden = true; na.innerHTML = ""; zetEerste(false); return; }
+    const focusNiv = document.activeElement && document.activeElement.classList && document.activeElement.classList.contains("st-nivopt") ? document.activeElement.dataset.niveau : null;
+    if (isEerste()) {
+      const d = startDeel(), kerst = SEIZOEN === "kerst";
+      const wie = `<div class="st-wie"><p class="label" id="stWie">Voor wie?</p><div class="st-niv" role="group" aria-labelledby="stWie">${NIVS.map((k) => `<button type="button" class="st-nivopt" data-niveau="${k}" aria-pressed="${k === niveau}"><b>${esc(NIV.soorten[k].leeftijd)}</b><small>${esc(nivNaam(k))}</small></button>`).join("")}</div></div><p class="ref st-of">Of kies hieronder zelf een verhaal.</p>`;
+      const zin = `<p class="st-zin">${START_ZIN}</p>`;
       box.hidden = false;
-      box.innerHTML = `<div class="verder keuzekaart"><p class="label">Welkom</p><h2 class="kk-titel">Hoe wil je op reis?</h2><div class="nivopts">${nivOpties()}</div><p class="ref">Later wijzigen kan altijd, bovenin bij het reisniveau.</p></div>`;
+      if (kerst) {
+        box.innerHTML = `<div class="startkaart st-kort">${zin}</div>`;
+        na.hidden = false;
+        na.innerHTML = `<div class="startkaart st-na"><button type="button" class="btn st-tweede" data-go="${d.key}:-1"><span>Of begin bij <b>${esc(d.n)}</b> · van Ur naar Kanaän</span><span aria-hidden="true">▶</span></button>${wie}</div>`;
+      } else {
+        box.innerHTML = `<div class="startkaart">${zin}<button type="button" class="btn primary st-knop" data-go="${d.key}:-1"><span class="st-wat"><b>Begin de reis</b><small>${esc(d.n)} · van Ur naar Kanaän</small></span><span aria-hidden="true">▶</span></button>${wie}</div>`;
+        na.hidden = true; na.innerHTML = "";
+      }
+      zetEerste(true);
+      if (focusNiv) { const k = document.querySelector(`.st-nivopt[data-niveau="${focusNiv}"]`); if (k) k.focus({ preventScroll: true }); }
       return;
     }
+    na.hidden = true; na.innerHTML = ""; zetEerste(false);
     const h = huidigeGeschiedenis(), g = h.g;
     // Een stap uit een thema hoort bij geen geschiedenis. Was dat het laatste wat je opende, dan gaat ‘Verder met’
     // daarheen; in het seizoen van het thema doet de eigen ingang eronder dat al (renderSeizoen).
@@ -2468,20 +2505,63 @@
     box.innerHTML = `<button type="button" class="btn primary verdermet" ${st ? `data-go="${h.key}"` : `data-v="${g.nr}"`}><span>Verder met: <b>${wat}</b></span><span aria-hidden="true">▶</span></button>${tip}`;
   }
 
-  // De ingang van het seizoen: van de eerste adventszondag tot en met 6 januari staat bovenaan Verhalen (direct onder
-  // ‘Verder met’) één rustige kaart naar het thema Kerst. Eén titel, één zin, één knop: ‘Begin de kerstreis’, of
-  // ‘Verder met de kerstreis’ als er al stappen van gezien zijn (dan naar de laatst geopende stap van het thema, anders
-  // naar de verste). Buiten het seizoen staat er niets; het thema blijft bereikbaar onder ‘Thema’s’ en via de links.
+  // De ingang van het seizoen: van de eerste adventszondag tot en met 6 januari staat bovenaan Verhalen één rustige
+  // kaart naar het thema Kerst. Sinds 16-11-2026 met een weekritme: elke week is één van de zes delen aan de beurt
+  // (BR.seizoen.kerstWeek in seizoen.js). De kaart noemt het deel van deze week, heeft één hoofdknop (‘Lees deel 2’),
+  // een rij van zes merktekens (gelezen, deze week, nog te komen) en zegt welk deel volgende zondag komt.
+  // Er zit niets op slot: elk merkteken opent zijn deel, en wie later instapt kan bij deel 1 beginnen.
+  // Buiten het seizoen staat er niets; het thema blijft bereikbaar onder ‘Thema’s’ en via de links.
   function renderSeizoen() {
     const box = $("seizoen"), b = SEIZOEN && THEMAS.find((x) => x.thema === SEIZOEN), tu = themaUi(b);
     if (!tu || mode !== "verhalen" || vOpen) { box.hidden = true; box.innerHTML = ""; return; }
-    const stappen = b.delen.filter((d) => !d.hoofd).flatMap((d) => d.steps), gezien = stappen.filter((s) => seen.has(s.key));
+    const rij = reeks(b.delen[0]), nu = new Date();
+    const w = Math.max(0, Math.min(rij.length - 1, BR.seizoen.kerstWeek ? BR.seizoen.kerstWeek(nu) : 0)), dw = rij[w];
+    const stappen = rij.flatMap((d) => d.steps), gezien = stappen.filter((s) => seen.has(s.key));
+    const klaar = (d) => d.steps.every((s) => seen.has(s.key)), bezig = (d) => d.steps.some((s) => seen.has(s.key));
     const laatst = STEP_BY_KEY.get(store.get("laatst", null)), hier = laatst && laatst.deel.boek === b ? laatst : gezien[gezien.length - 1];
-    const klaar = gezien.length === stappen.length, doel = !gezien.length || klaar ? `${b.delen[0].key}:-1` : hier.key;
-    const rij = reeks(b.delen[0]), stand = gezien.length && !klaar ? `<p class="sz-stand">Je bent bij deel ${rij.indexOf(hier.deel.hoofd || hier.deel) + 1} van ${rij.length}: ${esc((hier.deel.hoofd || hier.deel).short)}</p>` : "";
+    const inDw = hier && hier.deel === dw ? hier : dw.steps.filter((s) => seen.has(s.key)).pop();
+    const hoofd = klaar(dw) ? [`${dw.key}:-1`, `Lees deel ${w + 1} nog eens`] : bezig(dw) ? [inDw.key, `Verder met deel ${w + 1}`] : [`${dw.key}:-1`, `Lees deel ${w + 1}`];
+    // Tweede knop: wie later instapt, kan bij deel 1 beginnen; wie in een eerder deel bezig is, kan daar verder.
+    const tweede = !gezien.length ? (w > 0 ? [`${rij[0].key}:-1`, "Begin bij deel 1"] : null)
+      : hier && hier.deel !== dw && !klaar(hier.deel) ? [hier.key, `Verder waar je was: deel ${rij.indexOf(hier.deel) + 1}`] : null;
+    const merk = rij.map((d, i) => {
+      const k = klaar(d), staat = `${i === w ? ", deze week" : ""}${k ? ", gelezen" : ""}`;
+      return `<li><button type="button" class="sz-merk${k ? " gelezen" : ""}${i === w ? " nu" : ""}" data-go="${d.key}:-1" aria-label="Deel ${i + 1}: ${esc(d.n)}${staat}"${i === w ? ' aria-current="true"' : ""}><span aria-hidden="true">${k ? "✓" : i + 1}</span></button></li>`;
+    }).join("");
+    const vd = w < rij.length - 1 && BR.seizoen.kerstVolgende ? BR.seizoen.kerstVolgende(nu) : null;
+    const volgende = vd ? `<p class="sz-volgende">${vd.getDay() === 0 ? "Volgende zondag" : `Vanaf ${vd.getDate()} ${["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"][vd.getMonth()]}`}: deel ${w + 2} – ${esc(rij[w + 1].n)}</p>` : "";
+    // De zin die het thema uitlegt, staat er zolang je er nog niet aan begonnen bent; bij het allereerste bezoek zegt de
+    // startkaart erboven al wat dit is, en moet de knop in het eerste scherm passen.
+    const zin = !gezien.length && !isEerste() ? `<p class="sz-zin">${esc(niveau === "a" ? tu.zinA : tu.zin)}</p>` : "";
     box.hidden = false; box.dataset.thema = b.thema;
-    box.innerHTML = `<p class="sz-label">Thema · Advent en Kerst</p><h2 class="sz-titel" id="szTitel">${esc(b.n)}</h2><p class="sz-zin">${esc(niveau === "a" ? tu.zinA : tu.zin)}</p>${stand}<button type="button" class="btn sz-knop" data-go="${doel}"><span>${!gezien.length ? tu.begin : klaar ? tu.opnieuw : tu.verder}</span><span aria-hidden="true">▶</span></button>`;
+    box.innerHTML = `<p class="sz-label">Thema · Advent en Kerst</p><h2 class="sz-titel" id="szTitel">${esc(b.n)}</h2>${zin}
+      <p class="sz-week"><span>Deze week · deel ${w + 1} van ${rij.length}</span><b>${esc(dw.n)}</b></p>
+      <div class="sz-knoppen"><button type="button" class="btn sz-knop" data-go="${hoofd[0]}"><span>${hoofd[1]}</span><span aria-hidden="true">▶</span></button>${tweede ? `<button type="button" class="btn sz-tweede" data-go="${tweede[0]}">${tweede[1]}</button>` : ""}</div>
+      <ol class="sz-rij" aria-label="De zes delen van de kerstreis">${merk}</ol>${volgende}${deelKnop(rij[0].id, b.n, "Deel de kerstreis")}`;
   }
+
+  // ---------- delen ----------
+  // Eén knop ‘Deel’ bij een geschiedenis, bij de intro en de laatste stap van een deel en op de seizoenskaart. Op de
+  // telefoon opent hij het deelmenu van het toestel (daar staat WhatsApp vanzelf bij); anders wordt de link gekopieerd;
+  // lukt ook dat niet, dan staat de link in een veld om zelf te kopiëren. In de link staat alleen het adres van het
+  // verhaal of deel op bijbelreis.nl: geen reisniveau, geen voortgang, niets van de bezoeker. Niet bij Samen ontdekken.
+  const SITE = "https://bijbelreis.nl/";
+  const DEELICOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>';
+  function deelKnop(hash, titel, tekst = "Deel") {
+    return niveau === "a" ? "" : `<button type="button" class="deelknop" data-deel="${esc(hash)}" data-deel-titel="${esc(titel)}">${DEELICOON}<span>${esc(tekst)}</span></button>`;
+  }
+  async function deelLink(knop) {
+    const titel = knop.dataset.deelTitel || "Bijbelreis", url = SITE + "#" + knop.dataset.deel;
+    if (navigator.share) {
+      try { await navigator.share({ title: titel, text: `${titel} – Op reis door de Bijbel`, url }); return; }
+      catch (e) { if (e && e.name === "AbortError") return; /* anders: kopiëren */ }
+    }
+    try { await navigator.clipboard.writeText(url); toast("Link gekopieerd"); return; } catch (e) { /* dan het veld hieronder */ }
+    let veld = knop.nextElementSibling && knop.nextElementSibling.classList.contains("deelveld") ? knop.nextElementSibling : null;
+    if (!veld) { knop.insertAdjacentHTML("afterend", '<label class="deelveld"><span>Kopieer deze link</span><input type="text" readonly></label>'); veld = knop.nextElementSibling; }
+    const inp = veld.querySelector("input"); inp.value = url; inp.focus(); inp.select();
+  }
+  document.addEventListener("click", (e) => { const k = e.target.closest("[data-deel]"); if (k) deelLink(k); });
 
   // Reisniveau kiezen en wisselen: overal dezelfde knoppen (data-niveau). Wisselen bouwt het huidige scherm opnieuw op.
   function niveauKnop() {
@@ -2504,7 +2584,7 @@
       if (niveau !== n) return;
       if (mode === "verhalen") { if (vOpen) renderVerhaal(vOpen); else renderVerhalen(); }
       else setMode(mode);
-      if (vOpen === null || !$("welkom").hidden) renderWelkom();
+      if (vOpen === null || welkomAan) renderWelkom();
     };
     laadNiveau(n).then(toon);
     if (n !== was) toast(`Reisniveau: ${nivNaam()}`);

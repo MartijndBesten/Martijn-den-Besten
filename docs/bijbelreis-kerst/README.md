@@ -102,16 +102,46 @@ knopteksten, de slotzin, de verwijzing) staan op één plek: `THEMA_UI` bovenin 
 - `seizoen.js` rekent alleen: `BR.seizoen.eersteAdvent(jaar)` (de vierde zondag vóór 25 december) en
   `BR.seizoen.kerstTijd(datum)`: waar van de eerste adventszondag 0:00 uur tot en met 6 januari, in de tijd van het
   apparaat. `app.js` vraagt het één keer bij het laden en zet dan `body[data-seizoen="kerst"]`.
-- **In het seizoen**: bovenaan Verhalen (direct onder ‘Verder met’, of onder de keuze van het reisniveau bij een eerste
-  bezoek) staat één kaart (`#seizoen`): de titel ‘Kerst: van Adam tot Bethlehem’, één zin en één knop. Zonder voortgang
-  ‘Begin de kerstreis’ (naar de intro van het eerste deel); met voortgang ‘Verder met de kerstreis’ en de regel ‘Je bent
-  bij deel 3 van 6: Aankondiging’ (naar de laatst geopende stap van het thema, anders de verste); alles gezien: ‘Bekijk
-  de kerstreis nog eens’. Bij Samen ontdekken staat dezelfde kaart met een kortere zin. Verder staat ‘Thema’s’ dan
-  vóór de Bijbelboeken (boekenrij, keuzeblad, boekenkast), met Kerst in nachtblauw met de ster.
+- **In het seizoen**: bovenaan Verhalen (direct onder ‘Verder met’, of onder de zin van de startkaart bij een eerste
+  bezoek) staat één kaart (`#seizoen`) met het **weekritme** (zie hieronder). Bij Samen ontdekken staat dezelfde kaart
+  met een kortere zin en zonder de knop Deel. Verder staat ‘Thema’s’ dan vóór de Bijbelboeken (boekenrij, keuzeblad,
+  boekenkast), met Kerst in nachtblauw met de ster.
 - **Buiten het seizoen**: geen ingang op de start; ‘Thema’s’ staat ná de Bijbelboeken, zonder accent. De diepe links
   (`#kerst`, `#kerst-geboorte`, `#kerst-geboorte/3` …) werken altijd. Was een Kerst-stap het laatste wat je opende, dan
   gaat de gewone knop ‘Verder met: …’ daarheen (in het seizoen doet de ingang dat).
 - De opslag is niet veranderd: stapsleutels `kerst:<deel>:<index>`, `gezien`, `laatst`, `huidig`. Er is geen nieuwe sleutel.
+
+## Het weekritme: elke week één deel (16-11-2026)
+
+Aanleiding: Martijn vroeg hoe bezoekers terugkomen. In de kersttijd is elke week één van de zes delen aan de beurt; dat
+geeft een reden om op zondag terug te komen en past bij het gebruik thuis.
+
+| Deel | Aan de beurt vanaf | 2026/27 |
+| --- | --- | --- |
+| 1 De belofte: van Adam tot David | eerste adventszondag | 29 november |
+| 2 Van David tot Jozef | tweede adventszondag | 6 december |
+| 3 De aankondiging | derde adventszondag | 13 december |
+| 4 De geboorte in Bethlehem | vierde adventszondag, tot en met tweede kerstdag | 20 december |
+| 5 De wijzen, Egypte en Nazareth | de zondag vóór deel 6, maar nooit vóór 27 december | 27 december |
+| 6 Twaalf jaar: in het huis van Zijn Vader | de laatste zondag op of vóór 4 januari, tot en met 6 januari | 3 januari |
+
+- De regel staat in `seizoen.js`: `BR.seizoen.kerstBegindagen(jaar)` geeft de zes begindagen, `kerstWeek(datum)` het deel
+  van nu (0 tot en met 5, of -1 buiten het seizoen) en `kerstVolgende(datum)` de dag waarop het volgende deel begint. De
+  uitzonderingen bij deel 5 en 6 zorgen dat in elk jaar alle zes de delen aan de beurt komen, dat beide kerstdagen bij
+  de geboorte horen en dat deel 6 minstens drie dagen heeft (een unittest loopt 2024 tot en met 2052 na).
+- De kaart toont: ‘Deze week · deel 2 van 6’, de titel van dat deel, de knop ‘Lees deel 2 ▶’ (‘Verder met deel 2’ als je
+  erin bezig bent, ‘Lees deel 2 nog eens’ als je het uit hebt), een rij van zes merktekens (gelezen, deze week, nog te
+  komen) en klein ‘Volgende zondag: deel 3 – De aankondiging’ (begint het volgende deel niet op een zondag, dan ‘Vanaf 27
+  december: …’; in de laatste week niets). Onderaan ‘Deel de kerstreis’.
+- **Niets zit op slot.** Elk merkteken opent zijn deel, in elke week; ‘Thema’s’ en de diepe links werken zoals altijd.
+  Wie later instapt, ziet naast de knop van deze week ‘Begin bij deel 1’. Wie in een eerder deel bezig is, ziet ‘Verder
+  waar je was: deel 2’. De week is een aanwijzing, geen voorwaarde.
+- De zin die het thema uitlegt (`THEMA_UI.kerst.zin`) staat er zolang je nog niet aan de kerstreis begonnen bent. Bij het
+  allereerste bezoek staat hij er niet: dan zegt de zin van de startkaart erboven al wat de atlas is, en moet de knop in
+  het eerste scherm van een telefoon passen (docs/bijbelreis-audit/telefoon.md §4.7).
+- Er is geen nieuwe opslag: ‘gelezen’ komt uit `gezien`, ‘waar je was’ uit `laatst`.
+- Er is geen herinnering (geen e-mail, geen melding): het ritme werkt alleen als iemand zelf terugkomt of de link
+  doorgestuurd krijgt. Daarvoor is de knop Deel.
 
 ## Testen
 
