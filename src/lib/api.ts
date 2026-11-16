@@ -32,6 +32,10 @@ function voterCode(): string | undefined {
 export type PublicIdea ={ id: number; title: string; description: string; category: string; created_at: number };
 export type AdminIdea = PublicIdea & { status: string; moderated_at: number | null };
 
+/** Bezoekcijfers van bijbelreis.nl (worker/bezoek.ts). Tijden in seconden. */
+export type BezoekCijfers = { bezoeken: number; bezoekers: number | null; gemiddeld: number; mediaan: number; kort: number; telefoon: number; tablet: number; desktop: number };
+export type BezoekOverzicht = { vandaag: string; dagen: (BezoekCijfers & { dag: string })[]; totalen: { d7: BezoekCijfers; d30: BezoekCijfers }; herkomst: { herkomst: string; bezoeken: number }[] };
+
 export const api = {
   votes: () => request<{ counts: Record<string, number> }>("/api/votes"),
   vote: (itemId: string) => request<{ count: number; counted: boolean }>("/api/votes", { method: "POST", body: JSON.stringify({ itemId, voter: voterCode() }) }),
@@ -39,6 +43,7 @@ export const api = {
   submitIdea: (payload: Record<string, unknown>) => request<{ ticket: number; message: string }>("/api/ideas", { method: "POST", body: JSON.stringify(payload) }),
   adminList: (token: string, status: string) =>
     request<{ ideas: AdminIdea[] }>(`/api/admin/ideas?status=${encodeURIComponent(status)}`, { headers: { Authorization: `Bearer ${token}` } }),
+  adminBezoek: (token: string, dagen: number) => request<BezoekOverzicht>(`/api/admin/bezoek?dagen=${dagen}`, { headers: { Authorization: `Bearer ${token}` } }),
   adminAction: (token: string, id: number, action: "approve" | "reject" | "delete") =>
     request<object>(`/api/admin/ideas/${id}`, { method: "POST", body: JSON.stringify({ action }), headers: { Authorization: `Bearer ${token}` } }),
 };

@@ -612,6 +612,106 @@
   display: grid;
   gap: 14px;
 }
+.beheer__onderdelen {
+  margin-bottom: 0;
+}
+
+/* Bezoek bijbelreis.nl: totalen bovenaan, daaronder een rustige tabel per dag. */
+.bezoek__totalen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+.bezoek__groot {
+  font-family: var(--font-display, inherit);
+  font-size: 2.6rem;
+  line-height: 1.1;
+  margin: 6px 0 10px;
+}
+.bezoek__groot small {
+  font-family: var(--font-sans, inherit);
+  font-size: 1rem;
+  opacity: 0.75;
+}
+.bezoek__totaal dl {
+  margin: 0;
+  display: grid;
+  gap: 4px;
+}
+.bezoek__totaal dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  padding-top: 4px;
+}
+.bezoek__totaal dt {
+  opacity: 0.8;
+}
+.bezoek__totaal dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.bezoek__totaal .bezoek__apparaten dd {
+  white-space: normal;
+}
+.bezoek__uitleg {
+  max-width: 78ch;
+  margin: 18px 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+.bezoek__tabel {
+  overflow-x: auto;
+  margin-bottom: 18px;
+}
+.bezoek__tabel table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.bezoek__tabel caption {
+  text-align: left;
+  font-weight: 600;
+  padding-bottom: 8px;
+}
+.bezoek__tabel th,
+.bezoek__tabel td {
+  text-align: right;
+  padding: 7px 10px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  white-space: nowrap;
+}
+.bezoek__tabel thead th {
+  font-size: 0.85rem;
+  border-bottom-width: 2px;
+}
+.bezoek__tabel th:first-child {
+  text-align: left;
+}
+.bezoek__tabel tbody th {
+  font-weight: 500;
+}
+.bezoek__leeg {
+  opacity: 0.5;
+}
+.bezoek__herkomst ol {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: grid;
+  gap: 4px;
+  max-width: 520px;
+}
+.bezoek__herkomst li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-variant-numeric: tabular-nums;
+}
 .beheer__list h2 {
   font-size: 1.6rem;
   margin: 8px 0;
