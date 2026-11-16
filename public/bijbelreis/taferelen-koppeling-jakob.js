@@ -18,4 +18,9 @@ BR.beelden = Object.assign(BR.beelden || {}, {
   "genesis:jakob-jabbok:9": { t: "jabbok-ezau", tekst: "Ezau liep hem tegemoet, omhelsde hem en kuste hem; en zij weenden (Genesis 33:4)." },
   "genesis:jakob-jabbok:10": { t: "jabbok-aangezicht", tekst: "Jakob zei: ‘neem mijn geschenk van mijn hand’; hij hield bij Ezau aan, zodat hij het nam (Genesis 33:10–11)." },
   "genesis:jakob-jabbok:11": { t: "jabbok-sukkoth", tekst: "Jakob bouwde in Sukkoth een huis voor zich en maakte hutten voor zijn vee (Genesis 33:17)." },
+  // De drie stappen van het hoofddeel Jakob over Genesis 32–33 tonen elk één beeld uit de reeks (met dezelfde zin als
+  // daar), zodat je de tekeningen ook ziet als je gewoon de reis van Jakob volgt. De hele reeks staat in ‘Van dichtbij’.
+  "genesis:jakob:5": { t: "jabbok-gebed", tekst: "Jakob bad: met mijn staf ging ik over de Jordaan, en nu ben ik tot twee heiren geworden (Genesis 32:10)." },
+  "genesis:jakob:6": { t: "jabbok-nacht", tekst: "Jakob bleef alleen over, en een Man worstelde met hem totdat de dageraad opging (Genesis 32:24)." },
+  "genesis:jakob:7": { t: "jabbok-ezau", tekst: "Ezau liep hem tegemoet, omhelsde hem en kuste hem; en zij weenden (Genesis 33:4)." },
 });

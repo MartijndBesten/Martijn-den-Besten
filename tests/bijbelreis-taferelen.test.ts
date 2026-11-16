@@ -292,7 +292,10 @@ describe("taferelen: koppeling", () => {
   });
   it("Genesis 32: de tien stappen van genesis:jakob-jabbok hebben elk een eigen tafereel, in volgorde", () => {
     expect(Object.keys(KOPPEL_JAKOB).filter((k) => k.startsWith("genesis:jakob-jabbok:"))).toEqual([...JAKOB.map((_, i) => `genesis:jakob-jabbok:${i}`), ...Object.keys(JAKOB_33)]);
-    expect(Object.keys(KOPPEL_JAKOB)).toEqual(["genesis:jakob:0", ...JAKOB.map((_, i) => `genesis:jakob-jabbok:${i}`), ...Object.keys(JAKOB_33)]);
+    // Het hoofddeel Jakob toont bij zijn drie stappen over Genesis 32–33 een beeld uit de reeks, met dezelfde zin.
+    const HOOFD = { "genesis:jakob:5": "genesis:jakob-jabbok:3", "genesis:jakob:6": "genesis:jakob-jabbok:6", "genesis:jakob:7": "genesis:jakob-jabbok:9" };
+    expect(Object.keys(KOPPEL_JAKOB)).toEqual(["genesis:jakob:0", ...JAKOB.map((_, i) => `genesis:jakob-jabbok:${i}`), ...Object.keys(JAKOB_33), ...Object.keys(HOOFD)]);
+    for (const [hoofd, reeks] of Object.entries(HOOFD)) { expect(KOPPEL_JAKOB[hoofd], hoofd).toEqual(KOPPEL_JAKOB[reeks]); expect(BR.tafereel.van(STAP.get(hoofd)!)!.id, hoofd).toBe(KOPPEL_JAKOB[reeks].t); }
     expect(new Set(Object.values(KOPPEL_JAKOB).map((k) => k.t)).size).toBe(13);
     const plek = (s: string) => html.indexOf(`/bijbelreis/${s}`);
     expect(plek("taferelen-jakob.js")).toBeLessThan(plek("taferelen-koppeling-jakob.js"));
@@ -398,13 +401,15 @@ describe("taferelen: koppeling", () => {
 
 describe("taferelen: welke stap krijgt welk beeld", () => {
   const van = (key: string) => BR.tafereel.van(STAP.get(key)!);
-  it("een stap zonder reis krijgt het standaardbeeld van de soort van zijn eerste plaats, met de plaatsnaam", () => {
-    const b = van("esther:esther:0")!;
-    expect(b.id).toBe("stad"); expect(b.algemeen).toBe(true); expect(b.plaats).toBe("Susan");
-    expect(van("exodus:sinai:6")!.id).toBe("berg");
-    expect(van("exodus:uittocht:6")!.id).toBe("water");
+  it("een stap zonder eigen koppeling krijgt geen beeld: er is geen automatische ‘algemene tekening’ meer", () => {
+    // Besluit 16-11-2026: een algemene tekening van de plaats zei niets over de tekst van de stap (docs/bijbelreis-taferelen).
+    expect(van("esther:esther:0")).toBeNull();
+    expect(van("exodus:sinai:6")).toBeNull();
+    expect(van("exodus:uittocht:6")).toBeNull();
+    expect(van("genesis:jozef:5")).toBeNull(); // ‘Twee dromen in de cel’ kreeg de rivier van Egypte
+    for (const s of STAPPEN) { const b = BR.tafereel.van(s); if (b) { expect(BR.beelden[s.key], s.key).toBeTruthy(); expect(b.algemeen, s.key).toBeUndefined(); } }
   });
-  it("een eigen koppeling gaat vóór het standaardbeeld, ook bij een stap met reis", () => {
+  it("een eigen koppeling geeft het beeld, ook bij een stap met reis", () => {
     expect(STAP.get("jozua:intocht:4")!.r).toBeUndefined();
     expect(van("jozua:intocht:4")!.id).toBe("jericho");
     expect(van("jozua:intocht:4")!.algemeen).toBeUndefined();
@@ -416,17 +421,9 @@ describe("taferelen: welke stap krijgt welk beeld", () => {
     expect(van("genesis:begin:0")).toBeNull();
     expect(BR.tafereel.van(null)).toBeNull();
   });
-  it("afwijkende soort, andere naam en ‘bewust geen beeld’ werken", () => {
-    expect(van("2samuel:david:5")!.id).toBe("stad"); // Jeruzalem staat in plaatsen.js als altaar
-    const tempel = van("jezus-1:nt-geboorte:0")!;
-    expect(tempel.id).toBe("stad"); expect(tempel.plaats).toBe("Jeruzalem");
-    expect(van("genesis:jozef:4")!.id).toBe("rivier");
-    expect(van("genesis:begin:1")).toBeNull(); // Eden: geen standaardbeeld
+  it("‘bewust geen beeld’ en een eigen tafereel in plaats van geen beeld werken", () => {
+    expect(van("genesis:begin:1")).toBeNull(); // Eden
     expect(van("ezra:terugkeer:3")).toBeNull(); // de muur ligt in puin: geen ommuurde stad
-    expect(van("ezra:nehemia:3")!.id).toBe("muur-puin"); // sinds de tweede reeks: een eigen tafereel in plaats van geen beeld
-  });
-  it("de meeste stappen zonder reis hebben een beeld", () => {
-    const zonder = STAPPEN.filter((s) => !(s.r && s.r.length));
-    expect(zonder.filter((s) => BR.tafereel.van(s)).length / zonder.length).toBeGreaterThan(0.75);
+    expect(van("ezra:nehemia:3")!.id).toBe("muur-puin"); // sinds de tweede reeks: een eigen tafereel
   });
 });

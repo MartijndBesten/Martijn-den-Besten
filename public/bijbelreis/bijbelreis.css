@@ -848,6 +848,14 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   body[data-modus="reis"] #heleBtn span { display: inline; }
   /* Het kaartpaneel (Toen/Nu, Vandaag, Bijbelwereld, Legenda) klapt over ‘Hele reis’ heen: die wijkt zolang het open is. */
   .kaartvlak:has(#kaartPaneel.open) .mapacties { visibility: hidden; }
+  /* ‘Van dichtbij’ (een verdiepend deel, zoals Jakob bij de Jabbok): één knop op de kaart, direct boven het korte blad.
+     Weg zolang het blad open is (daar staat de ingang in het blad), bij een open ballon en bij het open kaartpaneel. */
+  body[data-modus="reis"] .dichtbij:not([hidden]) { position: absolute; z-index: 820; left: 50%; transform: translateX(-50%); bottom: calc(var(--blad-h, 156px) + 8px); display: flex; align-items: center; justify-content: space-between; gap: 12px; width: max-content; max-width: calc(100% - 20px); min-height: 44px; padding: 5px 14px; text-align: left; font: inherit; color: var(--fg-1); background: var(--wit); border: 1px solid color-mix(in srgb, var(--oker-diep) 45%, transparent); border-left: 4px solid var(--oker-diep); border-radius: 12px; box-shadow: 0 6px 16px -8px rgba(31, 36, 48, 0.55); cursor: pointer; }
+  body[data-modus="reis"] .dichtbij > span:first-child { display: flex; flex-direction: column; min-width: 0; line-height: 1.2; }
+  body[data-modus="reis"] .dichtbij small { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--oker-diep); }
+  body[data-modus="reis"] .dichtbij b { font-weight: 680; font-size: 0.95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  body[data-modus="reis"] .dichtbij .n { flex: none; font-size: 0.86rem; font-weight: 620; color: var(--kobalt, var(--nacht)); white-space: nowrap; }
+  body.bladopen .dichtbij, .kaartvlak.ballon .dichtbij, .kaartvlak:has(#kaartPaneel.open) .dichtbij { display: none !important; }
   /* De melding (nieuwe stempel) onder de rij kaartknoppen: niet over de kop en niet over het blad. */
   body[data-modus="reis"] .toast { top: calc(var(--kop-h) + env(safe-area-inset-top, 0px) + 58px); padding: 7px 14px; font-size: 0.92rem; }
 
@@ -987,6 +995,8 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
 }
 /* Kaart voorop op een liggende telefoon: het blad staat links onderin en de kaart blijft ernaast vrij. */
 @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
+  /* Liggend ligt het blad links: de knop ‘Van dichtbij’ staat dan rechts onderin de kaart. */
+  body[data-modus="reis"] .dichtbij:not([hidden]) { left: auto; right: 8px; transform: none; bottom: 8px; max-width: 46vw; }
   body[data-modus="reis"] .panel { --bl: 14px; --br: 14px; left: max(8px, env(safe-area-inset-left, 0px)); right: auto; width: min(340px, 46vw); margin: 0; }
   body[data-modus="reis"] .panel.open { height: calc(100% - 8px); }
 }
@@ -1123,6 +1133,8 @@ body[data-niveau="a"] #sTijd, body[data-niveau="a"] #sProg { display: none !impo
 body[data-niveau="a"] #reizenBtn, body[data-niveau="a"] #plaatsenBtn { display: none; }
 /* Verdiepende delen (bij: …): geen eigen knop in de delenrij, maar een ingang bij het hoofddeel en een weg terug. */
 .verdiep { display: flex; flex-direction: column; gap: 6px; }
+/* De ingang ‘Van dichtbij’ als knop op de kaart: alleen op de telefoon in de reis (zie het telefoonblok). */
+.dichtbij { display: none; }
 /* Om over na te denken: open vragen bij een deel, ingeklapt; rustig, zonder antwoord. */
 .denk { border: 1px solid var(--line); border-left: 4px solid var(--water); border-radius: var(--r); background: var(--water-zacht); padding: 0 12px; }
 .denk summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 650; color: var(--water-diep); }

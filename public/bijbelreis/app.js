@@ -922,6 +922,11 @@
     const verdiep = cur < 0 ? deel.verdiep || [] : deel.steps[cur].verdiep || [];
     $("sVerdiep").hidden = !verdiep.length;
     $("sVerdiep").innerHTML = verdiep.map((v) => `<button type="button" class="verdiep-in" data-go="${v.key}:-1"><span class="label">Van dichtbij</span><span><b>${esc(v.n)}</b> · ${esc(v.ref)}</span><small>${v.steps.length} stappen</small></button>`).join("");
+    // Telefoon, in de reis: dezelfde ingang als één knop op de kaart, direct boven het korte blad. In het korte blad is
+    // geen plaats voor de ingang en in het open blad staat hij te ver weg (opmerking van Martijn, 16-11-2026).
+    const db = $("dichtbijBtn"), v0 = verdiep[0];
+    db.hidden = !v0;
+    if (v0) { db.dataset.go = `${v0.key}:-1`; db.innerHTML = `<span><small>Van dichtbij</small><b>${esc(v0.n)}</b></span><span class="n">${v0.steps.length} stappen ▸</span>`; }
     // Om over na te denken: open vragen bij een deel (veld `denk`), bij de intro en de laatste stap; niet bij Samen ontdekken.
     const denk = niveau !== "a" && (cur < 0 || atEnd) && Array.isArray(deel.denk) ? deel.denk : [];
     $("sDenk").hidden = !denk.length;
@@ -2255,13 +2260,16 @@
     const b = $("reisboek");
     if (!bladAan() || b.classList.contains("open") || !b.offsetParent) return;
     const r = b.getBoundingClientRect(); if (r.height > 60) { kortH = r.height; bladB = r.width; }
+    document.querySelector(".kaartvlak").style.setProperty("--blad-h", kortH.toFixed(0) + "px");
     kaartGrenzen();
   }
   // Vrije ruimte op de kaart voor fit(): boven de kaartknoppen (met de kameel erboven), opzij een rand, onder het korte
   // blad. Een liggende telefoon heeft het blad links: dan blijft de ruimte ernaast vrij.
   function bladRuimte() {
     bladMeet();
-    return zijMq.matches ? { paddingTopLeft: [bladB + 44, 62], paddingBottomRight: [40, 44] } : { paddingTopLeft: [44, 84], paddingBottomRight: [44, kortH + 30] };
+    // Staat de knop ‘Van dichtbij’ boven het blad, dan blijft ook die ruimte vrij.
+    const knop = $("dichtbijBtn").hidden ? 0 : 50;
+    return zijMq.matches ? { paddingTopLeft: [bladB + 44, 62], paddingBottomRight: [40, 44] } : { paddingTopLeft: [44, 84], paddingBottomRight: [44, kortH + 30 + knop] };
   }
   // De ondergrond houdt op bij 22° en 47° noorderbreedte; Leaflet houdt de kaart daarbinnen (maxBounds). Onder het
   // korte blad is de kaart toch niet te zien: daar mag de uitsnede zo hoog als het blad voorbij de zuidrand, zodat een

@@ -14,8 +14,7 @@ jobs:
   check:
     name: Typecheck, tests en build
     runs-on: ubuntu-latest
-    # De e2e-reeks duurt inmiddels ruim 19 minuten (november 2026); 30 geeft ruimte zonder iets over te slaan.
-    timeout-minutes: 30
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,14 +25,33 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+
+  e2e:
+    # De e2e-reeks duurde in één job ruim 30 minuten (november 2026). Ze draait daarom in drie delen naast elkaar;
+    # samen zijn dat dezelfde tests, niets wordt overgeslagen. Elk deel start zijn eigen lokale Worker met D1.
+    name: End-to-end tests (deel ${{ matrix.deel }} van 3)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        deel: [1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
       - name: Playwright-browser installeren
         run: npx playwright install --with-deps chromium
       - name: End-to-end tests (lokale Worker + D1)
-        run: npx playwright test
+        run: npx playwright test --shard=${{ matrix.deel }}/3
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: playwright-resultaten
+          name: playwright-resultaten-${{ matrix.deel }}
           path: test-results
           retention-days: 7
 
@@ -64,7 +82,7 @@ jobs:
 
   deploy:
     name: Deploy naar Cloudflare
-    needs: [check, visueel]
+    needs: [check, e2e, visueel]
     # Bij elke push naar main, of handmatig via ‘Run workflow’ in het tabblad Actions.
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest

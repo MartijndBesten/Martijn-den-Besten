@@ -53,8 +53,13 @@ Deze regels zijn hard. Twijfel je, teken het dan niet en zet het bij de vragen i
    gegaan: het thema Kerst is een besluit van de eigenaar en heeft veel stappen. Er is nog 20 kB ruimte; een volgende reeks
    vraagt opnieuw een besluit over de grens of over lichter tekenen. Gzip pakt deze tekst tot ongeveer een derde.
 
-Een algemeen beeld is geen foto van die plaats. Daarom staat onder elk standaardbeeld ‘Algemene tekening’ en zegt de
-zin eronder wat je ziet (‘Zo zag een stad er toen vaak uit’), niet hoe het daar precies was.
+**Geen automatische ‘algemene tekening’ meer (besluit 16-11-2026).** Tot die dag kreeg een stap zonder reis en zonder
+eigen koppeling het standaardbeeld van de soort van zijn plaats (een stad, een rivier, een tent), met het bijschrift
+‘Algemene tekening’. Dat stond bij 171 van de 560 stappen. Martijn zag bij ‘Twee dromen in de cel’ (Genesis 40) een rivier
+met palmen en vroeg terecht wat dat met de tekst te maken had. Sindsdien staat er alleen een beeld als het aan die stap
+gekoppeld is. De standaardbeelden staan nog in het register en `BR.beeldSoort` is als naslag blijven staan; de motor
+gebruikt ze niet meer vanzelf. Past een standaardbeeld echt bij wat de tekst van een stap vertelt (er wordt een altaar
+gebouwd, er wordt een put gegraven), koppel het dan bewust in `BR.beelden`, met een eigen zin en de verwijzing.
 
 ## 2. Hoe de motor kiest
 
@@ -62,10 +67,7 @@ zin eronder wat je ziet (‘Zo zag een stad er toen vaak uit’), niet hoe het d
 
 1. Staat de stapsleutel in `BR.beelden`, dan geldt die koppeling. Dat werkt ook bij een stap mét reis. `t: ""` betekent:
    hier bewust geen beeld.
-2. Anders, alleen als de stap geen reis heeft (`r` leeg) en een plaats heeft (`at`): het standaardbeeld van de soort van
-   de **eerste** plaats. De soort is het veld `t` van de plaats (stad, berg, water, put, kamp, altaar, tent); een gebied
-   (`t: "gebied"` of `c: "r"`) krijgt het landschap. `BR.beeldSoort` kan dat per plaats bijsturen.
-3. Een stap met reis en zonder koppeling krijgt geen beeld: daar vertelt de kaart het verhaal.
+2. Anders: geen beeld. Er is geen terugval op een standaardbeeld meer (zie §1).
 
 Een sleutel in `BR.beelden` van een stap die (nog) niet bestaat, doet niets. Zo kan een koppeling klaarstaan voor een
 deel dat op een andere tak wordt geschreven (nu: `numeri:kies-het-leven:0` tot en met `5`).
@@ -220,8 +222,8 @@ Regels bij beweging:
    De sleutel is `boek.id:deel.id:stapindex` (index vanaf 0). Zoek hem op met
    `node scripts/taferelen-overzicht.mjs` (meldt per beeld de stappen) of in het inhoudsbestand. De tekst is één korte
    zin die zegt wat je ziet, en eindigt op de verwijzing tussen haakjes en een punt.
-4. Past het standaardbeeld bij een plaats niet, stuur dan bij in `BR.beeldSoort` (andere soort, of `""` voor geen
-   standaardbeeld) of zet voor die ene stap `{ t: "" }` in `BR.beelden`. Wijzig daarvoor niet `plaatsen.js`.
+4. Een stap zonder koppeling heeft geen beeld. `{ t: "" }` in `BR.beelden` legt vast dat een stap bewust geen beeld
+   heeft (de kribbe, Golgotha); een test bewaakt die stappen.
 5. Bekijk het: `node scripts/taferelen-overzicht.mjs` en open de schermafbeeldingen (zie hieronder). Kijk kritisch:
    leest het op telefoonbreedte, klopt elk aantal, staat er niets wat de tekst niet zegt, is de beginstand ook goed?
 6. Draai de controles:
@@ -462,9 +464,10 @@ eigenaar ziet het thema er ‘enigszins anders’ uit. Daarom heeft deze reeks e
 | `kerst-vlucht` | nacht; de weg van Bethlehem het heuvelland in; Jozef en Maria als twee kleine figuren | zij gaan weg, naar links (zuidwest) | Mattheüs 2:13–14 | `kerst-wijzen:5` |
 | `kerst-pascha` | een groot reisgezelschap op de weg omhoog naar Jeruzalem met de tempel; palmen in het dal | het gezelschap komt over de weg | Lukas 2:41–44 | `kerst-twaalf:1`–`3` |
 
-Verder heeft `kerst-belofte:8` (Ruth en Boaz) het bestaande `ruth-veld`. Het standaardbeeld van de plaats houden:
-`kerst-belofte:1` (Ararat), `2` (Ur), `kerst-koningen:1`, `2` (Jeruzalem), `kerst-geboorte:0` (Rome) en `kerst-wijzen:7`
-(Egypte). Stappen met een reis en zonder koppeling hebben geen beeld (daar vertelt de kaart). Eden (`kerst-belofte:0`) heeft,
+Verder heeft `kerst-belofte:8` (Ruth en Boaz) het bestaande `ruth-veld`. Zonder beeld sinds 16-11-2026 (ze hadden
+alleen het standaardbeeld van de plaats): `kerst-belofte:1` (Ararat), `2` (Ur), `kerst-koningen:1`, `2` (Jeruzalem),
+`kerst-geboorte:0` (Rome) en `kerst-wijzen:7` (Egypte). Stappen met een reis en zonder koppeling hebben geen beeld (daar
+vertelt de kaart). Eden (`kerst-belofte:0`) heeft,
 zoals elders, geen beeld.
 
 **Bewust geen beeld** (`t: ""`, een test bewaakt het): de geboorte en de kribbe (`kerst-geboorte:2`, Lukas 2:6–7), de achtste

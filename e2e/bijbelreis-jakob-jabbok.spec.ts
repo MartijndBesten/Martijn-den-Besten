@@ -140,3 +140,59 @@ test("Jakob: bij Samen ontdekken geen vragen om over na te denken", async ({ pag
   await page.goto("/bijbelreis#jakob-jabbok");
   await expect(page.locator("#sDenk")).toBeHidden();
 });
+
+// Opmerking van Martijn (16-11-2026): “Waar vind ik die extra plaatjes van Genesis 32? Ik had die bij Jakob verwacht.”
+// De drie stappen van Jakob over Genesis 32–33 tonen daarom zelf een tekening uit de reeks, en op de telefoon staat de
+// ingang naar de hele reeks als knop op de kaart, direct boven het korte stapblad.
+test("Jakob: de stappen over Genesis 32–33 tonen een tekening uit de reeks", async ({ page }) => {
+  const errors = watchErrors(page);
+  for (const [stap, tf] of [[6, "jabbok-gebed"], [7, "jabbok-nacht"], [8, "jabbok-ezau"]] as const) {
+    await page.goto("about:blank");
+    await page.goto(`/bijbelreis#jakob/${stap}`);
+    await expect(page.locator("#sTitle")).toHaveText(new RegExp(`^${stap}\\. `));
+    const knop = page.locator("#bladBtn");
+    if (await knop.isVisible()) await expect(async () => { if ((await knop.getAttribute("aria-expanded")) !== "true") await knop.click(); expect(await knop.getAttribute("aria-expanded")).toBe("true"); }).toPass();
+    await expect(page.locator("#p-reis .stapkaart .tafereel")).toHaveAttribute("data-tf", tf);
+    await expect(page.locator("#p-reis .stapkaart .tafereel figcaption")).toContainText(/Genesis 3[23]:/);
+  }
+  expect(errors).toEqual([]);
+});
+
+test("Jakob op de telefoon: ‘Van dichtbij’ staat als knop op de kaart, boven het korte blad, en opent de reeks", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "alleen op de telefoon; op de desktop staat de ingang in het reisboek");
+  const errors = watchErrors(page);
+  await page.goto("about:blank");
+  await page.goto("/bijbelreis#jakob/7");
+  await expect(page.locator("#sTitle")).toHaveText(/^7\. /);
+  const knop = page.locator("#dichtbijBtn");
+  await expect(knop).toBeVisible();
+  await expect(knop).toContainText("Jakob bij de Jabbok");
+  await expect(knop).toContainText("12 stappen");
+  // Boven het blad, niet eroverheen; binnen het scherm; een tikdoel van minstens 44 px.
+  const maat = await page.evaluate(() => { const k = document.getElementById("dichtbijBtn")!.getBoundingClientRect(), b = document.getElementById("reisboek")!.getBoundingClientRect(); return { boven: b.top - k.bottom, h: k.height, links: k.left, rechts: innerWidth - k.right }; });
+  expect(maat.boven).toBeGreaterThanOrEqual(4);
+  expect(maat.boven).toBeLessThan(24);
+  expect(maat.h).toBeGreaterThanOrEqual(44);
+  expect(maat.links).toBeGreaterThanOrEqual(8);
+  expect(maat.rechts).toBeGreaterThanOrEqual(8);
+  // Met het blad open is de knop weg: daar staat de ingang in het blad zelf.
+  await page.locator("#bladBtn").click();
+  await expect(knop).toBeHidden();
+  await expect(page.locator("#sVerdiep .verdiep-in")).toHaveCount(1);
+  await page.locator("#bladBtn").click();
+  await expect(knop).toBeVisible();
+  // Een stap zonder verdiepend deel heeft de knop niet.
+  await page.goto("about:blank");
+  await page.goto("/bijbelreis#jakob/2");
+  await expect(page.locator("#sTitle")).toHaveText(/^2\. /);
+  await expect(knop).toBeHidden();
+  // Tik: de reeks opent bij haar begin, en daar staat de knop niet (je bent er al).
+  await page.goto("about:blank");
+  await page.goto("/bijbelreis#jakob");
+  await expect(knop).toBeVisible();
+  await knop.click();
+  await expect(page).toHaveURL(/#jakob-jabbok$/);
+  await expect(page.locator("#sTitle")).toHaveText("Jakob bij de Jabbok");
+  await expect(knop).toBeHidden();
+  expect(errors).toEqual([]);
+});

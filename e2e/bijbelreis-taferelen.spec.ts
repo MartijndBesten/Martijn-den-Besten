@@ -32,14 +32,17 @@ async function naarStap(page: Page, hash: string, titel?: string | RegExp) {
 const beeld = (page: Page) => page.locator("#p-reis .stapkaart .tafereel");
 const lopend = (page: Page, sel: string) => page.evaluate((sel) => document.querySelector(sel)!.getAnimations({ subtree: true }).filter((a) => a.playState === "running").length, sel);
 
-test("een stap zonder reis toont het standaardbeeld van de plaats, met een toegankelijke naam", async ({ page }) => {
+test("een stap zonder eigen tekening toont geen beeld; een eigen tafereel staat bij de tekst en past", async ({ page }) => {
   const errors = watchErrors(page);
+  // Susan is een stad, maar er is geen tekening bij deze stap: dan staat er niets (geen ‘Algemene tekening’ meer).
   await naarStap(page, "#esther/1");
+  await expect(page.locator(".tafereel")).toHaveCount(0);
+  // Jericho heeft een eigen tafereel, met een toegankelijke naam.
+  await naarStap(page, "#intocht/5");
   await expect(beeld(page)).toHaveCount(1);
-  await expect(beeld(page)).toHaveAttribute("data-tf", "stad");
-  await expect(beeld(page).getByRole("img", { name: /stad.*muur.*poort/i })).toBeVisible();
-  await expect(beeld(page).locator("figcaption")).toContainText("Susan");
-  await expect(beeld(page).locator("figcaption")).toContainText("Algemene tekening");
+  await expect(beeld(page)).toHaveAttribute("data-tf", "jericho");
+  await expect(beeld(page).getByRole("img")).toBeVisible();
+  await expect(beeld(page).locator("figcaption")).not.toContainText("Algemene tekening");
   // Het beeld staat bij de tekst: direct na de vertelling (op de telefoon staat het in het stapblad bóven de tekst), en
   // het past in de kaart of het blad.
   expect(await page.evaluate(() => document.getElementById("sText")!.nextElementSibling!.classList.contains("tafereel"))).toBe(true);
@@ -101,12 +104,12 @@ test("een stap met reis en zonder koppeling toont geen tafereel; het beeld wisse
   await expect(page.locator("#sTitle")).toContainText("Weg uit Egypte");
   await expect(page.locator("#sKm")).toContainText("km");
   await expect(page.locator(".tafereel")).toHaveCount(0);
-  // Twee stappen verder: de Schelfzee (eigen tafereel); daarna het lied (standaardbeeld water); het deelscherm heeft er geen.
+  // Twee stappen verder: de Schelfzee (eigen tafereel); daarna het lied (geen eigen tekening, dus geen beeld); het deelscherm heeft er geen.
   await page.evaluate(() => (document.querySelector('.dot[data-step="5"]') as HTMLElement).click());
   await expect(beeld(page)).toHaveAttribute("data-tf", "schelfzee");
   await page.evaluate(() => (document.querySelector('.dot[data-step="6"]') as HTMLElement).click());
-  await expect(beeld(page)).toHaveCount(1);
-  await expect(beeld(page)).toHaveAttribute("data-tf", "water");
+  await expect(page.locator("#sTitle")).toContainText("7.");
+  await expect(page.locator(".tafereel")).toHaveCount(0);
   await page.goto("/bijbelreis#uittocht");
   await expect(page.locator("#sTitle")).not.toContainText("1.");
   await expect(page.locator(".tafereel")).toHaveCount(0);
