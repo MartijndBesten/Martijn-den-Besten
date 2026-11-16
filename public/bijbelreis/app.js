@@ -326,11 +326,12 @@
   function placePopup(id) {
     const p = P[id], c = certOf(p), here = STEPS_AT[id] || [];
     // Samen ontdekken: alleen de naam en of we zeker weten waar het was.
-    if (niveau === "a") return `<div class="pop"><h3>${esc(p.n)}</h3><p class="zk zk-${c}"><i></i>${ZEKER[c][0]}</p>${c !== "v" && c !== "r" ? `<p class="st">${ZEKER[c][1]}</p>` : ""}</div>`;
+    const foto = BR.foto ? BR.foto.ballon(id) : "";
+    if (niveau === "a") return `<div class="pop">${foto}<h3>${esc(p.n)}</h3><p class="zk zk-${c}"><i></i>${ZEKER[c][0]}</p>${c !== "v" && c !== "r" ? `<p class="st">${ZEKER[c][1]}</p>` : ""}</div>`;
     // Zelf op reis: minder lijst en geen bronvermelding van de ligging; Verder ontdekken: alles.
     const max = niveau === "c" ? 8 : 4;
     const list = here.slice(0, max).map(([d, i]) => `<li><button type="button" class="linkbtn" data-go="${d.key}:${i}">${esc(d.boek.n)} · ${esc(d.steps[i].t)}</button></li>`).join("");
-    return `<div class="pop"><h3>${esc(p.n)}</h3><p class="zk zk-${c}"><i></i>${ZEKER[c][0]}</p><p>${esc(p.d || "")}</p>${p.nu ? `<p class="nu"><b>Nu:</b> ${esc(p.nu)}</p>` : ""}${c !== "v" && c !== "r" ? `<p class="st">${ZEKER[c][1]}</p>` : ""}${list ? `<p class="label">Hier in de reis</p><ul>${list}</ul>${here.length > max ? `<p class="st">en nog ${here.length - max} keer</p>` : ""}` : ""}${p.bron && niveau === "c" ? `<p class="st">Ligging: ${esc(p.bron)}</p>` : ""}</div>`;
+    return `<div class="pop">${foto}<h3>${esc(p.n)}</h3><p class="zk zk-${c}"><i></i>${ZEKER[c][0]}</p><p>${esc(p.d || "")}</p>${p.nu ? `<p class="nu"><b>Nu:</b> ${esc(p.nu)}</p>` : ""}${c !== "v" && c !== "r" ? `<p class="st">${ZEKER[c][1]}</p>` : ""}${list ? `<p class="label">Hier in de reis</p><ul>${list}</ul>${here.length > max ? `<p class="st">en nog ${here.length - max} keer</p>` : ""}` : ""}${p.bron && niveau === "c" ? `<p class="st">Ligging: ${esc(p.bron)}</p>` : ""}</div>`;
   }
   const markers = {}, altMarkers = {};
   Object.entries(P).forEach(([id, p]) => {
@@ -915,6 +916,7 @@
     }
     // Tafereel: een getekend beeld bij de tekst van een stap zonder reis (taferelen.js).
     if (BR.tafereel) BR.tafereel.bijStap($("sText"), cur >= 0 ? deel.steps[cur] : null);
+    if (BR.foto) BR.foto.bijStap($("sText"), cur >= 0 ? deel.steps[cur] : null); // foto van de plaats zoals die er nu uitziet (fotos.js)
     const atEnd = cur >= deel.steps.length - 1, next = volgendDeel(deel), tu = themaUi(boek), slot = !!tu && atEnd && !next && !deel.hoofd;
     $("prev").disabled = $("prev2").disabled = cur <= -1 && !deel.hoofd && !vorigDeel(deel);
     $("next").disabled = $("next2").disabled = atEnd && !next && !deel.hoofd;
@@ -1301,6 +1303,7 @@
       renderOntdek($("vOntdek"), g);
       renderVQuiz($("vQuiz"), g, c ? (g.quiz || []).concat((v && v.vragen) || []) : (v && v.vragen) || g.quiz);
       if (BR.tafereel) BR.tafereel.inVerhaal(box, steps, (k) => STEP_BY_KEY.get(k));
+      if (BR.foto) BR.foto.inVerhaal(box, steps);
     }
     $("vTerug").onclick = () => { vOpen = null; history.replaceState(null, "", "#verhalen"); renderVerhalen(); heleZichtbaar(); };
     if (niveau === "a" && heeftSamen(g)) samenKoppelen(g); else focusStory(g);
@@ -1332,6 +1335,7 @@
     if (vStap >= n) { renderVQuiz($("vQuiz"), g, v.vragen, true); focusStory(g); return; }
     const d = v.delen[vStap];
     if (BR.tafereel) BR.tafereel.bijStap($("aStap"), d.stap && STEP_BY_KEY.get(d.stap));
+    if (BR.foto) BR.foto.bijStap($("aStap"), d.stap && STEP_BY_KEY.get(d.stap));
     const ga = (j) => { vStap = j; renderVerhaal(g.nr); };
     $("aVerder").onclick = () => ga(vStap + 1);
     $("aTerug").onclick = () => ga(Math.max(0, vStap - 1));

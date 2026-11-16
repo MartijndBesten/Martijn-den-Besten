@@ -1535,3 +1535,19 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
   .tf-svg [class*="tf-l-"], .tf-svg [class*="tf-e-"] { animation: none !important; }
   .tf-opnieuw { display: none; }
 }
+
+/* ---------- Foto’s van de plaatsen (fotos.js, docs/bijbelreis-fotos/README.md) ---------- */
+.plaatsfoto { margin: 0; display: flex; flex-direction: column; gap: 6px; width: 100%; max-width: 460px; }
+.plaatsfoto .pf-kop { margin: 0; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); }
+.plaatsfoto img { display: block; width: 100%; height: auto; aspect-ratio: auto; border-radius: 10px; background: var(--oker-zacht, #f3ead6); border: 1px solid var(--lijn); }
+.plaatsfoto figcaption { font-size: 0.86rem; line-height: 1.45; color: var(--fg-2); }
+.plaatsfoto .pf-bron { display: block; margin-top: 2px; font-size: 0.74rem; line-height: 1.4; color: var(--fg-3); }
+.plaatsfoto .pf-bron a { color: inherit; }
+.pop .pf-ballon { margin: -2px 0 8px; max-width: none; gap: 3px; }
+.pop .pf-ballon img { border-radius: 8px; }
+.pop .pf-ballon .pf-bron { font-size: 0.7rem; margin: 0; }
+@media (max-width: 900px) {
+  /* Open stapblad: de foto direct na de tekst (zelfde volgorde-nummer als de tekst, dus in de volgorde van het document). */
+  .stapkaart > .plaatsfoto { order: 7; }
+  #p-reis .stapkaart > .plaatsfoto { max-width: none; }
+}
