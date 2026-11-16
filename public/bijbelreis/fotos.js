@@ -10,8 +10,8 @@
 //   licentie   bijv. "CC BY-SA 4.0" of "Publiek domein"; licentieUrl: de tekst van die licentie
 //   bron       de bestandspagina op commons.wikimedia.org; opgehaald: datum
 //
-// Waar een foto staat: in het open stapblad / de stapkaart onder de tekst (en onder een tafereel), in de ballon van de plaats
-// en één keer bij een geschiedenis. Niet in het korte blad. Een stap met `t: ""` in BR.beelden (bewust geen beeld, zoals de
+// Waar een foto staat: in het open stapblad / de stapkaart onder de tekst (en onder een tafereel), alleen als de plaats in
+// de titel of tekst van de stap genoemd wordt; in de ballon van de plaats; en één keer bij een geschiedenis. Niet in het korte blad. Een stap met `t: ""` in BR.beelden (bewust geen beeld, zoals de
 // kribbe) krijgt ook geen foto.
 window.BR = window.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} };
 BR.fotos = {
@@ -52,13 +52,28 @@ BR.fotos = {
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const PAD = "/bijbelreis/fotos/";
 
-  // Welke foto hoort bij deze stap? Bij een stap met een reis de laatste plaats (waar het gebeurt), anders de eerste.
+  // Welke foto hoort bij deze stap? Alleen een foto van een plaats die in de titel of de tekst van de stap staat: een
+  // foto die niets met de tekst te maken heeft, hoort er niet (opmerking van Martijn bij de algemene tekeningen,
+  // 16-11-2026). Eerst een plaats uit de titel (bij een reis de laatste: daar komt de reis aan), anders, bij een stap zonder
+  // reis, de eerste plaats als die in de tekst genoemd wordt. Een stap met `t: ""` in BR.beelden (bewust geen beeld,
+  // zoals de kribbe) krijgt geen foto.
+  // De namen van een plaats: ‘Hebron · Mamre’ telt als Hebron én Mamre; wat tussen haakjes staat, telt niet mee.
+  function namen(id) {
+    const p = (BR.plaatsen || {})[id];
+    return p && p.n ? p.n.replace(/\(.*?\)/g, "").split(/\s*[·\/]\s*/).map((x) => x.trim()).filter((x) => x.length > 2) : [];
+  }
+  const woord = (n) => new RegExp(`(^|[^\\p{L}])${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}($|[^\\p{L}])`, "iu");
+  const noemt = (tekst, id) => !!tekst && namen(id).some((n) => woord(n).test(tekst));
   function van(s) {
     if (!s || !s.at || !s.at.length) return null;
     const k = (BR.beelden || {})[s.key];
     if (k && k.t === "") return null; // bewust geen beeld bij deze stap
-    const id = s.r && s.r.length ? s.at[s.at.length - 1] : s.at[0];
-    return BR.fotos[id] ? { id, ...BR.fotos[id] } : null;
+    const reis = !!(s.r && s.r.length);
+    const metFoto = s.at.filter((id) => BR.fotos[id]);
+    const inTitel = metFoto.filter((id) => noemt(s.t, id));
+    let id = inTitel.length ? inTitel[reis ? inTitel.length - 1 : 0] : null;
+    if (!id && !reis && BR.fotos[s.at[0]] && noemt(s.txt, s.at[0])) id = s.at[0];
+    return id ? { id, ...BR.fotos[id] } : null;
   }
 
   function bronregel(f) {
@@ -93,10 +108,12 @@ BR.fotos = {
       const na = anker.nextElementSibling && anker.nextElementSibling.classList.contains("tafereel") ? anker.nextElementSibling : anker;
       na.after(maak(f));
     },
-    // Geschiedenis: één foto, van de eerste stap met een foto, onder de vertelling.
+    // Geschiedenis: één foto, van de eerste stap met een foto, onder de vertelling. Heeft een van de stappen bewust geen
+    // beeld (de geboorte, Golgotha), dan krijgt de hele geschiedenis geen foto.
     inVerhaal(box, steps) {
       box.querySelectorAll(".plaatsfoto").forEach((e) => e.remove());
-      const f = steps.map(van).find(Boolean), v = box.querySelector("#vVertelling");
+      const leeg = steps.some((s) => s && (BR.beelden || {})[s.key] && BR.beelden[s.key].t === "");
+      const f = leeg ? null : steps.map(van).find(Boolean), v = box.querySelector("#vVertelling");
       if (!f || !v) return;
       let na = v;
       // Na een tafereel en de knop ‘Lees verder’ die direct na de vertelling staan.

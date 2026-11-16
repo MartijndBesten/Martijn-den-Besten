@@ -107,3 +107,12 @@ herdenking (Nazareth) en een schildering op een spandoek (Babylon).
   (`../bijbelreis-taferelen/README.md`).
 - Geen foto’s die rechtstreeks van Wikimedia worden geladen (privacy en CSP).
 - Geen foto bij plaatsen waarvan de ligging betwist of onbekend is.
+
+## Welke stap welke foto krijgt (besluit 16-11-2026)
+
+Alleen een foto van een plaats die **in de titel of de tekst van de stap genoemd wordt** (`BR.foto.van` in `fotos.js`).
+Eerst een plaats uit de titel (bij een reis de laatste: daar komt de reis aan, zoals Bethlehem bij ‘Van Nazareth naar
+Bethlehem’); anders, bij een stap zonder reis, de eerste plaats als de tekst die noemt. Zo komt er geen foto van Rome bij ‘De
+mantel in Troas’. Martijn viel eerder over een tekening die niets met de tekst te maken had; voor foto’s geldt hetzelfde.
+Gevolg: 135 stappen hebben een foto (bij de eerste opzet 272). Een geschiedenis met een stap die bewust geen beeld heeft (de
+geboorte, Golgotha) krijgt geen foto. Een unittest bewaakt beide regels.

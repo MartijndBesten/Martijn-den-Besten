@@ -130,3 +130,13 @@ test("een geschiedenis heeft één foto, na de vertelling", async ({ page, baseU
   expect(extern).toEqual([]);
   expect(errors).toEqual([]);
 });
+
+test("alleen een foto van een plaats die in de stap genoemd wordt; de geboorte krijgt ook in Verhalen geen foto", async ({ page }) => {
+  const errors = watchErrors(page);
+  // ‘De mantel in Troas’ eindigt in Rome, maar noemt Rome niet: geen foto (een foto zonder verband met de tekst hoort er niet).
+  await page.goto("about:blank");
+  await page.goto("/bijbelreis#v83");
+  await expect(page.locator(".verhaal #vVertelling")).not.toBeEmpty();
+  await expect(page.locator(".verhaal .plaatsfoto")).toHaveCount(0);
+  expect(errors).toEqual([]);
+});

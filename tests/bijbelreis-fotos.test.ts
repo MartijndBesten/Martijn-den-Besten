@@ -76,12 +76,27 @@ describe("foto’s: gegevens en licenties", () => {
 });
 
 describe("foto’s: welke stap welke foto krijgt", () => {
-  it("een stap zonder reis krijgt de foto van zijn eerste plaats, een stap met reis die van zijn laatste", () => {
-    const zonder = STAPPEN.find((s) => !(s.r && s.r.length) && s.at.length && F[s.at[0]] && !(BR.beelden[s.key] && BR.beelden[s.key].t === ""))!;
-    expect(BR.foto.van(zonder)!.id).toBe(zonder.at[0]);
-    const met = STAPPEN.find((s) => s.r && s.r.length && s.at.length > 1 && F[s.at[s.at.length - 1]])!;
-    expect(BR.foto.van(met)!.id).toBe(met.at[met.at.length - 1]);
+  // Regel (16-11-2026): alleen een foto van een plaats die in de titel of de tekst van de stap staat. Martijn viel eerder
+  // over een tekening die niets met de tekst te maken had; een foto van Rome bij ‘De mantel in Troas’ is dezelfde fout.
+  const namen = (id: string) => BR.plaatsen[id].n.replace(/\(.*?\)/g, "").split(/\s*[·/]\s*/).map((x) => x.trim()).filter((x) => x.length > 2);
+  const genoemd = (tekst: string | undefined, id: string) => !!tekst && namen(id).some((n) => new RegExp(`(^|[^\\p{L}])${n}($|[^\\p{L}])`, "iu").test(tekst));
+  it("een stap krijgt alleen een foto van een plaats die in zijn titel of tekst genoemd wordt", () => {
+    let n = 0;
+    for (const s of STAPPEN) {
+      const f = BR.foto.van(s);
+      if (!f) continue;
+      n++;
+      expect(s.at, s.key).toContain(f.id);
+      expect(genoemd(s.t, f.id) || genoemd((s as Stap & { txt?: string }).txt, f.id), `${s.key} ‘${s.t}’ → ${f.id}`).toBe(true);
+    }
+    expect(n).toBeGreaterThan(100);
     expect(BR.foto.van(null)).toBeNull();
+  });
+  it("bij een reis met twee genoemde plaatsen de bestemming; geen foto als de plaats niet genoemd wordt", () => {
+    const bethlehem = STAPPEN.find((s) => s.t === "Van Nazareth naar Bethlehem")!;
+    expect(BR.foto.van(bethlehem)!.id).toBe("efrath");
+    const troas = STAPPEN.find((s) => s.t === "De mantel in Troas");
+    if (troas) expect(BR.foto.van(troas)).toBeNull();
   });
   it("bewust geen beeld (t: \"\") betekent ook geen foto: de kribbe en de achtste dag", () => {
     for (const key of ["kerst:kerst-geboorte:2", "kerst:kerst-geboorte:6"]) {
