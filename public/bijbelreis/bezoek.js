@@ -48,6 +48,8 @@
     window.addEventListener("pageshow", function (e) { if (e.persisted && sinds === null && document.visibilityState !== "hidden") sinds = nu(); });
     // En om de twee minuten, zolang de pagina in beeld is: zo telt ook een bezoek waarvan het einde nooit aankomt.
     setInterval(function () { if (sinds !== null) meld(); }, 120000);
+    // Een kort bezoek waarvan het einde niet aankomt, zou anders als 0 seconden staan: daarom ook na 10, 30 en 60 seconden.
+    [10000, 30000, 60000].forEach(function (ms) { setTimeout(function () { if (sinds !== null) meld(); }, ms); });
     meld();
   } catch (e) { /* de meting is nooit belangrijker dan de site */ }
 })();

@@ -38,7 +38,7 @@ anders, dus iemand is niet van dag tot dag te volgen. Heeft de Worker geen `HASH
 het beheer ‘onbekend’ bij bezoekers; de code valt nooit terug op een bekende sleutel.
 
 **Verloop.** Bij het laden gaat er één melding uit. Daarna bij het verbergen van de pagina (tabbladwissel, telefoon op
-slot), bij het verlaten, en zolang de pagina in beeld is elke twee minuten. De server werkt steeds dezelfde rij bij en
+slot), bij het verlaten, en zolang de pagina in beeld is na 10, 30 en 60 seconden en daarna elke twee minuten. De server werkt steeds dezelfde rij bij en
 houdt het hoogste van duur en stappen.
 
 ## 2. Wat er bewust niet gebeurt
@@ -106,8 +106,8 @@ Terugdraaien: de vorige versie van beide Workers terugzetten (`wrangler rollback
 ## 6. Bekende zwaktes
 
 - **Het einde van een bezoek komt niet altijd aan.** Safari stuurt bij het wegvegen van een tabblad soms niets meer. De
-  melding om de twee minuten vangt dat op, dus de duur kan tot twee minuten te laag zijn; een bezoek van onder de twee
-  minuten kan dan als 0 seconden staan.
+  tussentijdse meldingen (na 10, 30 en 60 seconden, daarna elke twee minuten) vangen dat op: de duur kan dan in de eerste
+  minuut tot een halve minuut en daarna tot twee minuten te laag zijn.
 - **Een bezoek is een paginalading, geen persoon.** Herladen, of van de atlas naar het boekje gaan, is een nieuw bezoek.
 - **Bezoekers is een schatting** (zie §3).
 - **Gedeelde database** met de hoofdsite: bij een stortvloed beschermt alleen de rem in het geheugen de schrijflimiet van
