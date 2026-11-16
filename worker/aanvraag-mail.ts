@@ -37,6 +37,7 @@ body { background:#14191f !important; }
 .quote { background:#222a33 !important; color:#e8eaed !important; }
 .bg { background:#14191f !important; }
 .lnk { color:#8fbce8 !important; }
+.btn { background:#2f6ea8 !important; color:#ffffff !important; }
 }
 </style>
 </head>
@@ -63,7 +64,7 @@ body { background:#14191f !important; }
 </tr>
 <tr>
 <td style="padding:18px 22px 4px 22px;">
-<a href="https://martijndenbesten.com/beheer" style="display:inline-block;background:#1c3d5a;color:#ffffff;text-decoration:none;font-size:15px;font-weight:600;padding:12px 20px;border-radius:9px;">Afhandelen in beheer</a>
+<a href="https://martijndenbesten.com/beheer" class="btn" style="display:inline-block;background:#1c3d5a;color:#ffffff;text-decoration:none;font-size:15px;font-weight:600;padding:12px 20px;border-radius:9px;">Afhandelen in beheer</a>
 {{KNOP_ANTWOORD}}
 </td>
 </tr>

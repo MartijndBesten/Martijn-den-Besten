@@ -52,6 +52,12 @@ describe("aanvraagmail: het sjabloon", () => {
     expect(html.startsWith("<!DOCTYPE html>")).toBe(true);
     expect(html).toContain('<meta name="color-scheme" content="light dark">');
     expect(html).toContain("@media (prefers-color-scheme: dark)");
+    // Correctie van Martijn (16-11-2026): in donker krijgt de knop ‘Afhandelen in beheer’ een lichtere achtergrond; de
+    // vaste stijl op de knop zelf (licht) blijft ongewijzigd.
+    expect(html).toContain(".btn { background:#2f6ea8 !important; color:#ffffff !important; }");
+    expect(html).toContain('<a href="https://martijndenbesten.com/beheer" class="btn" style="display:inline-block;background:#1c3d5a;color:#ffffff;');
+    expect(html.indexOf(".btn {")).toBeGreaterThan(html.indexOf("@media (prefers-color-scheme: dark)"));
+    expect(html.split('class="btn"').length - 1).toBe(1);
   });
 });
 

@@ -191,7 +191,9 @@ uitkomst met zijn origineel (`tests/fixtures/aanvraagmail-sjabloon.html`).
 - **Wat vervalt:** zonder plaats de regel ‘Waar’; zonder e-mailadres zowel de knop ‘Antwoorden’ als de regel ‘Antwoord
   naar’. De zoekterm van de bezoeker wordt niet apart bewaard: die staat in de tekst van de aanvraag.
 - **De mail laadt niets:** geen afbeeldingen, scripts of lettertypen; alleen de link naar het beheer en de `mailto:`.
-- **Licht en donker** volgen het apparaat (`prefers-color-scheme`). Bekeken in Chromium op 390 px breed, in licht en
+- **Licht en donker** volgen het apparaat (`prefers-color-scheme`). In donker krijgt de knop ‘Afhandelen in beheer’
+  een lichtere achtergrond (`.btn`, correctie van Martijn op het sjabloon): donkerblauw op de donkere kaart had te weinig
+  contrast. Bekeken in Chromium op 390 px breed, in licht en
   donker, met en zonder plaats en e-mailadres en met een lange tekst; **niet** in Apple Mail, Gmail of Outlook zelf.
   Gmail negeert `<style>` in sommige weergaven: daar blijft de lichte versie staan, ook als het toestel donker is.
 - Voorbeelden opnieuw maken: bundel een scriptje dat `maakBericht` aanroept (zie de PR bij deze wijziging) en open de
