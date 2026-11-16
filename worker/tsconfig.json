@@ -11,5 +11,5 @@
     "types": ["@cloudflare/workers-types", "node"]
   },
   "exclude": ["./embedded.ts", "./bijbelreis.ts", "./generated"],
-  "include": ["./**/*.ts", "../www/**/*.ts", "../shared/**/*.ts", "../tests/worker.test.ts", "../tests/bezoek.test.ts", "../tests/d1-shim.ts"]
+  "include": ["./**/*.ts", "../www/**/*.ts", "../shared/**/*.ts", "../tests/worker.test.ts", "../tests/bezoek.test.ts", "../tests/aanvraag.test.ts", "../tests/d1-shim.ts"]
 }

@@ -1,8 +1,8 @@
-// Directiekamer: moderatie van ingezonden ideeën en de bezoekcijfers van bijbelreis.nl. Vereist het beheertoken
-// (Worker-secret ADMIN_TOKEN).
+// Directiekamer: moderatie van ingezonden ideeën, de bezoekcijfers van bijbelreis.nl en de aanvragen van bezoekers
+// van bijbelreis.nl. Vereist het beheertoken (Worker-secret ADMIN_TOKEN).
 
 import { useCallback, useEffect, useState, type FormEvent } from "react";
-import { api, type AdminIdea, type BezoekCijfers, type BezoekOverzicht } from "../lib/api";
+import { api, type AdminIdea, type Aanvraag, type BezoekCijfers, type BezoekOverzicht } from "../lib/api";
 import "../styles/pages.css";
 
 const KEY = "mdb:beheer-token";
@@ -137,13 +137,93 @@ function Bezoek({ token, onGeweigerd }: { token: string; onGeweigerd: (melding: 
   );
 }
 
+// ---------- Aanvragen bijbelreis.nl ----------
+// ‘Mis je iets? Vraag het aan’: wat bezoekers vragen (docs/bijbelreis-aanvraag/README.md). De tekst van een bezoeker
+// wordt als platte tekst getoond; er wordt niets van klikbaar gemaakt.
+
+const SOORT: Record<Aanvraag["soort"], string> = { gemist: "Gemist gedeelte of verhaal", groep: "School, club of kerk", fout: "Fout of verbetering", anders: "Iets anders" };
+const CONTEXT = /^#[A-Za-z0-9][A-Za-z0-9/=&_-]{0,78}$/;
+
+function Aanvragen({ token, onGeweigerd, onNieuw }: { token: string; onGeweigerd: (melding: string) => void; onNieuw: (n: number) => void }) {
+  const [status, setStatus] = useState<"nieuw" | "afgehandeld">("nieuw");
+  const [lijst, setLijst] = useState<Aanvraag[] | null>(null);
+  const [melding, setMelding] = useState("");
+
+  const laad = useCallback(async () => {
+    const r = await api.adminAanvragen(token, status);
+    if (r.ok) {
+      setLijst(r.data.aanvragen);
+      onNieuw(r.data.nieuw);
+    } else if (r.status === 401) onGeweigerd(r.error);
+    else setMelding(r.error);
+  }, [token, status, onGeweigerd, onNieuw]);
+
+  useEffect(() => {
+    void laad();
+  }, [laad]);
+
+  const doe = async (a: Aanvraag, actie: "afgehandeld" | "verwijder") => {
+    if (actie === "verwijder" && !window.confirm("Deze aanvraag definitief verwijderen?")) return;
+    const r = await api.adminAanvraag(token, a.id, actie);
+    setMelding(r.ok ? (actie === "afgehandeld" ? "Afgehandeld. Het e-mailadres is gewist." : "Verwijderd.") : r.error);
+    void laad();
+  };
+
+  return (
+    <div className="aanvragen">
+      <div className="beheer__bar">
+        {(["nieuw", "afgehandeld"] as const).map((s) => (
+          <button key={s} type="button" className={`btn btn--small ${status === s ? "btn--ink" : "btn--ivory"}`} aria-pressed={status === s} onClick={() => {
+            setStatus(s);
+            setMelding("");
+          }}>
+            {s === "nieuw" ? "Nieuw" : "Afgehandeld"}
+          </button>
+        ))}
+        <button type="button" className="btn btn--small btn--ivory" onClick={() => void laad()}>Vernieuwen</button>
+      </div>
+      <p className="bezoek__uitleg">
+        Wat bezoekers van bijbelreis.nl vragen via ‘Mis je iets? Vraag het aan’. Antwoord eerst als er een e-mailadres bij staat; bij ‘Afgehandeld’ wordt dat adres gewist. Aanvragen ouder dan 400 dagen verdwijnen vanzelf.
+      </p>
+      {melding && <p className="form-message" role="status">{melding}</p>}
+      {!lijst ? (
+        !melding && <p>Aanvragen ophalen…</p>
+      ) : lijst.length === 0 ? (
+        <p>{status === "nieuw" ? "Geen nieuwe aanvragen." : "Nog geen afgehandelde aanvragen."}</p>
+      ) : (
+        <ul className="beheer__list">
+          {lijst.map((a) => (
+            <li key={a.id} className="panel aanvragen__item">
+              <span className="label">#{a.id} · {SOORT[a.soort] ?? a.soort} · {new Date(a.tijd * 1000).toLocaleString("nl-NL", { dateStyle: "medium", timeStyle: "short" })}</span>
+              <p className="aanvragen__tekst">{a.tekst}</p>
+              <dl>
+                {CONTEXT.test(a.context) && (
+                  <div><dt>Waar</dt><dd><a href={`https://bijbelreis.nl/${a.context}`} target="_blank" rel="noopener noreferrer">bijbelreis.nl/{a.context}</a></dd></div>
+                )}
+                <div><dt>Antwoord</dt><dd>{a.email ? <a href={`mailto:${a.email}?subject=${encodeURIComponent("Je aanvraag bij de Bijbelreis")}`}>{a.email}</a> : a.status === "afgehandeld" ? "e-mailadres gewist of niet opgegeven" : "geen e-mailadres opgegeven"}</dd></div>
+                {a.afgehandeld_op && <div><dt>Afgehandeld</dt><dd>{new Date(a.afgehandeld_op * 1000).toLocaleString("nl-NL", { dateStyle: "medium", timeStyle: "short" })}</dd></div>}
+              </dl>
+              <div className="plaque__actions">
+                {a.status === "nieuw" && <button type="button" className="btn btn--small btn--sage" onClick={() => void doe(a, "afgehandeld")}>Afgehandeld</button>}
+                <button type="button" className="btn btn--small btn--terra" onClick={() => void doe(a, "verwijder")}>Verwijderen</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 export default function Beheer() {
   const [token, setToken] = useState(readToken);
   const [input, setInput] = useState("");
   const [status, setStatus] = useState<"pending" | "approved" | "rejected">("pending");
   const [ideas, setIdeas] = useState<AdminIdea[]>([]);
   const [message, setMessage] = useState("");
-  const [onderdeel, setOnderdeel] = useState<"ideeen" | "bezoek">("ideeen");
+  const [onderdeel, setOnderdeel] = useState<"ideeen" | "bezoek" | "aanvragen">("ideeen");
+  // Het aantal nieuwe aanvragen staat op de knop van het onderdeel, ook als je er nog niet op hebt geklikt.
+  const [nieuweAanvragen, setNieuweAanvragen] = useState<number | null>(null);
 
   useEffect(() => {
     const meta = document.createElement("meta");
@@ -174,6 +254,17 @@ export default function Beheer() {
   useEffect(() => {
     void refresh();
   }, [refresh]);
+
+  useEffect(() => {
+    if (!token) return;
+    let actief = true;
+    void api.adminAanvragen(token, "nieuw").then((r) => {
+      if (actief && r.ok) setNieuweAanvragen(r.data.nieuw);
+    });
+    return () => {
+      actief = false;
+    };
+  }, [token]);
 
   const afmelden = useCallback((melding: string) => {
     setMessage(melding);
@@ -207,7 +298,7 @@ export default function Beheer() {
     <div className="page beheer">
       <div className="wrap" style={{ paddingBlock: "48px" }}>
         <span className="dept-no">Directiekamer · alleen voor bevoegden</span>
-        <h1>{token && onderdeel === "bezoek" ? "Bezoek bijbelreis.nl" : "Moderatie ideeënloket"}</h1>
+        <h1>{token && onderdeel === "bezoek" ? "Bezoek bijbelreis.nl" : token && onderdeel === "aanvragen" ? "Aanvragen bijbelreis.nl" : "Moderatie ideeënloket"}</h1>
         {!token ? (
           <form className="panel beheer__login" onSubmit={login}>
             <div className="field">
@@ -223,9 +314,14 @@ export default function Beheer() {
             <div className="beheer__bar beheer__onderdelen" role="group" aria-label="Onderdeel">
               <button type="button" className={`btn btn--small ${onderdeel === "ideeen" ? "btn--indigo" : "btn--ivory"}`} aria-pressed={onderdeel === "ideeen"} onClick={() => setOnderdeel("ideeen")}>Ideeënloket</button>
               <button type="button" className={`btn btn--small ${onderdeel === "bezoek" ? "btn--indigo" : "btn--ivory"}`} aria-pressed={onderdeel === "bezoek"} onClick={() => setOnderdeel("bezoek")}>Bezoek bijbelreis.nl</button>
+              <button type="button" className={`btn btn--small ${onderdeel === "aanvragen" ? "btn--indigo" : "btn--ivory"}`} aria-pressed={onderdeel === "aanvragen"} onClick={() => setOnderdeel("aanvragen")}>
+                Aanvragen bijbelreis.nl{nieuweAanvragen ? <span className="aanvragen__teller" aria-label={`${nieuweAanvragen} nieuw`}>{nieuweAanvragen}</span> : null}
+              </button>
             </div>
             {onderdeel === "bezoek" ? (
               <Bezoek token={token} onGeweigerd={afmelden} />
+            ) : onderdeel === "aanvragen" ? (
+              <Aanvragen token={token} onGeweigerd={afmelden} onNieuw={setNieuweAanvragen} />
             ) : (
             <>
             <div className="beheer__bar">
