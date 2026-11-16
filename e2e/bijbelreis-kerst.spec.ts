@@ -62,29 +62,36 @@ function contrast(a: string, b: string) {
   return (x + 0.05) / (y + 0.05);
 }
 
-test("kerst: in het seizoen staat er één rustige ingang bovenaan Verhalen; die begint de kerstreis", async ({ page }) => {
+// Sinds 16-11-2026 heeft de ingang een weekritme (elke week één deel; e2e/bijbelreis-start.spec.ts test de weken) en ziet
+// een nieuwe bezoeker erboven de zin van de startkaart. IN_SEIZOEN is 10 december 2026: de week van deel 2.
+test("kerst: in het seizoen staat er één rustige ingang bovenaan Verhalen; die wijst het deel van deze week aan", async ({ page }) => {
   const errors = watchErrors(page);
   await open(page, IN_SEIZOEN, "/bijbelreis");
   await expect(page.locator("body")).toHaveAttribute("data-seizoen", "kerst");
   const ingang = page.locator("#seizoen");
   await expect(ingang).toBeVisible();
   await expect(ingang.locator("h2")).toHaveText("Kerst: van Adam tot Bethlehem");
-  await expect(ingang.locator(".sz-zin")).toHaveCount(1);
-  await expect(ingang.locator(".sz-zin")).toContainText("de Heere Jezus");
-  await expect(ingang.locator("button")).toHaveCount(1);
-  await expect(ingang.locator("button")).toHaveText(/^Begin de kerstreis/);
+  await expect(ingang.locator(".sz-week span")).toHaveText("Deze week · deel 2 van 6");
+  await expect(ingang.locator(".sz-week b")).toHaveText("Van David tot Jozef");
+  await expect(ingang.locator(".sz-knop")).toHaveText(/^Lees deel 2/);
+  await expect(ingang.locator(".sz-tweede")).toHaveText("Begin bij deel 1");
   await expect(ingang.locator("a, img")).toHaveCount(0);
-  // Een nieuwe bezoeker heeft geen ‘Verder met’; de ingang staat boven de lijst met geschiedenissen en verandert die niet.
-  await expect(page.locator("#welkom")).toBeHidden();
+  // Een nieuwe bezoeker heeft geen ‘Verder met’: boven de ingang staat de zin van de startkaart (die zegt wat de atlas
+  // is; de eigen zin van het thema staat er dan niet ook nog). De ingang staat boven de lijst en verandert die niet.
+  await expect(page.locator("#welkom .verdermet")).toHaveCount(0);
+  await expect(page.locator("#welkom .st-zin")).toBeVisible();
+  await expect(ingang.locator(".sz-zin")).toHaveCount(0);
+  expect(await boven(page, "#welkom .st-zin", "#seizoen")).toBe(true);
   expect(await boven(page, "#seizoen", "#p-verhalen h2")).toBe(true);
   await expect(page.locator("#vLijst [data-v]")).toHaveCount(150);
   // Buiten het thema is het uiterlijk van de atlas gewoon.
   await expect(page.locator("body")).not.toHaveAttribute("data-thema", /./);
-  const knop = await ingang.locator("button").evaluate((e) => { const s = getComputedStyle(e); return [s.color, s.backgroundColor, e.getBoundingClientRect().height] as const; });
+  const knop = await ingang.locator(".sz-knop").evaluate((e) => { const s = getComputedStyle(e); return [s.color, s.backgroundColor, e.getBoundingClientRect().height] as const; });
   expect(contrast(knop[0], knop[1])).toBeGreaterThanOrEqual(4.5);
   expect(knop[2]).toBeGreaterThanOrEqual(44);
+  expect((await ingang.locator(".sz-tweede").boundingBox())!.height).toBeGreaterThanOrEqual(44);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await ingang.locator("button").click();
+  await ingang.locator(".sz-tweede").click();
   await expect(page.locator("#sTitle")).toHaveText("De belofte: van Adam tot David");
   await expect(page).toHaveURL(/#kerst-belofte$/);
   await expect(page.locator("body")).toHaveAttribute("data-thema", "kerst");
@@ -99,15 +106,16 @@ test("kerst: in het seizoen staat er één rustige ingang bovenaan Verhalen; die
   expect(errors).toEqual([]);
 });
 
-test("kerst: met voortgang zegt de ingang ‘Verder met de kerstreis’ en gaat hij naar de laatst geopende stap", async ({ page }) => {
+test("kerst: met voortgang biedt de ingang ‘Verder waar je was’, naar de laatst geopende stap", async ({ page }) => {
   const errors = watchErrors(page);
   await open(page, IN_SEIZOEN, "/bijbelreis", { opslag: { gezien: ["kerst:kerst-belofte:0", "kerst:kerst-belofte:1", "kerst:kerst-aankondiging:2"], laatst: "kerst:kerst-aankondiging:2", huidig: { k: "kerst:kerst-aankondiging:2" } } });
   const ingang = page.locator("#seizoen");
-  await expect(ingang.locator("button")).toHaveText(/^Verder met de kerstreis/);
-  await expect(ingang.locator(".sz-stand")).toHaveText("Je bent bij deel 3 van 6: Aankondiging");
-  // In het seizoen doet de ingang dit; er staat geen tweede knop ‘Verder met’ naar dezelfde stap.
+  await expect(ingang.locator(".sz-knop")).toHaveText(/^Lees deel 2/);
+  await expect(ingang.locator(".sz-tweede")).toHaveText("Verder waar je was: deel 3");
+  // In het seizoen doet de ingang dit; er staat geen tweede knop ‘Verder met’ naar dezelfde stap, en geen startkaart.
   await expect(page.locator("#welkom .verdermet")).toHaveCount(0);
-  await ingang.locator("button").click();
+  await expect(page.locator(".startkaart")).toHaveCount(0);
+  await ingang.locator(".sz-tweede").click();
   await expect(page).toHaveURL(/#kerst-aankondiging\/3$/);
   await expect(page.locator("#sTitle")).toHaveText(/^3\. /);
   // De opslag is niet veranderd: dezelfde sleutels, dezelfde stempels.
@@ -115,15 +123,17 @@ test("kerst: met voortgang zegt de ingang ‘Verder met de kerstreis’ en gaat 
   expect(errors).toEqual([]);
 });
 
-test("kerst: Samen ontdekken heeft de ingang ook, met een eenvoudige zin", async ({ page }) => {
+test("kerst: Samen ontdekken heeft de ingang ook, met een eenvoudige zin en zonder de knop Deel", async ({ page }) => {
   const errors = watchErrors(page);
-  await open(page, IN_SEIZOEN, "/bijbelreis", { niveau: "a" });
+  // Een gezin dat al een geschiedenis las: dan staat de zin van het thema op de kaart.
+  await open(page, IN_SEIZOEN, "/bijbelreis", { niveau: "a", opslag: { verhalen: { 1: { g: 1 } }, huidig: { v: 1 } } });
   const ingang = page.locator("#seizoen");
   await expect(ingang).toBeVisible();
   await expect(ingang.locator(".sz-zin")).toHaveText("Van Adam tot de geboorte van de Heere Jezus in Bethlehem.");
-  await expect(ingang.locator("button")).toHaveText(/^Begin de kerstreis/);
-  await ingang.locator("button").click();
-  await expect(page.locator("#sTitle")).toHaveText("De belofte: van Adam tot David");
+  await expect(ingang.locator(".sz-knop")).toHaveText(/^Lees deel 2/);
+  await expect(ingang.locator(".deelknop")).toHaveCount(0);
+  await ingang.locator(".sz-knop").click();
+  await expect(page.locator("#sTitle")).toHaveText("Van David tot Jozef");
   expect(errors).toEqual([]);
 });
 
@@ -133,7 +143,10 @@ test("kerst: buiten het seizoen geen ingang op de start; het thema blijft bereik
   await expect(page.locator("body")).not.toHaveAttribute("data-seizoen", /./);
   await expect(page.locator("#seizoen")).toBeHidden();
   await expect(page.locator("#seizoen")).toBeEmpty();
-  await expect(page.locator("#welkom")).toBeHidden();
+  // Een nieuwe bezoeker ziet de gewone startkaart (Abraham), zonder iets van Kerst.
+  await expect(page.locator("#welkom .st-knop")).toContainText("Begin de reis");
+  await expect(page.locator("#welkom")).not.toContainText(/kerst/i);
+  await expect(page.locator("#welkomNa")).toBeHidden();
   await expect(page.locator("#p-verhalen")).not.toContainText("kerstreis");
   // Via Reis en ‘Thema’s’ kom je er wel.
   await page.getByRole("tab", { name: "Reis" }).click();

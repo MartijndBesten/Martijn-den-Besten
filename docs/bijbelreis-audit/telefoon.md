@@ -283,6 +283,54 @@ Twee opmerkingen van Martijn op zijn iPhone, beide verwerkt:
      die ruimte vrij. De knop is weg zolang het blad, een ballon of het kaartpaneel open is. Hetzelfde geldt voor
      Abraham (Van Ur naar Kanaän) en Moab (Kies dan het leven).
 
+### 4.7 De eerste tien seconden, en delen (16-11-2026)
+
+**Cijfers van de eerste ochtend van de bezoekmeting** (40 bezoeken, 34 op de telefoon, alle herkomst ‘direct’, dus een
+doorgestuurde link of een getypt adres; kleine steekproef, met de bezoeken van de maker erbij): 16 bezoeken korter dan 10
+seconden, 11 langer dan een minuut, 7 met minstens één geopende reisstap.
+
+**Wat een nieuwe bezoeker zag:** een kaart met stippen en daaronder de vraag ‘Hoe wil je op reis?’ met drie leeftijden.
+Nergens stond wat dit is of waar je begint, en je moest eerst kiezen.
+
+**Wat er nu staat** (`renderWelkom` in `app.js`, `.startkaart`), bij een bezoeker die nog niets geopend heeft:
+
+1. Eén zin: “Volg de reizen uit de Bijbel op de kaart, stap voor stap. Voor naast je eigen Bijbel.”
+2. Eén grote knop die meteen begint: **Begin de reis ▶** met eronder ‘Abraham · van Ur naar Kanaän’. Hij opent `#abraham`:
+   de reis met de kaart voorop, het overzicht van de route en de knop Start.
+3. Klein: ‘Voor wie?’ met drie knoppen (4–6 jaar, 7–10 jaar, 11+). ‘Zelf op reis’ staat al aan; kiezen is niet nodig.
+   De standaard wordt bij het eerste bezoek meteen bewaard (`bijbelreis:niveau` = `b`); vroeger gebeurde dat pas bij het
+   kiezen, waardoor wie niet koos bij het tweede bezoek voor ‘al onderweg’ doorging en de volledige inhoud kreeg.
+4. ‘Of kies hieronder zelf een verhaal.’ De lijst staat er gewoon onder.
+
+In de kersttijd is de seizoenskaart de hoofdingang: dan staat alleen de zin erboven, en ‘Of begin bij Abraham’ met ‘Voor
+wie?’ eronder (`#welkomNa`). Zodra er voortgang is, staat er alleen ‘Verder met: …’, zoals voorheen. Wie een niveau koos
+maar nog niets opende, houdt de startknop. Een gedeelde link (`#v26`, `#jakob`) opent meteen het verhaal of het deel; de
+startkaart komt er niet tussen.
+
+Op de telefoon is de kaart bij dit eerste bezoek lager (32 % van de schermhoogte, minstens 180 px, in plaats van 42 %;
+`body.eerste`), zodat de zin en de knop in het eerste scherm staan. Gemeten op het zichtbare venster (isMobile, hasTouch):
+
+| Venster | Kaart | Onderkant startknop | Bovenkant onderbalk | Hele startkaart in beeld |
+| --- | --- | --- | --- | --- |
+| 390×664 | 212 px | 426 px | 616 px | ja (564 px) |
+| 375×553 | 180 px | 390 px | 505 px | nee, ‘Voor wie?’ deels (528 px) |
+| 360×640 | 205 px | 419 px | 592 px | ja (556 px) |
+| 390×664, kersttijd | 212 px | 524 px (‘Lees deel 2’) | 616 px | n.v.t. |
+| 375×553, kersttijd | 180 px | 488 px | 505 px | n.v.t. |
+| 360×640, kersttijd | 205 px | 540 px | 592 px | n.v.t. |
+
+**Delen.** Alle bezoekers kwamen via een doorgestuurde link. Eén knop **Deel** (`deelLink` in `app.js`) staat bij een
+geschiedenis (bij de titel en onderaan), bij de intro en de laatste stap van een deel (in het open stapblad of de
+stapkaart; niet in het korte stapblad, dat is even hoog gebleven) en op de seizoenskaart. Op de telefoon opent hij het
+deelmenu van het toestel (`navigator.share`; WhatsApp staat daar vanzelf bij). Is dat er niet, dan wordt de link
+gekopieerd met de melding ‘Link gekopieerd’; lukt ook dat niet, dan staat de link in een veld. Gedeeld wordt alleen de
+titel, ‘Op reis door de Bijbel’ en het adres op `https://bijbelreis.nl/` (`#v26`, `#jakob`, `#kerst-belofte`): geen
+reisniveau, geen voortgang, niets van de bezoeker. Niet bij Samen ontdekken. Geen extern script en geen wa.me-link; de
+CSP is ongewijzigd. Het deelvoorbeeld (og-tags, `og.png`) is voor elke link hetzelfde, omdat het deel achter de `#` niet
+naar de server gaat.
+
+Tests: `e2e/bijbelreis-start.spec.ts`, `tests/bijbelreis-kerst.test.ts` (het weekritme).
+
 ## 5. Werkwijze en bestanden
 
 - Servertje (buiten de repo): `mobiel-server-8820.mjs` in de scratchmap van deze sessie, poort 8820, `public/` met

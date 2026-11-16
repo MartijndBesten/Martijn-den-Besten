@@ -12,7 +12,7 @@ const scripts = [...html.matchAll(/<script src="\/bijbelreis\/([^"?]+)"/g)].map(
 
 type Deel = { id: string; nt?: boolean; short: string; steps: { ref: string }[] };
 type Boek = { id: string; n: string; thema?: string; nt?: boolean; delen: Deel[] };
-type Seizoen = { kerstTijd: (d?: Date | number | string) => boolean; eersteAdvent: (jaar: number) => Date };
+type Seizoen = { kerstTijd: (d?: Date | number | string) => boolean; eersteAdvent: (jaar: number) => Date; kerstBegindagen: (jaar: number) => Date[]; kerstWeek: (d?: Date | number | string) => number; kerstVolgende: (d?: Date | number | string) => Date | null };
 type Dia = { s: string; kaart?: { ot?: number } };
 type Pakket = { nt: boolean; titel: string; dias: Dia[] };
 type BRt = { boeken: Boek[]; seizoen: Seizoen; boekjeInhoud: { maak: (br: BRt, keuze: Record<string, unknown>) => Pakket | null; lees: (hash: string) => Record<string, unknown> } };
@@ -21,7 +21,7 @@ type BRt = { boeken: Boek[]; seizoen: Seizoen; boekjeInhoud: { maak: (br: BRt, k
 const ctx: { window: { BR?: BRt } } = { window: {} };
 for (const s of scripts.filter((s) => !/^(leaflet|app)\.js$/.test(s)).concat(["boekje-inhoud.js"])) runInNewContext(lees(s).replace(/\bBR\./g, "window.BR."), ctx);
 const BR = ctx.window.BR as BRt;
-const { kerstTijd, eersteAdvent } = BR.seizoen;
+const { kerstTijd, eersteAdvent, kerstBegindagen, kerstWeek, kerstVolgende } = BR.seizoen;
 const dag = (j: number, m: number, d: number, u = 12, min = 0) => new Date(j, m - 1, d, u, min);
 
 describe("seizoen: van de eerste adventszondag tot en met 6 januari", () => {
@@ -72,6 +72,74 @@ describe("seizoen: van de eerste adventszondag tot en met 6 januari", () => {
     expect(scripts.indexOf("seizoen.js")).toBeGreaterThan(-1);
     expect(scripts.indexOf("seizoen.js")).toBeLessThan(scripts.indexOf("app.js"));
     expect(lees("seizoen.js")).not.toMatch(/localStorage|sessionStorage|fetch\(|document\./);
+  });
+});
+
+
+// Het weekritme (16-11-2026): in het seizoen is elke week één van de zes delen van de kerstreis aan de beurt. Niets zit
+// op slot; de week is alleen een aanwijzing op de seizoenskaart.
+describe("seizoen: elke week één deel van de kerstreis", () => {
+  const md = (d: Date) => [d.getMonth() + 1, d.getDate()];
+  it("2026/27: de vier adventszondagen, de zondag na Kerst en 3 januari", () => {
+    expect(kerstBegindagen(2026).map(md)).toEqual([[11, 29], [12, 6], [12, 13], [12, 20], [12, 27], [1, 3]]);
+    expect(kerstWeek(dag(2026, 11, 28))).toBe(-1);
+    expect(kerstWeek(dag(2026, 11, 29, 0, 0))).toBe(0);
+    expect(kerstWeek(dag(2026, 11, 29))).toBe(0);
+    expect(kerstWeek(dag(2026, 12, 5, 23, 59))).toBe(0);
+    expect(kerstWeek(dag(2026, 12, 6, 0, 0))).toBe(1);
+    expect(kerstWeek(dag(2026, 12, 13))).toBe(2);
+    expect(kerstWeek(dag(2026, 12, 20))).toBe(3);
+    expect(kerstWeek(dag(2026, 12, 25))).toBe(3); // Kerst valt in de week van de geboorte
+    expect(kerstWeek(dag(2026, 12, 26))).toBe(3);
+    expect(kerstWeek(dag(2026, 12, 27))).toBe(4);
+    expect(kerstWeek(dag(2027, 1, 2))).toBe(4);
+    expect(kerstWeek(dag(2027, 1, 3))).toBe(5);
+    expect(kerstWeek(dag(2027, 1, 6, 23, 59))).toBe(5);
+    expect(kerstWeek(dag(2027, 1, 7))).toBe(-1);
+    expect(kerstWeek(dag(2026, 7, 15))).toBe(-1);
+    expect(kerstWeek("geen datum")).toBe(-1);
+    expect(kerstWeek("2026-12-10T10:00:00")).toBe(1);
+  });
+  it("het volgende deel begint op de volgende begindag; in de laatste week en buiten het seizoen is er geen", () => {
+    expect(md(kerstVolgende(dag(2026, 11, 29))!)).toEqual([12, 6]);
+    expect(md(kerstVolgende(dag(2026, 12, 5))!)).toEqual([12, 6]);
+    expect(md(kerstVolgende(dag(2026, 12, 25))!)).toEqual([12, 27]);
+    expect(md(kerstVolgende(dag(2026, 12, 28))!)).toEqual([1, 3]);
+    expect(kerstVolgende(dag(2027, 1, 4))).toBeNull();
+    expect(kerstVolgende(dag(2026, 7, 15))).toBeNull();
+  });
+  it("valt 25 december op zondag (2022), dan horen beide kerstdagen bij de geboorte", () => {
+    expect(new Date(2022, 11, 25).getDay()).toBe(0);
+    expect(kerstBegindagen(2022).map(md)).toEqual([[11, 27], [12, 4], [12, 11], [12, 18], [12, 27], [1, 1]]);
+    expect(kerstWeek(dag(2022, 12, 24))).toBe(3);
+    expect(kerstWeek(dag(2022, 12, 25))).toBe(3);
+    expect(kerstWeek(dag(2022, 12, 26))).toBe(3);
+    expect(kerstWeek(dag(2022, 12, 27))).toBe(4);
+    expect(kerstWeek(dag(2023, 1, 1))).toBe(5);
+    expect(kerstWeek(dag(2023, 1, 6))).toBe(5);
+    // Het volgende deel begint dan niet op een zondag: de kaart zegt ‘Vanaf 27 december’.
+    expect(kerstVolgende(dag(2022, 12, 25))!.getDay()).toBe(2);
+  });
+  it("in elk jaar komen alle zes de delen aan de beurt: op volgorde, deel 4 met beide kerstdagen, deel 6 minstens drie dagen", () => {
+    for (let jaar = 2024; jaar <= 2052; jaar++) {
+      const b = kerstBegindagen(jaar), t = b.map((d) => d.getTime());
+      expect(b, String(jaar)).toHaveLength(6);
+      for (let i = 1; i < 6; i++) expect(t[i], `${jaar}: deel ${i + 1}`).toBeGreaterThan(t[i - 1]);
+      expect(t[0], String(jaar)).toBe(eersteAdvent(jaar).getTime());
+      for (let i = 0; i < 4; i++) expect(b[i].getDay(), `${jaar}: advent ${i + 1}`).toBe(0);
+      expect(b[5].getDay(), `${jaar}: deel 6`).toBe(0);
+      expect(kerstWeek(new Date(jaar, 11, 25, 12)), `${jaar}: eerste kerstdag`).toBe(3);
+      expect(kerstWeek(new Date(jaar, 11, 26, 12)), `${jaar}: tweede kerstdag`).toBe(3);
+      expect(t[4], `${jaar}: deel 5`).toBeGreaterThanOrEqual(new Date(jaar, 11, 27).getTime());
+      expect(t[5], `${jaar}: deel 6`).toBeLessThanOrEqual(new Date(jaar + 1, 0, 4).getTime());
+      // Elke dag van het seizoen heeft precies één deel, en de delen lopen op.
+      let vorige = 0;
+      for (let d = new Date(b[0]); d.getTime() <= new Date(jaar + 1, 0, 6).getTime(); d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1)) {
+        const w = kerstWeek(new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12));
+        expect(w, `${jaar}: ${d.toDateString()}`).toBeGreaterThanOrEqual(vorige); expect(w).toBeLessThanOrEqual(5); vorige = w;
+      }
+      expect(vorige, `${jaar}: eindigt bij deel 6`).toBe(5);
+    }
   });
 });
 

@@ -18,7 +18,37 @@
     if (d.getMonth() === 0) return d.getDate() <= 6;
     return d.getTime() >= eersteAdvent(d.getFullYear()).getTime();
   }
-  const api = { eersteAdvent, kerstTijd };
+  // ---------- het weekritme van de kerstreis ----------
+  // De kerstreis heeft zes delen; in het seizoen wijst de atlas elke week één deel aan (docs/bijbelreis-kerst/README.md).
+  // Er zit niets op slot: het is een aanwijzing. De begindagen in een seizoen dat in `jaar` begint:
+  //   deel 1–4: de vier adventszondagen; deel 4 (de geboorte) loopt door tot en met tweede kerstdag;
+  //   deel 6:   de laatste zondag op of vóór 4 januari, zodat het elk jaar minstens drie dagen aan de beurt is;
+  //   deel 5:   de zondag daarvoor, maar nooit vóór 27 december.
+  // In 2026: 29 november, 6, 13 en 20 december, 27 december, 3 januari.
+  const dagStart = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  function kerstBegindagen(jaar) {
+    const a = eersteAdvent(jaar), plus = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+    const vier = new Date(jaar + 1, 0, 4), zes = plus(vier, -vier.getDay());
+    const vijfZondag = plus(zes, -7), kerst3 = new Date(jaar, 11, 27), vijf = vijfZondag.getTime() < kerst3.getTime() ? kerst3 : vijfZondag;
+    return [a, plus(a, 7), plus(a, 14), plus(a, 21), vijf, zes];
+  }
+  const leesDatum = (datum) => { const d = datum instanceof Date ? datum : datum == null ? new Date() : new Date(datum); return isNaN(d.getTime()) ? null : d; };
+  const seizoenJaar = (d) => (d.getMonth() === 0 ? d.getFullYear() - 1 : d.getFullYear());
+  // Welk deel is deze week aan de beurt? 0 tot en met 5, of -1 buiten het seizoen.
+  function kerstWeek(datum) {
+    const d = leesDatum(datum);
+    if (!d || !kerstTijd(d)) return -1;
+    const t = dagStart(d).getTime(), dagen = kerstBegindagen(seizoenJaar(d));
+    let w = 0;
+    dagen.forEach((b, i) => { if (b.getTime() <= t) w = i; });
+    return w;
+  }
+  // De dag waarop het volgende deel aan de beurt komt, of null (laatste week, of buiten het seizoen).
+  function kerstVolgende(datum) {
+    const d = leesDatum(datum), w = kerstWeek(d);
+    return w < 0 || w >= 5 ? null : kerstBegindagen(seizoenJaar(d))[w + 1];
+  }
+  const api = { eersteAdvent, kerstTijd, kerstBegindagen, kerstWeek, kerstVolgende };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   (global.BR = global.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} }).seizoen = api;
 })(typeof window !== "undefined" ? window : globalThis);

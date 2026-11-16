@@ -620,8 +620,8 @@ test("3.1: de startkaart toont de geschiedenis van nu; de hele Bijbelwereld is a
 test("3.1: een nieuwe reiziger begint bij geschiedenis 1, met de hele Bijbelwereld op de kaart", async ({ page }) => {
   await zetNiveau(page, "b");
   await page.goto("/bijbelreis");
-  // Zonder voortgang geen ‘Verder met’: de lijst begint gewoon bij 1.
-  await expect(page.locator("#welkom")).toBeHidden();
+  // Zonder voortgang geen ‘Verder met’ maar de startkaart (sinds 16-11-2026); de lijst begint gewoon bij 1.
+  await expect(page.locator("#welkom .startkaart")).toBeVisible();
   await expect(page.locator("#welkom .verdermet")).toHaveCount(0);
   await expect(page.locator("#wereldBtn")).toHaveAttribute("aria-pressed", "true");
   await page.locator('#vLijst [data-v="1"]').click();
@@ -700,21 +700,24 @@ test("3.1: kaartbediening op een kleine telefoon (320 px): knoppen groot genoeg,
 // ---------- reisniveaus (proef) ----------
 const opslag = (page: Page) => page.evaluate(() => Object.fromEntries(Object.keys(localStorage).filter((k) => k.startsWith("bijbelreis:")).map((k) => [k, localStorage.getItem(k)])));
 
-test("niveaus: bij het eerste bezoek een rustige keuze; daarna onthouden en niet opnieuw gevraagd", async ({ page }) => {
+// Sinds 16-11-2026 hoeft een nieuwe bezoeker niet eerst te kiezen: ‘Zelf op reis’ staat aan en de keuze staat klein op
+// de startkaart (e2e/bijbelreis-start.spec.ts). Deze test bewaakt dat kiezen nog steeds werkt en onthouden wordt.
+test("niveaus: bij het eerste bezoek staat de keuze klein op de startkaart; kiezen wordt onthouden", async ({ page }) => {
   const errors = watchErrors(page);
   await zetNiveau(page, null);
   await page.goto("/bijbelreis");
-  const kaart = page.locator("#welkom .keuzekaart");
-  await expect(kaart).toContainText("Hoe wil je op reis?");
-  await expect(kaart.locator(".nivopt")).toHaveCount(3);
+  const kaart = page.locator("#welkom .startkaart");
+  await expect(kaart).not.toContainText("Hoe wil je op reis?");
+  await expect(kaart.locator(".st-nivopt")).toHaveCount(3);
+  await expect(page.locator("#niveauNaam")).toHaveText("Zelf op reis");
   await kaart.getByRole("button", { name: /Samen ontdekken/ }).click();
-  await expect(page.locator("#welkom .keuzekaart")).toHaveCount(0);
   await expect(page.locator("#niveauNaam")).toHaveText("Samen ontdekken");
   expect(JSON.parse((await opslag(page))["bijbelreis:niveau"]!)).toBe("a");
   // Alleen de keuze; geen naam, leeftijd of andere gegevens.
   expect(Object.keys(await opslag(page)).sort()).toEqual(["bijbelreis:niveau"]);
   await page.reload();
-  await expect(page.locator("#welkom .keuzekaart")).toHaveCount(0);
+  await expect(page.locator("#niveauNaam")).toHaveText("Samen ontdekken");
+  await expect(page.locator('#welkom .st-nivopt[aria-pressed="true"]')).toHaveText(/Samen ontdekken/);
   expect(errors).toEqual([]);
 });
 
@@ -722,7 +725,7 @@ test("niveaus: wie al onderweg was, krijgt geen keuzescherm en houdt de volledig
   await zetNiveau(page, null);
   await page.addInitScript(() => { if (!sessionStorage.getItem("gezet")) { localStorage.setItem("bijbelreis:gezien", JSON.stringify(["exodus:uittocht:4"])); localStorage.setItem("bijbelreis:laatst", JSON.stringify("exodus:uittocht:4")); sessionStorage.setItem("gezet", "1"); } });
   await page.goto("/bijbelreis");
-  await expect(page.locator("#welkom .keuzekaart")).toHaveCount(0);
+  await expect(page.locator("#welkom .startkaart")).toHaveCount(0);
   await expect(page.locator("#niveauNaam")).toHaveText("Verder ontdekken");
   await expect(page.locator("#welkom .rk-tip")).toContainText("reisniveaus");
   await page.goto("/bijbelreis#v26");
