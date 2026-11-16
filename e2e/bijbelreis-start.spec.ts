@@ -92,9 +92,9 @@ for (const [w, h] of [[390, 664], [375, 553], [360, 640]] as const) {
       expect(m.knopH).toBeGreaterThanOrEqual(56);
       expect(m.breed).toBe(true);
       await knop.tap();
-      await expect(page).toHaveURL(/#abraham$/);
+      await expect(page).toHaveURL(/#abraham\/1$/);
       await expect(page.locator("body")).toHaveAttribute("data-modus", "reis");
-      await expect(page.locator("#sTitle")).toHaveText("Abraham");
+      await expect(page.locator("#sTitle")).toHaveText("1. Weg uit Ur");
       // De route staat in beeld, boven het korte stapblad: Ur en Haran zijn op de kaart te lezen.
       await expect.poll(() => page.evaluate(() => {
         const blad = document.getElementById("reisboek")!.getBoundingClientRect().top;
@@ -144,10 +144,10 @@ test("eerste bezoek: één zin, één startknop, klein de keuze voor wie; alleen
   await expect(page.locator("#welkomNa")).toBeHidden();
   const axe = await new AxeBuilder({ page }).include("#welkom").analyze();
   expect(axe.violations.map((v) => v.id)).toEqual([]);
-  // De startknop opent de intro van Abraham in Reis.
+  // De startknop begint meteen bij de eerste stap van Abraham in Reis (geen tussenscherm met nog een knop ‘Start’).
   await kaart.locator(".st-knop").click();
-  await expect(page).toHaveURL(/#abraham$/);
-  await expect(page.locator("#sTitle")).toHaveText("Abraham");
+  await expect(page).toHaveURL(/#abraham\/1$/);
+  await expect(page.locator("#sTitle")).toHaveText("1. Weg uit Ur");
   expect(errors).toEqual([]);
 });
 

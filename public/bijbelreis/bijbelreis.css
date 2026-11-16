@@ -382,6 +382,14 @@ button.vitem:hover { background: var(--zand-zacht); }
 .golist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
 .golist li { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
 .golist small { color: var(--fg-3); font-size: 0.78rem; white-space: nowrap; }
+/* De stappen van het deel bovenaan ‘Kies een reis’ (telefoon): één rij per stap, de huidige gemarkeerd. */
+.kies-stappen { margin-bottom: 10px; }
+.kies-stappen ol { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.ks-stap { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 6px 12px 6px 8px; border: 1px solid var(--lijn); border-radius: var(--r); background: var(--wit); color: var(--fg); text-align: left; cursor: pointer; line-height: 1.3; }
+.ks-n { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--fg-2); background: color-mix(in srgb, var(--rc, var(--nacht)) 10%, var(--wit)); }
+.ks-stap.gezien .ks-n { color: #fff; background: var(--rc, var(--nacht)); }
+.ks-stap[aria-current="step"] { border-color: var(--rc, var(--nacht)); box-shadow: inset 0 0 0 1px var(--rc, var(--nacht)); background: color-mix(in srgb, var(--rc, var(--nacht)) 7%, var(--wit)); font-weight: 650; }
+.ks-stap[aria-current="step"] .ks-n { color: #fff; background: var(--rc, var(--nacht)); }
 
 /* ===== Speurtocht: uitnodigend en duidelijk ===== */
 #p-quiz > .card:first-child h2 em { color: var(--salie-diep); }
@@ -793,6 +801,8 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   /* De kop blijft bovenaan staan: niets schuift onder de statusbalk van de telefoon door (met viewport-fit=cover staat
      de kop zelf onder de notch, dankzij safe-area-inset-top; Safari kleurt de statusbalk dan mee met de kop). */
   .kop { position: sticky; top: 0; }
+  /* Een persoon openen (Wie is wie) begint bij de naam, net onder de vaste kop. */
+  #wieInfo { scroll-margin-top: calc(var(--kop-h) + env(safe-area-inset-top, 0px) + 12px); }
   /* De melding (nieuwe stempel) onder de kop, niet eroverheen. */
   .toast { top: calc(var(--kop-h) + env(safe-area-inset-top, 0px) + 8px); max-width: calc(100vw - 24px); }
   .kop-kameel { width: 28px; height: 23px; }
