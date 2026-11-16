@@ -114,5 +114,6 @@ Alleen een foto van een plaats die **in de titel of de tekst van de stap genoemd
 Eerst een plaats uit de titel (bij een reis de laatste: daar komt de reis aan, zoals Bethlehem bij ‘Van Nazareth naar
 Bethlehem’); anders, bij een stap zonder reis, de eerste plaats als de tekst die noemt. Zo komt er geen foto van Rome bij ‘De
 mantel in Troas’. Martijn viel eerder over een tekening die niets met de tekst te maken had; voor foto’s geldt hetzelfde.
-Gevolg: 135 stappen hebben een foto (bij de eerste opzet 272). Een geschiedenis met een stap die bewust geen beeld heeft (de
-geboorte, Golgotha) krijgt geen foto. Een unittest bewaakt beide regels.
+Gevolg: 135 stappen hebben een foto (bij de eerste opzet 272). Een geschiedenis over de geboorte en de kribbe of over Golgotha krijgt geen
+foto (`GEEN_IN_VERHAAL` in `fotos.js`; vaste regel: geen beeld bij de kribbe of Golgotha). Een unittest bewaakt de eerste
+regel, een e2e-test de tweede.

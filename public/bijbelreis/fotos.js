@@ -76,6 +76,10 @@ BR.fotos = {
     return id ? { id, ...BR.fotos[id] } : null;
   }
 
+  // Stappen waarmee een geschiedenis over de geboorte en de kribbe of over Golgotha begint: zo’n geschiedenis krijgt geen
+  // foto, ook al noemt een stap Bethlehem of Jeruzalem (de reis zelf mag de foto wel tonen).
+  const GEEN_IN_VERHAAL = new Set(["jezus-1:nt-geboorte:5", "jezus-1:nt-geboorte:6", "jezus-3:nt-lijden:6", "jezus-3:nt-lijden:7", "jezus-3:nt-lijden:8"]);
+
   function bronregel(f) {
     return `Foto: ${esc(f.maker)}, <a href="${esc(f.licentieUrl)}" rel="noopener license" target="_blank">${esc(f.licentie)}</a> · <a href="${esc(f.bron)}" rel="noopener" target="_blank">Wikimedia Commons</a>`;
   }
@@ -108,12 +112,12 @@ BR.fotos = {
       const na = anker.nextElementSibling && anker.nextElementSibling.classList.contains("tafereel") ? anker.nextElementSibling : anker;
       na.after(maak(f));
     },
-    // Geschiedenis: één foto, van de eerste stap met een foto, onder de vertelling. Heeft een van de stappen bewust geen
-    // beeld (de geboorte, Golgotha), dan krijgt de hele geschiedenis geen foto.
+    // Geschiedenis: één foto, van de eerste stap met een foto, onder de vertelling. Een geschiedenis over de geboorte en de
+    // kribbe of over Golgotha krijgt geen foto (vaste regel van Martijn: geen beeld bij de kribbe of Golgotha).
     inVerhaal(box, steps) {
       box.querySelectorAll(".plaatsfoto").forEach((e) => e.remove());
-      const leeg = steps.some((s) => s && (BR.beelden || {})[s.key] && BR.beelden[s.key].t === "");
-      const f = leeg ? null : steps.map(van).find(Boolean), v = box.querySelector("#vVertelling");
+      const stil = steps.some((s) => s && GEEN_IN_VERHAAL.has(s.key));
+      const f = stil ? null : steps.map(van).find(Boolean), v = box.querySelector("#vVertelling");
       if (!f || !v) return;
       let na = v;
       // Na een tafereel en de knop ‘Lees verder’ die direct na de vertelling staan.
