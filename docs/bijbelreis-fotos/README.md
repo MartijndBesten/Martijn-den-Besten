@@ -13,8 +13,8 @@ Code: `public/bijbelreis/fotos.js` (gegevens `BR.fotos` en de weergave `BR.foto`
 - **Stap in de reis:** in het geopende stapblad (telefoon) of de stapkaart (desktop), onder de tekst en onder een
   eventueel tafereel, met het kopje ‘Zo ziet het er nu uit’, een kort bijschrift en de bronregel
   ‘Foto: maker, licentie · Wikimedia Commons’ (beide als link). Niet in het korte stapblad.
-- Welke plaats: bij een stap **zonder** reis de eerste plaats; bij een stap **met** reis de laatste plaats (waar het
-  gebeurt). Een foto van de vertrekplaats zou misleiden (‘Van Nazareth naar Bethlehem’ hoort bij Bethlehem).
+- Welke plaats: alleen een plaats die in de titel of de tekst van de stap genoemd wordt (zie ‘Welke stap welke foto krijgt’
+  onderaan).
 - **Geen foto** waar de stap bewust geen beeld heeft (`BR.beelden[key].t === ""`, bijvoorbeeld kerst, de geboorte in de
   stal).
 - **Ballon van een plaats op de kaart:** een lage strook (112 px hoog, bijgesneden) met de bronregel, zodat de ballon

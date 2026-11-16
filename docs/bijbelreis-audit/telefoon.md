@@ -331,6 +331,54 @@ naar de server gaat.
 
 Tests: `e2e/bijbelreis-start.spec.ts`, `tests/bijbelreis-kerst.test.ts` (het weekritme).
 
+### 4.8 Terug, de start, de stappen en een persoon (telefoontest 16-11-2026)
+
+Doorgelopen op een echte telefoon (Samsung Galaxy A15, Chrome, 384×699 CSS-pixels) via ADB, met echte tikken en de
+terugknop van Android. Vier punten opgelost:
+
+- **Terug ging de site uit.** Elke stap, elk onderdeel en elk venster verving het adres (`history.replaceState`), dus de
+  geschiedenis bleef één plek lang. Nu (`navZet`, `laagOpen`/`laagDicht` en `popstate` in `app.js`): een ander
+  onderdeel, deel of geschiedenis is een nieuwe plek; een andere stap in hetzelfde deel niet (daarvoor zijn ◀ en Verder);
+  wat binnen één tik gebeurt telt als één plek. Een venster (Kies een reis, Lees meer, Voor wie, Mis je iets en de andere
+  lades, de grote kaart) krijgt een eigen plek: terug sluit eerst het venster. Gaat een venster met de eigen knop dicht,
+  dan wordt die plek met `history.back()` opgeruimd. Een zelf ingetypt adres met `#` werkt zoals voorheen.
+- **‘Begin de reis’ start bij stap 1** (`#abraham/1`), niet bij de intro met nog een knop ‘Start’.
+- **‘3 van 25’ toont de stappen.** Bovenaan ‘Kies een reis’ staan de stappen van het deel (gezien ✓, huidige stap
+  gemarkeerd en in beeld); daaronder zoals voorheen deel en boek.
+- **Een persoon begint bij de naam.** Na een tik op een persoon staat de kaart in Wie is wie met de naam net onder de kop
+  (`scroll-margin-top`), niet halverwege.
+
+Tests: `e2e/bijbelreis-terug.spec.ts` (project ‘mobiel’), `e2e/bijbelreis-start.spec.ts`.
+
+Nog open uit dezelfde test (niet in deze wijziging): de kaart op tabbladen waar hij niets toevoegt en maximaal ingezoomd
+bij Golgotha, ‘Verder met’ boven een geopende geschiedenis, punten pas bij de volgende vraag, de vraag over ‘de put’
+zonder context, het paspoort met 619 stempels, Sara als vrouw én zus bij Abraham, de zoektoets die het toetsenbord niet
+sluit, en tikvlakken van 30 px.
+### 4.9 Duidelijke bediening (16-11-2026)
+
+Martijn, bij een schermbeeld van de desktop op het tabblad Speurtocht: *“het is niet heel duidelijk wat die knoppen
+bovenaan zijn.”* Niet zeker welke knoppen; alle drie aangepakt, zonder de opzet te veranderen.
+
+1. **Tabbladen.** Elk tabblad heeft een korte uitleg (`.tabuitleg`, via `aria-describedby`; de naam blijft het ene
+   woord): Verhalen ‘150 geschiedenissen’ (het aantal komt uit de inhoud), Reis ‘route op de kaart’, Wie is wie ‘personen,
+   families’, Tijdlijn ‘wanneer het gebeurde’, Speurtocht ‘vragen en zoeken’, Paspoort ‘jouw stempels’.
+   - Vanaf 1360 px staat de uitleg als tweede regel onder het woord; de tabbladen krijgen daarvoor meer breedte en de kop
+     blijft 64 px hoog.
+   - Van 901 tot 1360 px verschijnt de uitleg bij aanwijzen en bij toetsenbordfocus (pijltjestoetsen in de tabbalk).
+   - Op de telefoon blijft de onderbalk één woord en 48 px hoog; de uitleg is er alleen voor de schermlezer.
+2. **Toen | Nu.** Op de desktop staat er ‘Kaart van’ voor, en elke knop heeft een uitleg bij aanwijzen en focus: ‘Het
+   land zoals in de Bijbelse tijd’ en ‘Landen en plaatsnamen van nu’ (ook als beschrijving voor de schermlezer). Op de
+   telefoon staat de schakelaar al onder de kop ‘Kaart’ in het kaartpaneel: daar geen label.
+3. **Speurtocht.** Boven de keuze staat het boek als keuzelijst (‘Boek’, met de thema’s apart). Een ander boek kiezen
+   verandert alleen de vragen, niet de plek in de reis; bij het openen van het tabblad volgt de speurtocht weer het boek van
+   de reis. ‘Over wie?’ heet nu ‘Waar gaan de vragen over?’, ‘Alles uit Genesis’ heet ‘Heel Genesis’, en een verdiepend
+   deel staat als kleinere, gestippelde knop ‘Van dichtbij: Jakob bij de Jabbok’ direct na zijn hoofddeel (het heeft eigen
+   vragen die niet in het hoofddeel zitten, dus weglaten zou vragen onbereikbaar maken). Eén zin zegt wat er gebeurt:
+   ‘Tien vragen over Jakob. Een goed antwoord geeft een punt, bijna goed een half punt; aan het eind zie je je score en tot
+   drie sterren.’ Bij Samen ontdekken: ‘Zes vragen over …’.
+
+Test: `e2e/bijbelreis-bediening.spec.ts`.
+
 ## 5. Werkwijze en bestanden
 
 - Servertje (buiten de repo): `mobiel-server-8820.mjs` in de scratchmap van deze sessie, poort 8820, `public/` met
