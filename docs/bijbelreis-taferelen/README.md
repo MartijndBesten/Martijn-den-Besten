@@ -47,11 +47,12 @@ Deze regels zijn hard. Twijfel je, teken het dan niet en zet het bij de vragen i
    Nachtblauw alleen waar de tekst nacht zegt (de Schelfzee).
 6. **Techniek.** Alleen SVG-vormen en CSS-animaties. Geen script, geen afbeeldingen, geen lettertypen, geen
    verwijzingen naar buiten, geen `style`-attribuut. Een tafereel blijft liefst onder de 4000 tekens; de test staat
-   hooguit 6000 toe. Alle tekenbestanden samen (zonder de koppelingen) blijven onder 175 kB (nu 155 kB). De grens was 60 kB bij
+   hooguit 6000 toe. Alle tekenbestanden samen (zonder de koppelingen) blijven onder 215 kB (nu 196 kB). De grens was 60 kB bij
    de eerste reeks van 31 kB, is verruimd tot 130 kB voor de tweede reeks van het Oude Testament, de reeks van het Nieuwe
-   Testament en Genesis 32, en is voor de **Kerst-reeks** (`taferelen-kerst.js`, twintig taferelen, ongeveer 31 kB) naar 175 kB
-   gegaan: het thema Kerst is een besluit van de eigenaar en heeft veel stappen. Er is nog 20 kB ruimte; een volgende reeks
-   vraagt opnieuw een besluit over de grens of over lichter tekenen. Gzip pakt deze tekst tot ongeveer een derde.
+   Testament en Genesis 32, naar 175 kB voor de **Kerst-reeks** (`taferelen-kerst.js`, ongeveer 31 kB), en is voor
+   **reeks 3** (`taferelen-3.js`, twintig taferelen, ongeveer 32 kB) **verruimd op verzoek van Martijn, 16-11-2026**, naar
+   wat alle tekenbestanden samen nu nodig hebben plus 10 %. Een volgende reeks vraagt opnieuw een besluit over de grens of
+   over lichter tekenen. Gzip pakt deze tekst tot ongeveer een derde.
 
 **Geen automatische ‘algemene tekening’ meer (besluit 16-11-2026).** Tot die dag kreeg een stap zonder reis en zonder
 eigen koppeling het standaardbeeld van de soort van zijn plaats (een stad, een rivier, een tent), met het bijschrift
@@ -489,6 +490,43 @@ Wat een mens moet beoordelen:
   het Kind en Zijn moeder meenam).
 - Of de keuze voor avond waar de tekst geen tijd noemt (de tempel, Nazareth, het bergland) te ver gaat.
 - De tempel van Herodes is een algemene tekening; het Nieuwe Testament beschrijft hem niet.
+
+### Reeks 3: bekende geschiedenissen (`taferelen-3.js`, november 2026)
+
+Aanleiding: een gebruiker mist ‘platen bij de plaats of gebeurtenis’ en stuurde voorbeelden van een betaalde
+platenbank. Besluit: **zelf tekenen, niet natekenen**. Een bestaande plaat overtrekken of nabootsen is een bewerking van
+andermans werk (auteursrecht), en die platen tonen de Heere Jezus en gezichten. Deze reeks kiest twintig bekende
+geschiedenissen die nog geen beeld hadden, in de stijl van de atlas. Koppelingen: `taferelen-koppeling-3.js`, geladen ná
+de andere koppelingen; de enige koppeling die het vervangt, was bewust leeg (`genesis:jozef:2`: het standaardbeeld van een
+put paste daar niet, de kuil was leeg).
+
+| Id | Wat je ziet | Beweging | Tekst | Stap |
+|---|---|---|---|---|
+| `schepping` | links de nacht met maan en sterren, rechts de zon; vissen en een grote vis in de zee, bomen op het land | de zon komt op, de vogels verschijnen | Genesis 1:14–21 | `genesis:begin:0` |
+| `eden` | een hof vol bomen, twee bomen met vruchten in het midden; de rivier verdeelt zich in vier | het water beweegt, wolken drijven | Genesis 2:8–10 | `genesis:begin:1` |
+| `sterren` | nacht; Abram buiten bij zijn tent | steeds meer sterren verschijnen | Genesis 15:5 | `genesis:abraham:12` |
+| `put-nahor` | avond; tien geknielde kamelen bij de put en de drinkbak buiten de stad | een jonge vrouw komt uit de stad met haar kruik op de schouder | Genesis 24:10–16, 20 | `genesis:abraham:23` |
+| `kuil-karavaan` | de lege kuil bij Dothan; de weg uit Gilead | een karavaan kamelen met specerijen, balsem en mirre trekt het beeld in | Genesis 37:24–25 | `genesis:jozef:2` |
+| `farao-droom` | zeven vette en zeven magere koeien aan de rivier; zeven volle en zeven dunne aren | golfjes | Genesis 41:1–7 | `genesis:jozef:6` |
+| `duisternis` | links Egypte, rechts Gosen met licht in de huizen | de duisternis valt over Egypte | Exodus 10:21–23 | `exodus:uittocht:1` |
+| `gouden-kalf` | het gegoten kalf op een voetstuk met een altaar ervoor; de twee tafelen gebroken aan de voet van de berg | de glans van het kalf ademt | Exodus 32:4–5, 19 | `exodus:sinai:7` |
+| `druiventros` | het dal Eskol met wijngaarden; granaatappels en vijgen | twee mannen komen met de tros op de draagstok | Numeri 13:23 | `numeri:woestijn:3` |
+| `ezelin` | een smal pad tussen twee muren in de wijngaarden; de ezelin ligt met Bileam op haar rug | — | Numeri 22:24–27 | `numeri:moab:0` |
+| `lamp-silo` | nacht; het huis van de HEERE opengewerkt: de lamp brandt nog, Samuël slaapt | de vlam en het schijnsel | 1 Samuël 3:3 | `1samuel:samuel:1` |
+| `naaman` | de Jordaan; paarden en wagen op de oever; Naäman in het water | zeven kringen verschijnen een voor een | 2 Koningen 5:9, 14 | `2koningen:elisa:4` |
+| `watergang` | doorsnede van de stad van David: de bron Gihon, de gang onder de stad, de vijver | het water stroomt door de gang | 2 Koningen 20:20; 2 Kronieken 32:30 | `2koningen:ballingschap:1` |
+| `beeld-droom` | het beeld van goud, zilver, koper, ijzer en leem, zonder gezicht | de steen komt aan en slaat tegen de voeten | Daniël 2:31–35 | `daniel:daniel:3` |
+| `kana` | zes stenen watervaten, tot boven toe vol | het water wordt wijn | Johannes 2:6–9 | `jezus-1:nt-begin:4` |
+| `rots-zand` | slagregen, waterstromen en wind; het huis op de rots blijft staan | het huis op het zand valt | Mattheüs 7:24–27 | `jezus-1:nt-galilea:4` |
+| `bethesda` | het badwater bij de Schaapspoort met vijf zalen; zieken onder de zalen | het water beweegt | Johannes 5:2–3 | `jezus-2:nt-feesten-jeruzalem:0` |
+| `herberg` | de weg naar Jericho door kale heuvels, de herberg, het rijdier, twee penningen | — | Lukas 10:30–35 | `jezus-2:nt-reis-naar-jeruzalem:1` |
+| `zwijnen` | de jongste zoon in een ver land bij de zwijnen en de bak met draf | — | Lukas 15:15–16 | `jezus-2:nt-reis-naar-jeruzalem:4` |
+| `haan` | nacht op de binnenplaats; mensen rond het vuur | het wordt morgen; de haan op de muur kraait | Lukas 22:55, 60 | `jezus-3:nt-lijden:1` |
+
+Bewust **niet** getekend: de Engel des HEEREN op het pad van Bileam, de ark (met de cherubs) in Silo, de Heere Jezus in
+Kana, bij de haan en in de gelijkenissen, de gewonde man bij de Samaritaan, en de vader in de gelijkenis van de verloren
+zoon. Overwogen en niet gedaan, omdat ze botsen met de regels: Kaïn en Abel, de offerande van Izak (een offerdier),
+het Pascha (bloed aan de deurposten), Simson, en het schrift op de muur (een hand).
 
 ## 7. Wat nog getekend moet worden
 

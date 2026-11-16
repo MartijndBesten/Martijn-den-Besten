@@ -34,7 +34,9 @@ const SOORTEN = ["stad", "berg", "water", "put", "kamp", "altaar", "tent", "gebi
 // De grens voor samen was 60 kB bij de eerste reeks (31 kB); met de tweede reeks van het Oude Testament (40 kB) is het
 // 72 kB, en er komt een reeks voor het Nieuwe Testament bij. Het is tekst die goed samenpakt (gzip: ongeveer een derde).
 // Voor de reeks Kerst (taferelen-kerst.js, twintig taferelen, ongeveer 31 kB) is de grens van 130 naar 175 kB gegaan.
-const MAX_SAMEN = 175_000, MAX_TAFEREEL = 6_000;
+// Voor reeks 3 (taferelen-3.js, twintig taferelen, ongeveer 32 kB; op verzoek van Martijn, 16-11-2026) van 175 naar
+// 215 kB: wat alle tekenbestanden samen nu nodig hebben (196 kB) plus 10 %.
+const MAX_SAMEN = 215_000, MAX_TAFEREEL = 6_000;
 // De tweede reeks van het Oude Testament (taferelen-ot-2.js) en haar koppelingen (taferelen-koppeling-ot-2.js).
 const OT2 = ["kistje", "manna", "rots", "tabernakel", "slang", "jordaan", "twaalf-stenen", "gideon", "ruth-veld", "eikdal", "tempel", "karmel", "elia", "muur-puin", "muur-herbouw", "oven", "leeuwenkuil", "jona-storm", "jona-vis", "wonderboom"];
 const ot2: { window: { BR: { beelden: Record<string, Koppeling> } } } = { window: { BR: { beelden: {} } } };
@@ -418,12 +420,77 @@ describe("taferelen: welke stap krijgt welk beeld", () => {
   });
   it("een stap met reis en zonder koppeling krijgt geen beeld; een stap zonder plaats ook niet", () => {
     for (const s of STAPPEN) if (s.r && s.r.length && !BR.beelden[s.key]) expect(BR.tafereel.van(s), s.key).toBeNull();
-    expect(van("genesis:begin:0")).toBeNull();
+    expect(van("jezus-2:nt-reis-naar-jeruzalem:3")).toBeNull(); // Het grote avondmaal: geen plaats en geen koppeling
     expect(BR.tafereel.van(null)).toBeNull();
   });
   it("‘bewust geen beeld’ en een eigen tafereel in plaats van geen beeld werken", () => {
-    expect(van("genesis:begin:1")).toBeNull(); // Eden
+    expect(van("profeten:jeremia:0")).toBeNull(); // de muren zijn afgebroken (Jeremia 39:8)
+    expect(van("genesis:begin:1")!.id).toBe("eden"); // sinds reeks 3: een eigen tafereel
     expect(van("ezra:terugkeer:3")).toBeNull(); // de muur ligt in puin: geen ommuurde stad
     expect(van("ezra:nehemia:3")!.id).toBe("muur-puin"); // sinds de tweede reeks: een eigen tafereel
+  });
+});
+
+// Reeks 3 (taferelen-3.js, koppelingen in taferelen-koppeling-3.js): eigen tekeningen bij bekende geschiedenissen die nog
+// geen beeld hadden. Zelf getekend, niet nagetekend; God, de Heere Jezus en engelen worden niet afgebeeld.
+const R3: Record<string, string> = {
+  "genesis:begin:0": "schepping", "genesis:begin:1": "eden", "genesis:abraham:12": "sterren", "genesis:abraham:23": "put-nahor",
+  "genesis:jozef:2": "kuil-karavaan", "genesis:jozef:6": "farao-droom", "exodus:uittocht:1": "duisternis", "exodus:sinai:7": "gouden-kalf",
+  "numeri:woestijn:3": "druiventros", "numeri:moab:0": "ezelin", "1samuel:samuel:1": "lamp-silo", "2koningen:elisa:4": "naaman",
+  "2koningen:ballingschap:1": "watergang", "daniel:daniel:3": "beeld-droom", "jezus-1:nt-begin:4": "kana", "jezus-1:nt-galilea:4": "rots-zand",
+  "jezus-2:nt-feesten-jeruzalem:0": "bethesda", "jezus-2:nt-reis-naar-jeruzalem:1": "herberg", "jezus-2:nt-reis-naar-jeruzalem:4": "zwijnen", "jezus-3:nt-lijden:1": "haan",
+};
+describe("taferelen: reeks 3", () => {
+  const r3: { window: { BR: { beelden: Record<string, Koppeling> } } } = { window: { BR: { beelden: {} } } };
+  runInNewContext(readFileSync(join(PUB, "bijbelreis", "taferelen-koppeling-3.js"), "utf8").replace(/\bBR\./g, "window.BR."), r3);
+  const KOPPEL_3 = r3.window.BR.beelden;
+  it("twintig taferelen, elk gekoppeld aan zijn stap, en geladen ná de andere koppelingen en vóór app.js (ook in het boekje)", () => {
+    expect(new Set(Object.values(R3)).size).toBe(20);
+    expect(KOPPEL_3).toEqual(Object.fromEntries(Object.entries(KOPPEL_3).filter(([k]) => k in R3)));
+    for (const [key, id] of Object.entries(R3)) {
+      expect(T[id], id).toBeTruthy();
+      expect(STAP.has(key), `stap ${key} bestaat niet`).toBe(true);
+      expect(KOPPEL_3[key]?.t, key).toBe(id);
+      expect(BR.tafereel.van(STAP.get(key)!)?.id, key).toBe(id);
+    }
+    const boekje = readFileSync(join(PUB, "bijbelreis", "boekje.html"), "utf8");
+    for (const bron of [html, boekje]) {
+      const plek = (f: string) => bron.indexOf(`/bijbelreis/${f}`);
+      expect(plek("taferelen-koppeling-kerst.js")).toBeLessThan(plek("taferelen-3.js"));
+      expect(plek("taferelen-3.js")).toBeLessThan(plek("taferelen-koppeling-3.js"));
+      expect(plek("taferelen-koppeling-3.js")).toBeLessThan(plek(bron === html ? "app.js" : "boekje.js"));
+    }
+  });
+  it("vervangt geen eerder tafereel: alleen een koppeling die bewust leeg was (de lege kuil bij Dothan)", () => {
+    const eerder: { window: { BR: { beelden: Record<string, Koppeling>; beeldSoort: object } } } = { window: { BR: { beelden: {}, beeldSoort: {} } } };
+    for (const f of ["taferelen-koppeling.js", "taferelen-koppeling-ot-2.js", "taferelen-koppeling-nt.js", "taferelen-koppeling-jakob.js", "taferelen-koppeling-kerst.js"])
+      runInNewContext(readFileSync(join(PUB, "bijbelreis", f), "utf8").replace(/\bBR\./g, "window.BR."), eerder);
+    for (const key of Object.keys(KOPPEL_3)) expect(eerder.window.BR.beelden[key]?.t || "", `${key} had al een tafereel`).toBe("");
+    expect(eerder.window.BR.beelden["genesis:jozef:2"]).toEqual({ t: "" });
+  });
+  it("de aantallen die de Bijbel noemt, kloppen in de tekening", () => {
+    const tel = (id: string, re: RegExp) => (T[id].svg.match(re) || []).length;
+    const subpaden = (id: string, klasse: string) => (T[id].svg.match(new RegExp(`<path class="${klasse}" d="([^"]+)"`)) || ["", ""])[1].split("M").length - 1;
+    const bogen = (id: string, klasse: string) => ((T[id].svg.match(new RegExp(`<path class="${klasse}" d="([^"]+)"`)) || ["", ""])[1].match(/a/g) || []).length;
+    expect(tel("put-nahor", /<path class="k-hout o2" d="M/g)).toBe(10); // tien kemelen (Genesis 24:10)
+    expect(subpaden("farao-droom", "k-terra o2")).toBe(7); // zeven vette koeien (Genesis 41:2)
+    expect(subpaden("farao-droom", "k-steen o2")).toBe(7); // zeven magere koeien (41:3)
+    expect(tel("farao-droom", /<path class="k-oker o2"/g)).toBe(7); // zeven volle aren aan één halm (41:5)
+    expect(tel("farao-droom", /<path class="k-zand2 o2"/g)).toBe(7); // zeven dunne aren (41:6)
+    expect(tel("eden", /M160 90Q/g)).toBe(4); // vier hoofden (Genesis 2:10)
+    expect(tel("gouden-kalf", /<path class="k-steen o"/g)).toBe(4); // twee tafelen, elk in tweeën gebroken (Exodus 32:19)
+    expect(tel("druiventros", /<path class="k-hout o2" d="M[\d.]+ [\d.]+a/g)).toBe(2); // ‘dien zij droegen met tweeën’ (Numeri 13:23)
+    expect(tel("naaman", /<ellipse class="l-wit tf-e-in/g)).toBe(7); // zevenmaal (2 Koningen 5:14)
+    expect(tel("kana", /<path class="k-steen o"/g)).toBe(6); // zes stenen watervaten (Johannes 2:6)
+    expect(subpaden("kana", "k-wijn")).toBe(6);
+    expect(tel("bethesda", /<path class="k-terra o" d="/g)).toBe(5); // vijf zalen (Johannes 5:2)
+    expect(bogen("herberg", "k-oker o2")).toBe(2); // twee penningen (Lukas 10:35)
+  });
+  it("noemt geen engel en geen afbeelding van de Heere Jezus; geen getal waar de Bijbel er geen geeft", () => {
+    for (const id of Object.values(R3)) expect(`${T[id].n} ${T[id].label}`, id).not.toMatch(/engel|jezus|gestalte/i);
+    for (const id of ["kuil-karavaan", "zwijnen", "druiventros", "haan", "sterren"]) expect(T[id].label, id).not.toMatch(/\b(?:drie|vier|vijf|zes|acht|negen|elf|twaalf)\b/i);
+    // De eindstand vertelt het verhaal: het water is wijn (de waterlaag verdwijnt), het huis op het zand ligt om.
+    expect(T.kana.svg).toMatch(/<path class="k-water tf-e-uit/);
+    expect(T["rots-zand"].svg).toMatch(/<g class="tf-e-stort">/);
   });
 });
