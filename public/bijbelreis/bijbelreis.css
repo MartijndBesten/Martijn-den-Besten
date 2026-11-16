@@ -1609,4 +1609,6 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
 @media (max-width: 900px), (pointer: coarse) {
   .plaatsfoto:not(.pf-ballon) .pf-bron { display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.3em; margin-top: 0; }
   .plaatsfoto:not(.pf-ballon) .pf-bron a { display: inline-flex; align-items: center; min-height: 44px; }
+  /* De twee links blijven samen op één regel; past het niet, dan gaat de maker erboven (zonder lege tikruimte ertussen). */
+  .plaatsfoto:not(.pf-ballon) .pf-links { display: inline-flex; align-items: center; column-gap: 0.3em; white-space: nowrap; }
 }
