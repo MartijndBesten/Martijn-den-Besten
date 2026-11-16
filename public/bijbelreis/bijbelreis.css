@@ -285,6 +285,43 @@ button.kb[aria-current="true"] { box-shadow: 0 0 0 2px var(--salie-diep); }
 .kb.off { opacity: 0.65; border-style: dashed; background: transparent; }
 @media (min-width: 901px) { .lade { place-items: center; } .lade__box { border-radius: var(--radius); padding-bottom: 28px; } }
 
+/* ===== Aanvraag: ‘Mis je iets? Vraag het aan’ (docs/bijbelreis-aanvraag/README.md) ===== */
+.misje { margin: 0; font-size: 0.92rem; }
+.stapkaart .misje { font-size: 0.88rem; }
+/* Staat bij ‘niets gevonden’ de knop ‘Vraag dit aan’ er al, dan hoeft de regel onderaan de lijst er niet ook te staan. */
+.vlijst:has([data-aanvraag]) ~ .misje { display: none; }
+.parents .linkbtn { font-size: inherit; }
+.lade__box.aanvraag { width: min(560px, 100%); }
+.aanvraag form { display: flex; flex-direction: column; gap: 14px; }
+.aanvraag .ref { margin: 0; }
+.av-soort { border: 0; margin: 0; padding: 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.av-soort legend { padding: 0; margin-bottom: 6px; }
+.av-soort label { position: relative; display: flex; align-items: center; min-height: 44px; padding: 8px 12px 8px 40px; border: 1px solid var(--lijn-sterk); border-radius: var(--r); background: var(--wit); font-weight: 600; font-size: 0.95rem; line-height: 1.25; cursor: pointer; }
+.av-soort input { position: absolute; left: 12px; top: 50%; width: 18px; height: 18px; margin: -9px 0 0; accent-color: var(--nacht); }
+.av-soort label:has(input:checked) { border-color: var(--nacht); background: var(--nacht-zacht); }
+.av-soort label:has(input:focus-visible) { outline: 2px solid var(--nacht); outline-offset: 2px; }
+.av-veld { display: flex; flex-direction: column; gap: 6px; }
+.av-veld textarea, .av-veld input { font: inherit; font-size: 1rem; color: var(--fg); background: var(--wit); border: 1px solid var(--lijn-sterk); border-radius: var(--r); padding: 11px 14px; width: 100%; min-height: 46px; }
+.av-veld textarea { min-height: 112px; resize: vertical; line-height: 1.45; }
+.av-veld [aria-invalid="true"] { border-color: var(--fout); }
+.av-onder { display: flex; justify-content: space-between; gap: 12px; margin: 0; }
+.av-teller { margin-left: auto; flex: none; font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-3); }
+.av-fout { margin: 0; color: var(--fout); font-weight: 600; font-size: 0.9rem; }
+.av-fout:empty { display: none; }
+/* Het lokveld is er voor robots: mensen zien het niet en komen er met Tab niet langs. */
+.av-lok { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.aanvraag #avStuur { align-self: flex-start; min-width: 148px; }
+.av-klaar { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 6px 0 4px; outline: none; }
+.av-klaar p { margin: 0; font-size: 1.05rem; line-height: 1.5; }
+.av-mail { margin: 6px 0 0; padding-top: 12px; border-top: 1px solid var(--lijn); font-size: 0.88rem; color: var(--fg-2); }
+.av-mail a { color: var(--nacht); font-weight: 600; }
+@media (max-width: 900px) {
+  /* Telefoon: het blad mag het hele scherm vullen, en Versturen is een knop over de volle breedte, onder de duim. */
+  .lade__box.aanvraag { max-height: 100vh; max-height: 100dvh; border-radius: 0; padding-top: max(14px, env(safe-area-inset-top, 0px)); }
+  .aanvraag #avStuur { align-self: stretch; min-height: 48px; }
+  .av-mail { min-height: 44px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+}
+
 /* ===== Verhalen: een rustige leesomgeving ===== */
 input[type="search"] { font: inherit; font-size: 1rem; color: var(--fg); background: var(--wit); border: 1px solid var(--lijn-sterk); border-radius: var(--r); padding: 11px 14px; width: 100%; min-height: 46px; }
 .pick { display: flex; flex-wrap: wrap; gap: 6px; }

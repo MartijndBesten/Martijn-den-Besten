@@ -24,7 +24,7 @@ Daarnaast: het Bureau voor Onnodige Innovatie, een certificaatgenerator (PNG/PDF
 | Tests | Vitest (logica + API met echte SQL) en Playwright (e2e + axe-toegankelijkheid) |
 | CI/CD | GitHub Actions: checks bij elke push, deploy naar Cloudflare op `main` |
 
-Geen cookies, geen advertentietrackers, geen externe API's of CDN's (alleen de cookieloze Cloudflare Web Analytics die op de zone aanstaat). De Bijbelreis (bijbelreis.nl) telt zelf, naamloos en zonder cookies, hoeveel bezoeken er zijn en hoe lang ze duren: `docs/bijbelreis-bezoek/README.md`. Lettertypen (Instrument Serif, Geist, Geist Mono; OFL) worden zelf gehost.
+Geen cookies, geen advertentietrackers, geen externe API's of CDN's (alleen de cookieloze Cloudflare Web Analytics die op de zone aanstaat). De Bijbelreis (bijbelreis.nl) telt zelf, naamloos en zonder cookies, hoeveel bezoeken er zijn en hoe lang ze duren: `docs/bijbelreis-bezoek/README.md`. Bezoekers kunnen daar ook iets aanvragen (‘Mis je iets? Vraag het aan’); die aanvraag wordt bewaard en naar de maker gemaild: `docs/bijbelreis-aanvraag/README.md`. Lettertypen (Instrument Serif, Geist, Geist Mono; OFL) worden zelf gehost.
 
 ## Lokaal ontwikkelen
 

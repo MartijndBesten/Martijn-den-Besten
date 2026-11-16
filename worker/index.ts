@@ -5,6 +5,10 @@ import { isVotableId } from "../shared/museum";
 import { validateIdea, LIMITS } from "../shared/validation";
 import { verwijstDoor } from "../shared/bijbelreis";
 import { bezoekOverzicht, meldBezoek } from "./bezoek";
+import { aanvraagBeheer, aanvragenLijst, meldAanvraag } from "./aanvraag";
+import { rateLimit } from "./begrenzing";
+
+export { rateLimit };
 
 export interface Env {
   DB: D1Database;
@@ -54,19 +58,6 @@ function today(now: number): string {
 async function visitorHash(request: Request, env: Env, now: number): Promise<string> {
   const ip = request.headers.get("CF-Connecting-IP") ?? "onbekend";
   return hmac(env.HASH_SECRET || "lokale-ontwikkelsleutel", `${ip}|${today(now)}`);
-}
-
-/** Vast-venster rate limit in D1. Geeft true terug als het verzoek mag. */
-export async function rateLimit(db: D1Database, bucket: string, visitor: string, limit: number, windowSeconds: number, now: number): Promise<boolean> {
-  const windowStart = Math.floor(now / windowSeconds) * windowSeconds;
-  const key = `${bucket}:${visitor}:${windowStart}`;
-  const row = await db
-    .prepare(
-      "INSERT INTO rate_limits (key, count, window_start) VALUES (?1, 1, ?2) ON CONFLICT(key) DO UPDATE SET count = count + 1 RETURNING count",
-    )
-    .bind(key, windowStart)
-    .first<{ count: number }>();
-  return (row?.count ?? 1) <= limit;
 }
 
 async function cleanup(db: D1Database, now: number): Promise<void> {
@@ -227,6 +218,22 @@ async function adminBezoek(request: Request, env: Env, now: number): Promise<Res
   return json({ ok: true, ...(await bezoekOverzicht(env.DB, dagen, now)) });
 }
 
+/** Aanvragen van bezoekers van bijbelreis.nl (worker/aanvraag.ts): de lijst en het aantal nieuwe. */
+async function adminAanvragen(request: Request, env: Env): Promise<Response> {
+  const lijst = await aanvragenLijst(env.DB, new URL(request.url).searchParams.get("status") ?? "nieuw");
+  if (!lijst) return error("Onbekende status.", 400);
+  return json({ ok: true, ...lijst });
+}
+
+async function adminAanvraag(request: Request, env: Env, id: number, now: number): Promise<Response> {
+  const body = await readJson(request);
+  if (body instanceof Response) return body;
+  const uitkomst = await aanvraagBeheer(env.DB, id, (body as { actie?: unknown })?.actie, now);
+  if (uitkomst === "onbekend") return error("Onbekende actie.", 400);
+  if (uitkomst === "weg") return error("Aanvraag niet gevonden.", 404);
+  return json({ ok: true });
+}
+
 async function adminModerate(request: Request, env: Env, id: number, now: number): Promise<Response> {
   const body = await readJson(request);
   if (body instanceof Response) return body;
@@ -265,12 +272,19 @@ export async function handleApi(request: Request, env: Env, ctx: ExecutionContex
     // alleen iets binnen als deze Worker de atlas zelf serveert (lokale tests). Altijd 204, zonder inhoud.
     if (path === "/api/bezoek" && method === "POST") return await meldBezoek(request, env.BIJBELREIS_VERHUISD === "uit" ? env : {}, ctx, now);
 
+    // Aanvragen van de Bijbelreis (worker/aanvraag.ts): zelfde regel als de bezoekmeting. In productie neemt alleen de
+    // Worker van bijbelreis.nl ze aan; hier alleen als deze Worker de atlas zelf serveert (lokale tests).
+    if (path === "/api/aanvraag" && env.BIJBELREIS_VERHUISD === "uit") return await meldAanvraag(request, env, ctx, now);
+
     if (path.startsWith("/api/admin/")) {
       if (!isAdmin(request, env)) return error("Geen toegang tot de directiekamer.", 401, { "WWW-Authenticate": "Bearer" });
       if (path === "/api/admin/ideas" && method === "GET") return await adminList(request, env);
       if (path === "/api/admin/bezoek" && method === "GET") return await adminBezoek(request, env, now);
       const match = path.match(/^\/api\/admin\/ideas\/(\d{1,9})$/);
       if (match && method === "POST") return await adminModerate(request, env, Number(match[1]), now);
+      if (path === "/api/admin/aanvragen" && method === "GET") return await adminAanvragen(request, env);
+      const aanvraag = path.match(/^\/api\/admin\/aanvragen\/(\d{1,9})$/);
+      if (aanvraag && method === "POST") return await adminAanvraag(request, env, Number(aanvraag[1]), now);
     }
     if (["/api/votes", "/api/ideas", "/api/health"].includes(path)) return error("Methode niet toegestaan.", 405, { Allow: "GET, POST" });
     if (path === "/api/bezoek") return error("Methode niet toegestaan.", 405, { Allow: "POST" });

@@ -74,8 +74,9 @@ Besluit van Martijn (15-11-2026): de Bijbelreis staat als zelfstandige website o
 
 | Onderdeel | Waarde |
 | --- | --- |
-| Worker | `bijbelreis` (`wrangler.bijbelreis.jsonc`, `worker/bijbelreis.ts`): alleen de atlas, plus de bezoekmeting |
+| Worker | `bijbelreis` (`wrangler.bijbelreis.jsonc`, `worker/bijbelreis.ts`): alleen de atlas, plus de bezoekmeting en de aanvragen van bezoekers |
 | Bezoekmeting | `POST /api/bezoek` schrijft naar de tabel `bezoek` in de D1-database `martijndenbesten` (binding `DB`, migratie `0002_bezoek.sql`); secret `HASH_SECRET` op deze Worker. Inzien: martijndenbesten.com/beheer → Bezoek bijbelreis.nl. Alles daarover: [`bijbelreis-bezoek/README.md`](bijbelreis-bezoek/README.md) |
+| Aanvragen | `POST /api/aanvraag` (‘Mis je iets? Vraag het aan’) schrijft naar de tabel `aanvraag` (migratie `0003_aanvraag.sql`) en mailt elke aanvraag naar info@denckh.nl via de binding `MAIL` (`send_email`); dat vraagt Email Routing op de zone bijbelreis.nl en info@denckh.nl als geverifieerd bestemmingsadres. Inzien: martijndenbesten.com/beheer → Aanvragen bijbelreis.nl. Zie [bijbelreis-aanvraag/README.md](bijbelreis-aanvraag/README.md) |
 | Bestanden | dezelfde build (`dist/client`); `scripts/embed-assets.mjs` maakt er `worker/generated/bijbelreis-files.ts` van (alleen `/bijbelreis.html`, `/bijbelreis/*`, `/fonts/*`) |
 | Adressen | `/` is de atlas; `/bijbelreis` verwijst door naar `/`; diepe links: `https://bijbelreis.nl/#ur-kanaan` |
 | Deploy | `npm run deploy:bijbelreis` |
@@ -96,6 +97,8 @@ Stand 15-11-2026: stap 1–3 zijn gedaan (zone actief, beide adressen gekoppeld 
 Stempels en scores staan in de browser (localStorage) en horen bij het adres. De verhuispagina (`public/bijbelreis-verhuisd.html` met `public/bijbelreis/verhuis.js`) pakt alle sleutels `bijbelreis:*` in en geeft ze mee in het fragment van het nieuwe adres (`#verhuis=…`). Een fragment gaat niet naar een server. De atlas op het nieuwe adres (`verhuisIn` in `app.js`) voegt samen: stempels verenigd, van scores de hoogste, instellingen alleen als daar nog niets stond. Dat gebeurt één keer per browser (`bijbelreis:verhuisd`).
 
 ## Twee deploy-varianten
+
+> **Stand 25 oktober 2026:** de deploy-job in GitHub Actions wordt nog steeds overgeslagen omdat het secret `CLOUDFLARE_API_TOKEN` niet is ingesteld (stap 1 hierboven); de workflow meldt dat als waarschuwing, niet als fout. De site draait daarom nog op de **ingebedde** variant, voor het laatst uitgerold vanuit een Claude-cloudsessie met `npm run build && node scripts/embed-assets.mjs && npx wrangler deploy -c wrangler.embedded.jsonc` (versie `1e9d3cbc`, met Bijbelreis). De ingebedde Worker is nu 3,7 MB gecomprimeerd (door de Bijbelteksten en 3D-beelden); zodra het secret is ingesteld en één deploy via Actions is geslaagd, is die grens niet meer van belang.
 
 | Variant | Config | Wanneer |
 | --- | --- | --- |

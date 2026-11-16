@@ -26,7 +26,7 @@ const GEEN_MENS = /bot|crawl|spider|slurp|preview|headless|lighthouse|pingdom|up
 const encoder = new TextEncoder();
 const hex = (buf: ArrayBuffer) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
 
-async function hmac(secret: string, value: string): Promise<string> {
+export async function hmac(secret: string, value: string): Promise<string> {
   const key = await crypto.subtle.importKey("raw", encoder.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
   return hex(await crypto.subtle.sign("HMAC", key, encoder.encode(value))).slice(0, 32);
 }
@@ -101,7 +101,7 @@ export function leesMelding(tekst: string, eigenHost: string): Melding | null {
  * vervalsen); oudere browsers hebben hem niet, dan telt de kop Origin. Een programma buiten de browser kan beide
  * verzinnen: daartegen helpen de validatie en de begrenzing, niet deze controle.
  */
-function vanEigenSite(request: Request): boolean {
+export function vanEigenSite(request: Request): boolean {
   const site = request.headers.get("Sec-Fetch-Site");
   if (site) return site === "same-origin";
   const origin = request.headers.get("Origin");
