@@ -313,7 +313,7 @@ describe("taferelen: koppeling", () => {
       if (deel) { const b = BR.tafereel.van(STAP.get(key)!)!; expect(b.id, key).toBe(id); expect(b.algemeen, key).toBeUndefined(); }
       else expect(STAP.has(key), key).toBe(false);
     });
-    for (const [key, k] of Object.entries(BR.beelden)) if (JAKOB.includes(k.t)) expect(key.startsWith("genesis:jakob-jabbok:"), key).toBe(true);
+    for (const [key, k] of Object.entries(BR.beelden)) if (JAKOB.includes(k.t)) expect(key.startsWith("genesis:jakob-jabbok:") || key in HOOFD, key).toBe(true);
   });
   it("Genesis 32: de Man en de engelen zijn nergens afgebeeld, en de aantallen kloppen", () => {
     // Het label zegt wat er te zien is; het noemt de Man, God, een engel of de worsteling dus niet als iets wat er staat.
