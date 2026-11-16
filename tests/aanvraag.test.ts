@@ -189,13 +189,24 @@ function nepMail(opties: { faalt?: (bericht: unknown) => boolean } = {}) {
 }
 class NepEmailMessage { constructor(public from: string, public to: string, public raw: string) {} }
 const diensten = { EmailMessage: NepEmailMessage as unknown as Diensten["EmailMessage"] };
-const lijf = (mime: string) => Buffer.from(mime.split("\r\n\r\n")[1].replace(/\r\n/g, ""), "base64").toString("utf8");
 const koppen = (mime: string) => mime.split("\r\n\r\n")[0].split("\r\n");
+// De delen van het ruwe bericht (multipart/alternative): per deel de kopregels en de gedecodeerde inhoud.
+function delen(mime: string) {
+  const grens = /boundary="([^"]+)"/.exec(koppen(mime).find((k) => k.startsWith("Content-Type"))!)![1];
+  const stukken = mime.slice(mime.indexOf("\r\n\r\n") + 4).split(`--${grens}`);
+  expect(stukken[0]).toBe(""); // niets vóór het eerste deel
+  expect(stukken[stukken.length - 1]).toBe("--\r\n"); // de afsluitende grens, en daarna niets
+  return stukken.slice(1, -1).map((d) => {
+    const [kop, inhoud] = d.replace(/^\r\n/, "").split("\r\n\r\n");
+    return { grens, koppen: kop.split("\r\n"), tekst: Buffer.from(inhoud.replace(/\r\n/g, ""), "base64").toString("utf8") };
+  });
+}
+const lijf = (mime: string) => delen(mime)[0].tekst;
 
 describe("aanvraag: het bericht voor de maker", () => {
   it("onderwerp uit vaste woorden en het nummer; tekst met soort, tijd in Nederland, volledige link en het antwoordadres", () => {
     const b = maakBericht(12, aanvraag({ email: "ouder@voorbeeld.example" }), NU);
-    expect(b.onderwerp).toBe("Bijbelreis: gemist gedeelte (#12)");
+    expect(b.onderwerp).toBe("Aanvraag #12 - gemist gedeelte");
     expect(b.replyTo).toBe("ouder@voorbeeld.example");
     expect(b.tekst.split("\n")).toEqual([
       "Nieuwe aanvraag bij de Bijbelreis (#12)",
@@ -211,10 +222,10 @@ describe("aanvraag: het bericht voor de maker", () => {
       "-- ",
       "Afhandelen: https://martijndenbesten.com/beheer (Aanvragen bijbelreis.nl)",
     ]);
-    expect(maakBericht(3, aanvraag({ soort: "groep", context: "" }), NU)).toMatchObject({ onderwerp: "Bijbelreis: school, club of kerk (#3)", replyTo: "" });
+    expect(maakBericht(3, aanvraag({ soort: "groep", context: "" }), NU)).toMatchObject({ onderwerp: "Aanvraag #3 - school, club of kerk", replyTo: "" });
     expect(maakBericht(3, aanvraag({ context: "" }), NU).tekst).toContain("Waar: niet bekend\nGeen e-mailadres opgegeven");
-    expect(maakBericht(4, aanvraag({ soort: "fout" }), NU).onderwerp).toBe("Bijbelreis: fout of verbetering (#4)");
-    expect(maakBericht(5, aanvraag({ soort: "anders" }), NU).onderwerp).toBe("Bijbelreis: iets anders (#5)");
+    expect(maakBericht(4, aanvraag({ soort: "fout" }), NU).onderwerp).toBe("Aanvraag #4 - fout of verbetering");
+    expect(maakBericht(5, aanvraag({ soort: "anders" }), NU).onderwerp).toBe("Aanvraag #5 - iets anders");
   });
 
   it("een ongeldig adres komt nooit in het antwoordadres, ook niet als het langs de eerste controle zou komen", () => {
@@ -225,43 +236,52 @@ describe("aanvraag: het bericht voor de maker", () => {
     }
   });
 
-  it("het ruwe bericht: vaste kopregels, Reply-To alleen bij een adres, platte tekst in UTF-8 als base64", () => {
+  it("het ruwe bericht: vaste kopregels, Reply-To alleen bij een adres, en twee versies (platte tekst, dan HTML) in UTF-8 als base64", () => {
     const b = maakBericht(12, aanvraag({ email: "ouder@voorbeeld.example", tekst: "Staat Psalm 23 er ook in?\nGroeten, een vader — met ‘aanhalingstekens’ en ë." }), NU);
     const mime = bouwMime(b, { datum: new Date(NU * 1000), berichtId: "aanvraag-12.0123456789abcdef" });
     expect(koppen(mime)).toEqual([
       `From: Bijbelreis <${MAIL_VAN}>`,
       `To: <${MAIL_AAN}>`,
       "Reply-To: <ouder@voorbeeld.example>",
-      "Subject: Bijbelreis: gemist gedeelte (#12)",
+      "Subject: Aanvraag #12 - gemist gedeelte",
       "Date: Mon, 16 Nov 2026 09:00:00 +0000",
       "Message-ID: <aanvraag-12.0123456789abcdef@bijbelreis.nl>",
       "MIME-Version: 1.0",
-      "Content-Type: text/plain; charset=UTF-8",
-      "Content-Transfer-Encoding: base64",
+      'Content-Type: multipart/alternative; boundary="=_br_nvraag120123456789abcdef"',
       "Auto-Submitted: auto-generated",
     ]);
-    expect(lijf(mime)).toBe(b.tekst.replace(/\n/g, "\r\n"));
-    expect(lijf(mime)).toContain("een vader — met ‘aanhalingstekens’ en ë.");
+    const [plat, html] = delen(mime);
+    expect(delen(mime)).toHaveLength(2);
+    // Eerst de platte tekst (de terugval), daarna de HTML: een mailprogramma toont het laatste deel dat het aankan.
+    expect(plat.koppen).toEqual(["Content-Type: text/plain; charset=UTF-8", "Content-Transfer-Encoding: base64"]);
+    expect(html.koppen).toEqual(["Content-Type: text/html; charset=UTF-8", "Content-Transfer-Encoding: base64"]);
+    expect(plat.tekst).toBe(b.tekst.replace(/\n/g, "\r\n"));
+    expect(plat.tekst).toContain("een vader — met ‘aanhalingstekens’ en ë.");
+    expect(html.tekst).toBe(b.html.replace(/\n/g, "\r\n"));
+    expect(html.tekst).toContain("een vader — met ‘aanhalingstekens’ en ë.");
+    // De grens komt in geen van beide delen voor (base64 bevat geen ‘=_’ aan het begin van een regel en geen ‘_’).
+    expect(mime.split(`--${plat.grens}`).length).toBe(4);
     for (const regel of mime.split("\r\n")) expect(regel.length).toBeLessThanOrEqual(78);
     expect(mime).toMatch(/^[\x00-\x7F]*$/); // alles buiten ASCII zit in de base64
     expect(mime.endsWith("\r\n")).toBe(true);
     expect(koppen(bouwMime(maakBericht(1, aanvraag(), NU), { datum: new Date(NU * 1000), berichtId: "x" })).some((k) => k.startsWith("Reply-To"))).toBe(false);
   });
 
-  it("geen injectie: regeleinden in de tekst, het adres, het onderwerp of het bericht-id maken nooit een extra kopregel", () => {
-    const kwaad = aanvraag({ tekst: "Hallo\r\nBcc: kwaad@voorbeeld.example\r\n\r\nSubject: nep", email: "a@voorbeeld.example\r\nBcc: kwaad@voorbeeld.example" });
+  it("geen injectie: regeleinden in de tekst, het adres, het onderwerp of het bericht-id maken nooit een extra kopregel of een extra deel", () => {
+    const kwaad = aanvraag({ tekst: "Hallo\r\nBcc: kwaad@voorbeeld.example\r\n\r\nSubject: nep\r\n--=_br_x--", email: "a@voorbeeld.example\r\nBcc: kwaad@voorbeeld.example" });
     const b = maakBericht(7, kwaad, NU);
     const mime = bouwMime({ ...b, onderwerp: b.onderwerp + "\r\nBcc: kwaad@voorbeeld.example", replyTo: "a@voorbeeld.example\r\nBcc: kwaad@voorbeeld.example" }, { datum: new Date(NU * 1000), berichtId: "x\r\nBcc: kwaad@voorbeeld.example" });
     const k = koppen(mime);
-    expect(k.map((r) => r.split(":")[0])).toEqual(["From", "To", "Subject", "Date", "Message-ID", "MIME-Version", "Content-Type", "Content-Transfer-Encoding", "Auto-Submitted"]);
-    expect(k.find((r) => r.startsWith("Subject"))).toBe("Subject: Bijbelreis: gemist gedeelte (#7) Bcc: kwaad@voorbeeld.example");
+    expect(k.map((r) => r.split(":")[0])).toEqual(["From", "To", "Subject", "Date", "Message-ID", "MIME-Version", "Content-Type", "Auto-Submitted"]);
+    expect(k.find((r) => r.startsWith("Subject"))).toBe("Subject: Aanvraag #7 - gemist gedeelte Bcc: kwaad@voorbeeld.example");
     expect(k.find((r) => r.startsWith("Message-ID"))).toBe("Message-ID: <xBcckwaadvoorbeeld.example@bijbelreis.nl>");
-    expect(mime.split("\r\n\r\n").length).toBe(2); // precies één scheiding tussen kopregels en inhoud
+    expect(k.find((r) => r.startsWith("Content-Type"))).toBe('Content-Type: multipart/alternative; boundary="=_br_Bcckwaadvoorbeeldexample"');
+    expect(delen(mime)).toHaveLength(2); // precies twee delen, wat er ook in de tekst staat
     expect(lijf(mime)).toContain("Hallo\r\nBcc: kwaad@voorbeeld.example"); // als gewone tekst, in de inhoud
   });
 
   it("een onderwerp met andere tekens dan ASCII wordt een ‘encoded-word’", () => {
-    const mime = bouwMime({ onderwerp: "Bijbelreis: ideeën", tekst: "x", replyTo: "" }, { datum: new Date(NU * 1000), berichtId: "x" });
+    const mime = bouwMime({ onderwerp: "Bijbelreis: ideeën", tekst: "x", html: "<p>x</p>", replyTo: "" }, { datum: new Date(NU * 1000), berichtId: "x" });
     expect(koppen(mime).find((r) => r.startsWith("Subject"))).toBe(`Subject: =?UTF-8?B?${Buffer.from("Bijbelreis: ideeën").toString("base64")}?=`);
   });
 });
@@ -273,7 +293,7 @@ describe("aanvraag: de melding versturen", () => {
     expect((await stuur(goed({ email: "ouder@voorbeeld.example" }), { diensten })).status).toBe(200);
     await Promise.all(wacht);
     expect(verstuurd).toEqual([
-      { from: { email: "aanvraag@bijbelreis.nl", name: "Bijbelreis" }, to: "info@denckh.nl", subject: "Bijbelreis: gemist gedeelte (#1)", text: maakBericht(1, aanvraag({ email: "ouder@voorbeeld.example" }), NU).tekst, replyTo: "ouder@voorbeeld.example" },
+      { from: { email: "aanvraag@bijbelreis.nl", name: "Bijbelreis" }, to: "info@denckh.nl", subject: "Aanvraag #1 - gemist gedeelte", text: maakBericht(1, aanvraag({ email: "ouder@voorbeeld.example" }), NU).tekst, html: maakBericht(1, aanvraag({ email: "ouder@voorbeeld.example" }), NU).html, replyTo: "ouder@voorbeeld.example" },
     ]);
   });
 
@@ -281,6 +301,8 @@ describe("aanvraag: de melding versturen", () => {
     const { MAIL, verstuurd } = nepMail();
     expect(await naAanvraag({ MAIL }, 2, aanvraag(), NU)).toBe("velden");
     expect(verstuurd[0]).not.toHaveProperty("replyTo");
+    // Beide versies gaan mee: de platte tekst als terugval en de HTML.
+    expect(verstuurd[0]).toMatchObject({ text: expect.stringContaining("Nieuwe aanvraag bij de Bijbelreis (#2)"), html: expect.stringContaining("<!DOCTYPE html>") });
   });
 
   it("lukt de eerste manier niet, dan gaat het als ruw bericht; lukt dat ook niet, dan blijft het daarbij", async () => {

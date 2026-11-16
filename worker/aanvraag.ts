@@ -6,6 +6,7 @@
 
 import { hmac, vanEigenSite } from "./bezoek";
 import { rateLimit, ruimBegrenzingOp } from "./begrenzing";
+import { maakHtml } from "./aanvraag-mail";
 
 export interface AanvraagEnv {
   DB?: D1Database;
@@ -121,19 +122,24 @@ const SOORT_KORT: Record<Soort, string> = { gemist: "gemist gedeelte", groep: "s
 const SOORT_LANG: Record<Soort, string> = { gemist: "Een Bijbelgedeelte of verhaal dat ik mis", groep: "Voor school, club of kerk", fout: "Een fout of verbetering", anders: "Iets anders" };
 const NL_TIJD = new Intl.DateTimeFormat("nl-NL", { timeZone: "Europe/Amsterdam", weekday: "long", day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" });
 
-export type Bericht = { onderwerp: string; tekst: string; replyTo: string };
+export type Bericht = { onderwerp: string; tekst: string; html: string; replyTo: string };
 
-/** Onderwerp, platte tekst en antwoordadres van de melding. Het antwoordadres is leeg als de bezoeker er geen opgaf. */
+/**
+ * Onderwerp, platte tekst, HTML en antwoordadres van de melding. Het antwoordadres is leeg als de bezoeker er geen
+ * opgaf. De platte tekst is de terugval; de HTML komt uit het sjabloon in aanvraag-mail.ts.
+ */
 export function maakBericht(id: number, a: Aanvraag, now: number): Bericht {
   const nummer = Number.isInteger(id) && id > 0 ? id : 0;
   // Het adres is al streng gecontroleerd (leesAanvraag); hier nog eens, omdat het in een kopregel komt.
   const replyTo = a.email.length <= MAX_EMAIL && EMAIL.test(a.email) ? a.email : "";
+  const waar = CONTEXT.test(a.context) ? `${SITE}/${a.context}` : "";
+  const wanneer = NL_TIJD.format(new Date(now * 1000));
   const regels = [
     `Nieuwe aanvraag bij de Bijbelreis (#${nummer})`,
     "",
     `Soort: ${SOORT_LANG[a.soort]}`,
-    `Wanneer: ${NL_TIJD.format(new Date(now * 1000))} (Nederlandse tijd)`,
-    `Waar: ${CONTEXT.test(a.context) ? `${SITE}/${a.context}` : "niet bekend"}`,
+    `Wanneer: ${wanneer} (Nederlandse tijd)`,
+    `Waar: ${waar || "niet bekend"}`,
     replyTo ? `Antwoorden naar: ${replyTo}` : "Geen e-mailadres opgegeven",
     "",
     "Wat er gevraagd wordt:",
@@ -142,7 +148,9 @@ export function maakBericht(id: number, a: Aanvraag, now: number): Bericht {
     "-- ",
     `Afhandelen: ${BEHEER} (Aanvragen bijbelreis.nl)`,
   ];
-  return { onderwerp: `Bijbelreis: ${SOORT_KORT[a.soort]} (#${nummer})`, tekst: regels.join("\n"), replyTo };
+  const html = maakHtml({ nummer, soort: SOORT_KORT[a.soort], vraag: a.tekst, wanneer, waar: waar.replace(/^https:\/\//, ""), antwoord: replyTo });
+  // Het onderwerp bestaat alleen uit vaste woorden en het nummer: gewone tekens, dus geen codering nodig.
+  return { onderwerp: `Aanvraag #${nummer} - ${SOORT_KORT[a.soort]}`, tekst: regels.join("\n"), html, replyTo };
 }
 
 const base64 = (bytes: Uint8Array) => {
@@ -155,28 +163,34 @@ const schoon = (s: string) => s.replace(/[\u0000-\u001F\u007F]+/g, " ").trim();
 const kopwoord = (s: string) => (/^[\x20-\x7E]*$/.test(s) ? s : `=?UTF-8?B?${base64(encoder.encode(s))}?=`);
 
 /**
- * De melding als ruw bericht (RFC 5322), voor de klasse EmailMessage. Zo klein als kan: platte tekst in UTF-8, als
- * base64 in regels van 76 tekens, zodat geen enkele regel te lang is en er niets met regeleinden mis kan gaan.
+ * De melding als ruw bericht (RFC 5322), voor de klasse EmailMessage: multipart/alternative met eerst de platte tekst
+ * en daarna de HTML (een mailprogramma toont het laatste deel dat het aankan). Beide delen in UTF-8, als base64 in
+ * regels van 76 tekens, zodat geen enkele regel te lang is en er niets met regeleinden mis kan gaan.
  */
 export function bouwMime(b: Bericht, opties: { datum: Date; berichtId: string }): string {
-  const lijf = (base64(encoder.encode(b.tekst.replace(/\r\n?/g, "\n").replace(/\n/g, "\r\n"))).match(/.{1,76}/g) ?? []).join("\r\n");
+  const deel = (soort: string, inhoud: string) =>
+    [`Content-Type: ${soort}; charset=UTF-8`, "Content-Transfer-Encoding: base64", "", (base64(encoder.encode(inhoud.replace(/\r\n?/g, "\n").replace(/\n/g, "\r\n"))).match(/.{1,76}/g) ?? []).join("\r\n")].join("\r\n");
+  const id = schoon(opties.berichtId).replace(/[^A-Za-z0-9.-]/g, "");
+  // De grens bestaat uit tekens die in base64 niet aan het begin van een regel met twee streepjes kunnen voorkomen.
+  // Kort gehouden (de laatste 24 tekens van het bericht-id), zodat ook deze kopregel binnen 78 tekens blijft.
+  const grens = `=_br_${id.replace(/[^A-Za-z0-9]/g, "").slice(-24) || "deel"}`;
   const koppen = [
     `From: ${kopwoord(MAIL_NAAM)} <${MAIL_VAN}>`,
     `To: <${MAIL_AAN}>`,
     ...(b.replyTo && EMAIL.test(b.replyTo) ? [`Reply-To: <${b.replyTo}>`] : []),
     `Subject: ${kopwoord(schoon(b.onderwerp))}`,
     `Date: ${opties.datum.toUTCString().replace("GMT", "+0000")}`,
-    `Message-ID: <${schoon(opties.berichtId).replace(/[^A-Za-z0-9.-]/g, "")}@bijbelreis.nl>`,
+    `Message-ID: <${id}@bijbelreis.nl>`,
     "MIME-Version: 1.0",
-    "Content-Type: text/plain; charset=UTF-8",
-    "Content-Transfer-Encoding: base64",
+    `Content-Type: multipart/alternative; boundary="${grens}"`,
     "Auto-Submitted: auto-generated",
   ];
-  return koppen.join("\r\n") + "\r\n\r\n" + lijf + "\r\n";
+  return [koppen.join("\r\n"), "", `--${grens}`, deel("text/plain", b.tekst), `--${grens}`, deel("text/html", b.html), `--${grens}--`, ""].join("\r\n");
 }
 
 /**
- * Stuurt de melding. Eerst op de manier die de documentatie van Cloudflare nu aanraadt (velden, zonder ruw bericht);
+ * Stuurt de melding, met platte tekst én HTML. Eerst op de manier die de documentatie van Cloudflare nu aanraadt (velden
+ * `text` en `html`; Cloudflare maakt daar zelf één bericht met twee versies van);
  * lukt dat niet en is de klasse EmailMessage er, dan als ruw bericht (de oudere manier, die bij een domein met alleen
  * Email Routing al langer werkt). Geeft terug hoe het is verstuurd, of "" als er niets is verstuurd. Gooit nooit.
  */
@@ -184,7 +198,7 @@ export async function naAanvraag(env: AanvraagEnv, id: number, aanvraag: Aanvraa
   if (!env.MAIL) return "";
   const b = maakBericht(id, aanvraag, now);
   try {
-    await env.MAIL.send({ from: { email: MAIL_VAN, name: MAIL_NAAM }, to: MAIL_AAN, subject: b.onderwerp, text: b.tekst, ...(b.replyTo ? { replyTo: b.replyTo } : {}) });
+    await env.MAIL.send({ from: { email: MAIL_VAN, name: MAIL_NAAM }, to: MAIL_AAN, subject: b.onderwerp, text: b.tekst, html: b.html, ...(b.replyTo ? { replyTo: b.replyTo } : {}) });
     return "velden";
   } catch (err) {
     console.error("Melding van aanvraag (velden) mislukt", (err as { code?: string })?.code ?? "", err);

@@ -131,8 +131,8 @@ Besluit van Martijn (16-11-2026): elke aanvraag gaat ook als e-mail naar info@de
 | Van | `Bijbelreis <aanvraag@bijbelreis.nl>` |
 | Aan | `info@denckh.nl` (de binding staat alleen dit adres toe) |
 | Antwoorden naar | het e-mailadres van de bezoeker, als hij er een opgaf (`Reply-To`); ‘Beantwoorden’ in het mailprogramma gaat dus naar de bezoeker |
-| Onderwerp | `Bijbelreis: <soort> (#<nummer>)`, bijvoorbeeld `Bijbelreis: gemist gedeelte (#12)` |
-| Inhoud | platte tekst: soort, tijd (Nederlandse tijd), waar de bezoeker was als volledige link, het antwoordadres of ‘Geen e-mailadres opgegeven’, de tekst, en de link naar het beheer |
+| Onderwerp | `Aanvraag #<nummer> - <soort>`, bijvoorbeeld `Aanvraag #12 - gemist gedeelte` (alleen vaste woorden en het nummer) |
+| Inhoud | twee versies in één bericht (`multipart/alternative`): de platte tekst als terugval (soort, tijd in Nederlandse tijd, waar de bezoeker was als volledige link, het antwoordadres of ‘Geen e-mailadres opgegeven’, de tekst, de link naar het beheer) en de opgemaakte HTML-versie |
 
 **Wat ervoor nodig is** (in het Cloudflare-account; de code doet dit niet):
 
@@ -149,8 +149,9 @@ Workers-plan en ook als alleen Email Routing is ingesteld; het telt niet mee voo
 `…/workers/wrangler/configuration/#email-bindings`.
 
 **Hoe de code verstuurt** (`naAanvraag` in `worker/aanvraag.ts`): eerst op de manier die de documentatie nu aanraadt,
-`env.MAIL.send({ from, to, subject, text, replyTo })`. Lukt dat niet, dan als ruw bericht met de klasse `EmailMessage`
-uit `cloudflare:email` (de oudere manier); `bouwMime` maakt dat bericht zelf, zonder extra pakket. De klasse komt alleen
+`env.MAIL.send({ from, to, subject, text, html, replyTo })`. Lukt dat niet, dan als ruw bericht met de klasse `EmailMessage`
+uit `cloudflare:email` (de oudere manier); `bouwMime` maakt dat bericht zelf, zonder extra pakket, als
+`multipart/alternative` met eerst de platte tekst en daarna de HTML. De klasse komt alleen
 via `worker/bijbelreis.ts` binnen, omdat die module buiten de Worker-omgeving niet bestaat (tests, hoofdsite).
 
 **Als het (nog) niet is ingesteld.** De melding is bijzaak en raakt de aanvraag nooit:
@@ -169,6 +170,34 @@ haal dan de regel `send_email` tijdelijk uit `wrangler.bijbelreis.jsonc`: alles 
 op info@denckh.nl, en ‘Beantwoorden’ gaat naar het opgegeven adres. Komt er niets: kijk in de logboeken van de Worker
 `bijbelreis` naar de foutcode (bijvoorbeeld `E_SENDER_NOT_VERIFIED` of `E_SENDER_DOMAIN_NOT_AVAILABLE`: Email Routing
 staat niet aan op bijbelreis.nl; `E_RECIPIENT_NOT_ALLOWED`: het bestemmingsadres klopt niet met de binding).
+
+### De opgemaakte versie (HTML)
+
+Het sjabloon is van Martijn (16-11-2026) en staat letterlijk in `worker/aanvraag-mail.ts`; een unittest vergelijkt de
+uitkomst met zijn origineel (`tests/fixtures/aanvraagmail-sjabloon.html`).
+
+| Plaatshouder | Waarde |
+| --- | --- |
+| `{{NUMMER}}` | het nummer van de aanvraag |
+| `{{SOORT}}` | de soort in gewone taal: gemist gedeelte · school, club of kerk · fout of verbetering · iets anders |
+| `{{VRAAG}}` | de tekst van de bezoeker; een regeleinde wordt een nieuwe regel |
+| `{{VRAAG_KORT}}` | het begin van de tekst op één regel (ongeveer honderd tekens, op een woordgrens): de voorvertoning in de inbox |
+| `{{WANNEER}}` | de tijd in Nederland |
+| `{{WAAR}}` | de plaats in de atlas, bijvoorbeeld `bijbelreis.nl/#jakob/7` |
+| `{{ANTWOORD}}` | het e-mailadres van de aanvrager |
+
+- **Alles wordt ge-escaped.** Er komt nooit ruwe invoer van een bezoeker in de HTML; `<b>` in een vraag staat er als
+  tekst. Een waarde die zelf op een plaatshouder lijkt, wordt niet opnieuw ingevuld.
+- **Wat vervalt:** zonder plaats de regel ‘Waar’; zonder e-mailadres zowel de knop ‘Antwoorden’ als de regel ‘Antwoord
+  naar’. De zoekterm van de bezoeker wordt niet apart bewaard: die staat in de tekst van de aanvraag.
+- **De mail laadt niets:** geen afbeeldingen, scripts of lettertypen; alleen de link naar het beheer en de `mailto:`.
+- **Licht en donker** volgen het apparaat (`prefers-color-scheme`). In donker krijgt de knop ‘Afhandelen in beheer’
+  een lichtere achtergrond (`.btn`, correctie van Martijn op het sjabloon): donkerblauw op de donkere kaart had te weinig
+  contrast. Bekeken in Chromium op 390 px breed, in licht en
+  donker, met en zonder plaats en e-mailadres en met een lange tekst; **niet** in Apple Mail, Gmail of Outlook zelf.
+  Gmail negeert `<style>` in sommige weergaven: daar blijft de lichte versie staan, ook als het toestel donker is.
+- Voorbeelden opnieuw maken: bundel een scriptje dat `maakBericht` aanroept (zie de PR bij deze wijziging) en open de
+  HTML in een browser.
 
 ## 7. Live zetten
 
