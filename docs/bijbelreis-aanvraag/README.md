@@ -171,6 +171,9 @@ op info@denckh.nl, en ‘Beantwoorden’ gaat naar het opgegeven adres. Komt er 
 `bijbelreis` naar de foutcode (bijvoorbeeld `E_SENDER_NOT_VERIFIED` of `E_SENDER_DOMAIN_NOT_AVAILABLE`: Email Routing
 staat niet aan op bijbelreis.nl; `E_RECIPIENT_NOT_ALLOWED`: het bestemmingsadres klopt niet met de binding).
 
+**In productie bevestigd (16-11-2026):** Email Routing staat aan op bijbelreis.nl, info@denckh.nl is geverifieerd en een
+proefaanvraag van Martijn kwam aan.
+
 ### De opgemaakte versie (HTML)
 
 Het sjabloon is van Martijn (16-11-2026) en staat letterlijk in `worker/aanvraag-mail.ts`; een unittest vergelijkt de

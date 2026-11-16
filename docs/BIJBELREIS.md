@@ -148,6 +148,47 @@ de lijn meteen af. De tests staan in `e2e/bijbelreis-kameel.spec.ts`.
 - Bijbelverwijzingen en getallen: `python3 scripts/bijbel-check.py <controlebestand>` met regels `Exodus 12:37 | zeshonderd duizend` (regex, hoofdletterongevoelig; de Statenvertaling schrijft getallen voluit: ‘vijf en zeventig’, ‘honderd en dertig’).
 - Vóór publicatie: `npm run check` (typecheck, tests, build) en `npx playwright test navigatie a11y`.
 
+## Stand en overdracht (16 november 2026)
+
+Dit is de actuele stand; de sectie over versie 2.0 hieronder is geschiedenis. Elke uitrol staat met versie-id’s,
+herstelpunt en controle in [`bijbelreis-audit/releases.md`](bijbelreis-audit/releases.md).
+
+**Live:** https://bijbelreis.nl/ (Worker `bijbelreis`, `wrangler.bijbelreis.jsonc`); martijndenbesten.com/bijbelreis
+toont de verhuispagina. Uitrollen: eerst `bijbelreis`, dan de hoofdsite (`docs/DEPLOYMENT.md`). De Worker `bijbelreis`
+heeft de D1-database `martijndenbesten` (migraties `0002_bezoek`, `0003_aanvraag`), het secret `HASH_SECRET` en de
+e-mailbinding `MAIL` naar info@denckh.nl.
+
+**Op 15 en 16 november live gezet** (PR #23–#32):
+
+| Onderdeel | Documentatie |
+| --- | --- |
+| Telefoon ‘kaart voorop’: de kaart is het scherm, kort stapblad, ‘Lees meer’ | `bijbelreis-audit/telefoon.md` §4 |
+| Jakob en Genesis 32 (twaalf taferelen, ‘Van dichtbij’ als knop op de kaart) | `bijbelreis-reizen/werk/jakob.verantwoording.md` |
+| Gangbare uitleg verweven in de verhalen (uitzondering Jakob) | `bijbelreis-uitleg/README.md` |
+| Thema Kerst, met advent per week (zes delen, niets op slot) | `bijbelreis-kerst/README.md` |
+| Alleen nog een tekening die bij de stap hoort (geen ‘algemene tekening’) | `bijbelreis-taferelen/README.md` §1 |
+| Startkaart ‘Begin de reis’, knop Deel | `bijbelreis-audit/telefoon.md` §4.7 |
+| Bezoekmeting zonder cookies, met overzicht in het beheer | `bijbelreis-bezoek/README.md` |
+| Aanvraagformulier ‘Mis je iets? Vraag het aan’, met opgemaakte e-mail aan de maker | `bijbelreis-aanvraag/README.md` |
+
+**E-mail aan de maker werkt** (16-11-2026): Email Routing staat aan op de zone bijbelreis.nl (MX route1–3.mx.cloudflare.net,
+SPF en DKIM), info@denckh.nl is bevestigd, en Martijn ontving zijn eigen proefaanvraag. Komt een mail niet aan, lees dan de
+logboeken van de Worker (`npx wrangler tail -c wrangler.bijbelreis.jsonc`): `naAanvraag` schrijft daar de foutcode.
+
+**Open, werk voor een volgende ronde:**
+- Ingang vanuit de atlas naar het boekje (`/bijbelreis/boekje#<deel>`).
+- Routes duidelijker op de kaart.
+- Nieuwe reisdelen ook als geschiedenis in de Verhalenlijst (drie niveaus).
+- Ruim twee derde van de stappen heeft geen tekening; eigen tekeningen per verhaal volgens `bijbelreis-taferelen/README.md`.
+- Over een paar dagen de bezoekcijfers vergelijken met de eerste ochtend (16 van 40 weg binnen tien seconden, 7 van 40
+  een reisstap geopend) om te zien of de startkaart helpt.
+
+**Lopend in een andere sessie:** PR #33 (terugknop van Android blijft in de site, start bij stap 1, stappenlijst),
+gevonden met een test op een echte Samsung Galaxy A15.
+
+**Niet gedaan:** geen theoloog heeft meegelezen; niet getest op een echte iPhone. De laatste test op Samsung-maat
+(Chromium, 360×690, 16-11) liep langs alle 687 stappen en de gebruikersroutes zonder fouten.
+
 ## Stand (versie 2.0, 25 oktober 2026)
 
 14 boeken, 27 delen, 252 stappen (sleutels ongewijzigd t.o.v. 1.0), 152 plaatsen, 196 personen. Alles gecontroleerd tegen de
