@@ -1511,3 +1511,29 @@ Filemon 1:2 | Appia.*Archippus.*de Gemeente, die te uwen huize is
 Filemon 1:7 | de ingewanden der heiligen verkwikt zijn geworden door u
 Filemon 1:17 | zo neem hem aan, gelijk als mij
 Filemon 1:22 | bereid mij ook tegelijk een herberg
+# --- Kerst A (inhoud/kerst-1.js): Thamar, Perez, Achaz, Micha
+Genesis 38:6 | Juda nu nam een vrouw voor Er, zijn eerstgeborene, en haar naam was Thamar
+Ruth 4:12 | als het huis van Perez \( die Thamar aan Juda baarde\)
+Mattheüs 1:3 | En Juda gewon Fares en Zara bij Thamar
+Genesis 38:27 | tweelingen in haar buik
+Genesis 38:29 | men noemde zijn naam Perez
+Ruth 4:18 | Dit nu zijn de geboorten van Perez: Perez gewon Hezron
+1 Kronieken 2:4 | Thamar, zijn schoondochter, baarde hem Perez en Zerah
+2 Koningen 16:2 | Twintig jaren was Achaz oud, toen hij koning werd, en hij regeerde zestien jaren te Jeruzalem; en hij deed niet dat recht was in de ogen des HEEREN
+2 Koningen 16:1 | werd Achaz koning, de zoon van Jotham
+Jesaja 7:12 | Doch Achaz zeide: Ik zal het niet eisen
+Jesaja 7:14 | Daarom zal de Heere Zelf ulieden een teken geven; ziet, een maagd zal zwanger worden, en zij zal een Zoon baren
+Jesaja 7:13 | gij, huis van David
+2 Koningen 18:1 | dat Hizkia koning werd, de zoon van Achaz
+Mattheüs 1:9 | Joatham gewon Achaz, en Achaz gewon Ezekias
+Micha 1:1 | Het woord des HEEREN, dat geschied is tot Micha, den Morastiet, in de dagen van Jotham, Achaz en Jehizkia, koningen van Juda
+Micha 5:1 | En gij, Bethlehem Efratha!.*Uit u zal Mij voortkomen, Die een Heerser zal zijn in Israël
+Jeremia 26:18 | Micha, de Morastiet, heeft in de dagen van Hizkia
+Jeremia 26:17 | oudsten des lands
+Mattheüs 2:4 | waar de Christus zou geboren worden
+Mattheüs 2:5 | Te Bethlehem, in Judea gelegen; want alzo is geschreven door den profeet
+# --- Kerst B (inhoud/kerst-2.js): Augustus en Cyrenius
+Lukas 2:1 | een gebod uitging van den Keizer Augustus, dat de gehele wereld beschreven zou worden
+Lukas 2:2 | Deze eerste beschrijving geschiedde, als Cyrenius over Syri. stadhouder was
+# --- Kerst C (inhoud/kerst-3.js): Archelaüs
+Mattheüs 2:22 | als hij hoorde, dat Archelaus in Judea koning was, in de plaats van zijn vader Herodes, vreesde hij daarheen te gaan

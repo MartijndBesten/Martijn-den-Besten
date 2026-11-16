@@ -8,7 +8,8 @@
 //              Perzische koningslijsten, Romeinse keizers, Josephus) samen met de gegevens uit de Bijbel.
 //   onzeker  = onderzoekers komen tot duidelijk verschillende jaartallen (bijv. uittocht ca. 1446 of in de 13e eeuw;
 //              kruisiging 30 of 33 n.Chr.).
-// Genesis 1–11 heeft geen jaartal (tijd: null) en staat hier niet.
+// Genesis 1–11 heeft geen jaartal (tijd: null) en staat hier niet. Een deel dat in Genesis 1–11 begint en daarna
+// doorloopt (kerst:kerst-belofte) heeft ook tl: null, maar wel een tijd vanaf Abraham; het staat hier met die grond.
 window.BR = window.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} };
 BR.dateringen = {
   soorten: {
@@ -46,6 +47,11 @@ BR.dateringen = {
     "jozua:stammen": ["bijbel", true],
     "2samuel:davids-rijk": ["historie", true],
     "brieven:brieven": ["historie", true], // brieven zonder jaartal; ijkpunten: Gallio (Handelingen 18:12) en de overlevering over Nero
+    "kerst:kerst-belofte": ["bijbel", true], // Kerst A: begint in de oergeschiedenis zonder jaartal (tl: null, zoals genesis:begin; tijd begint met ‘Oergeschiedenis’, zoals het boek Genesis); vanaf Abraham (ca. 2091) als bij Genesis, tot de zalving van David (vóór ca. 1010)
+    "kerst:kerst-koningen": ["historie", true], // Kerst A: David tot Jozef; de eeuwen na Zerubbabel zonder jaren
+    "kerst:kerst-aankondiging": ["historie", true], "kerst:kerst-geboorte": ["historie", true], // Kerst B: vóór de dood van Herodes (Lukas 1:5; Mattheüs 2:1)
+    "kerst:kerst-wijzen": ["historie", true], // vóór en na de dood van Herodes de Grote (ca. 4 v.Chr. volgens Josephus; sommigen later)
+    "kerst:kerst-twaalf": ["historie", true], // twaalf jaar na de geboorte (Lukas 2:42)
   },
   // Geschiedenissen per reeks: [van, tot, soort, onzeker?]
   verhalen: [

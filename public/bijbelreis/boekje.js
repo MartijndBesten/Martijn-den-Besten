@@ -31,6 +31,12 @@
 
   // ---------- kiezen ----------
   const niveauKeuze = (n) => ["a", "b", "c"].map((k) => { const s = NIV.soorten[k]; return `<label><input type="radio" name="niveau" value="${k}"${k === n ? " checked" : ""}><b>${esc(s.n)}</b><small>${esc(s.leeftijd)} · ${esc(s.uitleg)}</small></label>`; }).join("");
+  // Thema’s (een boek met `thema`, zoals Kerst) zijn geen Bijbelboek: ze staan in een eigen groep onder de Bijbelboeken.
+  function boekOpties() {
+    const optie = (b) => `<option value="${esc(b.id)}">${esc(b.n)}</option>`, themas = BR.boeken.filter((b) => b.thema);
+    if (!themas.length) return BR.boeken.map(optie).join("");
+    return `<optgroup label="Bijbelboeken">${BR.boeken.filter((b) => !b.thema).map(optie).join("")}</optgroup><optgroup label="Thema’s">${themas.map(optie).join("")}</optgroup>`;
+  }
   function toonKies(melding) {
     stopSpeler();
     const n = ["a", "b", "c"].includes(instelling.niveau) ? instelling.niveau : "b";
@@ -46,7 +52,7 @@
           </div>
         </fieldset>
         <div id="kiesReis" class="bk-kaartje" style="box-shadow:none;padding:0;border:0">
-          <div class="bk-veld"><label for="kBoek">Bijbelboek</label><select id="kBoek">${BR.boeken.map((b) => `<option value="${esc(b.id)}">${esc(b.n)}</option>`).join("")}</select></div>
+          <div class="bk-veld"><label for="kBoek">Bijbelboek</label><select id="kBoek">${boekOpties()}</select></div>
           <div class="bk-veld"><label for="kDeel">Deel</label><select id="kDeel"></select></div>
           <div class="bk-rij2" id="kStappen"><div class="bk-veld"><label for="kVan">Van stap</label><select id="kVan"></select></div><div class="bk-veld"><label for="kTot">Tot en met stap</label><select id="kTot"></select></div></div>
         </div>

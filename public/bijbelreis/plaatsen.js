@@ -831,6 +831,30 @@ Object.assign(BR.W, {
   br_kreta1: [35.55, 24.7], br_kreta2: [35.78, 23.95], br_kreta3: [35.76, 23.45], br_malea: [36.2, 22.3], br_methone: [36.55, 21.45], br_ion4: [37.3, 21.2],
   br_ion5: [37.6, 20.4], br_ion6: [38.2, 20.2], br_ion7: [38.75, 20.4], br_ion8: [38.98, 20.6],
 });
+// Kerst A (inhoud/kerst-1.js): de woonplaats van de profeet Micha.
+Object.assign(BR.plaatsen, {
+  ka_moreseth: { n: "Moreseth", ll: [31.6334, 34.9166], c: "w", s: "l", z: 8.5, t: "stad", d: "De woonplaats van de profeet Micha, ‘den Morastiet’ (Micha 1:1). In Micha 1:14 heet de plaats Moreseth-Gath. Hij lag in het heuvelland van Juda, ten westen van Bethlehem.",
+    nu: "Tel Goded (Tell ej-Judeideh), Israël", bron: "OpenBible: Moresheth-gath, beste identificatie Tel Goded (score 467); geen serieuze tegenkandidaat (Tel Zayit 43). Gangbare identificatie, niet zeker." },
+});
+
+// Kerst B (inhoud/kerst-2.js): de aankondiging en de geboorte in Bethlehem.
+// Lukas 2:8 noemt geen plaats (‘in diezelfde landstreek’): een gebied, geen punt. Het midden ligt ten oosten van Bethlehem, waar
+// OpenBible.info (CC BY 4.0) bij Eder/Migdal-Eder (Genesis 35:21) Khirbet Siyar el-Ghanam geeft (score 632).
+Object.assign(BR.plaatsen, {
+  kb_herdersveld: { n: "Velden bij Bethlehem", ll: [31.7073, 35.2301], c: "r", s: "c", z: 10.5, t: "gebied",
+    d: "In de velden bij Bethlehem hielden herders ’s nachts de wacht bij hun kudde, toen een engel hun vertelde dat de Zaligmaker geboren was (Lukas 2:8–11). Ook David weidde bij Bethlehem de schapen van zijn vader (1 Samuël 17:15).",
+    nu: "Omgeving van Beit Sahour, Westelijke Jordaanoever",
+    bron: "Gebied: Lukas 2:8 zegt ‘in diezelfde landstreek’. Midden illustratief ten oosten van Bethlehem (Khirbet Siyar el-Ghanam; OpenBible bij Eder, Genesis 35:21, score 632)." },
+});
+
+// Kerst C (inhoud/kerst-3.js): de wijzen, Egypte en Nazareth. Coördinaten uit OpenBible.info Bible Geocoding Data (CC BY 4.0).
+// kc_rama ligt op hetzelfde punt als rama, maar zonder de alternatieven die bij het Rama van Samuël horen: Jeremia 31:15 en
+// Mattheüs 2:18 bedoelen Rama in Benjamin (zoals babel en babelst hetzelfde punt delen).
+Object.assign(BR.plaatsen, {
+  kc_rama: { n: "Rama", ll: [31.8543, 35.2316], c: "w", s: "l", z: 8.5, t: "stad",
+    d: "Stad in het gebied van Benjamin (Jozua 18:25), ten noorden van Jeruzalem. Jeremia schreef: ‘Er is een stem gehoord in Rama, een klage, een zeer bitter geween; Rachel weent over haar kinderen’ (Jeremia 31:15). Mattheüs haalt dat woord aan bij de kinderen van Bethlehem (Mattheüs 2:17–18).",
+    nu: "ar-Ram, ten noorden van Jeruzalem", bron: "OpenBible Ramah 1 (Jeremia 31:15; Mattheüs 2:18): Er Ram, score 723; zelfde punt als rama." },
+});
 // Deel jakob-jabbok (Genesis 32, ingezoomd op de Jabbok). Geen nieuwe plaatsen: Mahanaïm, Pniël, de Jabbok, Sukkoth, Gilead
 // en Seïr stonden er al. Alleen twee tussenpunten (geen Bijbelse plaatsen; sleutels beginnen met jj_):
 //   jj_zuid   ruim 2 km ten zuiden van Mahanaïm en Pniël, aan de overkant van de Jabbok: de richting waarin het geschenk

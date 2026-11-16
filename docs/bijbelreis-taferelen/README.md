@@ -14,6 +14,8 @@ motor onderhoudt. Wie alleen wil zien wat er is: open `docs/bijbelreis-taferelen
 | `public/bijbelreis/taferelen-koppeling-nt.js` | De koppelingen van het Nieuwe Testament; wordt ná `taferelen-koppeling.js` geladen en voegt toe |
 | `public/bijbelreis/taferelen-jakob.js` | Beeldverhaal bij Genesis 32–33: twaalf taferelen in één doorlopend landschap, met eigen bouwstenen (het dal van de Jabbok, mensen als pictogram, Jakob, kudden), en de ladder bij Bethel (Genesis 28); de koppelingen ook aan `genesis:jakob:0` en `genesis:jakob-jabbok:10`–`11` |
 | `public/bijbelreis/taferelen-koppeling-jakob.js` | De koppelingen daarvan aan `genesis:jakob-jabbok:0` tot en met `9`; wordt als laatste koppeling geladen |
+| `public/bijbelreis/taferelen-kerst.js` | De reeks bij het thema Kerst: twintig taferelen met een eigen toon (avond en nacht, warm licht), met eigen bouwstenen (stadje op een heuvel, Bethlehem, Nazareth, olielamp, de ster, een kamer met venster) |
+| `public/bijbelreis/taferelen-koppeling-kerst.js` | De koppelingen daarvan aan het boek `kerst` (`kerst:kerst-…:n`), met de stappen die bewust geen beeld hebben; wordt na `taferelen-koppeling-jakob.js` geladen |
 | `public/bijbelreis/taferelen-koppeling.js` | Welke stap welk beeld krijgt (`BR.beelden`) en afwijkende soorten per plaats (`BR.beeldSoort`) |
 | `public/bijbelreis/taferelen-koppeling-nt.js` | De koppelingen voor het Nieuwe Testament (voegt toe aan `BR.beelden`; een latere sleutel gaat vóór een eerdere) |
 | `public/bijbelreis/bijbelreis.css` | Onderaan: opmaak, kleurklassen en beweging van de taferelen |
@@ -29,7 +31,7 @@ Deze regels zijn hard. Twijfel je, teken het dan niet en zet het bij de vragen i
 1. **God en de Heere Jezus worden niet afgebeeld.** Ook niet als silhouet, hand, licht in mensvorm of van achteren.
    Engelen ook niet als figuur. Wat de Bijbel zelf als zichtbaar teken noemt, mag: een wolk, vuur, licht. Een stem is
    niet te tekenen. Voorbeeld: bij de braamstruik staan vlammen en een paar sandalen, geen gestalte; bij de kribbe
-   straks een lege voederbak met doeken, niet het Kind.
+   (Kerst) geen beeld: de geboorte heeft bewust geen tafereel.
 2. **Mensen alleen als het nodig is**, klein en eenvoudig als een pictogram, zonder gezicht. Liever het landschap, de
    stad, de tenten, het water, de voorwerpen. In de eerste reeks staat geen enkel mens.
 3. **Alleen wat de Bijbel zegt.** Aantallen en bijzonderheden kloppen met de tekst: twaalf stenen zijn er twaalf. Staat
@@ -126,6 +128,10 @@ af op hele of halve eenheden.
 | `oever` | een groene rand om een vlak (de beek met groen langs het water, in één pad) |
 | `k-morgen` | doorschijnend rood: het eerste morgenlicht aan de rand van de nachtlucht |
 | `menigte` (+ `m2`, `kop`) | een rij mensen in de verte als gestreepte lijn: lijven in zand of (`m2`) terra, met `kop` de hoofden erboven |
+| `k-avond`, `k-avond2` | Kerst: diepblauwe avond- en nachtlucht, en de lichtere band aan de einder |
+| `k-schemer` | Kerst: lichtere sluier dan `k-sluier`, voor de avond; het land blijft warm |
+| `k-venster`, `k-schijn` | Kerst: warm licht in een venster, en de zachte schijn rond een venster of lamp |
+| `k-lila`, `l-rood` | vlak in lila (purper van het voorhangsel), lijn in rood (het scharlaken koord) |
 | `rand` | lijndikte 6,8: een donkere lijn (`l-hout2 rand`) ónder een brede lijn (`breed`) geeft die lijn een omlijning (de slang, de stang) |
 | `vaag`, `vaag2`, `vaag3` | op een groep: steeds doorzichtiger (0,6 · 0,34 · 0,14), om iets in stukken te laten oplossen (de ladder bij Bethel) |
 
@@ -137,7 +143,9 @@ Een nieuwe kleur nodig? Voeg een klasse toe in `bijbelreis.css` die een bestaand
 **Bouwstenen** in `BR.tfTeken` (in een tekenbestand: `const K = BR.tfTeken`): `K.rook(x, y, schaal)`,
 `K.vlam(x, y, schaal, wacht)`, `K.wolk(x, y, schaal, klasse)`, `K.golf(x, y, breedte)`, `K.tent`, `K.tentje`, `K.boom`,
 `K.eik`, `K.palm`, `K.struik`, `K.schaap`, `K.muur`, `K.toren`, `K.huis`, `K.stad`, `K.steen`, `K.verte`. Gebruik ze:
-dat houdt de stijl gelijk en het bestand klein. Een onderdeel dat je twee keer nodig hebt, wordt een bouwsteen.
+dat houdt de stijl gelijk en het bestand klein. `taferelen-jakob.js` voegt daar `K.mensen`, `K.vrouwen`, `K.sterren`,
+`K.cirkel`, `K.vorm` en `K.rij` aan toe (mensen als pictogram, sterren, padhulpjes); bestanden die later geladen worden,
+zoals `taferelen-kerst.js`, gebruiken ze. Een onderdeel dat je twee keer nodig hebt, wordt een bouwsteen.
 
 **Beweging** komt alleen uit klassen. De tekening zoals je haar schrijft, is de **eindstand**.
 
@@ -414,6 +422,71 @@ Wat een mens moet beoordelen:
 - Genesis 33:5–11: of het wijzen naar de kudden passend is, en of de broers naast het gezin niet te groot ogen.
 - Of de menigte van Ezau dreigend genoeg (32:7: ‘toen vreesde Jakob zeer’) of juist te dreigend oogt.
 
+### Thema Kerst (`taferelen-kerst.js`)
+
+Twintig taferelen bij de zes delen van het boek `kerst` (59 stappen; sleutels `kerst:<deel>:<stap>`). Op besluit van de
+eigenaar ziet het thema er ‘enigszins anders’ uit. Daarom heeft deze reeks een eigen toon, binnen de stijl van de atlas:
+
+- **Avond en nacht.** Een diepblauwe lucht (`k-avond`) met een lichtere band aan de einder (`k-avond2`), en over het land een
+  lichtere sluier (`k-schemer`) dan bij de andere nachtbeelden, zodat het land warm blijft. Echte nacht (de tekst zegt nacht
+  of slaap: de herders, de droom van Jozef, de vlucht, de ster, het huis van cederhout) krijgt de gewone `k-sluier` en
+  sterren. Waar de tekst geen tijd noemt, is avond gekozen; dat is een keuze voor de toon, geen bewering. Alleen de reis naar
+  het Pascha en de duiven op de weg naar Jeruzalem zijn bij dag.
+- **Eén terugkerend detail: warm licht in een venster of van een olielamp** (`k-venster`, `k-schijn`, bouwsteen `lamp`). Drie
+  binnenbeelden (de rol, het schrijftafeltje, de geschenken) hebben dezelfde kamer met een venster op de avond.
+- **De ster** staat alleen bij Mattheüs 2:9–11, en dan alleen zij: geen andere sterren aan die hemel. Bij de aankomst in
+  Jeruzalem (2:1–2) staat er geen ster: die zien de wijzen pas weer op weg naar Bethlehem. Een test bewaakt dat.
+- **Bethlehem en Nazareth** zijn telkens hetzelfde stadje (bouwstenen `bethlehem` en `nazareth`), zonder muur; Nazareth op
+  een berg met een steile rand (Lukas 4:29).
+
+| Id | Wat je ziet | Wat beweegt | Tekst | Stappen |
+|---|---|---|---|---|
+| `kerst-geslacht` | een opengerolde rol met drie kolommen van veertien regels, bij een olielamp | de regels verschijnen kolom na kolom; de vlam | Mattheüs 1:1, 17 | `kerst-koningen:7`, `9` |
+| `kerst-rachab` | Jericho in de avond: de muur, het huis op de muur, het rode koord uit het venster | het koord zakt langs de muur | Jozua 2:15, 18, 21 | `kerst-belofte:7` |
+| `kerst-cederhuis` | nacht in Jeruzalem: het huis van cederhout en de tent van gordijnen | twee sterren, het licht in de vensters | 2 Samuël 7:2, 4 | `kerst-koningen:0` |
+| `kerst-tronk` | een afgehouwen tronk met wortels; er schiet een rijsje uit | het rijsje groeit op | Jesaja 11:1 | `kerst-koningen:3` |
+| `kerst-bethlehem` | Bethlehem op de heuvel in de avond, licht in de vensters, schapen op de helling | rook, het licht | Micha 5:1; 1 Samuël 16:11; Mattheüs 2:5 | `kerst-belofte:9`, `kerst-koningen:4`, `kerst-wijzen:1` |
+| `kerst-nazareth` | Nazareth tegen de berg, met de steile rand, in de avond | rook, het licht | Lukas 1:26; 4:29 | `kerst-koningen:8`, `kerst-aankondiging:3`, `4`, `kerst-wijzen:9`, `kerst-twaalf:0`, `8` |
+| `kerst-droom` | Nazareth in de nacht, één venster met licht | een ster, het licht | Mattheüs 1:20, 24 | `kerst-aankondiging:9` |
+| `kerst-reukaltaar` | het heilige: het voorhangsel (blauw, purper, scharlaken), het gouden reukaltaar met hoornen, de kandelaar met zeven lampen | rook, de zeven vlammen | Lukas 1:9–11; Exodus 25:37; 26:31; 30:1–8 | `kerst-aankondiging:0`, `1` |
+| `kerst-bergland` | het bergland van Juda met terrassen, een pad naar een stad op de helling | het licht | Lukas 1:39–40 | `kerst-aankondiging:6`, `8` |
+| `kerst-tafeltje` | een schrijftafeltje met was, een griffel, een olielamp | de woorden worden geschreven; de vlam | Lukas 1:63 | `kerst-aankondiging:7` |
+| `kerst-op-weg` | de weg door het heuvelland naar Bethlehem; Jozef en Maria als twee kleine figuren | zij komen over de weg | Lukas 2:4–5 | `kerst-geboorte:1` |
+| `kerst-herders` | nacht in het veld: de kudde, een paar herders, Bethlehem in de verte | het licht uit de hemel verschijnt | Lukas 2:8–9 | `kerst-geboorte:3`, `4` |
+| `kerst-herders-gaan` | de herders op het pad omhoog naar Bethlehem; schapen in het veld | zij gaan met haast | Lukas 2:15–16 | `kerst-geboorte:5` |
+| `kerst-duiven` | de weg naar Jeruzalem, de tempel in de verte; een mand met twee duiven | — | Lukas 2:24 | `kerst-geboorte:7` |
+| `kerst-tempel` | de tempel in de avond: het witte huis en een zuilengang met licht | rook, het licht | Lukas 2:27, 37, 46; Johannes 10:23 | `kerst-geboorte:8`, `9`, `kerst-twaalf:4`–`6` |
+| `kerst-poort` | Jeruzalem in de avond; een groepje reizigers (vijf, geen aantal in de tekst) komt naar de poort | zij komen uit het oosten | Mattheüs 2:1–2 | `kerst-wijzen:0`, `2` |
+| `kerst-ster-weg` | nacht, de weg naar Bethlehem, het groepje reizigers; één ster | de ster komt en blijft staan boven Bethlehem | Mattheüs 2:9–10 | `kerst-wijzen:3` |
+| `kerst-geschenken` | goud in een geopend kistje, wierook in een schaal, mirre in een kruikje; de ster door het venster | de vlam, de ster | Mattheüs 2:11 | `kerst-wijzen:4` |
+| `kerst-vlucht` | nacht; de weg van Bethlehem het heuvelland in; Jozef en Maria als twee kleine figuren | zij gaan weg, naar links (zuidwest) | Mattheüs 2:13–14 | `kerst-wijzen:5` |
+| `kerst-pascha` | een groot reisgezelschap op de weg omhoog naar Jeruzalem met de tempel; palmen in het dal | het gezelschap komt over de weg | Lukas 2:41–44 | `kerst-twaalf:1`–`3` |
+
+Verder heeft `kerst-belofte:8` (Ruth en Boaz) het bestaande `ruth-veld`. Het standaardbeeld van de plaats houden:
+`kerst-belofte:1` (Ararat), `2` (Ur), `kerst-koningen:1`, `2` (Jeruzalem), `kerst-geboorte:0` (Rome) en `kerst-wijzen:7`
+(Egypte). Stappen met een reis en zonder koppeling hebben geen beeld (daar vertelt de kaart). Eden (`kerst-belofte:0`) heeft,
+zoals elders, geen beeld.
+
+**Bewust geen beeld** (`t: ""`, een test bewaakt het): de geboorte en de kribbe (`kerst-geboorte:2`, Lukas 2:6–7), de achtste
+dag (`kerst-geboorte:6`, Lukas 2:21): daar is het Kind het onderwerp en valt er niets anders te tekenen; en Rama
+(`kerst-wijzen:6`, Mattheüs 2:16–18): geen beeld bij de kindermoord. Ook `kerst-twaalf:7` (terug naar Nazareth) heeft geen
+beeld: het is een reis, en het gezin zonder de Heere Jezus tekenen zou iets zeggen wat niet klopt.
+
+Wat in deze reeks bewust **niet** staat: het Kind (ook niet in doeken of in de armen), de jongen van twaalf, engelen (ook niet
+bij Zacharias, Maria, Jozef of de herders), Simeon en Anna, de leraren, Herodes; geen os en ezel, geen stal, geen herberg, geen
+kronen, geen kamelen bij de wijzen en geen drie wijzen, geen sneeuw of kerstboom. Mensen alleen waar de tekst ze laat reizen of
+waken (Jozef en Maria, de herders, de wijzen, het reisgezelschap): klein, als pictogram zonder gezicht (`K.mensen`,
+`K.vrouwen` uit `taferelen-jakob.js`). Een test bewaakt dat geen naam of label het Kind, de Heere Jezus, God, een engel, os,
+ezel, koning of kroon noemt, en telt de veertien regels per kolom, de zeven lampen en de twee duiven.
+
+Wat een mens moet beoordelen:
+
+- Of het rijsje uit de tronk (Jesaja 11:1) als beeld kan: het is de profetie als voorwerp getekend, geen persoon.
+- Of Jozef en Maria als twee figuren bij de vlucht naar Egypte passen, nu het Kind niet getekend is (de tekst zegt dat Jozef
+  het Kind en Zijn moeder meenam).
+- Of de keuze voor avond waar de tekst geen tijd noemt (de tempel, Nazareth, het bergland) te ver gaat.
+- De tempel van Herodes is een algemene tekening; het Nieuwe Testament beschrijft hem niet.
+
 ## 7. Wat nog getekend moet worden
 
 Eerst de plekken die nu **geen** beeld hebben omdat het standaardbeeld daar iets zou tonen wat de Bijbel niet zegt
@@ -435,13 +508,13 @@ Dan de taferelen uit de opdracht:
 - nog niet, uit het Oude Testament: de dorsvloer van Boaz (Ruth 3); de gouden kandelaar, de tafel en de ark in de tent
   (Exodus 25); het gouden kalf wordt niet getekend; de beek Krith en de raven (1 Koningen 17); de regenwolk uit de zee
   (1 Koningen 18:44); het schrift op de muur (Daniël 5; zonder hand: alleen de wand en de kandelaar);
-- de ster boven Bethlehem; de kribbe (zonder het Kind af te beelden);
+- de ster boven Bethlehem (getekend: `ster-bethlehem` en in de Kerst-reeks); de kribbe krijgt bewust geen beeld;
 - een vissersboot op het meer; vijf broden en twee vissen;
 - het lege graf; de tongen als van vuur; het schip in de storm bij Malta; de zeven kandelaren.
 - Golgotha blijft zonder beeld (zie de keuzes onder de tabel van het Nieuwe Testament).
 
 Dan de taferelen uit de opdracht:
-- de kribbe (Lukas 2:7: een lege voederbak met doeken, zonder het Kind; nog niet getekend, de stap heeft een reis);
+- de kribbe: besloten bij de Kerst-reeks dat de geboorte (Lukas 2:6–7) bewust geen beeld krijgt, ook geen lege voederbak;
 - Nieuwe Testament, nog open: de bruiloft in Kana (zes stenen watervaten, Johannes 2:6); het dak dat opengebroken is
   (Markus 2:4); de zeven broden en zeven manden (Markus 8:5–8, nu het standaardbeeld water); Patmos als eiland.
 
@@ -468,3 +541,8 @@ Dan de taferelen uit de opdracht:
   wit en staf, de vrouwen en kinderen vooral als groep. Het gezin bij het veer staat ‘in’ het water zonder dat je ziet
   dat ze waden. De omhelzing bij Ezau is nu groter en leest ook op een telefoon; Jakob die slaapt bij Bethel blijft daar klein. Het morgenrood bij de dageraad is een paar
   vlakke banden. Het geschenk is het zwaarste tafereel van de reeks (4,8 kB).
+- Kerst: de mensen zijn ook hier klein; de wijzen zijn op telefoonbreedte vooral vijf gekleurde stipjes. Het reisgezelschap
+  naar het Pascha is een paar rijen streepjes. De tempel van Herodes is een eenvoudig blok met een zuilengang. Nazareth en
+  Bethlehem lijken op elkaar (een stadje op een heuvel); Nazareth is te herkennen aan de steile rand. Het pad in het bergland
+  van Juda valt onder de schemer weg. De nachtbeelden van Kerst zijn warmer dan de oudere nachtbeelden (`herders-veld`,
+  `ster-bethlehem`), die de donkerder sluier houden.
