@@ -171,9 +171,9 @@ e-mailbinding `MAIL` naar info@denckh.nl.
 | Bezoekmeting zonder cookies, met overzicht in het beheer | `bijbelreis-bezoek/README.md` |
 | Aanvraagformulier ‘Mis je iets? Vraag het aan’, met opgemaakte e-mail aan de maker | `bijbelreis-aanvraag/README.md` |
 
-**Open, wacht op Martijn:**
-- Email Routing aanzetten op de zone bijbelreis.nl en info@denckh.nl bevestigen (dashboard; het token van de agents mag
-  dat niet). Tot dan staan aanvragen alleen in het beheer. Daarna doet Martijn zelf een proefaanvraag.
+**E-mail aan de maker werkt** (16-11-2026): Email Routing staat aan op de zone bijbelreis.nl (MX route1–3.mx.cloudflare.net,
+SPF en DKIM), info@denckh.nl is bevestigd, en Martijn ontving zijn eigen proefaanvraag. Komt een mail niet aan, lees dan de
+logboeken van de Worker (`npx wrangler tail -c wrangler.bijbelreis.jsonc`): `naAanvraag` schrijft daar de foutcode.
 
 **Open, werk voor een volgende ronde:**
 - Ingang vanuit de atlas naar het boekje (`/bijbelreis/boekje#<deel>`).
