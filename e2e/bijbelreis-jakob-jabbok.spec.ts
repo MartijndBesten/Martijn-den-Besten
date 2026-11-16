@@ -6,7 +6,7 @@ import { expect, test, type Page } from "@playwright/test";
 
 // Volledige weergave (Verder ontdekken), zoals in de andere Bijbelreis-tests.
 test.beforeEach(async ({ page }) => {
-  await page.addInitScript(() => { if (localStorage.getItem("bijbelreis:niveau") === null) localStorage.setItem("bijbelreis:niveau", JSON.stringify("c")); });
+  await page.addInitScript(() => { try { if (localStorage.getItem("bijbelreis:niveau") === null) localStorage.setItem("bijbelreis:niveau", JSON.stringify("c")); } catch { /* about:blank heeft geen opslag */ } });
 });
 
 function watchErrors(page: Page) {
