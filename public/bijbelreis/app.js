@@ -939,7 +939,7 @@
     if (denk.length) { $("sDenkLijst").innerHTML = denk.map((q) => `<li>${esc(q)}</li>`).join(""); $("sDenk").open = false; }
     renderDots(); renderCrumb(); meerKnoppen();
     if (cur >= 0) { store.set("laatst", deel.steps[cur].key); store.set("huidig", { k: deel.steps[cur].key }); }
-    if (!opts.keepHash) history.replaceState(null, "", "#" + deel.id + (cur >= 0 ? "/" + (cur + 1) : ""));
+    if (!opts.keepHash) navZet("#" + deel.id + (cur >= 0 ? "/" + (cur + 1) : ""));
     queueLabels();
   }
   // Afstand direct bij de stap: hemelsbreed langs de getekende lijn, met een vergelijking die een kind kent.
@@ -1121,6 +1121,7 @@
       if (m === "tijd") renderTijd();
     }
     renderSeizoen();
+    navZet(null);
     queueLabels();
   }
   // Op de telefoon staan de onderdelen in een vaste onderbalk: een nieuw onderdeel begint bovenaan, niet halverwege.
@@ -1241,7 +1242,7 @@
     if (!store.get("niveau", null)) store.set("niveau", niveau);
     store.weg("niveauTip");
     if (mode !== "verhalen") setMode("verhalen"); else renderVerhaal(nr);
-    if (!opts.keepHash) history.replaceState(null, "", "#v" + nr);
+    if (!opts.keepHash) navZet("#v" + nr);
     if (!verhaalStore[nr]) saveVerhaal(nr, { g: 1 });
     store.set("huidig", { v: nr });
     // Samen ontdekken op de telefoon: kaart en verhaalstap samen in beeld, dus naar boven in plaats van voorbij de kaart.
@@ -1302,7 +1303,7 @@
       renderVQuiz($("vQuiz"), g, c ? (g.quiz || []).concat((v && v.vragen) || []) : (v && v.vragen) || g.quiz);
       if (BR.tafereel) BR.tafereel.inVerhaal(box, steps, (k) => STEP_BY_KEY.get(k));
     }
-    $("vTerug").onclick = () => { vOpen = null; history.replaceState(null, "", "#verhalen"); renderVerhalen(); heleZichtbaar(); };
+    $("vTerug").onclick = () => { vOpen = null; navZet("#verhalen"); renderVerhalen(); heleZichtbaar(); };
     if (niveau === "a" && heeftSamen(g)) samenKoppelen(g); else focusStory(g);
     heleZichtbaar();
     setAccent2(steps[0] ? steps[0].deel.c : g.nr >= 80 ? "lila" : "kobalt");
@@ -1683,8 +1684,10 @@
     if (boven && boven.id !== id && !$(boven.id).hidden) $(boven.id).hidden = true; else if (boven && $(boven.id).hidden) ladeStapel.length = 0;
     ladeStapel.push({ id, van: document.activeElement });
     $(id).hidden = false; $(id).querySelector(".lade__head button").focus();
+    laagOpen(id);
   };
   const sluitLade = (id, terug = true) => {
+    if (!$(id).hidden) laagDicht(id);
     $(id).hidden = true;
     const i = ladeStapel.map((x) => x.id).lastIndexOf(id), weg = i >= 0 ? ladeStapel.splice(i)[0] : null;
     if (!terug) { ladeStapel.forEach((x) => ($(x.id).hidden = true)); ladeStapel.length = 0; return; }
@@ -1693,6 +1696,78 @@
     if (weg && weg.van && weg.van.isConnected) weg.van.focus();
   };
   LADEN.forEach((id) => { $(id).querySelector(".lade__head button").onclick = () => sluitLade(id); $(id).addEventListener("click", (e) => { if (e.target === $(id)) sluitLade(id); }); });
+
+  // ---------- terug: de geschiedenis van de browser ----------
+  // ‘Terug’ (de knop van de browser, de terugknop of terugveeg van de telefoon) gaat naar de vorige plek in de Bijbelreis
+  // in plaats van de site uit (telefoontest 16-11-2026: elke stap verving het adres, dus terug was altijd weg).
+  // Een plek is het onderdeel (Verhalen, Reis, Wie is wie …) met het deel of de geschiedenis uit het adres. Een andere
+  // stap in hetzelfde deel is géén nieuwe plek: daarvoor zijn ◀ en Verder, en zo hoeft niemand twintig keer terug.
+  // Een venster (lade, keuze voor wie, open stapblad, grote kaart) krijgt een eigen plek: ‘terug’ sluit eerst dat venster.
+  // Alles wat binnen één tik gebeurt (bijvoorbeeld een onderdeel én een deel kiezen) telt als één plek.
+  let navKlaar = false, navStil = false, navTik = false, navTerug = null;
+  const navPlek = (hash) => mode + "|" + String(hash || "").split("/")[0];
+  function navZet(hash) {
+    const h = hash == null ? location.hash : hash;
+    // Wordt er net een venster gesloten (history.back loopt nog), dan komt deze plek pas daarna.
+    if (navTerug) { if (hash != null || navTerug.na === undefined) navTerug.na = hash; return; }
+    const st = { br: 1, p: navPlek(h), m: mode }, oud = history.state;
+    const nieuw = navKlaar && !navStil && !navTik && (!oud || !oud.br || oud.laag || oud.p !== st.p);
+    if (hash == null) nieuw ? history.pushState(st, "") : history.replaceState(st, "");
+    else nieuw ? history.pushState(st, "", hash) : history.replaceState(st, "", hash);
+    if (nieuw) { navTik = true; setTimeout(() => (navTik = false), 0); }
+  }
+  function laagOpen(id) {
+    if (!navKlaar || navStil) return;
+    history.pushState(Object.assign({}, history.state, { br: 1, laag: id }), "");
+  }
+  function laagDicht(id) {
+    if (!navKlaar || navStil || navTerug) return;
+    const st = history.state;
+    if (!st || st.laag !== id) return;
+    const klaar = () => { const na = navTerug && navTerug.na; navTerug = null; if (na !== undefined) navZet(na); };
+    navTerug = { na: undefined, t: setTimeout(klaar, 700), klaar };
+    history.back();
+  }
+  // Het bovenste open venster (of null).
+  function laagBoven() {
+    if (!$("niveauKeuze").hidden) return "niveau";
+    for (let i = ladeStapel.length - 1; i >= 0; i--) if (!$(ladeStapel[i].id).hidden) return ladeStapel[i].id;
+    const lade = LADEN.find((id) => !$(id).hidden); if (lade) return lade;
+    if ($("reisboek").classList.contains("open")) return "blad";
+    if (document.body.classList.contains("mapfull")) return "full";
+    return null;
+  }
+  function laagSluit(id) {
+    navStil = true;
+    try { if (id === "niveau") { niveauVenster(false); $("niveauBtn").focus(); } else if (id === "blad") bladZet(false); else if (id === "full") setFull(false); else sluitLade(id); }
+    finally { navStil = false; }
+  }
+  // De plek uit het adres en de opgeslagen staat terugzetten (na ‘terug’ of ‘vooruit’).
+  function navHerstel(st) {
+    navStil = true;
+    try {
+      const [h, s] = decodeURIComponent(location.hash.slice(1)).split("/");
+      const vm = /^v(\d+)$/.exec(h || "");
+      if (vm && GBYNR.has(+vm[1])) { if (vOpen !== +vm[1] || mode !== "verhalen") openVerhaal(+vm[1], { keepHash: true }); return; }
+      const d = ALLPARTS.find((x) => x.id === h);
+      const doel = st && TABS.concat("ver").includes(st.m) ? st.m : d ? "reis" : "verhalen";
+      if (d) { const i = s && d.steps[+s - 1] ? +s - 1 : -1; if (d !== deel || i !== cur) { if (d.boek !== boek) chooseBoek(d.boek, d, i, { keepHash: true }); else chooseDeel(d, i, { keepHash: true }); } }
+      if (doel === "verhalen" && vOpen !== null) vOpen = null;
+      if (mode !== doel) setMode(doel); else if (doel === "verhalen") { renderVerhalen(); heleZichtbaar(); }
+      if (doel === "verhalen" && !h) renderWelkom();
+      if (isNarrow()) window.scrollTo({ top: 0 });
+    } finally { navStil = false; }
+  }
+  window.addEventListener("popstate", (e) => {
+    if (navTerug) { clearTimeout(navTerug.t); navTerug.klaar(); return; }
+    const st = e.state, boven = laagBoven();
+    // Eerst een open venster sluiten.
+    if (boven && !(st && st.laag === boven)) { laagSluit(boven); return; }
+    // Een oude vensterplek waarvan het venster al dicht is: die overslaan.
+    if (st && st.laag && !boven) { history.back(); return; }
+    if (st && st.laag) return;
+    navHerstel(st);
+  });
   // ---------- aanvraag: ‘Mis je iets? Vraag het aan’ ----------
   // Een bezoeker vraagt om een Bijbelgedeelte, verhaal of reis die er nog niet is, om iets voor school, club of kerk, of
   // meldt een fout. Het formulier post naar de eigen site (POST /api/aanvraag, worker/aanvraag.ts). Wat er bewaard wordt:
@@ -1906,7 +1981,8 @@
     if (niveau === "a") { $("wieInfo").innerHTML = `<h3>${esc(m.n)}</h3><p>${esc(m.kort || "")}</p>`; $("wieInfo").scrollIntoView({ block: "nearest", behavior: reduceMotion ? "auto" : "smooth" }); return; }
     $("wieInfo").innerHTML = `<h3>${esc(m.n)}</h3>${m.alias && m.alias.length ? `<p class="ref">Ook: ${m.alias.map(esc).join(", ")}</p>` : ""}<p>${esc(m.kort || "")}</p>${mensDetails(id)}`;
     document.querySelectorAll("#p-wie [aria-pressed]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.n === m.n));
-    $("wieInfo").scrollIntoView({ block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
+    // De kaart is vaak langer dan het scherm: begin bij de naam (op de telefoon net onder de kop), niet halverwege.
+    $("wieInfo").scrollIntoView({ block: isNarrow() ? "start" : "nearest", behavior: reduceMotion ? "auto" : "smooth" });
   }
   function wieInfoGenesis(name) {
     wieSel = name;
@@ -2254,6 +2330,7 @@
   setLegend(store.get("legenda", false) && !isNarrow());
   const touchy = window.matchMedia("(pointer: coarse)");
   function setFull(on) {
+    if (on !== document.body.classList.contains("mapfull")) on ? laagOpen("full") : laagDicht("full");
     document.body.classList.toggle("mapfull", on);
     $("fullBtn").setAttribute("aria-pressed", on);
     $("fullBtn").querySelector("span").textContent = on ? "Terug" : "Groot";
@@ -2399,6 +2476,7 @@
     if (b.classList.contains("open") === open) return;
     const h0 = b.getBoundingClientRect().height;
     b.classList.toggle("open", open); document.body.classList.toggle("bladopen", open);
+    open ? laagOpen("blad") : laagDicht("blad");
     const knop = $("bladBtn"); knop.setAttribute("aria-expanded", open); knop.querySelector("span").textContent = open ? "Sluiten" : "Lees meer";
     b.scrollTop = 0;
     if (open) kaartMenu(false); else bladKort();
@@ -2416,7 +2494,23 @@
   $("reisboek").addEventListener("click", (e) => { if (bladAan() && !$("reisboek").classList.contains("open") && e.target.closest("#sTitle, #sKort")) bladZet(true); });
   document.querySelector(".kaartvlak").addEventListener("pointerdown", () => bladZet(false), true);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !e.defaultPrevented && $("reisboek").classList.contains("open") && LADEN.every((id) => $(id).hidden) && $("niveauKeuze").hidden) { e.preventDefault(); bladZet(false); $("bladBtn").focus({ preventScroll: true }); } });
-  $("kiesBtn").onclick = () => { openLade("kiesLade"); toonGekozen("boeken"); };
+  // Wie op ‘3 van 25’ tikt, verwacht de stappen: die staan bovenaan het blad, met de huidige stap gemarkeerd en in
+  // beeld; daaronder zoals voorheen de keuze van deel en boek (telefoontest 16-11-2026).
+  function kiesStappen() {
+    const box = $("kiesStappen");
+    box.hidden = !deel.steps.length;
+    $("kiesStappenLabel").textContent = `Stappen van ${deel.n}`;
+    $("kiesStappenLijst").innerHTML = deel.steps.map((s, i) => `<li><button type="button" class="ks-stap${seen.has(s.key) ? " gezien" : ""}" data-ks="${i}"${i === cur ? ' aria-current="step"' : ""} aria-label="Stap ${i + 1}: ${esc(s.t)}${seen.has(s.key) ? ", gezien" : ""}"><span class="ks-n" aria-hidden="true">${seen.has(s.key) && i !== cur ? "✓" : i + 1}</span><span class="ks-t">${esc(s.t)}</span></button></li>`).join("");
+  }
+  $("kiesStappenLijst").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-ks]"); if (!b) return;
+    sluitLade("kiesLade"); select(+b.dataset.ks); naarBoven();
+  });
+  $("kiesBtn").onclick = () => {
+    kiesStappen(); openLade("kiesLade"); toonGekozen("boeken");
+    const nu = $("kiesStappenLijst").querySelector('[aria-current="step"]');
+    if (nu) nu.scrollIntoView({ block: "center" });
+  };
   // Na een tik op een boek blijft het blad open voor de keuze van het deel.
   const naarBoven = () => { if (isNarrow() && window.scrollY > 0) window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); };
   // Wat niet nodig is om de stap te volgen, staat achter een knop met een naam. Een opengeklapt weetje, de afstand of het
@@ -2513,7 +2607,8 @@
 
   // ---------- welkom, de start en verder waar je was ----------
   // Een nieuwe bezoeker (nog niets geopend) ziet bovenaan Verhalen de startkaart: één zin die zegt wat dit is, één grote
-  // knop die meteen begint (Abraham, van Ur naar Kanaän), klein de keuze voor wie het is, en dat je ook zelf een verhaal
+  // knop die meteen begint (Abraham, van Ur naar Kanaän; sinds de telefoontest van 16-11-2026 direct bij stap 1, niet eerst
+  // de intro met nog een knop ‘Start’), klein de keuze voor wie het is, en dat je ook zelf een verhaal
   // kunt kiezen. Niemand hoeft eerst een niveau te kiezen. In de kersttijd is de seizoenskaart de hoofdingang: dan staat
   // hier alleen de zin, en komt Abraham als tweede keuze ónder die kaart (#welkomNa). Zodra er voortgang is, staat er
   // alleen nog één knop: ‘Verder met: <geschiedenis>’ of, na een reisstap, ‘Verder met: Jakob – Bedrogen!’.
@@ -2542,9 +2637,9 @@
       if (kerst) {
         box.innerHTML = `<div class="startkaart st-kort">${zin}</div>`;
         na.hidden = false;
-        na.innerHTML = `<div class="startkaart st-na"><button type="button" class="btn st-tweede" data-go="${d.key}:-1"><span>Of begin bij <b>${esc(d.n)}</b> · van Ur naar Kanaän</span><span aria-hidden="true">▶</span></button>${wie}</div>`;
+        na.innerHTML = `<div class="startkaart st-na"><button type="button" class="btn st-tweede" data-go="${d.key}:0"><span>Of begin bij <b>${esc(d.n)}</b> · van Ur naar Kanaän</span><span aria-hidden="true">▶</span></button>${wie}</div>`;
       } else {
-        box.innerHTML = `<div class="startkaart">${zin}<button type="button" class="btn primary st-knop" data-go="${d.key}:-1"><span class="st-wat"><b>Begin de reis</b><small>${esc(d.n)} · van Ur naar Kanaän</small></span><span aria-hidden="true">▶</span></button>${wie}</div>`;
+        box.innerHTML = `<div class="startkaart">${zin}<button type="button" class="btn primary st-knop" data-go="${d.key}:0"><span class="st-wat"><b>Begin de reis</b><small>${esc(d.n)} · van Ur naar Kanaän</small></span><span aria-hidden="true">▶</span></button>${wie}</div>`;
         na.hidden = true; na.innerHTML = "";
       }
       zetEerste(true);
@@ -2630,6 +2725,7 @@
     $("niveauOpties").innerHTML = nivOpties();
   }
   function niveauVenster(open) {
+    if (open === $("niveauKeuze").hidden) open ? laagOpen("niveau") : laagDicht("niveau");
     $("niveauKeuze").hidden = !open; $("niveauBtn").setAttribute("aria-expanded", open);
     if (open) { store.weg("niveauTip"); $("niveauOpties").innerHTML = nivOpties(); const k = $("niveauOpties").querySelector('[aria-pressed="true"]') || $("niveauOpties").firstElementChild; k.focus(); }
   }
@@ -2689,12 +2785,25 @@
     else setMode("reis");
     if (!hashId) renderWelkom();
     syncDrag();
+    // Vanaf hier telt elke nieuwe plek in de geschiedenis van de browser (zie ‘terug’).
+    history.replaceState({ br: 1, p: navPlek(location.hash), m: mode }, "");
+    navKlaar = true;
+    // Een adres met # dat iemand zelf intypt of in een link aanklikt. Bij ‘terug’ en ‘vooruit’ (eigen plekken, met
+    // history.state) doet popstate het werk al.
     window.addEventListener("hashchange", () => {
-      const [h, st] = decodeURIComponent(location.hash.slice(1)).split("/");
-      const vm = /^v(\d+)$/.exec(h); if (vm && GBYNR.has(+vm[1])) { if (vOpen !== +vm[1]) openVerhaal(+vm[1], { keepHash: true }); return; }
-      const d = ALLPARTS.find((x) => x.id === h); if (!d) return;
-      const i = st && d.steps[+st - 1] ? +st - 1 : -1;
-      if (d !== deel || i !== cur) { setMode("reis"); chooseBoek(d.boek, d, i, { keepHash: true }); }
+      if (history.state && history.state.br) return;
+      navStil = true;
+      try {
+        const [h, st] = decodeURIComponent(location.hash.slice(1)).split("/");
+        const vm = /^v(\d+)$/.exec(h);
+        if (vm && GBYNR.has(+vm[1])) { if (vOpen !== +vm[1]) openVerhaal(+vm[1], { keepHash: true }); }
+        else {
+          const d = ALLPARTS.find((x) => x.id === h);
+          const i = d && st && d.steps[+st - 1] ? +st - 1 : -1;
+          if (d && (d !== deel || i !== cur)) { setMode("reis"); chooseBoek(d.boek, d, i, { keepHash: true }); }
+        }
+      } finally { navStil = false; }
+      history.replaceState({ br: 1, p: navPlek(location.hash), m: mode }, "");
     });
   }
 })();

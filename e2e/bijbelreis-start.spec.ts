@@ -144,10 +144,10 @@ test("eerste bezoek: één zin, één startknop, klein de keuze voor wie; alleen
   await expect(page.locator("#welkomNa")).toBeHidden();
   const axe = await new AxeBuilder({ page }).include("#welkom").analyze();
   expect(axe.violations.map((v) => v.id)).toEqual([]);
-  // De startknop opent de intro van Abraham in Reis.
+  // De startknop begint meteen bij de eerste stap van Abraham in Reis (geen tussenscherm met nog een knop ‘Start’).
   await kaart.locator(".st-knop").click();
-  await expect(page).toHaveURL(/#abraham$/);
-  await expect(page.locator("#sTitle")).toHaveText("Abraham");
+  await expect(page).toHaveURL(/#abraham\/1$/);
+  await expect(page.locator("#sTitle")).toHaveText("1. Weg uit Ur");
   expect(errors).toEqual([]);
 });
 
