@@ -932,6 +932,8 @@
     // Om over na te denken: open vragen bij een deel (veld `denk`), bij de intro en de laatste stap; niet bij Samen ontdekken.
     const denk = niveau !== "a" && (cur < 0 || atEnd) && Array.isArray(deel.denk) ? deel.denk : [];
     $("sDenk").hidden = !denk.length;
+    // Aan het einde van een deel: ‘Mis je iets? Vraag het aan’. Niet bij Samen ontdekken (daar alleen via ‘Voor ouders en leiders’).
+    $("sMis").hidden = !(niveau !== "a" && cur >= 0 && atEnd);
     if (denk.length) { $("sDenkLijst").innerHTML = denk.map((q) => `<li>${esc(q)}</li>`).join(""); $("sDenk").open = false; }
     renderDots(); renderCrumb(); meerKnoppen();
     if (cur >= 0) { store.set("laatst", deel.steps[cur].key); store.set("huidig", { k: deel.steps[cur].key }); }
@@ -1030,7 +1032,7 @@
     if (e.key === "Escape") { e.preventDefault(); sluitLade(open.id); return; }
     if (e.key !== "Tab") return;
     // Focus blijft in het venster zolang het open is.
-    const f = [...open.querySelectorAll("button, input, a[href], [tabindex]:not([tabindex='-1'])")].filter((x) => x.offsetParent);
+    const f = [...open.querySelectorAll("button, input:not([tabindex='-1']), textarea, a[href], [tabindex]:not([tabindex='-1'])")].filter((x) => x.offsetParent && !x.disabled);
     if (!f.length) return;
     if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
     else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
@@ -1194,7 +1196,8 @@
       <input type="search" id="vZoek" placeholder="Bijvoorbeeld: Jozef, Jericho, Lukas, gebed" value="${esc(vZoek)}" autocomplete="off">
       <div class="pick" role="group" aria-label="Testament">${[["alle", "Alles"], ["ot", "Oude Testament · 79"], ["nt", "Nieuwe Testament · 71"]].map(([k, n]) => `<button type="button" data-vt="${k}" aria-pressed="${vTest === k}" style="--pc:var(--acc)">${n}</button>`).join("")}</div>
       <div id="vLijst" class="vlijst"></div>
-      <details class="kwlijst"><summary>Kernwoorden (${Object.keys(KW).length})</summary><div class="chips">${Object.entries(KW).sort((a, b) => a[1].n.localeCompare(b[1].n, "nl")).map(([id, k]) => `<button type="button" class="chip" data-kw="${id}">${esc(k.n)}</button>`).join("")}</div></details>`;
+      <details class="kwlijst"><summary>Kernwoorden (${Object.keys(KW).length})</summary><div class="chips">${Object.entries(KW).sort((a, b) => a[1].n.localeCompare(b[1].n, "nl")).map(([id, k]) => `<button type="button" class="chip" data-kw="${id}">${esc(k.n)}</button>`).join("")}</div></details>
+      <p class="misje"><button type="button" class="linkbtn" data-aanvraag>Mis je iets? Vraag het aan</button></p>`;
     $("vZoek").addEventListener("input", (e) => { vZoek = e.target.value; renderLijst(); });
     box.querySelectorAll("[data-vt]").forEach((b) => (b.onclick = () => { vTest = b.dataset.vt; box.querySelectorAll("[data-vt]").forEach((x) => x.setAttribute("aria-pressed", x === b)); renderLijst(); }));
     box.querySelectorAll("[data-kw]").forEach((b) => (b.onclick = () => { vZoek = KW[b.dataset.kw].n; $("vZoek").value = vZoek; renderLijst(); $("vZoek").scrollIntoView({ block: "nearest" }); }));
@@ -1221,7 +1224,8 @@
       let k = 0; for (let n = a; n <= b; n++) if (verhaalStore[n]) k++;
       if (items.length) html += `<h3 class="vsectie"><span class="vs-n${k === b - a + 1 ? " af" : k ? " half" : ""}" aria-hidden="true">${si + 1}</span><span class="vs-t">${esc(naam)}</span><small>${k ? `${k} van ${b - a + 1} gelezen` : `${a}–${b}`}</small></h3><ul class="vul">${items.join("")}</ul>`;
     });
-    $("vLijst").innerHTML = html || `<p class="ref">Niets gevonden voor ‘${esc(vZoek)}’. Probeer een andere naam, plaats of Bijbelboek.</p>`;
+    // Niets gevonden: dan kan de bezoeker het aanvragen, met de zoekterm al ingevuld (de belangrijkste ingang van de aanvraag).
+    $("vLijst").innerHTML = html || `<p class="ref">Niets gevonden voor ‘${esc(vZoek)}’. Probeer een andere naam, plaats of Bijbelboek.</p>${vZoek.trim() ? `<p class="misje"><button type="button" class="btn" data-aanvraag="gemist" data-av-tekst="${esc(`Ik zoek ‘${vZoek.trim().slice(0, 120)}’ en kan het niet vinden.`)}">Vraag dit aan</button></p>` : ""}`;
     if (q.length) $("vLijst").insertAdjacentHTML("afterbegin", `<p class="ref" role="status">${hits} gevonden</p>`);
   }
   $("p-verhalen").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
@@ -1665,7 +1669,7 @@
     if (THEMAS.length) $("kastLijst").insertAdjacentHTML(SEIZOEN ? "afterbegin" : "beforeend", `<div class="kastthemas"><p class="label nt">Thema’s</p><div class="kastrij">${THEMAS.map((b) => `<button type="button" class="kthema" data-boek="${b.id}" data-thema="${esc(b.thema)}"${b === boek ? ' aria-current="true"' : ""}><b>${b.thema === "kerst" ? STER : ""}${esc(boekKort(b))}</b><small>${b.delen.length} delen · ${b.delen.reduce((a, d) => a + d.steps.length, 0)} stappen</small></button>`).join("")}</div></div>`);
   }
   // De overzichtsvensters (boekenkast, alle reizen, alle plaatsen) openen en sluiten op dezelfde manier.
-  const LADEN = ["kast", "reizenLade", "plaatsenLade", "vandaagLade", "vandaagVenster", "kiesLade"];
+  const LADEN = ["kast", "reizenLade", "plaatsenLade", "vandaagLade", "vandaagVenster", "kiesLade", "aanvraagLade"];
   // Er is altijd hooguit één venster zichtbaar. Opent een venster vanuit een ander (een overzicht uit het keuzeblad op de
   // telefoon), dan komt dat andere na Sluiten of Escape terug, met de focus op de knop waarmee je wegging.
   const ladeStapel = [];
@@ -1684,6 +1688,62 @@
     if (weg && weg.van && weg.van.isConnected) weg.van.focus();
   };
   LADEN.forEach((id) => { $(id).querySelector(".lade__head button").onclick = () => sluitLade(id); $(id).addEventListener("click", (e) => { if (e.target === $(id)) sluitLade(id); }); });
+  // ---------- aanvraag: ‘Mis je iets? Vraag het aan’ ----------
+  // Een bezoeker vraagt om een Bijbelgedeelte, verhaal of reis die er nog niet is, om iets voor school, club of kerk, of
+  // meldt een fout. Het formulier post naar de eigen site (POST /api/aanvraag, worker/aanvraag.ts). Wat er bewaard wordt:
+  // docs/bijbelreis-aanvraag/README.md. Elke knop met data-aanvraag opent het; data-av-tekst vult de tekst alvast in.
+  const AV_MIN = 10, AV_MAX = 600, AV_EMAIL = /^[A-Za-z0-9._%+-]{1,64}@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+$/;
+  const AV_MISLUKT = "Het versturen lukte niet. Probeer het later nog eens, of mail naar info@denckh.nl.";
+  let avBezig = false;
+  const avFout = (id, melding) => {
+    $(id).textContent = melding || "";
+    const veld = id === "avTekstFout" ? $("avTekst") : id === "avMailFout" ? $("avMail") : null;
+    if (veld) { if (melding) veld.setAttribute("aria-invalid", "true"); else veld.removeAttribute("aria-invalid"); }
+  };
+  const avTeller = () => { const n = [...$("avTekst").value].length; $("avTeller").textContent = `${n} van ${AV_MAX} tekens`; };
+  function openAanvraag(soort, tekst) {
+    const form = $("avForm");
+    // Na een verstuurde aanvraag begint het formulier weer leeg; een half ingevulde tekst blijft staan.
+    if (form.hidden) { form.reset(); form.hidden = false; $("avKlaar").hidden = true; }
+    ["avTekstFout", "avMailFout", "avFout"].forEach((id) => avFout(id, ""));
+    if (soort && form.elements.soort.value !== soort) [...form.elements.soort].forEach((r) => (r.checked = r.value === soort));
+    if (tekst) $("avTekst").value = tekst.slice(0, AV_MAX);
+    avTeller();
+    openLade("aanvraagLade");
+  }
+  document.addEventListener("click", (e) => { const b = e.target.closest("[data-aanvraag]"); if (b) { e.preventDefault(); openAanvraag(b.dataset.aanvraag || "", b.dataset.avTekst || ""); } });
+  $("avTekst").addEventListener("input", () => { avTeller(); if ($("avTekstFout").textContent && [...$("avTekst").value.trim()].length >= AV_MIN) avFout("avTekstFout", ""); });
+  $("avMail").addEventListener("input", () => { if ($("avMailFout").textContent) avFout("avMailFout", ""); });
+  $("avDicht").onclick = () => sluitLade("aanvraagLade");
+  $("avForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (avBezig) return;
+    const form = e.currentTarget, tekst = $("avTekst").value.trim(), email = $("avMail").value.trim();
+    avFout("avFout", "");
+    avFout("avTekstFout", [...tekst].length < AV_MIN ? `Schrijf iets meer: minstens ${AV_MIN} tekens.` : [...tekst].length > AV_MAX ? `Je tekst is te lang: hooguit ${AV_MAX} tekens.` : "");
+    avFout("avMailFout", email && !AV_EMAIL.test(email) ? "Dit e-mailadres klopt niet. Kijk het na, of laat het veld leeg." : "");
+    if ($("avTekstFout").textContent) { $("avTekst").focus(); return; }
+    if ($("avMailFout").textContent) { $("avMail").focus(); return; }
+    // Waar de bezoeker was: alleen het adres binnen de atlas (#jakob/7), als het een gewone vorm heeft.
+    const context = /^#[A-Za-z0-9][A-Za-z0-9/=&_-]{0,78}$/.test(location.hash) ? location.hash : "";
+    avBezig = true; $("avStuur").disabled = true; $("avStuur").textContent = "Versturen…";
+    let gelukt = false, melding = AV_MISLUKT, veld = "";
+    try {
+      const r = await fetch("/api/aanvraag", { method: "POST", credentials: "omit", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ soort: form.elements.soort.value, tekst, email, context, website: form.elements.website.value }) });
+      const a = await r.json().catch(() => null);
+      gelukt = r.ok && !!a && a.ok === true;
+      if (!gelukt && a && typeof a.error === "string") { melding = a.error; veld = a.veld || ""; }
+    } catch { /* geen verbinding: de algemene melding */ }
+    avBezig = false; $("avStuur").disabled = false; $("avStuur").textContent = "Versturen";
+    if (!gelukt) {
+      if (veld === "tekst") { avFout("avTekstFout", melding); $("avTekst").focus(); }
+      else if (veld === "email") { avFout("avMailFout", melding); $("avMail").focus(); }
+      else avFout("avFout", melding);
+      return;
+    }
+    form.hidden = true; $("avKlaar").hidden = false; $("avKlaar").focus();
+  });
+
   const closeKast = () => sluitLade("kast");
   $("kastBtn").onclick = () => { renderKast(); openLade("kast"); };
   $("kast").addEventListener("click", (e) => { const b = e.target.closest(".kb[data-boek], .kthema[data-boek]"); if (b) { closeKast(); setMode("reis"); chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek)); } });

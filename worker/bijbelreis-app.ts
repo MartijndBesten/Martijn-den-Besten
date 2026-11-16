@@ -2,11 +2,12 @@
 // zonder eerst te bouwen (tests/bijbelreis-boekje.test.ts).
 import { bijbelreisPagina } from "../shared/bijbelreis";
 import { meldBezoek, type BezoekEnv } from "./bezoek";
+import { meldAanvraag, type AanvraagEnv, type Diensten } from "./aanvraag";
 
 export type Bestanden = Record<string, [type: string, etag: string, base64: string]>;
 export type Kopregels = { pattern: string; headers: Record<string, string> }[];
 
-export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels): ExportedHandler<BezoekEnv> {
+export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, diensten: Diensten = {}): ExportedHandler<BezoekEnv & AanvraagEnv> {
   const ORIGIN = "https://bijbelreis.nl";
   const START = "/bijbelreis.html";
   const decoded = new Map<string, Uint8Array>();
@@ -58,11 +59,13 @@ export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels):
         return Response.redirect(url.toString(), 301);
       }
       if (url.hostname === "www.bijbelreis.nl") return Response.redirect(ORIGIN + url.pathname + url.search, 301);
-      // Bezoekmeting (worker/bezoek.ts): het enige adres dat iets aanneemt. Antwoordt altijd 204 zonder inhoud.
+      // Bezoekmeting (worker/bezoek.ts). Antwoordt altijd 204 zonder inhoud.
       if (url.pathname === "/api/bezoek") {
         if (request.method !== "POST") return new Response("Methode niet toegestaan", { status: 405, headers: { Allow: "POST" } });
         return meldBezoek(request, env ?? {}, ctx, Math.floor(Date.now() / 1000));
       }
+      // Aanvragen van bezoekers (worker/aanvraag.ts): ‘Mis je iets? Vraag het aan.’ Antwoordt met JSON.
+      if (url.pathname === "/api/aanvraag") return meldAanvraag(request, env ?? {}, ctx, Math.floor(Date.now() / 1000), diensten);
       if (request.method !== "GET" && request.method !== "HEAD") return new Response("Methode niet toegestaan", { status: 405, headers: { Allow: "GET, HEAD" } });
 
       let path: string;

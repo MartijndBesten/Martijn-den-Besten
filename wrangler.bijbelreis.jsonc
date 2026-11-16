@@ -1,7 +1,8 @@
 {
-  // De Bijbelreis op een eigen adres: bijbelreis.nl. Alleen de atlas, plus de bezoekmeting (POST /api/bezoek) die naar
-  // de tabel `bezoek` in de bestaande D1-database schrijft (docs/bijbelreis-bezoek/README.md). De migraties worden via
-  // wrangler.embedded.jsonc toegepast; hier staat daarom geen migrations_dir.
+  // De Bijbelreis op een eigen adres: bijbelreis.nl. Alleen de atlas, plus de bezoekmeting (POST /api/bezoek, tabel
+  // `bezoek`, docs/bijbelreis-bezoek/README.md) en de aanvragen van bezoekers (POST /api/aanvraag, tabel `aanvraag`,
+  // docs/bijbelreis-aanvraag/README.md) in de bestaande D1-database. De migraties worden via wrangler.embedded.jsonc
+  // toegepast; hier staat daarom geen migrations_dir.
   // Secret: HASH_SECRET (voor de per dag wisselende bezoekershash; zonder blijft dat veld leeg).
   // Deploy: npm run build && node scripts/embed-assets.mjs && npx wrangler deploy -c wrangler.bijbelreis.jsonc
   "$schema": "./node_modules/wrangler/config-schema.json",
@@ -14,5 +15,8 @@
   "preview_urls": false,
   "routes": [{ "pattern": "bijbelreis.nl", "custom_domain": true }, { "pattern": "www.bijbelreis.nl", "custom_domain": true }],
   "d1_databases": [{ "binding": "DB", "database_name": "martijndenbesten", "database_id": "d348e383-bcf1-4e08-b742-f85abe8fef2c" }],
+  // Elke aanvraag van een bezoeker (POST /api/aanvraag) gaat ook als e-mail naar de maker. Dit vraagt Email Routing op
+  // de zone bijbelreis.nl en info@denckh.nl als geverifieerd bestemmingsadres (docs/bijbelreis-aanvraag/README.md §6).
+  "send_email": [{ "name": "MAIL", "destination_address": "info@denckh.nl" }],
   "observability": { "enabled": true }
 }
