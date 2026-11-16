@@ -57,7 +57,7 @@
     weg(k) { try { localStorage.removeItem("bijbelreis:" + k); } catch { /* geen opslag */ } },
   };
   const color = (key) => `var(--${key}-deep, var(--${key}))`;
-  const GROUPS = new Set(["Discipelen", "Schare", "Apostelen", "Farizeeën", "Tollenaars", "Herders", "Wijzen", "Engelen", "Overpriesters", "Sadduceeën", "Wachters", "Moordenaars", "Broeders", "Ouderlingen", "Weduwen", "Reisgenoten", "Bemanning", "Eilanders", "Joden", "Melaatsen", "Handelaars", "Raad", "Oudsten", "Gemeente", "Ouders", "Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen", "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters", "Levieten", "Zangers"]);
+  const GROUPS = new Set(["Discipelen", "Schare", "Apostelen", "Farizeeën", "Tollenaars", "Herders", "Wijzen", "Engelen", "Overpriesters", "Schriftgeleerden", "Leraren", "Sadduceeën", "Wachters", "Moordenaars", "Broeders", "Ouderlingen", "Weduwen", "Reisgenoten", "Bemanning", "Eilanders", "Joden", "Melaatsen", "Handelaars", "Raad", "Oudsten", "Gemeente", "Ouders", "Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen", "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters", "Levieten", "Zangers"]);
 
   // ---------- rekenen ----------
   function hav(a, b) {
@@ -84,6 +84,26 @@
     return [31.5, 35.2];
   }
   const BOEKEN = BR.boeken;
+  // Thema’s (een boek met `thema`, nu alleen Kerst) zijn geen Bijbelboek: ze staan onder een eigen kopje ‘Thema’s’, niet
+  // in de boekenrij of tussen de 66 boeken, en hun delen vormen één eigen, doorlopende reis. Regels en besluiten:
+  // docs/bijbelreis-kerst/README.md. THEMA_UI bevat alleen de vaste woorden van de bediening, geen inhoud.
+  const BIJBELBOEKEN = BOEKEN.filter((b) => !b.thema), THEMAS = BOEKEN.filter((b) => b.thema);
+  const THEMA_UI = {
+    kerst: {
+      kort: "Kerst", reis: "de kerstreis", begin: "Begin de kerstreis", verder: "Verder met de kerstreis", opnieuw: "Bekijk de kerstreis nog eens",
+      zin: "Van Adam langs het geslachtsregister naar Bethlehem, waar de Heere Jezus geboren wordt, en verder tot Hij twaalf jaar is.",
+      zinA: "Van Adam tot de geboorte van de Heere Jezus in Bethlehem.",
+      einde: "Hier eindigt de kerstreis: van Adam tot Nazareth, waar de Heere Jezus opgroeit.",
+      ook: ["https://raadkoord.nl/kerst", "Kerstliederen samen raden?", "Raadkoord Kerst", ", ook van Denckh"],
+    },
+  };
+  const themaUi = (b) => (b && b.thema && THEMA_UI[b.thema]) || null;
+  const boekKort = (b) => (themaUi(b) ? themaUi(b).kort : b.thema ? b.n.split(":")[0] : b.n);
+  // De ster: het ene terugkerende teken van het thema Kerst (Mattheüs 2:2). Dezelfde vorm als --kerst-ster in bijbelreis.css.
+  const STER = '<svg class="kster" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0 56 38 68 32 62 44 100 50 62 56 68 68 56 62 50 100 44 62 32 68 38 56 0 50 38 44 32 32 44 38z"/></svg>';
+  // Seizoen: van de eerste adventszondag tot en met 6 januari staat Kerst extra in beeld (seizoen.js; de datum van het apparaat).
+  const SEIZOEN = THEMAS.some((b) => b.thema === "kerst") && BR.seizoen && BR.seizoen.kerstTijd(new Date()) ? "kerst" : "";
+  if (SEIZOEN) document.body.dataset.seizoen = SEIZOEN;
   const ALLPARTS = [], STEP_BY_KEY = new Map();
   BOEKEN.forEach((b) => b.delen.forEach((d) => {
     d.boek = b;
@@ -113,6 +133,10 @@
     d.verder = bij.length && bij[bij.length - 1].i + 1 < h.steps.length ? bij[bij.length - 1].i + 1 : -1;
   });
   const VOLG = ALLPARTS.filter((d) => !d.hoofd); // de volgorde van Vorige/Verder tussen delen
+  // Een thema is een eigen reis: Vorige/Verder blijft binnen het thema, en de Bijbelboeken lopen niet door in een thema.
+  const reeks = (d) => VOLG.filter((x) => (d.boek.thema ? x.boek === d.boek : !x.boek.thema));
+  const volgendDeel = (d) => { const r = reeks(d); return r[r.indexOf(d) + 1] || null; };
+  const vorigDeel = (d) => { const r = reeks(d), i = r.indexOf(d); return i > 0 ? r[i - 1] : null; };
   const metVerdiep = (delen) => delen.filter((d) => !d.hoofd).flatMap((d) => [d].concat(d.verdiep || []));
   const deelNaam = (d) => (d.hoofd ? `${d.hoofd.n} › ${d.n}` : d.n);
   const partKm = (d) => d.steps.reduce((a, s) => a + (s.r || []).filter((r) => r.w === d.c).reduce((b, r) => b + r.len, 0), 0);
@@ -330,13 +354,16 @@
     const e = camel.getElement(); const el = e && e.querySelector(".camel"); if (!el) return;
     el.querySelector(".saddle").style.fill = color(who || "kobalt");
     // In het Nieuwe Testament geen kameel maar een eenvoudige stip: geen afbeelding bij de reizen van de Heere Jezus.
-    el.classList.toggle("nt", !!boek.nt); el.querySelector(".walker").style.background = color(who || "kobalt");
+    el.classList.toggle("nt", ntNu()); el.querySelector(".walker").style.background = color(who || "kobalt");
     el.classList.toggle("walk", !!walking);
     el.classList.toggle("gone", !!gone);
     if (flip !== undefined) el.classList.toggle("flip", flip);
   }
 
   let boek = BOEKEN[0], deel = boek.delen[0], cur = -1, mode = "reis", animToken = 0, showAll = false;
+  // Oude of Nieuwe Testament (kameel of stip, streeknamen van toen): per boek, maar in een thema per deel, want Kerst
+  // begint bij Adam en eindigt in Nazareth (veld nt op het deel).
+  const ntNu = () => !!(boek.thema ? deel.nt : boek.nt);
   let focus = null; // { keys: Set van stapsleutels, at: [plaats-ids] } wanneer een geschiedenis op de kaart staat
 
   function showPartPlaces() {
@@ -387,7 +414,7 @@
     });
     // Labels van andere mogelijke plekken (betwist): lagere voorrang; bij botsing blijft alleen de ring staan.
     lyAlt.eachLayer((m) => { const el = m.getElement(), lab = el && el.querySelector(".lab"); if (!lab) return; lab.classList.remove("clash"); const pt = map.latLngToContainerPoint(m.getLatLng()); if (pt.x > -150 && pt.y > -40 && pt.x < size.x + 150 && pt.y < size.y + 40) items.push({ el: lab, pt, side: "r", pr: 0.8, z: 0, pin: true }); });
-    const tst = boek.nt ? "nt" : "ot";
+    const tst = ntNu() ? "nt" : "ot";
     const plaatsNamen = new Set(items.map((it) => it.el.firstChild && it.el.firstChild.textContent));
     // In de stand Nu staan de landen van vandaag op de kaart: de streeknamen van toen (Kanaän, Filistijnen, Aram …) gaan dan uit,
     // zodat een oude naam niet naast een gebied van nu komt te staan.
@@ -773,7 +800,7 @@
   const datUitleg = (dt) => dt ? [(DAT.soorten[dt.soort] || {}).uitleg, dt.onzeker && DAT.soorten.onzeker ? DAT.soorten.onzeker.uitleg : ""].filter(Boolean).join(" ") : "";
   function renderCrumb() {
     const n = deel.steps.length, got = deel.steps.filter((s) => seen.has(s.key)).length;
-    $("sCrumb").innerHTML = `<button type="button" class="linkbtn" data-crumb="boek">${esc(boek.n)}</button><span aria-hidden="true">›</span>${deel.hoofd ? `<button type="button" class="linkbtn" data-crumb="hoofd">${esc(deel.hoofd.n)}</button><span aria-hidden="true">›</span>` : ""}<button type="button" class="linkbtn" data-crumb="deel"${cur < 0 ? ' aria-current="page"' : ""}>${esc(deel.n)}</button>${cur >= 0 ? `<span aria-hidden="true">›</span><span aria-current="step">Stap ${cur + 1} van ${n}</span>` : `<span class="muted">${got} van ${n} gezien</span>`}`;
+    $("sCrumb").innerHTML = `${boek.thema ? STER : ""}<button type="button" class="linkbtn" data-crumb="boek"${boek.thema ? ` title="${esc(boek.n)}"` : ""}>${esc(boekKort(boek))}</button><span aria-hidden="true">›</span>${deel.hoofd ? `<button type="button" class="linkbtn" data-crumb="hoofd">${esc(deel.hoofd.n)}</button><span aria-hidden="true">›</span>` : ""}<button type="button" class="linkbtn" data-crumb="deel"${cur < 0 ? ' aria-current="page"' : ""}>${esc(deel.n)}</button>${cur >= 0 ? `<span aria-hidden="true">›</span><span aria-current="step">Stap ${cur + 1} van ${n}</span>` : `<span class="muted">${got} van ${n} gezien</span>`}`;
     $("sTerug").hidden = !deel.hoofd;
     $("sTerug").innerHTML = deel.hoofd ? `<button type="button" class="linkbtn" data-crumb="hoofd">← Terug naar ${esc(deel.hoofd.n)}</button>` : "";
     kiesRegel(n);
@@ -786,6 +813,16 @@
     document.querySelectorAll(".deel").forEach((b) => b.setAttribute("aria-pressed", b.dataset.deel === (deel.hoofd || deel).id));
     document.querySelectorAll(".boek").forEach((b) => b.setAttribute("aria-pressed", b.dataset.boek === boek.id));
     toonGekozen("boeken"); toonGekozen("delen");
+    themaAan();
+  }
+  // Het eigen uiterlijk van een thema (body[data-thema], bijbelreis.css): aan zolang je in het thema bent (de reis, Hoe
+  // ver?, Wie is wie en de speurtocht van dat boek), uit bij Verhalen, Tijdlijn en Paspoort, die over de hele Bijbel gaan.
+  const THEMAKLEUR = document.querySelector('meta[name="theme-color"]'), KLEUR0 = THEMAKLEUR ? THEMAKLEUR.content : "";
+  function themaAan() {
+    const t = boek.thema && ["reis", "ver", "wie", "quiz"].includes(mode) ? boek.thema : "";
+    if (t) document.body.dataset.thema = t; else delete document.body.dataset.thema;
+    // De statusbalk van de telefoon kleurt mee met de kop.
+    if (THEMAKLEUR) THEMAKLEUR.content = t === "kerst" ? "#14213f" : KLEUR0;
   }
   // De rij met boeken en de rij met delen schuiven opzij. Staat het gekozen boek of deel buiten beeld (bijvoorbeeld na
   // een diepe link als #brieven), dan schuift de rij ernaartoe. Alleen de rij zelf schuift, de pagina niet.
@@ -876,14 +913,20 @@
     }
     // Tafereel: een getekend beeld bij de tekst van een stap zonder reis (taferelen.js).
     if (BR.tafereel) BR.tafereel.bijStap($("sText"), cur >= 0 ? deel.steps[cur] : null);
-    const idx = VOLG.indexOf(deel), atEnd = cur >= deel.steps.length - 1, next = VOLG[idx + 1];
-    $("prev").disabled = $("prev2").disabled = cur <= -1 && idx === 0;
+    const atEnd = cur >= deel.steps.length - 1, next = volgendDeel(deel), tu = themaUi(boek), slot = !!tu && atEnd && !next && !deel.hoofd;
+    $("prev").disabled = $("prev2").disabled = cur <= -1 && !deel.hoofd && !vorigDeel(deel);
     $("next").disabled = $("next2").disabled = atEnd && !next && !deel.hoofd;
-    $("next").textContent = $("next2").textContent = cur < 0 ? "Start ▶" : atEnd && deel.hoofd ? `Verder met ${deel.hoofd.short} ▶` : atEnd && next ? `Naar ${next.short} ▶` : "Verder ▶";
+    $("next").textContent = $("next2").textContent = cur < 0 ? "Start ▶" : atEnd && deel.hoofd ? `Verder met ${deel.hoofd.short} ▶` : atEnd && next ? `Naar ${next.short} ▶` : slot ? `Einde van ${tu.reis}` : "Verder ▶";
+    themaPad(slot);
     // Verdiepende delen: de ingang in de intro van het hoofddeel en bij de stappen over hetzelfde Bijbelgedeelte.
     const verdiep = cur < 0 ? deel.verdiep || [] : deel.steps[cur].verdiep || [];
     $("sVerdiep").hidden = !verdiep.length;
     $("sVerdiep").innerHTML = verdiep.map((v) => `<button type="button" class="verdiep-in" data-go="${v.key}:-1"><span class="label">Van dichtbij</span><span><b>${esc(v.n)}</b> · ${esc(v.ref)}</span><small>${v.steps.length} stappen</small></button>`).join("");
+    // Telefoon, in de reis: dezelfde ingang als één knop op de kaart, direct boven het korte blad. In het korte blad is
+    // geen plaats voor de ingang en in het open blad staat hij te ver weg (opmerking van Martijn, 16-11-2026).
+    const db = $("dichtbijBtn"), v0 = verdiep[0];
+    db.hidden = !v0;
+    if (v0) { db.dataset.go = `${v0.key}:-1`; db.innerHTML = `<span><small>Van dichtbij</small><b>${esc(v0.n)}</b></span><span class="n">${v0.steps.length} stappen ▸</span>`; }
     // Om over na te denken: open vragen bij een deel (veld `denk`), bij de intro en de laatste stap; niet bij Samen ontdekken.
     const denk = niveau !== "a" && (cur < 0 || atEnd) && Array.isArray(deel.denk) ? deel.denk : [];
     $("sDenk").hidden = !denk.length;
@@ -907,8 +950,25 @@
     return pts.length ? pts : WIDE;
   }
   // Een verdiepend deel begint en eindigt bij zijn hoofddeel; verder gaat het van deel naar deel in de volgorde VOLG.
-  function goNext() { if (cur < deel.steps.length - 1) select(cur + 1); else if (deel.hoofd) chooseDeel(deel.hoofd, deel.verder); else { const n = VOLG[VOLG.indexOf(deel) + 1]; if (n) { if (n.boek !== boek) chooseBoek(n.boek, n); else chooseDeel(n); } } }
-  function goPrev() { if (cur > -1) select(cur - 1); else if (deel.hoofd) chooseDeel(deel.hoofd); else { const p = VOLG[VOLG.indexOf(deel) - 1]; if (p) { if (p.boek !== boek) chooseBoek(p.boek, p, p.steps.length - 1); else chooseDeel(p, p.steps.length - 1); } } }
+  function goNext() { if (cur < deel.steps.length - 1) select(cur + 1); else if (deel.hoofd) chooseDeel(deel.hoofd, deel.verder); else { const n = volgendDeel(deel); if (n) { if (n.boek !== boek) chooseBoek(n.boek, n); else chooseDeel(n); } } }
+  function goPrev() { if (cur > -1) select(cur - 1); else if (deel.hoofd) chooseDeel(deel.hoofd); else { const p = vorigDeel(deel); if (p) { if (p.boek !== boek) chooseBoek(p.boek, p, p.steps.length - 1); else chooseDeel(p, p.steps.length - 1); } } }
+  // Een thema is één doorlopende reis in delen. In de intro van elk deel staat waar je bent (‘deel 3 van 6’) met de
+  // delen op een rij; een deel waarvan je alle stappen gezien hebt, is afgevinkt. Na de laatste stap van het laatste
+  // deel staat een slotzin. De verwijzing naar een ander werk van dezelfde maker (Raadkoord Kerst) staat alleen in het
+  // thema: in de intro van het eerste deel en na de laatste stap van het laatste.
+  function themaPad(slot) {
+    const tu = themaUi(boek), pad = $("sThema"), rij = tu && !deel.hoofd ? reeks(deel) : [], i = rij.indexOf(deel);
+    pad.hidden = !(tu && cur < 0 && i >= 0);
+    if (!pad.hidden) {
+      pad.setAttribute("aria-label", `${tu.kort}: deel ${i + 1} van ${rij.length}`);
+      pad.innerHTML = `<p class="tp-kop">${STER}<span>${esc(tu.kort)} · deel <b>${i + 1}</b> van ${rij.length}</span></p><ol class="tp-rij">${rij.map((d, j) => { const af = d.steps.every((s) => seen.has(s.key)); return `<li><button type="button" class="tp-deel${af ? " af" : ""}" data-go="${d.key}:-1"${j === i ? ' aria-current="step"' : ""} aria-label="Deel ${j + 1}: ${esc(d.n)}${af ? ", alle stappen gezien" : ""}"><i>${af && j !== i ? "✓" : j + 1}</i><span>${esc(d.short)}</span></button></li>`; }).join("")}</ol>`;
+    }
+    $("sSlot").hidden = !slot;
+    $("sSlot").innerHTML = slot ? `${STER}<span>${esc(tu.einde)}</span>` : "";
+    const ook = tu && tu.ook && !deel.hoofd && ((cur < 0 && i === 0) || slot) ? tu.ook : null;
+    $("sOok").hidden = !ook;
+    $("sOok").innerHTML = ook ? `<a href="${esc(ook[0])}" rel="noopener">${esc(ook[1])} <b>${esc(ook[2])}</b>${esc(ook[3])}</a>` : "";
+  }
 
   // Jaartal van een boek, met de grond van de delen erbij (berekend uit de Bijbel / reconstructie / onzeker).
   function boekTijd(b) {
@@ -919,18 +979,23 @@
     return b.tijd.replace(/\s*\((onzeker|reconstructie)\)/, "") + (grond.length ? " · " + grond.join(", ") : "");
   }
   function renderBoeken() {
-    $("boeken").innerHTML = BOEKEN.map((b) => `<button type="button" class="boek" data-boek="${b.id}" aria-pressed="${b === boek}">${esc(b.n)}<small>${esc(boekTijd(b))}</small></button>`).join("");
+    $("boeken").innerHTML = BIJBELBOEKEN.map((b) => `<button type="button" class="boek" data-boek="${b.id}" aria-pressed="${b === boek}">${esc(b.n)}<small>${esc(boekTijd(b))}</small></button>`).join("");
+    // Thema’s: een eigen groep onder de Bijbelboeken; in het seizoen van het thema bovenaan (CSS: body[data-seizoen]).
+    $("themaRij").hidden = !THEMAS.length;
+    $("themas").innerHTML = THEMAS.map((b) => `<button type="button" class="boek thema" data-boek="${b.id}" data-thema="${esc(b.thema)}" aria-pressed="${b === boek}">${b.thema === "kerst" ? STER : ""}<span>${esc(b.n)}</span></button>`).join("");
   }
   function renderDelen() {
     $("delenLabel").querySelector(".dl-boek").textContent = ` uit ${boek.n}`; // alleen zichtbaar in het keuzeblad (telefoon)
     $("delen").innerHTML = boek.delen.filter((d) => !d.hoofd).map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.refKort || d.ref.split(/;|,/)[0].replace(/^(\d\s)?[^\d\s]+\s/, ""))}</small></button>`).join("");
   }
-  $("boeken").addEventListener("click", (e) => {
+  const kiesBoekKnop = (e) => {
     const b = e.target.closest(".boek"); if (!b) return;
     chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek));
-    // In het keuzeblad (telefoon) staan de delen bovenaan: na de keuze van een boek komen die in beeld.
+    // In het keuzeblad (telefoon) staan de delen bovenaan: na de keuze van een boek of thema komen die in beeld.
     if (!$("kiesLade").hidden) $("kiesLade").querySelector(".lade__box").scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-  });
+  };
+  $("boeken").addEventListener("click", kiesBoekKnop);
+  $("themas").addEventListener("click", kiesBoekKnop);
   $("delen").addEventListener("click", (e) => { const b = e.target.closest(".deel"); if (!b) return; chooseDeel(boek.delen.find((x) => x.id === b.dataset.deel)); if (!$("kiesLade").hidden) { sluitLade("kiesLade"); naarBoven(); } });
   function renderDots() {
     const box = $("chapters"); const by = {};
@@ -1023,6 +1088,7 @@
     tapHandler = null;
     $("mapbar").hidden = m !== "reis";
     const voor = document.body.dataset.modus; document.body.dataset.modus = m;
+    themaAan();
     // Op de telefoon is de kaart per onderdeel anders van maat (in de reis is de kaart het scherm): Leaflet moet dat weten
     // vóórdat de uitsnede van het onderdeel gekozen wordt. Buiten de reis is er geen stapblad en geen grote kaart nodig.
     if (isNarrow()) {
@@ -1048,6 +1114,7 @@
       if (m === "wie") renderWie();
       if (m === "tijd") renderTijd();
     }
+    renderSeizoen();
     queueLabels();
   }
   // Op de telefoon staan de onderdelen in een vaste onderbalk: een nieuw onderdeel begint bovenaan, niet halverwege.
@@ -1102,6 +1169,7 @@
   let vTest = "alle", vZoek = "", vOpen = null;
 
   function renderVerhalen() {
+    renderSeizoen();
     if (vOpen) return renderVerhaal(vOpen);
     const box = $("p-verhalen");
     // Samen ontdekken: groot en zonder zoeken; per etappe van de reis uitklapbaar, de etappe waar je bent staat open.
@@ -1175,6 +1243,7 @@
   let vStap = 0; // Samen ontdekken: welke verhaalstap staat open
   function renderVerhaal(nr) {
     const g = GBYNR.get(nr), box = $("p-verhalen"); if (!g) { vOpen = null; return renderVerhalen(); }
+    renderSeizoen();
     // Een open kaartvraag van de vorige geschiedenis vervalt.
     tapHandler = null; $("map").classList.remove("quizmode"); lyQuiz.clearLayers();
     const steps = (g.stappen || []).map((x) => STEP_BY_KEY.get(x)).filter(Boolean);
@@ -1543,7 +1612,13 @@
   $("p-tijd").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
   function renderTijd() {
     if (niveau === "a") return renderTijdSamen();
-    const undated = VOLG.filter((d) => !d.tl), dated = VOLG.filter((d) => d.tl).sort((a, b) => a.tl[0] - b.tl[0] || a.tl[1] - b.tl[1]);
+    // Een thema staat niet tussen de Bijbelboeken op de tijdlijn (het vertelt dezelfde tijd nog eens), maar eronder,
+    // onder een eigen kopje en in de volgorde van het thema.
+    const lijn = VOLG.filter((d) => !d.boek.thema);
+    const undated = lijn.filter((d) => !d.tl), dated = lijn.filter((d) => d.tl).sort((a, b) => a.tl[0] - b.tl[0] || a.tl[1] - b.tl[1]);
+    const themaKop = (b) => `<h3 class="tl-thema">${b.thema === "kerst" ? STER : ""}<span>Thema: ${esc(boekKort(b))}</span><small>${esc(b.n)}</small></h3>`;
+    const themaLijn = (rij) => THEMAS.map((b) => `${themaKop(b)}<ol class="tijdlijn tl-themalijn">${VOLG.filter((d) => d.boek === b).map(rij).join("")}</ol>`).join("");
+    const waar = (d) => (d.boek.thema ? "" : esc(d.boek.n) + " · ") + esc(d.ref);
     const jaar = (y) => (y < 0 ? `${fmt(-y)} v.Chr.` : `${fmt(y)} n.Chr.`);
     // Verdiepende delen staan onder hun hoofddeel, niet als eigen punt op de tijdlijn.
     const onder = (d) => (d.verdiep || []).map((v) => `<button type="button" class="tl-sub" data-go="${v.key}:-1"${v === deel ? ' aria-current="true"' : ""}><span>Van dichtbij: <b>${esc(v.n)}</b></span><small>${esc(v.ref)}</small></button>`).join("");
@@ -1551,18 +1626,18 @@
     const wanneer = (d) => { const dt = datering(d); return !dt ? "" : `<span>${dt.soort === "geen" ? "Oergeschiedenis" : esc(dt.tekst)}</span><span class="tl-grond">${datTags(dt)}</span>`; };
     // Zelf op reis: de volgorde en de naam van het deel; het jaartal met zijn grond staat achter ‘Wanneer was dat?’.
     if (niveau === "b") {
-      const rij = (d) => { const dt = datering(d); return `<li class="tl-item${isCur(d) ? " cur" : ""}" style="--pc:${color(d.c)}"><span class="tl-dot" aria-hidden="true"></span><div><button type="button" class="tl-go" data-go="${d.key}:-1"${d === deel ? ' aria-current="true"' : ""}><b>${esc(d.n)}</b><small>${esc(d.boek.n)} · ${esc(d.ref)}</small></button>${onder(d)}${dt ? `<details><summary>Wanneer was dat?</summary><p class="tl-when">${dt.soort === "geen" ? "Oergeschiedenis" : esc(dt.tekst)}<span class="tl-grond">${datTags(dt)}</span></p>${d.tijdNoot ? `<p>${esc(d.tijdNoot)}</p>` : ""}</details>` : ""}</div></li>`; };
-      $("p-tijd").innerHTML = `<h2>Wanneer <em>gebeurde</em> het?</h2><p class="ref">Van boven naar beneden: in deze volgorde vertelt de Bijbel het. Bij elk deel kun je zien wanneer dat ongeveer was, en hoe zeker dat is.</p><ol class="tijdlijn">${undated.concat(dated).map(rij).join("")}</ol>`;
+      const rij = (d) => { const dt = datering(d); return `<li class="tl-item${isCur(d) ? " cur" : ""}" style="--pc:${color(d.c)}"><span class="tl-dot" aria-hidden="true"></span><div><button type="button" class="tl-go" data-go="${d.key}:-1"${d === deel ? ' aria-current="true"' : ""}><b>${esc(d.n)}</b><small>${waar(d)}</small></button>${onder(d)}${dt ? `<details><summary>Wanneer was dat?</summary><p class="tl-when">${dt.soort === "geen" ? "Oergeschiedenis" : esc(dt.tekst)}<span class="tl-grond">${datTags(dt)}</span></p>${d.tijdNoot ? `<p>${esc(d.tijdNoot)}</p>` : ""}</details>` : ""}</div></li>`; };
+      $("p-tijd").innerHTML = `<h2>Wanneer <em>gebeurde</em> het?</h2><p class="ref">Van boven naar beneden: in deze volgorde vertelt de Bijbel het. Bij elk deel kun je zien wanneer dat ongeveer was, en hoe zeker dat is.</p><ol class="tijdlijn">${undated.concat(dated).map(rij).join("")}</ol>${themaLijn(rij)}`;
       const c = $("p-tijd").querySelector(".cur"); if (c) requestAnimationFrame(() => c.scrollIntoView({ block: "nearest" }));
       return;
     }
-    const row = (d) => `<li class="tl-item${isCur(d) ? " cur" : ""}" style="--pc:${color(d.c)}"><span class="tl-dot" aria-hidden="true"></span><div><p class="tl-when">${wanneer(d)}</p><button type="button" class="tl-go" data-go="${d.key}:-1"${d === deel ? ' aria-current="true"' : ""}><b>${esc(d.n)}</b><small>${esc(d.boek.n)} · ${esc(d.ref)}</small></button>${onder(d)}${d.tijdNoot ? `<details><summary>Hoe weten we dat?</summary><p>${esc(d.tijdNoot)}</p></details>` : ""}</div></li>`;
+    const row = (d) => `<li class="tl-item${isCur(d) ? " cur" : ""}" style="--pc:${color(d.c)}"><span class="tl-dot" aria-hidden="true"></span><div><p class="tl-when">${wanneer(d)}</p><button type="button" class="tl-go" data-go="${d.key}:-1"${d === deel ? ' aria-current="true"' : ""}><b>${esc(d.n)}</b><small>${waar(d)}</small></button>${onder(d)}${d.tijdNoot ? `<details><summary>Hoe weten we dat?</summary><p>${esc(d.tijdNoot)}</p></details>` : ""}</div></li>`;
     let h = "", prev = null;
     dated.forEach((d) => {
       if (prev && d.tl[0] - prev.tl[1] >= 40) h += `<li class="tl-gap" aria-hidden="true">ruim ${fmt(Math.floor((d.tl[0] - prev.tl[1]) / 10) * 10)} jaar later</li>`;
       h += row(d); prev = !prev || d.tl[1] > prev.tl[1] ? d : prev;
     });
-    $("p-tijd").innerHTML = `<h2>Wanneer <em>gebeurde</em> het?</h2><p class="ref">De Bijbel rekent in levensjaren en regeringsjaren, niet in onze jaartelling. Elk jaartal hier is dus omgerekend, en bij elk jaartal staat waarop het rust. Genesis 1–11 krijgt geen jaartal.</p><ul class="tl-uitleg"><li><span class="tl-dot-l" aria-hidden="true"></span><span>De <b>volgorde</b> komt uit de Bijbel.</span></li>${["bijbel", "historie", "onzeker", "geen"].map((k) => `<li class="dtrij">${datTags(k === "onzeker" ? { soort: "x", onzeker: true } : { soort: k }).replace(/<span class="dt dt-x"[^>]*>x<\/span>/, "")}<span>${esc(DAT.soorten[k] ? DAT.soorten[k].uitleg : "")}</span></li>`).join("")}</ul><ol class="tijdlijn">${undated.map((d) => row(d)).join("")}${undated.length ? `<li class="tl-gap" aria-hidden="true">geen jaartallen bekend</li>` : ""}${h}</ol>`;
+    $("p-tijd").innerHTML = `<h2>Wanneer <em>gebeurde</em> het?</h2><p class="ref">De Bijbel rekent in levensjaren en regeringsjaren, niet in onze jaartelling. Elk jaartal hier is dus omgerekend, en bij elk jaartal staat waarop het rust. Genesis 1–11 krijgt geen jaartal.</p><ul class="tl-uitleg"><li><span class="tl-dot-l" aria-hidden="true"></span><span>De <b>volgorde</b> komt uit de Bijbel.</span></li>${["bijbel", "historie", "onzeker", "geen"].map((k) => `<li class="dtrij">${datTags(k === "onzeker" ? { soort: "x", onzeker: true } : { soort: k }).replace(/<span class="dt dt-x"[^>]*>x<\/span>/, "")}<span>${esc(DAT.soorten[k] ? DAT.soorten[k].uitleg : "")}</span></li>`).join("")}</ul><ol class="tijdlijn">${undated.map((d) => row(d)).join("")}${undated.length ? `<li class="tl-gap" aria-hidden="true">geen jaartallen bekend</li>` : ""}${h}</ol>${themaLijn(row)}`;
     const c = $("p-tijd").querySelector(".cur"); if (c) requestAnimationFrame(() => c.scrollIntoView({ block: "nearest" }));
   }
 
@@ -1584,6 +1659,8 @@
       const st = b ? (SAMEN[slugOf(x)] ? `in ‘${b.n.split(" en ")[0].split(":")[0]}’` : `${b.delen.reduce((a, d) => a + d.steps.length, 0)} stappen`) : "in ontwikkeling";
       return b ? `<button type="button" class="kb" data-boek="${b.id}"${b === boek ? ' aria-current="true"' : ""}><b>${esc(n)}</b><small>${esc(st)}</small></button>` : `<span class="kb off"><b>${esc(n)}</b><small>${st}</small></span>`;
     }).join("")}</div>`).join("");
+    // Thema’s horen niet bij de 66 boeken: een eigen groep, onderaan; in het seizoen van het thema bovenaan.
+    if (THEMAS.length) $("kastLijst").insertAdjacentHTML(SEIZOEN ? "afterbegin" : "beforeend", `<div class="kastthemas"><p class="label nt">Thema’s</p><div class="kastrij">${THEMAS.map((b) => `<button type="button" class="kthema" data-boek="${b.id}" data-thema="${esc(b.thema)}"${b === boek ? ' aria-current="true"' : ""}><b>${b.thema === "kerst" ? STER : ""}${esc(boekKort(b))}</b><small>${b.delen.length} delen · ${b.delen.reduce((a, d) => a + d.steps.length, 0)} stappen</small></button>`).join("")}</div></div>`);
   }
   // De overzichtsvensters (boekenkast, alle reizen, alle plaatsen) openen en sluiten op dezelfde manier.
   const LADEN = ["kast", "reizenLade", "plaatsenLade", "vandaagLade", "vandaagVenster", "kiesLade"];
@@ -1607,7 +1684,7 @@
   LADEN.forEach((id) => { $(id).querySelector(".lade__head button").onclick = () => sluitLade(id); $(id).addEventListener("click", (e) => { if (e.target === $(id)) sluitLade(id); }); });
   const closeKast = () => sluitLade("kast");
   $("kastBtn").onclick = () => { renderKast(); openLade("kast"); };
-  $("kast").addEventListener("click", (e) => { const b = e.target.closest(".kb[data-boek]"); if (b) { closeKast(); setMode("reis"); chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek)); } });
+  $("kast").addEventListener("click", (e) => { const b = e.target.closest(".kb[data-boek], .kthema[data-boek]"); if (b) { closeKast(); setMode("reis"); chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek)); } });
 
   // ---------- overzicht: alle reizen ----------
   // Elke reis uit `trips`, met de afstand langs de getekende route. Per Bijbelboek, of de langste eerst.
@@ -1624,7 +1701,7 @@
     $("reizenAantal").textContent = `${los.length} reizen in ${new Set(rijen.map((x) => x.d)).size} delen. Tik op een reis om haar op de kaart te zien.`;
     $("reizenLijst").innerHTML = reizenSort === "lang"
       ? `<ol class="olijst">${los.slice().sort((a, b) => b.km - a.km).map(rij).join("")}</ol>`
-      : BOEKEN.filter((b) => rijen.some((x) => x.b === b)).map((b) => `<h4 class="o-kop">${esc(b.n)}</h4><ul class="olijst">${rijen.filter((x) => x.b === b).map(rij).join("")}</ul>`).join("");
+      : BOEKEN.filter((b) => rijen.some((x) => x.b === b)).map((b) => `<h4 class="o-kop">${b.thema ? "Thema: " + esc(boekKort(b)) : esc(b.n)}</h4><ul class="olijst">${rijen.filter((x) => x.b === b).map(rij).join("")}</ul>`).join("");
   }
   $("reizenBtn").onclick = () => { renderReizen(); openLade("reizenLade"); };
   $("reizenLade").addEventListener("click", (e) => {
@@ -1709,7 +1786,7 @@
     } else {
       const list = boek.wie || [];
       wieSel = list.find((x) => x.n === wieSel) ? wieSel : list[0] && list[0].n;
-      box.innerHTML = `<h2>Wie is <em>wie</em> in ${esc(boek.n)}?</h2><p>Tik op een naam om meer te weten.</p><div class="card" id="wieInfo"></div><div class="wie" id="wieList">${list.map((x) => `<button type="button" data-n="${esc(x.n)}" aria-pressed="false"><b>${esc(x.n)}</b><small>${esc(x.rol || "")}</small></button>`).join("")}</div>`;
+      box.innerHTML = `<h2>Wie is <em>wie</em> ${boek.thema ? "bij " + esc(boekKort(boek)) : "in " + esc(boek.n)}?</h2><p>Tik op een naam om meer te weten.</p><div class="card" id="wieInfo"></div><div class="wie" id="wieList">${list.map((x) => `<button type="button" data-n="${esc(x.n)}" aria-pressed="false"><b>${esc(x.n)}</b><small>${esc(x.rol || "")}</small></button>`).join("")}</div>`;
       if (list.length) wieInfoBoek(wieSel); else $("wieInfo").innerHTML = "<p>Voor dit boek is nog geen lijst met personen.</p>";
     }
   }
@@ -1997,7 +2074,7 @@
   function renderStamps() {
     const total = ALLPARTS.reduce((a, d) => a + d.steps.length, 0);
     // Per Bijbelboek een uitklapbaar blad; boeken met stempels staan open.
-    $("stamps").innerHTML = BOEKEN.map((b) => { const gotB = b.delen.reduce((x, d) => x + d.steps.filter((t) => seen.has(t.key)).length, 0), totB = b.delen.reduce((x, d) => x + d.steps.length, 0); return `<details class="pasboek"${gotB ? " open" : ""}><summary><b>${esc(b.n)}</b><span>${gotB} van ${totB}</span></summary>` + metVerdiep(b.delen).map((d) => {
+    $("stamps").innerHTML = BOEKEN.map((b) => { const kop = b === THEMAS[0] ? '<p class="label pas-themas">Thema’s</p>' : ""; const gotB = b.delen.reduce((x, d) => x + d.steps.filter((t) => seen.has(t.key)).length, 0), totB = b.delen.reduce((x, d) => x + d.steps.length, 0); return `${kop}<details class="pasboek"${gotB ? " open" : ""}><summary><b>${esc(b.n)}</b><span>${gotB} van ${totB}</span></summary>` + metVerdiep(b.delen).map((d) => {
       const got = d.steps.filter((s) => seen.has(s.key)).length;
       return `<div class="stack${d.hoofd ? " pas-sub" : ""}" style="gap:6px"><p class="label" style="color:${color(d.c)}">${esc(deelNaam(d))} · ${got} van ${d.steps.length}</p><div class="stamps">${d.steps.map((s) => `<button type="button" class="stamp${seen.has(s.key) ? "" : " no"}" data-key="${d.key}" data-s="${s.i}" aria-label="${esc(d.n)}, stap ${s.i + 1}: ${esc(s.t)}${seen.has(s.key) ? ", gestempeld" : ", nog niet bezocht"}">${stampSVG(s)}</button>`).join("")}</div></div>`;
     }).join("") + "</details>"; }).join("");
@@ -2158,9 +2235,11 @@
     // Bij een verdiepend deel staat het hoofddeel vooraan in plaats van het boek: ‘Jakob › Jakob bij de Jabbok’.
     // Past de regel niet naast ‘Lees meer’, dan valt het boek (of hoofddeel) weg: het deel en de stap blijven staan
     // (bladPast zet .smal). In het overzicht van een deel staat de naam van het deel al als titel eronder.
-    const pad = [deel.hoofd ? deel.hoofd.short : boek.n].map((x) => `<span class="kr-kort">${esc(x)}</span><span class="kr-pijl" aria-hidden="true">›</span>`).join("");
-    const waar = cur >= 0 ? `${cur + 1} van ${n}` : `${n} stappen`;
-    $("kiesBtn").innerHTML = `<span class="kr-pad">${pad}<b>${esc(deel.hoofd ? deel.n : deel.short)}</b></span><span class="kr-stap">${waar}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>`;
+    // Bij een thema (Kerst) staat er een ster voor, en in het overzicht van een deel ‘deel 3 van 6’ in plaats van het aantal stappen.
+    const pad = [deel.hoofd ? deel.hoofd.short : boekKort(boek)].map((x) => `<span class="kr-kort">${esc(x)}</span><span class="kr-pijl" aria-hidden="true">›</span>`).join("");
+    const rij = boek.thema && !deel.hoofd ? reeks(deel) : [];
+    const waar = cur >= 0 ? `${cur + 1} van ${n}` : rij.length ? `deel ${rij.indexOf(deel) + 1} van ${rij.length}` : `${n} stappen`;
+    $("kiesBtn").innerHTML = `${boek.thema ? STER : ""}<span class="kr-pad">${pad}<b>${esc(deel.hoofd ? deel.n : deel.short)}</b></span><span class="kr-stap">${waar}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>`;
     $("kiesBtn").setAttribute("aria-label", `Kies een reis. Nu: ${boek.n}, ${deelNaam(deel)}, ${cur >= 0 ? "stap " + waar : "overzicht"}`);
     // De rustige voortgangsstreep in het blad (boven ◀ en Verder): zo ver ben je in dit deel.
     $("reisboek").style.setProperty("--voortgang", ((cur >= 0 ? (cur + 1) / n : 0) * 100).toFixed(1) + "%");
@@ -2181,13 +2260,16 @@
     const b = $("reisboek");
     if (!bladAan() || b.classList.contains("open") || !b.offsetParent) return;
     const r = b.getBoundingClientRect(); if (r.height > 60) { kortH = r.height; bladB = r.width; }
+    document.querySelector(".kaartvlak").style.setProperty("--blad-h", kortH.toFixed(0) + "px");
     kaartGrenzen();
   }
   // Vrije ruimte op de kaart voor fit(): boven de kaartknoppen (met de kameel erboven), opzij een rand, onder het korte
   // blad. Een liggende telefoon heeft het blad links: dan blijft de ruimte ernaast vrij.
   function bladRuimte() {
     bladMeet();
-    return zijMq.matches ? { paddingTopLeft: [bladB + 44, 62], paddingBottomRight: [40, 44] } : { paddingTopLeft: [44, 84], paddingBottomRight: [44, kortH + 30] };
+    // Staat de knop ‘Van dichtbij’ boven het blad, dan blijft ook die ruimte vrij.
+    const knop = $("dichtbijBtn").hidden ? 0 : 50;
+    return zijMq.matches ? { paddingTopLeft: [bladB + 44, 62], paddingBottomRight: [40, 44] } : { paddingTopLeft: [44, 84], paddingBottomRight: [44, kortH + 30 + knop] };
   }
   // De ondergrond houdt op bij 22° en 47° noorderbreedte; Leaflet houdt de kaart daarbinnen (maxBounds). Onder het
   // korte blad is de kaart toch niet te zien: daar mag de uitsnede zo hoog als het blad voorbij de zuidrand, zodat een
@@ -2372,12 +2454,31 @@
       return;
     }
     const h = huidigeGeschiedenis(), g = h.g;
-    if (!g || h.hoe === "nieuw") { box.hidden = true; box.innerHTML = ""; return; }
+    // Een stap uit een thema hoort bij geen geschiedenis. Was dat het laatste wat je opende, dan gaat ‘Verder met’
+    // daarheen; in het seizoen van het thema doet de eigen ingang eronder dat al (renderSeizoen).
+    const hk = store.get("huidig", null), ts = hk && hk.k && STEP_BY_KEY.get(hk.k), themaStap = ts && ts.deel.boek.thema && ts.deel.boek.thema !== SEIZOEN ? ts : null;
+    if (!themaStap && (!g || h.hoe === "nieuw")) { box.hidden = true; box.innerHTML = ""; return; }
     box.hidden = false;
     const tip = store.get("niveauTip", false) ? `<p class="rk-tip">Nieuw: Bijbelreis heeft nu reisniveaus. Je kijkt met <b>${esc(nivNaam())}</b>. <button type="button" class="linkbtn" data-open-niveau>Wijzigen</button></p>` : "";
+    if (themaStap) { box.innerHTML = `<button type="button" class="btn primary verdermet" data-go="${themaStap.key}"><span>Verder met: <b>${esc(themaStap.deel.n)} – ${esc(themaStap.t)}</b></span><span aria-hidden="true">▶</span></button>${tip}`; return; }
     const st = h.hoe === "stap" && STEP_BY_KEY.get(h.key);
     const wat = st ? `${esc(st.deel.n)} – ${esc(st.t)}` : esc(g.t);
     box.innerHTML = `<button type="button" class="btn primary verdermet" ${st ? `data-go="${h.key}"` : `data-v="${g.nr}"`}><span>Verder met: <b>${wat}</b></span><span aria-hidden="true">▶</span></button>${tip}`;
+  }
+
+  // De ingang van het seizoen: van de eerste adventszondag tot en met 6 januari staat bovenaan Verhalen (direct onder
+  // ‘Verder met’) één rustige kaart naar het thema Kerst. Eén titel, één zin, één knop: ‘Begin de kerstreis’, of
+  // ‘Verder met de kerstreis’ als er al stappen van gezien zijn (dan naar de laatst geopende stap van het thema, anders
+  // naar de verste). Buiten het seizoen staat er niets; het thema blijft bereikbaar onder ‘Thema’s’ en via de links.
+  function renderSeizoen() {
+    const box = $("seizoen"), b = SEIZOEN && THEMAS.find((x) => x.thema === SEIZOEN), tu = themaUi(b);
+    if (!tu || mode !== "verhalen" || vOpen) { box.hidden = true; box.innerHTML = ""; return; }
+    const stappen = b.delen.filter((d) => !d.hoofd).flatMap((d) => d.steps), gezien = stappen.filter((s) => seen.has(s.key));
+    const laatst = STEP_BY_KEY.get(store.get("laatst", null)), hier = laatst && laatst.deel.boek === b ? laatst : gezien[gezien.length - 1];
+    const klaar = gezien.length === stappen.length, doel = !gezien.length || klaar ? `${b.delen[0].key}:-1` : hier.key;
+    const rij = reeks(b.delen[0]), stand = gezien.length && !klaar ? `<p class="sz-stand">Je bent bij deel ${rij.indexOf(hier.deel.hoofd || hier.deel) + 1} van ${rij.length}: ${esc((hier.deel.hoofd || hier.deel).short)}</p>` : "";
+    box.hidden = false; box.dataset.thema = b.thema;
+    box.innerHTML = `<p class="sz-label">Thema · Advent en Kerst</p><h2 class="sz-titel" id="szTitel">${esc(b.n)}</h2><p class="sz-zin">${esc(niveau === "a" ? tu.zinA : tu.zin)}</p>${stand}<button type="button" class="btn sz-knop" data-go="${doel}"><span>${!gezien.length ? tu.begin : klaar ? tu.opnieuw : tu.verder}</span><span aria-hidden="true">▶</span></button>`;
   }
 
   // Reisniveau kiezen en wisselen: overal dezelfde knoppen (data-niveau). Wisselen bouwt het huidige scherm opnieuw op.

@@ -59,6 +59,11 @@ const JAKOB = ["jabbok-mahanaim", "jabbok-boden", "jabbok-heiren", "jabbok-gebed
 const jk: { window: { BR: { beelden: Record<string, Koppeling> } } } = { window: { BR: { beelden: {} } } };
 runInNewContext(readFileSync(join(PUB, "bijbelreis", "taferelen-koppeling-jakob.js"), "utf8").replace(/\bBR\./g, "window.BR."), jk);
 const KOPPEL_JAKOB = jk.window.BR.beelden;
+// De reeks Kerst (taferelen-kerst.js, ids met voorvoegsel kerst-) en haar koppelingen (taferelen-koppeling-kerst.js) aan het boek kerst.
+const KERST = IDS.filter((id) => id.startsWith("kerst-"));
+const kr: { window: { BR: { beelden: Record<string, Koppeling> } } } = { window: { BR: { beelden: {} } } };
+runInNewContext(readFileSync(join(PUB, "bijbelreis", "taferelen-koppeling-kerst.js"), "utf8").replace(/\bBR\./g, "window.BR."), kr);
+const KOPPEL_KERST = kr.window.BR.beelden;
 
 // Bestaat de verwijzing in de Statenvertaling (data/statenvertaling, alleen voor controle)?
 const bijbel: Record<string, { hoofdstukken: Record<string, string[]> }> = {};
@@ -287,7 +292,10 @@ describe("taferelen: koppeling", () => {
   });
   it("Genesis 32: de tien stappen van genesis:jakob-jabbok hebben elk een eigen tafereel, in volgorde", () => {
     expect(Object.keys(KOPPEL_JAKOB).filter((k) => k.startsWith("genesis:jakob-jabbok:"))).toEqual([...JAKOB.map((_, i) => `genesis:jakob-jabbok:${i}`), ...Object.keys(JAKOB_33)]);
-    expect(Object.keys(KOPPEL_JAKOB)).toEqual(["genesis:jakob:0", ...JAKOB.map((_, i) => `genesis:jakob-jabbok:${i}`), ...Object.keys(JAKOB_33)]);
+    // Het hoofddeel Jakob toont bij zijn drie stappen over Genesis 32–33 een beeld uit de reeks, met dezelfde zin.
+    const HOOFD = { "genesis:jakob:5": "genesis:jakob-jabbok:3", "genesis:jakob:6": "genesis:jakob-jabbok:6", "genesis:jakob:7": "genesis:jakob-jabbok:9" };
+    expect(Object.keys(KOPPEL_JAKOB)).toEqual(["genesis:jakob:0", ...JAKOB.map((_, i) => `genesis:jakob-jabbok:${i}`), ...Object.keys(JAKOB_33), ...Object.keys(HOOFD)]);
+    for (const [hoofd, reeks] of Object.entries(HOOFD)) { expect(KOPPEL_JAKOB[hoofd], hoofd).toEqual(KOPPEL_JAKOB[reeks]); expect(BR.tafereel.van(STAP.get(hoofd)!)!.id, hoofd).toBe(KOPPEL_JAKOB[reeks].t); }
     expect(new Set(Object.values(KOPPEL_JAKOB).map((k) => k.t)).size).toBe(13);
     const plek = (s: string) => html.indexOf(`/bijbelreis/${s}`);
     expect(plek("taferelen-jakob.js")).toBeLessThan(plek("taferelen-koppeling-jakob.js"));
@@ -305,7 +313,7 @@ describe("taferelen: koppeling", () => {
       if (deel) { const b = BR.tafereel.van(STAP.get(key)!)!; expect(b.id, key).toBe(id); expect(b.algemeen, key).toBeUndefined(); }
       else expect(STAP.has(key), key).toBe(false);
     });
-    for (const [key, k] of Object.entries(BR.beelden)) if (JAKOB.includes(k.t)) expect(key.startsWith("genesis:jakob-jabbok:"), key).toBe(true);
+    for (const [key, k] of Object.entries(BR.beelden)) if (JAKOB.includes(k.t)) expect(key.startsWith("genesis:jakob-jabbok:") || key in HOOFD, key).toBe(true);
   });
   it("Genesis 32: de Man en de engelen zijn nergens afgebeeld, en de aantallen kloppen", () => {
     // Het label zegt wat er te zien is; het noemt de Man, God, een engel of de worsteling dus niet als iets wat er staat.
@@ -329,6 +337,58 @@ describe("taferelen: koppeling", () => {
     // Zeven keer buigen (33:3).
     expect(css).toMatch(/\.tf-e-buig \{ animation: tf-buig [\d.]+s [a-z-]+ 7 both; \}/);
   });
+  it("Kerst: elke koppeling hoort bij een bestaande Kerst-stap en een bestaand tafereel, en elk Kerst-tafereel hangt aan een stap", () => {
+    const plek = (s: string) => html.indexOf(`/bijbelreis/${s}`);
+    expect(plek("taferelen-koppeling-jakob.js")).toBeLessThan(plek("taferelen-kerst.js"));
+    expect(plek("taferelen-kerst.js")).toBeLessThan(plek("taferelen-koppeling-kerst.js"));
+    expect(plek("taferelen-koppeling-kerst.js")).toBeLessThan(plek("app.js"));
+    expect(KERST.length).toBeGreaterThanOrEqual(15);
+    expect(KERST.length).toBeLessThanOrEqual(22);
+    expect(Object.keys(KOPPEL_KERST).length).toBeGreaterThan(30);
+    for (const [key, k] of Object.entries(KOPPEL_KERST)) {
+      expect(key.startsWith("kerst:kerst-"), key).toBe(true);
+      expect(STAP.has(key), `stap ${key} bestaat niet`).toBe(true);
+      expect(BR.beelden[key], key).toEqual(k);
+      // Een Kerst-tafereel, of een bestaand tafereel dat hier klopt (het gersteveld van Ruth bij Bethlehem).
+      if (k.t !== "") expect(k.t.startsWith("kerst-") || k.t === "ruth-veld", `${key} → ${k.t}`).toBe(true);
+      if (k.t !== "") expect(T[k.t], `${key} → ${k.t}`).toBeTruthy();
+    }
+    const gebruikt = new Set(STAPPEN.map((s) => BR.tafereel.van(s)?.id));
+    for (const id of KERST) expect(gebruikt.has(id), `${id} hangt aan geen enkele stap`).toBe(true);
+    for (const [key, k] of Object.entries(BR.beelden)) if (k.t.startsWith("kerst-")) expect(key.startsWith("kerst:"), key).toBe(true);
+  });
+  it("Kerst: de geboorte (Lukas 2:6–7), de achtste dag en Rama hebben bewust geen beeld", () => {
+    const kerst = BR.boeken.find((b) => b.id === "kerst")!;
+    const sleutel = (deel: string, ref: RegExp) => {
+      const d = kerst.delen.find((x) => x.id === deel)!, i = d.steps.findIndex((s) => ref.test(s.ref));
+      expect(i, `${deel}: ${ref}`).toBeGreaterThanOrEqual(0);
+      return `kerst:${deel}:${i}`;
+    };
+    for (const key of [sleutel("kerst-geboorte", /^Lukas 2:6–7$/), sleutel("kerst-geboorte", /^Lukas 2:21$/), sleutel("kerst-wijzen", /^Mattheüs 2:16–18$/)]) {
+      expect(BR.beelden[key], key).toEqual({ t: "" });
+      expect(BR.tafereel.van(STAP.get(key)!), key).toBeNull();
+    }
+  });
+  it("Kerst: geen naam of label noemt het Kind, de Heere Jezus, God, een engel, os, ezel, koning of kroon", () => {
+    for (const id of KERST) for (const tekst of [T[id].n, T[id].label])
+      expect(tekst, id).not.toMatch(/\bkind(?:je|eke|eken)?\b|jezus|\bheere\b|\bgod\b|engel|\bos\b|\bossen\b|\bezels?\b|koning|kroon|kribbe|kerstboom|sneeuw|kameel|kamelen/i);
+    // De wijzen: een groepje zonder vast aantal, niet drie (Mattheüs 2:1 noemt geen aantal).
+    for (const id of ["kerst-poort", "kerst-ster-weg"]) expect(T[id].label, id).not.toMatch(/\bdrie\b/i);
+  });
+  it("Kerst: één ster, en de aantallen die de Bijbel noemt kloppen in de tekening", () => {
+    const STER = 'class="k-okerz" d="M0-14l1 11.5';
+    // De ster staat alleen bij Mattheüs 2:9–11, en daar alleen zij: geen andere sterren aan die hemel.
+    for (const id of KERST) expect(T[id].svg.split(STER).length - 1, id).toBe(["kerst-ster-weg", "kerst-geschenken"].includes(id) ? 1 : 0);
+    for (const id of ["kerst-ster-weg", "kerst-geschenken"]) expect(T[id].svg, id).not.toMatch(/class="l-licht(?: dik)?" d="M[\d.]+ [\d.]+h\.1/);
+    // Driemaal veertien geslachten (Mattheüs 1:17): drie kolommen van veertien regels.
+    const kolommen = [...T["kerst-geslacht"].svg.matchAll(/<path class="l-zand2 tf-e-teken[^"]*" pathLength="1" d="([^"]+)"/g)].map((m) => m[1].split("M").length - 1);
+    expect(kolommen).toEqual([14, 14, 14]);
+    // De kandelaar met zeven lampen (Exodus 25:37).
+    const vlammen = [...T["kerst-reukaltaar"].svg.matchAll(/<path class="k-okerz tf-l-vlam[^"]*" d="([^"]+)"/g)].reduce((a, m) => a + m[1].split("M").length - 1, 0);
+    expect(vlammen).toBe(7);
+    // Een paar tortelduiven of twee jonge duiven (Lukas 2:24).
+    expect(T["kerst-duiven"].svg.match(/<path class="k-wit o2" d="([^"]+)"/)![1].split("M").length - 1).toBe(2);
+  });
   it("de afwijkende soorten per plaats kloppen met plaatsen en register", () => {
     for (const [id, v] of Object.entries(BR.beeldSoort)) {
       expect(BR.plaatsen[id], `plaats ${id}`).toBeTruthy();
@@ -341,13 +401,15 @@ describe("taferelen: koppeling", () => {
 
 describe("taferelen: welke stap krijgt welk beeld", () => {
   const van = (key: string) => BR.tafereel.van(STAP.get(key)!);
-  it("een stap zonder reis krijgt het standaardbeeld van de soort van zijn eerste plaats, met de plaatsnaam", () => {
-    const b = van("esther:esther:0")!;
-    expect(b.id).toBe("stad"); expect(b.algemeen).toBe(true); expect(b.plaats).toBe("Susan");
-    expect(van("exodus:sinai:6")!.id).toBe("berg");
-    expect(van("exodus:uittocht:6")!.id).toBe("water");
+  it("een stap zonder eigen koppeling krijgt geen beeld: er is geen automatische ‘algemene tekening’ meer", () => {
+    // Besluit 16-11-2026: een algemene tekening van de plaats zei niets over de tekst van de stap (docs/bijbelreis-taferelen).
+    expect(van("esther:esther:0")).toBeNull();
+    expect(van("exodus:sinai:6")).toBeNull();
+    expect(van("exodus:uittocht:6")).toBeNull();
+    expect(van("genesis:jozef:5")).toBeNull(); // ‘Twee dromen in de cel’ kreeg de rivier van Egypte
+    for (const s of STAPPEN) { const b = BR.tafereel.van(s); if (b) { expect(BR.beelden[s.key], s.key).toBeTruthy(); expect(b.algemeen, s.key).toBeUndefined(); } }
   });
-  it("een eigen koppeling gaat vóór het standaardbeeld, ook bij een stap met reis", () => {
+  it("een eigen koppeling geeft het beeld, ook bij een stap met reis", () => {
     expect(STAP.get("jozua:intocht:4")!.r).toBeUndefined();
     expect(van("jozua:intocht:4")!.id).toBe("jericho");
     expect(van("jozua:intocht:4")!.algemeen).toBeUndefined();
@@ -359,17 +421,9 @@ describe("taferelen: welke stap krijgt welk beeld", () => {
     expect(van("genesis:begin:0")).toBeNull();
     expect(BR.tafereel.van(null)).toBeNull();
   });
-  it("afwijkende soort, andere naam en ‘bewust geen beeld’ werken", () => {
-    expect(van("2samuel:david:5")!.id).toBe("stad"); // Jeruzalem staat in plaatsen.js als altaar
-    const tempel = van("jezus-1:nt-geboorte:0")!;
-    expect(tempel.id).toBe("stad"); expect(tempel.plaats).toBe("Jeruzalem");
-    expect(van("genesis:jozef:4")!.id).toBe("rivier");
-    expect(van("genesis:begin:1")).toBeNull(); // Eden: geen standaardbeeld
+  it("‘bewust geen beeld’ en een eigen tafereel in plaats van geen beeld werken", () => {
+    expect(van("genesis:begin:1")).toBeNull(); // Eden
     expect(van("ezra:terugkeer:3")).toBeNull(); // de muur ligt in puin: geen ommuurde stad
-    expect(van("ezra:nehemia:3")!.id).toBe("muur-puin"); // sinds de tweede reeks: een eigen tafereel in plaats van geen beeld
-  });
-  it("de meeste stappen zonder reis hebben een beeld", () => {
-    const zonder = STAPPEN.filter((s) => !(s.r && s.r.length));
-    expect(zonder.filter((s) => BR.tafereel.van(s)).length / zonder.length).toBeGreaterThan(0.75);
+    expect(van("ezra:nehemia:3")!.id).toBe("muur-puin"); // sinds de tweede reeks: een eigen tafereel
   });
 });

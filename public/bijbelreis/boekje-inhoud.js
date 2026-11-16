@@ -138,6 +138,9 @@
       if (dt) titel.tijd = dt;
       if (niveau === "c" && d.who) titel.wie = wie(d.who);
       if (!metTitel) titel.deel = 1;
+      // In een thema (Kerst) horen de streeknamen bij het deel: de eerste delen spelen in het Oude Testament (geen veld nt).
+      const ot = !!b.thema && !d.nt;
+      if (ot && titel.kaart) titel.kaart.ot = 1;
       pk.dias.push(titel);
       sleutels.forEach((key) => {
         const { s, i } = stapVan.get(key);
@@ -147,6 +150,7 @@
         if (niveau !== "a") { if (s.fact) { dia.fact = s.fact; if (s.fs && FS[s.fs]) dia.fs = FS[s.fs]; } if (km) dia.km = km; }
         if (niveau === "c" && s.who) dia.wie = wie(s.who);
         const tf = tafereel(key); if (tf) dia.tf = tf;
+        if (ot && dia.kaart) dia.kaart.ot = 1;
         pk.dias.push(dia);
       });
       // Elders in de Bijbel en het weetje van het deel: alleen bij het hele deel, op niveau c.
@@ -217,7 +221,7 @@
       let b = null, d = null;
       BR.boeken.forEach((x) => x.delen.forEach((y) => { if (y.id === keuze.deel && (!keuze.boek || keuze.boek === x.id) && !d) { b = x; d = y; } }));
       if (!d) return null;
-      pk.titel = d.n; pk.ref = d.ref; pk.kleur = d.c; pk.nt = !!b.nt;
+      pk.titel = d.n; pk.ref = d.ref; pk.kleur = d.c; pk.nt = b.thema ? !!d.nt : !!b.nt;
       const n = d.steps.length, van = keuze.van ? Math.max(1, Math.min(n, keuze.van)) : null, tot = van ? Math.max(van, Math.min(n, keuze.tot || van)) : null;
       deelDias(b, d, van, tot, true);
       pk.keuze = { soort: "deel", deel: d.id, niveau, ...(van && !(van === 1 && tot === n) ? { van, tot } : {}) };

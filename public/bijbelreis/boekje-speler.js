@@ -101,7 +101,7 @@
       // Lettergrootte van de namen volgt het podium (achter in een zaal leesbaar), niet de maat van het kaartvlak.
       const staand = podium.clientWidth < podium.clientHeight * 1.05;
       const fs = opties.fs || Math.max(12.5, Math.min(30, staand ? Math.min(W / 25, podium.clientHeight * 0.02) : podium.clientHeight * 0.0235));
-      const r = KA.teken(d.kaart, ctx, { W, H, fs, id: id + "-" + opties.id, nt: pk.nt, niveau: pk.niveau, meet, anim: opties.anim });
+      const r = KA.teken(d.kaart, ctx, { W, H, fs, id: id + "-" + opties.id, nt: pk.nt && !d.kaart.ot, niveau: pk.niveau, meet, anim: opties.anim });
       el.innerHTML = r.svg;
       return r;
     }
@@ -227,7 +227,7 @@
       if (boekjeKlaar) return;
       boekjeKlaar = true;
       const blok = [];
-      const kaart = (d, i, W, H) => { if (!d.kaart) return ""; const r = KA.teken(d.kaart, ctx, { W, H, fs: 13, id: id + "-b" + i, nt: pk.nt, niveau: pk.niveau, meet }); return `<div class="bk-b-kaart">${r.svg}</div>${legenda(r.legenda)}`; };
+      const kaart = (d, i, W, H) => { if (!d.kaart) return ""; const r = KA.teken(d.kaart, ctx, { W, H, fs: 13, id: id + "-b" + i, nt: pk.nt && !d.kaart.ot, niveau: pk.niveau, meet }); return `<div class="bk-b-kaart">${r.svg}</div>${legenda(r.legenda)}`; };
       let vragen = [];
       const vragenBlok = () => {
         if (!vragen.length) return;

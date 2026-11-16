@@ -23,7 +23,20 @@ test.beforeAll(async ({ browser }) => {
   expect(browser.version()).toBe("153.0.8010.12");
 });
 
+// Vaste datum buiten het seizoen (1 september 2026): van de eerste adventszondag tot en met 6 januari staat Kerst extra
+// in beeld (seizoenskaart bovenaan Verhalen, thema bovenaan in ‘Kies een reis’), en de referentiebeelden mogen niet van
+// de dag afhangen waarop de test draait. Alleen de datum verschuift; de klok loopt gewoon door, zodat timers en de
+// kaart zich gedragen als altijd.
+const VASTE_DATUM = new Date(2026, 8, 1, 12, 0, 0).getTime();
 async function voorbereid(page: Page) {
+  await page.addInitScript((doel) => {
+    const Echt = Date, verschil = doel - Echt.now();
+    class Klok extends Echt {
+      constructor(...a: unknown[]) { if (a.length) super(...(a as [number])); else super(Echt.now() + verschil); }
+      static now() { return Echt.now() + verschil; }
+    }
+    (window as unknown as { Date: DateConstructor }).Date = Klok as unknown as DateConstructor;
+  }, VASTE_DATUM);
   await page.addInitScript(() => {
     Math.random = () => 0.999999;
     if (!sessionStorage.getItem("gezet")) {

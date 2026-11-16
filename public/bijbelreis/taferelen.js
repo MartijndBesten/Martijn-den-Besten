@@ -99,19 +99,15 @@ BR.taferelen = BR.taferelen || {};
   const SOORTEN = ["stad", "berg", "water", "put", "kamp", "altaar", "tent"];
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const OPNIEUW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.6-5.9"/><path d="M4 4v5h5"/></svg>';
-  // Welk beeld hoort bij deze stap? Geeft { id, tf, tekst | plaats, algemeen } of null.
-  // 1. Een eigen koppeling (BR.beelden) gaat altijd voor; t: "" betekent bewust geen beeld.
-  // 2. Anders, alleen bij een stap zonder reis: het standaardbeeld van de soort van de eerste plaats.
+  // Welk beeld hoort bij deze stap? Geeft { id, tf, tekst } of null.
+  // Alleen een eigen koppeling (BR.beelden) geeft een beeld; t: "" betekent bewust geen beeld.
+  // Tot 16-11-2026 kreeg een stap zonder reis en zonder koppeling het standaardbeeld van de soort van zijn eerste plaats
+  // (‘Algemene tekening’). Dat is uitgezet: zo'n tekening zei niets over wat de tekst vertelt (een rivier bij ‘Twee dromen
+  // in de cel’). De standaardbeelden blijven in het register; koppel er bewust een als het bij de tekst van de stap past.
   function van(s) {
     if (!s) return null;
     const T = BR.taferelen, k = (BR.beelden || {})[s.key];
-    if (k) return T[k.t] ? { id: k.t, tf: T[k.t], tekst: k.tekst || "" } : null;
-    if ((s.r && s.r.length) || !(s.at && s.at.length)) return null;
-    const id = s.at[0], p = BR.plaatsen[id], anders = (BR.beeldSoort || {})[id];
-    if (!p) return null;
-    let soort = SOORTEN.includes(p.t) ? p.t : p.t === "gebied" || p.c === "r" ? "gebied" : "", naam = p.n;
-    if (anders !== undefined) { const [t, als] = [].concat(anders); soort = t; if (als && BR.plaatsen[als]) naam = BR.plaatsen[als].n; }
-    return T[soort] ? { id: soort, tf: T[soort], plaats: naam, algemeen: true } : null;
+    return k && T[k.t] ? { id: k.t, tf: T[k.t], tekst: k.tekst || "" } : null;
   }
   // Beweging loopt alleen zolang het beeld in beeld is.
   let kijker = null;

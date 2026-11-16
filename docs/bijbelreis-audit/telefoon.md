@@ -266,6 +266,23 @@ Daarnaast, met losse scripts buiten de repo:
 Los hiervan gevonden, niet gewijzigd: bij een hashwissel zonder herladen (het adres met de hand aanpassen) opent de goede
 stap, maar loopt het adres in de adresbalk één stap achter (`setMode("reis")` schrijft eerst het oude adres terug).
 
+### 4.6 Na de eerste dag live (16-11-2026)
+
+Twee opmerkingen van Martijn op zijn iPhone, beide verwerkt:
+
+1. **“Wat heeft de afbeelding met de tekst te maken?”** (bij Jozef, ‘Twee dromen in de cel’: een rivier met palmen). In
+   het open blad staat het beeld bovenaan, en bij 171 van de 560 stappen was dat een automatische ‘algemene tekening’ van
+   de plaats. Die automatische tekeningen zijn uitgezet: er staat alleen nog een beeld als het aan die stap gekoppeld is
+   (`docs/bijbelreis-taferelen/README.md` §1).
+2. **“Waar vind ik die extra plaatjes van Genesis 32? Ik had die bij Jakob verwacht.”** De ingang ‘Van dichtbij’ stond
+   alleen in het open blad, onder de tekst. Nu:
+   - de drie stappen van Jakob over Genesis 32–33 (‘Bang voor Ezau’, ‘Worstelen in de nacht’, ‘Broers weer samen’) tonen
+     zelf een tekening uit de reeks;
+   - bij de intro van een hoofddeel en bij de stappen over hetzelfde gedeelte staat op de kaart, direct boven het korte
+     blad, één knop ‘Van dichtbij · Jakob bij de Jabbok · 12 stappen’ (`#dichtbijBtn`). De uitsnede van de kaart houdt
+     die ruimte vrij. De knop is weg zolang het blad, een ballon of het kaartpaneel open is. Hetzelfde geldt voor
+     Abraham (Van Ur naar Kanaän) en Moab (Kies dan het leven).
+
 ## 5. Werkwijze en bestanden
 
 - Servertje (buiten de repo): `mobiel-server-8820.mjs` in de scratchmap van deze sessie, poort 8820, `public/` met
