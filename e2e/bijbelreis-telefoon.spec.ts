@@ -870,7 +870,9 @@ test.describe("verdiepende delen", () => {
     await page.getByRole("tab", { name: "Speurtocht" }).click();
     const opties = await page.locator("#p-quiz [data-q]").evaluateAll((l) => l.map((b) => (b as HTMLElement).dataset.q));
     expect(opties.indexOf("ur-kanaan")).toBe(opties.indexOf("abraham") + 1);
-    await expect(page.locator('#p-quiz [data-q="ur-kanaan"]')).toHaveText("Abraham › Van Ur naar Kanaän");
+    // Sinds 16-11-2026 (bijbelreis-bediening.spec.ts): in de speurtocht heet een verdiepend deel ‘Van dichtbij: …’, direct na
+    // zijn hoofddeel; ‘Abraham › …’ was niet duidelijk. In het paspoort en Alle reizen blijft de notatie met ›.
+    await expect(page.locator('#p-quiz [data-q="ur-kanaan"]')).toHaveText("Van dichtbij: Van Ur naar Kanaän");
 
     await page.getByRole("tab", { name: "Paspoort" }).click();
     await expect(page.locator("#stamps .pas-sub .label").first()).toContainText("Abraham › Van Ur naar Kanaän");

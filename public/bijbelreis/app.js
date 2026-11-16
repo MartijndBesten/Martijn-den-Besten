@@ -1109,7 +1109,7 @@
     $("map").classList.toggle("quizmode", m === "quiz");
     lyQuiz.clearLayers();
     if (m !== "ver") { lyNL.clearLayers(); nlOn = false; $("nlBtn").textContent = "Leg Nederland op de kaart"; $("nlHint").hidden = true; }
-    if (m === "quiz") { partRoutes.forEach((g) => map.removeLayer(g)); map.removeLayer(lyPlaces); map.removeLayer(lyKings); map.removeLayer(camel); lySpecial.clearLayers(); quizIntro(); }
+    if (m === "quiz") { partRoutes.forEach((g) => map.removeLayer(g)); map.removeLayer(lyPlaces); map.removeLayer(lyKings); map.removeLayer(camel); lySpecial.clearLayers(); if (qBoek !== boek) { qBoek = boek; qPart = "alles"; } quizIntro(); }
     else {
       const g = routeLayer(deel); if (!map.hasLayer(g)) map.addLayer(g);
       if (!map.hasLayer(lyPlaces)) map.addLayer(lyPlaces);
@@ -1138,6 +1138,8 @@
   // kernwoord, een ontdekking en vragen toe. Leidraad en nummering: docs/bijbelreis-150/.
   const LEIDRAAD = BR.leidraad || {};
   const G = (BR.geschiedenissen || []).slice().sort((a, b) => a.nr - b.nr);
+  // De uitleg bij het tabblad Verhalen noemt het echte aantal (bijbelreis.html: #tu-verhalen).
+  if ($("tu-verhalen")) $("tu-verhalen").textContent = `${G.length} geschiedenissen`;
   const GBYNR = new Map(G.map((g) => [g.nr, g]));
   const KW = BR.kernwoorden || {};
   const SECTIES = [
@@ -2011,29 +2013,40 @@
 
   // ---------- speurtocht ----------
   let Q = [], qi = 0, score = 0, awaitingTap = null, qPart = "alles";
+  // Het boek van de speurtocht. Bij het openen van het tabblad is dat het boek van de reis; in de speurtocht zelf kun je
+  // een ander boek kiezen zonder dat de plek in de reis verandert.
+  let qBoek = null;
+  const qb = () => qBoek || boek;
   const quizOf = (d) => d.quiz || { tap: [], mc: [], ord: [] };
   // De speurtocht per reisniveau, over het gekozen Bijbelboek of één deel daarvan. Elk niveau heeft een eigen beste
   // score: Samen speuren (a) in samen:<boek>:<deel>, Zelf op reis (b) in speur:b:<boek>:<deel>, Verder ontdekken (c)
   // in de bestaande best:<boek>:<deel> (zo blijven de scores van vóór de reisniveaus staan).
-  // ‘Over wie?’: een verdiepend deel staat direct achter zijn hoofddeel, als ‘Abraham › Van Ur naar Kanaän’.
-  const speurOpties = () => [["alles", "Alles uit " + boek.n, "var(--boter)"]].concat(metVerdiep(boek.delen).map((d) => [d.id, deelNaam(d), color(d.c)]));
+  // ‘Waar gaan de vragen over?’: het hele boek of één deel. Een verdiepend deel (‘Van dichtbij’) heeft eigen vragen die
+  // niet in zijn hoofddeel zitten; het staat daarom als kleinere knop direct na zijn hoofddeel.
+  const speurOpties = () => [["alles", qb().thema ? "De hele " + (themaUi(qb()) ? themaUi(qb()).reis : qb().n) : "Heel " + qb().n, "var(--boter)", false]].concat(metVerdiep(qb().delen).map((d) => [d.id, d.hoofd ? "Van dichtbij: " + d.n : d.n, color(d.c), !!d.hoofd]));
+  const speurKnoppen = (opts) => opts.map(([id, n, c, klein]) => `<button type="button" data-q="${id}" style="--pc:${c}" aria-pressed="${id === qPart}"${klein ? ' class="dichtbij-q"' : ""}>${esc(n)}</button>`).join("");
+  // Het boek kiezen: een gewone keuzelijst met de Bijbelboeken en de thema’s.
+  const speurBoekKeuze = () => `<label class="label qboek-l" for="qBoek">Boek</label><select id="qBoek" class="qboek">${BIJBELBOEKEN.map((b) => `<option value="${b.id}"${b === qb() ? " selected" : ""}>${esc(b.n)}</option>`).join("")}${THEMAS.length ? `<optgroup label="Thema’s">${THEMAS.map((b) => `<option value="${b.id}"${b === qb() ? " selected" : ""}>${esc(b.n)}</option>`).join("")}</optgroup>` : ""}</select>`;
+  const speurOver = () => (qPart === "alles" ? (qb().thema ? (themaUi(qb()) ? themaUi(qb()).reis : qb().n) : qb().n) : (qb().delen.find((d) => d.id === qPart) || {}).n || qb().n);
+  const bindBoek = (opnieuw) => { $("qBoek").onchange = (e) => { const b = BOEKEN.find((x) => x.id === e.target.value); if (b) { qBoek = b; qPart = "alles"; opnieuw(); $("qBoek").focus(); } }; };
   const speurSleutel = (n, b, deelId) => (n === "a" ? "samen:" : n === "b" ? "speur:b:" : "best:") + b + ":" + deelId;
   const verhalenIn = (delen) => G.filter((g) => (g.stappen || []).some((k) => delen.includes((STEP_BY_KEY.get(k) || {}).deel)));
-  const delenVan = (id) => (id === "alles" ? boek.delen : [boek.delen.find((d) => d.id === id)]);
+  const delenVan = (id) => (id === "alles" ? qb().delen : [qb().delen.find((d) => d.id === id)]);
   // Samen speuren (4–6): zes vragen met twee antwoorden uit de verhalen van dit boek of deel. Over begrip van het
   // verhaal, niet over plaatsnamen of jaartallen.
   function samenSpeur() {
     const opts = speurOpties();
-    if (!boek.delen.find((d) => d.id === qPart) && qPart !== "alles") qPart = "alles";
-    const best = store.get(speurSleutel("a", boek.id, qPart), null);
-    $("p-quiz").innerHTML = `<div class="card samenspeur"><h2>Samen <em>speuren</em></h2><p>Zes vragen over de verhalen. Kies het goede antwoord: er zijn steeds twee mogelijkheden.</p><p class="label">Over welke verhalen?</p><div class="pick">${opts.map(([id, n, c]) => `<button type="button" data-q="${id}" style="--pc:${c}" aria-pressed="${id === qPart}">${esc(n)}</button>`).join("")}</div>${best != null ? `<p><b>Beste score: ${fmt(best)} van 6</b></p>` : ""}<button type="button" class="btn primary" id="qGo">Begin</button></div>`;
+    if (!qb().delen.find((d) => d.id === qPart) && qPart !== "alles") qPart = "alles";
+    const best = store.get(speurSleutel("a", qb().id, qPart), null);
+    $("p-quiz").innerHTML = `<div class="card samenspeur"><h2>Samen <em>speuren</em></h2><p>Zes vragen over de verhalen. Kies het goede antwoord: er zijn steeds twee mogelijkheden.</p>${speurBoekKeuze()}<p class="label">Over welke verhalen?</p><div class="pick">${speurKnoppen(opts)}</div><p class="qwat">Zes vragen over ${esc(speurOver())}.</p>${best != null ? `<p><b>Beste score: ${fmt(best)} van 6</b></p>` : ""}<button type="button" class="btn primary" id="qGo">Begin</button></div>`;
     $("p-quiz").querySelectorAll("[data-q]").forEach((b) => (b.onclick = () => { qPart = b.dataset.q; samenSpeur(); }));
+    bindBoek(samenSpeur);
     $("qGo").onclick = () => {
       Q = shuffle(verhalenIn(delenVan(qPart)).flatMap((g) => ((versie(g, "a") || {}).vragen || []).map((x) => ({ t: "mc", ...x })))).slice(0, 6);
       // Een deel zonder eigen verhalen (een losse reis): de vragen van de reis zelf, met twee antwoorden.
       if (!Q.length) Q = shuffle(delenVan(qPart).flatMap((d) => quizOf(d).mc || [])).slice(0, 6).map((x) => ({ t: "mc", ...x, a: x.a.slice(0, 2) }));
       if (!Q.length) { $("p-quiz").innerHTML = "<div class='card'><p>Voor deze verhalen zijn nog geen vragen.</p></div>"; return; }
-      quizKey = speurSleutel("a", boek.id, qPart); qi = 0; score = 0; ask();
+      quizKey = speurSleutel("a", qb().id, qPart); qi = 0; score = 0; ask();
     };
     fit(WIDE, 6);
   }
@@ -2041,10 +2054,11 @@
   function quizIntro() {
     if (niveau === "a") return samenSpeur();
     const opts = speurOpties();
-    if (!boek.delen.find((d) => d.id === qPart) && qPart !== "alles") qPart = "alles";
-    const best = store.get(speurSleutel(niveau, boek.id, qPart), null);
-    $("p-quiz").innerHTML = `<div class="card"><h2>Speur<em>tocht</em></h2><p>10 vragen. Soms wijs je een plek aan op de kaart, soms kies je het goede antwoord of zet je dingen in de goede volgorde.</p><p class="label">Over wie?</p><div class="pick">${opts.map(([id, n, c]) => `<button type="button" data-q="${id}" style="--pc:${c}" aria-pressed="${id === qPart}">${esc(n)}</button>`).join("")}</div><p class="ref">In de speurtocht staan er geen namen op de kaart. Kijk goed naar de zeeën en rivieren!</p>${best != null ? `<p><b>Jouw beste score hier: ${fmt(best)} van 10</b></p>` : ""}<button type="button" class="btn primary" id="qGo">Start de speurtocht</button></div>`;
+    if (!qb().delen.find((d) => d.id === qPart) && qPart !== "alles") qPart = "alles";
+    const best = store.get(speurSleutel(niveau, qb().id, qPart), null);
+    $("p-quiz").innerHTML = `<div class="card"><h2>Speur<em>tocht</em></h2><p>Soms wijs je een plek aan op de kaart, soms kies je het goede antwoord of zet je dingen in de goede volgorde.</p>${speurBoekKeuze()}<p class="label">Waar gaan de vragen over?</p><div class="pick">${speurKnoppen(opts)}</div><p class="qwat">Tien vragen over ${esc(speurOver())}. Een goed antwoord geeft een punt, bijna goed een half punt; aan het eind zie je je score en tot drie sterren.</p><p class="ref">In de speurtocht staan er geen namen op de kaart. Kijk goed naar de zeeën en rivieren!</p>${best != null ? `<p><b>Jouw beste score hier: ${fmt(best)} van 10</b></p>` : ""}<button type="button" class="btn primary" id="qGo">Start de speurtocht</button></div>`;
     $("p-quiz").querySelectorAll("[data-q]").forEach((b) => (b.onclick = () => { qPart = b.dataset.q; quizIntro(); }));
+    bindBoek(quizIntro);
     $("qGo").onclick = startQuiz;
     fit(WIDE, 6);
   }
@@ -2053,8 +2067,8 @@
     // Zelf op reis: de meerkeuzevragen komen uit de vertellingen voor 7–10 jaar, met kaart- en volgordevragen.
     // Verder ontdekken: de vragen van de reis plus de verdiepende vragen van de geschiedenissen in deze delen.
     const eigen = verhalenIn(delen).flatMap((g) => (versie(g) || {}).vragen || []);
-    quizKey = speurSleutel(niveau, boek.id, qPart);
-    const tap = shuffle(delen.flatMap((d) => quizOf(d).tap || [])), ord = shuffle(delen.flatMap((d) => quizOf(d).ord || []).concat(qPart === "alles" ? boek.ordAlles || [] : []));
+    quizKey = speurSleutel(niveau, qb().id, qPart);
+    const tap = shuffle(delen.flatMap((d) => quizOf(d).tap || [])), ord = shuffle(delen.flatMap((d) => quizOf(d).ord || []).concat(qPart === "alles" ? qb().ordAlles || [] : []));
     const mc = niveau === "b" && eigen.length >= 4 ? shuffle(eigen) : shuffle(delen.flatMap((d) => quizOf(d).mc || []).concat(eigen));
     const nOrd = Math.min(niveau === "b" ? 1 : 2, ord.length), nTap = Math.min(niveau === "b" ? 3 : 4, tap.length), nMc = Math.min(10 - nOrd - nTap, mc.length);
     Q = shuffle([...tap.slice(0, nTap).map((x) => ({ t: "tap", ...x })), ...mc.slice(0, nMc).map((x) => ({ t: "mc", ...x })), ...ord.slice(0, nOrd).map((x) => ({ t: "ord", ...x }))]);
@@ -2122,7 +2136,7 @@
   function finish() {
     const s = Math.round(score * 2) / 2, samen = niveau === "a", r = s / Q.length;
     const nStars = samen ? (r >= 0.99 ? 3 : r >= 0.6 ? 2 : r > 0 ? 1 : 0) : s >= 9 ? 3 : s >= 6 ? 2 : s >= 3 ? 1 : 0;
-    const key = quizKey || speurSleutel(niveau, boek.id, qPart);
+    const key = quizKey || speurSleutel(niveau, qb().id, qPart);
     const best = store.get(key, null), isBest = best == null || s > best;
     if (isBest) store.set(key, s);
     const words = samen ? ["Goed geprobeerd! Lees het verhaal nog eens samen.", "Mooi gedaan!", "Heel goed!", "Super! Jullie kennen het verhaal."] : ["Goed geprobeerd! Kijk nog eens bij de Reis en probeer het opnieuw.", "Mooi! Je weet al aardig wat.", "Heel goed! Jij kent de verhalen.", "Super! Jij bent een echte speurneus."];
