@@ -997,8 +997,9 @@
   const kiesBoekKnop = (e) => {
     const b = e.target.closest(".boek"); if (!b) return;
     chooseBoek(BOEKEN.find((x) => x.id === b.dataset.boek));
-    // In het keuzeblad (telefoon) staan de delen bovenaan: na de keuze van een boek of thema komen die in beeld.
-    if (!$("kiesLade").hidden) $("kiesLade").querySelector(".lade__box").scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    // In het keuzeblad (telefoon) staan de delen bovenaan: na de keuze van een boek of thema komen die in beeld. De
+    // stappenlijst bovenaan hoorde bij het vorige deel en verdwijnt dan.
+    if (!$("kiesLade").hidden) { $("kiesStappen").hidden = true; $("kiesLade").querySelector(".lade__box").scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); }
   };
   $("boeken").addEventListener("click", kiesBoekKnop);
   $("themas").addEventListener("click", kiesBoekKnop);
