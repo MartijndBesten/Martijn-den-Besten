@@ -109,7 +109,7 @@
         </div>
       </div>
 
-      <aside class="panel" id="reisboek">
+      <aside class="panel" id="reisboek" aria-label="Reisboek">
 
 
         <div class="welkom" id="welkom" hidden></div>
@@ -128,12 +128,16 @@
           </div>
           </div>
           <article class="card stapkaart" aria-live="polite" aria-labelledby="sTitle">
+            <div class="bladbalk" id="bladBalk">
+              <button type="button" class="kiesregel" id="kiesBtn" aria-haspopup="dialog" aria-controls="kiesLade"></button>
+              <button type="button" class="bladknop" id="bladBtn" aria-expanded="false" aria-controls="reisboek"><span>Lees meer</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button>
+            </div>
             <nav class="crumb" id="sCrumb" aria-label="Waar ben je"></nav>
-            <button type="button" class="kiesregel" id="kiesBtn" aria-haspopup="dialog" aria-controls="kiesLade"></button>
             <p class="terughoofd" id="sTerug" hidden></p>
             <div class="prog" id="sProg" aria-hidden="true"><div></div></div>
             <div class="top"><b id="sRef"></b><span id="sKm"></span></div>
             <h2 id="sTitle"></h2>
+            <p class="bladkort" id="sKort"></p>
             <p class="tijd" id="sTijd" hidden></p>
             <div class="chips" id="sWho"></div>
             <p class="label bl" id="sTextLabel">Wat de Bijbel vertelt</p>

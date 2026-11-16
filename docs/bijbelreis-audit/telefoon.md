@@ -4,12 +4,15 @@ Opdracht van Martijn (november 2026): *“Zorg dat de site ook speciaal voor tel
 info en werkt het eigenlijk vooral op groter scherm. Met name het visuele dus.”* Daarbij een tweede eis, voor telefoon én
 desktop: *“Ur–Kanaän integreren in een persoon”* (verdiepende delen onder hun hoofddeel).
 
-Dit verslag heeft drie delen: wat er mis was (gemeten), wat er gebouwd is, en wat er na de bouw gemeten en gecontroleerd is.
+Dit verslag heeft vier delen: wat er mis was (gemeten), wat er gebouwd is, wat er na de bouw gemeten en gecontroleerd is,
+en (§4) de herziening ‘Kaart voorop’. **§4 vervangt voor het onderdeel Reis de punten 2.2, 2.3 en 2.4 en keuze 3.1**: de
+kaart is daar geen blok van 46 % met een pagina eronder meer, maar het scherm zelf, met één stapblad eroverheen. De rest
+(het keuzeblad, de verdiepende delen, ‘Verder met’, Lezen) geldt nog.
 
 ## 1. Vóór: wat er mis was
 
 Gemeten op 360×740, 390×844 (iPhone 13, zichtbaar 390×664) en 412×915, op alle drie de reisniveaus, met een servertje
-op `public/` (zie §4). Schermen: de start, een deel-intro (`#abraham`), een stap met reis (`#abraham/2`), stappen zonder
+op `public/` (zie §5). Schermen: de start, een deel-intro (`#abraham`), een stap met reis (`#abraham/2`), stappen zonder
 reis met tafereel (`#uittocht/6`, `#kies-het-leven/3`), een zeereis (`#nt-paulusrome/5`), een verhaal (`#v26`), de tabs
 Wie is wie, Tijdlijn, Speurtocht (kaartvraag) en Paspoort, de stand Nu met de laag Vandaag, en de vier laden.
 
@@ -133,7 +136,137 @@ Nog te verbeteren: de boekenrij op de desktop is nog steeds afgesneden (bewust n
 op een iPhone in Safari (zichtbaar 390×664) staan bij een stap ongeveer drie regels tekst boven de balk; het paspoort
 heeft nog veel kleine stempelknoppen.
 
-## 4. Werkwijze en bestanden
+## 4. Kaart voorop (november 2026)
+
+Aanleiding: Martijn, met een schermafbeelding van zijn eigen iPhone (Safari): *“Ja, maar dit scherm op de telefoon is toch
+niet af zo? Superveel tekst en informatie. Je ziet de kaart half niet. Dit moet echt duidelijk verbeterd worden. Denk goed
+na hoe je dit nog op een veel betere manier kan doen. Drie vierde van het scherm moet wel echt kaart zijn en dan moet je
+gewoon door kunnen klikken en een kort stukje tekst zien of zo. Dit is nog steeds veel tekst met plaatjes die ik nu als
+laatste zie hier.”* Eerder: *“De routes moeten duidelijk zijn. Overzichtelijk.”* en *“Nu is het veel te veel info … Met name
+het visuele dus.”*
+
+De opzet van §2 bleef een kaart met een pagina tekst eronder. Daarom is het onderdeel Reis op de telefoon (tot 900 px,
+`isNarrow()`) opnieuw opgezet. De desktop en de andere onderdelen (Verhalen, Wie is wie, Tijdlijn, Speurtocht, Paspoort)
+houden hun opzet: een kaart met de pagina eronder.
+
+### 4.1 Hoe het werkt
+
+1. **De kaart is het scherm.** In de reis scrolt de pagina niet. Onder de kop ligt de kaart tot aan de onderbalk met de zes
+   onderdelen; je sleept hem met één vinger en zoomt met twee vingers of met − en +. De knop ‘Groot’ en de
+   twee-vingers-hint zijn er in de reis niet meer (in de andere onderdelen wel).
+2. **Het stapblad, kort.** Eén blad onderaan, over de kaart: een kleine regel waar je bent (‘Genesis › Izak · 1 van 8’; tik:
+   ‘Kies een reis’), de titel, hooguit twee regels tekst en de knoppen ◀ en Verder (in het overzicht van een deel: Start).
+   Daartussen een rustige streep: zo ver ben je in dit deel. De tekst is het begin van de staptekst: eindigt die na hele
+   zinnen op de tweede regel, dan stopt hij daar; anders kapt de opmaak hem af met ‘…’. Samen ontdekken toont de ene zin
+   die er al stond, groter. Titel en tekst zijn samen altijd drie regels (een lange titel krijgt er twee, de tekst dan
+   één; op een laag scherm samen twee), zodat het blad en de knop Verder bij elke stap op dezelfde plek staan.
+3. **Het stapblad, open.** ‘Lees meer’ (of een tik op de titel of de tekst, of omhoog vegen) schuift het blad omhoog tot
+   driekwart van het venster; het scrolt binnenin. Eerst het tafereel, dan de hele tekst, personen, ‘Lees in je Bijbel’,
+   ‘Van dichtbij’, ‘Om over na te denken’, en achter de knoppen ‘Wist je dat?’, ‘Hoe ver?’, ‘Wanneer?’, ‘Elders in de
+   Bijbel’ en ‘Alle stappen’; daaronder ‘Voor ouders en leiders’ en de makersvermelding. De regel met ‘Sluiten’ blijft
+   bovenaan staan, ◀ en Verder onderaan. Sluiten: de knop, Escape, een tik op de kaart of omlaag vegen. Niets is weggehaald,
+   op geen van de drie niveaus.
+4. **Doorklikken.** Verder en ◀ (ook: naar links of rechts vegen over het blad, of de pijltjestoetsen) gaan naar de
+   volgende stap; de kaart vliegt ernaartoe, de reiziger loopt, het blad blijft kort. Ook na een keuze uit ‘Alle stappen’
+   of ‘Laat dit hele deel zien’ is het blad weer kort.
+5. **De route past in het vrije deel.** Elke uitsnede (`fit`) houdt ruimte vrij: boven de rij kaartknoppen plus de hoogte
+   van de kameel, opzij 44 px, onder de hoogte van het korte blad plus 30 px. Een stap op één plek staat in het midden
+   van het vrije deel. Een ballon van een plaats blijft boven het blad (de kaartknoppen wijken zolang hij open is). Namen
+   van plaatsen komen niet onder het blad; de naam van een plaats van de stap die aan de rand aan geen kant past, schuift
+   onder of boven de plaats naar binnen.
+6. **Weinig knoppen, in één rij bovenaan.** Links − en +, daarnaast ‘Hele reis’; rechts ‘Kaart’ (Toen/Nu, Vandaag,
+   Bijbelwereld, Legenda). Onderaan de kaart staat niets meer: daar ligt het blad. De legenda ligt als paneel boven het blad.
+7. **Kop en onderbalk lager.** De kop is één regel van 44 px (titel links, reisniveau rechts; 40 px op een laag scherm),
+   de onderbalk 48 px. In elk onderdeel even hoog, zodat er bij het wisselen niets verspringt. De melding ‘Nieuwe
+   stempel’ staat onder de rij kaartknoppen: niet over de kop, niet over het blad.
+8. **De kaartplaat.** De hoge kaart reikt bij het overzicht van een lange reis (Paulus naar Rome, 22 lengtegraden op een
+   scherm van 390 px breed) verder dan de ondergrond. Daar ligt nu papier met een kaderlijn, als een kaart in een atlas,
+   in plaats van een zee waar het land recht is afgesneden. Onder het korte blad mag de uitsnede voorbij de zuidrand van
+   de ondergrond reiken (daar zie je de kaart toch niet); Leaflet houdt de kaart verder binnen de ondergrond. Dat
+   terugschuiven wacht tijdens een vlucht naar de volgende stap tot de kaart er is: op een hoge kaart brak het de vlucht
+   anders halverwege af en stond de route buiten beeld (gevonden met de kameeltest op 412×839).
+9. **Toegankelijk.** Het blad is een gebied (‘Reisboek’) met een knop met `aria-expanded`; de volgorde is de regel, ‘Lees
+   meer’, de inhoud, ◀, Verder. Alles kan zonder vegen. Bij ‘minder beweging’ staat het blad er meteen. Tekst in het blad
+   is minstens 16 px (de kleine regel 13 px, etiketten en jaartallabels blijven klein). Veilige randen (notch,
+   thuisbalk) via `safe-area-inset`.
+10. **Liggend en tablet.** Op een liggende telefoon staat het blad links onderin en blijft de kaart ernaast vrij; op een
+    tablet in portretstand is het blad 560 px breed, in het midden.
+
+Diepe links (`#deel/stap`) en opslag (`bijbelreis:*`) zijn ongewijzigd.
+
+### 4.2 Metingen
+
+Gemeten op het zichtbare venster van een telefoonbrowser mét browserbalken (`isMobile`, `hasTouch`), in de korte stand, op
+`#izak/1`, `#abraham/2`, `#jakob`, `#jakob-jabbok/7`, `#uittocht/6`, `#sinai/3` en `#nt-paulusrome/5`; het blad is bij elke
+stap even hoog. Eis: vrije kaart minstens 60 % van het venster (streven 65 %) en minstens 70 % van de ruimte tussen kop
+en onderbalk; kort blad hooguit 27 % van het venster.
+
+| Venster | Kop | Onderbalk | Kort blad | Vrije kaart | % van het venster | % tussen kop en onderbalk | Blad % van het venster |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 390×664 (iPhone 13, Safari) | 44 | 48 | 155 px | 417 px | **62,7 %** | 72,8 % | 23,4 % |
+| 360×640 | 44 | 48 | 155 px | 393 px | **61,4 %** | 71,7 % | 24,3 % |
+| 375×553 (kleine iPhone, Safari) | 40 | 48 | 130 px (één regel tekst) | 335 px | **60,6 %** | 72,1 % | 23,4 % |
+| 430×739 | 44 | 48 | 155 px | 492 px | **66,5 %** | 76,0 % | 21,0 % |
+| 390×844 (volle scherm) | 44 | 48 | 155 px | 597 px | **70,7 %** | 79,3 % | 18,4 % |
+
+Samen ontdekken (de zin staat er groter): 159 px blad, dus 62,2 %, 60,7 %, 60,6 % en 66,0 %. Vóór deze herziening was de
+kaart op 390×664 305 px hoog (46 % van het venster), met knoppen erin; nu is 417 px vrij.
+
+Het streven van 65 % is op 390×664 niet gehaald. Het blad is 155 px: 26 (de kleine regel) + 23 (titel) + 2 + 43 (twee
+regels) + 61 (streep, ◀ en Verder van 44 px hoog, randen). Voor 65 % moet het blad 140 px zijn; dat kan alleen door de
+tekst naar één regel te brengen of de kleine regel weg te halen. Twee regels tekst en ‘waar je bent’ zijn hier zwaarder
+gewogen dan de laatste 2 %. Van de ruimte tussen kop en onderbalk is 73 % kaart: de ‘drie vierde’ van de aanleiding.
+
+### 4.3 Bewust anders dan het ontwerp
+
+1. **Kop en onderbalk zijn in álle onderdelen lager**, niet alleen in de reis (44 en 48 px, waren 52 en 62). Een balk die
+   bij het wisselen van onderdeel van hoogte verandert, verspringt onder je duim.
+2. **De kleine regel bovenaan is 26 px hoog**, geen 44: elke pixel daar gaat van de kaart af. Hij is wel breed, en het blad
+   opent ook met een tik op de titel of de tekst. ◀, Verder, de kaartknoppen, de onderbalk en alles in het open blad zijn
+   44 px of meer.
+3. **Het boek valt uit de kleine regel als hij niet past** (‘Naar Rome · 5 van 9’ in plaats van ‘Handelingen › Naar Rome ·
+   5 van 9’); in het overzicht van een deel staat het boek met het aantal stappen, omdat de naam van het deel de titel is.
+4. **Geen titel van de stap als label op de kaart.** De namen van de plaatsen van de stap staan er al vet bij; een tweede
+   label botst op een smal scherm met die namen en met de reiziger.
+5. **De ‘+’ en ‘−’ zijn niet klein** maar 44 px, naast elkaar in de rij bovenaan.
+6. **De kaartplaat (4.1.8)** stond niet in het ontwerp; ze volgt uit ‘de kaart is het scherm’ op een hoog scherm.
+
+### 4.4 Wat er nog zwak is
+
+- Op een echte iPhone telt de statusbalk mee in het venster (de kop loopt eronder door): van het hele glas is dan minder
+  dan 62 % kaart, van de ruimte tussen kop en onderbalk nog steeds ruim 70 %. De maten hierboven zijn in Chromium gemeten,
+  niet op een iPhone; `100dvh`, het vegen en het meeveren van Safari zijn niet op een echt toestel geprobeerd.
+- Het blad volgt de vinger niet: omhoog of omlaag vegen opent of sluit het pas bij het loslaten.
+- Het overzicht van een heel lange reis (Paulus naar Rome) is op een smal scherm klein: de kaartplaat vult daar ongeveer de
+  helft van het vrije deel.
+- In het overzicht van een deel staan veel namen dicht op elkaar (bestond al); op de grotere kaart valt dat meer op.
+- Op een liggende telefoon is de kaart laag (de kop en de onderbalk blijven staan); bruikbaar, niet fraai.
+- De referentiebeelden van de visuele test voor telefoon en tablet (`e2e/bijbelreis-visueel.spec.ts-snapshots/*-mobiel-*`
+  en `*-tablet-*`) horen bij de oude opzet en moeten in het vaste Playwright-image opnieuw gemaakt en bekeken worden.
+
+### 4.5 Tests
+
+`e2e/bijbelreis-telefoon.spec.ts` is herschreven: per venstermaat (390×664, 360×640, 375×553, 430×739) de maten van 4.2,
+de route in het vrije deel, de ballon, doorklikken en slepen, het open blad, bereikbaarheid op elk niveau, kiezen, de
+kaartknoppen, tikdoelen, kop en melding, en de andere onderdelen; daarnaast toegankelijkheid, beweging, diepe links, een
+lange titel en 200 % zoom. In de andere specs is aangepast wat op de telefoon bewust anders gaat: het stapblad eerst
+openen (`bladOpen`) waar een test iets van de stap wil zien, en de kaartbediening (één vinger sleept in de reis; de hint
+en ‘Groot’ horen bij de andere onderdelen).
+
+Daarnaast, met losse scripts buiten de repo:
+
+- **Rondgang langs alle 622 stappen en overzichten** (minder beweging): liggen de route, de plaatsen, de reiziger en de
+  namen van de stap in het vrije deel? 390×664: 0 afwijkingen; 412×839: 0; 375×553: 1 (de naam ‘Lachis’ steekt 4 px over
+  de linkerrand).
+- **Toegankelijkheid (axe, WCAG 2.1 A en AA)**: het korte en het open blad op `#abraham/2`, `#jakob` en
+  `#jakob-jabbok/7`, op de drie niveaus (390×664): geen overtredingen.
+- **Desktop ongewijzigd**: 22 schermen op 1440×900 en 1000×800 (stappen, overzichten, ballon, Verhalen, een verhaal,
+  Tijdlijn, Wie is wie, Paspoort) zijn pixel voor pixel gelijk aan de stand vóór deze herziening.
+
+Los hiervan gevonden, niet gewijzigd: bij een hashwissel zonder herladen (het adres met de hand aanpassen) opent de goede
+stap, maar loopt het adres in de adresbalk één stap achter (`setMode("reis")` schrijft eerst het oude adres terug).
+
+## 5. Werkwijze en bestanden
 
 - Servertje (buiten de repo): `mobiel-server-8820.mjs` in de scratchmap van deze sessie, poort 8820, `public/` met
   `/bijbelreis` → `bijbelreis.html`.
@@ -141,3 +274,6 @@ heeft nog veel kleine stempelknoppen.
 - Na de bouw: `telefoon-shots.cjs` (de schermen van de opdracht op 360/390/412 en 1440) en `desktop-vergelijk.cjs`
   (pixelvergelijking desktop tegen commit cba74d3 op een tweede servertje, poort 8821); de e2e-tests draaiden tegen de
   gebouwde site (`npm run build`, `dist/client`) op poort 8820.
+- Kaart voorop (§4): de gebouwde site via `npx vite preview --port 8828`; schermafbeeldingen en metingen met `shots.cjs`
+  (vier venstermaten) en `extra.cjs` (tablet, liggend, lange titel, legenda, desktop), de rondgang langs alle stappen met
+  `veeg-alles.cjs`, in de scratchmap van de sessie (`kaartvoorop/`).

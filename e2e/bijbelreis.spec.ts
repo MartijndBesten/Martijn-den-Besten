@@ -11,13 +11,22 @@ test.beforeEach(async ({ page }) => {
 // Alleen bij de eerste keer laden: een herladen moet laten zien wat de app zelf onthoudt.
 const zetNiveau = (page: Page, n: "a" | "b" | "c" | null) => page.addInitScript((x) => { if (sessionStorage.getItem("niveauGezet")) return; sessionStorage.setItem("niveauGezet", "1"); if (x === null) localStorage.removeItem("bijbelreis:niveau"); else localStorage.setItem("bijbelreis:niveau", JSON.stringify(x)); }, n);
 
+// Telefoon en tablet (tot 900 px): in de reis is de kaart het scherm en staat alles van de stap in het stapblad. Kort
+// toont het alleen de titel en twee regels; één tik op ‘Lees meer’ opent het. Op de desktop doet dit niets.
+async function bladOpen(page: Page) {
+  const knop = page.locator("#bladBtn");
+  if (!(await knop.isVisible())) return;
+  await expect(page.locator("#sTitle")).not.toBeEmpty();
+  await expect(async () => { if ((await knop.getAttribute("aria-expanded")) !== "true") await knop.click(); await page.waitForTimeout(120); expect(await knop.getAttribute("aria-expanded")).toBe("true"); }).toPass();
+}
 // Telefoon (tot 900 px): Toen/Nu, Vandaag, Bijbelwereld en Legenda staan achter de knop ‘Kaart’, de overzichten in het
-// blad ‘Kies een reis’ en de acties bij de stappenlijst achter ‘Alle stappen’. Is de knop niet in beeld, dan eerst die ene
-// tik die de gebruiker ook doet; daarna dezelfde klik als op de desktop.
+// blad ‘Kies een reis’ en de acties bij de stappenlijst achter ‘Alle stappen’ in het open stapblad. Is de knop niet in
+// beeld, dan eerst de tik (of twee) die de gebruiker ook doet; daarna dezelfde klik als op de desktop.
 async function telefoonKlik(page: Page, sel: string) {
   const knop = page.locator(sel);
   if (!(await knop.isVisible())) {
     const via = await knop.evaluate((e) => (e.closest("#kaartPaneel") ? "#kaartBtn" : e.closest("#kiesLade, #kiezen") ? "#kiesBtn" : e.closest("#stappenBlok, #deelActies") ? '#sMeer [data-meer="stappenBlok"]' : ""));
+    if (via.startsWith("#sMeer")) await bladOpen(page);
     if (via && (await page.locator(via).isVisible())) await page.locator(via).click();
   }
   await knop.click();
@@ -111,6 +120,7 @@ test("diepe link naar een stap opent die stap en het kruimelpad", async ({ page 
   await page.goto("/bijbelreis#jozef/4");
   await expect(page.locator("#sTitle")).toHaveText(/^4\. /);
   await expect(page.locator("#sCrumb")).toContainText("Stap 4 van");
+  await bladOpen(page);
   await expect(page.locator("#leesBtn")).toBeVisible();
   await expect(page.locator("#leesRef")).not.toBeEmpty();
   expect(errors).toEqual([]);
@@ -269,19 +279,34 @@ test("kaartbediening: zoomknoppen, slepen of vegen, knijpen en een plaats aantik
     await wachtTotKaartStil(page);
     expect(await k.zoom()).toBeGreaterThan(z1);
   } else {
-    // Telefoon/tablet in het reisboek: één vinger scrolt de pagina (kaart blijft staan, met een hint), twee vingers knijpen.
+    // Telefoon/tablet, in de reis: de kaart is het scherm en de pagina scrolt niet. Eén vinger verschuift de kaart (geen
+    // hint, geen knop ‘Groot’), twee vingers knijpen. Het midden van de kaart ligt boven het stapblad.
+    const vy = r.y + r.height * 0.35;
     const c0 = await k.midden();
-    await veeg(page, [{ van: [mx, my], naar: [mx - 120, my - 60] }]);
-    await expect(page.locator("#gesture")).toBeVisible();
+    await veeg(page, [{ van: [mx, vy], naar: [mx - 120, vy - 60] }]);
     await wachtTotKaartStil(page);
-    expect(verschoven(await k.midden(), c0)).toBeLessThan(0.01);
+    expect(verschoven(await k.midden(), c0)).toBeGreaterThan(0.01);
+    await expect(page.locator("#gesture")).toBeHidden();
+    await expect(page.locator("#fullBtn")).toBeHidden();
     const z1 = await k.zoom();
-    await veeg(page, [{ van: [mx - 20, my], naar: [mx - 110, my] }, { van: [mx + 20, my], naar: [mx + 110, my] }]);
+    await veeg(page, [{ van: [mx - 20, vy], naar: [mx - 110, vy] }, { van: [mx + 20, vy], naar: [mx + 110, vy] }]);
     await wachtTotKaartStil(page);
     expect(await k.zoom()).toBeGreaterThan(z1);
-    // Op de grote kaart verschuift één vinger de kaart wél.
+    // In een ander onderdeel staat de kaart boven de pagina: één vinger scrolt de pagina (kaart blijft staan, met een
+    // hint); op de grote kaart verschuift één vinger de kaart wél.
+    await page.getByRole("tab", { name: "Paspoort" }).click();
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await wachtTotKaartStil(page);
+    const t = (await page.locator("#map").boundingBox())!, tx = t.x + t.width / 2, ty = t.y + t.height / 2;
+    const c2 = await k.midden();
+    await veeg(page, [{ van: [tx, ty], naar: [tx - 120, ty - 60] }]);
+    await expect(page.locator("#gesture")).toBeVisible();
+    await wachtTotKaartStil(page);
+    expect(verschoven(await k.midden(), c2)).toBeLessThan(0.01);
+    await page.evaluate(() => window.scrollTo(0, 0));
     await knop("#fullBtn");
     await expect(page.locator("body")).toHaveClass(/mapfull/);
+    await wachtTotKaartStil(page);
     const g = (await page.locator("#map").boundingBox())!, gx = g.x + g.width / 2, gy = g.y + g.height / 2;
     const c1 = await k.midden();
     await veeg(page, [{ van: [gx, gy], naar: [gx - 120, gy - 60] }]);
@@ -306,10 +331,15 @@ test("kaart: Toen/Nu, legenda en een plaats met zekerheid", async ({ page, isMob
   await telefoonKlik(page, isMobile ? "#legendSluit" : "#legendBtn");
   await expect(page.locator("#legend")).toBeHidden();
   if (isMobile) {
+    // In de reis is de kaart het scherm: ‘Groot’ is daar niet nodig. In de andere onderdelen blijft de grote kaart.
+    await expect(page.locator("#fullBtn")).toBeHidden();
+    await page.getByRole("tab", { name: "Tijdlijn" }).click();
     await page.locator("#fullBtn").click();
     await expect(page.locator("body")).toHaveClass(/mapfull/);
     await page.locator("#fullBtn").click();
     await expect(page.locator("body")).not.toHaveClass(/mapfull/);
+    await page.getByRole("tab", { name: "Reis" }).click();
+    await expect(page.locator("#sTitle")).toHaveText(/^4\. /);
   }
   // Via het toetsenbord (focus + Enter): werkt ook als de kaart nog beweegt na het wisselen van grote kaart.
   const bethel = page.locator(".leaflet-marker-icon[title='Bethel']");
@@ -888,7 +918,9 @@ test("4.0: Samen ontdekken in de reis: één zin per stap, de weg naar het verha
   await expect(kaartje.locator("#sTijd")).toBeHidden();
   await expect(kaartje.locator("#sFact")).toBeHidden();
   await expect(page.locator("#chapters")).toBeHidden();
+  await bladOpen(page);
   const tekst = (await kaartje.locator("#sText").innerText()).split("\n")[0];
+  expect(tekst.length).toBeGreaterThan(10);
   expect((tekst.match(/[.!?](\s|$)/g) || []).length).toBeLessThanOrEqual(1);
   await kaartje.getByRole("button", { name: /Lees samen: Droog door de Schelfzee/ }).click();
   await expect(page.locator(".verhaal.samen h2")).toHaveText("Droog door de Schelfzee");
