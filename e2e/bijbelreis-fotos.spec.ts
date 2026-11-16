@@ -61,7 +61,7 @@ test("een stap met een plaats toont een foto van nu, met bijschrift, maker, lice
   // Volgorde: tekst, dan tafereel, dan foto. De foto past in de kaart of het blad, zonder horizontaal schuiven.
   const plek = await page.evaluate(() => {
     const t = document.getElementById("sText")!, taf = document.querySelector(".stapkaart > .tafereel"), fo = document.querySelector(".stapkaart > .plaatsfoto")!;
-    const r = fo.getBoundingClientRect(), k = document.querySelector(".stapkaart")!.getBoundingClientRect();
+    const kaartje = document.querySelector(".stapkaart")!, r = fo.getBoundingClientRect(), k = (kaartje.getClientRects().length ? kaartje : document.getElementById("reisboek")!).getBoundingClientRect();
     return {
       naTekst: !!(t.compareDocumentPosition(fo) & Node.DOCUMENT_POSITION_FOLLOWING),
       naTafereel: !taf || !!(taf.compareDocumentPosition(fo) & Node.DOCUMENT_POSITION_FOLLOWING),
@@ -109,8 +109,8 @@ test("de ballon van Bethlehem toont de foto met de bronregel", async ({ page, ba
   await expect.poll(() => f.locator("img").evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0)).toBe(true);
   await expect(f.locator(".pf-bron")).toContainText("Wikimedia Commons");
   // De ballon blijft binnen de kaart.
-  const r = await page.evaluate(() => { const p = document.querySelector(".leaflet-popup-content-wrapper")!.getBoundingClientRect(), k = document.getElementById("map")!.getBoundingClientRect(); return p.left >= k.left - 1 && p.right <= k.right + 1; });
-  expect(r).toBe(true);
+  // De ballon (met foto) past in de kaart, ook op de telefoon (na het meeschuiven van de kaart).
+  await expect.poll(() => page.evaluate(() => { const p = document.querySelector(".leaflet-popup-content-wrapper")!.getBoundingClientRect(), k = document.getElementById("map")!.getBoundingClientRect(); return p.left >= k.left - 1 && p.right <= k.right + 1 && p.top >= k.top - 1 && p.bottom <= k.bottom + 1; }), { timeout: 5000 }).toBe(true);
   // heading-order: de ballon heeft al een h3 zonder h2 erboven (ook bij plaatsen zonder foto); dat staat los van de foto.
   const axe = await new AxeBuilder({ page }).include(".leaflet-popup").disableRules(["heading-order"]).analyze();
   expect(axe.violations.map((v) => v.id)).toEqual([]);

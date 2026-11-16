@@ -1544,10 +1544,16 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
 .plaatsfoto .pf-bron { display: block; margin-top: 2px; font-size: 0.74rem; line-height: 1.4; color: var(--fg-3); }
 .plaatsfoto .pf-bron a { color: inherit; }
 .pop .pf-ballon { margin: -2px 0 8px; max-width: none; gap: 3px; }
-.pop .pf-ballon img { border-radius: 8px; }
+/* In de ballon een lage strook: de ballon heeft al veel inhoud en moet op de telefoon in de kaart passen. */
+.pop .pf-ballon img { border-radius: 8px; height: 112px; object-fit: cover; }
 .pop .pf-ballon .pf-bron { font-size: 0.7rem; margin: 0; }
 @media (max-width: 900px) {
   /* Open stapblad: de foto direct na de tekst (zelfde volgorde-nummer als de tekst, dus in de volgorde van het document). */
   .stapkaart > .plaatsfoto { order: 7; }
   #p-reis .stapkaart > .plaatsfoto { max-width: none; }
+}
+/* Op een aanraakscherm zijn de links in de bronregel tikdoelen van 44 px hoog. */
+@media (max-width: 900px), (pointer: coarse) {
+  .plaatsfoto:not(.pf-ballon) .pf-bron { display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.3em; margin-top: 0; }
+  .plaatsfoto:not(.pf-ballon) .pf-bron a { display: inline-flex; align-items: center; min-height: 44px; }
 }
