@@ -857,6 +857,8 @@
     if (cur >= 0) {
       const s = deel.steps[cur];
       if (!seen.has(s.key)) { seen.add(s.key); store.set("gezien", [...seen]); toast(`Nieuwe stempel: ${s.stamp}!`); }
+      // Bezoekmeting (bezoek.js): telt alleen hoeveel stappen er in dit bezoek zijn geopend, niet welke.
+      document.dispatchEvent(new CustomEvent("bijbelreis:stap", { detail: s.key }));
       $("sRef").textContent = s.ref;
       $("sKm").textContent = s.km ? "ca. " + fmt(s.km) + " km" : "";
       $("sTitle").textContent = cur + 1 + ". " + s.t;

@@ -4,6 +4,7 @@
 import { isVotableId } from "../shared/museum";
 import { validateIdea, LIMITS } from "../shared/validation";
 import { verwijstDoor } from "../shared/bijbelreis";
+import { bezoekOverzicht, meldBezoek } from "./bezoek";
 
 export interface Env {
   DB: D1Database;
@@ -11,7 +12,8 @@ export interface Env {
   ADMIN_TOKEN?: string;
   HASH_SECRET?: string;
   // Alleen voor tests: "uit" zet de doorverwijzing naar bijbelreis.nl uit (wrangler dev geeft verzoeken de hostnaam
-  // van de route, martijndenbesten.com, waardoor de doorverwijzing anders ook lokaal afgaat).
+  // van de route, martijndenbesten.com, waardoor de doorverwijzing anders ook lokaal afgaat). Dan serveert deze Worker
+  // de atlas zelf, en neemt hij ook de bezoekmeldingen van de atlas aan (/api/bezoek).
   BIJBELREIS_VERHUISD?: string;
 }
 
@@ -218,6 +220,13 @@ async function adminList(request: Request, env: Env): Promise<Response> {
   return json({ ok: true, ideas: results });
 }
 
+/** Bezoek aan bijbelreis.nl: cijfers per dag, totalen over 7 en 30 dagen en de herkomst (worker/bezoek.ts). */
+async function adminBezoek(request: Request, env: Env, now: number): Promise<Response> {
+  const dagen = Number(new URL(request.url).searchParams.get("dagen") ?? "30");
+  if (!Number.isInteger(dagen) || dagen < 1 || dagen > 400) return error("Kies een aantal dagen van 1 tot en met 400.", 400);
+  return json({ ok: true, ...(await bezoekOverzicht(env.DB, dagen, now)) });
+}
+
 async function adminModerate(request: Request, env: Env, id: number, now: number): Promise<Response> {
   const body = await readJson(request);
   if (body instanceof Response) return body;
@@ -252,13 +261,19 @@ export async function handleApi(request: Request, env: Env, ctx: ExecutionContex
     if (path === "/api/ideas" && method === "GET") return await getIdeas(env);
     if (path === "/api/ideas" && method === "POST") return await postIdea(request, env, ctx, now);
 
+    // Bezoekmeting van de Bijbelreis. In productie staat de atlas op bijbelreis.nl (eigen Worker, zelfde code); hier komt
+    // alleen iets binnen als deze Worker de atlas zelf serveert (lokale tests). Altijd 204, zonder inhoud.
+    if (path === "/api/bezoek" && method === "POST") return await meldBezoek(request, env.BIJBELREIS_VERHUISD === "uit" ? env : {}, ctx, now);
+
     if (path.startsWith("/api/admin/")) {
       if (!isAdmin(request, env)) return error("Geen toegang tot de directiekamer.", 401, { "WWW-Authenticate": "Bearer" });
       if (path === "/api/admin/ideas" && method === "GET") return await adminList(request, env);
+      if (path === "/api/admin/bezoek" && method === "GET") return await adminBezoek(request, env, now);
       const match = path.match(/^\/api\/admin\/ideas\/(\d{1,9})$/);
       if (match && method === "POST") return await adminModerate(request, env, Number(match[1]), now);
     }
     if (["/api/votes", "/api/ideas", "/api/health"].includes(path)) return error("Methode niet toegestaan.", 405, { Allow: "GET, POST" });
+    if (path === "/api/bezoek") return error("Methode niet toegestaan.", 405, { Allow: "POST" });
     return error("Deze afdeling bestaat niet.", 404);
   } catch (err) {
     console.error("API-fout", err);

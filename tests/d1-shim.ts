@@ -28,7 +28,7 @@ class Stmt {
 
 export function createD1() {
   const db = new DatabaseSync(":memory:");
-  db.exec(readFileSync("migrations/0001_init.sql", "utf8"));
+  for (const m of ["0001_init.sql", "0002_bezoek.sql"]) db.exec(readFileSync(`migrations/${m}`, "utf8"));
   return {
     raw: db,
     prepare: (sql: string) => new Stmt(db, sql),

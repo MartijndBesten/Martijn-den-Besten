@@ -74,7 +74,8 @@ Besluit van Martijn (15-11-2026): de Bijbelreis staat als zelfstandige website o
 
 | Onderdeel | Waarde |
 | --- | --- |
-| Worker | `bijbelreis` (`wrangler.bijbelreis.jsonc`, `worker/bijbelreis.ts`): alleen de atlas, geen API, geen database |
+| Worker | `bijbelreis` (`wrangler.bijbelreis.jsonc`, `worker/bijbelreis.ts`): alleen de atlas, plus de bezoekmeting |
+| Bezoekmeting | `POST /api/bezoek` schrijft naar de tabel `bezoek` in de D1-database `martijndenbesten` (binding `DB`, migratie `0002_bezoek.sql`); secret `HASH_SECRET` op deze Worker. Inzien: martijndenbesten.com/beheer → Bezoek bijbelreis.nl. Alles daarover: [`bijbelreis-bezoek/README.md`](bijbelreis-bezoek/README.md) |
 | Bestanden | dezelfde build (`dist/client`); `scripts/embed-assets.mjs` maakt er `worker/generated/bijbelreis-files.ts` van (alleen `/bijbelreis.html`, `/bijbelreis/*`, `/fonts/*`) |
 | Adressen | `/` is de atlas; `/bijbelreis` verwijst door naar `/`; diepe links: `https://bijbelreis.nl/#ur-kanaan` |
 | Deploy | `npm run deploy:bijbelreis` |
