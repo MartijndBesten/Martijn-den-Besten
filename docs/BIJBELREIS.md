@@ -171,6 +171,10 @@ e-mailbinding `MAIL` naar info@denckh.nl.
 | Bezoekmeting zonder cookies, met overzicht in het beheer | `bijbelreis-bezoek/README.md` |
 | Aanvraagformulier ‘Mis je iets? Vraag het aan’, met opgemaakte e-mail aan de maker | `bijbelreis-aanvraag/README.md` |
 
+**Foto’s van de plaatsen** (branch `claude/bijbelreis-fotos`, nog niet live): bij 30 plaatsen een foto van nu, van
+Wikimedia Commons met vrije licentie, in het stapblad, de ballon en de geschiedenis — regels en bronnen in
+`bijbelreis-fotos/README.md`.
+
 **E-mail aan de maker werkt** (16-11-2026): Email Routing staat aan op de zone bijbelreis.nl (MX route1–3.mx.cloudflare.net,
 SPF en DKIM), info@denckh.nl is bevestigd, en Martijn ontving zijn eigen proefaanvraag. Komt een mail niet aan, lees dan de
 logboeken van de Worker (`npx wrangler tail -c wrangler.bijbelreis.jsonc`): `naAanvraag` schrijft daar de foutcode.
