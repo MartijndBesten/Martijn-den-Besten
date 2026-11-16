@@ -81,7 +81,7 @@ BR.fotos = {
   const GEEN_IN_VERHAAL = new Set(["jezus-1:nt-geboorte:5", "jezus-1:nt-geboorte:6", "jezus-3:nt-lijden:6", "jezus-3:nt-lijden:7", "jezus-3:nt-lijden:8"]);
 
   function bronregel(f) {
-    return `Foto: ${esc(f.maker)}, <a href="${esc(f.licentieUrl)}" rel="noopener license" target="_blank">${esc(f.licentie)}</a> · <a href="${esc(f.bron)}" rel="noopener" target="_blank">Wikimedia Commons</a>`;
+    return `Foto: ${esc(f.maker)}, <span class="pf-links"><a href="${esc(f.licentieUrl)}" rel="noopener license" target="_blank">${esc(f.licentie)}</a> · <a href="${esc(f.bron)}" rel="noopener" target="_blank">Wikimedia Commons</a></span>`;
   }
   function img(f, sizes, lui) {
     const h = Math.round((f.h / f.b) * 960);
