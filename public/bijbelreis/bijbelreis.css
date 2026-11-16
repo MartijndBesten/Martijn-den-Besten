@@ -1487,7 +1487,10 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
 .tf-svg .k-schemer { fill: color-mix(in srgb, var(--nacht-2) 80%, var(--lila)); fill-opacity: 0.3; }
 .tf-svg .k-venster { fill: color-mix(in srgb, var(--boter) 70%, var(--oker-zacht)); }
 .tf-svg .k-schijn { fill: var(--boter); fill-opacity: 0.2; }
-.tf-svg .k-lila { fill: var(--lila); } .tf-svg .l-rood { stroke: var(--rood); }
+.tf-svg .k-lila { fill: var(--lila); }
+/* Reeks 3 (taferelen-3.js): wijn in de watervaten van Kana, de huid van de zwijnen. */
+.tf-svg .k-wijn { fill: color-mix(in srgb, var(--rood) 78%, var(--lila)); }
+.tf-svg .k-varken { fill: color-mix(in srgb, var(--terra) 40%, var(--papier)); } .tf-svg .l-rood { stroke: var(--rood); }
 .tf-svg .tf-e-kom-r { animation: tf-kom-r 4s ease-out both; } /* begint 90 naar rechts en komt naar zijn plaats */
 .tf-svg .tf-e-trek { animation: tf-trek 12s cubic-bezier(0.3, 0.3, 0.5, 1) both; } /* een stoet komt van links het beeld in (begint 300 naar links) */
 .tf-svg .tf-e-hink { animation: tf-hink-weg 9s ease-out both, tf-hink-stap 1.5s ease-in-out 6 both; } /* komt hinkend van links (begint 66 naar links) */
