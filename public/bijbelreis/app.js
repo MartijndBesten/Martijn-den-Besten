@@ -1397,7 +1397,7 @@
     return `<article class="card verhaal samen" aria-labelledby="vTitel">
         <h2 id="vTitel">${esc(g.t)}</h2>
         ${conceptLabel(v, "voor Samen ontdekken")}
-        ${klaar ? `<div id="vQuiz" class="stack"></div>` : `<div class="a-stap" id="aStap" aria-live="polite"><p class="a-tekst">${esc(v.delen[i].t)}</p></div>
+        ${klaar ? `<div id="vQuiz" class="stack"></div>` : `<div class="a-podium" id="aPodium"><div class="a-stap" id="aStap" aria-live="polite"><p class="a-tekst">${esc(v.delen[i].t)}</p></div></div>
         <div class="a-stippen" role="img" aria-label="Stap ${i + 1} van ${n}">${Array.from({ length: n }, (_, j) => stip(j)).join("")}</div>
         <div class="a-nav"><button type="button" class="btn a-terug" id="aTerug" ${i ? "" : "disabled"} aria-label="Vorige stap">◀</button><button type="button" class="btn primary a-verder" id="aVerder">${i + 1 < n ? "Verder ▶" : "Naar de vragen ▶"}</button></div>`}
         <details class="samenvoor"><summary>Voor wie voorleest</summary><p>${esc(v.samen || "")}</p>${lees}</details>
@@ -1411,11 +1411,45 @@
     const d = v.delen[vStap];
     if (BR.tafereel) BR.tafereel.bijStap($("aStap"), d.stap && STEP_BY_KEY.get(d.stap));
     if (BR.foto) BR.foto.bijStap($("aStap"), d.stap && STEP_BY_KEY.get(d.stap));
+    podiumHoogte(g, v);
     const ga = (j) => { vStap = j; renderVerhaal(g.nr); };
     $("aVerder").onclick = () => ga(vStap + 1);
     $("aTerug").onclick = () => ga(Math.max(0, vStap - 1));
     focusStory(d.stap ? { ...g, stappen: [d.stap] } : g);
   }
+  // De knoppen Vorige/Verder blijven binnen een geschiedenis op één plek (Martijn, 17-11-2026: ‘je blijft met je muis heen
+  // en weer schieten’). Het vlak boven de knoppen krijgt de hoogte van de grootste stap van deze geschiedenis: tekst,
+  // tekening en foto van elke stap worden één keer onzichtbaar gemeten (per geschiedenis en breedte onthouden).
+  const PODIUM = new Map();
+  function podiumHoogte(g, v) {
+    const pod = $("aPodium");
+    if (!pod || !pod.clientWidth) return;
+    const w = pod.clientWidth, sleutel = g.nr + "|" + w + "|" + niveau;
+    let h = PODIUM.get(sleutel);
+    if (h == null) {
+      const meet = document.createElement("div");
+      meet.className = "a-podium";
+      meet.setAttribute("aria-hidden", "true");
+      meet.inert = true;
+      meet.style.cssText = `position:absolute;visibility:hidden;pointer-events:none;left:0;top:0;width:${w}px;min-height:0`;
+      pod.parentNode.appendChild(meet);
+      h = 0;
+      v.delen.forEach((d) => {
+        meet.innerHTML = `<div class="a-stap"><p class="a-tekst">${esc(d.t)}</p></div>`;
+        const st = meet.firstElementChild, stap = d.stap && STEP_BY_KEY.get(d.stap);
+        if (BR.tafereel) BR.tafereel.bijStap(st, stap);
+        if (BR.foto) BR.foto.bijStap(st, stap);
+        h = Math.max(h, meet.getBoundingClientRect().height);
+      });
+      meet.remove();
+      PODIUM.set(sleutel, h);
+    }
+    pod.style.minHeight = Math.ceil(h) + "px";
+  }
+  // Lettertypen en een andere breedte veranderen de maat: dan opnieuw meten.
+  const podiumOpnieuw = () => { const pod = $("aPodium"); if (pod && vOpen && niveau === "a") { const g = GBYNR.get(vOpen), v = g && versie(g, "a"); if (v) podiumHoogte(g, v); } };
+  window.addEventListener("resize", () => requestAnimationFrame(podiumOpnieuw));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { PODIUM.clear(); podiumOpnieuw(); });
   // De vertelling in onderdelen met een rustige tussenkop (indeling.js). Bij een onderdeel dat bij een kaartstap hoort,
   // staat een ontdekmoment: die plek op de kaart bekijken zonder de geschiedenis te verlaten.
   const INDELING = BR.indeling || {};
