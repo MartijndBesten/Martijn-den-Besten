@@ -1,0 +1,17 @@
+{
+  "_uitleg": "Teksten voor App Store Connect (Nederlands). Limieten worden gecontroleerd door scripts/controleer-ios.mjs. Uitleg en keuzes: docs/bijbelreis-ios/APPSTORE.md.",
+  "naam": "Bijbelreis",
+  "ondertitel": "Op reis door de Bijbel",
+  "promotietekst": "150 geschiedenissen van de schepping tot Openbaring op de kaart. Met reizen, Wie is wie, tijdlijn, speurtocht en een paspoort vol stempels. Werkt zonder internet.",
+  "beschrijving": "De Bijbelreis is een Bijbelatlas voor kinderen en hun ouders. Reis mee met Abraham, Mozes, David, de Heere Jezus en Paulus, en zie op de kaart waar het gebeurde.\n\nWAT ER IN STAAT\n• 150 geschiedenissen van de schepping tot Openbaring, met bij elke geschiedenis waar het in de Bijbel staat\n• Reizen stap voor stap op de kaart, met eigen tekeningen bij bekende geschiedenissen\n• Wie is wie: personen en families, zoals de familie van Abraham\n• Tijdlijn: wanneer het gebeurde, en hoe we dat weten\n• Speurtocht: vragen over wat je las, met het antwoord en de Bijbelplaats erbij\n• Paspoort: verzamel stempels op je reis\n• De kaart van toen en van nu: het land in de tijd van de Bijbel, en hoe het er vandaag uitziet\n\nVOOR ELKE LEEFTIJD\nKies een reisniveau: Samen ontdekken (4–6 jaar, om voor te lezen), Zelf op reis (7–10 jaar) of Verder ontdekken (11+). Wisselen kan altijd; je stempels blijven bewaard.\n\nNAAST JE EIGEN BIJBEL\nDe geschiedenissen zijn eigen navertellingen in woorden die kinderen begrijpen, gecontroleerd aan de Statenvertaling. De Bijbelreis is een hulpmiddel náást de eigen Bijbel of kinderbijbel: bij elke geschiedenis staat waar je het zelf leest.\n\nVOOR OUDERS EN LEIDERS\nLesroutes voor thuis, zondagsschool, club, catechisatie en de klas: vaste reeksen geschiedenissen met het Bijbelgedeelte om samen te lezen en vragen om in de Bijbel op te zoeken.\n\nRUSTIG EN VEILIG\n• Werkt helemaal zonder internet, ook de eerste keer\n• Geen account, geen advertenties, geen aankopen\n• De app verzamelt en verstuurt geen gegevens\n• Een website openen, delen of mailen kan pas na een vraag voor een ouder\n\nGemaakt door Denckh.",
+  "trefwoorden": "bijbel,atlas,kinderbijbel,bijbelverhalen,kaart,statenvertaling,zondagsschool,catechisatie,gezin",
+  "watIsErNieuw": "De eerste versie van de Bijbelreis als app: alles staat erin en werkt zonder internet.",
+  "copyright": "2026 Denckh",
+  "supportUrl": "https://bijbelreis.nl/hulp",
+  "privacyUrl": "https://bijbelreis.nl/privacy",
+  "marketingUrl": "https://bijbelreis.nl/",
+  "sku": "BIJBELREIS-IOS",
+  "bundleId": "nl.bijbelreis.app",
+  "primaireTaal": "Nederlands",
+  "categorie": { "primair": "Onderwijs", "secundair": "geen", "kids": "9–11 jaar" }
+}

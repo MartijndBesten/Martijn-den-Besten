@@ -9,6 +9,9 @@
 //    mail van de ouder. De bezoekmeting zit niet in de app (zie scripts/maak-webmap.mjs).
 // 4. Delen via het deelmenu van iOS (Capacitor Share), na de ouderpoort.
 // 5. Een tekstbestand uit de app (licentie van Leaflet) opent in een venster in plaats van de hele app te vervangen.
+// 6. Adressen van de website die in de app anders liggen (lesroutes, privacy, hulp, verhaalpagina's) gaan naar de juiste
+//    pagina in de app; wat niet in de app staat (presentatie en boekje, afdrukken) gaat via de ouderpoort naar
+//    bijbelreis.nl. De regels staan in adressen.js (ook gebruikt door scripts/maak-webmap.mjs).
 // Een fout hier mag de atlas nooit raken: alles staat in try/catch.
 (function () {
   "use strict";
@@ -20,6 +23,7 @@
   var RESERVE = "bijbelreis-voortgang";
   var SITE = "https://bijbelreis.nl/";
   var MAIL = "info@denckh.nl";
+  var adres = W.bijbelreisAdres || null;
 
   // ---------- 1. voortgang ----------
   function momentopname() {
@@ -175,7 +179,8 @@
       var t = e.target && e.target.closest ? e.target : null;
       if (!t || (poort && poort.contains(t))) return;
 
-      var knop = t.closest("[data-deel]");
+      // Alleen de deelknop (data-deel-titel). De knoppen van de delen van een reis hebben ook data-deel.
+      var knop = t.closest("[data-deel][data-deel-titel]");
       if (knop) {
         stop(e);
         var titel = knop.getAttribute("data-deel-titel") || "Bijbelreis", url = SITE + "#" + knop.getAttribute("data-deel");
@@ -203,6 +208,15 @@
         return;
       }
 
+      // Afdrukken (lesroutes): window.print() werkt niet in de webview van iOS. Via de website in Safari.
+      var druk = t.closest("[data-print]");
+      if (druk) {
+        stop(e);
+        var naar = SITE.replace(/\/$/, "") + "/bijbelreis/lessen" + (/^#[\w/-]{0,80}$/.test(location.hash) ? location.hash : "");
+        ouderpoort("Afdrukken gaat via de website bijbelreis.nl, in Safari.").then(function (ok) { if (ok) naarBuiten(naar); });
+        return;
+      }
+
       var a = t.closest("a[href]");
       if (!a) return;
       var href = a.getAttribute("href") || "";
@@ -211,7 +225,21 @@
       try { doel = new URL(href, location.href); } catch (err) { return; }
       var binnen = doel.protocol === location.protocol && doel.host === location.host;
       if (binnen) {
-        if (/\.txt$/i.test(doel.pathname)) { stop(e); toonTekst(doel.pathname, (a.textContent || "Tekst").trim()); }
+        if (/\.txt$/i.test(doel.pathname)) { stop(e); toonTekst(doel.pathname, (a.textContent || "Tekst").trim()); return; }
+        var b = adres ? adres(doel.pathname, doel.hash) : null;
+        if (!b || b.soort === "bestand") return;
+        if (b.soort === "app") {
+          var i = b.url.indexOf("#"), pad = i < 0 ? b.url : b.url.slice(0, i), frag = i < 0 ? "" : b.url.slice(i);
+          var nu = location.pathname === "/index.html" ? "/" : location.pathname;
+          if (pad === nu && doel.pathname === location.pathname) return; // alleen een ander fragment: de pagina regelt dat zelf
+          stop(e);
+          // Zelfde pagina onder een ander adres (/bijbelreis#v12 vanuit de atlas): alleen het fragment wisselen, niet herladen.
+          if (pad === nu) { if (frag && frag !== location.hash) location.hash = frag; return; }
+          location.href = b.url;
+          return;
+        }
+        stop(e);
+        ouderpoort("Dit staat niet in de app. De link opent de website bijbelreis.nl in Safari.").then(function (ok) { if (ok) naarBuiten(b.url); });
         return;
       }
       stop(e);
@@ -222,5 +250,5 @@
   }, true);
 
   // Voor de tests van de webmap (scripts/test-webmap.mjs): de laag is geladen.
-  W.bijbelreisApp = { versie: 1, ouderpoort: ouderpoort, bewaar: bewaar };
+  W.bijbelreisApp = { versie: 2, ouderpoort: ouderpoort, bewaar: bewaar, adres: adres };
 })();

@@ -25,7 +25,8 @@ const apiVerzoeken = [];
 const server = createServer((req, res) => {
   const pad = decodeURIComponent(new URL(req.url, "http://x").pathname);
   if (pad.startsWith("/api/")) { apiVerzoeken.push(req.method + " " + pad); res.writeHead(404); res.end(); return; }
-  let bestand = normalize(join(www, pad === "/" ? "index.html" : pad));
+  // Zoals de router van Capacitor (Router.swift): een adres zonder extensie geeft index.html.
+  let bestand = normalize(join(www, pad === "/" || !extname(pad) ? "index.html" : pad));
   if (!bestand.startsWith(www) || !existsSync(bestand) || statSync(bestand).isDirectory()) { res.writeHead(404); res.end(); return; }
   res.writeHead(200, { "Content-Type": TYPES[extname(bestand)] || "application/octet-stream" });
   createReadStream(bestand).pipe(res);
@@ -104,6 +105,12 @@ try {
     if (SHOTS) await page.screenshot({ path: join(SHOTS, "1-start.png") });
   });
 
+  await stap("geen service worker en geen manifest in de app", async () => {
+    await page.waitForTimeout(500);
+    verwacht(await page.evaluate(async () => (await navigator.serviceWorker.getRegistrations()).length === 0), "er is een service worker aangemeld");
+    verwacht(await page.evaluate(() => !document.querySelector('link[rel="manifest"], script[src*="pwa.js"], meta[name^="apple-mobile-web-app"]')), "manifest, pwa.js of web-app-meta staat nog in de pagina");
+  });
+
   await stap("verhaal openen (#v1 via de lijst) en reis met kaart (#abraham/4)", async () => {
     await page.locator('#vLijst [data-v="1"]').first().click();
     await page.waitForSelector("#p-verhalen .verhaal", { state: "visible" });
@@ -122,6 +129,16 @@ try {
     const data = JSON.parse(r);
     const lokaal = await page.evaluate(() => Object.fromEntries(Object.keys(localStorage).filter((k) => k.startsWith("bijbelreis:")).map((k) => [k, localStorage.getItem(k)])));
     verwacht(JSON.stringify(data) === JSON.stringify(lokaal), "reservekopie wijkt af van localStorage");
+  });
+
+  await stap("een deel van een reis kiezen opent geen ouderpoort en deelt niets", async () => {
+    await page.goto(BASIS + "#abraham/2");
+    await kaartKlaar(page);
+    await page.waitForSelector("#delen .deel", { state: "attached" });
+    await page.evaluate(() => { window.__open = []; document.querySelectorAll("#delen .deel")[1].click(); });
+    await page.waitForTimeout(300);
+    verwacht(await page.evaluate(() => document.getElementById("appPoort") === null || document.getElementById("appPoort").hidden), "ouderpoort ging open bij het kiezen van een deel");
+    verwacht(gedeeld.length === 0, "er is gedeeld bij het kiezen van een deel");
   });
 
   await stap("ouderpoort: link naar buiten (Denckh) opent pas na de juiste som", async () => {
@@ -163,7 +180,7 @@ try {
   await stap("delen: deelmenu (Share) na de ouderpoort, met de link naar bijbelreis.nl", async () => {
     await page.goto(BASIS + "#v26");
     await page.waitForSelector("#p-verhalen .verhaal", { state: "visible" });
-    const knop = page.locator("[data-deel]:visible").first();
+    const knop = page.locator(".deelknop[data-deel]:visible").first();
     verwacht(await knop.count(), "geen deelknop gevonden");
     await knop.click();
     await page.waitForSelector("#appPoort:not([hidden])");
@@ -191,6 +208,65 @@ try {
     await page.goBack({ waitUntil: "commit" }).catch(() => {});
     await page.waitForFunction(() => document.getElementById("kiesLade").hidden);
     verwacht(page.url().includes("#abraham"), "terug ging verder dan het venster: " + page.url());
+  });
+
+  const poortOk = async (p) => { await p.waitForSelector("#appPoort:not([hidden])"); await p.fill("#appPoortIn", String(somUit(await p.textContent("#appPoortVraag")))); await p.click("#appPoort button[type=submit]"); await p.waitForSelector("#appPoort", { state: "hidden" }); };
+
+  await stap("lesroutes: vanuit ‘Voor ouders’ naar de lesroutes in de app, en terug naar de atlas", async () => {
+    await page.goto(BASIS + "#v1");
+    await page.waitForSelector("#p-verhalen .verhaal", { state: "visible" });
+    await page.evaluate(() => document.querySelector('details.parents a[href="/bijbelreis/lessen"]').click());
+    await page.waitForURL(/\/bijbelreis\/lessen\.html$/);
+    await page.waitForSelector(".ls-routes .ls-route");
+    verwacht(await page.evaluate(() => !!window.bijbelreisApp && document.documentElement.dataset.app === "ios"), "app-laag niet geladen op de lesroutes");
+    if (SHOTS) await page.screenshot({ path: join(SHOTS, "5-lesroutes.png") });
+    await page.locator(".ls-route").first().click();
+    await page.waitForSelector(".ls-les");
+    const nr = await page.evaluate(() => +document.querySelector(".ls-les-nr").textContent.match(/Geschiedenis (\d+)/)[1]);
+    await page.locator('.ls-les a.bk-knop[href^="/bijbelreis#v"]').first().click();
+    await page.waitForURL((u) => u.pathname === "/" && u.hash === "#v" + nr);
+    await page.waitForSelector("#p-verhalen .verhaal", { state: "visible" });
+    await page.goBack();
+    await page.waitForSelector(".ls-les");
+    verwacht(page.url().includes("/bijbelreis/lessen.html#"), "terug kwam niet bij de lesroute: " + page.url());
+  });
+
+  await stap("lesroutes: presentatie en afdrukken gaan via de ouderpoort naar bijbelreis.nl", async () => {
+    await page.evaluate(() => { window.__open = []; });
+    await page.locator('.ls-les a.bk-knop.hoofd').first().click();
+    await poortOk(page);
+    let open = await page.evaluate(() => window.__open);
+    verwacht(open.length === 1 && /^https:\/\/bijbelreis\.nl\/bijbelreis\/boekje#v\d+&niveau=[abc]$/.test(open[0]), "presentatie: " + JSON.stringify(open));
+    await page.evaluate(() => { window.__open = []; });
+    await page.locator('[data-print="leiding"]').click();
+    await poortOk(page);
+    open = await page.evaluate(() => window.__open);
+    verwacht(open.length === 1 && /^https:\/\/bijbelreis\.nl\/bijbelreis\/lessen#[\w-]+$/.test(open[0]), "afdrukken: " + JSON.stringify(open));
+    verwacht(page.url().includes("/bijbelreis/lessen.html"), "pagina is weggegaan: " + page.url());
+  });
+
+  await stap("privacy en hulp staan in de app; mailen gaat via de ouderpoort", async () => {
+    await page.goto(BASIS + "#v1");
+    await page.waitForSelector("#p-verhalen .verhaal", { state: "visible" });
+    await page.evaluate(() => document.querySelector('details.parents a[href="/bijbelreis/privacy"]').click());
+    await page.waitForURL(/\/bijbelreis\/privacy\.html$/);
+    verwacht(/De app verzamelt niets/.test(await page.textContent("main")), "privacytekst ontbreekt");
+    await page.evaluate(() => { window.__open = []; document.querySelector('main a[href^="mailto:"]').click(); });
+    await poortOk(page);
+    const open = await page.evaluate(() => window.__open);
+    verwacht(open.length === 1 && open[0] === "mailto:info@denckh.nl", "mail: " + JSON.stringify(open));
+    await page.evaluate(() => document.querySelector('a[href="/bijbelreis/hulp"]').click());
+    await page.waitForURL(/\/bijbelreis\/hulp\.html$/);
+    await page.evaluate(() => document.querySelector(".bk-terug").click());
+    await page.waitForURL((u) => u.pathname === "/");
+    await kaartKlaar(page);
+  });
+
+  await stap("een verhaalpagina van de website (/verhaal/26-…) opent dezelfde geschiedenis in de atlas", async () => {
+    await page.evaluate(() => { const a = document.createElement("a"); a.href = "/verhaal/26-jakob"; a.id = "__v"; a.textContent = "x"; document.body.appendChild(a); a.click(); });
+    await page.waitForFunction(() => location.hash === "#v26");
+    await page.waitForSelector("#p-verhalen .verhaal", { state: "visible" });
+    verwacht(await page.evaluate(() => location.pathname === "/"), "niet in de atlas gebleven");
   });
 
   await stap("opslag leeg geraakt terwijl de app openstaat (localStorage.clear) → kopie blijft, herstel na herladen", async () => {
