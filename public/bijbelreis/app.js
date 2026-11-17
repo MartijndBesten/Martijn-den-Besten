@@ -215,15 +215,20 @@
     KLEINE_RIVIEREN.forEach((r) => L.polyline(r.p, { pane: "water", className: "river klein", interactive: false }).addTo(m));
     return { meerLagen, rivierLagen };
   }
+  // Tot waar reikt het land van de ondergrond? [zuid, west, noord, oost]
+  function landGrenzen(geo) {
+    let w = 180, z = 90, o = -180, n = -90;
+    const loop = (c) => { if (typeof c[0] === "number") { w = Math.min(w, c[0]); o = Math.max(o, c[0]); z = Math.min(z, c[1]); n = Math.max(n, c[1]); } else c.forEach(loop); };
+    (geo.land.features || [geo.land]).forEach((f) => loop((f.geometry || f).coordinates));
+    return [z, w, n, o];
+  }
   function drawBase(geo) {
     const { meerLagen, rivierLagen } = tekenOndergrond(map, geo);
     // De rand van de kaartplaat: waar het land van de ondergrond ophoudt. Op de telefoon is de kaart in de reis zo hoog
     // dat het overzicht van een lange reis (Paulus naar Rome) verder reikt dan de ondergrond; daar ligt dan papier met een
     // kaderlijn, zoals een kaart in een atlas, in plaats van een zee waar het land recht is afgesneden. Alleen daar
     // zichtbaar (bijbelreis.css: .kader-buiten, .kader-rand).
-    let w = 180, z = 90, o = -180, n = -90;
-    const loop = (c) => { if (typeof c[0] === "number") { w = Math.min(w, c[0]); o = Math.max(o, c[0]); z = Math.min(z, c[1]); n = Math.max(n, c[1]); } else c.forEach(loop); };
-    (geo.land.features || [geo.land]).forEach((f) => loop((f.geometry || f).coordinates));
+    const [z, w, n, o] = landGrenzen(geo);
     if (w < o && z < n) {
       L.polygon([[[-5, -40], [-5, 100], [72, 100], [72, -40]], [[z, w], [z, o], [n, o], [n, w]]], { pane: "kader", interactive: false, className: "kader-buiten" }).addTo(map);
       L.rectangle([[z, w], [n, o]], { pane: "kader", interactive: false, className: "kader-rand" }).addTo(map);
@@ -257,12 +262,14 @@
   }).catch(() => {});
   tekenRelief(map);
   // Dezelfde ondergrond (landschap van toen, met reliëf) op een andere Leaflet-kaart, voor ‘De wereld in die tijd’.
+  // Geeft de grenzen van het land terug ([zuid, west, noord, oost]): daarbuiten heeft de ondergrond geen kust.
   BR.ondergrond = (m) => {
     [["basis", 250], ["relief", 300], ["water", 360]].forEach(([n, z]) => { if (!m.getPane(n)) { m.createPane(n).style.zIndex = z; m.getPane(n).style.pointerEvents = "none"; } });
     tekenRelief(m);
     return fetch(dataUrl("geo.json")).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then((geo) => {
       const { meerLagen, rivierLagen } = tekenOndergrond(m, geo);
-      return drawToen(geo, meerLagen, rivierLagen, m);
+      const grenzen = landGrenzen(geo);
+      return drawToen(geo, meerLagen, rivierLagen, m).then(() => grenzen);
     });
   };
   // Stand ‘Nu’: landsgrenzen, landnamen en gebiedsnamen uit grenzen.json. Maatstaf (docs/bijbelreis-vandaag/README.md): een landnaam

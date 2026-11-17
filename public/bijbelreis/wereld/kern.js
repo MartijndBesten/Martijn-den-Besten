@@ -131,6 +131,20 @@
     return { dekking, betrouwbaarheid, delen: delen.map((r) => r.map(([lng, lat]) => [lat, lng])) };
   }
 
+  // Een ring afknippen op een lengtegraad (alleen het deel west of oost ervan houden): Sutherland–Hodgman tegen één lijn.
+  // Punten zijn [lat, lng]. Gebruikt waar de ondergrond van de kaart ophoudt.
+  function knip(ring, lng, west) {
+    const binnen = (p) => (west ? p[1] <= lng : p[1] >= lng);
+    const snij = (a, b) => { const f = (lng - a[1]) / (b[1] - a[1]); return [a[0] + (b[0] - a[0]) * f, lng]; };
+    const uit = [];
+    for (let i = 0; i < ring.length; i++) {
+      const a = ring[i], b = ring[(i + 1) % ring.length];
+      if (binnen(a)) { uit.push(a); if (!binnen(b)) uit.push(snij(a, b)); }
+      else if (binnen(b)) uit.push(snij(a, b));
+    }
+    return uit;
+  }
+
   // ---------- het periodebestand klaarzetten ----------
   const STATUS = ["expliciet", "berekend", "traditioneel", "historisch", "benaderd"];
   const EINDE = ["stierf", "weggenomen", "onbekend", "leeft door"];
@@ -139,17 +153,27 @@
     if (typeof p === "string" && plaatsen && plaatsen[p]) return { ll: plaatsen[p].ll, gebied: plaatsen[p].c === "r", naam: plaatsen[p].n, zeker: plaatsen[p].c };
     return null;
   }
+  // [vroegst, laatst] als tijden, oplopend; null zonder marge.
+  const margeT = (m, as) => (Array.isArray(m) && m.length === 2 && m.every((x) => typeof x === "number") ? [naarT(m[0], as), naarT(m[1], as)].sort((a, b) => a - b) : null);
   function bereid(data, ctx = {}) {
     const as = data.as, [tMin, tMax] = bereik(as);
-    const G = (data.gebeurtenissen || []).map((e) => ({ ...e, t: naarT(e.jaar, as), t2: naarT(e.tot != null ? e.tot : e.jaar, as), plek: plekVan(e.plaats, ctx.plaatsen) }))
+    const G = (data.gebeurtenissen || []).map((e) => ({ ...e, t: naarT(e.jaar, as), t2: naarT(e.tot != null ? e.tot : e.jaar, as), plek: plekVan(e.plaats, ctx.plaatsen), margeT: margeT(e.marge, as) }))
       .map((e) => ({ ...e, t: Math.min(e.t, e.t2), t2: Math.max(e.t, e.t2) })).sort((a, b) => a.t - b.t);
     const P = (data.personen || []).map((p, rij) => {
       const van = p.van || {}, tot = p.tot || {};
       const eigen = G.filter((e) => (e.personen || []).includes(p.id));
-      const t0 = van.jaar != null ? naarT(van.jaar, as) : eigen.length ? eigen[0].t : tMin;
-      const einde = tot.einde || (tot.jaar == null ? "onbekend" : "stierf");
-      const t1 = tot.jaar != null ? naarT(tot.jaar, as) : einde === "leeft door" ? tMax : eigen.length ? eigen[eigen.length - 1].t2 : t0;
-      return { ...p, rij, t0, t1: Math.max(t0, t1), einde, beginOnzeker: van.jaar == null || van.status === "benaderd", eindOnzeker: einde === "onbekend" || einde === "leeft door" || tot.status === "benaderd", kinderen: [] };
+      const ruwT0 = van.jaar != null ? naarT(van.jaar, as) : eigen.length ? eigen[0].t : tMin;
+      let einde = tot.einde || (tot.jaar == null ? "onbekend" : "stierf");
+      const ruwT1 = tot.jaar != null ? naarT(tot.jaar, as) : einde === "leeft door" ? tMax : eigen.length ? eigen[eigen.length - 1].t2 : ruwT0;
+      // Een lijn mag vóór het begin van de as beginnen of na het einde doorlopen: dan wordt hij afgekapt en loopt hij
+      // zichtbaar ‘door’ (bijv. Darius I, koning tot 486 v.Chr. op een as tot 515).
+      const voorAs = ruwT0 < tMin, naAs = ruwT1 > tMax;
+      const t0 = Math.max(tMin, Math.min(tMax, ruwT0)), t1 = Math.max(t0, Math.min(tMax, ruwT1));
+      if (naAs && einde !== "onbekend") einde = "leeft door";
+      // Waar begint de lijn? Bij de geboorte (standaard), of bij iets anders (begin van een regering, de wegvoering, de
+      // roeping): dan is er geen leeftijd.
+      const begin = van.begin || "geboorte";
+      return { ...p, rij, t0, t1, einde, begin, lijn: p.lijn || "leven", voorAs, naAs, beginOnzeker: van.jaar == null || van.status === "benaderd" || voorAs, eindOnzeker: einde === "onbekend" || einde === "leeft door" || tot.status === "benaderd", margeVan: margeT(van.marge, as), margeTot: margeT(tot.marge, as), kinderen: [] };
     });
     const byId = new Map(P.map((p) => [p.id, p]));
     P.forEach((p) => { const o = p.ouder && byId.get(p.ouder); if (o) o.kinderen.push(p.id); });
@@ -170,7 +194,7 @@
   const leeftNog = (p, t) => t >= p.t0 && (p.einde === "leeft door" || (p.einde === "onbekend" ? t <= p.t1 : t < p.t1));
   // Leeftijd in hele jaren op tijd t (null als de geboorte niet bekend is of de persoon er niet is).
   function leeftijd(p, t) {
-    if (t < p.t0 || p.beginOnzeker && (!p.van || p.van.jaar == null)) return null;
+    if (t < p.t0 || p.begin !== "geboorte" || p.voorAs || (p.beginOnzeker && (!p.van || p.van.jaar == null))) return null;
     return Math.floor(Math.min(t, p.einde === "onbekend" || p.einde === "leeft door" ? t : p.t1) - p.t0 + 1e-9);
   }
   // Hoe lang leefden twee mensen tegelijk? ‘minstens’ als een einde onbekend is en dat einde de grens bepaalt;
@@ -230,12 +254,15 @@
         if (!x) return f(`${w}: ${k} ontbreekt`);
         statusOk(x.status, `${w}.${k}`);
         bronOk(x.bron, `${w}.${k}`);
-        if (x.jaar != null && (typeof x.jaar !== "number" || !binnen(x.jaar))) f(`${w}.${k}: jaar ${x.jaar} valt buiten de as`);
+        // Een persoon mag vóór de as beginnen of erna doorlopen (de lijn wordt afgekapt); een jaartal moet wel een getal zijn.
+        if (x.jaar != null && typeof x.jaar !== "number") f(`${w}.${k}: jaar ${x.jaar} is geen getal`);
+        if (x.marge != null && !(Array.isArray(x.marge) && x.marge.length === 2 && x.marge.every((j) => typeof j === "number"))) f(`${w}.${k}: marge moet [vroegst, laatst] zijn`);
       });
       if (p.tot && !EINDE.includes(p.tot.einde || "stierf")) f(`${w}: einde ‘${p.tot.einde}’ onbekend`);
       if (p.van && p.tot && p.van.jaar != null && p.tot.jaar != null && naarT(p.tot.jaar, as) < naarT(p.van.jaar, as)) f(`${w}: einde vóór begin`);
       if (p.ouder != null && !pids.has(p.ouder)) f(`${w}: ouder ‘${p.ouder}’ bestaat niet`);
-      if (!Array.isArray(p.ref) || !p.ref.length) f(`${w}: ref ontbreekt`); else p.ref.forEach((r) => refs.refOk && !refs.refOk(r) && f(`${w}: verwijzing ‘${r}’ klopt niet`));
+      // ref: de Bijbelgedeelten over deze persoon; leeg voor iemand die niet in de Bijbel staat (bijv. Nabonidus).
+      if (p.ref != null && !Array.isArray(p.ref)) f(`${w}: ref moet een lijst zijn`); else (p.ref || []).forEach((r) => refs.refOk && !refs.refOk(r) && f(`${w}: verwijzing ‘${r}’ klopt niet`));
       if (p.personenId && refs.mensen && !refs.mensen[p.personenId]) f(`${w}: personenId ‘${p.personenId}’ bestaat niet in personen.js`);
       if (p.verhaal != null && (!/^v\d+$/.test(p.verhaal) || (refs.verhalen && !refs.verhalen.has(p.verhaal)))) f(`${w}: verhaal ‘${p.verhaal}’ bestaat niet`);
       (p.gebeurtenissen || []).forEach((g) => !gids.has(g) && f(`${w}: gebeurtenis ‘${g}’ bestaat niet`));
@@ -246,6 +273,7 @@
       if (!e.titel || !e.tekst) f(`${w}: titel en tekst zijn nodig`);
       if (typeof e.jaar !== "number" || !binnen(e.jaar)) f(`${w}: jaar ontbreekt of valt buiten de as`);
       if (e.tot != null && (typeof e.tot !== "number" || !binnen(e.tot))) f(`${w}: tot valt buiten de as`);
+      if (e.marge != null && !(Array.isArray(e.marge) && e.marge.length === 2 && e.marge.every((j) => typeof j === "number" && binnen(j)))) f(`${w}: marge moet [vroegst, laatst] binnen de as zijn`);
       statusOk(e.status, w);
       bronOk(e.bron, w);
       (e.personen || []).forEach((p) => !pids.has(p) && f(`${w}: persoon ‘${p}’ bestaat niet`));
@@ -286,7 +314,7 @@
     return fout;
   }
 
-  const K = { naarT, naarJaar, bereik, jaarTekst, schaal, streepjes, zoom, schuif, vloeiend, herbemonster, oppervlak, lijnUit, koppelDelen, bereidGebied, gebiedOp, bereid, leeftNog, leeftijd, overlap, momenten, controleer, STATUS, EINDE, PUNTEN };
+  const K = { knip, margeT, naarT, naarJaar, bereik, jaarTekst, schaal, streepjes, zoom, schuif, vloeiend, herbemonster, oppervlak, lijnUit, koppelDelen, bereidGebied, gebiedOp, bereid, leeftNog, leeftijd, overlap, momenten, controleer, STATUS, EINDE, PUNTEN };
   root.BR = root.BR || {};
   root.BR.wereldKern = K;
 })(typeof window !== "undefined" ? window : globalThis);

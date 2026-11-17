@@ -39,6 +39,14 @@
     kaart: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 12l11-4 14 5 11-4v27l-11 4-14-5-11 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M17 8v27M31 13v27" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/><circle cx="24" cy="23" r="3" fill="currentColor" opacity=".35"/></svg>',
   };
 
+  // Wat een lijn toont: een leven (vanaf de geboorte) of iets anders (een regering, de tijd in Babel, het profeetschap).
+  const LIJN = { leven: "leeft", regering: "regeert", "in Babel": "in Babel", profeet: "profeet" };
+  const VOOR = { geboorte: "nog niet geboren", regering: "nog geen koning", weggevoerd: "nog niet weggevoerd", roeping: "nog niet geroepen" };
+  const BEGIN = { geboorte: "Geboren", regering: "Koning vanaf", weggevoerd: "Weggevoerd", roeping: "Geroepen" };
+  const lijnWoord = (p) => (p.begin === "regering" && p.lijn === "regering" ? "koning" : p.begin === "geboorte" ? "leeft" : LIJN[p.lijn] || p.lijn);
+  const allesLevens = () => S.M.personen.every((p) => p.begin === "geboorte");
+  const kleurVar = (k, diep) => (diep ? `var(--${k}-deep, var(--${k}-diep, var(--${k})))` : `var(--${k})`);
+
   let S = null; // de open periode: gegevens, model, tijd, keuzes
   let D = null; // verwijzingen naar elementen
   let raf = 0, laatsteFrame = 0, liveT = 0;
@@ -49,8 +57,10 @@
       S.koppeling = opts.koppeling || null; S.terugNaam = opts.terugNaam || "";
       pauze(); sluitBlad(); kies(null);
       nadruk(); zetTerugKnop();
+      layout();
       zetTijd(beginT(opts), { direct: true, onderschrift: true });
-      D.terug.focus({ preventScroll: true });
+      koppelingSchrift();
+      schil.focus({ preventScroll: true });
       return;
     }
     stop();
@@ -119,7 +129,7 @@
           </div>
           <p class="wt-onderschrift" aria-hidden="true"><span class="wt-os-jaar"></span><b class="wt-os-titel"></b><span class="wt-os-tekst"></span></p>
         </section>
-        <section class="wt-p wt-p-kaart" id="wtP-kaart" role="tabpanel" aria-labelledby="wtTab-kaart" hidden>${M.heeftKaart ? '<div class="wt-kaartvlak" role="region" aria-label="Kaart van deze periode"></div><div class="wt-legenda" aria-label="Legenda"></div>' : `<div class="wt-geenkaart">${ICON.kaart}<h3>Geen kaart voor deze tijd</h3><p>${esc(data.kaartUitleg || "Voor deze periode is er geen betrouwbare kaart.")}</p></div>`}</section>
+        <section class="wt-p wt-p-kaart" id="wtP-kaart" role="tabpanel" aria-labelledby="wtTab-kaart" hidden>${M.heeftKaart ? '<div class="wt-kaartvlak" role="region" aria-label="Kaart van deze periode"></div><details class="wt-legenda"><summary>Legenda</summary><div class="wt-legenda-in"></div></details>' : `<div class="wt-geenkaart">${ICON.kaart}<h3>Geen kaart voor deze tijd</h3><p>${esc(data.kaartUitleg || "Voor deze periode is er geen betrouwbare kaart.")}</p></div>`}</section>
         <section class="wt-p wt-p-gebeurtenissen" id="wtP-gebeurtenissen" role="tabpanel" aria-labelledby="wtTab-gebeurtenissen" hidden><ol class="wt-momenten"></ol></section>
         <aside class="wt-zij" aria-label="Op dit moment"><div class="wt-nu"></div><div class="wt-info" hidden></div></aside>
       </div>
@@ -143,7 +153,7 @@
     D = {
       schil, app: $(".wt-app"), terug: $(".wt-terug"), jaar: $("#wtJaar"), schuif: $("#wtSchuif"), speel: $(".wt-speel"), as: $(".wt-as"), svg: $(".wt-svg"),
       vlak: $(".wt-vlak"), rol: $(".wt-rol"), namen: $(".wt-namen"), onderschrift: $(".wt-onderschrift"), nu: $(".wt-nu"), info: $(".wt-info"),
-      blad: $(".wt-blad"), bladIn: $(".wt-blad-in"), live: $("#wtLive"), lijst: $(".wt-momenten"), kaartvlak: $(".wt-kaartvlak"), legenda: $(".wt-legenda"),
+      blad: $(".wt-blad"), bladIn: $(".wt-blad-in"), live: $("#wtLive"), lijst: $(".wt-momenten"), kaartvlak: $(".wt-kaartvlak"), legenda: $(".wt-legenda-in"),
       sub: new Map(M.personen.map((p) => [p.id, schil.querySelector(`#wtSub-${CSS.escape(p.id)}`)])),
       rij: new Map(M.personen.map((p) => [p.id, schil.querySelector(`.wt-rij[data-p="${CSS.escape(p.id)}"]`)])),
       merk: new Map(M.gebeurtenissen.map((e) => [e.id, schil.querySelector(`.wt-merk[data-ev="${CSS.escape(e.id)}"]`)])),
@@ -158,6 +168,7 @@
     S.bereikt = new Set(M.gebeurtenissen.filter((e) => e.t <= S.t).map((e) => e.id));
     layout();
     zetTijd(S.t, { direct: true, onderschrift: !!opts.koppeling });
+    if (opts.koppeling) koppelingSchrift();
     new ResizeObserver(() => { if (D) { layout(); if (S.kaart) S.kaart.m.invalidateSize({ pan: false }); } }).observe(D.vlak);
     window.matchMedia("(min-width: 1180px)").addEventListener("change", () => D && zetWeergave(S.weergave, false));
     schil.focus({ preventScroll: true });
@@ -171,6 +182,15 @@
   function zetTerugKnop() {
     D.terug.querySelector("span").textContent = S.terugNaam ? "Terug naar het verhaal" : "Terug";
     D.terug.setAttribute("aria-label", S.terugNaam ? `Terug naar het verhaal: ${S.terugNaam}` : "Terug naar de Bijbelreis");
+  }
+  const koppelingNu = () => (S && S.koppeling ? (S.data.koppelingen || []).find((x) => x.verhaal === S.koppeling) || null : null);
+  // Bij het openen vanuit een verhaal: zeggen waar dit verhaal in de tijd staat (met de toelichting uit de gegevens).
+  function koppelingSchrift() {
+    const k = koppelingNu();
+    if (!k || (!k.opmerking && k.tot == null)) return false;
+    const as = S.as, t1 = K.naarT(k.jaar, as), t2 = k.tot != null ? K.naarT(k.tot, as) : t1;
+    onderschrift({ t: Math.min(t1, t2), t2: Math.max(t1, t2), titel: S.terugNaam || "Dit verhaal", tekst: k.opmerking || "" });
+    return true;
   }
   // Personen en gebeurtenissen die bij het verhaal horen waaruit de laag openging, krijgen nadruk (niet gekozen).
   function nadruk() {
@@ -192,10 +212,10 @@
   }
   function einde(p, lang) {
     const as = S.M.as, tot = p.tot || {};
-    if (p.einde === "onbekend") return lang ? "onbekend (leefde in elk geval tot " + K.jaarTekst(p.t1, as) + ")" : "einde onbekend";
-    if (p.einde === "leeft door") return "leeft na deze periode";
+    if (p.einde === "onbekend") return lang ? "onbekend (laatst genoemd in " + K.jaarTekst(p.t1, as) + ")" : "einde onbekend";
+    if (p.einde === "leeft door") return p.lijn === "regering" ? "regeert na deze periode door" : "leeft na deze periode door";
     const ld = tot.leeftijd != null ? tot.leeftijd : K.leeftijd(p, p.t1);
-    const wat = p.einde === "weggenomen" ? "God nam hem weg" : "stierf";
+    const wat = p.einde === "weggenomen" ? "God nam hem weg" : p.begin === "geboorte" || p.lijn === "regering" ? "stierf" : "stierf";
     return lang ? `${wat} in ${K.jaarTekst(p.t1, as)}${ld != null ? `, ${ld} jaar oud` : ""}` : wat;
   }
 
@@ -378,7 +398,7 @@
       if (!S) return;
       const leven = S.M.personen.filter((p) => K.leeftNog(p, S.t)).length;
       const e = [...S.M.gebeurtenissen].reverse().find((x) => x.t <= S.t + 1e-6 && S.t <= x.t2 + 1);
-      D.live.textContent = `${jaarVol(S.t)}. ${e ? e.titel + ". " : ""}${leven} van de ${S.M.personen.length} personen op deze tijdlijn leven.`;
+      D.live.textContent = `${jaarVol(S.t)}. ${e ? e.titel + ". " : ""}${leven} van de ${S.M.personen.length} personen op deze tijdlijn ${allesLevens() ? "leven" : "zijn in beeld"}.`;
     }, nu ? 120 : 700);
   }
   let laatsteMelding = 0;
@@ -429,9 +449,16 @@
       let band = null;
       if (x2 - x1 > 0.5) band = maak("rect", { class: "wt-e-band", x: x1, y: 0, width: x2 - x1, height: H }, g);
       else band = maak("rect", { class: "wt-e-band smal", x: x1 - 3, y: 0, width: 6, height: H }, g);
+      if (e.margeT) maak("rect", { class: "wt-e-marge", x: sc.x(e.margeT[0]) - 2, y: 0, width: Math.max(4, sc.x(e.margeT[1]) - sc.x(e.margeT[0]) + 4), height: H }, g);
       maak("line", { class: "wt-e-lijn", x1, x2: x1, y1: 0, y2: H }, g);
       D.ev.set(e.id, { g, band });
     });
+    // Het verhaal waaruit de laag openging, als het een tijdvak beslaat (bijv. ‘ergens in de regering van Nebukadnezar’).
+    const kp = koppelingNu();
+    if (kp && kp.tot != null) {
+      const a = sc.x(K.naarT(kp.jaar, M.as)), b = sc.x(K.naarT(kp.tot, M.as));
+      maak("rect", { class: "wt-kopband", x: Math.min(a, b), y: 0, width: Math.max(2, Math.abs(b - a)), height: H }, svg);
+    }
     // generaties: ouder → kind
     const gGen = maak("g", { class: "wt-gen" }, svg);
     D.gen = new Map();
@@ -455,11 +482,14 @@
       const spoorEind = p.einde === "onbekend" ? x1 + 40 : p.einde === "leeft door" ? W : x1;
       maak("rect", { class: "wt-spoor" + (p.einde === "onbekend" ? " vaag-eind" : ""), x: x0, y: y - 1, width: Math.max(0, spoorEind - x0), height: 2, rx: 1 }, g);
       if (p.beginOnzeker) maak("rect", { class: "wt-kopvaag", x: x0 - 24, y: y - 3.5, width: 24, height: 7, fill: "url(#wtKopVaag)" }, g);
+      // Marge: het jaar is niet precies bekend (bijv. 587 of 586). Een zachte band over de lijn.
+      [p.margeVan, p.margeTot].forEach((m, i) => { if (m) maak("rect", { class: "wt-marge " + (i ? "eind" : "begin"), x: sc.x(m[0]) - 4, y: y - 8, width: Math.max(8, sc.x(m[1]) - sc.x(m[0]) + 8), height: 16, rx: 8 }, g); });
       const balk = maak("rect", { class: "wt-balk", x: x0, y: y - 3.5, width: 0, height: 7, rx: 3.5 }, g);
       let staart = null;
       if (p.einde === "onbekend") staart = maak("rect", { class: "wt-staart", x: x1 - 1, y: y - 3.5, width: 44, height: 7, fill: "url(#wtStaartVaag)" }, g);
       let eind = null;
       if (p.einde === "stierf") { eind = maak("g", { class: "wt-eind", transform: `translate(${x1} ${y})` }, g); maak("rect", { x: -1.25, y: -9, width: 2.5, height: 18, rx: 1.25 }, eind); }
+      if (p.einde === "leeft door") { eind = maak("g", { class: "wt-eind door", transform: `translate(${x1} ${y})` }, g); maak("path", { d: "M1-5 6 0 1 5" }, eind); }
       if (p.einde === "weggenomen") {
         eind = maak("g", { class: "wt-eind weg", transform: `translate(${x1} ${y})` }, g);
         maak("circle", { class: "wt-weg-gloed", r: 11 }, eind);
@@ -488,7 +518,7 @@
     svg.setAttribute("width", W); svg.setAttribute("height", h); svg.setAttribute("viewBox", `0 0 ${W} ${h}`);
     svg.textContent = "";
     const g = maak("g", { class: "wt-as-ticks" }, svg);
-    ticks.forEach((t) => { const x = sc.x(t); if (x < 4 || x > W - 4) return; maak("line", { x1: x, x2: x, y1: h - 6, y2: h }, g); const tx = maak("text", { x, y: 14, "text-anchor": "middle" }, g); tx.textContent = K.jaarTekst(t, S.as, true); });
+    ticks.forEach((t) => { const x = sc.x(t); if (x < 4 || x > W - 4) return; maak("line", { x1: x, x2: x, y1: h - 6, y2: h }, g); const tx = maak("text", { x, y: 14, "text-anchor": "middle" }, g); tx.textContent = String(Math.abs(Math.round(K.naarJaar(t, S.as)))); });
     const ge = maak("g", { class: "wt-as-ev" }, svg);
     const bezet = [];
     // Belangrijke gebeurtenissen eerst een label; een label dat botst, valt weg (het merkje blijft).
@@ -530,7 +560,7 @@
       if (o.oud.b !== breedte) { o.balk.setAttribute("width", breedte); o.oud.b = breedte; }
       if (staat === "leeft" && o.oud.xc !== xc) { o.tip.setAttribute("cx", xc); o.oud.xc = xc; }
       const ld = staat === "leeft" ? K.leeftijd(p, t) : null;
-      const ldTekst = ld == null || p.beginOnzeker ? "" : String(ld);
+      const ldTekst = ld == null ? "" : String(ld);
       if (o.oud.ld !== ldTekst) { o.ld.textContent = ldTekst; o.oud.ld = ldTekst; }
       if (staat === "leeft") o.ld.setAttribute("x", xc + 9);
       if (o.oud.staat !== staat) {
@@ -541,7 +571,7 @@
       // Geboren tijdens het afspelen: een korte bloei op het begin van de lijn.
       if (vooruit && vorig < p.t0 && t >= p.t0 && !minderBeweging()) { o.bloei.classList.remove("aan"); void o.bloei.getBoundingClientRect(); o.bloei.classList.add("aan"); }
       if (vooruit && p.einde === "weggenomen" && vorig < p.t1 && t >= p.t1 && !minderBeweging() && o.eind) { o.eind.classList.remove("licht"); void o.eind.getBoundingClientRect(); o.eind.classList.add("licht"); }
-      const sub = !geboren ? (p.van && p.van.jaar == null ? "" : "nog niet geboren") : staat === "leeft" ? (ld == null || p.beginOnzeker ? "leeft" : `${ld} jaar`) : einde(p, false) + (p.einde === "stierf" && p.tot && p.tot.leeftijd != null ? ` · ${p.tot.leeftijd}` : "");
+      const sub = !geboren ? (p.van && p.van.jaar == null ? "" : VOOR[p.begin] || "later") : staat === "leeft" ? (ld == null ? lijnWoord(p) : `${ld} jaar`) : einde(p, false) + (p.einde === "stierf" && p.tot && p.tot.leeftijd != null ? ` · ${p.tot.leeftijd}` : "");
       if (D.oud["s" + p.id] !== sub) { D.sub.get(p.id).textContent = sub; D.oud["s" + p.id] = sub; }
       const gl = D.gen.get(p.id);
       if (gl && gl.oud !== geboren) { gl.pad.classList.toggle("aan", geboren); gl.stip.classList.toggle("aan", geboren); gl.oud = geboren; }
@@ -654,12 +684,15 @@
       if (o.tussen != null && o.tussen >= 0) {
         const eerst = S.M.byId.get(o.eerst), later = S.M.byId.get(o.later);
         if (o.minstens) return `${esc(a.naam)} en ${esc(b.naam)}: van ${esc(eerst.naam)} weten we niet hoe lang hij leefde.`;
+        if (a.begin !== "geboorte" || b.begin !== "geboorte") return `${esc(a.naam)} en ${esc(b.naam)} staan <b>niet tegelijk</b> op deze tijdlijn: er zitten ${o.ongeveer ? "ongeveer " : ""}${Math.round(o.tussen)} jaar tussen.`;
         return `${esc(a.naam)} en ${esc(b.naam)} leefden <b>niet tegelijk</b>. ${esc(later.naam)} werd ${o.ongeveer ? "ongeveer " : ""}${Math.round(o.tussen)} jaar na ${eerst.einde === "weggenomen" ? "het wegnemen" : "de dood"} van ${esc(eerst.naam)} geboren.`;
       }
       return `${esc(a.naam)} en ${esc(b.naam)} leefden niet tegelijk.`;
     }
     const duur = `${o.minstens ? "minstens " : o.ongeveer ? "ongeveer " : ""}${o.jaren} jaar`;
-    return `${esc(a.naam)} en ${esc(b.naam)} leefden <b>${duur}</b> tegelijk: van ${esc(K.jaarTekst(o.van, as))} tot ${esc(K.jaarTekst(o.tot, as))}.${o.minstens ? " Hoe lang daarna nog, staat niet in de Bijbel." : ""}`;
+    const periode = `van ${esc(K.jaarTekst(o.van, as))} tot ${esc(K.jaarTekst(o.tot, as))}`;
+    if (a.begin !== "geboorte" || b.begin !== "geboorte") return `${esc(a.naam)} (${esc(lijnWoord(a))}) en ${esc(b.naam)} (${esc(lijnWoord(b))}): <b>${duur}</b> tegelijk op deze tijdlijn, ${periode}.${o.minstens ? " Hoe lang daarna nog, is niet bekend." : ""}`;
+    return `${esc(a.naam)} en ${esc(b.naam)} leefden <b>${duur}</b> tegelijk: ${periode}.${o.minstens ? " Hoe lang daarna nog, staat niet in de Bijbel." : ""}`;
   }
   // De overlap als vlak tussen de twee lijnen, met de duur erbij.
   function tekenVergelijk() {
@@ -687,12 +720,13 @@
     const ouder = p.ouder && M.byId.get(p.ouder), kids = p.kinderen.map((k) => M.byId.get(k));
     const relatie = [ouder ? `zoon van <button type="button" class="wt-link" data-p="${esc(ouder.id)}">${esc(ouder.naam)}</button>` : "", kids.length ? `vader van ${kids.map((k) => `<button type="button" class="wt-link" data-p="${esc(k.id)}">${esc(k.naam)}</button>`).join(", ")}` : ""].filter(Boolean).join(" · ");
     const van = p.van || {}, tot = p.tot || {};
-    const geb = van.jaar != null ? `<b>${esc(K.jaarTekst(p.t0, as))}</b> ${chip(van.status)}<small>${van.vaderLeeftijd != null && ouder ? `${esc(ouder.naam)} was ${van.vaderLeeftijd} · ` : ""}${bronTekst(van.bron)}${van.marge ? ` · ${esc(van.marge)}` : ""}</small>` : `<b>onbekend</b>`;
+    const margeTekst = (m) => (Array.isArray(m) ? `${m[0]} of ${m[1]}${as.soort === "vchr" ? " v.Chr." : ""}` : m ? String(m) : "");
+    const geb = van.jaar != null ? `<b>${esc(p.voorAs ? "vóór " + K.jaarTekst(p.t0, as) : K.jaarTekst(K.naarT(van.jaar, as), as))}</b> ${chip(van.status)}<small>${van.vaderLeeftijd != null && ouder ? `${esc(ouder.naam)} was ${van.vaderLeeftijd} · ` : ""}${bronTekst(van.bron)}${van.marge ? ` · ${esc(margeTekst(van.marge))}` : ""}</small>` : `<b>onbekend</b>`;
     const eindWoord = p.einde === "weggenomen" ? "Weggenomen" : p.einde === "onbekend" ? "Einde" : p.einde === "leeft door" ? "Daarna" : "Stierf";
-    const eindTekst = p.einde === "onbekend" ? `<b>onbekend</b><small>leefde in elk geval tot ${esc(K.jaarTekst(p.t1, as))} · ${bronTekst(tot.bron)}</small>`
-      : p.einde === "leeft door" ? `<b>leeft na deze periode</b>`
+    const eindTekst = p.einde === "onbekend" ? `<b>onbekend</b><small>laatst genoemd in ${esc(K.jaarTekst(p.t1, as))}${tot.marge ? ` (${esc(margeTekst(tot.marge))})` : ""} · ${bronTekst(tot.bron)}</small>`
+      : p.einde === "leeft door" ? `<b>${esc(K.jaarTekst(K.naarT(tot.jaar, as), as))}</b> ${chip(tot.status)}<small>na het einde van deze tijdlijn · ${bronTekst(tot.bron)}</small>`
       : `<b>${esc(K.jaarTekst(p.t1, as))}</b> ${chip(tot.status)}<small>${tot.leeftijd != null ? `${tot.leeftijd} jaar oud${tot.leeftijdStatus === "berekend" ? " (berekend)" : ""} · ` : ""}${bronTekst(tot.bron)}</small>`;
-    const noten = [van.opmerking, tot.opmerking].filter(Boolean).map((x) => `<p class="wt-noot">${esc(x)}</p>`).join("");
+    const noten = [p.begin !== "geboorte" && !/geboren|geboorte/i.test(van.opmerking || "") ? `Geboortejaar onbekend: de lijn begint ${p.begin === "regering" ? "bij het begin van de regering" : p.begin === "weggevoerd" ? "bij de wegvoering" : p.begin === "roeping" ? "bij de roeping" : "later"}.` : "", van.opmerking, tot.opmerking].filter(Boolean).map((x) => `<p class="wt-noot">${esc(x)}</p>`).join("");
     // Wie leefden tegelijk, en hoe lang (uitgerekend, niet overgenomen).
     const anderen = M.personen.filter((q) => q.id !== p.id).map((q) => ({ q, o: K.overlap(p, q) }));
     const tegelijk = anderen.filter((x) => x.o.jaren > 0).sort((a, b) => b.o.jaren - a.o.jaren);
@@ -703,9 +737,9 @@
     const html = `<article class="wt-kaartje" aria-labelledby="wtInfoTitel">
       <header class="wt-kaartje-kop"><p class="wt-label">Persoon</p><h3 id="wtInfoTitel" tabindex="-1">${esc(p.naam)}</h3>${relatie ? `<p class="wt-relatie">${relatie}</p>` : ""}<button type="button" class="wt-kaartje-sluit" data-wt-info-sluit aria-label="Sluiten">${ICON.sluit}</button></header>
       ${p.rol ? `<p class="wt-rolzin">${esc(p.rol)}</p>` : ""}
-      <dl class="wt-feiten"><div><dt>Geboren</dt><dd>${geb}</dd></div><div><dt>${eindWoord}</dt><dd>${eindTekst}</dd></div><div class="wt-feit-nu"><dt>In ${esc(K.jaarTekst(S.t, as))}</dt><dd class="wt-info-nu"></dd></div></dl>
+      <dl class="wt-feiten"><div><dt>${BEGIN[p.begin] || "Vanaf"}</dt><dd>${geb}</dd></div><div><dt>${eindWoord}</dt><dd>${eindTekst}</dd></div><div class="wt-feit-nu"><dt>In ${esc(K.jaarTekst(S.t, as))}</dt><dd class="wt-info-nu"></dd></div></dl>
       ${noten}
-      ${tegelijk.length ? `<h4 class="wt-label">Leefde tegelijk met</h4><p class="wt-uitleg">Kies iemand om te vergelijken.</p><ul class="wt-tegelijk">${tegelijk.map(({ q, o }) => `<li><button type="button" data-vergelijk="${esc(q.id)}" aria-pressed="${q.id === S.vergelijk}"><span>${esc(q.naam)}</span><b>${o.minstens ? "≥ " : o.ongeveer ? "± " : ""}${o.jaren} jaar</b></button></li>`).join("")}</ul>` : ""}
+      ${tegelijk.length ? `<h4 class="wt-label">${p.begin === "geboorte" && allesLevens() ? "Leefde tegelijk met" : "Tegelijk op de tijdlijn met"}</h4><p class="wt-uitleg">Kies iemand om te vergelijken.</p><ul class="wt-tegelijk">${tegelijk.map(({ q, o }) => `<li><button type="button" data-vergelijk="${esc(q.id)}" aria-pressed="${q.id === S.vergelijk}"><span>${esc(q.naam)}</span><b>${o.minstens ? "≥ " : o.ongeveer ? "± " : ""}${o.jaren} jaar</b></button></li>`).join("")}</ul>` : ""}
       ${niet.length ? `<p class="wt-niet">Niet tegelijk met ${niet.map(({ q }) => `<button type="button" class="wt-link" data-vergelijk="${esc(q.id)}">${esc(q.naam)}</button>`).join(", ")}.</p>` : ""}
       <p class="wt-vergelijking" aria-live="polite">${S.vergelijk ? vergelijkZin(p, M.byId.get(S.vergelijk)) : ""}</p>
       ${ev.length ? `<h4 class="wt-label">Gebeurtenissen</h4><ul class="wt-evlijst">${ev.map((e) => `<li><button type="button" data-naar="${e.t}"><span>${esc(K.jaarTekst(e.t, as, as.soort === "am"))}</span>${esc(e.titel)}</button></li>`).join("")}</ul>` : ""}
@@ -818,7 +852,7 @@
     const volgend = M.gebeurtenissen.find((e) => e.t > t + 1e-6);
     const oudste = leven.filter((p) => !p.beginOnzeker).sort((a, b) => a.t0 - b.t0)[0];
     D.nu.innerHTML = `<p class="wt-label">In ${esc(K.jaarTekst(t, as))}</p>
-      <p class="wt-nu-getal"><b>${leven.length}</b> <span>van de ${M.personen.length} mensen op deze tijdlijn leven${leven.length === 1 ? "t" : ""}${oudste && leven.length > 1 ? `. De oudste is ${esc(oudste.naam)}, ${K.leeftijd(oudste, t)} jaar` : ""}.</span></p>
+      <p class="wt-nu-getal"><b>${leven.length}</b> <span>${allesLevens() ? `van de ${M.personen.length} mensen op deze tijdlijn leven${leven.length === 1 ? "t" : ""}${oudste && leven.length > 1 ? `. De oudste is ${esc(oudste.naam)}, ${K.leeftijd(oudste, t)} jaar` : ""}` : `van de ${M.personen.length} personen zijn nu in beeld${leven.length ? ": " + leven.map((p) => `${esc(p.naam)} <small>(${esc(lijnWoord(p))})</small>`).join(", ") : ""}`}.</span></p>
       ${recent ? `<div class="wt-nu-ev"><p class="wt-label">Laatst gebeurd · ${esc(K.jaarTekst(recent.t, as, as.soort === "am"))}</p><button type="button" class="wt-nu-titel" data-e="${esc(recent.id)}">${esc(recent.titel)}</button><p>${esc(recent.tekst)}</p></div>` : ""}
       ${volgend ? `<p class="wt-nu-straks"><span class="wt-label">Hierna</span> <button type="button" class="wt-link" data-naar="${volgend.t}">${esc(volgend.titel)}</button>, over ${Math.round(volgend.t - t)} jaar</p>` : ""}
       <p class="wt-tip">Kies een naam om te zien wie er tegelijk leefden, en hoe lang.</p>`;
@@ -872,59 +906,106 @@
     const M = S.M;
     const m = L.map(D.kaartvlak, { zoomSnap: 0.25, zoomDelta: 0.5, minZoom: 3, maxZoom: 10, attributionControl: false, zoomControl: false, maxBounds: [[5, -15], [60, 75]], maxBoundsViscosity: 0.7 });
     L.control.zoom({ position: "topleft", zoomInTitle: "Inzoomen", zoomOutTitle: "Uitzoomen" }).addTo(m);
-    if (BR.ondergrond) BR.ondergrond(m).catch(() => D.kaartvlak.insertAdjacentHTML("beforeend", '<p class="wt-kaartfout" role="status">De ondergrond kon niet worden geladen.</p>'));
     m.createPane("wtGebieden").style.zIndex = 420;
+    m.createPane("wtRand").style.zIndex = 450;
     m.createPane("wtLabels").style.zIndex = 640;
+    m.getPane("wtRand").style.pointerEvents = "none";
+    // De ondergrond houdt ergens op (geo.json: tot 53° O). Daarbuiten: papier met een kaderlijn, zoals in een atlas, en
+    // gebieden worden op die rand afgeknipt, met een pijl ‘loopt verder naar het oosten’.
+    const zetRand = (gr) => {
+      const [z, w, n, o] = gr;
+      S.kaart.rand = { w, o };
+      L.polygon([[[-10, -60], [-10, 140], [80, 140], [80, -60]], [[z, w], [z, o], [n, o], [n, w]]], { pane: "wtRand", interactive: false, className: "wt-rand-papier" }).addTo(m);
+      L.rectangle([[z, w], [n, o]], { pane: "wtRand", interactive: false, className: "wt-rand-lijn", fill: false }).addTo(m);
+      m.setMaxBounds([[z - 1, w - 1], [n + 1, o + 2]]);
+      // Niet verder uitzoomen dan het land van de ondergrond het scherm vult (anders zie je vooral papier).
+      const binnen = m.getBoundsZoom([[z, w], [n, o]], true);
+      m.setMinZoom(Math.max(3, binnen - 0.25));
+      if (S.kaart.alles) m.fitBounds(S.kaart.alles, { padding: [24, 24], maxZoom: 7, animate: false });
+      if (m.getZoom() < binnen) m.setZoom(binnen, { animate: false });
+      kaartTijd(S.t, []);
+    };
+    if (BR.ondergrond) BR.ondergrond(m).then((gr) => { if (S && S.kaart && S.kaart.m === m && Array.isArray(gr)) zetRand(gr); }).catch(() => D.kaartvlak.insertAdjacentHTML("beforeend", '<p class="wt-kaartfout" role="status">De ondergrond kon niet worden geladen.</p>'));
     const gebieden = M.gebieden.map((g) => {
       const laag = L.polygon([], { pane: "wtGebieden", className: `wt-gebied wt-gebied-${g.id}`, interactive: false, smoothFactor: 0.5 }).addTo(m);
       const kleur = /^[a-z]+$/.test(g.kleur || "") ? g.kleur : "terra";
-      const label = L.marker([0, 0], { pane: "wtLabels", interactive: false, keyboard: false, icon: L.divIcon({ className: "wt-gebiedlabel", iconSize: [0, 0], html: `<span style="--gk:var(--${kleur}-deep, var(--${kleur}))">${esc(g.naam)}</span>` }) });
+      const label = L.marker([0, 0], { pane: "wtLabels", interactive: false, keyboard: false, icon: L.divIcon({ className: "wt-gebiedlabel", iconSize: [0, 0], html: `<span style="--gk:${kleurVar(kleur, true)}">${esc(g.naam)}</span>` }) });
+      const verder = L.marker([0, 0], { pane: "wtLabels", interactive: false, keyboard: false, icon: L.divIcon({ className: "wt-verder", iconSize: [0, 0], html: `<span style="--gk:${kleurVar(kleur, true)}">${esc(g.naam)} loopt verder naar het oosten <b aria-hidden="true">→</b></span>` }) });
       const pad = () => laag.getElement && laag.getElement();
-      return { g, laag, label, kleur, pad, aan: false };
+      return { g, laag, label, verder, kleur, pad, aan: false, verderAan: false };
     });
     const steden = M.steden.map((s) => {
       const hoofd = M.gebieden.some((g) => g.hoofdstad === s.id);
-      const mk = L.marker(s.ll, { pane: "wtLabels", keyboard: false, icon: L.divIcon({ className: "wt-stad" + (hoofd ? " hoofd" : ""), iconSize: [0, 0], html: `<button type="button" data-stad="${esc(s.id)}" aria-label="${esc(s.naam)}${hoofd ? ", hoofdstad" : ""}"><i></i><span>${esc(s.naam)}</span></button>` }) }).addTo(m);
+      // Kleinere plaatsen krijgen pas een naam als je inzoomt (of als er net iets gebeurt), zodat de kaart rustig blijft.
+      const belangrijk = hoofd || M.gebeurtenissen.some((e) => e.belangrijk && (e.plaats === s.plaatsId || e.plaats === s.id));
+      const mk = L.marker(s.ll, { pane: "wtLabels", keyboard: false, icon: L.divIcon({ className: "wt-stad" + (hoofd ? " hoofd" : "") + (belangrijk ? " belangrijk" : ""), iconSize: [0, 0], html: `<button type="button" data-stad="${esc(s.id)}" aria-label="${esc(s.naam)}${hoofd ? ", hoofdstad" : ""}"><i></i><span>${esc(s.naam)}</span></button>` }) }).addTo(m);
       return { s, mk };
     });
     const plekken = M.gebeurtenissen.filter((e) => e.plek).map((e) => {
       const mk = L.marker(e.plek.ll, { pane: "wtLabels", keyboard: false, icon: L.divIcon({ className: "wt-plek" + (e.plek.gebied ? " gebied" : ""), iconSize: [0, 0], html: `<button type="button" data-e="${esc(e.id)}" aria-label="${esc(e.titel)}" tabindex="-1"><i></i><b></b></button>` }) });
       return { e, mk, aan: false };
     });
-    S.kaart = { m, gebieden, steden, plekken };
+    S.kaart = { m, gebieden, steden, plekken, rand: { w: -180, o: 53 } };
     // Eerste beeld: alles van deze periode, zonder vlucht.
+    const zoomKlas = () => { const z = m.getZoom(); D.kaartvlak.classList.toggle("wt-ver", z < 5.75); };
+    m.on("zoomend", zoomKlas);
     const punten = [];
-    M.gebieden.forEach((g) => g.sleutels.forEach((s) => s.delen.forEach((r) => r.forEach(([lng, lat]) => punten.push([lat, lng])))));
+    M.gebieden.forEach((g) => g.sleutels.forEach((s) => s.delen.forEach((r) => r.forEach(([lng, lat]) => punten.push([lat, Math.min(lng, S.kaart.rand.o)])))));
     M.steden.forEach((s) => punten.push(s.ll));
     plekken.forEach((p) => punten.push(p.e.plek.ll));
-    if (punten.length) m.fitBounds(L.latLngBounds(punten), { padding: [28, 28], maxZoom: 7 }); else m.setView([33, 40], 5);
+    S.kaart.alles = punten.length ? L.latLngBounds(punten) : null;
+    if (punten.length) m.fitBounds(S.kaart.alles, { padding: [28, 28], maxZoom: 7 }); else m.setView([33, 40], 5);
+    zoomKlas();
+    if (D.legenda) D.legenda.parentElement.open = breed();
     legenda();
     kaartTijd(S.t, []);
+  }
+  // Het zwaartepunt van een vlak (niet het gemiddelde van de punten): daar staat de naam van een gebied.
+  function zwaartepunt(r) {
+    let a = 0, x = 0, y = 0;
+    for (let i = 0; i < r.length; i++) { const p = r[i], q = r[(i + 1) % r.length], k = p[1] * q[0] - q[1] * p[0]; a += k; x += (p[0] + q[0]) * k; y += (p[1] + q[1]) * k; }
+    if (Math.abs(a) < 1e-9) return r.reduce((m, p) => [m[0] + p[0] / r.length, m[1] + p[1] / r.length], [0, 0]);
+    return [x / (3 * a), y / (3 * a)];
   }
   function legenda() {
     if (!D.legenda) return;
     const G = S.kaart.gebieden;
-    D.legenda.innerHTML = `<ul>${G.map(({ g, kleur }) => `<li data-g="${esc(g.id)}"><i style="--gk:var(--${kleur}-deep, var(--${kleur}));--gv:var(--${kleur})"></i>${esc(g.naam)}</li>`).join("")}</ul><p><i class="wt-leg-stip"></i>Gestippelde rand: grens bij benadering</p>`;
+    // Naamsvermelding voor bronnen met een CC BY-licentie (bijv. Pleiades voor de ligging van enkele steden).
+    const cc = (S.data.bronnen || []).filter((b) => /^CC BY/.test(b.licentie || "")).map((b) => { const m = /naamsvermelding:\s*([^)]+)/.exec(b.licentie); return `${m ? m[1].trim() : b.titel} (${b.licentie.split(" (")[0]})`; });
+    const benaderd = S.M.gebieden.some((g) => g.sleutels.some((s) => s.betrouwbaarheid !== "historisch"));
+    D.legenda.innerHTML = `<ul>${G.map(({ g, kleur }) => `<li data-g="${esc(g.id)}"><i style="--gk:${kleurVar(kleur, true)};--gv:${kleurVar(kleur)}"></i>${esc(g.naam)}</li>`).join("")}</ul>${benaderd ? '<p><i class="wt-leg-stip"></i>Gestippelde rand: grens bij benadering</p>' : ""}<p class="wt-leg-bron">Ondergrond: Natural Earth. Grenzen: eigen tekening${[...new Set(cc)].length ? `. Ligging van enkele plaatsen: ${esc([...new Set(cc)].join(", "))}` : ""}.</p>`;
   }
   function kaartTijd(t, nieuw) {
     const K2 = S.kaart; if (!K2) return;
     const zichtbaar = new Set();
     K2.gebieden.forEach((o) => {
       const v = K.gebiedOp(o.g, t, S.M.vervaag);
-      if (!v) { if (o.aan) { o.laag.setLatLngs([]); o.label.remove(); o.aan = false; } return; }
-      o.laag.setLatLngs(v.delen);
+      if (!v) { if (o.aan) { o.laag.setLatLngs([]); o.label.remove(); o.aan = false; } if (o.verderAan) { o.verder.remove(); o.verderAan = false; } return; }
+      // Afknippen op de rand van de ondergrond.
+      const { w, o: oost } = K2.rand;
+      const voorbijRand = v.delen.some((r) => r.some((p) => p[1] > oost + 1e-6));
+      const delen = v.delen.map((r) => K.knip(K.knip(r, oost, true), w, false)).filter((r) => r.length >= 3);
+      o.laag.setLatLngs(delen);
       const el = o.pad();
       if (el) {
         el.style.opacity = v.dekking.toFixed(3);
-        el.style.setProperty("--gk", `var(--${o.kleur}-deep, var(--${o.kleur}))`);
-        el.style.setProperty("--gv", `var(--${o.kleur})`);
+        el.style.setProperty("--gk", kleurVar(o.kleur, true));
+        el.style.setProperty("--gv", kleurVar(o.kleur));
         el.classList.toggle("benaderd", v.betrouwbaarheid !== "historisch");
       }
-      // Het label op het midden van het grootste deel.
-      const r = v.delen[0], c = r.reduce((a, p) => [a[0] + p[0] / r.length, a[1] + p[1] / r.length], [0, 0]);
+      // Het label op het midden van het grootste (zichtbare) deel.
+      const c = zwaartepunt(delen[0] || v.delen[0]);
       o.label.setLatLng(c);
       if (!o.aan) { o.label.addTo(K2.m); o.aan = true; }
       const le = o.label.getElement(); if (le) le.style.opacity = v.dekking.toFixed(3);
+      // Loopt het gebied verder dan de rand: een pijl op de rand, op de hoogte van het afgeknipte stuk.
+      if (voorbijRand) {
+        const randPunten = delen.flat().filter((p) => Math.abs(p[1] - oost) < 1e-6);
+        const lat = randPunten.length ? randPunten.reduce((a, p) => a + p[0], 0) / randPunten.length : c[0];
+        o.verder.setLatLng([lat, oost]);
+        if (!o.verderAan) { o.verder.addTo(K2.m); o.verderAan = true; }
+        const ve = o.verder.getElement(); if (ve) ve.style.opacity = v.dekking.toFixed(3);
+      } else if (o.verderAan) { o.verder.remove(); o.verderAan = false; }
       zichtbaar.add(o.g.id);
     });
     if (D.legenda) D.legenda.querySelectorAll("[data-g]").forEach((li) => li.classList.toggle("weg", !zichtbaar.has(li.dataset.g)));

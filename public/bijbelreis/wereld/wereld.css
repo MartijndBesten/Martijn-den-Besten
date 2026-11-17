@@ -93,6 +93,12 @@
 .wt-gl.vaag { stroke-opacity: 0.18; }
 .wt-gl-stip { fill: var(--nacht); opacity: 0; transition: opacity 0.4s; }
 .wt-gl-stip.aan { opacity: 0.45; }
+/* onzekerheid: een jaar dat niet precies bekend is (marge), en het tijdvak van het verhaal waaruit je kwam */
+.wt-marge { fill: var(--zand-diep); opacity: 0.16; }
+.wt-l.toekomst .wt-marge.eind, .wt-l.toekomst .wt-marge.begin { opacity: 0.08; }
+.wt-e-marge { fill: var(--ek, var(--oker)); opacity: 0; transition: opacity 0.6s; }
+.wt-e.af .wt-e-marge { opacity: 0.12; }
+.wt-kopband { fill: var(--terra); opacity: 0.07; }
 
 /* levenslijnen */
 .wt-raak { fill: transparent; }
@@ -110,6 +116,8 @@
 .wt-l.voorbij .wt-eind { opacity: 1; }
 .wt-eind.weg .wt-weg-gloed { fill: var(--oker); opacity: 0.28; }
 .wt-eind.weg .wt-weg-ring { fill: var(--wit); stroke: var(--oker-diep); stroke-width: 2; }
+.wt-eind.door path { fill: none; stroke: var(--nacht); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.wt-l:not(.toekomst) .wt-eind.door { opacity: 0.8; }
 .wt-eind.weg .wt-weg-pijl { fill: none; stroke: var(--oker-diep); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .wt-l.voorbij .wt-ld.eindlabel { fill: var(--inkt-3); }
 .wt-l .wt-eind.weg + .wt-bloei ~ .wt-ld.eindlabel { fill: var(--oker-diep); }
@@ -157,6 +165,8 @@
 .wt-stad span { font-size: 12.5px; font-weight: 650; color: var(--inkt); text-shadow: 0 0 2px var(--land), 0 0 5px var(--land); }
 .wt-stad.hoofd-nu i { width: 12px; height: 12px; border-radius: 3px; background: var(--nacht); }
 .wt-stad.hoofd-nu span { font-weight: 750; }
+.wt-ver .wt-stad:not(.belangrijk):not(.hoofd-nu) span { display: none; }
+.wt-ver .wt-stad:not(.belangrijk):not(.hoofd-nu) i { width: 7px; height: 7px; }
 .wt-plek button { position: relative; display: block; width: 32px; height: 32px; transform: translate(-50%, -50%); border: 0; background: none; padding: 0; cursor: pointer; }
 .wt-plek i { position: absolute; left: 50%; top: 50%; width: 11px; height: 11px; margin: -5.5px; border-radius: 50%; background: var(--terra-diep); box-shadow: 0 0 0 2.5px var(--wit); }
 .wt-plek b { position: absolute; left: 50%; top: 50%; width: 30px; height: 30px; margin: -15px; border-radius: 50%; border: 2px solid var(--terra-diep); opacity: 0; }
@@ -164,13 +174,25 @@
 .wt-plek.licht b { animation: wt-licht 1.8s ease-out 2; }
 .wt-plek.voorbij { opacity: 0.55; }
 @keyframes wt-licht { from { transform: scale(0.4); opacity: 0.9; } to { transform: scale(2.2); opacity: 0; } }
-.wt-legenda { position: absolute; left: 12px; bottom: 12px; z-index: 700; max-width: calc(100% - 24px); padding: 10px 12px; background: color-mix(in srgb, var(--wit) 94%, transparent); border-radius: 10px; box-shadow: var(--schaduw-kaart); font-size: 0.8rem; }
-.wt-legenda ul { list-style: none; margin: 0 0 6px; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.wt-rand-papier { fill: var(--papier); fill-opacity: 1; stroke: none; }
+.wt-rand-lijn { fill: none; stroke: var(--zand-diep); stroke-opacity: 0.45; stroke-width: 1; }
+.wt-verder span { position: absolute; right: 6px; top: 0; transform: translateY(-50%); display: inline-flex; align-items: center; gap: 5px; padding: 3px 7px; white-space: nowrap; font-size: 11px; font-weight: 650; color: var(--gk, var(--nacht)); background: color-mix(in srgb, var(--papier) 88%, transparent); border-radius: 8px; box-shadow: 0 1px 4px rgba(31, 36, 48, 0.18); pointer-events: none; }
+.wt-verder b { font-size: 15px; }
+.wt-legenda { position: absolute; left: 12px; bottom: 12px; z-index: 700; width: max-content; max-width: min(420px, calc(100% - 24px)); background: color-mix(in srgb, var(--wit) 94%, transparent); border-radius: 10px; box-shadow: var(--schaduw-kaart); font-size: 0.76rem; }
+.wt-legenda summary { min-height: 36px; display: flex; align-items: center; padding: 0 12px; cursor: pointer; font-weight: 650; font-size: 0.82rem; color: var(--nacht); list-style: none; }
+.wt-legenda summary::-webkit-details-marker { display: none; }
+.wt-legenda summary::after { content: "▾"; margin-left: 6px; font-size: 0.8em; }
+.wt-legenda[open] summary { min-height: 30px; }
+.wt-legenda[open] summary::after { content: "▴"; }
+.wt-legenda-in { padding: 0 12px 10px; }
+.wt-legenda ul { list-style: none; margin: 0 0 6px; padding: 0; display: flex; flex-wrap: wrap; gap: 3px 12px; }
 .wt-legenda li { display: flex; align-items: center; gap: 6px; transition: opacity 0.4s; }
 .wt-legenda li.weg { opacity: 0.38; }
 .wt-legenda li i { width: 14px; height: 10px; border-radius: 3px; background: color-mix(in srgb, var(--gv) 35%, transparent); border: 1.5px solid var(--gk); }
 .wt-legenda p { margin: 0; display: flex; align-items: center; gap: 6px; color: var(--inkt-2); }
 .wt-leg-stip { width: 18px; height: 0; border-top: 2px dashed var(--inkt-2); }
+.wt-legenda .wt-leg-bron { display: block; margin-top: 4px; font-size: 0.72rem; color: var(--inkt-3); }
+@media (max-width: 1023px) { .wt-legenda li.weg { display: none; } .wt-legenda { right: 12px; } }
 .wt-geenkaart { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 28px 24px; text-align: center; background: var(--wit); border: 1px solid var(--lijn); border-radius: var(--r-groot); box-shadow: var(--schaduw); }
 .wt-geenkaart svg { width: 56px; height: 56px; color: var(--zand-diep); }
 .wt-geenkaart h3 { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 1.7rem; letter-spacing: 0; }
@@ -365,7 +387,7 @@
   .wt-schuifrij { flex: 1; min-width: 0; order: 2; }
   .wt-knoppen { order: 1; padding-top: 0; }
   .wt-snelheid { margin-left: 8px; }
-  .wt-app[data-naast="1"] { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 340px; }
+  .wt-app[data-naast="1"] { grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr) 330px; }
   .wt-app[data-naast="1"] .wt-zij { grid-column: 3; }
   .wt-app[data-naast="1"] .wt-jaarbalk, .wt-app[data-naast="1"] .wt-bediening { grid-column: 1 / 3; }
   .wt-app[data-naast="1"] .wt-p-lijnen { margin-right: 10px; }

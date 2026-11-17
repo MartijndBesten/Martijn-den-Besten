@@ -11,7 +11,7 @@ window.BR = window.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} };
   const AAN = false;
 
   /* REGISTER:BEGIN — geschreven door scripts/bijbelreis-wereld.mjs uit perioden/*.json; niet met de hand bewerken. */
-  const PERIODEN = {"adam-noach":{"titel":"Van Adam tot Noach","verhalen":{"v2":0,"v4":130,"v5":1656,"v6":1657}}};
+  const PERIODEN = {"adam-noach":{"titel":"Van Adam tot Noach","verhalen":{"v2":0,"v4":130,"v5":1656,"v6":1657}},"daniel-babylon":{"titel":"Daniël en Babylon","verhalen":{"v71":586,"v73":605,"v74":603,"v75":539,"v76":538}}};
   /* REGISTER:EIND */
 
   const heeftDom = typeof document !== "undefined" && typeof location !== "undefined";

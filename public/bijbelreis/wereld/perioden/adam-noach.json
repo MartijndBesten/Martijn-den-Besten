@@ -71,11 +71,11 @@
       "tot": { "jaar": 2158, "leeftijd": 600, "leeftijdStatus": "berekend", "status": "berekend", "bron": "Genesis 11:10–11", "einde": "stierf", "opmerking": "Honderd jaar bij de geboorte van Arfachsad, daarna nog vijfhonderd jaar: samen zeshonderd. Dat totaal staat er niet zelf." },
       "ouder": "noach", "rol": "Zoon van Noach. Uit hem komen Heber en later Abraham.", "ref": ["Genesis 5:32", "Genesis 11:10–11"], "gebeurtenissen": ["zondvloed"], "verhaal": "v5" },
     { "id": "cham", "naam": "Cham", "personenId": null,
-      "van": { "jaar": 1556, "status": "benaderd", "bron": "Genesis 5:32", "marge": "het precieze jaar staat er niet", "opmerking": "‘Noach was vijfhonderd jaren oud; en Noach gewon Sem, Cham en Jafeth’ (Genesis 5:32)." },
+      "van": { "jaar": 1556, "status": "benaderd", "bron": "Genesis 5:32", "opmerking": "‘Noach was vijfhonderd jaren oud; en Noach gewon Sem, Cham en Jafeth’ (Genesis 5:32). Het precieze jaar staat er niet." },
       "tot": { "jaar": 1657, "status": "berekend", "bron": "Genesis 8:18; 9:18", "einde": "onbekend", "opmerking": "Hij ging na de zondvloed uit de ark. Hoe lang hij daarna leefde, staat niet in de Bijbel." },
       "ouder": "noach", "rol": "Zoon van Noach, vader van Kanaän.", "ref": ["Genesis 5:32", "Genesis 9:18"], "gebeurtenissen": ["zondvloed"], "verhaal": "v5" },
     { "id": "jafeth", "naam": "Jafeth", "personenId": null,
-      "van": { "jaar": 1556, "status": "benaderd", "bron": "Genesis 5:32", "marge": "het precieze jaar staat er niet", "opmerking": "‘Noach was vijfhonderd jaren oud; en Noach gewon Sem, Cham en Jafeth’ (Genesis 5:32)." },
+      "van": { "jaar": 1556, "status": "benaderd", "bron": "Genesis 5:32", "opmerking": "‘Noach was vijfhonderd jaren oud; en Noach gewon Sem, Cham en Jafeth’ (Genesis 5:32). Het precieze jaar staat er niet." },
       "tot": { "jaar": 1657, "status": "berekend", "bron": "Genesis 8:18; 9:18", "einde": "onbekend", "opmerking": "Hij ging na de zondvloed uit de ark. Hoe lang hij daarna leefde, staat niet in de Bijbel." },
       "ouder": "noach", "rol": "Zoon van Noach.", "ref": ["Genesis 5:32", "Genesis 9:18"], "gebeurtenissen": ["zondvloed"], "verhaal": "v5" }
   ],
