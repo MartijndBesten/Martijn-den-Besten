@@ -1,0 +1,19 @@
+/* Losse tekstpagina's van de Bijbelreis: Privacy (/privacy) en Hulp (/hulp). Gemaakt door Denckh.
+   Gebruikt de tokens uit bijbelreis.css en de kopbalk en voet (bk-…) uit boekje.css; alles hier heet in-…. */
+
+.in-main { max-width: 760px; }
+.in-main h2 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem); letter-spacing: -0.03em; line-height: 1.15; margin: 0 0 10px; }
+.in-main h2 em { font-family: var(--font-serif); font-weight: 400; color: var(--terra-diep); }
+.in-main h3 { font-size: 1.15rem; letter-spacing: -0.01em; line-height: 1.25; margin: 26px 0 6px; }
+.in-main p, .in-main li { max-width: 68ch; }
+.in-main p { margin: 0 0 10px; }
+.in-main ul { margin: 0 0 10px; padding-left: 1.3em; display: grid; gap: 4px; }
+.in-main a { color: var(--nacht); font-weight: 600; }
+.in-kort { background: var(--wit); border: 1px solid var(--lijn); border-radius: var(--r-groot); padding: 16px 20px; box-shadow: var(--schaduw); margin: 0 0 8px; }
+.in-kort ul { margin: 0; }
+.in-vraag { border-top: 1px solid var(--lijn); padding: 4px 0 2px; }
+.in-vraag summary { cursor: pointer; font-weight: 650; min-height: 44px; display: flex; align-items: center; padding: 6px 0; }
+.in-vraag[open] summary { color: var(--nacht); }
+.in-vraag > div { padding: 0 0 10px; }
+.in-noot { color: var(--inkt-3); font-size: 0.92rem; margin-top: 24px !important; }
+@media print { .bk-kopbalk, .bk-voet, .bk-skip { display: none; } .in-vraag > div { display: block; } }

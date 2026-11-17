@@ -1,5 +1,10 @@
 # Bijbelreis als iOS-app: besluit
 
+> **Stand 17-11-2026 (later):** de app staat in `apps/ios/` (branch `claude/bijbelreis-ios-app`, via een PR naar `main`), bijgewerkt
+> voor de huidige atlas (lesroutes, geen service worker, privacy en hulp in de app). De stappen voor Xcode en App Store
+> Connect, de teksten, de leeftijdsvragenlijst en het privacylabel staan in **`APPSTORE.md`**. De privacy- en
+> support-URL zijn `https://bijbelreis.nl/privacy` en `https://bijbelreis.nl/hulp` (in plaats van `/privacy-app`).
+
 17 november 2026. Vraag van Martijn: Bijbelreis moet ook in de Apple App Store. Vergeleken zijn (1) alleen een PWA, (2) de bestaande website via Capacitor als iOS-app en (3) een volledig native SwiftUI-app.
 
 ## Besluit in het kort
