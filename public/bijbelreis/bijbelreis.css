@@ -1779,3 +1779,12 @@ details.meerinfo p { margin: 6px 0 0; }
 @media (min-width: 901px) { .kop h1 { padding-right: 0.15em; } }
 /* Brede kop met uitleg als tweede regel: het tegeltje kleiner, zodat de kop 64 px hoog blijft. */
 @media (min-width: 1360px) { .tabs button svg { padding: 2px; margin: -2px 0 -1px; border-radius: 7px; } }
+
+/* Samen ontdekken: het vlak boven Vorige/Verder is zo hoog als de grootste stap van de geschiedenis (podiumHoogte in
+   app.js), zodat de knoppen bij elke stap op dezelfde plek staan. De tekst staat bovenaan, de rest blijft leeg. */
+.a-podium { display: flex; flex-direction: column; gap: 12px; }
+/* Telefoon en tablet: Vorige/Verder blijven onderin het scherm in beeld, net boven de onderbalk, zodat ze bij elke stap op
+   dezelfde plek onder de duim staan, ook als de stap langer is dan het scherm. */
+@media (max-width: 900px) {
+  .verhaal.samen .a-nav { position: sticky; z-index: 5; bottom: calc(var(--onderbalk-h) + env(safe-area-inset-bottom, 0px) + 8px); padding: 8px; margin: 0 -8px; border-radius: calc(var(--r) + 8px); background: color-mix(in srgb, var(--card) 88%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+}
