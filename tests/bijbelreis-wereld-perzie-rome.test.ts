@@ -313,7 +313,7 @@ describe("wereld perzie: rekent en tekent zoals de bronnen", () => {
   it("de kaart ligt goed: Susan, Babel, Jeruzalem, Sardis en Memphis in Perzië; Athene niet; Thracië alleen 513–480; Jeruzalem in Juda", () => {
     for (const s of PZ.gebieden.find((g) => g.id === "perzie")!.sleutels) {
       for (const st of ["susa", "babylon", "jeruzalem", "sardis", "memphis", "persepolis", "ekbatana"]) expect(ligtIn(PZ, "perzie", s.jaar, st), `${st} ${s.jaar}`).toBe(true);
-      for (const st of ["athene", "marathon"]) expect(ligtIn(PZ, "perzie", s.jaar, st), `${st} ${s.jaar}`).toBe(false);
+      for (const st of ["athene", [38.15, 23.97] as [number, number]]) expect(ligtIn(PZ, "perzie", s.jaar, st), `${st} ${s.jaar}`).toBe(false); // Athene, Marathon
       const byzantium: [number, number] = [41.2, 28.3]; // Thracië bij Byzantium
       expect(ligtIn(PZ, "perzie", s.jaar, byzantium), `Thracië ${s.jaar}`).toBe(s.jaar <= 513 && s.jaar >= 480);
     }
@@ -340,6 +340,7 @@ describe("wereld geboorte-jezus: de Heere Jezus alleen in gebeurtenissen", () =>
   });
 });
 
+const GADARA: [number, number] = [32.656, 35.677]; // Pleiades 678142
 describe("wereld geboorte-jezus: as zonder jaar 0, en wat de Bijbel en de geschiedschrijvers zeggen", () => {
   const M = K.bereid(GJ, { plaatsen: BR.plaatsen });
   const P = (id: string) => GJ.personen.find((p) => p.id === id)!;
@@ -372,7 +373,7 @@ describe("wereld geboorte-jezus: as zonder jaar 0, en wat de Bijbel en de geschi
     expect(P("cyrenius").van.opmerking).toMatch(/6 n\.Chr\./);
   });
   it("Mattheüs 2:22 op de kaart: in 4 v.Chr. ligt Bethlehem bij Archelaüs en Nazareth bij Antipas (Galilea)", () => {
-    expect(ligtIn(GJ, "archelaus", -4, "bethlehem")).toBe(true);
+    expect(ligtIn(GJ, "archelaus", -4, BR.plaatsen.efrath.ll)).toBe(true); // Bethlehem
     expect(ligtIn(GJ, "archelaus", -4, "jeruzalem")).toBe(true);
     expect(ligtIn(GJ, "antipas", -4, "nazareth")).toBe(true);
     expect(ligtIn(GJ, "archelaus", -4, "nazareth")).toBe(false);
@@ -384,12 +385,12 @@ describe("wereld geboorte-jezus: as zonder jaar 0, en wat de Bijbel en de geschi
     expect(ligtIn(GJ, "judea", 6, "caesarea")).toBe(true);
   });
   it("het rijk van Herodes groeit zoals Josephus vertelt: kust en Gadara in 30, Paneas in 20 v.Chr.", () => {
-    for (const j of [-37, -31]) { expect(ligtIn(GJ, "herodes", j, "jeruzalem")).toBe(true); expect(ligtIn(GJ, "herodes", j, "gadara")).toBe(false); expect(ligtIn(GJ, "herodes", j, "caesarea")).toBe(false); }
-    for (const j of [-30, -5]) { expect(ligtIn(GJ, "herodes", j, "gadara")).toBe(true); expect(ligtIn(GJ, "herodes", j, "caesarea")).toBe(true); }
+    for (const j of [-37, -31]) { expect(ligtIn(GJ, "herodes", j, "jeruzalem")).toBe(true); expect(ligtIn(GJ, "herodes", j, GADARA)).toBe(false); expect(ligtIn(GJ, "herodes", j, "caesarea")).toBe(false); }
+    for (const j of [-30, -5]) { expect(ligtIn(GJ, "herodes", j, GADARA)).toBe(true); expect(ligtIn(GJ, "herodes", j, "caesarea")).toBe(true); }
     expect(ligtIn(GJ, "herodes", -21, "caesarea-filippi")).toBe(false);
     expect(ligtIn(GJ, "herodes", -20, "caesarea-filippi")).toBe(true);
-    for (const j of [-40, -31, -4, 40]) expect(ligtIn(GJ, "decapolis", j, "gadara"), `Gadara Decapolis ${j}`).toBe(true);
-    for (const j of [-30, -5]) expect(ligtIn(GJ, "decapolis", j, "gadara"), `Gadara Herodes ${j}`).toBe(false);
+    for (const j of [-40, -31, -4, 40]) expect(ligtIn(GJ, "decapolis", j, GADARA), `Gadara Decapolis ${j}`).toBe(true);
+    for (const j of [-30, -5]) expect(ligtIn(GJ, "decapolis", j, GADARA), `Gadara Herodes ${j}`).toBe(false);
     expect(ligtIn(GJ, "decapolis", -4, "gerasa")).toBe(true);
   });
   it("het Romeinse rijk kleurt niets dubbel: geen overlap met Herodes, zijn zonen, de Decapolis of Nabatea", () => {

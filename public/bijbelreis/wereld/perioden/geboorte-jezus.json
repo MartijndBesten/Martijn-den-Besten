@@ -11,13 +11,11 @@
   "uitleg": "Jaren voor en na Christus. Een jaar 0 bestaat niet: na 1 v.Chr. komt 1 n.Chr."
  },
  "start": -5,
- "kader": [[29.9,33.0],[34.2,38.4]],
+ "kader": [[29.9,33.2],[34.2,37.6]],
  "info": [
   {
    "kop": "Waarom geen lijn voor de Heere Jezus?",
-   "tekst": "De Heere Jezus staat hier niet als een levenslijn of een figuurtje tussen de heersers. Zijn geboorte, Zijn doop en Zijn kruisiging en opstanding staan als gebeurtenissen op de tijdlijn, met de plaats in de Bijbel waar je erover leest.",
-   "status": "expliciet",
-   "bron": "sv"
+   "tekst": "De Heere Jezus staat hier niet als een levenslijn of een figuurtje tussen de heersers. Zijn geboorte, Zijn doop en Zijn kruisiging en opstanding staan als gebeurtenissen op de tijdlijn, met de plaats in de Bijbel waar je erover leest. Zo wordt de Heere Jezus nooit afgebeeld."
   },
   {
    "kop": "Waarom ca. 6–4 v.Chr.?",
@@ -377,8 +375,9 @@
   },
   {
    "id": "antipas",
-   "naam": "Herodes Antipas",
+   "naam": "Antipas",
    "alt": [
+    "Herodes Antipas",
     "Herodes de viervorst"
    ],
    "personenId": "herodes_antipas",
@@ -403,7 +402,7 @@
     "opmerking": "In de zomer van 39 n.Chr. door keizer Caligula afgezet en verbannen; zijn land ging naar Herodes Agrippa I."
    },
    "ouder": "herodes",
-   "rol": "Viervorst over Galilea en Perea; liet Johannes de Doper onthoofden",
+   "rol": "Herodes Antipas, in de Bijbel ‘Herodes, de viervorst’ (Mattheüs 14:1); viervorst over Galilea en Perea, liet Johannes de Doper onthoofden",
    "ref": [
     "Lukas 3:1",
     "Markus 6:14–29",
@@ -525,9 +524,9 @@
   },
   {
    "id": "pilatus",
-   "naam": "Pontius Pilatus",
+   "naam": "Pilatus",
    "alt": [
-    "Pilatus"
+    "Pontius Pilatus"
    ],
    "personenId": "pilatus",
    "lijn": "regering",
@@ -1070,6 +1069,8 @@
     "josephus-ant-15",
     "josephus-ant-17",
     "wiki-herodes",
+    "pleiades-gadara",
+    "bijbelreis-plaatsen",
     "eigen-tekening"
    ],
    "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Het rijk groeide met gebieden die Augustus gaf: in 30 v.Chr. de kust (Joppe, de Torenstad van Strato) en Gadara en Hippos; in 23 v.Chr. Trachonitis, Batanea en Auranitis; in 20 v.Chr. Paneas (Josephus). Gaza, Samaria en Anthedon kreeg hij ook; Gaza ligt los van de rest en is niet getekend.",
@@ -1365,6 +1366,8 @@
     "wiki-decapolis",
     "josephus-ant-15",
     "josephus-ant-17",
+    "pleiades-gadara",
+    "pleiades-gerasa",
     "eigen-tekening"
    ],
    "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Decapolis betekent tien steden: steden met Griekse inwoners, die zichzelf bestuurden onder toezicht van de provincie Syrië. Gadara en Hippos hoorden van 30 tot 4 v.Chr. bij Herodes. Damascus, dat Plinius ook noemt, is niet in dit vlak getekend.",
@@ -1536,18 +1539,6 @@
    ]
   },
   {
-   "id": "bethlehem",
-   "naam": "Bethlehem",
-   "plaatsId": "efrath",
-   "lat": 31.705,
-   "lng": 35.2,
-   "tekst": "De stad van David in Judea, waar de Heere Jezus geboren werd (Lukas 2:4–7; Mattheüs 2:1).",
-   "bron": [
-    "Lukas 2:4–7",
-    "Mattheüs 2:1"
-   ]
-  },
-  {
    "id": "nazareth",
    "naam": "Nazareth",
    "plaatsId": "nt_nazareth",
@@ -1557,17 +1548,6 @@
    "bron": [
     "Mattheüs 2:23",
     "Lukas 2:51"
-   ]
-  },
-  {
-   "id": "jericho",
-   "naam": "Jericho",
-   "plaatsId": "jericho",
-   "lat": 31.871,
-   "lng": 35.444,
-   "tekst": "Stad bij de Jordaan. Herodes had er een winterpaleis en stierf er (Josephus).",
-   "bron": [
-    "josephus-ant-17"
    ]
   },
   {
@@ -1607,18 +1587,6 @@
    ]
   },
   {
-   "id": "gadara",
-   "naam": "Gadara",
-   "plaatsId": null,
-   "lat": 32.656,
-   "lng": 35.677,
-   "tekst": "Een van de steden van de Decapolis, ten zuidoosten van het meer van Galilea; vgl. ‘het land der Gadarenen’ (Markus 5:1).",
-   "bron": [
-    "pleiades-gadara",
-    "Markus 5:1"
-   ]
-  },
-  {
    "id": "gerasa",
    "naam": "Gerasa",
    "plaatsId": null,
@@ -1627,17 +1595,6 @@
    "tekst": "Grote stad van de Decapolis, ten oosten van de Jordaan.",
    "bron": [
     "pleiades-gerasa",
-    "wiki-decapolis"
-   ]
-  },
-  {
-   "id": "damascus",
-   "naam": "Damascus",
-   "plaatsId": "damascusst",
-   "lat": 33.513,
-   "lng": 36.292,
-   "tekst": "Oude stad in Syrië; bij Plinius een van de steden van de Decapolis.",
-   "bron": [
     "wiki-decapolis"
    ]
   },

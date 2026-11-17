@@ -26,6 +26,7 @@ from shapely.geometry import MultiPolygon, Polygon, box
 from shapely.geometry.polygon import orient
 from shapely.ops import unary_union
 
+sys.dont_write_bytecode = True  # geen scripts/__pycache__ bij het laden van het Daniël-script
 HIER = os.path.dirname(os.path.abspath(__file__))
 MAP = os.path.join(HIER, "..", "public", "bijbelreis", "wereld", "perioden")
 RASTER = 20  # 1/20 graad = 0,05
@@ -145,9 +146,9 @@ PERZIE_BRONNEN = [
     {"id": "wiki-ahasveros", "kort": "Wikipedia", "soort": "historisch", "titel": "Wikipedia: Ahasuerus (identificatie met Xerxes I; oudere tradities: Artaxerxes)", "url": "https://en.wikipedia.org/wiki/Ahasuerus", "licentie": WIKI, "geraadpleegd": G},
     {"id": "wiki-ezra", "kort": "Wikipedia", "soort": "historisch", "titel": "Wikipedia: Ezra (zevende jaar van Artaxerxes I, ca. 458/457 v.Chr.; sommigen 398/397 onder Artaxerxes II)", "url": "https://en.wikipedia.org/wiki/Ezra", "licentie": WIKI, "geraadpleegd": G},
     {"id": "wiki-nehemia", "kort": "Wikipedia", "soort": "historisch", "titel": "Wikipedia: Nehemiah (twintigste jaar van Artaxerxes I, 445 of 444 v.Chr.)", "url": "https://en.wikipedia.org/wiki/Nehemiah", "licentie": WIKI, "geraadpleegd": G},
+    {"id": "wiki-persepolis", "kort": "Wikipedia", "soort": "historisch", "titel": "Wikipedia: Persepolis (gebouwd vanaf ca. 518–515 v.Chr. onder Darius I; Xerxes en Artaxerxes I bouwden verder)", "url": "https://en.wikipedia.org/wiki/Persepolis", "licentie": WIKI, "geraadpleegd": G},
     {"id": "wiki-skudra", "kort": "Wikipedia", "soort": "historisch", "titel": "Wikipedia: Skudra (Perzisch Thracië, 513 tot ca. 479–465 v.Chr.)", "url": "https://en.wikipedia.org/wiki/Skudra", "licentie": WIKI, "geraadpleegd": G},
     pleiades("pleiades-persepolis", 922695, "Persepolis"),
-    pleiades("pleiades-pasargadae", 922693, "Pasargadae"),
     pleiades("pleiades-behistun", 903002, "Bisutun/Bagistana (Behistun)"),
     pleiades("pleiades-marathon", 580021, "Marathon"),
     pleiades("pleiades-salamis", 580101, "Salamis (eiland)"),
@@ -157,12 +158,12 @@ PERZIE_BRONNEN = [
 PERZIE_PERSONEN = [
     {"id": "darius-i", "naam": "Darius I", "alt": ["Darius de Grote"], "personenId": "darius_pers", "lijn": "regering",
      "van": d(522, "historisch", ["behistun", "livius-koningen"], begin="regering", opmerking="Koning op 29 september 522 v.Chr., na de dood van Cambyses en de strijd tegen Gaumata (Behistun)."),
-     "tot": d(486, "historisch", "livius-koningen", einde="stierf", opmerking="Hij stierf eind 486 v.Chr."),
+     "tot": d(486, "historisch", ["livius-koningen", "livius-darius"], einde="stierf", opmerking="Hij stierf eind 486 v.Chr."),
      "ouder": None, "rol": "Koning van Perzië; in zijn zesde jaar was de tempel in Jeruzalem klaar",
      "ref": ["Ezra 4:24", "Ezra 6:15", "Haggaï 1:1", "Zacharia 1:1"], "gebeurtenissen": ["darius-koning", "profeten", "tempel-klaar", "marathon"], "verhaal": "v76",
      "opmerking": "Dat de Darius van Ezra, Haggaï en Zacharia Darius I is, wordt algemeen aangenomen."},
     {"id": "xerxes", "naam": "Ahasveros", "alt": ["Xerxes I"], "personenId": "ahasveros", "lijn": "regering",
-     "van": d(486, "historisch", "livius-koningen", begin="regering"),
+     "van": d(486, "historisch", ["livius-koningen", "wiki-ahasveros"], begin="regering"),
      "tot": d(465, "historisch", "livius-koningen", einde="stierf", opmerking="In augustus 465 v.Chr. vermoord."),
      "ouder": "darius-i", "rol": "Koning van Perzië (Xerxes I); maakte Esther koningin",
      "ref": ["Esther 1:1–3", "Esther 2:16–17", "Ezra 4:6"], "gebeurtenissen": ["salamis", "esther-koningin", "purim"], "verhaal": "v77",
@@ -216,7 +217,7 @@ PERZIE_PERSONEN = [
 PERZIE_GEBEURTENISSEN = [
     g("darius-koning", "Darius I wordt koning",
       "Na de dood van koning Cambyses wordt Darius koning van Perzië. Op een hoge rots bij Behistun laat hij later in drie talen opschrijven hoe hij koning werd en over welke landen hij regeerde.",
-      522, "historisch", ["behistun", "behistun-lijst"], ["darius-i"], [34.39, 47.43],
+      522, "historisch", ["behistun", "behistun-lijst", "pleiades-behistun"], ["darius-i"], [34.39, 47.43],
       opmerking="De inscriptie van Behistun noemt 23 landen, van Egypte en Lydië tot aan de grens van India. Ligging van Behistun: Pleiades."),
     g("profeten", "Haggaï en Zacharia: bouw verder!",
       "In het tweede jaar van koning Darius spreken de profeten Haggaï en Zacharia tot het volk. Zerubbabel en Jesua gaan weer aan het werk aan het huis van God.",
@@ -228,11 +229,11 @@ PERZIE_GEBEURTENISSEN = [
       opmerking="‘Op den derden dag der maand Adar’ in het zesde jaar van Darius (Ezra 6:15). Als dat Darius I is, is het voorjaar 515 v.Chr.; sommigen rekenen 516. Ook het laatste jaar van de tijdlijn “Daniël en Babylon”."),
     g("marathon", "Slag bij Marathon",
       "Ver van Jeruzalem stuurt Darius een leger naar Griekenland. Bij Marathon, niet ver van Athene, verslaan de Atheners de Perzen.",
-      490, "historisch", ["livius-marathon", "herodotus"], ["darius-i"], [38.15, 23.97],
+      490, "historisch", ["livius-marathon", "herodotus", "pleiades-marathon"], ["darius-i"], [38.15, 23.97],
       opmerking="Wat er tegelijk in de wijdere wereld gebeurde. Herodotus beschrijft de slag; augustus of september 490 v.Chr. Ligging: Pleiades."),
     g("salamis", "Zeeslag bij Salamis",
       "Koning Xerxes trekt met een groot leger en een vloot naar Griekenland. Bij het eiland Salamis verslaan de Griekse schepen de Perzische vloot, terwijl Xerxes vanaf een heuvel toekijkt.",
-      480, "historisch", ["livius-salamis", "herodotus"], ["xerxes"], [37.94, 23.48], belangrijk=True,
+      480, "historisch", ["livius-salamis", "herodotus", "pleiades-salamis"], ["xerxes"], [37.94, 23.48], belangrijk=True,
       opmerking="Eind september 480 v.Chr. Als Ahasveros Xerxes is, gebeurde dit vlak vóór het zevende jaar van Ahasveros, waarin Esther koningin werd (Esther 2:16). Ligging: Pleiades."),
     g("esther-koningin", "Esther wordt koningin",
       "Koning Ahasveros kiest Esther, een Joods meisje dat door haar neef Mordechai is opgevoed, en zet de koninklijke kroon op haar hoofd.",
@@ -258,18 +259,13 @@ PERZIE_GEBEURTENISSEN = [
 
 PERZIE_STEDEN = [
     {"id": "susa", "naam": "Susan (Susa)", "plaatsId": "susan", "tekst": "Koningsstad van de Perzen in Elam. Hier speelt het boek Esther, en hier was Nehemia schenker van de koning.", "bron": ["Esther 1:2", "Nehemia 1:1"]},
-    {"id": "persepolis", "naam": "Persepolis", "plaatsId": None, "lat": 29.935, "lng": 52.89, "tekst": "Paleisstad in Perzië, die Darius I liet bouwen; ook Xerxes en Artaxerxes bouwden er verder.", "bron": ["pleiades-persepolis", "livius-darius"]},
-    {"id": "pasargadae", "naam": "Pasargadae", "plaatsId": None, "lat": 30.195, "lng": 53.174, "tekst": "De oudere hoofdstad van Kores in Perzië, met zijn graf.", "bron": ["pleiades-pasargadae"]},
+    {"id": "persepolis", "naam": "Persepolis", "plaatsId": None, "lat": 29.935, "lng": 52.89, "tekst": "Paleisstad in Perzië, die Darius I liet bouwen; ook Xerxes en Artaxerxes bouwden er verder.", "bron": ["pleiades-persepolis", "wiki-persepolis"]},
     {"id": "babylon", "naam": "Babel", "plaatsId": "babelst", "tekst": "De grote stad aan de Eufraat, nu een deel van Perzië. Ezra vertrok hiervandaan naar Jeruzalem (Ezra 7:9).", "bron": ["Ezra 7:9"]},
     {"id": "ekbatana", "naam": "Ekbatana (Achmetha)", "plaatsId": "ekbatana", "tekst": "Koningsstad in Medië. Hier vond men onder Darius de rol met het bevel van Kores (Ezra 6:2–3).", "bron": ["Ezra 6:2–3"]},
-    {"id": "behistun", "naam": "Behistun", "plaatsId": None, "lat": 34.388, "lng": 47.432, "tekst": "Hoge rots aan de koningsweg. Darius liet er in drie talen opschrijven hoe hij koning werd.", "bron": ["pleiades-behistun", "behistun"]},
     {"id": "jeruzalem", "naam": "Jeruzalem", "plaatsId": "salem", "tekst": "De stad van de herbouwde tempel (515 v.Chr.). Onder Nehemia kreeg ze weer een muur.", "bron": ["Ezra 6:15", "Nehemia 6:15"]},
-    {"id": "samaria", "naam": "Samaria", "plaatsId": "samaria", "tekst": "Van hier kwam tegenwerking: Sanballat spotte met de bouwers ‘in de tegenwoordigheid zijner broederen en van het heir van Samaria’ (Nehemia 4:2).", "bron": ["Nehemia 4:2"]},
     {"id": "sardis", "naam": "Sardis", "plaatsId": "nt4_sardis", "tekst": "Perzische hoofdstad in het westen van Klein-Azië, aan de koningsweg naar Susan.", "bron": ["herodotus"]},
     {"id": "memphis", "naam": "Nof (Memphis)", "plaatsId": "je_nof", "tekst": "Oude hoofdstad van Egypte, dat sinds 525 v.Chr. bij Perzië hoorde.", "bron": ["behistun-lijst"]},
     {"id": "athene", "naam": "Athene", "plaatsId": "nt_athene", "tekst": "Griekse stad. De Atheners versloegen de Perzen bij Marathon (490); in 480 brandde het leger van Xerxes de stad plat.", "bron": ["herodotus", "livius-marathon"]},
-    {"id": "marathon", "naam": "Marathon", "plaatsId": None, "lat": 38.147, "lng": 23.97, "tekst": "Vlakte aan de kust bij Athene, waar in 490 v.Chr. de slag werd geleverd.", "bron": ["pleiades-marathon", "livius-marathon"]},
-    {"id": "salamis", "naam": "Salamis", "plaatsId": None, "lat": 37.943, "lng": 23.484, "tekst": "Grieks eiland bij Athene (niet het Salamis op Cyprus uit Handelingen 13). Bij dit eiland werd de Perzische vloot verslagen.", "bron": ["pleiades-salamis", "livius-salamis"]},
 ]
 
 PERZIE_GEBIEDEN = [
@@ -418,10 +414,10 @@ GJ_PERSONEN = [
      "van": d(-4, "benaderd", ["Mattheüs 2:22", "josephus-ant-17", "wiki-archelaus"], begin="regering", opmerking="Na de dood van zijn vader (meestal 4 v.Chr.) kreeg hij Judea, Samaria en Idumea. Mattheüs zegt dat Archelaüs ‘in Judea koning was’ (Mattheüs 2:22); zijn Romeinse titel was etnarch (vorst over een volk)."),
      "tot": d(6, "historisch", ["josephus-ant-17", "wiki-archelaus"], einde="afgezet", opmerking="In zijn tiende jaar, 6 n.Chr., door Augustus afgezet en verbannen naar Vienne in Gallië."),
      "ouder": "herodes", "rol": "Zoon van Herodes; heerser over Judea, Samaria en Idumea", "ref": ["Mattheüs 2:22"], "gebeurtenissen": ["terug-nazareth", "judea-provincie"], "verhaal": "v85"},
-    {"id": "antipas", "naam": "Herodes Antipas", "alt": ["Herodes de viervorst"], "personenId": "herodes_antipas", "lijn": "regering", "ambt": "viervorst",
+    {"id": "antipas", "naam": "Antipas", "alt": ["Herodes Antipas", "Herodes de viervorst"], "personenId": "herodes_antipas", "lijn": "regering", "ambt": "viervorst",
      "van": d(-4, "benaderd", ["Lukas 3:1", "josephus-ant-17", "wiki-antipas"], begin="regering", opmerking="Viervorst over Galilea en Perea vanaf de dood van zijn vader (meestal 4 v.Chr.)."),
      "tot": d(39, "historisch", "wiki-antipas", einde="afgezet", opmerking="In de zomer van 39 n.Chr. door keizer Caligula afgezet en verbannen; zijn land ging naar Herodes Agrippa I."),
-     "ouder": "herodes", "rol": "Viervorst over Galilea en Perea; liet Johannes de Doper onthoofden", "ref": ["Lukas 3:1", "Markus 6:14–29", "Lukas 23:7–12"],
+     "ouder": "herodes", "rol": "Herodes Antipas, in de Bijbel ‘Herodes, de viervorst’ (Mattheüs 14:1); viervorst over Galilea en Perea, liet Johannes de Doper onthoofden", "ref": ["Lukas 3:1", "Markus 6:14–29", "Lukas 23:7–12"],
      "gebeurtenissen": ["vijftiende-jaar"], "verhaal": "v100"},
     {"id": "filippus", "naam": "Filippus", "alt": ["Filippus de viervorst"], "personenId": None, "lijn": "regering", "ambt": "viervorst",
      "van": d(-4, "benaderd", ["Lukas 3:1", "josephus-ant-17", "wiki-filippus"], begin="regering", opmerking="Viervorst over het noordoosten (Iturea en Trachonitis, Lukas 3:1) vanaf de dood van zijn vader."),
@@ -435,7 +431,7 @@ GJ_PERSONEN = [
      "van": d(6, "historisch", ["josephus-ant-17", "wiki-quirinius"], begin="regering", opmerking="Volgens Josephus kwam Quirinius in 6 n.Chr. als stadhouder naar Syrië en liet hij in Judea de bezittingen opschrijven. Lukas verbindt een ‘eerste beschrijving’ (Lukas 2:2) onder Cyrenius met de geboorte van de Heere Jezus, in de dagen van Herodes. Hoe die twee samenhangen, is een bekende vraag. Uitleggers geven verschillende antwoorden: een eerdere inschrijving, een eerdere taak van Quirinius in Syrië, of het woord eerste in de betekenis van: vóór die onder Quirinius."),
      "tot": d(6, "historisch", ["josephus-ant-17", "wiki-quirinius"], einde="onbekend", opmerking="Hoe lang hij stadhouder van Syrië bleef, is niet precies bekend."),
      "ouder": None, "rol": "Romeinse stadhouder van Syrië (Quirinius)", "ref": ["Lukas 2:2"], "gebeurtenissen": ["judea-provincie"], "verhaal": "v83"},
-    {"id": "pilatus", "naam": "Pontius Pilatus", "alt": ["Pilatus"], "personenId": "pilatus", "lijn": "regering", "ambt": "stadhouder",
+    {"id": "pilatus", "naam": "Pilatus", "alt": ["Pontius Pilatus"], "personenId": "pilatus", "lijn": "regering", "ambt": "stadhouder",
      "van": d(26, "historisch", ["Lukas 3:1", "wiki-pilatus"], begin="regering", opmerking="Stadhouder (prefect) van Judea vanaf ongeveer 26 n.Chr. Een steen uit Caesarea (gevonden in 1961) noemt hem met die titel. Een paar onderzoekers denken aan een eerder begin."),
      "tot": d(36, "historisch", "wiki-pilatus", einde="afgezet", marge=[36, 37], opmerking="Na een bloedbad onder Samaritanen stuurde de stadhouder van Syrië hem naar Rome (36 of 37 n.Chr.). Hoe het daarna met hem ging, is niet bekend."),
      "ouder": None, "rol": "Romeinse stadhouder over Judea; veroordeelde de Heere Jezus", "ref": ["Lukas 3:1", "Lukas 23:1–25"], "gebeurtenissen": ["kruisiging"], "verhaal": "v125"},
@@ -494,15 +490,11 @@ GJ_GEBEURTENISSEN = [
 
 GJ_STEDEN = [
     {"id": "jeruzalem", "naam": "Jeruzalem", "plaatsId": "salem", "tekst": "De stad van de tempel, die Herodes liet vernieuwen. Hier stond de Heere Jezus als twaalfjarige in de tempel, en hier werd Hij gekruisigd.", "bron": ["Lukas 2:46", "Johannes 2:20"]},
-    {"id": "bethlehem", "naam": "Bethlehem", "plaatsId": "efrath", "tekst": "De stad van David in Judea, waar de Heere Jezus geboren werd (Lukas 2:4–7; Mattheüs 2:1).", "bron": ["Lukas 2:4–7", "Mattheüs 2:1"]},
     {"id": "nazareth", "naam": "Nazareth", "plaatsId": "nt_nazareth", "tekst": "Het dorp in Galilea waar Jozef en Maria woonden en waar de Heere Jezus opgroeide.", "bron": ["Mattheüs 2:23", "Lukas 2:51"]},
-    {"id": "jericho", "naam": "Jericho", "plaatsId": "jericho", "tekst": "Stad bij de Jordaan. Herodes had er een winterpaleis en stierf er (Josephus).", "bron": ["josephus-ant-17"]},
     {"id": "caesarea", "naam": "Caesarea", "plaatsId": "nt_caesarea", "tekst": "Havenstad die Herodes bouwde. Later woonden de Romeinse stadhouders hier; een steen met de naam van Pilatus is hier gevonden.", "bron": ["wiki-pilatus", "josephus-ant-15"]},
     {"id": "caesarea-filippi", "naam": "Caesarea Filippi", "plaatsId": "nt_kaesareafilippi", "tekst": "Stad bij de bronnen van de Jordaan (Paneas). Filippus de viervorst bouwde haar uit en noemde haar naar de keizer en naar zichzelf.", "bron": ["wiki-filippus", "Mattheüs 16:13"]},
     {"id": "machaerus", "naam": "Machérus", "plaatsId": "nt_machaerus", "tekst": "Burcht van Herodes Antipas in Perea. Volgens Josephus werd Johannes de Doper hier onthoofd; de Bijbel noemt de plaats niet.", "bron": ["wiki-antipas", "Markus 6:27"]},
-    {"id": "gadara", "naam": "Gadara", "plaatsId": None, "lat": 32.656, "lng": 35.677, "tekst": "Een van de steden van de Decapolis, ten zuidoosten van het meer van Galilea; vgl. ‘het land der Gadarenen’ (Markus 5:1).", "bron": ["pleiades-gadara", "Markus 5:1"]},
     {"id": "gerasa", "naam": "Gerasa", "plaatsId": None, "lat": 32.28, "lng": 35.891, "tekst": "Grote stad van de Decapolis, ten oosten van de Jordaan.", "bron": ["pleiades-gerasa", "wiki-decapolis"]},
-    {"id": "damascus", "naam": "Damascus", "plaatsId": "damascusst", "tekst": "Oude stad in Syrië; bij Plinius een van de steden van de Decapolis.", "bron": ["wiki-decapolis"]},
     {"id": "abila", "naam": "Abila", "plaatsId": None, "lat": 33.627, "lng": 36.116, "tekst": "Hoofdplaats van Abilene, het land van Lysanias (Lukas 3:1).", "bron": ["pleiades-abila", "Lukas 3:1"]},
     {"id": "petra", "naam": "Petra", "plaatsId": None, "lat": 30.345, "lng": 35.383, "tekst": "Hoofdstad van de Nabateeërs, uitgehouwen in rode rotsen.", "bron": ["pleiades-petra", "wiki-nabatea"]},
     {"id": "antiochie", "naam": "Antiochië", "plaatsId": "nt_antiochie", "tekst": "Hoofdstad van de Romeinse provincie Syrië, waar de stadhouder van Syrië woonde.", "bron": ["wiki-quirinius"]},
@@ -522,7 +514,7 @@ GJ_GEBIEDEN = [
     {"id": "hasmoneeen", "naam": "Judea (Antigonus)", "kleur": "grijs", "hoofdstad": "jeruzalem", "bron": ["josephus-ant-17", "wiki-herodes", "eigen-tekening"],
      "opmerking": R + " Van 40 tot 37 v.Chr. regeerde Antigonus, de laatste koning uit het huis van de Hasmoneeën, met steun van de Parthen. Herodes was in Rome al tot koning benoemd, maar moest zijn land nog veroveren. Dezelfde vorm als het eerste rijk van Herodes.",
      "sleutels": [sleutel(-40, HERODES_37), sleutel(-38, HERODES_37)]},
-    {"id": "herodes", "naam": "Rijk van Herodes", "kleur": "terra", "hoofdstad": "jeruzalem", "bron": ["josephus-ant-15", "josephus-ant-17", "wiki-herodes", "eigen-tekening"],
+    {"id": "herodes", "naam": "Rijk van Herodes", "kleur": "terra", "hoofdstad": "jeruzalem", "bron": ["josephus-ant-15", "josephus-ant-17", "wiki-herodes", "pleiades-gadara", "bijbelreis-plaatsen", "eigen-tekening"],
      "opmerking": R + " Het rijk groeide met gebieden die Augustus gaf: in 30 v.Chr. de kust (Joppe, de Torenstad van Strato) en Gadara en Hippos; in 23 v.Chr. Trachonitis, Batanea en Auranitis; in 20 v.Chr. Paneas (Josephus). Gaza, Samaria en Anthedon kreeg hij ook; Gaza ligt los van de rest en is niet getekend.",
      "sleutels": [
          sleutel(-37, HERODES_37, "Judea, Idumea, Samaria, Galilea en Perea."),
@@ -549,7 +541,7 @@ GJ_GEBIEDEN = [
     {"id": "agrippa", "naam": "Herodes Agrippa", "kleur": "camel", "hoofdstad": None, "bron": ["Handelingen 12:1", "wiki-antipas", "wiki-filippus", "eigen-tekening"],
      "opmerking": R + " Herodes Agrippa I, een kleinzoon van Herodes de Grote, is ‘de koning Herodes’ (Handelingen 12:1). Hij kreeg in 37 n.Chr. het land van Filippus en in 39 dat van Antipas.",
      "sleutels": [sleutel(37, FILIPPUS), sleutel(38, FILIPPUS), sleutel(39, FILIPPUS + ANTIPAS, "Ook Galilea en Perea, na de verbanning van Antipas."), sleutel(40, FILIPPUS + ANTIPAS)]},
-    {"id": "decapolis", "naam": "Decapolis", "kleur": "teal", "hoofdstad": None, "bron": ["wiki-decapolis", "josephus-ant-15", "josephus-ant-17", "eigen-tekening"],
+    {"id": "decapolis", "naam": "Decapolis", "kleur": "teal", "hoofdstad": None, "bron": ["wiki-decapolis", "josephus-ant-15", "josephus-ant-17", "pleiades-gadara", "pleiades-gerasa", "eigen-tekening"],
      "opmerking": R + " Decapolis betekent tien steden: steden met Griekse inwoners, die zichzelf bestuurden onder toezicht van de provincie Syrië. Gadara en Hippos hoorden van 30 tot 4 v.Chr. bij Herodes. Damascus, dat Plinius ook noemt, is niet in dit vlak getekend.",
      "sleutels": [sleutel(-40, [DECAPOLIS, GADHIP]), sleutel(-31, [DECAPOLIS, GADHIP]), sleutel(-30, DECAPOLIS, "Gadara en Hippos naar Herodes."),
                   sleutel(-5, DECAPOLIS), sleutel(-4, [DECAPOLIS, GADHIP], "Gadara en Hippos weer bij Syrië."), sleutel(40, [DECAPOLIS, GADHIP])]},
@@ -647,9 +639,9 @@ def bouw_geboorte_jezus(plaatsen):
         "as": {"soort": "nchr", "van": -40, "tot": 40, "stap": 1, "label": "jaartelling",
                "uitleg": "Jaren voor en na Christus. Een jaar 0 bestaat niet: na 1 v.Chr. komt 1 n.Chr."},
         "start": -5,
-        "kader": [[29.9, 33.0], [34.2, 38.4]],
+        "kader": [[29.9, 33.2], [34.2, 37.6]],
         "info": [
-            {"kop": "Waarom geen lijn voor de Heere Jezus?", "tekst": "De Heere Jezus staat hier niet als een levenslijn of een figuurtje tussen de heersers. Zijn geboorte, Zijn doop en Zijn kruisiging en opstanding staan als gebeurtenissen op de tijdlijn, met de plaats in de Bijbel waar je erover leest.", "status": "expliciet", "bron": "sv"},
+            {"kop": "Waarom geen lijn voor de Heere Jezus?", "tekst": "De Heere Jezus staat hier niet als een levenslijn of een figuurtje tussen de heersers. Zijn geboorte, Zijn doop en Zijn kruisiging en opstanding staan als gebeurtenissen op de tijdlijn, met de plaats in de Bijbel waar je erover leest. Zo wordt de Heere Jezus nooit afgebeeld."},
             {"kop": "Waarom ca. 6–4 v.Chr.?", "tekst": "Onze jaartelling werd pas eeuwen later berekend, en kwam een paar jaar te laat uit. De Heere Jezus werd geboren in de dagen van koning Herodes (Mattheüs 2:1), die volgens Josephus ongeveer 4 v.Chr. stierf. Andere dateringen bestaan.", "status": "benaderd", "bron": ["Mattheüs 2:1", "wiki-herodes"]},
         ],
         "bronnen": GJ_BRONNEN,

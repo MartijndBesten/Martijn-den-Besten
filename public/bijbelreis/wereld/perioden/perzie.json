@@ -112,6 +112,15 @@
    "geraadpleegd": "2026-11-17"
   },
   {
+   "id": "wiki-persepolis",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Persepolis (gebouwd vanaf ca. 518–515 v.Chr. onder Darius I; Xerxes en Artaxerxes I bouwden verder)",
+   "url": "https://en.wikipedia.org/wiki/Persepolis",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
    "id": "wiki-skudra",
    "kort": "Wikipedia",
    "soort": "historisch",
@@ -126,15 +135,6 @@
    "soort": "dataset",
    "titel": "Pleiades 922695: Persepolis",
    "url": "https://pleiades.stoa.org/places/922695",
-   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
-   "geraadpleegd": "2026-11-17"
-  },
-  {
-   "id": "pleiades-pasargadae",
-   "kort": "Pleiades",
-   "soort": "dataset",
-   "titel": "Pleiades 922693: Pasargadae",
-   "url": "https://pleiades.stoa.org/places/922693",
    "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
    "geraadpleegd": "2026-11-17"
   },
@@ -206,7 +206,10 @@
    "tot": {
     "jaar": 486,
     "status": "historisch",
-    "bron": "livius-koningen",
+    "bron": [
+     "livius-koningen",
+     "livius-darius"
+    ],
     "einde": "stierf",
     "opmerking": "Hij stierf eind 486 v.Chr."
    },
@@ -238,7 +241,10 @@
    "van": {
     "jaar": 486,
     "status": "historisch",
-    "bron": "livius-koningen",
+    "bron": [
+     "livius-koningen",
+     "wiki-ahasveros"
+    ],
     "begin": "regering"
    },
    "tot": {
@@ -598,7 +604,8 @@
    "status": "historisch",
    "bron": [
     "behistun",
-    "behistun-lijst"
+    "behistun-lijst",
+    "pleiades-behistun"
    ],
    "personen": [
     "darius-i"
@@ -663,7 +670,8 @@
    "status": "historisch",
    "bron": [
     "livius-marathon",
-    "herodotus"
+    "herodotus",
+    "pleiades-marathon"
    ],
    "personen": [
     "darius-i"
@@ -682,7 +690,8 @@
    "status": "historisch",
    "bron": [
     "livius-salamis",
-    "herodotus"
+    "herodotus",
+    "pleiades-salamis"
    ],
    "personen": [
     "xerxes"
@@ -967,18 +976,7 @@
    "tekst": "Paleisstad in Perzië, die Darius I liet bouwen; ook Xerxes en Artaxerxes bouwden er verder.",
    "bron": [
     "pleiades-persepolis",
-    "livius-darius"
-   ]
-  },
-  {
-   "id": "pasargadae",
-   "naam": "Pasargadae",
-   "plaatsId": null,
-   "lat": 30.195,
-   "lng": 53.174,
-   "tekst": "De oudere hoofdstad van Kores in Perzië, met zijn graf.",
-   "bron": [
-    "pleiades-pasargadae"
+    "wiki-persepolis"
    ]
   },
   {
@@ -1004,18 +1002,6 @@
    ]
   },
   {
-   "id": "behistun",
-   "naam": "Behistun",
-   "plaatsId": null,
-   "lat": 34.388,
-   "lng": 47.432,
-   "tekst": "Hoge rots aan de koningsweg. Darius liet er in drie talen opschrijven hoe hij koning werd.",
-   "bron": [
-    "pleiades-behistun",
-    "behistun"
-   ]
-  },
-  {
    "id": "jeruzalem",
    "naam": "Jeruzalem",
    "plaatsId": "salem",
@@ -1025,17 +1011,6 @@
    "bron": [
     "Ezra 6:15",
     "Nehemia 6:15"
-   ]
-  },
-  {
-   "id": "samaria",
-   "naam": "Samaria",
-   "plaatsId": "samaria",
-   "lat": 32.28,
-   "lng": 35.19,
-   "tekst": "Van hier kwam tegenwerking: Sanballat spotte met de bouwers ‘in de tegenwoordigheid zijner broederen en van het heir van Samaria’ (Nehemia 4:2).",
-   "bron": [
-    "Nehemia 4:2"
    ]
   },
   {
@@ -1070,30 +1045,6 @@
    "bron": [
     "herodotus",
     "livius-marathon"
-   ]
-  },
-  {
-   "id": "marathon",
-   "naam": "Marathon",
-   "plaatsId": null,
-   "lat": 38.147,
-   "lng": 23.97,
-   "tekst": "Vlakte aan de kust bij Athene, waar in 490 v.Chr. de slag werd geleverd.",
-   "bron": [
-    "pleiades-marathon",
-    "livius-marathon"
-   ]
-  },
-  {
-   "id": "salamis",
-   "naam": "Salamis",
-   "plaatsId": null,
-   "lat": 37.943,
-   "lng": 23.484,
-   "tekst": "Grieks eiland bij Athene (niet het Salamis op Cyprus uit Handelingen 13). Bij dit eiland werd de Perzische vloot verslagen.",
-   "bron": [
-    "pleiades-salamis",
-    "livius-salamis"
    ]
   }
  ],

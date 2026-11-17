@@ -1,12 +1,14 @@
 # De wereld in die tijd (17-11-2026)
 
 Een interactieve, geanimeerde laag in de Bijbelreis: **levenslijnen** (wie leefde tegelijk, en hoe lang?), een
-**kaart die met de tijd meebeweegt** (rijken die groeien en verdwijnen) en **wat er tegelijk gebeurde**. Twee perioden:
+**kaart die met de tijd meebeweegt** (rijken die groeien en verdwijnen) en **wat er tegelijk gebeurde**. Perioden:
 
 | Periode | Bestand | Wat |
 | --- | --- | --- |
 | Van Adam tot Noach | `public/bijbelreis/wereld/perioden/adam-noach.json` | Genesis 5 (+ 7, 9, 11): dertien levenslijnen in jaren na de schepping, berekend uit de Masoretische tekst (= Statenvertaling). Geen kaart, met uitleg waarom. |
 | Daniël en Babylon | `public/bijbelreis/wereld/perioden/daniel-babylon.json` | 627–515 v.Chr.: zeven rijken met 36 sleutels, 14 personen, 12 gebeurtenissen, 13 steden. Bronnen en keuzes: [`daniel-bronnen.md`](daniel-bronnen.md). |
+| Perzië: Esther, Ezra en Nehemia | `public/bijbelreis/wereld/perioden/perzie.json` | 522–430 v.Chr., sluit aan op Daniël (zelfde vorm van Perzië in 515/522): 11 personen, 10 gebeurtenissen, 3 gebieden met 10 sleutels, 8 steden; gekoppeld aan v77–v79. Bronnen: [`perzie-bronnen.md`](perzie-bronnen.md). |
+| Herodes en de keizers van Rome | `public/bijbelreis/wereld/perioden/geboorte-jezus.json` | De wereld rond de geboorte van de Heere Jezus, 40 v.Chr. – 40 n.Chr. (één as over het begin van de jaartelling): 10 machthebbers die de Bijbel noemt, 11 gebeurtenissen, 13 gebieden met 48 sleutels, 11 steden; gekoppeld aan v80–v87, v100, v125. **Geen levenslijn en geen figuur voor de Heere Jezus**, alleen gebeurtenissen met Bijbelverwijzing. Bronnen: [`geboorte-jezus-bronnen.md`](geboorte-jezus-bronnen.md). |
 
 De vlag staat **aan** (zie §4): de uitnodiging staat bij de gekoppelde verhalen.
 
@@ -32,7 +34,8 @@ alles dubbel geladen en een eigen route in de Worker nodig gehad.
   sluit de laag; het verhaal eronder is nooit weggeweest, dus scroll, niveau en voortgang blijven precies gelijk.
   `laagBoven`/`laagSluit` kennen het venster `wereld`.
 - **Adres**: `#wereld/<periode>/<jaar>` (het jaar zoals op de as, bij v.Chr. zonder min), bijv.
-  `https://bijbelreis.nl/#wereld/adam-noach/987` of `#wereld/daniel-babylon/539`. Het jaar in het adres loopt mee
+  `https://bijbelreis.nl/#wereld/adam-noach/987` of `#wereld/daniel-babylon/539`. Op een as die v.Chr. en n.Chr.
+  samen toont, is een jaar v.Chr. negatief: `#wereld/geboorte-jezus/-4` (4 v.Chr.), `#wereld/geboorte-jezus/28`. Het jaar in het adres loopt mee
   (vervangen, geen nieuwe plek) als je pauzeert of springt. Bij herladen of een gedeelde link opent de atlas eronder
   (de geschiedenis waaruit je kwam, bewaard in `history.state.wereldTerug`, of de start) en de laag eroverheen.
 - **De rest van de pagina** is `inert` zolang de laag open is (toetsenbord en schermlezer blijven in de laag); de pagina
@@ -106,7 +109,18 @@ gedeelde specificatie, met deze aanvullingen (alle optioneel):
 | `opmerking` | overal | korte toelichting op grondslag of onzekerheid |
 | `kleur` | gebeurtenis | kleur van de band (token uit de huisstijl, bijv. `water` voor de zondvloed) |
 | `tot`, `status`, `opmerking` | koppeling | een verhaal dat een tijdvak beslaat: in de laag een zachte band en de toelichting |
+| `ambt` | persoon | het woord voor de functie als het geen koning is (`keizer`, `koningin`, `stadhouder`, `viervorst`, `hogepriester`, `landvoogd`): in de naamkolom, ‘Stadhouder vanaf’, ‘nog geen keizer’ (bij een lang woord ‘nog niet’) en in de lijst ‘Pilatus wordt stadhouder’ |
+| `van.begin: "genoemd"` | persoon | de lijn begint waar de Bijbel voor het eerst over iemand vertelt (Mordechai, Ezra, Zerubbabel): ‘Eerst genoemd’, nooit ‘geboren’ |
+| `tot.einde: "afgezet"` | persoon | een ambt dat eindigt zonder dood (Archelaüs, Antipas, Pilatus, Kajafas): streepje zoals bij ‘stierf’, maar ‘Afgezet’ en ‘… wordt afgezet’ |
+| `kader` | periode | `[[zuid, west], [noord, oost]]`: het eerste kaartbeeld, als de rijken eromheen veel groter zijn dan waar het verhaal speelt (Rome, Parthië); uitzoomen kan altijd |
+| `kort` | bron | korte naam onder een gegeven (‘Josephus, Oudheden 17’, ‘Wikipedia’) in plaats van de bron-id |
 
+- **As `nchr` over het begin van de jaartelling** (sinds 17-11-2026, voor `geboorte-jezus`): `van` mag negatief zijn;
+  een negatief jaar is v.Chr. (`-4` = 4 v.Chr.). Een jaar 0 bestaat niet (de controle meldt het). Intern telt de tijd
+  zonder gat door (`t = jaar + 1` voor v.Chr., dus `t = 0` is 1 v.Chr.), zodat afstanden kloppen: van 4 v.Chr. tot 6 n.Chr.
+  is 9 jaar. `kern.naarJaar` rondt zo af dat er nooit 0 uit komt; streepjes staan op ronde jaartallen met v.Chr./n.Chr.
+  erbij (‘10 v.Chr. · 1 n.Chr. · 10 n.Chr.’); marges en tijdvakken heten ‘6–4 v.Chr.’ of ‘1 v.Chr.–1 n.Chr.’
+  (`kern.tweeJaren`). Assen `am` en `vchr` en een gewone `nchr`-as (alleen n.Chr.) veranderen niet.
 - Een persoon mag vóór de as beginnen of erna doorlopen; de lijn wordt afgekapt (Darius I). `ref` mag leeg zijn voor
   iemand die niet in de Bijbel staat (Nabonidus); `bron` is dan een bron-id.
 - `bron` is één string of een lijst: een id uit `bronnen` of een Bijbelverwijzing zoals de atlas ze schrijft
@@ -148,10 +162,14 @@ ontdekken, 4–6 jaar). Niet in het korte stapblad van de reis: daar hoort een s
   SV-controleregels; citaten letterlijk; Septuagint en Samaritaanse Pentateuch nagerekend (2242/2262, 1307); tijdas;
   herbemonsteren, uitlijnen en interpoleren van gebieden; plaats in de app-schil.
 - `tests/bijbelreis-wereld-daniel.test.ts` (spoor Daniël): de gegevens van demo 2.
+- `tests/bijbelreis-wereld-perzie-rome.test.ts`: de gegevens van Perzië en van ‘geboorte-jezus’ (koningsjaren omgerekend,
+  aansluiting op Daniël, Lukas 3:1–2, Mattheüs 2:22 op de kaart, geen dubbele kleur, geen lijn voor de Heere Jezus) en
+  de kern voor de gemengde as (geen jaar 0, streepjes, marges, controle, ‘afgezet’, het adres met een negatief jaar).
 - `tests/fixtures/wereld/test-kaart.json`: **testdata** (verzonnen vormen) voor de kaartengine.
 - `e2e/bijbelreis-wereld.spec.ts` (desktop, mobiel, tablet): openen vanuit een verhaal en exact terug, afspelen en
   pauzeren, spoelen, gebeurtenis, persoon, vergelijken (243), Henoch, toetsenbord, minder beweging, Daniël met kaart en
-  rand, kaartanimatie met testdata, kapotte/ontbrekende gegevens, telefoonmaten zonder horizontaal schuiven, axe, offline.
+  rand, Perzië vanuit Esther (v77) met Thracië en Esther als koningin, ‘geboorte-jezus’ vanuit v83 (v.Chr. en n.Chr.,
+  geen naam of lijn voor de Heere Jezus, het rijk van Herodes valt uiteen, Pilatus afgezet, adres met -4), kaartanimatie met testdata, kapotte/ontbrekende gegevens, telefoonmaten zonder horizontaal schuiven, axe, offline.
 
 ## 7. Bekende onzekerheden en open punten
 
@@ -165,6 +183,17 @@ ontdekken, 4–6 jaar). Niet in het korte stapblad van de reis: daar hoort een s
 - **Daniël**: zie `daniel-bronnen.md` (o.a. 605 als derde jaar van Jojakim, 587/586, Darius de Meder, Sardis 547–540).
 - Sinds de bredere ondergrond (4–57° O, PR #51) ligt Pasargadae binnen de kaart; Perzië loopt na 539 nog verder
   oostwaarts dan 57° en wordt daar afgeknipt (‘loopt verder naar het oosten’).
+- **Perzië en ‘geboorte-jezus’**: zie [`perzie-bronnen.md`](perzie-bronnen.md) en
+  [`geboorte-jezus-bronnen.md`](geboorte-jezus-bronnen.md) (o.a. Ahasveros = Xerxes, Ezra 458/457, Nehemia 445/444,
+  Herodes † 4 v.Chr. of 1 v.Chr., Lukas 2:2 en Quirinius, kruisiging 30 of 33).
+- **Namen op de kaart** (17-11-2026): rond de stip van elke plaats blijft 24 × 24 px vrij voor andere namen, zodat het
+  aanraakdoel van een plaats zonder naam niet bedekt wordt (WCAG 2.5.8, axe `target-size`). Gemeten 0 overlap en 0
+  afgekapt op 390, 1440 en 2560 px in Daniël (605, 586, 539, 525), Perzië (522, 490, 479, 445) en ‘geboorte-jezus’
+  (37 en 5 v.Chr., 4 v.Chr., 6, 28 en 39 n.Chr.); axe 0 op 390, 820, 1280 en 1440 px in die jaren.
+- **Kleine verbeteringen in de laag** (17-11-2026): het begin van een lijn heet in de lijst niet meer ‘wordt geboren’
+  als het een regering, wegvoering of roeping is (‘Nebukadnezar wordt koning’); de toelichting bij een persoon
+  (`opmerking`, bijv. ‘Darius de Meder: omstreden’) staat nu ook in het kaartje; ‘In 5 v.Chr.’ zegt bij een ambt ‘nog
+  niet’ in plaats van ‘nog niet geboren’.
 - Niet getest op een echte iPhone of Android, alleen Chromium (desktop-, telefoon- en tabletmaten).
 - De visuele referentiebeelden (`e2e/bijbelreis-visueel.spec.ts`) tonen geschiedenis 26 en de reis; daar staat geen
   uitnodiging, dus de laag verandert ze niet.

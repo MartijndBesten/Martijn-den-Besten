@@ -46,7 +46,8 @@
   const BEGIN = { geboorte: "Geboren", regering: "Koning vanaf", weggevoerd: "Weggevoerd", roeping: "Geroepen", genoemd: "Eerst genoemd" };
   // ambt (optioneel, per persoon): het woord voor de functie als het geen koning is (‘keizer’, ‘stadhouder’, ‘koningin’).
   const lijnWoord = (p) => (p.ambt && p.begin !== "geboorte" ? p.ambt : p.begin === "regering" && p.lijn === "regering" ? "koning" : p.begin === "geboorte" ? "leeft" : LIJN[p.lijn] || p.lijn);
-  const voorWoord = (p) => (p.ambt && p.begin === "regering" ? "nog geen " + p.ambt : VOOR[p.begin] || "later");
+  // Kort genoeg voor de naamkolom op de telefoon: ‘nog geen keizer’, maar ‘nog niet’ bij een lang woord (stadhouder).
+  const voorWoord = (p) => (p.ambt && p.begin === "regering" ? (p.ambt.length <= 8 ? "nog geen " + p.ambt : "nog niet") : VOOR[p.begin] || "later");
   const beginWoord = (p) => (p.ambt && p.begin === "regering" ? p.ambt[0].toUpperCase() + p.ambt.slice(1) + " vanaf" : BEGIN[p.begin] || "Vanaf");
   const allesLevens = () => S.M.personen.every((p) => p.begin === "geboorte");
   const kleurVar = (k, diep) => (diep ? `var(--${k}-deep, var(--${k}-diep, var(--${k})))` : `var(--${k})`);
@@ -455,7 +456,7 @@
     grad("wtKopVaag", 0, 1); grad("wtStaartVaag", 1, 0);
     // raster
     // Op een as met v.Chr. en n.Chr. zijn de labels langer (‘10 v.Chr.’): de streepjes staan dan verder uit elkaar.
-    const { ticks } = K.streepjes(S.venster[0], S.venster[1], sc.k, K.gemengd(M.as) ? (W < 520 ? 80 : 104) : W < 520 ? 56 : 84, M.as);
+    const { ticks } = K.streepjes(S.venster[0], S.venster[1], sc.k, K.gemengd(M.as) ? (W < 520 ? 64 : 96) : W < 520 ? 56 : 84, M.as);
     const raster = maak("g", { class: "wt-raster" }, svg);
     ticks.forEach((t) => maak("line", { x1: sc.x(t), x2: sc.x(t), y1: 0, y2: H }, raster));
     for (let i = 1; i < M.personen.length; i++) maak("line", { class: "wt-rijlijn", x1: 0, x2: W, y1: i * rh, y2: i * rh }, raster);
@@ -537,7 +538,7 @@
     svg.setAttribute("width", W); svg.setAttribute("height", h); svg.setAttribute("viewBox", `0 0 ${W} ${h}`);
     svg.textContent = "";
     const g = maak("g", { class: "wt-as-ticks" }, svg);
-    ticks.forEach((t) => { const x = sc.x(t); if (x < 4 || x > W - 4) return; maak("line", { x1: x, x2: x, y1: h - 6, y2: h }, g); const tx = maak("text", { x, y: 14, "text-anchor": "middle" }, g); tx.textContent = K.streepTekst(t, S.as); });
+    ticks.forEach((t) => { const x = sc.x(t); if (x < 4 || x > W - 4) return; maak("line", { x1: x, x2: x, y1: h - 6, y2: h }, g); const tx = maak("text", { x, y: 14, "text-anchor": x < 36 ? "start" : x > W - 36 ? "end" : "middle" }, g); tx.textContent = K.streepTekst(t, S.as); }); // aan de rand niet half afgeknipt
     const ge = maak("g", { class: "wt-as-ev" }, svg);
     // Eerst alle merkjes (en de kop van de tijd is smal); dan krijgen belangrijke gebeurtenissen als eerste een label.
     // Een label dat een merkje of ander label raakt, valt weg (het merkje blijft, en de lijst noemt alles).
@@ -1022,13 +1023,15 @@
     const m = K2.m, doos = D.kaartvlak.getBoundingClientRect(), W = doos.width, H = doos.height;
     const rect = (el) => { const r = el.getBoundingClientRect(); return { l: r.left - doos.left, t: r.top - doos.top, r: r.right - doos.left, b: r.bottom - doos.top }; };
     const bezet = [];
-    const raakt = (a, marge = 2) => bezet.some((b) => a.l < b.r + marge && a.r > b.l - marge && a.t < b.b + marge && a.b > b.t - marge);
+    // zelf: de eigen stip telt niet mee voor de eigen naam.
+    const raakt = (a, marge = 2, zelf = null) => bezet.some((b) => !(zelf && b.van === zelf) && a.l < b.r + marge && a.r > b.l - marge && a.t < b.b + marge && a.b > b.t - marge);
     const binnen = (a) => a.l >= 2 && a.t >= 2 && a.r <= W - 2 && a.b <= H - 2;
     // Bediening en legenda zijn ook bezet.
     D.kaartvlak.querySelectorAll(".leaflet-control-zoom").forEach((el) => bezet.push(rect(el)));
     if (D.legenda) bezet.push(rect(D.legenda.parentElement));
-    // Alle stippen van plaatsen en gebeurtenissen.
-    K2.steden.forEach(({ mk }) => { const el = mk.getElement(); const i = el && el.querySelector("i"); if (i) bezet.push(rect(i)); });
+    // Alle stippen van plaatsen en gebeurtenissen. Rond de stip van een plaats blijft een vlak van 24 × 24 px vrij: zo
+    // groot is het aanraakdoel als de naam er niet staat (WCAG 2.5.8), en een andere naam mag dat niet bedekken.
+    K2.steden.forEach(({ mk }) => { const el = mk.getElement(); const i = el && el.querySelector("i"); if (!i) return; const r = rect(i), x = (r.l + r.r) / 2, y = (r.t + r.b) / 2; bezet.push({ l: x - 12, r: x + 12, t: y - 12, b: y + 12, van: el }); });
     K2.plekken.forEach((o) => { const el = o.aan && o.mk.getElement(); const i = el && el.querySelector("i"); if (i) bezet.push(rect(i)); });
     // Plaatsnamen.
     const volg = K2.steden.map((o) => ({ o, el: o.mk.getElement() })).filter((x) => x.el)
@@ -1040,7 +1043,7 @@
       for (const k of [[], ["links"], ["kort"], ["kort", "links"]]) {
         el.classList.remove("links", "kort"); k.forEach((c) => el.classList.add(c));
         const r = rect(span);
-        if (binnen(r) && !raakt(r)) { bezet.push(r); return; }
+        if (binnen(r) && !raakt(r, 2, el)) { bezet.push(r); return; }
       }
       el.classList.remove("links", "kort"); el.classList.add("stil");
     });

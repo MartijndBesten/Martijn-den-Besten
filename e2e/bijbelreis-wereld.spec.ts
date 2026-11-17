@@ -212,6 +212,83 @@ test.describe("De wereld in die tijd", () => {
     expect(f).toEqual([]);
   });
 
+  test("Perzië: geopend vanuit Esther, kaart met Perzië en de Griekse steden, afspelen, Esther als koningin, terug", async ({ page }) => {
+    const f = fouten(page);
+    await page.goto("/bijbelreis?wereld=1#v77");
+    await expect(page.locator(".wt-ingang")).toContainText("Perzië: Esther, Ezra en Nehemia");
+    await page.locator(".wt-ingang").click();
+    await expect(page).toHaveURL(/#wereld\/perzie\/483$/);
+    await expect(page.locator("#wtJaar")).toHaveText("483 v.Chr.");
+    await page.locator(".wt-speel").click();
+    await expect.poll(async () => (await staat(page)).t, { timeout: 4000 }).toBeGreaterThan(-482);
+    await page.locator(".wt-speel").click();
+    if (!(await page.locator(".wt-kaartvlak").isVisible())) await page.getByRole("tab", { name: "Kaart" }).click();
+    await expect.poll(() => getekend(page, "path.wt-gebied-perzie")).toBe(true);
+    await expect.poll(() => getekend(page, "path.wt-gebied-grieken")).toBe(true);
+    await expect(page.locator(".wt-legenda")).toContainText("Griekse steden");
+    await expect(page.locator(".wt-legenda")).toContainText("Pleiades");
+    // Thracië hoort tussen 513 en 480 bij Perzië: de vorm van 445 is anders dan die van 490.
+    await naarJaar(page, -490);
+    await expect.poll(() => getekend(page, "path.wt-gebied-perzie")).toBe(true);
+    const d490 = await page.locator("path.wt-gebied-perzie").getAttribute("d");
+    await naarJaar(page, -445);
+    await expect.poll(() => page.locator("path.wt-gebied-perzie").getAttribute("d")).not.toBe(d490);
+    if (await page.getByRole("tab", { name: "Levenslijnen" }).isVisible()) await page.getByRole("tab", { name: "Levenslijnen" }).click();
+    await page.locator('.wt-naam[data-p="esther"]').click();
+    const k = page.locator(".wt-kaartje").filter({ hasText: "Esther" });
+    await expect(k).toContainText("Koningin vanaf");
+    await expect(k).toContainText("479 v.Chr.");
+    await page.keyboard.press("Escape");
+    await page.locator(".wt-terug").click();
+    await expect(laag(page)).toBeHidden();
+    await expect(page).toHaveURL(/#v77$/);
+    expect(f).toEqual([]);
+  });
+
+  test("Herodes en de keizers van Rome: v.Chr. en n.Chr. op één as, geen lijn voor de Heere Jezus, het rijk van Herodes valt uiteen", async ({ page }) => {
+    const f = fouten(page);
+    await page.goto("/bijbelreis?wereld=1#v83");
+    await expect(page.locator(".wt-ingang")).toContainText("Herodes en de keizers van Rome");
+    await page.locator(".wt-ingang").click();
+    await expect(page).toHaveURL(/#wereld\/geboorte-jezus\/-6$/);
+    await expect(page.locator("#wtJaar")).toHaveText("6 v.Chr.");
+    // Geen levenslijn, naam of figuur voor de Heere Jezus; Zijn geboorte staat als gebeurtenis in de lijst.
+    await expect(page.locator(".wt-naam")).toHaveCount(10);
+    await expect(page.locator(".wt-naam").filter({ hasText: /Jezus/ })).toHaveCount(0);
+    await expect(page.locator(".wt-momenten")).toContainText("De geboorte van de Heere Jezus");
+    // De as telt over het begin van de jaartelling heen, zonder jaar 0.
+    await expect(page.locator(".wt-as-ticks text").filter({ hasText: "v.Chr." }).first()).toBeAttached();
+    await expect(page.locator(".wt-as-ticks text").filter({ hasText: "n.Chr." }).first()).toBeAttached();
+    await page.locator(".wt-speel").click();
+    await expect.poll(async () => (await staat(page)).jaar, { timeout: 6000 }).toBeGreaterThan(0.5);
+    await page.locator(".wt-speel").click();
+    await expect(page.locator("#wtJaar")).toHaveText(/^\d+ n\.Chr\.$/);
+    await expect(page).toHaveURL(/#wereld\/geboorte-jezus\/\d+$/);
+    // Kaart: in 6 v.Chr. het rijk van Herodes; in 4 v.Chr. Archelaüs, Antipas en Filippus.
+    await naarJaar(page, -5);
+    if (!(await page.locator(".wt-kaartvlak").isVisible())) await page.getByRole("tab", { name: "Kaart" }).click();
+    await expect.poll(() => getekend(page, "path.wt-gebied-herodes")).toBe(true);
+    expect(await getekend(page, "path.wt-gebied-archelaus")).toBe(false);
+    await naarJaar(page, 1);
+    for (const g of ["archelaus", "antipas", "filippus", "rome", "nabatea", "decapolis"]) await expect.poll(() => getekend(page, `path.wt-gebied-${g}`), { message: g }).toBe(true);
+    await expect.poll(() => getekend(page, "path.wt-gebied-herodes")).toBe(false);
+    if (await page.getByRole("tab", { name: "Levenslijnen" }).isVisible()) await page.getByRole("tab", { name: "Levenslijnen" }).click();
+    await page.locator('.wt-naam[data-p="pilatus"]').click();
+    const k = page.locator(".wt-kaartje").filter({ hasText: "Pilatus" });
+    await expect(k).toContainText("Stadhouder vanaf");
+    await expect(k).toContainText("Afgezet");
+    await expect(k).toContainText("36 n.Chr.");
+    await page.keyboard.press("Escape");
+    await page.locator(".wt-terug").click();
+    await expect(laag(page)).toBeHidden();
+    await expect(page).toHaveURL(/#v83$/);
+    await expect(page.locator("#vTitel")).toHaveText("De geboorte van de Heere Jezus in Bethlehem");
+    // Een gedeelde link met een jaar v.Chr. als negatief getal.
+    await openLaag(page, "wereld/geboorte-jezus/-4");
+    await expect(page.locator("#wtJaar")).toHaveText("4 v.Chr.");
+    expect(f).toEqual([]);
+  });
+
   test("kaartengine met testdata: de grens verandert tussen twee jaren, een gebied verschijnt", async ({ page }) => {
     await page.route("**/bijbelreis/wereld/perioden/test-kaart.json*", (r) => r.fulfill({ status: 200, contentType: "application/json", body: FIXTURE }));
     await openLaag(page, "wereld/test-kaart/600");
@@ -252,7 +329,7 @@ test.describe("De wereld in die tijd", () => {
     const maten = isMobile ? [[390, 664], [375, 553], [360, 640], [430, 739]] : [[page.viewportSize()!.width, page.viewportSize()!.height]];
     for (const [w, h] of maten) {
       await page.setViewportSize({ width: w, height: h });
-      for (const p of ["adam-noach/987", "daniel-babylon/560"]) {
+      for (const p of ["adam-noach/987", "daniel-babylon/560", "perzie/479", "geboorte-jezus/-4"]) {
         await openLaag(page, "wereld/" + p);
         const m = await page.evaluate(() => ({ dicht: getComputedStyle(document.documentElement).overflowX === "hidden" ? 0 : document.documentElement.scrollWidth, laag: document.getElementById("wtLaag")!.scrollWidth, w: window.innerWidth, h: window.innerHeight, speel: document.querySelector(".wt-speel")!.getBoundingClientRect().bottom, schuif: document.querySelector("#wtSchuif")!.getBoundingClientRect().width }));
         // Zolang de laag open is, staat de pagina eronder vast (overflow hidden); de laag zelf schuift niet opzij.
@@ -277,6 +354,13 @@ test.describe("De wereld in die tijd", () => {
     await expect(page.locator(".wt-kaartje")).toBeVisible();
     expect(await axe()).toEqual([]);
     await openLaag(page, "wereld/daniel-babylon/586");
+    expect(await axe()).toEqual([]);
+    await openLaag(page, "wereld/perzie/445");
+    expect(await axe()).toEqual([]);
+    await openLaag(page, "wereld/geboorte-jezus/28");
+    expect(await axe()).toEqual([]);
+    await page.locator('.wt-naam[data-p="cyrenius"]').click();
+    await expect(page.locator(".wt-kaartje")).toBeVisible();
     expect(await axe()).toEqual([]);
     // Tekstueel alternatief voor de visualisatie.
     await expect(page.locator("#wtLaag table caption")).toContainText("Levenslijnen");
