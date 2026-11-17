@@ -30,10 +30,6 @@ async function bijbelreisAxe(page: Page, ookUit: string[] = []) {
   for (const sel of ookUit) axe = axe.exclude(sel);
   const results = await axe
     .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
-    // Bekend en doorgegeven (spoor Reis, 17-11-2026): de zichtbare tekst van de keuzeregel boven het stapblad op de
-    // telefoon staat niet in de toegankelijke naam (WCAG 2.5.3). Haal deze uitzondering weg zodra dat is opgelost.
-    .exclude("#kiesBtn")
-    .exclude("#kiesLade")
     .analyze();
   return results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).slice(0, 3).join(" | ")}`);
 }
