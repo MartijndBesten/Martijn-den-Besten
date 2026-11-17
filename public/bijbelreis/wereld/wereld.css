@@ -145,12 +145,15 @@
 .wt-zoom button + button { border-left: 1px solid var(--lijn); }
 .wt-zoom button:hover { background: var(--papier); }
 
-/* onderschrift: wat er net gebeurt */
-.wt-onderschrift { position: absolute; left: 50%; bottom: 14px; z-index: 3; width: min(520px, calc(100% - 28px)); margin: 0; padding: 12px 16px 13px; display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: baseline; background: color-mix(in srgb, var(--wit) 96%, transparent); border: 1px solid var(--lijn); border-left: 3px solid var(--terra-diep); border-radius: var(--r); box-shadow: 0 10px 30px -14px rgba(19, 32, 61, 0.45); transform: translate(-50%, 10px); opacity: 0; transition: opacity 0.5s, transform 0.5s var(--ease-out); pointer-events: none; }
-.wt-onderschrift.aan { opacity: 1; transform: translate(-50%, 0); }
-.wt-os-jaar { font-family: var(--font-mono); font-size: 11px; color: var(--terra-diep); white-space: nowrap; }
-.wt-os-titel { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; }
-.wt-os-tekst { grid-column: 1 / -1; margin-top: 3px; font-size: 0.88rem; line-height: 1.45; color: var(--inkt-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+/* onderschrift: wat er net gebeurt, als een rustige regel boven de tijdbediening */
+.wt-onderschrift { display: flex; align-items: baseline; gap: 10px; min-width: 0; height: 26px; margin: 0 0 2px; padding: 0 2px; overflow: hidden; white-space: nowrap; }
+.wt-os-jaar { flex: none; font-family: var(--font-mono); font-size: 11px; color: var(--terra-diep); }
+.wt-os-titel { flex: none; font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; color: var(--inkt); }
+.wt-onderschrift:not(.gevuld) .wt-os-titel { font-weight: 500; color: var(--inkt-3); font-size: 0.88rem; }
+.wt-os-tekst { min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 0.88rem; color: var(--inkt-2); }
+.wt-onderschrift.aan > * { animation: wt-in 0.6s var(--ease-out); }
+@keyframes wt-in { from { opacity: 0; transform: translateY(6px); } }
+@media (max-width: 700px) { .wt-os-tekst { display: none; } }
 
 /* ----- kaart ----- */
 .wt-p-kaart { position: relative; }
@@ -160,13 +163,13 @@
 .wt-gebied { fill: var(--gv, var(--terra)); fill-opacity: 0.2; stroke: var(--gk, var(--terra-diep)); stroke-width: 2.2; stroke-linejoin: round; }
 .wt-gebied.benaderd { stroke-dasharray: 7 5; stroke-opacity: 0.85; fill-opacity: 0.16; }
 .wt-gebiedlabel span { display: inline-block; transform: translate(-50%, -50%); font-family: var(--font-serif); font-style: italic; font-size: 16px; line-height: 1.1; color: var(--gk, var(--terra-diep)); white-space: nowrap; letter-spacing: 0.01em; text-shadow: 0 0 2px var(--land), 0 0 6px var(--land), 0 0 10px var(--land); pointer-events: none; }
-.wt-stad button { display: flex; align-items: center; gap: 5px; transform: translate(-7px, -50%); min-height: 32px; padding: 4px 6px 4px 2px; border: 0; background: none; cursor: pointer; white-space: nowrap; }
-.wt-stad i { width: 9px; height: 9px; border-radius: 50%; background: var(--inkt); box-shadow: 0 0 0 2px var(--wit); flex: none; }
+.wt-stad > i { position: absolute; left: -4.5px; top: -4.5px; width: 9px; height: 9px; border-radius: 50%; background: var(--inkt); box-shadow: 0 0 0 2px var(--wit); }
+.wt-stad button { position: absolute; left: -8px; top: -16px; display: flex; align-items: center; min-width: 26px; min-height: 32px; padding: 0 6px 0 16px; border: 0; background: none; cursor: pointer; white-space: nowrap; }
 .wt-stad span { font-size: 12.5px; font-weight: 650; color: var(--inkt); text-shadow: 0 0 2px var(--land), 0 0 5px var(--land); }
-.wt-stad.hoofd-nu i { width: 12px; height: 12px; border-radius: 3px; background: var(--nacht); }
+.wt-stad.hoofd-nu > i { width: 12px; height: 12px; left: -6px; top: -6px; border-radius: 3px; background: var(--nacht); }
 .wt-stad.hoofd-nu span { font-weight: 750; }
-.wt-ver .wt-stad:not(.belangrijk):not(.hoofd-nu) span { display: none; }
-.wt-ver .wt-stad:not(.belangrijk):not(.hoofd-nu) i { width: 7px; height: 7px; }
+.wt-ver .wt-stad:not(.belangrijk):not(.hoofd-nu) button { display: none; }
+.wt-ver .wt-stad:not(.belangrijk):not(.hoofd-nu) > i { width: 7px; height: 7px; left: -3.5px; top: -3.5px; }
 .wt-plek button { position: relative; display: block; width: 32px; height: 32px; transform: translate(-50%, -50%); border: 0; background: none; padding: 0; cursor: pointer; }
 .wt-plek i { position: absolute; left: 50%; top: 50%; width: 11px; height: 11px; margin: -5.5px; border-radius: 50%; background: var(--terra-diep); box-shadow: 0 0 0 2.5px var(--wit); }
 .wt-plek b { position: absolute; left: 50%; top: 50%; width: 30px; height: 30px; margin: -15px; border-radius: 50%; border: 2px solid var(--terra-diep); opacity: 0; }
@@ -228,7 +231,7 @@
 .wt-nu-titel { margin-top: 2px; padding: 2px 0; border: 0; background: none; text-align: left; font-size: 1.1rem; font-weight: 750; letter-spacing: -0.01em; cursor: pointer; }
 .wt-nu-straks { margin: 0; font-size: 0.92rem; color: var(--inkt-2); }
 .wt-tip { margin: 0; font-size: 0.86rem; color: var(--inkt-3); }
-.wt-link { padding: 0; min-height: 24px; border: 0; background: none; font-weight: 650; color: var(--nacht); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, var(--nacht) 40%, transparent); cursor: pointer; }
+.wt-link { display: inline; padding: 0; min-height: 24px; text-align: left; border: 0; background: none; font-weight: 650; color: var(--nacht); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, var(--nacht) 40%, transparent); cursor: pointer; }
 .wt-link:hover { text-decoration-color: var(--nacht); }
 
 /* ----- informatiekaartje ----- */
@@ -349,10 +352,9 @@
   .wt-jaarbalk { flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 12px; }
   .wt-jaar-n { font-size: 2rem; }
   .wt-jaar .wt-st { display: none; }
-  .wt-weergaven { flex: none; width: 58%; }
-  .wt-weergaven button { min-height: 36px; font-size: 0.8rem; }
-  .wt-onderschrift { bottom: 8px; padding: 8px 12px; }
-  .wt-os-tekst { -webkit-line-clamp: 1; }
+  .wt-jaar-l { display: none; }
+  .wt-weergaven { flex: 1; min-width: 0; }
+  .wt-weergaven button { min-height: 36px; padding: 0 6px; font-size: 0.78rem; }
   .wt-knoppen { padding-top: 2px; }
 }
 @media (min-width: 600px) and (max-width: 1023px) {
@@ -393,7 +395,8 @@
   .wt-app[data-naast="1"] .wt-p-lijnen { margin-right: 10px; }
   .wt-app[data-naast="1"] .wt-p-kaart { grid-column: 2; margin-left: 10px; }
   .wt-blad.midden .wt-blad-box { max-width: 720px; }
-  .wt-onderschrift { bottom: 18px; }
+  .wt-bediening { flex-wrap: wrap; row-gap: 6px; padding-top: 10px; }
+  .wt-onderschrift { flex: 1 1 100%; order: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
