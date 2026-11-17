@@ -1,0 +1,30 @@
+{
+  "id": "test-kaart",
+  "titel": "TESTDATA — kaartanimatie",
+  "ondertitel": "Alleen voor tests (tests/bijbelreis-wereld.test.ts, e2e/bijbelreis-wereld.spec.ts). Geen echte gegevens.",
+  "as": { "soort": "vchr", "van": 620, "tot": 520, "stap": 1, "label": "v.Chr.", "status": "benaderd" },
+  "start": 600,
+  "bronnen": [{ "id": "testbron", "soort": "dataset", "titel": "TESTDATA, verzonnen vormen voor de test van de kaartengine", "geraadpleegd": "2026-11-17" }],
+  "info": [{ "kop": "Testdata", "tekst": "Deze periode bestaat alleen in de tests.", "status": "benaderd", "bron": "testbron" }],
+  "personen": [
+    { "id": "testpersoon", "naam": "Testpersoon", "van": { "jaar": 610, "status": "benaderd", "bron": "testbron" }, "tot": { "jaar": 550, "status": "benaderd", "bron": "testbron", "einde": "stierf" }, "ouder": null, "rol": "TESTDATA", "ref": ["Daniël 1:1"], "gebeurtenissen": ["test-gebeurtenis"], "verhaal": null }
+  ],
+  "gebeurtenissen": [
+    { "id": "test-gebeurtenis", "titel": "Testgebeurtenis", "tekst": "TESTDATA: een gebeurtenis op een plek.", "jaar": 570, "tot": null, "status": "benaderd", "bron": "testbron", "personen": ["testpersoon"], "plaats": [32.5, 44.4], "verhaal": null, "belangrijk": true }
+  ],
+  "gebieden": [
+    { "id": "test-a", "naam": "Testgebied A", "kleur": "terra", "hoofdstad": "teststad", "bron": ["testbron"],
+      "sleutels": [
+        { "jaar": 600, "betrouwbaarheid": "benaderd", "geometrie": { "type": "Polygon", "coordinates": [[[43, 31], [46, 31], [46, 34], [43, 34], [43, 31]]] } },
+        { "jaar": 560, "betrouwbaarheid": "historisch", "geometrie": { "type": "Polygon", "coordinates": [[[38, 29], [48, 29], [48, 37], [38, 37], [38, 29]]] } },
+        { "jaar": 525, "betrouwbaarheid": "benaderd", "geometrie": { "type": "Polygon", "coordinates": [[[40, 30], [47, 30], [47, 35], [40, 35], [40, 30]]] } }
+      ] },
+    { "id": "test-b", "naam": "Testgebied B", "kleur": "kobalt", "bron": ["testbron"],
+      "sleutels": [
+        { "jaar": 580, "betrouwbaarheid": "benaderd", "geometrie": { "type": "Polygon", "coordinates": [[[50, 30], [53, 30], [53, 33], [50, 33], [50, 30]]] } },
+        { "jaar": 540, "betrouwbaarheid": "benaderd", "geometrie": { "type": "MultiPolygon", "coordinates": [[[[49, 28], [55, 28], [55, 34], [49, 34], [49, 28]]], [[[35, 33], [36.5, 33], [36.5, 34.5], [35, 34.5], [35, 33]]]] } }
+      ] }
+  ],
+  "steden": [{ "id": "teststad", "naam": "Teststad", "lat": 32.5, "lng": 44.4, "tekst": "TESTDATA", "bron": "testbron" }],
+  "koppelingen": []
+}

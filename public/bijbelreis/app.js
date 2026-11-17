@@ -201,23 +201,34 @@
   const partRoutes = new Map();
   let geoReady = false, insetGeo = null;
 
-  function drawBase(geo) {
+  // De ondergrond (zee, land, streken, meren, rivieren) op een kaart tekenen. Ook gebruikt door ‘De wereld in die tijd’
+  // (wereld/wereld.js, via BR.ondergrond), zodat beide kaarten hetzelfde landschap tonen.
+  function tekenOndergrond(m, geo) {
     const base = { pane: "basis", interactive: false };
     // De zee als eigen vlak: het reliëf mengt alleen met lagen binnen de kaart, niet met de achtergrond van de pagina.
-    L.rectangle([[10, 5], [55, 70]], { ...base, className: "seabg" }).addTo(map);
-    L.geoJSON(geo.land, { ...base, className: "landglow" }).addTo(map);
-    L.geoJSON(geo.land, { ...base, className: "land" }).addTo(map);
-    geo.regions.forEach((f) => L.geoJSON(f, { ...base, className: "rg-" + f.properties.k }).addTo(map));
-    const meerLagen = geo.lakes.map((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "lake" }).addTo(map));
-    const rivierLagen = geo.rivers.map((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "river" }).addTo(map));
-    KLEINE_RIVIEREN.forEach((r) => L.polyline(r.p, { pane: "water", className: "river klein", interactive: false }).addTo(map));
+    L.rectangle([[10, 5], [55, 70]], { ...base, className: "seabg" }).addTo(m);
+    L.geoJSON(geo.land, { ...base, className: "landglow" }).addTo(m);
+    L.geoJSON(geo.land, { ...base, className: "land" }).addTo(m);
+    geo.regions.forEach((f) => L.geoJSON(f, { ...base, className: "rg-" + f.properties.k }).addTo(m));
+    const meerLagen = geo.lakes.map((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "lake" }).addTo(m));
+    const rivierLagen = geo.rivers.map((f) => L.geoJSON(f, { pane: "water", interactive: false, className: "river" }).addTo(m));
+    KLEINE_RIVIEREN.forEach((r) => L.polyline(r.p, { pane: "water", className: "river klein", interactive: false }).addTo(m));
+    return { meerLagen, rivierLagen };
+  }
+  // Tot waar reikt het land van de ondergrond? [zuid, west, noord, oost]
+  function landGrenzen(geo) {
+    let w = 180, z = 90, o = -180, n = -90;
+    const loop = (c) => { if (typeof c[0] === "number") { w = Math.min(w, c[0]); o = Math.max(o, c[0]); z = Math.min(z, c[1]); n = Math.max(n, c[1]); } else c.forEach(loop); };
+    (geo.land.features || [geo.land]).forEach((f) => loop((f.geometry || f).coordinates));
+    return [z, w, n, o];
+  }
+  function drawBase(geo) {
+    const { meerLagen, rivierLagen } = tekenOndergrond(map, geo);
     // De rand van de kaartplaat: waar het land van de ondergrond ophoudt. Op de telefoon is de kaart in de reis zo hoog
     // dat het overzicht van een lange reis (Paulus naar Rome) verder reikt dan de ondergrond; daar ligt dan papier met een
     // kaderlijn, zoals een kaart in een atlas, in plaats van een zee waar het land recht is afgesneden. Alleen daar
     // zichtbaar (bijbelreis.css: .kader-buiten, .kader-rand).
-    let w = 180, z = 90, o = -180, n = -90;
-    const loop = (c) => { if (typeof c[0] === "number") { w = Math.min(w, c[0]); o = Math.max(o, c[0]); z = Math.min(z, c[1]); n = Math.max(n, c[1]); } else c.forEach(loop); };
-    (geo.land.features || [geo.land]).forEach((f) => loop((f.geometry || f).coordinates));
+    const [z, w, n, o] = landGrenzen(geo);
     if (w < o && z < n) {
       L.polygon([[[-5, -40], [-5, 100], [72, 100], [72, -40]], [[z, w], [z, o], [n, o], [n, w]]], { pane: "kader", interactive: false, className: "kader-buiten" }).addTo(map);
       L.rectangle([[z, w], [n, o]], { pane: "kader", interactive: false, className: "kader-rand" }).addTo(map);
@@ -225,30 +236,42 @@
     insetGeo = geo;
     geoReady = true;
     drawInset();
-    drawToen(geo, meerLagen, rivierLagen);
+    drawToen(geo, meerLagen, rivierLagen, map);
   }
   // Het landschap van toen (toen.json): wat in de Bijbelse tijd anders was dan nu. geo.json is het landschap van vandaag.
   // In de stand Toen staan de dichtgeslibde baaien, de verdwenen meren en de oude Nijlarmen op de kaart en zijn de
   // meren en stuwmeren weg die er toen niet (zo) waren; in de stand Nu is het omgekeerd. De klassen alleen-toen en
   // alleen-nu regelen dat in bijbelreis.css. Laadt het bestand niet, dan toont de kaart in beide standen het landschap van nu.
-  function drawToen(geo, meerLagen, rivierLagen) {
-    fetch(dataUrl("toen.json")).then((r) => (r.ok ? r.json() : null)).then((t) => {
+  function drawToen(geo, meerLagen, rivierLagen, m = map) {
+    return fetch(dataUrl("toen.json")).then((r) => (r.ok ? r.json() : null)).then((t) => {
       if (!t) return;
-      const teken = (lijst, cls, onder) => (lijst || []).forEach((f) => { const l = L.geoJSON(f, { pane: "water", interactive: false, className: cls }).addTo(map); if (onder) l.bringToBack(); });
+      const teken = (lijst, cls, onder) => (lijst || []).forEach((f) => { const l = L.geoJSON(f, { pane: "water", interactive: false, className: cls }).addTo(m); if (onder) l.bringToBack(); });
       // Vlakken onder de meren en rivieren van geo.json; oevers en oude rivierarmen erbovenop.
       teken(t.onzeker, "alleen-toen toen-onzeker", true); teken(t.meren, "lake alleen-toen toen-meer", true); teken(t.zee, "alleen-toen toen-zee", true);
       teken(t.nu, "lake alleen-nu", true);
       teken(t.kust, "alleen-toen toen-oever"); teken(t.rand, "alleen-toen toen-rand"); teken((t.rivieren || []).filter((f) => f.properties.vast), "river alleen-toen"); teken((t.rivieren || []).filter((f) => !f.properties.vast), "river alleen-toen toen-rivier");
       const alleenNu = (namen, features, lagen) => { const weg = new Set(namen || []); features.forEach((f, i) => { if (weg.has(f.properties.n)) lagen[i].eachLayer((l) => { const el = l.getElement(); if (el) el.classList.add("alleen-nu"); }); }); };
       alleenNu(t.weg, geo.lakes, meerLagen); alleenNu(t.wegRivier, geo.rivers, rivierLagen);
-      map.getContainer().classList.add("toen-geladen");
+      m.getContainer().classList.add("toen-geladen");
     }).catch(() => {});
   }
   // Reliëf (schaduw van bergen en dalen) en moderne grenzen zijn aanvullingen: als ze niet laden, werkt de kaart gewoon.
-  fetch(dataUrl("relief.json")).then((r) => (r.ok ? r.json() : null)).then((rel) => {
+  const tekenRelief = (m) => fetch(dataUrl("relief.json")).then((r) => (r.ok ? r.json() : null)).then((rel) => {
     if (!rel) return;
-    Object.values(rel).filter((o) => o && o.src && o.bounds).forEach((o) => L.imageOverlay(dataUrl(o.src.replace(/^\/bijbelreis\//, "")), o.bounds, { pane: "relief", interactive: false, className: "relief", alt: "" }).addTo(map));
+    Object.values(rel).filter((o) => o && o.src && o.bounds).forEach((o) => L.imageOverlay(dataUrl(o.src.replace(/^\/bijbelreis\//, "")), o.bounds, { pane: "relief", interactive: false, className: "relief", alt: "" }).addTo(m));
   }).catch(() => {});
+  tekenRelief(map);
+  // Dezelfde ondergrond (landschap van toen, met reliëf) op een andere Leaflet-kaart, voor ‘De wereld in die tijd’.
+  // Geeft de grenzen van het land terug ([zuid, west, noord, oost]): daarbuiten heeft de ondergrond geen kust.
+  BR.ondergrond = (m) => {
+    [["basis", 250], ["relief", 300], ["water", 360]].forEach(([n, z]) => { if (!m.getPane(n)) { m.createPane(n).style.zIndex = z; m.getPane(n).style.pointerEvents = "none"; } });
+    tekenRelief(m);
+    return fetch(dataUrl("geo.json")).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then((geo) => {
+      const { meerLagen, rivierLagen } = tekenOndergrond(m, geo);
+      const grenzen = landGrenzen(geo);
+      return drawToen(geo, meerLagen, rivierLagen, m).then(() => grenzen);
+    });
+  };
   // Stand ‘Nu’: landsgrenzen, landnamen en gebiedsnamen uit grenzen.json. Maatstaf (docs/bijbelreis-vandaag/README.md): een landnaam
   // krijgen alleen staten die Nederland erkent; een erkende landsgrens is een doorgetrokken lijn met een zachte band, een
   // bestandslijn of omstreden grens is gestippeld; omstreden gebieden staan er met hun gangbare Nederlandse naam, schuin gedrukt.
@@ -1283,6 +1306,7 @@
   $("p-verhalen").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
   $("p-reis").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
 
+  BR.atlas = { openVerhaal: (nr) => openVerhaal(nr), heeftVerhaal: (nr) => GBYNR.has(nr), verhaalTitel: (nr) => (GBYNR.get(nr) || {}).t || "" };
   function openVerhaal(nr, opts = {}) {
     const g = GBYNR.get(nr); if (!g) return;
     vOpen = nr; vStap = 0;
@@ -1354,6 +1378,7 @@
       renderVQuiz($("vQuiz"), g, c ? (g.quiz || []).concat((v && v.vragen) || []) : (v && v.vragen) || g.quiz);
       if (BR.tafereel) BR.tafereel.inVerhaal(box, steps, (k) => STEP_BY_KEY.get(k));
       if (BR.foto) BR.foto.inVerhaal(box, steps);
+      if (BR.wereld) BR.wereld.inVerhaal(box, g);
     }
     $("vTerug").onclick = () => { vOpen = null; navZet("#verhalen"); renderVerhalen(); heleZichtbaar(); };
     if (niveau === "a" && heeftSamen(g)) samenKoppelen(g); else focusStory(g);
@@ -1771,10 +1796,14 @@
     else nieuw ? history.pushState(st, "", hash) : history.replaceState(st, "", hash);
     if (nieuw) { navTik = true; setTimeout(() => (navTik = false), 0); }
   }
-  function laagOpen(id) {
+  // hash (optioneel): een eigen adres voor het venster, zoals #wereld/adam-noach/130; terug zet het oude adres terug.
+  function laagOpen(id, hash, extra) {
     if (!navKlaar || navStil) return;
-    history.pushState(Object.assign({}, history.state, { br: 1, laag: id }), "");
+    const st = Object.assign({}, history.state, extra || {}, { br: 1, laag: id });
+    if (hash) history.pushState(st, "", hash); else history.pushState(st, "");
   }
+  // ‘De wereld in die tijd’ (wereld/ingang.js) gebruikt dezelfde plekken in de geschiedenis.
+  BR.laag = { open: laagOpen, dicht: laagDicht };
   function laagDicht(id) {
     if (!navKlaar || navStil || navTerug) return;
     const st = history.state;
@@ -1785,6 +1814,7 @@
   }
   // Het bovenste open venster (of null).
   function laagBoven() {
+    if (BR.wereld && BR.wereld.isOpen()) return "wereld";
     if (!$("niveauKeuze").hidden) return "niveau";
     for (let i = ladeStapel.length - 1; i >= 0; i--) if (!$(ladeStapel[i].id).hidden) return ladeStapel[i].id;
     const lade = LADEN.find((id) => !$(id).hidden); if (lade) return lade;
@@ -1794,7 +1824,7 @@
   }
   function laagSluit(id) {
     navStil = true;
-    try { if (id === "niveau") { niveauVenster(false); $("niveauBtn").focus(); } else if (id === "blad") bladZet(false); else if (id === "full") setFull(false); else sluitLade(id); }
+    try { if (id === "wereld") BR.wereld.sluit({ stil: true }); else if (id === "niveau") { niveauVenster(false); $("niveauBtn").focus(); } else if (id === "blad") bladZet(false); else if (id === "full") setFull(false); else sluitLade(id); }
     finally { navStil = false; }
   }
   // De plek uit het adres en de opgeslagen staat terugzetten (na ‘terug’ of ‘vooruit’).
@@ -2930,6 +2960,10 @@
     // Bij herladen bewaart de browser de plek in de geschiedenis, met het onderdeel (zie navZet). Ook een telefoon die het
     // tabblad op de achtergrond heeft weggegooid, laadt zo opnieuw: dan kom je terug in hetzelfde onderdeel.
     const st0 = history.state;
+    // Een adres van ‘De wereld in die tijd’ (#wereld/<periode>/<jaar>): de atlas start op de plek eronder (de geschiedenis
+    // van waaruit de laag openging, of de start), en de laag gaat daaroverheen open. Terug sluit de laag.
+    const wl = BR.wereld && BR.wereld.uitAdres(location.hash, st0);
+    if (wl) history.replaceState(st0, "", location.pathname + location.search + wl.terug);
     renderBoeken();
     const [hashId, hashStep] = decodeURIComponent(location.hash.slice(1)).split("/");
     const startDeel = ALLPARTS.find((d) => d.id === hashId) || ALLPARTS.find((d) => d.boek.id === hashId) || ALLPARTS[0];
@@ -2960,10 +2994,13 @@
     // Vanaf hier telt elke nieuwe plek in de geschiedenis van de browser (zie ‘terug’).
     history.replaceState({ br: 1, p: navPlek(location.hash), m: mode }, "");
     navKlaar = true;
+    if (wl) BR.wereld.open(wl.periode, wl.jaar, { terug: wl.terug, terugNaam: vOpen && mode === "verhalen" ? GBYNR.get(vOpen).t : "" });
     // Een adres met # dat iemand zelf intypt of in een link aanklikt. Bij ‘terug’ en ‘vooruit’ (eigen plekken, met
     // history.state) doet popstate het werk al.
     window.addEventListener("hashchange", () => {
       if (history.state && history.state.br) return;
+      const w = BR.wereld && BR.wereld.uitAdres(location.hash);
+      if (w) { history.replaceState({ br: 1, p: navPlek(""), m: mode }, "", location.pathname + location.search); BR.wereld.open(w.periode, w.jaar, { terug: "" }); return; }
       navStil = true;
       try {
         const [h, st] = decodeURIComponent(location.hash.slice(1)).split("/");

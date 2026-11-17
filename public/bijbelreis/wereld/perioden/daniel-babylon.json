@@ -1,0 +1,1631 @@
+{
+ "id": "daniel-babylon",
+ "titel": "Daniël en Babylon",
+ "ondertitel": "Van Babel naar Perzië: de wereld van Daniël, 627–515 v.Chr.",
+ "as": {
+  "soort": "vchr",
+  "van": 627,
+  "tot": 515,
+  "stap": 1,
+  "label": "jaar voor Christus"
+ },
+ "start": 605,
+ "bronnen": [
+  {
+   "id": "sv",
+   "soort": "bijbel",
+   "titel": "Statenvertaling: Daniël, 2 Koningen 23–25, 2 Kronieken 36, Jeremia, Ezechiël, Ezra 1–6",
+   "url": null,
+   "licentie": "Statenvertaling (1637), publiek domein; gecontroleerd met data/statenvertaling en scripts/bijbel-check.py",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "abc2",
+   "soort": "historisch",
+   "titel": "Babylonische kroniek ABC 2 (vroege jaren van Nabopolassar), vert. Grayson/Glassner",
+   "url": "https://www.livius.org/sources/content/mesopotamian-chronicles-content/abc-2-early-years-of-nabopolassar/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "abc3",
+   "soort": "historisch",
+   "titel": "Babylonische kroniek ABC 3 (val van Ninevé)",
+   "url": "https://www.livius.org/sources/content/mesopotamian-chronicles-content/abc-3-fall-of-nineveh-chronicle/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "abc5",
+   "soort": "historisch",
+   "titel": "Babylonische kroniek ABC 5 (Jeruzalem-kroniek, jaren 21 Nabopolassar – 11 Nebukadnezar)",
+   "url": "https://www.livius.org/sources/content/mesopotamian-chronicles-content/abc-5-jerusalem-chronicle/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "abc7",
+   "soort": "historisch",
+   "titel": "Babylonische kroniek ABC 7 (Nabonidus-kroniek)",
+   "url": "https://www.livius.org/sources/content/mesopotamian-chronicles-content/abc-7-nabonidus-chronicle/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "verse-account",
+   "soort": "historisch",
+   "titel": "Versverslag van Nabonidus (Verse Account), kolom ii",
+   "url": "https://www.livius.org/sources/content/anet/verse-account-of-nabonidus/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "cyruscilinder",
+   "soort": "historisch",
+   "titel": "Cyruscilinder (British Museum, BM 90920), vertaling en toelichting",
+   "url": "https://www.livius.org/sources/content/cyrus-cylinder/cyrus-cylinder-translation/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "behistun-lijst",
+   "soort": "historisch",
+   "titel": "Inscriptie van Behistun §6: de 23 landen van Darius I",
+   "url": "https://www.livius.org/articles/person/darius-the-great/sources/four-achaemenid-empire-lists/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "herodotus",
+   "soort": "historisch",
+   "titel": "Herodotus, Historiën I (vert. G.C. Macaulay, 1890), o.a. 1.28, 1.72, 1.74, 1.214",
+   "url": "https://en.wikisource.org/wiki/The_History_of_Herodotus_(Macaulay)/Book_I",
+   "licentie": "Publiek domein (Wikisource)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "livius-nebukadnezar",
+   "soort": "historisch",
+   "titel": "Livius.org: Nebuchadnezzar II (tijdlijn)",
+   "url": "https://www.livius.org/articles/person/nebuchadnezzar-ii/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "livius-nabonidus",
+   "soort": "historisch",
+   "titel": "Livius.org: Nabonidus (tijdlijn)",
+   "url": "https://www.livius.org/articles/person/nabonidus/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "livius-cambyses",
+   "soort": "historisch",
+   "titel": "Livius.org: Cambyses II",
+   "url": "https://www.livius.org/articles/person/cambyses-ii/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "livius-cyaxares",
+   "soort": "historisch",
+   "titel": "Livius.org: Cyaxares (Meden)",
+   "url": "https://www.livius.org/articles/person/cyaxares/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "livius-sardes",
+   "soort": "historisch",
+   "titel": "Livius.org: Sardes (547 BCE??)",
+   "url": "https://www.livius.org/articles/battle/sardes-547-bce/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "cahill-sardis",
+   "soort": "historisch",
+   "titel": "N. Cahill, “The Persian Sack of Sardis”, in: The Lydians and their World (2010)",
+   "url": "https://sardisexpedition.org/en/essays/latw-cahill-persian-sack-sardis",
+   "licentie": "© Archaeological Exploration of Sardis; alleen geraadpleegd",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "bmcr-media",
+   "soort": "historisch",
+   "titel": "Bespreking van Lanfranchi, Roaf & Rollinger (red.), Continuity of Empire (?) Assyria, Media, Persia (2003), BMCR 2004.11.11",
+   "url": "https://bmcr.brynmawr.edu/?p=23704",
+   "licentie": "© BMCR; alleen geraadpleegd",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "cojs-jojachin",
+   "soort": "historisch",
+   "titel": "Babylonische rantsoenlijst met koning Jojachin in ballingschap (ca. 592/591 v.Chr.), Center for Online Judaic Studies",
+   "url": "https://cojs.org/babylonian_ration_list-_king_jehoiakhin_in_exile-_592-1_bce/",
+   "licentie": "© COJS; alleen geraadpleegd",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-pasargadae",
+   "soort": "dataset",
+   "titel": "Pleiades 922693: Pasargadae",
+   "url": "https://pleiades.stoa.org/places/922693",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-sais",
+   "soort": "dataset",
+   "titel": "Pleiades 727217: Sais",
+   "url": "https://pleiades.stoa.org/places/727217",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-tayma",
+   "soort": "dataset",
+   "titel": "Pleiades 814739: Thaima (Tayma)",
+   "url": "https://pleiades.stoa.org/places/814739",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "bijbelreis-plaatsen",
+   "soort": "dataset",
+   "titel": "Bijbelreis plaatsen.js (ligging gecontroleerd met OpenBible.info CC BY 4.0 en Pleiades CC BY)",
+   "url": null,
+   "licentie": "eigen gegevens Bijbelreis; zie docs/bijbelreis-audit/plaatsen.md",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "eigen-tekening",
+   "soort": "dataset",
+   "titel": "Grenzen: eigen grove tekening langs rivieren, kusten, gebergten en woestijnranden (scripts/bijbelreis-wereld-daniel.py)",
+   "url": null,
+   "licentie": "eigen werk; geen kaart overgenomen",
+   "geraadpleegd": "2026-11-17"
+  }
+ ],
+ "personen": [
+  {
+   "id": "nabopolassar",
+   "naam": "Nabopolassar",
+   "alt": [],
+   "personenId": null,
+   "lijn": "regering",
+   "van": {
+    "jaar": 626,
+    "status": "historisch",
+    "bron": "abc2",
+    "begin": "regering",
+    "opmerking": "Koning in Babel op 26 Arahsamnu (23 november 626 v.Chr.)."
+   },
+   "tot": {
+    "jaar": 605,
+    "status": "historisch",
+    "bron": "abc5",
+    "einde": "stierf",
+    "opmerking": "Hij stierf in de maand Abu (augustus) van 605 v.Chr."
+   },
+   "ouder": null,
+   "rol": "Koning van Babel; begon het Nieuw-Babylonische rijk",
+   "ref": [],
+   "gebeurtenissen": [
+    "val-nineve"
+   ],
+   "verhaal": null
+  },
+  {
+   "id": "nebukadnezar",
+   "naam": "Nebukadnezar",
+   "alt": [
+    "Nebukadrezar",
+    "Nebukadnezar II"
+   ],
+   "personenId": "nebukadnezar",
+   "lijn": "regering",
+   "van": {
+    "jaar": 605,
+    "status": "historisch",
+    "bron": "abc5",
+    "begin": "regering",
+    "opmerking": "Op 1 Ululu (september 605 v.Chr.) besteeg hij de troon in Babel."
+   },
+   "tot": {
+    "jaar": 562,
+    "status": "historisch",
+    "bron": "livius-nebukadnezar",
+    "einde": "stierf"
+   },
+   "ouder": "nabopolassar",
+   "rol": "Koning van Babel; veroverde Jeruzalem en voerde Juda weg",
+   "ref": [
+    "Daniël 1–4",
+    "2 Koningen 24–25",
+    "Jeremia 25:1"
+   ],
+   "gebeurtenissen": [
+    "karkemis",
+    "daniel-weggevoerd",
+    "inname-jeruzalem",
+    "verwoesting-jeruzalem",
+    "dood-nebukadnezar"
+   ],
+   "verhaal": "v73",
+   "opmerking": "De Babylonische kroniek noemt hem “zijn oudste zoon, de kroonprins” van Nabopolassar."
+  },
+  {
+   "id": "nabonidus",
+   "naam": "Nabonidus",
+   "alt": [],
+   "personenId": null,
+   "lijn": "regering",
+   "van": {
+    "jaar": 556,
+    "status": "historisch",
+    "bron": "livius-nabonidus",
+    "begin": "regering"
+   },
+   "tot": {
+    "jaar": 539,
+    "status": "historisch",
+    "bron": "abc7",
+    "einde": "onbekend",
+    "opmerking": "Na de val van Babel werd hij gevangengenomen; hoe zijn leven eindigde, is niet zeker."
+   },
+   "ouder": null,
+   "rol": "Laatste koning van Babel; woonde jarenlang in de oase Tayma in Arabië",
+   "ref": [],
+   "gebeurtenissen": [
+    "val-babylon"
+   ],
+   "verhaal": null,
+   "opmerking": "De Bijbel noemt hem niet bij name."
+  },
+  {
+   "id": "belsazar",
+   "naam": "Belsazar",
+   "alt": [
+    "Bel-sjarra-oesoer"
+   ],
+   "personenId": "belsazar",
+   "lijn": "regering",
+   "van": {
+    "jaar": 553,
+    "status": "benaderd",
+    "bron": [
+     "verse-account",
+     "abc7"
+    ],
+    "begin": "regering",
+    "marge": [553,552],
+    "opmerking": "Toen zijn derde jaar begon, vertrouwde Nabonidus “het koningschap” toe aan zijn oudste zoon en vertrok naar Tayma (Versverslag). De Bijbel spreekt van ‘het eerste jaar van Belsazar’ (Daniël 7:1)."
+   },
+   "tot": {
+    "jaar": 539,
+    "status": "benaderd",
+    "bron": "Daniël 5:30",
+    "einde": "stierf",
+    "opmerking": "‘In dienzelfden nacht, werd Belsazar, der Chaldeen koning, gedood’ (Daniël 5:30). Babel viel in oktober 539 v.Chr. (Nabonidus-kroniek); zijn dood staat niet in Babylonische bronnen."
+   },
+   "ouder": null,
+   "rol": "Zoon van Nabonidus; regeerde in Babel terwijl zijn vader in Tayma was",
+   "ref": [
+    "Daniël 5",
+    "Daniël 7:1",
+    "Daniël 8:1"
+   ],
+   "gebeurtenissen": [
+    "val-babylon"
+   ],
+   "verhaal": null,
+   "opmerking": "Daniël 5:2 noemt Nebukadnezar ‘zijn vader’ (Daniël 5:2); “vader” kan in de Bijbel ook voorvader of voorganger betekenen. Buiten de Bijbel is hij bekend als zoon van Nabonidus."
+  },
+  {
+   "id": "kores",
+   "naam": "Kores",
+   "alt": [
+    "Cyrus",
+    "Cores"
+   ],
+   "personenId": "kores",
+   "lijn": "regering",
+   "van": {
+    "jaar": 559,
+    "status": "benaderd",
+    "bron": [
+     "herodotus",
+     "pleiades-pasargadae"
+    ],
+    "begin": "regering",
+    "opmerking": "Herodotus geeft hem 29 regeringsjaren; terugrekenen vanaf 530 geeft 559 v.Chr. Eerst was hij koning van Ansan (Perzië)."
+   },
+   "tot": {
+    "jaar": 530,
+    "status": "historisch",
+    "bron": "livius-cambyses",
+    "einde": "stierf"
+   },
+   "ouder": null,
+   "rol": "Koning van Perzië; veroverde Medië, Lydië en Babel en liet de Joden teruggaan",
+   "ref": [
+    "Ezra 1:1–4",
+    "2 Kronieken 36:22–23",
+    "Daniël 1:21",
+    "Daniël 10:1",
+    "Jesaja 45:1"
+   ],
+   "gebeurtenissen": [
+    "kores-medie",
+    "sardis",
+    "val-babylon",
+    "decreet-kores"
+   ],
+   "verhaal": "v76"
+  },
+  {
+   "id": "cambyses",
+   "naam": "Cambyses",
+   "alt": [
+    "Cambyses II"
+   ],
+   "personenId": null,
+   "lijn": "regering",
+   "van": {
+    "jaar": 530,
+    "status": "historisch",
+    "bron": "livius-cambyses",
+    "begin": "regering"
+   },
+   "tot": {
+    "jaar": 522,
+    "status": "historisch",
+    "bron": "livius-cambyses",
+    "einde": "stierf"
+   },
+   "ouder": "kores",
+   "rol": "Zoon van Kores; veroverde Egypte in 525 v.Chr.",
+   "ref": [],
+   "gebeurtenissen": [],
+   "verhaal": null,
+   "opmerking": "De Nabonidus-kroniek noemt hem “Cambyses, zoon van Kores”. De Bijbel noemt hem niet met zekerheid."
+  },
+  {
+   "id": "darius-i",
+   "naam": "Darius I",
+   "alt": [
+    "Darius de Grote"
+   ],
+   "personenId": "darius_pers",
+   "lijn": "regering",
+   "van": {
+    "jaar": 522,
+    "status": "historisch",
+    "bron": "behistun-lijst",
+    "begin": "regering"
+   },
+   "tot": {
+    "jaar": 486,
+    "status": "historisch",
+    "bron": "behistun-lijst",
+    "einde": "stierf",
+    "opmerking": "Zijn regering loopt door tot na het einde van deze tijdlijn."
+   },
+   "ouder": null,
+   "rol": "Koning van Perzië; in zijn zesde jaar was de tempel in Jeruzalem klaar",
+   "ref": [
+    "Ezra 4:24",
+    "Ezra 6:15"
+   ],
+   "gebeurtenissen": [
+    "tempel-klaar"
+   ],
+   "verhaal": "v76",
+   "opmerking": "Dat de Darius van Ezra 4–6 Darius I is, wordt algemeen aangenomen."
+  },
+  {
+   "id": "darius-meder",
+   "naam": "Darius de Meder",
+   "alt": [
+    "Darius"
+   ],
+   "personenId": "darius_meder",
+   "lijn": "regering",
+   "van": {
+    "jaar": 539,
+    "status": "benaderd",
+    "bron": "Daniël 6:1",
+    "begin": "regering",
+    "opmerking": "Hij ontving het koninkrijk na de dood van Belsazar, ‘omtrent twee en zestig jaren oud zijnde’ (Daniël 6:1)."
+   },
+   "tot": {
+    "jaar": 538,
+    "status": "benaderd",
+    "bron": "Daniël 9:1",
+    "einde": "onbekend",
+    "opmerking": "De Bijbel noemt alleen zijn eerste jaar (Daniël 9:1; 11:1); hoe lang hij regeerde, staat er niet."
+   },
+   "ouder": null,
+   "rol": "Koning over Babel na Belsazar; liet Daniël in de leeuwenkuil werpen",
+   "ref": [
+    "Daniël 6",
+    "Daniël 9:1",
+    "Daniël 11:1"
+   ],
+   "gebeurtenissen": [
+    "leeuwenkuil"
+   ],
+   "verhaal": "v75",
+   "opmerking": "Wie hij buiten de Bijbel was, is omstreden. Genoemd worden onder meer Gubaru, die volgens de Nabonidus-kroniek voor Kores de bestuurders in Babel aanstelde, Kores zelf, of een Meedse vorst."
+  },
+  {
+   "id": "jojakim",
+   "naam": "Jojakim",
+   "alt": [
+    "Eljakim"
+   ],
+   "personenId": "jojakim",
+   "lijn": "regering",
+   "van": {
+    "jaar": 609,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 23:29–36",
+     "abc3"
+    ],
+    "begin": "regering",
+    "opmerking": "Farao Necho maakte hem koning na de dood van Josia (2 Koningen 23:29–34). Necho trok in 609 v.Chr. naar de Eufraat (Babylonische kroniek)."
+   },
+   "tot": {
+    "jaar": 598,
+    "status": "benaderd",
+    "bron": "2 Koningen 23:36; 24:6",
+    "einde": "stierf",
+    "opmerking": "Hij regeerde elf jaar en stierf kort voordat Jeruzalem begin 597 v.Chr. werd ingenomen."
+   },
+   "ouder": null,
+   "rol": "Koning van Juda; in zijn tijd werd Daniël weggevoerd",
+   "ref": [
+    "2 Koningen 23:34–24:6",
+    "Daniël 1:1–2",
+    "Jeremia 36"
+   ],
+   "gebeurtenissen": [
+    "daniel-weggevoerd"
+   ],
+   "verhaal": "v73"
+  },
+  {
+   "id": "jojachin",
+   "naam": "Jojachin",
+   "alt": [
+    "Jechonia",
+    "Chonja"
+   ],
+   "personenId": "jojachin",
+   "lijn": "leven",
+   "van": {
+    "jaar": 598,
+    "status": "benaderd",
+    "bron": "2 Koningen 24:8",
+    "begin": "regering",
+    "opmerking": "Hij was achttien jaar toen hij koning werd en regeerde drie maanden. De lijn begint bij zijn koningschap, niet bij zijn geboorte."
+   },
+   "tot": {
+    "jaar": 561,
+    "status": "berekend",
+    "bron": "2 Koningen 25:27",
+    "einde": "onbekend",
+    "marge": [562,561],
+    "opmerking": "In het zevenendertigste jaar van zijn wegvoering kreeg hij genade van Evil-Merodach (2 Koningen 25:27), omgerekend begin 561 v.Chr. Daarna at hij aan de tafel van de koning ‘al de dagen zijns levens’ (2 Koningen 25:29); wanneer hij stierf, staat er niet."
+   },
+   "ouder": "jojakim",
+   "rol": "Koning van Juda (drie maanden), daarna gevangene in Babel",
+   "ref": [
+    "2 Koningen 24:8–17",
+    "2 Koningen 25:27–30",
+    "Jeremia 52:31–34"
+   ],
+   "gebeurtenissen": [
+    "inname-jeruzalem",
+    "dood-nebukadnezar"
+   ],
+   "verhaal": "v71",
+   "opmerking": "Babylonische rantsoenlijsten uit de tijd van Nebukadnezar noemen “Ja’u-kinu, koning van Juda” en zijn zonen (cojs-jojachin)."
+  },
+  {
+   "id": "zedekia",
+   "naam": "Zedekia",
+   "alt": [
+    "Mattanja"
+   ],
+   "personenId": "zedekia",
+   "lijn": "regering",
+   "van": {
+    "jaar": 597,
+    "status": "historisch",
+    "bron": [
+     "abc5",
+     "2 Koningen 24:17–18"
+    ],
+    "begin": "regering",
+    "opmerking": "De Babylonische kroniek zegt dat Nebukadnezar een koning naar zijn eigen keus aanstelde; de Bijbel noemt hem Zedekia."
+   },
+   "tot": {
+    "jaar": 586,
+    "status": "benaderd",
+    "bron": "2 Koningen 25:2–7",
+    "einde": "onbekend",
+    "marge": [587,586],
+    "opmerking": "In zijn elfde jaar werd Jeruzalem ingenomen en werd hij naar Babel gevoerd: in 586 v.Chr., volgens anderen 587. Wanneer hij stierf, staat er niet."
+   },
+   "ouder": null,
+   "rol": "Laatste koning van Juda",
+   "ref": [
+    "2 Koningen 24:17–25:7",
+    "Jeremia 39:1–7"
+   ],
+   "gebeurtenissen": [
+    "verwoesting-jeruzalem"
+   ],
+   "verhaal": "v71"
+  },
+  {
+   "id": "daniel",
+   "naam": "Daniël",
+   "alt": [
+    "Beltsazar"
+   ],
+   "personenId": "daniel",
+   "lijn": "in Babel",
+   "van": {
+    "jaar": 605,
+    "status": "benaderd",
+    "bron": "Daniël 1:1–6",
+    "begin": "weggevoerd",
+    "opmerking": "De lijn begint bij de wegvoering, niet bij de geboorte: wanneer Daniël geboren werd, staat niet in de Bijbel. Hij was toen een van de ‘jongelingen’ (Daniël 1:4). Het derde jaar van Jojakim is volgens de gangbare uitleg 605 v.Chr."
+   },
+   "tot": {
+    "jaar": 536,
+    "status": "benaderd",
+    "bron": "Daniël 10:1",
+    "einde": "onbekend",
+    "marge": [536,535],
+    "opmerking": "‘Daniël bleef tot het eerste jaar van den koning Kores toe’ (Daniël 1:21). Het laatste jaartal in het boek is het derde jaar van Kores (Daniël 10:1), ongeveer 536 v.Chr. Hoe oud hij werd en wanneer hij stierf, staat er niet."
+   },
+   "ouder": null,
+   "rol": "Uit Juda weggevoerd naar Babel; diende aan het hof van Nebukadnezar tot in de tijd van Kores",
+   "ref": [
+    "Daniël 1:1–6",
+    "Daniël 1:21",
+    "Daniël 10:1"
+   ],
+   "gebeurtenissen": [
+    "daniel-weggevoerd",
+    "val-babylon",
+    "leeuwenkuil"
+   ],
+   "verhaal": "v73"
+  },
+  {
+   "id": "jeremia",
+   "naam": "Jeremia",
+   "alt": [],
+   "personenId": "jeremia",
+   "lijn": "profeet",
+   "van": {
+    "jaar": 627,
+    "status": "berekend",
+    "bron": "Jeremia 1:2",
+    "begin": "roeping",
+    "marge": [627,626],
+    "opmerking": "Het woord van de HEERE kwam tot hem in het dertiende jaar van koning Josia, omgerekend 627/626 v.Chr."
+   },
+   "tot": {
+    "jaar": 586,
+    "status": "benaderd",
+    "bron": "Jeremia 43:6–7",
+    "einde": "onbekend",
+    "opmerking": "Na de val van Jeruzalem werd hij meegenomen naar Egypte en profeteerde daar nog (Jeremia 44). Wanneer hij stierf, staat er niet."
+   },
+   "ouder": null,
+   "rol": "Profeet in Jeruzalem; zag de val van de stad",
+   "ref": [
+    "Jeremia 1:1–3",
+    "Jeremia 25:1",
+    "Jeremia 29:10",
+    "Jeremia 39–40"
+   ],
+   "gebeurtenissen": [
+    "verwoesting-jeruzalem"
+   ],
+   "verhaal": "v71"
+  },
+  {
+   "id": "ezechiel",
+   "naam": "Ezechiël",
+   "alt": [],
+   "personenId": null,
+   "lijn": "in Babel",
+   "van": {
+    "jaar": 597,
+    "status": "berekend",
+    "bron": [
+     "Ezechiël 1:2",
+     "abc5"
+    ],
+    "begin": "weggevoerd",
+    "opmerking": "Hij werd met koning Jojachin weggevoerd en telt de jaren vanaf ‘de wegvoering van den koning Jojachin’ (Ezechiël 1:2)."
+   },
+   "tot": {
+    "jaar": 571,
+    "status": "berekend",
+    "bron": "Ezechiël 29:17",
+    "einde": "onbekend",
+    "marge": [571,570],
+    "opmerking": "Het laatste jaartal in zijn boek is het zevenentwintigste jaar (Ezechiël 29:17), omgerekend ongeveer 571 v.Chr."
+   },
+   "ouder": null,
+   "rol": "Priester en profeet bij de ballingen aan de rivier Chebar",
+   "ref": [
+    "Ezechiël 1:1–3",
+    "Ezechiël 29:17",
+    "Ezechiël 40:1"
+   ],
+   "gebeurtenissen": [
+    "inname-jeruzalem"
+   ],
+   "verhaal": null
+  }
+ ],
+ "gebeurtenissen": [
+  {
+   "id": "val-nineve",
+   "titel": "Ninevé verwoest",
+   "tekst": "De legers van Babel en de Meden nemen Ninevé in, de hoofdstad van Assyrië, en maken er een puinhoop van. Na nog een paar jaar strijd rond Haran is het Assyrische rijk verdwenen.",
+   "jaar": 612,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "abc3"
+   ],
+   "personen": [
+    "nabopolassar"
+   ],
+   "plaats": "ninivest",
+   "verhaal": null,
+   "belangrijk": true,
+   "opmerking": "De kroniek noemt de maand Abu (juli/augustus) in het veertiende jaar van Nabopolassar; Haran viel in 610/609 v.Chr."
+  },
+  {
+   "id": "karkemis",
+   "titel": "Slag bij Karkemis",
+   "tekst": "Kroonprins Nebukadnezar verslaat het leger van Farao Necho bij Karkemis aan de Eufraat en achtervolgt het tot bij Hamath. Daarna trekt hij door Syrië.",
+   "jaar": 605,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "abc5",
+    "Jeremia 46:2"
+   ],
+   "personen": [
+    "nebukadnezar"
+   ],
+   "plaats": "karkemis",
+   "verhaal": null,
+   "belangrijk": false,
+   "opmerking": "Jeremia 46:2 noemt deze slag in het vierde jaar van Jojakim."
+  },
+  {
+   "id": "daniel-weggevoerd",
+   "titel": "Daniël naar Babel",
+   "tekst": "Nebukadnezar belegert Jeruzalem en neemt jongens uit de koninklijke familie mee naar Babel, onder wie Daniël en zijn drie vrienden.",
+   "jaar": 605,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Daniël 1:1–6"
+   ],
+   "personen": [
+    "daniel",
+    "nebukadnezar",
+    "jojakim"
+   ],
+   "plaats": "salem",
+   "verhaal": "v73",
+   "belangrijk": true,
+   "stap": "daniel:daniel:1",
+   "opmerking": "Daniël 1:1 noemt het derde jaar van Jojakim, Jeremia 46:2 het vierde jaar voor de slag bij Karkemis. Volgens de gangbare uitleg tellen ze anders (wel of niet het eerste, onvolledige jaar) en gaat het om hetzelfde jaar, 605 v.Chr. Buiten de Bijbel is deze wegvoering niet beschreven."
+  },
+  {
+   "id": "inname-jeruzalem",
+   "titel": "Jeruzalem ingenomen, Jojachin weggevoerd",
+   "tekst": "Na een beleg neemt Nebukadnezar Jeruzalem in. Hij voert koning Jojachin weg naar Babel, met duizenden anderen, onder wie Ezechiël, en maakt Zedekia koning.",
+   "jaar": 597,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "abc5",
+    "2 Koningen 24:10–17",
+    "Jeremia 52:28"
+   ],
+   "personen": [
+    "nebukadnezar",
+    "jojachin",
+    "zedekia",
+    "ezechiel"
+   ],
+   "plaats": "salem",
+   "verhaal": null,
+   "belangrijk": false,
+   "stap": "2koningen:ballingschap:6",
+   "opmerking": "Volgens de Babylonische kroniek op de tweede dag van de maand Addaru in het zevende jaar van Nebukadnezar (februari/maart 597 v.Chr.). Jeremia 52:28 noemt ook ‘het zevende jaar’ (Jeremia 52:28); 2 Koningen 24:12 noemt het achtste jaar (een andere telling)."
+  },
+  {
+   "id": "verwoesting-jeruzalem",
+   "titel": "Jeruzalem en de tempel verwoest",
+   "tekst": "Na een beleg van ongeveer anderhalf jaar breekt het leger van Babel de stad binnen. De tempel, het paleis en de huizen worden verbrand en de muren afgebroken.",
+   "jaar": 586,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "2 Koningen 25:1–10",
+    "Jeremia 52:12–14",
+    "livius-nebukadnezar"
+   ],
+   "personen": [
+    "nebukadnezar",
+    "zedekia",
+    "jeremia"
+   ],
+   "plaats": "salem",
+   "verhaal": "v71",
+   "belangrijk": true,
+   "stap": "2koningen:ballingschap:7",
+   "marge": [587,586],
+   "opmerking": "De Bijbel noemt het elfde jaar van Zedekia en het negentiende jaar van Nebukadnezar (2 Koningen 25:2, 8); Jeremia 52:29 noemt bij een groep weggevoerden het achttiende jaar. Omgerekend komen onderzoekers op 586 of 587 v.Chr. Het bewaarde deel van de Babylonische kroniek stopt eerder, na het elfde jaar van Nebukadnezar."
+  },
+  {
+   "id": "dood-nebukadnezar",
+   "titel": "Nebukadnezar sterft",
+   "tekst": "Na een lange regering sterft Nebukadnezar. Zijn zoon Evil-Merodach wordt koning en haalt Jojachin uit de gevangenis.",
+   "jaar": 562,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "livius-nebukadnezar",
+    "2 Koningen 25:27–30"
+   ],
+   "personen": [
+    "nebukadnezar",
+    "jojachin"
+   ],
+   "plaats": "babelst",
+   "verhaal": null,
+   "belangrijk": false,
+   "stap": "2koningen:ballingschap:8",
+   "opmerking": "Jojachin kreeg genade ‘in het jaar, als hij koning werd’ (2 Koningen 25:27), in de twaalfde maand: omgerekend begin 561 v.Chr. Evil-Merodach heet in Babylonische bronnen Amel-Marduk."
+  },
+  {
+   "id": "kores-medie",
+   "titel": "Kores verovert Medië",
+   "tekst": "Koning Astyages van Medië trekt op tegen Kores, maar zijn eigen leger keert zich tegen hem. Kores neemt Ekbatana in, de koningsstad van de Meden.",
+   "jaar": 550,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "abc7"
+   ],
+   "personen": [
+    "kores"
+   ],
+   "plaats": "ekbatana",
+   "verhaal": null,
+   "belangrijk": false,
+   "opmerking": "Nabonidus-kroniek, zesde jaar van Nabonidus."
+  },
+  {
+   "id": "sardis",
+   "titel": "Kores verovert Lydië",
+   "tekst": "Kores verslaat koning Croesus van Lydië en neemt diens hoofdstad Sardis in. Daarna onderwerpen zijn legers ook de Griekse steden aan de kust.",
+   "jaar": 547,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "livius-sardes",
+    "cahill-sardis",
+    "herodotus"
+   ],
+   "personen": [
+    "kores"
+   ],
+   "plaats": "nt4_sardis",
+   "verhaal": null,
+   "belangrijk": false,
+   "marge": [547,540],
+   "opmerking": "Het jaar staat niet vast. Een beschadigde regel in de Nabonidus-kroniek (547 v.Chr.) wordt vaak als “Lydië” gelezen, maar dat is onzeker; Griekse schrijvers rekenden 546. Sommige onderzoekers denken aan een later jaar, vóór de val van Babel."
+  },
+  {
+   "id": "val-babylon",
+   "titel": "Babel valt",
+   "tekst": "Kores verslaat het leger van Babel bij Opis; kort daarna trekt zijn leger zonder strijd Babel binnen en wordt Nabonidus gevangengenomen. Volgens Daniël 5 werd koning Belsazar in die nacht gedood.",
+   "jaar": 539,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "abc7",
+    "cyruscilinder",
+    "Daniël 5:30"
+   ],
+   "personen": [
+    "kores",
+    "nabonidus",
+    "belsazar",
+    "daniel",
+    "darius-meder"
+   ],
+   "plaats": "babelst",
+   "verhaal": null,
+   "belangrijk": true,
+   "stap": "daniel:daniel:6",
+   "opmerking": "Volgens de Nabonidus-kroniek trokken de troepen van Kores op de zestiende dag Babel binnen en kwam Kores zelf op 3 Arahsamnu (29 oktober 539 v.Chr.). Dat Belsazar in die nacht werd gedood, staat alleen in de Bijbel (Daniël 5:30)."
+  },
+  {
+   "id": "decreet-kores",
+   "titel": "Kores laat de Joden teruggaan",
+   "tekst": "In zijn eerste jaar als koning over Babel laat Kores bekendmaken dat de Joden naar Jeruzalem mogen gaan om het huis van de HEERE te herbouwen. Hij geeft de tempelvaten mee terug.",
+   "jaar": 538,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Ezra 1:1–11",
+    "2 Kronieken 36:22–23"
+   ],
+   "personen": [
+    "kores"
+   ],
+   "plaats": "babelst",
+   "verhaal": "v76",
+   "belangrijk": true,
+   "stap": "ezra:terugkeer:0",
+   "marge": [539,538],
+   "opmerking": "Het eerste jaar van Kores (Ezra 1:1) is volgens de gangbare omrekening 538 v.Chr. De Cyruscilinder (British Museum) vertelt dat Kores beelden van goden terugbracht naar hun steden en de inwoners liet terugkeren; Juda en Jeruzalem staan er niet in. De cilinder is dus niet dit bevel, maar laat wel zien hoe Kores zulke dingen deed."
+  },
+  {
+   "id": "leeuwenkuil",
+   "titel": "Daniël in de leeuwenkuil",
+   "tekst": "Onder koning Darius de Meder wordt Daniël in de leeuwenkuil geworpen, omdat hij blijft bidden tot zijn God. God bewaart hem: de leeuwen doen hem niets.",
+   "jaar": 538,
+   "tot": null,
+   "status": "expliciet",
+   "bron": [
+    "Daniël 6"
+   ],
+   "personen": [
+    "daniel",
+    "darius-meder"
+   ],
+   "plaats": "babelst",
+   "verhaal": "v75",
+   "belangrijk": false,
+   "stap": "daniel:daniel:7",
+   "marge": [539,536],
+   "opmerking": "Daniël 6 noemt geen jaar, alleen dat het onder Darius de Meder was, die het koninkrijk na Belsazar ontving (Daniël 6:1). Het jaartal is daarom een plaatsing bij benadering. Wie deze Darius was, is omstreden."
+  },
+  {
+   "id": "tempel-klaar",
+   "titel": "De tempel is klaar",
+   "tekst": "In het zesde jaar van koning Darius is het huis van God in Jeruzalem herbouwd. Het volk viert de inwijding met vreugde.",
+   "jaar": 515,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Ezra 6:15–16"
+   ],
+   "personen": [
+    "darius-i"
+   ],
+   "plaats": "salem",
+   "verhaal": "v76",
+   "belangrijk": false,
+   "stap": "ezra:terugkeer:6",
+   "marge": [516,515],
+   "opmerking": "‘Op den derden dag der maand Adar’ in het zesde jaar van Darius (Ezra 6:15). Als dat Darius I is, zoals algemeen wordt aangenomen, is het voorjaar 515 v.Chr.; sommigen rekenen 516."
+  }
+ ],
+ "gebieden": [
+  {
+   "id": "babylonie",
+   "naam": "Nieuw-Babylonische rijk",
+   "kleur": "terra",
+   "hoofdstad": "babylon",
+   "bron": [
+    "abc2",
+    "abc3",
+    "abc5",
+    "abc7",
+    "2 Koningen 24:7",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Of het Assyrische kernland ten oosten van de Tigris na 612 bij Babel of bij de Meden hoorde, is niet goed bekend; het is hier opengelaten. Elam (Susa) is niet bij Babel getekend.",
+   "sleutels": [
+    {
+     "jaar": 626,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[44.1,33.2],[43.9,32.6],[44.3,32.1],[44.9,31.8],[45.4,32.0],[45.3,32.6],[44.6,33.2],[44.1,33.2]]
+      ]
+     },
+     "opmerking": "Nabopolassar koning in Babel (ABC 2); de steden van Babylonië waren nog jaren betwist."
+    },
+    {
+     "jaar": 616,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[42.8,33.65],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[47.3,31.7],[45.9,33.1],[45.4,33.9],[43.9,34.25],[42.8,33.65]]
+      ]
+     },
+     "opmerking": "Heel Babylonië: in zijn tiende jaar trekt Nabopolassar de Eufraat op (ABC 3)."
+    },
+    {
+     "jaar": 609,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[45.4,33.9],[43.6,35.5],[43.1,36.3],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[38.8,36.6],[38.9,35.9],[40.0,34.8],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[47.3,31.7],[45.9,33.1],[45.4,33.9]]
+      ]
+     },
+     "opmerking": "Na Ninevé (612) en Haran (610/609) tot aan de Balich en de Taurus (ABC 3)."
+    },
+    {
+     "jaar": 605,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[45.4,33.9],[43.6,35.5],[43.1,36.3],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.6,36.4],[36.3,35.6],[36.4,34.9],[37.6,34.6],[40.0,34.8],[41.0,34.3],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[47.3,31.7],[45.9,33.1],[45.4,33.9]]
+      ]
+     },
+     "opmerking": "Na Karkemis en Hamath (ABC 5)."
+    },
+    {
+     "jaar": 604,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[45.4,33.9],[43.6,35.5],[43.1,36.3],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.8,31.1],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[47.3,31.7],[45.9,33.1],[45.4,33.9]]
+      ]
+     },
+     "opmerking": "Heel “Hattu” tot aan de rivier van Egypte (ABC 5; 2 Koningen 24:7). Juda en de Fenicische steden zijn vazallen."
+    },
+    {
+     "jaar": 553,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[45.4,33.9],[43.6,35.5],[43.1,36.3],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.8,31.1],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[47.3,31.7],[45.9,33.1],[45.4,33.9]]
+      ]
+     }
+    },
+    {
+     "jaar": 549,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[45.4,33.9],[43.6,35.5],[43.1,36.3],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.8,31.1],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.3,30.0],[37.6,28.6],[38.3,27.3],[38.9,27.4],[38.8,28.2],[37.4,29.6],[36.8,30.8],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[47.3,31.7],[45.9,33.1],[45.4,33.9]]
+      ]
+     },
+     "opmerking": "Nabonidus in Tayma (ABC 7, zevende jaar)."
+    },
+    {
+     "jaar": 539,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[45.4,33.9],[43.6,35.5],[43.1,36.3],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.8,31.1],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.3,30.0],[37.6,28.6],[38.3,27.3],[38.9,27.4],[38.8,28.2],[37.4,29.6],[36.8,30.8],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[47.3,31.7],[45.9,33.1],[45.4,33.9]]
+      ]
+     },
+     "opmerking": "Laatste jaar: Kores neemt het rijk over."
+    }
+   ]
+  },
+  {
+   "id": "assyrie",
+   "naam": "Assyrië",
+   "kleur": "grijs",
+   "hoofdstad": "nineve",
+   "bron": [
+    "abc3",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. In 626 is alleen het kerngebied getekend; hoeveel gezag Assyrië toen nog in Syrië en Kanaän had, is onzeker.",
+   "sleutels": [
+    {
+     "jaar": 626,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[37.9,37.2],[38.1,36.5],[38.9,35.9],[40.1,35.2],[40.9,34.5],[42.0,34.4],[43.7,34.6],[44.5,35.0],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.5],[40.8,37.6],[39.3,37.5],[37.9,37.2]]
+      ]
+     }
+    },
+    {
+     "jaar": 613,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[37.9,37.2],[38.1,36.5],[38.9,35.9],[40.1,35.2],[40.9,34.5],[42.0,34.4],[43.7,34.6],[44.5,35.0],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.5],[40.8,37.6],[39.3,37.5],[37.9,37.2]]
+      ]
+     }
+    },
+    {
+     "jaar": 612,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[38.2,37.3],[38.2,36.4],[39.0,36.0],[39.8,36.3],[39.9,37.1],[39.1,37.5],[38.2,37.3]]
+      ]
+     },
+     "opmerking": "Na de val van Ninevé houdt Assur-uballit stand in Haran (ABC 3)."
+    },
+    {
+     "jaar": 610,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[38.2,37.3],[38.2,36.4],[39.0,36.0],[39.8,36.3],[39.9,37.1],[39.1,37.5],[38.2,37.3]]
+      ]
+     },
+     "opmerking": "Haran valt (ABC 3): daarna bestaat Assyrië niet meer."
+    }
+   ]
+  },
+  {
+   "id": "medie",
+   "naam": "Medië",
+   "kleur": "olijf",
+   "hoofdstad": "ekbatana",
+   "bron": [
+    "abc3",
+    "abc7",
+    "livius-cyaxares",
+    "bmcr-media",
+    "herodotus",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Hoe groot het rijk van de Meden was, is onder onderzoekers omstreden; Herodotus noemt de rivier de Halys als grens met Lydië (1.72), maar dat is hier niet getekend. Getekend is alleen het kerngebied rond Ekbatana.",
+   "sleutels": [
+    {
+     "jaar": 614,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[44.6,38.0],[45.2,36.5],[46.3,34.6],[47.6,33.6],[49.0,33.2],[50.4,33.1],[51.6,33.4],[52.4,34.4],[52.6,35.6],[51.5,35.8],[50.5,36.2],[49.3,36.8],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[45.2,38.9],[44.6,38.0]]
+      ]
+     },
+     "opmerking": "De Meden nemen Assur in (ABC 3); eerder is hun rijk in de kronieken niet te volgen."
+    },
+    {
+     "jaar": 550,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[44.6,38.0],[45.2,36.5],[46.3,34.6],[47.6,33.6],[49.0,33.2],[50.4,33.1],[51.6,33.4],[52.4,34.4],[52.6,35.6],[51.5,35.8],[50.5,36.2],[49.3,36.8],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[45.2,38.9],[44.6,38.0]]
+      ]
+     },
+     "opmerking": "Kores neemt Ekbatana in (ABC 7)."
+    }
+   ]
+  },
+  {
+   "id": "lydie",
+   "naam": "Lydië",
+   "kleur": "oker",
+   "hoofdstad": "sardis",
+   "bron": [
+    "herodotus",
+    "cahill-sardis",
+    "livius-sardes",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Onder Croesus alles ten westen van de Halys, behalve Lycië en Cilicië (Herodotus 1.28).",
+   "sleutels": [
+    {
+     "jaar": 626,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[27.3,39.2],[27.2,38.4],[27.6,37.9],[28.6,37.8],[29.4,38.2],[29.6,38.9],[28.6,39.4],[27.3,39.2]]
+      ]
+     },
+     "opmerking": "Alleen het kernland rond Sardis."
+    },
+    {
+     "jaar": 560,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[33.8,39.3],[33.6,40.0],[34.0,40.5],[34.8,41.0],[35.5,41.3],[35.9,41.7],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0]]
+      ]
+     },
+     "opmerking": "Onder Croesus (Herodotus 1.28)."
+    },
+    {
+     "jaar": 547,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[33.8,39.3],[33.6,40.0],[34.0,40.5],[34.8,41.0],[35.5,41.3],[35.9,41.7],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0]]
+      ]
+     },
+     "opmerking": "Kores neemt Sardis in (jaartal onzeker)."
+    }
+   ]
+  },
+  {
+   "id": "egypte",
+   "naam": "Egypte",
+   "kleur": "lila",
+   "hoofdstad": "sais",
+   "bron": [
+    "2 Koningen 23:29–35",
+    "2 Koningen 24:7",
+    "Jeremia 46:2",
+    "abc3",
+    "abc5",
+    "livius-cambyses",
+    "pleiades-sais",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Egypte onder de farao's van Saïs (26e dynastie): de Nijldelta en het Nijldal tot de eerste waterval bij Elephantine.",
+   "sleutels": [
+    {
+     "jaar": 626,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1],[32.2,30.5],[32.55,31.05]]
+      ]
+     }
+    },
+    {
+     "jaar": 610,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1],[32.2,30.5],[32.55,31.05]]
+      ]
+     }
+    },
+    {
+     "jaar": 609,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[32.2,30.5],[33.0,30.9],[34.6,30.6],[35.2,30.8],[35.5,31.5],[35.6,32.6],[36.2,32.3],[36.9,34.4],[37.6,35.3],[38.2,36.3],[38.0,37.0],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1],[32.2,30.5]]
+      ]
+     },
+     "opmerking": "Farao Necho zet koningen van Juda af en aan (2 Koningen 23:33–35) en zijn leger staat bij Karkemis (Jeremia 46:2; ABC 3 en 5). Hoe ver zijn gezag werkelijk reikte, is onzeker."
+    },
+    {
+     "jaar": 606,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[32.2,30.5],[33.0,30.9],[34.6,30.6],[35.2,30.8],[35.5,31.5],[35.6,32.6],[36.2,32.3],[36.9,34.4],[37.6,35.3],[38.2,36.3],[38.0,37.0],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1],[32.2,30.5]]
+      ]
+     }
+    },
+    {
+     "jaar": 605,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1],[32.2,30.5],[32.55,31.05]]
+      ]
+     },
+     "opmerking": "Na Karkemis trekt de koning van Egypte niet meer uit zijn land (2 Koningen 24:7)."
+    },
+    {
+     "jaar": 525,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1],[32.2,30.5],[32.55,31.05]]
+      ]
+     },
+     "opmerking": "Cambyses verovert Egypte."
+    }
+   ]
+  },
+  {
+   "id": "perzie",
+   "naam": "Perzische rijk",
+   "kleur": "kobalt",
+   "hoofdstad": "pasargadae",
+   "bron": [
+    "abc7",
+    "cyruscilinder",
+    "behistun-lijst",
+    "herodotus",
+    "livius-cambyses",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Het oosten (tot aan de Indus) is getekend volgens de landen die Darius I in 522 opsomt (Behistun); wanneer Kores die precies veroverde, is niet bekend.",
+   "sleutels": [
+    {
+     "jaar": 559,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[55.6,28.6],[55.0,30.1],[53.9,31.2],[52.4,31.6],[51.2,31.2],[50.2,30.4]]
+      ]
+     },
+     "opmerking": "Kores, koning van Ansan (Perzië)."
+    },
+    {
+     "jaar": 553,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[55.6,28.6],[55.0,30.1],[53.9,31.2],[52.4,31.6],[51.2,31.2],[50.2,30.4]]
+      ]
+     }
+    },
+    {
+     "jaar": 550,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[55.0,30.1],[51.6,33.4],[52.4,34.4],[52.6,35.6],[51.5,35.8],[50.5,36.2],[49.3,36.8],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[45.2,38.9],[44.6,38.0],[45.2,36.5],[46.3,34.6],[47.6,33.6],[49.0,33.2],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[55.6,28.6],[55.0,30.1]]
+      ]
+     },
+     "opmerking": "Kores neemt Medië over (ABC 7)."
+    },
+    {
+     "jaar": 548,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[55.0,30.1],[51.6,33.4],[52.4,34.4],[52.6,35.6],[51.5,35.8],[50.5,36.2],[49.3,36.8],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[45.2,38.9],[44.6,38.0],[45.2,36.5],[46.3,34.6],[47.6,33.6],[49.0,33.2],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[55.6,28.6],[55.0,30.1]]
+      ]
+     }
+    },
+    {
+     "jaar": 547,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[55.6,28.6],[55.0,30.1],[51.6,33.4],[52.4,34.4],[52.6,35.6],[51.5,35.8],[50.5,36.2],[49.3,36.8],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[44.8,37.4],[45.2,36.5],[46.3,34.6],[47.6,33.6],[49.0,33.2],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[55.6,28.6]]
+      ]
+     },
+     "opmerking": "Lydië, Cappadocië en Armenië (jaartal van Lydië onzeker)."
+    },
+    {
+     "jaar": 540,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[55.6,28.6],[55.0,30.1],[51.6,33.4],[52.4,34.4],[52.6,35.6],[51.5,35.8],[50.5,36.2],[49.3,36.8],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[44.8,37.4],[45.2,36.5],[46.3,34.6],[47.6,33.6],[49.0,33.2],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[55.6,28.6]]
+      ]
+     }
+    },
+    {
+     "jaar": 539,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[55.6,28.6],[55.0,30.1],[51.6,33.4],[52.4,34.4],[52.6,35.6],[51.5,35.8],[50.5,36.2],[49.3,36.8],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.8,31.1],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[55.6,28.6]]
+      ]
+     },
+     "opmerking": "Babel en heel zijn rijk, Elam en Assyrië (ABC 7; Cyruscilinder; Behistun)."
+    },
+    {
+     "jaar": 530,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.5,25.2],[66.0,29.0],[67.5,30.0],[70.0,31.5],[72.3,33.8],[71.6,34.6],[71.0,37.5],[69.5,38.8],[68.5,40.4],[66.5,40.4],[64.5,40.3],[62.5,40.6],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.8,31.1],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8]]
+      ]
+     },
+     "opmerking": "Het oosten tot aan de Indus (Behistun, 522)."
+    },
+    {
+     "jaar": 526,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.5,25.2],[66.0,29.0],[67.5,30.0],[70.0,31.5],[72.3,33.8],[71.6,34.6],[71.0,37.5],[69.5,38.8],[68.5,40.4],[66.5,40.4],[64.5,40.3],[62.5,40.6],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.8,31.1],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8]]
+      ]
+     }
+    },
+    {
+     "jaar": 525,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[31.6,30.1],[32.2,30.5],[34.5,30.2],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.5,25.2],[66.0,29.0],[67.5,30.0],[70.0,31.5],[72.3,33.8],[71.6,34.6],[71.0,37.5],[69.5,38.8],[68.5,40.4],[66.5,40.4],[64.5,40.3],[62.5,40.6],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.85,31.1],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1]]
+      ]
+     },
+     "opmerking": "Egypte, veroverd door Cambyses."
+    },
+    {
+     "jaar": 515,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[31.6,30.1],[32.2,30.5],[34.5,30.2],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.5,25.2],[66.0,29.0],[67.5,30.0],[70.0,31.5],[72.3,33.8],[71.6,34.6],[71.0,37.5],[69.5,38.8],[68.5,40.4],[66.5,40.4],[64.5,40.3],[62.5,40.6],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.85,31.1],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "juda",
+   "naam": "Juda",
+   "kleur": "koraal",
+   "hoofdstad": "jeruzalem",
+   "bron": [
+    "2 Koningen 23–25",
+    "bijbelreis-plaatsen",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Het koninkrijk Juda, van Mizpa tot Berseba; vanaf 604 onderworpen aan Babel. De uitbreiding naar het noorden onder Josia (2 Koningen 23:15–19) is niet getekend.",
+   "sleutels": [
+    {
+     "jaar": 626,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.75,31.85],[34.7,31.1],[34.95,30.85],[35.3,30.95],[35.55,31.75],[35.45,31.9],[35.25,31.95],[34.75,31.85]]
+      ]
+     }
+    },
+    {
+     "jaar": 586,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.75,31.85],[34.7,31.1],[34.95,30.85],[35.3,30.95],[35.55,31.75],[35.45,31.9],[35.25,31.95],[34.75,31.85]]
+      ]
+     },
+     "opmerking": "Jeruzalem verwoest: einde van het koninkrijk Juda (586 of 587)."
+    }
+   ]
+  }
+ ],
+ "steden": [
+  {
+   "id": "babylon",
+   "naam": "Babel",
+   "plaatsId": "babelst",
+   "lat": 32.536,
+   "lng": 44.421,
+   "tekst": "Hoofdstad van Nebukadnezar aan de Eufraat. Hierheen werden Daniël en later de ballingen uit Juda gebracht.",
+   "bron": [
+    "2 Koningen 24:15",
+    "Daniël 1:1–6"
+   ]
+  },
+  {
+   "id": "susa",
+   "naam": "Susan (Susa)",
+   "plaatsId": "susan",
+   "lat": 32.19,
+   "lng": 48.258,
+   "tekst": "Stad in het landschap Elam. Daniël zag zich in een gezicht ‘in den burg Susan’ (Daniël 8:2); later woonden de Perzische koningen hier.",
+   "bron": [
+    "Daniël 8:2",
+    "Nehemia 1:1"
+   ]
+  },
+  {
+   "id": "ekbatana",
+   "naam": "Ekbatana (Achmetha)",
+   "plaatsId": "ekbatana",
+   "lat": 34.8,
+   "lng": 48.52,
+   "tekst": "Koningsstad van de Meden; Kores nam haar in 550 v.Chr. in. Later vond men hier de rol met het bevel van Kores (Ezra 6:2–3).",
+   "bron": [
+    "abc7",
+    "Ezra 6:2–3"
+   ]
+  },
+  {
+   "id": "pasargadae",
+   "naam": "Pasargadae",
+   "plaatsId": null,
+   "lat": 30.195,
+   "lng": 53.174,
+   "tekst": "De hoofdstad van Kores in Perzië. Ook zijn graf staat hier.",
+   "bron": [
+    "pleiades-pasargadae"
+   ]
+  },
+  {
+   "id": "sardis",
+   "naam": "Sardis",
+   "plaatsId": "nt4_sardis",
+   "lat": 38.4883,
+   "lng": 28.0403,
+   "tekst": "Hoofdstad van Lydië, waar koning Croesus regeerde. Kores nam de stad in, waarschijnlijk in 547 v.Chr.",
+   "bron": [
+    "cahill-sardis",
+    "livius-sardes"
+   ]
+  },
+  {
+   "id": "nineve",
+   "naam": "Ninevé",
+   "plaatsId": "ninivest",
+   "lat": 36.36,
+   "lng": 43.15,
+   "tekst": "Hoofdstad van Assyrië aan de Tigris. In 612 v.Chr. verwoest door Babel en de Meden.",
+   "bron": [
+    "abc3"
+   ]
+  },
+  {
+   "id": "harran",
+   "naam": "Haran",
+   "plaatsId": "haran",
+   "lat": 36.865,
+   "lng": 39.031,
+   "tekst": "Hier hield het laatste Assyrische koninkrijk nog stand, tot Babel en de Meden de stad in 610/609 v.Chr. innamen.",
+   "bron": [
+    "abc3"
+   ]
+  },
+  {
+   "id": "karkemis",
+   "naam": "Karkemis",
+   "plaatsId": "karkemis",
+   "lat": 36.83,
+   "lng": 38.01,
+   "tekst": "Stad aan de Eufraat. In 605 v.Chr. versloeg Nebukadnezar hier het leger van Farao Necho (Jeremia 46:2).",
+   "bron": [
+    "abc5",
+    "Jeremia 46:2"
+   ]
+  },
+  {
+   "id": "jeruzalem",
+   "naam": "Jeruzalem",
+   "plaatsId": "salem",
+   "lat": 31.777,
+   "lng": 35.235,
+   "tekst": "Stad van de tempel en de koningen van Juda. Ingenomen in 597 v.Chr., verwoest in 586 (of 587) v.Chr. en na de terugkeer weer opgebouwd.",
+   "bron": [
+    "abc5",
+    "2 Koningen 25:9",
+    "Ezra 6:15"
+   ]
+  },
+  {
+   "id": "tyrus",
+   "naam": "Tyrus",
+   "plaatsId": "tyrus",
+   "lat": 33.27,
+   "lng": 35.2,
+   "tekst": "Fenicische havenstad. Nebukadnezar belegerde haar lang (Ezechiël 29:18); volgens latere geschiedschrijvers dertien jaar.",
+   "bron": [
+    "Ezechiël 29:18",
+    "livius-nebukadnezar"
+   ]
+  },
+  {
+   "id": "memphis",
+   "naam": "Nof (Memphis)",
+   "plaatsId": "je_nof",
+   "lat": 29.8488,
+   "lng": 31.253,
+   "tekst": "Oude hoofdstad van Egypte aan de Nijl; ook hier woonden Joden (Jeremia 44:1). In 525 v.Chr. nam het leger van Cambyses de stad in.",
+   "bron": [
+    "Jeremia 44:1",
+    "livius-cambyses"
+   ]
+  },
+  {
+   "id": "sais",
+   "naam": "Saïs",
+   "plaatsId": null,
+   "lat": 30.967,
+   "lng": 30.774,
+   "tekst": "Stad in de Nijldelta. De farao's van deze tijd (de 26e dynastie) regeerden vanuit Saïs.",
+   "bron": [
+    "pleiades-sais"
+   ]
+  },
+  {
+   "id": "tayma",
+   "naam": "Tayma",
+   "plaatsId": null,
+   "lat": 27.622,
+   "lng": 38.55,
+   "tekst": "Oase in Arabië. Koning Nabonidus woonde hier jarenlang, terwijl zijn zoon Belsazar in Babel regeerde.",
+   "bron": [
+    "abc7",
+    "verse-account",
+    "pleiades-tayma"
+   ]
+  }
+ ],
+ "koppelingen": [
+  {
+   "verhaal": "v71",
+   "jaar": 586,
+   "tot": null,
+   "status": "benaderd",
+   "personen": [
+    "jeremia",
+    "zedekia",
+    "nebukadnezar",
+    "jojachin"
+   ],
+   "gebeurtenissen": [
+    "verwoesting-jeruzalem",
+    "dood-nebukadnezar"
+   ]
+  },
+  {
+   "verhaal": "v73",
+   "jaar": 605,
+   "tot": 603,
+   "status": "benaderd",
+   "personen": [
+    "daniel",
+    "nebukadnezar",
+    "jojakim"
+   ],
+   "gebeurtenissen": [
+    "karkemis",
+    "daniel-weggevoerd"
+   ],
+   "opmerking": "Daniël 1 begint in het derde jaar van Jojakim; Daniël 2 speelt in het tweede jaar van Nebukadnezar (Daniël 2:1), ongeveer 603 v.Chr."
+  },
+  {
+   "verhaal": "v74",
+   "jaar": 603,
+   "tot": 562,
+   "status": "expliciet",
+   "personen": [
+    "nebukadnezar",
+    "daniel"
+   ],
+   "gebeurtenissen": [],
+   "opmerking": "Daniël 3 noemt geen jaar: het was ergens in de regering van Nebukadnezar, na Daniël 2. De kaart toont daarom de hele tijd van Nebukadnezar."
+  },
+  {
+   "verhaal": "v75",
+   "jaar": 539,
+   "tot": 538,
+   "status": "expliciet",
+   "personen": [
+    "daniel",
+    "darius-meder",
+    "kores"
+   ],
+   "gebeurtenissen": [
+    "val-babylon",
+    "leeuwenkuil"
+   ]
+  },
+  {
+   "verhaal": "v76",
+   "jaar": 538,
+   "tot": 515,
+   "status": "benaderd",
+   "personen": [
+    "kores",
+    "darius-i"
+   ],
+   "gebeurtenissen": [
+    "decreet-kores",
+    "tempel-klaar"
+   ]
+  }
+ ]
+}
