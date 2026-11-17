@@ -113,7 +113,7 @@ BR.vertaling.en = {
     dan_medie: "Media", ezra_ahava: "River Ahava", jona_gathhefer: "Gath-hepher", jona_verdek: "East of Nineveh", nt_nazareth: "Nazareth",
     nt_kapernaum: "Capernaum", nt_kana: { n: "Cana", alt: ["Kafr Kanna"] }, nt_nain: "Nain", nt_bethsaida: { n: "Bethsaida", alt: ["el-Araj"] },
     nt_magdala: "Magdala", nt_meer: "Sea of Galilee", nt_gadara: "Country of the Gadarenes", nt_kaesareafilippi: "Caesarea Philippi",
-    nt_berg: { n: "An high mountain", alt: ["Hermon"] }, nt_bethanie: "Bethany", nt_bethfage: "Bethphage", nt_olijfberg: "Mount of Olives",
+    nt_berg: { n: "A high mountain", alt: ["Hermon"] }, nt_bethanie: "Bethany", nt_bethfage: "Bethphage", nt_olijfberg: "Mount of Olives",
     nt_gethsemane: "Gethsemane", nt_golgotha: { n: "Golgotha", alt: ["Garden Tomb"] }, nt_tempel: "Temple", nt_siloam: "Pool of Siloam",
     nt_bethesda: "Pool of Bethesda", nt_emmaus: { n: "Emmaus", alt: ["Nicopolis", "el-Qubeibeh"] }, nt_doopplaats: { n: "Bethabara", alt: ["Batanea (Bashan)"] },
     nt_woestijn: "Wilderness of Judaea", nt_sichar: "Sychar", nt_machaerus: "Machaerus", nt_antipatris: "Antipatris", nt_lydda: "Lydda",
