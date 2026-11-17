@@ -77,8 +77,8 @@ console.log(`postbuild: ${ROUTES.length} routes + 404.html + sitemap.xml`);
 
 // Bijbelreis: versienummer (inhoudshash) achter de eigen scripts en stijlen, zodat een nieuwe versie niet
 // half uit de browsercache komt (oude app.js met nieuwe inhoud of andersom).
-// Hetzelfde voor de pagina Presentatie en boekje (bijbelreis/boekje.html), die dezelfde bestanden laadt.
-for (const pagina of ["bijbelreis.html", "bijbelreis/boekje.html"]) {
+// Hetzelfde voor de pagina Presentatie en boekje (bijbelreis/boekje.html) en de Lesroutes (bijbelreis/lessen.html).
+for (const pagina of ["bijbelreis.html", "bijbelreis/boekje.html", "bijbelreis/lessen.html"]) {
   const { createHash } = await import("node:crypto");
   const file = join(dist, pagina);
   const html = readFileSync(file, "utf8").replace(/((?:src|href)=")(\/bijbelreis\/[^"?]+\.(?:js|css))"/g, (m, attr, url) => {

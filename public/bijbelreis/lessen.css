@@ -1,0 +1,85 @@
+/* Lesroutes (/bijbelreis/lessen). Gemaakt door Denckh.
+   Gebruikt de tokens uit bijbelreis.css en de kopbalk, knoppen en voet (bk-…) uit boekje.css; alles hier heet ls-….
+   Scherm: rustig en groot genoeg voor een digibord. Afdrukken: A4, alleen de route, met of zonder antwoorden. */
+
+.ls-main { max-width: 980px; }
+.ls-main h2 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem); letter-spacing: -0.03em; line-height: 1.15; margin: 0 0 8px; }
+.ls-main h2 em { font-family: var(--font-serif); font-weight: 400; color: var(--terra-diep); }
+.ls-main a { color: var(--nacht); }
+.ls-intro { background: var(--wit); border: 1px solid var(--lijn); border-radius: var(--r-groot); padding: 20px 22px; box-shadow: var(--schaduw); }
+.ls-intro > p { margin: 0 0 12px; color: var(--inkt-2); max-width: 68ch; }
+.ls-stappen { margin: 0; padding-left: 1.4em; display: grid; gap: 6px; }
+.ls-stappen li::marker { color: var(--terra-diep); font-weight: 700; }
+.ls-kop2 { font-size: 1.25rem !important; margin: 26px 0 10px !important; }
+.ls-routes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; }
+.ls-route { display: grid; gap: 4px; height: 100%; padding: 16px 18px; background: var(--wit); border: 1px solid var(--lijn-sterk); border-radius: var(--r-groot); text-decoration: none; color: var(--inkt) !important; min-height: 44px; }
+.ls-route:hover { border-color: var(--nacht); box-shadow: var(--schaduw); }
+.ls-route-n { font-weight: 700; font-size: 1.08rem; letter-spacing: -0.01em; }
+.ls-route-kort { color: var(--inkt-2); font-size: 0.95rem; }
+.ls-route-meta { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--inkt-3); margin-top: 4px; }
+.ls-noot { color: var(--inkt-3); font-size: 0.92rem; margin: 16px 0 0; }
+.ls-print-bron { display: none; }
+
+.ls-terug { margin-bottom: 10px; }
+.ls-terug a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 620; }
+.ls-routekop > p { margin: 0 0 6px; color: var(--inkt-2); max-width: 68ch; }
+.ls-label, .ls-les-nr { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--inkt-3); margin: 0 0 4px; }
+.ls-extra a { font-weight: 620; }
+.ls-bediening { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 16px 0 0; padding: 12px; background: var(--papier-2); border-radius: var(--r-groot); }
+.ls-groep { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.ls-groep-label { font-weight: 620; font-size: 0.95rem; }
+.ls-bediening .bk-seg button { min-height: 44px; }
+.ls-schermnoot { margin-top: 8px; }
+body.ls-met-antwoorden .ls-schermnoot { display: none; }
+
+.ls-lessen { display: grid; gap: 16px; margin-top: 18px; }
+.ls-les { background: var(--wit); border: 1px solid var(--lijn); border-radius: var(--r-groot); padding: 18px 20px; box-shadow: var(--schaduw); scroll-margin-top: 12px; }
+.ls-les:focus { outline: none; }
+.ls-les:focus-visible { outline: 3px solid var(--oker); outline-offset: 2px; }
+.ls-les h3 { margin: 0 0 8px; font-size: 1.35rem; letter-spacing: -0.02em; line-height: 1.2; }
+.ls-lees { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 12px; padding: 8px 12px; background: var(--papier-2); border-radius: var(--r); font-size: 1.05rem; }
+.ls-lees svg { width: 22px; height: 22px; flex: none; color: var(--nacht); }
+.ls-knoppen { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.ls-knoppen .bk-knop.hoofd { color: #fff !important; }
+.ls-vragen-kop { margin: 0 0 6px; font-size: 1rem; }
+.ls-vragen { margin: 0; padding-left: 1.5em; display: grid; gap: 10px; }
+.ls-vragen p { margin: 0; }
+.ls-q { font-weight: 620; }
+.ls-zoek { color: var(--inkt-2); font-size: 0.95rem; }
+.ls-a { display: none; margin-top: 4px !important; padding: 6px 10px; border-left: 3px solid var(--salie-diep); background: var(--salie-zacht); border-radius: 0 var(--r-klein) var(--r-klein) 0; }
+body.ls-met-antwoorden .ls-a { display: block; }
+.ls-a-label { font-weight: 650; color: var(--salie-diep); }
+.ls-a q { font-style: italic; quotes: "‘" "’"; }
+.ls-thuis { margin: 14px 0 0; font-size: 0.95rem; color: var(--inkt-2); }
+
+@media (max-width: 560px) {
+  .ls-intro, .ls-les { padding: 16px 14px; }
+  .ls-bediening > .bk-knop { flex: 1 1 100%; }
+}
+/* Een groot scherm (digibord, beamer): alles wat groter. */
+@media (min-width: 1600px) {
+  .ls-main { max-width: 1200px; font-size: 1.15rem; }
+}
+
+/* Afdrukken: alleen de route (boekje.css verbergt anders alles behalve het boekje). Met data-print="kinderen" zonder
+   antwoorden; de knoppen en links worden platte tekst. */
+@media print {
+  body.ls-pagina * { visibility: visible; }
+  html, body.ls-pagina { background: #fff !important; }
+  .ls-main { max-width: none; padding: 0; }
+  .ls-terug, .ls-bediening, .ls-knoppen, .ls-schermnoot, .ls-extra, .bk-kopbalk, .bk-voet, .bk-skip { display: none !important; }
+  .ls-print-bron { display: block; }
+  .ls-les { box-shadow: none; border-color: #bbb; padding: 10px 12px; }
+  /* Een les mag over twee bladzijden lopen, een vraag met haar antwoord niet; een kop blijft bij wat erna komt. */
+  .ls-vragen li, .ls-lees { break-inside: avoid; }
+  .ls-les-nr, .ls-les h3, .ls-lees, .ls-vragen-kop { break-after: avoid; }
+  :focus, :focus-visible { outline: none !important; }
+  .ls-lessen { gap: 8px; margin-top: 10px; }
+  .ls-lees { background: none; padding: 0; }
+  .ls-routekop > p, .ls-zoek, .ls-thuis, .ls-noot { color: #333; }
+  .ls-main a { color: inherit; text-decoration: none; }
+  body.ls-pagina[data-print="kinderen"] .ls-a { display: none !important; }
+  /* Werkblad: ruimte om het antwoord op te schrijven. */
+  body.ls-pagina[data-print="kinderen"] .ls-vragen li::after { content: ""; display: block; height: 1.6em; border-bottom: 1px dotted #999; }
+  .ls-a { background: none; border-left-color: #999; }
+}

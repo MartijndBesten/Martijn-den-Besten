@@ -1181,6 +1181,8 @@
   });
   let vTest = "alle", vZoek = "", vOpen = null;
 
+  // Ingang voor ouders, leiding en leerkrachten: de lesroutes (lessen.html, docs/bijbelreis-samen/README.md).
+  const LESROUTES = '<p class="ls-ingang"><a href="/bijbelreis/lessen"><span>Samen lezen met kinderen of een groep?</span><b>Lesroutes met presentatie en vragen</b></a></p>';
   function renderVerhalen() {
     renderSeizoen();
     if (vOpen) return renderVerhaal(vOpen);
@@ -1188,7 +1190,7 @@
     // Samen ontdekken: groot en zonder zoeken; per etappe van de reis uitklapbaar, de etappe waar je bent staat open.
     if (niveau === "a") {
       const nu = (huidigeGeschiedenis().g || G[0]).nr;
-      box.innerHTML = `<h2>Samen <em>ontdekken</em></h2><p class="ref">Kies een geschiedenis om samen te lezen. Elk verhaal gaat in korte stukjes, met een paar vragen aan het eind.</p>
+      box.innerHTML = `<h2>Samen <em>ontdekken</em></h2><p class="ref">Kies een geschiedenis om samen te lezen. Elk verhaal gaat in korte stukjes, met een paar vragen aan het eind.</p>${LESROUTES}
         ${SECTIES.map(([naam, a, b], si) => {
           const items = G.filter((g) => g.nr >= a && g.nr <= b), k = items.filter((g) => verhaalStore[g.nr] && verhaalStore[g.nr].q != null).length;
           return `<details class="samensectie"${nu >= a && nu <= b ? " open" : ""}><summary class="vsectie"><span class="vs-n${k === items.length ? " af" : k ? " half" : ""}" aria-hidden="true">${si + 1}</span><span class="vs-t">${esc(naam)}</span><small>${k ? `${k} van ${items.length}` : `${items.length} verhalen`}</small></summary>
@@ -1201,6 +1203,7 @@
     const done = G.filter((g) => verhaalStore[g.nr]).length;
     box.innerHTML = `<h2>${G.length} <em>geschiedenissen</em></h2>
       <p class="ref">Van de schepping tot Openbaring. Kies een geschiedenis, of zoek op Bijbelboek, persoon, plaats of thema.${done ? ` Je hebt er ${done} gelezen.` : " Je kunt ook gewoon bij 1 beginnen en steeds ‘Volgende’ kiezen."}</p>
+      ${LESROUTES}
       <label class="label" for="vZoek">Zoeken</label>
       <input type="search" id="vZoek" placeholder="Bijvoorbeeld: Jozef, Jericho, Lukas, gebed" value="${esc(vZoek)}" autocomplete="off">
       <div class="pick" role="group" aria-label="Testament">${[["alle", "Alles"], ["ot", "Oude Testament · 79"], ["nt", "Nieuwe Testament · 71"]].map(([k, n]) => `<button type="button" data-vt="${k}" aria-pressed="${vTest === k}" style="--pc:var(--acc)">${n}</button>`).join("")}</div>
