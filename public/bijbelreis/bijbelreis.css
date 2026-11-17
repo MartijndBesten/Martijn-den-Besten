@@ -1612,3 +1612,11 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
   /* De twee links blijven samen op één regel; past het niet, dan gaat de maker erboven (zonder lege tikruimte ertussen). */
   .plaatsfoto:not(.pf-ballon) .pf-links { display: inline-flex; align-items: center; column-gap: 0.3em; white-space: nowrap; }
 }
+
+/* ===== Ingang naar de lesroutes (lessen.html, docs/bijbelreis-samen/README.md) ===== */
+.ls-ingang { margin: 0; }
+.ls-ingang a { display: flex; flex-direction: column; gap: 1px; min-height: 44px; padding: 9px 14px; border: 1px solid var(--line-strong); border-left: 4px solid var(--terra-diep); border-radius: var(--r); background: var(--card); text-decoration: none; color: var(--fg); }
+.ls-ingang a:hover { border-color: var(--nacht); border-left-color: var(--terra-diep); }
+.ls-ingang span { font-size: 0.84rem; color: var(--fg-2); }
+.ls-ingang b { font-weight: 650; color: var(--nacht); }
+.ls-ingang b::after { content: " →"; }
