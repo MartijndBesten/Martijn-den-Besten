@@ -36,7 +36,7 @@
 .wt-st-berekend { background: var(--nacht-zacht); color: var(--nacht); }
 .wt-st-traditioneel { background: var(--oker-zacht); color: var(--oker-diep); }
 .wt-st-historisch { background: var(--water-zacht); color: var(--water-diep); }
-.wt-st-benaderd { background: var(--zand-zacht); color: var(--zand-diep); border: 1px dashed color-mix(in srgb, var(--zand-diep) 60%, transparent); }
+.wt-st-benaderd { background: var(--zand-zacht); color: color-mix(in srgb, var(--zand-diep) 78%, var(--inkt)); /* zand-diep alleen haalt 3,9:1, te weinig voor 10 px */ border: 1px dashed color-mix(in srgb, var(--zand-diep) 60%, transparent); }
 
 /* ----- het grote vlak ----- */
 .wt-hoofd { position: relative; min-height: 0; padding: 0 12px; }
@@ -168,6 +168,7 @@
 .wt-stad.links button { left: auto; right: -8px; padding: 0 16px 0 6px; justify-content: flex-end; }
 .wt-stad.kort .wt-stad-alt { display: none; }
 .wt-stad.stil button span { display: none; }
+.wt-stad.geenknop button { display: none; }
 .wt-stad .wt-stad-alt { font-size: inherit; font-weight: 500; }
 @media (max-width: 700px) { .wt-stad .wt-stad-alt { display: none; } }
 .wt-gebiedlabel.stil, .wt-verder.stil { visibility: hidden; }

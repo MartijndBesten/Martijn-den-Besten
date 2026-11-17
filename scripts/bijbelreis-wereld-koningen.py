@@ -213,7 +213,7 @@ DS_PERSONEN = [
             "De eerste koning van Israël", ["1 Samuël 10:1", "1 Samuël 31:1–6", "Handelingen 13:21"], ["saul-koning", "dood-saul"], "v55"),
     persoon("david", "David", "david", "leven",
             d(1040, "benaderd", ["2 Samuël 5:4", "bijbelreis-dateringen"], begin="geboorte", opmerking="‘Dertig jaar was David oud, als hij koning werd’ (2 Samuël 5:4). Met koning worden rond 1010 v.Chr. komt zijn geboorte omgerekend rond 1040 v.Chr. De Bijbel noemt geen geboortejaar."),
-            d(970, "benaderd", ["2 Samuël 5:4–5", "1 Koningen 2:10–11"], einde="stierf", leeftijd=70, leeftijdStatus="berekend: 30 + 40 jaar (2 Samuël 5:4)",
+            d(970, "benaderd", ["2 Samuël 5:4–5", "1 Koningen 2:10–11"], einde="stierf", leeftijd=70, leeftijdStatus="berekend",
               opmerking="Hij regeerde veertig jaar: zeven jaar en zes maanden in Hebron en drieëndertig in Jeruzalem (2 Samuël 5:5). Zo werd hij ongeveer zeventig jaar."),
             "Herder uit Bethlehem, koning over Juda en daarna over heel Israël", ["1 Samuël 16:13", "2 Samuël 5:1–12", "1 Koningen 2:10–11"],
             ["goliath", "dood-saul", "david-hebron", "jeruzalem", "buurvolken", "salomo-koning"], "v56"),
@@ -232,7 +232,7 @@ DS_PERSONEN = [
             "Zoon van David; bouwde de tempel in Jeruzalem", ["1 Koningen 1–11"], ["salomo-koning", "tempel"], "v60", ouder="david"),
     persoon("rehabeam", "Rehabeam", "rehabeam", "leven",
             d(971, "benaderd", ["1 Koningen 14:21"], begin="geboorte", opmerking="‘Een en veertig jaren was Rehabeam oud, als hij koning werd’ (1 Koningen 14:21). Teruggerekend vanaf 930 v.Chr. werd hij rond 971 v.Chr. geboren, nog in de tijd van David. De Bijbel noemt geen geboortejaar."),
-            d(913, "benaderd", ["1 Koningen 14:21", "thiele"], einde="stierf", leeftijd=58, leeftijdStatus="berekend: 41 + 17 jaar (1 Koningen 14:21)", opmerking="Hij regeerde zeventien jaar (1 Koningen 14:21), tot ongeveer 913 v.Chr.: na het einde van deze tijdlijn."),
+            d(913, "benaderd", ["1 Koningen 14:21", "thiele"], einde="stierf", leeftijd=58, leeftijdStatus="berekend", opmerking="Hij regeerde zeventien jaar (1 Koningen 14:21), tot ongeveer 913 v.Chr.: na het einde van deze tijdlijn."),
             "Zoon van Salomo; na de scheuring koning over Juda", ["1 Koningen 12:1–24", "1 Koningen 14:21–31"], ["scheuring", "sisak-jeruzalem"], "v62", ouder="salomo"),
     persoon("jerobeam", "Jerobeam", "jerobeam_1", "regering",
             d(930, "benaderd", ["1 Koningen 12:20", "thiele"], begin="regering", marge=[931, 930], opmerking="Eerder was hij voor Salomo gevlucht naar Egypte, naar Sisak (1 Koningen 11:40)."),
@@ -520,7 +520,6 @@ IA_STEDEN = [
     {"id": "assur", "naam": "Assur", "plaatsId": "assur", "tekst": "De oude hoofdstad van Assyrië, waar het rijk zijn naam aan dankt.", "bron": ["Genesis 10:11", "assyrische-koningen"]},
     {"id": "samaria", "naam": "Samaria", "plaatsId": "samaria", "tekst": "Hoofdstad van het noordrijk Israël, gebouwd door koning Omri. Assyrië nam de stad in 722 v.Chr. in.", "bron": ["1 Koningen 16:24", "2 Koningen 17:6"]},
     {"id": "jeruzalem", "naam": "Jeruzalem", "plaatsId": "salem", "tekst": "Stad van de tempel en de koningen van Juda. Sanherib nam haar niet in.", "bron": ["2 Koningen 19:32–36"]},
-    {"id": "lachis", "naam": "Lachis", "plaatsId": "lachis", "tekst": "Vestingstad van Juda. Sanherib belegerde haar en liet het beleg in zijn paleis op stenen platen afbeelden.", "bron": ["2 Koningen 18:14", "sanherib-juda"]},
     {"id": "damascus", "naam": "Damascus", "plaatsId": "damascusst", "tekst": "Hoofdstad van Aram (Syrië). Naäman kwam hiervandaan; in 732 v.Chr. nam Assyrië de stad in.", "bron": ["2 Koningen 5:12", "2 Koningen 16:9"]},
     {"id": "hamath", "naam": "Hamath", "plaatsId": "dr_hamath", "tekst": "Stad aan de Orontes, ver in het noorden. Koning Sargon maakte er in 720 v.Chr. een einde aan het eigen koninkrijk.", "bron": ["2 Koningen 14:25", "sargon"]},
     {"id": "qarqar", "naam": "Qarqar", "plaatsId": None, "lat": 35.742, "lng": 36.331, "tekst": "Stad aan de Orontes. Hier vochten in 853 v.Chr. de koningen van het westen, met Achab, tegen Salmanassar III.", "bron": ["pleiades-qarqar", "qarqar"]},
@@ -528,7 +527,7 @@ IA_STEDEN = [
 ]
 
 IA_GEBIEDEN = [
-    {"id": "assyrie", "naam": "Assyrië", "kleur": "grijs", "hoofdstad": "kalhu", "bron": ["assyrische-koningen", "til-barsip", "tiglatpileser", "salmanassar-v", "sargon", "2 Koningen 15:29", "2 Koningen 16:9", "2 Koningen 17:6", "eigen-tekening"],
+    {"id": "assyrie", "naam": "Assyrië", "kleur": "grijs", "hoofdstad": None, "bron": ["assyrische-koningen", "til-barsip", "tiglatpileser", "salmanassar-v", "sargon", "2 Koningen 15:29", "2 Koningen 16:9", "2 Koningen 17:6", "eigen-tekening"],
      "opmerking": B_RIJK + " Getekend zijn de gebieden die Assyrië zelf bestuurde. Veel volken eromheen moesten schatting betalen maar hielden hun eigen koning, zoals Juda, Tyrus en de Filistijnse steden; die zijn niet bij Assyrië getekend.",
      "sleutels": [
          sleutel(880, ASS_880, "Het kernland aan de Tigris (Assur, Kalhu, Ninevé) en de Jezira tot de Chabur."),

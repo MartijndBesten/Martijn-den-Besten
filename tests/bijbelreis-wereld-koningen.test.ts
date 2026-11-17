@@ -385,7 +385,7 @@ describe("wereld israel-assyrie: de Bijbelse getallen en ijkpunten nagerekend", 
     expect(ligtIn(P, "assyrie", 722, "samaria")).toBe(true);
     for (const st of ["hamath", "qarqar"]) { expect(ligtIn(P, "assyrie", 721, st), st).toBe(false); expect(ligtIn(P, "assyrie", 720, st), st).toBe(true); }
     expect(ligtIn(P, "assyrie", 741, "qarqar")).toBe(false);
-    expect(ligtIn(P, "assyrie", 681, "lachis")).toBe(false);
+    expect(ligtIn(P, "assyrie", 681, "lachis")).toBe(false); // Lachis: plaats uit plaatsen.js (geen eigen stip; de gebeurtenis van 701 licht er op)
     for (const s of P.gebieden.find((g) => g.id === "israel")!.sleutels) expect(ligtIn(P, "israel", s.jaar, "samaria"), `Samaria ${s.jaar}`).toBe(true);
     expect(ligtIn(P, "israel", 733, "jona_gathhefer")).toBe(true);
     expect(ligtIn(P, "israel", 732, "jona_gathhefer")).toBe(false); // Galilea weggevoerd (2 Koningen 15:29)

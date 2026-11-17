@@ -1021,16 +1021,25 @@
     // Plaatsnamen.
     const volg = K2.steden.map((o) => ({ o, el: o.mk.getElement() })).filter((x) => x.el)
       .sort((a, b) => (b.el.classList.contains("hoofd-nu") ? 2 : b.el.classList.contains("belangrijk") ? 1 : 0) - (a.el.classList.contains("hoofd-nu") ? 2 : a.el.classList.contains("belangrijk") ? 1 : 0));
+    // De klikvlakken (knoppen) van twee plaatsen mogen elkaar niet bedekken (WCAG 2.5.8, minstens 24 × 24 px vrij).
+    const knoppen = [];
+    const raaktKnop = (a) => knoppen.some((b) => a.l < b.r && a.r > b.l && a.t < b.b && a.b > b.t);
     volg.forEach(({ el }) => {
-      el.classList.remove("links", "kort", "stil");
+      el.classList.remove("links", "kort", "stil", "geenknop");
       const span = el.querySelector("button span");
       if (!span || !span.offsetWidth) return; // verborgen (ver weg uitgezoomd)
       for (const k of [[], ["links"], ["kort"], ["kort", "links"]]) {
         el.classList.remove("links", "kort"); k.forEach((c) => el.classList.add(c));
-        const r = rect(span);
-        if (binnen(r) && !raakt(r)) { bezet.push(r); return; }
+        const r = rect(span), rk = rect(span.parentElement);
+        if (binnen(r) && !raakt(r) && !raaktKnop(rk)) { bezet.push(r); knoppen.push(rk); return; }
       }
       el.classList.remove("links", "kort"); el.classList.add("stil");
+    });
+    // Een plaats zonder naam houdt een aantikbare stip, behalve als die op de knop van een andere plaats valt (inzoomen helpt).
+    volg.forEach(({ el }) => {
+      if (!el.classList.contains("stil")) return;
+      const rk = rect(el.querySelector("button"));
+      if (raaktKnop(rk)) el.classList.add("geenknop"); else knoppen.push(rk);
     });
     const delenPx = (ll) => ll.map((r) => r.map((p) => { const q = m.latLngToContainerPoint(p); return [q.x, q.y]; }));
     // ‘… loopt verder naar het oosten’: klein, tegen de oostrand, op een vrije hoogte langs het afgeknipte stuk.

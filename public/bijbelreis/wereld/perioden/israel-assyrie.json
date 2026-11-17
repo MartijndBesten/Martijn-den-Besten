@@ -850,7 +850,7 @@
    "id": "assyrie",
    "naam": "Assyrië",
    "kleur": "grijs",
-   "hoofdstad": "kalhu",
+   "hoofdstad": null,
    "bron": [
     "assyrische-koningen",
     "til-barsip",
@@ -1331,18 +1331,6 @@
    "tekst": "Stad van de tempel en de koningen van Juda. Sanherib nam haar niet in.",
    "bron": [
     "2 Koningen 19:32–36"
-   ]
-  },
-  {
-   "id": "lachis",
-   "naam": "Lachis",
-   "plaatsId": "lachis",
-   "lat": 31.565,
-   "lng": 34.849,
-   "tekst": "Vestingstad van Juda. Sanherib belegerde haar en liet het beleg in zijn paleis op stenen platen afbeelden.",
-   "bron": [
-    "2 Koningen 18:14",
-    "sanherib-juda"
    ]
   },
   {

@@ -221,7 +221,7 @@
     ],
     "einde": "stierf",
     "leeftijd": 70,
-    "leeftijdStatus": "berekend: 30 + 40 jaar (2 Samuël 5:4)",
+    "leeftijdStatus": "berekend",
     "opmerking": "Hij regeerde veertig jaar: zeven jaar en zes maanden in Hebron en drieëndertig in Jeruzalem (2 Samuël 5:5). Zo werd hij ongeveer zeventig jaar."
    },
    "ouder": null,
@@ -374,7 +374,7 @@
     ],
     "einde": "stierf",
     "leeftijd": 58,
-    "leeftijdStatus": "berekend: 41 + 17 jaar (1 Koningen 14:21)",
+    "leeftijdStatus": "berekend",
     "opmerking": "Hij regeerde zeventien jaar (1 Koningen 14:21), tot ongeveer 913 v.Chr.: na het einde van deze tijdlijn."
    },
    "ouder": "salomo",
