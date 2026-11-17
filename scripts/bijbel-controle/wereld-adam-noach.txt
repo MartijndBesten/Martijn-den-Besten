@@ -1,0 +1,45 @@
+# Controle voor public/bijbelreis/wereld/perioden/adam-noach.json (‘De wereld in die tijd’, Van Adam tot Noach).
+# Elk getal waarop de jaartallen rusten, tegen de Statenvertaling: de leeftijd van de vader bij de geboorte van de zoon
+# en de levensduur (Genesis 5), de zondvloed (Genesis 7–9) en Sem (Genesis 11). Plus de letterlijke citaten.
+# Gebruik: python3 scripts/bijbel-check.py scripts/bijbel-controle/wereld-adam-noach.txt (ook in tests/bijbelreis-wereld.test.ts).
+# --- vader bij de geboorte van de zoon ---
+Genesis 5:3 | Adam leefde honderd en dertig jaren.*Seth
+Genesis 5:6 | Seth leefde honderd en vijf jaren.*Enos
+Genesis 5:9 | Enos leefde negentig jaren.*Kenan
+Genesis 5:12 | Kenan leefde zeventig jaren.*Mahalal-el
+Genesis 5:15 | Mahalal-el leefde vijf en zestig jaren.*Jered
+Genesis 5:18 | Jered leefde honderd twee en zestig jaren.*Henoch
+Genesis 5:21 | Henoch leefde vijf en zestig jaren.*Methusalach
+Genesis 5:25 | Methusalach leefde honderd zeven en tachtig jaren.*Lamech
+Genesis 5:28 | Lamech leefde honderd twee en tachtig jaren
+Genesis 5:29 | noemde zijn naam Noach
+Genesis 5:32 | Noach was vijfhonderd jaren oud.*Sem, Cham en Jafeth
+Genesis 11:10 | Sem was honderd jaren oud.*twee jaren na den vloed
+# --- levensduur ---
+Genesis 5:5 | negenhonderd jaren, en dertig jaren; en hij stierf
+Genesis 5:8 | negenhonderd en twaalf jaren; en hij stierf
+Genesis 5:11 | negenhonderd en vijf jaren; en hij stierf
+Genesis 5:14 | negenhonderd en tien jaren; en hij stierf
+Genesis 5:17 | achthonderd vijf en negentig jaren; en hij stierf
+Genesis 5:20 | negenhonderd twee en zestig jaren; en hij stierf
+Genesis 5:23 | Henoch driehonderd vijf en zestig jaren
+Genesis 5:24 | want God nam hem weg
+Genesis 5:27 | negenhonderd negen en zestig jaren; en hij stierf
+Genesis 5:31 | zevenhonderd zeven en zeventig jaren; en hij stierf
+Genesis 9:28 | na den vloed driehonderd en vijftig jaren
+Genesis 9:29 | negenhonderd en vijftig jaren; en hij stierf
+Genesis 11:11 | nadat hij Arfachsad gewonnen had, vijfhonderd jaren
+# --- zondvloed ---
+Genesis 7:6 | Noach nu was zeshonderd jaren oud, als de vloed
+Genesis 7:11 | zeshonderdste jaar des levens van Noach
+Genesis 7:13 | Noach, en Sem, en Cham, en Jafeth.*in de ark
+Genesis 8:13 | zeshonderd en eerste jaar
+Genesis 8:18 | Toen ging Noach uit, en zijn zonen
+Genesis 9:18 | Sem, en Cham, en Jafeth.*Cham is de vader van Kana
+# --- overige feiten en citaten ---
+Genesis 4:25 | noemde zijn naam Seth.*Habel
+Genesis 4:26 | Enos. Toen begon men den Naam des HEEREN aan te roepen
+Genesis 6:9 | Noach wandelde met God
+Genesis 8:4 | op de bergen van Ararat
+Genesis 5:29 | Deze zal ons troosten
+Hebreeën 11:5 | weggenomen geweest, opdat hij den dood niet zou zien

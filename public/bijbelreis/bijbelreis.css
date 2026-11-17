@@ -1704,3 +1704,14 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
   .mapacties { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
   .panel { padding-bottom: calc(36px + env(safe-area-inset-bottom, 0px)); }
 }
+
+/* ===== ‘De wereld in die tijd’: de uitnodiging in een geschiedenis (wereld/ingang.js). De laag zelf: wereld/wereld.css. ===== */
+.wt-ingang { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 58px; padding: 10px 14px 10px 10px; border: 1px solid var(--lijn); border-radius: var(--r); background: linear-gradient(180deg, var(--wit), color-mix(in srgb, var(--papier) 60%, var(--wit))); color: var(--fg); font: inherit; text-align: left; cursor: pointer; transition: border-color var(--t-micro), box-shadow var(--t-micro); }
+.wt-ingang:hover { border-color: var(--nacht); box-shadow: var(--schaduw-kaart); }
+.wt-ingang-beeld { flex: none; display: grid; place-items: center; width: 46px; height: 38px; border-radius: 9px; background: var(--nacht-zacht); color: var(--nacht); }
+.wt-ingang-beeld svg { width: 32px; height: 23px; }
+.wt-ingang-tekst { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
+.wt-ingang-tekst b { font-size: 0.98rem; font-weight: 700; letter-spacing: -0.01em; }
+.wt-ingang-tekst small { font-size: 0.84rem; color: var(--fg-3); line-height: 1.35; }
+.wt-ingang-pijl { flex: none; font-size: 1.6rem; line-height: 1; color: var(--nacht); }
+html.wt-open, html.wt-open body { overflow: hidden; }
