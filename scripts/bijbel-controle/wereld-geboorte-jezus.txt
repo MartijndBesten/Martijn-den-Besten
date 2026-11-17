@@ -1,0 +1,35 @@
+# Wereld in die tijd — Herodes en de keizers van Rome, de wereld rond de geboorte van de Heere Jezus
+# (public/bijbelreis/wereld/perioden/geboorte-jezus.json): de machthebbers die de Bijbel zelf noemt, de tijdsaanduidingen
+# en de korte letterlijke citaten (ref | regex). Gebruik: python3 scripts/bijbel-check.py scripts/bijbel-controle/wereld-geboorte-jezus.txt
+# --- Machthebbers en tijdsaanduidingen
+Lukas 1:5 | In de dagen van Herodes, den koning van Judea
+Lukas 2:1 | een gebod uitging van den Keizer Augustus, dat de gehele wereld beschreven zou worden
+Lukas 2:2 | Deze eerste beschrijving geschiedde
+Lukas 2:2 | als Cyrenius over Syrië stadhouder was
+Mattheüs 2:1 | in de dagen van den koning Herodes
+Mattheüs 2:19 | Toen Herodes nu gestorven was
+Mattheüs 2:22 | in Judea koning was, in de plaats van zijn vader Herodes
+Mattheüs 2:22 | in de delen van Galilea
+Mattheüs 2:23 | Nazareth
+Lukas 2:42 | twaalf jaren oud
+Lukas 3:1 | in het vijftiende jaar der regering van den keizer Tiberius
+Lukas 3:1 | Pontius Pilatus stadhouder was over Judea
+Lukas 3:1 | Herodes een viervorst over Galilea
+Lukas 3:1 | Filippus, zijn broeder, een viervorst over Iturea en over het land Trachonitis
+Lukas 3:1 | Lysanias een viervorst over Abilene
+Lukas 3:2 | Onder de hogepriesters Annas en Kajafas
+Lukas 3:3 | in al het omliggende land der Jordaan
+Lukas 3:23 | omtrent dertig jaren oud
+Johannes 2:20 | Zes en veertig jaren is over dezen tempel gebouwd
+Johannes 11:49 | Kajafas, die deszelven jaars hogepriester was
+Markus 6:14 | de koning Herodes
+Markus 6:17 | Herodias, de huisvrouw van zijn broeder Filippus
+Markus 6:27 | onthoofdde hem in de gevangenis
+Mattheüs 14:1 | Herodes, de viervorst
+Lukas 23:7 | uit het gebied van Herodes
+Lukas 24:7 | ten derden dage wederopstaan
+Handelingen 12:1 | de koning Herodes
+Markus 5:1 | in het land der Gadarenen
+Mattheüs 16:13 | Cesarea Filippi
+Lukas 2:51 | Nazareth
+Mattheüs 2:13 | Egypte

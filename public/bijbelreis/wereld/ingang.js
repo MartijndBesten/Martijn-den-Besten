@@ -11,7 +11,7 @@ window.BR = window.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} };
   const AAN = true;
 
   /* REGISTER:BEGIN — geschreven door scripts/bijbelreis-wereld.mjs uit perioden/*.json; niet met de hand bewerken. */
-  const PERIODEN = {"adam-noach":{"titel":"Van Adam tot Noach","verhalen":{"v2":0,"v4":130,"v5":1656,"v6":1657}},"daniel-babylon":{"titel":"Daniël en Babylon","verhalen":{"v71":586,"v73":605,"v74":603,"v75":539,"v76":538}}};
+  const PERIODEN = {"adam-noach":{"titel":"Van Adam tot Noach","verhalen":{"v2":0,"v4":130,"v5":1656,"v6":1657}},"daniel-babylon":{"titel":"Daniël en Babylon","verhalen":{"v71":586,"v73":605,"v74":603,"v75":539,"v76":538}},"geboorte-jezus":{"titel":"Herodes en de keizers van Rome","verhalen":{"v80":-7,"v81":-7,"v82":-6,"v83":-6,"v84":-6,"v85":-6,"v86":7,"v87":28,"v100":28,"v125":30}},"perzie":{"titel":"Perzië: Esther, Ezra en Nehemia","verhalen":{"v77":483,"v78":474,"v79":520}}};
   /* REGISTER:EIND */
 
   const heeftDom = typeof document !== "undefined" && typeof location !== "undefined";
@@ -32,8 +32,9 @@ window.BR = window.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} };
   }
 
   // ---------- adres ----------
-  // #wereld/<periode>/<jaar>. Het jaar staat zoals op de as van de periode (bij v.Chr. het getal zonder min).
-  const ADRES = /^#wereld\/([a-z0-9-]{1,40})(?:\/(\d{1,5}))?$/;
+  // #wereld/<periode>/<jaar>. Het jaar staat zoals op de as van de periode (bij v.Chr. het getal zonder min; op een as
+  // die v.Chr. en n.Chr. samen toont, is een jaar v.Chr. negatief: #wereld/geboorte-jezus/-4).
+  const ADRES = /^#wereld\/([a-z0-9-]{1,40})(?:\/(-?\d{1,5}))?$/;
   const adres = (periode, jaar) => "#wereld/" + periode + (jaar != null && isFinite(jaar) ? "/" + Math.round(jaar) : "");
   function uitAdres(hash, staat) {
     const m = ADRES.exec(hash || "");
