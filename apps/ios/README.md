@@ -76,6 +76,7 @@ npm ci
 npm run webmap        # maak-webmap: public/ → www/ (faalt als iets niet past)
 npm run sync          # webmap + cap sync ios (werkt ook op Linux)
 npm run test:web      # test-webmap.mjs in Chromium op iPhone-maat (Playwright uit de root: npm ci in de root)
+BROWSER=webkit npm run test:web   # zelfde test in Playwright-WebKit (dichter bij WKWebView)
 npm run controleer    # Xcode-project, plists, pictogram en teksten (zonder Mac)
 npm run screenshots   # schermafbeeldingen voor de App Store → store/screenshots/
 npm run open          # alleen op de Mac: opent Xcode
@@ -84,7 +85,26 @@ npm run open          # alleen op de Mac: opent Xcode
 `test-webmap.mjs` start een statische server op `www/` die zich gedraagt als de router van Capacitor (adres zonder
 extensie → `index.html`) en bootst Capacitor Preferences en Share na. Het controleert o.a.: geen service worker, geen
 `/api`, geen verzoek naar buiten, geen fouten; voortgang en herstel; ouderpoort; delen; lesroutes heen en terug;
-presentatie en afdrukken via de poort; privacy en hulp in de app; een verhaaladres van de website. **Dit is niet de
-echte iOS-webview (WKWebView).** Niet te doen op Linux: bouwen, ondertekenen, de simulator, een echte iPhone.
+presentatie en afdrukken via de poort; de digibordstand; De wereld in die tijd; privacy en hulp in de app; een
+verhaaladres van de website. **Dit is niet de echte iOS-webview (WKWebView)**; dat doet de simulator-test hieronder.
 
-Op de Mac bouwen en naar TestFlight: zie `docs/bijbelreis-ios/APPSTORE.md` §1–2, met de testlijst voor het toestel.
+## In GitHub Actions (zonder Mac)
+
+`.github/workflows/ios.yml` bouwt en test de app op een Mac van GitHub bij elke wijziging aan `apps/ios/`,
+`public/bijbelreis*` of `public/fonts/`, en uploadt hem met de hand naar TestFlight. Wat Martijn daarvoor instelt en hoe
+een nieuwe versie gaat: `docs/bijbelreis-ios/TESTFLIGHT.md`.
+
+- **`scripts/simulator-test.mjs`** (alleen op een Mac): start de Release-build in de simulator, daarna de Debug-build
+  met de testloper, en loopt de scenario’s uit **`scripts/simulator-scenario.mjs`** af op iPhone 17 Pro Max, iPad Pro
+  13-inch (M5) en iPhone 17 Pro. Maakt schermafbeeldingen met `xcrun simctl io … screenshot` (ook de App
+  Store-beelden in de juiste maten) en controleert elk beeld op een wit of leeg scherm.
+- **`ios/App/App/BijbelreisTest.swift`**: de testloper in de app. Staat helemaal binnen `#if DEBUG` (de Release-build
+  bevat hem niet; de workflow controleert dat) en doet alleen iets als de app met `BIJBELREIS_TEST=<scenario>` in de
+  omgeving start. Hij voert JavaScript-stappen uit in de echte WKWebView, `webView.goBack()` voor ‘terug vegen’, en
+  schrijft de uitkomst naar `Documents/test/` in de app-container, waar de test hem leest.
+- Een stap toevoegen: in `simulator-scenario.mjs` (`js`, `terug`, `wacht`, `foto`). Proberen kan zonder Mac niet; de
+  JavaScript van de stappen kun je wel in Playwright tegen `www/` uitproberen.
+- `App.xcodeproj/xcshareddata/xcschemes/App.xcscheme`: gedeeld schema, zodat `xcodebuild -scheme App` en `archive`
+  op een schone runner werken.
+
+Met een eigen Mac bouwen en naar TestFlight kan ook: `docs/bijbelreis-ios/APPSTORE.md` §1–2.

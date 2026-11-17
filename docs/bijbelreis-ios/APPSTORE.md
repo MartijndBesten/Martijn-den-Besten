@@ -1,9 +1,11 @@
 # Bijbelreis in de App Store: stap voor stap
 
-Voor Martijn, 17 november 2026. Alles wat zonder Mac kon, is klaar in `apps/ios/` (zie `apps/ios/README.md`).
+Voor Martijn, 17 november 2026 (bijgewerkt na de eerste echte bouw in GitHub Actions). De app staat in `apps/ios/`
+(zie `apps/ios/README.md`). **Je hebt geen Mac nodig:** GitHub Actions bouwt de app, test hem in de iOS-simulator en
+uploadt hem (als jij hem start) naar TestFlight; wat je daarvoor eenmalig instelt, staat in **`TESTFLIGHT.md`**.
 Het besluit (Capacitor, Kids-categorie) staat in `BESLUIT.md`. Dit document zegt wat je zelf doet, in deze volgorde:
 
-1. [Op de Mac: bouwen en testen](#1-op-de-mac-bouwen-en-testen) (± 1 uur)
+1. [Bouwen en testen](#1-bouwen-en-testen) (GitHub Actions; een Mac mag, hoeft niet)
 2. [App Store Connect: app aanmaken en TestFlight](#2-app-store-connect-app-aanmaken-en-testflight)
 3. [Teksten invullen](#3-teksten-kopieerklaar) (kopieer uit §3)
 4. [Leeftijdsclassificatie](#4-leeftijdsclassificatie) (**let op: hier valt de beslissing over de Kids-categorie**)
@@ -13,8 +15,8 @@ Het besluit (Capacitor, Kids-categorie) staat in `BESLUIT.md`. Dit document zegt
 8. [Exportcompliance en DSA](#8-exportcompliance-en-dsa-handelaarsstatus)
 9. [Schermafbeeldingen](#9-schermafbeeldingen) en indienen
 
-Er is niets gepubliceerd, aangeschaft of aangemaakt. Niet getest: bouwen in Xcode, de simulator, een echte iPhone of
-iPad. Wat wel getest is: §10.
+Er is niets gepubliceerd, aangeschaft of aangemaakt. Wat getest is (ook in de echte iOS-simulator): §10. Nog niet
+getest: ondertekenen en uploaden (daarvoor zijn jouw geheimen nodig) en een echte iPhone of iPad.
 
 ## Vaste keuzes (al ingesteld)
 
@@ -23,7 +25,7 @@ iPad. Wat wel getest is: §10.
 | Bundle-ID | `nl.bijbelreis.app` (ligt vast na de eerste upload) | Xcode → target App → General |
 | Naam op het beginscherm | Bijbelreis | `Info.plist` (`CFBundleDisplayName`) |
 | Versie / build | 1.0.0 / 1 | Xcode → General → Identity |
-| Signing | Automatisch, **team leeg**: jij kiest je team | Xcode → Signing & Capabilities |
+| Signing | Automatisch, **team leeg** in het project; GitHub Actions vult jouw Team ID in (geheim `APPLE_TEAM_ID`) en laat Apple in de cloud ondertekenen | `TESTFLIGHT.md` (of Xcode → Signing & Capabilities) |
 | Toestellen | **iPhone en iPad** | zie hieronder |
 | Standen | iPhone staand en liggend; iPad alle vier | `Info.plist` |
 | Minimaal | iOS 16.4 (de CSS gebruikt `color-mix()` en `:has()`) | Xcode → General → Minimum Deployments |
@@ -36,9 +38,13 @@ groepen. Gemeten in Chromium op iPad 13" staand (1032×1376) en liggend (1376×1
 kaart en reisboek passen. Kosten van de keuze: je moet ook iPad-schermafbeeldingen aanleveren (staan klaar) en in de
 iPad-simulator testen. Liggend op de iPhone werkt ook (kaart met reisblad), daarom staat die stand aan.
 
-## 1. Op de Mac: bouwen en testen
+## 1. Bouwen en testen
 
-Nodig: macOS met **Xcode 26 of nieuwer** (Apple eist sinds 28 april 2026 de iOS 26 SDK) en **Node 22 of nieuwer**.
+**Zonder Mac (zo gaat het nu):** bij elke wijziging aan de app of de atlas bouwt GitHub Actions de app en test hem in
+de simulator op iPhone en iPad (`TESTFLIGHT.md`, ‘Wat de workflow automatisch doet’). Jij test daarna op je eigen
+toestel via TestFlight met de testlijst hieronder.
+
+**Met een Mac (mag, hoeft niet).** Nodig: macOS met **Xcode 26 of nieuwer** (Apple eist sinds 28 april 2026 de iOS 26 SDK) en **Node 22 of nieuwer**.
 
 ```sh
 git clone https://github.com/MartijndBesten/Martijn-den-Besten.git bijbelreis-app   # of: git pull in je bestaande map
@@ -102,7 +108,7 @@ In Xcode:
      op developer.apple.com → Certificates, IDs & Profiles → Identifiers → +)
    - SKU (alleen voor jezelf): **BIJBELREIS-IOS**
    - Gebruikerstoegang: Volledige toegang
-2. **Uploaden** (in Xcode): kies bovenin **Any iOS Device (arm64)** → **Product → Archive** → in de Organizer
+2. **Uploaden:** zonder Mac met de workflow (`TESTFLIGHT.md`, stap 5). Met een Mac in Xcode: kies bovenin **Any iOS Device (arm64)** → **Product → Archive** → in de Organizer
    **Distribute App** → **TestFlight & App Store** (in oudere Xcode: App Store Connect → Upload) → volg de stappen.
    Bij elke volgende upload eerst de **Build** ophogen (General → Identity: 2, 3, …); de versie (1.0.0) pas bij een
    nieuwe release.
@@ -132,7 +138,7 @@ De teksten staan ook in `apps/ios/store/metadata.nl.json`; `npm run controleer` 
 
 Is de naam bezet: `Bijbelreis – Bijbelatlas` (24) of `Bijbelreis: op reis` (19).
 
-**Beschrijving** (1.627 van 4.000 tekens):
+**Beschrijving** (1811 van 4.000 tekens):
 
 ```
 De Bijbelreis is een Bijbelatlas voor kinderen en hun ouders. Reis mee met Abraham, Mozes, David, de Heere Jezus en Paulus, en zie op de kaart waar het gebeurde.
@@ -145,6 +151,7 @@ WAT ER IN STAAT
 • Speurtocht: vragen over wat je las, met het antwoord en de Bijbelplaats erbij
 • Paspoort: verzamel stempels op je reis
 • De kaart van toen en van nu: het land in de tijd van de Bijbel, en hoe het er vandaag uitziet
+• De wereld in die tijd: wie tegelijk leefden en wat er rondom gebeurde, met een kaart die met de tijd meebeweegt (van Adam tot Noach, en Daniël en Babylon)
 
 VOOR ELKE LEEFTIJD
 Kies een reisniveau: Samen ontdekken (4–6 jaar, om voor te lezen), Zelf op reis (7–10 jaar) of Verder ontdekken (11+). Wisselen kan altijd; je stempels blijven bewaard.
@@ -153,7 +160,7 @@ NAAST JE EIGEN BIJBEL
 De geschiedenissen zijn eigen navertellingen in woorden die kinderen begrijpen, gecontroleerd aan de Statenvertaling. De Bijbelreis is een hulpmiddel náást de eigen Bijbel of kinderbijbel: bij elke geschiedenis staat waar je het zelf leest.
 
 VOOR OUDERS EN LEIDERS
-Lesroutes voor thuis, zondagsschool, club, catechisatie en de klas: vaste reeksen geschiedenissen met het Bijbelgedeelte om samen te lezen en vragen om in de Bijbel op te zoeken.
+Lesroutes voor thuis, zondagsschool, club, catechisatie en de klas: vaste reeksen geschiedenissen met het Bijbelgedeelte om samen te lezen en vragen om in de Bijbel op te zoeken, ook groot op het digibord.
 
 RUSTIG EN VEILIG
 • Werkt helemaal zonder internet, ook de eerste keer
@@ -300,7 +307,7 @@ What the app adds beyond our website (bijbelreis.nl):
 - Sharing uses the iOS share sheet; swiping back from the screen edge closes an open panel first and then returns to the previous place.
 - No tracking, no analytics, no ads, no purchases, no visit counter and no web form (these exist on the website only).
 
-Suggested path for review: open "Verhalen" (stories) and tap a story; tap "Reis" (journey) and use "Verder" to follow a journey on the map; try "Wie is wie" (who is who), "Tijdlijn" (timeline), "Speurtocht" (quiz) and "Paspoort" (passport with stamps).
+Suggested path for review: open "Verhalen" (stories) and tap a story; tap "Reis" (journey) and use "Verder" to follow a journey on the map; try "Wie is wie" (who is who), "Tijdlijn" (timeline), "Speurtocht" (quiz) and "Paspoort" (passport with stamps). In story 5 ("Noach bouwt de ark") or 75 ("Daniël in de leeuwenkuil") the button "De wereld in die tijd" ("the world at that time") opens an animated timeline of who lived at the same time, with a map that changes over time. Parents and teachers find lesson routes under "Voor ouders en leiders"; "Vragen op het digibord" shows one question per screen for a classroom display.
 
 Parental gate (Kids Category): every link out of the app (websites, mail), the Share button, "Mis je iets?" (send a request by e-mail) and the print/presentation buttons on the lesson pages first show an adult task: a multiplication written in Dutch words, for example "hoeveel is zesentwintig keer drie?" (twenty-six times three = 78). A wrong answer gives a new question; "Sluiten" cancels. Only after a correct answer does Safari, Mail or the share sheet open.
 
@@ -360,3 +367,28 @@ er in de Simulator anders uit, maak ze dan daar: Simulator → iPhone 17 Pro Max
 - `npx cap sync ios` werkt op Linux (Package.swift ongewijzigd).
 - **Niet getest:** bouwen in Xcode, de simulator, een echte iPhone/iPad, de echte WKWebView, het ophalen van de
   Swift-pakketten.
+
+## 11. Controle tegen de App Review Guidelines
+
+Bron: App Review Guidelines, developer.apple.com/app-store/review/guidelines (‘Last Updated: October 16, 2026’,
+geraadpleegd 17-11-2026), en App Store Connect Help, *Screenshot specifications* (zelfde datum).
+
+| Richtlijn | Wat er staat (kort) | Bijbelreis | Stand |
+|---|---|---|---|
+| **4.2** Minimumfunctionaliteit | Meer dan een ‘repackaged website’; ‘app-like’, blijvende waarde. 4.2.2: geen ‘web clippings’ | Alles in de app en offline vanaf de eerste start; terug vegen; voortgang in UserDefaults die iOS niet opruimt; deelmenu van iOS; geen formulier, geen telling. Interactief: kaart, reizen, quiz, paspoort, tijdlijn, De wereld in die tijd, lesroutes met digibordstand. Het blijft een webview-app: de reviewernotitie (§7) zegt wat de app toevoegt | Verdedigbaar, blijvend risico |
+| **4.2.3** | Werkt zonder andere app; niets downloaden bij de eerste start | Alles zit in de bundel | Klaar |
+| **1.3** Kids | Geen links naar buiten, aankopen of afleiding behalve achter een ouderpoort; geen analytics of reclame van derden | Ouderpoort bij elke link naar buiten, Delen, mailen, presentatie, boekje en afdrukken; de digibordstand en De wereld in die tijd blijven in de app (getest in de simulator); geen derden | Klaar |
+| **5.1.1(i)** Privacybeleid | In de metadata en ‘within the app in an easily accessible manner’ | `https://bijbelreis.nl/privacy` en in de app onder Voor ouders en leiders → Privacy (getest in de simulator) | Klaar |
+| **5.1.4** Kids/privacy | Zorg bij gegevens van kinderen; geen analytics of reclame van derden | De app verzamelt en verstuurt niets (geen verzoek buiten de app, getest in de simulator) | Klaar |
+| **2.3.3** Schermafbeeldingen | ‘show the app in use’, niet alleen titel, inlog of opstartscherm | Vijf schermen in gebruik (§9) | Klaar |
+| **2.3.8** Metadata | Geschikt voor 4+, ook als de app hoger is; ‘For Kids’/‘For Children’ alleen in de Kids-categorie | Beelden zonder geweld; ‘voor kinderen’ alleen als je Kids kiest (§3) | Let op bij §3 |
+| **2.5.2** Zelfstandig | Geen code downloaden die functies toevoegt of wijzigt | Alle HTML, JavaScript en gegevens (ook `wereld/perioden/*.json`) zitten in de bundel; geen `server.url`; CSP `default-src 'self'`; `maak-webmap.mjs` faalt bij een nieuwe netwerkaanroep | Klaar |
+| **2.5.6** WebKit | Web via het WebKit-framework | WKWebView (Capacitor) | Klaar |
+| **2.5.1** Huidig besturingssysteem | Draait op het huidige iOS | Gebouwd met Xcode 26.6 (iOS 26 SDK), getest op iOS 26 in de simulator | Klaar |
+| **2.1** Volledigheid | Geen tijdelijke inhoud, werkende links | Pictogram en opstartscherm zijn ‘voorlopig de kameel’: voor de review prima zolang het een afgewerkt beeld is | Jouw keuze |
+
+**Wat er sinds de vorige versie van dit document bij kwam en is nagelopen:** ‘De wereld in die tijd’ (laag in de atlas,
+gegevens uit de app zelf, terug vegen sluit de laag), de digibordstand van de lesroutes (in de app; ‘Volledig scherm’
+verschijnt alleen waar WebKit dat toestaat), de nieuwe knoppen per les (Presentatie en Boekje gaan via de ouderpoort
+naar bijbelreis.nl, net als afdrukken per les), en de aangescherpte verantwoording (alleen tekst). De beschrijving
+(§3) en de reviewernotitie (§7) noemen De wereld in die tijd en het digibord nu ook.

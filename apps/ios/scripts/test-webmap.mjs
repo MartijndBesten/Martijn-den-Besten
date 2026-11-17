@@ -216,6 +216,7 @@ try {
   });
 
   await stap("licentie van Leaflet opent in een venster, de app blijft staan", async () => {
+    await page.waitForSelector('a[href$="LICENSE-leaflet.txt"]', { state: "attached" });
     await page.evaluate(() => document.querySelector('a[href$="LICENSE-leaflet.txt"]').click());
     await page.waitForSelector("#appTekst:not([hidden]) pre");
     verwacht(/Leaflet|BSD|Copyright/i.test(await page.textContent("#appTekst pre")), "licentietekst leeg");
