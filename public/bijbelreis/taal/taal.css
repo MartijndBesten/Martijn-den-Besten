@@ -20,3 +20,8 @@ html:not([lang="nl"]) .lg-vandaag,
 html:not([lang="nl"]) .ls-ingang,
 html:not([lang="nl"]) .ook,
 html:not([lang="nl"]) .bronlink { display: none !important; }
+
+/* Geschiedenissen die nog niet in deze taal bestaan: rustig maar leesbaar (bijbelreis.css dimt ze met opacity, wat
+   op deze lange lijst te weinig contrast geeft). */
+html:not([lang="nl"]) .vitem.off { opacity: 1; }
+html:not([lang="nl"]) .vitem.off .vt b { color: var(--fg-2); font-weight: 500; }
