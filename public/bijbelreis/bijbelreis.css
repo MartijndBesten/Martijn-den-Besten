@@ -1778,6 +1778,6 @@ details.meerinfo p { margin: 6px 0 0; }
    (die staat optisch 6 px naar links); alleen de ondertitel zelf krijgt nog een beletselteken. De schuine ‘Bijbel’ krijgt
    ruimte voor de uitloop van de laatste letter. */
 .kop-sub { overflow: visible; }
-.kop h1 { padding-right: 0.15em; }
+@media (min-width: 901px) { .kop h1 { padding-right: 0.15em; } }
 /* Brede kop met uitleg als tweede regel: het tegeltje kleiner, zodat de kop 64 px hoog blijft. */
 @media (min-width: 1360px) { .tabs button svg { padding: 2px; margin: -2px 0 -1px; border-radius: 7px; } }
