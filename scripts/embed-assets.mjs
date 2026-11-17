@@ -55,10 +55,13 @@ for (const line of readFileSync(join(root, "_headers"), "utf8").split("\n")) {
 }
 
 mkdirSync("worker/generated", { recursive: true });
+// De geschiedenispagina's (scripts/bijbelreis-verhalen.mjs) horen alleen bij bijbelreis.nl; de hoofdsite krijgt ze niet mee.
+const alleenReis = (p) => p.startsWith("/bijbelreis/verhaal/") || p === "/bijbelreis/verhalen.html";
+const hoofdFiles = Object.fromEntries(Object.entries(files).filter(([p]) => !alleenReis(p)));
 writeFileSync(
   "worker/generated/files.ts",
   `// Automatisch gegenereerd door scripts/embed-assets.mjs. Niet handmatig bewerken.\n` +
-    `export const FILES: Record<string, [type: string, etag: string, base64: string]> = ${JSON.stringify(files)};\n` +
+    `export const FILES: Record<string, [type: string, etag: string, base64: string]> = ${JSON.stringify(hoofdFiles)};\n` +
     `export const HEADER_RULES: { pattern: string; headers: Record<string, string> }[] = ${JSON.stringify(rules)};\n`,
 );
 // De Bijbelreis heeft een eigen Worker (bijbelreis.nl, worker/bijbelreis.ts) met alleen haar eigen bestanden.
@@ -71,5 +74,5 @@ writeFileSync(
     `export const FILES: Record<string, [type: string, etag: string, base64: string]> = ${JSON.stringify(reisFiles)};\n` +
     `export const HEADER_RULES: { pattern: string; headers: Record<string, string> }[] = ${JSON.stringify(reisRules)};\n`,
 );
-const total = Object.values(files).reduce((n, f) => n + f[2].length, 0);
-console.log(`embed-assets: ${Object.keys(files).length} bestanden, ${(total / 1024).toFixed(0)} kB base64; Bijbelreis apart: ${Object.keys(reisFiles).length} bestanden`);
+const total = Object.values(hoofdFiles).reduce((n, f) => n + f[2].length, 0);
+console.log(`embed-assets: ${Object.keys(hoofdFiles).length} bestanden, ${(total / 1024).toFixed(0)} kB base64; Bijbelreis apart: ${Object.keys(reisFiles).length} bestanden`);

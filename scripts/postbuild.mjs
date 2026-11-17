@@ -93,3 +93,17 @@ for (const pagina of ["bijbelreis.html", "bijbelreis/boekje.html"]) {
   const meta = `<meta name="bijbelreis-data" content='${JSON.stringify(data)}' />`;
   writeFileSync(file, html.replace("</head>", `    ${meta}\n  </head>`));
 }
+
+// Bijbelreis: per geschiedenis een gewone HTML-pagina voor zoekmachines (/verhaal/<nr>-<slug> op bijbelreis.nl) en een
+// overzicht (/verhalen), uit dezelfde gegevens als de atlas. Zie scripts/bijbelreis-verhalen.mjs.
+{
+  const { mkdirSync } = await import("node:fs");
+  const { dirname } = await import("node:path");
+  const { laadGegevens, maakPaginas } = await import("./bijbelreis-verhalen.mjs");
+  const paginas = maakPaginas(laadGegevens("public"), readFileSync(join(dist, "bijbelreis", "verhaal.css")));
+  for (const [p, html] of Object.entries(paginas)) {
+    mkdirSync(dirname(join(dist, p)), { recursive: true });
+    writeFileSync(join(dist, p), html);
+  }
+  console.log(`postbuild: Bijbelreis ${Object.keys(paginas).length} verhaalpagina's (inclusief overzicht)`);
+}

@@ -1,0 +1,50 @@
+/* Losse geschiedenispagina's (/verhaal/<nr>-<slug>) en het overzicht (/verhalen), gemaakt door
+   scripts/bijbelreis-verhalen.mjs. Licht en rustig; kleuren uit bijbelreis.css (contrast ≥ 4,5:1, ook donker). */
+@font-face { font-family: "Instrument Serif"; src: url("/fonts/instrument-serif-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("/fonts/geist.woff2") format("woff2-variations"); font-weight: 100 900; font-display: swap; }
+
+:root {
+  color-scheme: light dark;
+  --bg: #f5f0e5; --card: #fffcf6; --fg: #1f2430; --fg-2: #474a57; --lijn: rgba(31, 36, 48, 0.16);
+  --acc: #243d70; --acc-fg: #fffcf6; --link: #243d70; --focus: #8f4f31;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #141a26; --card: #1c2433; --fg: #ece6da; --fg-2: #c3bdb1; --lijn: rgba(236, 230, 218, 0.18); --acc: #d9c49d; --acc-fg: #141a26; --link: #e6d3ad; --focus: #f0b892; }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 1.0625rem/1.6 "Geist", system-ui, -apple-system, "Segoe UI", sans-serif; overflow-wrap: break-word; }
+a { color: var(--link); text-underline-offset: 0.15em; }
+a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+.kop { padding: 0.9rem 1rem; border-bottom: 1px solid var(--lijn); }
+.merk { font-weight: 650; text-decoration: none; color: var(--fg); font-size: 1.05rem; }
+.merk em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.2em; }
+
+main { max-width: 42rem; margin: 0 auto; padding: 1.25rem 1rem 2rem; }
+h1 { font-size: clamp(1.6rem, 1.2rem + 2vw, 2.2rem); line-height: 1.2; margin: 0.25rem 0 0.5rem; }
+h2 { font-size: 1.25rem; margin: 2rem 0 0.5rem; }
+h3 { font-size: 1.05rem; margin: 1.25rem 0 0.25rem; }
+p { margin: 0 0 0.9rem; }
+
+.kruimel { font-size: 0.9rem; color: var(--fg-2); margin-bottom: 1rem; }
+.nr { font-size: 0.9rem; color: var(--fg-2); margin: 0; }
+.lees { background: var(--card); border: 1px solid var(--lijn); border-radius: 10px; padding: 0.6rem 0.8rem; }
+.actie { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin: 1.25rem 0; }
+.actie-uitleg { color: var(--fg-2); font-size: 0.95rem; }
+.knop { display: inline-block; background: var(--acc); color: var(--acc-fg); font-weight: 650; text-decoration: none; padding: 0.7rem 1.1rem; border-radius: 999px; min-height: 44px; }
+.knop:hover { filter: brightness(1.1); }
+
+.buren { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 2rem; }
+.buren a { display: block; background: var(--card); border: 1px solid var(--lijn); border-radius: 10px; padding: 0.6rem 0.8rem; text-decoration: none; }
+.buren a[rel="next"] { text-align: right; }
+.buren span { display: block; font-size: 0.85rem; color: var(--fg-2); }
+@media (max-width: 30rem) { .buren { grid-template-columns: 1fr; } .buren a[rel="next"] { text-align: left; } }
+
+.intro { color: var(--fg-2); }
+.lijst { padding-left: 2.6rem; margin: 0; }
+.lijst li { margin: 0.35rem 0; }
+.lijst .ref { color: var(--fg-2); font-size: 0.9rem; }
+
+.voet { max-width: 42rem; margin: 0 auto; padding: 1rem 1rem 2.5rem; color: var(--fg-2); font-size: 0.9rem; border-top: 1px solid var(--lijn); }
