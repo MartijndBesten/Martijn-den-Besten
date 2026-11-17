@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
-for (const path of ["/", "/control-center", "/museum", "/over", "/loket", "/bureau", "/certificaat", "/bijbelreis", "/bijbelreis/lessen"]) {
+for (const path of ["/", "/control-center", "/museum", "/over", "/loket", "/bureau", "/certificaat", "/bijbelreis", "/bijbelreis/lessen", "/bijbelreis/privacy", "/bijbelreis/hulp"]) {
   test(`toegankelijkheid ${path}`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(path);

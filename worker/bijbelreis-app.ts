@@ -56,9 +56,11 @@ export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, 
     if (m) VERHALEN.set(+m[2], m[1]);
   }
   const OVERZICHT = "/bijbelreis/verhalen.html";
+  // Losse tekstpagina's op een kort adres (App Store: privacybeleid en support-URL). In de build staan ze onder /bijbelreis/.
+  const LOS = ["privacy", "hulp"].filter((n) => FILES[`/bijbelreis/${n}.html`]);
   const sitemap = () =>
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    ["/", ...(FILES[OVERZICHT] ? ["/verhalen"] : []), ...(FILES["/bijbelreis/lessen.html"] ? ["/bijbelreis/lessen"] : []), ...[...VERHALEN.keys()].sort((a, b) => a - b).map((nr) => `/verhaal/${VERHALEN.get(nr)}`)]
+    ["/", ...(FILES[OVERZICHT] ? ["/verhalen"] : []), ...(FILES["/bijbelreis/lessen.html"] ? ["/bijbelreis/lessen"] : []), ...LOS.map((n) => `/${n}`), ...[...VERHALEN.keys()].sort((a, b) => a - b).map((nr) => `/verhaal/${VERHALEN.get(nr)}`)]
       .map((p) => `  <url><loc>${ORIGIN}${p}</loc></url>\n`)
       .join("") +
     `</urlset>\n`;
@@ -105,6 +107,13 @@ export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, 
         const juist = "/verhaal/" + VERHALEN.get(+vm[2]);
         if (path === juist) return serve(request, path, `/bijbelreis${juist}.html`);
         return Response.redirect(new URL(juist + url.search, url).toString(), 301);
+      }
+      // Privacy en hulp: /privacy en /hulp. Het pad in de build (/bijbelreis/privacy, ook met .html of een slash) verwijst
+      // daarheen; zo werken de links in de atlas zowel lokaal (/bijbelreis/privacy) als op bijbelreis.nl.
+      const lm = /^\/(bijbelreis\/)?(privacy|hulp)(\.html|\/)?$/.exec(path);
+      if (lm && LOS.includes(lm[2])) {
+        if (path === `/${lm[2]}`) return serve(request, path, `/bijbelreis/${lm[2]}.html`);
+        return Response.redirect(new URL(`/${lm[2]}` + url.search, url).toString(), 301);
       }
       if (path === "/favicon.ico") return Response.redirect(new URL("/bijbelreis/favicon.svg", url).toString(), 302);
       // Presentatie en boekje: /bijbelreis/boekje (zonder .html); /bijbelreis/boekje.html verwijst daarheen, het fragment

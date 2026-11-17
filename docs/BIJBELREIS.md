@@ -189,9 +189,11 @@ e-mailbinding `MAIL` naar info@denckh.nl.
 | Reis en kaart: geen kaart waar hij niets toevoegt (telefoon), zoomgrens, tikvlakken, ‘Van dichtbij’, deeplinks | `bijbelreis-audit/telefoon.md` §4.10 |
 | Speurtocht, paspoort en personen: directe score, context bij vragen, ‘Hier was je’, Sara/Abraham | `bijbelreis-audit/telefoon.md` §4.11 |
 
-**iOS-app:** besluit Capacitor, zie `bijbelreis-ios/BESLUIT.md`. Prototype op de losse branch
-`claude/bijbelreis-ios-prototype` (`apps/ios/`), niet gebouwd of op een toestel getest (geen Mac). Voor de App Store
-zijn een Apple Developer-account (kosten, besluit van Martijn), een Mac met Xcode en keuzes over de Kids-categorie nodig.
+**iOS-app:** besluit Capacitor, zie `bijbelreis-ios/BESLUIT.md`. De app staat in `apps/ios/` (eigen `package.json`;
+de website-CI kijkt er niet in, behalve `tests/bijbelreis-app-webmap.test.ts`, die faalt als een websitewijziging de app
+breekt). Stappen voor Xcode en App Store Connect, teksten, leeftijdsvragenlijst, privacylabel en Kids-categorie:
+`bijbelreis-ios/APPSTORE.md`. Niet gebouwd of op een toestel getest (geen Mac). De privacyverklaring en de hulp staan op
+`/privacy` en `/hulp` (`public/bijbelreis/privacy.html`, `hulp.html`; in de build onder `/bijbelreis/`).
 
 **E-mail aan de maker werkt** (16-11-2026): Email Routing staat aan op de zone bijbelreis.nl (MX route1–3.mx.cloudflare.net,
 SPF en DKIM), info@denckh.nl is bevestigd, en Martijn ontving zijn eigen proefaanvraag. Komt een mail niet aan, lees dan de
