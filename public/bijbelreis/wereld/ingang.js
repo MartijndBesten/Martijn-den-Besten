@@ -6,9 +6,9 @@ window.BR = window.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} };
 (function () {
   "use strict";
   // ---------- de vlag ----------
-  // Zolang AAN false is, ziet niemand de uitnodiging in de verhalen. Testen: ?wereld=1 in het adres zet hem aan op dit
-  // apparaat (bijbelreis:wereld in localStorage), ?wereld=0 weer uit. Een diepe link (#wereld/<periode>/<jaar>) werkt altijd.
-  const AAN = false;
+  // AAN: de uitnodiging staat bij de verhalen met een koppeling. Op één apparaat anders (testen): ?wereld=0 in het adres
+  // zet hem uit, ?wereld=1 aan (bijbelreis:wereld in localStorage). Een diepe link (#wereld/<periode>/<jaar>) werkt altijd.
+  const AAN = true;
 
   /* REGISTER:BEGIN — geschreven door scripts/bijbelreis-wereld.mjs uit perioden/*.json; niet met de hand bewerken. */
   const PERIODEN = {"adam-noach":{"titel":"Van Adam tot Noach","verhalen":{"v2":0,"v4":130,"v5":1656,"v6":1657}},"daniel-babylon":{"titel":"Daniël en Babylon","verhalen":{"v71":586,"v73":605,"v74":603,"v75":539,"v76":538}}};
@@ -19,9 +19,9 @@ window.BR = window.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} };
   if (heeftDom) {
     try {
       const q = new URLSearchParams(location.search).get("wereld");
-      if (q === "1") localStorage.setItem("bijbelreis:wereld", "1");
-      if (q === "0") localStorage.removeItem("bijbelreis:wereld");
-      vlag = AAN || localStorage.getItem("bijbelreis:wereld") === "1";
+      if (q === "1" || q === "0") localStorage.setItem("bijbelreis:wereld", q);
+      const eigen = localStorage.getItem("bijbelreis:wereld");
+      vlag = eigen === "1" ? true : eigen === "0" ? false : AAN;
     } catch { /* geen opslag: dan de vaste stand */ }
   }
 

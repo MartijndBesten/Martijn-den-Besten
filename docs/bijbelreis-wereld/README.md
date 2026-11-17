@@ -8,7 +8,7 @@ Een interactieve, geanimeerde laag in de Bijbelreis: **levenslijnen** (wie leefd
 | Van Adam tot Noach | `public/bijbelreis/wereld/perioden/adam-noach.json` | Genesis 5 (+ 7, 9, 11): dertien levenslijnen in jaren na de schepping, berekend uit de Masoretische tekst (= Statenvertaling). Geen kaart, met uitleg waarom. |
 | Daniël en Babylon | `public/bijbelreis/wereld/perioden/daniel-babylon.json` | 627–515 v.Chr.: zeven rijken met 36 sleutels, 14 personen, 12 gebeurtenissen, 13 steden. Bronnen en keuzes: [`daniel-bronnen.md`](daniel-bronnen.md). |
 
-Staat **achter een vlag** (zie §4): zolang die uit staat, verandert er voor bezoekers niets.
+De vlag staat **aan** (zie §4): de uitnodiging staat bij de gekoppelde verhalen.
 
 ## 1. Architectuur
 
@@ -40,7 +40,10 @@ alles dubbel geladen en een eigen route in de Worker nodig gehad.
 - **Kaart**: een tweede Leaflet-kaart in de laag; `BR.ondergrond(kaart)` tekent hetzelfde landschap van toen (land,
   meren, rivieren, reliëf) en geeft de rand van de ondergrond terug. Daarbuiten ligt papier met een kaderlijn (zoals de
   atlas op de telefoon); gebieden worden op die rand afgeknipt (`kern.knip`), met een label ‘… loopt verder naar het
-  oosten →’. Nodig voor Perzië: `geo.json` reikt tot 53° O.
+  oosten →’. Nodig voor Perzië: `geo.json` reikt tot 57° O. Namen op de kaart overlappen nooit (`schikLabels`): plaatsnamen
+  gaan voor (naar links als ze rechts niet passen, anders korter of weg), gebiedsnamen zoeken een vrije plek binnen het
+  gebied (anders kleiner, anders even niet); gemeten 0 overlap en 0 afgekapt op 390, 1440 en 2560 px breed in 605, 586,
+  539 en 525 v.Chr. (vóór deze ronde: 22 overlappend, 25 afgekapt). De legenda staat standaard dicht.
 - **Animatie**: `requestAnimationFrame`, alleen zolang er afgespeeld of gesprongen wordt. Per beeld worden alleen
   attributen bijgewerkt (breedte van een lijn, positie van de kop, een paar klassen); opbouw (`layout`) alleen bij
   formaat, zoom of schuiven. Gemeten: 61 beeldjes per seconde tijdens afspelen (Chromium, desktop en telefoonmaat).
@@ -117,10 +120,10 @@ gedeelde specificatie, met deze aanvullingen (alle optioneel):
 
 ## 4. De vlag
 
-In `public/bijbelreis/wereld/ingang.js`: `const AAN = false;`. Zolang die `false` is, staat de uitnodiging ‘De wereld in
-die tijd’ nergens. **Testen**: `?wereld=1` in het adres zet hem aan op dit apparaat (`bijbelreis:wereld` in
-`localStorage`), `?wereld=0` weer uit, bijv. `https://bijbelreis.nl/?wereld=1#v75`. Een diepe link `#wereld/…` werkt
-altijd. Aanzetten voor iedereen: `AAN = true`.
+In `public/bijbelreis/wereld/ingang.js`: `const AAN = true;` (aan sinds 17-11-2026, besluit Martijn). Dan staat de
+uitnodiging ‘De wereld in die tijd’ bij elke geschiedenis met een koppeling. Op één apparaat anders, om te testen:
+`?wereld=0` in het adres zet hem uit, `?wereld=1` aan (`bijbelreis:wereld` in `localStorage`). Een diepe link
+`#wereld/…` werkt altijd. Uitzetten voor iedereen: `AAN = false`.
 
 De uitnodiging staat in de geschiedenis onder ‘Wanneer?’ (niveau Zelf op reis en Verder ontdekken; niet bij Samen
 ontdekken, 4–6 jaar). Niet in het korte stapblad van de reis: daar hoort een stap, geen geschiedenis, bij de koppeling.
@@ -160,6 +163,8 @@ ontdekken, 4–6 jaar). Niet in het korte stapblad van de reis: daar hoort een s
 - **Septuagint/Samaritaanse Pentateuch**: getallen uit secundaire bronnen (Wikipedia-tabel, artikel van H. B. Smith),
   niet uit een tekstuitgave nagekeken. Ussher alleen als ‘traditioneel’.
 - **Daniël**: zie `daniel-bronnen.md` (o.a. 605 als derde jaar van Jojakim, 587/586, Darius de Meder, Sardis 547–540).
-- Pasargadae (53,17° O) ligt net buiten de ondergrond; de stip staat op het papier net naast de rand.
+- Sinds de bredere ondergrond (4–57° O, PR #51) ligt Pasargadae binnen de kaart; Perzië loopt na 539 nog verder
+  oostwaarts dan 57° en wordt daar afgeknipt (‘loopt verder naar het oosten’).
 - Niet getest op een echte iPhone of Android, alleen Chromium (desktop-, telefoon- en tabletmaten).
-- De visuele snapshots (`e2e/bijbelreis-visueel.spec.ts`) zijn niet geraakt zolang de vlag uit staat.
+- De visuele referentiebeelden (`e2e/bijbelreis-visueel.spec.ts`) tonen geschiedenis 26 en de reis; daar staat geen
+  uitnodiging, dus de laag verandert ze niet.

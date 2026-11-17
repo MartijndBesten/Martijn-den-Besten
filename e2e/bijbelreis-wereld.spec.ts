@@ -83,16 +83,18 @@ test.describe("De wereld in die tijd", () => {
     expect(f).toEqual([]);
   });
 
-  test("zonder vlag geen uitnodiging; met ?wereld=0 weer uit", async ({ page }) => {
+  test("de uitnodiging staat alleen bij verhalen met een koppeling; ?wereld=0 zet hem uit op dit apparaat, ?wereld=1 weer aan", async ({ page }) => {
     await page.goto("/bijbelreis#v5");
     await expect(page.locator("#vTitel")).toHaveText("Noach bouwt de ark");
-    await expect(page.locator(".wt-ingang")).toHaveCount(0);
-    await page.goto("/bijbelreis?wereld=1#v1");
+    await expect(page.locator(".wt-ingang")).toHaveCount(1);
+    await page.goto("/bijbelreis#v1");
     await expect(page.locator("#vTitel")).toBeVisible();
     await expect(page.locator(".wt-ingang")).toHaveCount(0); // geschiedenis 1 heeft geen koppeling
     await page.goto("/bijbelreis?wereld=0#v5");
     await expect(page.locator("#vTitel")).toHaveText("Noach bouwt de ark");
     await expect(page.locator(".wt-ingang")).toHaveCount(0);
+    await page.goto("/bijbelreis?wereld=1#v5");
+    await expect(page.locator(".wt-ingang")).toHaveCount(1);
   });
 
   test("spoelen, naar een gebeurtenis springen, een persoon kiezen en vergelijken (Adam en Methusalach: 243 jaar)", async ({ page }) => {

@@ -165,6 +165,13 @@
 .wt-gebiedlabel span { display: inline-block; transform: translate(-50%, -50%); font-family: var(--font-serif); font-style: italic; font-size: 16px; line-height: 1.1; color: var(--gk, var(--terra-diep)); white-space: nowrap; letter-spacing: 0.01em; text-shadow: 0 0 2px var(--land), 0 0 6px var(--land), 0 0 10px var(--land); pointer-events: none; }
 .wt-stad > i { position: absolute; left: -4.5px; top: -4.5px; width: 9px; height: 9px; border-radius: 50%; background: var(--inkt); box-shadow: 0 0 0 2px var(--wit); }
 .wt-stad button { position: absolute; left: -8px; top: -16px; display: flex; align-items: center; min-width: 26px; min-height: 32px; padding: 0 6px 0 16px; border: 0; background: none; cursor: pointer; white-space: nowrap; }
+.wt-stad.links button { left: auto; right: -8px; padding: 0 16px 0 6px; justify-content: flex-end; }
+.wt-stad.kort .wt-stad-alt { display: none; }
+.wt-stad.stil button span { display: none; }
+.wt-stad .wt-stad-alt { font-size: inherit; font-weight: 500; }
+@media (max-width: 700px) { .wt-stad .wt-stad-alt { display: none; } }
+.wt-gebiedlabel.stil, .wt-verder.stil { visibility: hidden; }
+.wt-gebiedlabel.klein span { font-size: 13px; }
 .wt-stad span { font-size: 12.5px; font-weight: 650; color: var(--inkt); text-shadow: 0 0 2px var(--land), 0 0 5px var(--land); }
 .wt-stad.hoofd-nu > i { width: 12px; height: 12px; left: -6px; top: -6px; border-radius: 3px; background: var(--nacht); }
 .wt-stad.hoofd-nu span { font-weight: 750; }
@@ -179,15 +186,15 @@
 @keyframes wt-licht { from { transform: scale(0.4); opacity: 0.9; } to { transform: scale(2.2); opacity: 0; } }
 .wt-rand-papier { fill: var(--papier); fill-opacity: 1; stroke: none; }
 .wt-rand-lijn { fill: none; stroke: var(--zand-diep); stroke-opacity: 0.45; stroke-width: 1; }
-.wt-verder span { position: absolute; right: 6px; top: 0; transform: translateY(-50%); display: inline-flex; align-items: center; gap: 5px; padding: 3px 7px; white-space: nowrap; font-size: 11px; font-weight: 650; color: var(--gk, var(--nacht)); background: color-mix(in srgb, var(--papier) 88%, transparent); border-radius: 8px; box-shadow: 0 1px 4px rgba(31, 36, 48, 0.18); pointer-events: none; }
+.wt-verder span { position: absolute; right: 4px; top: 0; transform: translateY(-50%); display: inline-flex; align-items: center; gap: 4px; padding: 2px 6px; white-space: nowrap; font-size: 10.5px; font-weight: 650; color: var(--gk, var(--nacht)); background: color-mix(in srgb, var(--papier) 88%, transparent); border-radius: 8px; box-shadow: 0 1px 4px rgba(31, 36, 48, 0.18); pointer-events: none; }
 .wt-verder b { font-size: 15px; }
-.wt-legenda { position: absolute; left: 12px; bottom: 12px; z-index: 700; width: max-content; max-width: min(420px, calc(100% - 24px)); background: color-mix(in srgb, var(--wit) 94%, transparent); border-radius: 10px; box-shadow: var(--schaduw-kaart); font-size: 0.76rem; }
-.wt-legenda summary { min-height: 36px; display: flex; align-items: center; padding: 0 12px; cursor: pointer; font-weight: 650; font-size: 0.82rem; color: var(--nacht); list-style: none; }
+.wt-legenda { position: absolute; left: 12px; bottom: 12px; z-index: 700; width: max-content; max-width: min(340px, calc(100% - 24px)); background: color-mix(in srgb, var(--wit) 94%, transparent); border-radius: 10px; box-shadow: var(--schaduw-kaart); font-size: 0.72rem; line-height: 1.35; }
+.wt-legenda summary { min-height: 34px; display: flex; align-items: center; padding: 0 12px; cursor: pointer; font-weight: 650; font-size: 0.82rem; color: var(--nacht); list-style: none; }
 .wt-legenda summary::-webkit-details-marker { display: none; }
 .wt-legenda summary::after { content: "▾"; margin-left: 6px; font-size: 0.8em; }
 .wt-legenda[open] summary { min-height: 30px; }
 .wt-legenda[open] summary::after { content: "▴"; }
-.wt-legenda-in { padding: 0 12px 10px; }
+.wt-legenda-in { padding: 0 10px 8px; }
 .wt-legenda ul { list-style: none; margin: 0 0 6px; padding: 0; display: flex; flex-wrap: wrap; gap: 3px 12px; }
 .wt-legenda li { display: flex; align-items: center; gap: 6px; transition: opacity 0.4s; }
 .wt-legenda li.weg { opacity: 0.38; }

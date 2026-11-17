@@ -206,8 +206,8 @@ logboeken van de Worker (`npx wrangler tail -c wrangler.bijbelreis.jsonc`): `naA
 - Privacyvoorstellen in `bijbelreis-privacy/README.md` (kortere bewaartermijn e-mail, CSP zonder cloudflareinsights).
 - iOS: kostenakkoord Apple Developer Program, Kids-categorie ja/nee.
 
-**In ontwikkeling, achter een vlag:** ‘De wereld in die tijd’ (levenslijnen, kaart die met de tijd meebeweegt; Van Adam
-tot Noach en Daniël en Babylon), zie [`bijbelreis-wereld/README.md`](bijbelreis-wereld/README.md). Testen met `?wereld=1`.
+**Nieuw (PR #52):** ‘De wereld in die tijd’ (levenslijnen, kaart die met de tijd meebeweegt; Van Adam tot Noach en
+Daniël en Babylon), met een uitnodiging bij de gekoppelde verhalen. Zie [`bijbelreis-wereld/README.md`](bijbelreis-wereld/README.md).
 
 **Open, werk voor een volgende ronde:**
 - Test op een echte iPhone (standalone-app, notch, offline) en Android; tot nu toe alleen Chromium.

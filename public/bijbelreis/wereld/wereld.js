@@ -914,7 +914,7 @@
     D.app.querySelector(".wt-p-kaart").hidden = !kaartZichtbaar;
     if (w === "lijnen") requestAnimationFrame(layout);
     if (w === "gebeurtenissen") { lijstBij(); const h = D.lijst.querySelector(".huidig"); if (h) h.scrollIntoView({ block: "center" }); }
-    if (kaartZichtbaar && S.M.heeftKaart) requestAnimationFrame(() => { maakKaart(); if (S.kaart) { S.kaart.m.invalidateSize({ pan: false }); kaartTijd(S.t, []); } });
+    if (kaartZichtbaar && S.M.heeftKaart) requestAnimationFrame(() => { maakKaart(); if (S.kaart) { S.kaart.m.invalidateSize({ pan: false }); kaartTijd(S.t, []); schikLabels(true); } });
     if (focus) { const b = D.app.querySelector(`[role="tab"][data-weergave="${w}"]`); if (b && document.activeElement !== b) b.focus(); }
   }
 
@@ -928,8 +928,8 @@
     m.createPane("wtRand").style.zIndex = 450;
     m.createPane("wtLabels").style.zIndex = 640;
     m.getPane("wtRand").style.pointerEvents = "none";
-    // De ondergrond houdt ergens op (geo.json: tot 53° O). Daarbuiten: papier met een kaderlijn, zoals in een atlas, en
-    // gebieden worden op die rand afgeknipt, met een pijl ‘loopt verder naar het oosten’.
+    // De ondergrond houdt ergens op (geo.json: 4–57° O, 22–47° N; BR.ondergrond geeft de rand). Daarbuiten: papier met een
+    // kaderlijn, zoals in een atlas, en gebieden worden op die rand afgeknipt, met ‘loopt verder naar het oosten →’.
     const zetRand = (gr) => {
       const [z, w, n, o] = gr;
       S.kaart.rand = { w, o };
@@ -939,6 +939,7 @@
       // Niet verder uitzoomen dan het land van de ondergrond het scherm vult (anders zie je vooral papier).
       const binnen = m.getBoundsZoom([[z, w], [n, o]], true);
       m.setMinZoom(Math.max(3, binnen - 0.25));
+      S.kaart.alles = alleBounds();
       if (S.kaart.alles) m.fitBounds(S.kaart.alles, { padding: [24, 24], maxZoom: 7, animate: false });
       if (m.getZoom() < binnen) m.setZoom(binnen, { animate: false });
       kaartTijd(S.t, []);
@@ -956,27 +957,138 @@
       const hoofd = M.gebieden.some((g) => g.hoofdstad === s.id);
       // Kleinere plaatsen krijgen pas een naam als je inzoomt (of als er net iets gebeurt), zodat de kaart rustig blijft.
       const belangrijk = hoofd || M.gebeurtenissen.some((e) => e.belangrijk && (e.plaats === s.plaatsId || e.plaats === s.id));
-      const mk = L.marker(s.ll, { pane: "wtLabels", keyboard: false, icon: L.divIcon({ className: "wt-stad" + (hoofd ? " hoofd" : "") + (belangrijk ? " belangrijk" : ""), iconSize: [0, 0], html: `<i aria-hidden="true"></i><button type="button" data-stad="${esc(s.id)}" aria-label="${esc(s.naam)}${hoofd ? ", hoofdstad" : ""}"><span>${esc(s.naam)}</span></button>` }) }).addTo(m);
+      const mk = L.marker(s.ll, { pane: "wtLabels", keyboard: false, icon: L.divIcon({ className: "wt-stad" + (hoofd ? " hoofd" : "") + (belangrijk ? " belangrijk" : ""), iconSize: [0, 0], html: `<i aria-hidden="true"></i><button type="button" data-stad="${esc(s.id)}" aria-label="${esc(s.naam)}${hoofd ? ", hoofdstad" : ""}"><span>${esc(s.naam.split(" (")[0])}${s.naam.includes(" (") ? `<small class="wt-stad-alt"> (${esc(s.naam.split(" (").slice(1).join(" ("))}</small>` : ""}</span></button>` }) }).addTo(m);
       return { s, mk };
     });
     const plekken = M.gebeurtenissen.filter((e) => e.plek).map((e) => {
       const mk = L.marker(e.plek.ll, { pane: "wtLabels", keyboard: false, icon: L.divIcon({ className: "wt-plek" + (e.plek.gebied ? " gebied" : ""), iconSize: [0, 0], html: `<button type="button" data-e="${esc(e.id)}" aria-label="${esc(e.titel)}" tabindex="-1"><i></i><b></b></button>` }) });
       return { e, mk, aan: false };
     });
-    S.kaart = { m, gebieden, steden, plekken, rand: { w: -180, o: 53 } };
-    // Eerste beeld: alles van deze periode, zonder vlucht.
+    S.kaart = { m, gebieden, steden, plekken, rand: { w: -180, o: 57 }, geschikt: 0 };
+    // Eerste beeld: alles van deze periode (tot de rand van de ondergrond), zonder vlucht.
     const zoomKlas = () => { const z = m.getZoom(); D.kaartvlak.classList.toggle("wt-ver", z < 5.75); };
     m.on("zoomend", zoomKlas);
-    const punten = [];
-    M.gebieden.forEach((g) => g.sleutels.forEach((s) => s.delen.forEach((r) => r.forEach(([lng, lat]) => punten.push([lat, Math.min(lng, S.kaart.rand.o)])))));
-    M.steden.forEach((s) => punten.push(s.ll));
-    plekken.forEach((p) => punten.push(p.e.plek.ll));
-    S.kaart.alles = punten.length ? L.latLngBounds(punten) : null;
-    if (punten.length) m.fitBounds(S.kaart.alles, { padding: [28, 28], maxZoom: 7 }); else m.setView([33, 40], 5);
+    m.on("moveend zoomend resize", () => schikLabels(true));
+    S.kaart.alles = alleBounds();
+    if (S.kaart.alles) m.fitBounds(S.kaart.alles, { padding: [28, 28], maxZoom: 7 }); else m.setView([33, 40], 5);
     zoomKlas();
-    if (D.legenda) D.legenda.parentElement.open = breed();
     legenda();
+    if (D.legenda) D.legenda.parentElement.addEventListener("toggle", () => schikLabels(true));
     kaartTijd(S.t, []);
+  }
+  function alleBounds() {
+    const o = S.kaart.rand.o, punten = [];
+    S.M.gebieden.forEach((g) => g.sleutels.forEach((s) => s.delen.forEach((r) => r.forEach(([lng, lat]) => punten.push([lat, Math.min(lng, o)])))));
+    S.M.steden.forEach((s) => punten.push(s.ll));
+    S.kaart.plekken.forEach((p) => punten.push(p.e.plek.ll));
+    return punten.length ? L.latLngBounds(punten) : null;
+  }
+
+  // ---------- namen op de kaart: niets over elkaar ----------
+  // Voorrang: plaatsnamen (eerst hoofdsteden en plaatsen met een belangrijke gebeurtenis), dan ‘loopt verder’, dan de
+  // namen van gebieden. Een plaatsnaam gaat naar links als hij rechts niet past, wordt korter (zonder de naam tussen
+  // haakjes) of verdwijnt (de stip blijft). Een gebiedsnaam zoekt een vrije plek binnen het eigen gebied, zo ver
+  // mogelijk van de rand; is er geen, dan staat hij er even niet. Een plek die goed blijft, blijft (geen gespring).
+  function schikLabels(nu) {
+    const K2 = S && S.kaart; if (!K2 || !D.kaartvlak || !D.kaartvlak.offsetWidth) return;
+    const tijd = performance.now();
+    if (!nu && S.speelt && tijd - K2.geschikt < 220) return;
+    K2.geschikt = tijd;
+    const m = K2.m, doos = D.kaartvlak.getBoundingClientRect(), W = doos.width, H = doos.height;
+    const rect = (el) => { const r = el.getBoundingClientRect(); return { l: r.left - doos.left, t: r.top - doos.top, r: r.right - doos.left, b: r.bottom - doos.top }; };
+    const bezet = [];
+    const raakt = (a, marge = 2) => bezet.some((b) => a.l < b.r + marge && a.r > b.l - marge && a.t < b.b + marge && a.b > b.t - marge);
+    const binnen = (a) => a.l >= 2 && a.t >= 2 && a.r <= W - 2 && a.b <= H - 2;
+    // Bediening en legenda zijn ook bezet.
+    D.kaartvlak.querySelectorAll(".leaflet-control-zoom").forEach((el) => bezet.push(rect(el)));
+    if (D.legenda) bezet.push(rect(D.legenda.parentElement));
+    // Alle stippen van plaatsen en gebeurtenissen.
+    K2.steden.forEach(({ mk }) => { const el = mk.getElement(); const i = el && el.querySelector("i"); if (i) bezet.push(rect(i)); });
+    K2.plekken.forEach((o) => { const el = o.aan && o.mk.getElement(); const i = el && el.querySelector("i"); if (i) bezet.push(rect(i)); });
+    // Plaatsnamen.
+    const volg = K2.steden.map((o) => ({ o, el: o.mk.getElement() })).filter((x) => x.el)
+      .sort((a, b) => (b.el.classList.contains("hoofd-nu") ? 2 : b.el.classList.contains("belangrijk") ? 1 : 0) - (a.el.classList.contains("hoofd-nu") ? 2 : a.el.classList.contains("belangrijk") ? 1 : 0));
+    volg.forEach(({ el }) => {
+      el.classList.remove("links", "kort", "stil");
+      const span = el.querySelector("button span");
+      if (!span || !span.offsetWidth) return; // verborgen (ver weg uitgezoomd)
+      for (const k of [[], ["links"], ["kort"], ["kort", "links"]]) {
+        el.classList.remove("links", "kort"); k.forEach((c) => el.classList.add(c));
+        const r = rect(span);
+        if (binnen(r) && !raakt(r)) { bezet.push(r); return; }
+      }
+      el.classList.remove("links", "kort"); el.classList.add("stil");
+    });
+    const delenPx = (ll) => ll.map((r) => r.map((p) => { const q = m.latLngToContainerPoint(p); return [q.x, q.y]; }));
+    // ‘… loopt verder naar het oosten’: klein, tegen de oostrand, op een vrije hoogte langs het afgeknipte stuk.
+    K2.gebieden.forEach((o) => {
+      if (!o.verderAan) return;
+      const el = o.verder.getElement(), span = el && el.querySelector("span"); if (!span) return;
+      const [lo, hi] = o.randLat || [0, 0], stappen = [0.5, 0.35, 0.65, 0.2, 0.8, 0.05, 0.95];
+      el.classList.remove("stil");
+      for (const f of stappen) {
+        o.verder.setLatLng([lo + (hi - lo) * f, K2.rand.o]);
+        const r = rect(span);
+        if (binnen(r) && !raakt(r)) { bezet.push(r); return; }
+      }
+      el.classList.add("stil");
+    });
+    // Gebiedsnamen.
+    K2.gebieden.forEach((o) => {
+      if (!o.aan || !o.delen || !o.delen.length) return;
+      const el = o.label.getElement(), span = el && el.querySelector("span"); if (!span) return;
+      el.classList.remove("stil", "klein");
+      const vlak = delenPx(o.delen).map((r) => ({ r, a: Math.abs(oppervlakPx(r)) })).sort((a, b) => b.a - a.a)[0];
+      if (!vlak) { el.classList.add("stil"); return; }
+      const ring = vlak.r;
+      let xs = ring.map((p) => p[0]), ys = ring.map((p) => p[1]);
+      const [x0, x1, y0, y1] = [Math.max(0, Math.min(...xs)), Math.min(W, Math.max(...xs)), Math.max(0, Math.min(...ys)), Math.min(H, Math.max(...ys))];
+      // Drie pogingen: ruim binnen het gebied; met beide uiteinden binnen het gebied; kleiner, met het midden erin.
+      const pogingen = [["", 2], ["", 1], ["klein", 0]];
+      for (const [klas, streng] of pogingen) {
+        el.classList.toggle("klein", klas === "klein");
+        const r0 = rect(span), w = r0.r - r0.l, h = r0.b - r0.t;
+        if (vlak.a < w * h * (streng ? 1.2 : 0.4)) continue;
+        const doosVan = (x, y) => ({ l: x - w / 2, r: x + w / 2, t: y - h / 2, b: y + h / 2 });
+        const goed = (x, y) => {
+          const d = doosVan(x, y);
+          if (!binnen(d) || raakt(d, 4) || !inRing(ring, x, y)) return false;
+          if (streng >= 1 && ![[d.l + 4, y], [d.r - 4, y]].every(([px, py]) => inRing(ring, px, py))) return false;
+          return streng < 2 || randAfstand(ring, x, y) >= h / 2;
+        };
+        // Blijft de vorige plek goed (op dit niveau), dan blijft de naam staan.
+        if (o.labelLL && o.labelKlas === klas) { const q = m.latLngToContainerPoint(o.labelLL); if (goed(q.x, q.y)) { bezet.push(doosVan(q.x, q.y)); return; } }
+        let best = null;
+        const N = 11;
+        for (let i = 1; i < N; i++) for (let j = 1; j < N; j++) {
+          const x = x0 + ((x1 - x0) * i) / N, y = y0 + ((y1 - y0) * j) / N;
+          if (!goed(x, y)) continue;
+          const score = randAfstand(ring, x, y);
+          if (!best || score > best.s) best = { x, y, s: score };
+        }
+        if (!best) continue;
+        o.labelLL = m.containerPointToLatLng([best.x, best.y]); o.labelKlas = klas;
+        o.label.setLatLng(o.labelLL);
+        bezet.push(doosVan(best.x, best.y));
+        return;
+      }
+      el.classList.remove("klein"); el.classList.add("stil"); o.labelLL = null;
+    });
+  }
+  function oppervlakPx(r) { let a = 0; for (let i = 0; i < r.length; i++) { const p = r[i], q = r[(i + 1) % r.length]; a += p[0] * q[1] - q[0] * p[1]; } return a / 2; }
+  function inRing(r, x, y) {
+    let in_ = false;
+    for (let i = 0, j = r.length - 1; i < r.length; j = i++) { const [xi, yi] = r[i], [xj, yj] = r[j]; if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) in_ = !in_; }
+    return in_;
+  }
+  function randAfstand(r, x, y) {
+    let min = Infinity;
+    for (let i = 0; i < r.length; i++) {
+      const [ax, ay] = r[i], [bx, by] = r[(i + 1) % r.length], dx = bx - ax, dy = by - ay, l = dx * dx + dy * dy;
+      const f = l ? Math.max(0, Math.min(1, ((x - ax) * dx + (y - ay) * dy) / l)) : 0;
+      min = Math.min(min, Math.hypot(x - ax - f * dx, y - ay - f * dy));
+    }
+    return min;
   }
   // Het zwaartepunt van een vlak (niet het gemiddelde van de punten): daar staat de naam van een gebied.
   function zwaartepunt(r) {
@@ -998,7 +1110,7 @@
     const zichtbaar = new Set();
     K2.gebieden.forEach((o) => {
       const v = K.gebiedOp(o.g, t, S.M.vervaag);
-      if (!v) { if (o.aan) { o.laag.setLatLngs([]); o.label.remove(); o.aan = false; } if (o.verderAan) { o.verder.remove(); o.verderAan = false; } return; }
+      if (!v) { if (o.aan) { o.laag.setLatLngs([]); o.label.remove(); o.aan = false; o.labelLL = null; o.delen = null; } if (o.verderAan) { o.verder.remove(); o.verderAan = false; } return; }
       // Afknippen op de rand van de ondergrond.
       const { w, o: oost } = K2.rand;
       const voorbijRand = v.delen.some((r) => r.some((p) => p[1] > oost + 1e-6));
@@ -1012,18 +1124,21 @@
         el.classList.toggle("benaderd", v.betrouwbaarheid !== "historisch");
       }
       // Het label op het midden van het grootste (zichtbare) deel.
-      const c = zwaartepunt(delen[0] || v.delen[0]);
-      o.label.setLatLng(c);
+      o.delen = delen;
+      // Eerste plek: het zwaartepunt; schikLabels zoekt daarna een vrije plek binnen het gebied.
+      if (!o.labelLL) o.label.setLatLng(zwaartepunt(delen[0] || v.delen[0]));
       if (!o.aan) { o.label.addTo(K2.m); o.aan = true; }
       const le = o.label.getElement(); if (le) le.style.opacity = v.dekking.toFixed(3);
       // Loopt het gebied verder dan de rand: een pijl op de rand, op de hoogte van het afgeknipte stuk.
       if (voorbijRand) {
         const randPunten = delen.flat().filter((p) => Math.abs(p[1] - oost) < 1e-6);
         // Aan de noordkant van het afgeknipte stuk: daar staan minder namen dan rond Babel.
-        const lats = randPunten.map((p) => p[0]), lat = lats.length ? Math.max(...lats) - (Math.max(...lats) - Math.min(...lats)) * 0.2 : c[0];
-        o.verder.setLatLng([lat, oost]);
-        if (!o.verderAan) { o.verder.addTo(K2.m); o.verderAan = true; }
-        const ve = o.verder.getElement(); if (ve) ve.style.opacity = v.dekking.toFixed(3);
+        const lats = randPunten.map((p) => p[0]);
+        o.randLat = lats.length ? [Math.min(...lats), Math.max(...lats)] : null;
+        if (!o.randLat) { if (o.verderAan) { o.verder.remove(); o.verderAan = false; } }
+        else o.verder.setLatLng([(o.randLat[0] + o.randLat[1]) / 2, oost]);
+        if (o.randLat && !o.verderAan) { o.verder.addTo(K2.m); o.verderAan = true; }
+        const ve = o.verderAan && o.verder.getElement(); if (ve) ve.style.opacity = v.dekking.toFixed(3);
       } else if (o.verderAan) { o.verder.remove(); o.verderAan = false; }
       zichtbaar.add(o.g.id);
     });
@@ -1048,6 +1163,7 @@
         else K2.m.flyTo(e.plek.ll, K2.m.getZoom(), { duration: 1.1, easeLinearity: 0.4 });
       }
     });
+    schikLabels(false);
   }
 
   function stopLaag() { stop(); if (S && D) { sluitBlad(); pauze(); } }
