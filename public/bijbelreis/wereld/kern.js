@@ -107,17 +107,17 @@
     const overgangen = sleutels.slice(1).map((s, i) => koppelDelen(sleutels[i].delen, s.delen));
     return { ...g, sleutels, overgangen };
   }
-  // De vorm op tijd t: ringen als [lat, lng] (voor Leaflet), dekking (0–1) en betrouwbaarheid. Een gebied bestaat van zijn
-  // eerste tot zijn laatste sleutel; aan beide kanten komt en gaat het vloeiend (in hooguit `vervaag` jaar).
+  // De vorm op tijd t: ringen als [lat, lng] (voor Leaflet), dekking (0–1) en betrouwbaarheid.
   function gebiedOp(g, t, vervaag) {
     const S = g.sleutels;
     if (!S.length) return null;
     const eerste = S[0].t, laatste = S[S.length - 1].t;
-    const v = Math.max(1e-6, S.length > 1 ? Math.min(vervaag, (laatste - eerste) / 4) : vervaag);
-    // Binnen de eerste `v` jaar komt het gebied op, in de laatste `v` jaar vervaagt het; daarbuiten bestaat het niet.
-    // Eén sleutel: alleen rond dat jaar zichtbaar (gebruik er liever twee).
-    const dekking = S.length === 1 ? 1 - Math.min(1, Math.abs(t - eerste) / v) : Math.min(vloeiend((t - eerste) / v), vloeiend((laatste - t) / v));
-    if ((S.length > 1 && (t < eerste || t > laatste)) || dekking <= 0.001) return null;
+    // Van de eerste tot de laatste sleutel staat het gebied er helemaal; het komt in de laatste `v` jaar ervóór op en
+    // vervaagt in `v` jaar erna (een korte, rustige overgang in plaats van een sprong). Eén sleutel: alleen rond dat jaar.
+    const v = Math.max(1e-6, vervaag / 2);
+    if (t < eerste - v || t > laatste + v) return null;
+    const dekking = S.length === 1 ? 1 - Math.min(1, Math.abs(t - eerste) / v) : Math.min(vloeiend((t - eerste + v) / v), vloeiend((laatste + v - t) / v));
+    if (dekking <= 0.001) return null;
     let delen, betrouwbaarheid;
     if (t <= eerste || S.length === 1) { delen = S[0].delen; betrouwbaarheid = S[0].betrouwbaarheid; }
     else if (t >= laatste) { delen = S[S.length - 1].delen; betrouwbaarheid = S[S.length - 1].betrouwbaarheid; }
