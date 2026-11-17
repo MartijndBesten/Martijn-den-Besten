@@ -8,7 +8,9 @@ from shapely.ops import unary_union
 import sys
 D=(sys.argv[1] if len(sys.argv)>1 else 'data')+'/'
 OUT=sys.argv[2] if len(sys.argv)>2 else 'public/bijbelreis/geo.json'
-B=box(8,23.5,53,45.5)  # tot Rome, Malta en Macedonië (reizen van Paulus)
+# Hetzelfde vak als de kaart mag tonen (maxBounds in app.js) en als het reliëf (relief.json): 4–57° O, 22–47° N. Was
+# 8–53° O en 23,5–45,5° N; op een breed scherm lag dan zee waar land hoort (Iran ten oosten van 53° O).
+B=box(4,22,57,47)
 def rnd(g,n=3):
     def r(c):
         if isinstance(c[0],(int,float)): return [round(c[0],n),round(c[1],n)]

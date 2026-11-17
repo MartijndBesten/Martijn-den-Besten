@@ -878,7 +878,8 @@
     const el = $(id), b = el && el.querySelector('[aria-pressed="true"]');
     if (!b) return;
     const r = b.getBoundingClientRect(), e = el.getBoundingClientRect();
-    if (e.width && (r.left < e.left || r.right > e.right)) el.scrollLeft += r.left - e.left - (e.width - r.width) / 2;
+    // In het midden zetten; is de knop breder dan de rij, dan het begin (de naam) in beeld, nooit half eruit.
+    if (e.width && (r.left < e.left || r.right > e.right)) el.scrollLeft += r.left - e.left - Math.max(0, (e.width - r.width) / 2);
   }
   function chooseBoek(b, d, step = -1, opts) {
     boek = b; d = d || b.delen.find((x) => !x.hoofd) || b.delen[0];
@@ -1362,6 +1363,7 @@
         ${!c ? conceptLabel(v, "voor Zelf op reis") : ""}
         <p class="label bl">Wat de Bijbel vertelt</p>
         <div id="vVertelling">${!c && v && v.delen ? vertellingVan(v.delen) : vertelling(g)}</div>
+        <p class="citaatnoot" hidden>Tekst tussen ‘enkele aanhalingstekens’ staat letterlijk zo in de Statenvertaling; de rest is in eigen woorden naverteld.</p>
         ${lees}
         <div id="vOntdek" class="stack"></div>
         ${meer}
@@ -1369,6 +1371,8 @@
         <p class="deelrij">${deelKnop("v" + nr, g.t, "Deel deze geschiedenis")}</p>
         ${nav}
       </article>`;
+      // De uitleg over ‘enkele aanhalingstekens’ alleen als er in deze vertelling ook echt een letterlijk citaat staat.
+      { const cn = $("vVertelling").parentElement.querySelector(".citaatnoot"); if (cn) cn.hidden = !$("vVertelling").textContent.includes("‘"); }
       leesVerder($("vVertelling"));
       renderOntdek($("vOntdek"), g);
       renderVQuiz($("vQuiz"), g, c ? (g.quiz || []).concat((v && v.vragen) || []) : (v && v.vragen) || g.quiz);
@@ -1695,7 +1699,7 @@
   // Samen ontdekken: alleen de volgorde, zonder jaartallen: de 16 etappes van de reis door de Bijbel.
   function renderTijdSamen() {
     const g = (vOpen && GBYNR.get(vOpen)) || huidigeGeschiedenis().g;
-    $("p-tijd").innerHTML = `<h2>Wat kwam <em>eerst</em>?</h2><p class="ref">De Bijbel vertelt de geschiedenissen in een volgorde. Zo loopt de reis, van boven naar beneden.</p><ol class="samentijd">${SECTIES.map(([naam, a, b]) => { const nu = g && g.nr >= a && g.nr <= b; const hier = nu ? G.filter((x) => x.nr >= a && x.nr <= b) : []; return `<li class="${nu ? "nu" : ""}"><span class="st-stip" aria-hidden="true"></span><div><b>${esc(naam)}</b>${nu ? '<small>Hier ben je nu</small>' : ""}${hier.map((x) => `<button type="button" class="linkbtn" data-v="${x.nr}">${esc(x.t)}</button>`).join("")}</div></li>`; }).join("")}</ol>`;
+    $("p-tijd").innerHTML = `<h2>Wat kwam <em>eerst</em>?</h2><p class="ref">De Bijbel vertelt de geschiedenissen in een volgorde. Zo loopt de reis, van boven naar beneden.</p><ol class="samentijd">${SECTIES.map(([naam, a, b]) => { const nu = g && g.nr >= a && g.nr <= b; const hier = G.filter((x) => x.nr >= a && x.nr <= b); return `<li class="${nu ? "nu" : ""}"><span class="st-stip" aria-hidden="true"></span><details${nu ? " open" : ""}><summary><b>${esc(naam)}</b><span class="st-aantal">${hier.length} ${hier.length === 1 ? "geschiedenis" : "geschiedenissen"}${nu ? ' · <em>hier ben je nu</em>' : ""}</span></summary><div class="st-lijst">${hier.map((x) => `<button type="button" class="linkbtn" data-v="${x.nr}">${esc(x.t)}</button>`).join("")}</div></details></li>`; }).join("")}</ol>`;
   }
   $("p-tijd").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
   function renderTijd() {

@@ -32,7 +32,8 @@ describe("de pagina's zelf", () => {
   });
   it("de atlas linkt onder ‘Voor ouders en leiders’ naar privacy en hulp", () => {
     const atlas = lees("bijbelreis.html");
-    const ouders = atlas.slice(atlas.indexOf('<details class="parents">'), atlas.indexOf("</details>", atlas.indexOf('<details class="parents">')));
+    // Tot het einde van de lijst: binnen ‘Voor ouders en leiders’ staat nog een uitklapblok (verantwoording van de kaart).
+    const ouders = atlas.slice(atlas.indexOf('<details class="parents">'), atlas.indexOf("</dl>", atlas.indexOf('<details class="parents">')));
     expect(ouders).toContain('href="/bijbelreis/privacy"');
     expect(ouders).toContain('href="/bijbelreis/hulp"');
   });
