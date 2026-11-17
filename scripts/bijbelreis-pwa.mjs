@@ -18,13 +18,22 @@ const lees = (dist, pad) => readFileSync(join(dist, pad.replace(/^\//, "")));
 // Gegevens die de scripts zelf ophalen: app.js (ondergrond, reliëf, grenzen, landschap van toen) en niveaus.js (de
 // teksten per niveau). Ze krijgen hun hash via de meta-tag, want de CSP staat geen inline script toe.
 const DATA = ["geo.json", "toen.json", "relief.json", "grenzen.json", "relief-regio.webp", "relief-kanaan.webp", "niveaus/a.js", "niveaus/b.js", "niveaus/c.js"];
+// ‘De wereld in die tijd’ (docs/bijbelreis-wereld/README.md): de laag en de gegevens per periode laden pas als iemand de
+// laag opent (ingang.js), maar horen wel bij de schil, zodat ze ook zonder internet werken en nooit van een andere versie zijn.
+// ingang.js zelf staat als script in de pagina en krijgt zijn hash daar.
+const wereldBestanden = (dist) => {
+  const map = join(dist, "bijbelreis", "wereld");
+  if (!existsSync(map)) return [];
+  return bestanden(map).map((v) => relative(join(dist, "bijbelreis"), v).split("\\").join("/")).filter((p) => /\.(js|css|json)$/.test(p) && p !== "wereld/ingang.js").sort();
+};
+const dataBestanden = (dist) => DATA.concat(wereldBestanden(dist));
 
 export function stempel(dist) {
   for (const pagina of ["bijbelreis.html", "bijbelreis/boekje.html", "bijbelreis/lessen.html"]) {
     const file = join(dist, pagina);
     if (!existsSync(file)) continue;
     let html = readFileSync(file, "utf8").replace(/((?:src|href)=")(\/bijbelreis\/[^"?]+\.(?:js|css))(?:\?v=[0-9a-f]+)?"/g, (m, attr, url) => `${attr}${url}?v=${hash(lees(dist, url), 10)}"`);
-    const data = Object.fromEntries(DATA.map((p) => [p, hash(lees(dist, "bijbelreis/" + p), 10)]));
+    const data = Object.fromEntries(dataBestanden(dist).map((p) => [p, hash(lees(dist, "bijbelreis/" + p), 10)]));
     const meta = `<meta name="bijbelreis-data" content='${JSON.stringify(data)}' />`;
     html = /<meta name="bijbelreis-data" [^>]*\/>/.test(html) ? html.replace(/<meta name="bijbelreis-data" [^>]*\/>/, meta) : html.replace("</head>", `    ${meta}\n  </head>`);
     writeFileSync(file, html);
