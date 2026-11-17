@@ -282,7 +282,8 @@ button.kb:hover { border-color: var(--salie-diep); }
 button.kb[aria-current="true"] { box-shadow: 0 0 0 2px var(--salie-diep); }
 .kb b { font-weight: 650; }
 .kb small { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.03em; color: var(--fg-3); }
-.kb.off { opacity: 0.65; border-style: dashed; background: transparent; }
+/* Nog niet uitgewerkte boeken: gestippelde rand en zachtere kleur, geen doorzichtigheid (tekstcontrast ≥ 4,5:1, WCAG 1.4.3). */
+.kb.off { border-style: dashed; background: transparent; color: var(--fg-2); }
 @media (min-width: 901px) { .lade { place-items: center; } .lade__box { border-radius: var(--radius); padding-bottom: 28px; } }
 
 /* ===== Aanvraag: ‘Mis je iets? Vraag het aan’ (docs/bijbelreis-aanvraag/README.md) ===== */
@@ -801,8 +802,11 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
   /* De kop blijft bovenaan staan: niets schuift onder de statusbalk van de telefoon door (met viewport-fit=cover staat
      de kop zelf onder de notch, dankzij safe-area-inset-top; Safari kleurt de statusbalk dan mee met de kop). */
   .kop { position: sticky; top: 0; }
-  /* Een persoon openen (Wie is wie) begint bij de naam, net onder de vaste kop. */
-  #wieInfo { scroll-margin-top: calc(var(--kop-h) + env(safe-area-inset-top, 0px) + 12px); }
+  /* Wat met het toetsenbord focus krijgt (of in beeld wordt geschoven), komt nooit onder de vaste kop of de onderbalk
+     te staan (WCAG 2.4.11, focus niet verborgen): de browser houdt bij het schuiven deze ruimte vrij. */
+  html { scroll-padding-top: calc(var(--kop-h) + env(safe-area-inset-top, 0px) + 8px); scroll-padding-bottom: calc(var(--onderbalk-h) + env(safe-area-inset-bottom, 0px) + 8px); }
+  /* Een persoon openen (Wie is wie) begint bij de naam, net onder de vaste kop (samen met scroll-padding hierboven). */
+  #wieInfo { scroll-margin-top: 4px; }
   /* De melding (nieuwe stempel) onder de kop, niet eroverheen. */
   .toast { top: calc(var(--kop-h) + env(safe-area-inset-top, 0px) + 8px); max-width: calc(100vw - 24px); }
   .kop-kameel { width: 28px; height: 23px; }
