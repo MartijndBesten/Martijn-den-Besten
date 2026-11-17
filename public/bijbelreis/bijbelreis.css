@@ -1734,3 +1734,48 @@ details.meerinfo { margin-top: 6px; }
 details.meerinfo summary { cursor: pointer; color: var(--nacht); font-weight: 600; min-height: 28px; }
 @media (max-width: 900px) { details.meerinfo summary { min-height: 44px; padding: 10px 0; } }
 details.meerinfo p { margin: 6px 0 0; }
+
+/* ===== Kleur per onderdeel (17-11-2026, verzoek Martijn: ‘mooier, kleurrijker, en die kleuren ook bij die onderdelen’) =====
+   Elk onderdeel heeft een eigen kleur uit de huisstijl: Verhalen terra, Reis water, Wie is wie lila, Tijdlijn oker,
+   Speurtocht salie, Paspoort koraal. --sec is het vlak, --sec-diep de tekstkleur (≥ 4,5:1 op wit), --sec-zacht de tint.
+   In de kop kleurt het pictogram mee; het gekozen onderdeel krijgt een gekleurd tegeltje en een streep in zijn kleur. In
+   het onderdeel zelf komt de kleur terug in de koppen en de kleine labels. */
+#t-verhalen, #p-verhalen { --sec: var(--terra); --sec-diep: var(--terra-diep); --sec-zacht: var(--terra-zacht); }
+#t-reis, #p-reis, #p-ver { --sec: var(--water); --sec-diep: var(--water-diep); --sec-zacht: var(--water-zacht); }
+#t-wie, #p-wie { --sec: var(--lila); --sec-diep: var(--lila-deep); --sec-zacht: var(--lila-soft); }
+#t-tijd, #p-tijd { --sec: var(--oker); --sec-diep: var(--oker-diep); --sec-zacht: var(--oker-zacht); }
+#t-quiz, #p-quiz { --sec: var(--salie); --sec-diep: var(--salie-diep); --sec-zacht: var(--salie-zacht); }
+#t-pas, #p-pas { --sec: var(--koraal); --sec-diep: var(--koraal-deep); --sec-zacht: var(--koraal-soft); }
+
+/* Kop (breed scherm, donkerblauw): gekleurd pictogram in een tegeltje. */
+.tabs button svg { box-sizing: content-box; padding: 3px; border-radius: 8px; color: var(--sec); transition: background-color var(--t-micro) var(--ease-out), color var(--t-micro) var(--ease-out); }
+.tabs button:hover svg { background: color-mix(in srgb, var(--sec) 22%, transparent); }
+.tabs button[aria-selected="true"] { background: color-mix(in srgb, var(--sec) 16%, transparent); }
+.tabs button[aria-selected="true"] svg { background: var(--sec); color: var(--nacht-2); }
+.tabs button[aria-selected="true"]::after { background: var(--sec); left: 14%; right: 14%; }
+
+/* In het onderdeel: koppen en kleine labels in de kleur van het onderdeel. */
+[role="tabpanel"] h2 em, [role="tabpanel"] h3 em, #p-ver h2 em { color: var(--sec-diep); }
+[role="tabpanel"] .label, #p-ver .label { color: var(--sec-diep); }
+#p-pas .passport h2 em { color: #f0d9b5; }
+#p-pas .passport .label { color: rgba(255, 255, 255, 0.72); }
+/* Een korte streep in de kleur van het onderdeel boven de eerste kop van het paneel. */
+#p-verhalen > h2:first-child::before, #p-wie > h2:first-child::before, #p-tijd > h2:first-child::before, #p-quiz > .card:first-child h2::before {
+  content: ""; display: block; width: 36px; height: 4px; border-radius: 2px; background: var(--sec); margin-bottom: 10px;
+}
+
+/* Telefoon en tablet (onderbalk, wit): pictogram in de diepe kleur, het gekozen onderdeel in een getint tegeltje. */
+@media (max-width: 900px) {
+  .tabs button svg { padding: 2px 10px; margin: -2px 0; border-radius: 10px; color: var(--sec-diep); }
+  .tabs button:hover svg { background: var(--sec-zacht); }
+  .tabs button[aria-selected="true"] { color: var(--sec-diep); background: none; }
+  .tabs button[aria-selected="true"] svg { background: var(--sec-zacht); color: var(--sec-diep); }
+  .tabs button[aria-selected="true"]::after { background: var(--sec-diep); left: 22%; right: 22%; }
+}
+/* Kop: niets afknippen (17-11-2026, ‘afgekapt’). De regel onder de titel knipte de linkerrand van de niveauknop af
+   (die staat optisch 6 px naar links); alleen de ondertitel zelf krijgt nog een beletselteken. De schuine ‘Bijbel’ krijgt
+   ruimte voor de uitloop van de laatste letter. */
+.kop-sub { overflow: visible; }
+@media (min-width: 901px) { .kop h1 { padding-right: 0.15em; } }
+/* Brede kop met uitleg als tweede regel: het tegeltje kleiner, zodat de kop 64 px hoog blijft. */
+@media (min-width: 1360px) { .tabs button svg { padding: 2px; margin: -2px 0 -1px; border-radius: 7px; } }
