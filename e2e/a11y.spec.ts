@@ -94,3 +94,23 @@ test("certificaat kan als PNG gedownload worden", async ({ page }) => {
   const [download] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: /Download als afbeelding/ }).click()]);
   expect(download.suggestedFilename()).toMatch(/^certificaat-MdB-\d+\.png$/);
 });
+
+// De Engelse proef (docs/bijbelreis-talen/README.md): dezelfde regels, en de taal van de pagina klopt (WCAG 3.1.1).
+for (const [naam, hash, tab] of [["start", ""], ["geschiedenis 26", "#v26"], ["reisstap", "#uittocht/5"], ["Wie is wie", "#uittocht/5", "#t-wie"], ["Paspoort", "#uittocht/5", "#t-pas"]] as [string, string, string?][]) {
+  test(`toegankelijkheid Bijbelreis Engels: ${naam}`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/bijbelreis/en/" + hash);
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.locator("#map .land").first()).toBeAttached();
+    if (tab) await page.locator(tab).click();
+    await page.waitForTimeout(600);
+    expect(await bijbelreisAxe(page)).toEqual([]);
+  });
+}
+test("de Nederlandse Bijbelreis heeft lang=nl, de Engelse lang=en, en de link terug is als Nederlands gemarkeerd", async ({ page }) => {
+  await page.goto("/bijbelreis");
+  await expect(page.locator("html")).toHaveAttribute("lang", "nl");
+  await page.goto("/bijbelreis/en/");
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await expect(page.locator(".taal-proef a[data-taal='nl']")).toHaveAttribute("lang", "nl");
+});

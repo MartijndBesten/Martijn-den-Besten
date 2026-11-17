@@ -49,7 +49,9 @@
   const $ = (id) => document.getElementById(id);
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isNarrow = () => window.matchMedia("(max-width: 900px)").matches;
-  const fmt = (n) => n.toLocaleString("nl-NL");
+  const fmt = (n) => n.toLocaleString((BR.taal && BR.taal.locale) || "nl-NL");
+  // Talen (taal/taal.js): op de Nederlandse pagina bestaat BR.taal niet en blijft alles zoals het was.
+  const tt = (s, w) => (BR.taal ? BR.taal.t(s, w) : s);
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const store = {
     get(k, d) { try { const v = localStorage.getItem("bijbelreis:" + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
@@ -59,7 +61,7 @@
   const color = (key) => `var(--${key}-deep, var(--${key}))`;
   // Voor tekst: de donkere variant (sommige kleuren hebben -deep, oker en zand -diep); routes en lijnen houden color().
   const tekstKleur = (key) => `var(--${key}-deep, var(--${key}-diep, var(--${key})))`;
-  const GROUPS = new Set(["Discipelen", "Schare", "Apostelen", "Farizeeën", "Tollenaars", "Herders", "Wijzen", "Engelen", "Overpriesters", "Schriftgeleerden", "Leraren", "Sadduceeën", "Wachters", "Moordenaars", "Broeders", "Ouderlingen", "Weduwen", "Reisgenoten", "Bemanning", "Eilanders", "Joden", "Melaatsen", "Handelaars", "Raad", "Oudsten", "Gemeente", "Ouders", "Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen", "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters", "Levieten", "Zangers"]);
+  const GROUPS = new Set(["Discipelen", "Schare", "Apostelen", "Farizeeën", "Tollenaars", "Herders", "Wijzen", "Engelen", "Overpriesters", "Schriftgeleerden", "Leraren", "Sadduceeën", "Wachters", "Moordenaars", "Broeders", "Ouderlingen", "Weduwen", "Reisgenoten", "Bemanning", "Eilanders", "Joden", "Melaatsen", "Handelaars", "Raad", "Oudsten", "Gemeente", "Ouders", "Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen", "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters", "Levieten", "Zangers"].concat((BR.taal && BR.taal.groepen) || []));
 
   // ---------- rekenen ----------
   function hav(a, b) {
@@ -448,10 +450,11 @@
     lyAlt.eachLayer((m) => { const el = m.getElement(), lab = el && el.querySelector(".lab"); if (!lab) return; lab.classList.remove("clash"); const pt = map.latLngToContainerPoint(m.getLatLng()); if (pt.x > -150 && pt.y > -40 && pt.x < size.x + 150 && pt.y < size.y + 40) items.push({ el: lab, pt, side: "r", pr: 0.8, z: 0, pin: true }); });
     const tst = ntNu() ? "nt" : "ot";
     const plaatsNamen = new Set(items.map((it) => it.el.firstChild && it.el.firstChild.textContent));
+    const regioNaam = (r) => tt(r.t);
     // In de stand Nu staan de landen van vandaag op de kaart: de streeknamen van toen (Kanaän, Filistijnen, Aram …) gaan dan uit,
     // zodat een oude naam niet naast een gebied van nu komt te staan.
     const inNu = map.getContainer().classList.contains("nu");
-    REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1] || (r.tijd && r.tijd !== tst) || plaatsNamen.has(r.t) || (r.k === "land" && inNu); el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
+    REGIONS.forEach((r, i) => { const el = regionMarkers[i].getElement(); if (!el) return; const off = z < r.z[0] || z > r.z[1] || (r.tijd && r.tijd !== tst) || plaatsNamen.has(regioNaam(r)) || (r.k === "land" && inNu); el.firstChild.classList.toggle("off", off); el.firstChild.classList.remove("clash"); if (!off) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(r.ll), side: "c", pr: 0, z: r.z[0] }); });
     PEAKS.forEach((p, i) => { const el = peakMarkers[i].getElement(); if (!el) return; el.firstChild.classList.toggle("off", z < p.z); el.firstChild.classList.remove("clash"); if (z >= p.z) items.push({ el: el.firstChild, pt: map.latLngToContainerPoint(p.ll), side: "peak", pr: 0.5, z: p.z }); });
     // Stand ‘Nu’: landnamen en namen van omstreden gebieden krijgen eerst een plek (de plaatsnamen wijken ervoor uit); daarna de bordjes van ‘Vandaag’.
     const kaartEl = map.getContainer();
@@ -1261,7 +1264,7 @@
       ${LESROUTES}
       <label class="label" for="vZoek">Zoeken</label>
       <input type="search" id="vZoek" placeholder="Bijvoorbeeld: Jozef, Jericho, Lukas, gebed" value="${esc(vZoek)}" autocomplete="off" enterkeyhint="search">
-      <div class="pick" role="group" aria-label="Testament">${[["alle", "Alles"], ["ot", "Oude Testament · 79"], ["nt", "Nieuwe Testament · 71"]].map(([k, n]) => `<button type="button" data-vt="${k}" aria-pressed="${vTest === k}" style="--pc:var(--acc)">${n}</button>`).join("")}</div>
+      <div class="pick" role="group" aria-label="Testament">${[["alle", "Alles"], ["ot", `Oude Testament · ${G.filter((g) => g.nr <= 79).length}`], ["nt", `Nieuwe Testament · ${G.filter((g) => g.nr >= 80).length}`]].map(([k, n]) => `<button type="button" data-vt="${k}" aria-pressed="${vTest === k}" style="--pc:var(--acc)">${n}</button>`).join("")}</div>
       <div id="vLijst" class="vlijst"></div>
       <details class="kwlijst"><summary>Kernwoorden (${Object.keys(KW).length})</summary><div class="chips">${Object.entries(KW).sort((a, b) => a[1].n.localeCompare(b[1].n, "nl")).map(([id, k]) => `<button type="button" class="chip" data-kw="${id}">${esc(k.n)}</button>`).join("")}</div></details>
       <p class="misje"><button type="button" class="linkbtn" data-aanvraag>Mis je iets? Vraag het aan</button></p>`;
@@ -2439,7 +2442,7 @@
     $("pasText").textContent = n === total ? `Alle ${total} stempels! Jij hebt de hele reis gemaakt.` : `Je hebt ${n} van de ${total} stempels. Ga verder met de reis om ze allemaal te verzamelen.`;
     const nV = Object.values(verhaalStore).filter((v) => v.q != null).length, nG = Object.keys(verhaalStore).length;
     $("vPasText").textContent = nG ? `${nG} van de ${G.length} geschiedenissen gelezen, ${nV} gestempeld (vragen gemaakt).` : "Lees een geschiedenis bij ‘Verhalen’ en maak de vragen om een stempel te krijgen.";
-    $("vGrid").innerHTML = Array.from({ length: G.length }, (_, i) => { const nr = i + 1, v = verhaalStore[nr], g = GBYNR.get(nr); return `<button type="button" class="vcel${v && v.q != null ? " klaar" : v ? " gezien" : ""}" ${g ? `data-v="${nr}"` : "disabled"} aria-label="Geschiedenis ${nr}${g ? ": " + esc(g.t) : " (nog niet beschikbaar)"}${v && v.q != null ? ", gestempeld" : v ? ", gelezen" : ""}">${nr}</button>`; }).join("");
+    $("vGrid").innerHTML = Array.from({ length: G.length }, (_, i) => { const nr = G[i].nr, v = verhaalStore[nr], g = GBYNR.get(nr); return `<button type="button" class="vcel${v && v.q != null ? " klaar" : v ? " gezien" : ""}" ${g ? `data-v="${nr}"` : "disabled"} aria-label="Geschiedenis ${nr}${g ? ": " + esc(g.t) : " (nog niet beschikbaar)"}${v && v.q != null ? ", gestempeld" : v ? ", gelezen" : ""}">${nr}</button>`; }).join("");
     // Beste scores van alle niveaus; een speurtocht over hetzelfde deel telt één keer mee.
     const bests = [], gedaan = new Set();
     BOEKEN.forEach((b) => [["alles", "alles uit " + b.n]].concat(metVerdiep(b.delen).map((d) => [d.id, deelNaam(d)])).forEach(([id, nm]) => NIVS.forEach((n) => {
@@ -2839,7 +2842,8 @@
   // alleen nog één knop: ‘Verder met: <geschiedenis>’ of, na een reisstap, ‘Verder met: Jakob – Bedrogen!’.
   // Aanleiding en metingen: docs/bijbelreis-audit/telefoon.md §4.7.
   const START_ZIN = "Volg de reizen uit de Bijbel op de kaart, stap voor stap. Voor naast je eigen Bijbel.";
-  const startDeel = () => ALLPARTS.find((d) => d.id === "abraham") || ALLPARTS[0];
+  const startDeel = () => ALLPARTS.find((d) => d.id === ((BR.taal && BR.taal.startDeel) || "abraham")) || ALLPARTS[0];
+  const startWeg = (d) => (d.id === "abraham" ? "van Ur naar Kanaän" : d.ref);
   const isEerste = () => seen.size === 0 && huidigeGeschiedenis().hoe === "nieuw";
   let welkomAan = false; // pas waar als de start van Verhalen getoond is (niet na een diepe link)
   function zetEerste(aan) {
@@ -2863,9 +2867,9 @@
       if (kerst) {
         box.innerHTML = `<div class="startkaart st-kort">${zin}</div>`;
         na.hidden = false;
-        na.innerHTML = `<div class="startkaart st-na"><button type="button" class="btn st-tweede" data-go="${d.key}:0"><span>Of begin bij <b>${esc(d.n)}</b> · van Ur naar Kanaän</span><span aria-hidden="true">▶</span></button>${wie}</div>`;
+        na.innerHTML = `<div class="startkaart st-na"><button type="button" class="btn st-tweede" data-go="${d.key}:0"><span>Of begin bij <b>${esc(d.n)}</b> · ${esc(startWeg(d))}</span><span aria-hidden="true">▶</span></button>${wie}</div>`;
       } else {
-        box.innerHTML = `<div class="startkaart">${zin}<button type="button" class="btn primary st-knop" data-go="${d.key}:0"><span class="st-wat"><b>Begin de reis</b><small>${esc(d.n)} · van Ur naar Kanaän</small></span><span aria-hidden="true">▶</span></button>${wie}</div>`;
+        box.innerHTML = `<div class="startkaart">${zin}<button type="button" class="btn primary st-knop" data-go="${d.key}:0"><span class="st-wat"><b>Begin de reis</b><small>${esc(d.n)} · ${esc(startWeg(d))}</small></span><span aria-hidden="true">▶</span></button>${wie}</div>`;
         na.hidden = true; na.innerHTML = "";
       }
       zetEerste(true);
@@ -2926,15 +2930,15 @@
   // telefoon opent hij het deelmenu van het toestel (daar staat WhatsApp vanzelf bij); anders wordt de link gekopieerd;
   // lukt ook dat niet, dan staat de link in een veld om zelf te kopiëren. In de link staat alleen het adres van het
   // verhaal of deel op bijbelreis.nl: geen reisniveau, geen voortgang, niets van de bezoeker. Niet bij Samen ontdekken.
-  const SITE = "https://bijbelreis.nl/";
+  const SITE = (BR.taal && BR.taal.site) || "https://bijbelreis.nl/";
   const DEELICOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>';
   function deelKnop(hash, titel, tekst = "Deel") {
     return niveau === "a" ? "" : `<button type="button" class="deelknop" data-deel="${esc(hash)}" data-deel-titel="${esc(titel)}">${DEELICOON}<span>${esc(tekst)}</span></button>`;
   }
   async function deelLink(knop) {
-    const titel = knop.dataset.deelTitel || "Bijbelreis", url = SITE + "#" + knop.dataset.deel;
+    const titel = knop.dataset.deelTitel || tt("Bijbelreis"), url = SITE + "#" + knop.dataset.deel;
     if (navigator.share) {
-      try { await navigator.share({ title: titel, text: `${titel} – Op reis door de Bijbel`, url }); return; }
+      try { await navigator.share({ title: titel, text: `${titel} – ${tt("Op reis door de Bijbel")}`, url }); return; }
       catch (e) { if (e && e.name === "AbortError") return; /* anders: kopiëren */ }
     }
     try { await navigator.clipboard.writeText(url); toast("Link gekopieerd"); return; } catch (e) { /* dan het veld hieronder */ }
