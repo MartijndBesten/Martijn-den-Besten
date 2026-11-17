@@ -16,14 +16,19 @@
 const BOUW = null;
 /* BOUW:EIND */
 
-const SCHIL_VOORVOEGSEL = "bijbelreis-schil-";
-const BEELDEN = "bijbelreis-beelden";
+// Elke taal heeft een eigen service worker (bijbelreis-sw-<taal>.js, met scope /<taal>/) en dus een eigen set en eigen
+// caches; het Nederlands houdt de namen van vóór de talen (docs/bijbelreis-talen/README.md).
+const TAAL = (BOUW && BOUW.taal) || "nl";
+const SCHIL_VOORVOEGSEL = TAAL === "nl" ? "bijbelreis-schil-" : "bijbelreis-" + TAAL + "-schil-";
+const BEELDEN = TAAL === "nl" ? "bijbelreis-beelden" : "bijbelreis-" + TAAL + "-beelden";
 const MAX_BEELDEN = 160;
 // Na zoveel milliseconden zonder antwoord van het netwerk opent de bewaarde schil (trage of haperende verbinding).
 const NAV_WACHT = 6000;
-// Op welk adres de atlas staat: ‘/’ op bijbelreis.nl, ‘/bijbelreis’ lokaal (pwa.js geeft het mee bij het aanmelden).
+// Op welk adres de atlas staat: ‘/’ op bijbelreis.nl, ‘/bijbelreis’ lokaal (pwa.js geeft het mee bij het aanmelden); in
+// een andere taal ‘/en/’ of lokaal ‘/bijbelreis/en/’.
 const SCHIL_PAD = (() => {
   const p = new URL(self.location.href).searchParams.get("schil");
+  if (TAAL !== "nl") return p === "/bijbelreis/" + TAAL + "/" ? p : "/" + TAAL + "/";
   return p === "/bijbelreis" ? p : "/";
 })();
 const SCHIL = BOUW ? SCHIL_VOORVOEGSEL + BOUW.versie : "";
@@ -103,7 +108,7 @@ self.addEventListener("fetch", (e) => {
 
   if (req.mode === "navigate") {
     if (url.pathname === SCHIL_PAD) e.respondWith(pagina(req));
-    else if (url.pathname.startsWith("/bijbelreis/")) e.respondWith(fetch(req).catch(() => offlinePagina()));
+    else if (url.pathname.startsWith(TAAL === "nl" ? "/bijbelreis/" : SCHIL_PAD)) e.respondWith(fetch(req).catch(() => offlinePagina()));
     return;
   }
   const sleutel = url.pathname + url.search;
@@ -168,8 +173,14 @@ function gemerkt(r) {
   return new Response(r.body, { status: r.status, statusText: r.statusText, headers: koppen });
 }
 
+// De teksten van de pagina ‘Even geen internet’ per taal.
+const OFFLINE = {
+  nl: { titel: "Geen internet — Bijbelreis", kop: "Even geen internet", tekst: "Deze pagina is nog niet bewaard op dit apparaat. Als je weer internet hebt, kun je hem openen.", link: "Naar de Bijbelreis", na: "(wat je al eerder bekeek, werkt ook zonder internet)" },
+  en: { titel: "No internet — Bible Journey", kop: "No internet right now", tekst: "This page has not been saved on this device yet. When you are online again, you can open it.", link: "Go to the Bible Journey", na: "(what you have looked at before also works without internet)" },
+};
 function offlinePagina() {
-  const html = `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Geen internet — Bijbelreis</title><meta name="robots" content="noindex"><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f5f0e5;color:#1f2430;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:30rem;padding:2rem 1.5rem;text-align:center;line-height:1.5}h1{font-size:1.4rem;margin:0 0 .75rem;color:#243d70}a{color:#243d70;font-weight:600}</style></head><body><main><h1>Even geen internet</h1><p>Deze pagina is nog niet bewaard op dit apparaat. Als je weer internet hebt, kun je hem openen.</p><p><a href="${SCHIL_PAD}">Naar de Bijbelreis</a> (wat je al eerder bekeek, werkt ook zonder internet)</p></main></body></html>`;
+  const o = OFFLINE[TAAL] || OFFLINE.nl;
+  const html = `<!doctype html><html lang="${TAAL}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${o.titel}</title><meta name="robots" content="noindex"><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f5f0e5;color:#1f2430;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:30rem;padding:2rem 1.5rem;text-align:center;line-height:1.5}h1{font-size:1.4rem;margin:0 0 .75rem;color:#243d70}a{color:#243d70;font-weight:600}</style></head><body><main><h1>${o.kop}</h1><p>${o.tekst}</p><p><a href="${SCHIL_PAD}">${o.link}</a> ${o.na}</p></main></body></html>`;
   return new Response(html, {
     status: 503,
     headers: {
