@@ -1,0 +1,1539 @@
+{
+ "id": "israel-assyrie",
+ "titel": "Israël, Juda en Assyrië",
+ "ondertitel": "Van Achab tot Hizkia: de koningen en het grote rijk in het oosten, ca. 880–681 v.Chr.",
+ "as": {
+  "soort": "vchr",
+  "van": 880,
+  "tot": 681,
+  "stap": 1,
+  "label": "jaar voor Christus",
+  "status": "historisch",
+  "uitleg": "Omgerekend met de regeringsjaren uit de Bijbel en twee Assyrische ijkpunten (853 en 841 v.Chr.), volgens de gangbare reconstructie (Thiele), zoals in de rest van de Bijbelreis. De Assyrische jaartallen komen uit de eponiemenlijsten."
+ },
+ "start": 722,
+ "bronnen": [
+  {
+   "id": "sv",
+   "soort": "bijbel",
+   "titel": "Statenvertaling: 1 Koningen 16–22, 2 Koningen 1–19, Jona, Jesaja 1, 6, 20",
+   "url": null,
+   "licentie": "Statenvertaling (1637), publiek domein; gecontroleerd met data/statenvertaling en scripts/bijbel-check.py",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "bijbelreis-dateringen",
+   "soort": "historisch",
+   "titel": "Bijbelreis: jaartallen en hun grond (docs/bijbelreis-audit/dateringen.md, public/bijbelreis/dateringen.js): de gangbare koningschronologie (Thiele) als ijkpunt",
+   "url": null,
+   "licentie": "eigen gegevens Bijbelreis",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "thiele",
+   "soort": "historisch",
+   "titel": "E. R. Thiele, The Mysterious Numbers of the Hebrew Kings (samenvatting en tabel, Wikipedia, Engels)",
+   "url": "https://en.wikipedia.org/wiki/The_Mysterious_Numbers_of_the_Hebrew_Kings",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "assyrische-koningen",
+   "soort": "historisch",
+   "titel": "List of Assyrian kings (Wikipedia, Engels): regeringsjaren, gebaseerd op de Assyrische eponiemenlijsten",
+   "url": "https://en.wikipedia.org/wiki/List_of_Assyrian_kings",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "qarqar",
+   "soort": "historisch",
+   "titel": "Battle of Qarqar (Wikipedia, Engels): de Kurkh-monoliet van Salmanassar III, 853 v.Chr.",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Qarqar",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "zwarte-obelisk",
+   "soort": "historisch",
+   "titel": "Black Obelisk of Shalmaneser III (Wikipedia, Engels; British Museum ME 118885)",
+   "url": "https://en.wikipedia.org/wiki/Black_Obelisk_of_Shalmaneser_III",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "salmanassar-iii-bron",
+   "soort": "historisch",
+   "titel": "Shalmaneser III (Wikipedia, Engels): veldtochten van 853 en 841 v.Chr.",
+   "url": "https://en.wikipedia.org/wiki/Shalmaneser_III",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "jehu-bron",
+   "soort": "historisch",
+   "titel": "Jehu (Wikipedia, Engels): 841–814 (Thiele) of 842–815 v.Chr. (Albright)",
+   "url": "https://en.wikipedia.org/wiki/Jehu",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "til-barsip",
+   "soort": "historisch",
+   "titel": "Til Barsip (Wikipedia, Engels): Assyrisch in 856 v.Chr.",
+   "url": "https://en.wikipedia.org/wiki/Til_Barsip",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "tiglatpileser",
+   "soort": "historisch",
+   "titel": "Tiglath-Pileser III (Wikipedia, Engels): Pul/Pulu, Arpad 740, de provincies van 738, Damascus 732",
+   "url": "https://en.wikipedia.org/wiki/Tiglath-Pileser_III",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "salmanassar-v",
+   "soort": "historisch",
+   "titel": "Shalmaneser V (Wikipedia, Engels): het beleg van Samaria; de Babylonische kroniek",
+   "url": "https://en.wikipedia.org/wiki/Shalmaneser_V",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "sargon",
+   "soort": "historisch",
+   "titel": "Sargon II (Wikipedia, Engels): Samaria, Qarqar en Hamath 720, Asdod 711",
+   "url": "https://en.wikipedia.org/wiki/Sargon_II",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "sanherib-juda",
+   "soort": "historisch",
+   "titel": "Sennacherib's campaign in Judah (Wikipedia, Engels): de annalen van Sanherib en de reliëfs van Lachis (British Museum), 701 v.Chr.",
+   "url": "https://en.wikipedia.org/wiki/Sennacherib%27s_campaign_in_Judah",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "sanherib-bron",
+   "soort": "historisch",
+   "titel": "Sennacherib (Wikipedia, Engels): Ninevé als hoofdstad; vermoord door zijn zonen in 681 v.Chr.",
+   "url": "https://en.wikipedia.org/wiki/Sennacherib",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-kalhu",
+   "soort": "dataset",
+   "titel": "Pleiades 894019: Nimrud (Kalhu, Kalach)",
+   "url": "https://pleiades.stoa.org/places/894019",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-qarqar",
+   "soort": "dataset",
+   "titel": "Pleiades 995604669: Tell Qarqur (Qarqar)",
+   "url": "https://pleiades.stoa.org/places/995604669",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "bijbelreis-plaatsen",
+   "soort": "dataset",
+   "titel": "Bijbelreis plaatsen.js (ligging gecontroleerd met OpenBible.info CC BY 4.0 en Pleiades CC BY)",
+   "url": null,
+   "licentie": "eigen gegevens Bijbelreis; zie docs/bijbelreis-audit/plaatsen.md",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "eigen-tekening",
+   "soort": "dataset",
+   "titel": "Grenzen: eigen grove tekening langs kusten, rivieren, gebergten en woestijnranden (scripts/bijbelreis-wereld-koningen.py)",
+   "url": null,
+   "licentie": "eigen werk; geen kaart of grensdataset overgenomen",
+   "geraadpleegd": "2026-11-17"
+  }
+ ],
+ "info": [
+  {
+   "kop": "Hoe weten we deze jaren?",
+   "tekst": "De Bijbel noemt hoe lang elke koning regeerde. De Assyriërs gaven elk jaar de naam van een hoge ambtenaar en schreven die namen op lijsten. Twee Assyrische stenen noemen koningen uit de Bijbel: Achab in 853 en Jehu in 841 v.Chr. Daardoor kun je de Bijbelse jaren aan onze jaartelling koppelen.",
+   "status": "historisch",
+   "bron": [
+    "assyrische-koningen",
+    "qarqar",
+    "zwarte-obelisk",
+    "thiele"
+   ]
+  },
+  {
+   "kop": "Jehu: 841 of 842?",
+   "tekst": "Deze tijdlijn volgt de Bijbelreis en de reconstructie van Thiele: Jehu werd koning in 841 v.Chr., het jaar waarin hij schatting gaf aan Salmanassar III. Anderen, zoals Albright, rekenen 842 v.Chr. Het verschil komt uit hoe je de regeringsjaren telt.",
+   "status": "benaderd",
+   "bron": [
+    "jehu-bron",
+    "thiele",
+    "bijbelreis-dateringen"
+   ]
+  },
+  {
+   "kop": "Waarom staat Jona zonder jaartal?",
+   "tekst": "De Bijbel zegt alleen dat Jona profeteerde in de tijd van koning Jerobeam II (2 Koningen 14:25). Daarom staat zijn tocht naar Ninevé als een tijdvak op de tijdlijn, niet als één jaar.",
+   "status": "expliciet",
+   "bron": [
+    "2 Koningen 14:23–25"
+   ]
+  },
+  {
+   "kop": "Waarom passen de jaren van Hizkia niet precies?",
+   "tekst": "De Bijbel noemt bij Hizkia meer jaartallen (2 Koningen 18:1, 9, 10 en 13). Die zijn niet eenvoudig met elkaar te rijmen. Misschien regeerde hij een tijd samen met zijn vader. Deze tijdlijn volgt 715–686 v.Chr., zoals de Bijbelreis; anderen rekenen anders.",
+   "status": "benaderd",
+   "bron": [
+    "2 Koningen 18:1–13",
+    "bijbelreis-dateringen"
+   ]
+  }
+ ],
+ "personen": [
+  {
+   "id": "salmanassar-iii",
+   "naam": "Salmanassar III",
+   "alt": [],
+   "personenId": null,
+   "lijn": "regering",
+   "van": {
+    "jaar": 859,
+    "status": "historisch",
+    "bron": "assyrische-koningen",
+    "begin": "regering"
+   },
+   "tot": {
+    "jaar": 824,
+    "status": "historisch",
+    "bron": "assyrische-koningen",
+    "einde": "stierf"
+   },
+   "ouder": null,
+   "rol": "Koning van Assyrië; vocht bij Qarqar en kreeg schatting van Jehu",
+   "ref": [],
+   "gebeurtenissen": [
+    "qarqar",
+    "jehu-schatting"
+   ],
+   "verhaal": null,
+   "opmerking": "Hij staat niet bij naam in de Bijbel."
+  },
+  {
+   "id": "achab",
+   "naam": "Achab",
+   "alt": [],
+   "personenId": "achab",
+   "lijn": "regering",
+   "van": {
+    "jaar": 874,
+    "status": "benaderd",
+    "bron": [
+     "1 Koningen 16:29",
+     "bijbelreis-dateringen"
+    ],
+    "begin": "regering",
+    "opmerking": "Hij regeerde 22 jaar (1 Koningen 16:29); omgerekend ca. 874–853 v.Chr. (gangbare reconstructie, Thiele)."
+   },
+   "tot": {
+    "jaar": 853,
+    "status": "benaderd",
+    "bron": [
+     "1 Koningen 22:37",
+     "thiele"
+    ],
+    "einde": "stierf",
+    "opmerking": "In 853 v.Chr. vocht hij bij Qarqar; volgens de reconstructie van Thiele sneuvelde hij later in datzelfde jaar bij Ramoth in Gilead."
+   },
+   "ouder": null,
+   "rol": "Koning van Israël in Samaria; diende de Baäl",
+   "ref": [
+    "1 Koningen 16:29–33",
+    "1 Koningen 22:29–40"
+   ],
+   "gebeurtenissen": [
+    "qarqar"
+   ],
+   "verhaal": "v63"
+  },
+  {
+   "id": "elia",
+   "naam": "Elia",
+   "alt": [],
+   "personenId": "elia",
+   "lijn": "profeet",
+   "van": {
+    "jaar": 874,
+    "status": "benaderd",
+    "bron": [
+     "1 Koningen 17:1",
+     "bijbelreis-dateringen"
+    ],
+    "begin": "genoemd",
+    "opmerking": "Elia trad op in de tijd van Achab (1 Koningen 17:1). Wanneer hij geboren werd of begon, staat er niet; de lijn begint bij het begin van Achab."
+   },
+   "tot": {
+    "jaar": 850,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 2:11",
+     "bijbelreis-dateringen"
+    ],
+    "einde": "weggenomen",
+    "opmerking": "‘Alzo voer Elia met een onweder ten hemel’ (2 Koningen 2:11), na de dood van Achab en Ahazia. Het jaar staat er niet; omgerekend rond 850 v.Chr., zoals de Bijbelreis bij Elisa."
+   },
+   "ouder": null,
+   "rol": "Profeet uit Tisbe in Gilead; bad op de Karmel",
+   "ref": [
+    "1 Koningen 17:1",
+    "1 Koningen 18:20–40",
+    "2 Koningen 2:1–11"
+   ],
+   "gebeurtenissen": [],
+   "verhaal": "v63"
+  },
+  {
+   "id": "elisa",
+   "naam": "Elisa",
+   "alt": [],
+   "personenId": "elisa",
+   "lijn": "profeet",
+   "van": {
+    "jaar": 850,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 2:12–15",
+     "bijbelreis-dateringen"
+    ],
+    "begin": "genoemd",
+    "opmerking": "Elia had hem al geroepen (1 Koningen 19:19). De lijn begint toen hij Elia opvolgde, rond 850 v.Chr."
+   },
+   "tot": {
+    "jaar": 795,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 13:14",
+     "2 Koningen 13:20",
+     "bijbelreis-dateringen"
+    ],
+    "einde": "stierf",
+    "opmerking": "Hij stierf in de tijd van Joas, koning van Israël (2 Koningen 13:14–20); omgerekend rond 795 v.Chr."
+   },
+   "ouder": null,
+   "rol": "Profeet, opvolger van Elia; Naäman werd door Gods woord genezen",
+   "ref": [
+    "2 Koningen 2:12–15",
+    "2 Koningen 5:1–19",
+    "2 Koningen 13:14–20"
+   ],
+   "gebeurtenissen": [],
+   "verhaal": "v64"
+  },
+  {
+   "id": "jehu",
+   "naam": "Jehu",
+   "alt": [],
+   "personenId": "jehu",
+   "lijn": "regering",
+   "van": {
+    "jaar": 841,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 9:13",
+     "zwarte-obelisk",
+     "thiele"
+    ],
+    "begin": "regering",
+    "opmerking": "In 841 v.Chr. bracht hij schatting aan Salmanassar III (Zwarte Obelisk). Thiele laat zijn regering in dat jaar beginnen; Albright rekent 842."
+   },
+   "tot": {
+    "jaar": 814,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 10:36",
+     "thiele"
+    ],
+    "einde": "stierf",
+    "opmerking": "Hij regeerde 28 jaar (2 Koningen 10:36)."
+   },
+   "ouder": null,
+   "rol": "Koning van Israël; maakte een einde aan het huis van Achab",
+   "ref": [
+    "2 Koningen 9:1–13",
+    "2 Koningen 10:28–36"
+   ],
+   "gebeurtenissen": [
+    "jehu-schatting"
+   ],
+   "verhaal": "v65"
+  },
+  {
+   "id": "jerobeam-ii",
+   "naam": "Jerobeam II",
+   "alt": [],
+   "personenId": "jerobeam_2",
+   "lijn": "regering",
+   "van": {
+    "jaar": 793,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 14:23",
+     "thiele"
+    ],
+    "begin": "regering",
+    "opmerking": "Hij regeerde 41 jaar (2 Koningen 14:23), eerst een tijd samen met zijn vader Joas (Thiele: vanaf 793/792, alleen vanaf 782/781)."
+   },
+   "tot": {
+    "jaar": 753,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 14:29",
+     "thiele"
+    ],
+    "einde": "stierf"
+   },
+   "ouder": null,
+   "rol": "Koning van Israël; in zijn tijd profeteerde Jona",
+   "ref": [
+    "2 Koningen 14:23–29"
+   ],
+   "gebeurtenissen": [
+    "jona-nineve"
+   ],
+   "verhaal": "v69"
+  },
+  {
+   "id": "tiglatpileser-iii",
+   "naam": "Tiglath-pilezer",
+   "alt": [
+    "Pul",
+    "Tiglath-pileser III"
+   ],
+   "personenId": null,
+   "lijn": "regering",
+   "van": {
+    "jaar": 745,
+    "status": "historisch",
+    "bron": "assyrische-koningen",
+    "begin": "regering"
+   },
+   "tot": {
+    "jaar": 727,
+    "status": "historisch",
+    "bron": "assyrische-koningen",
+    "einde": "stierf"
+   },
+   "ouder": null,
+   "rol": "Koning van Assyrië; de Bijbel noemt hem ook Pul",
+   "ref": [
+    "2 Koningen 15:19",
+    "2 Koningen 15:29",
+    "2 Koningen 16:7–10"
+   ],
+   "gebeurtenissen": [
+    "pul",
+    "damascus-valt"
+   ],
+   "verhaal": null,
+   "opmerking": "Pul en Tiglath-pilezer zijn dezelfde koning: Babylonische lijsten noemen hem Pulu."
+  },
+  {
+   "id": "hosea-koning",
+   "naam": "Hosea",
+   "alt": [],
+   "personenId": "hosea",
+   "lijn": "regering",
+   "van": {
+    "jaar": 732,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 17:1",
+     "thiele"
+    ],
+    "begin": "regering",
+    "marge": [732,731],
+    "opmerking": "Hij regeerde negen jaar (2 Koningen 17:1); teruggeteld vanaf de val van Samaria ongeveer 732/731 v.Chr."
+   },
+   "tot": {
+    "jaar": 722,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 17:4–6"
+    ],
+    "einde": "onbekend",
+    "marge": [723,721],
+    "opmerking": "Hij werd gevangengezet (2 Koningen 17:4); wat er daarna met hem gebeurde, staat er niet."
+   },
+   "ouder": null,
+   "rol": "De laatste koning van Israël",
+   "ref": [
+    "2 Koningen 17:1–6"
+   ],
+   "gebeurtenissen": [
+    "samaria-valt"
+   ],
+   "verhaal": "v66"
+  },
+  {
+   "id": "salmanassar-v",
+   "naam": "Salmaneser",
+   "alt": [
+    "Salmanassar V"
+   ],
+   "personenId": null,
+   "lijn": "regering",
+   "van": {
+    "jaar": 727,
+    "status": "historisch",
+    "bron": "assyrische-koningen",
+    "begin": "regering"
+   },
+   "tot": {
+    "jaar": 722,
+    "status": "historisch",
+    "bron": "assyrische-koningen",
+    "einde": "stierf"
+   },
+   "ouder": null,
+   "rol": "Koning van Assyrië; belegerde Samaria",
+   "ref": [
+    "2 Koningen 17:3",
+    "2 Koningen 18:9"
+   ],
+   "gebeurtenissen": [
+    "samaria-valt"
+   ],
+   "verhaal": null
+  },
+  {
+   "id": "sargon-ii",
+   "naam": "Sargon",
+   "alt": [
+    "Sargon II"
+   ],
+   "personenId": null,
+   "lijn": "regering",
+   "van": {
+    "jaar": 722,
+    "status": "historisch",
+    "bron": "assyrische-koningen",
+    "begin": "regering"
+   },
+   "tot": {
+    "jaar": 705,
+    "status": "historisch",
+    "bron": [
+     "assyrische-koningen",
+     "sargon"
+    ],
+    "einde": "stierf",
+    "opmerking": "Hij sneuvelde in een veldslag in Klein-Azië."
+   },
+   "ouder": null,
+   "rol": "Koning van Assyrië; de Bijbel noemt hem één keer",
+   "ref": [
+    "Jesaja 20:1"
+   ],
+   "gebeurtenissen": [
+    "samaria-valt",
+    "asdod"
+   ],
+   "verhaal": null,
+   "opmerking": "Sargon schreef later dat hij Samaria had ingenomen; de Bijbel zegt ‘de koning van Assyrië’ (2 Koningen 17:6)."
+  },
+  {
+   "id": "hizkia",
+   "naam": "Hizkia",
+   "alt": [],
+   "personenId": "hizkia",
+   "lijn": "regering",
+   "van": {
+    "jaar": 715,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 18:13",
+     "bijbelreis-dateringen"
+    ],
+    "begin": "regering",
+    "opmerking": "Teruggerekend: Sanherib kwam in zijn veertiende jaar (2 Koningen 18:13), in 701 v.Chr. 2 Koningen 18:1 en 18:9–10 wijzen op een vroeger begin; misschien regeerde hij eerst samen met zijn vader."
+   },
+   "tot": {
+    "jaar": 686,
+    "status": "benaderd",
+    "bron": "2 Koningen 18:2",
+    "einde": "stierf",
+    "opmerking": "Hij regeerde 29 jaar (2 Koningen 18:2)."
+   },
+   "ouder": null,
+   "rol": "Koning van Juda; vertrouwde op de HEERE",
+   "ref": [
+    "2 Koningen 18:1–20:21",
+    "2 Kronieken 29–32"
+   ],
+   "gebeurtenissen": [
+    "sanherib-jeruzalem"
+   ],
+   "verhaal": "v67"
+  },
+  {
+   "id": "sanherib",
+   "naam": "Sanherib",
+   "alt": [],
+   "personenId": "sanherib",
+   "lijn": "regering",
+   "van": {
+    "jaar": 705,
+    "status": "historisch",
+    "bron": "assyrische-koningen",
+    "begin": "regering"
+   },
+   "tot": {
+    "jaar": 681,
+    "status": "historisch",
+    "bron": [
+     "assyrische-koningen",
+     "sanherib-bron",
+     "2 Koningen 19:37"
+    ],
+    "einde": "stierf"
+   },
+   "ouder": null,
+   "rol": "Koning van Assyrië; trok op tegen Juda en Jeruzalem",
+   "ref": [
+    "2 Koningen 18:13–19:37",
+    "Jesaja 36–37"
+   ],
+   "gebeurtenissen": [
+    "sanherib-jeruzalem",
+    "dood-sanherib"
+   ],
+   "verhaal": "v67"
+  },
+  {
+   "id": "jesaja",
+   "naam": "Jesaja",
+   "alt": [],
+   "personenId": "jesaja",
+   "lijn": "profeet",
+   "van": {
+    "jaar": 740,
+    "status": "benaderd",
+    "bron": [
+     "Jesaja 6:1",
+     "bijbelreis-dateringen"
+    ],
+    "begin": "roeping",
+    "marge": [740,739],
+    "opmerking": "‘In het jaar, toen de koning Uzzia stierf’ (Jesaja 6:1); omgerekend ca. 740 v.Chr."
+   },
+   "tot": {
+    "jaar": 701,
+    "status": "benaderd",
+    "bron": [
+     "2 Koningen 20:1",
+     "Jesaja 1:1"
+    ],
+    "einde": "onbekend",
+    "opmerking": "Hij profeteerde in de dagen van Uzzia, Jotham, Achaz en Hizkia (Jesaja 1:1) en wordt het laatst genoemd bij Hizkia, rond 701 v.Chr. (2 Koningen 20). Wanneer hij stierf, staat er niet."
+   },
+   "ouder": null,
+   "rol": "Profeet in Jeruzalem; bracht Hizkia het antwoord van God",
+   "ref": [
+    "Jesaja 1:1",
+    "Jesaja 6:1",
+    "2 Koningen 19:2–7"
+   ],
+   "gebeurtenissen": [
+    "sanherib-jeruzalem"
+   ],
+   "verhaal": "v72"
+  }
+ ],
+ "gebeurtenissen": [
+  {
+   "id": "qarqar",
+   "titel": "Slag bij Qarqar",
+   "tekst": "Koning Salmanassar van Assyrië trekt met een groot leger naar het westen. Bij Qarqar aan de Orontes vechten de koningen van Syrië, Hamath en Israël samen tegen hem, ook koning Achab.",
+   "jaar": 853,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "qarqar",
+    "salmanassar-iii-bron"
+   ],
+   "personen": [
+    "salmanassar-iii",
+    "achab"
+   ],
+   "plaats": [35.742,36.331],
+   "verhaal": "v63",
+   "belangrijk": true,
+   "opmerking": "De Bijbel vertelt deze slag niet; we kennen hem van een Assyrische steen, de Kurkh-monoliet. Een andere lezing van de Assyrische lijst geeft 854 v.Chr. Ligging van Qarqar: Tell Qarqur (Pleiades)."
+  },
+  {
+   "id": "jehu-schatting",
+   "titel": "Jehu buigt voor Assyrië",
+   "tekst": "Jehu is pas koning als de koning van Assyrië weer naar het westen komt. Op een zwarte stenen zuil uit Kalhu staat hoe Jehu, of een gezant van hem, buigt en geschenken brengt.",
+   "jaar": 841,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "zwarte-obelisk",
+    "salmanassar-iii-bron"
+   ],
+   "personen": [
+    "jehu",
+    "salmanassar-iii"
+   ],
+   "plaats": "samaria",
+   "verhaal": "v65",
+   "belangrijk": true,
+   "opmerking": "Ook dit staat niet in de Bijbel. Wel staat er: ‘In die dagen begon de HEERE Israël af te korten’ (2 Koningen 10:32). De zuil staat nu in het British Museum. De meeste onderzoekers lezen de naam als Jehu; enkelen denken aan Joram."
+  },
+  {
+   "id": "jona-nineve",
+   "titel": "Jona in Ninevé",
+   "tekst": "God stuurt Jona naar Ninevé, ‘een grote stad Gods, van drie dagreizen’ (Jona 3:3). De mensen van Ninevé bekeren zich, en God is genadig.",
+   "jaar": 793,
+   "tot": 753,
+   "status": "expliciet",
+   "bron": [
+    "Jona 3:3–10",
+    "2 Koningen 14:25"
+   ],
+   "personen": [
+    "jerobeam-ii"
+   ],
+   "plaats": "ninivest",
+   "verhaal": "v70",
+   "belangrijk": true,
+   "stap": "jona:jona:4",
+   "opmerking": "De Bijbel noemt geen jaar; alleen dat Jona leefde in de tijd van Jerobeam II (2 Koningen 14:25). Daarom staat zijn tocht als een tijdvak van 793 tot 753 v.Chr. De hoofdstad van Assyrië was toen Kalhu; Ninevé werd pas onder Sanherib de hoofdstad."
+  },
+  {
+   "id": "pul",
+   "titel": "Pul komt naar Israël",
+   "tekst": "‘Toen kwam Pul, de koning van Assyrië, tegen het land’ (2 Koningen 15:19). Koning Menahem van Israël geeft hem duizend talenten zilver.",
+   "jaar": 743,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "2 Koningen 15:19–20",
+    "tiglatpileser"
+   ],
+   "personen": [
+    "tiglatpileser-iii"
+   ],
+   "plaats": "samaria",
+   "verhaal": null,
+   "belangrijk": false,
+   "marge": [745,738],
+   "opmerking": "Pul (Tiglath-pilezer III) werd koning in 745 v.Chr. Het precieze jaar van deze schatting staat niet vast: de reconstructies verschillen tussen ongeveer 743 en 738 v.Chr."
+  },
+  {
+   "id": "damascus-valt",
+   "titel": "Damascus valt",
+   "tekst": "Koning Achaz van Juda vraagt Assyrië om hulp tegen Syrië en Israël. Tiglath-pilezer neemt Damascus in, en ook Galilea en Gilead, en voert de mensen weg.",
+   "jaar": 732,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "2 Koningen 16:7–9",
+    "2 Koningen 15:29",
+    "tiglatpileser"
+   ],
+   "personen": [
+    "tiglatpileser-iii"
+   ],
+   "plaats": "damascusst",
+   "verhaal": null,
+   "belangrijk": false
+  },
+  {
+   "id": "samaria-valt",
+   "titel": "Samaria valt",
+   "tekst": "Na een beleg van drie jaar ‘nam de koning van Assyrië Samaria in’ (2 Koningen 17:6). De Israëlieten worden weggevoerd naar verre steden; het noordrijk Israël bestaat niet meer.",
+   "jaar": 722,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "2 Koningen 17:5–6",
+    "2 Koningen 18:9–10",
+    "salmanassar-v",
+    "sargon"
+   ],
+   "personen": [
+    "hosea-koning",
+    "salmanassar-v",
+    "sargon-ii"
+   ],
+   "plaats": "samaria",
+   "verhaal": "v66",
+   "belangrijk": true,
+   "marge": [723,721],
+   "stap": "2koningen:ballingschap:0",
+   "opmerking": "Volgens de meeste onderzoekers 722 v.Chr.; sommigen rekenen 723 of 721. De Babylonische kroniek noemt Salmaneser; Sargon II eiste de overwinning later voor zich op."
+  },
+  {
+   "id": "asdod",
+   "titel": "Sargon neemt Asdod in",
+   "tekst": "Het leger van koning Sargon neemt de Filistijnse stad Asdod in. Jesaja noemt dat jaar in zijn boek.",
+   "jaar": 711,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "Jesaja 20:1",
+    "sargon"
+   ],
+   "personen": [
+    "sargon-ii",
+    "jesaja"
+   ],
+   "plaats": "asdod",
+   "verhaal": null,
+   "belangrijk": false,
+   "opmerking": "Jesaja noemt het jaar ‘toen Tartan naar Asdod kwam’ (Jesaja 20:1), gezonden door Sargon. Dit is de enige plaats waar de Bijbel Sargon bij naam noemt."
+  },
+  {
+   "id": "sanherib-jeruzalem",
+   "titel": "Sanherib voor Jeruzalem",
+   "tekst": "Sanherib neemt de vaste steden van Juda in, ook Lachis. Hizkia bidt, Jesaja brengt Gods antwoord, en Jeruzalem wordt niet ingenomen.",
+   "jaar": 701,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "2 Koningen 18:13–19:36",
+    "sanherib-juda"
+   ],
+   "personen": [
+    "sanherib",
+    "hizkia",
+    "jesaja"
+   ],
+   "plaats": "lachis",
+   "verhaal": "v67",
+   "belangrijk": true,
+   "stap": "2koningen:ballingschap:2",
+   "opmerking": "Sanherib liet het beleg van Lachis op stenen platen in zijn paleis in Ninevé afbeelden (nu in het British Museum). In zijn eigen verslag schrijft hij dat hij Hizkia in Jeruzalem insloot “als een vogel in een kooi”; dat hij de stad innam, schrijft hij niet. Dat zijn leger in één nacht werd geslagen, staat alleen in de Bijbel (2 Koningen 19:35)."
+  },
+  {
+   "id": "dood-sanherib",
+   "titel": "Sanherib sterft",
+   "tekst": "Sanherib ‘bleef te Nineve’ (2 Koningen 19:36). Daar wordt hij door zijn zonen gedood, en zijn zoon Esar-haddon wordt koning.",
+   "jaar": 681,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "2 Koningen 19:36–37",
+    "sanherib-bron",
+    "assyrische-koningen"
+   ],
+   "personen": [
+    "sanherib"
+   ],
+   "plaats": "ninivest",
+   "verhaal": null,
+   "belangrijk": false,
+   "opmerking": "Assyrische en Babylonische bronnen bevestigen dat Sanherib in 681 v.Chr. door een zoon (of zonen) werd vermoord en dat Esar-haddon hem opvolgde."
+  }
+ ],
+ "gebieden": [
+  {
+   "id": "assyrie",
+   "naam": "Assyrië",
+   "kleur": "grijs",
+   "hoofdstad": "kalhu",
+   "bron": [
+    "assyrische-koningen",
+    "til-barsip",
+    "tiglatpileser",
+    "salmanassar-v",
+    "sargon",
+    "2 Koningen 15:29",
+    "2 Koningen 16:9",
+    "2 Koningen 17:6",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. Getekend zijn de gebieden die Assyrië zelf bestuurde. Veel volken eromheen moesten schatting betalen maar hielden hun eigen koning, zoals Juda, Tyrus en de Filistijnse steden; die zijn niet bij Assyrië getekend.",
+   "sleutels": [
+    {
+     "jaar": 880,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[40.1,36.95],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[40.1,36.95]]
+      ]
+     },
+     "opmerking": "Het kernland aan de Tigris (Assur, Kalhu, Ninevé) en de Jezira tot de Chabur."
+    },
+    {
+     "jaar": 857,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[40.1,36.95],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[40.1,36.95]]
+      ]
+     }
+    },
+    {
+     "jaar": 856,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[38.6,37.35],[38.05,36.7],[38.15,36.2],[39.9,35.5],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[38.6,37.35]]
+      ]
+     },
+     "opmerking": "Tot aan de Eufraat: Salmanassar III neemt Til Barsip in (856)."
+    },
+    {
+     "jaar": 741,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[38.6,37.35],[38.05,36.7],[38.15,36.2],[39.9,35.5],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[38.6,37.35]]
+      ]
+     }
+    },
+    {
+     "jaar": 738,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[37.6,35.8],[38.15,36.2],[39.9,35.5],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[38.6,37.35],[38.05,36.7],[37.5,36.75],[36.7,36.95],[36.3,36.7],[35.75,35.55],[35.85,35.2],[35.8,34.45],[36.05,34.4],[36.15,34.9],[36.2,35.8],[36.6,35.95],[37.6,35.8]]
+      ]
+     },
+     "opmerking": "Tiglath-pilezer III neemt Arpad in (740) en maakt in 738 provincies in Noord-Syrië en aan de kust."
+    },
+    {
+     "jaar": 733,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[37.6,35.8],[38.15,36.2],[39.9,35.5],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[38.6,37.35],[38.05,36.7],[37.5,36.75],[36.7,36.95],[36.3,36.7],[35.75,35.55],[35.85,35.2],[35.8,34.45],[36.05,34.4],[36.15,34.9],[36.2,35.8],[36.6,35.95],[37.6,35.8]]
+      ]
+     }
+    },
+    {
+     "jaar": 732,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [[[[36.6,35.95],[37.6,35.8],[38.15,36.2],[39.9,35.5],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[38.6,37.35],[38.05,36.7],[37.5,36.75],[36.7,36.95],[36.3,36.7],[35.75,35.55],[35.85,35.2],[35.8,34.45],[36.05,34.4],[36.15,34.9],[36.2,35.8],[36.6,35.95]]],
+       [[[35.95,32.45],[36.15,32.35],[36.6,32.5],[36.8,32.75],[37.1,33.3],[37.3,34.2],[36.6,34.45],[36.05,34.4],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.8,32.35],[34.9,32.5],[35.55,32.4],[35.55,31.8],[35.85,31.8],[35.95,32.45]]
+       ]
+      ]
+     },
+     "opmerking": "Damascus, Galilea en Gilead (2 Koningen 15:29; 16:9). Hamath ligt ertussen en is nog een eigen koninkrijk."
+    },
+    {
+     "jaar": 723,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [[[[36.6,35.95],[37.6,35.8],[38.15,36.2],[39.9,35.5],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[38.6,37.35],[38.05,36.7],[37.5,36.75],[36.7,36.95],[36.3,36.7],[35.75,35.55],[35.85,35.2],[35.8,34.45],[36.05,34.4],[36.15,34.9],[36.2,35.8],[36.6,35.95]]],
+       [[[35.95,32.45],[36.15,32.35],[36.6,32.5],[36.8,32.75],[37.1,33.3],[37.3,34.2],[36.6,34.45],[36.05,34.4],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.8,32.35],[34.9,32.5],[35.55,32.4],[35.55,31.8],[35.85,31.8],[35.95,32.45]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": 722,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [[[[36.6,35.95],[37.6,35.8],[38.15,36.2],[39.9,35.5],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[38.6,37.35],[38.05,36.7],[37.5,36.75],[36.7,36.95],[36.3,36.7],[35.75,35.55],[35.85,35.2],[35.8,34.45],[36.05,34.4],[36.15,34.9],[36.2,35.8],[36.6,35.95]]],
+       [[[35.45,31.9],[35.55,31.8],[35.85,31.8],[35.95,32.45],[36.15,32.35],[36.6,32.5],[37.1,33.3],[37.3,34.2],[36.6,34.45],[36.05,34.4],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.45,31.9]]
+       ]
+      ]
+     },
+     "opmerking": "Samaria ingenomen (2 Koningen 17:6)."
+    },
+    {
+     "jaar": 721,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [[[[36.6,35.95],[37.6,35.8],[38.15,36.2],[39.9,35.5],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[38.6,37.35],[38.05,36.7],[37.5,36.75],[36.7,36.95],[36.3,36.7],[35.75,35.55],[35.85,35.2],[35.8,34.45],[36.05,34.4],[36.15,34.9],[36.2,35.8],[36.6,35.95]]],
+       [[[35.45,31.9],[35.55,31.8],[35.85,31.8],[35.95,32.45],[36.15,32.35],[36.6,32.5],[37.1,33.3],[37.3,34.2],[36.6,34.45],[36.05,34.4],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.45,31.9]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": 720,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.45,31.9],[35.55,31.8],[35.85,31.8],[35.95,32.45],[36.15,32.35],[36.6,32.5],[37.1,33.3],[37.3,34.2],[38.1,34.9],[38.6,35.6],[39.0,35.85],[39.9,35.5],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[38.6,37.35],[38.05,36.7],[37.5,36.75],[36.7,36.95],[36.3,36.7],[35.75,35.55],[35.85,35.2],[35.8,34.45],[36.05,34.4],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.45,31.9]]
+      ]
+     },
+     "opmerking": "Sargon II verslaat Hamath bij Qarqar (720)."
+    },
+    {
+     "jaar": 681,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.45,31.9],[35.55,31.8],[35.85,31.8],[35.95,32.45],[36.15,32.35],[36.6,32.5],[37.1,33.3],[37.3,34.2],[38.1,34.9],[38.6,35.6],[39.0,35.85],[39.9,35.5],[40.45,35.15],[43.4,34.9],[44.3,35.3],[45.0,35.8],[44.6,36.6],[43.8,37.2],[42.4,37.4],[41.2,37.3],[38.6,37.35],[38.05,36.7],[37.5,36.75],[36.7,36.95],[36.3,36.7],[35.75,35.55],[35.85,35.2],[35.8,34.45],[36.05,34.4],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.45,31.9]]
+      ]
+     },
+     "opmerking": "Einde van deze tijdlijn."
+    }
+   ]
+  },
+  {
+   "id": "israel",
+   "naam": "Israël",
+   "kleur": "salie",
+   "hoofdstad": "samaria",
+   "bron": [
+    "2 Koningen 10:32–33",
+    "2 Koningen 13:25",
+    "2 Koningen 14:25",
+    "2 Koningen 15:29",
+    "2 Koningen 17:6",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. Het noordrijk Israël met Gilead aan de overkant van de Jordaan. Onder Jehu nam Hazaël van Syrië Gilead in (2 Koningen 10:32–33); Joas en Jerobeam II brachten het terug (2 Koningen 13:25; 14:25). Hoe ver Jerobeam II ‘van den ingang van Hamath’ reikte (2 Koningen 14:25), is niet als grens getekend.",
+   "sleutels": [
+    {
+     "jaar": 880,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9],[35.45,31.9],[35.55,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65]]
+      ]
+     },
+     "opmerking": "Rond Samaria en Galilea, met Gilead."
+    },
+    {
+     "jaar": 842,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9],[35.45,31.9],[35.55,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65]]
+      ]
+     }
+    },
+    {
+     "jaar": 814,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9],[35.45,31.9],[35.55,31.8],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05]]
+      ]
+     },
+     "opmerking": "In de dagen van Jehu verliest Israël Gilead aan Hazaël (2 Koningen 10:32–33); het jaar staat er niet."
+    },
+    {
+     "jaar": 798,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9],[35.45,31.9],[35.55,31.8],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05]]
+      ]
+     }
+    },
+    {
+     "jaar": 782,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9],[35.45,31.9],[35.55,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65]]
+      ]
+     },
+     "opmerking": "Joas en Jerobeam II heroveren steden en gebied (2 Koningen 13:25; 14:25)."
+    },
+    {
+     "jaar": 733,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9],[35.45,31.9],[35.55,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65]]
+      ]
+     }
+    },
+    {
+     "jaar": 732,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.9,32.5],[34.7,32.0],[35.05,31.9],[35.45,31.9],[35.55,31.8],[35.55,32.4],[34.9,32.5]]
+      ]
+     },
+     "opmerking": "Kleiner: Galilea en Gilead weggevoerd (2 Koningen 15:29)."
+    },
+    {
+     "jaar": 723,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.9,32.5],[34.7,32.0],[35.05,31.9],[35.45,31.9],[35.55,31.8],[35.55,32.4],[34.9,32.5]]
+      ]
+     }
+    },
+    {
+     "jaar": 722,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.9,32.5],[34.7,32.0],[35.05,31.9],[35.45,31.9],[35.55,31.8],[35.55,32.4],[34.9,32.5]]
+      ]
+     },
+     "opmerking": "Einde: Samaria ingenomen (2 Koningen 17:6)."
+    }
+   ]
+  },
+  {
+   "id": "juda",
+   "naam": "Juda",
+   "kleur": "koraal",
+   "hoofdstad": "jeruzalem",
+   "bron": [
+    "2 Koningen 18:13",
+    "bijbelreis-plaatsen",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. Het koninkrijk Juda, van Mizpa tot Berseba. In 701 nam Sanherib de vaste steden in (2 Koningen 18:13), maar Juda bleef een eigen koninkrijk met Jeruzalem; daarna betaalde het schatting aan Assyrië.",
+   "sleutels": [
+    {
+     "jaar": 880,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.75,31.85],[34.7,31.1],[34.95,30.85],[35.3,30.95],[35.4,31.15],[35.55,31.8],[35.45,31.9],[34.75,31.85]]
+      ]
+     }
+    },
+    {
+     "jaar": 681,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.75,31.85],[34.7,31.1],[34.95,30.85],[35.3,30.95],[35.4,31.15],[35.55,31.8],[35.45,31.9],[34.75,31.85]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "aram",
+   "naam": "Aram (Syrië)",
+   "kleur": "oker",
+   "hoofdstad": "damascus",
+   "bron": [
+    "1 Koningen 22:3",
+    "2 Koningen 10:32–33",
+    "2 Koningen 16:9",
+    "tiglatpileser",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. Het koninkrijk van de Syriërs rond Damascus, met Basan en Ramoth in Gilead (1 Koningen 22:3). Onder Hazaël kwam Gilead erbij (2 Koningen 10:32–33).",
+   "sleutels": [
+    {
+     "jaar": 880,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.55,32.65],[35.95,32.65],[35.95,32.45],[36.15,32.35],[36.6,32.5],[37.1,33.3],[37.3,34.2],[36.6,34.45],[36.05,34.4],[35.75,33.65],[35.7,33.2],[35.55,32.65]]
+      ]
+     }
+    },
+    {
+     "jaar": 842,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.55,32.65],[35.95,32.65],[35.95,32.45],[36.15,32.35],[36.6,32.5],[37.1,33.3],[37.3,34.2],[36.6,34.45],[36.05,34.4],[35.75,33.65],[35.7,33.2],[35.55,32.65]]
+      ]
+     }
+    },
+    {
+     "jaar": 814,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.95,32.45],[36.15,32.35],[36.6,32.5],[36.8,32.75],[37.1,33.3],[37.3,34.2],[36.6,34.45],[36.05,34.4],[35.7,33.4],[35.7,33.2],[35.55,32.65],[35.55,31.8],[35.85,31.8],[35.95,32.45]]
+      ]
+     },
+     "opmerking": "Hazaël neemt Gilead in (2 Koningen 10:32–33)."
+    },
+    {
+     "jaar": 798,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.95,32.45],[36.15,32.35],[36.6,32.5],[36.8,32.75],[37.1,33.3],[37.3,34.2],[36.6,34.45],[36.05,34.4],[35.7,33.4],[35.7,33.2],[35.55,32.65],[35.55,31.8],[35.85,31.8],[35.95,32.45]]
+      ]
+     }
+    },
+    {
+     "jaar": 782,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.55,32.65],[35.95,32.65],[35.95,32.45],[36.15,32.35],[36.6,32.5],[37.1,33.3],[37.3,34.2],[36.6,34.45],[36.05,34.4],[35.75,33.65],[35.7,33.2],[35.55,32.65]]
+      ]
+     },
+     "opmerking": "Israël heeft Gilead terug."
+    },
+    {
+     "jaar": 733,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.55,32.65],[35.95,32.65],[35.95,32.45],[36.15,32.35],[36.6,32.5],[37.1,33.3],[37.3,34.2],[36.6,34.45],[36.05,34.4],[35.75,33.65],[35.7,33.2],[35.55,32.65]]
+      ]
+     }
+    },
+    {
+     "jaar": 732,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.55,32.65],[35.95,32.65],[35.95,32.45],[36.15,32.35],[36.6,32.5],[37.1,33.3],[37.3,34.2],[36.6,34.45],[36.05,34.4],[35.75,33.65],[35.7,33.2],[35.55,32.65]]
+      ]
+     },
+     "opmerking": "Einde: Damascus ingenomen (2 Koningen 16:9)."
+    }
+   ]
+  },
+  {
+   "id": "fenicie",
+   "naam": "Fenicië",
+   "kleur": "kobalt",
+   "hoofdstad": "tyrus",
+   "bron": [
+    "1 Koningen 16:31",
+    "salmanassar-iii-bron",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. De havensteden Tyrus en Sidon met hun kuststrook. Ze bleven eigen koningen houden, maar brachten Assyrië vaak schatting, al in 841 v.Chr.",
+   "sleutels": [
+    {
+     "jaar": 880,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.1,33.05],[35.35,33.15],[35.75,33.65],[36.05,34.4],[35.8,34.45],[35.6,34.15],[35.1,33.25],[35.05,33.1],[35.1,33.05]]
+      ]
+     }
+    },
+    {
+     "jaar": 681,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.1,33.05],[35.35,33.15],[35.75,33.65],[36.05,34.4],[35.8,34.45],[35.6,34.15],[35.1,33.25],[35.05,33.1],[35.1,33.05]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egypte",
+   "naam": "Egypte",
+   "kleur": "lila",
+   "hoofdstad": null,
+   "bron": [
+    "2 Koningen 17:4",
+    "2 Koningen 19:9",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. Alleen het noorden is getekend, als rand van de kaart; Egypte liep verder naar het zuiden langs de Nijl. Hosea zocht hulp bij ‘So, den koning van Egypte’ (2 Koningen 17:4); wie dat precies was, is onzeker.",
+   "sleutels": [
+    {
+     "jaar": 880,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.6,29.2],[31.25,29.2],[31.6,30.1],[32.2,30.5],[32.55,31.05]]
+      ]
+     }
+    },
+    {
+     "jaar": 681,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.6,29.2],[31.25,29.2],[31.6,30.1],[32.2,30.5],[32.55,31.05]]
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "steden": [
+  {
+   "id": "nineve",
+   "naam": "Ninevé",
+   "plaatsId": "ninivest",
+   "lat": 36.36,
+   "lng": 43.15,
+   "tekst": "Grote stad aan de Tigris. Hierheen moest Jona; later maakte Sanherib Ninevé tot hoofdstad van Assyrië.",
+   "bron": [
+    "Jona 1:2",
+    "2 Koningen 19:36",
+    "sanherib-bron"
+   ]
+  },
+  {
+   "id": "kalhu",
+   "naam": "Kalhu (Kalach)",
+   "plaatsId": null,
+   "lat": 36.1,
+   "lng": 43.332,
+   "tekst": "Hoofdstad van Assyrië in de tijd van Achab, Jehu en Jona. Hier stond de zwarte zuil van Salmanassar III.",
+   "bron": [
+    "Genesis 10:11",
+    "pleiades-kalhu",
+    "zwarte-obelisk"
+   ]
+  },
+  {
+   "id": "assur",
+   "naam": "Assur",
+   "plaatsId": "assur",
+   "lat": 35.46,
+   "lng": 43.26,
+   "tekst": "De oude hoofdstad van Assyrië, waar het rijk zijn naam aan dankt.",
+   "bron": [
+    "Genesis 10:11",
+    "assyrische-koningen"
+   ]
+  },
+  {
+   "id": "samaria",
+   "naam": "Samaria",
+   "plaatsId": "samaria",
+   "lat": 32.28,
+   "lng": 35.19,
+   "tekst": "Hoofdstad van het noordrijk Israël, gebouwd door koning Omri. Assyrië nam de stad in 722 v.Chr. in.",
+   "bron": [
+    "1 Koningen 16:24",
+    "2 Koningen 17:6"
+   ]
+  },
+  {
+   "id": "jeruzalem",
+   "naam": "Jeruzalem",
+   "plaatsId": "salem",
+   "lat": 31.777,
+   "lng": 35.235,
+   "tekst": "Stad van de tempel en de koningen van Juda. Sanherib nam haar niet in.",
+   "bron": [
+    "2 Koningen 19:32–36"
+   ]
+  },
+  {
+   "id": "lachis",
+   "naam": "Lachis",
+   "plaatsId": "lachis",
+   "lat": 31.565,
+   "lng": 34.849,
+   "tekst": "Vestingstad van Juda. Sanherib belegerde haar en liet het beleg in zijn paleis op stenen platen afbeelden.",
+   "bron": [
+    "2 Koningen 18:14",
+    "sanherib-juda"
+   ]
+  },
+  {
+   "id": "damascus",
+   "naam": "Damascus",
+   "plaatsId": "damascusst",
+   "lat": 33.513,
+   "lng": 36.292,
+   "tekst": "Hoofdstad van Aram (Syrië). Naäman kwam hiervandaan; in 732 v.Chr. nam Assyrië de stad in.",
+   "bron": [
+    "2 Koningen 5:12",
+    "2 Koningen 16:9"
+   ]
+  },
+  {
+   "id": "hamath",
+   "naam": "Hamath",
+   "plaatsId": "dr_hamath",
+   "lat": 35.1365,
+   "lng": 36.75,
+   "tekst": "Stad aan de Orontes, ver in het noorden. Koning Sargon maakte er in 720 v.Chr. een einde aan het eigen koninkrijk.",
+   "bron": [
+    "2 Koningen 14:25",
+    "sargon"
+   ]
+  },
+  {
+   "id": "qarqar",
+   "naam": "Qarqar",
+   "plaatsId": null,
+   "lat": 35.742,
+   "lng": 36.331,
+   "tekst": "Stad aan de Orontes. Hier vochten in 853 v.Chr. de koningen van het westen, met Achab, tegen Salmanassar III.",
+   "bron": [
+    "pleiades-qarqar",
+    "qarqar"
+   ]
+  },
+  {
+   "id": "tyrus",
+   "naam": "Tyrus",
+   "plaatsId": "tyrus",
+   "lat": 33.27,
+   "lng": 35.2,
+   "tekst": "Havenstad van de Feniciërs. Izebel, de vrouw van Achab, was een dochter van de koning van de Sidoniërs.",
+   "bron": [
+    "1 Koningen 16:31"
+   ]
+  },
+  {
+   "id": "asdod",
+   "naam": "Asdod",
+   "plaatsId": "asdod",
+   "lat": 31.76,
+   "lng": 34.65,
+   "tekst": "Filistijnse stad. Het leger van Sargon nam haar in.",
+   "bron": [
+    "Jesaja 20:1",
+    "sargon"
+   ]
+  },
+  {
+   "id": "joppe",
+   "naam": "Joppe (Jafo)",
+   "plaatsId": "joppe",
+   "lat": 32.05,
+   "lng": 34.75,
+   "tekst": "Havenstad. Hier ging Jona aan boord van een schip naar Tarsis.",
+   "bron": [
+    "Jona 1:3"
+   ]
+  },
+  {
+   "id": "gathhefer",
+   "naam": "Gath-Hefer",
+   "plaatsId": "jona_gathhefer",
+   "lat": 32.74,
+   "lng": 35.32,
+   "tekst": "Het dorp van Jona, in Galilea.",
+   "bron": [
+    "2 Koningen 14:25"
+   ]
+  }
+ ],
+ "koppelingen": [
+  {
+   "verhaal": "v63",
+   "jaar": 874,
+   "tot": 853,
+   "status": "benaderd",
+   "personen": [
+    "achab",
+    "elia"
+   ],
+   "gebeurtenissen": [
+    "qarqar"
+   ],
+   "opmerking": "Elia profeteerde in de tijd van Achab. In welke jaren van Achab de droogte en de Karmel vielen, staat niet in de Bijbel."
+  },
+  {
+   "verhaal": "v64",
+   "jaar": 850,
+   "tot": 795,
+   "status": "benaderd",
+   "personen": [
+    "elisa"
+   ],
+   "gebeurtenissen": [],
+   "opmerking": "Naäman kwam uit Damascus naar Elisa. De koning van Israël in 2 Koningen 5 wordt niet bij naam genoemd; daarom toont de tijdlijn de hele tijd van Elisa."
+  },
+  {
+   "verhaal": "v65",
+   "jaar": 841,
+   "tot": 796,
+   "status": "benaderd",
+   "personen": [
+    "jehu"
+   ],
+   "gebeurtenissen": [
+    "jehu-schatting"
+   ],
+   "opmerking": "Athalia nam de macht in Juda in het jaar dat Jehu koning van Israël werd; Joas werd koning in het zevende jaar van Jehu en regeerde veertig jaar (2 Koningen 11:1–4; 12:1)."
+  },
+  {
+   "verhaal": "v66",
+   "jaar": 722,
+   "tot": null,
+   "status": "benaderd",
+   "personen": [
+    "hosea-koning",
+    "salmanassar-v",
+    "sargon-ii"
+   ],
+   "gebeurtenissen": [
+    "samaria-valt"
+   ]
+  },
+  {
+   "verhaal": "v67",
+   "jaar": 701,
+   "tot": null,
+   "status": "historisch",
+   "personen": [
+    "hizkia",
+    "sanherib",
+    "jesaja"
+   ],
+   "gebeurtenissen": [
+    "sanherib-jeruzalem",
+    "dood-sanherib"
+   ]
+  },
+  {
+   "verhaal": "v69",
+   "jaar": 793,
+   "tot": 753,
+   "status": "expliciet",
+   "personen": [
+    "jerobeam-ii"
+   ],
+   "gebeurtenissen": [
+    "jona-nineve"
+   ],
+   "opmerking": "Jona leefde in de tijd van Jerobeam II (2 Koningen 14:25). Wanneer hij naar Ninevé moest, staat er niet."
+  },
+  {
+   "verhaal": "v70",
+   "jaar": 793,
+   "tot": 753,
+   "status": "expliciet",
+   "personen": [
+    "jerobeam-ii"
+   ],
+   "gebeurtenissen": [
+    "jona-nineve"
+   ],
+   "opmerking": "Het jaar van de prediking in Ninevé staat niet in de Bijbel; alleen de tijd van Jerobeam II."
+  },
+  {
+   "verhaal": "v72",
+   "jaar": 740,
+   "tot": 700,
+   "status": "benaderd",
+   "personen": [
+    "jesaja",
+    "hizkia"
+   ],
+   "gebeurtenissen": [
+    "sanherib-jeruzalem"
+   ],
+   "opmerking": "Jesaja profeteerde in de dagen van Uzzia, Jotham, Achaz en Hizkia (Jesaja 1:1). De troost van hoofdstuk 40–43 is gericht aan het volk in de ballingschap, die toen nog moest komen."
+  }
+ ]
+}

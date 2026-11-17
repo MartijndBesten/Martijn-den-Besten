@@ -1,0 +1,1466 @@
+{
+ "id": "david-salomo",
+ "titel": "David en Salomo",
+ "ondertitel": "De koningen van Israël tussen de buurvolken, ca. 1050–920 v.Chr. (reconstructie)",
+ "as": {
+  "soort": "vchr",
+  "van": 1050,
+  "tot": 920,
+  "stap": 1,
+  "label": "jaar voor Christus",
+  "status": "benaderd",
+  "uitleg": "Omgerekend met de regeringsjaren uit de Bijbel (Saul, David en Salomo elk veertig jaar), teruggeteld vanaf de scheuring van het rijk in 931/930 v.Chr. volgens de gangbare reconstructie (Thiele), zoals in de rest van de Bijbelreis. Er is geen onafhankelijk jaartal uit de tijd van David zelf; alle jaartallen zijn daarom bij benadering."
+ },
+ "start": 1003,
+ "bronnen": [
+  {
+   "id": "sv",
+   "soort": "bijbel",
+   "titel": "Statenvertaling: 1 Samuël 10–31, 2 Samuël, 1 Koningen 1–14, Handelingen 13:21",
+   "url": null,
+   "licentie": "Statenvertaling (1637), publiek domein; gecontroleerd met data/statenvertaling en scripts/bijbel-check.py",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "bijbelreis-dateringen",
+   "soort": "historisch",
+   "titel": "Bijbelreis: jaartallen en hun grond (docs/bijbelreis-audit/dateringen.md, public/bijbelreis/dateringen.js): de gangbare koningschronologie (Thiele) als ijkpunt",
+   "url": null,
+   "licentie": "eigen gegevens Bijbelreis",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "thiele",
+   "soort": "historisch",
+   "titel": "E. R. Thiele, The Mysterious Numbers of the Hebrew Kings (samenvatting en tabel, Wikipedia, Engels)",
+   "url": "https://en.wikipedia.org/wiki/The_Mysterious_Numbers_of_the_Hebrew_Kings",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "verenigd-koninkrijk",
+   "soort": "historisch",
+   "titel": "Kingdom of Israel (united monarchy) (Wikipedia, Engels): gangbare jaartallen en de discussie onder onderzoekers",
+   "url": "https://en.wikipedia.org/wiki/Kingdom_of_Israel_(united_monarchy)",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "sjosjenk",
+   "soort": "historisch",
+   "titel": "Shoshenq I (Wikipedia, Engels): regering, de lijst van Karnak (Bubastitische poort), de vergelijking met Sisak",
+   "url": "https://en.wikipedia.org/wiki/Shoshenq_I",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "tel-dan",
+   "soort": "historisch",
+   "titel": "Tel Dan stele (Wikipedia, Engels): “huis van David”, 9e eeuw v.Chr., Israel Museum",
+   "url": "https://en.wikipedia.org/wiki/Tel_Dan_stele",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "hiram",
+   "soort": "historisch",
+   "titel": "Hiram I (Wikipedia, Engels): regering volgens Josephus (Tegen Apion 1.17–18, naar Menander van Efeze)",
+   "url": "https://en.wikipedia.org/wiki/Hiram_I",
+   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "bijbelreis-plaatsen",
+   "soort": "dataset",
+   "titel": "Bijbelreis plaatsen.js (ligging gecontroleerd met OpenBible.info CC BY 4.0 en Pleiades CC BY)",
+   "url": null,
+   "licentie": "eigen gegevens Bijbelreis; zie docs/bijbelreis-audit/plaatsen.md",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "eigen-tekening",
+   "soort": "dataset",
+   "titel": "Grenzen: eigen grove tekening langs kusten, rivieren, gebergten en woestijnranden (scripts/bijbelreis-wereld-koningen.py)",
+   "url": null,
+   "licentie": "eigen werk; geen kaart of grensdataset overgenomen",
+   "geraadpleegd": "2026-11-17"
+  }
+ ],
+ "info": [
+  {
+   "kop": "Hoe weten we deze jaren?",
+   "tekst": "De Bijbel zegt hoe lang Saul, David en Salomo koning waren: elk veertig jaar. Teruggerekend vanaf de scheuring van het rijk, rond 930 v.Chr., kom je voor David op ongeveer 1010–970 v.Chr. Dat is een reconstructie: andere schema’s schuiven deze jaren enkele jaren, sommige enkele tientallen jaren op.",
+   "status": "benaderd",
+   "bron": [
+    "2 Samuël 5:4–5",
+    "1 Koningen 11:42",
+    "Handelingen 13:21",
+    "bijbelreis-dateringen",
+    "verenigd-koninkrijk"
+   ]
+  },
+  {
+   "kop": "Een steen met “huis van David”",
+   "tekst": "In Dan vonden archeologen in 1993 en 1994 stukken van een stenen gedenkteken uit de 9e eeuw v.Chr., ruim honderd jaar na David. Volgens de meeste onderzoekers staat erop “huis van David”: zo heette het koningshuis van Juda toen. Het is de oudste bekende vermelding van David buiten de Bijbel; over de lezing wordt nog gediscussieerd.",
+   "status": "historisch",
+   "bron": [
+    "tel-dan"
+   ]
+  },
+  {
+   "kop": "Hoe groot was het rijk?",
+   "tekst": "De Bijbel vertelt dat David de buurvolken versloeg en dat zij geschenken brachten. Hoe ver dat gezag reikte, is niet als lijn te tekenen. Onder onderzoekers is de omvang van het rijk van David en Salomo een punt van discussie. Daarom zijn alle grenzen op deze kaart bij benadering.",
+   "status": "benaderd",
+   "bron": [
+    "2 Samuël 8:1–14",
+    "1 Koningen 4:21",
+    "verenigd-koninkrijk",
+    "eigen-tekening"
+   ]
+  }
+ ],
+ "personen": [
+  {
+   "id": "samuel",
+   "naam": "Samuël",
+   "alt": [],
+   "personenId": "samuel",
+   "lijn": "profeet",
+   "van": {
+    "jaar": 1100,
+    "status": "benaderd",
+    "bron": [
+     "1 Samuël 3:19–20",
+     "bijbelreis-dateringen"
+    ],
+    "begin": "roeping",
+    "opmerking": "De Bijbelreis zet zijn roeping in Silo ruwweg rond 1100 v.Chr.; dat is een ruwe schatting. De lijn begint vóór deze tijdlijn."
+   },
+   "tot": {
+    "jaar": 1015,
+    "status": "benaderd",
+    "bron": "1 Samuël 25:1",
+    "einde": "stierf",
+    "marge": [1020,1010],
+    "opmerking": "‘En Samuël stierf’ (1 Samuël 25:1), toen David voor Saul op de vlucht was. Het jaar staat er niet; omgerekend tussen ongeveer 1020 en 1010 v.Chr."
+   },
+   "ouder": null,
+   "rol": "Profeet en richter; zalfde Saul en later David",
+   "ref": [
+    "1 Samuël 3:19–21",
+    "1 Samuël 10:1",
+    "1 Samuël 16:13",
+    "1 Samuël 25:1"
+   ],
+   "gebeurtenissen": [
+    "saul-koning"
+   ],
+   "verhaal": "v50"
+  },
+  {
+   "id": "saul",
+   "naam": "Saul",
+   "alt": [],
+   "personenId": "saul",
+   "lijn": "regering",
+   "van": {
+    "jaar": 1050,
+    "status": "benaderd",
+    "bron": [
+     "Handelingen 13:21",
+     "bijbelreis-dateringen"
+    ],
+    "begin": "regering",
+    "opmerking": "Saul was veertig jaar koning (Handelingen 13:21). Teruggerekend vanaf ca. 1010 v.Chr. begon hij rond 1050 v.Chr."
+   },
+   "tot": {
+    "jaar": 1010,
+    "status": "benaderd",
+    "bron": [
+     "1 Samuël 31:6",
+     "bijbelreis-dateringen"
+    ],
+    "einde": "stierf",
+    "opmerking": "Hij sneuvelde op de Gilboa, vlak voordat David koning werd (gangbare reconstructie: ca. 1010 v.Chr.)."
+   },
+   "ouder": null,
+   "rol": "De eerste koning van Israël",
+   "ref": [
+    "1 Samuël 10:1",
+    "1 Samuël 31:1–6",
+    "Handelingen 13:21"
+   ],
+   "gebeurtenissen": [
+    "saul-koning",
+    "dood-saul"
+   ],
+   "verhaal": "v55"
+  },
+  {
+   "id": "david",
+   "naam": "David",
+   "alt": [],
+   "personenId": "david",
+   "lijn": "leven",
+   "van": {
+    "jaar": 1040,
+    "status": "benaderd",
+    "bron": [
+     "2 Samuël 5:4",
+     "bijbelreis-dateringen"
+    ],
+    "begin": "geboorte",
+    "opmerking": "‘Dertig jaar was David oud, als hij koning werd’ (2 Samuël 5:4). Met koning worden rond 1010 v.Chr. komt zijn geboorte omgerekend rond 1040 v.Chr. De Bijbel noemt geen geboortejaar."
+   },
+   "tot": {
+    "jaar": 970,
+    "status": "benaderd",
+    "bron": [
+     "2 Samuël 5:4–5",
+     "1 Koningen 2:10–11"
+    ],
+    "einde": "stierf",
+    "leeftijd": 70,
+    "leeftijdStatus": "berekend: 30 + 40 jaar (2 Samuël 5:4)",
+    "opmerking": "Hij regeerde veertig jaar: zeven jaar en zes maanden in Hebron en drieëndertig in Jeruzalem (2 Samuël 5:5). Zo werd hij ongeveer zeventig jaar."
+   },
+   "ouder": null,
+   "rol": "Herder uit Bethlehem, koning over Juda en daarna over heel Israël",
+   "ref": [
+    "1 Samuël 16:13",
+    "2 Samuël 5:1–12",
+    "1 Koningen 2:10–11"
+   ],
+   "gebeurtenissen": [
+    "goliath",
+    "dood-saul",
+    "david-hebron",
+    "jeruzalem",
+    "buurvolken",
+    "salomo-koning"
+   ],
+   "verhaal": "v56"
+  },
+  {
+   "id": "nathan",
+   "naam": "Nathan",
+   "alt": [],
+   "personenId": "nathan",
+   "lijn": "profeet",
+   "van": {
+    "jaar": 1003,
+    "status": "benaderd",
+    "bron": [
+     "2 Samuël 7:2–4",
+     "bijbelreis-dateringen"
+    ],
+    "begin": "genoemd",
+    "opmerking": "Hij wordt voor het eerst genoemd als David in Jeruzalem woont (2 Samuël 7:2). Wanneer hij geboren werd of profeet werd, staat er niet; de lijn begint daarom bij de eerste vermelding."
+   },
+   "tot": {
+    "jaar": 970,
+    "status": "benaderd",
+    "bron": "1 Koningen 1:32–38",
+    "einde": "onbekend",
+    "opmerking": "Hij wordt het laatst genoemd bij de zalving van Salomo (1 Koningen 1). Wanneer hij stierf, staat er niet."
+   },
+   "ouder": null,
+   "rol": "Profeet bij koning David; bracht Gods belofte en wees David terecht",
+   "ref": [
+    "2 Samuël 7:1–17",
+    "2 Samuël 12:1–14",
+    "1 Koningen 1:11–45"
+   ],
+   "gebeurtenissen": [
+    "salomo-koning"
+   ],
+   "verhaal": "v57"
+  },
+  {
+   "id": "hiram",
+   "naam": "Hiram",
+   "alt": [],
+   "personenId": "hiram",
+   "lijn": "regering",
+   "van": {
+    "jaar": 980,
+    "status": "benaderd",
+    "bron": [
+     "hiram",
+     "2 Samuël 5:11"
+    ],
+    "begin": "regering",
+    "opmerking": "Volgens Josephus (naar Menander) regeerde Hiram 34 jaar; onderzoekers rekenen dat om naar ongeveer 980–947 v.Chr. 2 Samuël 5:11 noemt Hiram al bij David, kort na de verovering van Jeruzalem. Dat past niet goed bij een begin rond 980; hoe dat zit, is onzeker."
+   },
+   "tot": {
+    "jaar": 947,
+    "status": "benaderd",
+    "bron": "hiram",
+    "einde": "stierf",
+    "marge": [947,946]
+   },
+   "ouder": null,
+   "rol": "Koning van Tyrus; leverde cederhout en vaklieden voor David en Salomo",
+   "ref": [
+    "2 Samuël 5:11",
+    "1 Koningen 5:1–12",
+    "1 Koningen 9:10–14"
+   ],
+   "gebeurtenissen": [
+    "tempel"
+   ],
+   "verhaal": "v61",
+   "opmerking": "Hij staat in de Bijbel én in de geschiedenis van Tyrus die Josephus overneemt."
+  },
+  {
+   "id": "salomo",
+   "naam": "Salomo",
+   "alt": [],
+   "personenId": "salomo",
+   "lijn": "regering",
+   "van": {
+    "jaar": 970,
+    "status": "benaderd",
+    "bron": [
+     "1 Koningen 1:39",
+     "1 Koningen 2:12",
+     "bijbelreis-dateringen"
+    ],
+    "begin": "regering"
+   },
+   "tot": {
+    "jaar": 930,
+    "status": "benaderd",
+    "bron": [
+     "1 Koningen 11:42–43",
+     "thiele"
+    ],
+    "einde": "stierf",
+    "marge": [931,930],
+    "opmerking": "Hij regeerde veertig jaar (1 Koningen 11:42). Het einde volgt uit de gangbare reconstructie: de scheuring van het rijk in 931/930 v.Chr."
+   },
+   "ouder": "david",
+   "rol": "Zoon van David; bouwde de tempel in Jeruzalem",
+   "ref": [
+    "1 Koningen 1–11"
+   ],
+   "gebeurtenissen": [
+    "salomo-koning",
+    "tempel"
+   ],
+   "verhaal": "v60"
+  },
+  {
+   "id": "rehabeam",
+   "naam": "Rehabeam",
+   "alt": [],
+   "personenId": "rehabeam",
+   "lijn": "leven",
+   "van": {
+    "jaar": 971,
+    "status": "benaderd",
+    "bron": [
+     "1 Koningen 14:21"
+    ],
+    "begin": "geboorte",
+    "opmerking": "‘Een en veertig jaren was Rehabeam oud, als hij koning werd’ (1 Koningen 14:21). Teruggerekend vanaf 930 v.Chr. werd hij rond 971 v.Chr. geboren, nog in de tijd van David. De Bijbel noemt geen geboortejaar."
+   },
+   "tot": {
+    "jaar": 913,
+    "status": "benaderd",
+    "bron": [
+     "1 Koningen 14:21",
+     "thiele"
+    ],
+    "einde": "stierf",
+    "leeftijd": 58,
+    "leeftijdStatus": "berekend: 41 + 17 jaar (1 Koningen 14:21)",
+    "opmerking": "Hij regeerde zeventien jaar (1 Koningen 14:21), tot ongeveer 913 v.Chr.: na het einde van deze tijdlijn."
+   },
+   "ouder": "salomo",
+   "rol": "Zoon van Salomo; na de scheuring koning over Juda",
+   "ref": [
+    "1 Koningen 12:1–24",
+    "1 Koningen 14:21–31"
+   ],
+   "gebeurtenissen": [
+    "scheuring",
+    "sisak-jeruzalem"
+   ],
+   "verhaal": "v62"
+  },
+  {
+   "id": "jerobeam",
+   "naam": "Jerobeam",
+   "alt": [],
+   "personenId": "jerobeam_1",
+   "lijn": "regering",
+   "van": {
+    "jaar": 930,
+    "status": "benaderd",
+    "bron": [
+     "1 Koningen 12:20",
+     "thiele"
+    ],
+    "begin": "regering",
+    "marge": [931,930],
+    "opmerking": "Eerder was hij voor Salomo gevlucht naar Egypte, naar Sisak (1 Koningen 11:40)."
+   },
+   "tot": {
+    "jaar": 909,
+    "status": "benaderd",
+    "bron": [
+     "1 Koningen 14:20",
+     "thiele"
+    ],
+    "einde": "stierf",
+    "opmerking": "Hij regeerde tweeëntwintig jaar (1 Koningen 14:20), tot ongeveer 910/909 v.Chr.: na het einde van deze tijdlijn."
+   },
+   "ouder": null,
+   "rol": "Koning over de tien stammen van Israël na de scheuring",
+   "ref": [
+    "1 Koningen 11:26–40",
+    "1 Koningen 12:20–33",
+    "1 Koningen 14:20"
+   ],
+   "gebeurtenissen": [
+    "scheuring"
+   ],
+   "verhaal": "v62"
+  },
+  {
+   "id": "sisak",
+   "naam": "Sisak",
+   "alt": [
+    "Sjosjenk I",
+    "Shoshenq I"
+   ],
+   "personenId": "sisak",
+   "lijn": "regering",
+   "van": {
+    "jaar": 943,
+    "status": "benaderd",
+    "bron": "sjosjenk",
+    "begin": "regering",
+    "opmerking": "Farao Sjosjenk I, de eerste koning van de 22e dynastie. De jaartallen van Egypte in deze tijd zijn niet precies: ook 945–924 v.Chr. komt voor."
+   },
+   "tot": {
+    "jaar": 922,
+    "status": "benaderd",
+    "bron": "sjosjenk",
+    "einde": "stierf"
+   },
+   "ouder": null,
+   "rol": "Koning van Egypte; Jerobeam vluchtte naar hem, later trok hij op tegen Jeruzalem",
+   "ref": [
+    "1 Koningen 11:40",
+    "1 Koningen 14:25–26"
+   ],
+   "gebeurtenissen": [
+    "sisak-jeruzalem"
+   ],
+   "verhaal": "v62",
+   "opmerking": "Dat Sisak dezelfde is als farao Sjosjenk I, is de gangbare opvatting, maar niet onomstreden."
+  }
+ ],
+ "gebeurtenissen": [
+  {
+   "id": "saul-koning",
+   "titel": "Saul wordt koning",
+   "tekst": "Het volk wil een koning, zoals alle volken om hen heen. Samuël zalft Saul uit de stam Benjamin tot de eerste koning van Israël.",
+   "jaar": 1050,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "1 Samuël 10:1",
+    "1 Samuël 10:17–24",
+    "Handelingen 13:21"
+   ],
+   "personen": [
+    "samuel",
+    "saul"
+   ],
+   "plaats": "mizpa",
+   "verhaal": "v50",
+   "belangrijk": false,
+   "stap": "1samuel:samuel:6",
+   "opmerking": "Teruggerekend met de veertig jaar van Saul (Handelingen 13:21) vanaf ca. 1010 v.Chr. Andere dateringen schuiven dit enkele tientallen jaren op."
+  },
+  {
+   "id": "goliath",
+   "titel": "David verslaat Goliath",
+   "tekst": "In het Eikdal staan Israël en de Filistijnen tegenover elkaar. De jonge David verslaat de reus Goliath uit Gath.",
+   "jaar": 1025,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "1 Samuël 17:2",
+    "1 Samuël 17:4",
+    "1 Samuël 17:50"
+   ],
+   "personen": [
+    "david",
+    "saul"
+   ],
+   "plaats": "elah",
+   "verhaal": "v52",
+   "belangrijk": false,
+   "stap": "1samuel:saul-david:4",
+   "opmerking": "De Bijbel noemt geen jaar; David was nog een jongeman (1 Samuël 17:33). Het jaartal volgt de Bijbelreis (ca. 1025 v.Chr., onzeker)."
+  },
+  {
+   "id": "dood-saul",
+   "titel": "Saul sterft op de Gilboa",
+   "tekst": "De Filistijnen verslaan Israël op het gebergte Gilboa. Saul en drie van zijn zonen, onder wie Jonathan, sneuvelen.",
+   "jaar": 1010,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "1 Samuël 31:1–6",
+    "bijbelreis-dateringen"
+   ],
+   "personen": [
+    "saul",
+    "david"
+   ],
+   "plaats": "gilboa",
+   "verhaal": "v55",
+   "belangrijk": true,
+   "stap": "1samuel:saul-david:10",
+   "opmerking": "In de gangbare reconstructie ca. 1010 v.Chr., vlak voordat David koning werd. Daarna woonden de Filistijnen in steden van Israël (1 Samuël 31:7)."
+  },
+  {
+   "id": "david-hebron",
+   "titel": "David koning in Hebron",
+   "tekst": "De mannen van Juda zalven David in Hebron tot koning over Juda. Over de andere stammen regeert Isboseth, een zoon van Saul.",
+   "jaar": 1010,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "2 Samuël 2:4",
+    "2 Samuël 2:10–11"
+   ],
+   "personen": [
+    "david"
+   ],
+   "plaats": "mamre",
+   "verhaal": "v56",
+   "belangrijk": false,
+   "stap": "2samuel:david:1",
+   "opmerking": "David regeerde zeven jaar en zes maanden in Hebron (2 Samuël 2:11); omgerekend ca. 1010–1003 v.Chr."
+  },
+  {
+   "id": "jeruzalem",
+   "titel": "David koning over heel Israël",
+   "tekst": "Alle stammen zalven David tot koning. Hij neemt de burg Sion in en Jeruzalem wordt ‘de stad Davids’ (2 Samuël 5:7).",
+   "jaar": 1003,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "2 Samuël 5:3–9",
+    "bijbelreis-dateringen"
+   ],
+   "personen": [
+    "david"
+   ],
+   "plaats": "salem",
+   "verhaal": "v56",
+   "belangrijk": true,
+   "stap": "2samuel:david:3",
+   "opmerking": "Na zeven jaar en zes maanden in Hebron (2 Samuël 5:5): omgerekend ca. 1003 v.Chr."
+  },
+  {
+   "id": "buurvolken",
+   "titel": "David verslaat de buurvolken",
+   "tekst": "David verslaat de Filistijnen, Moab, de Syriërs van Zoba en Damascus, Edom en Ammon. Zij moeten hem geschenken brengen.",
+   "jaar": 990,
+   "tot": null,
+   "status": "expliciet",
+   "bron": [
+    "2 Samuël 8:1–14",
+    "2 Samuël 10:1–19",
+    "2 Samuël 12:26–31"
+   ],
+   "personen": [
+    "david"
+   ],
+   "plaats": "dr_zoba",
+   "verhaal": null,
+   "belangrijk": false,
+   "marge": [1003,970],
+   "opmerking": "De Bijbel noemt geen jaren voor deze oorlogen, alleen dat ze in de tijd van David in Jeruzalem waren. Het jaartal 990 is een plaatsing: de oorlog met Ammon viel in de tijd van David en Bathseba, die de Bijbelreis rond 1000–990 v.Chr. zet."
+  },
+  {
+   "id": "salomo-koning",
+   "titel": "Salomo wordt koning",
+   "tekst": "Op bevel van de oude koning David wordt Salomo bij de Gihon tot koning gezalfd. Kort daarna sterft David.",
+   "jaar": 970,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "1 Koningen 1:32–40",
+    "1 Koningen 2:10–12"
+   ],
+   "personen": [
+    "salomo",
+    "david",
+    "nathan"
+   ],
+   "plaats": "salem",
+   "verhaal": "v60",
+   "belangrijk": false,
+   "stap": "1koningen:salomo:0",
+   "opmerking": "In de gangbare reconstructie ca. 970 v.Chr.: veertig jaar vóór de scheuring (1 Koningen 11:42)."
+  },
+  {
+   "id": "tempel",
+   "titel": "Salomo bouwt de tempel",
+   "tekst": "In het vierde jaar van zijn regering begint Salomo met de bouw van het huis van de HEERE. Hiram van Tyrus levert cederhout; na zeven jaar is de tempel klaar.",
+   "jaar": 966,
+   "tot": 959,
+   "status": "benaderd",
+   "bron": [
+    "1 Koningen 6:1",
+    "1 Koningen 6:37–38",
+    "1 Koningen 5:1–10"
+   ],
+   "personen": [
+    "salomo",
+    "hiram"
+   ],
+   "plaats": "salem",
+   "verhaal": "v61",
+   "belangrijk": true,
+   "stap": "1koningen:salomo:4",
+   "opmerking": "Van het vierde tot het elfde jaar van Salomo (1 Koningen 6:37–38); in de gangbare reconstructie ca. 966–959 v.Chr. Andere schema’s verschillen enkele jaren."
+  },
+  {
+   "id": "scheuring",
+   "titel": "Het rijk scheurt",
+   "tekst": "Rehabeam geeft het volk een hard antwoord. ‘Alzo vielen de Israëlieten van het huis Davids af’ (1 Koningen 12:19): tien stammen kiezen Jerobeam, Juda blijft bij Rehabeam.",
+   "jaar": 930,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "1 Koningen 12:1–20",
+    "thiele"
+   ],
+   "personen": [
+    "rehabeam",
+    "jerobeam",
+    "salomo"
+   ],
+   "plaats": "sichem",
+   "verhaal": "v62",
+   "belangrijk": true,
+   "stap": "1koningen:salomo:8",
+   "marge": [931,930],
+   "opmerking": "Volgens de gangbare reconstructie (Thiele) 931/930 v.Chr.; andere schema’s verschillen enkele jaren."
+  },
+  {
+   "id": "sisak-jeruzalem",
+   "titel": "Sisak trekt op tegen Jeruzalem",
+   "tekst": "In het vijfde jaar van Rehabeam komt de koning van Egypte. Hij neemt de schatten van de tempel en van het paleis mee, ook de gouden schilden van Salomo.",
+   "jaar": 925,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "1 Koningen 14:25–26",
+    "sjosjenk"
+   ],
+   "personen": [
+    "sisak",
+    "rehabeam"
+   ],
+   "plaats": "salem",
+   "verhaal": null,
+   "belangrijk": true,
+   "marge": [926,925],
+   "opmerking": "Het vijfde jaar van Rehabeam is omgerekend 926/925 v.Chr. In Karnak (Egypte) staat een lijst van plaatsen in Israël en de Negev die farao Sjosjenk I innam. Jeruzalem staat daar niet op; daarover verschillen de verklaringen. Dat Sisak Sjosjenk I is, is gangbaar, maar niet onomstreden."
+  }
+ ],
+ "gebieden": [
+  {
+   "id": "israel",
+   "naam": "Israël",
+   "kleur": "salie",
+   "hoofdstad": "jeruzalem",
+   "bron": [
+    "1 Samuël 31:7",
+    "2 Samuël 2:9",
+    "2 Samuël 5:5",
+    "1 Koningen 4:25",
+    "1 Koningen 12:20",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. Het land ‘van Dan tot Ber-seba’ (1 Koningen 4:25), met Gilead aan de overkant van de Jordaan. Onder Saul en de eerste jaren van David was Jeruzalem nog een stad van de Jebusieten; onder Isboseth hoorde Juda er niet bij, en na de scheuring ook niet.",
+   "sleutels": [
+    {
+     "jaar": 1050,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.05,31.9],[34.95,31.9],[34.95,31.6],[34.7,31.4],[34.7,31.15],[34.95,30.85],[35.3,30.95],[35.4,31.15],[35.55,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9]]
+      ]
+     },
+     "opmerking": "Het koninkrijk van Saul: alle stammen."
+    },
+    {
+     "jaar": 1011,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.05,31.9],[34.95,31.9],[34.95,31.6],[34.7,31.4],[34.7,31.15],[34.95,30.85],[35.3,30.95],[35.4,31.15],[35.55,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9]]
+      ]
+     }
+    },
+    {
+     "jaar": 1010,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.05,31.9],[34.95,31.9],[35.05,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9]]
+      ]
+     },
+     "opmerking": "Isboseth koning over Gilead, Jizreël, Efraïm, Benjamin en heel Israël; Juda volgt David (2 Samuël 2:9–10)."
+    },
+    {
+     "jaar": 1004,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.05,31.9],[34.95,31.9],[35.05,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9]]
+      ]
+     }
+    },
+    {
+     "jaar": 1003,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.05,31.9],[34.95,31.9],[34.95,31.6],[34.7,31.4],[34.7,31.15],[34.95,30.85],[35.3,30.95],[35.4,31.15],[35.55,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9]]
+      ]
+     },
+     "opmerking": "David koning over heel Israël en Juda (2 Samuël 5:3–5)."
+    },
+    {
+     "jaar": 931,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.05,31.9],[34.95,31.9],[34.95,31.6],[34.7,31.4],[34.7,31.15],[34.95,30.85],[35.3,30.95],[35.4,31.15],[35.55,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9]]
+      ]
+     }
+    },
+    {
+     "jaar": 930,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9],[35.45,31.9],[35.55,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65]]
+      ]
+     },
+     "opmerking": "Na de scheuring: de tien stammen onder Jerobeam (1 Koningen 12:20). Benjamin blijft bij Juda (1 Koningen 12:21)."
+    },
+    {
+     "jaar": 920,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.95,32.65],[35.55,32.65],[35.7,33.2],[35.7,33.4],[35.5,33.4],[35.35,33.15],[35.1,33.05],[34.95,32.85],[34.7,32.0],[35.05,31.9],[35.45,31.9],[35.55,31.8],[35.85,31.8],[35.95,32.2],[35.95,32.65]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "juda-hebron",
+   "naam": "Juda (Hebron)",
+   "kleur": "koraal",
+   "hoofdstad": "hebron",
+   "bron": [
+    "2 Samuël 2:4",
+    "2 Samuël 2:11",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. Juda onder David in Hebron, zeven jaar en zes maanden (2 Samuël 2:11).",
+   "sleutels": [
+    {
+     "jaar": 1010,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.55,31.8],[35.05,31.8],[34.95,31.9],[34.95,31.6],[34.7,31.4],[34.7,31.15],[34.95,30.85],[35.3,30.95],[35.55,31.8]]
+      ]
+     },
+     "opmerking": "David koning in Hebron."
+    },
+    {
+     "jaar": 1004,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.55,31.8],[35.05,31.8],[34.95,31.9],[34.95,31.6],[34.7,31.4],[34.7,31.15],[34.95,30.85],[35.3,30.95],[35.55,31.8]]
+      ]
+     },
+     "opmerking": "Daarna wordt David koning over heel Israël."
+    }
+   ]
+  },
+  {
+   "id": "juda",
+   "naam": "Juda",
+   "kleur": "koraal",
+   "hoofdstad": "jeruzalem",
+   "bron": [
+    "1 Koningen 12:20–21",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. Het koninkrijk Juda na de scheuring, met Benjamin (1 Koningen 12:21).",
+   "sleutels": [
+    {
+     "jaar": 930,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.95,31.9],[34.95,31.6],[34.7,31.4],[34.7,31.15],[34.95,30.85],[35.3,30.95],[35.4,31.15],[35.55,31.8],[35.45,31.9],[34.95,31.9]]
+      ]
+     },
+     "opmerking": "Rehabeam koning over Juda en Benjamin."
+    },
+    {
+     "jaar": 920,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.95,31.9],[34.95,31.6],[34.7,31.4],[34.7,31.15],[34.95,30.85],[35.3,30.95],[35.4,31.15],[35.55,31.8],[35.45,31.9],[34.95,31.9]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "onder-david",
+   "naam": "Onder David en Salomo",
+   "kleur": "zand",
+   "hoofdstad": null,
+   "bron": [
+    "2 Samuël 8:2",
+    "2 Samuël 8:6",
+    "2 Samuël 8:14",
+    "2 Samuël 12:29–31",
+    "1 Koningen 4:21",
+    "1 Koningen 11:14–25",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. De buurvolken die David versloeg en die geschenken brachten: Moab, Ammon, Edom en de Syriërs van Zoba en Damascus. Ze bleven eigen volken; daarom is dit geen grens maar een gebied “onder gezag”. Wanneer David hen versloeg, staat er niet (hier rond 990 geplaatst). Onder Salomo was Rezon in Damascus ‘Israëls tegenpartijder’ (1 Koningen 11:25), en Hadad in Edom ook; hoe ver het gezag toen nog reikte, is niet te tekenen. De Bijbel noemt het gebied ‘van de rivier tot het land der Filistijnen’ (1 Koningen 4:21); de weg naar de Eufraat is hier niet getekend.",
+   "sleutels": [
+    {
+     "jaar": 992,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [[[[35.7,33.2],[35.6,32.85],[35.95,32.75],[36.9,33.0],[37.3,33.6],[37.6,34.6],[37.0,34.9],[36.4,34.75],[36.05,34.4],[35.75,33.65],[35.7,33.2]]],
+       [[[35.95,30.3],[36.05,30.95],[35.7,31.0],[36.05,31.1],[36.1,31.6],[36.4,31.85],[36.35,32.2],[36.1,32.3],[35.95,32.2],[35.85,31.8],[35.55,31.8],[35.6,31.6],[35.5,31.05],[35.3,30.75],[34.9,29.6],[35.1,29.45],[35.6,29.8],[35.95,30.3]]
+       ]
+      ]
+     },
+     "opmerking": "Plaatsing: de oorlogen van 2 Samuël 8 en 10–12 hebben geen jaartal."
+    },
+    {
+     "jaar": 990,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [[[[35.7,33.2],[35.6,32.85],[35.95,32.75],[36.9,33.0],[37.3,33.6],[37.6,34.6],[37.0,34.9],[36.4,34.75],[36.05,34.4],[35.75,33.65],[35.7,33.2]]],
+       [[[35.95,30.3],[36.05,30.95],[35.7,31.0],[36.05,31.1],[36.1,31.6],[36.4,31.85],[36.35,32.2],[36.1,32.3],[35.95,32.2],[35.85,31.8],[35.55,31.8],[35.6,31.6],[35.5,31.05],[35.3,30.75],[34.9,29.6],[35.1,29.45],[35.6,29.8],[35.95,30.3]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": 931,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [[[[35.7,33.2],[35.6,32.85],[35.95,32.75],[36.9,33.0],[37.3,33.6],[37.6,34.6],[37.0,34.9],[36.4,34.75],[36.05,34.4],[35.75,33.65],[35.7,33.2]]],
+       [[[35.95,30.3],[36.05,30.95],[35.7,31.0],[36.05,31.1],[36.1,31.6],[36.4,31.85],[36.35,32.2],[36.1,32.3],[35.95,32.2],[35.85,31.8],[35.55,31.8],[35.6,31.6],[35.5,31.05],[35.3,30.75],[34.9,29.6],[35.1,29.45],[35.6,29.8],[35.95,30.3]]
+       ]
+      ]
+     },
+     "opmerking": "Na de dood van Salomo valt dit uiteen; de Bijbel zegt niet precies wanneer elk volk zelfstandig werd."
+    }
+   ]
+  },
+  {
+   "id": "filistea",
+   "naam": "Filistijnen",
+   "kleur": "terra",
+   "hoofdstad": "gath",
+   "bron": [
+    "1 Samuël 6:17",
+    "1 Samuël 17:4",
+    "2 Samuël 8:1",
+    "bijbelreis-plaatsen",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. De kustvlakte met de vijf steden van de Filistijnen: Gaza, Askelon, Asdod, Gath en Ekron (1 Samuël 6:17). David versloeg hen (2 Samuël 8:1), maar onder Salomo was in Gath nog een eigen koning (1 Koningen 2:39).",
+   "sleutels": [
+    {
+     "jaar": 1050,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.25,31.3],[34.5,31.25],[34.95,31.6],[34.95,31.9],[34.7,32.0],[34.25,31.3]]
+      ]
+     }
+    },
+    {
+     "jaar": 920,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.25,31.3],[34.5,31.25],[34.95,31.6],[34.95,31.9],[34.7,32.0],[34.25,31.3]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "fenicie",
+   "naam": "Fenicië",
+   "kleur": "kobalt",
+   "hoofdstad": "tyrus",
+   "bron": [
+    "2 Samuël 5:11",
+    "1 Koningen 5:1",
+    "hiram",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. De kuststrook met Tyrus en Sidon, tot de kam van de Libanon. Tyrus was bevriend met David en Salomo (1 Koningen 5:1).",
+   "sleutels": [
+    {
+     "jaar": 1050,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.1,33.05],[35.35,33.15],[35.75,33.65],[36.05,34.4],[35.8,34.45],[35.6,34.15],[35.1,33.25],[35.05,33.1],[35.1,33.05]]
+      ]
+     }
+    },
+    {
+     "jaar": 920,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.1,33.05],[35.35,33.15],[35.75,33.65],[36.05,34.4],[35.8,34.45],[35.6,34.15],[35.1,33.25],[35.05,33.1],[35.1,33.05]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "aram-zoba",
+   "naam": "Aram-Zoba",
+   "kleur": "oker",
+   "hoofdstad": "zoba",
+   "bron": [
+    "2 Samuël 8:3–6",
+    "1 Koningen 11:23–25",
+    "bijbelreis-plaatsen",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. De Syriërs (Arameeërs) van Zoba, met Damascus. Hun koning Hadad-ezer wilde zijn macht uitbreiden tot de Eufraat (2 Samuël 8:3); hoe ver zijn rijk reikte, is niet bekend.",
+   "sleutels": [
+    {
+     "jaar": 1050,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.6,32.85],[35.95,32.75],[36.9,33.0],[37.3,33.6],[37.6,34.6],[37.0,34.9],[36.4,34.75],[36.05,34.4],[35.75,33.65],[35.7,33.2],[35.6,32.85]]
+      ]
+     }
+    },
+    {
+     "jaar": 920,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.6,32.85],[35.95,32.75],[36.9,33.0],[37.3,33.6],[37.6,34.6],[37.0,34.9],[36.4,34.75],[36.05,34.4],[35.75,33.65],[35.7,33.2],[35.6,32.85]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ammon",
+   "naam": "Ammon",
+   "kleur": "bruin",
+   "hoofdstad": "rabba",
+   "bron": [
+    "2 Samuël 10:1–14",
+    "2 Samuël 12:26–31",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. De Ammonieten rond Rabba, aan de rand van de woestijn.",
+   "sleutels": [
+    {
+     "jaar": 1050,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.85,31.8],[36.1,31.6],[36.4,31.85],[36.35,32.2],[36.1,32.3],[35.95,32.2],[35.85,31.8]]
+      ]
+     }
+    },
+    {
+     "jaar": 920,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.85,31.8],[36.1,31.6],[36.4,31.85],[36.35,32.2],[36.1,32.3],[35.95,32.2],[35.85,31.8]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "moab",
+   "naam": "Moab",
+   "kleur": "olijf",
+   "hoofdstad": null,
+   "bron": [
+    "2 Samuël 8:2",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. Het hoogland ten oosten van de Dode Zee.",
+   "sleutels": [
+    {
+     "jaar": 1050,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.55,31.8],[35.6,31.6],[35.5,31.05],[35.7,31.0],[36.05,31.1],[36.1,31.6],[35.85,31.8],[35.55,31.8]]
+      ]
+     }
+    },
+    {
+     "jaar": 920,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.55,31.8],[35.6,31.6],[35.5,31.05],[35.7,31.0],[36.05,31.1],[36.1,31.6],[35.85,31.8],[35.55,31.8]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "edom",
+   "naam": "Edom",
+   "kleur": "rood",
+   "hoofdstad": null,
+   "bron": [
+    "2 Samuël 8:14",
+    "1 Koningen 9:26",
+    "1 Koningen 11:14–22",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. Het bergland ten zuiden van de Dode Zee, aan beide kanten van de Araba, tot aan de Schelfzee (1 Koningen 9:26).",
+   "sleutels": [
+    {
+     "jaar": 1050,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.5,31.05],[35.3,30.75],[34.9,29.6],[35.1,29.45],[35.6,29.8],[35.95,30.3],[36.05,30.95],[35.5,31.05]]
+      ]
+     }
+    },
+    {
+     "jaar": 920,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.5,31.05],[35.3,30.75],[34.9,29.6],[35.1,29.45],[35.6,29.8],[35.95,30.3],[36.05,30.95],[35.5,31.05]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egypte",
+   "naam": "Egypte",
+   "kleur": "lila",
+   "hoofdstad": null,
+   "bron": [
+    "1 Koningen 3:1",
+    "1 Koningen 9:16",
+    "1 Koningen 11:40",
+    "sjosjenk",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. Alleen het noorden is getekend (de Nijldelta en het Nijldal tot de Fajoem); Egypte liep verder naar het zuiden langs de Nijl. Salomo trouwde met een dochter van een farao (1 Koningen 3:1); die farao wordt niet bij naam genoemd.",
+   "sleutels": [
+    {
+     "jaar": 1050,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.6,29.2],[31.25,29.2],[31.6,30.1],[32.2,30.5],[32.55,31.05]]
+      ]
+     }
+    },
+    {
+     "jaar": 920,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.6,29.2],[31.25,29.2],[31.6,30.1],[32.2,30.5],[32.55,31.05]]
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "steden": [
+  {
+   "id": "jeruzalem",
+   "naam": "Jeruzalem",
+   "plaatsId": "salem",
+   "lat": 31.777,
+   "lng": 35.235,
+   "tekst": "De burg van de Jebusieten die David innam; daarna ‘de stad Davids’ (2 Samuël 5:7). Hier bouwde Salomo de tempel.",
+   "bron": [
+    "2 Samuël 5:6–9",
+    "1 Koningen 6:1"
+   ]
+  },
+  {
+   "id": "hebron",
+   "naam": "Hebron",
+   "plaatsId": "mamre",
+   "lat": 31.5251,
+   "lng": 35.1022,
+   "tekst": "Hier werd David eerst koning over Juda, zeven jaar en zes maanden.",
+   "bron": [
+    "2 Samuël 2:1–4",
+    "2 Samuël 2:11"
+   ]
+  },
+  {
+   "id": "gibea",
+   "naam": "Gibea",
+   "plaatsId": "gibea",
+   "lat": 31.82,
+   "lng": 35.23,
+   "tekst": "Woonplaats van koning Saul.",
+   "bron": [
+    "1 Samuël 10:26"
+   ]
+  },
+  {
+   "id": "sichem",
+   "naam": "Sichem",
+   "plaatsId": "sichem",
+   "lat": 32.213,
+   "lng": 35.282,
+   "tekst": "Hier kwam het volk bijeen om Rehabeam koning te maken; hier scheurde het rijk.",
+   "bron": [
+    "1 Koningen 12:1"
+   ]
+  },
+  {
+   "id": "dan",
+   "naam": "Dan",
+   "plaatsId": "dan",
+   "lat": 33.249,
+   "lng": 35.652,
+   "tekst": "Stad in het uiterste noorden: Israël woonde ‘van Dan tot Ber-seba’ (1 Koningen 4:25). Hier werden in 1993 en 1994 de stukken van de steen met “huis van David” gevonden.",
+   "bron": [
+    "1 Koningen 4:25",
+    "tel-dan"
+   ]
+  },
+  {
+   "id": "berseba",
+   "naam": "Berseba",
+   "plaatsId": "berseba",
+   "lat": 31.245,
+   "lng": 34.84,
+   "tekst": "Stad in het uiterste zuiden van het land.",
+   "bron": [
+    "1 Koningen 4:25"
+   ]
+  },
+  {
+   "id": "gath",
+   "naam": "Gath",
+   "plaatsId": "gath",
+   "lat": 31.7,
+   "lng": 34.85,
+   "tekst": "Een van de vijf steden van de Filistijnen; Goliath kwam hier vandaan.",
+   "bron": [
+    "1 Samuël 17:4"
+   ]
+  },
+  {
+   "id": "gaza",
+   "naam": "Gaza",
+   "plaatsId": "gaza",
+   "lat": 31.5,
+   "lng": 34.46,
+   "tekst": "Filistijnse stad in het zuiden, aan de weg naar Egypte.",
+   "bron": [
+    "1 Koningen 4:24"
+   ]
+  },
+  {
+   "id": "tyrus",
+   "naam": "Tyrus",
+   "plaatsId": "tyrus",
+   "lat": 33.27,
+   "lng": 35.2,
+   "tekst": "Havenstad van de Feniciërs. Koning Hiram stuurde cederhout en vaklieden naar Jeruzalem.",
+   "bron": [
+    "2 Samuël 5:11",
+    "1 Koningen 5:1–10"
+   ]
+  },
+  {
+   "id": "rabba",
+   "naam": "Rabba",
+   "plaatsId": "rabba",
+   "lat": 31.95,
+   "lng": 35.93,
+   "tekst": "Hoofdstad van de Ammonieten (nu Amman). Bij het beleg sneuvelde Uria.",
+   "bron": [
+    "2 Samuël 11:1",
+    "2 Samuël 12:26–29"
+   ]
+  },
+  {
+   "id": "damascus",
+   "naam": "Damascus",
+   "plaatsId": "damascusst",
+   "lat": 33.513,
+   "lng": 36.292,
+   "tekst": "Stad van de Syriërs. David legde er bezettingen; onder Salomo regeerde Rezon hier als tegenstander van Israël.",
+   "bron": [
+    "2 Samuël 8:6",
+    "1 Koningen 11:23–25"
+   ]
+  },
+  {
+   "id": "zoba",
+   "naam": "Zoba",
+   "plaatsId": "dr_zoba",
+   "lat": 33.9353,
+   "lng": 36.1508,
+   "tekst": "Koninkrijk van de Syriërs; David versloeg koning Hadad-ezer.",
+   "bron": [
+    "2 Samuël 8:3"
+   ]
+  },
+  {
+   "id": "hamath",
+   "naam": "Hamath",
+   "plaatsId": "dr_hamath",
+   "lat": 35.1365,
+   "lng": 36.75,
+   "tekst": "Stad aan de Orontes. Koning Thoï stuurde zijn zoon met geschenken naar David.",
+   "bron": [
+    "2 Samuël 8:9–10"
+   ]
+  },
+  {
+   "id": "ezeongeber",
+   "naam": "Ezeon-Geber",
+   "plaatsId": "ezeongeber",
+   "lat": 29.5472,
+   "lng": 34.9803,
+   "tekst": "Haven aan de Schelfzee in het land van Edom; hier liet Salomo schepen bouwen.",
+   "bron": [
+    "1 Koningen 9:26"
+   ]
+  }
+ ],
+ "koppelingen": [
+  {
+   "verhaal": "v50",
+   "jaar": 1050,
+   "tot": null,
+   "status": "benaderd",
+   "personen": [
+    "samuel",
+    "saul"
+   ],
+   "gebeurtenissen": [
+    "saul-koning"
+   ]
+  },
+  {
+   "verhaal": "v51",
+   "jaar": 1050,
+   "tot": 1025,
+   "status": "benaderd",
+   "personen": [
+    "samuel",
+    "saul",
+    "david"
+   ],
+   "gebeurtenissen": [],
+   "opmerking": "Saul wordt verworpen en David gezalfd. Hoe oud David toen was, zegt de Bijbel niet; de Bijbelreis zet het ruwweg tussen 1050 en 1025 v.Chr."
+  },
+  {
+   "verhaal": "v52",
+   "jaar": 1025,
+   "tot": null,
+   "status": "benaderd",
+   "personen": [
+    "david",
+    "saul"
+   ],
+   "gebeurtenissen": [
+    "goliath"
+   ]
+  },
+  {
+   "verhaal": "v53",
+   "jaar": 1050,
+   "tot": 1020,
+   "status": "benaderd",
+   "personen": [
+    "saul",
+    "david"
+   ],
+   "gebeurtenissen": [
+    "goliath"
+   ],
+   "opmerking": "Jonathan vecht bij Michmas vroeg in de regering van Saul; de vriendschap met David begint na Goliath. De precieze jaren staan niet in de Bijbel."
+  },
+  {
+   "verhaal": "v54",
+   "jaar": 1020,
+   "tot": 1010,
+   "status": "benaderd",
+   "personen": [
+    "david",
+    "saul",
+    "samuel"
+   ],
+   "gebeurtenissen": [],
+   "opmerking": "De laatste jaren van Saul. Hoe lang David op de vlucht was, zegt de Bijbel niet precies."
+  },
+  {
+   "verhaal": "v55",
+   "jaar": 1010,
+   "tot": null,
+   "status": "benaderd",
+   "personen": [
+    "saul",
+    "david"
+   ],
+   "gebeurtenissen": [
+    "dood-saul"
+   ]
+  },
+  {
+   "verhaal": "v56",
+   "jaar": 1010,
+   "tot": 1003,
+   "status": "benaderd",
+   "personen": [
+    "david"
+   ],
+   "gebeurtenissen": [
+    "david-hebron",
+    "jeruzalem"
+   ]
+  },
+  {
+   "verhaal": "v57",
+   "jaar": 1003,
+   "tot": 990,
+   "status": "benaderd",
+   "personen": [
+    "david",
+    "nathan"
+   ],
+   "gebeurtenissen": [
+    "jeruzalem"
+   ],
+   "opmerking": "Na de verovering van Jeruzalem; het precieze jaar staat niet in de Bijbel."
+  },
+  {
+   "verhaal": "v58",
+   "jaar": 1000,
+   "tot": 990,
+   "status": "benaderd",
+   "personen": [
+    "david",
+    "nathan"
+   ],
+   "gebeurtenissen": [
+    "buurvolken"
+   ],
+   "opmerking": "Tijdens de oorlog tegen Ammon (2 Samuël 11:1); het precieze jaar staat niet in de Bijbel."
+  },
+  {
+   "verhaal": "v59",
+   "jaar": 990,
+   "tot": 975,
+   "status": "benaderd",
+   "personen": [
+    "david"
+   ],
+   "gebeurtenissen": [],
+   "opmerking": "In de tweede helft van de regering van David; het precieze jaar staat niet in de Bijbel."
+  },
+  {
+   "verhaal": "v60",
+   "jaar": 970,
+   "tot": 950,
+   "status": "benaderd",
+   "personen": [
+    "salomo",
+    "david",
+    "nathan"
+   ],
+   "gebeurtenissen": [
+    "salomo-koning"
+   ],
+   "opmerking": "De droom in Gibeon aan het begin van de regering van Salomo; het bezoek van de koningin van Scheba later, na de bouw van de tempel en het paleis."
+  },
+  {
+   "verhaal": "v61",
+   "jaar": 966,
+   "tot": 959,
+   "status": "benaderd",
+   "personen": [
+    "salomo",
+    "hiram"
+   ],
+   "gebeurtenissen": [
+    "tempel"
+   ]
+  },
+  {
+   "verhaal": "v62",
+   "jaar": 940,
+   "tot": 930,
+   "status": "benaderd",
+   "personen": [
+    "salomo",
+    "rehabeam",
+    "jerobeam",
+    "sisak"
+   ],
+   "gebeurtenissen": [
+    "scheuring",
+    "sisak-jeruzalem"
+   ],
+   "opmerking": "In de ouderdom van Salomo en direct na zijn dood. Jerobeam vluchtte in die tijd naar Sisak in Egypte (1 Koningen 11:40)."
+  }
+ ]
+}

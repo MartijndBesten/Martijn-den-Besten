@@ -11,7 +11,7 @@ window.BR = window.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} };
   const AAN = true;
 
   /* REGISTER:BEGIN — geschreven door scripts/bijbelreis-wereld.mjs uit perioden/*.json; niet met de hand bewerken. */
-  const PERIODEN = {"adam-noach":{"titel":"Van Adam tot Noach","verhalen":{"v2":0,"v4":130,"v5":1656,"v6":1657}},"daniel-babylon":{"titel":"Daniël en Babylon","verhalen":{"v71":586,"v73":605,"v74":603,"v75":539,"v76":538}}};
+  const PERIODEN = {"adam-noach":{"titel":"Van Adam tot Noach","verhalen":{"v2":0,"v4":130,"v5":1656,"v6":1657}},"daniel-babylon":{"titel":"Daniël en Babylon","verhalen":{"v71":586,"v73":605,"v74":603,"v75":539,"v76":538}},"david-salomo":{"titel":"David en Salomo","verhalen":{"v50":1050,"v51":1050,"v52":1025,"v53":1050,"v54":1020,"v55":1010,"v56":1010,"v57":1003,"v58":1000,"v59":990,"v60":970,"v61":966,"v62":940}},"israel-assyrie":{"titel":"Israël, Juda en Assyrië","verhalen":{"v63":874,"v64":850,"v65":841,"v66":722,"v67":701,"v69":793,"v70":793,"v72":740}}};
   /* REGISTER:EIND */
 
   const heeftDom = typeof document !== "undefined" && typeof location !== "undefined";

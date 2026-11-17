@@ -1,0 +1,46 @@
+# Wereld in die tijd — David en Salomo (public/bijbelreis/wereld/perioden/david-salomo.json): getallen en jaartellingen
+# in de Bijbel waarop de jaartallen rusten, en de korte letterlijke citaten (ref | regex).
+# Gebruik: python3 scripts/bijbel-check.py scripts/bijbel-controle/wereld-david-salomo.txt
+# --- Regeringsjaren en leeftijden
+Handelingen 13:21 | God gaf hun Saul.*veertig jaren
+2 Samuël 5:4 | Dertig jaar was David oud.*veertig jaren heeft hij geregeerd
+2 Samuël 5:5 | Hebron regeerde hij over Juda zeven jaren en zes maanden.*drie en dertig jaren
+2 Samuël 2:11 | zeven jaren en zes maanden
+2 Samuël 2:10 | Veertig jaren was Isboseth.*tweede jaar
+1 Koningen 2:11 | veertig jaren; zeven jaren.*Hebron.*drie en dertig jaren
+1 Koningen 11:42 | Salomo te Jeruzalem over het ganse Israël regeerde, was veertig jaar
+1 Koningen 6:1 | vierhonderd en tachtigste jaar.*vierde jaar van het koninkrijk van Salomo
+1 Koningen 6:37 | In het vierde jaar werd de grond van het huis des HEEREN gelegd
+1 Koningen 6:38 | elfde jaar.*zeven jaren daaraan gebouwd
+1 Koningen 14:21 | een en veertig jaren was Rehabeam oud.*zeventien jaren
+1 Koningen 14:20 | twee en twintig jaren
+1 Koningen 14:25 | vijfde jaar van den koning Rehabeam.*Sisak, de koning van Egypte
+1 Koningen 14:26 | gouden schilden.*Salomo gemaakt had
+1 Koningen 11:40 | vlood in Egypte, tot Sisak
+1 Samuël 31:6 | Alzo stierf Saul, en zijn drie zonen
+1 Samuël 31:7 | Filistijnen en woonden daarin
+1 Samuël 17:4 | Goliath, van Gath
+1 Samuël 17:33 | jongeling
+2 Samuël 2:4 | zalfden aldaar David tot een koning over het huis van Juda
+2 Samuël 8:3 | Hadad-ezer.*koning van Zoba.*rivier Frath
+2 Samuël 8:6 | bezettingen in Syrië van Damaskus
+2 Samuël 8:14 | bezettingen in Edom
+2 Samuël 8:2 | Moabieten David tot knechten
+2 Samuël 5:11 | Hiram, de koning van Tyrus.*cederenhout
+1 Koningen 11:24 | regeerden in Damaskus
+1 Koningen 12:20 | stam van Juda alleen
+1 Koningen 12:21 | stam van Benjamin
+1 Koningen 9:26 | Ezeon-geber.*Eloth.*land van Edom
+1 Koningen 2:39 | Achis.*koning van Gath
+1 Koningen 3:1 | Farao.*dochter
+1 Samuël 6:17 | Asdod.*Gaza.*Askelon.*Gath.*Ekron
+1 Koningen 12:1 | Sichem
+# --- Korte letterlijke citaten
+2 Samuël 5:4 | Dertig jaar was David oud, als hij koning werd
+1 Samuël 25:1 | En Samuël stierf
+2 Samuël 5:7 | de stad Davids
+1 Koningen 12:19 | Alzo vielen de Israëlieten van het huis Davids af
+1 Koningen 4:25 | van Dan tot Ber-seba
+1 Koningen 11:25 | Israëls tegenpartijder
+1 Koningen 4:21 | van de rivier tot het land der Filistijnen
+1 Koningen 14:21 | Een en veertig jaren was Rehabeam oud, als hij koning werd
