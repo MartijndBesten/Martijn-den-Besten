@@ -71,7 +71,7 @@ wijst altijd naar bijbelreis.nl. De links op de pagina’s zijn relatief (`../#v
 
 ## 5. Nog te doen (niet in code)
 
-- **Google Search Console** en **Bing Webmaster Tools**: bijbelreis.nl toevoegen en `https://bijbelreis.nl/sitemap.xml`
+- **Google Search Console** en **Bing Webmaster Tools** (stappenplan: [`ZOEKMACHINES.md`](ZOEKMACHINES.md)): bijbelreis.nl toevoegen en `https://bijbelreis.nl/sitemap.xml`
   indienen. Dat vraagt een persoonlijke login (en DNS-verificatie of een bestand); daarom niet gedaan. Pas dan is te zien
   óf en hoe snel de pagina’s gevonden worden.
 - Eventueel later: in de atlas onder ‘Voor ouders en leiders’ een gewone link naar `/verhalen` (helpt zoekmachines en
