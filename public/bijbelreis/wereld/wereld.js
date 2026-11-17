@@ -37,6 +37,8 @@
     vorige: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M18 6.2v11.6a.8.8 0 0 1-1.25.66L9 13.1a1.3 1.3 0 0 1 0-2.2l7.75-5.36A.8.8 0 0 1 18 6.2z" fill="currentColor"/></svg>',
     volgende: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M6 6.2v11.6a.8.8 0 0 0 1.25.66L15 13.1a1.3 1.3 0 0 0 0-2.2L7.25 5.54A.8.8 0 0 0 6 6.2z" fill="currentColor"/></svg>',
     sluit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
+    // De reiziger op de kaart: een klein, gezichtsloos pictogram met een staf (Mozes, en het volk achter hem).
+    reiziger: '<svg viewBox="0 0 24 32" aria-hidden="true"><circle class="wt-rz-hoofd" cx="11" cy="6" r="4.2"/><path class="wt-rz-lijf" d="M5.2 29.5 7 14.6c.3-2.2 2-3.6 4-3.6s3.7 1.4 4 3.6l1.8 14.9z"/><path class="wt-rz-staf" d="M19.5 9.5v21"/></svg>',
     kaart: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 12l11-4 14 5 11-4v27l-11 4-14-5-11 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M17 8v27M31 13v27" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/><circle cx="24" cy="23" r="3" fill="currentColor" opacity=".35"/></svg>',
   };
 
@@ -44,6 +46,8 @@
   const LIJN = { leven: "leeft", regering: "regeert", "in Babel": "in Babel", profeet: "profeet" };
   const VOOR = { geboorte: "nog niet geboren", regering: "nog geen koning", weggevoerd: "nog niet weggevoerd", roeping: "nog niet geroepen", genoemd: "nog niet genoemd" };
   const BEGIN = { geboorte: "Geboren", regering: "Koning vanaf", weggevoerd: "Weggevoerd", roeping: "Geroepen", genoemd: "Eerst genoemd" };
+  // Een begin dat niet precies bekend is (± bij de leeftijd); een afgekapte lijn met bekende geboorte (Aäron) telt niet.
+  const onzeker = (p) => p.beginOnzeker && !p.geboorteBekend;
   // ambt (optioneel, per persoon): het woord voor de functie als het geen koning is (‘keizer’, ‘stadhouder’, ‘koningin’).
   const lijnWoord = (p) => (p.ambt && p.begin !== "geboorte" ? p.ambt : p.begin === "regering" && p.lijn === "regering" ? "koning" : p.begin === "geboorte" ? "leeft" : LIJN[p.lijn] || p.lijn);
   // Kort genoeg voor de naamkolom op de telefoon: ‘nog geen keizer’, maar ‘nog niet’ bij een lang woord (stadhouder).
@@ -73,7 +77,7 @@
     schil.innerHTML = '<div class="wt-app wt-laadt"><p class="wt-laden" role="status">Even laden…</p></div>';
     fetch(opts.url).then((r) => { if (!r.ok) throw new Error("niet gevonden (" + r.status + ")"); return r.json(); })
       .then((data) => {
-        const fout = K.controleer(data, { plaatsen: BR.plaatsen, mensen: BR.mensen, verhalen: new Set((BR.geschiedenissen || []).map((g) => "v" + g.nr)) });
+        const fout = K.controleer(data, { plaatsen: BR.plaatsen, W: BR.W, stappen: K.stappenVan(BR.boeken), mensen: BR.mensen, verhalen: new Set((BR.geschiedenissen || []).map((g) => "v" + g.nr)) });
         if (fout.some((f) => /^(geen gegevens|as ontbreekt)/.test(f)) || !((data.personen || []).length || (data.gebieden || []).length || (data.gebeurtenissen || []).length)) throw new Error("onvolledig");
         if (fout.length) console.warn("Bijbelreis, De wereld in die tijd: " + fout.join("; "));
         bouw(schil, data, opts);
@@ -97,14 +101,14 @@
 
   // ---------- opbouw ----------
   function bouw(schil, data, opts) {
-    const M = K.bereid(data, { plaatsen: BR.plaatsen });
+    const M = K.bereid(data, { plaatsen: BR.plaatsen, W: BR.W, boeken: BR.boeken });
     const snel = opslag.get("wereldSnelheid", "normaal");
     S = {
       periode: opts.periode, data, M, as: M.as, t: M.tMin, venster: [M.tMin, M.tMax], speelt: false,
       snelheid: SNELHEID[snel] ? snel : "normaal", gekozen: null, vergelijk: null, weergave: "lijnen", koppeling: opts.koppeling || null,
       terugNaam: opts.terugNaam || "", momenten: K.momenten(M), bereikt: new Set(), kaart: null, blad: null, rh: 40,
     };
-    const as = M.as, label = asLabel(as);
+    const as = M.as, label = as.soort === "leeftijd" ? as.label || "" : asLabel(as);
     const titel = esc(data.titel).replace(/^(Van )(\S+)( tot )(\S+)$/, '$1<em>$2</em>$3<em>$4</em>');
     const rijen = M.personen.map((p) => `<li class="wt-rij" data-p="${esc(p.id)}"><button type="button" class="wt-naam" data-p="${esc(p.id)}" aria-describedby="wtSub-${esc(p.id)}"><b>${esc(p.naam)}</b><span class="wt-naam-sub" id="wtSub-${esc(p.id)}"></span></button></li>`).join("");
     const merken = M.gebeurtenissen.map((e) => `<i class="wt-merk${e.belangrijk ? " groot" : ""}" style="left:${pct(e.t)}%" data-ev="${esc(e.id)}"></i>`).join("");
@@ -140,7 +144,7 @@
       <div class="wt-bediening" role="group" aria-label="Tijd">
         <p class="wt-onderschrift" aria-hidden="true"><span class="wt-os-jaar"></span><b class="wt-os-titel">Druk op afspelen en zie de tijd lopen</b><span class="wt-os-tekst"></span></p>
         <div class="wt-schuifrij">
-          <div class="wt-schuif"><div class="wt-schuif-merken" aria-hidden="true">${merken}</div><input type="range" id="wtSchuif" min="${M.tMin}" max="${M.tMax}" step="${as.stap || 1}" value="${M.tMin}" aria-label="Jaar"></div>
+          <div class="wt-schuif"><div class="wt-schuif-merken" aria-hidden="true">${merken}</div><input type="range" id="wtSchuif" min="${M.tMin}" max="${M.tMax}" step="${as.soort === "leeftijd" ? "any" : as.stap || 1}" value="${M.tMin}" aria-label="Jaar"></div>
           <div class="wt-randen" aria-hidden="true"><span>${esc(K.jaarTekst(M.tMin, as))}</span><span>${esc(K.jaarTekst(M.tMax, as))}</span></div>
         </div>
         <div class="wt-knoppen">
@@ -181,7 +185,7 @@
   }
   const pct = (t) => (S ? ((t - S.M.tMin) / ((S.M.tMax - S.M.tMin) || 1)) * 100 : 0);
   function asLabel(as) {
-    if (as.soort !== "am") return "";
+    if (!K.telt(as)) return "";
     return String(as.label || "na de schepping").replace(/^jaar\s+/i, "");
   }
   // Een jaar of een tijdvak: ‘1656–1657’, ‘603–562 v.Chr.’
@@ -189,7 +193,7 @@
     if (!(t2 > t1)) return K.jaarTekst(t1, S.as);
     return K.tweeJaren(Math.round(K.naarJaar(t1, S.as)), Math.round(K.naarJaar(t2, S.as)), S.as);
   }
-  const jaarVol = (t) => K.jaarTekst(t, S.as) + (S.as.soort === "am" ? " " + asLabel(S.as) : "");
+  const jaarVol = (t) => K.jaarTekst(t, S.as) + (K.telt(S.as) ? " " + asLabel(S.as) : "");
   function zetTerugKnop() {
     D.terug.querySelector("span").textContent = S.terugNaam ? "Terug naar het verhaal" : "Terug";
     D.terug.setAttribute("aria-label", S.terugNaam ? `Terug naar het verhaal: ${S.terugNaam}` : "Terug naar de Bijbelreis");
@@ -321,6 +325,11 @@
   function tempo(t) {
     const span = S.M.tMax - S.M.tMin, zone = span * 0.012;
     let f = 1;
+    // Drukke stukken uit de gegevens (as.tempo), met een zachte overgang aan de randen.
+    for (const z of S.M.tempo || []) {
+      const rand = Math.max(1e-6, (z.t1 - z.t0) * 0.08), d = t < z.t0 ? z.t0 - t : t > z.t1 ? t - z.t1 : 0;
+      if (d < rand) f = Math.min(f, z.factor + (1 - z.factor) * (d / rand));
+    }
     for (const e of S.M.gebeurtenissen) if (e.belangrijk) { const d = t < e.t ? e.t - t : t > e.t2 ? t - e.t2 : 0; if (d < zone) f = Math.min(f, 0.28 + 0.72 * (d / zone)); }
     return f;
   }
@@ -382,7 +391,7 @@
     });
     teken(t, vorig, vooruit);
     const jt = K.jaarTekst(t, S.as, true);
-    if (D.oud.jaar !== jt) { D.jaar.textContent = S.as.soort === "am" ? Math.round(t) : K.jaarTekst(t, S.as); D.oud.jaar = jt; }
+    if (D.oud.jaar !== jt) { D.jaar.textContent = K.telt(S.as) ? Math.round(t) : K.jaarTekst(t, S.as); D.oud.jaar = jt; }
     D.schuif.value = t;
     D.schuif.setAttribute("aria-valuetext", jaarVol(t));
     D.schuif.style.setProperty("--pct", pct(t) + "%");
@@ -580,7 +589,7 @@
       if (o.oud.b !== breedte) { o.balk.setAttribute("width", breedte); o.oud.b = breedte; }
       if (staat === "leeft" && o.oud.xc !== xc) { o.tip.setAttribute("cx", xc); o.oud.xc = xc; }
       const ld = staat === "leeft" ? K.leeftijd(p, t) : null;
-      const ldTekst = ld == null ? "" : (p.beginOnzeker ? "±" : "") + ld;
+      const ldTekst = ld == null ? "" : (onzeker(p) ? "±" : "") + ld;
       if (o.oud.ld !== ldTekst) { o.ld.textContent = ldTekst; o.oud.ld = ldTekst; }
       if (staat === "leeft") o.ld.setAttribute("x", xc + 9);
       if (o.oud.staat !== staat) {
@@ -591,7 +600,7 @@
       // Geboren tijdens het afspelen: een korte bloei op het begin van de lijn.
       if (vooruit && vorig < p.t0 && t >= p.t0 && !minderBeweging()) { o.bloei.classList.remove("aan"); void o.bloei.getBoundingClientRect(); o.bloei.classList.add("aan"); }
       if (vooruit && p.einde === "weggenomen" && vorig < p.t1 && t >= p.t1 && !minderBeweging() && o.eind) { o.eind.classList.remove("licht"); void o.eind.getBoundingClientRect(); o.eind.classList.add("licht"); }
-      const sub = !geboren ? (p.van && p.van.jaar == null ? "" : voorWoord(p)) : staat === "leeft" ? (ld == null ? lijnWoord(p) : `${p.beginOnzeker ? "ca. " : ""}${ld} jaar`) : einde(p, false) + (p.einde === "stierf" && p.tot && p.tot.leeftijd != null ? ` · ${p.tot.leeftijd}` : "");
+      const sub = !geboren ? (p.van && p.van.jaar == null ? "" : voorWoord(p)) : staat === "leeft" ? (ld == null ? lijnWoord(p) : `${onzeker(p) ? "ca. " : ""}${ld} jaar`) : einde(p, false) + (p.einde === "stierf" && p.tot && p.tot.leeftijd != null ? ` · ${p.tot.leeftijd}` : "");
       if (D.oud["s" + p.id] !== sub) { D.sub.get(p.id).textContent = sub; D.oud["s" + p.id] = sub; }
       const gl = D.gen.get(p.id);
       if (gl && gl.oud !== geboren) { gl.pad.classList.toggle("aan", geboren); gl.stip.classList.toggle("aan", geboren); gl.oud = geboren; }
@@ -741,10 +750,10 @@
     const relatie = [ouder ? `zoon van <button type="button" class="wt-link" data-p="${esc(ouder.id)}">${esc(ouder.naam)}</button>` : "", kids.length ? `vader van ${kids.map((k) => `<button type="button" class="wt-link" data-p="${esc(k.id)}">${esc(k.naam)}</button>`).join(", ")}` : ""].filter(Boolean).join(" · ");
     const van = p.van || {}, tot = p.tot || {};
     const margeTekst = (m) => (Array.isArray(m) ? K.tweeJaren(m[0], m[1], as, true) : m ? String(m) : "");
-    const geb = van.jaar != null ? `<b>${esc(p.voorAs ? "vóór " + K.jaarTekst(p.t0, as) : K.jaarTekst(K.naarT(van.jaar, as), as))}</b> ${chip(van.status)}<small>${van.vaderLeeftijd != null && ouder ? `${esc(ouder.naam)} was ${van.vaderLeeftijd} · ` : ""}${bronTekst(van.bron)}${van.marge ? ` · ${esc(margeTekst(van.marge))}` : ""}</small>` : `<b>onbekend</b>`;
+    const geb = van.jaar != null ? `<b>${esc(p.voorAs && !p.geboorteBekend ? "vóór " + K.jaarTekst(p.t0, as) : K.jaarTekst(K.naarT(van.jaar, as), as))}</b> ${chip(van.status)}<small>${van.vaderLeeftijd != null && ouder ? `${esc(ouder.naam)} was ${van.vaderLeeftijd} · ` : ""}${bronTekst(van.bron)}${van.marge ? ` · ${esc(margeTekst(van.marge))}` : ""}</small>` : `<b>onbekend</b>`;
     const eindWoord = p.einde === "weggenomen" ? "Weggenomen" : p.einde === "afgezet" ? "Afgezet" : p.einde === "onbekend" ? "Einde" : p.einde === "leeft door" ? "Daarna" : "Stierf";
     const eindTekst = p.einde === "onbekend" ? `<b>onbekend</b><small>laatst genoemd in ${esc(K.jaarTekst(p.t1, as))}${tot.marge ? ` (${esc(margeTekst(tot.marge))})` : ""} · ${bronTekst(tot.bron)}</small>`
-      : p.einde === "leeft door" ? `<b>${esc(K.jaarTekst(K.naarT(tot.jaar, as), as))}</b> ${chip(tot.status)}<small>na het einde van deze tijdlijn · ${bronTekst(tot.bron)}</small>`
+      : p.einde === "leeft door" ? `<b>${tot.jaar != null ? esc(K.jaarTekst(K.naarT(tot.jaar, as), as)) : "na deze tijdlijn"}</b> ${chip(tot.status)}<small>${tot.jaar != null ? "na het einde van deze tijdlijn · " : ""}${bronTekst(tot.bron)}</small>`
       : `<b>${esc(K.jaarTekst(p.t1, as))}</b> ${chip(tot.status)}<small>${tot.leeftijd != null ? `${tot.leeftijd} jaar oud${tot.leeftijdStatus === "berekend" ? " (berekend)" : ""} · ` : ""}${bronTekst(tot.bron)}</small>`;
     const noten = [p.opmerking, van.opmerking, tot.opmerking].filter(Boolean).map((x) => `<p class="wt-noot">${esc(x)}</p>`).join("");
     // Wie leefden tegelijk, en hoe lang (uitgerekend, niet overgenomen).
@@ -762,7 +771,7 @@
       ${tegelijk.length ? `<h4 class="wt-label">${p.begin === "geboorte" && allesLevens() ? "Leefde tegelijk met" : "Tegelijk op de tijdlijn met"}</h4><p class="wt-uitleg">Kies iemand om te vergelijken.</p><p class="wt-vergelijking" aria-live="polite">${S.vergelijk ? vergelijkZin(p, M.byId.get(S.vergelijk)) : ""}</p><ul class="wt-tegelijk">${tegelijk.map(({ q, o }) => `<li><button type="button" data-vergelijk="${esc(q.id)}" aria-pressed="${q.id === S.vergelijk}"><span>${esc(q.naam)}</span><b>${o.minstens ? "≥ " : o.ongeveer ? "± " : ""}${o.jaren} jaar</b></button></li>`).join("")}</ul>` : ""}
       ${niet.length ? `<p class="wt-niet">Niet tegelijk met ${niet.map(({ q }) => `<button type="button" class="wt-link" data-vergelijk="${esc(q.id)}">${esc(q.naam)}</button>`).join(", ")}.</p>` : ""}
       ${!tegelijk.length ? `<p class="wt-vergelijking" aria-live="polite">${S.vergelijk ? vergelijkZin(p, M.byId.get(S.vergelijk)) : ""}</p>` : ""}
-      ${ev.length ? `<h4 class="wt-label">Gebeurtenissen</h4><ul class="wt-evlijst">${ev.map((e) => `<li><button type="button" data-naar="${e.t}"><span>${esc(K.jaarTekst(e.t, as, as.soort === "am"))}</span>${esc(e.titel)}</button></li>`).join("")}</ul>` : ""}
+      ${ev.length ? `<h4 class="wt-label">Gebeurtenissen</h4><ul class="wt-evlijst">${ev.map((e) => `<li><button type="button" data-naar="${e.t}"><span>${esc(K.jaarTekst(e.t, as, K.telt(as)))}</span>${esc(e.titel)}</button></li>`).join("")}</ul>` : ""}
       <p class="wt-lees"><span class="wt-label">Lees in je Bijbel</span> ${(p.ref || []).map(esc).join(" · ")}</p>
       ${verhaal}
     </article>`;
@@ -778,7 +787,7 @@
     const ld = K.leeftijd(p, S.t);
     // Een lijn die geen leven is (regering, profeet, eerst genoemd), spreekt niet van geboren of leven.
     const leven = p.begin === "geboorte";
-    dd.textContent = S.t < p.t0 ? `${leven ? "nog niet geboren" : voorWoord(p)} (over ${Math.ceil(p.t0 - S.t)} jaar)` : K.leeftNog(p, S.t) ? (!leven ? lijnWoord(p) : ld == null || p.beginOnzeker ? "leeft" : `${ld} jaar oud`) : p.einde === "onbekend" ? (leven ? "niet bekend of hij nog leeft" : "einde onbekend") : p.einde === "weggenomen" ? "door God weggenomen" : p.einde === "afgezet" ? "afgezet" : "overleden";
+    dd.textContent = S.t < p.t0 ? `${leven ? "nog niet geboren" : voorWoord(p)} (over ${Math.ceil(p.t0 - S.t)} jaar)` : K.leeftNog(p, S.t) ? (!leven ? lijnWoord(p) : ld == null || onzeker(p) ? "leeft" : `${ld} jaar oud`) : p.einde === "onbekend" ? (leven ? "niet bekend of hij nog leeft" : "einde onbekend") : p.einde === "weggenomen" ? "door God weggenomen" : p.einde === "afgezet" ? "afgezet" : "overleden";
   }
   function toonGebeurtenis(id, van) {
     const e = S.M.gebeurtenissen.find((x) => x.id === id); if (!e) return;
@@ -797,9 +806,14 @@
     S.gekozen = null; gekozenKlassen(); tekenVergelijk();
     toonInfo(html, "gebeurtenis");
   }
+  // Hoe zeker is een ligging (plaatsen.js, c), in woorden voor het kaartje.
+  const ZEKER = { v: "De plek is bekend.", w: "Waarschijnlijk hier.", b: "Betwist: onderzoekers noemen ook andere plekken.", o: "Waar precies, weten we niet: het punt is alleen een aanwijzing." };
   function toonStad(id, van) {
     const s = S.M.steden.find((x) => x.id === id); if (!s) return;
-    const html = `<article class="wt-kaartje" aria-labelledby="wtInfoTitel"><header class="wt-kaartje-kop"><p class="wt-label">Stad</p><h3 id="wtInfoTitel" tabindex="-1">${esc(s.naam)}</h3><button type="button" class="wt-kaartje-sluit" data-wt-info-sluit aria-label="Sluiten">${ICON.sluit}</button></header>${s.tekst ? `<p class="wt-rolzin">${esc(s.tekst)}</p>` : ""}<p class="wt-lees"><span class="wt-label">Bron</span> ${bronTekst(s.bron)}</p></article>`;
+    const pl = S.M.reis && s.plaatsId && BR.plaatsen ? BR.plaatsen[s.plaatsId] : null;
+    const ligging = pl && (pl.nu || pl.bron) ? `<p class="wt-noot">${ZEKER[pl.c] ? `<b>${esc(ZEKER[pl.c])}</b> ` : ""}${pl.nu ? `Nu: ${esc(pl.nu)}. ` : ""}${pl.bron ? esc(ZEKER[pl.c] ? pl.bron.replace(/^(Betwist|Onbekend)[.;:]\s*(.)/, (m, w, c) => c.toUpperCase()) : pl.bron) : ""}</p>${pl.c === "b" && Array.isArray(pl.alt) && pl.alt.length ? `<p class="wt-relatie">Andere mogelijke plekken: ${pl.alt.map((a) => esc(a[2] || "")).filter(Boolean).join(", ")}</p>` : ""}` : "";
+    const soort = pl && pl.t === "berg" ? "Berg" : pl && pl.t === "water" ? "Water" : pl && (pl.t === "kamp" || pl.t === "put") ? "Legerplaats" : "Plaats";
+    const html = `<article class="wt-kaartje" aria-labelledby="wtInfoTitel"><header class="wt-kaartje-kop"><p class="wt-label">${S.M.reis ? soort : "Stad"}</p><h3 id="wtInfoTitel" tabindex="-1">${esc(s.naam)}</h3><button type="button" class="wt-kaartje-sluit" data-wt-info-sluit aria-label="Sluiten">${ICON.sluit}</button></header>${s.tekst ? `<p class="wt-rolzin">${esc(s.tekst)}</p>` : ""}${ligging}<p class="wt-lees"><span class="wt-label">Bron</span> ${bronTekst(s.bron)}</p></article>`;
     S.infoVan = van || null;
     toonInfo(html, "stad");
   }
@@ -872,11 +886,11 @@
     const leven = M.personen.filter((p) => K.leeftNog(p, t));
     const recent = [...M.gebeurtenissen].reverse().find((e) => e.t <= t + 1e-6);
     const volgend = M.gebeurtenissen.find((e) => e.t > t + 1e-6);
-    const oudste = leven.filter((p) => !p.beginOnzeker).sort((a, b) => a.t0 - b.t0)[0];
+    const oudste = leven.filter((p) => !onzeker(p)).sort((a, b) => (a.tGeboren != null ? a.tGeboren : a.t0) - (b.tGeboren != null ? b.tGeboren : b.t0))[0];
     D.nu.innerHTML = `<p class="wt-label">In ${esc(K.jaarTekst(t, as))}</p>
       <p class="wt-nu-getal"><b>${leven.length}</b> <span>${allesLevens() ? `van de ${M.personen.length} mensen op deze tijdlijn leven${leven.length === 1 ? "t" : ""}${oudste && leven.length > 1 ? `. De oudste is ${esc(oudste.naam)}, ${K.leeftijd(oudste, t)} jaar` : ""}` : `van de ${M.personen.length} personen ${leven.length === 1 ? "is" : "zijn"} nu in beeld${leven.length ? ": " + leven.map((p) => `${esc(p.naam)} <small>(${esc(lijnWoord(p))})</small>`).join(", ") : ""}`}.</span></p>
-      ${recent ? `<div class="wt-nu-ev"><p class="wt-label">Laatst gebeurd · ${esc(K.jaarTekst(recent.t, as, as.soort === "am"))}</p><button type="button" class="wt-nu-titel" data-e="${esc(recent.id)}">${esc(recent.titel)}</button><p>${esc(recent.tekst)}</p></div>` : ""}
-      ${volgend ? `<p class="wt-nu-straks"><span class="wt-label">Hierna</span> <button type="button" class="wt-link" data-naar="${volgend.t}">${esc(volgend.titel)}</button>, over ${Math.round(volgend.t - t)} jaar</p>` : ""}
+      ${recent ? `<div class="wt-nu-ev"><p class="wt-label">Laatst gebeurd · ${esc(K.jaarTekst(recent.t, as, K.telt(as)))}</p><button type="button" class="wt-nu-titel" data-e="${esc(recent.id)}">${esc(recent.titel)}</button><p>${esc(recent.tekst)}</p></div>` : ""}
+      ${volgend ? `<p class="wt-nu-straks"><span class="wt-label">Hierna</span> <button type="button" class="wt-link" data-naar="${volgend.t}">${esc(volgend.titel)}</button>${Math.round(volgend.t - t) >= 1 ? `, over ${Math.round(volgend.t - t)} jaar` : ", nog in hetzelfde jaar"}</p>` : ""}
       <p class="wt-tip">Kies een naam om te zien wie er tegelijk leefden, en hoe lang.</p>`;
   }
   function lijstOpbouw() {
@@ -887,7 +901,7 @@
       if (dubbel(m)) return `<li class="wt-m dubbel" data-i="${i}" hidden></li>`;
       if (m.soort === "gebeurtenis") {
         const e = M.gebeurtenissen.find((x) => x.id === m.gebeurtenis);
-        return `<li class="wt-m gebeurtenis" data-i="${i}"><span class="wt-m-jaar">${esc(K.jaarTekst(e.t, as, as.soort === "am"))}</span><div><button type="button" class="wt-m-titel" data-naar="${e.t}">${esc(e.titel)}</button> ${chip(e.status)}<p>${esc(e.tekst)}</p><p class="wt-bron">${bronTekst(e.bron)}</p></div></li>`;
+        return `<li class="wt-m gebeurtenis" data-i="${i}"><span class="wt-m-jaar">${esc(K.jaarTekst(e.t, as, K.telt(as)))}</span><div><button type="button" class="wt-m-titel" data-naar="${e.t}">${esc(e.titel)}</button> ${chip(e.status)}<p>${esc(e.tekst)}</p><p class="wt-bron">${bronTekst(e.bron)}</p></div></li>`;
       }
       const p = M.byId.get(m.persoon);
       // Het begin van een lijn is niet altijd een geboorte (een regering, de wegvoering, de roeping).
@@ -895,7 +909,7 @@
       const wat = m.soort === "geboorte" ? `${esc(p.naam)} ${begint}` : m.soort === "weggenomen" ? `God neemt ${esc(p.naam)} weg` : m.soort === "afgezet" ? `${esc(p.naam)} wordt afgezet` : `${esc(p.naam)} sterft${p.tot && p.tot.leeftijd != null ? `, ${p.tot.leeftijd} jaar oud` : ""}`;
       const st = m.soort === "geboorte" ? p.van.status : p.tot.status;
       // Een status alleen als hij afwijkt van die van de tijdrekening (anders staat er dertien keer ‘berekend’).
-      return `<li class="wt-m ${m.soort}" data-i="${i}"><span class="wt-m-jaar">${esc(K.jaarTekst(m.t, as, as.soort === "am"))}</span><div><button type="button" class="wt-m-titel klein" data-naar="${m.t}">${wat}</button> ${st !== as.status ? chip(st) : ""}</div></li>`;
+      return `<li class="wt-m ${m.soort}" data-i="${i}"><span class="wt-m-jaar">${esc(K.jaarTekst(m.t, as, K.telt(as)))}</span><div><button type="button" class="wt-m-titel klein" data-naar="${m.t}">${wat}</button> ${st !== as.status ? chip(st) : ""}</div></li>`;
     }).join("");
   }
   function lijstBij() {
@@ -937,7 +951,9 @@
     m.createPane("wtGebieden").style.zIndex = 420;
     m.createPane("wtRand").style.zIndex = 450;
     m.createPane("wtLabels").style.zIndex = 640;
-    m.getPane("wtRand").style.pointerEvents = "none";
+    m.createPane("wtReis").style.zIndex = 430;
+    m.createPane("wtReiziger").style.zIndex = 660;
+    ["wtRand", "wtReis", "wtReiziger"].forEach((n) => (m.getPane(n).style.pointerEvents = "none"));
     // De ondergrond houdt ergens op (geo.json: 4–57° O, 22–47° N; BR.ondergrond geeft de rand). Daarbuiten: papier met een
     // kaderlijn, zoals in een atlas, en gebieden worden op die rand afgeknipt, met ‘loopt verder naar het oosten →’.
     const zetRand = (gr) => {
@@ -954,25 +970,45 @@
     };
     if (BR.ondergrond) BR.ondergrond(m).then((gr) => { if (S && S.kaart && S.kaart.m === m && Array.isArray(gr)) zetRand(gr); }).catch(() => D.kaartvlak.insertAdjacentHTML("beforeend", '<p class="wt-kaartfout" role="status">De ondergrond kon niet worden geladen.</p>'));
     const gebieden = M.gebieden.map((g) => {
-      const laag = L.polygon([], { pane: "wtGebieden", className: `wt-gebied wt-gebied-${g.id}`, interactive: false, smoothFactor: 0.5 }).addTo(m);
+      // Een landstreek (soort ‘streek’) is een zacht vlak zonder grenslijn: geen rijk, geen grens (bijv. Egypte bij Mozes).
+      const laag = L.polygon([], { pane: "wtGebieden", className: `wt-gebied wt-gebied-${g.id}${g.soort === "streek" ? " streek" : ""}`, interactive: false, smoothFactor: 0.5 }).addTo(m);
       const kleur = /^[a-z]+$/.test(g.kleur || "") ? g.kleur : "terra";
       const label = L.marker([0, 0], { pane: "wtLabels", interactive: false, keyboard: false, icon: L.divIcon({ className: "wt-gebiedlabel", iconSize: [0, 0], html: `<span style="--gk:${kleurVar(kleur, true)}">${esc(g.naam)}</span>` }) });
       const verder = L.marker([0, 0], { pane: "wtLabels", interactive: false, keyboard: false, icon: L.divIcon({ className: "wt-verder", iconSize: [0, 0], html: `<span style="--gk:${kleurVar(kleur, true)}">${esc(g.naam)} loopt verder naar het oosten <b aria-hidden="true">→</b></span>` }) });
       const pad = () => laag.getElement && laag.getElement();
       return { g, laag, label, verder, kleur, pad, aan: false, verderAan: false };
     });
+    // Hoe zeker is de ligging (plaatsen.js, c): v/w gewone stip, o open rondje (onbekend, punt ter illustratie), b met
+    // kleine ringen op de andere plekken die onderzoekers voorstellen (alt). Alleen bij een periode met een reis: daar zijn
+    // de plaatsen legerplaatsen waarvan de ligging vaak onzeker is.
+    const alts = [];
     const steden = M.steden.map((s) => {
+      const pl = M.reis && s.plaatsId && BR.plaatsen ? BR.plaatsen[s.plaatsId] : null, zk = pl && /^[vwbo]$/.test(pl.c) ? pl.c : "";
+      if (zk === "b" && Array.isArray(pl.alt)) pl.alt.forEach(([la, lo, n]) => alts.push(L.marker([la, lo], { pane: "wtLabels", interactive: false, keyboard: false, icon: L.divIcon({ className: "wt-alt", iconSize: [0, 0], html: `<i title="${esc(n || "andere mogelijke plek")}"></i>` }) }).addTo(m)));
       const hoofd = M.gebieden.some((g) => g.hoofdstad === s.id);
       // Kleinere plaatsen krijgen pas een naam als je inzoomt (of als er net iets gebeurt), zodat de kaart rustig blijft.
       const belangrijk = hoofd || M.gebeurtenissen.some((e) => e.belangrijk && (e.plaats === s.plaatsId || e.plaats === s.id));
-      const mk = L.marker(s.ll, { pane: "wtLabels", keyboard: false, icon: L.divIcon({ className: "wt-stad" + (hoofd ? " hoofd" : "") + (belangrijk ? " belangrijk" : ""), iconSize: [0, 0], html: `<i aria-hidden="true"></i><button type="button" data-stad="${esc(s.id)}" aria-label="${esc(s.naam)}${hoofd ? ", hoofdstad" : ""}"><span>${esc(s.naam.split(" (")[0])}${s.naam.includes(" (") ? `<small class="wt-stad-alt"> (${esc(s.naam.split(" (").slice(1).join(" ("))}</small>` : ""}</span></button>` }) }).addTo(m);
+      // Een halte (s.halte: een kleine legerplaats langs de reis) heeft alleen een naam, geen knop: dicht op elkaar zouden de
+      // knoppen te klein en te dicht bij elkaar staan om goed te tikken.
+      const mk = L.marker(s.ll, { pane: "wtLabels", keyboard: false, interactive: !s.halte, icon: L.divIcon({ className: "wt-stad" + (hoofd ? " hoofd" : "") + (belangrijk ? " belangrijk" : "") + (zk ? " zeker-" + zk : ""), iconSize: [0, 0], html: `<i aria-hidden="true"></i>${s.halte ? `<b class="wt-halte"><span>${esc(s.naam)}</span></b>` : `<button type="button" data-stad="${esc(s.id)}" aria-label="${esc(s.naam)}${hoofd ? ", hoofdstad" : ""}"><span>${esc(s.naam.split(" (")[0])}${s.naam.includes(" (") ? `<small class="wt-stad-alt"> (${esc(s.naam.split(" (").slice(1).join(" ("))}</small>` : ""}</span></button>`}` }) }).addTo(m);
       return { s, mk };
     });
     const plekken = M.gebeurtenissen.filter((e) => e.plek).map((e) => {
       const mk = L.marker(e.plek.ll, { pane: "wtLabels", keyboard: false, icon: L.divIcon({ className: "wt-plek" + (e.plek.gebied ? " gebied" : ""), iconSize: [0, 0], html: `<button type="button" data-e="${esc(e.id)}" aria-label="${esc(e.titel)}" tabindex="-1"><i></i><b></b></button>` }) });
       return { e, mk, aan: false };
     });
-    S.kaart = { m, gebieden, steden, plekken, rand: { w: -180, o: 57 }, geschikt: 0 };
+    // De reis: de hele route zacht (wat nog komt), het afgelegde stuk in kleur, en de reiziger die meeloopt.
+    let reis = null;
+    if (M.reis) {
+      const delen = M.reis.delen.map((d) => ({
+        d, stand: -1,
+        basis: d.stukken.map((st) => L.polyline(st.pts, { pane: "wtReis", interactive: false, className: "wt-reis-basis" + (st.recon ? " recon" : "") + (d.alleen ? " alleen" : "") }).addTo(m)),
+        gelopen: d.stukken.map((st) => L.polyline([], { pane: "wtReis", interactive: false, className: "wt-reis-lijn" + (st.recon ? " recon" : "") + (d.alleen ? " alleen" : "") }).addTo(m)),
+      }));
+      const wie = L.marker(M.reis.delen[0].stukken[0].pts[0], { pane: "wtReiziger", interactive: false, keyboard: false, icon: L.divIcon({ className: "wt-reiziger", iconSize: [0, 0], html: `<span class="wt-rz">${ICON.reiziger}</span>` }) }).addTo(m);
+      reis = { delen, wie, oud: "" };
+    }
+    S.kaart = { m, gebieden, steden, plekken, alts, reis, rand: { w: -180, o: 57 }, geschikt: 0 };
     // Eerste beeld: alles van deze periode (tot de rand van de ondergrond), zonder vlucht.
     const zoomKlas = () => { const z = m.getZoom(); D.kaartvlak.classList.toggle("wt-ver", z < 5.75); };
     m.on("zoomend", zoomKlas);
@@ -1004,7 +1040,10 @@
     const kd = S.data.kader;
     if (Array.isArray(kd) && kd.length === 2) return L.latLngBounds(kd);
     const o = S.kaart.rand.o, punten = [];
-    S.M.gebieden.forEach((g) => g.sleutels.forEach((s) => s.delen.forEach((r) => r.forEach(([lng, lat]) => punten.push([lat, Math.min(lng, o)])))));
+    // Landstreken tellen niet mee als er een reis of plaatsen zijn: dan gaat het beeld over de route, niet over heel Egypte.
+    const streekWeg = !!S.M.reis || S.M.steden.length > 0;
+    S.M.gebieden.filter((g) => !(streekWeg && g.soort === "streek")).forEach((g) => g.sleutels.forEach((s) => s.delen.forEach((r) => r.forEach(([lng, lat]) => punten.push([lat, Math.min(lng, o)])))));
+    if (S.M.reis) S.M.reis.delen.forEach((d) => d.stukken.forEach((st) => st.pts.forEach((p) => punten.push(p))));
     S.M.steden.forEach((s) => punten.push(s.ll));
     S.kaart.plekken.forEach((p) => punten.push(p.e.plek.ll));
     return punten.length ? L.latLngBounds(punten) : null;
@@ -1033,19 +1072,30 @@
     // groot is het aanraakdoel als de naam er niet staat (WCAG 2.5.8), en een andere naam mag dat niet bedekken.
     K2.steden.forEach(({ mk }) => { const el = mk.getElement(); const i = el && el.querySelector("i"); if (!i) return; const r = rect(i), x = (r.l + r.r) / 2, y = (r.t + r.b) / 2; bezet.push({ l: x - 12, r: x + 12, t: y - 12, b: y + 12, van: el }); });
     K2.plekken.forEach((o) => { const el = o.aan && o.mk.getElement(); const i = el && el.querySelector("i"); if (i) bezet.push(rect(i)); });
+    (K2.alts || []).forEach((mk) => { const el = mk.getElement(); const i = el && el.querySelector("i"); if (i) bezet.push(rect(i)); });
     // Plaatsnamen.
     const volg = K2.steden.map((o) => ({ o, el: o.mk.getElement() })).filter((x) => x.el)
       .sort((a, b) => (b.el.classList.contains("hoofd-nu") ? 2 : b.el.classList.contains("belangrijk") ? 1 : 0) - (a.el.classList.contains("hoofd-nu") ? 2 : a.el.classList.contains("belangrijk") ? 1 : 0));
+    // De klikvlakken (knoppen) van twee plaatsen mogen elkaar niet bedekken (WCAG 2.5.8, minstens 24 × 24 px vrij).
+    const knoppen = [];
+    const raaktKnop = (a) => knoppen.some((b) => a.l < b.r && a.r > b.l && a.t < b.b && a.b > b.t);
     volg.forEach(({ el }) => {
-      el.classList.remove("links", "kort", "stil");
-      const span = el.querySelector("button span");
+      el.classList.remove("links", "kort", "stil", "geenknop");
+      const span = el.querySelector("button span, .wt-halte span");
       if (!span || !span.offsetWidth) return; // verborgen (ver weg uitgezoomd)
       for (const k of [[], ["links"], ["kort"], ["kort", "links"]]) {
         el.classList.remove("links", "kort"); k.forEach((c) => el.classList.add(c));
-        const r = rect(span);
-        if (binnen(r) && !raakt(r, 2, el)) { bezet.push(r); return; }
+        const r = rect(span), rk = rect(span.parentElement);
+        if (binnen(r) && !raakt(r, 2, el) && !raaktKnop(rk)) { bezet.push(r); knoppen.push(rk); return; }
       }
       el.classList.remove("links", "kort"); el.classList.add("stil");
+    });
+    // Een plaats zonder naam houdt een aantikbare stip, behalve als die op de knop van een andere plaats valt (inzoomen helpt).
+    volg.forEach(({ el }) => {
+      const knop = el.querySelector("button");
+      if (!el.classList.contains("stil") || !knop) return; // een halte van de reis heeft geen knop
+      const rk = rect(knop);
+      if (raaktKnop(rk)) el.classList.add("geenknop"); else knoppen.push(rk);
     });
     const delenPx = (ll) => ll.map((r) => r.map((p) => { const q = m.latLngToContainerPoint(p); return [q.x, q.y]; }));
     // ‘… loopt verder naar het oosten’: klein, tegen de oostrand, op een vrije hoogte langs het afgeknipte stuk.
@@ -1130,8 +1180,12 @@
     const G = S.kaart.gebieden;
     // Naamsvermelding voor bronnen met een CC BY-licentie (bijv. Pleiades voor de ligging van enkele steden).
     const cc = (S.data.bronnen || []).filter((b) => /^CC BY/.test(b.licentie || "")).map((b) => { const m = /naamsvermelding:\s*([^)]+)/.exec(b.licentie); return `${m ? m[1].trim() : b.titel} (${b.licentie.split(" (")[0]})`; });
-    const benaderd = S.M.gebieden.some((g) => g.sleutels.some((s) => s.betrouwbaarheid !== "historisch"));
-    D.legenda.innerHTML = `<ul>${G.map(({ g, kleur }) => `<li data-g="${esc(g.id)}"><i style="--gk:${kleurVar(kleur, true)};--gv:${kleurVar(kleur)}"></i>${esc(g.naam)}</li>`).join("")}</ul>${benaderd ? '<p><i class="wt-leg-stip"></i>Gestippelde rand: grens bij benadering</p>' : ""}<p class="wt-leg-bron">Ondergrond: Natural Earth. Grenzen: eigen tekening${[...new Set(cc)].length ? `. Ligging van enkele plaatsen: ${esc([...new Set(cc)].join(", "))}` : ""}.</p>`;
+    const benaderd = S.M.gebieden.some((g) => g.soort !== "streek" && g.sleutels.some((s) => s.betrouwbaarheid !== "historisch"));
+    const streken = S.M.gebieden.some((g) => g.soort === "streek"), alleenStreken = streken && !S.M.gebieden.some((g) => g.soort !== "streek");
+    const zk = new Set(S.M.reis ? S.kaart.steden.map(({ s }) => (s.plaatsId && BR.plaatsen && BR.plaatsen[s.plaatsId] ? BR.plaatsen[s.plaatsId].c : "")) : []);
+    const reis = S.M.reis ? `<p><i class="wt-leg-reis"></i>${esc(S.M.reis.naam || "De reis")}</p>${S.M.reis.delen.some((d) => d.stukken.some((x) => x.recon)) ? '<p><i class="wt-leg-reis recon"></i>Gestippeld: reconstructie</p>' : ""}${S.M.reis.delen.some((d) => d.alleen) ? `<p><i class="wt-leg-reis alleen"></i>Dun: ${esc((S.data.as && S.data.as.wie) || "de hoofdpersoon")} alleen</p>` : ""}` : "";
+    const zeker = `${zk.has("o") ? '<p><i class="wt-leg-open"></i>Open rondje: ligging onbekend</p>' : ""}${S.kaart.alts.length ? '<p><i class="wt-leg-alt"></i>Andere mogelijke plek</p>' : ""}`;
+    D.legenda.innerHTML = `<ul>${G.map(({ g, kleur }) => `<li data-g="${esc(g.id)}"><i${g.soort === "streek" ? ' class="streek"' : ""} style="--gk:${kleurVar(kleur, true)};--gv:${kleurVar(kleur)}"></i>${esc(g.naam)}</li>`).join("")}</ul>${benaderd ? '<p><i class="wt-leg-stip"></i>Gestippelde rand: grens bij benadering</p>' : ""}${streken ? "<p>Landstreken bij benadering, zonder grenzen</p>" : ""}${reis}${zeker}<p class="wt-leg-bron">Ondergrond: Natural Earth. ${alleenStreken ? "Landstreken" : "Grenzen"}: eigen tekening${S.M.reis ? ". Route en plaatsen: de reizen van de Bijbelreis" : ""}${[...new Set(cc)].length ? `. Ligging van enkele plaatsen: ${esc([...new Set(cc)].join(", "))}` : ""}.</p>`;
   }
   function kaartTijd(t, nieuw) {
     const K2 = S.kaart; if (!K2) return;
@@ -1182,6 +1236,7 @@
       if (!aan && o.aan) { o.mk.remove(); o.aan = false; }
       const el = o.mk.getElement(); if (el) el.classList.toggle("voorbij", t > o.e.t2 + span * 0.02);
     });
+    if (K2.reis) reisTijd(t);
     // Net bereikt: de plek licht rustig op, en de kaart beweegt er kalm naartoe als hij buiten beeld ligt.
     // Alleen bij afspelen (één gebeurtenis tegelijk) beweegt de kaart mee; met de schuif blijft hij staan.
     const opPlek = nieuw.filter((e) => e.plek);
@@ -1194,6 +1249,37 @@
       }
     });
     schikLabels(false);
+  }
+
+  // De reiziger op tijd t: het afgelegde stuk van elke route, de plek en de houding (lopen, stilstaan, ‘waar precies weten
+  // we niet’). Tijdens afspelen schuift de kaart rustig mee als de reiziger uit beeld loopt (niet als je zelf schoof).
+  function reisTijd(t) {
+    const K2 = S.kaart, R = K2.reis, r = K.reisOp(S.M.reis, t);
+    if (!r) return;
+    R.delen.forEach((o, i) => {
+      const stand = i < r.i ? 1 : i > r.i ? 0 : r.f;
+      if (o.stand === stand) return;
+      o.stand = stand;
+      const af = stand <= 0 ? null : stand >= 1 ? o.d.stukken : K.afgelegd(o.d, stand);
+      o.gelopen.forEach((pl, j) => pl.setLatLngs(af ? af[j].pts : []));
+    });
+    R.wie.setLatLng(r.ll);
+    const el = R.wie.getElement(), rz = el && el.querySelector(".wt-rz");
+    if (rz) {
+      const staat = (r.lopend ? "l" : "") + (r.zwerft ? "z" : "") + (r.richting < 0 ? "w" : "");
+      if (R.oud !== staat) {
+        rz.classList.toggle("loopt", r.lopend && S.speelt && !minderBeweging());
+        rz.classList.toggle("zwerft", !!r.zwerft);
+        if (r.richting) rz.classList.toggle("west", r.richting < 0);
+        R.oud = staat;
+      }
+      if (!S.speelt) rz.classList.remove("loopt");
+    }
+    if (S.speelt && !K2.handmatig && !K2.volgt && D.kaartvlak.offsetWidth && !K2.m.getBounds().pad(-0.12).contains(r.ll)) {
+      K2.volgt = true;
+      if (minderBeweging()) { K2.m.panTo(r.ll, { animate: false }); K2.volgt = false; }
+      else { K2.m.panTo(r.ll, { animate: true, duration: 0.9, easeLinearity: 0.35 }); K2.m.once("moveend", () => (K2.volgt = false)); }
+    }
   }
 
   function stopLaag() { stop(); if (S && D) { sluitBlad(); pauze(); } }
