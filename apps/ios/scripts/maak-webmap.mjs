@@ -46,9 +46,11 @@ export const CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'uns
 
 // Netwerkaanroepen die bekend en gecontroleerd zijn, per bestand. Komt er één bij, dan faalt het script: kijk dan of de
 // aanroep in de app werkt (alleen eigen bestanden, offline) en werk deze lijst bij.
-//  app.js: geo/toen/reliëf/grenzen (eigen bestanden) en /api/aanvraag (het formulier, dat de app-laag nooit laat openen).
+//  app.js: geo/toen/reliëf/grenzen (eigen bestanden), nog eens geo.json voor de kaart van ‘De wereld in die tijd’
+//   (BR.ondergrond), en /api/aanvraag (het formulier, dat de app-laag nooit laat openen).
+//  wereld/wereld.js: het periodebestand wereld/perioden/<id>.json (eigen bestand; docs/bijbelreis-wereld/README.md).
 //  app-laag.js: de licentie van Leaflet uit de app zelf.
-const NETWERK = { "bijbelreis/app.js": 5, "app/app-laag.js": 1 };
+const NETWERK = { "bijbelreis/app.js": 6, "bijbelreis/wereld/wereld.js": 1, "app/app-laag.js": 1 };
 const API_TOEGESTAAN = new Set(["bijbelreis/app.js:/api/aanvraag"]);
 // Adressen die niet in de app staan en (na de ouderpoort) naar bijbelreis.nl gaan. Een nieuw adres zonder bestemming laat
 // het script falen.
