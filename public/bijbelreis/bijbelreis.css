@@ -1768,7 +1768,7 @@ details.meerinfo p { margin: 6px 0 0; }
 
 /* Telefoon en tablet (onderbalk, wit): pictogram in de diepe kleur, het gekozen onderdeel in een getint tegeltje. */
 @media (max-width: 900px) {
-  .tabs button svg { padding: 2px 10px; border-radius: 10px; color: var(--sec-diep); }
+  .tabs button svg { padding: 2px 10px; margin: -2px 0; border-radius: 10px; color: var(--sec-diep); }
   .tabs button:hover svg { background: var(--sec-zacht); }
   .tabs button[aria-selected="true"] { color: var(--sec-diep); background: none; }
   .tabs button[aria-selected="true"] svg { background: var(--sec-zacht); color: var(--sec-diep); }
