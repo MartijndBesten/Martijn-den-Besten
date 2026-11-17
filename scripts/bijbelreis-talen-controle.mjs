@@ -13,6 +13,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { runInNewContext } from "node:vm";
 import { citaatKlopt, citaten, refFout, refsIn, leesRef } from "./bijbelreis-kjv.mjs";
+import { nederlandseWoorden } from "./bijbelreis-talen-woorden.mjs";
 
 const run = (ctx, pad) => runInNewContext(readFileSync(pad, "utf8").replace(/\bBR\./g, "window.BR."), ctx, { filename: pad });
 
@@ -119,7 +120,13 @@ export function controleer(pub = "public", taal = "en") {
 
   // Nederlands?
   const MAG = /^(Kh\.|Tell?|Tall|Jebel|Har|Wadi|Ain|el-|Beit|Khirbet|Jezirat)/; // namen van vindplaatsen in hun eigen taal
-  for (const [pad, w] of items) for (const [p, t] of teksten(w, pad, [])) if (!MAG.test(t) && nederlands(t)) fout(`Nederlands? ${p}: ${t.slice(0, 120)}`);
+  for (const [pad, w] of items) for (const [p, t] of teksten(w, pad, [])) {
+    if (MAG.test(t)) continue;
+    // ‘(onzeker)’ en ‘(ruwe schatting)’ in een jaartal zijn merktekens die app.js leest en nooit toont (datering).
+    if (/\.tijd$/.test(p) && nederlandseWoorden(t.replace(/\s*\((onzeker|ruwe schatting|reconstructie)\)/g, ""), join(pub, "..")).length === 0 && !nederlands(t.replace(/\s*\((onzeker|ruwe schatting|reconstructie)\)/g, ""))) continue;
+    const nlw = nederlandseWoorden(t, join(pub, ".."));
+    if (nederlands(t) || nlw.length) fout(`Nederlands? ${p}: ${t.slice(0, 120)}${nlw.length ? ` [${nlw.join(", ")}]` : ""}`);
+  }
 
   // Verwijzingen: alle velden ref, why, refs, en [ref, tekst]-paren (cross, elders, vervolg, kernwoord), leeftijd.
   const refs = [];

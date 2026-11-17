@@ -101,7 +101,7 @@ BR.taalBoek.en = {
     "De kaart kon niet helemaal worden geladen. Controleer de verbinding en laad de pagina opnieuw.": "The map could not be fully loaded. Check the connection and reload the page.",
     "noord": "north", "zuid": "south", "oost": "east", "west": "west",
     // Streken, zeeën, rivieren en bergen op de kaart
-    "Jarmuk": "Yarmuk", "Kison": "Kishon", "Karmel": "Carmel", "Sinaï (Jebel Musa)": "Sinai (Jebel Musa)", "Libanon": "Lebanon", "Kanaän": "Canaan", "Egypte": "Egypt",
+    "Negev": "Negev", "Tigris": "Tigris", "Jarmuk": "Yarmuk", "Kison": "Kishon", "Karmel": "Carmel", "Sinaï (Jebel Musa)": "Sinai (Jebel Musa)", "Libanon": "Lebanon", "Kanaän": "Canaan", "Egypte": "Egypt",
     "Sinaï": "Sinai", "Sinear": "Shinar", "Arabische woestijn": "Arabian Desert", "Filistijnen": "Philistines", "Basan": "Bashan", "Assyrië": "Assyria", "Perzië": "Persia",
     "Grote Zee": "Great Sea", "Dode Zee": "Dead Sea", "Meer van Galilea": "Sea of Galilee", "Rode Zee": "Red Sea", "Perzische Golf": "Persian Gulf", "Eufraat": "Euphrates",
     "Nijl": "Nile", "Jordaan": "Jordan", "Galilea": "Galilee", "Judea": "Judaea", "Dekapolis": "Decapolis", "Syrië": "Syria", "Cilicië": "Cilicia", "Pamfylië": "Pamphylia",
@@ -243,6 +243,12 @@ BR.taalBoek.en = {
     "Er is een nieuwe versie van de Bijbelreis.": "There is a new version of the Bible Journey.", "Vernieuwen": "Refresh", "Melding sluiten": "Close message",
     "Je hebt nu geen internet. Wat je eerder hebt bekeken, kun je gewoon gebruiken.": "You have no internet now. What you have looked at before, you can still use.",
     "Deze foto kun je zien als je weer internet hebt.": "You can see this photo when you are online again.",
+    // ---------- verhaalpagina's (/en/verhaal/…, scripts/bijbelreis-verhalen.mjs) ----------
+    "Raadkoord": "Raadkoord", "Open deze geschiedenis in de Bijbelreis": "Open this history in the Bible Journey", "Met de kaart en vragen om te ontdekken.": "With the map and questions to explore.",
+    "Wie komen erin voor?": "Who is in it?", "Vorige": "Previous", "Volgende": "Next", "Alle geschiedenissen": "All histories", "Andere geschiedenissen": "Other histories", "Overig": "Other",
+    "De Bijbelreis is een hulpmiddel náást de eigen Bijbel of kinderbijbel. De geschiedenissen zijn eigen navertellingen, gecontroleerd aan de Statenvertaling; lees ze zelf na in je Bijbel.": "The Bible Journey is a help alongside your own Bible or children’s Bible. The histories are our own retellings; this English version is a review draft that has not yet been checked by a reviewer. Read them for yourself in your Bible.",
+    "Van de schepping tot Openbaring. Kies een geschiedenis om te lezen waar ze in de Bijbel staat en wat er gebeurt, of": "From the creation to Revelation. Choose a history to read where it is in the Bible and what happens, or",
+    "open de Bijbelreis": "open the Bible Journey", "om de reis op de kaart te volgen.": "to follow the journey on the map.",
     // ---------- de 66 boeken (boekenkast) ----------
     "Numeri": "Numbers", "Deuteronomium": "Deuteronomy", "Jozua": "Joshua", "Richteren": "Judges", "1 Samuël": "1 Samuel", "2 Samuël": "2 Samuel", "1 Koningen": "1 Kings",
     "2 Koningen": "2 Kings", "1 Kronieken": "1 Chronicles", "2 Kronieken": "2 Chronicles", "Nehemia": "Nehemiah", "Psalmen": "Psalms", "Spreuken": "Proverbs", "Prediker": "Ecclesiastes",
@@ -375,5 +381,11 @@ BR.taalBoek.en = {
     [/^in ‘(.*)’$/, "in ‘$1’"],
     [/^Reisniveau: (.*) \((.*)\)\. Wijzigen$/, "Level: $1 ($2). Change"],
     [/^Reisniveau: (.*)$/, "Level: $1"],
+    [/^Geschiedenis (\d+) van (\d+)$/, "History $1"],
+    [/^Alle (\d+) geschiedenissen uit de Bijbel — Bijbelreis$/, "All $1 histories in English — Bible Journey"],
+    [/^(.*) — Bijbelreis$/, "$1 — Bible Journey"],
+    [/^De (\d+) geschiedenissen van de Bijbelreis, van de schepping tot Openbaring: per geschiedenis een korte navertelling, de Bijbelverwijzing en een link naar de kaart\.$/, "The $1 histories of the Bible Journey in English (review draft), from the creation to Revelation: for each history a short retelling, the Bible reference and a link to the map."],
+    // De grond van de jaartallen van een boek (app.js: boekTijd): ‘berekend, onzeker’.
+    [/^(berekend|reconstructie|onzeker)(, (berekend|reconstructie|onzeker))*$/, (m) => m.replace(/berekend|reconstructie|onzeker/g, (w) => ({ berekend: "calculated", reconstructie: "reconstruction", onzeker: "uncertain" })[w])],
   ],
 };

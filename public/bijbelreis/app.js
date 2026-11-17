@@ -2408,7 +2408,7 @@
     $("pasText").textContent = n === total ? `Alle ${total} stempels! Jij hebt de hele reis gemaakt.` : `Je hebt ${n} van de ${total} stempels. Ga verder met de reis om ze allemaal te verzamelen.`;
     const nV = Object.values(verhaalStore).filter((v) => v.q != null).length, nG = Object.keys(verhaalStore).length;
     $("vPasText").textContent = nG ? `${nG} van de ${G.length} geschiedenissen gelezen, ${nV} gestempeld (vragen gemaakt).` : "Lees een geschiedenis bij ‘Verhalen’ en maak de vragen om een stempel te krijgen.";
-    $("vGrid").innerHTML = Array.from({ length: G.length }, (_, i) => { const nr = i + 1, v = verhaalStore[nr], g = GBYNR.get(nr); return `<button type="button" class="vcel${v && v.q != null ? " klaar" : v ? " gezien" : ""}" ${g ? `data-v="${nr}"` : "disabled"} aria-label="Geschiedenis ${nr}${g ? ": " + esc(g.t) : " (nog niet beschikbaar)"}${v && v.q != null ? ", gestempeld" : v ? ", gelezen" : ""}">${nr}</button>`; }).join("");
+    $("vGrid").innerHTML = Array.from({ length: G.length }, (_, i) => { const nr = G[i].nr, v = verhaalStore[nr], g = GBYNR.get(nr); return `<button type="button" class="vcel${v && v.q != null ? " klaar" : v ? " gezien" : ""}" ${g ? `data-v="${nr}"` : "disabled"} aria-label="Geschiedenis ${nr}${g ? ": " + esc(g.t) : " (nog niet beschikbaar)"}${v && v.q != null ? ", gestempeld" : v ? ", gelezen" : ""}">${nr}</button>`; }).join("");
     // Beste scores van alle niveaus; een speurtocht over hetzelfde deel telt één keer mee.
     const bests = [], gedaan = new Set();
     BOEKEN.forEach((b) => [["alles", "alles uit " + b.n]].concat(metVerdiep(b.delen).map((d) => [d.id, deelNaam(d)])).forEach(([id, nm]) => NIVS.forEach((n) => {

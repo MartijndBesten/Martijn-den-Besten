@@ -210,7 +210,7 @@ function naarTaal(html, boek, taal, openbaar, nlUrl) {
     .replace('<meta property="og:site_name" content="Bijbelreis" />', `<meta property="og:site_name" content="${esc(k.naam)}" />`)
     .replace(/(<meta property="og:image:alt" content=")[^"]*(")/, `$1${esc(k.ogAlt)}$2`)
     .replace(/(<link rel="canonical" href="([^"]*)" \/>)/, (m, l, url) => `${l}\n    <link rel="alternate" hreflang="nl" href="${nlUrl}" />\n    <link rel="alternate" hreflang="${taal}" href="${url}" />`)
-    .replace(/(<title>|<meta property="og:title" content=")([^<"]*)/g, (m, a, t) => a + vertaalTekst(boek, t));
+    .replace(/(<title>|<meta property="og:title" content="|<meta name="description" content="|<meta property="og:description" content=")([^<"]*)/g, (m, a, t) => a + vertaalTekst(boek, t));
   // De body: tekst en attributen (aria-label) uit het woordenboek.
   const b = html.indexOf("<body"), e = html.lastIndexOf("</body>");
   const body = html.slice(b, e).split(/(<[^>]+>)/).map((d) => (d.startsWith("<") ? d.replace(/\saria-label="([^"]*)"/g, (m, w) => ` aria-label="${vertaalTekst(boek, w)}"`) : d.trim() ? d.replace(d.trim(), () => vertaalTekst(boek, d.trim())) : d));
