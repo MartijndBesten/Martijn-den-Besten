@@ -1,0 +1,22 @@
+{
+  "name": "bijbelreis-ios",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Bijbelreis als iOS-app (Capacitor). Prototype: los van de website, eigen dependencies.",
+  "type": "module",
+  "scripts": {
+    "webmap": "node scripts/maak-webmap.mjs",
+    "sync": "node scripts/maak-webmap.mjs && cap sync ios",
+    "open": "cap open ios",
+    "test:web": "node scripts/test-webmap.mjs"
+  },
+  "dependencies": {
+    "@capacitor/core": "8.6.0",
+    "@capacitor/ios": "8.6.0",
+    "@capacitor/preferences": "8.0.1",
+    "@capacitor/share": "8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.0"
+  }
+}
