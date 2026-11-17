@@ -2297,16 +2297,19 @@
   };
 
   // ---------- paspoort ----------
+  // De bovenste regel van een stempel: boek (afgekort) en hoofdstuk, bijv. ‘GENESIS 12’.
+  const stempelBoven = (s) => s.ref.replace(/^(\d?\s?[A-Za-zëéïü]+)\s.*$/, "$1").toUpperCase().slice(0, 7) + " " + ((s.ref.match(/\s(\d+)/) || [])[1] || "");
   function stampSVG(s) {
     const w = s.r ? s.r[0].w : s.deel.c, c = color(w);
     const rot = ((s.i * 37 + s.deel.id.length * 11) % 17) - 8;
     const fs = s.stamp.length > 10 ? 11 : s.stamp.length > 8 ? 13 : 16;
-    const top = s.ref.replace(/^(\d?\s?[A-Za-zëéïü]+)\s.*$/, "$1").toUpperCase().slice(0, 7) + " " + ((s.ref.match(/\s(\d+)/) || [])[1] || "");
+    const top = stempelBoven(s);
     return `<svg viewBox="0 0 100 100" style="transform:rotate(${rot}deg)"><circle class="ring" cx="50" cy="50" r="44" stroke="${c}"/><circle class="ring2" cx="50" cy="50" r="37" stroke="${c}"/><text class="mono" x="50" y="33" font-size="9" fill="${c}">${esc(top)}</text><text x="50" y="57" font-size="${fs}" fill="${c}">${esc(s.stamp)}</text><text class="mono" x="50" y="76" font-size="10" fill="${c}">${s.i + 1}</text></svg>`;
   }
   // Eén stempelblad per deel. Ingeklapt laten we de stempels nog weg (619 stempels tekenen kost op een telefoon tijd);
   // ze komen er bij het openklappen.
-  const stempelKnop = (d, s) => `<button type="button" class="stamp${seen.has(s.key) ? "" : " no"}" data-key="${d.key}" data-s="${s.i}" aria-label="${esc(s.stamp)} ${s.i + 1}: ${esc(d.n)}, stap ${s.i + 1}, ${esc(s.t)} (${esc(s.ref)})${seen.has(s.key) ? ", gestempeld" : ", nog niet bezocht"}">${stampSVG(s)}</button>`;
+  // De naam begint met precies wat er op de stempel staat (boek en hoofdstuk, woord, nummer; WCAG 2.5.3), dan de uitleg.
+  const stempelKnop = (d, s) => `<button type="button" class="stamp${seen.has(s.key) ? "" : " no"}" data-key="${d.key}" data-s="${s.i}" aria-label="${esc(stempelBoven(s))} ${esc(s.stamp)} ${s.i + 1}: ${esc(d.n)}, stap ${s.i + 1}, ${esc(s.t)} (${esc(s.ref)})${seen.has(s.key) ? ", gestempeld" : ", nog niet bezocht"}">${stampSVG(s)}</button>`;
   const stempelsVan = (d) => d.steps.map((s) => stempelKnop(d, s)).join("");
   // Waar je was: de laatst geopende stap. Verder gaat naar de eerstvolgende stap zonder stempel in dat deel (of, als het
   // deel af is, terug naar die stap).
