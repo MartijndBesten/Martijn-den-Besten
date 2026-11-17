@@ -56,7 +56,8 @@ Een **deel** (één hoofdpersoon of één verhaallijn, 6–15 stappen):
 delenrij; in de intro van het hoofddeel en bij de stappen van het hoofddeel over hetzelfde Bijbelgedeelte (de ene
 verwijzing valt binnen de andere) staat de ingang ‘Van dichtbij’. Het kruimelpad loopt via het hoofddeel, er is een knop
 ‘Terug naar …’, en na de laatste stap gaat ‘Verder’ naar de stap van het hoofddeel ná dat gedeelte (of naar de intro).
-In Alle reizen, Hoe ver?, de tijdlijn, de speurtocht en het paspoort staat het direct onder het hoofddeel. Diepe links
+In Alle reizen, Hoe ver?, de tijdlijn, de speurtocht en het paspoort staat het direct onder het hoofddeel; in ‘Kies een
+reis’ (telefoon) als eigen, gestippelde regel ‘Van dichtbij’ direct na de stappen over hetzelfde gedeelte. Diepe links
 (`#ur-kanaan/5`) en stapsleutels (`genesis:ur-kanaan:4`) blijven die van het deel zelf.
 
 Een **stap**:

@@ -379,6 +379,50 @@ bovenaan zijn.”* Niet zeker welke knoppen; alle drie aangepakt, zonder de opze
 
 Test: `e2e/bijbelreis-bediening.spec.ts`.
 
+### 4.10 UX-ronde 17-11-2026
+
+Doel: een kind van 6, een kind van 10 en een ouder begrijpen de Bijbelreis zelfstandig. Geen nieuwe functies; alleen wat
+bij het doorlopen aantoonbaar misging. Drie gebruikersreizen zijn met Playwright doorgelopen op 390×664, 375×553, 360×640
+en 430×739 (isMobile, hasTouch), 820×1180 (tablet) en 1440×900, met schermafbeeldingen en metingen vóór en na:
+(a) eerste bezoek → ‘Begin de reis’ → doorklikken; (b) Verhalen → een geschiedenis → ‘Volg het op de kaart’ → tafereel →
+terug → de volgende geschiedenis; (c) delen. Daarnaast een rondgang langs alle 687 stappen en overzichten (zoom, botsende
+namen) op 390×664, 375×553 en 1440×900. De vóórmetingen zijn tegen `main` (57e32c6) gedaan, de nametingen tegen deze
+wijziging.
+
+**Wat goed ging en zo bleef.** De startkaart staat op 390, 360 en 430 px hoog helemaal in het eerste scherm (op 375×553
+valt ‘Voor wie?’ deels weg, zie 4.7); ‘Begin de reis’ opent stap 1; Verder, ◀, ‘Volg het op de kaart’ en ‘terug’ doen wat
+je verwacht. Delen (c): Chromium op Linux heeft geen `navigator.share`; met toestemming voor het klembord komt ‘Link
+gekopieerd’ en staat `https://bijbelreis.nl/#v3` op het klembord, zonder toestemming verschijnt het veld met de link,
+geselecteerd en met de focus erin. Geen fouten in de console. De taferelen bij de doorlopen stappen en geschiedenissen
+(o.a. de zondeval, Jakob bij de Jabbok) passen bij de tekst; aan de illustraties is niets veranderd.
+
+| # | Punt | Vóór (gemeten) | Na | Wat er veranderd is |
+| --- | --- | --- | --- | --- |
+| 1 | Kaart waar hij niets toevoegt (telefoon, tablet) | Paspoort en Tijdlijn: kaart 199 px (35 % van de ruimte tussen kop en onderbalk), inhoud begint op 257 px; Speurtocht: kaart 279 px (49 %) bij elke vraag, ook bij meerkeuze en volgorde. Geen van de drie gebruikt de kaart (geen plaats, geen uitsnede). | Paspoort, Tijdlijn en de speurtocht zonder kaartvraag: geen kaart, inhoud op 58 px. Bij ‘Tik op de kaart’ staat hij er (279 px), helemaal onder de kop met de zoomknoppen in beeld. Wie is wie houdt de kaart (de plaatsen van een persoon). | CSS (`body[data-modus]`, `:has(#p-quiz .tapcall)`); `fit()` slaat een verborgen kaart over en neemt eerst de echte maat als hij terugkomt; `scroll-margin-top` op de kaart. |
+| 2 | Te ver ingezoomd | 10 stappen op zoom 13 (het maximum; ‘+’ uit): Jabbok 6–8, Lijdensweek 1, 2, 4, 6, 8, Lijden 1 en 7 (Golgotha); 23 op 12. Bij Golgotha alleen vage ondergrond, geen ‘Jeruzalem’. | Telefoon en tablet hooguit 11,5, groot scherm hooguit 12. Golgotha toont ‘Jeruzalem’ erbij; Mahanaïm en Pniël liggen los. Zelf inzoomen kan tot 13. | `zoomStap()` in `app.js`, in `fit()` en bij een stap op één plek. De velden `zoom` in de inhoud zijn niet veranderd. |
+| 3 | ‘Verder met …’ boven een geopende geschiedenis | Na ‘Verder met: Abraham – God zegt: ga!’ en dan Noach openen: de knop bleef boven Noach staan (desktop op 82 px, boven de titel op 236 px). | Weg zolang een geschiedenis open is; terug in de lijst staat ‘Verder met: Noach bouwt de ark’. | `renderWelkom`. |
+| 4 | Zoektoets sluit het toetsenbord niet | `type="search"`, maar geen `enterkeyhint`; Enter liet de focus (en dus het toetsenbord) in het veld. | `enterkeyhint="search"` op de drie zoekvelden; Enter sluit op een aanraakscherm het toetsenbord (blur). Op een computer blijft de focus staan. | `app.js`, `bijbelreis.html`. |
+| 5 | Tikvlakken < 44 px | Geen tikvlak onder 24 px (WCAG 2.2 AA gehaald). Onder 44 px in de hoofdbediening: reisniveau in de kop 32, ‘← Alle geschiedenissen’ 25, Alles/OT/NT 37, ‘Wanneer?’ 32 en ‘Meer weten’ 40, ‘Volg het op de kaart’-regels 30, ‘Op de kaart’ 40, ‘Voor ouders en leiders’ 28. | Allemaal 44 px; het reisniveau via een onzichtbaar randje (de kop blijft 44 px). | CSS. Bewust niet: ‘3 van 25’ en ‘Lees meer’ (26 px, keuze 4.3.2: elke pixel daar gaat van de kaart af; titel en tekst openen het blad ook), kernwoorden (30), ‘Wanneer was dat?’ in de tijdlijn (28), en Wie is wie, Speurtocht en Paspoort (ander spoor). |
+| 6 | Hoofdreis en verdiepende reis | ‘Kies een reis’ toonde alleen de stappen en de delen; een verdiepend deel stond er niet in, in Jakob was ‘Jakob bij de Jabbok’ hier onvindbaar. In de delenrij staat het hoofddeel al gekozen als je in een verdiepend deel bent. | Na stap 8 van Jakob een eigen regel ‘Van dichtbij · Jakob bij de Jabbok · 12 stappen’: ingesprongen, gestippeld, oker (zoals de knop op de kaart). In het verdiepende deel heet de lijst ‘Van dichtbij: …’ met onderaan ‘Terug naar Jakob’. Zo ook Abraham (Van Ur naar Kanaän) en Moab. | `kiesStappen` in `app.js`; `BIJBELREIS.md`. |
+| 7 | Namen over elkaar | Rondgang 687 stappen en overzichten: 390×664 1 botsing, 375×553 2, 1440×900 32 (waarvan 22 overzichten van een deel, o.a. Davids rijk met Gibeon, Baäl-Perazim, Gath en Dal Refaïm op één plek). | 1440×900: 11 (alleen stappen waar twee plaatsen van de stap zelf vlak bij elkaar liggen, zoals Jericho en Ai); van de overzichten nog 1. Telefoon gelijk. | In het overzicht van een deel met meer dan vier namen wijken op een groot scherm de namen behalve begin en eind bij botsing, zoals op de telefoon al gebeurde; ze komen terug bij inzoomen. Routelijnen niet veranderd: het contrast was niet aantoonbaar slecht. |
+| 8 | Terug en diepe links | `#deel`, `#deel/n`, `#boek`, `#vNN`, `#verhalen` en terug werken (4.8). Wel mis: een onbekende `#` (`#onzin`, `#v999`) opende stil ‘Het begin’ in de reis en schreef `#begin` in het adres; na herladen in Wie is wie, Tijdlijn, Paspoort, Speurtocht of Verhalen stond je in de reis (5 van 5). Een telefoon die een tabblad op de achtergrond weggooit, laadt ook opnieuw. | Een onbekende `#` opent de start (zoals zonder `#`) en het adres wordt `/bijbelreis`; na herladen blijf je in hetzelfde onderdeel (de browser bewaart het in de geschiedenis). Personen en onderdelen hebben geen eigen diepe link; dat is zo gelaten. | `begin()` in `app.js`. |
+| – | Toegankelijkheid (melding spoor vindbaar) | WCAG 2.5.3: de naam van ‘3 van 25’ (`aria-label` ‘Kies een reis. Nu: Genesis, Abraham, stap 2 van 25’) en van de stappen in ‘Kies een reis’ bevatte de zichtbare tekst niet (axe: 1 + 11 knoppen). WCAG 2.4.11: plaatsen buiten beeld of onder knoppen/het stapblad kregen toetsenbordfocus (`#abraham/2`: 5 van de 17 op de telefoon, 6 op de desktop; `#nt-paulusrome/5`: 5 en 7). | axe: 0. Alleen plaatsen die te zien zijn, zitten in de tabvolgorde (`#abraham/2` telefoon 12, desktop 11; geen enkele buiten beeld). | De naam is nu de zichtbare tekst met verborgen ‘Kies een reis. Nu:’ ervoor (geen `aria-label`); `tabIndex` van de plaatsen na elke kaartbeweging (`refreshLabels`). De kop van ‘Kies een reis’ met ‘Sluiten’ blijft staan als de lijst naar de huidige stap scrolt (bij 200 % tekst viel hij anders weg door de extra regel ‘Van dichtbij’). |
+| – | ‘Begin de reis’ legt Ur onder ‘Van dichtbij’ | Stap 1 ‘Weg uit Ur’: de uitsnede werd gekozen vóórdat de knop ‘Van dichtbij’ verscheen. Routepunten onder de knop: 390×664 2, 375×553 3, 360×640 2, 430×739 0. Ur (begin van de route) was niet te zien. | 0 op alle vier. | In `select()` staat de knop er nu vóór de uitsnede. |
+
+**Tests.** `e2e/bijbelreis-ux-reis.spec.ts` legt alles hierboven vast (tegen `main` faalden 13 van de 15 tests op telefoon
+en desktop; de twee die slaagden, gaan over wat al goed was: 430×739 en Enter op de computer). Aangepast:
+`e2e/bijbelreis-jakob-jabbok.spec.ts` (zoom bij de worsteling 11,5 tot 12 in plaats van minstens 12),
+`e2e/bijbelreis-telefoon.spec.ts` (geen kaart in Tijdlijn, Speurtocht en Paspoort; de naam van ‘3 van 25’) en
+`e2e/bijbelreis.spec.ts` (de proeven met één vinger en ‘Groot’ in een ander onderdeel lopen nu in Wie is wie). De visuele
+referentiebeelden `paspoort-mobiel`, `paspoort-tablet` (geen kaart meer) en mogelijk `verhaal-mobiel`/`-tablet` (44 px)
+moeten in het vaste Playwright-image opnieuw gemaakt worden.
+
+**Nog open.** Het overzicht van een heel lange reis blijft op een smal scherm klein (4.4; daarvoor is een andere opzet van
+de kaart nodig, geen kleine aanpassing). ‘3 van 25’ en ‘Lees meer’ blijven 26 px hoog (4.3.2). Op 375×553 valt ‘Voor wie?’
+op de startkaart deels onder de onderbalk (4.7). Niet op een echt toestel geprobeerd; alles is in Chromium gemeten.
+Schermafbeeldingen en metingen: de scratchmap van de sessie, `ux-reis/voor` en `ux-reis/na` (scripts `meet.cjs`,
+`rondgang.cjs`, `dichtbij2.cjs`, `herlaad.cjs`).
+
 ### 4.11 Speurtocht, paspoort en personen (17-11-2026)
 
 Doel: Speurtocht, Paspoort en Wie is wie moeten helpen de geschiedenis te begrijpen en te onthouden, niet willekeurig
