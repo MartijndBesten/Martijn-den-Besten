@@ -48,6 +48,21 @@ export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, 
     return new Response(request.method === "HEAD" ? null : content, { status, headers });
   }
 
+  // Geschiedenispagina's voor zoekmachines (scripts/bijbelreis-verhalen.mjs): in de build onder /bijbelreis/verhaal/,
+  // op bijbelreis.nl op /verhaal/<nr>-<slug>. Opzoeken op nummer, zodat een oud adres (andere titel) blijft werken.
+  const VERHALEN = new Map<number, string>();
+  for (const p of Object.keys(FILES)) {
+    const m = /^\/bijbelreis\/verhaal\/((\d+)-[a-z0-9-]+)\.html$/.exec(p);
+    if (m) VERHALEN.set(+m[2], m[1]);
+  }
+  const OVERZICHT = "/bijbelreis/verhalen.html";
+  const sitemap = () =>
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    ["/", ...(FILES[OVERZICHT] ? ["/verhalen"] : []), ...[...VERHALEN.keys()].sort((a, b) => a - b).map((nr) => `/verhaal/${VERHALEN.get(nr)}`)]
+      .map((p) => `  <url><loc>${ORIGIN}${p}</loc></url>\n`)
+      .join("") +
+    `</urlset>\n`;
+
   const NIET_GEVONDEN = `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Niet gevonden — Bijbelreis</title><meta name="robots" content="noindex"><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f5f0e5;color:#1f2a44;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:30rem;padding:2rem 1.5rem;text-align:center}h1{font-size:1.5rem;margin:0 0 .75rem}a{color:#243d70;font-weight:600}</style></head><body><main><h1>Deze pagina bestaat niet</h1><p><a href="/">Naar de Bijbelreis</a></p></main></body></html>`;
 
   return {
@@ -78,7 +93,19 @@ export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, 
       // Het oude pad (martijndenbesten.com/bijbelreis) blijft werken: het fragment (#deel/stap) blijft bij een doorverwijzing staan.
       if (/^\/(bijbelreis(\.html|\/)?|index\.html)$/.test(path)) return Response.redirect(new URL("/" + url.search, url).toString(), 301);
       if (path === "/robots.txt") return text(request, path, `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`, "text/plain; charset=utf-8");
-      if (path === "/sitemap.xml") return text(request, path, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${ORIGIN}/</loc></url>\n</urlset>\n`, "application/xml; charset=utf-8");
+      if (path === "/sitemap.xml") return text(request, path, sitemap(), "application/xml; charset=utf-8");
+      // Geschiedenissen als gewone pagina: /verhalen (overzicht) en /verhaal/<nr>-<slug>. Een ander of oud slug, een
+      // slash erachter of het pad in de build (/bijbelreis/verhaal/…) verwijst door naar het ene vaste adres.
+      if (/^\/(bijbelreis\/)?verhalen(\.html|\/)?$/.test(path) && FILES[OVERZICHT]) {
+        if (path === "/verhalen") return serve(request, path, OVERZICHT);
+        return Response.redirect(new URL("/verhalen" + url.search, url).toString(), 301);
+      }
+      const vm = /^\/(bijbelreis\/)?verhaal\/(\d+)(-[^/]*)?\/?$/.exec(path);
+      if (vm && VERHALEN.has(+vm[2])) {
+        const juist = "/verhaal/" + VERHALEN.get(+vm[2]);
+        if (path === juist) return serve(request, path, `/bijbelreis${juist}.html`);
+        return Response.redirect(new URL(juist + url.search, url).toString(), 301);
+      }
       if (path === "/favicon.ico") return Response.redirect(new URL("/bijbelreis/favicon.svg", url).toString(), 302);
       // Presentatie en boekje: /bijbelreis/boekje (zonder .html); /bijbelreis/boekje.html verwijst daarheen, het fragment
       // (#jakob, #v26) blijft daarbij staan.

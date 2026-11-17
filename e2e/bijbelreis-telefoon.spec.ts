@@ -572,7 +572,7 @@ test.describe("telefoon: toegankelijkheid en uitersten", () => {
   test("het blad is een gebied met een knop (aria-expanded); de focus loopt logisch; alles kan zonder vegen", async ({ page }) => {
     await zetNiveau(page, "c");
     await open(page, "abraham/2");
-    const gebied = page.getByRole("complementary", { name: "Reisboek" });
+    const gebied = page.getByRole("main", { name: "Reisboek" });
     await expect(gebied).toBeVisible();
     await expect(gebied.getByRole("button", { name: "Lees meer" })).toHaveAttribute("aria-expanded", "false");
     await expect(gebied.getByRole("button", { name: /Kies een reis\. Nu: Genesis, Abraham, stap 2 van 25/ })).toBeVisible();

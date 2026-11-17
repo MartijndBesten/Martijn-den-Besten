@@ -1131,7 +1131,9 @@
   TABS.forEach((t) => $("t-" + t).addEventListener("click", () => { const ander = mode !== t; setMode(t); if (ander && isNarrow()) window.scrollTo({ top: 0 }); }));
   document.querySelector(".tabs").addEventListener("keydown", (e) => {
     const i = TABS.indexOf(mode);
-    if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); const n = TABS[(i + (e.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length]; setMode(n); $("t-" + n).focus(); }
+    // Pijltjes naar het volgende of vorige onderdeel; Home en End naar het eerste en het laatste (ARIA-patroon voor tabbladen).
+    const n = e.key === "ArrowRight" || e.key === "ArrowLeft" ? TABS[(i + (e.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length] : e.key === "Home" ? TABS[0] : e.key === "End" ? TABS[TABS.length - 1] : null;
+    if (n) { e.preventDefault(); setMode(n); $("t-" + n).focus(); }
   });
 
 
