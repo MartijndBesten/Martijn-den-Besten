@@ -1,0 +1,59 @@
+# Wereld in die tijd — Daniël en Babylon (public/bijbelreis/wereld/perioden/daniel-babylon.json): getallen, jaartellingen
+# in de Bijbel en de korte letterlijke citaten (ref | regex). Gebruik: python3 scripts/bijbel-check.py scripts/bijbel-controle/wereld-daniel.txt
+# --- Dateringen in de Bijbel waarop de jaartallen rusten
+Daniël 1:1 | In het derde jaar des koninkrijks van Jojakim
+Jeremia 25:1 | vierde jaar van Jojakim.*eerste jaar van Nebukadnezar
+Jeremia 46:2 | Karchemis.*vierde jaar van Jojakim
+Daniël 2:1 | tweede jaar nu des koninkrijks van Nebukadnezar
+2 Koningen 23:29 | Farao Necho.*rivier Frath.*Megiddo
+2 Koningen 23:34 | Farao Necho Eljakim.*koning.*Jojakim
+2 Koningen 23:36 | Vijf en twintig jaren.*elf jaren
+2 Koningen 24:6 | Jojakim ontsliep
+2 Koningen 24:7 | rivier van Egypte af tot aan de rivier Frath
+2 Koningen 24:8 | achttien jaren oud.*drie maanden
+2 Koningen 24:12 | achtste jaar zijner regering
+2 Koningen 24:14 | tien duizend gevangen
+2 Koningen 24:17 | Mattanja.*Zedekia
+2 Koningen 24:18 | een en twintig jaren.*elf jaren
+2 Koningen 25:1 | negende jaar zijner regering, in de tiende maand
+2 Koningen 25:2 | elfde jaar van den koning Zedekia
+2 Koningen 25:8 | negentiende jaar van Nebukadnezar
+2 Koningen 25:9 | verbrandde het huis des HEEREN
+2 Koningen 25:27 | zeven en dertigste jaar der wegvoering van Jojachin.*twaalfde maand.*Evilmerodach
+Jeremia 52:28 | zevende jaar, drie duizend drie en twintig
+Jeremia 52:29 | achttiende jaar van Nebukadrezar
+Jeremia 52:12 | negentiende jaar van den koning Nebukadrezar
+Jeremia 1:2 | dertiende jaar zijner regering
+Jeremia 43:7 | Egypteland.*Tachpanhes
+Ezechiël 1:2 | vijfde jaar van de wegvoering van den koning Jojachin
+Ezechiël 29:17 | zeven en twintigste jaar
+Ezechiël 29:18 | Nebukadrezar.*Tyrus
+Jeremia 44:1 | Nof
+Daniël 5:30 | Belsazar.*gedood
+Daniël 6:1 | Darius, de Meder.*twee en zestig jaren
+Daniël 7:1 | eerste jaar van Belsazar
+Daniël 8:1 | derde jaar des koninkrijks van den koning Belsazar
+Daniël 9:1 | eerste jaar van Darius.*Meden
+Daniël 11:1 | eerste jaar van Darius, den Meder
+Daniël 10:1 | derde jaar van Kores
+Ezra 1:1 | eerste jaar nu van Kores
+Ezra 1:7 | vaten van het huis des HEEREN
+2 Kronieken 36:22 | eerste jaar van Kores
+Ezra 4:24 | tweede jaar van het koninkrijk van Darius
+Ezra 6:2 | Achmetha.*Medië
+Ezra 6:15 | derden dag der maand Adar.*zesde jaar.*Darius
+Ezra 6:16 | inwijding.*met vreugde
+Nehemia 1:1 | Susan
+# --- Korte letterlijke citaten in de teksten (‘…’)
+Daniël 7:1 | het eerste jaar van Belsazar
+Daniël 5:30 | In dienzelfden nacht, werd Belsazar, der Chaldeen koning, gedood
+Daniël 5:2 | zijn vader
+Daniël 6:1 | omtrent twee en zestig jaren oud zijnde
+2 Koningen 25:29 | al de dagen zijns levens
+Daniël 1:4 | Jongelingen
+Daniël 1:21 | Daniël bleef tot het eerste jaar van den koning Kores toe
+Ezechiël 1:2 | de wegvoering van den koning Jojachin
+Jeremia 52:28 | het zevende jaar
+2 Koningen 25:27 | in het jaar, als hij koning werd
+Ezra 6:15 | op den derden dag der maand Adar
+Daniël 8:2 | in den burg Susan
