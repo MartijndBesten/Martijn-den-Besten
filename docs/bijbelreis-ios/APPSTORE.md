@@ -348,25 +348,52 @@ Klaar in `apps/ios/store/screenshots/` (JPEG, zonder transparantie), vijf per ma
 | `iphone-6.3/` | iPhone 6,3" (Dynamic Island, middel; Apple noemt deze verplicht) | 1206×2622 |
 | `ipad-13/` | iPad 13" (verplicht als de app op iPad draait) | 2064×2752 |
 
-**Eerlijk:** dit zijn browserweergaven (Chromium) van precies dezelfde app-inhoud, zonder statusbalk en notch. Ziet iets
-er in de Simulator anders uit, maak ze dan daar: Simulator → iPhone 17 Pro Max / iPhone 17 Pro / iPad Pro 13" →
-**Cmd+S** (bewaart op het bureaublad in de juiste maat). Opnieuw maken op Linux of de Mac:
-`cd apps/ios && npm run webmap && npm run screenshots`.
+**Uit de iOS-simulator** (sinds 17-11-2026): de echte iOS-weergave in WKWebView, met statusbalk (9:41, volle
+batterij), Dynamic Island en de echte lettertypen, gemaakt door de workflow `iOS-app` op iPhone 17 Pro Max, iPhone 17
+Pro en iPad Pro 13-inch (M5), iOS 26.5, simulator in het Nederlands. Nieuwe maken: start de workflow (Actions → iOS-app →
+Run workflow) en download het artefact **simulator-schermafbeeldingen**; de App Store-beelden staan daarin onder
+`appstore/<map>/` als JPEG, klaar om over `apps/ios/store/screenshots/` te zetten. De oude browserweergaven (Chromium,
+zonder statusbalk) kun je nog maken met `cd apps/ios && npm run webmap && npm run screenshots`.
 
-## 10. Wat al getest is (zonder Mac)
+## 10. Wat getest is
 
-- `npm run webmap` (maak-webmap) slaagt op de huidige website; de unittest `tests/bijbelreis-app-webmap.test.ts` (in
-  de gewone CI) draait het bij elke websitewijziging, plus acht gevallen die moeten falen.
-- `npm run test:web` (19 stappen in Chromium op iPhone-maat, met nagebootste Capacitor): start, geen service worker,
-  verhaal en reis, reservekopie, een deel kiezen zonder poort, ouderpoort (fout, sluiten, goed), mail, delen, licentie,
-  terug, lesroutes heen en terug, presentatie en afdrukken via de poort, privacy en hulp in de app, verhaal-adres,
-  herstel na lege opslag, geen `/api`, geen verzoek naar buiten, geen fouten.
-- `npm run controleer` (59 controles): plists en storyboards met een XML-parser, `project.pbxproj` met de parser van
-  Capacitor (`xcode`), bundle-ID, versie, team leeg, iPhone + iPad, standen, pictogram zonder alfa, teksten binnen de
-  limieten.
-- `npx cap sync ios` werkt op Linux (Package.swift ongewijzigd).
-- **Niet getest:** bouwen in Xcode, de simulator, een echte iPhone/iPad, de echte WKWebView, het ophalen van de
-  Swift-pakketten.
+**In de iOS-simulator** (GitHub Actions, workflow `iOS-app`, job ‘Bouwen en testen in de simulator’; zie
+`TESTFLIGHT.md`), bij elke wijziging:
+
+- De app **compileert**: Release voor de simulator en voor `generic/platform=iOS` (zonder ondertekening), Debug met de
+  testloper; Xcode 26.6, iOS 26 SDK. De Release-build bevat de testloper niet (gecontroleerd).
+- De **Release-build start** en toont de atlas (iPhone 17 Pro Max, iPad Pro 13-inch (M5), iPhone 17 Pro).
+- In de **echte WKWebView** (iPhone 17 Pro Max en iPad Pro 13"): eerste start; verhaal; reis; venster openen en
+  **terug** met `webView.goBack()` (de actie van de rand-veeg; dat de veeg aan staat, wordt gecontroleerd); terug naar de
+  vorige plek; **tijdlijn**; **De wereld in die tijd** openen vanuit een verhaal en terug; **ouderpoort** (fout antwoord,
+  Sluiten); reservekopie in UserDefaults; **lesroutes**, een route, de **digibordstand** (geen poort) en terug,
+  ‘Presentatie’ via de poort, ‘In de atlas’ en terug; **privacy** en **Bronnen en licenties** in de app; geen verzoek dat
+  de app uit gaat; geen JavaScript-fouten; **veilige zones** op elk scherm. Daarna de app afsluiten en opnieuw starten:
+  de voortgang is er nog. iPhone ook **liggend** (reis, verhaal, De wereld in die tijd).
+- Elke schermafbeelding wordt gecontroleerd op een wit of leeg scherm.
+
+**Gevonden en opgelost bij de eerste echte bouw** (17-11-2026; in een gewone browser verandert er niets, want daar zijn
+de inzetten 0):
+
+- Digibordstand van de lesroutes: ‘Volledig scherm’ en ‘Terug naar de les’ stonden onder de statusbalk en het Dynamic
+  Island (`lessen.css`).
+- De wereld in die tijd op de iPad: de afspeelknoppen kwamen net in de zone van de thuisstreep (`wereld/wereld.css`).
+- iPhone liggend (breed scherm): het tabblad Paspoort en de zoomknoppen van de kaart stonden naast de rand onder het
+  Dynamic Island en de ronde hoek (`bijbelreis.css`).
+- De test van de webmap (`test-webmap.mjs`) was achterop geraakt bij de lesroutes (de hoofdknop is nu het digibord) en de
+  bronvermelding (nu op Hulp); bijgewerkt en uitgebreid met het digibord en De wereld in die tijd.
+
+**Zonder Mac** (Linux):
+
+- `npm run webmap` (maak-webmap) slaagt op de huidige website, met De wereld in die tijd en de digibordstand; de
+  unittest `tests/bijbelreis-app-webmap.test.ts` (in de gewone CI) draait het bij elke websitewijziging.
+- `npm run test:web` (21 stappen, nagebootste Capacitor) in Chromium én in Playwright-WebKit (job ‘webkit’ in de
+  workflow).
+- `npm run controleer` (60 controles): plists, storyboards, `project.pbxproj`, bundle-ID, versie, pictogram, teksten.
+
+**Niet getest:** ondertekenen en uploaden naar TestFlight (daarvoor zijn de geheimen van `TESTFLIGHT.md` nodig), een
+echte iPhone of iPad (de testlijst van §1, via TestFlight), de rand-veeg met een echte vinger (de test roept dezelfde
+actie aan), de iPad liggend in de simulator (iPadOS staat daar geen programmatisch draaien toe), VoiceOver.
 
 ## 11. Controle tegen de App Review Guidelines
 
