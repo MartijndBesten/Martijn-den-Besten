@@ -155,7 +155,7 @@ final class BijbelreisTest: NSObject, WKScriptMessageHandler {
         // Even rust: animaties en lettertypen.
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
             try? naam.write(to: bestand, atomically: true, encoding: .utf8)
-            let tot = Date().addingTimeInterval(90)
+            let tot = Date().addingTimeInterval(240)
             func kijk() {
                 if !FileManager.default.fileExists(atPath: bestand.path) { klaar(true); return }
                 if Date() > tot { klaar(false); return }

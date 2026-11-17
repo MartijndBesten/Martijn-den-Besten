@@ -126,3 +126,4 @@ geheimen: de job draait daar niet.
 | `No suitable application records were found` | Het app-record bestaat nog niet (stap 4), of de bundel-ID verschilt |
 | `The bundle version must be higher than the previously uploaded version` | Gebeurt alleen als iemand met de hand een hoger buildnummer uploadde: zet in de workflow `BUILDNUMMER` tijdelijk hoger |
 | `Xcode 26.6 staat niet (meer) op deze runner` | GitHub heeft een patchversie vervangen: kies in `XCODE_VERSIE` een versie uit de lijst in de melding |
+| De job ‘Bouwen en testen in de simulator’ staat lang op ‘Queued’ en wordt na 15 minuten ‘Cancelled’ | Drukte op de gratis Macs van GitHub (gezien op 17-11-2026, drie keer achter elkaar). Niets aan de app: in de run rechtsboven **Re-run jobs → Re-run failed jobs**, of later opnieuw starten |

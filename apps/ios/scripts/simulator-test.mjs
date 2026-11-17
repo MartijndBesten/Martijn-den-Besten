@@ -61,7 +61,9 @@ const leeg = (m) => m.spreiding < 15 || m.wit > 0.97 || m.kleuren < 6;
 const fouten = [];
 const verslag = [];
 async function foto(udid, pad, verwacht) {
-  sim("io", udid, "screenshot", "--type=png", pad);
+  // simctl io kan bij drukte op de runner even blijven hangen (gezien: 100 s op de iPad); dan één keer opnieuw.
+  try { execFileSync("xcrun", ["simctl", "io", udid, "screenshot", "--type=png", pad], { timeout: 90000, stdio: "pipe" }); }
+  catch { log("  schermafbeelding duurde te lang, opnieuw"); sim("io", udid, "screenshot", "--type=png", pad); }
   const m = await beeldMaat(pad);
   const naam = pad.slice(UIT.length + 1);
   verslag.push({ beeld: naam, ...m });
