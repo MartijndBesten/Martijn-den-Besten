@@ -215,15 +215,14 @@ try {
     verwacht(gedeeld.length === 1 && /^https:\/\/bijbelreis\.nl\/#/.test(gedeeld[0].url), "delen: " + JSON.stringify(gedeeld));
   });
 
-  await stap("licentie van Leaflet opent in een venster, de app blijft staan", async () => {
-    await page.waitForSelector('a[href$="LICENSE-leaflet.txt"]', { state: "attached", timeout: 10000 }).catch(async (e) => {
-      if (SHOTS) await page.screenshot({ path: join(SHOTS, "fout-licentie.png") }).catch(() => {});
-      throw new Error(`${e.message.split("\n")[0]} — adres ${page.url()}, titel ‘${await page.title().catch(() => "?")}’`);
-    });
+  await stap("‘Bronnen en licenties’ opent de hulppagina in de app; de licentie van Leaflet opent daar in een venster", async () => {
+    await page.evaluate(() => document.querySelector('.bronlink a[href="/bijbelreis/hulp#bronnen"]').click());
+    await page.waitForURL(/\/bijbelreis\/hulp\.html#bronnen$/);
+    await page.waitForSelector('a[href$="LICENSE-leaflet.txt"]', { state: "attached" });
     await page.evaluate(() => document.querySelector('a[href$="LICENSE-leaflet.txt"]').click());
     await page.waitForSelector("#appTekst:not([hidden]) pre");
     verwacht(/Leaflet|BSD|Copyright/i.test(await page.textContent("#appTekst pre")), "licentietekst leeg");
-    verwacht(page.url().startsWith(BASIS) && !page.url().endsWith(".txt"), "pagina is weggegaan: " + page.url());
+    verwacht(/\/bijbelreis\/hulp\.html/.test(page.url()) && !page.url().endsWith(".txt"), "pagina is weggegaan: " + page.url());
     await page.click("#appTekst [data-tekst-dicht]");
   });
 

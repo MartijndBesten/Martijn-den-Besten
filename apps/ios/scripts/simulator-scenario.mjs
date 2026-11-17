@@ -137,6 +137,11 @@ export const SCENARIOS = {
     { naam: "terug (veeg): van de atlas terug bij de lesroute", terug: true, wacht: `location.pathname === "/bijbelreis/lessen.html" && ${ZICHT(".ls-les")}`, ms: 20000 },
     { naam: "privacy in de app", js: js(`setTimeout(() => { location.href = "/bijbelreis/privacy.html"; }, 50); return "ok";`), wacht: `location.pathname === "/bijbelreis/privacy.html" && /De app verzamelt niets/.test(document.body.innerText)`, foto: "09-privacy" },
     veilig("privacy"),
+    { naam: "hulp: ‘Bronnen en licenties’ vanuit de atlas, in de app", js: js(`
+      setTimeout(() => { location.href = "/"; }, 50);
+      return "ok";`), wacht: `location.pathname === "/" && !!document.querySelector('.bronlink a[href="/bijbelreis/hulp#bronnen"]')`, ms: 30000 },
+    { naam: "hulp: de link opent de hulppagina in de app (#bronnen)", js: js(`setTimeout(() => document.querySelector('.bronlink a').click(), 50); return "ok";`), wacht: `location.pathname === "/bijbelreis/hulp.html" && location.hash === "#bronnen" && !!window.bijbelreisApp`, ms: 20000 },
+    { naam: "hulp: de licentie van Leaflet opent in een venster in de app", js: js(`klik('a[href$="LICENSE-leaflet.txt"]'); return "ok";`), wacht: `${ZICHT("#appTekst")} && /Leaflet|BSD|Copyright/i.test(document.querySelector("#appTekst pre").textContent) && location.pathname === "/bijbelreis/hulp.html"`, foto: "09b-licentie" },
     { naam: "geen verzoeken buiten de app", js: NETWERK },
   ],
 
