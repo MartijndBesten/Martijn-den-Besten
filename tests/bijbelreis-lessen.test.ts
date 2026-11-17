@@ -8,7 +8,7 @@ import { describe, expect, it } from "vitest";
 import { bijbelreisPagina } from "../shared/bijbelreis";
 
 type Vraag = { q: string; ref: string; a: string };
-type Les = { v: number; lees: string; vragen: Vraag[] };
+type Les = { v: number; lees: string; verzen: number; min: number; vragen: Vraag[] };
 type Route = { id: string; n: string; kort: string; bereik: string; extra?: { t: string; deel: string }; lessen: Les[] };
 type Geschiedenis = { nr: number; t: string; ref: string; stappen: string[] };
 type Range = { slug: string; c1: number; v1: number; c2: number; v2: number };
@@ -66,6 +66,8 @@ const tekst = (ref: string) => {
   }
   return uit.join(" ").replace(/\s+/g, " ");
 };
+// Het begin van een verwijzing als getal (hoofdstuk * 1000 + vers), om de volgorde in de tekst te vergelijken.
+const begin = (ref: string) => bereiken(ref)[0].van;
 // Citaten ‘…’ (de apostrof in ‘Farao’s’ sluit een citaat niet af; lessen.js leest ze op dezelfde manier).
 const citaten = (t: string) => [...t.matchAll(/‘(.+?)’(?![\p{L}])/gu)].map((m) => m[1]);
 
@@ -112,14 +114,22 @@ describe("lesroutes: alleen naar wat bestaat", () => {
   it("het gedeelte om samen te lezen valt binnen de verwijzing van de geschiedenis", () => {
     for (const { l, naam } of LESSEN) expect(binnen(l.lees, G.get(l.v)!.ref), `${naam}: ${l.lees} binnen ${G.get(l.v)!.ref}`).toBe(true);
   });
+  it("aantal verzen en voorleestijd (120 woorden per minuut) kloppen met de Statenvertaling; geen les langer dan 8 minuten lezen", () => {
+    for (const { l, naam } of LESSEN) {
+      const t = tekst(l.lees), verzen = bereiken(l.lees).reduce((n, r) => {
+        let k = 0; for (let c = Math.floor(r.van / 1000); c <= Math.floor(r.tot / 1000); c++) { const a = c === Math.floor(r.van / 1000) ? r.van % 1000 : 1, z = c === Math.floor(r.tot / 1000) ? r.tot % 1000 : boek(r.slug).hoofdstukken[c].length; k += z - a + 1; }
+        return n + k;
+      }, 0);
+      expect(l.verzen, `${naam}: verzen`).toBe(verzen);
+      expect(l.min, `${naam}: minuten`).toBe(Math.max(1, Math.round(t.trim().split(/\s+/).length / 120)));
+      expect(l.min, `${naam}: te lang voor een les van 20 minuten`).toBeLessThanOrEqual(8);
+    }
+  });
 });
 
 describe("lesroutes: de vragen", () => {
-  it("elke les heeft 2 of 3 vragen, met vraag, antwoord en verwijzing", () => {
-    for (const { l, naam } of LESSEN) {
-      expect(l.vragen.length, naam).toBeGreaterThanOrEqual(2);
-      expect(l.vragen.length, naam).toBeLessThanOrEqual(3);
-    }
+  it("elke les heeft drie vragen (een vaste maat voor ongeveer 5 minuten opzoeken), met vraag, antwoord en verwijzing", () => {
+    for (const { l, naam } of LESSEN) expect(l.vragen.length, naam).toBe(3);
     for (const { v, naam } of VRAGEN) {
       expect(v.q, naam).toMatch(/\?$/);
       expect(v.a.trim().length, naam).toBeGreaterThan(1);
@@ -129,19 +139,28 @@ describe("lesroutes: de vragen", () => {
   it("het antwoord staat in het gedeelte dat je samen leest", () => {
     for (const { l, v, naam } of VRAGEN) expect(binnen(v.ref, l.lees), `${naam}: ${v.ref} binnen ${l.lees}`).toBe(true);
   });
-  it("elk citaat ‘…’ staat letterlijk zo in de Statenvertaling bij de verwijzing", () => {
+  it("de vragen volgen de tekst: je zoekt van voren naar achteren (en loopt niet vooruit)", () => {
+    for (const { l, naam } of LESSEN) {
+      const b = l.vragen.map((v) => begin(v.ref));
+      expect(b, `${naam}: ${l.vragen.map((v) => v.ref).join(", ")}`).toEqual([...b].sort((x, y) => x - y));
+    }
+  });
+  it("elk citaat ‘…’ in vraag of antwoord staat letterlijk zo in de Statenvertaling bij de verwijzing", () => {
     let n = 0;
-    for (const { v, naam } of VRAGEN) for (const c of citaten(v.a)) { n++; expect(tekst(v.ref), `${naam}: ‘${c}’`).toContain(c); }
+    for (const { v, naam } of VRAGEN) for (const c of [...citaten(v.q), ...citaten(v.a)]) { n++; expect(tekst(v.ref), `${naam}: ‘${c}’`).toContain(c); }
     expect(n).toBeGreaterThan(20);
   });
-  it("elke vraag heeft een controleregel in scripts/bijbel-controle/lessen.txt, en die regel klopt", () => {
+  it("een vraag staat op zichzelf (op het digibord en het werkblad staat hij zonder de vraag ervoor)", () => {
+    for (const { v, naam } of VRAGEN) expect(v.q, naam).not.toMatch(/\b(die plaats|deze plaats|daarna|dit)\?|\b(zijn|haar|hun) \w+ daarna\b|^(Hoe|Wat|Wie) (was|is) (zijn|haar)\b/i);
+  });
+  it("elke vraag heeft een controleregel in scripts/bijbel-controle/lessen.txt (in dezelfde volgorde), en die regel klopt", () => {
     const regels = readFileSync(join(ROOT, "scripts", "bijbel-controle", "lessen.txt"), "utf8").split("\n").map((r) => r.trim()).filter((r) => r && !r.startsWith("#"))
       .map((r) => { const i = r.indexOf("|"); return { ref: r.slice(0, i).trim(), re: r.slice(i + 1).trim() }; });
     expect(regels.length).toBe(VRAGEN.length);
-    for (const { v, naam } of VRAGEN) {
-      const r = regels.find((x) => x.ref === v.ref);
-      expect(r, `${naam}: geen regel voor ${v.ref}`).toBeTruthy();
-      expect(tekst(v.ref), `${naam}: ${r!.re}`).toMatch(new RegExp(r!.re, "i"));
-    }
+    VRAGEN.forEach(({ v, naam }, i) => {
+      const r = regels[i];
+      expect(r.ref, `${naam}: regel ${i + 1} hoort bij ${v.ref}`).toBe(v.ref);
+      expect(tekst(v.ref), `${naam}: ${r.re}`).toMatch(new RegExp(r.re, "i"));
+    });
   });
 });
