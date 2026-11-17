@@ -79,10 +79,18 @@ console.log(`postbuild: ${ROUTES.length} routes + 404.html + sitemap.xml`);
 // half uit de browsercache komt (oude app.js met nieuwe inhoud of andersom). Hetzelfde voor de pagina Presentatie en
 // boekje (bijbelreis/boekje.html) en de Lesroutes (bijbelreis/lessen.html). Daarna de service worker met één vaste set bestanden per
 // versie (installeerbare app, offline): scripts/bijbelreis-pwa.mjs en docs/bijbelreis-pwa/README.md.
-const { stempel, maakPwa } = await import("./bijbelreis-pwa.mjs");
+// Eerst de atlas in de andere talen (scripts/bijbelreis-talen.mjs, docs/bijbelreis-talen/README.md): die krijgen daarna
+// ook hun versienummers en een eigen service worker.
+const { maakTalen } = await import("./bijbelreis-talen.mjs");
+for (const [taal, ontbreekt] of Object.entries(maakTalen(dist))) {
+  console.log(`postbuild: Bijbelreis in het ${taal}${ontbreekt.length ? `, ${ontbreekt.length} teksten nog niet vertaald: ${ontbreekt.slice(0, 8).join(" | ")}` : ""}`);
+}
+const { stempel, maakPwa, talen } = await import("./bijbelreis-pwa.mjs");
 stempel(dist);
-const pwa = maakPwa(dist);
-console.log(`postbuild: Bijbelreis versie ${pwa.versie}, schil ${pwa.bestanden} bestanden (${pwa.kB} kB), ${pwa.beelden} afbeeldingen`);
+for (const taal of talen(dist)) {
+  const pwa = maakPwa(dist, taal);
+  console.log(`postbuild: Bijbelreis${taal === "nl" ? "" : ` (${taal})`} versie ${pwa.versie}, schil ${pwa.bestanden} bestanden (${pwa.kB} kB), ${pwa.beelden} afbeeldingen`);
+}
 
 // Bijbelreis: per geschiedenis een gewone HTML-pagina voor zoekmachines (/verhaal/<nr>-<slug> op bijbelreis.nl) en een
 // overzicht (/verhalen), uit dezelfde gegevens als de atlas. Zie scripts/bijbelreis-verhalen.mjs.
@@ -90,7 +98,10 @@ console.log(`postbuild: Bijbelreis versie ${pwa.versie}, schil ${pwa.bestanden} 
   const { mkdirSync } = await import("node:fs");
   const { dirname } = await import("node:path");
   const { laadGegevens, maakPaginas } = await import("./bijbelreis-verhalen.mjs");
-  const paginas = maakPaginas(laadGegevens("public"), readFileSync(join(dist, "bijbelreis", "verhaal.css")));
+  const { talenMetBoek } = await import("./bijbelreis-talen.mjs");
+  const css = readFileSync(join(dist, "bijbelreis", "verhaal.css"));
+  const paginas = maakPaginas(laadGegevens("public"), css);
+  for (const [taal, openbaar] of talenMetBoek("public")) Object.assign(paginas, maakPaginas(laadGegevens("public", taal), css, { taal, openbaar }));
   for (const [p, html] of Object.entries(paginas)) {
     mkdirSync(dirname(join(dist, p)), { recursive: true });
     writeFileSync(join(dist, p), html);

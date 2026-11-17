@@ -17,3 +17,11 @@ export function bijbelreisPagina(pad: string, bestaat: (bestand: string) => bool
   if (kaal === "/bijbelreis" || !/^\/bijbelreis\/[\w-]+(\/[\w-]+)*$/.test(kaal) || !bestaat(kaal + ".html")) return null;
   return kaal === pad ? { bestand: kaal + ".html" } : { naar: kaal };
 }
+
+// Talen (docs/bijbelreis-talen/README.md). Nederlands staat op ‘/’; elke andere taal op een eigen pad (/en/). Een taal
+// met openbaar: false is een proef: de pagina's hebben noindex, staan niet in de sitemap, de Nederlandse site linkt er
+// niet naar (geen taalkeuze, geen hreflang) en de Nederlandse pagina blijft byte voor byte zoals hij was. Alleen
+// bereikbaar via het adres zelf. Zet openbaar pas op true na akkoord van Martijn: dit is de enige plek.
+export const BIJBELREIS_TALEN: Record<string, { naam: string; openbaar: boolean }> = {
+  en: { naam: "English", openbaar: false }, // proef sinds 17-11-2026: 10 geschiedenissen, status ‘concept’
+};
