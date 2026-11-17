@@ -103,7 +103,6 @@ export function maakWebmap({ uit = join(APP, "www"), pub = join(REPO, "public"),
       // Privacytekst voor de app: er gaat niets naar een server.
       vervang("privacy", /(<dt>Privacy<\/dt>\s*<dd>)[\s\S]*?(<\/dd>)/,
         "$1Stempels, scores en waar je was, worden alleen op dit apparaat bewaard. Geen account, geen cookies en geen telling: de app verstuurt niets. Wil je iets vragen of delen, of een website openen? Dan vraagt de app eerst om een ouder (de ouderpoort) en gaat het via je eigen mail, deelmenu of browser. <a href=\"/bijbelreis/privacy\">Lees de privacyverklaring</a>$2");
-      vervang("colofon-telling", /Geen cookies; bezoeken worden naamloos geteld \(zie Privacy hierboven\)\./, "Geen cookies en geen telling (zie Privacy hierboven).");
     }
     // De app-laag moet vóór elk ander script staan (voortgang veiligstellen, klikken naar buiten opvangen).
     const eerste = /<script src="([^"]+)"/.exec(html);
