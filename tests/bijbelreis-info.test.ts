@@ -30,6 +30,14 @@ describe("de pagina's zelf", () => {
     expect(PAGINAS.hulp).toContain('href="/bijbelreis/privacy"');
     expect(PAGINAS.hulp).toContain('href="/bijbelreis/lessen"');
   });
+  it("bronnen en licenties staan op de hulppagina; de atlas heeft onderaan alleen de link", () => {
+    const atlas = lees("bijbelreis.html");
+    expect(atlas).toContain('<a href="/bijbelreis/hulp#bronnen">Bronnen en licenties</a>');
+    expect(atlas).not.toContain("AWS Terrain Tiles");
+    expect(atlas).not.toContain('class="colofon"');
+    expect(PAGINAS.hulp).toContain('id="bronnen"');
+    for (const zin of ["Wikimedia Commons", "Leaflet", "Natural Earth", "AWS Terrain Tiles", "Ancient World Mapping Center", "Open Database License 1.0", "Forti e.a. 2022", "OpenBible.info", "CC BY 4.0", "Statenvertaling", "CC0"]) expect(PAGINAS.hulp, zin).toContain(zin);
+  });
   it("de atlas linkt onder ‘Voor ouders en leiders’ naar privacy en hulp", () => {
     const atlas = lees("bijbelreis.html");
     // Tot het einde van de lijst: binnen ‘Voor ouders en leiders’ staat nog een uitklapblok (verantwoording van de kaart).
