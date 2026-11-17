@@ -58,7 +58,7 @@ export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, 
   const OVERZICHT = "/bijbelreis/verhalen.html";
   const sitemap = () =>
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    ["/", ...(FILES[OVERZICHT] ? ["/verhalen"] : []), ...[...VERHALEN.keys()].sort((a, b) => a - b).map((nr) => `/verhaal/${VERHALEN.get(nr)}`)]
+    ["/", ...(FILES[OVERZICHT] ? ["/verhalen"] : []), ...(FILES["/bijbelreis/lessen.html"] ? ["/bijbelreis/lessen"] : []), ...[...VERHALEN.keys()].sort((a, b) => a - b).map((nr) => `/verhaal/${VERHALEN.get(nr)}`)]
       .map((p) => `  <url><loc>${ORIGIN}${p}</loc></url>\n`)
       .join("") +
     `</urlset>\n`;

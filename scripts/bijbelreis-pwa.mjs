@@ -8,7 +8,7 @@
 // Gebruik: node scripts/bijbelreis-pwa.mjs [map]   (standaard dist/client; postbuild.mjs roept het zelf aan)
 
 import { createHash } from "node:crypto";
-import { readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -22,6 +22,7 @@ const DATA = ["geo.json", "toen.json", "relief.json", "grenzen.json", "relief-re
 export function stempel(dist) {
   for (const pagina of ["bijbelreis.html", "bijbelreis/boekje.html", "bijbelreis/lessen.html"]) {
     const file = join(dist, pagina);
+    if (!existsSync(file)) continue;
     let html = readFileSync(file, "utf8").replace(/((?:src|href)=")(\/bijbelreis\/[^"?]+\.(?:js|css))(?:\?v=[0-9a-f]+)?"/g, (m, attr, url) => `${attr}${url}?v=${hash(lees(dist, url), 10)}"`);
     const data = Object.fromEntries(DATA.map((p) => [p, hash(lees(dist, "bijbelreis/" + p), 10)]));
     const meta = `<meta name="bijbelreis-data" content='${JSON.stringify(data)}' />`;

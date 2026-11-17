@@ -70,7 +70,10 @@ describe("verhaalpagina's: één per geschiedenis, uit de gegevens van de atlas"
 });
 
 describe("bijbelreis.nl serveert de pagina's", () => {
-  const FILES: Bestanden = { "/bijbelreis.html": ["text/html; charset=utf-8", "a1", btoa("<!doctype html><title>atlas</title>")] };
+  const FILES: Bestanden = {
+    "/bijbelreis.html": ["text/html; charset=utf-8", "a1", btoa("<!doctype html><title>atlas</title>")],
+    "/bijbelreis/lessen.html": ["text/html; charset=utf-8", "l1", btoa("<!doctype html><title>lessen</title>")],
+  };
   for (const [p, html] of Object.entries(paginas)) FILES["/" + p] = ["text/html; charset=utf-8", "x", Buffer.from(html).toString("base64")];
   const REGELS = [{ pattern: "/*", headers: { "X-Frame-Options": "DENY", "Content-Security-Policy": "default-src 'self'; frame-ancestors 'none'" } }];
   const w = maakBijbelreisWorker(FILES, REGELS) as unknown as { fetch: (r: Request) => Promise<Response> };
@@ -98,12 +101,13 @@ describe("bijbelreis.nl serveert de pagina's", () => {
     expect((await haal("/verhalen")).status).toBe(200);
     for (const p of ["/verhalen/", "/bijbelreis/verhalen", "/bijbelreis/verhalen.html"]) expect((await haal(p)).headers.get("Location"), p).toBe("https://bijbelreis.nl/verhalen");
   });
-  it("sitemap.xml noemt de atlas, het overzicht en elke geschiedenis; robots.txt wijst ernaar", async () => {
+  it("sitemap.xml noemt de atlas, het overzicht, de lesroutes en elke geschiedenis; robots.txt wijst ernaar", async () => {
     const xml = await (await haal("/sitemap.xml")).text();
     expect(xml).toContain("<loc>https://bijbelreis.nl/</loc>");
     expect(xml).toContain("<loc>https://bijbelreis.nl/verhalen</loc>");
+    expect(xml).toContain("<loc>https://bijbelreis.nl/bijbelreis/lessen</loc>");
     for (const g of G) expect(xml).toContain(`<loc>https://bijbelreis.nl/verhaal/${V.naam(g)}</loc>`);
-    expect((xml.match(/<url>/g) || []).length).toBe(G.length + 2);
+    expect((xml.match(/<url>/g) || []).length).toBe(G.length + 3);
     expect(await (await haal("/robots.txt")).text()).toContain("Sitemap: https://bijbelreis.nl/sitemap.xml");
   });
   it("de atlas zelf blijft op /", async () => {
