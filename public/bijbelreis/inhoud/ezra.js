@@ -4,7 +4,7 @@ Object.assign(BR.personen, { Jesua: "salie", Sesbazar: "grijs", Haggaï: "lila",
 
 BR.boeken.push({
   id: "ezra", n: "Ezra en Nehemia", tijd: "ca. 538–430 v.Chr.", kleur: "salie",
-  intro: "Na zeventig jaar in Babel mag het volk terug naar Jeruzalem. Zerubbabel bouwt de tempel, Ezra leert het volk de wet en Nehemia bouwt de muur, in 52 dagen.",
+  intro: "Als de zeventig jaren vervuld zijn waarover Jeremia sprak, mag het volk terug naar Jeruzalem. Zerubbabel bouwt de tempel, Ezra leert het volk de wet en Nehemia bouwt de muur, in 52 dagen.",
   wie: [
     { n: "Kores", rol: "koning van Perzië", i: "De koning die Babel verovert en in zijn eerste jaar de Joden laat teruggaan naar Jeruzalem om de tempel te bouwen (Ezra 1:1–4). Hij geeft zelfs de tempelvaten terug die Nebukadnezar had meegenomen.", deel: "terugkeer" },
     { n: "Zerubbabel", rol: "leider van de eerste groep", i: "Zoon van Sealthiël, uit de familie van koning David. Hij leidt ruim 42.000 mensen van Babel naar Jeruzalem en bouwt met de priester Jesua het altaar en de tempel.", deel: "terugkeer" },
@@ -20,7 +20,7 @@ BR.boeken.push({
 { id: "terugkeer", n: "Terugkeer en tempel", short: "Terugkeer", ref: "Ezra 1–6", c: "salie", init: "T",
   tijd: "ca. 538–515 v.Chr.", tl: [-538, -515],
   tijdNoot: "Reconstructie. Het eerste jaar van Kores als koning over Babel (Ezra 1:1) is volgens Babylonische en Perzische bronnen 539/538 v.Chr. De tempel is klaar op de derde dag van Adar in het zesde jaar van Darius (6:15); als dat Darius I is, zoals algemeen aangenomen, is dat in 515 v.Chr.",
-  intro: "Zeventig jaar zijn de Joden in Babel. Dan verovert Kores, de koning van Perzië, het rijk. In zijn eerste jaar zegt hij: “Wie wil, mag naar Jeruzalem om de tempel te bouwen.” Ruim 42.000 mensen gaan. Ze bouwen het altaar, leggen het fundament en worden tegengewerkt. Pas jaren later is de tempel klaar.",
+  intro: "God had door Jeremia gezegd dat de ballingschap zeventig jaren zou duren (Jeremia 29:10). Als die tijd vervuld is, verovert Kores, de koning van Perzië, het rijk. In zijn eerste jaar zegt hij: “Wie wil, mag naar Jeruzalem om de tempel te bouwen.” Ruim 42.000 mensen gaan. Ze bouwen het altaar, leggen het fundament en worden tegengewerkt. Pas jaren later is de tempel klaar.",
   who: [["Zerubbabel"], ["Jesua"], ["Kores"]],
   stat: "Ezra 2 is één lange lijst van 70 verzen met namen en getallen van wie er terugging: in totaal 42.360 mensen, plus 7.337 knechten en 200 zangers.",
   cross: [["Jeremia 29:10", "Jeremia had geschreven dat de ballingschap zeventig jaar zou duren. Daarna zou God het volk terugbrengen."],
@@ -63,7 +63,7 @@ BR.boeken.push({
     fact: "Van het bevel van Kores tot de inwijding duurde het ruim twintig jaar. Veel kinderen die als baby op reis gingen, waren nu volwassen.", fs: "u" },
   ],
   quiz: {
-    tap: [{ id: "babelst", q: "Tik op Babel, waar het volk zeventig jaar had gewoond.", v: "wide" }, { id: "salem", q: "Tik op Jeruzalem, waar de tempel werd herbouwd.", v: "wide" },
+    tap: [{ id: "babelst", q: "Tik op Babel, waar het volk in ballingschap had gewoond.", v: "wide" }, { id: "salem", q: "Tik op Jeruzalem, waar de tempel werd herbouwd.", v: "wide" },
       { id: "ekbatana", q: "Tik op Ekbatana (Achmetha), waar de rol van Kores werd gevonden.", v: "wide" }],
     mc: [{ q: "Welke koning liet de Joden teruggaan naar Jeruzalem?", a: ["Kores", "Nebukadnezar", "Farao"], why: "Ezra 1:1–3" },
       { q: "Hoeveel mensen gingen er met Zerubbabel terug?", a: ["42.360", "12.000", "600.000"], why: "Ezra 2:64" },
