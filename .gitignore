@@ -11,3 +11,16 @@ worker/generated/
 wrangler.preview.jsonc
 docs/bijbelreis-niveaus/werk/invoer/
 scripts/reizen/obi/
+# iOS-app (apps/ios): eigen dependencies en gemaakte bestanden, nooit in git
+apps/ios/node_modules/
+apps/ios/www/
+apps/ios/ios/App/App/public/
+apps/ios/ios/App/App/capacitor.config.json
+apps/ios/ios/App/App/config.xml
+apps/ios/ios/App/Pods/
+apps/ios/ios/App/build/
+apps/ios/ios/DerivedData/
+apps/ios/ios/App/DerivedData/
+apps/ios/**/xcuserdata/
+apps/ios/**/*.xcarchive
+apps/ios/ios/App/CapApp-SPM/.build/

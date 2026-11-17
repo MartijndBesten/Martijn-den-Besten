@@ -2878,7 +2878,8 @@
     if (!veld) { knop.insertAdjacentHTML("afterend", '<label class="deelveld"><span>Kopieer deze link</span><input type="text" readonly></label>'); veld = knop.nextElementSibling; }
     const inp = veld.querySelector("input"); inp.value = url; inp.focus(); inp.select();
   }
-  document.addEventListener("click", (e) => { const k = e.target.closest("[data-deel]"); if (k) deelLink(k); });
+  // Alleen de deelknop zelf: de knoppen van de delen van een reis (#delen) en het paspoort gebruiken ook data-deel.
+  document.addEventListener("click", (e) => { const k = e.target.closest(".deelknop[data-deel]"); if (k) deelLink(k); });
 
   // Reisniveau kiezen en wisselen: overal dezelfde knoppen (data-niveau). Wisselen bouwt het huidige scherm opnieuw op.
   function niveauKnop() {

@@ -1,0 +1,13 @@
+/* App-laag van de Bijbelreis (iOS-app). Gebruikt de bestaande stijl van de atlas (.lade, .btn, .ref, .av-fout). */
+.lade.app-poort, .lade.app-tekst { z-index: 1600; }
+.app-poort .lade__box { width: min(460px, 100%); }
+.app-poort form { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+.app-poort-vraag { font-weight: 600; }
+#appPoortIn { font: inherit; font-size: 1.2rem; min-height: 48px; padding: 8px 12px; border: 1px solid var(--lijn-sterk); border-radius: var(--r); background: var(--wit); color: var(--fg); width: 8em; }
+.app-poort .av-fout:empty { display: none; }
+.app-tekst pre { white-space: pre-wrap; font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.5; margin: 0; overflow: auto; }
+/* Geen tekstselectie-menu bij lang drukken op knoppen, zoals in een app. Tekst in verhalen blijft selecteerbaar. */
+html[data-app] button, html[data-app] .tabs, html[data-app] .mbtn { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+/* Op de iPad (breed scherm) staat de app schermvullend onder de statusbalk: de donkere kop schuift er dan onder door,
+   zoals op de telefoon al gebeurt (bijbelreis.css, @media max-width 900px). In Safari is deze inzet 0. */
+@media (min-width: 901px) { html[data-app] .kop { padding-top: env(safe-area-inset-top, 0px); } }

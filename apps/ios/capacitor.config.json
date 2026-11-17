@@ -1,0 +1,14 @@
+{
+  "appId": "nl.bijbelreis.app",
+  "appName": "Bijbelreis",
+  "webDir": "www",
+  "ios": {
+    "backgroundColor": "#f5f0e5",
+    "contentInset": "never",
+    "allowsLinkPreview": false,
+    "limitsNavigationsToAppBoundDomains": false
+  },
+  "server": {
+    "allowNavigation": []
+  }
+}
