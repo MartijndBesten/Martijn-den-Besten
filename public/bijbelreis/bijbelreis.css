@@ -1097,7 +1097,7 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
 .niveauknop svg { width: 15px; height: 15px; }
 .niveauknop .pijl { width: 13px; height: 13px; opacity: 0.8; }
 .niveauknop:hover, .niveauknop[aria-expanded="true"] { background: rgba(255, 255, 255, 0.14); color: #fff; }
-.niveaukeuze { position: fixed; z-index: 1500; top: calc(var(--kop-h) + 6px); left: max(12px, env(safe-area-inset-left, 0px)); width: min(380px, calc(100vw - 24px)); background: var(--wit); border-radius: var(--r); box-shadow: 0 12px 40px rgba(19, 32, 61, 0.28); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.niveaukeuze { position: fixed; z-index: 1500; top: calc(var(--kop-h) + env(safe-area-inset-top, 0px) + 6px); left: max(12px, env(safe-area-inset-left, 0px)); width: min(380px, calc(100vw - 24px)); background: var(--wit); border-radius: var(--r); box-shadow: 0 12px 40px rgba(19, 32, 61, 0.28); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
 .niveaukeuze[hidden] { display: none; }
 .nk-kop { margin: 0; font-weight: 700; font-size: 1.05rem; }
 .nk-noot { margin: 0; font-size: 0.8rem; color: var(--fg-3); line-height: 1.4; }
@@ -1620,3 +1620,22 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
 .ls-ingang span { font-size: 0.84rem; color: var(--fg-2); }
 .ls-ingang b { font-weight: 650; color: var(--nacht); }
 .ls-ingang b::after { content: " →"; }
+/* ===== App op het beginscherm (pwa.js, docs/bijbelreis-pwa/README.md) ===== */
+/* Een rustige melding: nieuwe versie, of geen internet. Op de computer linksonder op de kaart, boven de knoppen
+   Vorige/Verder; op de telefoon net onder de kop, want onderin staan het blad en de onderbalk. */
+.pwa-melding { position: fixed; z-index: 1650; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(86px + env(safe-area-inset-bottom, 0px)); width: max-content; max-width: min(420px, calc(100vw - 24px)); display: flex; align-items: center; gap: 10px; padding: 8px 6px 8px 16px; background: var(--wit); color: var(--fg); border: 1px solid var(--lijn); border-radius: var(--r); box-shadow: 0 10px 30px -10px rgba(19, 32, 61, 0.45); }
+.pwa-melding p { margin: 0; font-size: 0.92rem; line-height: 1.35; }
+.pwa-melding .btn { flex: none; min-height: 44px; padding: 8px 14px; }
+.pwa-melding .pwa-weg { flex: none; width: 44px; height: 44px; border: 0; background: none; color: var(--fg-2); font-size: 1.4rem; line-height: 1; border-radius: var(--r-klein); cursor: pointer; }
+.pwa-melding .pwa-weg:hover { background: var(--nacht-zacht); color: var(--fg); }
+@media (max-width: 900px) { .pwa-melding { left: 12px; right: 12px; width: auto; max-width: none; bottom: auto; top: calc(var(--kop-h) + env(safe-area-inset-top, 0px) + 8px); } }
+/* Een foto die zonder internet niet te laden is. */
+.pwa-geenfoto { margin: 0; padding: 14px 16px; border-radius: 10px; border: 1px dashed var(--lijn-sterk); background: var(--oker-zacht); color: var(--fg-2); font-size: 0.9rem; line-height: 1.4; }
+/* Breed scherm als app (iPad op het beginscherm): de statusbalk ligt over de kop (black-translucent), dus de kop begint
+   eronder; de knoppen onderin de kaart blijven boven de thuisbalk. Zonder inzet (gewone browser) is alles 0 en verandert er niets. */
+@media (min-width: 901px) {
+  .kop { padding-top: env(safe-area-inset-top, 0px); min-height: calc(var(--kop-h) + env(safe-area-inset-top, 0px)); }
+  .mapbar { bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
+  .mapacties { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
+  .panel { padding-bottom: calc(36px + env(safe-area-inset-bottom, 0px)); }
+}

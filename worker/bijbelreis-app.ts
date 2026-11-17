@@ -86,6 +86,9 @@ export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, 
       if (pagina && "naar" in pagina) return Response.redirect(new URL(pagina.naar + url.search, url).toString(), 301);
       if (pagina) return serve(request, path, pagina.bestand);
       if ((path.startsWith("/bijbelreis/") || path.startsWith("/fonts/")) && FILES[path]) return serve(request, path, path);
+      // De service worker (installeerbare app, docs/bijbelreis-pwa/README.md) staat in de root, zodat hij de atlas op ‘/’
+      // mag bedienen. Hij valt onder geen enkele cacheregel: max-age=0, must-revalidate, dus een nieuwe versie komt meteen.
+      if (path === "/bijbelreis-sw.js" && FILES[path]) return serve(request, path, path);
       return text(request, path, NIET_GEVONDEN, "text/html; charset=utf-8", 404);
     },
   };

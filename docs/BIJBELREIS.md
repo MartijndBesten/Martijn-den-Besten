@@ -12,6 +12,7 @@ Interactieve kaart voor kinderen (ca. 8–12 jaar) over het Oude Testament. Een 
 | `public/bijbelreis/geo.json` | ondergrond: land, meren, rivieren, woestijnen/gebergten, inzetkaartje en de vorm van Nederland (Natural Earth, publiek domein) |
 | `public/bijbelreis/bijbel/<boek>.json` | Statenvertaling per boek (publiek domein) voor ‘Lees het zelf in de Bijbel’ |
 | `public/bijbelreis/leaflet.js`, `leaflet.css`, `LICENSE-leaflet.txt` | Leaflet 1.9.4 (BSD-2), lokaal |
+| `public/bijbelreis/pwa.js`, `public/bijbelreis-sw.js`, `public/bijbelreis/manifest.webmanifest` | installeerbare app en offline gebruik: service worker met één vaste set bestanden per build (`scripts/bijbelreis-pwa.mjs`), zie `docs/bijbelreis-pwa/README.md` |
 
 ## Regels voor de inhoud
 
