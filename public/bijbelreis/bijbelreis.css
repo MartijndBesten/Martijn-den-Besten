@@ -1769,4 +1769,4 @@ details.meerinfo p { margin: 6px 0 0; }
 .kop-sub { overflow: visible; }
 .kop h1 { padding-right: 0.15em; }
 /* Brede kop met uitleg als tweede regel: het tegeltje kleiner, zodat de kop 64 px hoog blijft. */
-@media (min-width: 1360px) { .tabs button svg { padding: 2px; border-radius: 7px; } }
+@media (min-width: 1360px) { .tabs button svg { padding: 2px; margin: -2px 0 -1px; border-radius: 7px; } }
