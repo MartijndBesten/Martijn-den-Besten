@@ -11,6 +11,7 @@
 // Toestellen: iPhone 17 Pro Max (6,9"), iPhone 17 Pro (6,3", alleen App Store-beelden) en iPad Pro 13-inch (M5), op
 // de nieuwste iOS-runtime die op de runner staat. sharp komt uit de node_modules van de repository.
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync, copyFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join, resolve } from "node:path";
@@ -60,10 +61,27 @@ const leeg = (m) => m.spreiding < 15 || m.wit > 0.97 || m.kleuren < 6;
 
 const fouten = [];
 const verslag = [];
+// simctl kan na het draaien een oud beeld teruggeven (gezien: liggend, twee keer exact hetzelfde beeld voor verschillende
+// schermen, terwijl de pagina wel klopte). Dan een paar keer opnieuw; blijft het gelijk, dan een waarschuwing.
+const waarschuwingen = [];
+let vorigeHash = "";
+const hashVan = (p) => createHash("sha1").update(readFileSync(p)).digest("hex");
 async function foto(udid, pad, verwacht) {
+  for (let poging = 0; ; poging++) {
+    neem(udid, pad);
+    const h = hashVan(pad);
+    if (h !== vorigeHash) { vorigeHash = h; break; }
+    if (poging >= 4) { waarschuwingen.push(`${pad.slice(UIT.length + 1)}: zelfde beeld als de vorige schermafbeelding`); break; }
+    await slaap(1500);
+  }
+  await meet(pad, verwacht);
+}
+function neem(udid, pad) {
   // simctl io kan bij drukte op de runner even blijven hangen (gezien: 100 s op de iPad); dan één keer opnieuw.
   try { execFileSync("xcrun", ["simctl", "io", udid, "screenshot", "--type=png", pad], { timeout: 90000, stdio: "pipe" }); }
   catch { log("  schermafbeelding duurde te lang, opnieuw"); sim("io", udid, "screenshot", "--type=png", pad); }
+}
+async function meet(pad, verwacht) {
   const m = await beeldMaat(pad);
   const naam = pad.slice(UIT.length + 1);
   verslag.push({ beeld: naam, ...m });
@@ -85,6 +103,7 @@ function toesteltype(naam) {
 }
 
 async function draaiScenario(udid, naam, map, maat) {
+  vorigeHash = "";
   const data = sim("get_app_container", udid, BUNDEL, "data");
   const test = join(data, "Documents", "test");
   mkdirSync(test, { recursive: true });
@@ -170,6 +189,7 @@ for (const t of TOESTELLEN) {
     if (existsSync(p)) await sharp(p).flatten({ background: "#f5f0e5" }).jpeg({ quality: 90, chromaSubsampling: "4:4:4" }).toFile(join(doel, s.foto + ".jpg"));
   }
 }
-writeFileSync(join(UIT, "verslag.json"), JSON.stringify({ runtime: rt.name, beelden: verslag, fouten }, null, 1));
+writeFileSync(join(UIT, "verslag.json"), JSON.stringify({ runtime: rt.name, beelden: verslag, waarschuwingen, fouten }, null, 1));
+if (waarschuwingen.length) console.log("\nWaarschuwing (de pagina zelf is wel gecontroleerd):\n  " + waarschuwingen.join("\n  "));
 if (fouten.length) { console.error("\nMISLUKT:\n  " + fouten.join("\n  ")); process.exit(1); }
 log(`Alles geslaagd: ${verslag.length} schermafbeeldingen, geen leeg scherm.`);
