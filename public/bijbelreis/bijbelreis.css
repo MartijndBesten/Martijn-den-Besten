@@ -1708,9 +1708,12 @@ body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
 /* Een foto die zonder internet niet te laden is. */
 .pwa-geenfoto { margin: 0; padding: 14px 16px; border-radius: 10px; border: 1px dashed var(--lijn-sterk); background: var(--oker-zacht); color: var(--fg-2); font-size: 0.9rem; line-height: 1.4; }
 /* Breed scherm als app (iPad op het beginscherm): de statusbalk ligt over de kop (black-translucent), dus de kop begint
-   eronder; de knoppen onderin de kaart blijven boven de thuisbalk. Zonder inzet (gewone browser) is alles 0 en verandert er niets. */
+   eronder; de knoppen onderin de kaart blijven boven de thuisbalk. Een grote iPhone liggend (iOS-app, breder dan 900 px):
+   de tabbladen rechts en de kaartknoppen links blijven naast het Dynamic Island en de ronde hoeken (gemeten in de
+   iOS-simulator, docs/bijbelreis-ios/TESTFLIGHT.md). Zonder inzet (gewone browser) is alles 0 en verandert er niets. */
 @media (min-width: 901px) {
-  .kop { padding-top: env(safe-area-inset-top, 0px); min-height: calc(var(--kop-h) + env(safe-area-inset-top, 0px)); }
+  .kop { padding-top: env(safe-area-inset-top, 0px); padding-right: env(safe-area-inset-right, 0px); min-height: calc(var(--kop-h) + env(safe-area-inset-top, 0px)); }
+  #map .leaflet-left { left: env(safe-area-inset-left, 0px); }
   .mapbar { bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
   .mapacties { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
   .panel { padding-bottom: calc(36px + env(safe-area-inset-bottom, 0px)); }

@@ -33,6 +33,7 @@ const VEILIG = js(`
   const inz = { boven: parseFloat(cs.paddingTop), rechts: parseFloat(cs.paddingRight), onder: parseFloat(cs.paddingBottom), links: parseFloat(cs.paddingLeft) };
   p.remove();
   const H = innerHeight, B = innerWidth, mis = [];
+  const zijwaarts = (e) => { for (let a = e.parentElement; a; a = a.parentElement) { const st = getComputedStyle(a); if (/(auto|scroll)/.test(st.overflowX) && a.scrollWidth > a.clientWidth + 1) return true; } return false; };
   const scrollers = (e) => { const s = []; for (let a = e.parentElement; a; a = a.parentElement) { const st = getComputedStyle(a); if (/(auto|scroll)/.test(st.overflowY + st.overflowX)) s.push(a); if (st.position === "fixed") return { s, vast: true }; } return { s, vast: false }; };
   const kan = (e, richting) => {
     const { s, vast } = scrollers(e);
@@ -52,8 +53,9 @@ const VEILIG = js(`
     const naam = (e.id ? "#" + e.id : e.tagName.toLowerCase() + (e.classList.length ? "." + [...e.classList].slice(0, 2).join(".") : "")) + " «" + (e.getAttribute("aria-label") || e.textContent || "").trim().replace(/\\s+/g, " ").slice(0, 32) + "»";
     if (r.top < inz.boven - 1 && r.top >= 0 && !kan(e, "terug")) mis.push("onder statusbalk/notch: " + naam + " (top " + Math.round(r.top) + " < " + inz.boven + ")");
     if (inz.onder > 0 && r.bottom > H - inz.onder + 1 && r.bottom <= H + 1 && !kan(e, "omlaag")) mis.push("in de zone van de thuisstreep: " + naam + " (onder " + Math.round(r.bottom) + " > " + (H - inz.onder) + ")");
-    if (inz.links > 0 && r.left < inz.links - 1 && r.left >= 0) mis.push("links in de notch: " + naam);
-    if (inz.rechts > 0 && r.right > B - inz.rechts + 1 && r.right <= B) mis.push("rechts in de notch: " + naam);
+    // Iets in een rij die opzij scrollt (de delen van een reis, de boekenrij) kun je naar binnen schuiven.
+    if (inz.links > 0 && r.left < inz.links - 1 && r.left >= 0 && !zijwaarts(e)) mis.push("links in de notch: " + naam);
+    if (inz.rechts > 0 && r.right > B - inz.rechts + 1 && r.right <= B && !zijwaarts(e)) mis.push("rechts in de notch/ronde hoek: " + naam);
   }
   if (mis.length) return "FOUT veilige zones " + JSON.stringify(inz) + ": " + mis.slice(0, 8).join(" | ");
   return { inz, H, B, pagina: location.pathname + location.hash };

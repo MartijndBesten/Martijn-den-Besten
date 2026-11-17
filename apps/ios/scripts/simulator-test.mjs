@@ -28,7 +28,9 @@ mkdirSync(UIT, { recursive: true });
 
 const TOESTELLEN = [
   { naam: "iPhone 17 Pro Max", map: "iphone-6.9", scenario: ["test", "herstart", "liggend", "appstore"], maat: [1320, 2868] },
-  { naam: "iPad Pro 13-inch (M5)", map: "ipad-13", scenario: ["test", "herstart", "liggend", "appstore"], maat: [2064, 2752] },
+  // iPad: niet liggend. iPadOS 26 staat in de venstermodus van de simulator geen programmatisch draaien toe
+  // (requestGeometryUpdate: ‘De huidige venstermodus staat geen programmatische wijzigingen toe…’).
+  { naam: "iPad Pro 13-inch (M5)", map: "ipad-13", scenario: ["test", "herstart", "appstore"], maat: [2064, 2752] },
   { naam: "iPhone 17 Pro", map: "iphone-6.3", scenario: ["appstore"], maat: [1206, 2622] },
 ];
 
