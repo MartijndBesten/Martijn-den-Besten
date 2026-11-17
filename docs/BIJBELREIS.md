@@ -153,7 +153,7 @@ de lijn meteen af. De tests staan in `e2e/bijbelreis-kameel.spec.ts`.
 - Bijbelverwijzingen en getallen: `python3 scripts/bijbel-check.py <controlebestand>` met regels `Exodus 12:37 | zeshonderd duizend` (regex, hoofdletterongevoelig; de Statenvertaling schrijft getallen voluit: ‘vijf en zeventig’, ‘honderd en dertig’).
 - Vóór publicatie: `npm run check` (typecheck, tests, build) en `npx playwright test navigatie a11y`.
 
-## Stand en overdracht (16 november 2026)
+## Stand en overdracht (17 november 2026)
 
 Dit is de actuele stand; de sectie over versie 2.0 hieronder is geschiedenis. Elke uitrol staat met versie-id’s,
 herstelpunt en controle in [`bijbelreis-audit/releases.md`](bijbelreis-audit/releases.md).
@@ -163,7 +163,7 @@ toont de verhuispagina. Uitrollen: eerst `bijbelreis`, dan de hoofdsite (`docs/D
 heeft de D1-database `martijndenbesten` (migraties `0002_bezoek`, `0003_aanvraag`), het secret `HASH_SECRET` en de
 e-mailbinding `MAIL` naar info@denckh.nl.
 
-**Op 15 en 16 november live gezet** (PR #23–#32):
+**Op 15 en 16 november live gezet** (PR #23–#40):
 
 | Onderdeel | Documentatie |
 | --- | --- |
@@ -171,32 +171,45 @@ e-mailbinding `MAIL` naar info@denckh.nl.
 | Jakob en Genesis 32 (twaalf taferelen, ‘Van dichtbij’ als knop op de kaart) | `bijbelreis-reizen/werk/jakob.verantwoording.md` |
 | Gangbare uitleg verweven in de verhalen (uitzondering Jakob) | `bijbelreis-uitleg/README.md` |
 | Thema Kerst, met advent per week (zes delen, niets op slot) | `bijbelreis-kerst/README.md` |
-| Alleen nog een tekening die bij de stap hoort (geen ‘algemene tekening’) | `bijbelreis-taferelen/README.md` §1 |
-| Startkaart ‘Begin de reis’, knop Deel | `bijbelreis-audit/telefoon.md` §4.7 |
+| Alleen nog een tekening die bij de stap hoort; twintig nieuwe tekeningen (reeks 3) | `bijbelreis-taferelen/README.md` |
+| Startkaart ‘Begin de reis’, knop Deel, terugknop blijft in de site | `bijbelreis-audit/telefoon.md` §4.7–4.9 |
 | Bezoekmeting zonder cookies, met overzicht in het beheer | `bijbelreis-bezoek/README.md` |
 | Aanvraagformulier ‘Mis je iets? Vraag het aan’, met opgemaakte e-mail aan de maker | `bijbelreis-aanvraag/README.md` |
+| Foto’s van 30 plaatsen (Wikimedia Commons, vrije licentie) | `bijbelreis-fotos/README.md` |
 
-**Foto’s van de plaatsen** (branch `claude/bijbelreis-fotos`, nog niet live): bij 30 plaatsen een foto van nu, van
-Wikimedia Commons met vrije licentie, in het stapblad, de ballon en de geschiedenis — regels en bronnen in
-`bijbelreis-fotos/README.md`.
+**Op 17 november live gezet** (PR #47, met #42–#46):
+
+| Onderdeel | Documentatie |
+| --- | --- |
+| Lesroutes voor ouders, zondagsschool en klas (8 routes, 35 lessen, print en digibord) op `/bijbelreis/lessen` | `bijbelreis-samen/README.md` |
+| Installeerbare app: manifest, service worker met één set per versie, offline voor bekeken verhalen | `bijbelreis-pwa/README.md` |
+| 150 verhaalpagina’s (`/verhaal/<nr>-<slug>`, `/verhalen`) en sitemap, uit dezelfde gegevens | `bijbelreis-vindbaar/README.md` |
+| Toegankelijkheid (WCAG 2.2 AA): focus niet verborgen, toetsenbord in de speurtocht, namen van knoppen | `bijbelreis-a11y/README.md` |
+| Privacycontrole van bezoekmeting en aanvraagformulier | `bijbelreis-privacy/README.md` |
+| Reis en kaart: geen kaart waar hij niets toevoegt (telefoon), zoomgrens, tikvlakken, ‘Van dichtbij’, deeplinks | `bijbelreis-audit/telefoon.md` §4.10 |
+| Speurtocht, paspoort en personen: directe score, context bij vragen, ‘Hier was je’, Sara/Abraham | `bijbelreis-audit/telefoon.md` §4.11 |
+
+**iOS-app:** besluit Capacitor, zie `bijbelreis-ios/BESLUIT.md`. Prototype op de losse branch
+`claude/bijbelreis-ios-prototype` (`apps/ios/`), niet gebouwd of op een toestel getest (geen Mac). Voor de App Store
+zijn een Apple Developer-account (kosten, besluit van Martijn), een Mac met Xcode en keuzes over de Kids-categorie nodig.
 
 **E-mail aan de maker werkt** (16-11-2026): Email Routing staat aan op de zone bijbelreis.nl (MX route1–3.mx.cloudflare.net,
 SPF en DKIM), info@denckh.nl is bevestigd, en Martijn ontving zijn eigen proefaanvraag. Komt een mail niet aan, lees dan de
 logboeken van de Worker (`npx wrangler tail -c wrangler.bijbelreis.jsonc`): `naAanvraag` schrijft daar de foutcode.
 
+**Wacht op Martijn:**
+- bijbelreis.nl aanmelden bij Google Search Console en Bing en de sitemap indienen (persoonlijke login).
+- Inhoudelijk nalezen: de 97 lesvragen (`bijbelreis-samen/README.md`), de negen herschreven speurtochtvragen en ‘ook zijn
+  halfzuster’ (`telefoon.md` §4.11).
+- Privacyvoorstellen in `bijbelreis-privacy/README.md` (kortere bewaartermijn e-mail, CSP zonder cloudflareinsights).
+- iOS: kostenakkoord Apple Developer Program, Kids-categorie ja/nee.
+
 **Open, werk voor een volgende ronde:**
-- Ingang vanuit de atlas naar het boekje (`/bijbelreis/boekje#<deel>`).
-- Routes duidelijker op de kaart.
+- Test op een echte iPhone (standalone-app, notch, offline) en Android; tot nu toe alleen Chromium.
+- Het overzicht van een heel lange reis blijft klein op de telefoon; ‘3 van 25’ en ‘Lees meer’ zijn 26 px hoog.
 - Nieuwe reisdelen ook als geschiedenis in de Verhalenlijst (drie niveaus).
 - Ruim twee derde van de stappen heeft geen tekening; eigen tekeningen per verhaal volgens `bijbelreis-taferelen/README.md`.
-- Over een paar dagen de bezoekcijfers vergelijken met de eerste ochtend (16 van 40 weg binnen tien seconden, 7 van 40
-  een reisstap geopend) om te zien of de startkaart helpt.
-
-**Lopend in een andere sessie:** PR #33 (terugknop van Android blijft in de site, start bij stap 1, stappenlijst),
-gevonden met een test op een echte Samsung Galaxy A15.
-
-**Niet gedaan:** geen theoloog heeft meegelezen; niet getest op een echte iPhone. De laatste test op Samsung-maat
-(Chromium, 360×690, 16-11) liep langs alle 687 stappen en de gebruikersroutes zonder fouten.
+- Bezoekcijfers van voor en na de startkaart vergelijken.
 
 ## Stand (versie 2.0, 25 oktober 2026)
 
