@@ -119,3 +119,93 @@ test("toegankelijkheid van een route met antwoorden", async ({ page }) => {
   // Geen horizontaal schuiven, ook niet op de telefoon.
   expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
 });
+
+// Digibordstand (#<route>/<n>/bord): één scherm per stap, groot genoeg om achter in de klas te lezen. Beoordeling en
+// metingen: docs/bijbelreis-samen/BEOORDELING.md.
+test("digibord: begin, één vraag per scherm (de clicker toont eerst het antwoord), afronding en terug", async ({ page }) => {
+  const f = fouten(page);
+  await open(page, "/bijbelreis/lessen#profeten/4");
+  const les = page.locator("#les-4");
+  // Het lesverloop van 20 minuten staat bij de route; bij de les de leestijd en wat de presentatie meer vertelt.
+  await expect(page.getByRole("heading", { name: "Een les van ongeveer 20 minuten" })).toBeVisible();
+  await expect(les.locator(".ls-lees")).toContainText("Daniël 6:11–24 · 14 verzen, ca. 4 min voorlezen");
+  await expect(les.locator(".ls-meer")).toContainText("De presentatie vertelt de hele geschiedenis (Daniël 6)");
+  await les.getByRole("link", { name: "Vragen op het digibord: Daniël in de leeuwenkuil" }).click();
+  await expect(page).toHaveURL(/#profeten\/4\/bord$/);
+  // Begin: wat lezen we. Kop en voet van de pagina zijn weg; niets schuift (ook niet op de telefoon).
+  await expect(page.locator("#lbKop")).toHaveText("Daniël in de leeuwenkuil");
+  await expect(page.locator(".lb-lees")).toHaveText("Daniël 6:11–24");
+  await expect(page.locator(".bk-kopbalk")).toBeHidden();
+  const schuift = () => page.evaluate(() => [document.documentElement.scrollWidth - innerWidth, document.documentElement.scrollHeight - innerHeight]);
+  expect(await schuift()).toEqual([0, 0]);
+  await page.getByRole("button", { name: /Naar de vragen/ }).click();
+  await expect(page.locator("#lbKop")).toHaveText("Hoe vaak per dag bad Daniël, en naar welke stad stonden zijn vensters open?");
+  await expect(page.locator(".lb-zoek")).toHaveText("Zoek op: Daniël 6:11");
+  await expect(page.locator(".lb-antwoord")).toHaveCount(0);
+  // Een presentatieclicker stuurt PageDown: eerst het antwoord, dan de volgende vraag.
+  await page.keyboard.press("PageDown");
+  await expect(page.locator(".lb-antwoord")).toContainText("Drie keer per dag");
+  await expect(page).toHaveURL(/#profeten\/4\/bord\/1$/);
+  await page.keyboard.press("PageDown");
+  await expect(page.locator("#lbKop")).toHaveText("Wat stond er in het gebod dat de koning getekend had?");
+  await page.getByRole("button", { name: "Toon het antwoord" }).click();
+  await expect(page.locator(".lb-antwoord q")).toHaveText("in den kuil der leeuwen");
+  await page.keyboard.press("PageUp");
+  await expect(page.locator(".lb-zoek")).toHaveText("Zoek op: Daniël 6:11");
+  for (let i = 0; i < 6; i++) await page.keyboard.press("ArrowRight"); // antwoord 1, vraag 2, antwoord 2, vraag 3, antwoord 3, afronding
+  await expect(page.locator("#lbKop")).toHaveText("Wat hebben we gezien?");
+  await expect(page.locator(".lb-thuis")).toHaveText("Thuis nalezen: bijbelreis.nl/#v75");
+  await expect(page.getByRole("link", { name: "Presentatie van Daniël in de leeuwenkuil" })).toHaveAttribute("href", /^\/bijbelreis\/boekje#v75&niveau=[abc]$/);
+  expect(await schuift()).toEqual([0, 0]);
+  // Een link naar een scherm (na de presentatie terug) opent dat scherm; Escape gaat terug naar de les.
+  await open(page, "/bijbelreis/lessen#profeten/4/bord/4");
+  await expect(page.locator("#lbKop")).toHaveText("Wat hebben we gezien?");
+  await page.keyboard.press("Escape");
+  await expect(page).toHaveURL(/#profeten\/4$/);
+  await expect(page.locator("#les-4")).toBeFocused();
+  await expect(page.locator(".bk-kopbalk")).toBeVisible();
+  // ‘Direct naar de inhoud’ blijft op de route (#inhoud is geen route).
+  await page.locator(".bk-skip").focus();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/#profeten\/4$/);
+  await expect(page.locator("#inhoud")).toBeFocused();
+  expect(f).toEqual([]);
+});
+
+test("digibord op 1920×1080: de vraag is op afstand leesbaar en past op één scherm", async ({ page }, info) => {
+  test.skip(info.project.name !== "desktop", "het formaat van een digibord");
+  await page.setViewportSize({ width: 1920, height: 1080 });
+  await open(page, "/bijbelreis/lessen#jozef/2/bord/2");
+  await page.getByRole("button", { name: "Toon het antwoord" }).click();
+  const px = (sel: string) => page.locator(sel).evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
+  expect(await px("#lbKop")).toBeGreaterThanOrEqual(56);
+  expect(await px(".lb-zoek")).toBeGreaterThanOrEqual(40);
+  expect(await px(".lb-antwoord")).toBeGreaterThanOrEqual(40);
+  expect(await page.evaluate(() => document.documentElement.scrollHeight - innerHeight)).toBeLessThanOrEqual(0);
+  const r = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
+  expect(r.violations.filter((v) => v.impact === "serious" || v.impact === "critical").map((v) => v.id)).toEqual([]);
+});
+
+test("alleen deze les printen: werkblad met naam en schrijfruimte op één A4, de andere lessen niet", async ({ page }) => {
+  await open(page, "/bijbelreis/lessen#profeten");
+  // De knop zet de les klaar en roept het afdrukvenster aan; daarna staat alles weer zoals het was.
+  await page.evaluate(() => { (window as unknown as { __print: string }).__print = ""; window.print = () => { (window as unknown as { __print: string }).__print = `${document.body.dataset.print}/${document.body.dataset.printLes}/${document.querySelectorAll(".ls-print-deze").length}`; window.dispatchEvent(new Event("afterprint")); }; });
+  await page.getByRole("button", { name: "Werkblad van les 4" }).click();
+  expect(await page.evaluate(() => (window as unknown as { __print: string }).__print)).toBe("kinderen/4/1");
+  await expect(page.locator(".ls-print-deze")).toHaveCount(0);
+  await expect(page.locator("body")).not.toHaveAttribute("data-print-les", /./);
+  // Zo ziet de afdruk eruit.
+  await page.emulateMedia({ media: "print" });
+  await page.evaluate(() => { document.body.dataset.print = "kinderen"; document.body.dataset.printLes = "4"; document.getElementById("les-4")!.classList.add("ls-print-deze"); });
+  await expect(page.locator("#les-4")).toBeVisible();
+  for (const n of [1, 2, 3]) await expect(page.locator(`#les-${n}`)).toBeHidden();
+  await expect(page.locator(".ls-naam")).toBeVisible();
+  for (const weg of [".ls-verloop", ".ls-a >> nth=0", ".ls-meer >> nth=0", ".ls-lesprint >> nth=0"]) await expect(page.locator(weg)).toBeHidden();
+  const pdf = await page.pdf({ format: "A4" });
+  expect((pdf.toString("latin1").match(/\/Type\s*\/Page[^s]/g) || []).length).toBe(1);
+  // Voor de leiding: met antwoorden en het lesverloop.
+  await page.evaluate(() => { document.body.dataset.print = "leiding"; document.body.classList.add("ls-met-antwoorden"); });
+  await expect(page.locator("#les-4 .ls-a").first()).toBeVisible();
+  await expect(page.locator(".ls-verloop")).toBeVisible();
+  await expect(page.locator(".ls-naam")).toBeHidden();
+});

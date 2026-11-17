@@ -1,10 +1,11 @@
 # Controle lesroutes (public/bijbelreis/lessen-data.js) tegen de Statenvertaling.
-# Eén regel per vraag: verwijzing van de vraag | regex voor het antwoord. Draaien: python3 scripts/bijbel-check.py scripts/bijbel-controle/lessen.txt
-# tests/bijbelreis-lessen.test.ts controleert dat elke vraag hier een regel heeft, en dat elk citaat ‘…’ letterlijk in de verwijzing staat.
+# Eén regel per vraag, in dezelfde volgorde als de vragen: verwijzing van de vraag | regex voor het antwoord.
+# Draaien: python3 scripts/bijbel-check.py scripts/bijbel-controle/lessen.txt
+# tests/bijbelreis-lessen.test.ts controleert dat regel n bij vraag n hoort, en dat elk citaat ‘…’ letterlijk in de verwijzing staat.
 
 # De aartsvaders in vier weken
-Genesis 12:5 | Abram nam Sarai, zijn huisvrouw, en Lot, zijns broeders zoon
 Genesis 12:4 | vijf en zeventig jaren oud, toen hij uit Haran ging
+Genesis 12:5 | Abram nam Sarai, zijn huisvrouw, en Lot, zijns broeders zoon
 Genesis 12:7 | bouwde hij aldaar een altaar den HEERE
 Genesis 22:2 | naar het land Moria
 Genesis 22:7 | Zie het vuur en het hout; maar waar is het lam tot het brandoffer
@@ -24,8 +25,8 @@ Genesis 39:2–3 | de HEERE was met Jozef.*de HEERE met hem was
 Genesis 41:16 | Het is buiten mij! God zal Farao’s welstand aanzeggen
 Genesis 41:46 | Jozef nu was dertig jaren oud, als hij stond voor het aangezicht van Farao
 Genesis 45:3 | Ik ben Jozef! leeft mijn vader nog\?
-Genesis 45:6 | twee jaren des hongers.*nog vijf jaren
 Genesis 45:5–8 | God heeft mij voor uw aangezicht gezonden.*om u bij het leven te behouden.*gij hebt mij herwaarts niet gezonden, maar God Zelf
+Genesis 45:6 | twee jaren des hongers.*nog vijf jaren
 
 # Van Egypte naar Kanaän
 Exodus 2:2 | verborg zij hem drie maanden
@@ -36,8 +37,11 @@ Exodus 12:13 | wanneer Ik het bloed zie, zal Ik ulieden voorbijgaan
 Exodus 12:26–27 | wanneer uw kinderen tot u zullen zeggen.*Dit is den HEERE een paasoffer, Die voor de huizen der kinderen Israëls voorbijging in Egypte
 Exodus 14:21 | door een sterken oostenwind, dien gansen nacht, en maakte de zee droog
 Exodus 14:22 | de wateren waren hun een muur, aan hun rechter hand en aan hun linkerhand
+Exodus 14:28 | er bleef niet een van hen over
 Exodus 20:2 | Ik ben de HEERE uw God, Die u uit Egypteland, uit het diensthuis, uitgeleid heb
+Exodus 20:9–10 | Zes dagen zult gij arbeiden.*de zevende dag is de sabbat des HEEREN uws Gods
 Exodus 20:12 | Eert uw vader en uw moeder, opdat uw dagen verlengd worden in het land
+Jozua 3:15 | de Jordaan nu was vol al de dagen des oogstes aan al haar oevers
 Jozua 3:15–16 | de voeten der priesteren, dragende de ark, ingedoopt waren.*Zo stonden de wateren, die van boven afkwamen; zij rezen op een hoop.*Toen trok het volk over, tegenover Jericho
 Jozua 4:8 | twaalf stenen op midden uit de Jordaan.*naar het getal der stammen
 
@@ -48,6 +52,7 @@ Jozua 4:8 | twaalf stenen op midden uit de Jordaan.*naar het getal der stammen
 1 Samuël 17:37 | Die mij van de hand des leeuws gered heeft, en uit de hand des beers, Die zal mij redden uit de hand van dezen Filistijn
 1 Samuël 17:40 | koos zich vijf gladde stenen uit de beek
 1 Samuël 17:49 | trof den Filistijn in zijn voorhoofd
+1 Samuël 24:3 | drie duizend uitgelezen mannen.*om David en zijn mannen te zoeken
 1 Samuël 24:5 | sneed stilletjes een slip van Sauls mantel
 1 Samuël 24:7 | want hij is de gezalfde des HEEREN
 2 Samuël 7:2 | ik woon in een cederen huis, en de ark Gods woont in het midden der gordijnen
@@ -62,8 +67,10 @@ Jozua 4:8 | twaalf stenen op midden uit de Jordaan.*naar het getal der stammen
 2 Koningen 5:10 | was u zevenmaal in de Jordaan
 2 Koningen 5:14 | gelijk het vlees van een kleinen jongen; en hij werd rein
 Jona 1:3 | om te vluchten naar Tarsis
+Jona 1:5 | Jona.*lag neder, en was met een diepen slaap bevangen
 Jona 1:17 | De HEERE nu beschikte een groten vis.*drie dagen en drie nachten
 Daniël 6:11 | open vensters tegen Jeruzalem aan.*drie tijden 's daags op zijn knieën, en hij bad
+Daniël 6:13 | in dertig dagen van enigen god of mens iets verzoeken zou, behalve van u, o koning! in den kuil der leeuwen zou geworpen worden
 Daniël 6:23 | Mijn God heeft Zijn engel gezonden, en Hij heeft den muil der leeuwen toegesloten
 
 # Advent en Kerst
@@ -74,7 +81,7 @@ Lukas 1:26–27 | een stad in Galilea, genaamd Nazareth.*de naam der maagd was M
 Lukas 1:31 | zult Zijn naam heten JEZUS
 Lukas 1:38 | Zie, de dienstmaagd des Heeren; mij geschiede naar uw woord
 Lukas 2:1 | een gebod uitging van den Keizer Augustus, dat de gehele wereld beschreven zou worden
-Lukas 2:4 | omdat hij uit het huis en geslacht van David was
+Lukas 2:3–4 | een iegelijk naar zijn eigen stad.*tot de stad Davids, die Bethlehem genaamd wordt.*omdat hij uit het huis en geslacht van David was
 Lukas 2:7 | leide Hem neder in de kribbe, omdat voor henlieden geen plaats was in de herberg
 Lukas 2:12 | het Kindeken vinden in doeken gewonden, en liggende in de kribbe
 Lukas 2:14 | Ere zij God in de hoogste hemelen, en vrede op aarde, in de mensen een welbehagen
@@ -86,7 +93,7 @@ Mattheüs 2:12 | vermaand zijnde in den droom, dat zij niet zouden wederkeren to
 # Van Palmzondag tot Pinksteren
 Mattheüs 21:2 | een ezelin gebonden vinden, en een veulen met haar
 Mattheüs 21:9 | Hosanna den Zone Davids! Gezegend is Hij, Die komt in den Naam des Heeren!
-Mattheüs 21:11 | Deze is Jezus, de Profeet van Nazareth in Galilea
+Mattheüs 21:10–11 | Wie is Deze\?.*Deze is Jezus, de Profeet van Nazareth in Galilea
 Lukas 22:8 | Hij zond Petrus en Johannes uit.*bereidt ons het pascha
 Lukas 22:10 | een mens ontmoeten, dragende een kruik waters; volgt hem in het huis
 Lukas 22:19 | doet dat tot Mijn gedachtenis
@@ -94,6 +101,7 @@ Johannes 19:17 | Hoofdschedelplaats, welke in het Hebreeuws genaamd wordt Golgot
 Johannes 19:20 | in het Hebreeuws, in het Grieks, en in het Latijn
 Johannes 19:30 | Het is volbracht! En het hoofd buigende, gaf den geest
 Johannes 20:4 | de andere discipel liep vooruit, sneller dan Petrus, en kwam eerst tot het graf
+Johannes 20:15 | menende, dat het de hovenier was
 Johannes 20:16 | Jezus zeide tot haar: Maria!.*Rabbouni, hetwelk is gezegd, Meester
 Handelingen 2:1 | als de dag van het Pinkster ?feest vervuld werd
 Handelingen 2:3 | verdeelde tongen als van vuur, en het zat op een iegelijk van hen
@@ -113,4 +121,5 @@ Handelingen 27:14 | een stormwind, genaamd Euroklydon
 Handelingen 27:23–24 | een engel Gods.*Vrees niet, Paulus, gij moet voor den keizer gesteld worden.*God heeft u geschonken allen, die met u varen
 Handelingen 27:37 | tweehonderd zes en zeventig zielen
 Handelingen 28:3 | kwam er een adder uit door de hitte, en vatte zijn hand
+Handelingen 28:15 | de broeders.*welke Paulus ziende, dankte hij God en greep moed
 Handelingen 28:30 | Paulus bleef twee gehele jaren in zijn eigen gehuurde woning
