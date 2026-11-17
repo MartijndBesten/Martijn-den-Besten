@@ -169,7 +169,8 @@
     layout();
     zetTijd(S.t, { direct: true, door: "schuif" });
     if (opts.koppeling) koppelingSchrift();
-    new ResizeObserver(() => { if (D) { layout(); if (S.kaart) S.kaart.m.invalidateSize({ pan: false }); } }).observe(D.vlak);
+    new ResizeObserver(() => { if (D) { layout(); herpasKaart(); } }).observe(D.vlak);
+    if (D.kaartvlak) new ResizeObserver(() => D && herpasKaart()).observe(D.kaartvlak);
     window.matchMedia("(min-width: 1180px)").addEventListener("change", () => D && zetWeergave(S.weergave, false));
     schil.focus({ preventScroll: true });
   }
@@ -914,7 +915,7 @@
     D.app.querySelector(".wt-p-kaart").hidden = !kaartZichtbaar;
     if (w === "lijnen") requestAnimationFrame(layout);
     if (w === "gebeurtenissen") { lijstBij(); const h = D.lijst.querySelector(".huidig"); if (h) h.scrollIntoView({ block: "center" }); }
-    if (kaartZichtbaar && S.M.heeftKaart) requestAnimationFrame(() => { maakKaart(); if (S.kaart) { S.kaart.m.invalidateSize({ pan: false }); kaartTijd(S.t, []); schikLabels(true); } });
+    if (kaartZichtbaar && S.M.heeftKaart) requestAnimationFrame(() => { maakKaart(); if (S.kaart) { herpasKaart(); kaartTijd(S.t, []); schikLabels(true); } });
     if (focus) { const b = D.app.querySelector(`[role="tab"][data-weergave="${w}"]`); if (b && document.activeElement !== b) b.focus(); }
   }
 
@@ -936,12 +937,10 @@
       L.polygon([[[-10, -60], [-10, 140], [80, 140], [80, -60]], [[z, w], [z, o], [n, o], [n, w]]], { pane: "wtRand", interactive: false, className: "wt-rand-papier" }).addTo(m);
       L.rectangle([[z, w], [n, o]], { pane: "wtRand", interactive: false, className: "wt-rand-lijn", fill: false }).addTo(m);
       m.setMaxBounds([[z - 1, w - 1], [n + 1, o + 2]]);
+      S.kaart.grens = [[z, w], [n, o]];
       // Niet verder uitzoomen dan het land van de ondergrond het scherm vult (anders zie je vooral papier).
-      const binnen = m.getBoundsZoom([[z, w], [n, o]], true);
-      m.setMinZoom(Math.max(3, binnen - 0.25));
       S.kaart.alles = alleBounds();
-      if (S.kaart.alles) m.fitBounds(S.kaart.alles, { padding: [24, 24], maxZoom: 7, animate: false });
-      if (m.getZoom() < binnen) m.setZoom(binnen, { animate: false });
+      herpasKaart();
       kaartTijd(S.t, []);
     };
     if (BR.ondergrond) BR.ondergrond(m).then((gr) => { if (S && S.kaart && S.kaart.m === m && Array.isArray(gr)) zetRand(gr); }).catch(() => D.kaartvlak.insertAdjacentHTML("beforeend", '<p class="wt-kaartfout" role="status">De ondergrond kon niet worden geladen.</p>'));
@@ -969,12 +968,26 @@
     const zoomKlas = () => { const z = m.getZoom(); D.kaartvlak.classList.toggle("wt-ver", z < 5.75); };
     m.on("zoomend", zoomKlas);
     m.on("moveend zoomend resize", () => schikLabels(true));
+    // Zelf geschoven of gezoomd: dan niet meer automatisch passend maken.
+    m.on("dragstart", () => (S.kaart.handmatig = true));
+    D.kaartvlak.addEventListener("wheel", () => (S.kaart.handmatig = true), { passive: true });
+    D.kaartvlak.addEventListener("click", (e) => { if (e.target.closest(".leaflet-control-zoom")) S.kaart.handmatig = true; });
+    D.kaartvlak.addEventListener("touchstart", (e) => { if (e.touches.length > 1) S.kaart.handmatig = true; }, { passive: true });
     S.kaart.alles = alleBounds();
     if (S.kaart.alles) m.fitBounds(S.kaart.alles, { padding: [28, 28], maxZoom: 7 }); else m.setView([33, 40], 5);
     zoomKlas();
     legenda();
     if (D.legenda) D.legenda.parentElement.addEventListener("toggle", () => schikLabels(true));
     kaartTijd(S.t, []);
+  }
+  // Nieuwe maat van de kaart: opnieuw passend maken, zolang de bezoeker zelf nog niet heeft geschoven of gezoomd.
+  function herpasKaart() {
+    const K2 = S && S.kaart; if (!K2 || !D.kaartvlak.offsetWidth) return;
+    K2.m.invalidateSize({ pan: false });
+    if (K2.handmatig || !K2.alles) return;
+    // Hooguit een smalle strook papier naast het land: niet verder uitzoomen dan net iets voorbij ‘het land vult het beeld’.
+    if (K2.grens) K2.m.setMinZoom(Math.max(3, K2.m.getBoundsZoom(K2.grens, true) - 0.5));
+    K2.m.fitBounds(K2.alles, { padding: [16, 16], maxZoom: 7, animate: false });
   }
   function alleBounds() {
     const o = S.kaart.rand.o, punten = [];
@@ -1155,10 +1168,12 @@
       const el = o.mk.getElement(); if (el) el.classList.toggle("voorbij", t > o.e.t2 + span * 0.02);
     });
     // Net bereikt: de plek licht rustig op, en de kaart beweegt er kalm naartoe als hij buiten beeld ligt.
-    nieuw.filter((e) => e.plek).forEach((e) => {
+    // Alleen bij afspelen (één gebeurtenis tegelijk) beweegt de kaart mee; met de schuif blijft hij staan.
+    const opPlek = nieuw.filter((e) => e.plek);
+    opPlek.forEach((e, i) => {
       const o = K2.plekken.find((x) => x.e === e); const el = o && o.mk.getElement();
       if (el && !minderBeweging()) { el.classList.remove("licht"); void el.offsetWidth; el.classList.add("licht"); }
-      if (!K2.m.getBounds().pad(-0.08).contains(e.plek.ll)) {
+      if (S.speelt && i === opPlek.length - 1 && !K2.m.getBounds().pad(-0.08).contains(e.plek.ll)) {
         if (minderBeweging()) K2.m.setView(e.plek.ll, K2.m.getZoom(), { animate: false });
         else K2.m.flyTo(e.plek.ll, K2.m.getZoom(), { duration: 1.1, easeLinearity: 0.4 });
       }
@@ -1167,5 +1182,5 @@
   }
 
   function stopLaag() { stop(); if (S && D) { sluitBlad(); pauze(); } }
-  BR.wereldLaag = { toon, stop: stopLaag, staat: () => (S ? { periode: S.periode, t: S.t, jaar: K.naarJaar(S.t, S.as), speelt: S.speelt, venster: S.venster.slice(), gekozen: S.gekozen, vergelijk: S.vergelijk, weergave: S.weergave } : null) };
+  BR.wereldLaag = { toon, stop: stopLaag, staat: () => (S ? { periode: S.periode, t: S.t, jaar: K.naarJaar(S.t, S.as), speelt: S.speelt, venster: S.venster.slice(), gekozen: S.gekozen, vergelijk: S.vergelijk, weergave: S.weergave, kaart: S.kaart ? { midden: [S.kaart.m.getCenter().lat, S.kaart.m.getCenter().lng], zoom: S.kaart.m.getZoom(), minZoom: S.kaart.m.getMinZoom(), alles: S.kaart.alles && S.kaart.alles.toBBoxString(), grens: S.kaart.grens, handmatig: !!S.kaart.handmatig } : null } : null) };
 })();
