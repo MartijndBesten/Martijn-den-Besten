@@ -293,8 +293,8 @@ test("kaartbediening: zoomknoppen, slepen of vegen, knijpen en een plaats aantik
     await wachtTotKaartStil(page);
     expect(await k.zoom()).toBeGreaterThan(z1);
     // In een ander onderdeel staat de kaart boven de pagina: één vinger scrolt de pagina (kaart blijft staan, met een
-    // hint); op de grote kaart verschuift één vinger de kaart wél.
-    await page.getByRole("tab", { name: "Paspoort" }).click();
+    // hint); op de grote kaart verschuift één vinger de kaart wél. (Wie is wie: Paspoort heeft op de telefoon geen kaart.)
+    await page.getByRole("tab", { name: "Wie is wie" }).click();
     await page.evaluate(() => window.scrollTo(0, 0));
     await wachtTotKaartStil(page);
     const t = (await page.locator("#map").boundingBox())!, tx = t.x + t.width / 2, ty = t.y + t.height / 2;
@@ -331,9 +331,10 @@ test("kaart: Toen/Nu, legenda en een plaats met zekerheid", async ({ page, isMob
   await telefoonKlik(page, isMobile ? "#legendSluit" : "#legendBtn");
   await expect(page.locator("#legend")).toBeHidden();
   if (isMobile) {
-    // In de reis is de kaart het scherm: ‘Groot’ is daar niet nodig. In de andere onderdelen blijft de grote kaart.
+    // In de reis is de kaart het scherm: ‘Groot’ is daar niet nodig. In de andere onderdelen met een kaart blijft de grote
+    // kaart (de Tijdlijn heeft op de telefoon geen kaart meer).
     await expect(page.locator("#fullBtn")).toBeHidden();
-    await page.getByRole("tab", { name: "Tijdlijn" }).click();
+    await page.getByRole("tab", { name: "Wie is wie" }).click();
     await page.locator("#fullBtn").click();
     await expect(page.locator("body")).toHaveClass(/mapfull/);
     await page.locator("#fullBtn").click();

@@ -536,6 +536,17 @@
       const lab = el.querySelector(".lab");
       el.classList.toggle("stil", !!focus && !on.has(id) && (lab.classList.contains("off") || lab.classList.contains("clash")));
     });
+    // Toetsenbord: alleen een plaats die echt te zien is (binnen de kaart, niet onder een knop, ‘Van dichtbij’ of het
+    // stapblad) zit in de tabvolgorde. Anders ging de focus naar onzichtbare plaatsen (WCAG 2.4.11), op de telefoon zo’n
+    // zeventien keer vóór het stapblad.
+    const box = map.getContainer().getBoundingClientRect(), db = $("dichtbijBtn");
+    const dekt = uiRects().concat(db.getClientRects().length ? [(({ left, top, width, height }) => [left - box.left, top - box.top, width, height])(db.getBoundingClientRect())] : []);
+    const inBeeld = (pt) => pt.x >= 4 && pt.y >= 4 && pt.x <= size.x - 4 && pt.y <= size.y - 4 && !dekt.some((r) => pt.x >= r[0] && pt.x <= r[0] + r[2] && pt.y >= r[1] && pt.y <= r[1] + r[3]);
+    Object.values(markers).concat(Object.values(vdMarkers)).forEach((m) => {
+      const el = m.options.keyboard && m.getElement(); if (!el) return;
+      const t = inBeeld(map.latLngToContainerPoint(m.getLatLng())) ? 0 : -1;
+      if (el.tabIndex !== t) el.tabIndex = t;
+    });
   }
   let labelT;
   const queueLabels = () => { cancelAnimationFrame(labelT); labelT = requestAnimationFrame(refreshLabels); };
@@ -2426,8 +2437,10 @@
     const pad = [deel.hoofd ? deel.hoofd.short : boekKort(boek)].map((x) => `<span class="kr-kort">${esc(x)}</span><span class="kr-pijl" aria-hidden="true">›</span>`).join("");
     const rij = boek.thema && !deel.hoofd ? reeks(deel) : [];
     const waar = cur >= 0 ? `${cur + 1} van ${n}` : rij.length ? `deel ${rij.indexOf(deel) + 1} van ${rij.length}` : `${n} stappen`;
-    $("kiesBtn").innerHTML = `${boek.thema ? STER : ""}<span class="kr-pad">${pad}<b>${esc(deel.hoofd ? deel.n : deel.short)}</b></span><span class="kr-stap">${waar}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>`;
-    $("kiesBtn").setAttribute("aria-label", `Kies een reis. Nu: ${boek.n}, ${deelNaam(deel)}, ${cur >= 0 ? "stap " + waar : "overzicht"}`);
+    // De naam voor de schermlezer is de zichtbare tekst met ervoor ‘Kies een reis. Nu:’ (verborgen tekst, geen aria-label):
+    // zo staat wat je ziet altijd in de naam (WCAG 2.5.3), ook als het boek of het deel wegvalt.
+    $("kiesBtn").innerHTML = `${boek.thema ? STER : ""}<span class="sr-only">Kies een reis. Nu: </span><span class="kr-pad">${pad}<b>${esc(deel.hoofd ? deel.n : deel.short)}</b></span>${cur < 0 ? `<span class="sr-only">${esc(deelNaam(deel))}, overzicht: </span>` : '<span class="sr-only">stap </span>'}<span class="kr-stap">${waar}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>`;
+    $("kiesBtn").removeAttribute("aria-label");
     // De rustige voortgangsstreep in het blad (boven ◀ en Verder): zo ver ben je in dit deel.
     $("reisboek").style.setProperty("--voortgang", ((cur >= 0 ? (cur + 1) / n : 0) * 100).toFixed(1) + "%");
     document.querySelector(".stapkaart").classList.toggle("intro", cur < 0);
@@ -2550,7 +2563,7 @@
     (deel.verdiep || []).forEach((v) => { let j = -1; deel.steps.forEach((s, i) => { if ((s.verdiep || []).includes(v)) j = i; }); (naStap.get(j) || naStap.set(j, []).get(j)).push(v); });
     const dichtbij = (lijst) => (lijst || []).map((v) => `<li class="ks-dichtbij"><button type="button" class="ks-verdiep" data-ks-go="${v.key}:-1"><span class="ks-v-l">Van dichtbij</span><span class="ks-t"><b>${esc(v.n)}</b> · ${v.steps.length} stappen</span></button></li>`).join("");
     const terug = deel.hoofd ? `<li class="ks-dichtbij"><button type="button" class="ks-verdiep ks-terug" data-ks-go="${deel.hoofd.key}:-1"><span class="ks-v-l">Hoofdreis</span><span class="ks-t">Terug naar <b>${esc(deel.hoofd.n)}</b></span></button></li>` : "";
-    $("kiesStappenLijst").innerHTML = deel.steps.map((s, i) => `<li><button type="button" class="ks-stap${seen.has(s.key) ? " gezien" : ""}" data-ks="${i}"${i === cur ? ' aria-current="step"' : ""} aria-label="Stap ${i + 1}: ${esc(s.t)}${seen.has(s.key) ? ", gezien" : ""}"><span class="ks-n" aria-hidden="true">${seen.has(s.key) && i !== cur ? "✓" : i + 1}</span><span class="ks-t">${esc(s.t)}</span></button></li>${dichtbij(naStap.get(i))}`).join("") + dichtbij(naStap.get(-1)) + terug;
+    $("kiesStappenLijst").innerHTML = deel.steps.map((s, i) => `<li><button type="button" class="ks-stap${seen.has(s.key) ? " gezien" : ""}" data-ks="${i}"${i === cur ? ' aria-current="step"' : ""}><span class="ks-n" aria-hidden="true">${seen.has(s.key) && i !== cur ? "✓" : i + 1}</span><span class="sr-only">Stap ${i + 1}: </span><span class="ks-t">${esc(s.t)}</span>${seen.has(s.key) ? '<span class="sr-only">, gezien</span>' : ""}</button></li>${dichtbij(naStap.get(i))}`).join("") + dichtbij(naStap.get(-1)) + terug;
   }
   $("kiesStappenLijst").addEventListener("click", (e) => {
     const v = e.target.closest("[data-ks-go]"); if (v) { sluitLade("kiesLade"); goKey(v.dataset.ksGo); naarBoven(); return; }

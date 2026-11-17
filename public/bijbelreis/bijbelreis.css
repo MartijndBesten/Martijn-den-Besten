@@ -271,6 +271,8 @@ button.chip:hover { border-color: var(--nacht); }
 .lade { position: fixed; inset: 0; z-index: 1500; display: grid; place-items: end center; background: rgba(19, 32, 61, 0.45); padding: 0; }
 .lade__box { width: min(660px, 100%); max-height: min(85vh, 85svh); overflow: auto; background: var(--wit); color: var(--fg); border-radius: var(--radius) var(--radius) 0 0; padding: 18px 22px calc(28px + env(safe-area-inset-bottom, 0px)); box-shadow: var(--schaduw); }
 .lade__head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }
+/* De kop met ‘Sluiten’ blijft staan als de lijst scrolt (‘Kies een reis’ scrolt naar de huidige stap). */
+#kiesLade .lade__head { position: sticky; top: -18px; z-index: 2; margin: -18px -22px 2px; padding: 18px 22px 8px; background: var(--wit); }
 .lade__head h3 { font-size: 1.1rem; }
 .lade__box.wide { width: min(820px, 100%); display: flex; flex-direction: column; gap: 8px; }
 .kast { display: flex; flex-direction: column; gap: 6px; }

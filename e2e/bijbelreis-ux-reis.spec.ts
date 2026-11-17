@@ -1,3 +1,4 @@
+import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
 // UX-ronde 17-11-2026 (docs/bijbelreis-audit/telefoon.md §4.10): de gebruikersreizen ‘eerste bezoek → verhaal’,
@@ -11,7 +12,9 @@ import { expect, test, type Page } from "@playwright/test";
 // 6. ‘Kies een reis’ toont een verdiepend deel als eigen regel ‘Van dichtbij’, en waar je bent als je erin zit;
 // 7. in het overzicht van een deel staan geen namen meer over elkaar (groot scherm);
 // 8. een onbekende # opent de start; na herladen blijf je in hetzelfde onderdeel.
-// En: ‘Begin de reis’ legt het begin van de route (Ur) niet meer onder de knop ‘Van dichtbij’.
+// En: ‘Begin de reis’ legt het begin van de route (Ur) niet meer onder de knop ‘Van dichtbij’; de zichtbare tekst van
+// ‘3 van 25’ en van de stappen in ‘Kies een reis’ staat in de naam voor de schermlezer (WCAG 2.5.3); een plaats op de kaart
+// die niet te zien is, krijgt geen toetsenbordfocus (WCAG 2.4.11).
 
 test.use({ reducedMotion: "reduce" });
 
@@ -257,4 +260,32 @@ test.describe("groot scherm", () => {
       await expect(page.locator("#map .plaats .lab.on:not(.clash)").first()).toBeVisible();
     }
   });
+});
+
+// Een plaats op de kaart met toetsenbordfocus ligt in beeld: binnen de kaart en niet onder een knop of het stapblad.
+const focusPlaatsen = (page: Page) => page.evaluate(() => {
+  const kaart = document.getElementById("map")!.getBoundingClientRect();
+  const bedek = [...document.querySelectorAll("#reisboek, #mapbar, #dichtbijBtn, .maptools > *, .mapacties > *, .leaflet-control-zoom")].filter((e) => e.getClientRects().length && getComputedStyle(e).position !== "static").map((e) => e.getBoundingClientRect());
+  const f = [...document.querySelectorAll<HTMLElement>(".leaflet-marker-icon")].filter((e) => e.tabIndex >= 0);
+  const weg = f.filter((e) => { const q = e.getBoundingClientRect(); return q.left < kaart.left || q.left > kaart.right || q.top < kaart.top || q.top > kaart.bottom || bedek.some((c) => q.left >= c.left && q.left <= c.right && q.top >= c.top && q.top <= c.bottom); }).map((e) => e.title);
+  return { n: f.length, weg };
+});
+
+test("toegankelijk: zichtbare tekst in de naam (2.5.3) en geen focus op plaatsen buiten beeld (2.4.11)", async ({ page, isMobile }) => {
+  await open(page, "abraham/2");
+  for (const h of ["abraham/2", "nt-paulusrome/5"]) {
+    await open(page, h);
+    await page.waitForTimeout(300);
+    const r = await focusPlaatsen(page);
+    expect(r.weg, h).toEqual([]);
+    expect(r.n, h).toBeGreaterThan(0);
+  }
+  if (!isMobile) return;
+  await open(page, "abraham/2");
+  const naam = async () => (await new AxeBuilder({ page }).withRules(["label-content-name-mismatch"]).analyze()).violations.flatMap((v) => v.nodes.map((n) => n.target.join(" ")));
+  expect(await naam()).toEqual([]);
+  await page.locator("#kiesBtn").click();
+  await expect(page.locator("#kiesStappenLijst .ks-stap").first()).toBeVisible();
+  expect(await naam()).toEqual([]);
+  await expect(page.getByRole("button", { name: "Stap 2: God zegt: ga!" })).toBeVisible();
 });
