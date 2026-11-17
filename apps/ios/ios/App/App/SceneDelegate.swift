@@ -29,5 +29,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 class BijbelreisViewController: CAPBridgeViewController {
     override func capacitorDidLoad() {
         webView?.allowsBackForwardNavigationGestures = true
+        #if DEBUG
+        // Alleen voor de simulator-test in CI, en alleen met BIJBELREIS_TEST in de omgeving (BijbelreisTest.swift).
+        BijbelreisTest.startAlsGevraagd(webView)
+        #endif
     }
 }
