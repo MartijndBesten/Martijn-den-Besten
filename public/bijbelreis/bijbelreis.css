@@ -395,8 +395,8 @@ button.vitem:hover { background: var(--zand-zacht); }
 /* ===== Speurtocht: uitnodigend en duidelijk ===== */
 #p-quiz > .card:first-child h2 em { color: var(--salie-diep); }
 .opts { display: flex; flex-direction: column; gap: 8px; }
-.opt { text-align: left; font-size: 1rem; line-height: 1.35; color: var(--fg); background: var(--wit); border: 1px solid var(--lijn-sterk); border-radius: var(--r); padding: 12px 14px; min-height: 48px; cursor: pointer; transition: border-color var(--t-micro), background-color var(--t-micro); }
-.opt:hover:not(:disabled) { border-color: var(--nacht); background: var(--nacht-zacht); }
+.opt, .plaatsopt { text-align: left; font-size: 1rem; line-height: 1.35; color: var(--fg); background: var(--wit); border: 1px solid var(--lijn-sterk); border-radius: var(--r); padding: 12px 14px; min-height: 48px; cursor: pointer; transition: border-color var(--t-micro), background-color var(--t-micro); }
+.opt:hover:not(:disabled), .plaatsopt:hover {  border-color: var(--nacht); background: var(--nacht-zacht); }
 .opt:disabled { cursor: default; }
 .opt.ok { border-color: var(--goed); background: color-mix(in srgb, var(--goed) 13%, var(--wit)); }
 .opt.no { border-color: var(--fout); background: color-mix(in srgb, var(--fout) 10%, var(--wit)); }
@@ -410,6 +410,21 @@ button.vitem:hover { background: var(--zand-zacht); }
 .feedback.mid { background: var(--oker-zacht); color: var(--oker-diep); }
 .feedback.no { background: color-mix(in srgb, var(--fout) 11%, var(--wit)); color: var(--fout); }
 .feedback span { display: block; font-weight: 400; color: var(--fg); margin-top: 2px; }
+/* Speurtocht (17-11-2026): uit welk verhaal of deel een vraag komt, de opbouw van de score en ‘Lees nog eens na’. */
+.feedback span .bref { display: inline; margin: 0; }
+.qbron { margin: 0 0 -4px; font-size: 0.85rem; color: var(--fg-2); }
+.qbron b { font-weight: 620; color: var(--fg); }
+.qopbouw { margin: 0; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--fg-2); }
+.nalezen { align-self: stretch; text-align: left; border-top: 1px solid var(--lijn); padding-top: 12px; }
+.nalezen ul { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.nalezen li { display: flex; flex-direction: column; gap: 2px; }
+.nl-v { font-weight: 620; }
+.nl-a { color: var(--fg-2); font-size: 0.92rem; }
+.tapkeuze > summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; color: var(--fg-2); font-size: 0.92rem; }
+.tapkeuze[hidden] { display: none; }
+.tapkeuze .plekken { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.tapkeuze .ref { margin: 4px 0 8px; }
+.plekpin { position: absolute; left: -14px; top: -14px; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--nacht); color: #fff; font: 700 14px/1 var(--font-sans); border: 2px solid var(--wit); box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); }
 .tapcall { display: flex; gap: 10px; align-items: center; background: var(--salie-zacht); border-radius: var(--r); padding: 10px 14px; }
 .tapcall svg { flex: none; width: 28px; height: 28px; color: var(--salie-diep); }
 .stars { display: flex; gap: 6px; justify-content: center; }
@@ -458,6 +473,7 @@ select { font: inherit; font-size: 0.95rem; color: var(--fg); background: var(--
 .fam { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 10px; align-items: center; font-size: 0.86rem; }
 .fam dt { color: var(--fg-3); }
 .fam dd { margin: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.chip small.ook { line-height: 1.2; font-family: var(--font-sans); letter-spacing: 0; color: var(--fg-2); font-size: 0.78rem; }
 .grond { margin: 8px 0; font-size: 0.86rem; }
 .grond summary { cursor: pointer; color: var(--fg-2); min-height: 28px; }
 .gs { font-weight: 600; }
@@ -508,9 +524,30 @@ select { font: inherit; font-size: 0.95rem; color: var(--fg); background: var(--
 .pasblad { background: var(--wit); border: 1px solid var(--lijn); border-top: 4px solid var(--terra); border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; gap: 10px; }
 .pasboek { border-top: 1px solid var(--lijn); padding-top: 6px; }
 .pasboek summary { display: flex; justify-content: space-between; align-items: center; gap: 8px; cursor: pointer; min-height: 36px; font-size: 0.95rem; }
-.pasboek summary span { font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-3); }
+.pasboek > summary span { font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-3); white-space: nowrap; }
 .pasboek[open] summary { margin-bottom: 6px; }
 .stamps { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 6px; }
+/* Paspoort (17-11-2026): per deel een uitklapbaar blad met ‘12 van 25’ en een balkje; ingeklapt zonder stempels. */
+.pasdeel { display: flex; flex-direction: column; }
+.pasdeel > summary { display: flex; align-items: center; gap: 10px; min-height: 40px; cursor: pointer; list-style: none; }
+.pasdeel > summary::-webkit-details-marker { display: none; }
+.pasdeel > summary::before { content: "▸"; flex: none; width: 12px; color: var(--fg-3); transition: transform 0.15s; }
+.pasdeel[open] > summary::before { transform: rotate(90deg); }
+.pasdeel > summary > span:first-of-type { flex: 1 1 auto; min-width: 0; }
+.pasprog { flex: 0 0 56px; height: 5px; border-radius: 5px; background: rgba(31, 36, 48, 0.09); overflow: hidden; }
+.pasprog i { display: block; height: 100%; border-radius: 5px; }
+.pasdeel[open] > .stamps { margin: 2px 0 10px; }
+.pasverder { display: flex; gap: 14px; align-items: center; background: var(--wit); border: 1px solid var(--lijn); border-radius: var(--radius); padding: 14px 16px; }
+.pasverder[hidden] { display: none; }
+.pv-stempel { flex: none; width: 72px; height: 72px; }
+.pv-stempel svg { width: 100%; height: 100%; display: block; }
+.pv-stempel .ring { fill: none; stroke-width: 3; }
+.pv-stempel .ring2 { fill: none; stroke-width: 1.2; }
+.pv-stempel text { font-family: var(--font-sans); font-weight: 700; text-anchor: middle; }
+.pv-stempel .mono { font-family: var(--font-mono); font-weight: 500; letter-spacing: 0.06em; }
+.pv-tekst { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.pv-tekst p { margin: 0; }
+.pv-tekst .btn { align-self: flex-start; text-align: left; }
 .stamp { aspect-ratio: 1; max-width: 100%; background: none; border: 0; padding: 0; cursor: pointer; }
 .stamp svg { width: 100%; height: 100%; display: block; }
 .stamp .ring { fill: none; stroke-width: 3; }

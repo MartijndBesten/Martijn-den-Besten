@@ -225,7 +225,7 @@ test("speurtocht, meerkeuzevraag: goed antwoord, fout antwoord en de verwijzing"
   await expect(page.locator(".qtext")).toHaveText(v.mc[0].q);
   await page.locator(".opt").filter({ hasText: new RegExp(`^${v.mc[0].a[0].replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`) }).click();
   await expect(page.locator("#qRes .feedback.ok")).toContainText("Goed zo!");
-  await expect(page.locator("#qRes .feedback.ok")).toContainText(`Lees maar na in ${v.mc[0].why}`);
+  await expect(page.locator("#qRes .feedback.ok")).toContainText(`Lees het in je Bijbel: ${v.mc[0].why}`);
   await page.locator("#qNext").click();
   await expect(page.locator(".qtext")).toHaveText(v.mc[1].q);
   await page.locator(".opt").filter({ hasText: new RegExp(`^${v.mc[1].a[1].replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`) }).click();

@@ -352,7 +352,7 @@ Tests: `e2e/bijbelreis-terug.spec.ts` (project ‘mobiel’), `e2e/bijbelreis-st
 
 Nog open uit dezelfde test (niet in deze wijziging): de kaart op tabbladen waar hij niets toevoegt en maximaal ingezoomd
 bij Golgotha, ‘Verder met’ boven een geopende geschiedenis, punten pas bij de volgende vraag, de vraag over ‘de put’
-zonder context, het paspoort met 619 stempels, Sara als vrouw én zus bij Abraham, de zoektoets die het toetsenbord niet
+zonder context, het paspoort met 619 stempels, Sara als vrouw én zus bij Abraham (deze drie en de punten: zie §4.11), de zoektoets die het toetsenbord niet
 sluit, en tikvlakken van 30 px.
 ### 4.9 Duidelijke bediening (16-11-2026)
 
@@ -378,6 +378,113 @@ bovenaan zijn.”* Niet zeker welke knoppen; alle drie aangepakt, zonder de opze
    drie sterren.’ Bij Samen ontdekken: ‘Zes vragen over …’.
 
 Test: `e2e/bijbelreis-bediening.spec.ts`.
+
+### 4.11 Speurtocht, paspoort en personen (17-11-2026)
+
+Doel: Speurtocht, Paspoort en Wie is wie moeten helpen de geschiedenis te begrijpen en te onthouden, niet willekeurig
+punten verzamelen. Eerst doorgelopen (Playwright, telefoon 390×664, 360×640, 430×739 met isMobile en hasTouch, tablet
+820×1180, desktop 1440×900; elk leesniveau): een persoon opzoeken en de Bijbelplaatsen vinden, een speurtocht maken,
+het paspoort bekijken en na herladen verder gaan. Daarna alleen de punten uit §4.8 aangepakt die nog bestonden.
+
+1. **Punten pas bij de volgende vraag: bestond half.** Goed/bijna/fout, het goede antwoord en de Bijbelplaats stonden
+   al direct onder de vraag, maar ‘Punten: …’ en de voortgangsbalk liepen een vraag achter (gemeten: na ‘Goed zo!’ nog
+   ‘Punten: 0’). Nu kloppen ze meteen na het antwoord (`beantwoord` in `app.js`); de melding staat in een
+   `aria-live`-gebied. ‘Lees maar na in …’ heet ‘Lees het in je Bijbel: …’ (de verwijzing als `.bref`), en een antwoord dat
+   al op een leesteken eindigt krijgt geen tweede punt (‘Ik ben Jozef!.’).
+2. **Vragen zonder context: bestond.** De speurtocht mengt vragen uit veel verhalen, terwijl de vragen van de
+   reisniveaus geschreven zijn om ónder hun verhaal te staan (‘Wie komt er met de schapen bij de put?’). Een script over
+   alle 3.211 vragen (deelvragen, `ordAlles`, en de vragen van de niveaus a/b/c) zocht vragen zonder naam maar met ‘de
+   put’, ‘de jongen’, ‘de vrouw’, ‘hij’ enz.: 309 treffers, vrijwel allemaal duidelijk zodra je weet uit welk verhaal ze
+   komen. Daarom:
+   - bij elke vraag staat nu waar hij vandaan komt: ‘Uit: Jakob bij Laban’ (de titel van de geschiedenis, zoals ook boven
+     de vragen in Verhalen) of, als de vragen uit meer delen komen, ‘Over: Abraham’ (`.qbron`). Bij ongeveer 6 % van de
+     niveauvragen staat een woord van het antwoord ook in de titel (‘Hoe heet de stad?’ onder ‘De toren van Babel’); dat
+     is in Verhalen net zo;
+   - negen vragen die ook mét die regel te weinig zeiden, zijn herschreven (alleen de vraag; de antwoorden zijn gelijk).
+     Gecontroleerd tegen de Statenvertaling in `scripts/bijbel-controle/vragen-context.txt` (14 regels, alle geslaagd) en
+     met `node scripts/niveaus-controle.mjs`:
+
+     | Was | Wordt | Waar | Bijbelplaats |
+     | --- | --- | --- | --- |
+     | Tik op Berseba, de plaats van de put. | Tik op Berseba, waar Abraham en Abimelech een verbond sloten over een waterput. | Genesis, deel Abraham | Genesis 21:25–32 |
+     | Wie komt er met de schapen bij de put? | Jakob praat bij een put met herders. Wie komt er met de schapen? | geschiedenis 16, niveau a | Genesis 29:2–9 |
+     | Waar komen de herders bij de put vandaan? | Jakob praat bij een put in het veld met herders. Waar komen die herders vandaan? | geschiedenis 16, niveau b | Genesis 29:2–4 |
+     | Waar bidt de knecht? | Waar bidt de knecht van Abraham? | geschiedenis 14, niveau a | Genesis 24:2, 11–12 |
+     | Wat raakte de vrouw aan? | Een vrouw die twaalf jaar ziek was, kwam van achteren bij de Heere Jezus. Wat raakte zij aan? | geschiedenis 98, niveau b | Lukas 8:43–44 |
+     | Waaraan had de vrouw al haar geld uitgegeven? | Waaraan had de vrouw die twaalf jaar ziek was, al haar geld uitgegeven? | geschiedenis 98, niveau c | Lukas 8:43 |
+     | Hoeveel mensen waren er in het schip? | Paulus leed als gevangene schipbreuk op weg naar Italië. Hoeveel mensen waren er in het schip? | Handelingen, Paulus naar Rome | Handelingen 27:1, 37, 41 |
+     | Waar stond de engel? | Waar stond de engel die Zacharias in de tempel zag? | Kerst, deel 2 | Lukas 1:9–11 |
+     | Hoe groot was het wolkje dat uit de zee opkwam? | Hoe groot was het wolkje dat de knecht van Elia uit de zee zag opkomen? | 1 Koningen, Elia | 1 Koningen 18:43–44 |
+
+     De niveauvragen staan in `docs/bijbelreis-niveaus/werk/uit/batch-02.json`, `-03` en `-21` en zijn met
+     `node scripts/niveaus/samenvoegen.mjs` in `public/bijbelreis/niveaus/{a,b,c}.js` gezet.
+3. **Paspoort met 619 stempels: bestond.** Er stond al per boek ‘33 van 87’, maar elk boek met een stempel stond open
+   met álle stempels van al zijn delen, en er was geen weg terug naar waar je was. Nu:
+   - bovenaan **Hier was je**: de laatste stempel, ‘Mozes · stap 5: De brandende braamstruik’ en de knop ‘Verder: stap 6,
+     Drie tekenen ▶’ (de eerstvolgende stap zonder stempel in dat deel; is het deel af, dan ‘Terug naar stap …’);
+   - per deel een eigen uitklapregel ‘MOZES · 5 VAN 7’ met een balkje; open staan alleen het boek en het deel waar je was
+     (zonder ‘laatst’: de boeken met stempels, en daarin de delen die half af zijn). Ingeklapte delen krijgen hun stempels
+     pas bij het openklappen;
+   - één zin: ‘Tik op een stempel: dan ga je naar die stap van de reis.’ (dat kon al, maar stond nergens).
+   Voortgangssleutels, de betekenis van een stempel en de tellingen zijn ongewijzigd. Gemeten met 38 stempels (Abraham,
+   Izak, 5 van Mozes), ‘laatst’ = Mozes stap 5, niveau b:
+
+   | Venster | Hoogte paspoort vóór | na | Stempels in de pagina vóór | na |
+   | --- | --- | --- | --- | --- |
+   | 390×664 | 5.653 px | 3.242 px | 619 | 7 |
+   | 360×640 | 7.090 px | 3.619 px | 619 | 7 |
+   | 430×739 | 5.527 px | 3.131 px | 619 | 7 |
+   | 820×1180 | 4.315 px | 2.605 px | 619 | 7 |
+   | 1440×900 | 5.670 px | 3.057 px | 619 | 7 |
+
+   Bij Samen ontdekken was alles al ingeklapt (1.795 px); daar komt nu alleen ‘Hier was je’ bij (2.027 px). ‘Verder
+   met: …’ op de start werkte na herladen al (gemeten op alle vensters) en is niet veranderd. Het rooster met 150
+   geschiedenissen is niet aangepast.
+4. **Sara als vrouw én zus bij Abraham: bestond, en was het enige geval.** Een script over alle personen (dubbele rollen,
+   tegenstrijdige banden, cirkels, banden zonder grondslag, eenzijdige partners) vond alleen Abraham ↔ Sara. Genesis
+   20:12: ‘zij is mijns vaders dochter, maar niet mijner moeder dochter’. Nu staat Sara bij Abraham één keer, ‘Sara · ook
+   zijn halfzuster’, en bij Sara ‘Abraham · ook haar halfbroer’; onder ‘Waar staat dat?’ staat bij ‘Getrouwd met’ de regel
+   ‘Ook zijn halfzuster: Genesis 20:12’ met het citaat. Bij ‘Broers en zussen’ staan alleen Nahor en Haran. Dit staat in
+   een nieuw veld `ook` in `personen.js`; `scripts/bijbelreis-personen-check.mjs` eist het bij elke partner die ook broer
+   of zus is. Alle familiebanden hadden al een grondslag met verwijzing.
+5. **Begrijpen stimuleren.** Na elk antwoord ‘Lees het in je Bijbel: …’ (zie 1). Op het eindscherm hoe de score is
+   opgebouwd (‘5 goed · 3 bijna (half punt) · 2 fout’) en **Lees nog eens na**: de vragen die niet (helemaal) goed waren,
+   met het goede antwoord en de Bijbelplaats (bij Samen ontdekken ‘Lees samen nog eens na’). In het paspoort de zin dat
+   een stempel naar zijn stap leidt (zie 3). Niet gedaan: een zin ‘waarom’ bij een fout antwoord (die staat nergens in de
+   gegevens; zelf schrijven is verzinnen) en een Bijbelplaats bij kaart- en volgordevragen (die hebben geen `why`; afleiden
+   uit de stappen gaf bij 136 van de 241 kaartvragen meer dan één mogelijke stap).
+
+**Toegankelijkheid in deze tabbladen** (gemeld door het spoor vindbaarheid, zelfde dag):
+
+- **Kaartvraag met het toetsenbord (WCAG 2.1.1).** Onder ‘Tik op de kaart’ staat ‘Liever kiezen uit vier plekken?’.
+  Open je die, dan staan er vier genummerde plekken op de kaart (het goede antwoord en drie andere plaatsen uit dezelfde
+  reis, niet binnen de ‘bijna’-afstand) en de knoppen ‘Plek 1’ tot ‘Plek 4’. De namen staan er bewust niet bij, anders
+  zegt de vraag (‘Tik op Sichem’) het antwoord al. Een keuze telt als een tik op die plaats, met dezelfde afstandsregels
+  (`tapKeuze`, `toonPlekken`, `tikAntwoord`). Beperking: wie de kaart niet kan zien, kan de plekken niet onderscheiden;
+  een kaartvraag blijft een kijkvraag.
+- **Focus (WCAG 2.4.3).** Na ‘Start de speurtocht’, ‘Begin met de vragen’ (`#vqStart`) en ‘Volgende vraag’ staat de
+  focus op de nieuwe vraag; op het eindscherm op ‘Klaar!’ (speurtocht) of de uitslag (vragen bij een geschiedenis).
+- **Melding (WCAG 4.1.3).** `#qRes` en `#vQuiz .res` zijn `aria-live="polite"`.
+- **Contrast (WCAG 1.4.3).** De naam van een deel in het paspoort gebruikt `tekstKleur` (`-deep`, anders `-diep`):
+  oker werd #c99a3b (2,5:1) en is nu #7c5a12. `color()` en daarmee de routes op de kaart zijn niet veranderd.
+- **Naam van een stempel (WCAG 2.5.3).** De naam begint nu met het zichtbare woord en nummer (‘Horeb 5: Mozes, stap 5, De
+  brandende braamstruik (Exodus 3), gestempeld’). Deze melding kon hier met axe (ook ‘experimental’) niet worden
+  nagebootst; gecontroleerd is dat het zichtbare woord in de naam staat.
+
+Niet aangeraakt: de kaart, de Reis-navigatie, zoeken en de tikvlakken buiten deze tabbladen (ander spoor). Het
+visuele referentiebeeld `paspoort` (`bijbelreis-visueel.spec.ts`, met ‘laatst’ = Ezra stap 5) verandert bewust: ‘Hier was
+je’ staat er nu bovenaan; het moet in het vaste Playwright-image opnieuw gemaakt worden.
+
+Tests: `e2e/bijbelreis-ux-leren.spec.ts` (desktop, mobiel, tablet: punten meteen, ‘Uit:’/‘Over:’, Bijbelplaats,
+eindscherm; paspoort met ‘Hier was je’, inklappen, stempels bij openklappen, verder naar de volgende stap; Sara één keer;
+kaartvraag en focus met het toetsenbord; contrast en stempelnaam; axe op paspoort, stempels en persoon) en `tests/bijbelreis-leren.test.ts` (herschreven vragen, geen ‘de put’ zonder naam,
+Statenvertaling-regels, geen dubbele familie, het personen-controlescript). In `e2e/bijbelreis.spec.ts` is ‘Lees maar na
+in’ bijgewerkt naar ‘Lees het in je Bijbel:’. Scripts en schermafbeeldingen vóór/na (buiten de repo): scratchmap
+`ux-leren/` (`loop.cjs`, `eind.cjs`, `vragen.mjs`, `scan.mjs`, `relaties.mjs`).
+
+**Voor een mens om te beoordelen:** de negen nieuwe vraagteksten (toon en niveau); of ‘Uit: …’ bij een paar vragen het
+antwoord te makkelijk maakt (bijv. ‘Hoe heet de stad?’ onder ‘De toren van Babel’, niveau a); en of ‘ook zijn
+halfzuster’ goed is, gezien de bestaande toelichting dat het Abrahams eigen woorden zijn.
 
 ## 5. Werkwijze en bestanden
 

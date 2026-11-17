@@ -247,7 +247,7 @@ BR.boeken.push({
       { q: "Wat raakte bij de weduwe van Zarfath niet op?", a: ["Het meel en de olie", "Het water en het brood", "Het hout en de wol"], why: "1 Koningen 17:16" },
       { q: "Hoeveel profeten van Baäl stonden tegenover Elia op de Karmel?", a: ["450", "12", "7000"], why: "1 Koningen 18:22" },
       { q: "Hoe vaak liet Elia water over zijn offer gieten?", a: ["3 keer", "1 keer", "7 keer"], why: "1 Koningen 18:34" },
-      { q: "Hoe groot was het wolkje dat uit de zee opkwam?", a: ["Als de hand van een man", "Als een schip", "Als een berg"], why: "1 Koningen 18:44" },
+      { q: "Hoe groot was het wolkje dat de knecht van Elia uit de zee zag opkomen?", a: ["Als de hand van een man", "Als een schip", "Als een berg"], why: "1 Koningen 18:44" },
       { q: "Hoeveel dagen liep Elia naar de Horeb?", a: ["40", "7", "3"], why: "1 Koningen 19:8" },
       { q: "Waarin was de HEERE op de Horeb?", a: ["In het suizen van een zachte stilte", "In de sterke wind", "In het vuur"], why: "1 Koningen 19:11–12" },
       { q: "Hoe ging Elia naar de hemel?", a: ["In een storm, met een vurige wagen en paarden", "Over een ladder", "In een wolk op de Karmel"], why: "2 Koningen 2:11" }],

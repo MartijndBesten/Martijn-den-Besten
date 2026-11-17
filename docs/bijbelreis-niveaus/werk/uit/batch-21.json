@@ -232,7 +232,7 @@
       ],
       "vragen": [
         { "q": "Waarom vroeg Jaïrus de Heere Jezus om te komen?", "a": ["Zijn enige dochter lag op sterven", "Hij wilde Hem uitnodigen om te eten", "Zijn knecht was erg ziek geworden"], "why": "Lukas 8:41–42" },
-        { "q": "Wat raakte de vrouw aan?", "a": ["De zoom van Zijn kleed", "De hand van Petrus", "Zijn voeten"], "why": "Lukas 8:44" },
+        { "q": "Een vrouw die twaalf jaar ziek was, kwam van achteren bij de Heere Jezus. Wat raakte zij aan?", "a": ["De zoom van Zijn kleed", "De hand van Petrus", "Zijn voeten"], "why": "Lukas 8:44" },
         { "q": "Wat zei de Heere Jezus toen het bericht kwam dat het meisje gestorven was?", "a": ["Vrees niet, geloof alleenlijk", "Dan is het nu te laat", "Ik kom morgen naar het huis"], "why": "Lukas 8:50" },
         { "q": "Waarom lachten de mensen in het huis Hem uit?", "a": ["Ze wisten dat het meisje gestorven was", "Hij zei dat ze een feest moesten geven", "Hij kwam zonder Zijn discipelen"], "why": "Lukas 8:52–53" }
       ]
@@ -246,7 +246,7 @@
       ],
       "vragen": [
         { "q": "Wat zei Petrus later tegen de gestorven Tabitha?", "a": ["Tabitha, sta op!", "Vrees niet, geloof alleenlijk", "Dochter, ga heen in vrede"], "why": "Handelingen 9:40" },
-        { "q": "Waaraan had de vrouw al haar geld uitgegeven?", "a": ["Aan medicijnmeesters", "Aan offers in de tempel", "Aan een reis naar Jeruzalem"], "why": "Lukas 8:43" },
+        { "q": "Waaraan had de vrouw die twaalf jaar ziek was, al haar geld uitgegeven?", "a": ["Aan medicijnmeesters", "Aan offers in de tempel", "Aan een reis naar Jeruzalem"], "why": "Lukas 8:43" },
         { "q": "Wat had de Heere Jezus volgens Lukas 8:46 gemerkt?", "a": ["Dat er kracht van Hem uitgegaan was", "Dat de vrouw Hem bang aankeek", "Dat Petrus Hem had aangeraakt"], "why": "Lukas 8:46" }
       ]
     }

@@ -90,7 +90,7 @@ kerst.delen.push(
     tap: [{ id: "salem", q: "Tik op Jeruzalem, waar Zacharias in de tempel het reukoffer bracht.", v: "kanaan" },
       { id: "nt_nazareth", q: "Tik op Nazareth, waar de engel Gabriël bij Maria kwam.", v: "kanaan" }],
     mc: [{ q: "Wat mocht Zacharias in de tempel doen toen de engel kwam?", a: ["Het reukoffer brengen", "Het paaslam slachten", "De wet voorlezen aan het volk"], why: "Lukas 1:9–11" },
-      { q: "Waar stond de engel?", a: ["Aan de rechterkant van het reukofferaltaar", "Bij het volk dat buiten bad", "In het huis van Zacharias"], why: "Lukas 1:11" },
+      { q: "Waar stond de engel die Zacharias in de tempel zag?", a: ["Aan de rechterkant van het reukofferaltaar", "Bij het volk dat buiten bad", "In het huis van Zacharias"], why: "Lukas 1:11" },
       { q: "Waarom kon Zacharias niet meer spreken?", a: ["Hij had de woorden van de engel niet geloofd", "Hij was te oud geworden", "Hij was het reukoffer vergeten"], why: "Lukas 1:20" },
       { q: "Naar welke stad werd Gabriël in de zesde maand gezonden?", a: ["Nazareth", "Bethlehem", "Jeruzalem"], why: "Lukas 1:26" },
       { q: "Wie zei: ‘Zie, de dienstmaagd des Heeren; mij geschiede naar uw woord’?", a: ["Maria", "Elisabeth", "Hanna"], why: "Lukas 1:38" },
