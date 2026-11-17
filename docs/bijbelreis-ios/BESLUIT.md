@@ -14,16 +14,16 @@
 |---|---|---|---|
 | In de App Store | Nee. Een PWA zet je via Safari op het beginscherm. | Ja | Ja |
 | Hergebruik van de code | Volledig | Volledig: dezelfde `public/bijbelreis*`, plus een app-laag van ongeveer 250 regels | Geen. App.js (2.828 regels), de CSS en 2,7 MB aan inhoud in JS zouden opnieuw moeten. De kaart met Leaflet zou native opnieuw moeten (MapKit of MapLibre). |
-| Werk tot TestFlight | Klein: er is nog geen service worker en geen manifest voor de atlas | Klein tot middel: het prototype staat er, daarna testen op een Mac | Maanden |
+| Werk tot TestFlight | Gedaan: manifest en service worker staan er sinds PR #47 (17-11-2026), zie `docs/bijbelreis-pwa/README.md` | Klein tot middel: het prototype staat er, daarna testen op een Mac | Maanden |
 | Onderhoud | Eén codebasis | Eén codebasis. Elke nieuwe versie van de inhoud vraagt wel een nieuwe app-build en een review. | Twee codebases die uit elkaar gaan lopen |
 | Risico 4.2 (‘alleen een website’) | n.v.t. | Aanwezig, maar beperkt: de app laadt geen website. Alles staat in de app, werkt offline en gebruikt iOS-functies (zie §3). | Klein |
-| Offline | Alleen met een service worker (die is er nu niet) | Volledig, vanaf de eerste start. 6,8 MB in de app. | Volledig |
+| Offline | Eerder bekeken verhalen, kaart en foto’s (service worker sinds PR #47) | Volledig, vanaf de eerste start. 6,8 MB in de app. | Volledig |
 | Voortgang duurzaam | ‘Best effort’: WebKit kan de opslag van een site opruimen | Ja: kopie in Preferences (UserDefaults) | Ja |
 | Kids-categorie mogelijk | n.v.t. | Ja, met de app-laag | Ja |
 | Kaart en animaties | Safari | WebKit, net als Safari. Verwachting: gelijk aan Safari op dezelfde iPhone. Nog niet gemeten. | Native, maar alles moet opnieuw |
 | Kosten | Geen | Apple Developer Program, 99 USD per jaar, plus een Mac met Xcode 26 | Zelfde als 2, plus veel meer bouwtijd |
 
-**Conclusie.** Een PWA komt niet in de App Store en valt daarmee af als antwoord op de vraag. Een PWA blijft wel een goedkope verbetering voor de website zelf, los van dit besluit. SwiftUI kost een herbouw van alles wat nu goed werkt, zonder duidelijke winst voor kinderen of ouders. Capacitor gebruikt de bestaande atlas en maakt de app-specifieke zaken (ouderpoort, opslag, delen) los van de website.
+**Conclusie.** Een PWA komt niet in de App Store en valt daarmee af als antwoord op de vraag. Een PWA blijft wel een goedkope verbetering voor de website zelf, los van dit besluit; die is inmiddels gebouwd (PR #47). SwiftUI kost een herbouw van alles wat nu goed werkt, zonder duidelijke winst voor kinderen of ouders. Capacitor gebruikt de bestaande atlas en maakt de app-specifieke zaken (ouderpoort, opslag, delen) los van de website.
 
 ## 2. Wat Apple vraagt (bronnen in §9)
 
