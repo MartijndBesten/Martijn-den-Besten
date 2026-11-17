@@ -21,6 +21,11 @@
     <meta property="og:image:height" content="630" />
     <link rel="icon" href="/bijbelreis/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/bijbelreis/apple-touch-icon.png" />
+    <link rel="manifest" href="/bijbelreis/manifest.webmanifest" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Bijbelreis" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/bijbelreis/leaflet.css" />
@@ -115,7 +120,7 @@
         </div>
       </div>
 
-      <aside class="panel" id="reisboek" aria-label="Reisboek">
+      <main class="panel" id="reisboek" aria-label="Reisboek">
 
 
         <div class="welkom" id="welkom" hidden></div>
@@ -206,6 +211,7 @@
             <div class="passtats" id="pasStats"></div>
             <p id="pasText"></p>
           </div>
+          <div id="pasVerder" class="pasverder" hidden></div>
           <div class="pasblad">
             <h3>Geschiedenissen</h3>
             <p id="vPasText" class="ref"></p>
@@ -213,6 +219,7 @@
           </div>
           <div class="pasblad">
             <h3>Stempels van de reis</h3>
+            <p class="ref">Tik op een stempel: dan ga je naar die stap van de reis.</p>
             <div id="stamps" class="stack"></div>
           </div>
           <p id="bestText" class="ref"></p>
@@ -222,6 +229,8 @@
         <details class="parents">
           <summary>Voor ouders en leiders</summary>
           <dl>
+            <dt>Lesroutes</dt>
+            <dd>Voor thuis, zondagsschool, club, catechisatie en de klas: vaste reeksen geschiedenissen, met per les het Bijbelgedeelte om samen te lezen, een presentatie voor het digibord en vragen om in de Bijbel op te zoeken (met antwoord voor de leiding). <a href="/bijbelreis/lessen">Naar de lesroutes</a></dd>
             <dt>Uitgangspunt</dt>
             <dd>De Bijbel is Gods Woord en bepaalt wat er verteld wordt. De geschiedenissen worden verteld zoals ze in de Bijbel staan, in woorden die kinderen begrijpen; er wordt niets afgezwakt. De Bijbelreis is een hulpmiddel náást de eigen Bijbel of kinderbijbel: bij elke geschiedenis staat waar het in de Bijbel staat, zodat je het daar zelf leest, in welke vertaling je ook gebruikt. De Bijbeltekst zelf zit niet in de app.</dd>
             <dt>Drie reisniveaus</dt>
@@ -248,7 +257,7 @@
         <p class="colofon">Kaart: <a href="/bijbelreis/LICENSE-leaflet.txt">Leaflet</a> (BSD) en Natural Earth (publiek domein). Reliëf: AWS Terrain Tiles (Mapzen/Tilezen) met hoogtedata van SRTM en GMTED2010 (courtesy of the U.S. Geological Survey) en ETOPO1 (NOAA National Centers for Environmental Information). Het landschap van toen (oude kust, meren en Nijlarmen): <a href="https://github.com/AWMC/geodata">Ancient World Mapping Center, geodata</a>, naar de Barrington Atlas en © OpenStreetMap-bijdragers, <a href="https://opendatacommons.org/licenses/odbl/1-0/">Open Database License 1.0</a>; het bestand /bijbelreis/toen.json is daarvan afgeleid en heeft dezelfde licentie. Kop van de Perzische Golf rond 3000–2000 v.Chr.: naar Forti e.a. 2022, Quaternary Research, figuur 14 (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>), bewerkt. Ligging van Bijbelse plaatsen mede gebaseerd op <a href="https://github.com/openbibleinfo/Bible-Geocoding-Data">OpenBible.info Bible Geocoding Data</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; bewerkt (eigen keuze van identificaties, zekerheid en teksten). Bijbeltekst: Statenvertaling, editie 1888 (publiek domein), digitale transcriptie <a href="https://github.com/jajpater/statenvertaling">jajpater/statenvertaling</a> (CC0). Geen cookies; bezoeken worden naamloos geteld (zie Privacy hierboven).</p>
         <p class="maker"><a href="https://denckh.nl" rel="noopener"><span>Gemaakt door</span><img src="/bijbelreis/denckh-logo-signature.svg" alt="Denckh" width="93" height="28" /></a></p>
         <p class="ook"><a href="https://raadkoord.nl/" rel="noopener">Ook van Denckh: <b>Raadkoord</b>, samen psalmen en liederen raden</a></p>
-      </aside>
+      </main>
     </div>
     <div class="toast" id="toast" role="status"></div>
 
@@ -256,7 +265,7 @@
       <div class="lade__box wide aanvraag">
         <div class="lade__head"><h3 id="avTitel">Mis je iets? Vraag het aan</h3><button type="button" class="btn small">Sluiten</button></div>
         <form id="avForm" novalidate>
-          <p class="ref">Staat iets er nog niet in, bijvoorbeeld het Bijbelgedeelte van de preek van zondag? Laat het weten.</p>
+          <p class="ref">Staat iets er nog niet in, bijvoorbeeld het Bijbelgedeelte van de preek van zondag? Laat het weten. Je naam, adres of telefoonnummer is niet nodig.</p>
           <fieldset class="av-soort">
             <legend class="label">Waar gaat het over?</legend>
             <label><input type="radio" name="soort" value="gemist" checked /><span>Een Bijbelgedeelte of verhaal dat ik mis</span></label>
@@ -317,7 +326,7 @@
       <div class="lade__box wide">
         <div class="lade__head"><h3 id="plaatsenTitel">Plaatsen in de Bijbel</h3><button type="button" class="btn small">Sluiten</button></div>
         <label class="label" for="plZoek">Zoeken</label>
-        <input type="search" id="plZoek" placeholder="Bijvoorbeeld: Bethel, Efeze, Jordaan" autocomplete="off">
+        <input type="search" id="plZoek" placeholder="Bijvoorbeeld: Bethel, Efeze, Jordaan" autocomplete="off" enterkeyhint="search">
         <div class="pick" id="plSoort" role="group" aria-label="Hoe zeker is de ligging?"></div>
         <p class="ref" id="plAantal" role="status"></p>
         <div id="plaatsenLijst" class="overzicht"></div>
@@ -329,7 +338,7 @@
         <p class="vd-peil" id="vdPeil"></p>
         <p class="vd-neutraal" id="vdToelichting"></p>
         <label class="label" for="vdZoek">Zoeken</label>
-        <input type="search" id="vdZoek" placeholder="Bijvoorbeeld: Jeruzalem, Irak, Athene" autocomplete="off">
+        <input type="search" id="vdZoek" placeholder="Bijvoorbeeld: Jeruzalem, Irak, Athene" autocomplete="off" enterkeyhint="search">
         <p class="ref" id="vdAantal" role="status"></p>
         <div id="vandaagLijst" class="overzicht"></div>
       </div>
@@ -399,6 +408,7 @@
     <script src="/bijbelreis/taferelen-koppeling-3.js"></script>
     <script src="/bijbelreis/fotos.js"></script>
     <script src="/bijbelreis/seizoen.js"></script>
+    <script src="/bijbelreis/pwa.js"></script>
     <script src="/bijbelreis/bezoek.js"></script>
     <script src="/bijbelreis/app.js"></script>
   </body>

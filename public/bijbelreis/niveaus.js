@@ -46,7 +46,10 @@ BR.niveaus = {
     if (this._bezig[n]) return this._bezig[n];
     return (this._bezig[n] = new Promise((klaar, fout) => {
       const s = document.createElement("script");
-      s.src = "/bijbelreis/niveaus/" + n + ".js";
+      // Met de inhoudshash uit de meta-tag (scripts/bijbelreis-pwa.mjs), zodat de tekst altijd bij deze versie hoort.
+      let v = "";
+      try { v = JSON.parse(document.querySelector('meta[name="bijbelreis-data"]').content)["niveaus/" + n + ".js"] || ""; } catch (e) { v = ""; }
+      s.src = "/bijbelreis/niveaus/" + n + ".js" + (v ? "?v=" + v : "");
       s.onload = () => (this.geladen[n] ? klaar() : fout(new Error("niveau " + n + " niet geladen")));
       // Mislukt het (geen verbinding), dan probeert de volgende aanroep het opnieuw.
       s.onerror = () => { delete this._bezig[n]; s.remove(); fout(new Error("niveau " + n + " niet bereikbaar")); };

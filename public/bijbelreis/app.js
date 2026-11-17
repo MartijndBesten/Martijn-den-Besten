@@ -57,6 +57,8 @@
     weg(k) { try { localStorage.removeItem("bijbelreis:" + k); } catch { /* geen opslag */ } },
   };
   const color = (key) => `var(--${key}-deep, var(--${key}))`;
+  // Voor tekst: de donkere variant (sommige kleuren hebben -deep, oker en zand -diep); routes en lijnen houden color().
+  const tekstKleur = (key) => `var(--${key}-deep, var(--${key}-diep, var(--${key})))`;
   const GROUPS = new Set(["Discipelen", "Schare", "Apostelen", "Farizeeën", "Tollenaars", "Herders", "Wijzen", "Engelen", "Overpriesters", "Schriftgeleerden", "Leraren", "Sadduceeën", "Wachters", "Moordenaars", "Broeders", "Ouderlingen", "Weduwen", "Reisgenoten", "Bemanning", "Eilanders", "Joden", "Melaatsen", "Handelaars", "Raad", "Oudsten", "Gemeente", "Ouders", "Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen", "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters", "Levieten", "Zangers"]);
 
   // ---------- rekenen ----------
@@ -146,6 +148,11 @@
 
   // ---------- kaart ----------
   const WIDE = [[29.0, 30.5], [38.6, 47.6]], KANAAN = [[30.9, 34.2], [33.4, 36.4]];
+  // Zo ver zoomt de kaart hooguit zelf in bij een stap, een geschiedenis of een vraag. Bij 13 (en op de telefoon ook bij 12)
+  // toonde de kaart alleen nog vage ondergrond, zonder de stad of streek eromheen: Golgotha zonder ‘Jeruzalem’ (telefoontest
+  // 16-11-2026). Op de telefoon staat Jeruzalem er bij 11,5 weer bij; een groot scherm toont bij 12 al ruim 30 km. Mahanaïm
+  // en Pniël (een halve kilometer uit elkaar) liggen bij beide nog los. Zelf inzoomen kan tot 13.
+  const zoomStap = () => (isNarrow() ? 11.5 : 12);
   const map = L.map("map", { zoomSnap: 0.25, zoomDelta: 0.5, minZoom: 4, maxZoom: 13, attributionControl: false, maxBounds: [[22, 4], [47, 57]], maxBoundsViscosity: 0.8, zoomControl: false });
   L.control.zoom({ position: "topleft", zoomInTitle: "Inzoomen", zoomOutTitle: "Uitzoomen" }).addTo(map);
   L.control.scale({ imperial: false, maxWidth: 120, position: "bottomleft" }).addTo(map);
@@ -398,8 +405,9 @@
     const on = new Set(focus ? focus.at : mode !== "reis" ? [] : cur >= 0 ? deel.steps[cur].at : deel.steps.flatMap((s) => s.at));
     const size = map.getSize(), items = [];
     // Op een smal scherm met veel actieve namen (Paulus’ reizen) houden alleen begin en eind voorrang; de rest wijkt bij
-    // botsing en verschijnt bij inzoomen of op de grote kaart.
-    const veel = isNarrow() && !document.body.classList.contains("mapfull") && on.size > 4;
+    // botsing en verschijnt bij inzoomen of op de grote kaart. Op een groot scherm geldt dat in het overzicht van een deel:
+    // daar stonden namen anders over elkaar heen (Davids rijk: Gibeon, Baäl-Perazim, Gath en Dal Refaïm bij Jeruzalem).
+    const veel = on.size > 4 && (isNarrow() ? !document.body.classList.contains("mapfull") : !focus && mode === "reis" && cur < 0);
     const kern = new Set(focus ? focus.kern || [] : cur >= 0 ? [] : [deel.steps[0].at[0], deel.steps[deel.steps.length - 1].at.slice(-1)[0]]);
     Object.entries(markers).forEach(([id, m]) => {
       const el = m.getElement(); if (!el || !map.hasLayer(m)) return;
@@ -530,6 +538,17 @@
       const lab = el.querySelector(".lab");
       el.classList.toggle("stil", !!focus && !on.has(id) && (lab.classList.contains("off") || lab.classList.contains("clash")));
     });
+    // Toetsenbord: alleen een plaats die echt te zien is (binnen de kaart, niet onder een knop, ‘Van dichtbij’ of het
+    // stapblad) zit in de tabvolgorde. Anders ging de focus naar onzichtbare plaatsen (WCAG 2.4.11), op de telefoon zo’n
+    // zeventien keer vóór het stapblad.
+    const box = map.getContainer().getBoundingClientRect(), db = $("dichtbijBtn");
+    const dekt = uiRects().concat(db.getClientRects().length ? [(({ left, top, width, height }) => [left - box.left, top - box.top, width, height])(db.getBoundingClientRect())] : []);
+    const inBeeld = (pt) => pt.x >= 4 && pt.y >= 4 && pt.x <= size.x - 4 && pt.y <= size.y - 4 && !dekt.some((r) => pt.x >= r[0] && pt.x <= r[0] + r[2] && pt.y >= r[1] && pt.y <= r[1] + r[3]);
+    Object.values(markers).concat(Object.values(vdMarkers)).forEach((m) => {
+      const el = m.options.keyboard && m.getElement(); if (!el) return;
+      const t = inBeeld(map.latLngToContainerPoint(m.getLatLng())) ? 0 : -1;
+      if (el.tabIndex !== t) el.tabIndex = t;
+    });
   }
   let labelT;
   const queueLabels = () => { cancelAnimationFrame(labelT); labelT = requestAnimationFrame(refreshLabels); };
@@ -537,12 +556,17 @@
   map.on("moveend", drawInsetBox);
 
   function fit(pts, maxZoom, done) {
+    // Telefoon: in Paspoort, Tijdlijn en de speurtocht (behalve bij een kaartvraag) is de kaart weg. Dan geen uitsnede;
+    // komt hij terug, dan eerst de echte maat (Leaflet onthoudt de maat van vóór het verbergen).
+    const kel = map.getContainer(), kmaat = map.getSize();
+    if (!kel.clientWidth || !kel.clientHeight) { done && done(); return; }
+    if (kel.clientWidth !== kmaat.x || kel.clientHeight !== kmaat.y) map.invalidateSize({ pan: false });
     const b = L.latLngBounds(pts);
     // Ruimte laten voor de knoppen en, als die open is, de legenda.
     const lg = $("legend"), lgW = lg.classList.contains("open") && !lg.hidden && !isNarrow() ? lg.offsetWidth + 16 : 0;
     // Telefoon: de stappenbalk staat onder de kaart, dus onderin alleen ruimte voor ‘Hele reis’/‘Groot’ en de schaal.
     const smal = isNarrow(), balk = !smal && !$("mapbar").hidden;
-    const opts = { paddingTopLeft: [smal ? 52 : 64, smal ? 54 : 60], paddingBottomRight: [smal ? 18 : Math.max(40, lgW),  balk ? 96 : smal ? 70 : 64], maxZoom: maxZoom || 9 };
+    const opts = { paddingTopLeft: [smal ? 52 : 64, smal ? 54 : 60], paddingBottomRight: [smal ? 18 : Math.max(40, lgW),  balk ? 96 : smal ? 70 : 64], maxZoom: Math.min(maxZoom || 9, zoomStap()) };
     // Telefoon, in de reis: de kaart is het scherm en het stapblad ligt eroverheen. De route past in het vrije deel: onder
     // de kaartknoppen (met ruimte voor de kameel) en boven het korte blad (met ruimte voor een naam onder de plaats).
     if (bladAan()) {
@@ -851,6 +875,18 @@
     cur = Math.max(-1, Math.min(deel.steps.length - 1, i));
     showAll = false; heleZichtbaar();
     map.closePopup();
+    // Verdiepende delen: de ingang in de intro van het hoofddeel en bij de stappen over hetzelfde Bijbelgedeelte.
+    const verdiep = cur < 0 ? deel.verdiep || [] : deel.steps[cur].verdiep || [];
+    $("sVerdiep").hidden = !verdiep.length;
+    $("sVerdiep").innerHTML = verdiep.map((v) => `<button type="button" class="verdiep-in" data-go="${v.key}:-1"><span class="label">Van dichtbij</span><span><b>${esc(v.n)}</b> · ${esc(v.ref)}</span><small>${v.steps.length} stappen</small></button>`).join("");
+    // Telefoon, in de reis: dezelfde ingang als één knop op de kaart, direct boven het korte blad. In het korte blad is
+    // geen plaats voor de ingang en in het open blad staat hij te ver weg (opmerking van Martijn, 16-11-2026).
+    const db = $("dichtbijBtn"), v0 = verdiep[0];
+    db.hidden = !v0;
+    // Eerst de knop, dan de uitsnede: de uitsnede houdt ruimte vrij voor de knop (bladRuimte). Stond hij er bij de vorige
+    // stap nog niet (‘Begin de reis’ vanuit Verhalen), dan lag het begin van de route eronder.
+    if (v0) { db.dataset.go = `${v0.key}:-1`; db.innerHTML = `<span><small>Van dichtbij</small><b>${esc(v0.n)}</b></span><span class="n">${v0.steps.length} stappen ▸</span>`; }
+
     // Telefoon: na elke stap is het stapblad kort, zodat je de kaart ziet bewegen.
     bladZet(false);
     const sp = $("sSpecial"); sp.innerHTML = "";
@@ -885,7 +921,7 @@
       const loop = reis(s);
       if (!pts.length) fit(Array.isArray(s.view) ? s.view : s.view === "kanaan" ? KANAAN : WIDE, Array.isArray(s.view) ? 9 : 6, loop);
       else if (pts.every((p) => p[0] === pts[0][0] && p[1] === pts[0][1])) {
-        const z = s.zoom || 9;
+        const z = Math.min(s.zoom || 9, zoomStap());
         // Eén plek: in het midden van de kaart; op de telefoon in het midden van het vrije deel boven het stapblad.
         if (bladAan()) fit([pts[0], pts[0]], z, loop);
         else { reduceMotion ? map.setView(pts[0], z, { animate: false }) : map.flyTo(pts[0], z, { duration: 0.8 }); setTimeout(loop, reduceMotion ? 0 : 850); }
@@ -924,15 +960,6 @@
     themaPad(slot);
     // Deel: bij de intro en de laatste stap van een deel (niet in het korte stapblad, niet bij Samen ontdekken).
     $("sDeel").innerHTML = cur < 0 || atEnd ? deelKnop(deel.id, deel.n, "Deel deze reis") : ""; $("sDeel").hidden = !$("sDeel").innerHTML;
-    // Verdiepende delen: de ingang in de intro van het hoofddeel en bij de stappen over hetzelfde Bijbelgedeelte.
-    const verdiep = cur < 0 ? deel.verdiep || [] : deel.steps[cur].verdiep || [];
-    $("sVerdiep").hidden = !verdiep.length;
-    $("sVerdiep").innerHTML = verdiep.map((v) => `<button type="button" class="verdiep-in" data-go="${v.key}:-1"><span class="label">Van dichtbij</span><span><b>${esc(v.n)}</b> · ${esc(v.ref)}</span><small>${v.steps.length} stappen</small></button>`).join("");
-    // Telefoon, in de reis: dezelfde ingang als één knop op de kaart, direct boven het korte blad. In het korte blad is
-    // geen plaats voor de ingang en in het open blad staat hij te ver weg (opmerking van Martijn, 16-11-2026).
-    const db = $("dichtbijBtn"), v0 = verdiep[0];
-    db.hidden = !v0;
-    if (v0) { db.dataset.go = `${v0.key}:-1`; db.innerHTML = `<span><small>Van dichtbij</small><b>${esc(v0.n)}</b></span><span class="n">${v0.steps.length} stappen ▸</span>`; }
     // Om over na te denken: open vragen bij een deel (veld `denk`), bij de intro en de laatste stap; niet bij Samen ontdekken.
     const denk = niveau !== "a" && (cur < 0 || atEnd) && Array.isArray(deel.denk) ? deel.denk : [];
     $("sDenk").hidden = !denk.length;
@@ -994,7 +1021,7 @@
   }
   function renderDelen() {
     $("delenLabel").querySelector(".dl-boek").textContent = ` uit ${boek.n}`; // alleen zichtbaar in het keuzeblad (telefoon)
-    $("delen").innerHTML = boek.delen.filter((d) => !d.hoofd).map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.refKort || d.ref.split(/;|,/)[0].replace(/^(\d\s)?[^\d\s]+\s/, ""))}</small></button>`).join("");
+    $("delen").innerHTML = boek.delen.filter((d) => !d.hoofd).map((d) => `<button type="button" class="deel" data-deel="${d.id}" style="--pc:${color(d.c)}" aria-pressed="${d === deel || d === deel.hoofd}"><i>${esc(d.init || d.n[0])}</i>${esc(d.short)}<small>${esc(d.refKort || d.ref.split(/;|,/)[0].replace(/^(\d\s)?[^\d\s]+\s/, ""))}</small></button>`).join("");
   }
   const kiesBoekKnop = (e) => {
     const b = e.target.closest(".boek"); if (!b) return;
@@ -1102,7 +1129,9 @@
     // vóórdat de uitsnede van het onderdeel gekozen wordt. Buiten de reis is er geen stapblad en geen grote kaart nodig.
     if (isNarrow()) {
       if (m !== "reis") bladZet(false, true); else if (document.body.classList.contains("mapfull")) setFull(false);
-      if (voor !== m) { kaartGrenzen(); map.invalidateSize({ pan: false }); }
+      // Een verborgen kaart (Paspoort, Tijdlijn, speurtocht zonder kaartvraag) houdt zijn laatste maat: anders verschuift de
+      // uitsnede terwijl niemand hem ziet.
+      if (voor !== m && map.getContainer().clientHeight) { kaartGrenzen(); map.invalidateSize({ pan: false }); }
       syncDrag();
     }
     heleZichtbaar();
@@ -1131,7 +1160,9 @@
   TABS.forEach((t) => $("t-" + t).addEventListener("click", () => { const ander = mode !== t; setMode(t); if (ander && isNarrow()) window.scrollTo({ top: 0 }); }));
   document.querySelector(".tabs").addEventListener("keydown", (e) => {
     const i = TABS.indexOf(mode);
-    if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); const n = TABS[(i + (e.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length]; setMode(n); $("t-" + n).focus(); }
+    // Pijltjes naar het volgende of vorige onderdeel; Home en End naar het eerste en het laatste (ARIA-patroon voor tabbladen).
+    const n = e.key === "ArrowRight" || e.key === "ArrowLeft" ? TABS[(i + (e.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length] : e.key === "Home" ? TABS[0] : e.key === "End" ? TABS[TABS.length - 1] : null;
+    if (n) { e.preventDefault(); setMode(n); $("t-" + n).focus(); }
   });
 
 
@@ -1181,6 +1212,8 @@
   });
   let vTest = "alle", vZoek = "", vOpen = null;
 
+  // Ingang voor ouders, leiding en leerkrachten: de lesroutes (lessen.html, docs/bijbelreis-samen/README.md).
+  const LESROUTES = '<p class="ls-ingang"><a href="/bijbelreis/lessen"><span>Samen lezen met kinderen of een groep?</span><b>Lesroutes met presentatie en vragen</b></a></p>';
   function renderVerhalen() {
     renderSeizoen();
     if (vOpen) return renderVerhaal(vOpen);
@@ -1188,7 +1221,7 @@
     // Samen ontdekken: groot en zonder zoeken; per etappe van de reis uitklapbaar, de etappe waar je bent staat open.
     if (niveau === "a") {
       const nu = (huidigeGeschiedenis().g || G[0]).nr;
-      box.innerHTML = `<h2>Samen <em>ontdekken</em></h2><p class="ref">Kies een geschiedenis om samen te lezen. Elk verhaal gaat in korte stukjes, met een paar vragen aan het eind.</p>
+      box.innerHTML = `<h2>Samen <em>ontdekken</em></h2><p class="ref">Kies een geschiedenis om samen te lezen. Elk verhaal gaat in korte stukjes, met een paar vragen aan het eind.</p>${LESROUTES}
         ${SECTIES.map(([naam, a, b], si) => {
           const items = G.filter((g) => g.nr >= a && g.nr <= b), k = items.filter((g) => verhaalStore[g.nr] && verhaalStore[g.nr].q != null).length;
           return `<details class="samensectie"${nu >= a && nu <= b ? " open" : ""}><summary class="vsectie"><span class="vs-n${k === items.length ? " af" : k ? " half" : ""}" aria-hidden="true">${si + 1}</span><span class="vs-t">${esc(naam)}</span><small>${k ? `${k} van ${items.length}` : `${items.length} verhalen`}</small></summary>
@@ -1201,8 +1234,9 @@
     const done = G.filter((g) => verhaalStore[g.nr]).length;
     box.innerHTML = `<h2>${G.length} <em>geschiedenissen</em></h2>
       <p class="ref">Van de schepping tot Openbaring. Kies een geschiedenis, of zoek op Bijbelboek, persoon, plaats of thema.${done ? ` Je hebt er ${done} gelezen.` : " Je kunt ook gewoon bij 1 beginnen en steeds ‘Volgende’ kiezen."}</p>
+      ${LESROUTES}
       <label class="label" for="vZoek">Zoeken</label>
-      <input type="search" id="vZoek" placeholder="Bijvoorbeeld: Jozef, Jericho, Lukas, gebed" value="${esc(vZoek)}" autocomplete="off">
+      <input type="search" id="vZoek" placeholder="Bijvoorbeeld: Jozef, Jericho, Lukas, gebed" value="${esc(vZoek)}" autocomplete="off" enterkeyhint="search">
       <div class="pick" role="group" aria-label="Testament">${[["alle", "Alles"], ["ot", "Oude Testament · 79"], ["nt", "Nieuwe Testament · 71"]].map(([k, n]) => `<button type="button" data-vt="${k}" aria-pressed="${vTest === k}" style="--pc:var(--acc)">${n}</button>`).join("")}</div>
       <div id="vLijst" class="vlijst"></div>
       <details class="kwlijst"><summary>Kernwoorden (${Object.keys(KW).length})</summary><div class="chips">${Object.entries(KW).sort((a, b) => a[1].n.localeCompare(b[1].n, "nl")).map(([id, k]) => `<button type="button" class="chip" data-kw="${id}">${esc(k.n)}</button>`).join("")}</div></details>
@@ -1237,6 +1271,14 @@
     $("vLijst").innerHTML = html || `<p class="ref">Niets gevonden voor ‘${esc(vZoek)}’. Probeer een andere naam, plaats of Bijbelboek.</p>${vZoek.trim() ? `<p class="misje"><button type="button" class="btn" data-aanvraag="gemist" data-av-tekst="${esc(`Ik zoek ‘${vZoek.trim().slice(0, 120)}’ en kan het niet vinden.`)}">Vraag dit aan</button></p>` : ""}`;
     if (q.length) $("vLijst").insertAdjacentHTML("afterbegin", `<p class="ref" role="status">${hits} gevonden</p>`);
   }
+  // Zoeken (geschiedenissen, plaatsen, Vandaag): de lijst zoekt al bij het typen. De zoektoets van het telefoontoetsenbord
+  // (Enter) sluit daarom alleen het toetsenbord, zodat de resultaten in beeld komen. Op een computer blijft de focus staan.
+  const grofScherm = window.matchMedia("(hover: none) and (pointer: coarse)");
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" || e.isComposing || !(e.target instanceof HTMLInputElement) || e.target.type !== "search") return;
+    e.preventDefault();
+    if (grofScherm.matches) e.target.blur();
+  });
   $("p-verhalen").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
   $("p-reis").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
 
@@ -1595,7 +1637,7 @@
     if (!Qs || !Qs.length) return;
     let i = 0, score = 0;
     const order = Qs.map((q) => ({ ...q, opts: shuffle(q.a) }));
-    function show() {
+    function show(focus) {
       if (i >= order.length) {
         const st = verhaalStore[g.nr] || {}, best = st.q;
         saveVerhaal(g.nr, { q: best == null || score > best ? score : best, lv: { ...(st.lv || {}), [niveau]: Math.max(score, (st.lv || {})[niveau] ?? 0) } });
@@ -1603,22 +1645,24 @@
         host.querySelector("#vqOpnieuw").onclick = () => renderVQuiz(host, g, Qs, samen);
         if (samen) host.querySelector("#vqLees").onclick = () => { vStap = 0; renderVerhaal(g.nr); };
         toast(`Stempel: geschiedenis ${g.nr}`);
+        if (focus) { const f = host.querySelector(".feedback"); f.tabIndex = -1; f.focus({ preventScroll: true }); }
         return;
       }
       const q = order[i];
-      host.innerHTML = `<p class="label">Vraag ${i + 1} van ${order.length}</p><p class="qtext">${esc(q.q)}</p><div class="opts">${q.opts.map((o) => `<button type="button" class="opt">${esc(o)}</button>`).join("")}</div><div class="res"></div>`;
+      host.innerHTML = `<p class="label">Vraag ${i + 1} van ${order.length}</p><p class="qtext">${esc(q.q)}</p><div class="opts">${q.opts.map((o) => `<button type="button" class="opt">${esc(o)}</button>`).join("")}</div><div class="res" aria-live="polite"></div>`;
+      if (focus) { const t = host.querySelector(".qtext"); t.tabIndex = -1; t.focus({ preventScroll: true }); }
       host.querySelectorAll(".opt").forEach((b) => (b.onclick = () => {
         const ok = b.textContent === q.a[0]; if (ok) score++;
         host.querySelectorAll(".opt").forEach((x) => { x.disabled = true; if (x.textContent === q.a[0]) x.classList.add("ok"); });
         if (!ok) b.classList.add("no");
         host.querySelector(".res").innerHTML = `<div class="feedback ${ok ? "ok" : "no"}">${ok ? "Goed!" : "Helaas."}<span>Het goede antwoord: ${esc(q.a[0])}.${q.why ? ` Lees ${refLink(q.why)}.` : ""}</span></div><button type="button" class="btn primary small" id="vqVolgende">${i + 1 < order.length ? "Volgende vraag ▶" : "Klaar"}</button>`;
-        host.querySelector("#vqVolgende").onclick = () => { i++; show(); };
+        host.querySelector("#vqVolgende").onclick = () => { i++; show(true); };
         host.querySelector("#vqVolgende").focus({ preventScroll: true });
       }));
     }
     if (samen) { show(); return; }
     host.innerHTML = `<p class="label">Vragen</p><p class="ref">${order.length} vragen over deze geschiedenis.</p><button type="button" class="btn small" id="vqStart">Begin met de vragen</button>`;
-    host.querySelector("#vqStart").onclick = show;
+    host.querySelector("#vqStart").onclick = () => show(true);
   }
 
   // ---------- tijdlijn ----------
@@ -1781,6 +1825,7 @@
   // docs/bijbelreis-aanvraag/README.md. Elke knop met data-aanvraag opent het; data-av-tekst vult de tekst alvast in.
   const AV_MIN = 10, AV_MAX = 600, AV_EMAIL = /^[A-Za-z0-9._%+-]{1,64}@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+$/;
   const AV_MISLUKT = "Het versturen lukte niet. Probeer het later nog eens, of mail naar info@denckh.nl.";
+  const AV_OFFLINE = "Je bent nu niet verbonden met internet. Versturen kan nu niet. Je tekst blijft staan: probeer het straks nog eens.";
   let avBezig = false;
   const avFout = (id, melding) => {
     $(id).textContent = melding || "";
@@ -1813,6 +1858,8 @@
     if ($("avMailFout").textContent) { $("avMail").focus(); return; }
     // Waar de bezoeker was: alleen het adres binnen de atlas (#jakob/7), als het een gewone vorm heeft.
     const context = /^#[A-Za-z0-9][A-Za-z0-9/=&_-]{0,78}$/.test(location.hash) ? location.hash : "";
+    // Zonder internet (ook in de app op het beginscherm) niet eens proberen: meteen zeggen dat het nu niet kan.
+    if (navigator.onLine === false) { avFout("avFout", AV_OFFLINE); return; }
     avBezig = true; $("avStuur").disabled = true; $("avStuur").textContent = "Versturen…";
     let gelukt = false, melding = AV_MISLUKT, veld = "";
     try {
@@ -1820,7 +1867,7 @@
       const a = await r.json().catch(() => null);
       gelukt = r.ok && !!a && a.ok === true;
       if (!gelukt && a && typeof a.error === "string") { melding = a.error; veld = a.veld || ""; }
-    } catch { /* geen verbinding: de algemene melding */ }
+    } catch { if (navigator.onLine === false || document.documentElement.hasAttribute("data-offline")) melding = AV_OFFLINE; /* anders: de algemene melding */ }
     avBezig = false; $("avStuur").disabled = false; $("avStuur").textContent = "Versturen";
     if (!gelukt) {
       if (veld === "tekst") { avFout("avTekstFout", melding); $("avTekst").focus(); }
@@ -1940,7 +1987,7 @@
     }
   }
   // Eén persoon met familie, gebeurtenissen, plaatsen en verwijzingen, allemaal uit BR.mensen en de stappen.
-  const mensChip = (id, afgeleid) => MENSEN[id] ? `<button type="button" class="chip${afgeleid ? " afgeleid" : ""}" data-mens="${id}"${afgeleid ? ' title="Afgeleid: zie ‘Waar staat dat?’"' : ""}><i style="background:${color(BR.personen[MENSEN[id].n] || "grijs")}">${esc(MENSEN[id].n[0])}</i>${esc(MENSEN[id].n)}${afgeleid ? '<small aria-label="afgeleid"> *</small>' : ""}</button>` : "";
+  const mensChip = (id, afgeleid, ook) => MENSEN[id] ? `<button type="button" class="chip${afgeleid ? " afgeleid" : ""}" data-mens="${id}"${afgeleid ? ' title="Afgeleid: zie ‘Waar staat dat?’"' : ""}><i style="background:${color(BR.personen[MENSEN[id].n] || "grijs")}">${esc(MENSEN[id].n[0])}</i>${esc(MENSEN[id].n)}${afgeleid ? '<small aria-label="afgeleid"> *</small>' : ""}${ook ? `<small class="ook">· ${esc(ook)}</small>` : ""}</button>` : "";
   // Grondslag van een familieband (personen.js, veld basis): ["b", ref] staat zo in de Bijbel; ["a", ref, redenering] is
   // afgeleid door teksten te combineren. Kerkelijke overlevering staat nooit in v/m/p maar apart in ‘overlevering’.
   function grondslag(ouder, soort, ander) {
@@ -1952,8 +1999,10 @@
   function mensDetails(id) {
     const m = MENSEN[id]; if (!m) return "";
     const kids = Object.keys(MENSEN).filter((k) => MENSEN[k].v === id || MENSEN[k].m === id);
-    const sibs = m.v || m.m ? Object.keys(MENSEN).filter((k) => k !== id && ((m.v && MENSEN[k].v === m.v) || (m.m && MENSEN[k].m === m.m))) : [];
     const partners = (m.p || []).concat(Object.keys(MENSEN).filter((k) => (MENSEN[k].p || []).includes(id) && !(m.p || []).includes(k)));
+    // Een partner die ook broer of zus is (Sara bij Abraham, Genesis 20:12) staat één keer: bij ‘Getrouwd met’, met uitleg.
+    const sibs = m.v || m.m ? Object.keys(MENSEN).filter((k) => k !== id && !partners.includes(k) && ((m.v && MENSEN[k].v === m.v) || (m.m && MENSEN[k].m === m.m))) : [];
+    const ook = (k) => (m.ook || {})[k] || null;
     // Per band: [rol, persoon, grondslag]. Broers en zussen volgen uit dezelfde vader of moeder.
     const banden = [];
     if (m.v) banden.push(["Vader", m.v, grondslag(id, "v")]);
@@ -1966,10 +2015,10 @@
     const places = [...new Set(steps.flatMap(([d, i]) => d.steps[i].at || []))].filter((p) => P[p] && !P[p].ctx);
     let h = "";
     if (m.leeftijd && m.leeftijd.length) h += `<p class="ref">${m.leeftijd.map(([a, r]) => `${a} jaar (${esc(r)})`).join(" · ")}</p>`;
-    if (fam.length) h += `<dl class="fam">${fam.map(([t, l]) => `<dt>${t}</dt><dd>${l.map((k) => mensChip(k, t !== "Broers en zussen" && afg.has(k))).join("")}</dd>`).join("")}</dl>`;
+    if (fam.length) h += `<dl class="fam">${fam.map(([t, l]) => `<dt>${t}</dt><dd>${l.map((k) => mensChip(k, t !== "Broers en zussen" && afg.has(k), t === "Getrouwd met" && ook(k) ? ook(k)[0] : "")).join("")}</dd>`).join("")}</dl>`;
     if (banden.length) {
       const soortTekst = (g) => !g ? "Grondslag nog niet vastgelegd" : g[0] === "b" ? "Staat zo in de Bijbel" : "Afgeleid";
-      h += `<details class="grond"${niveau === "c" ? " open" : ""}><summary>Waar staat dat?${afg.size ? ' <small>(* = afgeleid)</small>' : ""}</summary><ul class="xrefs">${banden.filter(([, k]) => MENSEN[k]).map(([rol, k, g]) => `<li><span><b>${esc(rol)}: ${esc(MENSEN[k].n)}</b> <span class="gs gs-${g ? g[0] : "x"}">${soortTekst(g)}</span>${g && g[1] ? " " + refBtn(g[1]) : ""}${g && g[2] ? `<br><small>${esc(g[2])}</small>` : ""}</span></li>`).join("")}${sibs.length ? `<li><span><b>Broers en zussen</b> <span class="gs gs-a">Afgeleid</span><br><small>Ze hebben dezelfde vader of moeder.</small></span></li>` : ""}</ul></details>`;
+      h += `<details class="grond"${niveau === "c" ? " open" : ""}><summary>Waar staat dat?${afg.size ? ' <small>(* = afgeleid)</small>' : ""}</summary><ul class="xrefs">${banden.filter(([, k]) => MENSEN[k]).map(([rol, k, g]) => `<li><span><b>${esc(rol)}: ${esc(MENSEN[k].n)}</b> <span class="gs gs-${g ? g[0] : "x"}">${soortTekst(g)}</span>${g && g[1] ? " " + refBtn(g[1]) : ""}${g && g[2] ? `<br><small>${esc(g[2])}</small>` : ""}${rol === "Getrouwd met" && ook(k) ? `<br><small><b>${esc(ook(k)[0][0].toUpperCase() + ook(k)[0].slice(1))}:</b> ${refBtn(ook(k)[1])}${ook(k)[2] ? ". " + esc(ook(k)[2]) : ""}</small>` : ""}</span></li>`).join("")}${sibs.length ? `<li><span><b>Broers en zussen</b> <span class="gs gs-a">Afgeleid</span><br><small>Ze hebben dezelfde vader of moeder.</small></span></li>` : ""}</ul></details>`;
     }
     if (m.overlevering && m.overlevering.length) h += `<div class="fact overlevering"><b>Overlevering <span class="fs fs-h">Niet uit de Bijbel</span></b><ul>${m.overlevering.map(([t, u]) => `<li>${esc(t)}${u ? ` <small>${esc(u)}</small>` : ""}</li>`).join("")}</ul></div>`;
     // Zelf op reis: de eerste zes plekken in de reis; de rest uitklapbaar. Verder ontdekken: alles.
@@ -2046,11 +2095,11 @@
     $("p-quiz").querySelectorAll("[data-q]").forEach((b) => (b.onclick = () => { qPart = b.dataset.q; samenSpeur(); }));
     bindBoek(samenSpeur);
     $("qGo").onclick = () => {
-      Q = shuffle(verhalenIn(delenVan(qPart)).flatMap((g) => ((versie(g, "a") || {}).vragen || []).map((x) => ({ t: "mc", ...x })))).slice(0, 6);
+      Q = shuffle(verhalenIn(delenVan(qPart)).flatMap((g) => ((versie(g, "a") || {}).vragen || []).map((x) => ({ t: "mc", ...x, uit: g.t })))).slice(0, 6);
       // Een deel zonder eigen verhalen (een losse reis): de vragen van de reis zelf, met twee antwoorden.
-      if (!Q.length) Q = shuffle(delenVan(qPart).flatMap((d) => quizOf(d).mc || [])).slice(0, 6).map((x) => ({ t: "mc", ...x, a: x.a.slice(0, 2) }));
+      if (!Q.length) Q = shuffle(delenVan(qPart).flatMap((d) => (quizOf(d).mc || []).map((x) => ({ ...x, ...bijDeel(d) })))).slice(0, 6).map((x) => ({ t: "mc", ...x, a: x.a.slice(0, 2) }));
       if (!Q.length) { $("p-quiz").innerHTML = "<div class='card'><p>Voor deze verhalen zijn nog geen vragen.</p></div>"; return; }
-      quizKey = speurSleutel("a", qb().id, qPart); qi = 0; score = 0; ask();
+      quizKey = speurSleutel("a", qb().id, qPart); qi = 0; score = 0; uitslag = []; ask();
     };
     fit(WIDE, 6);
   }
@@ -2070,38 +2119,60 @@
     const delen = delenVan(qPart);
     // Zelf op reis: de meerkeuzevragen komen uit de vertellingen voor 7–10 jaar, met kaart- en volgordevragen.
     // Verder ontdekken: de vragen van de reis plus de verdiepende vragen van de geschiedenissen in deze delen.
-    const eigen = verhalenIn(delen).flatMap((g) => (versie(g) || {}).vragen || []);
+    // Elke vraag weet waar hij vandaan komt (uit: de geschiedenis, bij: het deel), zodat hij ook tussen vragen over
+    // andere verhalen te begrijpen is (‘Wie komt er met de schapen?’ staat onder ‘Uit: Jakob bij Laban’).
+    const eigen = verhalenIn(delen).flatMap((g) => ((versie(g) || {}).vragen || []).map((x) => ({ ...x, uit: g.t })));
     quizKey = speurSleutel(niveau, qb().id, qPart);
-    const tap = shuffle(delen.flatMap((d) => quizOf(d).tap || [])), ord = shuffle(delen.flatMap((d) => quizOf(d).ord || []).concat(qPart === "alles" ? qb().ordAlles || [] : []));
-    const mc = niveau === "b" && eigen.length >= 4 ? shuffle(eigen) : shuffle(delen.flatMap((d) => quizOf(d).mc || []).concat(eigen));
+    const vanDeel = (soort) => delen.flatMap((d) => (quizOf(d)[soort] || []).map((x) => (delen.length > 1 ? { ...x, ...bijDeel(d) } : x)));
+    const tap = shuffle(vanDeel("tap")), ord = shuffle(vanDeel("ord").concat(qPart === "alles" ? qb().ordAlles || [] : []));
+    const mc = niveau === "b" && eigen.length >= 4 ? shuffle(eigen) : shuffle(vanDeel("mc").concat(eigen));
     const nOrd = Math.min(niveau === "b" ? 1 : 2, ord.length), nTap = Math.min(niveau === "b" ? 3 : 4, tap.length), nMc = Math.min(10 - nOrd - nTap, mc.length);
     Q = shuffle([...tap.slice(0, nTap).map((x) => ({ t: "tap", ...x })), ...mc.slice(0, nMc).map((x) => ({ t: "mc", ...x })), ...ord.slice(0, nOrd).map((x) => ({ t: "ord", ...x }))]);
     if (!Q.length) { $("p-quiz").innerHTML = "<div class='card'><p>Voor dit deel zijn nog geen vragen.</p></div>"; return; }
-    qi = 0; score = 0; ask();
+    qi = 0; score = 0; uitslag = []; ask();
   }
-  const head = () => `<div class="qhead"><span>Vraag ${qi + 1} van ${Q.length}</span><span>Punten: ${fmt(score)}</span></div><div class="progress"><div style="width:${((qi / Q.length) * 100).toFixed(0)}%"></div></div>`;
+  // Per beantwoorde vraag: goed (ok), bijna (mid) of fout (no), met het goede antwoord en de Bijbelplaats; voor ‘Lees nog
+  // eens na’ op het eindscherm.
+  let uitslag = [];
+  const bijDeel = (d) => ({ bij: deelNaam(d) });
+  const bron = (q) => (q.uit ? `<p class="qbron">Uit: <b>${esc(q.uit)}</b></p>` : q.bij ? `<p class="qbron">Over: <b>${esc(q.bij)}</b></p>` : "");
+  const head = () => `<div class="qhead"><span>Vraag ${qi + 1} van ${Q.length}</span><span id="qPunten">Punten: ${fmt(score)}</span></div><div class="progress"><div id="qVoortgang" style="width:${((qi / Q.length) * 100).toFixed(0)}%"></div></div>`;
+  // Meteen na het antwoord: de punten en de balk kloppen al, niet pas bij de volgende vraag.
+  function beantwoord(q, res, goed) {
+    uitslag.push({ q: q.q, res, goed, why: q.why || "" });
+    if ($("qPunten")) $("qPunten").textContent = "Punten: " + fmt(score);
+    if ($("qVoortgang")) $("qVoortgang").style.width = (((qi + 1) / Q.length) * 100).toFixed(0) + "%";
+  }
+  // Een antwoord als ‘Ik ben Jozef!’ of een citaat dat al op een punt eindigt, krijgt er geen tweede punt achter.
+  const punt = (t) => (/[.!?…’'"]$/.test(String(t).trim()) ? String(t).trim() : String(t).trim() + ".");
+  const leesNa = (r) => (r ? ` Lees het in je Bijbel: ${refTekst(r)}.` : "");
   const nextBtn = () => `<button type="button" class="btn primary" id="qNext">${qi + 1 < Q.length ? "Volgende vraag ▶" : "Bekijk je score"}</button>`;
   function bindNext() { $("qNext").onclick = () => { qi++; lyQuiz.clearLayers(); qi < Q.length ? ask() : finish(); }; $("qNext").focus({ preventScroll: true }); }
   const viewOf = (v) => (v === "wide" ? WIDE : v === "kanaan" ? KANAAN : v);
   function ask() {
     const q = Q[qi]; awaitingTap = null; lyQuiz.clearLayers();
     const box = $("p-quiz");
+    // De knop waarmee je hier kwam is weg: de focus gaat naar de nieuwe vraag (na het opbouwen, onderaan).
+    setTimeout(() => { const t = box.querySelector(".qtext"); if (t) { t.tabIndex = -1; t.focus({ preventScroll: true }); } });
     if (q.t === "tap") {
-      box.innerHTML = `${head()}<p class="qtext">${esc(q.q)}</p><div class="tapcall"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 11V5a2 2 0 0 1 4 0v6M13 10a2 2 0 0 1 4 0v2M17 11a2 2 0 0 1 4 0v4a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3l-3-5a2 2 0 0 1 3-2l2 2"/></svg><span>Tik op de kaart${isNarrow() ? " hierboven" : ""}.</span></div><div id="qRes"></div>`;
+      box.innerHTML = `${head()}${bron(q)}<p class="qtext">${esc(q.q)}</p><div class="tapcall"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 11V5a2 2 0 0 1 4 0v6M13 10a2 2 0 0 1 4 0v2M17 11a2 2 0 0 1 4 0v4a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3l-3-5a2 2 0 0 1 3-2l2 2"/></svg><span>Tik op de kaart${isNarrow() ? " hierboven" : ""}.</span></div>${tapKeuze(q)}<div id="qRes" aria-live="polite"></div>`;
       fit(viewOf(q.v), 8.5); awaitingTap = q; scrollToMap();
+      box.querySelectorAll("[data-plaats]").forEach((b) => (b.onclick = () => { if (awaitingTap === q) tikAntwoord(L.latLng(ll(b.dataset.plaats))); }));
+      const tk = box.querySelector(".tapkeuze"); if (tk) tk.addEventListener("toggle", () => { if (tk.open && awaitingTap === q) toonPlekken(); else if (!tk.open && awaitingTap === q) lyQuiz.clearLayers(); });
     } else if (q.t === "mc") {
       const opts = shuffle(q.a);
-      box.innerHTML = `${head()}<p class="qtext">${esc(q.q)}</p><div class="opts">${opts.map((o) => `<button type="button" class="opt">${esc(o)}</button>`).join("")}</div><div id="qRes"></div>`;
+      box.innerHTML = `${head()}${bron(q)}<p class="qtext">${esc(q.q)}</p><div class="opts">${opts.map((o) => `<button type="button" class="opt">${esc(o)}</button>`).join("")}</div><div id="qRes" aria-live="polite"></div>`;
       box.querySelectorAll(".opt").forEach((b) => (b.onclick = () => {
         const ok = b.textContent === q.a[0];
         box.querySelectorAll(".opt").forEach((x) => { x.disabled = true; if (x.textContent === q.a[0]) x.classList.add("ok"); });
         if (!ok) b.classList.add("no"); else score++;
-        $("qRes").innerHTML = `<div class="feedback ${ok ? "ok" : "no"}">${ok ? "Goed zo!" : "Helaas."}<span>Het goede antwoord: ${esc(q.a[0])}. Lees maar na in ${esc(q.why)}.</span></div>${nextBtn()}`;
+        beantwoord(q, ok ? "ok" : "no", q.a[0]);
+        $("qRes").innerHTML = `<div class="feedback ${ok ? "ok" : "no"}">${ok ? "Goed zo!" : "Helaas."}<span>Het goede antwoord: ${esc(punt(q.a[0]))}${leesNa(q.why)}</span></div>${nextBtn()}`;
         bindNext();
       }));
     } else {
       const opts = shuffle(q.items); const picked = [];
-      box.innerHTML = `${head()}<p class="qtext">${esc(q.q)}</p><p class="ref">Tik ze aan in de goede volgorde: eerst wat het eerst kwam.</p><div class="opts">${opts.map((o) => `<button type="button" class="opt" data-v="${esc(o)}">${esc(o)}</button>`).join("")}</div><button type="button" class="btn" id="qUndo">Opnieuw kiezen</button><div id="qRes"></div>`;
+      box.innerHTML = `${head()}${bron(q)}<p class="qtext">${esc(q.q)}</p><p class="ref">Tik ze aan in de goede volgorde: eerst wat het eerst kwam.</p><div class="opts">${opts.map((o) => `<button type="button" class="opt" data-v="${esc(o)}">${esc(o)}</button>`).join("")}</div><button type="button" class="btn" id="qUndo">Opnieuw kiezen</button><div id="qRes" aria-live="polite"></div>`;
       const btns = [...box.querySelectorAll(".opt")];
       btns.forEach((b) => (b.onclick = () => {
         if (picked.includes(b.dataset.v)) return;
@@ -2112,6 +2183,7 @@
           btns.forEach((x) => { x.disabled = true; x.classList.add(picked.indexOf(x.dataset.v) === q.items.indexOf(x.dataset.v) ? "ok" : "no"); });
           $("qUndo").hidden = true;
           if (ok) score++; else if (nOk >= 2) score += 0.5;
+          beantwoord(q, ok ? "ok" : nOk >= 2 ? "mid" : "no", q.items.join(" → "));
           $("qRes").innerHTML = `<div class="feedback ${ok ? "ok" : nOk >= 2 ? "mid" : "no"}">${ok ? "Helemaal goed!" : nOk >= 2 ? "Bijna! Een half punt." : "Helaas."}<span>De goede volgorde: ${esc(q.items.join(" → "))}.</span></div>${nextBtn()}`;
           bindNext();
         }
@@ -2119,23 +2191,50 @@
       $("qUndo").onclick = () => { picked.length = 0; btns.forEach((b) => (b.textContent = b.dataset.v)); };
     }
   }
+  // Hoe dichtbij moet je zijn: raak binnen ‘hit’ km, bijna binnen drie keer zoveel.
+  const tapGrens = (q) => (q.v === "wide" ? 120 : 15) * (q.loose || 1) * (q.loose && q.v !== "wide" ? 2 : 1);
+  // Een kaartvraag met het toetsenbord: vier genummerde plekken op de kaart (het goede antwoord en drie andere plaatsen uit
+  // deze reis, niet binnen de ‘bijna’-afstand), en knoppen ‘Plek 1’ tot ‘Plek 4’. De namen staan er bewust niet bij: dan
+  // blijft het een vraag over wáár het ligt. Een gekozen plek telt als een tik op die plaats.
+  let tapPlekken = [];
+  function tapKeuze(q) {
+    const doel = ll(q.id), naam = (id) => (P[id] && P[id].n) || "";
+    const pool = [...new Set(delenVan(qPart).flatMap((d) => (quizOf(d).tap || []).map((t) => t.id).concat(d.steps.flatMap((s) => s.at || []))))]
+      .filter((id) => id !== q.id && P[id] && !P[id].ctx && naam(id) && hav(ll(id), doel) > tapGrens(q) * 3);
+    const namen = new Set(), keuze = [];
+    for (const id of shuffle(pool)) { if (keuze.length >= 3) break; if (!namen.has(naam(id))) { namen.add(naam(id)); keuze.push([id, naam(id)]); } }
+    if (!keuze.length) return "";
+    tapPlekken = shuffle(keuze.map(([id]) => id).concat([q.id]));
+    return `<details class="tapkeuze"><summary>Liever kiezen uit vier plekken?</summary><p class="ref">Op de kaart staan nu vier genummerde plekken. Welke is het?</p><div class="plekken">${tapPlekken.map((id, i) => `<button type="button" class="plaatsopt" data-plaats="${esc(id)}">Plek ${i + 1}</button>`).join("")}</div></details>`;
+  }
+  function toonPlekken() {
+    lyQuiz.clearLayers();
+    const pts = tapPlekken.map((id) => ll(id));
+    pts.forEach((pt, i) => L.marker(pt, { interactive: false, keyboard: false, icon: icon(`<span class="plekpin" aria-hidden="true">${i + 1}</span>`) }).addTo(lyQuiz));
+    fit(pts, 8.5); scrollToMap();
+  }
   map.on("click", (e) => {
     if (tapHandler) { tapHandler(e.latlng); return; }
     if (mode !== "quiz" || !awaitingTap) return;
-    const q = awaitingTap; awaitingTap = null;
-    const goal = ll(q.id), tap = [e.latlng.lat, e.latlng.lng], km = hav(tap, goal), wide = q.v === "wide";
-    const hit = (wide ? 120 : 15) * (q.loose || 1) * (q.loose && !wide ? 2 : 1), near = hit * 3;
+    tikAntwoord(e.latlng);
+  });
+  function tikAntwoord(latlng) {
+    const q = awaitingTap; awaitingTap = null; lyQuiz.clearLayers();
+    const goal = ll(q.id), tap = [latlng.lat, latlng.lng], km = hav(tap, goal);
+    const hit = tapGrens(q), near = hit * 3;
     const res = km <= hit ? "ok" : km <= near ? "mid" : "no";
     if (res === "ok") score++; else if (res === "mid") score += 0.5;
+    beantwoord(q, res, q.name || (P[q.id] && P[q.id].n) || "");
     L.marker(tap, { interactive: false, icon: icon('<span class="tap"></span>') }).addTo(lyQuiz);
     L.marker(goal, { interactive: false, icon: icon(`<span class="goal"></span><span class="lab s-r on" style="display:block">${esc(q.name || (P[q.id] && P[q.id].n) || "")}</span>`) }).addTo(lyQuiz);
     if (res !== "ok") L.polyline([tap, goal], { className: "qline", interactive: false }).addTo(lyQuiz);
     fit([tap, goal], 9);
     $("qRes").innerHTML = `<div class="feedback ${res}">${res === "ok" ? "Raak!" : res === "mid" ? "Bijna! Een half punt." : "Mis."}<span>${res === "ok" && km < 5 ? "Precies goed." : `Je zat ${fmt(roundKm(km) || Math.round(km))} km ernaast.`}</span></div>${nextBtn()}`;
     document.querySelector(".tapcall").hidden = true;
+    const tk = document.querySelector(".tapkeuze"); if (tk) tk.hidden = true;
     bindNext();
     if (isNarrow()) $("qRes").scrollIntoView({ block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
-  });
+  }
   const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21.1l1.4-7L2 9.3l7-.8z"/></svg>';
   function finish() {
     const s = Math.round(score * 2) / 2, samen = niveau === "a", r = s / Q.length;
@@ -2144,8 +2243,15 @@
     const best = store.get(key, null), isBest = best == null || s > best;
     if (isBest) store.set(key, s);
     const words = samen ? ["Goed geprobeerd! Lees het verhaal nog eens samen.", "Mooi gedaan!", "Heel goed!", "Super! Jullie kennen het verhaal."] : ["Goed geprobeerd! Kijk nog eens bij de Reis en probeer het opnieuw.", "Mooi! Je weet al aardig wat.", "Heel goed! Jij kent de verhalen.", "Super! Jij bent een echte speurneus."];
-    $("p-quiz").innerHTML = `<div class="card center"><h2>Klaar!</h2><div class="stars">${[0, 1, 2].map((i) => `<span class="${i < nStars ? "" : "off"}">${STAR}</span>`).join("")}</div><p class="big">${fmt(s)} <small>van ${Q.length}</small></p><p>${words[nStars]}</p>${isBest && best != null ? "<p><b>Nieuw record!</b></p>" : ""}<button type="button" class="btn primary" id="qAgain">Nog een keer</button></div>`;
+    // Hoe de score is opgebouwd, en wat je nog eens kunt nalezen: de vragen die niet (helemaal) goed waren, met het goede
+    // antwoord en de Bijbelplaats. Zo eindigt de speurtocht bij de Bijbel, niet alleen bij een getal.
+    const tel = (r) => uitslag.filter((u) => u.res === r).length, nGoed = tel("ok"), nBijna = tel("mid"), nFout = tel("no");
+    const opbouw = `<p class="qopbouw">${nGoed} goed${nBijna ? ` · ${nBijna} bijna (half punt)` : ""} · ${nFout} fout</p>`;
+    const mis = uitslag.filter((u) => u.res !== "ok");
+    const nalezen = mis.length ? `<div class="nalezen"><p class="label">${samen ? "Lees samen nog eens na" : "Lees nog eens na"}</p><ul>${mis.map((u) => `<li><span class="nl-v">${esc(u.q)}</span><span class="nl-a">${esc(u.goed)}${u.why ? ` · ${refTekst(u.why)}` : ""}</span></li>`).join("")}</ul></div>` : "";
+    $("p-quiz").innerHTML = `<div class="card center"><h2>Klaar!</h2><div class="stars">${[0, 1, 2].map((i) => `<span class="${i < nStars ? "" : "off"}">${STAR}</span>`).join("")}</div><p class="big">${fmt(s)} <small>van ${Q.length}</small></p>${uitslag.length === Q.length ? opbouw : ""}<p>${words[nStars]}</p>${isBest && best != null ? "<p><b>Nieuw record!</b></p>" : ""}${nalezen}<button type="button" class="btn primary" id="qAgain">Nog een keer</button></div>`;
     $("qAgain").onclick = quizIntro;
+    const kop = $("p-quiz").querySelector("h2"); kop.tabIndex = -1; kop.focus({ preventScroll: true });
     fit(WIDE, 6);
   }
 
@@ -2226,19 +2332,40 @@
   };
 
   // ---------- paspoort ----------
+  // De bovenste regel van een stempel: boek (afgekort) en hoofdstuk, bijv. ‘GENESIS 12’.
+  const stempelBoven = (s) => s.ref.replace(/^(\d?\s?[A-Za-zëéïü]+)\s.*$/, "$1").toUpperCase().slice(0, 7) + " " + ((s.ref.match(/\s(\d+)/) || [])[1] || "");
   function stampSVG(s) {
     const w = s.r ? s.r[0].w : s.deel.c, c = color(w);
     const rot = ((s.i * 37 + s.deel.id.length * 11) % 17) - 8;
     const fs = s.stamp.length > 10 ? 11 : s.stamp.length > 8 ? 13 : 16;
-    const top = s.ref.replace(/^(\d?\s?[A-Za-zëéïü]+)\s.*$/, "$1").toUpperCase().slice(0, 7) + " " + ((s.ref.match(/\s(\d+)/) || [])[1] || "");
-    return `<svg viewBox="0 0 100 100" style="transform:rotate(${rot}deg)"><circle class="ring" cx="50" cy="50" r="44" stroke="${c}"/><circle class="ring2" cx="50" cy="50" r="37" stroke="${c}"/><text class="mono" x="50" y="33" font-size="9" fill="${c}">${esc(top)}</text><text x="50" y="57" font-size="${fs}" fill="${c}">${esc(s.stamp)}</text><text class="mono" x="50" y="76" font-size="10" fill="${c}">${s.i + 1}</text></svg>`;
+    const top = stempelBoven(s);
+    return `<svg viewBox="0 0 100 100" style="transform:rotate(${rot}deg)"><circle class="ring" cx="50" cy="50" r="44" stroke="${c}"/><circle class="ring2" cx="50" cy="50" r="37" stroke="${c}"/><text class="mono" x="50" y="33" font-size="9" fill="${c}">${esc(top)}</text> <text x="50" y="57" font-size="${fs}" fill="${c}">${esc(s.stamp)}</text> <text class="mono" x="50" y="76" font-size="10" fill="${c}">${s.i + 1}</text></svg>`;
+  }
+  // Eén stempelblad per deel. Ingeklapt laten we de stempels nog weg (619 stempels tekenen kost op een telefoon tijd);
+  // ze komen er bij het openklappen.
+  // De naam begint met precies wat er op de stempel staat (boek en hoofdstuk, woord, nummer; WCAG 2.5.3), dan de uitleg.
+  const stempelKnop = (d, s) => `<button type="button" class="stamp${seen.has(s.key) ? "" : " no"}" data-key="${d.key}" data-s="${s.i}" aria-label="${esc(stempelBoven(s))} ${esc(s.stamp)} ${s.i + 1}: ${esc(d.n)}, stap ${s.i + 1}, ${esc(s.t)} (${esc(s.ref)})${seen.has(s.key) ? ", gestempeld" : ", nog niet bezocht"}">${stampSVG(s)}</button>`;
+  const stempelsVan = (d) => d.steps.map((s) => stempelKnop(d, s)).join("");
+  // Waar je was: de laatst geopende stap. Verder gaat naar de eerstvolgende stap zonder stempel in dat deel (of, als het
+  // deel af is, terug naar die stap).
+  function pasVerder() {
+    const laatst = STEP_BY_KEY.get(store.get("laatst", null));
+    if (!laatst) return null;
+    const d = laatst.deel, na = d.steps.slice(laatst.i + 1).find((s) => !seen.has(s.key)) || d.steps.find((s) => !seen.has(s.key));
+    return { laatst, naar: na || laatst, af: !na };
   }
   function renderStamps() {
     const total = ALLPARTS.reduce((a, d) => a + d.steps.length, 0);
-    // Per Bijbelboek een uitklapbaar blad; boeken met stempels staan open.
-    $("stamps").innerHTML = BOEKEN.map((b) => { const kop = b === THEMAS[0] ? '<p class="label pas-themas">Thema’s</p>' : ""; const gotB = b.delen.reduce((x, d) => x + d.steps.filter((t) => seen.has(t.key)).length, 0), totB = b.delen.reduce((x, d) => x + d.steps.length, 0); return `${kop}<details class="pasboek"${gotB ? " open" : ""}><summary><b>${esc(b.n)}</b><span>${gotB} van ${totB}</span></summary>` + metVerdiep(b.delen).map((d) => {
-      const got = d.steps.filter((s) => seen.has(s.key)).length;
-      return `<div class="stack${d.hoofd ? " pas-sub" : ""}" style="gap:6px"><p class="label" style="color:${color(d.c)}">${esc(deelNaam(d))} · ${got} van ${d.steps.length}</p><div class="stamps">${d.steps.map((s) => `<button type="button" class="stamp${seen.has(s.key) ? "" : " no"}" data-key="${d.key}" data-s="${s.i}" aria-label="${esc(d.n)}, stap ${s.i + 1}: ${esc(s.t)}${seen.has(s.key) ? ", gestempeld" : ", nog niet bezocht"}">${stampSVG(s)}</button>`).join("")}</div></div>`;
+    const pv = pasVerder(), hier = pv ? pv.laatst.deel : null;
+    // Doorgaan waar je was, met de laatste stempel erbij.
+    $("pasVerder").hidden = !pv;
+    $("pasVerder").innerHTML = pv ? `<div class="pv-stempel" aria-hidden="true">${stampSVG(pv.laatst)}</div><div class="pv-tekst"><p class="label">Hier was je</p><p><b>${esc(deelNaam(hier))}</b> · stap ${pv.laatst.i + 1}: ${esc(pv.laatst.t)}</p><button type="button" class="btn primary" data-go="${pv.naar.key}">${pv.af ? `Terug naar stap ${pv.naar.i + 1}` : `Verder: stap ${pv.naar.i + 1}, ${esc(pv.naar.t)}`} <span aria-hidden="true">▶</span></button></div>` : "";
+    // Per Bijbelboek een uitklapbaar blad met per deel ‘12 van 25’. Open staat alleen het boek en het deel waar je was
+    // (zonder ‘waar je was’: de boeken met stempels); de rest is ingeklapt.
+    const openBoek = (b, gotB) => (hier ? hier.boek === b : gotB > 0);
+    $("stamps").innerHTML = BOEKEN.map((b) => { const kop = b === THEMAS[0] ? '<p class="label pas-themas">Thema’s</p>' : ""; const gotB = b.delen.reduce((x, d) => x + d.steps.filter((t) => seen.has(t.key)).length, 0), totB = b.delen.reduce((x, d) => x + d.steps.length, 0); return `${kop}<details class="pasboek"${openBoek(b, gotB) ? " open" : ""}><summary><b>${esc(b.n)}</b><span>${gotB} van ${totB}</span></summary>` + metVerdiep(b.delen).map((d) => {
+      const got = d.steps.filter((s) => seen.has(s.key)).length, open = hier ? d === hier : got > 0 && got < d.steps.length;
+      return `<details class="pasdeel${d.hoofd ? " pas-sub" : ""}" data-deel="${d.key}"${open ? " open" : ""}><summary class="label" style="color:${tekstKleur(d.c)}"><span>${esc(deelNaam(d))} · ${got} van ${d.steps.length}</span><span class="pasprog" aria-hidden="true"><i style="width:${((got / d.steps.length) * 100).toFixed(0)}%;background:${color(d.c)}"></i></span></summary><div class="stamps">${open ? stempelsVan(d) : ""}</div></details>`;
     }).join("") + "</details>"; }).join("");
     const n = ALLPARTS.reduce((a, d) => a + d.steps.filter((s) => seen.has(s.key)).length, 0);
     $("pasText").textContent = n === total ? `Alle ${total} stempels! Jij hebt de hele reis gemaakt.` : `Je hebt ${n} van de ${total} stempels. Ga verder met de reis om ze allemaal te verzamelen.`;
@@ -2268,6 +2395,7 @@
     }
   }
   $("vGrid").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
+  $("stamps").addEventListener("toggle", (e) => { const det = e.target; if (!det.classList || !det.classList.contains("pasdeel") || !det.open) return; const box = det.querySelector(".stamps"); if (box.childElementCount) return; const d = ALLPARTS.find((x) => x.key === det.dataset.deel); if (d) box.innerHTML = stempelsVan(d); }, true);
   $("stamps").addEventListener("click", (e) => { const b = e.target.closest(".stamp"); if (b) { const d = ALLPARTS.find((x) => x.key === b.dataset.key); setMode("reis"); if (d.boek !== boek) chooseBoek(d.boek, d, +b.dataset.s); else chooseDeel(d, +b.dataset.s); } });
   let resetArmed = false;
   $("resetPas").onclick = () => {
@@ -2402,8 +2530,10 @@
     const pad = [deel.hoofd ? deel.hoofd.short : boekKort(boek)].map((x) => `<span class="kr-kort">${esc(x)}</span><span class="kr-pijl" aria-hidden="true">›</span>`).join("");
     const rij = boek.thema && !deel.hoofd ? reeks(deel) : [];
     const waar = cur >= 0 ? `${cur + 1} van ${n}` : rij.length ? `deel ${rij.indexOf(deel) + 1} van ${rij.length}` : `${n} stappen`;
-    $("kiesBtn").innerHTML = `${boek.thema ? STER : ""}<span class="kr-pad">${pad}<b>${esc(deel.hoofd ? deel.n : deel.short)}</b></span><span class="kr-stap">${waar}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>`;
-    $("kiesBtn").setAttribute("aria-label", `Kies een reis. Nu: ${boek.n}, ${deelNaam(deel)}, ${cur >= 0 ? "stap " + waar : "overzicht"}`);
+    // De naam voor de schermlezer is de zichtbare tekst met ervoor ‘Kies een reis. Nu:’ (verborgen tekst, geen aria-label):
+    // zo staat wat je ziet altijd in de naam (WCAG 2.5.3), ook als het boek of het deel wegvalt.
+    $("kiesBtn").innerHTML = `${boek.thema ? STER : ""}<span class="sr-only">Kies een reis. Nu: </span><span class="kr-pad">${pad}<b>${esc(deel.hoofd ? deel.n : deel.short)}</b></span>${cur < 0 ? `<span class="sr-only">${esc(deelNaam(deel))}, overzicht: </span>` : '<span class="sr-only">stap </span>'}<span class="kr-stap">${waar}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>`;
+    $("kiesBtn").removeAttribute("aria-label");
     // De rustige voortgangsstreep in het blad (boven ◀ en Verder): zo ver ben je in dit deel.
     $("reisboek").style.setProperty("--voortgang", ((cur >= 0 ? (cur + 1) / n : 0) * 100).toFixed(1) + "%");
     document.querySelector(".stapkaart").classList.toggle("intro", cur < 0);
@@ -2518,10 +2648,18 @@
   function kiesStappen() {
     const box = $("kiesStappen");
     box.hidden = !deel.steps.length;
-    $("kiesStappenLabel").textContent = `Stappen van ${deel.n}`;
-    $("kiesStappenLijst").innerHTML = deel.steps.map((s, i) => `<li><button type="button" class="ks-stap${seen.has(s.key) ? " gezien" : ""}" data-ks="${i}"${i === cur ? ' aria-current="step"' : ""} aria-label="Stap ${i + 1}: ${esc(s.t)}${seen.has(s.key) ? ", gezien" : ""}"><span class="ks-n" aria-hidden="true">${seen.has(s.key) && i !== cur ? "✓" : i + 1}</span><span class="ks-t">${esc(s.t)}</span></button></li>`).join("");
+    // Een verdiepend deel heet hier ook zo: ‘Van dichtbij: Jakob bij de Jabbok’, met de weg terug naar de hoofdreis.
+    $("kiesStappenLabel").textContent = deel.hoofd ? `Van dichtbij: ${deel.n}` : `Stappen van ${deel.n}`;
+    // In de hoofdreis staat een verdiepend deel als eigen, gestippelde regel direct na de stappen over hetzelfde gedeelte
+    // (zoals de knop ‘Van dichtbij’ op de kaart): zo zie je wat de hoofdreis is en wat een uitstapje van dichtbij.
+    const naStap = new Map();
+    (deel.verdiep || []).forEach((v) => { let j = -1; deel.steps.forEach((s, i) => { if ((s.verdiep || []).includes(v)) j = i; }); (naStap.get(j) || naStap.set(j, []).get(j)).push(v); });
+    const dichtbij = (lijst) => (lijst || []).map((v) => `<li class="ks-dichtbij"><button type="button" class="ks-verdiep" data-ks-go="${v.key}:-1"><span class="ks-v-l">Van dichtbij</span><span class="ks-t"><b>${esc(v.n)}</b> · ${v.steps.length} stappen</span></button></li>`).join("");
+    const terug = deel.hoofd ? `<li class="ks-dichtbij"><button type="button" class="ks-verdiep ks-terug" data-ks-go="${deel.hoofd.key}:-1"><span class="ks-v-l">Hoofdreis</span><span class="ks-t">Terug naar <b>${esc(deel.hoofd.n)}</b></span></button></li>` : "";
+    $("kiesStappenLijst").innerHTML = deel.steps.map((s, i) => `<li><button type="button" class="ks-stap${seen.has(s.key) ? " gezien" : ""}" data-ks="${i}"${i === cur ? ' aria-current="step"' : ""}><span class="ks-n" aria-hidden="true">${seen.has(s.key) && i !== cur ? "✓" : i + 1}</span><span class="sr-only">Stap ${i + 1}: </span><span class="ks-t">${esc(s.t)}</span>${seen.has(s.key) ? '<span class="sr-only">, gezien</span>' : ""}</button></li>${dichtbij(naStap.get(i))}`).join("") + dichtbij(naStap.get(-1)) + terug;
   }
   $("kiesStappenLijst").addEventListener("click", (e) => {
+    const v = e.target.closest("[data-ks-go]"); if (v) { sluitLade("kiesLade"); goKey(v.dataset.ksGo); naarBoven(); return; }
     const b = e.target.closest("[data-ks]"); if (!b) return;
     sluitLade("kiesLade"); select(+b.dataset.ks); naarBoven();
   });
@@ -2645,8 +2783,9 @@
   function renderWelkom() {
     const box = $("welkom"), na = $("welkomNa");
     welkomAan = true;
-    // Bij een geopende geschiedenis hoort de startkaart niet; ‘Verder met’ blijft staan zoals het stond.
-    if (vOpen) { if (box.querySelector(".startkaart")) { box.hidden = true; box.innerHTML = ""; } na.hidden = true; na.innerHTML = ""; zetEerste(false); return; }
+    // Bij een geopende geschiedenis horen de startkaart en ‘Verder met’ niet: ‘Verder met’ wees dan naar wat je vóór deze
+    // geschiedenis las, boven de geschiedenis die je nu leest. Terug in de lijst staat hij er weer (renderVerhalen).
+    if (vOpen) { box.hidden = true; box.innerHTML = ""; na.hidden = true; na.innerHTML = ""; zetEerste(false); return; }
     const focusNiv = document.activeElement && document.activeElement.classList && document.activeElement.classList.contains("st-nivopt") ? document.activeElement.dataset.niveau : null;
     if (isEerste()) {
       const d = startDeel(), kerst = SEIZOEN === "kerst";
@@ -2783,6 +2922,9 @@
   // Eerst de teksten van het eigen niveau (niveaus.js haalt ze al op, tegelijk met de rest van de pagina).
   laadNiveau(niveau).then(begin);
   function begin() {
+    // Bij herladen bewaart de browser de plek in de geschiedenis, met het onderdeel (zie navZet). Ook een telefoon die het
+    // tabblad op de achtergrond heeft weggegooid, laadt zo opnieuw: dan kom je terug in hetzelfde onderdeel.
+    const st0 = history.state;
     renderBoeken();
     const [hashId, hashStep] = decodeURIComponent(location.hash.slice(1)).split("/");
     const startDeel = ALLPARTS.find((d) => d.id === hashId) || ALLPARTS.find((d) => d.boek.id === hashId) || ALLPARTS[0];
@@ -2793,7 +2935,12 @@
     });
     TABS.forEach((t) => ($("t-" + t).tabIndex = t === "reis" ? 0 : -1));
     const vHash = /^v(\d+)$/.exec(hashId || "");
-    const naarVerhaal = vHash && GBYNR.has(+vHash[1]), naarVerhalen = !hashId || hashId === "verhalen";
+    const naarVerhaal = vHash && GBYNR.has(+vHash[1]);
+    // Een adres met een onbekende # (een tikfout, of een geschiedenis die niet bestaat) opent de start, zoals zonder #, en
+    // niet stilletjes ‘Het begin’ in de reis.
+    const onbekend = !!hashId && hashId !== "verhalen" && !naarVerhaal && !ALLPARTS.some((d) => d.id === hashId || d.boek.id === hashId);
+    if (onbekend) history.replaceState(st0, "", location.pathname + location.search);
+    const naarVerhalen = !hashId || hashId === "verhalen" || onbekend;
     // Op de telefoon hangt de maat van de kaart af van het onderdeel (in de reis is de kaart het scherm): die staat vast
     // vóór de eerste uitsnede.
     document.body.dataset.modus = naarVerhaal || naarVerhalen ? "verhalen" : "reis";
@@ -2802,7 +2949,8 @@
     if (naarVerhaal) openVerhaal(+vHash[1], { keepHash: true });
     else if (naarVerhalen) setMode("verhalen");
     else setMode("reis");
-    if (!hashId) renderWelkom();
+    if (!hashId || onbekend) renderWelkom();
+    if (st0 && st0.br && st0.m !== mode && TABS.includes(st0.m) && !onbekend) setMode(st0.m);
     syncDrag();
     // Vanaf hier telt elke nieuwe plek in de geschiedenis van de browser (zie ‘terug’).
     history.replaceState({ br: 1, p: navPlek(location.hash), m: mode }, "");

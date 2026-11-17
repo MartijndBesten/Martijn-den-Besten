@@ -3843,7 +3843,7 @@ BR.niveaus.voegToe("c", {
         why: "Handelingen 9:40",
       },
       {
-        q: "Waaraan had de vrouw al haar geld uitgegeven?",
+        q: "Waaraan had de vrouw die twaalf jaar ziek was, al haar geld uitgegeven?",
         a: ["Aan medicijnmeesters", "Aan offers in de tempel", "Aan een reis naar Jeruzalem"],
         why: "Lukas 8:43",
       },

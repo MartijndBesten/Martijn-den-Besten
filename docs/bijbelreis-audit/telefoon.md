@@ -352,7 +352,7 @@ Tests: `e2e/bijbelreis-terug.spec.ts` (project ‘mobiel’), `e2e/bijbelreis-st
 
 Nog open uit dezelfde test (niet in deze wijziging): de kaart op tabbladen waar hij niets toevoegt en maximaal ingezoomd
 bij Golgotha, ‘Verder met’ boven een geopende geschiedenis, punten pas bij de volgende vraag, de vraag over ‘de put’
-zonder context, het paspoort met 619 stempels, Sara als vrouw én zus bij Abraham, de zoektoets die het toetsenbord niet
+zonder context, het paspoort met 619 stempels, Sara als vrouw én zus bij Abraham (deze drie en de punten: zie §4.11), de zoektoets die het toetsenbord niet
 sluit, en tikvlakken van 30 px.
 ### 4.9 Duidelijke bediening (16-11-2026)
 
@@ -378,6 +378,157 @@ bovenaan zijn.”* Niet zeker welke knoppen; alle drie aangepakt, zonder de opze
    drie sterren.’ Bij Samen ontdekken: ‘Zes vragen over …’.
 
 Test: `e2e/bijbelreis-bediening.spec.ts`.
+
+### 4.10 UX-ronde 17-11-2026
+
+Doel: een kind van 6, een kind van 10 en een ouder begrijpen de Bijbelreis zelfstandig. Geen nieuwe functies; alleen wat
+bij het doorlopen aantoonbaar misging. Drie gebruikersreizen zijn met Playwright doorgelopen op 390×664, 375×553, 360×640
+en 430×739 (isMobile, hasTouch), 820×1180 (tablet) en 1440×900, met schermafbeeldingen en metingen vóór en na:
+(a) eerste bezoek → ‘Begin de reis’ → doorklikken; (b) Verhalen → een geschiedenis → ‘Volg het op de kaart’ → tafereel →
+terug → de volgende geschiedenis; (c) delen. Daarnaast een rondgang langs alle 687 stappen en overzichten (zoom, botsende
+namen) op 390×664, 375×553 en 1440×900. De vóórmetingen zijn tegen `main` (57e32c6) gedaan, de nametingen tegen deze
+wijziging.
+
+**Wat goed ging en zo bleef.** De startkaart staat op 390, 360 en 430 px hoog helemaal in het eerste scherm (op 375×553
+valt ‘Voor wie?’ deels weg, zie 4.7); ‘Begin de reis’ opent stap 1; Verder, ◀, ‘Volg het op de kaart’ en ‘terug’ doen wat
+je verwacht. Delen (c): Chromium op Linux heeft geen `navigator.share`; met toestemming voor het klembord komt ‘Link
+gekopieerd’ en staat `https://bijbelreis.nl/#v3` op het klembord, zonder toestemming verschijnt het veld met de link,
+geselecteerd en met de focus erin. Geen fouten in de console. De taferelen bij de doorlopen stappen en geschiedenissen
+(o.a. de zondeval, Jakob bij de Jabbok) passen bij de tekst; aan de illustraties is niets veranderd.
+
+| # | Punt | Vóór (gemeten) | Na | Wat er veranderd is |
+| --- | --- | --- | --- | --- |
+| 1 | Kaart waar hij niets toevoegt (telefoon, tablet) | Paspoort en Tijdlijn: kaart 199 px (35 % van de ruimte tussen kop en onderbalk), inhoud begint op 257 px; Speurtocht: kaart 279 px (49 %) bij elke vraag, ook bij meerkeuze en volgorde. Geen van de drie gebruikt de kaart (geen plaats, geen uitsnede). | Paspoort, Tijdlijn en de speurtocht zonder kaartvraag: geen kaart, inhoud op 58 px. Bij ‘Tik op de kaart’ staat hij er (279 px), helemaal onder de kop met de zoomknoppen in beeld. Wie is wie houdt de kaart (de plaatsen van een persoon). | CSS (`body[data-modus]`, `:has(#p-quiz .tapcall)`); `fit()` slaat een verborgen kaart over en neemt eerst de echte maat als hij terugkomt; `scroll-margin-top` op de kaart. |
+| 2 | Te ver ingezoomd | 10 stappen op zoom 13 (het maximum; ‘+’ uit): Jabbok 6–8, Lijdensweek 1, 2, 4, 6, 8, Lijden 1 en 7 (Golgotha); 23 op 12. Bij Golgotha alleen vage ondergrond, geen ‘Jeruzalem’. | Telefoon en tablet hooguit 11,5, groot scherm hooguit 12. Golgotha toont ‘Jeruzalem’ erbij; Mahanaïm en Pniël liggen los. Zelf inzoomen kan tot 13. | `zoomStap()` in `app.js`, in `fit()` en bij een stap op één plek. De velden `zoom` in de inhoud zijn niet veranderd. |
+| 3 | ‘Verder met …’ boven een geopende geschiedenis | Na ‘Verder met: Abraham – God zegt: ga!’ en dan Noach openen: de knop bleef boven Noach staan (desktop op 82 px, boven de titel op 236 px). | Weg zolang een geschiedenis open is; terug in de lijst staat ‘Verder met: Noach bouwt de ark’. | `renderWelkom`. |
+| 4 | Zoektoets sluit het toetsenbord niet | `type="search"`, maar geen `enterkeyhint`; Enter liet de focus (en dus het toetsenbord) in het veld. | `enterkeyhint="search"` op de drie zoekvelden; Enter sluit op een aanraakscherm het toetsenbord (blur). Op een computer blijft de focus staan. | `app.js`, `bijbelreis.html`. |
+| 5 | Tikvlakken < 44 px | Geen tikvlak onder 24 px (WCAG 2.2 AA gehaald). Onder 44 px in de hoofdbediening: reisniveau in de kop 32, ‘← Alle geschiedenissen’ 25, Alles/OT/NT 37, ‘Wanneer?’ 32 en ‘Meer weten’ 40, ‘Volg het op de kaart’-regels 30, ‘Op de kaart’ 40, ‘Voor ouders en leiders’ 28. | Allemaal 44 px; het reisniveau via een onzichtbaar randje (de kop blijft 44 px). | CSS. Bewust niet: ‘3 van 25’ en ‘Lees meer’ (26 px, keuze 4.3.2: elke pixel daar gaat van de kaart af; titel en tekst openen het blad ook), kernwoorden (30), ‘Wanneer was dat?’ in de tijdlijn (28), en Wie is wie, Speurtocht en Paspoort (ander spoor). |
+| 6 | Hoofdreis en verdiepende reis | ‘Kies een reis’ toonde alleen de stappen en de delen; een verdiepend deel stond er niet in, in Jakob was ‘Jakob bij de Jabbok’ hier onvindbaar. In de delenrij staat het hoofddeel al gekozen als je in een verdiepend deel bent. | Na stap 8 van Jakob een eigen regel ‘Van dichtbij · Jakob bij de Jabbok · 12 stappen’: ingesprongen, gestippeld, oker (zoals de knop op de kaart). In het verdiepende deel heet de lijst ‘Van dichtbij: …’ met onderaan ‘Terug naar Jakob’. Zo ook Abraham (Van Ur naar Kanaän) en Moab. | `kiesStappen` in `app.js`; `BIJBELREIS.md`. |
+| 7 | Namen over elkaar | Rondgang 687 stappen en overzichten: 390×664 1 botsing, 375×553 2, 1440×900 32 (waarvan 22 overzichten van een deel, o.a. Davids rijk met Gibeon, Baäl-Perazim, Gath en Dal Refaïm op één plek). | 1440×900: 11 (alleen stappen waar twee plaatsen van de stap zelf vlak bij elkaar liggen, zoals Jericho en Ai); van de overzichten nog 1. Telefoon gelijk. | In het overzicht van een deel met meer dan vier namen wijken op een groot scherm de namen behalve begin en eind bij botsing, zoals op de telefoon al gebeurde; ze komen terug bij inzoomen. Routelijnen niet veranderd: het contrast was niet aantoonbaar slecht. |
+| 8 | Terug en diepe links | `#deel`, `#deel/n`, `#boek`, `#vNN`, `#verhalen` en terug werken (4.8). Wel mis: een onbekende `#` (`#onzin`, `#v999`) opende stil ‘Het begin’ in de reis en schreef `#begin` in het adres; na herladen in Wie is wie, Tijdlijn, Paspoort, Speurtocht of Verhalen stond je in de reis (5 van 5). Een telefoon die een tabblad op de achtergrond weggooit, laadt ook opnieuw. | Een onbekende `#` opent de start (zoals zonder `#`) en het adres wordt `/bijbelreis`; na herladen blijf je in hetzelfde onderdeel (de browser bewaart het in de geschiedenis). Personen en onderdelen hebben geen eigen diepe link; dat is zo gelaten. | `begin()` in `app.js`. |
+| – | Toegankelijkheid (melding spoor vindbaar) | WCAG 2.5.3: de naam van ‘3 van 25’ (`aria-label` ‘Kies een reis. Nu: Genesis, Abraham, stap 2 van 25’) en van de stappen in ‘Kies een reis’ bevatte de zichtbare tekst niet (axe: 1 + 11 knoppen). WCAG 2.4.11: plaatsen buiten beeld of onder knoppen/het stapblad kregen toetsenbordfocus (`#abraham/2`: 5 van de 17 op de telefoon, 6 op de desktop; `#nt-paulusrome/5`: 5 en 7). | axe: 0. Alleen plaatsen die te zien zijn, zitten in de tabvolgorde (`#abraham/2` telefoon 12, desktop 11; geen enkele buiten beeld). | De naam is nu de zichtbare tekst met verborgen ‘Kies een reis. Nu:’ ervoor (geen `aria-label`); `tabIndex` van de plaatsen na elke kaartbeweging (`refreshLabels`). De kop van ‘Kies een reis’ met ‘Sluiten’ blijft staan als de lijst naar de huidige stap scrolt (bij 200 % tekst viel hij anders weg door de extra regel ‘Van dichtbij’). |
+| – | ‘Begin de reis’ legt Ur onder ‘Van dichtbij’ | Stap 1 ‘Weg uit Ur’: de uitsnede werd gekozen vóórdat de knop ‘Van dichtbij’ verscheen. Routepunten onder de knop: 390×664 2, 375×553 3, 360×640 2, 430×739 0. Ur (begin van de route) was niet te zien. | 0 op alle vier. | In `select()` staat de knop er nu vóór de uitsnede. |
+
+**Tests.** `e2e/bijbelreis-ux-reis.spec.ts` legt alles hierboven vast (tegen `main` faalden 13 van de 15 tests op telefoon
+en desktop; de twee die slaagden, gaan over wat al goed was: 430×739 en Enter op de computer). Aangepast:
+`e2e/bijbelreis-jakob-jabbok.spec.ts` (zoom bij de worsteling 11,5 tot 12 in plaats van minstens 12),
+`e2e/bijbelreis-telefoon.spec.ts` (geen kaart in Tijdlijn, Speurtocht en Paspoort; de naam van ‘3 van 25’) en
+`e2e/bijbelreis.spec.ts` (de proeven met één vinger en ‘Groot’ in een ander onderdeel lopen nu in Wie is wie). De visuele
+referentiebeelden `paspoort-mobiel`, `paspoort-tablet` (geen kaart meer) en mogelijk `verhaal-mobiel`/`-tablet` (44 px)
+moeten in het vaste Playwright-image opnieuw gemaakt worden.
+
+**Nog open.** Het overzicht van een heel lange reis blijft op een smal scherm klein (4.4; daarvoor is een andere opzet van
+de kaart nodig, geen kleine aanpassing). ‘3 van 25’ en ‘Lees meer’ blijven 26 px hoog (4.3.2). Op 375×553 valt ‘Voor wie?’
+op de startkaart deels onder de onderbalk (4.7). Niet op een echt toestel geprobeerd; alles is in Chromium gemeten.
+Schermafbeeldingen en metingen: de scratchmap van de sessie, `ux-reis/voor` en `ux-reis/na` (scripts `meet.cjs`,
+`rondgang.cjs`, `dichtbij2.cjs`, `herlaad.cjs`).
+
+### 4.11 Speurtocht, paspoort en personen (17-11-2026)
+
+Doel: Speurtocht, Paspoort en Wie is wie moeten helpen de geschiedenis te begrijpen en te onthouden, niet willekeurig
+punten verzamelen. Eerst doorgelopen (Playwright, telefoon 390×664, 360×640, 430×739 met isMobile en hasTouch, tablet
+820×1180, desktop 1440×900; elk leesniveau): een persoon opzoeken en de Bijbelplaatsen vinden, een speurtocht maken,
+het paspoort bekijken en na herladen verder gaan. Daarna alleen de punten uit §4.8 aangepakt die nog bestonden.
+
+1. **Punten pas bij de volgende vraag: bestond half.** Goed/bijna/fout, het goede antwoord en de Bijbelplaats stonden
+   al direct onder de vraag, maar ‘Punten: …’ en de voortgangsbalk liepen een vraag achter (gemeten: na ‘Goed zo!’ nog
+   ‘Punten: 0’). Nu kloppen ze meteen na het antwoord (`beantwoord` in `app.js`); de melding staat in een
+   `aria-live`-gebied. ‘Lees maar na in …’ heet ‘Lees het in je Bijbel: …’ (de verwijzing als `.bref`), en een antwoord dat
+   al op een leesteken eindigt krijgt geen tweede punt (‘Ik ben Jozef!.’).
+2. **Vragen zonder context: bestond.** De speurtocht mengt vragen uit veel verhalen, terwijl de vragen van de
+   reisniveaus geschreven zijn om ónder hun verhaal te staan (‘Wie komt er met de schapen bij de put?’). Een script over
+   alle 3.211 vragen (deelvragen, `ordAlles`, en de vragen van de niveaus a/b/c) zocht vragen zonder naam maar met ‘de
+   put’, ‘de jongen’, ‘de vrouw’, ‘hij’ enz.: 309 treffers, vrijwel allemaal duidelijk zodra je weet uit welk verhaal ze
+   komen. Daarom:
+   - bij elke vraag staat nu waar hij vandaan komt: ‘Uit: Jakob bij Laban’ (de titel van de geschiedenis, zoals ook boven
+     de vragen in Verhalen) of, als de vragen uit meer delen komen, ‘Over: Abraham’ (`.qbron`). Bij ongeveer 6 % van de
+     niveauvragen staat een woord van het antwoord ook in de titel (‘Hoe heet de stad?’ onder ‘De toren van Babel’); dat
+     is in Verhalen net zo;
+   - negen vragen die ook mét die regel te weinig zeiden, zijn herschreven (alleen de vraag; de antwoorden zijn gelijk).
+     Gecontroleerd tegen de Statenvertaling in `scripts/bijbel-controle/vragen-context.txt` (14 regels, alle geslaagd) en
+     met `node scripts/niveaus-controle.mjs`:
+
+     | Was | Wordt | Waar | Bijbelplaats |
+     | --- | --- | --- | --- |
+     | Tik op Berseba, de plaats van de put. | Tik op Berseba, waar Abraham en Abimelech een verbond sloten over een waterput. | Genesis, deel Abraham | Genesis 21:25–32 |
+     | Wie komt er met de schapen bij de put? | Jakob praat bij een put met herders. Wie komt er met de schapen? | geschiedenis 16, niveau a | Genesis 29:2–9 |
+     | Waar komen de herders bij de put vandaan? | Jakob praat bij een put in het veld met herders. Waar komen die herders vandaan? | geschiedenis 16, niveau b | Genesis 29:2–4 |
+     | Waar bidt de knecht? | Waar bidt de knecht van Abraham? | geschiedenis 14, niveau a | Genesis 24:2, 11–12 |
+     | Wat raakte de vrouw aan? | Een vrouw die twaalf jaar ziek was, kwam van achteren bij de Heere Jezus. Wat raakte zij aan? | geschiedenis 98, niveau b | Lukas 8:43–44 |
+     | Waaraan had de vrouw al haar geld uitgegeven? | Waaraan had de vrouw die twaalf jaar ziek was, al haar geld uitgegeven? | geschiedenis 98, niveau c | Lukas 8:43 |
+     | Hoeveel mensen waren er in het schip? | Paulus leed als gevangene schipbreuk op weg naar Italië. Hoeveel mensen waren er in het schip? | Handelingen, Paulus naar Rome | Handelingen 27:1, 37, 41 |
+     | Waar stond de engel? | Waar stond de engel die Zacharias in de tempel zag? | Kerst, deel 2 | Lukas 1:9–11 |
+     | Hoe groot was het wolkje dat uit de zee opkwam? | Hoe groot was het wolkje dat de knecht van Elia uit de zee zag opkomen? | 1 Koningen, Elia | 1 Koningen 18:43–44 |
+
+     De niveauvragen staan in `docs/bijbelreis-niveaus/werk/uit/batch-02.json`, `-03` en `-21` en zijn met
+     `node scripts/niveaus/samenvoegen.mjs` in `public/bijbelreis/niveaus/{a,b,c}.js` gezet.
+3. **Paspoort met 619 stempels: bestond.** Er stond al per boek ‘33 van 87’, maar elk boek met een stempel stond open
+   met álle stempels van al zijn delen, en er was geen weg terug naar waar je was. Nu:
+   - bovenaan **Hier was je**: de laatste stempel, ‘Mozes · stap 5: De brandende braamstruik’ en de knop ‘Verder: stap 6,
+     Drie tekenen ▶’ (de eerstvolgende stap zonder stempel in dat deel; is het deel af, dan ‘Terug naar stap …’);
+   - per deel een eigen uitklapregel ‘MOZES · 5 VAN 7’ met een balkje; open staan alleen het boek en het deel waar je was
+     (zonder ‘laatst’: de boeken met stempels, en daarin de delen die half af zijn). Ingeklapte delen krijgen hun stempels
+     pas bij het openklappen;
+   - één zin: ‘Tik op een stempel: dan ga je naar die stap van de reis.’ (dat kon al, maar stond nergens).
+   Voortgangssleutels, de betekenis van een stempel en de tellingen zijn ongewijzigd. Gemeten met 38 stempels (Abraham,
+   Izak, 5 van Mozes), ‘laatst’ = Mozes stap 5, niveau b:
+
+   | Venster | Hoogte paspoort vóór | na | Stempels in de pagina vóór | na |
+   | --- | --- | --- | --- | --- |
+   | 390×664 | 5.653 px | 3.242 px | 619 | 7 |
+   | 360×640 | 7.090 px | 3.619 px | 619 | 7 |
+   | 430×739 | 5.527 px | 3.131 px | 619 | 7 |
+   | 820×1180 | 4.315 px | 2.605 px | 619 | 7 |
+   | 1440×900 | 5.670 px | 3.057 px | 619 | 7 |
+
+   Bij Samen ontdekken was alles al ingeklapt (1.795 px); daar komt nu alleen ‘Hier was je’ bij (2.027 px). ‘Verder
+   met: …’ op de start werkte na herladen al (gemeten op alle vensters) en is niet veranderd. Het rooster met 150
+   geschiedenissen is niet aangepast.
+4. **Sara als vrouw én zus bij Abraham: bestond, en was het enige geval.** Een script over alle personen (dubbele rollen,
+   tegenstrijdige banden, cirkels, banden zonder grondslag, eenzijdige partners) vond alleen Abraham ↔ Sara. Genesis
+   20:12: ‘zij is mijns vaders dochter, maar niet mijner moeder dochter’. Nu staat Sara bij Abraham één keer, ‘Sara · ook
+   zijn halfzuster’, en bij Sara ‘Abraham · ook haar halfbroer’; onder ‘Waar staat dat?’ staat bij ‘Getrouwd met’ de regel
+   ‘Ook zijn halfzuster: Genesis 20:12’ met het citaat. Bij ‘Broers en zussen’ staan alleen Nahor en Haran. Dit staat in
+   een nieuw veld `ook` in `personen.js`; `scripts/bijbelreis-personen-check.mjs` eist het bij elke partner die ook broer
+   of zus is. Alle familiebanden hadden al een grondslag met verwijzing.
+5. **Begrijpen stimuleren.** Na elk antwoord ‘Lees het in je Bijbel: …’ (zie 1). Op het eindscherm hoe de score is
+   opgebouwd (‘5 goed · 3 bijna (half punt) · 2 fout’) en **Lees nog eens na**: de vragen die niet (helemaal) goed waren,
+   met het goede antwoord en de Bijbelplaats (bij Samen ontdekken ‘Lees samen nog eens na’). In het paspoort de zin dat
+   een stempel naar zijn stap leidt (zie 3). Niet gedaan: een zin ‘waarom’ bij een fout antwoord (die staat nergens in de
+   gegevens; zelf schrijven is verzinnen) en een Bijbelplaats bij kaart- en volgordevragen (die hebben geen `why`; afleiden
+   uit de stappen gaf bij 136 van de 241 kaartvragen meer dan één mogelijke stap).
+
+**Toegankelijkheid in deze tabbladen** (gemeld door het spoor vindbaarheid, zelfde dag):
+
+- **Kaartvraag met het toetsenbord (WCAG 2.1.1).** Onder ‘Tik op de kaart’ staat ‘Liever kiezen uit vier plekken?’.
+  Open je die, dan staan er vier genummerde plekken op de kaart (het goede antwoord en drie andere plaatsen uit dezelfde
+  reis, niet binnen de ‘bijna’-afstand) en de knoppen ‘Plek 1’ tot ‘Plek 4’. De namen staan er bewust niet bij, anders
+  zegt de vraag (‘Tik op Sichem’) het antwoord al. Een keuze telt als een tik op die plaats, met dezelfde afstandsregels
+  (`tapKeuze`, `toonPlekken`, `tikAntwoord`). Beperking: wie de kaart niet kan zien, kan de plekken niet onderscheiden;
+  een kaartvraag blijft een kijkvraag.
+- **Focus (WCAG 2.4.3).** Na ‘Start de speurtocht’, ‘Begin met de vragen’ (`#vqStart`) en ‘Volgende vraag’ staat de
+  focus op de nieuwe vraag; op het eindscherm op ‘Klaar!’ (speurtocht) of de uitslag (vragen bij een geschiedenis).
+- **Melding (WCAG 4.1.3).** `#qRes` en `#vQuiz .res` zijn `aria-live="polite"`.
+- **Contrast (WCAG 1.4.3).** De naam van een deel in het paspoort gebruikt `tekstKleur` (`-deep`, anders `-diep`):
+  oker werd #c99a3b (2,5:1) en is nu #7c5a12. `color()` en daarmee de routes op de kaart zijn niet veranderd.
+- **Naam van een stempel (WCAG 2.5.3).** De naam begint nu met het zichtbare woord en nummer (‘Horeb 5: Mozes, stap 5, De
+  brandende braamstruik (Exodus 3), gestempeld’). Deze melding kon hier met axe (ook ‘experimental’) niet worden
+  nagebootst; gecontroleerd is dat het zichtbare woord in de naam staat.
+
+Niet aangeraakt: de kaart, de Reis-navigatie, zoeken en de tikvlakken buiten deze tabbladen (ander spoor). Het
+visuele referentiebeeld `paspoort` (`bijbelreis-visueel.spec.ts`, met ‘laatst’ = Ezra stap 5) verandert bewust: ‘Hier was
+je’ staat er nu bovenaan; het moet in het vaste Playwright-image opnieuw gemaakt worden.
+
+Tests: `e2e/bijbelreis-ux-leren.spec.ts` (desktop, mobiel, tablet: punten meteen, ‘Uit:’/‘Over:’, Bijbelplaats,
+eindscherm; paspoort met ‘Hier was je’, inklappen, stempels bij openklappen, verder naar de volgende stap; Sara één keer;
+kaartvraag en focus met het toetsenbord; contrast en stempelnaam; axe op paspoort, stempels en persoon) en `tests/bijbelreis-leren.test.ts` (herschreven vragen, geen ‘de put’ zonder naam,
+Statenvertaling-regels, geen dubbele familie, het personen-controlescript). In `e2e/bijbelreis.spec.ts` is ‘Lees maar na
+in’ bijgewerkt naar ‘Lees het in je Bijbel:’. Scripts en schermafbeeldingen vóór/na (buiten de repo): scratchmap
+`ux-leren/` (`loop.cjs`, `eind.cjs`, `vragen.mjs`, `scan.mjs`, `relaties.mjs`).
+
+**Voor een mens om te beoordelen:** de negen nieuwe vraagteksten (toon en niveau); of ‘Uit: …’ bij een paar vragen het
+antwoord te makkelijk maakt (bijv. ‘Hoe heet de stad?’ onder ‘De toren van Babel’, niveau a); en of ‘ook zijn
+halfzuster’ goed is, gezien de bestaande toelichting dat het Abrahams eigen woorden zijn.
 
 ## 5. Werkwijze en bestanden
 

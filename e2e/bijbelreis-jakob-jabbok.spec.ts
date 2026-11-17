@@ -88,8 +88,10 @@ test("Genesis 32: de kaart zoomt in op de Jabbok, met Mahanaïm en Pniël in bee
   await expect(page.locator("#sTitle")).toHaveText("7. De worsteling");
   await wachtTotKaartStil(page);
   const { zoom, midden } = await page.evaluate(() => { const k = (window as unknown as { __kaart: Kaart }).__kaart, c = k.getCenter(); return { zoom: k.getZoom(), midden: [c.lat, c.lng] }; });
-  // Veel verder ingezoomd dan een gewone stap (9): Mahanaïm en Pniël liggen maar een halve kilometer uit elkaar.
-  expect(zoom).toBeGreaterThanOrEqual(12);
+  // Veel verder ingezoomd dan een gewone stap (9): Mahanaïm en Pniël liggen maar een halve kilometer uit elkaar. Niet verder
+  // dan de bovengrens van de kaart (telefoon en tablet 11,5, groot scherm 12; telefoon.md §4.10), zodat de streek erbij blijft.
+  expect(zoom).toBeGreaterThanOrEqual(11.5);
+  expect(zoom).toBeLessThanOrEqual(12);
   expect(Math.abs(midden[0] - 32.187)).toBeLessThan(0.05);
   expect(Math.abs(midden[1] - 35.692)).toBeLessThan(0.05);
   await expect(page.locator("#map .plaats .lab", { hasText: "Mahanaïm" })).toHaveCount(1);

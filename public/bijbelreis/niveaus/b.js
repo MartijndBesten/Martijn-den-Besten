@@ -664,7 +664,11 @@ BR.niveaus.voegToe("b", {
       },
     ],
     vragen: [
-      { q: "Waar komen de herders bij de put vandaan?", a: ["Uit Haran", "Uit Bethel", "Uit Sichem"], why: "Genesis 29:4" },
+      {
+        q: "Jakob praat bij een put in het veld met herders. Waar komen die herders vandaan?",
+        a: ["Uit Haran", "Uit Bethel", "Uit Sichem"],
+        why: "Genesis 29:4",
+      },
       {
         q: "Waarom lijken de zeven jaren voor Jakob maar een paar dagen?",
         a: ["Omdat hij Rachel liefheeft", "Omdat het werk heel licht is", "Omdat Laban hem veel betaalt"],
@@ -4272,7 +4276,11 @@ BR.niveaus.voegToe("b", {
         a: ["Zijn enige dochter lag op sterven", "Hij wilde Hem uitnodigen om te eten", "Zijn knecht was erg ziek geworden"],
         why: "Lukas 8:41–42",
       },
-      { q: "Wat raakte de vrouw aan?", a: ["De zoom van Zijn kleed", "De hand van Petrus", "Zijn voeten"], why: "Lukas 8:44" },
+      {
+        q: "Een vrouw die twaalf jaar ziek was, kwam van achteren bij de Heere Jezus. Wat raakte zij aan?",
+        a: ["De zoom van Zijn kleed", "De hand van Petrus", "Zijn voeten"],
+        why: "Lukas 8:44",
+      },
       {
         q: "Wat zei de Heere Jezus toen het bericht kwam dat het meisje gestorven was?",
         a: ["Vrees niet, geloof alleenlijk", "Dan is het nu te laat", "Ik kom morgen naar het huis"],

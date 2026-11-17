@@ -12,6 +12,7 @@ Interactieve kaart voor kinderen (ca. 8–12 jaar) over het Oude Testament. Een 
 | `public/bijbelreis/geo.json` | ondergrond: land, meren, rivieren, woestijnen/gebergten, inzetkaartje en de vorm van Nederland (Natural Earth, publiek domein) |
 | `public/bijbelreis/bijbel/<boek>.json` | Statenvertaling per boek (publiek domein) voor ‘Lees het zelf in de Bijbel’ |
 | `public/bijbelreis/leaflet.js`, `leaflet.css`, `LICENSE-leaflet.txt` | Leaflet 1.9.4 (BSD-2), lokaal |
+| `public/bijbelreis/pwa.js`, `public/bijbelreis-sw.js`, `public/bijbelreis/manifest.webmanifest` | installeerbare app en offline gebruik: service worker met één vaste set bestanden per build (`scripts/bijbelreis-pwa.mjs`), zie `docs/bijbelreis-pwa/README.md` |
 
 ## Regels voor de inhoud
 
@@ -55,7 +56,8 @@ Een **deel** (één hoofdpersoon of één verhaallijn, 6–15 stappen):
 delenrij; in de intro van het hoofddeel en bij de stappen van het hoofddeel over hetzelfde Bijbelgedeelte (de ene
 verwijzing valt binnen de andere) staat de ingang ‘Van dichtbij’. Het kruimelpad loopt via het hoofddeel, er is een knop
 ‘Terug naar …’, en na de laatste stap gaat ‘Verder’ naar de stap van het hoofddeel ná dat gedeelte (of naar de intro).
-In Alle reizen, Hoe ver?, de tijdlijn, de speurtocht en het paspoort staat het direct onder het hoofddeel. Diepe links
+In Alle reizen, Hoe ver?, de tijdlijn, de speurtocht en het paspoort staat het direct onder het hoofddeel; in ‘Kies een
+reis’ (telefoon) als eigen, gestippelde regel ‘Van dichtbij’ direct na de stappen over hetzelfde gedeelte. Diepe links
 (`#ur-kanaan/5`) en stapsleutels (`genesis:ur-kanaan:4`) blijven die van het deel zelf.
 
 Een **stap**:
@@ -122,6 +124,9 @@ jozef: { n: "Jozef", alias: ["Zafnath-Paneah"], v: "jakob", m: "rachel", p: ["as
 `v`/`m` (vader/moeder) en `p` (vrouwen/man) zijn ids; kinderen worden daaruit berekend. Namen in `who` van een stap
 worden gekoppeld via `n` of `alias`, alleen binnen de boeken in `boek` (zo blijven ‘Darius’ of ‘Joas’ eenduidig).
 Groepen (Volk, Leger, Broers) staan niet in `BR.mensen`.
+Een partner die ook broer of zus is, staat één keer in de familie, bij ‘Getrouwd met’, met de uitleg uit het veld `ook`
+(`ook: { sara: ["ook zijn halfzuster", "Genesis 20:12", toelichting] }`); alleen Abraham en Sara. Het controlescript
+(`scripts/bijbelreis-personen-check.mjs`) eist dit veld bij elk zo’n paar.
 
 **Stapsleutels** (`boek:deel:index`) zijn de sleutels van de voortgang in `localStorage` (`bijbelreis:gezien`). Stappen
 dus nooit herordenen, invoegen of verwijderen; alleen aan het eind toevoegen.

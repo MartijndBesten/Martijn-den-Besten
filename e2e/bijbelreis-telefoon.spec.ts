@@ -519,7 +519,7 @@ for (const [w, h] of [[390, 664], [360, 640], [375, 553], [430, 739]] as const) 
       expect(boven).toEqual({ top: 0, inKop: true });
     });
 
-    test("de andere onderdelen blijven zoals ze zijn: een kaart met de pagina eronder; ‘Op de kaart’ en de kaartvraag werken", async ({ page }) => {
+    test("de andere onderdelen blijven zoals ze zijn: een kaart met de pagina eronder (niet in Tijdlijn, Speurtocht en Paspoort); ‘Op de kaart’ en de kaartvraag werken", async ({ page }) => {
       const errors = watchErrors(page);
       await zetNiveau(page, "c");
       await page.addInitScript(() => { Math.random = () => 0.999999; });
@@ -529,7 +529,9 @@ for (const [w, h] of [[390, 664], [360, 640], [375, 553], [430, 739]] as const) 
         await page.waitForTimeout(250);
         const m = await page.evaluate(() => { const k = document.getElementById("map")!.getBoundingClientRect(), p = document.getElementById("reisboek")!.getBoundingClientRect(); return { kaart: k.height, onderKaart: p.top >= k.bottom - 1, positie: getComputedStyle(document.getElementById("reisboek")!).position, scrolt: document.documentElement.scrollHeight > innerHeight, vh: innerHeight, mapbar: !!document.getElementById("mapbar")!.getClientRects().length }; });
         expect(m.positie, `${tab}: het reisboek is geen blad over de kaart`).toBe("static");
-        expect(m.onderKaart, `${tab}: de pagina staat onder de kaart`).toBe(true);
+        // Paspoort, Tijdlijn en de speurtocht (buiten een kaartvraag) hebben geen kaart: die voegt daar niets toe (§4.10).
+        if (["Tijdlijn", "Speurtocht", "Paspoort"].includes(tab)) expect(m.kaart, `${tab}: geen kaart`).toBe(0);
+        else expect(m.onderKaart, `${tab}: de pagina staat onder de kaart`).toBe(true);
         expect(m.kaart, `${tab}: kaart`).toBeLessThan(0.5 * m.vh);
         expect(m.mapbar, `${tab}: geen ◀ en Verder`).toBe(false);
         expect(await geenHorizontaalScrollen(page), tab).toBe(true);
@@ -572,10 +574,10 @@ test.describe("telefoon: toegankelijkheid en uitersten", () => {
   test("het blad is een gebied met een knop (aria-expanded); de focus loopt logisch; alles kan zonder vegen", async ({ page }) => {
     await zetNiveau(page, "c");
     await open(page, "abraham/2");
-    const gebied = page.getByRole("complementary", { name: "Reisboek" });
+    const gebied = page.getByRole("main", { name: "Reisboek" });
     await expect(gebied).toBeVisible();
     await expect(gebied.getByRole("button", { name: "Lees meer" })).toHaveAttribute("aria-expanded", "false");
-    await expect(gebied.getByRole("button", { name: /Kies een reis\. Nu: Genesis, Abraham, stap 2 van 25/ })).toBeVisible();
+    await expect(gebied.getByRole("button", { name: /^Kies een reis\. Nu: Genesis Abraham stap\W*2 van 25$/ })).toBeVisible();
     await expect(gebied.getByRole("heading", { name: "2. God zegt: ga!" })).toBeVisible();
     await expect(gebied.getByRole("button", { name: "Vorige stap" })).toBeVisible();
     await expect(gebied.getByRole("button", { name: "Verder ▶" })).toBeVisible();

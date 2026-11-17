@@ -9,7 +9,8 @@
 //  2. grondslag (veld basis): elke v, m en p heeft een grondslag [soort, ref, toelichting?] met soort "b" (expliciet in de
 //     Bijbel) of "a" (afgeleid, met redenering), een leesbare verwijzing die door personen.txt gedekt is, en geen grondslag
 //     zonder familieband; kerkelijke overlevering staat nooit in v/m/p maar alleen in `overlevering` ([[tekst, toelichting]]);
-//  3. geen cycli in de ouders;
+//  3. geen cycli in de ouders; geen persoon twee keer in één familie (een partner die ook broer of zus is, heeft `ook`
+//     met [tekst, ref, toelichting?] aan beide kanten; de app toont hem dan één keer, bij ‘Getrouwd met’);
 //  4. koppeling precies zoals app.js: per boek één persoon per naam (`boek|naam`, n of alias), en alleen bij de geschiedenissen
 //     een terugval op een naam die maar één persoon heeft (mensIn). Twee personen met dezelfde naam in één boek is een fout;
 //  5. elke naam in `who` (stappen en deel-intro's), in de wie-lijsten (gesplitst op ‘ en ’, ‘, ’, ‘ / ’), in de Genesis-stamboom,
@@ -227,6 +228,20 @@ for (const id of ids) {
       if (p === id) { err(`${id}: is (via ${x}) zijn eigen voorouder`); stack.length = 0; break; }
       if (!seen.has(p)) { seen.add(p); stack.push(p); }
     }
+  }
+}
+
+// Een partner die ook broer of zus is (zelfde vader of moeder), staat in de app één keer, met de uitleg uit `ook`.
+for (const [id, m] of Object.entries(M)) {
+  const partners = new Set((m.p || []).concat(ids.filter((k) => (M[k].p || []).includes(id))));
+  const sibs = ids.filter((k) => k !== id && ((m.v && M[k].v === m.v) || (m.m && M[k].m === m.m)));
+  for (const k of sibs.filter((k) => partners.has(k))) if (!m.ook?.[k]) err(`${id} ↔ ${k}: partner én broer/zus zonder \`ook\` (tekst en verwijzing)`);
+  for (const [k, o] of Object.entries(m.ook || {})) {
+    if (!partners.has(k) || !sibs.includes(k)) err(`${id}: ook.${k}, maar ${k} is niet zowel partner als broer/zus`);
+    if (!Array.isArray(o) || o.length < 2 || o.length > 3 || o.some((x) => typeof x !== "string" || !x.trim())) { err(`${id}: ook.${k} heeft de vorm [tekst, ref, toelichting?]`); continue; }
+    const q = parseRef(o[1]);
+    if (!q) err(`${id}: ook.${k}: verwijzing "${o[1]}" is niet leesbaar`);
+    else if (!isGedekt(q)) err(`${id}: ook.${k}: verwijzing "${o[1]}" staat niet in scripts/bijbel-controle/personen.txt`);
   }
 }
 
