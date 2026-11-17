@@ -120,6 +120,7 @@ export function verhaalPagina(g, { indeling, secties, css, vorige, volgende, tot
         <p class="lees">Lees in je Bijbel: <b>${esc(g.ref)}</b></p>
         <p class="actie">${knop}<span class="actie-uitleg">Met de kaart en vragen om te ontdekken.</span></p>
         <h2>Wat de Bijbel vertelt</h2>
+        ${delen.some(({ t }) => t.includes("‘")) ? `<p class="noot">Tekst tussen ‘enkele aanhalingstekens’ staat letterlijk zo in de Statenvertaling; de rest is in eigen woorden naverteld.</p>` : ""}
         ${delen.map(({ kop: k, t }) => `${k ? `<h3>${esc(k)}</h3>\n        ` : ""}<p>${esc(t)}</p>`).join("\n        ")}
         ${g.betekenis ? `<h2>Uitleg</h2>\n        <p>${esc(g.betekenis)}</p>` : ""}
         ${wie.length ? `<h2>Wie komen erin voor?</h2>\n        <p>${wie.map(esc).join(", ")}</p>` : ""}

@@ -48,3 +48,5 @@ p { margin: 0 0 0.9rem; }
 .lijst .ref { color: var(--fg-2); font-size: 0.9rem; }
 
 .voet { max-width: 42rem; margin: 0 auto; padding: 1rem 1rem 2.5rem; color: var(--fg-2); font-size: 0.9rem; border-top: 1px solid var(--lijn); }
+/* Wat ‘enkele aanhalingstekens’ betekenen (alleen als de vertelling een letterlijk citaat bevat). */
+.noot { font-size: 0.88rem; color: var(--fg-2, #4a443c); margin-top: -0.4rem; }
