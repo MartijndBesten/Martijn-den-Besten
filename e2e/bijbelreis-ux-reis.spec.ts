@@ -153,10 +153,10 @@ test.describe("telefoon", () => {
     await expect(dichtbij).toContainText("Van dichtbij");
     await expect(dichtbij).toContainText("Jakob bij de Jabbok · 12 stappen");
     // Direct na stap 8 (‘Broers weer samen’, Genesis 33), vóór stap 9; en anders van vorm dan een stap.
-    const volgorde = await lijst.locator("li").evaluateAll((li) => li.map((x) => x.textContent!.trim().slice(0, 22)));
-    const i = volgorde.findIndex((t) => t.startsWith("Van dichtbij"));
-    expect(volgorde[i - 1]).toMatch(/^8Broers weer samen/);
-    expect(volgorde[i + 1]).toMatch(/^9Terug in Bethel/);
+    const volgorde = await lijst.locator("li").evaluateAll((li) => li.map((x) => (x.querySelector(".ks-v-l") ? "Van dichtbij" : x.querySelector(".ks-t")!.textContent!.trim())));
+    const i = volgorde.indexOf("Van dichtbij");
+    expect(volgorde[i - 1]).toBe("Broers weer samen");
+    expect(volgorde[i + 1]).toBe("Terug in Bethel");
     expect(await dichtbij.evaluate((e) => getComputedStyle(e).borderTopStyle)).toBe("dashed");
     expect((await dichtbij.boundingBox())!.height).toBeGreaterThanOrEqual(44);
     await dichtbij.click();
