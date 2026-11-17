@@ -182,7 +182,8 @@ describe("boekje.html laadt dezelfde inhoud als de atlas", () => {
   const lijst = (f: string) => [...readFileSync(join(PUB, f), "utf8").matchAll(/<script src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]);
   // personen: het boekje toont geen personenkaarten; seizoen: het boekje heeft geen seizoeningang (Thema’s staan er vast onder de Bijbelboeken);
   // pwa: alleen de atlas is de installeerbare app (docs/bijbelreis-pwa/README.md)
-  const alleenAtlas = /^(leaflet|app|vandaag|verhuis|personen|seizoen|pwa)\.js$/;
+  // wereld/ingang.js: ‘De wereld in die tijd’ is een laag van de atlas, niet van het boekje (docs/bijbelreis-wereld/README.md)
+  const alleenAtlas = /^(leaflet|app|vandaag|verhuis|personen|seizoen|pwa|wereld\/ingang)\.js$/;
   it("elk script van de atlas (behalve kaartmotor, app, personen, het seizoen en de laag Vandaag) staat ook in het boekje, in dezelfde volgorde", () => {
     const atlas = lijst("bijbelreis.html").filter((s) => !alleenAtlas.test(s));
     const boekje = lijst(join("bijbelreis", "boekje.html")).filter((s) => !/^boekje/.test(s));

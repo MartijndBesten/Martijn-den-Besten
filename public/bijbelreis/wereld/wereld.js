@@ -58,7 +58,7 @@
       pauze(); sluitBlad(); kies(null);
       nadruk(); zetTerugKnop();
       layout();
-      zetTijd(beginT(opts), { direct: true, onderschrift: true });
+      zetTijd(beginT(opts), { direct: true, door: "schuif" });
       koppelingSchrift();
       schil.focus({ preventScroll: true });
       return;
@@ -167,7 +167,7 @@
     S.t = beginT(opts);
     S.bereikt = new Set(M.gebeurtenissen.filter((e) => e.t <= S.t).map((e) => e.id));
     layout();
-    zetTijd(S.t, { direct: true, onderschrift: !!opts.koppeling });
+    zetTijd(S.t, { direct: true, door: "schuif" });
     if (opts.koppeling) koppelingSchrift();
     new ResizeObserver(() => { if (D) { layout(); if (S.kaart) S.kaart.m.invalidateSize({ pan: false }); } }).observe(D.vlak);
     window.matchMedia("(min-width: 1180px)").addEventListener("change", () => D && zetWeergave(S.weergave, false));
@@ -247,7 +247,7 @@
       if (b.matches("[data-p]")) return kies(b.dataset.p, b);
       if (b.matches("[data-wt-info-sluit]")) return sluitInfo();
     });
-    D.schuif.addEventListener("input", () => { pauze(); zetTijd(+D.schuif.value, { direct: true, door: "schuif" }); });
+    D.schuif.addEventListener("input", () => { pauze(); zetTijd(+D.schuif.value, { direct: true, door: "schuif", onderschrift: true }); });
     D.schuif.addEventListener("change", () => meldLive(true));
     D.blad.addEventListener("click", (e) => { if (e.target === D.blad) sluitBlad(); });
     // Tabs met pijltjes.
@@ -385,12 +385,20 @@
     if (Math.floor(t) !== D.oud.nuJaar || o.direct) { D.oud.nuJaar = Math.floor(t); zijBij(); lijstBij(); }
     if (S.kaart) kaartTijd(t, nieuw);
     if (nieuw.length) { const e = nieuw[nieuw.length - 1]; onderschrift(e); if (S.speelt) meldGebeurtenis(e); }
+    else if (o.door === "schuif") {
+      // Met de schuif: het laatste dat gebeurd is (of de uitnodiging om af te spelen, vóór de eerste gebeurtenis).
+      const e = [...M.gebeurtenissen].reverse().find((x) => x.t <= t + 1e-6);
+      if (e) onderschrift(e); else if (S.osId) { S.osId = null; const os = D.onderschrift; os.classList.remove("gevuld"); os.querySelector(".wt-os-jaar").textContent = ""; os.querySelector(".wt-os-titel").textContent = "Druk op afspelen en zie de tijd lopen"; os.querySelector(".wt-os-tekst").textContent = ""; }
+    }
     else if (o.onderschrift) { const e = [...M.gebeurtenissen].reverse().find((x) => x.t <= t + 1e-6 && t <= x.t2 + (M.tMax - M.tMin) * 0.02); if (e) onderschrift(e); }
     if (!S.speelt) zetSpeelKnop();
     if (S.gekozen && D.oud.infoJaar !== Math.floor(t)) infoNu();
   }
   function onderschrift(e) {
     const o = D.onderschrift;
+    const sleutel = e.id || e.titel + e.t;
+    if (S.osId === sleutel) return;
+    S.osId = sleutel;
     o.querySelector(".wt-os-jaar").textContent = bereikTekst(e.t, e.t2);
     o.querySelector(".wt-os-titel").textContent = e.titel;
     o.querySelector(".wt-os-tekst").textContent = e.tekst;
@@ -526,8 +534,9 @@
     const g = maak("g", { class: "wt-as-ticks" }, svg);
     ticks.forEach((t) => { const x = sc.x(t); if (x < 4 || x > W - 4) return; maak("line", { x1: x, x2: x, y1: h - 6, y2: h }, g); const tx = maak("text", { x, y: 14, "text-anchor": "middle" }, g); tx.textContent = String(Math.abs(Math.round(K.naarJaar(t, S.as)))); });
     const ge = maak("g", { class: "wt-as-ev" }, svg);
-    const bezet = [];
-    // Belangrijke gebeurtenissen eerst een label; een label dat botst, valt weg (het merkje blijft).
+    // Eerst alle merkjes (en de kop van de tijd is smal); dan krijgen belangrijke gebeurtenissen als eerste een label.
+    // Een label dat een merkje of ander label raakt, valt weg (het merkje blijft, en de lijst noemt alles).
+    const bezet = S.M.gebeurtenissen.map((e) => { const x = sc.x(e.t); return [x - 6, x + 6]; });
     const volgorde = [...S.M.gebeurtenissen].sort((a, b) => (b.belangrijk ? 1 : 0) - (a.belangrijk ? 1 : 0) || a.t - b.t);
     S.asEv = new Map();
     volgorde.forEach((e) => {
@@ -539,11 +548,10 @@
       const breedte = titel.length * 6.3 + 10;
       let links = x + 8;
       if (links + breedte > W - 2) links = x - 8 - breedte;
-      if (W >= 420 && !bezet.some(([a, b]) => links < b + 6 && links + breedte > a - 6) && links > 2) {
+      if (W >= 420 && !bezet.some(([a, b]) => links < b + 4 && links + breedte > a - 4 && !(a === x - 6 && b === x + 6)) && links > 2) {
         const t = maak("text", { x: links - x, y: 4, class: "wt-as-label" }, k); t.textContent = titel;
         bezet.push([links, links + breedte]);
       }
-      bezet.push([x - 6, x + 6]);
       S.asEv.set(e.id, k);
     });
     S.asKop = maak("path", { class: "wt-as-kop", d: "M-6 0h12l-6 7z" }, svg);
@@ -682,7 +690,7 @@
     const box = D.blad.hidden ? D.info : D.bladIn;
     box.querySelectorAll("[data-vergelijk]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.vergelijk === S.vergelijk));
     const zin = box.querySelector(".wt-vergelijking");
-    if (zin) zin.innerHTML = S.vergelijk ? vergelijkZin(S.M.byId.get(S.gekozen), S.M.byId.get(S.vergelijk)) : "";
+    if (zin) { zin.innerHTML = S.vergelijk ? vergelijkZin(S.M.byId.get(S.gekozen), S.M.byId.get(S.vergelijk)) : ""; if (S.vergelijk) zin.scrollIntoView({ block: "nearest", behavior: minderBeweging() ? "auto" : "smooth" }); }
   }
   function vergelijkZin(a, b) {
     const o = K.overlap(a, b), as = S.as;
@@ -745,9 +753,9 @@
       ${p.rol ? `<p class="wt-rolzin">${esc(p.rol)}</p>` : ""}
       <dl class="wt-feiten">${p.begin !== "geboorte" ? `<div><dt>Geboren</dt><dd><b>onbekend</b><small>de lijn begint ${p.begin === "regering" ? "bij het begin van de regering" : p.begin === "weggevoerd" ? "bij de wegvoering" : p.begin === "roeping" ? "bij de roeping" : "later"}</small></dd></div>` : ""}<div><dt>${BEGIN[p.begin] || "Vanaf"}</dt><dd>${geb}</dd></div><div><dt>${eindWoord}</dt><dd>${eindTekst}</dd></div><div class="wt-feit-nu"><dt>In ${esc(K.jaarTekst(S.t, as))}</dt><dd class="wt-info-nu"></dd></div></dl>
       ${noten}
-      ${tegelijk.length ? `<h4 class="wt-label">${p.begin === "geboorte" && allesLevens() ? "Leefde tegelijk met" : "Tegelijk op de tijdlijn met"}</h4><p class="wt-uitleg">Kies iemand om te vergelijken.</p><ul class="wt-tegelijk">${tegelijk.map(({ q, o }) => `<li><button type="button" data-vergelijk="${esc(q.id)}" aria-pressed="${q.id === S.vergelijk}"><span>${esc(q.naam)}</span><b>${o.minstens ? "≥ " : o.ongeveer ? "± " : ""}${o.jaren} jaar</b></button></li>`).join("")}</ul>` : ""}
+      ${tegelijk.length ? `<h4 class="wt-label">${p.begin === "geboorte" && allesLevens() ? "Leefde tegelijk met" : "Tegelijk op de tijdlijn met"}</h4><p class="wt-uitleg">Kies iemand om te vergelijken.</p><p class="wt-vergelijking" aria-live="polite">${S.vergelijk ? vergelijkZin(p, M.byId.get(S.vergelijk)) : ""}</p><ul class="wt-tegelijk">${tegelijk.map(({ q, o }) => `<li><button type="button" data-vergelijk="${esc(q.id)}" aria-pressed="${q.id === S.vergelijk}"><span>${esc(q.naam)}</span><b>${o.minstens ? "≥ " : o.ongeveer ? "± " : ""}${o.jaren} jaar</b></button></li>`).join("")}</ul>` : ""}
       ${niet.length ? `<p class="wt-niet">Niet tegelijk met ${niet.map(({ q }) => `<button type="button" class="wt-link" data-vergelijk="${esc(q.id)}">${esc(q.naam)}</button>`).join(", ")}.</p>` : ""}
-      <p class="wt-vergelijking" aria-live="polite">${S.vergelijk ? vergelijkZin(p, M.byId.get(S.vergelijk)) : ""}</p>
+      ${!tegelijk.length ? `<p class="wt-vergelijking" aria-live="polite">${S.vergelijk ? vergelijkZin(p, M.byId.get(S.vergelijk)) : ""}</p>` : ""}
       ${ev.length ? `<h4 class="wt-label">Gebeurtenissen</h4><ul class="wt-evlijst">${ev.map((e) => `<li><button type="button" data-naar="${e.t}"><span>${esc(K.jaarTekst(e.t, as, as.soort === "am"))}</span>${esc(e.titel)}</button></li>`).join("")}</ul>` : ""}
       <p class="wt-lees"><span class="wt-label">Lees in je Bijbel</span> ${(p.ref || []).map(esc).join(" · ")}</p>
       ${verhaal}
@@ -858,7 +866,7 @@
     const volgend = M.gebeurtenissen.find((e) => e.t > t + 1e-6);
     const oudste = leven.filter((p) => !p.beginOnzeker).sort((a, b) => a.t0 - b.t0)[0];
     D.nu.innerHTML = `<p class="wt-label">In ${esc(K.jaarTekst(t, as))}</p>
-      <p class="wt-nu-getal"><b>${leven.length}</b> <span>${allesLevens() ? `van de ${M.personen.length} mensen op deze tijdlijn leven${leven.length === 1 ? "t" : ""}${oudste && leven.length > 1 ? `. De oudste is ${esc(oudste.naam)}, ${K.leeftijd(oudste, t)} jaar` : ""}` : `van de ${M.personen.length} personen zijn nu in beeld${leven.length ? ": " + leven.map((p) => `${esc(p.naam)} <small>(${esc(lijnWoord(p))})</small>`).join(", ") : ""}`}.</span></p>
+      <p class="wt-nu-getal"><b>${leven.length}</b> <span>${allesLevens() ? `van de ${M.personen.length} mensen op deze tijdlijn leven${leven.length === 1 ? "t" : ""}${oudste && leven.length > 1 ? `. De oudste is ${esc(oudste.naam)}, ${K.leeftijd(oudste, t)} jaar` : ""}` : `van de ${M.personen.length} personen ${leven.length === 1 ? "is" : "zijn"} nu in beeld${leven.length ? ": " + leven.map((p) => `${esc(p.naam)} <small>(${esc(lijnWoord(p))})</small>`).join(", ") : ""}`}.</span></p>
       ${recent ? `<div class="wt-nu-ev"><p class="wt-label">Laatst gebeurd · ${esc(K.jaarTekst(recent.t, as, as.soort === "am"))}</p><button type="button" class="wt-nu-titel" data-e="${esc(recent.id)}">${esc(recent.titel)}</button><p>${esc(recent.tekst)}</p></div>` : ""}
       ${volgend ? `<p class="wt-nu-straks"><span class="wt-label">Hierna</span> <button type="button" class="wt-link" data-naar="${volgend.t}">${esc(volgend.titel)}</button>, over ${Math.round(volgend.t - t)} jaar</p>` : ""}
       <p class="wt-tip">Kies een naam om te zien wie er tegelijk leefden, en hoe lang.</p>`;
@@ -876,13 +884,14 @@
       const p = M.byId.get(m.persoon);
       const wat = m.soort === "geboorte" ? `${esc(p.naam)} wordt geboren` : m.soort === "weggenomen" ? `God neemt ${esc(p.naam)} weg` : `${esc(p.naam)} sterft${p.tot && p.tot.leeftijd != null ? `, ${p.tot.leeftijd} jaar oud` : ""}`;
       const st = m.soort === "geboorte" ? p.van.status : p.tot.status;
-      return `<li class="wt-m ${m.soort}" data-i="${i}"><span class="wt-m-jaar">${esc(K.jaarTekst(m.t, as, as.soort === "am"))}</span><div><button type="button" class="wt-m-titel klein" data-naar="${m.t}">${wat}</button> ${chip(st)}</div></li>`;
+      // Een status alleen als hij afwijkt van die van de tijdrekening (anders staat er dertien keer ‘berekend’).
+      return `<li class="wt-m ${m.soort}" data-i="${i}"><span class="wt-m-jaar">${esc(K.jaarTekst(m.t, as, as.soort === "am"))}</span><div><button type="button" class="wt-m-titel klein" data-naar="${m.t}">${wat}</button> ${st !== as.status ? chip(st) : ""}</div></li>`;
     }).join("");
   }
   function lijstBij() {
     const items = D.lijst.children;
     let huidig = -1;
-    S.momenten.forEach((m, i) => { if (m.t <= S.t + 1e-6) huidig = i; });
+    S.momenten.forEach((m, i) => { if (m.t <= S.t + 1e-6 && !items[i].hidden) huidig = i; });
     for (let i = 0; i < items.length; i++) { items[i].classList.toggle("af", i <= huidig); items[i].classList.toggle("huidig", i === huidig); }
   }
 
@@ -1010,7 +1019,8 @@
       // Loopt het gebied verder dan de rand: een pijl op de rand, op de hoogte van het afgeknipte stuk.
       if (voorbijRand) {
         const randPunten = delen.flat().filter((p) => Math.abs(p[1] - oost) < 1e-6);
-        const lat = randPunten.length ? randPunten.reduce((a, p) => a + p[0], 0) / randPunten.length : c[0];
+        // Aan de noordkant van het afgeknipte stuk: daar staan minder namen dan rond Babel.
+        const lats = randPunten.map((p) => p[0]), lat = lats.length ? Math.max(...lats) - (Math.max(...lats) - Math.min(...lats)) * 0.2 : c[0];
         o.verder.setLatLng([lat, oost]);
         if (!o.verderAan) { o.verder.addTo(K2.m); o.verderAan = true; }
         const ve = o.verder.getElement(); if (ve) ve.style.opacity = v.dekking.toFixed(3);
