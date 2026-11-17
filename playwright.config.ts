@@ -12,7 +12,9 @@ export default defineConfig({
   workers: 1,
   retries: process.env.CI ? 1 : 0,
   reporter: [["list"]],
-  use: { baseURL: BASE_URL, trace: "retain-on-failure" },
+  // Service workers staan uit: de Bijbelreis meldt er een aan (installeerbare app), en een service worker die verzoeken
+  // afhandelt, omzeilt page.route. Alleen e2e/bijbelreis-pwa.spec.ts zet ze aan.
+  use: { baseURL: BASE_URL, trace: "retain-on-failure", serviceWorkers: "block" },
   // De functionele tests draaien zonder WebGL: dat is meteen de verplichte terugvaloptie (poster + HTML-bediening).
   // De 3D-suite draait mét WebGL (SwiftShader) en controleert dat de machines live, zichtbaar en bedienbaar zijn.
   projects: [

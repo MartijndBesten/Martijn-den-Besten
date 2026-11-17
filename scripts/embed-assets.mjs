@@ -62,7 +62,7 @@ writeFileSync(
     `export const HEADER_RULES: { pattern: string; headers: Record<string, string> }[] = ${JSON.stringify(rules)};\n`,
 );
 // De Bijbelreis heeft een eigen Worker (bijbelreis.nl, worker/bijbelreis.ts) met alleen haar eigen bestanden.
-const eigen = (p) => p === "/bijbelreis.html" || p.startsWith("/bijbelreis/") || p.startsWith("/fonts/");
+const eigen = (p) => p === "/bijbelreis.html" || p === "/bijbelreis-sw.js" || p.startsWith("/bijbelreis/") || p.startsWith("/fonts/");
 const reisFiles = Object.fromEntries(Object.entries(files).filter(([p]) => eigen(p)));
 const reisRules = rules.filter((r) => ["/*", "/fonts/*", "/bijbelreis/*"].includes(r.pattern));
 writeFileSync(

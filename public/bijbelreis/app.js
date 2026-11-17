@@ -1781,6 +1781,7 @@
   // docs/bijbelreis-aanvraag/README.md. Elke knop met data-aanvraag opent het; data-av-tekst vult de tekst alvast in.
   const AV_MIN = 10, AV_MAX = 600, AV_EMAIL = /^[A-Za-z0-9._%+-]{1,64}@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+$/;
   const AV_MISLUKT = "Het versturen lukte niet. Probeer het later nog eens, of mail naar info@denckh.nl.";
+  const AV_OFFLINE = "Je bent nu niet verbonden met internet. Versturen kan nu niet. Je tekst blijft staan: probeer het straks nog eens.";
   let avBezig = false;
   const avFout = (id, melding) => {
     $(id).textContent = melding || "";
@@ -1813,6 +1814,8 @@
     if ($("avMailFout").textContent) { $("avMail").focus(); return; }
     // Waar de bezoeker was: alleen het adres binnen de atlas (#jakob/7), als het een gewone vorm heeft.
     const context = /^#[A-Za-z0-9][A-Za-z0-9/=&_-]{0,78}$/.test(location.hash) ? location.hash : "";
+    // Zonder internet (ook in de app op het beginscherm) niet eens proberen: meteen zeggen dat het nu niet kan.
+    if (navigator.onLine === false) { avFout("avFout", AV_OFFLINE); return; }
     avBezig = true; $("avStuur").disabled = true; $("avStuur").textContent = "Versturen…";
     let gelukt = false, melding = AV_MISLUKT, veld = "";
     try {
@@ -1820,7 +1823,7 @@
       const a = await r.json().catch(() => null);
       gelukt = r.ok && !!a && a.ok === true;
       if (!gelukt && a && typeof a.error === "string") { melding = a.error; veld = a.veld || ""; }
-    } catch { /* geen verbinding: de algemene melding */ }
+    } catch { if (navigator.onLine === false || document.documentElement.hasAttribute("data-offline")) melding = AV_OFFLINE; /* anders: de algemene melding */ }
     avBezig = false; $("avStuur").disabled = false; $("avStuur").textContent = "Versturen";
     if (!gelukt) {
       if (veld === "tekst") { avFout("avTekstFout", melding); $("avTekst").focus(); }
