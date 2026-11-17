@@ -18,7 +18,7 @@ test("vanuit ‘Voor ouders en leiders’ naar de privacyverklaring en de hulp, 
   await page.goto("/bijbelreis#v26");
   await expect(page.locator("#map .land").first()).toBeAttached();
   const ouders = page.locator("details.parents");
-  await ouders.locator("summary").click();
+  await ouders.locator("> summary").click();
   await ouders.getByRole("link", { name: "Lees de privacyverklaring" }).click();
   await expect(page).toHaveURL(/\/bijbelreis\/privacy$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Privacy");
