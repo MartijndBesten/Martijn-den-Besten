@@ -78,12 +78,24 @@ async function maakContext(browser, prefs, gedeeld) {
   // Telt hoe vaak het document echt (opnieuw) laadt; hashwissels tellen niet mee.
   await ctx.addInitScript(() => { try { sessionStorage.setItem("__ladingen", String(Number(sessionStorage.getItem("__ladingen") || 0) + 1)); } catch (e) { /* niets */ } });
   await ctx.addInitScript(() => { window.__open = []; window.open = (u) => { window.__open.push(String(u)); return null; }; });
+  await ctx.addInitScript(() => {
+    addEventListener("beforeunload", () => { window.__weg = true; });
+    addEventListener("pagehide", () => { window.__weg = true; });
+    const ce = console.error.bind(console);
+    console.error = (...a) => ce(...(window.__weg ? ["[na pagehide]", ...a] : a));
+  });
   return { ctx, extern };
 }
+// WebKit breekt lopende verzoeken af als de pagina zelf herlaadt (de app-laag doet dat na het terugzetten van de
+// voortgang) en meldt dat als ‘Fetch API cannot load <eigen bestand> due to access control checks’; de verdwijnende
+// pagina logt dan nog ‘de kaartondergrond kon niet worden geladen’. Dat is geen fout in de app: de nieuwe pagina laadt
+// alles (kaartKlaar controleert dat). Daarom tellen niet mee: die WebKit-melding voor eigen bestanden, en wat een pagina
+// nog logt nadat ze begon weg te gaan (beforeunload/pagehide; zie maakContext).
 function volg(page) {
   const fouten = [];
-  page.on("pageerror", (e) => fouten.push("pageerror: " + e.message));
-  page.on("console", (m) => { if (m.type() === "error") fouten.push("console: " + m.text()); });
+  const telt = (t) => !(t.includes("due to access control checks") && t.includes(`localhost:${POORT}/`)) && !t.startsWith("[na pagehide]");
+  page.on("pageerror", (e) => { if (telt(e.message)) fouten.push("pageerror: " + e.message); });
+  page.on("console", (m) => { if (m.type() === "error" && telt(m.text())) fouten.push("console: " + m.text()); });
   return fouten;
 }
 async function kaartKlaar(page) {
@@ -127,12 +139,19 @@ try {
 
   await stap("voortgang gaat naar de reservekopie (Preferences)", async () => {
     await page.waitForFunction(() => Object.keys(localStorage).some((k) => k.startsWith("bijbelreis:")));
-    await page.waitForTimeout(1200);
-    const r = prefs.get("bijbelreis-voortgang");
-    verwacht(r, "geen reservekopie");
-    const data = JSON.parse(r);
-    const lokaal = await page.evaluate(() => Object.fromEntries(Object.keys(localStorage).filter((k) => k.startsWith("bijbelreis:")).map((k) => [k, localStorage.getItem(k)])));
-    verwacht(JSON.stringify(data) === JSON.stringify(lokaal), "reservekopie wijkt af van localStorage");
+    // De app-laag bewaart 0,8 s na de laatste wijziging; wacht tot de kopie bij is (hoogstens 6 s).
+    let gelijk = false, verschil = "";
+    for (let i = 0; i < 30 && !gelijk; i++) {
+      await page.waitForTimeout(200);
+      const r = prefs.get("bijbelreis-voortgang");
+      if (!r) { verschil = "geen reservekopie"; continue; }
+      const data = JSON.parse(r);
+      const lokaal = await page.evaluate(() => Object.fromEntries(Object.keys(localStorage).filter((k) => k.startsWith("bijbelreis:")).map((k) => [k, localStorage.getItem(k)])));
+      const sleutels = [...new Set([...Object.keys(data), ...Object.keys(lokaal)])].filter((k) => data[k] !== lokaal[k]);
+      gelijk = sleutels.length === 0;
+      verschil = "reservekopie wijkt af van localStorage: " + sleutels.join(", ");
+    }
+    verwacht(gelijk, verschil);
   });
 
   await stap("een deel van een reis kiezen opent geen ouderpoort en deelt niets", async () => {
