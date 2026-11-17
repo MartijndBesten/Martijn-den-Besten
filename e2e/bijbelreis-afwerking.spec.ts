@@ -68,3 +68,22 @@ test("boekenrij op een breed scherm: de gekozen boeknaam staat helemaal in beeld
   expect(b!.x).toBeGreaterThanOrEqual(r!.x - 1);
   expect(b!.x + b!.width).toBeLessThanOrEqual(r!.x + r!.width + 1);
 });
+
+test("Samen ontdekken: Vorige/Verder staan bij elke stap van een geschiedenis op dezelfde plek", async ({ page }) => {
+  await zetNiveau(page, "a");
+  await page.goto("/bijbelreis#v34");
+  const verder = page.locator("#aVerder");
+  await expect(verder).toBeVisible();
+  const posities: number[] = [];
+  for (let k = 0; k < 12; k++) {
+    const b = await verder.boundingBox();
+    posities.push(Math.round(b!.y));
+    // De knop staat altijd in het scherm (telefoon: vast boven de onderbalk).
+    expect(b!.y + b!.height).toBeLessThanOrEqual(page.viewportSize()!.height);
+    if ((await verder.innerText()).includes("vragen")) break;
+    await verder.click();
+    await expect(page.locator("#aStap")).toBeVisible();
+  }
+  expect(posities.length).toBeGreaterThan(3);
+  expect(Math.max(...posities) - Math.min(...posities)).toBeLessThanOrEqual(2);
+});

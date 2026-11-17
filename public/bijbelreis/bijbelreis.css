@@ -1501,7 +1501,7 @@ body[data-thema="kerst"] .mapbar { box-shadow: var(--schaduw-kaart), inset 0 2px
 .vdeel .tafereel { margin: 4px 0 2px; }
 body[data-niveau="a"] .tafereel { max-width: 620px; }
 body[data-niveau="a"] .tafereel figcaption { font-size: 1rem; padding-inline: 8px; }
-body[data-niveau="a"] .card > .tafereel { width: auto; margin-inline: -8px; }
+body[data-niveau="a"] .card > .tafereel, body[data-niveau="a"] .a-podium > .tafereel { width: auto; margin-inline: -8px; }
 body[data-niveau="a"] .verhaal.samen .tafereel figcaption { font-size: 0.9rem; }
 
 /* Kleuren van de tekening: alleen de variabelen van de atlas. k- = vlak, l- = lijn, o = warme omlijning (zoals de kameel). */
@@ -1734,3 +1734,12 @@ details.meerinfo { margin-top: 6px; }
 details.meerinfo summary { cursor: pointer; color: var(--nacht); font-weight: 600; min-height: 28px; }
 @media (max-width: 900px) { details.meerinfo summary { min-height: 44px; padding: 10px 0; } }
 details.meerinfo p { margin: 6px 0 0; }
+
+/* Samen ontdekken: het vlak boven Vorige/Verder is zo hoog als de grootste stap van de geschiedenis (podiumHoogte in
+   app.js), zodat de knoppen bij elke stap op dezelfde plek staan. De tekst staat bovenaan, de rest blijft leeg. */
+.a-podium { display: flex; flex-direction: column; gap: 12px; }
+/* Telefoon en tablet: Vorige/Verder blijven onderin het scherm in beeld, net boven de onderbalk, zodat ze bij elke stap op
+   dezelfde plek onder de duim staan, ook als de stap langer is dan het scherm. */
+@media (max-width: 900px) {
+  .verhaal.samen .a-nav { position: sticky; z-index: 5; bottom: calc(var(--onderbalk-h) + env(safe-area-inset-bottom, 0px) + 8px); padding: 8px; margin: 0 -8px; border-radius: calc(var(--r) + 8px); background: color-mix(in srgb, var(--card) 88%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+}
