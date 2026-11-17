@@ -15,7 +15,7 @@ button, select, input { font: inherit; }
 .bk-skip:focus { top: 12px; }
 
 /* ===== Kop, voet en keuzescherm ===== */
-.bk-kopbalk { background: var(--nacht); color: #fff; padding: 10px max(16px, env(safe-area-inset-left)); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.bk-kopbalk { background: var(--nacht); color: #fff; padding: max(10px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 10px max(16px, env(safe-area-inset-left)); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .bk-kopbalk a { color: #fff; }
 .bk-kopbalk .bk-terug { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 650; padding: 6px 0; }
 .bk-kopbalk .bk-terug svg { width: 34px; height: 28px; flex: none; }
@@ -54,7 +54,7 @@ button, select, input { font: inherit; }
 .bk-hulp b { color: var(--inkt); }
 .bk-toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; background: var(--inkt); color: #fff; padding: 10px 16px; border-radius: 10px; transition: opacity 0.2s, transform 0.2s; z-index: 70; pointer-events: none; max-width: calc(100vw - 32px); }
 .bk-toast.aan { opacity: 1; transform: translate(-50%, 0); }
-.bk-voet { max-width: 1240px; margin: 0 auto; padding: 8px 16px 32px; display: flex; flex-wrap: wrap; gap: 6px 24px; align-items: center; font-size: 0.9rem; color: var(--inkt-3); }
+.bk-voet { max-width: 1240px; margin: 0 auto; padding: 8px 16px max(32px, calc(env(safe-area-inset-bottom) + 16px)); display: flex; flex-wrap: wrap; gap: 6px 24px; align-items: center; font-size: 0.9rem; color: var(--inkt-3); }
 .bk-voet a { color: var(--inkt-2); }
 .bk-voet .bk-maker a { color: var(--inkt-3); }
 .bk-ook { margin: 0; }
