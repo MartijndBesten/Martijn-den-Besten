@@ -27,8 +27,8 @@ rmSync(UIT, { recursive: true, force: true });
 mkdirSync(UIT, { recursive: true });
 
 const TOESTELLEN = [
-  { naam: "iPhone 17 Pro Max", map: "iphone-6.9", scenario: ["test", "herstart", "appstore"], maat: [1320, 2868] },
-  { naam: "iPad Pro 13-inch (M5)", map: "ipad-13", scenario: ["test", "herstart", "appstore"], maat: [2064, 2752] },
+  { naam: "iPhone 17 Pro Max", map: "iphone-6.9", scenario: ["test", "herstart", "liggend", "appstore"], maat: [1320, 2868] },
+  { naam: "iPad Pro 13-inch (M5)", map: "ipad-13", scenario: ["test", "herstart", "liggend", "appstore"], maat: [2064, 2752] },
   { naam: "iPhone 17 Pro", map: "iphone-6.3", scenario: ["appstore"], maat: [1206, 2622] },
 ];
 
@@ -121,6 +121,13 @@ for (const t of TOESTELLEN) {
   const udid = sim("create", `Bijbelreis-test ${t.naam}`, toesteltype(t.naam), rt.identifier);
   log(`${t.naam}: ${udid}`);
   try {
+    // Nederlands, zoals bij de gezinnen die de app gebruiken (ook de statusbalk op de App Store-beelden).
+    try {
+      const pref = join(process.env.HOME, "Library/Developer/CoreSimulator/Devices", udid, "data/Library/Preferences");
+      mkdirSync(pref, { recursive: true });
+      execFileSync("defaults", ["write", join(pref, ".GlobalPreferences.plist"), "AppleLanguages", "-array", "nl-NL"]);
+      execFileSync("defaults", ["write", join(pref, ".GlobalPreferences.plist"), "AppleLocale", "-string", "nl_NL"]);
+    } catch (e) { log("  taal niet ingesteld:", String(e.message).split("\n")[0]); }
     sim("boot", udid);
     sim("bootstatus", udid, "-b");
     // Vaste statusbalk voor de App Store-beelden (Apple’s voorbeeldtijd, volle batterij).

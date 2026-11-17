@@ -216,7 +216,10 @@ try {
   });
 
   await stap("licentie van Leaflet opent in een venster, de app blijft staan", async () => {
-    await page.waitForSelector('a[href$="LICENSE-leaflet.txt"]', { state: "attached" });
+    await page.waitForSelector('a[href$="LICENSE-leaflet.txt"]', { state: "attached", timeout: 10000 }).catch(async (e) => {
+      if (SHOTS) await page.screenshot({ path: join(SHOTS, "fout-licentie.png") }).catch(() => {});
+      throw new Error(`${e.message.split("\n")[0]} — adres ${page.url()}, titel ‘${await page.title().catch(() => "?")}’`);
+    });
     await page.evaluate(() => document.querySelector('a[href$="LICENSE-leaflet.txt"]').click());
     await page.waitForSelector("#appTekst:not([hidden]) pre");
     verwacht(/Leaflet|BSD|Copyright/i.test(await page.textContent("#appTekst pre")), "licentietekst leeg");

@@ -13,6 +13,7 @@ import WebKit
 ///  - `js`: een async JavaScript-functielichaam in de pagina; geeft hij een tekst terug die met `FOUT` begint, dan mislukt
 ///    de stap. Een stap die naar een andere pagina gaat, klikt met `setTimeout`, zodat de aanroep eerst terugkomt;
 ///  - `terug`: `webView.goBack()`, dezelfde actie als de rand-veeg van iOS;
+///  - `draai`: `"liggend"` of `"staand"`: het scherm draaien (requestGeometryUpdate), zoals een kind de iPhone kantelt;
 ///  - `wacht`: een JavaScript-uitdrukking die binnen `ms` (standaard 15 s) waar moet worden;
 ///  - `foto`: de test maakt dan een schermafbeelding van het hele scherm (`xcrun simctl io … screenshot`): de app
 ///    schrijft `Documents/test/foto.txt` met de naam en wacht tot de test dat bestand weghaalt.
@@ -24,6 +25,7 @@ final class BijbelreisTest: NSObject, WKScriptMessageHandler {
         let naam: String
         let js: String?
         let terug: Bool?
+        let draai: String?
         let wacht: String?
         let foto: String?
         let ms: Double?
@@ -108,6 +110,18 @@ final class BijbelreisTest: NSObject, WKScriptMessageHandler {
 
     private func actie(_ stap: Stap, klaar: @escaping (String?, Any?) -> Void) {
         guard let webView = webView else { klaar("geen webview", nil); return }
+        if let draai = stap.draai {
+            guard let scene = webView.window?.windowScene else { klaar("geen windowScene om te draaien", nil); return }
+            let stand: UIInterfaceOrientationMask = draai == "liggend" ? .landscapeRight : .portrait
+            var gemeld = false
+            let eenmaal: (String?, Any?) -> Void = { fout, waarde in if !gemeld { gemeld = true; klaar(fout, waarde) } }
+            scene.requestGeometryUpdate(.iOS(interfaceOrientations: stand)) { fout in
+                DispatchQueue.main.async { eenmaal("draaien lukte niet: \(fout.localizedDescription)", nil) }
+            }
+            // Geen fout binnen 2 s: de `wacht` van de stap controleert de nieuwe maat.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { eenmaal(nil, draai) }
+            return
+        }
         if stap.terug == true {
             guard webView.allowsBackForwardNavigationGestures else { klaar("terug vegen staat uit", nil); return }
             guard webView.canGoBack else { klaar("canGoBack is false", nil); return }

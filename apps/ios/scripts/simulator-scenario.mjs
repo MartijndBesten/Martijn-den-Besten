@@ -3,6 +3,7 @@
 //   js     het lichaam van een async functie in de pagina; een tekst die met "FOUT" begint, laat de stap mislukken
 //   terug  webView.goBack(): wat de rand-veeg van iOS doet (allowsBackForwardNavigationGestures moet aan staan)
 //   wacht  een uitdrukking die binnen ms (standaard 15 s) waar moet worden
+//   draai  "liggend" of "staand": het scherm draaien
 //   foto   de test maakt een schermafbeelding van het hele scherm (met statusbalk) onder deze naam
 // Naar een andere pagina gaan (lesroutes) gebeurt met setTimeout, zodat de JavaScript-aanroep eerst terugkomt.
 
@@ -117,6 +118,13 @@ export const SCENARIOS = {
     { naam: "lesroutes: een route openen", js: js(`klik(".ls-route"); return "ok";`), wacht: ZICHT(".ls-les") },
     { naam: "lesroutes: Vragen op het digibord (in de app, geen ouderpoort)", js: js(`klik('.ls-les a.bk-knop[href$="/bord"]'); return "ok";`), wacht: `${ZICHT(".lb")} && (!document.getElementById("appPoort") || document.getElementById("appPoort").hidden)`, foto: "08-digibord" },
     veilig("digibordstand"),
+    { naam: "digibord: ‘Volledig scherm’ (alleen als WebKit het aanbiedt; ter informatie)", js: js(`
+      const k = document.querySelector('[data-bord="scherm"]');
+      if (!k) return { knop: false, fullscreenEnabled: document.fullscreenEnabled };
+      k.click(); await slaap(1500);
+      const vol = !!document.fullscreenElement;
+      if (vol) { await document.exitFullscreen().catch(() => {}); await slaap(800); }
+      return { knop: true, fullscreenEnabled: document.fullscreenEnabled, volGelukt: vol };`) },
     { naam: "terug (veeg): van het digibord naar de les", terug: true, wacht: `${ZICHT(".ls-les")} && !document.querySelector(".lb")` },
     { naam: "lesroutes: Presentatie gaat via de ouderpoort (staat niet in de app)", js: js(`klik('.ls-les a.bk-knop[href^="/bijbelreis/boekje"]'); return "ok";`), wacht: ZICHT("#appPoort") },
     { naam: "lesroutes: poort sluiten", js: js(`klik("#appPoort [data-poort-dicht]"); return "ok";`), wacht: `document.getElementById("appPoort").hidden && location.pathname === "/bijbelreis/lessen.html"` },
@@ -141,6 +149,20 @@ export const SCENARIOS = {
       const r = await window.Capacitor.Plugins.Preferences.get({ key: "bijbelreis-voortgang" });
       if (!r || !r.value) return "FOUT reservekopie weg";
       return lokaal.length + " sleutels";`) },
+  ],
+
+  // Liggend (iPhone met het Dynamic Island opzij, iPad liggend): veilige zones en weergave.
+  liggend: [
+    { naam: "liggend: atlas geladen", wacht: ATLAS_KLAAR, ms: 45000 },
+    { naam: "liggend: draaien", draai: "liggend", wacht: "innerWidth > innerHeight", ms: 10000 },
+    { naam: "liggend: een reis (#abraham/4)", js: js(`location.hash = "#abraham/4"; return "ok";`), wacht: `${KAART} && location.hash.startsWith("#abraham")`, foto: "11-liggend-reis" },
+    veilig("liggend, reis"),
+    { naam: "liggend: een verhaal (#v26)", js: js(`location.hash = "#v26"; return "ok";`), wacht: VERHAAL, foto: "12-liggend-verhaal" },
+    veilig("liggend, verhaal"),
+    { naam: "liggend: De wereld in die tijd (Daniël en Babylon)", js: js(`location.hash = "#v75"; await wachtOp(() => zicht(".wt-ingang")); klik(".wt-ingang"); return "ok";`), wacht: `${ZICHT("#wtLaag")} && !!document.querySelector(".wt-app .wt-svg .wt-balk")`, ms: 20000, foto: "13-liggend-wereld" },
+    veilig("liggend, De wereld in die tijd"),
+    { naam: "liggend: terug (veeg) uit De wereld in die tijd", terug: true, wacht: `!${ZICHT("#wtLaag")} && location.hash === "#v75"` },
+    { naam: "weer staand", draai: "staand", wacht: "innerHeight > innerWidth", ms: 10000 },
   ],
 
   // Schermafbeeldingen voor de App Store, in de echte iOS-weergave. Zelfde vijf schermen als scripts/screenshots.mjs.
@@ -182,6 +204,7 @@ export const SCENARIOS = {
         if (!goed || !o) continue;
         o.click();
         await wachtOp(() => document.querySelector("#qRes .feedback.ok"));
+        await slaap(600);
         document.activeElement && document.activeElement.blur && document.activeElement.blur();
         return "poging " + (poging + 1);
       }

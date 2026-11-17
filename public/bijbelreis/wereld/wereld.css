@@ -391,7 +391,7 @@
   .wt-p { grid-column: 1; grid-row: 3; margin: 0 28px; }
   .wt-zij { display: block; grid-column: 2; grid-row: 2 / 5; overflow-y: auto; overscroll-behavior: contain; padding: 26px 26px 32px; border-left: 1px solid var(--lijn); background: color-mix(in srgb, var(--papier-2) 45%, var(--papier)); }
   .wt-info:not([hidden]) { display: block; }
-  .wt-bediening { grid-column: 1; grid-row: 4; flex-direction: row; align-items: center; gap: 22px; padding: 14px 28px 18px; }
+  .wt-bediening { grid-column: 1; grid-row: 4; flex-direction: row; align-items: center; gap: 22px; padding: 14px 28px calc(18px + env(safe-area-inset-bottom, 0px)); }
   .wt-schuifrij { flex: 1; min-width: 0; order: 2; }
   .wt-knoppen { order: 1; padding-top: 0; }
   .wt-snelheid { margin-left: 8px; }
