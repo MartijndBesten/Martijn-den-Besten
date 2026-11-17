@@ -99,9 +99,11 @@ function ligtIn(P: Periode, gebied: string, jaar: number, stad: string) {
   const gb = P.gebieden.find((x) => x.id === gebied)!;
   const k = gb.sleutels.find((s) => s.jaar === jaar);
   if (!k) throw new Error(`${gebied} heeft geen sleutel ${jaar}`);
+  // Een stad van deze periode, of anders een plaats uit plaatsen.js (bijv. jona_gathhefer, zonder eigen stip op de kaart).
   const s = P.steden.find((x) => x.id === stad);
-  if (!s) throw new Error(`stad ${stad} ontbreekt`);
-  return ringen(k.geometrie).some((r) => binnen(r, s.lng, s.lat));
+  const ll = s ? [s.lat, s.lng] : BR.plaatsen[stad]?.ll;
+  if (!ll) throw new Error(`stad ${stad} ontbreekt`);
+  return ringen(k.geometrie).some((r) => binnen(r, ll[1], ll[0]));
 }
 const persoon = (P: Periode, id: string) => P.personen.find((p) => p.id === id)!;
 const gebeurtenis = (P: Periode, id: string) => P.gebeurtenissen.find((g) => g.id === id)!;
@@ -311,16 +313,16 @@ describe("wereld david-salomo: de Bijbelse getallen nagerekend (gangbare reconst
   });
   it("kaart: Jeruzalem pas vanaf 1003 bij Israël buiten Juda; Hebron in Juda onder David; na de scheuring twee rijken", () => {
     expect(ligtIn(P, "israel", 1010, "jeruzalem")).toBe(false);
-    expect(ligtIn(P, "israel", 1010, "gibea")).toBe(true); // Benjamin onder Isboseth
+    expect(ligtIn(P, "israel", 1010, "sichem")).toBe(true);
     expect(ligtIn(P, "juda-hebron", 1010, "hebron")).toBe(true);
-    expect(ligtIn(P, "juda-hebron", 1010, "gibea")).toBe(false);
+    expect(ligtIn(P, "juda-hebron", 1010, "berseba")).toBe(true);
     for (const st of ["jeruzalem", "dan", "berseba", "sichem"]) expect(ligtIn(P, "israel", 1003, st), st).toBe(true);
     expect(ligtIn(P, "israel", 930, "jeruzalem")).toBe(false);
     expect(ligtIn(P, "israel", 930, "sichem")).toBe(true);
     expect(ligtIn(P, "israel", 930, "dan")).toBe(true);
     expect(ligtIn(P, "juda", 930, "jeruzalem")).toBe(true);
-    for (const st of ["gath", "gaza"]) expect(ligtIn(P, "filistea", 1050, st), st).toBe(true);
-    expect(ligtIn(P, "israel", 1003, "gath")).toBe(false);
+    expect(ligtIn(P, "filistea", 1050, "gaza")).toBe(true);
+    expect(ligtIn(P, "israel", 1003, "gaza")).toBe(false);
     expect(ligtIn(P, "fenicie", 1050, "tyrus")).toBe(true);
     expect(ligtIn(P, "ammon", 1050, "rabba")).toBe(true);
     for (const st of ["damascus", "zoba"]) expect(ligtIn(P, "aram-zoba", 1050, st), st).toBe(true);
@@ -385,8 +387,8 @@ describe("wereld israel-assyrie: de Bijbelse getallen en ijkpunten nagerekend", 
     expect(ligtIn(P, "assyrie", 741, "qarqar")).toBe(false);
     expect(ligtIn(P, "assyrie", 681, "lachis")).toBe(false);
     for (const s of P.gebieden.find((g) => g.id === "israel")!.sleutels) expect(ligtIn(P, "israel", s.jaar, "samaria"), `Samaria ${s.jaar}`).toBe(true);
-    expect(ligtIn(P, "israel", 733, "gathhefer")).toBe(true);
-    expect(ligtIn(P, "israel", 732, "gathhefer")).toBe(false); // Galilea weggevoerd (2 Koningen 15:29)
+    expect(ligtIn(P, "israel", 733, "jona_gathhefer")).toBe(true);
+    expect(ligtIn(P, "israel", 732, "jona_gathhefer")).toBe(false); // Galilea weggevoerd (2 Koningen 15:29)
     for (const j of [880, 681]) for (const st of ["jeruzalem", "lachis"]) expect(ligtIn(P, "juda", j, st), `${st} ${j}`).toBe(true);
     for (const j of [880, 732]) expect(ligtIn(P, "aram", j, "damascus"), `Damascus ${j}`).toBe(true);
     expect(ligtIn(P, "fenicie", 880, "tyrus")).toBe(true);

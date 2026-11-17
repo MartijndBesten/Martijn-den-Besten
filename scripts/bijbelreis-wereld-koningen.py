@@ -291,11 +291,9 @@ DS_GEBEURTENISSEN = [
 DS_STEDEN = [
     {"id": "jeruzalem", "naam": "Jeruzalem", "plaatsId": "salem", "tekst": "De burg van de Jebusieten die David innam; daarna ‘de stad Davids’ (2 Samuël 5:7). Hier bouwde Salomo de tempel.", "bron": ["2 Samuël 5:6–9", "1 Koningen 6:1"]},
     {"id": "hebron", "naam": "Hebron", "plaatsId": "mamre", "tekst": "Hier werd David eerst koning over Juda, zeven jaar en zes maanden.", "bron": ["2 Samuël 2:1–4", "2 Samuël 2:11"]},
-    {"id": "gibea", "naam": "Gibea", "plaatsId": "gibea", "tekst": "Woonplaats van koning Saul.", "bron": ["1 Samuël 10:26"]},
     {"id": "sichem", "naam": "Sichem", "plaatsId": "sichem", "tekst": "Hier kwam het volk bijeen om Rehabeam koning te maken; hier scheurde het rijk.", "bron": ["1 Koningen 12:1"]},
     {"id": "dan", "naam": "Dan", "plaatsId": "dan", "tekst": "Stad in het uiterste noorden: Israël woonde ‘van Dan tot Ber-seba’ (1 Koningen 4:25). Hier werden in 1993 en 1994 de stukken van de steen met “huis van David” gevonden.", "bron": ["1 Koningen 4:25", "tel-dan"]},
     {"id": "berseba", "naam": "Berseba", "plaatsId": "berseba", "tekst": "Stad in het uiterste zuiden van het land.", "bron": ["1 Koningen 4:25"]},
-    {"id": "gath", "naam": "Gath", "plaatsId": "gath", "tekst": "Een van de vijf steden van de Filistijnen; Goliath kwam hier vandaan.", "bron": ["1 Samuël 17:4"]},
     {"id": "gaza", "naam": "Gaza", "plaatsId": "gaza", "tekst": "Filistijnse stad in het zuiden, aan de weg naar Egypte.", "bron": ["1 Koningen 4:24"]},
     {"id": "tyrus", "naam": "Tyrus", "plaatsId": "tyrus", "tekst": "Havenstad van de Feniciërs. Koning Hiram stuurde cederhout en vaklieden naar Jeruzalem.", "bron": ["2 Samuël 5:11", "1 Koningen 5:1–10"]},
     {"id": "rabba", "naam": "Rabba", "plaatsId": "rabba", "tekst": "Hoofdstad van de Ammonieten (nu Amman). Bij het beleg sneuvelde Uria.", "bron": ["2 Samuël 11:1", "2 Samuël 12:26–29"]},
@@ -307,7 +305,7 @@ DS_STEDEN = [
 
 ONDER = [MOAB, AMMON, EDOM, ARAM_ZOBA]
 DS_GEBIEDEN = [
-    {"id": "israel", "naam": "Israël", "kleur": "salie", "hoofdstad": "jeruzalem", "bron": ["1 Samuël 31:7", "2 Samuël 2:9", "2 Samuël 5:5", "1 Koningen 4:25", "1 Koningen 12:20", "eigen-tekening"],
+    {"id": "israel", "naam": "Israël", "kleur": "salie", "hoofdstad": None, "bron": ["1 Samuël 31:7", "2 Samuël 2:9", "2 Samuël 5:5", "1 Koningen 4:25", "1 Koningen 12:20", "eigen-tekening"],
      "opmerking": B_RIJK + " Het land ‘van Dan tot Ber-seba’ (1 Koningen 4:25), met Gilead aan de overkant van de Jordaan. Onder Saul en de eerste jaren van David was Jeruzalem nog een stad van de Jebusieten; onder Isboseth hoorde Juda er niet bij, en na de scheuring ook niet.",
      "sleutels": [
          sleutel(1050, [ISRAEL_WEST, GILEAD, JUDA_D], "Het koninkrijk van Saul: alle stammen."),
@@ -328,7 +326,7 @@ DS_GEBIEDEN = [
     {"id": "onder-david", "naam": "Onder David en Salomo", "kleur": "zand", "hoofdstad": None, "bron": ["2 Samuël 8:2", "2 Samuël 8:6", "2 Samuël 8:14", "2 Samuël 12:29–31", "1 Koningen 4:21", "1 Koningen 11:14–25", "eigen-tekening"],
      "opmerking": B_RIJK + " De buurvolken die David versloeg en die geschenken brachten: Moab, Ammon, Edom en de Syriërs van Zoba en Damascus. Ze bleven eigen volken; daarom is dit geen grens maar een gebied “onder gezag”. Wanneer David hen versloeg, staat er niet (hier rond 990 geplaatst). Onder Salomo was Rezon in Damascus ‘Israëls tegenpartijder’ (1 Koningen 11:25), en Hadad in Edom ook; hoe ver het gezag toen nog reikte, is niet te tekenen. De Bijbel noemt het gebied ‘van de rivier tot het land der Filistijnen’ (1 Koningen 4:21); de weg naar de Eufraat is hier niet getekend.",
      "sleutels": [sleutel(992, ONDER, "Plaatsing: de oorlogen van 2 Samuël 8 en 10–12 hebben geen jaartal."), sleutel(990, ONDER), sleutel(931, ONDER, "Na de dood van Salomo valt dit uiteen; de Bijbel zegt niet precies wanneer elk volk zelfstandig werd.")]},
-    {"id": "filistea", "naam": "Filistijnen", "kleur": "terra", "hoofdstad": "gath", "bron": ["1 Samuël 6:17", "1 Samuël 17:4", "2 Samuël 8:1", "bijbelreis-plaatsen", "eigen-tekening"],
+    {"id": "filistea", "naam": "Filistijnen", "kleur": "terra", "hoofdstad": None, "bron": ["1 Samuël 6:17", "1 Samuël 17:4", "2 Samuël 8:1", "bijbelreis-plaatsen", "eigen-tekening"],
      "opmerking": B_RIJK + " De kustvlakte met de vijf steden van de Filistijnen: Gaza, Askelon, Asdod, Gath en Ekron (1 Samuël 6:17). David versloeg hen (2 Samuël 8:1), maar onder Salomo was in Gath nog een eigen koning (1 Koningen 2:39).",
      "sleutels": [sleutel(1050, FILISTEA), sleutel(920, FILISTEA)]},
     {"id": "fenicie", "naam": "Fenicië", "kleur": "kobalt", "hoofdstad": "tyrus", "bron": ["2 Samuël 5:11", "1 Koningen 5:1", "hiram", "eigen-tekening"],
@@ -346,9 +344,6 @@ DS_GEBIEDEN = [
     {"id": "edom", "naam": "Edom", "kleur": "rood", "hoofdstad": None, "bron": ["2 Samuël 8:14", "1 Koningen 9:26", "1 Koningen 11:14–22", "eigen-tekening"],
      "opmerking": B_RIJK + " Het bergland ten zuiden van de Dode Zee, aan beide kanten van de Araba, tot aan de Schelfzee (1 Koningen 9:26).",
      "sleutels": [sleutel(1050, EDOM), sleutel(920, EDOM)]},
-    {"id": "egypte", "naam": "Egypte", "kleur": "lila", "hoofdstad": None, "bron": ["1 Koningen 3:1", "1 Koningen 9:16", "1 Koningen 11:40", "sjosjenk", "eigen-tekening"],
-     "opmerking": B_RIJK + " Alleen het noorden is getekend (de Nijldelta en het Nijldal tot de Fajoem); Egypte liep verder naar het zuiden langs de Nijl. Salomo trouwde met een dochter van een farao (1 Koningen 3:1); die farao wordt niet bij naam genoemd.",
-     "sleutels": [sleutel(1050, EGYPTE_NOORD), sleutel(920, EGYPTE_NOORD)]},
 ]
 
 DS_KOPPELINGEN = [
@@ -530,9 +525,6 @@ IA_STEDEN = [
     {"id": "hamath", "naam": "Hamath", "plaatsId": "dr_hamath", "tekst": "Stad aan de Orontes, ver in het noorden. Koning Sargon maakte er in 720 v.Chr. een einde aan het eigen koninkrijk.", "bron": ["2 Koningen 14:25", "sargon"]},
     {"id": "qarqar", "naam": "Qarqar", "plaatsId": None, "lat": 35.742, "lng": 36.331, "tekst": "Stad aan de Orontes. Hier vochten in 853 v.Chr. de koningen van het westen, met Achab, tegen Salmanassar III.", "bron": ["pleiades-qarqar", "qarqar"]},
     {"id": "tyrus", "naam": "Tyrus", "plaatsId": "tyrus", "tekst": "Havenstad van de Feniciërs. Izebel, de vrouw van Achab, was een dochter van de koning van de Sidoniërs.", "bron": ["1 Koningen 16:31"]},
-    {"id": "asdod", "naam": "Asdod", "plaatsId": "asdod", "tekst": "Filistijnse stad. Het leger van Sargon nam haar in.", "bron": ["Jesaja 20:1", "sargon"]},
-    {"id": "joppe", "naam": "Joppe (Jafo)", "plaatsId": "joppe", "tekst": "Havenstad. Hier ging Jona aan boord van een schip naar Tarsis.", "bron": ["Jona 1:3"]},
-    {"id": "gathhefer", "naam": "Gath-Hefer", "plaatsId": "jona_gathhefer", "tekst": "Het dorp van Jona, in Galilea.", "bron": ["2 Koningen 14:25"]},
 ]
 
 IA_GEBIEDEN = [

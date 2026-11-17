@@ -1391,40 +1391,6 @@
    "bron": [
     "1 Koningen 16:31"
    ]
-  },
-  {
-   "id": "asdod",
-   "naam": "Asdod",
-   "plaatsId": "asdod",
-   "lat": 31.76,
-   "lng": 34.65,
-   "tekst": "Filistijnse stad. Het leger van Sargon nam haar in.",
-   "bron": [
-    "Jesaja 20:1",
-    "sargon"
-   ]
-  },
-  {
-   "id": "joppe",
-   "naam": "Joppe (Jafo)",
-   "plaatsId": "joppe",
-   "lat": 32.05,
-   "lng": 34.75,
-   "tekst": "Havenstad. Hier ging Jona aan boord van een schip naar Tarsis.",
-   "bron": [
-    "Jona 1:3"
-   ]
-  },
-  {
-   "id": "gathhefer",
-   "naam": "Gath-Hefer",
-   "plaatsId": "jona_gathhefer",
-   "lat": 32.74,
-   "lng": 35.32,
-   "tekst": "Het dorp van Jona, in Galilea.",
-   "bron": [
-    "2 Koningen 14:25"
-   ]
   }
  ],
  "koppelingen": [
