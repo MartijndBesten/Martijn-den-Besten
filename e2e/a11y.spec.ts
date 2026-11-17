@@ -23,10 +23,8 @@ const BIJBELREIS: [string, string, string?][] = [
   ["Speurtocht", "#abraham/2", "#t-quiz"],
   ["Paspoort", "#abraham/2", "#t-pas"],
 ];
-// Bekend en doorgegeven (spoor Leren, 17-11-2026): in het paspoort heeft de kop van een deel met kleur ‘oker’ te weinig
-// contrast (var(--oker-deep) bestaat niet, 2,5:1; WCAG 1.4.3) en staat de tekst in een stempel niet in de naam van de
-// knop (WCAG 2.5.3). Haal deze uitzondering weg zodra dat is opgelost.
-const BEKEND: Record<string, string[]> = { Paspoort: ["#stamps"] };
+// Uitzonderingen per scherm (leeg: de paspoortpunten zijn opgelost in spoor Leren, 17-11-2026).
+const BEKEND: Record<string, string[]> = {};
 async function bijbelreisAxe(page: Page, ookUit: string[] = []) {
   let axe = new AxeBuilder({ page });
   for (const sel of ookUit) axe = axe.exclude(sel);
