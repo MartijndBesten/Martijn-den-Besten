@@ -451,7 +451,7 @@ BR.boeken.push({
       { q: "Wie hoorde van het plan om Paulus te doden?", a: ["De zoon van Paulus’ zus", "De hogepriester", "Felix"], why: "Handelingen 23:16" },
       { q: "Hoeveel ruiters gingen mee naar Antipatris?", a: ["Zeventig", "Twaalf", "Duizend"], why: "Handelingen 23:23" },
       { q: "Wat zei Paulus tegen Festus?", a: ["Ik beroep mij op den keizer", "Laat mij naar Jeruzalem gaan", "Ik wil naar Tarsus"], why: "Handelingen 25:11" },
-      { q: "Hoeveel mensen waren er in het schip?", a: ["Tweehonderd zesenzeventig", "Honderdtwintig", "Zeventig"], why: "Handelingen 27:37" },
+      { q: "Paulus leed als gevangene schipbreuk op weg naar Italië. Hoeveel mensen waren er in het schip?", a: ["Tweehonderd zesenzeventig", "Honderdtwintig", "Zeventig"], why: "Handelingen 27:37" },
       { q: "Wat beet Paulus op Malta in zijn hand?", a: ["Een adder", "Een schorpioen", "Een hond"], why: "Handelingen 28:3" },
       { q: "Hoe lang woonde Paulus in Rome in een gehuurde woning?", a: ["Twee hele jaren", "Drie maanden", "Zeven dagen"], why: "Handelingen 28:30" }],
     ord: [{ q: "Wat gebeurde eerst? Zet het in de goede volgorde.", items: ["Agabus bindt zich met de gordel", "Gevangen bij de tempel", "Ik beroep mij op de keizer", "Schipbreuk", "Een adder op Malta"] }],

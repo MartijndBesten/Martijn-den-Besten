@@ -10,6 +10,9 @@
 //   soort "b": expliciet in de Bijbel (één tekst of één doorlopend gedeelte zegt het letterlijk);
 //   soort "a": afgeleid door teksten te combineren; het derde element geeft dan de redenering.
 //   ref: één verwijzing (meer delen uit hetzelfde boek met ‘; ’). Elk deel heeft een regel in scripts/bijbel-controle/personen.txt.
+// ook = een partner die ook broer of zus is (zelfde vader of moeder): { id: [tekst, ref, toelichting?] }. De app toont zo
+//   iemand één keer, bij ‘Getrouwd met’, met de tekst erbij (‘Sara · ook zijn halfzuster’), en niet nog eens bij ‘Broers en
+//   zussen’. Alleen Abraham en Sara (Genesis 20:12). Het controlescript eist dit veld bij elk zo’n paar.
 // overlevering = kerkelijke overlevering die niet in de Bijbel staat: [[tekst, toelichting]]. Overlevering staat nooit in
 //   v, m of p; een familieband die alleen op overlevering rust, wordt niet opgenomen.
 // Alle familiebanden, leeftijden en verwijzingen zijn gecontroleerd tegen de Statenvertaling:
@@ -114,13 +117,15 @@ BR.mensen = {
     leeftijd: [[75, "Genesis 12:4"], [86, "Genesis 16:16"], [99, "Genesis 17:24"], [100, "Genesis 21:5"], [175, "Genesis 25:7"]],
     elders: [["Nehemia 9:7", "God koos Abram en gaf hem de naam Abraham."], ["Jesaja 41:8", "God noemt hem ‘Abraham, Mijn liefhebber’."], ["Romeinen 4:3", "Abraham geloofde God, en het werd hem tot gerechtigheid gerekend."], ["Hebreeën 11:8–19", "Door het geloof ging Abraham op weg, zonder te weten waarheen."], ["Jakobus 2:23", "Hij werd een vriend van God genoemd."]],
     vervolg: [["Genesis 25:9–10", "Izak en Ismaël begraven hem in de spelonk van Machpela."]],
-    basis: { v: ["b", "Genesis 11:26"], p: { sara: ["b", "Genesis 11:29"], hagar: ["b", "Genesis 16:3"] } } },
+    basis: { v: ["b", "Genesis 11:26"], p: { sara: ["b", "Genesis 11:29"], hagar: ["b", "Genesis 16:3"] } },
+    ook: { sara: ["ook zijn halfzuster", "Genesis 20:12", "Abraham zegt van Sara: ‘zij is mijns vaders dochter, maar niet mijner moeder dochter’."] } },
   // Sara is volgens Abraham zelf ‘de dochter van mijn vader, maar niet van mijn moeder’ (Genesis 20:12).
   sara: { n: "Sara", alias: ["Sarai"], v: "terach", p: ["abraham"], boek: ["genesis", "kerst"],
     kort: "Vrouw van Abraham; op haar negentigste kreeg zij de beloofde zoon Izak.",
     dood: "Genesis 23:2", leeftijd: [[90, "Genesis 17:17"], [127, "Genesis 23:1"]],
     elders: [["Jesaja 51:2", "‘Aanschouwt Abraham, ulieder vader, en Sara, die ulieden gebaard heeft.’"], ["Hebreeën 11:11", "Door het geloof kreeg Sara kracht om een kind te krijgen, ver boven haar leeftijd."], ["1 Petrus 3:6", "Sara gehoorzaamde Abraham en noemde hem heer."]],
-    basis: { v: ["a", "Genesis 11:26; 20:12", "Abraham zegt van Sara: ‘zij is mijns vaders dochter, maar niet mijner moeder dochter’ (20:12); Abrahams vader is Terach (11:26). Het zijn Abrahams eigen woorden; de Bijbel spreekt ze niet tegen."], p: { abraham: ["b", "Genesis 11:29"] } } },
+    basis: { v: ["a", "Genesis 11:26; 20:12", "Abraham zegt van Sara: ‘zij is mijns vaders dochter, maar niet mijner moeder dochter’ (20:12); Abrahams vader is Terach (11:26). Het zijn Abrahams eigen woorden; de Bijbel spreekt ze niet tegen."], p: { abraham: ["b", "Genesis 11:29"] } },
+    ook: { abraham: ["ook haar halfbroer", "Genesis 20:12", "Abraham zegt van Sara: ‘zij is mijns vaders dochter, maar niet mijner moeder dochter’."] } },
   hagar: { n: "Hagar", p: ["abraham"], boek: ["genesis"],
     kort: "Egyptische slavin van Sara en moeder van Ismaël; in de woestijn zag God haar en hoorde Hij haar.",
     elders: [["Galaten 4:24–25", "Paulus gebruikt Hagar als beeld van het oude verbond van de Sinaï."]],

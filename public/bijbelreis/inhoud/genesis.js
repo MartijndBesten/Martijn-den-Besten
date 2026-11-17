@@ -280,7 +280,7 @@ BR.boeken.push({
     tap: [{ id: "ur", q: "Tik op Ur, de stad waar Abram vandaan kwam.", v: "wide" }, { id: "haran", q: "Tik op Haran, waar Terach stierf.", v: "wide" },
       { id: "egypte", q: "Er was hongersnood. Tik op het land waar Abram toen naartoe ging.", v: "wide" },
       { id: "bethel", q: "Tik op Bethel, waar Abram zijn tent opzette.", v: "kanaan" }, { id: "mamre", q: "Tik op Hebron, waar de eiken van Mamre stonden.", v: "kanaan", name: "Hebron" },
-      { id: "berseba", q: "Tik op Berseba, de plaats van de put.", v: "kanaan" }, { id: "dan", q: "Tik op Dan, tot waar Abram de koningen achternazat.", v: "kanaan" },
+      { id: "berseba", q: "Tik op Berseba, waar Abraham en Abimelech een verbond sloten over een waterput.", v: "kanaan" }, { id: "dan", q: "Tik op Dan, tot waar Abram de koningen achternazat.", v: "kanaan" },
       { id: "salem", q: "Tik op Jeruzalem, waar Salomo de tempel bouwde op de berg Moria.", v: "kanaan" }],
     mc: [{ q: "Hoe oud was Abram toen hij uit Haran vertrok?", a: ["75 jaar", "50 jaar", "100 jaar"], why: "Genesis 12:4" },
       { q: "Waarom ging Abram naar Egypte?", a: ["Er was hongersnood", "Hij wilde de piramides zien", "De farao had hem uitgenodigd"], why: "Genesis 12:10" },

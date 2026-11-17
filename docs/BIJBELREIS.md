@@ -122,6 +122,9 @@ jozef: { n: "Jozef", alias: ["Zafnath-Paneah"], v: "jakob", m: "rachel", p: ["as
 `v`/`m` (vader/moeder) en `p` (vrouwen/man) zijn ids; kinderen worden daaruit berekend. Namen in `who` van een stap
 worden gekoppeld via `n` of `alias`, alleen binnen de boeken in `boek` (zo blijven ‘Darius’ of ‘Joas’ eenduidig).
 Groepen (Volk, Leger, Broers) staan niet in `BR.mensen`.
+Een partner die ook broer of zus is, staat één keer in de familie, bij ‘Getrouwd met’, met de uitleg uit het veld `ook`
+(`ook: { sara: ["ook zijn halfzuster", "Genesis 20:12", toelichting] }`); alleen Abraham en Sara. Het controlescript
+(`scripts/bijbelreis-personen-check.mjs`) eist dit veld bij elk zo’n paar.
 
 **Stapsleutels** (`boek:deel:index`) zijn de sleutels van de voortgang in `localStorage` (`bijbelreis:gezien`). Stappen
 dus nooit herordenen, invoegen of verwijderen; alleen aan het eind toevoegen.

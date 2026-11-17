@@ -334,7 +334,7 @@ BR.niveaus.voegToe("a", {
     ],
     samen: "Abraham vertrouwde erop dat God Zijn Engel voor de knecht uit zou zenden (Genesis 24:7). Vraag samen: wat vraagt de knecht aan God bij de put, en wat doet hij als God antwoordt? (Genesis 24:12–14, 26–27).",
     vragen: [
-      { q: "Waar bidt de knecht?", a: ["Bij een waterput", "In de tent van Abraham"], why: "Genesis 24:11–12" },
+      { q: "Waar bidt de knecht van Abraham?", a: ["Bij een waterput", "In de tent van Abraham"], why: "Genesis 24:11–12" },
       { q: "Wat doet Rebekka voor de kamelen?", a: ["Ze geeft ze water", "Ze jaagt ze weg"], why: "Genesis 24:19–20" },
       { q: "Wat ziet Izak in het veld?", a: ["De kamelen komen", "Een leeuw"], why: "Genesis 24:63" },
     ],
@@ -407,7 +407,7 @@ BR.niveaus.voegToe("a", {
     ],
     samen: "Weggelaten: Rachel en Lea gaven ook hun slavinnen Bilha en Zilpa aan Jakob, en ook zij kregen zonen (Genesis 30:3–13). De Bijbel vertelt eerlijk over de jaloezie tussen de zussen (30:1, 15). Dat Jakob meer vrouwen had, vertelt de Bijbel zoals het ging. Wijs Haran aan op de kaart: daar woont Laban. Vraag samen: wie gaf Rachel toch een zoon (30:22–24)?",
     vragen: [
-      { q: "Wie komt er met de schapen bij de put?", a: ["Rachel", "Lea"], why: "Genesis 29:9" },
+      { q: "Jakob praat bij een put met herders. Wie komt er met de schapen?", a: ["Rachel", "Lea"], why: "Genesis 29:9" },
       { q: "Hoe lang werkt Jakob eerst voor Rachel?", a: ["Zeven jaar", "Twee jaar"], why: "Genesis 29:20" },
       {
         q: "Met wie blijkt Jakob na het feest getrouwd te zijn?",
