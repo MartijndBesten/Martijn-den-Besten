@@ -2339,7 +2339,7 @@
     const rot = ((s.i * 37 + s.deel.id.length * 11) % 17) - 8;
     const fs = s.stamp.length > 10 ? 11 : s.stamp.length > 8 ? 13 : 16;
     const top = stempelBoven(s);
-    return `<svg viewBox="0 0 100 100" style="transform:rotate(${rot}deg)"><circle class="ring" cx="50" cy="50" r="44" stroke="${c}"/><circle class="ring2" cx="50" cy="50" r="37" stroke="${c}"/><text class="mono" x="50" y="33" font-size="9" fill="${c}">${esc(top)}</text><text x="50" y="57" font-size="${fs}" fill="${c}">${esc(s.stamp)}</text><text class="mono" x="50" y="76" font-size="10" fill="${c}">${s.i + 1}</text></svg>`;
+    return `<svg viewBox="0 0 100 100" style="transform:rotate(${rot}deg)"><circle class="ring" cx="50" cy="50" r="44" stroke="${c}"/><circle class="ring2" cx="50" cy="50" r="37" stroke="${c}"/><text class="mono" x="50" y="33" font-size="9" fill="${c}">${esc(top)}</text> <text x="50" y="57" font-size="${fs}" fill="${c}">${esc(s.stamp)}</text> <text class="mono" x="50" y="76" font-size="10" fill="${c}">${s.i + 1}</text></svg>`;
   }
   // Eén stempelblad per deel. Ingeklapt laten we de stempels nog weg (619 stempels tekenen kost op een telefoon tijd);
   // ze komen er bij het openklappen.
