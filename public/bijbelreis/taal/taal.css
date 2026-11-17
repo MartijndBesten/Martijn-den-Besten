@@ -1,0 +1,27 @@
+/* Talen van de Bijbelreis (docs/bijbelreis-talen/README.md): de proefmelding, de taalkeuze, en op een pagina in een
+   andere taal de onderdelen die (nog) niet in die taal bestaan. Alleen geladen op die pagina's (en op de Nederlandse
+   pagina pas als een taal openbaar is); bijbelreis.css blijft ongewijzigd. */
+.taal-proef {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border: 1px dashed var(--lijn, #c9bfa9);
+  border-radius: 10px;
+  background: var(--kaart, #fffaf0);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+.taal-proef a { font-weight: 600; white-space: nowrap; }
+.taal-nl { margin: 0 0 8px; font-size: 0.86rem; }
+
+/* Nog niet in deze taal: Vandaag, de lesroutes, het andere werk van de maker (alleen in het Nederlands). */
+html:not([lang="nl"]) #vandaagBtn,
+html:not([lang="nl"]) #vandaagLijstBtn,
+html:not([lang="nl"]) .lg-vandaag,
+html:not([lang="nl"]) .ls-ingang,
+html:not([lang="nl"]) .ook,
+html:not([lang="nl"]) .bronlink { display: none !important; }
+
+/* Geschiedenissen die nog niet in deze taal bestaan: rustig maar leesbaar (bijbelreis.css dimt ze met opacity, wat
+   op deze lange lijst te weinig contrast geeft). */
+html:not([lang="nl"]) .vitem.off { opacity: 1; }
+html:not([lang="nl"]) .vitem.off .vt b { color: var(--fg-2); font-weight: 500; }

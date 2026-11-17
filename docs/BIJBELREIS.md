@@ -183,6 +183,7 @@ e-mailbinding `MAIL` naar info@denckh.nl.
 | --- | --- |
 | Lesroutes voor ouders, zondagsschool en klas (8 routes, 35 lessen, print en digibord) op `/bijbelreis/lessen` | `bijbelreis-samen/README.md` |
 | Installeerbare app: manifest, service worker met één set per versie, offline voor bekeken verhalen | `bijbelreis-pwa/README.md` |
+| Andere talen: Engelse proef op `/en/` (10 geschiedenissen, concept, `noindex`), KJV-controle, vlag `BIJBELREIS_TALEN` | `bijbelreis-talen/README.md` |
 | 150 verhaalpagina’s (`/verhaal/<nr>-<slug>`, `/verhalen`) en sitemap, uit dezelfde gegevens | `bijbelreis-vindbaar/README.md` |
 | Toegankelijkheid (WCAG 2.2 AA): focus niet verborgen, toetsenbord in de speurtocht, namen van knoppen | `bijbelreis-a11y/README.md` |
 | Privacycontrole van bezoekmeting en aanvraagformulier | `bijbelreis-privacy/README.md` |

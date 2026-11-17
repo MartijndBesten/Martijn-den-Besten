@@ -27,13 +27,23 @@ const wereldBestanden = (dist) => {
   return bestanden(map).map((v) => relative(join(dist, "bijbelreis"), v).split("\\").join("/")).filter((p) => /\.(js|css|json)$/.test(p) && p !== "wereld/ingang.js").sort();
 };
 const dataBestanden = (dist) => DATA.concat(wereldBestanden(dist));
+// Een andere taal (docs/bijbelreis-talen/README.md) heeft een eigen pagina (bijbelreis/<taal>/index.html), eigen teksten per
+// reisniveau (taal/<taal>/niveaus/) en een eigen service worker (bijbelreis-sw-<taal>.js) met een eigen set en versie.
+// ‘De wereld in die tijd’ staat (nog) niet in een andere taal.
+const taalPagina = (taal) => (taal === "nl" ? "bijbelreis.html" : `bijbelreis/${taal}/index.html`);
+const dataVoor = (dist, taal) => (taal === "nl" ? dataBestanden(dist) : DATA.map((p) => p.replace(/^niveaus\//, `taal/${taal}/niveaus/`)));
+export function talen(dist) {
+  const map = join(dist, "bijbelreis");
+  return ["nl"].concat(existsSync(map) ? readdirSync(map).filter((t) => /^[a-z]{2}$/.test(t) && existsSync(join(map, t, "index.html"))) : []);
+}
 
 export function stempel(dist) {
-  for (const pagina of ["bijbelreis.html", "bijbelreis/boekje.html", "bijbelreis/lessen.html"]) {
+  const paginas = [["bijbelreis.html", "nl"], ["bijbelreis/boekje.html", "nl"], ["bijbelreis/lessen.html", "nl"]].concat(talen(dist).filter((t) => t !== "nl").map((t) => [taalPagina(t), t]));
+  for (const [pagina, taal] of paginas) {
     const file = join(dist, pagina);
     if (!existsSync(file)) continue;
     let html = readFileSync(file, "utf8").replace(/((?:src|href)=")(\/bijbelreis\/[^"?]+\.(?:js|css))(?:\?v=[0-9a-f]+)?"/g, (m, attr, url) => `${attr}${url}?v=${hash(lees(dist, url), 10)}"`);
-    const data = Object.fromEntries(dataBestanden(dist).map((p) => [p, hash(lees(dist, "bijbelreis/" + p), 10)]));
+    const data = Object.fromEntries(dataVoor(dist, taal).filter((p) => existsSync(join(dist, "bijbelreis", p))).map((p) => [p, hash(lees(dist, "bijbelreis/" + p), 10)]));
     const meta = `<meta name="bijbelreis-data" content='${JSON.stringify(data)}' />`;
     html = /<meta name="bijbelreis-data" [^>]*\/>/.test(html) ? html.replace(/<meta name="bijbelreis-data" [^>]*\/>/, meta) : html.replace("</head>", `    ${meta}\n  </head>`);
     writeFileSync(file, html);
@@ -47,8 +57,8 @@ function bestanden(dir) {
   });
 }
 
-export function maakPwa(dist) {
-  const htmlPad = join(dist, "bijbelreis.html");
+export function maakPwa(dist, taal = "nl") {
+  const htmlPad = join(dist, taalPagina(taal));
   const html = readFileSync(htmlPad, "utf8").replace(/\s*<meta name="bijbelreis-versie" [^>]*\/>/, "");
   const schil = new Map();
   // Alles met een inhoudshash in het adres in de pagina: scripts en stijlen.
@@ -76,9 +86,10 @@ export function maakPwa(dist) {
   const versie = hash(JSON.stringify({ html: hash(html, 64), lijst, beelden }), 12);
   writeFileSync(htmlPad, html.replace("</head>", `    <meta name="bijbelreis-versie" content="${versie}" />\n  </head>`));
 
-  const swPad = join(dist, "bijbelreis-sw.js");
-  const bouw = `/* BOUW:BEGIN — dit blok vult scripts/bijbelreis-pwa.mjs bij elke build in; niet met de hand bewerken. */\nconst BOUW = ${JSON.stringify({ versie, schil: lijst, beelden })};\n/* BOUW:EIND */`;
-  const sw = readFileSync(swPad, "utf8");
+  // De sjabloon is dist/bijbelreis-sw.js (ook als die al ingevuld is: het blok BOUW wordt vervangen).
+  const swPad = join(dist, taal === "nl" ? "bijbelreis-sw.js" : `bijbelreis-sw-${taal}.js`);
+  const bouw = `/* BOUW:BEGIN — dit blok vult scripts/bijbelreis-pwa.mjs bij elke build in; niet met de hand bewerken. */\nconst BOUW = ${JSON.stringify(taal === "nl" ? { versie, schil: lijst, beelden } : { taal, versie, schil: lijst, beelden })};\n/* BOUW:EIND */`;
+  const sw = readFileSync(join(dist, "bijbelreis-sw.js"), "utf8");
   if (!/\/\* BOUW:BEGIN[\s\S]*?BOUW:EIND \*\//.test(sw)) throw new Error("bijbelreis-pwa: blok BOUW ontbreekt in bijbelreis-sw.js");
   writeFileSync(swPad, sw.replace(/\/\* BOUW:BEGIN[\s\S]*?BOUW:EIND \*\//, () => bouw));
   const groot = lijst.reduce((n, [p]) => n + statSync(join(dist, p.split("?")[0])).size, 0);
@@ -88,6 +99,8 @@ export function maakPwa(dist) {
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const dist = process.argv[2] || "dist/client";
   stempel(dist);
-  const r = maakPwa(dist);
-  console.log(`bijbelreis-pwa: versie ${r.versie}, schil ${r.bestanden} bestanden (${r.kB} kB), ${r.beelden} afbeeldingen`);
+  for (const taal of talen(dist)) {
+    const r = maakPwa(dist, taal);
+    console.log(`bijbelreis-pwa${taal === "nl" ? "" : " (" + taal + ")"}: versie ${r.versie}, schil ${r.bestanden} bestanden (${r.kB} kB), ${r.beelden} afbeeldingen`);
+  }
 }

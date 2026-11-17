@@ -10,6 +10,12 @@
   var versie = document.querySelector('meta[name="bijbelreis-versie"]');
   var pad = location.pathname;
   var atlas = pad === "/" ? "/" : /^\/bijbelreis(\.html)?$/.test(pad) ? "/bijbelreis" : "";
+  // Een andere taal (docs/bijbelreis-talen/README.md): een eigen service worker met een eigen set, op het pad van die taal
+  // (/en/, lokaal /bijbelreis/en/). Zo mengt een taal nooit met een andere versie of taal, en blijft de Nederlandse app
+  // precies zoals hij was.
+  var taal = /^\/(?:bijbelreis\/)?([a-z]{2})\/(?:index\.html)?$/.exec(pad);
+  if (taal && taal[1] !== "nl") atlas = pad.replace(/index\.html$/, "");
+  var swNaam = taal && taal[1] !== "nl" ? "/bijbelreis-sw-" + taal[1] + ".js" : "/bijbelreis-sw.js";
   if (!versie || !atlas || !("serviceWorker" in navigator) || !window.isSecureContext) return;
   var sw = navigator.serviceWorker;
 
@@ -92,7 +98,7 @@
 
   function aanmelden() {
     try {
-      sw.register("/bijbelreis-sw.js?schil=" + encodeURIComponent(atlas), { scope: "/" }).then(volg).catch(function () { /* geen app-modus */ });
+      sw.register(swNaam + "?schil=" + encodeURIComponent(atlas), { scope: swNaam === "/bijbelreis-sw.js" ? "/" : atlas }).then(volg).catch(function () { /* geen app-modus */ });
     } catch (e) { /* geen app-modus */ }
     bewaarOpslag();
   }
