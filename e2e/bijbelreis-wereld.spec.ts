@@ -212,6 +212,61 @@ test.describe("De wereld in die tijd", () => {
     expect(f).toEqual([]);
   });
 
+  test("Mozes: geopend vanuit ‘Droog door de Schelfzee’, as in levensjaren, de reis loopt mee over de kaart", async ({ page }) => {
+    const f = fouten(page);
+    await page.goto("/bijbelreis?wereld=1#v26");
+    await page.locator(".wt-ingang").click();
+    await expect(page).toHaveURL(/#wereld\/mozes\/80$/);
+    await expect(page.locator("#wtJaar")).toHaveText("80");
+    await expect(page.locator(".wt-jaar")).toContainText("jaar in het leven van Mozes");
+    await expect(page.locator(".wt-jaar")).not.toContainText("v.Chr.");
+    await expect(page.locator(".wt-onderschrift")).toContainText("Droog door de Schelfzee");
+    if (!(await page.locator(".wt-kaartvlak").isVisible())) await page.getByRole("tab", { name: "Kaart" }).click();
+    await expect(page.locator(".wt-kaartvlak")).toBeVisible();
+    // Landstreken zonder grens; de route uit de reizen van de atlas; de reiziger staat bij de Schelfzee.
+    await expect.poll(() => getekend(page, "path.wt-gebied-egypte")).toBe(true);
+    await expect(page.locator("path.wt-gebied:not(.streek)")).toHaveCount(0);
+    await page.locator(".wt-legenda summary").click();
+    await expect(page.locator(".wt-legenda")).toContainText("Landstreken bij benadering, zonder grenzen");
+    await expect(page.locator(".wt-legenda")).toContainText("reconstructie");
+    await expect(page.locator(".wt-reiziger")).toHaveCount(1);
+    await expect(page.locator(".wt-alt").first()).toBeAttached();
+    const plek = () => page.locator(".wt-reiziger").evaluate((el) => (el as HTMLElement).style.transform);
+    const bijZee = await plek();
+    const getrokken = () => page.locator("path.wt-reis-lijn").evaluateAll((ps) => ps.filter((p) => { const d = p.getAttribute("d"); return !!d && d !== "M0 0"; }).length);
+    const voor = await getrokken();
+    // Snel afspelen: de reiziger loopt verder (naar Mara en Elim) en de afgelegde route groeit.
+    await page.locator('[data-snel="snel"]').click();
+    await page.locator(".wt-speel").click();
+    await expect.poll(async () => (await staat(page)).t, { timeout: 15_000 }).toBeGreaterThan(80.27);
+    await page.locator(".wt-speel").click();
+    expect(await plek()).not.toBe(bijZee);
+    expect(await getrokken()).toBeGreaterThan(voor);
+    // Een onzekere plaats: het kaartje noemt de andere mogelijke plekken.
+    await page.locator(".wt-legenda summary").click(); // legenda weer dicht
+    await page.locator('.wt-stad button[data-stad="sinai"]').evaluate((b) => (b as HTMLButtonElement).click());
+    await expect(page.locator(".wt-kaartje").filter({ hasText: "Berg Sinaï" })).toContainText("Andere mogelijke plekken");
+    await page.keyboard.press("Escape");
+    // Aäron: drie jaar ouder, 123 jaar oud.
+    await page.getByRole("tab", { name: "Levenslijnen" }).click();
+    await page.locator('.wt-naam[data-p="aaron"]').click();
+    const aaron = page.locator(".wt-kaartje").filter({ hasText: "Aäron" });
+    await expect(aaron).toContainText("3 jaar vóór de geboorte van Mozes");
+    await expect(aaron).toContainText("123 jaar oud");
+    await page.keyboard.press("Escape");
+    // Waarom geen jaartallen: beide dateringen, geen farao.
+    await page.locator("[data-wt-over]").click();
+    await expect(page.locator(".wt-over")).toContainText("1446");
+    await expect(page.locator(".wt-over")).toContainText("13e eeuw");
+    await page.keyboard.press("Escape");
+    // Terug in het verhaal.
+    await page.locator(".wt-terug").click();
+    await expect(laag(page)).toBeHidden();
+    await expect(page).toHaveURL(/#v26$/);
+    await expect(page.locator("#vTitel")).toHaveText("Droog door de Schelfzee");
+    expect(f).toEqual([]);
+  });
+
   test("kaartengine met testdata: de grens verandert tussen twee jaren, een gebied verschijnt", async ({ page }) => {
     await page.route("**/bijbelreis/wereld/perioden/test-kaart.json*", (r) => r.fulfill({ status: 200, contentType: "application/json", body: FIXTURE }));
     await openLaag(page, "wereld/test-kaart/600");
@@ -252,7 +307,7 @@ test.describe("De wereld in die tijd", () => {
     const maten = isMobile ? [[390, 664], [375, 553], [360, 640], [430, 739]] : [[page.viewportSize()!.width, page.viewportSize()!.height]];
     for (const [w, h] of maten) {
       await page.setViewportSize({ width: w, height: h });
-      for (const p of ["adam-noach/987", "daniel-babylon/560"]) {
+      for (const p of ["adam-noach/987", "daniel-babylon/560", "mozes/80"]) {
         await openLaag(page, "wereld/" + p);
         const m = await page.evaluate(() => ({ dicht: getComputedStyle(document.documentElement).overflowX === "hidden" ? 0 : document.documentElement.scrollWidth, laag: document.getElementById("wtLaag")!.scrollWidth, w: window.innerWidth, h: window.innerHeight, speel: document.querySelector(".wt-speel")!.getBoundingClientRect().bottom, schuif: document.querySelector("#wtSchuif")!.getBoundingClientRect().width }));
         // Zolang de laag open is, staat de pagina eronder vast (overflow hidden); de laag zelf schuift niet opzij.
@@ -277,6 +332,11 @@ test.describe("De wereld in die tijd", () => {
     await expect(page.locator(".wt-kaartje")).toBeVisible();
     expect(await axe()).toEqual([]);
     await openLaag(page, "wereld/daniel-babylon/586");
+    expect(await axe()).toEqual([]);
+    await openLaag(page, "wereld/mozes/100");
+    expect(await axe()).toEqual([]);
+    if (!(await page.locator(".wt-kaartvlak").isVisible())) await page.getByRole("tab", { name: "Kaart" }).click();
+    await expect(page.locator(".wt-reiziger")).toHaveCount(1);
     expect(await axe()).toEqual([]);
     // Tekstueel alternatief voor de visualisatie.
     await expect(page.locator("#wtLaag table caption")).toContainText("Levenslijnen");

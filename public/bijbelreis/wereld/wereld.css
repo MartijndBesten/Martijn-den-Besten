@@ -156,16 +156,52 @@
 @media (max-width: 700px) { .wt-os-tekst { display: none; } }
 
 /* ----- kaart ----- */
-.wt-p-kaart { position: relative; }
+.wt-p-kaart { position: relative; isolation: isolate; }
 .wt-kaartvlak { position: absolute; inset: 0; border-radius: var(--r-groot); overflow: hidden; border: 1px solid var(--lijn); background: var(--zee); box-shadow: var(--schaduw); }
 .wt-kaartvlak .alleen-nu { display: none; }
 .wt-kaartfout { position: absolute; left: 12px; bottom: 12px; z-index: 800; margin: 0; padding: 6px 10px; background: var(--wit); border-radius: 8px; font-size: 0.85rem; }
 .wt-gebied { fill: var(--gv, var(--terra)); fill-opacity: 0.2; stroke: var(--gk, var(--terra-diep)); stroke-width: 2.2; stroke-linejoin: round; }
 .wt-gebied.benaderd { stroke-dasharray: 7 5; stroke-opacity: 0.85; fill-opacity: 0.16; }
+/* Landstreek (bijv. Egypte bij Mozes): een zacht vlak zonder grenslijn, met de naam als streeknaam. */
+.wt-gebied.streek, .wt-gebied.streek.benaderd { stroke: none; fill-opacity: 0.17; }
+/* De reis: de hele route zacht, het afgelegde stuk in kleur; gestippeld = reconstructie (zoals in de atlas). */
+.wt-reis-basis { fill: none; stroke: var(--terra-diep); stroke-opacity: 0.3; stroke-width: 2; stroke-dasharray: 1 6; stroke-linecap: round; stroke-linejoin: round; }
+.wt-reis-lijn { fill: none; stroke: var(--terra-diep); stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+.wt-reis-lijn.recon { stroke-dasharray: 8 6; }
+.wt-reis-lijn.alleen { stroke: var(--nacht); stroke-width: 2.2; }
+.wt-reis-lijn.alleen.recon { stroke-dasharray: 5 5; }
+.wt-reis-basis.alleen { stroke: var(--nacht); }
+.wt-reiziger { pointer-events: none; }
+.wt-rz { position: absolute; left: -12px; top: -31px; width: 24px; height: 32px; display: block; filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.35)); transition: opacity 0.4s; }
+.wt-rz svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.wt-rz.west svg { transform: scaleX(-1); }
+.wt-rz-hoofd, .wt-rz-lijf { fill: var(--terra-diep); stroke: var(--wit); stroke-width: 1.6; stroke-linejoin: round; paint-order: stroke; }
+.wt-rz-staf { stroke: var(--zand-diep); stroke-width: 2.2; stroke-linecap: round; }
+.wt-rz.loopt svg { animation: wt-loop 0.42s ease-in-out infinite alternate; }
+@keyframes wt-loop { from { transform: translateY(0) rotate(-3deg); } to { transform: translateY(-1.5px) rotate(3deg); } }
+.wt-rz.west.loopt svg { animation-name: wt-loop-west; }
+@keyframes wt-loop-west { from { transform: scaleX(-1) translateY(0) rotate(-3deg); } to { transform: scaleX(-1) translateY(-1.5px) rotate(3deg); } }
+/* 38 jaar ‘ergens in de woestijn’: de reiziger staat er vaag, met een gestippelde ring: de plek is niet bekend. */
+.wt-rz.zwerft { opacity: 0.5; }
+.wt-rz.zwerft::after { content: ""; position: absolute; left: 50%; top: 100%; width: 54px; height: 54px; margin: -27px; border-radius: 50%; border: 2px dashed var(--terra-diep); opacity: 0.8; }
+/* Hoe zeker is een legerplaats? Open rondje = onbekend; kleine ring = een andere mogelijke plek. */
+.wt-stad.zeker-o > i { background: var(--wit); box-shadow: 0 0 0 2px var(--inkt); width: 8px; height: 8px; left: -4px; top: -4px; }
+.wt-alt i { position: absolute; left: -4px; top: -4px; width: 8px; height: 8px; border-radius: 50%; border: 1.6px solid var(--inkt-2); background: color-mix(in srgb, var(--wit) 70%, transparent); opacity: 0.75; }
+.wt-legenda li i.streek { border: 0; background: color-mix(in srgb, var(--gv) 30%, transparent); }
+.wt-leg-reis { width: 18px; height: 0; border-top: 3px solid var(--terra-diep); }
+.wt-leg-reis.recon { border-top-style: dashed; }
+.wt-leg-reis.alleen { border-top-width: 2px; border-top-color: var(--nacht); }
+.wt-leg-open { width: 8px; height: 8px; border-radius: 50%; background: var(--wit); box-shadow: 0 0 0 2px var(--inkt); margin: 0 5px; }
+.wt-leg-alt { width: 8px; height: 8px; border-radius: 50%; border: 1.6px solid var(--inkt-2); margin: 0 5px; }
 .wt-gebiedlabel span { display: inline-block; transform: translate(-50%, -50%); font-family: var(--font-serif); font-style: italic; font-size: 16px; line-height: 1.1; color: var(--gk, var(--terra-diep)); white-space: nowrap; letter-spacing: 0.01em; text-shadow: 0 0 2px var(--land), 0 0 6px var(--land), 0 0 10px var(--land); pointer-events: none; }
 .wt-stad > i { position: absolute; left: -4.5px; top: -4.5px; width: 9px; height: 9px; border-radius: 50%; background: var(--inkt); box-shadow: 0 0 0 2px var(--wit); }
 .wt-stad button { position: absolute; left: -8px; top: -16px; display: flex; align-items: center; min-width: 26px; min-height: 32px; padding: 0 6px 0 16px; border: 0; background: none; cursor: pointer; white-space: nowrap; }
 .wt-stad.links button { left: auto; right: -8px; padding: 0 16px 0 6px; justify-content: flex-end; }
+.wt-halte { position: absolute; left: -8px; top: -10px; display: flex; align-items: center; height: 20px; padding: 0 4px 0 15px; white-space: nowrap; pointer-events: none; }
+.wt-stad.links .wt-halte { left: auto; right: -8px; padding: 0 15px 0 4px; }
+.wt-stad.stil .wt-halte span { display: none; }
+.wt-stad .wt-halte span { font-size: 11.5px; font-weight: 560; color: var(--inkt-2); }
+.wt-ver .wt-stad:not(.belangrijk) .wt-halte { display: none; }
 .wt-stad.kort .wt-stad-alt { display: none; }
 .wt-stad.stil button span { display: none; }
 .wt-stad .wt-stad-alt { font-size: inherit; font-weight: 500; }
