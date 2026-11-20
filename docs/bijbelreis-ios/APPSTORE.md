@@ -142,7 +142,7 @@ controleert dat ‘voor kinderen’ er niet in staat.
 
 Is de naam bezet: `Bijbelreis – Bijbelatlas` (24) of `Bijbelreis: op reis` (19).
 
-**Beschrijving** (1986 van 4.000 tekens):
+**Beschrijving** (2029 van 4.000 tekens):
 
 ```
 De Bijbelreis is een Bijbelatlas voor jong en oud. Lees 150 geschiedenissen van de schepping tot Openbaring, reis mee met Abraham, Mozes, David, de Heere Jezus en Paulus, en zie op de kaart waar het gebeurde.
@@ -157,7 +157,7 @@ WAT ER IN STAAT
 • Reizen stap voor stap op de kaart, met eigen tekeningen bij bekende geschiedenissen
 • Wie is wie: personen en families, zoals de familie van Abraham
 • Tijdlijn: wanneer het gebeurde, en hoe we dat weten
-• De wereld in die tijd: wie tegelijk leefden en wat er rondom gebeurde, met een kaart die met de tijd meebeweegt (van Adam tot Noach, en Daniël en Babylon)
+• De wereld in die tijd: wie tegelijk leefden en wat er rondom gebeurde, met een kaart die met de tijd meebeweegt (zeven tijdvakken, van Adam tot Noach tot de tijd van Herodes en de keizers van Rome)
 • Speurtocht: vragen over wat je las, met het antwoord en de Bijbelplaats erbij
 • Paspoort: verzamel stempels op je reis
 • De kaart van toen en van nu: het land in de tijd van de Bijbel, en hoe het er vandaag uitziet

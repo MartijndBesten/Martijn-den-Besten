@@ -121,6 +121,14 @@ try {
     if (SHOTS) await page.screenshot({ path: join(SHOTS, "1-start.png") });
   });
 
+  await stap("eerste start: het welkomstscherm (voorscherm) ligt over de atlas en ‘Naar de atlas’ sluit het", async () => {
+    await page.waitForSelector("#voorscherm", { state: "visible", timeout: 5000 });
+    verwacht(await page.evaluate(() => /Begin de reis/.test(document.querySelector("#voorscherm .vs-hoofd").textContent)), "geen ‘Begin de reis’ op het voorscherm");
+    await page.click("#voorscherm [data-vs-sluit]");
+    await page.waitForSelector("#voorscherm", { state: "hidden" });
+    verwacht(await page.evaluate(() => !document.querySelector(".kop").inert), "de atlas blijft onbereikbaar na sluiten");
+  });
+
   await stap("geen service worker en geen manifest in de app", async () => {
     await page.waitForTimeout(500);
     verwacht(await page.evaluate(async () => (await navigator.serviceWorker.getRegistrations()).length === 0), "er is een service worker aangemeld");
