@@ -1,6 +1,9 @@
 import { expect, test, type Page } from "@playwright/test";
 // @ts-expect-error -- gewoon JavaScript-bestand zonder typen
 import { nederlandseWoorden } from "../scripts/bijbelreis-talen-woorden.mjs";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // De Engelse proef van de Bijbelreis (docs/bijbelreis-talen/README.md): de atlas op /en/ (lokaal /bijbelreis/en/).
 // Lokaal: npm run build && npx vite preview --port 8995 --strictPort, dan

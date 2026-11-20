@@ -1,4 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Bezoekmeting van de Bijbelreis (public/bijbelreis/bezoek.js, worker/bezoek.ts; docs/bijbelreis-bezoek/README.md).
 // Een geautomatiseerde browser wordt niet geteld (navigator.webdriver): daarom doet deze test alsof hij een gewone

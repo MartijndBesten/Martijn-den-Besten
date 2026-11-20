@@ -1788,3 +1788,59 @@ details.meerinfo p { margin: 6px 0 0; }
 @media (max-width: 900px) {
   .verhaal.samen .a-nav { position: sticky; z-index: 5; bottom: calc(var(--onderbalk-h) + env(safe-area-inset-bottom, 0px) + 8px); padding: 8px; margin: 0 -8px; border-radius: calc(var(--r) + 8px); background: color-mix(in srgb, var(--card) 88%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 }
+
+/* ---------- Voorscherm: welkom bij het openen (17-11-2026) ----------
+   Ligt over de hele atlas tot iemand kiest. Papier met het reliëf van de Bijbelwereld (dezelfde ondergrond als de kaart),
+   één grote knop, ‘Kies een geschiedenis’ en de zes onderdelen in hun eigen kleur. */
+.voorscherm { position: fixed; inset: 0; z-index: 3000; overflow-y: auto; overscroll-behavior: contain; background: var(--papier); color: var(--inkt); display: flex; }
+.voorscherm[hidden] { display: none; }
+.voorscherm::before { content: ""; position: fixed; inset: 0; pointer-events: none; background: url("relief-regio.webp") 62% 40% / cover no-repeat; opacity: 0.6; }
+.voorscherm::after { content: ""; position: fixed; inset: 0; pointer-events: none; background: radial-gradient(120% 90% at 18% 22%, color-mix(in srgb, var(--papier) 92%, transparent) 0 38%, color-mix(in srgb, var(--papier) 40%, transparent) 100%); }
+body.vs-open { overflow: hidden; }
+.vs-in:focus { outline: none; }
+.vs-in { position: relative; z-index: 1; width: 100%; max-width: 1040px; margin: auto; padding: max(20px, env(safe-area-inset-top)) clamp(18px, 4vw, 48px) max(28px, env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: clamp(24px, 4.5vh, 44px); }
+.vs-boven { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.vs-merk { display: inline-flex; align-items: center; gap: 10px; font-weight: 650; letter-spacing: 0.01em; color: var(--nacht); }
+.vs-merk .kop-kameel { display: block; width: 40px; height: 34px; }
+.vs-sluit { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1px solid var(--lijn-sterk); border-radius: 999px; background: color-mix(in srgb, var(--wit) 80%, transparent); color: var(--nacht); font: inherit; font-weight: 600; cursor: pointer; }
+.vs-sluit:hover { background: var(--wit); }
+.vs-held { max-width: 40rem; }
+.vs-titel { margin: 0 0 14px; font-size: clamp(2.5rem, 6.4vw, 4.6rem); line-height: 1; letter-spacing: -0.02em; color: var(--nacht); font-weight: 700; }
+.vs-titel em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: 0; color: var(--terra-diep); font-size: 1.12em; }
+.vs-zin { margin: 0 0 6px; font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.45; color: var(--inkt); }
+.vs-sub { margin: 0; color: var(--inkt-2); }
+.vs-knoppen { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; margin-top: 26px; }
+.vs-hoofd { display: inline-flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 64px; padding: 10px 22px; border-radius: 14px; font-size: 1.05rem; text-align: left; max-width: 100%; }
+.vs-wat { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.vs-wat b { font-weight: 650; overflow-wrap: anywhere; }
+.vs-wat small { font-size: 0.85rem; font-weight: 500; opacity: 0.85; }
+.vs-tweede { min-height: 64px; padding: 10px 22px; border-radius: 14px; background: color-mix(in srgb, var(--wit) 85%, transparent); }
+.vs-seizoen { border-color: var(--kerst-licht-diep); color: var(--kerst-licht-diep); }
+.vs-delen .label { margin: 0 0 10px; color: var(--inkt-3); }
+.vs-delen ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.vs-deel { --sec: var(--terra); width: 100%; height: 100%; display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--lijn); border-left: 4px solid var(--sec); border-radius: var(--r); background: color-mix(in srgb, var(--wit) 92%, transparent); box-shadow: var(--schaduw); color: var(--inkt); font: inherit; text-align: left; cursor: pointer; transition: transform var(--t-micro) var(--ease-out), box-shadow var(--t-micro) var(--ease-out); }
+.vs-deel:hover { transform: translateY(-1px); box-shadow: var(--schaduw-kaart); }
+.vs-deel svg { flex: none; box-sizing: content-box; width: 24px; height: 24px; padding: 9px; border-radius: 10px; background: var(--sec-zacht); color: var(--sec-diep); }
+.vs-deel span { display: flex; flex-direction: column; min-width: 0; }
+.vs-deel b { font-weight: 650; }
+.vs-deel small { color: var(--inkt-3); font-size: 0.85rem; }
+#vs-verhalen { --sec: var(--terra); --sec-diep: var(--terra-diep); --sec-zacht: var(--terra-zacht); }
+#vs-reis { --sec: var(--water); --sec-diep: var(--water-diep); --sec-zacht: var(--water-zacht); }
+#vs-wie { --sec: var(--lila); --sec-diep: var(--lila-deep); --sec-zacht: var(--lila-soft); }
+#vs-tijd { --sec: var(--oker); --sec-diep: var(--oker-diep); --sec-zacht: var(--oker-zacht); }
+#vs-quiz { --sec: var(--salie); --sec-diep: var(--salie-diep); --sec-zacht: var(--salie-zacht); }
+#vs-pas { --sec: var(--koraal); --sec-diep: var(--koraal-deep); --sec-zacht: var(--koraal-soft); }
+.vs-voet { margin: 0; }
+.vs-voet a { color: var(--inkt-2); text-decoration-color: var(--lijn-sterk); text-underline-offset: 3px; }
+.vs-voet a b { color: var(--nacht); }
+@media (max-width: 760px) {
+  .vs-delen ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .vs-deel { padding: 12px; gap: 10px; }
+  .vs-deel svg { width: 20px; height: 20px; padding: 7px; }
+  .vs-knoppen { flex-direction: column; }
+  .vs-hoofd, .vs-tweede { width: 100%; }
+  .vs-tweede { min-height: 52px; }
+  .vs-sluit { padding: 0 12px; }
+}
+@media (max-width: 360px) { .vs-deel small { display: none; } }
+@media (prefers-reduced-motion: reduce) { .vs-deel { transition: none; } .vs-deel:hover { transform: none; } }

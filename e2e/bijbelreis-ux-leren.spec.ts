@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Speurtocht, paspoort en personen (17-11-2026, docs/bijbelreis-audit/telefoon.md §4.11): de onderdelen moeten helpen de
 // geschiedenis te begrijpen en te onthouden, niet alleen punten verzamelen.

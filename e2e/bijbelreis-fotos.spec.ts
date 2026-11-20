@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Foto’s van de plaatsen zoals ze er nu uitzien (fotos.js, public/bijbelreis/fotos/). Regels en bronnen:
 // docs/bijbelreis-fotos/README.md. Draaien tegen een server die public/ serveert:

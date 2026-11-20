@@ -1,4 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Privacy en Hulp (public/bijbelreis/privacy.html en hulp.html): op bijbelreis.nl /privacy en /hulp (de route zelf test
 // tests/bijbelreis-info.test.ts), lokaal en op de hoofdsite /bijbelreis/privacy en /bijbelreis/hulp. App Store Connect

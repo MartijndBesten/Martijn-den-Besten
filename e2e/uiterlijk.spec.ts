@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 test("uiterlijk kiezen en onthouden", async ({ page, isMobile }) => {
   await page.goto("/");

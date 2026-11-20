@@ -1,4 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // De telefoonopzet van de Bijbelreis (tot 900 px; docs/bijbelreis-audit/telefoon.md §4, ‘Kaart voorop’): in het onderdeel
 // Reis is de kaart het scherm, met één stapblad eroverheen. Kort: waar je bent, de titel, hooguit twee regels tekst, ◀ en

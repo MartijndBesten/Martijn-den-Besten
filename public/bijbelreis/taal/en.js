@@ -238,6 +238,7 @@ BR.taalBoek.en = {
     "Voor wie?": "For whom?", "Of kies hieronder zelf een verhaal.": "Or choose a history yourself below.", "Begin de reis": "Begin the journey", "Of begin bij": "Or begin at",
     "Verder met:": "Continue with:", "Nieuw: Bijbelreis heeft nu reisniveaus. Je kijkt met": "New: the Bible Journey now has levels. You are viewing", "Wijzigen": "Change",
     "Link gekopieerd": "Link copied", "Kopieer deze link": "Copy this link", "Bijbelreis": "Bible Journey", "Op reis door de Bijbel": "Journey through the Bible",
+    "Naar de atlas": "To the atlas", "Kies een geschiedenis": "Choose a history", "Of ga naar": "Or go to", "Thema: Advent en Kerst": "Theme: Advent and Christmas",
     "De verhalen voor dit niveau konden niet worden geladen. Controleer de verbinding.": "The histories for this level could not be loaded. Check the connection.",
     // ---------- app (pwa.js) ----------
     "Er is een nieuwe versie van de Bijbelreis.": "There is a new version of the Bible Journey.", "Vernieuwen": "Refresh", "Melding sluiten": "Close message",

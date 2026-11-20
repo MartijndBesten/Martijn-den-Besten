@@ -1,4 +1,7 @@
 import { expect, test } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/control-center");

@@ -1,4 +1,7 @@
 import { expect, test } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 const PAGES = [
   ["/", /Martijn/],
