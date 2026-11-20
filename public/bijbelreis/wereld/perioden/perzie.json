@@ -1,0 +1,1100 @@
+{
+ "id": "perzie",
+ "titel": "Perzië: Esther, Ezra en Nehemia",
+ "ondertitel": "Van Darius I tot Nehemia, 522–430 v.Chr.",
+ "as": {
+  "soort": "vchr",
+  "van": 522,
+  "tot": 430,
+  "stap": 1,
+  "label": "jaar voor Christus"
+ },
+ "start": 515,
+ "kader": [[24.5,21.0],[43.5,54.5]],
+ "bronnen": [
+  {
+   "id": "sv",
+   "kort": "Statenvertaling",
+   "soort": "bijbel",
+   "titel": "Statenvertaling: Ezra, Nehemia, Esther, Haggaï, Zacharia",
+   "url": null,
+   "licentie": "Statenvertaling (1637), publiek domein; gecontroleerd met data/statenvertaling en scripts/bijbel-check.py",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "behistun",
+   "kort": "Behistun",
+   "soort": "historisch",
+   "titel": "Inscriptie van Behistun (Darius I), vertaling en toelichting",
+   "url": "https://www.livius.org/sources/content/behistun-persian-text/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "behistun-lijst",
+   "kort": "Behistun",
+   "soort": "historisch",
+   "titel": "Inscriptie van Behistun §6: de 23 landen van Darius I",
+   "url": "https://www.livius.org/articles/person/darius-the-great/sources/four-achaemenid-empire-lists/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "livius-koningen",
+   "kort": "Livius.org",
+   "soort": "historisch",
+   "titel": "Livius.org: Achaemenid Kings (lijst met data): Darius I 29 sept. 522 – na 17 nov. 486; Xerxes I vóór 1 dec. 486 – aug. 465; Artaxerxes I aug. 465 – na 24 dec. 424",
+   "url": "https://www.livius.org/articles/dynasty/achaemenids/achaemenid-kings/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "livius-darius",
+   "kort": "Livius.org",
+   "soort": "historisch",
+   "titel": "Livius.org: Darius I the Great",
+   "url": "https://www.livius.org/articles/person/darius-the-great/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "livius-marathon",
+   "kort": "Livius.org",
+   "soort": "historisch",
+   "titel": "Livius.org: Marathon (490 BCE)",
+   "url": "https://www.livius.org/articles/battle/marathon-490-bce/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "livius-salamis",
+   "kort": "Livius.org",
+   "soort": "historisch",
+   "titel": "Livius.org: Salamis (480 BCE)",
+   "url": "https://www.livius.org/articles/battle/salamis-480-bce/",
+   "licentie": "© Livius.org (alle rechten voorbehouden); alleen geraadpleegd en kort samengevat, niets overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "herodotus",
+   "kort": "Herodotus",
+   "soort": "historisch",
+   "titel": "Herodotus, Historiën IV–IX (vert. G.C. Macaulay, 1890): o.a. 4.143–144 (Thracië), 6.102–117 (Marathon), 8.83–96 (Salamis)",
+   "url": "https://en.wikisource.org/wiki/The_History_of_Herodotus_(Macaulay)",
+   "licentie": "Publiek domein (Wikisource)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-ahasveros",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Ahasuerus (identificatie met Xerxes I; oudere tradities: Artaxerxes)",
+   "url": "https://en.wikipedia.org/wiki/Ahasuerus",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-ezra",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Ezra (zevende jaar van Artaxerxes I, ca. 458/457 v.Chr.; sommigen 398/397 onder Artaxerxes II)",
+   "url": "https://en.wikipedia.org/wiki/Ezra",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-nehemia",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Nehemiah (twintigste jaar van Artaxerxes I, 445 of 444 v.Chr.)",
+   "url": "https://en.wikipedia.org/wiki/Nehemiah",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-persepolis",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Persepolis (gebouwd vanaf ca. 518–515 v.Chr. onder Darius I; Xerxes en Artaxerxes I bouwden verder)",
+   "url": "https://en.wikipedia.org/wiki/Persepolis",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-skudra",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Skudra (Perzisch Thracië, 513 tot ca. 479–465 v.Chr.)",
+   "url": "https://en.wikipedia.org/wiki/Skudra",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-persepolis",
+   "kort": "Pleiades",
+   "soort": "dataset",
+   "titel": "Pleiades 922695: Persepolis",
+   "url": "https://pleiades.stoa.org/places/922695",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-behistun",
+   "kort": "Pleiades",
+   "soort": "dataset",
+   "titel": "Pleiades 903002: Bisutun/Bagistana (Behistun)",
+   "url": "https://pleiades.stoa.org/places/903002",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-marathon",
+   "kort": "Pleiades",
+   "soort": "dataset",
+   "titel": "Pleiades 580021: Marathon",
+   "url": "https://pleiades.stoa.org/places/580021",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-salamis",
+   "kort": "Pleiades",
+   "soort": "dataset",
+   "titel": "Pleiades 580101: Salamis (eiland)",
+   "url": "https://pleiades.stoa.org/places/580101",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "bijbelreis-plaatsen",
+   "kort": "Bijbelreis",
+   "soort": "dataset",
+   "titel": "Bijbelreis plaatsen.js (ligging gecontroleerd met OpenBible.info CC BY 4.0 en Pleiades CC BY)",
+   "url": null,
+   "licentie": "eigen gegevens Bijbelreis; zie docs/bijbelreis-audit/plaatsen.md",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "eigen-tekening",
+   "kort": "eigen tekening",
+   "soort": "dataset",
+   "titel": "Grenzen: eigen grove tekening langs kusten, rivieren, gebergten en woestijnranden (scripts/bijbelreis-wereld-perzie-rome.py)",
+   "url": null,
+   "licentie": "eigen werk; geen kaart overgenomen",
+   "geraadpleegd": "2026-11-17"
+  }
+ ],
+ "personen": [
+  {
+   "id": "darius-i",
+   "naam": "Darius I",
+   "alt": [
+    "Darius de Grote"
+   ],
+   "personenId": "darius_pers",
+   "lijn": "regering",
+   "van": {
+    "jaar": 522,
+    "status": "historisch",
+    "bron": [
+     "behistun",
+     "livius-koningen"
+    ],
+    "begin": "regering",
+    "opmerking": "Koning op 29 september 522 v.Chr., na de dood van Cambyses en de strijd tegen Gaumata (Behistun)."
+   },
+   "tot": {
+    "jaar": 486,
+    "status": "historisch",
+    "bron": [
+     "livius-koningen",
+     "livius-darius"
+    ],
+    "einde": "stierf",
+    "opmerking": "Hij stierf eind 486 v.Chr."
+   },
+   "ouder": null,
+   "rol": "Koning van Perzië; in zijn zesde jaar was de tempel in Jeruzalem klaar",
+   "ref": [
+    "Ezra 4:24",
+    "Ezra 6:15",
+    "Haggaï 1:1",
+    "Zacharia 1:1"
+   ],
+   "gebeurtenissen": [
+    "darius-koning",
+    "profeten",
+    "tempel-klaar",
+    "marathon"
+   ],
+   "verhaal": "v76",
+   "opmerking": "Dat de Darius van Ezra, Haggaï en Zacharia Darius I is, wordt algemeen aangenomen."
+  },
+  {
+   "id": "xerxes",
+   "naam": "Ahasveros",
+   "alt": [
+    "Xerxes I"
+   ],
+   "personenId": "ahasveros",
+   "lijn": "regering",
+   "van": {
+    "jaar": 486,
+    "status": "historisch",
+    "bron": [
+     "livius-koningen",
+     "wiki-ahasveros"
+    ],
+    "begin": "regering"
+   },
+   "tot": {
+    "jaar": 465,
+    "status": "historisch",
+    "bron": "livius-koningen",
+    "einde": "stierf",
+    "opmerking": "In augustus 465 v.Chr. vermoord."
+   },
+   "ouder": "darius-i",
+   "rol": "Koning van Perzië (Xerxes I); maakte Esther koningin",
+   "ref": [
+    "Esther 1:1–3",
+    "Esther 2:16–17",
+    "Ezra 4:6"
+   ],
+   "gebeurtenissen": [
+    "salamis",
+    "esther-koningin",
+    "purim"
+   ],
+   "verhaal": "v77",
+   "opmerking": "De meeste onderzoekers stellen de Ahasveros van Esther gelijk aan Xerxes I: de Hebreeuwse naam komt van de Perzische naam Xšayāršā. Oudere tradities (de Griekse vertaling, Josephus) noemen hem Artaxerxes. Daarom zijn de jaartallen van Esther bij benadering."
+  },
+  {
+   "id": "artaxerxes",
+   "naam": "Arthahsasta",
+   "alt": [
+    "Artaxerxes I"
+   ],
+   "personenId": "arthahsasta",
+   "lijn": "regering",
+   "van": {
+    "jaar": 465,
+    "status": "historisch",
+    "bron": "livius-koningen",
+    "begin": "regering"
+   },
+   "tot": {
+    "jaar": 424,
+    "status": "historisch",
+    "bron": "livius-koningen",
+    "einde": "stierf",
+    "opmerking": "Hij regeerde tot 424 v.Chr., na het einde van deze tijdlijn."
+   },
+   "ouder": "xerxes",
+   "rol": "Koning van Perzië (Artaxerxes I); stuurde Ezra en Nehemia naar Jeruzalem",
+   "ref": [
+    "Ezra 7:1–26",
+    "Nehemia 2:1–8",
+    "Nehemia 13:6"
+   ],
+   "gebeurtenissen": [
+    "ezra-reis",
+    "nehemia-verlof"
+   ],
+   "verhaal": null,
+   "opmerking": "De meeste uitleggers houden de Arthahsasta van Ezra 7 en Nehemia voor Artaxerxes I. Sommigen dateren Ezra later, onder Artaxerxes II (398 v.Chr.)."
+  },
+  {
+   "id": "zerubbabel",
+   "naam": "Zerubbabel",
+   "alt": [],
+   "personenId": "zerubbabel",
+   "lijn": "in Juda",
+   "van": {
+    "jaar": 538,
+    "status": "benaderd",
+    "bron": [
+     "Ezra 2:2",
+     "Ezra 3:8"
+    ],
+    "begin": "genoemd",
+    "opmerking": "Hij ging met de eerste groep terug (Ezra 2:2), ongeveer 538 v.Chr., vóór het begin van deze tijdlijn."
+   },
+   "tot": {
+    "jaar": 519,
+    "status": "benaderd",
+    "bron": [
+     "Zacharia 1:7",
+     "Zacharia 4:9"
+    ],
+    "einde": "onbekend",
+    "opmerking": "Voor het laatst genoemd in de gezichten van Zacharia, in het tweede jaar van Darius (ongeveer 519 v.Chr.). Hoe zijn leven eindigde, zegt de Bijbel niet."
+   },
+   "ouder": null,
+   "rol": "Vorst van Juda; leidde de terugkeer en de bouw van de tempel",
+   "ref": [
+    "Ezra 3:8",
+    "Ezra 5:2",
+    "Haggaï 1:1",
+    "Zacharia 4:9"
+   ],
+   "gebeurtenissen": [
+    "profeten"
+   ],
+   "verhaal": "v76"
+  },
+  {
+   "id": "jesua",
+   "naam": "Jesua",
+   "alt": [
+    "Josua"
+   ],
+   "personenId": "jesua",
+   "lijn": "in Juda",
+   "ambt": "hogepriester",
+   "van": {
+    "jaar": 538,
+    "status": "benaderd",
+    "bron": [
+     "Ezra 2:2",
+     "Ezra 3:2"
+    ],
+    "begin": "genoemd",
+    "opmerking": "Hij ging met de eerste groep terug, ongeveer 538 v.Chr."
+   },
+   "tot": {
+    "jaar": 519,
+    "status": "benaderd",
+    "bron": [
+     "Zacharia 3:1",
+     "Zacharia 6:11"
+    ],
+    "einde": "onbekend",
+    "opmerking": "Voor het laatst genoemd bij Zacharia (Zacharia 6:11), ongeveer 519 v.Chr. Haggaï en Zacharia noemen hem Josua."
+   },
+   "ouder": null,
+   "rol": "Hogepriester; bouwde met Zerubbabel het altaar en de tempel",
+   "ref": [
+    "Ezra 3:2",
+    "Haggaï 1:1",
+    "Zacharia 3:1"
+   ],
+   "gebeurtenissen": [
+    "profeten"
+   ],
+   "verhaal": "v76"
+  },
+  {
+   "id": "haggai",
+   "naam": "Haggaï",
+   "alt": [],
+   "personenId": "haggai",
+   "lijn": "profeet",
+   "van": {
+    "jaar": 520,
+    "status": "benaderd",
+    "bron": "Haggaï 1:1",
+    "begin": "roeping",
+    "opmerking": "In de zesde maand van het tweede jaar van Darius (Haggaï 1:1): als dat Darius I is, augustus 520 v.Chr."
+   },
+   "tot": {
+    "jaar": 520,
+    "status": "benaderd",
+    "bron": "Haggaï 2:21",
+    "einde": "onbekend",
+    "opmerking": "Al zijn woorden zijn gedateerd in hetzelfde jaar, het tweede jaar van Darius."
+   },
+   "ouder": null,
+   "rol": "Profeet; spoorde het volk aan de tempel af te bouwen",
+   "ref": [
+    "Haggaï 1:1",
+    "Ezra 5:1"
+   ],
+   "gebeurtenissen": [
+    "profeten"
+   ],
+   "verhaal": "v79"
+  },
+  {
+   "id": "zacharia",
+   "naam": "Zacharia",
+   "alt": [],
+   "personenId": "zacharia",
+   "lijn": "profeet",
+   "van": {
+    "jaar": 520,
+    "status": "benaderd",
+    "bron": "Zacharia 1:1",
+    "begin": "roeping",
+    "opmerking": "In de achtste maand van het tweede jaar van Darius (Zacharia 1:1), ongeveer 520 v.Chr."
+   },
+   "tot": {
+    "jaar": 518,
+    "status": "benaderd",
+    "bron": "Zacharia 7:1",
+    "einde": "onbekend",
+    "opmerking": "Het laatste jaartal in zijn boek is het vierde jaar van Darius (Zacharia 7:1), ongeveer 518 v.Chr."
+   },
+   "ouder": null,
+   "rol": "Profeet; spoorde samen met Haggaï het volk aan",
+   "ref": [
+    "Zacharia 1:1",
+    "Ezra 5:1"
+   ],
+   "gebeurtenissen": [
+    "profeten"
+   ],
+   "verhaal": "v79"
+  },
+  {
+   "id": "esther",
+   "naam": "Esther",
+   "alt": [
+    "Hadassa"
+   ],
+   "personenId": "esther",
+   "lijn": "regering",
+   "ambt": "koningin",
+   "van": {
+    "jaar": 479,
+    "status": "benaderd",
+    "bron": "Esther 2:16–17",
+    "begin": "regering",
+    "marge": [479,478],
+    "opmerking": "Koningin in de maand Tebeth van het zevende jaar van Ahasveros (Esther 2:16): als hij Xerxes I is, de winter van 479 op 478 v.Chr."
+   },
+   "tot": {
+    "jaar": 473,
+    "status": "benaderd",
+    "bron": "Esther 9:1",
+    "einde": "onbekend",
+    "opmerking": "Voor het laatst genoemd bij het eerste Purimfeest (Esther 9:29–32), ongeveer 473 v.Chr."
+   },
+   "ouder": null,
+   "rol": "Joodse koningin van Perzië; waagde haar leven voor haar volk",
+   "ref": [
+    "Esther 2",
+    "Esther 4–9"
+   ],
+   "gebeurtenissen": [
+    "esther-koningin",
+    "purim"
+   ],
+   "verhaal": "v78"
+  },
+  {
+   "id": "mordechai",
+   "naam": "Mordechai",
+   "alt": [],
+   "personenId": "mordechai",
+   "lijn": "in Susan",
+   "van": {
+    "jaar": 479,
+    "status": "benaderd",
+    "bron": "Esther 2:5–7",
+    "begin": "genoemd",
+    "opmerking": "Hij wordt genoemd als Esther naar het paleis wordt gehaald (Esther 2), kort vóór haar kroning."
+   },
+   "tot": {
+    "jaar": 473,
+    "status": "benaderd",
+    "bron": "Esther 10:3",
+    "einde": "onbekend",
+    "opmerking": "Hij werd ‘de tweede bij den koning Ahasveros’ (Esther 10:3); hoe lang nog, zegt de Bijbel niet."
+   },
+   "ouder": null,
+   "rol": "Neef en pleegvader van Esther; daarna de tweede man van het rijk",
+   "ref": [
+    "Esther 2:5–7",
+    "Esther 10:3"
+   ],
+   "gebeurtenissen": [
+    "purim"
+   ],
+   "verhaal": "v78"
+  },
+  {
+   "id": "ezra",
+   "naam": "Ezra",
+   "alt": [],
+   "personenId": "ezra",
+   "lijn": "in Juda",
+   "van": {
+    "jaar": 458,
+    "status": "benaderd",
+    "bron": [
+     "Ezra 7:7–9",
+     "wiki-ezra"
+    ],
+    "begin": "genoemd",
+    "marge": [458,457],
+    "opmerking": "Naar Jeruzalem in het zevende jaar van Arthahsasta (Ezra 7:7–8): 458 v.Chr. (of 457) als dat Artaxerxes I is."
+   },
+   "tot": {
+    "jaar": 445,
+    "status": "benaderd",
+    "bron": [
+     "Nehemia 8:1–2",
+     "Nehemia 12:36"
+    ],
+    "einde": "onbekend",
+    "opmerking": "Voor het laatst genoemd bij Nehemia: hij leest de wet voor en gaat voor bij de inwijding van de muur."
+   },
+   "ouder": null,
+   "rol": "Priester en schriftgeleerde; leerde het volk de wet van Mozes",
+   "ref": [
+    "Ezra 7–10",
+    "Nehemia 8"
+   ],
+   "gebeurtenissen": [
+    "ezra-reis"
+   ],
+   "verhaal": null
+  },
+  {
+   "id": "nehemia",
+   "naam": "Nehemia",
+   "alt": [],
+   "personenId": "nehemia",
+   "lijn": "regering",
+   "ambt": "landvoogd",
+   "van": {
+    "jaar": 445,
+    "status": "benaderd",
+    "bron": [
+     "Nehemia 2:1",
+     "Nehemia 5:14",
+     "wiki-nehemia"
+    ],
+    "begin": "regering",
+    "marge": [445,444],
+    "opmerking": "Landvoogd vanaf het twintigste jaar van Arthahsasta (Nehemia 5:14): 445 of 444 v.Chr. Daarvoor was hij schenker van de koning in Susan."
+   },
+   "tot": {
+    "jaar": 433,
+    "status": "berekend",
+    "bron": [
+     "Nehemia 5:14",
+     "Nehemia 13:6"
+    ],
+    "einde": "onbekend",
+    "opmerking": "Twaalf jaar landvoogd, tot het 32e jaar van de koning (Nehemia 5:14; 13:6), ongeveer 433 v.Chr. Daarna kwam hij nog eens naar Jeruzalem (Nehemia 13:7); wanneer hij stierf, zegt de Bijbel niet."
+   },
+   "ouder": null,
+   "rol": "Schenker van de koning; als landvoogd bouwde hij de muur van Jeruzalem",
+   "ref": [
+    "Nehemia 1–2",
+    "Nehemia 6:15",
+    "Nehemia 13:6"
+   ],
+   "gebeurtenissen": [
+    "nehemia-verlof",
+    "muur-klaar"
+   ],
+   "verhaal": null
+  }
+ ],
+ "gebeurtenissen": [
+  {
+   "id": "darius-koning",
+   "titel": "Darius I wordt koning",
+   "tekst": "Na de dood van koning Cambyses wordt Darius koning van Perzië. Op een hoge rots bij Behistun laat hij later in drie talen opschrijven hoe hij koning werd en over welke landen hij regeerde.",
+   "jaar": 522,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "behistun",
+    "behistun-lijst",
+    "pleiades-behistun"
+   ],
+   "personen": [
+    "darius-i"
+   ],
+   "plaats": [34.39,47.43],
+   "verhaal": null,
+   "belangrijk": false,
+   "opmerking": "De inscriptie van Behistun noemt 23 landen, van Egypte en Lydië tot aan de grens van India. Ligging van Behistun: Pleiades."
+  },
+  {
+   "id": "profeten",
+   "titel": "Haggaï en Zacharia: bouw verder!",
+   "tekst": "In het tweede jaar van koning Darius spreken de profeten Haggaï en Zacharia tot het volk. Zerubbabel en Jesua gaan weer aan het werk aan het huis van God.",
+   "jaar": 520,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Ezra 4:24",
+    "Ezra 5:1–2",
+    "Haggaï 1:1",
+    "Zacharia 1:1"
+   ],
+   "personen": [
+    "haggai",
+    "zacharia",
+    "zerubbabel",
+    "jesua",
+    "darius-i"
+   ],
+   "plaats": "salem",
+   "verhaal": "v79",
+   "belangrijk": false,
+   "stap": "ezra:terugkeer:5",
+   "opmerking": "Het tweede jaar van Darius is 520 v.Chr., als het Darius I is, zoals algemeen wordt aangenomen."
+  },
+  {
+   "id": "tempel-klaar",
+   "titel": "De tempel is klaar",
+   "tekst": "In het zesde jaar van koning Darius is het huis van God in Jeruzalem herbouwd. Het volk viert de inwijding met vreugde.",
+   "jaar": 515,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Ezra 6:15–16"
+   ],
+   "personen": [
+    "darius-i"
+   ],
+   "plaats": "salem",
+   "verhaal": "v76",
+   "belangrijk": true,
+   "stap": "ezra:terugkeer:6",
+   "marge": [516,515],
+   "opmerking": "‘Op den derden dag der maand Adar’ in het zesde jaar van Darius (Ezra 6:15). Als dat Darius I is, is het voorjaar 515 v.Chr.; sommigen rekenen 516. Ook het laatste jaar van de tijdlijn “Daniël en Babylon”."
+  },
+  {
+   "id": "marathon",
+   "titel": "Slag bij Marathon",
+   "tekst": "Ver van Jeruzalem stuurt Darius een leger naar Griekenland. Bij Marathon, niet ver van Athene, verslaan de Atheners de Perzen.",
+   "jaar": 490,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "livius-marathon",
+    "herodotus",
+    "pleiades-marathon"
+   ],
+   "personen": [
+    "darius-i"
+   ],
+   "plaats": [38.15,23.97],
+   "verhaal": null,
+   "belangrijk": false,
+   "opmerking": "Wat er tegelijk in de wijdere wereld gebeurde. Herodotus beschrijft de slag; augustus of september 490 v.Chr. Ligging: Pleiades."
+  },
+  {
+   "id": "salamis",
+   "titel": "Zeeslag bij Salamis",
+   "tekst": "Koning Xerxes trekt met een groot leger en een vloot naar Griekenland. Bij het eiland Salamis verslaan de Griekse schepen de Perzische vloot, terwijl Xerxes vanaf een heuvel toekijkt.",
+   "jaar": 480,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "livius-salamis",
+    "herodotus",
+    "pleiades-salamis"
+   ],
+   "personen": [
+    "xerxes"
+   ],
+   "plaats": [37.94,23.48],
+   "verhaal": null,
+   "belangrijk": true,
+   "opmerking": "Eind september 480 v.Chr. Als Ahasveros Xerxes is, gebeurde dit vlak vóór het zevende jaar van Ahasveros, waarin Esther koningin werd (Esther 2:16). Ligging: Pleiades."
+  },
+  {
+   "id": "esther-koningin",
+   "titel": "Esther wordt koningin",
+   "tekst": "Koning Ahasveros kiest Esther, een Joods meisje dat door haar neef Mordechai is opgevoed, en zet de koninklijke kroon op haar hoofd.",
+   "jaar": 479,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Esther 2:16–17"
+   ],
+   "personen": [
+    "esther",
+    "xerxes",
+    "mordechai"
+   ],
+   "plaats": "susan",
+   "verhaal": "v77",
+   "belangrijk": true,
+   "stap": "esther:esther:1",
+   "marge": [479,478],
+   "opmerking": "In de maand Tebeth van het zevende jaar van Ahasveros (Esther 2:16). Als hij Xerxes I is, de winter van 479 op 478 v.Chr. Wie Ahasveros anders identificeert, komt op andere jaartallen."
+  },
+  {
+   "id": "purim",
+   "titel": "Het volk wordt gered: Purim",
+   "tekst": "Haman wilde alle Joden laten doden op één dag. Door Esther en Mordechai wordt het volk gered, en sindsdien vieren de Joden het Purimfeest.",
+   "jaar": 473,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Esther 3:7",
+    "Esther 9:1",
+    "Esther 9:26–28"
+   ],
+   "personen": [
+    "esther",
+    "mordechai",
+    "xerxes"
+   ],
+   "plaats": "susan",
+   "verhaal": "v78",
+   "belangrijk": false,
+   "stap": "esther:esther:7",
+   "marge": [474,473],
+   "opmerking": "Het lot werd geworpen in het twaalfde jaar van Ahasveros (Esther 3:7); de dertiende van Adar van dat jaar valt, als hij Xerxes I is, in maart 473 v.Chr."
+  },
+  {
+   "id": "ezra-reis",
+   "titel": "Ezra reist naar Jeruzalem",
+   "tekst": "In het zevende jaar van koning Arthahsasta reist Ezra met een groep ballingen van Babel naar Jeruzalem. Na vier maanden komt hij aan, om het volk de wet van God te leren.",
+   "jaar": 458,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Ezra 7:7–9",
+    "wiki-ezra"
+   ],
+   "personen": [
+    "ezra",
+    "artaxerxes"
+   ],
+   "plaats": "salem",
+   "verhaal": null,
+   "belangrijk": true,
+   "stap": "ezra:nehemia:0",
+   "marge": [458,457],
+   "opmerking": "Ezra 7:7–8. Als Arthahsasta Artaxerxes I is (465–424), is het zevende jaar 458 v.Chr. (in een andere telling 457). Sommigen dateren Ezra later, onder Artaxerxes II (398 v.Chr.)."
+  },
+  {
+   "id": "nehemia-verlof",
+   "titel": "Nehemia mag naar Jeruzalem",
+   "tekst": "Nehemia is schenker van de koning in Susan. Hij hoort dat de muur van Jeruzalem in puin ligt, bidt tot God en krijgt van de koning verlof om de stad te gaan bouwen.",
+   "jaar": 445,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Nehemia 1:1",
+    "Nehemia 2:1–8",
+    "wiki-nehemia"
+   ],
+   "personen": [
+    "nehemia",
+    "artaxerxes"
+   ],
+   "plaats": "susan",
+   "verhaal": null,
+   "belangrijk": false,
+   "stap": "ezra:nehemia:2",
+   "marge": [445,444],
+   "opmerking": "In de maand Nisan van het twintigste jaar van Arthahsasta (Nehemia 2:1): 445 of 444 v.Chr., als dat Artaxerxes I is."
+  },
+  {
+   "id": "muur-klaar",
+   "titel": "De muur in 52 dagen klaar",
+   "tekst": "Iedereen bouwt mee, ondanks de spot en de dreiging van Sanballat en Tobia. Op de 25e van de maand Elul is de muur klaar, in 52 dagen.",
+   "jaar": 445,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Nehemia 4",
+    "Nehemia 6:15"
+   ],
+   "personen": [
+    "nehemia"
+   ],
+   "plaats": "salem",
+   "verhaal": null,
+   "belangrijk": true,
+   "stap": "ezra:nehemia:5",
+   "marge": [445,444],
+   "opmerking": "‘In twee en vijftig dagen’ (Nehemia 6:15), in hetzelfde jaar als het verlof van de koning: 445 of 444 v.Chr."
+  }
+ ],
+ "gebieden": [
+  {
+   "id": "perzie",
+   "naam": "Perzische rijk",
+   "kleur": "kobalt",
+   "hoofdstad": "susa",
+   "bron": [
+    "behistun-lijst",
+    "herodotus",
+    "wiki-skudra",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Dezelfde vorm als aan het eind van “Daniël en Babylon” (de landen uit de lijst van Darius, 522). Het oosten (tot aan de Indus) loopt buiten de kaart door. Thracië hoorde ongeveer van 513 tot kort na 480 bij Perzië. Opstanden (zoals in Ionië, 499–493, en in Egypte) zijn niet getekend.",
+   "sleutels": [
+    {
+     "jaar": 522,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[31.6,30.1],[32.2,30.5],[34.5,30.2],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.5,25.2],[66.0,29.0],[67.5,30.0],[70.0,31.5],[72.3,33.8],[71.6,34.6],[71.0,37.5],[69.5,38.8],[68.5,40.4],[66.5,40.4],[64.5,40.3],[62.5,40.6],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.85,31.1],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1]]
+      ]
+     },
+     "opmerking": "Zoals in 525–515: de landen van Darius in 522 (Behistun)."
+    },
+    {
+     "jaar": 514,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[31.6,30.1],[32.2,30.5],[34.5,30.2],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.5,25.2],[66.0,29.0],[67.5,30.0],[70.0,31.5],[72.3,33.8],[71.6,34.6],[71.0,37.5],[69.5,38.8],[68.5,40.4],[66.5,40.4],[64.5,40.3],[62.5,40.6],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.85,31.1],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1]]
+      ]
+     }
+    },
+    {
+     "jaar": 513,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[31.6,30.1],[32.2,30.5],[34.5,30.2],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.5,25.2],[66.0,29.0],[67.5,30.0],[70.0,31.5],[72.3,33.8],[71.6,34.6],[71.0,37.5],[69.5,38.8],[68.5,40.4],[66.5,40.4],[64.5,40.3],[62.5,40.6],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.7,40.25],[26.75,40.4],[27.95,40.95],[28.95,41.05],[28.15,41.55],[27.75,42.1],[27.65,42.6],[27.95,43.2],[28.55,43.75],[28.7,44.4],[27.0,43.65],[25.5,42.75],[24.5,42.05],[23.9,41.4],[23.85,40.8],[24.95,40.95],[25.5,40.9],[26.05,40.75],[26.2,40.35],[26.5,40.15],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.85,31.1],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1]]
+      ]
+     },
+     "opmerking": "Darius trekt over de Bosporus tegen de Skythen; Thracië wordt Perzisch (Herodotus 4)."
+    },
+    {
+     "jaar": 480,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[31.6,30.1],[32.2,30.5],[34.5,30.2],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.5,25.2],[66.0,29.0],[67.5,30.0],[70.0,31.5],[72.3,33.8],[71.6,34.6],[71.0,37.5],[69.5,38.8],[68.5,40.4],[66.5,40.4],[64.5,40.3],[62.5,40.6],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.7,40.25],[26.75,40.4],[27.95,40.95],[28.95,41.05],[28.15,41.55],[27.75,42.1],[27.65,42.6],[27.95,43.2],[28.55,43.75],[28.7,44.4],[27.0,43.65],[25.5,42.75],[24.5,42.05],[23.9,41.4],[23.85,40.8],[24.95,40.95],[25.5,40.9],[26.05,40.75],[26.2,40.35],[26.5,40.15],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.85,31.1],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1]]
+      ]
+     }
+    },
+    {
+     "jaar": 476,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[31.6,30.1],[32.2,30.5],[34.5,30.2],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.5,25.2],[66.0,29.0],[67.5,30.0],[70.0,31.5],[72.3,33.8],[71.6,34.6],[71.0,37.5],[69.5,38.8],[68.5,40.4],[66.5,40.4],[64.5,40.3],[62.5,40.6],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.85,31.1],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1]]
+      ]
+     },
+     "opmerking": "Na Salamis en Plataeae (480–479) verliest Perzië Thracië stukje bij beetje; Eion valt in 476/475, de laatste steunpunten rond 465."
+    },
+    {
+     "jaar": 430,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[31.6,30.1],[32.2,30.5],[34.5,30.2],[34.9,30.6],[35.4,30.9],[36.0,31.0],[36.4,32.0],[37.6,33.3],[38.9,34.3],[40.0,34.5],[41.0,34.2],[42.3,33.6],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.5,25.2],[66.0,29.0],[67.5,30.0],[70.0,31.5],[72.3,33.8],[71.6,34.6],[71.0,37.5],[69.5,38.8],[68.5,40.4],[66.5,40.4],[64.5,40.3],[62.5,40.6],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[46.5,39.6],[45.5,41.0],[43.5,41.2],[41.6,41.6],[39.7,41.0],[37.5,41.1],[35.0,42.05],[33.8,42.0],[32.4,41.75],[31.4,41.3],[29.1,41.15],[29.9,40.75],[28.9,40.4],[27.8,40.35],[27.0,40.4],[26.2,40.0],[26.2,39.4],[26.9,38.9],[26.8,38.4],[27.3,37.9],[27.2,37.5],[27.4,37.0],[28.0,36.8],[28.6,36.8],[29.4,37.1],[30.2,37.2],[30.7,36.85],[31.6,36.8],[31.6,37.3],[32.4,37.6],[33.4,38.2],[34.2,38.95],[35.0,38.2],[36.0,38.0],[37.0,37.6],[41.0,37.8],[43.0,37.7],[42.2,37.3],[41.2,37.35],[40.0,37.3],[38.9,37.1],[37.0,36.9],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.8,34.4],[35.6,34.1],[35.45,33.6],[35.15,33.25],[34.8,32.2],[34.55,31.65],[34.3,31.35],[33.85,31.1],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.6,30.1]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "jehud",
+   "naam": "Juda",
+   "kleur": "koraal",
+   "hoofdstad": "jeruzalem",
+   "bron": [
+    "Nehemia 3",
+    "Nehemia 7:25–38",
+    "bijbelreis-plaatsen",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Juda (Jehud) was nu een kleine Perzische provincie rond Jeruzalem, van Mizpa tot Beth-Zur (plaatsen uit Nehemia 3 en 7), met een landvoogd.",
+   "sleutels": [
+    {
+     "jaar": 522,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.95,31.95],[34.95,31.65],[35.1,31.55],[35.45,31.55],[35.45,31.9],[35.25,32.0],[34.95,31.95]]
+      ]
+     }
+    },
+    {
+     "jaar": 430,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.95,31.95],[34.95,31.65],[35.1,31.55],[35.45,31.55],[35.45,31.9],[35.25,32.0],[34.95,31.95]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "grieken",
+   "naam": "Griekse steden",
+   "kleur": "oker",
+   "hoofdstad": "athene",
+   "bron": [
+    "herodotus",
+    "livius-marathon",
+    "livius-salamis",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Geen rijk: losse stadstaten zoals Athene en Sparta, die samen tegen Perzië vochten. Alleen het vasteland is getekend, niet de eilanden. In 480–479 bezette het leger van Xerxes een deel van dit land; dat is niet getekend.",
+   "sleutels": [
+    {
+     "jaar": 522,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[22.4,38.95],[22.0,39.05],[21.5,39.2],[21.0,39.05],[20.75,38.9],[21.1,38.6],[21.4,38.35],[21.85,38.4],[22.4,38.4],[22.6,38.2],[22.95,38.05],[22.9,37.95],[22.6,38.05],[22.1,38.25],[21.75,38.25],[21.4,38.15],[21.35,37.65],[21.65,37.25],[21.7,36.8],[22.1,37.05],[22.5,36.4],[22.55,36.75],[23.2,36.45],[22.95,37.0],[22.8,37.55],[23.5,37.35],[23.15,37.65],[23.0,37.9],[23.35,37.95],[23.6,37.95],[24.05,37.65],[24.6,38.15],[24.1,38.6],[23.6,38.75],[23.2,39.05],[22.4,38.95]]
+      ]
+     }
+    },
+    {
+     "jaar": 430,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[22.4,38.95],[22.0,39.05],[21.5,39.2],[21.0,39.05],[20.75,38.9],[21.1,38.6],[21.4,38.35],[21.85,38.4],[22.4,38.4],[22.6,38.2],[22.95,38.05],[22.9,37.95],[22.6,38.05],[22.1,38.25],[21.75,38.25],[21.4,38.15],[21.35,37.65],[21.65,37.25],[21.7,36.8],[22.1,37.05],[22.5,36.4],[22.55,36.75],[23.2,36.45],[22.95,37.0],[22.8,37.55],[23.5,37.35],[23.15,37.65],[23.0,37.9],[23.35,37.95],[23.6,37.95],[24.05,37.65],[24.6,38.15],[24.1,38.6],[23.6,38.75],[23.2,39.05],[22.4,38.95]]
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "steden": [
+  {
+   "id": "susa",
+   "naam": "Susan (Susa)",
+   "plaatsId": "susan",
+   "lat": 32.19,
+   "lng": 48.258,
+   "tekst": "Koningsstad van de Perzen in Elam. Hier speelt het boek Esther, en hier was Nehemia schenker van de koning.",
+   "bron": [
+    "Esther 1:2",
+    "Nehemia 1:1"
+   ]
+  },
+  {
+   "id": "persepolis",
+   "naam": "Persepolis",
+   "plaatsId": null,
+   "lat": 29.935,
+   "lng": 52.89,
+   "tekst": "Paleisstad in Perzië, die Darius I liet bouwen; ook Xerxes en Artaxerxes bouwden er verder.",
+   "bron": [
+    "pleiades-persepolis",
+    "wiki-persepolis"
+   ]
+  },
+  {
+   "id": "babylon",
+   "naam": "Babel",
+   "plaatsId": "babelst",
+   "lat": 32.536,
+   "lng": 44.421,
+   "tekst": "De grote stad aan de Eufraat, nu een deel van Perzië. Ezra vertrok hiervandaan naar Jeruzalem (Ezra 7:9).",
+   "bron": [
+    "Ezra 7:9"
+   ]
+  },
+  {
+   "id": "ekbatana",
+   "naam": "Ekbatana (Achmetha)",
+   "plaatsId": "ekbatana",
+   "lat": 34.8,
+   "lng": 48.52,
+   "tekst": "Koningsstad in Medië. Hier vond men onder Darius de rol met het bevel van Kores (Ezra 6:2–3).",
+   "bron": [
+    "Ezra 6:2–3"
+   ]
+  },
+  {
+   "id": "jeruzalem",
+   "naam": "Jeruzalem",
+   "plaatsId": "salem",
+   "lat": 31.777,
+   "lng": 35.235,
+   "tekst": "De stad van de herbouwde tempel (515 v.Chr.). Onder Nehemia kreeg ze weer een muur.",
+   "bron": [
+    "Ezra 6:15",
+    "Nehemia 6:15"
+   ]
+  },
+  {
+   "id": "sardis",
+   "naam": "Sardis",
+   "plaatsId": "nt4_sardis",
+   "lat": 38.4883,
+   "lng": 28.0403,
+   "tekst": "Perzische hoofdstad in het westen van Klein-Azië, aan de koningsweg naar Susan.",
+   "bron": [
+    "herodotus"
+   ]
+  },
+  {
+   "id": "memphis",
+   "naam": "Nof (Memphis)",
+   "plaatsId": "je_nof",
+   "lat": 29.8488,
+   "lng": 31.253,
+   "tekst": "Oude hoofdstad van Egypte, dat sinds 525 v.Chr. bij Perzië hoorde.",
+   "bron": [
+    "behistun-lijst"
+   ]
+  },
+  {
+   "id": "athene",
+   "naam": "Athene",
+   "plaatsId": "nt_athene",
+   "lat": 37.9719,
+   "lng": 23.7267,
+   "tekst": "Griekse stad. De Atheners versloegen de Perzen bij Marathon (490); in 480 brandde het leger van Xerxes de stad plat.",
+   "bron": [
+    "herodotus",
+    "livius-marathon"
+   ]
+  }
+ ],
+ "koppelingen": [
+  {
+   "verhaal": "v77",
+   "jaar": 483,
+   "tot": 479,
+   "status": "benaderd",
+   "personen": [
+    "xerxes",
+    "esther",
+    "mordechai"
+   ],
+   "gebeurtenissen": [
+    "esther-koningin",
+    "salamis"
+   ],
+   "opmerking": "Het feest in Susan was in het derde jaar van Ahasveros (Esther 1:3) en Esther werd koningin in zijn zevende jaar (Esther 2:16): als hij Xerxes I is, ongeveer 483 en 479 v.Chr."
+  },
+  {
+   "verhaal": "v78",
+   "jaar": 474,
+   "tot": 473,
+   "status": "benaderd",
+   "personen": [
+    "esther",
+    "mordechai",
+    "xerxes"
+   ],
+   "gebeurtenissen": [
+    "purim"
+   ],
+   "opmerking": "Het lot werd geworpen in het twaalfde jaar van Ahasveros (Esther 3:7): als hij Xerxes I is, 474 v.Chr.; de redding volgde in maart 473."
+  },
+  {
+   "verhaal": "v79",
+   "jaar": 520,
+   "tot": 430,
+   "status": "benaderd",
+   "personen": [
+    "haggai",
+    "zacharia",
+    "darius-i"
+   ],
+   "gebeurtenissen": [
+    "profeten",
+    "tempel-klaar"
+   ],
+   "opmerking": "Zacharia begon in het tweede jaar van Darius (520 v.Chr.). Maleachi noemt geen jaartal; de meeste uitleggers plaatsen hem in de tijd van Ezra en Nehemia. De band loopt daarom tot het einde van deze tijdlijn."
+  }
+ ]
+}
