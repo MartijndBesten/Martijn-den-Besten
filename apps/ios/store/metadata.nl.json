@@ -1,17 +1,25 @@
 {
-  "_uitleg": "Teksten voor App Store Connect (Nederlands). Limieten worden gecontroleerd door scripts/controleer-ios.mjs. Uitleg en keuzes: docs/bijbelreis-ios/APPSTORE.md.",
+  "_uitleg": "Teksten voor App Store Connect (Nederlands), voor een breed publiek: gezinnen, wie zelf de Bijbel leest, zondagsschool, club, catechisatie en onderwijs. Limieten worden gecontroleerd door scripts/controleer-ios.mjs. Uitleg en keuzes: docs/bijbelreis-ios/APPSTORE.md.",
   "naam": "Bijbelreis",
-  "ondertitel": "Op reis door de Bijbel",
-  "promotietekst": "150 geschiedenissen van de schepping tot Openbaring op de kaart. Met reizen, Wie is wie, tijdlijn, speurtocht en een paspoort vol stempels. Werkt zonder internet.",
-  "beschrijving": "De Bijbelreis is een Bijbelatlas voor kinderen en hun ouders. Reis mee met Abraham, Mozes, David, de Heere Jezus en Paulus, en zie op de kaart waar het gebeurde.\n\nWAT ER IN STAAT\n• 150 geschiedenissen van de schepping tot Openbaring, met bij elke geschiedenis waar het in de Bijbel staat\n• Reizen stap voor stap op de kaart, met eigen tekeningen bij bekende geschiedenissen\n• Wie is wie: personen en families, zoals de familie van Abraham\n• Tijdlijn: wanneer het gebeurde, en hoe we dat weten\n• Speurtocht: vragen over wat je las, met het antwoord en de Bijbelplaats erbij\n• Paspoort: verzamel stempels op je reis\n• De kaart van toen en van nu: het land in de tijd van de Bijbel, en hoe het er vandaag uitziet\n• De wereld in die tijd: wie tegelijk leefden en wat er rondom gebeurde, met een kaart die met de tijd meebeweegt (van Adam tot Noach, en Daniël en Babylon)\n\nVOOR ELKE LEEFTIJD\nKies een reisniveau: Samen ontdekken (4–6 jaar, om voor te lezen), Zelf op reis (7–10 jaar) of Verder ontdekken (11+). Wisselen kan altijd; je stempels blijven bewaard.\n\nNAAST JE EIGEN BIJBEL\nDe geschiedenissen zijn eigen navertellingen in woorden die kinderen begrijpen, gecontroleerd aan de Statenvertaling. De Bijbelreis is een hulpmiddel náást de eigen Bijbel of kinderbijbel: bij elke geschiedenis staat waar je het zelf leest.\n\nVOOR OUDERS EN LEIDERS\nLesroutes voor thuis, zondagsschool, club, catechisatie en de klas: vaste reeksen geschiedenissen met het Bijbelgedeelte om samen te lezen en vragen om in de Bijbel op te zoeken, ook groot op het digibord.\n\nRUSTIG EN VEILIG\n• Werkt helemaal zonder internet, ook de eerste keer\n• Geen account, geen advertenties, geen aankopen\n• De app verzamelt en verstuurt geen gegevens\n• Een website openen, delen of mailen kan pas na een vraag voor een ouder\n\nGemaakt door Denckh.",
-  "trefwoorden": "bijbel,atlas,kinderbijbel,bijbelverhalen,kaart,statenvertaling,zondagsschool,catechisatie,gezin",
-  "watIsErNieuw": "De eerste versie van de Bijbelreis als app: alles staat erin en werkt zonder internet.",
+  "ondertitel": "Bijbelatlas voor jong en oud",
+  "promotietekst": "150 geschiedenissen van de schepping tot Openbaring op de kaart. Voor thuis, alleen of samen, en voor zondagsschool, club, catechisatie en klas. Werkt zonder internet.",
+  "beschrijving": "De Bijbelreis is een Bijbelatlas voor jong en oud. Lees 150 geschiedenissen van de schepping tot Openbaring, reis mee met Abraham, Mozes, David, de Heere Jezus en Paulus, en zie op de kaart waar het gebeurde.\n\nVOOR WIE\n• Gezinnen die samen de Bijbel lezen\n• Wie zelf de Bijbel leest en wil zien waar en wanneer het gebeurde\n• Zondagsschool, club, catechisatie en onderwijs, met lesroutes\n\nWAT ER IN STAAT\n• 150 geschiedenissen, met bij elke geschiedenis waar het in de Bijbel staat\n• Reizen stap voor stap op de kaart, met eigen tekeningen bij bekende geschiedenissen\n• Wie is wie: personen en families, zoals de familie van Abraham\n• Tijdlijn: wanneer het gebeurde, en hoe we dat weten\n• De wereld in die tijd: wie tegelijk leefden en wat er rondom gebeurde, met een kaart die met de tijd meebeweegt (van Adam tot Noach, en Daniël en Babylon)\n• Speurtocht: vragen over wat je las, met het antwoord en de Bijbelplaats erbij\n• Paspoort: verzamel stempels op je reis\n• De kaart van toen en van nu: het land in de tijd van de Bijbel, en hoe het er vandaag uitziet\n\nDRIE REISNIVEAUS\nSamen ontdekken (4–6 jaar, om voor te lezen), Zelf op reis (7–10 jaar) en Verder ontdekken (11+). Wisselen kan altijd; je stempels blijven bewaard.\n\nNAAST JE EIGEN BIJBEL\nDe geschiedenissen zijn eigen navertellingen in eenvoudige woorden, gecontroleerd aan de Statenvertaling. De Bijbelreis is een hulpmiddel náást de eigen Bijbel: bij elke geschiedenis staat waar je het zelf leest.\n\nLESROUTES\nVoor thuis, zondagsschool, club, catechisatie en de klas: vaste reeksen geschiedenissen met het Bijbelgedeelte om samen te lezen en vragen om in de Bijbel op te zoeken, ook groot op het digibord.\n\nRUSTIG EN VEILIG\n• Werkt helemaal zonder internet, ook de eerste keer\n• Geen account, geen advertenties, geen aankopen\n• De app verzamelt en verstuurt geen gegevens\n• Een website openen, delen of mailen gaat pas na een rekensom (de ouderpoort), zodat jonge kinderen niet zomaar de app uit gaan\n\nGemaakt door Denckh.",
+  "trefwoorden": "bijbel,atlas,bijbelverhalen,tijdlijn,statenvertaling,zondagsschool,catechisatie,gezin,bijbelstudie",
+  "watIsErNieuw": "De eerste versie van de Bijbelreis als app voor iPhone en iPad: alles staat erin en werkt zonder internet.",
   "copyright": "2026 Denckh",
   "supportUrl": "https://bijbelreis.nl/hulp",
   "privacyUrl": "https://bijbelreis.nl/privacy",
   "marketingUrl": "https://bijbelreis.nl/",
-  "sku": "BIJBELREIS-IOS",
+  "sku": "BIJBELREIS-IOS-2026",
+  "appleId": "6835958573",
   "bundleId": "nl.bijbelreis.app",
   "primaireTaal": "Nederlands",
-  "categorie": { "primair": "Onderwijs", "secundair": "geen", "kids": "9–11 jaar" }
+  "categorie": {
+    "primair": "Onderwijs",
+    "secundair": "geen",
+    "kids": "nee (niet geselecteerd)"
+  },
+  "leeftijdsclassificatie": "13+",
+  "prijs": "gratis",
+  "vrijgave": "handmatig"
 }

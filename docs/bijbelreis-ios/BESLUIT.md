@@ -11,7 +11,7 @@
 
 **Capacitor, met de bestaande atlas als code.** De app krijgt alle bestanden van de atlas in de app zelf, laadt niets van internet en voegt een dunne app-laag toe: voortgang ook in de opslag van iOS, een ouderpoort voor alles wat de app uit gaat, delen via het deelmenu van iOS, ‘terug vegen’ en geen bezoekmeting of aanvraagformulier. Het prototype staat op de branch `claude/bijbelreis-ios-prototype` (map `apps/ios/`) en is op Linux getest, niet op een iPhone.
 
-**Kids-categorie: advies ja**, met een ouderpoort. Dit is een blijvende keuze, zie §4.
+~~**Kids-categorie: advies ja**, met een ouderpoort.~~ **Vervallen (17-11-2026):** Martijn koos 13+ en géén Kids-categorie; de app is voor kinderen, jongeren en volwassenen. Zie `APPSTORE.md` §4 en §6. De ouderpoort blijft in de app.
 
 ## 1. Vergelijking
 
@@ -56,7 +56,9 @@
 
 ## 4. Kids-categorie en privacy
 
-**Advies: ja, Kids-categorie.** De Bijbelreis is duidelijk voor kinderen gemaakt (reisniveaus 4–6, 7–10 en 11+). Buiten de Kids-categorie verbiedt 2.3.8 dat de App Store-pagina dat zegt. De wet (COPPA, AVG) kijkt bovendien naar de doelgroep, niet naar de categorie. De voorwaarden passen bij wat de Bijbelreis al wil: geen account, geen tracking, rust.
+> **Vervallen (17-11-2026):** dit advies geldt niet meer. Gekozen is 13+ zonder Kids-categorie (`APPSTORE.md` §4 en §6). De tekst hieronder blijft staan als achtergrond.
+
+~~**Advies: ja, Kids-categorie.**~~ De Bijbelreis is duidelijk voor kinderen gemaakt (reisniveaus 4–6, 7–10 en 11+). Buiten de Kids-categorie verbiedt 2.3.8 dat de App Store-pagina dat zegt. De wet (COPPA, AVG) kijkt bovendien naar de doelgroep, niet naar de categorie. De voorwaarden passen bij wat de Bijbelreis al wil: geen account, geen tracking, rust.
 
 **Nadelen:** de keuze is blijvend, ook als je de categorie later uitzet. Elke update moet aan de regels blijven voldoen. Delen en links kosten ouders één extra stap. De hoogste band is 9–11, terwijl de app tot 14 jaar en voor ouders bedoeld is. De band bepaalt alleen waar de app in de Kids-categorie staat: de app blijft voor iedereen te downloaden.
 
@@ -105,7 +107,7 @@
    - De leeftijdsvragenlijst invullen. De geschiedenissen beschrijven ook geweld, zonder beelden. Vul eerlijk in: alleen 4+ of 9+ past in de Kids-categorie.
    - Het privacylabel, de privacy-URL en de support-URL invullen, met schermafbeeldingen.
    - Je **handelaarsstatus (DSA)** opgeven. Dat moet ook als je niet in de EU verspreidt. Als handelaar moet je contactgegevens opgeven en laten controleren. Die staan daarna op de App Store-pagina in de EU: volgens ontwikkelaars adres, telefoon en e-mail.
-4. **Besluiten:** Kids-categorie ja/nee en de leeftijdsband (advies 9–11, waar ‘Zelf op reis’ (7–10) het meest overlapt), de bundle-ID, de app-naam en het pictogram.
+4. **Besluiten:** Kids-categorie ja/nee en de leeftijdsband (genomen 17-11-2026: **geen** Kids-categorie, 13+), de bundle-ID, de app-naam en het pictogram.
 
 ## 8. Stappenplan naar TestFlight
 

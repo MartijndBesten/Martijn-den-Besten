@@ -2,7 +2,7 @@
 
 Voor Martijn, 17 november 2026. De app wordt gebouwd, getest en (als jij hem start) geüpload door GitHub Actions op
 een Mac van GitHub: `.github/workflows/ios.yml`. De repository is openbaar, dus de macOS-runners kosten niets. Er is
-niets betaald, aangeschaft of ingediend. Wat je in App Store Connect invult (teksten, leeftijd, privacy, Kids): zie
+niets betaald, aangeschaft of ingediend. Wat je in App Store Connect invult (teksten, leeftijd 13+, privacy): zie
 `APPSTORE.md`.
 
 ## Gekozen route
@@ -56,21 +56,19 @@ valt Xcode Cloud af.
    (Ze mogen ook bij **Settings → Secrets and variables → Actions** als repository-geheim staan; in de Environment is
    veiliger, want alleen de upload-job kan ze dan lezen.) Gooi het `.p8`-bestand daarna niet weg maar bewaar het veilig,
    of maak later gewoon een nieuwe sleutel.
-4. **App aanmaken in App Store Connect** (de API kan geen app aanmaken: het onderdeel `apps` van de App Store Connect
-   API heeft alleen ophalen en wijzigen, geen aanmaken; developer.apple.com/documentation/appstoreconnectapi/apps,
-   17-11-2026). **Apps** → **+** → **Nieuwe app**: platform **iOS**, naam **Bijbelreis**, primaire taal **Nederlands**,
-   bundel-ID **nl.bijbelreis.app**, SKU **BIJBELREIS-IOS**, gebruikerstoegang Volledige toegang.
-   Staat `nl.bijbelreis.app` nog niet in de lijst: developer.apple.com/account → **Certificates, Identifiers &
-   Profiles** → **Identifiers** → **+** → App IDs → App → beschrijving `Bijbelreis`, **Explicit** bundle-ID
-   `nl.bijbelreis.app`, geen extra mogelijkheden aanvinken → Register. (De eerste ondertekende build registreert hem
-   anders zelf, maar het app-record moet vóór de upload bestaan.)
+4. **App in App Store Connect: bestaat al** (Bijbelreis, Apple ID 6835958573, bundel-ID `nl.bijbelreis.app`, SKU
+   `BIJBELREIS-IOS-2026`; de repository noemde eerder `BIJBELREIS-IOS`, maar App Store Connect is leidend en een SKU is
+   niet te wijzigen). Een app aanmaken kan de API ook niet: het onderdeel `apps` van de App Store Connect API heeft
+   alleen ophalen en wijzigen (developer.apple.com/documentation/appstoreconnectapi/apps, 17-11-2026). Controleer alleen
+   of `nl.bijbelreis.app` onder developer.apple.com/account → **Certificates, Identifiers & Profiles** → **Identifiers**
+   staat; zo niet, dan registreert de eerste ondertekende build hem.
 5. **Workflow starten.** github.com → tabblad **Actions** → links **iOS-app** → **Run workflow** → branch `main` →
    vink **Ook archiveren en uploaden naar TestFlight** aan → **Run workflow**. Na de bouw en de tests (± 30–40 min)
    start de job ‘Archiveren en uploaden naar TestFlight’ (met ‘Required reviewers’: eerst **Review deployments** →
    Approve).
 6. **TestFlight.** Na 10–30 minuten staat de build in App Store Connect → je app → **TestFlight**. Vraagt hij om
-   exportcompliance: die staat al in de app (`ITSAppUsesNonExemptEncryption = NO`). Maak onder **Interne tests** een
-   groep (bijv. ‘Gezin’), voeg jezelf en wie je wilt toe (alleen mensen met een rol in je team, tot 100), en installeer
+   exportcompliance: die staat al in de app (`ITSAppUsesNonExemptEncryption = NO`). Voeg onder **Interne tests** in de groep
+   **Bijbelreis intern** jezelf en wie je wilt toe (alleen mensen met een rol in je team, tot 100), en installeer
    via de app **TestFlight** op je iPhone of iPad. Interne tests hebben geen beoordeling van Apple nodig. Loop daarna de
    testlijst van `APPSTORE.md` §1 af op je eigen toestel.
 
@@ -123,7 +121,7 @@ geheimen: de job draait daar niet.
 |---|---|
 | `Geheimen ontbreken: …` | Stap 3: naam precies zo, in de Environment `testflight` |
 | `No profiles for 'nl.bijbelreis.app' were found` / `Cloud signing permission error` | Sleutel heeft niet de rol Admin, of is een persoonlijke sleutel: maak een teamsleutel met Admin (stap 1) |
-| `No suitable application records were found` | Het app-record bestaat nog niet (stap 4), of de bundel-ID verschilt |
+| `No suitable application records were found` | De bundel-ID van de build verschilt van die in App Store Connect (`nl.bijbelreis.app`) |
 | `The bundle version must be higher than the previously uploaded version` | Gebeurt alleen als iemand met de hand een hoger buildnummer uploadde: zet in de workflow `BUILDNUMMER` tijdelijk hoger |
 | `Xcode 26.6 staat niet (meer) op deze runner` | GitHub heeft een patchversie vervangen: kies in `XCODE_VERSIE` een versie uit de lijst in de melding |
 | De job ‘Bouwen en testen in de simulator’ staat lang op ‘Queued’ en wordt na 15 minuten ‘Cancelled’ | Drukte op de gratis Macs van GitHub (gezien op 17-11-2026, drie keer achter elkaar). Niets aan de app: in de run rechtsboven **Re-run jobs → Re-run failed jobs**, of later opnieuw starten |

@@ -1,7 +1,7 @@
 # Bijbelreis voor iOS (Capacitor)
 
 De Bijbelreis als app voor iPhone en iPad. Het besluit staat in `docs/bijbelreis-ios/BESLUIT.md`; **wat Martijn zelf doet
-(Xcode, App Store Connect, teksten, leeftijd, privacylabel, Kids) staat in `docs/bijbelreis-ios/APPSTORE.md`.**
+(App Store Connect, teksten, leeftijd 13+, privacylabel) staat in `docs/bijbelreis-ios/APPSTORE.md`.**
 
 Deze map staat los van de website: eigen `package.json`, eigen `node_modules`. De root (`vitest`, `tsc`, `playwright`,
 `npm run build`, de worker en de uitrol) kijkt er niet in. Eén uitzondering, met opzet: de root-unittest
@@ -48,7 +48,7 @@ app geeft elk adres zonder extensie `index.html` (de router van Capacitor), dus 
 
 - **Voortgang:** een kopie van alle sleutels `bijbelreis:*` in Capacitor Preferences (UserDefaults). Is `localStorage`
   bij de start leeg terwijl er een kopie is, dan zet de laag die terug en laadt één keer opnieuw.
-- **Ouderpoort** (Kids-categorie): een rekensom in woorden voor links naar buiten, Delen, mailen, en op de lesroutes
+- **Ouderpoort** (blijft, ook zonder Kids-categorie: jonge kinderen gebruiken de app ook): een rekensom in woorden voor links naar buiten, Delen, mailen, en op de lesroutes
   Presentatie, Boekje en Afdrukken.
 - **Delen** via het deelmenu van iOS (alleen de knop ‘Deel’; de knoppen van de delen van een reis hebben ook `data-deel`
   en blijven gewoon werken).
