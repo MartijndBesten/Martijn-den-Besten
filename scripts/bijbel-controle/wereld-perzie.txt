@@ -1,0 +1,48 @@
+# Wereld in die tijd — Perzië: Esther, Ezra en Nehemia (public/bijbelreis/wereld/perioden/perzie.json): jaartellingen
+# in de Bijbel waarop de jaartallen rusten, Bijbelse getallen en de korte letterlijke citaten (ref | regex).
+# Gebruik: python3 scripts/bijbel-check.py scripts/bijbel-controle/wereld-perzie.txt
+# --- Darius: de tempel (Ezra, Haggaï, Zacharia)
+Ezra 4:24 | tot in het tweede jaar van het koninkrijk van Darius
+Ezra 5:1 | Haggai nu, de profeet, en Zacharia, de zoon van Iddo, profeteerden
+Ezra 5:2 | Zerubbabel, de zoon van Sealthiël, en Jesua, de zoon van Jozadak
+Ezra 2:2 | Zerubbabel, Jesua
+Ezra 3:2 | Jesua.*Zerubbabel
+Ezra 3:8 | Zerubbabel.*Jesua
+Haggaï 1:1 | tweede jaar van den koning Darius, in de zesde maand
+Haggaï 1:1 | Zerubbabel.*den vorst van Juda.*Josua, den zoon van Jozadak, den hogepriester
+Haggaï 2:21 | ten tweeden male tot Haggai, op den vier en twintigsten der maand
+Zacharia 1:1 | In de achtste maand, in het tweede jaar van Darius
+Zacharia 1:7 | elfde maand.*tweede jaar van Darius
+Zacharia 3:1 | Josua, den hogepriester
+Zacharia 4:9 | handen van Zerubbabel
+Zacharia 6:11 | Josua, den zoon van Jozadak, den hogepriester
+Zacharia 7:1 | vierde jaar van den koning Darius
+Ezra 6:15 | op den derden dag der maand Adar
+Ezra 6:15 | het zesde jaar van het koninkrijk van den koning Darius
+# --- Ahasveros en Esther
+Esther 1:1 | van Indië af tot aan Morenland toe, honderd zeven en twintig landschappen
+Esther 1:2 | op den burg Susan
+Esther 1:3 | In het derde jaar zijner regering
+Ezra 4:6 | Ahasveros
+Esther 2:5 | Mordechai
+Esther 2:16 | in de tiende maand, welke is de maand Tebeth, in het zevende jaar zijns rijks
+Esther 2:17 | maakte haar koningin in de plaats van Vasthi
+Esther 3:7 | in het twaalfde jaar van den koning Ahasveros, wierp men het Pur
+Esther 9:1 | In de twaalfde maand.*op den dertienden dag
+Esther 9:26 | Purim
+Esther 10:3 | de tweede bij den koning Ahasveros
+# --- Ezra en Nehemia onder Arthahsasta
+Ezra 7:1 | in het koninkrijk van Arthahsasta, koning van Perzië: Ezra
+Ezra 7:7 | in het zevende jaar van den koning Arthahsasta
+Ezra 7:8 | in de vijfde maand; dat was het zevende jaar dezes konings
+Ezra 7:9 | op den eersten der eerste maand was het begin des optochts uit Babel
+Nehemia 1:1 | in de maand Chisleu, in het twintigste jaar, als ik te Susan in het paleis was
+Nehemia 2:1 | in de maand Nisan, in het twintigste jaar van den koning Arthahsasta
+Nehemia 4:2 | in de tegenwoordigheid zijner broederen en van het heir van Samaria
+Nehemia 5:14 | van het twintigste jaar af, tot het twee en dertigste jaar van den koning Arthahsasta, zijnde twaalf jaren
+Nehemia 5:14 | landvoogd
+Nehemia 6:15 | op den vijf en twintigsten van Elul, in twee en vijftig dagen
+Nehemia 8:2 | Ezra
+Nehemia 12:36 | Ezra, de schriftgeleerde
+Nehemia 13:6 | in het twee en dertigste jaar van Arthahsasta
+Nehemia 13:7 | Jeruzalem

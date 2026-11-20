@@ -6,13 +6,20 @@
 
   // ---------- tijdas ----------
   // Intern loopt de tijd t altijd vooruit. Op een as ‘vchr’ (jaar v.Chr., van groot naar klein) is t = -jaar.
+  // Een as ‘nchr’ mag vóór Christus beginnen (de wereld rond de geboorte van de Heere Jezus): een negatief jaar is dan
+  // v.Chr. (-4 = 4 v.Chr.). Een jaar 0 bestaat niet: na 1 v.Chr. komt 1 n.Chr. Intern telt t door zonder gat (t = 0 is
+  // 1 v.Chr., t = -3 is 4 v.Chr.), zodat afstanden kloppen: van 4 v.Chr. tot 6 n.Chr. is 9 jaar, niet 10.
   // ‘leeftijd’: een as in levensjaren van één persoon (Mozes, 0–120) als een jaartal in onze jaartelling niet vaststaat.
   // Jaar n is dan ‘n jaar oud’; een jaar telt afgerond (jaar 80 loopt van 79,5 tot 80,5), zodat gebeurtenissen in
   // hetzelfde jaar op volgorde kunnen staan zonder dat er een datum binnen het jaar wordt beweerd.
   const SOORTEN_AS = ["am", "vchr", "nchr", "leeftijd"];
   const telt = (as) => !as || as.soort === "am" || as.soort === "leeftijd";
-  const naarT = (jaar, as) => (jaar == null ? null : as && as.soort === "vchr" ? -jaar : +jaar);
-  const naarJaar = (t, as) => (as && as.soort === "vchr" ? -t : t);
+  const naarT = (jaar, as) => (jaar == null ? null : as && as.soort === "vchr" ? -jaar : as && as.soort === "nchr" && jaar < 0 ? +jaar + 1 : +jaar);
+  // Terug naar een jaartal op de as. Bij ‘nchr’ ligt de grens op t = 0,5, zodat Math.round(naarJaar(t)) hetzelfde jaar
+  // geeft als jaarTekst(t) (nooit het niet-bestaande jaar 0).
+  const naarJaar = (t, as) => (as && as.soort === "vchr" ? -t : as && as.soort === "nchr" && t < 0.5 ? t - 1 : t);
+  // Loopt de as over het begin van de jaartelling heen (v.Chr. en n.Chr. op één as)?
+  const gemengd = (as) => !!as && as.soort === "nchr" && Math.min(as.van, as.tot) < 0;
   function bereik(as) {
     const a = naarT(as.van, as), b = naarT(as.tot, as);
     return [Math.min(a, b), Math.max(a, b)];
@@ -22,9 +29,21 @@
     const n = Math.round(t);
     if (as && as.soort === "leeftijd" && n < 0) return kort ? String(n) : -n + " jaar vóór de geboorte van " + (as.wie || "de hoofdpersoon");
     if (telt(as)) return kort ? String(n) : "jaar " + n;
+    if (as.soort === "nchr") return n <= 0 ? 1 - n + " v.Chr." : n + " n.Chr.";
     if (n <= 0) return (n === 0 ? 1 : -n) + " v.Chr.";
     return n + " n.Chr.";
   }
+  // Een jaartal zoals het in de gegevens staat (bijv. een marge) als tekst.
+  const jaarAsTekst = (jaar, as) => jaarTekst(naarT(jaar, as), as);
+  // Twee jaartallen (marge of tijdvak) kort: ‘587 of 586 v.Chr.’, ‘6–4 v.Chr.’, ‘1 v.Chr.–1 n.Chr.’, ‘jaar 1656–1657’.
+  function tweeJaren(j1, j2, as, of) {
+    const a = jaarAsTekst(j1, as), b = jaarAsTekst(j2, as), tussen = of ? " of " : "–";
+    if (telt(as)) return a + tussen + b.replace(/^jaar /, "");
+    const ea = a.replace(/^\d+ /, ""), eb = b.replace(/^\d+ /, "");
+    return ea === eb ? a.replace(/ .*$/, "") + tussen + b : a + tussen + b;
+  }
+  // Het label van een streepje op de as: een kaal getal, of op een gemengde as met v.Chr./n.Chr. erbij.
+  const streepTekst = (t, as) => (gemengd(as) ? jaarTekst(t, as) : String(Math.abs(Math.round(naarJaar(t, as)))));
   // Een lineaire schaal tussen tijd en schermpositie.
   function schaal(t0, t1, x0, x1) {
     const k = (x1 - x0) / ((t1 - t0) || 1);
@@ -32,9 +51,18 @@
   }
   // Mooie streepjes op de as: de kleinste stap waarbij twee labels minstens minPx uit elkaar staan.
   const STAPPEN = [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000];
-  function streepjes(t0, t1, pxPerJaar, minPx) {
+  // Op een gemengde as staan de streepjes op ronde jaartallen (10 v.Chr., 1 n.Chr., 10 n.Chr.); het jaar 0 bestaat niet:
+  // bij stappen van 5 jaar of meer staat daar 1 n.Chr., bij kleinere stappen niets.
+  function streepjes(t0, t1, pxPerJaar, minPx, as) {
     const stap = STAPPEN.find((s) => s * pxPerJaar >= (minPx || 64)) || STAPPEN[STAPPEN.length - 1];
     const uit = [];
+    if (gemengd(as)) {
+      for (let j = Math.ceil(naarJaar(t0, as) / stap) * stap; j <= naarJaar(t1, as) + 1e-9; j += stap) {
+        const t = naarT(j === 0 ? 1 : j, as);
+        if ((j !== 0 || stap >= 5) && t >= t0 - 1e-9 && t <= t1 + 1e-9) uit.push(t);
+      }
+      return { stap, ticks: uit };
+    }
     for (let t = Math.ceil(t0 / stap) * stap; t <= t1 + 1e-9; t += stap) uit.push(t);
     return { stap, ticks: uit };
   }
@@ -220,7 +248,7 @@
 
   // ---------- het periodebestand klaarzetten ----------
   const STATUS = ["expliciet", "berekend", "traditioneel", "historisch", "benaderd"];
-  const EINDE = ["stierf", "weggenomen", "onbekend", "leeft door"];
+  const EINDE = ["stierf", "weggenomen", "afgezet", "onbekend", "leeft door"];
   function plekVan(p, plaatsen) {
     if (Array.isArray(p) && p.length === 2 && p.every((x) => typeof x === "number")) return { ll: p, gebied: false };
     if (typeof p === "string" && plaatsen && plaatsen[p]) return { ll: plaatsen[p].ll, gebied: plaatsen[p].c === "r", naam: plaatsen[p].n, zeker: plaatsen[p].c };
@@ -296,10 +324,10 @@
     const uit = [];
     model.personen.forEach((p) => {
       if (p.van && p.van.jaar != null) uit.push({ t: p.t0, soort: "geboorte", persoon: p.id });
-      if (p.tot && p.tot.jaar != null && p.einde !== "onbekend" && p.einde !== "leeft door") uit.push({ t: p.t1, soort: p.einde === "weggenomen" ? "weggenomen" : "einde", persoon: p.id });
+      if (p.tot && p.tot.jaar != null && p.einde !== "onbekend" && p.einde !== "leeft door") uit.push({ t: p.t1, soort: p.einde === "weggenomen" ? "weggenomen" : p.einde === "afgezet" ? "afgezet" : "einde", persoon: p.id });
     });
     model.gebeurtenissen.forEach((e) => uit.push({ t: e.t, soort: "gebeurtenis", gebeurtenis: e.id }));
-    const volg = { gebeurtenis: 0, geboorte: 1, einde: 2, weggenomen: 2 };
+    const volg = { gebeurtenis: 0, geboorte: 1, einde: 2, weggenomen: 2, afgezet: 2 };
     return uit.sort((a, b) => a.t - b.t || volg[a.soort] - volg[b.soort]);
   }
 
@@ -392,6 +420,18 @@
       (k.gebeurtenissen || []).forEach((g) => !gids.has(g) && f(`${w}: gebeurtenis ‘${g}’ bestaat niet`));
     });
     if (data.start != null && (typeof data.start !== "number" || !binnen(data.start))) f("start valt buiten de as");
+    if (data.kader != null && !(Array.isArray(data.kader) && data.kader.length === 2 && data.kader.every((p) => Array.isArray(p) && p.length === 2 && Math.abs(p[0]) <= 90 && Math.abs(p[1]) <= 180) && data.kader[0][0] < data.kader[1][0] && data.kader[0][1] < data.kader[1][1])) f("kader moet [[zuid, west], [noord, oost]] zijn");
+    // Op een as ‘nchr’ is een negatief jaar v.Chr.; een jaar 0 bestaat niet.
+    if (as.soort === "nchr") {
+      const nul = [];
+      (data.personen || []).forEach((p) => ["van", "tot"].forEach((k) => p[k] && (p[k].jaar === 0 || (p[k].marge || []).includes(0)) && nul.push(`persoon ${p.id}.${k}`)));
+      (data.gebeurtenissen || []).forEach((e) => (e.jaar === 0 || e.tot === 0 || (e.marge || []).includes(0)) && nul.push(`gebeurtenis ${e.id}`));
+      (data.koppelingen || []).forEach((k, i) => (k.jaar === 0 || k.tot === 0) && nul.push(`koppeling ${i}`));
+      (data.gebieden || []).forEach((g) => (g.sleutels || []).some((s) => s.jaar === 0) && nul.push(`gebied ${g.id}`));
+      if (as.van === 0 || as.tot === 0 || data.start === 0) nul.push("as of start");
+      nul.forEach((w) => f(`${w}: het jaar 0 bestaat niet (na 1 v.Chr. komt 1 n.Chr.)`));
+    }
+    (data.personen || []).forEach((p) => { if (p.ambt != null && (typeof p.ambt !== "string" || !/^[a-zë ]{3,24}$/.test(p.ambt))) f(`persoon ${p.id}: ambt moet een kort woord zijn`); });
     if (as.soort === "leeftijd" && !as.wie) f("as: een leeftijd-as noemt wie (as.wie)");
     (as.tempo || []).forEach((z, i) => {
       if (![z.van, z.tot].every((j) => typeof j === "number" && binnen(j)) || naarT(z.tot, as) <= naarT(z.van, as) || !(z.factor > 0 && z.factor <= 1)) f(`as.tempo ${i}: van < tot binnen de as en factor tussen 0 en 1`);
@@ -423,7 +463,7 @@
     return fout;
   }
 
-  const K = { telt, stappenVan, bereidReis, afgelegd, reisOp, knip, margeT, naarT, naarJaar, bereik, jaarTekst, schaal, streepjes, zoom, schuif, vloeiend, herbemonster, oppervlak, lijnUit, koppelDelen, bereidGebied, gebiedOp, bereid, leeftNog, leeftijd, overlap, momenten, controleer, STATUS, EINDE, PUNTEN };
+  const K = { telt, stappenVan, bereidReis, afgelegd, reisOp, knip, margeT, naarT, naarJaar, gemengd, jaarAsTekst, tweeJaren, streepTekst, bereik, jaarTekst, schaal, streepjes, zoom, schuif, vloeiend, herbemonster, oppervlak, lijnUit, koppelDelen, bereidGebied, gebiedOp, bereid, leeftNog, leeftijd, overlap, momenten, controleer, STATUS, EINDE, PUNTEN };
   root.BR = root.BR || {};
   root.BR.wereldKern = K;
 })(typeof window !== "undefined" ? window : globalThis);

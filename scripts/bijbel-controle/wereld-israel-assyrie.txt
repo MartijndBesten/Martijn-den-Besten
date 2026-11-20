@@ -1,0 +1,53 @@
+# Wereld in die tijd — Israël, Juda en Assyrië (public/bijbelreis/wereld/perioden/israel-assyrie.json): getallen en
+# jaartellingen in de Bijbel waarop de jaartallen rusten, en de korte letterlijke citaten (ref | regex).
+# Gebruik: python3 scripts/bijbel-check.py scripts/bijbel-controle/wereld-israel-assyrie.txt
+# --- Regeringsjaren en ijkpunten
+1 Koningen 16:29 | Achab.*twee en twintig jaren
+1 Koningen 16:24 | Samaria
+1 Koningen 16:31 | Izebel.*koning der Sidoniërs
+1 Koningen 22:3 | Ramoth in Gilead
+1 Koningen 22:37 | Alzo stierf de koning
+1 Koningen 17:1 | Elia, de Thisbiet, van de inwoneren van Gilead
+2 Koningen 9:13 | Jehu is koning geworden
+2 Koningen 10:33 | het ganse land van Gilead
+2 Koningen 10:36 | acht en twintig jaren
+2 Koningen 13:14 | Elisa nu was krank.*Joas, de koning van Israël
+2 Koningen 13:20 | Daarna stierf Elisa
+2 Koningen 13:25 | Joas.*Benhadad
+2 Koningen 14:23 | Jerobeam.*een en veertig jaren
+2 Koningen 14:25 | van den ingang van Hamath.*Jona.*Gath-hefer
+2 Koningen 15:19 | duizend talenten zilvers
+2 Koningen 15:29 | Tiglath-pilezer.*Gilead, en Galilea
+2 Koningen 16:7 | Achaz nu zond boden tot Tiglath-pilezer
+2 Koningen 16:9 | toog op tegen Damaskus, en nam haar in
+2 Koningen 17:1 | Hosea.*negen jaren
+2 Koningen 17:3 | Salmaneser, koning van Assyrië
+2 Koningen 17:4 | So, den koning van Egypte
+2 Koningen 17:5 | belegerde haar drie jaren
+2 Koningen 18:1 | derde jaar van Hosea.*Hizkia
+2 Koningen 18:2 | Vijf en twintig jaren.*negen en twintig jaren
+2 Koningen 18:9 | vierde jaar van den koning Hizkia.*zevende jaar van Hosea.*Salmaneser
+2 Koningen 18:10 | zesde jaar van Hizkia.*negende jaar van Hosea
+2 Koningen 18:13 | veertiende jaar van den koning Hizkia kwam Sanherib.*vaste steden van Juda
+2 Koningen 18:14 | naar Lachis
+2 Koningen 19:9 | Tirhaka
+2 Koningen 19:35 | in het leger van Assyrië
+2 Koningen 19:37 | zijn zonen.*Esar-haddon, zijn zoon, werd koning
+2 Koningen 5:12 | rivieren van Damaskus
+Jesaja 1:1 | Uzzia, Jotham, Achaz en Hizkia
+Jona 1:2 | de grote stad Nineve
+Jona 1:3 | Jafo.*Tarsis
+Genesis 10:11 | Nineve.*Kalach
+# --- Korte letterlijke citaten
+Jona 3:3 | een grote stad Gods, van drie dagreizen
+2 Koningen 17:6 | nam de koning van Assyrië Samaria in
+2 Koningen 15:19 | Toen kwam Pul, de koning van Assyrië, tegen het land
+2 Koningen 19:36 | bleef te Nineve
+2 Koningen 10:32 | In die dagen begon de HEERE Israël af te korten
+2 Koningen 2:11 | Alzo voer Elia met een onweder ten hemel
+Jesaja 6:1 | In het jaar, toen de koning Uzzia stierf
+Jesaja 20:1 | toen Tartan naar Asdod kwam
+Jesaja 20:1 | Sargon, de koning van Assyrië
+2 Koningen 14:25 | van den ingang van Hamath
+2 Koningen 17:4 | So, den koning van Egypte
+2 Koningen 17:6 | de koning van Assyrië

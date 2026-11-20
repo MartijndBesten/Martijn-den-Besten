@@ -1,0 +1,1809 @@
+{
+ "id": "geboorte-jezus",
+ "titel": "Herodes en de keizers van Rome",
+ "ondertitel": "De wereld rond de geboorte van de Heere Jezus, 40 v.Chr. – 40 n.Chr.",
+ "as": {
+  "soort": "nchr",
+  "van": -40,
+  "tot": 40,
+  "stap": 1,
+  "label": "jaartelling",
+  "uitleg": "Jaren voor en na Christus. Een jaar 0 bestaat niet: na 1 v.Chr. komt 1 n.Chr."
+ },
+ "start": -5,
+ "kader": [[29.9,33.2],[34.2,37.6]],
+ "info": [
+  {
+   "kop": "Waarom geen lijn voor de Heere Jezus?",
+   "tekst": "De Heere Jezus staat hier niet als een levenslijn of een figuurtje tussen de heersers. Zijn geboorte, Zijn doop en Zijn kruisiging en opstanding staan als gebeurtenissen op de tijdlijn, met de plaats in de Bijbel waar je erover leest. Zo wordt de Heere Jezus nooit afgebeeld."
+  },
+  {
+   "kop": "Waarom ca. 6–4 v.Chr.?",
+   "tekst": "Onze jaartelling werd pas eeuwen later berekend, en kwam een paar jaar te laat uit. De Heere Jezus werd geboren in de dagen van koning Herodes (Mattheüs 2:1), die volgens Josephus ongeveer 4 v.Chr. stierf. Andere dateringen bestaan.",
+   "status": "benaderd",
+   "bron": [
+    "Mattheüs 2:1",
+    "wiki-herodes"
+   ]
+  }
+ ],
+ "bronnen": [
+  {
+   "id": "sv",
+   "kort": "Statenvertaling",
+   "soort": "bijbel",
+   "titel": "Statenvertaling: Mattheüs 2, Markus 6, Lukas 1–3, Lukas 23, Johannes 2:20, Handelingen 12",
+   "url": null,
+   "licentie": "Statenvertaling (1637), publiek domein; gecontroleerd met data/statenvertaling en scripts/bijbel-check.py",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "josephus-ant-15",
+   "kort": "Josephus, Oudheden 15",
+   "soort": "historisch",
+   "titel": "Josephus, Joodse Oudheden XV (vert. W. Whiston): 15.7.3 (Gadara, Hippos, Samaria, Gaza, Joppe, Torenstad van Strato), 15.10.1–3 (Trachonitis, Batanea, Auranitis; Paneas), 15.11.1 (tempel, achttiende jaar)",
+   "url": "https://en.wikisource.org/wiki/The_Antiquities_of_the_Jews/Book_XV",
+   "licentie": "Publiek domein (Wikisource)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "josephus-ant-17",
+   "kort": "Josephus, Oudheden 17",
+   "soort": "historisch",
+   "titel": "Josephus, Joodse Oudheden XVII (vert. W. Whiston): 17.8.1 (regering van Herodes), 17.11.4 (verdeling onder zijn zonen), 17.13.2 en 5 (Archelaüs verbannen; Quirinius)",
+   "url": "https://en.wikisource.org/wiki/The_Antiquities_of_the_Jews/Book_XVII",
+   "licentie": "Publiek domein (Wikisource)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-herodes",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Herod the Great (40 benoemd, 37 Jeruzalem; dood 4 v.Chr., sommigen 1 v.Chr.)",
+   "url": "https://en.wikipedia.org/wiki/Herod_the_Great",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-archelaus",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Herod Archelaus (etnarch 4 v.Chr. – 6 n.Chr.)",
+   "url": "https://en.wikipedia.org/wiki/Herod_Archelaus",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-antipas",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Herod Antipas (viervorst 4 v.Chr. – 39 n.Chr.)",
+   "url": "https://en.wikipedia.org/wiki/Herod_Antipas",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-filippus",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Philip the Tetrarch (4 v.Chr. – 33/34 n.Chr.; Josephus, Oudheden 18.4.6)",
+   "url": "https://en.wikipedia.org/wiki/Philip_the_Tetrarch",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-augustus",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Augustus (eretitel Augustus 27 v.Chr.; stierf 19 augustus 14 n.Chr.)",
+   "url": "https://en.wikipedia.org/wiki/Augustus",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-tiberius",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Tiberius (keizer 14–37 n.Chr.; vanaf 12/13 medeheerser)",
+   "url": "https://en.wikipedia.org/wiki/Tiberius",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-pilatus",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Pontius Pilate (prefect van Judea ca. 26–36 n.Chr.; Pilatussteen, Caesarea 1961)",
+   "url": "https://en.wikipedia.org/wiki/Pontius_Pilate",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-quirinius",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Census of Quirinius (Josephus: 6 n.Chr.; verhouding tot Lukas 2:2)",
+   "url": "https://en.wikipedia.org/wiki/Census_of_Quirinius",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-lysanias",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Lysanias (Abilene; inscriptie van Abila)",
+   "url": "https://en.wikipedia.org/wiki/Lysanias",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-kajafas",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Caiaphas (hogepriester 18–36 n.Chr.; Josephus, Oudheden 18.2.2 en 18.4.3)",
+   "url": "https://en.wikipedia.org/wiki/Caiaphas",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-decapolis",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Decapolis (de tien steden; sinds Pompeius, 63 v.Chr.)",
+   "url": "https://en.wikipedia.org/wiki/Decapolis",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "wiki-nabatea",
+   "kort": "Wikipedia",
+   "soort": "historisch",
+   "titel": "Wikipedia: Nabataean Kingdom (Petra, Bostra, de Negev; Romeins in 106 n.Chr.)",
+   "url": "https://en.wikipedia.org/wiki/Nabataean_Kingdom",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd voor jaartallen en de stand van het onderzoek, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-gadara",
+   "kort": "Pleiades",
+   "soort": "dataset",
+   "titel": "Pleiades 678142: Gadara",
+   "url": "https://pleiades.stoa.org/places/678142",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-gerasa",
+   "kort": "Pleiades",
+   "soort": "dataset",
+   "titel": "Pleiades 678158: Gerasa",
+   "url": "https://pleiades.stoa.org/places/678158",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-petra",
+   "kort": "Pleiades",
+   "soort": "dataset",
+   "titel": "Pleiades 697725: Petra",
+   "url": "https://pleiades.stoa.org/places/697725",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-abila",
+   "kort": "Pleiades",
+   "soort": "dataset",
+   "titel": "Pleiades 677993: Abila Lysaniou",
+   "url": "https://pleiades.stoa.org/places/677993",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "pleiades-ctesiphon",
+   "kort": "Pleiades",
+   "soort": "dataset",
+   "titel": "Pleiades 893976: Ctesiphon",
+   "url": "https://pleiades.stoa.org/places/893976",
+   "licentie": "CC BY 3.0 (naamsvermelding: Pleiades)",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "bijbelreis-plaatsen",
+   "kort": "Bijbelreis",
+   "soort": "dataset",
+   "titel": "Bijbelreis plaatsen.js (ligging gecontroleerd met OpenBible.info CC BY 4.0 en Pleiades CC BY)",
+   "url": null,
+   "licentie": "eigen gegevens Bijbelreis; zie docs/bijbelreis-audit/plaatsen.md",
+   "geraadpleegd": "2026-11-17"
+  },
+  {
+   "id": "eigen-tekening",
+   "kort": "eigen tekening",
+   "soort": "dataset",
+   "titel": "Grenzen: eigen grove tekening langs kusten, rivieren, gebergten en woestijnranden (scripts/bijbelreis-wereld-perzie-rome.py)",
+   "url": null,
+   "licentie": "eigen werk; geen kaart overgenomen",
+   "geraadpleegd": "2026-11-17"
+  }
+ ],
+ "personen": [
+  {
+   "id": "augustus",
+   "naam": "Augustus",
+   "alt": [
+    "Octavianus"
+   ],
+   "personenId": "augustus",
+   "lijn": "regering",
+   "ambt": "keizer",
+   "van": {
+    "jaar": -27,
+    "status": "historisch",
+    "bron": "wiki-augustus",
+    "begin": "regering",
+    "opmerking": "In 27 v.Chr. kreeg hij de eretitel Augustus; sinds de slag bij Actium (31 v.Chr.) was hij al de enige machthebber."
+   },
+   "tot": {
+    "jaar": 14,
+    "status": "historisch",
+    "bron": "wiki-augustus",
+    "einde": "stierf",
+    "opmerking": "Hij stierf op 19 augustus 14 n.Chr."
+   },
+   "ouder": null,
+   "rol": "De eerste Romeinse keizer; van hem ging het gebod uit dat de hele wereld beschreven moest worden",
+   "ref": [
+    "Lukas 2:1"
+   ],
+   "gebeurtenissen": [
+    "geboorte"
+   ],
+   "verhaal": "v83"
+  },
+  {
+   "id": "tiberius",
+   "naam": "Tiberius",
+   "alt": [],
+   "personenId": null,
+   "lijn": "regering",
+   "ambt": "keizer",
+   "van": {
+    "jaar": 14,
+    "status": "historisch",
+    "bron": "wiki-tiberius",
+    "begin": "regering",
+    "opmerking": "Keizer na de dood van Augustus (september 14 n.Chr.); vanaf 12 of 13 n.Chr. was hij al medeheerser."
+   },
+   "tot": {
+    "jaar": 37,
+    "status": "historisch",
+    "bron": "wiki-tiberius",
+    "einde": "stierf",
+    "opmerking": "Hij stierf op 16 maart 37 n.Chr."
+   },
+   "ouder": null,
+   "rol": "Keizer van Rome; Lukas dateert het optreden van Johannes de Doper in zijn vijftiende jaar",
+   "ref": [
+    "Lukas 3:1"
+   ],
+   "gebeurtenissen": [
+    "vijftiende-jaar"
+   ],
+   "verhaal": "v87"
+  },
+  {
+   "id": "herodes",
+   "naam": "Herodes",
+   "alt": [
+    "Herodes de Grote"
+   ],
+   "personenId": "herodes",
+   "lijn": "regering",
+   "van": {
+    "jaar": -37,
+    "status": "historisch",
+    "bron": [
+     "josephus-ant-17",
+     "wiki-herodes"
+    ],
+    "begin": "regering",
+    "opmerking": "De Romeinse senaat benoemde hem in 40 v.Chr. tot koning; Jeruzalem nam hij in 37 v.Chr. in (sommigen rekenen 36)."
+   },
+   "tot": {
+    "jaar": -4,
+    "status": "benaderd",
+    "bron": [
+     "Mattheüs 2:19",
+     "josephus-ant-17",
+     "wiki-herodes"
+    ],
+    "einde": "stierf",
+    "opmerking": "Meestal gedateerd in het voorjaar van 4 v.Chr. (Josephus; een maansverduistering kort ervoor). Een kleiner aantal onderzoekers verdedigt 1 v.Chr. Hij stierf in Jericho."
+   },
+   "ouder": null,
+   "rol": "Koning van Judea in de tijd van de geboorte van de Heere Jezus",
+   "ref": [
+    "Mattheüs 2:1–19",
+    "Lukas 1:5"
+   ],
+   "gebeurtenissen": [
+    "herodes-jeruzalem",
+    "tempelbouw",
+    "geboorte",
+    "herodes-sterft"
+   ],
+   "verhaal": "v85"
+  },
+  {
+   "id": "archelaus",
+   "naam": "Archelaüs",
+   "alt": [],
+   "personenId": "archelaus",
+   "lijn": "regering",
+   "van": {
+    "jaar": -4,
+    "status": "benaderd",
+    "bron": [
+     "Mattheüs 2:22",
+     "josephus-ant-17",
+     "wiki-archelaus"
+    ],
+    "begin": "regering",
+    "opmerking": "Na de dood van zijn vader (meestal 4 v.Chr.) kreeg hij Judea, Samaria en Idumea. Mattheüs zegt dat Archelaüs ‘in Judea koning was’ (Mattheüs 2:22); zijn Romeinse titel was etnarch (vorst over een volk)."
+   },
+   "tot": {
+    "jaar": 6,
+    "status": "historisch",
+    "bron": [
+     "josephus-ant-17",
+     "wiki-archelaus"
+    ],
+    "einde": "afgezet",
+    "opmerking": "In zijn tiende jaar, 6 n.Chr., door Augustus afgezet en verbannen naar Vienne in Gallië."
+   },
+   "ouder": "herodes",
+   "rol": "Zoon van Herodes; heerser over Judea, Samaria en Idumea",
+   "ref": [
+    "Mattheüs 2:22"
+   ],
+   "gebeurtenissen": [
+    "terug-nazareth",
+    "judea-provincie"
+   ],
+   "verhaal": "v85"
+  },
+  {
+   "id": "antipas",
+   "naam": "Antipas",
+   "alt": [
+    "Herodes Antipas",
+    "Herodes de viervorst"
+   ],
+   "personenId": "herodes_antipas",
+   "lijn": "regering",
+   "ambt": "viervorst",
+   "van": {
+    "jaar": -4,
+    "status": "benaderd",
+    "bron": [
+     "Lukas 3:1",
+     "josephus-ant-17",
+     "wiki-antipas"
+    ],
+    "begin": "regering",
+    "opmerking": "Viervorst over Galilea en Perea vanaf de dood van zijn vader (meestal 4 v.Chr.)."
+   },
+   "tot": {
+    "jaar": 39,
+    "status": "historisch",
+    "bron": "wiki-antipas",
+    "einde": "afgezet",
+    "opmerking": "In de zomer van 39 n.Chr. door keizer Caligula afgezet en verbannen; zijn land ging naar Herodes Agrippa I."
+   },
+   "ouder": "herodes",
+   "rol": "Herodes Antipas, in de Bijbel ‘Herodes, de viervorst’ (Mattheüs 14:1); viervorst over Galilea en Perea, liet Johannes de Doper onthoofden",
+   "ref": [
+    "Lukas 3:1",
+    "Markus 6:14–29",
+    "Lukas 23:7–12"
+   ],
+   "gebeurtenissen": [
+    "vijftiende-jaar"
+   ],
+   "verhaal": "v100"
+  },
+  {
+   "id": "filippus",
+   "naam": "Filippus",
+   "alt": [
+    "Filippus de viervorst"
+   ],
+   "personenId": null,
+   "lijn": "regering",
+   "ambt": "viervorst",
+   "van": {
+    "jaar": -4,
+    "status": "benaderd",
+    "bron": [
+     "Lukas 3:1",
+     "josephus-ant-17",
+     "wiki-filippus"
+    ],
+    "begin": "regering",
+    "opmerking": "Viervorst over het noordoosten (Iturea en Trachonitis, Lukas 3:1) vanaf de dood van zijn vader."
+   },
+   "tot": {
+    "jaar": 34,
+    "status": "historisch",
+    "bron": "wiki-filippus",
+    "einde": "stierf",
+    "marge": [33,34],
+    "opmerking": "Hij stierf in het twintigste jaar van Tiberius, 33 of 34 n.Chr. (Josephus). Niet dezelfde als Filippus de apostel, en ook niet de Filippus van Markus 6:17."
+   },
+   "ouder": "herodes",
+   "rol": "Zoon van Herodes; viervorst over Iturea en Trachonitis; bouwde Caesarea Filippi",
+   "ref": [
+    "Lukas 3:1"
+   ],
+   "gebeurtenissen": [
+    "vijftiende-jaar"
+   ],
+   "verhaal": null
+  },
+  {
+   "id": "lysanias",
+   "naam": "Lysanias",
+   "alt": [],
+   "personenId": null,
+   "lijn": "regering",
+   "ambt": "viervorst",
+   "van": {
+    "jaar": 28,
+    "status": "berekend",
+    "bron": [
+     "Lukas 3:1",
+     "wiki-lysanias"
+    ],
+    "begin": "genoemd",
+    "opmerking": "Lukas noemt hem viervorst over Abilene in het vijftiende jaar van Tiberius. Een inscriptie uit Abila noemt een viervorst Lysanias in de tijd van Tiberius. Hoe lang hij regeerde, is niet bekend; een oudere Lysanias regeerde rond 40–36 v.Chr."
+   },
+   "tot": {
+    "jaar": 28,
+    "status": "berekend",
+    "bron": "Lukas 3:1",
+    "einde": "onbekend",
+    "opmerking": "Alleen in Lukas 3:1 genoemd."
+   },
+   "ouder": null,
+   "rol": "Viervorst over Abilene, ten noordwesten van Damascus",
+   "ref": [
+    "Lukas 3:1"
+   ],
+   "gebeurtenissen": [],
+   "verhaal": null
+  },
+  {
+   "id": "cyrenius",
+   "naam": "Cyrenius",
+   "alt": [
+    "Quirinius"
+   ],
+   "personenId": "cyrenius",
+   "lijn": "regering",
+   "ambt": "stadhouder",
+   "van": {
+    "jaar": 6,
+    "status": "historisch",
+    "bron": [
+     "josephus-ant-17",
+     "wiki-quirinius"
+    ],
+    "begin": "regering",
+    "opmerking": "Volgens Josephus kwam Quirinius in 6 n.Chr. als stadhouder naar Syrië en liet hij in Judea de bezittingen opschrijven. Lukas verbindt een ‘eerste beschrijving’ (Lukas 2:2) onder Cyrenius met de geboorte van de Heere Jezus, in de dagen van Herodes. Hoe die twee samenhangen, is een bekende vraag. Uitleggers geven verschillende antwoorden: een eerdere inschrijving, een eerdere taak van Quirinius in Syrië, of het woord eerste in de betekenis van: vóór die onder Quirinius."
+   },
+   "tot": {
+    "jaar": 6,
+    "status": "historisch",
+    "bron": [
+     "josephus-ant-17",
+     "wiki-quirinius"
+    ],
+    "einde": "onbekend",
+    "opmerking": "Hoe lang hij stadhouder van Syrië bleef, is niet precies bekend."
+   },
+   "ouder": null,
+   "rol": "Romeinse stadhouder van Syrië (Quirinius)",
+   "ref": [
+    "Lukas 2:2"
+   ],
+   "gebeurtenissen": [
+    "judea-provincie"
+   ],
+   "verhaal": "v83"
+  },
+  {
+   "id": "pilatus",
+   "naam": "Pilatus",
+   "alt": [
+    "Pontius Pilatus"
+   ],
+   "personenId": "pilatus",
+   "lijn": "regering",
+   "ambt": "stadhouder",
+   "van": {
+    "jaar": 26,
+    "status": "historisch",
+    "bron": [
+     "Lukas 3:1",
+     "wiki-pilatus"
+    ],
+    "begin": "regering",
+    "opmerking": "Stadhouder (prefect) van Judea vanaf ongeveer 26 n.Chr. Een steen uit Caesarea (gevonden in 1961) noemt hem met die titel. Een paar onderzoekers denken aan een eerder begin."
+   },
+   "tot": {
+    "jaar": 36,
+    "status": "historisch",
+    "bron": "wiki-pilatus",
+    "einde": "afgezet",
+    "marge": [36,37],
+    "opmerking": "Na een bloedbad onder Samaritanen stuurde de stadhouder van Syrië hem naar Rome (36 of 37 n.Chr.). Hoe het daarna met hem ging, is niet bekend."
+   },
+   "ouder": null,
+   "rol": "Romeinse stadhouder over Judea; veroordeelde de Heere Jezus",
+   "ref": [
+    "Lukas 3:1",
+    "Lukas 23:1–25"
+   ],
+   "gebeurtenissen": [
+    "kruisiging"
+   ],
+   "verhaal": "v125"
+  },
+  {
+   "id": "kajafas",
+   "naam": "Kajafas",
+   "alt": [],
+   "personenId": "kajafas",
+   "lijn": "regering",
+   "ambt": "hogepriester",
+   "van": {
+    "jaar": 18,
+    "status": "historisch",
+    "bron": "wiki-kajafas",
+    "begin": "regering",
+    "opmerking": "Door de Romeinse stadhouder Valerius Gratus aangesteld (Josephus)."
+   },
+   "tot": {
+    "jaar": 36,
+    "status": "historisch",
+    "bron": "wiki-kajafas",
+    "einde": "afgezet",
+    "opmerking": "Door Vitellius, de stadhouder van Syrië, afgezet (Josephus)."
+   },
+   "ouder": null,
+   "rol": "Hogepriester; Lukas noemt hem samen met zijn schoonvader Annas",
+   "ref": [
+    "Lukas 3:2",
+    "Johannes 11:49",
+    "Mattheüs 26:57"
+   ],
+   "gebeurtenissen": [
+    "kruisiging"
+   ],
+   "verhaal": "v125"
+  }
+ ],
+ "gebeurtenissen": [
+  {
+   "id": "herodes-jeruzalem",
+   "titel": "Herodes neemt Jeruzalem in",
+   "tekst": "Rome had Herodes tot koning van Judea benoemd. Na een lange strijd neemt hij met hulp van Romeinse soldaten Jeruzalem in.",
+   "jaar": -37,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "josephus-ant-17",
+    "wiki-herodes"
+   ],
+   "personen": [
+    "herodes"
+   ],
+   "plaats": "salem",
+   "verhaal": null,
+   "belangrijk": false,
+   "opmerking": "Benoemd in 40 v.Chr.; Jeruzalem in de zomer van 37 v.Chr. (sommigen: 36). Daarvoor regeerde Antigonus, de laatste koning uit het huis van de Hasmoneeën."
+  },
+  {
+   "id": "egypte-romeins",
+   "titel": "Egypte wordt Romeins",
+   "tekst": "Na de dood van koningin Cleopatra wordt Egypte een deel van het Romeinse rijk. Augustus geeft Herodes er steden aan de kust bij.",
+   "jaar": -30,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "wiki-augustus",
+    "josephus-ant-15"
+   ],
+   "personen": [
+    "herodes"
+   ],
+   "plaats": "p3_alexandrie",
+   "verhaal": null,
+   "belangrijk": false,
+   "opmerking": "Egypte werd na 30 v.Chr. bestuurd door een Romeinse stadhouder. Later vluchtten Jozef en Maria met het Kind naar Egypte (Mattheüs 2:13–14)."
+  },
+  {
+   "id": "tempelbouw",
+   "titel": "Herodes vernieuwt de tempel",
+   "tekst": "In zijn achttiende jaar begint Herodes de tempel in Jeruzalem groter en prachtiger te maken. Het werk duurt nog tientallen jaren.",
+   "jaar": -19,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "josephus-ant-15",
+    "Johannes 2:20"
+   ],
+   "personen": [
+    "herodes"
+   ],
+   "plaats": "nt_tempel",
+   "verhaal": null,
+   "belangrijk": false,
+   "marge": [-20,-19],
+   "opmerking": "Het achttiende jaar van Herodes (Josephus) is 20 of 19 v.Chr. Ongeveer 46 jaar later zeiden de Joden: ‘Zes en veertig jaren is over dezen tempel gebouwd’ (Johannes 2:20)."
+  },
+  {
+   "id": "geboorte",
+   "titel": "De geboorte van de Heere Jezus",
+   "tekst": "Keizer Augustus laat het hele rijk beschrijven. Daarom reizen Jozef en Maria naar Bethlehem, waar de Heere Jezus geboren wordt.",
+   "jaar": -5,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Lukas 2:1–7",
+    "Mattheüs 2:1"
+   ],
+   "personen": [
+    "augustus",
+    "herodes"
+   ],
+   "plaats": "efrath",
+   "verhaal": "v83",
+   "belangrijk": true,
+   "marge": [-6,-4],
+   "opmerking": "De Bijbel noemt geen jaartal. Het was ‘in de dagen van den koning Herodes’ (Mattheüs 2:1), die volgens Josephus ongeveer 4 v.Chr. stierf. Daarom wordt de geboorte meestal op ca. 6–4 v.Chr. gesteld; andere dateringen bestaan ook. Over de beschrijving onder Cyrenius: zie bij Cyrenius."
+  },
+  {
+   "id": "herodes-sterft",
+   "titel": "Herodes sterft; zijn rijk wordt verdeeld",
+   "tekst": "Koning Herodes sterft in Jericho. Keizer Augustus verdeelt zijn land onder drie zonen: Archelaüs, Herodes Antipas en Filippus.",
+   "jaar": -4,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Mattheüs 2:19",
+    "josephus-ant-17",
+    "wiki-herodes"
+   ],
+   "personen": [
+    "herodes",
+    "archelaus",
+    "antipas",
+    "filippus"
+   ],
+   "plaats": "jericho",
+   "verhaal": null,
+   "belangrijk": true,
+   "opmerking": "Meestal voorjaar 4 v.Chr. (Josephus); een kleiner aantal onderzoekers verdedigt 1 v.Chr. Gaza, Gadara en Hippos gingen naar de provincie Syrië (Josephus, Oudheden 17.11.4)."
+  },
+  {
+   "id": "terug-nazareth",
+   "titel": "Terug uit Egypte, naar Nazareth",
+   "tekst": "Na de dood van Herodes keert Jozef met Maria en het Kind terug. Omdat Archelaüs koning is in Judea, gaan ze naar Nazareth in Galilea, het land van Herodes Antipas.",
+   "jaar": -4,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Mattheüs 2:19–23"
+   ],
+   "personen": [
+    "archelaus",
+    "antipas"
+   ],
+   "plaats": "nt_nazareth",
+   "verhaal": "v85",
+   "belangrijk": false,
+   "marge": [-4,-3],
+   "opmerking": "Hoe lang het gezin in Egypte bleef, zegt de Bijbel niet; het was na de dood van Herodes (Mattheüs 2:19). De kaart laat zien waarom Nazareth veiliger was: Galilea viel niet onder Archelaüs."
+  },
+  {
+   "id": "judea-provincie",
+   "titel": "Judea onder een Romeinse stadhouder",
+   "tekst": "Keizer Augustus zet Archelaüs af. Judea krijgt een Romeinse stadhouder, en Quirinius laat in het land de bezittingen opschrijven.",
+   "jaar": 6,
+   "tot": null,
+   "status": "historisch",
+   "bron": [
+    "josephus-ant-17",
+    "wiki-archelaus",
+    "wiki-quirinius"
+   ],
+   "personen": [
+    "archelaus",
+    "cyrenius",
+    "augustus"
+   ],
+   "plaats": "nt_caesarea",
+   "verhaal": null,
+   "belangrijk": false,
+   "opmerking": "Volgens Josephus in het tiende jaar van Archelaüs, 6 n.Chr. De stadhouder woonde in Caesarea aan de kust."
+  },
+  {
+   "id": "twaalf-jaar",
+   "titel": "De Heere Jezus, twaalf jaar, in de tempel",
+   "tekst": "Als de Heere Jezus twaalf jaar is, gaat Hij met Jozef en Maria naar Jeruzalem voor het Pascha. Na drie dagen vinden ze Hem in de tempel.",
+   "jaar": 8,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Lukas 2:41–52"
+   ],
+   "personen": [],
+   "plaats": "nt_tempel",
+   "verhaal": "v86",
+   "belangrijk": false,
+   "marge": [7,9],
+   "opmerking": "Twaalf jaar na de geboorte (ca. 6–4 v.Chr.), en er is geen jaar 0: ongeveer 7–9 n.Chr."
+  },
+  {
+   "id": "vijftiende-jaar",
+   "titel": "Johannes de Doper begint te prediken",
+   "tekst": "In het vijftiende jaar van keizer Tiberius komt het woord van God tot Johannes in de woestijn. Hij predikt bij de Jordaan de doop van de bekering.",
+   "jaar": 28,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Lukas 3:1–3"
+   ],
+   "personen": [
+    "tiberius",
+    "pilatus",
+    "antipas",
+    "filippus",
+    "lysanias",
+    "kajafas"
+   ],
+   "plaats": "nt_doopplaats",
+   "verhaal": "v87",
+   "belangrijk": true,
+   "marge": [28,29],
+   "opmerking": "Lukas 3:1–2 noemt zes machthebbers tegelijk. Vanaf de dood van Augustus (14 n.Chr.) gerekend is het vijftiende jaar ongeveer 28/29 n.Chr.; wie telt vanaf het medekeizerschap van Tiberius (12/13 n.Chr.), komt eerder uit."
+  },
+  {
+   "id": "doop",
+   "titel": "De doop van de Heere Jezus",
+   "tekst": "De Heere Jezus laat Zich door Johannes dopen in de Jordaan. Daarna begint Hij, ongeveer dertig jaar oud, Zijn werk in het openbaar.",
+   "jaar": 28,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Mattheüs 3:13–17",
+    "Lukas 3:21–23"
+   ],
+   "personen": [],
+   "plaats": "nt_doopplaats",
+   "verhaal": "v87",
+   "belangrijk": false,
+   "marge": [28,29],
+   "opmerking": "Kort na het begin van de prediking van Johannes. Lukas zegt dat Hij ‘omtrent dertig jaren oud’ was (Lukas 3:23)."
+  },
+  {
+   "id": "kruisiging",
+   "titel": "De kruisiging en de opstanding",
+   "tekst": "Onder Pontius Pilatus wordt de Heere Jezus gekruisigd buiten Jeruzalem. Op de derde dag staat Hij op uit de doden.",
+   "jaar": 30,
+   "tot": null,
+   "status": "benaderd",
+   "bron": [
+    "Lukas 23:1–25",
+    "Lukas 24:1–7"
+   ],
+   "personen": [
+    "pilatus",
+    "antipas",
+    "kajafas"
+   ],
+   "plaats": "salem",
+   "verhaal": "v125",
+   "belangrijk": true,
+   "marge": [30,33],
+   "opmerking": "De Bijbel noemt geen jaartal. Pilatus was stadhouder van ca. 26 tot 36 n.Chr.; daarom wordt dit meestal op 30 of 33 n.Chr. gesteld."
+  }
+ ],
+ "gebieden": [
+  {
+   "id": "rome",
+   "naam": "Romeinse rijk",
+   "kleur": "rood",
+   "hoofdstad": "antiochie",
+   "bron": [
+    "wiki-augustus",
+    "josephus-ant-15",
+    "josephus-ant-17",
+    "wiki-decapolis",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Alleen het oosten van het rijk rond Judea is getekend: de provincie Syrië (hoofdstad Antiochië) en vanaf 30 v.Chr. Egypte. Het rijk liep door tot Rome en verder naar het westen. Koningen en vorsten zoals Herodes regeerden met toestemming van Rome; hun land heeft hier een eigen kleur.",
+   "sleutels": [
+    {
+     "jaar": -40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.0],[35.6,32.9],[35.5,32.85],[35.5,32.75],[35.55,32.7],[35.6,32.75],[35.65,32.85],[35.7,32.85],[35.75,32.7],[35.8,32.75],[36.0,32.75],[36.1,32.6],[36.3,32.7],[36.6,32.65],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3],[35.5,33.9],[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9]]
+       ],
+       [[[34.8,32.25],[34.75,32.05],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.75,31.75],[34.85,32.0],[34.9,32.2],[34.95,32.45],[35.05,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": -31,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.0],[35.6,32.9],[35.5,32.85],[35.5,32.75],[35.55,32.7],[35.6,32.75],[35.65,32.85],[35.7,32.85],[35.75,32.7],[35.8,32.75],[36.0,32.75],[36.1,32.6],[36.3,32.7],[36.6,32.65],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3],[35.5,33.9],[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9]]
+       ],
+       [[[34.8,32.25],[34.75,32.05],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.75,31.75],[34.85,32.0],[34.9,32.2],[34.95,32.45],[35.05,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": -30,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.0],[35.6,32.9],[35.5,32.85],[35.5,32.75],[35.55,32.7],[35.6,32.75],[35.65,32.85],[35.7,32.85],[35.75,32.7],[35.8,32.75],[36.0,32.75],[36.1,32.6],[36.3,32.7],[36.6,32.65],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3],[35.5,33.9],[35.35,33.55]]
+       ],
+       [[[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6]]
+       ]
+      ]
+     },
+     "opmerking": "Egypte wordt Romeins."
+    },
+    {
+     "jaar": -24,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.0],[35.6,32.9],[35.5,32.85],[35.5,32.75],[35.55,32.7],[35.6,32.75],[35.65,32.85],[35.7,32.85],[35.75,32.7],[35.8,32.75],[36.0,32.75],[36.1,32.6],[36.3,32.7],[36.6,32.65],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3],[35.5,33.9],[35.35,33.55]]
+       ],
+       [[[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": -23,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.65,34.3],[35.5,33.9],[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.0],[35.65,33.1],[35.85,33.15],[36.1,33.2],[36.45,33.25],[36.7,33.1],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3]]
+       ],
+       [[[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": -21,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.65,34.3],[35.5,33.9],[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.0],[35.65,33.1],[35.85,33.15],[36.1,33.2],[36.45,33.25],[36.7,33.1],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3]]
+       ],
+       [[[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": -20,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.65,34.3],[35.5,33.9],[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.3],[35.8,33.45],[35.95,33.35],[35.85,33.15],[36.1,33.2],[36.45,33.25],[36.7,33.1],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3]]
+       ],
+       [[[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": 33,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.65,34.3],[35.5,33.9],[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.3],[35.8,33.45],[35.95,33.35],[35.85,33.15],[36.1,33.2],[36.45,33.25],[36.7,33.1],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3]]
+       ],
+       [[[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": 34,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.0],[35.6,32.9],[35.5,32.85],[35.5,32.75],[35.55,32.7],[35.6,32.75],[35.65,32.85],[35.7,32.85],[35.75,32.7],[35.8,32.75],[36.0,32.75],[36.1,32.6],[36.3,32.7],[36.6,32.65],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3],[35.5,33.9],[35.35,33.55]]
+       ],
+       [[[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6]]
+       ]
+      ]
+     },
+     "opmerking": "Het land van Filippus bij de provincie Syrië."
+    },
+    {
+     "jaar": 36,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.0],[35.6,32.9],[35.5,32.85],[35.5,32.75],[35.55,32.7],[35.6,32.75],[35.65,32.85],[35.7,32.85],[35.75,32.7],[35.8,32.75],[36.0,32.75],[36.1,32.6],[36.3,32.7],[36.6,32.65],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3],[35.5,33.9],[35.35,33.55]]
+       ],
+       [[[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": 37,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.65,34.3],[35.5,33.9],[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.3],[35.8,33.45],[35.95,33.35],[35.85,33.15],[36.1,33.2],[36.45,33.25],[36.7,33.1],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3]]
+       ],
+       [[[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": 40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.65,34.3],[35.5,33.9],[35.35,33.55],[35.2,33.25],[35.1,33.1],[35.05,32.9],[34.95,32.85],[34.95,32.7],[35.1,32.65],[35.2,32.55],[35.15,32.75],[35.15,32.9],[35.2,33.0],[35.35,33.1],[35.55,33.1],[35.6,33.3],[35.8,33.45],[35.95,33.35],[35.85,33.15],[36.1,33.2],[36.45,33.25],[36.7,33.1],[36.75,32.8],[37.3,32.6],[37.0,33.5],[37.2,34.4],[38.0,35.3],[38.8,35.9],[38.1,36.0],[38.0,36.8],[37.9,37.1],[37.0,37.1],[36.7,37.15],[35.5,37.35],[34.7,37.2],[34.65,36.8],[35.4,36.55],[35.8,36.75],[36.2,36.85],[36.2,36.6],[35.9,36.0],[35.8,35.5],[35.9,34.9],[35.85,34.45],[35.65,34.3]]
+       ],
+       [[[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[34.8,31.15],[34.6,31.3],[34.65,31.6],[34.65,31.8],[34.55,31.65],[34.45,31.5],[34.25,31.3],[33.85,31.1],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0]]
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "egypte",
+   "naam": "Egypte (Cleopatra)",
+   "kleur": "lila",
+   "hoofdstad": "alexandrie",
+   "bron": [
+    "wiki-augustus",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Het koninkrijk van de Ptolemaeën, met koningin Cleopatra; vanaf 30 v.Chr. Romeins.",
+   "sleutels": [
+    {
+     "jaar": -40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6]]
+      ]
+     }
+    },
+    {
+     "jaar": -31,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[31.4,29.6],[31.6,30.1],[32.2,30.5],[33.0,30.4],[34.35,30.2],[34.3,30.3],[34.5,30.8],[33.8,31.15],[32.55,31.05],[31.4,31.55],[30.6,31.5],[29.9,31.2],[29.8,30.9],[30.2,30.6],[30.7,30.0],[30.5,29.6],[30.3,29.3],[30.5,29.0],[30.6,28.1],[30.9,27.2],[31.5,26.6],[32.2,25.95],[32.6,26.0],[32.5,25.7],[32.75,25.0],[32.75,24.0],[33.0,24.1],[33.0,25.0],[32.85,25.7],[32.9,26.2],[31.9,26.6],[31.4,27.0],[31.0,27.6],[31.0,28.3],[31.2,29.0],[31.4,29.6]]
+      ]
+     },
+     "opmerking": "Na de slag bij Actium (31 v.Chr.) valt Egypte in 30 v.Chr. aan Rome."
+    }
+   ]
+  },
+  {
+   "id": "hasmoneeen",
+   "naam": "Judea (Antigonus)",
+   "kleur": "grijs",
+   "hoofdstad": "jeruzalem",
+   "bron": [
+    "josephus-ant-17",
+    "wiki-herodes",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Van 40 tot 37 v.Chr. regeerde Antigonus, de laatste koning uit het huis van de Hasmoneeën, met steun van de Parthen. Herodes was in Rome al tot koning benoemd, maar moest zijn land nog veroveren. Dezelfde vorm als het eerste rijk van Herodes.",
+   "sleutels": [
+    {
+     "jaar": -40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.2,32.55],[35.1,32.65],[34.95,32.7],[35.05,32.65],[34.95,32.45],[34.9,32.2],[34.85,32.0],[34.75,31.75],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.55,32.7],[35.5,32.75],[35.5,32.85],[35.6,32.9],[35.6,33.0],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55]]
+      ]
+     }
+    },
+    {
+     "jaar": -38,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.2,32.55],[35.1,32.65],[34.95,32.7],[35.05,32.65],[34.95,32.45],[34.9,32.2],[34.85,32.0],[34.75,31.75],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.55,32.7],[35.5,32.75],[35.5,32.85],[35.6,32.9],[35.6,33.0],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "herodes",
+   "naam": "Rijk van Herodes",
+   "kleur": "terra",
+   "hoofdstad": "jeruzalem",
+   "bron": [
+    "josephus-ant-15",
+    "josephus-ant-17",
+    "wiki-herodes",
+    "pleiades-gadara",
+    "bijbelreis-plaatsen",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Het rijk groeide met gebieden die Augustus gaf: in 30 v.Chr. de kust (Joppe, de Torenstad van Strato) en Gadara en Hippos; in 23 v.Chr. Trachonitis, Batanea en Auranitis; in 20 v.Chr. Paneas (Josephus). Gaza, Samaria en Anthedon kreeg hij ook; Gaza ligt los van de rest en is niet getekend.",
+   "sleutels": [
+    {
+     "jaar": -37,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.2,32.55],[35.1,32.65],[34.95,32.7],[35.05,32.65],[34.95,32.45],[34.9,32.2],[34.85,32.0],[34.75,31.75],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.55,32.7],[35.5,32.75],[35.5,32.85],[35.6,32.9],[35.6,33.0],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55]]
+      ]
+     },
+     "opmerking": "Judea, Idumea, Samaria, Galilea en Perea."
+    },
+    {
+     "jaar": -31,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.2,32.55],[35.1,32.65],[34.95,32.7],[35.05,32.65],[34.95,32.45],[34.9,32.2],[34.85,32.0],[34.75,31.75],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.55,32.7],[35.5,32.75],[35.5,32.85],[35.6,32.9],[35.6,33.0],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55]]
+      ]
+     }
+    },
+    {
+     "jaar": -30,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.8,32.25],[34.75,32.05],[34.65,31.8],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.7,32.6],[35.75,32.7],[35.7,32.85],[35.65,32.85],[35.6,32.75],[35.55,32.7],[35.5,32.75],[35.5,32.85],[35.6,32.9],[35.6,33.0],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55],[35.1,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25]]
+      ]
+     },
+     "opmerking": "Na Actium: de kust met Joppe en de Torenstad van Strato (later Caesarea), en Gadara en Hippos (Josephus, Oudheden 15.7.3)."
+    },
+    {
+     "jaar": -24,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.8,32.25],[34.75,32.05],[34.65,31.8],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.7,32.6],[35.75,32.7],[35.7,32.85],[35.65,32.85],[35.6,32.75],[35.55,32.7],[35.5,32.75],[35.5,32.85],[35.6,32.9],[35.6,33.0],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55],[35.1,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25]]
+      ]
+     }
+    },
+    {
+     "jaar": -23,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.8,32.25],[34.75,32.05],[34.65,31.8],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.7,32.6],[35.75,32.7],[35.7,32.85],[35.8,32.75],[36.0,32.75],[36.3,32.7],[36.6,32.65],[36.75,32.8],[36.7,33.1],[36.45,33.25],[36.1,33.2],[35.85,33.15],[35.65,33.1],[35.6,33.0],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55],[35.1,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25]]
+      ]
+     },
+     "opmerking": "Trachonitis, Batanea en Auranitis (Josephus, Oudheden 15.10.1)."
+    },
+    {
+     "jaar": -21,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.8,32.25],[34.75,32.05],[34.65,31.8],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.7,32.6],[35.75,32.7],[35.7,32.85],[35.8,32.75],[36.0,32.75],[36.3,32.7],[36.6,32.65],[36.75,32.8],[36.7,33.1],[36.45,33.25],[36.1,33.2],[35.85,33.15],[35.65,33.1],[35.6,33.0],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55],[35.1,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25]]
+      ]
+     }
+    },
+    {
+     "jaar": -20,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.8,32.25],[34.75,32.05],[34.65,31.8],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.7,32.6],[35.75,32.7],[35.7,32.85],[35.8,32.75],[36.0,32.75],[36.3,32.7],[36.6,32.65],[36.75,32.8],[36.7,33.1],[36.45,33.25],[36.1,33.2],[35.85,33.15],[35.95,33.35],[35.8,33.45],[35.6,33.3],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55],[35.1,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25]]
+      ]
+     },
+     "opmerking": "Het land van Zenodorus met Paneas, in het zeventiende jaar van Herodes (Josephus, Oudheden 15.10.3)."
+    },
+    {
+     "jaar": -5,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.8,32.25],[34.75,32.05],[34.65,31.8],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.7,32.6],[35.75,32.7],[35.7,32.85],[35.8,32.75],[36.0,32.75],[36.3,32.7],[36.6,32.65],[36.75,32.8],[36.7,33.1],[36.45,33.25],[36.1,33.2],[35.85,33.15],[35.95,33.35],[35.8,33.45],[35.6,33.3],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55],[35.1,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25]]
+      ]
+     },
+     "opmerking": "Herodes sterft (meestal 4 v.Chr.); zijn rijk wordt verdeeld."
+    }
+   ]
+  },
+  {
+   "id": "archelaus",
+   "naam": "Archelaüs",
+   "kleur": "koraal",
+   "hoofdstad": "jeruzalem",
+   "bron": [
+    "Mattheüs 2:22",
+    "josephus-ant-17",
+    "wiki-archelaus",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Judea, Samaria en Idumea, met de kust van Asdod tot Caesarea. Gaza ging naar de provincie Syrië.",
+   "sleutels": [
+    {
+     "jaar": -4,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.65,31.8],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.55,32.0],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.2,32.55],[35.1,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25],[34.75,32.05],[34.65,31.8]]
+      ]
+     }
+    },
+    {
+     "jaar": 5,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.65,31.8],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.55,32.0],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.2,32.55],[35.1,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25],[34.75,32.05],[34.65,31.8]]
+      ]
+     },
+     "opmerking": "In 6 n.Chr. afgezet."
+    }
+   ]
+  },
+  {
+   "id": "judea",
+   "naam": "Judea (Romeinse provincie)",
+   "kleur": "rood",
+   "hoofdstad": "caesarea",
+   "bron": [
+    "josephus-ant-17",
+    "wiki-pilatus",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Vanaf 6 n.Chr. bestuurd door een Romeinse stadhouder (zoals Pontius Pilatus) vanuit Caesarea.",
+   "sleutels": [
+    {
+     "jaar": 6,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.65,31.8],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.55,32.0],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.2,32.55],[35.1,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25],[34.75,32.05],[34.65,31.8]]
+      ]
+     },
+     "opmerking": "Archelaüs afgezet: Judea krijgt een Romeinse stadhouder."
+    },
+    {
+     "jaar": 40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[34.65,31.8],[34.65,31.6],[34.6,31.3],[34.8,31.15],[35.1,31.05],[35.35,31.05],[35.4,31.2],[35.4,31.45],[35.45,31.6],[35.55,31.75],[35.55,32.0],[35.55,32.35],[35.45,32.4],[35.35,32.5],[35.2,32.55],[35.1,32.65],[34.95,32.7],[34.85,32.5],[34.8,32.25],[34.75,32.05],[34.65,31.8]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "antipas",
+   "naam": "Herodes Antipas",
+   "kleur": "salie",
+   "hoofdstad": null,
+   "bron": [
+    "Lukas 3:1",
+    "josephus-ant-17",
+    "wiki-antipas",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Galilea en Perea, twee losse stukken land aan weerszijden van de Jordaan.",
+   "sleutels": [
+    {
+     "jaar": -4,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.15,32.9],[35.15,32.75],[35.2,32.55],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.55,32.7],[35.5,32.75],[35.5,32.85],[35.6,32.9],[35.6,33.0],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9]]
+       ],
+       [[[35.7,32.3],[35.55,32.3],[35.55,32.0],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3]]
+       ]
+      ]
+     }
+    },
+    {
+     "jaar": 38,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.15,32.9],[35.15,32.75],[35.2,32.55],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.55,32.7],[35.5,32.75],[35.5,32.85],[35.6,32.9],[35.6,33.0],[35.55,33.1],[35.35,33.1],[35.2,33.0],[35.15,32.9]]
+       ],
+       [[[35.7,32.3],[35.55,32.3],[35.55,32.0],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1],[35.7,32.3]]
+       ]
+      ]
+     },
+     "opmerking": "In de zomer van 39 n.Chr. afgezet."
+    }
+   ]
+  },
+  {
+   "id": "filippus",
+   "naam": "Filippus",
+   "kleur": "oker",
+   "hoofdstad": "caesarea-filippi",
+   "bron": [
+    "Lukas 3:1",
+    "josephus-ant-17",
+    "wiki-filippus",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Het noordoosten: Gaulanitis, Batanea, Trachonitis, Auranitis en Paneas (Lukas 3:1 noemt Iturea en Trachonitis). Na zijn dood (33/34 n.Chr.) bij de provincie Syrië.",
+   "sleutels": [
+    {
+     "jaar": -4,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.6,33.0],[35.6,32.9],[35.65,32.85],[35.7,32.85],[35.8,32.75],[36.0,32.75],[36.3,32.7],[36.6,32.65],[36.75,32.8],[36.7,33.1],[36.45,33.25],[36.1,33.2],[35.85,33.15],[35.95,33.35],[35.8,33.45],[35.6,33.3],[35.55,33.1],[35.6,33.0]]
+      ]
+     }
+    },
+    {
+     "jaar": 33,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.6,33.0],[35.6,32.9],[35.65,32.85],[35.7,32.85],[35.8,32.75],[36.0,32.75],[36.3,32.7],[36.6,32.65],[36.75,32.8],[36.7,33.1],[36.45,33.25],[36.1,33.2],[35.85,33.15],[35.95,33.35],[35.8,33.45],[35.6,33.3],[35.55,33.1],[35.6,33.0]]
+      ]
+     },
+     "opmerking": "Filippus sterft (33 of 34 n.Chr.)."
+    }
+   ]
+  },
+  {
+   "id": "agrippa",
+   "naam": "Herodes Agrippa",
+   "kleur": "camel",
+   "hoofdstad": null,
+   "bron": [
+    "Handelingen 12:1",
+    "wiki-antipas",
+    "wiki-filippus",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Herodes Agrippa I, een kleinzoon van Herodes de Grote, is ‘de koning Herodes’ (Handelingen 12:1). Hij kreeg in 37 n.Chr. het land van Filippus en in 39 dat van Antipas.",
+   "sleutels": [
+    {
+     "jaar": 37,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.6,33.0],[35.6,32.9],[35.65,32.85],[35.7,32.85],[35.8,32.75],[36.0,32.75],[36.3,32.7],[36.6,32.65],[36.75,32.8],[36.7,33.1],[36.45,33.25],[36.1,33.2],[35.85,33.15],[35.95,33.35],[35.8,33.45],[35.6,33.3],[35.55,33.1],[35.6,33.0]]
+      ]
+     }
+    },
+    {
+     "jaar": 38,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.6,33.0],[35.6,32.9],[35.65,32.85],[35.7,32.85],[35.8,32.75],[36.0,32.75],[36.3,32.7],[36.6,32.65],[36.75,32.8],[36.7,33.1],[36.45,33.25],[36.1,33.2],[35.85,33.15],[35.95,33.35],[35.8,33.45],[35.6,33.3],[35.55,33.1],[35.6,33.0]]
+      ]
+     }
+    },
+    {
+     "jaar": 39,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.55,32.7],[35.5,32.75],[35.5,32.85],[35.6,32.9],[35.65,32.85],[35.7,32.85],[35.8,32.75],[36.0,32.75],[36.3,32.7],[36.6,32.65],[36.75,32.8],[36.7,33.1],[36.45,33.25],[36.1,33.2],[35.85,33.15],[35.95,33.35],[35.8,33.45],[35.6,33.3],[35.55,33.1],[35.35,33.1],[35.2,33.0]]
+       ],
+       [[[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.0],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1]]
+       ]
+      ]
+     },
+     "opmerking": "Ook Galilea en Perea, na de verbanning van Antipas."
+    },
+    {
+     "jaar": 40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [[[35.2,33.0],[35.15,32.9],[35.15,32.75],[35.2,32.55],[35.35,32.5],[35.45,32.6],[35.55,32.65],[35.55,32.7],[35.5,32.75],[35.5,32.85],[35.6,32.9],[35.65,32.85],[35.7,32.85],[35.8,32.75],[36.0,32.75],[36.3,32.7],[36.6,32.65],[36.75,32.8],[36.7,33.1],[36.45,33.25],[36.1,33.2],[35.85,33.15],[35.95,33.35],[35.8,33.45],[35.6,33.3],[35.55,33.1],[35.35,33.1],[35.2,33.0]]
+       ],
+       [[[35.75,32.1],[35.7,32.3],[35.55,32.3],[35.55,32.0],[35.55,31.75],[35.6,31.6],[35.65,31.45],[35.75,31.6],[35.8,31.85],[35.75,32.1]]
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "decapolis",
+   "naam": "Decapolis",
+   "kleur": "teal",
+   "hoofdstad": null,
+   "bron": [
+    "wiki-decapolis",
+    "josephus-ant-15",
+    "josephus-ant-17",
+    "pleiades-gadara",
+    "pleiades-gerasa",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Decapolis betekent tien steden: steden met Griekse inwoners, die zichzelf bestuurden onder toezicht van de provincie Syrië. Gadara en Hippos hoorden van 30 tot 4 v.Chr. bij Herodes. Damascus, dat Plinius ook noemt, is niet in dit vlak getekend.",
+   "sleutels": [
+    {
+     "jaar": -40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.45,32.6],[35.35,32.5],[35.45,32.4],[35.55,32.35],[35.55,32.3],[35.7,32.3],[35.75,32.1],[35.8,31.85],[35.95,31.8],[36.05,31.85],[36.1,32.2],[36.1,32.6],[36.0,32.75],[35.8,32.75],[35.75,32.7],[35.7,32.85],[35.65,32.85],[35.6,32.75],[35.55,32.7],[35.55,32.65],[35.45,32.6]]
+      ]
+     }
+    },
+    {
+     "jaar": -31,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.45,32.6],[35.35,32.5],[35.45,32.4],[35.55,32.35],[35.55,32.3],[35.7,32.3],[35.75,32.1],[35.8,31.85],[35.95,31.8],[36.05,31.85],[36.1,32.2],[36.1,32.6],[36.0,32.75],[35.8,32.75],[35.75,32.7],[35.7,32.85],[35.65,32.85],[35.6,32.75],[35.55,32.7],[35.55,32.65],[35.45,32.6]]
+      ]
+     }
+    },
+    {
+     "jaar": -30,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.35,32.5],[35.45,32.4],[35.55,32.35],[35.55,32.3],[35.7,32.3],[35.75,32.1],[35.8,31.85],[35.95,31.8],[36.05,31.85],[36.1,32.2],[36.1,32.6],[36.0,32.75],[35.8,32.75],[35.75,32.7],[35.7,32.6],[35.55,32.65],[35.45,32.6],[35.35,32.5]]
+      ]
+     },
+     "opmerking": "Gadara en Hippos naar Herodes."
+    },
+    {
+     "jaar": -5,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.35,32.5],[35.45,32.4],[35.55,32.35],[35.55,32.3],[35.7,32.3],[35.75,32.1],[35.8,31.85],[35.95,31.8],[36.05,31.85],[36.1,32.2],[36.1,32.6],[36.0,32.75],[35.8,32.75],[35.75,32.7],[35.7,32.6],[35.55,32.65],[35.45,32.6],[35.35,32.5]]
+      ]
+     }
+    },
+    {
+     "jaar": -4,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.45,32.6],[35.35,32.5],[35.45,32.4],[35.55,32.35],[35.55,32.3],[35.7,32.3],[35.75,32.1],[35.8,31.85],[35.95,31.8],[36.05,31.85],[36.1,32.2],[36.1,32.6],[36.0,32.75],[35.8,32.75],[35.75,32.7],[35.7,32.85],[35.65,32.85],[35.6,32.75],[35.55,32.7],[35.55,32.65],[35.45,32.6]]
+      ]
+     },
+     "opmerking": "Gadara en Hippos weer bij Syrië."
+    },
+    {
+     "jaar": 40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.45,32.6],[35.35,32.5],[35.45,32.4],[35.55,32.35],[35.55,32.3],[35.7,32.3],[35.75,32.1],[35.8,31.85],[35.95,31.8],[36.05,31.85],[36.1,32.2],[36.1,32.6],[36.0,32.75],[35.8,32.75],[35.75,32.7],[35.7,32.85],[35.65,32.85],[35.6,32.75],[35.55,32.7],[35.55,32.65],[35.45,32.6]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "nabatea",
+   "naam": "Nabatea",
+   "kleur": "zand",
+   "hoofdstad": "petra",
+   "bron": [
+    "wiki-nabatea",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Het koninkrijk van de Nabateeërs, met Petra en Bostra; het liep verder naar het zuiden door Arabië. Pas in 106 n.Chr. werd het Romeins.",
+   "sleutels": [
+    {
+     "jaar": -40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.55,31.1],[35.35,31.05],[35.1,31.05],[34.8,31.15],[34.5,30.8],[34.3,30.3],[34.9,29.6],[34.95,29.5],[34.8,28.0],[37.0,28.0],[37.5,30.5],[37.3,32.6],[36.75,32.8],[36.6,32.65],[36.3,32.7],[36.1,32.6],[36.1,32.2],[36.05,31.85],[35.95,31.8],[35.8,31.85],[35.75,31.6],[35.65,31.45],[35.55,31.1]]
+      ]
+     }
+    },
+    {
+     "jaar": 40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.55,31.1],[35.35,31.05],[35.1,31.05],[34.8,31.15],[34.5,30.8],[34.3,30.3],[34.9,29.6],[34.95,29.5],[34.8,28.0],[37.0,28.0],[37.5,30.5],[37.3,32.6],[36.75,32.8],[36.6,32.65],[36.3,32.7],[36.1,32.6],[36.1,32.2],[36.05,31.85],[35.95,31.8],[35.8,31.85],[35.75,31.6],[35.65,31.45],[35.55,31.1]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "abilene",
+   "naam": "Abilene",
+   "kleur": "bruin",
+   "hoofdstad": "abila",
+   "bron": [
+    "Lukas 3:1",
+    "wiki-lysanias",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Het kleine land van Lysanias rond Abila. Alleen getekend rond het vijftiende jaar van Tiberius, waarin Lukas het noemt; hoe lang het daarvoor en daarna zo bestond, is niet bekend.",
+   "sleutels": [
+    {
+     "jaar": 28,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.95,33.55],[36.2,33.5],[36.35,33.65],[36.2,33.8],[35.95,33.75],[35.95,33.55]]
+      ]
+     }
+    },
+    {
+     "jaar": 29,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[35.95,33.55],[36.2,33.5],[36.35,33.65],[36.2,33.8],[35.95,33.75],[35.95,33.55]]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parthie",
+   "naam": "Parthische rijk",
+   "kleur": "kobalt",
+   "hoofdstad": "ctesiphon",
+   "bron": [
+    "wiki-herodes",
+    "eigen-tekening"
+   ],
+   "opmerking": "Grenzen bij benadering: rijken hadden geen vaste grenzen zoals nu. Het grote rijk ten oosten van de Eufraat, de rivier die de grens met Rome vormde. Het liep ver naar het oosten door; Armenië, dat tussen Rome en Parthië in lag, is niet getekend.",
+   "sleutels": [
+    {
+     "jaar": -40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.0,25.2],[62.0,41.3],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[45.2,38.9],[44.6,38.0],[44.8,37.4],[43.0,37.7],[42.2,37.3],[40.8,37.5],[39.3,37.5],[37.9,37.1],[38.0,36.8],[38.1,36.0],[38.8,35.9],[39.0,35.95],[40.1,35.3],[41.0,34.4],[42.8,33.65],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8]]
+      ]
+     }
+    },
+    {
+     "jaar": 40,
+     "betrouwbaarheid": "benaderd",
+     "geometrie": {
+      "type": "Polygon",
+      "coordinates": [[[54.0,26.8],[55.3,27.3],[57.3,26.9],[58.0,25.6],[60.0,25.3],[62.0,25.2],[62.0,41.3],[61.2,42.4],[59.6,42.6],[58.4,40.6],[56.0,38.3],[53.9,36.9],[51.9,36.65],[50.5,36.9],[49.5,37.4],[48.9,38.4],[48.0,38.0],[48.85,38.4],[48.0,38.7],[46.8,39.0],[45.2,38.9],[44.6,38.0],[44.8,37.4],[43.0,37.7],[42.2,37.3],[40.8,37.5],[39.3,37.5],[37.9,37.1],[38.0,36.8],[38.1,36.0],[38.8,35.9],[39.0,35.95],[40.1,35.3],[41.0,34.4],[42.8,33.65],[43.0,33.0],[43.6,32.3],[44.4,31.6],[45.4,31.1],[46.4,30.5],[47.7,29.9],[47.9,30.9],[48.5,30.2],[49.6,30.0],[50.2,30.4],[50.8,29.0],[51.4,28.0],[52.6,27.4],[54.0,26.8]]
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "steden": [
+  {
+   "id": "jeruzalem",
+   "naam": "Jeruzalem",
+   "plaatsId": "salem",
+   "lat": 31.777,
+   "lng": 35.235,
+   "tekst": "De stad van de tempel, die Herodes liet vernieuwen. Hier stond de Heere Jezus als twaalfjarige in de tempel, en hier werd Hij gekruisigd.",
+   "bron": [
+    "Lukas 2:46",
+    "Johannes 2:20"
+   ]
+  },
+  {
+   "id": "nazareth",
+   "naam": "Nazareth",
+   "plaatsId": "nt_nazareth",
+   "lat": 32.7021,
+   "lng": 35.2977,
+   "tekst": "Het dorp in Galilea waar Jozef en Maria woonden en waar de Heere Jezus opgroeide.",
+   "bron": [
+    "Mattheüs 2:23",
+    "Lukas 2:51"
+   ]
+  },
+  {
+   "id": "caesarea",
+   "naam": "Caesarea",
+   "plaatsId": "nt_caesarea",
+   "lat": 32.5,
+   "lng": 34.8917,
+   "tekst": "Havenstad die Herodes bouwde. Later woonden de Romeinse stadhouders hier; een steen met de naam van Pilatus is hier gevonden.",
+   "bron": [
+    "wiki-pilatus",
+    "josephus-ant-15"
+   ]
+  },
+  {
+   "id": "caesarea-filippi",
+   "naam": "Caesarea Filippi",
+   "plaatsId": "nt_kaesareafilippi",
+   "lat": 33.2461,
+   "lng": 35.6933,
+   "tekst": "Stad bij de bronnen van de Jordaan (Paneas). Filippus de viervorst bouwde haar uit en noemde haar naar de keizer en naar zichzelf.",
+   "bron": [
+    "wiki-filippus",
+    "Mattheüs 16:13"
+   ]
+  },
+  {
+   "id": "machaerus",
+   "naam": "Machérus",
+   "plaatsId": "nt_machaerus",
+   "lat": 31.5617,
+   "lng": 35.6264,
+   "tekst": "Burcht van Herodes Antipas in Perea. Volgens Josephus werd Johannes de Doper hier onthoofd; de Bijbel noemt de plaats niet.",
+   "bron": [
+    "wiki-antipas",
+    "Markus 6:27"
+   ]
+  },
+  {
+   "id": "gerasa",
+   "naam": "Gerasa",
+   "plaatsId": null,
+   "lat": 32.28,
+   "lng": 35.891,
+   "tekst": "Grote stad van de Decapolis, ten oosten van de Jordaan.",
+   "bron": [
+    "pleiades-gerasa",
+    "wiki-decapolis"
+   ]
+  },
+  {
+   "id": "abila",
+   "naam": "Abila",
+   "plaatsId": null,
+   "lat": 33.627,
+   "lng": 36.116,
+   "tekst": "Hoofdplaats van Abilene, het land van Lysanias (Lukas 3:1).",
+   "bron": [
+    "pleiades-abila",
+    "Lukas 3:1"
+   ]
+  },
+  {
+   "id": "petra",
+   "naam": "Petra",
+   "plaatsId": null,
+   "lat": 30.345,
+   "lng": 35.383,
+   "tekst": "Hoofdstad van de Nabateeërs, uitgehouwen in rode rotsen.",
+   "bron": [
+    "pleiades-petra",
+    "wiki-nabatea"
+   ]
+  },
+  {
+   "id": "antiochie",
+   "naam": "Antiochië",
+   "plaatsId": "nt_antiochie",
+   "lat": 36.2267,
+   "lng": 36.1717,
+   "tekst": "Hoofdstad van de Romeinse provincie Syrië, waar de stadhouder van Syrië woonde.",
+   "bron": [
+    "wiki-quirinius"
+   ]
+  },
+  {
+   "id": "alexandrie",
+   "naam": "Alexandrië",
+   "plaatsId": "p3_alexandrie",
+   "lat": 31.1825,
+   "lng": 29.8965,
+   "tekst": "Hoofdstad van Egypte aan zee: tot 30 v.Chr. de stad van Cleopatra, daarna Romeins.",
+   "bron": [
+    "wiki-augustus"
+   ]
+  },
+  {
+   "id": "ctesiphon",
+   "naam": "Ctesiphon",
+   "plaatsId": null,
+   "lat": 33.095,
+   "lng": 44.581,
+   "tekst": "Koningsstad van de Parthen aan de Tigris, niet ver van het oude Babel.",
+   "bron": [
+    "pleiades-ctesiphon"
+   ]
+  }
+ ],
+ "koppelingen": [
+  {
+   "verhaal": "v80",
+   "jaar": -7,
+   "tot": -5,
+   "status": "benaderd",
+   "personen": [
+    "herodes",
+    "augustus"
+   ],
+   "gebeurtenissen": [
+    "geboorte"
+   ],
+   "opmerking": "‘In de dagen van Herodes, den koning van Judea’ (Lukas 1:5): ongeveer vijftien maanden vóór de geboorte van de Heere Jezus."
+  },
+  {
+   "verhaal": "v81",
+   "jaar": -7,
+   "tot": -5,
+   "status": "benaderd",
+   "personen": [
+    "herodes",
+    "augustus"
+   ],
+   "gebeurtenissen": [
+    "geboorte"
+   ],
+   "opmerking": "Ongeveer negen maanden vóór de geboorte van de Heere Jezus, in de tijd van Herodes."
+  },
+  {
+   "verhaal": "v82",
+   "jaar": -6,
+   "tot": -4,
+   "status": "benaderd",
+   "personen": [
+    "herodes"
+   ],
+   "gebeurtenissen": [
+    "geboorte"
+   ],
+   "opmerking": "Johannes werd ongeveer een half jaar vóór de Heere Jezus geboren (Lukas 1:26, 36)."
+  },
+  {
+   "verhaal": "v83",
+   "jaar": -6,
+   "tot": -4,
+   "status": "benaderd",
+   "personen": [
+    "augustus",
+    "herodes",
+    "cyrenius"
+   ],
+   "gebeurtenissen": [
+    "geboorte"
+   ],
+   "opmerking": "Vóór de dood van Herodes, die volgens Josephus ongeveer 4 v.Chr. stierf. De beschrijving ‘als Cyrenius over Syrië stadhouder was’ (Lukas 2:2) is historisch niet precies te dateren."
+  },
+  {
+   "verhaal": "v84",
+   "jaar": -6,
+   "tot": -4,
+   "status": "benaderd",
+   "personen": [
+    "augustus",
+    "herodes"
+   ],
+   "gebeurtenissen": [
+    "geboorte"
+   ]
+  },
+  {
+   "verhaal": "v85",
+   "jaar": -6,
+   "tot": -4,
+   "status": "benaderd",
+   "personen": [
+    "herodes",
+    "archelaus",
+    "antipas"
+   ],
+   "gebeurtenissen": [
+    "geboorte",
+    "herodes-sterft",
+    "terug-nazareth"
+   ],
+   "opmerking": "Herodes leefde nog toen de wijzen kwamen (Mattheüs 2:1); na zijn dood kwam het gezin terug uit Egypte (Mattheüs 2:19–23)."
+  },
+  {
+   "verhaal": "v86",
+   "jaar": 7,
+   "tot": 9,
+   "status": "benaderd",
+   "personen": [
+    "augustus"
+   ],
+   "gebeurtenissen": [
+    "twaalf-jaar",
+    "judea-provincie"
+   ]
+  },
+  {
+   "verhaal": "v87",
+   "jaar": 28,
+   "tot": 29,
+   "status": "benaderd",
+   "personen": [
+    "tiberius",
+    "pilatus",
+    "antipas",
+    "filippus",
+    "lysanias",
+    "kajafas"
+   ],
+   "gebeurtenissen": [
+    "vijftiende-jaar",
+    "doop"
+   ],
+   "opmerking": "In het vijftiende jaar van keizer Tiberius (Lukas 3:1), volgens de gangbare berekening ongeveer 28/29 n.Chr."
+  },
+  {
+   "verhaal": "v100",
+   "jaar": 28,
+   "tot": 33,
+   "status": "benaderd",
+   "personen": [
+    "antipas",
+    "filippus"
+   ],
+   "gebeurtenissen": [
+    "vijftiende-jaar"
+   ],
+   "opmerking": "Markus 6 noemt geen jaar. Het was in de regering van Herodes Antipas, nadat Johannes was begonnen te prediken (Lukas 3:1–3) en vóór het laatste Pascha van de Heere Jezus."
+  },
+  {
+   "verhaal": "v125",
+   "jaar": 30,
+   "tot": 33,
+   "status": "benaderd",
+   "personen": [
+    "pilatus",
+    "antipas",
+    "kajafas",
+    "tiberius"
+   ],
+   "gebeurtenissen": [
+    "kruisiging"
+   ],
+   "opmerking": "De Bijbel noemt geen jaartal. Meestal wordt de kruisiging op 30 of 33 n.Chr. gesteld, in de tijd dat Pilatus stadhouder was."
+  }
+ ]
+}
