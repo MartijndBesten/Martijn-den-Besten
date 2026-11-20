@@ -2877,18 +2877,83 @@
       return;
     }
     na.hidden = true; na.innerHTML = ""; zetEerste(false);
-    const h = huidigeGeschiedenis(), g = h.g;
-    // Een stap uit een thema hoort bij geen geschiedenis. Was dat het laatste wat je opende, dan gaat ‘Verder met’
-    // daarheen; in het seizoen van het thema doet de eigen ingang eronder dat al (renderSeizoen).
-    const hk = store.get("huidig", null), ts = hk && hk.k && STEP_BY_KEY.get(hk.k), themaStap = ts && ts.deel.boek.thema && ts.deel.boek.thema !== SEIZOEN ? ts : null;
-    if (!themaStap && (!g || h.hoe === "nieuw")) { box.hidden = true; box.innerHTML = ""; return; }
+    const doel = verderDoel();
+    if (!doel) { box.hidden = true; box.innerHTML = ""; return; }
     box.hidden = false;
     const tip = store.get("niveauTip", false) ? `<p class="rk-tip">Nieuw: Bijbelreis heeft nu reisniveaus. Je kijkt met <b>${esc(nivNaam())}</b>. <button type="button" class="linkbtn" data-open-niveau>Wijzigen</button></p>` : "";
-    if (themaStap) { box.innerHTML = `<button type="button" class="btn primary verdermet" data-go="${themaStap.key}"><span>Verder met: <b>${esc(themaStap.deel.n)} – ${esc(themaStap.t)}</b></span><span aria-hidden="true">▶</span></button>${tip}`; return; }
-    const st = h.hoe === "stap" && STEP_BY_KEY.get(h.key);
-    const wat = st ? `${esc(st.deel.n)} – ${esc(st.t)}` : esc(g.t);
-    box.innerHTML = `<button type="button" class="btn primary verdermet" ${st ? `data-go="${h.key}"` : `data-v="${g.nr}"`}><span>Verder met: <b>${wat}</b></span><span aria-hidden="true">▶</span></button>${tip}`;
+    box.innerHTML = `<button type="button" class="btn primary verdermet" ${doel.attr}><span>Verder met: <b>${esc(doel.wat)}</b></span><span aria-hidden="true">▶</span></button>${tip}`;
   }
+  // Waar ‘Verder met’ heen gaat (null bij nog geen voortgang): de laatste stap of geschiedenis. Een stap uit een thema hoort
+  // bij geen geschiedenis; was dat het laatste wat je opende, dan gaat ‘Verder met’ daarheen. In het seizoen van het thema
+  // doet de eigen ingang (renderSeizoen) dat al.
+  function verderDoel() {
+    const h = huidigeGeschiedenis(), g = h.g;
+    const hk = store.get("huidig", null), ts = hk && hk.k && STEP_BY_KEY.get(hk.k), themaStap = ts && ts.deel.boek.thema && ts.deel.boek.thema !== SEIZOEN ? ts : null;
+    if (themaStap) return { attr: `data-go="${themaStap.key}"`, wat: `${themaStap.deel.n} – ${themaStap.t}` };
+    if (!g || h.hoe === "nieuw") return null;
+    const st = h.hoe === "stap" && STEP_BY_KEY.get(h.key);
+    return st ? { attr: `data-go="${h.key}"`, wat: `${st.deel.n} – ${st.t}` } : { attr: `data-v="${g.nr}"`, wat: g.t };
+  }
+
+  // ---------- voorscherm (welkom bij het openen) ----------
+  // Wie de Bijbelreis opent zonder link naar een verhaal of stap (bijbelreis.nl, het icoon op het beginscherm), ziet eerst
+  // een rustig welkomstscherm: wat dit is, één grote knop (‘Verder met …’ of, de eerste keer, ‘Begin de reis’), ‘Kies een
+  // geschiedenis’ en de zes onderdelen. Eén keer per bezoek (sessionStorage), niet bij een diepe link en niet bij herladen.
+  // Aanleiding (Martijn, 17-11-2026): de atlas opende midden op de laatst gelezen plek (alleen de Sinaï in beeld) — geen begin.
+  const VS_SLEUTEL = "bijbelreis:voorscherm";
+  const voorschermGezien = () => { try { return sessionStorage.getItem(VS_SLEUTEL) === "1"; } catch { return false; } };
+  let vsInert = [];
+  function toonVoorscherm() {
+    const el = $("voorscherm"); if (!el) return;
+    try { sessionStorage.setItem(VS_SLEUTEL, "1"); } catch { /* geen opslag: dan bij elk openen */ }
+    const doel = verderDoel(), d = startDeel();
+    const hoofd = doel
+      ? `<button type="button" class="btn primary vs-hoofd" ${doel.attr}><span class="vs-wat"><small>Verder met:</small><b>${esc(doel.wat)}</b></span><span aria-hidden="true">▶</span></button>`
+      : `<button type="button" class="btn primary vs-hoofd" data-go="${d.key}:0"><span class="vs-wat"><b>Begin de reis</b><small>${esc(d.n)} · ${esc(startWeg(d))}</small></span><span aria-hidden="true">▶</span></button>`;
+    const seizoen = SEIZOEN === "kerst" ? `<button type="button" class="btn vs-tweede vs-seizoen" data-vs-tab="verhalen">Thema: Advent en Kerst</button>` : "";
+    const delen = TABS.map((t) => {
+      const b = $("t-" + t), svg = b.querySelector("svg"), woord = b.querySelector(".tabwoord"), uitleg = b.querySelector(".tabuitleg");
+      return `<li><button type="button" class="vs-deel" id="vs-${t}" data-vs-tab="${t}">${svg ? svg.outerHTML : ""}<span><b>${esc(woord ? woord.textContent : t)}</b><small>${esc(uitleg ? uitleg.textContent : "")}</small></span></button></li>`;
+    }).join("");
+    const sub = document.querySelector(".kop-sub-tekst");
+    el.innerHTML = `<div class="vs-in" tabindex="-1">
+      <div class="vs-boven"><span class="vs-merk">${(document.querySelector(".kop-kameel") || { outerHTML: "" }).outerHTML}<span>Bijbelreis</span></span><button type="button" class="vs-sluit" data-vs-sluit>Naar de atlas <span aria-hidden="true">✕</span></button></div>
+      <div class="vs-held">
+        <h2 class="vs-titel" id="vsTitel">Op reis door de <em>Bijbel</em></h2>
+        <p class="vs-zin">${esc(START_ZIN)}</p>
+        ${sub ? `<p class="vs-sub">${esc(sub.textContent)}</p>` : ""}
+        <div class="vs-knoppen">${hoofd}<button type="button" class="btn vs-tweede" data-vs-tab="verhalen">Kies een geschiedenis</button>${seizoen}</div>
+      </div>
+      <nav class="vs-delen" aria-labelledby="vsDelen"><p class="label" id="vsDelen">Of ga naar</p><ul>${delen}</ul></nav>
+      ${BR.taal && BR.taal.code && BR.taal.code !== "nl" ? "" : `<p class="vs-voet"><a href="/bijbelreis/lessen">Samen lezen met kinderen of een groep? <b>Lesroutes met presentatie en vragen</b></a></p>`}
+    </div>`;
+    vsInert = [...document.body.children].filter((c) => c !== el && c.tagName !== "SCRIPT" && !c.inert);
+    vsInert.forEach((c) => (c.inert = true));
+    document.body.classList.add("vs-open");
+    el.hidden = false;
+    // De focus op het scherm zelf (niet op de knop): een schermlezer begint bij de titel, en er staat geen focusrand op de
+    // grote knop voordat iemand iets doet. Tab gaat daarna naar ‘Naar de atlas’ en de grote knop.
+    el.querySelector(".vs-in").focus({ preventScroll: true });
+  }
+  function sluitVoorscherm(focus) {
+    const el = $("voorscherm"); if (!el || el.hidden) return;
+    el.hidden = true; el.innerHTML = "";
+    vsInert.forEach((c) => (c.inert = false)); vsInert = [];
+    document.body.classList.remove("vs-open");
+    // De kaart kreeg haar maat terwijl het scherm erover lag; daarna opnieuw meten.
+    map.invalidateSize({ pan: false });
+    if (focus) { const t = $("t-" + mode); if (t) t.focus({ preventScroll: true }); }
+  }
+  $("voorscherm").addEventListener("click", (e) => {
+    if (e.target.closest("[data-vs-sluit]")) { sluitVoorscherm(true); return; }
+    const tab = e.target.closest("[data-vs-tab]");
+    if (tab) { sluitVoorscherm(false); setMode(tab.dataset.vsTab); const t = $("t-" + mode); if (t) t.focus({ preventScroll: true }); return; }
+    const v = e.target.closest("[data-v]");
+    if (v) { sluitVoorscherm(false); openVerhaal(+v.dataset.v); return; }
+    // [data-go] (stap of deel): het scherm gaat dicht, de gewone afhandeling op document doet de rest.
+    if (e.target.closest("[data-go]")) sluitVoorscherm(false);
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("voorscherm").hidden) { e.preventDefault(); sluitVoorscherm(true); } });
 
   // De ingang van het seizoen: van de eerste adventszondag tot en met 6 januari staat bovenaan Verhalen één rustige
   // kaart naar het thema Kerst. Sinds 16-11-2026 met een weekritme: elke week is één van de zes delen aan de beurt
@@ -3029,6 +3094,8 @@
     if (!hashId || onbekend) renderWelkom();
     if (st0 && st0.br && st0.m !== mode && TABS.includes(st0.m) && !onbekend) setMode(st0.m);
     syncDrag();
+    // Het voorscherm: alleen bij openen zonder diepe link, niet bij herladen of terugkomen (history.state) en één keer per bezoek.
+    if ((!hashId || onbekend) && !wl && !(st0 && st0.br) && !voorschermGezien()) toonVoorscherm();
     // Vanaf hier telt elke nieuwe plek in de geschiedenis van de browser (zie ‘terug’).
     history.replaceState({ br: 1, p: navPlek(location.hash), m: mode }, "");
     navKlaar = true;

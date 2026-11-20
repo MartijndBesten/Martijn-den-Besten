@@ -1,4 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // ‘Terug’ op de telefoon (telefoontest op een Samsung A15, 16-11-2026). Elke stap, elk onderdeel en elk venster verving
 // het adres, dus de terugknop of terugveeg van de telefoon haalde je altijd de Bijbelreis uit. Nu:

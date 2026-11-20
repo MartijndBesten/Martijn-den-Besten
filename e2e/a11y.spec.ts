@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 for (const path of ["/", "/control-center", "/museum", "/over", "/loket", "/bureau", "/certificaat", "/bijbelreis", "/bijbelreis/lessen", "/bijbelreis/lessen#profeten", "/bijbelreis/lessen#profeten/4/bord/1", "/bijbelreis/privacy", "/bijbelreis/hulp"]) {
   test(`toegankelijkheid ${path}`, async ({ page }) => {

@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Gebruikersreis ‘Als ouder of leerkracht een verhaal gebruiken om samen de Bijbel te ontdekken’: vanaf de start de
 // lesroutes vinden, een les kiezen, de presentatie of het verhaal openen, de vragen stellen en printen.

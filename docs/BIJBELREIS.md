@@ -153,6 +153,22 @@ de lijn meteen af. De tests staan in `e2e/bijbelreis-kameel.spec.ts`.
 - Bijbelverwijzingen en getallen: `python3 scripts/bijbel-check.py <controlebestand>` met regels `Exodus 12:37 | zeshonderd duizend` (regex, hoofdletterongevoelig; de Statenvertaling schrijft getallen voluit: ‘vijf en zeventig’, ‘honderd en dertig’).
 - Vóór publicatie: `npm run check` (typecheck, tests, build) en `npx playwright test navigatie a11y`.
 
+## Voorscherm bij het openen (20 november 2026)
+
+Aanleiding (Martijn): wie bijbelreis.nl opende, kwam midden in de atlas op de laatst gelezen plek (bijv. alleen de Sinaï in
+beeld) — geen begin. Nu staat er bij openen **zonder link** eerst een welkomstscherm (`#voorscherm`, `toonVoorscherm()` in
+`app.js`): titel, de vaste zin, één grote knop (‘Verder met: …’ bij voortgang, anders ‘Begin de reis’ bij Abraham), ‘Kies
+een geschiedenis’, de zes onderdelen in hun eigen kleur en de lesroutes (alleen Nederlands). Achtergrond: het reliëf van de
+kaart (`relief-regio.webp`).
+
+- Eén keer per bezoek: `sessionStorage` `bijbelreis:voorscherm`; niets extra in `localStorage`. Niet bij een diepe link
+  (`#vNN`, `#boek/n`, `#wereld/…`, `#verhalen`), niet bij herladen of terug (history.state).
+- Toegankelijk: `role="dialog"`, `aria-modal`; de rest van de pagina is `inert` zolang het open is; Escape en ‘Naar de
+  atlas’ sluiten; focus op het scherm zelf, daarna op het gekozen onderdeel.
+- ‘Verder met’ komt uit dezelfde functie als in de lijst (`verderDoel()`), dus beide wijzen altijd naar hetzelfde.
+- Tests: `e2e/bijbelreis-voorscherm.spec.ts` (nieuw, terug, diepe link, axe). Andere specs zetten het welkom vooraf op
+  ‘gezien’ via `e2e/voorscherm.ts`.
+
 ## Stand en overdracht (17 november 2026)
 
 Dit is de actuele stand; de sectie over versie 2.0 hieronder is geschiedenis. Elke uitrol staat met versie-id’s,

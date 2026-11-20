@@ -5,6 +5,9 @@ import type { AddressInfo } from "node:net";
 import { tmpdir } from "node:os";
 import { extname, join, normalize } from "node:path";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // De Bijbelreis als installeerbare app (docs/bijbelreis-pwa/README.md): manifest, service worker, offline en updates.
 // De andere specs draaien met serviceWorkers: "block" (playwright.config.ts); deze zet ze aan.

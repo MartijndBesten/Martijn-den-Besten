@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Taferelen: getekende, licht bewegende beelden bij stappen zonder reis (taferelen*.js).
 // Regels en tekenafspraken: docs/bijbelreis-taferelen/README.md. Draaien tegen een server die public/ serveert:
