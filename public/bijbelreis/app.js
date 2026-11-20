@@ -3103,6 +3103,8 @@
     // Een adres met # dat iemand zelf intypt of in een link aanklikt. Bij ‘terug’ en ‘vooruit’ (eigen plekken, met
     // history.state) doet popstate het werk al.
     window.addEventListener("hashchange", () => {
+      // Een sprong naar een verhaal of stap (link, adres, de app) sluit het voorscherm: wie ergens heen gaat, is begonnen.
+      sluitVoorscherm(false);
       if (history.state && history.state.br) return;
       const w = BR.wereld && BR.wereld.uitAdres(location.hash);
       if (w) { history.replaceState({ br: 1, p: navPlek(""), m: mode }, "", location.pathname + location.search); BR.wereld.open(w.periode, w.jaar, { terug: "" }); return; }

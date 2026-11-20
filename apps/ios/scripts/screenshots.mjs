@@ -1,4 +1,4 @@
-// Schermafbeeldingen voor de App Store, gemaakt uit de webmap van de app (www/) in Chromium (Playwright).
+// Browserweergaven (Chromium, Playwright) van de webmap van de app (www/), om snel te vergelijken. Geen simulatorbeelden.
 // Dit zijn browserweergaven van dezelfde app-inhoud, niet de echte iOS-webview: zonder statusbalk en zonder notch.
 // Wijkt iets af, maak ze dan in de Simulator (Cmd+S). Zie docs/bijbelreis-ios/APPSTORE.md.
 //
@@ -17,7 +17,8 @@ import { fileURLToPath } from "node:url";
 const hier = dirname(fileURLToPath(import.meta.url));
 const APP = join(hier, "..");
 const WWW = join(APP, "www");
-const UIT = join(APP, "store", "screenshots");
+// Niet in store/screenshots: daar staan de echte simulatorbeelden (workflow iOS-app, artefact simulator-schermafbeeldingen).
+const UIT = join(APP, "store", "screenshots-browser");
 const { chromium } = createRequire(join(APP, "..", "..", "package.json"))("playwright");
 const sharp = createRequire(join(APP, "..", "..", "package.json"))("sharp");
 const POORT = Number(process.argv[2] || 8925);

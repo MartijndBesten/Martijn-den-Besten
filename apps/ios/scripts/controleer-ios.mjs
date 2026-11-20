@@ -102,6 +102,11 @@ for (const [k, max] of Object.entries(LIMIET)) {
   const n = [...(meta[k] || "")].length;
   moet(n > 0 && n <= max, `metadata ${k}: ${n} van ${max} tekens`);
 }
+// Trefwoorden: Apple telt hier bytes (UTF-8), niet tekens.
+moet(Buffer.byteLength(meta.trefwoorden, "utf8") <= 100, `metadata trefwoorden: ${Buffer.byteLength(meta.trefwoorden, "utf8")} van 100 bytes`);
+// Geen Kids-categorie (besluit 17-11-2026, 13+): ‘voor kinderen’ hoort dan niet in de teksten (richtlijn 2.3.8).
+moet(!["naam", "ondertitel", "promotietekst", "beschrijving", "trefwoorden"].some((k) => /voor kinderen|for kids|for children|kinderapp/i.test(meta[k])), "metadata: geen ‘voor kinderen’ (geen Kids-categorie, richtlijn 2.3.8)");
+moet(meta.sku === "BIJBELREIS-IOS-2026" && meta.leeftijdsclassificatie === "13+", "metadata: SKU en leeftijd zoals in App Store Connect (BIJBELREIS-IOS-2026, 13+)");
 moet(!/\s,|,\s/.test(meta.trefwoorden) && new Set(meta.trefwoorden.split(",")).size === meta.trefwoorden.split(",").length, "metadata trefwoorden: komma’s zonder spaties, geen dubbele");
 moet(!meta.trefwoorden.split(",").some((w) => meta.naam.toLowerCase().split(/\s+/).includes(w)), "metadata trefwoorden: herhalen de woorden van de naam niet");
 moet(meta.supportUrl === "https://bijbelreis.nl/hulp" && meta.privacyUrl === "https://bijbelreis.nl/privacy", "metadata: support- en privacy-URL");

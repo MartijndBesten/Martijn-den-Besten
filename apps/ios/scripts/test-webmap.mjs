@@ -1,7 +1,9 @@
-// Test van de webmap van de iOS-app, zonder Mac: een eenvoudige statische server op de webmap en Chromium (Playwright)
-// met een iPhone-maat. Dit test de atlas met de app-laag, NIET de echte iOS-webview (WKWebView); zie README.md.
+// Test van de webmap van de iOS-app, zonder Mac: een eenvoudige statische server op de webmap en Playwright met een
+// iPhone-maat. Standaard Chromium; met BROWSER=webkit de WebKit van Playwright (dichter bij WKWebView, zo draait hij in
+// .github/workflows/ios.yml). Dit test de atlas met de app-laag, NIET de echte iOS-webview: dat doet de simulator-test
+// (scripts/simulator-test.mjs, op een Mac in GitHub Actions); zie README.md.
 //
-//   node scripts/maak-webmap.mjs && node scripts/test-webmap.mjs [poort] [map-voor-schermafbeeldingen]
+//   node scripts/maak-webmap.mjs && [BROWSER=webkit] node scripts/test-webmap.mjs [poort] [map-voor-schermafbeeldingen]
 //
 // Playwright komt uit de node_modules van de repository (npm ci in de hoofdmap).
 import { createServer } from "node:http";
@@ -14,7 +16,9 @@ const hier = dirname(fileURLToPath(import.meta.url));
 const app = join(hier, "..");
 const www = join(app, "www");
 const repo = join(app, "..", "..");
-const { chromium } = createRequire(join(repo, "package.json"))("playwright");
+const pw = createRequire(join(repo, "package.json"))("playwright");
+const MOTOR = process.env.BROWSER || "chromium";
+if (!["chromium", "webkit"].includes(MOTOR)) throw new Error("BROWSER moet chromium of webkit zijn");
 const POORT = Number(process.argv[2] || 8906);
 const SHOTS = process.argv[3] || "";
 if (SHOTS) mkdirSync(SHOTS, { recursive: true });
@@ -74,12 +78,24 @@ async function maakContext(browser, prefs, gedeeld) {
   // Telt hoe vaak het document echt (opnieuw) laadt; hashwissels tellen niet mee.
   await ctx.addInitScript(() => { try { sessionStorage.setItem("__ladingen", String(Number(sessionStorage.getItem("__ladingen") || 0) + 1)); } catch (e) { /* niets */ } });
   await ctx.addInitScript(() => { window.__open = []; window.open = (u) => { window.__open.push(String(u)); return null; }; });
+  await ctx.addInitScript(() => {
+    addEventListener("beforeunload", () => { window.__weg = true; });
+    addEventListener("pagehide", () => { window.__weg = true; });
+    const ce = console.error.bind(console);
+    console.error = (...a) => ce(...(window.__weg ? ["[na pagehide]", ...a] : a));
+  });
   return { ctx, extern };
 }
+// WebKit breekt lopende verzoeken af als de pagina zelf herlaadt (de app-laag doet dat na het terugzetten van de
+// voortgang) en meldt dat als ‘Fetch API cannot load <eigen bestand> due to access control checks’; de verdwijnende
+// pagina logt dan nog ‘de kaartondergrond kon niet worden geladen’. Dat is geen fout in de app: de nieuwe pagina laadt
+// alles (kaartKlaar controleert dat). Daarom tellen niet mee: die WebKit-melding voor eigen bestanden, en wat een pagina
+// nog logt nadat ze begon weg te gaan (beforeunload/pagehide; zie maakContext).
 function volg(page) {
   const fouten = [];
-  page.on("pageerror", (e) => fouten.push("pageerror: " + e.message));
-  page.on("console", (m) => { if (m.type() === "error") fouten.push("console: " + m.text()); });
+  const telt = (t) => !(t.includes("due to access control checks") && t.includes(`localhost:${POORT}/`)) && !t.startsWith("[na pagehide]");
+  page.on("pageerror", (e) => { if (telt(e.message)) fouten.push("pageerror: " + e.message); });
+  page.on("console", (m) => { if (m.type() === "error" && telt(m.text())) fouten.push("console: " + m.text()); });
   return fouten;
 }
 async function kaartKlaar(page) {
@@ -87,7 +103,7 @@ async function kaartKlaar(page) {
   await page.waitForFunction(() => document.querySelectorAll("#map .leaflet-overlay-pane path, #map .leaflet-marker-icon").length > 5, null, { timeout: 20000 });
 }
 
-const browser = await chromium.launch();
+const browser = await pw[MOTOR].launch();
 try {
   const prefs = new Map(), gedeeld = [];
   const { ctx, extern } = await maakContext(browser, prefs, gedeeld);
@@ -103,6 +119,14 @@ try {
     verwacht(await page.evaluate(() => !!window.bijbelreisApp && document.documentElement.dataset.app === "ios"), "app-laag niet geladen");
     verwacht(await page.evaluate(() => !document.querySelector('script[src*="bezoek.js"]')), "bezoek.js staat nog in de pagina");
     if (SHOTS) await page.screenshot({ path: join(SHOTS, "1-start.png") });
+  });
+
+  await stap("eerste start: het welkomstscherm (voorscherm) ligt over de atlas en ‘Naar de atlas’ sluit het", async () => {
+    await page.waitForSelector("#voorscherm", { state: "visible", timeout: 5000 });
+    verwacht(await page.evaluate(() => /Begin de reis/.test(document.querySelector("#voorscherm .vs-hoofd").textContent)), "geen ‘Begin de reis’ op het voorscherm");
+    await page.click("#voorscherm [data-vs-sluit]");
+    await page.waitForSelector("#voorscherm", { state: "hidden" });
+    verwacht(await page.evaluate(() => !document.querySelector(".kop").inert), "de atlas blijft onbereikbaar na sluiten");
   });
 
   await stap("geen service worker en geen manifest in de app", async () => {
@@ -123,12 +147,19 @@ try {
 
   await stap("voortgang gaat naar de reservekopie (Preferences)", async () => {
     await page.waitForFunction(() => Object.keys(localStorage).some((k) => k.startsWith("bijbelreis:")));
-    await page.waitForTimeout(1200);
-    const r = prefs.get("bijbelreis-voortgang");
-    verwacht(r, "geen reservekopie");
-    const data = JSON.parse(r);
-    const lokaal = await page.evaluate(() => Object.fromEntries(Object.keys(localStorage).filter((k) => k.startsWith("bijbelreis:")).map((k) => [k, localStorage.getItem(k)])));
-    verwacht(JSON.stringify(data) === JSON.stringify(lokaal), "reservekopie wijkt af van localStorage");
+    // De app-laag bewaart 0,8 s na de laatste wijziging; wacht tot de kopie bij is (hoogstens 6 s).
+    let gelijk = false, verschil = "";
+    for (let i = 0; i < 30 && !gelijk; i++) {
+      await page.waitForTimeout(200);
+      const r = prefs.get("bijbelreis-voortgang");
+      if (!r) { verschil = "geen reservekopie"; continue; }
+      const data = JSON.parse(r);
+      const lokaal = await page.evaluate(() => Object.fromEntries(Object.keys(localStorage).filter((k) => k.startsWith("bijbelreis:")).map((k) => [k, localStorage.getItem(k)])));
+      const sleutels = [...new Set([...Object.keys(data), ...Object.keys(lokaal)])].filter((k) => data[k] !== lokaal[k]);
+      gelijk = sleutels.length === 0;
+      verschil = "reservekopie wijkt af van localStorage: " + sleutels.join(", ");
+    }
+    verwacht(gelijk, verschil);
   });
 
   await stap("een deel van een reis kiezen opent geen ouderpoort en deelt niets", async () => {
@@ -192,11 +223,14 @@ try {
     verwacht(gedeeld.length === 1 && /^https:\/\/bijbelreis\.nl\/#/.test(gedeeld[0].url), "delen: " + JSON.stringify(gedeeld));
   });
 
-  await stap("licentie van Leaflet opent in een venster, de app blijft staan", async () => {
+  await stap("‘Bronnen en licenties’ opent de hulppagina in de app; de licentie van Leaflet opent daar in een venster", async () => {
+    await page.evaluate(() => document.querySelector('.bronlink a[href="/bijbelreis/hulp#bronnen"]').click());
+    await page.waitForURL(/\/bijbelreis\/hulp\.html#bronnen$/);
+    await page.waitForSelector('a[href$="LICENSE-leaflet.txt"]', { state: "attached" });
     await page.evaluate(() => document.querySelector('a[href$="LICENSE-leaflet.txt"]').click());
     await page.waitForSelector("#appTekst:not([hidden]) pre");
     verwacht(/Leaflet|BSD|Copyright/i.test(await page.textContent("#appTekst pre")), "licentietekst leeg");
-    verwacht(page.url().startsWith(BASIS) && !page.url().endsWith(".txt"), "pagina is weggegaan: " + page.url());
+    verwacht(/\/bijbelreis\/hulp\.html/.test(page.url()) && !page.url().endsWith(".txt"), "pagina is weggegaan: " + page.url());
     await page.click("#appTekst [data-tekst-dicht]");
   });
 
@@ -233,16 +267,40 @@ try {
 
   await stap("lesroutes: presentatie en afdrukken gaan via de ouderpoort naar bijbelreis.nl", async () => {
     await page.evaluate(() => { window.__open = []; });
-    await page.locator('.ls-les a.bk-knop.hoofd').first().click();
+    await page.locator('.ls-les a.bk-knop[href^="/bijbelreis/boekje"]').first().click();
     await poortOk(page);
     let open = await page.evaluate(() => window.__open);
     verwacht(open.length === 1 && /^https:\/\/bijbelreis\.nl\/bijbelreis\/boekje#v\d+&niveau=[abc]$/.test(open[0]), "presentatie: " + JSON.stringify(open));
     await page.evaluate(() => { window.__open = []; });
-    await page.locator('[data-print="leiding"]').click();
+    await page.locator('[data-print="leiding"]').first().click();
     await poortOk(page);
     open = await page.evaluate(() => window.__open);
     verwacht(open.length === 1 && /^https:\/\/bijbelreis\.nl\/bijbelreis\/lessen#[\w-]+$/.test(open[0]), "afdrukken: " + JSON.stringify(open));
     verwacht(page.url().includes("/bijbelreis/lessen.html"), "pagina is weggegaan: " + page.url());
+  });
+
+  await stap("lesroutes: de digibordstand opent in de app (geen ouderpoort) en terug brengt je bij de les", async () => {
+    await page.evaluate(() => { window.__open = []; });
+    await page.locator('.ls-les a.bk-knop[href$="/bord"]').first().click();
+    await page.waitForSelector(".lb", { state: "visible" });
+    verwacht(await page.evaluate(() => document.getElementById("appPoort") === null || document.getElementById("appPoort").hidden), "ouderpoort ging open bij het digibord");
+    verwacht((await page.evaluate(() => window.__open.length)) === 0, "digibord opende iets buiten de app");
+    if (SHOTS) await page.screenshot({ path: join(SHOTS, "6-digibord.png") });
+    await page.goBack();
+    await page.waitForSelector(".ls-les", { state: "visible" });
+  });
+
+  await stap("De wereld in die tijd: openen vanuit een geschiedenis, periodebestand uit de app, terug naar de geschiedenis", async () => {
+    await page.goto(BASIS + "#v5");
+    await page.waitForSelector(".wt-ingang", { state: "visible" });
+    await page.locator(".wt-ingang").click();
+    await page.waitForSelector("#wtLaag", { state: "visible" });
+    await page.waitForSelector(".wt-app .wt-svg .wt-balk", { state: "attached" });
+    verwacht(/#wereld\/adam-noach\/1656$/.test(page.url()), "adres: " + page.url());
+    if (SHOTS) await page.screenshot({ path: join(SHOTS, "7-wereld.png") });
+    await page.goBack();
+    await page.waitForSelector("#wtLaag", { state: "hidden" });
+    verwacht(page.url().endsWith("#v5"), "terug ging niet naar de geschiedenis: " + page.url());
   });
 
   await stap("privacy en hulp staan in de app; mailen gaat via de ouderpoort", async () => {
@@ -319,7 +377,7 @@ try {
   });
 
   console.log(resultaten.join("\n"));
-  console.log(`\nKaart klaar na ${laadTijd} ms (Chromium op Linux, geen iPhone).`);
+  console.log(`\nKaart klaar na ${laadTijd} ms (${MOTOR} in Playwright, geen iPhone).`);
 } finally {
   await browser.close();
   server.close();

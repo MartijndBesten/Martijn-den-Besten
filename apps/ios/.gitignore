@@ -1,3 +1,4 @@
 # Gemaakt door scripts/maak-webmap.mjs uit public/: nooit met de hand wijzigen, niet in git.
 www/
 node_modules/
+store/screenshots-browser/

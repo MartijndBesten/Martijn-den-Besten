@@ -1,0 +1,273 @@
+name: iOS-app
+
+# De Bijbelreis als iOS-app (apps/ios, Capacitor). Uitleg en wat Martijn zelf doet: docs/bijbelreis-ios/TESTFLIGHT.md.
+#  - bouw:       bouwt de app op een Mac van GitHub (Release voor simulator en toestel, zonder ondertekening) en test hem
+#                in de iOS-simulator (iPhone en iPad), plus de webmap in Playwright-WebKit (job webkit).
+#  - testflight: alleen met de hand (Actions → iOS-app → Run workflow → ‘Ook naar TestFlight’): archiveren, ondertekenen
+#                via App Store Connect (cloud) en uploaden. Gebruikt de geheimen van de Environment ‘testflight’.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/ios/**"
+      - "public/bijbelreis*"
+      - "public/bijbelreis*/**"
+      - "public/fonts/**"
+      - ".github/workflows/ios.yml"
+  pull_request:
+    paths:
+      - "apps/ios/**"
+      - "public/bijbelreis*"
+      - "public/bijbelreis*/**"
+      - "public/fonts/**"
+      - ".github/workflows/ios.yml"
+  workflow_dispatch:
+    inputs:
+      testflight:
+        description: "Ook archiveren en uploaden naar TestFlight (na een groene bouw)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-${{ github.ref }}
+  # Een nieuwe push stopt een oude bouw; een upload naar TestFlight wordt nooit halverwege afgebroken.
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
+
+env:
+  # Vaste Xcode-versie op de vaste image macos-26 (arm64). Welke er staan: actions/runner-images,
+  # images/macos/macos-26-arm64-Readme.md. Apple eist sinds 28 april 2026 de iOS 26 SDK (Xcode 26 of nieuwer).
+  XCODE_VERSIE: "26.6"
+  PROJECT: apps/ios/ios/App/App.xcodeproj
+
+jobs:
+  bouw:
+    name: Bouwen en testen in de simulator (macOS)
+    runs-on: macos-26
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            apps/ios/package-lock.json
+
+      - name: Xcode ${{ env.XCODE_VERSIE }} kiezen
+        run: |
+          APP="/Applications/Xcode_${XCODE_VERSIE}.app"
+          if [ ! -d "$APP" ]; then
+            echo "::error::Xcode ${XCODE_VERSIE} staat niet (meer) op deze runner. Kies een andere in XCODE_VERSIE (.github/workflows/ios.yml). Beschikbaar:"
+            ls -d /Applications/Xcode_*.app
+            exit 1
+          fi
+          sudo xcode-select -s "$APP/Contents/Developer"
+          xcodebuild -version
+          xcrun simctl list runtimes
+
+      # Root: alleen voor sharp (pictogramcontrole, schermafbeeldingen). Zonder installatiescripts (geen workerd e.d.).
+      - name: Afhankelijkheden (root, alleen sharp nodig)
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Afhankelijkheden (apps/ios, Capacitor)
+        working-directory: apps/ios
+        run: npm ci --no-audit --no-fund
+      - name: Webmap maken en in het Xcode-project zetten (cap sync)
+        working-directory: apps/ios
+        run: npm run sync
+      - name: Projectcontrole (plists, pbxproj, pictogram, teksten)
+        working-directory: apps/ios
+        run: npm run controleer
+
+      - name: Swift-pakketten ophalen
+        run: xcodebuild -resolvePackageDependencies -project "$PROJECT" -scheme App -derivedDataPath "$RUNNER_TEMP/dd"
+
+      - name: Release-build voor de simulator (zonder ondertekening)
+        run: |
+          xcodebuild build -quiet -project "$PROJECT" -scheme App -configuration Release \
+            -destination "generic/platform=iOS Simulator" -derivedDataPath "$RUNNER_TEMP/dd" \
+            CODE_SIGNING_ALLOWED=NO
+      - name: Release-build voor iPhone en iPad (generic/platform=iOS, zonder ondertekening)
+        run: |
+          xcodebuild build -quiet -project "$PROJECT" -scheme App -configuration Release \
+            -destination "generic/platform=iOS" -derivedDataPath "$RUNNER_TEMP/dd" \
+            CODE_SIGNING_ALLOWED=NO
+      - name: Debug-build voor de simulator (met de testloper)
+        run: |
+          xcodebuild build -quiet -project "$PROJECT" -scheme App -configuration Debug \
+            -destination "generic/platform=iOS Simulator" -derivedDataPath "$RUNNER_TEMP/dd" \
+            CODE_SIGNING_ALLOWED=NO
+      - name: Release-build bevat de testloper niet
+        run: |
+          P="$RUNNER_TEMP/dd/Build/Products"
+          for app in "$P/Release-iphoneos/App.app" "$P/Release-iphonesimulator/App.app"; do
+            if strings "$app/App" | grep -q "BijbelreisTest"; then echo "::error::$app bevat de testloper"; exit 1; fi
+            plutil -p "$app/Info.plist" | grep -E "CFBundleIdentifier|CFBundleShortVersionString|CFBundleVersion|MinimumOSVersion|DTSDKName|DTXcode\""
+            du -sh "$app"
+          done
+          strings "$P/Debug-iphonesimulator/App.app/App" "$P/Debug-iphonesimulator/App.app/App.debug.dylib" 2>/dev/null | grep -q "BijbelreisTest" \
+            || { echo "::error::de Debug-build mist de testloper"; exit 1; }
+
+      - name: Test in de iOS-simulator (iPhone 17 Pro Max, iPad Pro 13", iPhone 17 Pro)
+        working-directory: apps/ios
+        run: |
+          P="$RUNNER_TEMP/dd/Build/Products"
+          node scripts/simulator-test.mjs --release "$P/Release-iphonesimulator/App.app" \
+            --debug "$P/Debug-iphonesimulator/App.app" --uit "$RUNNER_TEMP/simulator"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: simulator-schermafbeeldingen
+          path: ${{ runner.temp }}/simulator
+          if-no-files-found: ignore
+          retention-days: 30
+
+  webkit:
+    # WebKit van Playwright met iPhone-maat: dichter bij WKWebView dan Chromium, en snel op Linux.
+    name: Webmap in Playwright-WebKit (iPhone-maat)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            apps/ios/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: Playwright-WebKit installeren
+        run: npx playwright install --with-deps webkit
+      - name: Afhankelijkheden (apps/ios)
+        working-directory: apps/ios
+        run: npm ci --no-audit --no-fund
+      - name: Webmap maken en testen in WebKit
+        working-directory: apps/ios
+        run: |
+          npm run webmap
+          BROWSER=webkit node scripts/test-webmap.mjs 8906 "$RUNNER_TEMP/webkit"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: webkit-schermafbeeldingen
+          path: ${{ runner.temp }}/webkit
+          if-no-files-found: ignore
+          retention-days: 14
+
+  testflight:
+    name: Archiveren en uploaden naar TestFlight
+    needs: [bouw, webkit]
+    # Alleen als iemand met schrijfrechten hem met de hand start én ‘Ook naar TestFlight’ aanvinkt. Nooit bij een
+    # pull request (ook niet van een fork) en nooit vanzelf bij een push.
+    if: github.event_name == 'workflow_dispatch' && inputs.testflight
+    runs-on: macos-26
+    timeout-minutes: 60
+    environment: testflight
+    concurrency:
+      group: testflight
+      cancel-in-progress: false
+    env:
+      ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+      ASC_KEY_P8: ${{ secrets.APP_STORE_CONNECT_KEY_P8 }}
+      TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      BUILDNUMMER: ${{ github.run_number }}
+    steps:
+      - name: Geheimen controleren
+        run: |
+          mist=""
+          [ -n "$ASC_KEY_ID" ] || mist="$mist APP_STORE_CONNECT_KEY_ID"
+          [ -n "$ASC_ISSUER_ID" ] || mist="$mist APP_STORE_CONNECT_ISSUER_ID"
+          [ -n "$ASC_KEY_P8" ] || mist="$mist APP_STORE_CONNECT_KEY_P8"
+          [ -n "$TEAM_ID" ] || mist="$mist APPLE_TEAM_ID"
+          if [ -n "$mist" ]; then
+            echo "::error::Geheimen ontbreken:$mist. Zet ze in GitHub → Settings → Environments → testflight (of Secrets and variables → Actions). Stappen: docs/bijbelreis-ios/TESTFLIGHT.md. Er is niets gebouwd of geüpload."
+            exit 1
+          fi
+          if ! printf '%s' "$TEAM_ID" | grep -Eq '^[A-Z0-9]{10}$'; then echo "::error::APPLE_TEAM_ID moet 10 tekens zijn (hoofdletters en cijfers). Zie docs/bijbelreis-ios/TESTFLIGHT.md."; exit 1; fi
+          if ! printf '%s' "$ASC_KEY_ID" | grep -Eq '^[A-Z0-9]{10}$'; then echo "::error::APP_STORE_CONNECT_KEY_ID moet 10 tekens zijn. Zie docs/bijbelreis-ios/TESTFLIGHT.md."; exit 1; fi
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/ios/package-lock.json
+      - name: Xcode ${{ env.XCODE_VERSIE }} kiezen
+        run: |
+          APP="/Applications/Xcode_${XCODE_VERSIE}.app"
+          [ -d "$APP" ] || { echo "::error::Xcode ${XCODE_VERSIE} staat niet op deze runner (zie job bouw)."; exit 1; }
+          sudo xcode-select -s "$APP/Contents/Developer"
+          xcodebuild -version
+      - name: Webmap maken en in het Xcode-project zetten
+        working-directory: apps/ios
+        run: |
+          npm ci --no-audit --no-fund
+          npm run sync
+
+      - name: API-sleutel klaarzetten (alleen in RUNNER_TEMP)
+        run: |
+          umask 077
+          mkdir -p "$RUNNER_TEMP/asc"
+          SLEUTEL="$RUNNER_TEMP/asc/AuthKey_${ASC_KEY_ID}.p8"
+          # De inhoud van het .p8-bestand mag letterlijk (met BEGIN/END-regels) of in base64 in het geheim staan.
+          if printf '%s' "$ASC_KEY_P8" | grep -q "BEGIN PRIVATE KEY"; then
+            printf '%s\n' "$ASC_KEY_P8" > "$SLEUTEL"
+          else
+            printf '%s' "$ASC_KEY_P8" | base64 --decode > "$SLEUTEL" 2>/dev/null || true
+          fi
+          # Elke regel van de sleutel maskeren in de logboeken (ook als hij uit base64 komt).
+          while IFS= read -r regel; do [ -n "$regel" ] && echo "::add-mask::$regel"; done < "$SLEUTEL"
+          if ! grep -q "BEGIN PRIVATE KEY" "$SLEUTEL"; then
+            rm -rf "$RUNNER_TEMP/asc"
+            echo "::error::APP_STORE_CONNECT_KEY_P8 is geen geldige .p8-sleutel (plak de hele inhoud van AuthKey_….p8, of die inhoud in base64)."
+            exit 1
+          fi
+          echo "ASC_KEY_PATH=$SLEUTEL" >> "$GITHUB_ENV"
+
+      - name: Archiveren (automatische ondertekening via App Store Connect)
+        run: |
+          xcodebuild archive -quiet -project "$PROJECT" -scheme App -configuration Release \
+            -destination "generic/platform=iOS" -archivePath "$RUNNER_TEMP/Bijbelreis.xcarchive" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$ASC_KEY_PATH" -authenticationKeyID "$ASC_KEY_ID" -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
+            DEVELOPMENT_TEAM="$TEAM_ID" CODE_SIGN_STYLE=Automatic CURRENT_PROJECT_VERSION="$BUILDNUMMER"
+
+      - name: Exporteren en uploaden naar App Store Connect
+        run: |
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>destination</key><string>upload</string>
+            <key>teamID</key><string>${TEAM_ID}</string>
+            <key>signingStyle</key><string>automatic</string>
+            <key>uploadSymbols</key><true/>
+            <key>manageAppVersionAndBuildNumber</key><false/>
+            <key>testFlightInternalTestingOnly</key><false/>
+          </dict>
+          </plist>
+          EOF
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/Bijbelreis.xcarchive" \
+            -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" -exportPath "$RUNNER_TEMP/export" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$ASC_KEY_PATH" -authenticationKeyID "$ASC_KEY_ID" -authenticationKeyIssuerID "$ASC_ISSUER_ID"
+          echo "### Geüpload naar App Store Connect" >> "$GITHUB_STEP_SUMMARY"
+          echo "Versie $(plutil -extract ApplicationProperties.CFBundleShortVersionString raw "$RUNNER_TEMP/Bijbelreis.xcarchive/Info.plist"), build $BUILDNUMMER. Na 10–30 minuten staat hij in App Store Connect onder TestFlight." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Sleutel verwijderen
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/asc" "$RUNNER_TEMP/ExportOptions.plist"
