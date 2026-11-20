@@ -61,8 +61,10 @@ const leeg = (m) => m.spreiding < 15 || m.wit > 0.97 || m.kleuren < 6;
 
 const fouten = [];
 const verslag = [];
-// simctl kan na het draaien een oud beeld teruggeven (gezien: liggend, twee keer exact hetzelfde beeld voor verschillende
-// schermen, terwijl de pagina wel klopte). Dan een paar keer opnieuw; blijft het gelijk, dan een waarschuwing.
+// simctl kan een oud of half getekend beeld teruggeven als de simulator traag is (gezien: liggend en op de iPad twee keer
+// hetzelfde beeld voor verschillende schermen, één keer alleen de papierkleur, terwijl de pagina volgens de testloper
+// klopte). Dan wacht de test even en neemt het beeld opnieuw (hoogstens 6 keer, ± 15 s). Blijft het leeg: fout;
+// blijft het gelijk aan het vorige: waarschuwing.
 const waarschuwingen = [];
 let vorigeHash = "";
 const hashVan = (p) => createHash("sha1").update(readFileSync(p)).digest("hex");
@@ -70,9 +72,14 @@ async function foto(udid, pad, verwacht) {
   for (let poging = 0; ; poging++) {
     neem(udid, pad);
     const h = hashVan(pad);
-    if (h !== vorigeHash) { vorigeHash = h; break; }
-    if (poging >= 4) { waarschuwingen.push(`${pad.slice(UIT.length + 1)}: zelfde beeld als de vorige schermafbeelding`); break; }
-    await slaap(1500);
+    const nieuw = h !== vorigeHash, vol = !leeg(await beeldMaat(pad));
+    if ((nieuw && vol) || poging >= 5) {
+      if (!nieuw) waarschuwingen.push(`${pad.slice(UIT.length + 1)}: zelfde beeld als de vorige schermafbeelding`);
+      if (poging) log(`  (${poging + 1} pogingen)`);
+      vorigeHash = h;
+      break;
+    }
+    await slaap(2500);
   }
   await meet(pad, verwacht);
 }

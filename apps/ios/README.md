@@ -78,7 +78,7 @@ npm run sync          # webmap + cap sync ios (werkt ook op Linux)
 npm run test:web      # test-webmap.mjs in Chromium op iPhone-maat (Playwright uit de root: npm ci in de root)
 BROWSER=webkit npm run test:web   # zelfde test in Playwright-WebKit (dichter bij WKWebView)
 npm run controleer    # Xcode-project, plists, pictogram en teksten (zonder Mac)
-npm run screenshots   # schermafbeeldingen voor de App Store → store/screenshots/
+npm run screenshots   # browserweergaven (Chromium) → store/screenshots-browser/ (niet in git); App Store: simulatorbeelden
 npm run open          # alleen op de Mac: opent Xcode
 ```
 
