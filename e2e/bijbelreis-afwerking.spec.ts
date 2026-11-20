@@ -1,4 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Afwerking 17-11-2026: tijdlijn (Samen ontdekken) met aanklikbare onderwerpen, uitleg over ‘enkele aanhalingstekens’ bij
 // een verhaal, de boekenrij die de naam nooit half wegschuift, de kaart die tot de rand land toont, en de verantwoording.

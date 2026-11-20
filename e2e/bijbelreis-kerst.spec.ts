@@ -1,4 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Het thema Kerst in de Bijbelreis (docs/bijbelreis-kerst/README.md): een thema is geen Bijbelboek, in het seizoen (van
 // de eerste adventszondag tot en met 6 januari) staat het extra in beeld, binnen het thema heeft de atlas een eigen

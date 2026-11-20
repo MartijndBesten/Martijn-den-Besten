@@ -1,6 +1,9 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Presentatie en boekje (/bijbelreis/boekje): diavoorstelling, afdrukbaar boekje, los bestand en delen.
 // Uitleg: docs/bijbelreis-boekje/README.md. Draaien tegen een server die public/ serveert en /bijbelreis/boekje naar

@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Vindbaarheid (docs/bijbelreis-vindbaar/README.md): per geschiedenis een gewone pagina die zoekmachines kunnen lezen,
 // met een knop naar de geschiedenis in de atlas. Op bijbelreis.nl staan ze op /verhaal/<nr>-<slug>; lokaal en in de CI

@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // ‘Mis je iets? Vraag het aan’ (public/bijbelreis/app.js, worker/aanvraag.ts; docs/bijbelreis-aanvraag/README.md).
 // Een bezoeker vraagt om een Bijbelgedeelte, verhaal of reis die er nog niet is, om iets voor school, club of kerk, of

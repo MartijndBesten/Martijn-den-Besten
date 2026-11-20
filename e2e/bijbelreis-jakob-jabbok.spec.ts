@@ -1,4 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Het deel ‘Jakob bij de Jabbok’ (Genesis 32, vers voor vers): opent via een diepe link, heeft twaalf stappen met vaste
 // titels (bij elke stap hoort een tafereel), zoomt in op het gebied van de Jabbok en laat het deel Jakob ongemoeid.

@@ -1,5 +1,8 @@
 import { existsSync, readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Visuele regressietest van de Bijbelreis (3.1): de belangrijkste schermen op desktop, telefoon en tablet.
 // Vaste voortgang, vaste volgorde, geen animaties.

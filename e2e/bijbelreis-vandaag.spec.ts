@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // De kaart van nu (duidelijke landen, omstreden grenzen als eigen lijnsoort) en de laag ‘Vandaag’ met haar lijst.
 // Regels en maatstaf: docs/bijbelreis-vandaag/README.md. Draaien tegen een server die public/ serveert:

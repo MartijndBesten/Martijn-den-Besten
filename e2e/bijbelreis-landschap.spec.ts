@@ -1,4 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Het landschap van toen (public/bijbelreis/toen.json): in de stand Toen staan de oude baaien, meren en Nijlarmen op de
 // kaart en zijn de meren en stuwmeren van nu weg; in de stand Nu is het omgekeerd. Zie docs/bijbelreis-audit/ondergrond.md.

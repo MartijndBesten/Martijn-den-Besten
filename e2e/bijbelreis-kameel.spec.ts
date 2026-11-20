@@ -1,4 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // De reiziger op de kaart van de Bijbelreis (een kameel; in het Nieuwe Testament een wandelaar). Deze tests meten per
 // beeldje waar hij staat en controleren de regels uit docs/BIJBELREIS.md (‘De reiziger op de kaart’): hij volgt de lijn

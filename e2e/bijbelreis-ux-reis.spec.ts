@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // UX-ronde 17-11-2026 (docs/bijbelreis-audit/telefoon.md §4.10): de gebruikersreizen ‘eerste bezoek → verhaal’,
 // ‘geschiedenis → kaart → verder’ en ‘delen’ doorgelopen op telefoon, tablet en desktop. Wat daarbij aantoonbaar mis was

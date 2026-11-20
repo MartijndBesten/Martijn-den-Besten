@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // Duidelijke bediening (16-11-2026). Martijn, bij een schermbeeld van de desktop op het tabblad Speurtocht: ‘het is niet
 // heel duidelijk wat die knoppen bovenaan zijn.’ Daarom:

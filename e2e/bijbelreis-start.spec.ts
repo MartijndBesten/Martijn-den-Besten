@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // De eerste tien seconden, advent als ritme en delen (16-11-2026; docs/bijbelreis-audit/telefoon.md §4.7 en
 // docs/bijbelreis-kerst/README.md). Aanleiding: op de eerste ochtend van de bezoekmeting waren 16 van de 40 bezoekers

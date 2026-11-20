@@ -2,6 +2,9 @@ import AxeBuilder from "@axe-core/playwright";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { expect, test, type Page } from "@playwright/test";
+import { zonderVoorscherm } from "./voorscherm";
+
+zonderVoorscherm(test);
 
 // ‘De wereld in die tijd’ (docs/bijbelreis-wereld/README.md): de laag met levenslijnen, kaart en gebeurtenissen.
 // Draait in de projecten desktop, mobiel en tablet. Lokaal:

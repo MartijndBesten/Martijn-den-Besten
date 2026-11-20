@@ -465,7 +465,7 @@
     grad("wtKopVaag", 0, 1); grad("wtStaartVaag", 1, 0);
     // raster
     // Op een as met v.Chr. en n.Chr. zijn de labels langer (‘10 v.Chr.’): de streepjes staan dan verder uit elkaar.
-    const { ticks } = K.streepjes(S.venster[0], S.venster[1], sc.k, K.gemengd(M.as) ? (W < 520 ? 64 : 96) : W < 520 ? 56 : 84, M.as);
+    const { ticks } = K.streepjes(S.venster[0], S.venster[1], sc.k, K.gemengd(M.as) ? (W < 300 ? 64 : W < 520 ? 80 : 104) : W < 520 ? 56 : 84, M.as);
     const raster = maak("g", { class: "wt-raster" }, svg);
     ticks.forEach((t) => maak("line", { x1: sc.x(t), x2: sc.x(t), y1: 0, y2: H }, raster));
     for (let i = 1; i < M.personen.length; i++) maak("line", { class: "wt-rijlijn", x1: 0, x2: W, y1: i * rh, y2: i * rh }, raster);
@@ -548,6 +548,10 @@
     svg.textContent = "";
     const g = maak("g", { class: "wt-as-ticks" }, svg);
     ticks.forEach((t) => { const x = sc.x(t); if (x < 4 || x > W - 4) return; maak("line", { x1: x, x2: x, y1: h - 6, y2: h }, g); const tx = maak("text", { x, y: 14, "text-anchor": x < 36 ? "start" : x > W - 36 ? "end" : "middle" }, g); tx.textContent = K.streepTekst(t, S.as); }); // aan de rand niet half afgeknipt
+    // Lange labels (‘40 v.Chr.’ op een gemengde as) kunnen elkaar raken, vooral aan de rand (daar staan ze niet in het
+    // midden van hun streepje). Van links naar rechts: een label dat het vorige raakt, vervalt (het streepje blijft).
+    let rechts = -Infinity;
+    g.querySelectorAll("text").forEach((tx) => { let b; try { b = tx.getBBox(); } catch { return; } if (!b.width) return; if (b.x < rechts + 6) tx.remove(); else rechts = b.x + b.width; });
     const ge = maak("g", { class: "wt-as-ev" }, svg);
     // Eerst alle merkjes (en de kop van de tijd is smal); dan krijgen belangrijke gebeurtenissen als eerste een label.
     // Een label dat een merkje of ander label raakt, valt weg (het merkje blijft, en de lijst noemt alles).
