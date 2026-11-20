@@ -6,7 +6,11 @@
 
   // ---------- tijdas ----------
   // Intern loopt de tijd t altijd vooruit. Op een as ‘vchr’ (jaar v.Chr., van groot naar klein) is t = -jaar.
-  const SOORTEN_AS = ["am", "vchr", "nchr"];
+  // ‘leeftijd’: een as in levensjaren van één persoon (Mozes, 0–120) als een jaartal in onze jaartelling niet vaststaat.
+  // Jaar n is dan ‘n jaar oud’; een jaar telt afgerond (jaar 80 loopt van 79,5 tot 80,5), zodat gebeurtenissen in
+  // hetzelfde jaar op volgorde kunnen staan zonder dat er een datum binnen het jaar wordt beweerd.
+  const SOORTEN_AS = ["am", "vchr", "nchr", "leeftijd"];
+  const telt = (as) => !as || as.soort === "am" || as.soort === "leeftijd";
   const naarT = (jaar, as) => (jaar == null ? null : as && as.soort === "vchr" ? -jaar : +jaar);
   const naarJaar = (t, as) => (as && as.soort === "vchr" ? -t : t);
   function bereik(as) {
@@ -16,7 +20,8 @@
   // Het jaar zoals een mens het leest. Jaar 0 bestaat niet in onze jaartelling: na 1 v.Chr. komt 1 n.Chr.
   function jaarTekst(t, as, kort) {
     const n = Math.round(t);
-    if (!as || as.soort === "am") return kort ? String(n) : "jaar " + n;
+    if (as && as.soort === "leeftijd" && n < 0) return kort ? String(n) : -n + " jaar vóór de geboorte van " + (as.wie || "de hoofdpersoon");
+    if (telt(as)) return kort ? String(n) : "jaar " + n;
     if (n <= 0) return (n === 0 ? 1 : -n) + " v.Chr.";
     return n + " n.Chr.";
   }
@@ -145,6 +150,74 @@
     return uit;
   }
 
+  // ---------- de reis op de kaart (Mozes: de woestijnreis) ----------
+  // Een periode kan een reis hebben die met de tijd over de kaart loopt. De lijnen komen NIET uit het periodebestand maar
+  // uit de bestaande reisstappen van de atlas (inhoud/*.js, stapsleutel ‘boek:deel:index’, de routes `r` van die stap):
+  // zo is de route op beide kaarten dezelfde, met dezelfde reconstructies (recon) en dezelfde plaatsen.
+  // Een deel: { stap, r: [indexen, standaard 0], van, tot } (jaren op de as; tussen van en tot loopt de reiziger).
+  const STAPSLEUTEL = /^[a-z0-9-]+:[a-z0-9-]+:\d+$/;
+  function stappenVan(boeken) {
+    const m = new Map();
+    (boeken || []).forEach((b) => (b.delen || []).forEach((d) => (d.steps || []).forEach((s, i) => m.set(b.id + ":" + d.id + ":" + i, s))));
+    return m;
+  }
+  function puntVan(k, plaatsen, W) {
+    if (Array.isArray(k) && k.length === 2 && k.every((x) => typeof x === "number")) return k;
+    if (typeof k === "string" && plaatsen && plaatsen[k]) return plaatsen[k].ll;
+    if (typeof k === "string" && W && W[k]) return W[k];
+    return null;
+  }
+  // Afstand in graden, met de lengtegraad versmald (genoeg om een lijn gelijkmatig af te lopen).
+  const afstand = (a, b) => Math.hypot(a[0] - b[0], (a[1] - b[1]) * Math.cos(((a[0] + b[0]) / 2) * Math.PI / 180));
+  function bereidReis(reis, as, ctx = {}) {
+    if (!reis || !Array.isArray(reis.delen) || !reis.delen.length) return null;
+    const stappen = ctx.stappen || stappenVan(ctx.boeken);
+    const delen = reis.delen.map((d) => {
+      const stap = stappen.get(d.stap);
+      const stukken = (d.r || [0]).map((i) => stap && stap.r && stap.r[i]).filter(Boolean).map((r) => {
+        const pts = (r.p || []).map((k) => puntVan(k, ctx.plaatsen, ctx.W)).filter(Boolean);
+        const cum = [0];
+        for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + afstand(pts[i - 1], pts[i]));
+        return { pts, cum, len: cum[cum.length - 1], recon: !!r.recon };
+      }).filter((x) => x.pts.length > 1);
+      const a = naarT(d.van, as), b = naarT(d.tot, as);
+      return { ...d, t0: Math.min(a, b), t1: Math.max(a, b), stukken, len: stukken.reduce((n, x) => n + x.len, 0) };
+    }).filter((d) => d.stukken.length).sort((x, y) => x.t0 - y.t0);
+    if (!delen.length) return null;
+    const onbekend = (reis.onbekend || []).map((o) => ({ ...o, t0: Math.min(naarT(o.van, as), naarT(o.tot, as)), t1: Math.max(naarT(o.van, as), naarT(o.tot, as)) }));
+    return { ...reis, delen, onbekend };
+  }
+  // Het afgelegde deel van een reisdeel bij fractie f (0–1): per stuk de punten tot daar.
+  function afgelegd(deel, f) {
+    let rest = Math.max(0, Math.min(1, f)) * deel.len;
+    return deel.stukken.map((s) => {
+      if (rest >= s.len - 1e-12) { rest -= s.len; return { pts: s.pts, recon: s.recon, heel: true }; }
+      if (rest <= 0) return { pts: [], recon: s.recon, heel: false };
+      const uit = [s.pts[0]];
+      for (let i = 1; i < s.pts.length; i++) {
+        if (s.cum[i] <= rest) { uit.push(s.pts[i]); continue; }
+        const a = s.pts[i - 1], b = s.pts[i], g = (rest - s.cum[i - 1]) / ((s.cum[i] - s.cum[i - 1]) || 1);
+        uit.push([a[0] + (b[0] - a[0]) * g, a[1] + (b[1] - a[1]) * g]);
+        break;
+      }
+      rest = 0;
+      return { pts: uit, recon: s.recon, heel: false };
+    });
+  }
+  // Waar is de reiziger op tijd t? Vóór het eerste deel aan het begin, tussen twee delen aan het eind van het vorige.
+  function reisOp(R, t) {
+    if (!R) return null;
+    const D = R.delen;
+    let i = -1;
+    for (let k = 0; k < D.length; k++) if (D[k].t0 <= t + 1e-9) i = k;
+    const zwerft = R.onbekend.find((o) => t >= o.t0 - 1e-9 && t <= o.t1 + 1e-9) || null;
+    if (i < 0) return { i: -1, f: 0, ll: D[0].stukken[0].pts[0], lopend: false, zwerft, richting: 0 };
+    const d = D[i], f = t >= d.t1 ? 1 : (t - d.t0) / ((d.t1 - d.t0) || 1);
+    const stukken = afgelegd(d, f).filter((s) => s.pts.length);
+    const laatste = stukken[stukken.length - 1].pts, ll = laatste[laatste.length - 1], voor = laatste[laatste.length - 2] || ll;
+    return { i, f, ll, lopend: f > 0 && f < 1, zwerft, richting: Math.sign(ll[1] - voor[1]) };
+  }
+
   // ---------- het periodebestand klaarzetten ----------
   const STATUS = ["expliciet", "berekend", "traditioneel", "historisch", "benaderd"];
   const EINDE = ["stierf", "weggenomen", "onbekend", "leeft door"];
@@ -173,7 +246,10 @@
       // Waar begint de lijn? Bij de geboorte (standaard), of bij iets anders (begin van een regering, de wegvoering, de
       // roeping): dan is er geen leeftijd.
       const begin = van.begin || "geboorte";
-      return { ...p, rij, t0, t1, einde, begin, lijn: p.lijn || "leven", voorAs, naAs, beginOnzeker: van.jaar == null || van.status === "benaderd" || voorAs, eindOnzeker: einde === "onbekend" || einde === "leeft door" || tot.status === "benaderd", margeVan: margeT(van.marge, as), margeTot: margeT(tot.marge, as), kinderen: [] };
+      // Een geboorte vóór de as die wel bekend is (Aäron, drie jaar ouder dan Mozes): de lijn is afgekapt, maar de leeftijd
+      // is uit te rekenen.
+      const geboorteBekend = begin === "geboorte" && van.jaar != null && van.status !== "benaderd";
+      return { ...p, rij, t0, t1, einde, begin, geboorteBekend, tGeboren: van.jaar != null ? ruwT0 : null, afronden: as.soort === "leeftijd", lijn: p.lijn || "leven", voorAs, naAs, beginOnzeker: van.jaar == null || van.status === "benaderd" || voorAs, eindOnzeker: einde === "onbekend" || einde === "leeft door" || tot.status === "benaderd", margeVan: margeT(van.marge, as), margeTot: margeT(tot.marge, as), kinderen: [] };
     });
     const byId = new Map(P.map((p) => [p.id, p]));
     P.forEach((p) => { const o = p.ouder && byId.get(p.ouder); if (o) o.kinderen.push(p.id); });
@@ -184,8 +260,11 @@
       const ll = typeof s.lat === "number" && typeof s.lng === "number" ? [s.lat, s.lng] : pl ? pl.ll : null;
       return { ...s, ll };
     }).filter((s) => s.ll);
-    const heeftKaart = gebieden.length > 0 || steden.length > 0 || G.some((e) => e.plek);
-    return { data, as, tMin, tMax, personen: P, byId, gebeurtenissen: G, gebieden, steden, vervaag, heeftKaart };
+    const reis = bereidReis(data.reis, as, ctx);
+    const heeftKaart = gebieden.length > 0 || steden.length > 0 || G.some((e) => e.plek) || !!reis;
+    // Rustiger afspelen in drukke stukken (as.tempo: [{ van, tot, factor }]): bijv. het jaar van de uittocht.
+    const tempo = (as.tempo || []).map((z) => ({ t0: Math.min(naarT(z.van, as), naarT(z.tot, as)), t1: Math.max(naarT(z.van, as), naarT(z.tot, as)), factor: z.factor }));
+    return { data, as, tMin, tMax, personen: P, byId, gebeurtenissen: G, gebieden, steden, vervaag, heeftKaart, reis, tempo };
   }
 
   // ---------- levenslijnen ----------
@@ -194,8 +273,9 @@
   const leeftNog = (p, t) => t >= p.t0 && (p.einde === "leeft door" || (p.einde === "onbekend" ? t <= p.t1 : t < p.t1));
   // Leeftijd in hele jaren op tijd t (null als de geboorte niet bekend is of de persoon er niet is).
   function leeftijd(p, t) {
-    if (t < p.t0 || p.begin !== "geboorte" || p.voorAs || (p.beginOnzeker && (!p.van || p.van.jaar == null))) return null;
-    return Math.floor(Math.min(t, p.einde === "onbekend" || p.einde === "leeft door" ? t : p.t1) - p.t0 + 1e-9);
+    if (t < p.t0 || p.begin !== "geboorte" || (p.voorAs ? !p.geboorteBekend : p.beginOnzeker && (!p.van || p.van.jaar == null))) return null;
+    const d = Math.min(t, p.einde === "onbekend" || p.einde === "leeft door" ? t : p.t1) - (p.voorAs ? p.tGeboren : p.t0);
+    return p.afronden ? Math.round(d) : Math.floor(d + 1e-9);
   }
   // Hoe lang leefden twee mensen tegelijk? ‘minstens’ als een einde onbekend is en dat einde de grens bepaalt;
   // ‘ongeveer’ als een begin of einde bij benadering is.
@@ -207,7 +287,8 @@
     }
     const grens = a.t1 <= b.t1 ? a : b;
     const minstens = grens.einde === "onbekend" || grens.einde === "leeft door";
-    const ongeveer = (a.t0 >= b.t0 ? a : b).beginOnzeker || (!minstens && grens.eindOnzeker);
+    const laat = a.t0 >= b.t0 ? a : b;
+    const ongeveer = (laat.beginOnzeker && !laat.geboorteBekend) || (!minstens && grens.eindOnzeker);
     return { jaren: Math.round(tot - van), van, tot, minstens, ongeveer };
   }
   // Alle momenten in de tijd: geboorten, einden en gebeurtenissen, op volgorde (voor stap-voor-stap en de lijst).
@@ -311,10 +392,38 @@
       (k.gebeurtenissen || []).forEach((g) => !gids.has(g) && f(`${w}: gebeurtenis ‘${g}’ bestaat niet`));
     });
     if (data.start != null && (typeof data.start !== "number" || !binnen(data.start))) f("start valt buiten de as");
+    if (as.soort === "leeftijd" && !as.wie) f("as: een leeftijd-as noemt wie (as.wie)");
+    (as.tempo || []).forEach((z, i) => {
+      if (![z.van, z.tot].every((j) => typeof j === "number" && binnen(j)) || naarT(z.tot, as) <= naarT(z.van, as) || !(z.factor > 0 && z.factor <= 1)) f(`as.tempo ${i}: van < tot binnen de as en factor tussen 0 en 1`);
+    });
+    (data.gebieden || []).forEach((g) => { if (g.soort != null && g.soort !== "streek") f(`gebied ${g.id}: soort ‘${g.soort}’ onbekend (alleen ‘streek’)`); });
+    if (data.reis != null) {
+      const R = data.reis;
+      if (!Array.isArray(R.delen) || !R.delen.length) f("reis: geen delen");
+      bronOk(R.bron, "reis");
+      const stappen = refs.stappen;
+      let vorig = -Infinity;
+      (R.delen || []).forEach((d, i) => {
+        const w = `reis deel ${i} (${d.stap})`;
+        if (!STAPSLEUTEL.test(d.stap || "")) return f(`${w}: stap moet ‘boek:deel:index’ zijn`);
+        if (![d.van, d.tot].every((j) => typeof j === "number" && binnen(j)) || naarT(d.tot, as) < naarT(d.van, as)) f(`${w}: van en tot binnen de as, van ≤ tot`);
+        else { if (naarT(d.van, as) < vorig - 1e-9) f(`${w}: niet op volgorde of overlapt het vorige deel`); vorig = naarT(d.tot, as); }
+        if (d.r != null && !(Array.isArray(d.r) && d.r.length && d.r.every((x) => Number.isInteger(x) && x >= 0))) f(`${w}: r moet een lijst indexen zijn`);
+        if (!stappen) return;
+        const s = stappen.get(d.stap);
+        if (!s) return f(`${w}: reisstap bestaat niet`);
+        (d.r || [0]).forEach((x) => {
+          const r = s.r && s.r[x];
+          if (!r) return f(`${w}: de stap heeft geen route ${x}`);
+          (r.p || []).forEach((k) => { if (!puntVan(k, refs.plaatsen, refs.W)) f(`${w}: punt ‘${k}’ onbekend`); });
+        });
+      });
+      (R.onbekend || []).forEach((o, i) => { if (![o.van, o.tot].every((j) => typeof j === "number" && binnen(j)) || !o.tekst) f(`reis.onbekend ${i}: van, tot (binnen de as) en tekst zijn nodig`); });
+    }
     return fout;
   }
 
-  const K = { knip, margeT, naarT, naarJaar, bereik, jaarTekst, schaal, streepjes, zoom, schuif, vloeiend, herbemonster, oppervlak, lijnUit, koppelDelen, bereidGebied, gebiedOp, bereid, leeftNog, leeftijd, overlap, momenten, controleer, STATUS, EINDE, PUNTEN };
+  const K = { telt, stappenVan, bereidReis, afgelegd, reisOp, knip, margeT, naarT, naarJaar, bereik, jaarTekst, schaal, streepjes, zoom, schuif, vloeiend, herbemonster, oppervlak, lijnUit, koppelDelen, bereidGebied, gebiedOp, bereid, leeftNog, leeftijd, overlap, momenten, controleer, STATUS, EINDE, PUNTEN };
   root.BR = root.BR || {};
   root.BR.wereldKern = K;
 })(typeof window !== "undefined" ? window : globalThis);

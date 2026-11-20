@@ -1,12 +1,16 @@
 # De wereld in die tijd (17-11-2026)
 
 Een interactieve, geanimeerde laag in de Bijbelreis: **levenslijnen** (wie leefde tegelijk, en hoe lang?), een
-**kaart die met de tijd meebeweegt** (rijken die groeien en verdwijnen) en **wat er tegelijk gebeurde**. Twee perioden:
+**kaart die met de tijd meebeweegt** (rijken die groeien en verdwijnen, of een reis die zich ontvouwt) en **wat er tegelijk
+gebeurde**. Perioden:
 
 | Periode | Bestand | Wat |
 | --- | --- | --- |
 | Van Adam tot Noach | `public/bijbelreis/wereld/perioden/adam-noach.json` | Genesis 5 (+ 7, 9, 11): dertien levenslijnen in jaren na de schepping, berekend uit de Masoretische tekst (= Statenvertaling). Geen kaart, met uitleg waarom. |
 | Daniël en Babylon | `public/bijbelreis/wereld/perioden/daniel-babylon.json` | 627–515 v.Chr.: zeven rijken met 36 sleutels, 14 personen, 12 gebeurtenissen, 13 steden. Bronnen en keuzes: [`daniel-bronnen.md`](daniel-bronnen.md). |
+| Mozes, Egypte en de woestijnreis | `public/bijbelreis/wereld/perioden/mozes.json` | As in **levensjaren van Mozes** (0–120), geen jaartallen v.Chr.: 7 personen, 21 gebeurtenissen, 6 landstreken zonder grenzen, 19 legerplaatsen, de reis (19 delen uit de reisstappen van de atlas) die meeloopt over de kaart, 16 koppelingen (v21–v36). Bronnen en keuzes: [`mozes-bronnen.md`](mozes-bronnen.md). |
+| David en Salomo | `public/bijbelreis/wereld/perioden/david-salomo.json` | ca. 1050–920 v.Chr. (reconstructie, as ‘bij benadering’): Israël en de buurvolken, 10 gebieden met 27 sleutels, 9 personen, 10 gebeurtenissen, 12 steden; v50–v62. Bronnen en keuzes: [`david-salomo-bronnen.md`](david-salomo-bronnen.md). |
+| Israël, Juda en Assyrië | `public/bijbelreis/wereld/perioden/israel-assyrie.json` | 880–681 v.Chr.: Assyrië groeit, Israël tot 722, Aram tot 732; 6 gebieden met 34 sleutels, 13 personen, 9 gebeurtenissen, 9 steden; v63–v67, v69, v70, v72. Bronnen en keuzes: [`israel-assyrie-bronnen.md`](israel-assyrie-bronnen.md). |
 
 De vlag staat **aan** (zie §4): de uitnodiging staat bij de gekoppelde verhalen.
 
@@ -41,7 +45,9 @@ alles dubbel geladen en een eigen route in de Worker nodig gehad.
   meren, rivieren, reliëf) en geeft de rand van de ondergrond terug. Daarbuiten ligt papier met een kaderlijn (zoals de
   atlas op de telefoon); gebieden worden op die rand afgeknipt (`kern.knip`), met een label ‘… loopt verder naar het
   oosten →’. Nodig voor Perzië: `geo.json` reikt tot 57° O. Namen op de kaart overlappen nooit (`schikLabels`): plaatsnamen
-  gaan voor (naar links als ze rechts niet passen, anders korter of weg), gebiedsnamen zoeken een vrije plek binnen het
+  gaan voor (naar links als ze rechts niet passen, anders korter of weg; ook de klikvlakken van twee plaatsen mogen
+  elkaar niet bedekken, WCAG 2.5.8: een plaats zonder naam houdt zijn stip, maar zonder knop als die op de knop van een
+  andere plaats valt), gebiedsnamen zoeken een vrije plek binnen het
   gebied (anders kleiner, anders even niet); gemeten 0 overlap en 0 afgekapt op 390, 1440 en 2560 px breed in 605, 586,
   539 en 525 v.Chr. (vóór deze ronde: 22 overlappend, 25 afgekapt). De legenda staat standaard dicht.
 - **Animatie**: `requestAnimationFrame`, alleen zolang er afgespeeld of gesprongen wordt. Per beeld worden alleen
@@ -106,6 +112,13 @@ gedeelde specificatie, met deze aanvullingen (alle optioneel):
 | `opmerking` | overal | korte toelichting op grondslag of onzekerheid |
 | `kleur` | gebeurtenis | kleur van de band (token uit de huisstijl, bijv. `water` voor de zondvloed) |
 | `tot`, `status`, `opmerking` | koppeling | een verhaal dat een tijdvak beslaat: in de laag een zachte band en de toelichting |
+| `as.soort: "leeftijd"`, `as.wie` | as | een as in levensjaren van één persoon (Mozes, 0–120) als een jaartal in onze jaartelling niet vaststaat. Jaar *n* = ‘*n* jaar oud’; jaren en leeftijden tellen **afgerond** (jaar 80 loopt van 79,5 tot 80,5), zodat gebeurtenissen in hetzelfde jaar op volgorde kunnen staan. Een jaar vóór 0 heet ‘3 jaar vóór de geboorte van Mozes’. De schuif loopt traploos. |
+| `as.tempo` | as | `[{ van, tot, factor }]`: afspelen gaat in dat stuk `factor` keer zo snel (0–1), met een zachte overgang; voor drukke stukken (de uittocht) |
+| `van.begin: "genoemd"` | persoon | de lijn begint waar de Bijbel iemand voor het eerst noemt (geen geboortejaar, geen leeftijd) |
+| `van.jaar` vóór de as | persoon | met een bekende geboorte (status niet `benaderd`) wordt de lijn afgekapt maar is de leeftijd wel bekend (Aäron) |
+| `soort: "streek"` | gebied | een landstreek: zacht vlak zonder grenslijn, niet meegeteld in het eerste kaartbeeld als er een reis of plaatsen zijn |
+| `halte` | stad | een kleine plaats langs een reis: alleen een naam, geen knop |
+| `reis` | periode | `{ naam, bron, delen: [{ stap, r, van, tot, alleen }], onbekend: [{ van, tot, tekst }] }`: zie hieronder |
 
 - Een persoon mag vóór de as beginnen of erna doorlopen; de lijn wordt afgekapt (Darius I). `ref` mag leeg zijn voor
   iemand die niet in de Bijbel staat (Nabonidus); `bron` is dan een bron-id.
@@ -117,6 +130,16 @@ gedeelde specificatie, met deze aanvullingen (alle optioneel):
   laatste sleutel staat een gebied er helemaal; het komt in de laatste ~2 % van de as ervóór op en vervaagt even lang
   erna. Een rijk dat in één jaar veranderde: zet het jaar ervoor een sleutel met de oude vorm.
 - `betrouwbaarheid`: `historisch` = doorgetrokken rand; `benaderd` of `gereconstrueerd` = gestippeld.
+- **Reis** (sinds Mozes): de lijnen staan niet in het periodebestand. Elk deel verwijst naar een reisstap van de atlas
+  (`stap: "exodus:uittocht:3"`, de sleutel `boek:deel:index`) en neemt de route `r` van die stap over (standaard `[0]`),
+  met dezelfde plaatsen, tussenpunten en reconstructies (`recon` = gestippeld). Tussen `van` en `tot` loopt de reiziger
+  (een klein, gezichtsloos pictogram met een staf) over die lijn; daarna staat hij aan het eind. Het afgelegde stuk krijgt
+  kleur, de rest is een zacht stippellijntje. `alleen: true`: een dunne lijn (Mozes reist alleen). In een stuk uit
+  `onbekend` staat de reiziger vaag met een gestippelde ring (‘waar precies, weten we niet’). Tijdens afspelen schuift
+  de kaart mee als de reiziger uit beeld loopt (niet als je zelf schoof). Bij een periode met een reis tonen de plaatsen
+  hun zekerheid uit `plaatsen.js`: open rondje = ligging onbekend, kleine ringen = andere mogelijke plekken (`alt`), en
+  het kaartje van een plaats noemt de ligging nu en de alternatieven. Rekenkern: `K.bereidReis`, `K.reisOp`,
+  `K.afgelegd`; de controle toetst elke stap, route en punt tegen de atlas.
 
 ## 4. De vlag
 
@@ -148,10 +171,17 @@ ontdekken, 4–6 jaar). Niet in het korte stapblad van de reis: daar hoort een s
   SV-controleregels; citaten letterlijk; Septuagint en Samaritaanse Pentateuch nagerekend (2242/2262, 1307); tijdas;
   herbemonsteren, uitlijnen en interpoleren van gebieden; plaats in de app-schil.
 - `tests/bijbelreis-wereld-daniel.test.ts` (spoor Daniël): de gegevens van demo 2.
+- `tests/bijbelreis-wereld-koningen.test.ts`: de gegevens van `david-salomo` en `israel-assyrie` (gebouwd door
+  `scripts/bijbelreis-wereld-koningen.py`): status en bron, verwijzingen, ringen, steden per jaar in het juiste rijk,
+  de Bijbelse getallen nagerekend (David 30 + 40, Rehabeam 41 + 17, Sisak in het 5e jaar, Hizkia 14e jaar = 701, Jehu
+  841 en Achab 853), citaten letterlijk SV. In de e2e: openen vanuit v66 en v61, kaart, afspelen, Jona, Elia, terug, axe.
+- `tests/bijbelreis-wereld-mozes.test.ts`: Mozes 40/80/120, Aäron 83/123, Kaleb 40, volgorde, v21–v36, de reis uit de
+  atlas (Raämses → Schelfzee → Sinaï → Kades → Hor → Nebo), landstreken zonder grenzen, citaten SV, geen farao bij naam,
+  en de uitbreiding van de rekenkern (as `leeftijd`, `tempo`, reis) zonder verandering voor `am` en `vchr`.
 - `tests/fixtures/wereld/test-kaart.json`: **testdata** (verzonnen vormen) voor de kaartengine.
 - `e2e/bijbelreis-wereld.spec.ts` (desktop, mobiel, tablet): openen vanuit een verhaal en exact terug, afspelen en
   pauzeren, spoelen, gebeurtenis, persoon, vergelijken (243), Henoch, toetsenbord, minder beweging, Daniël met kaart en
-  rand, kaartanimatie met testdata, kapotte/ontbrekende gegevens, telefoonmaten zonder horizontaal schuiven, axe, offline.
+  rand, Mozes (geopend uit v26, levensjaren, de reis loopt mee, onzekere plaatsen, Aäron, terug), kaartanimatie met testdata, kapotte/ontbrekende gegevens, telefoonmaten zonder horizontaal schuiven, axe, offline.
 
 ## 7. Bekende onzekerheden en open punten
 
@@ -163,8 +193,12 @@ ontdekken, 4–6 jaar). Niet in het korte stapblad van de reis: daar hoort een s
 - **Septuagint/Samaritaanse Pentateuch**: getallen uit secundaire bronnen (Wikipedia-tabel, artikel van H. B. Smith),
   niet uit een tekstuitgave nagekeken. Ussher alleen als ‘traditioneel’.
 - **Daniël**: zie `daniel-bronnen.md` (o.a. 605 als derde jaar van Jojakim, 587/586, Darius de Meder, Sardis 547–540).
+- **Mozes**: zie `mozes-bronnen.md` §4 (de plek binnen het jaar, Mirjam, de landstreken, Kaleb vanaf jaar 41).
 - Sinds de bredere ondergrond (4–57° O, PR #51) ligt Pasargadae binnen de kaart; Perzië loopt na 539 nog verder
   oostwaarts dan 57° en wordt daar afgeknipt (‘loopt verder naar het oosten’).
+- **David en Salomo / Israël–Assyrië**: zie de twee bronnenbestanden (§3 daar: wat een mens moet nalezen). Het
+  label ‘bij benadering’ (status `benaderd`) had te weinig contrast (3,9:1); de tekstkleur is nu iets donkerder (5,1:1).
 - Niet getest op een echte iPhone of Android, alleen Chromium (desktop-, telefoon- en tabletmaten).
-- De visuele referentiebeelden (`e2e/bijbelreis-visueel.spec.ts`) tonen geschiedenis 26 en de reis; daar staat geen
-  uitnodiging, dus de laag verandert ze niet.
+- De visuele referentiebeelden (`e2e/bijbelreis-visueel.spec.ts`) tonen geschiedenis 26. Sinds de periode Mozes staat
+  daar (niveau Zelf op reis en Verder ontdekken) de uitnodiging ‘De wereld in die tijd’; de beelden ‘verhaal’ en
+  ‘zelf-verhaal’ moeten daarom één keer opnieuw worden gemaakt (in het vaste Playwright-image, na visuele controle).

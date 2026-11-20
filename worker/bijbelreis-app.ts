@@ -1,13 +1,13 @@
 // De Bijbelreis-worker zelf, los van de ingebedde bestanden (worker/bijbelreis.ts geeft die mee). Zo is hij te testen
 // zonder eerst te bouwen (tests/bijbelreis-boekje.test.ts).
-import { bijbelreisPagina } from "../shared/bijbelreis";
+import { bijbelreisPagina, BIJBELREIS_TALEN } from "../shared/bijbelreis";
 import { meldBezoek, type BezoekEnv } from "./bezoek";
 import { meldAanvraag, type AanvraagEnv, type Diensten } from "./aanvraag";
 
 export type Bestanden = Record<string, [type: string, etag: string, base64: string]>;
 export type Kopregels = { pattern: string; headers: Record<string, string> }[];
 
-export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, diensten: Diensten = {}): ExportedHandler<BezoekEnv & AanvraagEnv> {
+export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, diensten: Diensten = {}, TALEN = BIJBELREIS_TALEN): ExportedHandler<BezoekEnv & AanvraagEnv> {
   const ORIGIN = "https://bijbelreis.nl";
   const START = "/bijbelreis.html";
   const decoded = new Map<string, Uint8Array>();
@@ -58,9 +58,24 @@ export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, 
   const OVERZICHT = "/bijbelreis/verhalen.html";
   // Losse tekstpagina's op een kort adres (App Store: privacybeleid en support-URL). In de build staan ze onder /bijbelreis/.
   const LOS = ["privacy", "hulp"].filter((n) => FILES[`/bijbelreis/${n}.html`]);
+  // Andere talen (docs/bijbelreis-talen/README.md): de atlas op /<taal>/, de verhaalpagina's op /<taal>/verhaal/<nr>-<slug>
+  // en /<taal>/verhalen, en een eigen service worker. Een taal die nog niet openbaar is (shared/bijbelreis.ts), krijgt
+  // X-Robots-Tag: noindex en staat niet in de sitemap.
+  const TAAL = new Map<string, { openbaar: boolean; verhalen: Map<number, string> }>();
+  for (const [code, t] of Object.entries(TALEN)) {
+    if (!FILES[`/bijbelreis/${code}/index.html`]) continue;
+    const verhalen = new Map<number, string>();
+    for (const p of Object.keys(FILES)) {
+      const m = new RegExp(`^/bijbelreis/${code}/verhaal/((\\d+)-[a-z0-9-]+)\\.html$`).exec(p);
+      if (m) verhalen.set(+m[2], m[1]);
+    }
+    TAAL.set(code, { openbaar: t.openbaar, verhalen });
+  }
+  const taalPaden = () =>
+    [...TAAL.entries()].filter(([, t]) => t.openbaar).flatMap(([code, t]) => [`/${code}/`, ...(FILES[`/bijbelreis/${code}/verhalen.html`] ? [`/${code}/verhalen`] : []), ...[...t.verhalen.keys()].sort((a, b) => a - b).map((nr) => `/${code}/verhaal/${t.verhalen.get(nr)}`)]);
   const sitemap = () =>
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    ["/", ...(FILES[OVERZICHT] ? ["/verhalen"] : []), ...(FILES["/bijbelreis/lessen.html"] ? ["/bijbelreis/lessen"] : []), ...LOS.map((n) => `/${n}`), ...[...VERHALEN.keys()].sort((a, b) => a - b).map((nr) => `/verhaal/${VERHALEN.get(nr)}`)]
+    ["/", ...(FILES[OVERZICHT] ? ["/verhalen"] : []), ...(FILES["/bijbelreis/lessen.html"] ? ["/bijbelreis/lessen"] : []), ...LOS.map((n) => `/${n}`), ...[...VERHALEN.keys()].sort((a, b) => a - b).map((nr) => `/verhaal/${VERHALEN.get(nr)}`), ...taalPaden()]
       .map((p) => `  <url><loc>${ORIGIN}${p}</loc></url>\n`)
       .join("") +
     `</urlset>\n`;
@@ -116,6 +131,34 @@ export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, 
         return Response.redirect(new URL(`/${lm[2]}` + url.search, url).toString(), 301);
       }
       if (path === "/favicon.ico") return Response.redirect(new URL("/bijbelreis/favicon.svg", url).toString(), 302);
+      // Andere talen: /en/ (de atlas), /en/verhalen en /en/verhaal/<nr>-<slug>; de paden in de build (/bijbelreis/en/…)
+      // en een adres zonder slash verwijzen door naar het ene vaste adres.
+      const tm = /^\/(?:bijbelreis\/)?([a-z]{2})(\/.*)?$/.exec(path);
+      if (tm && TAAL.has(tm[1])) {
+        const code = tm[1], t = TAAL.get(code)!, rest = tm[2] || "";
+        const geef = (bestand: string) => {
+          const r = serve(request, path, bestand);
+          if (!t.openbaar) r.headers.set("X-Robots-Tag", "noindex, nofollow");
+          return r;
+        };
+        const naar = (doel: string) => Response.redirect(new URL(doel + url.search, url).toString(), 301);
+        if (/^\/(index\.html)?$|^$|^\.html$/.test(rest) || (rest === "" && path.startsWith("/bijbelreis/"))) {
+          if (path === `/${code}/`) return geef(`/bijbelreis/${code}/index.html`);
+          return naar(`/${code}/`);
+        }
+        if (/^\/verhalen(\.html|\/)?$/.test(rest) && FILES[`/bijbelreis/${code}/verhalen.html`]) {
+          if (path === `/${code}/verhalen`) return geef(`/bijbelreis/${code}/verhalen.html`);
+          return naar(`/${code}/verhalen`);
+        }
+        const tv = /^\/verhaal\/(\d+)(-[^/]*?)?(\.html)?\/?$/.exec(rest);
+        if (tv && t.verhalen.has(+tv[1])) {
+          const juist = `/${code}/verhaal/${t.verhalen.get(+tv[1])}`;
+          if (path === juist) return geef(`/bijbelreis${juist}.html`);
+          return naar(juist);
+        }
+        if (path.startsWith("/bijbelreis/") && FILES[path]) return serve(request, path, path);
+        return text(request, path, NIET_GEVONDEN, "text/html; charset=utf-8", 404);
+      }
       // Presentatie en boekje: /bijbelreis/boekje (zonder .html); /bijbelreis/boekje.html verwijst daarheen, het fragment
       // (#jakob, #v26) blijft daarbij staan.
       const pagina = bijbelreisPagina(path, (p) => !!FILES[p]);
@@ -124,7 +167,7 @@ export function maakBijbelreisWorker(FILES: Bestanden, HEADER_RULES: Kopregels, 
       if ((path.startsWith("/bijbelreis/") || path.startsWith("/fonts/")) && FILES[path]) return serve(request, path, path);
       // De service worker (installeerbare app, docs/bijbelreis-pwa/README.md) staat in de root, zodat hij de atlas op ‘/’
       // mag bedienen. Hij valt onder geen enkele cacheregel: max-age=0, must-revalidate, dus een nieuwe versie komt meteen.
-      if (path === "/bijbelreis-sw.js" && FILES[path]) return serve(request, path, path);
+      if (/^\/bijbelreis-sw(-[a-z]{2})?\.js$/.test(path) && FILES[path]) return serve(request, path, path);
       return text(request, path, NIET_GEVONDEN, "text/html; charset=utf-8", 404);
     },
   };

@@ -17,18 +17,30 @@ export const ORIGIN = "https://bijbelreis.nl";
 export const MAP = "bijbelreis/verhaal";
 export const OVERZICHT = "bijbelreis/verhalen.html";
 
-/** Laadt de geschiedenissen, de indeling en de secties precies zoals de atlas ze laadt. */
-export function laadGegevens(pub = "public") {
+/** Laadt de geschiedenissen, de indeling en de secties precies zoals de atlas ze laadt. In een andere taal (docs/bijbelreis-talen/README.md)
+ *  komt daar de laag van die taal overheen (taal/<taal>/inhoud.js en taal/laag.js), zoals op de pagina /<taal>/. */
+export function laadGegevens(pub = "public", taal = "nl") {
   const html = readFileSync(join(pub, "bijbelreis.html"), "utf8");
-  const scripts = [...html.matchAll(/<script src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => /^(geschiedenissen\/|indeling\.js$)/.test(s));
+  const nodig = taal === "nl" ? /^(geschiedenissen\/|indeling\.js$)/ : /^(plaatsen|personen|inhoud\/(?!kerst)|geschiedenissen\/|indeling|dateringen|niveaus|verwijzing)/;
+  const scripts = [...html.matchAll(/<script src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => nodig.test(s));
+  if (taal !== "nl") {
+    const ctx0 = { window: {} };
+    runInNewContext(readFileSync(join(pub, "bijbelreis", "taal", taal + ".js"), "utf8").replace(/\bBR\./g, "window.BR."), ctx0);
+    scripts.unshift(`taal/${taal}.js`);
+    scripts.push(...(ctx0.window.BR.taalBoek[taal].inhoud || ["inhoud.js"]).map((f) => `taal/${taal}/${f}`), "taal/laag.js");
+  }
   const ctx = { window: {} };
-  for (const s of scripts) runInNewContext(readFileSync(join(pub, "bijbelreis", s), "utf8").replace(/\bBR\./g, "window.BR."), ctx);
+  for (const s of scripts) {
+    runInNewContext(readFileSync(join(pub, "bijbelreis", s), "utf8").replace(/\bBR\./g, "window.BR."), ctx);
+    // Zonder pagina weet taal/taal.js de taal niet: hier vastgezet, vóór de rest.
+    if (s === `taal/${taal}.js`) ctx.window.BR.taal = { code: taal, t: (x) => x };
+  }
   const BR = ctx.window.BR;
   // De indeling in secties staat in app.js (en het boekje); hier gelezen, niet overgetypt.
   const app = readFileSync(join(pub, "bijbelreis", "app.js"), "utf8");
   const m = /const SECTIES = (\[[\s\S]*?\]);/.exec(app);
   const secties = m ? runInNewContext(m[1]) : [];
-  return { geschiedenissen: (BR.geschiedenissen || []).slice().sort((a, b) => a.nr - b.nr), indeling: BR.indeling || {}, secties };
+  return { taal, geschiedenissen: (BR.geschiedenissen || []).slice().sort((a, b) => a.nr - b.nr), indeling: BR.indeling || {}, secties, boek: taal === "nl" ? null : BR.taalBoek[taal] };
 }
 
 /** ‘Droog door de Schelfzee’ → ‘droog-door-de-schelfzee’ (zonder accenten, alleen a–z, 0–9 en streepjes). */
@@ -103,8 +115,8 @@ const VOET = `<footer class="voet">
     </footer>`;
 
 /** Eén pagina per geschiedenis. Links zijn relatief (../#v26), zodat ze op bijbelreis.nl (/verhaal/…) én lokaal (/bijbelreis/verhaal/…) kloppen. */
-export function verhaalPagina(g, { indeling, secties, css, vorige, volgende, totaal }) {
-  const url = ORIGIN + pad(g);
+export function verhaalPagina(g, { indeling, secties, css, vorige, volgende, totaal, voor = "" }) {
+  const url = ORIGIN + voor + pad(g);
   const sectie = sectieVan(secties, g.nr);
   const delen = onderdelen(g, indeling);
   const wie = (g.wie || []).filter(Boolean);
@@ -138,11 +150,11 @@ export function verhaalPagina(g, { indeling, secties, css, vorige, volgende, tot
 }
 
 /** Overzicht van alle geschiedenissen (/verhalen), per sectie, met een link naar elke pagina. */
-export function overzichtPagina(geschiedenissen, { secties, css }) {
+export function overzichtPagina(geschiedenissen, { secties, css, voor = "" }) {
   const groepen = secties.map(([n, a, b]) => [n, geschiedenissen.filter((g) => g.nr >= a && g.nr <= b)]).filter(([, gs]) => gs.length);
   const rest = geschiedenissen.filter((g) => !secties.some(([, a, b]) => g.nr >= a && g.nr <= b));
   if (rest.length) groepen.push(["Overig", rest]);
-  return `${kop({ titel: `Alle ${geschiedenissen.length} geschiedenissen uit de Bijbel — Bijbelreis`, beschrijving: `De ${geschiedenissen.length} geschiedenissen van de Bijbelreis, van de schepping tot Openbaring: per geschiedenis een korte navertelling, de Bijbelverwijzing en een link naar de kaart.`, url: ORIGIN + "/verhalen", css, type: "website" })}
+  return `${kop({ titel: `Alle ${geschiedenissen.length} geschiedenissen uit de Bijbel — Bijbelreis`, beschrijving: `De ${geschiedenissen.length} geschiedenissen van de Bijbelreis, van de schepping tot Openbaring: per geschiedenis een korte navertelling, de Bijbelverwijzing en een link naar de kaart.`, url: ORIGIN + voor + "/verhalen", css, type: "website" })}
   <body>
     <header class="kop"><a class="merk" href="./">Op reis door de <em>Bijbel</em></a></header>
     <main id="inhoud">
@@ -163,14 +175,45 @@ export function overzichtPagina(geschiedenissen, { secties, css }) {
 `;
 }
 
-/** Alle pagina's: { "bijbelreis/verhaal/26-droog-door-de-schelfzee.html": "<!doctype html>…", … }. */
-export function maakPaginas(gegevens, cssTekst) {
+/** Alle pagina's: { "bijbelreis/verhaal/26-droog-door-de-schelfzee.html": "<!doctype html>…", … }.
+ *  Met een taal (docs/bijbelreis-talen/README.md): dezelfde pagina's onder bijbelreis/<taal>/ (op bijbelreis.nl /<taal>/verhaal/…),
+ *  met de teksten van de bediening uit het woordenboek van die taal; zolang de taal een proef is met noindex. */
+export function maakPaginas(gegevens, cssTekst, { taal = "nl", openbaar = false } = {}) {
   const { geschiedenissen: G, indeling, secties } = gegevens;
   const css = createHash("sha256").update(cssTekst).digest("hex").slice(0, 10);
   const uit = {};
+  const voor = taal === "nl" ? "" : "/" + taal, map = taal === "nl" ? MAP : `bijbelreis/${taal}/verhaal`, overzicht = taal === "nl" ? OVERZICHT : `bijbelreis/${taal}/verhalen.html`;
+  const zet = taal === "nl" ? (h) => h : (h, nlUrl) => naarTaal(h, gegevens.boek, taal, openbaar, nlUrl);
   G.forEach((g, i) => {
-    uit[`${MAP}/${naam(g)}.html`] = verhaalPagina(g, { indeling, secties, css, vorige: G[i - 1], volgende: G[i + 1], totaal: G.length });
+    uit[`${map}/${naam(g)}.html`] = zet(verhaalPagina(g, { indeling, secties: secties.map(([n, a, b]) => [vertaalTekst(gegevens.boek, n), a, b]), css, vorige: G[i - 1], volgende: G[i + 1], totaal: G.length, voor }), `${ORIGIN}/verhaal/${g.nr}`);
   });
-  uit[OVERZICHT] = overzichtPagina(G, { secties, css });
+  uit[overzicht] = zet(overzichtPagina(G, { secties: secties.map(([n, a, b]) => [vertaalTekst(gegevens.boek, n), a, b]), css, voor }), `${ORIGIN}/verhalen`);
   return uit;
+}
+
+// ---------- andere talen ----------
+// Hetzelfde woordenboek als de atlas (public/bijbelreis/taal/<taal>.js): de Nederlandse tekst is de sleutel.
+function vertaalTekst(boek, s) {
+  if (!boek) return s;
+  const k = String(s).trim();
+  if (Object.prototype.hasOwnProperty.call(boek.woorden || {}, k)) return boek.woorden[k];
+  for (const [re, rep] of boek.patronen || []) if (re.test(k)) return k.replace(re, rep);
+  return s;
+}
+function naarTaal(html, boek, taal, openbaar, nlUrl) {
+  const k = boek.kop;
+  // De kop: taal, robots, en de Nederlandse pagina als alternatief (die verwijst op nummer door naar het vaste adres).
+  html = html
+    .replace('<html lang="nl">', `<html lang="${taal}">`)
+    .replace('<meta name="robots" content="index, follow" />', `<meta name="robots" content="${openbaar ? "index, follow" : "noindex, nofollow"}" />`)
+    .replace('<meta property="og:locale" content="nl_NL" />', `<meta property="og:locale" content="${k.locale}" />`)
+    .replace('<meta property="og:site_name" content="Bijbelreis" />', `<meta property="og:site_name" content="${esc(k.naam)}" />`)
+    .replace(/(<meta property="og:image:alt" content=")[^"]*(")/, `$1${esc(k.ogAlt)}$2`)
+    .replace(/(<link rel="canonical" href="([^"]*)" \/>)/, (m, l, url) => `${l}\n    <link rel="alternate" hreflang="nl" href="${nlUrl}" />\n    <link rel="alternate" hreflang="${taal}" href="${url}" />`)
+    .replace(/(<title>|<meta property="og:title" content="|<meta name="description" content="|<meta property="og:description" content=")([^<"]*)/g, (m, a, t) => a + vertaalTekst(boek, t));
+  // De body: tekst en attributen (aria-label) uit het woordenboek.
+  const b = html.indexOf("<body"), e = html.lastIndexOf("</body>");
+  const body = html.slice(b, e).split(/(<[^>]+>)/).map((d) => (d.startsWith("<") ? d.replace(/\saria-label="([^"]*)"/g, (m, w) => ` aria-label="${vertaalTekst(boek, w)}"`) : d.trim() ? d.replace(d.trim(), () => vertaalTekst(boek, d.trim())) : d));
+  // Het woordenboek bevat geen HTML; wat uit de gegevens komt, is in de sjabloon al ontsnapt.
+  return html.slice(0, b) + body.join("") + html.slice(e);
 }

@@ -56,7 +56,8 @@ for (const line of readFileSync(join(root, "_headers"), "utf8").split("\n")) {
 
 mkdirSync("worker/generated", { recursive: true });
 // De geschiedenispagina's (scripts/bijbelreis-verhalen.mjs) horen alleen bij bijbelreis.nl; de hoofdsite krijgt ze niet mee.
-const alleenReis = (p) => p.startsWith("/bijbelreis/verhaal/") || p === "/bijbelreis/verhalen.html";
+// Ook de andere talen (docs/bijbelreis-talen/README.md: /bijbelreis/<taal>/, /bijbelreis/taal/ en bijbelreis-sw-<taal>.js).
+const alleenReis = (p) => p.startsWith("/bijbelreis/verhaal/") || p === "/bijbelreis/verhalen.html" || /^\/bijbelreis\/([a-z]{2}|taal)\//.test(p) || /^\/bijbelreis-sw-[a-z]{2}\.js$/.test(p);
 const hoofdFiles = Object.fromEntries(Object.entries(files).filter(([p]) => !alleenReis(p)));
 writeFileSync(
   "worker/generated/files.ts",
@@ -65,7 +66,7 @@ writeFileSync(
     `export const HEADER_RULES: { pattern: string; headers: Record<string, string> }[] = ${JSON.stringify(rules)};\n`,
 );
 // De Bijbelreis heeft een eigen Worker (bijbelreis.nl, worker/bijbelreis.ts) met alleen haar eigen bestanden.
-const eigen = (p) => p === "/bijbelreis.html" || p === "/bijbelreis-sw.js" || p.startsWith("/bijbelreis/") || p.startsWith("/fonts/");
+const eigen = (p) => p === "/bijbelreis.html" || /^\/bijbelreis-sw(-[a-z]{2})?\.js$/.test(p) || p.startsWith("/bijbelreis/") || p.startsWith("/fonts/");
 const reisFiles = Object.fromEntries(Object.entries(files).filter(([p]) => eigen(p)));
 const reisRules = rules.filter((r) => ["/*", "/fonts/*", "/bijbelreis/*"].includes(r.pattern));
 writeFileSync(

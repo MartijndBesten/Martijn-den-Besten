@@ -1,0 +1,59 @@
+# Controle voor public/bijbelreis/wereld/perioden/mozes.json (‘De wereld in die tijd’: Mozes, Egypte en de woestijnreis).
+# Elk getal waarop de tijdlijn in levensjaren van Mozes rust, en elk letterlijk citaat, tegen de Statenvertaling.
+# Gebruik: python3 scripts/bijbel-check.py scripts/bijbel-controle/wereld-mozes.txt (ook in tests/bijbelreis-wereld-mozes.test.ts).
+# --- de levensjaren van Mozes en Aäron ---
+Exodus 2:2 | baarde een zoon
+Handelingen 7:23 | de tijd van veertig jaren vervuld
+Handelingen 7:29 | Mozes vluchtte.*land Madiam
+Handelingen 7:30 | als veertig jaren vervuld waren
+Exodus 7:7 | Mozes was tachtig jaar oud
+Exodus 7:7 | drie en tachtig jaar oud, toen zij tot Farao spraken
+Numeri 33:38 | in het veertigste jaar na den uittocht.*in de vijfde maand
+Numeri 33:39 | honderd drie en twintig jaren oud
+Deuteronomium 31:2 | Ik ben heden honderd en twintig jaren oud
+Deuteronomium 34:5 | Alzo stierf Mozes
+Deuteronomium 34:7 | Mozes nu was honderd en twintig jaren oud, als hij stierf
+# --- maanden en jaren na de uittocht ---
+Numeri 33:3 | in de eerste maand, op den vijftienden dag
+Exodus 16:1 | aan den vijftienden dag der tweede maand
+Exodus 19:1 | In de derde maand, na het uittrekken
+Exodus 24:18 | veertig dagen en veertig nachten
+Exodus 40:17 | in de eerste maand, in het tweede jaar, op den eersten der maand
+Numeri 10:11 | in het tweede jaar, in de tweede maand, op den twintigsten
+Numeri 14:33 | veertig jaren
+Numeri 14:34 | elken dag voor elk jaar
+Deuteronomium 2:14 | acht en dertig jaren
+Numeri 20:1 | in de eerste maand.*Mirjam stierf
+Deuteronomium 1:3 | in het veertigste jaar, in de elfde maand
+Exodus 16:35 | Man veertig jaren
+# --- Kaleb, Jozua, Mirjam, Jethro en Zippora ---
+Jozua 14:7 | Ik was veertig jaren oud.*Kades-barnea
+Jozua 14:10 | vijf en veertig jaren.*vijf en tachtig jaren oud
+Jozua 24:29 | honderd en tien jaren
+Exodus 17:9 | Mozes dan zeide tot Jozua
+Numeri 26:59 | Mirjam, hun zuster
+Exodus 2:4 | zijn zuster stelde zich van verre
+Exodus 15:20 | Mirjam, de profetes
+Exodus 2:21 | gaf Mozes zijn dochter Zippora
+Exodus 18:2 | Jethro.*Zippora
+Exodus 18:27 | hij ging naar zijn land
+Numeri 20:28 | Aäron stierf aldaar
+# --- plaatsen op de route ---
+Exodus 1:11 | Pitom en Raamses
+Exodus 12:37 | van Rameses naar Sukkoth
+Numeri 22:1 | vlakke velden van Moab
+Numeri 33:35 | Ezeon-geber
+# --- letterlijke citaten ---
+Exodus 5:1 | Laat Mijn volk trekken
+Exodus 13:20 | aan het einde der woestijn
+Exodus 14:22 | de wateren waren hun een muur
+Exodus 15:27 | twaalf waterfonteinen, en zeventig palmbomen
+Numeri 20:1 | in de eerste maand
+Numeri 20:23 | aan de pale van het land van Edom
+Numeri 21:13 | de Arnon is de landpale van Moab
+Numeri 33:42 | Funon
+Exodus 2:4 | zijn zuster
+Numeri 33:38 | in het veertigste jaar na den uittocht
+Deuteronomium 31:2 | Ik ben heden honderd en twintig jaren oud
+Exodus 7:7 | Mozes was tachtig jaar oud
+1 Koningen 6:1 | in het vierhonderd en tachtigste jaar, na den uitgang

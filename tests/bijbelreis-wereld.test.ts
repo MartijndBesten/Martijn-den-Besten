@@ -52,7 +52,8 @@ function refOk(ref: string): boolean {
     return !!H[r.c1] && !!H[c2] && r.v1 <= H[r.c1].length && (r.v2 === 999 || r.v2 <= H[c2].length);
   });
 }
-const REFS = { plaatsen: BR.plaatsen, mensen: BR.mensen, verhalen: new Set(BR.geschiedenissen.map((g) => "v" + g.nr)), refOk };
+// W en stappen: de tussenpunten en reisstappen van de atlas, voor een periode met een reis (mozes).
+const REFS = { plaatsen: BR.plaatsen, W: BR.W, stappen: (BR.wereldKern as unknown as { stappenVan: (b: unknown) => unknown }).stappenVan(BR.boeken), mensen: BR.mensen, verhalen: new Set(BR.geschiedenissen.map((g) => "v" + g.nr)), refOk };
 const PERIODEN = readdirSync(join(WERELD, "perioden")).filter((f) => f.endsWith(".json"));
 const lees = (p: string) => JSON.parse(readFileSync(p, "utf8"));
 const FIXTURE = lees(join(ROOT, "tests", "fixtures", "wereld", "test-kaart.json"));
