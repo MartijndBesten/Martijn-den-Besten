@@ -106,6 +106,8 @@ knopteksten, de slotzin, de verwijzing) staan op één plek: `THEMA_UI` bovenin 
   bezoek) staat één kaart (`#seizoen`) met het **weekritme** (zie hieronder). Bij Voorlezen staat dezelfde kaart
   met een kortere zin en zonder de knop Deel. Verder staat ‘Thema’s’ dan vóór de Bijbelboeken (boekenrij, keuzeblad,
   boekenkast), met Kerst in nachtblauw met de ster.
+- **Op het welkom** (voorscherm bij openen, sinds 20-11-2026): in het seizoen een knop naar het deel van deze week,
+  dezelfde als de hoofdknop van de kaart (zie docs/BIJBELREIS.md, ‘Voorscherm bij het openen’).
 - **Buiten het seizoen**: geen ingang op de start; ‘Thema’s’ staat ná de Bijbelboeken, zonder accent. De diepe links
   (`#kerst`, `#kerst-geboorte`, `#kerst-geboorte/3` …) werken altijd. Was een Kerst-stap het laatste wat je opende, dan
   gaat de gewone knop ‘Verder met: …’ daarheen (in het seizoen doet de ingang dat).

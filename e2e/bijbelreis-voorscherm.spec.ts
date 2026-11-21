@@ -55,3 +55,58 @@ test("een link naar een verhaal of stap opent meteen, zonder welkom", async ({ p
   await expect(p2.locator("#t-reis")).toHaveAttribute("aria-selected", "true");
   await expect(scherm(p2)).toBeHidden();
 });
+
+// De kersttijd (eerste adventszondag tot en met 6 januari; public/bijbelreis/seizoen.js): op het welkom staat het deel van
+// deze week van de kerstreis, met dezelfde knop als de seizoenskaart (‘Lees deel 2’). De datum komt van het apparaat.
+test("kersttijd: het welkom wijst het deel van deze week aan; vóór advent en na 6 januari niet", async ({ browser }) => {
+  for (const [tijd, verwacht] of [
+    ["2026-11-28T21:00:00", null],
+    ["2026-11-29T00:05:00", "Lees deel 1: De belofte: van Adam tot David"],
+    ["2026-12-25T10:00:00", "Lees deel 4: De geboorte in Bethlehem"],
+    ["2027-01-07T08:00:00", null],
+  ] as const) {
+    const ctx = await browser.newContext();
+    const page = await ctx.newPage();
+    await page.clock.install({ time: new Date(tijd) });
+    await page.goto("/bijbelreis");
+    await expect(scherm(page).locator(".vs-hoofd")).toContainText("Begin de reis");
+    const knop = scherm(page).locator(".vs-seizoen");
+    if (!verwacht) { await expect(knop, tijd).toHaveCount(0); await ctx.close(); continue; }
+    await expect(knop, tijd).toContainText("Advent en Kerst · deze week");
+    await expect(knop.locator("b"), tijd).toHaveText(verwacht);
+    // Op een telefoon onder de grote knop, vóór ‘Kies een geschiedenis’.
+    expect(await scherm(page).locator(".vs-knoppen > button").evaluateAll((bs) => bs.map((b) => b.className))).toEqual([expect.stringContaining("vs-hoofd"), expect.stringContaining("vs-seizoen"), "btn vs-tweede"]);
+    await knop.click();
+    await expect(scherm(page)).toBeHidden();
+    await expect(page).toHaveURL(tijd.startsWith("2026-11") ? /#kerst-belofte$/ : /#kerst-geboorte$/);
+    await expect(page.locator("body")).toHaveAttribute("data-thema", "kerst");
+    await ctx.close();
+  }
+});
+
+test("kersttijd: wie in de kerstreis bezig was, krijgt ‘Verder met’ daarheen; geen twee knoppen naar dezelfde stap", async ({ browser }) => {
+  const open = async (opslag: Record<string, unknown>) => {
+    const ctx = await browser.newContext();
+    const page = await ctx.newPage();
+    await page.clock.install({ time: new Date("2026-12-06T10:00:00") });
+    await page.addInitScript((o) => { try { if (!sessionStorage.getItem("t")) { sessionStorage.setItem("t", "1"); Object.entries(o).forEach(([k, v]) => localStorage.setItem("bijbelreis:" + k, JSON.stringify(v))); } } catch { /* about:blank */ } }, opslag);
+    await page.goto("/bijbelreis");
+    await expect(scherm(page)).toBeVisible();
+    return { ctx, page };
+  };
+  // Vorige week deel 1 gelezen: verder waar je was, en het deel van deze week.
+  const a = await open({ gezien: ["kerst:kerst-belofte:0", "kerst:kerst-belofte:1"], laatst: "kerst:kerst-belofte:1", huidig: { k: "kerst:kerst-belofte:1" } });
+  await expect(scherm(a.page).locator(".vs-hoofd")).toContainText("Verder met:");
+  await expect(scherm(a.page).locator(".vs-hoofd")).toContainText("De belofte: van Adam tot David –");
+  await expect(scherm(a.page).locator(".vs-seizoen b")).toHaveText("Lees deel 2: Van David tot Jozef");
+  const axe = await new AxeBuilder({ page: a.page }).include("#voorscherm").withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]).analyze();
+  expect(axe.violations.map((v) => v.id)).toEqual([]);
+  await a.ctx.close();
+  // Bezig in het deel van deze week: ‘Verder met’ gaat al daarheen, dus geen tweede knop.
+  const b = await open({ verhalen: { 30: { g: 1 } }, gezien: ["kerst:kerst-koningen:0"], laatst: "kerst:kerst-koningen:0", huidig: { k: "kerst:kerst-koningen:0" } });
+  await expect(scherm(b.page).locator(".vs-hoofd")).toContainText("Van David tot Jozef –");
+  await expect(scherm(b.page).locator(".vs-seizoen")).toHaveCount(0);
+  await scherm(b.page).locator(".vs-hoofd").click();
+  await expect(b.page).toHaveURL(/#kerst-koningen\/1$/);
+  await b.ctx.close();
+});
