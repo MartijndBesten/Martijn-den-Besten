@@ -3,7 +3,7 @@ import { zonderVoorscherm } from "./voorscherm";
 
 zonderVoorscherm(test);
 
-// Afwerking 17-11-2026: tijdlijn (Samen ontdekken) met aanklikbare onderwerpen, uitleg over ‘enkele aanhalingstekens’ bij
+// Afwerking 17-11-2026: tijdlijn (Voorlezen) met aanklikbare onderwerpen, uitleg over ‘enkele aanhalingstekens’ bij
 // een verhaal, de boekenrij die de naam nooit half wegschuift, de kaart die tot de rand land toont, en de verantwoording.
 const zetNiveau = (page: Page, n: "a" | "b" | "c") =>
   page.addInitScript((x) => { try { if (sessionStorage.getItem("niveauGezet")) return; sessionStorage.setItem("niveauGezet", "1"); localStorage.setItem("bijbelreis:niveau", JSON.stringify(x)); localStorage.setItem("bijbelreis:welkomWeg", "true"); } catch {} }, n);
@@ -13,7 +13,7 @@ function watchErrors(page: Page) {
   return errors;
 }
 
-test("tijdlijn bij Samen ontdekken: elk onderwerp klapt open en een geschiedenis daarin opent", async ({ page }) => {
+test("tijdlijn bij Voorlezen: elk onderwerp klapt open en een geschiedenis daarin opent", async ({ page }) => {
   const errors = watchErrors(page);
   await zetNiveau(page, "a");
   await page.goto("/bijbelreis#v26");
@@ -72,7 +72,7 @@ test("boekenrij op een breed scherm: de gekozen boeknaam staat helemaal in beeld
   expect(b!.x + b!.width).toBeLessThanOrEqual(r!.x + r!.width + 1);
 });
 
-test("Samen ontdekken: Vorige/Verder staan bij elke stap van een geschiedenis op dezelfde plek", async ({ page }) => {
+test("Voorlezen: Vorige/Verder staan bij elke stap van een geschiedenis op dezelfde plek", async ({ page }) => {
   await zetNiveau(page, "a");
   await page.goto("/bijbelreis#v34");
   const verder = page.locator("#aVerder");

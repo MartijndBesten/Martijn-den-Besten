@@ -44,9 +44,9 @@ BR.vertaling.en = {
 
   // ---------- reisniveaus en dateringen ----------
   niveaus: {
-    a: { n: "Discover together", leeftijd: "ages 4–6", uitleg: "Short pieces to read together, with simple questions." },
-    b: { n: "On my own", leeftijd: "ages 7–10", uitleg: "Histories to read yourself, with the map and different kinds of questions." },
-    c: { n: "Explore further", leeftijd: "11+", uitleg: "The full retelling with background, connections and Bible references." },
+    a: { n: "Read aloud", uitleg: "Short pieces to read together, with simple questions." },
+    b: { n: "Read yourself", uitleg: "Histories to read yourself, with the map and different kinds of questions." },
+    c: { n: "Go deeper", uitleg: "The full retelling with background, connections and Bible references." },
   },
   dateringen: {
     bijbel: { n: "Biblical chronology", uitleg: "Calculated with numbers from the Bible, such as ages and ‘four hundred and eightieth year’ (1 Kings 6:1). The order is in the Bible; the year depends on how you count." },

@@ -1,8 +1,9 @@
-// Reisniveaus: één geschiedenis, drie leeftijdsversies.
+// Reisniveaus: één geschiedenis, drie versies. De namen zeggen hoe je leest, niet hoe oud je bent (besluit 21-11-2026,
+// docs/BIJBELREIS.md § Niveaunamen): de Bijbelreis is voor jong en oud.
 //
-//   a  Samen ontdekken (4–6 jaar): korte verhaalstappen, één gedachte per scherm, voor kind en begeleider samen.
-//   b  Zelf op reis   (7–10 jaar): een zelfstandig leesbare vertelling in een paar onderdelen.
-//   c  Verder ontdekken (11+):     de bestaande vertelling (geschiedenissen/*.js) met verdieping.
+//   a  Voorlezen:  korte verhaalstappen, één gedachte per scherm, om samen te lezen.
+//   b  Zelf lezen: een zelfstandig leesbare vertelling in een paar onderdelen.
+//   c  Verdiepen:  de bestaande vertelling (geschiedenissen/*.js) met verdieping.
 //
 // De teksten staan per niveau in niveaus/a.js, niveaus/b.js en niveaus/c.js. De pagina laadt alleen het niveau dat
 // gekozen is; bij wisselen komt het andere bestand erbij. De basis blijft de bestaande geschiedenis (uitleg, quiz,
@@ -17,9 +18,9 @@
 window.BR = window.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} };
 BR.niveaus = {
   soorten: {
-    a: { n: "Samen ontdekken", leeftijd: "4–6 jaar", uitleg: "Korte stukjes om samen te lezen, met eenvoudige vragen." },
-    b: { n: "Zelf op reis", leeftijd: "7–10 jaar", uitleg: "Verhalen om zelf te lezen, met de kaart en afwisselende vragen." },
-    c: { n: "Verder ontdekken", leeftijd: "11+", uitleg: "De volledige vertelling met achtergrond, verbanden en verwijzingen." },
+    a: { n: "Voorlezen", uitleg: "Korte stukjes om samen te lezen, met eenvoudige vragen." },
+    b: { n: "Zelf lezen", uitleg: "Verhalen om zelf te lezen, met de kaart en afwisselende vragen." },
+    c: { n: "Verdiepen", uitleg: "De volledige vertelling met achtergrond, verbanden en verwijzingen." },
   },
   verhalen: {},
   geladen: {},
@@ -28,8 +29,8 @@ BR.niveaus = {
     for (const [nr, v] of Object.entries(verhalen)) (this.verhalen[nr] = this.verhalen[nr] || {})[n] = v;
     this.geladen[n] = true;
   },
-  // Met welk niveau de pagina opent. Dat is het gekozen niveau. Wie al onderweg was zonder te kiezen, krijgt Verder
-  // ontdekken: zo bleef de reis voor hen hetzelfde. Een nieuwe bezoeker krijgt voorlopig Zelf op reis.
+  // Met welk niveau de pagina opent. Dat is het gekozen niveau. Wie al onderweg was zonder te kiezen, krijgt
+  // Verdiepen: zo bleef de reis voor hen hetzelfde. Een nieuwe bezoeker krijgt voorlopig Zelf lezen.
   // app.js gebruikt deze regel ook.
   beginNiveau() {
     const lees = (k, d) => { try { const v = localStorage.getItem("bijbelreis:" + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } };

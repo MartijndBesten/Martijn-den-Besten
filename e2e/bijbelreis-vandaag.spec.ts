@@ -165,7 +165,7 @@ test("laag Vandaag: een plek openen met het toetsenbord en door naar de Bijbelse
   // Beide namen van de plek die elke groep anders noemt.
   await expect(v).toContainText("Ibrahimi-moskee");
   await expect(v).toContainText("Graf van de Aartsvaders");
-  // Verder ontdekken: de bronnen staan erbij.
+  // Verdiepen: de bronnen staan erbij.
   await expect(v.locator(".st a").first()).toHaveAttribute("href", /^https:\/\//);
   // De knop gaat naar de Bijbelse plaats, met ‘Hier in de reis’.
   await v.getByRole("button", { name: "Hebron · Mamre in de Bijbelreis" }).click();
@@ -241,7 +241,7 @@ test("laag Vandaag: een plek zonder Bijbelse plaats heeft geen knop, een gevoeli
   await expect(v).toContainText("Al-Quds");
 });
 
-test("Samen ontdekken (4–6 jaar): geen laag Vandaag, ook niet als ze eerder aan stond", async ({ page }) => {
+test("Voorlezen: geen laag Vandaag, ook niet als ze eerder aan stond", async ({ page }) => {
   const errors = watchErrors(page);
   await page.addInitScript(() => { localStorage.setItem("bijbelreis:niveau", JSON.stringify("a")); localStorage.setItem("bijbelreis:vandaag", "true"); });
   await page.goto("/bijbelreis#abraham/4");
@@ -255,7 +255,7 @@ test("Samen ontdekken (4–6 jaar): geen laag Vandaag, ook niet als ze eerder aa
   expect(errors).toEqual([]);
 });
 
-test("wisselen naar Samen ontdekken haalt de laag weg; terug komt ze weer", async ({ page }) => {
+test("wisselen naar Voorlezen haalt de laag weg; terug komt ze weer", async ({ page }) => {
   await page.goto("/bijbelreis#abraham/4");
   await expect(page.locator("#map .land").first()).toBeAttached();
   await telefoonKlik(page, "#nuBtn");
@@ -267,7 +267,7 @@ test("wisselen naar Samen ontdekken haalt de laag weg; terug komt ze weer", asyn
   await page.locator("#niveauBtn").click();
   await page.locator('#niveauOpties [data-niveau="b"]').click();
   await expect(page.locator("#map .leaflet-marker-icon.vandaag").first()).toBeAttached();
-  // Zelf op reis: het venster zonder bronnenregel.
+  // Zelf lezen: het venster zonder bronnenregel.
   await telefoonKlik(page, "#vandaagLijstBtn");
   await page.locator('#vandaagLade [data-vandaag="rome"]').click();
   const v = venster(page);

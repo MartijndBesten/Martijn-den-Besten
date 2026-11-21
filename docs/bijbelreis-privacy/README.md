@@ -38,7 +38,7 @@ beacon in de HTML van bijbelreis.nl of martijndenbesten.com). ‘Niet volgen’ 
 
 - Alleen de vraag is verplicht; het e-mailadres niet. Onder het e-mailveld staat al: ‘Alleen om je te antwoorden. Ben je
   jonger dan 16? Vraag het dan aan je vader of moeder.’
-- Bij **Samen ontdekken** (4–6 jaar) staan alleen de ingangen onder ‘Voor ouders en leiders’; geen formulier in de reis.
+- Bij **Voorlezen** staan alleen de ingangen onder ‘Voor ouders en leiders’; geen formulier in de reis.
 - De privacytekst onder ‘Voor ouders en leiders’ klopt met wat er gebeurt.
 
 ## 4. Aangepast in deze ronde

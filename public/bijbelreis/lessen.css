@@ -28,7 +28,7 @@
 .ls-bediening { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 16px 0 0; padding: 12px; background: var(--papier-2); border-radius: var(--r-groot); }
 .ls-groep { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
 .ls-groep-label { font-weight: 620; font-size: 0.95rem; }
-.ls-bediening .bk-seg button { min-height: 44px; }
+.ls-bediening .bk-seg button { min-height: 44px; white-space: nowrap; }
 .ls-schermnoot { margin-top: 8px; }
 body.ls-met-antwoorden .ls-schermnoot { display: none; }
 
@@ -70,6 +70,10 @@ body.ls-met-antwoorden .ls-a { display: block; }
 @media (max-width: 560px) {
   .ls-intro, .ls-les { padding: 16px 14px; }
   .ls-bediening > .bk-knop { flex: 1 1 100%; }
+  /* De niveaunamen (Voorlezen, Zelf lezen, Verdiepen) op één regel, de knoppen samen over de hele breedte. */
+  .ls-bediening .ls-groep, .ls-bediening .bk-seg { flex: 1 1 100%; }
+  .ls-bediening .bk-seg { display: flex; }
+  .ls-bediening .bk-seg button { flex: 1 1 auto; padding-inline: 8px; }
 }
 /* Een groot scherm (digibord, beamer): alles wat groter. */
 @media (min-width: 1600px) {

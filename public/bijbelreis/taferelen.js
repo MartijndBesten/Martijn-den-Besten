@@ -132,7 +132,7 @@ BR.taferelen = BR.taferelen || {};
   }
   BR.tafereel = {
     van, maak,
-    // Stapkaart en Samen ontdekken: het beeld direct ná het anker (de tekst); een vorig beeld verdwijnt.
+    // Stapkaart en Voorlezen: het beeld direct ná het anker (de tekst); een vorig beeld verdwijnt.
     bijStap(anker, s) {
       if (!anker) return;
       const oud = anker.nextElementSibling;

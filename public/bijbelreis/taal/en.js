@@ -35,9 +35,9 @@ BR.taalBoek.en = {
             <dt>Language</dt>
             <dd lang="en">This is a review draft of the English Bible Journey. <a data-taal="nl" href="/" hreflang="nl" lang="nl">Naar de Nederlandse Bijbelreis</a>. Your stamps and progress are the same in both languages.</dd>
             <dt>Starting point</dt>
-            <dd>The Bible is God’s Word and decides what is told. The histories are told as they stand in the Bible, in words that children understand. The message of the Bible is not changed; how much is told, and how, suits the age of the reader. The Bible Journey is a help alongside your own Bible or children’s Bible: every history says where it is found in the Bible, so that you can read it there yourself, in whichever translation you use. The Bible text itself is not in the app.</dd>
+            <dd>The Bible is God’s Word and decides what is told. The histories are told as they stand in the Bible, in words that children understand. The message of the Bible is not changed; how much is told, and how, suits the reading level. The Bible Journey is a help alongside your own Bible or children’s Bible: every history says where it is found in the Bible, so that you can read it there yourself, in whichever translation you use. The Bible text itself is not in the app.</dd>
             <dt>Three levels</dt>
-            <dd><b>Discover together</b> (ages 4–6) tells the main line in short pieces to read aloud; what is too heavy for young children may be shorter or left out, and the tip ‘For the one reading aloud’ then says what and where it is. <b>On my own</b> (ages 7–10) is a retelling to read yourself. <b>Explore further</b> (11+) is the full retelling with background. All levels are our own retellings. The level is only stored on this device, and changing it never deletes progress.</dd>
+            <dd><b>Read aloud</b> tells the main line in short pieces to read together; what is too heavy for young children may be shorter or left out, and the tip ‘For the one reading aloud’ then says what and where it is. <b>Read yourself</b> is a retelling to read on your own. <b>Go deeper</b> is the full retelling with background, connections and Bible references. The levels are not about age: choose what suits the reader and the moment. All levels are our own retellings. The level is only stored on this device, and changing it never deletes progress.</dd>
             <dt>Bible text, explanation and reconstruction</dt>
             <dd>‘What the Bible tells’ is a retelling with the Bible reference beside it. Text in ‘single quotation marks’ is quoted word for word from the King James Version (KJV); text in “double” marks is what someone says, retold in our own words. Under ‘Did you know?’ it says what kind of note it is: <b>From the Bible</b> (another Bible passage), <b>Explanation</b> or <b>Historical background</b> (research and reconstruction, not from the Bible). Names of people and places follow the KJV.</dd>
             <dt>Dates</dt>
@@ -61,8 +61,8 @@ BR.taalBoek.en = {
   woorden: {
     // ---------- kop, tabbladen en niveaus ----------
     "Direct naar het reisboek": "Skip to the travel book",
-    "Op reis door de": "Journey through the", "Bijbel": "Bible",
-    "Samen ontdekken": "Discover together", "Zelf op reis": "On my own", "Verder ontdekken": "Explore further",
+    "Op reis door de": "Journey through the", "Bijbel": "Bible", "reis": "Journey",
+    "Voorlezen": "Read aloud", "Zelf lezen": "Read yourself", "Verdiepen": "Go deeper",
     "150 geschiedenissen van de schepping tot Openbaring": "Bible histories, from the creation to Revelation",
     "Onderdelen": "Sections", "Verhalen": "Histories", "geschiedenissen": "histories", "Reis": "Journey", "route op de kaart": "route on the map",
     "Wie is wie": "Who’s who", "personen, families": "people, families", "Tijdlijn": "Timeline", "wanneer het gebeurde": "when it happened",
@@ -179,7 +179,7 @@ BR.taalBoek.en = {
     "Geboorte en jeugd van de Heere Jezus": "Birth and childhood of the Lord Jesus", "Doop, wonderen en onderwijs": "Baptism, miracles and teaching", "Onderweg naar Jeruzalem": "On the way to Jerusalem",
     "Lijden, sterven en opstanding": "Suffering, death and resurrection", "De eerste gemeente": "The first church", "De reizen van Paulus": "The journeys of Paul", "Openbaring": "Revelation",
     "Reis op de kaart": "Journey on the map", "Gebeurtenis op een plek": "Event in one place", "Familie": "Family", "Gelijkenis": "Parable", "Profetie en verbanden": "Prophecy and connections", "Beelden en tekens": "Pictures and signs",
-    "Samen": "Discover", "ontdekken": "together", "gestempeld": "stamped",
+    "gestempeld": "stamped",
     "Kies een geschiedenis om samen te lezen. Elk verhaal gaat in korte stukjes, met een paar vragen aan het eind.": "Choose a history to read together. Each history comes in short pieces, with a few questions at the end.",
     "Samen lezen met kinderen of een groep?": "Reading together with children or a group?", "Lesroutes met presentatie en vragen": "Lesson plans with slides and questions (in Dutch)",
     "Bijvoorbeeld: Jozef, Jericho, Lukas, gebed": "For example: Moses, Jonah, Luke, faith", "Testament": "Testament", "Nog niet beschikbaar": "Not yet available in English", "Vraag dit aan": "Ask for this",
@@ -188,11 +188,11 @@ BR.taalBoek.en = {
     "Dit gedeelte is een profetie: het gaat om wat God belooft, niet om een reis.": "This passage is a prophecy: it is about what God promises, not about a journey.",
     "Verdieping": "Going deeper", "Volg het op de kaart": "Follow it on the map", "Meer weten": "Find out more", "Deel deze geschiedenis": "Share this history",
     "Tekst tussen ‘enkele aanhalingstekens’ staat letterlijk zo in de Statenvertaling; de rest is in eigen woorden naverteld.": "Text in ‘single quotation marks’ is quoted word for word from the King James Version; the rest is retold in our own words.",
-    "De verhalen voor Samen ontdekken konden niet worden geladen.": "The histories for Discover together could not be loaded.",
-    "Deze geschiedenis is nog niet bewerkt voor Samen ontdekken.": "This history has not yet been adapted for Discover together.",
-    "Een volwassene kan ook de vertelling voor 7–10 jaar voorlezen.": "An adult can also read aloud the retelling for ages 7–10.",
-    "Controleer de verbinding en laad de pagina opnieuw. Een volwassene kan ook de vertelling voor 7–10 jaar voorlezen.": "Check the connection and reload the page. An adult can also read aloud the retelling for ages 7–10.",
-    "Lees de vertelling voor 7–10 jaar": "Read the retelling for ages 7–10", "Naar de vragen ▶": "To the questions ▶", "Voor wie voorleest": "For the one reading aloud",
+    "De verhalen voor Voorlezen konden niet worden geladen.": "The histories for Read aloud could not be loaded.",
+    "Deze geschiedenis is nog niet bewerkt voor Voorlezen.": "This history has not yet been adapted for Read aloud.",
+    "Je kunt ook de vertelling van Zelf lezen gebruiken om voor te lezen.": "You can also read aloud the retelling from Read yourself.",
+    "Controleer de verbinding en laad de pagina opnieuw. Je kunt ook de vertelling van Zelf lezen gebruiken om voor te lezen.": "Check the connection and reload the page. You can also read aloud the retelling from Read yourself.",
+    "Lees de vertelling van Zelf lezen": "Read the retelling from Read yourself", "Naar de vragen ▶": "To the questions ▶", "Voor wie voorleest": "For the one reading aloud",
     "Ontdek": "Discover", "Tik ze aan in de goede volgorde.": "Tap them in the right order.", "Opnieuw": "Again", "Helemaal goed!": "Completely right!", "Bijna.": "Almost.",
     "Tik links en dan rechts wat erbij hoort.": "Tap on the left, and then on the right what belongs to it.", "Alles goed gekoppeld!": "All matched correctly!",
     "Dat hoort niet bij elkaar. Probeer het nog eens.": "Those do not belong together. Try again.", "Goed!": "Right!", "Wat betekent het?": "What does it mean?",
@@ -235,7 +235,7 @@ BR.taalBoek.en = {
     "Lees samen nog eens na": "Read it again together", "Lees nog eens na": "Read it again", "Nieuw record!": "New record!", "Klaar!": "Done!",
     // ---------- welkom, delen en niveaus ----------
     "Volg de reizen uit de Bijbel op de kaart, stap voor stap. Voor naast je eigen Bijbel.": "Follow the journeys of the Bible on the map, step by step. To use alongside your own Bible.",
-    "Voor wie?": "For whom?", "Of kies hieronder zelf een verhaal.": "Or choose a history yourself below.", "Begin de reis": "Begin the journey", "Of begin bij": "Or begin at",
+    "Hoe wil je lezen?": "How do you want to read?", "Of kies hieronder zelf een verhaal.": "Or choose a history yourself below.", "Begin de reis": "Begin the journey", "Of begin bij": "Or begin at",
     "Verder met:": "Continue with:", "Nieuw: Bijbelreis heeft nu reisniveaus. Je kijkt met": "New: the Bible Journey now has levels. You are viewing", "Wijzigen": "Change",
     "Link gekopieerd": "Link copied", "Kopieer deze link": "Copy this link", "Bijbelreis": "Bible Journey", "Op reis door de Bijbel": "Journey through the Bible",
     "Naar de atlas": "To the atlas", "Kies een geschiedenis": "Choose a history", "Of ga naar": "Or go to", "Thema: Advent en Kerst": "Theme: Advent and Christmas",
@@ -319,7 +319,7 @@ BR.taalBoek.en = {
     [/^Nederland is van Groningen tot Maastricht ongeveer (\d+) km lang\. Deze reis is$/, "From Groningen to Maastricht the Netherlands is about $1 km long. This journey is"],
     [/^([\d,.]+) keer$/, "$1 times"],
     [/^daarvan, ongeveer (.*)\.$/, (m, x) => "of that, about " + (BR.taalBoek.en.woorden[x] || x) + "."],
-    [/^Proefversie (.*) · nog niet inhoudelijk gecontroleerd$/, (m, w) => "Review draft " + ({ "voor Zelf op reis": "for On my own", "voor Samen ontdekken": "for Discover together", "van de verdieping": "of the background" }[w] || "") + " · not yet checked by a reviewer"],
+    [/^Proefversie (.*) · nog niet inhoudelijk gecontroleerd$/, (m, w) => "Review draft " + ({ "voor Zelf lezen": "for Read yourself", "voor Voorlezen": "for Read aloud", "van de verdieping": "of the background" }[w] || "") + " · not yet checked by a reviewer"],
     [/^Van de schepping tot Openbaring\. Kies een geschiedenis, of zoek op Bijbelboek, persoon, plaats of thema\.(?: Je hebt er (\d+) gelezen\.| Je kunt ook gewoon bij 1 beginnen en steeds ‘Volgende’ kiezen\.)$/, (m, n) => "From the creation to Revelation. Choose a history, or search by Bible book, person or place." + (n ? ` You have read ${n}.` : " You can also simply begin at the first one and keep choosing the next.")],
     [/^Oude Testament · (\d+)$/, "Old Testament · $1"],
     [/^Nieuwe Testament · (\d+)$/, "New Testament · $1"],
@@ -380,7 +380,7 @@ BR.taalBoek.en = {
     [/^Schrijf iets meer: minstens (\d+) tekens\.$/, "Please write a little more: at least $1 characters."],
     [/^Je tekst is te lang: hooguit (\d+) tekens\.$/, "Your text is too long: at most $1 characters."],
     [/^in ‘(.*)’$/, "in ‘$1’"],
-    [/^Reisniveau: (.*) \((.*)\)\. Wijzigen$/, "Level: $1 ($2). Change"],
+    [/^Reisniveau: (.*)\. Wijzigen$/, "Level: $1. Change"],
     [/^Reisniveau: (.*)$/, "Level: $1"],
     [/^Geschiedenis (\d+) van (\d+)$/, "History $1"],
     [/^Alle (\d+) geschiedenissen uit de Bijbel — Bijbelreis$/, "All $1 histories in English — Bible Journey"],

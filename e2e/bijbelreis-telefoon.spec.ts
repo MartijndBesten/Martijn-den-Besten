@@ -348,7 +348,7 @@ for (const [w, h] of [[390, 664], [360, 640], [375, 553], [430, 739]] as const) 
       await expect(page.locator("#sDenk")).toBeVisible();
       await page.locator("#sDenk summary").click();
       await expect(page.locator("#sDenkLijst li").first()).toBeVisible();
-      // Zelf op reis en Samen ontdekken: dezelfde stap met wat bij dat niveau hoort.
+      // Zelf lezen en Voorlezen: dezelfde stap met wat bij dat niveau hoort.
       await kiesNiveau(page, "b"); await open(page, "abraham/2"); await bladOpen(page);
       await expect(page.locator("#sText")).toBeVisible();
       await expect(page.locator("#sMeer [data-meer]:visible").first()).toBeVisible();
@@ -735,7 +735,7 @@ test.describe("telefoon: toegankelijkheid en uitersten", () => {
   });
 
   test("de drie niveaus houden hun verschillen", async ({ page }) => {
-    // Samen ontdekken: één zin, de weg naar het verhaal, geen extra's en geen kaartpaneel.
+    // Voorlezen: één zin, de weg naar het verhaal, geen extra's en geen kaartpaneel.
     await kiesNiveau(page, "a"); await open(page, "abraham/2");
     await expect(page.locator("#sKort")).toHaveText("God zegt tegen Abram: “Ga uit je land en van je familie, naar het land dat Ik je wijzen zal.");
     await bladOpen(page);
@@ -743,7 +743,7 @@ test.describe("telefoon: toegankelijkheid en uitersten", () => {
     await expect(page.locator("#sMeer")).toBeHidden();
     await expect(page.locator("#kaartBtn")).toBeHidden();
     await expect(page.locator("#next")).toBeVisible();
-    // Zelf op reis: het verhaal begint met het eerste stuk en ‘Lees verder’.
+    // Zelf lezen: het verhaal begint met het eerste stuk en ‘Lees verder’.
     await kiesNiveau(page, "b"); await open(page, "v26");
     const stukken = page.locator("#vVertelling .vdeel");
     const n = await stukken.count();
@@ -751,7 +751,7 @@ test.describe("telefoon: toegankelijkheid en uitersten", () => {
     await expect(stukken.nth(1)).toBeHidden();
     await page.getByRole("button", { name: /Lees verder/ }).click();
     for (let i = 0; i < n; i++) await expect(stukken.nth(i)).toBeVisible();
-    // Verder ontdekken: dezelfde stap met weetje, afstand en jaartal achter de knoppen in het open blad.
+    // Verdiepen: dezelfde stap met weetje, afstand en jaartal achter de knoppen in het open blad.
     await kiesNiveau(page, "c"); await open(page, "abraham/2");
     await bladOpen(page);
     await expect(page.locator("#sMeer [data-meer]:visible")).toHaveCount(4);

@@ -325,16 +325,22 @@ describe("bijbelreis: grond van de jaartallen", () => {
   });
 });
 
-// Reisniveaus: drie leeftijdsversies per geschiedenis in niveaus/{a,b,c}.js. Alle vormregels, verwijzingen en
+// Reisniveaus: drie versies per geschiedenis (Voorlezen, Zelf lezen, Verdiepen) in niveaus/{a,b,c}.js. Alle vormregels, verwijzingen en
 // letterlijke citaten controleert scripts/niveaus-controle.mjs (één bron voor schrijvers, redacteuren en deze test).
 describe("bijbelreis: reisniveaus", () => {
   const controle = (...args: string[]) => {
     try { return { ok: true, uit: execFileSync(process.execPath, [join(__dirname, "..", "scripts", "niveaus-controle.mjs"), ...args], { encoding: "utf8" }) }; }
     catch (e) { return { ok: false, uit: String((e as { stdout?: string }).stdout || e) }; }
   };
-  const NV = (BR as unknown as { niveaus: { soorten: Record<string, { n: string }> } }).niveaus;
-  it("drie niveaus: Samen ontdekken, Zelf op reis, Verder ontdekken", () => {
+  const NV = (BR as unknown as { niveaus: { soorten: Record<string, { n: string; uitleg: string; leeftijd?: string }> } }).niveaus;
+  // Besluit 21-11-2026 (docs/BIJBELREIS.md § Niveaunamen): namen zonder leeftijden; de codes a/b/c blijven.
+  it("drie niveaus: Voorlezen, Zelf lezen, Verdiepen, zonder leeftijden", () => {
     expect(Object.keys(NV.soorten)).toEqual(["a", "b", "c"]);
+    expect(Object.values(NV.soorten).map((s) => s.n)).toEqual(["Voorlezen", "Zelf lezen", "Verdiepen"]);
+    for (const s of Object.values(NV.soorten)) {
+      expect(s.leeftijd).toBeUndefined();
+      expect(s.uitleg).not.toMatch(/\d+\s*(–|-|\+)|jaar/);
+    }
   });
   it("alle niveauteksten in de app halen het controlescript (vorm, verwijzingen, antwoorden, citaten letterlijk in de genoemde verzen)", () => {
     const r = controle();

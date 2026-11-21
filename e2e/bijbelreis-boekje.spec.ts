@@ -40,7 +40,7 @@ test("een deel opent als diavoorstelling en volgt de stappen in de goede volgord
     await expect(dia(page).locator(".bk-txt > p").first()).toHaveText(stappen[i].txt);
   }
   // Daarna de vragen en de slotdia met de bronnen en de maker.
-  // Op Verder ontdekken eerst ‘Elders in de Bijbel’, dan de vragen.
+  // Op Verdiepen eerst ‘Elders in de Bijbel’, dan de vragen.
   await page.locator('[data-actie="volgende"]').click();
   await expect(dia(page)).toHaveAttribute("data-soort", "tekst");
   await expect(dia(page)).toContainText("Elders in de Bijbel");
@@ -261,7 +261,7 @@ test("de drie niveaus verschillen", async ({ page }) => {
   expect([a.wie, b.wie, c.wie]).toEqual([0, 0, 1]);
   expect([a.opties, b.opties, c.opties]).toEqual([2, 3, 3]);
   await page.keyboard.press("Home");
-  await expect(page.locator(".bk-niveau")).toContainText("Verder ontdekken");
+  await expect(page.locator(".bk-niveau")).toContainText("Verdiepen");
   expect(f).toEqual([]);
 });
 
@@ -274,7 +274,7 @@ test("kiezen zonder adres: het keuzescherm onthoudt alleen de eigen instelling",
   await page.getByLabel("Deel", { exact: true }).selectOption("uittocht");
   await page.getByLabel("Van stap").selectOption("4");
   await page.getByLabel("Tot en met stap").selectOption("6");
-  await page.getByText("Samen ontdekken").click();
+  await page.getByText("Voorlezen").click();
   await page.getByRole("button", { name: "Maak de presentatie" }).click();
   await expect(dia(page)).toBeVisible();
   expect(new URL(page.url()).hash).toBe("#uittocht/4-6&niveau=a");

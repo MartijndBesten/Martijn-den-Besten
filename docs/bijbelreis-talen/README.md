@@ -211,7 +211,7 @@ Per geschiedenis (status `concept` → `gecontroleerd`):
 - [ ] Citaten letterlijk KJV (de controle doet dit automatisch; kijk of het citaat bij de zin past).
 - [ ] Verwijzingen in KJV-nummering (Psalmen met opschrift, Daniël 6, Jesaja 9, Micha 5).
 - [ ] Namen in KJV-spelling, overal hetzelfde.
-- [ ] Niveau a (4–6 jaar, samen lezen): heel korte zinnen, gewone woorden. Niveau b (zelf lezen): duidelijk voor 8–10. Niveau c: voor 10–14, mag moeilijker.
+- [ ] Niveau a (Voorlezen, ‘Read aloud’; schrijf voor 4–6 jaar): heel korte zinnen, gewone woorden. Niveau b (Zelf lezen, ‘Read yourself’): duidelijk voor 8–10. Niveau c: voor 10–14, mag moeilijker.
 - [ ] Vragen: één goed antwoord, de foute antwoorden zijn echt fout, de uitleg verwijst naar de juiste tekst.
 - [ ] Brits Engels, natuurlijke zinnen (een moedertaalspreker leest mee).
 - [ ] Bijzonder: de vergelijking met Nederland in ‘Hoe ver?’ (een Engelse lezer kent Nederland niet), de merknaam ‘Bible Journey’.

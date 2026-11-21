@@ -1,5 +1,8 @@
 # Bijbelreis op de telefoon
 
+> **Niveaunamen (21-11-2026):** Samen ontdekken, Zelf op reis en Verder ontdekken heten nu Voorlezen, Zelf lezen en
+> Verdiepen, zonder leeftijden (`docs/BIJBELREIS.md` § Niveaunamen). Dit verslag noemt de oude namen zoals ze toen waren.
+
 Opdracht van Martijn (november 2026): *“Zorg dat de site ook speciaal voor telefoon gemaakt wordt. Nu is het veel te veel
 info en werkt het eigenlijk vooral op groter scherm. Met name het visuele dus.”* Daarbij een tweede eis, voor telefoon én
 desktop: *“Ur–Kanaän integreren in een persoon”* (verdiepende delen onder hun hoofddeel).

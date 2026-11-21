@@ -7,7 +7,7 @@ zonderVoorscherm(test);
 // titels (bij elke stap hoort een tafereel), zoomt in op het gebied van de Jabbok en laat het deel Jakob ongemoeid.
 // Hulpjes overgenomen uit e2e/bijbelreis.spec.ts.
 
-// Volledige weergave (Verder ontdekken), zoals in de andere Bijbelreis-tests.
+// Volledige weergave (Verdiepen), zoals in de andere Bijbelreis-tests.
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => { try { if (localStorage.getItem("bijbelreis:niveau") === null) localStorage.setItem("bijbelreis:niveau", JSON.stringify("c")); } catch { /* about:blank heeft geen opslag */ } });
 });
@@ -140,7 +140,7 @@ test("Jakob: ‘Om over na te denken’ staat bij de intro en de laatste stap, i
   expect(errors).toEqual([]);
 });
 
-test("Jakob: bij Samen ontdekken geen vragen om over na te denken", async ({ page }) => {
+test("Jakob: bij Voorlezen geen vragen om over na te denken", async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("bijbelreis:niveau", JSON.stringify("a")));
   await page.goto("/bijbelreis#jakob-jabbok");
   await expect(page.locator("#sDenk")).toBeHidden();

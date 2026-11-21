@@ -80,7 +80,7 @@ export const SCENARIOS = {
       if (navigator.serviceWorker && (await navigator.serviceWorker.getRegistrations()).length) return "FOUT service worker";
       if (document.querySelector('link[rel="manifest"], script[src*="pwa.js"], script[src*="bezoek.js"]')) return "FOUT manifest, pwa.js of bezoek.js";
       return navigator.userAgent;`) },
-    { naam: "reisniveau ‘Zelf op reis’ en welkom gezien, opnieuw laden", js: js(`
+    { naam: "reisniveau ‘Zelf lezen’ en welkom gezien, opnieuw laden", js: js(`
       localStorage.setItem("bijbelreis:niveau", JSON.stringify("b"));
       localStorage.setItem("bijbelreis:welkomWeg", "true");
       window.__voorHerladen = true;
@@ -176,7 +176,7 @@ export const SCENARIOS = {
   // De voortgang is verzonnen: de test loopt zelf een paar geschiedenissen en reizen door, zoals een kind dat zou doen.
   appstore: [
     { naam: "appstore: atlas geladen", wacht: ATLAS_KLAAR, ms: 45000 },
-    { naam: "appstore: voortgang van een kind op ‘Zelf op reis’", js: js(`
+    { naam: "appstore: voortgang van een lezer op ‘Zelf lezen’", js: js(`
       localStorage.clear();
       localStorage.setItem("bijbelreis:niveau", JSON.stringify("b"));
       localStorage.setItem("bijbelreis:welkomWeg", "true");

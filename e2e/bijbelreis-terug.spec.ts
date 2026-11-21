@@ -65,7 +65,7 @@ test("terug sluit eerst een open venster; de plek blijft staan", async ({ page }
   await terug(page);
   await expect(page.locator("#bladBtn")).toHaveAttribute("aria-expanded", "false");
   await expect(page).toHaveURL(/#abraham\/2$/);
-  // Voor wie?
+  // Reisniveau
   await page.locator("#niveauBtn").click();
   await expect(page.locator("#niveauKeuze")).toBeVisible();
   await terug(page);

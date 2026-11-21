@@ -28,11 +28,11 @@ werkblad (`page.pdf`, A4).
 | 1. Begin | *Vragen op het digibord*, eerste scherm: ‘Pak je Bijbel en lees samen — Daniël 6:11–24’. De leiding vertelt kort wat eraan voorafging (de vorsten, het gebod van dertig dagen). Begin verder zoals de groep gewend is. | 2 min |
 | 2. Lezen | Daniël 6:11–24: 14 verzen, 505 woorden. | ca. 4 min |
 | 3. Opzoeken | Drie vragen, één per scherm, de Bijbel ligt nog open: 6:11 (makkelijk), 6:13 (iets moeilijker: wat stond er in het gebod?), 6:23 (citaat). Per vraag opzoeken, voorlezen, antwoord tonen. | 4–5 min |
-| 4. Terugblik | De presentatie voor 7–10 jaar: titel met kaart, drie vertel-dia’s (178 woorden) en vier meerkeuzevragen. De presentatie vertelt ook wat vóór het gedeelte gebeurt (6:1–10) en wat erna (6:25). | 5–6 min |
+| 4. Terugblik | De presentatie van Zelf lezen: titel met kaart, drie vertel-dia’s (178 woorden) en vier meerkeuzevragen. De presentatie vertelt ook wat vóór het gedeelte gebeurt (6:1–10) en wat erna (6:25). | 5–6 min |
 | 5. Afronding | ‘Wat hebben we gezien?’ De kinderen vertellen de geschiedenis na in de goede volgorde; de link om thuis na te lezen. | 2 min |
 | | **Totaal** | **17–19 min** |
 
-Past in 20 minuten. Voor 4–6 jaar is de presentatie langer in dia’s (15) maar korter in tekst; voor 11+ is de vertelling
+Past in 20 minuten. Bij Voorlezen is de presentatie langer in dia’s (15) maar korter in tekst; bij Verdiepen is de vertelling
 ruim twee keer zo lang (473 woorden, 13 dia’s, ca. 8 minuten): dan wordt het krap.
 
 ## Bevindingen (vóór de aanpassingen)
@@ -42,10 +42,10 @@ ruim twee keer zo lang (473 woorden, 13 dia’s, ca. 8 minuten): dan wordt het k
 1. **Geen lesverloop.** De pagina noemde vier stappen (lees, laat zien, vraag, link), zonder tijden, zonder rustig
    begin en zonder afronding. In de volgorde ‘lezen → presentatie → opzoeken’ gaat de Bijbel dicht en daarna weer open.
 2. **Presentatie en leesgedeelte sluiten niet op elkaar aan, en de leiding weet dat niet.** De presentatie vertelt de
-   hele geschiedenis (Daniël 6); het leesgedeelte is 6:11–24. Van de vier meerkeuzevragen voor 7–10 jaar gaan er twee
+   hele geschiedenis (Daniël 6); het leesgedeelte is 6:11–24. Van de vier meerkeuzevragen van Zelf lezen gaan er twee
    over wat je niet leest (6:5 en 6:8). Over alle 35 lessen: in 27 lessen vertelt de presentatie meer dan het
    leesgedeelte; bij *Jozef en zijn broers weer samen* en *God geeft de Tien Geboden* gaat geen enkele meerkeuzevraag
-   (7–10 jaar) over het gelezen gedeelte (tabel onderaan). Dat is geen fout van de presentatie (de vragen gaan over haar
+   (Zelf lezen) over het gelezen gedeelte (tabel onderaan). Dat is geen fout van de presentatie (de vragen gaan over haar
    eigen vertelling), maar wel verwarrend als je hem midden in de les zet.
 3. **De zoekvragen zelf sluiten goed aan:** alle 97 vielen binnen het leesgedeelte (dat test de unittest al), alle
    antwoorden staan letterlijk of bijna letterlijk in de tekst, geen persoonlijke toepassing of geloofsoordeel als toets.
@@ -151,7 +151,7 @@ geschiedenissen en de namen van de routes. Bij twijfel is genoteerd in plaats va
 
 ## Alle lessen: lengte en aansluiting van de presentatie
 
-‘Presentatie’ = hoeveel van de vier meerkeuzevragen in de presentatie voor 7–10 jaar over het gelezen gedeelte gaan.
+‘Presentatie’ = hoeveel van de vier meerkeuzevragen in de presentatie van Zelf lezen over het gelezen gedeelte gaan.
 
 | Les | Geschiedenis | Lees samen | Hele geschiedenis | Verzen | Min | Presentatie |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -222,7 +222,7 @@ wat de Heere Jezus zei); Johannes 19 en 20 (toon voor jonge kinderen); Exodus 20
 **Didactische keuzes**
 
 10. **Volgorde van het lesverloop** (lezen → opzoeken → presentatie als terugblik → afronding). Een andere goede keuze is
-    de presentatie als vertelling vóór het lezen (vooral voor 4–6 jaar). Een leerkracht moet bevestigen welke volgorde
+    de presentatie als vertelling vóór het lezen (vooral bij Voorlezen). Een leerkracht moet bevestigen welke volgorde
     de pagina aanraadt.
 11. **Het begin** zegt alleen ‘begin rustig zoals je gewend bent’ en noemt geen gebed of lied: bewust, omdat gewoonten
     verschillen. Nagaan of dat zo goed is.

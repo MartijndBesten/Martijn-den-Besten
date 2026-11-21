@@ -20,7 +20,7 @@ tonen, samen lezen, een paar vragen stellen en de kinderen het zelf laten naleze
 | Een verhaal kiezen bij een les | 150 geschiedenissen in een lange lijst met zoeken. Geen reeks voor ‘vier weken aartsvaders’ of ‘advent’; de kerstreis (thema Kerst) bestaat wel, met weekritme. |
 | Samen lezen | Elke geschiedenis heeft ‘Lees in je Bijbel: …’. Goed. |
 | Vragen stellen | Elke geschiedenis heeft meerkeuzevragen voor het kind zelf (onderaan het verhaal). Geen vragen voor de leiding om in de Bijbel te laten opzoeken, en geen antwoordblad. |
-| Nalezen | Knop ‘Deel’ bij elk verhaal (niet bij Samen ontdekken). |
+| Nalezen | Knop ‘Deel’ bij elk verhaal (niet bij Voorlezen). |
 | Speurtocht | Per Bijbelboek of deel, niet per geschiedenis; geen eigen adres (deep link). Daarom geen speurtocht-link per les. |
 
 Schermafbeeldingen vóór en ná: scratchpad van de sessie, map `samen/voor` en `samen/na` (niet in de repo).
@@ -31,7 +31,7 @@ Schermafbeeldingen vóór en ná: scratchpad van de sessie, map `samen/voor` en 
    Per les: de titel van de geschiedenis, **Lees samen: <Bijbelgedeelte>**, drie knoppen (**Presentatie** voor digibord of
    beamer, **In de atlas**, **Boekje** om te printen), twee of drie **vragen om op te zoeken** met ‘Zoek op: <vers>’ en
    een verborgen **antwoord voor de leiding**, en de korte link om **thuis na te lezen** (`bijbelreis.nl/#v13`).
-2. **Bediening per route:** ‘Presentatie voor 4–6 jaar / 7–10 jaar / 11+’ (zet `&niveau=a|b|c` in de links naar het
+2. **Bediening per route:** ‘Niveau van de presentatie: Voorlezen / Zelf lezen / Verdiepen’ (zet `&niveau=a|b|c` in de links naar het
    boekje; onthouden in `localStorage` onder `bijbelreis:lessen`, standaard het reisniveau van de atlas), ‘Toon de
    antwoorden’ (standaard verborgen, zodat de pagina zelf op het digibord kan), **Afdrukken voor de leiding** (A4, met
    antwoorden) en **Werkblad zonder antwoorden** (met een schrijfregel per vraag).
@@ -67,7 +67,7 @@ telefoon net eronder (y = 692 van 664, één keer vegen). Van de start tot een g
   open versies van al gecontroleerde quizvragen van dezelfde geschiedenis (`geschiedenissen/*.js`, `niveaus/b.js`).
 - **Acht routes, 35 lessen, 105 vragen (drie per les).** Vier OT, drie NT en één rond Kerst; elke route 3–5 lessen (een
   maand of een periode). Alle 35 geschiedenissen hebben een versie voor alle drie de niveaus, dus de presentatie werkt
-  ook voor 4–6. (Eerst 97 vragen: acht lessen hadden er twee; zie BEOORDELING.md.)
+  ook bij Voorlezen. (Eerst 97 vragen: acht lessen hadden er twee; zie BEOORDELING.md.)
 
 ## De routes en vragen (bronnen per vraag)
 

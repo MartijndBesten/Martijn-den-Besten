@@ -53,7 +53,7 @@
     const niveau = NIVS.includes(keuze.niveau) ? keuze.niveau : "b";
     const stapVan = new Map();
     BR.boeken.forEach((b) => b.delen.forEach((d) => d.steps.forEach((s, i) => stapVan.set(`${b.id}:${d.id}:${i}`, { b, d, i, s }))));
-    const pk = { v: 1, soort: keuze.soort, niveau, niveauNaam: (NIV.soorten[niveau] || {}).n || "", leeftijd: (NIV.soorten[niveau] || {}).leeftijd || "", dias: [], routes: [], plaatsen: {}, taferelen: {}, meldingen: [] };
+    const pk = { v: 1, soort: keuze.soort, niveau, niveauNaam: (NIV.soorten[niveau] || {}).n || "", dias: [], routes: [], plaatsen: {}, taferelen: {}, meldingen: [] };
     const versie = (g, n) => (g && (NIV.verhalen[g.nr] || {})[n || niveau]) || null;
 
     // Plaatsen en routes komen één keer in het pakket; een kaart verwijst ernaar.
@@ -155,7 +155,7 @@
       });
       // Elders in de Bijbel en het weetje van het deel: alleen bij het hele deel, op niveau c.
       if (niveau === "c" && heel && (d.cross || []).length) pk.dias.push({ s: "tekst", kop: d.n, t: "Elders in de Bijbel", kruis: d.cross, ...(d.stat ? { txt: d.stat, label: "Wist je dat?" } : {}) });
-      // Vragen (speurtocht). Samen ontdekken en Zelf op reis: de vragen van de geschiedenissen bij deze stappen, zoals
+      // Vragen (speurtocht). Voorlezen en Zelf lezen: de vragen van de geschiedenissen bij deze stappen, zoals
       // de atlas doet; anders, en op niveau c, de meerkeuzevragen van het deel (bij een stuk: alleen over die stappen).
       const set = new Set(sleutels), refs = sleutels.map((key) => stapVan.get(key).s.ref);
       const eigen = (BR.geschiedenissen || []).filter((g) => (g.stappen || []).some((key) => set.has(key))).sort((x, y) => x.nr - y.nr).flatMap((g) => (versie(g) || {}).vragen || []);
@@ -181,12 +181,12 @@
         const ind = (BR.indeling || {})[g.nr], tekst = g.uitleg || "";
         const begin = ind && ind.length > 1 ? ind.map(([, bg], i) => (i === 0 ? 0 : tekst.indexOf(bg))) : null;
         delen = begin && !begin.some((x, i) => x < 0 || (i && x <= begin[i - 1])) ? ind.map(([kop, , stap], i) => ({ kop, stap, t: tekst.slice(begin[i], begin[i + 1]).trim() })) : [{ kop: "", t: tekst }];
-        if (niveau !== "c") pk.meldingen.push(`Deze geschiedenis is nog niet bewerkt voor ${pk.niveauNaam}; hier staat de vertelling van Verder ontdekken.`);
+        if (niveau !== "c") pk.meldingen.push(`Deze geschiedenis is nog niet bewerkt voor ${pk.niveauNaam}; hier staat de vertelling van Verdiepen.`);
       }
       const gehad = [];
       delen.forEach((x, i) => {
         const key = x.stap && stapVan.has(x.stap) ? x.stap : null;
-        // Een deel zonder eigen kop (Samen ontdekken) krijgt de titel van de geschiedenis.
+        // Een deel zonder eigen kop (Voorlezen) krijgt de titel van de geschiedenis.
         const dia = { s: "stap", nr: i + 1, van: delen.length, kop: x.kop ? `${g.t} · ${i + 1} van ${delen.length}` : `${i + 1} van ${delen.length}`, t: x.kop || g.t, ref: key ? stapVan.get(key).s.ref : g.ref, txt: x.t, kaart: key ? kaartVan(key, gehad.filter((y) => y !== key), alleen) : overzicht(stappen, alleen) };
         if (key) { dia.sleutel = key; const tf = tafereel(key); if (tf) dia.tf = tf; if (!gehad.includes(key)) gehad.push(key); }
         if (!dia.kaart) delete dia.kaart;

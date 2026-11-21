@@ -1,4 +1,4 @@
-// Reisniveau c. Verder ontdekken (11+): verdieping en extra vragen bij de bestaande vertelling (geschiedenissen/*.js).
+// Reisniveau c. Verdiepen: verdieping en extra vragen bij de bestaande vertelling (geschiedenissen/*.js).
 // Niet met de hand bewerken: bron is docs/bijbelreis-niveaus/werk/uit/batch-*.json (node scripts/niveaus/samenvoegen.mjs).
 // Regels: docs/bijbelreis-niveaus/schrijfwijzer.md. Controle: node scripts/niveaus-controle.mjs
 BR.niveaus.voegToe("c", {

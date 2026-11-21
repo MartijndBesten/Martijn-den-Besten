@@ -69,7 +69,7 @@ try {
     const ga = async (hash) => { await page.goto(BASIS + hash); await page.waitForTimeout(700); };
     const foto = async (naam) => { await rustig(page); const p = join(map, naam + ".png"); await page.screenshot({ path: p }); gemaakt.push([p, t.maat]); };
 
-    // Verzonnen voortgang: een kind van ‘Zelf op reis’ las een paar geschiedenissen en liep een stuk met Abraham mee.
+    // Verzonnen voortgang: een lezer van ‘Zelf lezen’ las een paar geschiedenissen en liep een stuk met Abraham mee.
     await page.goto(BASIS);
     await page.evaluate(() => { localStorage.clear(); localStorage.setItem("bijbelreis:niveau", JSON.stringify("b")); });
     for (const h of ["#v1", "#v2", "#v3", "#v5", "#v8", "#abraham/1", "#abraham/2", "#abraham/3", "#abraham/4", "#abraham/5", "#abraham/6", "#abraham/7", "#uittocht/1", "#uittocht/2", "#uittocht/3"]) await ga(h);

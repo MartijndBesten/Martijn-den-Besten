@@ -185,11 +185,11 @@ test("aanvraag: aan het einde van een deel staat de regel, met waar je was; niet
   expect(errors).toEqual([]);
 });
 
-test("aanvraag: niet bij Samen ontdekken, behalve onder ‘Voor ouders en leiders’", async ({ page }) => {
+test("aanvraag: niet bij Voorlezen, behalve onder ‘Voor ouders en leiders’", async ({ page }) => {
   const errors = watchErrors(page);
   await page.addInitScript(() => localStorage.setItem("bijbelreis:niveau", JSON.stringify("a")));
   await page.goto("/bijbelreis");
-  await expect(page.locator("#p-verhalen h2")).toContainText("Samen");
+  await expect(page.locator("#p-verhalen h2")).toHaveText("Voorlezen");
   await expect(page.locator("#p-verhalen [data-aanvraag]")).toHaveCount(0);
   await page.goto("/bijbelreis#izak/8");
   await expect(page.locator("#sTitle")).toHaveText(/^8\. /);

@@ -1,4 +1,4 @@
-// Engels, reisniveau b (On my own, ages 7–10): een eigen vertelling in onderdelen met kop, vragen met drie antwoorden.
+// Engels, reisniveau b (Read yourself): een eigen vertelling in onderdelen met kop, vragen met drie antwoorden.
 // Vertaling van niveaus/b.js; status concept (review draft). Alleen de vertaalde geschiedenissen.
 BR.niveaus.voegToe("b", {
   26: {

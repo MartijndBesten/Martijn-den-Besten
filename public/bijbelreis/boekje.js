@@ -30,7 +30,7 @@
   const letters = document.fonts && document.fonts.ready ? document.fonts.ready.catch(() => {}) : Promise.resolve();
 
   // ---------- kiezen ----------
-  const niveauKeuze = (n) => ["a", "b", "c"].map((k) => { const s = NIV.soorten[k]; return `<label><input type="radio" name="niveau" value="${k}"${k === n ? " checked" : ""}><b>${esc(s.n)}</b><small>${esc(s.leeftijd)} · ${esc(s.uitleg)}</small></label>`; }).join("");
+  const niveauKeuze = (n) => ["a", "b", "c"].map((k) => { const s = NIV.soorten[k]; return `<label><input type="radio" name="niveau" value="${k}"${k === n ? " checked" : ""}><b>${esc(s.n)}</b><small>${esc(s.uitleg)}</small></label>`; }).join("");
   // Thema’s (een boek met `thema`, zoals Kerst) zijn geen Bijbelboek: ze staan in een eigen groep onder de Bijbelboeken.
   function boekOpties() {
     const optie = (b) => `<option value="${esc(b.id)}">${esc(b.n)}</option>`, themas = BR.boeken.filter((b) => b.thema);

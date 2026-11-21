@@ -153,6 +153,33 @@ de lijn meteen af. De tests staan in `e2e/bijbelreis-kameel.spec.ts`.
 - Bijbelverwijzingen en getallen: `python3 scripts/bijbel-check.py <controlebestand>` met regels `Exodus 12:37 | zeshonderd duizend` (regex, hoofdletterongevoelig; de Statenvertaling schrijft getallen voluit: ‘vijf en zeventig’, ‘honderd en dertig’).
 - Vóór publicatie: `npm run check` (typecheck, tests, build) en `npx playwright test navigatie a11y`.
 
+## Niveaunamen (21-11-2026)
+
+Besluit (Martijn): de drie reisniveaus heten **Voorlezen** (a), **Zelf lezen** (b) en **Verdiepen** (c); eerder Samen
+ontdekken (4–6 jaar), Zelf op reis (7–10 jaar) en Verder ontdekken (11+). De leeftijden staan nergens meer in de app,
+de website of de App Store-tekst. Reden: de Bijbelreis is voor jong en oud (gezinnen, wie zelf de Bijbel leest,
+catechisatie, zondagsschool, club, onderwijs) en mag niet als alleen-kinderapp voelen. De namen zeggen hoe je leest, niet
+hoe oud je bent.
+
+- De inhoud van de niveaus is niet veranderd. De codes `a`/`b`/`c`, `localStorage` `bijbelreis:niveau`, de scoresleutels
+  en de URL-parameter `niveau=a|b|c` (boekje, lesroutes) blijven gelijk.
+- Uitleg per niveau (`NIV.soorten` in `niveaus.js`, zonder veld `leeftijd`): a ‘Korte stukjes om samen te lezen, met
+  eenvoudige vragen.’, b ‘Verhalen om zelf te lezen, met de kaart en afwisselende vragen.’, c ‘De volledige vertelling met
+  achtergrond, verbanden en verwijzingen.’
+- Startkaart: ‘Hoe wil je lezen?’ met de drie namen. Lesroutes: ‘Niveau van de presentatie’ met de drie namen. Boekje:
+  ‘Reisniveau: …’. De speurtocht bij Voorlezen heet nog steeds ‘Samen speuren’ (voorlezen doe je samen).
+- Engels: Read aloud, Read yourself, Go deeper (`taal/en.js`, `taal/en/inhoud.js`).
+- De leeftijden in `docs/bijbelreis-niveaus/schrijfwijzer.md` zijn alleen een schrijfrichtlijn.
+
+## Lichte kop (21 november 2026)
+
+Keuze van Martijn (‘licht, als app’, overal): de kop is papierkleurig met een dunne lijn eronder, de kameel staat in een
+donkerblauw tegeltje, de merknaam is **Bijbelreis** (Engels: Bible Journey) en de niveauknop is donkerblauw. Op de
+computer krijgen de tabbladen hun eigen kleur in de -diep-tint (contrast op licht). `theme-color` en het manifest zijn
+`#f5f0e5`; `apple-mobile-web-app-status-bar-style` is `default` (donkere tekst). In de iOS-app is de statusbalktekst
+donker (`UIStatusBarStyleDarkContent`). Het thema Kerst houdt op de website zijn sterrenhemel in de kop; in de app is ook
+de kerstkop licht. CSS: blok ‘Lichte kop’ onderaan `bijbelreis.css`.
+
 ## Voorscherm bij het openen (20 november 2026)
 
 Aanleiding (Martijn): wie bijbelreis.nl opende, kwam midden in de atlas op de laatst gelezen plek (bijv. alleen de Sinaï in
