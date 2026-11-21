@@ -2886,9 +2886,10 @@
   // Waar ‘Verder met’ heen gaat (null bij nog geen voortgang): de laatste stap of geschiedenis. Een stap uit een thema hoort
   // bij geen geschiedenis; was dat het laatste wat je opende, dan gaat ‘Verder met’ daarheen. In het seizoen van het thema
   // doet de eigen ingang (renderSeizoen) dat al.
-  function verderDoel() {
+  // Op het voorscherm (metSeizoen) staat de seizoenskaart er niet bij: dan telt ook een stap uit het thema van het seizoen.
+  function verderDoel(metSeizoen = false) {
     const h = huidigeGeschiedenis(), g = h.g;
-    const hk = store.get("huidig", null), ts = hk && hk.k && STEP_BY_KEY.get(hk.k), themaStap = ts && ts.deel.boek.thema && ts.deel.boek.thema !== SEIZOEN ? ts : null;
+    const hk = store.get("huidig", null), ts = hk && hk.k && STEP_BY_KEY.get(hk.k), themaStap = ts && ts.deel.boek.thema && (metSeizoen || ts.deel.boek.thema !== SEIZOEN) ? ts : null;
     if (themaStap) return { attr: `data-go="${themaStap.key}"`, wat: `${themaStap.deel.n} – ${themaStap.t}` };
     if (!g || h.hoe === "nieuw") return null;
     const st = h.hoe === "stap" && STEP_BY_KEY.get(h.key);
@@ -2906,11 +2907,15 @@
   function toonVoorscherm() {
     const el = $("voorscherm"); if (!el) return;
     try { sessionStorage.setItem(VS_SLEUTEL, "1"); } catch { /* geen opslag: dan bij elk openen */ }
-    const doel = verderDoel(), d = startDeel();
+    const doel = verderDoel(true), d = startDeel();
     const hoofd = doel
       ? `<button type="button" class="btn primary vs-hoofd" ${doel.attr}><span class="vs-wat"><small>Verder met:</small><b>${esc(doel.wat)}</b></span><span aria-hidden="true">▶</span></button>`
       : `<button type="button" class="btn primary vs-hoofd" data-go="${d.key}:0"><span class="vs-wat"><b>Begin de reis</b><small>${esc(d.n)} · ${esc(startWeg(d))}</small></span><span aria-hidden="true">▶</span></button>`;
-    const seizoen = SEIZOEN === "kerst" ? `<button type="button" class="btn vs-tweede vs-seizoen" data-vs-tab="verhalen">Thema: Advent en Kerst</button>` : "";
+    // In de kersttijd (advent tot en met 6 januari): het deel van deze week, net als de hoofdknop van de seizoenskaart.
+    // Gaat ‘Verder met’ al naar dezelfde stap, dan niet twee keer.
+    const sz = SEIZOEN === "kerst" ? seizoenStand() : null, szGo = sz && sz.hoofd[0];
+    const seizoen = sz && !(doel && doel.attr === `data-go="${szGo}"`)
+      ? `<button type="button" class="btn vs-tweede vs-seizoen" data-go="${szGo}"><span class="vs-wat"><small>${STER}Advent en Kerst · deze week</small><b>${esc(sz.hoofd[1])}: ${esc(sz.dw.n)}</b></span><span aria-hidden="true">▶</span></button>` : "";
     const delen = TABS.map((t) => {
       const b = $("t-" + t), svg = b.querySelector("svg"), woord = b.querySelector(".tabwoord"), uitleg = b.querySelector(".tabuitleg");
       return `<li><button type="button" class="vs-deel" id="vs-${t}" data-vs-tab="${t}">${svg ? svg.outerHTML : ""}<span><b>${esc(woord ? woord.textContent : t)}</b><small>${esc(uitleg ? uitleg.textContent : "")}</small></span></button></li>`;
@@ -2922,7 +2927,7 @@
         <h2 class="vs-titel" id="vsTitel">Op reis door de <em>Bijbel</em></h2>
         <p class="vs-zin">${esc(START_ZIN)}</p>
         ${sub ? `<p class="vs-sub">${esc(sub.textContent)}</p>` : ""}
-        <div class="vs-knoppen">${hoofd}<button type="button" class="btn vs-tweede" data-vs-tab="verhalen">Kies een geschiedenis</button>${seizoen}</div>
+        <div class="vs-knoppen">${hoofd}${seizoen}<button type="button" class="btn vs-tweede" data-vs-tab="verhalen">Kies een geschiedenis</button></div>
       </div>
       <nav class="vs-delen" aria-labelledby="vsDelen"><p class="label" id="vsDelen">Of ga naar</p><ul>${delen}</ul></nav>
       ${BR.taal && BR.taal.code && BR.taal.code !== "nl" ? "" : `<p class="vs-voet"><a href="/bijbelreis/lessen">Samen lezen met kinderen of een groep? <b>Lesroutes met presentatie en vragen</b></a></p>`}
@@ -2961,9 +2966,11 @@
   // een rij van zes merktekens (gelezen, deze week, nog te komen) en zegt welk deel volgende zondag komt.
   // Er zit niets op slot: elk merkteken opent zijn deel, en wie later instapt kan bij deel 1 beginnen.
   // Buiten het seizoen staat er niets; het thema blijft bereikbaar onder ‘Thema’s’ en via de links.
-  function renderSeizoen() {
-    const box = $("seizoen"), b = SEIZOEN && THEMAS.find((x) => x.thema === SEIZOEN), tu = themaUi(b);
-    if (!tu || mode !== "verhalen" || vOpen) { box.hidden = true; box.innerHTML = ""; return; }
+  // De stand van de kerstreis in deze week (null buiten het seizoen): het deel van deze week en de hoofdknop daarheen
+  // (‘Lees deel 2’, ‘Verder met deel 2’ of ‘Lees deel 2 nog eens’). De seizoenskaart en het voorscherm gebruiken dezelfde.
+  function seizoenStand() {
+    const b = SEIZOEN && THEMAS.find((x) => x.thema === SEIZOEN), tu = themaUi(b);
+    if (!tu) return null;
     const rij = reeks(b.delen[0]), nu = new Date();
     const w = Math.max(0, Math.min(rij.length - 1, BR.seizoen.kerstWeek ? BR.seizoen.kerstWeek(nu) : 0)), dw = rij[w];
     const stappen = rij.flatMap((d) => d.steps), gezien = stappen.filter((s) => seen.has(s.key));
@@ -2971,6 +2978,12 @@
     const laatst = STEP_BY_KEY.get(store.get("laatst", null)), hier = laatst && laatst.deel.boek === b ? laatst : gezien[gezien.length - 1];
     const inDw = hier && hier.deel === dw ? hier : dw.steps.filter((s) => seen.has(s.key)).pop();
     const hoofd = klaar(dw) ? [`${dw.key}:-1`, `Lees deel ${w + 1} nog eens`] : bezig(dw) ? [inDw.key, `Verder met deel ${w + 1}`] : [`${dw.key}:-1`, `Lees deel ${w + 1}`];
+    return { b, tu, rij, nu, w, dw, gezien, klaar, hier, hoofd };
+  }
+  function renderSeizoen() {
+    const box = $("seizoen"), sz = seizoenStand();
+    if (!sz || mode !== "verhalen" || vOpen) { box.hidden = true; box.innerHTML = ""; return; }
+    const { b, tu, rij, nu, w, dw, gezien, klaar, hier, hoofd } = sz;
     // Tweede knop: wie later instapt, kan bij deel 1 beginnen; wie in een eerder deel bezig is, kan daar verder.
     const tweede = !gezien.length ? (w > 0 ? [`${rij[0].key}:-1`, "Begin bij deel 1"] : null)
       : hier && hier.deel !== dw && !klaar(hier.deel) ? [hier.key, `Verder waar je was: deel ${rij.indexOf(hier.deel) + 1}`] : null;

@@ -1805,7 +1805,8 @@ body.vs-open { overflow: hidden; }
 .vs-merk .kop-kameel { display: block; width: 40px; height: 34px; }
 .vs-sluit { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1px solid var(--lijn-sterk); border-radius: 999px; background: color-mix(in srgb, var(--wit) 80%, transparent); color: var(--nacht); font: inherit; font-weight: 600; cursor: pointer; }
 .vs-sluit:hover { background: var(--wit); }
-.vs-held { max-width: 40rem; }
+/* De tekst blijft smal; de knoppen mogen breder (in de kersttijd staan er drie naast elkaar). */
+.vs-held > :not(.vs-knoppen) { max-width: 40rem; }
 .vs-titel { margin: 0 0 14px; font-size: clamp(2.5rem, 6.4vw, 4.6rem); line-height: 1; letter-spacing: -0.02em; color: var(--nacht); font-weight: 700; }
 .vs-titel em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: 0; color: var(--terra-diep); font-size: 1.12em; }
 .vs-zin { margin: 0 0 6px; font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.45; color: var(--inkt); }
@@ -1816,7 +1817,12 @@ body.vs-open { overflow: hidden; }
 .vs-wat b { font-weight: 650; overflow-wrap: anywhere; }
 .vs-wat small { font-size: 0.85rem; font-weight: 500; opacity: 0.85; }
 .vs-tweede { min-height: 64px; padding: 10px 22px; border-radius: 14px; background: color-mix(in srgb, var(--wit) 85%, transparent); }
-.vs-seizoen { border-color: var(--kerst-licht-diep); color: var(--kerst-licht-diep); }
+/* In de kersttijd: het deel van deze week, met de ster (zoals de hoofdknop van de seizoenskaart). */
+.vs-seizoen { justify-content: space-between; gap: 18px; max-width: 100%; text-align: left; border-color: var(--kerst-licht-diep); color: var(--kerst-licht-diep); }
+.vs-seizoen:hover:not(:disabled) { border-color: var(--kerst-licht-diep); background: var(--kerst-licht-zacht); }
+.vs-seizoen .vs-wat b { color: var(--kerst-nacht-2); }
+.vs-seizoen .vs-wat small { display: flex; align-items: center; gap: 6px; opacity: 1; }
+.vs-seizoen .kster { font-size: 0.8rem; color: var(--kerst-licht-diep); }
 .vs-delen .label { margin: 0 0 10px; color: var(--inkt-3); }
 .vs-delen ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .vs-deel { --sec: var(--terra); width: 100%; height: 100%; display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--lijn); border-left: 4px solid var(--sec); border-radius: var(--r); background: color-mix(in srgb, var(--wit) 92%, transparent); box-shadow: var(--schaduw); color: var(--inkt); font: inherit; text-align: left; cursor: pointer; transition: transform var(--t-micro) var(--ease-out), box-shadow var(--t-micro) var(--ease-out); }
@@ -1889,6 +1895,7 @@ html:not([data-app]) body[data-thema="kerst"] .niveauknop { background: rgba(255
   html:not([data-app]) body[data-thema="kerst"] .tabs button { color: rgba(255, 255, 255, 0.78); }
   html:not([data-app]) body[data-thema="kerst"] .tabs button:hover, html:not([data-app]) body[data-thema="kerst"] .tabs button[aria-selected="true"] { color: #fff; }
   html:not([data-app]) body[data-thema="kerst"] .tabs button svg { color: var(--sec); }
+  html:not([data-app]) body[data-thema="kerst"] .tabs button:hover svg { background: color-mix(in srgb, var(--sec) 22%, transparent); }
   html:not([data-app]) body[data-thema="kerst"] .tabs button[aria-selected="true"] svg { background: var(--sec); color: var(--nacht-2); }
   html:not([data-app]) body[data-thema="kerst"] .tabs button[aria-selected="true"]::after { background: var(--sec); }
 }
