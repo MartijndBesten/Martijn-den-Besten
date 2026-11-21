@@ -198,7 +198,7 @@ describe("bijbelreis: de 150 geschiedenissen", () => {
     for (const g of GS) {
       const w = `#${g.nr}`;
       if (nrs.has(g.nr)) bad.push(`${w} dubbel`); nrs.add(g.nr);
-      if (!(g.nr >= 1 && g.nr <= 150)) bad.push(`${w} nummer`);
+      if (!(g.nr >= 1 && Number.isInteger(g.nr))) bad.push(`${w} nummer`);
       if (!g.t || !g.ref) bad.push(`${w} titel/ref`);
       if (verses(g.ref) !== "ok" && !/^Zacharia en Maleachi$/.test(g.ref)) bad.push(`${w} ref ${g.ref}: ${verses(g.ref)}`);
       if (!g.uitleg || g.uitleg.length < 200) bad.push(`${w} uitleg te kort`);
@@ -212,9 +212,11 @@ describe("bijbelreis: de 150 geschiedenissen", () => {
       });
       (g.cross || []).forEach(([r]) => { if (verses(r) !== "ok") bad.push(`${w} cross ${r}`); });
       if (!g.ontdek || !["koppel", "volgorde", "onthul", "wiezei", "gelijkenis", "symbolen", "verbanden", "kaart", "stamboom"].includes(g.ontdek.soort)) bad.push(`${w} ontdek`);
-      const lk = LEID.find((r) => +r[0] === g.nr)!;
-      if (lk[3] && g.kw !== KWID(lk[3])) bad.push(`${w} kernwoord moet ${KWID(lk[3])} zijn (is ${g.kw})`);
-      if (!lk[3] && g.kw) bad.push(`${w} heeft een kernwoord dat niet in de leidraad staat`);
+      // De leidraad geldt voor 1–150; latere geschiedenissen (151+) staan er niet in en mogen alleen een bestaand kernwoord hebben.
+      const lk = LEID.find((r) => +r[0] === g.nr);
+      if (!lk && g.nr <= 150) bad.push(`${w} ontbreekt in de leidraad`);
+      if (lk && lk[3] && g.kw !== KWID(lk[3])) bad.push(`${w} kernwoord moet ${KWID(lk[3])} zijn (is ${g.kw})`);
+      if (lk && !lk[3] && g.kw) bad.push(`${w} heeft een kernwoord dat niet in de leidraad staat`);
       if (g.kw && !KWS[g.kw]) bad.push(`${w} kernwoord ${g.kw} ontbreekt in BR.kernwoorden`);
     }
     expect(bad).toEqual([]);

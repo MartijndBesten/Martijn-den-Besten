@@ -12,13 +12,9 @@
   const bewaar = (x) => { Object.assign(instelling, x); try { localStorage.setItem(SLEUTEL, JSON.stringify(instelling)); } catch (e) { /* geen opslag: dan niet onthouden */ } };
   const DV = (() => { try { return JSON.parse(document.querySelector('meta[name="bijbelreis-data"]').content); } catch (e) { return {}; } })();
   const dataUrl = (p) => "/bijbelreis/" + p + (DV[p] ? "?v=" + DV[p] : "");
-  const SECTIES = [
-    ["Schepping en oergeschiedenis", 1, 7], ["De aartsvaders", 8, 20], ["Mozes en de uittocht", 21, 31], ["In de woestijn", 32, 36],
-    ["Het beloofde land", 37, 41], ["Richters en Ruth", 42, 47], ["Samuël, Saul, David en Salomo", 48, 62], ["Koningen, profeten en ballingschap", 63, 75],
-    ["Terugkeer en wachten op de Koning", 76, 79], ["Geboorte en jeugd van de Heere Jezus", 80, 86], ["Doop, wonderen en onderwijs", 87, 108],
-    ["Onderweg naar Jeruzalem", 109, 117], ["Lijden, sterven en opstanding", 118, 132], ["De eerste gemeente", 133, 142], ["De reizen van Paulus", 143, 148], ["Openbaring", 149, 150],
-  ];
-  const G = (BR.geschiedenissen || []).slice().sort((a, b) => a.nr - b.nr);
+  // Secties en volgorde: secties.js (dezelfde als in de atlas).
+  const G = BR.opVolgorde(BR.geschiedenissen || []);
+  const SECTIES = BR.secties.map(([k, naam]) => [naam, G.filter((g) => g.sectie === k)]);
   let toastT = 0;
   function toast(t) { const el = $("toast"); el.textContent = t; el.classList.add("aan"); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove("aan"), 2600); }
 
@@ -57,7 +53,7 @@
           <div class="bk-rij2" id="kStappen"><div class="bk-veld"><label for="kVan">Van stap</label><select id="kVan"></select></div><div class="bk-veld"><label for="kTot">Tot en met stap</label><select id="kTot"></select></div></div>
         </div>
         <div id="kiesVerhaal" hidden>
-          <div class="bk-veld"><label for="kVerhaal">Geschiedenis</label><select id="kVerhaal">${SECTIES.map(([naam, a, b]) => `<optgroup label="${esc(naam)}">${G.filter((g) => g.nr >= a && g.nr <= b).map((g) => `<option value="${g.nr}">${g.nr}. ${esc(g.t)}</option>`).join("")}</optgroup>`).join("")}</select></div>
+          <div class="bk-veld"><label for="kVerhaal">Geschiedenis</label><select id="kVerhaal">${SECTIES.map(([naam, lijst]) => `<optgroup label="${esc(naam)}">${lijst.map((g) => `<option value="${g.nr}">${g.nr}. ${esc(g.t)}</option>`).join("")}</optgroup>`).join("")}</select></div>
         </div>
         <fieldset><legend>Niveau</legend><div class="bk-keuzes">${niveauKeuze(n)}</div></fieldset>
         <div><button type="submit" class="bk-knop hoofd">Maak de presentatie</button></div>
