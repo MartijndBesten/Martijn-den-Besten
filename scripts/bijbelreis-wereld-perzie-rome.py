@@ -262,7 +262,7 @@ PERZIE_STEDEN = [
     {"id": "persepolis", "naam": "Persepolis", "plaatsId": None, "lat": 29.935, "lng": 52.89, "tekst": "Paleisstad in Perzië, die Darius I liet bouwen; ook Xerxes en Artaxerxes bouwden er verder.", "bron": ["pleiades-persepolis", "wiki-persepolis"]},
     {"id": "babylon", "naam": "Babel", "plaatsId": "babelst", "tekst": "De grote stad aan de Eufraat, nu een deel van Perzië. Ezra vertrok hiervandaan naar Jeruzalem (Ezra 7:9).", "bron": ["Ezra 7:9"]},
     {"id": "ekbatana", "naam": "Ekbatana (Achmetha)", "plaatsId": "ekbatana", "tekst": "Koningsstad in Medië. Hier vond men onder Darius de rol met het bevel van Kores (Ezra 6:2–3).", "bron": ["Ezra 6:2–3"]},
-    {"id": "jeruzalem", "naam": "Jeruzalem", "plaatsId": "salem", "tekst": "De stad van de herbouwde tempel (515 v.Chr.). Onder Nehemia kreeg ze weer een muur.", "bron": ["Ezra 6:15", "Nehemia 6:15"]},
+    {"id": "jeruzalem", "naam": "Jeruzalem", "plaatsId": "salem", "tekst": "De stad van de herbouwde tempel (ca. 515 v.Chr.). Onder Nehemia kreeg ze weer een muur.", "bron": ["Ezra 6:15", "Nehemia 6:15"]},
     {"id": "sardis", "naam": "Sardis", "plaatsId": "nt4_sardis", "tekst": "Perzische hoofdstad in het westen van Klein-Azië, aan de koningsweg naar Susan.", "bron": ["herodotus"]},
     {"id": "memphis", "naam": "Nof (Memphis)", "plaatsId": "je_nof", "tekst": "Oude hoofdstad van Egypte, dat sinds 525 v.Chr. bij Perzië hoorde.", "bron": ["behistun-lijst"]},
     {"id": "athene", "naam": "Athene", "plaatsId": "nt_athene", "tekst": "Griekse stad. De Atheners versloegen de Perzen bij Marathon (490); in 480 brandde het leger van Xerxes de stad plat.", "bron": ["herodotus", "livius-marathon"]},
