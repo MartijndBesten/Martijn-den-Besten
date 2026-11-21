@@ -212,9 +212,20 @@ jobs:
           echo "APP_STORE_CONNECT_ISSUER_ID: $(soort "$ISSUER_ID") (verwacht 36)"
           echo "APPLE_TEAM_ID:               $(soort "$TEAM") (verwacht 10)"
           fout=0
+          # Het .p8-geheim: wat staat erin? (alleen lengte en soort, nooit de inhoud)
+          P8="$(schoon "$ASC_KEY_P8")"
+          if printf '%s' "$P8" | grep -q -- '-----BEGINPRIVATEKEY-----'; then p8soort="een .p8-sleutel (met BEGIN/END-regels)"
+          elif printf '%s' "$P8" | base64 --decode 2>/dev/null | grep -q -- 'BEGIN PRIVATE KEY'; then p8soort="een .p8-sleutel in base64"
+          elif printf '%s' "$P8" | tr 'a-z' 'A-Z' | grep -Eq '^(AUTHKEY_)?[A-Z0-9]{10}(\.P8)?$'; then p8soort="GEEN sleutel: lijkt een Key ID (10 tekens)"
+          elif printf '%s' "$P8" | grep -Eq '^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$'; then p8soort="GEEN sleutel: lijkt een Issuer ID"
+          else p8soort="GEEN herkenbare .p8-sleutel"; fi
+          echo "APP_STORE_CONNECT_KEY_P8:    $(soort "$P8"), $p8soort"
+          case "$p8soort" in GEEN*) fout=1; echo "::error::APP_STORE_CONNECT_KEY_P8 bevat $p8soort. Plak hier de hele inhoud van het bestand AuthKey_<Key ID>.p8 (open het met Teksteditor; van -----BEGIN PRIVATE KEY----- tot en met -----END PRIVATE KEY-----).";; esac
           if ! printf '%s' "$KEY_ID" | grep -Eq '^[A-Z0-9]{10}$'; then
             fout=1
-            if printf '%s' "$KEY_ID" | grep -Eq '^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$'; then
+            if printf '%s' "$KEY_ID" | grep -q -- '-----BEGINPRIVATEKEY-----'; then
+              echo "::error::APP_STORE_CONNECT_KEY_ID bevat de inhoud van het .p8-bestand (de sleutel zelf). Hier hoort alleen de Key ID: de 10 tekens uit de kolom ‘Key ID’ (App Store Connect → Gebruikers en toegang → Integraties → App Store Connect API), ook te zien in de bestandsnaam AuthKey_<Key ID>.p8. De sleutel zelf hoort in APP_STORE_CONNECT_KEY_P8."
+            elif printf '%s' "$KEY_ID" | grep -Eq '^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$'; then
               echo "::error::APP_STORE_CONNECT_KEY_ID lijkt een Issuer ID (36 tekens met streepjes). De Key ID is de korte code van 10 tekens in de kolom ‘Key ID’ (App Store Connect → Gebruikers en toegang → Integraties → App Store Connect API)."
             else
               echo "::error::APP_STORE_CONNECT_KEY_ID is na opschonen ${#KEY_ID} tekens; verwacht 10 (hoofdletters en cijfers): de kolom ‘Key ID’ bij de sleutel in App Store Connect → Gebruikers en toegang → Integraties → App Store Connect API."
