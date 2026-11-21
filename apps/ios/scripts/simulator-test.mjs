@@ -93,10 +93,16 @@ async function foto(udid, pad, verwacht) {
   }
   await meet(pad, verwacht);
 }
+// simctl io kan bij drukte op de runner blijven hangen (gezien: 100 s op de iPad, en op 21-11-2026 ruim 11 minuten,
+// waarna de hele iPad-ronde mislukte). Dan één keer opnieuw; hangt hij weer, dan start de test de simulator opnieuw op
+// en doet hij het scenario nog één keer (zie SCHERM_HANGT hieronder). Het scenario zelf wordt dus nooit overgeslagen.
+const SCHERM_HANGT = "schermafbeelding blijft hangen";
 function neem(udid, pad) {
-  // simctl io kan bij drukte op de runner even blijven hangen (gezien: 100 s op de iPad); dan één keer opnieuw.
-  try { execFileSync("xcrun", ["simctl", "io", udid, "screenshot", "--type=png", pad], { timeout: 90000, stdio: "pipe" }); }
-  catch { log("  schermafbeelding duurde te lang, opnieuw"); sim("io", udid, "screenshot", "--type=png", pad); }
+  for (let i = 0; i < 2; i++) {
+    try { execFileSync("xcrun", ["simctl", "io", udid, "screenshot", "--type=png", pad], { timeout: 90000, stdio: "pipe" }); return; }
+    catch { log("  schermafbeelding duurde te lang" + (i ? "" : ", opnieuw")); }
+  }
+  throw new Error(SCHERM_HANGT);
 }
 async function meet(pad, verwacht) {
   const m = await beeldMaat(pad);
@@ -153,6 +159,14 @@ async function draaiScenario(udid, naam, map, maat) {
   return r;
 }
 
+function start(udid) {
+  sim("boot", udid);
+  sim("bootstatus", udid, "-b");
+  // Vaste statusbalk voor de App Store-beelden (Apple’s voorbeeldtijd, volle batterij).
+  sim("status_bar", udid, "override", "--time", "9:41", "--dataNetwork", "wifi", "--wifiMode", "active", "--wifiBars", "3", "--cellularMode", "active", "--cellularBars", "4", "--batteryState", "charged", "--batteryLevel", "100");
+  sim("ui", udid, "appearance", "light");
+}
+
 const rt = runtime();
 log(`iOS-runtime: ${rt.name} (${rt.identifier})`);
 for (const t of TOESTELLEN) {
@@ -168,11 +182,7 @@ for (const t of TOESTELLEN) {
       execFileSync("defaults", ["write", join(pref, ".GlobalPreferences.plist"), "AppleLanguages", "-array", "nl-NL"]);
       execFileSync("defaults", ["write", join(pref, ".GlobalPreferences.plist"), "AppleLocale", "-string", "nl_NL"]);
     } catch (e) { log("  taal niet ingesteld:", String(e.message).split("\n")[0]); }
-    sim("boot", udid);
-    sim("bootstatus", udid, "-b");
-    // Vaste statusbalk voor de App Store-beelden (Apple’s voorbeeldtijd, volle batterij).
-    sim("status_bar", udid, "override", "--time", "9:41", "--dataNetwork", "wifi", "--wifiMode", "active", "--wifiBars", "3", "--cellularMode", "active", "--cellularBars", "4", "--batteryState", "charged", "--batteryLevel", "100");
-    sim("ui", udid, "appearance", "light");
+    start(udid);
 
     // 1. Release-build: start hij en toont hij de atlas (geen testloper, dus alleen kijken)?
     sim("install", udid, RELEASE);
@@ -184,8 +194,16 @@ for (const t of TOESTELLEN) {
     // 2./3. Debug-build met de testloper. Installeren over de Release-build heen houdt de gegevens van de app.
     sim("install", udid, DEBUG);
     for (const s of t.scenario) {
-      log(`${t.naam}: scenario ${s}`);
-      await draaiScenario(udid, s, map, t.maat);
+      for (let poging = 1; ; poging++) {
+        log(`${t.naam}: scenario ${s}${poging > 1 ? " (opnieuw, na herstart van de simulator)" : ""}`);
+        try { await draaiScenario(udid, s, map, t.maat); break; }
+        catch (e) {
+          if (String(e.message) !== SCHERM_HANGT || poging > 1) throw e;
+          log(`${t.naam}: ${SCHERM_HANGT}; simulator opnieuw opstarten`);
+          try { sim("shutdown", udid); } catch { /* hing al */ }
+          start(udid);
+        }
+      }
       sim("terminate", udid, BUNDEL);
     }
   } catch (e) {
