@@ -13,7 +13,7 @@ type Gedateerd = { jaar: number; status: string; bron: string | string[]; marge?
 type Ring = [number, number][];
 type Geo = { type: "Polygon"; coordinates: Ring[] } | { type: "MultiPolygon"; coordinates: Ring[][] };
 type Persoon = { id: string; naam: string; alt: string[]; personenId: string | null; lijn: string; ambt?: string; van: Gedateerd; tot: Gedateerd; ouder: string | null; rol: string; ref: string[]; gebeurtenissen: string[]; verhaal: string | null; opmerking?: string };
-type Gebeurtenis = { id: string; titel: string; tekst: string; jaar: number; tot: number | null; status: string; bron: string | string[]; personen: string[]; plaats: string | [number, number] | null; verhaal: string | null; belangrijk: boolean; stap?: string; marge?: [number, number]; opmerking?: string };
+type Gebeurtenis = { id: string; titel: string; tekst: string; jaar: number; tot: number | null; status: string; bron: string | string[]; personen: string[]; plaats: string | [number, number] | null; verhaal: string | null; belangrijk: boolean; stap?: string; marge?: [number, number]; wanneer?: string; opmerking?: string };
 type Gebied = { id: string; naam: string; kleur: string; hoofdstad: string | null; bron: string[]; opmerking?: string; sleutels: { jaar: number; betrouwbaarheid: string; geometrie: Geo; opmerking?: string }[] };
 type Stad = { id: string; naam: string; plaatsId: string | null; lat: number; lng: number; tekst: string; bron: string | string[] };
 type Periode = {
@@ -21,7 +21,7 @@ type Periode = {
   as: { soort: string; van: number; tot: number; stap: number; label: string };
   bronnen: { id: string; kort?: string; soort: string; titel: string; url: string | null; licentie: string; geraadpleegd: string }[];
   personen: Persoon[]; gebeurtenissen: Gebeurtenis[]; gebieden: Gebied[]; steden: Stad[];
-  koppelingen: { verhaal: string; jaar: number; tot: number | null; status: string; personen: string[]; gebeurtenissen: string[]; opmerking?: string }[];
+  koppelingen: { verhaal: string; jaar: number; tot: number | null; wanneer?: string; status: string; personen: string[]; gebeurtenissen: string[]; opmerking?: string }[];
   info?: { kop: string; tekst: string; status: string; bron: string | string[] }[];
 };
 type Range = { slug: string; c1: number; v1: number; c2: number; v2: number };
@@ -335,8 +335,25 @@ describe("wereld geboorte-jezus: de Heere Jezus alleen in gebeurtenissen", () =>
       expect(bronnenVan(g.bron).some((b) => verzen(b) !== null), g.id).toBe(true);
       expect(g.verhaal, g.id).toBeTruthy();
       expect(g.status, g.id).toBe("benaderd");
-      expect(g.marge, g.id).toBeTruthy();
+      if (g.id !== "kruisiging") expect(g.marge, g.id).toBeTruthy();
     }
+  });
+  it("de kruisiging en de opstanding zonder jaartal: een tijdvak ‘in de tijd van Pilatus’, na de doop", () => {
+    const k = GJ.gebeurtenissen.find((g) => g.id === "kruisiging")!;
+    const pil = GJ.personen.find((p) => p.id === "pilatus")!;
+    const doop = GJ.gebeurtenissen.find((g) => g.id === "doop")!;
+    expect(k.wanneer).toBe("in de tijd van Pilatus");
+    expect(k.marge).toBeUndefined();
+    expect(k.tot).toBe(pil.tot.jaar);
+    expect(k.jaar).toBeGreaterThan(doop.jaar);
+    expect(k.jaar).toBeGreaterThanOrEqual(pil.van.jaar!);
+    expect(k.bron).toEqual(expect.arrayContaining(["Lukas 3:1", "Johannes 19:1–18"]));
+    const v125 = GJ.koppelingen.find((x) => x.verhaal === "v125")!;
+    expect([v125.jaar, v125.tot, v125.wanneer]).toEqual([k.jaar, k.tot, k.wanneer]);
+    // Nergens een jaartal voor de kruisiging.
+    const tekst = JSON.stringify(GJ);
+    expect(tekst).not.toMatch(/30 of 33|30–33/);
+    expect((k.opmerking + v125.opmerking).replace(/\([^)]*\)/g, "")).not.toMatch(/\d/); // alleen cijfers in Bijbelverwijzingen
   });
 });
 
@@ -454,6 +471,11 @@ describe("wereld kern: een as met v.Chr. en n.Chr. (geen jaar 0)", () => {
     expect(f).toContain("kader moet");
     expect(f).toContain("ambt moet");
     expect(K.controleer(GJ)).toEqual([]);
+    // Een tijdvak zonder jaartal: een korte omschrijving zonder cijfers, met tot en zonder marge.
+    const z = structuredClone(GJ);
+    const k = z.gebeurtenissen.find((g) => g.id === "kruisiging")!;
+    k.wanneer = "30 of 33 n.Chr."; k.marge = [30, 33];
+    expect(K.controleer(z).join("\n")).toContain("gebeurtenis kruisiging: wanneer moet");
     const m = K.momenten(K.bereid(GJ, { plaatsen: BR.plaatsen }));
     expect(m.filter((x) => x.soort === "afgezet").map((x) => x.persoon).sort()).toEqual(["antipas", "archelaus", "kajafas", "pilatus"]);
   });

@@ -41,25 +41,19 @@ kanaan = [[34.38, 31.42], [34.55, 31.7], [34.72, 32.0], [34.85, 32.4], [34.96, 3
           [35.6, 33.1], [35.6, 32.8], [35.56, 32.4], [35.53, 32.0], [35.48, 31.7], [35.42, 31.4], [35.38, 31.1], [35.1, 30.95],
           [34.75, 31.0], [34.5, 31.2], [34.38, 31.42]]
 
-def streek(id, naam, kleur, ring, bron, tekst):
+def streek(id, naam, kleur, ring, bron):
     geo = {"type": "Polygon", "coordinates": [ring]}
     return {"id": id, "naam": naam, "soort": "streek", "kleur": kleur, "bron": bron,
             "sleutels": [{"jaar": 0, "betrouwbaarheid": "benaderd", "geometrie": geo},
                          {"jaar": 120, "betrouwbaarheid": "benaderd", "geometrie": geo}]}
 
 gebieden = [
-    streek("egypte", "Egypte", "terra", ring_egypte, ["Exodus 1:11", "Exodus 12:37", "wiki-nieuwe-rijk"],
-           "Het land aan de Nijl: het smalle dal van de rivier en de delta. Waar de Israëlieten woonden en werkten, in het oosten van de delta (Gosen)."),
-    streek("sinai", "Sinaï-woestijn", "oker", sinai, ["Exodus 16:1", "Exodus 19:1–2", "Numeri 10:12"],
-           "De Bijbel noemt hier verschillende woestijnen: Sur, Sin, Sinaï, Paran en Zin. Waar ze precies begonnen en ophielden, weten we niet."),
-    streek("midian", "Midian", "lila", midian, ["Exodus 2:15", "Handelingen 7:29"],
-           "Het land van Jethro, waar Mozes veertig jaar herder was. Meestal zoekt men het ten oosten van de Golf van Akaba."),
-    streek("edom", "Edom", "koraal", edom, ["Numeri 20:14–21", "Numeri 20:23"],
-           "Het bergland van Seïr, waar de nakomelingen van Ezau woonden. De koning van Edom liet Israël niet door zijn land trekken."),
-    streek("moab", "Moab", "olijf", moab, ["Numeri 21:13", "Numeri 22:1"],
-           "Het land van de Moabieten, ten zuiden van de beek Arnon. De ‘vlakke velden van Moab’ lagen noordelijker, aan de Jordaan bij Jericho."),
-    streek("kanaan", "Kanaän", "salie", kanaan, ["Numeri 13:2", "Deuteronomium 34:1–4"],
-           "Het land dat God aan Abraham, Izak en Jakob beloofd had. Mozes mocht het van de berg Nebo zien, maar kwam er niet in."),
+    streek("egypte", "Egypte", "terra", ring_egypte, ["Exodus 1:11", "Exodus 12:37", "wiki-nieuwe-rijk"]),
+    streek("sinai", "Sinaï-woestijn", "oker", sinai, ["Exodus 16:1", "Exodus 19:1–2", "Numeri 10:12"]),
+    streek("midian", "Midian", "lila", midian, ["Exodus 2:15", "Handelingen 7:29"]),
+    streek("edom", "Edom", "koraal", edom, ["Numeri 20:14–21", "Numeri 20:23"]),
+    streek("moab", "Moab", "olijf", moab, ["Numeri 21:13", "Numeri 22:1"]),
+    streek("kanaan", "Kanaän", "salie", kanaan, ["Numeri 13:2", "Deuteronomium 34:1–4"]),
 ]
 
 # ---------- steden: legerplaatsen langs de route (ligging uit plaatsen.js) ----------

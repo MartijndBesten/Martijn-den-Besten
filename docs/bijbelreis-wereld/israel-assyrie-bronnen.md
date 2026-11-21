@@ -40,7 +40,7 @@ jaartal); `berekend` = afgeleid uit Bijbelse getallen; `benaderd` = reconstructi
 |---|---|---|---|---|
 | qarqar ★ | 853 | historisch | Kurkh-monoliet (Wikipedia ‘Battle of Qarqar’); Shalmaneser III | staat niet in de Bijbel; een andere lezing van de eponiemenlijst geeft 854 |
 | jehu-schatting ★ | 841 | historisch | Zwarte Obelisk (British Museum ME 118885); Shalmaneser III | staat niet in de Bijbel; Jehu of een gezant; enkelen lezen Joram |
-| jona-nineve ★ | 793–753 (tijdvak) | expliciet | Jona 3:3–10; 2 Koningen 14:25 | **geen jaar** in de Bijbel; alleen ‘in de tijd van Jerobeam II’ |
+| jona-nineve ★ | 793–753 (tijdvak) | benaderd | Jona 3:3–10; 2 Koningen 14:25 | **geen jaar** in de Bijbel; alleen ‘in de tijd van Jerobeam II’; label ‘bij benadering’: het jaartal is een plaatsing (besluit Martijn, 21-11-2026) |
 | pul | 743, marge 745–738 | benaderd | 2 Koningen 15:19–20; Tiglath-Pileser III | jaar van de schatting van Menahem verschilt per reconstructie |
 | damascus-valt | 732 | historisch | 2 Koningen 16:7–9; 15:29; Tiglath-Pileser III | — |
 | samaria-valt ★ | 722, marge 723–721 | benaderd | 2 Koningen 17:5–6; 18:9–10; Shalmaneser V (Babylonische kroniek); Sargon II | Salmaneser of Sargon; Thiele 723/722 |

@@ -249,6 +249,8 @@
   // ---------- het periodebestand klaarzetten ----------
   const STATUS = ["expliciet", "berekend", "traditioneel", "historisch", "benaderd"];
   const EINDE = ["stierf", "weggenomen", "afgezet", "onbekend", "leeft door"];
+  // Omschrijving van een tijdvak zonder jaartal: kort en zonder cijfers (anders leest het toch als een jaartal).
+  const WANNEER = /^[^\d<>]{3,40}$/;
   function plekVan(p, plaatsen) {
     if (Array.isArray(p) && p.length === 2 && p.every((x) => typeof x === "number")) return { ll: p, gebied: false };
     if (typeof p === "string" && plaatsen && plaatsen[p]) return { ll: plaatsen[p].ll, gebied: plaatsen[p].c === "r", naam: plaatsen[p].n, zeker: plaatsen[p].c };
@@ -398,6 +400,8 @@
       if (typeof e.jaar !== "number" || !binnen(e.jaar)) f(`${w}: jaar ontbreekt of valt buiten de as`);
       if (e.tot != null && (typeof e.tot !== "number" || !binnen(e.tot))) f(`${w}: tot valt buiten de as`);
       if (e.marge != null && !(Array.isArray(e.marge) && e.marge.length === 2 && e.marge.every((j) => typeof j === "number" && binnen(j)))) f(`${w}: marge moet [vroegst, laatst] binnen de as zijn`);
+      // Zonder jaartal (‘in de tijd van Pilatus’): dan een tijdvak (tot), geen marge; de omschrijving staat waar anders het jaar staat.
+      if (e.wanneer != null && !(WANNEER.test(e.wanneer) && e.tot != null && e.marge == null)) f(`${w}: wanneer moet een korte omschrijving zijn, met een tijdvak (tot) en zonder marge`);
       statusOk(e.status, w);
       bronOk(e.bron, w);
       (e.personen || []).forEach((p) => !pids.has(p) && f(`${w}: persoon ‘${p}’ bestaat niet`));
@@ -431,6 +435,7 @@
       const w = `koppeling ${i}`;
       if (!/^v\d+$/.test(k.verhaal || "") || (refs.verhalen && !refs.verhalen.has(k.verhaal))) f(`${w}: verhaal ‘${k.verhaal}’ bestaat niet`);
       if (typeof k.jaar !== "number" || !binnen(k.jaar)) f(`${w}: jaar valt buiten de as`);
+      if (k.wanneer != null && !(WANNEER.test(k.wanneer) && k.tot != null)) f(`${w}: wanneer moet een korte omschrijving zijn, met een tijdvak (tot)`);
       (k.personen || []).forEach((p) => !pids.has(p) && f(`${w}: persoon ‘${p}’ bestaat niet`));
       (k.gebeurtenissen || []).forEach((g) => !gids.has(g) && f(`${w}: gebeurtenis ‘${g}’ bestaat niet`));
     });

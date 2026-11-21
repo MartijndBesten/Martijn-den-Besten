@@ -20,6 +20,8 @@ rest staat hieronder als korte lijst. Gedaan door de ontwikkelaar (geen theoloog
 
 ### Wat Martijn zelf moet beslissen (ja/nee)
 
+**Beantwoord door Martijn op 21-11-2026; verwerkt, zie §5.**
+
 1. **‘Staat in de Bijbel’ bij een geplaatst jaartal.** ‘David verslaat de buurvolken’ (990 v.Chr.) en ‘Jona in Ninevé’
    (793–753 v.Chr.) hebben het label *staat in de Bijbel*, terwijl het jaartal een plaatsing of reconstructie is (zo staat
    het ook in hun eigen toelichting). Zelfde geval bij Daniël (leeuwenkuil, Daniël 3). Mogen deze het label *bij
@@ -146,9 +148,40 @@ De JSON-bestanden zijn opnieuw gebouwd met de bouwscripts (`--controle`: gelijk 
 24. **Tekst ‘de engel’** in de route Advent en Kerst en in vragen (Lukas 1:19, Daniël 6:23, Handelingen 27:23): alleen
     tekst, geen figuur. Geen actie.
 
+## 5. Besluiten van Martijn (21-11-2026) en hoe ze verwerkt zijn
+
+Alle periodebestanden met een bouwscript zijn opnieuw gebouwd (`--controle`: gelijk aan de bouw); `adam-noach.json` is
+met de hand bijgewerkt (geen bouwscript). Daarna `node scripts/bijbelreis-wereld.mjs` (register in `ingang.js`).
+
+| # | Besluit | Verwerkt (bestand) |
+|---|---|---|
+| 1 | Label ‘bij benadering’ in plaats van ‘staat in de Bijbel’ waar het jaartal een plaatsing is | Status `benaderd` voor ‘David verslaat de buurvolken’ (990) in `scripts/bijbelreis-wereld-koningen.py`; ‘Jona in Ninevé’ en de koppelingen v69 en v70 in hetzelfde script; ‘Daniël in de leeuwenkuil’ en de koppelingen v74 (Daniël 3) en v75 in `scripts/bijbelreis-wereld-daniel.py`. De toelichtingen bleven. Unittests aangepast; bronnen: `david-salomo-`, `israel-assyrie-` en `daniel-bronnen.md`. |
+| 2 | Terug naar Nazareth: ook de waarschuwing in de droom | Tekst: ‘Omdat Archelaüs koning is in Judea, is Jozef bang om daarheen te gaan; hij wordt ‘door Goddelijke openbaring vermaand in den droom’ (Mattheüs 2:22) en gaat naar Nazareth …’ (`scripts/bijbelreis-wereld-perzie-rome.py`). SV letterlijk gecontroleerd (zonder ‘zijnde’); twee regels erbij in `scripts/bijbel-controle/wereld-geboorte-jezus.txt`. |
+| 3 | Filippus: halve zin over Markus 6:17 weg | ‘Niet dezelfde als Filippus de apostel.’ (`bijbelreis-wereld-perzie-rome.py`). |
+| 4 | Jesaja 40–43 laten staan | Niet veranderd. |
+| 5 | Citaten volgen de SV ook in hoofdletters | ‘een en veertig jaren was Rehabeam oud …’ (koningen-script), ‘in twee en vijftig dagen’ en ‘op den derden dag der maand Adar’ (perzie-rome-script en daniel-script). Bij een nieuwe, strengere controle (hoofdlettergevoelig, alle citaten met verwijzing in alle zeven perioden) kwamen er nog twee vergelijkbare gevallen uit: Arfachsad ‘Twee jaren na den vloed’ (Genesis 11:10, uit PR #70) is nu: Geboren ‘twee jaren na den vloed’ (Genesis 11:10) … (`adam-noach.json`), en Daniël ‘jongelingen’ (Daniël 1:4, waar de SV ‘Jongelingen’ aan het begin van het vers heeft) is geen citaat meer: ‘een van de jongelingen uit Juda (Daniël 1:3–6)’. Daarna: 0 afwijkingen. |
+| 6 | Ahasveros = Xerxes I laten zoals het is | Niet veranderd. |
+| 7 | Herodes † 4 v.Chr. blijft ‘bij benadering’; de kruisiging en de opstanding zonder jaartal | Herodes ongewijzigd. De gebeurtenis ‘De kruisiging en de opstanding’ heeft geen marge en geen ‘30 of 33’ meer. Ze staat als tijdvak (een band, zoals Jona): van na de doop tot het einde van Pilatus als stadhouder. Nieuw veld `wanneer: "in de tijd van Pilatus"`: dat staat overal waar anders een jaar staat (onderschrift, gebeurtenissenlijst, kaartje met ‘Ga naar deze tijd’, ‘Laatst gebeurd’, ‘Hierna’ zonder ‘over N jaar’, de gebeurtenissen bij Pilatus en de schermlezer) (`public/bijbelreis/wereld/wereld.js`, `wereld.css`; de controle in `kern.js` eist een korte omschrijving zonder cijfers, met `tot` en zonder `marge`). Bron: Lukas 23, Johannes 19:1–18, Lukas 24:1–7, Lukas 3:1. Koppeling v125: dezelfde band en omschrijving. Koppeling v100 (Johannes de Doper) liep tot 33 (‘vóór het laatste Pascha’); zonder kruisigingsjaar heeft dat geen grond meer, dus nu tot 36. Bronverantwoording: `geboorte-jezus-bronnen.md`, veld beschreven in `docs/bijbelreis-wereld/README.md`. Nagekeken op 390 en 1440 breed: geen jaartal bij de kruisiging, geen leeg gat. |
+| 8 | Hiram zonder jaartallen | Geen persoon en geen levenslijn meer (de engine kent geen persoon zonder lijn); de bron ‘Hiram I (Josephus/Menander)’ is weg. Hiram staat in de teksten, zoals de Bijbel hem noemt: bij David (gebeurtenis ‘David koning over heel Israël’, nu met 2 Samuël 5:3–11), bij de tempel van Salomo en bij de stad Tyrus (‘eerst voor het huis van David, later voor de tempel van Salomo’) (`bijbelreis-wereld-koningen.py`, `david-salomo-bronnen.md`). |
+| 9 | Mozes ‘bij Gosen’ laten staan | Niet veranderd. |
+| 10 | Mozes: ongebruikte landstreek-teksten weg | De zes teksten en het argument `tekst` van `streek(...)` zijn weg uit `scripts/bijbelreis-wereld-mozes.py`; `mozes.json` verandert daardoor niet (ze stonden er nooit in). |
+| 11 | Evidente verbeteringen | Nabonidus ‘bij name’ is eigen tekst, geen SV-citaat: nu ‘bij naam’. Dubbele verwijzingen: ‘Het boek Daniël noemt Nebukadnezar ‘zijn vader’ (Daniël 5:2)’ en ‘Ook het boek Jeremia noemt ‘het zevende jaar’ (Jeremia 52:28)’ (daniel-script; ‘het boek Jeremia’ omdat Jeremia 51:64 zegt dat de woorden van Jeremia daar eindigen). Lamech: ‘Deze zal ons troosten’ (Genesis 5:29) (`adam-noach.json`). |
+
+**Open (niet in deze ronde)**: de geschiedenissen zelf (`public/bijbelreis/inhoud/nt-jezus-3.js`, v118–v135) noemen
+nog ‘ca. 30 of 33 n.Chr.’ als tijd, en `dateringen.js` noemt ‘kruisiging 30 of 33 n.Chr.’ in een opmerking. Besluit 7
+ging over de laag ‘De wereld in die tijd’; of het ook voor de geschiedenissen geldt, is een keuze voor Martijn.
+
 ## Controles na de wijzigingen
 
 - `python3 scripts/bijbelreis-wereld-mozes.py --controle`, `bijbelreis-wereld-koningen.py --controle`,
   `bijbelreis-wereld-perzie-rome.py --controle`: gelijk aan de bouw.
 - SV-controle, alle bestanden in `scripts/bijbel-controle/`: 13.429 gecontroleerd, 0 mis.
 - Unit, typecheck en e2e: zie de PR.
+
+Na de besluiten (§5):
+
+- `--controle` van alle vier bouwscripts (koningen, daniel, mozes, perzie-rome): gelijk aan de bouw.
+- SV-controle, alle bestanden in `scripts/bijbel-controle/`: 13.468 gecontroleerd, 0 mis. Strengere controle
+  (hoofdlettergevoelig) van alle citaten met verwijzing in de zeven perioden: 0 afwijkingen.
+- `npx vitest run`: 28 bestanden, 480 geslaagd, 1 overgeslagen; `npm run typecheck`: geen fouten.
+- e2e `bijbelreis-wereld.spec.ts` en `a11y.spec.ts` (desktop, mobiel, tablet): 112 geslaagd, 3 overgeslagen.

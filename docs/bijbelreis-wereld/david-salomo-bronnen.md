@@ -24,13 +24,15 @@ Peildatum: 17 november 2026. Alle webbronnen zijn op die dag geraadpleegd.
   geen geboortejaar’.
 - **Samuël valt binnen de as**: hij stierf toen David op de vlucht was (1 Samuël 25:1), omgerekend 1020–1010. Zijn lijn
   begint vóór de as (roeping ca. 1100, de ruwe schatting van de Bijbelreis bij v48).
-- **Hiram**: 980–947 volgens Josephus (naar Menander: 34 jaar). 2 Samuël 5:11 noemt Hiram al bij David kort na de
-  verovering van Jeruzalem; dat past niet goed bij 980. Dat staat eerlijk in de opmerking; er is geen oplossing verzonnen.
+- **Hiram zonder jaartallen** (besluit Martijn, 21-11-2026): geen levenslijn en geen regeringsjaren (de omrekening
+  980–947 naar Josephus/Menander paste niet bij 2 Samuël 5:11). Hiram staat alleen in de teksten, zoals de Bijbel hem
+  noemt: bij David (gebeurtenis ‘David koning over heel Israël’, 2 Samuël 5:11), bij de tempel van Salomo
+  (1 Koningen 5:1–10) en bij de stad Tyrus.
 - **Sisak = Sjosjenk I**: de gangbare opvatting, maar niet onomstreden (Jeruzalem staat niet op de lijst in Karnak; de
   Egyptische jaartallen schuiven: 943–922 of 945–924). Het vijfde jaar van Rehabeam is 926/925.
 - **De Tel Dan-steen** (9e eeuw v.Chr., “huis van David”) valt na de as: alleen als context in ‘Over deze tijdlijn’ en bij
   de stad Dan, niet als gebeurtenis.
-- **Weinig, maar sterke gegevens**: 10 gebeurtenissen (5 belangrijkste), 9 levenslijnen, 12 steden, 10 gebieden met
+- **Weinig, maar sterke gegevens**: 10 gebeurtenissen (5 belangrijkste), 8 levenslijnen, 12 steden, 10 gebieden met
   27 sleutels, 13 koppelingen (v50–v62).
 - **Bewust niet getekend**: Egypte (het hoort bij Sisak, maar een Egypte-vlak maakte de kaart op de telefoon te klein
   voor Jeruzalem; Egypte staat in de teksten), de koningin van Scheba (ligging en tijd onzeker), de weg ‘tot de rivier’
@@ -47,7 +49,7 @@ Peildatum: 17 november 2026. Alle webbronnen zijn op die dag geraadpleegd.
 | dood-saul ★ | 1010 | benaderd | 1 Sam. 31:1–6 | gangbare reconstructie |
 | david-hebron | 1010 | benaderd | 2 Sam. 2:4, 10–11 | 7 jaar en 6 maanden in Hebron |
 | jeruzalem ★ | 1003 | benaderd | 2 Sam. 5:3–9 | — |
-| buurvolken | 990, marge 1003–970 | expliciet | 2 Sam. 8; 10–12 | **geen jaar** in de Bijbel; 990 is een plaatsing (Ammon-oorlog in de tijd van Bathseba) |
+| buurvolken | 990, marge 1003–970 | benaderd | 2 Sam. 8; 10–12 | **geen jaar** in de Bijbel; 990 is een plaatsing (Ammon-oorlog in de tijd van Bathseba); label ‘bij benadering’: het jaartal is een plaatsing (besluit Martijn, 21-11-2026) |
 | salomo-koning | 970 | benaderd | 1 Kon. 1:32–40; 2:10–12 | — |
 | tempel ★ | 966–959 | benaderd | 1 Kon. 6:1, 37–38; 5:1–10 | 4e tot 11e jaar van Salomo |
 | scheuring ★ | 930, marge 931–930 | benaderd | 1 Kon. 12:1–20; Thiele | — |
@@ -61,7 +63,6 @@ Peildatum: 17 november 2026. Alle webbronnen zijn op die dag geraadpleegd.
 | saul | regering | 1050 benaderd | 1010 benaderd | Hand. 13:21 |
 | david | leven | 1040 benaderd (geboorte, omgerekend) | 970 benaderd, 70 jaar (berekend) | 2 Sam. 5:4–5; 1 Kon. 2:10–11 |
 | nathan | profeet | 1003 benaderd (`begin: genoemd`) | 970 benaderd, einde onbekend | 2 Sam. 7:2; 1 Kon. 1 |
-| hiram | regering | 980 benaderd | 947 benaderd, marge 947–946 | Josephus/Menander; 2 Sam. 5:11 (zie boven) |
 | salomo | regering | 970 benaderd | 930 benaderd, marge 931–930 | 1 Kon. 11:42 |
 | rehabeam | leven | 971 benaderd (geboorte, omgerekend) | 913 benaderd (na de as), 58 jaar | 1 Kon. 14:21 |
 | jerobeam | regering | 930 benaderd, marge 931–930 | 909 benaderd (na de as) | 1 Kon. 14:20 (22 jaar) |
@@ -99,7 +100,7 @@ v50–v62, met dezelfde jaren als de Bijbelreis (`tl` van de geschiedenissen) en
 
 1. **Het vlak ‘Onder David en Salomo’**: eerlijk genoeg als “onder gezag” zonder harde grens? Wordt het begrepen?
 2. **Israël in 1050 inclusief Juda** (Jeruzalem was toen nog van de Jebusieten; dat staat alleen in de opmerking).
-3. **Hiram 980–947** naast 2 Samuël 5:11.
+3. ~~Hiram 980–947 naast 2 Samuël 5:11~~: besloten (21-11-2026), Hiram zonder jaartallen.
 4. **Samuël 1100–1015** (ruwe schatting; de lijn begint vóór de as).
 5. **Egypte niet op de kaart**: is de uitleg in de teksten voldoende?
 6. **De teksten voor kinderen**: toon en eenvoud.

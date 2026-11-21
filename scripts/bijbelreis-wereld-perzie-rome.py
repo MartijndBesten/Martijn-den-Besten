@@ -226,7 +226,7 @@ PERZIE_GEBEURTENISSEN = [
     g("tempel-klaar", "De tempel is klaar",
       "In het zesde jaar van koning Darius is het huis van God in Jeruzalem herbouwd. Het volk viert de inwijding met vreugde.",
       515, "benaderd", ["Ezra 6:15–16"], ["darius-i"], "salem", verhaal="v76", belangrijk=True, stap="ezra:terugkeer:6", marge=[516, 515],
-      opmerking="‘Op den derden dag der maand Adar’ in het zesde jaar van Darius (Ezra 6:15). Als dat Darius I is, is het voorjaar 515 v.Chr.; sommigen rekenen 516. Ook het laatste jaar van de tijdlijn “Daniël en Babylon”."),
+      opmerking="‘op den derden dag der maand Adar’ in het zesde jaar van Darius (Ezra 6:15). Als dat Darius I is, is het voorjaar 515 v.Chr.; sommigen rekenen 516. Ook het laatste jaar van de tijdlijn “Daniël en Babylon”."),
     g("marathon", "Slag bij Marathon",
       "Ver van Jeruzalem stuurt Darius een leger naar Griekenland. Bij Marathon, niet ver van Athene, verslaan de Atheners de Perzen.",
       490, "historisch", ["livius-marathon", "herodotus", "pleiades-marathon"], ["darius-i"], [38.15, 23.97],
@@ -254,7 +254,7 @@ PERZIE_GEBEURTENISSEN = [
     g("muur-klaar", "De muur in 52 dagen klaar",
       "Iedereen bouwt mee, ondanks de spot en de dreiging van Sanballat en Tobia. Op de 25e van de maand Elul is de muur klaar, in 52 dagen.",
       445, "benaderd", ["Nehemia 4", "Nehemia 6:15"], ["nehemia"], "salem", belangrijk=True, stap="ezra:nehemia:5", marge=[445, 444],
-      opmerking="‘In twee en vijftig dagen’ (Nehemia 6:15), in hetzelfde jaar als het verlof van de koning: 445 of 444 v.Chr."),
+      opmerking="‘in twee en vijftig dagen’ (Nehemia 6:15), in hetzelfde jaar als het verlof van de koning: 445 of 444 v.Chr."),
 ]
 
 PERZIE_STEDEN = [
@@ -421,7 +421,7 @@ GJ_PERSONEN = [
      "gebeurtenissen": ["vijftiende-jaar"], "verhaal": "v100"},
     {"id": "filippus", "naam": "Filippus", "alt": ["Filippus de viervorst"], "personenId": None, "lijn": "regering", "ambt": "viervorst",
      "van": d(-4, "benaderd", ["Lukas 3:1", "josephus-ant-17", "wiki-filippus"], begin="regering", opmerking="Viervorst over het noordoosten (Iturea en Trachonitis, Lukas 3:1) vanaf de dood van zijn vader."),
-     "tot": d(34, "historisch", "wiki-filippus", einde="stierf", marge=[33, 34], opmerking="Hij stierf in het twintigste jaar van Tiberius, 33 of 34 n.Chr. (Josephus). Niet dezelfde als Filippus de apostel, en ook niet de Filippus van Markus 6:17."),
+     "tot": d(34, "historisch", "wiki-filippus", einde="stierf", marge=[33, 34], opmerking="Hij stierf in het twintigste jaar van Tiberius, 33 of 34 n.Chr. (Josephus). Niet dezelfde als Filippus de apostel."),
      "ouder": "herodes", "rol": "Zoon van Herodes; viervorst over Iturea en Trachonitis; bouwde Caesarea Filippi", "ref": ["Lukas 3:1"], "gebeurtenissen": ["vijftiende-jaar"], "verhaal": None},
     {"id": "lysanias", "naam": "Lysanias", "alt": [], "personenId": None, "lijn": "regering", "ambt": "viervorst",
      "van": d(28, "berekend", ["Lukas 3:1", "wiki-lysanias"], begin="genoemd", opmerking="Lukas noemt hem viervorst over Abilene in het vijftiende jaar van Tiberius. Een inscriptie uit Abila noemt een viervorst Lysanias in de tijd van Tiberius. Hoe lang hij regeerde, is niet bekend; een oudere Lysanias regeerde rond 40–36 v.Chr."),
@@ -463,7 +463,7 @@ GJ_GEBEURTENISSEN = [
       -4, "benaderd", ["Mattheüs 2:19", "josephus-ant-17", "wiki-herodes"], ["herodes", "archelaus", "antipas", "filippus"], "jericho", belangrijk=True,
       opmerking="Meestal voorjaar 4 v.Chr. (Josephus); een kleiner aantal onderzoekers verdedigt 1 v.Chr. Gaza, Gadara en Hippos gingen naar de provincie Syrië (Josephus, Oudheden 17.11.4)."),
     g("terug-nazareth", "Terug uit Egypte, naar Nazareth",
-      "Na de dood van Herodes keert Jozef met Maria en het Kind terug. Omdat Archelaüs koning is in Judea, gaan ze naar Nazareth in Galilea, het land van Herodes Antipas.",
+      "Na de dood van Herodes keert Jozef met Maria en het Kind terug. Omdat Archelaüs koning is in Judea, is Jozef bang om daarheen te gaan; hij wordt ‘door Goddelijke openbaring vermaand in den droom’ (Mattheüs 2:22) en gaat naar Nazareth in Galilea, het land van Herodes Antipas.",
       -4, "benaderd", ["Mattheüs 2:19–23"], ["archelaus", "antipas"], "nt_nazareth", verhaal="v85", marge=[-4, -3],
       opmerking="Hoe lang het gezin in Egypte bleef, zegt de Bijbel niet; het was na de dood van Herodes (Mattheüs 2:19). De kaart laat zien waarom Nazareth veiliger was: Galilea viel niet onder Archelaüs."),
     g("judea-provincie", "Judea onder een Romeinse stadhouder",
@@ -484,8 +484,9 @@ GJ_GEBEURTENISSEN = [
       opmerking="Kort na het begin van de prediking van Johannes. Lukas zegt dat Hij ‘omtrent dertig jaren oud’ was (Lukas 3:23)."),
     g("kruisiging", "De kruisiging en de opstanding",
       "Onder Pontius Pilatus wordt de Heere Jezus gekruisigd buiten Jeruzalem. Op de derde dag staat Hij op uit de doden.",
-      30, "benaderd", ["Lukas 23:1–25", "Lukas 24:1–7"], ["pilatus", "antipas", "kajafas"], "salem", verhaal="v125", belangrijk=True, marge=[30, 33],
-      opmerking="De Bijbel noemt geen jaartal. Pilatus was stadhouder van ca. 26 tot 36 n.Chr.; daarom wordt dit meestal op 30 of 33 n.Chr. gesteld."),
+      29, "benaderd", ["Lukas 23:1–25", "Johannes 19:1–18", "Lukas 24:1–7", "Lukas 3:1"], ["pilatus", "antipas", "kajafas"], "salem", verhaal="v125", belangrijk=True,
+      tot=36, wanneer="in de tijd van Pilatus",
+      opmerking="De Bijbel noemt geen jaartal, wel dat het onder Pontius Pilatus was (Lukas 23, Johannes 19). Pilatus was al stadhouder over Judea toen Johannes de Doper begon te prediken (Lukas 3:1). Daarom staat dit hier zonder jaartal, als een tijdvak: na de doop, in de tijd van Pilatus."),
 ]
 
 GJ_STEDEN = [
@@ -594,10 +595,10 @@ GJ_KOPPELINGEN = [
     {"verhaal": "v86", "jaar": 7, "tot": 9, "status": "benaderd", "personen": ["augustus"], "gebeurtenissen": ["twaalf-jaar", "judea-provincie"]},
     {"verhaal": "v87", "jaar": 28, "tot": 29, "status": "benaderd", "personen": ["tiberius", "pilatus", "antipas", "filippus", "lysanias", "kajafas"], "gebeurtenissen": ["vijftiende-jaar", "doop"],
      "opmerking": "In het vijftiende jaar van keizer Tiberius (Lukas 3:1), volgens de gangbare berekening ongeveer 28/29 n.Chr."},
-    {"verhaal": "v100", "jaar": 28, "tot": 33, "status": "benaderd", "personen": ["antipas", "filippus"], "gebeurtenissen": ["vijftiende-jaar"],
+    {"verhaal": "v100", "jaar": 28, "tot": 36, "status": "benaderd", "personen": ["antipas", "filippus"], "gebeurtenissen": ["vijftiende-jaar"],
      "opmerking": "Markus 6 noemt geen jaar. Het was in de regering van Herodes Antipas, nadat Johannes was begonnen te prediken (Lukas 3:1–3) en vóór het laatste Pascha van de Heere Jezus."},
-    {"verhaal": "v125", "jaar": 30, "tot": 33, "status": "benaderd", "personen": ["pilatus", "antipas", "kajafas", "tiberius"], "gebeurtenissen": ["kruisiging"],
-     "opmerking": "De Bijbel noemt geen jaartal. Meestal wordt de kruisiging op 30 of 33 n.Chr. gesteld, in de tijd dat Pilatus stadhouder was."},
+    {"verhaal": "v125", "jaar": 29, "tot": 36, "wanneer": "in de tijd van Pilatus", "status": "benaderd", "personen": ["pilatus", "antipas", "kajafas", "tiberius"], "gebeurtenissen": ["kruisiging"],
+     "opmerking": "De Bijbel noemt geen jaartal, wel dat het onder Pontius Pilatus was (Johannes 19). Daarom staat het hier zonder jaartal, als een tijdvak: na de doop, in de tijd van Pilatus."},
 ]
 
 

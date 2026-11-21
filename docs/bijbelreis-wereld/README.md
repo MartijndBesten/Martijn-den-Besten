@@ -120,6 +120,7 @@ gedeelde specificatie, met deze aanvullingen (alle optioneel):
 | `opmerking` | overal | korte toelichting op grondslag of onzekerheid |
 | `kleur` | gebeurtenis | kleur van de band (token uit de huisstijl, bijv. `water` voor de zondvloed) |
 | `tot`, `status`, `opmerking` | koppeling | een verhaal dat een tijdvak beslaat: in de laag een zachte band en de toelichting |
+| `wanneer` | gebeurtenis, koppeling | een tijdvak **zonder jaartal** (met `tot`, zonder `marge`): een korte omschrijving zonder cijfers, bijv. ‘in de tijd van Pilatus’ (de kruisiging). Die staat overal waar anders het jaar staat: onderschrift, lijst, kaartje (‘Ga naar deze tijd’), ‘Laatst gebeurd’, ‘Hierna’ en de schermlezer. De controle (`kern.js`) bewaakt dit |
 | `ambt` | persoon | het woord voor de functie als het geen koning is (`keizer`, `koningin`, `stadhouder`, `viervorst`, `hogepriester`, `landvoogd`): in de naamkolom, ‘Stadhouder vanaf’, ‘nog geen keizer’ (bij een lang woord ‘nog niet’) en in de lijst ‘Pilatus wordt stadhouder’ |
 | `van.begin: "genoemd"` | persoon | de lijn begint waar de Bijbel voor het eerst over iemand vertelt (Mordechai, Ezra, Zerubbabel): ‘Eerst genoemd’, nooit ‘geboren’ |
 | `tot.einde: "afgezet"` | persoon | een ambt dat eindigt zonder dood (Archelaüs, Antipas, Pilatus, Kajafas): streepje zoals bij ‘stierf’, maar ‘Afgezet’ en ‘… wordt afgezet’ |
