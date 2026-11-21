@@ -1,13 +1,9 @@
-# Routes op de kaart: meting en drie voorstellen (21-11-2026)
+# Routes op de kaart: meting, drie voorstellen en de keuze (21-11-2026)
 
 Aanleiding: open punt sinds ‘kaart voorop met kort stapblad’ (telefoon.md §4) en Martijns eerdere opmerking *“De routes
-moeten duidelijk zijn. Overzichtelijk.”* De vormgeving is Martijns keuze. Daarom staat er nog niets definitief: de drie
-voorstellen zijn een proefschakelaar die je naast elkaar kunt bekijken. Zonder de parameter ziet de site er precies zo
-uit als nu.
-
-Bekijken: `https://bijbelreis.nl/bijbelreis?routes=a#nt-paulus/9` (of `b`, `c`; na samenvoegen). Lokaal hetzelfde
-achter `npx vite preview`. Goede stappen om te vergelijken: `#abraham/4` (korte route), `#uittocht/5` (zijroute van het
-leger), `#nt-paulus/9` (lange reis met veel oude lijnen), `#abraham/10` (zijroute van de koningen).
+moeten duidelijk zijn. Overzichtelijk.”* Eerst zijn de routes gemeten en kwamen er drie voorstellen achter een
+proefschakelaar (§1–§2, bewaard als geschiedenis). **Martijn koos C · Schijnwerper**; dat is nu de vaste weergave, zonder
+parameter (§4). Kort ook in [`docs/BIJBELREIS.md`](../BIJBELREIS.md) § ‘Routes: schijnwerper (21-11-2026)’.
 
 ## 1. Wat er nu mis is (gemeten op 390×664 en 1440×900)
 
@@ -54,9 +50,55 @@ Vergelijkingsbeeld: [`screenshots/routes/vergelijking.jpg`](screenshots/routes/v
 vier stappen, nu/A/B/C). In de werksessie ook als `scratchpad/routes/vergelijking.png`, met losse beelden
 `va-*`, `vb-*` (ook `vb-*-beweging-*` halverwege de streep), `vc-*`; metingen `meting-*.json`, `meting-overlap.txt`.
 
-## 3. Code
+## 3. Code (proef, vervallen)
 
-`app.js`: `RV` (de parameter), `rvTeken()` (na `routeState()` en na een geschiedenis, en na zoomen), `rvLangs()`
-(punten om de zoveel pixels langs de lijn), `rvAangekomen()` (B, aan het eind van de reis van de reiziger).
-`bijbelreis.css`: alles onder `html[data-routes]` en de klassen `.rv-*`. Weghalen = die blokken schrappen; bij een keuze
-wordt de gekozen variant de standaard en verdwijnt de parameter.
+De proef stond achter `?routes=a|b|c` (`RV`, `rvTeken()`, `rvLangs()`, `rvAangekomen()`, CSS onder `html[data-routes]`).
+Dat is allemaal weg; de parameter doet niets meer. Zie §4 voor de code van nu.
+
+## 4. Gekozen: C · Schijnwerper (21-11-2026)
+
+C is de standaard. A (ringen en pijlpunten) en B (spoor en lichtstreep) en de oude pijltjes langs de lijn zijn uit de code.
+Geen routegegevens, plaatsen of liggingen veranderd.
+
+**Wat er is afgewerkt** (de minpunten uit §2 en de opdracht):
+
+1. **Bordjes naast de plaats, niet erop.** In de proef lag het bordje midden op het plaatsteken. Nu zoekt
+   `plaatsHaltes()` (onderdeel van de naamplaatsing, `refreshLabels`) een plek links, boven, onder of rechts van het teken
+   (eerst 3 px ervandaan, dan 12 px; ook schuin), die niets raakt: geen plaatsnaam, geen plaatsteken (ook ‘?’ en de
+   ringetjes van een andere mogelijke plek), de reiziger, knoppen, het stapblad, ‘Vandaag’-bordjes of een ander bordje.
+2. **Botsende bordjes** (Lystre, Derbe en Ikonium bij Paulus): begin en eind gaan voor, daarna op volgorde; past een bordje
+   nergens, dan blijft het weg tot je inzoomt (de nummers van de andere blijven kloppen). Samenvoegen (‘4–5’) is niet
+   gekozen: zo’n bordje staat bij één plaats en zou zeggen dat beide haltes daar zijn.
+3. **Het eindnummer onder de kameel:** staat de reiziger op de plaats, dan zoekt het bordje een plek naast plaats én
+   reiziger samen. Bij één plaats in de stap (bijv. de vlucht naar Egypte) geen nummer: ‘1’ alleen zegt niets.
+4. **Plaats buiten beeld of onder het stapblad** (na inzoomen): geen bordje, anders stond het nummer bij een andere plaats.
+5. **Overzicht van een deel (‘Hele reis’) en een geschiedenis:** rustig. Alle stappen even sterk in hun eigen kleur
+   (3,5 px) met een witte rand (een eigen lijn `.rt-rand`, zodat de omranding het brede, onzichtbare klikvlak blijft),
+   zonder gloed en zonder nummers. Waarom: daar gaat het om de hele weg en de volgorde van de stappen staat al in de
+   stappenlijst; een grijze reis (zoals in een stap) zou het overzicht leeg laten lijken en nummers per stap zouden de kaart
+   vol zetten.
+6. **Legenda:** ‘De stap van nu’ (dikke lijn met witte rand en gloed), ‘Haltes van de stap, op volgorde’, ‘Grijs: al
+   gereisd’, ‘Dun: een ander onderweg, zoals een leger’, ‘Gestreept: reconstructie’. Wat nog komt, staat (zoals in de proef)
+   niet op de kaart; daarom geen regel ‘nog te gaan’. Engels in `taal/en.js`.
+7. **Minder beweging:** op de kaart loopt dan geen enkele animatie (gemeten met `document.getAnimations()`; de reiziger
+   staat meteen op de bestemming). **Contrast** van de lijn tegen haar witte rand (1,75 px aan elke kant): kobalt 8,4,
+   lila 7,2, rood 6,8, salie 6,4, oker 6,2, bruin 6,1, koraal 5,9, teal 5,8, olijf 5,7, boter 5,2, terra 5,1, grijs
+   4,85 : 1. Oker haalde met de gewone kleur maar 2,5 : 1: de lijn gebruikt nu de donkere variant (`tekstKleur`, oker-diep).
+   Het thema Kerst verandert de kaartkleuren niet; de test meet het daar ook (wijzen, oker). De grijze rest van de reis
+   (30 %) is bewust zwak: het is achtergrond, de stap zelf is de informatie.
+8. **Zijroute** (andere reiziger in een stap waar de reiziger van het deel ook reist; leger van Farao, de koningen bij
+   Abraham 10): 3,2 px met witte rand, zonder gloed, onder de lijn van de stap. Het verschil met de stap is daardoor dik
+   tegen dun en met tegen zonder gloed, ook waar de kleuren op elkaar lijken (rood en terra).
+
+**Meting na** (telefoon 390×664 en 360×640, tablet 820×1180, desktop 1440×900; `#abraham/4`, `#abraham/10`,
+`#uittocht/5`, `#nt-paulus/9`, `#intocht/5`, `#jakob-jabbok/7`, `#kerst-geboorte/2`, `#kerst-wijzen/6`, de overzichten
+`#nt-paulus` en `#uittocht`, de geschiedenissen 10, 26 en 144; telefoon en desktop ook twee keer ingezoomd): 0 bordjes
+over een naam, een teken, de reiziger of elkaar (in de proef: 1 over een naam, 1 onderling, alle over hun teken). Paulus 9:
+op 390 px 1 2 3 4 6 7 te zien en 5 (Ikonium) pas na inzoomen, op 360 px ook 6 pas na inzoomen, op tablet en desktop alle
+zeven. Abraham 10: op de telefoon alle zes, op tablet en desktop 4 pas na inzoomen. Een stap zonder route (Intocht 5,
+Jakob bij de Jabbok 7) heeft geen gloed en geen bordjes. Beelden in de werksessie: `scratchpad/routes/na/` (ook
+`*-zoom-*`, de legenda en de overzichten).
+
+**Code:** `stapTeken()` (na `routeState()` en een geschiedenis: klassen `rt-zij`, `#map.rt-rust`, gloed, witte randen en
+de bordjes) en `plaatsHaltes()` (aan het eind van `refreshLabels`) in `app.js`; CSS onder ‘Routes: de schijnwerper’ in
+`bijbelreis.css`. Test: `e2e/bijbelreis-routes.spec.ts`.

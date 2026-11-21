@@ -59,7 +59,8 @@
     weg(k) { try { localStorage.removeItem("bijbelreis:" + k); } catch { /* geen opslag */ } },
   };
   const color = (key) => `var(--${key}-deep, var(--${key}))`;
-  // Voor tekst: de donkere variant (sommige kleuren hebben -deep, oker en zand -diep); routes en lijnen houden color().
+  // Voor tekst en voor de lijn van een route: de donkere variant (sommige kleuren hebben -deep, oker en zand -diep). Zo haalt
+  // elke routelijn ≥ 3 : 1 tegen haar witte rand (oker zelf haalt 2,5 : 1). De gloed en de kameel houden color().
   const tekstKleur = (key) => `var(--${key}-deep, var(--${key}-diep, var(--${key})))`;
   const GROUPS = new Set(["Discipelen", "Schare", "Apostelen", "Farizeeën", "Tollenaars", "Herders", "Wijzen", "Engelen", "Overpriesters", "Schriftgeleerden", "Leraren", "Sadduceeën", "Wachters", "Moordenaars", "Broeders", "Ouderlingen", "Weduwen", "Reisgenoten", "Bemanning", "Eilanders", "Joden", "Melaatsen", "Handelaars", "Raad", "Oudsten", "Gemeente", "Ouders", "Mannen", "Bezoekers", "Koningen", "Broers", "Kinderen", "Familie", "Mensen", "Volk", "Soldaten", "Leger", "Spionnen", "Vrouwen", "Priesters", "Profeten", "Vijanden", "Knechten", "Boden", "Zonen", "Dochters", "Levieten", "Zangers"].concat((BR.taal && BR.taal.groepen) || []));
 
@@ -201,10 +202,6 @@
   const lyRoutes = L.layerGroup().addTo(map), lyPlaces = L.layerGroup().addTo(map), lyKings = L.layerGroup();
   const lySpecial = L.layerGroup().addTo(map), lyQuiz = L.layerGroup().addTo(map), lyNL = L.layerGroup().addTo(map);
   const partRoutes = new Map();
-  // Proefweergave van de routes, alleen via ?routes=a|b|c (vergelijking voor Martijn, docs/bijbelreis-audit/routes.md).
-  // Zonder de parameter verandert er niets: geen klasse, geen extra lagen.
-  const RV = (() => { try { const v = new URLSearchParams(location.search).get("routes"); return /^[abc]$/.test(v || "") ? v : ""; } catch { return ""; } })();
-  if (RV) document.documentElement.dataset.routes = RV;
   let geoReady = false, insetGeo = null;
 
   // De ondergrond (zee, land, streken, meren, rivieren) op een kaart tekenen. Ook gebruikt door ‘De wereld in die tijd’
@@ -563,6 +560,7 @@
       SIDES.forEach((s) => it.el.classList.toggle("s-" + s, s === side));
       placed.push(rect);
     });
+    plaatsHaltes(placed, reiziger, size);
     Object.entries(markers).forEach(([id, m]) => {
       const el = m.getElement(); if (!el) return;
       const lab = el.querySelector(".lab");
@@ -641,29 +639,15 @@
   function routeLayer(d) {
     if (partRoutes.has(d.key)) return partRoutes.get(d.key);
     const g = L.layerGroup();
-    g.deel = d;
-    if (RV) g.rv = L.layerGroup().addTo(g);
+    g.deel = d; g.stap = L.layerGroup().addTo(g); // gloed, witte randen en haltebordjes (stapTeken)
     d.steps.forEach((s, i) => (s.r || []).forEach((r) => {
       // De omranding is ook het klikvlak (breed genoeg voor een vinger); de gekleurde lijn ligt erbovenop.
       r.casing = L.polyline(r.pts, { className: `rt rt-casing${r.recon ? " recon" : ""} future`, bubblingMouseEvents: false }).addTo(g);
-      r.line = L.polyline(r.pts, { className: `rt${r.recon ? " recon" : ""} future`, color: color(r.w), interactive: false }).addTo(g);
+      r.line = L.polyline(r.pts, { className: `rt${r.recon ? " recon" : ""} future`, color: tekstKleur(r.w), interactive: false }).addTo(g);
       r.casing.bindPopup(() => `<div class="pop"><p class="label">${esc(d.boek.n)} · ${esc(d.n)} · stap ${i + 1}</p><h3>${esc(s.t)}</h3><p class="st">${esc(s.ref)} · ca. ${fmt(roundKm(r.len))} km</p><p>${r.recon ? "<b>Reconstructie.</b> De Bijbel noemt alleen waar de reis begon en eindigde; de lijn volgt een bekende oude weg." : "De Bijbel noemt de plaatsen langs deze route."}</p>${i !== cur || deel !== d ? `<button type="button" class="btn small" data-go="${d.key}:${i}">Bekijk deze stap</button>` : ""}</div>`, { maxWidth: 270, autoPanPaddingTopLeft: [50, 150], autoPanPaddingBottomRight: [20, 90] });
-      r.arrows = arrows(r, g);
     }));
     partRoutes.set(d.key, g);
     return g;
-  }
-  function angleDeg(a, b) { const p1 = map.project(a, 6), p2 = map.project(b, 6); return (Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180) / Math.PI; }
-  function pointAt(r, f) {
-    const L0 = r.len * f;
-    for (let i = 1; i < r.pts.length; i++) {
-      if (r.cum[i] >= L0) { const t = (L0 - r.cum[i - 1]) / (r.cum[i] - r.cum[i - 1] || 1); const a = r.pts[i - 1], b = r.pts[i]; return { ll: [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t], a: angleDeg(a, b) }; }
-    }
-    return { ll: r.pts[r.pts.length - 1], a: 0 };
-  }
-  function arrows(r, group) {
-    const fs = r.len > 400 ? [0.35, 0.8] : r.len > 60 ? [0.6] : [];
-    return fs.map((f) => { const q = pointAt(r, f); const m = L.marker(q.ll, { interactive: false, keyboard: false, icon: icon(`<span class="arr off" style="--arr:${color(r.w)};transform:rotate(${q.a.toFixed(1)}deg)"></span>`) }); group.addLayer(m); return m; });
   }
   function routeState() {
     deel.steps.forEach((s, i) => (s.r || []).forEach((r) => {
@@ -671,78 +655,91 @@
       if (r.w === "rood" && i !== cur) st = "future";
       if (focus) st = focus.keys.has(s.key) ? "active" : "future";
       [r.line, r.casing].forEach((l) => { const el = l && l.getElement(); if (!el) return; el.classList.remove("past", "active", "future", "hl"); el.classList.add(st); });
-      r.arrows.forEach((a) => { const e = a.getElement(); if (e) { e.firstChild.classList.toggle("off", st === "future"); e.firstChild.classList.toggle("dim", st === "past"); } });
     }));
-    rvTeken();
+    stapTeken();
   }
-  // ---------- proefweergaven van de routes (?routes=a|b|c) ----------
-  // A: heldere lijn met witte rand, begin- en eindring en pijlpunten langs de lijn.
-  // B: de hele reis als spoor: wat nog komt staat dun gestippeld, na aankomst glijdt een lichtstreep van begin naar eind.
-  // C: schijnwerper: de rest van de reis grijs en zwak, de stap in kleur met een gloed en genummerde haltes.
-  // Een zijroute is een route in een andere kleur dan de reiziger van het deel, in een stap waar die reiziger ook reist.
-  // Haltes zijn alleen plaatsen uit plaatsen.js die in de route staan; geen nieuwe punten.
-  function rvLangs(r, stap) {
-    const px = r.pts.map((p) => map.latLngToLayerPoint(p)), cum = [0];
-    px.slice(1).forEach((q, j) => cum.push(cum[j] + q.distanceTo(px[j])));
-    const tot = cum[cum.length - 1];
-    if (tot < 40) return [];
-    const n = Math.max(1, Math.floor(tot / stap)), uit = [];
-    for (let k = 0; k < n; k++) {
-      const d = (tot * (k + 0.5)) / n;
-      let j = 1; while (j < cum.length - 1 && cum[j] < d) j++;
-      const a = px[j - 1], b = px[j], t = (d - cum[j - 1]) / (cum[j] - cum[j - 1] || 1);
-      uit.push({ ll: map.layerPointToLatLng([a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t]), a: (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI });
-    }
-    return uit;
-  }
-  const rvMarker = (ll, html, z = 0) => L.marker(ll, { interactive: false, keyboard: false, zIndexOffset: z, icon: icon(html, "rv") });
-  function rvTeken() {
-    if (!RV) return;
-    $("map").classList.toggle("rv-spoor", mode === "reis" && !focus);
+  // ---------- de stap van nu: schijnwerper (keuze van Martijn, 21-11-2026; docs/bijbelreis-audit/routes.md) ----------
+  // In een stap: de rest van de reis grijs en zwak, de lijn van de stap in de kleur van de reiziger met een witte rand en
+  // een zachte gloed, en genummerde haltes (1, 2, 3 …) naast de plaatsen waar de route langs komt.
+  // Overzicht van een deel (ook ‘Hele reis’) en een geschiedenis: rustig (#map.rt-rust). Alle stappen even sterk in hun
+  // eigen kleur met een witte rand; geen gloed, geen nummers.
+  // Een zijroute (een andere reiziger in een stap waar de reiziger van het deel ook reist, zoals het leger van Farao) is
+  // dun, zonder gloed en ligt onder de hoofdroute.
+  // Haltes zijn alleen plaatsen uit plaatsen.js die bij de stap al op de kaart staan: geen nieuwe punten.
+  let haltes = [];
+  function stapTeken() {
+    const rust = !!focus || (mode === "reis" && (cur < 0 || showAll));
+    $("map").classList.toggle("rt-rust", rust);
+    haltes = [];
     partRoutes.forEach((g) => {
-      g.rv.clearLayers();
+      g.stap.clearLayers();
       if (!map.hasLayer(g)) return;
-      const d = g.deel, inStap = mode === "reis" && !focus && d === deel && cur >= 0 && !showAll;
+      const d = g.deel, inStap = mode === "reis" && !focus && d === deel && cur >= 0 && !showAll, zij = [], hoofd = [];
       d.steps.forEach((s) => {
-        const rs = s.r || [], el = (r) => r.line.getElement();
-        const act = rs.filter((r) => el(r) && el(r).classList.contains("active")), heeftHoofd = act.some((r) => r.w === d.c);
-        rs.forEach((r) => { const zij = act.includes(r) && heeftHoofd && r.w !== d.c; [r.line, r.casing].forEach((l) => { const e = l.getElement(); if (e) { e.classList.toggle("rv-zij", zij); e.classList.toggle("rv-hoofd", r.w === d.c); } }); });
-        // De lijn van de stap boven alle andere; in B wat nog komt onder alles (routes over dezelfde weg overlappen).
-        if (RV === "b") rs.forEach((r) => { if (!act.includes(r) && el(r) && el(r).classList.contains("future")) r.line.bringToBack(); });
-        act.forEach((r) => { r.casing.bringToFront(); r.line.bringToFront(); });
-        if (!act.length) return;
-        const hoofd = act.filter((r) => !(heeftHoofd && r.w !== d.c));
-        if (RV === "a") act.forEach((r) => rvLangs(r, 100).forEach((q) => g.rv.addLayer(rvMarker(q.ll, `<svg class="rv-pijl${hoofd.includes(r) ? "" : " zij"}" style="--rvk:${color(r.w)};transform:rotate(${q.a.toFixed(1)}deg)" viewBox="-8 -8 16 16" aria-hidden="true"><path d="M-5 -6 L6 0 L-5 6 L-2 0 Z"/></svg>`, -500))));
-        if (RV === "a" && inStap && hoofd.length) {
-          const r0 = hoofd[0], r1 = hoofd[hoofd.length - 1];
-          g.rv.addLayer(rvMarker(r0.pts[0], `<span class="rv-ring begin" style="--rvk:${color(r0.w)}"></span>`, -1000));
-          g.rv.addLayer(rvMarker(r1.pts[r1.pts.length - 1], `<span class="rv-ring eind" style="--rvk:${color(r1.w)}"></span>`, -1000));
-        }
-        if (RV === "c") {
-          hoofd.forEach((r) => { const gl = L.polyline(r.pts, { className: "rv-gloed", color: color(r.w), interactive: false }); g.rv.addLayer(gl); gl.bringToBack(); });
-          if (inStap) {
-            // Alleen plaatsen die bij deze stap op de kaart staan (met naam); komt de reis twee keer langs, dan één bordje ‘1 · 5’.
-            const haltes = [], perPlaats = new Map();
-            hoofd.forEach((r) => r.p.forEach((id, j) => { if (typeof id === "string" && markers[id] && map.hasLayer(markers[id]) && haltes[haltes.length - 1]?.id !== id) haltes.push({ id, ll: r.pts[j], w: r.w }); }));
-            haltes.forEach((h, k) => { const x = perPlaats.get(h.id); if (x) x.n.push(k + 1); else perPlaats.set(h.id, { ...h, n: [k + 1] }); });
-            perPlaats.forEach((h) => g.rv.addLayer(rvMarker(h.ll, `<span class="rv-nr" style="--rvk:${color(h.w)}">${h.n.join(" · ")}</span>`, 900)));
-          }
-        }
+        const vis = (s.r || []).filter((r) => { const e = r.line.getElement(); return e && !e.classList.contains("future"); });
+        const metHoofd = vis.some((r) => r.w === d.c);
+        (s.r || []).forEach((r) => { const z = metHoofd && r.w !== d.c && vis.includes(r); [r.line, r.casing].forEach((l) => { const e = l.getElement(); if (e) e.classList.toggle("rt-zij", z); }); (z ? zij : vis.includes(r) ? hoofd : []).push(r); });
+      });
+      const actief = (r) => r.line.getElement().classList.contains("active");
+      if (rust) {
+        // Een witte rand onder elke zichtbare lijn (de omranding zelf blijft het brede, onzichtbare klikvlak).
+        zij.concat(hoofd).forEach((r) => g.stap.addLayer(L.polyline(r.pts, { className: "rt-rand" + (zij.includes(r) ? " rt-zij" : ""), interactive: false })));
+        zij.concat(hoofd).forEach((r) => r.line.bringToFront());
+        return;
+      }
+      // De lijn van de stap boven alle andere, de zijroute eronder; de gloed onder alles.
+      zij.concat(hoofd).filter(actief).forEach((r) => { r.casing.bringToFront(); r.line.bringToFront(); });
+      const nu = hoofd.filter(actief);
+      nu.forEach((r) => { const gl = L.polyline(r.pts, { className: "rt-gloed", color: color(r.w), interactive: false }); g.stap.addLayer(gl); gl.bringToBack(); });
+      if (!inStap || !nu.length) return;
+      // Komt de reis twee keer langs dezelfde plaats, dan één bordje ‘1 · 5’. De bordjes krijgen hun plek in refreshLabels.
+      const lijst = [], per = new Map();
+      nu.forEach((r) => r.p.forEach((id) => { if (typeof id === "string" && markers[id] && map.hasLayer(markers[id]) && lijst[lijst.length - 1]?.id !== id) lijst.push({ id, w: r.w }); }));
+      if (lijst.length < 2) return; // één halte: geen nummer nodig
+      lijst.forEach((h, k) => { const x = per.get(h.id); if (x) x.n.push(k + 1); else per.set(h.id, { ...h, n: [k + 1] }); });
+      per.forEach((h) => {
+        const m = L.marker(markers[h.id].getLatLng(), { interactive: false, keyboard: false, zIndexOffset: 900, icon: icon(`<span class="halte off" style="--hk:${tekstKleur(h.w)}" aria-hidden="true">${h.n.join(" · ")}</span>`, "haltes") });
+        g.stap.addLayer(m);
+        haltes.push({ m, kern: h.n.includes(1) || h.n.includes(lijst.length) });
       });
     });
+    // Begin en eind eerst, dan op volgorde.
+    haltes.sort((a, b) => b.kern - a.kern);
+    queueLabels();
   }
-  // B: na aankomst van de reiziger glijdt drie keer een lichtstreep over de lijn van de stap, van begin naar eind.
-  function rvAangekomen() {
-    if (RV !== "b" || reduceMotion || focus || cur < 0) return;
-    const g = partRoutes.get(deel.key), s = deel.steps[cur];
-    if (!g || !map.hasLayer(g) || !s.r) return;
-    const heeftHoofd = s.r.some((r) => r.w === deel.c);
-    s.r.filter((r) => !(heeftHoofd && r.w !== deel.c)).forEach((r) => {
-      const v = L.polyline(r.pts, { className: "rv-veeg", interactive: false }); g.rv.addLayer(v);
-      const e = v.getElement(); if (e) e.style.setProperty("--L", Math.ceil(e.getTotalLength()));
+  // Haltebordjes naast hun plaats: links, boven, onder of rechts van het plaatsteken (en van de reiziger als die erop
+  // staat), nooit over een plaatsnaam, een plaatsteken, de reiziger, een knop of een ander bordje. Past een bordje nergens
+  // (plaatsen dicht bij elkaar, zoals Lystre en Derbe), dan blijft het weg tot je inzoomt; begin en eind gaan voor.
+  function plaatsHaltes(placed, reiziger, size) {
+    if (!haltes.length) return;
+    const tekens = [];
+    Object.values(markers).forEach((m) => { if (!map.hasLayer(m) || !m.getElement()) return; const pt = map.latLngToContainerPoint(m.getLatLng()), e = m.getElement().firstChild, h = e.classList.contains("fuzz") ? 16 : e.classList.contains("area") ? 0 : 8; if (h) tekens.push([pt.x - h, pt.y - h, 2 * h, 2 * h]); });
+    lyAlt.eachLayer((m) => { const pt = map.latLngToContainerPoint(m.getLatLng()); tekens.push([pt.x - 6, pt.y - 6, 12, 12]); });
+    const bezet = placed.concat(tekens), ui = uiRects();
+    const binnen = (r) => r[0] >= 2 && r[1] >= 2 && r[0] + r[2] <= size.x - 2 && r[1] + r[3] <= size.y - 2;
+    const maat = haltes.map((h) => { const e = h.m.getElement() && h.m.getElement().firstChild; return e ? [e.offsetWidth, e.offsetHeight] : null; });
+    haltes.forEach((h, k) => {
+      const e = h.m.getElement() && h.m.getElement().firstChild; if (!e || !maat[k]) return;
+      const pt = map.latLngToContainerPoint(h.m.getLatLng()), [w, hh] = maat[k];
+      // De plaats zelf buiten beeld (ingezoomd) of onder een knop of het stapblad: geen bordje, anders staat het nummer bij
+      // een andere plaats.
+      if (pt.x < 0 || pt.y < 0 || pt.x > size.x || pt.y > size.y || ui.some((r) => pt.x >= r[0] && pt.x <= r[0] + r[2] && pt.y >= r[1] && pt.y <= r[1] + r[3])) { e.classList.add("off"); return; }
+      let a = tekens.find((t) => t[0] < pt.x && pt.x < t[0] + t[2] && t[1] < pt.y && pt.y < t[1] + t[3]) || [pt.x - 8, pt.y - 8, 16, 16];
+      if (reiziger && hits(a, reiziger)) { const x0 = Math.min(a[0], reiziger[0]), y0 = Math.min(a[1], reiziger[1]); a = [x0, y0, Math.max(a[0] + a[2], reiziger[0] + reiziger[2]) - x0, Math.max(a[1] + a[3], reiziger[1] + reiziger[3]) - y0]; }
+      const cx = a[0] + a[2] / 2, cy = a[1] + a[3] / 2;
+      let plek = null;
+      for (const g of [3, 12]) {
+        const opties = [[a[0] - g - w, cy - hh / 2], [cx - w / 2, a[1] - g - hh], [cx - w / 2, a[1] + a[3] + g], [a[0] + a[2] + g, cy - hh / 2], [a[0] - g - w + 5, a[1] - g - hh + 5], [a[0] + a[2] + g - 5, a[1] - g - hh + 5], [a[0] - g - w + 5, a[1] + a[3] + g - 5], [a[0] + a[2] + g - 5, a[1] + a[3] + g - 5]];
+        // De witte rand (2 px) hoort bij het bordje.
+        plek = opties.map(([x, y]) => [x - 2, y - 2, w + 4, hh + 4]).find((r) => binnen(r) && !bezet.some((q) => hits(r, q)));
+        if (plek) break;
+      }
+      e.classList.toggle("off", !plek);
+      if (!plek) return;
+      e.style.left = `${Math.round(plek[0] + 2 - pt.x)}px`; e.style.top = `${Math.round(plek[1] + 2 - pt.y)}px`;
+      bezet.push(plek);
     });
   }
-  if (RV) map.on("zoomend", rvTeken);
   // ---------- de reiziger op de kaart ----------
   // De kameel (in het Nieuwe Testament een wandelaar) loopt per stap langs de lijn van de route. De regels staan in
   // docs/BIJBELREIS.md (‘De reiziger op de kaart’). Er loopt nooit meer dan één reis: alles wat animToken verhoogt
@@ -825,7 +822,7 @@
       // Het schermpunt waar hij zichtbaar staat; null zolang hij weg is.
       let staat = sluitAan ? paden[0].px[0] : null;
       function been(i) {
-        if (i >= paden.length) { camel.setLatLng(end); camelStyle(routes[routes.length - 1].w, false); queueLabels(); rvAangekomen(); return; }
+        if (i >= paden.length) { camel.setLatLng(end); camelStyle(routes[routes.length - 1].w, false); queueLabels(); return; }
         const pad = paden[i], r = pad.r, T = duren[i], a = Math.min(0.3, REIS.aanloop / T);
         if (pad.len < 1) { volleLijn(r); been(i + 1); return; } // geen zichtbare lengte: niets te lopen
         const stap = () => {
@@ -1605,10 +1602,9 @@
         const verborgen = niveau === "a" && (r.w === "rood" || (samen && samen.plaatsen && !eindjes.every((x) => samen.plaatsen.includes(x))));
         const st = focus.keys.has(s.key) && !verborgen ? "active" : "future";
         [r.line, r.casing].forEach((l) => { const el = l.getElement(); if (el) { el.classList.remove("past", "active", "future", "hl"); el.classList.add(st); } });
-        r.arrows.forEach((a) => { const e = a.getElement(); if (e) { e.firstChild.classList.toggle("off", st === "future"); e.firstChild.classList.remove("dim"); } });
       }));
     });
-    rvTeken();
+    stapTeken();
     const binnenSamen = (r) => !(samen && samen.plaatsen) || [r.p[0], r.p[r.p.length - 1]].filter((x) => typeof x === "string").every((x) => samen.plaatsen.includes(x));
     const pts = steps.flatMap((s) => (s.r || []).filter((r) => r.w !== "rood" && binnenSamen(r)).flatMap((r) => r.pts)).concat(focus.at.map(ll));
     const last = steps[steps.length - 1], lr = last.r && last.r[last.r.length - 1];

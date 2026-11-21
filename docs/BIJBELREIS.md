@@ -147,6 +147,32 @@ meer dan één reis: een nieuwe stap, het overzicht, ‘Laat dit hele deel zien�
 de lopende of nog wachtende reis af (`animToken`). Bij `prefers-reduced-motion` staat hij meteen op de bestemming en is
 de lijn meteen af. De tests staan in `e2e/bijbelreis-kameel.spec.ts`.
 
+## Routes: schijnwerper (21-11-2026)
+
+Keuze van Martijn uit drie proefweergaven ([bijbelreis-audit/routes.md](bijbelreis-audit/routes.md)): **C · Schijnwerper**
+is de vaste weergave; de proefschakelaar `?routes=` en de varianten A en B zijn weg (`stapTeken()` en `plaatsHaltes()`
+in `app.js`, de regels onder ‘Routes: de schijnwerper’ in `bijbelreis.css`).
+
+- **In een stap:** de rest van de reis grijs en zwak (30 %); de lijn van de stap in de kleur van de reiziger, 5,5 px, met
+  een witte rand van 1,75 px aan elke kant en een zachte gloed; bovenop de andere lijnen. Geen pijltjes meer.
+- **Haltes:** genummerde bordjes 1, 2, 3 … bij de plaatsen waar de route van de stap langs komt (alleen plaatsen die al op
+  de kaart staan; komt de reis twee keer langs, dan één bordje ‘1 · 5’; bij één plaats geen nummer). Een bordje staat
+  **naast** het plaatsteken (links, boven, onder of rechts, zo nodig iets verder weg), nooit over een plaatsnaam, een
+  plaatsteken, de reiziger, een knop of een ander bordje. Begin en eind krijgen als eerste een plek; het eindnummer staat
+  naast de kameel, niet eronder. Past een bordje nergens (Lystre, Derbe en Ikonium op de telefoon), dan blijft het weg tot
+  je inzoomt. Ligt de plaats buiten beeld of onder het stapblad, dan geen bordje.
+- **Zijroute** (een ander onderweg in een stap waar de reiziger van het deel ook reist, zoals het leger van Farao): 3,2 px,
+  zonder gloed, onder de lijn van de stap.
+- **Overzicht van een deel (‘Hele reis’) en een geschiedenis:** rustig (`#map.rt-rust`): alle stappen even sterk in hun
+  eigen kleur (3,5 px) met een witte rand, zonder gloed en zonder nummers. Het gaat daar om de hele weg, niet om één stap.
+- **Kleur:** de lijn gebruikt de donkere variant (`tekstKleur`); daardoor haalt ook oker (de wijzen in het thema Kerst)
+  4,8 : 1 of meer tegen de witte rand. De gloed en de kameel houden de gewone kleur.
+- **Minder beweging:** op de kaart beweegt dan niets (de reiziger staat meteen op de bestemming).
+- Legenda: ‘De stap van nu’, ‘Haltes van de stap, op volgorde’, ‘Grijs: al gereisd’, ‘Dun: een ander onderweg, zoals een
+  leger’ en ‘Gestreept: reconstructie’.
+- Test: `e2e/bijbelreis-routes.spec.ts` (nummering, geen bordje over een naam of teken, contrast, rustig overzicht; op
+  telefoon, tablet en desktop).
+
 ## Controleren
 
 - `node --check public/bijbelreis/inhoud/<boek>.js`; open de pagina lokaal (`npx vite preview` of `python3 -m http.server` in `public/`) en kijk in de console: `Bijbelreis: onbekende plaatsen…` betekent een id die niet bestaat.

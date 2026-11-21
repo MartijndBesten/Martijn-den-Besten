@@ -244,8 +244,8 @@ gewogen dan de laatste 2 %. Van de ruimte tussen kop en onderbalk is 73 % kaart:
   helft van het vrije deel.
 - In het overzicht van een deel staan veel namen dicht op elkaar (bestond al); op de grotere kaart valt dat meer op.
 - Op een liggende telefoon is de kaart laag (de kop en de onderbalk blijven staan); bruikbaar, niet fraai.
-- De routes zelf (welke lijn is de stap, begin, eind, richting) zijn nog niet duidelijker gemaakt. Meting en drie
-  voorstellen om uit te kiezen (proefschakelaar `?routes=a|b|c`): [routes.md](routes.md) (21-11-2026).
+- De routes zelf (welke lijn is de stap, begin, eind, richting): opgelost met de schijnwerper (keuze van Martijn,
+  21-11-2026): [routes.md](routes.md).
 - De referentiebeelden van de visuele test voor telefoon en tablet (`e2e/bijbelreis-visueel.spec.ts-snapshots/*-mobiel-*`
   en `*-tablet-*`) horen bij de oude opzet en moeten in het vaste Playwright-image opnieuw gemaakt en bekeken worden.
 
