@@ -328,8 +328,8 @@ toestellen.
 
 **Het zijn echte simulatorbeelden:** de app zelf in WKWebView in de iOS-simulator (iOS 26.5), met statusbalk (9:41,
 volle batterij), Dynamic Island en de echte lettertypen, gemaakt door de workflow `iOS-app` (artefact
-**simulator-schermafbeeldingen**, map `appstore/`), run 44764014669 van 20-11-2026 op de branch met de nieuwste main
-(https://github.com/MartijndBesten/Martijn-den-Besten/actions/runs/44764014669). De vorige set waren browserweergaven
+**simulator-schermafbeeldingen**, map `appstore/`), run 44883647818 van 21-11-2026 (PR #66: lichte kop, niveaus Voorlezen / Zelf lezen / Verdiepen)
+(https://github.com/MartijndBesten/Martijn-den-Besten/actions/runs/44883647818). De vorige set waren browserweergaven
 (Chromium, zonder statusbalk); die zijn vervangen. `npm run screenshots` maakt nog browserweergaven, maar nu in
 `store/screenshots-browser/` (niet in git), zodat ze de simulatorbeelden niet overschrijven. Nieuwe maken: workflow starten (Actions → iOS-app →
 Run workflow), artefact downloaden, `appstore/<map>/*.jpg` over `apps/ios/store/screenshots/` zetten.
