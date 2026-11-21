@@ -139,3 +139,6 @@ Issuer ID: bovenaan die pagina, 36 tekens; Team ID: developer.apple.com → Acco
 Een handmatige run met ‘Ook naar TestFlight’ wacht **niet** op de simulatortest van job `bouw` (die op drukke runners
 soms langer dan een uur duurt); de job `testflight` controleert eerst de geheimen (binnen een minuut) en archiveert
 dan zelf de Release-build. De simulatortest draait ernaast en blijft bij elke pull request verplicht.
+Elke handmatige run heeft een eigen concurrency-groep (`ios-<ref>-<run_id>`). Een nieuwe handmatige run blijft dus niet
+‘pending’ staan achter een eerdere run waarvan de simulatortest nog loopt (gebeurd op 21-11-2026, run 44936352114).
+Twee uploads lopen nooit tegelijk: de job `testflight` heeft daarvoor zijn eigen groep `testflight`.

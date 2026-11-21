@@ -39,8 +39,9 @@ permissions:
   contents: read
 
 concurrency:
-  group: ios-${{ github.ref }}
-  # Een nieuwe push stopt een oude bouw; een upload naar TestFlight wordt nooit halverwege afgebroken.
+  # Een nieuwe push stopt een oude bouw. Een handmatige run krijgt een eigen groep: die wacht nooit op (of stopt nooit)
+  # een eerdere run die nog in de simulatortest hangt. Uploads naar TestFlight blijven via de jobgroep 'testflight' na elkaar.
+  group: ios-${{ github.ref }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || 'auto' }}
   cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
 
 env:
