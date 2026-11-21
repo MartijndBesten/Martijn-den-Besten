@@ -332,6 +332,23 @@ test.describe("De wereld in die tijd", () => {
     expect(f).toEqual([]);
   });
 
+  test("Herodes en de keizers van Rome: de kruisiging zonder jaartal, als tijdvak ‘in de tijd van Pilatus’", async ({ page }) => {
+    const f = fouten(page);
+    await page.goto("/bijbelreis?wereld=1#v125");
+    await page.locator(".wt-ingang").click();
+    await expect(page).toHaveURL(/#wereld\/geboorte-jezus\/29$/);
+    await expect(page.locator(".wt-onderschrift .wt-os-jaar")).toHaveText("in de tijd van Pilatus");
+    if (await page.getByRole("tab", { name: "Gebeurtenissen" }).isVisible()) await page.getByRole("tab", { name: "Gebeurtenissen" }).click();
+    const m = page.locator(".wt-m.gebeurtenis").filter({ hasText: "De kruisiging en de opstanding" });
+    await expect(m.locator(".wt-m-jaar")).toHaveText("in de tijd van Pilatus");
+    if (await page.getByRole("tab", { name: "Levenslijnen" }).isVisible()) await page.getByRole("tab", { name: "Levenslijnen" }).click();
+    await page.locator('.wt-naam[data-p="pilatus"]').click();
+    const k = page.locator(".wt-kaartje").filter({ hasText: "Pilatus" });
+    await expect(k.locator(".wt-evlijst")).toContainText("in de tijd van PilatusDe kruisiging en de opstanding");
+    await expect(laag(page)).not.toContainText(/30 of 33|30–33/);
+    expect(f).toEqual([]);
+  });
+
   test("Israël, Juda en Assyrië: vanuit ‘Samaria valt’ (v66) naar 722 v.Chr., kaart, afspelen, Jona, Elia, en exact terug", async ({ page }) => {
     const f = fouten(page);
     await page.goto("/bijbelreis?wereld=1#v66");
