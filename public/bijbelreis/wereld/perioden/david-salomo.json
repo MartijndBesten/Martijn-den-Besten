@@ -62,14 +62,6 @@
    "geraadpleegd": "2026-11-17"
   },
   {
-   "id": "hiram",
-   "soort": "historisch",
-   "titel": "Hiram I (Wikipedia, Engels): regering volgens Josephus (Tegen Apion 1.17–18, naar Menander van Efeze)",
-   "url": "https://en.wikipedia.org/wiki/Hiram_I",
-   "licentie": "CC BY-SA 4.0 (Wikipedia); alleen feiten gebruikt, in eigen woorden",
-   "geraadpleegd": "2026-11-17"
-  },
-  {
    "id": "bijbelreis-plaatsen",
    "soort": "dataset",
    "titel": "Bijbelreis plaatsen.js (ligging gecontroleerd met OpenBible.info CC BY 4.0 en Pleiades CC BY)",
@@ -277,42 +269,6 @@
    "verhaal": "v57"
   },
   {
-   "id": "hiram",
-   "naam": "Hiram",
-   "alt": [],
-   "personenId": "hiram",
-   "lijn": "regering",
-   "van": {
-    "jaar": 980,
-    "status": "benaderd",
-    "bron": [
-     "hiram",
-     "2 Samuël 5:11"
-    ],
-    "begin": "regering",
-    "opmerking": "Volgens Josephus (naar Menander) regeerde Hiram 34 jaar; onderzoekers rekenen dat om naar ongeveer 980–947 v.Chr. 2 Samuël 5:11 noemt Hiram al bij David, kort na de verovering van Jeruzalem. Dat past niet goed bij een begin rond 980; hoe dat zit, is onzeker."
-   },
-   "tot": {
-    "jaar": 947,
-    "status": "benaderd",
-    "bron": "hiram",
-    "einde": "stierf",
-    "marge": [947,946]
-   },
-   "ouder": null,
-   "rol": "Koning van Tyrus; leverde cederhout en vaklieden voor David en Salomo",
-   "ref": [
-    "2 Samuël 5:11",
-    "1 Koningen 5:1–12",
-    "1 Koningen 9:10–14"
-   ],
-   "gebeurtenissen": [
-    "tempel"
-   ],
-   "verhaal": "v61",
-   "opmerking": "Hij staat in de Bijbel én in de geschiedenis van Tyrus die Josephus overneemt."
-  },
-  {
    "id": "salomo",
    "naam": "Salomo",
    "alt": [],
@@ -363,7 +319,7 @@
      "1 Koningen 14:21"
     ],
     "begin": "geboorte",
-    "opmerking": "‘Een en veertig jaren was Rehabeam oud, als hij koning werd’ (1 Koningen 14:21). Teruggerekend vanaf 930 v.Chr. werd hij rond 971 v.Chr. geboren, nog in de tijd van David. De Bijbel noemt geen geboortejaar."
+    "opmerking": "‘een en veertig jaren was Rehabeam oud, als hij koning werd’ (1 Koningen 14:21). Teruggerekend vanaf 930 v.Chr. werd hij rond 971 v.Chr. geboren, nog in de tijd van David. De Bijbel noemt geen geboortejaar."
    },
    "tot": {
     "jaar": 913,
@@ -552,12 +508,12 @@
   {
    "id": "jeruzalem",
    "titel": "David koning over heel Israël",
-   "tekst": "Alle stammen zalven David tot koning. Hij neemt de burg Sion in en Jeruzalem wordt ‘de stad Davids’ (2 Samuël 5:7).",
+   "tekst": "Alle stammen zalven David tot koning. Hij neemt de burg Sion in, Jeruzalem wordt ‘de stad Davids’ (2 Samuël 5:7), en Hiram, de koning van Tyrus, stuurt cederhout en vaklieden voor het huis van David.",
    "jaar": 1003,
    "tot": null,
    "status": "benaderd",
    "bron": [
-    "2 Samuël 5:3–9",
+    "2 Samuël 5:3–11",
     "bijbelreis-dateringen"
    ],
    "personen": [
@@ -575,7 +531,7 @@
    "tekst": "David verslaat de Filistijnen, Moab, de Syriërs van Zoba en Damascus, Edom en Ammon. Zij moeten hem geschenken brengen.",
    "jaar": 990,
    "tot": null,
-   "status": "expliciet",
+   "status": "benaderd",
    "bron": [
     "2 Samuël 8:1–14",
     "2 Samuël 10:1–19",
@@ -625,8 +581,7 @@
     "1 Koningen 5:1–10"
    ],
    "personen": [
-    "salomo",
-    "hiram"
+    "salomo"
    ],
    "plaats": "salem",
    "verhaal": "v61",
@@ -934,7 +889,6 @@
    "bron": [
     "2 Samuël 5:11",
     "1 Koningen 5:1",
-    "hiram",
     "eigen-tekening"
    ],
    "opmerking": "Grenzen bij benadering: rijken en volken hadden geen vaste grenzen zoals nu. De kuststrook met Tyrus en Sidon, tot de kam van de Libanon. Tyrus was bevriend met David en Salomo (1 Koningen 5:1).",
@@ -1165,7 +1119,7 @@
    "plaatsId": "tyrus",
    "lat": 33.27,
    "lng": 35.2,
-   "tekst": "Havenstad van de Feniciërs. Koning Hiram stuurde cederhout en vaklieden naar Jeruzalem.",
+   "tekst": "Havenstad van de Feniciërs. Koning Hiram stuurde cederhout en vaklieden naar Jeruzalem: eerst voor het huis van David, later voor de tempel van Salomo.",
    "bron": [
     "2 Samuël 5:11",
     "1 Koningen 5:1–10"
@@ -1382,8 +1336,7 @@
    "tot": 959,
    "status": "benaderd",
    "personen": [
-    "salomo",
-    "hiram"
+    "salomo"
    ],
    "gebeurtenissen": [
     "tempel"

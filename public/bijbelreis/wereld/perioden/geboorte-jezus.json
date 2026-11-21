@@ -439,7 +439,7 @@
     "bron": "wiki-filippus",
     "einde": "stierf",
     "marge": [33,34],
-    "opmerking": "Hij stierf in het twintigste jaar van Tiberius, 33 of 34 n.Chr. (Josephus). Niet dezelfde als Filippus de apostel, en ook niet de Filippus van Markus 6:17."
+    "opmerking": "Hij stierf in het twintigste jaar van Tiberius, 33 of 34 n.Chr. (Josephus). Niet dezelfde als Filippus de apostel."
    },
    "ouder": "herodes",
    "rol": "Zoon van Herodes; viervorst over Iturea en Trachonitis; bouwde Caesarea Filippi",
@@ -700,7 +700,7 @@
   {
    "id": "terug-nazareth",
    "titel": "Terug uit Egypte, naar Nazareth",
-   "tekst": "Na de dood van Herodes keert Jozef met Maria en het Kind terug. Omdat Archelaüs koning is in Judea, gaan ze naar Nazareth in Galilea, het land van Herodes Antipas.",
+   "tekst": "Na de dood van Herodes keert Jozef met Maria en het Kind terug. Omdat Archelaüs koning is in Judea, is Jozef bang om daarheen te gaan; hij wordt ‘door Goddelijke openbaring vermaand in den droom’ (Mattheüs 2:22) en gaat naar Nazareth in Galilea, het land van Herodes Antipas.",
    "jaar": -4,
    "tot": null,
    "status": "benaderd",
@@ -802,12 +802,14 @@
    "id": "kruisiging",
    "titel": "De kruisiging en de opstanding",
    "tekst": "Onder Pontius Pilatus wordt de Heere Jezus gekruisigd buiten Jeruzalem. Op de derde dag staat Hij op uit de doden.",
-   "jaar": 30,
-   "tot": null,
+   "jaar": 29,
+   "tot": 36,
    "status": "benaderd",
    "bron": [
     "Lukas 23:1–25",
-    "Lukas 24:1–7"
+    "Johannes 19:1–18",
+    "Lukas 24:1–7",
+    "Lukas 3:1"
    ],
    "personen": [
     "pilatus",
@@ -817,8 +819,8 @@
    "plaats": "salem",
    "verhaal": "v125",
    "belangrijk": true,
-   "marge": [30,33],
-   "opmerking": "De Bijbel noemt geen jaartal. Pilatus was stadhouder van ca. 26 tot 36 n.Chr.; daarom wordt dit meestal op 30 of 33 n.Chr. gesteld."
+   "wanneer": "in de tijd van Pilatus",
+   "opmerking": "De Bijbel noemt geen jaartal, wel dat het onder Pontius Pilatus was (Lukas 23, Johannes 19). Pilatus was al stadhouder over Judea toen Johannes de Doper begon te prediken (Lukas 3:1). Daarom staat dit hier zonder jaartal, als een tijdvak: na de doop, in de tijd van Pilatus."
   }
  ],
  "gebieden": [
@@ -1778,7 +1780,7 @@
   {
    "verhaal": "v100",
    "jaar": 28,
-   "tot": 33,
+   "tot": 36,
    "status": "benaderd",
    "personen": [
     "antipas",
@@ -1791,8 +1793,9 @@
   },
   {
    "verhaal": "v125",
-   "jaar": 30,
-   "tot": 33,
+   "jaar": 29,
+   "tot": 36,
+   "wanneer": "in de tijd van Pilatus",
    "status": "benaderd",
    "personen": [
     "pilatus",
@@ -1803,7 +1806,7 @@
    "gebeurtenissen": [
     "kruisiging"
    ],
-   "opmerking": "De Bijbel noemt geen jaartal. Meestal wordt de kruisiging op 30 of 33 n.Chr. gesteld, in de tijd dat Pilatus stadhouder was."
+   "opmerking": "De Bijbel noemt geen jaartal, wel dat het onder Pontius Pilatus was (Johannes 19). Daarom staat het hier zonder jaartal, als een tijdvak: na de doop, in de tijd van Pilatus."
   }
  ]
 }

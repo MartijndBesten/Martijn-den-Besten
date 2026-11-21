@@ -196,6 +196,10 @@
     return K.tweeJaren(Math.round(K.naarJaar(t1, S.as)), Math.round(K.naarJaar(t2, S.as)), S.as);
   }
   const jaarVol = (t) => K.jaarTekst(t, S.as) + (K.telt(S.as) ? " " + asLabel(S.as) : "");
+  // Een gebeurtenis zonder jaartal (bijv. de kruisiging: ‘in de tijd van Pilatus’) staat als tijdvak op de tijdlijn; waar
+  // anders een jaar staat, staat dan die omschrijving.
+  const wanneerTekst = (e) => e.wanneer || bereikTekst(e.t, e.t2);
+  const wanneerKort = (e) => e.wanneer || K.jaarTekst(e.t, S.as, K.telt(S.as));
   function zetTerugKnop() {
     D.terug.querySelector("span").textContent = S.terugNaam ? "Terug naar het verhaal" : "Terug";
     D.terug.setAttribute("aria-label", S.terugNaam ? `Terug naar het verhaal: ${S.terugNaam}` : "Terug naar de Bijbelreis");
@@ -206,7 +210,7 @@
     const k = koppelingNu();
     if (!k || (!k.opmerking && k.tot == null)) return false;
     const as = S.as, t1 = K.naarT(k.jaar, as), t2 = k.tot != null ? K.naarT(k.tot, as) : t1;
-    onderschrift({ t: Math.min(t1, t2), t2: Math.max(t1, t2), titel: S.terugNaam || "Dit verhaal", tekst: k.opmerking || "" });
+    onderschrift({ t: Math.min(t1, t2), t2: Math.max(t1, t2), wanneer: k.wanneer, titel: S.terugNaam || "Dit verhaal", tekst: k.opmerking || "" });
     return true;
   }
   // Personen en gebeurtenissen die bij het verhaal horen waaruit de laag openging, krijgen nadruk (niet gekozen).
@@ -419,7 +423,7 @@
     const sleutel = e.id || e.titel + e.t;
     if (S.osId === sleutel) return;
     S.osId = sleutel;
-    o.querySelector(".wt-os-jaar").textContent = bereikTekst(e.t, e.t2);
+    o.querySelector(".wt-os-jaar").textContent = wanneerTekst(e);
     o.querySelector(".wt-os-titel").textContent = e.titel;
     o.querySelector(".wt-os-tekst").textContent = e.tekst;
     o.classList.add("gevuld");
@@ -432,7 +436,7 @@
       if (!S) return;
       const leven = S.M.personen.filter((p) => K.leeftNog(p, S.t)).length;
       const e = [...S.M.gebeurtenissen].reverse().find((x) => x.t <= S.t + 1e-6 && S.t <= x.t2 + 1);
-      D.live.textContent = `${jaarVol(S.t)}. ${e ? e.titel + ". " : ""}${leven} van de ${S.M.personen.length} personen op deze tijdlijn ${allesLevens() ? "leven" : "zijn in beeld"}.`;
+      D.live.textContent = `${jaarVol(S.t)}. ${e ? e.titel + (e.wanneer ? ` (${e.wanneer})` : "") + ". " : ""}${leven} van de ${S.M.personen.length} personen op deze tijdlijn ${allesLevens() ? "leven" : "zijn in beeld"}.`;
     }, nu ? 120 : 700);
   }
   let laatsteMelding = 0;
@@ -440,7 +444,7 @@
     const nu = performance.now();
     if (nu - laatsteMelding < 2000) return;
     laatsteMelding = nu;
-    D.live.textContent = `${jaarVol(e.t)}: ${e.titel}.`;
+    D.live.textContent = e.wanneer ? `${e.titel}, ${e.wanneer}.` : `${jaarVol(e.t)}: ${e.titel}.`;
   }
 
   // ---------- levenslijnen: opbouw (bij formaat, zoom, schuiven) ----------
@@ -794,7 +798,7 @@
       ${tegelijk.length ? `<h4 class="wt-label">${p.begin === "geboorte" && allesLevens() ? "Leefde tegelijk met" : "Tegelijk op de tijdlijn met"}</h4><p class="wt-uitleg">Kies iemand om te vergelijken.</p><p class="wt-vergelijking" aria-live="polite">${S.vergelijk ? vergelijkZin(p, M.byId.get(S.vergelijk)) : ""}</p><ul class="wt-tegelijk">${tegelijk.map(({ q, o }) => `<li><button type="button" data-vergelijk="${esc(q.id)}" aria-pressed="${q.id === S.vergelijk}"><span>${esc(q.naam)}</span><b>${o.minstens ? "≥ " : o.ongeveer ? "± " : ""}${o.jaren} jaar</b></button></li>`).join("")}</ul>` : ""}
       ${niet.length ? `<p class="wt-niet">Niet tegelijk met ${niet.map(({ q }) => `<button type="button" class="wt-link" data-vergelijk="${esc(q.id)}">${esc(q.naam)}</button>`).join(", ")}.</p>` : ""}
       ${!tegelijk.length ? `<p class="wt-vergelijking" aria-live="polite">${S.vergelijk ? vergelijkZin(p, M.byId.get(S.vergelijk)) : ""}</p>` : ""}
-      ${ev.length ? `<h4 class="wt-label">Gebeurtenissen</h4><ul class="wt-evlijst">${ev.map((e) => `<li><button type="button" data-naar="${e.t}"><span>${esc(K.jaarTekst(e.t, as, K.telt(as)))}</span>${esc(e.titel)}</button></li>`).join("")}</ul>` : ""}
+      ${ev.length ? `<h4 class="wt-label">Gebeurtenissen</h4><ul class="wt-evlijst">${ev.map((e) => `<li><button type="button" data-naar="${e.t}"><span>${esc(wanneerKort(e))}</span>${esc(e.titel)}</button></li>`).join("")}</ul>` : ""}
       <p class="wt-lees"><span class="wt-label">Lees in je Bijbel</span> ${(p.ref || []).map(esc).join(" · ")}</p>
       ${verhaal}
     </article>`;
@@ -817,12 +821,12 @@
     pauze();
     const as = S.as, vnr = e.verhaal && +e.verhaal.slice(1);
     const html = `<article class="wt-kaartje" aria-labelledby="wtInfoTitel">
-      <header class="wt-kaartje-kop"><p class="wt-label">Gebeurtenis</p><h3 id="wtInfoTitel" tabindex="-1">${esc(e.titel)}</h3><p class="wt-relatie">${esc(bereikTekst(e.t, e.t2))}${Array.isArray(e.marge) ? ` <small>(${esc(K.tweeJaren(e.marge[0], e.marge[1], as, Math.abs(K.naarT(e.marge[0], as) - K.naarT(e.marge[1], as)) <= 1))}, niet precies bekend)</small>` : ""} ${chip(e.status)}</p><button type="button" class="wt-kaartje-sluit" data-wt-info-sluit aria-label="Sluiten">${ICON.sluit}</button></header>
+      <header class="wt-kaartje-kop"><p class="wt-label">Gebeurtenis</p><h3 id="wtInfoTitel" tabindex="-1">${esc(e.titel)}</h3><p class="wt-relatie">${esc(wanneerTekst(e))}${Array.isArray(e.marge) && !e.wanneer ? ` <small>(${esc(K.tweeJaren(e.marge[0], e.marge[1], as, Math.abs(K.naarT(e.marge[0], as) - K.naarT(e.marge[1], as)) <= 1))}, niet precies bekend)</small>` : ""} ${chip(e.status)}</p><button type="button" class="wt-kaartje-sluit" data-wt-info-sluit aria-label="Sluiten">${ICON.sluit}</button></header>
       <p class="wt-rolzin">${esc(e.tekst)}</p>
       ${e.opmerking ? `<p class="wt-noot">${esc(e.opmerking)}</p>` : ""}
       ${(e.personen || []).length ? `<p class="wt-relatie">Met ${e.personen.map((p) => S.M.byId.get(p)).filter(Boolean).map((p) => `<button type="button" class="wt-link" data-p="${esc(p.id)}">${esc(p.naam)}</button>`).join(", ")}</p>` : ""}
       <p class="wt-lees"><span class="wt-label">Bron</span> ${bronTekst(e.bron)}</p>
-      <button type="button" class="btn" data-naar="${e.t}">Ga naar ${esc(K.jaarTekst(e.t, as))}</button>
+      <button type="button" class="btn" data-naar="${e.t}">${e.wanneer ? "Ga naar deze tijd" : `Ga naar ${esc(K.jaarTekst(e.t, as))}`}</button>
       ${vnr && BR.atlas && BR.atlas.heeftVerhaal(vnr) ? `<button type="button" class="wt-verhaal" data-verhaal="${vnr}"><span>${S.koppeling === e.verhaal ? "Terug naar het verhaal" : "Lees het verhaal"}</span><b>${vnr}. ${esc(BR.atlas.verhaalTitel(vnr))}</b></button>` : ""}
     </article>`;
     S.infoVan = van || null;
@@ -912,8 +916,8 @@
     const oudste = leven.filter((p) => !onzeker(p)).sort((a, b) => (a.tGeboren != null ? a.tGeboren : a.t0) - (b.tGeboren != null ? b.tGeboren : b.t0))[0];
     D.nu.innerHTML = `<p class="wt-label">In ${esc(K.jaarTekst(t, as))}</p>
       <p class="wt-nu-getal"><b>${leven.length}</b> <span>${allesLevens() ? `van de ${M.personen.length} mensen op deze tijdlijn leven${leven.length === 1 ? "t" : ""}${oudste && leven.length > 1 ? `. De oudste is ${esc(oudste.naam)}, ${K.leeftijd(oudste, t)} jaar` : ""}` : `van de ${M.personen.length} personen ${leven.length === 1 ? "is" : "zijn"} nu in beeld${leven.length ? ": " + leven.map((p) => `${esc(p.naam)} <small>(${esc(lijnWoord(p))})</small>`).join(", ") : ""}`}.</span></p>
-      ${recent ? `<div class="wt-nu-ev"><p class="wt-label">Laatst gebeurd · ${esc(K.jaarTekst(recent.t, as, K.telt(as)))}</p><button type="button" class="wt-nu-titel" data-e="${esc(recent.id)}">${esc(recent.titel)}</button><p>${esc(recent.tekst)}</p></div>` : ""}
-      ${volgend ? `<p class="wt-nu-straks"><span class="wt-label">Hierna</span> <button type="button" class="wt-link" data-naar="${volgend.t}">${esc(volgend.titel)}</button>${Math.round(volgend.t - t) >= 1 ? `, over ${Math.round(volgend.t - t)} jaar` : ", nog in hetzelfde jaar"}</p>` : ""}
+      ${recent ? `<div class="wt-nu-ev"><p class="wt-label">Laatst gebeurd · ${esc(wanneerKort(recent))}</p><button type="button" class="wt-nu-titel" data-e="${esc(recent.id)}">${esc(recent.titel)}</button><p>${esc(recent.tekst)}</p></div>` : ""}
+      ${volgend ? `<p class="wt-nu-straks"><span class="wt-label">Hierna</span> <button type="button" class="wt-link" data-naar="${volgend.t}">${esc(volgend.titel)}</button>${volgend.wanneer ? `, ${esc(volgend.wanneer)}` : Math.round(volgend.t - t) >= 1 ? `, over ${Math.round(volgend.t - t)} jaar` : ", nog in hetzelfde jaar"}</p>` : ""}
       <p class="wt-tip">Kies een naam om te zien wie er tegelijk leefden, en hoe lang.</p>`;
   }
   function lijstOpbouw() {
@@ -924,7 +928,7 @@
       if (dubbel(m)) return `<li class="wt-m dubbel" data-i="${i}" hidden></li>`;
       if (m.soort === "gebeurtenis") {
         const e = M.gebeurtenissen.find((x) => x.id === m.gebeurtenis);
-        return `<li class="wt-m gebeurtenis" data-i="${i}"><span class="wt-m-jaar">${esc(K.jaarTekst(e.t, as, K.telt(as)))}</span><div><button type="button" class="wt-m-titel" data-naar="${e.t}">${esc(e.titel)}</button> ${chip(e.status)}<p>${esc(e.tekst)}</p><p class="wt-bron">${bronTekst(e.bron)}</p></div></li>`;
+        return `<li class="wt-m gebeurtenis${e.wanneer ? " tijdvak" : ""}" data-i="${i}"><span class="wt-m-jaar">${esc(wanneerKort(e))}</span><div><button type="button" class="wt-m-titel" data-naar="${e.t}">${esc(e.titel)}</button> ${chip(e.status)}<p>${esc(e.tekst)}</p><p class="wt-bron">${bronTekst(e.bron)}</p></div></li>`;
       }
       const p = M.byId.get(m.persoon);
       // Het begin van een lijn is niet altijd een geboorte (een regering, de wegvoering, de roeping).

@@ -68,7 +68,7 @@ jaartal); `berekend` = afgeleid uit Bijbelse getallen; `benaderd` = reconstructi
 | sardis | 547 | benaderd, marge 547–540 | Livius; Cahill (Sardis Expedition); Herodotus | lezing “Lydië” in ABC 7 omstreden; Grieks: 546; sommigen later |
 | val-babylon ★ | 539 | historisch | ABC 7 iii.12–18; Cyruscilinder; Dan. 5:30 | dood van Belsazar alleen in de Bijbel |
 | decreet-kores ★ | 538 | benaderd, marge 539–538 | Ezra 1:1–11; 2 Kron. 36:22–23 | Cyruscilinder als context: noemt Juda/Jeruzalem niet, is niet dit bevel |
-| leeuwenkuil | 538 | expliciet, marge 539–536 | Dan. 6 | geen jaar in de Bijbel; “Darius de Meder” omstreden |
+| leeuwenkuil | 538 | benaderd, marge 539–536 | Dan. 6 | geen jaar in de Bijbel; “Darius de Meder” omstreden; label ‘bij benadering’: het jaartal is een plaatsing (besluit Martijn, 21-11-2026) |
 | tempel-klaar | 515 | benaderd, marge 516–515 | Ezra 6:15–16 | als Darius = Darius I; sommigen 516 |
 
 ★ = `belangrijk: true`.
@@ -123,7 +123,7 @@ Pasargadae (30,195 N; 53,174 O), Saïs (30,967 N; 30,774 O), Tayma (27,622 N; 38
 |---|---|---|
 | v71 Jeruzalem verwoest, Jeremia gespaard | 586 | 2 Kon. 25 |
 | v73 Daniël en zijn vrienden aan het hof | 605–603 | Dan. 1:1; Dan. 2:1 (tweede jaar van Nebukadnezar) |
-| v74 Drie vrienden buigen niet | 603–562 (expliciet, geen jaar) | Dan. 3 noemt geen jaar |
+| v74 Drie vrienden buigen niet | 603–562 (benaderd, geen jaar) | Dan. 3 noemt geen jaar; label ‘bij benadering’: het jaartal is een plaatsing (besluit Martijn, 21-11-2026) |
 | v75 Daniël in de leeuwenkuil | 539–538 | Dan. 6 onder Darius de Meder |
 | v76 Terug naar Jeruzalem: de tempel herbouwd | 538–515 | Ezra 1–6 |
 

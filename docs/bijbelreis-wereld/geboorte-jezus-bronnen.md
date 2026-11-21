@@ -13,10 +13,20 @@ Peildatum: 17 november 2026. Alle webbronnen zijn op die dag geraadpleegd.
 
 - **De Heere Jezus** (besluit Martijn, 17-11-2026): **geen levenslijn, geen persoon, geen figuur of pictogram**. Zijn
   geboorte, het terugkeren naar Nazareth, de twaalfjarige in de tempel, de doop met het begin van Zijn werk, en de
-  kruisiging en opstanding staan alleen als **gebeurtenis met Bijbelverwijzing**, elk `benaderd` met een marge. Op de
+  kruisiging en opstanding staan alleen als **gebeurtenis met Bijbelverwijzing**, elk `benaderd` (met een marge; de
+  kruisiging als tijdvak zonder jaartal, zie hieronder). Op de
   kaart is dat alleen de gewone stip van een gebeurtenis (bij Bethlehem, Bethabara, Jeruzalem); geen beeld bij de kribbe
   of Golgotha. ‘Over deze tijdlijn’ legt uit waarom er geen lijn is. De unittest en de e2e-test bewaken dat er geen naam,
   lijn of `personenId` voor de Heere Jezus is.
+- **De kruisiging en de opstanding zonder jaartal** (besluit Martijn, 21-11-2026): geen ‘30 of 33’ en geen marge. De
+  gebeurtenis staat als **tijdvak** op de tijdlijn (een band, zoals Jona in ‘Israël, Juda en Assyrië’): van na de doop
+  tot het einde van Pilatus als stadhouder (in het bestand 29–36, de jaren van Pilatus komen uit zijn eigen lijn). Waar
+  anders een jaartal staat (onderschrift, lijst, kaartje, ‘Laatst gebeurd’, ‘Hierna’, de schermlezer), staat het veld
+  `wanneer`: ‘in de tijd van Pilatus’. Grond: onder Pontius Pilatus (Lukas 23; Johannes 19); Pilatus was stadhouder
+  toen Johannes de Doper begon (Lukas 3:1). Koppeling v125 krijgt dezelfde band en omschrijving; v100 (Johannes de Doper
+  onthoofd) loopt daarom tot 36 in plaats van tot 33 (‘vóór het laatste Pascha’ had geen eigen grond meer).
+- **Terug naar Nazareth** (besluit 21-11-2026): naast de vrees voor Archelaüs ook de waarschuwing in de droom:
+  ‘door Goddelijke openbaring vermaand in den droom’ (Mattheüs 2:22).
 - **As**: `nchr` van **40 v.Chr. tot 40 n.Chr.** (in het bestand `-40` tot `40`; een negatief jaar is v.Chr., een jaar 0
   bestaat niet). Daarvoor is de kern klein uitgebreid (README §3 en §1). **Startjaar 5 v.Chr.**
 - **Titel**: “Herodes en de keizers van Rome”, met als ondertitel “De wereld rond de geboorte van de Heere Jezus …”.
@@ -52,12 +62,12 @@ Peildatum: 17 november 2026. Alle webbronnen zijn op die dag geraadpleegd.
 | tempelbouw | 19 v.Chr. | benaderd, marge 20–19 | Josephus 15.11.1; Johannes 2:20 | het achttiende jaar van Herodes |
 | geboorte ★ | 5 v.Chr. | benaderd, marge 6–4 | Lukas 2:1–7; Mattheüs 2:1 | vóór de dood van Herodes; andere dateringen bestaan |
 | herodes-sterft ★ | 4 v.Chr. | benaderd | Mattheüs 2:19; Josephus; Wikipedia | meestal 4 v.Chr.; een minderheid 1 v.Chr. |
-| terug-nazareth | 4 v.Chr. | benaderd, marge 4–3 | Mattheüs 2:19–23 | hoe lang in Egypte: onbekend |
+| terug-nazareth | 4 v.Chr. | benaderd, marge 4–3 | Mattheüs 2:19–23 | hoe lang in Egypte: onbekend; vrees voor Archelaüs en de waarschuwing in de droom (2:22) |
 | judea-provincie | 6 n.Chr. | historisch | Josephus 17.13; Wikipedia | — |
 | twaalf-jaar | 8 n.Chr. | benaderd, marge 7–9 | Lukas 2:41–52 | twaalf jaar na ca. 6–4 v.Chr., geen jaar 0 |
 | vijftiende-jaar ★ | 28 n.Chr. | benaderd, marge 28–29 | Lukas 3:1–3 | vanaf 14 n.Chr. geteld; vanaf het medekeizerschap (12/13) eerder |
 | doop | 28 n.Chr. | benaderd, marge 28–29 | Mattheüs 3:13–17; Lukas 3:21–23 | ‘omtrent dertig jaren oud’ |
-| kruisiging ★ | 30 n.Chr. | benaderd, marge 30–33 | Lukas 23:1–25; 24:1–7 | 30 of 33 n.Chr. |
+| kruisiging ★ | geen jaartal: tijdvak ‘in de tijd van Pilatus’ (band 29–36) | benaderd, geen marge | Lukas 23:1–25; Johannes 19:1–18; Lukas 24:1–7; Lukas 3:1 | de Bijbel noemt geen jaar; na de doop, onder Pilatus |
 
 ### Personen
 
@@ -68,7 +78,7 @@ Peildatum: 17 november 2026. Alle webbronnen zijn op die dag geraadpleegd.
 | herodes | koning | 37 v.Chr. historisch | 4 v.Chr. benaderd, stierf | benoemd 40; dood meestal 4, sommigen 1 v.Chr. |
 | archelaus | koning (Mattheüs 2:22; Romeins: etnarch) | 4 v.Chr. benaderd | 6 n.Chr. historisch, **afgezet** | ‘in het tiende jaar’ (Josephus) = 9 jaar op de as zonder jaar 0 (unittest) |
 | antipas | viervorst | 4 v.Chr. benaderd | 39 n.Chr. historisch, **afgezet** | door Caligula verbannen |
-| filippus | viervorst | 4 v.Chr. benaderd | 34 n.Chr. historisch (marge 33–34), stierf | twintigste jaar van Tiberius (Josephus 18.4.6) |
+| filippus | viervorst | 4 v.Chr. benaderd | 34 n.Chr. historisch (marge 33–34), stierf | twintigste jaar van Tiberius (Josephus 18.4.6); niet Filippus de apostel (de halve zin over Markus 6:17 is weg, besluit 21-11-2026) |
 | lysanias | viervorst, eerst genoemd | 28 n.Chr. berekend | 28 n.Chr., einde onbekend | alleen Lukas 3:1; inscriptie van Abila uit de tijd van Tiberius |
 | cyrenius (Quirinius) | stadhouder (Syrië) | 6 n.Chr. historisch | 6 n.Chr., einde onbekend | **de dateringsvraag rond Lukas 2:2**: zie hieronder |
 | pilatus | stadhouder (Judea) | 26 n.Chr. historisch | 36 n.Chr. historisch (marge 36–37), **afgezet** | Pilatussteen (Caesarea, 1961); enkelen: eerder begin |
@@ -111,8 +121,9 @@ caesarea-filippi → `nt_kaesareafilippi`, machaerus → `nt_machaerus`, antioch
 ### Koppelingen
 
 v80, v81 (7–5 v.Chr.), v82, v83, v84 (6–4 v.Chr.), v85 (6–4 v.Chr.: wijzen, vlucht, terug naar Nazareth), v86 (7–9
-n.Chr.), v87 (28–29 n.Chr.), v100 (28–33 n.Chr., Markus 6 zonder jaartal), v125 (30–33 n.Chr.). Dezelfde
-dateringen als de `tijd` en `tijdNoot` van die geschiedenissen. v142 (Herodes Agrippa, ca. 43–44) valt na de as.
+n.Chr.), v87 (28–29 n.Chr.), v100 (28–36 n.Chr., Markus 6 zonder jaartal), v125 (tijdvak ‘in de tijd van Pilatus’, zonder jaartal). Verder dezelfde
+dateringen als de `tijd` en `tijdNoot` van die geschiedenissen; de geschiedenissen v118–v135 zelf noemen nog ‘ca. 30 of
+33 n.Chr.’ (open punt, zie de voorcontrole van 21-11-2026). v142 (Herodes Agrippa, ca. 43–44) valt na de as.
 
 ## 3. Wat een mens inhoudelijk moet nalezen
 
@@ -120,7 +131,7 @@ dateringen als de `tijd` en `tijdNoot` van die geschiedenissen. v142 (Herodes Ag
 2. **De zin over Lukas 2:2 en Quirinius**: eerlijk en kort genoeg, zonder de Bijbel in twijfel te trekken?
 3. **Herodes † 4 v.Chr.** als hoofdjaartal (met 1 v.Chr. als minderheidsopvatting genoemd).
 4. **De grenzen** van Galilea, Perea, de Decapolis, Nabatea en het land van Filippus: eerlijk als grove benadering?
-5. **Kruisiging en opstanding op de tijdlijn** (alleen als tekst, met marge 30–33): passend in deze laag?
+5. ~~Kruisiging en opstanding op de tijdlijn met marge 30–33~~: besloten (21-11-2026), zonder jaartal, ‘in de tijd van Pilatus’.
 6. **Herodes Agrippa I** (37–40) als gebied zonder levenslijn: duidelijk genoeg?
 
 ## 4. Licenties
