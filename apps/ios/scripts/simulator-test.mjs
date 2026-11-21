@@ -34,6 +34,13 @@ const TOESTELLEN = [
   { naam: "iPad Pro 13-inch (M5)", map: "ipad-13", scenario: ["test", "herstart", "appstore"], maat: [2064, 2752] },
   { naam: "iPhone 17 Pro", map: "iphone-6.3", scenario: ["appstore"], maat: [1206, 2622] },
 ];
+// SIM_SNEL=1 (bij een pull request): alleen de functionele scenario's, zonder de App Store-beelden; daardoor ook geen
+// iPhone 17 Pro. Op drukke runners duurde de volledige ronde (3 toestellen, ± 25 min) soms langer dan een uur.
+// Op main (push) en bij een handmatige run blijft alles draaien, ook de App Store-beelden.
+if (process.env.SIM_SNEL === "1") {
+  for (const t of TOESTELLEN) t.scenario = t.scenario.filter((s) => s !== "appstore");
+  for (let i = TOESTELLEN.length - 1; i >= 0; i--) if (!TOESTELLEN[i].scenario.length) TOESTELLEN.splice(i, 1);
+}
 
 const log = (...t) => console.log(new Date().toISOString().slice(11, 19), ...t);
 const sim = (...a) => execFileSync("xcrun", ["simctl", ...a], { encoding: "utf8", maxBuffer: 64 << 20, timeout: 600000 }).trim();

@@ -118,6 +118,10 @@ jobs:
 
       - name: Test in de iOS-simulator (iPhone 17 Pro Max, iPad Pro 13", iPhone 17 Pro)
         working-directory: apps/ios
+        # Bij een pull request zonder de App Store-beelden (SIM_SNEL); een hangende simulator stopt na 50 minuten.
+        timeout-minutes: 50
+        env:
+          SIM_SNEL: ${{ github.event_name == 'pull_request' && '1' || '0' }}
         run: |
           P="$RUNNER_TEMP/dd/Build/Products"
           node scripts/simulator-test.mjs --release "$P/Release-iphonesimulator/App.app" \
