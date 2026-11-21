@@ -116,6 +116,15 @@
    "geraadpleegd": "2026-11-17"
   },
   {
+   "id": "wiki-darius-meder",
+   "soort": "historisch",
+   "titel": "Darius the Mede (Wikipedia, Engels): de voorgestelde identificaties, waaronder Cyaxares II (Xenophon; o.a. Hiëronymus, Calvijn, Keil)",
+   "url": "https://en.wikipedia.org/wiki/Darius_the_Mede",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd en kort samengevat, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-21",
+   "kort": "Wikipedia"
+  },
+  {
    "id": "livius-sardes",
    "soort": "historisch",
    "titel": "Livius.org: Sardes (547 BCE??)",
@@ -282,7 +291,7 @@
     "val-babylon"
    ],
    "verhaal": null,
-   "opmerking": "De Bijbel noemt hem niet bij name."
+   "opmerking": "De Bijbel noemt hem niet bij naam."
   },
   {
    "id": "belsazar",
@@ -321,7 +330,7 @@
     "val-babylon"
    ],
    "verhaal": null,
-   "opmerking": "Daniël 5:2 noemt Nebukadnezar ‘zijn vader’ (Daniël 5:2); “vader” kan in de Bijbel ook voorvader of voorganger betekenen. Buiten de Bijbel is hij bekend als zoon van Nabonidus."
+   "opmerking": "Het boek Daniël noemt Nebukadnezar ‘zijn vader’ (Daniël 5:2); “vader” kan in de Bijbel ook voorvader of voorganger betekenen. Buiten de Bijbel is hij bekend als zoon van Nabonidus."
   },
   {
    "id": "kores",
@@ -443,7 +452,10 @@
    "tot": {
     "jaar": 538,
     "status": "benaderd",
-    "bron": "Daniël 9:1",
+    "bron": [
+     "Daniël 9:1",
+     "wiki-darius-meder"
+    ],
     "einde": "onbekend",
     "opmerking": "De Bijbel noemt alleen zijn eerste jaar (Daniël 9:1; 11:1); hoe lang hij regeerde, staat er niet."
    },
@@ -458,7 +470,7 @@
     "leeuwenkuil"
    ],
    "verhaal": "v75",
-   "opmerking": "Wie hij buiten de Bijbel was, is omstreden. Genoemd worden onder meer Gubaru, die volgens de Nabonidus-kroniek voor Kores de bestuurders in Babel aanstelde, Kores zelf, of een Meedse vorst."
+   "opmerking": "Wie hij buiten de Bijbel was, is omstreden; zeker is het niet. Genoemd worden onder meer Gubaru, die volgens de Nabonidus-kroniek voor Kores de bestuurders in Babel aanstelde, Kores zelf, of een Meedse vorst. Oudere boeken (onder anderen Calvijn) stellen hem gelijk aan Cyaxares II, een Meedse koning en oom van Kores die alleen de Griekse schrijver Xenophon noemt."
   },
   {
    "id": "jojakim",
@@ -585,7 +597,7 @@
     "status": "benaderd",
     "bron": "Daniël 1:1–6",
     "begin": "weggevoerd",
-    "opmerking": "De lijn begint bij de wegvoering, niet bij de geboorte: wanneer Daniël geboren werd, staat niet in de Bijbel. Hij was toen een van de ‘jongelingen’ (Daniël 1:4). Het derde jaar van Jojakim is volgens de gangbare uitleg 605 v.Chr."
+    "opmerking": "De lijn begint bij de wegvoering, niet bij de geboorte: wanneer Daniël geboren werd, staat niet in de Bijbel. Hij was toen een van de jongelingen uit Juda (Daniël 1:3–6). Het derde jaar van Jojakim is volgens de gangbare uitleg 605 v.Chr."
    },
    "tot": {
     "jaar": 536,
@@ -761,7 +773,7 @@
    "verhaal": null,
    "belangrijk": false,
    "stap": "2koningen:ballingschap:6",
-   "opmerking": "Volgens de Babylonische kroniek op de tweede dag van de maand Addaru in het zevende jaar van Nebukadnezar (februari/maart 597 v.Chr.). Jeremia 52:28 noemt ook ‘het zevende jaar’ (Jeremia 52:28); 2 Koningen 24:12 noemt het achtste jaar (een andere telling)."
+   "opmerking": "Volgens de Babylonische kroniek op de tweede dag van de maand Addaru in het zevende jaar van Nebukadnezar (februari/maart 597 v.Chr.). Ook het boek Jeremia noemt ‘het zevende jaar’ (Jeremia 52:28); 2 Koningen 24:12 noemt het achtste jaar (een andere telling)."
   },
   {
    "id": "verwoesting-jeruzalem",
@@ -899,7 +911,7 @@
    "tekst": "Onder koning Darius de Meder wordt Daniël in de leeuwenkuil geworpen, omdat hij blijft bidden tot zijn God. God bewaart hem: de leeuwen doen hem niets.",
    "jaar": 538,
    "tot": null,
-   "status": "expliciet",
+   "status": "benaderd",
    "bron": [
     "Daniël 6"
    ],
@@ -932,7 +944,7 @@
    "belangrijk": false,
    "stap": "ezra:terugkeer:6",
    "marge": [516,515],
-   "opmerking": "‘Op den derden dag der maand Adar’ in het zesde jaar van Darius (Ezra 6:15). Als dat Darius I is, zoals algemeen wordt aangenomen, is het voorjaar 515 v.Chr.; sommigen rekenen 516."
+   "opmerking": "‘op den derden dag der maand Adar’ in het zesde jaar van Darius (Ezra 6:15). Als dat Darius I is, zoals algemeen wordt aangenomen, is het voorjaar 515 v.Chr.; sommigen rekenen 516."
   }
  ],
  "gebieden": [
@@ -1590,7 +1602,7 @@
    "verhaal": "v74",
    "jaar": 603,
    "tot": 562,
-   "status": "expliciet",
+   "status": "benaderd",
    "personen": [
     "nebukadnezar",
     "daniel"
@@ -1602,7 +1614,7 @@
    "verhaal": "v75",
    "jaar": 539,
    "tot": 538,
-   "status": "expliciet",
+   "status": "benaderd",
    "personen": [
     "daniel",
     "darius-meder",

@@ -771,7 +771,7 @@
       "naam": "Hazeroth",
       "plaatsId": "hazeroth",
       "tekst": "Mirjam en Aäron spreken tegen Mozes.",
-      "bron": "Numeri 11:35",
+      "bron": ["Numeri 11:35", "Numeri 12:1"],
       "halte": true
     },
     {
@@ -898,7 +898,7 @@
       "status": "benaderd",
       "personen": ["mirjam", "aaron", "mozes"],
       "gebeurtenissen": ["mirjam-sterft", "aaron-sterft", "koperen-slang"],
-      "opmerking": "Numeri 20–21 speelt in het veertigste jaar na de uittocht: Mirjam en Aäron sterven, en daarna komt de koperen slang."
+      "opmerking": "Numeri 20–21 speelt in het veertigste jaar na de uittocht: Mirjam en Aäron sterven, en daarna komt de koperen slang. Bij de dood van Mirjam staat het jaar er niet bij; waarschijnlijk is het hetzelfde jaar."
     },
     {"verhaal": "v35", "jaar": 119.72, "personen": ["mozes"], "gebeurtenissen": ["velden-moab"]},
     {

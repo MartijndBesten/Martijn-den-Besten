@@ -249,6 +249,8 @@
   // ---------- het periodebestand klaarzetten ----------
   const STATUS = ["expliciet", "berekend", "traditioneel", "historisch", "benaderd"];
   const EINDE = ["stierf", "weggenomen", "afgezet", "onbekend", "leeft door"];
+  // Omschrijving van een tijdvak zonder jaartal: kort en zonder cijfers (anders leest het toch als een jaartal).
+  const WANNEER = /^[^\d<>]{3,40}$/;
   function plekVan(p, plaatsen) {
     if (Array.isArray(p) && p.length === 2 && p.every((x) => typeof x === "number")) return { ll: p, gebied: false };
     if (typeof p === "string" && plaatsen && plaatsen[p]) return { ll: plaatsen[p].ll, gebied: plaatsen[p].c === "r", naam: plaatsen[p].n, zeker: plaatsen[p].c };
@@ -319,6 +321,21 @@
     const ongeveer = (laat.beginOnzeker && !laat.geboorteBekend) || (!minstens && grens.eindOnzeker);
     return { jaren: Math.round(tot - van), van, tot, minstens, ongeveer };
   }
+  // Welke rijen moeten in beeld zijn als de lijst niet helemaal past (veel personen op een telefoon)? De rijen van wie er
+  // op tijd t leeft. Past dat stuk, dan zo weinig mogelijk schuiven; past het niet, dan de jongste rij onderaan (daar
+  // gebeurt het: een geboorte). Geeft de nieuwe scrollTop, of null als er niets hoeft te veranderen.
+  function rijInBeeld(personen, t, rh, hoogte, nu) {
+    const rijen = personen.filter((p) => leeftNog(p, t)).map((p) => p.rij);
+    if (!rijen.length || !(rh > 0) || !(hoogte > 0)) return null;
+    const boven = Math.min(...rijen) * rh, onder = (Math.max(...rijen) + 1) * rh, max = Math.max(0, personen.length * rh - hoogte);
+    let doel;
+    if (onder - boven <= hoogte) {
+      if (boven >= nu - 0.5 && onder <= nu + hoogte + 0.5) return null;
+      doel = boven < nu ? boven : onder - hoogte;
+    } else doel = onder - hoogte;
+    doel = Math.max(0, Math.min(max, Math.round(doel)));
+    return Math.abs(doel - nu) < 1 ? null : doel;
+  }
   // Alle momenten in de tijd: geboorten, einden en gebeurtenissen, op volgorde (voor stap-voor-stap en de lijst).
   function momenten(model) {
     const uit = [];
@@ -383,6 +400,8 @@
       if (typeof e.jaar !== "number" || !binnen(e.jaar)) f(`${w}: jaar ontbreekt of valt buiten de as`);
       if (e.tot != null && (typeof e.tot !== "number" || !binnen(e.tot))) f(`${w}: tot valt buiten de as`);
       if (e.marge != null && !(Array.isArray(e.marge) && e.marge.length === 2 && e.marge.every((j) => typeof j === "number" && binnen(j)))) f(`${w}: marge moet [vroegst, laatst] binnen de as zijn`);
+      // Zonder jaartal (‘in de tijd van Pilatus’): dan een tijdvak (tot), geen marge; de omschrijving staat waar anders het jaar staat.
+      if (e.wanneer != null && !(WANNEER.test(e.wanneer) && e.tot != null && e.marge == null)) f(`${w}: wanneer moet een korte omschrijving zijn, met een tijdvak (tot) en zonder marge`);
       statusOk(e.status, w);
       bronOk(e.bron, w);
       (e.personen || []).forEach((p) => !pids.has(p) && f(`${w}: persoon ‘${p}’ bestaat niet`));
@@ -416,6 +435,7 @@
       const w = `koppeling ${i}`;
       if (!/^v\d+$/.test(k.verhaal || "") || (refs.verhalen && !refs.verhalen.has(k.verhaal))) f(`${w}: verhaal ‘${k.verhaal}’ bestaat niet`);
       if (typeof k.jaar !== "number" || !binnen(k.jaar)) f(`${w}: jaar valt buiten de as`);
+      if (k.wanneer != null && !(WANNEER.test(k.wanneer) && k.tot != null)) f(`${w}: wanneer moet een korte omschrijving zijn, met een tijdvak (tot)`);
       (k.personen || []).forEach((p) => !pids.has(p) && f(`${w}: persoon ‘${p}’ bestaat niet`));
       (k.gebeurtenissen || []).forEach((g) => !gids.has(g) && f(`${w}: gebeurtenis ‘${g}’ bestaat niet`));
     });
@@ -463,7 +483,7 @@
     return fout;
   }
 
-  const K = { telt, stappenVan, bereidReis, afgelegd, reisOp, knip, margeT, naarT, naarJaar, gemengd, jaarAsTekst, tweeJaren, streepTekst, bereik, jaarTekst, schaal, streepjes, zoom, schuif, vloeiend, herbemonster, oppervlak, lijnUit, koppelDelen, bereidGebied, gebiedOp, bereid, leeftNog, leeftijd, overlap, momenten, controleer, STATUS, EINDE, PUNTEN };
+  const K = { telt, stappenVan, bereidReis, afgelegd, reisOp, knip, margeT, naarT, naarJaar, gemengd, jaarAsTekst, tweeJaren, streepTekst, bereik, jaarTekst, schaal, streepjes, zoom, schuif, vloeiend, herbemonster, oppervlak, lijnUit, koppelDelen, bereidGebied, gebiedOp, bereid, leeftNog, leeftijd, overlap, rijInBeeld, momenten, controleer, STATUS, EINDE, PUNTEN };
   root.BR = root.BR || {};
   root.BR.wereldKern = K;
 })(typeof window !== "undefined" ? window : globalThis);

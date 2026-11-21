@@ -41,25 +41,19 @@ kanaan = [[34.38, 31.42], [34.55, 31.7], [34.72, 32.0], [34.85, 32.4], [34.96, 3
           [35.6, 33.1], [35.6, 32.8], [35.56, 32.4], [35.53, 32.0], [35.48, 31.7], [35.42, 31.4], [35.38, 31.1], [35.1, 30.95],
           [34.75, 31.0], [34.5, 31.2], [34.38, 31.42]]
 
-def streek(id, naam, kleur, ring, bron, tekst):
+def streek(id, naam, kleur, ring, bron):
     geo = {"type": "Polygon", "coordinates": [ring]}
     return {"id": id, "naam": naam, "soort": "streek", "kleur": kleur, "bron": bron,
             "sleutels": [{"jaar": 0, "betrouwbaarheid": "benaderd", "geometrie": geo},
                          {"jaar": 120, "betrouwbaarheid": "benaderd", "geometrie": geo}]}
 
 gebieden = [
-    streek("egypte", "Egypte", "terra", ring_egypte, ["Exodus 1:11", "Exodus 12:37", "wiki-nieuwe-rijk"],
-           "Het land aan de Nijl: het smalle dal van de rivier en de delta. Waar de Israëlieten woonden en werkten, in het oosten van de delta (Gosen)."),
-    streek("sinai", "Sinaï-woestijn", "oker", sinai, ["Exodus 16:1", "Exodus 19:1–2", "Numeri 10:12"],
-           "De Bijbel noemt hier verschillende woestijnen: Sur, Sin, Sinaï, Paran en Zin. Waar ze precies begonnen en ophielden, weten we niet."),
-    streek("midian", "Midian", "lila", midian, ["Exodus 2:15", "Handelingen 7:29"],
-           "Het land van Jethro, waar Mozes veertig jaar herder was. Meestal zoekt men het ten oosten van de Golf van Akaba."),
-    streek("edom", "Edom", "koraal", edom, ["Numeri 20:14–21", "Numeri 20:23"],
-           "Het bergland van Seïr, waar de nakomelingen van Ezau woonden. De koning van Edom liet Israël niet door zijn land trekken."),
-    streek("moab", "Moab", "olijf", moab, ["Numeri 21:13", "Numeri 22:1"],
-           "Het land van de Moabieten, ten zuiden van de beek Arnon. De ‘vlakke velden van Moab’ lagen noordelijker, aan de Jordaan bij Jericho."),
-    streek("kanaan", "Kanaän", "salie", kanaan, ["Numeri 13:2", "Deuteronomium 34:1–4"],
-           "Het land dat God aan Abraham, Izak en Jakob beloofd had. Mozes mocht het van de berg Nebo zien, maar kwam er niet in."),
+    streek("egypte", "Egypte", "terra", ring_egypte, ["Exodus 1:11", "Exodus 12:37", "wiki-nieuwe-rijk"]),
+    streek("sinai", "Sinaï-woestijn", "oker", sinai, ["Exodus 16:1", "Exodus 19:1–2", "Numeri 10:12"]),
+    streek("midian", "Midian", "lila", midian, ["Exodus 2:15", "Handelingen 7:29"]),
+    streek("edom", "Edom", "koraal", edom, ["Numeri 20:14–21", "Numeri 20:23"]),
+    streek("moab", "Moab", "olijf", moab, ["Numeri 21:13", "Numeri 22:1"]),
+    streek("kanaan", "Kanaän", "salie", kanaan, ["Numeri 13:2", "Deuteronomium 34:1–4"]),
 ]
 
 # ---------- steden: legerplaatsen langs de route (ligging uit plaatsen.js) ----------
@@ -80,7 +74,7 @@ steden = [
     stad("refidim", "Water uit de rots en de strijd tegen Amalek.", "Exodus 17:1–16"),
     stad("sinai", "De berg van God, ook Horeb genoemd. Hier gaf God de wet en werd de tabernakel gebouwd.", ["Exodus 3:1", "Exodus 19:1–2"]),
     stad("kibroth", "Het volk klaagt om vlees en krijgt kwartels.", "Numeri 11:34"),
-    stad("hazeroth", "Mirjam en Aäron spreken tegen Mozes.", "Numeri 11:35"),
+    stad("hazeroth", "Mirjam en Aäron spreken tegen Mozes.", ["Numeri 11:35", "Numeri 12:1"]),
     stad("kadesbarnea", "Vanaf hier gingen de twaalf verspieders het land in. Hier stierf Mirjam.", ["Numeri 13:26", "Numeri 20:1"]),
     stad("hor", "Hier stierf Aäron, ‘aan de pale van het land van Edom’ (Numeri 20:23).", ["Numeri 20:23", "Numeri 20:28"]),
     stad("ezeongeber", "Een legerplaats aan de Golf van Akaba.", "Numeri 33:35"),
@@ -245,7 +239,7 @@ koppelingen = [
      "opmerking": "Leviticus 8–10 volgt op het oprichten van de tabernakel (Exodus 40:17). Leviticus 16 noemt de zevende maand (16:29), maar geen jaar."},
     {"verhaal": "v33", "jaar": 81.42, "personen": ["mozes", "jozua", "kaleb"], "gebeurtenissen": ["verspieders", "veertig-jaar"]},
     {"verhaal": "v34", "jaar": 119.15, "tot": 119.62, "status": "benaderd", "personen": ["mirjam", "aaron", "mozes"], "gebeurtenissen": ["mirjam-sterft", "aaron-sterft", "koperen-slang"],
-     "opmerking": "Numeri 20–21 speelt in het veertigste jaar na de uittocht: Mirjam en Aäron sterven, en daarna komt de koperen slang."},
+     "opmerking": "Numeri 20–21 speelt in het veertigste jaar na de uittocht: Mirjam en Aäron sterven, en daarna komt de koperen slang. Bij de dood van Mirjam staat het jaar er niet bij; waarschijnlijk is het hetzelfde jaar."},
     {"verhaal": "v35", "jaar": 119.72, "personen": ["mozes"], "gebeurtenissen": ["velden-moab"]},
     {"verhaal": "v36", "jaar": 119.9, "tot": 120, "status": "expliciet", "personen": ["mozes", "jozua"], "gebeurtenissen": ["afscheid", "mozes-sterft"],
      "opmerking": "Het veertigste jaar na de uittocht, de elfde maand (Deuteronomium 1:3). Mozes is 120 (Deuteronomium 31:2; 34:7)."},

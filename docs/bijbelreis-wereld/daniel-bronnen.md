@@ -68,7 +68,7 @@ jaartal); `berekend` = afgeleid uit Bijbelse getallen; `benaderd` = reconstructi
 | sardis | 547 | benaderd, marge 547–540 | Livius; Cahill (Sardis Expedition); Herodotus | lezing “Lydië” in ABC 7 omstreden; Grieks: 546; sommigen later |
 | val-babylon ★ | 539 | historisch | ABC 7 iii.12–18; Cyruscilinder; Dan. 5:30 | dood van Belsazar alleen in de Bijbel |
 | decreet-kores ★ | 538 | benaderd, marge 539–538 | Ezra 1:1–11; 2 Kron. 36:22–23 | Cyruscilinder als context: noemt Juda/Jeruzalem niet, is niet dit bevel |
-| leeuwenkuil | 538 | expliciet, marge 539–536 | Dan. 6 | geen jaar in de Bijbel; “Darius de Meder” omstreden |
+| leeuwenkuil | 538 | benaderd, marge 539–536 | Dan. 6 | geen jaar in de Bijbel; “Darius de Meder” omstreden; label ‘bij benadering’: het jaartal is een plaatsing (besluit Martijn, 21-11-2026) |
 | tempel-klaar | 515 | benaderd, marge 516–515 | Ezra 6:15–16 | als Darius = Darius I; sommigen 516 |
 
 ★ = `belangrijk: true`.
@@ -84,7 +84,7 @@ jaartal); `berekend` = afgeleid uit Bijbelse getallen; `benaderd` = reconstructi
 | kores | regering | 559 benaderd (Herodotus: 29 jaar) | 530 historisch | — |
 | cambyses | regering | 530 | 522 | historisch (Livius); ouder = Kores (ABC 7 iii.24) |
 | darius-i | regering | 522 historisch | 486 (na de as) | Darius van Ezra = Darius I: algemeen aangenomen |
-| darius-meder | regering | 539 benaderd (Dan. 6:1) | 538 benaderd (Dan. 9:1) | identificatie omstreden (Gubaru, Kores zelf, een Meedse vorst); duur onbekend |
+| darius-meder | regering | 539 benaderd (Dan. 6:1) | 538 benaderd (Dan. 9:1) | identificatie omstreden en niet zeker (Gubaru, Kores zelf, een Meedse vorst; in oudere boeken, o.a. Calvijn: Cyaxares II, alleen bekend uit Xenophon — bron `wiki-darius-meder`, [Wikipedia ‘Darius the Mede’](https://en.wikipedia.org/wiki/Darius_the_Mede), geraadpleegd 21-11-2026); duur onbekend |
 | jojakim | regering | 609 benaderd | 598 benaderd | 11 jaar (2 Kon. 23:36); stierf kort vóór begin 597 |
 | jojachin | leven (vanaf koningschap) | 598 benaderd | 561 berekend (2 Kon. 25:27), einde onbekend | rantsoenlijsten uit Babel noemen hem (COJS) |
 | zedekia | regering | 597 historisch (ABC 5) | 586 benaderd, marge 587–586 | sterfjaar onbekend |
@@ -123,7 +123,7 @@ Pasargadae (30,195 N; 53,174 O), Saïs (30,967 N; 30,774 O), Tayma (27,622 N; 38
 |---|---|---|
 | v71 Jeruzalem verwoest, Jeremia gespaard | 586 | 2 Kon. 25 |
 | v73 Daniël en zijn vrienden aan het hof | 605–603 | Dan. 1:1; Dan. 2:1 (tweede jaar van Nebukadnezar) |
-| v74 Drie vrienden buigen niet | 603–562 (expliciet, geen jaar) | Dan. 3 noemt geen jaar |
+| v74 Drie vrienden buigen niet | 603–562 (benaderd, geen jaar) | Dan. 3 noemt geen jaar; label ‘bij benadering’: het jaartal is een plaatsing (besluit Martijn, 21-11-2026) |
 | v75 Daniël in de leeuwenkuil | 539–538 | Dan. 6 onder Darius de Meder |
 | v76 Terug naar Jeruzalem: de tempel herbouwd | 538–515 | Ezra 1–6 |
 
@@ -137,7 +137,8 @@ Daniël 5 (het schrift op de muur) heeft geen eigen geschiedenis; de gebeurtenis
    (`wereld-daniel/renders/`), niet in de repository.
 2. **Jojakim 609 en Jojachin 598** als begin van de regering: omgerekend, niet letterlijk in een bron.
 3. **Belsazar vanaf 553**: het Versverslag zegt “toen het derde jaar begon”; die omrekening naar 553 is niet zeker.
-4. **Darius de Meder 539–538**: alleen een plaatsing; de Bijbel geeft geen duur.
+4. **Darius de Meder 539–538**: alleen een plaatsing; de Bijbel geeft geen duur. Sinds 21-11-2026 (besluit Martijn) staat
+   ook de oudere gelijkstelling met Cyaxares II erbij, naast de andere voorstellen; nalezen of de zin neutraal genoeg is.
 5. **Kores 559** (via Herodotus) en het oosten van Perzië in 530 (via de lijst van Darius uit 522).
 6. **De teksten voor kinderen**: toon en eenvoud (1–2 zinnen per gebeurtenis en per stad).
 7. **Het jaartal 586 als hoofdjaartal** voor de verwoesting (de Bijbelreis gebruikt dat al; 587 staat steeds erbij).
@@ -149,6 +150,7 @@ Daniël 5 (het schrift op de muur) heeft geen eigen geschiedenis; de gebeurtenis
   in eigen woorden samengevat; er is geen tekst overgenomen. De vertalingen zijn van Grayson (1975) en Glassner (2004).
 - **Herodotus** (vert. Macaulay, 1890, Wikisource): publiek domein.
 - **Sardis Expedition** (Cahill 2010), **BMCR**, **COJS**: alleen geraadpleegd, niets overgenomen.
+- **Wikipedia** (‘Darius the Mede’, CC BY-SA 4.0): alleen geraadpleegd voor de lijst van voorgestelde identificaties; in eigen woorden samengevat.
 - **Pleiades** (ligging van Pasargadae, Saïs, Tayma): CC BY 3.0; **naamsvermelding nodig** (“Pleiades”, met link). Staat
   in `bronnen` van het JSON-bestand; de engine moet bronnen met `soort: "dataset"` zichtbaar kunnen tonen.
 - **plaatsen.js** (Bijbelreis): liggingen eerder gecontroleerd met OpenBible.info (CC BY 4.0) en Pleiades (CC BY); zie

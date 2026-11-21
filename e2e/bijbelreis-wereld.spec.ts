@@ -193,6 +193,46 @@ test.describe("De wereld in die tijd", () => {
     await page.locator(".wt-speel").click();
   });
 
+  test("Van Adam tot Abram: Genesis 11 vanuit v8 (Abram 2008, Terach 130), Babel zonder jaartal (v7); de lijst volgt op de telefoon", async ({ page }) => {
+    const f = fouten(page);
+    await page.goto("/bijbelreis?wereld=1#v8");
+    await page.locator(".wt-ingang").click();
+    await expect(page).toHaveURL(/#wereld\/adam-noach\/2083$/);
+    await expect(page.locator("#wtTitel")).toContainText("Van Adam tot Abram");
+    await expect(page.locator("#wtJaar")).toHaveText("2083");
+    // 22 rijen: op de telefoon past de lijst niet, maar wie er nu leeft (en net stierf) staat in beeld.
+    await expect(page.locator('.wt-rij[data-p="abram"]')).toBeInViewport();
+    await expect(page.locator('.wt-rij[data-p="terach"]')).toBeInViewport();
+    await expect(page.locator("#wtSub-terach")).toHaveText("stierf · 205");
+    await expect(page.locator("#wtSub-abram")).toHaveText("75 jaar");
+    await page.locator('.wt-naam[data-p="abram"]').click();
+    const kaart = page.locator(".wt-kaartje").filter({ hasText: "zoon van Terach" });
+    await expect(kaart).toBeVisible();
+    await expect(kaart).toContainText("Terach was 130");
+    await expect(kaart).toContainText("1948");
+    await expect(kaart).toContainText("175 jaar oud");
+    // Uitgerekend tegelijk, zonder verzonnen ontmoeting.
+    await kaart.locator('[data-vergelijk="sem"]').first().click();
+    await expect(kaart.locator(".wt-vergelijking")).toContainText("150 jaar tegelijk");
+    await page.keyboard.press("Escape");
+    await page.locator(".wt-terug").click();
+    await expect(page).toHaveURL(/#v8$/);
+    // Babel: de Bijbel noemt geen jaar; een band van de zondvloed tot Abram met die uitleg.
+    await page.goto("/bijbelreis?wereld=1#v7");
+    await page.locator(".wt-ingang").click();
+    await expect(page).toHaveURL(/#wereld\/adam-noach\/1657$/);
+    await expect(page.locator(".wt-onderschrift")).toContainText("geen jaar voor de toren van Babel");
+    await expect(page.locator(".wt-kopband")).toBeAttached();
+    // Zelf de lijst schuiven: hij springt niet vanzelf terug zolang je kijkt.
+    await page.locator(".wt-rol").evaluate((r) => r.dispatchEvent(new WheelEvent("wheel", { deltaY: -400, bubbles: true })));
+    await page.locator(".wt-rol").evaluate((r) => { r.scrollTop = 0; });
+    await page.locator("#wtSchuif").focus();
+    await page.keyboard.press("End");
+    await expect.poll(async () => (await staat(page)).t).toBe(2200);
+    expect(await page.locator(".wt-rol").evaluate((r) => r.scrollTop)).toBe(0);
+    expect(f).toEqual([]);
+  });
+
   test("Daniël en Babylon: geopend vanuit het verhaal over de leeuwenkuil, met de kaart van 539 v.Chr.", async ({ page }) => {
     const f = fouten(page);
     await page.goto("/bijbelreis?wereld=1#v75");
@@ -289,6 +329,23 @@ test.describe("De wereld in die tijd", () => {
     // Een gedeelde link met een jaar v.Chr. als negatief getal.
     await openLaag(page, "wereld/geboorte-jezus/-4");
     await expect(page.locator("#wtJaar")).toHaveText("4 v.Chr.");
+    expect(f).toEqual([]);
+  });
+
+  test("Herodes en de keizers van Rome: de kruisiging zonder jaartal, als tijdvak ‘in de tijd van Pilatus’", async ({ page }) => {
+    const f = fouten(page);
+    await page.goto("/bijbelreis?wereld=1#v125");
+    await page.locator(".wt-ingang").click();
+    await expect(page).toHaveURL(/#wereld\/geboorte-jezus\/29$/);
+    await expect(page.locator(".wt-onderschrift .wt-os-jaar")).toHaveText("in de tijd van Pilatus");
+    if (await page.getByRole("tab", { name: "Gebeurtenissen" }).isVisible()) await page.getByRole("tab", { name: "Gebeurtenissen" }).click();
+    const m = page.locator(".wt-m.gebeurtenis").filter({ hasText: "De kruisiging en de opstanding" });
+    await expect(m.locator(".wt-m-jaar")).toHaveText("in de tijd van Pilatus");
+    if (await page.getByRole("tab", { name: "Levenslijnen" }).isVisible()) await page.getByRole("tab", { name: "Levenslijnen" }).click();
+    await page.locator('.wt-naam[data-p="pilatus"]').click();
+    const k = page.locator(".wt-kaartje").filter({ hasText: "Pilatus" });
+    await expect(k.locator(".wt-evlijst")).toContainText("in de tijd van PilatusDe kruisiging en de opstanding");
+    await expect(laag(page)).not.toContainText(/30 of 33|30–33/);
     expect(f).toEqual([]);
   });
 
@@ -461,10 +518,11 @@ test.describe("De wereld in die tijd", () => {
         expect(m.laag, `${w}×${h} ${p}`).toBeLessThanOrEqual(m.w);
         expect(m.speel, `${w}×${h} ${p}: afspeelknop in beeld`).toBeLessThanOrEqual(m.h);
         expect(m.schuif).toBeGreaterThan(Math.min(w * 0.5 - 40, 300));
-        // Namen blijven in beeld als je in de tijd schuift (vaste naamkolom).
+        // Namen blijven in beeld als je in de tijd schuift (vaste naamkolom). Past de lijst niet, dan staat wie er nu
+        // leeft in beeld (de lijst schuift mee; als ze niet allemaal passen, de jongste), niet per se de eerste rij.
         await page.locator('[data-zoom="in"]').click();
         await page.locator('[data-zoom="in"]').click();
-        await expect(page.locator(".wt-naam").first()).toBeInViewport();
+        await expect(page.locator(".wt-rij.leeft .wt-naam").last()).toBeInViewport();
       }
     }
   });
