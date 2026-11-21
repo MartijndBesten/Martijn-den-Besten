@@ -190,6 +190,10 @@ describe("wereld daniel-babylon: elk gegeven heeft een status en een bron", () =
     expect(G["decreet-kores"].opmerking).toMatch(/niet dit bevel/);
     const darius = P.personen.find((p) => p.id === "darius-meder")!;
     expect(darius.opmerking).toMatch(/omstreden/);
+    // Besluit 21-11-2026: de oudere gelijkstelling met Cyaxares II erbij, neutraal, met bron; nog steeds niet zeker.
+    expect(darius.opmerking).toMatch(/Cyaxares II/);
+    expect(darius.opmerking).toMatch(/zeker is het niet/);
+    expect(P.bronnen.find((b) => b.id === "wiki-darius-meder")!.url).toBe("https://en.wikipedia.org/wiki/Darius_the_Mede");
   });
   it("steden en gebieden hebben een bron; gebieden zijn altijd ‘benaderd’", () => {
     for (const s of P.steden) for (const b of bronnenVan(s.bron)) expect(bronOk(b), `${s.id}: ${b}`).toBe(true);
