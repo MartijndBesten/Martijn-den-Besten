@@ -131,7 +131,11 @@ geheimen: de job draait daar niet.
 De stap ‘Geheimen controleren’ haalt spaties, tabs, regeleinden (ook `\r`), harde spaties en onzichtbare tekens weg uit
 `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID` en `APPLE_TEAM_ID`, herkent een geplakte bestandsnaam
 `AuthKey_XXXXXXXXXX.p8` als Key ID, en zet Key ID en Team ID in hoofdletters. In het log staat per geheim alleen de
-lengte voor en na het opschonen, nooit de waarde. Klopt een waarde daarna nog niet, dan zegt de fout welke waarde waar
+lengte na het opschonen, nooit de waarde. Klopt een waarde daarna nog niet, dan zegt de fout welke waarde waar
 te vinden is (Key ID: kolom ‘Key ID’ in App Store Connect → Gebruikers en toegang → Integraties → App Store Connect API;
 Issuer ID: bovenaan die pagina, 36 tekens; Team ID: developer.apple.com → Account → Membership details).
 
+
+Een handmatige run met ‘Ook naar TestFlight’ wacht **niet** op de simulatortest van job `bouw` (die op drukke runners
+soms langer dan een uur duurt); de job `testflight` controleert eerst de geheimen (binnen een minuut) en archiveert
+dan zelf de Release-build. De simulatortest draait ernaast en blijft bij elke pull request verplicht.

@@ -3,8 +3,10 @@ name: iOS-app
 # De Bijbelreis als iOS-app (apps/ios, Capacitor). Uitleg en wat Martijn zelf doet: docs/bijbelreis-ios/TESTFLIGHT.md.
 #  - bouw:       bouwt de app op een Mac van GitHub (Release voor simulator en toestel, zonder ondertekening) en test hem
 #                in de iOS-simulator (iPhone en iPad), plus de webmap in Playwright-WebKit (job webkit).
-#  - testflight: alleen met de hand (Actions → iOS-app → Run workflow → ‘Ook naar TestFlight’): archiveren, ondertekenen
-#                via App Store Connect (cloud) en uploaden. Gebruikt de geheimen van de Environment ‘testflight’.
+#  - testflight: alleen met de hand (Actions → iOS-app → Run workflow → ‘Ook naar TestFlight’): eerst de geheimen
+#                controleren (binnen een minuut), dan archiveren (= de Release-build), ondertekenen via App Store Connect
+#                (cloud) en uploaden. Wacht niet op de (trage) simulatortest van job bouw; die draait ernaast ter info.
+#                Gebruikt de geheimen van de Environment ‘testflight’.
 
 on:
   push:
@@ -25,7 +27,7 @@ on:
   workflow_dispatch:
     inputs:
       testflight:
-        description: "Ook archiveren en uploaden naar TestFlight (na een groene bouw)"
+        description: "Ook archiveren en uploaden naar TestFlight (wacht alleen op de eigen build, niet op de simulatortest)"
         type: boolean
         default: false
 
@@ -165,7 +167,6 @@ jobs:
 
   testflight:
     name: Archiveren en uploaden naar TestFlight
-    needs: [bouw, webkit]
     # Alleen als iemand met schrijfrechten hem met de hand start én ‘Ook naar TestFlight’ aanvinkt. Nooit bij een
     # pull request (ook niet van een fork) en nooit vanzelf bij een push.
     if: github.event_name == 'workflow_dispatch' && inputs.testflight
@@ -185,7 +186,7 @@ jobs:
     steps:
       - name: Geheimen controleren
         # Spaties, tabs, regeleinden (ook \r), harde spaties en onzichtbare tekens worden weggehaald. In het log staat
-        # nooit een waarde: alleen de lengte (voor en na opschonen). Een geplakte bestandsnaam ‘AuthKey_XXXXXXXXXX.p8’ als
+        # nooit een waarde: alleen de lengte na het opschonen. Een geplakte bestandsnaam ‘AuthKey_XXXXXXXXXX.p8’ als
         # Key ID wordt herkend en teruggebracht tot de 10 tekens. Kleine letters in Key ID en Team ID worden hoofdletters.
         run: |
           schoon() { printf '%s' "$1" | perl -CSD -pe 's/[\s\x{00A0}\x{2007}\x{202F}\x{200B}-\x{200D}\x{2060}\x{FEFF}]//g'; }
@@ -207,9 +208,9 @@ jobs:
           KEY_ID="$(printf '%s' "$KEY_ID" | tr 'a-z' 'A-Z')"
           TEAM="$(printf '%s' "$TEAM" | tr 'a-z' 'A-Z')"
           ISSUER_ID="$(printf '%s' "$ISSUER_ID" | tr 'A-Z' 'a-z')"
-          echo "APP_STORE_CONNECT_KEY_ID:    ruw $(soort "$RUW_KEY_ID") → schoon $(soort "$KEY_ID")"
-          echo "APP_STORE_CONNECT_ISSUER_ID: ruw $(soort "$RUW_ISSUER_ID") → schoon $(soort "$ISSUER_ID")"
-          echo "APPLE_TEAM_ID:               ruw $(soort "$RUW_TEAM_ID") → schoon $(soort "$TEAM")"
+          echo "APP_STORE_CONNECT_KEY_ID:    $(soort "$KEY_ID") (verwacht 10)"
+          echo "APP_STORE_CONNECT_ISSUER_ID: $(soort "$ISSUER_ID") (verwacht 36)"
+          echo "APPLE_TEAM_ID:               $(soort "$TEAM") (verwacht 10)"
           fout=0
           if ! printf '%s' "$KEY_ID" | grep -Eq '^[A-Z0-9]{10}$'; then
             fout=1
