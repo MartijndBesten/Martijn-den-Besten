@@ -61,7 +61,7 @@ BR.taalBoek.en = {
   woorden: {
     // ---------- kop, tabbladen en niveaus ----------
     "Direct naar het reisboek": "Skip to the travel book",
-    "Op reis door de": "Journey through the", "Bijbel": "Bible",
+    "Op reis door de": "Journey through the", "Bijbel": "Bible", "reis": "Journey",
     "Voorlezen": "Read aloud", "Zelf lezen": "Read yourself", "Verdiepen": "Go deeper",
     "150 geschiedenissen van de schepping tot Openbaring": "Bible histories, from the creation to Revelation",
     "Onderdelen": "Sections", "Verhalen": "Histories", "geschiedenissen": "histories", "Reis": "Journey", "route op de kaart": "route on the map",

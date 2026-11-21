@@ -171,6 +171,15 @@ hoe oud je bent.
 - Engels: Read aloud, Read yourself, Go deeper (`taal/en.js`, `taal/en/inhoud.js`).
 - De leeftijden in `docs/bijbelreis-niveaus/schrijfwijzer.md` zijn alleen een schrijfrichtlijn.
 
+## Lichte kop (21 november 2026)
+
+Keuze van Martijn (‘licht, als app’, overal): de kop is papierkleurig met een dunne lijn eronder, de kameel staat in een
+donkerblauw tegeltje, de merknaam is **Bijbelreis** (Engels: Bible Journey) en de niveauknop is donkerblauw. Op de
+computer krijgen de tabbladen hun eigen kleur in de -diep-tint (contrast op licht). `theme-color` en het manifest zijn
+`#f5f0e5`; `apple-mobile-web-app-status-bar-style` is `default` (donkere tekst). In de iOS-app is de statusbalktekst
+donker (`UIStatusBarStyleDarkContent`). Het thema Kerst houdt op de website zijn sterrenhemel in de kop; in de app is ook
+de kerstkop licht. CSS: blok ‘Lichte kop’ onderaan `bijbelreis.css`.
+
 ## Voorscherm bij het openen (20 november 2026)
 
 Aanleiding (Martijn): wie bijbelreis.nl opende, kwam midden in de atlas op de laatst gelezen plek (bijv. alleen de Sinaï in

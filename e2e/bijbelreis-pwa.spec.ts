@@ -56,10 +56,10 @@ test.describe("installeerbaar en offline (tegen de testserver)", () => {
     expect(m).toMatchObject({ id: "/", name: "Op reis door de Bijbel", short_name: "Bijbelreis", lang: "nl", start_url: "/", scope: "/", display: "standalone" });
     // Kleuren uit de huisstijl (bijbelreis.css): achtergrond = papier, thema = nacht (zoals meta theme-color).
     expect(m.background_color).toBe("#f5f0e5");
-    expect(m.theme_color).toBe("#243d70");
+    expect(m.theme_color).toBe("#f5f0e5"); // de lichte kop (papier)
     expect(await page.locator('meta[name="theme-color"]').getAttribute("content")).toBe(m.theme_color);
     const css = readFileSync("public/bijbelreis/bijbelreis.css", "utf8");
-    expect(css).toContain(`--nacht: ${m.theme_color}`);
+    expect(css).toContain(`--papier: ${m.theme_color}`);
     expect(css).toContain(`--papier: ${m.background_color}`);
     // Pictogrammen: 192 en 512, gewoon en maskable, echte PNG's van die maat.
     const soorten = m.icons.map((i: { sizes: string; purpose: string }) => `${i.sizes} ${i.purpose}`).sort();
@@ -75,7 +75,7 @@ test.describe("installeerbaar en offline (tegen de testserver)", () => {
     expect(await page.locator('meta[name="apple-mobile-web-app-capable"]').getAttribute("content")).toBe("yes");
     expect(await page.locator('meta[name="mobile-web-app-capable"]').getAttribute("content")).toBe("yes");
     expect(await page.locator('meta[name="apple-mobile-web-app-title"]').getAttribute("content")).toBe("Bijbelreis");
-    expect(await page.locator('meta[name="apple-mobile-web-app-status-bar-style"]').getAttribute("content")).toBe("black-translucent");
+    expect(await page.locator('meta[name="apple-mobile-web-app-status-bar-style"]').getAttribute("content")).toBe("default"); // lichte kop: donkere tekst in de statusbalk
     expect(await page.locator('meta[name="viewport"]').getAttribute("content")).toContain("viewport-fit=cover");
     expect((await request.get("/bijbelreis/apple-touch-icon.png")).ok()).toBe(true);
     // Chromium zelf: het manifest zonder fouten, en geen bezwaren tegen installeren.

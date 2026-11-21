@@ -283,8 +283,8 @@ test("kerst: binnen het thema heeft de atlas een eigen uiterlijk, daarbuiten ver
   if (!smal(page)) expect(gewoon.rand).toBe("4px");
   expect(gewoon.kaartBg).toBe("none");
   expect(gewoon.ster).toBe("none");
-  expect(gewoon.statusbalk).toBe("#243d70");
-  expect(gewoon.kopKleur).toBe("rgb(36, 61, 112)");
+  expect(gewoon.statusbalk).toBe("#f5f0e5");
+  expect(gewoon.kopKleur).toBe("rgb(245, 240, 229)"); // lichte kop (21-11-2026)
   // Binnen Kerst: nachtblauw en lamplicht, de ster, een strook avondlucht boven de stap.
   await page.goto("about:blank");
   await page.goto("/bijbelreis#kerst-geboorte/4");
@@ -322,7 +322,7 @@ test("kerst: binnen het thema heeft de atlas een eigen uiterlijk, daarbuiten ver
   // (de personen van Kerst) aan, en terug in de reis weer aan.
   await page.getByRole("tab", { name: "Verhalen" }).click();
   await expect(page.locator("body")).not.toHaveAttribute("data-thema", /./);
-  expect(await page.evaluate(() => document.querySelector('meta[name="theme-color"]')!.getAttribute("content"))).toBe("#243d70");
+  expect(await page.evaluate(() => document.querySelector('meta[name="theme-color"]')!.getAttribute("content"))).toBe("#f5f0e5");
   await page.getByRole("tab", { name: "Paspoort" }).click();
   await expect(page.locator("body")).not.toHaveAttribute("data-thema", /./);
   await page.getByRole("tab", { name: "Wie is wie" }).click();

@@ -28,7 +28,7 @@ moet(info.CFBundleShortVersionString === "$(MARKETING_VERSION)" && info.CFBundle
 moet(info.ITSAppUsesNonExemptEncryption === false, "Info.plist: ITSAppUsesNonExemptEncryption = NO (exportcompliance)");
 moet(JSON.stringify(info.UIRequiredDeviceCapabilities) === '["arm64"]', "Info.plist: alleen arm64 vereist");
 moet(info.UILaunchStoryboardName === "LaunchScreen", "Info.plist: opstartscherm LaunchScreen");
-moet(info.UIStatusBarStyle === "UIStatusBarStyleLightContent", "Info.plist: lichte statusbalk (op de donkere kop)");
+moet(info.UIStatusBarStyle === "UIStatusBarStyleDarkContent", "Info.plist: donkere statusbalktekst (op de lichte kop)");
 const telefoon = info.UISupportedInterfaceOrientations || [], ipad = info["UISupportedInterfaceOrientations~ipad"] || [];
 moet(telefoon.includes("UIInterfaceOrientationPortrait") && telefoon.length === 3 && !telefoon.includes("UIInterfaceOrientationPortraitUpsideDown"), "Info.plist: iPhone staand en liggend (niet ondersteboven)");
 moet(ipad.length === 4, "Info.plist: iPad alle vier de standen (nodig voor multitasking)");
