@@ -319,6 +319,21 @@
     const ongeveer = (laat.beginOnzeker && !laat.geboorteBekend) || (!minstens && grens.eindOnzeker);
     return { jaren: Math.round(tot - van), van, tot, minstens, ongeveer };
   }
+  // Welke rijen moeten in beeld zijn als de lijst niet helemaal past (veel personen op een telefoon)? De rijen van wie er
+  // op tijd t leeft. Past dat stuk, dan zo weinig mogelijk schuiven; past het niet, dan de jongste rij onderaan (daar
+  // gebeurt het: een geboorte). Geeft de nieuwe scrollTop, of null als er niets hoeft te veranderen.
+  function rijInBeeld(personen, t, rh, hoogte, nu) {
+    const rijen = personen.filter((p) => leeftNog(p, t)).map((p) => p.rij);
+    if (!rijen.length || !(rh > 0) || !(hoogte > 0)) return null;
+    const boven = Math.min(...rijen) * rh, onder = (Math.max(...rijen) + 1) * rh, max = Math.max(0, personen.length * rh - hoogte);
+    let doel;
+    if (onder - boven <= hoogte) {
+      if (boven >= nu - 0.5 && onder <= nu + hoogte + 0.5) return null;
+      doel = boven < nu ? boven : onder - hoogte;
+    } else doel = onder - hoogte;
+    doel = Math.max(0, Math.min(max, Math.round(doel)));
+    return Math.abs(doel - nu) < 1 ? null : doel;
+  }
   // Alle momenten in de tijd: geboorten, einden en gebeurtenissen, op volgorde (voor stap-voor-stap en de lijst).
   function momenten(model) {
     const uit = [];
@@ -463,7 +478,7 @@
     return fout;
   }
 
-  const K = { telt, stappenVan, bereidReis, afgelegd, reisOp, knip, margeT, naarT, naarJaar, gemengd, jaarAsTekst, tweeJaren, streepTekst, bereik, jaarTekst, schaal, streepjes, zoom, schuif, vloeiend, herbemonster, oppervlak, lijnUit, koppelDelen, bereidGebied, gebiedOp, bereid, leeftNog, leeftijd, overlap, momenten, controleer, STATUS, EINDE, PUNTEN };
+  const K = { telt, stappenVan, bereidReis, afgelegd, reisOp, knip, margeT, naarT, naarJaar, gemengd, jaarAsTekst, tweeJaren, streepTekst, bereik, jaarTekst, schaal, streepjes, zoom, schuif, vloeiend, herbemonster, oppervlak, lijnUit, koppelDelen, bereidGebied, gebiedOp, bereid, leeftNog, leeftijd, overlap, rijInBeeld, momenten, controleer, STATUS, EINDE, PUNTEN };
   root.BR = root.BR || {};
   root.BR.wereldKern = K;
 })(typeof window !== "undefined" ? window : globalThis);

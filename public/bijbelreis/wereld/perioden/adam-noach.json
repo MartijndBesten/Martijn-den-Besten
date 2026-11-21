@@ -1,7 +1,7 @@
 {
   "id": "adam-noach",
-  "titel": "Van Adam tot Noach",
-  "ondertitel": "Tien geslachten uit Genesis 5: wie leefde er tegelijk?",
+  "titel": "Van Adam tot Abram",
+  "ondertitel": "Twintig geslachten uit Genesis 5 en 11: wie leefde er tegelijk?",
   "as": {
     "soort": "am",
     "van": 0,
@@ -9,21 +9,23 @@
     "stap": 1,
     "label": "na de schepping",
     "status": "berekend",
-    "uitleg": "Opgeteld uit de leeftijden in Genesis 5, 7, 9 en 11, zoals ze in de Statenvertaling staan (de Masoretische tekst). Jaar 0 is het jaar waarin God Adam schiep."
+    "uitleg": "Opgeteld uit de leeftijden in Genesis 5, 7, 9, 11 en 12, zoals ze in de Statenvertaling staan (de Masoretische tekst). Jaar 0 is het jaar waarin God Adam schiep."
   },
   "start": 0,
-  "kaartUitleg": "Voor de tijd van Adam tot Noach is er geen kaart. De Bijbel noemt de hof van Eden met vier rivieren (Genesis 2:10–14), maar waar Adam en zijn nakomelingen woonden, weten we niet. Na de zondvloed rustte de ark ‘op de bergen van Ararat’ (Genesis 8:4): een streek, geen precieze plek. Een kaart met grenzen of steden zou hier meer laten zien dan we weten.",
+  "kaartUitleg": "Voor de tijd van Adam tot Abram is er geen kaart. De Bijbel noemt de hof van Eden met vier rivieren (Genesis 2:10–14), maar waar Adam en zijn nakomelingen woonden, weten we niet. Na de zondvloed rustte de ark ‘op de bergen van Ararat’ (Genesis 8:4): een streek, geen precieze plek. Een kaart met grenzen of steden zou hier meer laten zien dan we weten. De reis van Abram van Ur naar Haran en Kanaän staat op de kaart van de Bijbelreis zelf.",
   "bronnen": [
-    { "id": "sv", "soort": "bijbel", "titel": "Statenvertaling, editie 1888 (publiek domein), Genesis 5, 7, 8, 9 en 11", "url": "https://github.com/jajpater/statenvertaling", "licentie": "CC0 (transcriptie)", "geraadpleegd": "2026-11-17" },
-    { "id": "genealogies-of-genesis", "soort": "historisch", "titel": "‘Genealogies of Genesis’ (Wikipedia, Engels): tabel met de getallen van de Masoretische tekst, de Samaritaanse Pentateuch en de Septuagint", "url": "https://en.wikipedia.org/wiki/Genealogies_of_Genesis", "licentie": "CC BY-SA 4.0; alleen getallen gebruikt, geen tekst overgenomen", "geraadpleegd": "2026-11-17" },
+    { "id": "sv", "soort": "bijbel", "titel": "Statenvertaling, editie 1888 (publiek domein), Genesis 5–12, 17 en 25, Handelingen 7 en Lukas 3", "url": "https://github.com/jajpater/statenvertaling", "licentie": "CC0 (transcriptie)", "geraadpleegd": "2026-11-17" },
+    { "id": "genealogies-of-genesis", "soort": "historisch", "titel": "‘Genealogies of Genesis’ (Wikipedia, Engels): tabel met de getallen van de Masoretische tekst, de Samaritaanse Pentateuch en de Septuagint", "url": "https://en.wikipedia.org/wiki/Genealogies_of_Genesis", "licentie": "CC BY-SA 4.0; alleen getallen gebruikt, geen tekst overgenomen", "geraadpleegd": "2026-11-21" },
     { "id": "smith-septuagint", "soort": "historisch", "titel": "H. B. Smith jr., ‘Setting the Record Straight on the Primeval Chronology of the Septuagint’ (Associates for Biblical Research): de lezing 167 of 187 bij Methusalach", "url": "https://biblearchaeology.org/research-articles/setting-the-record-straight-on-the-primeval-chronology-of-the-septuagint-part-4/", "licentie": "alleen als verwijzing", "geraadpleegd": "2026-11-17" },
-    { "id": "ussher", "soort": "historisch", "titel": "James Ussher, Annales Veteris Testamenti (Londen, 1650): schepping in 4004 v.Chr.", "url": "https://en.wikipedia.org/wiki/Ussher_chronology", "licentie": "alleen als verwijzing", "geraadpleegd": "2026-11-17" }
+    { "id": "brenton-gen11", "soort": "historisch", "titel": "L. C. L. Brenton, The Septuagint Version of the Old Testament (Londen, 1851), Genesis 11, met de afwijkende getallen van de Codex Alexandrinus in de voetnoten", "url": "https://ebible.org/eng-Brenton/GEN11.htm", "licentie": "publiek domein; alleen getallen gebruikt", "geraadpleegd": "2026-11-21", "kort": "Brenton (Septuagint)" }
   ],
   "info": [
-    { "kop": "Hoe is er gerekend?", "tekst": "Genesis 5 noemt bij elke vader hoe oud hij was toen zijn zoon geboren werd, en hoe oud hij werd. Tel je die leeftijden op, dan weet je in welk jaar na de schepping iemand geboren werd en stierf. De Bijbel telt in hele jaren; een jaartal kan dus een jaar verschillen.", "status": "berekend", "bron": "Genesis 5" },
+    { "kop": "Hoe is er gerekend?", "tekst": "Genesis 5 noemt bij elke vader hoe oud hij was toen zijn zoon geboren werd, en hoe oud hij werd. Tel je die leeftijden op, dan weet je in welk jaar na de schepping iemand geboren werd en stierf. Genesis 11 doet hetzelfde van Sem tot Terach, maar zegt meestal niet hoe oud iemand werd, alleen hoe lang hij na de geboorte van zijn zoon nog leefde. Die twee getallen zijn hier opgeteld (Arfachsad: 35 en 403, samen 438). De Bijbel telt in hele jaren; een jaartal kan dus een jaar verschillen.", "status": "berekend", "bron": ["Genesis 5", "Genesis 11:10–32"] },
+    { "kop": "Abram: Terach 130 of 70?", "tekst": "Genesis 11:26 zegt dat Terach zeventig jaar was en Abram, Nahor en Haran kreeg. Maar Terach werd 205 jaar (11:32), Abram was 75 toen hij uit Haran trok (12:4), en dat was ‘nadat zijn vader gestorven was’ (Handelingen 7:4). Dan was Terach 130 toen Abram geboren werd: in jaar 2008. Zo rekent deze tijdlijn. Wie Abram geboren laat worden toen Terach zeventig was, komt uit op jaar 1948; dan leefde Terach na Abrams vertrek nog zestig jaar.", "status": "berekend", "bron": ["Genesis 11:26", "Genesis 11:32", "Genesis 12:4", "Handelingen 7:4"] },
     { "kop": "Sem: Genesis 5:32 en 11:10", "tekst": "Noach was vijfhonderd jaar toen hij zonen kreeg (Genesis 5:32). Sem was honderd jaar ‘twee jaren na den vloed’ (Genesis 11:10); dan is hij geboren toen Noach 502 was, in jaar 1558. Voor Cham en Jafeth staat het jaar er niet: hun lijn begint daarom vaag, rond jaar 1556. Hoe oud zij werden, staat niet in de Bijbel.", "status": "berekend", "bron": "Genesis 5:32; 11:10" },
     { "kop": "Andere handschriften, andere getallen", "tekst": "De Statenvertaling volgt de Hebreeuwse tekst (de Masoretische tekst). De Griekse vertaling (de Septuagint) heeft bij Adam, Seth, Enos, Kenan, Mahalaleël en Henoch honderd jaar meer vóór de geboorte van de zoon, en bij Lamech zes jaar meer; de zondvloed komt daar in jaar 2242 of 2262 (de handschriften verschillen bij Methusalach: 167 of 187 jaar). De Samaritaanse Pentateuch heeft bij Jered, Methusalach en Lamech minder (62, 67 en 53 jaar); daar is de zondvloed in jaar 1307. Deze tijdlijn volgt de Statenvertaling.", "status": "historisch", "bron": ["genealogies-of-genesis", "smith-septuagint"] },
-    { "kop": "Waarom geen jaartal voor Christus?", "tekst": "De Ierse aartsbisschop James Ussher rekende in 1650 uit dat de schepping in 4004 v.Chr. was; de zondvloed valt dan in 2348 v.Chr. Dat is een traditionele berekening, geen gegeven uit de Bijbel: er zijn meer manieren om terug te rekenen. Daarom telt deze tijdlijn in jaren na de schepping.", "status": "traditioneel", "bron": "ussher" }
+    { "kop": "Na de zondvloed: Kaïnan en hogere getallen", "tekst": "In de Septuagint staat tussen Arfachsad en Selah nog een geslacht: Kaïnan, 130 jaar bij de geboorte van Selah. Ook Lukas 3:36 noemt Kaïnan tussen Arfaxad en Sala; in Genesis 11 en 1 Kronieken 1:24 staat hij niet. Bij Arfachsad, Selah, Heber, Peleg, Rehu en Serug heeft de Septuagint honderd jaar meer vóór de geboorte van de zoon (Arfachsad 135 in plaats van 35), bij Nahor 179 (een ander handschrift: 79). Van de zondvloed tot Abram komen er zo 880 of 780 jaar bij. De Samaritaanse Pentateuch heeft hier ook hogere getallen, maar geen Kaïnan. Deze tijdlijn volgt de Statenvertaling.", "status": "historisch", "bron": ["brenton-gen11", "genealogies-of-genesis", "Lukas 3:36", "1 Kronieken 1:24"] },
+    { "kop": "Waarom geen jaartal voor Christus?", "tekst": "Genesis 1–11 noemt geen jaartal in onze jaartelling. Om van deze jaren naar jaren voor Christus te komen, moet je verder rekenen via Izak en Jakob, de tijd in Egypte (Exodus 12:40) en de koningen. Daarbij zijn keuzes nodig, en wie rekent, komt niet altijd op hetzelfde jaartal uit. Daarom telt deze tijdlijn in jaren na de schepping.", "status": "benaderd", "bron": ["Exodus 12:40", "1 Koningen 6:1"] }
   ],
   "personen": [
     { "id": "adam", "naam": "Adam", "personenId": "adam",
@@ -66,10 +68,6 @@
       "van": { "jaar": 1056, "vaderLeeftijd": 182, "status": "berekend", "bron": "Genesis 5:28–29" },
       "tot": { "jaar": 2006, "leeftijd": 950, "status": "berekend", "bron": "Genesis 9:28–29", "einde": "stierf" },
       "ouder": "lamech", "rol": "Hij wandelde met God. God liet hem de ark bouwen en redde hem en zijn gezin.", "ref": ["Genesis 5:28–32", "Genesis 6:9", "Genesis 9:28–29"], "gebeurtenissen": ["zondvloed", "dood-noach"], "verhaal": "v5" },
-    { "id": "sem", "naam": "Sem", "personenId": "sem",
-      "van": { "jaar": 1558, "vaderLeeftijd": 502, "status": "berekend", "bron": "Genesis 11:10", "opmerking": "Sem was honderd jaar ‘twee jaren na den vloed’; de vloed was in jaar 1656." },
-      "tot": { "jaar": 2158, "leeftijd": 600, "leeftijdStatus": "berekend", "status": "berekend", "bron": "Genesis 11:10–11", "einde": "stierf", "opmerking": "Honderd jaar bij de geboorte van Arfachsad, daarna nog vijfhonderd jaar: samen zeshonderd. Dat totaal staat er niet zelf." },
-      "ouder": "noach", "rol": "Zoon van Noach. Uit hem komen Heber en later Abraham.", "ref": ["Genesis 5:32", "Genesis 11:10–11"], "gebeurtenissen": ["zondvloed"], "verhaal": "v5" },
     { "id": "cham", "naam": "Cham", "personenId": null,
       "van": { "jaar": 1556, "status": "benaderd", "bron": "Genesis 5:32", "opmerking": "‘Noach was vijfhonderd jaren oud; en Noach gewon Sem, Cham en Jafeth’ (Genesis 5:32). Het precieze jaar staat er niet." },
       "tot": { "jaar": 1657, "status": "berekend", "bron": "Genesis 8:18; 9:18", "einde": "onbekend", "opmerking": "Hij ging na de zondvloed uit de ark. Hoe lang hij daarna leefde, staat niet in de Bijbel." },
@@ -77,14 +75,57 @@
     { "id": "jafeth", "naam": "Jafeth", "personenId": null,
       "van": { "jaar": 1556, "status": "benaderd", "bron": "Genesis 5:32", "opmerking": "‘Noach was vijfhonderd jaren oud; en Noach gewon Sem, Cham en Jafeth’ (Genesis 5:32). Het precieze jaar staat er niet." },
       "tot": { "jaar": 1657, "status": "berekend", "bron": "Genesis 8:18; 9:18", "einde": "onbekend", "opmerking": "Hij ging na de zondvloed uit de ark. Hoe lang hij daarna leefde, staat niet in de Bijbel." },
-      "ouder": "noach", "rol": "Zoon van Noach.", "ref": ["Genesis 5:32", "Genesis 9:18"], "gebeurtenissen": ["zondvloed"], "verhaal": "v5" }
+      "ouder": "noach", "rol": "Zoon van Noach.", "ref": ["Genesis 5:32", "Genesis 9:18"], "gebeurtenissen": ["zondvloed"], "verhaal": "v5" },
+    { "id": "sem", "naam": "Sem", "personenId": "sem",
+      "van": { "jaar": 1558, "vaderLeeftijd": 502, "status": "berekend", "bron": "Genesis 11:10", "opmerking": "Sem was honderd jaar ‘twee jaren na den vloed’; de vloed was in jaar 1656." },
+      "tot": { "jaar": 2158, "leeftijd": 600, "leeftijdStatus": "berekend", "status": "berekend", "bron": "Genesis 11:10–11", "einde": "stierf", "opmerking": "Honderd jaar bij de geboorte van Arfachsad, daarna nog vijfhonderd jaar: samen zeshonderd. Dat totaal staat er niet zelf." },
+      "ouder": "noach", "rol": "Zoon van Noach. Uit hem komen Heber en later Abraham.", "ref": ["Genesis 5:32", "Genesis 11:10–11"], "gebeurtenissen": ["zondvloed"], "verhaal": "v5" },
+    { "id": "arfachsad", "naam": "Arfachsad", "personenId": "arfachsad",
+      "van": { "jaar": 1658, "vaderLeeftijd": 100, "status": "berekend", "bron": "Genesis 11:10", "opmerking": "‘Twee jaren na den vloed’ (Genesis 11:10): de vloed begon in jaar 1656." },
+      "tot": { "jaar": 2096, "leeftijd": 438, "leeftijdStatus": "berekend", "status": "berekend", "bron": "Genesis 11:12–13", "einde": "stierf", "opmerking": "Vijfendertig jaar bij de geboorte van Selah, daarna nog 403 jaar: samen 438. Dat totaal staat er niet zelf." },
+      "ouder": "sem", "rol": "Zoon van Sem, geboren twee jaar na de zondvloed.", "ref": ["Genesis 11:10–13"], "gebeurtenissen": ["geboorte-arfachsad"], "verhaal": null },
+    { "id": "selah", "naam": "Selah", "personenId": "selah",
+      "van": { "jaar": 1693, "vaderLeeftijd": 35, "status": "berekend", "bron": "Genesis 11:12" },
+      "tot": { "jaar": 2126, "leeftijd": 433, "leeftijdStatus": "berekend", "status": "berekend", "bron": "Genesis 11:14–15", "einde": "stierf" },
+      "ouder": "arfachsad", "rol": "Zoon van Arfachsad, een van de voorvaders van Abram.", "ref": ["Genesis 11:12–15"], "gebeurtenissen": [], "verhaal": null },
+    { "id": "heber", "naam": "Heber", "personenId": "heber",
+      "van": { "jaar": 1723, "vaderLeeftijd": 30, "status": "berekend", "bron": "Genesis 11:14" },
+      "tot": { "jaar": 2187, "leeftijd": 464, "leeftijdStatus": "berekend", "status": "berekend", "bron": "Genesis 11:16–17", "einde": "stierf" },
+      "ouder": "selah", "rol": "Zoon van Selah. Sem heet ‘de vader aller zonen van Heber’ (Genesis 10:21).", "ref": ["Genesis 10:21", "Genesis 11:14–17"], "gebeurtenissen": [], "verhaal": null },
+    { "id": "peleg", "naam": "Peleg", "personenId": "peleg",
+      "van": { "jaar": 1757, "vaderLeeftijd": 34, "status": "berekend", "bron": "Genesis 11:16" },
+      "tot": { "jaar": 1996, "leeftijd": 239, "leeftijdStatus": "berekend", "status": "berekend", "bron": "Genesis 11:18–19", "einde": "stierf" },
+      "ouder": "heber", "rol": "Zoon van Heber. Hij kreeg zijn naam omdat ‘in zijn dagen is de aarde verdeeld’ (Genesis 10:25).", "ref": ["Genesis 10:25", "Genesis 11:16–19"], "gebeurtenissen": [], "verhaal": null },
+    { "id": "rehu", "naam": "Rehu", "personenId": "rehu",
+      "van": { "jaar": 1787, "vaderLeeftijd": 30, "status": "berekend", "bron": "Genesis 11:18" },
+      "tot": { "jaar": 2026, "leeftijd": 239, "leeftijdStatus": "berekend", "status": "berekend", "bron": "Genesis 11:20–21", "einde": "stierf" },
+      "ouder": "peleg", "rol": "Zoon van Peleg, een van de voorvaders van Abram.", "ref": ["Genesis 11:18–21"], "gebeurtenissen": [], "verhaal": null },
+    { "id": "serug", "naam": "Serug", "personenId": "serug",
+      "van": { "jaar": 1819, "vaderLeeftijd": 32, "status": "berekend", "bron": "Genesis 11:20" },
+      "tot": { "jaar": 2049, "leeftijd": 230, "leeftijdStatus": "berekend", "status": "berekend", "bron": "Genesis 11:22–23", "einde": "stierf" },
+      "ouder": "rehu", "rol": "Zoon van Rehu en overgrootvader van Abram.", "ref": ["Genesis 11:20–23"], "gebeurtenissen": [], "verhaal": null },
+    { "id": "nahor", "naam": "Nahor", "personenId": "nahor_serug",
+      "van": { "jaar": 1849, "vaderLeeftijd": 30, "status": "berekend", "bron": "Genesis 11:22" },
+      "tot": { "jaar": 1997, "leeftijd": 148, "leeftijdStatus": "berekend", "status": "berekend", "bron": "Genesis 11:24–25", "einde": "stierf" },
+      "ouder": "serug", "rol": "Zoon van Serug en opa van Abram; niet dezelfde als Abrams broer Nahor.", "ref": ["Genesis 11:22–25"], "gebeurtenissen": [], "verhaal": null },
+    { "id": "terach", "naam": "Terach", "personenId": "terach",
+      "van": { "jaar": 1878, "vaderLeeftijd": 29, "status": "berekend", "bron": "Genesis 11:24" },
+      "tot": { "jaar": 2083, "leeftijd": 205, "status": "berekend", "bron": "Genesis 11:32", "einde": "stierf" },
+      "ouder": "nahor", "rol": "Vader van Abram, Nahor en Haran. Hij trok met Abram, Sarai en Lot uit Ur der Chaldeeën en stierf in Haran.", "ref": ["Genesis 11:24–32", "Jozua 24:2"], "gebeurtenissen": ["abram-uit-haran"], "verhaal": "v8" },
+    { "id": "abram", "naam": "Abram", "alt": ["Abraham"], "personenId": "abraham",
+      "van": { "jaar": 2008, "vaderLeeftijd": 130, "status": "berekend", "bron": ["Genesis 11:32", "Genesis 12:4", "Handelingen 7:4"], "opmerking": "Terach werd 205 jaar (Genesis 11:32). Abram was 75 toen hij uit Haran trok (12:4), en dat was nadat zijn vader gestorven was (Handelingen 7:4). Dan was Terach 130 toen Abram geboren werd. Genesis 11:26 noemt zeventig jaar: toen kreeg Terach zijn zonen. Wie Abram al in dat jaar laat geboren worden, komt uit op jaar 1948." },
+      "tot": { "jaar": 2183, "leeftijd": 175, "status": "berekend", "bron": "Genesis 25:7–8", "einde": "stierf", "opmerking": "Op zijn 99e gaf God hem de naam Abraham (Genesis 17:1, 5)." },
+      "ouder": "terach", "rol": "Zoon van Terach. De HEERE riep hem: ‘Ga gij uit uw land’ (Genesis 12:1). Later heette hij Abraham.", "ref": ["Genesis 11:26–32", "Genesis 12:1–5", "Genesis 17:5", "Genesis 25:7–8"], "gebeurtenissen": ["geboorte-abram", "abram-uit-haran"], "verhaal": "v8" }
   ],
   "gebeurtenissen": [
     { "id": "geboorte-seth", "titel": "Seth wordt geboren", "tekst": "Adam en Eva krijgen weer een zoon, in de plaats van Abel. Eva noemt hem Seth.", "jaar": 130, "tot": null, "status": "berekend", "bron": "Genesis 4:25; 5:3", "personen": ["adam", "seth"], "plaats": null, "verhaal": "v4", "belangrijk": true },
     { "id": "dood-adam", "titel": "Adam sterft", "tekst": "Adam wordt 930 jaar oud, en hij sterft. Zijn nakomelingen in deze lijn leven dan al tot en met Lamech.", "jaar": 930, "tot": null, "status": "berekend", "bron": "Genesis 5:5", "personen": ["adam"], "plaats": null, "verhaal": null, "belangrijk": true },
     { "id": "henoch-weggenomen", "titel": "God neemt Henoch weg", "tekst": "Henoch wandelt met God. Na 365 jaar is hij er niet meer, ‘want God nam hem weg’. Hij heeft de dood niet gezien.", "jaar": 987, "tot": null, "status": "berekend", "bron": "Genesis 5:23–24; Hebreeën 11:5", "personen": ["henoch"], "plaats": null, "verhaal": null, "belangrijk": true },
     { "id": "zondvloed", "titel": "De zondvloed", "tekst": "In het zeshonderdste jaar van Noach komt de vloed. Noach gaat de ark in met zijn vrouw, Sem, Cham en Jafeth en hun vrouwen. Ruim een jaar later gaan ze er weer uit.", "jaar": 1656, "tot": 1657, "status": "berekend", "bron": "Genesis 7:6; 7:11–13; 8:13–18", "personen": ["noach", "sem", "cham", "jafeth"], "plaats": null, "verhaal": "v5", "belangrijk": true, "kleur": "water", "opmerking": "Methusalach sterft uitgerekend in hetzelfde jaar." },
-    { "id": "dood-noach", "titel": "Noach sterft", "tekst": "Na de vloed leeft Noach nog 350 jaar. Hij wordt 950 jaar oud.", "jaar": 2006, "tot": null, "status": "berekend", "bron": "Genesis 9:28–29", "personen": ["noach"], "plaats": null, "verhaal": null, "belangrijk": false }
+    { "id": "dood-noach", "titel": "Noach sterft", "tekst": "Na de vloed leeft Noach nog 350 jaar. Hij wordt 950 jaar oud.", "jaar": 2006, "tot": null, "status": "berekend", "bron": "Genesis 9:28–29", "personen": ["noach"], "plaats": null, "verhaal": null, "belangrijk": false },
+    { "id": "geboorte-arfachsad", "titel": "Arfachsad wordt geboren", "tekst": "Twee jaar na de zondvloed krijgt Sem een zoon: Arfachsad. Via hem loopt het geslacht verder tot Abram.", "jaar": 1658, "tot": null, "status": "berekend", "bron": "Genesis 11:10", "personen": ["sem", "arfachsad"], "plaats": null, "verhaal": null, "belangrijk": false },
+    { "id": "geboorte-abram", "titel": "Abram wordt geboren", "tekst": "Terach krijgt een zoon: Abram. Uitgerekend leven dan nog al zijn voorvaders tot en met Sem, behalve Peleg en Nahor. Noach is twee jaar eerder gestorven.", "jaar": 2008, "tot": null, "status": "berekend", "bron": ["Genesis 11:26", "Genesis 11:32", "Genesis 12:4", "Handelingen 7:4"], "personen": ["terach", "abram"], "plaats": null, "verhaal": null, "belangrijk": true, "opmerking": "Gerekend met Terach 130 bij de geboorte van Abram. Met Terach zeventig (Genesis 11:26) zou het jaar 1948 zijn." },
+    { "id": "abram-uit-haran", "titel": "Abram trekt uit Haran", "tekst": "Terach sterft in Haran, 205 jaar oud. Daarna trekt Abram, 75 jaar oud, met Sarai en Lot naar het land Kanaän, zoals de HEERE tegen hem gezegd had.", "jaar": 2083, "tot": null, "status": "berekend", "bron": ["Genesis 11:31–32", "Genesis 12:1–5", "Handelingen 7:4"], "personen": ["terach", "abram"], "plaats": null, "verhaal": "v8", "belangrijk": true }
   ],
   "gebieden": [],
   "steden": [],
@@ -92,6 +133,8 @@
     { "verhaal": "v2", "jaar": 0, "personen": ["adam"], "gebeurtenissen": [] },
     { "verhaal": "v4", "jaar": 130, "personen": ["adam", "seth"], "gebeurtenissen": ["geboorte-seth"] },
     { "verhaal": "v5", "jaar": 1656, "personen": ["noach", "sem", "cham", "jafeth"], "gebeurtenissen": ["zondvloed"] },
-    { "verhaal": "v6", "jaar": 1657, "personen": ["noach", "sem", "cham", "jafeth"], "gebeurtenissen": ["zondvloed"] }
+    { "verhaal": "v6", "jaar": 1657, "personen": ["noach", "sem", "cham", "jafeth"], "gebeurtenissen": ["zondvloed"] },
+    { "verhaal": "v7", "jaar": 1657, "tot": 2008, "status": "benaderd", "personen": [], "gebeurtenissen": [], "opmerking": "De Bijbel noemt geen jaar voor de toren van Babel. Genesis vertelt het na de zondvloed en vóór de geboorte van Abram (Genesis 11:1–9 en 11:26). Of het ook in die volgorde gebeurde, en wanneer precies, staat er niet." },
+    { "verhaal": "v8", "jaar": 2083, "status": "berekend", "personen": ["terach", "abram"], "gebeurtenissen": ["abram-uit-haran"] }
   ]
 }

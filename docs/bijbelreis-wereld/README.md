@@ -6,7 +6,7 @@ gebeurde**. Perioden:
 
 | Periode | Bestand | Wat |
 | --- | --- | --- |
-| Van Adam tot Noach | `public/bijbelreis/wereld/perioden/adam-noach.json` | Genesis 5 (+ 7, 9, 11): dertien levenslijnen in jaren na de schepping, berekend uit de Masoretische tekst (= Statenvertaling). Geen kaart, met uitleg waarom. |
+| Van Adam tot Abram | `public/bijbelreis/wereld/perioden/adam-noach.json` (id ongewijzigd) | Genesis 5 en 11 (+ 7, 9, 12): 22 levenslijnen van Adam tot Abram in jaren na de schepping, berekend uit de Masoretische tekst (= Statenvertaling); Abram met Terach 130 (Genesis 11:32; 12:4; Handelingen 7:4); v2, v4–v8. Geen kaart, met uitleg waarom. Bronnen en keuzes: [`adam-noach-bronnen.md`](adam-noach-bronnen.md). |
 | Daniël en Babylon | `public/bijbelreis/wereld/perioden/daniel-babylon.json` | 627–515 v.Chr.: zeven rijken met 36 sleutels, 14 personen, 12 gebeurtenissen, 13 steden. Bronnen en keuzes: [`daniel-bronnen.md`](daniel-bronnen.md). |
 | Mozes, Egypte en de woestijnreis | `public/bijbelreis/wereld/perioden/mozes.json` | As in **levensjaren van Mozes** (0–120), geen jaartallen v.Chr.: 7 personen, 21 gebeurtenissen, 6 landstreken zonder grenzen, 19 legerplaatsen, de reis (19 delen uit de reisstappen van de atlas) die meeloopt over de kaart, 16 koppelingen (v21–v36). Bronnen en keuzes: [`mozes-bronnen.md`](mozes-bronnen.md). |
 | David en Salomo | `public/bijbelreis/wereld/perioden/david-salomo.json` | ca. 1050–920 v.Chr. (reconstructie, as ‘bij benadering’): Israël en de buurvolken, 10 gebieden met 27 sleutels, 9 personen, 10 gebeurtenissen, 12 steden; v50–v62. Bronnen en keuzes: [`david-salomo-bronnen.md`](david-salomo-bronnen.md). |
@@ -87,6 +87,11 @@ alles dubbel geladen en een eigen route in de Worker nodig gehad.
   (en hoeveel jaar ertussen), gebeurtenissen (springen), ‘Lees in je Bijbel’ en een link naar het verhaal. Kies iemand
   uit ‘tegelijk met’ om te **vergelijken**: het gemeenschappelijke stuk wordt een gemarkeerd vlak tussen beide lijnen
   (‘243 jaar tegelijk’) en een zin (‘Methusalach en Adam leefden 243 jaar tegelijk: van jaar 687 tot jaar 930.’).
+- **Lange lijst** (sinds 21-11-2026, 22 rijen in ‘Van Adam tot Abram’): past de lijst niet in beeld, dan schuift hij mee
+  naar wie er nu leeft (`kern.rijInBeeld`): passen die rijen, dan zo weinig mogelijk schuiven; passen ze niet, dan de
+  jongste onderaan. Dat gebeurt bij openen, springen, de schuif en afspelen (zacht, bij minder beweging meteen), maar
+  niet zolang je de lijst zelf schuift of aanraakt (4 s). De rijhoogte rondt naar beneden af, zodat een lijst die net
+  past niet een paar pixels gaat scrollen.
 - **Kaart**: gebieden in hun kleur, met gestippelde rand als de grens bij benadering is (legenda), namen op het
   zwaartepunt, hoofdsteden als vierkantje zolang hun rijk bestaat, kleinere plaatsen pas met naam als je inzoomt, een
   gebeurtenis op haar plek licht op als ze bereikt wordt (de kaart beweegt er rustig heen als ze buiten beeld ligt).
@@ -107,7 +112,7 @@ gedeelde specificatie, met deze aanvullingen (alle optioneel):
 | --- | --- | --- |
 | `as.status`, `as.uitleg` | as | status en uitleg van de tijdrekening (bij het grote jaartal en in ‘Over’) |
 | `kaartUitleg` | periode | tekst in de Kaart-weergave als de periode geen kaart heeft (geen gebieden, steden of plaatsen) |
-| `info` | periode | `[{ kop, tekst, status, bron }]`: compacte bron-info in ‘Over deze tijdlijn’ (bijv. Septuagint, Ussher) |
+| `info` | periode | `[{ kop, tekst, status, bron }]`: compacte bron-info in ‘Over deze tijdlijn’ (bijv. Septuagint) |
 | `van.vaderLeeftijd` | persoon | leeftijd van de vader bij de geboorte (de unittest rekent ermee na) |
 | `tot.leeftijd`, `tot.leeftijdStatus` | persoon | leeftijd bij het einde, standaard ‘staat in de Bijbel’ |
 | `van.begin`, `lijn` | persoon | waar de lijn begint (`geboorte`, `regering`, `weggevoerd`, `roeping`) en wat hij toont (`leven`, `regering`, `in Babel`, `profeet`) |
@@ -180,8 +185,11 @@ Voorlezen). Niet in het korte stapblad van de reis: daar hoort een stap, geen ge
 
 - `tests/bijbelreis-wereld.test.ts`: controle van alle periodebestanden en de testdata; Genesis 5 nagerekend (elk
   geboortejaar = vader + leeftijd bij de geboorte; zondvloed 1656 = Noach + 600; Methusalach sterft 1656; Henoch
-  weggenomen 987; Noach sterft 2006; Sem 1558–2158); overlap (Adam–Methusalach 243, Adam–Noach niet, 126 jaar ertussen);
-  SV-controleregels; citaten letterlijk; Septuagint en Samaritaanse Pentateuch nagerekend (2242/2262, 1307); tijdas;
+  weggenomen 987; Noach sterft 2006; Sem 1558–2158); Genesis 11:10–32 nagerekend (Arfachsad 1658 t/m Terach 1878–2083,
+  Abram 2008 = Terach † − 75, de lezing 70 → 1948 als opmerking); overlap (Adam–Methusalach 243, Adam–Noach niet, 126
+  jaar ertussen; bij Abrams geboorte leven Sem t/m Terach behalve Peleg en Nahor); SV-controleregels; citaten letterlijk;
+  Septuagint en Samaritaanse Pentateuch nagerekend (2242/2262, 1307; na de vloed 880/780 jaar meer, Kaïnan); geen
+  Ussher en geen v.Chr.; de lijst die meeschuift (`rijInBeeld`); tijdas;
   herbemonsteren, uitlijnen en interpoleren van gebieden; plaats in de app-schil.
 - `tests/bijbelreis-wereld-daniel.test.ts` (spoor Daniël): de gegevens van demo 2.
 - `tests/bijbelreis-wereld-koningen.test.ts`: de gegevens van `david-salomo` en `israel-assyrie` (gebouwd door
@@ -196,7 +204,7 @@ Voorlezen). Niet in het korte stapblad van de reis: daar hoort een stap, geen ge
   de kern voor de gemengde as (geen jaar 0, streepjes, marges, controle, ‘afgezet’, het adres met een negatief jaar).
 - `tests/fixtures/wereld/test-kaart.json`: **testdata** (verzonnen vormen) voor de kaartengine.
 - `e2e/bijbelreis-wereld.spec.ts` (desktop, mobiel, tablet): openen vanuit een verhaal en exact terug, afspelen en
-  pauzeren, spoelen, gebeurtenis, persoon, vergelijken (243), Henoch, toetsenbord, minder beweging, Daniël met kaart en
+  pauzeren, spoelen, gebeurtenis, persoon, vergelijken (243), Henoch, toetsenbord, minder beweging, Van Adam tot Abram (uit v8 naar 2083, Abram en Terach in beeld op de telefoon, Terach 130/1948, Sem 150 jaar tegelijk; Babel uit v7 met band en uitleg; zelf geschoven lijst blijft staan), Daniël met kaart en
   rand, Mozes (geopend uit v26, levensjaren, de reis loopt mee, onzekere plaatsen, Aäron, terug), Israël–Assyrië (v66) en David en Salomo (v61), Perzië vanuit Esther (v77) met Thracië en Esther als koningin, ‘geboorte-jezus’ vanuit v83 (v.Chr. en n.Chr.,
   geen naam of lijn voor de Heere Jezus, het rijk van Herodes valt uiteen, Pilatus afgezet, adres met -4), kaartanimatie met testdata, kapotte/ontbrekende gegevens, telefoonmaten zonder horizontaal schuiven, axe, offline.
 
@@ -207,8 +215,12 @@ Voorlezen). Niet in het korte stapblad van de reis: daar hoort een stap, geen ge
   ‘Over’ uitgelegd). Cham en Jafeth: geboortejaar bij benadering (rond 1556), einde onbekend. Methusalach sterft
   uitgerekend in het jaar van de vloed; de Bijbel zegt niet hoe (zo staat het er ook). Namen volgens de Bijbelreis:
   **Methusalach** (SV), niet ‘Methusalem’.
-- **Septuagint/Samaritaanse Pentateuch**: getallen uit secundaire bronnen (Wikipedia-tabel, artikel van H. B. Smith),
-  niet uit een tekstuitgave nagekeken. Ussher alleen als ‘traditioneel’.
+- **Septuagint/Samaritaanse Pentateuch**: getallen uit secundaire bronnen (Wikipedia-tabel, artikel van H. B. Smith;
+  voor Genesis 11 de Septuagint-vertaling van Brenton, 1851), niet uit een kritische tekstuitgave nagekeken. Ussher wordt
+  niet genoemd en er staan geen jaartallen v.Chr. bij Genesis 1–11 (besluit Martijn, 21-11-2026).
+- **Genesis 11** (21-11-2026): zie [`adam-noach-bronnen.md`](adam-noach-bronnen.md) (Terach 130 of 70, Babel zonder
+  jaartal, Kaïnan). Op 360 en 375 px breed wordt in de naamkolom ‘Methusalach’ en ‘nog niet geboren’ afgekapt (…); dat
+  was al zo vóór Genesis 11 en hangt aan de breedte van de naamkolom.
 - **Daniël**: zie `daniel-bronnen.md` (o.a. 605 als derde jaar van Jojakim, 587/586, Darius de Meder, Sardis 547–540).
 - **Mozes**: zie `mozes-bronnen.md` §4 (de plek binnen het jaar, Mirjam, de landstreken, Kaleb vanaf jaar 41).
 - Sinds de bredere ondergrond (4–57° O, PR #51) ligt Pasargadae binnen de kaart; Perzië loopt na 539 nog verder
