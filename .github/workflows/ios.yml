@@ -30,6 +30,10 @@ on:
         description: "Ook archiveren en uploaden naar TestFlight (wacht alleen op de eigen build, niet op de simulatortest)"
         type: boolean
         default: false
+      groep_build:
+        description: "Alleen een bestaande build (buildnummer) in TestFlight-groep ‘Bijbelreis intern’ zetten; niets bouwen of uploaden"
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -48,13 +52,17 @@ env:
 jobs:
   bouw:
     name: Bouwen en testen in de simulator (macOS)
+    # Niet bij een run die alleen een bestaande build in de TestFlight-groep zet.
+    if: inputs.groep_build == ''
     runs-on: macos-26
     timeout-minutes: 75
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: inputs.groep_build == ''
         with:
           persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        if: inputs.groep_build == ''
         with:
           node-version: 22
           cache: npm
@@ -63,6 +71,7 @@ jobs:
             apps/ios/package-lock.json
 
       - name: Xcode ${{ env.XCODE_VERSIE }} kiezen
+        if: inputs.groep_build == ''
         run: |
           APP="/Applications/Xcode_${XCODE_VERSIE}.app"
           if [ ! -d "$APP" ]; then
@@ -137,6 +146,7 @@ jobs:
   webkit:
     # WebKit van Playwright met iPhone-maat: dichter bij WKWebView dan Chromium, en snel op Linux.
     name: Webmap in Playwright-WebKit (iPhone-maat)
+    if: inputs.groep_build == ''
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -173,7 +183,7 @@ jobs:
     name: Archiveren en uploaden naar TestFlight
     # Alleen als iemand met schrijfrechten hem met de hand start én ‘Ook naar TestFlight’ aanvinkt. Nooit bij een
     # pull request (ook niet van een fork) en nooit vanzelf bij een push.
-    if: github.event_name == 'workflow_dispatch' && inputs.testflight
+    if: github.event_name == 'workflow_dispatch' && (inputs.testflight || inputs.groep_build != '')
     runs-on: macos-26
     timeout-minutes: 100
     environment: testflight
@@ -262,6 +272,7 @@ jobs:
           sudo xcode-select -s "$APP/Contents/Developer"
           xcodebuild -version
       - name: Webmap maken en in het Xcode-project zetten
+        if: inputs.groep_build == ''
         working-directory: apps/ios
         run: |
           npm ci --no-audit --no-fund
@@ -288,6 +299,7 @@ jobs:
           echo "ASC_KEY_PATH=$SLEUTEL" >> "$GITHUB_ENV"
 
       - name: Archiveren (automatische ondertekening via App Store Connect)
+        if: inputs.groep_build == ''
         run: |
           xcodebuild archive -quiet -project "$PROJECT" -scheme App -configuration Release \
             -destination "generic/platform=iOS" -archivePath "$RUNNER_TEMP/Bijbelreis.xcarchive" \
@@ -296,6 +308,7 @@ jobs:
             DEVELOPMENT_TEAM="$TEAM_ID" CODE_SIGN_STYLE=Automatic CURRENT_PROJECT_VERSION="$BUILDNUMMER"
 
       - name: Exporteren en uploaden naar App Store Connect
+        if: inputs.groep_build == ''
         run: |
           cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
           <?xml version="1.0" encoding="UTF-8"?>
@@ -323,9 +336,13 @@ jobs:
         # Wacht tot App Store Connect de build heeft verwerkt (meestal 5–30 min) en zet hem dan in de interne groep.
         # Gebruikt dezelfde API-sleutel (JWT, 20 min geldig); er wordt niets anders gewijzigd in App Store Connect.
         timeout-minutes: 60
+        env:
+          GROEP_BUILD: ${{ inputs.groep_build }}
         run: |
-          python3 -m pip install --quiet --disable-pip-version-check pyjwt cryptography
-          python3 - <<'PY'
+          # macOS staat pip buiten een virtuele omgeving niet toe (PEP 668).
+          python3 -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/pip" install --quiet --disable-pip-version-check pyjwt cryptography
+          NUMMER="${GROEP_BUILD:-$BUILDNUMMER}" "$RUNNER_TEMP/venv/bin/python" - <<'PY'
           import json, os, time, urllib.request, urllib.parse, jwt
           KEY = open(os.environ["ASC_KEY_PATH"]).read()
           def token():
@@ -347,7 +364,7 @@ jobs:
           st, groepen = api("/v1/betaGroups?" + urllib.parse.urlencode({"filter[app]": app, "filter[name]": "Bijbelreis intern"}))
           if st != 200 or not groepen.get("data"): raise SystemExit(f"::error::TestFlight-groep ‘Bijbelreis intern’ niet gevonden (HTTP {st}).")
           groep = groepen["data"][0]["id"]
-          nummer = os.environ["BUILDNUMMER"]
+          nummer = os.environ["NUMMER"]
           build = None
           for poging in range(56):  # ± 56 min
               st, b = api("/v1/builds?" + urllib.parse.urlencode({"filter[app]": app, "filter[version]": nummer, "limit": "5"}))
@@ -370,4 +387,4 @@ jobs:
 
       - name: Sleutel verwijderen
         if: always()
-        run: rm -rf "$RUNNER_TEMP/asc" "$RUNNER_TEMP/ExportOptions.plist"
+        run: rm -rf "$RUNNER_TEMP/asc" "$RUNNER_TEMP/ExportOptions.plist" "$RUNNER_TEMP/venv"
