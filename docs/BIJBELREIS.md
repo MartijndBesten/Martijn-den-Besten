@@ -192,7 +192,12 @@ kaart (`relief-regio.webp`).
   (`#vNN`, `#boek/n`, `#wereld/…`, `#verhalen`), niet bij herladen of terug (history.state).
 - Toegankelijk: `role="dialog"`, `aria-modal`; de rest van de pagina is `inert` zolang het open is; Escape en ‘Naar de
   atlas’ sluiten; focus op het scherm zelf, daarna op het gekozen onderdeel.
-- ‘Verder met’ komt uit dezelfde functie als in de lijst (`verderDoel()`), dus beide wijzen altijd naar hetzelfde.
+- ‘Verder met’ komt uit dezelfde functie als in de lijst (`verderDoel()`), dus beide wijzen naar hetzelfde. Eén verschil
+  in de kersttijd: op het welkom telt ook een stap uit de kerstreis (`verderDoel(true)`); in de lijst doet de seizoenskaart dat.
+- In de kersttijd (eerste adventszondag tot en met 6 januari) staat onder de grote knop het deel van deze week: ‘Advent en
+  Kerst · deze week’ met ‘Lees deel 2: Van David tot Jozef ▶’ (of ‘Verder met deel 2’ / ‘… nog eens’), dezelfde knop als de
+  seizoenskaart (`seizoenStand()`), rechtstreeks naar het deel. Gaat ‘Verder met’ al naar dezelfde stap, dan staat hij er
+  niet twee keer. Getest met een vaste klok in `e2e/bijbelreis-voorscherm.spec.ts` (advent-controle 21-11-2026).
 - Tests: `e2e/bijbelreis-voorscherm.spec.ts` (nieuw, terug, diepe link, axe). Andere specs zetten het welkom vooraf op
   ‘gezien’ via `e2e/voorscherm.ts`.
 
