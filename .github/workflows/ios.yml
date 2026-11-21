@@ -3,8 +3,10 @@ name: iOS-app
 # De Bijbelreis als iOS-app (apps/ios, Capacitor). Uitleg en wat Martijn zelf doet: docs/bijbelreis-ios/TESTFLIGHT.md.
 #  - bouw:       bouwt de app op een Mac van GitHub (Release voor simulator en toestel, zonder ondertekening) en test hem
 #                in de iOS-simulator (iPhone en iPad), plus de webmap in Playwright-WebKit (job webkit).
-#  - testflight: alleen met de hand (Actions → iOS-app → Run workflow → ‘Ook naar TestFlight’): archiveren, ondertekenen
-#                via App Store Connect (cloud) en uploaden. Gebruikt de geheimen van de Environment ‘testflight’.
+#  - testflight: alleen met de hand (Actions → iOS-app → Run workflow → ‘Ook naar TestFlight’): eerst de geheimen
+#                controleren (binnen een minuut), dan archiveren (= de Release-build), ondertekenen via App Store Connect
+#                (cloud) en uploaden. Wacht niet op de (trage) simulatortest van job bouw; die draait ernaast ter info.
+#                Gebruikt de geheimen van de Environment ‘testflight’.
 
 on:
   push:
@@ -25,16 +27,21 @@ on:
   workflow_dispatch:
     inputs:
       testflight:
-        description: "Ook archiveren en uploaden naar TestFlight (na een groene bouw)"
+        description: "Ook archiveren en uploaden naar TestFlight (wacht alleen op de eigen build, niet op de simulatortest)"
         type: boolean
         default: false
+      groep_build:
+        description: "Alleen een bestaande build (buildnummer) in TestFlight-groep ‘Bijbelreis intern’ zetten; niets bouwen of uploaden"
+        type: string
+        default: ""
 
 permissions:
   contents: read
 
 concurrency:
-  group: ios-${{ github.ref }}
-  # Een nieuwe push stopt een oude bouw; een upload naar TestFlight wordt nooit halverwege afgebroken.
+  # Een nieuwe push stopt een oude bouw. Een handmatige run krijgt een eigen groep: die wacht nooit op (of stopt nooit)
+  # een eerdere run die nog in de simulatortest hangt. Uploads naar TestFlight blijven via de jobgroep 'testflight' na elkaar.
+  group: ios-${{ github.ref }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || 'auto' }}
   cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
 
 env:
@@ -46,13 +53,17 @@ env:
 jobs:
   bouw:
     name: Bouwen en testen in de simulator (macOS)
+    # Niet bij een run die alleen een bestaande build in de TestFlight-groep zet.
+    if: inputs.groep_build == ''
     runs-on: macos-26
     timeout-minutes: 75
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: inputs.groep_build == ''
         with:
           persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        if: inputs.groep_build == ''
         with:
           node-version: 22
           cache: npm
@@ -61,6 +72,7 @@ jobs:
             apps/ios/package-lock.json
 
       - name: Xcode ${{ env.XCODE_VERSIE }} kiezen
+        if: inputs.groep_build == ''
         run: |
           APP="/Applications/Xcode_${XCODE_VERSIE}.app"
           if [ ! -d "$APP" ]; then
@@ -116,6 +128,10 @@ jobs:
 
       - name: Test in de iOS-simulator (iPhone 17 Pro Max, iPad Pro 13", iPhone 17 Pro)
         working-directory: apps/ios
+        # Bij een pull request zonder de App Store-beelden (SIM_SNEL); een hangende simulator stopt na 50 minuten.
+        timeout-minutes: 50
+        env:
+          SIM_SNEL: ${{ github.event_name == 'pull_request' && '1' || '0' }}
         run: |
           P="$RUNNER_TEMP/dd/Build/Products"
           node scripts/simulator-test.mjs --release "$P/Release-iphonesimulator/App.app" \
@@ -131,6 +147,7 @@ jobs:
   webkit:
     # WebKit van Playwright met iPhone-maat: dichter bij WKWebView dan Chromium, en snel op Linux.
     name: Webmap in Playwright-WebKit (iPhone-maat)
+    if: inputs.groep_build == ''
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -165,36 +182,81 @@ jobs:
 
   testflight:
     name: Archiveren en uploaden naar TestFlight
-    needs: [bouw, webkit]
     # Alleen als iemand met schrijfrechten hem met de hand start én ‘Ook naar TestFlight’ aanvinkt. Nooit bij een
     # pull request (ook niet van een fork) en nooit vanzelf bij een push.
-    if: github.event_name == 'workflow_dispatch' && inputs.testflight
+    if: github.event_name == 'workflow_dispatch' && (inputs.testflight || inputs.groep_build != '')
     runs-on: macos-26
-    timeout-minutes: 60
+    timeout-minutes: 100
     environment: testflight
     concurrency:
       group: testflight
       cancel-in-progress: false
     env:
-      ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
-      ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+      # De ruwe geheimen; ‘Geheimen controleren’ maakt er schone waarden van (ASC_KEY_ID, ASC_ISSUER_ID, TEAM_ID).
+      RUW_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+      RUW_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+      RUW_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
       ASC_KEY_P8: ${{ secrets.APP_STORE_CONNECT_KEY_P8 }}
-      TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
       BUILDNUMMER: ${{ github.run_number }}
     steps:
       - name: Geheimen controleren
+        # Spaties, tabs, regeleinden (ook \r), harde spaties en onzichtbare tekens worden weggehaald. In het log staat
+        # nooit een waarde: alleen de lengte na het opschonen. Een geplakte bestandsnaam ‘AuthKey_XXXXXXXXXX.p8’ als
+        # Key ID wordt herkend en teruggebracht tot de 10 tekens. Kleine letters in Key ID en Team ID worden hoofdletters.
         run: |
+          schoon() { printf '%s' "$1" | perl -CSD -pe 's/[\s\x{00A0}\x{2007}\x{202F}\x{200B}-\x{200D}\x{2060}\x{FEFF}]//g'; }
+          soort() { v="$1"; printf 'lengte %s' "${#v}"; }
           mist=""
-          [ -n "$ASC_KEY_ID" ] || mist="$mist APP_STORE_CONNECT_KEY_ID"
-          [ -n "$ASC_ISSUER_ID" ] || mist="$mist APP_STORE_CONNECT_ISSUER_ID"
+          [ -n "$RUW_KEY_ID" ] || mist="$mist APP_STORE_CONNECT_KEY_ID"
+          [ -n "$RUW_ISSUER_ID" ] || mist="$mist APP_STORE_CONNECT_ISSUER_ID"
           [ -n "$ASC_KEY_P8" ] || mist="$mist APP_STORE_CONNECT_KEY_P8"
-          [ -n "$TEAM_ID" ] || mist="$mist APPLE_TEAM_ID"
+          [ -n "$RUW_TEAM_ID" ] || mist="$mist APPLE_TEAM_ID"
           if [ -n "$mist" ]; then
-            echo "::error::Geheimen ontbreken:$mist. Zet ze in GitHub → Settings → Environments → testflight (of Secrets and variables → Actions). Stappen: docs/bijbelreis-ios/TESTFLIGHT.md. Er is niets gebouwd of geüpload."
+            echo "::error::Geheimen ontbreken:$mist. Zet ze in GitHub → Settings → Environments → testflight. Stappen: docs/bijbelreis-ios/TESTFLIGHT.md. Er is niets gebouwd of geüpload."
             exit 1
           fi
-          if ! printf '%s' "$TEAM_ID" | grep -Eq '^[A-Z0-9]{10}$'; then echo "::error::APPLE_TEAM_ID moet 10 tekens zijn (hoofdletters en cijfers). Zie docs/bijbelreis-ios/TESTFLIGHT.md."; exit 1; fi
-          if ! printf '%s' "$ASC_KEY_ID" | grep -Eq '^[A-Z0-9]{10}$'; then echo "::error::APP_STORE_CONNECT_KEY_ID moet 10 tekens zijn. Zie docs/bijbelreis-ios/TESTFLIGHT.md."; exit 1; fi
+          KEY_ID="$(schoon "$RUW_KEY_ID")"
+          ISSUER_ID="$(schoon "$RUW_ISSUER_ID")"
+          TEAM="$(schoon "$RUW_TEAM_ID")"
+          # ‘AuthKey_XXXXXXXXXX.p8’ (de bestandsnaam) → ‘XXXXXXXXXX’.
+          KEY_ID="${KEY_ID#AuthKey_}"; KEY_ID="${KEY_ID%.p8}"
+          KEY_ID="$(printf '%s' "$KEY_ID" | tr 'a-z' 'A-Z')"
+          TEAM="$(printf '%s' "$TEAM" | tr 'a-z' 'A-Z')"
+          ISSUER_ID="$(printf '%s' "$ISSUER_ID" | tr 'A-Z' 'a-z')"
+          echo "APP_STORE_CONNECT_KEY_ID:    $(soort "$KEY_ID") (verwacht 10)"
+          echo "APP_STORE_CONNECT_ISSUER_ID: $(soort "$ISSUER_ID") (verwacht 36)"
+          echo "APPLE_TEAM_ID:               $(soort "$TEAM") (verwacht 10)"
+          fout=0
+          # Het .p8-geheim: wat staat erin? (alleen lengte en soort, nooit de inhoud)
+          P8="$(schoon "$ASC_KEY_P8")"
+          if printf '%s' "$P8" | grep -q -- '-----BEGINPRIVATEKEY-----'; then p8soort="een .p8-sleutel (met BEGIN/END-regels)"
+          elif printf '%s' "$P8" | base64 --decode 2>/dev/null | grep -q -- 'BEGIN PRIVATE KEY'; then p8soort="een .p8-sleutel in base64"
+          elif printf '%s' "$P8" | tr 'a-z' 'A-Z' | grep -Eq '^(AUTHKEY_)?[A-Z0-9]{10}(\.P8)?$'; then p8soort="GEEN sleutel: lijkt een Key ID (10 tekens)"
+          elif printf '%s' "$P8" | grep -Eq '^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$'; then p8soort="GEEN sleutel: lijkt een Issuer ID"
+          else p8soort="GEEN herkenbare .p8-sleutel"; fi
+          echo "APP_STORE_CONNECT_KEY_P8:    $(soort "$P8"), $p8soort"
+          case "$p8soort" in GEEN*) fout=1; echo "::error::APP_STORE_CONNECT_KEY_P8 bevat $p8soort. Plak hier de hele inhoud van het bestand AuthKey_<Key ID>.p8 (open het met Teksteditor; van -----BEGIN PRIVATE KEY----- tot en met -----END PRIVATE KEY-----).";; esac
+          if ! printf '%s' "$KEY_ID" | grep -Eq '^[A-Z0-9]{10}$'; then
+            fout=1
+            if printf '%s' "$KEY_ID" | grep -q -- '-----BEGINPRIVATEKEY-----'; then
+              echo "::error::APP_STORE_CONNECT_KEY_ID bevat de inhoud van het .p8-bestand (de sleutel zelf). Hier hoort alleen de Key ID: de 10 tekens uit de kolom ‘Key ID’ (App Store Connect → Gebruikers en toegang → Integraties → App Store Connect API), ook te zien in de bestandsnaam AuthKey_<Key ID>.p8. De sleutel zelf hoort in APP_STORE_CONNECT_KEY_P8."
+            elif printf '%s' "$KEY_ID" | grep -Eq '^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$'; then
+              echo "::error::APP_STORE_CONNECT_KEY_ID lijkt een Issuer ID (36 tekens met streepjes). De Key ID is de korte code van 10 tekens in de kolom ‘Key ID’ (App Store Connect → Gebruikers en toegang → Integraties → App Store Connect API)."
+            else
+              echo "::error::APP_STORE_CONNECT_KEY_ID is na opschonen ${#KEY_ID} tekens; verwacht 10 (hoofdletters en cijfers): de kolom ‘Key ID’ bij de sleutel in App Store Connect → Gebruikers en toegang → Integraties → App Store Connect API."
+            fi
+          fi
+          if ! printf '%s' "$ISSUER_ID" | grep -Eq '^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$'; then
+            fout=1; echo "::error::APP_STORE_CONNECT_ISSUER_ID is na opschonen ${#ISSUER_ID} tekens; verwacht 36 (8-4-4-4-12 met streepjes): ‘Issuer ID’ bovenaan dezelfde pagina in App Store Connect."
+          fi
+          if ! printf '%s' "$TEAM" | grep -Eq '^[A-Z0-9]{10}$'; then
+            fout=1; echo "::error::APPLE_TEAM_ID is na opschonen ${#TEAM} tekens; verwacht 10 (hoofdletters en cijfers): ‘Team ID’ op developer.apple.com → Account → Membership details."
+          fi
+          [ "$fout" = 0 ] || { echo "Er is niets gebouwd of geüpload."; exit 1; }
+          # Schone waarden maskeren en doorgeven aan de volgende stappen.
+          echo "::add-mask::$KEY_ID"; echo "::add-mask::$ISSUER_ID"; echo "::add-mask::$TEAM"
+          { echo "ASC_KEY_ID=$KEY_ID"; echo "ASC_ISSUER_ID=$ISSUER_ID"; echo "TEAM_ID=$TEAM"; } >> "$GITHUB_ENV"
+          echo "Geheimen in orde."
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -211,6 +273,7 @@ jobs:
           sudo xcode-select -s "$APP/Contents/Developer"
           xcodebuild -version
       - name: Webmap maken en in het Xcode-project zetten
+        if: inputs.groep_build == ''
         working-directory: apps/ios
         run: |
           npm ci --no-audit --no-fund
@@ -237,6 +300,7 @@ jobs:
           echo "ASC_KEY_PATH=$SLEUTEL" >> "$GITHUB_ENV"
 
       - name: Archiveren (automatische ondertekening via App Store Connect)
+        if: inputs.groep_build == ''
         run: |
           xcodebuild archive -quiet -project "$PROJECT" -scheme App -configuration Release \
             -destination "generic/platform=iOS" -archivePath "$RUNNER_TEMP/Bijbelreis.xcarchive" \
@@ -245,6 +309,7 @@ jobs:
             DEVELOPMENT_TEAM="$TEAM_ID" CODE_SIGN_STYLE=Automatic CURRENT_PROJECT_VERSION="$BUILDNUMMER"
 
       - name: Exporteren en uploaden naar App Store Connect
+        if: inputs.groep_build == ''
         run: |
           cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
           <?xml version="1.0" encoding="UTF-8"?>
@@ -268,6 +333,59 @@ jobs:
           echo "### Geüpload naar App Store Connect" >> "$GITHUB_STEP_SUMMARY"
           echo "Versie $(plutil -extract ApplicationProperties.CFBundleShortVersionString raw "$RUNNER_TEMP/Bijbelreis.xcarchive/Info.plist"), build $BUILDNUMMER. Na 10–30 minuten staat hij in App Store Connect onder TestFlight." >> "$GITHUB_STEP_SUMMARY"
 
+      - name: In TestFlight-groep ‘Bijbelreis intern’ zetten (na verwerking door Apple)
+        # Wacht tot App Store Connect de build heeft verwerkt (meestal 5–30 min) en zet hem dan in de interne groep.
+        # Gebruikt dezelfde API-sleutel (JWT, 20 min geldig); er wordt niets anders gewijzigd in App Store Connect.
+        timeout-minutes: 60
+        env:
+          GROEP_BUILD: ${{ inputs.groep_build }}
+        run: |
+          # macOS staat pip buiten een virtuele omgeving niet toe (PEP 668).
+          python3 -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/pip" install --quiet --disable-pip-version-check pyjwt cryptography
+          NUMMER="${GROEP_BUILD:-$BUILDNUMMER}" "$RUNNER_TEMP/venv/bin/python" - <<'PY'
+          import json, os, time, urllib.request, urllib.parse, jwt
+          KEY = open(os.environ["ASC_KEY_PATH"]).read()
+          def token():
+              now = int(time.time())
+              return jwt.encode({"iss": os.environ["ASC_ISSUER_ID"], "iat": now, "exp": now + 1200, "aud": "appstoreconnect-v1"},
+                                KEY, algorithm="ES256", headers={"kid": os.environ["ASC_KEY_ID"], "typ": "JWT"})
+          def api(pad, methode="GET", data=None):
+              req = urllib.request.Request("https://api.appstoreconnect.apple.com" + pad, method=methode,
+                                           data=json.dumps(data).encode() if data is not None else None,
+                                           headers={"Authorization": "Bearer " + token(), "Content-Type": "application/json"})
+              try:
+                  with urllib.request.urlopen(req, timeout=60) as r:
+                      b = r.read(); return r.status, (json.loads(b) if b else {})
+              except urllib.error.HTTPError as e:
+                  return e.code, json.loads(e.read() or b"{}")
+          st, apps = api("/v1/apps?" + urllib.parse.urlencode({"filter[bundleId]": "nl.bijbelreis.app"}))
+          if st != 200 or not apps.get("data"): raise SystemExit(f"::error::App nl.bijbelreis.app niet gevonden in App Store Connect (HTTP {st}).")
+          app = apps["data"][0]["id"]
+          st, groepen = api("/v1/betaGroups?" + urllib.parse.urlencode({"filter[app]": app, "filter[name]": "Bijbelreis intern"}))
+          if st != 200 or not groepen.get("data"): raise SystemExit(f"::error::TestFlight-groep ‘Bijbelreis intern’ niet gevonden (HTTP {st}).")
+          groep = groepen["data"][0]["id"]
+          nummer = os.environ["NUMMER"]
+          build = None
+          for poging in range(56):  # ± 56 min
+              st, b = api("/v1/builds?" + urllib.parse.urlencode({"filter[app]": app, "filter[version]": nummer, "limit": "5"}))
+              lijst = b.get("data") or []
+              if lijst:
+                  build = lijst[0]; staat = build["attributes"].get("processingState")
+                  print(f"build {nummer}: {staat}", flush=True)
+                  if staat == "VALID": break
+                  if staat in ("FAILED", "INVALID"): raise SystemExit(f"::error::Apple keurde build {nummer} af tijdens verwerking ({staat}); zie App Store Connect → TestFlight.")
+              else:
+                  print(f"build {nummer}: nog niet zichtbaar", flush=True)
+              time.sleep(60)
+          else:
+              raise SystemExit(f"::error::Build {nummer} was na een uur nog niet verwerkt. Hij staat wel in App Store Connect; zet hem daar zelf in de groep, of start deze stap later opnieuw.")
+          st, r = api(f"/v1/betaGroups/{groep}/relationships/builds", "POST", {"data": [{"type": "builds", "id": build["id"]}]})
+          if st not in (200, 201, 204, 409): raise SystemExit(f"::error::Build in groep zetten mislukte (HTTP {st}): {json.dumps(r.get('errors', r))[:400]}")
+          print(f"Build {nummer} staat in TestFlight-groep ‘Bijbelreis intern’.")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f: f.write(f"\nBuild {nummer} staat in TestFlight-groep **Bijbelreis intern**.\n")
+          PY
+
       - name: Sleutel verwijderen
         if: always()
-        run: rm -rf "$RUNNER_TEMP/asc" "$RUNNER_TEMP/ExportOptions.plist"
+        run: rm -rf "$RUNNER_TEMP/asc" "$RUNNER_TEMP/ExportOptions.plist" "$RUNNER_TEMP/venv"
