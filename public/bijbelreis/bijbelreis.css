@@ -666,6 +666,33 @@ details.parents dd { margin: 0; }
 .arr { position: absolute; left: -7px; top: -6px; width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 13px solid var(--arr, var(--rc)); transform-origin: 7px 6px; transition: opacity 0.25s; filter: drop-shadow(0 0 1px var(--halo)); }
 .arr.dim { opacity: 0.3; }
 .arr.off { opacity: 0; }
+/* Proefweergaven van de routes, alleen met ?routes=a|b|c (html[data-routes]); vergelijking in docs/bijbelreis-audit/routes.md.
+   Alle drie: de lijn van de stap dikker met een witte rand; een zijroute (andere reiziger) dunner. */
+.rv { background: none; border: 0; }
+[data-routes] .rt-casing.active { stroke: var(--wit); stroke-opacity: 1; stroke-width: 11; }
+[data-routes] .rt.active:not(.rt-casing) { stroke-width: 5.5; }
+[data-routes] .rt.active.recon:not(.rt-casing) { stroke-dasharray: 10 7; }
+[data-routes] .rt-casing.active.rv-zij { stroke-width: 7; }
+[data-routes] .rt.active.rv-zij:not(.rt-casing) { stroke-width: 3.2; }
+[data-routes] .rt.active.rv-zij.recon:not(.rt-casing) { stroke-dasharray: 6 5; }
+/* A: pijlpunten langs de lijn (ook op korte routes) en een ring om begin en eind. */
+[data-routes="a"] .arr { display: none; }
+.rv-pijl { position: absolute; left: -11px; top: -11px; width: 22px; height: 22px; overflow: visible; }
+.rv-pijl.zij { left: -7px; top: -7px; width: 14px; height: 14px; }
+.rv-pijl path { fill: var(--rvk); stroke: var(--wit); stroke-width: 2; stroke-linejoin: round; paint-order: stroke; }
+.rv-ring { position: absolute; left: -10px; top: -10px; width: 20px; height: 20px; box-sizing: border-box; border-radius: 50%; border: 3px solid var(--rvk); box-shadow: 0 0 0 2px var(--wit), inset 0 0 0 1.5px var(--wit); }
+.rv-ring.eind { left: -16px; top: -16px; width: 32px; height: 32px; border-width: 5px; background: color-mix(in srgb, var(--rvk) 22%, transparent); }
+/* B: wat nog komt dun en grijs gestippeld (alleen de reiziger van het deel); na aankomst een lichtstreep over de lijn. */
+[data-routes="b"] #map.rv-spoor .rt.past:not(.rt-casing) { stroke-opacity: 0.7; stroke-width: 3; }
+[data-routes="b"] #map.rv-spoor .rt.future.rv-hoofd:not(.rt-casing) { stroke: var(--inkt-3); stroke-opacity: 0.55; stroke-width: 2.4; stroke-dasharray: 0.1 6.5; }
+.rv-veeg { fill: none; stroke: var(--wit); stroke-width: 3; stroke-linecap: round; stroke-opacity: 0.95; stroke-dasharray: 26px calc(var(--L, 0) * 1px); stroke-dashoffset: 26px; animation: rv-veeg 1.8s cubic-bezier(0.45, 0, 0.55, 1) 0.2s 3 both; pointer-events: none; }
+@keyframes rv-veeg { from { stroke-dashoffset: 26px; } to { stroke-dashoffset: calc(var(--L, 0) * -1px); } }
+/* C: de rest van de reis grijs en zwak; de stap in kleur met een gloed; genummerde haltes. */
+[data-routes="c"] .arr { display: none; }
+[data-routes="c"] .rt.past:not(.rt-casing) { stroke: var(--inkt-3); stroke-opacity: 0.3; stroke-width: 2.2; }
+[data-routes="c"] .rt-casing.active { stroke-width: 9; }
+.rv-gloed { fill: none; stroke-width: 22; stroke-opacity: 0.2; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.rv-nr { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%); white-space: nowrap; min-width: 19px; height: 19px; padding: 0 5px; box-sizing: border-box; border-radius: 10px; background: var(--rvk); color: #fff; font: 700 11px/19px var(--font-sans); text-align: center; font-variant-numeric: tabular-nums; box-shadow: 0 0 0 2px var(--wit); }
 
 /* Plaatsen: één teken per soort; zekerheid zie je aan vol, open, ring of vage cirkel. */
 .pl { background: none; border: 0; }
@@ -1147,6 +1174,7 @@ body[data-modus="reis"] .mapacties { bottom: 84px; }
 @media (prefers-reduced-motion: reduce) {
   .rt, .toast, .progress div, .prog div, .camel, .arr, .btn, .opt, .bladknop svg { transition: none; }
   .camel.walk .leg { animation: none; }
+  .rv-veeg { animation: none; display: none; }
 }
 
 /* ===== Reisniveaus (proef) ===== */
