@@ -35,7 +35,7 @@ gezinnen.
    korte stapblad op de telefoon staat hij niet; dat blad blijft even hoog.
 4. **Voor ouders en leiders**: ‘Iets missen of melden’, altijd.
 
-Bij **Samen ontdekken** (4–6 jaar) staan ingang 1 tot en met 3 er niet: daar is geen formulier voor jonge kinderen.
+Bij **Voorlezen** staan ingang 1 tot en met 3 er niet: daar is geen formulier voor jonge kinderen.
 Ingang 4 blijft.
 
 **Het formulier** is een blad in de stijl van de andere vensters; op de telefoon vult het het scherm.

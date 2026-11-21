@@ -142,7 +142,7 @@ controleert dat ‘voor kinderen’ er niet in staat.
 
 Is de naam bezet: `Bijbelreis – Bijbelatlas` (24) of `Bijbelreis: op reis` (19).
 
-**Beschrijving** (2029 van 4.000 tekens):
+**Beschrijving** (2148 van 4.000 tekens):
 
 ```
 De Bijbelreis is een Bijbelatlas voor jong en oud. Lees 150 geschiedenissen van de schepping tot Openbaring, reis mee met Abraham, Mozes, David, de Heere Jezus en Paulus, en zie op de kaart waar het gebeurde.
@@ -163,7 +163,7 @@ WAT ER IN STAAT
 • De kaart van toen en van nu: het land in de tijd van de Bijbel, en hoe het er vandaag uitziet
 
 DRIE REISNIVEAUS
-Samen ontdekken (4–6 jaar, om voor te lezen), Zelf op reis (7–10 jaar) en Verder ontdekken (11+). Wisselen kan altijd; je stempels blijven bewaard.
+Voorlezen (korte stukjes om samen te lezen), Zelf lezen (een vertelling om zelf te lezen, met de kaart) en Verdiepen (de volledige vertelling met achtergrond, verbanden en verwijzingen). Kies wat bij de lezer past; wisselen kan altijd en je stempels blijven bewaard.
 
 NAAST JE EIGEN BIJBEL
 De geschiedenissen zijn eigen navertellingen in eenvoudige woorden, gecontroleerd aan de Statenvertaling. De Bijbelreis is een hulpmiddel náást de eigen Bijbel: bij elke geschiedenis staat waar je het zelf leest.
@@ -208,7 +208,7 @@ Wat feitelijk meespeelt (zonder de inhoud zwaarder of lichter voor te stellen):
   chat, geen inhoud van gebruikers, geen reclame, geen aankopen.
 
 **Wat 13+ betekent:** in de App Store staat ‘13+’. Bij Schermtijd met een leeftijdsgrens onder 13 kan een kind de app niet
-zelf installeren; een ouder kan dat wel. De app werkt voor iedereen hetzelfde; de reisniveaus (4–6, 7–10, 11+) blijven.
+zelf installeren; een ouder kan dat wel. De app werkt voor iedereen hetzelfde; de reisniveaus (Voorlezen, Zelf lezen, Verdiepen) blijven.
 
 ## 5. Privacylabel (App Privacy)
 
@@ -271,7 +271,7 @@ App Store Connect → je versie → **App Review Information** → Notes. Inlogg
 required’ uit).
 
 ```
-Bijbelreis ("Bible Journey") is a Dutch-language interactive Bible atlas for all ages: families, individual readers, Sunday school, catechism classes, clubs and schools. It retells 150 Bible histories, from Creation to Revelation, and follows the journeys step by step on a map: Abraham, Moses, David, Jesus, Paul. Three reading levels (4-6, 7-10 and 11+) make it usable with young children as well as for adults.
+Bijbelreis ("Bible Journey") is a Dutch-language interactive Bible atlas for all ages: families, individual readers, Sunday school, catechism classes, clubs and schools. It retells 150 Bible histories, from Creation to Revelation, and follows the journeys step by step on a map: Abraham, Moses, David, Jesus, Paul. Three reading levels (Read aloud, Read yourself, Go deeper) make it usable for reading aloud with young children as well as for adults.
 
 No account is needed. The app collects no data and makes no network requests: all content (texts, map, drawings, photos) is bundled in the app and works fully offline, also on first launch.
 
@@ -315,7 +315,7 @@ Kies vóór het indienen; zonder status wordt de app niet in de EU verspreid.
 In `apps/ios/store/screenshots/` (JPEG, RGB zonder alfakanaal), vijf per maat, in deze volgorde:
 1 een geschiedenis (Droog door de Schelfzee, met Bijbelplaats), 2 een reis op de kaart met tekening, 3 Wie is wie (de
 familie van Abraham), 4 Speurtocht met ‘Goed zo!’ en de Bijbelplaats, 5 Paspoort met ‘Hier was je’. De voortgang is
-verzonnen (de test loopt zelf een paar reizen door; reisniveau Zelf op reis).
+verzonnen (de test loopt zelf een paar reizen door; reisniveau Zelf lezen).
 
 | Map | App Store Connect (Screenshot specifications, 17-11-2026) | Maat | Verplicht? |
 |---|---|---|---|

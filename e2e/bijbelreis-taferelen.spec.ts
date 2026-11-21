@@ -203,9 +203,9 @@ test("ook in de verhaalweergave staat het tafereel van de stap, één keer per b
   expect(errors).toEqual([]);
 });
 
-test("Samen ontdekken: het tafereel staat ook bij de stap en in het verhaal", async ({ page }) => {
+test("Voorlezen: het tafereel staat ook bij de stap en in het verhaal", async ({ page }) => {
   const errors = watchErrors(page);
-  // Na het niveau uit beforeEach: één keer Samen ontdekken kiezen (init-scripts lopen in volgorde van aanmelden).
+  // Na het niveau uit beforeEach: één keer Voorlezen kiezen (init-scripts lopen in volgorde van aanmelden).
   await page.addInitScript(() => { if (sessionStorage.getItem("samenGezet")) return; sessionStorage.setItem("samenGezet", "1"); localStorage.setItem("bijbelreis:niveau", JSON.stringify("a")); });
   await naarStap(page, "#intocht/5");
   await expect(page.locator("body")).toHaveAttribute("data-niveau", "a");

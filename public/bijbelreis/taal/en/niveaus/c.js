@@ -1,4 +1,4 @@
-// Engels, reisniveau c (Explore further, 11+): verdieping en extra vragen bij de vertelling. Vertaling van niveaus/c.js;
+// Engels, reisniveau c (Go deeper): verdieping en extra vragen bij de vertelling. Vertaling van niveaus/c.js;
 // status concept (review draft). Alleen de vertaalde geschiedenissen.
 BR.niveaus.voegToe("c", {
   26: {

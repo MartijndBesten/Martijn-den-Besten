@@ -1,4 +1,4 @@
-// Engels, reisniveau a (Discover together, ages 4–6): korte verhaalstappen om samen te lezen, een tip voor wie voorleest,
+// Engels, reisniveau a (Read aloud): korte verhaalstappen om samen te lezen, een tip voor wie voorleest,
 // vragen met twee antwoorden. Vertaling van niveaus/a.js; status concept (review draft). Alleen de vertaalde geschiedenissen.
 BR.niveaus.voegToe("a", {
   26: {

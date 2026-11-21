@@ -161,8 +161,8 @@ uitnodiging ‘De wereld in die tijd’ bij elke geschiedenis met een koppeling.
 `?wereld=0` in het adres zet hem uit, `?wereld=1` aan (`bijbelreis:wereld` in `localStorage`). Een diepe link
 `#wereld/…` werkt altijd. Uitzetten voor iedereen: `AAN = false`.
 
-De uitnodiging staat in de geschiedenis onder ‘Wanneer?’ (niveau Zelf op reis en Verder ontdekken; niet bij Samen
-ontdekken, 4–6 jaar). Niet in het korte stapblad van de reis: daar hoort een stap, geen geschiedenis, bij de koppeling.
+De uitnodiging staat in de geschiedenis onder ‘Wanneer?’ (niveau Zelf lezen en Verdiepen; niet bij
+Voorlezen). Niet in het korte stapblad van de reis: daar hoort een stap, geen geschiedenis, bij de koppeling.
 
 ## 5. Een periode toevoegen
 
@@ -228,5 +228,5 @@ ontdekken, 4–6 jaar). Niet in het korte stapblad van de reis: daar hoort een s
   label ‘bij benadering’ (status `benaderd`) had te weinig contrast (3,9:1); de tekstkleur is nu iets donkerder (5,1:1).
 - Niet getest op een echte iPhone of Android, alleen Chromium (desktop-, telefoon- en tabletmaten).
 - De visuele referentiebeelden (`e2e/bijbelreis-visueel.spec.ts`) tonen geschiedenis 26. Sinds de periode Mozes staat
-  daar (niveau Zelf op reis en Verder ontdekken) de uitnodiging ‘De wereld in die tijd’; de beelden ‘verhaal’ en
+  daar (niveau Zelf lezen en Verdiepen) de uitnodiging ‘De wereld in die tijd’; de beelden ‘verhaal’ en
   ‘zelf-verhaal’ moeten daarom één keer opnieuw worden gemaakt (in het vaste Playwright-image, na visuele controle).

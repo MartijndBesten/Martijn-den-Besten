@@ -4,13 +4,18 @@ De Bijbelreis is een hulpmiddel **náást** de eigen Bijbel of kinderbijbel: een
 
 Er zijn drie niveaus in één app, op één inhoudelijke basis:
 
-| Code | Naam | Leeftijd | Inhoud per geschiedenis |
+| Code | Naam | Schrijfniveau (intern) | Inhoud per geschiedenis |
 | --- | --- | --- | --- |
-| `a` | Samen ontdekken | 4–6 | 4–10 korte stappen om voor te lezen, een tip voor wie voorleest, 2–4 vragen met 2 antwoorden |
-| `b` | Zelf op reis | 7–10 | een eigen vertelling in 2–4 onderdelen met kop (hooguit 1.000 tekens), 3–5 vragen met 3 antwoorden |
-| `c` | Verder ontdekken | 11+ | de bestaande vertelling, met 1–3 verdiepingsblokken en 2–4 extra vragen |
+| `a` | Voorlezen | voorlezen aan 4–6 jaar | 4–10 korte stappen om voor te lezen, een tip voor wie voorleest, 2–4 vragen met 2 antwoorden |
+| `b` | Zelf lezen | zelf lezen vanaf 7 jaar | een eigen vertelling in 2–4 onderdelen met kop (hooguit 1.000 tekens), 3–5 vragen met 3 antwoorden |
+| `c` | Verdiepen | vanaf 11 jaar en volwassenen | de bestaande vertelling, met 1–3 verdiepingsblokken en 2–4 extra vragen |
 
 Alle 150 geschiedenissen staan op alle drie niveaus: 450 versies, allemaal met status `gecontroleerd`.
+
+**Namen (21-11-2026):** de niveaus heetten eerst Samen ontdekken (4–6 jaar), Zelf op reis (7–10 jaar) en Verder
+ontdekken (11+). Sinds 21-11-2026 heten ze Voorlezen, Zelf lezen en Verdiepen, en de app toont geen leeftijden meer: de
+Bijbelreis is voor jong en oud (zie [`docs/BIJBELREIS.md`](../BIJBELREIS.md) § Niveaunamen). De kolom ‘Schrijfniveau’
+is alleen een richtlijn voor wie schrijft; de inhoud van de niveaus is niet veranderd.
 
 ## 1. Hoe de teksten tot stand kwamen
 
@@ -48,7 +53,7 @@ niveaus/{a,b,c}.js     de teksten per niveau; gegenereerd uit werk/uit/batch-*.j
 ```
 
 - De app laadt alleen het gekozen niveau. Bij wisselen komt het andere bestand erbij.
-- Mislukt het laden, dan meldt de app dat eerlijk en biedt hij een uitweg. Bij Samen ontdekken is dat de vertelling voor 7–10 jaar, die je kunt voorlezen.
+- Mislukt het laden, dan meldt de app dat eerlijk en biedt hij een uitweg. Bij Voorlezen is dat de vertelling van Zelf lezen, die je kunt voorlezen.
 - De Statenvertaling staat alleen in `data/statenvertaling/`, voor de controles; ze wordt niet meegeleverd.
 
 ## 3. Voortgang en opslag
@@ -60,18 +65,18 @@ Alleen lokaal en zonder persoonsgegevens:
 | `bijbelreis:niveau` | `"a"`, `"b"` of `"c"` |
 | `bijbelreis:niveauTip` | eenmalige melding voor wie al onderweg was |
 | `bijbelreis:samen:<boek>:<deel>` | beste score Samen speuren (van 6) |
-| `bijbelreis:speur:b:<boek>:<deel>` | beste score speurtocht Zelf op reis (van 10) |
-| `bijbelreis:best:<boek>:<deel>` | beste score speurtocht Verder ontdekken; de bestaande sleutel uit 3.x |
+| `bijbelreis:speur:b:<boek>:<deel>` | beste score speurtocht Zelf lezen (van 10) |
+| `bijbelreis:best:<boek>:<deel>` | beste score speurtocht Verdiepen; de bestaande sleutel uit 3.x |
 
 - Alle bestaande sleutels blijven ongewijzigd: `gezien`, `best:`, `verhalen`, `laatst`, `huidig` en `welkomWeg`.
 - **Eén stempel per geschiedenis** (`verhalen[nr].q`). De score per niveau staat apart in `verhalen[nr].lv`.
 - Wisselen van niveau wist niets en telt niets dubbel.
 - Het paspoort telt een speurtocht over hetzelfde deel één keer, ook als je die op meer niveaus deed.
-- Wie al onderweg was, krijgt automatisch Verder ontdekken, met één korte melding. Een nieuwe bezoeker krijgt de keuze ‘Hoe wil je op reis?’.
+- Wie al onderweg was, krijgt automatisch Verdiepen, met één korte melding. Een nieuwe bezoeker begint met Zelf lezen; de keuze staat op de startkaart (‘Hoe wil je lezen?’) en bovenin (‘Hoe wil je op reis?’).
 
 ## 4. Wat verschilt per niveau
 
-| Onderdeel | Samen ontdekken | Zelf op reis | Verder ontdekken |
+| Onderdeel | Voorlezen | Zelf lezen | Verdiepen |
 | --- | --- | --- | --- |
 | Verhalen | per etappe uitklapbaar, groot, zonder zoeken | 150 met zoeken en filters | idem |
 | Verhaal | één korte stap per scherm; de kaart volgt; tip voor wie voorleest | eigen vertelling in onderdelen; tijdvak in plaats van jaartal; extra achter ‘Meer weten’ | bestaande vertelling, jaartal met grond, uitklapbare verdieping |

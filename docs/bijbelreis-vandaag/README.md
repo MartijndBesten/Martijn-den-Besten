@@ -123,8 +123,8 @@ In de stand **Nu** kan de laag ‘Vandaag’ aan. Ze staat standaard uit; de keu
 zoals de Bijbelse plaatsen) en een venster met ‘Vandaag’, ‘In de Bijbel’, ‘Lees in je Bijbel: …’ en een knop naar de
 Bijbelse plaats, waar ‘Hier in de reis’ staat. Op een breed scherm is het venster een tekstballon op de kaart, op een
 telefoon of tablet een blad van onderen. De lijst ‘Vandaag’ (link bij ‘Alle plaatsen’ en in de legenda) toont alle plekken
-per streek, met de peildatum en de vaste zin dat de atlas geen partij kiest; zoeken kan op naam en land. Bij Samen
-ontdekken (4–6 jaar) is de laag er niet. Bij Verder ontdekken staan de bronnen onder de tekst.
+per streek, met de peildatum en de vaste zin dat de atlas geen partij kiest; zoeken kan op naam en land. Bij
+Voorlezen is de laag er niet. Bij Verdiepen staan de bronnen onder de tekst.
 
 ### Regels voor de inhoud
 
@@ -331,7 +331,7 @@ De uitgebreide lijst, met wat de tweede lezer erbij heeft opgemerkt, staat in [r
   Israëliërs in Hebron. Het is een kern van het conflict; het is weggelaten omdat elk woord ervoor een partijwoord is.
 - **De keuze van plekken.** 34 plekken, waarvan 10 in Israël en de Palestijnse gebieden (4 in Israël, 4 op de Westelijke
   Jordaanoever, Gaza en Jeruzalem). Istanboel, Teheran en Aleppo ontbreken omdat ze geen band met de Bijbelreis hebben.
-- **De laag staat standaard uit** en is er niet bij Samen ontdekken. Bij Zelf op reis (7–10 jaar) is ze er wel.
+- **De laag staat standaard uit** en is er niet bij Voorlezen. Bij Zelf lezen is ze er wel.
 - **Landnamen gaan in de stand Nu vóór plaatsnamen.** Op een heel volle kaart (Bijbelwereld) mag een landnaam over de stip
   van een plaats heen staan. Met de laag ‘Vandaag’ aan vallen op de overzichtskaart de landnamen Israël en Libanon weg
   (de bordjes gaan voor); Syrië en Jordanië blijven staan.

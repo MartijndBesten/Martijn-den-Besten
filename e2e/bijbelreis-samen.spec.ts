@@ -62,9 +62,9 @@ test("een ouder vindt vanaf de start de lesroutes, opent een les en komt bij het
 test("de presentatie van een les opent op het gekozen niveau", async ({ page }) => {
   const f = fouten(page);
   await open(page, "/bijbelreis/lessen#advent-kerst");
-  // De leeftijd van de groep verandert alleen de links naar de presentatie, en wordt onthouden.
-  await page.getByRole("button", { name: "4–6 jaar" }).click();
-  await expect(page.getByRole("button", { name: "4–6 jaar" })).toHaveAttribute("aria-pressed", "true");
+  // Het niveau verandert alleen de links naar de presentatie, en wordt onthouden.
+  await page.getByRole("button", { name: "Voorlezen" }).click();
+  await expect(page.getByRole("button", { name: "Voorlezen" })).toHaveAttribute("aria-pressed", "true");
   const pres = page.locator("#les-4").getByRole("link", { name: /^Presentatie van/ });
   await expect(pres).toHaveAttribute("href", "/bijbelreis/boekje#v84&niveau=a");
   await expect(page.locator("#les-4").getByRole("link", { name: /^Boekje van/ })).toHaveAttribute("href", "/bijbelreis/boekje#v84&niveau=a&toon=boekje");

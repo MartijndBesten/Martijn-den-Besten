@@ -1,6 +1,6 @@
-// De Engelse inhoud van de Bijbelreis, deel 3: de geschiedenissen (de vertelling voor Verder ontdekken, uitleg, ontdek,
+// De Engelse inhoud van de Bijbelreis, deel 3: de geschiedenissen (de vertelling voor Verdiepen, uitleg, ontdek,
 // vragen, verbanden), hun tussenkoppen (indeling) en kernwoorden. Status: concept (review draft).
-// De teksten voor Samen ontdekken en Zelf op reis, en de verdieping, staan in niveaus/a.js, b.js en c.js.
+// De teksten voor Voorlezen en Zelf lezen, en de verdieping, staan in niveaus/a.js, b.js en c.js.
 // Citaten tussen ‘…’ staan letterlijk in de King James Version; tussen “…” is navertelde rede.
 window.BR = window.BR || { boeken: [], plaatsen: {}, W: {}, personen: {} };
 (function (V) {

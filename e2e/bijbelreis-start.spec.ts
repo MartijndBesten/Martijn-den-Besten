@@ -137,10 +137,10 @@ test("eerste bezoek: één zin, één startknop, klein de keuze voor wie; alleen
   await expect(kaart.locator(".st-knop")).toHaveCount(1);
   await expect(kaart.locator(".st-of")).toHaveText("Of kies hieronder zelf een verhaal.");
   await expect(kaart).not.toContainText("Hoe wil je op reis?");
-  // Niemand hoeft te kiezen: ‘Zelf op reis’ staat al aan, in de kaart en bovenin.
+  // Niemand hoeft te kiezen: ‘Zelf lezen’ staat al aan, in de kaart en bovenin.
   await expect(kaart.locator(".st-nivopt")).toHaveCount(3);
-  await expect(kaart.locator('.st-nivopt[aria-pressed="true"]')).toHaveText(/7–10 jaar\s*Zelf op reis/);
-  await expect(page.locator("#niveauNaam")).toHaveText("Zelf op reis");
+  await expect(kaart.locator('.st-nivopt[aria-pressed="true"]')).toHaveText("Zelf lezen");
+  await expect(page.locator("#niveauNaam")).toHaveText("Zelf lezen");
   expect(await sleutels(page)).toEqual({ "bijbelreis:niveau": '"b"' });
   // De lijst staat er gewoon onder.
   await expect(page.locator("#vLijst [data-v]")).toHaveCount(150);
@@ -158,20 +158,20 @@ test("eerste bezoek: het niveau wisselen kan op de startkaart; de kaart blijft s
   const errors = watchErrors(page);
   await open(page);
   const kaart = page.locator("#welkom .startkaart");
-  await kaart.getByRole("button", { name: /Samen ontdekken/ }).click();
-  await expect(page.locator("#niveauNaam")).toHaveText("Samen ontdekken");
-  await expect(kaart.locator('.st-nivopt[aria-pressed="true"]')).toHaveText(/4–6 jaar\s*Samen ontdekken/);
+  await kaart.getByRole("button", { name: /Voorlezen/ }).click();
+  await expect(page.locator("#niveauNaam")).toHaveText("Voorlezen");
+  await expect(kaart.locator('.st-nivopt[aria-pressed="true"]')).toHaveText("Voorlezen");
   await expect(kaart.locator(".st-knop")).toContainText("Begin de reis");
-  await expect(page.locator("#p-verhalen h2")).toHaveText("Samen ontdekken");
+  await expect(page.locator("#p-verhalen h2")).toHaveText("Voorlezen");
   expect(JSON.parse((await sleutels(page))["bijbelreis:niveau"]!)).toBe("a");
-  await kaart.getByRole("button", { name: /Verder ontdekken/ }).click();
-  await expect(page.locator("#niveauNaam")).toHaveText("Verder ontdekken");
-  await expect(kaart.locator('.st-nivopt[aria-pressed="true"]')).toHaveText(/11\+\s*Verder ontdekken/);
+  await kaart.getByRole("button", { name: /Verdiepen/ }).click();
+  await expect(page.locator("#niveauNaam")).toHaveText("Verdiepen");
+  await expect(kaart.locator('.st-nivopt[aria-pressed="true"]')).toHaveText("Verdiepen");
   // Wie het niveau koos maar nog niets opende, ziet bij het volgende bezoek nog steeds de startknop.
   await open(page);
   await expect(page.locator("#welkom .st-knop")).toBeVisible();
-  await expect(page.locator("#niveauNaam")).toHaveText("Verder ontdekken");
-  await expect(page.locator('#welkom .st-nivopt[aria-pressed="true"]')).toHaveText(/11\+/);
+  await expect(page.locator("#niveauNaam")).toHaveText("Verdiepen");
+  await expect(page.locator('#welkom .st-nivopt[aria-pressed="true"]')).toHaveText("Verdiepen");
   expect(errors).toEqual([]);
 });
 
@@ -186,11 +186,11 @@ test("zodra er voortgang is, staat er ‘Verder met’ en geen startkaart; het n
   await page.locator("#vTerug").click();
   await expect(page.locator("#welkom .verdermet")).toHaveText(/^Verder met: /);
   await expect(page.locator(".startkaart")).toHaveCount(0);
-  // Volgend bezoek: nog steeds ‘Zelf op reis’ (niet de volledige inhoud van wie al onderweg was), en ‘Verder met’.
+  // Volgend bezoek: nog steeds ‘Zelf lezen’ (niet de volledige inhoud van wie al onderweg was), en ‘Verder met’.
   await open(page);
   await expect(page.locator("#welkom .verdermet")).toHaveCount(1);
   await expect(page.locator(".startkaart")).toHaveCount(0);
-  await expect(page.locator("#niveauNaam")).toHaveText("Zelf op reis");
+  await expect(page.locator("#niveauNaam")).toHaveText("Zelf lezen");
   await expect(page.locator("#welkom .rk-tip")).toHaveCount(0);
   await expect(page.locator("body")).not.toHaveClass(/eerste/);
   expect(errors).toEqual([]);
@@ -405,7 +405,7 @@ test("delen zonder deelmenu en zonder klembord: de link staat in een veld, gesel
   expect(errors).toEqual([]);
 });
 
-test("delen: niet bij Samen ontdekken", async ({ page }) => {
+test("delen: niet bij Voorlezen", async ({ page }) => {
   const errors = watchErrors(page);
   await metDelen(page);
   await open(page, "#v26", { opslag: { niveau: "a" } });

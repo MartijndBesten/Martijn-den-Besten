@@ -126,7 +126,7 @@ test("kerst: met voortgang biedt de ingang ‘Verder waar je was’, naar de laa
   expect(errors).toEqual([]);
 });
 
-test("kerst: Samen ontdekken heeft de ingang ook, met een eenvoudige zin en zonder de knop Deel", async ({ page }) => {
+test("kerst: Voorlezen heeft de ingang ook, met een eenvoudige zin en zonder de knop Deel", async ({ page }) => {
   const errors = watchErrors(page);
   // Een gezin dat al een geschiedenis las: dan staat de zin van het thema op de kaart.
   await open(page, IN_SEIZOEN, "/bijbelreis", { niveau: "a", opslag: { verhalen: { 1: { g: 1 } }, huidig: { v: 1 } } });

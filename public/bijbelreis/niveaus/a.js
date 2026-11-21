@@ -1,4 +1,4 @@
-// Reisniveau a. Samen ontdekken (4–6 jaar): korte verhaalstappen om samen te lezen, een tip voor wie voorleest, vragen met twee antwoorden.
+// Reisniveau a. Voorlezen: korte verhaalstappen om samen te lezen, een tip voor wie voorleest, vragen met twee antwoorden.
 // Niet met de hand bewerken: bron is docs/bijbelreis-niveaus/werk/uit/batch-*.json (node scripts/niveaus/samenvoegen.mjs).
 // Regels: docs/bijbelreis-niveaus/schrijfwijzer.md. Controle: node scripts/niveaus-controle.mjs
 BR.niveaus.voegToe("a", {

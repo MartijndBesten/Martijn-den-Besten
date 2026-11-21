@@ -66,7 +66,7 @@ const SCHERMEN: [string, string, ((p: Page) => Promise<void>)?, ("a" | "b")?][] 
   ["reis", "/bijbelreis#terugkeer/4"],
   ["verhaal", "/bijbelreis#v26"],
   ["paspoort", "/bijbelreis#ruth", (p) => p.getByRole("tab", { name: "Paspoort" }).click()],
-  // Reisniveaus: dezelfde geschiedenis bij Samen ontdekken en Zelf op reis (Verder ontdekken is ‘verhaal’ hierboven).
+  // Reisniveaus: dezelfde geschiedenis bij Voorlezen en Zelf lezen (Verdiepen is ‘verhaal’ hierboven).
   ["samen-verhaal", "/bijbelreis#v26", undefined, "a"],
   ["zelf-verhaal", "/bijbelreis#v26", undefined, "b"],
 ];

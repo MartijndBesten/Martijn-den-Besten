@@ -19,7 +19,7 @@ motor onderhoudt. Wie alleen wil zien wat er is: open `docs/bijbelreis-taferelen
 | `public/bijbelreis/taferelen-koppeling.js` | Welke stap welk beeld krijgt (`BR.beelden`) en afwijkende soorten per plaats (`BR.beeldSoort`) |
 | `public/bijbelreis/taferelen-koppeling-nt.js` | De koppelingen voor het Nieuwe Testament (voegt toe aan `BR.beelden`; een latere sleutel gaat vóór een eerdere) |
 | `public/bijbelreis/bijbelreis.css` | Onderaan: opmaak, kleurklassen en beweging van de taferelen |
-| `public/bijbelreis/app.js` | Drie regels die de motor aanroepen (stapkaart, verhaalweergave, Samen ontdekken) |
+| `public/bijbelreis/app.js` | Drie regels die de motor aanroepen (stapkaart, verhaalweergave, Voorlezen) |
 | `scripts/taferelen-overzicht.mjs` | Alle taferelen op één pagina, met schermafbeeldingen |
 | `tests/bijbelreis-taferelen.test.ts` | Register, koppeling, tekenafspraken, gewicht |
 | `e2e/bijbelreis-taferelen.spec.ts` | Het tafereel in de echte pagina |
@@ -76,13 +76,13 @@ deel dat op een andere tak wordt geschreven (nu: `numeri:kies-het-leven:0` tot e
 Waar het beeld staat:
 
 - **Stapkaart** (tab Reis): direct onder de tekst ‘Wat de Bijbel vertelt’, boven ‘Lees in je Bijbel’. Op alle drie de
-  reisniveaus; bij Samen ontdekken iets breder. Op de telefoon (tot 900 px) staat het direct ná de tekst van de stap, op volle
+  reisniveaus; bij Voorlezen iets breder. Op de telefoon (tot 900 px) staat het direct ná de tekst van de stap, op volle
   breedte; de kaart houdt haar hoogte, zodat titel en tekst in het eerste scherm blijven. ‘Nog een keer’ staat dan naast
   het onderschrift in plaats van over de tekening (docs/bijbelreis-audit/telefoon.md).
 - **Geschiedenis** (tab Verhalen): bij het onderdeel van de vertelling dat bij die kaartstap hoort, boven de knop ‘Op de
   kaart’. Elk beeld staat hooguit één keer per geschiedenis. Heeft de vertelling geen onderdelen, dan staat het eerste
   beeld onder de vertelling.
-- **Samen ontdekken, geschiedenis**: onder de tekst van de verhaalstap, als die verhaalstap bij een kaartstap hoort.
+- **Voorlezen, geschiedenis**: onder de tekst van de verhaalstap, als die verhaalstap bij een kaartstap hoort.
 
 De beweging loopt alleen zolang het beeld voor minstens een derde in beeld is (klasse `tf-loopt`, gezet door een
 `IntersectionObserver`). Heeft de tekening een eenmalige beweging, dan staat er een rond knopje ‘Nog een keer’; tikken

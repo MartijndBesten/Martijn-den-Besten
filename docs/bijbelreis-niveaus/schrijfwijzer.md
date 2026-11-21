@@ -4,7 +4,10 @@ Voor iedereen die een niveauversie van een geschiedenis schrijft of beoordeelt. 
 
 ## 1. De drie niveaus
 
-| | A · Samen ontdekken (4–6) | B · Zelf op reis (7–10) | C · Verder ontdekken (11+) |
+De app toont geen leeftijden (besluit 21-11-2026, `docs/BIJBELREIS.md` § Niveaunamen). De leeftijden hieronder zijn
+alleen een richtlijn voor het schrijven: zo moeilijk mag de tekst zijn.
+
+| | A · Voorlezen (schrijf voor 4–6 jaar) | B · Zelf lezen (schrijf voor 7–10 jaar) | C · Verdiepen (vanaf 11 jaar) |
 |---|---|---|---|
 | Wie leest | Een ouder leest voor, het kind kijkt mee | Het kind leest zelf | Het kind leest zelf, zoekt verder |
 | Tekst | 4–10 korte stappen; één gedachte per stap | 2–4 onderdelen met een kop; samen 300–1000 tekens | De bestaande vertelling blijft; daaronder 1–3 verdiepingsblokken |
@@ -13,7 +16,7 @@ Voor iedereen die een niveauversie van een geschiedenis schrijft of beoordeelt. 
 
 Schrijf in de **tegenwoordige tijd**, zoals de bestaande vertellingen ("Mozes strekt zijn hand uit").
 
-### A · Samen ontdekken
+### A · Voorlezen
 - Per stap hoogstens 140 tekens en hoogstens 3 zinnen. Korte zinnen, gewone woorden. Eén gebeurtenis per stap.
 - Geen jaartallen en geen grote getallen in cijfers. Schrijf "heel veel wagens" in plaats van "zeshonderd wagens", tenzij het getal de kern is ("twaalf zonen"); schrijf getallen dan in letters.
 - Vertel de hoofdlijn in de volgorde van de Bijbel. Laat zijlijnen weg. Weglaten mag, veranderen niet.
@@ -28,14 +31,14 @@ Schrijf in de **tegenwoordige tijd**, zoals de bestaande vertellingen ("Mozes st
   Geen preek en geen toepassing als opdracht aan het kind.
 - Vragen: wat een kind van 5 na het voorlezen kan weten. Het goede antwoord staat letterlijk in de stappen. Het foute antwoord is duidelijk fout, maar niet belachelijk.
 
-### B · Zelf op reis
+### B · Zelf lezen
 - Leesbaar voor een kind van 8: zinnen van gemiddeld 10–15 woorden, moeilijke woorden kort uitgelegd ("ondertrouwd", "offer", "profeet").
 - Koppen: hoogstens 42 tekens, geen punt aan het eind, inhoudelijk ("Een weg door de zee", niet "Deel 2").
 - Vertel meer dan A: wie, waar, waarom. Noem plaatsnamen die op de kaart staan.
 - Een kort citaat uit de Statenvertaling mag, als het een kernwoord is. Leg het daarna uit als dat nodig is (zie geschiedenis 26).
 - Vragen: wisselen tussen wie, wat, waar, waarom en wat eerst. Minstens één vraag naar het waarom of naar een verband. De foute antwoorden zijn geloofwaardig, maar volgens de tekst aantoonbaar fout.
 
-### C · Verder ontdekken
+### C · Verdiepen
 - De hoofdtekst is de bestaande vertelling (`uitleg`). Die verandert niet. De verdieping voegt iets toe wat daar niet staat.
 - 1–3 blokken van hoogstens 750 tekens. Kies uit:
   - **Elders in de Bijbel**: verbanden met andere Bijbelgedeelten, met letterlijke citaten en verwijzingen. Herhaal de bestaande `cross`-lijst niet; vul aan of leg uit.

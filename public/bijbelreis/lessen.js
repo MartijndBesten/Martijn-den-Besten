@@ -1,7 +1,7 @@
 // Lesroutes (/bijbelreis/lessen): samen de Bijbel ontdekken, thuis, op de zondagsschool of club, bij catechisatie en in
 // de klas. De routes staan in lessen-data.js; titels en verwijzingen van de geschiedenissen komen uit
-// geschiedenissen/*.js. Deze pagina schrijft niets zelf en stuurt niets naar een server. Alleen de gekozen leeftijd
-// voor de presentatie wordt onthouden (localStorage ‘bijbelreis:lessen’). Uitleg: docs/bijbelreis-samen/README.md;
+// geschiedenissen/*.js. Deze pagina schrijft niets zelf en stuurt niets naar een server. Alleen het gekozen niveau
+// van de presentatie wordt onthouden (localStorage ‘bijbelreis:lessen’). Uitleg: docs/bijbelreis-samen/README.md;
 // de beoordeling van een les en het lesverloop: docs/bijbelreis-samen/BEOORDELING.md.
 //   #                        overzicht van de routes
 //   #<route>                 één route met alle lessen
@@ -16,11 +16,12 @@
   const ROUTES = (window.BR && BR.lessen) || [];
   const G = new Map(((window.BR && BR.geschiedenissen) || []).map((g) => [g.nr, g]));
   const SITE = "bijbelreis.nl";
-  const NIVEAUS = [["a", "4–6 jaar", "Samen ontdekken"], ["b", "7–10 jaar", "Zelf op reis"], ["c", "11+", "Verder ontdekken"]];
+  // De reisniveaus (namen sinds 21-11-2026, zonder leeftijden): code, naam, korte uitleg.
+  const NIVEAUS = [["a", "Voorlezen", "Korte stukjes om samen te lezen"], ["b", "Zelf lezen", "Een vertelling om zelf te lezen"], ["c", "Verdiepen", "De volledige vertelling met achtergrond"]];
   const lees = (k, d) => { try { const v = localStorage.getItem("bijbelreis:" + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } };
   const bewaar = (k, v) => { try { localStorage.setItem("bijbelreis:" + k, JSON.stringify(v)); } catch (e) { /* geen opslag: dan niet onthouden */ } };
   const geldig = (n) => NIVEAUS.some(([k]) => k === n);
-  // De leeftijd van de presentatie: eerst wat hier gekozen is, anders het reisniveau van de atlas, anders 7–10.
+  // Het niveau van de presentatie: eerst wat hier gekozen is, anders het reisniveau van de atlas, anders Zelf lezen.
   let niveau = [(lees("lessen", {}) || {}).niveau, lees("niveau", null)].find(geldig) || "b";
   let antwoorden = false;
 
@@ -42,7 +43,7 @@
         <li><b>Kijk terug met de presentatie</b> <span class="ls-min">5–7 min</span> de vertelling op de kaart, met een paar meerkeuzevragen. De presentatie vertelt de hele geschiedenis, ook wat vóór of na het gelezen gedeelte gebeurt.</li>
         <li><b>Rond af</b> <span class="ls-min">2 min</span> Wat hebben we gezien? Laat de kinderen de geschiedenis in eigen woorden navertellen, in de goede volgorde, en geef de link mee om thuis na te lezen.</li>
       </ol>
-      <p class="ls-noot">Met 4–6 jaar: lees een paar verzen voor en gebruik de presentatie voor 4–6 jaar als vertelling. Is het gedeelte lang (6 minuten of meer), neem de presentatie dan een volgende keer.</p>
+      <p class="ls-noot">Met jonge kinderen: lees een paar verzen voor en gebruik de presentatie van Voorlezen als vertelling. Is het gedeelte lang (6 minuten of meer), neem de presentatie dan een volgende keer.</p>
     </section>`;
 
   function overzicht() {
@@ -103,8 +104,8 @@
       <p class="ls-naam">Naam: <span></span></p>
       ${LESVERLOOP}
       <div class="ls-bediening">
-        <div class="ls-groep"><span class="ls-groep-label" id="lsNivLabel">Presentatie voor</span>
-          <div class="bk-seg" role="group" aria-labelledby="lsNivLabel">${NIVEAUS.map(([k, leeftijd, naam]) => `<button type="button" data-niveau="${k}" aria-pressed="${k === niveau}" title="${esc(naam)}">${esc(leeftijd)}</button>`).join("")}</div>
+        <div class="ls-groep"><span class="ls-groep-label" id="lsNivLabel">Niveau van de presentatie</span>
+          <div class="bk-seg" role="group" aria-labelledby="lsNivLabel">${NIVEAUS.map(([k, naam, uitleg]) => `<button type="button" data-niveau="${k}" aria-pressed="${k === niveau}" title="${esc(uitleg)}">${esc(naam)}</button>`).join("")}</div>
         </div>
         <button type="button" class="bk-knop" id="lsAntw" aria-pressed="${antwoorden}">${antwoorden ? "Verberg de antwoorden" : "Toon de antwoorden"}</button>
         <button type="button" class="bk-knop" data-print="leiding">Afdrukken voor de leiding</button>
@@ -192,7 +193,7 @@
     if (doel) { doel.scrollIntoView({ block: "start" }); doel.focus({ preventScroll: true }); } else window.scrollTo({ top: 0 });
   }
 
-  // De presentatie voor een andere leeftijd: alleen de links veranderen, de pagina blijft waar hij is.
+  // De presentatie van een ander niveau: alleen de links veranderen, de pagina blijft waar hij is.
   function zetNiveau(n) {
     if (!geldig(n)) return;
     niveau = n; bewaar("lessen", { niveau: n });

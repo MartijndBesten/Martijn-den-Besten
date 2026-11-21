@@ -69,12 +69,12 @@ test.describe("de Engelse proef", () => {
       await expect(page.locator("#vTitel")).toHaveText("Dry through the Red Sea");
       if (niv === "a") {
         await expect(page.locator(".a-tekst")).toContainText("God has led His people Israel out of Egypt");
-        await expect(page.locator(".conceptlabel")).toContainText("Review draft for Discover together");
+        await expect(page.locator(".conceptlabel")).toContainText("Review draft for Read aloud");
         for (let i = 0; i < 8 && (await page.locator("#aVerder").count()); i++) await page.locator("#aVerder").click();
         await expect(page.locator("#vQuiz .qtext")).toBeVisible();
       } else if (niv === "b") {
         await expect(page.locator("#vVertelling")).toContainText("Fear ye not, stand still, and see the salvation of the LORD");
-        await expect(page.locator(".conceptlabel")).toContainText("Review draft for On my own");
+        await expect(page.locator(".conceptlabel")).toContainText("Review draft for Read yourself");
         await expect(page.locator(".citaatnoot")).toContainText("King James Version");
       } else {
         await page.locator("details.blok summary", { hasText: "Going deeper" }).click();

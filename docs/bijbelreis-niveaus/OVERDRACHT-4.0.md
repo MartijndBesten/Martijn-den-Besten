@@ -1,5 +1,8 @@
 # Overdracht Bijbelreis 4.0 (reisniveaus)
 
+> **Niveaunamen (21-11-2026):** Samen ontdekken, Zelf op reis en Verder ontdekken heten nu Voorlezen, Zelf lezen en
+> Verdiepen, en de app toont geen leeftijden meer (`docs/BIJBELREIS.md` § Niveaunamen). Deze overdracht is van vóór dat besluit.
+
 Voor wie dit werk overneemt (Claude, Codex of een mens). Lees dit eerst, daarna `werk/STATUS.md` en `schrijfwijzer.md`.
 
 - **Werkbranch:** `claude/bijbelreis-4.0`. `main` is 3.1, live sinds 26-10-2026. Het herstelpunt staat in `docs/bijbelreis-audit/releases.md`.

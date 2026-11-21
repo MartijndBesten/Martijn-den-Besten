@@ -103,7 +103,7 @@ knopteksten, de slotzin, de verwijzing) staan op één plek: `THEMA_UI` bovenin 
   `BR.seizoen.kerstTijd(datum)`: waar van de eerste adventszondag 0:00 uur tot en met 6 januari, in de tijd van het
   apparaat. `app.js` vraagt het één keer bij het laden en zet dan `body[data-seizoen="kerst"]`.
 - **In het seizoen**: bovenaan Verhalen (direct onder ‘Verder met’, of onder de zin van de startkaart bij een eerste
-  bezoek) staat één kaart (`#seizoen`) met het **weekritme** (zie hieronder). Bij Samen ontdekken staat dezelfde kaart
+  bezoek) staat één kaart (`#seizoen`) met het **weekritme** (zie hieronder). Bij Voorlezen staat dezelfde kaart
   met een kortere zin en zonder de knop Deel. Verder staat ‘Thema’s’ dan vóór de Bijbelboeken (boekenrij, keuzeblad,
   boekenkast), met Kerst in nachtblauw met de ster.
 - **Buiten het seizoen**: geen ingang op de start; ‘Thema’s’ staat ná de Bijbelboeken, zonder accent. De diepe links

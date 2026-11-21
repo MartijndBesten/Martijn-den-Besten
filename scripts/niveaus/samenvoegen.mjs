@@ -34,9 +34,9 @@ function fmt(x, ind, extra = 0) {
   return `{\n${Object.entries(x).map(([k, v]) => `${binnen}${sleutel(k)}: ${fmt(v, ind + 2, k.length + 2)}`).join(",\n")},\n${pad}}`;
 }
 const kop = {
-  a: "Samen ontdekken (4–6 jaar): korte verhaalstappen om samen te lezen, een tip voor wie voorleest, vragen met twee antwoorden.",
-  b: "Zelf op reis (7–10 jaar): een zelfstandig leesbare vertelling in een paar onderdelen, vragen met drie antwoorden.",
-  c: "Verder ontdekken (11+): verdieping en extra vragen bij de bestaande vertelling (geschiedenissen/*.js).",
+  a: "Voorlezen: korte verhaalstappen om samen te lezen, een tip voor wie voorleest, vragen met twee antwoorden.",
+  b: "Zelf lezen: een zelfstandig leesbare vertelling in een paar onderdelen, vragen met drie antwoorden.",
+  c: "Verdiepen: verdieping en extra vragen bij de bestaande vertelling (geschiedenissen/*.js).",
 };
 for (const n of ["a", "b", "c"]) {
   const nrs = Object.keys(alles).map(Number).sort((x, y) => x - y).filter((nr) => alles[nr][n]);

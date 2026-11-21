@@ -27,7 +27,7 @@ papier of zonder internet, kies dan ‘Afdrukken of opslaan als PDF’ of ‘Dow
 | `/bijbelreis/boekje#jozua/intocht` | een deel met het boek ervoor (mag, hoeft niet) |
 | `/bijbelreis/boekje#boek=exodus` | een heel Bijbelboek, alle delen achter elkaar |
 | `/bijbelreis/boekje#v26` | één van de 150 geschiedenissen |
-| `…&niveau=a` / `b` / `c` | Samen ontdekken (4–6), Zelf op reis (7–10), Verder ontdekken (11+); zonder: de laatste keuze, anders b |
+| `…&niveau=a` / `b` / `c` | Voorlezen, Zelf lezen, Verdiepen; zonder: de laatste keuze, anders b |
 | `…&toon=boekje` | opent meteen het boekje in plaats van de presentatie |
 | `…&dia=5` | begint bij dia 5 (geteld vanaf 0) |
 
@@ -42,7 +42,7 @@ papier of zonder internet, kies dan ‘Afdrukken of opslaan als PDF’ of ‘Dow
 
 ## Wat per niveau in de presentatie staat
 
-| | Samen ontdekken (a) | Zelf op reis (b) | Verder ontdekken (c) |
+| | Voorlezen (a) | Zelf lezen (b) | Verdiepen (c) |
 | --- | --- | --- | --- |
 | Reis: tekst van een stap | de eerste zin (zoals de atlas) | de hele tekst | de hele tekst, met de personen |
 | ‘Wist je dat?’ en afstand | nee | ja | ja |
@@ -149,8 +149,8 @@ npm run build   # dist/client/bijbelreis/boekje.html met ?v=… achter scripts e
 
 ## Wat nog beter kan
 
-- In het boekje staat bij Zelf op reis en Verder ontdekken meestal één stap per bladzijde (kaart, tekst, tafereel en
-  weetje zijn net te hoog voor twee); bij Samen ontdekken passen er vaak twee.
+- In het boekje staat bij Zelf lezen en Verdiepen meestal één stap per bladzijde (kaart, tekst, tafereel en
+  weetje zijn net te hoog voor twee); bij Voorlezen passen er vaak twee.
 - Bij een reis met veel plaatsen dicht bij elkaar (Paulus’ reizen op een telefoon) staan sommige namen met een lijntje
   wat verder weg; namen langs de route vallen dan weg.
 - De overzichtskaart van een deel noemt alleen begin en eind met zekerheid; de andere plaatsen alleen als ze passen.

@@ -1,4 +1,4 @@
-// Reisniveau b. Zelf op reis (7–10 jaar): een zelfstandig leesbare vertelling in een paar onderdelen, vragen met drie antwoorden.
+// Reisniveau b. Zelf lezen: een zelfstandig leesbare vertelling in een paar onderdelen, vragen met drie antwoorden.
 // Niet met de hand bewerken: bron is docs/bijbelreis-niveaus/werk/uit/batch-*.json (node scripts/niveaus/samenvoegen.mjs).
 // Regels: docs/bijbelreis-niveaus/schrijfwijzer.md. Controle: node scripts/niveaus-controle.mjs
 BR.niveaus.voegToe("b", {
