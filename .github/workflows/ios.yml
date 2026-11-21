@@ -175,7 +175,7 @@ jobs:
     # pull request (ook niet van een fork) en nooit vanzelf bij een push.
     if: github.event_name == 'workflow_dispatch' && inputs.testflight
     runs-on: macos-26
-    timeout-minutes: 60
+    timeout-minutes: 100
     environment: testflight
     concurrency:
       group: testflight
@@ -318,6 +318,55 @@ jobs:
             -authenticationKeyPath "$ASC_KEY_PATH" -authenticationKeyID "$ASC_KEY_ID" -authenticationKeyIssuerID "$ASC_ISSUER_ID"
           echo "### Geüpload naar App Store Connect" >> "$GITHUB_STEP_SUMMARY"
           echo "Versie $(plutil -extract ApplicationProperties.CFBundleShortVersionString raw "$RUNNER_TEMP/Bijbelreis.xcarchive/Info.plist"), build $BUILDNUMMER. Na 10–30 minuten staat hij in App Store Connect onder TestFlight." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: In TestFlight-groep ‘Bijbelreis intern’ zetten (na verwerking door Apple)
+        # Wacht tot App Store Connect de build heeft verwerkt (meestal 5–30 min) en zet hem dan in de interne groep.
+        # Gebruikt dezelfde API-sleutel (JWT, 20 min geldig); er wordt niets anders gewijzigd in App Store Connect.
+        timeout-minutes: 60
+        run: |
+          python3 -m pip install --quiet --disable-pip-version-check pyjwt cryptography
+          python3 - <<'PY'
+          import json, os, time, urllib.request, urllib.parse, jwt
+          KEY = open(os.environ["ASC_KEY_PATH"]).read()
+          def token():
+              now = int(time.time())
+              return jwt.encode({"iss": os.environ["ASC_ISSUER_ID"], "iat": now, "exp": now + 1200, "aud": "appstoreconnect-v1"},
+                                KEY, algorithm="ES256", headers={"kid": os.environ["ASC_KEY_ID"], "typ": "JWT"})
+          def api(pad, methode="GET", data=None):
+              req = urllib.request.Request("https://api.appstoreconnect.apple.com" + pad, method=methode,
+                                           data=json.dumps(data).encode() if data is not None else None,
+                                           headers={"Authorization": "Bearer " + token(), "Content-Type": "application/json"})
+              try:
+                  with urllib.request.urlopen(req, timeout=60) as r:
+                      b = r.read(); return r.status, (json.loads(b) if b else {})
+              except urllib.error.HTTPError as e:
+                  return e.code, json.loads(e.read() or b"{}")
+          st, apps = api("/v1/apps?" + urllib.parse.urlencode({"filter[bundleId]": "nl.bijbelreis.app"}))
+          if st != 200 or not apps.get("data"): raise SystemExit(f"::error::App nl.bijbelreis.app niet gevonden in App Store Connect (HTTP {st}).")
+          app = apps["data"][0]["id"]
+          st, groepen = api("/v1/betaGroups?" + urllib.parse.urlencode({"filter[app]": app, "filter[name]": "Bijbelreis intern"}))
+          if st != 200 or not groepen.get("data"): raise SystemExit(f"::error::TestFlight-groep ‘Bijbelreis intern’ niet gevonden (HTTP {st}).")
+          groep = groepen["data"][0]["id"]
+          nummer = os.environ["BUILDNUMMER"]
+          build = None
+          for poging in range(56):  # ± 56 min
+              st, b = api("/v1/builds?" + urllib.parse.urlencode({"filter[app]": app, "filter[version]": nummer, "limit": "5"}))
+              lijst = b.get("data") or []
+              if lijst:
+                  build = lijst[0]; staat = build["attributes"].get("processingState")
+                  print(f"build {nummer}: {staat}", flush=True)
+                  if staat == "VALID": break
+                  if staat in ("FAILED", "INVALID"): raise SystemExit(f"::error::Apple keurde build {nummer} af tijdens verwerking ({staat}); zie App Store Connect → TestFlight.")
+              else:
+                  print(f"build {nummer}: nog niet zichtbaar", flush=True)
+              time.sleep(60)
+          else:
+              raise SystemExit(f"::error::Build {nummer} was na een uur nog niet verwerkt. Hij staat wel in App Store Connect; zet hem daar zelf in de groep, of start deze stap later opnieuw.")
+          st, r = api(f"/v1/betaGroups/{groep}/relationships/builds", "POST", {"data": [{"type": "builds", "id": build["id"]}]})
+          if st not in (200, 201, 204, 409): raise SystemExit(f"::error::Build in groep zetten mislukte (HTTP {st}): {json.dumps(r.get('errors', r))[:400]}")
+          print(f"Build {nummer} staat in TestFlight-groep ‘Bijbelreis intern’.")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f: f.write(f"\nBuild {nummer} staat in TestFlight-groep **Bijbelreis intern**.\n")
+          PY
 
       - name: Sleutel verwijderen
         if: always()
