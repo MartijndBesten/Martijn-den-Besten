@@ -176,25 +176,60 @@ jobs:
       group: testflight
       cancel-in-progress: false
     env:
-      ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
-      ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+      # De ruwe geheimen; ‘Geheimen controleren’ maakt er schone waarden van (ASC_KEY_ID, ASC_ISSUER_ID, TEAM_ID).
+      RUW_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+      RUW_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+      RUW_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
       ASC_KEY_P8: ${{ secrets.APP_STORE_CONNECT_KEY_P8 }}
-      TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
       BUILDNUMMER: ${{ github.run_number }}
     steps:
       - name: Geheimen controleren
+        # Spaties, tabs, regeleinden (ook \r), harde spaties en onzichtbare tekens worden weggehaald. In het log staat
+        # nooit een waarde: alleen de lengte (voor en na opschonen). Een geplakte bestandsnaam ‘AuthKey_XXXXXXXXXX.p8’ als
+        # Key ID wordt herkend en teruggebracht tot de 10 tekens. Kleine letters in Key ID en Team ID worden hoofdletters.
         run: |
+          schoon() { printf '%s' "$1" | perl -CSD -pe 's/[\s\x{00A0}\x{2007}\x{202F}\x{200B}-\x{200D}\x{2060}\x{FEFF}]//g'; }
+          soort() { v="$1"; printf 'lengte %s' "${#v}"; }
           mist=""
-          [ -n "$ASC_KEY_ID" ] || mist="$mist APP_STORE_CONNECT_KEY_ID"
-          [ -n "$ASC_ISSUER_ID" ] || mist="$mist APP_STORE_CONNECT_ISSUER_ID"
+          [ -n "$RUW_KEY_ID" ] || mist="$mist APP_STORE_CONNECT_KEY_ID"
+          [ -n "$RUW_ISSUER_ID" ] || mist="$mist APP_STORE_CONNECT_ISSUER_ID"
           [ -n "$ASC_KEY_P8" ] || mist="$mist APP_STORE_CONNECT_KEY_P8"
-          [ -n "$TEAM_ID" ] || mist="$mist APPLE_TEAM_ID"
+          [ -n "$RUW_TEAM_ID" ] || mist="$mist APPLE_TEAM_ID"
           if [ -n "$mist" ]; then
-            echo "::error::Geheimen ontbreken:$mist. Zet ze in GitHub → Settings → Environments → testflight (of Secrets and variables → Actions). Stappen: docs/bijbelreis-ios/TESTFLIGHT.md. Er is niets gebouwd of geüpload."
+            echo "::error::Geheimen ontbreken:$mist. Zet ze in GitHub → Settings → Environments → testflight. Stappen: docs/bijbelreis-ios/TESTFLIGHT.md. Er is niets gebouwd of geüpload."
             exit 1
           fi
-          if ! printf '%s' "$TEAM_ID" | grep -Eq '^[A-Z0-9]{10}$'; then echo "::error::APPLE_TEAM_ID moet 10 tekens zijn (hoofdletters en cijfers). Zie docs/bijbelreis-ios/TESTFLIGHT.md."; exit 1; fi
-          if ! printf '%s' "$ASC_KEY_ID" | grep -Eq '^[A-Z0-9]{10}$'; then echo "::error::APP_STORE_CONNECT_KEY_ID moet 10 tekens zijn. Zie docs/bijbelreis-ios/TESTFLIGHT.md."; exit 1; fi
+          KEY_ID="$(schoon "$RUW_KEY_ID")"
+          ISSUER_ID="$(schoon "$RUW_ISSUER_ID")"
+          TEAM="$(schoon "$RUW_TEAM_ID")"
+          # ‘AuthKey_XXXXXXXXXX.p8’ (de bestandsnaam) → ‘XXXXXXXXXX’.
+          KEY_ID="${KEY_ID#AuthKey_}"; KEY_ID="${KEY_ID%.p8}"
+          KEY_ID="$(printf '%s' "$KEY_ID" | tr 'a-z' 'A-Z')"
+          TEAM="$(printf '%s' "$TEAM" | tr 'a-z' 'A-Z')"
+          ISSUER_ID="$(printf '%s' "$ISSUER_ID" | tr 'A-Z' 'a-z')"
+          echo "APP_STORE_CONNECT_KEY_ID:    ruw $(soort "$RUW_KEY_ID") → schoon $(soort "$KEY_ID")"
+          echo "APP_STORE_CONNECT_ISSUER_ID: ruw $(soort "$RUW_ISSUER_ID") → schoon $(soort "$ISSUER_ID")"
+          echo "APPLE_TEAM_ID:               ruw $(soort "$RUW_TEAM_ID") → schoon $(soort "$TEAM")"
+          fout=0
+          if ! printf '%s' "$KEY_ID" | grep -Eq '^[A-Z0-9]{10}$'; then
+            fout=1
+            if printf '%s' "$KEY_ID" | grep -Eq '^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$'; then
+              echo "::error::APP_STORE_CONNECT_KEY_ID lijkt een Issuer ID (36 tekens met streepjes). De Key ID is de korte code van 10 tekens in de kolom ‘Key ID’ (App Store Connect → Gebruikers en toegang → Integraties → App Store Connect API)."
+            else
+              echo "::error::APP_STORE_CONNECT_KEY_ID is na opschonen ${#KEY_ID} tekens; verwacht 10 (hoofdletters en cijfers): de kolom ‘Key ID’ bij de sleutel in App Store Connect → Gebruikers en toegang → Integraties → App Store Connect API."
+            fi
+          fi
+          if ! printf '%s' "$ISSUER_ID" | grep -Eq '^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$'; then
+            fout=1; echo "::error::APP_STORE_CONNECT_ISSUER_ID is na opschonen ${#ISSUER_ID} tekens; verwacht 36 (8-4-4-4-12 met streepjes): ‘Issuer ID’ bovenaan dezelfde pagina in App Store Connect."
+          fi
+          if ! printf '%s' "$TEAM" | grep -Eq '^[A-Z0-9]{10}$'; then
+            fout=1; echo "::error::APPLE_TEAM_ID is na opschonen ${#TEAM} tekens; verwacht 10 (hoofdletters en cijfers): ‘Team ID’ op developer.apple.com → Account → Membership details."
+          fi
+          [ "$fout" = 0 ] || { echo "Er is niets gebouwd of geüpload."; exit 1; }
+          # Schone waarden maskeren en doorgeven aan de volgende stappen.
+          echo "::add-mask::$KEY_ID"; echo "::add-mask::$ISSUER_ID"; echo "::add-mask::$TEAM"
+          { echo "ASC_KEY_ID=$KEY_ID"; echo "ASC_ISSUER_ID=$ISSUER_ID"; echo "TEAM_ID=$TEAM"; } >> "$GITHUB_ENV"
+          echo "Geheimen in orde."
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:

@@ -125,3 +125,13 @@ geheimen: de job draait daar niet.
 | `The bundle version must be higher than the previously uploaded version` | Gebeurt alleen als iemand met de hand een hoger buildnummer uploadde: zet in de workflow `BUILDNUMMER` tijdelijk hoger |
 | `Xcode 26.6 staat niet (meer) op deze runner` | GitHub heeft een patchversie vervangen: kies in `XCODE_VERSIE` een versie uit de lijst in de melding |
 | De job ‘Bouwen en testen in de simulator’ staat lang op ‘Queued’ en wordt na 15 minuten ‘Cancelled’ | Drukte op de gratis Macs van GitHub (gezien op 17-11-2026, drie keer achter elkaar). Niets aan de app: in de run rechtsboven **Re-run jobs → Re-run failed jobs**, of later opnieuw starten |
+
+## Controle van de geheimen (21-11-2026)
+
+De stap ‘Geheimen controleren’ haalt spaties, tabs, regeleinden (ook `\r`), harde spaties en onzichtbare tekens weg uit
+`APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID` en `APPLE_TEAM_ID`, herkent een geplakte bestandsnaam
+`AuthKey_XXXXXXXXXX.p8` als Key ID, en zet Key ID en Team ID in hoofdletters. In het log staat per geheim alleen de
+lengte voor en na het opschonen, nooit de waarde. Klopt een waarde daarna nog niet, dan zegt de fout welke waarde waar
+te vinden is (Key ID: kolom ‘Key ID’ in App Store Connect → Gebruikers en toegang → Integraties → App Store Connect API;
+Issuer ID: bovenaan die pagina, 36 tekens; Team ID: developer.apple.com → Account → Membership details).
+
