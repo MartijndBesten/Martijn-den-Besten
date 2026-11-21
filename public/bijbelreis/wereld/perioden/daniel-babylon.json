@@ -116,6 +116,15 @@
    "geraadpleegd": "2026-11-17"
   },
   {
+   "id": "wiki-darius-meder",
+   "soort": "historisch",
+   "titel": "Darius the Mede (Wikipedia, Engels): de voorgestelde identificaties, waaronder Cyaxares II (Xenophon; o.a. Hiëronymus, Calvijn, Keil)",
+   "url": "https://en.wikipedia.org/wiki/Darius_the_Mede",
+   "licentie": "Wikipedia, CC BY-SA 4.0; alleen geraadpleegd en kort samengevat, geen tekst overgenomen",
+   "geraadpleegd": "2026-11-21",
+   "kort": "Wikipedia"
+  },
+  {
    "id": "livius-sardes",
    "soort": "historisch",
    "titel": "Livius.org: Sardes (547 BCE??)",
@@ -443,7 +452,10 @@
    "tot": {
     "jaar": 538,
     "status": "benaderd",
-    "bron": "Daniël 9:1",
+    "bron": [
+     "Daniël 9:1",
+     "wiki-darius-meder"
+    ],
     "einde": "onbekend",
     "opmerking": "De Bijbel noemt alleen zijn eerste jaar (Daniël 9:1; 11:1); hoe lang hij regeerde, staat er niet."
    },
@@ -458,7 +470,7 @@
     "leeuwenkuil"
    ],
    "verhaal": "v75",
-   "opmerking": "Wie hij buiten de Bijbel was, is omstreden. Genoemd worden onder meer Gubaru, die volgens de Nabonidus-kroniek voor Kores de bestuurders in Babel aanstelde, Kores zelf, of een Meedse vorst."
+   "opmerking": "Wie hij buiten de Bijbel was, is omstreden; zeker is het niet. Genoemd worden onder meer Gubaru, die volgens de Nabonidus-kroniek voor Kores de bestuurders in Babel aanstelde, Kores zelf, of een Meedse vorst. Oudere boeken (onder anderen Calvijn) stellen hem gelijk aan Cyaxares II, een Meedse koning en oom van Kores die alleen de Griekse schrijver Xenophon noemt."
   },
   {
    "id": "jojakim",
