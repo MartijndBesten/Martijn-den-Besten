@@ -43,7 +43,9 @@ if (process.env.SIM_SNEL === "1") {
 }
 
 const log = (...t) => console.log(new Date().toISOString().slice(11, 19), ...t);
-const sim = (...a) => execFileSync("xcrun", ["simctl", ...a], { encoding: "utf8", maxBuffer: 64 << 20, timeout: 600000 }).trim();
+// SIGKILL bij een time-out: simctl negeert SIGTERM als hij hangt, waardoor execFileSync toch bleef wachten (21-11-2026:
+// een schermafbeelding met een time-out van 90 s hing 6 minuten).
+const sim = (...a) => execFileSync("xcrun", ["simctl", ...a], { encoding: "utf8", maxBuffer: 64 << 20, timeout: 600000, killSignal: "SIGKILL" }).trim();
 const slaap = (ms) => new Promise((k) => setTimeout(k, ms));
 
 // Wit of leeg scherm? Op 200 px breed: gemiddelde spreiding van R, G en B, aandeel (bijna) wit, kleuren met > 0,2 %.
@@ -99,7 +101,7 @@ async function foto(udid, pad, verwacht) {
 const SCHERM_HANGT = "schermafbeelding blijft hangen";
 function neem(udid, pad) {
   for (let i = 0; i < 2; i++) {
-    try { execFileSync("xcrun", ["simctl", "io", udid, "screenshot", "--type=png", pad], { timeout: 90000, stdio: "pipe" }); return; }
+    try { execFileSync("xcrun", ["simctl", "io", udid, "screenshot", "--type=png", pad], { timeout: 90000, killSignal: "SIGKILL", stdio: "pipe" }); return; }
     catch { log("  schermafbeelding duurde te lang" + (i ? "" : ", opnieuw")); }
   }
   throw new Error(SCHERM_HANGT);
