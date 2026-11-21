@@ -45,6 +45,8 @@ staat in Genesis 11 niet zelf (behalve bij Terach) en heeft daarom `leeftijdStat
 Alle jaren hebben status `berekend`. Namen zoals in `personen.js` (Terach, niet ‘Terah’ zoals de SV-tekst; Nahor is
 `nahor_serug`, in deze laag gewoon ‘Nahor’ omdat zijn kleinzoon er niet in staat; Abram is `abraham` met alias Abram).
 Eigen woorden in de rollen; letterlijke SV-citaten alleen kort tussen ‘…’ (Genesis 10:21, 10:25, 12:1; Handelingen 7:4).
+Voorcontrole 21-11-2026: het citaat bij Arfachsad volgt de Statenvertaling ook in de kleine letter (‘twee jaren na den
+vloed’, midden in Genesis 11:10), en Lamech ‘Deze zal ons troosten’ heeft nu de verwijzing (Genesis 5:29) erachter.
 
 Nieuwe gebeurtenissen: Arfachsad geboren (1658, Genesis 11:10), Abram geboren (2008, belangrijk) en Abram trekt uit Haran
 na de dood van Terach (2083, belangrijk, verhaal v8). Geen plaats (de laag heeft geen kaart; zie `kaartUitleg`).

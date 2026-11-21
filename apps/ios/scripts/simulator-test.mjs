@@ -34,6 +34,13 @@ const TOESTELLEN = [
   { naam: "iPad Pro 13-inch (M5)", map: "ipad-13", scenario: ["test", "herstart", "appstore"], maat: [2064, 2752] },
   { naam: "iPhone 17 Pro", map: "iphone-6.3", scenario: ["appstore"], maat: [1206, 2622] },
 ];
+// SIM_SNEL=1 (bij een pull request): alleen de functionele scenario's, zonder de App Store-beelden; daardoor ook geen
+// iPhone 17 Pro. Op drukke runners duurde de volledige ronde (3 toestellen, ± 25 min) soms langer dan een uur.
+// Op main (push) en bij een handmatige run blijft alles draaien, ook de App Store-beelden.
+if (process.env.SIM_SNEL === "1") {
+  for (const t of TOESTELLEN) t.scenario = t.scenario.filter((s) => s !== "appstore");
+  for (let i = TOESTELLEN.length - 1; i >= 0; i--) if (!TOESTELLEN[i].scenario.length) TOESTELLEN.splice(i, 1);
+}
 
 const log = (...t) => console.log(new Date().toISOString().slice(11, 19), ...t);
 const sim = (...a) => execFileSync("xcrun", ["simctl", ...a], { encoding: "utf8", maxBuffer: 64 << 20, timeout: 600000 }).trim();
@@ -63,8 +70,11 @@ const fouten = [];
 const verslag = [];
 // simctl kan een oud of half getekend beeld teruggeven als de simulator traag is (gezien: liggend en op de iPad twee keer
 // hetzelfde beeld voor verschillende schermen, één keer alleen de papierkleur, terwijl de pagina volgens de testloper
-// klopte). Dan wacht de test even en neemt het beeld opnieuw (hoogstens 6 keer, ± 15 s). Blijft het leeg: fout;
-// blijft het gelijk aan het vorige: waarschuwing.
+// klopte). Dan wacht de test even en neemt het beeld opnieuw: bij een leeg beeld hoogstens 12 keer (± 30 s), bij een
+// beeld dat gelijk is aan het vorige hoogstens 6 keer. Blijft het leeg: fout; blijft het gelijk aan het vorige:
+// waarschuwing. (21-11-2026: de Tijdlijn op de iPhone 17 Pro Max had in twee runs na 15 s nog alleen de papierkleur,
+// terwijl de stap klaar was; in Chromium tekent dezelfde pagina binnen 0,3 s, ook 6× vertraagd. Het tekenen in de
+// simulator op een drukke runner is dan traag, geen fout in de app.)
 const waarschuwingen = [];
 let vorigeHash = "";
 const hashVan = (p) => createHash("sha1").update(readFileSync(p)).digest("hex");
@@ -73,7 +83,7 @@ async function foto(udid, pad, verwacht) {
     neem(udid, pad);
     const h = hashVan(pad);
     const nieuw = h !== vorigeHash, vol = !leeg(await beeldMaat(pad));
-    if ((nieuw && vol) || poging >= 5) {
+    if ((nieuw && vol) || (vol && poging >= 5) || poging >= 11) {
       if (!nieuw) waarschuwingen.push(`${pad.slice(UIT.length + 1)}: zelfde beeld als de vorige schermafbeelding`);
       if (poging) log(`  (${poging + 1} pogingen)`);
       vorigeHash = h;
@@ -83,10 +93,16 @@ async function foto(udid, pad, verwacht) {
   }
   await meet(pad, verwacht);
 }
+// simctl io kan bij drukte op de runner blijven hangen (gezien: 100 s op de iPad, en op 21-11-2026 ruim 11 minuten,
+// waarna de hele iPad-ronde mislukte). Dan één keer opnieuw; hangt hij weer, dan start de test de simulator opnieuw op
+// en doet hij het scenario nog één keer (zie SCHERM_HANGT hieronder). Het scenario zelf wordt dus nooit overgeslagen.
+const SCHERM_HANGT = "schermafbeelding blijft hangen";
 function neem(udid, pad) {
-  // simctl io kan bij drukte op de runner even blijven hangen (gezien: 100 s op de iPad); dan één keer opnieuw.
-  try { execFileSync("xcrun", ["simctl", "io", udid, "screenshot", "--type=png", pad], { timeout: 90000, stdio: "pipe" }); }
-  catch { log("  schermafbeelding duurde te lang, opnieuw"); sim("io", udid, "screenshot", "--type=png", pad); }
+  for (let i = 0; i < 2; i++) {
+    try { execFileSync("xcrun", ["simctl", "io", udid, "screenshot", "--type=png", pad], { timeout: 90000, stdio: "pipe" }); return; }
+    catch { log("  schermafbeelding duurde te lang" + (i ? "" : ", opnieuw")); }
+  }
+  throw new Error(SCHERM_HANGT);
 }
 async function meet(pad, verwacht) {
   const m = await beeldMaat(pad);
@@ -143,6 +159,14 @@ async function draaiScenario(udid, naam, map, maat) {
   return r;
 }
 
+function start(udid) {
+  sim("boot", udid);
+  sim("bootstatus", udid, "-b");
+  // Vaste statusbalk voor de App Store-beelden (Apple’s voorbeeldtijd, volle batterij).
+  sim("status_bar", udid, "override", "--time", "9:41", "--dataNetwork", "wifi", "--wifiMode", "active", "--wifiBars", "3", "--cellularMode", "active", "--cellularBars", "4", "--batteryState", "charged", "--batteryLevel", "100");
+  sim("ui", udid, "appearance", "light");
+}
+
 const rt = runtime();
 log(`iOS-runtime: ${rt.name} (${rt.identifier})`);
 for (const t of TOESTELLEN) {
@@ -158,11 +182,7 @@ for (const t of TOESTELLEN) {
       execFileSync("defaults", ["write", join(pref, ".GlobalPreferences.plist"), "AppleLanguages", "-array", "nl-NL"]);
       execFileSync("defaults", ["write", join(pref, ".GlobalPreferences.plist"), "AppleLocale", "-string", "nl_NL"]);
     } catch (e) { log("  taal niet ingesteld:", String(e.message).split("\n")[0]); }
-    sim("boot", udid);
-    sim("bootstatus", udid, "-b");
-    // Vaste statusbalk voor de App Store-beelden (Apple’s voorbeeldtijd, volle batterij).
-    sim("status_bar", udid, "override", "--time", "9:41", "--dataNetwork", "wifi", "--wifiMode", "active", "--wifiBars", "3", "--cellularMode", "active", "--cellularBars", "4", "--batteryState", "charged", "--batteryLevel", "100");
-    sim("ui", udid, "appearance", "light");
+    start(udid);
 
     // 1. Release-build: start hij en toont hij de atlas (geen testloper, dus alleen kijken)?
     sim("install", udid, RELEASE);
@@ -174,8 +194,16 @@ for (const t of TOESTELLEN) {
     // 2./3. Debug-build met de testloper. Installeren over de Release-build heen houdt de gegevens van de app.
     sim("install", udid, DEBUG);
     for (const s of t.scenario) {
-      log(`${t.naam}: scenario ${s}`);
-      await draaiScenario(udid, s, map, t.maat);
+      for (let poging = 1; ; poging++) {
+        log(`${t.naam}: scenario ${s}${poging > 1 ? " (opnieuw, na herstart van de simulator)" : ""}`);
+        try { await draaiScenario(udid, s, map, t.maat); break; }
+        catch (e) {
+          if (String(e.message) !== SCHERM_HANGT || poging > 1) throw e;
+          log(`${t.naam}: ${SCHERM_HANGT}; simulator opnieuw opstarten`);
+          try { sim("shutdown", udid); } catch { /* hing al */ }
+          start(udid);
+        }
+      }
       sim("terminate", udid, BUNDEL);
     }
   } catch (e) {

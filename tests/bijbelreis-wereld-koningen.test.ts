@@ -296,11 +296,19 @@ describe("wereld david-salomo: de Bijbelse getallen nagerekend (gangbare reconst
     expect(persoon(P, "jerobeam").van.jaar - persoon(P, "jerobeam").tot.jaar).toBe(21); // 22 jaar, 931/930–910/909
     expect(gebeurtenis(P, "scheuring").marge).toEqual([931, 930]);
   });
-  it("de buurvolken: geen jaartal in de Bijbel, dus ‘expliciet’ met een marge over de hele tijd van David in Jeruzalem", () => {
+  it("de buurvolken: geen jaartal in de Bijbel, dus ‘bij benadering’ met een marge over de hele tijd van David in Jeruzalem", () => {
     const b = gebeurtenis(P, "buurvolken");
-    expect(b.status).toBe("expliciet");
+    expect(b.status).toBe("benaderd");
     expect(b.marge).toEqual([1003, 970]);
     expect(b.opmerking).toMatch(/geen jaren/);
+  });
+  it("Hiram zonder jaartallen: geen levenslijn, wel genoemd bij David (2 Samuël 5:11) en bij de tempel van Salomo", () => {
+    expect(P.personen.some((p) => p.id === "hiram")).toBe(false);
+    expect(P.bronnen.some((b) => b.id === "hiram")).toBe(false);
+    expect(JSON.stringify(P)).not.toMatch(/980–947|Menander/);
+    expect(gebeurtenis(P, "jeruzalem").tekst).toMatch(/Hiram/);
+    expect(gebeurtenis(P, "jeruzalem").bron).toContain("2 Samuël 5:3–11");
+    expect(gebeurtenis(P, "tempel").tekst).toMatch(/Hiram/);
   });
   it("Samuël valt binnen de as (hij sterft in de tijd van Davids vlucht); de Tel Dan-steen staat als context, niet op de as", () => {
     expect(persoon(P, "samuel").tot.jaar).toBeLessThan(P.as.van);
@@ -367,7 +375,8 @@ describe("wereld israel-assyrie: de Bijbelse getallen en ijkpunten nagerekend", 
   });
   it("Jona: geen jaartal, een tijdvak in de tijd van Jerobeam II; Elia weggenomen, niet gestorven", () => {
     const j = gebeurtenis(P, "jona-nineve");
-    expect(j).toMatchObject({ jaar: 793, tot: 753, status: "expliciet" });
+    expect(j).toMatchObject({ jaar: 793, tot: 753, status: "benaderd" });
+    for (const v of ["v69", "v70"]) expect(P.koppelingen.find((k) => k.verhaal === v)!.status, v).toBe("benaderd");
     expect([persoon(P, "jerobeam-ii").van.jaar, persoon(P, "jerobeam-ii").tot.jaar]).toEqual([793, 753]);
     expect(j.opmerking).toMatch(/geen jaar/);
     expect(persoon(P, "elia").tot.einde).toBe("weggenomen");

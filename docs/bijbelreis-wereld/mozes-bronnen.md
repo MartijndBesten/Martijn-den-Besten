@@ -24,7 +24,8 @@ Peildatum: 17 november 2026. Alle webbronnen zijn op die dag geraadpleegd.
   bij zijn dood 123 is (Numeri 33:39) terwijl Mozes 120 is. Dat is een rekenkeuze binnen de marge, geen datum.
 - **Geen politieke grenzen.** Egypte (Nijldal en delta), de Sinaï-woestijn, Midian, Edom, Moab en Kanaän staan er als
   landstreken: een zacht vlak zonder grenslijn (`soort: "streek"`), altijd `benaderd`, eigen grove tekening langs de
-  geografie (de Nijl uit `geo.json`, Natural Earth). Geen grensdataset of kaart overgenomen.
+  geografie (de Nijl uit `geo.json`, Natural Earth). Geen grensdataset of kaart overgenomen. Een landstreek heeft alleen
+  een naam en bronnen; de losse uitlegteksten in het bouwscript, die nooit in de app kwamen, zijn weg (21-11-2026).
 - **De route is hergebruikt**, niet opnieuw getekend: elk reisdeel verwijst naar een stap van de atlas
   (`exodus:mozes:2`, `exodus:uittocht:3` … `numeri:moab:4`) en neemt de lijn `r` van die stap over, met dezelfde
   reconstructies (gestippeld) en dezelfde plaatsen uit `plaatsen.js`, met hun zekerheid (`c`) en andere mogelijke
