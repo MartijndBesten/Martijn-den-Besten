@@ -1,6 +1,7 @@
-# Controle voor public/bijbelreis/wereld/perioden/adam-noach.json (‘De wereld in die tijd’, Van Adam tot Noach).
+# Controle voor public/bijbelreis/wereld/perioden/adam-noach.json (‘De wereld in die tijd’, Van Adam tot Abram).
 # Elk getal waarop de jaartallen rusten, tegen de Statenvertaling: de leeftijd van de vader bij de geboorte van de zoon
-# en de levensduur (Genesis 5), de zondvloed (Genesis 7–9) en Sem (Genesis 11). Plus de letterlijke citaten.
+# en de levensduur (Genesis 5 en 11), de zondvloed (Genesis 7–9), Terach en Abram (Genesis 11–12, 25; Handelingen 7).
+# Plus de letterlijke citaten.
 # Gebruik: python3 scripts/bijbel-check.py scripts/bijbel-controle/wereld-adam-noach.txt (ook in tests/bijbelreis-wereld.test.ts).
 # --- vader bij de geboorte van de zoon ---
 Genesis 5:3 | Adam leefde honderd en dertig jaren.*Seth
@@ -29,6 +30,37 @@ Genesis 5:31 | zevenhonderd zeven en zeventig jaren; en hij stierf
 Genesis 9:28 | na den vloed driehonderd en vijftig jaren
 Genesis 9:29 | negenhonderd en vijftig jaren; en hij stierf
 Genesis 11:11 | nadat hij Arfachsad gewonnen had, vijfhonderd jaren
+# --- Genesis 11: vader bij de geboorte van de zoon, en de jaren daarna ---
+Genesis 11:12 | Arfachsad leefde vijf en dertig jaren, en hij gewon Selah
+Genesis 11:13 | Selah gewonnen had, vierhonderd en drie jaren
+Genesis 11:14 | Selah leefde dertig jaren, en hij gewon Heber
+Genesis 11:15 | nadat hij Heber gewonnen had, vierhonderd en drie jaren
+Genesis 11:16 | Heber leefde vier en dertig jaren, en gewon Peleg
+Genesis 11:17 | nadat hij Peleg gewonnen had, vierhonderd en dertig jaren
+Genesis 11:18 | Peleg leefde dertig jaren, en hij gewon Rehu
+Genesis 11:19 | nadat hij Rehu gewonnen had, tweehonderd en negen jaren
+Genesis 11:20 | Rehu leefde twee en dertig jaren, en hij gewon Serug
+Genesis 11:21 | nadat hij Serug gewonnen had, tweehonderd en zeven jaren
+Genesis 11:22 | Serug leefde dertig jaren, en gewon Nahor
+Genesis 11:23 | nadat hij Nahor gewonnen had, tweehonderd jaren
+Genesis 11:24 | Nahor leefde negen en twintig jaren, en gewon Terah
+Genesis 11:25 | nadat hij Terah gewonnen had, honderd en negentien jaren
+Genesis 11:26 | Terah leefde zeventig jaren, en gewon Abram, Nahor en Haran
+# --- Terach en Abram ---
+Genesis 11:31 | Terah nam Abram.*Lot.*Sarai.*uit Ur der Chaldee.*kwamen tot Haran
+Genesis 11:32 | dagen van Terah waren tweehonderd en vijf jaren, en Terah stierf te Haran
+Genesis 12:4 | Abram was vijf en zeventig jaren oud, toen hij uit Haran ging
+Genesis 12:5 | Sarai.*Lot.*om te gaan naar het land Kana
+Handelingen 7:4 | woonde in Charran. En van daar, nadat zijn vader gestorven was
+Genesis 17:1 | Abram negen en negentig jaren oud
+Genesis 17:5 | niet meer genoemd worden Abram; maar uw naam zal wezen Abraham
+Genesis 25:7 | Abraham.*honderd vijf en zeventig jaren
+Genesis 25:8 | Abraham gaf den geest en stierf
+# --- Kaïnan (alleen Lukas 3:36; niet in Genesis 11 en 1 Kronieken 1) ---
+Lukas 3:36 | Den zoon van Kaïnan, den zoon van Arfaxad
+Lukas 3:35 | den zoon van Sala
+1 Kronieken 1:24 | Sem, Arfachsad, Selah
+Genesis 10:24 | Arfachsad gewon Selah
 # --- zondvloed ---
 Genesis 7:6 | Noach nu was zeshonderd jaren oud, als de vloed
 Genesis 7:11 | zeshonderdste jaar des levens van Noach
@@ -45,3 +77,9 @@ Genesis 6:9 | Noach wandelde met God
 Genesis 8:4 | op de bergen van Ararat
 Genesis 5:29 | Deze zal ons troosten
 Hebreeën 11:5 | weggenomen geweest, opdat hij den dood niet zou zien
+Genesis 12:1 | Ga gij uit uw land
+Genesis 10:21 | de vader aller zonen van Heber
+Genesis 10:25 | in zijn dagen is de aarde verdeeld
+Jozua 24:2 | Terah, de vader van Abraham
+Exodus 12:40 | in Egypte gewoond hebben, is vierhonderd jaren en dertig jaren
+1 Koningen 6:1 | vierhonderd en tachtigste jaar

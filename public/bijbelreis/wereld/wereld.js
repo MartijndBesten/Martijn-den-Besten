@@ -67,6 +67,7 @@
       pauze(); sluitBlad(); kies(null);
       nadruk(); zetTerugKnop();
       layout();
+      S.rolHand = null;
       zetTijd(beginT(opts), { direct: true, door: "schuif" });
       koppelingSchrift();
       schil.focus({ preventScroll: true });
@@ -178,7 +179,8 @@
     layout();
     zetTijd(S.t, { direct: true, door: "schuif" });
     if (opts.koppeling) koppelingSchrift();
-    new ResizeObserver(() => { if (D) { layout(); herpasKaart(); } }).observe(D.vlak);
+    // De eerste keer dat de lijst echt in beeld is: naar wie er in het beginjaar leeft (bij een gedeelde link of uit een verhaal).
+    new ResizeObserver(() => { if (D) { layout(); if (!S.rolKlaar) S.rolKlaar = volgRij(false); herpasKaart(); } }).observe(D.vlak);
     if (D.kaartvlak) new ResizeObserver(() => D && herpasKaart()).observe(D.kaartvlak);
     window.matchMedia("(min-width: 1180px)").addEventListener("change", () => D && zetWeergave(S.weergave, false));
     schil.focus({ preventScroll: true });
@@ -258,6 +260,10 @@
     });
     D.schuif.addEventListener("input", () => { pauze(); zetTijd(+D.schuif.value, { direct: true, door: "schuif", onderschrift: true }); });
     D.schuif.addEventListener("change", () => meldLive(true));
+    // Zelf de lijst schuiven of aanraken: dan schuift hij even niet vanzelf mee (volgRij).
+    const hand = () => { S.rolHand = performance.now(); };
+    ["wheel", "touchstart", "pointerdown", "keydown"].forEach((n) => D.rol.addEventListener(n, hand, { passive: true }));
+    D.rol.addEventListener("scroll", () => { if (performance.now() - (S.rolAuto ?? -Infinity) > 1000) hand(); }, { passive: true });
     D.blad.addEventListener("click", (e) => { if (e.target === D.blad) sluitBlad(); });
     // Tabs met pijltjes.
     a.querySelector(".wt-weergaven").addEventListener("keydown", (e) => {
@@ -396,7 +402,7 @@
     D.schuif.setAttribute("aria-valuetext", jaarVol(t));
     D.schuif.style.setProperty("--pct", pct(t) + "%");
     D.merk.forEach((el, id) => el.classList.toggle("af", S.bereikt.has(id)));
-    if (Math.floor(t) !== D.oud.nuJaar || o.direct) { D.oud.nuJaar = Math.floor(t); zijBij(); lijstBij(); }
+    if (Math.floor(t) !== D.oud.nuJaar || o.direct) { D.oud.nuJaar = Math.floor(t); zijBij(); lijstBij(); volgRij(!o.direct); }
     if (S.kaart) kaartTijd(t, nieuw);
     if (nieuw.length) { const e = nieuw[nieuw.length - 1]; onderschrift(e); if (S.speelt) meldGebeurtenis(e); }
     else if (o.door === "schuif") {
@@ -450,7 +456,7 @@
     if (!W) return;
     // De rijen vullen de hoogte (binnen grenzen); passen ze niet, dan scrolt de lijst.
     const n = Math.max(1, M.personen.length), beschikbaar = D.rol.clientHeight;
-    const rh = Math.round(Math.max(breed() ? 38 : 34, Math.min(58, beschikbaar ? beschikbaar / n : 40)));
+    const rh = Math.floor(Math.max(breed() ? 38 : 34, Math.min(58, beschikbaar ? beschikbaar / n : 40)));
     if (S.rh !== rh) D.app.style.setProperty("--rij-h", rh + "px");
     S.rh = rh;
     const H = M.personen.length * rh;
@@ -620,6 +626,19 @@
         o.oud = st;
       }
     });
+  }
+  // Past de lijst niet in beeld (veel personen, zoals in ‘Van Adam tot Abram’ op een telefoon), dan schuift hij mee naar
+  // wie er nu leeft (K.rijInBeeld). Niet als je de lijst zelf net hebt verschoven of aangeraakt (4 s).
+  // Geeft true als de lijst al zichtbaar was (en dus bekeken is).
+  function volgRij(soepel) {
+    const r = D && D.rol;
+    if (!r || !S.rh || !r.clientHeight) return false;
+    if (r.scrollHeight <= r.clientHeight + 1 || performance.now() - (S.rolHand ?? -Infinity) < 4000) return true;
+    const doel = K.rijInBeeld(S.M.personen, S.t, S.rh, r.clientHeight, r.scrollTop);
+    if (doel == null) return true;
+    S.rolAuto = performance.now();
+    r.scrollTo({ top: doel, behavior: soepel && !minderBeweging() ? "smooth" : "auto" });
+    return true;
   }
   // Tijdens afspelen loopt het venster mee als je ingezoomd bent.
   function volg(t) {
@@ -940,7 +959,7 @@
     D.app.querySelector(".wt-p-gebeurtenissen").hidden = w !== "gebeurtenissen";
     const kaartZichtbaar = w === "kaart" || (zij && w === "lijnen");
     D.app.querySelector(".wt-p-kaart").hidden = !kaartZichtbaar;
-    if (w === "lijnen") requestAnimationFrame(layout);
+    if (w === "lijnen") requestAnimationFrame(() => { layout(); volgRij(false); });
     if (w === "gebeurtenissen") { lijstBij(); const h = D.lijst.querySelector(".huidig"); if (h) h.scrollIntoView({ block: "center" }); }
     if (kaartZichtbaar && S.M.heeftKaart) requestAnimationFrame(() => { maakKaart(); if (S.kaart) { herpasKaart(); kaartTijd(S.t, []); schikLabels(true); } });
     if (focus) { const b = D.app.querySelector(`[role="tab"][data-weergave="${w}"]`); if (b && document.activeElement !== b) b.focus(); }

@@ -35,6 +35,7 @@ type Kern = {
   leeftNog: (p: Persoon, t: number) => boolean; leeftijd: (p: Persoon, t: number) => number | null;
   overlap: (a: Persoon, b: Persoon) => { jaren: number; van: number | null; tot: number | null; minstens: boolean; ongeveer: boolean; tussen?: number };
   momenten: (m: unknown) => { t: number; soort: string }[];
+  rijInBeeld: (p: Persoon[], t: number, rh: number, hoogte: number, nu: number) => number | null;
   controleer: (d: unknown, refs?: object) => string[]; PUNTEN: number;
 };
 const K = BR.wereldKern as unknown as Kern;
@@ -85,7 +86,7 @@ describe("wereld: de periodebestanden", () => {
   });
 });
 
-describe("wereld: Van Adam tot Noach rekent goed (Masoretische tekst = Statenvertaling)", () => {
+describe("wereld: Van Adam tot Abram rekent goed (Masoretische tekst = Statenvertaling)", () => {
   const D = lees(join(WERELD, "perioden", "adam-noach.json"));
   const M = K.bereid(D, { plaatsen: BR.plaatsen });
   const P = (id: string) => M.byId.get(id)!;
@@ -155,8 +156,9 @@ describe("wereld: Van Adam tot Noach rekent goed (Masoretische tekst = Statenver
       expect(fold(tekst), r).toMatch(new RegExp(fold(re), "i"));
     }
     const gedekt = new Set(regels.map((r) => r.split(" | ")[0]));
-    for (const p of M.personen) for (const b of [p.van.bron, p.tot.bron]) {
+    for (const p of M.personen) for (const b of [p.van.bron, p.tot.bron].flat() as string[]) {
       const q = BR.parseRef(b)!;
+      expect(q, `${p.id}: ${b}`).toBeTruthy();
       for (const rg of q.ranges) expect([...gedekt].some((g) => { const x = BR.parseRef(g)!.ranges[0]; return x.slug === rg.slug && x.c1 === rg.c1 && x.v1 >= rg.v1 && x.v1 <= rg.v2; }), `${p.id}: ${b}`).toBe(true);
     }
   });
@@ -164,18 +166,108 @@ describe("wereld: Van Adam tot Noach rekent goed (Masoretische tekst = Statenver
     const tekst = JSON.stringify({ ...D, bronnen: [] });
     const citaten = [...tekst.matchAll(/‘([^’]+)’/g)].map((m) => m[1]);
     expect(citaten.length).toBeGreaterThan(3);
-    const alles = ["genesis", "hebreeen"].map((b) => Object.values((SV[b] ??= JSON.parse(readFileSync(join(ROOT, "data", "statenvertaling", b + ".json"), "utf8"))).hoofdstukken).flat().join(" ")).join(" ");
+    const alles = ["genesis", "hebreeen", "handelingen"].map((b) => Object.values((SV[b] ??= JSON.parse(readFileSync(join(ROOT, "data", "statenvertaling", b + ".json"), "utf8"))).hoofdstukken).flat().join(" ")).join(" ");
     for (const c of citaten) expect(alles.toLowerCase(), c).toContain(c.toLowerCase());
-    // Namen zoals de Bijbelreis ze schrijft (personen.js).
-    for (const p of M.personen) if ((p as unknown as { personenId?: string }).personenId) expect((BR.mensen[(p as unknown as { personenId: string }).personenId] as { n: string }).n).toBe(p.naam);
+    // Namen zoals de Bijbelreis ze schrijft (personen.js): de naam, een alias (Abram) of de naam zonder toevoeging
+    // (‘Nahor (opa)’ heet in deze tijdlijn gewoon Nahor: zijn kleinzoon Nahor staat er niet in).
+    for (const p of M.personen) {
+      const id = (p as unknown as { personenId?: string }).personenId;
+      if (!id) continue;
+      const m = BR.mensen[id] as { n: string; alias?: string[] };
+      expect([m.n, m.n.replace(/ \(.*\)$/, ""), ...(m.alias || [])], p.id).toContain(p.naam);
+    }
+  });
+  it("Genesis 11:10–32: elk geboorte- en sterfjaar van Sem tot Abram, nagerekend uit de verzen", () => {
+    // [id, leeftijd van de vader bij de geboorte van deze zoon, leeftijd bij de geboorte van zijn eigen zoon, jaren daarna]
+    // Genesis 11:10–25; Terach: 205 jaar in totaal (11:32).
+    const keten: [string, number, number, number][] = [
+      ["sem", 502, 100, 500], ["arfachsad", 100, 35, 403], ["selah", 35, 30, 403], ["heber", 30, 34, 430], ["peleg", 34, 30, 209],
+      ["rehu", 30, 32, 207], ["serug", 32, 30, 200], ["nahor", 30, 29, 119],
+    ];
+    let geboren = 1656 + 2 - 100; // Sem was honderd ‘twee jaren na den vloed’ (11:10)
+    for (const [id, vader, zoon, daarna] of keten) {
+      expect(jaar(id, "van"), id).toBe(geboren);
+      expect(P(id).van.vaderLeeftijd, id).toBe(vader);
+      expect(jaar(id, "tot"), id).toBe(geboren + zoon + daarna);
+      expect(P(id).tot.leeftijd, id).toBe(zoon + daarna);
+      geboren += zoon;
+    }
+    expect(jaar("arfachsad", "van")).toBe(1658);
+    expect(jaar("terach", "van")).toBe(1878);
+    expect(jaar("terach", "tot")).toBe(1878 + 205); // Genesis 11:32
+    expect(P("terach").tot.leeftijd).toBe(205);
+    // Abram: 75 toen hij uit Haran trok (12:4), nadat Terach gestorven was (Handelingen 7:4): Terach was dan 130.
+    expect(jaar("abram", "van")).toBe(jaar("terach", "tot") - 75);
+    expect(jaar("abram", "van")).toBe(2008);
+    expect(P("abram").van.vaderLeeftijd).toBe(130);
+    expect(jaar("abram", "tot")).toBe(2008 + 175); // Genesis 25:7
+    // De andere lezing (Terach zeventig, Genesis 11:26) staat als opmerking, niet als lijn.
+    expect(1878 + 70).toBe(1948);
+    expect((P("abram").van as unknown as { opmerking: string }).opmerking).toMatch(/1948/);
+    expect((D.info as { kop: string; tekst: string }[]).find((i) => /Terach 130 of 70/.test(i.kop))!.tekst).toMatch(/2008.*1948.*zestig jaar/);
+    const e = (id: string) => D.gebeurtenissen.find((x: { id: string }) => x.id === id);
+    expect(e("geboorte-arfachsad").jaar).toBe(1658);
+    expect(e("geboorte-abram").jaar).toBe(2008);
+    expect(e("abram-uit-haran").jaar).toBe(2083);
+    // Geen andere zonen van Terach: Genesis 11 geeft voor Nahor en Haran geen getallen.
+    expect(M.personen.filter((p) => p.ouder === "terach").map((p) => p.id)).toEqual(["abram"]);
+  });
+  it("uitgerekend tegelijk: bij de geboorte van Abram leven Sem tot en met Terach nog, behalve Peleg en Nahor (de tekst van de gebeurtenis)", () => {
+    const leven = M.personen.filter((p) => p.id !== "abram" && K.leeftNog(p, 2008)).map((p) => p.id);
+    expect(leven).toEqual(["sem", "arfachsad", "selah", "heber", "rehu", "serug", "terach"]);
+    expect(jaar("noach", "tot")).toBe(2008 - 2);
+    expect(K.overlap(P("noach"), P("abram")).tussen).toBe(2);
+    expect(K.overlap(P("sem"), P("abram")).jaren).toBe(150);
+    expect(K.overlap(P("heber"), P("abram")).jaren).toBe(175); // Heber leeft nog vier jaar na Abram
+    expect(K.leeftNog(P("peleg"), 2008) || K.leeftNog(P("nahor"), 2008)).toBe(false);
+    // Geen verzonnen ontmoetingen: alleen uitgerekende jaren.
+    expect(JSON.stringify(D)).not.toMatch(/sprak met|ontmoette|vertelde aan/);
+  });
+  it("Septuagint na de zondvloed: Kaïnan en de hogere getallen, nagerekend (Brenton, Genesis 11)", () => {
+    const info = (D.info as { kop: string; tekst: string; status: string; bron: string[] }[]).find((i) => /Kaïnan/.test(i.kop))!;
+    expect(info.status).toBe("historisch");
+    expect(info.bron).toContain("brenton-gen11");
+    expect(info.tekst).toMatch(/Lukas 3:36/);
+    // Vader bij de geboorte van de zoon, van Arfachsad tot en met Terach: Masoretische tekst en Septuagint (met Kaïnan).
+    const mt = [35, 30, 34, 30, 32, 30, 29, 70], lxx = [135, 130, 130, 134, 130, 132, 130, 179, 70];
+    const som = (a: number[]) => a.reduce((s, x) => s + x, 0);
+    expect(som(lxx) - som(mt)).toBe(880);
+    expect(som(lxx) - 100 - som(mt)).toBe(780); // Codex Alexandrinus: Nahor 79
+    expect(info.tekst).toMatch(/880 of 780/);
+    expect(info.tekst).toMatch(/179.*79/);
+  });
+  it("koppelingen: Babel (v7) zonder jaartal als band met uitleg, Abram (v8) in het jaar dat hij uit Haran trekt", () => {
+    const k = (v: string) => D.koppelingen.find((x: { verhaal: string }) => x.verhaal === v);
+    expect(k("v7").status).toBe("benaderd");
+    expect([k("v7").jaar, k("v7").tot]).toEqual([1657, 2008]);
+    expect(k("v7").opmerking).toMatch(/geen jaar/);
+    expect(k("v8").jaar).toBe(jaar("terach", "tot"));
+    for (const v of ["v2", "v4", "v5", "v6"]) expect(k(v), v).toBeTruthy();
+    expect(D.id).toBe("adam-noach");
+    expect(D.titel).toBe("Van Adam tot Abram");
+  });
+  it("de lijst schuift mee naar wie er leeft als hij niet past (telefoon: 8 van de 22 rijen in beeld)", () => {
+    const rh = 34, h = 273; // gemeten op 390 × 664
+    expect(K.rijInBeeld(M.personen, 0, rh, h, 0)).toBeNull(); // Adam staat bovenaan
+    expect(K.rijInBeeld(M.personen, 987, rh, h, 0)).toBe(9 * rh - h); // Seth t/m Lamech (rij 1–8): Adam schuift weg
+    // In 2008 leven Sem (rij 12) t/m Abram (rij 21): past niet, dus de jongste rij onderaan.
+    expect(K.rijInBeeld(M.personen, 2008, rh, h, 0)).toBe(22 * rh - h);
+    expect(K.rijInBeeld(M.personen, 2008, rh, h, 22 * rh - h)).toBeNull();
+    // Terug naar het begin: zo weinig mogelijk schuiven, de bovenste levende rij bovenaan.
+    expect(K.rijInBeeld(M.personen, 130, rh, h, 400)).toBe(0);
+    expect(K.rijInBeeld(M.personen, 1656, rh, h, 0)).toBe(13 * rh - h); // Jered t/m Sem
+    // Past alles, of is er niets: niets doen.
+    expect(K.rijInBeeld(M.personen, 2008, 20, 1000, 0)).toBeNull();
+    expect(K.rijInBeeld(M.personen, 2008, rh, 0, 0)).toBeNull();
   });
   it("geen kaart voor deze periode, wel een uitleg waarom", () => {
     expect(M.heeftKaart).toBe(false);
     expect(D.kaartUitleg).toMatch(/Ararat/);
   });
-  it("Ussher staat er alleen als ‘traditioneel’, de Septuagint en Samaritaanse Pentateuch als compacte info", () => {
+  it("geen jaartallen v.Chr. en geen Ussher (besluit 21-11-2026); de Septuagint en Samaritaanse Pentateuch als compacte info", () => {
     const info = D.info as { kop: string; tekst: string; status: string }[];
-    expect(info.find((i) => /Ussher/.test(i.tekst))!.status).toBe("traditioneel");
+    expect(JSON.stringify(D)).not.toMatch(/Ussher|4004|2348/);
+    expect(JSON.stringify(D)).not.toMatch(/\d+ v\.Chr\./);
     expect(info.find((i) => /Septuagint/.test(i.tekst))!.tekst).toMatch(/2242 of 2262.*1307/);
     // Septuagint en Samaritaanse Pentateuch, nagerekend: vader bij de geboorte van de zoon tot en met Noach 600.
     const lxx = [230, 205, 190, 170, 165, 162, 165, 167, 188], sp = [130, 105, 90, 70, 65, 62, 65, 67, 53];
