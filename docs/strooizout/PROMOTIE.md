@@ -121,18 +121,24 @@ Gebruik daarbij het beeld `delen-1200x630.jpg`.
 
 > Goedemiddag, wij zijn een lokaal initiatief in Houten en verkopen strooizout in zakken van 25 kg, vanaf 4 zakken voor € 8,99 per zak (incl. btw). We bezorgen binnen de rondweg. Voor grotere aantallen maken we graag een afspraak. Bestellen kan via https://strooizouthouten.nl/?via=zakelijk of door te reageren op dit bericht.
 
-## 8. Filmpje (verticaal, 18,5 seconden)
+## 8. Filmpjes (verticaal, 18 seconden, met muziek)
 
-Bestand: `docs/strooizout/film/strooizout-film.mp4` (1080 × 1920, geschikt voor WhatsApp-status, Instagram/Facebook Reels en Stories, TikTok en YouTube Shorts). Voorbeeldbeeld: `strooizout-film-voorbeeld.jpg`.
+Drie filmpjes in `docs/strooizout/film/` (1080 × 1920, geschikt voor WhatsApp-status, Instagram/Facebook Reels en Stories, TikTok en YouTube Shorts), elk met een voorbeeldbeeld (`…-voorbeeld.jpg`):
 
-Verhaal in vijf beelden: ‘Glad voor de deur?’ → ‘Strooi je eigen stoep’ → ‘en ook bij een buur die dat zelf niet kan.’ (bij de buren gaat het licht aan en de buur zwaait) → ‘Een beetje zout. Een beetje aandacht.’ (meer buren strooien mee, alle paadjes sluiten op elkaar aan) → merk, zak van 25 kg, `strooizouthouten.nl` en onderaan ‘Een initiatief van Denckh’.
+1. **Buren** (`strooizout-film.mp4`): ‘Glad voor de deur?’ → ‘Strooi je eigen stoep’ → ‘en ook bij een buur die dat zelf niet kan.’ (licht aan, de buur zwaait) → ‘Een beetje zout. Een beetje aandacht.’ (meer buren strooien mee, alle paadjes sluiten aan) → eindbeeld.
+2. **Fietsers** (`strooizout-film-fiets.mp4`): ‘Glad op de fiets?’ (twee fietsers glijden uit) → ‘Even strooien…’ → ‘…en iedereen blijft overeind.’ (fietsers rijden veilig langs) → eindbeeld.
+3. **Opa** (`strooizout-film-opa.mp4`): ‘Glad? Dan blijft opa liever binnen.’ (rollator schiet weg, hondje glijdt uit) → ‘Tenzij iemand even strooit…’ (een buurjongen strooit voor hem uit, opa steekt zijn duim op) → ‘…dan komt opa gewoon op de koffie.’ (oma zwaait vanaf het bankje) → eindbeeld.
 
-- Het filmpje heeft geen geluid. In Instagram, Facebook en TikTok kun je bij het plaatsen zelf muziek uit hun bibliotheek kiezen; die is daar dan ook gelicenseerd.
+- Onder alle drie staat een eigen deuntje dat speciaal hiervoor in code is gemaakt. Er zit geen muziek van anderen in, dus er is geen licentie nodig en de apps zullen het geluid niet blokkeren. Wil je liever muziek uit de bibliotheek van Instagram of TikTok, zet dan bij het plaatsen het oorspronkelijke geluid uit.
 - Belangrijke tekst staat buiten de randen waar de apps hun knoppen overheen leggen.
 - Er staan geen prijzen in. Zet de actuele prijs zo nodig in het bijschrift.
-- Zet de link met herkomst in het bijschrift of de bio, bijvoorbeeld `https://strooizouthouten.nl/?via=film`, dan is in het beheer te zien wat het filmpje oplevert.
+- Zet de link met herkomst in het bijschrift of de bio, bijvoorbeeld `https://strooizouthouten.nl/?via=film` (of `?via=fietsfilm`), dan is in het beheer te zien wat een filmpje oplevert.
 
-Bijschrift (kort): *Glad voor de deur? Strooi je eigen stoep, en ook even bij een buur die dat zelf niet kan. Strooizout per zak van 25 kg, afhalen in Houten of bezorgd binnen de rondweg: strooizouthouten.nl*
+Bijschrift bij film 1: *Glad voor de deur? Strooi je eigen stoep, en ook even bij een buur die dat zelf niet kan. Strooizout per zak van 25 kg, afhalen of bezorgd binnen de rondweg van Houten: strooizouthouten.nl*
+
+Bijschrift bij film 2: *Glad op de fiets? Even strooien, en iedereen blijft overeind. Strooizout per zak van 25 kg, afhalen of bezorgd binnen de rondweg van Houten: strooizouthouten.nl*
+
+Bijschrift bij film 3: *Glad? Dan blijft opa liever binnen. Tenzij iemand even strooit. Strooi ook bij een buur die dat zelf niet kan. Strooizout per zak van 25 kg, afhalen of bezorgd binnen de rondweg van Houten: strooizouthouten.nl*
 
 Plaatsen doet Martijn zelf; er wordt niets namens hem geplaatst.
 

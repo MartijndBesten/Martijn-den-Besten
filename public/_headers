@@ -44,3 +44,6 @@
 
 /strooizout/beeld/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/strooizout/film/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

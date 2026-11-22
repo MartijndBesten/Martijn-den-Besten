@@ -41,6 +41,12 @@ De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, bet
 
 **Lijn weg, straat in een lus (22-11-2026, opdracht Martijn):** de strooilijn die vanaf boven over de pagina liep is helemaal verwijderd. De animatie in de straat loopt nu vanzelf en rustig, van links naar rechts, en begint na een korte pauze opnieuw (alleen zolang hij in beeld is). De tekst in de voet is netjes gezet: links rechts uitgelijnd, de kleine lettertjes in rustige regels en de bedrijfsgegevens op een eigen regel.
 
+**Muziek en tweede filmpje (22-11-2026, opdracht Martijn):** onder het eerste filmpje staat nu een eigen, in code gemaakt deuntje (geen muziek van anderen). Er is een tweede filmpje bijgekomen met fietsers die uitglijden tot er gestrooid is (`strooizout-film-fiets.mp4`). In het eindbeeld van beide staat ‘binnen de rondweg van Houten’. De eerste versie van de muziek vond Martijn te lief; daarna is hij pittiger gemaakt, en op zijn aanwijzing is het getokkelde, sluipende begin van het fietsfilmpje de stijl van alle drie de filmpjes geworden. De maker (AI) kan de muziek zelf niet beluisteren, alleen meten; Martijn beoordeelt of hij bevalt. Zie README › *Promotiefilmpjes* en PROMOTIE › *Filmpjes*.
+
+**Derde filmpje (22-11-2026, opdracht Martijn):** opa met rollator en hondje, een buurjongen die voor hem uit strooit, opa met zijn duim omhoog, en oma met koffie op het bankje (`strooizout-film-opa.mp4`). Stand van de site: PR #86 (lijn weg, straat in een lus, voettekst) staat live als versie `2b90dc5e` en is op productie gecontroleerd.
+
+**Fietsfilmpje op de site (22-11-2026, opdracht Martijn):** het fietsfilmpje staat op de homepage, als lichte versie (0,6 MB) die pas laadt na een tik op de afspeelknop. Let op de uitrolbundel: 9,53 MB van 10 MB; voor nog een film op de site is opslag buiten de bundel nodig (bijvoorbeeld Cloudflare R2; dat is een nieuwe voorziening en vraagt akkoord van Martijn).
+
 Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak kan later in het beheer worden geüpload (*Producten › Afbeelding*) en vervangt dan de kleine productafbeeldingen; voor de hero is dan een vrijstaande foto nodig.
 
 ## Commerciële versie (opdracht 22-11-2026)

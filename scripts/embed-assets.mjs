@@ -21,6 +21,7 @@ const TYPES = {
   ".webmanifest": "application/manifest+json",
   ".json": "application/json",
   ".pdf": "application/pdf",
+  ".mp4": "video/mp4",
 };
 const SKIP = new Set(["_headers", ".assetsignore"]);
 

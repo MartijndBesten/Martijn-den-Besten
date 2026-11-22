@@ -146,6 +146,28 @@ test.describe("Strooizout voor de buurt", () => {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
   });
 
+  test("strooizout: het filmpje laadt pas na een tik en speelt dan in de pagina", async ({ page, request }) => {
+    const video: string[] = [];
+    page.on("request", (r) => r.url().endsWith(".mp4") && video.push(r.url()));
+    await page.goto("/strooizout");
+    const start = page.getByRole("button", { name: /Speel het filmpje af/ });
+    await start.scrollIntoViewIfNeeded();
+    await expect(start).toBeVisible();
+    await expect(page.locator(".wn-film video")).toHaveCount(0);
+    expect(video).toHaveLength(0); // nog niets van de video geladen
+    await start.click();
+    const speler = page.locator(".wn-film video");
+    await expect(speler).toBeVisible();
+    await expect(speler).toHaveAttribute("src", "/strooizout/film/fiets.mp4");
+    await expect(speler).toHaveAttribute("playsinline", "");
+    // het bestand bestaat, is een video en is klein genoeg voor de uitrolbundel (deelverzoeken: tests/bereik.test.ts)
+    const film = await request.get("/strooizout/film/fiets.mp4");
+    expect(film.status()).toBe(200);
+    expect(film.headers()["content-type"]).toContain("video/mp4");
+    expect((await film.body()).length).toBeLessThan(700_000);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+  });
+
   test("strooizout: 1 zak ophalen op de telefoon en annuleren door de klant", async ({ page }) => {
     await page.goto("/strooizout");
     const kaart = page.locator(".sz-bestelkaart");
