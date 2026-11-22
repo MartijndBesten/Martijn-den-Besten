@@ -33,6 +33,8 @@ De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, bet
 | Boodschap | ‘Strooi ook bij een buur die dat zelf niet kan.’ met een straat waarin de route van deur tot deur verschijnt |
 | Gemeten | Lighthouse mobiel (lokale build): 97 / 100 / 100 / 100; LCP 2,0 s; CLS 0,01; geen horizontale scroll op 320 px |
 
+**Strooiroute (22-11-2026, wens Martijn):** de animatie van het gestrooide paadje is uitgebreid tot een route over de pagina: vanaf de zak in de hero, langs de drie stappen (die oplichten) naar de deur van de buur, waar de ramen één voor één aangaan. Zie README › *Strooiroute*.
+
 Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak kan later in het beheer worden geüpload (*Producten › Afbeelding*) en vervangt dan de kleine productafbeeldingen; voor de hero is dan een vrijstaande foto nodig.
 
 ## Commerciële versie (opdracht 22-11-2026)
