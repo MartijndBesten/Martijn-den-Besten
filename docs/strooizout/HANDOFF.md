@@ -18,6 +18,23 @@ De testbestelling doet Martijn zelf. Volgende stap: de doorverwijzing van martij
 
 Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
 
+## Strooizout 2.0: visuele herontwikkeling (opdracht 22-11-2026)
+
+De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, betaalstatussen en beheer zijn ongewijzigd. Beschrijving in [README.md](README.md) › *Merk en ontwerp*.
+
+| Onderdeel | Uitgevoerd |
+| --- | --- |
+| Identiteit | Nachtblauw, ijsblauw, wit en amber alleen voor de koopactie; donkere en lichte vlakken wisselen af |
+| Logo | Krachtiger merkteken (dak, deur, S-vormige looproute, drie korrels), leesbaar op 16 px; doorgevoerd in site, favicon, flyer, bord, deelbeelden en productillustraties |
+| Hero | Donker, met eigen SVG-illustratie van de zak die meegroeit met het aantal en meebeweegt met de muis; vanafprijs en bestelkaart direct in beeld |
+| Bestellen | Eén kaart, twee stappen; prijstreden in één rail; grote plus/min; zetje vlak voor een trede; totaal precies één keer; op een iPhone 13 valt ‘Bestellen’ in het eerste scherm |
+| Opgelost uit de schermafbeeldingen | Vaste kop schoof over de inhoud (kop staat niet meer vast); ‘AfhalenBezorgen’ plakte aan elkaar; besparingsteksten liepen over; totaal stond dubbel |
+| Beweging | Eén samenhangend systeem in CSS met kleine hulpjes; uit bij ‘minder beweging’ |
+| Boodschap | ‘Strooi ook bij een buur die dat zelf niet kan.’ met een straat waarin de route van deur tot deur verschijnt |
+| Gemeten | Lighthouse mobiel (lokale build): 97 / 100 / 100 / 100; LCP 2,0 s; CLS 0,01; geen horizontale scroll op 320 px |
+
+Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak kan later in het beheer worden geüpload (*Producten › Afbeelding*) en vervangt dan de kleine productafbeeldingen; voor de hero is dan een vrijstaande foto nodig.
+
 ## Commerciële versie (opdracht 22-11-2026)
 
 | Onderdeel | Uitgevoerd |

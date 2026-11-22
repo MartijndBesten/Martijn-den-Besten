@@ -329,132 +329,6 @@ textarea {
 }
 
 /* ---------- Held ---------- */
-
-.sz-held {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(1200px 500px at 85% -10%, rgba(185, 214, 236, 0.55), transparent 60%),
-    radial-gradient(900px 400px at -10% 110%, rgba(215, 232, 245, 0.7), transparent 60%),
-    linear-gradient(180deg, var(--ijs-0), var(--wit) 85%);
-}
-.sz-held__in {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  align-items: center;
-  gap: clamp(24px, 5vw, 64px);
-  padding-top: clamp(28px, 6vw, 72px);
-  padding-bottom: clamp(36px, 6vw, 80px);
-}
-.sz-held__label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--wit);
-  border: 1px solid var(--rand);
-  color: var(--blauw-2);
-  font-size: 14px;
-  font-weight: 560;
-  margin-bottom: 18px;
-  box-shadow: var(--schaduw-1);
-}
-.sz-held__label svg {
-  width: 16px;
-  height: 16px;
-  color: var(--vorst);
-}
-.sz-held h1 {
-  font-size: clamp(38px, 6.4vw, 66px);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  margin-bottom: 14px;
-  color: var(--blauw);
-}
-.sz-held__slogan {
-  font-size: clamp(20px, 2.6vw, 26px);
-  color: var(--blauw-3);
-  font-weight: 520;
-  letter-spacing: -0.015em;
-  margin-bottom: 14px;
-}
-.sz-held__tekst {
-  font-size: 18px;
-  color: var(--tekst-2);
-  max-width: 34em;
-  margin-bottom: 26px;
-}
-.sz-held__acties {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-}
-.sz-held__prijs {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  color: var(--tekst-2);
-  font-size: 15px;
-}
-.sz-held__prijs strong {
-  font-size: 26px;
-  color: var(--blauw);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.sz-held__beeld {
-  position: relative;
-  justify-self: center;
-  width: min(100%, 470px);
-}
-.sz-held__beeld img {
-  width: 100%;
-  height: auto;
-  border-radius: 28px;
-  box-shadow: var(--schaduw-3);
-  background: var(--ijs-1);
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-.sz-held__kaart {
-  position: absolute;
-  left: -18px;
-  bottom: 22px;
-  background: var(--wit);
-  border-radius: 16px;
-  padding: 12px 16px;
-  box-shadow: var(--schaduw-2);
-  border: 1px solid var(--rand);
-  font-size: 14px;
-  color: var(--tekst-2);
-  max-width: 250px;
-}
-.sz-held__kaart strong {
-  display: block;
-  color: var(--blauw);
-  font-size: 15px;
-}
-
-.sz-sneeuw {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.sz-sneeuw span {
-  position: absolute;
-  top: -10px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 0 1px rgba(185, 214, 236, 0.6);
-  opacity: 0.9;
-  animation: sz-val linear infinite;
-}
 @keyframes sz-val {
   to {
     transform: translate3d(var(--dx, 20px), 110vh, 0);
@@ -482,9 +356,6 @@ textarea {
   flex: none;
   margin-top: 1px;
 }
-.sz-status--open svg {
-  color: var(--groen);
-}
 .sz-status--dicht {
   background: var(--oker-zacht);
   border-color: #efd9a8;
@@ -498,223 +369,9 @@ textarea {
 
 /* ---------- Secties ---------- */
 
-.sz-sectie {
-  padding: clamp(40px, 7vw, 88px) 0;
-}
-.sz-sectie--ijs {
-  background: var(--ijs-0);
-  border-top: 1px solid var(--ijs-1);
-  border-bottom: 1px solid var(--ijs-1);
-}
-.sz-sectie__kop {
-  max-width: 640px;
-  margin-bottom: clamp(24px, 4vw, 40px);
-}
-.sz-sectie__kop h2 {
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 680;
-}
-.sz-sectie__kop p {
-  color: var(--tekst-2);
-  font-size: 18px;
-  margin: 0;
-}
-.sz-oog {
-  display: block;
-  font-size: 13px;
-  font-weight: 650;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--blauw-3);
-  margin-bottom: 10px;
-}
-
 /* ---------- Productkaarten ---------- */
 
-.sz-producten {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
-  gap: clamp(16px, 2.5vw, 28px);
-}
-.sz-product {
-  display: flex;
-  flex-direction: column;
-  background: var(--wit);
-  border: 1px solid var(--rand);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--schaduw-1);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.sz-product:hover {
-  box-shadow: var(--schaduw-2);
-}
-.sz-product__beeld {
-  position: relative;
-  background: linear-gradient(180deg, var(--ijs-1), var(--ijs-0));
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-}
-.sz-product__beeld img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-.sz-product:hover .sz-product__beeld img {
-  transform: scale(1.025);
-}
-.sz-badge {
-  position: absolute;
-  left: 14px;
-  top: 14px;
-  padding: 5px 11px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 620;
-  background: var(--wit);
-  color: var(--blauw);
-  box-shadow: var(--schaduw-1);
-}
-.sz-badge--actie {
-  background: var(--blauw);
-  color: var(--wit);
-}
-.sz-product__body {
-  padding: 20px 22px 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
-.sz-product h3 {
-  font-size: 23px;
-  margin: 0;
-}
-.sz-product__kort {
-  color: var(--tekst-2);
-  margin: 0;
-}
-.sz-prijsregel {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 4px 10px;
-}
-.sz-prijs {
-  font-size: 30px;
-  font-weight: 720;
-  letter-spacing: -0.03em;
-  color: var(--blauw);
-  font-variant-numeric: tabular-nums;
-}
-.sz-prijs__per {
-  color: var(--tekst-3);
-  font-size: 15px;
-}
-.sz-prijs__oud {
-  color: var(--tekst-3);
-  text-decoration: line-through;
-  font-size: 16px;
-}
-.sz-specs {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 6px 14px;
-  margin: 2px 0 0;
-  font-size: 15px;
-}
-.sz-specs dt {
-  color: var(--tekst-3);
-}
-.sz-specs dd {
-  margin: 0;
-  color: var(--tekst);
-}
-.sz-product__meer {
-  font-size: 15px;
-}
-.sz-product__meer summary {
-  cursor: pointer;
-  color: var(--blauw-3);
-  font-weight: 560;
-  list-style: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 32px;
-}
-.sz-product__meer summary::-webkit-details-marker {
-  display: none;
-}
-.sz-product__meer summary::after {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(45deg) translateY(-2px);
-  transition: transform 0.2s ease;
-}
-.sz-product__meer[open] summary::after {
-  transform: rotate(-135deg) translateY(-2px);
-}
-.sz-product__meer p {
-  color: var(--tekst-2);
-  margin: 8px 0 0;
-}
-.sz-voorraad {
-  font-size: 14.5px;
-  color: var(--tekst-3);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.sz-voorraad::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--groen);
-}
-.sz-voorraad--op::before {
-  background: var(--rood);
-}
-.sz-voorraad--ronde::before {
-  background: var(--vorst);
-}
-.sz-product__koop {
-  margin-top: auto;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  padding-top: 6px;
-}
-.sz-product__koop .sz-knop {
-  flex: 1;
-}
-
 /* Eén product: breed, beeld naast de gegevens */
-@media (min-width: 821px) {
-  .sz-producten:has(> .sz-product:only-child) {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .sz-product:only-child {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    max-width: 980px;
-  }
-  .sz-product:only-child .sz-product__beeld {
-    aspect-ratio: auto;
-    min-height: 100%;
-  }
-  .sz-product:only-child .sz-product__body {
-    padding: 32px 36px;
-  }
-  .sz-product:only-child h3 {
-    font-size: 28px;
-  }
-}
 
 /* Aantal */
 .sz-aantal {
@@ -779,128 +436,9 @@ textarea {
 
 /* ---------- Stappen ---------- */
 
-.sz-stappen {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(14px, 2.5vw, 28px);
-  counter-reset: stap;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.sz-stap {
-  background: var(--wit);
-  border: 1px solid var(--rand);
-  border-radius: var(--radius);
-  padding: 22px;
-  box-shadow: var(--schaduw-1);
-}
-.sz-stap__nr {
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  background: var(--ijs-1);
-  color: var(--blauw);
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-.sz-stap h3 {
-  font-size: 19px;
-  margin-bottom: 6px;
-}
-.sz-stap p {
-  color: var(--tekst-2);
-  margin: 0;
-  font-size: 16px;
-}
-
 /* ---------- Info-kaarten ---------- */
 
-.sz-info {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(14px, 2.5vw, 28px);
-}
-.sz-infokaart {
-  border-radius: var(--radius);
-  padding: 24px;
-  background: var(--wit);
-  border: 1px solid var(--rand);
-}
-.sz-infokaart__icoon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: var(--blauw);
-  color: var(--wit);
-  display: grid;
-  place-items: center;
-  margin-bottom: 16px;
-}
-.sz-infokaart__icoon svg {
-  width: 22px;
-  height: 22px;
-}
-.sz-infokaart h3 {
-  font-size: 20px;
-}
-.sz-infokaart p,
-.sz-infokaart li {
-  color: var(--tekst-2);
-  font-size: 16px;
-}
-.sz-infokaart ul {
-  padding-left: 18px;
-  margin: 0;
-}
-.sz-infokaart li + li {
-  margin-top: 4px;
-}
-
 /* ---------- Vragen ---------- */
-
-.sz-vragen {
-  max-width: 780px;
-  border-top: 1px solid var(--rand);
-}
-.sz-vraag {
-  border-bottom: 1px solid var(--rand);
-}
-.sz-vraag summary {
-  cursor: pointer;
-  list-style: none;
-  padding: 18px 40px 18px 0;
-  font-weight: 600;
-  font-size: 18px;
-  position: relative;
-}
-.sz-vraag summary::-webkit-details-marker {
-  display: none;
-}
-.sz-vraag summary::after {
-  content: "";
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  width: 10px;
-  height: 10px;
-  margin-top: -7px;
-  border-right: 2px solid var(--blauw-3);
-  border-bottom: 2px solid var(--blauw-3);
-  transform: rotate(45deg);
-  transition: transform 0.2s ease;
-}
-.sz-vraag[open] summary::after {
-  transform: rotate(-135deg);
-  margin-top: -2px;
-}
-.sz-vraag p {
-  color: var(--tekst-2);
-  margin: 0 0 18px;
-  max-width: 64ch;
-}
 
 /* ---------- Voet ---------- */
 
@@ -1171,17 +709,6 @@ textarea {
   gap: 12px;
   margin-bottom: 16px;
 }
-.sz-blok__nr {
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  background: var(--blauw);
-  color: var(--wit);
-  font-size: 15px;
-  display: inline-grid;
-  place-items: center;
-  flex: none;
-}
 .sz-samenvatting {
   position: sticky;
   top: calc(var(--balk) + 16px);
@@ -1269,10 +796,6 @@ textarea {
   background: var(--rood-zacht);
   color: var(--rood);
 }
-.sz-melding--ok {
-  background: var(--groen-zacht);
-  color: var(--groen);
-}
 .sz-melding--let {
   background: var(--oker-zacht);
   color: var(--oker);
@@ -1295,9 +818,6 @@ textarea {
 }
 .sz-veld--derde {
   grid-column: span 2;
-}
-.sz-veld--tweederde {
-  grid-column: span 4;
 }
 .sz-veld label,
 .sz-veld legend {
@@ -1340,20 +860,6 @@ textarea.sz-invoer {
   font-size: 14.5px;
   font-weight: 520;
   margin: 0;
-}
-.sz-vink {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  font-size: 15.5px;
-  cursor: pointer;
-}
-.sz-vink input {
-  width: 22px;
-  height: 22px;
-  margin: 1px 0 0;
-  accent-color: var(--blauw);
-  flex: none;
 }
 .sz-honing {
   position: absolute;
@@ -1559,25 +1065,6 @@ textarea.sz-invoer {
   }
 }
 
-@media (max-width: 820px) {
-  .sz-held__in {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .sz-held__beeld {
-    order: -1;
-    width: min(100%, 340px);
-  }
-  .sz-held__kaart {
-    left: auto;
-    right: -6px;
-    bottom: -14px;
-  }
-  .sz-stappen,
-  .sz-info {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 @media (max-width: 640px) {
   body {
     font-size: 16.5px;
@@ -1592,8 +1079,7 @@ textarea.sz-invoer {
     grid-template-columns: minmax(0, 1fr);
   }
   .sz-veld--half,
-  .sz-veld--derde,
-  .sz-veld--tweederde {
+  .sz-veld--derde {
     grid-column: span 6;
   }
   .sz-veld--pc {
@@ -1611,11 +1097,6 @@ textarea.sz-invoer {
   }
   .sz-voet__in {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .sz-held__kaart {
-    position: static;
-    margin-top: 12px;
-    max-width: none;
   }
   .sz-lade {
     top: auto;
@@ -1684,9 +1165,6 @@ textarea.sz-invoer {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  .sz-sneeuw {
-    display: none;
-  }
 }
 
 /* ---------- Afdrukken ---------- */
@@ -1694,8 +1172,7 @@ textarea.sz-invoer {
 @media print {
   .sz-kop,
   .sz-voet,
-  .sz-mobielbalk,
-  .sz-geen-print {
+  .sz-mobielbalk {
     display: none !important;
   }
   body {
@@ -1704,14 +1181,6 @@ textarea.sz-invoer {
 }
 
 /* Telefoon: het productbeeld staat al op de productkaart; de held blijft compact zodat bestellen snel in beeld is. */
-@media (max-width: 640px) {
-  .sz-held__beeld {
-    display: none;
-  }
-  .sz-held h1 {
-    font-size: 38px;
-  }
-}
 
 /* ---------- Aanvulling: afhaalcode, staffelkorting, korte bestelpagina ---------- */
 
@@ -1795,10 +1264,6 @@ textarea.sz-invoer {
 }
 .sz-staffel button:hover {
   background: #f3fbf6;
-}
-.sz-staffel--actief {
-  background: var(--ijs-1);
-  color: var(--blauw-2);
 }
 .sz-staffel s,
 .sz-regel__sub s {
@@ -1947,207 +1412,6 @@ textarea.sz-invoer {
   display: none;
 }
 
-.sz-start {
-  background:
-    radial-gradient(900px 420px at 90% -10%, rgba(207, 230, 246, 0.75), transparent 60%),
-    linear-gradient(180deg, var(--sneeuw), #fff 70%);
-  min-height: calc(100vh - var(--balk));
-}
-.sz-start__in {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 470px);
-  gap: clamp(24px, 5vw, 72px);
-  align-items: start;
-  padding-top: clamp(20px, 5vw, 64px);
-  padding-bottom: clamp(36px, 6vw, 80px);
-}
-.sz-start__kop h1 {
-  font-size: clamp(40px, 6.6vw, 72px);
-  font-weight: 760;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin: 0 0 14px;
-  color: var(--blauw);
-}
-.sz-payoff {
-  font-size: clamp(22px, 2.8vw, 30px);
-  font-weight: 560;
-  color: var(--blauw-3);
-  letter-spacing: -0.015em;
-  margin: 0;
-}
-.sz-start__beeld {
-  width: min(100%, 420px);
-  height: auto;
-  margin-top: clamp(20px, 4vw, 44px);
-  border-radius: 28px;
-  box-shadow: var(--schaduw-3);
-}
-
-.sz-bestelkaart {
-  background: #fff;
-  border: 1px solid var(--rand);
-  border-radius: 24px;
-  padding: clamp(18px, 3vw, 26px);
-  box-shadow: var(--schaduw-2);
-}
-.sz-bestelkaart__product {
-  display: grid;
-  grid-template-columns: 76px minmax(0, 1fr);
-  gap: 14px;
-  align-items: center;
-  margin-bottom: 18px;
-}
-.sz-bestelkaart__product img {
-  width: 76px;
-  height: 76px;
-  border-radius: 16px;
-  object-fit: cover;
-  background: var(--ijs-1);
-}
-.sz-bestelkaart h2 {
-  font-size: 21px;
-  margin: 0 0 4px;
-  font-weight: 700;
-}
-.sz-streep {
-  color: var(--tekst-3);
-  font-weight: 400;
-}
-.sz-bestelkaart__staffel {
-  margin: 0 0 4px;
-  color: var(--tekst-2);
-  font-size: 15.5px;
-}
-.sz-beschikbaar {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  margin: 0;
-  font-size: 14.5px;
-  font-weight: 600;
-  color: var(--blauw-3);
-}
-.sz-beschikbaar svg {
-  width: 16px;
-  height: 16px;
-  flex: none;
-}
-.sz-beschikbaar--ja {
-  color: var(--groen);
-}
-.sz-beschikbaar--op {
-  color: var(--rood);
-}
-.sz-bestelkaart__keuze {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.sz-segment {
-  flex: 1;
-  min-width: 200px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: var(--ijs-1);
-  border-radius: 14px;
-  padding: 4px;
-  height: 52px;
-}
-.sz-segment label {
-  display: grid;
-  place-items: center;
-  border-radius: 11px;
-  font-weight: 650;
-  cursor: pointer;
-  color: var(--blauw-2);
-  position: relative;
-  transition: background 0.15s ease, box-shadow 0.15s ease;
-}
-.sz-segment input {
-  position: absolute;
-  opacity: 0;
-  inset: 0;
-  margin: 0;
-  cursor: pointer;
-}
-.sz-segment label.is-actief {
-  background: #fff;
-  color: var(--blauw);
-  box-shadow: var(--schaduw-1);
-}
-.sz-segment label:has(input:focus-visible) {
-  outline: 3px solid var(--vorst);
-  outline-offset: 1px;
-}
-.sz-segment label.is-uit {
-  color: #8ea2b6;
-  cursor: not-allowed;
-}
-.sz-segment label.is-uit input {
-  cursor: not-allowed;
-}
-.sz-bestelkaart__toelichting {
-  margin: 10px 0 0;
-  font-size: 14.5px;
-  color: var(--tekst-2);
-}
-.sz-bestelkaart__totaal {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 2px 10px;
-  margin: 16px 0 12px;
-  padding-top: 14px;
-  border-top: 1px solid var(--rand);
-}
-.sz-bestelkaart__totaal span {
-  font-weight: 600;
-  color: var(--tekst-2);
-}
-.sz-bestelkaart__totaal strong {
-  font-size: 30px;
-  letter-spacing: -0.03em;
-  margin-left: auto;
-}
-.sz-bestelkaart__totaal small {
-  width: 100%;
-  text-align: right;
-  color: var(--groen);
-  font-weight: 600;
-  font-size: 14px;
-}
-.sz-bestelkaart__totaal small s {
-  color: var(--tekst-3);
-  font-weight: 400;
-  margin-right: 6px;
-}
-.sz-knop--groot {
-  min-height: 58px;
-  font-size: 19px;
-  border-radius: 16px;
-}
-.sz-bestelkaart__formulier {
-  border-top: 1px solid var(--rand);
-  padding-top: 16px;
-  margin-top: 4px;
-  animation: sz-in 0.25s ease;
-}
-.sz-ingebed .sz-velden {
-  gap: 12px;
-}
-.sz-buur {
-  margin: 18px 4px 0;
-  font-size: 17px;
-  font-weight: 560;
-  color: var(--blauw-2);
-  text-align: center;
-}
-.sz-start__bestel .sz-laatste {
-  margin: 0 0 10px;
-}
-
 /* Lichte voet met de Denckh-signatuur */
 .sz-voet {
   background: var(--sneeuw);
@@ -2197,98 +1461,8 @@ textarea.sz-invoer {
   color: var(--tekst-3);
 }
 
-@media (max-width: 860px) {
-  .sz-start__in {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 18px;
-    padding-top: 18px;
-  }
-  .sz-start__beeld {
-    display: none;
-  }
-  .sz-start__kop h1 {
-    font-size: clamp(36px, 10vw, 52px);
-    margin-bottom: 6px;
-  }
-}
-@media (max-width: 400px) {
-  .sz-bestelkaart__keuze .sz-aantal {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .sz-segment {
-    min-width: 0;
-    width: 100%;
-  }
-}
-
 .sz-nowrap {
   white-space: nowrap;
-}
-/* Telefoon: compact, zodat prijs, aantal, afhalen/bezorgen en ‘Bestellen’ in het eerste scherm passen. */
-@media (max-width: 860px) {
-  .sz-kop .sz-logo__woord {
-    display: none;
-  }
-  .sz-kop .sz-logo__teken {
-    width: 36px;
-    height: 36px;
-  }
-  .sz-kop__in {
-    height: 56px;
-  }
-  .sz-start__kop h1 {
-    font-size: 34px;
-    letter-spacing: -0.035em;
-  }
-  .sz-payoff {
-    font-size: 20px;
-  }
-  .sz-bestelkaart__product {
-    grid-template-columns: 60px minmax(0, 1fr);
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-  .sz-bestelkaart__product img {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-  }
-  .sz-bestelkaart h2 {
-    font-size: 19px;
-  }
-  .sz-bestelkaart__keuze {
-    flex-wrap: nowrap;
-  }
-  .sz-bestelkaart__keuze .sz-aantal button {
-    width: 40px;
-  }
-  .sz-bestelkaart__keuze .sz-aantal input {
-    width: 34px;
-  }
-  .sz-segment {
-    min-width: 0;
-  }
-  .sz-staffel {
-    padding: 7px 10px;
-    font-size: 14px;
-  }
-  .sz-staffel button {
-    min-height: 32px;
-    padding: 0 10px;
-  }
-  .sz-bestelkaart__totaal {
-    margin: 12px 0 10px;
-    padding-top: 10px;
-  }
-  .sz-bestelkaart__totaal strong {
-    font-size: 26px;
-  }
-}
-@media (max-width: 400px) {
-  .sz-bestelkaart__keuze .sz-aantal {
-    width: auto;
-  }
 }
 
 .sz-verkoper {
@@ -2356,281 +1530,4 @@ textarea.sz-invoer {
 .sz-straat__totaal strong {
   font-size: 28px;
   letter-spacing: -0.03em;
-}
-
-
-/* Keuzes 1 / 2 / 4 zakken op de bestelkaart */
-.sz-aantallen {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-  margin: 0 0 12px;
-}
-.sz-aantalkeuze {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1px;
-  min-height: 92px;
-  padding: 8px 4px 8px;
-  border: 2px solid var(--rand);
-  border-radius: 16px;
-  background: #fff;
-  cursor: pointer;
-  text-align: center;
-  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-}
-.sz-aantalkeuze input {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  margin: 0;
-  cursor: pointer;
-}
-.sz-aantalkeuze:hover {
-  border-color: var(--blauw-3);
-}
-.sz-aantalkeuze.is-actief {
-  border-color: var(--blauw);
-  background: var(--ijs-0);
-  box-shadow: var(--schaduw-1);
-}
-.sz-aantalkeuze:has(input:focus-visible) {
-  outline: 3px solid var(--vorst);
-  outline-offset: 2px;
-}
-.sz-aantalkeuze__label {
-  margin-bottom: 3px;
-  line-height: 1.15;
-  background: var(--amber);
-  color: var(--blauw);
-  font-size: 11.5px;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 999px;
-}
-.sz-aantalkeuze__aantal {
-  font-weight: 650;
-  color: var(--blauw-2);
-  font-size: 15px;
-}
-.sz-aantalkeuze__prijs {
-  font-size: 20px;
-  letter-spacing: -0.02em;
-  color: var(--blauw);
-}
-.sz-aantalkeuze__bespaar {
-  white-space: nowrap;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--groen);
-  min-height: 1.2em;
-}
-.sz-anders {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.sz-anders > span {
-  font-size: 14px;
-  color: var(--tekst-2);
-  white-space: nowrap;
-}
-.sz-tip {
-  margin: 12px 0 0;
-  text-align: center;
-  font-size: 14.5px;
-  color: var(--blauw-3);
-}
-.sz-intro {
-  margin: 12px 0 0;
-  font-size: 18px;
-  color: var(--tekst-2);
-  max-width: 34ch;
-}
-
-/* Binnenkort (bijv. emmer 5 kg) */
-.sz-binnenkort {
-  display: grid;
-  grid-template-columns: 56px minmax(0, 1fr) auto;
-  gap: 12px;
-  align-items: center;
-  margin-top: 12px;
-  padding: 12px 14px;
-  border: 1px dashed var(--rand);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.7);
-}
-.sz-binnenkort img {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  background: var(--ijs-1);
-  object-fit: cover;
-}
-.sz-binnenkort p {
-  margin: 0;
-  font-size: 14px;
-  color: var(--tekst-2);
-}
-.sz-binnenkort .sz-binnenkort__titel {
-  font-weight: 650;
-  color: var(--blauw);
-  font-size: 15.5px;
-}
-.sz-binnenkort__pil {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--blauw-2);
-  background: var(--ijs-1);
-  padding: 4px 10px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-.sz-delen {
-  display: flex;
-  margin: 14px auto 0;
-  gap: 8px;
-  align-items: center;
-}
-.sz-delen svg {
-  width: 18px;
-  height: 18px;
-}
-
-/* Zo werkt het + Strooi bewust */
-.sz-uitleg {
-  background: #fff;
-  border-top: 1px solid var(--rand);
-}
-.sz-uitleg__in {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(20px, 5vw, 64px);
-  padding-top: clamp(28px, 5vw, 56px);
-  padding-bottom: clamp(28px, 5vw, 56px);
-}
-.sz-uitleg h2 {
-  font-size: 22px;
-  margin: 0 0 12px;
-  color: var(--blauw);
-}
-.sz-stappen {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  counter-reset: stap;
-  display: grid;
-  gap: 10px;
-}
-.sz-stappen li {
-  counter-increment: stap;
-  display: grid;
-  grid-template-columns: 30px minmax(0, 1fr);
-  gap: 10px;
-  align-items: baseline;
-  color: var(--tekst-2);
-}
-.sz-stappen li::before {
-  content: counter(stap);
-  display: grid;
-  place-items: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: var(--amber);
-  color: var(--blauw);
-  font-weight: 700;
-  font-size: 14px;
-}
-.sz-stappen b,
-.sz-bewust b {
-  color: var(--blauw);
-}
-.sz-uitleg__klein {
-  margin: 14px 0 0;
-  color: var(--tekst-2);
-}
-.sz-bewust {
-  background: var(--ijs-0);
-  border-radius: 20px;
-  padding: 18px 20px;
-}
-.sz-bewust p {
-  margin: 0 0 8px;
-  color: var(--tekst-2);
-  font-size: 15.5px;
-}
-.sz-bewust p:last-child {
-  margin: 0;
-}
-@media (max-width: 860px) {
-  .sz-uitleg__in {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .sz-intro {
-    font-size: 15px;
-    margin-top: 6px;
-  }
-  .sz-aantalkeuze {
-    min-height: 0;
-    padding: 6px 3px 6px;
-  }
-  .sz-aantalkeuze__aantal {
-    font-size: 14px;
-  }
-  .sz-aantalkeuze__bespaar {
-    font-size: 11.5px;
-  }
-  .sz-start__in {
-    gap: 12px;
-  }
-  .sz-start__kop h1 {
-    font-size: 30px;
-  }
-  .sz-payoff {
-    font-size: 17px;
-    margin-top: 4px;
-  }
-  .sz-bestelkaart__product {
-    grid-template-columns: minmax(0, 1fr);
-    margin-bottom: 12px;
-  }
-  .sz-bestelkaart__product img {
-    display: none;
-  }
-  .sz-bestelkaart__staffel {
-    font-size: 14px;
-  }
-  .sz-anders > span {
-    display: none;
-  }
-  .sz-aantalkeuze__prijs {
-    font-size: 18px;
-  }
-  .sz-aantalkeuze__label {
-    font-size: 10.5px;
-    padding: 2px 6px;
-  }
-}
-@media (max-width: 400px) {
-  .sz-anders > span {
-    display: none;
-  }
-}
-
-.sz-oogje {
-  margin: 0 0 10px;
-  font-size: 14px;
-  font-weight: 650;
-  letter-spacing: 0.01em;
-  color: var(--blauw-3);
-}
-@media (max-width: 860px) {
-  .sz-oogje {
-    font-size: 12.5px;
-    margin-bottom: 6px;
-  }
 }

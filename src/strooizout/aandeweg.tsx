@@ -131,7 +131,7 @@ export default function AanDeWeg() {
           <p className="sz-klein">Je betaalt bij de verkoper; de zakken krijg je na betaling mee. Prijzen inclusief 21% btw.</p>
         </form>
       )}
-      <p className="sz-buur">Strooi ook eens bij een buur die dat zelf niet kan.</p>
+      <p className="sz-buur">Strooi ook bij een buur die dat zelf niet kan.</p>
     </main>
   );
 }

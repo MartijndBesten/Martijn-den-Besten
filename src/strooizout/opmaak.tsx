@@ -151,10 +151,10 @@ export function Kop() {
     return () => window.clearTimeout(t);
   }, [bump]);
   return (
-    <header className="sz-kop" data-scrolled={gescrold}>
+    <header className={`sz-kop${pad === "/strooizout" ? " sz-kop--nacht" : ""}`} data-scrolled={gescrold}>
       <div className="sz-wrap sz-kop__in">
         <Link naar="/strooizout" className="sz-merk" aria-label="Strooizout voor de buurt, naar de startpagina">
-          <Logo />
+          <Logo opDonker={pad === "/strooizout"} />
         </Link>
         {toonMandje && <button type="button" className="sz-mandknop" onClick={() => setOpen(true)} data-bump={knal} aria-label={`Winkelmandje, ${aantal} ${aantal === 1 ? "artikel" : "artikelen"}`}>
           <IcoonMand />
@@ -188,7 +188,7 @@ export function Voet() {
           {c?.contact_telefoon && <a href={`tel:${c.contact_telefoon.replace(/[^+\d]/g, "")}`}>{c.contact_telefoon}</a>}
         </nav>
         <p className="sz-voet__klein">
-          Prijzen inclusief 21% btw. Een reservering is nog geen levergarantie; bezorgen alleen als het veilig kan.
+          Prijzen inclusief 21% btw. Een reservering is nog geen levergarantie; bezorgen alleen als het veilig kan. De zak op de afbeeldingen is een illustratie; de verpakking kan er anders uitzien.
           {verkoper && (
             <>
               <br />

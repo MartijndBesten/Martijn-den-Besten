@@ -30,9 +30,24 @@ Zelfde Worker, zelfde D1-database en zelfde uitrolroute als de rest van martijnd
 - **Voorbestelling:** een bestelling die is geplaatst terwijl de voorraad nog niet (genoeg) ontvangen was, krijgt in het beheer het label *voorbestelling*.
 - **Emmers afvullen** (*Voorraad*): ‘N emmers uit M zakken’. De zakken gaan van ontvangen, verwacht en te reserveren af (alleen uit vrije, ontvangen zakken); de emmers komen erbij als ontvangen voorraad. Een emmer bestellen trekt niets van de zakken af. Losse rest wordt gelogd, niet als voorraad geteld.
 
-## Merk
+## Merk en ontwerp (versie 2, 22-11-2026)
 
-Logo: dak en voordeur met een veilige looproute en strooikorrels (`public/strooizout/logo/`: `merk.svg`, `merk-op-donker.svg`, `logo-licht.svg/png`, `logo-donker.svg/png`; favicon `icoon.svg`, `icoon-180.png`, `icoon-512.png`). Kleuren: nachtblauw `#0b2340`, ijsblauw `#cfe6f6`, sneeuwwit `#f8fbfe`, warm accent `#ffb547` (alleen voor de hoofdactie). Lettertype Geist. In de voet ‘Een initiatief van’ met de officiële Denckh-signatuur (`/bijbelreis/denckh-logo-signature.svg`, donkere variant op lichte voet; niet nagetekend).
+**Logo.** Dak en voordeur met een veilige looproute in de vorm van een S (van Strooizout) en drie strooikorrels. Dik getekend, zodat het ook als favicon van 16 px leesbaar blijft. Bestanden in `public/strooizout/logo/`: `merk.svg`, `merk-op-donker.svg`, `logo-licht.svg/png`, `logo-donker.svg/png`; favicon `icoon.svg`, `icoon-180.png`, `icoon-512.png`. In React: `Merkteken` en `Logo` in `src/strooizout/iconen.tsx`. Het teken staat ook op de zak in de illustraties, de flyer, het bord en de deelbeelden.
+
+**Kleur.** Diep nachtblauw (`#05142a` → `#0b2340`), helder ijsblauw (`#9fd4f7`, `#cfe6f6`), wit, en warm amber (`#ffb547`) alleen voor de koopactie en de strooikorrels. Donkere vlakken (hero, buurtboodschap) wisselen af met lichte (uitleg, bewust strooien, voet). Lettertype Geist.
+
+**Homepage** (`src/strooizout/winkel.tsx`, stijlen in `winter.css`):
+
+- Donkere hero met ‘Strooizout uit je eigen buurt.’, ‘Hou je buurt veilig.’ en de vanafprijs. De kop staat niet vast en schuift dus nooit over de inhoud.
+- Productbeeld (`scene.tsx`): eigen SVG-illustratie van de zak op een winterse ondergrond met de gestrooide route uit het logo. De stapel groeit mee met het gekozen aantal (tot 4 zichtbaar) en kantelt licht mee met de muis. Het is een illustratie, geen foto van de geleverde verpakking; dat staat in de voet.
+- Eén bestelkaart in twee stappen. Stap 1: prijstreden in één rail (1 zak · 2–3 · 4 of meer), grote plus- en minknop, afhalen of bezorgen, totaal en ‘Bestellen’. Eén zak onder een trede verschijnt een zetje (‘Nog 1 zak erbij en je betaalt € 8,99 per zak’). Stap 2 klapt uit in dezelfde kaart: naam en mobiel nummer (adres alleen bij bezorgen; e-mail en opmerking achter één link). Het totaal staat er altijd precies één keer, direct boven de actieknop.
+- Daaronder: ‘Geen aparte rit naar de bouwmarkt.’ (drie stappen), de buurtboodschap ‘Strooi ook bij een buur die dat zelf niet kan.’ met een straat waarin de gestrooide route van deur tot deur verschijnt, en ‘Strooi bewust’.
+
+**Beweging** (`beweging.ts` + CSS, geen animatiebibliotheek): opkomst van de hero, verende schuifjes in de rail en de afhaal/bezorgkeuze, een bedrag dat naar zijn nieuwe waarde loopt, een korte glans bij de beste prijs, onderdelen die in beeld komen bij scrollen, en een vink die zichzelf tekent na een geslaagde bestelling. Alleen `transform` en `opacity`; niets blokkeert een klik. Bij ‘minder beweging’ staat alles uit.
+
+**Gemeten** (lokale build, Lighthouse mobiel): Performance 97, Accessibility 100, Best practices 100, SEO 100; LCP 2,0 s, CLS 0,01, blokkeertijd 150 ms. Geen externe scripts of lettertypen.
+
+In de voet ‘Een initiatief van’ met de officiële Denckh-signatuur (`/bijbelreis/denckh-logo-signature.svg`, donkere variant op lichte voet; niet nagetekend).
 
 ## Voorraad: vier begrippen
 
