@@ -17,7 +17,8 @@ export type Cijfers = {
   ontvangen_cent: number;
   openstaand_cent: number;
   terug_te_betalen_cent: number;
-  betaalstatus: { open: number; deels: number; betaald: number };
+  betaalstatus: { open: number; verzoek: number; betaald: number; terugbetaald: number };
+  terugbetaald_cent: number;
   af_te_halen: number;
   te_bezorgen: number;
   afgehaald: number;
@@ -29,6 +30,7 @@ export type Cijfers = {
 export type LijstBestelling = {
   id: number;
   nummer: string;
+  afhaalcode: string;
   ronde_id: number | null;
   status: string;
   levering: "ophalen" | "bezorgen";
@@ -44,7 +46,8 @@ export type LijstBestelling = {
   betaalwijze: "bij_ontvangst" | "tikkie";
   totaal_cent: number;
   betaald_cent: number;
-  betaalstatus: "open" | "deels" | "betaald";
+  betaalstatus: "open" | "verzoek" | "betaald" | "terugbetaald";
+  betaalverzoek_op: string | null;
   stuks: number;
   samenvatting: string;
   aangemaakt: string;

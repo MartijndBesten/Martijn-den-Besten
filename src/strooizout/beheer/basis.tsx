@@ -1,7 +1,7 @@
 // Gedeelde hulp voor het beheer: token, API-aanroepen, meldingen, rondekeuze en kleine weergave-onderdelen.
 
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
-import { BESTEL_STATUS, euro } from "../../../shared/strooizout";
+import { BESTEL_STATUS, BETAAL_STATUS, euro, type BetaalStatus } from "../../../shared/strooizout";
 import { vraag, type Resultaat } from "../api";
 
 export const TOKEN_SLEUTEL = "strooizout:beheer-token";
@@ -99,9 +99,19 @@ export function StatusPil({ status }: { status: string }) {
   return <span className={`bh-pil bh-pil--${status}`}>{BESTEL_STATUS[status as keyof typeof BESTEL_STATUS] ?? status}</span>;
 }
 
-export function BetaalPil({ status, betaald }: { status: "open" | "deels" | "betaald"; betaald?: number }) {
-  const tekst = status === "betaald" ? "Betaald" : status === "deels" ? `Deels${betaald ? ` (${euro(betaald)})` : ""}` : "Open";
-  return <span className={`bh-pil bh-pil--${status}`}>{tekst}</span>;
+export function BetaalPil({ status, betaald }: { status: BetaalStatus; betaald?: number }) {
+  const deels = (status === "open" || status === "verzoek") && betaald && betaald > 0 ? ` (${euro(betaald)} ontvangen)` : "";
+  return <span className={`bh-pil bh-pil--${status}`}>{BETAAL_STATUS[status]}{deels}</span>;
+}
+
+/** Kopieer tekst naar het klembord; valt terug op een invoervenster. */
+export async function kopieer(tekst: string, meld: (t: string) => void, wat: string) {
+  try {
+    await navigator.clipboard.writeText(tekst);
+    meld(`${wat} gekopieerd`);
+  } catch {
+    window.prompt(`Kopieer ${wat.toLowerCase()}:`, tekst);
+  }
 }
 
 export function Kpi({ label, waarde, sub, nadruk = false }: { label: string; waarde: ReactNode; sub?: ReactNode; nadruk?: boolean }) {

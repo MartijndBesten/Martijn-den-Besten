@@ -98,13 +98,17 @@ CREATE TABLE IF NOT EXISTS sz_moment (
 CREATE TABLE IF NOT EXISTS sz_bestelling (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   idempotentie TEXT NOT NULL UNIQUE,
+  -- korte code voor afhalen/uitgifte (bijv. H-4827); uniek zolang de bestelling niet is geanonimiseerd (dan NULL)
+  afhaalcode TEXT UNIQUE,
   ronde_id INTEGER REFERENCES sz_ronde(id),
   -- nieuw: reservering ontvangen · bevestigd · klaar: ligt klaar / gaat mee · afgehaald · bezorgd · geannuleerd
   status TEXT NOT NULL DEFAULT 'nieuw' CHECK (status IN ('nieuw', 'bevestigd', 'klaar', 'afgehaald', 'bezorgd', 'geannuleerd')),
   levering TEXT NOT NULL CHECK (levering IN ('ophalen', 'bezorgen')),
   moment_id INTEGER REFERENCES sz_moment(id),
   naam TEXT NOT NULL,
-  email TEXT NOT NULL,
+  -- optioneel ('' = niet opgegeven)
+  email TEXT NOT NULL DEFAULT '',
+  -- verplicht Nederlands mobiel nummer, opgeslagen als 06xxxxxxxx
   telefoon TEXT NOT NULL,
   straat TEXT NOT NULL DEFAULT '',
   huisnummer TEXT NOT NULL DEFAULT '',
@@ -118,6 +122,8 @@ CREATE TABLE IF NOT EXISTS sz_bestelling (
   totaal_cent INTEGER NOT NULL CHECK (totaal_cent >= 0),
   gewicht_gram INTEGER NOT NULL DEFAULT 0,
   beheer_notitie TEXT NOT NULL DEFAULT '',
+  -- moment waarop de beheerder een handmatig betaalverzoek (bijv. Tikkie) heeft verstuurd; nooit 'betaald'
+  betaalverzoek_op TEXT,
   aangemaakt TEXT NOT NULL,
   gewijzigd TEXT NOT NULL,
   afgerond_op TEXT,
@@ -246,3 +252,8 @@ VALUES (
   strftime('%Y-%m-%dT%H:%M:%fZ', 'now'),
   strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
 );
+
+-- Staffelkorting strooizout: vanaf 4 zakken € 8,49 per zak voor alle zakken (in het beheer aan te passen: Producten › Staffelkorting).
+INSERT INTO sz_aanbieding (product_id, naam, vanaf_aantal, prijs_cent, start, eind, actief)
+SELECT id, 'Staffelkorting', 4, 849, NULL, NULL, 1 FROM sz_product
+WHERE slug = 'strooizout-25-kg' AND NOT EXISTS (SELECT 1 FROM sz_aanbieding a WHERE a.product_id = sz_product.id);

@@ -605,3 +605,169 @@
     box-shadow: none;
   }
 }
+
+/* ---------- Afhalen, afhaalcode, betaalverzoek ---------- */
+
+.bh-code {
+  margin: 0 0 12px;
+  color: var(--tekst-2);
+}
+.bh-code strong {
+  font-size: 26px;
+  color: var(--blauw);
+  letter-spacing: 0.04em;
+  margin-left: 6px;
+}
+.bh-betaalverzoek {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.bh-kopieer {
+  text-align: left;
+  border: 1px solid var(--rand-2);
+  background: var(--ijs-0);
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  display: grid;
+  gap: 2px;
+}
+.bh-kopieer:hover {
+  border-color: var(--blauw-3);
+}
+.bh-kopieer span {
+  font-size: 13px;
+  color: var(--tekst-3);
+}
+.bh-kopieer strong {
+  font-size: 19px;
+  font-variant-numeric: tabular-nums;
+}
+.bh-kopieer em {
+  font-style: normal;
+  font-size: 13px;
+  color: var(--blauw-3);
+  font-weight: 600;
+}
+.bh-afhaalzoek {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 2px solid var(--rand-2);
+  border-radius: 16px;
+  padding: 8px 8px 8px 16px;
+  max-width: 460px;
+  margin-bottom: 16px;
+}
+.bh-afhaalzoek:focus-within {
+  border-color: var(--vorst);
+}
+.bh-afhaalzoek span {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--tekst-3);
+}
+.bh-afhaalzoek input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: transparent;
+  outline: none;
+  font-variant-numeric: tabular-nums;
+}
+.bh-uitgifte {
+  background: #fff;
+  border: 2px solid var(--blauw-3);
+  border-radius: 18px;
+  padding: 18px;
+  max-width: 620px;
+  box-shadow: var(--schaduw-2);
+}
+.bh-uitgifte--klaar {
+  border-color: var(--groen);
+}
+.bh-uitgifte--weg {
+  border-color: #9aa5b1;
+  opacity: 0.85;
+}
+.bh-uitgifte__kop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  margin-bottom: 14px;
+}
+.bh-uitgifte__code {
+  font-size: 40px;
+  letter-spacing: 0.04em;
+}
+.bh-uitgifte__kop span {
+  color: var(--tekst-2);
+}
+.bh-uitgifte__cijfers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.bh-uitgifte__cijfers > div {
+  background: var(--ijs-0);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: grid;
+  gap: 4px;
+  justify-items: start;
+}
+.bh-uitgifte__cijfers span {
+  font-size: 13px;
+  color: var(--tekst-3);
+}
+.bh-uitgifte__cijfers strong {
+  font-size: 38px;
+  line-height: 1;
+}
+.bh-uitgifte__cijfers small {
+  font-size: 13px;
+  color: var(--tekst-2);
+}
+.bh-uitgifte__melding {
+  background: var(--rood-zacht);
+  color: var(--rood);
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 14px;
+  margin: 10px 0 0;
+  font-size: 17px;
+}
+.bh-uitgifte--klaar .bh-uitgifte__melding {
+  background: var(--groen-zacht);
+  color: var(--groen);
+}
+.bh-uitgifte__betalen {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+.bh-uitgifte__betalen label {
+  font-weight: 600;
+  font-size: 14px;
+}
+.bh-pil--verzoek {
+  background: var(--oker-zacht);
+  color: var(--oker);
+}
+.bh-pil--terugbetaald {
+  background: #eef0f2;
+  color: #5b6570;
+}
+@media (max-width: 520px) {
+  .bh-betaalverzoek,
+  .bh-uitgifte__cijfers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

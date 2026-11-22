@@ -8,6 +8,7 @@ import { bezoekOverzicht, meldBezoek } from "./bezoek";
 import { aanvraagBeheer, aanvragenLijst, meldAanvraag } from "./aanvraag";
 import { rateLimit } from "./begrenzing";
 import { handleStrooizout } from "./strooizout";
+import { geplandOnderhoud } from "./strooizout-beheer";
 
 export { rateLimit };
 
@@ -318,5 +319,9 @@ export default {
     // De Bijbelreis heeft een eigen adres (shared/bijbelreis.ts): het oude pad toont de verhuispagina.
     if (env.BIJBELREIS_VERHUISD !== "uit" && verwijstDoor(url.hostname, url.pathname)) return env.ASSETS.fetch(new Request(new URL("/bijbelreis-verhuisd", url), request));
     return env.ASSETS.fetch(request);
+  },
+  // Dagelijks: bewaartermijn van Strooizout voor de buurt (worker/strooizout-beheer.ts).
+  async scheduled(_event, env, ctx): Promise<void> {
+    ctx.waitUntil(geplandOnderhoud(env));
   },
 } satisfies ExportedHandler<Env>;

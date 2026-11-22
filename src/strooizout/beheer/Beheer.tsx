@@ -9,6 +9,7 @@ import "./beheer.css";
 
 const Overzicht = lazy(() => import("./Overzicht"));
 const Bestellingen = lazy(() => import("./Bestellingen"));
+const Afhalen = lazy(() => import("./Afhalen"));
 const Route = lazy(() => import("./Route"));
 const Producten = lazy(() => import("./Producten"));
 const Rondes = lazy(() => import("./Rondes"));
@@ -18,6 +19,7 @@ const Delen = lazy(() => import("./Delen"));
 
 const TABS = [
   { id: "overzicht", naam: "Overzicht", C: Overzicht },
+  { id: "afhalen", naam: "Afhalen", C: Afhalen },
   { id: "bestellingen", naam: "Bestellingen", C: Bestellingen },
   { id: "route", naam: "Bezorgroute", C: Route },
   { id: "producten", naam: "Producten", C: Producten },

@@ -1,7 +1,7 @@
 // Gedeelde onderdelen van de webshop: kop, voet, mandje (lade), mobiele balk, aantalkiezer en totalen.
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { alsPrijsProduct, bereken, euro, type Berekening, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
+import { alsPrijsProduct, bereken, euro, volgendeStaffel, type Berekening, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
 import { IcoonMand, IcoonSluit, IcoonSneeuw, Merkteken } from "./iconen";
 import { useMand, type MandRegel } from "./mandje";
 import { Link, useRouter } from "./router";
@@ -74,6 +74,26 @@ export function maxVoor(p: PubliekProduct): number {
   return Math.max(0, Math.min(p.max_per_bestelling, p.voorraad ?? Number.POSITIVE_INFINITY));
 }
 
+// ---------- Staffelkorting ----------
+
+/** ‘Bestel 4 zakken en bespaar € 2,00!’ met een knop om direct naar dat aantal te gaan. */
+export function StaffelHint({ staffel, eenheid, onKies, max }: { staffel: ReturnType<typeof volgendeStaffel>; eenheid: string; onKies?: (n: number) => void; max?: number }) {
+  if (!staffel || (max !== undefined && staffel.vanaf > max)) return null;
+  const meervoud = eenheid === "zak" ? "zakken" : eenheid === "stuk" ? "stuks" : eenheid;
+  return (
+    <p className="sz-staffel" role="status">
+      <span>
+        Bestel {staffel.vanaf} {meervoud} en bespaar {euro(staffel.besparing_cent)}!
+      </span>
+      {onKies && (
+        <button type="button" onClick={() => onKies(staffel.vanaf)}>
+          Maak er {staffel.vanaf} van
+        </button>
+      )}
+    </p>
+  );
+}
+
 // ---------- Totalen ----------
 
 export function Totalen({ b, levering, toonBezorgen = true }: { b: Berekening; levering: Levering | null; toonBezorgen?: boolean }) {
@@ -85,7 +105,7 @@ export function Totalen({ b, levering, toonBezorgen = true }: { b: Berekening; l
       </div>
       {b.korting_cent > 0 && (
         <div className="sz-korting">
-          <dt>Aanbieding</dt>
+          <dt>{[...new Set(b.regels.map((r) => r.aanbieding).filter(Boolean))].join(", ") || "Korting"}</dt>
           <dd>{euro(-b.korting_cent)}</dd>
         </div>
       )}
@@ -279,7 +299,7 @@ export function Lade() {
                       <span className="sz-tnum">{euro(r.regel_cent)}</span>
                     </div>
                     <div className="sz-regel__sub">
-                      {euro(r.stukprijs_cent)} per {p.eenheid}
+                      {r.aanbieding && <s>{euro(r.normaalprijs_cent)}</s>} {euro(r.stukprijs_cent)} per {p.eenheid}
                       {r.aanbieding && ` · ${r.aanbieding}`}
                     </div>
                     <div className="sz-regel__acties">
@@ -288,6 +308,7 @@ export function Lade() {
                         Verwijderen
                       </button>
                     </div>
+                    <StaffelHint staffel={volgendeStaffel(alsPrijsProduct(p), aantal, winkel?.nu ?? new Date().toISOString())} eenheid={p.eenheid} onKies={(n) => zet(p.id, n)} max={maxVoor(p)} />
                   </div>
                 </div>
               );

@@ -305,9 +305,34 @@ export type RondeStatus = keyof typeof RONDE_STATUS;
 export const BETAALWIJZE = { bij_ontvangst: "Betalen bij afhalen of bezorgen", tikkie: "Betalen via Tikkie" } as const;
 export type Betaalwijze = keyof typeof BETAALWIJZE;
 
-export function betaalstatus(totaal: number, betaald: number): "open" | "deels" | "betaald" {
-  if (totaal <= 0 || betaald >= totaal) return "betaald";
-  return betaald > 0 ? "deels" : "open";
+export const BETAAL_STATUS = { open: "Openstaand", verzoek: "Betaalverzoek verstuurd", betaald: "Betaald", terugbetaald: "Terugbetaald" } as const;
+export type BetaalStatus = keyof typeof BETAAL_STATUS;
+
+/**
+ * Betaalstatus, uitsluitend afgeleid uit handmatig geregistreerde betalingen (nooit automatisch ‘betaald’).
+ * `betaald_cent` = netto (ontvangen min terugbetaald), `ontvangen_cent` = alleen ontvangen bedragen.
+ */
+export function betaalstatus(b: { totaal_cent: number; betaald_cent: number; ontvangen_cent?: number; betaalverzoek_op?: string | null }): BetaalStatus {
+  const ontvangen = b.ontvangen_cent ?? Math.max(0, b.betaald_cent);
+  if (ontvangen > 0 && b.betaald_cent <= 0) return "terugbetaald";
+  if (b.totaal_cent <= 0 || b.betaald_cent >= b.totaal_cent) return "betaald";
+  return b.betaalverzoek_op ? "verzoek" : "open";
+}
+
+// ---------- Afhaalcode ----------
+
+/** Korte afhaalcode zoals H-4827 (willekeurig; uniciteit bewaakt de database). */
+export function maakAfhaalcode(cijfers = 4): string {
+  const min = 10 ** (cijfers - 1);
+  const r = new Uint32Array(1);
+  crypto.getRandomValues(r);
+  return `H-${min + (r[0] % (9 * min))}`;
+}
+
+/** "4827", "h4827", "H 4827" → "H-4827". Anders null. */
+export function normaliseerAfhaalcode(v: string): string | null {
+  const m = v.trim().toUpperCase().replace(/\s/g, "").match(/^H?-?(\d{4,5})$/);
+  return m ? `H-${m[1]}` : null;
 }
 
 // ---------- Klantgegevens ----------
@@ -335,15 +360,22 @@ export function normaliseerPostcode(v: string): string | null {
   return `${m[1]} ${m[2]}`;
 }
 
-export function normaliseerTelefoon(v: string): string | null {
-  const t = v.replace(/[\s\-().]/g, "");
-  if (!/^\+?[0-9]{10,15}$/.test(t)) return null;
-  if (t.startsWith("+")) return t;
-  if (t.startsWith("00")) return `+${t.slice(2)}`;
-  return t.startsWith("0") && t.length === 10 ? t : null;
+/**
+ * Nederlands mobiel nummer: 06…, +31 6…, 0031 6… of +31 (0)6…, met of zonder spaties/streepjes.
+ * Geeft 06xxxxxxxx terug, of null als het geen Nederlands mobiel nummer is.
+ */
+export function normaliseerMobiel(v: string): string | null {
+  const t = v.replace(/\(0\)/g, "").replace(/[\s\-().\/]/g, "");
+  const m = t.match(/^(?:06|\+316|00316|316)(\d{8})$/);
+  return m ? `06${m[1]}` : null;
 }
 
-/** Valideert de klantgegevens. Bij bezorgen ook het adres en het bezorggebied. Foutmeldingen per veld. */
+/** 0612345678 → "06 1234 5678". */
+export function mobielTekst(nr: string): string {
+  return /^06\d{8}$/.test(nr) ? `${nr.slice(0, 2)} ${nr.slice(2, 6)} ${nr.slice(6)}` : nr;
+}
+
+/** Valideert de klantgegevens. Mobiel nummer verplicht, e-mail optioneel; bij bezorgen ook adres en bezorggebied. */
 export function controleerKlant(
   invoer: Record<string, unknown>,
   levering: Levering,
@@ -356,9 +388,10 @@ export function controleerKlant(
   const opmerking = s(invoer.opmerking);
   if (naam.length < 2) fouten.naam = "Vul je naam in.";
   else if (naam.length > 80) fouten.naam = "Je naam mag maximaal 80 tekens zijn.";
-  if (!EMAIL.test(email) || email.length > 120) fouten.email = "Vul een geldig e-mailadres in.";
-  const telefoon = normaliseerTelefoon(telefoonRuw);
-  if (!telefoon) fouten.telefoon = "Vul een geldig telefoonnummer in, bijvoorbeeld 06 12345678.";
+  if (email && (!EMAIL.test(email) || email.length > 120)) fouten.email = "Dit e-mailadres klopt niet. Je mag het ook leeg laten.";
+  const telefoon = normaliseerMobiel(telefoonRuw);
+  if (!telefoonRuw) fouten.telefoon = "Vul je mobiele nummer in.";
+  else if (!telefoon) fouten.telefoon = "Vul een Nederlands mobiel nummer in, bijvoorbeeld 06 1234 5678 of +31 6 1234 5678.";
   if (opmerking.length > 300) fouten.opmerking = "Een opmerking mag maximaal 300 tekens zijn.";
 
   let straat = "";
@@ -374,11 +407,33 @@ export function controleerKlant(
     if (!/^[0-9]{1,5}(\s?[A-Za-z0-9-]{1,6})?$/.test(huisnummer)) fouten.huisnummer = "Vul een huisnummer in, bijvoorbeeld 12 of 12a.";
     if (plaats.length > 60) fouten.plaats = "Plaatsnaam is te lang.";
     if (!pc) fouten.postcode = "Vul een geldige postcode in, bijvoorbeeld 3991 AB.";
-    else if (!parsePostcodes(bezorgPostcodes).includes(pc.slice(0, 4))) fouten.postcode = "Op dit adres bezorgen we helaas niet. Je kunt je bestelling wel gratis ophalen.";
+    else if (!binnenBezorggebied(pc, bezorgPostcodes)) fouten.postcode = "Op dit adres bezorgen we helaas niet. Je kunt je bestelling wel gratis ophalen.";
     else postcode = pc;
   }
   if (Object.keys(fouten).length) return { ok: false, fouten };
   return { ok: true, waarde: { naam, email, telefoon: telefoon!, straat, huisnummer, postcode, plaats, opmerking } };
+}
+
+/** Ligt deze postcode (bijv. "3992 AB") in het ingestelde bezorggebied (lijst van 4-cijferige postcodes)? */
+export function binnenBezorggebied(postcode: string, bezorgPostcodes: string): boolean {
+  const pc = normaliseerPostcode(postcode);
+  return !!pc && parsePostcodes(bezorgPostcodes).includes(pc.slice(0, 4));
+}
+
+// ---------- Staffelkorting ----------
+
+/**
+ * Eerstvolgende staffel die bij dit aantal nog niet geldt, met de besparing als de klant tot die grens bestelt.
+ * Voorbeeld: 3 zakken, staffel vanaf 4 à € 8,49 (normaal € 8,99) → { vanaf: 4, prijs_cent: 849, besparing_cent: 200 }.
+ */
+export function volgendeStaffel(p: Pick<PrijsProduct, "prijs_cent" | "aanbiedingen">, aantal: number, nu: string): { naam: string; vanaf: number; prijs_cent: number; besparing_cent: number } | null {
+  const huidig = stukprijs({ ...p, id: 0, naam: "", inkoop_cent: null, bezorg_cent: null, gewicht_gram: 0 }, aantal, nu).cent;
+  const kandidaten = p.aanbiedingen
+    .filter((a) => aanbiedingGeldig(a, nu) && a.vanaf_aantal > aantal && a.prijs_cent < huidig)
+    .sort((a, b) => a.vanaf_aantal - b.vanaf_aantal);
+  const a = kandidaten[0];
+  if (!a) return null;
+  return { naam: a.naam, vanaf: a.vanaf_aantal, prijs_cent: a.prijs_cent, besparing_cent: a.vanaf_aantal * (p.prijs_cent - a.prijs_cent) };
 }
 
 // ---------- Publieke catalogus (zoals de webshop hem ontvangt) ----------

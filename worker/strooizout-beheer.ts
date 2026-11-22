@@ -4,6 +4,7 @@
 import { rateLimit } from "./begrenzing";
 import {
   BESTEL_STATUS,
+  BETAAL_STATUS,
   INSTELLING_VELDEN,
   RONDE_STATUS,
   STATUS_OVERGANG,
@@ -11,6 +12,8 @@ import {
   bestelnummer,
   btwDeel,
   controleerInstelling,
+  normaliseerAfhaalcode,
+  normaliseerMobiel,
   wijkVan,
   type BestelStatus,
   type Instellingen,
@@ -19,7 +22,6 @@ import {
   beschikbaar,
   bezorgVan,
   fout,
-  geheim,
   gelijk,
   gewichtVan,
   hmacHex,
@@ -51,7 +53,7 @@ function tokens(env: SzEnv): string[] {
 
 async function toegang(request: Request, env: SzEnv, nuSec: number): Promise<Response | null> {
   const ip = request.headers.get("CF-Connecting-IP") ?? "onbekend";
-  const wie = (await hmacHex(geheim(env), `strooizout-beheer|${ip}`)).slice(0, 32);
+  const wie = (await hmacHex(env.HASH_SECRET || "strooizout-beheer", `strooizout-beheer|${ip}`)).slice(0, 32);
   const venster = Math.floor(nuSec / UUR) * UUR;
   const pogingen = await env.DB.prepare("SELECT count FROM rate_limits WHERE key = ?1").bind(`sz-login:${wie}:${venster}`).first<{ count: number }>();
   if ((pogingen?.count ?? 0) >= MAX_POGINGEN) return fout("Te veel mislukte pogingen. Probeer het over een uur opnieuw.", 429, {}, { "Retry-After": "3600" });
@@ -120,7 +122,10 @@ type BestellingVol = {
   gewijzigd: string;
   afgerond_op: string | null;
   geanonimiseerd_op: string | null;
+  afhaalcode: string | null;
+  betaalverzoek_op: string | null;
   betaald_cent: number;
+  ontvangen_cent: number;
 };
 
 type RegelVol = {
@@ -137,6 +142,8 @@ type RegelVol = {
   aanbieding: string;
 };
 
+const bs = (b: BestellingVol) => betaalstatus({ totaal_cent: b.totaal_cent, betaald_cent: b.betaald_cent, ontvangen_cent: b.ontvangen_cent, betaalverzoek_op: b.betaalverzoek_op });
+
 /** Leest het rondefilter: een ID, 'alle', of leeg (= nieuwste ronde). */
 async function rondeFilter(db: D1Database, waarde: string | null): Promise<number | null> {
   if (waarde === "alle") return null;
@@ -149,7 +156,7 @@ async function laadBestellingen(db: D1Database, rondeId: number | null): Promise
   const [b, r] = await db.batch([
     db
       .prepare(
-        `SELECT b.*, (SELECT COALESCE(SUM(bedrag_cent), 0) FROM sz_betaling p WHERE p.bestelling_id = b.id) AS betaald_cent
+        `SELECT b.*, (SELECT COALESCE(SUM(bedrag_cent), 0) FROM sz_betaling p WHERE p.bestelling_id = b.id) AS betaald_cent, (SELECT COALESCE(SUM(CASE WHEN bedrag_cent > 0 THEN bedrag_cent END), 0) FROM sz_betaling p WHERE p.bestelling_id = b.id) AS ontvangen_cent
          FROM sz_bestelling b WHERE (?1 IS NULL OR b.ronde_id = ?1) ORDER BY b.id DESC`,
       )
       .bind(rondeId),
@@ -175,7 +182,7 @@ function dubbelen(bestellingen: BestellingVol[]): Set<number> {
   const teller = new Map<string, number[]>();
   for (const b of bestellingen) {
     if (b.status === "geannuleerd" || b.geanonimiseerd_op) continue;
-    for (const sleutel of [`e:${b.ronde_id}:${b.email}`, `t:${b.ronde_id}:${b.telefoon}`]) teller.set(sleutel, [...(teller.get(sleutel) ?? []), b.id]);
+    for (const sleutel of [b.email ? `e:${b.ronde_id}:${b.email}` : "", `t:${b.ronde_id}:${b.telefoon}`].filter(Boolean)) teller.set(sleutel, [...(teller.get(sleutel) ?? []), b.id]);
   }
   const uit = new Set<number>();
   for (const ids of teller.values()) if (ids.length > 1) ids.forEach((i) => uit.add(i));
@@ -215,13 +222,14 @@ function cijfers(cat: Catalogus, inst: Instellingen, bestellingen: BestellingVol
   const bezorg = geldig.reduce((s, b) => s + b.bezorg_cent, 0);
   const korting = geldig.reduce((s, b) => s + b.korting_cent, 0);
   const ontvangen = bestellingen.reduce((s, b) => s + b.betaald_cent, 0);
-  const statussen = { open: 0, deels: 0, betaald: 0 };
+  const statussen = { open: 0, verzoek: 0, betaald: 0, terugbetaald: 0 };
   let openstaand = 0;
   for (const b of geldig) {
-    statussen[betaalstatus(b.totaal_cent, b.betaald_cent)]++;
+    statussen[bs(b)]++;
     openstaand += Math.max(0, b.totaal_cent - b.betaald_cent);
   }
   const terugTeBetalen = bestellingen.filter((b) => b.status === "geannuleerd" && b.betaald_cent > 0).reduce((s, b) => s + b.betaald_cent, 0);
+  const terugbetaald = bestellingen.reduce((s, b) => s + (b.ontvangen_cent - b.betaald_cent), 0);
   const zakken = [...perProduct.values()].filter((p) => p.eenheid === "zak").reduce((s, p) => s + p.aantal, 0);
   return {
     bestellingen: geldig.length,
@@ -240,6 +248,7 @@ function cijfers(cat: Catalogus, inst: Instellingen, bestellingen: BestellingVol
     ontvangen_cent: ontvangen,
     openstaand_cent: openstaand,
     terug_te_betalen_cent: terugTeBetalen,
+    terugbetaald_cent: terugbetaald,
     betaalstatus: statussen,
     af_te_halen: geldig.filter((b) => b.levering === "ophalen" && OPEN_STATUS.includes(b.status)).length,
     te_bezorgen: geldig.filter((b) => b.levering === "bezorgen" && OPEN_STATUS.includes(b.status)).length,
@@ -251,14 +260,15 @@ function cijfers(cat: Catalogus, inst: Instellingen, bestellingen: BestellingVol
 }
 
 async function werkelijkeInkoop(db: D1Database, rondeId: number | null): Promise<number | null> {
+  // Per ronde: het factuurbedrag als dat is ingevuld, anders de som van de inkoopregels; daarna opgeteld.
   const r = await db
     .prepare(
-      `SELECT (SELECT SUM(aantal * stukprijs_cent) FROM sz_ronde_inkoop i WHERE (?1 IS NULL OR i.ronde_id = ?1)) AS regels,
-              (SELECT SUM(inkoop_bedrag_cent) FROM sz_ronde WHERE (?1 IS NULL OR id = ?1)) AS bedrag`,
+      `SELECT SUM(COALESCE(r.inkoop_bedrag_cent, (SELECT SUM(i.aantal * i.stukprijs_cent) FROM sz_ronde_inkoop i WHERE i.ronde_id = r.id))) AS som
+       FROM sz_ronde r WHERE (?1 IS NULL OR r.id = ?1)`,
     )
     .bind(rondeId)
-    .first<{ regels: number | null; bedrag: number | null }>();
-  return r?.bedrag ?? r?.regels ?? null;
+    .first<{ som: number | null }>();
+  return r?.som ?? null;
 }
 
 async function overzicht(request: Request, env: SzEnv, ctx: ExecutionContext): Promise<Response> {
@@ -304,6 +314,7 @@ function lijstRij(b: BestellingVol, regels: RegelVol[], dubbel: boolean, wijken:
   return {
     id: b.id,
     nummer: bestelnummer(b.id),
+    afhaalcode: b.afhaalcode ?? "",
     ronde_id: b.ronde_id,
     status: b.status,
     levering: b.levering,
@@ -319,7 +330,8 @@ function lijstRij(b: BestellingVol, regels: RegelVol[], dubbel: boolean, wijken:
     betaalwijze: b.betaalwijze,
     totaal_cent: b.totaal_cent,
     betaald_cent: b.betaald_cent,
-    betaalstatus: betaalstatus(b.totaal_cent, b.betaald_cent),
+    betaalstatus: bs(b),
+    betaalverzoek_op: b.betaalverzoek_op,
     stuks: regels.reduce((s, r) => s + r.aantal, 0),
     samenvatting: regels.map((r) => `${r.aantal}× ${r.naam}`).join(", "),
     aangemaakt: b.aangemaakt,
@@ -346,12 +358,16 @@ async function bestellingen(request: Request, env: SzEnv): Promise<Response> {
       if (levering && b.levering !== levering) return false;
       if (moment && String(b.moment_id ?? "") !== moment) return false;
       if (betaal) {
-        const bs = betaalstatus(b.totaal_cent, b.betaald_cent);
-        if (betaal === "betaald" ? bs !== "betaald" : bs === "betaald") return false;
+        const st = bs(b);
+        if (betaal === "nietbetaald" ? st === "betaald" || st === "terugbetaald" : st !== betaal) return false;
       }
       if (zoek) {
-        const hooi = [bestelnummer(b.id), b.naam, b.email, b.telefoon, b.postcode, b.straat, b.opmerking].join(" ").toLowerCase();
-        if (!hooi.includes(zoek.replace(/^sz-?/, "")) && !hooi.includes(zoek)) return false;
+        // Zoeken op bestelnummer, afhaalcode, naam of mobiel nummer (ook als +31 6… of met spaties ingetypt), e-mail of postcode.
+        const code = normaliseerAfhaalcode(zoek);
+        const mobiel = normaliseerMobiel(zoek) ?? (/^[\d\s+-]{4,}$/.test(zoek) ? zoek.replace(/\D/g, "").replace(/^(00)?31/, "0") : "");
+        const hooi = [bestelnummer(b.id), b.afhaalcode ?? "", b.naam, b.email, b.telefoon, b.postcode, b.straat, b.opmerking].join(" ").toLowerCase();
+        const raak = hooi.includes(zoek) || (code !== null && b.afhaalcode === code) || (mobiel !== "" && b.telefoon.includes(mobiel));
+        if (!raak) return false;
       }
       return true;
     })
@@ -362,7 +378,7 @@ async function bestellingen(request: Request, env: SzEnv): Promise<Response> {
 async function bestelling(env: SzEnv, id: number, request: Request): Promise<Response> {
   const db = env.DB;
   const b = await db
-    .prepare(`SELECT b.*, (SELECT COALESCE(SUM(bedrag_cent), 0) FROM sz_betaling p WHERE p.bestelling_id = b.id) AS betaald_cent FROM sz_bestelling b WHERE b.id = ?1`)
+    .prepare(`SELECT b.*, (SELECT COALESCE(SUM(bedrag_cent), 0) FROM sz_betaling p WHERE p.bestelling_id = b.id) AS betaald_cent, (SELECT COALESCE(SUM(CASE WHEN bedrag_cent > 0 THEN bedrag_cent END), 0) FROM sz_betaling p WHERE p.bestelling_id = b.id) AS ontvangen_cent FROM sz_bestelling b WHERE b.id = ?1`)
     .bind(id)
     .first<BestellingVol>();
   if (!b) return fout("Bestelling niet gevonden.", 404);
@@ -380,7 +396,7 @@ async function bestelling(env: SzEnv, id: number, request: Request): Promise<Res
       ...b,
       nummer: bestelnummer(b.id),
       wijk: b.levering === "bezorgen" ? wijkVan(b.postcode, inst.wijken) : "",
-      betaalstatus: betaalstatus(b.totaal_cent, b.betaald_cent),
+      betaalstatus: bs(b),
       klant_link: `${origin}/strooizout/bestelling#${await klantCode(env, b.id)}`,
       overgangen: STATUS_OVERGANG[b.status].filter((s) => !(s === "afgehaald" && b.levering !== "ophalen") && !(s === "bezorgd" && b.levering !== "bezorgen")),
     },
@@ -465,6 +481,122 @@ async function bewerkBestelling(request: Request, env: SzEnv, id: number): Promi
     logStmt(env.DB, id, "bewerkt", "notitie/moment"),
   ]);
   return json({ ok: true });
+}
+
+/** Handmatig betaalverzoek (bijv. Tikkie) als verstuurd markeren of terugzetten. Maakt een bestelling nooit ‘betaald’. */
+async function betaalverzoek(request: Request, env: SzEnv, id: number): Promise<Response> {
+  const body = await leesJson(request);
+  if (body instanceof Response) return body;
+  if (typeof body.verstuurd !== "boolean") return fout("Geef aan of het betaalverzoek verstuurd is.", 422);
+  const nu = nuIso();
+  const res = await env.DB.batch([
+    env.DB.prepare("UPDATE sz_bestelling SET betaalverzoek_op = ?2, gewijzigd = ?3 WHERE id = ?1 AND geanonimiseerd_op IS NULL").bind(id, body.verstuurd ? nu : null, nu),
+    logStmt(env.DB, id, body.verstuurd ? "betaalverzoek verstuurd" : "betaalverzoek teruggezet"),
+  ]);
+  if ((res[0].meta?.changes ?? 0) === 0) return fout("Bestelling niet gevonden.", 404);
+  return json({ ok: true });
+}
+
+// ---------- Afhalen (uitgifte op code) ----------
+
+async function zoekOpAfhaalcode(env: SzEnv, ruw: string) {
+  const code = normaliseerAfhaalcode(decodeURIComponent(ruw));
+  if (!code) return null;
+  const b = await env.DB.prepare(`SELECT b.*, ${"(SELECT COALESCE(SUM(bedrag_cent), 0) FROM sz_betaling p WHERE p.bestelling_id = b.id) AS betaald_cent, (SELECT COALESCE(SUM(CASE WHEN bedrag_cent > 0 THEN bedrag_cent END), 0) FROM sz_betaling p WHERE p.bestelling_id = b.id) AS ontvangen_cent"} FROM sz_bestelling b WHERE b.afhaalcode = ?1`)
+    .bind(code)
+    .first<BestellingVol>();
+  return b ? { code, b } : { code, b: null };
+}
+
+async function afhaalWeergave(env: SzEnv, b: BestellingVol) {
+  const [regels, moment] = await Promise.all([
+    env.DB.prepare(
+      `SELECT r.naam, r.aantal, p.eenheid,
+              (SELECT COALESCE(SUM(o.aantal), 0) FROM sz_pakket_onderdeel o JOIN sz_product d ON d.id = o.product_id WHERE o.pakket_id = r.product_id AND d.eenheid = 'zak') AS zakken_per_stuk
+       FROM sz_bestelregel r LEFT JOIN sz_product p ON p.id = r.product_id WHERE r.bestelling_id = ?1 ORDER BY r.id`,
+    )
+      .bind(b.id)
+      .all<{ naam: string; aantal: number; eenheid: string | null; zakken_per_stuk: number }>(),
+    b.moment_id ? env.DB.prepare("SELECT datum, van, tot FROM sz_moment WHERE id = ?1").bind(b.moment_id).first() : Promise.resolve(null),
+  ]);
+  const zakken = regels.results.reduce((s, r) => s + (r.eenheid === "zak" ? r.aantal : r.aantal * r.zakken_per_stuk), 0);
+  return {
+    id: b.id,
+    nummer: bestelnummer(b.id),
+    afhaalcode: b.afhaalcode,
+    naam: b.naam,
+    telefoon: b.telefoon,
+    levering: b.levering,
+    status: b.status,
+    uitgegeven: b.status === "afgehaald" || b.status === "bezorgd",
+    uitgegeven_op: b.status === "afgehaald" || b.status === "bezorgd" ? b.afgerond_op : null,
+    geannuleerd: b.status === "geannuleerd",
+    zakken,
+    regels: regels.results.map((r) => ({ naam: r.naam, aantal: r.aantal })),
+    totaal_cent: b.totaal_cent,
+    betaald_cent: b.betaald_cent,
+    open_cent: Math.max(0, b.totaal_cent - b.betaald_cent),
+    betaalstatus: bs(b),
+    moment,
+    opmerking: b.opmerking,
+  };
+}
+
+async function afhalenZoeken(env: SzEnv, ruw: string): Promise<Response> {
+  const r = await zoekOpAfhaalcode(env, ruw);
+  if (!r) return fout("Een afhaalcode ziet eruit als H-4827.", 422);
+  if (!r.b) return fout(`Geen bestelling met code ${r.code}.`, 404);
+  return json({ ok: true, bestelling: await afhaalWeergave(env, r.b) });
+}
+
+/**
+ * Uitgeven (afgehaald of bezorgd) in één atomaire stap, optioneel met de ontvangen betaling erbij. Een tweede uitgifte
+ * (ook gelijktijdig vanaf een andere telefoon) faalt: de statuswissel gebeurt alleen vanuit een open status, en de
+ * betaling wordt alleen geboekt als déze wissel slaagde.
+ */
+async function uitgeven(request: Request, env: SzEnv, ruw: string): Promise<Response> {
+  const body = await leesJson(request);
+  if (body instanceof Response) return body;
+  const r = await zoekOpAfhaalcode(env, ruw);
+  if (!r) return fout("Een afhaalcode ziet eruit als H-4827.", 422);
+  if (!r.b) return fout(`Geen bestelling met code ${r.code}.`, 404);
+  const b = r.b;
+  let betaling: { wijze: string; bedrag: number } | null = null;
+  if (body.betaling !== undefined && body.betaling !== null) {
+    const p = body.betaling as Record<string, unknown>;
+    if (p.ontvangen !== true) return fout("Bevestig dat het geld echt is ontvangen.", 422);
+    const wijze = String(p.wijze ?? "");
+    if (!["contant", "tikkie", "pin", "overboeking"].includes(wijze)) return fout("Kies hoe er betaald is.", 422);
+    const bedragCent = geheel(p.bedrag_cent, 1, 1_000_000);
+    if (bedragCent === null) return fout("Ongeldig bedrag.", 422);
+    betaling = { wijze, bedrag: bedragCent };
+  }
+  const naar = b.levering === "bezorgen" ? "bezorgd" : "afgehaald";
+  const nu = nuIso();
+  const db = env.DB;
+  const res = await db.batch([
+    db.prepare(`UPDATE sz_bestelling SET status = ?2, afgerond_op = ?3, gewijzigd = ?3 WHERE id = ?1 AND status IN ('nieuw', 'bevestigd', 'klaar')`).bind(b.id, naar, nu),
+    ...(betaling
+      ? [
+          db.prepare(
+            `INSERT INTO sz_betaling (bestelling_id, bedrag_cent, wijze, notitie, op)
+             SELECT ?1, ?2, ?3, 'bij uitgifte', ?4 WHERE EXISTS (SELECT 1 FROM sz_bestelling WHERE id = ?1 AND status = ?5 AND afgerond_op = ?4)`,
+          ).bind(b.id, betaling.bedrag, betaling.wijze, nu, naar),
+        ]
+      : []),
+    db.prepare(`INSERT INTO sz_log (bestelling_id, actie, details, op) SELECT ?1, 'uitgegeven', ?2, ?3 WHERE EXISTS (SELECT 1 FROM sz_bestelling WHERE id = ?1 AND afgerond_op = ?3)`).bind(
+      b.id,
+      `${b.status} → ${naar}${betaling ? `, ${betaling.wijze} ${betaling.bedrag}` : ""}`,
+      nu,
+    ),
+  ]);
+  if ((res[0].meta?.changes ?? 0) === 0) {
+    const nuB = (await zoekOpAfhaalcode(env, ruw))!.b!;
+    const w = await afhaalWeergave(env, nuB);
+    if (w.uitgegeven) return fout(`Deze bestelling is al ${naar === "bezorgd" ? "bezorgd" : "uitgegeven"}.`, 409, { bestelling: w });
+    return fout(w.geannuleerd ? "Deze bestelling is geannuleerd." : "Deze bestelling kan nu niet worden uitgegeven.", 409, { bestelling: w });
+  }
+  return json({ ok: true, bestelling: await afhaalWeergave(env, (await zoekOpAfhaalcode(env, ruw))!.b!) });
 }
 
 // ---------- Route ----------
@@ -680,21 +812,42 @@ async function nieuwProduct(request: Request, env: SzEnv): Promise<Response> {
 async function wijzigProduct(request: Request, env: SzEnv, id: number): Promise<Response> {
   const body = await leesJson(request, 32_768);
   if (body instanceof Response) return body;
-  const bestaat = await env.DB.prepare("SELECT id FROM sz_product WHERE id = ?1 AND status != 'verwijderd'").bind(id).first();
+  const bestaat = await env.DB.prepare("SELECT id, voorraad FROM sz_product WHERE id = ?1 AND status != 'verwijderd'").bind(id).first<{ id: number; voorraad: number | null }>();
   if (!bestaat) return fout("Product niet gevonden.", 404);
   const c = await controleerProduct(env.DB, body, id);
   if (!c.ok) return fout(c.fout, 422);
   const p = c.p;
+  // Voorraad niet blind overschrijven: bestellingen kunnen hem intussen verlaagd hebben. Alleen wijzigen als de beheerder
+  // hem echt aanpast én de stand nog gelijk is aan wat hij zag (voorraad_was). Zonder voorraad in het verzoek: ongewijzigd.
+  const stuurtVoorraad = "voorraad" in body;
+  const was = "voorraad_was" in body ? (body.voorraad_was as number | null) : bestaat.voorraad;
+  if (stuurtVoorraad && p.voorraad !== bestaat.voorraad && was !== bestaat.voorraad) {
+    return fout(`De voorraad is intussen gewijzigd door bestellingen (nu ${bestaat.voorraad ?? "geen limiet"}). Controleer en sla opnieuw op.`, 409, { voorraad: bestaat.voorraad });
+  }
+  const nieuweVoorraad = stuurtVoorraad ? p.voorraad : bestaat.voorraad;
   await env.DB.batch([
     env.DB.prepare(
       `UPDATE sz_product SET naam = ?2, categorie_id = ?3, status = ?4, kort = ?5, beschrijving = ?6, specificaties = ?7, prijs_cent = ?8, inkoop_cent = ?9,
-         bezorg_cent = ?10, gewicht_gram = ?11, eenheid = ?12, voorraad = ?13, max_per_bestelling = ?14, afbeelding = ?15, afbeelding_alt = ?16, notitie = ?17,
+         bezorg_cent = ?10, gewicht_gram = ?11, eenheid = ?12, voorraad = CASE WHEN voorraad IS ?20 THEN ?13 ELSE voorraad END, max_per_bestelling = ?14, afbeelding = ?15, afbeelding_alt = ?16, notitie = ?17,
          volgorde = ?18, gewijzigd = ?19 WHERE id = ?1`,
-    ).bind(id, p.naam, p.categorie_id, p.status, p.kort, p.beschrijving, p.specificaties, p.prijs_cent, p.inkoop_cent, p.bezorg_cent, p.gewicht_gram, p.eenheid, p.voorraad, p.max_per_bestelling, p.afbeelding, p.afbeelding_alt, p.notitie, p.volgorde, nuIso()),
+    ).bind(id, p.naam, p.categorie_id, p.status, p.kort, p.beschrijving, p.specificaties, p.prijs_cent, p.inkoop_cent, p.bezorg_cent, p.gewicht_gram, p.eenheid, nieuweVoorraad, p.max_per_bestelling, p.afbeelding, p.afbeelding_alt, p.notitie, p.volgorde, nuIso(), bestaat.voorraad),
     ...bijbehorend(env.DB, id, p),
     logStmt(env.DB, null, "product gewijzigd", `#${id} ${p.status}`),
   ]);
   return json({ ok: true, id });
+}
+
+/** Alleen de status wisselen (actief/verborgen/concept), zonder de rest van het product mee te sturen. */
+async function productStatus(request: Request, env: SzEnv, id: number): Promise<Response> {
+  const body = await leesJson(request);
+  if (body instanceof Response) return body;
+  const status = body.status;
+  if (status !== "concept" && status !== "actief" && status !== "verborgen") return fout("Kies een geldige status.", 422);
+  const p = await env.DB.prepare("SELECT prijs_cent, beschrijving, afbeelding FROM sz_product WHERE id = ?1 AND status != 'verwijderd'").bind(id).first<{ prijs_cent: number | null; beschrijving: string; afbeelding: string }>();
+  if (!p) return fout("Product niet gevonden.", 404);
+  if (status === "actief" && (!p.prijs_cent || !p.beschrijving || !p.afbeelding)) return fout("Een product kan pas actief worden met verkoopprijs, beschrijving en afbeelding.", 422);
+  await env.DB.batch([env.DB.prepare("UPDATE sz_product SET status = ?2, gewijzigd = ?3 WHERE id = ?1").bind(id, status, nuIso()), logStmt(env.DB, null, "productstatus", `#${id} ${status}`)]);
+  return json({ ok: true });
 }
 
 async function verwijderProduct(env: SzEnv, id: number): Promise<Response> {
@@ -982,23 +1135,44 @@ async function bewaarInstellingen(request: Request, env: SzEnv): Promise<Respons
 
 // ---------- Bewaartermijn ----------
 
-/** Wist persoonsgegevens van afgeronde bestellingen na de bewaartermijn. Bedragen en aantallen blijven (administratie). */
+/**
+ * Bewaartermijn. (1) Bestellingen die al 12 maanden (of de bewaartermijn, als die langer is) niet zijn gewijzigd en nooit
+ * zijn afgerond, worden eerst geannuleerd en hun voorraad teruggegeven. (2) Daarna worden van afgeronde bestellingen na de
+ * bewaartermijn naam, contact, adres, opmerkingen en de afhaalcode gewist. Bedragen, aantallen en het postcodegebied blijven.
+ */
 export async function opschonen(db: D1Database, inst: Instellingen, nu = new Date()): Promise<number> {
   const grens = new Date(nu);
   grens.setUTCMonth(grens.getUTCMonth() - inst.bewaartermijn_maanden);
   const oud = new Date(nu);
   oud.setUTCMonth(oud.getUTCMonth() - Math.max(12, inst.bewaartermijn_maanden));
+  const nuIsoTijd = nu.toISOString();
+  const { results: verlaten } = await db
+    .prepare("SELECT id, status FROM sz_bestelling WHERE geanonimiseerd_op IS NULL AND status IN ('nieuw', 'bevestigd', 'klaar') AND gewijzigd < ?1")
+    .bind(oud.toISOString())
+    .all<{ id: number; status: string }>();
+  for (const b of verlaten) {
+    await db.batch([
+      db.prepare("UPDATE sz_bestelling SET status = 'geannuleerd', afgerond_op = ?2, gewijzigd = ?2 WHERE id = ?1 AND status = ?3").bind(b.id, nuIsoTijd, b.status),
+      ...vrijgeefStatements(db, b.id),
+      logStmt(db, b.id, "geannuleerd na bewaartermijn", `was ${b.status}`),
+    ]);
+  }
   const res = await db
     .prepare(
       `UPDATE sz_bestelling SET naam = 'Gewist', email = '', telefoon = '', straat = '', huisnummer = '', postcode = substr(postcode, 1, 4),
-         opmerking = '', beheer_notitie = '', geanonimiseerd_op = ?3
-       WHERE geanonimiseerd_op IS NULL
-         AND ((status IN ('afgehaald', 'bezorgd', 'geannuleerd') AND COALESCE(afgerond_op, gewijzigd) < ?1) OR gewijzigd < ?2)`,
+         opmerking = '', beheer_notitie = '', afhaalcode = NULL, geanonimiseerd_op = ?2
+       WHERE geanonimiseerd_op IS NULL AND status IN ('afgehaald', 'bezorgd', 'geannuleerd') AND COALESCE(afgerond_op, gewijzigd) < ?1`,
     )
-    .bind(grens.toISOString(), oud.toISOString(), nu.toISOString())
+    .bind(grens.toISOString(), nuIsoTijd)
     .run();
   await db.prepare("UPDATE sz_betaling SET notitie = '' WHERE bestelling_id IN (SELECT id FROM sz_bestelling WHERE geanonimiseerd_op IS NOT NULL) AND notitie != ''").run();
   return res.meta?.changes ?? 0;
+}
+
+/** Dagelijks onderhoud (cron in wrangler.jsonc): bewaartermijn toepassen, ook als niemand het beheer opent. */
+export async function geplandOnderhoud(env: SzEnv): Promise<void> {
+  const gewist = await opschonen(env.DB, await laadInstellingen(env.DB));
+  if (gewist) await log(env.DB, null, "bewaartermijn", `${gewist} bestellingen opgeschoond`);
 }
 
 // ---------- CSV ----------
@@ -1039,16 +1213,16 @@ async function export_(request: Request, env: SzEnv, soort: string): Promise<Res
     const rijen = [...data.bestellingen].reverse().map((b) => {
       const regels = per.get(b.id) ?? [];
       return [
-        bestelnummer(b.id), nlDatum(b.aangemaakt), b.ronde_id ?? "", BESTEL_STATUS[b.status], b.levering, b.moment_id ? (momenten.get(b.moment_id) ?? "") : "",
+        bestelnummer(b.id), b.afhaalcode ?? "", nlDatum(b.aangemaakt), b.ronde_id ?? "", BESTEL_STATUS[b.status], b.levering, b.moment_id ? (momenten.get(b.moment_id) ?? "") : "",
         b.naam, b.email, b.telefoon, b.levering === "bezorgen" ? `${b.straat} ${b.huisnummer}` : "", b.postcode, b.plaats, b.levering === "bezorgen" ? wijkVan(b.postcode, inst.wijken) : "",
         regels.map((r) => `${r.aantal}x ${r.naam}`).join(", "), regels.reduce((s, r) => s + r.aantal, 0), (b.gewicht_gram / 1000).toString().replace(".", ","),
         bedrag(b.subtotaal_cent), bedrag(b.korting_cent), bedrag(b.bezorg_cent), bedrag(b.totaal_cent), b.betaalwijze === "tikkie" ? "Tikkie" : "Bij ontvangst",
-        bedrag(b.betaald_cent), betaalstatus(b.totaal_cent, b.betaald_cent), b.opmerking,
+        bedrag(b.betaald_cent), BETAAL_STATUS[bs(b)], b.opmerking,
       ];
     });
     return csvAntwoord(
       `strooizout-bestellingen-${achter}.csv`,
-      csv(["Bestelnummer", "Datum", "Ronde", "Status", "Levering", "Moment", "Naam", "E-mail", "Telefoon", "Adres", "Postcode", "Plaats", "Wijk", "Producten", "Stuks", "Gewicht (kg)", "Subtotaal", "Korting", "Bezorgkosten", "Totaal", "Betaalwijze", "Betaald", "Betaalstatus", "Opmerking"], rijen),
+      csv(["Bestelnummer", "Afhaalcode", "Datum", "Ronde", "Status", "Levering", "Moment", "Naam", "E-mail", "Telefoon", "Adres", "Postcode", "Plaats", "Wijk", "Producten", "Stuks", "Gewicht (kg)", "Subtotaal", "Korting", "Bezorgkosten", "Totaal", "Betaalwijze", "Betaald", "Betaalstatus", "Opmerking"], rijen),
     );
   }
   if (soort === "financien") {
@@ -1059,15 +1233,15 @@ async function export_(request: Request, env: SzEnv, soort: string): Promise<Res
       const telt = b.status !== "geannuleerd";
       return [
         bestelnummer(b.id), nlDatum(b.aangemaakt), b.ronde_id ?? "", BESTEL_STATUS[b.status], b.levering,
-        bedrag(telt ? b.subtotaal_cent : 0), bedrag(telt ? b.bezorg_cent : 0), bedrag(telt ? b.totaal_cent : 0),
+        bedrag(telt ? b.subtotaal_cent + b.korting_cent : 0), bedrag(telt ? b.korting_cent : 0), bedrag(telt ? b.subtotaal_cent : 0), bedrag(telt ? b.bezorg_cent : 0), bedrag(telt ? b.totaal_cent : 0),
         inst.btw_modus === "inclusief" ? bedrag(telt ? btwDeel(b.totaal_cent, inst.btw_tarief) : 0) : "",
         bedrag(telt ? inkoop : 0), telt && inkoop !== null ? bedrag(b.totaal_cent - inkoop) : "", bedrag(b.betaald_cent),
-        bedrag(telt ? Math.max(0, b.totaal_cent - b.betaald_cent) : 0), b.betaalwijze === "tikkie" ? "Tikkie" : "Bij ontvangst", betaalstatus(b.totaal_cent, b.betaald_cent),
+        bedrag(telt ? Math.max(0, b.totaal_cent - b.betaald_cent) : 0), b.betaalwijze === "tikkie" ? "Tikkie" : "Bij ontvangst", BETAAL_STATUS[bs(b)],
       ];
     });
     return csvAntwoord(
       `strooizout-financien-${achter}.csv`,
-      csv(["Bestelnummer", "Datum", "Ronde", "Status", "Levering", "Omzet producten", "Bezorgopbrengst", "Totaal", "Waarvan btw", "Inkoop", "Brutowinst", "Ontvangen", "Openstaand", "Betaalwijze", "Betaalstatus"], rijen),
+      csv(["Bestelnummer", "Datum", "Ronde", "Status", "Levering", "Producten normale prijs", "Korting", "Omzet producten", "Bezorgopbrengst", "Totaal", "Waarvan btw", "Inkoop", "Brutowinst", "Ontvangen", "Openstaand", "Betaalwijze", "Betaalstatus"], rijen),
     );
   }
   if (soort === "producten") {
@@ -1103,12 +1277,17 @@ export async function handleBeheer(request: Request, env: SzEnv, ctx: ExecutionC
   if ((n = id(/^\/bestellingen\/(\d{1,9})$/)) !== null && method === "PUT") return bewerkBestelling(request, env, n);
   if ((n = id(/^\/bestellingen\/(\d{1,9})\/status$/)) !== null && method === "POST") return wijzigStatus(request, env, n);
   if ((n = id(/^\/bestellingen\/(\d{1,9})\/betaling$/)) !== null && method === "POST") return registreerBetaling(request, env, n);
+  if ((n = id(/^\/bestellingen\/(\d{1,9})\/betaalverzoek$/)) !== null && method === "POST") return betaalverzoek(request, env, n);
   if ((n = id(/^\/betalingen\/(\d{1,9})$/)) !== null && method === "DELETE") return verwijderBetaling(env, n);
+  const afh = pad.match(/^\/afhalen\/([^/]{1,20})(\/uitgeven)?$/);
+  if (afh && !afh[2] && method === "GET") return afhalenZoeken(env, afh[1]);
+  if (afh && afh[2] && method === "POST") return uitgeven(request, env, afh[1]);
   if (pad === "/route" && method === "GET") return route(request, env);
   if (pad === "/producten" && method === "GET") return producten(env);
   if (pad === "/producten" && method === "POST") return nieuwProduct(request, env);
   if ((n = id(/^\/producten\/(\d{1,9})$/)) !== null && method === "PUT") return wijzigProduct(request, env, n);
   if ((n = id(/^\/producten\/(\d{1,9})$/)) !== null && method === "DELETE") return verwijderProduct(env, n);
+  if ((n = id(/^\/producten\/(\d{1,9})\/status$/)) !== null && method === "PUT") return productStatus(request, env, n);
   if (pad === "/categorieen" && method === "POST") return nieuweCategorie(request, env);
   if ((n = id(/^\/categorieen\/(\d{1,9})$/)) !== null && method === "PUT") return wijzigCategorie(request, env, n);
   if (pad === "/afbeeldingen" && method === "POST") return uploadAfbeelding(request, env);

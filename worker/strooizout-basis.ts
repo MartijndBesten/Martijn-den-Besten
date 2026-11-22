@@ -70,7 +70,9 @@ export function gelijk(a: string, b: string): boolean {
 }
 
 export function geheim(env: SzEnv): string {
-  return env.HASH_SECRET || "lokale-ontwikkelsleutel";
+  // De publieke bestelroutes weigeren al zonder HASH_SECRET (worker/strooizout.ts); dit is alleen nog een vangnet.
+  if (!env.HASH_SECRET) throw new Error("HASH_SECRET ontbreekt");
+  return env.HASH_SECRET;
 }
 
 /** Persoonlijke code voor de bestelpagina van de klant: ID plus HMAC, zodat niemand andermans bestelling kan raden. */

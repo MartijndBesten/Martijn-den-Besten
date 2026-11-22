@@ -8,7 +8,10 @@ import {
   GRENZEN,
   bereken,
   bestelnummer,
+  betaalstatus,
+  BETAAL_STATUS,
   controleerKlant,
+  maakAfhaalcode,
   type Betaalwijze,
   type BestelStatus,
   type Levering,
@@ -51,17 +54,25 @@ async function bezoeker(request: Request, env: SzEnv, nu: number): Promise<strin
 
 type MomentRij = { id: number; soort: Levering; datum: string; van: string; tot: string; omschrijving: string; max_bestellingen: number | null; bezet: number };
 
+/** Datum (JJJJ-MM-DD) en tijd (UU:MM) in Nederlandse tijd. */
+export function amsterdam(iso: string): { datum: string; tijd: string } {
+  const delen = new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Amsterdam", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(new Date(iso));
+  const [datum, tijd] = delen.split(" ");
+  return { datum, tijd };
+}
+
 async function momentenVoor(db: D1Database, rondeId: number | null, nu: string): Promise<PubliekMoment[]> {
-  const vandaag = nu.slice(0, 10);
+  // Alleen momenten die nog niet voorbij zijn, in Nederlandse tijd (vandaag: alleen als de eindtijd nog moet komen).
+  const { datum: vandaag, tijd } = amsterdam(nu);
   const { results } = await db
     .prepare(
       `SELECT m.id, m.soort, m.datum, m.van, m.tot, m.omschrijving, m.max_bestellingen,
               (SELECT COUNT(*) FROM sz_bestelling b WHERE b.moment_id = m.id AND b.status != 'geannuleerd') AS bezet
        FROM sz_moment m
-       WHERE m.actief = 1 AND m.datum >= ?1 AND (m.ronde_id IS NULL OR m.ronde_id = ?2)
+       WHERE m.actief = 1 AND (m.datum > ?1 OR (m.datum = ?1 AND m.tot > ?3)) AND (m.ronde_id IS NULL OR m.ronde_id = ?2)
        ORDER BY m.datum, m.van`,
     )
-    .bind(vandaag, rondeId)
+    .bind(vandaag, rondeId, tijd)
     .all<MomentRij>();
   return results.map((m) => ({ id: m.id, soort: m.soort, datum: m.datum, van: m.van, tot: m.tot, omschrijving: m.omschrijving, vol: m.max_bestellingen !== null && m.bezet >= m.max_bestellingen }));
 }
@@ -202,14 +213,18 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
 
   const db = env.DB;
   const idSub = "(SELECT id FROM sz_bestelling WHERE idempotentie = ?1)";
-  const stmts: D1PreparedStatement[] = [
+  const maakStatements = (afhaalcode: string): D1PreparedStatement[] => [
+    // Alleen invoegen als het gekozen moment niet intussen vol is (gelijktijdige bestellingen). Voegt dit niets in,
+    // dan faalt de eerste bestelregel op bestelling_id NOT NULL en draait de hele batch terug.
     db
       .prepare(
-        `INSERT INTO sz_bestelling (idempotentie, ronde_id, status, levering, moment_id, naam, email, telefoon, straat, huisnummer, postcode, plaats, opmerking,
+        `INSERT INTO sz_bestelling (idempotentie, afhaalcode, ronde_id, status, levering, moment_id, naam, email, telefoon, straat, huisnummer, postcode, plaats, opmerking,
            betaalwijze, subtotaal_cent, korting_cent, bezorg_cent, totaal_cent, gewicht_gram, aangemaakt, gewijzigd)
-         VALUES (?1, ?2, 'nieuw', ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?19)`,
+         SELECT ?1, ?20, ?2, 'nieuw', ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?19
+         WHERE ?4 IS NULL OR (SELECT COUNT(*) FROM sz_bestelling WHERE moment_id = ?4 AND status != 'geannuleerd')
+               < COALESCE((SELECT max_bestellingen FROM sz_moment WHERE id = ?4), 1000000000)`,
       )
-      .bind(idem, ronde.id, levering, momentId, k.naam, k.email, k.telefoon, k.straat, k.huisnummer, k.postcode, k.plaats, k.opmerking, betaalwijze as Betaalwijze, som.subtotaal_cent, som.korting_cent, som.bezorg_cent, som.totaal_cent, som.gewicht_gram, nu),
+      .bind(idem, ronde.id, levering, momentId, k.naam, k.email, k.telefoon, k.straat, k.huisnummer, k.postcode, k.plaats, k.opmerking, betaalwijze as Betaalwijze, som.subtotaal_cent, som.korting_cent, som.bezorg_cent, som.totaal_cent, som.gewicht_gram, nu, afhaalcode),
     ...som.regels.map((r) =>
       db
         .prepare(
@@ -224,19 +239,29 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
     ]),
     db.prepare(`INSERT INTO sz_log (bestelling_id, actie, details, op) VALUES (${idSub}, 'aangemaakt', ?2, ?3)`).bind(idem, `${levering}, ${som.aantal_stuks} stuks`, nu),
   ];
-  try {
-    await db.batch(stmts);
-  } catch (e) {
-    const tekst = String((e as Error)?.message ?? e);
-    if (/UNIQUE/i.test(tekst) && /idempotentie/i.test(tekst)) {
-      const zelfde = await db.prepare("SELECT id FROM sz_bestelling WHERE idempotentie = ?1").bind(idem).first<{ id: number }>();
-      if (zelfde) return bestaandAntwoord(env, zelfde.id);
+
+  // Unieke afhaalcode: willekeurig, de UNIQUE-index bewaakt botsingen (ook bij gelijktijdige bestellingen); bij een botsing
+  // opnieuw met een andere code. Na een paar pogingen een cijfer langer (H-12345).
+  for (let poging = 0; poging < 12; poging++) {
+    let code = maakAfhaalcode(poging < 6 ? 4 : 5);
+    for (let i = 0; i < 5 && (await db.prepare("SELECT 1 FROM sz_bestelling WHERE afhaalcode = ?1").bind(code).first()); i++) code = maakAfhaalcode(poging < 6 ? 4 : 5);
+    try {
+      await db.batch(maakStatements(code));
+      const nieuw = await db.prepare("SELECT id FROM sz_bestelling WHERE idempotentie = ?1").bind(idem).first<{ id: number }>();
+      return json({ ok: true, herhaald: false, ...(await klantWeergave(env, nieuw!.id)) }, 201);
+    } catch (e) {
+      const tekst = String((e as Error)?.message ?? e);
+      if (/UNIQUE/i.test(tekst) && /idempotentie/i.test(tekst)) {
+        const zelfde = await db.prepare("SELECT id FROM sz_bestelling WHERE idempotentie = ?1").bind(idem).first<{ id: number }>();
+        if (zelfde) return bestaandAntwoord(env, zelfde.id);
+      }
+      if (/UNIQUE/i.test(tekst) && /afhaalcode/i.test(tekst)) continue;
+      if (/NOT NULL/i.test(tekst) && /bestelling_id/i.test(tekst) && momentId !== null) return fout("Dit moment is net vol geraakt. Kies een ander moment.", 409, { veld: "moment" });
+      if (/CHECK/i.test(tekst)) return fout("Iemand was je net voor: er is niet genoeg voorraad meer. Pas het aantal aan.", 409, { code: "voorraad" });
+      throw e;
     }
-    if (/CHECK/i.test(tekst)) return fout("Iemand was je net voor: er is niet genoeg voorraad meer. Pas het aantal aan.", 409, { code: "voorraad" });
-    throw e;
   }
-  const nieuw = await db.prepare("SELECT id FROM sz_bestelling WHERE idempotentie = ?1").bind(idem).first<{ id: number }>();
-  return json({ ok: true, herhaald: false, ...(await klantWeergave(env, nieuw!.id)) }, 201);
+  throw new Error("geen vrije afhaalcode gevonden");
 }
 
 // ---------- Bestelpagina van de klant ----------
@@ -258,6 +283,8 @@ type BestellingRij = {
   totaal_cent: number;
   aangemaakt: string;
   geanonimiseerd_op: string | null;
+  afhaalcode: string | null;
+  betaalverzoek_op: string | null;
 };
 
 /** Wat de klant over de eigen bestelling ziet. Het volledige afhaaladres pas na bevestiging. */
@@ -267,14 +294,18 @@ async function klantWeergave(env: SzEnv, id: number) {
     db.prepare("SELECT * FROM sz_bestelling WHERE id = ?1").bind(id).first<BestellingRij>(),
     db.prepare("SELECT naam, aantal, stukprijs_cent, normaalprijs_cent, aanbieding FROM sz_bestelregel WHERE bestelling_id = ?1 ORDER BY id").bind(id).all(),
     db.prepare("SELECT m.soort, m.datum, m.van, m.tot, m.omschrijving FROM sz_moment m JOIN sz_bestelling b ON b.moment_id = m.id WHERE b.id = ?1").bind(id).first(),
-    db.prepare("SELECT COALESCE(SUM(bedrag_cent), 0) AS som FROM sz_betaling WHERE bestelling_id = ?1").bind(id).first<{ som: number }>(),
+    db.prepare("SELECT COALESCE(SUM(bedrag_cent), 0) AS som, COALESCE(SUM(CASE WHEN bedrag_cent > 0 THEN bedrag_cent END), 0) AS ontvangen FROM sz_betaling WHERE bestelling_id = ?1").bind(id).first<{ som: number; ontvangen: number }>(),
     laadInstellingen(db),
   ]);
   if (!b) throw new Error("bestelling verdwenen");
   const bevestigd = ["bevestigd", "klaar", "afgehaald"].includes(b.status);
+  const bs = betaalstatus({ totaal_cent: b.totaal_cent, betaald_cent: betaald?.som ?? 0, ontvangen_cent: betaald?.ontvangen ?? 0, betaalverzoek_op: b.betaalverzoek_op });
   return {
     bestelling: {
       nummer: bestelnummer(b.id),
+      afhaalcode: b.afhaalcode ?? "",
+      betaalstatus: bs,
+      betaalstatus_tekst: BETAAL_STATUS[bs],
       code: await klantCode(env, b.id),
       status: b.status,
       status_tekst: BESTEL_STATUS[b.status],
@@ -361,6 +392,11 @@ export async function handleStrooizout(request: Request, env: SzEnv, ctx: Execut
   if (!path.startsWith("/api/strooizout")) return null;
 
   if (path === "/api/strooizout/winkel" && method === "GET") return winkel(env);
+  // Zonder HASH_SECRET zijn de persoonlijke bestellinks te raden: dan niet bestellen of bekijken (fail closed).
+  if (path.startsWith("/api/strooizout/bestelling") && !env.HASH_SECRET) {
+    console.error("Strooizout: HASH_SECRET ontbreekt; bestellen staat uit");
+    return fout("Bestellen is tijdelijk niet mogelijk. Probeer het later opnieuw.", 503);
+  }
   if (path === "/api/strooizout/bestelling" && method === "POST") return plaatsBestelling(request, env, nuSec);
   if (path === "/api/strooizout/bestelling/bekijk" && method === "POST") return bekijk(request, env);
   if (path === "/api/strooizout/bestelling/annuleer" && method === "POST") return annuleerDoorKlant(request, env);

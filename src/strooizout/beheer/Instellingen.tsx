@@ -1,7 +1,7 @@
 // Instellingen: webshop open/dicht, afhalen, bezorgen, tarieven, contact, teksten, voorwaarden, btw en bewaartermijn.
 
 import { useEffect, useState, type FormEvent } from "react";
-import { euro, parseEuro, parsePostcodes, type Instellingen as Inst } from "../../../shared/strooizout";
+import { binnenBezorggebied, euro, normaliseerPostcode, parseEuro, parsePostcodes, type Instellingen as Inst } from "../../../shared/strooizout";
 import { useBeheer } from "./basis";
 
 export default function Instellingen() {
@@ -10,6 +10,7 @@ export default function Instellingen() {
   const [apart, setApart] = useState(false);
   const [tarief, setTarief] = useState({ stuk: "", kg: "" });
   const [bezig, setBezig] = useState(false);
+  const [proef, setProef] = useState("");
   useEffect(() => {
     void api<{ instellingen: Inst; apart_token: boolean }>("/instellingen").then((r) => {
       if (!r.ok) return meld(r.error, true);
@@ -102,6 +103,19 @@ export default function Instellingen() {
               <label htmlFor="in-pc">Bezorggebied (postcodes, 4 cijfers)</label>
               <input id="in-pc" className="sz-invoer" value={v.bezorg_postcodes} maxLength={400} onChange={tekst("bezorg_postcodes")} />
               <small>{postcodes.length ? `Herkend: ${postcodes.join(", ")}` : "Nog geen geldige postcodes."} Controleer of dit het gewenste deel van Houten is.</small>
+            </div>
+            <div className="bh-veld">
+              <label htmlFor="in-proef">Postcode controleren</label>
+              <input id="in-proef" className="sz-invoer" value={proef} maxLength={7} placeholder="3992 AB" onChange={(e) => setProef(e.target.value)} />
+              <small aria-live="polite">
+                {!proef.trim()
+                  ? "Typ een postcode om te zien of daar bezorgd wordt (met de instelling hierboven, ook vóór opslaan)."
+                  : !normaliseerPostcode(proef)
+                    ? "Geen geldige postcode."
+                    : binnenBezorggebied(proef, v.bezorg_postcodes)
+                      ? `${normaliseerPostcode(proef)}: binnen het bezorggebied.`
+                      : `${normaliseerPostcode(proef)}: buiten het bezorggebied.`}
+              </small>
             </div>
             <fieldset className="bh-veld" style={{ border: 0, padding: 0, margin: 0 }}>
               <legend>Tarief</legend>

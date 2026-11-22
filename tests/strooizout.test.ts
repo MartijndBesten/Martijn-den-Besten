@@ -2,7 +2,21 @@
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { handleApi, korteLink, type Env } from "../worker/index";
-import { bereken, controleerKlant, controleerInstelling, euro, parseEuro, stukprijs, wijkVan, type PrijsProduct } from "../shared/strooizout";
+import {
+  bereken,
+  betaalstatus,
+  binnenBezorggebied,
+  controleerKlant,
+  controleerInstelling,
+  euro,
+  normaliseerAfhaalcode,
+  normaliseerMobiel,
+  parseEuro,
+  stukprijs,
+  volgendeStaffel,
+  wijkVan,
+  type PrijsProduct,
+} from "../shared/strooizout";
 import { csv, opschonen } from "../worker/strooizout-beheer";
 import { STANDAARD_INSTELLINGEN } from "../shared/strooizout";
 import { createD1 } from "./d1-shim";
@@ -111,7 +125,9 @@ describe("prijsregels", () => {
     const buiten = controleerKlant({ ...KLANT, postcode: "3511 AA" }, "bezorgen", "3991, 3992");
     expect(!buiten.ok && buiten.fouten.postcode).toMatch(/bezorgen we helaas niet/);
     const leeg = controleerKlant({}, "ophalen", "");
-    expect(!leeg.ok && Object.keys(leeg.fouten).sort()).toEqual(["email", "naam", "telefoon"]);
+    // e-mail is optioneel; naam en mobiel nummer zijn verplicht
+    expect(!leeg.ok && Object.keys(leeg.fouten).sort()).toEqual(["naam", "telefoon"]);
+    expect(controleerKlant({ naam: "Bo", telefoon: "0612345678", email: "geen-mail" }, "ophalen", "").ok).toBe(false);
     // ophalen vraagt geen adres
     expect(controleerKlant({ naam: "Bo", email: "bo@example.nl", telefoon: "+31612345678" }, "ophalen", "").ok).toBe(true);
   });
@@ -335,7 +351,8 @@ describe("beheer", () => {
       te_bezorgen: 1,
       inkoop_onbekend: false,
     });
-    expect(o.betaalstatus).toEqual({ open: 0, deels: 1, betaald: 1 });
+    // bestelling 2 is deels betaald: nog openstaand (nooit ‘betaald’ zonder het volle bedrag)
+    expect(o.betaalstatus).toEqual({ open: 1, verzoek: 0, betaald: 1, terugbetaald: 0 });
 
     const lijst = await jsonVan(beheer("/bestellingen?betaal=open"));
     expect(lijst.bestellingen.map((b: J) => b.nummer)).toEqual(["SZ-0003", "SZ-0002"]);
@@ -363,7 +380,7 @@ describe("beheer", () => {
     await startRonde();
     await bestel({ levering: "bezorgen", klant: { ...KLANT, naam: "=HYPERLINK(\"x\")" } });
     const best = await (await beheer("/export/bestellingen.csv")).text();
-    expect(best.split("\r\n")[0]).toContain("Bestelnummer;Datum;Ronde");
+    expect(best.split("\r\n")[0]).toContain("Bestelnummer;Afhaalcode;Datum;Ronde");
     expect(best).toContain("SZ-0001");
     expect(best).toContain("anna@example.com");
     expect(best).toContain("'=HYPERLINK");
@@ -500,3 +517,215 @@ async function productInvoer(id: number) {
     aanbiedingen: p.aanbiedingen,
   };
 }
+
+// ---------- Aanvullende eisen 22-11-2026: mobiel nummer, afhaalcode, betaalstatussen, staffelkorting ----------
+
+describe("mobiel nummer en klantgegevens", () => {
+  it("accepteert Nederlandse mobiele nummers, ook in +31-notatie, en weigert vaste nummers", () => {
+    for (const ok of ["0612345678", "06-12345678", "06 1234 5678", "+31612345678", "+31 6 1234 5678", "+31 (0)6 12345678", "0031612345678"]) expect(normaliseerMobiel(ok)).toBe("0612345678");
+    for (const fout of ["0301234567", "+31301234567", "061234567", "06123456789", "+32612345678", "abc", ""]) expect(normaliseerMobiel(fout)).toBeNull();
+    const vast = controleerKlant({ naam: "Bo", telefoon: "030 123 4567" }, "ophalen", "");
+    expect(!vast.ok && vast.fouten.telefoon).toMatch(/mobiel/);
+  });
+
+  it("ophalen zonder adres en zonder e-mail; bezorgen vraagt straat, huisnummer en postcode in het gebied", async () => {
+    await startRonde();
+    const zonderMail = await bestel({ klant: { naam: "Piet", telefoon: "+31 6 9999 0000" } });
+    expect(zonderMail.status).toBe(201);
+    expect((db.raw.prepare("SELECT email, telefoon, straat FROM sz_bestelling").get() as J)).toEqual({ email: "", telefoon: "0699990000", straat: "" });
+    const geenAdres = await bestel({ levering: "bezorgen", klant: { naam: "Piet", telefoon: "0699990000" } });
+    expect(Object.keys(((await geenAdres.json()) as J).velden).sort()).toEqual(["huisnummer", "postcode", "straat"]);
+    expect(binnenBezorggebied("3992ab", "3991, 3992")).toBe(true);
+    expect(binnenBezorggebied("3511 AB", "3991, 3992")).toBe(false);
+  });
+});
+
+describe("afhaalcode", () => {
+  it("elke bestelling krijgt een unieke code H-dddd; ook bij veel gelijktijdige bestellingen geen botsing", async () => {
+    await startRonde();
+    const res = await Promise.all(Array.from({ length: 25 }, (_, i) => bestel({}, `198.51.100.${i + 1}`)));
+    const codes = await Promise.all(res.map(async (r) => ((await r.json()) as J).bestelling.afhaalcode));
+    expect(codes.every((c) => /^H-\d{4,5}$/.test(c))).toBe(true);
+    expect(new Set(codes).size).toBe(25);
+    expect(normaliseerAfhaalcode("h 4827")).toBe("H-4827");
+    expect(normaliseerAfhaalcode("4827")).toBe("H-4827");
+    expect(normaliseerAfhaalcode("X-12")).toBeNull();
+  });
+
+  it("botsing met een bestaande code wordt opgelost met een nieuwe code", async () => {
+    await startRonde();
+    const rnd = vi.spyOn(crypto, "getRandomValues");
+    // eerste bestelling: code H-1000; daarna dwingt de mock opnieuw 1000 af voor de vooraf-controle én de eerste poging
+    rnd.mockImplementation(<T extends ArrayBufferView | null>(a: T) => { (a as unknown as Uint32Array)[0] = 0; return a; });
+    expect(((await (await bestel()).json()) as J).bestelling.afhaalcode).toBe("H-1000");
+    let n = 0;
+    rnd.mockImplementation(<T extends ArrayBufferView | null>(a: T) => { (a as unknown as Uint32Array)[0] = n++ < 7 ? 0 : 1234; return a; });
+    expect(((await (await bestel()).json()) as J).bestelling.afhaalcode).toBe("H-2234");
+    rnd.mockRestore();
+  });
+
+  it("de afhaalcode geeft publiek geen toegang tot gegevens; alleen de beheerder kan erop zoeken", async () => {
+    await startRonde();
+    const { bestelling } = (await (await bestel()).json()) as J;
+    expect((await req("/api/strooizout/bestelling/bekijk", { method: "POST", body: JSON.stringify({ code: bestelling.afhaalcode }) })).status).toBe(404);
+    expect((await req("/api/strooizout/bestelling/annuleer", { method: "POST", body: JSON.stringify({ code: bestelling.afhaalcode }) })).status).toBe(404);
+    expect((await beheer(`/afhalen/${bestelling.afhaalcode}`, { token: null })).status).toBe(401);
+    const gevonden = await jsonVan(beheer(`/afhalen/${bestelling.afhaalcode.slice(2)}`));
+    expect(gevonden.bestelling).toMatchObject({ afhaalcode: bestelling.afhaalcode, zakken: 2, betaalstatus: "open", uitgegeven: false });
+    // beheer zoekt op code, naam en mobiel nummer (ook als +31)
+    for (const q of [bestelling.afhaalcode, "anna", "+31 6 1234 5678", "0612345678"]) {
+      expect((await jsonVan(beheer(`/bestellingen?zoek=${encodeURIComponent(q)}`))).bestellingen).toHaveLength(1);
+    }
+  });
+
+  it("uitgifte: atomair, met betaling; nooit twee keer (ook gelijktijdig)", async () => {
+    await startRonde();
+    const { bestelling } = (await (await bestel()).json()) as J;
+    const code = bestelling.afhaalcode;
+    const uitgifte = () => beheer(`/afhalen/${code}/uitgeven`, { method: "POST", body: JSON.stringify({ betaling: { wijze: "contant", bedrag_cent: 1798, ontvangen: true } }) });
+    const [a, b] = await Promise.all([uitgifte(), uitgifte()]);
+    expect([a.status, b.status].sort()).toEqual([200, 409]);
+    const tweede = [a, b].find((x) => x.status === 409)!;
+    expect(((await tweede.json()) as J).error).toMatch(/al uitgegeven/);
+    // precies één betaling geboekt, status afgehaald
+    expect((db.raw.prepare("SELECT COUNT(*) AS n, SUM(bedrag_cent) AS som FROM sz_betaling").get() as J)).toEqual({ n: 1, som: 1798 });
+    const na = await jsonVan(beheer(`/afhalen/${code}`));
+    expect(na.bestelling).toMatchObject({ uitgegeven: true, betaalstatus: "betaald", status: "afgehaald" });
+    // betaling zonder ‘echt ontvangen’ wordt geweigerd
+    const tweedeBestelling = (await (await bestel()).json()) as J;
+    expect((await beheer(`/afhalen/${tweedeBestelling.bestelling.afhaalcode}/uitgeven`, { method: "POST", body: JSON.stringify({ betaling: { wijze: "contant", bedrag_cent: 100 } }) })).status).toBe(422);
+  });
+});
+
+describe("betaalstatussen", () => {
+  it("openstaand → betaalverzoek verstuurd → betaald → terugbetaald, nooit automatisch betaald", async () => {
+    expect(betaalstatus({ totaal_cent: 1000, betaald_cent: 0 })).toBe("open");
+    expect(betaalstatus({ totaal_cent: 1000, betaald_cent: 0, betaalverzoek_op: "2026-12-01T10:00:00Z" })).toBe("verzoek");
+    expect(betaalstatus({ totaal_cent: 1000, betaald_cent: 500, betaalverzoek_op: "2026-12-01T10:00:00Z" })).toBe("verzoek");
+    expect(betaalstatus({ totaal_cent: 1000, betaald_cent: 1000 })).toBe("betaald");
+    expect(betaalstatus({ totaal_cent: 1000, betaald_cent: 0, ontvangen_cent: 1000 })).toBe("terugbetaald");
+
+    await startRonde();
+    await bestel();
+    const st = async () => (await jsonVan(beheer("/bestellingen/1"))).bestelling.betaalstatus;
+    expect(await st()).toBe("open");
+    expect((await beheer("/bestellingen/1/betaalverzoek", { method: "POST", body: JSON.stringify({ verstuurd: true }) })).status).toBe(200);
+    expect(await st()).toBe("verzoek");
+    await beheer("/bestellingen/1/betaling", { method: "POST", body: JSON.stringify({ bedrag_cent: 1798, wijze: "tikkie", ontvangen: true }) });
+    expect(await st()).toBe("betaald");
+    await beheer("/bestellingen/1/betaling", { method: "POST", body: JSON.stringify({ bedrag_cent: 1798, wijze: "terugbetaling", ontvangen: true }) });
+    expect(await st()).toBe("terugbetaald");
+    const lijst = await jsonVan(beheer("/bestellingen?betaal=terugbetaald"));
+    expect(lijst.bestellingen).toHaveLength(1);
+  });
+});
+
+describe("staffelkorting", () => {
+  const nu = "2026-12-01T12:00:00.000Z";
+  const zout: PrijsProduct = { id: 1, naam: "Strooizout 25 kg", prijs_cent: 899, inkoop_cent: 600, bezorg_cent: null, gewicht_gram: 25000, aanbiedingen: [{ id: 1, naam: "Staffelkorting", vanaf_aantal: 4, prijs_cent: 849, start: null, eind: null, actief: true }] };
+  const inst = { bezorg_methode: "per_stuk" as const, bezorg_per_stuk_cent: 50, bezorg_per_kg_cent: 2 };
+
+  it("1–3 zakken € 8,99; vanaf 4 € 8,49 op alle zakken; bezorgkosten apart € 0,50 per zak", () => {
+    const drie = bereken([{ product: zout, aantal: 3 }], "bezorgen", inst, nu);
+    expect(drie).toMatchObject({ subtotaal_cent: 2697, korting_cent: 0, bezorg_cent: 150, totaal_cent: 2847 });
+    const vier = bereken([{ product: zout, aantal: 4 }], "bezorgen", inst, nu);
+    expect(vier).toMatchObject({ subtotaal_cent: 3396, korting_cent: 200, bezorg_cent: 200, totaal_cent: 3596 });
+    expect(vier.regels[0]).toMatchObject({ stukprijs_cent: 849, normaalprijs_cent: 899, aanbieding: "Staffelkorting" });
+    expect(bereken([{ product: zout, aantal: 10 }], "ophalen", inst, nu)).toMatchObject({ subtotaal_cent: 8490, korting_cent: 500, totaal_cent: 8490 });
+    expect(bereken([{ product: zout, aantal: 20 }], "bezorgen", inst, nu)).toMatchObject({ subtotaal_cent: 16980, korting_cent: 1000, bezorg_cent: 1000, totaal_cent: 17980 });
+  });
+
+  it("melding ‘Bestel 4 zakken en bespaar € 2,00!’ bij 1–3 zakken, niet vanaf 4", () => {
+    for (const n of [1, 2, 3]) expect(volgendeStaffel(zout, n, nu)).toEqual({ naam: "Staffelkorting", vanaf: 4, prijs_cent: 849, besparing_cent: 200 });
+    expect(volgendeStaffel(zout, 4, nu)).toBeNull();
+    expect(volgendeStaffel(zout, 12, nu)).toBeNull();
+  });
+
+  it("server-side: staffel staat standaard aan, korting wordt opgeslagen en komt in financiën", async () => {
+    await startRonde();
+    const w = await jsonVan(req("/api/strooizout/winkel"));
+    expect(w.producten[0].aanbiedingen).toMatchObject([{ naam: "Staffelkorting", vanaf_aantal: 4, prijs_cent: 849 }]);
+    const r3 = ((await (await bestel({ regels: [{ product_id: 1, aantal: 3, prijs_cent: 1 }] })).json()) as J).bestelling;
+    expect(r3).toMatchObject({ subtotaal_cent: 2697, korting_cent: 0, totaal_cent: 2697 });
+    const r4 = ((await (await bestel({ regels: [{ product_id: 1, aantal: 4 }], levering: "bezorgen" })).json()) as J).bestelling;
+    expect(r4).toMatchObject({ subtotaal_cent: 3396, korting_cent: 200, bezorg_cent: 200, totaal_cent: 3596 });
+    expect(db.raw.prepare("SELECT korting_cent FROM sz_bestelling WHERE id = 2").get()).toEqual({ korting_cent: 200 });
+    expect(db.raw.prepare("SELECT stukprijs_cent, normaalprijs_cent, aanbieding FROM sz_bestelregel WHERE bestelling_id = 2").get()).toEqual({ stukprijs_cent: 849, normaalprijs_cent: 899, aanbieding: "Staffelkorting" });
+    const r10 = ((await (await bestel({ regels: [{ product_id: 1, aantal: 10 }] })).json()) as J).bestelling;
+    expect(r10).toMatchObject({ subtotaal_cent: 8490, korting_cent: 500 });
+    const f = (await jsonVan(beheer("/financien"))).cijfers;
+    expect(f).toMatchObject({ korting_cent: 700, product_omzet_cent: 2697 + 3396 + 8490, bezorg_cent: 200 });
+    const fin = await (await beheer("/export/financien.csv")).text();
+    expect(fin.split("\r\n")[0]).toContain("Producten normale prijs;Korting;Omzet producten");
+    expect(fin).toContain(";35,96;2,00;33,96;");
+  });
+
+  it("staffel is in het beheer aan te passen (grens en prijs)", async () => {
+    const p = await productInvoer(1);
+    await beheer("/producten/1", { method: "PUT", body: JSON.stringify({ ...p, aanbiedingen: [{ naam: "Staffelkorting", vanaf_aantal: 5, prijs_cent: 799 }] }) });
+    await startRonde();
+    expect(((await (await bestel({ regels: [{ product_id: 1, aantal: 4 }] })).json()) as J).bestelling.totaal_cent).toBe(3596);
+    expect(((await (await bestel({ regels: [{ product_id: 1, aantal: 5 }] })).json()) as J).bestelling.totaal_cent).toBe(3995);
+  });
+});
+
+describe("bevindingen uit de review", () => {
+  it("productwijziging overschrijft de live voorraad niet", async () => {
+    db.raw.prepare("UPDATE sz_product SET voorraad = 10 WHERE id = 1").run();
+    const verouderd = await productInvoer(1); // beheerder ziet 10
+    await startRonde();
+    await bestel({ regels: [{ product_id: 1, aantal: 7 }] }); // voorraad 3
+    // alleen de beschrijving wijzigen met de oude stand: voorraad blijft 3
+    // (het beheer stuurt de voorraad alleen mee als de beheerder dat veld heeft aangepast)
+    const { voorraad: _v, ...zonderVoorraad } = verouderd;
+    void _v;
+    const r = await beheer("/producten/1", { method: "PUT", body: JSON.stringify({ ...zonderVoorraad, beschrijving: "Nieuw.", voorraad_was: 10 }) });
+    expect(r.status).toBe(200);
+    expect((db.raw.prepare("SELECT voorraad, beschrijving FROM sz_product WHERE id = 1").get() as J)).toEqual({ voorraad: 3, beschrijving: "Nieuw." });
+    // voorraad bewust wijzigen op basis van een verouderde stand: 409
+    expect((await beheer("/producten/1", { method: "PUT", body: JSON.stringify({ ...verouderd, voorraad: 50, voorraad_was: 10 }) })).status).toBe(409);
+    expect((await beheer("/producten/1", { method: "PUT", body: JSON.stringify({ ...verouderd, voorraad: 50, voorraad_was: 3 }) })).status).toBe(200);
+    expect((db.raw.prepare("SELECT voorraad FROM sz_product WHERE id = 1").get() as J).voorraad).toBe(50);
+    // status apart wisselen raakt de voorraad niet
+    await beheer("/producten/1/status", { method: "PUT", body: JSON.stringify({ status: "verborgen" }) });
+    expect((db.raw.prepare("SELECT voorraad, status FROM sz_product WHERE id = 1").get() as J)).toEqual({ voorraad: 50, status: "verborgen" });
+  });
+
+  it("een moment met maximum raakt niet overboekt bij gelijktijdige bestellingen", async () => {
+    const ronde = await startRonde();
+    const morgen = new Date(Date.now() + 86400_000).toISOString().slice(0, 10);
+    await beheer("/momenten", { method: "POST", body: JSON.stringify({ soort: "ophalen", datum: morgen, van: "10:00", tot: "12:00", max_bestellingen: 2, ronde_id: ronde.id }) });
+    const res = await Promise.all([1, 2, 3, 4].map((i) => bestel({ moment_id: 1 }, `198.51.100.${i}`)));
+    expect(res.map((r) => r.status).sort()).toEqual([201, 201, 409, 409]);
+    expect((db.raw.prepare("SELECT COUNT(*) AS n FROM sz_bestelling WHERE moment_id = 1").get() as J).n).toBe(2);
+  });
+
+  it("zonder HASH_SECRET kan er niet besteld of bekeken worden (fail closed)", async () => {
+    await startRonde();
+    env.HASH_SECRET = undefined;
+    expect((await bestel()).status).toBe(503);
+    expect((await req("/api/strooizout/bestelling/bekijk", { method: "POST", body: JSON.stringify({ code: "1-000000000000000000000000" }) })).status).toBe(503);
+    expect((await req("/api/strooizout/winkel")).status).toBe(200);
+  });
+
+  it("werkelijke inkoop over alle rondes telt per ronde factuurbedrag óf inkoopregels", async () => {
+    const r1 = await startRonde();
+    await beheer(`/rondes/${r1.id}`, { method: "PUT", body: JSON.stringify({ status: "afgerond", inkoop_bedrag_cent: 10000 }) });
+    const r2 = await jsonVan(beheer("/rondes", { method: "POST", body: JSON.stringify({ naam: "Ronde 2" }) }));
+    await beheer(`/rondes/${r2.id}`, { method: "PUT", body: JSON.stringify({ inkoop: [{ product_id: 1, aantal: 10, stukprijs_cent: 500 }] }) });
+    expect((await jsonVan(beheer("/financien?ronde=alle"))).werkelijke_inkoop_cent).toBe(15000);
+  });
+
+  it("verlaten open bestellingen worden na 12 maanden geannuleerd (voorraad terug) en daarna gewist", async () => {
+    db.raw.prepare("UPDATE sz_product SET voorraad = 5 WHERE id = 1").run();
+    await startRonde();
+    await bestel({ regels: [{ product_id: 1, aantal: 2 }] });
+    expect((db.raw.prepare("SELECT voorraad FROM sz_product WHERE id = 1").get() as J).voorraad).toBe(3);
+    const later = new Date(Date.now() + 13 * 31 * 86400_000);
+    await opschonen(db as unknown as D1Database, STANDAARD_INSTELLINGEN, later);
+    expect((db.raw.prepare("SELECT status FROM sz_bestelling").get() as J).status).toBe("geannuleerd");
+    expect((db.raw.prepare("SELECT voorraad FROM sz_product WHERE id = 1").get() as J).voorraad).toBe(5);
+    await opschonen(db as unknown as D1Database, STANDAARD_INSTELLINGEN, new Date(later.getTime() + 7 * 31 * 86400_000));
+    expect(db.raw.prepare("SELECT naam, telefoon, afhaalcode FROM sz_bestelling").get()).toEqual({ naam: "Gewist", telefoon: "", afhaalcode: null });
+  });
+});

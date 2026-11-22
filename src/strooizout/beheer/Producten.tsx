@@ -137,7 +137,9 @@ function Editor({ product, lijst, sluit, opgeslagen }: { product: BeheerProduct 
       bezorg_cent: bezorg,
       gewicht_gram: f.gewicht_gram,
       eenheid: f.eenheid,
-      voorraad: f.voorraadTekst.trim() === "" ? null : Number(f.voorraadTekst),
+      // Voorraad alleen meesturen als de beheerder hem heeft aangepast; anders blijft de live stand staan.
+      ...((f.voorraadTekst.trim() === "" ? null : Number(f.voorraadTekst)) !== (product?.voorraad ?? null) || !product ? { voorraad: f.voorraadTekst.trim() === "" ? null : Number(f.voorraadTekst) } : {}),
+      voorraad_was: product?.voorraad ?? null,
       max_per_bestelling: f.max_per_bestelling,
       afbeelding: f.afbeelding,
       afbeelding_alt: f.afbeelding_alt,
@@ -149,7 +151,10 @@ function Editor({ product, lijst, sluit, opgeslagen }: { product: BeheerProduct 
     setBezig(true);
     const r = await api(product ? `/producten/${product.id}` : "/producten", { method: product ? "PUT" : "POST", body: JSON.stringify(body) });
     setBezig(false);
-    if (!r.ok) return setFout(r.error);
+    if (!r.ok) {
+      if (r.status === 409 && "voorraad" in r.extra) opgeslagen();
+      return setFout(r.error);
+    }
     meld(product ? "Product opgeslagen" : "Product toegevoegd");
     opgeslagen();
     sluit();
@@ -315,8 +320,8 @@ function Editor({ product, lijst, sluit, opgeslagen }: { product: BeheerProduct 
             </fieldset>
 
             <fieldset className="bh-veld" style={{ border: 0, padding: 0, margin: 0 }}>
-              <legend>Aanbiedingen (optioneel)</legend>
-              <small>Een actieprijs per stuk, eventueel pas vanaf een aantal (staffel) en binnen een periode. De laagste geldige prijs telt.</small>
+              <legend>Staffelkorting en aanbiedingen</legend>
+              <small>Staffel: bijv. ‘vanaf 4’ en ‘8,49’ geeft vanaf 4 stuks € 8,49 per stuk, voor álle stuks in de bestelling. Optioneel binnen een periode. De laagste geldige prijs telt; de webshop toont zelf ‘Bestel 4 en bespaar …’.</small>
               {f.aanbiedingen.map((a, i) => (
                 <div className="bh-kaart" key={i} style={{ marginTop: 8, padding: 12 }}>
                   <div className="bh-formulier">
@@ -403,11 +408,7 @@ export default function Producten() {
   }, [laad]);
 
   async function snelStatus(p: BeheerProduct, status: BeheerProduct["status"]) {
-    const { berekend: _b, id: _i, slug: _s, ...rest } = p;
-    void _b;
-    void _i;
-    void _s;
-    const r = await api(`/producten/${p.id}`, { method: "PUT", body: JSON.stringify({ ...rest, status }) });
+    const r = await api(`/producten/${p.id}/status`, { method: "PUT", body: JSON.stringify({ status }) });
     if (!r.ok) return meld(r.error, true);
     meld(status === "actief" ? "Product staat in de webshop" : "Product is uit de webshop gehaald");
     void laad();

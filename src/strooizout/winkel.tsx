@@ -1,10 +1,10 @@
 // De webshop: held, producten, hoe het werkt, ophalen/bezorgen/betalen en veelgestelde vragen.
 
 import { useEffect, useMemo, useState } from "react";
-import { aanbiedingGeldig, datumTijd, euro, gewichtTekst, parsePostcodes, type PubliekProduct, type Winkel } from "../../shared/strooizout";
+import { aanbiedingGeldig, alsPrijsProduct, datumTijd, euro, gewichtTekst, parsePostcodes, stukprijs, volgendeStaffel, type PubliekProduct, type Winkel } from "../../shared/strooizout";
 import { IcoonBus, IcoonEuro, IcoonHuis, IcoonKlok, IcoonLet, IcoonPijlRechts, IcoonSneeuw, IcoonVink } from "./iconen";
 import { useMand } from "./mandje";
-import { Aantal, maxVoor } from "./opmaak";
+import { Aantal, maxVoor, StaffelHint } from "./opmaak";
 import { Link } from "./router";
 import { useWinkel } from "./winkeldata";
 
@@ -57,6 +57,26 @@ export function RondeStatus({ winkel }: { winkel: Winkel }) {
   );
 }
 
+/** Snel terug naar je laatste bestelling en afhaalcode (alleen in deze browser bewaard). */
+function LaatsteBestelling() {
+  const [laatste] = useState<{ code: string; afhaalcode: string } | null>(() => {
+    try {
+      const v = JSON.parse(localStorage.getItem("strooizout:laatste") ?? "null");
+      return v && typeof v.code === "string" ? v : null;
+    } catch {
+      return null;
+    }
+  });
+  if (!laatste) return null;
+  return (
+    <p className="sz-laatste">
+      <a href={`/strooizout/bestelling#${laatste.code}`}>
+        Je bestelling{laatste.afhaalcode ? ` ${laatste.afhaalcode}` : ""} bekijken <IcoonPijlRechts />
+      </a>
+    </p>
+  );
+}
+
 function Held({ winkel }: { winkel: Winkel | null }) {
   const hoofd = winkel?.producten.find((p) => p.slug === "strooizout-25-kg") ?? winkel?.producten[0];
   return (
@@ -72,6 +92,7 @@ function Held({ winkel }: { winkel: Winkel | null }) {
           <p className="sz-held__tekst">
             We kopen strooizout samen in, zodat het voordelig en dichtbij is. Reserveer je zakken, haal ze gratis op in Houten of laat ze bezorgen. Betalen doe je pas bij ontvangst.
           </p>
+          <LaatsteBestelling />
           {winkel && <RondeStatus winkel={winkel} />}
           <div className="sz-held__acties">
             <a href="#producten" className="sz-knop">
@@ -135,7 +156,7 @@ function ProductKaart({ p, winkel }: { p: PubliekProduct; winkel: Winkel }) {
           <p key={s.id} className="sz-melding sz-melding--info" style={{ margin: 0 }}>
             <IcoonEuro />
             <span>
-              {s.naam}: vanaf {s.vanaf_aantal} stuks {euro(s.prijs_cent)} per {p.eenheid}
+              {s.naam}: vanaf {s.vanaf_aantal} {p.eenheid === "zak" ? "zakken" : "stuks"} {euro(s.prijs_cent)} per {p.eenheid}, voor alle {p.eenheid === "zak" ? "zakken" : "stuks"}
             </span>
           </p>
         ))}
@@ -189,6 +210,22 @@ function ProductKaart({ p, winkel }: { p: PubliekProduct; winkel: Winkel }) {
             )}
           </button>
         </div>
+        {kan && (() => {
+          const totaalAantal = inMand + Math.min(aantal, max);
+          const prijs = stukprijs(alsPrijsProduct(p), totaalAantal, winkel.nu);
+          return (
+            <>
+              {prijs.aanbieding && (
+                <p className="sz-staffel sz-staffel--actief">
+                  <span>
+                    {prijs.aanbieding}: {totaalAantal} × {euro(prijs.cent)} = {euro(totaalAantal * prijs.cent)} <s>{euro(totaalAantal * p.prijs_cent)}</s>
+                  </span>
+                </p>
+              )}
+              <StaffelHint staffel={volgendeStaffel(alsPrijsProduct(p), totaalAantal, winkel.nu)} eenheid={p.eenheid} max={maxVoor(p)} onKies={(n) => setAantal(Math.max(1, n - inMand))} />
+            </>
+          );
+        })()}
         <span className="sr-only" aria-live="polite">
           {toegevoegd ? `${p.naam} is toegevoegd aan je mandje.` : ""}
         </span>

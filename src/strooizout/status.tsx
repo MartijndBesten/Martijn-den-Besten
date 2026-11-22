@@ -2,7 +2,7 @@
 // serverlogs of statistieken; de pagina haalt de bestelling op met een POST.
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { betaalstatus, dagTekst, euro } from "../../shared/strooizout";
+import { dagTekst, euro } from "../../shared/strooizout";
 import { vraag, type KlantBestelling } from "./api";
 import { IcoonKopie, IcoonLet, IcoonVink } from "./iconen";
 import { Link } from "./router";
@@ -26,7 +26,7 @@ export default function Status() {
   const [fout, setFout] = useState("");
   const [net, setNet] = useState(false);
   const [annuleren, setAnnuleren] = useState<"nee" | "vraag" | "bezig">("nee");
-  const [gekopieerd, setGekopieerd] = useState(false);
+  const [gekopieerd, setGekopieerd] = useState<"" | "code" | "link">("");
   const kop = useRef<HTMLHeadingElement>(null);
 
   const laad = useCallback(async () => {
@@ -87,7 +87,8 @@ export default function Status() {
 
   const stappen = b.levering === "bezorgen" ? STAPPEN_BEZORGEN : STAPPEN_OPHALEN;
   const huidig = stappen.findIndex((s) => s.s === b.status);
-  const betaal = betaalstatus(b.totaal_cent, b.betaald_cent);
+  const betaal = b.betaalstatus;
+  const deelTekst = `Mijn strooizoutbestelling: afhaalcode ${b.afhaalcode} (${b.regels.map((r) => `${r.aantal}× ${r.naam}`).join(", ")}). Bekijken: ${link}`;
   const geannuleerd = b.status === "geannuleerd";
 
   return (
@@ -101,6 +102,40 @@ export default function Status() {
         <h1 tabIndex={-1} ref={kop} style={{ outline: "none" }}>
           {geannuleerd ? "Je reservering is geannuleerd" : net ? `Bedankt, ${b.voornaam}! Je reservering is geplaatst.` : `Je bestelling, ${b.voornaam}`}
         </h1>
+        {b.afhaalcode && !geannuleerd && (
+          <div className="sz-codekaart">
+            <span className="sz-codekaart__label">{b.levering === "ophalen" ? "Je afhaalcode" : "Je bestelcode"}</span>
+            <strong className="sz-codekaart__code" aria-label={`Code ${b.afhaalcode.split("").join(" ")}`}>
+              {b.afhaalcode}
+            </strong>
+            <span className="sz-codekaart__uitleg">{b.levering === "ophalen" ? "Noem of laat deze code zien bij het afhalen." : "Noem deze code als je contact opneemt."}</span>
+            <div className="sz-codekaart__knoppen">
+              <button
+                type="button"
+                className="sz-knop sz-knop--klein"
+                onClick={async () => {
+                  try {
+                    await navigator.clipboard.writeText(b.afhaalcode);
+                    setGekopieerd("code");
+                    window.setTimeout(() => setGekopieerd(""), 2000);
+                  } catch {
+                    /* niet toegestaan */
+                  }
+                }}
+              >
+                <IcoonKopie /> {gekopieerd === "code" ? "Gekopieerd" : "Kopieer code"}
+              </button>
+              {typeof navigator.share === "function" ? (
+                <button type="button" className="sz-knop sz-knop--licht sz-knop--klein" onClick={() => void navigator.share({ title: "Strooizout voor de buurt", text: deelTekst }).catch(() => {})}>
+                  Delen of bewaren
+                </button>
+              ) : null}
+              <a className="sz-knop sz-knop--licht sz-knop--klein" href={`https://wa.me/?text=${encodeURIComponent(deelTekst)}`} target="_blank" rel="noopener noreferrer">
+                Stuur naar mezelf (WhatsApp)
+              </a>
+            </div>
+          </div>
+        )}
         <p>
           Bestelnummer <span className="sz-nummer">{b.nummer}</span>
         </p>
@@ -110,7 +145,7 @@ export default function Status() {
           <div className="sz-blok">
             <h2>Bewaar deze pagina</h2>
             <p style={{ margin: 0, color: "var(--tekst-2)" }}>
-              Via deze persoonlijke link zie je altijd de actuele stand van je bestelling{b.levering === "ophalen" ? " en, na bevestiging, het afhaaladres" : ""}. We sturen geen automatische e-mail.
+              Maak een schermafbeelding van je code, of bewaar deze link. Via de link zie je altijd de actuele stand van je bestelling{b.levering === "ophalen" ? " en, na bevestiging, het afhaaladres" : ""}. We sturen geen automatische e-mail.
             </p>
             <div className="sz-linkvak">
               <input className="sz-invoer" readOnly value={link} aria-label="Persoonlijke link naar je bestelling" onFocus={(e) => e.currentTarget.select()} />
@@ -120,14 +155,14 @@ export default function Status() {
                 onClick={async () => {
                   try {
                     await navigator.clipboard.writeText(link);
-                    setGekopieerd(true);
-                    window.setTimeout(() => setGekopieerd(false), 2000);
+                    setGekopieerd("link");
+                    window.setTimeout(() => setGekopieerd(""), 2000);
                   } catch {
                     /* kopiëren niet toegestaan: veld is te selecteren */
                   }
                 }}
               >
-                <IcoonKopie /> {gekopieerd ? "Gekopieerd" : "Kopieer"}
+                <IcoonKopie /> {gekopieerd === "link" ? "Gekopieerd" : "Kopieer"}
               </button>
             </div>
           </div>
@@ -179,7 +214,19 @@ export default function Status() {
             </dd>
             <dt>Betaling</dt>
             <dd>
-              {betaal === "betaald" ? "Betaald, bedankt!" : betaal === "deels" ? `Deels betaald (${euro(b.betaald_cent)})` : b.betaalwijze === "tikkie" ? "Je krijgt een Tikkie van ons" : b.levering === "bezorgen" ? "Bij bezorgen" : "Bij afhalen"}
+              {betaal === "betaald"
+                ? "Betaald, bedankt!"
+                : betaal === "terugbetaald"
+                  ? "Terugbetaald"
+                  : betaal === "verzoek"
+                    ? "Betaalverzoek verstuurd naar je mobiel"
+                    : b.betaald_cent > 0
+                      ? `Deels betaald (${euro(b.betaald_cent)}), rest ${b.levering === "bezorgen" ? "bij bezorgen" : "bij afhalen"}`
+                      : b.betaalwijze === "tikkie"
+                        ? "Je krijgt een betaalverzoek op je mobiel"
+                        : b.levering === "bezorgen"
+                          ? "Bij bezorgen"
+                          : "Bij afhalen"}
             </dd>
             <dt>{b.levering === "bezorgen" ? "Bezorgen op" : "Ophalen"}</dt>
             <dd>

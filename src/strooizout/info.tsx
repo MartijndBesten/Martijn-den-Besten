@@ -43,8 +43,8 @@ export function Privacy() {
               <td>Om je bestelling bij het afhalen of bezorgen aan jou te kunnen geven.</td>
             </tr>
             <tr>
-              <td>E-mailadres en telefoonnummer</td>
-              <td>Om contact met je op te nemen over je reservering, het afhaalmoment of de bezorging.</td>
+              <td>Mobiel nummer (verplicht) en e-mailadres (optioneel)</td>
+              <td>Om contact met je op te nemen over je reservering, het afhaalmoment of de bezorging, en om je eventueel een betaalverzoek (bijv. Tikkie) te sturen.</td>
             </tr>
             <tr>
               <td>Adres (alleen bij bezorgen)</td>
@@ -68,7 +68,7 @@ export function Privacy() {
 
         <h2>Hoe lang we je gegevens bewaren</h2>
         <p>
-          Naam, e-mailadres, telefoonnummer, adres en opmerking worden {maanden} {maanden === 1 ? "maand" : "maanden"} nadat je bestelling is afgehaald, bezorgd of geannuleerd automatisch gewist. Een bestelling die om wat voor reden ook niet wordt afgerond, wissen we uiterlijk na twaalf maanden. Wat overblijft (bedragen, aantallen en het postcodegebied) is niet meer tot jou te herleiden en gebruiken we alleen voor de administratie.
+          Naam, mobiel nummer, e-mailadres, adres, opmerking en afhaalcode worden {maanden} {maanden === 1 ? "maand" : "maanden"} nadat je bestelling is afgehaald, bezorgd of geannuleerd automatisch gewist. Een bestelling die om wat voor reden ook niet wordt afgerond, wissen we uiterlijk na twaalf maanden. Wat overblijft (bedragen, aantallen en het postcodegebied) is niet meer tot jou te herleiden en gebruiken we alleen voor de administratie.
         </p>
 
         <h2>Je rechten</h2>

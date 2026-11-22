@@ -8,10 +8,10 @@ import { Merkteken } from "./iconen";
 import { KORTE_URL, QrCode, WINKEL_URL } from "./qr";
 import "./flyer.css";
 
-type Gegevens = { prijs: number; bezorg: number | null; plek: string };
+type Gegevens = { prijs: number; bezorg: number | null; plek: string; staffel: { vanaf: number; prijs: number } | null };
 
 function useGegevens(): Gegevens {
-  const [g, setG] = useState<Gegevens>({ prijs: 899, bezorg: 50, plek: "Houten" });
+  const [g, setG] = useState<Gegevens>({ prijs: 899, bezorg: 50, plek: "Houten", staffel: { vanaf: 4, prijs: 849 } });
   useEffect(() => {
     void laadWinkel().then((r) => {
       if (!r.ok) return;
@@ -21,6 +21,10 @@ function useGegevens(): Gegevens {
         prijs: zout?.prijs_cent ?? 899,
         bezorg: i.bezorgen_aan && i.bezorg_methode === "per_stuk" ? (zout?.bezorg_cent ?? i.bezorg_per_stuk_cent) : null,
         plek: i.afhaal_plek || "Houten",
+        staffel: (() => {
+          const a = (zout?.aanbiedingen ?? []).filter((x) => x.actief && x.vanaf_aantal > 1 && !x.start && !x.eind).sort((x, y) => x.vanaf_aantal - y.vanaf_aantal)[0];
+          return a ? { vanaf: a.vanaf_aantal, prijs: a.prijs_cent } : null;
+        })(),
       });
     });
   }, []);
@@ -55,6 +59,11 @@ export function FlyerA5({ g }: { g: Gegevens }) {
           <p className="fl-a5__prijs">
             <strong>{euro(g.prijs)}</strong> per zak
           </p>
+          {g.staffel && (
+            <p className="fl-a5__staffel">
+              Vanaf {g.staffel.vanaf} zakken <b>{euro(g.staffel.prijs)}</b> per zak
+            </p>
+          )}
         </div>
         <img src="/strooizout/beeld/strooizout-25kg.webp" alt="" />
       </div>
@@ -111,6 +120,11 @@ export function Deelbeeld({ g, vorm }: { g: Gegevens; vorm: "vierkant" | "breed"
           <img src="/strooizout/beeld/strooizout-25kg.webp" alt="" />
         </div>
         <ul>
+          {g.staffel && (
+            <li>
+              Vanaf {g.staffel.vanaf} zakken {euro(g.staffel.prijs)} per zak
+            </li>
+          )}
           <li>Gratis afhalen in {g.plek}</li>
           <li>Of laten bezorgen{g.bezorg !== null && ` (${euro(g.bezorg)} per zak)`}</li>
         </ul>
@@ -133,9 +147,13 @@ export function Deelbeeld({ g, vorm }: { g: Gegevens; vorm: "vierkant" | "breed"
           <span>voor {euro(g.prijs)}</span>
         </h1>
         <ul>
+          {g.staffel && (
+            <li>
+              Vanaf {g.staffel.vanaf} zakken {euro(g.staffel.prijs)} per zak
+            </li>
+          )}
           <li>Gratis afhalen in {g.plek}</li>
           <li>Of laten bezorgen{g.bezorg !== null && ` (${euro(g.bezorg)} per zak)`}</li>
-          <li>Bestellen in een minuut</li>
         </ul>
         <p className="fl-deel__url">{KORTE_URL}</p>
       </div>
@@ -147,7 +165,7 @@ export function Deelbeeld({ g, vorm }: { g: Gegevens; vorm: "vierkant" | "breed"
 }
 
 const WHATSAPP_TEKST = (g: Gegevens) =>
-  `❄️ Strooizout voor de buurt\nSamen veilig de winter door.\n\nZak strooizout van 25 kg voor ${euro(g.prijs)}. Gratis ophalen in ${g.plek}${g.bezorg !== null ? `, of laten bezorgen voor ${euro(g.bezorg)} per zak` : ""}. Betalen bij ontvangst.\n\nReserveren kan in een minuut: ${WINKEL_URL}`;
+  `❄️ Strooizout voor de buurt\nSamen veilig de winter door.\n\nZak strooizout van 25 kg voor ${euro(g.prijs)}${g.staffel ? ` (vanaf ${g.staffel.vanaf} zakken ${euro(g.staffel.prijs)} per zak)` : ""}. Gratis ophalen in ${g.plek}${g.bezorg !== null ? `, of laten bezorgen voor ${euro(g.bezorg)} per zak` : ""}. Betalen bij ontvangst.\n\nReserveren kan in een minuut: ${WINKEL_URL}`;
 
 export default function Flyer() {
   const g = useGegevens();

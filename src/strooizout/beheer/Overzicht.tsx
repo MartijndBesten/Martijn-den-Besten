@@ -31,11 +31,11 @@ export default function Overzicht() {
         <Kpi label="Bestellingen" waarde={c.bestellingen} sub={c.geannuleerd ? `${c.geannuleerd} geannuleerd` : "geen annuleringen"} nadruk />
         <Kpi label="Zakken verkocht" waarde={c.zakken} sub={`${c.stuks} artikelen totaal`} />
         <Kpi label="Totaalgewicht" waarde={kg(c.gewicht_gram)} />
-        <Kpi label="Omzet" waarde={euro(c.omzet_cent)} sub={`waarvan bezorging ${euro(c.bezorg_cent)}`} />
+        <Kpi label="Omzet" waarde={euro(c.omzet_cent)} sub={`bezorging ${euro(c.bezorg_cent)} · korting ${euro(c.korting_cent)}`} />
         <Kpi label="Inkoopkosten" waarde={c.inkoop_onbekend ? (c.inkoop_cent ? `${euro(c.inkoop_cent)}+` : "onbekend") : euro(c.inkoop_cent)} sub={c.inkoop_onbekend ? "niet alle inkoopprijzen bekend" : "volgens inkoopprijzen"} />
         <Kpi label="Verwachte brutowinst" waarde={c.inkoop_onbekend ? "onvolledig" : euro(c.brutowinst_cent)} sub={data.werkelijke_inkoop_cent !== null ? `met werkelijke inkoop: ${euro(c.omzet_cent - data.werkelijke_inkoop_cent)}` : undefined} />
         <Kpi label="Betaald" waarde={c.betaalstatus.betaald} sub={`${euro(c.ontvangen_cent)} ontvangen`} />
-        <Kpi label="Openstaand" waarde={c.betaalstatus.open + c.betaalstatus.deels} sub={`${euro(c.openstaand_cent)} nog te ontvangen`} />
+        <Kpi label="Openstaand" waarde={c.betaalstatus.open + c.betaalstatus.verzoek} sub={`${euro(c.openstaand_cent)} nog te ontvangen · ${c.betaalstatus.verzoek} verzoek verstuurd`} />
         <Kpi label="Nog af te halen" waarde={c.af_te_halen} sub={`${c.afgehaald} afgehaald`} />
         <Kpi label="Nog te bezorgen" waarde={c.te_bezorgen} sub={`${c.bezorgd} bezorgd`} />
       </div>

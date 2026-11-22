@@ -40,13 +40,16 @@ export default function Financien() {
       </div>
       <div className="bh-kpis">
         <Kpi label="Omzet" waarde={euro(c.omzet_cent)} sub={d.btw_modus === "inclusief" && c.btw_cent !== null ? `waarvan ${d.btw_tarief}% btw: ${euro(c.btw_cent)}` : "btw niet van toepassing ingesteld"} nadruk />
-        <Kpi label="Omzet producten" waarde={euro(c.product_omzet_cent)} sub={c.korting_cent ? `na ${euro(c.korting_cent)} korting` : undefined} />
+        <Kpi label="Producten (normale prijs)" waarde={euro(c.product_omzet_cent + c.korting_cent)} />
+        <Kpi label="Staffelkorting en aanbiedingen" waarde={euro(c.korting_cent)} sub="al verwerkt in de omzet" />
+        <Kpi label="Omzet producten" waarde={euro(c.product_omzet_cent)} sub="na korting" />
         <Kpi label="Bezorgopbrengst" waarde={euro(c.bezorg_cent)} />
         <Kpi label="Inkoopkosten (verwacht)" waarde={euro(c.inkoop_cent)} sub={c.inkoop_onbekend ? "niet alle inkoopprijzen bekend" : undefined} />
         <Kpi label="Brutowinst (verwacht)" waarde={c.inkoop_onbekend ? "onvolledig" : euro(c.brutowinst_cent)} sub="omzet min inkoop; overige kosten niet meegeteld" />
         <Kpi label="Werkelijke inkoop" waarde={werkelijk === null ? "–" : euro(werkelijk)} sub={werkelijk === null ? "nog niet geregistreerd" : `brutowinst: ${euro(c.omzet_cent - werkelijk)}`} />
         <Kpi label="Ontvangen" waarde={euro(c.ontvangen_cent)} />
-        <Kpi label="Nog te ontvangen" waarde={euro(c.openstaand_cent)} sub={`${c.betaalstatus.open} open, ${c.betaalstatus.deels} deels`} />
+        <Kpi label="Nog te ontvangen" waarde={euro(c.openstaand_cent)} sub={`${c.betaalstatus.open} openstaand, ${c.betaalstatus.verzoek} verzoek verstuurd`} />
+        <Kpi label="Terugbetaald" waarde={euro(c.terugbetaald_cent)} sub={`${c.betaalstatus.terugbetaald} bestellingen`} />
       </div>
       {c.terug_te_betalen_cent > 0 && <p className="sz-melding sz-melding--let">Ontvangen op geannuleerde bestellingen: {euro(c.terug_te_betalen_cent)}. Registreer de terugbetaling.</p>}
       <div className="bh-twee">
@@ -89,16 +92,20 @@ export default function Financien() {
           <table className="bh-tabel">
             <tbody>
               <tr>
-                <td>Volledig betaald</td>
+                <td>Openstaand</td>
+                <td className="bh-getal">{c.betaalstatus.open}</td>
+              </tr>
+              <tr>
+                <td>Betaalverzoek verstuurd</td>
+                <td className="bh-getal">{c.betaalstatus.verzoek}</td>
+              </tr>
+              <tr>
+                <td>Betaald</td>
                 <td className="bh-getal">{c.betaalstatus.betaald}</td>
               </tr>
               <tr>
-                <td>Deels betaald</td>
-                <td className="bh-getal">{c.betaalstatus.deels}</td>
-              </tr>
-              <tr>
-                <td>Nog niet betaald</td>
-                <td className="bh-getal">{c.betaalstatus.open}</td>
+                <td>Terugbetaald</td>
+                <td className="bh-getal">{c.betaalstatus.terugbetaald}</td>
               </tr>
             </tbody>
           </table>

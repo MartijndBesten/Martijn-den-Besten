@@ -1,8 +1,8 @@
 // Bestellingen: zoeken, filteren, details, status, betaling, notitie, contact en CSV-export.
 
 import { useCallback, useEffect, useMemo, useState, type FormEvent } from "react";
-import { BESTEL_STATUS, dagTekst, euro, parseEuro } from "../../../shared/strooizout";
-import { BetaalPil, downloadMetToken, kort, rondeQuery, StatusPil, useBeheer } from "./basis";
+import { BESTEL_STATUS, dagTekst, euro, mobielTekst, parseEuro } from "../../../shared/strooizout";
+import { BetaalPil, downloadMetToken, kopieer, kort, rondeQuery, StatusPil, useBeheer } from "./basis";
 import type { LijstBestelling, Moment } from "./typen";
 
 type Detail = {
@@ -18,6 +18,7 @@ type Detail = {
     overgangen: string[];
     afgerond_op: string | null;
     geanonimiseerd_op: string | null;
+    betaalverzoek_op: string | null;
   };
   regels: { id: number; naam: string; aantal: number; stukprijs_cent: number; aanbieding: string }[];
   betalingen: { id: number; bedrag_cent: number; wijze: string; notitie: string; op: string }[];
@@ -113,6 +114,14 @@ function DetailPaneel({ id, sluit, bijgewerkt, momenten }: { id: number; sluit: 
     bijgewerkt();
   }
 
+  async function verzoek(verstuurd: boolean) {
+    const r = await api(`/bestellingen/${id}/betaalverzoek`, { method: "POST", body: JSON.stringify({ verstuurd }) });
+    if (!r.ok) return meld(r.error, true);
+    meld(verstuurd ? "Gemarkeerd: betaalverzoek verstuurd" : "Betaalverzoek teruggezet");
+    await laad();
+    bijgewerkt();
+  }
+
   async function bewaar() {
     const r = await api(`/bestellingen/${id}`, { method: "PUT", body: JSON.stringify({ beheer_notitie: beheerNotitie, moment_id: momentId ? Number(momentId) : null }) });
     if (!r.ok) return meld(r.error, true);
@@ -157,11 +166,16 @@ function DetailPaneel({ id, sluit, bijgewerkt, momenten }: { id: number; sluit: 
                   ))}
                 </div>
               )}
+              {b.afhaalcode && (
+                <p className="bh-code">
+                  Afhaalcode <strong>{b.afhaalcode}</strong>
+                </p>
+              )}
               <dl className="bh-dl">
                 <dt>Naam</dt>
                 <dd>{b.naam}</dd>
-                <dt>Telefoon</dt>
-                <dd>{b.telefoon ? <a href={`tel:${b.telefoon}`}>{b.telefoon}</a> : "–"}</dd>
+                <dt>Mobiel</dt>
+                <dd>{b.telefoon ? <a href={`tel:${b.telefoon}`}>{mobielTekst(b.telefoon)}</a> : "–"}</dd>
                 <dt>E-mail</dt>
                 <dd>{b.email ? <a href={`mailto:${b.email}?subject=${encodeURIComponent(`Je strooizoutbestelling ${b.nummer}`)}&body=${encodeURIComponent(bericht)}`}>{b.email}</a> : "–"}</dd>
                 <dt>{b.levering === "bezorgen" ? "Bezorgen" : "Ophalen"}</dt>
@@ -225,6 +239,41 @@ function DetailPaneel({ id, sluit, bijgewerkt, momenten }: { id: number; sluit: 
                     Klantlink kopiëren
                   </button>
                 </div>
+              )}
+
+              {!b.geanonimiseerd_op && b.betaalstatus !== "betaald" && b.betaalstatus !== "terugbetaald" && (
+                <section className="bh-kaart">
+                  <h2>Betaalverzoek</h2>
+                  <p className="bh-sub" style={{ marginBottom: 10 }}>
+                    Maak een Tikkie of betaalverzoek in je bank-app met dit nummer en bedrag. Daarna markeren als verstuurd; ‘betaald’ registreer je pas als het geld binnen is.
+                  </p>
+                  <div className="bh-betaalverzoek">
+                    <button type="button" className="bh-kopieer" onClick={() => void kopieer(b.telefoon, meld, "Mobiel nummer")}>
+                      <span>Mobiel</span>
+                      <strong>{mobielTekst(b.telefoon)}</strong>
+                      <em>kopieer</em>
+                    </button>
+                    <button type="button" className="bh-kopieer" onClick={() => void kopieer(((b.totaal_cent - b.betaald_cent) / 100).toFixed(2).replace(".", ","), meld, "Bedrag")}>
+                      <span>Openstaand bedrag</span>
+                      <strong>{euro(b.totaal_cent - b.betaald_cent)}</strong>
+                      <em>kopieer</em>
+                    </button>
+                  </div>
+                  <div className="bh-knoppen" style={{ marginTop: 10 }}>
+                    <button type="button" className="bh-knop" onClick={() => void kopieer(`${b.telefoon}\t${((b.totaal_cent - b.betaald_cent) / 100).toFixed(2).replace(".", ",")}\tStrooizout ${b.afhaalcode || b.nummer}`, meld, "Nummer, bedrag en omschrijving")}>
+                      Kopieer alles
+                    </button>
+                    {b.betaalverzoek_op ? (
+                      <button type="button" className="bh-knop" onClick={() => void verzoek(false)}>
+                        Verstuurd op {kort(b.betaalverzoek_op)} · terugzetten
+                      </button>
+                    ) : (
+                      <button type="button" className="bh-knop bh-knop--hoofd" onClick={() => void verzoek(true)}>
+                        Markeer: betaalverzoek verstuurd
+                      </button>
+                    )}
+                  </div>
+                </section>
               )}
 
               <section className="bh-kaart">
@@ -391,7 +440,7 @@ export default function Bestellingen() {
         <label className="sr-only" htmlFor="bh-zoek">
           Zoeken
         </label>
-        <input id="bh-zoek" className="sz-invoer" type="search" placeholder="Zoek op naam, nummer, telefoon, postcode…" value={zoek} onChange={(e) => setZoek(e.target.value)} />
+        <input id="bh-zoek" className="sz-invoer" type="search" placeholder="Zoek op afhaalcode, naam of mobiel nummer…" value={zoek} onChange={(e) => setZoek(e.target.value)} />
         <select className="sz-invoer" aria-label="Status" value={status} onChange={(e) => setStatus(e.target.value)}>
           <option value="">Alle statussen</option>
           <option value="open">Nog niet afgerond</option>
@@ -408,8 +457,11 @@ export default function Bestellingen() {
         </select>
         <select className="sz-invoer" aria-label="Betaling" value={betaal} onChange={(e) => setBetaal(e.target.value)}>
           <option value="">Alle betalingen</option>
-          <option value="open">Nog niet (volledig) betaald</option>
+          <option value="nietbetaald">Nog niet betaald</option>
+          <option value="open">Openstaand</option>
+          <option value="verzoek">Betaalverzoek verstuurd</option>
           <option value="betaald">Betaald</option>
+          <option value="terugbetaald">Terugbetaald</option>
         </select>
         {momenten.length > 0 && (
           <select className="sz-invoer" aria-label="Moment" value={moment} onChange={(e) => setMoment(e.target.value)}>
@@ -429,7 +481,7 @@ export default function Bestellingen() {
           <table className="bh-tabel">
             <thead>
               <tr>
-                <th>Nr.</th>
+                <th>Code</th>
                 <th>Naam</th>
                 <th className="bh-verberg-mobiel">Producten</th>
                 <th>Levering</th>
@@ -443,12 +495,14 @@ export default function Bestellingen() {
               {(lijst ?? []).map((b) => (
                 <tr key={b.id}>
                   <td>
-                    <button type="button" className="bh-regelknop" onClick={() => setOpen(b.id)}>
-                      {b.nummer}
+                    <button type="button" className="bh-regelknop" onClick={() => setOpen(b.id)} aria-label={`Bestelling ${b.afhaalcode || b.nummer} openen`}>
+                      {b.afhaalcode || b.nummer}
                     </button>
+                    <div style={{ fontSize: 12.5, color: "var(--tekst-3)" }}>{b.nummer}</div>
                   </td>
                   <td>
                     {b.naam}
+                    <div style={{ fontSize: 13, color: "var(--tekst-3)" }}>{mobielTekst(b.telefoon)}</div>
                     {b.mogelijk_dubbel && (
                       <>
                         {" "}

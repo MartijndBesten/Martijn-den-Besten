@@ -2,6 +2,7 @@
 // Gedrag (routes, 404, headers, caching) is gelijk aan de Static Assets-configuratie.
 
 import { handleApi, korteLink, type Env } from "./index";
+import { geplandOnderhoud } from "./strooizout-beheer";
 import { FILES, HEADER_RULES } from "./generated/files";
 import { verwijstDoor } from "../shared/bijbelreis";
 
@@ -73,5 +74,8 @@ export default {
     const file = resolve(url.pathname);
     if (file) return serve(request, file);
     return serve(request, "/404.html", 404);
+  },
+  async scheduled(_event, env, ctx): Promise<void> {
+    ctx.waitUntil(geplandOnderhoud(env));
   },
 } satisfies ExportedHandler<Env>;

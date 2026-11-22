@@ -1708,3 +1708,200 @@ textarea.sz-invoer {
     font-size: 38px;
   }
 }
+
+/* ---------- Aanvulling: afhaalcode, staffelkorting, korte bestelpagina ---------- */
+
+.sz-codekaart {
+  background: var(--blauw);
+  color: #fff;
+  border-radius: 22px;
+  padding: 22px 22px 18px;
+  margin: 8px 0 20px;
+  text-align: center;
+  box-shadow: var(--schaduw-2);
+}
+.sz-codekaart__label {
+  display: block;
+  font-size: 15px;
+  color: #c9dbec;
+  font-weight: 560;
+  letter-spacing: 0.02em;
+}
+.sz-codekaart__code {
+  display: block;
+  font-size: clamp(54px, 15vw, 84px);
+  line-height: 1.05;
+  font-weight: 760;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  margin: 6px 0 4px;
+  user-select: all;
+}
+.sz-codekaart__uitleg {
+  display: block;
+  color: #dbe7f2;
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+.sz-codekaart__knoppen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.sz-codekaart .sz-knop {
+  background: #fff;
+  color: var(--blauw);
+  box-shadow: none;
+}
+.sz-codekaart .sz-knop--licht {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+.sz-codekaart .sz-knop--licht:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.sz-staffel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 10px;
+  margin: 8px 0 0;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: var(--groen-zacht);
+  color: var(--groen);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+.sz-staffel button {
+  border: 1px solid currentColor;
+  background: #fff;
+  color: var(--groen);
+  border-radius: 999px;
+  min-height: 36px;
+  padding: 0 12px;
+  font-weight: 620;
+  font-size: 14px;
+  cursor: pointer;
+}
+.sz-staffel button:hover {
+  background: #f3fbf6;
+}
+.sz-staffel--actief {
+  background: var(--ijs-1);
+  color: var(--blauw-2);
+}
+.sz-staffel s,
+.sz-regel__sub s {
+  color: var(--tekst-3);
+  font-weight: 450;
+}
+.sz-korting-tekst {
+  color: var(--groen);
+  font-weight: 600;
+}
+.sz-laatste {
+  margin: -8px 0 18px;
+}
+.sz-laatste a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  min-height: 44px;
+}
+.sz-laatste svg {
+  width: 18px;
+  height: 18px;
+}
+.sz-optioneel {
+  font-weight: 400;
+  color: var(--tekst-3);
+}
+.sz-inline-icoon {
+  width: 18px;
+  height: 18px;
+  display: inline;
+  vertical-align: -3px;
+  margin-right: 6px;
+}
+.sz-keuze--klein {
+  min-height: 0;
+  padding: 12px 14px;
+}
+.sz-controleblok {
+  border-color: var(--ijs-3);
+  background: linear-gradient(180deg, #fff, var(--ijs-0));
+}
+.sz-controlelijst {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: grid;
+  gap: 6px;
+  font-size: 15.5px;
+}
+.sz-controlelijst li {
+  padding-left: 22px;
+  position: relative;
+  overflow-wrap: anywhere;
+}
+.sz-controlelijst li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ijs-3);
+}
+.sz-velden .sz-veld--pc,
+.sz-velden .sz-veld--nr {
+  grid-column: span 3;
+}
+.sz-velden .sz-veld--straat {
+  grid-column: span 6;
+}
+.sz-totaalbalk {
+  display: none;
+}
+@media (max-width: 960px) {
+  .sz-afrekenen--kort .sz-samenvatting {
+    display: none;
+  }
+  .sz-totaalbalk {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.97);
+    border-top: 1px solid var(--rand);
+    box-shadow: 0 -8px 24px rgba(15, 44, 76, 0.08);
+  }
+  .sz-totaalbalk > div {
+    flex: 1;
+    line-height: 1.25;
+  }
+  .sz-totaalbalk strong {
+    display: block;
+    font-size: 20px;
+  }
+  .sz-totaalbalk span {
+    font-size: 13.5px;
+    color: var(--tekst-3);
+  }
+  .sz-afrekenen--kort {
+    padding-bottom: 96px;
+  }
+}
