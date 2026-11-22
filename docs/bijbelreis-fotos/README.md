@@ -49,8 +49,7 @@ Code: `public/bijbelreis/fotos.js` (gegevens `BR.fotos` en de weergave `BR.foto`
    bijsnijden tot 4:3–2:1, `resize({ width: 960 })` en `480`, `webp({ quality: 64 → 50, effort: 6, smartSubsample: true })`;
    is het paar dan nog > 100 kB, een lichte ontruising (`blur(0.7–1.1)`) vóór het omzetten.
 4. Zet de bestanden in `public/bijbelreis/fotos/` (naam = Nederlandse plaatsnaam, kleine letters) en een regel in
-   `BR.fotos` met `f, t, alt, b: 960, h, maker, licentie, licentieUrl, bron, opgehaald`. Meerdere plaatsen mogen
-   hetzelfde bestand gebruiken (Jeruzalem en de tempel).
+   `BR.fotos` met `f, t, alt, b: 960, h, maker, licentie, licentieUrl, bron, opgehaald`. Elke foto staat maar bij één plaats: nooit twee keer dezelfde foto (regel van Martijn, 22-11-2026; een unittest bewaakt het).
 5. Vul de tabel hieronder aan en draai `npx vitest run tests/bijbelreis-fotos.test.ts`.
 
 ## 4. Alle foto’s (opgehaald 16 november 2026)
@@ -86,7 +85,7 @@ Code: `public/bijbelreis/fotos.js` (gegevens `BR.fotos` en de weergave `BR.foto`
 | Hebron · Mamre (`mamre`) | `hebron` | [File:Hebron old city 0029.jpg](https://commons.wikimedia.org/wiki/File:Hebron_old_city_0029.jpg) | Baraa Zm | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | Berg Karmel (`karmel`) | `karmel` | [File:MountCarmel1.JPG](https://commons.wikimedia.org/wiki/File:MountCarmel1.JPG) | netanel_h | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
 | Berg Tabor (`ri_tabor`) | `tabor` | [File:View North from Har Tavor.jpg](https://commons.wikimedia.org/wiki/File:View_North_from_Har_Tavor.jpg) | Ephraim Harel Herer | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
-| Tempel (`nt_tempel`) | `jeruzalem` | [File:JERUSALEM OLD CITY WALLS.JPG](https://commons.wikimedia.org/wiki/File:JERUSALEM_OLD_CITY_WALLS.JPG) | AVRAHAM GRAICER | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| Tempel (`nt_tempel`) | `tempeltrappen` | [File:TempleStepsMay2009.JPG](https://commons.wikimedia.org/wiki/File:TempleStepsMay2009.JPG) (opgehaald 22-11-2026) | Wilson44691 | [Publiek domein](https://creativecommons.org/publicdomain/mark/1.0/) |
 
 Bewerkingen: alle foto’s zijn verkleind en naar WebP omgezet; sommige zijn bijgesneden tot hoogstens 2:1. Nazareth is
 bijgesneden zonder het reclamebord linksonder. Bij een deel van de foto’s is licht ontruisd om het gewicht te beperken (sterkst bij de luchtfoto’s van Jeruzalem en Jericho).

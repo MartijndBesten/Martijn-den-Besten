@@ -7,9 +7,9 @@ import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 
 type Vraag = { q: string; a?: string[] };
-type Mens = { n: string; v?: string; m?: string; p?: string[]; ook?: Record<string, string[]> };
+type Mens = { n: string; v?: string; m?: string; p?: string[]; ook?: Record<string, string[]>; leeftijd?: [number, string, { afgeleid: string; ca?: boolean }?][]; alias?: string[]; boek?: string[] };
 type BR = {
-  boeken: { id: string; delen: { quiz?: { tap?: Vraag[]; mc?: Vraag[]; ord?: Vraag[] } }[] }[];
+  boeken: { id: string; delen: { quiz?: { tap?: Vraag[]; mc?: Vraag[]; ord?: Vraag[] }; steps: { who?: [string, string?][] }[] }[] }[];
   mensen: Record<string, Mens>;
   niveaus: { verhalen: Record<string, Record<string, { vragen?: Vraag[] }>> };
 };
@@ -66,6 +66,32 @@ describe("bijbelreis: vragen met context", () => {
 
 describe("bijbelreis: familiebanden", () => {
   const M = BR.mensen, ids = Object.keys(M);
+  // Audit 22-11-2026: Sem stond alleen met 100 jaar, David alleen met 30. Een uitgerekende leeftijd staat er nu bij, altijd
+  // gemarkeerd als afgeleid (met de som); bij een exacte som (‘a + b jaar’) moet die kloppen.
+  // Audit 22-11-2026: in Daniël 3 stond ‘Vrienden: Sadrach, Mesach en Abed-Nego’ als groep, dus niet aan te klikken.
+  it("Daniël: de drie vrienden staan als personen in de stappen, ook onder hun Babylonische namen", () => {
+    const daniel = BR.boeken.find((b) => b.id === "daniel")!;
+    const namen = daniel.delen.flatMap((d) => d.steps.flatMap((s) => (s.who || []).map(([n]) => n)));
+    expect(namen).not.toContain("Vrienden");
+    for (const n of ["Hananja", "Misaël", "Azarja", "Sadrach", "Mesach", "Abed-Nego"]) {
+      const id = ids.find((i) => (M[i].boek || []).includes("daniel") && [M[i].n, ...(M[i].alias || [])].includes(n));
+      expect(id, n).toBeTruthy();
+    }
+    expect(namen).toEqual(expect.arrayContaining(["Sadrach", "Mesach", "Abed-Nego"]));
+  });
+  it("afgeleide leeftijden zijn gemarkeerd en kloppen met hun som (Genesis 11, David)", () => {
+    const fout: string[] = [];
+    for (const id of ids) for (const [jaren, ref, x] of M[id].leeftijd || []) {
+      if (!x) continue;
+      if (!x.afgeleid || !ref) fout.push(`${id}: afgeleid zonder uitleg of verwijzing`);
+      const som = /^(\d+) \+ (\d+) jaar$/.exec(x.afgeleid);
+      if (!x.ca && (!som || +som[1] + +som[2] !== jaren)) fout.push(`${id}: ${jaren} ≠ ${x.afgeleid}`);
+    }
+    expect(fout).toEqual([]);
+    const lft = (id: string) => (M[id].leeftijd || []).map(([j, , x]) => (x ? `${x.ca ? "ca. " : ""}${j} afgeleid` : `${j}`));
+    expect(lft("sem")).toEqual(["100", "600 afgeleid"]);
+    expect(lft("david")).toEqual(["30", "ca. 70 afgeleid"]);
+  });
   it("niemand staat twee keer in de familie van een persoon (zoals de app ze toont)", () => {
     const dubbel: string[] = [];
     for (const id of ids) {

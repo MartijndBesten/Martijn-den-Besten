@@ -1887,6 +1887,24 @@
   // stap in hetzelfde deel is géén nieuwe plek: daarvoor zijn ◀ en Verder, en zo hoeft niemand twintig keer terug.
   // Een venster (lade, keuze voor wie, open stapblad, grote kaart) krijgt een eigen plek: ‘terug’ sluit eerst dat venster.
   // Alles wat binnen één tik gebeurt (bijvoorbeeld een onderdeel én een deel kiezen) telt als één plek.
+  // Het adres na de #, veilig gelezen (audit 22-11-2026). Een kapotte %-codering (#%E0%A4%A) gaf een URIError die de
+  // app liet vastlopen; nu is zo'n adres gewoon onbekend (ok: false).
+  function leesHash(hash = location.hash) {
+    try { const [id = "", stap] = decodeURIComponent(String(hash).slice(1)).split("/"); return { id, stap, ok: true }; }
+    catch (e) { return { id: "", stap: undefined, ok: false }; }
+  }
+  // Een stapnummer telt alleen als het een geheel getal binnen het deel is (geen -1, 0, 1e3, 2.5 of 20 cijfers).
+  const stapIndex = (d, stap) => (d && /^\d{1,4}$/.test(stap || "") && +stap >= 1 && +stap <= d.steps.length ? +stap - 1 : -1);
+  // Het nette adres bij wat er gevraagd wordt ("" = de start; null = onbekend): #v0012 → #v12, #nt-begin/abc → #nt-begin.
+  function netteHash(id, stap) {
+    if (!id) return "";
+    if (id === "verhalen") return "#verhalen";
+    const vm = /^v(\d{1,5})$/.exec(id);
+    if (vm) return GBYNR.has(+vm[1]) ? "#v" + +vm[1] : null;
+    const d = ALLPARTS.find((x) => x.id === id);
+    if (d) { const i = stapIndex(d, stap); return "#" + d.id + (i >= 0 ? "/" + (i + 1) : ""); }
+    return ALLPARTS.some((x) => x.boek.id === id) ? "#" + id : null;
+  }
   let navKlaar = false, navStil = false, navTik = false, navTerug = null;
   const navPlek = (hash) => mode + "|" + String(hash || "").split("/")[0];
   function navZet(hash) {
@@ -1934,12 +1952,12 @@
   function navHerstel(st) {
     navStil = true;
     try {
-      const [h, s] = decodeURIComponent(location.hash.slice(1)).split("/");
+      const { id: h, stap: s } = leesHash();
       const vm = /^v(\d+)$/.exec(h || "");
       if (vm && GBYNR.has(+vm[1])) { if (vOpen !== +vm[1] || mode !== "verhalen") openVerhaal(+vm[1], { keepHash: true }); return; }
       const d = ALLPARTS.find((x) => x.id === h);
       const doel = st && TABS.concat("ver").includes(st.m) ? st.m : d ? "reis" : "verhalen";
-      if (d) { const i = s && d.steps[+s - 1] ? +s - 1 : -1; if (d !== deel || i !== cur) { if (d.boek !== boek) chooseBoek(d.boek, d, i, { keepHash: true }); else chooseDeel(d, i, { keepHash: true }); } }
+      if (d) { const i = stapIndex(d, s); if (d !== deel || i !== cur) { if (d.boek !== boek) chooseBoek(d.boek, d, i, { keepHash: true }); else chooseDeel(d, i, { keepHash: true }); } }
       if (doel === "verhalen" && vOpen !== null) vOpen = null;
       if (mode !== doel) setMode(doel); else if (doel === "verhalen") { renderVerhalen(); heleZichtbaar(); }
       if (doel === "verhalen" && !h) renderWelkom();
@@ -1954,7 +1972,13 @@
     // Een oude vensterplek waarvan het venster al dicht is: die overslaan.
     if (st && st.laag && !boven) { history.back(); return; }
     if (st && st.laag) return;
+    // Een zelf getypt onbekend of kapot adres (nieuwe plek zonder eigen staat): dat handelt hashchange af, dat het vorige
+    // adres terugzet. Anders zou het hier als ‘de start’ gelden.
+    const q = st ? null : leesHash(), net = q && q.ok ? netteHash(q.id, q.stap) : null;
+    if (q && net === null) return;
     navHerstel(st);
+    // Een zelf getypt bekend adres in een andere schrijfwijze (#v0012) krijgt het nette adres, zonder extra plek.
+    if (q && net !== location.hash) history.replaceState(history.state, "", location.pathname + location.search + net);
   });
   // ---------- aanvraag: ‘Mis je iets? Vraag het aan’ ----------
   // Een bezoeker vraagt om een Bijbelgedeelte, verhaal of reis die er nog niet is, om iets voor school, club of kerk, of
@@ -2151,7 +2175,8 @@
     const steps = MENS_STAPPEN[id] || [];
     const places = [...new Set(steps.flatMap(([d, i]) => d.steps[i].at || []))].filter((p) => P[p] && !P[p].ctx);
     let h = "";
-    if (m.leeftijd && m.leeftijd.length) h += `<p class="ref">${m.leeftijd.map(([a, r]) => `${a} jaar (${esc(r)})`).join(" · ")}</p>`;
+    // Een afgeleide leeftijd (personen.js: derde element) staat er altijd als ‘afgeleid’ bij, nooit als getal uit de tekst.
+    if (m.leeftijd && m.leeftijd.length) h += `<p class="ref">${m.leeftijd.map(([a, r, x]) => (x ? `${x.ca ? "ca. " : ""}${a} jaar (afgeleid: ${esc(x.afgeleid)}; ${esc(r)})` : `${a} jaar (${esc(r)})`)).join(" · ")}</p>`;
     if (fam.length) h += `<dl class="fam">${fam.map(([t, l]) => `<dt>${t}</dt><dd>${l.map((k) => mensChip(k, t !== "Broers en zussen" && afg.has(k), t === "Getrouwd met" && ook(k) ? ook(k)[0] : "")).join("")}</dd>`).join("")}</dl>`;
     if (banden.length) {
       const soortTekst = (g) => !g ? "Grondslag nog niet vastgelegd" : g[0] === "b" ? "Staat zo in de Bijbel" : "Afgeleid";
@@ -2895,7 +2920,7 @@
   telefoonIndeling();
   // De indeling van het eerste scherm staat meteen vast (nog vóór de teksten van het reisniveau binnen zijn): een diepe
   // link naar een stap begint op de telefoon met de kaart als scherm, niet met een pagina die daarna verspringt.
-  { const h = decodeURIComponent(location.hash.slice(1)).split("/")[0]; document.body.dataset.modus = !h || h === "verhalen" || /^v\d+$/.test(h) ? "verhalen" : "reis";
+  { const h = leesHash().id; document.body.dataset.modus = !h || h === "verhalen" || /^v\d+$/.test(h) ? "verhalen" : "reis";
     // Eerste bezoek zonder diepe link: de kaart is op de telefoon meteen lager (startkaart in het eerste scherm).
     if (!h && seen.size === 0 && huidigeGeschiedenis().hoe === "nieuw") document.body.classList.add("eerste"); }
 
@@ -3147,9 +3172,9 @@
     const wl = BR.wereld && BR.wereld.uitAdres(location.hash, st0);
     if (wl) history.replaceState(st0, "", location.pathname + location.search + wl.terug);
     renderBoeken();
-    const [hashId, hashStep] = decodeURIComponent(location.hash.slice(1)).split("/");
+    const { id: hashId, stap: hashStep, ok: hashOk } = leesHash();
     const startDeel = ALLPARTS.find((d) => d.id === hashId) || ALLPARTS.find((d) => d.boek.id === hashId) || ALLPARTS[0];
-    const startStep = hashStep && startDeel.steps[+hashStep - 1] ? +hashStep - 1 : -1;
+    const startStep = startDeel.id === hashId ? stapIndex(startDeel, hashStep) : -1;
     fetch(dataUrl("geo.json")).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(drawBase).catch(() => {
       console.error("Bijbelreis: de kaartondergrond kon niet worden geladen.");
       $("map").insertAdjacentHTML("beforeend", '<p class="maperr" role="status">De kaart kon niet helemaal worden geladen. Controleer de verbinding en laad de pagina opnieuw.</p>');
@@ -3159,8 +3184,10 @@
     const naarVerhaal = vHash && GBYNR.has(+vHash[1]);
     // Een adres met een onbekende # (een tikfout, of een geschiedenis die niet bestaat) opent de start, zoals zonder #, en
     // niet stilletjes ‘Het begin’ in de reis.
-    const onbekend = !!hashId && hashId !== "verhalen" && !naarVerhaal && !ALLPARTS.some((d) => d.id === hashId || d.boek.id === hashId);
+    const onbekend = !hashOk || (!!hashId && hashId !== "verhalen" && !naarVerhaal && !ALLPARTS.some((d) => d.id === hashId || d.boek.id === hashId));
     if (onbekend) history.replaceState(st0, "", location.pathname + location.search);
+    // Een bekend adres in een andere schrijfwijze (#v0012, #nt-begin/abc, #nt-begin/-1) wordt het nette adres.
+    else if (hashId) { const net = netteHash(hashId, hashStep); if (net && net !== location.hash) history.replaceState(st0, "", location.pathname + location.search + net); }
     const naarVerhalen = !hashId || hashId === "verhalen" || onbekend;
     // Op de telefoon hangt de maat van de kaart af van het onderdeel (in de reis is de kaart het scherm): die staat vast
     // vóór de eerste uitsnede.
@@ -3181,24 +3208,32 @@
     if (wl) BR.wereld.open(wl.periode, wl.jaar, { terug: wl.terug, terugNaam: vOpen && mode === "verhalen" ? GBYNR.get(vOpen).t : "" });
     // Een adres met # dat iemand zelf intypt of in een link aanklikt. Bij ‘terug’ en ‘vooruit’ (eigen plekken, met
     // history.state) doet popstate het werk al.
-    window.addEventListener("hashchange", () => {
+    window.addEventListener("hashchange", (e) => {
       // Een sprong naar een verhaal of stap (link, adres, de app) sluit het voorscherm: wie ergens heen gaat, is begonnen.
       sluitVoorscherm(false);
       if (history.state && history.state.br) return;
       const w = BR.wereld && BR.wereld.uitAdres(location.hash);
       if (w) { history.replaceState({ br: 1, p: navPlek(""), m: mode }, "", location.pathname + location.search); BR.wereld.open(w.periode, w.jaar, { terug: "" }); return; }
+      const { id: h, stap: st, ok } = leesHash();
+      const net = ok ? netteHash(h, st) : null;
+      // Onbekend of kapot adres (#bestaat-niet, #v999, #%E0%A4%A): je blijft waar je was, en het adres ook.
+      if (net === null) {
+        let oud = ""; try { oud = new URL(e.oldURL).hash; } catch (x) { /* geen vorig adres */ }
+        history.replaceState({ br: 1, p: navPlek(oud), m: mode }, "", location.pathname + location.search + oud);
+        return;
+      }
       navStil = true;
       try {
-        const [h, st] = decodeURIComponent(location.hash.slice(1)).split("/");
         const vm = /^v(\d+)$/.exec(h);
         if (vm && GBYNR.has(+vm[1])) { if (vOpen !== +vm[1]) openVerhaal(+vm[1], { keepHash: true }); }
         else {
           const d = ALLPARTS.find((x) => x.id === h);
-          const i = d && st && d.steps[+st - 1] ? +st - 1 : -1;
+          const i = stapIndex(d, st);
           if (d && (d !== deel || i !== cur)) { setMode("reis"); chooseBoek(d.boek, d, i, { keepHash: true }); }
         }
       } finally { navStil = false; }
-      history.replaceState({ br: 1, p: navPlek(location.hash), m: mode }, "");
+      // Het nette adres (#nt-begin/-1 → #nt-begin), zonder een extra plek in de geschiedenis.
+      history.replaceState({ br: 1, p: navPlek(net), m: mode }, "", location.pathname + location.search + net);
     });
   }
 })();
