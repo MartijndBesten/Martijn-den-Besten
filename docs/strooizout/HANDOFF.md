@@ -8,7 +8,7 @@ Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
 
 | Besluit | Verwerkt |
 | --- | --- |
-| Verkoper Denckh (= Deegh): Vlierweg 54, Houten · KvK 83176896 · btw NL003791952B15; geen KOR, 21% btw | Standaardinstellingen verkoper_*, btw inclusief 21%. **Postcode niet ingevuld** (niet verzonnen): aanvullen in *Instellingen › Verkoper › Adres* |
+| Verkoper overal **Denckh** (alleen die naam): Vlierweg 54, Houten · KvK 83176896 · btw NL003791952B15; geen KOR, 21% btw | Standaardinstellingen verkoper_* en btw inclusief 21%; zichtbaar in de voet, de voorwaarden en de privacyverklaring. Postcode niet ingevuld (niet verzonnen); kan desgewenst in *Instellingen › Verkoper › Adres* |
 | Inkoopprijs en leverancier leeg laten; marge alleen tonen als er een inkoopprijs is | Waarschuwing ‘inkoopprijs ontbreekt’ verwijderd; inkoop, brutowinst en margekolommen/CSV verschijnen pas als er een inkoopprijs of werkelijke inkoop is |
 | Bezorgen alleen binnen de rondweg van Houten, instelbaar | Postcodelijst met uitzonderingen (zie hieronder); melding buiten het gebied: ‘We bezorgen alleen binnen de rondweg van Houten. Op deze postcode kan dat helaas niet, maar je kunt je bestelling wel gratis afhalen.’ Flyer en deeltekst: ‘Bezorgen binnen de rondweg’ |
 | Voorwaarden zelf schrijven, kort, Denckh als verkoper, concept | Nieuwe standaardtekst met kopjes (zie hieronder) |
@@ -23,7 +23,7 @@ Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
 
    Bron: PDOK Locatieserver (geometrie ‘Rondweg, Houten’ + middelpunt van alle 1072 postcodes in Houten; 1007 binnen, 65 buiten). Een postcode die over de rondweg loopt telt volgens zijn middelpunt. Aanpassen in *Instellingen › Bezorgen*; de postcodecheck daar laat direct zien of een adres erbinnen valt.
 2. **Voorwaarden (concept, wacht op akkoord).** Onderwerpen: wie verkoopt, wat we verkopen, prijzen incl. 21% btw, vooruit bestellen (voorraad vanaf 26 november), afhalen (gratis) en bezorgen (binnen de rondweg, vanaf 2 zakken, € 0,50 per zak), betalen na bestellen (Tikkie of ter plekke/aan de weg), annuleren en terugbrengen, klachten, privacy, contact. Bedrijfsgegevens komen uit de verkopervelden, niet uit de tekst. Let op: ik heb **14 dagen bedenktijd na ontvangst** opgenomen (ongeopende zakken terugbrengen, geld terug), omdat de wettelijke bedenktijd voor online verkoop aan consumenten geldt. Aanpassen in *Instellingen › Voorwaarden*.
-3. **Nog invullen in *Instellingen*:** postcode bij het verkopersadres, afhaaladres (privé, pas zichtbaar na bevestiging) en eventueel een telefoonnummer.
+3. **Nog invullen in *Instellingen*:** afhaaladres (privé, pas zichtbaar na bevestiging) en eventueel een telefoonnummer.
 
 ## Gecontroleerd
 
