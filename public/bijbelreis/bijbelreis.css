@@ -1818,7 +1818,7 @@ details.meerinfo p { margin: 6px 0 0; }
    één grote knop, ‘Kies een geschiedenis’ en de zes onderdelen in hun eigen kleur. */
 .voorscherm { position: fixed; inset: 0; z-index: 3000; overflow-y: auto; overscroll-behavior: contain; background: var(--papier); color: var(--inkt); display: flex; }
 .voorscherm[hidden] { display: none; }
-.voorscherm::before { content: ""; position: fixed; inset: 0; pointer-events: none; background: url("relief-regio.webp") 62% 40% / cover no-repeat; opacity: 0.6; }
+.voorscherm::before { content: ""; position: fixed; inset: 0; pointer-events: none; background: var(--vs-relief, none) 62% 40% / cover no-repeat; opacity: 0.6; }
 .voorscherm::after { content: ""; position: fixed; inset: 0; pointer-events: none; background: radial-gradient(120% 90% at 18% 22%, color-mix(in srgb, var(--papier) 92%, transparent) 0 38%, color-mix(in srgb, var(--papier) 40%, transparent) 100%); }
 body.vs-open { overflow: hidden; }
 .vs-in:focus { outline: none; }

@@ -2998,6 +2998,9 @@
   function toonVoorscherm() {
     const el = $("voorscherm"); if (!el) return;
     try { sessionStorage.setItem(VS_SLEUTEL, "1"); } catch { /* geen opslag: dan bij elk openen */ }
+    // Hetzelfde reliëf als de kaart, met hetzelfde versie-adres: zonder dit haalde de browser het bestand (259 kB) twee
+    // keer op, één keer via de CSS zonder ?v= (meting 22-11-2026, docs/bijbelreis-audit/laadtijd-2026-11-22.md).
+    el.style.setProperty("--vs-relief", `url("${dataUrl("relief-regio.webp")}")`);
     const doel = verderDoel(true), d = startDeel();
     const hoofd = doel
       ? `<button type="button" class="btn primary vs-hoofd" ${doel.attr}><span class="vs-wat"><small>Verder met:</small><b>${esc(doel.wat)}</b></span><span aria-hidden="true">▶</span></button>`
