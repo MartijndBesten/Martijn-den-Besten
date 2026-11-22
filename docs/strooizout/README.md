@@ -52,11 +52,18 @@ Zelfde Worker, zelfde D1-database en zelfde uitrolroute als de rest van martijnd
 
 In de voet ‘Een initiatief van’ met de officiële Denckh-signatuur (`/bijbelreis/denckh-logo-signature.svg`, donkere variant op lichte voet; niet nagetekend).
 
-## Promotiefilmpje
+## Promotiefilmpjes
 
-`docs/strooizout/film/strooizout-film.mp4`: verticaal filmpje (1080 × 1920, 18,5 s, H.264 met een stil geluidsspoor) in de stijl van de site. Verhaal: gladde stoep → de zak strooit je eigen stoep → ook bij de buren, waar het licht aangaat en de buur zwaait → meer buren komen met hun eigen zak naar buiten en alle paadjes sluiten op elkaar aan (‘Een beetje zout. Een beetje aandacht.’) → merk, zak, `strooizouthouten.nl` en ‘Een initiatief van’ met de Denckh-signatuur (donkere variant op een licht vlak). Geen prijzen in beeld, zodat het filmpje bruikbaar blijft als de prijs wijzigt.
+Twee verticale filmpjes (1080 × 1920, H.264 met AAC-geluid) in de stijl van de site, in `docs/strooizout/film/`:
 
-Bron: `scripts/strooizout/film/film.html` (SVG en HTML; `window.teken(t)` tekent het beeld op tijdstip t) met de zak uit `film/zak.svg` (zelfde tekening als in `scene.tsx`). Opnieuw maken: `node scripts/strooizout/maak-film.cjs` (Chromium legt 555 beelden vast, ffmpeg maakt de mp4). Losse beelden bekijken: `--stil 2,6.5,14 <map>`. De film staat bewust niet in `public/`: die map gaat mee in de uitrolbundel (grens 10 MB).
+- `strooizout-film.mp4` (18,5 s): gladde stoep → de zak strooit je eigen stoep → ook bij de buren, waar het licht aangaat en de buur zwaait → meer buren komen met hun eigen zak naar buiten en alle paadjes sluiten op elkaar aan (‘Een beetje zout. Een beetje aandacht.’) → eindbeeld.
+- `strooizout-film-fiets.mp4` (18 s): ‘Glad op de fiets?’ twee fietsers glijden uit op het gladde fietspad → ‘Even strooien…’ de zak strooit het pad, de fietsers stappen weer op → ‘…en iedereen blijft overeind.’ fietsers rijden veilig langs, met een fietsbel en zwaaiende buren → eindbeeld, waar het verkeer over het fietspad blijft rijden.
+
+Het eindbeeld is in beide hetzelfde: merk, zak van 25 kg, `strooizouthouten.nl`, ‘Afhalen of bezorgd binnen de rondweg van Houten’ en ‘Een initiatief van’ met de Denckh-signatuur (donkere variant op een licht vlak). Geen prijzen in beeld, zodat de filmpjes bruikbaar blijven als de prijs wijzigt.
+
+**Muziek:** een eigen deuntje met pit (klokjes en een fel synthje voor de melodie, een stevige beat met kick, klap en hi-hats, een drijvende bas en sleebellen; Martijn vond de eerste, rustige versie te lief), in code gemaakt in `scripts/strooizout/film/muziek.cjs`. Geen opname en geen muziek van anderen, dus geen licentie nodig. Elk filmpje heeft een eigen arrangement dat op het beeld is afgestemd (licht dat aangaat, een glijfluitje en een plof bij een val, een fietsbel, het slotakkoord bij het eindbeeld).
+
+**Bron en maken:** `scripts/strooizout/film/film.html` en `fiets.html` (SVG en HTML; `window.teken(t)` tekent het beeld op tijdstip t), de zak uit `film/zak.svg` (zelfde tekening als in `scene.tsx`). De straat, de lucht, de teksten en het eindbeeld staan in beide pagina's (bewust overgenomen, zodat elke film los te openen is). Opnieuw maken: `node scripts/strooizout/maak-film.cjs buurt` of `fiets` (Chromium legt elk beeld vast, ffmpeg maakt de mp4 met de muziek). Losse beelden bekijken: `… fiets --stil 2,6.5,14 <map>`. Alleen de muziek vervangen: `… buurt --muziek`. De films staan bewust niet in `public/`: die map gaat mee in de uitrolbundel (grens 10 MB).
 
 ## Voorraad: vier begrippen
 

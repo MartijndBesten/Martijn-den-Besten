@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="nl">
+<meta charset="utf-8" />
+<title>Strooizout voor de buurt — film met fietsers</title>
+<!--
+  Tweede promotiefilmpje (1080 × 1920, 18 s), in dezelfde stijl als film.html: fietsers glijden uit op een glad
+  fietspad, de zak strooit, en daarna rijdt iedereen veilig door. De straat, de lucht, de teksten en het eindbeeld zijn
+  dezelfde als in film.html (bewust overgenomen, zodat elke film los te openen en te renderen is); het verhaal, de
+  fietsers en het fietspad staan hier. `window.teken(t)` tekent het beeld op tijdstip t; maken met
+  scripts/strooizout/maak-film.cjs fiets.
+-->
+<style>
+  /*LETTER*/
+  html,
+  body {
+    margin: 0;
+    background: #071a31;
+  }
+  #film {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    font-family: Geist, Arial, sans-serif;
+    color: #fff;
+  }
+  #beeld {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+  .regel {
+    position: absolute;
+    left: 60px;
+    right: 60px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.06;
+    text-shadow: 0 6px 40px rgba(3, 14, 30, 0.6);
+  }
+  .regel span {
+    display: inline-block;
+    white-space: pre;
+    will-change: transform;
+  }
+  .regel .warm {
+    color: #ffb547;
+  }
+  .eind {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0;
+  }
+  #merk {
+    position: absolute;
+    left: 480px;
+    top: 168px;
+    width: 120px;
+    height: 120px;
+    opacity: 0;
+  }
+  #woord1 {
+    top: 300px;
+    font-size: 88px;
+    font-weight: 750;
+    letter-spacing: -0.025em;
+  }
+  #woord2 {
+    top: 404px;
+    font-size: 50px;
+    font-weight: 500;
+    color: #9fc9e8;
+  }
+  #pil {
+    top: 1070px;
+  }
+  #pil b {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 24px 58px 28px;
+    border-radius: 70px;
+    background: #ffb547;
+    color: #0b2340;
+    font-size: 62px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    box-shadow: 0 18px 50px rgba(255, 181, 71, 0.28);
+  }
+  #pil i {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 120px;
+    height: 140%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+    transform: translateX(-200px) skewX(-20deg);
+  }
+  #sub1 {
+    top: 1218px;
+    font-size: 44px;
+    font-weight: 700;
+  }
+  #sub2 {
+    top: 1278px;
+    font-size: 36px;
+    font-weight: 500;
+    color: #cfe6f6;
+  }
+  /* Makersvermelding: de officiële Denckh-signatuur (donkere variant) op een licht vlak, niet nagetekend. */
+  #maker {
+    top: 1352px;
+  }
+  #maker span {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 30px 12px 32px;
+    border-radius: 40px;
+    background: #f6fafd;
+    color: #33506e;
+    font-size: 27px;
+    font-weight: 500;
+  }
+  #maker img {
+    display: block;
+    height: 44px;
+    width: auto;
+  }
+</style>
+
+<div id="film">
+  <svg id="beeld" viewBox="0 0 1080 1920" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="f-lucht" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#051427" />
+        <stop offset="0.5" stop-color="#0a2140" />
+        <stop offset="1" stop-color="#123461" />
+      </linearGradient>
+      <radialGradient id="f-maan" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#cfe6f6" stop-opacity="0.5" />
+        <stop offset="1" stop-color="#cfe6f6" stop-opacity="0" />
+      </radialGradient>
+      <linearGradient id="f-stoep" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1f5286" />
+        <stop offset="1" stop-color="#19426f" />
+      </linearGradient>
+      <linearGradient id="f-weg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#143a66" />
+        <stop offset="0.5" stop-color="#0d2a4d" />
+        <stop offset="1" stop-color="#081c36" />
+      </linearGradient>
+      <linearGradient id="f-fietspad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#6a3243" />
+        <stop offset="1" stop-color="#4c2536" />
+      </linearGradient>
+      <linearGradient id="f-glans" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#fff" stop-opacity="0" />
+        <stop offset="0.5" stop-color="#fff" stop-opacity="0.5" />
+        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+      </linearGradient>
+      <radialGradient id="f-warm" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#ffb547" stop-opacity="0.75" />
+        <stop offset="0.5" stop-color="#ffb547" stop-opacity="0.28" />
+        <stop offset="1" stop-color="#ffb547" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="f-koel" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#8fc4ea" stop-opacity="0.42" />
+        <stop offset="0.6" stop-color="#8fc4ea" stop-opacity="0.12" />
+        <stop offset="1" stop-color="#8fc4ea" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="f-rand" cx="50%" cy="46%" r="75%">
+        <stop offset="0.55" stop-color="#020a14" stop-opacity="0" />
+        <stop offset="1" stop-color="#020a14" stop-opacity="0.6" />
+      </radialGradient>
+      <filter id="f-zacht" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="5" />
+      </filter>
+      <filter id="f-vlok" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="3.2" />
+      </filter>
+      <clipPath id="f-ijsclip"></clipPath>
+      <!--ZAK-->
+    </defs>
+    <rect width="1080" height="1920" fill="url(#f-lucht)" />
+    <g id="sterren"></g>
+    <g id="ver"></g>
+    <g id="wereld">
+      <g id="huizen"></g>
+      <g id="licht"></g>
+      <g id="grond"></g>
+      <g id="ijs" clip-path="url(#f-ijsclip)"></g>
+      <g id="gloed"></g>
+      <g id="spoor"></g>
+      <g id="harten"></g>
+      <g id="fietsers"></g>
+    </g>
+    <g id="sneeuw-ver"></g>
+    <g id="zakje"></g>
+    <g id="sneeuw-dichtbij"></g>
+    <rect width="1080" height="1920" fill="url(#f-rand)" />
+  </svg>
+
+  <div id="regels"></div>
+  <svg id="merk" viewBox="0 0 64 64">
+    <defs>
+      <clipPath id="mk"><rect width="64" height="64" rx="16" /></clipPath>
+    </defs>
+    <rect x="1" y="1" width="62" height="62" rx="15" fill="#123461" stroke="#cfe6f6" stroke-opacity=".35" stroke-width="2" />
+    <g clip-path="url(#mk)">
+      <path id="mk-route" d="M32 41 C 45 44, 46 52, 31 54.5 C 17 57, 15 63, 19 70" fill="none" stroke="#cfe6f6" stroke-width="9.5" stroke-linecap="round" pathLength="1" />
+      <g fill="#ffb547">
+        <circle class="mk-korrel" cx="41.2" cy="46.6" r="2.3" />
+        <circle class="mk-korrel" cx="30.6" cy="54.6" r="2.6" />
+        <circle class="mk-korrel" cx="19.6" cy="60.6" r="2.9" />
+      </g>
+    </g>
+    <path id="mk-dak" d="M11.5 30.5 32 13l20.5 17.5" fill="none" stroke="#fff" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round" pathLength="1" />
+    <path id="mk-deur" d="M27.4 41.5v-9.2a4.6 4.6 0 0 1 9.2 0v9.2z" fill="#fff" />
+  </svg>
+  <div class="eind" id="woord1">Strooizout</div>
+  <div class="eind" id="woord2">voor de buurt</div>
+  <div class="eind" id="pil"><b>strooizouthouten.nl<i></i></b></div>
+  <div class="eind" id="sub1">Zak van 25 kg</div>
+  <div class="eind" id="sub2">Afhalen of bezorgd binnen de rondweg van Houten</div>
+  <div class="eind" id="maker">
+    <span>Een initiatief van <img src="../../../public/bijbelreis/denckh-logo-signature.svg" alt="Denckh" /></span>
+  </div>
+</div>
+
+<script>
+  "use strict";
+  const DUUR = 18;
+  const B = 1080;
+  const H = 1920;
+  const GROND = 236;
+  const STOEP = 278;
+
+  // ---------- hulpjes ----------
+  const klem = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const zacht = (u) => ((u = klem(u)) < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2);
+  const uit = (u) => 1 - Math.pow(1 - klem(u), 3);
+  const veer = (u) => {
+    u = klem(u);
+    const c = 1.9;
+    return 1 + (c + 1) * Math.pow(u - 1, 3) + c * Math.pow(u - 1, 2);
+  };
+  const sleutel = (t, ks, vorm = zacht) => {
+    if (t <= ks[0][0]) return ks[0][1];
+    for (let i = 1; i < ks.length; i++) {
+      if (t <= ks[i][0]) return ks[i - 1][1] + (ks[i][1] - ks[i - 1][1]) * vorm((t - ks[i - 1][0]) / (ks[i][0] - ks[i - 1][0]));
+    }
+    return ks[ks.length - 1][1];
+  };
+  const toeval = (zaad) => () => {
+    zaad = (zaad + 0x6d2b79f5) | 0;
+    let x = Math.imul(zaad ^ (zaad >>> 15), 1 | zaad);
+    x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x;
+    return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
+  };
+  const n = (v) => (Math.round(v * 10) / 10).toString();
+  const el = (id) => document.getElementById(id);
+  const rest = (a, b) => ((a % b) + b) % b;
+
+  // ---------- tijdlijn ----------
+  const T = {
+    zakIn: 4.5,
+    strooi: [5.3, 8.0], // het zout gaat van links naar rechts over het fietspad
+    wijd: 12.4, // de camera trekt terug naar de hele straat
+    eind: 13.2,
+  };
+  const PAD0 = GROND + 80; // het fietspad
+  const PAD1 = GROND + 200;
+  const BAAN = { 1: GROND + 187, [-1]: GROND + 148 }; // wie naar rechts rijdt, rijdt vooraan
+
+  /** Kop van het gestrooide stuk fietspad, en het stuk dat gestrooid is ([van, tot] of null). */
+  const kop = (t) => sleutel(t, [[T.strooi[0], 230], [T.strooi[1], 770]], (u) => u);
+  const gestrooid = (t) => {
+    if (t < T.strooi[0]) return null;
+    const meer = 2400 * zacht((t - T.wijd) / 1.2);
+    return [215 - meer, kop(t) + meer];
+  };
+
+  const camera = (t) => ({
+    x: sleutel(t, [[0, 482], [12.4, 496], [13.8, 520]]),
+    s: sleutel(t, [[0, 2.34], [3, 2.4], [12.4, 2.4], [13.8, 0.95]]),
+    y: sleutel(t, [[0, 1100], [12.4, 1100], [13.8, 1700]]),
+  });
+
+  // ---------- de straat ----------
+  const BASIS = [
+    [20, 150, 118, [1, 0, 0, 1], "#123461"],
+    [170, 170, 146, [0, 1, 1, 0], "#0f2d52"],
+    [340, 140, 110, [1, 1, 0, 0], "#143a66"],
+    [480, 180, 150, [0, 0, 1, 1], "#0f2d52"],
+    [660, 150, 122, [1, 0, 1, 0], "#123461"],
+    [810, 140, 138, [0, 1, 0, 1], "#143a66"],
+  ];
+  const huizen = [];
+  for (let p = -2; p <= 3; p++) {
+    BASIS.forEach(([x, w, h, aan, kleur], nr) => {
+      const licht = [...aan];
+      licht[licht.indexOf(0)] = 1;
+      const deur = x + p * 960 + w / 2;
+      // Twee huizen zijn al verlicht; de rest gaat aan als er gestrooid is en iedereen weer veilig langs kan.
+      const aanOp = deur === 255 || deur === 570 ? -9 : deur === 410 ? 8.3 : deur === 735 ? 8.8 : 12.3 + Math.abs(deur - 490) / 1600;
+      huizen.push({ x: x + p * 960, w, h, kleur, deur, licht, aan: aanOp, zwaaitVanaf: nr % 2 ? Math.max(aanOp + 0.45, 9.1) : Infinity });
+    });
+  }
+
+  // Zout op het fietspad: over de hele breedte gestrooid.
+  const korrels = [];
+  {
+    const r = toeval(11);
+    for (let x = -2300; x < 4300; x += 7) korrels.push({ x: x + (r() - 0.5) * 6, y: PAD0 + 9 + r() * (PAD1 - PAD0 - 18), r: 1.5 + r() * 1.1, amber: r() < 0.22, f: r() * 6.3 });
+  }
+
+  // De fietsers. glij = de plek waar ze onderuit gaan (alleen zolang er niet gestrooid is), op = wanneer ze opstaan.
+  const FIETSERS = [
+    { start: 0, x0: 82.5, dir: 1, v: 165, glij: 330, op: 6.6, jas: "#ffb547", muts: "#8fc4ea", sjaal: "#eaf5fc" },
+    { start: 1.724, x0: 880, dir: -1, v: 165, glij: 620, op: 7.7, jas: "#8fc4ea", muts: "#ffb547", sjaal: "#ffb547" },
+    { start: 8.9, x0: 160, dir: 1, v: 150, jas: "#f28b6d", muts: "#eaf5fc", sjaal: "#8fc4ea", bel: 10.0 },
+    { start: 9.85, x0: 160, dir: 1, v: 150, k: 0.7, jas: "#ffb547", muts: "#f28b6d", sjaal: "#eaf5fc" },
+    { start: 10.4, x0: 800, dir: -1, v: 160, jas: "#eaf5fc", muts: "#f28b6d", sjaal: "#ffb547", zwaai: true },
+  ];
+  {
+    // in het eindbeeld blijft er verkeer over het fietspad komen
+    const kleuren = [["#ffb547", "#8fc4ea"], ["#8fc4ea", "#f28b6d"], ["#f28b6d", "#eaf5fc"], ["#eaf5fc", "#ffb547"]];
+    for (let k = 0; k < 9; k++) {
+      const dir = k % 2 ? -1 : 1;
+      FIETSERS.push({ start: 12.5 + k * 1.05, x0: dir > 0 ? -200 : 1240, dir, v: 165 + (k % 3) * 18, k: k % 4 === 2 ? 0.7 : 1, jas: kleuren[k % 4][0], muts: kleuren[k % 4][1], sjaal: kleuren[(k + 1) % 4][0], zwaai: k % 3 === 1 });
+    }
+  }
+
+  // Vaste onderdelen van de straat (één keer opbouwen).
+  {
+    let s = "";
+    for (const h of huizen) {
+      const top = GROND - h.h;
+      const nok = top - h.w * 0.28;
+      s += `<path d="M${h.x} ${GROND} V${top} L${h.x + h.w / 2} ${nok} L${h.x + h.w} ${top} V${GROND} Z" fill="${h.kleur}"/>`;
+      s += `<path d="M${h.x - 4} ${top + 3} L${h.x + h.w / 2} ${nok - 2} L${h.x + h.w + 4} ${top + 3}" fill="none" stroke="#eaf5fc" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`;
+      s += `<rect x="${h.deur - 11}" y="${GROND - 40}" width="22" height="40" rx="3" fill="#071a31"/>`;
+      h.ramen = h.licht.map((licht, i) => ({ licht, x: h.x + 18 + (i % 2) * (h.w - 62), y: top + 16 + Math.floor(i / 2) * 40 }));
+      for (const r of h.ramen) {
+        s += `<rect x="${r.x}" y="${r.y}" width="26" height="24" rx="3" fill="#1f4f86" opacity="0.7"/>`;
+        s += `<path d="M${r.x - 2} ${r.y + 25.5} h30" stroke="#eaf5fc" stroke-width="2.4" stroke-linecap="round" opacity="0.85"/>`;
+      }
+    }
+    el("huizen").innerHTML = s;
+
+    // stoep, stoeprand en weg
+    const r = toeval(5);
+    let g = `<rect x="-2400" y="${GROND}" width="6800" height="64" fill="url(#f-stoep)"/>`;
+    let voeg = "";
+    for (let x = -2400; x < 4400; x += 26) voeg += `M${x} ${GROND + 2}V${GROND + 63}`;
+    g += `<path d="${voeg}" stroke="#0b2340" stroke-opacity="0.16" stroke-width="1"/>`;
+    g += `<rect x="-2400" y="${GROND + 64}" width="6800" height="900" fill="url(#f-weg)"/>`;
+    g += `<path d="M-2400 ${GROND + 1} H4400" stroke="#9fc9e8" stroke-opacity="0.35" stroke-width="2"/>`;
+    // sneeuwrand tegen de gevels en langs de stoeprand
+    let rand = `M-2400 ${GROND + 3}`;
+    for (let x = -2400; x < 4400; x += 34) rand += ` q17 ${-5 - r() * 5} 34 0`;
+    g += `<path d="${rand} V${GROND + 5} H-2400 Z" fill="#eaf5fc" opacity="0.92"/>`;
+    let rand2 = `M-2400 ${GROND + 66}`;
+    for (let x = -2400; x < 4400; x += 52) rand2 += ` q26 ${-8 - r() * 7} 52 0`;
+    g += `<path d="${rand2} V${GROND + 72} H-2400 Z" fill="#dceefa" opacity="0.9"/>`;
+    g += `<rect x="-2400" y="${GROND + 70}" width="6800" height="5" fill="#9fc9e8" opacity="0.25"/>`;
+    for (let i = 0; i < 260; i++) g += `<circle cx="${n(-700 + r() * 2600)}" cy="${n(GROND + 84 + r() * 230)}" r="${n(0.8 + r() * 1.4)}" fill="#cfe6f6" opacity="${n(0.08 + r() * 0.16)}"/>`;
+    for (let i = 0; i < 26; i++) {
+      const x = -700 + r() * 2600;
+      g += `<path d="M${n(x)} ${n(GROND + 96 + r() * 200)} h${n(60 + r() * 150)}" stroke="#cfe6f6" stroke-opacity="0.1" stroke-width="3" stroke-linecap="round"/>`;
+    }
+    el("grond").innerHTML = g;
+
+  }
+
+  // Verre huizen (silhouetten achter de straat) met kleine raampjes die later ook aangaan.
+  const ver = [];
+  {
+    const r = toeval(23);
+    let x = -2300;
+    let s = "";
+    while (x < 4300) {
+      const w = 150 + r() * 90;
+      const h = 196 + r() * 64;
+      const top = GROND - h;
+      const nok = top - w * 0.3;
+      const kleur = r() < 0.5 ? "#0b2445" : "#0a2140";
+      s += `<path d="M${n(x)} ${GROND} V${n(top)} L${n(x + w / 2)} ${n(nok)} L${n(x + w)} ${n(top)} V${GROND} Z" fill="${kleur}"/>`;
+      s += `<path d="M${n(x - 3)} ${n(top + 2)} L${n(x + w / 2)} ${n(nok - 1)} L${n(x + w + 3)} ${n(top + 2)}" fill="none" stroke="#cfe6f6" stroke-opacity="0.34" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`;
+      for (let i = 0; i < 3; i++) if (r() < 0.75) ver.push({ x: x + 20 + i * ((w - 54) / 2), y: top + 14 + (r() < 0.5 ? 0 : 6), aan: 10.5 + r() * 2.6, f: r() * 6.3 });
+      x += w - 4;
+    }
+    s += `<g id="ver-licht"></g>`;
+    el("ver").innerHTML = s;
+  }
+
+  // Sterren, maan en sneeuw (in schermcoördinaten).
+  const sterren = [];
+  const vlokken = [];
+  {
+    const r = toeval(3);
+    for (let i = 0; i < 70; i++) sterren.push({ x: r() * B, y: r() * 1150, r: 1.2 + r() * 2, f: r() * 6.3, s: 0.6 + r() * 1.6 });
+    for (let i = 0; i < 110; i++) vlokken.push({ laag: 0, x: r() * 1200, y: r() * 2000, r: 2 + r() * 2.2, v: 105 + r() * 60, z: 14 + r() * 22, f: r() * 6.3, o: 0.35 + r() * 0.3 });
+    for (let i = 0; i < 60; i++) vlokken.push({ laag: 1, x: r() * 1200, y: r() * 2000, r: 4 + r() * 2.6, v: 190 + r() * 80, z: 22 + r() * 30, f: r() * 6.3, o: 0.6 + r() * 0.3 });
+    for (let i = 0; i < 13; i++) vlokken.push({ laag: 2, x: r() * 1200, y: r() * 2000, r: 10 + r() * 9, v: 330 + r() * 110, z: 30 + r() * 40, f: r() * 6.3, o: 0.2 + r() * 0.2 });
+  }
+
+  // Het fietspad voor de huizen, met een sneeuwrand, en het ijs dat erop ligt tot er gestrooid is.
+  {
+    const r = toeval(41);
+    let g = `<rect x="-2400" y="${PAD0}" width="6800" height="${PAD1 - PAD0}" fill="url(#f-fietspad)"/>`;
+    g += `<path d="M-2400 ${PAD0 + 0.5} H4400" stroke="#d98a8f" stroke-opacity="0.32" stroke-width="1.6"/>`;
+    g += `<path d="M-2400 ${(PAD0 + PAD1) / 2} H4400" stroke="#f6fafd" stroke-opacity="0.26" stroke-width="2" stroke-dasharray="16 14"/>`;
+    let rand = `M-2400 ${PAD1 + 3}`;
+    for (let x = -2400; x < 4400; x += 58) rand += ` q29 ${-9 - r() * 8} 58 0`;
+    g += `<path d="${rand} V${PAD1 + 12} H-2400 Z" fill="#dceefa" opacity="0.92"/>`;
+    el("grond").innerHTML += g;
+
+    let ijs = `<rect x="-2400" y="${PAD0}" width="6800" height="${PAD1 - PAD0}" fill="#bfe0f5" opacity="0.3"/>`;
+    for (let i = 0; i < 700; i++) {
+      const x = -1400 + r() * 4200;
+      const y = PAD0 + 10 + r() * (PAD1 - PAD0 - 16);
+      const l = 6 + r() * 14;
+      ijs += `<path d="M${n(x)} ${n(y)} l${n(l)} ${n(-l * 0.3)}" stroke="#fff" stroke-opacity="${n(0.18 + r() * 0.32)}" stroke-width="1.6" stroke-linecap="round"/>`;
+    }
+    ijs += `<rect id="glans" x="0" y="${PAD0}" width="110" height="${PAD1 - PAD0}" fill="url(#f-glans)"/>`;
+    el("ijs").innerHTML = ijs;
+  }
+
+  // ---------- teksten ----------
+  const REGELS = [
+    { van: 0.3, tot: 4.3, top: 280, maat: 118, tekst: "Glad op|de fiets?" },
+    { van: 5.0, tot: 8.15, top: 280, maat: 118, tekst: "Even|strooien…" },
+    { van: 8.6, tot: 12.2, top: 262, maat: 108, tekst: "…en iedereen|*blijft *overeind." },
+  ];
+  for (const r of REGELS) {
+    const d = document.createElement("div");
+    d.className = "regel";
+    d.style.top = r.top + "px";
+    d.style.fontSize = r.maat + "px";
+    r.woorden = [];
+    r.tekst.split("|").forEach((regel, i) => {
+      if (i) d.appendChild(document.createElement("br"));
+      regel.split(" ").forEach((woord, j, alle) => {
+        const s = document.createElement("span");
+        if (woord.startsWith("*")) s.className = "warm";
+        s.textContent = woord.replace(/\*/g, "") + (j < alle.length - 1 ? " " : "");
+        d.appendChild(s);
+        r.woorden.push(s);
+      });
+    });
+    el("regels").appendChild(d);
+  }
+
+  // ---------- de zak ----------
+  const giet = (t) => t >= T.strooi[0] && t <= T.strooi[1];
+  const zak = (t, kopX) => {
+    if (t >= T.eind) {
+      const e = t - T.eind;
+      return { x: 540, y: 772 + (1 - veer(e / 0.85)) * 1300 + klem((e - 0.9) / 1) * Math.sin(t * 1.9) * 7, b: 400, r: 0, eind: klem(e / 0.6) };
+    }
+    const loopt = giet(t) ? 1 : 0;
+    const stap = loopt * Math.sin(t * Math.PI * 5) * 9;
+    return {
+      x: Math.max(170, kopX - 310),
+      y: 1790 + (1 - veer((t - T.zakIn) / 0.75)) * 760 - Math.abs(stap) + zacht((t - T.strooi[1] - 0.25) / 0.6) * 900,
+      b: 320,
+      r: sleutel(t, [[T.zakIn, -8], [T.zakIn + 0.5, 12], [T.strooi[0], 40], [T.strooi[1], 40], [T.strooi[1] + 0.3, 8]]) + stap * 0.12,
+      eind: 0,
+    };
+  };
+
+  // ---------- de fietsers ----------
+  const lijn = (p, kleur, dikte) => `<path d="M${p.map((q) => `${n(q[0])} ${n(q[1])}`).join("L")}" fill="none" stroke="${kleur}" stroke-width="${dikte}" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const HUID = "#f3dcc6";
+  const BROEK = "#9fc9e8";
+  const BROEK2 = "#6f9cc4";
+  /** De fiets, naar rechts gericht, met de grond op y = 0. */
+  const fietsVorm = (hoek, kleur) => {
+    let s = "";
+    for (const wx of [-22, 22]) {
+      s += `<circle cx="${wx}" cy="-13" r="13" fill="none" stroke="#dceefa" stroke-width="2.6"/>`;
+      for (let i = 0; i < 3; i++) {
+        const a = hoek + (i * Math.PI) / 3;
+        s += `<path d="M${n(wx - 12 * Math.cos(a))} ${n(-13 - 12 * Math.sin(a))}L${n(wx + 12 * Math.cos(a))} ${n(-13 + 12 * Math.sin(a))}" stroke="#dceefa" stroke-opacity="0.45" stroke-width="1"/>`;
+      }
+    }
+    s += `<path d="M-22 -13L-1 -14L-10 -39M-1 -14L15 -36L-10 -37M15 -36L22 -13M15 -36L16.5 -44L11 -45M-15 -40L-5 -40" fill="none" stroke="${kleur}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>`;
+    s += `<circle cx="-26" cy="-30" r="2.2" fill="#ff6b5a"/>`;
+    return s;
+  };
+  const hoofd = (x, y, c, scheef = 0) =>
+    `<g transform="rotate(${scheef} ${x} ${y})"><circle cx="${x}" cy="${y}" r="7.6" fill="${HUID}"/><path d="M${x - 8} ${y - 1.5} a8 8 0 0 1 16 0 z" fill="${c.muts}"/><circle cx="${x}" cy="${y - 9.5}" r="3" fill="${c.muts}"/></g>`;
+  /** Iemand op de fiets (naar rechts gericht). a = stand van de trappers. */
+  const opFiets = (c, a, t, extra = {}) => {
+    const heup = [-9, -43];
+    const schouder = [5, -65];
+    const been = (hoek, kleur) => {
+      const voet = [-1 + 7 * Math.cos(hoek), -14 + 7 * Math.sin(hoek)];
+      const d = Math.min(33.5, Math.hypot(voet[0] - heup[0], voet[1] - heup[1]));
+      const a0 = Math.atan2(voet[1] - heup[1], voet[0] - heup[0]);
+      const b = Math.acos(klem(d / 34, -1, 1));
+      return lijn([heup, [heup[0] + 17 * Math.cos(a0 - b), heup[1] + 17 * Math.sin(a0 - b)], voet], kleur, 5.6) + `<path d="M${n(voet[0] - 2)} ${n(voet[1])}h7" stroke="#0b2340" stroke-width="3.4" stroke-linecap="round"/>`;
+    };
+    const w = Math.sin(t * 9 + (c.start || 0));
+    let s = been(a + Math.PI, BROEK2);
+    s += fietsVorm(extra.wiel ?? a * 1.5, "#eaf5fc");
+    s += `<ellipse cx="34" cy="-30" rx="20" ry="11" fill="url(#f-warm)" opacity="0.5"/><circle cx="18.5" cy="-37" r="2.4" fill="#ffd27a"/>`;
+    s += been(a, BROEK);
+    s += lijn([[3, -67], [-6, -66 + w * 2.5], [-16, -63 - w * 3]], c.sjaal, 4.4);
+    s += lijn([heup, schouder], c.jas, 12.5);
+    if (extra.zwaai) s += lijn([schouder, [11, -76], [15 + Math.sin(t * 11) * 4.5, -89]], c.jas, 5.4) + `<circle cx="${n(15 + Math.sin(t * 11) * 4.5)}" cy="-91" r="3" fill="${HUID}"/>`;
+    else s += lijn([schouder, [11, -53], [15, -44]], c.jas, 5.4);
+    s += hoofd(9, -77, c);
+    if (extra.bel > 0 && extra.bel < 0.75) {
+      // tring: boogjes bij het stuur
+      for (let i = 0; i < 3; i++) {
+        const u = (extra.bel * 2.2 + i * 0.33) % 1;
+        s += `<path d="M${n(20 + u * 14)} ${n(-52 - u * 10)} a${n(6 + u * 8)} ${n(6 + u * 8)} 0 0 1 ${n(6 + u * 6)} ${n(8 + u * 8)}" fill="none" stroke="#ffd27a" stroke-width="2" stroke-linecap="round" opacity="${n(1 - u)}"/>`;
+      }
+    }
+    return s;
+  };
+  /** Halverwege de val: armen omhoog, benen in de lucht. Heup in (0, 0). */
+  const vallend = (c) =>
+    lijn([[0, 0], [12, 10], [26, 6]], BROEK2, 5.6) + lijn([[0, 0], [14, -4], [27, -12]], BROEK, 5.6) + lijn([[0, 0], [8, -23]], c.jas, 12.5) + lijn([[8, -23], [20, -36]], c.jas, 5.4) + lijn([[8, -23], [-4, -38]], c.jas, 5.4) + hoofd(11, -35, c, 20);
+  /** Op de grond zittend, een hand op het hoofd, met sterretjes. Heup in (0, 0); sinds = seconden na de landing. */
+  const zittend = (c, sinds, t) => {
+    const veer2 = sinds < 0.3 ? Math.sin((sinds / 0.3) * Math.PI) * -3 : 0;
+    let s = `<g transform="translate(0 ${n(veer2)})">`;
+    s += lijn([[0, -5], [15, -6], [30, -4]], BROEK2, 5.6) + lijn([[0, -5], [13, -15], [25, -4]], BROEK, 5.6);
+    s += lijn([[-6, -27], [-15, -13], [-17, -3]], c.jas, 5.4);
+    s += lijn([[0, -6], [-5, -28]], c.jas, 12.5);
+    s += lijn([[-5, -28], [5, -30], [0, -42]], c.jas, 5.4);
+    s += lijn([[-7, -30], [-14, -27], [-19, -22]], c.sjaal, 4.4);
+    s += hoofd(-5, -40, c, -14) + `</g>`;
+    if (sinds < 0.3) {
+      // klap: streepjes rond de landing
+      const u = sinds / 0.3;
+      for (let i = 0; i < 7; i++) {
+        const a = Math.PI + (i / 6) * Math.PI;
+        s += `<path d="M${n(Math.cos(a) * (14 + u * 14))} ${n(-2 + Math.sin(a) * (8 + u * 10))} l${n(Math.cos(a) * 9)} ${n(Math.sin(a) * 7)}" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity="${n(1 - u)}"/>`;
+      }
+    }
+    // sterretjes die om het hoofd draaien
+    const sterk = klem(sinds / 0.2) * klem((2.6 - sinds) / 0.5);
+    if (sterk > 0) {
+      for (let i = 0; i < 3; i++) {
+        const a = t * 5.2 + (i * Math.PI * 2) / 3;
+        const voor = Math.sin(a) > 0;
+        s += `<g transform="translate(${n(-5 + 15 * Math.cos(a))} ${n(-56 + 4.5 * Math.sin(a))}) scale(${voor ? 1 : 0.72})" opacity="${n(sterk * (voor ? 1 : 0.6))}"><path d="M0 -5 L1.5 -1.5 L5 0 L1.5 1.5 L0 5 L-1.5 1.5 L-5 0 L-1.5 -1.5 Z" fill="${i === 1 ? "#fff" : "#ffd27a"}"/></g>`;
+      }
+    }
+    return s;
+  };
+  const VAL = 0.55; // duur van een val
+  /** Tekent één fietser op tijdstip t (in eenheden van de straat). */
+  const fietser = (c, t) => {
+    const tau = t - c.start;
+    if (tau < 0) return "";
+    const y = BAAN[c.dir];
+    const k = (c.k || 1) * 1.6;
+    const plek = (x, binnen, dy = 0) => `<g transform="translate(${n(x)} ${n(y + dy)}) scale(${n(c.dir * k * 100) / 100} ${n(k * 100) / 100})">${binnen}</g>`;
+    const schaduw = (x, b = 34) => `<ellipse cx="${n(x)}" cy="${y + 1}" rx="${n(b * k)}" ry="${n(4.5 * k)}" fill="#020a14" opacity="0.3"/>`;
+    const rijdt = (x, afstand, wiebel, extra) => schaduw(x) + plek(x, `<g transform="rotate(${n(wiebel || 0)})">${opFiets(c, afstand / (20 * k), t, extra)}</g>`);
+    if (c.glij == null) {
+      const x = c.x0 + c.dir * c.v * tau;
+      return rijdt(x, c.v * tau, Math.sin(t * 3 + c.start) * 1.2, { zwaai: c.zwaai && Math.sin(t * 1.3 + c.start) > -0.2, bel: c.bel ? t - c.bel : 0 });
+    }
+    const tGlij = Math.abs(c.glij - c.x0) / c.v;
+    if (tau < tGlij) {
+      const w = klem((tau - (tGlij - 0.5)) / 0.5);
+      return rijdt(c.x0 + c.dir * c.v * tau, c.v * tau, w ? Math.sin(tau * 26) * (3 + 11 * w) : Math.sin(t * 3) * 1.2);
+    }
+    const schuif = c.v * VAL * 0.5;
+    const u = (tau - tGlij) / VAL;
+    const xFiets = c.glij + c.dir * schuif * (2 * Math.min(1, u) - Math.min(1, u) ** 2);
+    const xZit = c.glij + c.dir * (schuif - 34 * k);
+    const plat = (sy, r) => plek(xFiets, `<g transform="rotate(${n(r)}) scale(1 ${n(sy * 100) / 100})">${fietsVorm(tGlij * c.v / 13, "#eaf5fc")}</g>`);
+    if (u < 1) {
+      // de fiets schiet onder de rijder vandaan en klapt plat; de rijder gaat achterover
+      const xr = c.glij + c.dir * (schuif * (2 * u - u * u) - 34 * k * u);
+      const hoog = -43 * (1 - u * u) - Math.sin(u * Math.PI) * 14;
+      let s = schaduw(xFiets) + plat(1 - 0.68 * u * u, -8 * u);
+      // remstrepen op het ijs
+      s += `<path d="M${n(c.glij - c.dir * 26)} ${y + 1} q${n(c.dir * 30)} ${n(5 * Math.sin(u * 3))} ${n(c.dir * (26 + schuif * u))} 0" fill="none" stroke="#fff" stroke-opacity="${n(0.5 * (1 - u * 0.4))}" stroke-width="2" stroke-linecap="round" stroke-dasharray="7 6"/>`;
+      s += plek(xr, `<g transform="translate(-9 ${n(hoog)}) rotate(${n(-78 * Math.sin(u * Math.PI * 0.62))})">${vallend(c)}</g>`);
+      return s;
+    }
+    const sinds = tau - tGlij - VAL;
+    if (t < c.op) return schaduw(xFiets, 30) + plat(0.32, -8) + schaduw(xZit, 20) + plek(xZit, zittend(c, sinds, t));
+    const o = (t - c.op) / 0.6;
+    if (o < 1) {
+      // opstaan: de fiets komt overeind, de rijder springt erop
+      const sy = 0.32 + 0.68 * veer(o / 0.8);
+      const s = schaduw(xFiets) + plat(Math.min(1.04, sy), -8 * (1 - klem(o / 0.5)));
+      if (o < 0.45) return s + plek(xZit + c.dir * 34 * k * (o / 0.45) * 0.6, zittend(c, 9, t), -30 * Math.sin((o / 0.45) * Math.PI * 0.5));
+      return schaduw(xFiets) + plek(xFiets, opFiets(c, 0.6, t, { wiel: 0 }), -22 * (1 - (o - 0.45) / 0.55) ** 2);
+    }
+    const r = t - c.op - 0.6;
+    const afstand = c.v * (r - 0.35 * (1 - Math.exp(-r / 0.35)));
+    return rijdt(xFiets + c.dir * afstand, afstand, Math.sin(t * 3) * 1.2, { zwaai: r > 0.5 && r < 2.2 });
+  };
+
+  // ---------- tekenen ----------
+  function teken(t) {
+    t = klem(t, 0, DUUR);
+    const cam = camera(t);
+    const naarScherm = ([x, y]) => [(x - cam.x) * cam.s + 540, (y - GROND) * cam.s + cam.y];
+    el("wereld").setAttribute("transform", `translate(${n(540 - cam.x * cam.s)} ${n(cam.y - GROND * cam.s)}) scale(${cam.s.toFixed(4)})`);
+    const vs = cam.s * 0.9;
+    const vx = 300 + (cam.x - 300) * 0.72;
+    el("ver").setAttribute("transform", `translate(${n(540 - vx * vs)} ${n(cam.y - GROND * vs)}) scale(${vs.toFixed(4)})`);
+
+    // lucht
+    let s = `<circle cx="890" cy="172" r="150" fill="url(#f-maan)"/><circle cx="890" cy="172" r="40" fill="#eaf5fc"/><circle cx="876" cy="160" r="9" fill="#cfe0ee" opacity="0.7"/><circle cx="904" cy="186" r="6" fill="#cfe0ee" opacity="0.6"/>`;
+    for (const st of sterren) s += `<circle cx="${n(rest(st.x - cam.x * 0.06, B))}" cy="${n(st.y)}" r="${n(st.r)}" fill="#cfe6f6" opacity="${n(0.3 + 0.3 * Math.sin(t * st.s + st.f))}"/>`;
+    el("sterren").innerHTML = s;
+
+    // verre raampjes
+    s = "";
+    for (const r of ver) {
+      const a = klem((t - r.aan) / 0.35);
+      if (a > 0) s += `<rect x="${n(r.x)}" y="${n(r.y)}" width="14" height="15" rx="2" fill="#ffc266" opacity="${n(a * (0.72 + 0.1 * Math.sin(t * 2 + r.f)))}"/>`;
+    }
+    el("ver-licht").innerHTML = s;
+
+    // ijs op het fietspad: ligt er nog waar niet gestrooid is
+    const zout = gestrooid(t);
+    const zicht = [cam.x - 620 / cam.s, cam.x + 620 / cam.s];
+    el("f-ijsclip").innerHTML = zout
+      ? `<rect x="-2400" y="${PAD0 - 2}" width="${n(Math.max(0, zout[0] - 10 + 2400))}" height="${PAD1 - PAD0 + 4}"/><rect x="${n(zout[1] + 10)}" y="${PAD0 - 2}" width="6800" height="${PAD1 - PAD0 + 4}"/>`
+      : `<rect x="-2400" y="${PAD0 - 2}" width="6800" height="${PAD1 - PAD0 + 4}"/>`;
+    el("glans").setAttribute("x", n(cam.x - 420 + rest(t * 330, 1500)));
+    el("glans").setAttribute("transform", `skewX(-28) translate(${n((PAD0 + 35) * 0.53)} 0)`);
+
+    // zout op het fietspad
+    s = "";
+    if (zout) {
+      for (const k of korrels) {
+        if (k.x < zout[0] || k.x > zout[1] || k.x < zicht[0] || k.x > zicht[1]) continue;
+        const a = veer(Math.min(zout[1] - k.x, k.x - zout[0]) / 22);
+        s += `<circle cx="${n(k.x)}" cy="${n(k.y)}" r="${n(k.r * a)}" fill="${k.amber ? "#ffb547" : "#fff"}" opacity="${n(k.amber ? 0.82 + 0.18 * Math.sin(t * 3.2 + k.f) : 0.92)}"/>`;
+      }
+    }
+    el("spoor").innerHTML = s;
+
+    // licht in de huizen, buren in de deuropening, hartjes
+    let gloed = "";
+    let licht = "";
+    let harten = "";
+    for (const h of huizen) {
+      if (h.deur < zicht[0] - 140 || h.deur > zicht[1] + 140) continue;
+      const sinds = t - h.aan;
+      if (sinds > 0) {
+        const deurAan = klem(sinds / 0.25);
+        licht += `<rect x="${h.deur - 11}" y="${GROND - 40}" width="22" height="40" rx="3" fill="#ffb547" opacity="${n(deurAan)}"/>`;
+        gloed += `<ellipse cx="${h.deur}" cy="${GROND - 12}" rx="58" ry="52" fill="url(#f-warm)" opacity="${n(deurAan * 0.9)}"/>`;
+        gloed += `<ellipse cx="${h.deur}" cy="${GROND + 30}" rx="74" ry="30" fill="url(#f-warm)" opacity="${n(deurAan * 0.55)}"/>`;
+        let nr = 0;
+        for (const r of h.ramen) {
+          if (!r.licht) continue;
+          const u = (sinds - 0.12 - nr++ * 0.16) / 0.42;
+          if (u <= 0) continue;
+          const a = u < 0.2 ? u / 0.2 : u < 0.38 ? 1 - ((u - 0.2) / 0.18) * 0.55 : u < 0.6 ? 0.45 + ((u - 0.38) / 0.22) * 0.55 : 1;
+          licht += `<rect x="${r.x - 7}" y="${r.y - 7}" width="40" height="38" rx="8" fill="#ffb547" opacity="${n(a * 0.5)}" filter="url(#f-zacht)"/>`;
+          licht += `<rect x="${r.x}" y="${r.y}" width="26" height="24" rx="3" fill="#ffc266" opacity="${n(a * 0.97)}"/>`;
+          licht += `<path d="M${r.x + 13} ${r.y + 1}v22M${r.x + 1} ${r.y + 12}h24" stroke="#b9722a" stroke-opacity="${n(a * 0.35)}" stroke-width="1.6"/>`;
+        }
+      }
+      const z = t - h.zwaaitVanaf;
+      if (z > 0) {
+        const sindsZwaai = (z - 0.15) % 2.6;
+        const arm = sindsZwaai > 0 && sindsZwaai < 1.3 ? Math.sin(sindsZwaai * Math.PI * 4.6) * 22 * Math.sin((sindsZwaai / 1.3) * Math.PI) : 0;
+        licht += `<g fill="#0b2340" opacity="${n(klem(z / 0.3))}"><circle cx="${h.deur - 1.5}" cy="${GROND - 25.5}" r="4.6"/><path d="M${h.deur - 8} ${GROND} v-11.5 a6.5 6.5 0 0 1 13 0 V${GROND} Z"/><path d="M${h.deur + 3.5} ${GROND - 15.5} L${h.deur + 8.2} ${GROND - 28}" fill="none" stroke="#0b2340" stroke-width="3.4" stroke-linecap="round" transform="rotate(${n(arm + 6)} ${h.deur + 3.5} ${GROND - 15.5})"/></g>`;
+      }
+      const hartTijden = h.aan > 0 ? [h.aan + 0.45] : [];
+      const beurt = Math.abs(Math.round(h.deur / 7)) % 5;
+      for (let k = 0; k < 6; k++) hartTijden.push(T.eind + 0.9 + beurt * 0.55 + k * 2.75);
+      for (const ht of hartTijden) {
+        const u = (t - ht) / 1.7;
+        if (u <= 0 || u >= 1 || t < h.aan) continue;
+        const maat = veer(u / 0.22) * 1.55;
+        const o = u < 0.7 ? 1 : 1 - (u - 0.7) / 0.3;
+        harten += `<g transform="translate(${n(h.deur + Math.sin(u * 7) * 5)} ${n(GROND - 60 - 64 * uit(u))}) scale(${n(maat * 10) / 10})" opacity="${n(o)}"><path d="M0 6 C -9.5 -1.5, -6 -9.5, 0 -4.2 C 6 -9.5, 9.5 -1.5, 0 6 Z" fill="#ffb547"/></g>`;
+      }
+    }
+    el("gloed").innerHTML = gloed;
+    el("licht").innerHTML = licht;
+    el("harten").innerHTML = harten;
+
+    // fietsers: eerst wie verder weg rijdt (naar links), dan wie vooraan rijdt
+    s = "";
+    for (const dir of [-1, 1]) for (const c of FIETSERS) if (c.dir === dir) s += fietser(c, t);
+    el("fietsers").innerHTML = s;
+
+    // sneeuw
+    let verweg = "";
+    let dichtbij = "";
+    for (const v of vlokken) {
+      const x = rest(v.x + Math.sin(t * 0.9 + v.f) * v.z - t * (18 + v.laag * 16) - cam.x * (0.5 + v.laag * 0.9), 1200) - 60;
+      const y = rest(v.y + t * v.v, 2000) - 40;
+      const c = `<circle cx="${n(x)}" cy="${n(y)}" r="${n(v.r)}" fill="#fff" opacity="${n(v.o)}"${v.laag === 2 ? ' filter="url(#f-vlok)"' : ""}/>`;
+      if (v.laag === 2) dichtbij += c;
+      else verweg += c;
+    }
+    el("sneeuw-ver").innerHTML = verweg;
+    el("sneeuw-dichtbij").innerHTML = dichtbij;
+
+    // de zak en het zout dat eruit komt
+    s = "";
+    if (t >= T.zakIn) {
+      const z = zak(t, naarScherm([kop(t), 0])[0]);
+      const sch = z.b / 320;
+      const hoek = (z.r * Math.PI) / 180;
+      const draai = (lx, ly) => {
+        const dx = (lx - 160) * sch;
+        const dy = (ly - 210) * sch;
+        return [z.x + dx * Math.cos(hoek) - dy * Math.sin(hoek), z.y + dx * Math.sin(hoek) + dy * Math.cos(hoek)];
+      };
+      if (z.eind > 0) s += `<circle cx="${n(z.x)}" cy="${n(z.y)}" r="460" fill="url(#f-koel)" opacity="${n(z.eind)}"/>`;
+      s += `<ellipse cx="${n(z.x + 16)}" cy="${n(z.y + z.b * 0.66)}" rx="${n(z.b * 0.56)}" ry="${n(z.b * 0.09)}" fill="#020a14" opacity="${n(0.42 * (z.eind > 0 ? 0 : 1))}" filter="url(#f-zacht)"/>`;
+      const mond = draai(266, 34);
+      const r = toeval(77);
+      for (let k = 0; k < 250; k++) {
+        const start = T.strooi[0] + k * 0.011;
+        const duur = 0.42 + r() * 0.16;
+        const wijd = (r() - 0.5) * 2;
+        const hoog = 110 + r() * 110;
+        const amber = k % 5 === 2;
+        const maat = 3.6 + r() * 3;
+        const u = (t - start) / duur;
+        if (u <= 0 || u >= 1 || !giet(start)) continue;
+        const doel = naarScherm([kop(Math.min(start + duur, t + 0.4)) + wijd * 12, (PAD0 + PAD1) / 2 + wijd * 46]);
+        const mx = (mond[0] + doel[0]) / 2 + wijd * 20;
+        const my = Math.min(mond[1], doel[1]) - hoog;
+        const v = 1 - u;
+        const x = v * v * mond[0] + 2 * v * u * mx + u * u * doel[0];
+        const y = v * v * mond[1] + 2 * v * u * my + u * u * doel[1];
+        s += `<circle cx="${n(x)}" cy="${n(y)}" r="${n(maat * (1 - 0.35 * u))}" fill="${amber ? "#ffb547" : "#fff"}" opacity="${n(u > 0.9 ? (1 - u) * 10 : 1)}"/>`;
+      }
+      s += `<g transform="translate(${n(z.x)} ${n(z.y)}) rotate(${n(z.r)}) scale(${sch.toFixed(4)}) translate(-160 -210)"><use href="#zak" width="320" height="420"/></g>`;
+    }
+    el("zakje").innerHTML = s;
+
+    // teksten
+    for (const r of REGELS) {
+      r.woorden.forEach((w, i) => {
+        const a = uit((t - r.van - i * 0.07) / 0.5);
+        const weg = zacht((t - r.tot) / 0.35);
+        w.style.opacity = (a * (1 - weg)).toFixed(3);
+        w.style.transform = `translateY(${n((1 - a) * 54 - weg * 34)}px)`;
+      });
+    }
+
+    // eindbeeld: merk, zak, website
+    const e = t - T.eind;
+    const merk = el("merk");
+    merk.style.opacity = klem(e / 0.25).toFixed(3);
+    merk.style.transform = `scale(${n(veer(e / 0.55) * 100) / 100})`;
+    el("mk-dak").setAttribute("stroke-dasharray", `${klem((e - 0.2) / 0.45).toFixed(3)} 3`);
+    el("mk-dak").style.opacity = e > 0.2 ? 1 : 0;
+    el("mk-deur").style.opacity = klem((e - 0.5) / 0.2).toFixed(3);
+    el("mk-route").setAttribute("stroke-dasharray", `${klem((e - 0.6) / 0.5).toFixed(3)} 3`);
+    el("mk-route").style.opacity = e > 0.6 ? 1 : 0;
+    document.querySelectorAll(".mk-korrel").forEach((k, i) => {
+      const a = veer((e - 0.8 - i * 0.13) / 0.3);
+      k.setAttribute("transform", `translate(${k.getAttribute("cx")} ${k.getAttribute("cy")}) scale(${n(Math.max(0, a) * 100) / 100}) translate(${-k.getAttribute("cx")} ${-k.getAttribute("cy")})`);
+    });
+    const op = (id, vanaf, veren) => {
+      const a = uit((e - vanaf) / 0.5);
+      const d = el(id);
+      d.style.opacity = a.toFixed(3);
+      d.style.transform = veren ? `scale(${n((0.6 + 0.4 * veer((e - vanaf) / 0.55)) * 100) / 100})` : `translateY(${n((1 - a) * 40)}px)`;
+    };
+    op("woord1", 0.45);
+    op("woord2", 0.6);
+    op("pil", 1.25, true);
+    op("sub1", 1.65);
+    op("sub2", 1.8);
+    op("maker", 2.15);
+    document.querySelector("#pil i").style.transform = `translateX(${n(-200 + klem((e - 2.7) / 0.9) * 1100)}px) skewX(-20deg)`;
+  }
+  window.teken = teken;
+  window.DUUR = DUUR;
+
+  // Los geopend in een browser: gewoon afspelen (klik = opnieuw). Het renderscript zet ?stil in de adresregel.
+  if (!location.search.includes("stil") && !window.STIL) {
+    let nul = performance.now();
+    const lus = (nu) => {
+      teken(((nu - nul) / 1000) % (DUUR + 1.5));
+      requestAnimationFrame(lus);
+    };
+    document.addEventListener("click", () => (nul = performance.now()));
+    document.getElementById("film").style.cssText += ";transform-origin:0 0;transform:scale(" + Math.min(1, innerHeight / 1920) + ")";
+    requestAnimationFrame(lus);
+  } else teken(0);
+</script>
+</html>

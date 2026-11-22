@@ -41,6 +41,8 @@ De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, bet
 
 **Lijn weg, straat in een lus (22-11-2026, opdracht Martijn):** de strooilijn die vanaf boven over de pagina liep is helemaal verwijderd. De animatie in de straat loopt nu vanzelf en rustig, van links naar rechts, en begint na een korte pauze opnieuw (alleen zolang hij in beeld is). De tekst in de voet is netjes gezet: links rechts uitgelijnd, de kleine lettertjes in rustige regels en de bedrijfsgegevens op een eigen regel.
 
+**Muziek en tweede filmpje (22-11-2026, opdracht Martijn):** onder het eerste filmpje staat nu een eigen, in code gemaakt deuntje (geen muziek van anderen). Er is een tweede filmpje bijgekomen met fietsers die uitglijden tot er gestrooid is (`strooizout-film-fiets.mp4`). In het eindbeeld van beide staat ‘binnen de rondweg van Houten’. De eerste versie van de muziek vond Martijn te lief; hij is pittiger gemaakt (beat, klap, bas, synth). De maker (AI) kan de muziek zelf niet beluisteren, alleen meten; Martijn beoordeelt of hij bevalt. Zie README › *Promotiefilmpjes* en PROMOTIE › *Filmpjes*.
+
 Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak kan later in het beheer worden geüpload (*Producten › Afbeelding*) en vervangt dan de kleine productafbeeldingen; voor de hero is dan een vrijstaande foto nodig.
 
 ## Commerciële versie (opdracht 22-11-2026)
