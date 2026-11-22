@@ -45,5 +45,5 @@ for (const n of ["a", "b", "c"]) {
   console.log(`niveau ${n}: ${nrs.length} geschiedenissen`);
 }
 const totaal = Object.values(alles).reduce((a, v) => a + Object.keys(v).length, 0);
-writeFileSync(join(WERK, "STATUS.md"), `# Status reisniveaus (gegenereerd door scripts/niveaus/samenvoegen.mjs)\n\nIn de app: ${Object.keys(alles).length} geschiedenissen, ${totaal} versies${alleenGecontroleerd ? " (alleen gecontroleerde)" : ""}. Doel: 150 × 3 = 450.\n\n| Batch | Geschiedenissen | Geschreven | Gecontroleerd | Controleverslag |\n|---|---|---|---|---|\n${rijen.join("\n")}\n`);
+writeFileSync(join(WERK, "STATUS.md"), `# Status reisniveaus (gegenereerd door scripts/niveaus/samenvoegen.mjs)\n\nIn de app: ${Object.keys(alles).length} geschiedenissen, ${totaal} versies${alleenGecontroleerd ? " (alleen gecontroleerde)" : ""}. Doel: ${batches.reduce((n, b) => n + b.nrs.length, 0)} × 3 = ${batches.reduce((n, b) => n + b.nrs.length, 0) * 3}.\n\n| Batch | Geschiedenissen | Geschreven | Gecontroleerd | Controleverslag |\n|---|---|---|---|---|\n${rijen.join("\n")}\n`);
 console.log(`${totaal} versies; status in docs/bijbelreis-niveaus/werk/STATUS.md`);

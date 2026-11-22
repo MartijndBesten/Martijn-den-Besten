@@ -26,7 +26,7 @@ BR.taalBoek.en = {
   inhoud: ["inhoud.js", "stappen.js", "verhalen.js"],
   zonder: ["vandaag.js", "taferelen*.js", "fotos.js", "seizoen.js", "wereld/ingang.js", "inhoud/kerst*.js"],
   // De melding bovenaan het reisboek, met de weg terug naar het Nederlands.
-  melding: '<p class="taal-proef" role="note"><b>Review draft.</b> <span>This English version is being tested: 10 of the 150 histories are ready, and every text still has to be checked by a reviewer.</span> <a data-taal="nl" href="/" hreflang="nl" lang="nl">Nederlandse versie</a></p>',
+  melding: '<p class="taal-proef" role="note"><b>Review draft.</b> <span>This English version is being tested: 10 of the 166 histories are ready, and every text still has to be checked by a reviewer.</span> <a data-taal="nl" href="/" hreflang="nl" lang="nl">Nederlandse versie</a></p>',
   // Blokken die als geheel vervangen worden (eerste tag van het blok, nieuwe HTML).
   blokken: [
     ['<details class="parents">', `<details class="parents">
@@ -63,7 +63,7 @@ BR.taalBoek.en = {
     "Direct naar het reisboek": "Skip to the travel book",
     "Op reis door de": "Journey through the", "Bijbel": "Bible", "reis": "Journey",
     "Voorlezen": "Read aloud", "Zelf lezen": "Read yourself", "Verdiepen": "Go deeper",
-    "150 geschiedenissen van de schepping tot Openbaring": "Bible histories, from the creation to Revelation",
+    "166 geschiedenissen van de schepping tot Openbaring": "Bible histories, from the creation to Revelation",
     "Onderdelen": "Sections", "Verhalen": "Histories", "geschiedenissen": "histories", "Reis": "Journey", "route op de kaart": "route on the map",
     "Wie is wie": "Who’s who", "personen, families": "people, families", "Tijdlijn": "Timeline", "wanneer het gebeurde": "when it happened",
     "Speurtocht": "Quiz", "vragen en zoeken": "questions and searching", "Paspoort": "Passport", "jouw stempels": "your stamps",

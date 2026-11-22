@@ -349,11 +349,11 @@ describe("bijbelreis: reisniveaus", () => {
     expect(r.uit.trim().split("\n").slice(-20).join("\n"), r.uit).toMatch(/^OK: /m);
     expect(r.ok).toBe(true);
   });
-  // Releasepoort: alle 150 geschiedenissen op alle drie niveaus, niets meer op ‘concept’.
-  it("alle 150 geschiedenissen hebben a, b en c, en geen enkele versie staat nog op concept", () => {
+  // Releasepoort: alle geschiedenissen (150 + 16 later toegevoegd) op alle drie niveaus, niets meer op ‘concept’.
+  it("alle 166 geschiedenissen hebben a, b en c, en geen enkele versie staat nog op concept", () => {
     const r = controle("--volledig");
     expect(r.ok, r.uit.split("\n").slice(0, 15).join("\n")).toBe(true);
-    expect(r.uit).toMatch(/OK: 150 geschiedenis\(sen\), 450 versies\./);
+    expect(r.uit).toMatch(/OK: 166 geschiedenis\(sen\), 498 versies\./);
   });
 });
 

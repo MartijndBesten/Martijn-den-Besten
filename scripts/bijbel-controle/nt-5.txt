@@ -1,0 +1,234 @@
+# Controle voor groep nt-5: public/bijbelreis/geschiedenissen/nt-5.js (nr. 161–164, batch 32).
+# Maatstaf: Statenvertaling in data/statenvertaling/. Regel: verwijzing | regex (hoofdletterongevoelig, trema's tellen niet).
+# Per feitelijke bewering in uitleg, betekenis, ontdek, quiz, cross en tijdNoot één regel.
+
+# ===== 161 De Samaritaanse vrouw bij de put (Johannes 4) =====
+# uitleg
+Johannes 4:3 | verliet Hij Judea, en ging wederom heen naar Galilea
+Johannes 4:4 | Hij moest door Samaria gaan
+Johannes 4:5 | stad van Samaria, genaamd Sichar
+Johannes 4:6 | aldaar was de fontein Jakobs
+Johannes 4:6 | vermoeid zijnde van de reize, zat alzo neder nevens de fontein
+Johannes 4:11 | de put is diep
+Johannes 4:7 | Er kwam een vrouw uit Samaria om water te putten
+Johannes 4:7 | Geef Mij te drinken
+Johannes 4:9 | Hoe begeert Gij, Die een Jood zijt, van mij te drinken
+Johannes 4:9 | de Joden houden geen gemeenschap met de Samaritanen
+Johannes 4:10 | levend water
+Johannes 4:14 | zo wie gedronken zal hebben van het water, dat Ik hem geven zal, dien zal in eeuwigheid niet dorsten
+Johannes 4:18 | gij hebt vijf mannen gehad, en dien gij nu hebt, is uw man niet
+Johannes 4:19 | Heere, ik zie, dat Gij een profeet zijt
+Johannes 4:25 | Ik weet, dat de Messias komt
+Johannes 4:26 | Ik ben het, Die met u spreek
+Johannes 4:28 | verliet de vrouw dan haar watervat, en ging heen in de stad
+Johannes 4:29 | Komt, ziet een Mens, Die mij gezegd heeft alles, wat ik gedaan heb
+Johannes 4:39 | velen der Samaritanen uit die stad geloofden in Hem
+Johannes 4:40 | Hij bleef aldaar twee dagen
+Johannes 4:46 | kwam dan Jezus wederom te Kana in Galilea
+Johannes 4:46 | koninklijk hoveling, wiens zoon krank was, te Kapernaum
+Johannes 4:47 | bad Hem, dat Hij afkwame.*hij lag op zijn sterven
+Johannes 4:50 | Ga heen, uw zoon leeft
+Johannes 4:50 | de mens geloofde het woord.*en ging heen
+Johannes 4:51 | als hij nu afging, kwamen hem zijn dienstknechten tegemoet
+Johannes 4:52 | verliet hem de koorts
+Johannes 4:52 | vraagde hij dan van hen de ure, in welke het beter met hem geworden was
+Johannes 4:53 | in dezelve ure was, in dewelke Jezus tot hem gezegd had: Uw zoon leeft
+Johannes 4:53 | hij geloofde zelf, en zijn gehele huis
+# betekenis
+Johannes 4:14 | het water, dat Ik hem zal geven, zal in hem worden een fontein van water, springende tot in het eeuwige leven
+Johannes 4:42 | Deze waarlijk is de Christus, de Zaligmaker der wereld
+Johannes 4:41-42 | er geloofden er veel meer.*zeiden tot de vrouw.*Deze waarlijk is de Christus
+# ontdek (wie zei het)
+Johannes 4:9 | de Samaritaanse vrouw tot Hem: Hoe begeert Gij, Die een Jood zijt, van mij te drinken
+Johannes 4:13 | Jezus antwoordde, en zeide tot haar: Een ieder, die van dit water drinkt, zal wederom dorsten
+Johannes 4:31 | baden Hem de discipelen, zeggende: Rabbi, eet
+Johannes 4:49 | De koninklijke hoveling zeide tot Hem: Heere, kom af, eer mijn kind sterft
+Johannes 4:39-42 | Samaritanen.*zeiden tot de vrouw.*wij zelven hebben Hem gehoord
+Lukas 7:2 | hoofdman over honderd
+Lukas 8:41 | Jairus.*overste der synagoge
+# quiz
+Johannes 4:8 | Zijn discipelen waren heengegaan in de stad, opdat zij zouden spijze kopen
+Johannes 4:19 | Gij een profeet zijt
+Johannes 4:28 | verliet de vrouw dan haar watervat
+Johannes 4:46 | zoon krank was, te Kapernaum
+Johannes 4:52 | vraagde hij dan van hen de ure.*verliet hem de koorts
+Johannes 4:53 | in dezelve ure.*Jezus tot hem gezegd had
+# cross
+Jeremia 2:13 | den Springader des levenden waters
+Johannes 7:37 | Zo iemand dorst, die kome tot Mij en drinke
+Johannes 7:37 | laatsten dag.*van het feest
+Johannes 7:14 | Jezus op in den tempel
+Jozua 24:32 | beenderen van Jozef.*te Sichem, in dat stuk velds, hetwelk Jakob gekocht had
+# tijdNoot
+Johannes 2:13 | het pascha der Joden was nabij
+Johannes 2:23 | te Jeruzalem was, op het pascha
+Johannes 3:22 | in het land van Judea
+Johannes 4:3 | verliet Hij Judea
+Lukas 3:1 | in het vijftiende jaar der regering van den keizer Tiberius
+Lukas 3:23 | omtrent dertig jaren oud
+
+# ===== 162 De Heere Jezus in de synagoge van Nazareth (Lukas 4:16–30) =====
+# uitleg
+Lukas 4:16 | Hij kwam te Nazareth, daar Hij opgevoed was
+Lukas 4:16 | naar Zijn gewoonte, op den dag des sabbats in de synagoge; en stond op om te lezen
+Lukas 4:17 | Hem werd gegeven het boek van den profeet Jesaja
+Lukas 4:17 | vond Hij de plaats, daar geschreven was
+Lukas 4:18 | De Geest des Heeren is op Mij, daarom heeft Hij Mij gezalfd; Hij heeft Mij gezonden, om den armen het Evangelie te verkondigen
+Lukas 4:20 | het boek toegedaan en den dienaar wedergegeven had, zat Hij neder
+Lukas 4:20 | de ogen van allen in de synagoge waren op Hem geslagen
+Lukas 4:21 | Heden is deze Schrift in uw oren vervuld
+Lukas 4:22 | verwonderden zich over de aangename woorden, die uit Zijn mond voortkwamen
+Lukas 4:22 | Is deze niet de Zoon van Jozef
+Lukas 4:23 | al wat wij gehoord hebben, dat in Kapernaum geschied is, doe dat ook hier
+Lukas 4:24 | Voorwaar Ik zeg u, dat geen profeet aangenaam is in zijn vaderland
+Lukas 4:25 | vele weduwen in Israel in de dagen van Elias
+Lukas 4:26 | Elias gezonden, dan naar Sarepta Sidonis, tot een vrouw, die weduwe was
+Lukas 4:27 | vele melaatsen in Israel, ten tijde van den profeet Elisa; en geen van hen werd gereinigd, dan Naaman, de Syrier
+Lukas 4:28 | zij werden allen in de synagoge met toorn vervuld, als zij dit hoorden
+Lukas 4:29 | wierpen zij Hem uit, buiten de stad
+Lukas 4:29 | op den top des bergs, op denwelken hun stad gebouwd was, om Hem van de steilte af te werpen
+Lukas 4:30 | Maar Hij, door het midden van hen doorgegaan zijnde, ging weg
+# betekenis
+Lukas 4:18 | om den armen het Evangelie te verkondigen
+Lukas 4:21 | Heden is deze Schrift
+Jesaja 61:1 | De Geest des Heeren HEEREN is op Mij, omdat de HEERE Mij gezalfd heeft
+Johannes 1:11 | Hij is gekomen tot het Zijne, en de Zijnen hebben Hem niet aangenomen
+# ontdek (volgorde)
+Lukas 4:16 | stond op om te lezen
+Lukas 4:17 | het boek van den profeet Jesaja
+Lukas 4:20 | het boek toegedaan.*zat Hij neder
+Lukas 4:21 | Heden is deze Schrift in uw oren vervuld
+Lukas 4:26-27 | Sarepta.*Naaman
+Lukas 4:29 | op den top des bergs
+Lukas 4:30 | door het midden van hen doorgegaan
+# quiz
+Lukas 4:16 | op den dag des sabbats in de synagoge
+Lukas 4:20-21 | het boek toegedaan.*Heden is deze Schrift in uw oren vervuld
+Lukas 4:22 | Is deze niet de Zoon van Jozef
+Lukas 4:27 | ten tijde van den profeet Elisa.*gereinigd, dan Naaman, de Syrier
+2 Koningen 5:25-27 | Gehazi.*melaats
+2 Kronieken 26:21 | koning Uzzia.*melaats
+Lukas 4:25-28 | weduwen.*Naaman.*met toorn vervuld, als zij dit hoorden
+# cross
+Jesaja 61:2 | het jaar van het welbehagen des HEEREN, en den dag der wraak onzes Gods
+Johannes 4:44 | Jezus heeft Zelf getuigd, dat een profeet in zijn eigen vaderland geen eer heeft
+Handelingen 10:34 | Petrus
+Handelingen 10:38 | Jezus van Nazareth, hoe Hem God gezalfd heeft met den Heiligen Geest en met kracht
+# tijdNoot
+Lukas 4:14 | keerde wederom.*naar Galilea
+Lukas 4:15 | Hij leerde in hun synagogen
+Mattheus 13:54 | in Zijn vaderland, leerde Hij hen in hun synagoge
+Markus 6:1 | in Zijn vaderland
+
+# ===== 163 De jongeling van Naïn (Lukas 7:11–17) =====
+# uitleg
+Lukas 7:11 | op den volgenden dag, dat Hij ging naar een stad, genaamd Nain
+Lukas 7:10 | vonden den kranken dienstknecht gezond
+Lukas 7:1 | ging Hij in te Kapernaum
+Lukas 7:11 | met Hem gingen velen van Zijn discipelen, en een grote schare
+Lukas 7:12 | de poort der stad genaakte.*een dode werd uitgedragen
+Lukas 7:12 | eniggeboren zoon zijner moeder was, en zij was weduwe
+Lukas 7:12 | een grote schare van de stad was met haar
+Lukas 7:13 | de Heere, haar ziende, werd innerlijk met ontferming over haar bewogen
+Lukas 7:13 | Ween niet
+Lukas 7:14 | raakte de baar aan; \(de dragers nu stonden stil\)
+Lukas 7:14 | Jongeling, Ik zeg u, sta op
+Lukas 7:15 | de dode zat overeind, en begon te spreken
+Lukas 7:15 | Hij gaf hem aan zijn moeder
+Lukas 7:16 | vreze beving hen allen, en zij verheerlijkten God
+Lukas 7:16 | Een groot Profeet is onder ons opgestaan, en God heeft Zijn volk bezocht
+Lukas 7:17 | dit gerucht van Hem ging uit in geheel Judea, en in al het omliggende land
+# betekenis
+Lukas 7:14-15 | sta op.*de dode zat overeind
+Lukas 7:16 | God heeft Zijn volk bezocht
+Lukas 1:67-68 | Zacharias.*Hij heeft bezocht, en verlossing te weeg gebracht Zijn volke
+# ontdek (verbanden)
+1 Koningen 17:9 | Zarfath.*weduwvrouw
+1 Koningen 17:23 | bracht het af van de opperzaal in het huis, en gaf het aan zijn moeder
+2 Koningen 4:36 | Sunamietische.*Neem uw zoon op
+2 Koningen 4:8 | Sunem
+Lukas 7:16 | Een groot Profeet is onder ons opgestaan
+Lukas 7:15 | de dode zat overeind, en begon te spreken
+Lukas 7:18-20 | Johannes.*zond hen tot Jezus
+Lukas 7:22 | boodschapt Johannes weder.*de doden opgewekt worden
+# quiz
+Lukas 7:11 | velen van Zijn discipelen, en een grote schare
+Lukas 7:3 | ouderlingen der Joden
+Lukas 7:12 | eniggeboren zoon zijner moeder was, en zij was weduwe
+Lukas 7:14 | raakte de baar aan
+Lukas 7:15 | begon te spreken
+Lukas 7:16 | Een groot Profeet is onder ons opgestaan
+# cross
+Psalm 68:6 | een Vader der wezen, en een Rechter der weduwen
+Johannes 5:25 | wanneer de doden zullen horen de stem des Zoons Gods, en die ze gehoord hebben, zullen leven
+Johannes 11:24-25 | Martha.*Ik ben de Opstanding en het Leven
+# tijdNoot
+Lukas 7:1 | ging Hij in te Kapernaum
+Lukas 7:11 | op den volgenden dag
+
+# ===== 164 De Kananese vrouw en de dove man (Markus 7:24–8:26; Mattheüs 15:21–39) =====
+# uitleg
+Markus 7:24 | ging Hij weg naar de landpalen van Tyrus en Sidon
+Markus 7:25 | kwam en viel neder aan Zijn voeten
+Markus 7:26 | een Griekse vrouw, van geboorte uit Syro-fenicie
+Mattheus 15:22 | een Kananese vrouw
+Markus 7:25 | dochtertje een onreinen geest had
+Markus 7:27 | niet betamelijk dat men het brood der kinderen neme, en den hondekens voor werpe
+Markus 7:28 | Ja, Heere, doch ook de hondekens eten onder de tafel van de kruimkens der kinderen
+Markus 7:29 | Om dezes woords wil ga heen, de duivel is uit uw dochter uitgevaren
+Markus 7:30 | als zij in haar huis kwam
+Mattheus 15:28 | Toen antwoordde Jezus, en zeide tot haar: O vrouw! groot is uw geloof
+Markus 7:30 | vond zij, dat de duivel uitgevaren was, en de dochter liggende op het bed
+Markus 7:31 | kwam aan de zee van Galilea, door het midden der landpalen van Dekapolis
+Markus 7:32 | brachten tot Hem een dove, die zwaarlijk sprak
+Markus 7:33 | hem van de schare alleen genomen hebbende
+Markus 7:34 | Effatha! dat is: wordt geopend
+Markus 7:35 | terstond werden zijn oren geopend.*hij sprak recht
+Mattheus 15:29 | kwam aan de zee van Galilea, en klom op den berg
+Mattheus 15:30 | kreupelen, blinden, stommen, lammen, en vele anderen.*Hij genas dezelve
+Markus 8:1 | In dezelfde dagen, als er een geheel grote schare was, en zij niet hadden, wat zij eten zouden
+Markus 8:2 | nu drie dagen bij Mij gebleven
+Markus 8:5 | Zeven
+Markus 8:7 | weinige visjes
+Markus 8:8 | verzadigd geworden.*zeven manden
+Markus 8:9 | omtrent vier duizend
+Markus 8:10 | in de delen van Dalmanutha
+Markus 8:11 | de Farizeen.*begerende van Hem een teken van den hemel
+Markus 8:12 | Zo aan dit geslacht een teken gegeven zal worden
+Markus 8:14 | vergeten brood mede te nemen.*in het schip
+Markus 8:15 | wacht u van den zuurdesem der Farizeen, en van den zuurdesem van Herodes
+Markus 8:16 | Het is, omdat wij geen broden hebben
+Markus 8:22 | kwam te Bethsaida; en zij brachten tot Hem een blinde
+Markus 8:24 | Ik zie de mensen, want ik zie hen, als bomen, wandelen
+Markus 8:25 | leide Hij de handen wederom op zijn ogen.*zag hen allen ver en klaar
+# betekenis
+Markus 7:26 | Griekse vrouw, van geboorte uit Syro-fenicie
+Markus 7:28 | doch ook de hondekens eten onder de tafel van de kruimkens der kinderen
+Mattheus 15:28 | groot is uw geloof
+Markus 7:37 | Hij heeft alles wel gedaan
+Jesaja 35:5 | der doven oren zullen geopend worden
+Mattheus 15:24 | niet gezonden, dan tot de verloren schapen van het huis Israels
+# ontdek (koppel)
+Markus 7:24-26 | landpalen van Tyrus en Sidon.*dochter
+Markus 7:31-34 | zee van Galilea.*Dekapolis.*een dove.*Effatha
+Markus 8:10-11 | Dalmanutha.*Farizeen.*teken van den hemel
+Markus 8:14-15 | in het schip.*zuurdesem
+Markus 8:22-24 | Bethsaida.*blinde.*als bomen
+# quiz
+Markus 7:25-26 | dochtertje een onreinen geest had.*den duivel uitwierp uit haar dochter
+Markus 7:34 | opwaarts ziende naar den hemel, zuchtte Hij, en zeide tot hem: Effatha
+Markus 8:5 | Hoeveel broden hebt gij\? En zij zeiden: Zeven
+Mattheus 16:12 | van de leer der Farizeen en Sadduceen
+Markus 8:23 | leidde Hij hem uit buiten het vlek
+Johannes 9:7 | badwater
+# cross
+Markus 3:8 | van omtrent Tyrus en Sidon
+Markus 6:41 | de vijf broden en de twee vissen
+Markus 6:43 | twaalf volle korven brokken
+Markus 6:44 | omtrent vijf duizend mannen
+Mattheus 16:4 | dan het teken van Jona, den profeet
+# tijdNoot
+Johannes 6:4 | het pascha, het feest der Joden, was nabij
+Markus 8:27 | vlekken van Cesarea Filippi
+Markus 8:29 | Gij zijt de Christus
+Johannes 11:55 | het pascha der Joden was nabij

@@ -1,0 +1,748 @@
+{
+  "161": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "nt_sichar",
+        "nt_kana",
+        "nt_kapernaum"
+      ],
+      "delen": [
+        {
+          "t": "De Heere Jezus is op reis door Samaria. Hij is moe van de reis. Hij gaat zitten bij de put van Jakob.",
+          "stap": "jezus-1:nt-samaria-nain:0"
+        },
+        {
+          "t": "Een vrouw komt water putten. De Heere Jezus zegt tegen haar: ‘Geef Mij te drinken.’",
+          "stap": "jezus-1:nt-samaria-nain:1"
+        },
+        {
+          "t": "Hij vertelt haar over levend water. Wie van Zijn water drinkt, krijgt nooit meer dorst.",
+          "stap": "jezus-1:nt-samaria-nain:1"
+        },
+        {
+          "t": "De vrouw zegt: “Ik weet dat de Messias komt.” Dat is de Christus, Die God beloofd heeft. De Heere Jezus zegt: “Ik ben het.”",
+          "stap": "jezus-1:nt-samaria-nain:2"
+        },
+        {
+          "t": "De vrouw laat haar watervat staan. Ze gaat de stad in en vertelt de mensen over Hem.",
+          "stap": "jezus-1:nt-samaria-nain:3"
+        },
+        {
+          "t": "Veel mensen uit de stad geloven in de Heere Jezus. Hij blijft twee dagen bij hen.",
+          "stap": "jezus-1:nt-samaria-nain:3"
+        },
+        {
+          "t": "In Kana komt een man van het hof van de koning naar Hem toe. Zijn zoon is heel ziek, thuis in Kapernaüm.",
+          "stap": "jezus-1:nt-samaria-nain:4"
+        },
+        {
+          "t": "De Heere Jezus zegt: ‘Ga heen, uw zoon leeft.’ De man gelooft het en gaat naar huis.",
+          "stap": "jezus-1:nt-samaria-nain:4"
+        },
+        {
+          "t": "Onderweg hoort hij dat zijn zoon beter is. Dat gebeurde precies toen de Heere Jezus het zei."
+        }
+      ],
+      "samen": "Bij A is weggelaten dat de Heere Jezus tegen de vrouw zegt dat zij vijf mannen gehad heeft, en dat de man die zij nu heeft niet haar man is (Johannes 4:16–18). Daardoor ziet zij dat Hij een profeet is (4:19). Ook het gesprek over aanbidden ‘in geest en waarheid’ is weggelaten (4:20–24). Vraag samen: wat zegt de Heere Jezus over het water uit de put, en wat over het water dat Hij geeft? (4:13–14)",
+      "vragen": [
+        {
+          "q": "Wat vraagt de Heere Jezus aan de vrouw bij de put?",
+          "a": [
+            "Om water te drinken",
+            "Om brood te eten"
+          ],
+          "why": "Johannes 4:7"
+        },
+        {
+          "q": "Hoe lang blijft de Heere Jezus bij de mensen uit de stad?",
+          "a": [
+            "Twee dagen",
+            "Een heel jaar"
+          ],
+          "why": "Johannes 4:40"
+        },
+        {
+          "q": "Wat zegt de Heere Jezus tegen de vader van de zieke zoon?",
+          "a": [
+            "Ga heen, uw zoon leeft",
+            "Breng uw zoon bij Mij"
+          ],
+          "why": "Johannes 4:50"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Moe bij de bron van Jakob",
+          "stap": "jezus-1:nt-samaria-nain:1",
+          "t": "Op weg naar Galilea gaat de Heere Jezus door Samaria. Bij Sichar gaat Hij, moe van de reis, zitten bij de bron van Jakob. Een Samaritaanse vrouw komt water putten. Hij zegt: ‘Geef Mij te drinken.’ Zij vraagt hoe Hij als Jood dat aan haar vraagt, want Joden gaan niet om met Samaritanen. Hij spreekt over levend water: wie dat drinkt, krijgt nooit meer dorst."
+        },
+        {
+          "kop": "De vrouw roept de stad",
+          "stap": "jezus-1:nt-samaria-nain:3",
+          "t": "Hij weet alles wat zij gedaan heeft. Zij noemt Hem een profeet: iemand die namens God spreekt. Als zij spreekt over de Messias, de beloofde Christus, zegt Hij: ‘Ik ben het, Die met u spreek.’ De vrouw laat haar watervat staan en vertelt het in de stad. Veel Samaritanen geloven in Hem. Ze noemen Hem ‘de Zaligmaker der wereld’: de Redder van de wereld."
+        },
+        {
+          "kop": "Een zieke zoon in Kapernaüm",
+          "stap": "jezus-1:nt-samaria-nain:4",
+          "t": "In Kana vraagt een koninklijke hoveling (een dienaar van de koning) of Hij wil komen. Zijn zoon ligt in Kapernaüm op sterven. De Heere Jezus zegt: ‘Ga heen, uw zoon leeft.’ De man gelooft het. Onderweg hoort hij dat de koorts op dat uur geweken is. Hij gelooft, met zijn hele huis."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom vroeg de vrouw hoe de Heere Jezus haar om water kon vragen?",
+          "a": [
+            "Joden gingen niet om met Samaritanen",
+            "Ze had zelf geen water meer in haar vat",
+            "Het was sabbat en dan putte niemand water"
+          ],
+          "why": "Johannes 4:9"
+        },
+        {
+          "q": "Waaraan merkte de vrouw dat de Heere Jezus een profeet was?",
+          "a": [
+            "Hij wist alles wat zij gedaan had",
+            "Hij maakte het water in de put tot wijn",
+            "Hij genas een zieke in de stad Sichar"
+          ],
+          "why": "Johannes 4:18–19; Johannes 4:29"
+        },
+        {
+          "q": "Hoe noemden de Samaritanen de Heere Jezus?",
+          "a": [
+            "De Zaligmaker der wereld",
+            "De Zoon van Jozef uit Nazareth",
+            "De nieuwe Leraar uit Galilea"
+          ],
+          "why": "Johannes 4:42"
+        },
+        {
+          "q": "Wat hoorde de hoveling onderweg van zijn dienstknechten?",
+          "a": [
+            "Uw kind leeft",
+            "Uw kind is gestorven",
+            "Uw kind is naar Kana gegaan"
+          ],
+          "why": "Johannes 4:51"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Waar en wanneer",
+          "t": "De vrouw spreekt over ‘dezen berg’ (Johannes 4:20): de Gerizim, vlak bij Sichar. Op die berg moest Israël na de intocht ‘den zegen uitspreken’ (Deuteronomium 11:29). Waar Sichar precies lag, is niet helemaal zeker; de kaart toont de waarschijnlijke plaats. Waar Kana lag, is betwist. Johannes schrijft: ‘Het was omtrent de zesde ure’ (Johannes 4:6). Telt men de uren vanaf zonsopgang, dan is dat rond het midden van de dag; niet alle uitleggers rekenen de uren bij Johannes zo. Een jaartal noemt de Bijbel niet. De reis valt na het eerste Pascha dat Johannes noemt (Johannes 2:13, 23). Met een begin van het openbare optreden rond 27 n.Chr. kom je, als reconstructie, op ca. 28–29 n.Chr.",
+          "refs": [
+            "Johannes 4:6",
+            "Johannes 4:20",
+            "Deuteronomium 11:29",
+            "Johannes 2:13"
+          ]
+        },
+        {
+          "kop": "Joden en Samaritanen",
+          "t": "‘De Joden houden geen gemeenschap met de Samaritanen’ (Johannes 4:9). De Samaritanen woonden in het land van het vroegere rijk van de tien stammen. De koning van Assyrië had daar, in de plaats van de Israëlieten, mensen uit andere volken laten wonen. Die ‘vreesden den HEERE, en dienden ook hun goden’ (2 Koningen 17:24, 33). De Heere Jezus zegt tegen de vrouw: ‘de zaligheid is uit de Joden’ (Johannes 4:22). Toch gaat Hij met haar in gesprek, en veel Samaritanen gaan in Hem geloven.",
+          "refs": [
+            "Johannes 4:9",
+            "2 Koningen 17:24–33",
+            "Johannes 4:22"
+          ]
+        },
+        {
+          "kop": "Elders in de Bijbel",
+          "t": "Johannes noemt de genezing van de zoon van de hoveling ‘Dit tweede teken’ (Johannes 4:54). Het eerste was ook in Kana: het water dat wijn werd, ‘Dit beginsel der tekenen’ (Johannes 2:11). Later zegt de Heere Jezus tegen Zijn discipelen dat zij Zijn getuigen zullen zijn ‘zo te Jeruzalem, als in geheel Judea en Samaria’ (Handelingen 1:8). Filippus predikt daarna Christus in de stad van Samaria: ‘En er werd grote blijdschap in die stad’ (Handelingen 8:5–8).",
+          "refs": [
+            "Johannes 4:54",
+            "Johannes 2:11",
+            "Handelingen 1:8",
+            "Handelingen 8:5–8"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Op welke berg moest Israël na de intocht de zegen uitspreken?",
+          "a": [
+            "Op de Gerizim",
+            "Op de Karmel",
+            "Op de Tabor"
+          ],
+          "why": "Deuteronomium 11:29"
+        },
+        {
+          "q": "Hoe noemt Johannes de genezing van de zoon van de hoveling?",
+          "a": [
+            "Het tweede teken",
+            "Het eerste teken",
+            "Het laatste teken"
+          ],
+          "why": "Johannes 4:54"
+        },
+        {
+          "q": "Wie predikte later Christus in de stad van Samaria?",
+          "a": [
+            "Filippus",
+            "Barnabas",
+            "Paulus"
+          ],
+          "why": "Handelingen 8:5"
+        }
+      ]
+    }
+  },
+  "162": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "nt_nazareth"
+      ],
+      "delen": [
+        {
+          "t": "De Heere Jezus komt in Nazareth. Daar is Hij opgegroeid.",
+          "stap": "jezus-1:nt-samaria-nain:5"
+        },
+        {
+          "t": "Op de sabbat gaat Hij naar de synagoge. Daar komen de mensen samen om uit Gods Woord te lezen.",
+          "stap": "jezus-1:nt-samaria-nain:5"
+        },
+        {
+          "t": "Hij staat op om te lezen. Hij krijgt het boek van de profeet Jesaja."
+        },
+        {
+          "t": "Jesaja schreef: de Geest van de Heere is op Mij. Hij heeft Mij gezonden om arme mensen het goede nieuws te brengen."
+        },
+        {
+          "t": "Dan zegt de Heere Jezus: “Vandaag is uitgekomen wat hier geschreven staat.”"
+        },
+        {
+          "t": "De mensen verwonderen zich over Zijn woorden. Ze zeggen: “Is Hij niet de zoon van Jozef?”"
+        },
+        {
+          "t": "Dan worden ze heel boos. Ze brengen Hem naar de top van de berg. Ze willen Hem eraf gooien.",
+          "stap": "jezus-1:nt-samaria-nain:6"
+        },
+        {
+          "t": "Maar de Heere Jezus loopt midden tussen hen door. Hij gaat weg.",
+          "stap": "jezus-1:nt-samaria-nain:6"
+        }
+      ],
+      "samen": "Bij A is weggelaten waarom de mensen zo boos worden. De Heere Jezus herinnert hen eraan dat Elia naar een weduwe bij Sidon werd gestuurd, en dat van de vele melaatsen in Israël alleen Naäman, de Syriër, gereinigd werd (Lukas 4:25–28). Die twee hoorden niet bij Israël. Ook het spreekwoord ‘Medicijnmeester! genees Uzelven’ is weggelaten (4:23). Vraag samen: wat willen de mensen van Nazareth doen, en wat doet de Heere Jezus? (4:29–30)",
+      "vragen": [
+        {
+          "q": "Waar gaat de Heere Jezus op de sabbat naartoe?",
+          "a": [
+            "Naar de synagoge",
+            "Naar de markt"
+          ],
+          "why": "Lukas 4:16"
+        },
+        {
+          "q": "Welke profeet schreef het boek waaruit Hij voorleest?",
+          "a": [
+            "Jesaja",
+            "Jona"
+          ],
+          "why": "Lukas 4:17"
+        },
+        {
+          "q": "Wat doet de Heere Jezus als de mensen Hem van de berg willen gooien?",
+          "a": [
+            "Hij gaat midden tussen hen door weg",
+            "Hij blijft boven op de berg staan"
+          ],
+          "why": "Lukas 4:30"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Voorlezen in Nazareth",
+          "stap": "jezus-1:nt-samaria-nain:5",
+          "t": "De Heere Jezus komt in Nazareth, waar Hij is opgevoed. Op de sabbat gaat Hij, zoals Hij gewoon is, naar de synagoge. Daar komen de Joden samen om de Schriften te lezen. Hij krijgt het boek van de profeet Jesaja en leest: ‘De Geest des Heeren is op Mij, daarom heeft Hij Mij gezalfd.’ Gezalfd betekent: door God aangesteld voor een bijzondere taak. Dan zegt Hij: ‘Heden is deze Schrift in uw oren vervuld.’ Wat Jesaja schreef, gebeurt nu."
+        },
+        {
+          "kop": "Geen profeet in zijn vaderland",
+          "stap": "jezus-1:nt-samaria-nain:6",
+          "t": "De mensen verwonderen zich over Zijn woorden. Ze zeggen: ‘Is deze niet de Zoon van Jozef?’ De Heere Jezus zegt dat geen profeet aangenaam is in zijn vaderland. Er waren veel weduwen in Israël, maar Elia werd gestuurd naar een weduwe in Sarepta bij Sidon. En van de vele melaatsen werd alleen Naäman de Syriër rein. De weduwe en Naäman kwamen niet uit Israël."
+        },
+        {
+          "kop": "Op de top van de berg",
+          "t": "Dan worden allen in de synagoge vol toorn. Ze werpen Hem de stad uit en brengen Hem naar de top van de berg. Daar willen ze Hem van de steilte af werpen. Maar Hij gaat midden tussen hen door en gaat weg."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat deed de Heere Jezus op de sabbat, zoals Hij gewoon was?",
+          "a": [
+            "Hij ging naar de synagoge",
+            "Hij ging naar de tempel in Jeruzalem",
+            "Hij ging met Zijn vrienden vissen"
+          ],
+          "why": "Lukas 4:16"
+        },
+        {
+          "q": "Naar wie werd Elia gestuurd, volgens de Heere Jezus?",
+          "a": [
+            "Naar een weduwe in Sarepta bij Sidon",
+            "Naar een weduwe in Bethlehem",
+            "Naar een weduwe in Nazareth"
+          ],
+          "why": "Lukas 4:26"
+        },
+        {
+          "q": "Wat bedoelt de Heere Jezus met ‘geen profeet aangenaam is in zijn vaderland’?",
+          "a": [
+            "In zijn eigen stad wordt een profeet niet aangenomen",
+            "Een profeet mag niet in zijn eigen land wonen",
+            "Een profeet moet altijd naar verre landen reizen"
+          ],
+          "why": "Lukas 4:24"
+        },
+        {
+          "q": "Hoe kwam de Heere Jezus weg van de berg?",
+          "a": [
+            "Hij ging door het midden van hen weg",
+            "Zijn discipelen haalden Hem daar weg",
+            "Hij verborg Zich in de synagoge"
+          ],
+          "why": "Lukas 4:30"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Wat ‘gezalfd’ betekent",
+          "t": "In Israël werden priesters en koningen met olie gezalfd, en soms ook een profeet. Mozes goot zalfolie op het hoofd van de priester Aäron (Leviticus 8:12). Samuël zalfde David tot koning (1 Samuël 16:13). En Elia moest Elisa ‘tot profeet zalven’ (1 Koningen 19:16). Messias (Hebreeuws) en Christus (Grieks) betekenen allebei: de Gezalfde. Als de Heere Jezus in Nazareth zegt dat de woorden van Jesaja vandaag vervuld zijn, zegt Hij dat Hij Zelf die Gezalfde is.",
+          "refs": [
+            "Leviticus 8:12",
+            "1 Samuël 16:13",
+            "1 Koningen 19:16",
+            "Lukas 4:18–21"
+          ]
+        },
+        {
+          "kop": "De weduwe en Naäman",
+          "t": "De Heere Jezus noemt twee geschiedenissen uit het Oude Testament. In de tijd van Elia viel er geen dauw of regen. Elia werd gestuurd naar ‘Zarfath, dat bij Sidon is’, waar een weduwe hem te eten gaf (1 Koningen 17:1, 9, 15). Lukas noemt die stad Sarepta; dat is dezelfde plaats. Naäman was ‘de krijgsoverste van den koning van Syrië’, ‘doch melaats’. Hij werd rein toen hij zich zevenmaal in de Jordaan dompelde (2 Koningen 5:1, 14). Allebei waren zij geen Israëlieten.",
+          "refs": [
+            "1 Koningen 17:1–16",
+            "2 Koningen 5:1–14"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Nazareth ligt in de heuvels van Galilea. Lukas schrijft dat de stad op een berg gebouwd was (Lukas 4:29). Welke steile plek het was, zegt hij niet. Daarom staat er op de kaart geen apart punt. Lukas vertelt daarna dat Hij naar Kapernaüm ging (Lukas 4:31), maar al in Nazareth spreekt de Heere Jezus over wat ‘in Kapernaum geschied is’ (Lukas 4:23). Een jaartal noemt de Bijbel niet. Lukas vertelt dit aan het begin van het werk in Galilea (Lukas 4:14–16); met een begin van het openbare optreden rond 27 n.Chr. kom je, als reconstructie, op ca. 28–29 n.Chr.",
+          "refs": [
+            "Lukas 4:14–16",
+            "Lukas 4:23",
+            "Lukas 4:29–31"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wie zalfde David tot koning?",
+          "a": [
+            "Samuël",
+            "Nathan",
+            "Elia"
+          ],
+          "why": "1 Samuël 16:13"
+        },
+        {
+          "q": "Wat was Naäman, voordat hij rein werd?",
+          "a": [
+            "Krijgsoverste van de koning van Syrië",
+            "Priester in een tempel in Damascus",
+            "Koopman in de stad Sidon"
+          ],
+          "why": "2 Koningen 5:1"
+        },
+        {
+          "q": "Naar welke stad ging de Heere Jezus volgens Lukas na Nazareth?",
+          "a": [
+            "Naar Kapernaüm",
+            "Naar Jeruzalem",
+            "Naar Bethlehem"
+          ],
+          "why": "Lukas 4:31"
+        }
+      ]
+    }
+  },
+  "163": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "nt_nain"
+      ],
+      "delen": [
+        {
+          "t": "De Heere Jezus gaat naar de stad Naïn. Veel mensen lopen met Hem mee.",
+          "stap": "jezus-1:nt-samaria-nain:7"
+        },
+        {
+          "t": "Bij de poort van de stad komen mensen naar buiten. Ze dragen een jonge man die gestorven is."
+        },
+        {
+          "t": "Hij is de enige zoon van zijn moeder. Haar man is ook al gestorven."
+        },
+        {
+          "t": "De Heere Jezus ziet de moeder. Hij heeft diep medelijden met haar. Hij zegt: “Huil niet.”"
+        },
+        {
+          "t": "Hij raakt de baar aan, het draagbed van de jonge man. De mannen die hem dragen, blijven staan."
+        },
+        {
+          "t": "De Heere Jezus zegt: “Jonge man, Ik zeg u: sta op!” De jonge man gaat zitten en begint te praten."
+        },
+        {
+          "t": "De Heere Jezus geeft hem terug aan zijn moeder."
+        },
+        {
+          "t": "Alle mensen zijn vol ontzag. Ze loven God en zeggen: ‘God heeft Zijn volk bezocht.’"
+        }
+      ],
+      "samen": "De dood komt in deze geschiedenis dichtbij: een moeder die al weduwe is, verliest haar enige zoon (Lukas 7:12). De Heere ‘werd innerlijk met ontferming over haar bewogen’ (7:13). Vraag samen: wat zegt de Heere Jezus tegen de moeder, en wat tegen de jonge man? (7:13–14) In het Oude Testament werd ook de zoon van een weduwe weer levend: in Zarfath, toen Elia tot de HEERE riep (1 Koningen 17:21–23).",
+      "vragen": [
+        {
+          "q": "Wie wordt er bij de poort naar buiten gedragen?",
+          "a": [
+            "De enige zoon van een weduwe",
+            "Een oude vader van veel kinderen"
+          ],
+          "why": "Lukas 7:12"
+        },
+        {
+          "q": "Wat raakt de Heere Jezus aan?",
+          "a": [
+            "De baar",
+            "Het hoofd van de moeder"
+          ],
+          "why": "Lukas 7:14"
+        },
+        {
+          "q": "Aan wie geeft de Heere Jezus de jonge man?",
+          "a": [
+            "Aan zijn moeder",
+            "Aan de dragers"
+          ],
+          "why": "Lukas 7:15"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Bij de poort van Naïn",
+          "stap": "jezus-1:nt-samaria-nain:7",
+          "t": "De dag nadat de knecht van de hoofdman in Kapernaüm gezond is geworden, gaat de Heere Jezus naar Naïn. Veel discipelen en een grote schare (een menigte) gaan met Hem mee. Bij de poort van de stad wordt een dode naar buiten gedragen: de enige zoon van een weduwe. Een weduwe is een vrouw van wie de man gestorven is. Veel mensen uit de stad zijn bij haar."
+        },
+        {
+          "kop": "Jongeling, sta op",
+          "t": "Als de Heere haar ziet, wordt Hij innerlijk met ontferming over haar bewogen: Hij heeft diep medelijden met haar. Hij zegt: ‘Ween niet.’ Dan raakt Hij de baar aan, het draagbed van de dode, en de dragers staan stil. Hij zegt: ‘Jongeling, Ik zeg u, sta op!’ Een jongeling is een jonge man. De dode gaat overeind zitten en begint te spreken. De Heere Jezus geeft hem aan zijn moeder."
+        },
+        {
+          "kop": "God heeft Zijn volk bezocht",
+          "t": "Iedereen wordt met vrees vervuld. Ze verheerlijken God en zeggen: ‘Een groot Profeet is onder ons opgestaan, en God heeft Zijn volk bezocht.’ Het nieuws over Hem gaat door heel Judea en het land daaromheen."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat zei de Heere Jezus tegen de dode?",
+          "a": [
+            "Jongeling, Ik zeg u, sta op!",
+            "Jongeling, uw zonden zijn vergeven",
+            "Jongeling, ga naar uw huis toe"
+          ],
+          "why": "Lukas 7:14"
+        },
+        {
+          "q": "Wat deden de dragers toen de Heere Jezus de baar aanraakte?",
+          "a": [
+            "Ze stonden stil",
+            "Ze liepen hard weg",
+            "Ze riepen om hulp"
+          ],
+          "why": "Lukas 7:14"
+        },
+        {
+          "q": "Waarom zeiden de mensen dat God Zijn volk bezocht had?",
+          "a": [
+            "De dode jongeling leefde weer",
+            "Het ging eindelijk weer regenen",
+            "De Romeinen trokken uit het land weg"
+          ],
+          "why": "Lukas 7:15–16"
+        },
+        {
+          "q": "Hoe ver ging het nieuws over de Heere Jezus?",
+          "a": [
+            "Door heel Judea en het omliggende land",
+            "Alleen door de stad Naïn zelf",
+            "Alleen tot in de stad Kapernaüm"
+          ],
+          "why": "Lukas 7:17"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Elia, Elisa en de Heere Jezus",
+          "t": "Al in de tijd van Elia en Elisa werd twee keer een kind weer levend. In Zarfath riep Elia tot de HEERE, en ‘de HEERE verhoorde de stem van Elia’ (1 Koningen 17:21–22). In Sunem sloot Elisa de deur ‘en bad tot den HEERE’ (2 Koningen 4:33). Bij Naïn staat niet dat de Heere Jezus bidt. Hij zegt: ‘Jongeling, Ik zeg u, sta op!’ (Lukas 7:14). De mensen zeggen: ‘Een groot Profeet is onder ons opgestaan’ (Lukas 7:16).",
+          "refs": [
+            "1 Koningen 17:21–22",
+            "2 Koningen 4:33",
+            "Lukas 7:14–16"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Naïn komt in de Bijbel alleen in deze geschiedenis voor (Lukas 7:11). Vlak bij Naïn ligt Sunem. Daar werd de zoon van een vrouw weer levend, nadat Elisa tot de HEERE gebeden had. Lukas schrijft ‘op den volgenden dag’: de dag nadat de knecht van de hoofdman in Kapernaüm gezond werd (Lukas 7:1–11). De weg van Kapernaüm naar Naïn op de kaart is een reconstructie. Een jaartal noemt de Bijbel niet; met een begin van het openbare optreden rond 27 n.Chr. kom je, als reconstructie, op ca. 28–29 n.Chr.",
+          "refs": [
+            "Lukas 7:1–11",
+            "2 Koningen 4:8–37"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat deed Elisa in Sunem voordat het kind weer levend werd?",
+          "a": [
+            "Hij bad tot de HEERE",
+            "Hij zalfde het kind met olie",
+            "Hij waste het kind in de Jordaan"
+          ],
+          "why": "2 Koningen 4:33"
+        },
+        {
+          "q": "In welke plaats bij Sidon werd de zoon van een weduwe weer levend?",
+          "a": [
+            "In Zarfath",
+            "In Sunem",
+            "In Naïn"
+          ],
+          "why": "1 Koningen 17:9; 1 Koningen 17:22"
+        },
+        {
+          "q": "Wat gebeurde er de dag vóór de opwekking in Naïn?",
+          "a": [
+            "De knecht van de hoofdman werd gezond",
+            "De storm op het meer werd stil",
+            "Vijfduizend mannen aten van vijf broden"
+          ],
+          "why": "Lukas 7:10–11"
+        }
+      ]
+    }
+  },
+  "164": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "tyrus",
+        "og_dekapolis",
+        "nt_bethsaida"
+      ],
+      "delen": [
+        {
+          "t": "De Heere Jezus gaat naar het land bij de stad Tyrus. Daar komt een vrouw naar Hem toe. Zij hoort niet bij het volk Israël.",
+          "stap": "jezus-2:nt-over-de-grens:0"
+        },
+        {
+          "t": "Haar dochtertje heeft een boze geest. De vrouw valt aan Zijn voeten en vraagt om hulp.",
+          "stap": "jezus-2:nt-over-de-grens:0"
+        },
+        {
+          "t": "De Heere Jezus zegt: het brood is eerst voor de kinderen, niet voor de hondjes."
+        },
+        {
+          "t": "De vrouw zegt: “Maar de hondjes eten de kruimels onder de tafel.” De Heere Jezus zegt: “Omdat u dat zegt, mag u naar huis gaan.”"
+        },
+        {
+          "t": "Als de vrouw thuiskomt, ligt haar dochter op bed. De boze geest is weg."
+        },
+        {
+          "t": "Bij het meer brengen ze een man bij Hem die doof is. Hij kan ook bijna niet praten.",
+          "stap": "jezus-2:nt-over-de-grens:1"
+        },
+        {
+          "t": "De Heere Jezus zegt: “Effatha!” Dat betekent: ga open! Meteen kan de man horen en goed praten.",
+          "stap": "jezus-2:nt-over-de-grens:1"
+        },
+        {
+          "t": "Veel mensen zijn al drie dagen bij Hem. Ze hebben niets te eten. Van zeven broden eten ze allemaal genoeg.",
+          "stap": "jezus-2:nt-over-de-grens:3"
+        },
+        {
+          "t": "In Bethsaïda brengen ze een blinde man bij Hem. De Heere Jezus legt hem de handen op.",
+          "stap": "jezus-2:nt-over-de-grens:6"
+        },
+        {
+          "t": "Eerst ziet de man mensen die lijken op bomen die lopen. Na de tweede keer ziet hij alles goed.",
+          "stap": "jezus-2:nt-over-de-grens:6"
+        }
+      ],
+      "samen": "Bij A zijn weggelaten: de genezingen op de berg (Mattheüs 15:29–31), het teken dat de Farizeeën vragen (Markus 8:11–13) en de waarschuwing voor het zuurdesem (8:14–21). De woorden over de hondjes klinken hard. Met de kinderen bedoelt Hij het volk Israël (Mattheüs 15:24). Mattheüs vertelt dat Hij tegen de vrouw zei: ‘O vrouw! groot is uw geloof’ (Mattheüs 15:28). Vraag samen: wat antwoordt de vrouw over de hondjes? (Markus 7:28)",
+      "vragen": [
+        {
+          "q": "Wat heeft het dochtertje van de vrouw?",
+          "a": [
+            "Een boze geest",
+            "Een gebroken been"
+          ],
+          "why": "Markus 7:25"
+        },
+        {
+          "q": "Wat kan de dove man als de Heere Jezus ‘Effatha’ heeft gezegd?",
+          "a": [
+            "Horen en goed praten",
+            "Hard wegrennen"
+          ],
+          "why": "Markus 7:35"
+        },
+        {
+          "q": "Hoeveel broden zijn er voor al die mensen?",
+          "a": [
+            "Zeven",
+            "Twee"
+          ],
+          "why": "Markus 8:5"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Kruimels voor de hondjes",
+          "stap": "jezus-2:nt-over-de-grens:0",
+          "t": "In het gebied van Tyrus en Sidon valt een Griekse vrouw aan de voeten van de Heere Jezus. Haar dochtertje heeft een onreine geest. Hij zegt dat het brood eerst voor de kinderen is, niet voor de hondjes. Met de kinderen bedoelt Hij Israël. Zij antwoordt: ‘Ja, Heere, doch ook de hondekens eten onder de tafel van de kruimkens der kinderen.’ Om dat woord stuurt Hij haar naar huis, en daar is haar dochter vrij van de boze geest."
+        },
+        {
+          "kop": "Effatha: wordt geopend",
+          "stap": "jezus-2:nt-over-de-grens:1",
+          "t": "Bij de zee van Galilea brengen ze een dove man bij Hem. De Heere Jezus zegt: ‘Effatha!’ Dat is Aramees, een taal die de Joden toen spraken. Het betekent: wordt geopend. Meteen hoort de man en spreekt hij goed."
+        },
+        {
+          "kop": "Zeven broden, zeven manden",
+          "stap": "jezus-2:nt-over-de-grens:3",
+          "t": "Een grote schare is al drie dagen bij Hem en heeft niets te eten. Van zeven broden en een paar visjes eten omtrent vierduizend mensen. Er blijven zeven manden over."
+        },
+        {
+          "kop": "Een blinde in Bethsaïda",
+          "stap": "jezus-2:nt-over-de-grens:6",
+          "t": "In Bethsaïda legt de Heere Jezus een blinde man de handen op. Eerst ziet de man mensen ‘als bomen, wandelen’. Na de tweede keer ziet hij alles helder."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom gaf de Heere Jezus de vrouw wat zij vroeg?",
+          "a": [
+            "Om het antwoord dat zij gaf",
+            "Omdat zij uit Israël kwam",
+            "Omdat zij Hem geld bracht"
+          ],
+          "why": "Markus 7:29"
+        },
+        {
+          "q": "Welk woord sprak de Heere Jezus tegen de dove man?",
+          "a": [
+            "Effatha",
+            "Talitha kumi",
+            "Hosanna"
+          ],
+          "why": "Markus 7:34"
+        },
+        {
+          "q": "Hoeveel mensen aten er van de zeven broden?",
+          "a": [
+            "Omtrent vierduizend",
+            "Omtrent vijfduizend",
+            "Omtrent duizend"
+          ],
+          "why": "Markus 8:9"
+        },
+        {
+          "q": "Hoe vaak legde de Heere Jezus de blinde man de handen op?",
+          "a": [
+            "Twee keer",
+            "Eén keer",
+            "Drie keer"
+          ],
+          "why": "Markus 8:23–25"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Wat Mattheüs erbij vertelt",
+          "t": "Mattheüs vertelt meer over de vrouw. Zij riep: ‘Heere! Gij Zone Davids, ontferm U mijner!’ Eerst antwoordde Hij haar niet een woord. De discipelen zeiden: ‘Laat haar van U; want zij roept ons na.’ Hij antwoordde: ‘Ik ben niet gezonden, dan tot de verloren schapen van het huis Israëls.’ Toch kwam zij en aanbad Hem: ‘Heere, help mij!’ (Mattheüs 15:22–25). Markus noemt haar een Griekse uit Syro-Fenicië, Mattheüs een Kananese, uit de volken van Kanaän: ‘Kanaän gewon Sidon, zijn eerstgeborene’ (Genesis 10:15). Over de spijziging schrijft Mattheüs: ‘vier duizend mannen, zonder de vrouwen en kinderen’ (Mattheüs 15:38).",
+          "refs": [
+            "Mattheüs 15:22–25",
+            "Genesis 10:15",
+            "Mattheüs 15:38"
+          ]
+        },
+        {
+          "kop": "Alleen Markus",
+          "t": "Alleen Markus vertelt over de dove man en over de blinde man van Bethsaïda. Bij allebei neemt de Heere Jezus de man apart: de dove ‘van de schare alleen’, de blinde ‘buiten het vlek’, dat is: buiten het dorp (Markus 7:33; 8:23). Effatha is een Aramees woord, dat Markus voor zijn lezers vertaalt. Dat doet hij ook bij ‘Talitha kumi’, wat de Heere Jezus tegen het dochtertje van Jaïrus zei (Markus 5:41).",
+          "refs": [
+            "Markus 7:33",
+            "Markus 8:23",
+            "Markus 5:41"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Tyrus en Sidon liggen aan de zee, ten noordwesten van Galilea. Dalmanutha komt in de Bijbel alleen in Markus 8:10 voor, en waar het lag, is niet zeker. Mattheüs noemt hier ‘de landpalen van Magdala’ (Mattheüs 15:39). Ook de ligging van Bethsaïda is betwist. De lijnen op de kaart zijn daarom reconstructies. Een jaartal noemt de Bijbel niet. Wie de kruisiging ca. 30 n.Chr. stelt, komt voor deze reis op ca. 29; wie 33 n.Chr. aanhoudt, op ca. 32.",
+          "refs": [
+            "Markus 8:10",
+            "Mattheüs 15:39"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Hoe riep de vrouw volgens Mattheüs naar de Heere Jezus?",
+          "a": [
+            "Heere! Gij Zone Davids, ontferm U mijner!",
+            "Rabbi, Leraar uit Nazareth, kom hier!",
+            "Profeet van Galilea, geef ons brood!"
+          ],
+          "why": "Mattheüs 15:22"
+        },
+        {
+          "q": "Wat zei de Heere Jezus in het Aramees tegen het dochtertje van Jaïrus?",
+          "a": [
+            "Talitha kumi",
+            "Effatha",
+            "Hosanna"
+          ],
+          "why": "Markus 5:41"
+        },
+        {
+          "q": "Hoe noemt Mattheüs de streek waar de Heere Jezus na de vierduizend heen voer?",
+          "a": [
+            "De landpalen van Magdala",
+            "Het land Gennesaret",
+            "Het land van Dekapolis"
+          ],
+          "why": "Mattheüs 15:39"
+        }
+      ]
+    }
+  }
+}

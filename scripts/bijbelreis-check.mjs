@@ -61,7 +61,7 @@ for (const nr of nrs) {
   const klaar = await page.evaluate(() => /Klaar:/.test(document.querySelector("#vQuiz").textContent));
   if (!klaar) problems.push(`geschiedenis ${nr}: vragen niet af te ronden`);
 }
-report.geschiedenissen = `${nrs.length} van 150 geopend`;
+report.geschiedenissen = `${nrs.length} geopend`;
 await page.waitForTimeout(500);
 console.log(JSON.stringify(report, null, 1));
 console.log(problems.length ? "PROBLEMEN:\n" + [...new Set(problems)].join("\n") : "Geen problemen gevonden.");

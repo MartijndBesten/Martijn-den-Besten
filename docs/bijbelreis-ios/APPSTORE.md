@@ -131,7 +131,7 @@ controleert dat ‘voor kinderen’ er niet in staat.
 |---|---|---|
 | Naam (≤ 30) | `Bijbelreis` | 10 |
 | Ondertitel (≤ 30) | `Bijbelatlas voor jong en oud` | 28 |
-| Promotietekst (≤ 170) | `150 geschiedenissen van de schepping tot Openbaring op de kaart. Voor thuis, alleen of samen, en voor zondagsschool, club, catechisatie en klas. Werkt zonder internet.` | 167 |
+| Promotietekst (≤ 170) | `166 geschiedenissen van de schepping tot Openbaring op de kaart. Voor thuis, alleen of samen, en voor zondagsschool, club, catechisatie en klas. Werkt zonder internet.` | 167 |
 | Trefwoorden (≤ 100 bytes) | `bijbel,atlas,bijbelverhalen,tijdlijn,statenvertaling,zondagsschool,catechisatie,gezin,bijbelstudie` | 98 bytes |
 | Wat is er nieuw (≤ 4000) | `De eerste versie van de Bijbelreis als app voor iPhone en iPad: alles staat erin en werkt zonder internet.` (bij versie 1.0 vraagt App Store Connect hier meestal niet om) | 106 |
 | Copyright | `2026 Denckh` (of je eigen naam, als je je als persoon aanmeldt) | |
@@ -145,7 +145,7 @@ Is de naam bezet: `Bijbelreis – Bijbelatlas` (24) of `Bijbelreis: op reis` (19
 **Beschrijving** (2148 van 4.000 tekens):
 
 ```
-De Bijbelreis is een Bijbelatlas voor jong en oud. Lees 150 geschiedenissen van de schepping tot Openbaring, reis mee met Abraham, Mozes, David, de Heere Jezus en Paulus, en zie op de kaart waar het gebeurde.
+De Bijbelreis is een Bijbelatlas voor jong en oud. Lees 166 geschiedenissen van de schepping tot Openbaring, reis mee met Abraham, Mozes, David, de Heere Jezus en Paulus, en zie op de kaart waar het gebeurde.
 
 VOOR WIE
 • Gezinnen die samen de Bijbel lezen
@@ -153,7 +153,7 @@ VOOR WIE
 • Zondagsschool, club, catechisatie en onderwijs, met lesroutes
 
 WAT ER IN STAAT
-• 150 geschiedenissen, met bij elke geschiedenis waar het in de Bijbel staat
+• 166 geschiedenissen, met bij elke geschiedenis waar het in de Bijbel staat
 • Reizen stap voor stap op de kaart, met eigen tekeningen bij bekende geschiedenissen
 • Wie is wie: personen en families, zoals de familie van Abraham
 • Tijdlijn: wanneer het gebeurde, en hoe we dat weten

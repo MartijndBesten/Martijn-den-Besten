@@ -1,0 +1,175 @@
+# Controle voor groep ot-4: public/bijbelreis/geschiedenissen/ot-4.js (nrs. 151–154).
+# Per feitelijke bewering in uitleg, betekenis, quiz, cross en ontdek: <verwijzing> | <regex in de Statenvertaling>.
+# ===================== 151 Het land verdeeld en zes vrijsteden =====================
+Jozua 13:1 | Jozua nu was oud.*zeer veel lands overgebleven
+Jozua 13:7 | deel dit land tot een erfdeel aan de negen stammen
+Jozua 13:8 | Rubenieten en Gadieten hun erfenis ontvangen.*Mozes hunlieden gaf aan gene zijde van de Jordaan tegen het oosten
+Jozua 13:29 | halven stam van Manasse een erfenis
+Jozua 13:33 | de HEERE, de God Israels, is Zelf hunlieder Erfdeel
+Jozua 14:7 | veertig jaren oud, toen Mozes.*uitgezonden
+Jozua 14:9 | Toen zwoer Mozes
+Jozua 14:10 | vijf en tachtig jaren oud
+Jozua 14:11 | zo sterk, gelijk als ik was ten dage, toen Mozes mij uitzond
+Jozua 14:12 | geef mij dit gebergte, waarvan de HEERE te dien dage gesproken heeft
+Jozua 14:13 | Hebron ten erfdeel
+Jozua 14:14 | volhard had den HEERE.*na te volgen
+Jozua 15:1 | het lot voor den stam der kinderen van Juda
+Jozua 16:1 | Daarna kwam het lot der kinderen van Jozef uit
+Jozua 17:3 | Zelafead.*geen zonen, maar dochters
+Jozua 17:4 | erfdeel in het midden der broederen van haar vader
+Jozua 18:1 | verzamelde zich te Silo.*tent der samenkomst
+Jozua 18:2 | zeven stammen
+Jozua 18:4 | drie mannen van elken stam
+Jozua 18:6 | beschrijven in zeven delen
+Jozua 18:10 | wierp Jozua het lot voor hen te Silo, voor het aangezicht des HEEREN
+Jozua 19:1 | Simeon.*in het midden van het erfdeel der kinderen van Juda
+Jozua 19:47 | Lesem.*noemden Lesem Dan, naar den naam van hun vader Dan
+Jozua 19:49 | geeindigd hadden het land erfelijk te delen.*gaven.*aan Jozua
+Jozua 19:50 | die stad, welke hij begeerde, Thimnath-serah, op het gebergte van Efraim
+Jozua 20:3 | doodslager, die een ziel door dwaling, niet met wetenschap, verslaat.*bloedwreker
+Jozua 20:5 | niet met wetenschap verslagen heeft
+Jozua 20:6 | totdat de hogepriester sterve, die in die dagen zijn zal
+Jozua 20:7 | Kedes.*Sichem.*Hebron
+Jozua 20:8 | Bezer.*Ramoth in Gilead.*Golan
+Jozua 21:2 | steden te bewonen.*voorsteden voor onze beesten
+Jozua 21:41 | in het midden van de erfenis der kinderen Israels, waren acht en veertig steden
+Jozua 21:43 | het ganse land, dat Hij gezworen had hun vaderen te geven
+Jozua 21:45 | Er viel niet een woord van al de goede woorden, die de HEERE gesproken had tot het huis van Israel; het kwam altemaal
+Jozua 22:4 | keert dan nu wederom
+Jozua 22:10 | bouwden.*een altaar aan de Jordaan, een altaar groot in het aanzien
+Jozua 22:12 | verzamelde de ganse vergadering.*te Silo, dat zij tegen hen optogen
+Jozua 22:13 | Pinehas, den zoon van Eleazar, den priester
+Jozua 22:14 | tien vorsten met hem
+Jozua 22:16 | afkerende van achter den HEERE
+Jozua 22:24 | uw kinderen tot onze kinderen spreken
+Jozua 22:26 | niet ten brandoffer, noch ten offer
+Jozua 22:27 | een getuige.*Gijlieden hebt geen deel aan den HEERE
+Jozua 22:34 | getuige zij tussen ons, dat de HEERE God is
+Jozua 22:34 | kinderen van Ruben en de kinderen van Gad noemden dat altaar
+Jozua 22:27 | een getuige zij tussen ons en tussen ulieden
+Jozua 21:4 | dertien steden
+Genesis 49:5 | Simeon en Levi
+Genesis 49:7 | ik zal hen verdelen onder Jakob, en zal hen verstrooien onder Israel
+Psalm 16:1 | van David
+Psalm 16:5 | De HEERE is het deel mijner erve.*lot
+Psalm 16:6 | De snoeren zijn mij in liefelijke plaatsen gevallen
+Jozua 17:5 | tien snoeren
+Handelingen 13:14 | Antiochie
+Handelingen 13:19 | door het lot het land derzelve uitgedeeld
+Numeri 10:11 | tweede jaar
+# ===================== 152 Ehud en koning Eglon =====================
+Richteren 3:7 | kwaad was in de ogen des HEEREN, en vergaten den HEERE.*dienden de Baals
+Richteren 3:8 | Cuschan Rischataim, koning van Mesopotamie.*acht jaren
+Richteren 3:9 | riepen.*tot den HEERE.*verlosser.*Othniel, zoon van Kenaz
+Richteren 3:10 | de Geest des HEEREN was over hem.*gaf Cuschan Rischataim.*in zijn hand
+Richteren 3:11 | veertig jaren stil
+Richteren 3:12 | voeren voort te doen, dat kwaad was.*sterkte de HEERE Eglon, den koning der Moabieten, tegen Israel
+Richteren 3:13 | namen de Palmstad in bezit
+Richteren 3:14 | dienden Eglon.*achttien jaren
+Richteren 3:15 | riepen.*verwekte hun een verlosser, Ehud, den zoon van Gera.*een man, die links was.*door zijn hand een geschenk aan Eglon
+Richteren 3:16 | zwaard, dat twee scherpten had.*onder zijn klederen, aan zijn rechterheup
+Richteren 3:17 | bracht aan Eglon.*dat geschenk
+Richteren 3:18 | geleidde hij het volk, die het geschenk gedragen hadden
+Richteren 3:19 | hij zelf keerde wederom van de gesneden beelden, die bij Gilgal waren.*allen, die om hem stonden, gingen van hem uit
+Richteren 3:20 | koele opperzaal.*Ik heb een woord Gods aan u. Toen stond hij op
+Richteren 3:21 | nam het zwaard van zijn rechterheup
+Richteren 3:23 | sloot de deuren der opperzaal.*in het slot
+Richteren 3:25 | tot schamens toe gebeid.*namen zij den sleutel en deden open.*dood
+Richteren 3:26 | Ehud ontkwam, terwijl zij vertoefden
+Richteren 3:27 | blies hij met de bazuin op het gebergte van Efraim
+Richteren 3:28 | de HEERE heeft uw vijanden, de Moabieten, in ulieder hand gegeven.*namen de veren van de Jordaan in.*lieten niemand overgaan
+Richteren 3:29 | omtrent tien duizend man.*niet een man ontkwam
+Richteren 3:30 | tachtig jaren
+Richteren 3:31 | Samgar.*Filistijnen, zeshonderd man, met een ossenstok; alzo verloste hij ook Israel
+Richteren 2:11 | deden.*kwaad was in de ogen des HEEREN, en zij dienden de Baals
+Richteren 2:12 | verlieten den HEERE
+Richteren 2:14 | gaf hen in de hand
+Richteren 2:16 | verwekte richteren, die hen verlosten
+Richteren 2:18 | wanneer de HEERE hun richteren verwekte, zo was de HEERE met den richter
+Richteren 20:16 | zevenhonderd uitgelezene mannen, welke links waren.*met een steen op een haar
+Richteren 20:12 | Benjamin
+Nehemia 9:4 | Levieten
+Nehemia 9:27 | in den tijd hunner benauwdheid tot U riepen.*naar Uw grote barmhartigheden verlossers
+Richteren 4:1 | Ehud gestorven was
+# ===================== 153 Jefta, de richter uit Gilead =====================
+Richteren 10:6 | voeren.*voort te doen, dat kwaad was.*dienden de Baals.*verlieten den HEERE
+Richteren 10:7 | in de hand der Filistijnen, en in de hand der kinderen Ammons
+Richteren 10:8 | achttien jaren.*in Gilead
+Richteren 10:10 | Wij hebben tegen U gezondigd
+Richteren 10:15 | Wij hebben gezondigd
+Richteren 10:16 | deden de vreemde goden uit hun midden weg.*Toen werd Zijn ziel verdrietig over den arbeid van Israel
+Richteren 11:1 | Jeftha nu, de Gileadiet, was een strijdbaar held
+Richteren 11:2 | stieten Jeftha uit.*Gij zult in het huis onzes vaders niet erven, want gij zijt een zoon van een andere vrouw
+Richteren 11:3 | woonde in het land Tob
+Richteren 11:5 | de oudsten van Gilead heengingen, om Jeftha te halen uit het land van Tob
+Richteren 11:7 | Hebt gijlieden mij niet gehaat, en mij uit mijn vaders huis verstoten
+Richteren 11:8 | gij zult ons tot een hoofd zijn
+Richteren 11:10 | De HEERE zij toehoorder tussen ons
+Richteren 11:13 | zo geef mij dat nu weder met vrede
+Richteren 11:15 | Israel heeft het land der Moabieten, en het land der kinderen Ammons niet genomen
+Richteren 11:19 | Sihon, den koning der Amorieten, koning van Hesbon
+Richteren 11:21 | de HEERE, de God Israels, gaf Sihon met al zijn volk in de hand van Israel
+Richteren 11:22 | namen erfelijk in de ganse landpale der Amorieten, van de Arnon af tot aan de Jabbok
+Richteren 11:25 | Balak, de zoon van Zippor, de koning der Moabieten
+Richteren 11:26 | driehonderd jaren gewoond heeft in Hesbon.*Arnon
+Richteren 11:27 | de HEERE, Die Rechter is, richte heden
+Richteren 11:28 | hoorde niet naar de woorden van Jeftha
+Richteren 11:29 | Toen kwam de Geest des HEEREN op Jeftha
+Richteren 11:30 | beloofde den HEERE een gelofte
+Richteren 11:31 | uit de deur van mijn huis mij tegemoet zal uitgaan, als ik met vrede.*wederkom, dat zal des HEEREN zijn, en ik zal het offeren ten brandoffer
+Richteren 11:32 | de HEERE gaf hen in zijn hand
+Richteren 11:34 | te Mizpa bij zijn huis kwam.*zijn dochter uit hem tegemoet, met trommelen en met reien.*een enig kind
+Richteren 11:35 | verscheurde hij zijn klederen.*ik heb mijn mond opengedaan tot den HEERE, en ik zal niet kunnen teruggaan
+Richteren 11:36 | doe mij, gelijk als uit uw mond gegaan is
+Richteren 11:37 | twee maanden.*ga tot de bergen, en bewene mijn maagdom, ik en mijn gezellinnen
+Richteren 11:39 | ten einde van twee maanden dat zij tot haar vader wederkwam, die aan haar volbracht zijn gelofte, die hij beloofd had; en zij heeft geen man bekend
+Richteren 12:1 | mannen van Efraim.*wij zullen uw huis met u met vuur verbranden
+Richteren 12:4 | Jeftha vergaderde alle mannen van Gilead, en streed met Efraim
+Richteren 12:7 | Jeftha nu richtte Israel zes jaren
+Psalm 106:44 | Nochtans zag Hij hun benauwdheid aan, als Hij hun geschrei hoorde
+Richteren 8:1 | mannen van Efraim.*dat gij ons niet riept.*twistten sterk met hem
+Hebreeen 11:32 | Gideon, en Barak, en Samson, en Jeftha, en David, en Samuel
+Numeri 21:24 | van de Arnon af tot de Jabbok toe
+Deuteronomium 3:1 | Og, de koning van Bazan
+# ===================== 154 Davids rijk groeit =====================
+2 Samuel 5:17 | Filistijnen hoorden, dat zij David ten koning over Israel gezalfd hadden.*om David te zoeken
+2 Samuel 5:18 | verspreidden zich in het dal Refaim
+2 Samuel 5:19 | vraagde David den HEERE.*Zal ik optrekken.*Ik zal de Filistijnen zekerlijk in uw hand geven
+2 Samuel 5:20 | Baal-perazim.*De HEERE heeft mijn vijanden voor mijn aangezicht gescheurd, als een scheur der wateren.*noemde hij den naam derzelve plaats
+2 Samuel 5:21 | lieten hun afgoden aldaar
+2 Samuel 5:22 | verspreidden zich in het dal Refaim
+2 Samuel 5:23 | vraagde den HEERE.*trek om tot achter hen
+2 Samuel 5:24 | geruis van een gang in de toppen der moerbezienbomen, dan rep u; want alsdan is de HEERE voor uw aangezicht uitgegaan
+2 Samuel 5:25 | David deed alzo, gelijk als de HEERE hem geboden had.*van Geba af, totdat gij komt te Gezer
+2 Samuel 8:1 | David de Filistijnen sloeg
+2 Samuel 8:2 | sloeg hij de Moabieten.*David tot knechten
+2 Samuel 8:3 | Hadad-ezer.*koning van Zoba.*rivier Frath
+2 Samuel 8:4 | duizend wagens
+2 Samuel 8:5 | Syriers van Damaskus.*sloeg
+2 Samuel 8:6 | de HEERE behoedde David overal, waar hij heentoog
+2 Samuel 8:10 | Thoi zijn zoon Joram.*zilveren vaten, en gouden vaten, en koperen vaten
+2 Samuel 8:11 | de koning David ook den HEERE heiligde, met het zilver en het goud
+2 Samuel 8:13 | Zoutdal
+2 Samuel 8:14 | bezettingen in Edom.*alle Edomieten werden David tot knechten; en de HEERE behoedde David overal, waar hij heentoog
+2 Samuel 8:15 | David deed aan zijn ganse volk recht en gerechtigheid
+2 Samuel 8:18 | Benaja, zoon van Jojada
+2 Samuel 10:1 | de koning der kinderen Ammons stierf, en zijn zoon Hanun werd koning
+2 Samuel 10:2 | om hem door den dienst zijner knechten te troosten over zijn vader
+2 Samuel 10:3 | vorsten der kinderen Ammons tot hun heer Hanun.*dat hij deze stad doorzoeke, en die verspiede
+2 Samuel 10:4 | schoor hun baard half af, en sneed hun klederen half af
+2 Samuel 10:6 | huurden van de Syriers
+2 Samuel 10:9 | Joab.*tegen de Syriers
+2 Samuel 10:10 | zijn broeder Abisai.*tegen de kinderen Ammons
+2 Samuel 10:13 | vloden voor zijn aangezicht
+2 Samuel 10:14 | vloden zij ook voor het aangezicht van Abisai
+2 Samuel 10:17 | kwam te Helam
+2 Samuel 10:18 | sloeg hij Sobach, hun krijgsoverste, dat hij aldaar stierf
+2 Samuel 10:19 | al de koningen, die Hadad-ezers knechten waren.*maakten zij vrede met Israel
+2 Samuel 7:9 | Ik ben met u geweest, overal, waar gij gegaan zijt
+2 Samuel 5:5 | drie en dertig jaren
+Genesis 15:18 | Abram.*van de rivier van Egypte af, tot aan die grote rivier, de rivier Frath
+1 Kronieken 22:8 | grote krijgen gevoerd; gij zult Mijn Naam geen huis bouwen
+1 Kronieken 22:9 | de zoon, die u geboren zal worden
+1 Kronieken 22:10 | Die zal Mijn Naam een huis bouwen
+Psalm 18:1 | psalm van David.*ten dage, als hem de HEERE gered had uit de hand van al zijn vijanden
+1 Samuel 7:12 | Eben-haezer

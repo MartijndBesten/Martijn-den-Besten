@@ -357,7 +357,7 @@ test("verhalen: overzicht, zoeken, een geschiedenis openen en de vragen maken", 
   const errors = watchErrors(page);
   await page.goto("/bijbelreis");
   await expect(page.getByRole("tab", { name: "Verhalen" })).toHaveAttribute("aria-selected", "true");
-  await expect(page.locator("#p-verhalen")).toContainText("150");
+  await expect(page.locator("#p-verhalen")).toContainText("166");
   await page.locator("#vZoek").fill("Jona");
   await expect(page.locator("#vLijst .vitem").first()).toBeVisible();
   const first = page.locator("#vLijst button.vitem").first();
@@ -751,7 +751,7 @@ test("niveaus: wisselen via de knop bovenin wist en verdubbelt geen voortgang", 
   const na = await opslag(page);
   for (const k of ["bijbelreis:gezien", "bijbelreis:verhalen", "bijbelreis:best:ruth:alles"]) expect(na[k], k).toBe(voor[k]);
   await page.getByRole("tab", { name: "Paspoort" }).click();
-  await expect(page.locator("#pasStats")).toContainText("van 150 geschiedenissen gestempeld");
+  await expect(page.locator("#pasStats")).toContainText("van 166 geschiedenissen gestempeld");
   // Escape sluit het keuzevenster en de focus gaat terug naar de knop.
   await page.locator("#niveauBtn").click();
   await page.keyboard.press("Escape");
@@ -865,7 +865,7 @@ test("4.0: opslag van 3.1 blijft heel; nieuwe scores per niveau komen ernaast en
   expect(JSON.parse(na["bijbelreis:niveau"]!)).toBe("c");
   await page.getByRole("tab", { name: "Paspoort" }).click();
   await expect(page.locator("#pasStats")).toContainText("8");
-  await expect(page.locator("#pasStats")).toContainText("2van 150 geschiedenissen gestempeld");
+  await expect(page.locator("#pasStats")).toContainText("2van 166 geschiedenissen gestempeld");
   await expect(page.locator("#bestText")).toContainText("7/10");
   await expect(page.locator("#bestText")).toContainText("9/10");
 
