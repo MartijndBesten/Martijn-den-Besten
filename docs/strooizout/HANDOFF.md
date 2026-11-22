@@ -14,7 +14,7 @@ Gecontroleerd op productie:
 - op het eigen domein: webshop, beheer, robots.txt en sitemap; overige paden sturen door naar /;
 - de JSON-LD bevat 10.49.
 
-De testbestelling doet Martijn zelf. Volgende stap: de doorverwijzing van martijndenbesten.com/strooizout naar het eigen domein aanzetten (`STROOIZOUT_DOORVERWIJZEN`, PR #80).
+De testbestelling doet Martijn zelf. De doorverwijzing van martijndenbesten.com/strooizout en /zout naar het eigen domein staat aan (PR #81).
 
 Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
 
@@ -153,7 +153,7 @@ Bezorgen kost nu een vast bedrag van **€ 2,00 per bezorging (per adres)**, van
 8. **Reservering of koop?** Voor Google Merchant Center (gratis productvermeldingen) moet een bestelling een echte koop zijn. De knop moet dan wettelijk een betalingsverplichting noemen. Zolang het een kosteloos te annuleren reservering blijft: Merchant Center overslaan.
 9. **Google-accounts (login Martijn):** Search Console-domein verifiëren via TXT in Cloudflare, de sitemap indienen en indexering aanvragen (stappen in PROMOTIE.md §2). Bedrijfsprofiel: het bestaande Denckh-profiel uitbreiden in plaats van een tweede profiel aan te maken.
 11. **Bestelronde openen** in *Beheer › Bestelrondes › Nieuwe ronde* (bijv. ‘Winter 2026’, zonder sluitdatum). Kan ook door een agent, als Martijn schrijfacties op de productiedatabase toestaat. Daarna een testbestelling met fictieve gegevens plaatsen, annuleren en opruimen.
-12. ~~Domein koppelen~~ — gedaan via de uitrol (14:45); doorverwijzing van het oude adres via PR #80.
+12. ~~Domein koppelen~~ — gedaan op 22-11-2026: strooizouthouten.nl en www gekoppeld; doorverwijzing van het oude adres staat aan (`STROOIZOUT_DOORVERWIJZEN = "ja"`, PR #81).
 10. **Promotie plaatsen:** de teksten liggen klaar (PROMOTIE.md §7). Niets plaatsen zonder akkoord van Martijn en, bij groepen, de beheerder.
 
 ## Gecontroleerd (22-11-2026)
