@@ -188,6 +188,7 @@ export function Scene({ aantal, className = "" }: { aantal: number; className?: 
           ))}
         </g>
       </svg>
+      <span className="wn-scene__label">Productillustratie</span>
     </div>
   );
 }
@@ -244,7 +245,7 @@ export function Straat() {
     </mask>
   );
   return (
-    <svg className="wn-straat" viewBox="0 0 960 310" role="img" aria-label="Een straat in de winter: waar bij de voordeur is gestrooid, brandt binnen licht" preserveAspectRatio="xMidYMax slice">
+    <svg className="wn-straat" viewBox="0 0 960 310" role="img" aria-label="Een straat in de winter: waar bij de voordeur is gestrooid, brandt binnen licht en zwaaien de buren" preserveAspectRatio="xMidYMax slice">
       <defs>
         <linearGradient id="wn-st-grond" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#1b4877" />
@@ -290,6 +291,14 @@ export function Straat() {
               .map((r, i) => (
                 <rect key={`aan-${r.x}-${r.y}`} className="wn-straat__raam" x={r.x} y={r.y} width="26" height="24" rx="3" fill="#ffc266" style={{ "--i": i } as React.CSSProperties} />
               ))}
+            {/* in sommige deuropeningen staat een buur te zwaaien */}
+            {nr % 2 === 1 && (
+              <g className="wn-straat__buur" fill="#0b2340">
+                <circle cx={x + w / 2 - 1.5} cy={GROND - 25.5} r="4.6" />
+                <path d={`M${x + w / 2 - 8} ${GROND} v-11.5 a6.5 6.5 0 0 1 13 0 V${GROND} Z`} />
+                <path className="wn-straat__arm" style={{ animationDelay: `${nr * 0.7}s` }} d={`M${x + w / 2 + 3.5} ${GROND - 15.5} L${x + w / 2 + 8.2} ${GROND - 28}`} fill="none" stroke="#0b2340" strokeWidth="3.4" strokeLinecap="round" />
+              </g>
+            )}
             {/* een klein hart boven de deur: de buren zijn er blij mee */}
             <g transform={`translate(${x + w / 2} ${GROND - 56})`}>
               <path className="wn-straat__hart" d="M0 6 C -9.5 -1.5, -6 -9.5, 0 -4.2 C 6 -9.5, 9.5 -1.5, 0 6 Z" fill="#ffb547" />

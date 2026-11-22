@@ -94,7 +94,7 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
     "Afhalen is gratis. Na je bestelling krijg je een afhaalcode; die laat je zien als je je zakken ophaalt.",
     "Bezorgen kan alleen binnen de rondweg van Houten, vanaf 2 zakken, voor € 2,00 per bezorging. We bezorgen alleen als het veilig kan. Bij gladheid of sneeuwval kan de bezorging later worden; dan hoor je dat van ons.",
     "## Betalen",
-    "Je betaalt na het bestellen, nooit vooraf via de website. Dat kan met een betaalverzoek (Tikkie) dat je van ons krijgt, of ter plekke bij het afhalen, bij bezorging of aan de weg. Aan de weg betaal je voordat je de zakken meeneemt.",
+    "Je betaalt met een betaalverzoek (Tikkie) dat je van ons krijgt, nooit via de website zelf. Je krijgt het vooraf op je mobiel, of ter plekke bij het afhalen, bij bezorging of aan de weg. Aan de weg betaal je voordat je de zakken meeneemt.",
     "## Annuleren en terugbrengen",
     "Je kunt kosteloos annuleren zolang je bestelling nog niet is afgehaald of bezorgd: via je bestelpagina of door contact met ons op te nemen. Na ontvangst heb je 14 dagen bedenktijd: breng ongeopende zakken binnen die tijd terug en je krijgt het aankoopbedrag terug. Heb je al betaald, dan betalen we binnen 14 dagen terug.",
     "## Klachten",
@@ -412,7 +412,7 @@ export const RONDE_STATUS = {
 } as const;
 export type RondeStatus = keyof typeof RONDE_STATUS;
 
-export const BETAALWIJZE = { bij_ontvangst: "Betalen bij afhalen of bezorgen", tikkie: "Betalen via Tikkie" } as const;
+export const BETAALWIJZE = { bij_ontvangst: "Betaalverzoek bij afhalen of bezorgen", tikkie: "Betaalverzoek (Tikkie) vooraf" } as const;
 export type Betaalwijze = keyof typeof BETAALWIJZE;
 
 export const BETAAL_STATUS = { open: "Openstaand", verzoek: "Betaalverzoek verstuurd", betaald: "Betaald", terugbetaald: "Terugbetaald" } as const;

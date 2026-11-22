@@ -1486,7 +1486,7 @@ async function export_(request: Request, env: SzEnv, soort: string): Promise<Res
         bestelnummer(b.id), b.afhaalcode ?? "", nlDatum(b.aangemaakt), b.ronde_id ?? "", BESTEL_STATUS[b.status], b.levering, b.moment_id ? (momenten.get(b.moment_id) ?? "") : "",
         b.naam, b.email, b.telefoon, b.levering === "bezorgen" ? `${b.straat} ${b.huisnummer}` : "", b.postcode, b.plaats, b.levering === "bezorgen" ? wijkVan(b.postcode, inst.wijken) : "",
         regels.map((r) => `${r.aantal}x ${r.naam}`).join(", "), regels.reduce((s, r) => s + r.aantal, 0), (b.gewicht_gram / 1000).toString().replace(".", ","),
-        bedrag(b.subtotaal_cent), bedrag(b.korting_cent), bedrag(b.bezorg_cent), bedrag(b.totaal_cent), b.betaalwijze === "tikkie" ? "Tikkie" : "Bij ontvangst",
+        bedrag(b.subtotaal_cent), bedrag(b.korting_cent), bedrag(b.bezorg_cent), bedrag(b.totaal_cent), b.betaalwijze === "tikkie" ? "Betaalverzoek vooraf" : "Betaalverzoek bij ontvangst",
         bedrag(b.betaald_cent), BETAAL_STATUS[bs(b)], b.opmerking,
       ];
     });
@@ -1506,7 +1506,7 @@ async function export_(request: Request, env: SzEnv, soort: string): Promise<Res
         bedrag(telt ? b.subtotaal_cent + b.korting_cent : 0), bedrag(telt ? b.korting_cent : 0), bedrag(telt ? b.subtotaal_cent : 0), bedrag(telt ? b.bezorg_cent : 0), bedrag(telt ? b.totaal_cent : 0),
         inst.btw_modus === "inclusief" ? bedrag(telt ? btwDeel(b.totaal_cent, inst.btw_tarief) : 0) : "",
         bedrag(telt ? inkoop : 0), telt && inkoop !== null ? bedrag(b.totaal_cent - inkoop) : "", bedrag(b.betaald_cent),
-        bedrag(telt ? Math.max(0, b.totaal_cent - b.betaald_cent) : 0), b.betaalwijze === "tikkie" ? "Tikkie" : "Bij ontvangst", BETAAL_STATUS[bs(b)],
+        bedrag(telt ? Math.max(0, b.totaal_cent - b.betaald_cent) : 0), b.betaalwijze === "tikkie" ? "Betaalverzoek vooraf" : "Betaalverzoek bij ontvangst", BETAAL_STATUS[bs(b)],
       ];
     });
     return csvAntwoord(

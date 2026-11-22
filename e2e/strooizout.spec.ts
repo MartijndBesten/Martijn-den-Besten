@@ -50,8 +50,11 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(trede(/2–3 zakken\s*€ 9,49 per zak/)).toHaveAttribute("aria-pressed", "true");
     await expect(trede(/4 of meer\s*€ 8,99 per zak/)).toBeVisible();
     await expect(kaart.locator(".sz-beschikbaar")).toContainText("Op voorraad");
-    await expect(page.getByRole("heading", { name: "Strooi ook bij een buur die dat zelf niet kan." })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Geen aparte rit naar de bouwmarkt." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Een beetje zout. Een beetje aandacht." })).toBeVisible();
+    await expect(page.getByText("Strooi ook bij een buur die dat zelf niet kan. En zwaai eens naar elkaar!")).toBeVisible();
+    await expect(page.locator(".wn-stappen__lijst li")).toHaveText(["Bestel online", "Ontvang je afhaalcode", "Haal op of laat bezorgen"]);
+    // betalen gaat met een betaalverzoek; contant betalen wordt nergens genoemd
+    await expect(page.getByText(/contant/i)).toHaveCount(0);
     // de emmer van 5 kg is zichtbaar maar niet te bestellen; delen en gebruikstip staan op de pagina
     await expect(page.locator(".sz-binnenkort")).toContainText("Binnenkort");
     await expect(page.locator(".sz-binnenkort")).toContainText("€ 7,49");

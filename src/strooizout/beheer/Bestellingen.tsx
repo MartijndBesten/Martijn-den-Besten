@@ -47,7 +47,7 @@ function DetailPaneel({ id, sluit, bijgewerkt, momenten }: { id: number; sluit: 
   const { api, meld } = useBeheer();
   const [d, setD] = useState<Detail | null>(null);
   const [bedrag, setBedrag] = useState("");
-  const [wijze, setWijze] = useState("contant");
+  const [wijze, setWijze] = useState("tikkie");
   const [notitie, setNotitie] = useState("");
   const [ontvangen, setOntvangen] = useState(false);
   const [beheerNotitie, setBeheerNotitie] = useState("");
@@ -61,7 +61,7 @@ function DetailPaneel({ id, sluit, bijgewerkt, momenten }: { id: number; sluit: 
     setD(r.data);
     const open = Math.max(0, r.data.bestelling.totaal_cent - r.data.bestelling.betaald_cent);
     setBedrag(open ? (open / 100).toFixed(2).replace(".", ",") : "");
-    setWijze(r.data.bestelling.betaalwijze === "tikkie" ? "tikkie" : "contant");
+    setWijze("tikkie");
     setBeheerNotitie(r.data.bestelling.beheer_notitie);
     setMomentId(r.data.bestelling.moment_id ? String(r.data.bestelling.moment_id) : "");
     setOntvangen(false);
@@ -206,7 +206,7 @@ function DetailPaneel({ id, sluit, bijgewerkt, momenten }: { id: number; sluit: 
                   <strong>Totaal {euro(b.totaal_cent)}</strong> · betaald {euro(b.betaald_cent)}
                 </dd>
                 <dt>Betaalwijze</dt>
-                <dd>{b.betaalwijze === "tikkie" ? "Tikkie (stuur een Tikkie)" : "Bij ontvangst"}</dd>
+                <dd>{b.betaalwijze === "tikkie" ? "Betaalverzoek vooraf (stuur een Tikkie)" : "Betaalverzoek bij afhalen of bezorgen"}</dd>
                 {b.opmerking && (
                   <>
                     <dt>Opmerking klant</dt>
@@ -286,8 +286,7 @@ function DetailPaneel({ id, sluit, bijgewerkt, momenten }: { id: number; sluit: 
                   <div className="bh-veld bh-veld--6">
                     <label htmlFor="bh-wijze">Hoe</label>
                     <select id="bh-wijze" className="sz-invoer" value={wijze} onChange={(e) => setWijze(e.target.value)}>
-                      <option value="contant">Contant</option>
-                      <option value="tikkie">Tikkie</option>
+                      <option value="tikkie">Tikkie / betaalverzoek</option>
                       <option value="overboeking">Overboeking</option>
                       <option value="pin">Pin</option>
                       <option value="terugbetaling">Terugbetaling (aan klant)</option>

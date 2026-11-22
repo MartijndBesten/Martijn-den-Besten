@@ -281,6 +281,17 @@
   animation: wn-op 0.7s var(--uit) 0.1s both;
 }
 
+.wn-scene__label {
+  position: absolute;
+  right: 3%;
+  bottom: 3%;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(207, 230, 246, 0.55);
+}
+
 /* ---------- Bestelkaart ---------- */
 .wn-kaart {
   position: relative;
@@ -851,50 +862,40 @@
   letter-spacing: -0.04em;
   line-height: 1.03;
 }
+/* Zo werkt het: één compacte regel met drie punten. De strooiroute loopt door de punten (tocht.tsx). */
+.wn-stappen {
+  padding: clamp(26px, 3.4vw, 44px) 0 clamp(30px, 3.8vw, 50px);
+  background: #fff;
+}
+.wn-stappen .wn-oog {
+  margin: 0 0 clamp(14px, 1.6vw, 22px);
+}
 .wn-stappen__lijst {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(14px, 2.2vw, 26px);
-  margin: clamp(28px, 4vw, 48px) 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 .wn-stappen__lijst li {
   display: grid;
-  align-content: start;
-  gap: 6px;
-  padding: 22px;
-  border-radius: 24px;
-  border: 1px solid var(--rand);
-  background: var(--sneeuw);
-  transition: box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
-}
-.wn-stappen__lijst li:hover {
-  border-color: var(--ijs-3);
-  box-shadow: var(--schaduw-2);
+  justify-items: start;
+  gap: 12px;
 }
 .wn-stappen__icoon {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 10px;
-  border-radius: 14px;
-  background: var(--nacht-2);
-  color: var(--amber);
-}
-.wn-stappen__icoon svg {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2.5px solid var(--ijs-3);
+  background: #fff;
 }
 .wn-stappen__lijst b {
-  font-size: 19px;
-  font-weight: 700;
+  font-size: clamp(16px, 1.5vw, 19px);
+  font-weight: 680;
   letter-spacing: -0.02em;
-}
-.wn-stappen__lijst li > span:last-child {
-  font-size: 15.5px;
   color: var(--tekst-2);
+  transition: color 0.45s ease;
 }
 
 /* Buurtboodschap: donker vlak met de straat */
@@ -909,7 +910,18 @@
 }
 .wn-buur h2 {
   max-width: 15ch;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
+}
+.wn-buur h2 span {
+  display: block;
+  color: var(--amber);
+}
+.wn-buur__sub {
+  max-width: 30ch;
+  margin: 0 0 26px;
+  font-size: clamp(17px, 1.7vw, 21px);
+  line-height: 1.45;
+  color: #cfe6f6;
 }
 .wn-buur__beeld {
   margin: clamp(20px, 4vw, 48px) calc(var(--gutter) * -1) 0;
@@ -957,6 +969,30 @@
 }
 .wn-straat__gloed {
   opacity: clamp(0, (var(--d) - 16) / 26, 1);
+}
+/* Een buur in de deuropening die zwaait: verschijnt als het licht aan is en zwaait af en toe even. */
+.wn-straat__buur {
+  opacity: clamp(0, (var(--d) - 42) / 12, 1);
+}
+.wn-straat__arm {
+  transform-box: fill-box;
+  transform-origin: 0% 100%;
+  animation: wn-zwaai 3.6s ease-in-out infinite;
+}
+@keyframes wn-zwaai {
+  0%,
+  34%,
+  100% {
+    transform: rotate(0deg);
+  }
+  6%,
+  20% {
+    transform: rotate(24deg);
+  }
+  13%,
+  27% {
+    transform: rotate(-16deg);
+  }
 }
 .wn-straat__hart {
   opacity: calc(clamp(0, (var(--d) - 34) / 12, 1) * clamp(0, 1 - (var(--d) - 200) / 60, 1));
@@ -1038,15 +1074,14 @@
   z-index: 2;
   transition: background 0.45s ease, color 0.45s ease, box-shadow 0.45s ease, transform 0.5s var(--veer);
 }
-.wn-stappen__lijst li.is-bereikt {
-  border-color: var(--ijs-3);
-  background: #fff;
+.wn-stappen__lijst li.is-bereikt b {
+  color: var(--tekst);
 }
 .wn-stappen__lijst li.is-bereikt .wn-stappen__icoon {
+  border-color: var(--amber);
   background: var(--amber);
-  color: var(--nacht-2);
-  box-shadow: 0 0 0 6px rgba(255, 181, 71, 0.22);
-  transform: scale(1.06);
+  box-shadow: 0 0 0 5px rgba(255, 181, 71, 0.24);
+  transform: scale(1.1);
 }
 .wn-delen {
   display: inline-flex;
@@ -1079,20 +1114,21 @@
 
 /* Bewust strooien */
 .wn-bewust {
+  padding: clamp(40px, 7vw, 96px) 0;
   background: var(--sneeuw);
 }
 .wn-bewust__lijst {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(16px, 3vw, 40px);
-  margin: clamp(26px, 4vw, 44px) 0 0;
+  margin: clamp(20px, 3.4vw, 40px) 0 0;
   padding: 0;
   list-style: none;
 }
 .wn-bewust__lijst li {
   display: grid;
   align-content: start;
-  gap: 6px;
+  gap: 3px;
   padding-top: 16px;
   border-top: 3px solid var(--nacht-2);
 }
@@ -1103,11 +1139,6 @@
 }
 .wn-bewust__lijst span {
   font-size: 15.5px;
-  color: var(--tekst-2);
-}
-.wn-bewust__noot {
-  margin: 26px 0 0;
-  font-size: 15px;
   color: var(--tekst-2);
 }
 
@@ -1260,6 +1291,13 @@
     z-index: 0;
     pointer-events: none;
   }
+  .wn-scene__label {
+    right: 26px;
+    top: 4px;
+    bottom: auto;
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+  }
   .wn-hero__bestel {
     grid-area: auto;
     grid-column: 1 / -1;
@@ -1360,21 +1398,25 @@
   .wn-bewust__lijst {
     grid-template-columns: minmax(0, 1fr);
   }
+  .wn-stappen__lijst {
+    gap: 12px;
+  }
   .wn-stappen__lijst li {
-    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-columns: 16px minmax(0, 1fr);
+    align-items: center;
     column-gap: 14px;
-    padding: 16px;
-    border-radius: 20px;
   }
-  .wn-stappen__icoon {
-    grid-row: 1 / span 2;
-    margin-bottom: 0;
+  .wn-bewust__lijst {
+    gap: 0;
   }
-  .wn-stappen__lijst b {
-    align-self: end;
+  .wn-bewust__lijst li {
+    padding: 13px 0;
+    border-top-width: 1px;
+    border-top-color: var(--rand);
   }
-  .wn-stappen__lijst li > span:last-child {
-    grid-column: 2;
+  .wn-bewust__lijst li:first-child {
+    border-top: 0;
+    padding-top: 0;
   }
   .wn-delen {
     width: 100%;

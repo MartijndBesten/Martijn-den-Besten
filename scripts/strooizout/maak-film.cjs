@@ -20,6 +20,7 @@ function pagina() {
     .readFileSync(path.join(hier, "film/film.html"), "utf8")
     .replace("/*LETTER*/", `@font-face{font-family:Geist;src:url(data:font/woff2;base64,${font}) format("woff2-variations");font-weight:100 900}`)
     .replace("<!--ZAK-->", zak)
+    .replace("../../../public/bijbelreis/denckh-logo-signature.svg", `data:image/svg+xml;base64,${fs.readFileSync(path.join(hier, "../../public/bijbelreis/denckh-logo-signature.svg")).toString("base64")}`)
     .replace('"use strict";', '"use strict";window.STIL=true;');
 }
 
@@ -30,6 +31,7 @@ function pagina() {
   page.on("pageerror", (e) => fouten.push(String(e)));
   await page.setContent(pagina());
   await page.evaluate(() => document.fonts.ready);
+  await page.waitForFunction(() => [...document.images].every((i) => i.complete && i.naturalWidth > 0));
   const duur = await page.evaluate(() => window.DUUR);
 
   const stil = process.argv.indexOf("--stil");

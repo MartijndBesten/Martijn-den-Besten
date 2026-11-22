@@ -3,8 +3,8 @@
 <meta charset="utf-8" />
 <title>Strooizout voor de buurt — film</title>
 <!--
-  Verticaal promotiefilmpje (1080 × 1920, 17 s) in de stijl van de webshop: een winterse straat, een zak strooizout
-  die strooit, en licht dat aangaat bij de buren waar gestrooid is. Alles is SVG en HTML; `window.teken(t)` tekent het
+  Verticaal promotiefilmpje (1080 × 1920, 18,5 s) in de stijl van de webshop: een winterse straat, een zak strooizout
+  die strooit, licht dat aangaat bij de buren waar gestrooid is, en buren die meedoen tot alle paadjes op elkaar aansluiten. Alles is SVG en HTML; `window.teken(t)` tekent het
   beeld op tijdstip t (seconden), zodat scripts/strooizout/maak-film.cjs het beeld voor beeld kan vastleggen.
   Los openen in een browser speelt de film gewoon af (klik = opnieuw).
 -->
@@ -55,26 +55,26 @@
   }
   #merk {
     position: absolute;
-    left: 475px;
-    top: 186px;
-    width: 130px;
-    height: 130px;
+    left: 480px;
+    top: 168px;
+    width: 120px;
+    height: 120px;
     opacity: 0;
   }
   #woord1 {
-    top: 334px;
+    top: 300px;
     font-size: 88px;
     font-weight: 750;
     letter-spacing: -0.025em;
   }
   #woord2 {
-    top: 438px;
+    top: 404px;
     font-size: 50px;
     font-weight: 500;
     color: #9fc9e8;
   }
   #pil {
-    top: 1152px;
+    top: 1070px;
   }
   #pil b {
     position: relative;
@@ -99,15 +99,35 @@
     transform: translateX(-200px) skewX(-20deg);
   }
   #sub1 {
-    top: 1304px;
+    top: 1218px;
     font-size: 44px;
     font-weight: 700;
   }
   #sub2 {
-    top: 1366px;
+    top: 1278px;
     font-size: 36px;
     font-weight: 500;
     color: #cfe6f6;
+  }
+  /* Makersvermelding: de officiële Denckh-signatuur (donkere variant) op een licht vlak, niet nagetekend. */
+  #maker {
+    top: 1352px;
+  }
+  #maker span {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 30px 12px 32px;
+    border-radius: 40px;
+    background: #f6fafd;
+    color: #33506e;
+    font-size: 27px;
+    font-weight: 500;
+  }
+  #maker img {
+    display: block;
+    height: 44px;
+    width: auto;
   }
 </style>
 
@@ -170,6 +190,7 @@
       <g id="ijs" clip-path="url(#f-ijsclip)"></g>
       <g id="gloed"></g>
       <g id="spoor"></g>
+      <g id="zakjes"></g>
       <g id="harten"></g>
     </g>
     <g id="sneeuw-ver"></g>
@@ -200,11 +221,14 @@
   <div class="eind" id="pil"><b>strooizouthouten.nl<i></i></b></div>
   <div class="eind" id="sub1">Zak van 25 kg</div>
   <div class="eind" id="sub2">Afhalen in Houten of bezorgd binnen de rondweg</div>
+  <div class="eind" id="maker">
+    <span>Een initiatief van <img src="../../../public/bijbelreis/denckh-logo-signature.svg" alt="Denckh" /></span>
+  </div>
 </div>
 
 <script>
   "use strict";
-  const DUUR = 17;
+  const DUUR = 18.5;
   const B = 1080;
   const H = 1920;
   const GROND = 236;
@@ -242,22 +266,26 @@
     eigenPad: [3.9, 4.5], // van je eigen deur naar de stoep
     buur1: [5.7, 6.25], // paadje naar de deur van de eerste buur
     buur2: [8.2, 8.75],
-    terug: [10.0, 12.0], // camera trekt terug, de hele straat licht op
-    eind: 12.0,
+    verder: 10.0, // de camera rijdt mee de straat in: de buren komen naar buiten en strooien mee
+    samen: 13.1, // alle paadjes sluiten op elkaar aan
+    eind: 13.6,
   };
   const EIGEN = 255; // voordeur van je eigen huis
   const BUUR1 = 410;
   const BUUR2 = 570;
   const BEGIN = EIGEN - 36; // hier komt je eigen paadje op de stoep uit
 
-  /** Kop van de route over de stoep: naar rechts (en bij het terugtrekken ook naar links). */
-  const kopRechts = (t) => (t < T.terug[0] ? sleutel(t, [[4.5, BEGIN], [5.7, BUUR1 - 36], [7.0, BUUR1 - 36], [8.2, BUUR2 - 36]]) : BUUR2 - 36 + 2300 * Math.pow(klem((t - T.terug[0]) / 2), 2));
-  const kopLinks = (t) => BEGIN - 1500 * Math.pow(klem((t - T.terug[0] - 0.1) / 2), 2);
+  /** Kop van jouw route over de stoep. */
+  const kopRechts = (t) => sleutel(t, [[4.5, BEGIN], [5.7, BUUR1 - 36], [7.0, BUUR1 - 36], [8.2, BUUR2 - 36], [10.2, BUUR2 - 36], [11.15, 699]]);
+  // Buren die zelf gaan strooien: [voordeur, moment waarop ze naar buiten komen]. Hun route groeit naar twee kanten,
+  // tot hij aansluit op die van de buren.
+  const STROOIERS = [[735, 10.3], [880, 10.8], [1055, 11.3], [1215, 11.8], [1370, 12.2], [1530, 12.6], [1695, 12.9], [95, 10.9]];
+  const SNELHEID = 150;
 
   const camera = (t) => ({
-    x: sleutel(t, [[0, 236], [3, 255], [4.5, 258], [5.7, 350], [7.0, 364], [8.2, 512], [10, 522], [12, 548]]),
-    s: sleutel(t, [[0, 2.38], [3.2, 2.5], [10, 2.5], [12, 1.2]]),
-    y: sleutel(t, [[0, 1290], [10, 1290], [12, 1764]]),
+    x: sleutel(t, [[0, 236], [3, 255], [4.5, 258], [5.7, 350], [7.0, 364], [8.2, 512], [10, 522], [10.9, 566], [13.1, 1010]]),
+    s: sleutel(t, [[0, 2.38], [3.2, 2.5], [10, 2.5], [11.0, 1.8], [13.2, 1.8], [14.5, 1.05]]),
+    y: sleutel(t, [[0, 1290], [10, 1290], [11.0, 1385], [13.2, 1385], [14.5, 1772]]),
   });
 
   // ---------- de straat ----------
@@ -282,17 +310,34 @@
     if (h.deur === EIGEN) h.aan = -9;
     else if (h.deur === BUUR1) h.aan = T.buur1[1] + 0.05;
     else if (h.deur === BUUR2) h.aan = T.buur2[1] + 0.05;
-    else {
-      for (let t = T.terug[0]; t < DUUR; t += 1 / 120) {
-        if (h.deur > BUUR2 ? kopRechts(t) >= h.deur - 36 : kopLinks(t) <= h.deur + 36) {
-          h.aan = t + 0.32;
-          break;
-        }
-      }
+    const mee = STROOIERS.find((x) => x[0] === h.deur);
+    if (mee) {
+      h.aan = mee[1];
+      h.strooit = mee[1] + 0.6; // vanaf dan groeit hun route over de stoep
     }
-    h.pad = h.deur === EIGEN ? T.eigenPad : h.deur === BUUR1 ? T.buur1 : h.deur === BUUR2 ? T.buur2 : [h.aan - 0.32, h.aan - 0.02];
-    h.vanRechts = h.deur < EIGEN; // links van je eigen huis komt de route van rechts
+    h.pad = h.deur === EIGEN ? T.eigenPad : h.deur === BUUR1 ? T.buur1 : h.deur === BUUR2 ? T.buur2 : [h.aan + 0.25, h.aan + 0.6];
+    h.vanRechts = h.deur < EIGEN; // links van je eigen huis ligt de aansluiting rechts van de deur
+    h.kruising = h.deur + (h.vanRechts ? 36 : -36);
+    h.vanDeur = h.deur === EIGEN || !!mee; // wie zelf strooit begint bij de eigen deur
+    h.zwaait = h.deur !== EIGEN && h.aan < 99;
   }
+  /** De gestrooide stukken stoep op tijdstip t, samengevoegd waar ze elkaar raken: [[van, tot], …]. */
+  const stukken = (t) => {
+    const alle = [];
+    if (t >= T.eigenPad[1]) alle.push([BEGIN, kopRechts(t)]);
+    for (const h of huizen) {
+      const g = t - h.strooit;
+      if (g > 0) alle.push([h.kruising - g * SNELHEID, h.kruising + g * SNELHEID]);
+    }
+    alle.sort((a, b) => a[0] - b[0]);
+    const samen = [];
+    for (const st of alle) {
+      const vorig = samen[samen.length - 1];
+      if (vorig && st[0] <= vorig[1] + 1) vorig[1] = Math.max(vorig[1], st[1]);
+      else samen.push([...st]);
+    }
+    return samen;
+  };
   /** Punt op het paadje van de stoep (u = 0) naar de voordeur (u = 1). */
   const padPunt = (h, u) => {
     const r = h.vanRechts ? 1 : -1;
@@ -408,7 +453,7 @@
     { van: 0.25, tot: 2.9, top: 300, maat: 118, tekst: "Glad voor|de deur?" },
     { van: 3.45, tot: 5.5, top: 300, maat: 118, tekst: "Strooi je|eigen stoep" },
     { van: 5.8, tot: 9.75, top: 262, maat: 100, tekst: "en ook bij|*een *buur die dat|zelf niet kan." },
-    { van: 10.3, tot: 11.8, top: 236, maat: 118, tekst: "Hou je buurt|veilig." },
+    { van: 10.4, tot: 13.25, top: 250, maat: 112, tekst: "Een beetje zout.|*Een *beetje *aandacht." },
   ];
   for (const r of REGELS) {
     const d = document.createElement("div");
@@ -430,7 +475,7 @@
   }
 
   // ---------- de zak ----------
-  const giet = (t) => (t >= 3.85 && t <= 6.25) || (t >= 7.0 && t <= 8.75);
+  const giet = (t) => (t >= 3.85 && t <= 6.25) || (t >= 7.0 && t <= 8.75) || (t >= 10.25 && t <= 11.1);
   /** Waar het zout op dat moment terechtkomt (in eenheden van de straat). */
   const strooipunt = (t) => {
     const eigen = huizen.find((h) => h.deur === EIGEN);
@@ -438,20 +483,24 @@
     const b2 = huizen.find((h) => h.deur === BUUR2);
     if (t < T.eigenPad[1]) return padPunt(eigen, 1 - klem((t - T.eigenPad[0]) / (T.eigenPad[1] - T.eigenPad[0])));
     if (t >= T.buur1[0] && t <= 7.0) return padPunt(b1, klem((t - T.buur1[0]) / (T.buur1[1] - T.buur1[0])));
-    if (t >= T.buur2[0]) return padPunt(b2, klem((t - T.buur2[0]) / (T.buur2[1] - T.buur2[0])));
+    if (t >= T.buur2[0] && t < 10.2) return padPunt(b2, klem((t - T.buur2[0]) / (T.buur2[1] - T.buur2[0])));
     return [kopRechts(t), STOEP];
   };
+  const ZAKJE = 28; // breedte van een zak naast een voordeur (in eenheden van de straat)
   const zak = (t) => {
-    const naar = zacht((t - 10.0) / 1.8); // van de voorgrond naar het midden van het eindbeeld
-    const loopt = (t > 4.5 && t < 5.7) || (t > 7.0 && t < 8.2) ? 1 : 0;
+    if (t >= T.eind) {
+      // eindbeeld: de zak komt van onderen in het midden te staan
+      const e = t - T.eind;
+      return { x: 540, y: 772 + (1 - veer(e / 0.85)) * 1300 + klem((e - 0.9) / 1) * Math.sin(t * 1.9) * 7, b: 400, r: 0, eind: klem(e / 0.6) };
+    }
+    const loopt = (t > 4.5 && t < 5.7) || (t > 7.0 && t < 8.2) || (t > 10.25 && t < 11.1) ? 1 : 0;
     const stap = loopt * Math.sin(t * Math.PI * 5) * 9;
-    const zweef = klem((t - 12) / 1) * Math.sin(t * 1.9) * 7;
     return {
-      x: 212 + (540 - 212) * naar,
-      y: 1712 + (1 - veer((t - T.zakIn) / 0.75)) * 760 + (822 - 1712) * naar - Math.abs(stap) + zweef,
-      b: 372 + 68 * naar,
-      r: sleutel(t, [[3.0, -8], [3.55, 12], [3.9, 40], [6.2, 40], [6.55, 18], [6.85, 18], [7.1, 40], [8.7, 40], [9.1, 16], [10.0, 12], [11.6, 0]]) + stap * 0.12,
-      naar,
+      x: 212,
+      y: 1712 + (1 - veer((t - T.zakIn) / 0.75)) * 760 - Math.abs(stap) + zacht((t - 11.25) / 0.6) * 900, // na het aansluiten zakt hij uit beeld
+      b: 372,
+      r: sleutel(t, [[3.0, -8], [3.55, 12], [3.9, 40], [6.2, 40], [6.55, 18], [6.85, 18], [7.1, 40], [8.7, 40], [9.1, 16], [10.1, 16], [10.3, 40], [11.05, 40], [11.3, 8]]) + stap * 0.12,
+      eind: 0,
     };
   };
 
@@ -479,13 +528,17 @@
     el("ver-licht").innerHTML = s;
 
     // route over de stoep
-    const xr = kopRechts(t);
-    const xl = t < T.terug[0] ? BEGIN : kopLinks(t);
-    const gestrooid = t >= T.eigenPad[1];
+    const delen = stukken(t);
     const zicht = [cam.x - 620 / cam.s, cam.x + 620 / cam.s];
-    el("f-ijsclip").innerHTML = gestrooid
-      ? `<rect x="-2400" y="${GROND}" width="${n(Math.max(0, xl - 22 + 2400))}" height="70"/><rect x="${n(xr + 22)}" y="${GROND}" width="6800" height="70"/>`
-      : `<rect x="-2400" y="${GROND}" width="6800" height="70"/>`;
+    // ijs ligt er nog waar niet gestrooid is
+    let ijs = "";
+    let vanaf = -2400;
+    for (const [a, b] of delen) {
+      if (a - 22 > vanaf) ijs += `<rect x="${n(vanaf)}" y="${GROND}" width="${n(a - 22 - vanaf)}" height="70"/>`;
+      vanaf = Math.max(vanaf, b + 22);
+    }
+    ijs += `<rect x="${n(vanaf)}" y="${GROND}" width="${n(Math.max(0, 4400 - vanaf))}" height="70"/>`;
+    el("f-ijsclip").innerHTML = ijs;
     el("glans").setAttribute("x", n(cam.x - 420 + rest(t * 310, 1500)));
     el("glans").setAttribute("transform", `skewX(-28) translate(${n((GROND + 34) * 0.53)} 0)`);
 
@@ -494,12 +547,13 @@
     let gloed = "";
     let licht = "";
     let harten = "";
-    if (gestrooid) band += `<path d="M${n(xl)} ${STOEP} H${n(xr)}" stroke-width="26"/>`;
+    let zakjes = "";
+    for (const [a, b] of delen) band += `<path d="M${n(a)} ${STOEP} H${n(b)}" stroke-width="26"/>`;
     for (const h of huizen) {
       if (h.deur < zicht[0] - 140 || h.deur > zicht[1] + 140) continue;
       // paadje naar de deur
       const q = klem((t - h.pad[0]) / (h.pad[1] - h.pad[0]));
-      const omgekeerd = h.deur === EIGEN; // je eigen paadje begint bij de deur
+      const omgekeerd = h.vanDeur; // wie zelf strooit begint bij de eigen deur
       if (q > 0) {
         band += `<path d="${padD(h)}" stroke-width="24" pathLength="1" stroke-dasharray="${n(q * 100) / 100} 3"${omgekeerd ? ` stroke-dashoffset="${(q - 1).toFixed(3)}"` : ""}/>`;
         [0.1, 0.26, 0.42, 0.58, 0.74, 0.9].forEach((u, i) => {
@@ -529,11 +583,24 @@
           licht += `<path d="M${r.x + 13} ${r.y + 1}v22M${r.x + 1} ${r.y + 12}h24" stroke="#b9722a" stroke-opacity="${n(a * 0.35)}" stroke-width="1.6"/>`;
         }
       }
+      // een buur in de deuropening die zwaait
+      if (h.zwaait && sinds > 0.45) {
+        const op = klem((sinds - 0.45) / 0.3);
+        const sindsZwaai = (sinds - 0.6) % 2.6;
+        const arm = sindsZwaai > 0 && sindsZwaai < 1.3 ? Math.sin(sindsZwaai * Math.PI * 4.6) * 22 * Math.sin((sindsZwaai / 1.3) * Math.PI) : 0;
+        licht += `<g fill="#0b2340" opacity="${n(op)}"><circle cx="${h.deur - 1.5}" cy="${GROND - 25.5}" r="4.6"/><path d="M${h.deur - 8} ${GROND} v-11.5 a6.5 6.5 0 0 1 13 0 V${GROND} Z"/><path d="M${h.deur + 3.5} ${GROND - 15.5} L${h.deur + 8.2} ${GROND - 28}" fill="none" stroke="#0b2340" stroke-width="3.4" stroke-linecap="round" transform="rotate(${n(arm + 6)} ${h.deur + 3.5} ${GROND - 15.5})"/></g>`;
+      }
+      // wie meestrooit zet een eigen zak naast de deur
+      if (h.strooit && t > h.aan + 0.2) {
+        const m = veer((t - h.aan - 0.2) / 0.45);
+        zakjes += `<g transform="translate(${h.deur + 16} ${GROND + 6}) scale(${n((m * ZAKJE) / 320 * 1000) / 1000}) translate(0 -420)"><use href="#zak" width="320" height="420"/></g>`;
+      }
       // hartje: de buren zijn er blij mee (en later af en toe nog een)
       const hartTijden = h.aan > 0 ? [h.aan + 0.45] : [];
-      if (h.aan > -99 && t > T.eind) {
+      if (h.aan < 99) {
         const beurt = Math.abs(Math.round(h.deur / 7)) % 5;
-        for (let k = 0; k < 6; k++) hartTijden.push(12.9 + beurt * 0.55 + k * 2.75);
+        hartTijden.push(T.samen + 0.05 + beurt * 0.09);
+        for (let k = 0; k < 6; k++) hartTijden.push(T.eind + 0.9 + beurt * 0.55 + k * 2.75);
       }
       for (const ht of hartTijden) {
         const u = (t - ht) / 1.7;
@@ -543,19 +610,23 @@
         harten += `<g transform="translate(${n(h.deur + Math.sin(u * 7) * 5)} ${n(GROND - 60 - 64 * uit(u))}) scale(${n(maat * 10) / 10})" opacity="${n(o)}"><path d="M0 6 C -9.5 -1.5, -6 -9.5, 0 -4.2 C 6 -9.5, 9.5 -1.5, 0 6 Z" fill="#ffb547"/></g>`;
       }
     }
-    if (gestrooid) {
-      for (const k of korrels) {
-        if (k.x < xl || k.x > xr || k.x < zicht[0] || k.x > zicht[1]) continue;
-        const a = veer(Math.min(xr - k.x, k.x - xl) / 16);
-        const fonkel = k.amber ? 0.82 + 0.18 * Math.sin(t * 3.2 + k.f) : 0.94;
-        if (k.amber && t > T.terug[0]) s += `<circle cx="${n(k.x)}" cy="${n(k.y)}" r="${n(k.r * 2.4)}" fill="#ffb547" opacity="${n(0.24 * klem((t - T.terug[0]) / 1.5) * fonkel)}"/>`;
-        s += `<circle cx="${n(k.x)}" cy="${n(k.y)}" r="${n(k.r * a)}" fill="${k.amber ? "#ffb547" : "#fff"}" opacity="${n(fonkel)}"/>`;
-      }
+    // Als alles op elkaar aansluit trekt er één keer een golf van licht door de hele route.
+    const golf = cam.x - 700 + ((t - T.samen) / 0.8) * 1400;
+    for (const k of korrels) {
+      if (k.x < zicht[0] || k.x > zicht[1]) continue;
+      const stuk = delen.find((d) => k.x >= d[0] && k.x <= d[1]);
+      if (!stuk) continue;
+      const a = veer(Math.min(stuk[1] - k.x, k.x - stuk[0]) / 16);
+      const fonkel = k.amber ? 0.82 + 0.18 * Math.sin(t * 3.2 + k.f) : 0.94;
+      const piek = Math.max(0, 1 - Math.abs(k.x - golf) / 90);
+      if (k.amber && t > T.samen) s += `<circle cx="${n(k.x)}" cy="${n(k.y)}" r="${n(k.r * (2.4 + piek * 2))}" fill="#ffb547" opacity="${n((0.24 * klem((t - T.samen) / 0.8) + piek * 0.3) * fonkel)}"/>`;
+      s += `<circle cx="${n(k.x)}" cy="${n(k.y)}" r="${n(k.r * a * (1 + piek * 0.9))}" fill="${k.amber ? "#ffb547" : "#fff"}" opacity="${n(fonkel)}"/>`;
     }
     el("spoor").innerHTML = `<g fill="none" stroke="#eaf5fc" stroke-linecap="round" opacity="0.3">${band}</g>` + s;
     el("gloed").innerHTML = gloed;
     el("licht").innerHTML = licht;
     el("harten").innerHTML = harten;
+    el("zakjes").innerHTML = zakjes;
 
     // sneeuw
     let verweg = "";
@@ -581,12 +652,12 @@
         const dy = (ly - 210) * sch;
         return [z.x + dx * Math.cos(hoek) - dy * Math.sin(hoek), z.y + dx * Math.sin(hoek) + dy * Math.cos(hoek)];
       };
-      if (z.naar > 0) s += `<circle cx="${n(z.x)}" cy="${n(z.y)}" r="460" fill="url(#f-koel)" opacity="${n(z.naar)}"/>`;
-      s += `<ellipse cx="${n(z.x + 16)}" cy="${n(z.y + z.b * 0.66)}" rx="${n(z.b * 0.56)}" ry="${n(z.b * 0.09)}" fill="#020a14" opacity="${n(0.42 * (1 - z.naar))}" filter="url(#f-zacht)"/>`;
+      if (z.eind > 0) s += `<circle cx="${n(z.x)}" cy="${n(z.y)}" r="460" fill="url(#f-koel)" opacity="${n(z.eind)}"/>`;
+      s += `<ellipse cx="${n(z.x + 16)}" cy="${n(z.y + z.b * 0.66)}" rx="${n(z.b * 0.56)}" ry="${n(z.b * 0.09)}" fill="#020a14" opacity="${n(0.42 * (z.eind > 0 ? 0 : 1))}" filter="url(#f-zacht)"/>`;
       // korrels onderweg van de zak naar de stoep
       const mond = draai(266, 34);
       const r = toeval(77);
-      for (let k = 0; k < 420; k++) {
+      for (let k = 0; k < 600; k++) {
         const start = 3.85 + k * 0.0122;
         const duur = 0.46 + r() * 0.16;
         const wijd = (r() - 0.5) * 34;
@@ -643,6 +714,7 @@
     op("pil", 1.25, true);
     op("sub1", 1.65);
     op("sub2", 1.8);
+    op("maker", 2.15);
     document.querySelector("#pil i").style.transform = `translateX(${n(-200 + klem((e - 2.7) / 0.9) * 1100)}px) skewX(-20deg)`;
   }
   window.teken = teken;

@@ -32,7 +32,7 @@ export default function Afhalen() {
   const [b, setB] = useState<Uitgifte | null>(null);
   const [fout, setFout] = useState("");
   const [bezig, setBezig] = useState(false);
-  const [wijze, setWijze] = useState("contant");
+  const [wijze, setWijze] = useState("tikkie");
   const [zonderBetaling, setZonderBetaling] = useState(false);
   const veld = useRef<HTMLInputElement>(null);
   useEffect(() => veld.current?.focus(), []);
@@ -131,7 +131,6 @@ export default function Afhalen() {
             <div className="bh-uitgifte__betalen">
               <label htmlFor="bh-uwijze">Ontvangen via</label>
               <select id="bh-uwijze" className="sz-invoer" value={wijze} onChange={(e) => setWijze(e.target.value)}>
-                <option value="contant">Contant</option>
                 <option value="tikkie">Tikkie / betaalverzoek</option>
                 <option value="pin">Pin</option>
                 <option value="overboeking">Overboeking</option>
