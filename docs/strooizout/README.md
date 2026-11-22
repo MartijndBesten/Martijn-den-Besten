@@ -1,14 +1,57 @@
 # Strooizout voor de buurt
 
-> **Samen veilig de winter door.** Mini-webshop voor inwoners van Houten op **https://martijndenbesten.com/strooizout**, met beheer op **/strooizout/beheer**.
+> **Hou je buurt veilig.** Een initiatief van Denckh. Mini-webshop voor inwoners van Houten op **https://martijndenbesten.com/strooizout**, met beheer op **/strooizout/beheer**.
 
 Zelfde Worker, zelfde D1-database en zelfde uitrolroute als de rest van martijndenbesten.com. Geen aparte hosting, geen betaalde diensten, geen externe scripts of CDN's.
+
+## Definitieve afspraken (22-11-2026)
+
+| Onderwerp | Afspraak | Waar ingesteld |
+| --- | --- | --- |
+| Prijs | 1–3 zakken € 8,99, vanaf 4 zakken € 8,49 per zak voor alle zakken, incl. 21% btw | Producten › Strooizout › Staffelkorting |
+| Btw | 21% inclusief, ook over bezorgkosten; geen KOR | Instellingen › Betalen › Btw |
+| Afhalen | gratis, in Houten; volledig adres pas na bevestiging | Instellingen › Ophalen |
+| Bezorgen | vanaf 2 zakken, € 0,50 per zak, alleen in het postcodegebied | Instellingen › Bezorgen |
+| Voorraad | 40 zakken verwacht, reserveren vooraf; uitgeven pas na ontvangst | Voorraad |
+| Beschikbaar | ‘Op voorraad vanaf donderdag 26 november’ tot er iets ontvangen is | Instellingen › Webshop |
+| Verkoper | Denckh · Vlierweg 54, Houten · KvK 83176896 · btw NL003791952B15 · info@denckh.nl (zoals gepubliceerd op denckh.nl) | Instellingen › Verkoper |
+
+## Merk
+
+Logo: dak en voordeur met een veilige looproute en strooikorrels (`public/strooizout/logo/`: `merk.svg`, `merk-op-donker.svg`, `logo-licht.svg/png`, `logo-donker.svg/png`; favicon `icoon.svg`, `icoon-180.png`, `icoon-512.png`). Kleuren: nachtblauw `#0b2340`, ijsblauw `#cfe6f6`, sneeuwwit `#f8fbfe`, warm accent `#ffb547` (alleen voor de hoofdactie). Lettertype Geist. In de voet ‘Een initiatief van’ met de officiële Denckh-signatuur (`/bijbelreis/denckh-logo-signature.svg`, donkere variant op lichte voet; niet nagetekend).
+
+## Voorraad: vier begrippen
+
+- **Verwacht** (`voorraad_verwacht`): totaal ingekocht of onderweg. Klanten kunnen tot dit aantal reserveren.
+- **Ontvangen** (`voorraad_ontvangen`): werkelijk binnen. Bevestigen in *Voorraad › Ontvangst bevestigen*.
+- **Gereserveerd**: alle niet-geannuleerde bestellingen (`sz_voorraad_mutatie`).
+- **Beschikbaar** (`voorraad`) = verwacht − gereserveerd; kan nooit onder nul (`CHECK`), ook niet bij gelijktijdige bestellingen.
+
+Uitgeven (afhalen, bezorgen) en ‘klaar zetten’ kan alleen als er genoeg ontvangen voorraad ligt (ontvangen − uitgegeven). De verwachting kan niet lager dan wat al gereserveerd is; ontvangen niet lager dan wat al uitgegeven is. Meer ontvangen dan verwacht verhoogt de verwachting automatisch.
+
+## Verkoop aan de weg
+
+- **Bord** (`bord-a4.pdf`, A4): logo, ‘Strooizout — 25 kg’, prijs, staffel en een QR-code naar `/strooizout/aan-de-weg`.
+- **Route**: aantal kiezen → mobiel nummer → code (bijv. H-4827) met het bedrag. Kanaal `straat`, altijd ophalen, geen bestelronde nodig, maar alleen uit ontvangen voorraad.
+- **Uitgifte**: de verkoper zoekt de code in *Afhalen* en kiest ‘ontvangen en uitgeven’: betaling en uitgifte in één transactie, nooit twee keer.
+- **Zonder QR**: *Voorraad › Straatverkoop registreren* (aantal + contant/Tikkie/pin/nog niet betaald), idempotent.
+- **Geen zelfbediening**: er is geen betaalprovider die een betaling betrouwbaar bevestigt. De QR-route geeft dus nooit zelf zakken vrij en zegt nooit ‘betaald’. Laat het bord alleen staan als er iemand bij de zakken is.
+
+**Open punt: automatische QR-betaling.** Betalen-en-meenemen zonder toezicht kan pas met een betaalprovider die per transactie een bevestiging (webhook) geeft, op een zakelijke rekening van Denckh. Bijvoorbeeld Mollie (iDEAL); de tabel `sz_betaling` heeft al `provider`/`provider_ref`. Daarvoor zijn nodig:
+
+- een account en kostenakkoord (transactiekosten);
+- een secret met de API-sleutel;
+- een betaalpagina die het juiste totaal aanmaakt;
+- een webhook die de status bij de provider opvraagt en pas dan ‘betaald’ registreert en de voorraad afboekt.
+
+Een vaste betaal-QR met één bedrag is bewust níet gebruikt: dan kloppen bedragen niet en zijn betalingen niet aan een transactie te koppelen.
 
 ## Wat het doet
 
 | Onderdeel | Adres | Toelichting |
 | --- | --- | --- |
-| Webshop | `/strooizout` | Producten, mandje, hoe het werkt, ophalen/bezorgen/betalen, veelgestelde vragen |
+| Webshop | `/strooizout` | Eén bestelkaart: prijs, staffel, beschikbaarheid, aantal, afhalen/bezorgen, totaal en ‘Bestellen’; daarna naam, mobiel nummer (en adres bij bezorgen) op dezelfde pagina |
+| Aan de weg | `/strooizout/aan-de-weg` | QR-route van het bord (zie hierboven) |
 | Bestellen | `/strooizout/bestellen` | Eén scherm: aantallen (met staffelhint) → ophalen of bezorgen (adres alleen bij bezorgen, + moment) → naam en mobiel nummer (e-mail optioneel) → betalen → controleregel en ‘Reservering plaatsen’. Op de telefoon een vaste balk met het totaal |
 | Bevestiging en bestelpagina | `/strooizout/bestelling#<link>` | Grote **afhaalcode** (bijv. H-4827) met kopiëren, delen en ‘stuur naar mezelf’; status, details, afhaaladres **pas na bevestiging**, annuleren. De persoonlijke link (HMAC) staat in het fragment en gaat niet naar server of statistiek |
 | Privacy en voorwaarden | `/strooizout/privacy`, `/strooizout/voorwaarden` | Voorwaarden zijn in het beheer aan te passen |
@@ -16,7 +59,7 @@ Zelfde Worker, zelfde D1-database en zelfde uitrolroute als de rest van martijnd
 | Korte link | `/zout` | 301 naar `/strooizout` |
 | Beheer | `/strooizout/beheer` | Overzicht, **afhalen (uitgifte op code)**, bestellingen, bezorgroute, producten, bestelrondes, financiën, instellingen, flyer en delen |
 
-Statische bestanden in `public/strooizout/`: `flyer-a5.pdf`, `delen-1080.jpg` (WhatsApp/buurt-app), `delen-1200x630.jpg` (linkvoorvertoning), productillustraties in `beeld/`, icoon.
+Statische bestanden in `public/strooizout/`: `flyer-a5.pdf`, `bord-a4.pdf` (verkoop aan de weg), `delen-1080.jpg` (WhatsApp), `delen-1200x630.jpg` (buurt-app en linkvoorvertoning), logo's in `logo/`, productillustraties in `beeld/`. Alle QR-adressen staan op één plek: `src/strooizout/qr.tsx` (`DOMEIN`). Bij een eigen domein daar aanpassen en `node scripts/strooizout/maak-flyer.cjs` opnieuw draaien.
 
 ## Werking in het kort
 

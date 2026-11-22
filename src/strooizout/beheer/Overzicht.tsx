@@ -38,6 +38,8 @@ export default function Overzicht() {
         <Kpi label="Openstaand" waarde={c.betaalstatus.open + c.betaalstatus.verzoek} sub={`${euro(c.openstaand_cent)} nog te ontvangen · ${c.betaalstatus.verzoek} verzoek verstuurd`} />
         <Kpi label="Nog af te halen" waarde={c.af_te_halen} sub={`${c.afgehaald} afgehaald`} />
         <Kpi label="Nog te bezorgen" waarde={c.te_bezorgen} sub={`${c.bezorgd} bezorgd`} />
+        <Kpi label="Aan de weg" waarde={c.per_kanaal.straat.bestellingen + c.per_kanaal.beheer.bestellingen} sub={`${euro(c.per_kanaal.straat.omzet_cent + c.per_kanaal.beheer.omzet_cent)} omzet`} />
+        {c.btw_cent !== null && <Kpi label="Waarvan btw (21%)" waarde={euro(c.btw_cent)} sub="over omzet incl. bezorgkosten" />}
       </div>
       {c.terug_te_betalen_cent > 0 && <p className="sz-melding sz-melding--let">Let op: er is {euro(c.terug_te_betalen_cent)} ontvangen op geannuleerde bestellingen. Registreer de terugbetaling bij die bestellingen.</p>}
       <div className="bh-twee">

@@ -3,7 +3,10 @@
 import qrcode from "qrcode-generator";
 import { useMemo } from "react";
 
-export const WINKEL_URL = "https://martijndenbesten.com/strooizout";
+// Eén plek voor de adressen in QR-codes en drukwerk. Bij een eigen domein alleen hier aanpassen en de beelden opnieuw maken.
+export const DOMEIN = "https://martijndenbesten.com";
+export const WINKEL_URL = `${DOMEIN}/strooizout`;
+export const WEG_URL = `${DOMEIN}/strooizout/aan-de-weg`;
 export const KORTE_URL = "martijndenbesten.com/zout";
 
 /** Pad van alle donkere modules (één <path>, scherp bij elke grootte). */

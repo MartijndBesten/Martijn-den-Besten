@@ -1,51 +1,16 @@
-// De webshop: held, producten, hoe het werkt, ophalen/bezorgen/betalen en veelgestelde vragen.
+// Homepage: in één oogopslag wat, wat het kost, wanneer, en direct bestellen. Verder weinig woorden.
 
-import { useEffect, useMemo, useState } from "react";
-import { aanbiedingGeldig, alsPrijsProduct, datumTijd, euro, gewichtTekst, parsePostcodes, stukprijs, volgendeStaffel, type PubliekProduct, type Winkel } from "../../shared/strooizout";
-import { IcoonBus, IcoonEuro, IcoonHuis, IcoonKlok, IcoonLet, IcoonPijlRechts, IcoonSneeuw, IcoonVink } from "./iconen";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { aanbiedingGeldig, alsPrijsProduct, bereken, dagTekst, euro, volgendeStaffel, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
+import { IcoonKlok, IcoonLet, IcoonPijlRechts } from "./iconen";
 import { useMand } from "./mandje";
 import { Aantal, maxVoor, StaffelHint } from "./opmaak";
-import { Link } from "./router";
 import { useWinkel } from "./winkeldata";
 
-function Sneeuw() {
-  // Een paar langzaam vallende vlokjes; uit bij ‘minder beweging’ (CSS).
-  const vlokken = useMemo(
-    () =>
-      Array.from({ length: 14 }, (_, i) => ({
-        left: `${(i * 73) % 100}%`,
-        size: 3 + ((i * 7) % 5),
-        duur: 14 + ((i * 5) % 10),
-        wacht: -((i * 3.7) % 20),
-        dx: `${((i % 5) - 2) * 18}px`,
-        op: 0.5 + ((i * 13) % 5) / 10,
-      })),
-    [],
-  );
-  return (
-    <div className="sz-sneeuw" aria-hidden="true">
-      {vlokken.map((v, i) => (
-        <span
-          key={i}
-          style={{ left: v.left, width: v.size, height: v.size, animationDuration: `${v.duur}s`, animationDelay: `${v.wacht}s`, opacity: v.op, ["--dx" as string]: v.dx }}
-        />
-      ))}
-    </div>
-  );
-}
+const Afrekenen = lazy(() => import("./afrekenen"));
 
 export function RondeStatus({ winkel }: { winkel: Winkel }) {
-  if (winkel.open && winkel.ronde) {
-    return (
-      <div className="sz-status sz-status--open" role="status">
-        <IcoonKlok />
-        <div>
-          <strong>Bestellen kan nu</strong>
-          {winkel.ronde.sluit_op ? <>Deze bestelronde sluit op {datumTijd(winkel.ronde.sluit_op)}.</> : <>De bestelronde ‘{winkel.ronde.naam}’ is open.</>}
-        </div>
-      </div>
-    );
-  }
+  if (winkel.open) return null;
   return (
     <div className="sz-status sz-status--dicht" role="status">
       <IcoonLet />
@@ -77,219 +42,142 @@ function LaatsteBestelling() {
   );
 }
 
-function Held({ winkel }: { winkel: Winkel | null }) {
-  const hoofd = winkel?.producten.find((p) => p.slug === "strooizout-25-kg") ?? winkel?.producten[0];
+/** ‘Op voorraad’, ‘Op voorraad vanaf donderdag 26 november’ of ‘Uitverkocht’: alleen wat vaststaat. */
+function Beschikbaarheid({ p, winkel }: { p: PubliekProduct; winkel: Winkel }) {
+  const vanaf = winkel.instellingen.beschikbaar_vanaf;
+  if (p.voorraad === 0) return <p className="sz-beschikbaar sz-beschikbaar--op">Uitverkocht. Reserveren is niet meer mogelijk.</p>;
+  const tekst = p.op_voorraad ? "Op voorraad" : vanaf ? `Op voorraad vanaf ${dagTekst(vanaf)}` : "Reserveer nu, we laten weten wanneer het binnen is";
   return (
-    <section className="sz-held" aria-labelledby="sz-titel">
-      <Sneeuw />
-      <div className="sz-wrap sz-held__in">
-        <div>
-          <span className="sz-held__label">
-            <IcoonSneeuw /> Voor inwoners van Houten
-          </span>
-          <h1 id="sz-titel">Strooizout voor de buurt</h1>
-          <p className="sz-held__slogan">Samen veilig de winter door.</p>
-          <p className="sz-held__tekst">
-            We kopen strooizout samen in, zodat het voordelig en dichtbij is. Reserveer je zakken, haal ze gratis op in Houten of laat ze bezorgen. Betalen doe je pas bij ontvangst.
-          </p>
-          <LaatsteBestelling />
-          {winkel && <RondeStatus winkel={winkel} />}
-          <div className="sz-held__acties">
-            <a href="#producten" className="sz-knop">
-              Bekijk en bestel <IcoonPijlRechts />
-            </a>
-            {hoofd && (
-              <span className="sz-held__prijs">
-                <strong className="sz-tnum">{euro(hoofd.prijs_cent)}</strong> per zak van 25 kg
-              </span>
-            )}
-          </div>
-        </div>
-        <div className="sz-held__beeld">
-          <img src="/strooizout/beeld/strooizout-25kg.webp" alt="Zak strooizout van 25 kilo" width={940} height={940} fetchPriority="high" />
-          <div className="sz-held__kaart">
-            <strong>Gratis ophalen in Houten</strong>
-            {winkel?.instellingen.bezorgen_aan ? "Of laten bezorgen in de buurt." : "Bezorgen is nu niet mogelijk."}
-          </div>
-        </div>
-      </div>
-    </section>
+    <p className={`sz-beschikbaar${p.op_voorraad ? " sz-beschikbaar--ja" : ""}`}>
+      <IcoonKlok />
+      <span>
+        {tekst}
+        {p.voorraad !== null && p.voorraad <= 10 && ` · nog ${p.voorraad} te reserveren`}
+      </span>
+    </p>
   );
 }
 
-function ProductKaart({ p, winkel }: { p: PubliekProduct; winkel: Winkel }) {
-  const { voegToe, regels } = useMand();
-  const inMand = regels.find((r) => r.product_id === p.id)?.aantal ?? 0;
-  const max = Math.max(0, maxVoor(p) - inMand);
-  const [aantal, setAantal] = useState(1);
-  const [toegevoegd, setToegevoegd] = useState(false);
-  useEffect(() => {
-    if (!toegevoegd) return;
-    const t = window.setTimeout(() => setToegevoegd(false), 1800);
-    return () => window.clearTimeout(t);
-  }, [toegevoegd]);
-  useEffect(() => {
-    if (aantal > max && max > 0) setAantal(max);
-  }, [aantal, max]);
-
-  const geldig = p.aanbiedingen.filter((a) => aanbiedingGeldig(a, winkel.nu));
-  const direct = geldig.filter((a) => a.vanaf_aantal <= 1).sort((a, b) => a.prijs_cent - b.prijs_cent)[0];
-  const staffels = geldig.filter((a) => a.vanaf_aantal > 1).sort((a, b) => a.vanaf_aantal - b.vanaf_aantal);
-  const uitverkocht = p.voorraad === 0;
-  const kan = winkel.open && !uitverkocht && max > 0;
-
-  return (
-    <article className="sz-product" aria-labelledby={`sz-p-${p.id}`}>
-      <div className="sz-product__beeld">
-        <img src={p.afbeelding} alt={p.afbeelding_alt || p.naam} loading="lazy" width={800} height={600} />
-        {direct ? <span className="sz-badge sz-badge--actie">{direct.naam}</span> : p.pakket.length > 0 ? <span className="sz-badge">Pakket</span> : null}
-      </div>
-      <div className="sz-product__body">
-        <h3 id={`sz-p-${p.id}`}>{p.naam}</h3>
-        {p.kort && <p className="sz-product__kort">{p.kort}</p>}
-        <div className="sz-prijsregel">
-          <span className="sz-prijs">{euro(direct ? direct.prijs_cent : p.prijs_cent)}</span>
-          {direct && <span className="sz-prijs__oud">{euro(p.prijs_cent)}</span>}
-          <span className="sz-prijs__per">per {p.eenheid}</span>
-        </div>
-        {staffels.map((s) => (
-          <p key={s.id} className="sz-melding sz-melding--info" style={{ margin: 0 }}>
-            <IcoonEuro />
-            <span>
-              {s.naam}: vanaf {s.vanaf_aantal} {p.eenheid === "zak" ? "zakken" : "stuks"} {euro(s.prijs_cent)} per {p.eenheid}, voor alle {p.eenheid === "zak" ? "zakken" : "stuks"}
-            </span>
-          </p>
-        ))}
-        {p.pakket.length > 0 && (
-          <p className="sz-product__kort">
-            Bevat: {p.pakket.map((d) => `${d.aantal}× ${d.naam}`).join(", ")}
-          </p>
-        )}
-        {p.specificaties.length > 0 && (
-          <dl className="sz-specs">
-            {p.specificaties.map((s) => (
-              <div key={s.label} style={{ display: "contents" }}>
-                <dt>{s.label}</dt>
-                <dd>{s.waarde}</dd>
-              </div>
-            ))}
-          </dl>
-        )}
-        {p.beschrijving && (
-          <details className="sz-product__meer">
-            <summary>Meer over dit product</summary>
-            <p>{p.beschrijving}</p>
-          </details>
-        )}
-        <p className={`sz-voorraad${uitverkocht ? " sz-voorraad--op" : p.voorraad === null ? " sz-voorraad--ronde" : ""}`}>
-          {uitverkocht ? "Uitverkocht" : p.voorraad === null ? "Wordt per bestelronde ingekocht" : `Nog ${p.voorraad} beschikbaar`}
-          {p.gewicht_gram > 0 && ` · ${gewichtTekst(p.gewicht_gram)}`}
-        </p>
-        <div className="sz-product__koop">
-          <Aantal waarde={Math.min(aantal, Math.max(1, max))} max={Math.max(1, max)} label={p.naam} onChange={setAantal} />
-          <button
-            type="button"
-            className="sz-knop"
-            disabled={!kan}
-            onClick={() => {
-              voegToe(p.id, Math.min(aantal, max));
-              setToegevoegd(true);
-              setAantal(1);
-            }}
-          >
-            {toegevoegd ? (
-              <>
-                <IcoonVink /> Toegevoegd
-              </>
-            ) : uitverkocht ? (
-              "Uitverkocht"
-            ) : max === 0 && inMand > 0 ? (
-              "Maximum in mandje"
-            ) : (
-              "In mandje"
-            )}
-          </button>
-        </div>
-        {kan && (() => {
-          const totaalAantal = inMand + Math.min(aantal, max);
-          const prijs = stukprijs(alsPrijsProduct(p), totaalAantal, winkel.nu);
-          return (
-            <>
-              {prijs.aanbieding && (
-                <p className="sz-staffel sz-staffel--actief">
-                  <span>
-                    {prijs.aanbieding}: {totaalAantal} × {euro(prijs.cent)} = {euro(totaalAantal * prijs.cent)} <s>{euro(totaalAantal * p.prijs_cent)}</s>
-                  </span>
-                </p>
-              )}
-              <StaffelHint staffel={volgendeStaffel(alsPrijsProduct(p), totaalAantal, winkel.nu)} eenheid={p.eenheid} max={maxVoor(p)} onKies={(n) => setAantal(Math.max(1, n - inMand))} />
-            </>
-          );
-        })()}
-        <span className="sr-only" aria-live="polite">
-          {toegevoegd ? `${p.naam} is toegevoegd aan je mandje.` : ""}
-        </span>
-        {inMand > 0 && !toegevoegd && <p className="sz-klein" style={{ margin: 0 }}>{inMand} in je mandje</p>}
-      </div>
-    </article>
-  );
-}
-
-const STAPPEN = [
-  { t: "Reserveer online", p: "Kies je aantal en vul je gegevens in. Dat kost ongeveer een minuut. Je hebt geen account nodig." },
-  { t: "Wij kopen samen in", p: "Na de sluitdatum van de bestelronde kopen we in één keer in. We laten je weten wanneer je bestelling klaarligt." },
-  { t: "Ophalen of bezorgen", p: "Haal je zakken gratis op in Houten, of laat ze bezorgen. Je betaalt pas bij ontvangst of via Tikkie." },
-];
-
-function Vragen({ winkel }: { winkel: Winkel }) {
+function Bestelmodule({ p, winkel }: { p: PubliekProduct; winkel: Winkel }) {
+  const { zet, regels, leeg } = useMand();
   const inst = winkel.instellingen;
-  const vragen = [
-    {
-      v: "Is mijn reservering een garantie dat ik zout krijg?",
-      a: "Nee. We kopen per bestelronde gezamenlijk in. Lukt de inkoop niet (helemaal), dan laten we het je weten en betaal je niets voor wat niet geleverd wordt.",
-    },
-    { v: "Wanneer en hoe betaal ik?", a: `Pas bij het afhalen of bezorgen${inst.tikkie_aan ? ", of via een Tikkie die je van ons krijgt" : ""}. Je betaalt nooit vooraf via deze website.` },
-    {
-      v: "Waar haal ik mijn bestelling op?",
-      a: `In ${inst.afhaal_plek || "Houten"}. Het precieze adres zie je op je bestelpagina zodra we je reservering hebben bevestigd. Zo blijft het privéadres van de organisator afgeschermd.`,
-    },
-    {
-      v: "Bezorgen jullie ook bij gladheid?",
-      a: inst.bezorg_uitleg || "We bezorgen alleen als het veilig kan.",
-    },
-    { v: "Hoe bewaar ik strooizout?", a: "Droog en goed afgesloten, het liefst van de grond (bijvoorbeeld op een plank of pallet), zodat het niet gaat klonteren. Bewaar het buiten bereik van kinderen en huisdieren." },
-    { v: "Hoe strooi ik?", a: "Strooi dun en gelijkmatig. Meer zout werkt niet beter. Volg de aanwijzingen op de verpakking." },
-    { v: "Kan ik mijn reservering annuleren?", a: "Ja, kosteloos zolang je bestelling nog niet is afgehaald of bezorgd. Dat kan via de link naar je bestelpagina, of neem contact op." },
-  ];
+  const max = Math.max(1, maxVoor(p));
+  const [aantal, setAantal] = useState(() => Math.min(max, regels.find((r) => r.product_id === p.id)?.aantal ?? 1));
+  const [levering, setLevering] = useState<Levering>("ophalen");
+  const [verder, setVerder] = useState(false);
+  const formulier = useRef<HTMLDivElement>(null);
+
+  const zakken = aantal * Math.max(1, p.zakken_per_stuk);
+  const bezorgKan = inst.bezorgen_aan && zakken >= inst.bezorg_min_zakken;
+  useEffect(() => {
+    if (levering === "bezorgen" && !bezorgKan) setLevering("ophalen");
+  }, [levering, bezorgKan]);
+  // Het mandje volgt de keuze hier (één product op de homepage).
+  useEffect(() => {
+    if (verder) zet(p.id, aantal);
+  }, [verder, aantal, p.id, zet]);
+
+  const som = useMemo(() => bereken([{ product: alsPrijsProduct(p), aantal }], levering, inst, winkel.nu), [p, aantal, levering, inst, winkel.nu]);
+  const staffel = p.aanbiedingen.filter((a) => aanbiedingGeldig(a, winkel.nu) && a.vanaf_aantal > 1).sort((a, b) => a.vanaf_aantal - b.vanaf_aantal)[0];
+  const eenheid = p.eenheid === "zak" ? "zakken" : "stuks";
+  const kan = winkel.open && p.voorraad !== 0;
+
   return (
-    <div className="sz-vragen">
-      {vragen.map((q) => (
-        <details className="sz-vraag" key={q.v}>
-          <summary>{q.v}</summary>
-          <p>{q.a}</p>
-        </details>
-      ))}
-    </div>
+    <section className="sz-bestelkaart" aria-labelledby="sz-product-titel">
+      <div className="sz-bestelkaart__product">
+        <img src={p.afbeelding} alt={p.afbeelding_alt || p.naam} width={88} height={88} />
+        <div>
+          <h2 id="sz-product-titel">
+            {p.naam.replace(/^Strooizout (\d+) kg$/, "$1 kg strooizout")}{" "}
+            <span className="sz-nowrap">
+              <span className="sz-streep">—</span> <span className="sz-tnum">{euro(p.prijs_cent)}</span>
+            </span>
+          </h2>
+          {staffel && (
+            <p className="sz-bestelkaart__staffel">
+              Vanaf {staffel.vanaf_aantal} {eenheid} {euro(staffel.prijs_cent)} per {p.eenheid}.
+            </p>
+          )}
+          <Beschikbaarheid p={p} winkel={winkel} />
+        </div>
+      </div>
+
+      {!winkel.open ? (
+        <RondeStatus winkel={winkel} />
+      ) : (
+        <>
+          <div className="sz-bestelkaart__keuze">
+            <Aantal waarde={aantal} max={max} label={p.naam} onChange={(n) => setAantal(n)} />
+            <div className="sz-segment" role="radiogroup" aria-label="Afhalen of bezorgen">
+              <label className={levering === "ophalen" ? "is-actief" : ""}>
+                <input type="radio" name="sz-levering" checked={levering === "ophalen"} onChange={() => setLevering("ophalen")} disabled={!inst.afhalen_aan} />
+                Afhalen
+              </label>
+              <label className={`${levering === "bezorgen" ? "is-actief" : ""}${!bezorgKan ? " is-uit" : ""}`}>
+                <input type="radio" name="sz-levering" checked={levering === "bezorgen"} onChange={() => setLevering("bezorgen")} disabled={!bezorgKan} />
+                Bezorgen
+              </label>
+            </div>
+          </div>
+          <p className="sz-bestelkaart__toelichting" aria-live="polite">
+            {levering === "bezorgen"
+              ? `Bezorgen in Houten: ${euro(som.bezorg_cent)} (${euro(inst.bezorg_per_stuk_cent)} per zak).`
+              : inst.bezorgen_aan && !bezorgKan
+                ? `Afhalen is gratis. Bezorgen kan vanaf ${inst.bezorg_min_zakken} zakken.`
+                : "Afhalen is gratis, in Houten."}
+          </p>
+          <StaffelHint staffel={volgendeStaffel(alsPrijsProduct(p), aantal, winkel.nu)} eenheid={p.eenheid} max={max} onKies={(n) => setAantal(n)} />
+
+          <div className="sz-bestelkaart__totaal" aria-live="polite">
+            <span>Totaal</span>
+            <strong className="sz-tnum">{euro(som.totaal_cent)}</strong>
+            {som.korting_cent > 0 && (
+              <small>
+                <s>{euro(som.subtotaal_cent + som.korting_cent + som.bezorg_cent)}</s> je bespaart {euro(som.korting_cent)}
+              </small>
+            )}
+          </div>
+
+          {!verder ? (
+            <button
+              type="button"
+              className="sz-knop sz-knop--vol sz-knop--groot"
+              disabled={!kan}
+              onClick={() => {
+                leeg(); // op de homepage bestel je dit ene product
+                setVerder(true);
+                window.setTimeout(() => formulier.current?.querySelector<HTMLInputElement>("input:not([type=radio])")?.focus(), 120);
+              }}
+            >
+              Bestellen
+            </button>
+          ) : (
+            <div ref={formulier} className="sz-bestelkaart__formulier">
+              <Suspense fallback={<p>Even laden…</p>}>
+                <Afrekenen ingebed={{ levering }} />
+              </Suspense>
+            </div>
+          )}
+        </>
+      )}
+    </section>
   );
 }
 
 export function WinkelPagina() {
   const { winkel, fout, herlaad } = useWinkel();
-  const inst = winkel?.instellingen;
-  const postcodes = inst ? parsePostcodes(inst.bezorg_postcodes) : [];
-  const bezorgMomenten = winkel?.momenten.filter((m) => m.soort === "bezorgen") ?? [];
+  const hoofd = winkel?.producten.find((p) => p.slug === "strooizout-25-kg") ?? winkel?.producten[0];
 
   return (
-    <>
-      <Held winkel={winkel} />
-
-      <section className="sz-sectie" id="producten" aria-labelledby="sz-producten-titel">
-        <div className="sz-wrap">
-          <div className="sz-sectie__kop">
-            <span className="sz-oog">Assortiment</span>
-            <h2 id="sz-producten-titel">Kies wat je nodig hebt</h2>
-            <p>Voeg producten toe aan je mandje. Bij het bestellen kies je of je ophaalt of laat bezorgen.</p>
-          </div>
+    <div className="sz-start">
+      <div className="sz-wrap sz-start__in">
+        <div className="sz-start__kop">
+          <h1>Strooizout voor de buurt</h1>
+          <p className="sz-payoff">Hou je buurt veilig.</p>
+          <img className="sz-start__beeld" src="/strooizout/beeld/strooizout-25kg.webp" alt="" width={940} height={940} fetchPriority="high" />
+        </div>
+        <div className="sz-start__bestel">
+          <LaatsteBestelling />
           {fout && !winkel ? (
             <div className="sz-melding sz-melding--fout" role="alert">
               <IcoonLet />
@@ -301,112 +189,15 @@ export function WinkelPagina() {
               </div>
             </div>
           ) : !winkel ? (
-            <div className="sz-producten" aria-busy="true">
-              <div className="sz-skelet" />
-            </div>
-          ) : winkel.producten.length === 0 ? (
-            <p className="sz-melding sz-melding--info">
-              <IcoonInfoKlein /> Er staan nog geen producten klaar. Kijk later nog eens.
-            </p>
+            <div className="sz-skelet" aria-busy="true" />
+          ) : !hoofd ? (
+            <p className="sz-melding sz-melding--let">Er staat nu niets te koop. Kijk later nog eens.</p>
           ) : (
-            <div className="sz-producten">
-              {winkel.producten.map((p) => (
-                <ProductKaart key={p.id} p={p} winkel={winkel} />
-              ))}
-            </div>
+            <Bestelmodule p={hoofd} winkel={winkel} />
           )}
+          <p className="sz-buur">Strooi ook eens bij een buur die dat zelf niet kan.</p>
         </div>
-      </section>
-
-      <section className="sz-sectie sz-sectie--ijs" aria-labelledby="sz-hoe-titel">
-        <div className="sz-wrap">
-          <div className="sz-sectie__kop">
-            <span className="sz-oog">Zo werkt het</span>
-            <h2 id="sz-hoe-titel">In drie stappen geregeld</h2>
-          </div>
-          <ol className="sz-stappen">
-            {STAPPEN.map((s, i) => (
-              <li className="sz-stap" key={s.t}>
-                <div className="sz-stap__nr">{i + 1}</div>
-                <h3>{s.t}</h3>
-                <p>{s.p}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {inst && (
-        <section className="sz-sectie" aria-labelledby="sz-info-titel">
-          <div className="sz-wrap">
-            <div className="sz-sectie__kop">
-              <span className="sz-oog">Ophalen, bezorgen en betalen</span>
-              <h2 id="sz-info-titel">Duidelijk vooraf</h2>
-            </div>
-            <div className="sz-info">
-              <div className="sz-infokaart">
-                <div className="sz-infokaart__icoon">
-                  <IcoonHuis />
-                </div>
-                <h3>Ophalen</h3>
-                <ul>
-                  <li>{inst.afhalen_aan ? "Gratis" : "Op dit moment niet mogelijk"}</li>
-                  <li>In {inst.afhaal_plek || "Houten"}</li>
-                  <li>Het precieze adres krijg je na bevestiging</li>
-                </ul>
-              </div>
-              <div className="sz-infokaart">
-                <div className="sz-infokaart__icoon">
-                  <IcoonBus />
-                </div>
-                <h3>Bezorgen</h3>
-                {inst.bezorgen_aan ? (
-                  <ul>
-                    <li>
-                      {inst.bezorg_methode === "per_stuk" ? `${euro(inst.bezorg_per_stuk_cent)} per zak strooizout` : `${euro(inst.bezorg_per_kg_cent)} per kg`}
-                    </li>
-                    <li>Alleen in Houten{postcodes.length > 0 && ` (postcodes ${postcodes.join(", ")})`}</li>
-                    {bezorgMomenten.length > 0 && <li>{bezorgMomenten.length === 1 ? "Eén bezorgmoment" : `${bezorgMomenten.length} bezorgmomenten`} om uit te kiezen</li>}
-                    <li>Alleen als het veilig kan; bij gladheid kan het later worden</li>
-                  </ul>
-                ) : (
-                  <p>Bezorgen is op dit moment niet mogelijk. Ophalen kan wel.</p>
-                )}
-              </div>
-              <div className="sz-infokaart">
-                <div className="sz-infokaart__icoon">
-                  <IcoonEuro />
-                </div>
-                <h3>Betalen</h3>
-                <ul>
-                  <li>Bij afhalen of bezorgen</li>
-                  {inst.tikkie_aan && <li>Of via een Tikkie die je van ons krijgt</li>}
-                  <li>Nooit vooraf via deze website</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {winkel && (
-        <section className="sz-sectie sz-sectie--ijs" aria-labelledby="sz-vragen-titel">
-          <div className="sz-wrap">
-            <div className="sz-sectie__kop">
-              <span className="sz-oog">Vragen</span>
-              <h2 id="sz-vragen-titel">Veelgestelde vragen</h2>
-              <p>
-                Lees ook de <Link naar="/strooizout/voorwaarden">voorwaarden</Link> en de <Link naar="/strooizout/privacy">privacyverklaring</Link>.
-              </p>
-            </div>
-            <Vragen winkel={winkel} />
-          </div>
-        </section>
-      )}
-    </>
+      </div>
+    </div>
   );
-}
-
-function IcoonInfoKlein() {
-  return <IcoonSneeuw />;
 }

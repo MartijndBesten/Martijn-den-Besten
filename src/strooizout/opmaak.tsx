@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { alsPrijsProduct, bereken, euro, volgendeStaffel, type Berekening, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
-import { IcoonMand, IcoonSluit, IcoonSneeuw, Merkteken } from "./iconen";
+import { IcoonMand, IcoonSluit, IcoonSneeuw, Logo } from "./iconen";
 import { useMand, type MandRegel } from "./mandje";
 import { Link, useRouter } from "./router";
 import { useWinkel } from "./winkeldata";
@@ -128,6 +128,10 @@ export function Totalen({ b, levering, toonBezorgen = true }: { b: Berekening; l
 export function Kop() {
   const { setOpen, bump } = useMand();
   const { aantal } = useMandBerekening();
+  const { winkel } = useWinkel();
+  const { pad } = useRouter();
+  // Het mandje is alleen nodig als er meer dan één product te koop is; anders bestel je direct op de homepage.
+  const toonMandje = (winkel?.producten.length ?? 0) > 1 || (aantal > 0 && pad !== "/strooizout");
   const [gescrold, setGescrold] = useState(false);
   const [knal, setKnal] = useState(false);
   const eerste = useRef(true);
@@ -150,19 +154,15 @@ export function Kop() {
     <header className="sz-kop" data-scrolled={gescrold}>
       <div className="sz-wrap sz-kop__in">
         <Link naar="/strooizout" className="sz-merk" aria-label="Strooizout voor de buurt, naar de startpagina">
-          <Merkteken className="sz-merk__teken" />
-          <span>
-            Strooizout voor de buurt
-            <small>Samen veilig de winter door</small>
-          </span>
+          <Logo />
         </Link>
-        <button type="button" className="sz-mandknop" onClick={() => setOpen(true)} data-bump={knal} aria-label={`Winkelmandje, ${aantal} ${aantal === 1 ? "artikel" : "artikelen"}`}>
+        {toonMandje && <button type="button" className="sz-mandknop" onClick={() => setOpen(true)} data-bump={knal} aria-label={`Winkelmandje, ${aantal} ${aantal === 1 ? "artikel" : "artikelen"}`}>
           <IcoonMand />
           <span className="sz-mandknop__tekst">Mandje</span>
           <span className="sz-mandknop__aantal" aria-hidden="true">
             {aantal}
           </span>
-        </button>
+        </button>}
       </div>
     </header>
   );
@@ -173,50 +173,29 @@ export function Kop() {
 export function Voet() {
   const { winkel } = useWinkel();
   const c = winkel?.instellingen;
+  const verkoper = [c?.verkoper_adres, c?.verkoper_kvk && `KvK ${c.verkoper_kvk}`, c?.verkoper_btw && `btw ${c.verkoper_btw}`].filter(Boolean).join(" · ");
   return (
     <footer className="sz-voet">
-      <div className="sz-wrap">
-        <div className="sz-voet__in">
-          <div>
-            <a href="/strooizout" className="sz-merk">
-              <Merkteken className="sz-merk__teken" />
-              <span>
-                Strooizout voor de buurt
-                <small>Samen veilig de winter door</small>
-              </span>
-            </a>
-            <p>Een initiatief voor en door buren in Houten. We kopen samen in, zodat strooizout voordelig en dichtbij is.</p>
-          </div>
-          <div>
-            <h2>Contact</h2>
-            <ul>
-              {c?.contact_naam && <li>{c.contact_naam}</li>}
-              {c?.contact_email && (
-                <li>
-                  <a href={`mailto:${c.contact_email}`}>{c.contact_email}</a>
-                </li>
-              )}
-              {c?.contact_telefoon && (
-                <li>
-                  <a href={`tel:${c.contact_telefoon.replace(/[^+\d]/g, "")}`}>{c.contact_telefoon}</a>
-                </li>
-              )}
-              {!c?.contact_email && !c?.contact_telefoon && <li>Contactgegevens volgen.</li>}
-            </ul>
-          </div>
-          <div>
-            <h2>Goed om te weten</h2>
-            <ul>
-              <li>
-                <Link naar="/strooizout/voorwaarden">Voorwaarden</Link>
-              </li>
-              <li>
-                <Link naar="/strooizout/privacy">Privacy</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <p className="sz-voet__klein">Een reservering is nog geen levergarantie. Bezorgen alleen als het veilig kan.</p>
+      <div className="sz-wrap sz-voet__in">
+        <a className="sz-denckh" href="https://denckh.nl" rel="noopener">
+          <span>Een initiatief van</span>
+          <img src="/bijbelreis/denckh-logo-signature.svg" alt="Denckh" width={93} height={28} />
+        </a>
+        <nav className="sz-voet__links" aria-label="Informatie">
+          <Link naar="/strooizout/voorwaarden">Voorwaarden</Link>
+          <Link naar="/strooizout/privacy">Privacy</Link>
+          {(c?.contact_email || c?.verkoper_email) && <a href={`mailto:${c.contact_email || c.verkoper_email}`}>Contact</a>}
+          {c?.contact_telefoon && <a href={`tel:${c.contact_telefoon.replace(/[^+\d]/g, "")}`}>{c.contact_telefoon}</a>}
+        </nav>
+        <p className="sz-voet__klein">
+          Prijzen inclusief 21% btw. Een reservering is nog geen levergarantie; bezorgen alleen als het veilig kan.
+          {verkoper && (
+            <>
+              <br />
+              {c?.verkoper_naam || "Denckh"} · {verkoper}
+            </>
+          )}
+        </p>
       </div>
     </footer>
   );
@@ -352,7 +331,9 @@ export function MobielBalk() {
   const { pad, navigeer } = useRouter();
   const { open, setOpen } = useMand();
   const { berekening, aantal } = useMandBerekening();
-  const zichtbaar = aantal > 0 && !open && pad === "/strooizout";
+  const { winkel } = useWinkel();
+  // Alleen bij meerdere producten; met één product bestel je direct in de bestelkaart op de homepage.
+  const zichtbaar = aantal > 0 && !open && pad === "/strooizout" && (winkel?.producten.length ?? 0) > 1;
   useEffect(() => {
     document.body.classList.toggle("sz-heeft-balk", zichtbaar);
     return () => document.body.classList.remove("sz-heeft-balk");

@@ -771,3 +771,32 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.bh-voorraad {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+.bh-voorraad > div {
+  background: var(--ijs-0);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: grid;
+  gap: 2px;
+}
+.bh-voorraad span {
+  font-size: 13px;
+  color: var(--tekst-3);
+}
+.bh-voorraad strong {
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.bh-voorraad--nadruk {
+  background: var(--ijs-1) !important;
+}
+@media (max-width: 860px) {
+  .bh-voorraad {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

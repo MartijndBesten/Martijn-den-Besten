@@ -26,8 +26,14 @@ CREATE TABLE IF NOT EXISTS sz_product (
   bezorg_cent INTEGER CHECK (bezorg_cent IS NULL OR bezorg_cent >= 0),
   gewicht_gram INTEGER NOT NULL DEFAULT 0 CHECK (gewicht_gram >= 0),
   eenheid TEXT NOT NULL DEFAULT 'stuk',
-  -- NULL = geen voorraadbeheer (wordt per bestelronde ingekocht); anders nooit onder nul
+  -- Voorraad in vier begrippen (docs/strooizout/README.md):
+  --   voorraad_verwacht  totaal ingekocht of verwacht (bijv. 40); reserveren mag tot dit aantal
+  --   voorraad_ontvangen werkelijk binnen; uitgeven (afhalen/bezorgen) kan alleen uit ontvangen voorraad
+  --   gereserveerd       som van niet-geannuleerde bestellingen (sz_voorraad_mutatie)
+  --   voorraad           beschikbaar om te reserveren = verwacht − gereserveerd; NULL = geen voorraadbeheer; nooit onder nul
   voorraad INTEGER CHECK (voorraad IS NULL OR voorraad >= 0),
+  voorraad_verwacht INTEGER CHECK (voorraad_verwacht IS NULL OR voorraad_verwacht >= 0),
+  voorraad_ontvangen INTEGER NOT NULL DEFAULT 0 CHECK (voorraad_ontvangen >= 0),
   max_per_bestelling INTEGER NOT NULL DEFAULT 20 CHECK (max_per_bestelling BETWEEN 1 AND 500),
   afbeelding TEXT NOT NULL DEFAULT '',
   afbeelding_alt TEXT NOT NULL DEFAULT '',
@@ -101,6 +107,8 @@ CREATE TABLE IF NOT EXISTS sz_bestelling (
   -- korte code voor afhalen/uitgifte (bijv. H-4827); uniek zolang de bestelling niet is geanonimiseerd (dan NULL)
   afhaalcode TEXT UNIQUE,
   ronde_id INTEGER REFERENCES sz_ronde(id),
+  -- web: webshop · straat: QR aan de weg · beheer: straatverkoop door de beheerder geregistreerd
+  kanaal TEXT NOT NULL DEFAULT 'web' CHECK (kanaal IN ('web', 'straat', 'beheer')),
   -- nieuw: reservering ontvangen · bevestigd · klaar: ligt klaar / gaat mee · afgehaald · bezorgd · geannuleerd
   status TEXT NOT NULL DEFAULT 'nieuw' CHECK (status IN ('nieuw', 'bevestigd', 'klaar', 'afgehaald', 'bezorgd', 'geannuleerd')),
   levering TEXT NOT NULL CHECK (levering IN ('ophalen', 'bezorgen')),
@@ -206,7 +214,7 @@ INSERT OR IGNORE INTO sz_categorie (slug, naam, volgorde) VALUES
   ('winteraccessoires', 'Winteraccessoires', 4);
 
 INSERT OR IGNORE INTO sz_product
-  (slug, naam, categorie_id, status, kort, beschrijving, specificaties, prijs_cent, inkoop_cent, bezorg_cent, gewicht_gram, eenheid, voorraad, max_per_bestelling, afbeelding, afbeelding_alt, notitie, volgorde, aangemaakt, gewijzigd)
+  (slug, naam, categorie_id, status, kort, beschrijving, specificaties, prijs_cent, inkoop_cent, bezorg_cent, gewicht_gram, eenheid, voorraad, voorraad_verwacht, max_per_bestelling, afbeelding, afbeelding_alt, notitie, volgorde, aangemaakt, gewijzigd)
 VALUES (
   'strooizout-25-kg',
   'Strooizout 25 kg',
@@ -220,11 +228,12 @@ VALUES (
   NULL,
   25000,
   'zak',
-  NULL,
+  40,
+  40,
   20,
   '/strooizout/beeld/strooizout-25kg.webp',
-  'Witte zak strooizout van 25 kilo met een blauw etiket',
-  'Inkoopprijs en leverancier nog invullen.',
+  'Zak strooizout van 25 kilo met een donkerblauw etiket',
+  'Inkoopprijs en leverancier nog invullen. 40 zakken verwacht; ontvangst bevestigen in Voorraad.',
   1,
   strftime('%Y-%m-%dT%H:%M:%fZ', 'now'),
   strftime('%Y-%m-%dT%H:%M:%fZ', 'now')

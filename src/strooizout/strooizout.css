@@ -14,11 +14,15 @@
   --ijs-1: #eaf3fa;
   --ijs-2: #d7e8f5;
   --ijs-3: #b9d6ec;
-  --blauw: #0f2c4c;
-  --blauw-2: #173d66;
-  --blauw-3: #245a8f;
+  /* Nachtblauw (tekst, merk), ijsblauw (vlakken), sneeuwwit (achtergrond) en één warm accent voor de hoofdactie. */
+  --blauw: #0b2340;
+  --blauw-2: #143a66;
+  --blauw-3: #1f5a94;
+  --amber: #ffb547;
+  --amber-2: #f5a32e;
+  --sneeuw: #f8fbfe;
   --vorst: #2f7bb6;
-  --tekst: #0f2c4c;
+  --tekst: #0b2340;
   --tekst-2: #45607a;
   --tekst-3: #5d7489;
   --rand: #d8e5ef;
@@ -251,18 +255,18 @@ textarea {
   padding: 0 24px;
   border-radius: 14px;
   border: 1px solid transparent;
-  background: var(--blauw);
-  color: var(--wit);
-  font-weight: 620;
+  background: var(--amber);
+  color: var(--blauw);
+  font-weight: 680;
   font-size: 17px;
   text-decoration: none;
   cursor: pointer;
   transition: background 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12) inset, 0 6px 18px rgba(15, 44, 76, 0.18);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset, 0 6px 18px rgba(245, 163, 46, 0.28);
 }
 .sz-knop:hover {
-  background: var(--blauw-2);
-  color: var(--wit);
+  background: var(--amber-2);
+  color: var(--blauw);
 }
 .sz-knop:active {
   transform: translateY(1px);
@@ -314,8 +318,8 @@ textarea {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 2.5px solid rgba(255, 255, 255, 0.35);
-  border-top-color: #fff;
+  border: 2.5px solid rgba(11, 35, 64, 0.25);
+  border-top-color: var(--blauw);
   animation: sz-draai 0.8s linear infinite;
 }
 @keyframes sz-draai {
@@ -1904,4 +1908,452 @@ textarea.sz-invoer {
   .sz-afrekenen--kort {
     padding-bottom: 96px;
   }
+}
+
+/* ---------- Definitieve huisstijl: logo, homepage met bestelkaart, lichte voet ---------- */
+
+.sz-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--blauw);
+}
+.sz-logo__teken {
+  width: 40px;
+  height: 40px;
+  flex: none;
+}
+.sz-logo__woord {
+  display: grid;
+  line-height: 1.02;
+}
+.sz-logo__woord strong {
+  font-size: 19px;
+  font-weight: 760;
+  letter-spacing: -0.02em;
+}
+.sz-logo__woord span {
+  font-size: 14px;
+  font-weight: 520;
+  color: var(--blauw-3);
+}
+.sz-logo--donker {
+  color: #fff;
+}
+.sz-logo--donker .sz-logo__woord span {
+  color: var(--ijs-2);
+}
+.sz-merk small {
+  display: none;
+}
+
+.sz-start {
+  background:
+    radial-gradient(900px 420px at 90% -10%, rgba(207, 230, 246, 0.75), transparent 60%),
+    linear-gradient(180deg, var(--sneeuw), #fff 70%);
+  min-height: calc(100vh - var(--balk));
+}
+.sz-start__in {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 470px);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: start;
+  padding-top: clamp(20px, 5vw, 64px);
+  padding-bottom: clamp(36px, 6vw, 80px);
+}
+.sz-start__kop h1 {
+  font-size: clamp(40px, 6.6vw, 72px);
+  font-weight: 760;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0 0 14px;
+  color: var(--blauw);
+}
+.sz-payoff {
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 560;
+  color: var(--blauw-3);
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.sz-start__beeld {
+  width: min(100%, 420px);
+  height: auto;
+  margin-top: clamp(20px, 4vw, 44px);
+  border-radius: 28px;
+  box-shadow: var(--schaduw-3);
+}
+
+.sz-bestelkaart {
+  background: #fff;
+  border: 1px solid var(--rand);
+  border-radius: 24px;
+  padding: clamp(18px, 3vw, 26px);
+  box-shadow: var(--schaduw-2);
+}
+.sz-bestelkaart__product {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.sz-bestelkaart__product img {
+  width: 76px;
+  height: 76px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: var(--ijs-1);
+}
+.sz-bestelkaart h2 {
+  font-size: 21px;
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+.sz-streep {
+  color: var(--tekst-3);
+  font-weight: 400;
+}
+.sz-bestelkaart__staffel {
+  margin: 0 0 4px;
+  color: var(--tekst-2);
+  font-size: 15.5px;
+}
+.sz-beschikbaar {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--blauw-3);
+}
+.sz-beschikbaar svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+.sz-beschikbaar--ja {
+  color: var(--groen);
+}
+.sz-beschikbaar--op {
+  color: var(--rood);
+}
+.sz-bestelkaart__keuze {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.sz-segment {
+  flex: 1;
+  min-width: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--ijs-1);
+  border-radius: 14px;
+  padding: 4px;
+  height: 52px;
+}
+.sz-segment label {
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  color: var(--blauw-2);
+  position: relative;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+.sz-segment input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.sz-segment label.is-actief {
+  background: #fff;
+  color: var(--blauw);
+  box-shadow: var(--schaduw-1);
+}
+.sz-segment label:has(input:focus-visible) {
+  outline: 3px solid var(--vorst);
+  outline-offset: 1px;
+}
+.sz-segment label.is-uit {
+  color: #8ea2b6;
+  cursor: not-allowed;
+}
+.sz-segment label.is-uit input {
+  cursor: not-allowed;
+}
+.sz-bestelkaart__toelichting {
+  margin: 10px 0 0;
+  font-size: 14.5px;
+  color: var(--tekst-2);
+}
+.sz-bestelkaart__totaal {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  margin: 16px 0 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rand);
+}
+.sz-bestelkaart__totaal span {
+  font-weight: 600;
+  color: var(--tekst-2);
+}
+.sz-bestelkaart__totaal strong {
+  font-size: 30px;
+  letter-spacing: -0.03em;
+  margin-left: auto;
+}
+.sz-bestelkaart__totaal small {
+  width: 100%;
+  text-align: right;
+  color: var(--groen);
+  font-weight: 600;
+  font-size: 14px;
+}
+.sz-bestelkaart__totaal small s {
+  color: var(--tekst-3);
+  font-weight: 400;
+  margin-right: 6px;
+}
+.sz-knop--groot {
+  min-height: 58px;
+  font-size: 19px;
+  border-radius: 16px;
+}
+.sz-bestelkaart__formulier {
+  border-top: 1px solid var(--rand);
+  padding-top: 16px;
+  margin-top: 4px;
+  animation: sz-in 0.25s ease;
+}
+.sz-ingebed .sz-velden {
+  gap: 12px;
+}
+.sz-buur {
+  margin: 18px 4px 0;
+  font-size: 17px;
+  font-weight: 560;
+  color: var(--blauw-2);
+  text-align: center;
+}
+.sz-start__bestel .sz-laatste {
+  margin: 0 0 10px;
+}
+
+/* Lichte voet met de Denckh-signatuur */
+.sz-voet {
+  background: var(--sneeuw);
+  color: var(--tekst-2);
+  border-top: 1px solid var(--rand);
+  padding: 28px 0 calc(28px + env(safe-area-inset-bottom));
+}
+.sz-voet a {
+  color: var(--blauw-2);
+}
+.sz-voet__in {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 28px;
+}
+.sz-denckh {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--tekst-2) !important;
+  font-size: 14.5px;
+  min-height: 44px;
+}
+.sz-denckh img {
+  height: 26px;
+  width: auto;
+}
+.sz-voet__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  font-size: 15px;
+}
+.sz-voet__links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.sz-voet__klein {
+  width: 100%;
+  margin: 0;
+  padding-top: 0;
+  border-top: 0;
+  font-size: 13.5px;
+  color: var(--tekst-3);
+}
+
+@media (max-width: 860px) {
+  .sz-start__in {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding-top: 18px;
+  }
+  .sz-start__beeld {
+    display: none;
+  }
+  .sz-start__kop h1 {
+    font-size: clamp(36px, 10vw, 52px);
+    margin-bottom: 6px;
+  }
+}
+@media (max-width: 400px) {
+  .sz-bestelkaart__keuze .sz-aantal {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .sz-segment {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+.sz-nowrap {
+  white-space: nowrap;
+}
+/* Telefoon: compact, zodat prijs, aantal, afhalen/bezorgen en ‘Bestellen’ in het eerste scherm passen. */
+@media (max-width: 860px) {
+  .sz-kop .sz-logo__woord {
+    display: none;
+  }
+  .sz-kop .sz-logo__teken {
+    width: 36px;
+    height: 36px;
+  }
+  .sz-kop__in {
+    height: 56px;
+  }
+  .sz-start__kop h1 {
+    font-size: 34px;
+    letter-spacing: -0.035em;
+  }
+  .sz-payoff {
+    font-size: 20px;
+  }
+  .sz-bestelkaart__product {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .sz-bestelkaart__product img {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+  }
+  .sz-bestelkaart h2 {
+    font-size: 19px;
+  }
+  .sz-bestelkaart__keuze {
+    flex-wrap: nowrap;
+  }
+  .sz-bestelkaart__keuze .sz-aantal button {
+    width: 40px;
+  }
+  .sz-bestelkaart__keuze .sz-aantal input {
+    width: 34px;
+  }
+  .sz-segment {
+    min-width: 0;
+  }
+  .sz-staffel {
+    padding: 7px 10px;
+    font-size: 14px;
+  }
+  .sz-staffel button {
+    min-height: 32px;
+    padding: 0 10px;
+  }
+  .sz-bestelkaart__totaal {
+    margin: 12px 0 10px;
+    padding-top: 10px;
+  }
+  .sz-bestelkaart__totaal strong {
+    font-size: 26px;
+  }
+}
+@media (max-width: 400px) {
+  .sz-bestelkaart__keuze .sz-aantal {
+    width: auto;
+  }
+}
+
+.sz-verkoper {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 6px 14px;
+  margin: 0 0 16px;
+}
+.sz-verkoper dt {
+  color: var(--tekst-3);
+}
+.sz-verkoper dd {
+  margin: 0;
+  color: var(--tekst);
+}
+
+/* ---------- Verkoop aan de weg (QR op het bord) ---------- */
+.sz-straat {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px var(--gutter) 32px;
+}
+.sz-straat h1 {
+  font-size: 34px;
+  margin: 18px 0 4px;
+}
+.sz-straat__prijs {
+  font-size: 17px;
+  color: var(--tekst-2);
+  margin: 0 0 16px;
+}
+.sz-straat__prijs strong {
+  font-size: 26px;
+  color: var(--blauw);
+}
+.sz-straat__kaart {
+  background: #fff;
+  border: 1px solid var(--rand);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: var(--schaduw-2);
+}
+.sz-straat__stappen {
+  margin: 0 0 14px;
+  padding-left: 20px;
+  color: var(--tekst-2);
+  font-size: 15.5px;
+  display: grid;
+  gap: 4px;
+}
+.sz-straat__rij {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sz-straat__totaal {
+  text-align: right;
+  display: grid;
+}
+.sz-straat__totaal span {
+  font-size: 13.5px;
+  color: var(--tekst-3);
+}
+.sz-straat__totaal strong {
+  font-size: 28px;
+  letter-spacing: -0.03em;
 }

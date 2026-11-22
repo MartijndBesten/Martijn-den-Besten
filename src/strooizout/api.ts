@@ -26,6 +26,7 @@ export const laadWinkel = () => vraag<Winkel & { ok: true }>("/api/strooizout/wi
 export type KlantBestelling = {
   nummer: string;
   afhaalcode: string;
+  kanaal: "web" | "straat" | "beheer";
   betaalstatus: "open" | "verzoek" | "betaald" | "terugbetaald";
   betaalstatus_tekst: string;
   code: string;

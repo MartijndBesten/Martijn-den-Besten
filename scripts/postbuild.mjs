@@ -77,6 +77,7 @@ writeFileSync(
     { pad: "voorwaarden", titel: "Voorwaarden — Strooizout voor de buurt", noindex: false },
     { pad: "flyer", titel: "Flyer en deelbeelden — Strooizout voor de buurt", noindex: true },
     { pad: "beheer", titel: "Beheer — Strooizout voor de buurt", noindex: true },
+    { pad: "aan-de-weg", titel: "Strooizout aan de weg — Strooizout voor de buurt", noindex: true },
   ];
   mkdirSync(join(dist, "strooizout"), { recursive: true });
   for (const r of SZ) {

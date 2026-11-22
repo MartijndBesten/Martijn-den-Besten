@@ -64,6 +64,8 @@ async function startRonde(sluit_op: string | null = null) {
 beforeEach(() => {
   db = createD1();
   env = { DB: db as unknown as D1Database, ASSETS: {} as Fetcher, ADMIN_TOKEN: ADMIN, HASH_SECRET: "geheim", STROOIZOUT_TOKEN: SZ };
+  // De meeste tests gaan over iets anders dan voorraad: daar zonder voorraadbeheer. De voorraadtests zetten het zelf aan.
+  db.raw.prepare("UPDATE sz_product SET voorraad = NULL, voorraad_verwacht = NULL WHERE id = 1").run();
 });
 
 // ---------- Pure regels ----------
@@ -736,5 +738,138 @@ describe("bevindingen uit de review", () => {
     expect((db.raw.prepare("SELECT voorraad FROM sz_product WHERE id = 1").get() as J).voorraad).toBe(5);
     await opschonen(db as unknown as D1Database, STANDAARD_INSTELLINGEN, new Date(later.getTime() + 7 * 31 * 86400_000));
     expect(db.raw.prepare("SELECT naam, telefoon, afhaalcode FROM sz_bestelling").get()).toEqual({ naam: "Gewist", telefoon: "", afhaalcode: null });
+  });
+});
+
+// ---------- Definitieve afspraken 22-11-2026: btw, bezorgen vanaf 2 zakken, voorraadmodel, straatverkoop ----------
+
+describe("definitieve afspraken", () => {
+  it("startgegevens: 40 zakken verwacht, niets ontvangen; btw 21% inclusief; bezorgen vanaf 2 zakken; beschikbaar vanaf 26 november", async () => {
+    const vers = createD1();
+    expect(vers.raw.prepare("SELECT voorraad, voorraad_verwacht, voorraad_ontvangen FROM sz_product WHERE id = 1").get()).toEqual({ voorraad: 40, voorraad_verwacht: 40, voorraad_ontvangen: 0 });
+    env.DB = vers as unknown as D1Database;
+    db = vers;
+    const w = await jsonVan(req("/api/strooizout/winkel"));
+    expect(w.instellingen).toMatchObject({ btw_modus: "inclusief", btw_tarief: 21, bezorg_min_zakken: 2, beschikbaar_vanaf: "2026-11-26", verkoper_naam: "Denckh" });
+    expect(w.producten[0]).toMatchObject({ voorraad: 40, op_voorraad: false, zakken_per_stuk: 1 });
+  });
+
+  it("bezorgen kan pas vanaf 2 zakken; ophalen met 1 zak wel", async () => {
+    await startRonde();
+    const een = await bestel({ regels: [{ product_id: 1, aantal: 1 }], levering: "bezorgen" });
+    expect(een.status).toBe(422);
+    expect(((await een.json()) as J).error).toMatch(/vanaf 2 zakken/);
+    expect((await bestel({ regels: [{ product_id: 1, aantal: 1 }] })).status).toBe(201);
+    const twee = ((await (await bestel({ regels: [{ product_id: 1, aantal: 2 }], levering: "bezorgen" })).json()) as J).bestelling;
+    expect(twee).toMatchObject({ subtotaal_cent: 1798, bezorg_cent: 100, totaal_cent: 1898 });
+  });
+
+  it("btw 21% inclusief over producten én bezorgkosten, ook met staffelkorting", async () => {
+    db.raw.prepare("INSERT INTO sz_instelling (sleutel, waarde) VALUES ('btw_modus', '\"inclusief\"')").run();
+    await startRonde();
+    await bestel({ regels: [{ product_id: 1, aantal: 4 }], levering: "bezorgen" }); // 33,96 + 2,00 = 35,96
+    const f = (await jsonVan(beheer("/financien"))).cijfers;
+    expect(f.omzet_cent).toBe(3596);
+    expect(f.btw_cent).toBe(Math.round((3596 * 21) / 121)); // 624
+    expect(f.btw_cent).toBe(624);
+    const csvTekst = await (await beheer("/export/financien.csv")).text();
+    expect(csvTekst).toContain(";6,24;");
+  });
+
+  it("voorraad: reserveren tot de verwachte voorraad, nooit oververkoop; uitgeven pas na ontvangst", async () => {
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 40 }) });
+    await startRonde();
+    // 40 verwacht: 38 lukt, daarna 3 niet meer, 2 wel
+    const groot = await bestel({ regels: [{ product_id: 1, aantal: 19 }] }, "198.51.100.1");
+    const groot2 = await bestel({ regels: [{ product_id: 1, aantal: 19 }] }, "198.51.100.2");
+    expect([groot.status, groot2.status]).toEqual([201, 201]);
+    expect((await bestel({ regels: [{ product_id: 1, aantal: 3 }] }, "198.51.100.3")).status).toBe(409);
+    const laatste = await bestel({ regels: [{ product_id: 1, aantal: 2 }] }, "198.51.100.4");
+    expect(laatste.status).toBe(201);
+    let v = (await jsonVan(beheer("/voorraad"))).voorraad.find((r: J) => r.id === 1);
+    expect(v).toMatchObject({ verwacht: 40, ontvangen: 0, gereserveerd: 40, beschikbaar: 0, in_magazijn: 0 });
+    expect((await jsonVan(req("/api/strooizout/winkel"))).producten[0]).toMatchObject({ voorraad: 0, op_voorraad: false });
+
+    // uitgeven en ‘klaar’ zetten kan pas als de voorraad echt binnen is
+    const code = ((await groot.json()) as J).bestelling.afhaalcode;
+    const voor = await beheer(`/afhalen/${code}/uitgeven`, { method: "POST", body: JSON.stringify({}) });
+    expect(voor.status).toBe(409);
+    expect(((await voor.json()) as J).error).toMatch(/ontvangen/);
+    expect((await beheer("/bestellingen/1/status", { method: "POST", body: JSON.stringify({ status: "klaar" }) })).status).toBe(409);
+
+    // ontvangst bevestigen: 25 binnen → 19 uitgeven lukt, de tweede 19 nog niet
+    expect((await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ ontvangen_erbij: 25 }) })).status).toBe(200);
+    expect((await beheer(`/afhalen/${code}/uitgeven`, { method: "POST", body: JSON.stringify({}) })).status).toBe(200);
+    const code2 = ((await groot2.json()) as J).bestelling.afhaalcode;
+    expect((await beheer(`/afhalen/${code2}/uitgeven`, { method: "POST", body: JSON.stringify({}) })).status).toBe(409);
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ ontvangen_erbij: 15 }) });
+    expect((await beheer(`/afhalen/${code2}/uitgeven`, { method: "POST", body: JSON.stringify({}) })).status).toBe(200);
+    v = (await jsonVan(beheer("/voorraad"))).voorraad.find((r: J) => r.id === 1);
+    expect(v).toMatchObject({ verwacht: 40, ontvangen: 40, gereserveerd: 40, uitgegeven: 38, in_magazijn: 2, nog_uit_te_geven: 2 });
+    expect((await jsonVan(req("/api/strooizout/winkel"))).producten[0].op_voorraad).toBe(true);
+
+    // verwachte voorraad kan niet onder wat al gereserveerd is; ontvangen niet onder wat al uitgegeven is
+    expect((await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 30 }) })).status).toBe(409);
+    expect((await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ ontvangen_erbij: -5 }) })).status).toBe(409);
+    // meer ontvangen dan verwacht: verwachting en beschikbaar stijgen mee
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ ontvangen_erbij: 10 }) });
+    v = (await jsonVan(beheer("/voorraad"))).voorraad.find((r: J) => r.id === 1);
+    expect(v).toMatchObject({ verwacht: 50, ontvangen: 50, beschikbaar: 10 });
+    // annuleren geeft de reservering terug
+    await beheer("/bestellingen/3/status", { method: "POST", body: JSON.stringify({ status: "geannuleerd" }) });
+    v = (await jsonVan(beheer("/voorraad"))).voorraad.find((r: J) => r.id === 1);
+    expect(v).toMatchObject({ gereserveerd: 38, beschikbaar: 12 });
+  });
+
+  it("gelijktijdige reserveringen op de laatste zakken: nooit meer dan verwacht", async () => {
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 5 }) });
+    await startRonde();
+    const res = await Promise.all([1, 2, 3, 4, 5, 6].map((i) => bestel({ regels: [{ product_id: 1, aantal: 2 }] }, `198.51.100.${i}`)));
+    expect(res.filter((r) => r.status === 201)).toHaveLength(2);
+    expect((db.raw.prepare("SELECT voorraad FROM sz_product WHERE id = 1").get() as J).voorraad).toBe(1);
+  });
+
+  it("QR aan de weg: alleen uit ontvangen voorraad, zonder naam, mobiel verplicht, wacht op bevestigde uitgifte", async () => {
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 40 }) });
+    // geen open ronde nodig, wel voorraad ter plekke
+    const straat = (extra: Record<string, unknown> = {}) => bestel({ kanaal: "straat", regels: [{ product_id: 1, aantal: 2 }], klant: { telefoon: "0612345678" }, ...extra });
+    const leeg = await straat();
+    expect(leeg.status).toBe(409);
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ ontvangen_erbij: 10 }) });
+    const ok = await straat({ levering: "bezorgen" }); // bezorgen wordt genegeerd: aan de weg is altijd ophalen
+    expect(ok.status).toBe(201);
+    const b = ((await ok.json()) as J).bestelling;
+    expect(b).toMatchObject({ levering: "ophalen", status: "nieuw", betaalstatus: "open", totaal_cent: 1798 });
+    expect(db.raw.prepare("SELECT kanaal, naam FROM sz_bestelling").get()).toEqual({ kanaal: "straat", naam: "Aan de weg" });
+    expect((await straat({ klant: {} })).status).toBe(422); // mobiel nummer verplicht
+    // de verkoper bevestigt betaling en uitgifte in één stap; nooit automatisch betaald
+    const u = await beheer(`/afhalen/${b.afhaalcode}/uitgeven`, { method: "POST", body: JSON.stringify({ betaling: { wijze: "contant", bedrag_cent: 1798, ontvangen: true } }) });
+    expect(((await u.json()) as J).bestelling).toMatchObject({ betaalstatus: "betaald", uitgegeven: true });
+  });
+
+  it("straatverkoop registreren in het beheer: voorraad, uitgifte en betaling in één keer, idempotent, met staffel", async () => {
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 40 }) });
+    const verkoop = (extra: Record<string, unknown> = {}) => beheer("/straatverkoop", { method: "POST", body: JSON.stringify({ idempotentie: "straat-0001-abcdefghijkl", aantal: 4, wijze: "contant", ontvangen: true, ...extra }) });
+    expect((await verkoop()).status).toBe(409); // nog niets ontvangen
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ ontvangen_erbij: 10 }) });
+    const a = await jsonVan(verkoop());
+    expect(a).toMatchObject({ herhaald: false, totaal_cent: 3396, korting_cent: 200 });
+    expect((await jsonVan(verkoop())).herhaald).toBe(true); // dubbel klikken
+    expect((await verkoop({ idempotentie: "straat-0002-abcdefghijkl", ontvangen: false })).status).toBe(422);
+    expect((db.raw.prepare("SELECT COUNT(*) AS n FROM sz_bestelling").get() as J).n).toBe(1);
+    expect(db.raw.prepare("SELECT kanaal, status FROM sz_bestelling").get()).toEqual({ kanaal: "beheer", status: "afgehaald" });
+    expect((db.raw.prepare("SELECT SUM(bedrag_cent) AS s FROM sz_betaling").get() as J).s).toBe(3396);
+    const v = (await jsonVan(beheer("/voorraad"))).voorraad.find((r: J) => r.id === 1);
+    expect(v).toMatchObject({ gereserveerd: 4, uitgegeven: 4, in_magazijn: 6, beschikbaar: 36 });
+    const o = (await jsonVan(beheer("/overzicht"))).cijfers;
+    expect(o.per_kanaal.beheer).toEqual({ bestellingen: 1, omzet_cent: 3396 });
+    // te veel: niet meer dan er ligt
+    expect((await verkoop({ idempotentie: "straat-0003-abcdefghijkl", aantal: 7 })).status).toBe(409);
+  });
+
+  it("verkopergegevens: alleen geldige KvK- en btw-nummers worden opgeslagen", async () => {
+    expect((await beheer("/instellingen", { method: "PUT", body: JSON.stringify({ verkoper_kvk: "1234" }) })).status).toBe(422);
+    expect((await beheer("/instellingen", { method: "PUT", body: JSON.stringify({ verkoper_btw: "123" }) })).status).toBe(422);
+    expect((await beheer("/instellingen", { method: "PUT", body: JSON.stringify({ beschikbaar_vanaf: "26-11-2026" }) })).status).toBe(422);
   });
 });

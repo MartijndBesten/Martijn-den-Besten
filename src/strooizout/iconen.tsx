@@ -44,21 +44,40 @@ export const IcoonKopie = (p: SVGProps<SVGSVGElement>) => (
   <svg {...basis(p)}><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" /></svg>
 );
 
-/** Merkteken: sneeuwkristal in een afgeronde donkerblauwe tegel. */
-export function Merkteken({ className }: { className?: string }) {
+/** Merkteken: dak, voordeur en een veilige looproute met strooikorrels (public/strooizout/logo/merk.svg). */
+export function Merkteken({ className, opDonker = false }: { className?: string; opDonker?: boolean }) {
   return (
-    <svg className={className} viewBox="0 0 48 48" aria-hidden="true">
+    <svg className={className} viewBox="0 0 64 64" aria-hidden="true">
       <defs>
-        <linearGradient id="sz-merk-v" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#245a8f" />
-          <stop offset="1" stopColor="#0f2c4c" />
-        </linearGradient>
+        <clipPath id={opDonker ? "sz-mk-d" : "sz-mk"}>
+          <rect width="64" height="64" rx="16" />
+        </clipPath>
       </defs>
-      <rect width="48" height="48" rx="14" fill="url(#sz-merk-v)" />
-      <g stroke="#fff" strokeWidth="2.6" strokeLinecap="round" fill="none">
-        <path d="M24 11v26M12.7 17.5l22.6 13M12.7 30.5l22.6-13" />
-        <path d="m20.5 13.5 3.5 2.6 3.5-2.6M20.5 34.5l3.5-2.6 3.5 2.6M13.3 22.2l4.2.5-1.6-4M34.7 25.8l-4.2-.5 1.6 4M13.3 25.8l4.2-.5-1.6 4M34.7 22.2l-4.2.5 1.6-4" strokeWidth="2" />
+      {opDonker ? <rect x="1" y="1" width="62" height="62" rx="15" fill="#123461" stroke="#cfe6f6" strokeOpacity=".35" strokeWidth="2" /> : <rect width="64" height="64" rx="16" fill="#0b2340" />}
+      <g clipPath={`url(#${opDonker ? "sz-mk-d" : "sz-mk"})`}>
+        <path d="M9 64 C 18 52, 30 50, 29.5 41 L 34.5 41 C 35 51, 27 56, 31 64 Z" fill="#cfe6f6" />
+        <g fill="#ffb547">
+          <circle cx="31.8" cy="45.4" r="1.5" />
+          <circle cx="28.4" cy="50.4" r="1.7" />
+          <circle cx="24" cy="55.4" r="1.9" />
+          <circle cx="20.2" cy="60.6" r="2.1" />
+        </g>
       </g>
+      <path d="M13 31 32 15l19 16" fill="none" stroke="#fff" strokeWidth="4.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M28.5 41v-8.5a3.5 3.5 0 0 1 7 0V41z" fill="#fff" />
     </svg>
+  );
+}
+
+/** Logo: merkteken met ‘Strooizout’ en ‘voor de buurt’. */
+export function Logo({ className = "", opDonker = false }: { className?: string; opDonker?: boolean }) {
+  return (
+    <span className={`sz-logo${opDonker ? " sz-logo--donker" : ""} ${className}`}>
+      <Merkteken className="sz-logo__teken" opDonker={opDonker} />
+      <span className="sz-logo__woord">
+        <strong>Strooizout</strong>
+        <span>voor de buurt</span>
+      </span>
+    </span>
   );
 }

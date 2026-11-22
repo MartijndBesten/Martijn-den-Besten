@@ -1,6 +1,6 @@
-// Strooizout voor de buurt: de bestelroute als echte gebruiker (desktop en telefoon), het beheer, de CSV-export en
-// toegankelijkheid. Draait tegen de lokale Worker met een eigen D1 (playwright.config.ts). De tests die bestellingen of
-// rondes aanmaken, slaan zichzelf over tegen productie (E2E_BASE_URL).
+// Strooizout voor de buurt: bestellen op de homepage als echte gebruiker (desktop en telefoon), de QR-route aan de weg,
+// het beheer (afhalen op code, voorraad, betaalverzoek, CSV) en toegankelijkheid. Draait tegen de lokale Worker met een
+// eigen D1 (playwright.config.ts). Tests die bestellingen aanmaken, slaan zichzelf over tegen productie (E2E_BASE_URL).
 
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type APIRequestContext, type Page } from "@playwright/test";
@@ -8,14 +8,21 @@ import { expect, test, type APIRequestContext, type Page } from "@playwright/tes
 const TOKEN = "e2e-admin-token-0123456789abcdef";
 const schrijvend = !process.env.E2E_BASE_URL;
 
-async function zorgVoorOpenRonde(request: APIRequestContext, baseURL: string) {
+async function voorbereiden(request: APIRequestContext, baseURL: string) {
   const headers = { Authorization: `Bearer ${TOKEN}`, Origin: baseURL };
   const r = await request.get("/api/strooizout/beheer/rondes", { headers });
   const { rondes } = await r.json();
   if (!rondes.some((x: { status: string }) => x.status === "open")) {
-    const n = await request.post("/api/strooizout/beheer/rondes", { headers, data: { naam: "E2E-ronde" } });
-    expect(n.status()).toBe(201);
+    expect((await request.post("/api/strooizout/beheer/rondes", { headers, data: { naam: "E2E-ronde" } })).status()).toBe(201);
   }
+  // Ruime verwachte voorraad, zodat herhaalde testruns niet uitverkopen; de voorraadregels zelf zitten in de unit-tests.
+  const v = (await (await request.get("/api/strooizout/beheer/voorraad", { headers })).json()).voorraad.find((x: { id: number }) => x.id === 1);
+  if ((v?.verwacht ?? 0) < 1000) await request.post("/api/strooizout/beheer/voorraad/1", { headers, data: { verwacht: 1000 } });
+}
+
+async function ontvang(request: APIRequestContext, baseURL: string, n: number) {
+  const r = await request.post("/api/strooizout/beheer/voorraad/1", { headers: { Authorization: `Bearer ${TOKEN}`, Origin: baseURL }, data: { ontvangen_erbij: n } });
+  expect(r.status()).toBe(200);
 }
 
 async function axe(page: Page) {
@@ -26,135 +33,112 @@ async function axe(page: Page) {
 test.describe("Strooizout voor de buurt", () => {
   test.beforeEach(async ({ request, baseURL }) => {
     test.skip(!schrijvend, "maakt bestellingen aan; niet tegen productie");
-    await zorgVoorOpenRonde(request, baseURL!);
+    await voorbereiden(request, baseURL!);
   });
 
-  test("strooizout: bestellen met twee producten, bezorgen, afhaalcode en bevestiging", async ({ page, request, baseURL }) => {
-    // Een tweede product (fictief) zodat er meerdere producten in één bestelling komen.
+  test("strooizout: bestellen op de homepage, staffel, bezorgen vanaf 2 zakken, afhaalcode", async ({ page, request, baseURL }) => {
     const headers = { Authorization: `Bearer ${TOKEN}`, Origin: baseURL! };
-    const naam = `IJskrabber e2e ${Date.now()}`;
-    const p = await request.post("/api/strooizout/beheer/producten", {
-      headers,
-      data: { naam, status: "actief", prijs_cent: 250, beschrijving: "Testproduct.", afbeelding: "/strooizout/beeld/sneeuwschep.webp", gewicht_gram: 100 },
-    });
-    expect(p.status()).toBe(201);
-
     await page.goto("/strooizout");
     await expect(page.getByRole("heading", { level: 1, name: "Strooizout voor de buurt" })).toBeVisible();
-    await expect(page.getByText("Bestellen kan nu")).toBeVisible();
+    await expect(page.getByText("Hou je buurt veilig.").first()).toBeVisible();
+    const kaart = page.locator(".sz-bestelkaart");
+    await expect(kaart.getByRole("heading", { name: /25 kg strooizout/ })).toContainText("€ 8,99");
+    await expect(kaart.getByText("Vanaf 4 zakken € 8,49 per zak.")).toBeVisible();
+    await expect(kaart.locator(".sz-beschikbaar")).toContainText("Op voorraad");
+    await expect(page.getByText("Strooi ook eens bij een buur die dat zelf niet kan.")).toBeVisible();
 
-    const zout = page.locator(".sz-product", { hasText: "Strooizout 25 kg" });
-    await zout.getByRole("button", { name: /Eén meer/ }).click();
-    await expect(zout.getByText("Bestel 4 zakken en bespaar € 2,00!")).toBeVisible();
-    await zout.getByRole("button", { name: "In mandje" }).click();
-    const krabber = page.locator(".sz-product", { hasText: naam });
-    await krabber.getByRole("button", { name: "In mandje" }).click();
+    // 1 zak: bezorgen kan niet, totaal € 8,99, staffelhint
+    await expect(kaart.getByRole("radio", { name: "Bezorgen" })).toBeDisabled();
+    await expect(kaart.getByText("Bezorgen kan vanaf 2 zakken.")).toBeVisible();
+    await expect(kaart.getByText("Bestel 4 zakken en bespaar € 2,00!")).toBeVisible();
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 8,99");
+    // 2 en 3 zakken: normale prijs; 4 zakken: € 8,49 voor alle zakken
+    const meer = kaart.getByRole("button", { name: /Eén meer/ });
+    await meer.click();
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 17,98");
+    await expect(kaart.getByRole("radio", { name: "Bezorgen" })).toBeEnabled();
+    await meer.click();
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 26,97");
+    await meer.click();
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 33,96");
+    await expect(kaart.locator(".sz-bestelkaart__totaal small")).toContainText("je bespaart € 2,00");
+    await expect(kaart.getByText(/Bestel 4 zakken/)).toHaveCount(0);
+    // bezorgen: € 0,50 per zak erbij
+    await kaart.locator(".sz-segment label", { hasText: "Bezorgen" }).click();
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 35,96");
 
-    // Mandje: aantal aanpassen, product verwijderen en terugzetten, totaal direct zichtbaar.
-    await page.locator(".sz-mandknop").click();
-    const lade = page.getByRole("dialog", { name: "Je mandje" });
-    await expect(lade.locator(".sz-totaal")).toContainText("€ 20,48"); // 2 × 8,99 + 2,50
-    await lade.getByRole("button", { name: `Eén meer ${naam}` }).click();
-    await expect(lade.locator(".sz-totaal")).toContainText("€ 22,98");
-    await lade.locator(".sz-regel", { hasText: naam }).getByRole("button", { name: "Verwijderen" }).click();
-    await expect(lade.locator(".sz-totaal")).toContainText("€ 17,98");
-    await page.keyboard.press("Escape");
-    await krabber.getByRole("button", { name: "In mandje" }).click();
-    await page.locator(".sz-mandknop").click();
-    await lade.getByRole("button", { name: "Verder naar bestellen" }).click();
-
-    // Eén scherm. Leeg versturen: meldingen per veld (naam en mobiel nummer verplicht, e-mail niet).
-    await expect(page.getByRole("heading", { name: "Bestellen" })).toBeVisible();
-    await expect(page.getByLabel("Straat")).toHaveCount(0); // adres alleen bij bezorgen
-    await page.getByRole("button", { name: /Reservering plaatsen/ }).click();
-    await expect(page.getByText("Vul je naam in.")).toBeVisible();
-    await expect(page.getByText("Vul je mobiele nummer in.")).toBeVisible();
-    await expect(page.getByText("Vul een geldig e-mailadres in.")).toHaveCount(0);
-
-    await page.getByLabel(/Bezorgen/).check();
-    await page.getByLabel("Naam").fill("Proef Klant");
-    await page.getByLabel("Mobiel nummer").fill("030 1234567");
-    await page.getByLabel("Postcode").fill("3511 AA");
-    await page.getByLabel("Huisnummer").fill("3");
-    await expect(page.getByText("Op deze postcode bezorgen we helaas niet")).toBeVisible();
-    await page.getByLabel("Postcode").fill("3992 AB");
-    await page.getByLabel("Straat").fill("Proefstraat");
+    // Bestellen: gegevens op dezelfde pagina; adresvelden alleen bij bezorgen
+    await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
+    await expect(kaart.getByLabel("Straat")).toBeVisible();
+    await kaart.getByRole("button", { name: /Reservering plaatsen/ }).click();
+    await expect(kaart.getByText("Vul je naam in.")).toBeVisible();
+    await expect(kaart.getByText("Vul je mobiele nummer in.")).toBeVisible();
+    await kaart.getByLabel("Postcode").fill("3511 AA");
+    await expect(kaart.getByText("Op deze postcode bezorgen we helaas niet")).toBeVisible();
+    await kaart.getByLabel("Postcode").fill("3992 AB");
+    await kaart.getByLabel("Huisnummer").fill("3");
+    await kaart.getByLabel("Straat").fill("Proefstraat");
+    await kaart.getByLabel("Naam").fill("Proef Klant");
+    await kaart.getByLabel("Mobiel nummer").fill("030 1234567");
     await page.waitForTimeout(2600); // minimale invultijd (spambescherming)
-    await page.getByRole("button", { name: /Reservering plaatsen/ }).click();
-    await expect(page.getByText(/Vul een Nederlands mobiel nummer in/)).toBeVisible();
+    await kaart.getByRole("button", { name: /Reservering plaatsen/ }).click();
+    await expect(kaart.getByText(/Vul een Nederlands mobiel nummer in/)).toBeVisible();
     const mobiel = `+31 6 ${String(Date.now()).slice(-8, -4)} ${String(Date.now()).slice(-4)}`;
-    await page.getByLabel("Mobiel nummer").fill(mobiel);
-    // Controle staat direct boven de knop; bezorgkosten € 0,50 per artikel.
-    const controle = page.locator(".sz-controlelijst");
-    await expect(controle).toContainText("Totaal € 21,98");
-    await expect(controle).toContainText("Proefstraat 3, 3992 AB");
+    await kaart.getByLabel("Mobiel nummer").fill(mobiel);
+    // dubbel klikken: precies één bestelling
+    await kaart.getByRole("button", { name: "Reservering plaatsen · € 35,96" }).dblclick();
 
-    // Dubbel klikken: precies één bestelling.
-    await page.getByRole("button", { name: /Reservering plaatsen/ }).dblclick();
     await expect(page.getByRole("heading", { name: /Bedankt, Proef! Je reservering is geplaatst/ })).toBeVisible();
     const code = (await page.locator(".sz-codekaart__code").textContent())!.trim();
     expect(code).toMatch(/^H-\d{4,5}$/);
     await expect(page.getByRole("button", { name: /Kopieer code/ })).toBeVisible();
-
-    const lijst = await (await request.get(`/api/strooizout/beheer/bestellingen?ronde=alle&zoek=${code}`, { headers })).json();
+    const lijst = await (await request.get(`/api/strooizout/beheer/bestellingen?ronde=alle&zoek=${encodeURIComponent(mobiel)}`, { headers })).json();
     expect(lijst.bestellingen).toHaveLength(1);
-    expect(lijst.bestellingen[0]).toMatchObject({ totaal_cent: 2198, stuks: 3, levering: "bezorgen", afhaalcode: code });
-    const opNummer = await (await request.get(`/api/strooizout/beheer/bestellingen?ronde=alle&zoek=${encodeURIComponent(mobiel)}`, { headers })).json();
-    expect(opNummer.bestellingen).toHaveLength(1);
+    expect(lijst.bestellingen[0]).toMatchObject({ afhaalcode: code, totaal_cent: 3596, stuks: 4, levering: "bezorgen", kanaal: "web" });
 
-    // De bestelpagina blijft werken na herladen (code in het fragment) en het mandje is leeg.
+    // bestelpagina blijft werken na herladen; homepage linkt naar de laatste bestelling
     await page.reload();
-    await expect(page.getByRole("heading", { name: /Je bestelling, Proef/ })).toBeVisible();
     await expect(page.locator(".sz-codekaart__code")).toHaveText(code);
-    await expect(page.locator(".sz-mandknop__aantal")).toHaveText("0");
-    // Terug in de webshop: link naar de laatste bestelling met code.
     await page.goto("/strooizout");
     await expect(page.getByRole("link", { name: new RegExp(`Je bestelling ${code} bekijken`) })).toBeVisible();
-
-    await request.delete(`/api/strooizout/beheer/producten/${(await p.json()).id}`, { headers });
   });
 
-  test("strooizout: staffelkorting bij 4 zakken, direct zichtbaar", async ({ page }) => {
+  test("strooizout: 1 zak ophalen op de telefoon en annuleren door de klant", async ({ page }) => {
     await page.goto("/strooizout");
-    const zout = page.locator(".sz-product", { hasText: "Strooizout 25 kg" });
-    await zout.getByRole("button", { name: /Eén meer/ }).click();
-    await zout.getByRole("button", { name: /Eén meer/ }).click();
-    await zout.getByRole("button", { name: "In mandje" }).click();
-    await page.locator(".sz-mandknop").click();
-    const lade = page.getByRole("dialog", { name: "Je mandje" });
-    await expect(lade.locator(".sz-totaal")).toContainText("€ 26,97");
-    await expect(lade.getByText("Bestel 4 zakken en bespaar € 2,00!")).toBeVisible();
-    await lade.getByRole("button", { name: "Maak er 4 van" }).click();
-    await expect(lade.locator(".sz-totaal")).toContainText("€ 33,96");
-    await expect(lade.locator(".sz-korting")).toContainText("Staffelkorting");
-    await expect(lade.locator(".sz-korting")).toContainText("€ 2,00");
-    await expect(lade.getByText("Bestel 4 zakken")).toHaveCount(0);
-    await lade.getByRole("button", { name: "Eén meer Strooizout 25 kg" }).click(); // 5 × 8,49
-    await expect(lade.locator(".sz-totaal")).toContainText("€ 42,45");
-    await lade.locator(".sz-regel").getByRole("button", { name: "Verwijderen" }).click();
-  });
-
-  test("strooizout: ophalen op de telefoon en annuleren door de klant", async ({ page }) => {
-    await page.goto("/strooizout");
-    await page.locator(".sz-product", { hasText: "Strooizout 25 kg" }).getByRole("button", { name: "In mandje" }).click();
-    await page.locator(".sz-mandknop").click();
-    await page.getByRole("button", { name: "Verder naar bestellen" }).click();
-    await expect(page.getByRole("heading", { name: "Bestellen" })).toBeVisible();
-    await page.getByLabel("Naam").fill("Mobiel Test");
-    await page.getByLabel("Mobiel nummer").fill("06 1111 2222");
+    const kaart = page.locator(".sz-bestelkaart");
+    await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
+    await expect(kaart.getByLabel("Straat")).toHaveCount(0);
+    await kaart.getByLabel("Naam").fill("Mobiel Test");
+    await kaart.getByLabel("Mobiel nummer").fill("06 1111 2222");
     await page.waitForTimeout(2600);
-    await page.getByRole("button", { name: /Reservering plaatsen/ }).click();
+    await kaart.getByRole("button", { name: "Reservering plaatsen · € 8,99" }).click();
     await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
     await expect(page.getByText("Het adres verschijnt hier zodra je reservering is bevestigd.")).toBeVisible();
     await page.getByRole("button", { name: "Reservering annuleren" }).click();
     await page.getByRole("button", { name: "Ja, annuleren" }).click();
     await expect(page.getByRole("heading", { name: "Je reservering is geannuleerd" })).toBeVisible();
-    // geen horizontale scroll op de telefoon
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
   });
 
-  test("strooizout: beheer alleen met token; afhalen op code, betaalverzoek, status en CSV-export", async ({ page, request, baseURL }) => {
-    // Eigen testbestellingen, zodat deze test niet afhangt van de andere.
+  test("strooizout: QR aan de weg geeft een code; uitgifte pas na bevestiging door de verkoper", async ({ page, request, baseURL }) => {
+    await ontvang(request, baseURL!, 4);
+    await page.goto("/strooizout/aan-de-weg");
+    await expect(page.getByRole("heading", { name: "Strooizout — 25 kg" })).toBeVisible();
+    await page.getByRole("button", { name: /Eén meer/ }).click();
+    await expect(page.locator(".sz-straat__totaal strong")).toHaveText("€ 17,98");
+    await page.getByRole("button", { name: "Code ophalen" }).click();
+    await expect(page.getByText("Vul je mobiele nummer in, bijvoorbeeld 06 1234 5678.")).toBeVisible();
+    await page.getByLabel("Mobiel nummer").fill("06 5555 4444");
+    await page.getByRole("button", { name: "Code ophalen" }).click();
+    await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
+    await expect(page.getByText(/Laat deze code zien aan de verkoper en betaal € 17,98/)).toBeVisible();
+    const code = (await page.locator(".sz-codekaart__code").textContent())!.trim();
+    // niet automatisch betaald of uitgegeven
+    const b = await (await request.get(`/api/strooizout/beheer/afhalen/${code}`, { headers: { Authorization: `Bearer ${TOKEN}` } })).json();
+    expect(b.bestelling).toMatchObject({ betaalstatus: "open", uitgegeven: false, zakken: 2 });
+  });
+
+  test("strooizout: beheer alleen met token; voorraad, afhalen op code, betaalverzoek en CSV", async ({ page, request, baseURL }) => {
     const plaats = async (nr: string) => {
       const r = await request.post("/api/strooizout/bestelling", {
         headers: { Origin: baseURL! },
@@ -183,44 +167,42 @@ test.describe("Strooizout voor de buurt", () => {
     await page.getByRole("button", { name: "Inloggen" }).click();
     await expect(page.getByText("Zakken verkocht")).toBeVisible();
 
-    // Afhalen: code intikken (zonder H-), zakken en status direct zichtbaar, één keer uitgeven.
+    // Voorraad: ontvangst bevestigen
+    await page.getByRole("tab", { name: "Voorraad" }).click();
+    await page.getByLabel("Ontvangst bevestigen").first().fill("3");
+    await page.getByRole("button", { name: "Bevestigen" }).first().click();
+    await expect(page.getByText("3 ontvangen")).toBeVisible();
+
+    // Afhalen: code zonder H-, zakken en status direct zichtbaar, één keer uitgeven
     await page.getByRole("tab", { name: "Afhalen" }).click();
     await page.getByLabel("Afhaalcode").fill(eerste.afhaalcode.slice(2));
     await page.getByRole("button", { name: "Zoeken" }).click();
     const kaart = page.locator(".bh-uitgifte");
     await expect(kaart.locator(".bh-uitgifte__code")).toHaveText(eerste.afhaalcode);
-    await expect(kaart.getByText("Zakken")).toBeVisible();
     await expect(kaart.locator(".bh-uitgifte__cijfers strong")).toHaveText("1");
     await expect(kaart.locator(".bh-pil", { hasText: "Openstaand" })).toBeVisible();
     await kaart.getByRole("button", { name: /€ 8,99 ontvangen en uitgeven/ }).click();
     await expect(kaart.getByText(/Al uitgegeven op/)).toBeVisible();
     await expect(kaart.locator(".bh-pil", { hasText: "Betaald" })).toBeVisible();
     await expect(kaart.getByRole("button", { name: /uitgeven/i })).toHaveCount(0);
-    // Nog eens zoeken: blijft ‘al uitgegeven’.
-    await page.getByRole("button", { name: "Zoeken" }).click();
-    await expect(page.locator(".bh-uitgifte").getByText(/Al uitgegeven op/)).toBeVisible();
 
-    // Bestellingen: zoeken op code, betaalverzoek (kopiëren en markeren).
+    // Bestellingen: zoeken op code, betaalverzoek markeren, betaling registreren
     await page.getByRole("combobox", { name: "Bestelronde" }).selectOption("alle");
     await page.getByRole("tab", { name: "Bestellingen" }).click();
     await page.getByRole("searchbox", { name: "Zoeken" }).fill(tweede.afhaalcode);
     await page.getByRole("button", { name: `Bestelling ${tweede.afhaalcode} openen` }).click();
     const paneel = page.getByRole("dialog");
-    await expect(paneel.getByText("Openstaand bedrag")).toBeVisible();
     await expect(paneel.locator(".bh-kopieer", { hasText: "06 1234 1202" })).toBeVisible();
     await paneel.getByRole("button", { name: "Markeer: betaalverzoek verstuurd" }).click();
     await expect(paneel.locator(".bh-pil", { hasText: "Betaalverzoek verstuurd" })).toBeVisible();
-    await paneel.getByRole("button", { name: "Bevestigen", exact: true }).click();
-    await expect(paneel.locator(".bh-pil", { hasText: "Bevestigd" })).toBeVisible();
     await paneel.getByLabel("Het geld is echt ontvangen").check();
     await paneel.getByRole("button", { name: "Registreren", exact: true }).click();
     await expect(paneel.locator(".bh-pil", { hasText: "Betaald" })).toBeVisible();
     await paneel.getByRole("button", { name: "Sluiten" }).click();
 
     const [download] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "CSV bestellingen" }).click()]);
-    const pad = await download.path();
     const { readFileSync } = await import("node:fs");
-    const inhoud = readFileSync(pad!, "utf8");
+    const inhoud = readFileSync((await download.path())!, "utf8");
     expect(inhoud.split("\r\n")[0]).toContain("Bestelnummer;Afhaalcode;Datum;Ronde;Status");
     expect(inhoud).toContain(tweede.afhaalcode);
 
@@ -228,8 +210,6 @@ test.describe("Strooizout voor de buurt", () => {
       await page.getByRole("tab", { name: tab }).click();
       await expect(page.getByRole("heading", { level: 1, name: tab })).toBeVisible();
     }
-
-    // Uitloggen sluit de toegang weer af.
     await page.getByRole("button", { name: "Uitloggen" }).click();
     await expect(page.getByLabel("Beheercode")).toBeVisible();
   });
@@ -248,7 +228,7 @@ test("strooizout: korte link en beheerpagina niet geïndexeerd", async ({ reques
   expect(beheer.headers()["x-robots-tag"]).toContain("noindex");
 });
 
-for (const pad of ["/strooizout", "/strooizout/bestellen", "/strooizout/privacy", "/strooizout/voorwaarden", "/strooizout/beheer"]) {
+for (const pad of ["/strooizout", "/strooizout/aan-de-weg", "/strooizout/privacy", "/strooizout/voorwaarden", "/strooizout/beheer"]) {
   test(`toegankelijkheid strooizout ${pad}`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(pad);

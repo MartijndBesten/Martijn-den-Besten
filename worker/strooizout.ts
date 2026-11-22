@@ -12,6 +12,7 @@ import {
   BETAAL_STATUS,
   controleerKlant,
   maakAfhaalcode,
+  zakkenIn,
   type Betaalwijze,
   type BestelStatus,
   type Levering,
@@ -21,7 +22,10 @@ import {
 import {
   alsPrijs,
   beschikbaar,
+  bestelStatements,
   fout,
+  laadMagazijn,
+  zakkenPerStuk,
   geheim,
   hmacHex,
   json,
@@ -79,11 +83,12 @@ async function momentenVoor(db: D1Database, rondeId: number | null, nu: string):
 
 async function winkel(env: SzEnv): Promise<Response> {
   const nu = nuIso();
-  const [inst, cat, ronde, cats] = await Promise.all([
+  const [inst, cat, ronde, cats, magazijn] = await Promise.all([
     laadInstellingen(env.DB),
     laadCatalogus(env.DB),
     openRonde(env.DB, nu),
     env.DB.prepare("SELECT slug, naam FROM sz_categorie ORDER BY volgorde, id").all<{ slug: string; naam: string }>(),
+    laadMagazijn(env.DB),
   ]);
   const open = inst.winkel_open && ronde !== null && (inst.afhalen_aan || inst.bezorgen_aan);
   const melding = !inst.winkel_open
@@ -95,7 +100,7 @@ async function winkel(env: SzEnv): Promise<Response> {
     open,
     melding,
     ronde: ronde ? { id: ronde.id, naam: ronde.naam, sluit_op: ronde.sluit_op } : null,
-    producten: cat.producten.filter(teKoop).map((p) => publiek(cat, p, inst.bezorg_per_stuk_cent)),
+    producten: cat.producten.filter(teKoop).map((p) => publiek(cat, p, inst.bezorg_per_stuk_cent, magazijn)),
     categorieen: cats.results,
     momenten: ronde ? await momentenVoor(env.DB, ronde.id, nu) : [],
     instellingen: {
@@ -115,6 +120,13 @@ async function winkel(env: SzEnv): Promise<Response> {
       btw_modus: inst.btw_modus,
       btw_tarief: inst.btw_tarief,
       bewaartermijn_maanden: inst.bewaartermijn_maanden,
+      bezorg_min_zakken: inst.bezorg_min_zakken,
+      beschikbaar_vanaf: inst.beschikbaar_vanaf,
+      verkoper_naam: inst.verkoper_naam,
+      verkoper_adres: inst.verkoper_adres,
+      verkoper_kvk: inst.verkoper_kvk,
+      verkoper_btw: inst.verkoper_btw,
+      verkoper_email: inst.verkoper_email,
     },
     nu,
   };
@@ -154,11 +166,14 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
   const nu = nuIso();
   const [inst, cat, ronde] = await Promise.all([laadInstellingen(env.DB), laadCatalogus(env.DB), openRonde(env.DB, nu)]);
   if (!inst.winkel_open) return fout(inst.gesloten_melding, 409, { code: "gesloten" });
-  if (!ronde) return fout("De bestelronde is gesloten. Je kunt nu niet bestellen.", 409, { code: "gesloten" });
+  const isStraat = body.kanaal === "straat";
+  if (!ronde && !isStraat) return fout("De bestelronde is gesloten. Je kunt nu niet bestellen.", 409, { code: "gesloten" });
 
-  const levering = body.levering;
+  // Kanaal: de webshop, of de QR-route aan de weg (alleen ophalen ter plekke, naam niet nodig).
+  const kanaal = body.kanaal === "straat" ? "straat" : "web";
+  const levering = kanaal === "straat" ? "ophalen" : body.levering;
   if (levering !== "ophalen" && levering !== "bezorgen") return fout("Kies ophalen of bezorgen.", 422, { veld: "levering" });
-  if (levering === "ophalen" && !inst.afhalen_aan) return fout("Ophalen is op dit moment niet mogelijk.", 422, { veld: "levering" });
+  if (levering === "ophalen" && !inst.afhalen_aan && kanaal === "web") return fout("Ophalen is op dit moment niet mogelijk.", 422, { veld: "levering" });
   if (levering === "bezorgen" && !inst.bezorgen_aan) return fout("Bezorgen is op dit moment niet mogelijk. Je kunt je bestelling wel ophalen.", 422, { veld: "levering" });
 
   const betaalwijze = body.betaalwijze;
@@ -185,10 +200,13 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
     if (vrij !== null && aantal > vrij) return fout(vrij === 0 ? `${p.naam} is uitverkocht.` : `Er zijn nog ${vrij} × ${p.naam} beschikbaar.`, 409, { veld: "regels", code: "voorraad" });
     regels.push({ product: alsPrijs(cat, p, inst.bezorg_per_stuk_cent), aantal, rij: p });
   }
+  if (levering === "bezorgen" && inst.bezorg_min_zakken > 0 && zakkenIn(regels.map((r) => ({ aantal: r.aantal, zakken_per_stuk: zakkenPerStuk(cat, r.rij) }))) < inst.bezorg_min_zakken) {
+    return fout(`Bezorgen kan vanaf ${inst.bezorg_min_zakken} zakken. Je kunt je bestelling wel gratis ophalen.`, 422, { veld: "levering" });
+  }
   if (regels.reduce((s, r) => s + r.aantal, 0) > GRENZEN.maxStuksPerBestelling) return fout("Dat is meer dan we in één bestelling kunnen verwerken. Neem contact op.", 422, { veld: "regels" });
 
-  // Moment: verplicht als er voor deze leveringswijze momenten zijn.
-  const momenten = (await momentenVoor(env.DB, ronde.id, nu)).filter((m) => m.soort === levering);
+  // Moment: verplicht als er voor deze leveringswijze momenten zijn (niet aan de weg: daar haal je direct op).
+  const momenten = kanaal === "straat" || !ronde ? [] : (await momentenVoor(env.DB, ronde.id, nu)).filter((m) => m.soort === levering);
   let momentId: number | null = null;
   if (momenten.length) {
     const gekozen = momenten.find((m) => m.id === body.moment_id);
@@ -197,7 +215,9 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
     momentId = gekozen.id;
   }
 
-  const klant = controleerKlant((body.klant ?? {}) as Record<string, unknown>, levering as Levering, inst.bezorg_postcodes);
+  const klantInvoer = { ...((body.klant ?? {}) as Record<string, unknown>) };
+  if (kanaal === "straat" && (typeof klantInvoer.naam !== "string" || klantInvoer.naam.trim().length < 2)) klantInvoer.naam = "Aan de weg";
+  const klant = controleerKlant(klantInvoer, levering as Levering, inst.bezorg_postcodes);
   if (!klant.ok) return fout("Controleer de gemarkeerde velden.", 422, { velden: klant.fouten });
   const k = klant.waarde;
 
@@ -210,35 +230,17 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
   // Voorraad: alles in één batch (D1 = één transactie). De CHECK (voorraad >= 0) laat de hele batch mislukken bij te weinig.
   const effect = new Map<number, number>();
   for (const r of regels) voorraadEffect(cat, r.rij, r.aantal, effect);
+  // Aan de weg koop je wat er ligt: alleen uit werkelijk ontvangen voorraad.
+  if (kanaal === "straat") {
+    const magazijn = await laadMagazijn(env.DB);
+    for (const [pid, n] of effect) {
+      if ((magazijn.get(pid) ?? 0) < n) return fout("Er ligt op dit moment niet genoeg op voorraad. Bestel via de webshop of probeer het later.", 409, { code: "voorraad" });
+    }
+  }
 
   const db = env.DB;
-  const idSub = "(SELECT id FROM sz_bestelling WHERE idempotentie = ?1)";
-  const maakStatements = (afhaalcode: string): D1PreparedStatement[] => [
-    // Alleen invoegen als het gekozen moment niet intussen vol is (gelijktijdige bestellingen). Voegt dit niets in,
-    // dan faalt de eerste bestelregel op bestelling_id NOT NULL en draait de hele batch terug.
-    db
-      .prepare(
-        `INSERT INTO sz_bestelling (idempotentie, afhaalcode, ronde_id, status, levering, moment_id, naam, email, telefoon, straat, huisnummer, postcode, plaats, opmerking,
-           betaalwijze, subtotaal_cent, korting_cent, bezorg_cent, totaal_cent, gewicht_gram, aangemaakt, gewijzigd)
-         SELECT ?1, ?20, ?2, 'nieuw', ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?19
-         WHERE ?4 IS NULL OR (SELECT COUNT(*) FROM sz_bestelling WHERE moment_id = ?4 AND status != 'geannuleerd')
-               < COALESCE((SELECT max_bestellingen FROM sz_moment WHERE id = ?4), 1000000000)`,
-      )
-      .bind(idem, ronde.id, levering, momentId, k.naam, k.email, k.telefoon, k.straat, k.huisnummer, k.postcode, k.plaats, k.opmerking, betaalwijze as Betaalwijze, som.subtotaal_cent, som.korting_cent, som.bezorg_cent, som.totaal_cent, som.gewicht_gram, nu, afhaalcode),
-    ...som.regels.map((r) =>
-      db
-        .prepare(
-          `INSERT INTO sz_bestelregel (bestelling_id, product_id, naam, aantal, stukprijs_cent, normaalprijs_cent, inkoop_cent, bezorg_cent, gewicht_gram, aanbieding)
-           VALUES (${idSub}, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)`,
-        )
-        .bind(idem, r.product_id, r.naam, r.aantal, r.stukprijs_cent, r.normaalprijs_cent, r.inkoop_cent, r.bezorg_cent, r.gewicht_gram, r.aanbieding),
-    ),
-    ...[...effect].flatMap(([productId, aantal]) => [
-      db.prepare("UPDATE sz_product SET voorraad = voorraad - ?2 WHERE id = ?1 AND voorraad IS NOT NULL").bind(productId, aantal),
-      db.prepare(`INSERT INTO sz_voorraad_mutatie (bestelling_id, product_id, aantal) VALUES (${idSub}, ?2, ?3)`).bind(idem, productId, aantal),
-    ]),
-    db.prepare(`INSERT INTO sz_log (bestelling_id, actie, details, op) VALUES (${idSub}, 'aangemaakt', ?2, ?3)`).bind(idem, `${levering}, ${som.aantal_stuks} stuks`, nu),
-  ];
+  const maakStatements = (afhaalcode: string) =>
+    bestelStatements(db, { idempotentie: idem, afhaalcode, rondeId: ronde?.id ?? null, kanaal, levering: levering as Levering, momentId, klant: k, betaalwijze: betaalwijze as Betaalwijze, som, effect, nu });
 
   // Unieke afhaalcode: willekeurig, de UNIQUE-index bewaakt botsingen (ook bij gelijktijdige bestellingen); bij een botsing
   // opnieuw met een andere code. Na een paar pogingen een cijfer langer (H-12345).
@@ -285,6 +287,7 @@ type BestellingRij = {
   geanonimiseerd_op: string | null;
   afhaalcode: string | null;
   betaalverzoek_op: string | null;
+  kanaal: "web" | "straat" | "beheer";
 };
 
 /** Wat de klant over de eigen bestelling ziet. Het volledige afhaaladres pas na bevestiging. */
@@ -304,6 +307,7 @@ async function klantWeergave(env: SzEnv, id: number) {
     bestelling: {
       nummer: bestelnummer(b.id),
       afhaalcode: b.afhaalcode ?? "",
+      kanaal: b.kanaal,
       betaalstatus: bs,
       betaalstatus_tekst: BETAAL_STATUS[bs],
       code: await klantCode(env, b.id),

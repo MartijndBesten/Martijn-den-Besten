@@ -2,7 +2,13 @@
 // Alleen wat nodig is: adres alleen bij bezorgen, e-mail optioneel. De server rekent alles opnieuw na.
 
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import { controleerKlant, dagTekst, euro, normaliseerMobiel, normaliseerPostcode, binnenBezorggebied, volgendeStaffel, alsPrijsProduct, type Betaalwijze, type Klantgegevens, type Levering } from "../../shared/strooizout";
+import { controleerKlant, dagTekst, euro, normaliseerMobiel, normaliseerPostcode, binnenBezorggebied, volgendeStaffel, alsPrijsProduct, zakkenIn, type Betaalwijze, type Klantgegevens, type Levering, type Winkel } from "../../shared/strooizout";
+import type { MandRegel } from "./mandje";
+
+function berekeningZakken(winkel: Winkel | null, regels: MandRegel[]): number {
+  const per = new Map((winkel?.producten ?? []).map((p) => [p.id, p.zakken_per_stuk]));
+  return zakkenIn(regels.map((r) => ({ aantal: r.aantal, zakken_per_stuk: per.get(r.product_id) ?? 0 })));
+}
 import { vraag, type KlantBestelling } from "./api";
 import { IcoonBus, IcoonHuis, IcoonInfo, IcoonLet, IcoonPijlLinks } from "./iconen";
 import { useMand } from "./mandje";
@@ -58,13 +64,18 @@ function Veld({
   );
 }
 
-export default function Afrekenen() {
+/**
+ * Bestelformulier. Standalone op /strooizout/bestellen (mandje met meerdere producten), of `ingebed` op de homepage:
+ * dan kiest de bestelmodule erboven het aantal en ophalen/bezorgen, en toont dit alleen nog gegevens, controle en de knop.
+ */
+export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering } } = {}) {
   const { winkel, herlaad } = useWinkel();
   const { regels, zet, leeg } = useMand();
   const { navigeer } = useRouter();
   const inst = winkel?.instellingen;
 
-  const [levering, setLevering] = useState<Levering>("ophalen");
+  const [eigenLevering, setLevering] = useState<Levering>(ingebed?.levering ?? "ophalen");
+  const levering = ingebed?.levering ?? eigenLevering;
   const [momentId, setMomentId] = useState<number | null>(null);
   const [v, setV] = useState<Velden>(LEEG);
   const [betaal, setBetaal] = useState<Betaalwijze>("bij_ontvangst");
@@ -77,9 +88,15 @@ export default function Afrekenen() {
   const meldingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (ingebed) return;
     if (inst && !inst.afhalen_aan && inst.bezorgen_aan) setLevering("bezorgen");
     if (inst && !inst.bezorgen_aan) setLevering("ophalen");
-  }, [inst]);
+  }, [inst, ingebed]);
+  const zakken = berekeningZakken(winkel, regels);
+  const bezorgKan = !!inst?.bezorgen_aan && zakken >= (inst?.bezorg_min_zakken ?? 0);
+  useEffect(() => {
+    if (!ingebed && levering === "bezorgen" && !bezorgKan) setLevering("ophalen");
+  }, [ingebed, levering, bezorgKan]);
 
   const { berekening, producten } = useMemo(() => rekenMand(winkel, regels, levering), [winkel, regels, levering]);
   const momenten = (winkel?.momenten ?? []).filter((m) => m.soort === levering);
@@ -185,6 +202,124 @@ export default function Afrekenen() {
     setMelding(r.error);
   }
 
+  const adresVelden = levering === "bezorgen" && (
+    <div className="sz-velden" style={{ marginTop: ingebed ? 0 : 16 }}>
+      <Veld id="postcode" label="Postcode" autoComplete="postal-code" value={v.postcode} onChange={zetV("postcode")} onBlur={() => { const pc = normaliseerPostcode(v.postcode); if (pc) setV((x) => ({ ...x, postcode: pc })); }} fout={fouten.postcode ?? (postcodeHint || undefined)} className="sz-veld--derde sz-veld--pc" placeholder="3991 AB" required />
+      <Veld id="huisnummer" label="Huisnummer" autoComplete="address-line2" inputMode="text" value={v.huisnummer} onChange={zetV("huisnummer")} fout={fouten.huisnummer} className="sz-veld--derde sz-veld--nr" required />
+      <Veld id="straat" label="Straat" autoComplete="address-line1" value={v.straat} onChange={zetV("straat")} fout={fouten.straat} className="sz-veld--derde sz-veld--straat" required />
+    </div>
+  );
+  const momentKeuze = momenten.length > 0 && (
+    <fieldset className="sz-momenten" style={{ border: 0, padding: 0, margin: "16px 0 0" }} aria-describedby={fouten.moment ? "sz-moment-fout" : undefined}>
+      <legend style={{ fontWeight: 600, marginBottom: 10 }}>{levering === "bezorgen" ? "Kies een bezorgmoment" : "Kies een ophaalmoment"}</legend>
+      <div className="sz-keuzes">
+        {momenten.map((m) => (
+          <label className="sz-keuze sz-keuze--klein" key={m.id}>
+            <input type="radio" name="moment" checked={momentId === m.id} disabled={m.vol} aria-invalid={fouten.moment ? true : undefined} onChange={() => { setMomentId(m.id); setFouten((f) => ({ ...f, moment: undefined })); }} />
+            <div>
+              <strong>{dagTekst(m.datum)}</strong>
+              <span>
+                {m.van}–{m.tot}
+                {m.omschrijving && ` · ${m.omschrijving}`}
+                {m.vol && " · vol"}
+              </span>
+            </div>
+          </label>
+        ))}
+      </div>
+      {fouten.moment && (
+        <p className="sz-veld__fout" id="sz-moment-fout" style={{ marginTop: 8 }}>
+          {fouten.moment}
+        </p>
+      )}
+    </fieldset>
+  );
+  const gegevens = (
+    <div className="sz-velden">
+      <Veld id="naam" label="Naam" autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
+      <Veld id="telefoon" label="Mobiel nummer" type="tel" inputMode="tel" autoComplete="tel" value={v.telefoon} onChange={zetV("telefoon")} fout={fouten.telefoon} className="sz-veld--half" placeholder="06 1234 5678" required />
+      <Veld id="email" label="E-mailadres" optioneel type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />
+      {opmerkingOpen ? (
+        <div className="sz-veld">
+          <label htmlFor="sz-opmerking">
+            Opmerking<span className="sz-optioneel"> (optioneel)</span>
+          </label>
+          <textarea id="sz-opmerking" className="sz-invoer" maxLength={300} value={v.opmerking} onChange={zetV("opmerking")} placeholder={levering === "bezorgen" ? "Bijvoorbeeld: zet de zakken bij de schuur." : ""} aria-invalid={fouten.opmerking ? true : undefined} autoFocus />
+          {fouten.opmerking && <p className="sz-veld__fout">{fouten.opmerking}</p>}
+        </div>
+      ) : (
+        <div className="sz-veld">
+          <button type="button" className="sz-knop sz-knop--tekst" style={{ alignSelf: "flex-start", paddingLeft: 0 }} onClick={() => setOpmerkingOpen(true)}>
+            + Opmerking
+          </button>
+        </div>
+      )}
+      <div className="sz-honing" aria-hidden="true">
+        <label htmlFor="sz-bedrijf-extra">Laat dit veld leeg</label>
+        <input id="sz-bedrijf-extra" name="bedrijf_extra" tabIndex={-1} autoComplete="off" value={honing} onChange={(e) => setHoning(e.target.value)} />
+      </div>
+    </div>
+  );
+  const betaalKeuze = (
+    <fieldset style={{ border: 0, padding: 0, margin: "16px 0 0" }}>
+      <legend style={{ fontWeight: 600, marginBottom: 8 }}>Betalen</legend>
+      <div className="sz-keuzes">
+        <label className="sz-keuze sz-keuze--klein">
+          <input type="radio" name="betaal" checked={betaal === "bij_ontvangst"} onChange={() => setBetaal("bij_ontvangst")} />
+          <div>
+            <strong>{levering === "bezorgen" ? "Bij bezorgen" : "Bij afhalen"}</strong>
+            <span>Contant of met een betaalverzoek.</span>
+          </div>
+        </label>
+        {inst?.tikkie_aan && (
+          <label className="sz-keuze sz-keuze--klein">
+            <input type="radio" name="betaal" checked={betaal === "tikkie"} onChange={() => setBetaal("tikkie")} />
+            <div>
+              <strong>Betaalverzoek vooraf</strong>
+              <span>Je krijgt een Tikkie op je mobiel.</span>
+            </div>
+          </label>
+        )}
+      </div>
+    </fieldset>
+  );
+  const plaatsKnop = (
+    <>
+      <button type="submit" className="sz-knop sz-knop--vol" disabled={bezig || !winkel.open} aria-busy={bezig}>
+        {bezig ? (
+          <>
+            <span className="sz-spinner" aria-hidden="true" /> Bezig met plaatsen…
+          </>
+        ) : (
+          `Reservering plaatsen · ${euro(berekening.totaal_cent)}`
+        )}
+      </button>
+      <p className="sz-klein">
+        Je betaalt pas bij ontvangst. Door te reserveren ga je akkoord met de <Link naar="/strooizout/voorwaarden">voorwaarden</Link> en de <Link naar="/strooizout/privacy">privacyverklaring</Link>.
+      </p>
+    </>
+  );
+
+  if (ingebed) {
+    return (
+      <form onSubmit={plaats} noValidate id="sz-bestelformulier" className="sz-ingebed">
+        {melding && (
+          <div className="sz-melding sz-melding--fout" role="alert" tabIndex={-1} ref={meldingRef} style={{ margin: "0 0 14px" }}>
+            <IcoonLet />
+            <span>{melding}</span>
+          </div>
+        )}
+        {adresVelden}
+        {levering === "bezorgen" && <div style={{ height: 14 }} />}
+        {gegevens}
+        {momentKeuze}
+        {betaalKeuze}
+        <div style={{ height: 16 }} />
+        {plaatsKnop}
+      </form>
+    );
+  }
+
   return (
     <div className="sz-afrekenen sz-afrekenen--kort">
       <div className="sz-wrap">
@@ -254,13 +389,13 @@ export default function Afrekenen() {
                   <span className="sz-keuze__prijs">Gratis</span>
                 </label>
                 <label className="sz-keuze">
-                  <input type="radio" name="levering" value="bezorgen" checked={levering === "bezorgen"} disabled={!inst?.bezorgen_aan} onChange={() => setLevering("bezorgen")} />
+                  <input type="radio" name="levering" value="bezorgen" checked={levering === "bezorgen"} disabled={!bezorgKan} onChange={() => setLevering("bezorgen")} />
                   <div>
                     <strong>
                       <IcoonBus className="sz-inline-icoon" />
                       Bezorgen
                     </strong>
-                    <span>{inst?.bezorgen_aan ? "Alleen in Houten." : "Nu niet mogelijk."}</span>
+                    <span>{!inst?.bezorgen_aan ? "Nu niet mogelijk." : !bezorgKan ? `Vanaf ${inst.bezorg_min_zakken} zakken.` : "Alleen in Houten."}</span>
                   </div>
                   <span className="sz-keuze__prijs">{inst?.bezorgen_aan ? `+ ${euro(rekenMand(winkel, regels, "bezorgen").berekening.bezorg_cent)}` : "–"}</span>
                 </label>

@@ -13,6 +13,7 @@ const Privacy = lazy(() => import("./info").then((m) => ({ default: m.Privacy })
 const Voorwaarden = lazy(() => import("./info").then((m) => ({ default: m.Voorwaarden })));
 const Flyer = lazy(() => import("./flyer"));
 const Beheer = lazy(() => import("./beheer/Beheer"));
+const AanDeWeg = lazy(() => import("./aandeweg"));
 
 const PAGINAS: Record<string, React.ComponentType> = {
   "/strooizout": WinkelPagina,
@@ -58,6 +59,15 @@ function Pagina() {
   // Beheer en flyer hebben een eigen schil (geen webshopkop, mandje of voet).
   if (pad === "/strooizout/beheer") return <Suspense fallback={<Laden />}><Beheer /></Suspense>;
   if (pad === "/strooizout/flyer") return <Suspense fallback={<Laden />}><Flyer /></Suspense>;
+  if (pad === "/strooizout/aan-de-weg")
+    return (
+      <>
+        <Suspense fallback={<Laden />}>
+          <AanDeWeg />
+        </Suspense>
+        <Voet />
+      </>
+    );
 
   const Component = PAGINAS[pad] ?? NietGevonden;
   return (

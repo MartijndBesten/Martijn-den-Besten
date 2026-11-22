@@ -10,6 +10,7 @@ import "./beheer.css";
 const Overzicht = lazy(() => import("./Overzicht"));
 const Bestellingen = lazy(() => import("./Bestellingen"));
 const Afhalen = lazy(() => import("./Afhalen"));
+const Voorraad = lazy(() => import("./Voorraad"));
 const Route = lazy(() => import("./Route"));
 const Producten = lazy(() => import("./Producten"));
 const Rondes = lazy(() => import("./Rondes"));
@@ -21,6 +22,7 @@ const TABS = [
   { id: "overzicht", naam: "Overzicht", C: Overzicht },
   { id: "afhalen", naam: "Afhalen", C: Afhalen },
   { id: "bestellingen", naam: "Bestellingen", C: Bestellingen },
+  { id: "voorraad", naam: "Voorraad", C: Voorraad },
   { id: "route", naam: "Bezorgroute", C: Route },
   { id: "producten", naam: "Producten", C: Producten },
   { id: "rondes", naam: "Bestelrondes", C: Rondes },
@@ -92,7 +94,7 @@ function Schil() {
       <header className="bh-kop">
         <div className="bh-kop__in">
           <a className="sz-merk" href="/strooizout" target="_blank" rel="noopener">
-            <Merkteken className="sz-merk__teken" />
+            <Merkteken className="sz-merk__teken" opDonker />
             <span>
               Strooizout beheer
               <small>naar de webshop ↗</small>

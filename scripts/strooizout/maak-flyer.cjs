@@ -22,10 +22,14 @@ const uit = path.join(__dirname, "../../public/strooizout");
     console.log("gemaakt:", bestand);
     await page.close();
   }
-  const page = await browser.newPage({ viewport: { width: 560, height: 794 } });
-  await page.goto(`${basis}/strooizout/flyer?alleen=a5`);
-  await klaar(page);
-  await page.pdf({ path: path.join(uit, "flyer-a5.pdf"), format: "A5", printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
-  console.log("gemaakt: flyer-a5.pdf");
+  for (const [deel, formaat, bestand, breed, hoog] of [["a5", "A5", "flyer-a5.pdf", 560, 794], ["bord", "A4", "bord-a4.pdf", 794, 1123]]) {
+    const page = await browser.newPage({ viewport: { width: breed, height: hoog } });
+    await page.goto(`${basis}/strooizout/flyer?alleen=${deel}`);
+    await klaar(page);
+    await page.pdf({ path: path.join(uit, bestand), format: formaat, printBackground: true, preferCSSPageSize: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
+    
+    console.log("gemaakt:", bestand);
+    await page.close();
+  }
   await browser.close();
 })();

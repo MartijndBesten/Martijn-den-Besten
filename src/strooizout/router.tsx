@@ -8,13 +8,14 @@ const Ctx = createContext<Router>({ pad: "/strooizout", navigeer: () => {} });
 const schoon = (p: string) => (p.replace(/\/+$/, "").replace(/\.html$/, "") || "/strooizout").toLowerCase();
 
 export const TITELS: Record<string, string> = {
-  "/strooizout": "Strooizout voor de buurt — Samen veilig de winter door",
+  "/strooizout": "Strooizout voor de buurt — Hou je buurt veilig",
   "/strooizout/bestellen": "Bestellen — Strooizout voor de buurt",
   "/strooizout/bestelling": "Je bestelling — Strooizout voor de buurt",
   "/strooizout/privacy": "Privacy — Strooizout voor de buurt",
   "/strooizout/voorwaarden": "Voorwaarden — Strooizout voor de buurt",
   "/strooizout/flyer": "Flyer en deelbeelden — Strooizout voor de buurt",
   "/strooizout/beheer": "Beheer — Strooizout voor de buurt",
+  "/strooizout/aan-de-weg": "Strooizout aan de weg — Strooizout voor de buurt",
 };
 
 export function RouterProvider({ children }: { children: ReactNode }) {

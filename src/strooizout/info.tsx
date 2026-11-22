@@ -20,6 +20,45 @@ function Contact() {
   );
 }
 
+/** Verkopergegevens zoals ingesteld in het beheer; ontbrekende gegevens worden niet verzonnen. */
+function Verkoper() {
+  const { winkel } = useWinkel();
+  const c = winkel?.instellingen;
+  if (!c) return null;
+  return (
+    <dl className="sz-verkoper">
+      <dt>Verkoper</dt>
+      <dd>{c.verkoper_naam || "Denckh"}</dd>
+      {c.verkoper_adres && (
+        <>
+          <dt>Adres</dt>
+          <dd>{c.verkoper_adres}</dd>
+        </>
+      )}
+      {c.verkoper_kvk && (
+        <>
+          <dt>KvK</dt>
+          <dd>{c.verkoper_kvk}</dd>
+        </>
+      )}
+      {c.verkoper_btw && (
+        <>
+          <dt>Btw-id</dt>
+          <dd>{c.verkoper_btw}</dd>
+        </>
+      )}
+      {(c.verkoper_email || c.contact_email) && (
+        <>
+          <dt>E-mail</dt>
+          <dd>
+            <a href={`mailto:${c.verkoper_email || c.contact_email}`}>{c.verkoper_email || c.contact_email}</a>
+          </dd>
+        </>
+      )}
+    </dl>
+  );
+}
+
 export function Privacy() {
   const { winkel } = useWinkel();
   const maanden = winkel?.instellingen.bewaartermijn_maanden ?? 6;
@@ -27,7 +66,7 @@ export function Privacy() {
     <section className="sz-tekstpagina">
       <div className="sz-wrap sz-tekstpagina__in">
         <h1>Privacyverklaring</h1>
-        <p>Strooizout voor de buurt is een kleinschalig buurtinitiatief in Houten. We gaan zuinig om met je gegevens: we vragen alleen wat nodig is om je reservering af te handelen.</p>
+        <p>Strooizout voor de buurt is een initiatief van Denckh in Houten. We gaan zuinig om met je gegevens: we vragen alleen wat nodig is om je reservering af te handelen. Denckh is verantwoordelijk voor de verwerking.</p>
 
         <h2>Welke gegevens en waarom</h2>
         <table>
@@ -71,6 +110,9 @@ export function Privacy() {
           Naam, mobiel nummer, e-mailadres, adres, opmerking en afhaalcode worden {maanden} {maanden === 1 ? "maand" : "maanden"} nadat je bestelling is afgehaald, bezorgd of geannuleerd automatisch gewist. Een bestelling die om wat voor reden ook niet wordt afgerond, wissen we uiterlijk na twaalf maanden. Wat overblijft (bedragen, aantallen en het postcodegebied) is niet meer tot jou te herleiden en gebruiken we alleen voor de administratie.
         </p>
 
+        <h2>Wie</h2>
+        <Verkoper />
+
         <h2>Je rechten</h2>
         <p>
           Je mag je gegevens inzien, laten verbeteren of laten verwijderen. Neem daarvoor contact op met <Contact />. Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de Autoriteit Persoonsgegevens.
@@ -91,7 +133,8 @@ export function Voorwaarden() {
         <h1>Voorwaarden</h1>
         <p>Dit zijn de afspraken voor reserveringen bij Strooizout voor de buurt.</p>
         {winkel ? <div className="sz-witregel">{winkel.instellingen.voorwaarden}</div> : <p>Even laden…</p>}
-        <h2>Contact</h2>
+        <h2>Verkoper</h2>
+        <Verkoper />
         <p>
           Vragen? Neem contact op met <Contact />.
         </p>

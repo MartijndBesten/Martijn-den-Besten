@@ -34,6 +34,16 @@ export type Instellingen = {
   bewaartermijn_maanden: number;
   /** Optioneel: wijknaam per postcodegebied, één per regel: `3992 = Houten-Zuid`. */
   wijken: string;
+  /** Bezorgen pas vanaf dit aantal zakken (0 = altijd). */
+  bezorg_min_zakken: number;
+  /** Datum (JJJJ-MM-DD) waarop de voorraad naar verwachting binnen is; leeg = niet tonen. */
+  beschikbaar_vanaf: string;
+  /** Verkoper (wettelijk verplichte gegevens in voorwaarden en privacyverklaring). Leeg = nog niet ingevuld. */
+  verkoper_naam: string;
+  verkoper_adres: string;
+  verkoper_kvk: string;
+  verkoper_btw: string;
+  verkoper_email: string;
 };
 
 export const STANDAARD_INSTELLINGEN: Instellingen = {
@@ -51,22 +61,31 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
   bezorg_uitleg:
     "We bezorgen alleen als het veilig kan. Bij gladheid, ijzel of sneeuwval kan de bezorging later worden; we laten het je dan weten.",
   tikkie_aan: true,
-  contact_naam: "Martijn",
-  contact_email: "",
+  contact_naam: "Denckh",
+  contact_email: "info@denckh.nl",
   contact_telefoon: "",
   bevestiging_tekst:
     "Bedankt voor je reservering. We nemen contact met je op zodra de bestelronde is ingekocht en je bestelling klaarligt.",
   voorwaarden: [
-    "Een bestelling is een reservering. Je betaalt pas bij het afhalen of bezorgen, of via een Tikkie die je van ons krijgt.",
-    "Een reservering is nog geen levergarantie. We kopen gezamenlijk in per bestelronde; lukt de inkoop niet (helemaal), dan hoor je dat van ons en betaal je niets voor wat niet geleverd wordt.",
+    "Verkoper is Denckh. De bedrijfsgegevens staan onderaan deze pagina.",
+    "Een bestelling is een reservering. Je betaalt bij het afhalen of bezorgen, of met een betaalverzoek (bijv. Tikkie) dat je van ons krijgt. Je betaalt nooit vooraf via de website.",
+    "Een reservering is nog geen levergarantie. Lukt de levering niet (helemaal), dan hoor je dat van ons en betaal je niets voor wat niet geleverd wordt.",
     "Je kunt je reservering kosteloos annuleren zolang de bestelling nog niet is afgehaald of bezorgd: via je bestelpagina of door contact op te nemen.",
-    "Bezorgen doen we alleen binnen het aangegeven gebied in Houten en alleen als het veilig kan. Bij gladheid kan de bezorging later worden.",
-    "Prijzen zijn eindprijzen. Bezorgkosten zie je voordat je de reservering plaatst.",
+    "Bezorgen doen we vanaf 2 zakken, alleen binnen het aangegeven gebied in Houten en alleen als het veilig kan. Bij gladheid kan de bezorging later worden.",
+    "Alle prijzen zijn inclusief 21% btw. Bezorgkosten zie je voordat je de reservering plaatst.",
   ].join("\n\n"),
-  btw_modus: "geen",
+  btw_modus: "inclusief",
   btw_tarief: 21,
   bewaartermijn_maanden: 6,
   wijken: "",
+  bezorg_min_zakken: 2,
+  beschikbaar_vanaf: "2026-11-26",
+  // Zoals gepubliceerd op denckh.nl (footer en /privacy/, gecontroleerd 22-11-2026). Aan te passen in het beheer.
+  verkoper_naam: "Denckh",
+  verkoper_adres: "Vlierweg 54, Houten",
+  verkoper_kvk: "83176896",
+  verkoper_btw: "NL003791952B15",
+  verkoper_email: "info@denckh.nl",
 };
 
 type Veld = { soort: "bool" } | { soort: "tekst"; max: number } | { soort: "getal"; min: number; max: number } | { soort: "keuze"; opties: readonly string[] };
@@ -94,6 +113,13 @@ export const INSTELLING_VELDEN: Record<keyof Instellingen, Veld> = {
   btw_tarief: { soort: "getal", min: 0, max: 30 },
   bewaartermijn_maanden: { soort: "getal", min: 1, max: 24 },
   wijken: { soort: "tekst", max: 2000 },
+  bezorg_min_zakken: { soort: "getal", min: 0, max: 50 },
+  beschikbaar_vanaf: { soort: "tekst", max: 10 },
+  verkoper_naam: { soort: "tekst", max: 80 },
+  verkoper_adres: { soort: "tekst", max: 200 },
+  verkoper_kvk: { soort: "tekst", max: 20 },
+  verkoper_btw: { soort: "tekst", max: 20 },
+  verkoper_email: { soort: "tekst", max: 120 },
 };
 
 /** Controleert één instelling. Geeft de opgeschoonde waarde of een foutmelding. */
@@ -105,7 +131,10 @@ export function controleerInstelling(sleutel: string, waarde: unknown): { ok: tr
     if (typeof waarde !== "string") return { ok: false, fout: `${sleutel}: tekst verwacht.` };
     const t = waarde.replace(/\r\n/g, "\n").trim();
     if (t.length > veld.max) return { ok: false, fout: `${sleutel}: maximaal ${veld.max} tekens.` };
-    if (sleutel === "contact_email" && t && !EMAIL.test(t)) return { ok: false, fout: "Het contactadres is geen geldig e-mailadres." };
+    if ((sleutel === "contact_email" || sleutel === "verkoper_email") && t && !EMAIL.test(t)) return { ok: false, fout: "Dit is geen geldig e-mailadres." };
+    if (sleutel === "beschikbaar_vanaf" && t && (!/^\d{4}-\d{2}-\d{2}$/.test(t) || Number.isNaN(Date.parse(t)))) return { ok: false, fout: "Kies een geldige datum." };
+    if (sleutel === "verkoper_kvk" && t && !/^\d{8}$/.test(t)) return { ok: false, fout: "Een KvK-nummer heeft 8 cijfers." };
+    if (sleutel === "verkoper_btw" && t && !/^NL\d{9}B\d{2}$/.test(t.replace(/[\s.]/g, "").toUpperCase())) return { ok: false, fout: "Een btw-id ziet eruit als NL123456789B01." };
     if (sleutel === "bezorg_postcodes" && t && parsePostcodes(t).length === 0) return { ok: false, fout: "Geef postcodes op als 4 cijfers, gescheiden door komma's." };
     return { ok: true, waarde: t };
   }
@@ -341,6 +370,11 @@ export const EMAIL = /^[^\s@<>()[\]\\,;:"]{1,64}@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61
 
 export const GRENZEN = { minInvultijdMs: 2500, maxRegels: 12, maxStuksPerBestelling: 200 };
 
+/** Aantal zakken in een bestelling (voor ‘bezorgen vanaf 2 zakken’). */
+export function zakkenIn(regels: { aantal: number; zakken_per_stuk: number }[]): number {
+  return regels.reduce((s, r) => s + r.aantal * r.zakken_per_stuk, 0);
+}
+
 export type Klantgegevens = {
   naam: string;
   email: string;
@@ -450,8 +484,12 @@ export type PubliekProduct = {
   bezorg_cent: number | null;
   gewicht_gram: number;
   eenheid: string;
-  /** null = wordt per ronde ingekocht (geen voorraadgetal tonen). */
+  /** Beschikbaar om te reserveren; null = geen voorraadgrens. */
   voorraad: number | null;
+  /** Ligt er nu werkelijk voorraad (ontvangen en nog niet uitgegeven)? null = geen voorraadbeheer. */
+  op_voorraad: boolean | null;
+  /** Aantal zakken per stuk (1 voor een zak, n voor een pakket met n zakken, 0 voor iets anders). */
+  zakken_per_stuk: number;
   max_per_bestelling: number;
   afbeelding: string;
   afbeelding_alt: string;
@@ -486,6 +524,13 @@ export type Winkel = {
     | "btw_modus"
     | "btw_tarief"
     | "bewaartermijn_maanden"
+    | "bezorg_min_zakken"
+    | "beschikbaar_vanaf"
+    | "verkoper_naam"
+    | "verkoper_adres"
+    | "verkoper_kvk"
+    | "verkoper_btw"
+    | "verkoper_email"
   >;
   nu: string;
 };

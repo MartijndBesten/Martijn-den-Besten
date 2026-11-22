@@ -108,7 +108,13 @@ export default function Status() {
             <strong className="sz-codekaart__code" aria-label={`Code ${b.afhaalcode.split("").join(" ")}`}>
               {b.afhaalcode}
             </strong>
-            <span className="sz-codekaart__uitleg">{b.levering === "ophalen" ? "Noem of laat deze code zien bij het afhalen." : "Noem deze code als je contact opneemt."}</span>
+            <span className="sz-codekaart__uitleg">
+              {b.kanaal === "straat"
+                ? `Laat deze code zien aan de verkoper en betaal ${euro(b.totaal_cent - b.betaald_cent)}: contant of met een betaalverzoek.`
+                : b.levering === "ophalen"
+                  ? "Noem of laat deze code zien bij het afhalen."
+                  : "Noem deze code als je contact opneemt."}
+            </span>
             <div className="sz-codekaart__knoppen">
               <button
                 type="button"
@@ -168,7 +174,7 @@ export default function Status() {
           </div>
         )}
 
-        {!geannuleerd && (
+        {!geannuleerd && b.kanaal !== "straat" && (
           <div className="sz-blok">
             <h2>Stand van zaken</h2>
             <ol className="sz-tijdlijn">
@@ -230,7 +236,11 @@ export default function Status() {
             </dd>
             <dt>{b.levering === "bezorgen" ? "Bezorgen op" : "Ophalen"}</dt>
             <dd>
-              {b.levering === "bezorgen" ? b.adres : b.afhaal_adres || `In ${b.afhaal_plek || "Houten"}. Het adres verschijnt hier zodra je reservering is bevestigd.`}
+              {b.kanaal === "straat"
+                ? "Aan de weg, bij de verkoper."
+                : b.levering === "bezorgen"
+                  ? b.adres
+                  : b.afhaal_adres || `In ${b.afhaal_plek || "Houten"}. Het adres verschijnt hier zodra je reservering is bevestigd.`}
               {b.moment && (
                 <div>
                   {dagTekst(b.moment.datum)}, {b.moment.van}–{b.moment.tot}

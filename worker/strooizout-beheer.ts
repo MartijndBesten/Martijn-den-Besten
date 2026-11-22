@@ -11,7 +11,9 @@ import {
   betaalstatus,
   bestelnummer,
   btwDeel,
+  bereken,
   controleerInstelling,
+  maakAfhaalcode,
   normaliseerAfhaalcode,
   normaliseerMobiel,
   wijkVan,
@@ -19,8 +21,13 @@ import {
   type Instellingen,
 } from "../shared/strooizout";
 import {
+  alsPrijs,
   beschikbaar,
+  bestelStatements,
   bezorgVan,
+  laadMagazijn,
+  tekortBijUitgifte,
+  voorraadEffect,
   fout,
   gelijk,
   gewichtVan,
@@ -124,6 +131,7 @@ type BestellingVol = {
   geanonimiseerd_op: string | null;
   afhaalcode: string | null;
   betaalverzoek_op: string | null;
+  kanaal: "web" | "straat" | "beheer";
   betaald_cent: number;
   ontvangen_cent: number;
 };
@@ -254,6 +262,9 @@ function cijfers(cat: Catalogus, inst: Instellingen, bestellingen: BestellingVol
     te_bezorgen: geldig.filter((b) => b.levering === "bezorgen" && OPEN_STATUS.includes(b.status)).length,
     afgehaald: geldig.filter((b) => b.status === "afgehaald").length,
     bezorgd: geldig.filter((b) => b.status === "bezorgd").length,
+    per_kanaal: Object.fromEntries(
+      (["web", "straat", "beheer"] as const).map((k) => [k, { bestellingen: geldig.filter((b) => b.kanaal === k).length, omzet_cent: geldig.filter((b) => b.kanaal === k).reduce((s, b) => s + b.totaal_cent, 0) }]),
+    ),
     per_status: Object.fromEntries(Object.keys(BESTEL_STATUS).map((s) => [s, bestellingen.filter((b) => b.status === s).length])),
     per_product: [...perProduct.values()].map((p) => ({ ...p, marge_cent: p.inkoop_onbekend ? null : p.omzet_cent - p.inkoop_cent })),
   };
@@ -315,6 +326,7 @@ function lijstRij(b: BestellingVol, regels: RegelVol[], dubbel: boolean, wijken:
     id: b.id,
     nummer: bestelnummer(b.id),
     afhaalcode: b.afhaalcode ?? "",
+    kanaal: b.kanaal,
     ronde_id: b.ronde_id,
     status: b.status,
     levering: b.levering,
@@ -419,6 +431,10 @@ async function wijzigStatus(request: Request, env: SzEnv, id: number): Promise<R
   if (!STATUS_OVERGANG[b.status].includes(naar)) return fout(`Van ‘${BESTEL_STATUS[b.status]}’ naar ‘${BESTEL_STATUS[naar]}’ kan niet.`, 409);
   if (naar === "afgehaald" && b.levering !== "ophalen") return fout("Deze bestelling wordt bezorgd, niet afgehaald.", 409);
   if (naar === "bezorgd" && b.levering !== "bezorgen") return fout("Deze bestelling wordt afgehaald, niet bezorgd.", 409);
+  if (["klaar", "afgehaald", "bezorgd"].includes(naar) && !["klaar", "afgehaald", "bezorgd"].includes(b.status)) {
+    const tekort = await tekortBijUitgifte(env.DB, id);
+    if (tekort) return fout(tekort, 409, { code: "voorraad" });
+  }
   const nu = nuIso();
   const eind = ["afgehaald", "bezorgd", "geannuleerd"].includes(naar);
   const db = env.DB;
@@ -572,6 +588,10 @@ async function uitgeven(request: Request, env: SzEnv, ruw: string): Promise<Resp
     betaling = { wijze, bedrag: bedragCent };
   }
   const naar = b.levering === "bezorgen" ? "bezorgd" : "afgehaald";
+  if (["nieuw", "bevestigd", "klaar"].includes(b.status)) {
+    const tekort = await tekortBijUitgifte(env.DB, b.id);
+    if (tekort) return fout(tekort, 409, { bestelling: await afhaalWeergave(env, b), code: "voorraad" });
+  }
   const nu = nuIso();
   // Uniek kenmerk per uitgifte (niet de tijd: twee verzoeken in dezelfde milliseconde zouden anders dezelfde waarde hebben).
   const uitgifteId = crypto.randomUUID();
@@ -600,6 +620,137 @@ async function uitgeven(request: Request, env: SzEnv, ruw: string): Promise<Resp
     return fout(w.geannuleerd ? "Deze bestelling is geannuleerd." : "Deze bestelling kan nu niet worden uitgegeven.", 409, { bestelling: w });
   }
   return json({ ok: true, bestelling: await afhaalWeergave(env, (await zoekOpAfhaalcode(env, ruw))!.b!) });
+}
+
+// ---------- Voorraad ----------
+
+async function voorraadOverzicht(env: SzEnv) {
+  const { results } = await env.DB.prepare(
+    `SELECT p.id, p.naam, p.eenheid, p.status, p.voorraad AS beschikbaar, p.voorraad_verwacht AS verwacht, p.voorraad_ontvangen AS ontvangen,
+            COALESCE((SELECT SUM(m.aantal) FROM sz_voorraad_mutatie m JOIN sz_bestelling b ON b.id = m.bestelling_id
+                      WHERE m.product_id = p.id AND b.status != 'geannuleerd' AND b.voorraad_vrijgegeven = 0), 0) AS gereserveerd,
+            COALESCE((SELECT SUM(m.aantal) FROM sz_voorraad_mutatie m JOIN sz_bestelling b ON b.id = m.bestelling_id
+                      WHERE m.product_id = p.id AND b.status IN ('afgehaald', 'bezorgd')), 0) AS uitgegeven
+     FROM sz_product p WHERE p.status != 'verwijderd' ORDER BY p.volgorde, p.id`,
+  ).all<{ id: number; naam: string; eenheid: string; status: string; beschikbaar: number | null; verwacht: number | null; ontvangen: number; gereserveerd: number; uitgegeven: number }>();
+  return results.map((r) => ({ ...r, in_magazijn: r.ontvangen - r.uitgegeven, nog_uit_te_geven: r.gereserveerd - r.uitgegeven }));
+}
+
+/**
+ * Voorraad aanpassen. `verwacht`: totaal verwacht/ingekocht; beschikbaar wordt verwacht − gereserveerd (nooit onder nul:
+ * lager dan al gereserveerd kan niet). `ontvangen_erbij`: ontvangst bevestigen (of corrigeren met een negatief getal);
+ * komt de ontvangst boven de verwachting uit, dan stijgt de verwachting mee.
+ */
+async function voorraadWijzigen(request: Request, env: SzEnv, id: number): Promise<Response> {
+  const body = await leesJson(request);
+  if (body instanceof Response) return body;
+  const huidig = (await voorraadOverzicht(env)).find((r) => r.id === id);
+  if (!huidig) return fout("Product niet gevonden.", 404);
+  const db = env.DB;
+  const gereserveerdSql = `(SELECT COALESCE(SUM(m.aantal), 0) FROM sz_voorraad_mutatie m JOIN sz_bestelling b ON b.id = m.bestelling_id
+                             WHERE m.product_id = ?1 AND b.status != 'geannuleerd' AND b.voorraad_vrijgegeven = 0)`;
+  if ("verwacht" in body) {
+    if (body.verwacht === null) {
+      await db.batch([db.prepare("UPDATE sz_product SET voorraad = NULL, voorraad_verwacht = NULL, gewijzigd = ?2 WHERE id = ?1").bind(id, nuIso()), logStmt(db, null, "voorraadbeheer uit", `#${id}`)]);
+      return json({ ok: true, voorraad: (await voorraadOverzicht(env)).find((r) => r.id === id) });
+    }
+    const v = geheel(body.verwacht, 0, 100_000);
+    if (v === null) return fout("Vul een aantal in.", 422);
+    if (v < huidig.gereserveerd) return fout(`Er zijn al ${huidig.gereserveerd} gereserveerd; de verwachte voorraad kan niet lager zijn.`, 409);
+    try {
+      await db.batch([
+        db.prepare(`UPDATE sz_product SET voorraad_verwacht = ?2, voorraad = ?2 - ${gereserveerdSql}, gewijzigd = ?3 WHERE id = ?1`).bind(id, v, nuIso()),
+        logStmt(db, null, "voorraad verwacht", `#${id} ${huidig.verwacht ?? "-"} → ${v}`),
+      ]);
+    } catch (e) {
+      if (/CHECK/i.test(String((e as Error)?.message))) return fout("Er is intussen meer gereserveerd. Vernieuw en probeer opnieuw.", 409);
+      throw e;
+    }
+    return json({ ok: true, voorraad: (await voorraadOverzicht(env)).find((r) => r.id === id) });
+  }
+  if ("ontvangen_erbij" in body) {
+    const n = geheel(body.ontvangen_erbij, -100_000, 100_000);
+    if (n === null || n === 0) return fout("Vul het aantal ontvangen in.", 422);
+    if (huidig.ontvangen + n < huidig.uitgegeven) return fout(`Er zijn al ${huidig.uitgegeven} uitgegeven; ontvangen kan niet lager worden.`, 409);
+    const res = await db.batch([
+      db
+        .prepare(
+          `UPDATE sz_product SET
+             voorraad = CASE WHEN voorraad IS NOT NULL AND voorraad_ontvangen + ?2 > COALESCE(voorraad_verwacht, 0) THEN voorraad + (voorraad_ontvangen + ?2 - COALESCE(voorraad_verwacht, 0)) ELSE voorraad END,
+             voorraad_verwacht = CASE WHEN voorraad_verwacht IS NOT NULL AND voorraad_ontvangen + ?2 > voorraad_verwacht THEN voorraad_ontvangen + ?2 ELSE voorraad_verwacht END,
+             voorraad_ontvangen = voorraad_ontvangen + ?2,
+             gewijzigd = ?4
+           WHERE id = ?1 AND voorraad_ontvangen = ?3`,
+        )
+        .bind(id, n, huidig.ontvangen, nuIso()),
+      logStmt(db, null, n > 0 ? "voorraad ontvangen" : "voorraad gecorrigeerd", `#${id} ${n > 0 ? "+" : ""}${n}`),
+    ]);
+    if ((res[0].meta?.changes ?? 0) === 0) return fout("De voorraad is intussen gewijzigd. Vernieuw en probeer opnieuw.", 409);
+    return json({ ok: true, voorraad: (await voorraadOverzicht(env)).find((r) => r.id === id) });
+  }
+  return fout("Niets om aan te passen.", 422);
+}
+
+// ---------- Straatverkoop (verkoop aan de weg, door de beheerder geregistreerd) ----------
+
+/**
+ * Een verkoop ter plekke vastleggen: bestelling, voorraad, uitgifte en (als het geld er is) betaling in één transactie.
+ * Alleen uit werkelijk ontvangen voorraad. Idempotent: dezelfde sleutel twee keer geeft één registratie.
+ */
+async function straatverkoop(request: Request, env: SzEnv): Promise<Response> {
+  const body = await leesJson(request);
+  if (body instanceof Response) return body;
+  const idem = body.idempotentie;
+  if (typeof idem !== "string" || !/^[A-Za-z0-9-]{16,64}$/.test(idem)) return fout("Herlaad de pagina en probeer het opnieuw.", 400);
+  const al = await env.DB.prepare("SELECT id FROM sz_bestelling WHERE idempotentie = ?1").bind(idem).first<{ id: number }>();
+  if (al) return json({ ok: true, herhaald: true, id: al.id });
+  const aantal = geheel(body.aantal, 1, 200);
+  if (aantal === null) return fout("Kies een aantal.", 422);
+  const wijze = String(body.wijze ?? "");
+  if (!["contant", "tikkie", "pin", "nog_niet"].includes(wijze)) return fout("Kies hoe er betaald is.", 422);
+  if (wijze !== "nog_niet" && body.ontvangen !== true) return fout("Bevestig dat het geld echt is ontvangen.", 422);
+  const [inst, cat, magazijn, ronde] = await Promise.all([
+    laadInstellingen(env.DB),
+    laadCatalogus(env.DB),
+    laadMagazijn(env.DB),
+    env.DB.prepare("SELECT id FROM sz_ronde ORDER BY id DESC LIMIT 1").first<{ id: number }>(),
+  ]);
+  const productId = typeof body.product_id === "number" ? body.product_id : cat.producten.find((p) => p.slug === "strooizout-25-kg" && p.status !== "verwijderd")?.id;
+  const p = productId ? cat.perId.get(productId) : undefined;
+  if (!p || p.prijs_cent === null) return fout("Product niet gevonden.", 404);
+  const effect = voorraadEffect(cat, p, aantal);
+  for (const [pid, n] of effect) {
+    if ((magazijn.get(pid) ?? 0) < n) return fout(`Niet genoeg op voorraad (ontvangen en nog niet uitgegeven: ${Math.max(0, magazijn.get(pid) ?? 0)}).`, 409, { code: "voorraad" });
+  }
+  const nu = nuIso();
+  const som = bereken([{ product: alsPrijs(cat, p, inst.bezorg_per_stuk_cent), aantal }], "ophalen", inst, nu);
+  const klant = { naam: "Straatverkoop", email: "", telefoon: "", straat: "", huisnummer: "", postcode: "", plaats: "", opmerking: "" };
+  const uitgifteId = crypto.randomUUID();
+  const db = env.DB;
+  for (let poging = 0; poging < 12; poging++) {
+    const code = maakAfhaalcode(poging < 6 ? 4 : 5);
+    try {
+      await db.batch([
+        ...bestelStatements(db, { idempotentie: idem, afhaalcode: code, rondeId: ronde?.id ?? null, kanaal: "beheer", levering: "ophalen", momentId: null, klant, betaalwijze: "bij_ontvangst", som, effect, nu }),
+        db.prepare("UPDATE sz_bestelling SET status = 'afgehaald', afgerond_op = ?2, uitgifte_id = ?3 WHERE idempotentie = ?1").bind(idem, nu, uitgifteId),
+        ...(wijze !== "nog_niet"
+          ? [db.prepare("INSERT INTO sz_betaling (bestelling_id, bedrag_cent, wijze, notitie, op) SELECT id, ?2, ?3, 'straatverkoop', ?4 FROM sz_bestelling WHERE idempotentie = ?1 AND uitgifte_id = ?5").bind(idem, som.totaal_cent, wijze, nu, uitgifteId)]
+          : []),
+      ]);
+      const rij = await db.prepare("SELECT id FROM sz_bestelling WHERE idempotentie = ?1").bind(idem).first<{ id: number }>();
+      return json({ ok: true, herhaald: false, id: rij!.id, nummer: bestelnummer(rij!.id), totaal_cent: som.totaal_cent, korting_cent: som.korting_cent }, 201);
+    } catch (e) {
+      const t = String((e as Error)?.message ?? e);
+      if (/UNIQUE/i.test(t) && /afhaalcode/i.test(t)) continue;
+      if (/UNIQUE/i.test(t) && /idempotentie/i.test(t)) {
+        const zelfde = await db.prepare("SELECT id FROM sz_bestelling WHERE idempotentie = ?1").bind(idem).first<{ id: number }>();
+        if (zelfde) return json({ ok: true, herhaald: true, id: zelfde.id });
+      }
+      if (/CHECK/i.test(t)) return fout("Niet genoeg voorraad meer beschikbaar.", 409, { code: "voorraad" });
+      throw e;
+    }
+  }
+  throw new Error("geen vrije afhaalcode gevonden");
 }
 
 // ---------- Route ----------
@@ -1295,6 +1446,9 @@ export async function handleBeheer(request: Request, env: SzEnv, ctx: ExecutionC
   if ((n = id(/^\/categorieen\/(\d{1,9})$/)) !== null && method === "PUT") return wijzigCategorie(request, env, n);
   if (pad === "/afbeeldingen" && method === "POST") return uploadAfbeelding(request, env);
   if ((n = id(/^\/afbeeldingen\/(\d{1,9})$/)) !== null && method === "DELETE") return verwijderAfbeelding(env, n);
+  if (pad === "/voorraad" && method === "GET") return json({ ok: true, voorraad: await voorraadOverzicht(env) });
+  if ((n = id(/^\/voorraad\/(\d{1,9})$/)) !== null && method === "POST") return voorraadWijzigen(request, env, n);
+  if (pad === "/straatverkoop" && method === "POST") return straatverkoop(request, env);
   if (pad === "/rondes" && method === "GET") return rondes(env);
   if (pad === "/rondes" && method === "POST") return nieuweRonde(request, env);
   if ((n = id(/^\/rondes\/(\d{1,9})$/)) !== null && method === "PUT") return wijzigRonde(request, env, n);

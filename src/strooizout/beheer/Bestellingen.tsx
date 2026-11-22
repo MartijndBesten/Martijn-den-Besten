@@ -503,6 +503,7 @@ export default function Bestellingen() {
                   <td>
                     {b.naam}
                     <div style={{ fontSize: 13, color: "var(--tekst-3)" }}>{mobielTekst(b.telefoon)}</div>
+                    {b.kanaal !== "web" && <span className="bh-pil">{b.kanaal === "straat" ? "aan de weg (QR)" : "straatverkoop"}</span>}
                     {b.mogelijk_dubbel && (
                       <>
                         {" "}

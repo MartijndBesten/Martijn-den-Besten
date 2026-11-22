@@ -24,6 +24,7 @@ export type Cijfers = {
   afgehaald: number;
   bezorgd: number;
   per_status: Record<string, number>;
+  per_kanaal: Record<"web" | "straat" | "beheer", { bestellingen: number; omzet_cent: number }>;
   per_product: { product_id: number; naam: string; eenheid: string; aantal: number; omzet_cent: number; inkoop_cent: number; inkoop_onbekend: boolean; gewicht_gram: number; marge_cent: number | null }[];
 };
 
@@ -31,6 +32,7 @@ export type LijstBestelling = {
   id: number;
   nummer: string;
   afhaalcode: string;
+  kanaal: "web" | "straat" | "beheer";
   ronde_id: number | null;
   status: string;
   levering: "ophalen" | "bezorgen";

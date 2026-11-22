@@ -1,6 +1,6 @@
 // Strooizout voor de buurt: gedeelde hulpfuncties van de Worker (HTTP, instellingen, producten, tijd).
 
-import { STANDAARD_INSTELLINGEN, type Aanbieding, type Instellingen, type PrijsProduct, type PubliekProduct } from "../shared/strooizout";
+import { STANDAARD_INSTELLINGEN, type Aanbieding, type Berekening, type Instellingen, type Klantgegevens, type PrijsProduct, type PubliekProduct } from "../shared/strooizout";
 
 export interface SzEnv {
   DB: D1Database;
@@ -124,6 +124,8 @@ export type ProductRij = {
   gewicht_gram: number;
   eenheid: string;
   voorraad: number | null;
+  voorraad_verwacht: number | null;
+  voorraad_ontvangen: number;
   max_per_bestelling: number;
   afbeelding: string;
   afbeelding_alt: string;
@@ -238,7 +240,37 @@ export function teKoop(p: ProductRij): boolean {
   return p.status === "actief" && p.prijs_cent !== null && p.prijs_cent > 0;
 }
 
-export function publiek(cat: Catalogus, p: ProductRij, standaardBezorg: number): PubliekProduct {
+/** Zakken per stuk: 1 voor een product met eenheid ‘zak’, bij een pakket het aantal zakken erin, anders 0. */
+export function zakkenPerStuk(cat: Catalogus, p: ProductRij): number {
+  if (p.eenheid === "zak") return 1;
+  return (cat.onderdelen.get(p.id) ?? []).reduce((s, d) => s + (cat.perId.get(d.product_id)?.eenheid === "zak" ? d.aantal : 0), 0);
+}
+
+/** Werkelijk in het magazijn per product: ontvangen min wat al is uitgegeven (afgehaald of bezorgd). */
+export async function laadMagazijn(db: D1Database): Promise<Map<number, number>> {
+  const { results } = await db
+    .prepare(
+      `SELECT p.id, p.voorraad_ontvangen - COALESCE((SELECT SUM(m.aantal) FROM sz_voorraad_mutatie m JOIN sz_bestelling b ON b.id = m.bestelling_id
+                                                     WHERE m.product_id = p.id AND b.status IN ('afgehaald', 'bezorgd')), 0) AS in_magazijn
+       FROM sz_product p`,
+    )
+    .all<{ id: number; in_magazijn: number }>();
+  return new Map(results.map((r) => [r.id, r.in_magazijn]));
+}
+
+/** Ligt er werkelijk voorraad voor dit product (of al zijn onderdelen)? null = geen voorraadbeheer. */
+export function opVoorraad(cat: Catalogus, p: ProductRij, magazijn: Map<number, number>): boolean | null {
+  const delen = cat.onderdelen.get(p.id) ?? [];
+  const gevolgd = [p, ...delen.map((d) => cat.perId.get(d.product_id)!)].filter((x) => x && x.voorraad !== null);
+  if (!gevolgd.length) return null;
+  if (p.voorraad !== null && (magazijn.get(p.id) ?? 0) < 1) return false;
+  return delen.every((d) => {
+    const deel = cat.perId.get(d.product_id);
+    return !deel || deel.voorraad === null || (magazijn.get(deel.id) ?? 0) >= d.aantal;
+  });
+}
+
+export function publiek(cat: Catalogus, p: ProductRij, standaardBezorg: number, magazijn: Map<number, number> = new Map()): PubliekProduct {
   return {
     id: p.id,
     slug: p.slug,
@@ -252,6 +284,8 @@ export function publiek(cat: Catalogus, p: ProductRij, standaardBezorg: number):
     gewicht_gram: gewichtVan(cat, p),
     eenheid: p.eenheid,
     voorraad: beschikbaar(cat, p),
+    op_voorraad: opVoorraad(cat, p, magazijn),
+    zakken_per_stuk: zakkenPerStuk(cat, p),
     max_per_bestelling: p.max_per_bestelling,
     afbeelding: p.afbeelding,
     afbeelding_alt: p.afbeelding_alt,
@@ -309,4 +343,68 @@ export function vrijgeefStatements(db: D1Database, id: number): D1PreparedStatem
       .bind(id),
     db.prepare("UPDATE sz_bestelling SET voorraad_vrijgegeven = 1 WHERE id = ?1 AND status = 'geannuleerd'").bind(id),
   ];
+}
+
+// ---------- Bestelling opslaan (webshop, QR aan de weg en straatverkoop in het beheer) ----------
+
+export type NieuweBestelling = {
+  idempotentie: string;
+  afhaalcode: string;
+  rondeId: number | null;
+  kanaal: "web" | "straat" | "beheer";
+  levering: "ophalen" | "bezorgen";
+  momentId: number | null;
+  klant: Klantgegevens;
+  betaalwijze: "bij_ontvangst" | "tikkie";
+  som: Berekening;
+  /** Wat er van de voorraad af moet (ook pakketonderdelen). */
+  effect: Map<number, number>;
+  nu: string;
+};
+
+/**
+ * Alle statements van één bestelling, voor één `db.batch` (= één transactie). De bestelling wordt alleen ingevoegd als
+ * het gekozen moment niet intussen vol is; voegt die niets in, dan faalt de eerste bestelregel op bestelling_id NOT NULL
+ * en draait de hele batch terug. De CHECK (voorraad >= 0) voorkomt oververkoop, ook bij gelijktijdige bestellingen.
+ */
+export function bestelStatements(db: D1Database, o: NieuweBestelling): D1PreparedStatement[] {
+  const k = o.klant;
+  const idSub = "(SELECT id FROM sz_bestelling WHERE idempotentie = ?1)";
+  return [
+    db
+      .prepare(
+        `INSERT INTO sz_bestelling (idempotentie, afhaalcode, ronde_id, status, levering, moment_id, naam, email, telefoon, straat, huisnummer, postcode, plaats, opmerking,
+           betaalwijze, subtotaal_cent, korting_cent, bezorg_cent, totaal_cent, gewicht_gram, aangemaakt, gewijzigd, kanaal)
+         SELECT ?1, ?20, ?2, 'nieuw', ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?19, ?21
+         WHERE ?4 IS NULL OR (SELECT COUNT(*) FROM sz_bestelling WHERE moment_id = ?4 AND status != 'geannuleerd')
+               < COALESCE((SELECT max_bestellingen FROM sz_moment WHERE id = ?4), 1000000000)`,
+      )
+      .bind(o.idempotentie, o.rondeId, o.levering, o.momentId, k.naam, k.email, k.telefoon, k.straat, k.huisnummer, k.postcode, k.plaats, k.opmerking, o.betaalwijze, o.som.subtotaal_cent, o.som.korting_cent, o.som.bezorg_cent, o.som.totaal_cent, o.som.gewicht_gram, o.nu, o.afhaalcode, o.kanaal),
+    ...o.som.regels.map((r) =>
+      db
+        .prepare(
+          `INSERT INTO sz_bestelregel (bestelling_id, product_id, naam, aantal, stukprijs_cent, normaalprijs_cent, inkoop_cent, bezorg_cent, gewicht_gram, aanbieding)
+           VALUES (${idSub}, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)`,
+        )
+        .bind(o.idempotentie, r.product_id, r.naam, r.aantal, r.stukprijs_cent, r.normaalprijs_cent, r.inkoop_cent, r.bezorg_cent, r.gewicht_gram, r.aanbieding),
+    ),
+    ...[...o.effect].flatMap(([productId, aantal]) => [
+      db.prepare("UPDATE sz_product SET voorraad = voorraad - ?2 WHERE id = ?1 AND voorraad IS NOT NULL").bind(productId, aantal),
+      db.prepare(`INSERT INTO sz_voorraad_mutatie (bestelling_id, product_id, aantal) VALUES (${idSub}, ?2, ?3)`).bind(o.idempotentie, productId, aantal),
+    ]),
+    db.prepare(`INSERT INTO sz_log (bestelling_id, actie, details, op) VALUES (${idSub}, 'aangemaakt', ?2, ?3)`).bind(o.idempotentie, `${o.kanaal}, ${o.levering}, ${o.som.aantal_stuks} stuks`, o.nu),
+  ];
+}
+
+/** Is er genoeg ontvangen voorraad om deze bestelling uit te geven? Geeft een melding bij een tekort, anders null. */
+export async function tekortBijUitgifte(db: D1Database, bestellingId: number): Promise<string | null> {
+  const [mut, magazijn] = await Promise.all([
+    db.prepare("SELECT m.product_id, m.aantal, p.naam FROM sz_voorraad_mutatie m JOIN sz_product p ON p.id = m.product_id WHERE m.bestelling_id = ?1").bind(bestellingId).all<{ product_id: number; aantal: number; naam: string }>(),
+    laadMagazijn(db),
+  ]);
+  for (const m of mut.results) {
+    const er = magazijn.get(m.product_id) ?? 0;
+    if (er < m.aantal) return `Nog niet genoeg ${m.naam} ontvangen (in voorraad: ${Math.max(0, er)}, nodig: ${m.aantal}). Bevestig eerst de ontvangst bij Voorraad.`;
+  }
+  return null;
 }

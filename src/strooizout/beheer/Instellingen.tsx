@@ -63,6 +63,11 @@ export default function Instellingen() {
         <label className="bh-schakel">
           <input type="checkbox" checked={v.winkel_open} onChange={(e) => zet("winkel_open", e.target.checked)} /> Webshop open (uitzetten = tijdelijk sluiten)
         </label>
+        <div className="bh-veld" style={{ marginTop: 8, maxWidth: 260 }}>
+          <label htmlFor="in-vanaf">Op voorraad vanaf (datum)</label>
+          <input id="in-vanaf" className="sz-invoer" type="date" value={v.beschikbaar_vanaf} onChange={tekst("beschikbaar_vanaf")} />
+          <small>Wordt getoond zolang er nog niets ontvangen is (Voorraad). Leeg = niet tonen.</small>
+        </div>
         <div className="bh-veld" style={{ marginTop: 8 }}>
           <label htmlFor="in-gesloten">Melding als de webshop gesloten is</label>
           <input id="in-gesloten" className="sz-invoer" value={v.gesloten_melding} maxLength={300} onChange={tekst("gesloten_melding")} />
@@ -126,6 +131,11 @@ export default function Instellingen() {
                 <input type="radio" name="methode" checked={v.bezorg_methode === "per_kg"} onChange={() => zet("bezorg_methode", "per_kg")} /> Per kilogram (afgerond naar boven)
               </label>
             </fieldset>
+            <div className="bh-veld">
+              <label htmlFor="in-min">Bezorgen vanaf (aantal zakken)</label>
+              <input id="in-min" className="sz-invoer" style={{ maxWidth: 120 }} type="number" min={0} max={50} value={v.bezorg_min_zakken} onChange={(e) => zet("bezorg_min_zakken", Math.max(0, Math.min(50, Number(e.target.value) || 0)))} />
+              <small>0 = altijd bezorgen mogelijk.</small>
+            </div>
             <div className="bh-veld bh-veld--6">
               <label htmlFor="in-stuk">Standaard per stuk (€)</label>
               <input id="in-stuk" className="sz-invoer" inputMode="decimal" value={tarief.stuk} onChange={(e) => setTarief((t) => ({ ...t, stuk: e.target.value }))} />
@@ -158,7 +168,7 @@ export default function Instellingen() {
           </p>
           <h3>Btw</h3>
           <label className="bh-schakel">
-            <input type="radio" name="btw" checked={v.btw_modus === "geen"} onChange={() => zet("btw_modus", "geen")} /> Geen btw vermelden (bijv. particulier of KOR)
+            <input type="radio" name="btw" checked={v.btw_modus === "geen"} onChange={() => zet("btw_modus", "geen")} /> Geen btw vermelden (alleen bij KOR of particuliere verkoop)
           </label>
           <label className="bh-schakel">
             <input type="radio" name="btw" checked={v.btw_modus === "inclusief"} onChange={() => zet("btw_modus", "inclusief")} /> Prijzen zijn inclusief btw
@@ -172,6 +182,32 @@ export default function Instellingen() {
           <p className="bh-sub" style={{ marginTop: 8 }}>
             Laat je boekhouder of de Belastingdienst bevestigen wat voor jou geldt.
           </p>
+        </section>
+
+        <section className="bh-kaart">
+          <h2>Verkoper (in voorwaarden, privacy en voet)</h2>
+          <div className="bh-formulier">
+            <div className="bh-veld bh-veld--6">
+              <label htmlFor="in-vnaam">Naam</label>
+              <input id="in-vnaam" className="sz-invoer" value={v.verkoper_naam} maxLength={80} onChange={tekst("verkoper_naam")} />
+            </div>
+            <div className="bh-veld bh-veld--6">
+              <label htmlFor="in-vadres">Adres</label>
+              <input id="in-vadres" className="sz-invoer" value={v.verkoper_adres} maxLength={200} onChange={tekst("verkoper_adres")} />
+            </div>
+            <div className="bh-veld bh-veld--4">
+              <label htmlFor="in-vkvk">KvK-nummer</label>
+              <input id="in-vkvk" className="sz-invoer" inputMode="numeric" value={v.verkoper_kvk} maxLength={8} onChange={tekst("verkoper_kvk")} />
+            </div>
+            <div className="bh-veld bh-veld--4">
+              <label htmlFor="in-vbtw">Btw-id</label>
+              <input id="in-vbtw" className="sz-invoer" value={v.verkoper_btw} maxLength={20} onChange={tekst("verkoper_btw")} />
+            </div>
+            <div className="bh-veld bh-veld--4">
+              <label htmlFor="in-vmail">E-mail</label>
+              <input id="in-vmail" className="sz-invoer" type="email" value={v.verkoper_email} maxLength={120} onChange={tekst("verkoper_email")} />
+            </div>
+          </div>
         </section>
 
         <section className="bh-kaart">
