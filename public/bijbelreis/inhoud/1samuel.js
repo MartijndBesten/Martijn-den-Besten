@@ -84,7 +84,7 @@ BR.boeken.push({
     fact: "De mensen van Jabes vergaten dit nooit. Jaren later haalden ze het lichaam van Saul van de muur van Beth-San en begroeven het in hun stad (31:11–13).", fs: "b" },
   { ref: "1 Samuël 12", t: "Samuël neemt afscheid", stamp: "Donder", at: ["gilgal"], zoom: 10,
     who: [["Samuël", "oud en grijs"], ["Volk"], ["Saul"]],
-    txt: "In Gilgal houdt Samuël een toespraak. “Ik ben oud en grijs. Heb ik ooit iemands os of ezel afgepakt? Heb ik mij laten omkopen?” ‘Nee,’ zegt het volk. Samuël vertelt hoe God het volk steeds gered heeft, en dat het verkeerd was om een koning te vragen. Als teken bidt hij om donder en regen, midden in de tarweoogst, als het nooit regent. Het begint te donderen en te regenen. Het volk schrikt: ‘Bid voor ons!’ Samuël belooft: “Ik zal niet ophouden voor jullie te bidden. Dien de HEERE trouw met heel je hart.”",
+    txt: "In Gilgal houdt Samuël een toespraak. “Ik ben oud en grijs. Heb ik ooit iemands os of ezel afgepakt? Heb ik mij laten omkopen?” “Nee,” zegt het volk: ‘Gij hebt ons niet verongelijkt, en gij hebt ons niet onderdrukt.’ Samuël vertelt hoe God het volk steeds gered heeft, en dat het verkeerd was om een koning te vragen. Als teken bidt hij om donder en regen, midden in de tarweoogst, als het nooit regent. Het begint te donderen en te regenen. Het volk schrikt: ‘Bid voor ons!’ Samuël belooft: “Ik zal niet ophouden voor jullie te bidden. Dien de HEERE trouw met heel je hart.”",
     fact: "In Israël regent het van oktober tot april. In de tarweoogst, mei of juni, is onweer heel ongewoon. Daarom was dit een duidelijk teken (12:17).", fs: "u" },
   ],
   quiz: {

@@ -2686,7 +2686,7 @@ BR.niveaus.voegToe("a", {
       },
       { t: "Als Herodes gestorven is, gaan ze terug. Jozef gaat met Maria en het Kind in Nazareth wonen.", stap: "jezus-1:nt-geboorte:10" },
     ],
-    samen: "Weggelaten: Herodes liet in Bethlehem en omgeving alle kinderen van twee jaar en jonger doden (Mattheüs 2:16–18). Vertel dat sober als je kind ernaar vraagt; het Kind Jezus was toen al in Egypte, want God had Jozef gewaarschuwd (Mattheüs 2:13–14). De wijzen waren geleerde mannen uit het oosten die de sterren bestudeerden. Ze kwamen enige tijd na de geboorte en vonden het Kind in een huis in Bethlehem (Mattheüs 2:11).",
+    samen: "Weggelaten: Herodes liet in Bethlehem en omgeving alle kinderen van twee jaar en jonger doden (Mattheüs 2:16–18). Vertel dat sober als je kind ernaar vraagt; de Heere Jezus was toen al in Egypte, want God had Jozef gewaarschuwd (Mattheüs 2:13–14). De wijzen waren geleerde mannen uit het oosten die de sterren bestudeerden. Ze kwamen enige tijd na de geboorte en vonden het Kind in een huis in Bethlehem (Mattheüs 2:11).",
     vragen: [
       { q: "Wat hebben de wijzen gezien?", a: ["Zijn ster", "Een engel"], why: "Mattheüs 2:2" },
       { q: "Wat geven de wijzen aan het Kind?", a: ["Goud, wierook en mirre", "Brood en vis"], why: "Mattheüs 2:11" },

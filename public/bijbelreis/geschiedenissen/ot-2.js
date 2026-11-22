@@ -149,7 +149,7 @@ BR.geschiedenissen.push(
 { nr: 39, t: "De muren van Jericho", ref: "Jozua 5–6", sectie: "kanaan",
   stappen: ["jozua:intocht:3", "jozua:intocht:4"],
   vorm: "plek",
-  uitleg: "In Gilgal laat Jozua de mannen besnijden, en het volk viert het Pascha. Een dag later houdt het manna op. Bij Jericho ziet Jozua een Man met een getrokken zwaard: de Vorst van het heir des HEEREN, de Zoon van God Zelf. Jozua valt op zijn gezicht, aanbidt Hem en trekt zijn schoenen uit. God zegt hoe Jericho zal vallen. Zes dagen lang gaan ze één keer om de stad, met de ark en zeven priesters met bazuinen, en het volk zwijgt. Op de zevende dag gaan ze zeven keer om de stad. Dan blazen de priesters, het volk juicht met een groot gejuich, en de muur valt onder zich neer. De stad wordt verwoest, maar Rachab en haar familie blijven leven, omdat zij de verspieders verborgen had.",
+  uitleg: "In Gilgal laat Jozua de mannen besnijden, en het volk viert het Pascha. De dag daarna eten ze van het koren van het land; daarna houdt het manna op. Bij Jericho ziet Jozua een Man met een getrokken zwaard: de Vorst van het heir des HEEREN, de Zoon van God Zelf. Jozua valt op zijn gezicht, aanbidt Hem en trekt zijn schoenen uit. God zegt hoe Jericho zal vallen. Zes dagen lang gaan ze één keer om de stad, met de ark en zeven priesters met bazuinen, en het volk zwijgt. Op de zevende dag gaan ze zeven keer om de stad. Dan blazen de priesters, het volk juicht met een groot gejuich, en de muur valt onder zich neer. De stad wordt verwoest, maar Rachab en haar familie blijven leven, omdat zij de verspieders verborgen had.",
   betekenis: "De muren vielen niet door wapens, maar ‘door het geloof … als zij tot zeven dagen toe omringd waren geweest’ (Hebreeën 11:30). Dag na dag liepen ze rond zonder dat er iets gebeurde, tot God deed wat Hij had beloofd.",
   wie: ["Jozua", "Rachab", "Priesters"],
   kw: "volharding",
@@ -322,7 +322,7 @@ BR.geschiedenissen.push(
     ["Leviticus 19:9–10", "Gods regel voor de oogst: laat de gevallen aren liggen voor de arme en de vreemdeling."],
     ["Psalm 146:9", "‘De HEERE bewaart de vreemdelingen; Hij houdt den wees en de weduwe staande.’"]],
   tl: [-1150, -1100], tijd: "ca. 1150–1100 v.Chr. (onzeker)",
-  tijdNoot: "Reconstructie, onzeker. Ruth 1:1 zegt alleen: ‘in de dagen, als de richters richtten’. Terugrekenen vanaf David (koning ca. 1010 v.Chr.) met gewone generaties geeft ruwweg 1150–1100 v.Chr.; omdat het geslachtsregister mogelijk niet alle generaties noemt, kan het ook eerder zijn." },
+  tijdNoot: "Reconstructie, onzeker. Ruth 1:1 zegt alleen: ‘in de dagen, als de richters richtten’. Terugrekenen vanaf David (koning ca. 1010 v.Chr.) met gewone generaties geeft ruwweg 1150–1100 v.Chr.; omdat het geslachtsregister mogelijk niet alle generaties noemt, kan het ook eerder zijn. Mattheüs 1:5 noemt Rachab, uit de tijd van Jericho, als moeder van Boaz; dat wijst eerder op een vroegere tijd." },
 
 { nr: 48, t: "Hanna bidt; God roept Samuël", ref: "1 Samuël 1–3", sectie: "koningen",
   stappen: ["1samuel:samuel:0", "1samuel:samuel:1"],
