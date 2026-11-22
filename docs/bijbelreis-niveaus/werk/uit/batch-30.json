@@ -1,0 +1,205 @@
+{
+  "151": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["silo", "mamre", "timnath"],
+      "delen": [
+        { "t": "Jozua is oud geworden. De HEERE zegt dat hij het land moet verdelen onder de stammen van Israël.", "stap": "jozua:stammen:0" },
+        { "t": "Ruben, Gad en de halve stam Manasse hebben hun land al. Mozes gaf het hun aan de andere kant van de Jordaan.", "stap": "jozua:stammen:0" },
+        { "t": "Kaleb is al heel oud, maar nog net zo sterk als vroeger. Hij krijgt de stad Hebron.", "stap": "jozua:stammen:1" },
+        { "t": "In Silo zet het volk de tent van de HEERE neer. Daar werpt Jozua het lot voor de stammen die nog geen land hebben.", "stap": "jozua:stammen:3" },
+        { "t": "Zo krijgen ook die stammen een eigen stuk land. Daarna krijgt Jozua zelf ook een stad. Hij bouwt die stad en gaat er wonen.", "stap": "jozua:stammen:5" },
+        { "t": "Er komen zes vrijsteden. Wie per ongeluk iemand gedood heeft, mag daarheen vluchten. Daar is hij veilig.", "stap": "jozua:stammen:6" },
+        { "t": "De Levieten krijgen geen eigen stuk land. Zij krijgen steden om in te wonen, overal in het land.", "stap": "jozua:stammen:7" },
+        { "t": "De HEERE geeft Israël rust. Alles wat Hij beloofd heeft, is gebeurd.", "stap": "jozua:stammen:7" },
+        { "t": "Dan mogen de mannen van de overkant naar huis. Bij de Jordaan bouwen zij een groot altaar.", "stap": "jozua:stammen:9" },
+        { "t": "De andere stammen willen eerst tegen hen gaan strijden. Maar het altaar is niet om op te offeren. Het is een teken: de HEERE is God.", "stap": "jozua:stammen:9" }
+      ],
+      "samen": "Weggelaten: de grenzen en steden van elke stam (Jozua 13–19) en de dochters van Zelafead (17:3–6). Een vrijstad was er alleen voor wie iemand doodde ‘door dwaling, niet met wetenschap’: per ongeluk, zonder haat. Hij bleef daar tot de dood van de hogepriester (20:3–6). Vraag samen: waarom bouwen de stammen aan de overkant van de Jordaan een altaar, en waarom is dat geen altaar om op te offeren? (22:24–27)",
+      "vragen": [
+        { "q": "Waar zet het volk de tent van de HEERE neer?", "a": ["In Silo", "In Jericho"], "why": "Jozua 18:1" },
+        { "q": "Wie mag naar een vrijstad vluchten?", "a": ["Wie per ongeluk iemand gedood heeft", "Wie iets gestolen heeft"], "why": "Jozua 20:3" },
+        { "q": "Waarvoor is het altaar bij de Jordaan?", "a": ["Het is een teken dat de HEERE God is", "Om er dieren op te offeren"], "why": "Jozua 22:26–27; Jozua 22:34" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Het land wordt verdeeld", "stap": "jozua:stammen:0", "t": "Jozua is oud geworden. De HEERE zegt dat hij het land moet verdelen als erfdeel: een stuk land dat een stam krijgt en houdt. Ruben, Gad en de halve stam Manasse hebben hun deel al. Mozes gaf het hun aan de oostkant van de Jordaan. Kaleb is vijfentachtig jaar en nog net zo sterk als vroeger. Hij krijgt Hebron, omdat hij de HEERE altijd trouw gevolgd heeft." },
+        { "kop": "Het lot in Silo", "stap": "jozua:stammen:4", "t": "In Silo zet het volk de tent der samenkomst op. Uit elke stam gaan drie mannen het land beschrijven. Dan werpt Jozua het lot voor het aangezicht van de HEERE. Zo krijgen ook de laatste zeven stammen hun land. Daarna krijgt Jozua zelf een stad: Timnath-Serah." },
+        { "kop": "Vrijsteden en een altaar", "stap": "jozua:stammen:6", "t": "Er komen zes vrijsteden. Wie iemand gedood heeft zonder het te willen, kan daar veilig wonen. De Levieten krijgen achtenveertig steden. Dan gaan Ruben, Gad en de halve stam Manasse naar huis. Bij de Jordaan bouwen zij een groot altaar. De andere stammen willen eerst tegen hen strijden. Maar het altaar is niet voor offers. Het is een getuige ‘dat de HEERE God is’." }
+      ],
+      "vragen": [
+        { "q": "Waarom krijgt Kaleb Hebron?", "a": ["Hij had de HEERE trouw gevolgd", "Hij was de oudste man van Juda", "Hij had de stad zelf gebouwd"], "why": "Jozua 14:14" },
+        { "q": "Hoe wordt het land verdeeld onder de laatste zeven stammen?", "a": ["Door het lot te werpen", "Wie er het eerst komt, mag blijven", "De oudsten van Silo kiezen het"], "why": "Jozua 18:10" },
+        { "q": "Waar kon iemand veilig zijn die per ongeluk een ander gedood had?", "a": ["In een vrijstad", "In de tent der samenkomst", "In Timnath-Serah"], "why": "Jozua 20:3" },
+        { "q": "Wat willen de andere stammen eerst doen als ze van het altaar horen?", "a": ["Tegen hen ten strijde trekken", "Er samen offers op brengen", "Een tweede altaar ernaast bouwen"], "why": "Jozua 22:12" },
+        { "q": "Wat gebeurt er eerst?", "a": ["Kaleb krijgt Hebron", "Jozua werpt het lot in Silo", "Het altaar bij de Jordaan wordt gebouwd"], "why": "Jozua 14:13" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Elders in de Bijbel", "t": "Silo bleef lang de plaats van de tent van de HEERE. In de dagen van Eli ging Elkana er ‘van jaar tot jaar’ heen om te offeren (1 Samuël 1:3). Later zegt Psalm 78: ‘Dies verliet Hij den tabernakel te Silo’ (78:60). Jeremia gebruikt Silo als waarschuwing voor Jeruzalem: ‘Want gaat nu henen naar Mijn plaats, die te Silo was, alwaar Ik Mijn Naam in het eerst had doen wonen’ (Jeremia 7:12). Jozua zelf werd begraven in zijn eigen erfdeel, te Timnath-Serah (Jozua 24:30).", "refs": ["1 Samuël 1:3", "Psalm 78:60", "Jeremia 7:12", "Jozua 24:30"] },
+        { "kop": "Achtergrond: de vrijsteden", "t": "Mozes had de vrijsteden al geboden (Numeri 35:9–15). De zes vrijsteden horen bij de steden van de Levieten: ‘zes vrijsteden … en boven dezelve zult gij hun twee en veertig steden geven’ (Numeri 35:6). Zo was Hebron zowel een priesterstad als een vrijstad (Jozua 21:13). Israël moest ‘den weg bereiden’, zodat een doodslager er kon komen (Deuteronomium 19:3). Wie in de vrijstad woonde, bleef daar ‘tot den dood des hogepriesters, dien men met de heilige olie gezalfd heeft’ (Numeri 35:25).", "refs": ["Numeri 35:9–15", "Numeri 35:6", "Jozua 21:13", "Deuteronomium 19:3", "Numeri 35:25"] },
+        { "kop": "Waar en wanneer", "t": "Silo, Sichem, Hebron en Ramoth in Gilead zijn bekende plaatsen. Timnath-Serah ligt waarschijnlijk op de plek op de kaart. Waar Kedes lag, is betwist, en van Bezer weten we niet waar het lag. De stamgebieden staan op de kaart als streken: hoe de grenzen precies liepen, is lang niet overal bekend. De Bijbel noemt geen jaar. Kaleb was veertig toen hij het land verspiedde en is nu vijfentachtig (Jozua 14:7, 10). Wie de uittocht rond 1446 v.Chr. dateert, komt op ongeveer 1400 v.Chr.; wie de uittocht in de 13e eeuw dateert, bijna twee eeuwen later.", "refs": ["Jozua 14:7–10", "Jozua 20:7–8"] }
+      ],
+      "vragen": [
+        { "q": "Waar werd Jozua begraven?", "a": ["In Timnath-Serah", "In Silo", "In Hebron"], "why": "Jozua 24:30" },
+        { "q": "Welke profeet gebruikte Silo als waarschuwing voor Jeruzalem?", "a": ["Jeremia", "Jesaja", "Ezechiël"], "why": "Jeremia 7:12" },
+        { "q": "Wat moest Israël volgens Deuteronomium 19 doen voor wie naar een vrijstad vluchtte?", "a": ["De weg ernaartoe bereiden", "Er een hoge muur omheen bouwen", "Er elk jaar een feest houden"], "why": "Deuteronomium 19:3" }
+      ]
+    }
+  },
+  "152": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["jericho", "gilgal", "ej_efraim"],
+      "delen": [
+        { "t": "Israël vergeet de HEERE. Een vreemde koning gaat over hen heersen. Dan roepen ze tot de HEERE, en Hij stuurt Othniël om hen te redden.", "stap": "richteren:ehud-jefta:0" },
+        { "t": "Later doet Israël weer wat kwaad is. Nu maakt de HEERE Eglon, de koning van Moab, sterk tegen hen. Heel lang moet Israël hem dienen.", "stap": "richteren:ehud-jefta:1" },
+        { "t": "Weer roept Israël tot de HEERE. Hij stuurt een redder: Ehud. Ehud is links.", "stap": "richteren:ehud-jefta:1" },
+        { "t": "Ehud brengt een geschenk naar koning Eglon. Onder zijn kleren, aan zijn rechterkant, heeft hij een zwaard.", "stap": "richteren:ehud-jefta:2" },
+        { "t": "Ehud gaat alleen naar de koning. Hij zegt: ‘Ik heb een woord Gods aan u.’ De koning staat op.", "stap": "richteren:ehud-jefta:2" },
+        { "t": "Dan doodt Ehud de koning met zijn zwaard. Hij doet de deuren op slot en ontkomt.", "stap": "richteren:ehud-jefta:2" },
+        { "t": "In de bergen blaast Ehud op de bazuin. Hij zegt: “Volg mij, want de HEERE heeft de Moabieten in uw hand gegeven.”", "stap": "richteren:ehud-jefta:3" },
+        { "t": "Israël wint van Moab. Daarna is het heel lang rustig in het land.", "stap": "richteren:ehud-jefta:3" }
+      ],
+      "samen": "Het doden van koning Eglon staat hier in één zin. De Bijbel vertelt het sober en noemt Ehud een verlosser die de HEERE Zelf verwekte (Richteren 3:15). Ehud zegt ook Wie de overwinning geeft: ‘de HEERE heeft uw vijanden, de Moabieten, in ulieder hand gegeven’ (3:28). Weggelaten: de details van 3:21–25 en Samgar, die zeshonderd Filistijnen versloeg (3:31). Vraag samen: wat doet Israël telkens als het in nood is? (3:9, 15)",
+      "vragen": [
+        { "q": "Wie stuurt Ehud om Israël te redden?", "a": ["De HEERE", "De koning van Moab"], "why": "Richteren 3:15" },
+        { "q": "Wat brengt Ehud naar koning Eglon?", "a": ["Een geschenk", "Een brief"], "why": "Richteren 3:17" },
+        { "q": "Waarop blaast Ehud in de bergen?", "a": ["Op de bazuin", "Op een fluit"], "why": "Richteren 3:27" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Othniël, de eerste verlosser", "stap": "richteren:ehud-jefta:0", "t": "Israël doet wat kwaad is in de ogen van de HEERE. Het volk vergeet Hem en dient de Baäls, afgoden. Daarom moet Israël acht jaar een vreemde koning dienen. Dan roepen zij tot de HEERE. Hij verwekt een verlosser: Othniël. De Geest van de HEERE is over hem, en het land krijgt veertig jaar rust." },
+        { "kop": "Ehud bij koning Eglon", "stap": "richteren:ehud-jefta:2", "t": "Weer doet Israël kwaad. Eglon, de koning van Moab, neemt de Palmstad in, en achttien jaar dient Israël hem. Dan verwekt de HEERE Ehud, een man die links is. Ehud brengt Eglon een geschenk. Onder zijn kleren draagt hij een zwaard. In de bovenzaal zegt hij: ‘Ik heb een woord Gods aan u.’ Als de koning opstaat, doodt Ehud hem met het zwaard. Hij ontkomt, terwijl de knechten lang voor de gesloten deuren wachten." },
+        { "kop": "Tachtig jaar rust", "stap": "richteren:ehud-jefta:3", "t": "In het gebergte van Efraïm blaast Ehud op de bazuin. Hij zegt: ‘Volgt mij na; want de HEERE heeft uw vijanden, de Moabieten, in ulieder hand gegeven.’ Israël bezet de veren van de Jordaan: plekken waar je de rivier kunt oversteken. Geen Moabiet ontkomt. Daarna heeft het land tachtig jaar rust." }
+      ],
+      "vragen": [
+        { "q": "Over wie was de Geest van de HEERE toen hij Israël richtte?", "a": ["Othniël", "Eglon", "Cusjan Risjataïm"], "why": "Richteren 3:10" },
+        { "q": "Welke stad neemt Eglon in?", "a": ["De Palmstad", "De stad Hebron", "De stad Silo"], "why": "Richteren 3:13" },
+        { "q": "Waarom kon Ehud ontkomen?", "a": ["De knechten wachtten lang voor de gesloten deuren", "De koning had hem zelf laten gaan", "Het was donker in de stad"], "why": "Richteren 3:25–26" },
+        { "q": "Wat zegt Ehud dat de HEERE gedaan heeft?", "a": ["De Moabieten in hun hand gegeven", "De Jordaan laten opdrogen", "Hun een nieuwe koning gegeven"], "why": "Richteren 3:28" },
+        { "q": "Wat gebeurt er eerst?", "a": ["Othniël richt Israël", "Eglon neemt de Palmstad in", "Ehud blaast op de bazuin"], "why": "Richteren 3:10" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Elders in de Bijbel", "t": "De Statenvertaling noemt Ehud ‘een zoon van Jemini’ (Richteren 3:15). Zo noemt ook Saul zichzelf: ‘Ben ik niet een zoon van Jemini’; in hetzelfde vers spreekt hij van ‘den stam van Benjamin’, en zijn vader Kis heet ‘een man van Benjamin’ (1 Samuël 9:1, 21). ‘Zoon van Jemini’ betekent dus: iemand uit de stam Benjamin. Uit Benjamin kwamen later ook ‘zevenhonderd uitgelezene mannen, welke links waren’ (Richteren 20:16), en mannen die ‘rechts en links met stenen’ wierpen (1 Kronieken 12:2). Samgar wordt nog eens genoemd in het lied van Debora: ‘In de dagen van Samgar, den zoon van Anath’ (Richteren 5:6).", "refs": ["Richteren 3:15", "1 Samuël 9:1", "1 Samuël 9:21", "Richteren 20:16", "1 Kronieken 12:2", "Richteren 5:6"] },
+        { "kop": "Waar en wanneer", "t": "De Palmstad is Jericho: Deuteronomium 34:3 spreekt van ‘Jericho, de palmstad’. Gilgal ligt waarschijnlijk op de plek op de kaart. Waar Sehirath lag, weten we niet; daarom staat op de kaart alleen het gebergte van Efraïm. Ehud valt vóór Debora: Richteren 4:1 zegt dat Israël weer kwaad deed, ‘als Ehud gestorven was’. De Bijbel noemt geen jaartal. Wie met 1 Koningen 6:1 de intocht rond 1406 v.Chr. stelt, komt voor de eerste richters in de 14e eeuw v.Chr. uit. Veel uitleggers nemen aan dat perioden van richters elkaar overlappen; wie de uittocht in de 13e eeuw dateert, komt later uit.", "refs": ["Deuteronomium 34:3", "Richteren 3:26", "Richteren 4:1", "1 Koningen 6:1"] }
+      ],
+      "vragen": [
+        { "q": "Wie noemde zichzelf later ook ‘een zoon van Jemini’?", "a": ["Saul", "David", "Samuël"], "why": "1 Samuël 9:21" },
+        { "q": "In welk lied wordt Samgar later genoemd?", "a": ["Het lied van Debora", "Het lied van Mozes", "Het lied van Hanna"], "why": "Richteren 5:6" },
+        { "q": "Welke richter noemt Richteren 4:1 aan het begin van de geschiedenis van Debora?", "a": ["Ehud", "Othniël", "Gideon"], "why": "Richteren 4:1" }
+      ]
+    }
+  },
+  "153": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["ej_tob", "ej_mizpa", "rabba"],
+      "delen": [
+        { "t": "Israël verlaat de HEERE weer en dient afgoden. Dan komen de Ammonieten. Zij maken het Israël heel moeilijk.", "stap": "richteren:ehud-jefta:4" },
+        { "t": "Israël roept tot de HEERE: ‘Wij hebben gezondigd’. Ze doen hun afgoden weg en dienen de HEERE weer.", "stap": "richteren:ehud-jefta:4" },
+        { "t": "Jefta is een dappere man. Zijn broers hebben hem weggejaagd. Nu woont hij in het land Tob.", "stap": "richteren:ehud-jefta:5" },
+        { "t": "De leiders van Gilead komen Jefta halen. Hij moet hen helpen tegen de Ammonieten.", "stap": "richteren:ehud-jefta:5" },
+        { "t": "Jefta laat de koning van Ammon weten: dit land heeft de HEERE aan Israël gegeven. Maar de koning luistert niet.", "stap": "richteren:ehud-jefta:6" },
+        { "t": "Dan komt de Geest van de HEERE op Jefta. Hij trekt op tegen de Ammonieten.", "stap": "richteren:ehud-jefta:7" },
+        { "t": "De HEERE geeft de Ammonieten in de hand van Jefta. Israël is verlost.", "stap": "richteren:ehud-jefta:7" },
+        { "t": "Jefta is zes jaar richter. Een richter is een leider die de HEERE aan Zijn volk geeft.", "stap": "richteren:ehud-jefta:9" }
+      ],
+      "samen": "Weggelaten: de gelofte van Jefta en wat er daarna met zijn dochter gebeurde (Richteren 11:30–31, 34–40), en de strijd met Efraïm, waarin velen omkwamen (12:1–6). Wie die verzen wil vertellen, leest ze het best eerst zelf en vertelt alleen wat er staat: Jefta ‘volbracht zijn gelofte’ aan haar, ‘en zij heeft geen man bekend’ (11:39). Vraag samen: wat doet Israël als het tot de HEERE roept? (10:15–16)",
+      "vragen": [
+        { "q": "Waar woont Jefta als de leiders hem komen halen?", "a": ["In het land Tob", "In Egypte"], "why": "Richteren 11:3; Richteren 11:5" },
+        { "q": "Wat doet Israël met de afgoden?", "a": ["Ze doen ze weg", "Ze maken er nieuwe bij"], "why": "Richteren 10:16" },
+        { "q": "Wie geeft Jefta de overwinning?", "a": ["De HEERE", "De koning van Ammon"], "why": "Richteren 11:32" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Jefta komt terug", "stap": "richteren:ehud-jefta:5", "t": "Israël dient weer afgoden, en de Ammonieten onderdrukken het volk. Dan zegt het volk ‘Wij hebben gezondigd’ en doet de vreemde goden weg. Jefta is een dappere held, maar zijn broers hebben hem weggejaagd. De oudsten van Gilead halen hem terug uit het land Tob. Jefta laat de koning van Ammon weten: de HEERE gaf dit land aan Israël. De koning luistert niet." },
+        { "kop": "De gelofte", "stap": "richteren:ehud-jefta:7", "t": "De Geest van de HEERE komt op Jefta. Hij doet de HEERE een gelofte, een plechtige belofte. Wat hem uit zijn huis tegemoetkomt als hij veilig terugkomt, zal van de HEERE zijn, en hij zal het als brandoffer offeren. De HEERE geeft de Ammonieten in zijn hand." },
+        { "kop": "De dochter van Jefta", "stap": "richteren:ehud-jefta:8", "t": "In Mizpa komt zijn dochter hem tegemoet, met trommels en reidansen. Zij is zijn enige kind. Jefta scheurt zijn kleren. Zij zegt dat hij met haar moet doen wat hij de HEERE beloofd heeft. Twee maanden gaat zij met vriendinnen de bergen in om te wenen over haar ‘maagdom’: dat zij ongetrouwd is. Daarna doet Jefta met haar wat hij beloofd had. Er staat bij: ‘zij heeft geen man bekend’." }
+      ],
+      "vragen": [
+        { "q": "Wie halen Jefta terug uit het land Tob?", "a": ["De oudsten van Gilead", "Zijn eigen broers", "De mannen van Efraïm"], "why": "Richteren 11:5" },
+        { "q": "Wat zegt Jefta tegen de koning van Ammon?", "a": ["Dat de HEERE het land aan Israël gegeven heeft", "Dat Israël het land aan Ammon wil verkopen", "Dat Ammon het land mag houden"], "why": "Richteren 11:21–23" },
+        { "q": "Waarom scheurt Jefta zijn kleren als hij zijn dochter ziet?", "a": ["Hij heeft de HEERE iets beloofd en kan niet terug", "Hij heeft de strijd tegen Ammon verloren", "Zijn broers willen hem weer wegjagen"], "why": "Richteren 11:35" },
+        { "q": "Hoe lang gaat de dochter van Jefta naar de bergen?", "a": ["Twee maanden", "Zeven dagen", "Een heel jaar"], "why": "Richteren 11:37–38" },
+        { "q": "Wat gebeurt er eerst?", "a": ["Israël doet de vreemde goden weg", "De Geest van de HEERE komt op Jefta", "Jefta doet de HEERE een gelofte"], "why": "Richteren 10:16" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Achtergrond: een gelofte", "t": "Een gelofte is een belofte aan God. De wet zegt: ‘Wanneer gij den HEERE, uw God, een gelofte zult beloofd hebben, gij zult niet vertrekken die te betalen’ (Deuteronomium 23:21). Daar staat ook: ‘Maar als gij nalaat te beloven, zo zal het geen zonde in u zijn’ (23:22). Jefta zegt tegen zijn dochter: ‘ik heb mijn mond opengedaan tot den HEERE, en ik zal niet kunnen teruggaan’ (Richteren 11:35). Zij antwoordt: ‘doe mij, gelijk als uit uw mond gegaan is’ (11:36).", "refs": ["Deuteronomium 23:21–22", "Richteren 11:35–36"] },
+        { "kop": "Elders in de Bijbel", "t": "Samuël noemt Jefta bij de mannen die de HEERE zond om Israël te verlossen: ‘En de HEERE zond Jerubbaäl, en Bedan, en Jeftha, en Samuël’ (1 Samuël 12:11). In zijn boodschap noemt Jefta ook de god van de vijand: ‘uw god Kamos’ (Richteren 11:24). Ook in Genesis heet een plaats in Gilead Mizpa: daar zei Laban ‘Dat de HEERE opzicht neme tussen mij en tussen u’ (Genesis 31:49). Of dat dezelfde plaats is als het Mizpa van Jefta, weten we niet zeker.", "refs": ["1 Samuël 12:11", "Richteren 11:24", "Genesis 31:48–49"] },
+        { "kop": "Waar en wanneer", "t": "Het land Tob en Minnith staan op de kaart op hun waarschijnlijke plaats. Waar Mizpa in Gilead, Aroër en Abel-Keramim lagen, is onbekend. De Bijbel noemt geen jaartal. Een ijkpunt is Richteren 11:26: Jefta spreekt van driehonderd jaar sinds Israël in Hesbon en bij de Arnon woont. Wie met 1 Koningen 6:1 de intocht rond 1406 v.Chr. stelt, komt voor Jefta rond 1100 v.Chr. uit. Veel uitleggers nemen aan dat perioden van richters elkaar overlappen; wie de uittocht in de 13e eeuw dateert, komt later uit.", "refs": ["Richteren 11:26", "Richteren 11:33", "1 Koningen 6:1"] }
+      ],
+      "vragen": [
+        { "q": "Welke god van de vijand noemt Jefta in zijn boodschap?", "a": ["Kamos", "Dagon", "Baäl-Zebub"], "why": "Richteren 11:24" },
+        { "q": "Wat beloofden de oudsten van Gilead, met de HEERE als toehoorder?", "a": ["Dat Jefta hun hoofd zou zijn", "Dat Jefta toch zou mogen erven", "Dat zij Tob voor hem zouden innemen"], "why": "Richteren 11:8–10" },
+        { "q": "Hoeveel dagen per jaar gingen de dochters van Israël heen om de dochter van Jefta aan te spreken?", "a": ["Vier dagen", "Zeven dagen", "Twee dagen"], "why": "Richteren 11:40" }
+      ]
+    }
+  },
+  "154": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["dr_refaim", "salem", "rabba"],
+      "delen": [
+        { "t": "David is koning over Israël. Dan komen de Filistijnen. Zij zoeken David.", "stap": "2samuel:davids-rijk:0" },
+        { "t": "David vraagt aan de HEERE: “Zal ik tegen hen optrekken?” De HEERE zegt: “Ja, Ik zal hen in uw hand geven.”", "stap": "2samuel:davids-rijk:0" },
+        { "t": "David wint. De Filistijnen laten zelfs hun afgodsbeelden achter.", "stap": "2samuel:davids-rijk:0" },
+        { "t": "De Filistijnen komen terug. De HEERE zegt: ga om hen heen, en haast je als je een geluid hoort in de toppen van de bomen.", "stap": "2samuel:davids-rijk:1" },
+        { "t": "Dan gaat de HEERE voor David uit. David doet wat de HEERE zegt, en hij wint opnieuw.", "stap": "2samuel:davids-rijk:1" },
+        { "t": "Ook andere volken verliezen van David. De HEERE beschermt David overal waar hij gaat.", "stap": "2samuel:davids-rijk:3" },
+        { "t": "David doet wat goed en recht is voor zijn hele volk.", "stap": "2samuel:davids-rijk:6" },
+        { "t": "De koning van Ammon sterft. David stuurt mannen om zijn zoon Hanun te troosten.", "stap": "2samuel:davids-rijk:7" },
+        { "t": "Maar Hanun laat de helft van hun baard afscheren en stuurt hen weg. De mannen schamen zich heel erg.", "stap": "2samuel:davids-rijk:7" },
+        { "t": "Daarom komt er oorlog. Joab en zijn broer Abisaï strijden, en de vijanden vluchten.", "stap": "2samuel:davids-rijk:8" }
+      ],
+      "samen": "Dit is een overzicht van veel oorlogen. Weggelaten: hoe David met de Moabieten deed (2 Samuël 8:2), de aantallen gesneuvelden en het afsnijden van de kleren van Davids knechten (10:4). Wat telkens terugkomt: David vraagt eerst de HEERE (5:19, 23), en ‘de HEERE behoedde David overal, waar hij heentoog’ (8:6, 14). Vraag samen: wat hoorde David in de toppen van de bomen, en wat betekende dat? (5:24)",
+      "vragen": [
+        { "q": "Wat doet David voordat hij gaat strijden?", "a": ["Hij vraagt het aan de HEERE", "Hij roept eerst Joab"], "why": "2 Samuël 5:19" },
+        { "q": "Waar hoort David het geluid?", "a": ["In de toppen van de bomen", "In de rivier"], "why": "2 Samuël 5:24" },
+        { "q": "Waarom stuurt David mannen naar Hanun?", "a": ["Om hem te troosten", "Om tegen hem te strijden"], "why": "2 Samuël 10:2" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een geruis in de bomen", "stap": "2samuel:davids-rijk:1", "t": "Als de Filistijnen horen dat David koning is, komen ze naar het dal Refaïm. David vraagt het de HEERE en verslaat hen bij Baäl-Perazim. De tweede keer moet David om hen heen trekken. Als hij een geruis hoort in de toppen van de moerbeibomen, moet hij zich haasten, want dan is de HEERE voor hem uit gegaan. David doet het en wint opnieuw." },
+        { "kop": "De HEERE behoedt David", "stap": "2samuel:davids-rijk:3", "t": "Daarna verslaat David de Filistijnen, Moab, Hadadezer van Zoba en de Syriërs van Damascus. Ook Edom moet hem dienen. Er staat: ‘de HEERE behoedde David overal, waar hij heentoog.’ Behoeden betekent beschermen. Het zilver en het goud van de volken geeft David aan de HEERE. Hij doet aan zijn hele volk recht en gerechtigheid." },
+        { "kop": "Oorlog met Ammon", "stap": "2samuel:davids-rijk:7", "t": "David stuurt knechten om Hanun, de nieuwe koning van Ammon, te troosten. Maar de vorsten zeggen dat de knechten de stad komen verspieden. Hanun laat hun baard half afscheren. Dan huren de Ammonieten Syrische soldaten. Joab zegt tegen zijn broer Abisaï: ‘Wees sterk’. De vijanden vluchten. Bij Helam verslaat David de Syriërs opnieuw." }
+      ],
+      "vragen": [
+        { "q": "Wat betekende het geruis in de toppen van de moerbeibomen?", "a": ["Dat de HEERE voor David uit ging", "Dat er een zware storm aankwam", "Dat de Filistijnen al gevlucht waren"], "why": "2 Samuël 5:24" },
+        { "q": "Wat doet David met het zilver en het goud van de volken?", "a": ["Hij geeft het aan de HEERE", "Hij bouwt er een paleis van", "Hij deelt het uit aan zijn soldaten"], "why": "2 Samuël 8:11" },
+        { "q": "Wat liet Hanun met de knechten van David doen?", "a": ["Hun baard half afscheren", "Hen in de gevangenis zetten", "Hen als slaven verkopen"], "why": "2 Samuël 10:4" },
+        { "q": "Wie was de broer van Joab?", "a": ["Abisaï", "Benaja", "Zadok"], "why": "2 Samuël 10:10" },
+        { "q": "Wat gebeurt er eerst?", "a": ["David verslaat de Filistijnen bij Baäl-Perazim", "Hanun wordt koning van Ammon", "David verslaat de Syriërs bij Helam"], "why": "2 Samuël 5:20" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Wat de tekst zegt en wat niet", "t": "David wil weldadigheid doen aan Hanun, ‘gelijk als zijn vader weldadigheid aan mij gedaan heeft’ (2 Samuël 10:2). Welke weldaad Nahas aan David gedaan had, vertelt de Bijbel niet. In de tijd van Saul belegerde ‘Nahas, de Ammoniet’ Jabes in Gilead (1 Samuël 11:1). Later, als David voor Absalom vlucht, komt ‘Sobi, de zoon van Nahas, van Rabba der kinderen Ammons’ met eten en beddengoed naar David in Mahanaim (2 Samuël 17:27–29).", "refs": ["2 Samuël 10:2", "1 Samuël 11:1", "2 Samuël 17:27–29"] },
+        { "kop": "Elders in de Bijbel", "t": "1 Kronieken vertelt dezelfde oorlogen. Over de afgoden van de Filistijnen staat daar: ‘David gebood, en zij werden met vuur verbrand’ (1 Kronieken 14:12). Van het koper uit de steden van Hadadezer ‘heeft Salomo de koperen zee, en de pilaren, en de koperen vaten gemaakt’ (1 Kronieken 18:8). En wat David aan de HEERE geheiligd had, bracht Salomo na de bouw van de tempel ‘onder de schatten van het huis des HEEREN’ (1 Koningen 7:51). Kronieken noemt de legeroverste van Hadadezer Sofach (1 Kronieken 19:16).", "refs": ["1 Kronieken 14:12", "1 Kronieken 18:8", "1 Koningen 7:51", "1 Kronieken 19:16"] },
+        { "kop": "Waar en wanneer", "t": "Het dal Refaïm, Gezer, Damascus, Hamath, Rabba en Medeba zijn bekende plaatsen. Waar Baäl-Perazim en Helam lagen, is onbekend, en de plaats van het Zoutdal is betwist. De Bijbel noemt geen jaar. David regeerde drieëndertig jaar in Jeruzalem (2 Samuël 5:5), in de gangbare chronologie ca. 1003–970 v.Chr. Hoofdstuk 8 is een overzicht, en de tekst zegt alleen ‘daarna’ (8:1; 10:1). In welk jaar en in welke volgorde de oorlogen precies waren, weten we niet.", "refs": ["2 Samuël 5:5", "2 Samuël 8:1", "2 Samuël 10:1"] }
+      ],
+      "vragen": [
+        { "q": "Welke zoon van Nahas bracht David later eten, toen hij voor Absalom vluchtte?", "a": ["Sobi", "Hanun", "Joram"], "why": "2 Samuël 17:27–29" },
+        { "q": "Wat gebeurde er volgens 1 Kronieken met de afgoden van de Filistijnen?", "a": ["Ze werden met vuur verbrand", "Ze werden naar Gath teruggestuurd", "Ze werden in de Jordaan geworpen"], "why": "1 Kronieken 14:12" },
+        { "q": "Waar bracht Salomo later wat David aan de HEERE geheiligd had?", "a": ["Onder de schatten van het huis van de HEERE", "In zijn eigen nieuwe paleis", "Naar Hiram, de koning van Tyrus"], "why": "1 Koningen 7:51" }
+      ]
+    }
+  }
+}

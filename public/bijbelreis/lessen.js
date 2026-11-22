@@ -60,7 +60,7 @@
       </section>
       <h2 class="ls-kop2">Kies een lesroute</h2>
       <ul class="ls-routes">${ROUTES.map((r) => `<li><a class="ls-route" href="#${esc(r.id)}"><span class="ls-route-n">${esc(r.n)}</span><span class="ls-route-kort">${esc(r.kort)}</span><span class="ls-route-meta">${r.lessen.length} lessen · ${esc(r.bereik)}</span></a></li>`).join("")}</ul>
-      <p class="ls-noot">Liever zelf een geschiedenis kiezen? Alle 150 staan in <a href="/bijbelreis#verhalen">de atlas onder Verhalen</a>, en elke geschiedenis kan ook als <a href="/bijbelreis/boekje">presentatie of boekje</a>.</p>`;
+      <p class="ls-noot">Liever zelf een geschiedenis kiezen? Ze staan allemaal in <a href="/bijbelreis#verhalen">de atlas onder Verhalen</a>, en elke geschiedenis kan ook als <a href="/bijbelreis/boekje">presentatie of boekje</a>.</p>`;
   }
 
   function vraag(v) {

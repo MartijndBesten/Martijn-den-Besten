@@ -179,6 +179,55 @@ in `app.js`, de regels onder ‘Routes: de schijnwerper’ in `bijbelreis.css`).
 - Bijbelverwijzingen en getallen: `python3 scripts/bijbel-check.py <controlebestand>` met regels `Exodus 12:37 | zeshonderd duizend` (regex, hoofdletterongevoelig; de Statenvertaling schrijft getallen voluit: ‘vijf en zeventig’, ‘honderd en dertig’).
 - Vóór publicatie: `npm run check` (typecheck, tests, build) en `npx playwright test navigatie a11y`.
 
+## Geschiedenissen 151–166 (22 november 2026)
+
+De lijst Verhalen telde 150 geschiedenissen. Reisdelen die later zijn gemaakt, stonden daar niet in. Nu zijn het er 166.
+De nieuwe geschiedenissen wijzen naar de stappen van een bestaand reisdeel. Hun bestanden zijn `geschiedenissen/ot-4.js`, `ot-5.js`, `ot-6.js`, `nt-5.js` en `nt-6.js`.
+
+| nr | geschiedenis | reisdeel | na |
+| --- | --- | --- | --- |
+| 151 | Het land verdeeld en zes vrijsteden | `jozua:stammen` | 41 |
+| 152 | Ehud en koning Eglon | `richteren:ehud-jefta` 0–3 | 41 |
+| 153 | Jefta, de richter uit Gilead | `richteren:ehud-jefta` 4–9 | 43 |
+| 154 | Davids rijk groeit | `2samuel:davids-rijk` | 57 |
+| 155 | Asa steunt op de HEERE | `2kronieken:asa` | 62 |
+| 156 | Josafat: de strijd is Gods | `2kronieken:josafat` | 63 |
+| 157 | Hazaël en Jehu | `2koningen:jehu` | 64 |
+| 158 | Manasse: naar Babel en terug | `2kronieken:hizkia-josia` 5 | 67 |
+| 159 | Jeremia moet mee naar Egypte | `profeten:jeremia-egypte` | 71 |
+| 160 | Ezra en Nehemia: de muur van Jeruzalem | `ezra:nehemia` | 78 |
+| 161 | De Samaritaanse vrouw bij de put | `jezus-1:nt-samaria-nain` 0–4 | 93 |
+| 162 | De Heere Jezus in de synagoge van Nazareth | `jezus-1:nt-samaria-nain` 5–6 | 93 |
+| 163 | De jongeling van Naïn | `jezus-1:nt-samaria-nain` 7 | 96 |
+| 164 | De Kananese vrouw en de dove man | `jezus-2:nt-over-de-grens` | 101 |
+| 165 | Paulus in Thessalonica, Athene en Korinthe | `handelingen:nt-paulus2` | 145 |
+| 166 | Paulus in Efeze en het afscheid in Milete | `handelingen:nt-paulus3` | 145 |
+
+**Geen nieuwe geschiedenis gekregen:**
+- `ur-kanaan`, `jakob-jabbok`, `kies-het-leven` en `scheuring`: die staan al in de 150 (8, 17, 36 en 62).
+- De kerstdelen: die zijn al geschiedenis 80–86.
+- `brieven`: dat is een overzicht, geen geschiedenis.
+
+**Volgorde en secties** staan in `secties.js`:
+- Elke geschiedenis hoort bij een sectie via `g.sectie`. De oude nummerreeksen in `app.js`, `boekje.js` en de verhaalpagina's zijn vervallen.
+- De volgorde is het nummer. Een geschiedenis met `na: <nr>` staat direct na die geschiedenis. Staan er meer na hetzelfde nummer, dan bepaalt hun eigen nummer de volgorde.
+- De nummers zelf blijven vast. Voortgang (`bijbelreis:verhalen`), deellinks (`#v26`), lesroutes en verhaalpagina's veranderen dus niet.
+- De OT/NT-filter werkt per sectie: de eerste negen secties zijn het Oude Testament.
+
+**Hoe ze zijn geschreven:** precies zoals de 150. Per batch (30–33, `docs/bijbelreis-niveaus/werk/`):
+1. Een schrijver maakt het basisrecord, de indeling, de controle per vers (`scripts/bijbel-controle/{ot-4,ot-5,ot-6,nt-5,nt-6}.txt`) en de niveaus a, b en c.
+2. Een aparte redacteur legt alles naast de Statenvertaling.
+3. De verslagen staan in `werk/review/batch-30…33.verslag.md`. De redacteuren herstelden samen 29 fouten in de basisrecords en 73 in de niveaus.
+4. Alle 48 nieuwe versies staan op `gecontroleerd`. Ook voor deze teksten geldt: geen menselijke eindredactie (zie `docs/bijbelreis-niveaus/README.md`).
+
+**Dateringen:** grond in `dateringen.js` (151–166). Manasse (158) is als reconstructie gedateerd op ca. 697–642 v.Chr. Dat is afgeleid uit de tijdNoot van het reisdeel: Josia sterft ca. 609 v.Chr.; daarbij komen 31 jaar Josia, 2 jaar Amon en 55 jaar Manasse. De wegvoering naar Babel dateert de Bijbel niet.
+
+**Tegelijk hersteld in reisdelen:**
+- Richteren 3:18: Ehud ‘geleidde’ de dragers; er stond ‘stuurt weg’.
+- Richteren 11:34, 39: ‘trommels’, en letterlijk ‘zij heeft geen man bekend’.
+- Handelingen 19:19: ‘toverkunsten’ staat er nu als uitleg.
+- Johannes 4:6: het zesde uur heeft nu het voorbehoud dat uitleggers verschillend rekenen.
+
 ## Niveaunamen (21-11-2026)
 
 Besluit (Martijn): de drie reisniveaus heten **Voorlezen** (a), **Zelf lezen** (b) en **Verdiepen** (c); eerder Samen

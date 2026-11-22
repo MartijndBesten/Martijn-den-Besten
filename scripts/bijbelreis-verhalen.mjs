@@ -21,7 +21,7 @@ export const OVERZICHT = "bijbelreis/verhalen.html";
  *  komt daar de laag van die taal overheen (taal/<taal>/inhoud.js en taal/laag.js), zoals op de pagina /<taal>/. */
 export function laadGegevens(pub = "public", taal = "nl") {
   const html = readFileSync(join(pub, "bijbelreis.html"), "utf8");
-  const nodig = taal === "nl" ? /^(geschiedenissen\/|indeling\.js$)/ : /^(plaatsen|personen|inhoud\/(?!kerst)|geschiedenissen\/|indeling|dateringen|niveaus|verwijzing)/;
+  const nodig = taal === "nl" ? /^(geschiedenissen\/|indeling\.js$|secties\.js$)/ : /^(plaatsen|personen|inhoud\/(?!kerst)|geschiedenissen\/|indeling|dateringen|niveaus|verwijzing|secties)/;
   const scripts = [...html.matchAll(/<script src="\/bijbelreis\/([^"?]+)"/g)].map((m) => m[1]).filter((s) => nodig.test(s));
   if (taal !== "nl") {
     const ctx0 = { window: {} };
@@ -36,11 +36,9 @@ export function laadGegevens(pub = "public", taal = "nl") {
     if (s === `taal/${taal}.js`) ctx.window.BR.taal = { code: taal, t: (x) => x };
   }
   const BR = ctx.window.BR;
-  // De indeling in secties staat in app.js (en het boekje); hier gelezen, niet overgetypt.
-  const app = readFileSync(join(pub, "bijbelreis", "app.js"), "utf8");
-  const m = /const SECTIES = (\[[\s\S]*?\]);/.exec(app);
-  const secties = m ? runInNewContext(m[1]) : [];
-  return { taal, geschiedenissen: (BR.geschiedenissen || []).slice().sort((a, b) => a.nr - b.nr), indeling: BR.indeling || {}, secties, boek: taal === "nl" ? null : BR.taalBoek[taal] };
+  // Secties en volgorde staan in secties.js, dezelfde als in de atlas en het boekje: [naam, sleutel].
+  const secties = (BR.secties || []).map(([k, n]) => [n, k]);
+  return { taal, geschiedenissen: BR.opVolgorde(BR.geschiedenissen || []), indeling: BR.indeling || {}, secties, boek: taal === "nl" ? null : BR.taalBoek[taal] };
 }
 
 /** ‘Droog door de Schelfzee’ → ‘droog-door-de-schelfzee’ (zonder accenten, alleen a–z, 0–9 en streepjes). */
@@ -83,7 +81,7 @@ export function beschrijving(g) {
   return uit;
 }
 
-const sectieVan = (secties, nr) => (secties.find(([, a, b]) => nr >= a && nr <= b) || [""])[0];
+const sectieVan = (secties, g) => (secties.find(([, k]) => k === g.sectie) || [""])[0];
 
 function kop({ titel, beschrijving: besch, url, css, type = "article" }) {
   return `<!doctype html>
@@ -117,7 +115,7 @@ const VOET = `<footer class="voet">
 /** Eén pagina per geschiedenis. Links zijn relatief (../#v26), zodat ze op bijbelreis.nl (/verhaal/…) én lokaal (/bijbelreis/verhaal/…) kloppen. */
 export function verhaalPagina(g, { indeling, secties, css, vorige, volgende, totaal, voor = "" }) {
   const url = ORIGIN + voor + pad(g);
-  const sectie = sectieVan(secties, g.nr);
+  const sectie = sectieVan(secties, g);
   const delen = onderdelen(g, indeling);
   const wie = (g.wie || []).filter(Boolean);
   const knop = `<a class="knop" href="../#v${g.nr}">Open deze geschiedenis in de Bijbelreis</a>`;
@@ -151,8 +149,8 @@ export function verhaalPagina(g, { indeling, secties, css, vorige, volgende, tot
 
 /** Overzicht van alle geschiedenissen (/verhalen), per sectie, met een link naar elke pagina. */
 export function overzichtPagina(geschiedenissen, { secties, css, voor = "" }) {
-  const groepen = secties.map(([n, a, b]) => [n, geschiedenissen.filter((g) => g.nr >= a && g.nr <= b)]).filter(([, gs]) => gs.length);
-  const rest = geschiedenissen.filter((g) => !secties.some(([, a, b]) => g.nr >= a && g.nr <= b));
+  const groepen = secties.map(([n, k]) => [n, geschiedenissen.filter((g) => g.sectie === k)]).filter(([, gs]) => gs.length);
+  const rest = geschiedenissen.filter((g) => !secties.some(([, k]) => g.sectie === k));
   if (rest.length) groepen.push(["Overig", rest]);
   return `${kop({ titel: `Alle ${geschiedenissen.length} geschiedenissen uit de Bijbel — Bijbelreis`, beschrijving: `De ${geschiedenissen.length} geschiedenissen van de Bijbelreis, van de schepping tot Openbaring: per geschiedenis een korte navertelling, de Bijbelverwijzing en een link naar de kaart.`, url: ORIGIN + voor + "/verhalen", css, type: "website" })}
   <body>
@@ -185,9 +183,9 @@ export function maakPaginas(gegevens, cssTekst, { taal = "nl", openbaar = false 
   const voor = taal === "nl" ? "" : "/" + taal, map = taal === "nl" ? MAP : `bijbelreis/${taal}/verhaal`, overzicht = taal === "nl" ? OVERZICHT : `bijbelreis/${taal}/verhalen.html`;
   const zet = taal === "nl" ? (h) => h : (h, nlUrl) => naarTaal(h, gegevens.boek, taal, openbaar, nlUrl);
   G.forEach((g, i) => {
-    uit[`${map}/${naam(g)}.html`] = zet(verhaalPagina(g, { indeling, secties: secties.map(([n, a, b]) => [vertaalTekst(gegevens.boek, n), a, b]), css, vorige: G[i - 1], volgende: G[i + 1], totaal: G.length, voor }), `${ORIGIN}/verhaal/${g.nr}`);
+    uit[`${map}/${naam(g)}.html`] = zet(verhaalPagina(g, { indeling, secties: secties.map(([n, k]) => [vertaalTekst(gegevens.boek, n), k]), css, vorige: G[i - 1], volgende: G[i + 1], totaal: G.length, voor }), `${ORIGIN}/verhaal/${g.nr}`);
   });
-  uit[overzicht] = zet(overzichtPagina(G, { secties: secties.map(([n, a, b]) => [vertaalTekst(gegevens.boek, n), a, b]), css, voor }), `${ORIGIN}/verhalen`);
+  uit[overzicht] = zet(overzichtPagina(G, { secties: secties.map(([n, k]) => [vertaalTekst(gegevens.boek, n), k]), css, voor }), `${ORIGIN}/verhalen`);
   return uit;
 }
 

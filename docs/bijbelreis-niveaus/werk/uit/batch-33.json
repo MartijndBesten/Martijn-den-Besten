@@ -1,0 +1,788 @@
+{
+  "159": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "mizpa",
+        "gibeon",
+        "je_tachpanhes"
+      ],
+      "delen": [
+        {
+          "t": "De koning van Babel heeft Gedalja over het land gesteld. Gedalja woont in de stad Mizpa.",
+          "stap": "profeten:jeremia-egypte:0"
+        },
+        {
+          "t": "Dan komt Ismaël met tien mannen. Ze eten samen. Daarna doden ze Gedalja met het zwaard.",
+          "stap": "profeten:jeremia-egypte:0"
+        },
+        {
+          "t": "Ismaël neemt de mensen van Mizpa gevangen mee. Maar Johanan komt met zijn mannen. Bij Gibeon haalt hij de mensen terug.",
+          "stap": "profeten:jeremia-egypte:2"
+        },
+        {
+          "t": "Nu zijn de mensen bang voor de koning van Babel. Ze willen naar Egypte gaan. Bij Bethlehem stoppen ze.",
+          "stap": "profeten:jeremia-egypte:3"
+        },
+        {
+          "t": "Ze vragen de profeet Jeremia: “Bid voor ons tot de HEERE.” En ze beloven: “Wij zullen doen wat Hij zegt.”",
+          "stap": "profeten:jeremia-egypte:4"
+        },
+        {
+          "t": "Na tien dagen geeft God antwoord. Hij zegt: “Blijf in dit land. Ik zal bij jullie zijn.”",
+          "stap": "profeten:jeremia-egypte:5"
+        },
+        {
+          "t": "Maar ze luisteren niet. Ze zeggen tegen Jeremia: “Je liegt.” En ze gaan toch naar Egypte.",
+          "stap": "profeten:jeremia-egypte:6"
+        },
+        {
+          "t": "Jeremia en Baruch moeten mee. Ze komen in de stad Tachpanhes, in Egypte.",
+          "stap": "profeten:jeremia-egypte:6"
+        },
+        {
+          "t": "Ook in Egypte spreekt Jeremia de woorden van God. Maar de mensen dienen andere goden. Ze zeggen: “Wij luisteren niet naar jou.”",
+          "stap": "profeten:jeremia-egypte:9"
+        }
+      ],
+      "samen": "Weggelaten: Ismaël doodt ook andere mannen en werpt hen in een kuil (Jeremia 41:3–9), en Jeremia moet stenen verbergen bij het huis van Farao (43:8–13). In Egypte offeren de Joden aan de ‘Melecheth des hemels’: een afgod, de koningin van de hemel (44:17). Het volk had beloofd te gehoorzamen, ‘hetzij dan goed of kwaad’ (42:6), maar deed het niet. Vraag samen: wat beloofde God als ze in het land bleven? (42:10–11)",
+      "vragen": [
+        {
+          "q": "Waar vragen de mensen Jeremia om?",
+          "a": [
+            "Om voor hen te bidden",
+            "Om met hen te vechten"
+          ],
+          "why": "Jeremia 42:2"
+        },
+        {
+          "q": "Waar moeten ze volgens God blijven?",
+          "a": [
+            "In hun eigen land",
+            "In Egypte"
+          ],
+          "why": "Jeremia 42:10"
+        },
+        {
+          "q": "Wie moeten er mee naar Egypte?",
+          "a": [
+            "Jeremia en Baruch",
+            "Gedalja en Ismaël"
+          ],
+          "why": "Jeremia 43:6"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Gedalja wordt gedood",
+          "stap": "profeten:jeremia-egypte:0",
+          "t": "De koning van Babel heeft Gedalja over het land gesteld. In de zevende maand komt Ismaël, iemand uit de koninklijke familie, met tien mannen naar Mizpa. Ze eten samen, en dan doden ze Gedalja. Ismaël neemt de mensen van Mizpa gevangen mee. Maar bij het grote water bij Gibeon haalt Johanan hen terug."
+        },
+        {
+          "kop": "Een vraag aan de HEERE",
+          "stap": "profeten:jeremia-egypte:5",
+          "t": "Het volk is bang voor de Chaldeeën, het volk van Babel. Ze willen naar Egypte. Eerst vragen ze de profeet Jeremia om voor hen te bidden. Ze beloven te doen wat de HEERE zegt, ‘hetzij dan goed of kwaad’. Na tien dagen komt het antwoord: blijf in dit land, dan zal God met jullie zijn en jullie redden. Wie naar Egypte gaat, zal daar sterven."
+        },
+        {
+          "kop": "Toch naar Egypte",
+          "stap": "profeten:jeremia-egypte:6",
+          "t": "Johanan en de trotse mannen zeggen tegen Jeremia: ‘Gij spreekt leugen’. Ze gehoorzamen de HEERE niet en trekken naar Tachpanhes in Egypte. Ook Jeremia en Baruch moeten mee. In Egypte brengen de Joden offers aan andere goden, ook aan de ‘Melecheth des hemels’, de koningin van de hemel. Jeremia waarschuwt hen, maar ze zeggen: ‘wij zullen naar u niet horen.’"
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom wilde het volk naar Egypte?",
+          "a": [
+            "Ze waren bang voor de Chaldeeën",
+            "Er was geen water meer in Juda",
+            "Farao had hen uitgenodigd"
+          ],
+          "why": "Jeremia 41:17–18"
+        },
+        {
+          "q": "Wie was Ismaël?",
+          "a": [
+            "Iemand uit de koninklijke familie",
+            "Een profeet uit Jeruzalem",
+            "Een legeroverste van Babel"
+          ],
+          "why": "Jeremia 41:1"
+        },
+        {
+          "q": "Wat zei God dat er zou gebeuren als ze naar Egypte gingen?",
+          "a": [
+            "Ze zouden daar sterven door zwaard en honger",
+            "Ze zouden daar veilig zijn voor oorlog",
+            "Ze zouden later naar Babel moeten"
+          ],
+          "why": "Jeremia 42:16–17"
+        },
+        {
+          "q": "Wie moesten er mee naar Egypte?",
+          "a": [
+            "Jeremia en Baruch",
+            "Ismaël en zijn mannen",
+            "Gedalja en zijn soldaten"
+          ],
+          "why": "Jeremia 43:6"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "De koningin van de hemel",
+          "t": "‘Melecheth des hemels’ wordt meestal vertaald als: koningin van de hemel. Al in Jeruzalem had Jeremia erover gesproken: ‘De kinderen lezen hout op, en de vaders steken het vuur aan, en de vrouwen kneden het deeg, om gebeelde koeken te maken voor de Melecheth des hemels’ (Jeremia 7:18). In Egypte doen de vrouwen het nog steeds. Hun mannen weten ervan (44:15), en de vrouwen vragen: doen wij dat ‘zonder onze mannen?’ (44:19). Ze zeggen dat het hun goed ging zolang ze offerden (44:17–18). Jeremia zegt het omgekeerde: juist daarom is het land verwoest (44:22–23). Welke godin precies bedoeld is, zegt de Bijbel niet.",
+          "refs": [
+            "Jeremia 7:18",
+            "Jeremia 44:15–23"
+          ]
+        },
+        {
+          "kop": "Ook in Egypte niet veilig",
+          "t": "God noemt wat het volk zegt: in Egypte zullen ze ‘geen krijg’ zien en niet ‘naar brood’ hongeren (42:13–14). Maar God zegt dat ‘het zwaard, waar gij voor vreest, u aldaar in Egypteland zal achterhalen’ (42:16). In Tachpanhes noemt God Nebukadnezar ‘Mijn knecht’ (43:10), zoals al eerder in Jeremia 25:9 en 27:6. Nebukadnezar zal ‘komen en Egypteland slaan’ (43:11). Als teken zal God Farao Hofra, de koning van Egypte, in de hand van zijn vijanden geven, zoals Hij Zedekia aan Nebukadnezar gegeven heeft (44:30).",
+          "refs": [
+            "Jeremia 42:13–16",
+            "Jeremia 43:10–11",
+            "Jeremia 25:9",
+            "Jeremia 27:6",
+            "Jeremia 44:29–30"
+          ]
+        },
+        {
+          "kop": "Baruch",
+          "t": "Baruch, de zoon van Nerija, schreef ‘uit den mond van Jeremia alle woorden des HEEREN’ op een boekrol (Jeremia 36:4). Volgens Azaria, Johanan en de trotse mannen hitst Baruch Jeremia tegen hen op (43:3). Toch had God Baruch een belofte gedaan: ‘Ik zal u uw ziel tot een buit geven, in alle plaatsen, waar gij zult henentrekken’ (Jeremia 45:5). Dat betekent: waar hij ook heen moest, hij zou zijn leven behouden. Nu moet hij met Jeremia mee naar Egypte (43:6).",
+          "refs": [
+            "Jeremia 36:4",
+            "Jeremia 43:3–6",
+            "Jeremia 45:5"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wie kneedden volgens Jeremia 7:18 het deeg voor de koeken?",
+          "a": [
+            "De vrouwen",
+            "De priesters",
+            "De kinderen"
+          ],
+          "why": "Jeremia 7:18"
+        },
+        {
+          "q": "Hoe noemt God Nebukadnezar in Jeremia 43:10?",
+          "a": [
+            "Mijn knecht",
+            "Mijn zoon",
+            "Mijn herder"
+          ],
+          "why": "Jeremia 43:10"
+        },
+        {
+          "q": "Wat beloofde God aan Baruch?",
+          "a": [
+            "Dat hij zijn leven zou behouden",
+            "Dat hij in Juda mocht blijven",
+            "Dat hij koning zou worden"
+          ],
+          "why": "Jeremia 45:5"
+        }
+      ]
+    }
+  },
+  "160": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "babelst",
+        "susan",
+        "salem"
+      ],
+      "delen": [
+        {
+          "t": "Ezra is priester. Hij kent de wet van God heel goed. Met veel mensen reist hij van Babel naar Jeruzalem.",
+          "stap": "ezra:nehemia:0"
+        },
+        {
+          "t": "Ze vragen de koning geen soldaten om hen te beschermen. Ze vasten en bidden. En God beschermt hen onderweg.",
+          "stap": "ezra:nehemia:0"
+        },
+        {
+          "t": "Nehemia werkt in het paleis van de koning, in Susan. Hij hoort dat de muur van Jeruzalem kapot is. Dan huilt hij en bidt hij tot God.",
+          "stap": "ezra:nehemia:1"
+        },
+        {
+          "t": "De koning ziet dat Nehemia verdrietig is. Nehemia bidt. Dan mag hij naar Jeruzalem om de stad te bouwen.",
+          "stap": "ezra:nehemia:2"
+        },
+        {
+          "t": "In de nacht bekijkt Nehemia de kapotte muur. Dan zegt hij: “Kom, laten we de muur bouwen!”",
+          "stap": "ezra:nehemia:3"
+        },
+        {
+          "t": "Heel veel mensen bouwen mee. Iedereen werkt aan een eigen stuk van de muur.",
+          "stap": "ezra:nehemia:4"
+        },
+        {
+          "t": "Sanballat en Tobia lachen de bouwers uit. Ze willen hen aanvallen. Daarom hebben de bouwers een zwaard bij zich.",
+          "stap": "ezra:nehemia:4"
+        },
+        {
+          "t": "In tweeënvijftig dagen is de muur klaar. Nu merken ook de vijanden: dit heeft God gedaan.",
+          "stap": "ezra:nehemia:5"
+        },
+        {
+          "t": "Daarna leest Ezra de wet van God voor aan het hele volk. Ze vieren feest en wonen in hutten van takken.",
+          "stap": "ezra:nehemia:6"
+        }
+      ],
+      "samen": "Weggelaten: de lijst van wie welk stuk van de muur bouwde (Nehemia 3) en de listen van de vijanden (6:2–14). Nehemia bad dagenlang (1:4–11), maar ook midden in een gesprek met de koning (2:4). Bij het Loofhuttenfeest woonde het volk zeven dagen in hutten van takken (8:15–19). Vraag samen: wat deed Nehemia toen hij het slechte nieuws over Jeruzalem hoorde? (1:4)",
+      "vragen": [
+        {
+          "q": "Wat hoort Nehemia over Jeruzalem?",
+          "a": [
+            "De muur is kapot",
+            "Er is een nieuwe koning"
+          ],
+          "why": "Nehemia 1:3"
+        },
+        {
+          "q": "Wat doet Nehemia als hij het hoort?",
+          "a": [
+            "Hij huilt en bidt tot God",
+            "Hij gaat boos naar de koning"
+          ],
+          "why": "Nehemia 1:4"
+        },
+        {
+          "q": "Wat leest Ezra voor aan het volk?",
+          "a": [
+            "De wet van God",
+            "Een brief van de koning"
+          ],
+          "why": "Nehemia 8:2–4"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Ezra komt naar Jeruzalem",
+          "stap": "ezra:nehemia:0",
+          "t": "Ezra is priester en schriftgeleerde: iemand die de wet van God kent en uitlegt. Hij reist van Babel naar Jeruzalem. Hij schaamt zich om de koning soldaten te vragen, want ze hadden tegen de koning gezegd: ‘De hand onzes Gods is ten goede over allen, die Hem zoeken’. Dat betekent: God helpt wie Hem zoekt. Ze vasten en bidden bij de rivier Ahava, en God beschermt hen."
+        },
+        {
+          "kop": "Slecht nieuws in Susan",
+          "stap": "ezra:nehemia:2",
+          "t": "Nehemia is schenker van de koning in Susan. Hij hoort dat de muur van Jeruzalem kapot is. Hij huilt, vast en bidt. Als de koning vraagt wat hij wil, bidt hij eerst tot God. Hij vraagt of hij de stad mag bouwen, en de koning zegt ja."
+        },
+        {
+          "kop": "Bouwen met een zwaard",
+          "stap": "ezra:nehemia:4",
+          "t": "Priesters, goudsmeden en anderen bouwen mee. Sanballat en Tobia spotten en dreigen. Daarom heeft elke bouwer een zwaard bij zich. In tweeënvijftig dagen is de muur klaar."
+        },
+        {
+          "kop": "De wet wordt voorgelezen",
+          "stap": "ezra:nehemia:6",
+          "t": "Ezra leest het volk de hele morgen de wet voor. De Levieten leggen uit wat het betekent. Het volk huilt, maar ze horen: ‘de blijdschap des HEEREN, die is uw sterkte’. Daarna wonen ze zeven dagen in hutten van takken."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom vastten Ezra en het volk bij de rivier Ahava?",
+          "a": [
+            "Om God te vragen om een rechte weg",
+            "Omdat er geen eten meer was",
+            "Omdat de koning het had bevolen"
+          ],
+          "why": "Ezra 8:21"
+        },
+        {
+          "q": "Wie spotten met de bouwers van de muur?",
+          "a": [
+            "Sanballat en Tobia",
+            "Ezra en de Levieten",
+            "Hanani en zijn mannen"
+          ],
+          "why": "Nehemia 4:1–3"
+        },
+        {
+          "q": "Waarom had elke bouwer een zwaard bij zich?",
+          "a": [
+            "De vijanden wilden hen aanvallen",
+            "Er waren wilde dieren in de stad",
+            "De koning had het zo bevolen"
+          ],
+          "why": "Nehemia 4:8–18"
+        },
+        {
+          "q": "Wat deden de Levieten toen de wet werd voorgelezen?",
+          "a": [
+            "Ze legden uit wat het betekende",
+            "Ze bliezen op de bazuinen",
+            "Ze bouwden verder aan de muur"
+          ],
+          "why": "Nehemia 8:8–9"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Bidden met Gods eigen woorden",
+          "t": "In zijn gebed herinnert Nehemia God aan wat Hij door Mozes gezegd had: bij ontrouw zou Hij het volk onder de volken verstrooien (Leviticus 26:33), maar als ze zich bekeren, zal Hij hen terugbrengen, ‘al waren uw verdrevenen aan het einde des hemels’ (Nehemia 1:8–9). Zo staat het ook in Deuteronomium 30:1–4. Nehemia belijdt eerst de zonden van het volk, ook zijn eigen zonden: ‘ook ik en mijns vaders huis, wij hebben gezondigd’ (Nehemia 1:6). Daarna pas vraagt hij om hulp.",
+          "refs": [
+            "Nehemia 1:6–9",
+            "Leviticus 26:33",
+            "Deuteronomium 30:1–4"
+          ]
+        },
+        {
+          "kop": "Waarom in hutten?",
+          "t": "Het Loofhuttenfeest staat in de wet: ‘Zeven dagen zult gij in de loofhutten wonen’, ‘opdat uw geslachten weten, dat Ik de kinderen Israëls in loofhutten heb doen wonen, als Ik hen uit Egypteland uitgevoerd heb’ (Leviticus 23:42–43). Bij Ezra ontdekken ze dat gebod opnieuw (Nehemia 8:14–15). De Bijbel zegt dat het volk zo niet meer gedaan had ‘sinds de dagen van Jesua, den zoon van Nun’ (Nehemia 8:17–18). Jesua is een andere schrijfwijze van Jozua. Ook las men elke dag uit het wetboek, zeven dagen lang (8:18–19).",
+          "refs": [
+            "Leviticus 23:42–43",
+            "Nehemia 8:14–19"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Ezra komt in het zevende jaar van koning Arthahsasta, Nehemia in het twintigste jaar. Als dat Artaxerxes I is, zoals de meeste uitleggers aannemen, zijn dat de jaren 458 en 445 v.Chr. Sommigen dateren Ezra later, onder Artaxerxes II. Susan is een bekende plaats; waar de rivier Ahava stroomde, weten we niet.",
+          "refs": [
+            "Ezra 7:7–8",
+            "Nehemia 2:1",
+            "Ezra 8:21"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Wat deed Nehemia in zijn gebed, voordat hij om hulp vroeg?",
+          "a": [
+            "Hij beleed de zonden van het volk",
+            "Hij noemde de namen van de poorten",
+            "Hij vroeg God de vijanden te doden"
+          ],
+          "why": "Nehemia 1:6–7"
+        },
+        {
+          "q": "Waaraan moest het wonen in loofhutten herinneren?",
+          "a": [
+            "Aan de tocht uit Egypte",
+            "Aan de bouw van de tempel",
+            "Aan de reis van Babel naar Jeruzalem"
+          ],
+          "why": "Leviticus 23:43"
+        },
+        {
+          "q": "Sinds wiens dagen was het Loofhuttenfeest niet meer zo gevierd?",
+          "a": [
+            "Jesua, de zoon van Nun",
+            "Koning Salomo",
+            "De profeet Samuël"
+          ],
+          "why": "Nehemia 8:17–18"
+        }
+      ]
+    }
+  },
+  "165": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "nt_thessalonica",
+        "nt_athene",
+        "nt_korinthe"
+      ],
+      "delen": [
+        {
+          "t": "Paulus en Silas komen in de stad Thessalonica. Daar vertelt Paulus uit Gods Woord dat de Heere Jezus de Christus is.",
+          "stap": "handelingen:nt-paulus2:0"
+        },
+        {
+          "t": "Sommige mensen gaan geloven. Maar anderen worden jaloers en maken veel onrust. Daarom moeten Paulus en Silas in de nacht weg.",
+          "stap": "handelingen:nt-paulus2:0"
+        },
+        {
+          "t": "In de stad Berea luisteren de mensen goed. Elke dag zoeken ze zelf in de Schriften of het waar is.",
+          "stap": "handelingen:nt-paulus2:1"
+        },
+        {
+          "t": "Dan gaat Paulus naar Athene. Hij ziet dat de mensen daar veel afgoden dienen.",
+          "stap": "handelingen:nt-paulus2:2"
+        },
+        {
+          "t": "Paulus vertelt: God heeft de wereld gemaakt. Hij geeft alle mensen het leven en de adem.",
+          "stap": "handelingen:nt-paulus2:3"
+        },
+        {
+          "t": "Sommige mensen lachen hem uit. Maar een paar mensen gaan geloven, ook een vrouw die Damaris heet.",
+          "stap": "handelingen:nt-paulus2:3"
+        },
+        {
+          "t": "In Korinthe woont Paulus bij Aquila en Priscilla. Samen maken ze tenten.",
+          "stap": "handelingen:nt-paulus2:4"
+        },
+        {
+          "t": "In de nacht zegt de Heere tegen Paulus: “Wees niet bang. Blijf spreken, want Ik ben met je.”",
+          "stap": "handelingen:nt-paulus2:5"
+        },
+        {
+          "t": "Paulus blijft anderhalf jaar in Korinthe. Daarna vaart hij naar Efeze, en dan reist hij terug naar Antiochië.",
+          "stap": "handelingen:nt-paulus2:8"
+        }
+      ],
+      "samen": "Weggelaten: de onrust in Berea (Handelingen 17:13), de aanklacht bij de stadhouder Gallio in Korinthe (18:12–17) en de reis langs Caesarea en Jeruzalem (18:22). In Athene had Paulus een altaar gezien met het opschrift ‘DEN ONBEKENDEN GOD’ (17:23). Hij vertelt hun wie die God is. De Schriften zijn de boeken van het Oude Testament. Vraag samen: wat deden de mensen in Berea elke dag? (17:11)",
+      "vragen": [
+        {
+          "q": "Wat lezen de mensen in Berea elke dag?",
+          "a": [
+            "De Schriften",
+            "Brieven van de keizer"
+          ],
+          "why": "Handelingen 17:11"
+        },
+        {
+          "q": "Wat maken Paulus, Aquila en Priscilla samen?",
+          "a": [
+            "Tenten",
+            "Schepen"
+          ],
+          "why": "Handelingen 18:3"
+        },
+        {
+          "q": "Wat zegt de Heere in de nacht tegen Paulus?",
+          "a": [
+            "Wees niet bang",
+            "Ga gauw weg"
+          ],
+          "why": "Handelingen 18:9"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Thessalonica en Berea",
+          "stap": "handelingen:nt-paulus2:0",
+          "t": "In Thessalonica spreekt Paulus drie sabbatten lang in de synagoge, het gebedshuis van de Joden. Uit de Schriften laat hij zien dat de Christus moest lijden en opstaan, en dat ‘deze Jezus is de Christus’. Sommigen geloven, maar andere Joden worden jaloers en brengen de stad in opschudding. ’s Nachts gaan Paulus en Silas naar Berea. Daar onderzoeken de mensen elke dag de Schriften, ‘of deze dingen alzo waren’."
+        },
+        {
+          "kop": "De onbekende God",
+          "stap": "handelingen:nt-paulus2:3",
+          "t": "In Athene ziet Paulus dat de stad vol afgoden is. Op de Areopagus vertelt hij over een altaar met het opschrift ‘DEN ONBEKENDEN GOD’. Die God heeft de wereld gemaakt en woont niet in tempels die mensen bouwen. Nu roept Hij alle mensen op om zich te bekeren. Sommigen spotten, maar Dionysius en Damaris geloven."
+        },
+        {
+          "kop": "Een jaar en zes maanden in Korinthe",
+          "stap": "handelingen:nt-paulus2:5",
+          "t": "In Korinthe werkt Paulus bij Aquila en Priscilla als tentenmaker. ’s Nachts zegt de Heere: ‘Zijt niet bevreesd, maar spreek en zwijg niet.’ Paulus blijft er een jaar en zes maanden. De Joden klagen hem aan bij Gallio, de Romeinse stadhouder, maar die stuurt hen weg."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom moesten Paulus en Silas uit Thessalonica weg?",
+          "a": [
+            "Jaloerse Joden brachten de stad in opschudding",
+            "De keizer had hen uit de stad verbannen",
+            "Er brak een hongersnood uit in de stad"
+          ],
+          "why": "Handelingen 17:5–10"
+        },
+        {
+          "q": "Waarom worden de Joden van Berea ‘edeler’ genoemd?",
+          "a": [
+            "Ze onderzochten elke dag de Schriften",
+            "Ze gaven Paulus veel geld mee",
+            "Ze bouwden een nieuwe synagoge"
+          ],
+          "why": "Handelingen 17:11"
+        },
+        {
+          "q": "Wat zei Paulus in Athene over God?",
+          "a": [
+            "Hij heeft de wereld gemaakt",
+            "Hij woont in een tempel in Athene",
+            "Hij is een van de goden van Athene"
+          ],
+          "why": "Handelingen 17:24"
+        },
+        {
+          "q": "Wat deed stadhouder Gallio met de aanklacht van de Joden?",
+          "a": [
+            "Hij dreef hen weg van de rechterstoel",
+            "Hij liet Paulus gevangenzetten",
+            "Hij stuurde Paulus naar de keizer"
+          ],
+          "why": "Handelingen 18:14–16"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Woorden van hun eigen dichters",
+          "t": "In de synagoge begint Paulus bij de Schriften (17:2). Op de Areopagus begint hij bij wat de Atheners zelf kennen: hun altaar en hun dichters. Hij zegt: ‘gelijk ook enigen van uw poeten gezegd hebben: Want wij zijn ook Zijn geslacht’ (17:28). Volgens uitleggers komen die woorden van de Griekse dichter Aratus. Paulus trekt er zelf de conclusie uit: ‘Wij dan, zijnde Gods geslacht, moeten niet menen, dat de Godheid goud, of zilver, of steen gelijk zij’ (17:29).",
+          "refs": [
+            "Handelingen 17:2",
+            "Handelingen 17:28–29"
+          ]
+        },
+        {
+          "kop": "Wat Paulus later schreef",
+          "t": "Aan de gemeente in Thessalonica schrijft Paulus dat hij in Athene alleen achterbleef en Timotheüs naar hen toe stuurde, ‘om u te versterken’ (1 Thessalonicenzen 3:1–2). Hij weet hoe zij zich bekeerd hebben ‘van de afgoden, om den levenden en waarachtigen God te dienen’ (1 Thessalonicenzen 1:9). En aan de Korinthiërs schrijft hij hoe hij bij hen kwam: ‘in zwakheid, en in vreze, en in vele beving’ (1 Korinthe 2:3). In Korinthe zei de Heere tegen hem: ‘Zijt niet bevreesd’ (Handelingen 18:9).",
+          "refs": [
+            "1 Thessalonicenzen 3:1–2",
+            "1 Thessalonicenzen 1:9",
+            "1 Korinthe 2:3",
+            "Handelingen 18:9"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "Handelingen noemt geen jaartallen. Het vaste punt is Gallio, de stadhouder van Achaje (18:12). In Delphi is een inscriptie gevonden met een brief van keizer Claudius waarin Gallio genoemd wordt. Daaruit leidt men af dat hij omstreeks 51–52 n.Chr. stadhouder was. Daarom dateert men het verblijf in Korinthe meestal omstreeks 50–52 n.Chr.; andere chronologieën liggen een jaar eerder of later. Thessalonica, Berea, Athene, Korinthe en Kenchreeën zijn alle bekende plaatsen.",
+          "refs": [
+            "Handelingen 18:11–12"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Van wie kwamen de woorden ‘Want wij zijn ook Zijn geslacht’?",
+          "a": [
+            "Van enigen van hun eigen dichters",
+            "Van de profeet Jesaja",
+            "Van koning David"
+          ],
+          "why": "Handelingen 17:28"
+        },
+        {
+          "q": "Wie stuurde Paulus vanuit Athene naar Thessalonica?",
+          "a": [
+            "Timotheüs",
+            "Silas",
+            "Aquila"
+          ],
+          "why": "1 Thessalonicenzen 3:1–2"
+        },
+        {
+          "q": "Hoe was Paulus volgens 1 Korinthe 2:3 bij de Korinthiërs?",
+          "a": [
+            "In zwakheid, vreze en vele beving",
+            "Met grote macht en rijkdom",
+            "Met een brief van de keizer"
+          ],
+          "why": "1 Korinthe 2:3"
+        }
+      ]
+    }
+  },
+  "166": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": [
+        "nt_efeze",
+        "nt_troas",
+        "nt4_milete"
+      ],
+      "delen": [
+        {
+          "t": "Paulus gaat weer op reis. Hij bezoekt de discipelen en maakt hen sterk.",
+          "stap": "handelingen:nt-paulus3:0"
+        },
+        {
+          "t": "In de stad Efeze vertelt Paulus over de Heere Jezus. Dat doet hij twee jaar lang, elke dag.",
+          "stap": "handelingen:nt-paulus3:2"
+        },
+        {
+          "t": "Veel mensen hebben boeken over ‘ijdele kunsten’. Ze verbranden die boeken. Iedereen kan het zien.",
+          "stap": "handelingen:nt-paulus3:3"
+        },
+        {
+          "t": "Demetrius maakt kleine tempels van zilver voor de godin Diana. Hij zegt: “Paulus zegt dat beelden geen goden zijn.”",
+          "stap": "handelingen:nt-paulus3:4"
+        },
+        {
+          "t": "Dan komt er een groot oproer. Ongeveer twee uur lang roepen de mensen: “Groot is Diana!”",
+          "stap": "handelingen:nt-paulus3:4"
+        },
+        {
+          "t": "Later is Paulus in Troas. Hij spreekt tot middernacht. Een jongeman, Eutychus, zit in het raam.",
+          "stap": "handelingen:nt-paulus3:7"
+        },
+        {
+          "t": "Eutychus valt in slaap. Hij valt van heel hoog naar beneden. Als ze hem optillen, is hij dood.",
+          "stap": "handelingen:nt-paulus3:7"
+        },
+        {
+          "t": "Paulus gaat naar beneden en slaat zijn armen om hem heen. Hij zegt: ‘Weest niet beroerd; want zijn ziel is in hem.’"
+        },
+        {
+          "t": "Ze brengen de jongen levend terug. Iedereen is erg getroost."
+        },
+        {
+          "t": "In Milete neemt Paulus afscheid van de ouderlingen van Efeze. Hij bidt met hen, en ze huilen allemaal.",
+          "stap": "handelingen:nt-paulus3:9"
+        }
+      ],
+      "samen": "Over Eutychus zegt de Bijbel dat hij ‘dood opgenomen’ werd en dat ze hem ‘levende’ terugbrachten (Handelingen 20:9–12). ‘Weest niet beroerd’ betekent: wees niet ontsteld. Bij ‘ijdele kunsten’ (19:19) denken uitleggers aan toverij. Paulus ‘viel op hem’ (20:10); zo strekten ook Elia en Elisa zich uit over een gestorven kind (1 Koningen 17:21; 2 Koningen 4:34). Weggelaten: Apollos (18:24–28), de zonen van Sceva (19:13–16) en de reis naar Griekenland (20:1–6). Vraag samen: wat zei Paulus bij Eutychus? (20:10)",
+      "vragen": [
+        {
+          "q": "Wat verbranden de mensen in Efeze?",
+          "a": [
+            "Hun boeken",
+            "Hun huizen"
+          ],
+          "why": "Handelingen 19:19"
+        },
+        {
+          "q": "Wat gebeurt er als Eutychus in slaap valt?",
+          "a": [
+            "Hij valt naar beneden",
+            "Hij valt in de rivier"
+          ],
+          "why": "Handelingen 20:9"
+        },
+        {
+          "q": "Wat doet Paulus in Milete met de ouderlingen?",
+          "a": [
+            "Hij bidt met hen",
+            "Hij bouwt een huis met hen"
+          ],
+          "why": "Handelingen 20:36"
+        }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        {
+          "kop": "Twee jaar in Efeze",
+          "stap": "handelingen:nt-paulus3:2",
+          "t": "Paulus komt in Efeze. Hij spreekt drie maanden in de synagoge en twee jaar in de school van Tyrannus. Zo horen allen die in Asia wonen het Woord van de Heere Jezus. Velen verbranden hun boeken over ‘ijdele kunsten’ (uitleggers denken aan toverij)."
+        },
+        {
+          "kop": "Oproer om Diana",
+          "stap": "handelingen:nt-paulus3:4",
+          "t": "De zilversmid Demetrius maakt zilveren tempeltjes van de godin Diana. Volgens hem leert Paulus dat goden die met handen gemaakt worden, geen goden zijn. De menigte loopt naar de schouwplaats, het theater, en roept ongeveer twee uur lang: ‘Groot is de Diana der Efezeren!’ De stadsschrijver brengt hen tot rust."
+        },
+        {
+          "kop": "Eutychus in Troas",
+          "stap": "handelingen:nt-paulus3:7",
+          "t": "In Troas spreekt Paulus tot middernacht. De jongeman Eutychus zit in het venster, valt in een diepe slaap en stort van de derde verdieping naar beneden. Hij wordt dood opgenomen. Paulus omarmt hem en zegt: ‘zijn ziel is in hem.’ Ze brengen hem levend terug."
+        },
+        {
+          "kop": "Afscheid in Milete",
+          "stap": "handelingen:nt-paulus3:9",
+          "t": "In Milete zegt Paulus tegen de ouderlingen van Efeze dat ze hem niet meer zullen zien. Hij knielt en bidt met hen allen, en ze huilen."
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Waarom kwamen de zilversmeden in Efeze in opstand?",
+          "a": [
+            "Paulus leerde dat met handen gemaakte goden geen goden zijn",
+            "Paulus had hun werkplaatsen laten sluiten",
+            "Paulus wilde de tempel van Diana afbreken"
+          ],
+          "why": "Handelingen 19:25–27"
+        },
+        {
+          "q": "Waar sprak Paulus twee jaar lang elke dag?",
+          "a": [
+            "In de school van Tyrannus",
+            "In de synagoge van Efeze",
+            "In de schouwplaats van Efeze"
+          ],
+          "why": "Handelingen 19:9–10"
+        },
+        {
+          "q": "Hoe kwam het dat Eutychus naar beneden viel?",
+          "a": [
+            "Hij viel in slaap terwijl Paulus lang sprak",
+            "Iemand duwde hem uit het venster",
+            "Het venster brak onder hem"
+          ],
+          "why": "Handelingen 20:9"
+        },
+        {
+          "q": "Waarover waren de ouderlingen in Milete het meest bedroefd?",
+          "a": [
+            "Dat ze Paulus niet meer zouden zien",
+            "Dat Efeze verwoest zou worden",
+            "Dat Paulus niet met hen wilde bidden"
+          ],
+          "why": "Handelingen 20:38"
+        }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        {
+          "kop": "Ouderlingen en opzieners",
+          "t": "Paulus laat ‘de ouderlingen der Gemeente’ uit Efeze komen (20:17). Tegen hen zegt hij dat de Heilige Geest hen ‘tot opzieners gesteld heeft, om de Gemeente Gods te weiden’ (20:28). Ouderling en opziener zijn hier dus dezelfde mensen. Ook in de brief aan Titus staan de twee woorden naast elkaar: Titus moest in elke stad ouderlingen stellen, ‘want een opziener moet onberispelijk zijn’ (Titus 1:5–7). Weiden is het werk van een herder: Paulus noemt de gemeente ‘de gehele kudde’.",
+          "refs": [
+            "Handelingen 20:17",
+            "Handelingen 20:28",
+            "Titus 1:5–7"
+          ]
+        },
+        {
+          "kop": "Diana van de Efeziërs",
+          "t": "De stadsschrijver noemt Efeze ‘de kerkbewaarster’ van de grote godin Diana: de stad die haar tempel bewaart. Hij spreekt ook van ‘het beeld, dat uit den hemel gevallen is’ (19:35). Over de reisgenoten van Paulus zegt hij dat ze ‘noch kerkrovers zijn, noch uw godin lasteren’ (19:37). Volgens Demetrius had Paulus wel gezegd ‘dat het geen goden zijn, die met handen gemaakt worden’ (19:26). In de Griekse tekst van Handelingen heet zij Artemis; Diana is haar Latijnse naam.",
+          "refs": [
+            "Handelingen 19:26",
+            "Handelingen 19:35–37"
+          ]
+        },
+        {
+          "kop": "Waar en wanneer",
+          "t": "In Efeze sprak Paulus drie maanden in de synagoge en twee jaar in de school van Tyrannus (19:8–10); zelf spreekt hij van ‘drie jaren lang’ (20:31). De terugreis was in het voorjaar: na ‘de dagen der ongehevelde broden’ (20:6), en Paulus wilde op de Pinksterdag in Jeruzalem zijn (20:16). De Bijbel noemt geen jaartal. Meestal komt men uit op ca. 52–57 n.Chr.; andere chronologieën liggen een of twee jaar eerder of later.",
+          "refs": [
+            "Handelingen 19:8–10",
+            "Handelingen 20:6",
+            "Handelingen 20:16",
+            "Handelingen 20:31"
+          ]
+        }
+      ],
+      "vragen": [
+        {
+          "q": "Hoe noemt Paulus de ouderlingen van Efeze in Handelingen 20:28?",
+          "a": [
+            "Opzieners",
+            "Apostelen",
+            "Profeten"
+          ],
+          "why": "Handelingen 20:28"
+        },
+        {
+          "q": "Wat zei de stadsschrijver over de reisgenoten van Paulus?",
+          "a": [
+            "Ze zijn geen kerkrovers en lasteren de godin niet",
+            "Ze zijn tovenaars uit Macedonië",
+            "Ze hebben de tempel van Diana beroofd"
+          ],
+          "why": "Handelingen 19:37"
+        },
+        {
+          "q": "Hoe lang heeft Paulus volgens zijn eigen woorden in Efeze vermaand?",
+          "a": [
+            "Drie jaren lang",
+            "Drie maanden lang",
+            "Zeven dagen lang"
+          ],
+          "why": "Handelingen 20:31"
+        }
+      ]
+    }
+  }
+}

@@ -163,7 +163,7 @@ describe("inhoud van de presentatie", () => {
   });
   it("geeft niets bij een onbekend deel of een geschiedenis die niet bestaat", () => {
     expect(IN.maak(BR, IN.lees("#bestaat-niet"))).toBeNull();
-    expect(IN.maak(BR, IN.lees("#v151"))).toBeNull();
+    expect(IN.maak(BR, IN.lees("#v999"))).toBeNull();
   });
 });
 

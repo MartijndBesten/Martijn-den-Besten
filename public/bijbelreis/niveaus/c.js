@@ -5835,4 +5835,522 @@ BR.niveaus.voegToe("c", {
       },
     ],
   },
+  151: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Elders in de Bijbel",
+        t: "Silo bleef lang de plaats van de tent van de HEERE. In de dagen van Eli ging Elkana er ‘van jaar tot jaar’ heen om te offeren (1 Samuël 1:3). Later zegt Psalm 78: ‘Dies verliet Hij den tabernakel te Silo’ (78:60). Jeremia gebruikt Silo als waarschuwing voor Jeruzalem: ‘Want gaat nu henen naar Mijn plaats, die te Silo was, alwaar Ik Mijn Naam in het eerst had doen wonen’ (Jeremia 7:12). Jozua zelf werd begraven in zijn eigen erfdeel, te Timnath-Serah (Jozua 24:30).",
+        refs: ["1 Samuël 1:3", "Psalm 78:60", "Jeremia 7:12", "Jozua 24:30"],
+      },
+      {
+        kop: "Achtergrond: de vrijsteden",
+        t: "Mozes had de vrijsteden al geboden (Numeri 35:9–15). De zes vrijsteden horen bij de steden van de Levieten: ‘zes vrijsteden … en boven dezelve zult gij hun twee en veertig steden geven’ (Numeri 35:6). Zo was Hebron zowel een priesterstad als een vrijstad (Jozua 21:13). Israël moest ‘den weg bereiden’, zodat een doodslager er kon komen (Deuteronomium 19:3). Wie in de vrijstad woonde, bleef daar ‘tot den dood des hogepriesters, dien men met de heilige olie gezalfd heeft’ (Numeri 35:25).",
+        refs: ["Numeri 35:9–15", "Numeri 35:6", "Jozua 21:13", "Deuteronomium 19:3", "Numeri 35:25"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Silo, Sichem, Hebron en Ramoth in Gilead zijn bekende plaatsen. Timnath-Serah ligt waarschijnlijk op de plek op de kaart. Waar Kedes lag, is betwist, en van Bezer weten we niet waar het lag. De stamgebieden staan op de kaart als streken: hoe de grenzen precies liepen, is lang niet overal bekend. De Bijbel noemt geen jaar. Kaleb was veertig toen hij het land verspiedde en is nu vijfentachtig (Jozua 14:7, 10). Wie de uittocht rond 1446 v.Chr. dateert, komt op ongeveer 1400 v.Chr.; wie de uittocht in de 13e eeuw dateert, bijna twee eeuwen later.",
+        refs: ["Jozua 14:7–10", "Jozua 20:7–8"],
+      },
+    ],
+    vragen: [
+      { q: "Waar werd Jozua begraven?", a: ["In Timnath-Serah", "In Silo", "In Hebron"], why: "Jozua 24:30" },
+      { q: "Welke profeet gebruikte Silo als waarschuwing voor Jeruzalem?", a: ["Jeremia", "Jesaja", "Ezechiël"], why: "Jeremia 7:12" },
+      {
+        q: "Wat moest Israël volgens Deuteronomium 19 doen voor wie naar een vrijstad vluchtte?",
+        a: ["De weg ernaartoe bereiden", "Er een hoge muur omheen bouwen", "Er elk jaar een feest houden"],
+        why: "Deuteronomium 19:3",
+      },
+    ],
+  },
+  152: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Elders in de Bijbel",
+        t: "De Statenvertaling noemt Ehud ‘een zoon van Jemini’ (Richteren 3:15). Zo noemt ook Saul zichzelf: ‘Ben ik niet een zoon van Jemini’; in hetzelfde vers spreekt hij van ‘den stam van Benjamin’, en zijn vader Kis heet ‘een man van Benjamin’ (1 Samuël 9:1, 21). ‘Zoon van Jemini’ betekent dus: iemand uit de stam Benjamin. Uit Benjamin kwamen later ook ‘zevenhonderd uitgelezene mannen, welke links waren’ (Richteren 20:16), en mannen die ‘rechts en links met stenen’ wierpen (1 Kronieken 12:2). Samgar wordt nog eens genoemd in het lied van Debora: ‘In de dagen van Samgar, den zoon van Anath’ (Richteren 5:6).",
+        refs: ["Richteren 3:15", "1 Samuël 9:1", "1 Samuël 9:21", "Richteren 20:16", "1 Kronieken 12:2", "Richteren 5:6"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "De Palmstad is Jericho: Deuteronomium 34:3 spreekt van ‘Jericho, de palmstad’. Gilgal ligt waarschijnlijk op de plek op de kaart. Waar Sehirath lag, weten we niet; daarom staat op de kaart alleen het gebergte van Efraïm. Ehud valt vóór Debora: Richteren 4:1 zegt dat Israël weer kwaad deed, ‘als Ehud gestorven was’. De Bijbel noemt geen jaartal. Wie met 1 Koningen 6:1 de intocht rond 1406 v.Chr. stelt, komt voor de eerste richters in de 14e eeuw v.Chr. uit. Veel uitleggers nemen aan dat perioden van richters elkaar overlappen; wie de uittocht in de 13e eeuw dateert, komt later uit.",
+        refs: ["Deuteronomium 34:3", "Richteren 3:26", "Richteren 4:1", "1 Koningen 6:1"],
+      },
+    ],
+    vragen: [
+      { q: "Wie noemde zichzelf later ook ‘een zoon van Jemini’?", a: ["Saul", "David", "Samuël"], why: "1 Samuël 9:21" },
+      {
+        q: "In welk lied wordt Samgar later genoemd?",
+        a: ["Het lied van Debora", "Het lied van Mozes", "Het lied van Hanna"],
+        why: "Richteren 5:6",
+      },
+      {
+        q: "Welke richter noemt Richteren 4:1 aan het begin van de geschiedenis van Debora?",
+        a: ["Ehud", "Othniël", "Gideon"],
+        why: "Richteren 4:1",
+      },
+    ],
+  },
+  153: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Achtergrond: een gelofte",
+        t: "Een gelofte is een belofte aan God. De wet zegt: ‘Wanneer gij den HEERE, uw God, een gelofte zult beloofd hebben, gij zult niet vertrekken die te betalen’ (Deuteronomium 23:21). Daar staat ook: ‘Maar als gij nalaat te beloven, zo zal het geen zonde in u zijn’ (23:22). Jefta zegt tegen zijn dochter: ‘ik heb mijn mond opengedaan tot den HEERE, en ik zal niet kunnen teruggaan’ (Richteren 11:35). Zij antwoordt: ‘doe mij, gelijk als uit uw mond gegaan is’ (11:36).",
+        refs: ["Deuteronomium 23:21–22", "Richteren 11:35–36"],
+      },
+      {
+        kop: "Elders in de Bijbel",
+        t: "Samuël noemt Jefta bij de mannen die de HEERE zond om Israël te verlossen: ‘En de HEERE zond Jerubbaäl, en Bedan, en Jeftha, en Samuël’ (1 Samuël 12:11). In zijn boodschap noemt Jefta ook de god van de vijand: ‘uw god Kamos’ (Richteren 11:24). Ook in Genesis heet een plaats in Gilead Mizpa: daar zei Laban ‘Dat de HEERE opzicht neme tussen mij en tussen u’ (Genesis 31:49). Of dat dezelfde plaats is als het Mizpa van Jefta, weten we niet zeker.",
+        refs: ["1 Samuël 12:11", "Richteren 11:24", "Genesis 31:48–49"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Het land Tob en Minnith staan op de kaart op hun waarschijnlijke plaats. Waar Mizpa in Gilead, Aroër en Abel-Keramim lagen, is onbekend. De Bijbel noemt geen jaartal. Een ijkpunt is Richteren 11:26: Jefta spreekt van driehonderd jaar sinds Israël in Hesbon en bij de Arnon woont. Wie met 1 Koningen 6:1 de intocht rond 1406 v.Chr. stelt, komt voor Jefta rond 1100 v.Chr. uit. Veel uitleggers nemen aan dat perioden van richters elkaar overlappen; wie de uittocht in de 13e eeuw dateert, komt later uit.",
+        refs: ["Richteren 11:26", "Richteren 11:33", "1 Koningen 6:1"],
+      },
+    ],
+    vragen: [
+      { q: "Welke god van de vijand noemt Jefta in zijn boodschap?", a: ["Kamos", "Dagon", "Baäl-Zebub"], why: "Richteren 11:24" },
+      {
+        q: "Wat beloofden de oudsten van Gilead, met de HEERE als toehoorder?",
+        a: ["Dat Jefta hun hoofd zou zijn", "Dat Jefta toch zou mogen erven", "Dat zij Tob voor hem zouden innemen"],
+        why: "Richteren 11:8–10",
+      },
+      {
+        q: "Hoeveel dagen per jaar gingen de dochters van Israël heen om de dochter van Jefta aan te spreken?",
+        a: ["Vier dagen", "Zeven dagen", "Twee dagen"],
+        why: "Richteren 11:40",
+      },
+    ],
+  },
+  154: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Wat de tekst zegt en wat niet",
+        t: "David wil weldadigheid doen aan Hanun, ‘gelijk als zijn vader weldadigheid aan mij gedaan heeft’ (2 Samuël 10:2). Welke weldaad Nahas aan David gedaan had, vertelt de Bijbel niet. In de tijd van Saul belegerde ‘Nahas, de Ammoniet’ Jabes in Gilead (1 Samuël 11:1). Later, als David voor Absalom vlucht, komt ‘Sobi, de zoon van Nahas, van Rabba der kinderen Ammons’ met eten en beddengoed naar David in Mahanaim (2 Samuël 17:27–29).",
+        refs: ["2 Samuël 10:2", "1 Samuël 11:1", "2 Samuël 17:27–29"],
+      },
+      {
+        kop: "Elders in de Bijbel",
+        t: "1 Kronieken vertelt dezelfde oorlogen. Over de afgoden van de Filistijnen staat daar: ‘David gebood, en zij werden met vuur verbrand’ (1 Kronieken 14:12). Van het koper uit de steden van Hadadezer ‘heeft Salomo de koperen zee, en de pilaren, en de koperen vaten gemaakt’ (1 Kronieken 18:8). En wat David aan de HEERE geheiligd had, bracht Salomo na de bouw van de tempel ‘onder de schatten van het huis des HEEREN’ (1 Koningen 7:51). Kronieken noemt de legeroverste van Hadadezer Sofach (1 Kronieken 19:16).",
+        refs: ["1 Kronieken 14:12", "1 Kronieken 18:8", "1 Koningen 7:51", "1 Kronieken 19:16"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Het dal Refaïm, Gezer, Damascus, Hamath, Rabba en Medeba zijn bekende plaatsen. Waar Baäl-Perazim en Helam lagen, is onbekend, en de plaats van het Zoutdal is betwist. De Bijbel noemt geen jaar. David regeerde drieëndertig jaar in Jeruzalem (2 Samuël 5:5), in de gangbare chronologie ca. 1003–970 v.Chr. Hoofdstuk 8 is een overzicht, en de tekst zegt alleen ‘daarna’ (8:1; 10:1). In welk jaar en in welke volgorde de oorlogen precies waren, weten we niet.",
+        refs: ["2 Samuël 5:5", "2 Samuël 8:1", "2 Samuël 10:1"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Welke zoon van Nahas bracht David later eten, toen hij voor Absalom vluchtte?",
+        a: ["Sobi", "Hanun", "Joram"],
+        why: "2 Samuël 17:27–29",
+      },
+      {
+        q: "Wat gebeurde er volgens 1 Kronieken met de afgoden van de Filistijnen?",
+        a: ["Ze werden met vuur verbrand", "Ze werden naar Gath teruggestuurd", "Ze werden in de Jordaan geworpen"],
+        why: "1 Kronieken 14:12",
+      },
+      {
+        q: "Waar bracht Salomo later wat David aan de HEERE geheiligd had?",
+        a: ["Onder de schatten van het huis van de HEERE", "In zijn eigen nieuwe paleis", "Naar Hiram, de koning van Tyrus"],
+        why: "1 Koningen 7:51",
+      },
+    ],
+  },
+  155: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Wat Koningen erbij vertelt",
+        t: "1 Koningen 15:9–24 vertelt ook over Asa, maar korter: zonder het leger van Zerah en zonder de woorden van Azaria en Hanani. Wel noemt Koningen de moeder van Asa: ‘Maacha, een dochter van Abisalom’ (1 Koningen 15:10). Met dezelfde woorden noemt 1 Koningen 15:2 de moeder van Abiam, zoals Koningen de vader van Asa noemt. Ook volgens 2 Kronieken 11:20–22 was Maächa, de dochter van Absalom, de moeder van Abia. Daarom wordt ‘moeder’ bij Asa meestal uitgelegd als grootmoeder; met zoveel woorden staat dat er niet. Over de ziekte zegt Koningen kort: ‘in den tijd zijns ouderdoms werd hij krank aan zijn voeten’ (1 Koningen 15:23).",
+        refs: ["1 Koningen 15:2", "1 Koningen 15:8", "1 Koningen 15:10", "1 Koningen 15:23", "2 Kronieken 11:20–22"],
+      },
+      {
+        kop: "Jehu, de zoon van Hanani",
+        t: "De ziener Hanani bestrafte Asa. Later kwam het woord van de HEERE tot ‘Jehu, den zoon van Hanani, tegen Baësa’, de koning die Rama bouwde: omdat Baësa wandelde in de weg van Jerobeam, zou God zijn huis wegdoen (1 Koningen 16:1–3). Ook ‘Jehu, de zoon van Hanani, de ziener’ ging naar Josafat, de zoon van Asa, met een bestraffing (2 Kronieken 19:2). Meestal wordt aangenomen dat het om dezelfde Jehu gaat, en dat hij een zoon is van de ziener Hanani die Asa bestrafte. Met zoveel woorden zegt de Bijbel dat niet.",
+        refs: ["1 Koningen 16:1–3", "2 Kronieken 19:2"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Maresa en Jeruzalem zijn aanwijsbare plaatsen. Welk dal bij Maresa het dal Zefatha was, weten we niet zeker. Ook de ligging van Gerar is waarschijnlijk, maar niet zeker, en over Rama verschillen de meningen. Asa regeerde eenenveertig jaar; in de gangbare chronologie is dat ca. 911–870 v.Chr. Dat is een reconstructie: de Bijbel noemt regeringsjaren, geen jaartallen.",
+        refs: ["2 Kronieken 14:9–10", "2 Kronieken 14:13", "2 Kronieken 16:1", "1 Koningen 15:10"],
+      },
+    ],
+    vragen: [
+      { q: "Wiens dochter was Maächa volgens 1 Koningen 15:10?", a: ["Van Abisalom", "Van Hanani", "Van Oded"], why: "1 Koningen 15:10" },
+      {
+        q: "Tegen welke koning sprak Jehu, de zoon van Hanani, het woord van de HEERE?",
+        a: ["Baësa", "Zerah", "Benhadad"],
+        why: "1 Koningen 16:1",
+      },
+      { q: "Hoe noemt 1 Koningen 15 de vader van Asa?", a: ["Abiam", "Abisalom", "Rehabeam"], why: "1 Koningen 15:8" },
+    ],
+  },
+  156: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Een lied dat vaker klinkt",
+        t: "De zangers van Josafat zingen: ‘Looft den HEERE, want Zijn goedertierenheid is tot in eeuwigheid!’ (2 Kronieken 20:21). Zo prezen de zangers God ook toen de ark in de tempel van Salomo werd gebracht: ‘dat Hij goed is, dat Zijn weldadigheid is tot in eeuwigheid’ (2 Kronieken 5:13). Bij de inwijding van de tempel loofde het volk Hem met bijna dezelfde woorden (2 Kronieken 7:3). Toen na de ballingschap het fundament van de nieuwe tempel werd gelegd, zongen ze weer zo (Ezra 3:11). En in Psalm 136 eindigt elk vers met ‘want Zijn goedertierenheid is in der eeuwigheid’.",
+        refs: ["2 Kronieken 20:21", "2 Kronieken 5:13", "2 Kronieken 7:3", "Ezra 3:11", "Psalm 136:1"],
+      },
+      {
+        kop: "Abraham, de liefhebber van God",
+        t: "In zijn gebed noemt Josafat Abraham ‘Uw liefhebber’ (2 Kronieken 20:7): God had het land aan zijn nakomelingen gegeven. Ook in Jesaja noemt God hem zo: ‘het zaad van Abraham, Mijn liefhebber!’ (Jesaja 41:8). En Jakobus schrijft dat Abraham ‘een vriend van God genaamd geweest’ is (Jakobus 2:23).",
+        refs: ["2 Kronieken 20:7", "Jesaja 41:8", "Jakobus 2:23"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "En-Gedi, Tekoa en Jeruzalem zijn aanwijsbare plaatsen. De opgang van Ziz is waarschijnlijk, maar niet zeker; waar de woestijn van Jeruël lag, weten we niet. Over de plek van het dal van Beracha bestaan verschillende voorstellen. De oorlog kwam na de dood van Achab en vóór het einde van de regering van Josafat: in de gangbare chronologie tussen ca. 853 en 848 v.Chr. Welk jaar precies, weten we niet.",
+        refs: ["2 Kronieken 20:1–2", "2 Kronieken 20:16", "2 Kronieken 20:31"],
+      },
+    ],
+    vragen: [
+      { q: "Hoe noemt Josafat Abraham in zijn gebed?", a: ["Uw liefhebber", "Uw eerstgeborene", "Onze koning"], why: "2 Kronieken 20:7" },
+      {
+        q: "Uit welke zonen kwam de Leviet Jahaziël?",
+        a: ["Uit de zonen van Asaf", "Uit de zonen van Korah", "Uit de zonen van Aäron"],
+        why: "2 Kronieken 20:14",
+      },
+      { q: "Welke Bijbelschrijver noemt Abraham een vriend van God?", a: ["Jakobus", "Lukas", "Petrus"], why: "Jakobus 2:23" },
+    ],
+  },
+  157: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Wat er daarna in Juda gebeurt",
+        t: "Ahazia, de koning van Juda, was ‘een schoonzoon van het huis van Achab’ (2 Koningen 8:27). Zijn moeder was Athalia, ‘de dochter van Omri’ (8:26): zij hoorde bij de familie van Achab. Toen zij zag dat haar zoon dood was, bracht zij ‘al het koninklijke zaad om’ (2 Koningen 11:1). Alleen het kleine kind Joas werd gered. Dat is geschiedenis 65. Let ook op de namen: er zijn twee koningen Joram. De ene is de zoon van Achab, koning van Israël; de andere, ook Jehoram genoemd, is de vader van Ahazia en koning van Juda (8:16, 24, 29).",
+        refs: ["2 Koningen 8:16", "2 Koningen 8:24", "2 Koningen 8:26–29", "2 Koningen 11:1"],
+      },
+      {
+        kop: "Goed gedaan, en toch niet met heel zijn hart",
+        t: "De HEERE zegt tegen Jehu: ‘gij welgedaan hebt, doende wat recht is in Mijn ogen’ (2 Koningen 10:30). Maar het volgende vers zegt dat Jehu ‘niet waar’ nam ‘te wandelen in de wet des HEEREN … met zijn ganse hart’ (10:31). Later zegt God door de profeet Hosea dat Hij ‘de bloedschulden van Jizreël bezoeken’ zal ‘over het huis van Jehu’ (Hosea 1:4).",
+        refs: ["2 Koningen 10:30–31", "Hosea 1:4"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Damascus, Ramoth in Gilead, Jizreël, Megiddo en Samaria zijn aanwijsbare plaatsen. Waar Beth-Heked lag, weten we niet zeker. De Assyrische koning Salmaneser III schrijft dat hij in zijn achttiende jaar schatting kreeg van Jehu; dat jaar wordt gesteld op 841 v.Chr. Op de Zwarte Obelisk buigt een man voor de Assyrische koning; het opschrift noemt de schatting van “Jehu, de zoon van Omri”. Assyrië noemde Israël naar Omri, de vader van Achab; Jehu was geen zoon van hem. Jehu regeerde achtentwintig jaar: in de gangbare chronologie ca. 841–814 v.Chr.",
+        refs: ["2 Koningen 9:4", "2 Koningen 10:36"],
+      },
+    ],
+    vragen: [
+      { q: "Wie was de moeder van Ahazia, de koning van Juda?", a: ["Athalia", "Izebel", "Maächa"], why: "2 Koningen 8:26" },
+      { q: "Hoe lang regeerde Ahazia in Jeruzalem?", a: ["Eén jaar", "Twaalf jaar", "Achtentwintig jaar"], why: "2 Koningen 8:26" },
+      {
+        q: "Wie reed volgens Jehu met hem achter Achab, toen de HEERE de last over het bloed van Naboth uitsprak?",
+        a: ["Bidkar, zijn hoofdman", "Jonadab, de zoon van Rechab", "Elisa, de profeet"],
+        why: "2 Koningen 9:25",
+      },
+    ],
+  },
+  158: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Wat Koningen vertelt",
+        t: "2 Koningen 21:1–18 vertelt ook over Manasse. Daar staat de naam van zijn moeder: Hefzi-bah (21:1). Koningen zegt erbij dat Manasse ‘zeer veel onschuldig bloed’ vergoot (21:16). Over de wegvoering naar Babel, het gebed en de terugkeer vertelt Koningen niets. Kronieken zegt dat zijn gebed beschreven was ‘in de woorden der zieners’ (2 Kronieken 33:19).",
+        refs: ["2 Koningen 21:1", "2 Koningen 21:16", "2 Kronieken 33:18–19"],
+      },
+      {
+        kop: "Verhoord, en toch blijft het oordeel",
+        t: "God hoorde Manasse en bracht hem terug (2 Kronieken 33:13). Toch zegt 2 Koningen later dat de HEERE Zich niet afkeerde van Zijn toorn tegen Juda, ‘om al de tergingen, waarmede Manasse Hem getergd had’ (2 Koningen 23:26). Toen de HEERE Juda ‘van Zijn aangezicht wegdeed’, was dat ‘om de zonden van Manasse’ (2 Koningen 24:3). Door Jeremia zegt de HEERE dat Hij Zijn volk zal overgeven ‘vanwege Manasse’ (Jeremia 15:4).",
+        refs: ["2 Kronieken 33:13", "2 Koningen 23:26", "2 Koningen 24:3", "Jeremia 15:4"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Babel en Jeruzalem zijn aanwijsbare plaatsen. Assyrië heerste in die tijd ook over Babel. In opschriften van de Assyrische koningen Esarhaddon en Assurbanipal staat “Manasse, koning van Juda” tussen koningen uit het westen. Over zijn gevangenschap zeggen de Assyrische bronnen die we kennen niets, en in welk jaar het was, zegt ook de Bijbel niet. De gangbare chronologie rekent terug vanaf de dood van Josia (ca. 609 v.Chr.) en komt voor Manasse op ca. 697–642 v.Chr. Dat is een reconstructie: dan moet Manasse ongeveer tien jaar samen met Hizkia hebben geregeerd, en dat staat niet in de Bijbel.",
+        refs: ["2 Kronieken 33:1", "2 Kronieken 33:11", "2 Kronieken 33:21", "2 Kronieken 34:1"],
+      },
+    ],
+    vragen: [
+      { q: "Hoe heette de moeder van Manasse volgens 2 Koningen 21?", a: ["Hefzi-bah", "Athalia", "Maächa"], why: "2 Koningen 21:1" },
+      {
+        q: "Wat bouwde Manasse na zijn terugkeer aan de stad van David?",
+        a: ["Een buitenmuur", "Een nieuwe tempel", "Een paleis voor Amon"],
+        why: "2 Kronieken 33:14",
+      },
+      { q: "Waar werd Manasse begraven?", a: ["In zijn huis", "In Babel", "In Bethel"], why: "2 Kronieken 33:20" },
+    ],
+  },
+  159: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "De koningin van de hemel",
+        t: "‘Melecheth des hemels’ wordt meestal vertaald als: koningin van de hemel. Al in Jeruzalem had Jeremia erover gesproken: ‘De kinderen lezen hout op, en de vaders steken het vuur aan, en de vrouwen kneden het deeg, om gebeelde koeken te maken voor de Melecheth des hemels’ (Jeremia 7:18). In Egypte doen de vrouwen het nog steeds. Hun mannen weten ervan (44:15), en de vrouwen vragen: doen wij dat ‘zonder onze mannen?’ (44:19). Ze zeggen dat het hun goed ging zolang ze offerden (44:17–18). Jeremia zegt het omgekeerde: juist daarom is het land verwoest (44:22–23). Welke godin precies bedoeld is, zegt de Bijbel niet.",
+        refs: ["Jeremia 7:18", "Jeremia 44:15–23"],
+      },
+      {
+        kop: "Ook in Egypte niet veilig",
+        t: "God noemt wat het volk zegt: in Egypte zullen ze ‘geen krijg’ zien en niet ‘naar brood’ hongeren (42:13–14). Maar God zegt dat ‘het zwaard, waar gij voor vreest, u aldaar in Egypteland zal achterhalen’ (42:16). In Tachpanhes noemt God Nebukadnezar ‘Mijn knecht’ (43:10), zoals al eerder in Jeremia 25:9 en 27:6. Nebukadnezar zal ‘komen en Egypteland slaan’ (43:11). Als teken zal God Farao Hofra, de koning van Egypte, in de hand van zijn vijanden geven, zoals Hij Zedekia aan Nebukadnezar gegeven heeft (44:30).",
+        refs: ["Jeremia 42:13–16", "Jeremia 43:10–11", "Jeremia 25:9", "Jeremia 27:6", "Jeremia 44:29–30"],
+      },
+      {
+        kop: "Baruch",
+        t: "Baruch, de zoon van Nerija, schreef ‘uit den mond van Jeremia alle woorden des HEEREN’ op een boekrol (Jeremia 36:4). Volgens Azaria, Johanan en de trotse mannen hitst Baruch Jeremia tegen hen op (43:3). Toch had God Baruch een belofte gedaan: ‘Ik zal u uw ziel tot een buit geven, in alle plaatsen, waar gij zult henentrekken’ (Jeremia 45:5). Dat betekent: waar hij ook heen moest, hij zou zijn leven behouden. Nu moet hij met Jeremia mee naar Egypte (43:6).",
+        refs: ["Jeremia 36:4", "Jeremia 43:3–6", "Jeremia 45:5"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wie kneedden volgens Jeremia 7:18 het deeg voor de koeken?",
+        a: ["De vrouwen", "De priesters", "De kinderen"],
+        why: "Jeremia 7:18",
+      },
+      { q: "Hoe noemt God Nebukadnezar in Jeremia 43:10?", a: ["Mijn knecht", "Mijn zoon", "Mijn herder"], why: "Jeremia 43:10" },
+      {
+        q: "Wat beloofde God aan Baruch?",
+        a: ["Dat hij zijn leven zou behouden", "Dat hij in Juda mocht blijven", "Dat hij koning zou worden"],
+        why: "Jeremia 45:5",
+      },
+    ],
+  },
+  160: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Bidden met Gods eigen woorden",
+        t: "In zijn gebed herinnert Nehemia God aan wat Hij door Mozes gezegd had: bij ontrouw zou Hij het volk onder de volken verstrooien (Leviticus 26:33), maar als ze zich bekeren, zal Hij hen terugbrengen, ‘al waren uw verdrevenen aan het einde des hemels’ (Nehemia 1:8–9). Zo staat het ook in Deuteronomium 30:1–4. Nehemia belijdt eerst de zonden van het volk, ook zijn eigen zonden: ‘ook ik en mijns vaders huis, wij hebben gezondigd’ (Nehemia 1:6). Daarna pas vraagt hij om hulp.",
+        refs: ["Nehemia 1:6–9", "Leviticus 26:33", "Deuteronomium 30:1–4"],
+      },
+      {
+        kop: "Waarom in hutten?",
+        t: "Het Loofhuttenfeest staat in de wet: ‘Zeven dagen zult gij in de loofhutten wonen’, ‘opdat uw geslachten weten, dat Ik de kinderen Israëls in loofhutten heb doen wonen, als Ik hen uit Egypteland uitgevoerd heb’ (Leviticus 23:42–43). Bij Ezra ontdekken ze dat gebod opnieuw (Nehemia 8:14–15). De Bijbel zegt dat het volk zo niet meer gedaan had ‘sinds de dagen van Jesua, den zoon van Nun’ (Nehemia 8:17–18). Jesua is een andere schrijfwijze van Jozua. Ook las men elke dag uit het wetboek, zeven dagen lang (8:18–19).",
+        refs: ["Leviticus 23:42–43", "Nehemia 8:14–19"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Ezra komt in het zevende jaar van koning Arthahsasta, Nehemia in het twintigste jaar. Als dat Artaxerxes I is, zoals de meeste uitleggers aannemen, zijn dat de jaren 458 en 445 v.Chr. Sommigen dateren Ezra later, onder Artaxerxes II. Susan is een bekende plaats; waar de rivier Ahava stroomde, weten we niet.",
+        refs: ["Ezra 7:7–8", "Nehemia 2:1", "Ezra 8:21"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat deed Nehemia in zijn gebed, voordat hij om hulp vroeg?",
+        a: ["Hij beleed de zonden van het volk", "Hij noemde de namen van de poorten", "Hij vroeg God de vijanden te doden"],
+        why: "Nehemia 1:6–7",
+      },
+      {
+        q: "Waaraan moest het wonen in loofhutten herinneren?",
+        a: ["Aan de tocht uit Egypte", "Aan de bouw van de tempel", "Aan de reis van Babel naar Jeruzalem"],
+        why: "Leviticus 23:43",
+      },
+      {
+        q: "Sinds wiens dagen was het Loofhuttenfeest niet meer zo gevierd?",
+        a: ["Jesua, de zoon van Nun", "Koning Salomo", "De profeet Samuël"],
+        why: "Nehemia 8:17–18",
+      },
+    ],
+  },
+  161: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Waar en wanneer",
+        t: "De vrouw spreekt over ‘dezen berg’ (Johannes 4:20): de Gerizim, vlak bij Sichar. Op die berg moest Israël na de intocht ‘den zegen uitspreken’ (Deuteronomium 11:29). Waar Sichar precies lag, is niet helemaal zeker; de kaart toont de waarschijnlijke plaats. Waar Kana lag, is betwist. Johannes schrijft: ‘Het was omtrent de zesde ure’ (Johannes 4:6). Telt men de uren vanaf zonsopgang, dan is dat rond het midden van de dag; niet alle uitleggers rekenen de uren bij Johannes zo. Een jaartal noemt de Bijbel niet. De reis valt na het eerste Pascha dat Johannes noemt (Johannes 2:13, 23). Met een begin van het openbare optreden rond 27 n.Chr. kom je, als reconstructie, op ca. 28–29 n.Chr.",
+        refs: ["Johannes 4:6", "Johannes 4:20", "Deuteronomium 11:29", "Johannes 2:13"],
+      },
+      {
+        kop: "Joden en Samaritanen",
+        t: "‘De Joden houden geen gemeenschap met de Samaritanen’ (Johannes 4:9). De Samaritanen woonden in het land van het vroegere rijk van de tien stammen. De koning van Assyrië had daar, in de plaats van de Israëlieten, mensen uit andere volken laten wonen. Die ‘vreesden den HEERE, en dienden ook hun goden’ (2 Koningen 17:24, 33). De Heere Jezus zegt tegen de vrouw: ‘de zaligheid is uit de Joden’ (Johannes 4:22). Toch gaat Hij met haar in gesprek, en veel Samaritanen gaan in Hem geloven.",
+        refs: ["Johannes 4:9", "2 Koningen 17:24–33", "Johannes 4:22"],
+      },
+      {
+        kop: "Elders in de Bijbel",
+        t: "Johannes noemt de genezing van de zoon van de hoveling ‘Dit tweede teken’ (Johannes 4:54). Het eerste was ook in Kana: het water dat wijn werd, ‘Dit beginsel der tekenen’ (Johannes 2:11). Later zegt de Heere Jezus tegen Zijn discipelen dat zij Zijn getuigen zullen zijn ‘zo te Jeruzalem, als in geheel Judea en Samaria’ (Handelingen 1:8). Filippus predikt daarna Christus in de stad van Samaria: ‘En er werd grote blijdschap in die stad’ (Handelingen 8:5–8).",
+        refs: ["Johannes 4:54", "Johannes 2:11", "Handelingen 1:8", "Handelingen 8:5–8"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Op welke berg moest Israël na de intocht de zegen uitspreken?",
+        a: ["Op de Gerizim", "Op de Karmel", "Op de Tabor"],
+        why: "Deuteronomium 11:29",
+      },
+      {
+        q: "Hoe noemt Johannes de genezing van de zoon van de hoveling?",
+        a: ["Het tweede teken", "Het eerste teken", "Het laatste teken"],
+        why: "Johannes 4:54",
+      },
+      { q: "Wie predikte later Christus in de stad van Samaria?", a: ["Filippus", "Barnabas", "Paulus"], why: "Handelingen 8:5" },
+    ],
+  },
+  162: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Wat ‘gezalfd’ betekent",
+        t: "In Israël werden priesters en koningen met olie gezalfd, en soms ook een profeet. Mozes goot zalfolie op het hoofd van de priester Aäron (Leviticus 8:12). Samuël zalfde David tot koning (1 Samuël 16:13). En Elia moest Elisa ‘tot profeet zalven’ (1 Koningen 19:16). Messias (Hebreeuws) en Christus (Grieks) betekenen allebei: de Gezalfde. Als de Heere Jezus in Nazareth zegt dat de woorden van Jesaja vandaag vervuld zijn, zegt Hij dat Hij Zelf die Gezalfde is.",
+        refs: ["Leviticus 8:12", "1 Samuël 16:13", "1 Koningen 19:16", "Lukas 4:18–21"],
+      },
+      {
+        kop: "De weduwe en Naäman",
+        t: "De Heere Jezus noemt twee geschiedenissen uit het Oude Testament. In de tijd van Elia viel er geen dauw of regen. Elia werd gestuurd naar ‘Zarfath, dat bij Sidon is’, waar een weduwe hem te eten gaf (1 Koningen 17:1, 9, 15). Lukas noemt die stad Sarepta; dat is dezelfde plaats. Naäman was ‘de krijgsoverste van den koning van Syrië’, ‘doch melaats’. Hij werd rein toen hij zich zevenmaal in de Jordaan dompelde (2 Koningen 5:1, 14). Allebei waren zij geen Israëlieten.",
+        refs: ["1 Koningen 17:1–16", "2 Koningen 5:1–14"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Nazareth ligt in de heuvels van Galilea. Lukas schrijft dat de stad op een berg gebouwd was (Lukas 4:29). Welke steile plek het was, zegt hij niet. Daarom staat er op de kaart geen apart punt. Lukas vertelt daarna dat Hij naar Kapernaüm ging (Lukas 4:31), maar al in Nazareth spreekt de Heere Jezus over wat ‘in Kapernaum geschied is’ (Lukas 4:23). Een jaartal noemt de Bijbel niet. Lukas vertelt dit aan het begin van het werk in Galilea (Lukas 4:14–16); met een begin van het openbare optreden rond 27 n.Chr. kom je, als reconstructie, op ca. 28–29 n.Chr.",
+        refs: ["Lukas 4:14–16", "Lukas 4:23", "Lukas 4:29–31"],
+      },
+    ],
+    vragen: [
+      { q: "Wie zalfde David tot koning?", a: ["Samuël", "Nathan", "Elia"], why: "1 Samuël 16:13" },
+      {
+        q: "Wat was Naäman, voordat hij rein werd?",
+        a: ["Krijgsoverste van de koning van Syrië", "Priester in een tempel in Damascus", "Koopman in de stad Sidon"],
+        why: "2 Koningen 5:1",
+      },
+      {
+        q: "Naar welke stad ging de Heere Jezus volgens Lukas na Nazareth?",
+        a: ["Naar Kapernaüm", "Naar Jeruzalem", "Naar Bethlehem"],
+        why: "Lukas 4:31",
+      },
+    ],
+  },
+  163: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Elia, Elisa en de Heere Jezus",
+        t: "Al in de tijd van Elia en Elisa werd twee keer een kind weer levend. In Zarfath riep Elia tot de HEERE, en ‘de HEERE verhoorde de stem van Elia’ (1 Koningen 17:21–22). In Sunem sloot Elisa de deur ‘en bad tot den HEERE’ (2 Koningen 4:33). Bij Naïn staat niet dat de Heere Jezus bidt. Hij zegt: ‘Jongeling, Ik zeg u, sta op!’ (Lukas 7:14). De mensen zeggen: ‘Een groot Profeet is onder ons opgestaan’ (Lukas 7:16).",
+        refs: ["1 Koningen 17:21–22", "2 Koningen 4:33", "Lukas 7:14–16"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Naïn komt in de Bijbel alleen in deze geschiedenis voor (Lukas 7:11). Vlak bij Naïn ligt Sunem. Daar werd de zoon van een vrouw weer levend, nadat Elisa tot de HEERE gebeden had. Lukas schrijft ‘op den volgenden dag’: de dag nadat de knecht van de hoofdman in Kapernaüm gezond werd (Lukas 7:1–11). De weg van Kapernaüm naar Naïn op de kaart is een reconstructie. Een jaartal noemt de Bijbel niet; met een begin van het openbare optreden rond 27 n.Chr. kom je, als reconstructie, op ca. 28–29 n.Chr.",
+        refs: ["Lukas 7:1–11", "2 Koningen 4:8–37"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Wat deed Elisa in Sunem voordat het kind weer levend werd?",
+        a: ["Hij bad tot de HEERE", "Hij zalfde het kind met olie", "Hij waste het kind in de Jordaan"],
+        why: "2 Koningen 4:33",
+      },
+      {
+        q: "In welke plaats bij Sidon werd de zoon van een weduwe weer levend?",
+        a: ["In Zarfath", "In Sunem", "In Naïn"],
+        why: "1 Koningen 17:9; 1 Koningen 17:22",
+      },
+      {
+        q: "Wat gebeurde er de dag vóór de opwekking in Naïn?",
+        a: ["De knecht van de hoofdman werd gezond", "De storm op het meer werd stil", "Vijfduizend mannen aten van vijf broden"],
+        why: "Lukas 7:10–11",
+      },
+    ],
+  },
+  164: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Wat Mattheüs erbij vertelt",
+        t: "Mattheüs vertelt meer over de vrouw. Zij riep: ‘Heere! Gij Zone Davids, ontferm U mijner!’ Eerst antwoordde Hij haar niet een woord. De discipelen zeiden: ‘Laat haar van U; want zij roept ons na.’ Hij antwoordde: ‘Ik ben niet gezonden, dan tot de verloren schapen van het huis Israëls.’ Toch kwam zij en aanbad Hem: ‘Heere, help mij!’ (Mattheüs 15:22–25). Markus noemt haar een Griekse uit Syro-Fenicië, Mattheüs een Kananese, uit de volken van Kanaän: ‘Kanaän gewon Sidon, zijn eerstgeborene’ (Genesis 10:15). Over de spijziging schrijft Mattheüs: ‘vier duizend mannen, zonder de vrouwen en kinderen’ (Mattheüs 15:38).",
+        refs: ["Mattheüs 15:22–25", "Genesis 10:15", "Mattheüs 15:38"],
+      },
+      {
+        kop: "Alleen Markus",
+        t: "Alleen Markus vertelt over de dove man en over de blinde man van Bethsaïda. Bij allebei neemt de Heere Jezus de man apart: de dove ‘van de schare alleen’, de blinde ‘buiten het vlek’, dat is: buiten het dorp (Markus 7:33; 8:23). Effatha is een Aramees woord, dat Markus voor zijn lezers vertaalt. Dat doet hij ook bij ‘Talitha kumi’, wat de Heere Jezus tegen het dochtertje van Jaïrus zei (Markus 5:41).",
+        refs: ["Markus 7:33", "Markus 8:23", "Markus 5:41"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Tyrus en Sidon liggen aan de zee, ten noordwesten van Galilea. Dalmanutha komt in de Bijbel alleen in Markus 8:10 voor, en waar het lag, is niet zeker. Mattheüs noemt hier ‘de landpalen van Magdala’ (Mattheüs 15:39). Ook de ligging van Bethsaïda is betwist. De lijnen op de kaart zijn daarom reconstructies. Een jaartal noemt de Bijbel niet. Wie de kruisiging ca. 30 n.Chr. stelt, komt voor deze reis op ca. 29; wie 33 n.Chr. aanhoudt, op ca. 32.",
+        refs: ["Markus 8:10", "Mattheüs 15:39"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Hoe riep de vrouw volgens Mattheüs naar de Heere Jezus?",
+        a: ["Heere! Gij Zone Davids, ontferm U mijner!", "Rabbi, Leraar uit Nazareth, kom hier!", "Profeet van Galilea, geef ons brood!"],
+        why: "Mattheüs 15:22",
+      },
+      {
+        q: "Wat zei de Heere Jezus in het Aramees tegen het dochtertje van Jaïrus?",
+        a: ["Talitha kumi", "Effatha", "Hosanna"],
+        why: "Markus 5:41",
+      },
+      {
+        q: "Hoe noemt Mattheüs de streek waar de Heere Jezus na de vierduizend heen voer?",
+        a: ["De landpalen van Magdala", "Het land Gennesaret", "Het land van Dekapolis"],
+        why: "Mattheüs 15:39",
+      },
+    ],
+  },
+  165: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Woorden van hun eigen dichters",
+        t: "In de synagoge begint Paulus bij de Schriften (17:2). Op de Areopagus begint hij bij wat de Atheners zelf kennen: hun altaar en hun dichters. Hij zegt: ‘gelijk ook enigen van uw poeten gezegd hebben: Want wij zijn ook Zijn geslacht’ (17:28). Volgens uitleggers komen die woorden van de Griekse dichter Aratus. Paulus trekt er zelf de conclusie uit: ‘Wij dan, zijnde Gods geslacht, moeten niet menen, dat de Godheid goud, of zilver, of steen gelijk zij’ (17:29).",
+        refs: ["Handelingen 17:2", "Handelingen 17:28–29"],
+      },
+      {
+        kop: "Wat Paulus later schreef",
+        t: "Aan de gemeente in Thessalonica schrijft Paulus dat hij in Athene alleen achterbleef en Timotheüs naar hen toe stuurde, ‘om u te versterken’ (1 Thessalonicenzen 3:1–2). Hij weet hoe zij zich bekeerd hebben ‘van de afgoden, om den levenden en waarachtigen God te dienen’ (1 Thessalonicenzen 1:9). En aan de Korinthiërs schrijft hij hoe hij bij hen kwam: ‘in zwakheid, en in vreze, en in vele beving’ (1 Korinthe 2:3). In Korinthe zei de Heere tegen hem: ‘Zijt niet bevreesd’ (Handelingen 18:9).",
+        refs: ["1 Thessalonicenzen 3:1–2", "1 Thessalonicenzen 1:9", "1 Korinthe 2:3", "Handelingen 18:9"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "Handelingen noemt geen jaartallen. Het vaste punt is Gallio, de stadhouder van Achaje (18:12). In Delphi is een inscriptie gevonden met een brief van keizer Claudius waarin Gallio genoemd wordt. Daaruit leidt men af dat hij omstreeks 51–52 n.Chr. stadhouder was. Daarom dateert men het verblijf in Korinthe meestal omstreeks 50–52 n.Chr.; andere chronologieën liggen een jaar eerder of later. Thessalonica, Berea, Athene, Korinthe en Kenchreeën zijn alle bekende plaatsen.",
+        refs: ["Handelingen 18:11–12"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Van wie kwamen de woorden ‘Want wij zijn ook Zijn geslacht’?",
+        a: ["Van enigen van hun eigen dichters", "Van de profeet Jesaja", "Van koning David"],
+        why: "Handelingen 17:28",
+      },
+      { q: "Wie stuurde Paulus vanuit Athene naar Thessalonica?", a: ["Timotheüs", "Silas", "Aquila"], why: "1 Thessalonicenzen 3:1–2" },
+      {
+        q: "Hoe was Paulus volgens 1 Korinthe 2:3 bij de Korinthiërs?",
+        a: ["In zwakheid, vreze en vele beving", "Met grote macht en rijkdom", "Met een brief van de keizer"],
+        why: "1 Korinthe 2:3",
+      },
+    ],
+  },
+  166: {
+    status: "gecontroleerd",
+    verdieping: [
+      {
+        kop: "Ouderlingen en opzieners",
+        t: "Paulus laat ‘de ouderlingen der Gemeente’ uit Efeze komen (20:17). Tegen hen zegt hij dat de Heilige Geest hen ‘tot opzieners gesteld heeft, om de Gemeente Gods te weiden’ (20:28). Ouderling en opziener zijn hier dus dezelfde mensen. Ook in de brief aan Titus staan de twee woorden naast elkaar: Titus moest in elke stad ouderlingen stellen, ‘want een opziener moet onberispelijk zijn’ (Titus 1:5–7). Weiden is het werk van een herder: Paulus noemt de gemeente ‘de gehele kudde’.",
+        refs: ["Handelingen 20:17", "Handelingen 20:28", "Titus 1:5–7"],
+      },
+      {
+        kop: "Diana van de Efeziërs",
+        t: "De stadsschrijver noemt Efeze ‘de kerkbewaarster’ van de grote godin Diana: de stad die haar tempel bewaart. Hij spreekt ook van ‘het beeld, dat uit den hemel gevallen is’ (19:35). Over de reisgenoten van Paulus zegt hij dat ze ‘noch kerkrovers zijn, noch uw godin lasteren’ (19:37). Volgens Demetrius had Paulus wel gezegd ‘dat het geen goden zijn, die met handen gemaakt worden’ (19:26). In de Griekse tekst van Handelingen heet zij Artemis; Diana is haar Latijnse naam.",
+        refs: ["Handelingen 19:26", "Handelingen 19:35–37"],
+      },
+      {
+        kop: "Waar en wanneer",
+        t: "In Efeze sprak Paulus drie maanden in de synagoge en twee jaar in de school van Tyrannus (19:8–10); zelf spreekt hij van ‘drie jaren lang’ (20:31). De terugreis was in het voorjaar: na ‘de dagen der ongehevelde broden’ (20:6), en Paulus wilde op de Pinksterdag in Jeruzalem zijn (20:16). De Bijbel noemt geen jaartal. Meestal komt men uit op ca. 52–57 n.Chr.; andere chronologieën liggen een of twee jaar eerder of later.",
+        refs: ["Handelingen 19:8–10", "Handelingen 20:6", "Handelingen 20:16", "Handelingen 20:31"],
+      },
+    ],
+    vragen: [
+      {
+        q: "Hoe noemt Paulus de ouderlingen van Efeze in Handelingen 20:28?",
+        a: ["Opzieners", "Apostelen", "Profeten"],
+        why: "Handelingen 20:28",
+      },
+      {
+        q: "Wat zei de stadsschrijver over de reisgenoten van Paulus?",
+        a: ["Ze zijn geen kerkrovers en lasteren de godin niet", "Ze zijn tovenaars uit Macedonië", "Ze hebben de tempel van Diana beroofd"],
+        why: "Handelingen 19:37",
+      },
+      {
+        q: "Hoe lang heeft Paulus volgens zijn eigen woorden in Efeze vermaand?",
+        a: ["Drie jaren lang", "Drie maanden lang", "Zeven dagen lang"],
+        why: "Handelingen 20:31",
+      },
+    ],
+  },
 });

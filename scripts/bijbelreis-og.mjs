@@ -22,7 +22,7 @@ await p.addStyleTag({ content: `
   #og p { font-size: 25px; line-height: 1.35; color: #e4e9f2; margin: 26px 0 0; max-width: 420px; text-wrap: balance; }
   #og .url { margin-top: 30px; font-size: 22px; font-weight: 600; color: #f0d9b5; letter-spacing: .01em; }
 `});
-await p.evaluate(() => { const d = document.createElement("div"); d.id = "og"; d.innerHTML = `<div class="vlak"></div><div class="tekst"><img class="kameel" src="/bijbelreis/apple-touch-icon.png" alt=""><h1>Op reis door <em>de Bijbel</em></h1><p>150 geschiedenissen van de schepping tot Openbaring, op de kaart.</p><div class="url">bijbelreis.nl</div></div>`; document.body.append(d); });
+await p.evaluate(() => { const d = document.createElement("div"); d.id = "og"; d.innerHTML = `<div class="vlak"></div><div class="tekst"><img class="kameel" src="/bijbelreis/apple-touch-icon.png" alt=""><h1>Op reis door <em>de Bijbel</em></h1><p>166 geschiedenissen van de schepping tot Openbaring, op de kaart.</p><div class="url">bijbelreis.nl</div></div>`; document.body.append(d); });
 await p.evaluate(() => window.dispatchEvent(new Event("resize"))); await p.waitForTimeout(1500); await p.evaluate(() => { const b = [...document.querySelectorAll("button")].find(x => /Abraham/.test(x.textContent) && x.offsetParent); }); await p.waitForTimeout(800);
 await p.screenshot({ path: process.argv[2] });
 await b.close();

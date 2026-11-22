@@ -10,18 +10,19 @@ import { maakBijbelreisWorker, type Bestanden } from "../worker/bijbelreis-app";
 
 type G = { nr: number; t: string; ref: string; uitleg: string; betekenis?: string; wie?: string[] };
 const PUB = join(__dirname, "..", "public");
-const gegevens = V.laadGegevens(PUB) as { geschiedenissen: G[]; indeling: Record<number, [string, string, string?][]>; secties: [string, number, number][] };
+const gegevens = V.laadGegevens(PUB) as { geschiedenissen: (G & { sectie: string })[]; indeling: Record<number, [string, string, string?][]>; secties: [string, string][] };
 const G = gegevens.geschiedenissen;
 const paginas = V.maakPaginas(gegevens, readFileSync(join(PUB, "bijbelreis", "verhaal.css"))) as Record<string, string>;
 const ont = (s: string) => s.replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 const paginaVan = (g: G) => paginas[`bijbelreis/verhaal/${V.naam(g)}.html`];
 
 describe("verhaalpagina's: één per geschiedenis, uit de gegevens van de atlas", () => {
-  it("laadt alle geschiedenissen en de secties uit app.js", () => {
+  it("laadt alle geschiedenissen en de secties uit secties.js", () => {
     expect(G.length).toBeGreaterThanOrEqual(150);
-    // De secties dekken 1..laatste zonder gat.
-    const gedekt = new Set(gegevens.secties.flatMap(([, a, b]) => Array.from({ length: b - a + 1 }, (_, i) => a + i)));
-    for (const g of G) expect(gedekt.has(g.nr), `sectie voor ${g.nr}`).toBe(true);
+    // Elke geschiedenis hoort bij een bestaande sectie.
+    const sleutels = new Set(gegevens.secties.map(([, k]) => k));
+    expect(sleutels.size).toBe(16);
+    for (const g of G) expect(sleutels.has(g.sectie), `sectie voor ${g.nr}`).toBe(true);
   });
   it("elke geschiedenis heeft precies één pagina met een uniek, net adres", () => {
     const namen = G.map((g) => V.naam(g) as string);

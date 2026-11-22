@@ -10,7 +10,7 @@ Er zijn drie niveaus in één app, op één inhoudelijke basis:
 | `b` | Zelf lezen | zelf lezen vanaf 7 jaar | een eigen vertelling in 2–4 onderdelen met kop (hooguit 1.000 tekens), 3–5 vragen met 3 antwoorden |
 | `c` | Verdiepen | vanaf 11 jaar en volwassenen | de bestaande vertelling, met 1–3 verdiepingsblokken en 2–4 extra vragen |
 
-Alle 150 geschiedenissen staan op alle drie niveaus: 450 versies, allemaal met status `gecontroleerd`.
+Alle 166 geschiedenissen (de 150 en de 16 die op 22-11-2026 zijn toegevoegd, zie `docs/BIJBELREIS.md` § Geschiedenissen 151–166) staan op alle drie niveaus: 498 versies, allemaal met status `gecontroleerd`.
 
 **Namen (21-11-2026):** de niveaus heetten eerst Samen ontdekken (4–6 jaar), Zelf op reis (7–10 jaar) en Verder
 ontdekken (11+). Sinds 21-11-2026 heten ze Voorlezen, Zelf lezen en Verdiepen, en de app toont geen leeftijden meer: de

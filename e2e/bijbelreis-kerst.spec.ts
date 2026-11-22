@@ -86,7 +86,7 @@ test("kerst: in het seizoen staat er één rustige ingang bovenaan Verhalen; die
   await expect(ingang.locator(".sz-zin")).toHaveCount(0);
   expect(await boven(page, "#welkom .st-zin", "#seizoen")).toBe(true);
   expect(await boven(page, "#seizoen", "#p-verhalen h2")).toBe(true);
-  await expect(page.locator("#vLijst [data-v]")).toHaveCount(150);
+  await expect(page.locator("#vLijst [data-v]")).toHaveCount(166);
   // Buiten het thema is het uiterlijk van de atlas gewoon.
   await expect(page.locator("body")).not.toHaveAttribute("data-thema", /./);
   const knop = await ingang.locator(".sz-knop").evaluate((e) => { const s = getComputedStyle(e); return [s.color, s.backgroundColor, e.getBoundingClientRect().height] as const; });

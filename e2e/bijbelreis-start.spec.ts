@@ -143,7 +143,7 @@ test("eerste bezoek: één zin, één startknop, klein de keuze voor wie; alleen
   await expect(page.locator("#niveauNaam")).toHaveText("Zelf lezen");
   expect(await sleutels(page)).toEqual({ "bijbelreis:niveau": '"b"' });
   // De lijst staat er gewoon onder.
-  await expect(page.locator("#vLijst [data-v]")).toHaveCount(150);
+  await expect(page.locator("#vLijst [data-v]")).toHaveCount(166);
   await expect(page.locator("#welkomNa")).toBeHidden();
   const axe = await new AxeBuilder({ page }).include("#welkom").analyze();
   expect(axe.violations.map((v) => v.id)).toEqual([]);

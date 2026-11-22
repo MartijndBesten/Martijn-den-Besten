@@ -44,7 +44,7 @@ test("de knop opent dezelfde geschiedenis in de atlas", async ({ page }) => {
 test("het overzicht linkt naar de verhaalpagina's", async ({ page }) => {
   await page.goto("/bijbelreis/verhalen");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Alle geschiedenissen");
-  expect(await page.locator('a[href^="verhaal/"]').count()).toBeGreaterThanOrEqual(150);
+  expect(await page.locator('a[href^="verhaal/"]').count()).toBeGreaterThanOrEqual(166);
   await page.getByRole("link", { name: "Droog door de Schelfzee" }).click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Droog door de Schelfzee");
   await page.getByRole("link", { name: /Volgende/ }).click();

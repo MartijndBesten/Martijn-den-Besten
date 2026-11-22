@@ -1,0 +1,206 @@
+{
+  "155": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["salem", "as_maresa", "rama"],
+      "delen": [
+        { "t": "Asa is koning in Jeruzalem. Hij doet wat goed is in de ogen van de HEERE. Hij haalt de altaren van de afgoden weg.", "stap": "2kronieken:asa:0" },
+        { "t": "Asa zegt tegen het volk: “Zoek de HEERE.” Tien jaar is het stil in het land. Er is geen oorlog." },
+        { "t": "Dan komt Zerah met een heel groot leger. Hij komt tot de stad Maresa.", "stap": "2kronieken:asa:1" },
+        { "t": "Asa bidt tot de HEERE: “Help ons! Wij steunen op U.” Dat wil zeggen: wij vertrouwen op U.", "stap": "2kronieken:asa:1" },
+        { "t": "De HEERE verslaat het leger van Zerah. De vijanden vluchten weg, tot Gerar toe.", "stap": "2kronieken:asa:2" },
+        { "t": "Azaria brengt Gods woord: “Zoek de HEERE, dan vindt u Hem.” Het volk belooft: wij zoeken de HEERE met heel ons hart.", "stap": "2kronieken:asa:4" },
+        { "t": "Jaren later bouwt Baësa, de koning van Israël, de stad Rama. Dan kan niemand meer naar Asa toe.", "stap": "2kronieken:asa:6" },
+        { "t": "Nu steunt Asa niet op de HEERE. Hij stuurt zilver en goud naar de koning van Syrië, zodat die hem helpt.", "stap": "2kronieken:asa:6" },
+        { "t": "De ziener Hanani zegt: “U hebt dwaas gedaan. U steunde niet op de HEERE.” Asa wordt boos en zet Hanani gevangen.", "stap": "2kronieken:asa:8" },
+        { "t": "Later wordt Asa ziek aan zijn voeten. Ook dan zoekt hij de HEERE niet, maar de dokters.", "stap": "2kronieken:asa:9" }
+      ],
+      "samen": "Asa steunt eerst op de HEERE (2 Kronieken 14:11) en later op de koning van Syrië (16:7). Vraag samen: wat deed Asa toen het grote leger kwam, en wat deed hij toen Baësa Rama bouwde? Bij A is weggelaten dat het volk afsprak dat wie de HEERE niet zocht, gedood zou worden (15:13), en dat Asa zijn moeder Maächa afzette als koningin vanwege een afgodsbeeld (15:16).",
+      "vragen": [
+        { "q": "Wat bidt Asa als het grote leger komt?", "a": ["Help ons, wij steunen op U", "Laat ons gauw wegvluchten"], "why": "2 Kronieken 14:11" },
+        { "q": "Naar wie stuurt Asa later zilver en goud?", "a": ["Naar de koning van Syrië", "Naar de koning van Egypte"], "why": "2 Kronieken 16:2" },
+        { "q": "Wie zoekt Asa als hij ziek is?", "a": ["De dokters", "De ziener Hanani"], "why": "2 Kronieken 16:12" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Asa zoekt de HEERE", "stap": "2kronieken:asa:0", "t": "Asa wordt koning van Juda. Hij doet wat goed en recht is in de ogen van de HEERE. Hij haalt de altaren van de afgoden weg. Tegen het volk zegt hij dat zij de HEERE moeten zoeken. Tien jaar is het stil in het land." },
+        { "kop": "Een groot leger bij Maresa", "stap": "2kronieken:asa:1", "t": "Dan komt Zerah, de Moor (een Cusjiet), met een enorm leger tot Maresa. Asa bidt: ‘help ons, o HEERE, onze God! Want wij steunen op U’. Steunen op God betekent: op Hem vertrouwen. De HEERE verslaat de vijanden, en Juda jaagt hen na tot Gerar. Daarna komt de Geest van God op Azaria. Hij zegt: als jullie de HEERE zoeken, laat Hij Zich door jullie vinden." },
+        { "kop": "Steunen op een koning", "stap": "2kronieken:asa:6", "t": "Jaren later bouwt Baësa, de koning van Israël, de stad Rama. Nu steunt Asa niet op de HEERE. Hij stuurt zilver en goud uit de tempel naar Benhadad, de koning van Syrië. Dan komt de ziener Hanani. Een ziener is een profeet. Hanani zegt: u hebt dwaas gedaan, want u steunde niet op de HEERE. Asa wordt toornig en zet hem gevangen. Als hij later ziek wordt aan zijn voeten, zoekt hij ook niet de HEERE, maar de dokters." }
+      ],
+      "vragen": [
+        { "q": "Wie kwam met een groot leger tot Maresa?", "a": ["Zerah, de Moor", "Baësa, de koning van Israël", "Benhadad, de koning van Syrië"], "why": "2 Kronieken 14:9" },
+        { "q": "Waarom zei Hanani dat Asa dwaas had gedaan?", "a": ["Asa steunde op de koning van Syrië en niet op de HEERE", "Asa had het leger van Zerah laten ontsnappen", "Asa had het altaar van de HEERE vernieuwd"], "why": "2 Kronieken 16:7–9" },
+        { "q": "Wat deed Asa toen Hanani hem bestrafte?", "a": ["Hij zette Hanani gevangen", "Hij vroeg Hanani om te bidden", "Hij stuurde Hanani naar Syrië"], "why": "2 Kronieken 16:10" },
+        { "q": "Wat gebeurde er eerst?", "a": ["Zerah kwam tot Maresa", "Baësa bouwde Rama", "Asa werd ziek aan zijn voeten"], "why": "2 Kronieken 14:9; 2 Kronieken 16:1; 2 Kronieken 16:12" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Wat Koningen erbij vertelt", "t": "1 Koningen 15:9–24 vertelt ook over Asa, maar korter: zonder het leger van Zerah en zonder de woorden van Azaria en Hanani. Wel noemt Koningen de moeder van Asa: ‘Maacha, een dochter van Abisalom’ (1 Koningen 15:10). Met dezelfde woorden noemt 1 Koningen 15:2 de moeder van Abiam, zoals Koningen de vader van Asa noemt. Ook volgens 2 Kronieken 11:20–22 was Maächa, de dochter van Absalom, de moeder van Abia. Daarom wordt ‘moeder’ bij Asa meestal uitgelegd als grootmoeder; met zoveel woorden staat dat er niet. Over de ziekte zegt Koningen kort: ‘in den tijd zijns ouderdoms werd hij krank aan zijn voeten’ (1 Koningen 15:23).", "refs": ["1 Koningen 15:2", "1 Koningen 15:8", "1 Koningen 15:10", "1 Koningen 15:23", "2 Kronieken 11:20–22"] },
+        { "kop": "Jehu, de zoon van Hanani", "t": "De ziener Hanani bestrafte Asa. Later kwam het woord van de HEERE tot ‘Jehu, den zoon van Hanani, tegen Baësa’, de koning die Rama bouwde: omdat Baësa wandelde in de weg van Jerobeam, zou God zijn huis wegdoen (1 Koningen 16:1–3). Ook ‘Jehu, de zoon van Hanani, de ziener’ ging naar Josafat, de zoon van Asa, met een bestraffing (2 Kronieken 19:2). Meestal wordt aangenomen dat het om dezelfde Jehu gaat, en dat hij een zoon is van de ziener Hanani die Asa bestrafte. Met zoveel woorden zegt de Bijbel dat niet.", "refs": ["1 Koningen 16:1–3", "2 Kronieken 19:2"] },
+        { "kop": "Waar en wanneer", "t": "Maresa en Jeruzalem zijn aanwijsbare plaatsen. Welk dal bij Maresa het dal Zefatha was, weten we niet zeker. Ook de ligging van Gerar is waarschijnlijk, maar niet zeker, en over Rama verschillen de meningen. Asa regeerde eenenveertig jaar; in de gangbare chronologie is dat ca. 911–870 v.Chr. Dat is een reconstructie: de Bijbel noemt regeringsjaren, geen jaartallen.", "refs": ["2 Kronieken 14:9–10", "2 Kronieken 14:13", "2 Kronieken 16:1", "1 Koningen 15:10"] }
+      ],
+      "vragen": [
+        { "q": "Wiens dochter was Maächa volgens 1 Koningen 15:10?", "a": ["Van Abisalom", "Van Hanani", "Van Oded"], "why": "1 Koningen 15:10" },
+        { "q": "Tegen welke koning sprak Jehu, de zoon van Hanani, het woord van de HEERE?", "a": ["Baësa", "Zerah", "Benhadad"], "why": "1 Koningen 16:1" },
+        { "q": "Hoe noemt 1 Koningen 15 de vader van Asa?", "a": ["Abiam", "Abisalom", "Rehabeam"], "why": "1 Koningen 15:8" }
+      ]
+    }
+  },
+  "156": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["engedi", "salem", "beracha"],
+      "delen": [
+        { "t": "Er komt een heel groot leger naar het land Juda. Boden vertellen het aan koning Josafat.", "stap": "2kronieken:josafat:0" },
+        { "t": "Josafat is bang. Maar hij zoekt de HEERE. Uit alle steden komen de mensen naar Jeruzalem.", "stap": "2kronieken:josafat:1" },
+        { "t": "In het huis van de HEERE bidt Josafat: “Wij weten niet wat we moeten doen. Maar onze ogen zijn op U.”", "stap": "2kronieken:josafat:1" },
+        { "t": "Alle mensen staan voor de HEERE, ook de kleine kinderen." },
+        { "t": "Dan zegt de Leviet Jahaziël: “Wees niet bang. De strijd is niet van jullie, maar van God.”", "stap": "2kronieken:josafat:2" },
+        { "t": "De volgende morgen trekken ze uit. Voorop lopen zangers. Ze zingen: “Loof de HEERE, want Zijn goedheid duurt altijd!”", "stap": "2kronieken:josafat:3" },
+        { "t": "Als ze gaan zingen, worden de vijanden verslagen. Ze vechten tegen elkaar. Juda hoeft zelf niet te vechten." },
+        { "t": "Drie dagen lang halen ze de buit op. Er is zo veel!" },
+        { "t": "Op de vierde dag loven ze de HEERE in een dal. Daarom heet het: het dal van Beracha.", "stap": "2kronieken:josafat:4" },
+        { "t": "Blij gaan ze terug naar Jeruzalem, met harpen en trompetten.", "stap": "2kronieken:josafat:5" }
+      ],
+      "samen": "Het leger komt van ‘gene zijde der zee’ (2 Kronieken 20:2): Moabieten, Ammonieten en mannen van het gebergte Seïr (20:10). Bij A staat alleen dat de vijanden tegen elkaar vechten; weggelaten is dat ze elkaar ombrachten en dat Juda alleen nog dode lichamen vond (20:23–24). Vraag samen: wat zegt Josafat als hij niet weet wat hij moet doen? ‘Onze ogen zijn op U’ (20:12). Wijs op de kaart En-Gedi aan, waar het leger stond, en Jeruzalem, waar het volk bad.",
+      "vragen": [
+        { "q": "Wat zegt Jahaziël?", "a": ["De strijd is van God", "Jullie moeten hard vechten"], "why": "2 Kronieken 20:15" },
+        { "q": "Wie lopen er voorop als Juda uittrekt?", "a": ["Zangers", "Soldaten met paarden"], "why": "2 Kronieken 20:21" },
+        { "q": "Wat doet het volk in het dal van Beracha?", "a": ["Ze loven de HEERE", "Ze bouwen een stad"], "why": "2 Kronieken 20:26" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een groot leger bij En-Gedi", "stap": "2kronieken:josafat:0", "t": "Boden komen bij koning Josafat: een grote menigte Moabieten, Ammonieten en anderen trekt tegen hem op. Ze zijn al bij En-Gedi. Josafat is bang. Toch zoekt hij de HEERE en roept hij een vasten uit. Vasten betekent: een tijd niet eten, om God te zoeken. Uit alle steden van Juda komen de mensen naar Jeruzalem." },
+        { "kop": "Onze ogen zijn op U", "stap": "2kronieken:josafat:1", "t": "In het huis van de HEERE bidt Josafat. Hij zegt dat God over alle koninkrijken regeert. ‘Wij weten niet, wat wij doen zullen; maar onze ogen zijn op U.’ Dat betekent: wij kijken naar U voor hulp. Heel Juda staat voor de HEERE, ook de kleine kinderen. Dan zegt de Leviet Jahaziël: ‘de strijd is niet uwe, maar Gods.’" },
+        { "kop": "Zingen in plaats van vechten", "stap": "2kronieken:josafat:3", "t": "Vroeg in de morgen trekt Juda naar de woestijn van Tekoa. Voorop gaan zangers. Zij loven de HEERE, want Zijn goedertierenheid (Zijn goedheid) duurt eeuwig. Zodra ze beginnen te zingen, worden de vijanden verslagen: ze keren zich tegen elkaar. Drie dagen verzamelt Juda de buit. In het dal van Beracha loven ze God. Met harpen en trompetten gaan ze terug naar Jeruzalem." }
+      ],
+      "vragen": [
+        { "q": "Wat deed Josafat toen hij bang was?", "a": ["Hij zocht de HEERE en riep een vasten uit", "Hij vluchtte naar de woestijn van Tekoa", "Hij stuurde boden naar de koning van Syrië"], "why": "2 Kronieken 20:3" },
+        { "q": "Waarom hoefde Juda niet te strijden?", "a": ["De strijd was niet van Juda, maar van God", "De vijanden waren al naar huis gegaan", "Josafat had vrede gesloten met Moab"], "why": "2 Kronieken 20:15–17" },
+        { "q": "Wie liepen er voorop toen Juda uittrok?", "a": ["Zangers die de HEERE prezen", "Priesters die op bazuinen bliezen", "Boden met geschenken voor Moab"], "why": "2 Kronieken 20:21" },
+        { "q": "Wat gebeurde er eerst?", "a": ["Josafat bad in het huis van de HEERE", "Juda verzamelde drie dagen de buit", "Het volk loofde God in het dal van Beracha"], "why": "2 Kronieken 20:5–12; 2 Kronieken 20:25; 2 Kronieken 20:26" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Een lied dat vaker klinkt", "t": "De zangers van Josafat zingen: ‘Looft den HEERE, want Zijn goedertierenheid is tot in eeuwigheid!’ (2 Kronieken 20:21). Zo prezen de zangers God ook toen de ark in de tempel van Salomo werd gebracht: ‘dat Hij goed is, dat Zijn weldadigheid is tot in eeuwigheid’ (2 Kronieken 5:13). Bij de inwijding van de tempel loofde het volk Hem met bijna dezelfde woorden (2 Kronieken 7:3). Toen na de ballingschap het fundament van de nieuwe tempel werd gelegd, zongen ze weer zo (Ezra 3:11). En in Psalm 136 eindigt elk vers met ‘want Zijn goedertierenheid is in der eeuwigheid’.", "refs": ["2 Kronieken 20:21", "2 Kronieken 5:13", "2 Kronieken 7:3", "Ezra 3:11", "Psalm 136:1"] },
+        { "kop": "Abraham, de liefhebber van God", "t": "In zijn gebed noemt Josafat Abraham ‘Uw liefhebber’ (2 Kronieken 20:7): God had het land aan zijn nakomelingen gegeven. Ook in Jesaja noemt God hem zo: ‘het zaad van Abraham, Mijn liefhebber!’ (Jesaja 41:8). En Jakobus schrijft dat Abraham ‘een vriend van God genaamd geweest’ is (Jakobus 2:23).", "refs": ["2 Kronieken 20:7", "Jesaja 41:8", "Jakobus 2:23"] },
+        { "kop": "Waar en wanneer", "t": "En-Gedi, Tekoa en Jeruzalem zijn aanwijsbare plaatsen. De opgang van Ziz is waarschijnlijk, maar niet zeker; waar de woestijn van Jeruël lag, weten we niet. Over de plek van het dal van Beracha bestaan verschillende voorstellen. De oorlog kwam na de dood van Achab en vóór het einde van de regering van Josafat: in de gangbare chronologie tussen ca. 853 en 848 v.Chr. Welk jaar precies, weten we niet.", "refs": ["2 Kronieken 20:1–2", "2 Kronieken 20:16", "2 Kronieken 20:31"] }
+      ],
+      "vragen": [
+        { "q": "Hoe noemt Josafat Abraham in zijn gebed?", "a": ["Uw liefhebber", "Uw eerstgeborene", "Onze koning"], "why": "2 Kronieken 20:7" },
+        { "q": "Uit welke zonen kwam de Leviet Jahaziël?", "a": ["Uit de zonen van Asaf", "Uit de zonen van Korah", "Uit de zonen van Aäron"], "why": "2 Kronieken 20:14" },
+        { "q": "Welke Bijbelschrijver noemt Abraham een vriend van God?", "a": ["Jakobus", "Lukas", "Petrus"], "why": "Jakobus 2:23" }
+      ]
+    }
+  },
+  "157": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["damascusst", "ramothgilead", "jizreel"],
+      "delen": [
+        { "t": "De profeet Elisa is in Damascus. Daar is de koning van Syrië ziek. Hij stuurt Hazaël naar Elisa toe.", "stap": "2koningen:jehu:0" },
+        { "t": "Elisa kijkt Hazaël aan en begint te huilen. Hij weet dat Hazaël Israël veel kwaad zal doen.", "stap": "2koningen:jehu:0" },
+        { "t": "Elisa zegt tegen hem: “De HEERE heeft mij laten zien dat jij koning wordt over Syrië.”" },
+        { "t": "In Israël is Joram koning, de zoon van koning Achab. Joram is gewond in de oorlog en ligt in Jizreël.", "stap": "2koningen:jehu:1" },
+        { "t": "Elisa stuurt een jonge profeet naar Jehu. Hij giet olie op zijn hoofd: “De HEERE maakt jou koning over Israël.”", "stap": "2koningen:jehu:2" },
+        { "t": "Jehu moet de familie van Achab straffen. Want Izebel, de vrouw van Achab, heeft profeten van de HEERE laten doden." },
+        { "t": "Jehu rijdt heel hard naar Jizreël. De wachter op de toren ziet Jehu en zijn mannen aankomen.", "stap": "2koningen:jehu:3" },
+        { "t": "In Jizreël sterven koning Joram en Izebel. Zo gebeurt wat de HEERE door de profeet Elia had gezegd.", "stap": "2koningen:jehu:4" },
+        { "t": "Daarna haalt Jehu de dienst van de afgod Baäl weg uit Israël. Het huis van Baäl wordt afgebroken.", "stap": "2koningen:jehu:8" },
+        { "t": "Maar de gouden kalveren in Bethel en Dan laat Jehu staan. Hij dient de HEERE niet met heel zijn hart.", "stap": "2koningen:jehu:9" }
+      ],
+      "samen": "Dit is een geschiedenis over Gods oordeel. Bij A is weggelaten hoe de koning van Syrië stierf (2 Koningen 8:15), hoe Joram, Ahazia en Izebel stierven (9:24–37), dat de zonen van Achab werden gedood (10:7) en dat de dienaren van Baäl met het zwaard werden gedood (10:25). De Bijbel zegt dat zo uitkwam wat de HEERE door Elia had gezegd (10:10, 17). Vraag samen: waarom huilde Elisa (8:11–12)?",
+      "vragen": [
+        { "q": "Waarom huilt Elisa?", "a": ["Hazaël zal Israël veel kwaad doen", "Elisa is zelf erg ziek"], "why": "2 Koningen 8:11–12" },
+        { "q": "Wat giet de jonge profeet op het hoofd van Jehu?", "a": ["Olie", "Water"], "why": "2 Koningen 9:6" },
+        { "q": "Wat laat Jehu staan?", "a": ["De gouden kalveren", "Het huis van Baäl"], "why": "2 Koningen 10:27–29" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Elisa huilt in Damascus", "stap": "2koningen:jehu:0", "t": "Elisa komt in Damascus. De koning van Syrië is ziek en stuurt Hazaël naar hem toe. Elisa kijkt Hazaël lang aan en huilt, want hij weet wat voor kwaad Hazaël Israël zal doen. Hazaël zal koning worden over Syrië, zegt hij. Hazaël gaat terug. De volgende dag spreidt hij een natte deken over het gezicht van de koning, zodat die sterft. Hazaël wordt koning." },
+        { "kop": "Jehu gezalfd tot koning", "stap": "2koningen:jehu:2", "t": "Joram, de zoon van Achab, is koning van Israël. Elisa stuurt een profetenzoon naar Ramoth in Gilead. Die zalft Jehu, een legeroverste, tot koning: hij giet olie op zijn hoofd. Jehu moet het huis van Achab slaan. Zo wreekt God het bloed van Zijn profeten aan Izebel." },
+        { "kop": "Gods woord komt uit", "stap": "2koningen:jehu:4", "t": "Jehu rijdt in razende vaart naar Jizreël. Daar doodt hij koning Joram met een pijl. Ook Ahazia, de koning van Juda, en Izebel komen om. Zo gebeurt wat de HEERE door Elia had gezegd. Jehu roept alle dienaren van Baäl bijeen en laat hen doden. Het huis van Baäl wordt afgebroken. Maar de gouden kalveren in Bethel en Dan laat hij staan. Hij dient de HEERE niet met heel zijn hart." }
+      ],
+      "vragen": [
+        { "q": "Waarom huilde Elisa toen hij Hazaël aankeek?", "a": ["Hij wist wat voor kwaad Hazaël Israël zou doen", "Hij was verdrietig dat de koning ziek was", "Hij moest Damascus voor altijd verlaten"], "why": "2 Koningen 8:11–12" },
+        { "q": "Waar werd Jehu gezalfd?", "a": ["In Ramoth in Gilead", "In Jizreël", "In Samaria"], "why": "2 Koningen 9:4–6" },
+        { "q": "Waarom moest Jehu het huis van Achab slaan?", "a": ["Om het bloed van de profeten te wreken aan Izebel", "Omdat Joram de oorlog tegen Syrië verloor", "Omdat Joram naar Syrië wilde vluchten"], "why": "2 Koningen 9:7" },
+        { "q": "Wat liet Jehu staan, hoewel hij Baäl verdelgde?", "a": ["De gouden kalveren in Bethel en Dan", "Het huis van Baäl in Samaria", "De beelden uit het huis van Baäl"], "why": "2 Koningen 10:26–29" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Wat er daarna in Juda gebeurt", "t": "Ahazia, de koning van Juda, was ‘een schoonzoon van het huis van Achab’ (2 Koningen 8:27). Zijn moeder was Athalia, ‘de dochter van Omri’ (8:26): zij hoorde bij de familie van Achab. Toen zij zag dat haar zoon dood was, bracht zij ‘al het koninklijke zaad om’ (2 Koningen 11:1). Alleen het kleine kind Joas werd gered. Dat is geschiedenis 65. Let ook op de namen: er zijn twee koningen Joram. De ene is de zoon van Achab, koning van Israël; de andere, ook Jehoram genoemd, is de vader van Ahazia en koning van Juda (8:16, 24, 29).", "refs": ["2 Koningen 8:16", "2 Koningen 8:24", "2 Koningen 8:26–29", "2 Koningen 11:1"] },
+        { "kop": "Goed gedaan, en toch niet met heel zijn hart", "t": "De HEERE zegt tegen Jehu: ‘gij welgedaan hebt, doende wat recht is in Mijn ogen’ (2 Koningen 10:30). Maar het volgende vers zegt dat Jehu ‘niet waar’ nam ‘te wandelen in de wet des HEEREN … met zijn ganse hart’ (10:31). Later zegt God door de profeet Hosea dat Hij ‘de bloedschulden van Jizreël bezoeken’ zal ‘over het huis van Jehu’ (Hosea 1:4).", "refs": ["2 Koningen 10:30–31", "Hosea 1:4"] },
+        { "kop": "Waar en wanneer", "t": "Damascus, Ramoth in Gilead, Jizreël, Megiddo en Samaria zijn aanwijsbare plaatsen. Waar Beth-Heked lag, weten we niet zeker. De Assyrische koning Salmaneser III schrijft dat hij in zijn achttiende jaar schatting kreeg van Jehu; dat jaar wordt gesteld op 841 v.Chr. Op de Zwarte Obelisk buigt een man voor de Assyrische koning; het opschrift noemt de schatting van “Jehu, de zoon van Omri”. Assyrië noemde Israël naar Omri, de vader van Achab; Jehu was geen zoon van hem. Jehu regeerde achtentwintig jaar: in de gangbare chronologie ca. 841–814 v.Chr.", "refs": ["2 Koningen 9:4", "2 Koningen 10:36"] }
+      ],
+      "vragen": [
+        { "q": "Wie was de moeder van Ahazia, de koning van Juda?", "a": ["Athalia", "Izebel", "Maächa"], "why": "2 Koningen 8:26" },
+        { "q": "Hoe lang regeerde Ahazia in Jeruzalem?", "a": ["Eén jaar", "Twaalf jaar", "Achtentwintig jaar"], "why": "2 Koningen 8:26" },
+        { "q": "Wie reed volgens Jehu met hem achter Achab, toen de HEERE de last over het bloed van Naboth uitsprak?", "a": ["Bidkar, zijn hoofdman", "Jonadab, de zoon van Rechab", "Elisa, de profeet"], "why": "2 Koningen 9:25" }
+      ]
+    }
+  },
+  "158": {
+    "a": {
+      "status": "gecontroleerd",
+      "plaatsen": ["salem", "babelst"],
+      "delen": [
+        { "t": "Manasse wordt koning in Jeruzalem. Hij is pas twaalf jaar." },
+        { "t": "Manasse doet wat kwaad is in de ogen van de HEERE. Hij maakt altaren voor afgoden." },
+        { "t": "Hij zet zelfs een afgodsbeeld in het huis van de HEERE." },
+        { "t": "De HEERE spreekt tot Manasse en het volk. Maar ze luisteren niet." },
+        { "t": "Daarom laat de HEERE de legeroversten van de koning van Assyrië komen. Ze nemen Manasse gevangen." },
+        { "t": "Ze binden hem met twee koperen ketenen. Zo brengen ze hem ver weg, naar Babel.", "stap": "2kronieken:hizkia-josia:5" },
+        { "t": "In zijn nood bidt Manasse tot de HEERE. Hij maakt zich heel klein voor God." },
+        { "t": "De HEERE hoort zijn gebed. Hij brengt Manasse terug naar Jeruzalem.", "stap": "2kronieken:hizkia-josia:5" },
+        { "t": "Nu weet Manasse: de HEERE is God." },
+        { "t": "Hij haalt de vreemde goden en het beeld weg uit het huis van de HEERE. Tegen het volk zegt hij: “Dien de HEERE.”" }
+      ],
+      "samen": "Bij A is weggelaten dat Manasse ‘zijn zonen door het vuur’ deed gaan en aan waarzeggerij en toverij deed (2 Kronieken 33:6). Ook 2 Koningen 21 vertelt de zonden van Manasse, maar niet dat hij naar Babel werd gevoerd en zich vernederde; dat staat alleen in Kronieken. Vraag samen: wat deed Manasse toen hij in nood was, en wat deed God toen (33:12–13)?",
+      "vragen": [
+        { "q": "Waarmee wordt Manasse gebonden?", "a": ["Met ketenen", "Met een touw"], "why": "2 Kronieken 33:11" },
+        { "q": "Wat doet Manasse in zijn nood?", "a": ["Hij bidt tot de HEERE", "Hij vlucht weg"], "why": "2 Kronieken 33:12" },
+        { "q": "Wat weet Manasse als hij terug is?", "a": ["De HEERE is God", "Babel is sterk"], "why": "2 Kronieken 33:13" }
+      ]
+    },
+    "b": {
+      "status": "gecontroleerd",
+      "delen": [
+        { "kop": "Een koning die veel kwaad doet", "t": "Manasse, de zoon van Hizkia, wordt koning als hij twaalf jaar is. Hij regeert vijfenvijftig jaar in Jeruzalem. Hij doet wat kwaad is in de ogen van de HEERE. Hij bouwt altaren voor de Baäls en zet een gesneden beeld in het huis van God. Hij laat zelfs zijn zonen door het vuur gaan, zoals de heidense volken deden. God had dat streng verboden. Manasse doet ‘zeer veel kwaads in de ogen des HEEREN’." },
+        { "kop": "In ketenen naar Babel", "stap": "2kronieken:hizkia-josia:5", "t": "De HEERE spreekt tot Manasse en zijn volk, maar zij luisteren niet. Daarom laat de HEERE de legeroversten van de koning van Assyrië komen. Zij nemen Manasse gevangen, binden hem met twee koperen ketenen en brengen hem naar Babel." },
+        { "kop": "God hoort zijn gebed", "t": "In zijn benauwdheid bidt Manasse tot de HEERE. Hij vernedert zich diep. Zich vernederen betekent: zich klein maken voor God. God hoort hem en brengt hem terug naar Jeruzalem. ‘Toen erkende Manasse, dat de HEERE God is.’ Hij haalt de vreemde goden en het beeld weg uit het huis van de HEERE en herstelt het altaar." }
+      ],
+      "vragen": [
+        { "q": "Wie was de vader van Manasse?", "a": ["Hizkia", "Josia", "Amon"], "why": "2 Kronieken 32:33" },
+        { "q": "Waarom bracht de HEERE het leger van Assyrië over Manasse?", "a": ["Ze luisterden niet toen de HEERE tot hen sprak", "Manasse had de koning van Assyrië beledigd", "Manasse wilde zelf in Babel gaan wonen"], "why": "2 Kronieken 33:10–11" },
+        { "q": "Wat deed God toen Manasse tot Hem bad?", "a": ["Hij hoorde hem en bracht hem terug", "Hij zei dat het al te laat was", "Hij liet hem voor altijd in Babel"], "why": "2 Kronieken 33:13" },
+        { "q": "Wat gebeurde er eerst?", "a": ["Manasse zette een beeld in het huis van God", "Manasse werd naar Babel gebracht", "Manasse herstelde het altaar van de HEERE"], "why": "2 Kronieken 33:7; 2 Kronieken 33:11; 2 Kronieken 33:16" }
+      ]
+    },
+    "c": {
+      "status": "gecontroleerd",
+      "verdieping": [
+        { "kop": "Wat Koningen vertelt", "t": "2 Koningen 21:1–18 vertelt ook over Manasse. Daar staat de naam van zijn moeder: Hefzi-bah (21:1). Koningen zegt erbij dat Manasse ‘zeer veel onschuldig bloed’ vergoot (21:16). Over de wegvoering naar Babel, het gebed en de terugkeer vertelt Koningen niets. Kronieken zegt dat zijn gebed beschreven was ‘in de woorden der zieners’ (2 Kronieken 33:19).", "refs": ["2 Koningen 21:1", "2 Koningen 21:16", "2 Kronieken 33:18–19"] },
+        { "kop": "Verhoord, en toch blijft het oordeel", "t": "God hoorde Manasse en bracht hem terug (2 Kronieken 33:13). Toch zegt 2 Koningen later dat de HEERE Zich niet afkeerde van Zijn toorn tegen Juda, ‘om al de tergingen, waarmede Manasse Hem getergd had’ (2 Koningen 23:26). Toen de HEERE Juda ‘van Zijn aangezicht wegdeed’, was dat ‘om de zonden van Manasse’ (2 Koningen 24:3). Door Jeremia zegt de HEERE dat Hij Zijn volk zal overgeven ‘vanwege Manasse’ (Jeremia 15:4).", "refs": ["2 Kronieken 33:13", "2 Koningen 23:26", "2 Koningen 24:3", "Jeremia 15:4"] },
+        { "kop": "Waar en wanneer", "t": "Babel en Jeruzalem zijn aanwijsbare plaatsen. Assyrië heerste in die tijd ook over Babel. In opschriften van de Assyrische koningen Esarhaddon en Assurbanipal staat “Manasse, koning van Juda” tussen koningen uit het westen. Over zijn gevangenschap zeggen de Assyrische bronnen die we kennen niets, en in welk jaar het was, zegt ook de Bijbel niet. De gangbare chronologie rekent terug vanaf de dood van Josia (ca. 609 v.Chr.) en komt voor Manasse op ca. 697–642 v.Chr. Dat is een reconstructie: dan moet Manasse ongeveer tien jaar samen met Hizkia hebben geregeerd, en dat staat niet in de Bijbel.", "refs": ["2 Kronieken 33:1", "2 Kronieken 33:11", "2 Kronieken 33:21", "2 Kronieken 34:1"] }
+      ],
+      "vragen": [
+        { "q": "Hoe heette de moeder van Manasse volgens 2 Koningen 21?", "a": ["Hefzi-bah", "Athalia", "Maächa"], "why": "2 Koningen 21:1" },
+        { "q": "Wat bouwde Manasse na zijn terugkeer aan de stad van David?", "a": ["Een buitenmuur", "Een nieuwe tempel", "Een paleis voor Amon"], "why": "2 Kronieken 33:14" },
+        { "q": "Waar werd Manasse begraven?", "a": ["In zijn huis", "In Babel", "In Bethel"], "why": "2 Kronieken 33:20" }
+      ]
+    }
+  }
+}

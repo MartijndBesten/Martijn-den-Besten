@@ -4457,4 +4457,543 @@ BR.niveaus.voegToe("a", {
       { q: "Wat staat er aan beide kanten van de rivier?", a: ["De boom des levens", "Een gouden hek"], why: "Openbaring 22:2" },
     ],
   },
+  151: {
+    status: "gecontroleerd",
+    plaatsen: ["silo", "mamre", "timnath"],
+    delen: [
+      { t: "Jozua is oud geworden. De HEERE zegt dat hij het land moet verdelen onder de stammen van Israël.", stap: "jozua:stammen:0" },
+      {
+        t: "Ruben, Gad en de halve stam Manasse hebben hun land al. Mozes gaf het hun aan de andere kant van de Jordaan.",
+        stap: "jozua:stammen:0",
+      },
+      { t: "Kaleb is al heel oud, maar nog net zo sterk als vroeger. Hij krijgt de stad Hebron.", stap: "jozua:stammen:1" },
+      {
+        t: "In Silo zet het volk de tent van de HEERE neer. Daar werpt Jozua het lot voor de stammen die nog geen land hebben.",
+        stap: "jozua:stammen:3",
+      },
+      {
+        t: "Zo krijgen ook die stammen een eigen stuk land. Daarna krijgt Jozua zelf ook een stad. Hij bouwt die stad en gaat er wonen.",
+        stap: "jozua:stammen:5",
+      },
+      {
+        t: "Er komen zes vrijsteden. Wie per ongeluk iemand gedood heeft, mag daarheen vluchten. Daar is hij veilig.",
+        stap: "jozua:stammen:6",
+      },
+      { t: "De Levieten krijgen geen eigen stuk land. Zij krijgen steden om in te wonen, overal in het land.", stap: "jozua:stammen:7" },
+      { t: "De HEERE geeft Israël rust. Alles wat Hij beloofd heeft, is gebeurd.", stap: "jozua:stammen:7" },
+      { t: "Dan mogen de mannen van de overkant naar huis. Bij de Jordaan bouwen zij een groot altaar.", stap: "jozua:stammen:9" },
+      {
+        t: "De andere stammen willen eerst tegen hen gaan strijden. Maar het altaar is niet om op te offeren. Het is een teken: de HEERE is God.",
+        stap: "jozua:stammen:9",
+      },
+    ],
+    samen: "Weggelaten: de grenzen en steden van elke stam (Jozua 13–19) en de dochters van Zelafead (17:3–6). Een vrijstad was er alleen voor wie iemand doodde ‘door dwaling, niet met wetenschap’: per ongeluk, zonder haat. Hij bleef daar tot de dood van de hogepriester (20:3–6). Vraag samen: waarom bouwen de stammen aan de overkant van de Jordaan een altaar, en waarom is dat geen altaar om op te offeren? (22:24–27)",
+    vragen: [
+      { q: "Waar zet het volk de tent van de HEERE neer?", a: ["In Silo", "In Jericho"], why: "Jozua 18:1" },
+      { q: "Wie mag naar een vrijstad vluchten?", a: ["Wie per ongeluk iemand gedood heeft", "Wie iets gestolen heeft"], why: "Jozua 20:3" },
+      {
+        q: "Waarvoor is het altaar bij de Jordaan?",
+        a: ["Het is een teken dat de HEERE God is", "Om er dieren op te offeren"],
+        why: "Jozua 22:26–27; Jozua 22:34",
+      },
+    ],
+  },
+  152: {
+    status: "gecontroleerd",
+    plaatsen: ["jericho", "gilgal", "ej_efraim"],
+    delen: [
+      {
+        t: "Israël vergeet de HEERE. Een vreemde koning gaat over hen heersen. Dan roepen ze tot de HEERE, en Hij stuurt Othniël om hen te redden.",
+        stap: "richteren:ehud-jefta:0",
+      },
+      {
+        t: "Later doet Israël weer wat kwaad is. Nu maakt de HEERE Eglon, de koning van Moab, sterk tegen hen. Heel lang moet Israël hem dienen.",
+        stap: "richteren:ehud-jefta:1",
+      },
+      { t: "Weer roept Israël tot de HEERE. Hij stuurt een redder: Ehud. Ehud is links.", stap: "richteren:ehud-jefta:1" },
+      {
+        t: "Ehud brengt een geschenk naar koning Eglon. Onder zijn kleren, aan zijn rechterkant, heeft hij een zwaard.",
+        stap: "richteren:ehud-jefta:2",
+      },
+      { t: "Ehud gaat alleen naar de koning. Hij zegt: ‘Ik heb een woord Gods aan u.’ De koning staat op.", stap: "richteren:ehud-jefta:2" },
+      { t: "Dan doodt Ehud de koning met zijn zwaard. Hij doet de deuren op slot en ontkomt.", stap: "richteren:ehud-jefta:2" },
+      {
+        t: "In de bergen blaast Ehud op de bazuin. Hij zegt: “Volg mij, want de HEERE heeft de Moabieten in uw hand gegeven.”",
+        stap: "richteren:ehud-jefta:3",
+      },
+      { t: "Israël wint van Moab. Daarna is het heel lang rustig in het land.", stap: "richteren:ehud-jefta:3" },
+    ],
+    samen: "Het doden van koning Eglon staat hier in één zin. De Bijbel vertelt het sober en noemt Ehud een verlosser die de HEERE Zelf verwekte (Richteren 3:15). Ehud zegt ook Wie de overwinning geeft: ‘de HEERE heeft uw vijanden, de Moabieten, in ulieder hand gegeven’ (3:28). Weggelaten: de details van 3:21–25 en Samgar, die zeshonderd Filistijnen versloeg (3:31). Vraag samen: wat doet Israël telkens als het in nood is? (3:9, 15)",
+    vragen: [
+      { q: "Wie stuurt Ehud om Israël te redden?", a: ["De HEERE", "De koning van Moab"], why: "Richteren 3:15" },
+      { q: "Wat brengt Ehud naar koning Eglon?", a: ["Een geschenk", "Een brief"], why: "Richteren 3:17" },
+      { q: "Waarop blaast Ehud in de bergen?", a: ["Op de bazuin", "Op een fluit"], why: "Richteren 3:27" },
+    ],
+  },
+  153: {
+    status: "gecontroleerd",
+    plaatsen: ["ej_tob", "ej_mizpa", "rabba"],
+    delen: [
+      {
+        t: "Israël verlaat de HEERE weer en dient afgoden. Dan komen de Ammonieten. Zij maken het Israël heel moeilijk.",
+        stap: "richteren:ehud-jefta:4",
+      },
+      {
+        t: "Israël roept tot de HEERE: ‘Wij hebben gezondigd’. Ze doen hun afgoden weg en dienen de HEERE weer.",
+        stap: "richteren:ehud-jefta:4",
+      },
+      { t: "Jefta is een dappere man. Zijn broers hebben hem weggejaagd. Nu woont hij in het land Tob.", stap: "richteren:ehud-jefta:5" },
+      { t: "De leiders van Gilead komen Jefta halen. Hij moet hen helpen tegen de Ammonieten.", stap: "richteren:ehud-jefta:5" },
+      {
+        t: "Jefta laat de koning van Ammon weten: dit land heeft de HEERE aan Israël gegeven. Maar de koning luistert niet.",
+        stap: "richteren:ehud-jefta:6",
+      },
+      { t: "Dan komt de Geest van de HEERE op Jefta. Hij trekt op tegen de Ammonieten.", stap: "richteren:ehud-jefta:7" },
+      { t: "De HEERE geeft de Ammonieten in de hand van Jefta. Israël is verlost.", stap: "richteren:ehud-jefta:7" },
+      { t: "Jefta is zes jaar richter. Een richter is een leider die de HEERE aan Zijn volk geeft.", stap: "richteren:ehud-jefta:9" },
+    ],
+    samen: "Weggelaten: de gelofte van Jefta en wat er daarna met zijn dochter gebeurde (Richteren 11:30–31, 34–40), en de strijd met Efraïm, waarin velen omkwamen (12:1–6). Wie die verzen wil vertellen, leest ze het best eerst zelf en vertelt alleen wat er staat: Jefta ‘volbracht zijn gelofte’ aan haar, ‘en zij heeft geen man bekend’ (11:39). Vraag samen: wat doet Israël als het tot de HEERE roept? (10:15–16)",
+    vragen: [
+      { q: "Waar woont Jefta als de leiders hem komen halen?", a: ["In het land Tob", "In Egypte"], why: "Richteren 11:3; Richteren 11:5" },
+      { q: "Wat doet Israël met de afgoden?", a: ["Ze doen ze weg", "Ze maken er nieuwe bij"], why: "Richteren 10:16" },
+      { q: "Wie geeft Jefta de overwinning?", a: ["De HEERE", "De koning van Ammon"], why: "Richteren 11:32" },
+    ],
+  },
+  154: {
+    status: "gecontroleerd",
+    plaatsen: ["dr_refaim", "salem", "rabba"],
+    delen: [
+      { t: "David is koning over Israël. Dan komen de Filistijnen. Zij zoeken David.", stap: "2samuel:davids-rijk:0" },
+      {
+        t: "David vraagt aan de HEERE: “Zal ik tegen hen optrekken?” De HEERE zegt: “Ja, Ik zal hen in uw hand geven.”",
+        stap: "2samuel:davids-rijk:0",
+      },
+      { t: "David wint. De Filistijnen laten zelfs hun afgodsbeelden achter.", stap: "2samuel:davids-rijk:0" },
+      {
+        t: "De Filistijnen komen terug. De HEERE zegt: ga om hen heen, en haast je als je een geluid hoort in de toppen van de bomen.",
+        stap: "2samuel:davids-rijk:1",
+      },
+      { t: "Dan gaat de HEERE voor David uit. David doet wat de HEERE zegt, en hij wint opnieuw.", stap: "2samuel:davids-rijk:1" },
+      { t: "Ook andere volken verliezen van David. De HEERE beschermt David overal waar hij gaat.", stap: "2samuel:davids-rijk:3" },
+      { t: "David doet wat goed en recht is voor zijn hele volk.", stap: "2samuel:davids-rijk:6" },
+      { t: "De koning van Ammon sterft. David stuurt mannen om zijn zoon Hanun te troosten.", stap: "2samuel:davids-rijk:7" },
+      {
+        t: "Maar Hanun laat de helft van hun baard afscheren en stuurt hen weg. De mannen schamen zich heel erg.",
+        stap: "2samuel:davids-rijk:7",
+      },
+      { t: "Daarom komt er oorlog. Joab en zijn broer Abisaï strijden, en de vijanden vluchten.", stap: "2samuel:davids-rijk:8" },
+    ],
+    samen: "Dit is een overzicht van veel oorlogen. Weggelaten: hoe David met de Moabieten deed (2 Samuël 8:2), de aantallen gesneuvelden en het afsnijden van de kleren van Davids knechten (10:4). Wat telkens terugkomt: David vraagt eerst de HEERE (5:19, 23), en ‘de HEERE behoedde David overal, waar hij heentoog’ (8:6, 14). Vraag samen: wat hoorde David in de toppen van de bomen, en wat betekende dat? (5:24)",
+    vragen: [
+      { q: "Wat doet David voordat hij gaat strijden?", a: ["Hij vraagt het aan de HEERE", "Hij roept eerst Joab"], why: "2 Samuël 5:19" },
+      { q: "Waar hoort David het geluid?", a: ["In de toppen van de bomen", "In de rivier"], why: "2 Samuël 5:24" },
+      { q: "Waarom stuurt David mannen naar Hanun?", a: ["Om hem te troosten", "Om tegen hem te strijden"], why: "2 Samuël 10:2" },
+    ],
+  },
+  155: {
+    status: "gecontroleerd",
+    plaatsen: ["salem", "as_maresa", "rama"],
+    delen: [
+      {
+        t: "Asa is koning in Jeruzalem. Hij doet wat goed is in de ogen van de HEERE. Hij haalt de altaren van de afgoden weg.",
+        stap: "2kronieken:asa:0",
+      },
+      { t: "Asa zegt tegen het volk: “Zoek de HEERE.” Tien jaar is het stil in het land. Er is geen oorlog." },
+      { t: "Dan komt Zerah met een heel groot leger. Hij komt tot de stad Maresa.", stap: "2kronieken:asa:1" },
+      { t: "Asa bidt tot de HEERE: “Help ons! Wij steunen op U.” Dat wil zeggen: wij vertrouwen op U.", stap: "2kronieken:asa:1" },
+      { t: "De HEERE verslaat het leger van Zerah. De vijanden vluchten weg, tot Gerar toe.", stap: "2kronieken:asa:2" },
+      {
+        t: "Azaria brengt Gods woord: “Zoek de HEERE, dan vindt u Hem.” Het volk belooft: wij zoeken de HEERE met heel ons hart.",
+        stap: "2kronieken:asa:4",
+      },
+      { t: "Jaren later bouwt Baësa, de koning van Israël, de stad Rama. Dan kan niemand meer naar Asa toe.", stap: "2kronieken:asa:6" },
+      {
+        t: "Nu steunt Asa niet op de HEERE. Hij stuurt zilver en goud naar de koning van Syrië, zodat die hem helpt.",
+        stap: "2kronieken:asa:6",
+      },
+      {
+        t: "De ziener Hanani zegt: “U hebt dwaas gedaan. U steunde niet op de HEERE.” Asa wordt boos en zet Hanani gevangen.",
+        stap: "2kronieken:asa:8",
+      },
+      { t: "Later wordt Asa ziek aan zijn voeten. Ook dan zoekt hij de HEERE niet, maar de dokters.", stap: "2kronieken:asa:9" },
+    ],
+    samen: "Asa steunt eerst op de HEERE (2 Kronieken 14:11) en later op de koning van Syrië (16:7). Vraag samen: wat deed Asa toen het grote leger kwam, en wat deed hij toen Baësa Rama bouwde? Bij A is weggelaten dat het volk afsprak dat wie de HEERE niet zocht, gedood zou worden (15:13), en dat Asa zijn moeder Maächa afzette als koningin vanwege een afgodsbeeld (15:16).",
+    vragen: [
+      {
+        q: "Wat bidt Asa als het grote leger komt?",
+        a: ["Help ons, wij steunen op U", "Laat ons gauw wegvluchten"],
+        why: "2 Kronieken 14:11",
+      },
+      {
+        q: "Naar wie stuurt Asa later zilver en goud?",
+        a: ["Naar de koning van Syrië", "Naar de koning van Egypte"],
+        why: "2 Kronieken 16:2",
+      },
+      { q: "Wie zoekt Asa als hij ziek is?", a: ["De dokters", "De ziener Hanani"], why: "2 Kronieken 16:12" },
+    ],
+  },
+  156: {
+    status: "gecontroleerd",
+    plaatsen: ["engedi", "salem", "beracha"],
+    delen: [
+      { t: "Er komt een heel groot leger naar het land Juda. Boden vertellen het aan koning Josafat.", stap: "2kronieken:josafat:0" },
+      { t: "Josafat is bang. Maar hij zoekt de HEERE. Uit alle steden komen de mensen naar Jeruzalem.", stap: "2kronieken:josafat:1" },
+      {
+        t: "In het huis van de HEERE bidt Josafat: “Wij weten niet wat we moeten doen. Maar onze ogen zijn op U.”",
+        stap: "2kronieken:josafat:1",
+      },
+      { t: "Alle mensen staan voor de HEERE, ook de kleine kinderen." },
+      { t: "Dan zegt de Leviet Jahaziël: “Wees niet bang. De strijd is niet van jullie, maar van God.”", stap: "2kronieken:josafat:2" },
+      {
+        t: "De volgende morgen trekken ze uit. Voorop lopen zangers. Ze zingen: “Loof de HEERE, want Zijn goedheid duurt altijd!”",
+        stap: "2kronieken:josafat:3",
+      },
+      { t: "Als ze gaan zingen, worden de vijanden verslagen. Ze vechten tegen elkaar. Juda hoeft zelf niet te vechten." },
+      { t: "Drie dagen lang halen ze de buit op. Er is zo veel!" },
+      { t: "Op de vierde dag loven ze de HEERE in een dal. Daarom heet het: het dal van Beracha.", stap: "2kronieken:josafat:4" },
+      { t: "Blij gaan ze terug naar Jeruzalem, met harpen en trompetten.", stap: "2kronieken:josafat:5" },
+    ],
+    samen: "Het leger komt van ‘gene zijde der zee’ (2 Kronieken 20:2): Moabieten, Ammonieten en mannen van het gebergte Seïr (20:10). Bij A staat alleen dat de vijanden tegen elkaar vechten; weggelaten is dat ze elkaar ombrachten en dat Juda alleen nog dode lichamen vond (20:23–24). Vraag samen: wat zegt Josafat als hij niet weet wat hij moet doen? ‘Onze ogen zijn op U’ (20:12). Wijs op de kaart En-Gedi aan, waar het leger stond, en Jeruzalem, waar het volk bad.",
+    vragen: [
+      { q: "Wat zegt Jahaziël?", a: ["De strijd is van God", "Jullie moeten hard vechten"], why: "2 Kronieken 20:15" },
+      { q: "Wie lopen er voorop als Juda uittrekt?", a: ["Zangers", "Soldaten met paarden"], why: "2 Kronieken 20:21" },
+      { q: "Wat doet het volk in het dal van Beracha?", a: ["Ze loven de HEERE", "Ze bouwen een stad"], why: "2 Kronieken 20:26" },
+    ],
+  },
+  157: {
+    status: "gecontroleerd",
+    plaatsen: ["damascusst", "ramothgilead", "jizreel"],
+    delen: [
+      {
+        t: "De profeet Elisa is in Damascus. Daar is de koning van Syrië ziek. Hij stuurt Hazaël naar Elisa toe.",
+        stap: "2koningen:jehu:0",
+      },
+      { t: "Elisa kijkt Hazaël aan en begint te huilen. Hij weet dat Hazaël Israël veel kwaad zal doen.", stap: "2koningen:jehu:0" },
+      { t: "Elisa zegt tegen hem: “De HEERE heeft mij laten zien dat jij koning wordt over Syrië.”" },
+      {
+        t: "In Israël is Joram koning, de zoon van koning Achab. Joram is gewond in de oorlog en ligt in Jizreël.",
+        stap: "2koningen:jehu:1",
+      },
+      {
+        t: "Elisa stuurt een jonge profeet naar Jehu. Hij giet olie op zijn hoofd: “De HEERE maakt jou koning over Israël.”",
+        stap: "2koningen:jehu:2",
+      },
+      { t: "Jehu moet de familie van Achab straffen. Want Izebel, de vrouw van Achab, heeft profeten van de HEERE laten doden." },
+      { t: "Jehu rijdt heel hard naar Jizreël. De wachter op de toren ziet Jehu en zijn mannen aankomen.", stap: "2koningen:jehu:3" },
+      { t: "In Jizreël sterven koning Joram en Izebel. Zo gebeurt wat de HEERE door de profeet Elia had gezegd.", stap: "2koningen:jehu:4" },
+      { t: "Daarna haalt Jehu de dienst van de afgod Baäl weg uit Israël. Het huis van Baäl wordt afgebroken.", stap: "2koningen:jehu:8" },
+      {
+        t: "Maar de gouden kalveren in Bethel en Dan laat Jehu staan. Hij dient de HEERE niet met heel zijn hart.",
+        stap: "2koningen:jehu:9",
+      },
+    ],
+    samen: "Dit is een geschiedenis over Gods oordeel. Bij A is weggelaten hoe de koning van Syrië stierf (2 Koningen 8:15), hoe Joram, Ahazia en Izebel stierven (9:24–37), dat de zonen van Achab werden gedood (10:7) en dat de dienaren van Baäl met het zwaard werden gedood (10:25). De Bijbel zegt dat zo uitkwam wat de HEERE door Elia had gezegd (10:10, 17). Vraag samen: waarom huilde Elisa (8:11–12)?",
+    vragen: [
+      { q: "Waarom huilt Elisa?", a: ["Hazaël zal Israël veel kwaad doen", "Elisa is zelf erg ziek"], why: "2 Koningen 8:11–12" },
+      { q: "Wat giet de jonge profeet op het hoofd van Jehu?", a: ["Olie", "Water"], why: "2 Koningen 9:6" },
+      { q: "Wat laat Jehu staan?", a: ["De gouden kalveren", "Het huis van Baäl"], why: "2 Koningen 10:27–29" },
+    ],
+  },
+  158: {
+    status: "gecontroleerd",
+    plaatsen: ["salem", "babelst"],
+    delen: [
+      { t: "Manasse wordt koning in Jeruzalem. Hij is pas twaalf jaar." },
+      { t: "Manasse doet wat kwaad is in de ogen van de HEERE. Hij maakt altaren voor afgoden." },
+      { t: "Hij zet zelfs een afgodsbeeld in het huis van de HEERE." },
+      { t: "De HEERE spreekt tot Manasse en het volk. Maar ze luisteren niet." },
+      { t: "Daarom laat de HEERE de legeroversten van de koning van Assyrië komen. Ze nemen Manasse gevangen." },
+      { t: "Ze binden hem met twee koperen ketenen. Zo brengen ze hem ver weg, naar Babel.", stap: "2kronieken:hizkia-josia:5" },
+      { t: "In zijn nood bidt Manasse tot de HEERE. Hij maakt zich heel klein voor God." },
+      { t: "De HEERE hoort zijn gebed. Hij brengt Manasse terug naar Jeruzalem.", stap: "2kronieken:hizkia-josia:5" },
+      { t: "Nu weet Manasse: de HEERE is God." },
+      { t: "Hij haalt de vreemde goden en het beeld weg uit het huis van de HEERE. Tegen het volk zegt hij: “Dien de HEERE.”" },
+    ],
+    samen: "Bij A is weggelaten dat Manasse ‘zijn zonen door het vuur’ deed gaan en aan waarzeggerij en toverij deed (2 Kronieken 33:6). Ook 2 Koningen 21 vertelt de zonden van Manasse, maar niet dat hij naar Babel werd gevoerd en zich vernederde; dat staat alleen in Kronieken. Vraag samen: wat deed Manasse toen hij in nood was, en wat deed God toen (33:12–13)?",
+    vragen: [
+      { q: "Waarmee wordt Manasse gebonden?", a: ["Met ketenen", "Met een touw"], why: "2 Kronieken 33:11" },
+      { q: "Wat doet Manasse in zijn nood?", a: ["Hij bidt tot de HEERE", "Hij vlucht weg"], why: "2 Kronieken 33:12" },
+      { q: "Wat weet Manasse als hij terug is?", a: ["De HEERE is God", "Babel is sterk"], why: "2 Kronieken 33:13" },
+    ],
+  },
+  159: {
+    status: "gecontroleerd",
+    plaatsen: ["mizpa", "gibeon", "je_tachpanhes"],
+    delen: [
+      { t: "De koning van Babel heeft Gedalja over het land gesteld. Gedalja woont in de stad Mizpa.", stap: "profeten:jeremia-egypte:0" },
+      { t: "Dan komt Ismaël met tien mannen. Ze eten samen. Daarna doden ze Gedalja met het zwaard.", stap: "profeten:jeremia-egypte:0" },
+      {
+        t: "Ismaël neemt de mensen van Mizpa gevangen mee. Maar Johanan komt met zijn mannen. Bij Gibeon haalt hij de mensen terug.",
+        stap: "profeten:jeremia-egypte:2",
+      },
+      {
+        t: "Nu zijn de mensen bang voor de koning van Babel. Ze willen naar Egypte gaan. Bij Bethlehem stoppen ze.",
+        stap: "profeten:jeremia-egypte:3",
+      },
+      {
+        t: "Ze vragen de profeet Jeremia: “Bid voor ons tot de HEERE.” En ze beloven: “Wij zullen doen wat Hij zegt.”",
+        stap: "profeten:jeremia-egypte:4",
+      },
+      { t: "Na tien dagen geeft God antwoord. Hij zegt: “Blijf in dit land. Ik zal bij jullie zijn.”", stap: "profeten:jeremia-egypte:5" },
+      { t: "Maar ze luisteren niet. Ze zeggen tegen Jeremia: “Je liegt.” En ze gaan toch naar Egypte.", stap: "profeten:jeremia-egypte:6" },
+      { t: "Jeremia en Baruch moeten mee. Ze komen in de stad Tachpanhes, in Egypte.", stap: "profeten:jeremia-egypte:6" },
+      {
+        t: "Ook in Egypte spreekt Jeremia de woorden van God. Maar de mensen dienen andere goden. Ze zeggen: “Wij luisteren niet naar jou.”",
+        stap: "profeten:jeremia-egypte:9",
+      },
+    ],
+    samen: "Weggelaten: Ismaël doodt ook andere mannen en werpt hen in een kuil (Jeremia 41:3–9), en Jeremia moet stenen verbergen bij het huis van Farao (43:8–13). In Egypte offeren de Joden aan de ‘Melecheth des hemels’: een afgod, de koningin van de hemel (44:17). Het volk had beloofd te gehoorzamen, ‘hetzij dan goed of kwaad’ (42:6), maar deed het niet. Vraag samen: wat beloofde God als ze in het land bleven? (42:10–11)",
+    vragen: [
+      { q: "Waar vragen de mensen Jeremia om?", a: ["Om voor hen te bidden", "Om met hen te vechten"], why: "Jeremia 42:2" },
+      { q: "Waar moeten ze volgens God blijven?", a: ["In hun eigen land", "In Egypte"], why: "Jeremia 42:10" },
+      { q: "Wie moeten er mee naar Egypte?", a: ["Jeremia en Baruch", "Gedalja en Ismaël"], why: "Jeremia 43:6" },
+    ],
+  },
+  160: {
+    status: "gecontroleerd",
+    plaatsen: ["babelst", "susan", "salem"],
+    delen: [
+      {
+        t: "Ezra is priester. Hij kent de wet van God heel goed. Met veel mensen reist hij van Babel naar Jeruzalem.",
+        stap: "ezra:nehemia:0",
+      },
+      {
+        t: "Ze vragen de koning geen soldaten om hen te beschermen. Ze vasten en bidden. En God beschermt hen onderweg.",
+        stap: "ezra:nehemia:0",
+      },
+      {
+        t: "Nehemia werkt in het paleis van de koning, in Susan. Hij hoort dat de muur van Jeruzalem kapot is. Dan huilt hij en bidt hij tot God.",
+        stap: "ezra:nehemia:1",
+      },
+      {
+        t: "De koning ziet dat Nehemia verdrietig is. Nehemia bidt. Dan mag hij naar Jeruzalem om de stad te bouwen.",
+        stap: "ezra:nehemia:2",
+      },
+      { t: "In de nacht bekijkt Nehemia de kapotte muur. Dan zegt hij: “Kom, laten we de muur bouwen!”", stap: "ezra:nehemia:3" },
+      { t: "Heel veel mensen bouwen mee. Iedereen werkt aan een eigen stuk van de muur.", stap: "ezra:nehemia:4" },
+      {
+        t: "Sanballat en Tobia lachen de bouwers uit. Ze willen hen aanvallen. Daarom hebben de bouwers een zwaard bij zich.",
+        stap: "ezra:nehemia:4",
+      },
+      { t: "In tweeënvijftig dagen is de muur klaar. Nu merken ook de vijanden: dit heeft God gedaan.", stap: "ezra:nehemia:5" },
+      {
+        t: "Daarna leest Ezra de wet van God voor aan het hele volk. Ze vieren feest en wonen in hutten van takken.",
+        stap: "ezra:nehemia:6",
+      },
+    ],
+    samen: "Weggelaten: de lijst van wie welk stuk van de muur bouwde (Nehemia 3) en de listen van de vijanden (6:2–14). Nehemia bad dagenlang (1:4–11), maar ook midden in een gesprek met de koning (2:4). Bij het Loofhuttenfeest woonde het volk zeven dagen in hutten van takken (8:15–19). Vraag samen: wat deed Nehemia toen hij het slechte nieuws over Jeruzalem hoorde? (1:4)",
+    vragen: [
+      { q: "Wat hoort Nehemia over Jeruzalem?", a: ["De muur is kapot", "Er is een nieuwe koning"], why: "Nehemia 1:3" },
+      { q: "Wat doet Nehemia als hij het hoort?", a: ["Hij huilt en bidt tot God", "Hij gaat boos naar de koning"], why: "Nehemia 1:4" },
+      { q: "Wat leest Ezra voor aan het volk?", a: ["De wet van God", "Een brief van de koning"], why: "Nehemia 8:2–4" },
+    ],
+  },
+  161: {
+    status: "gecontroleerd",
+    plaatsen: ["nt_sichar", "nt_kana", "nt_kapernaum"],
+    delen: [
+      {
+        t: "De Heere Jezus is op reis door Samaria. Hij is moe van de reis. Hij gaat zitten bij de put van Jakob.",
+        stap: "jezus-1:nt-samaria-nain:0",
+      },
+      { t: "Een vrouw komt water putten. De Heere Jezus zegt tegen haar: ‘Geef Mij te drinken.’", stap: "jezus-1:nt-samaria-nain:1" },
+      { t: "Hij vertelt haar over levend water. Wie van Zijn water drinkt, krijgt nooit meer dorst.", stap: "jezus-1:nt-samaria-nain:1" },
+      {
+        t: "De vrouw zegt: “Ik weet dat de Messias komt.” Dat is de Christus, Die God beloofd heeft. De Heere Jezus zegt: “Ik ben het.”",
+        stap: "jezus-1:nt-samaria-nain:2",
+      },
+      { t: "De vrouw laat haar watervat staan. Ze gaat de stad in en vertelt de mensen over Hem.", stap: "jezus-1:nt-samaria-nain:3" },
+      { t: "Veel mensen uit de stad geloven in de Heere Jezus. Hij blijft twee dagen bij hen.", stap: "jezus-1:nt-samaria-nain:3" },
+      {
+        t: "In Kana komt een man van het hof van de koning naar Hem toe. Zijn zoon is heel ziek, thuis in Kapernaüm.",
+        stap: "jezus-1:nt-samaria-nain:4",
+      },
+      { t: "De Heere Jezus zegt: ‘Ga heen, uw zoon leeft.’ De man gelooft het en gaat naar huis.", stap: "jezus-1:nt-samaria-nain:4" },
+      { t: "Onderweg hoort hij dat zijn zoon beter is. Dat gebeurde precies toen de Heere Jezus het zei." },
+    ],
+    samen: "Bij A is weggelaten dat de Heere Jezus tegen de vrouw zegt dat zij vijf mannen gehad heeft, en dat de man die zij nu heeft niet haar man is (Johannes 4:16–18). Daardoor ziet zij dat Hij een profeet is (4:19). Ook het gesprek over aanbidden ‘in geest en waarheid’ is weggelaten (4:20–24). Vraag samen: wat zegt de Heere Jezus over het water uit de put, en wat over het water dat Hij geeft? (4:13–14)",
+    vragen: [
+      { q: "Wat vraagt de Heere Jezus aan de vrouw bij de put?", a: ["Om water te drinken", "Om brood te eten"], why: "Johannes 4:7" },
+      { q: "Hoe lang blijft de Heere Jezus bij de mensen uit de stad?", a: ["Twee dagen", "Een heel jaar"], why: "Johannes 4:40" },
+      {
+        q: "Wat zegt de Heere Jezus tegen de vader van de zieke zoon?",
+        a: ["Ga heen, uw zoon leeft", "Breng uw zoon bij Mij"],
+        why: "Johannes 4:50",
+      },
+    ],
+  },
+  162: {
+    status: "gecontroleerd",
+    plaatsen: ["nt_nazareth"],
+    delen: [
+      { t: "De Heere Jezus komt in Nazareth. Daar is Hij opgegroeid.", stap: "jezus-1:nt-samaria-nain:5" },
+      {
+        t: "Op de sabbat gaat Hij naar de synagoge. Daar komen de mensen samen om uit Gods Woord te lezen.",
+        stap: "jezus-1:nt-samaria-nain:5",
+      },
+      { t: "Hij staat op om te lezen. Hij krijgt het boek van de profeet Jesaja." },
+      { t: "Jesaja schreef: de Geest van de Heere is op Mij. Hij heeft Mij gezonden om arme mensen het goede nieuws te brengen." },
+      { t: "Dan zegt de Heere Jezus: “Vandaag is uitgekomen wat hier geschreven staat.”" },
+      { t: "De mensen verwonderen zich over Zijn woorden. Ze zeggen: “Is Hij niet de zoon van Jozef?”" },
+      {
+        t: "Dan worden ze heel boos. Ze brengen Hem naar de top van de berg. Ze willen Hem eraf gooien.",
+        stap: "jezus-1:nt-samaria-nain:6",
+      },
+      { t: "Maar de Heere Jezus loopt midden tussen hen door. Hij gaat weg.", stap: "jezus-1:nt-samaria-nain:6" },
+    ],
+    samen: "Bij A is weggelaten waarom de mensen zo boos worden. De Heere Jezus herinnert hen eraan dat Elia naar een weduwe bij Sidon werd gestuurd, en dat van de vele melaatsen in Israël alleen Naäman, de Syriër, gereinigd werd (Lukas 4:25–28). Die twee hoorden niet bij Israël. Ook het spreekwoord ‘Medicijnmeester! genees Uzelven’ is weggelaten (4:23). Vraag samen: wat willen de mensen van Nazareth doen, en wat doet de Heere Jezus? (4:29–30)",
+    vragen: [
+      { q: "Waar gaat de Heere Jezus op de sabbat naartoe?", a: ["Naar de synagoge", "Naar de markt"], why: "Lukas 4:16" },
+      { q: "Welke profeet schreef het boek waaruit Hij voorleest?", a: ["Jesaja", "Jona"], why: "Lukas 4:17" },
+      {
+        q: "Wat doet de Heere Jezus als de mensen Hem van de berg willen gooien?",
+        a: ["Hij gaat midden tussen hen door weg", "Hij blijft boven op de berg staan"],
+        why: "Lukas 4:30",
+      },
+    ],
+  },
+  163: {
+    status: "gecontroleerd",
+    plaatsen: ["nt_nain"],
+    delen: [
+      { t: "De Heere Jezus gaat naar de stad Naïn. Veel mensen lopen met Hem mee.", stap: "jezus-1:nt-samaria-nain:7" },
+      { t: "Bij de poort van de stad komen mensen naar buiten. Ze dragen een jonge man die gestorven is." },
+      { t: "Hij is de enige zoon van zijn moeder. Haar man is ook al gestorven." },
+      { t: "De Heere Jezus ziet de moeder. Hij heeft diep medelijden met haar. Hij zegt: “Huil niet.”" },
+      { t: "Hij raakt de baar aan, het draagbed van de jonge man. De mannen die hem dragen, blijven staan." },
+      { t: "De Heere Jezus zegt: “Jonge man, Ik zeg u: sta op!” De jonge man gaat zitten en begint te praten." },
+      { t: "De Heere Jezus geeft hem terug aan zijn moeder." },
+      { t: "Alle mensen zijn vol ontzag. Ze loven God en zeggen: ‘God heeft Zijn volk bezocht.’" },
+    ],
+    samen: "De dood komt in deze geschiedenis dichtbij: een moeder die al weduwe is, verliest haar enige zoon (Lukas 7:12). De Heere ‘werd innerlijk met ontferming over haar bewogen’ (7:13). Vraag samen: wat zegt de Heere Jezus tegen de moeder, en wat tegen de jonge man? (7:13–14) In het Oude Testament werd ook de zoon van een weduwe weer levend: in Zarfath, toen Elia tot de HEERE riep (1 Koningen 17:21–23).",
+    vragen: [
+      {
+        q: "Wie wordt er bij de poort naar buiten gedragen?",
+        a: ["De enige zoon van een weduwe", "Een oude vader van veel kinderen"],
+        why: "Lukas 7:12",
+      },
+      { q: "Wat raakt de Heere Jezus aan?", a: ["De baar", "Het hoofd van de moeder"], why: "Lukas 7:14" },
+      { q: "Aan wie geeft de Heere Jezus de jonge man?", a: ["Aan zijn moeder", "Aan de dragers"], why: "Lukas 7:15" },
+    ],
+  },
+  164: {
+    status: "gecontroleerd",
+    plaatsen: ["tyrus", "og_dekapolis", "nt_bethsaida"],
+    delen: [
+      {
+        t: "De Heere Jezus gaat naar het land bij de stad Tyrus. Daar komt een vrouw naar Hem toe. Zij hoort niet bij het volk Israël.",
+        stap: "jezus-2:nt-over-de-grens:0",
+      },
+      { t: "Haar dochtertje heeft een boze geest. De vrouw valt aan Zijn voeten en vraagt om hulp.", stap: "jezus-2:nt-over-de-grens:0" },
+      { t: "De Heere Jezus zegt: het brood is eerst voor de kinderen, niet voor de hondjes." },
+      {
+        t: "De vrouw zegt: “Maar de hondjes eten de kruimels onder de tafel.” De Heere Jezus zegt: “Omdat u dat zegt, mag u naar huis gaan.”",
+      },
+      { t: "Als de vrouw thuiskomt, ligt haar dochter op bed. De boze geest is weg." },
+      { t: "Bij het meer brengen ze een man bij Hem die doof is. Hij kan ook bijna niet praten.", stap: "jezus-2:nt-over-de-grens:1" },
+      {
+        t: "De Heere Jezus zegt: “Effatha!” Dat betekent: ga open! Meteen kan de man horen en goed praten.",
+        stap: "jezus-2:nt-over-de-grens:1",
+      },
+      {
+        t: "Veel mensen zijn al drie dagen bij Hem. Ze hebben niets te eten. Van zeven broden eten ze allemaal genoeg.",
+        stap: "jezus-2:nt-over-de-grens:3",
+      },
+      { t: "In Bethsaïda brengen ze een blinde man bij Hem. De Heere Jezus legt hem de handen op.", stap: "jezus-2:nt-over-de-grens:6" },
+      {
+        t: "Eerst ziet de man mensen die lijken op bomen die lopen. Na de tweede keer ziet hij alles goed.",
+        stap: "jezus-2:nt-over-de-grens:6",
+      },
+    ],
+    samen: "Bij A zijn weggelaten: de genezingen op de berg (Mattheüs 15:29–31), het teken dat de Farizeeën vragen (Markus 8:11–13) en de waarschuwing voor het zuurdesem (8:14–21). De woorden over de hondjes klinken hard. Met de kinderen bedoelt Hij het volk Israël (Mattheüs 15:24). Mattheüs vertelt dat Hij tegen de vrouw zei: ‘O vrouw! groot is uw geloof’ (Mattheüs 15:28). Vraag samen: wat antwoordt de vrouw over de hondjes? (Markus 7:28)",
+    vragen: [
+      { q: "Wat heeft het dochtertje van de vrouw?", a: ["Een boze geest", "Een gebroken been"], why: "Markus 7:25" },
+      {
+        q: "Wat kan de dove man als de Heere Jezus ‘Effatha’ heeft gezegd?",
+        a: ["Horen en goed praten", "Hard wegrennen"],
+        why: "Markus 7:35",
+      },
+      { q: "Hoeveel broden zijn er voor al die mensen?", a: ["Zeven", "Twee"], why: "Markus 8:5" },
+    ],
+  },
+  165: {
+    status: "gecontroleerd",
+    plaatsen: ["nt_thessalonica", "nt_athene", "nt_korinthe"],
+    delen: [
+      {
+        t: "Paulus en Silas komen in de stad Thessalonica. Daar vertelt Paulus uit Gods Woord dat de Heere Jezus de Christus is.",
+        stap: "handelingen:nt-paulus2:0",
+      },
+      {
+        t: "Sommige mensen gaan geloven. Maar anderen worden jaloers en maken veel onrust. Daarom moeten Paulus en Silas in de nacht weg.",
+        stap: "handelingen:nt-paulus2:0",
+      },
+      {
+        t: "In de stad Berea luisteren de mensen goed. Elke dag zoeken ze zelf in de Schriften of het waar is.",
+        stap: "handelingen:nt-paulus2:1",
+      },
+      { t: "Dan gaat Paulus naar Athene. Hij ziet dat de mensen daar veel afgoden dienen.", stap: "handelingen:nt-paulus2:2" },
+      { t: "Paulus vertelt: God heeft de wereld gemaakt. Hij geeft alle mensen het leven en de adem.", stap: "handelingen:nt-paulus2:3" },
+      {
+        t: "Sommige mensen lachen hem uit. Maar een paar mensen gaan geloven, ook een vrouw die Damaris heet.",
+        stap: "handelingen:nt-paulus2:3",
+      },
+      { t: "In Korinthe woont Paulus bij Aquila en Priscilla. Samen maken ze tenten.", stap: "handelingen:nt-paulus2:4" },
+      {
+        t: "In de nacht zegt de Heere tegen Paulus: “Wees niet bang. Blijf spreken, want Ik ben met je.”",
+        stap: "handelingen:nt-paulus2:5",
+      },
+      {
+        t: "Paulus blijft anderhalf jaar in Korinthe. Daarna vaart hij naar Efeze, en dan reist hij terug naar Antiochië.",
+        stap: "handelingen:nt-paulus2:8",
+      },
+    ],
+    samen: "Weggelaten: de onrust in Berea (Handelingen 17:13), de aanklacht bij de stadhouder Gallio in Korinthe (18:12–17) en de reis langs Caesarea en Jeruzalem (18:22). In Athene had Paulus een altaar gezien met het opschrift ‘DEN ONBEKENDEN GOD’ (17:23). Hij vertelt hun wie die God is. De Schriften zijn de boeken van het Oude Testament. Vraag samen: wat deden de mensen in Berea elke dag? (17:11)",
+    vragen: [
+      { q: "Wat lezen de mensen in Berea elke dag?", a: ["De Schriften", "Brieven van de keizer"], why: "Handelingen 17:11" },
+      { q: "Wat maken Paulus, Aquila en Priscilla samen?", a: ["Tenten", "Schepen"], why: "Handelingen 18:3" },
+      { q: "Wat zegt de Heere in de nacht tegen Paulus?", a: ["Wees niet bang", "Ga gauw weg"], why: "Handelingen 18:9" },
+    ],
+  },
+  166: {
+    status: "gecontroleerd",
+    plaatsen: ["nt_efeze", "nt_troas", "nt4_milete"],
+    delen: [
+      { t: "Paulus gaat weer op reis. Hij bezoekt de discipelen en maakt hen sterk.", stap: "handelingen:nt-paulus3:0" },
+      { t: "In de stad Efeze vertelt Paulus over de Heere Jezus. Dat doet hij twee jaar lang, elke dag.", stap: "handelingen:nt-paulus3:2" },
+      {
+        t: "Veel mensen hebben boeken over ‘ijdele kunsten’. Ze verbranden die boeken. Iedereen kan het zien.",
+        stap: "handelingen:nt-paulus3:3",
+      },
+      {
+        t: "Demetrius maakt kleine tempels van zilver voor de godin Diana. Hij zegt: “Paulus zegt dat beelden geen goden zijn.”",
+        stap: "handelingen:nt-paulus3:4",
+      },
+      { t: "Dan komt er een groot oproer. Ongeveer twee uur lang roepen de mensen: “Groot is Diana!”", stap: "handelingen:nt-paulus3:4" },
+      {
+        t: "Later is Paulus in Troas. Hij spreekt tot middernacht. Een jongeman, Eutychus, zit in het raam.",
+        stap: "handelingen:nt-paulus3:7",
+      },
+      {
+        t: "Eutychus valt in slaap. Hij valt van heel hoog naar beneden. Als ze hem optillen, is hij dood.",
+        stap: "handelingen:nt-paulus3:7",
+      },
+      { t: "Paulus gaat naar beneden en slaat zijn armen om hem heen. Hij zegt: ‘Weest niet beroerd; want zijn ziel is in hem.’" },
+      { t: "Ze brengen de jongen levend terug. Iedereen is erg getroost." },
+      {
+        t: "In Milete neemt Paulus afscheid van de ouderlingen van Efeze. Hij bidt met hen, en ze huilen allemaal.",
+        stap: "handelingen:nt-paulus3:9",
+      },
+    ],
+    samen: "Over Eutychus zegt de Bijbel dat hij ‘dood opgenomen’ werd en dat ze hem ‘levende’ terugbrachten (Handelingen 20:9–12). ‘Weest niet beroerd’ betekent: wees niet ontsteld. Bij ‘ijdele kunsten’ (19:19) denken uitleggers aan toverij. Paulus ‘viel op hem’ (20:10); zo strekten ook Elia en Elisa zich uit over een gestorven kind (1 Koningen 17:21; 2 Koningen 4:34). Weggelaten: Apollos (18:24–28), de zonen van Sceva (19:13–16) en de reis naar Griekenland (20:1–6). Vraag samen: wat zei Paulus bij Eutychus? (20:10)",
+    vragen: [
+      { q: "Wat verbranden de mensen in Efeze?", a: ["Hun boeken", "Hun huizen"], why: "Handelingen 19:19" },
+      { q: "Wat gebeurt er als Eutychus in slaap valt?", a: ["Hij valt naar beneden", "Hij valt in de rivier"], why: "Handelingen 20:9" },
+      {
+        q: "Wat doet Paulus in Milete met de ouderlingen?",
+        a: ["Hij bidt met hen", "Hij bouwt een huis met hen"],
+        why: "Handelingen 20:36",
+      },
+    ],
+  },
 });

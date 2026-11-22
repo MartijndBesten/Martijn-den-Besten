@@ -68,5 +68,13 @@ BR.dateringen = {
     [118, 135, "historie", true], // kruisiging 30 of 33 n.Chr.
     [136, 148, "historie", false], // Handelingen: o.a. Herodes Agrippa († 44), Gallio, Festus
     [149, 150, "historie", true], // Openbaring ca. 95 (Irenaeus) of ca. 68
+    // Toegevoegd na de eerste 150 (secties.js): dezelfde grond als de geschiedenissen eromheen.
+    [151, 151, "bijbel", true], // Jozua 13–22: zoals Mozes tot Jozua
+    [152, 153, "bijbel", true], // Ehud en Jefta: richters, grote onzekerheid
+    [154, 154, "historie", true], // Davids oorlogen: welk jaar binnen zijn regering staat niet in de Bijbel
+    [155, 160, "historie", false], // Asa tot Nehemia: koningslijsten en kronieken
+    [161, 163, "historie", false], // Samaria, Nazareth, Naïn: Lukas 3:1
+    [164, 164, "historie", true], // Tyrus, Sidon en Dekapolis: ‘of 32’
+    [165, 166, "historie", false], // Handelingen 17–20: o.a. Gallio
   ],
 };

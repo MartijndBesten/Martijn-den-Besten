@@ -1,0 +1,152 @@
+# Controle voor groep ot-5: public/bijbelreis/geschiedenissen/ot-5.js (nrs. 155–158).
+# Per feitelijke bewering in uitleg, betekenis, ontdek, quiz en cross één regel. Draai: python3 scripts/bijbel-check.py scripts/bijbel-controle/ot-5.txt
+# ===================== 155 Asa steunt op de HEERE =====================
+2 Kronieken 14:1 | ontsliep Abia.*zijn zoon Asa werd koning.*tien jaren stil
+2 Kronieken 14:2 | Asa deed dat goed en dat recht was in de ogen des HEEREN
+2 Kronieken 14:3 | altaren der vreemden.*hoogten weg
+2 Kronieken 14:4 | tot Juda, dat zij den HEERE.*zoeken
+2 Kronieken 14:9 | Zerah, de Moor.*duizend maal duizend.*Maresa
+2 Kronieken 14:10 | dal Zefatha bij Maresa
+2 Kronieken 14:11 | help ons, o HEERE, onze God! Want wij steunen op U, en in Uw Naam zijn wij gekomen tegen deze menigte
+2 Kronieken 14:12 | HEERE plaagde de Moren.*Moren vloden
+2 Kronieken 14:13 | jaagden hen na tot Gerar
+2 Kronieken 15:1 | Geest Gods op Azaria, den zoon van Oded
+2 Kronieken 15:2 | Asa tegen.*De HEERE is met ulieden, terwijl gij met Hem zijt; en zo gij Hem zoekt, Hij zal van u gevonden worden
+2 Kronieken 15:8 | Asa.*deed weg de verfoeiselen
+2 Kronieken 15:10 | vergaderden zich te Jeruzalem
+2 Kronieken 15:12 | verbond.*zoeken zouden met hun ganse hart en met hun ganse ziel
+2 Kronieken 15:16 | Maacha, de moeder van den koning Asa.*zette haar af.*koningin.*afgrijselijken afgod
+2 Kronieken 16:1 | zes en dertigste jaar.*Baesa, de koning van Israel.*bouwde Rama
+2 Kronieken 16:2 | zilver en het goud.*schatten van het huis des HEEREN.*Benhadad, den koning van Syrie
+2 Kronieken 16:3 | Er is een verbond tussen mij en tussen u, en tussen mijn vader en tussen uw vader
+2 Kronieken 16:4 | Benhadad.*zond de oversten.*tegen de steden van Israel
+2 Kronieken 16:5 | Baesa.*afliet van Rama te bouwen
+2 Kronieken 16:6 | stenen van Rama.*hout.*bouwde daarmede Geba en Mizpa
+2 Kronieken 16:7 | ziener Hanani tot Asa.*gesteund hebt op den koning van Syrie, en niet gesteund hebt op den HEERE
+2 Kronieken 16:8 | Moren en de Libyers een groot heir.*op den HEERE steundet, heeft Hij hen in uw hand gegeven
+2 Kronieken 16:9 | Zijn ogen doorlopen de ganse aarde, om Zich sterk te bewijzen aan degenen, welker hart volkomen is tot Hem; gij hebt hierin zottelijk gedaan; want van nu af zullen oorlogen tegen u zijn
+2 Kronieken 16:10 | Asa werd toornig tegen den ziener.*gevangenhuis
+2 Kronieken 16:12 | krank aan zijn voeten.*zocht hij den HEERE niet.*medicijnmeesters
+1 Koningen 15:11 | Asa deed wat recht was in de ogen des HEEREN
+1 Koningen 15:13 | zijn moeder Maacha zette hij ook af, dat zij geen koningin ware
+Psalm 20:8 | Dezen vermelden van wagens, en die van paarden; maar wij zullen vermelden van den Naam des HEEREN, onzes Gods
+Spreuken 3:5 | Vertrouw op den HEERE met uw ganse hart, en steun op uw verstand niet
+# tijdNoot (uit het reisdeel 2kronieken:asa)
+1 Koningen 15:10 | een en veertig jaren
+2 Kronieken 16:13 | een en veertigste jaar
+1 Koningen 16:8 | zes en twintigste jaar van Asa.*Ela, de zoon van Baesa
+# ===================== 156 Josafat: de strijd is Gods =====================
+2 Kronieken 20:1 | kinderen Moabs, en de kinderen Ammons, en met hen anderen.*tegen Josafat ten strijde
+2 Kronieken 20:2 | boodschapten.*grote menigte.*Hazezon-thamar, hetwelk is Engedi
+2 Kronieken 20:3 | Josafat nu vreesde.*den HEERE te zoeken.*vasten uit in gans Juda
+2 Kronieken 20:4 | uit alle steden van Juda
+2 Kronieken 20:5 | in de gemeente.*in het huis des HEEREN
+2 Kronieken 20:6 | Heerser over alle koninkrijken.*niemand zich tegen U stellen kan
+2 Kronieken 20:12 | wij weten niet, wat wij doen zullen; maar onze ogen zijn op U
+2 Kronieken 20:13 | gans Juda stond voor het aangezicht des HEEREN, ook hun kinderkens, hun vrouwen en hun zonen
+2 Kronieken 20:14 | Geest des HEEREN.*Jahaziel.*den Leviet
+2 Kronieken 20:15 | de strijd is niet uwe, maar Gods
+2 Kronieken 20:16 | opgang van Ziz
+2 Kronieken 20:17 | niet te strijden hebben.*staat en ziet het heil des HEEREN
+2 Kronieken 20:18 | Josafat met het aangezicht ter aarde
+2 Kronieken 20:19 | Levieten uit de kinderen der Kahathieten, en uit de kinderen der Korahieten.*met luider stem
+2 Kronieken 20:20 | des morgens vroeg.*woestijn van Thekoa.*Gelooft in den HEERE, uw God, zo zult gij bevestigd worden
+2 Kronieken 20:21 | zangers.*voor de toegerusten uitgaande.*Looft den HEERE, want Zijn goedertierenheid is tot in eeuwigheid!
+2 Kronieken 20:22 | aanhieven.*lofzang.*stelde de HEERE achterlagen
+2 Kronieken 20:23 | Ammons en Moab stonden op tegen de inwoners van het gebergte Seir.*hielpen zij de een den ander ten verderve
+2 Kronieken 20:24 | wachttoren.*dode lichamen
+2 Kronieken 20:25 | roofden den buit drie dagen
+2 Kronieken 20:26 | vierden dag.*dal van Beracha.*loofden zij den HEERE
+2 Kronieken 20:28 | Jeruzalem, met luiten, en met harpen, en met trompetten, tot het huis des HEEREN
+2 Kronieken 20:29 | verschrikking Gods over alle koninkrijken
+Exodus 14:14 | De HEERE zal voor ulieden strijden, en gij zult stil zijn
+Psalm 123:2 | alzo zijn onze ogen op den HEERE, onze God, totdat Hij ons genadig zij
+Jesaja 7:9 | Indien gijlieden niet gelooft, zekerlijk, gij zult niet bevestigd worden
+Jesaja 7:3 | Achaz
+Romeinen 8:31 | Zo God voor ons is, wie zal tegen ons zijn
+# tijdNoot (uit het reisdeel 2kronieken:josafat)
+2 Kronieken 20:1 | na dezen
+2 Kronieken 20:31 | vijf en twintig jaren
+2 Kronieken 18:34 | koning van Israel.*stierf
+# ===================== 157 Hazaël en Jehu =====================
+2 Koningen 8:7 | Elisa te Damaskus.*Benhadad, de koning van Syrie, krank was
+2 Koningen 8:8 | Hazael.*vraag door hem den HEERE.*Zal ik van deze krankheid genezen
+2 Koningen 8:9 | een last van veertig kemelen
+2 Koningen 8:11 | hield zijn gezicht staande.*de man Gods weende
+2 Koningen 8:12 | omdat ik weet, wat kwaad gij den kinderen Israels doen zult
+2 Koningen 8:13 | De HEERE heeft mij getoond, dat gij koning zijn zult over Syrie
+2 Koningen 8:14 | kwam tot zijn heer.*Gij zult zekerlijk genezen
+2 Koningen 8:15 | des anderen daags.*deken.*dat hij stierf; en Hazael werd koning in zijn plaats
+2 Koningen 8:15 | deken nam, en in het water doopte, en over zijn aangezicht uitspreidde, dat hij stierf
+2 Koningen 8:28 | Joram, den zoon van Achab.*Ramoth in Gilead, tegen Hazael.*sloegen Joram
+2 Koningen 8:29 | te Jizreel helen.*Ahazia.*koning van Juda.*Joram.*te bezien
+2 Koningen 9:1 | Elisa een van de zonen der profeten.*Ramoth in Gilead
+2 Koningen 9:3 | Doe daarna de deur open, en vlied
+2 Koningen 9:5 | hoofdmannen van het heir
+2 Koningen 9:6 | goot de olie op zijn hoofd.*Ik heb u gezalfd tot koning over het volk des HEEREN, over Israel
+2 Koningen 9:7 | het huis van Achab, uw heer, slaan
+2 Koningen 9:16 | Jehu.*toog naar Jizreel.*Ahazia, de koning van Juda, was afgekomen, om Joram te bezien
+2 Koningen 9:20 | het drijven is als het drijven van Jehu.*onzinniglijk
+2 Koningen 9:21 | stuk lands van Naboth
+2 Koningen 9:24 | Jehu spande den boog.*schoot Joram.*pijl
+2 Koningen 9:27 | Ahazia.*vlood.*Slaat hem ook op den wagen.*vlood naar Megiddo, en stierf aldaar
+2 Koningen 9:30 | Izebel.*keek ten venster uit
+2 Koningen 9:31 | o Zimri, doodslager van zijn heer
+2 Koningen 9:33 | Stoot ze van boven neder.*stieten haar van boven neder
+2 Koningen 9:35 | vonden niet van haar, dan het bekkeneel
+2 Koningen 9:36 | Dit is het woord des HEEREN, dat Hij gesproken heeft door den dienst van Zijn knecht Elia
+2 Koningen 10:1 | Achab nu had zeventig zonen te Samaria
+2 Koningen 10:7 | zeventig mannen sloegen
+2 Koningen 10:10 | niets van het woord des HEEREN, hetwelk de HEERE tegen het huis van Achab gesproken heeft, zal op de aarde vallen
+2 Koningen 10:11 | al de overgeblevenen van het huis van Achab te Jizreel
+2 Koningen 10:17 | sloeg hij allen, die aan Achab te Samaria overgebleven waren
+2 Koningen 10:19 | door listigheid, opdat hij de dienaren van Baal ombracht
+2 Koningen 10:21 | alle Baalsdienaren kwamen.*huis van Baal
+2 Koningen 10:25 | sloegen hen met de scherpte des zwaard
+2 Koningen 10:27 | braken ook het opgerichte beeld van Baal af.*braken zij het huis van Baal af
+2 Koningen 10:28 | Alzo verdelgde Jehu Baal uit Israel
+2 Koningen 10:29 | gouden kalveren, die te Beth-el en die te Dan waren
+2 Koningen 10:30 | zonen tot het vierde gelid op den troon van Israel zitten
+2 Koningen 10:31 | nam niet waar te wandelen in de wet des HEEREN.*met zijn ganse hart
+2 Koningen 10:36 | acht en twintig jaren
+2 Koningen 10:15 | Jonadab, den zoon van Rechab
+1 Koningen 19:15 | zalf Hazael ten koning over Syrie
+1 Koningen 19:16 | Jehu, den zoon van Nimsi, zalven ten koning over Israel
+1 Koningen 21:23 | De honden zullen Izebel eten, aan den voorwal van Jizreel
+1 Koningen 16:32 | voor Baal een altaar op, in het huis van Baal, hetwelk hij te Samaria gebouwd had
+2 Koningen 13:3 | in de hand van Hazael, den koning van Syrie, en in de hand van Benhadad, den zoon van Hazael, al die dagen
+2 Koningen 13:23 | HEERE was hun genadig.*om Zijns verbonds wil met Abraham, Izak en Jakob
+Amos 1:3 | Damaskus
+Amos 1:4 | Daarom zal Ik een vuur in het huis van Hazael zenden
+# tijdNoot (uit het reisdeel 2koningen:jehu)
+2 Koningen 9:24 | Joram.*kromde zich in zijn wagen
+# ===================== 158 Manasse: naar Babel en terug =====================
+2 Kronieken 33:1 | Manasse was twaalf jaren oud, als hij koning werd, en regeerde vijf en vijftig jaren te Jeruzalem
+2 Kronieken 32:33 | Jehizkia ontsliep.*zijn zoon Manasse werd koning in zijn plaats
+2 Kronieken 33:2 | deed dat kwaad was in de ogen des HEEREN, naar de gruwelen der heidenen
+2 Kronieken 33:3 | bouwde de hoogten weder op, die zijn vader Jehizkia afgebroken had.*Baals altaren.*heir des hemels
+Deuteronomium 4:19 | de zon, en de maan, en de sterren, des hemels ganse heir
+2 Kronieken 33:4 | bouwde altaren in het huis des HEEREN
+2 Kronieken 33:6 | deed zijn zonen door het vuur gaan, in het dal des zoons van Hinnom.*guichelarij.*toverde.*zeer veel kwaads in de ogen des HEEREN
+2 Kronieken 33:7 | gesneden beeld.*in het huis Gods
+2 Kronieken 33:9 | Manasse Juda en de inwoners te Jeruzalem dwalen, dat zij erger deden dan de heidenen
+2 Kronieken 33:10 | De HEERE sprak wel tot Manasse en tot zijn volk; maar zij merkten daar niet op
+2 Kronieken 33:11 | krijgsoversten, die de koning van Assyrie had.*Manasse gevangen namen.*twee koperen ketenen.*voerden hem naar Babel
+2 Kronieken 33:12 | als hij hem benauwde.*ernstelijk aan.*vernederde zich zeer voor het aangezicht van den God zijner vaderen
+2 Kronieken 33:13 | liet Zich van hem verbidden.*hoorde zijn smeking.*bracht hem weder te Jeruzalem, in zijn koninkrijk. Toen erkende Manasse, dat de HEERE God is
+2 Kronieken 33:15 | vreemde goden en die gelijkenis uit het huis des HEEREN weg
+2 Kronieken 33:16 | richtte het altaar des HEEREN toe.*tot Juda, dat zij den HEERE.*dienen zouden
+2 Kronieken 33:17 | volk offerde nog op de hoogten, hoewel aan den HEERE
+2 Kronieken 33:20 | Manasse ontsliep.*zijn zoon Amon werd koning
+2 Kronieken 33:23 | vernederde zich niet.*gelijk Manasse, zijn vader, zich vernederd had
+2 Kronieken 7:14 | zich verootmoedigt en bidt.*zo zal Ik uit den hemel horen
+2 Kronieken 7:12 | HEERE verscheen Salomo
+2 Koningen 21:11 | Manasse.*deze gruwelen gedaan heeft
+2 Koningen 21:12 | kwaad over Jeruzalem en Juda brengen, dat een ieder, die het hoort, beide zijn oren klinken zullen
+2 Koningen 21:10 | door den dienst van Zijn knechten, de profeten
+Jeremia 15:4 | vanwege Manasse.*om hetgeen hij te Jeruzalem gedaan heeft
+Psalm 51:19 | een gebroken en verslagen hart zult Gij, o God! niet verachten
+# tijdNoot (uit het reisdeel 2kronieken:hizkia-josia)
+2 Kronieken 29:1 | Jehizkia werd koning.*regeerde negen en twintig jaren te Jeruzalem
+2 Kronieken 34:1 | een en dertig jaren
+2 Kronieken 33:21 | twee jaren te Jeruzalem

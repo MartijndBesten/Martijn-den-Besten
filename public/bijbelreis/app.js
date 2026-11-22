@@ -1265,22 +1265,18 @@
   });
 
 
-  // ---------- de 150 geschiedenissen ----------
+  // ---------- de geschiedenissen ----------
   // Een geschiedenis is een laag boven de reisstappen: ze wijst naar stappen (kaart, route, stempel) en voegt uitleg,
-  // kernwoord, een ontdekking en vragen toe. Leidraad en nummering: docs/bijbelreis-150/.
-  const LEIDRAAD = BR.leidraad || {};
-  const G = (BR.geschiedenissen || []).slice().sort((a, b) => a.nr - b.nr);
+  // kernwoord, een ontdekking en vragen toe. Leidraad en nummering: docs/bijbelreis-150/. Volgorde en secties: secties.js
+  // (de geschiedenissen 151 en verder staan met `na` op hun plaats in de Bijbelse volgorde).
+  const G = BR.opVolgorde(BR.geschiedenissen || []);
   // De uitleg bij het tabblad Verhalen noemt het echte aantal (bijbelreis.html: #tu-verhalen).
   if ($("tu-verhalen")) $("tu-verhalen").textContent = `${G.length} geschiedenissen`;
   const GBYNR = new Map(G.map((g) => [g.nr, g]));
   const KW = BR.kernwoorden || {};
-  const SECTIES = [
-    ["Schepping en oergeschiedenis", 1, 7], ["De aartsvaders", 8, 20], ["Mozes en de uittocht", 21, 31], ["In de woestijn", 32, 36],
-    ["Het beloofde land", 37, 41], ["Richters en Ruth", 42, 47], ["Samuël, Saul, David en Salomo", 48, 62], ["Koningen, profeten en ballingschap", 63, 75],
-    ["Terugkeer en wachten op de Koning", 76, 79], ["Geboorte en jeugd van de Heere Jezus", 80, 86], ["Doop, wonderen en onderwijs", 87, 108],
-    ["Onderweg naar Jeruzalem", 109, 117], ["Lijden, sterven en opstanding", 118, 132], ["De eerste gemeente", 133, 142], ["De reizen van Paulus", 143, 148], ["Openbaring", 149, 150],
-  ];
-  const sectieOf = (nr) => SECTIES.find(([, a, b]) => nr >= a && nr <= b)[0];
+  // [naam, sleutel, geschiedenissen op volgorde]
+  const SECTIES = BR.secties.map(([k, naam]) => [naam, k, G.filter((g) => g.sectie === k)]);
+  const sectieOf = (nr) => BR.sectieNaam((GBYNR.get(nr) || {}).sectie);
   const VORM = { route: "Reis op de kaart", plek: "Gebeurtenis op een plek", stamboom: "Familie", gelijkenis: "Gelijkenis", thema: "Profetie en verbanden", symbool: "Beelden en tekens" };
   const verhaalStore = store.get("verhalen", {});
   const saveVerhaal = (nr, patch) => { verhaalStore[nr] = { ...(verhaalStore[nr] || {}), ...patch }; store.set("verhalen", verhaalStore); };
@@ -1319,11 +1315,11 @@
     const box = $("p-verhalen");
     // Voorlezen: groot en zonder zoeken; per etappe van de reis uitklapbaar, de etappe waar je bent staat open.
     if (niveau === "a") {
-      const nu = (huidigeGeschiedenis().g || G[0]).nr;
+      const nuS = (huidigeGeschiedenis().g || G[0]).sectie;
       box.innerHTML = `<h2><em>Voorlezen</em></h2><p class="ref">Kies een geschiedenis om samen te lezen. Elk verhaal gaat in korte stukjes, met een paar vragen aan het eind.</p>${LESROUTES}
-        ${SECTIES.map(([naam, a, b], si) => {
-          const items = G.filter((g) => g.nr >= a && g.nr <= b), k = items.filter((g) => verhaalStore[g.nr] && verhaalStore[g.nr].q != null).length;
-          return `<details class="samensectie"${nu >= a && nu <= b ? " open" : ""}><summary class="vsectie"><span class="vs-n${k === items.length ? " af" : k ? " half" : ""}" aria-hidden="true">${si + 1}</span><span class="vs-t">${esc(naam)}</span><small>${k ? `${k} van ${items.length}` : `${items.length} verhalen`}</small></summary>
+        ${SECTIES.map(([naam, sk, items], si) => {
+          const k = items.filter((g) => verhaalStore[g.nr] && verhaalStore[g.nr].q != null).length;
+          return `<details class="samensectie"${nuS === sk ? " open" : ""}><summary class="vsectie"><span class="vs-n${k === items.length ? " af" : k ? " half" : ""}" aria-hidden="true">${si + 1}</span><span class="vs-t">${esc(naam)}</span><small>${k ? `${k} van ${items.length}` : `${items.length} verhalen`}</small></summary>
           <ul class="vul samenlijst">${items.map((g) => { const st = verhaalStore[g.nr]; return `<li><button type="button" class="vitem${st && st.q != null ? " klaar" : st ? " gezien" : ""}" data-v="${g.nr}"><span class="vnr">${g.nr}</span><span class="vt"><b>${esc(g.t)}</b></span>${st && st.q != null ? '<span class="vok" aria-label="gestempeld">✓</span>' : ""}</button></li>`; }).join("")}</ul></details>`;
         }).join("")}`;
       if (welkomAan) renderWelkom();
@@ -1349,22 +1345,20 @@
   }
   function renderLijst() {
     const q = norm(vZoek).split(/\s+/).filter(Boolean);
-    const okT = (nr) => vTest === "alle" || (vTest === "ot" ? nr <= 79 : nr >= 80);
+    const okT = (sk) => vTest === "alle" || (vTest === "ot") === BR.sectieOT.has(sk);
     let html = "", hits = 0;
-    SECTIES.forEach(([naam, a, b], si) => {
+    SECTIES.forEach(([naam, sk, lijst], si) => {
       const items = [];
-      for (let nr = a; nr <= b; nr++) {
-        if (!okT(nr)) continue;
-        const g = GBYNR.get(nr);
-        if (q.length && !(g && q.every((w) => g.zoek.includes(w)))) continue;
+      if (!okT(sk)) return;
+      for (const g of lijst) {
+        const nr = g.nr;
+        if (q.length && !q.every((w) => g.zoek.includes(w))) continue;
         hits++;
         const st = verhaalStore[nr];
-        items.push(g
-          ? `<li><button type="button" class="vitem${st && st.q != null ? " klaar" : st ? " gezien" : ""}" data-v="${nr}"><span class="vnr">${nr}</span><span class="vt"><b>${esc(g.t)}</b><small>${esc(g.ref)}${g.kw && KW[g.kw] ? ` · <i>${esc(KW[g.kw].n)}</i>` : ""}</small></span>${st && st.q != null ? '<span class="vok" aria-label="gestempeld">✓</span>' : ""}</button></li>`
-          : `<li><span class="vitem off"><span class="vnr">${nr}</span><span class="vt"><b>Nog niet beschikbaar</b><small>${esc(LEIDRAAD[nr] || "")}</small></span></span></li>`);
+        items.push(`<li><button type="button" class="vitem${st && st.q != null ? " klaar" : st ? " gezien" : ""}" data-v="${nr}"><span class="vnr">${nr}</span><span class="vt"><b>${esc(g.t)}</b><small>${esc(g.ref)}${g.kw && KW[g.kw] ? ` · <i>${esc(KW[g.kw].n)}</i>` : ""}</small></span>${st && st.q != null ? '<span class="vok" aria-label="gestempeld">✓</span>' : ""}</button></li>`);
       }
-      let k = 0; for (let n = a; n <= b; n++) if (verhaalStore[n]) k++;
-      if (items.length) html += `<h3 class="vsectie"><span class="vs-n${k === b - a + 1 ? " af" : k ? " half" : ""}" aria-hidden="true">${si + 1}</span><span class="vs-t">${esc(naam)}</span><small>${k ? `${k} van ${b - a + 1} gelezen` : `${a}–${b}`}</small></h3><ul class="vul">${items.join("")}</ul>`;
+      const k = lijst.filter((g) => verhaalStore[g.nr]).length;
+      if (items.length) html += `<h3 class="vsectie"><span class="vs-n${k === lijst.length ? " af" : k ? " half" : ""}" aria-hidden="true">${si + 1}</span><span class="vs-t">${esc(naam)}</span><small>${k ? `${k} van ${lijst.length} gelezen` : `${lijst.length} geschiedenissen`}</small></h3><ul class="vul">${items.join("")}</ul>`;
     });
     // Niets gevonden: dan kan de bezoeker het aanvragen, met de zoekterm al ingevuld (de belangrijkste ingang van de aanvraag).
     $("vLijst").innerHTML = html || `<p class="ref">Niets gevonden voor ‘${esc(vZoek)}’. Probeer een andere naam, plaats of Bijbelboek.</p>${vZoek.trim() ? `<p class="misje"><button type="button" class="btn" data-aanvraag="gemist" data-av-tekst="${esc(`Ik zoek ‘${vZoek.trim().slice(0, 120)}’ en kan het niet vinden.`)}">Vraag dit aan</button></p>` : ""}`;
@@ -1629,7 +1623,7 @@
       if (g) return { g, hoe: "stap", key };
     }
     const gelezen = Object.keys(verhaalStore).map(Number).filter((n) => GBYNR.has(n));
-    if (gelezen.length) { const max = Math.max(...gelezen); const g = G.find((x) => x.nr > max); return g ? { g, hoe: "volgende" } : { g: GBYNR.get(max), hoe: "verhaal" }; }
+    if (gelezen.length) { const i = Math.max(...gelezen.map((nr) => G.indexOf(GBYNR.get(nr)))); const g = G[i + 1]; return g ? { g, hoe: "volgende" } : { g: G[i], hoe: "verhaal" }; }
     return { g: G[0], hoe: "nieuw" };
   }
   // Wie nog niet begonnen is, ziet eerst de hele Bijbelwereld (geschiedenis 1 heeft geen plaatsen op de kaart).
@@ -1808,7 +1802,7 @@
   // Voorlezen: alleen de volgorde, zonder jaartallen: de 16 etappes van de reis door de Bijbel.
   function renderTijdSamen() {
     const g = (vOpen && GBYNR.get(vOpen)) || huidigeGeschiedenis().g;
-    $("p-tijd").innerHTML = `<h2>Wat kwam <em>eerst</em>?</h2><p class="ref">De Bijbel vertelt de geschiedenissen in een volgorde. Zo loopt de reis, van boven naar beneden.</p><ol class="samentijd">${SECTIES.map(([naam, a, b]) => { const nu = g && g.nr >= a && g.nr <= b; const hier = G.filter((x) => x.nr >= a && x.nr <= b); return `<li class="${nu ? "nu" : ""}"><span class="st-stip" aria-hidden="true"></span><details${nu ? " open" : ""}><summary><b>${esc(naam)}</b><span class="st-aantal">${hier.length} ${hier.length === 1 ? "geschiedenis" : "geschiedenissen"}${nu ? ' · <em>hier ben je nu</em>' : ""}</span></summary><div class="st-lijst">${hier.map((x) => `<button type="button" class="linkbtn" data-v="${x.nr}">${esc(x.t)}</button>`).join("")}</div></details></li>`; }).join("")}</ol>`;
+    $("p-tijd").innerHTML = `<h2>Wat kwam <em>eerst</em>?</h2><p class="ref">De Bijbel vertelt de geschiedenissen in een volgorde. Zo loopt de reis, van boven naar beneden.</p><ol class="samentijd">${SECTIES.map(([naam, sk, hier]) => { const nu = g && g.sectie === sk; return `<li class="${nu ? "nu" : ""}"><span class="st-stip" aria-hidden="true"></span><details${nu ? " open" : ""}><summary><b>${esc(naam)}</b><span class="st-aantal">${hier.length} ${hier.length === 1 ? "geschiedenis" : "geschiedenissen"}${nu ? ' · <em>hier ben je nu</em>' : ""}</span></summary><div class="st-lijst">${hier.map((x) => `<button type="button" class="linkbtn" data-v="${x.nr}">${esc(x.t)}</button>`).join("")}</div></details></li>`; }).join("")}</ol>`;
   }
   $("p-tijd").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) openVerhaal(+b.dataset.v); });
   function renderTijd() {
@@ -2523,7 +2517,7 @@
     })));
     $("bestText").textContent = bests.length ? "Beste scores speurtocht: " + bests.join(" · ") : "Je hebt de speurtocht nog niet gedaan.";
     const pct = (x, t) => `<div class="prog" aria-hidden="true"><div style="width:${t ? ((x / t) * 100).toFixed(1) : 0}%"></div></div>`;
-    $("pasStats").innerHTML = `<div><b>${fmt(n)}</b><span>van ${fmt(total)} reisstempels</span>${pct(n, total)}</div><div><b>${nV}</b><span>van ${G.length} geschiedenissen gestempeld</span>${pct(nV, 150)}</div><div><b>${gedaan.size}</b><span>${gedaan.size === 1 ? "speurtocht gedaan" : "speurtochten gedaan"}</span></div>`;
+    $("pasStats").innerHTML = `<div><b>${fmt(n)}</b><span>van ${fmt(total)} reisstempels</span>${pct(n, total)}</div><div><b>${nV}</b><span>van ${G.length} geschiedenissen gestempeld</span>${pct(nV, G.length)}</div><div><b>${gedaan.size}</b><span>${gedaan.size === 1 ? "speurtocht gedaan" : "speurtochten gedaan"}</span></div>`;
     // Voorlezen: dezelfde stempels (niets per niveau, niets dubbel), maar eenvoudiger: twee getallen, de verhalen
     // die je al gelezen hebt, en de stempelbladen dicht.
     if (niveau === "a") {
