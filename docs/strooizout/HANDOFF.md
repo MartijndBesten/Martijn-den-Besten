@@ -45,6 +45,8 @@ De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, bet
 
 **Derde filmpje (22-11-2026, opdracht Martijn):** opa met rollator en hondje, een buurjongen die voor hem uit strooit, opa met zijn duim omhoog, en oma met koffie op het bankje (`strooizout-film-opa.mp4`). Stand van de site: PR #86 (lijn weg, straat in een lus, voettekst) staat live als versie `2b90dc5e` en is op productie gecontroleerd.
 
+**Fietsfilmpje op de site (22-11-2026, opdracht Martijn):** het fietsfilmpje staat op de homepage, als lichte versie (0,6 MB) die pas laadt na een tik op de afspeelknop. Let op de uitrolbundel: 9,53 MB van 10 MB; voor nog een film op de site is opslag buiten de bundel nodig (bijvoorbeeld Cloudflare R2; dat is een nieuwe voorziening en vraagt akkoord van Martijn).
+
 Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak kan later in het beheer worden geüpload (*Producten › Afbeelding*) en vervangt dan de kleine productafbeeldingen; voor de hero is dan een vrijstaande foto nodig.
 
 ## Commerciële versie (opdracht 22-11-2026)

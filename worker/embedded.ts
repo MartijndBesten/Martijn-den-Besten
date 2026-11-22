@@ -7,6 +7,7 @@ import { strooizoutDomein } from "./strooizout-domein";
 import { metProductGegevens } from "./strooizout-seo";
 import { FILES, HEADER_RULES } from "./generated/files";
 import { verwijstDoor } from "../shared/bijbelreis";
+import { leesBereik } from "./bereik";
 
 const decoded = new Map<string, Uint8Array>();
 
@@ -48,6 +49,21 @@ function serve(request: Request, file: string, status = 200): Response {
     if (matches(rule.pattern, urlPath)) for (const [k, v] of Object.entries(rule.headers)) headers.set(k, v);
   }
   if (status === 200 && request.headers.get("If-None-Match") === `"${etag}"`) return new Response(null, { status: 304, headers });
+  // Deelverzoeken, nodig om video op een iPhone af te spelen (zie bereik.ts).
+  if (status === 200 && !file.endsWith(".html")) {
+    headers.set("Accept-Ranges", "bytes");
+    const alles = body(file);
+    const bereik = leesBereik(request.headers.get("Range"), alles.length);
+    if (bereik === "ongeldig") {
+      headers.set("Content-Range", `bytes */${alles.length}`);
+      return new Response(null, { status: 416, headers });
+    }
+    if (bereik) {
+      headers.set("Content-Range", `bytes ${bereik.van}-${bereik.tot}/${alles.length}`);
+      headers.set("Content-Length", String(bereik.tot - bereik.van + 1));
+      return new Response(request.method === "HEAD" ? null : alles.subarray(bereik.van, bereik.tot + 1), { status: 206, headers });
+    }
+  }
   return new Response(request.method === "HEAD" ? null : body(file), { status, headers });
 }
 

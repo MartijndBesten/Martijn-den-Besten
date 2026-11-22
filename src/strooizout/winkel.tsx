@@ -346,6 +346,44 @@ function BuurBand({ winkel }: { winkel: Winkel | null }) {
   );
 }
 
+/**
+ * Het filmpje met de fietsers. Eerst staat er alleen een startbeeld met een afspeelknop; de video zelf wordt pas
+ * geladen na een tik, zodat de pagina er niet trager van wordt. Het filmpje heeft muziek en geen gesproken tekst.
+ */
+function Film() {
+  const [speelt, setSpeelt] = useState(false);
+  return (
+    <section className="wn-film" aria-labelledby="wn-film">
+      <div className="sz-wrap">
+        <h2 id="wn-film" className="wn-oog wn-oog--licht" data-onthul>
+          Bekijk het filmpje
+        </h2>
+        <div className="wn-film__kader" data-onthul>
+          {speelt ? (
+            <video
+              src="/strooizout/film/fiets.mp4"
+              poster="/strooizout/film/fiets.webp"
+              controls
+              autoPlay
+              playsInline
+              aria-label="Filmpje van 18 seconden, met muziek: twee fietsers glijden uit op een glad fietspad. Na het strooien rijdt iedereen veilig door."
+            />
+          ) : (
+            <button type="button" className="wn-film__start" onClick={() => setSpeelt(true)} aria-label="Speel het filmpje af: fietsers op een glad fietspad (18 seconden, met muziek)">
+              <img src="/strooizout/film/fiets.webp" alt="" width={540} height={960} loading="lazy" decoding="async" />
+              <span className="wn-film__knop" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="30" height="30">
+                  <path d="M8 5.2v13.6a1 1 0 0 0 1.52.86l11-6.8a1 1 0 0 0 0-1.72l-11-6.8A1 1 0 0 0 8 5.2z" fill="currentColor" />
+                </svg>
+              </span>
+            </button>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Bewust() {
   return (
     <section className="wn-sectie wn-bewust" aria-labelledby="sz-bewust">
@@ -429,6 +467,7 @@ export function WinkelPagina() {
       </section>
       <Stappen />
       <BuurBand winkel={winkel} />
+      <Film />
       <Bewust />
     </div>
   );

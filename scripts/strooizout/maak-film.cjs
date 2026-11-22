@@ -3,6 +3,8 @@
 // muziek uit film/muziek.cjs eronder.
 // Gebruik: node scripts/strooizout/maak-film.cjs [buurt|fiets|opa]      → docs/strooizout/film/<naam>.mp4 (+ voorbeeld)
 //          node scripts/strooizout/maak-film.cjs fiets --stil 2,6.5,14 [map]   → losse beelden om te bekijken
+//          node scripts/strooizout/maak-film.cjs fiets --web   → lichte versie voor de website (540 × 960, minder
+//          sneeuw) in public/strooizout/film/, met een startbeeld; die gaat wel mee in de uitrolbundel, dus klein houden
 // Vereist ffmpeg op het pad. De films komen bewust niet in public/: die map gaat mee in de uitrolbundel.
 const { chromium } = require("playwright");
 const { execFileSync } = require("node:child_process");
@@ -11,7 +13,7 @@ const os = require("node:os");
 const path = require("node:path");
 
 const hier = __dirname;
-const FPS = 30;
+const FPS = process.argv.includes("--web") ? 24 : 30; // de webversie is lichter: minder beelden per seconde
 const uit = path.join(hier, "../../docs/strooizout/film");
 const { maakMuziek } = require("./film/muziek.cjs");
 
@@ -20,6 +22,7 @@ const { maakMuziek } = require("./film/muziek.cjs");
 const FILMS = { buurt: { bron: "film.html", naam: "strooizout-film" }, fiets: { bron: "fiets.html", naam: "strooizout-film-fiets" }, opa: { bron: "opa.html", naam: "strooizout-film-opa" } };
 const welke = FILMS[process.argv[2]] ? process.argv[2] : "buurt";
 const FILM = FILMS[welke];
+const WEB = process.argv.includes("--web");
 
 function pagina() {
   const font = fs.readFileSync(path.join(hier, "../../public/fonts/geist.woff2")).toString("base64");
@@ -29,12 +32,12 @@ function pagina() {
     .replace("/*LETTER*/", `@font-face{font-family:Geist;src:url(data:font/woff2;base64,${font}) format("woff2-variations");font-weight:100 900}`)
     .replace("<!--ZAK-->", zak)
     .replace("../../../public/bijbelreis/denckh-logo-signature.svg", `data:image/svg+xml;base64,${fs.readFileSync(path.join(hier, "../../public/bijbelreis/denckh-logo-signature.svg")).toString("base64")}`)
-    .replace('"use strict";', '"use strict";window.STIL=true;');
+    .replace('"use strict";', `"use strict";window.STIL=true;${WEB ? "window.SNEEUW=0.3;" : ""}`);
 }
 
 (async () => {
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
+  const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: WEB ? 0.5 : 1 });
   const fouten = [];
   page.on("pageerror", (e) => fouten.push(String(e)));
   await page.setContent(pagina());
@@ -78,9 +81,24 @@ function pagina() {
   await browser.close();
   if (fouten.length) throw new Error(fouten.join("\n"));
 
+  const muziek = maakMuziek(welke, duur, path.join(beelden, "muziek.wav"));
+  if (WEB) {
+    // lichte versie voor de website: half formaat, steviger gecomprimeerd, met een startbeeld uit het begin van de film
+    const map = path.join(hier, "../../public/strooizout/film");
+    fs.mkdirSync(map, { recursive: true });
+    const film = path.join(map, `${welke}.mp4`);
+    execFileSync(
+      "ffmpeg",
+      ["-y", "-loglevel", "error", "-framerate", String(FPS), "-i", path.join(beelden, "b%05d.png"), "-i", muziek, "-shortest", "-c:v", "libx264", "-preset", "veryslow", "-crf", "34", "-pix_fmt", "yuv420p", "-profile:v", "high", "-movflags", "+faststart", "-c:a", "aac", "-b:a", "40k", "-ac", "1", film],
+      { stdio: "inherit" },
+    );
+    execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", path.join(beelden, `b${String(Math.round(1.25 * FPS)).padStart(5, "0")}.png`), "-c:v", "libwebp", "-quality", "74", path.join(map, `${welke}.webp`)], { stdio: "inherit" });
+    fs.rmSync(beelden, { recursive: true, force: true });
+    console.log("gemaakt:", film, fs.statSync(film).size, "bytes; startbeeld", fs.statSync(path.join(map, `${welke}.webp`)).size, "bytes");
+    return;
+  }
   fs.mkdirSync(uit, { recursive: true });
   const film = path.join(uit, `${FILM.naam}.mp4`);
-  const muziek = maakMuziek(welke, duur, path.join(beelden, "muziek.wav"));
   // H.264 met AAC-geluid: zo speelt hij overal af (WhatsApp, Instagram, Facebook, TikTok).
   execFileSync(
     "ffmpeg",

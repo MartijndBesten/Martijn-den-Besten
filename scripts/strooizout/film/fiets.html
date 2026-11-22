@@ -409,6 +409,9 @@
     for (let i = 0; i < 13; i++) vlokken.push({ laag: 2, x: r() * 1200, y: r() * 2000, r: 10 + r() * 9, v: 330 + r() * 110, z: 30 + r() * 40, f: r() * 6.3, o: 0.2 + r() * 0.2 });
   }
 
+  // Voor de lichte versie op de website kan er minder sneeuw vallen (scheelt veel in de bestandsgrootte).
+  if (typeof window.SNEEUW === "number") for (let i = vlokken.length - 1; i >= 0; i--) if ((i * 0.618) % 1 >= window.SNEEUW) vlokken.splice(i, 1);
+
   // Het fietspad voor de huizen, met een sneeuwrand, en het ijs dat erop ligt tot er gestrooid is.
   {
     const r = toeval(41);
