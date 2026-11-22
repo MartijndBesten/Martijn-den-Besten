@@ -43,13 +43,19 @@ Zelfde Worker, zelfde D1-database en zelfde uitrolroute als de rest van martijnd
 - Eén bestelkaart in twee stappen. Stap 1: prijstreden in één rail (1 zak · 2–3 · 4 of meer), grote plus- en minknop, afhalen of bezorgen, totaal en ‘Bestellen’. Eén zak onder een trede verschijnt een zetje (‘Nog 1 zak erbij en je betaalt € 8,99 per zak’). Stap 2 klapt uit in dezelfde kaart: naam en mobiel nummer (adres alleen bij bezorgen; e-mail en opmerking achter één link). Het totaal staat er altijd precies één keer, direct boven de actieknop.
 - Daaronder: ‘Geen aparte rit naar de bouwmarkt.’ (drie stappen), de buurtboodschap ‘Strooi ook bij een buur die dat zelf niet kan.’ met een straat waarin de gestrooide route van deur tot deur verschijnt, en ‘Strooi bewust’.
 
-**Strooiroute** (`tocht.tsx`): één SVG-pad over de pagina dat bij het scrollen meegroeit. Het begint bij de gestrooide korrels onder de zak in de hero, loopt langs de drie stappen (een stap licht op zodra de route hem bereikt) en gaat in de buurtsectie over het trottoir naar de voordeur van de buur; onderweg gaan de ramen één voor één aan (`scene.tsx › Straat`, CSS-variabele `--straat`). Het pad wordt uit de plaats van de pictogrammen berekend, ligt over de inhoud zonder klikken af te vangen of de opmaak te verschuiven, loopt alleen vooruit en blijft daarna staan. Geen maskers, filters of bibliotheken; bij ‘minder beweging’ staat direct het eindbeeld er. Gemeten op een iPhone 13-profiel met 4× CPU-vertraging: 60 beelden per seconde, CLS 0.
+**Strooiroute** (`tocht.tsx`): één SVG-pad over de pagina dat bij het scrollen meegroeit. Het begint bij de gestrooide korrels onder de zak in de hero, loopt langs de drie stappen (een stap licht op zodra de route hem bereikt) en gaat in de buurtsectie over het trottoir langs de huizen. Bij elk huis takt een paadje af naar de voordeur; zodra daar gestrooid is, gaat in dat huis het licht aan (deur, ramen, en een hartje dat opstijgt). De straat is dus donker tot er gestrooid wordt (`scene.tsx › Straat`; alles hangt aan de CSS-variabele `--straat`, de plek van de kop van de route volgt daaruit in `winter.css`). Het pad wordt uit de plaats van de pictogrammen berekend, ligt over de inhoud zonder klikken af te vangen of de opmaak te verschuiven, loopt alleen vooruit en blijft daarna staan. Geen maskers, filters of bibliotheken; bij ‘minder beweging’ staat direct het eindbeeld er. Gemeten op een iPhone 13-profiel met 4× CPU-vertraging: 60 beelden per seconde, CLS 0.
 
 **Beweging** (`beweging.ts` + CSS, geen animatiebibliotheek): opkomst van de hero, verende schuifjes in de rail en de afhaal/bezorgkeuze, een bedrag dat naar zijn nieuwe waarde loopt, een korte glans bij de beste prijs, onderdelen die in beeld komen bij scrollen, en een vink die zichzelf tekent na een geslaagde bestelling. Alleen `transform` en `opacity`; niets blokkeert een klik. Bij ‘minder beweging’ staat alles uit.
 
 **Gemeten** (lokale build, Lighthouse mobiel): Performance 97, Accessibility 100, Best practices 100, SEO 100; LCP 2,0 s, CLS 0,01, blokkeertijd 150 ms. Geen externe scripts of lettertypen.
 
 In de voet ‘Een initiatief van’ met de officiële Denckh-signatuur (`/bijbelreis/denckh-logo-signature.svg`, donkere variant op lichte voet; niet nagetekend).
+
+## Promotiefilmpje
+
+`docs/strooizout/film/strooizout-film.mp4`: verticaal filmpje (1080 × 1920, 17 s, H.264 met een stil geluidsspoor) in de stijl van de site. Verhaal: gladde stoep → de zak strooit je eigen stoep → ook bij de buren, waar het licht aangaat → de hele straat licht op → merk, zak en `strooizouthouten.nl`. Geen prijzen in beeld, zodat het filmpje bruikbaar blijft als de prijs wijzigt.
+
+Bron: `scripts/strooizout/film/film.html` (SVG en HTML; `window.teken(t)` tekent het beeld op tijdstip t) met de zak uit `film/zak.svg` (zelfde tekening als in `scene.tsx`). Opnieuw maken: `node scripts/strooizout/maak-film.cjs` (Chromium legt 510 beelden vast, ffmpeg maakt de mp4). Losse beelden bekijken: `--stil 2,6.5,14 <map>`. De film staat bewust niet in `public/`: die map gaat mee in de uitrolbundel (grens 10 MB).
 
 ## Voorraad: vier begrippen
 

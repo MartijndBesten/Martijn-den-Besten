@@ -1,0 +1,97 @@
+<linearGradient id="zk-h" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#9fb2c6" />
+  <stop offset="0.09" stop-color="#dbe5ee" />
+  <stop offset="0.36" stop-color="#ffffff" />
+  <stop offset="0.66" stop-color="#f1f5f9" />
+  <stop offset="0.9" stop-color="#c6d3e0" />
+  <stop offset="1" stop-color="#93a7bc" />
+</linearGradient>
+<linearGradient id="zk-v" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#0b2340" stop-opacity="0.1" />
+  <stop offset="0.16" stop-color="#0b2340" stop-opacity="0" />
+  <stop offset="0.74" stop-color="#0b2340" stop-opacity="0" />
+  <stop offset="1" stop-color="#0b2340" stop-opacity="0.26" />
+</linearGradient>
+<linearGradient id="zk-etiket" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#1a4a80" />
+  <stop offset="1" stop-color="#0b2340" />
+</linearGradient>
+<linearGradient id="zk-etiket-h" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#020a14" stop-opacity="0.55" />
+  <stop offset="0.2" stop-color="#020a14" stop-opacity="0" />
+  <stop offset="0.4" stop-color="#ffffff" stop-opacity="0.07" />
+  <stop offset="0.75" stop-color="#020a14" stop-opacity="0" />
+  <stop offset="1" stop-color="#020a14" stop-opacity="0.5" />
+</linearGradient>
+<linearGradient id="zk-naad" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#a9bacb" />
+  <stop offset="0.4" stop-color="#f4f8fb" />
+  <stop offset="1" stop-color="#9fb2c6" />
+</linearGradient>
+<pattern id="zk-weef" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(2)">
+  <path d="M0 0H7M0 3.5H7" stroke="#6f8ba6" stroke-width="0.5" opacity="0.28" />
+  <path d="M0 0V7M3.5 0V7" stroke="#ffffff" stroke-width="0.6" opacity="0.5" />
+</pattern>
+<clipPath id="zk-vorm">
+  <path d="M58 60 C 44 116, 26 252, 42 352 Q 47 384, 80 389 C 132 397, 188 397, 240 389 Q 273 384, 278 352 C 294 252, 276 116, 262 60 Q 160 48 58 60 Z" />
+</clipPath>
+<linearGradient id="zk-glans" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#ffffff" stop-opacity="0" />
+  <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.55" />
+  <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+</linearGradient>
+<radialGradient id="f-schaduw" cx="50%" cy="50%" r="50%">
+  <stop offset="0" stop-color="#020a14" stop-opacity="0.6" />
+  <stop offset="0.6" stop-color="#020a14" stop-opacity="0.22" />
+  <stop offset="1" stop-color="#020a14" stop-opacity="0" />
+</radialGradient>
+<radialGradient id="f-grond" cx="50%" cy="50%" r="50%">
+  <stop offset="0" stop-color="#cfe6f6" stop-opacity="0.2" />
+  <stop offset="0.55" stop-color="#8fc4ea" stop-opacity="0.08" />
+  <stop offset="1" stop-color="#8fc4ea" stop-opacity="0" />
+</radialGradient>
+<linearGradient id="f-route" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#eaf5fc" stop-opacity="0.32" />
+  <stop offset="1" stop-color="#cfe6f6" stop-opacity="0.1" />
+</linearGradient>
+<linearGradient id="f-hoop" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#ffffff" />
+  <stop offset="1" stop-color="#cfe0ee" />
+</linearGradient>
+<symbol id="zak" viewBox="0 0 320 420">
+  <path d="M50 30 L 60 26 L 260 26 L 270 30 L 264 64 Q 160 74 56 64 Z" fill="url(#zk-naad)" />
+  <path d="M50 30 L 60 26 L 260 26 L 270 30" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.9" />
+  <path d="M58 60 C 44 116, 26 252, 42 352 Q 47 384, 80 389 C 132 397, 188 397, 240 389 Q 273 384, 278 352 C 294 252, 276 116, 262 60 Q 160 48 58 60 Z" fill="url(#zk-h)" />
+  <g clip-path="url(#zk-vorm)">
+    <rect x="20" y="40" width="280" height="370" fill="url(#zk-weef)" />
+    <g fill="none" stroke="#5f7a95" stroke-linecap="round" opacity="0.13">
+      <path d="M70 78 C 96 104, 100 140, 84 168" stroke-width="7" />
+      <path d="M250 84 C 226 112, 226 146, 244 170" stroke-width="8" />
+      <path d="M150 70 C 156 96, 150 124, 160 150" stroke-width="5" />
+      <path d="M64 330 C 110 322, 210 322, 256 334" stroke-width="8" />
+      <path d="M58 352 C 80 362, 96 372, 100 386" stroke-width="6" />
+    </g>
+    <path d="M30 170 Q 160 194 290 170 L 292 314 Q 160 338 28 314 Z" fill="url(#zk-etiket)" />
+    <path d="M30 170 Q 160 194 290 170 L 292 314 Q 160 338 28 314 Z" fill="url(#zk-etiket-h)" />
+    <path d="M30 181 Q 160 205 290 181" fill="none" stroke="#ffb547" stroke-width="3.5" />
+    <g transform="translate(126 196) scale(1.06)">
+      <path d="M32 41 C 45 44, 46 52, 31 54.5 C 21 56.4, 17.5 59.5, 18 63" fill="none" stroke="#cfe6f6" stroke-width="8.5" stroke-linecap="round" />
+      <g fill="#ffb547">
+        <circle cx="41.2" cy="46.6" r="2.2" />
+        <circle cx="30.6" cy="54.6" r="2.4" />
+        <circle cx="20" cy="60" r="2.6" />
+      </g>
+      <path d="M11.5 30.5 32 13l20.5 17.5" fill="none" stroke="#fff" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M27.4 41.5v-9.2a4.6 4.6 0 0 1 9.2 0v9.2z" fill="#fff" />
+    </g>
+    <text x="160" y="296" text-anchor="middle" font-family="Geist, Arial, sans-serif" font-weight="800" font-size="27" letter-spacing="3.4" fill="#ffffff">
+      STROOIZOUT
+    </text>
+    <rect x="20" y="40" width="280" height="370" fill="url(#zk-v)" />
+    <path d="M56 84 C 42 190, 40 290, 54 380 L 92 380 C 78 290, 80 190, 94 84 Z" fill="url(#zk-glans)" />
+  </g>
+  <text x="160" y="368" text-anchor="middle" font-family="Geist, Arial, sans-serif" font-weight="800" font-size="30" letter-spacing="-0.5" fill="#0b2340">
+    25 kg
+  </text>
+  <path d="M62 52 Q 160 62 258 52" fill="none" stroke="#8ea4b8" stroke-width="2.4" stroke-dasharray="7 5" opacity="0.85" />
+</symbol>

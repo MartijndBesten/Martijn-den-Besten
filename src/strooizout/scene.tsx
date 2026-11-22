@@ -202,35 +202,49 @@ const HUIZEN: [number, number, number, number[], string][] = [
   [810, 140, 138, [0, 1, 0, 1], "#143a66"],
 ];
 const GROND = 236;
-// De voordeur van de buur (midden van de deur) en het laatste stuk van de route over het trottoir. Op de telefoon
-// komt de route van links het beeld in, op een breed scherm van rechts (waar de route langs de pagina omlaag komt).
-const DEUR = 570;
-const ROUTE_LINKS = `M120 278 L 520 278 C 556 278, ${DEUR} 268, ${DEUR} 240`;
-const ROUTE_RECHTS = `M990 278 L 620 278 C 584 278, ${DEUR} 268, ${DEUR} 240`;
+const STOEP = 278;
+const DEUREN = HUIZEN.map(([x, w]) => x + w / 2);
+// De route over het trottoir, met bij elk huis een aftakking naar de voordeur. Op de telefoon komt de route van links
+// het beeld in, op een breed scherm van rechts (waar de route langs de pagina omlaag komt).
+const ROUTE = { links: `M-40 ${STOEP} H1000`, rechts: `M1000 ${STOEP} H-40` };
+const zijpad = (x: number, kant: "links" | "rechts") => {
+  const r = kant === "links" ? -1 : 1;
+  return `M${x + r * 36} ${STOEP} C ${x + r * 10} ${STOEP}, ${x} ${STOEP - 8}, ${x} ${GROND + 7}`;
+};
+const bij = (x: number) => ({ "--x": x }) as React.CSSProperties;
 
 /**
- * De straat bij de buurtboodschap: een rij huizen in de winternacht. Het laatste stuk van de strooiroute loopt over
- * het trottoir naar de voordeur van de buur; onderweg gaan de ramen één voor één aan. Alles hangt aan de CSS-variabele
- * `--straat` (0 … 1) op de ouder: tocht.tsx zet die tijdens het scrollen, zonder script staat hij op 1 (eindbeeld).
+ * De straat bij de buurtboodschap: een rij huizen in de winternacht. De strooiroute loopt over het trottoir langs de
+ * huizen; waar bij de voordeur is gestrooid, gaat binnen het licht aan. Alles hangt aan de CSS-variabele `--straat`
+ * (0 … 1) op de ouder: tocht.tsx zet die tijdens het scrollen, zonder script staat hij op 1 (eindbeeld).
  */
 export function Straat() {
-  // Ramen die aangaan: verste huis eerst, het huis van de buur als laatste.
-  const ramen = HUIZEN.flatMap(([x, w, h, aan]) =>
-    aan.map((licht, i) => ({ licht, x: x + 18 + (i % 2) * (w - 62), y: GROND - h + 16 + Math.floor(i / 2) * 40 })),
-  );
-  const volgorde = ramen
-    .filter((r) => r.licht)
-    .sort((a, b) => Math.abs(b.x - DEUR) - Math.abs(a.x - DEUR))
-    .map((r, i, alle) => ({ ...r, t: 0.1 + (0.68 * i) / Math.max(1, alle.length - 1) }));
-  const route = (d: string, kant: "links" | "rechts") => (
+  const route = (kant: "links" | "rechts") => (
     <g className={`wn-straat__route wn-straat__route--${kant}`} mask={`url(#wn-st-masker-${kant})`}>
-      <path d={d} fill="none" stroke="#eaf5fc" strokeOpacity="0.3" strokeWidth="24" strokeLinecap="round" />
-      <path d={d} fill="none" stroke="#ffffff" strokeWidth="4.5" strokeLinecap="round" strokeDasharray="0.1 15" />
-      <path d={d} fill="none" stroke="#ffb547" strokeWidth="6.5" strokeLinecap="round" strokeDasharray="0.1 45" strokeDashoffset="-7" />
+      {/* de banen in één groep, zodat ze waar ze samenkomen niet lichter worden */}
+      <g opacity="0.3">
+        {[ROUTE[kant], ...DEUREN.map((x) => zijpad(x, kant))].map((d) => (
+          <path key={d} d={d} fill="none" stroke="#eaf5fc" strokeWidth="24" strokeLinecap="round" />
+        ))}
+      </g>
+      {[ROUTE[kant], ...DEUREN.map((x) => zijpad(x, kant))].map((d) => (
+        <g key={d}>
+          <path d={d} fill="none" stroke="#ffffff" strokeWidth="4.5" strokeLinecap="round" strokeDasharray="0.1 15" />
+          <path d={d} fill="none" stroke="#ffb547" strokeWidth="6.5" strokeLinecap="round" strokeDasharray="0.1 45" strokeDashoffset="-7" />
+        </g>
+      ))}
     </g>
   );
+  const masker = (kant: "links" | "rechts") => (
+    <mask id={`wn-st-masker-${kant}`} maskUnits="userSpaceOnUse" x="-40" y="200" width="1040" height="110">
+      <path className={`wn-straat__teken wn-straat__teken--${kant}`} d={ROUTE[kant]} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
+      {DEUREN.map((x) => (
+        <path key={x} className="wn-straat__teken wn-straat__teken--zij" style={bij(x)} d={zijpad(x, kant)} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
+      ))}
+    </mask>
+  );
   return (
-    <svg className="wn-straat" viewBox="0 0 960 310" role="img" aria-label="Een straat in de winter met een gestrooid pad naar de voordeur van de buren" preserveAspectRatio="xMidYMax slice">
+    <svg className="wn-straat" viewBox="0 0 960 310" role="img" aria-label="Een straat in de winter: waar bij de voordeur is gestrooid, brandt binnen licht" preserveAspectRatio="xMidYMax slice">
       <defs>
         <linearGradient id="wn-st-grond" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#1b4877" />
@@ -240,12 +254,8 @@ export function Straat() {
           <stop offset="0" stopColor="#ffb547" stopOpacity="0.6" />
           <stop offset="1" stopColor="#ffb547" stopOpacity="0" />
         </radialGradient>
-        <mask id="wn-st-masker-links" maskUnits="userSpaceOnUse" x="0" y="200" width="1000" height="110">
-          <path className="wn-straat__teken" d={ROUTE_LINKS} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
-        </mask>
-        <mask id="wn-st-masker-rechts" maskUnits="userSpaceOnUse" x="0" y="200" width="1000" height="110">
-          <path className="wn-straat__teken" d={ROUTE_RECHTS} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
-        </mask>
+        {masker("links")}
+        {masker("rechts")}
       </defs>
       <g fill="#cfe6f6">
         {[
@@ -262,33 +272,44 @@ export function Straat() {
           <circle key={`${x}-${y}`} cx={x} cy={y} r={r} opacity="0.6" />
         ))}
       </g>
-      {HUIZEN.map(([x, w, h, , kleur]) => {
+      {HUIZEN.map(([x, w, h, aan, kleur], nr) => {
         const top = GROND - h;
         const nok = top - w * 0.28;
+        const ramen = aan.map((licht, i) => ({ licht, x: x + 18 + (i % 2) * (w - 62), y: top + 16 + Math.floor(i / 2) * 40 }));
         return (
-          <g key={x}>
+          <g key={x} className="wn-straat__huis" style={bij(DEUREN[nr])}>
             <path d={`M${x} ${GROND} V${top} L${x + w / 2} ${nok} L${x + w} ${top} V${GROND} Z`} fill={kleur} />
             <path d={`M${x - 4} ${top + 3} L${x + w / 2} ${nok - 2} L${x + w + 4} ${top + 3}`} fill="none" stroke="#eaf5fc" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
             <rect x={x + w / 2 - 11} y={GROND - 40} width="22" height="40" rx="3" fill="#071a31" />
+            <rect className="wn-straat__deur" x={x + w / 2 - 11} y={GROND - 40} width="22" height="40" rx="3" fill="#ffb547" />
+            {ramen.map((r) => (
+              <rect key={`${r.x}-${r.y}`} x={r.x} y={r.y} width="26" height="24" rx="3" fill="#1f4f86" opacity="0.7" />
+            ))}
+            {ramen
+              .filter((r) => r.licht)
+              .map((r, i) => (
+                <rect key={`aan-${r.x}-${r.y}`} className="wn-straat__raam" x={r.x} y={r.y} width="26" height="24" rx="3" fill="#ffc266" style={{ "--i": i } as React.CSSProperties} />
+              ))}
+            {/* een klein hart boven de deur: de buren zijn er blij mee */}
+            <g transform={`translate(${x + w / 2} ${GROND - 56})`}>
+              <path className="wn-straat__hart" d="M0 6 C -9.5 -1.5, -6 -9.5, 0 -4.2 C 6 -9.5, 9.5 -1.5, 0 6 Z" fill="#ffb547" />
+            </g>
           </g>
         );
       })}
-      {ramen.map((r) => (
-        <rect key={`${r.x}-${r.y}`} x={r.x} y={r.y} width="26" height="24" rx="3" fill="#1f4f86" opacity="0.7" />
-      ))}
-      {volgorde.map((r) => (
-        <rect key={`aan-${r.x}-${r.y}`} className="wn-straat__raam" x={r.x} y={r.y} width="26" height="24" rx="3" fill="#ffc266" style={{ "--t": r.t.toFixed(3) } as React.CSSProperties} />
-      ))}
-      <rect x="0" y={GROND} width="1000" height="80" fill="url(#wn-st-grond)" />
-      <path d={`M0 ${GROND + 1} H1000`} stroke="#9fc9e8" strokeOpacity="0.35" strokeWidth="2" />
+      <rect x="-40" y={GROND} width="1040" height="80" fill="url(#wn-st-grond)" />
+      <path d={`M-40 ${GROND + 1} H1000`} stroke="#9fc9e8" strokeOpacity="0.35" strokeWidth="2" />
       <g stroke="#cfe6f6" strokeOpacity="0.16" strokeWidth="3" strokeLinecap="round">
         <path d="M40 262 H180M640 296 H800M300 300 H420M700 258 H900" />
       </g>
-      {/* de voordeur van de buur: warm licht dat sterker wordt als de route aankomt */}
-      <ellipse className="wn-straat__gloed" cx={DEUR} cy={GROND - 14} rx="52" ry="46" fill="url(#wn-st-licht)" />
-      <rect x={DEUR - 11} y={GROND - 40} width="22" height="40" rx="3" fill="#ffb547" />
-      {route(ROUTE_LINKS, "links")}
-      {route(ROUTE_RECHTS, "rechts")}
+      {/* warm licht bij elke voordeur waar gestrooid is */}
+      {DEUREN.map((x) => (
+        <g key={x} className="wn-straat__huis" style={bij(x)}>
+          <ellipse className="wn-straat__gloed" cx={x} cy={GROND - 14} rx="52" ry="46" fill="url(#wn-st-licht)" />
+        </g>
+      ))}
+      {route("links")}
+      {route("rechts")}
     </svg>
   );
 }

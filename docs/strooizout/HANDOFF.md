@@ -35,6 +35,8 @@ De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, bet
 
 **Strooiroute (22-11-2026, wens Martijn):** de animatie van het gestrooide paadje is uitgebreid tot een route over de pagina: vanaf de zak in de hero, langs de drie stappen (die oplichten) naar de deur van de buur, waar de ramen één voor één aangaan. Zie README › *Strooiroute*.
 
+**Licht bij de buren en promotiefilmpje (22-11-2026, wens Martijn):** in de straat op de site gaat het licht nu pas aan waar gestrooid is: de route loopt over de stoep langs alle huizen, takt af naar elke voordeur, en dan gaan deur en ramen aan en stijgt er een hartje op. Daarnaast is er een verticaal promotiefilmpje van 17 seconden in dezelfde stijl (`docs/strooizout/film/strooizout-film.mp4`, zie README › *Promotiefilmpje* en PROMOTIE › *Filmpje*). Zonder geluid of muziek; plaatsen doet Martijn zelf.
+
 Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak kan later in het beheer worden geüpload (*Producten › Afbeelding*) en vervangt dan de kleine productafbeeldingen; voor de hero is dan een vrijstaande foto nodig.
 
 ## Commerciële versie (opdracht 22-11-2026)

@@ -175,6 +175,12 @@ function begin(
     beeld?.style.setProperty("--straat", straat.toFixed(3));
   };
 
+  // Welk deel van de straat is te zien (de tekening wordt bijgesneden): daar begint en eindigt de route over het trottoir.
+  if (beeld && beeld.offsetWidth > 0) {
+    const schaal = Math.max(beeld.offsetWidth / 960, beeld.offsetHeight / 310);
+    beeld.style.setProperty("--straat-half", (beeld.offsetWidth / (2 * schaal)).toFixed(1));
+  }
+
   if (minderBeweging()) {
     getoond = lengte;
     straat = 1;
@@ -236,6 +242,7 @@ function begin(
     if (raf) cancelAnimationFrame(raf);
     stappen.forEach((li) => li.classList.remove("is-bereikt"));
     beeld?.style.removeProperty("--straat");
+    beeld?.style.removeProperty("--straat-half");
   };
 }
 
