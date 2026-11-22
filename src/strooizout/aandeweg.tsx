@@ -82,7 +82,7 @@ export default function AanDeWeg() {
       {!ligtEr ? (
         <p className="sz-melding sz-melding--let">
           <IcoonLet />
-          <span>Er ligt nu geen voorraad aan de weg. Reserveren kan wel op de webshop.</span>
+          <span>Er ligt nu geen voorraad aan de weg. Bestellen kan wel op de webshop.</span>
         </p>
       ) : (
         <form className="sz-straat__kaart" onSubmit={verstuur} noValidate>

@@ -93,7 +93,7 @@ test.describe("Strooizout voor de buurt", () => {
     // Bestellen: gegevens op dezelfde pagina; adresvelden alleen bij bezorgen
     await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
     await expect(kaart.getByLabel("Straat")).toBeVisible();
-    await kaart.getByRole("button", { name: /Reservering plaatsen/ }).click();
+    await kaart.getByRole("button", { name: /Bestelling plaatsen/ }).click();
     await expect(kaart.getByText("Vul je naam in.")).toBeVisible();
     await expect(kaart.getByText("Vul je mobiele nummer in.")).toBeVisible();
     await kaart.getByLabel("Postcode").fill("3511 AA");
@@ -106,16 +106,16 @@ test.describe("Strooizout voor de buurt", () => {
     await kaart.getByLabel("Naam").fill("Proef Klant");
     await kaart.getByLabel("Mobiel nummer").fill("030 1234567");
     await page.waitForTimeout(2600); // minimale invultijd (spambescherming)
-    await kaart.getByRole("button", { name: /Reservering plaatsen/ }).click();
+    await kaart.getByRole("button", { name: /Bestelling plaatsen/ }).click();
     await expect(kaart.getByText(/Vul een Nederlands mobiel nummer in/)).toBeVisible();
     const mobiel = `+31 6 ${String(Date.now()).slice(-8, -4)} ${String(Date.now()).slice(-4)}`;
     await kaart.getByLabel("Mobiel nummer").fill(mobiel);
     // dubbel klikken: precies één bestelling
     await expect(kaart.locator(".sz-bestelkaart__totaal")).toHaveCount(1);
     await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 37,96");
-    await kaart.getByRole("button", { name: "Reservering plaatsen", exact: true }).dblclick();
+    await kaart.getByRole("button", { name: "Bestelling plaatsen", exact: true }).dblclick();
 
-    await expect(page.getByRole("heading", { name: /Bedankt, Proef! Je reservering is geplaatst/ })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Bedankt, Proef! Je bestelling is geplaatst/ })).toBeVisible();
     const code = (await page.locator(".sz-codekaart__code").textContent())!.trim();
     expect(code).toMatch(/^H-\d{4,5}$/);
     await expect(page.getByRole("button", { name: /Kopieer code/ })).toBeVisible();
@@ -178,12 +178,12 @@ test.describe("Strooizout voor de buurt", () => {
     await kaart.getByLabel("Mobiel nummer").fill("06 1111 2222");
     await page.waitForTimeout(2600);
     await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 10,49");
-    await kaart.getByRole("button", { name: "Reservering plaatsen", exact: true }).click();
+    await kaart.getByRole("button", { name: "Bestelling plaatsen", exact: true }).click();
     await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
-    await expect(page.getByText("Het adres verschijnt hier zodra je reservering is bevestigd.")).toBeVisible();
-    await page.getByRole("button", { name: "Reservering annuleren" }).click();
+    await expect(page.getByText("Het adres verschijnt hier zodra je bestelling is bevestigd.")).toBeVisible();
+    await page.getByRole("button", { name: "Bestelling annuleren" }).click();
     await page.getByRole("button", { name: "Ja, annuleren" }).click();
-    await expect(page.getByRole("heading", { name: "Je reservering is geannuleerd" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Je bestelling is geannuleerd" })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
   });
 

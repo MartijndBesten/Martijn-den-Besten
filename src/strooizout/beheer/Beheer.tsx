@@ -1,11 +1,12 @@
-// Beheer van Strooizout voor de buurt op /strooizout/beheer. Toegang met het beheertoken (Worker-secret
-// STROOIZOUT_TOKEN of ADMIN_TOKEN). Het token staat alleen in deze browsersessie (sessionStorage).
+// Beheer van Strooizout voor de buurt op /strooizout/beheer. Inloggen met een code per e-mail (geen wachtwoord; de
+// sessie blijft dertig dagen op dit apparaat), of als terugval met het beheertoken (Worker-secret STROOIZOUT_TOKEN of
+// ADMIN_TOKEN; dat staat alleen in deze browsersessie).
 
 import { lazy, Suspense, useCallback, useEffect, useState, type FormEvent } from "react";
 import { vraag } from "../api";
 import { extern } from "../router";
 import { Merkteken } from "../iconen";
-import { BeheerProvider, leesToken, TOKEN_SLEUTEL, useBeheer } from "./basis";
+import { BeheerProvider, EMAIL_SLEUTEL, leesToken, SESSIE_SLEUTEL, TOKEN_SLEUTEL, useBeheer } from "./basis";
 import "./beheer.css";
 
 const Overzicht = lazy(() => import("./Overzicht"));
@@ -38,40 +39,166 @@ function tabUitHash(): TabId {
   return (TABS.find((t) => t.id === h)?.id ?? "overzicht") as TabId;
 }
 
-function Inloggen({ onToken }: { onToken: (t: string) => void }) {
+/**
+ * Inloggen. Is er een mailvoorziening, dan met je e-mailadres en een code van zes cijfers die je per mail krijgt
+ * (geen wachtwoord). De beheercode (het token) blijft als terugval bestaan.
+ */
+function Inloggen({ onToken }: { onToken: (t: string, bewaren: boolean) => void }) {
+  const [wijze, setWijze] = useState<"laden" | "mail" | "code">("laden");
+  const [kanMail, setKanMail] = useState(false);
+  const [kanCode, setKanCode] = useState(true);
+  const [email, setEmail] = useState(() => {
+    try {
+      return localStorage.getItem(EMAIL_SLEUTEL) ?? "";
+    } catch {
+      return "";
+    }
+  });
+  const [verstuurd, setVerstuurd] = useState(false);
   const [waarde, setWaarde] = useState("");
   const [fout, setFout] = useState("");
+  const [melding, setMelding] = useState("");
   const [bezig, setBezig] = useState(false);
-  async function verstuur(e: FormEvent) {
+
+  useEffect(() => {
+    void vraag<{ met_mail: boolean; met_code: boolean }>("/api/strooizout/beheer/inlog").then((r) => {
+      const mail = r.ok && r.data.met_mail;
+      setKanMail(mail);
+      setKanCode(!r.ok || r.data.met_code);
+      setWijze(mail ? "mail" : "code");
+    });
+  }, []);
+
+  async function vraagCode(e?: FormEvent) {
+    e?.preventDefault();
+    setBezig(true);
+    setFout("");
+    const r = await vraag<{ melding: string }>("/api/strooizout/beheer/inlog/code", { method: "POST", body: JSON.stringify({ email: email.trim() }) });
+    setBezig(false);
+    if (!r.ok) return setFout(r.error);
+    try {
+      localStorage.setItem(EMAIL_SLEUTEL, email.trim());
+    } catch {
+      /* geen opslag */
+    }
+    setWaarde("");
+    setVerstuurd(true);
+    setMelding(r.data.melding);
+  }
+  async function metMailcode(e: FormEvent) {
+    e.preventDefault();
+    setBezig(true);
+    setFout("");
+    const r = await vraag<{ token: string }>("/api/strooizout/beheer/inlog", { method: "POST", body: JSON.stringify({ email: email.trim(), code: waarde }) });
+    setBezig(false);
+    if (r.ok) onToken(r.data.token, true);
+    else setFout(r.error);
+  }
+  async function metBeheercode(e: FormEvent) {
     e.preventDefault();
     setBezig(true);
     setFout("");
     const t = waarde.trim();
     const r = await vraag("/api/strooizout/beheer/sessie", { token: t });
     setBezig(false);
-    if (r.ok) onToken(t);
+    if (r.ok) onToken(t, false);
     else setFout(r.error);
   }
+  const wissel = (naar: "mail" | "code") => {
+    setWijze(naar);
+    setWaarde("");
+    setFout("");
+    setMelding("");
+    setVerstuurd(false);
+  };
+  const foutRegel = fout && (
+    <p className="sz-veld__fout" role="alert" style={{ marginTop: 8 }}>
+      {fout}
+    </p>
+  );
+
   return (
     <div className="bh-login">
-      <form onSubmit={verstuur}>
-        <Merkteken className="sz-merk__teken" />
-        <h1>Beheer</h1>
-        <p className="bh-sub">Strooizout voor de buurt. Log in met je beheercode.</p>
-        <div className="bh-veld">
-          <label htmlFor="bh-token">Beheercode</label>
-          <input id="bh-token" className="sz-invoer" type="password" autoComplete="current-password" value={waarde} onChange={(e) => setWaarde(e.target.value)} required />
+      {wijze === "laden" ? (
+        <div>
+          <Merkteken className="sz-merk__teken" />
+          <h1>Beheer</h1>
+          <p className="bh-sub">Even laden…</p>
         </div>
-        {fout && (
-          <p className="sz-veld__fout" role="alert" style={{ marginTop: 8 }}>
-            {fout}
+      ) : wijze === "mail" && !verstuurd ? (
+        <form onSubmit={vraagCode}>
+          <Merkteken className="sz-merk__teken" />
+          <h1>Beheer</h1>
+          <p className="bh-sub">Strooizout voor de buurt. Vul je e-mailadres in; je krijgt een code om in te loggen.</p>
+          <div className="bh-veld">
+            <label htmlFor="bh-email">E-mailadres</label>
+            <input id="bh-email" className="sz-invoer" type="email" inputMode="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </div>
+          {foutRegel}
+          <button type="submit" className="sz-knop sz-knop--vol" style={{ marginTop: 16 }} disabled={bezig || !email.includes("@")}>
+            {bezig ? "Versturen…" : "Stuur mij een code"}
+          </button>
+          {kanCode && (
+            <button type="button" className="sz-knop sz-knop--tekst" style={{ marginTop: 10 }} onClick={() => wissel("code")}>
+              Inloggen met de beheercode
+            </button>
+          )}
+        </form>
+      ) : wijze === "mail" ? (
+        <form onSubmit={metMailcode}>
+          <Merkteken className="sz-merk__teken" />
+          <h1>Code invullen</h1>
+          <p className="bh-sub" role="status">
+            {melding}
           </p>
-        )}
-        <button type="submit" className="sz-knop sz-knop--vol" style={{ marginTop: 16 }} disabled={bezig || waarde.trim().length < 8}>
-          {bezig ? "Controleren…" : "Inloggen"}
-        </button>
-        <p className="sz-klein">De code blijft alleen in dit tabblad bewaard en verdwijnt als je het sluit.</p>
-      </form>
+          <div className="bh-veld">
+            <label htmlFor="bh-mailcode">Code uit de e-mail</label>
+            <input
+              id="bh-mailcode"
+              className="sz-invoer bh-login__code"
+              inputMode="numeric"
+              autoComplete="one-time-code"
+              pattern="[0-9 ]*"
+              maxLength={7}
+              value={waarde}
+              onChange={(e) => setWaarde(e.target.value.replace(/[^0-9 ]/g, ""))}
+              autoFocus
+              required
+            />
+          </div>
+          {foutRegel}
+          <button type="submit" className="sz-knop sz-knop--vol" style={{ marginTop: 16 }} disabled={bezig || waarde.replace(/\D/g, "").length !== 6}>
+            {bezig ? "Controleren…" : "Inloggen"}
+          </button>
+          <button type="button" className="sz-knop sz-knop--tekst" style={{ marginTop: 10 }} disabled={bezig} onClick={() => void vraagCode()}>
+            Stuur een nieuwe code
+          </button>
+          <button type="button" className="sz-knop sz-knop--tekst" onClick={() => wissel("mail")}>
+            Ander e-mailadres
+          </button>
+          <p className="sz-klein">Je blijft dertig dagen ingelogd op dit apparaat, tot je zelf uitlogt.</p>
+        </form>
+      ) : (
+        <form onSubmit={metBeheercode}>
+          <Merkteken className="sz-merk__teken" />
+          <h1>Beheer</h1>
+          <p className="bh-sub">Strooizout voor de buurt. Log in met je beheercode.</p>
+          <div className="bh-veld">
+            <label htmlFor="bh-token">Beheercode</label>
+            <input id="bh-token" className="sz-invoer" type="password" autoComplete="current-password" value={waarde} onChange={(e) => setWaarde(e.target.value)} required />
+          </div>
+          {foutRegel}
+          <button type="submit" className="sz-knop sz-knop--vol" style={{ marginTop: 16 }} disabled={bezig || waarde.trim().length < 8}>
+            {bezig ? "Controleren…" : "Inloggen"}
+          </button>
+          {kanMail && (
+            <button type="button" className="sz-knop sz-knop--tekst" style={{ marginTop: 10 }} onClick={() => wissel("mail")}>
+              Inloggen met een code per e-mail
+            </button>
+          )}
+          <p className="sz-klein">De code blijft alleen in dit tabblad bewaard en verdwijnt als je het sluit.</p>
+        </form>
+      )}
     </div>
   );
 }
@@ -151,7 +278,11 @@ export default function Beheer() {
   }, []);
   const uitloggen = useCallback(() => {
     try {
+      // een sessie van de e-mailcode ook op de server ongeldig maken
+      const sessie = localStorage.getItem(SESSIE_SLEUTEL);
+      if (sessie) void vraag("/api/strooizout/beheer/uitloggen", { method: "POST", token: sessie });
       sessionStorage.removeItem(TOKEN_SLEUTEL);
+      localStorage.removeItem(SESSIE_SLEUTEL);
     } catch {
       /* geen opslag */
     }
@@ -160,9 +291,10 @@ export default function Beheer() {
   if (!token)
     return (
       <Inloggen
-        onToken={(t) => {
+        onToken={(t, bewaren) => {
           try {
-            sessionStorage.setItem(TOKEN_SLEUTEL, t);
+            if (bewaren) localStorage.setItem(SESSIE_SLEUTEL, t);
+            else sessionStorage.setItem(TOKEN_SLEUTEL, t);
           } catch {
             /* geen opslag: alleen in geheugen */
           }

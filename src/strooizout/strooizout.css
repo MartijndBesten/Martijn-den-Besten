@@ -1474,6 +1474,22 @@ textarea.sz-invoer {
   }
 }
 
+/* Uitleg over betalen in het bestelformulier (er valt niets te kiezen: je krijgt een Tikkie) */
+.sz-betaaluitleg {
+  display: grid;
+  gap: 2px;
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--ijs-0);
+  border: 1px solid var(--rand);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.sz-betaaluitleg span {
+  color: var(--tekst-2);
+}
+
 .sz-nowrap {
   white-space: nowrap;
 }

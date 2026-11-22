@@ -50,15 +50,15 @@ function LaatsteBestelling() {
 /** ‘Op voorraad’, ‘Op voorraad vanaf donderdag 26 november’ of ‘Uitverkocht’: alleen wat vaststaat. */
 function Beschikbaarheid({ p, winkel }: { p: PubliekProduct; winkel: Winkel }) {
   const vanaf = winkel.instellingen.beschikbaar_vanaf;
-  if (p.voorraad === 0) return <p className="sz-beschikbaar sz-beschikbaar--op">Uitverkocht. Reserveren is niet meer mogelijk.</p>;
+  if (p.voorraad === 0) return <p className="sz-beschikbaar sz-beschikbaar--op">Uitverkocht. Bestellen is niet meer mogelijk.</p>;
   // Kort: ‘Op voorraad vanaf 26 november’ (zonder weekdag), zodat het op één regel past.
-  const tekst = p.op_voorraad ? "Op voorraad" : vanaf ? `Op voorraad vanaf ${dagTekst(vanaf).replace(/^\S+dag\s/, "")}` : "Reserveer nu; je hoort wanneer het binnen is";
+  const tekst = p.op_voorraad ? "Op voorraad" : vanaf ? `Op voorraad vanaf ${dagTekst(vanaf).replace(/^\S+dag\s/, "")}` : "Bestel nu; je hoort wanneer het binnen is";
   return (
     <p className={`sz-beschikbaar${p.op_voorraad ? " sz-beschikbaar--ja" : ""}`}>
       <IcoonKlok />
       <span>
         {tekst}
-        {p.voorraad !== null && p.voorraad <= 10 && ` · nog ${p.voorraad} te reserveren`}
+        {p.voorraad !== null && p.voorraad <= 10 && ` · nog ${p.voorraad} te bestellen`}
       </span>
     </p>
   );

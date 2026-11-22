@@ -188,7 +188,7 @@ export function Voet() {
           {c?.contact_telefoon && <a href={`tel:${c.contact_telefoon.replace(/[^+\d]/g, "")}`}>{c.contact_telefoon}</a>}
         </nav>
         <p className="sz-voet__klein">
-          Prijzen inclusief 21% btw. Een reservering is nog geen levergarantie; bezorgen alleen als het veilig kan. De zak op de afbeeldingen is een illustratie; de verpakking kan er anders uitzien.
+          Prijzen inclusief 21% btw. Op is op; bezorgen alleen als het veilig kan. De zak op de afbeeldingen is een illustratie; de verpakking kan er anders uitzien.
         </p>
         {verkoper && (
           <p className="sz-voet__klein sz-voet__bedrijf">

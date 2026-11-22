@@ -47,6 +47,8 @@ De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, bet
 
 **Fietsfilmpje op de site (22-11-2026, opdracht Martijn):** het fietsfilmpje staat op de homepage, als lichte versie (0,6 MB) die pas laadt na een tik op de afspeelknop. Let op de uitrolbundel: 9,53 MB van 10 MB; voor nog een film op de site is opslag buiten de bundel nodig (bijvoorbeeld Cloudflare R2; dat is een nieuwe voorziening en vraagt akkoord van Martijn).
 
+**Bestellen, e-mail en inloggen (22-11-2026, opdracht Martijn):** (1) ‘reserveren’ is overal ‘bestellen’ geworden; (2) na een bestelling krijgt de klant een e-mail met de afhaalcode, Martijn stuurt een Tikkie en daarna wordt er opgehaald of bezorgd (geen betaalkeuze meer in het formulier); (3) inloggen op het beheer kan met een code per e-mail, zonder wachtwoord. Het beheeradres staat als geheim in de Worker en nergens in deze openbare repository. Zie README › *E-mail en inloggen op het beheer*.
+
 Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak kan later in het beheer worden geüpload (*Producten › Afbeelding*) en vervangt dan de kleine productafbeeldingen; voor de hero is dan een vrijstaande foto nodig.
 
 ## Commerciële versie (opdracht 22-11-2026)

@@ -49,6 +49,7 @@ import {
   type SzEnv,
 } from "./strooizout-basis";
 import { STROOIZOUT_DOMEIN } from "./strooizout-domein";
+import { kanMetMail, logIn, logUit, sessieGeldig, vraagInlogcode } from "./strooizout-inlog";
 
 const MAX_POGINGEN = 20;
 const UUR = 3600;
@@ -66,10 +67,10 @@ async function toegang(request: Request, env: SzEnv, nuSec: number): Promise<Res
   const pogingen = await env.DB.prepare("SELECT count FROM rate_limits WHERE key = ?1").bind(`sz-login:${wie}:${venster}`).first<{ count: number }>();
   if ((pogingen?.count ?? 0) >= MAX_POGINGEN) return fout("Te veel mislukte pogingen. Probeer het over een uur opnieuw.", 429, {}, { "Retry-After": "3600" });
   const header = request.headers.get("Authorization") ?? "";
-  const geldig = header.startsWith("Bearer ") && tokens(env).some((t) => gelijk(header.slice(7), t));
+  const geldig = header.startsWith("Bearer ") && (tokens(env).some((t) => gelijk(header.slice(7), t)) || (await sessieGeldig(env, header.slice(7), nuSec)));
   if (geldig) return null;
   await rateLimit(env.DB, "sz-login", wie, MAX_POGINGEN, UUR, nuSec);
-  return fout(tokens(env).length ? "Geen toegang. Controleer je beheercode." : "Het beheer is nog niet ingesteld (geen beheertoken).", 401, {}, { "WWW-Authenticate": "Bearer" });
+  return fout(tokens(env).length || kanMetMail(env) ? "Geen toegang. Log opnieuw in." : "Het beheer is nog niet ingesteld (geen beheertoken).", 401, {}, { "WWW-Authenticate": "Bearer" });
 }
 
 // ---------- Hulp ----------
@@ -309,7 +310,7 @@ async function overzicht(request: Request, env: SzEnv, ctx: ExecutionContext): P
   if (!inst.contact_email && !inst.contact_telefoon) waarschuwingen.push("Er staan nog geen contactgegevens in de instellingen.");
   for (const p of cat.producten) {
     const vrij = p.status === "actief" ? beschikbaar(cat, p) : null;
-    if (vrij !== null && vrij <= inst.lage_voorraad) waarschuwingen.push(vrij === 0 ? `${p.naam}: uitverkocht, er kan niets meer gereserveerd worden.` : `${p.naam}: nog ${vrij} te reserveren (Voorraad).`);
+    if (vrij !== null && vrij <= inst.lage_voorraad) waarschuwingen.push(vrij === 0 ? `${p.naam}: uitverkocht, er kan niets meer besteld worden.` : `${p.naam}: nog ${vrij} te bestellen (Voorraad).`);
   }
   if (!rondes.some((r) => r.status === "open")) waarschuwingen.push("Er is geen open bestelronde: klanten kunnen nu niet bestellen.");
   return json({ ok: true, ronde_id: rondeId, rondes, cijfers: cijfers(cat, inst, data.bestellingen, data.regels), werkelijke_inkoop_cent: await werkelijkeInkoop(env.DB, rondeId), waarschuwingen, winkel_open: inst.winkel_open });
@@ -1527,13 +1528,18 @@ async function export_(request: Request, env: SzEnv, soort: string): Promise<Res
 // ---------- Router ----------
 
 export async function handleBeheer(request: Request, env: SzEnv, ctx: ExecutionContext, nuSec: number, pad: string, method: string): Promise<Response> {
-  const geweigerd = await toegang(request, env, nuSec);
-  if (geweigerd) return geweigerd;
   // Wijzigende verzoeken alleen vanaf de eigen site (aanvullend op het token).
   if (method !== "GET" && method !== "HEAD") {
     const origin = request.headers.get("Origin");
     if (origin && new URL(origin).host !== new URL(request.url).host) return fout("Alleen vanaf de eigen site.", 403);
   }
+  // Inloggen met een code per e-mail: deze drie routes werken zonder token (strooizout-inlog.ts).
+  if (pad === "/inlog" && method === "GET") return json({ ok: true, met_mail: kanMetMail(env), met_code: tokens(env).length > 0 });
+  if (pad === "/inlog/code" && method === "POST") return vraagInlogcode(request, env, nuSec);
+  if (pad === "/inlog" && method === "POST") return logIn(request, env, nuSec);
+  const geweigerd = await toegang(request, env, nuSec);
+  if (geweigerd) return geweigerd;
+  if (pad === "/uitloggen" && method === "POST") return logUit(request, env);
   const id = (re: RegExp) => {
     const m = pad.match(re);
     return m ? Number(m[1]) : null;

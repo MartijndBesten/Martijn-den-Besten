@@ -8,6 +8,12 @@ export interface SzEnv {
   /** Optioneel apart beheertoken voor alleen de webshop (min. 24 tekens). */
   STROOIZOUT_TOKEN?: string;
   HASH_SECRET?: string;
+  /** De e-mailbinding (`send_email`); zonder gaat er geen mail uit (worker/strooizout-mail.ts). */
+  SZ_MAIL?: { send(bericht: unknown): Promise<unknown> };
+  /** Alleen met de waarde "aan" wordt er mail verstuurd. */
+  STROOIZOUT_MAIL?: string;
+  /** Wie met een e-mailcode op het beheer mag inloggen: adressen gescheiden door komma's (Worker-geheim). */
+  STROOIZOUT_BEHEER_EMAILS?: string;
 }
 
 export const encoder = new TextEncoder();

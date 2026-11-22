@@ -23,6 +23,12 @@ export interface Env {
   STROOIZOUT_TOKEN?: string;
   /** "ja": martijndenbesten.com/strooizout verwijst door naar het eigen domein (worker/strooizout-domein.ts). */
   STROOIZOUT_DOORVERWIJZEN?: string;
+  /** De e-mailbinding (`send_email`) voor de webshop: bevestigingen en inlogcodes (worker/strooizout-mail.ts). */
+  SZ_MAIL?: { send(bericht: unknown): Promise<unknown> };
+  /** Alleen met de waarde "aan" wordt er mail verstuurd. */
+  STROOIZOUT_MAIL?: string;
+  /** Worker-geheim: wie met een e-mailcode op het beheer mag inloggen (adressen gescheiden door komma's). */
+  STROOIZOUT_BEHEER_EMAILS?: string;
   // Alleen voor tests: "uit" zet de doorverwijzing naar bijbelreis.nl uit (wrangler dev geeft verzoeken de hostnaam
   // van de route, martijndenbesten.com, waardoor de doorverwijzing anders ook lokaal afgaat). Dan serveert deze Worker
   // de atlas zelf, en neemt hij ook de bezoekmeldingen van de atlas aan (/api/bezoek).

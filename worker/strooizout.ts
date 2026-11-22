@@ -3,6 +3,7 @@
 // Zie docs/strooizout/README.md.
 
 import { rateLimit } from "./begrenzing";
+import { bevestigingsmail, heeftMail, stuurMail } from "./strooizout-mail";
 import {
   BESTEL_STATUS,
   GRENZEN,
@@ -100,6 +101,7 @@ async function winkel(env: SzEnv): Promise<Response> {
       ? "Er is op dit moment geen bestelronde open. Zodra de volgende ronde start, kun je hier weer bestellen."
       : "";
   const data: Winkel = {
+    mail: heeftMail(env),
     open,
     melding,
     ronde: ronde ? { id: ronde.id, naam: ronde.naam, sluit_op: ronde.sluit_op } : null,
@@ -146,7 +148,7 @@ async function bestaandAntwoord(env: SzEnv, id: number): Promise<Response> {
   return json({ ok: true, herhaald: true, ...(await klantWeergave(env, id)) }, 200);
 }
 
-async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Promise<Response> {
+async function plaatsBestelling(request: Request, env: SzEnv, ctx: ExecutionContext, nuSec: number): Promise<Response> {
   if (!sameOrigin(request)) return fout("Bestellen kan alleen via de webshop.", 403);
   const body = await leesJson(request);
   if (body instanceof Response) return body;
@@ -184,7 +186,7 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
   const betaalwijze = body.betaalwijze;
   if (betaalwijze !== "bij_ontvangst" && betaalwijze !== "tikkie") return fout("Kies hoe je wilt betalen.", 422, { veld: "betaalwijze" });
   if (betaalwijze === "tikkie" && !inst.tikkie_aan) return fout("Betalen via Tikkie is op dit moment niet mogelijk.", 422, { veld: "betaalwijze" });
-  if (body.akkoord !== true) return fout("Ga akkoord met de voorwaarden om je reservering te plaatsen.", 422, { veld: "akkoord" });
+  if (body.akkoord !== true) return fout("Ga akkoord met de voorwaarden om je bestelling te plaatsen.", 422, { veld: "akkoord" });
 
   // Regels: alleen product-ID en aantal tellen. Prijzen uit de browser worden genegeerd.
   const ruw = Array.isArray(body.regels) ? body.regels : [];
@@ -200,7 +202,7 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
     const p = cat.perId.get(id);
     if (!p || !teKoop(p)) return fout("Een product in je mandje is niet meer te bestellen. Herlaad de pagina.", 409, { veld: "regels", code: "product" });
     if (typeof aantal !== "number" || !Number.isInteger(aantal) || aantal < 1) return fout(`Kies een geldig aantal voor ${p.naam}.`, 422, { veld: "regels" });
-    if (aantal > p.max_per_bestelling) return fout(`Je kunt maximaal ${p.max_per_bestelling} × ${p.naam} per bestelling reserveren.`, 422, { veld: "regels" });
+    if (aantal > p.max_per_bestelling) return fout(`Je kunt maximaal ${p.max_per_bestelling} × ${p.naam} per bestelling bestellen.`, 422, { veld: "regels" });
     const vrij = beschikbaar(cat, p);
     if (vrij !== null && aantal > vrij) return fout(vrij === 0 ? `${p.naam} is uitverkocht.` : `Er zijn nog ${vrij} × ${p.naam} beschikbaar.`, 409, { veld: "regels", code: "voorraad" });
     regels.push({ product: alsPrijs(cat, p, inst.bezorg_per_stuk_cent), aantal, rij: p });
@@ -225,6 +227,8 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
   const klant = controleerKlant(klantInvoer, levering as Levering, inst.bezorg_postcodes);
   if (!klant.ok) return fout("Controleer de gemarkeerde velden.", 422, { velden: klant.fouten });
   const k = klant.waarde;
+  // Kan er mail uit, dan is het e-mailadres in de webshop verplicht: daar gaat de bevestiging met de afhaalcode naartoe.
+  if (kanaal === "web" && heeftMail(env) && !k.email) return fout("Controleer de gemarkeerde velden.", 422, { velden: { email: "Vul je e-mailadres in. Daar sturen we je afhaalcode naartoe." } });
 
   const perUur = await rateLimit(env.DB, "sz-bestel-u", wie, 20, UUR, nuSec);
   const perDag = perUur && (await rateLimit(env.DB, "sz-bestel-d", wie, 60, DAG, nuSec));
@@ -257,7 +261,10 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
     try {
       await db.batch(maakStatements(code));
       const nieuw = await db.prepare("SELECT id FROM sz_bestelling WHERE idempotentie = ?1").bind(idem).first<{ id: number }>();
-      return json({ ok: true, herhaald: false, ...(await klantWeergave(env, nieuw!.id)) }, 201);
+      const weergave = await klantWeergave(env, nieuw!.id);
+      // Bevestiging met de afhaalcode per e-mail (alleen als er een mailvoorziening is); de bestelling wacht er niet op.
+      if (kanaal === "web" && k.email) ctx.waitUntil(stuurMail(env, bevestigingsmail(weergave.bestelling, new URL(request.url), k.email, inst.contact_email)));
+      return json({ ok: true, herhaald: false, ...weergave }, 201);
     } catch (e) {
       const tekst = String((e as Error)?.message ?? e);
       if (/UNIQUE/i.test(tekst) && /idempotentie/i.test(tekst)) {
@@ -443,7 +450,7 @@ export async function handleStrooizout(request: Request, env: SzEnv, ctx: Execut
     console.error("Strooizout: HASH_SECRET ontbreekt; bestellen staat uit");
     return fout("Bestellen is tijdelijk niet mogelijk. Probeer het later opnieuw.", 503);
   }
-  if (path === "/api/strooizout/bestelling" && method === "POST") return plaatsBestelling(request, env, nuSec);
+  if (path === "/api/strooizout/bestelling" && method === "POST") return plaatsBestelling(request, env, ctx, nuSec);
   if (path === "/api/strooizout/bestelling/bekijk" && method === "POST") return bekijk(request, env);
   if (path === "/api/strooizout/bestelling/annuleer" && method === "POST") return annuleerDoorKlant(request, env);
   const beeld = path.match(/^\/api\/strooizout\/afbeelding\/(\d{1,9})-([0-9a-f]{16})$/);
