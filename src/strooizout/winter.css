@@ -925,7 +925,7 @@
   --straat: 1;
 }
 .wn-straat__teken {
-  stroke-dasharray: 1;
+  stroke-dasharray: 1 3;
   stroke-dashoffset: calc(1 - min(1, var(--straat) * 1.2));
 }
 .wn-straat__route--rechts {
@@ -1351,6 +1351,10 @@
   .wn-delen {
     width: 100%;
     justify-content: center;
+  }
+  /* Links van de straat blijft een smalle baan vrij voor de strooiroute, die daar doorloopt tot het trottoir. */
+  .wn-buur__beeld {
+    margin-left: calc(var(--gutter) * -1 + 20px);
   }
 }
 /* Lage telefoonschermen: de regel boven de kop weglaten, zodat de bestelknop in het eerste scherm valt. */
