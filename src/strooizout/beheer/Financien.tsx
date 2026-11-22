@@ -51,8 +51,8 @@ export default function Financien() {
         {marge && (
           <>
             <Kpi label="Inkoopkosten (verwacht)" waarde={euro(c.inkoop_cent)} sub={c.inkoop_onbekend ? "niet alle inkoopprijzen bekend" : undefined} />
-            <Kpi label="Brutowinst (verwacht)" waarde={c.inkoop_onbekend ? "onvolledig" : euro(c.brutowinst_cent)} sub="omzet min inkoop; overige kosten niet meegeteld" />
-            <Kpi label="Werkelijke inkoop" waarde={werkelijk === null ? "–" : euro(werkelijk)} sub={werkelijk === null ? "nog niet geregistreerd" : `brutowinst: ${euro(c.omzet_cent - werkelijk)}`} />
+            <Kpi label="Brutomarge excl. btw" waarde={c.inkoop_onbekend ? "onvolledig" : euro(c.marge_excl_cent)} sub={`omzet min inkoop, beide zonder btw; producten ${euro(c.product_marge_excl_cent)}. Bezorg- en overige kosten niet meegeteld`} />
+            <Kpi label="Werkelijke inkoop" waarde={werkelijk === null ? "–" : euro(werkelijk)} sub={werkelijk === null ? "nog niet geregistreerd" : `marge excl. btw: ${euro(Math.round(((c.omzet_cent - werkelijk) * 100) / (100 + (d.btw_modus === "inclusief" ? d.btw_tarief : 0))))}`} />
           </>
         )}
         <Kpi label="Ontvangen" waarde={euro(c.ontvangen_cent)} />
@@ -74,7 +74,7 @@ export default function Financien() {
                     <th className="bh-getal">Aantal</th>
                     <th className="bh-getal">Omzet</th>
                     {marge && <th className="bh-getal">Inkoop</th>}
-                    {marge && <th className="bh-getal">Marge</th>}
+                    {marge && <th className="bh-getal">Marge excl. btw</th>}
                   </tr>
                 </thead>
                 <tbody>
@@ -87,7 +87,7 @@ export default function Financien() {
                       <td className="bh-getal">{p.aantal}</td>
                       <td className="bh-getal">{euro(p.omzet_cent)}</td>
                       {marge && <td className="bh-getal">{p.inkoop_onbekend ? "onbekend" : euro(p.inkoop_cent)}</td>}
-                      {marge && <td className="bh-getal">{p.marge_cent === null ? "–" : euro(p.marge_cent)}</td>}
+                      {marge && <td className="bh-getal">{p.marge_excl_cent === null ? "–" : euro(p.marge_excl_cent)}</td>}
                     </tr>
                   ))}
                 </tbody>

@@ -37,6 +37,7 @@ async function render(page, svgBestand, breed, hoog, type, doel) {
   const page = await browser.newPage();
   await render(page, "zak.svg", 940, 940, "image/webp", "beeld/strooizout-25kg.webp");
   await render(page, "schep.svg", 940, 940, "image/webp", "beeld/sneeuwschep.webp");
+  await render(page, "emmer.svg", 940, 940, "image/webp", "beeld/strooizout-emmer-5kg.webp");
   await render(page, "../../public/strooizout/logo/merk.svg", 180, 180, "image/png", "icoon-180.png");
   await render(page, "../../public/strooizout/logo/merk.svg", 512, 512, "image/png", "icoon-512.png");
   await render(page, "../../public/strooizout/logo/logo-licht.svg", 1320, 288, "image/png", "logo/logo-licht.png");

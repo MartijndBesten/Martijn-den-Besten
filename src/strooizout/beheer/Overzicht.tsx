@@ -35,12 +35,13 @@ export default function Overzicht() {
         {(c.inkoop_bekend || data.werkelijke_inkoop_cent !== null) && (
           <>
             <Kpi label="Inkoopkosten" waarde={c.inkoop_onbekend ? (c.inkoop_cent ? `${euro(c.inkoop_cent)}+` : "onbekend") : euro(c.inkoop_cent)} sub={c.inkoop_onbekend ? "niet alle inkoopprijzen bekend" : "volgens inkoopprijzen"} />
-            <Kpi label="Verwachte brutowinst" waarde={c.inkoop_onbekend ? "onvolledig" : euro(c.brutowinst_cent)} sub={data.werkelijke_inkoop_cent !== null ? `met werkelijke inkoop: ${euro(c.omzet_cent - data.werkelijke_inkoop_cent)}` : undefined} />
+            <Kpi label="Brutomarge excl. btw" waarde={c.inkoop_onbekend ? "onvolledig" : euro(c.marge_excl_cent)} sub={`producten ${euro(c.product_marge_excl_cent)}, rest is bezorgopbrengst`} />
           </>
         )}
         <Kpi label="Betaald" waarde={c.betaalstatus.betaald} sub={`${euro(c.ontvangen_cent)} ontvangen`} />
         <Kpi label="Openstaand" waarde={c.betaalstatus.open + c.betaalstatus.verzoek} sub={`${euro(c.openstaand_cent)} nog te ontvangen · ${c.betaalstatus.verzoek} verzoek verstuurd`} />
         <Kpi label="Nog af te halen" waarde={c.af_te_halen} sub={`${c.afgehaald} afgehaald`} />
+        {c.voorbestellingen > 0 && <Kpi label="Voorbestellingen open" waarde={c.voorbestellingen} sub="geplaatst voordat de voorraad er lag" />}
         <Kpi label="Nog te bezorgen" waarde={c.te_bezorgen} sub={`${c.bezorgd} bezorgd`} />
         <Kpi label="Aan de weg" waarde={c.per_kanaal.straat.bestellingen + c.per_kanaal.beheer.bestellingen} sub={`${euro(c.per_kanaal.straat.omzet_cent + c.per_kanaal.beheer.omzet_cent)} omzet`} />
         {c.btw_cent !== null && <Kpi label="Waarvan btw (21%)" waarde={euro(c.btw_cent)} sub="over omzet incl. bezorgkosten" />}

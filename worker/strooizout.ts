@@ -101,6 +101,7 @@ async function winkel(env: SzEnv): Promise<Response> {
     melding,
     ronde: ronde ? { id: ronde.id, naam: ronde.naam, sluit_op: ronde.sluit_op } : null,
     producten: cat.producten.filter(teKoop).map((p) => publiek(cat, p, inst.bezorg_per_stuk_cent, magazijn)),
+    binnenkort: cat.producten.filter((p) => p.status === "binnenkort" && p.prijs_cent !== null).map((p) => publiek(cat, p, inst.bezorg_per_stuk_cent, magazijn)),
     categorieen: cats.results,
     momenten: ronde ? await momentenVoor(env.DB, ronde.id, nu) : [],
     instellingen: {
@@ -230,9 +231,11 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
   // Voorraad: alles in één batch (D1 = één transactie). De CHECK (voorraad >= 0) laat de hele batch mislukken bij te weinig.
   const effect = new Map<number, number>();
   for (const r of regels) voorraadEffect(cat, r.rij, r.aantal, effect);
-  // Aan de weg koop je wat er ligt: alleen uit werkelijk ontvangen voorraad.
+  // Aan de weg koop je wat er ligt: alleen uit werkelijk ontvangen voorraad. Anders: ligt het er nog niet, dan is het
+  // een voorbestelling (herkenbaar in het beheer).
+  const magazijn = await laadMagazijn(env.DB);
+  const voorbestelling = [...effect].some(([pid, n]) => cat.perId.get(pid)?.voorraad !== null && (magazijn.get(pid) ?? 0) < n);
   if (kanaal === "straat") {
-    const magazijn = await laadMagazijn(env.DB);
     for (const [pid, n] of effect) {
       if ((magazijn.get(pid) ?? 0) < n) return fout("Er ligt op dit moment niet genoeg op voorraad. Bestel via de webshop of probeer het later.", 409, { code: "voorraad" });
     }
@@ -240,7 +243,7 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
 
   const db = env.DB;
   const maakStatements = (afhaalcode: string) =>
-    bestelStatements(db, { idempotentie: idem, afhaalcode, rondeId: ronde?.id ?? null, kanaal, levering: levering as Levering, momentId, klant: k, betaalwijze: betaalwijze as Betaalwijze, som, effect, nu });
+    bestelStatements(db, { idempotentie: idem, afhaalcode, rondeId: ronde?.id ?? null, kanaal, levering: levering as Levering, momentId, klant: k, betaalwijze: betaalwijze as Betaalwijze, som, effect, voorbestelling, nu });
 
   // Unieke afhaalcode: willekeurig, de UNIQUE-index bewaakt botsingen (ook bij gelijktijdige bestellingen); bij een botsing
   // opnieuw met een andere code. Na een paar pogingen een cijfer langer (H-12345).

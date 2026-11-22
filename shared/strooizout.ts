@@ -37,6 +37,8 @@ export type Instellingen = {
   bewaartermijn_maanden: number;
   /** Optioneel: wijknaam per postcodegebied, één per regel: `3992 = Houten-Zuid`. */
   wijken: string;
+  /** Waarschuwing in het beheer als er nog zoveel (of minder) te reserveren is. */
+  lage_voorraad: number;
   /** Bezorgen pas vanaf dit aantal zakken (0 = altijd). */
   bezorg_min_zakken: number;
   /** Datum (JJJJ-MM-DD) waarop de voorraad naar verwachting binnen is; leeg = niet tonen. */
@@ -101,6 +103,7 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
   bewaartermijn_maanden: 6,
   wijken: "",
   bezorg_min_zakken: 2,
+  lage_voorraad: 10,
   beschikbaar_vanaf: "2026-11-26",
   // Zoals gepubliceerd op denckh.nl (footer en /privacy/, gecontroleerd 22-11-2026). Aan te passen in het beheer.
   verkoper_naam: "Denckh",
@@ -136,6 +139,7 @@ export const INSTELLING_VELDEN: Record<keyof Instellingen, Veld> = {
   bewaartermijn_maanden: { soort: "getal", min: 1, max: 24 },
   wijken: { soort: "tekst", max: 2000 },
   bezorg_min_zakken: { soort: "getal", min: 0, max: 50 },
+  lage_voorraad: { soort: "getal", min: 0, max: 1000 },
   beschikbaar_vanaf: { soort: "tekst", max: 10 },
   verkoper_naam: { soort: "tekst", max: 80 },
   verkoper_adres: { soort: "tekst", max: 200 },
@@ -525,7 +529,7 @@ export function binnenBezorggebied(postcode: string, bezorgPostcodes: string): b
 
 /**
  * Eerstvolgende staffel die bij dit aantal nog niet geldt, met de besparing als de klant tot die grens bestelt.
- * Voorbeeld: 3 zakken, staffel vanaf 4 à € 8,49 (normaal € 8,99) → { vanaf: 4, prijs_cent: 849, besparing_cent: 200 }.
+ * Voorbeeld: 3 zakken, staffel vanaf 4 à € 8,99 (normaal € 10,49) → { vanaf: 4, prijs_cent: 899, besparing_cent: 600 }.
  */
 export function volgendeStaffel(p: Pick<PrijsProduct, "prijs_cent" | "aanbiedingen">, aantal: number, nu: string): { naam: string; vanaf: number; prijs_cent: number; besparing_cent: number } | null {
   const huidig = stukprijs({ ...p, id: 0, naam: "", inkoop_cent: null, bezorg_cent: null, gewicht_gram: 0 }, aantal, nu).cent;
@@ -571,6 +575,8 @@ export type Winkel = {
   melding: string;
   ronde: { id: number; naam: string; sluit_op: string | null } | null;
   producten: PubliekProduct[];
+  /** Zichtbaar maar (nog) niet te bestellen, bijv. een product in voorbereiding. */
+  binnenkort: PubliekProduct[];
   categorieen: { slug: string; naam: string }[];
   momenten: PubliekMoment[];
   instellingen: Pick<

@@ -15,6 +15,10 @@ export type Cijfers = {
   /** Is er ergens een inkoopprijs ingevuld? Zo niet, dan tonen we geen marge. */
   inkoop_bekend: boolean;
   brutowinst_cent: number;
+  /** Omzet min inkoop, beide exclusief btw (incl. bezorgopbrengst). */
+  marge_excl_cent: number;
+  /** Productomzet min inkoop, beide exclusief btw (zonder bezorgopbrengst). */
+  product_marge_excl_cent: number;
   btw_cent: number | null;
   ontvangen_cent: number;
   openstaand_cent: number;
@@ -26,8 +30,10 @@ export type Cijfers = {
   afgehaald: number;
   bezorgd: number;
   per_status: Record<string, number>;
+  /** Openstaande voorbestellingen (geplaatst voordat de voorraad er lag). */
+  voorbestellingen: number;
   per_kanaal: Record<"web" | "straat" | "beheer", { bestellingen: number; omzet_cent: number }>;
-  per_product: { product_id: number; naam: string; eenheid: string; aantal: number; omzet_cent: number; inkoop_cent: number; inkoop_onbekend: boolean; gewicht_gram: number; marge_cent: number | null }[];
+  per_product: { product_id: number; naam: string; eenheid: string; aantal: number; omzet_cent: number; inkoop_cent: number; inkoop_onbekend: boolean; gewicht_gram: number; marge_cent: number | null; marge_excl_cent: number | null }[];
 };
 
 export type LijstBestelling = {
@@ -35,6 +41,8 @@ export type LijstBestelling = {
   nummer: string;
   afhaalcode: string;
   kanaal: "web" | "straat" | "beheer";
+  /** Geplaatst voordat de voorraad er lag. */
+  voorbestelling: boolean;
   ronde_id: number | null;
   status: string;
   levering: "ophalen" | "bezorgen";
@@ -66,7 +74,7 @@ export type BeheerProduct = {
   slug: string;
   naam: string;
   categorie_id: number | null;
-  status: "concept" | "actief" | "verborgen";
+  status: "concept" | "binnenkort" | "actief" | "verborgen";
   kort: string;
   beschrijving: string;
   specificaties: { label: string; waarde: string }[];

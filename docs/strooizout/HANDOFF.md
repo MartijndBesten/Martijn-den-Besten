@@ -1,47 +1,133 @@
 # Strooizout voor de buurt — overdracht
 
-**Status (22-11-2026):** afgerond op branch `claude/strooizout-webshop-hfgvr1` (PR #78), klaar voor uitrol. Domein **strooizouthouten.nl** (Theory7, zone in Cloudflare) wordt na de uitrol als custom domain aan de Worker `martijndenbesten` gekoppeld. Geen echte bestellingen, inkooporders, betaalde diensten of berichten.
+**Status (22-11-2026):** commerciële versie afgerond op branch `claude/strooizout-webshop-hfgvr1` (PR #78). Domein **strooizouthouten.nl** (Theory7, zone in Cloudflare) wordt na de uitrol als custom domain aan de Worker `martijndenbesten` gekoppeld. Geen echte bestellingen, inkooporders, betaalde diensten of berichten.
 
 Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
 
-## Besluiten van Martijn (22-11) en verwerking
+## Commerciële versie (opdracht 22-11-2026)
+
+| Onderdeel | Uitgevoerd |
+| --- | --- |
+| Prijzen 25 kg | 1 zak € 10,49 · 2–3 zakken € 9,49 · 4 of meer € 8,99 per zak, voor alle zakken zodra de drempel is bereikt. Server rekent (twee aanbiedingen in `sz_aanbieding`); opgeslagen per bestelregel met normaalprijs en korting |
+| Bestelkaart | drie keuzes 1 / 2 (‘Voordelige keuze’) / 4 (‘Extra voordeel’) met totaal en besparing; standaard 2; ieder aantal via de stepper; totaal met ‘je bespaart’ ten opzichte van losse zakken |
+| Boodschap | ‘Strooizout uit je eigen buurt.’ · ‘Hou je buurt veilig. Strooi bewust.’ · ‘Geen aparte rit naar de bouwmarkt. Bestel samen met je buren en houd je stoep veilig.’ · ‘Neem er eentje mee voor je buren.’ |
+| Strooi bewust | korte gebruikstip en milieu/huisdieren op de homepage, zonder absolute claims |
+| Emmer 5 kg | product ‘Strooizout 5 kg in emmer’, € 7,49, nieuwe status **binnenkort** (zichtbaar, niet te bestellen; server weigert). Eigen voorraad; *Voorraad › Emmers afvullen* boekt zakken af en emmers bij |
+| Voorraad | 40 verwacht, inkoop € 7,09 incl. btw ingevuld, waarschuwing bij ≤ 10 te reserveren (instelbaar), label *voorbestelling* + KPI ‘Voorbestellingen open’ |
+| Administratie | brutomarge **exclusief btw** (totaal, producten, per product, CSV); inkoopveld heet ‘Inkoopprijs incl. btw’ |
+| Marketing | flyer A5, WhatsApp 1080², buurt-app/social 1200 × 630, bord A4 en deeltekst vernieuwd; knop ‘Deel met je buren’ op de homepage |
+
+## Marge per product en staffel (exclusief btw)
+
+Inkoop zak € 7,09 incl. = **€ 5,86 excl.** Btw 21% op verkoop en inkoop (voorbelasting).
+
+| Aantal | Prijs incl. | Prijs excl. | Marge per zak | Marge per bestelling | Marge % |
+| --- | --- | --- | --- | --- | --- |
+| 1 zak | € 10,49 | € 8,67 | € 2,81 | € 2,81 | 32% |
+| 2 zakken | € 9,49 | € 7,84 | € 1,98 | € 3,96 | 25% |
+| 3 zakken | € 9,49 | € 7,84 | € 1,98 | € 5,94 | 25% |
+| 4 zakken | € 8,99 | € 7,43 | € 1,57 | € 6,28 | 21% |
+| 10 zakken | € 8,99 | € 7,43 | € 1,57 | € 15,70 | 21% |
+
+Niet meegerekend: tijd, autokosten van bezorgen en betaalkosten. Hele partij van 40 zakken: tussen € 63 (alles bij 4+) en € 112 (alles los) brutomarge.
+
+**Emmer 5 kg, € 7,49 incl. = € 6,19 excl.** Kostprijs excl. btw: zout 1/5 zak € 1,17, emmer + deksel incl. verzending (Jerrycanshop) € 3,05 bij 10 stuks of € 2,48 bij 50, etiket ca. € 0,20. Vulwerk niet in geld gerekend.
+
+| Afname emmers | Kostprijs | Marge per emmer | Hoger dan losse zak (€ 2,81)? |
+| --- | --- | --- | --- |
+| 10 (proef) | € 4,42 | € 1,77 | **nee** |
+| 50 | € 3,85 | € 2,34 | **nee** |
+| 80+ (staffel € 1,20/st., onbevestigd) | € 2,67 | € 3,52 | ja |
+
+Conclusie: bij € 7,49 en een proef van 10 haalt de emmer voorwaarde 3 niet. De marge per kilo is wel veel hoger (€ 0,35/kg tegenover € 0,11/kg). Nodig voor een marge van € 2,81: ca. **€ 8,75** (bij 10) of **€ 8,06** (bij 50). Er zijn twee routes: een prijs van € 8,49–8,99, of een grotere afname tegen staffelprijs. Dit is een besluit voor Martijn (vraag 1).
+
+## Emmers (onderzoek 22-11-2026, alleen gelezen, niets besteld)
+
+- **Volume:** de stortdichtheid van strooizout is 1,05–1,25 kg/L (productbladen Q-Salt en Carel Lurvink; Compass ca. 1,2). Voor 5,0 kg is dus 4,0–4,8 L nodig. Een nominale 5 L-emmer werkt alleen als het randvolume ruim groter is.
+- **Voordeligst en technisch geschikt: Jerrycanshop 5 L rond wit (E-RN-WI-5) + wit deksel (D-WI-RO-5).**
+  - Randvolume 5,8 L, dus 72–82% vulgraad. PP, draagvermogen 8,4 kg volgens de shop.
+  - Prijs € 1,98 + € 0,50 excl. Verzending € 6,95 incl., gratis vanaf € 100 incl.
+  - Kosten per stuk: € 3,05 bij 10, € 2,48 bij 50.
+  - De gegevens komen uit zoekresultaten: de site zelf was vanuit deze omgeving niet bereikbaar. Controleer prijzen en specificaties in de winkelwagen.
+- **Nipak 3711.1 + klemdeksel:** randvolume onbekend. Het deksel is ‘niet verzegelbaar’ en mogelijk is de minimale afname 25 stuks. Ca. € 5 per stuk (onbevestigd).
+- **Plastibac Qubb 5 L** (België, metalen beugel, deksel inbegrepen, € 2,42): reserveoptie. De verzendkosten naar NL zijn onbekend.
+- **Etiket:** Avery L7993-25 weerbestendig, 99 × 68 mm, ca. € 0,20 per stuk (pak van 200 voor € 40,08 excl.).
+- **Etikettering:**
+  - Vermeld ‘Netto 5 kg’ en vul tot ten minste 5,0 kg.
+  - Wie zelf afvult, geldt volgens de GPSR waarschijnlijk als fabrikant. Dan horen naam, adres en contact van Denckh plus een partijnummer op de emmer.
+  - Controleer het veiligheidsblad van de zoutleverancier (antiklontermiddel).
+
+## Bezorgtarief: voorstel (tarief niet gewijzigd)
+
+Nu kost bezorgen € 0,50 per zak incl., dat is € 0,41 excl. Bij 2 zakken komt dat neer op € 0,83 excl. per adres. De kosten:
+
+- Een losse rit binnen de rondweg is grofweg 4–6 km heen en terug (schatting).
+- Per km: € 0,25 (onbelaste vergoeding 2026). De werkelijke autokosten liggen tussen € 0,26 en € 0,55 per km (ANWB, Homefinance).
+- Daarbij komt 10–15 minuten laden en dragen van 50–100 kg.
+- Een losse rit kost daarmee € 1,25–2,75 aan auto, plus tijd. In een gebundelde ronde van ongeveer 6 adressen is dat ca. € 0,45–0,95 per adres, plus 5–7 minuten.
+
+**Het huidige tarief is verliesgevend**, ook in gebundelde rondes, zodra je je tijd meerekent. Twee mogelijke routes:
+
+- **Voorstel A, zonder codewijziging:** € 1,00 per zak, vanaf 2 zakken. Instellen in *Instellingen › Bezorgen*. Dat is € 2,00 bij 2 zakken en € 4,00 bij 4.
+- **Voorstel B, past beter bij ‘meer zakken per bestelling’:** € 2,50 per adres, vanaf 2 zakken, alleen op vaste bezorgrondes. Bij 4 zakken is dat € 0,63 per zak. Hiervoor is een kleine codewijziging nodig: een bezorgmethode ‘per adres’.
+
+Mijn advies is **B**. Beslissing bij Martijn (vraag 2).
+
+## Marketing
+
+- **Materiaal:**
+  - `public/strooizout/flyer-a5.pdf`
+  - `delen-1080.jpg` (WhatsApp)
+  - `delen-1200x630.jpg` (buurt-app, Facebook, linkvoorbeeld)
+  - `bord-a4.pdf`
+  - deeltekst op `/flyer`
+  - De QR-codes zijn gedecodeerd: `https://strooizouthouten.nl` en `/aan-de-weg`.
+- **WhatsApp-tekst:** > Hoi buren! Geen aparte rit naar de bouwmarkt: in Houten kun je strooizout bestellen. 25 kg strooizout: 1 zak € 10,49, 2–3 zakken € 9,49, 4 of meer € 8,99 per zak. Samen bestellen is voordeliger. Gratis afhalen in Houten, of laten bezorgen binnen de rondweg (vanaf 2 zakken) voor € 0,50 per zak. Op voorraad vanaf donderdag 26 november; reserveren kan nu. Bestellen: https://strooizouthouten.nl
+- **Doelgroepen en kanaal:**
+  - **Straten en buurtapps:** één persoon bestelt 4+ voor de straat. Daar zit de grootste aantallen-winst.
+  - **Huishoudens met een oprit:** 2–4 zakken.
+  - **Kleine ondernemers met een stoep of parkeerplaats** en **VvE’s:** direct benaderen met de flyer.
+- **Groepsbestellingen:** geen extra kortingsstaffel ingevoerd. Op 4+ is de marge € 1,57 per zak; verder zakken kost marge zonder dat het volume dat zeker goedmaakt. Een bestelling is maximaal 20 zakken. Grotere aantallen (VvE) liever op aanvraag, eventueel met gratis bezorging op één adres in plaats van korting.
+
+## Eerdere besluiten (blijven gelden)
 
 | Besluit | Verwerkt |
 | --- | --- |
-| Verkoper overal **Denckh** (alleen die naam): Vlierweg 54, Houten · KvK 83176896 · btw NL003791952B15; geen KOR, 21% btw | Standaardinstellingen verkoper_* en btw inclusief 21%; zichtbaar in de voet, de voorwaarden en de privacyverklaring. Postcode niet ingevuld (niet verzonnen); kan desgewenst in *Instellingen › Verkoper › Adres* |
-| Inkoopprijs en leverancier leeg laten; marge alleen tonen als er een inkoopprijs is | Waarschuwing ‘inkoopprijs ontbreekt’ verwijderd; inkoop, brutowinst en margekolommen/CSV verschijnen pas als er een inkoopprijs of werkelijke inkoop is |
-| Bezorgen alleen binnen de rondweg van Houten, instelbaar | Postcodelijst met uitzonderingen (zie hieronder); melding buiten het gebied: ‘We bezorgen alleen binnen de rondweg van Houten. Op deze postcode kan dat helaas niet, maar je kunt je bestelling wel gratis afhalen.’ Flyer en deeltekst: ‘Bezorgen binnen de rondweg’ |
-| Voorwaarden zelf schrijven, kort, Denckh als verkoper, concept | Nieuwe standaardtekst met kopjes (zie hieronder) |
-| Eigen domein strooizouthouten.nl | Korte adressen, www → hoofddomein, canonical, robots/sitemap, QR-codes en beelden op `https://strooizouthouten.nl` |
+| Verkoper overal **Denckh**: Vlierweg 54, Houten · KvK 83176896 · btw NL003791952B15; geen KOR, 21% btw | Voet, voorwaarden, privacyverklaring |
+| Bezorgen alleen binnen de rondweg van Houten, instelbaar | Postcodelijst met uitzonderingen; melding buiten het gebied verwijst naar gratis afhalen |
+| Voorwaarden kort, Denckh als verkoper, **concept** | Standaardtekst met kopjes |
+| Eigen domein strooizouthouten.nl | Korte adressen, www → hoofddomein, canonical, robots/sitemap, QR-codes |
 
-## Te controleren door Martijn
+## Vragen en fysieke controles voor Martijn
 
-1. **Bezorggebied (te controleren).** Standaard: postcodegebieden 3991–3995 behalve 65 postcodes buiten de rondweg:
-   - `niet: 3991` CD CE CG CH CJ CK CL CM CN CP CR CS CT CW CX CZ LA LB LC LD LJ LK LM LN LS LZ MC (o.a. Duwboot, Pakketboot, Diepe Hoon, Draaibrug, Houtensewetering, Veerwagenweg, Heemsteedseweg, Schonauwenseweg);
-   - `niet: 3992` AA AB AC AD AE AG AK AL DB DC DD DE DG DH DJ LK LL LM LN LP LR LS LT LV LW LX LZ (o.a. Essenkade, Elzenkade, Meidoornkade, Peppelkade, Waterveste, Hoofdveste, De Staart, Utrechtseweg, Waijensedijk, Oud Wulfseweg, Koedijk, Fortweg, Poort van Wulven);
-   - `niet: 3994` AD AE AH AJ AN AV AX MA MC MD MG (o.a. Handboog, Kruisboog, Wijkerweg, Rietdijk, Binnenweg, Kruisweg, Het Bos, Poeldijk, Beusichemseweg, Oostrumsdijkje).
+1. **Emmerprijs/afname:** bij € 7,49 haalt de proef de margevoorwaarde niet. Kies tussen ca. € 8,49–8,99 of een grotere afname. De emmer blijft tot dan op *binnenkort*.
+2. **Bezorgtarief:** voorstel A (€ 1,00 per zak) of B (€ 2,50 per adres, codewijziging). Tot dan € 0,50 per zak.
+3. **Fysiek met 1–2 emmers, voordat er 10 besteld worden:**
+   - vulproef met weegschaal: 5,0 kg erin, en past het deksel dan nog?
+   - deksel sluit ook met korrels op de rand, en na herhaald openen;
+   - hengsel dragen en schudden met 5 kg;
+   - 1–2 weken vocht en klonteren;
+   - hechting van het etiket bij kou en nat weer.
+4. **Bezorggebied controleren:** 3991–3995 minus 65 postcodes buiten de rondweg (o.a. Doornkade/Duwboot, Essenkade, Hoofdveste, Fortweg, Beusichemseweg). De lijst staat in README › Bezorggebied.
+5. **Voorwaarden (concept) akkoord geven.** Bevat 14 dagen bedenktijd (wettelijk bij online verkoop aan consumenten).
+6. **Invullen in *Instellingen*:** het afhaaladres (privé) en eventueel een telefoonnummer.
+7. **Inkoopprijs € 7,09** bevestigen zodra de factuur er is (*Producten*).
 
-   Bron: PDOK Locatieserver (geometrie ‘Rondweg, Houten’ + middelpunt van alle 1072 postcodes in Houten; 1007 binnen, 65 buiten). Een postcode die over de rondweg loopt telt volgens zijn middelpunt. Aanpassen in *Instellingen › Bezorgen*; de postcodecheck daar laat direct zien of een adres erbinnen valt.
-2. **Voorwaarden (concept, wacht op akkoord).** Onderwerpen: wie verkoopt, wat we verkopen, prijzen incl. 21% btw, vooruit bestellen (voorraad vanaf 26 november), afhalen (gratis) en bezorgen (binnen de rondweg, vanaf 2 zakken, € 0,50 per zak), betalen na bestellen (Tikkie of ter plekke/aan de weg), annuleren en terugbrengen, klachten, privacy, contact. Bedrijfsgegevens komen uit de verkopervelden, niet uit de tekst. Let op: ik heb **14 dagen bedenktijd na ontvangst** opgenomen (ongeopende zakken terugbrengen, geld terug), omdat de wettelijke bedenktijd voor online verkoop aan consumenten geldt. Aanpassen in *Instellingen › Voorwaarden*.
-3. **Nog invullen in *Instellingen*:** afhaaladres (privé, pas zichtbaar na bevestiging) en eventueel een telefoonnummer.
-
-## Gecontroleerd
+## Gecontroleerd (22-11-2026)
 
 | Controle | Resultaat |
 | --- | --- |
 | `npm run typecheck` | geslaagd |
-| `npm test` (hele site) | 544 geslaagd, 1 overgeslagen (bestaand) |
-| `tests/strooizout.test.ts` | 63/63, o.a. bezorggebied binnen/buiten de rondweg (Aalsloot binnen, Duwboot en Beusichemseweg buiten), bestelling buiten het gebied geweigerd met de juiste melding, robots/sitemap eigen domein |
-| `e2e/strooizout.spec.ts` (desktop + mobiel) | 22/22, incl. postcode buiten de rondweg in het bestelformulier en axe op webshop, aan de weg, privacy, voorwaarden en beheer |
-| QR-codes (gerenderd en gedecodeerd) | flyer A5 en WhatsApp-beeld: `https://strooizouthouten.nl`; bord A4: `https://strooizouthouten.nl/aan-de-weg` |
-| Beelden | flyer A5, bord A4, delen 1080 en 1200 × 630 opnieuw gemaakt en bekeken (met ‘Op voorraad vanaf donderdag 26 november’ en ‘Bezorgen binnen de rondweg’) |
-| Voorwaardenpagina | bekeken op iPhone-formaat |
+| `tests/strooizout.test.ts` | 65/65. Nieuw getest: prijzen 1/2/3/4/10/20 zakken, staffels server-side en in CSV, emmer niet te bestellen, status ‘binnenkort’, voorbestellingen, afvullen (alleen uit vrije ontvangen zakken; emmers boeken niet op zakken af), lagevoorraadwaarschuwing, marge excl. btw |
+| `e2e/strooizout.spec.ts` (desktop + mobiel) | 22/22: standaard 2 zakken, 1 → 3 → 4 zakken, bezorgen, emmer ‘Binnenkort’, delen, ‘Strooi bewust’, bestelroutes, beheer, axe |
+| Beelden | flyer A5 (past precies op A5), deelbeelden en bord opnieuw gemaakt en bekeken; QR-codes gedecodeerd |
+| Homepage | bekeken op iPhone 13 en desktop 1440 px; geen consolefouten |
 
 ## Open punten (niet blokkerend)
 
-- **Automatische betaling via QR aan de weg** (Mollie) vraagt een kostenakkoord; tot die tijd bevestigt de verkoper betaling en uitgifte in het beheer (README › Verkoop aan de weg).
-- Cloudflare Access voor `/beheer` (gratis, aanbevolen extra slot).
+- **Automatische betaling via QR aan de weg** (Mollie) vraagt een kostenakkoord. Tot die tijd bevestigt de verkoper betaling en uitgifte.
+- Cloudflare Access voor `/beheer` (gratis, aanbevolen).
 
 ## Volgende stap
 
-Agent: PR #78 mergen, uitrollen (ingebedde variant), productie controleren en een fictieve testbestelling plaatsen en weer verwijderen; daarna Claude in Chrome laten koppelen, domein controleren en de doorverwijzing van het oude adres aanzetten.
+Agent: PR #78 mergen, uitrollen (ingebedde variant), productie controleren met een fictieve testbestelling die daarna weer verwijderd wordt, Claude in Chrome laten koppelen en de doorverwijzing van het oude adres aanzetten. Martijn: vragen 1–2 beslissen en de fysieke emmertest (3) doen.

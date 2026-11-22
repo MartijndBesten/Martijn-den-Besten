@@ -68,6 +68,11 @@ export default function Instellingen() {
           <input id="in-vanaf" className="sz-invoer" type="date" value={v.beschikbaar_vanaf} onChange={tekst("beschikbaar_vanaf")} />
           <small>Wordt getoond zolang er nog niets ontvangen is (Voorraad). Leeg = niet tonen.</small>
         </div>
+        <div className="bh-veld" style={{ marginTop: 8, maxWidth: 260 }}>
+          <label htmlFor="in-laag">Waarschuwing bij lage voorraad</label>
+          <input id="in-laag" className="sz-invoer" style={{ maxWidth: 120 }} type="number" min={0} max={1000} value={v.lage_voorraad} onChange={(e) => zet("lage_voorraad", Math.max(0, Math.min(1000, Number(e.target.value) || 0)))} />
+          <small>Het overzicht waarschuwt als er nog zoveel of minder te reserveren is.</small>
+        </div>
         <div className="bh-veld" style={{ marginTop: 8 }}>
           <label htmlFor="in-gesloten">Melding als de webshop gesloten is</label>
           <input id="in-gesloten" className="sz-invoer" value={v.gesloten_melding} maxLength={300} onChange={tekst("gesloten_melding")} />

@@ -43,6 +43,9 @@ export const IcoonSneeuw = (p: SVGProps<SVGSVGElement>) => (
 export const IcoonKopie = (p: SVGProps<SVGSVGElement>) => (
   <svg {...basis(p)}><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" /></svg>
 );
+export const IcoonDelen = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...basis(p)}><circle cx="18" cy="5" r="2.5" /><circle cx="6" cy="12" r="2.5" /><circle cx="18" cy="19" r="2.5" /><path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4" /></svg>
+);
 
 /** Merkteken: dak, voordeur en een veilige looproute met strooikorrels (public/strooizout/logo/merk.svg). */
 export function Merkteken({ className, opDonker = false }: { className?: string; opDonker?: boolean }) {

@@ -46,7 +46,7 @@ export default function Delen() {
               </a>
             </li>
           </ul>
-          <p className="bh-sub">De PDF en afbeeldingen zijn gemaakt met de prijs van € 8,99 en bezorging € 0,50 per zak. Verander je de prijs, gebruik dan de flyerpagina of laat ze opnieuw maken (scripts/strooizout-beelden.mjs).</p>
+          <p className="bh-sub">De PDF en afbeeldingen zijn gemaakt met de staffelprijzen € 10,49 / € 9,49 / € 8,99 per zak en bezorging € 0,50 per zak. Verander je een prijs, gebruik dan de flyerpagina (prijzen komen live uit de webshop) of laat de bestanden opnieuw maken (scripts/strooizout/maak-flyer.cjs).</p>
         </section>
       </div>
     </>

@@ -9,28 +9,45 @@ import { Logo } from "./iconen";
 import { KORTE_URL, QrCode, WEG_URL, WINKEL_URL } from "./qr";
 import "./flyer.css";
 
-type Gegevens = { prijs: number; bezorg: number | null; bezorgVanaf: number; plek: string; staffel: { vanaf: number; prijs: number } | null; vanaf: string | null };
+type Staffel = { vanaf: number; prijs: number };
+type Gegevens = { prijs: number; staffels: Staffel[]; bezorg: number | null; bezorgVanaf: number; plek: string; vanaf: string | null };
 
 function useGegevens(): Gegevens {
-  const [g, setG] = useState<Gegevens>({ prijs: 899, bezorg: 50, bezorgVanaf: 2, plek: "Houten", staffel: { vanaf: 4, prijs: 849 }, vanaf: "2026-11-26" });
+  const [g, setG] = useState<Gegevens>({ prijs: 1049, staffels: [{ vanaf: 2, prijs: 949 }, { vanaf: 4, prijs: 899 }], bezorg: 50, bezorgVanaf: 2, plek: "Houten", vanaf: "2026-11-26" });
   useEffect(() => {
     void laadWinkel().then((r) => {
       if (!r.ok) return;
       const zout = r.data.producten.find((p) => p.slug === "strooizout-25-kg") ?? r.data.producten[0];
       const i = r.data.instellingen;
-      const a = (zout?.aanbiedingen ?? []).filter((x) => x.actief && x.vanaf_aantal > 1 && !x.start && !x.eind).sort((x, y) => x.vanaf_aantal - y.vanaf_aantal)[0];
+      const staffels = (zout?.aanbiedingen ?? [])
+        .filter((x) => x.actief && x.vanaf_aantal > 1 && !x.start && !x.eind && x.prijs_cent < (zout?.prijs_cent ?? 0))
+        .sort((x, y) => x.vanaf_aantal - y.vanaf_aantal)
+        .map((a) => ({ vanaf: a.vanaf_aantal, prijs: a.prijs_cent }));
       setG({
-        prijs: zout?.prijs_cent ?? 899,
+        prijs: zout?.prijs_cent ?? 1049,
+        staffels,
         bezorg: i.bezorgen_aan && i.bezorg_methode === "per_stuk" ? (zout?.bezorg_cent ?? i.bezorg_per_stuk_cent) : null,
         bezorgVanaf: i.bezorg_min_zakken,
         plek: i.afhaal_plek || "Houten",
-        staffel: a ? { vanaf: a.vanaf_aantal, prijs: a.prijs_cent } : null,
         vanaf: zout?.op_voorraad ? null : i.beschikbaar_vanaf || null,
       });
     });
   }, []);
   return g;
 }
+
+/** ‘1 zak’, ‘2–3 zakken’, ‘4 of meer’ met de prijs per zak. */
+function prijsRegels(g: Gegevens): { label: string; prijs: number }[] {
+  const r = [{ label: "1 zak", prijs: g.prijs }];
+  g.staffels.forEach((s, i) => {
+    const tot = g.staffels[i + 1]?.vanaf;
+    r.push({ label: tot ? (tot - 1 > s.vanaf ? `${s.vanaf}–${tot - 1} zakken` : `${s.vanaf} zakken`) : `${s.vanaf} of meer`, prijs: s.prijs });
+  });
+  if (r.length === 1) r[0].label = "per zak";
+  return r;
+}
+const laagste = (g: Gegevens) => Math.min(g.prijs, ...g.staffels.map((s) => s.prijs));
+const nb = (t: string) => t.replace(/ /g, " ");
 
 function Denckh() {
   return (
@@ -40,32 +57,48 @@ function Denckh() {
   );
 }
 
-const bezorgRegel = (g: Gegevens) => (g.bezorg === null ? null : `Bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? `, vanaf ${g.bezorgVanaf} zakken` : ""}: ${`${euro(g.bezorg)} per zak`.replace(/ /g, "\u00a0")}`);
+function Prijzen({ g }: { g: Gegevens }) {
+  const regels = prijsRegels(g);
+  return (
+    <table className="fl-prijzen">
+      <tbody>
+        {regels.map((r, i) => (
+          <tr key={r.label} className={i === regels.length - 1 && regels.length > 1 ? "is-best" : ""}>
+            <th scope="row">{r.label}</th>
+            <td>
+              {euro(r.prijs)} <small>per zak</small>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+const bezorgRegel = (g: Gegevens) => (g.bezorg === null ? null : `Bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? `, vanaf ${g.bezorgVanaf} zakken` : ""}: ${nb(`${euro(g.bezorg)} per zak`)}`);
 
 export function FlyerA5({ g }: { g: Gegevens }) {
   return (
     <article className="fl-a5" aria-label="Flyer A5">
       <header className="fl-a5__kop">
         <Logo className="fl-logo-groot" />
-        <p className="fl-payoff">Hou je buurt veilig.</p>
       </header>
+      <div>
+        <h1 className="fl-kop">Strooizout uit je eigen buurt.</h1>
+        <p className="fl-sub">Geen aparte rit naar de bouwmarkt. Bestel samen met je buren en houd je stoep veilig.</p>
+      </div>
       <div className="fl-a5__product">
         <img src="/strooizout/beeld/strooizout-25kg.webp" alt="" />
         <div>
           <p className="fl-a5__naam">25 kg strooizout</p>
-          <p className="fl-a5__prijs">{euro(g.prijs)}</p>
-          {g.staffel && (
-            <p className="fl-a5__staffel">
-              Vanaf {g.staffel.vanaf} zakken <b>{euro(g.staffel.prijs)}</b> per zak
-            </p>
-          )}
+          <Prijzen g={g} />
           {g.vanaf && <p className="fl-a5__vanaf">Op voorraad vanaf {dagTekst(g.vanaf)}</p>}
         </div>
       </div>
       <ul className="fl-punten">
         <li>Gratis afhalen in {g.plek}</li>
         {bezorgRegel(g) && <li>{bezorgRegel(g)}</li>}
-        <li>Betalen bij ontvangst</li>
+        <li>Betalen bij ontvangst of met een betaalverzoek</li>
       </ul>
       <div className="fl-a5__bestel">
         <QrCode className="fl-qr" label={`QR-code naar ${WINKEL_URL}`} kleur="#0b2340" />
@@ -75,7 +108,7 @@ export function FlyerA5({ g }: { g: Gegevens }) {
         </div>
       </div>
       <footer className="fl-a5__voet">
-        <p>Strooi ook eens bij een buur die dat zelf niet kan.</p>
+        <p>Neem er eentje mee voor je buren.</p>
         <Denckh />
       </footer>
     </article>
@@ -87,18 +120,14 @@ export function Deelbeeld({ g, vorm }: { g: Gegevens; vorm: "vierkant" | "breed"
     <article className={`fl-deel fl-deel--${vorm}`} aria-label={vorm === "vierkant" ? "Deelbeeld 1080 × 1080" : "Deelbeeld 1200 × 630"}>
       <div className="fl-deel__tekst">
         <Logo className="fl-logo-groot" />
-        <p className="fl-payoff">Hou je buurt veilig.</p>
+        <h1 className="fl-kop">Strooizout uit je eigen buurt.</h1>
         <p className="fl-deel__prijs">
-          25 kg strooizout <b>{euro(g.prijs)}</b>
+          25 kg vanaf <b>{euro(laagste(g))}</b> per zak
         </p>
+        <p className="fl-deel__staffel">{prijsRegels(g).map((r) => nb(`${r.label} ${euro(r.prijs)}`)).join("  ·  ")}</p>
         <ul className="fl-punten">
-          {g.staffel && (
-            <li>
-              Vanaf {g.staffel.vanaf} zakken {euro(g.staffel.prijs)} per zak
-            </li>
-          )}
           <li>Gratis afhalen in {g.plek}</li>
-          {bezorgRegel(g) && <li>{bezorgRegel(g)}</li>}
+          {vorm === "vierkant" && bezorgRegel(g) && <li>{bezorgRegel(g)}</li>}
           {g.vanaf && <li>Op voorraad vanaf {dagTekst(g.vanaf)}</li>}
         </ul>
       </div>
@@ -106,7 +135,7 @@ export function Deelbeeld({ g, vorm }: { g: Gegevens; vorm: "vierkant" | "breed"
         <div className="fl-deel__onder">
           <QrCode label={`QR-code naar ${WINKEL_URL}`} kleur="#0b2340" />
           <div>
-            <strong>Bestel in een minuut</strong>
+            <strong>Samen bestellen?</strong>
             <span>{KORTE_URL}</span>
           </div>
         </div>
@@ -129,11 +158,7 @@ export function Bord({ g }: { g: Gegevens }) {
       <p className="fl-bord__prijs">
         <b>{euro(g.prijs)}</b> per zak
       </p>
-      {g.staffel && (
-        <p className="fl-bord__staffel">
-          Vanaf {g.staffel.vanaf} zakken {euro(g.staffel.prijs)} per zak
-        </p>
-      )}
+      {g.staffels.length > 0 && <p className="fl-bord__staffel">{prijsRegels(g).slice(1).map((r) => nb(`${r.label} ${euro(r.prijs)}`)).join("  ·  ")} per zak</p>}
       <QrCode className="fl-bord__qr" tekst={WEG_URL} label={`QR-code naar ${WEG_URL}`} kleur="#0b2340" />
       <ol className="fl-bord__stappen">
         <li>
@@ -147,7 +172,7 @@ export function Bord({ g }: { g: Gegevens }) {
         </li>
       </ol>
       <footer className="fl-bord__voet">
-        <p>Hou je buurt veilig.</p>
+        <p>Hou je buurt veilig. Strooi bewust.</p>
         <Denckh />
       </footer>
     </article>
@@ -156,10 +181,10 @@ export function Bord({ g }: { g: Gegevens }) {
 
 const DEEL_TEKST = (g: Gegevens) =>
   [
-    "Strooizout voor de buurt. Hou je buurt veilig.",
+    "Hoi buren! Geen aparte rit naar de bouwmarkt: in Houten kun je strooizout bestellen.",
     "",
-    `25 kg strooizout ${euro(g.prijs)}${g.staffel ? `, vanaf ${g.staffel.vanaf} zakken ${euro(g.staffel.prijs)} per zak` : ""}.`,
-    `Gratis afhalen in ${g.plek}${g.bezorg !== null ? `, of laten bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? ` (vanaf ${g.bezorgVanaf} zakken)` : ""} voor ${euro(g.bezorg)} per zak` : ""}. Betalen bij ontvangst.`,
+    `25 kg strooizout: ${prijsRegels(g).map((r) => `${r.label} ${euro(r.prijs)}`).join(", ")} per zak.`,
+    `Samen bestellen is voordeliger. Gratis afhalen in ${g.plek}${g.bezorg !== null ? `, of laten bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? ` (vanaf ${g.bezorgVanaf} zakken)` : ""} voor ${euro(g.bezorg)} per zak` : ""}.`,
     g.vanaf ? `Op voorraad vanaf ${dagTekst(g.vanaf)}; reserveren kan nu.` : "",
     "",
     `Bestellen: ${WINKEL_URL}`,

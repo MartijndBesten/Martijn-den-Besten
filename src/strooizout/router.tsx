@@ -23,7 +23,7 @@ export function extern(intern: string): string {
 }
 
 export const TITELS: Record<string, string> = {
-  "/strooizout": "Strooizout voor de buurt — Hou je buurt veilig",
+  "/strooizout": "Strooizout voor de buurt — strooizout uit je eigen buurt",
   "/strooizout/bestellen": "Bestellen — Strooizout voor de buurt",
   "/strooizout/bestelling": "Je bestelling — Strooizout voor de buurt",
   "/strooizout/privacy": "Privacy — Strooizout voor de buurt",

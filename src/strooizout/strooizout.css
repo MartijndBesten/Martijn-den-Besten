@@ -2357,3 +2357,266 @@ textarea.sz-invoer {
   font-size: 28px;
   letter-spacing: -0.03em;
 }
+
+
+/* Keuzes 1 / 2 / 4 zakken op de bestelkaart */
+.sz-aantallen {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.sz-aantalkeuze {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1px;
+  min-height: 92px;
+  padding: 8px 4px 8px;
+  border: 2px solid var(--rand);
+  border-radius: 16px;
+  background: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.sz-aantalkeuze input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.sz-aantalkeuze:hover {
+  border-color: var(--blauw-3);
+}
+.sz-aantalkeuze.is-actief {
+  border-color: var(--blauw);
+  background: var(--ijs-0);
+  box-shadow: var(--schaduw-1);
+}
+.sz-aantalkeuze:has(input:focus-visible) {
+  outline: 3px solid var(--vorst);
+  outline-offset: 2px;
+}
+.sz-aantalkeuze__label {
+  margin-bottom: 3px;
+  line-height: 1.15;
+  background: var(--amber);
+  color: var(--blauw);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.sz-aantalkeuze__aantal {
+  font-weight: 650;
+  color: var(--blauw-2);
+  font-size: 15px;
+}
+.sz-aantalkeuze__prijs {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: var(--blauw);
+}
+.sz-aantalkeuze__bespaar {
+  white-space: nowrap;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--groen);
+  min-height: 1.2em;
+}
+.sz-anders {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sz-anders > span {
+  font-size: 14px;
+  color: var(--tekst-2);
+  white-space: nowrap;
+}
+.sz-tip {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 14.5px;
+  color: var(--blauw-3);
+}
+.sz-intro {
+  margin: 12px 0 0;
+  font-size: 18px;
+  color: var(--tekst-2);
+  max-width: 34ch;
+}
+
+/* Binnenkort (bijv. emmer 5 kg) */
+.sz-binnenkort {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px dashed var(--rand);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+}
+.sz-binnenkort img {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: var(--ijs-1);
+  object-fit: cover;
+}
+.sz-binnenkort p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--tekst-2);
+}
+.sz-binnenkort .sz-binnenkort__titel {
+  font-weight: 650;
+  color: var(--blauw);
+  font-size: 15.5px;
+}
+.sz-binnenkort__pil {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blauw-2);
+  background: var(--ijs-1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.sz-delen {
+  display: flex;
+  margin: 14px auto 0;
+  gap: 8px;
+  align-items: center;
+}
+.sz-delen svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Zo werkt het + Strooi bewust */
+.sz-uitleg {
+  background: #fff;
+  border-top: 1px solid var(--rand);
+}
+.sz-uitleg__in {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 5vw, 64px);
+  padding-top: clamp(28px, 5vw, 56px);
+  padding-bottom: clamp(28px, 5vw, 56px);
+}
+.sz-uitleg h2 {
+  font-size: 22px;
+  margin: 0 0 12px;
+  color: var(--blauw);
+}
+.sz-stappen {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: stap;
+  display: grid;
+  gap: 10px;
+}
+.sz-stappen li {
+  counter-increment: stap;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 10px;
+  align-items: baseline;
+  color: var(--tekst-2);
+}
+.sz-stappen li::before {
+  content: counter(stap);
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: var(--blauw);
+  font-weight: 700;
+  font-size: 14px;
+}
+.sz-stappen b,
+.sz-bewust b {
+  color: var(--blauw);
+}
+.sz-uitleg__klein {
+  margin: 14px 0 0;
+  color: var(--tekst-2);
+}
+.sz-bewust {
+  background: var(--ijs-0);
+  border-radius: 20px;
+  padding: 18px 20px;
+}
+.sz-bewust p {
+  margin: 0 0 8px;
+  color: var(--tekst-2);
+  font-size: 15.5px;
+}
+.sz-bewust p:last-child {
+  margin: 0;
+}
+@media (max-width: 860px) {
+  .sz-uitleg__in {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sz-intro {
+    font-size: 15px;
+    margin-top: 6px;
+  }
+  .sz-aantalkeuze {
+    min-height: 0;
+    padding: 6px 3px 6px;
+  }
+  .sz-aantalkeuze__aantal {
+    font-size: 14px;
+  }
+  .sz-aantalkeuze__bespaar {
+    font-size: 11.5px;
+  }
+  .sz-start__in {
+    gap: 12px;
+  }
+  .sz-start__kop h1 {
+    font-size: 30px;
+  }
+  .sz-payoff {
+    font-size: 17px;
+    margin-top: 4px;
+  }
+  .sz-bestelkaart__product {
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 12px;
+  }
+  .sz-bestelkaart__product img {
+    display: none;
+  }
+  .sz-bestelkaart__staffel {
+    font-size: 14px;
+  }
+  .sz-anders > span {
+    display: none;
+  }
+  .sz-aantalkeuze__prijs {
+    font-size: 18px;
+  }
+  .sz-aantalkeuze__label {
+    font-size: 10.5px;
+    padding: 2px 6px;
+  }
+}
+@media (max-width: 400px) {
+  .sz-anders > span {
+    display: none;
+  }
+}

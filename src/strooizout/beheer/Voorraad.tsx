@@ -157,6 +157,60 @@ function Straatverkoop({ producten, bijgewerkt }: { producten: BeheerProduct[]; 
   );
 }
 
+/** Emmers vullen uit zakken: zakken gaan van de zakvoorraad af, de emmers komen erbij. */
+function Afvullen({ rijen, producten, bijgewerkt }: { rijen: Rij[]; producten: BeheerProduct[]; bijgewerkt: () => void }) {
+  const { api, meld } = useBeheer();
+  const emmer = producten.find((p) => p.eenheid === "emmer");
+  const zak = producten.find((p) => p.slug === "strooizout-25-kg") ?? producten.find((p) => p.eenheid === "zak");
+  const [emmers, setEmmers] = useState("10");
+  const n = Math.max(0, Math.floor(Number(emmers) || 0));
+  const voorstel = emmer && zak && zak.gewicht_gram ? Math.ceil((n * emmer.gewicht_gram) / zak.gewicht_gram) : 0;
+  const [zakken, setZakken] = useState<string | null>(null);
+  const z = zakken === null ? voorstel : Math.max(0, Math.floor(Number(zakken) || 0));
+  const [bezig, setBezig] = useState(false);
+  if (!emmer || !zak) return null;
+  const zakRij = rijen.find((r) => r.id === zak.id);
+  const rest = z * zak.gewicht_gram - n * emmer.gewicht_gram;
+
+  async function vul(e: React.FormEvent) {
+    e.preventDefault();
+    if (!window.confirm(`${n} emmers vullen uit ${z} ${z === 1 ? "zak" : "zakken"}? De zakken gaan van de zakvoorraad af.`)) return;
+    setBezig(true);
+    const r = await api<{ rest_gram: number }>("/voorraad/afvullen", { method: "POST", body: JSON.stringify({ emmer_id: emmer!.id, zak_id: zak!.id, emmers: n, zakken: z }) });
+    setBezig(false);
+    if (!r.ok) return meld(r.error, true);
+    meld(`${n} emmers toegevoegd${r.data.rest_gram ? `; ${r.data.rest_gram / 1000} kg los over` : ""}`);
+    setZakken(null);
+    bijgewerkt();
+  }
+
+  return (
+    <section className="bh-kaart">
+      <h2>Emmers afvullen</h2>
+      <p className="bh-sub">
+        Vul emmers uit ontvangen, niet-gereserveerde zakken. Zakken die je opent gaan van de zakvoorraad af; losse rest telt niet als voorraad.
+        {zakRij && ` Nu vrij in voorraad: ${Math.min(zakRij.in_magazijn, zakRij.beschikbaar ?? zakRij.in_magazijn)} zakken.`}
+      </p>
+      <form className="bh-rij" onSubmit={vul} style={{ alignItems: "flex-end", flexWrap: "wrap" }}>
+        <div className="bh-veld">
+          <label htmlFor="af-emmers">Gevulde emmers</label>
+          <input id="af-emmers" className="sz-invoer" style={{ maxWidth: 120 }} type="number" min={1} max={1000} value={emmers} onChange={(e) => setEmmers(e.target.value)} />
+        </div>
+        <div className="bh-veld">
+          <label htmlFor="af-zakken">Gebruikte zakken</label>
+          <input id="af-zakken" className="sz-invoer" style={{ maxWidth: 120 }} type="number" min={1} max={100} value={z} onChange={(e) => setZakken(e.target.value)} />
+        </div>
+        <button type="submit" className="bh-knop bh-knop--hoofd" disabled={bezig || n < 1 || z < 1 || rest < 0}>
+          {bezig ? "Bezig…" : "Afvullen"}
+        </button>
+      </form>
+      <small className="bh-sub" aria-live="polite">
+        {rest < 0 ? `Te weinig zout: ${n} emmers vragen ${(n * emmer.gewicht_gram) / 1000} kg.` : `Rest los: ${rest / 1000} kg.`}
+      </small>
+    </section>
+  );
+}
+
 export default function Voorraad() {
   const { api, meld } = useBeheer();
   const [rijen, setRijen] = useState<Rij[] | null>(null);
@@ -171,7 +225,7 @@ export default function Voorraad() {
     void laad();
   }, [laad]);
   if (!rijen) return <p>Laden…</p>;
-  const zichtbaar = rijen.filter((r) => r.status === "actief" || r.verwacht !== null);
+  const zichtbaar = rijen.filter((r) => r.status === "actief" || r.status === "binnenkort" || r.verwacht !== null);
   return (
     <>
       <h1>Voorraad</h1>
@@ -179,6 +233,7 @@ export default function Voorraad() {
       {zichtbaar.map((r) => (
         <VoorraadRij key={r.id} r={r} bijgewerkt={() => void laad()} />
       ))}
+      <Afvullen rijen={rijen} producten={producten} bijgewerkt={() => void laad()} />
       <Straatverkoop producten={producten} bijgewerkt={() => void laad()} />
     </>
   );

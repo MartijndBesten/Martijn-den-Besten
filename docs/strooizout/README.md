@@ -4,17 +4,31 @@
 
 Zelfde Worker, zelfde D1-database en zelfde uitrolroute als de rest van martijndenbesten.com. Geen aparte hosting, geen betaalde diensten, geen externe scripts of CDN's.
 
-## Definitieve afspraken (22-11-2026)
+## Afspraken (bijgewerkt 22-11-2026, commerciële versie)
 
 | Onderwerp | Afspraak | Waar ingesteld |
 | --- | --- | --- |
-| Prijs | 1–3 zakken € 8,99, vanaf 4 zakken € 8,49 per zak voor alle zakken, incl. 21% btw | Producten › Strooizout › Staffelkorting |
+| Prijs 25 kg | 1 zak € 10,49 · 2–3 zakken € 9,49 · 4 of meer € 8,99 per zak, voor alle zakken zodra de drempel is bereikt; incl. 21% btw | Producten › Strooizout › Staffelkorting (twee aanbiedingen: vanaf 2 en vanaf 4) |
+| Inkoop 25 kg | € 7,09 per zak incl. btw (voorlopig) | Producten › Inkoopprijs incl. btw |
+| Emmer 5 kg | € 7,49 richtprijs; status *binnenkort*: zichtbaar, niet te bestellen | Producten › status; Voorraad › Emmers afvullen |
+| Lage voorraad | waarschuwing in het overzicht bij 10 of minder te reserveren | Instellingen › Webshop |
 | Btw | 21% inclusief, ook over bezorgkosten; geen KOR | Instellingen › Betalen › Btw |
 | Afhalen | gratis, in Houten; volledig adres pas na bevestiging | Instellingen › Ophalen |
 | Bezorgen | vanaf 2 zakken, € 0,50 per zak, alleen binnen de rondweg van Houten (postcodelijst, zie *Bezorggebied*) | Instellingen › Bezorgen |
-| Voorraad | 40 zakken verwacht, reserveren vooraf; uitgeven pas na ontvangst | Voorraad |
+| Voorraad | 40 zakken verwacht, reserveren vooraf (gemarkeerd als *voorbestelling*); uitgeven pas na ontvangst | Voorraad |
 | Beschikbaar | ‘Op voorraad vanaf donderdag 26 november’ tot er iets ontvangen is | Instellingen › Webshop |
 | Verkoper | Denckh · Vlierweg 54, Houten · KvK 83176896 · btw NL003791952B15 · info@denckh.nl (zoals gepubliceerd op denckh.nl) | Instellingen › Verkoper |
+
+## Commerciële opzet
+
+- **Kernboodschap:** ‘Strooizout uit je eigen buurt.’ Pay-off: ‘Hou je buurt veilig. Strooi bewust.’ Ondertitel: ‘Geen aparte rit naar de bouwmarkt. Bestel samen met je buren en houd je stoep veilig.’
+- **Bestelkaart:** drie keuzes (1 zak, 2 zakken ‘Voordelige keuze’, 4 zakken ‘Extra voordeel’) met totaal en besparing ten opzichte van losse zakken; standaard 2 zakken; ieder ander aantal via de stepper. Geen ‘meest gekozen’ zolang er geen verkoopcijfers zijn.
+- **Subtiel:** ‘Neem er eentje mee voor je buren.’ onder de knop; ‘Deel met je buren’ (deelmenu van de telefoon, anders WhatsApp).
+- **Strooi bewust:** eerst sneeuw ruimen, dan alleen strooien waar nodig, dun strooien; te veel zout schaadt planten, bomen, bodem, slootwater en materialen; bij strenge vorst werkt zout minder; hondenpoten afspoelen. Geen absolute milieuclaims.
+- **Emmer 5 kg:** klein aanvullend product onder de bestelkaart, label *Binnenkort*. Pas op *actief* zetten na de vier voorwaarden in HANDOFF.md.
+- **Marge** in het beheer exclusief btw (omzet en inkoop allebei zonder btw; Denckh is btw-plichtig, dus inkoop-btw is voorbelasting).
+- **Voorbestelling:** een bestelling die is geplaatst terwijl de voorraad nog niet (genoeg) ontvangen was, krijgt in het beheer het label *voorbestelling*.
+- **Emmers afvullen** (*Voorraad*): ‘N emmers uit M zakken’. De zakken gaan van ontvangen, verwacht en te reserveren af (alleen uit vrije, ontvangen zakken); de emmers komen erbij als ontvangen voorraad. Een emmer bestellen trekt niets van de zakken af. Losse rest wordt gelogd, niet als voorraad geteld.
 
 ## Merk
 
@@ -148,7 +162,7 @@ strooizout.html + src/strooizout/     eigen Vite-ingang en React-app (eigen uite
 src/strooizout/beheer/                beheerdashboard (per tabblad een bestand, lazy geladen)
 scripts/postbuild.mjs                 maakt de HTML per route (noindex voor beheer/bestelling/flyer) en de sitemap-regels
 scripts/strooizout/                   bron-SVG's van de productillustraties en scripts voor beelden, flyer-PDF en deelbeelden
-tests/strooizout.test.ts              63 tests: prijsregels, validatie, API, gelijktijdigheid, rechten, CSV, privacy
+tests/strooizout.test.ts              65 tests: prijsregels, validatie, API, gelijktijdigheid, rechten, CSV, privacy
 e2e/strooizout.spec.ts                bestelroute desktop en telefoon, beheer, CSV, toegankelijkheid (axe)
 ```
 

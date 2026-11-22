@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS sz_product (
   slug TEXT NOT NULL UNIQUE,
   naam TEXT NOT NULL,
   categorie_id INTEGER REFERENCES sz_categorie(id),
-  -- concept: nog niet zichtbaar · actief: te bestellen · verborgen: tijdelijk uit · verwijderd: alleen nog voor de historie
-  status TEXT NOT NULL DEFAULT 'concept' CHECK (status IN ('concept', 'actief', 'verborgen', 'verwijderd')),
+  -- concept: nog niet zichtbaar · binnenkort: zichtbaar, niet te bestellen · actief: te bestellen · verborgen: tijdelijk uit · verwijderd: alleen nog voor de historie
+  status TEXT NOT NULL DEFAULT 'concept' CHECK (status IN ('concept', 'binnenkort', 'actief', 'verborgen', 'verwijderd')),
   kort TEXT NOT NULL DEFAULT '',
   beschrijving TEXT NOT NULL DEFAULT '',
   -- JSON-lijst van {"label": "...", "waarde": "..."}
@@ -109,6 +109,8 @@ CREATE TABLE IF NOT EXISTS sz_bestelling (
   ronde_id INTEGER REFERENCES sz_ronde(id),
   -- web: webshop · straat: QR aan de weg · beheer: straatverkoop door de beheerder geregistreerd
   kanaal TEXT NOT NULL DEFAULT 'web' CHECK (kanaal IN ('web', 'straat', 'beheer')),
+  -- 1 = geplaatst toen de voorraad er nog niet (genoeg) lag: een voorbestelling
+  voorbestelling INTEGER NOT NULL DEFAULT 0,
   -- nieuw: reservering ontvangen · bevestigd · klaar: ligt klaar / gaat mee · afgehaald · bezorgd · geannuleerd
   status TEXT NOT NULL DEFAULT 'nieuw' CHECK (status IN ('nieuw', 'bevestigd', 'klaar', 'afgehaald', 'bezorgd', 'geannuleerd')),
   levering TEXT NOT NULL CHECK (levering IN ('ophalen', 'bezorgen')),
@@ -223,8 +225,8 @@ VALUES (
   'Zak van 25 kg voor stoep, oprit en tuinpad.',
   'Strooizout voor gebruik rond het huis: op de stoep, de oprit en het tuinpad. Strooi dun en gelijkmatig; meer zout werkt niet beter. Bewaar de zak droog en afgesloten, bij voorkeur van de grond, zodat het zout niet gaat klonteren.',
   '[{"label":"Inhoud","waarde":"25 kg"},{"label":"Verpakking","waarde":"Zak"},{"label":"Toepassing","waarde":"Stoep, oprit en tuinpad"},{"label":"Opslag","waarde":"Droog, afgesloten en van de grond"}]',
-  899,
-  NULL,
+  1049,
+  709,
   NULL,
   25000,
   'zak',
@@ -233,7 +235,7 @@ VALUES (
   20,
   '/strooizout/beeld/strooizout-25kg.webp',
   'Zak strooizout van 25 kilo met een donkerblauw etiket',
-  'Inkoopprijs en leverancier nog invullen. 40 zakken verwacht; ontvangst bevestigen in Voorraad.',
+  'Inkoopprijs € 7,09 incl. btw is voorlopig (22-11-2026). 40 zakken verwacht; ontvangst bevestigen in Voorraad.',
   1,
   strftime('%Y-%m-%dT%H:%M:%fZ', 'now'),
   strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
@@ -259,12 +261,43 @@ VALUES (
   '/strooizout/beeld/sneeuwschep.webp',
   'Sneeuwschep met een brede blauwe schep',
   'Concept: leverancier, prijs, afmetingen, materiaal en beschikbaarheid nog bevestigen.',
+  3,
+  strftime('%Y-%m-%dT%H:%M:%fZ', 'now'),
+  strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
+);
+
+-- Strooizout in een emmer van 5 kg: zichtbaar als ‘binnenkort’, niet te bestellen tot verpakking, kostprijs en voorraad vaststaan.
+INSERT OR IGNORE INTO sz_product
+  (slug, naam, categorie_id, status, kort, beschrijving, specificaties, prijs_cent, inkoop_cent, bezorg_cent, gewicht_gram, eenheid, voorraad, voorraad_verwacht, max_per_bestelling, afbeelding, afbeelding_alt, notitie, volgorde, aangemaakt, gewijzigd)
+VALUES (
+  'strooizout-emmer-5-kg',
+  'Strooizout 5 kg in emmer',
+  (SELECT id FROM sz_categorie WHERE slug = 'strooizout'),
+  'binnenkort',
+  'Hersluitbare emmer met 5 kg: handig voor een kleine stoep en licht te dragen.',
+  'Strooizout in een hersluitbare kunststof emmer met hengsel. Handig als je een kleine stoep hebt of geen zak van 25 kg wilt tillen. Bewaar de emmer gesloten en droog.',
+  '[{"label":"Inhoud","waarde":"5 kg"},{"label":"Verpakking","waarde":"Hersluitbare emmer met hengsel"},{"label":"Toepassing","waarde":"Stoep, stoepje en trap"}]',
+  749,
+  NULL,
+  NULL,
+  5000,
+  'emmer',
+  0,
+  0,
+  10,
+  '/strooizout/beeld/strooizout-emmer-5kg.webp',
+  'Witte emmer strooizout van 5 kilo met deksel en hengsel',
+  'Proef: 10 emmers. Pas activeren na vulproef, vastgestelde kostprijs (marge per emmer hoger dan per losse zak) en werkelijke voorraad (Voorraad › Emmers afvullen).',
   2,
   strftime('%Y-%m-%dT%H:%M:%fZ', 'now'),
   strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
 );
 
--- Staffelkorting strooizout: vanaf 4 zakken € 8,49 per zak voor alle zakken (in het beheer aan te passen: Producten › Staffelkorting).
+-- Staffelprijzen strooizout 25 kg (voor alle zakken zodra de drempel is bereikt): 1 zak € 10,49, 2–3 zakken € 9,49,
+-- vanaf 4 zakken € 8,99. In het beheer aan te passen: Producten › Staffelkorting.
 INSERT INTO sz_aanbieding (product_id, naam, vanaf_aantal, prijs_cent, start, eind, actief)
-SELECT id, 'Staffelkorting', 4, 849, NULL, NULL, 1 FROM sz_product
+SELECT id, 'Vanaf 2 zakken', 2, 949, NULL, NULL, 1 FROM sz_product
 WHERE slug = 'strooizout-25-kg' AND NOT EXISTS (SELECT 1 FROM sz_aanbieding a WHERE a.product_id = sz_product.id);
+INSERT INTO sz_aanbieding (product_id, naam, vanaf_aantal, prijs_cent, start, eind, actief)
+SELECT id, 'Vanaf 4 zakken', 4, 899, NULL, NULL, 1 FROM sz_product
+WHERE slug = 'strooizout-25-kg' AND NOT EXISTS (SELECT 1 FROM sz_aanbieding a WHERE a.product_id = sz_product.id AND a.vanaf_aantal = 4);

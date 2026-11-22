@@ -555,3 +555,136 @@ html.fl-alleen-breed body {
     box-shadow: none;
   }
 }
+
+/* ---------- Kop, prijstabel en staffelregel (commerciële versie 22-11-2026) ---------- */
+.fl-kop {
+  margin: 0;
+  font-weight: 780;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  color: var(--blauw);
+}
+.fl-sub {
+  margin: 0;
+  color: var(--blauw-2);
+}
+.fl-prijzen {
+  border-collapse: collapse;
+  width: 100%;
+}
+.fl-prijzen th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--blauw-2);
+}
+.fl-prijzen td {
+  text-align: right;
+  font-weight: 760;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.fl-prijzen small {
+  font-weight: 500;
+  color: var(--tekst-2);
+}
+.fl-prijzen tr.is-best th,
+.fl-prijzen tr.is-best td {
+  color: var(--blauw);
+}
+.fl-prijzen tr.is-best th,
+.fl-prijzen tr.is-best td {
+  font-weight: 800;
+}
+
+.fl-a5 {
+  gap: 3.4mm;
+}
+.fl-a5 .fl-kop {
+  font-size: 9.4mm;
+}
+.fl-a5 .fl-sub {
+  font-size: 4.2mm;
+  margin-top: 2mm;
+  line-height: 1.35;
+}
+.fl-a5__product {
+  grid-template-columns: 38mm 1fr;
+  gap: 5mm;
+  padding: 4mm 5mm;
+}
+.fl-a5__product img {
+  width: 38mm;
+  height: 38mm;
+}
+.fl-a5 .fl-prijzen {
+  margin-top: 1.5mm;
+  font-size: 4.3mm;
+}
+.fl-a5 .fl-prijzen th,
+.fl-a5 .fl-prijzen td {
+  padding: 0.9mm 0;
+}
+.fl-a5 .fl-prijzen small {
+  font-size: 3.2mm;
+}
+.fl-a5__vanaf {
+  margin-top: 2mm;
+  white-space: nowrap;
+  font-size: 3.3mm;
+}
+.fl-a5 .fl-punten {
+  font-size: 4.2mm;
+  gap: 1.8mm;
+}
+.fl-a5__bestel {
+  grid-template-columns: 32mm 1fr;
+  padding: 3.5mm 4.5mm;
+}
+.fl-a5 .fl-qr {
+  width: 32mm;
+  height: 32mm;
+}
+
+.fl-deel--vierkant .fl-kop {
+  font-size: 76px;
+  margin-top: 36px;
+}
+.fl-deel--vierkant .fl-deel__prijs {
+  font-size: 46px;
+  margin: 30px 0 6px;
+}
+.fl-deel--vierkant .fl-deel__prijs b {
+  display: inline;
+  font-size: 64px;
+}
+.fl-deel__staffel {
+  margin: 0;
+  color: var(--blauw-2);
+  font-weight: 600;
+}
+.fl-deel--vierkant .fl-deel__staffel {
+  font-size: 30px;
+  margin-bottom: 26px;
+}
+.fl-deel--vierkant .fl-punten {
+  font-size: 31px;
+}
+.fl-deel--breed .fl-kop {
+  font-size: 50px;
+  margin-top: 22px;
+}
+.fl-deel--breed .fl-deel__prijs {
+  font-size: 30px;
+  margin: 20px 0 4px;
+}
+.fl-deel--breed .fl-deel__prijs b {
+  font-size: 44px;
+  margin: 0 4px;
+}
+.fl-deel--breed .fl-deel__staffel {
+  font-size: 21px;
+  margin-bottom: 16px;
+}
+.fl-deel--breed .fl-punten {
+  font-size: 23px;
+}

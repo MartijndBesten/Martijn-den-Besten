@@ -12,7 +12,7 @@ const INGEBOUWD = [
   { url: "/strooizout/beeld/sneeuwschep.webp", naam: "Sneeuwschep" },
 ];
 
-const STATUS = { concept: "Concept (niet zichtbaar)", actief: "Actief (te bestellen)", verborgen: "Tijdelijk verborgen" };
+const STATUS = { concept: "Concept (niet zichtbaar)", binnenkort: "Binnenkort (zichtbaar, niet te bestellen)", actief: "Actief (te bestellen)", verborgen: "Tijdelijk verborgen" };
 
 const centTekst = (c: number | null) => (c === null ? "" : (c / 100).toFixed(2).replace(".", ","));
 
@@ -220,10 +220,10 @@ function Editor({ product, lijst, sluit, opgeslagen }: { product: BeheerProduct 
 
             <div className="bh-veld bh-veld--4">
               <label htmlFor="pe-prijs">Verkoopprijs (€, incl.)</label>
-              <input id="pe-prijs" className="sz-invoer" inputMode="decimal" value={f.prijs} onChange={(e) => zet("prijs", e.target.value)} placeholder="8,99" />
+              <input id="pe-prijs" className="sz-invoer" inputMode="decimal" value={f.prijs} onChange={(e) => zet("prijs", e.target.value)} placeholder="10,49" />
             </div>
             <div className="bh-veld bh-veld--4">
-              <label htmlFor="pe-inkoop">Inkoopprijs (€)</label>
+              <label htmlFor="pe-inkoop">Inkoopprijs incl. btw (€)</label>
               <input id="pe-inkoop" className="sz-invoer" inputMode="decimal" value={f.inkoop} onChange={(e) => zet("inkoop", e.target.value)} placeholder={product?.onderdelen.length ? "som van onderdelen" : "onbekend"} />
             </div>
             <div className="bh-veld bh-veld--4">
@@ -321,7 +321,7 @@ function Editor({ product, lijst, sluit, opgeslagen }: { product: BeheerProduct 
 
             <fieldset className="bh-veld" style={{ border: 0, padding: 0, margin: 0 }}>
               <legend>Staffelkorting en aanbiedingen</legend>
-              <small>Staffel: bijv. ‘vanaf 4’ en ‘8,49’ geeft vanaf 4 stuks € 8,49 per stuk, voor álle stuks in de bestelling. Optioneel binnen een periode. De laagste geldige prijs telt; de webshop toont zelf ‘Bestel 4 en bespaar …’.</small>
+              <small>Staffel: bijv. ‘vanaf 4’ en ‘8,99’ geeft vanaf 4 stuks € 8,99 per stuk, voor álle stuks in de bestelling. Optioneel binnen een periode. De laagste geldige prijs telt; de webshop toont zelf ‘Bestel 4 en bespaar …’.</small>
               {f.aanbiedingen.map((a, i) => (
                 <div className="bh-kaart" key={i} style={{ marginTop: 8, padding: 12 }}>
                   <div className="bh-formulier">
@@ -484,11 +484,11 @@ function ProductRegel({ p, onBewerk, onStatus }: { p: BeheerProduct; onBewerk: (
       {p.afbeelding ? <img src={p.afbeelding} alt="" /> : <div style={{ width: 72, height: 72, borderRadius: 12, background: "var(--ijs-1)" }} />}
       <div>
         <strong>{p.naam}</strong>{" "}
-        <span className={`bh-pil ${p.status === "actief" ? "bh-pil--betaald" : p.status === "concept" ? "bh-pil--let" : "bh-pil--geannuleerd"}`}>{p.status}</span>
+        <span className={`bh-pil ${p.status === "actief" ? "bh-pil--betaald" : p.status === "concept" || p.status === "binnenkort" ? "bh-pil--let" : "bh-pil--geannuleerd"}`}>{p.status}</span>
         {p.onderdelen.length > 0 && <span className="bh-pil" style={{ marginLeft: 6 }}>pakket</span>}
         <div style={{ fontSize: 14, color: "var(--tekst-2)" }}>
           Verkoop {p.prijs_cent === null ? "–" : euro(p.prijs_cent)} · inkoop {p.berekend.inkoop_cent === null ? "onbekend" : euro(p.berekend.inkoop_cent)}
-          {marge !== null && ` · marge ${euro(marge)}`} · voorraad {p.berekend.beschikbaar === null ? "geen limiet" : p.berekend.beschikbaar}
+          {marge !== null && ` · marge ${euro(marge)} incl. btw (${euro(marge - Math.round((marge * 21) / 121))} excl.)`} · voorraad {p.berekend.beschikbaar === null ? "geen limiet" : p.berekend.beschikbaar}
         </div>
         {p.notitie && <div style={{ fontSize: 13.5, color: "var(--oker)" }}>{p.notitie}</div>}
       </div>

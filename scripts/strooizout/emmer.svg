@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 940" width="940" height="940">
+  <defs>
+    <radialGradient id="bg" cx="70%" cy="20%" r="95%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.45" stop-color="#eaf3fa"/>
+      <stop offset="1" stop-color="#c9dfef"/>
+    </radialGradient>
+    <radialGradient id="schaduw" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#0f2c4c" stop-opacity="0.34"/>
+      <stop offset="0.6" stop-color="#0f2c4c" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#0f2c4c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d3dde7"/>
+      <stop offset="0.15" stop-color="#f3f6f9"/>
+      <stop offset="0.5" stop-color="#ffffff"/>
+      <stop offset="0.82" stop-color="#eaf0f5"/>
+      <stop offset="1" stop-color="#bfcdda"/>
+    </linearGradient>
+    <linearGradient id="deksel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dfe7ee"/>
+      <stop offset="0.5" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#cbd8e3"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#143a66"/>
+      <stop offset="1" stop-color="#0b2340"/>
+    </linearGradient>
+  </defs>
+  <rect width="940" height="940" fill="url(#bg)"/>
+  <g fill="#ffffff" opacity="0.85">
+    <circle cx="150" cy="170" r="5"/><circle cx="790" cy="140" r="4"/><circle cx="820" cy="330" r="6"/><circle cx="120" cy="420" r="4"/><circle cx="760" cy="560" r="5"/>
+  </g>
+  <ellipse cx="470" cy="790" rx="290" ry="40" fill="url(#schaduw)"/>
+  <!-- hengsel -->
+  <path d="M262 330 C 262 150 678 150 678 330" fill="none" stroke="#c9d5df" stroke-width="16" stroke-linecap="round"/>
+  <path d="M262 330 C 262 158 678 158 678 330" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+  <!-- emmer (taps toelopend) -->
+  <path d="M248 340 L 692 340 L 652 780 Q 470 800 288 780 Z" fill="url(#wand)" stroke="#b6c5d3" stroke-width="3"/>
+  <path d="M262 400 Q 470 418 678 400" fill="none" stroke="#c4d1dd" stroke-width="4"/>
+  <!-- deksel -->
+  <rect x="232" y="306" width="476" height="52" rx="14" fill="url(#deksel)" stroke="#b6c5d3" stroke-width="3"/>
+  <rect x="246" y="314" width="448" height="10" rx="5" fill="#ffffff" opacity="0.9"/>
+  <!-- etiket -->
+  <path d="M276 470 L 664 470 L 650 650 Q 470 664 290 650 Z" fill="url(#band)"/>
+  <g transform="translate(436 478) scale(1.06)">
+    <path d="M13 31 32 15l19 16" fill="none" stroke="#fff" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28.5 41v-8.5a3.5 3.5 0 0 1 7 0V41z" fill="#fff"/>
+    <path d="M19 62 C 24 54, 30 50, 29.5 41 L 34.5 41 C 35 50, 30 55, 33 62 Z" fill="#cfe6f6"/>
+    <g fill="#ffb547"><circle cx="31.8" cy="45.4" r="1.5"/><circle cx="29.6" cy="50.4" r="1.7"/><circle cx="27" cy="55.6" r="1.9"/></g>
+  </g>
+  <text x="470" y="590" text-anchor="middle" font-family="Geist, Arial, sans-serif" font-weight="800" font-size="46" letter-spacing="4" fill="#ffffff">STROOIZOUT</text>
+  <rect x="404" y="604" width="132" height="40" rx="20" fill="#ffffff"/>
+  <text x="470" y="634" text-anchor="middle" font-family="Geist, Arial, sans-serif" font-weight="800" font-size="28" fill="#0b2340">5 kg</text>
+  <!-- glans -->
+  <path d="M300 420 L 318 760" stroke="#ffffff" stroke-width="14" stroke-linecap="round" opacity="0.55"/>
+</svg>
