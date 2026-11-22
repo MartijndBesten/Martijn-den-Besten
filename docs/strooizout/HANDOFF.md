@@ -1,6 +1,11 @@
 # Strooizout voor de buurt — overdracht
 
-**Status (22-11-2026):** commerciële versie afgerond op branch `claude/strooizout-webshop-hfgvr1` (PR #78). Domein **strooizouthouten.nl** (Theory7, zone in Cloudflare) wordt na de uitrol als custom domain aan de Worker `martijndenbesten` gekoppeld. Geen echte bestellingen, inkooporders, betaalde diensten of berichten.
+**Status (22-11-2026, 12:48):** **live op https://martijndenbesten.com/strooizout** (PR #78 gemerged als 00471ba).
+
+- Uitgerold via de ingebedde variant: Worker `martijndenbesten` versie `0010e146-6db2-4f8b-b8d3-1520a757ded7`, `martijndenbesten-www` versie `c1ce1d69-3189-4f77-9b68-f1c32b31327d`. Herstelpunt van daarvoor: `8f62bf48-ccb4-4f15-bab5-96e940e76de2`.
+- Migratie 0004 is op productie toegepast. Gecontroleerd: zak 10,49 met staffels 9,49 en 8,99; inkoop 7,09; voorraad 40/40; emmer op ‘binnenkort’.
+- Rooktest geslaagd: home, museum, Bijbelreis, beheer, webshop, API (beheer zonder token geeft 401), noindex op het beheer, en de PDF’s en beelden.
+- **Nog niet gedaan:** de bestelronde openen (winkel staat op `open: false`), de productietestbestelling, en het koppelen van strooizouthouten.nl. Deze schrijfacties op productie hield het permissiesysteem van de uitrolsessie tegen; zie *Vragen* 11–12. De zone strooizouthouten.nl staat in Cloudflare op `active`.
 
 Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
 
@@ -128,6 +133,8 @@ Mijn advies is **B**. Beslissing bij Martijn (vraag 2).
 7. **Inkoopprijs € 7,09** bevestigen zodra de factuur er is (*Producten*).
 8. **Reservering of koop?** Voor Google Merchant Center (gratis productvermeldingen) moet een bestelling een echte koop zijn. De knop moet dan wettelijk een betalingsverplichting noemen. Zolang het een kosteloos te annuleren reservering blijft: Merchant Center overslaan.
 9. **Google-accounts (login Martijn):** Search Console-domein verifiëren via TXT in Cloudflare, de sitemap indienen en indexering aanvragen (stappen in PROMOTIE.md §2). Bedrijfsprofiel: het bestaande Denckh-profiel uitbreiden in plaats van een tweede profiel aan te maken.
+11. **Bestelronde openen** in *Beheer › Bestelrondes › Nieuwe ronde* (bijv. ‘Winter 2026’, zonder sluitdatum). Kan ook door een agent, als Martijn schrijfacties op de productiedatabase toestaat. Daarna een testbestelling met fictieve gegevens plaatsen, annuleren en opruimen.
+12. **Domein koppelen.** Kan via Claude in Chrome: Workers › `martijndenbesten` › Domains & Routes › Custom domain `strooizouthouten.nl` en `www.strooizouthouten.nl`. Of via een uitrol met de bijgewerkte `wrangler.embedded.jsonc`, waar beide domeinen nu in staan. Werkt het domein, dan de doorverwijzing aanzetten (`STROOIZOUT_DOORVERWIJZEN = "ja"`) en opnieuw uitrollen.
 10. **Promotie plaatsen:** de teksten liggen klaar (PROMOTIE.md §7). Niets plaatsen zonder akkoord van Martijn en, bij groepen, de beheerder.
 
 ## Gecontroleerd (22-11-2026)

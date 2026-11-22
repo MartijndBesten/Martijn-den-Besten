@@ -6,7 +6,12 @@
   "account_id": "c5472db2163a42a463916a6a525d8353",
   "workers_dev": false,
   "preview_urls": false,
-  "routes": [{ "pattern": "martijndenbesten.com", "custom_domain": true }],
+  // Strooizout voor de buurt heeft een eigen domein in dezelfde Worker (worker/strooizout-domein.ts); www verwijst door.
+  "routes": [
+    { "pattern": "martijndenbesten.com", "custom_domain": true },
+    { "pattern": "strooizouthouten.nl", "custom_domain": true },
+    { "pattern": "www.strooizouthouten.nl", "custom_domain": true }
+  ],
   "d1_databases": [
     {
       "binding": "DB",
