@@ -1,7 +1,7 @@
 // Maakt de verticale promotiefilmpjes (1080 × 1920, mp4) van de pagina's in scripts/strooizout/film/: de pagina
 // tekent zichzelf per tijdstip, Chromium legt elk beeld vast en ffmpeg zet de beelden achter elkaar, met de eigen
 // muziek uit film/muziek.cjs eronder.
-// Gebruik: node scripts/strooizout/maak-film.cjs [buurt|fiets]      → docs/strooizout/film/<naam>.mp4 (+ voorbeeld)
+// Gebruik: node scripts/strooizout/maak-film.cjs [buurt|fiets|opa]      → docs/strooizout/film/<naam>.mp4 (+ voorbeeld)
 //          node scripts/strooizout/maak-film.cjs fiets --stil 2,6.5,14 [map]   → losse beelden om te bekijken
 // Vereist ffmpeg op het pad. De films komen bewust niet in public/: die map gaat mee in de uitrolbundel.
 const { chromium } = require("playwright");
@@ -15,8 +15,9 @@ const FPS = 30;
 const uit = path.join(hier, "../../docs/strooizout/film");
 const { maakMuziek } = require("./film/muziek.cjs");
 
-// De films: buurt (strooien bij de buren) en fiets (fietsers die uitglijden tot er gestrooid is).
-const FILMS = { buurt: { bron: "film.html", naam: "strooizout-film" }, fiets: { bron: "fiets.html", naam: "strooizout-film-fiets" } };
+// De films: buurt (strooien bij de buren), fiets (fietsers die uitglijden tot er gestrooid is) en opa (iemand
+// strooit voor opa met zijn rollator uit).
+const FILMS = { buurt: { bron: "film.html", naam: "strooizout-film" }, fiets: { bron: "fiets.html", naam: "strooizout-film-fiets" }, opa: { bron: "opa.html", naam: "strooizout-film-opa" } };
 const welke = FILMS[process.argv[2]] ? process.argv[2] : "buurt";
 const FILM = FILMS[welke];
 

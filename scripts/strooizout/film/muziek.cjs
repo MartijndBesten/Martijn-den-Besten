@@ -3,7 +3,7 @@
 // Alles is hier in code gemaakt (geen opname, geen muziek van anderen, dus geen rechten of licentie nodig).
 // Elk filmpje heeft een eigen arrangement dat op de beelden is afgestemd (de zak die in beeld komt, licht dat aangaat,
 // een val, het eindbeeld).
-// Gebruik: require("./film/muziek.cjs").maakMuziek("buurt" | "fiets", duurInSeconden, "uit.wav")
+// Gebruik: require("./film/muziek.cjs").maakMuziek("buurt" | "fiets" | "opa", duurInSeconden, "uit.wav")
 const fs = require("node:fs");
 
 const SR = 44100;
@@ -335,10 +335,30 @@ function fiets(s, duur) {
   s.bekken(12.5, 0.13);
 }
 
+function opa(s, duur) {
+  // begin: opa schuifelt (getokkel op elke stap), de rollator schiet weg, het hondje glijdt uit
+  for (let i = 0; i < 9; i++) {
+    s.pluk(i * 0.5, i % 2 ? "E3" : "A2", 0.22, -0.1);
+    if (i < 5) s.pluk(i * 0.5 + 0.25, "C4", 0.07, 0.4);
+    s.hat(i * 0.5 + 0.25, 0.035);
+  }
+  s.glij(2.2, 620, 380, 0.3, 0.1, -0.2);
+  s.glij(2.55, 1000, 420, 0.4, 0.11, 0.3);
+  s.plof(2.95, 0.3);
+  s.bel(3.3, "G#4", 0.07, 0, 0.5);
+  // de buurjongen komt aangerend: aanloop, dan de inzet als hij begint te strooien
+  s.aanloop(3.6, 1.4, 0.11);
+  for (let i = 0; i < 6; i++) s.klap(4.25 + i * 0.125, 0.06 + i * 0.022);
+  arrangement(s, { maat: 2, begin: 5, akkoorden: ["C", "G", "Am", "FG", "C", "FG"], einde: duur });
+  // duim omhoog: twee keer een tinkel
+  for (const t of [7.2, 11.8]) s.harp(t, ["E6", "G6", "C7"], 0.06, 0.11);
+  s.bekken(13, 0.13);
+}
+
 /** Maakt de muziek voor een filmpje en schrijft die als WAV (16 bit, stereo). */
 function maakMuziek(film, duur, pad) {
   const s = studio(duur);
-  (film === "fiets" ? fiets : buurt)(s, duur);
+  ({ fiets, opa }[film] || buurt)(s, duur);
   const kanalen = [galm(s.L), galm(s.R)];
   // uitfaden aan het eind, en het geheel op een rustig niveau zetten
   let piek = 0;

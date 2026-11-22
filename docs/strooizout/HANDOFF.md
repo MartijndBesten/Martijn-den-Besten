@@ -43,6 +43,8 @@ De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, bet
 
 **Muziek en tweede filmpje (22-11-2026, opdracht Martijn):** onder het eerste filmpje staat nu een eigen, in code gemaakt deuntje (geen muziek van anderen). Er is een tweede filmpje bijgekomen met fietsers die uitglijden tot er gestrooid is (`strooizout-film-fiets.mp4`). In het eindbeeld van beide staat ‘binnen de rondweg van Houten’. De eerste versie van de muziek vond Martijn te lief; hij is pittiger gemaakt (beat, klap, bas, synth). De maker (AI) kan de muziek zelf niet beluisteren, alleen meten; Martijn beoordeelt of hij bevalt. Zie README › *Promotiefilmpjes* en PROMOTIE › *Filmpjes*.
 
+**Derde filmpje (22-11-2026, opdracht Martijn):** opa met rollator en hondje, een buurjongen die voor hem uit strooit, opa met zijn duim omhoog, en oma met koffie op het bankje (`strooizout-film-opa.mp4`). Stand van de site: PR #86 (lijn weg, straat in een lus, voettekst) staat live als versie `2b90dc5e` en is op productie gecontroleerd.
+
 Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak kan later in het beheer worden geüpload (*Producten › Afbeelding*) en vervangt dan de kleine productafbeeldingen; voor de hero is dan een vrijstaande foto nodig.
 
 ## Commerciële versie (opdracht 22-11-2026)

@@ -54,16 +54,17 @@ In de voet ‘Een initiatief van’ met de officiële Denckh-signatuur (`/bijbel
 
 ## Promotiefilmpjes
 
-Twee verticale filmpjes (1080 × 1920, H.264 met AAC-geluid) in de stijl van de site, in `docs/strooizout/film/`:
+Drie verticale filmpjes (1080 × 1920, H.264 met AAC-geluid) in de stijl van de site, in `docs/strooizout/film/`:
 
 - `strooizout-film.mp4` (18,5 s): gladde stoep → de zak strooit je eigen stoep → ook bij de buren, waar het licht aangaat en de buur zwaait → meer buren komen met hun eigen zak naar buiten en alle paadjes sluiten op elkaar aan (‘Een beetje zout. Een beetje aandacht.’) → eindbeeld.
 - `strooizout-film-fiets.mp4` (18 s): ‘Glad op de fiets?’ twee fietsers glijden uit op het gladde fietspad → ‘Even strooien…’ de zak strooit het pad, de fietsers stappen weer op → ‘…en iedereen blijft overeind.’ fietsers rijden veilig langs, met een fietsbel en zwaaiende buren → eindbeeld, waar het verkeer over het fietspad blijft rijden.
+- `strooizout-film-opa.mp4` (18 s): ‘Glad? Dan blijft opa liever binnen.’ opa met rollator en hondje durft het gladde pad niet op (de rollator schiet weg, het hondje glijdt uit) → ‘Tenzij iemand even strooit…’ een buurjongen komt aangerend en strooit voor hem uit; opa loopt erachteraan met zijn duim omhoog → ‘…dan komt opa gewoon op de koffie.’ bij het bankje zit oma met koffie te zwaaien → eindbeeld.
 
-Het eindbeeld is in beide hetzelfde: merk, zak van 25 kg, `strooizouthouten.nl`, ‘Afhalen of bezorgd binnen de rondweg van Houten’ en ‘Een initiatief van’ met de Denckh-signatuur (donkere variant op een licht vlak). Geen prijzen in beeld, zodat de filmpjes bruikbaar blijven als de prijs wijzigt.
+Het eindbeeld is in alle drie hetzelfde: merk, zak van 25 kg, `strooizouthouten.nl`, ‘Afhalen of bezorgd binnen de rondweg van Houten’ en ‘Een initiatief van’ met de Denckh-signatuur (donkere variant op een licht vlak). Geen prijzen in beeld, zodat de filmpjes bruikbaar blijven als de prijs wijzigt.
 
 **Muziek:** een eigen deuntje met pit (klokjes en een fel synthje voor de melodie, een stevige beat met kick, klap en hi-hats, een drijvende bas en sleebellen; Martijn vond de eerste, rustige versie te lief), in code gemaakt in `scripts/strooizout/film/muziek.cjs`. Geen opname en geen muziek van anderen, dus geen licentie nodig. Elk filmpje heeft een eigen arrangement dat op het beeld is afgestemd (licht dat aangaat, een glijfluitje en een plof bij een val, een fietsbel, het slotakkoord bij het eindbeeld).
 
-**Bron en maken:** `scripts/strooizout/film/film.html` en `fiets.html` (SVG en HTML; `window.teken(t)` tekent het beeld op tijdstip t), de zak uit `film/zak.svg` (zelfde tekening als in `scene.tsx`). De straat, de lucht, de teksten en het eindbeeld staan in beide pagina's (bewust overgenomen, zodat elke film los te openen is). Opnieuw maken: `node scripts/strooizout/maak-film.cjs buurt` of `fiets` (Chromium legt elk beeld vast, ffmpeg maakt de mp4 met de muziek). Losse beelden bekijken: `… fiets --stil 2,6.5,14 <map>`. Alleen de muziek vervangen: `… buurt --muziek`. De films staan bewust niet in `public/`: die map gaat mee in de uitrolbundel (grens 10 MB).
+**Bron en maken:** `scripts/strooizout/film/film.html`, `fiets.html` en `opa.html` (SVG en HTML; `window.teken(t)` tekent het beeld op tijdstip t), de zak uit `film/zak.svg` (zelfde tekening als in `scene.tsx`). De straat, de lucht, de teksten en het eindbeeld staan in alle drie de pagina's (bewust overgenomen, zodat elke film los te openen is; bij een vierde film is het de moeite waard dat gedeelde stuk eruit te halen). Opnieuw maken: `node scripts/strooizout/maak-film.cjs buurt`, `fiets` of `opa` (Chromium legt elk beeld vast, ffmpeg maakt de mp4 met de muziek). Losse beelden bekijken: `… fiets --stil 2,6.5,14 <map>`. Alleen de muziek vervangen: `… buurt --muziek`. De films staan bewust niet in `public/`: die map gaat mee in de uitrolbundel (grens 10 MB).
 
 ## Voorraad: vier begrippen
 
