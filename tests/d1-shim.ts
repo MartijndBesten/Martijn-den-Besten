@@ -24,14 +24,36 @@ class Stmt {
     const r = this.db.prepare(this.sql).run(...this.p());
     return { meta: { changes: Number(r.changes) } };
   }
+  /** In een batch: SELECT's (en RETURNING) geven rijen terug, andere statements het aantal wijzigingen. */
+  runOrAll() {
+    const st = this.db.prepare(this.sql);
+    if (/^\s*(SELECT|WITH)\b/i.test(this.sql) || /\bRETURNING\b/i.test(this.sql)) return { results: st.all(...this.p()), meta: { changes: 0 } };
+    const r = st.run(...this.p());
+    return { results: [], meta: { changes: Number(r.changes) } };
+  }
 }
 
 export function createD1() {
   const db = new DatabaseSync(":memory:");
-  for (const m of ["0001_init.sql", "0002_bezoek.sql", "0003_aanvraag.sql"]) db.exec(readFileSync(`migrations/${m}`, "utf8"));
+  // Net als D1: foreign keys aan.
+  db.exec("PRAGMA foreign_keys = ON");
+  for (const m of ["0001_init.sql", "0002_bezoek.sql", "0003_aanvraag.sql", "0004_strooizout.sql"]) db.exec(readFileSync(`migrations/${m}`, "utf8"));
   return {
     raw: db,
     prepare: (sql: string) => new Stmt(db, sql),
-    batch: async (stmts: Stmt[]) => Promise.all(stmts.map((s) => s.run())),
+    // D1 voert een batch uit als één transactie: alles of niets.
+    batch: async (stmts: Stmt[]) => {
+      db.exec("BEGIN");
+      try {
+        const uit = [];
+        // Synchroon, zodat gelijktijdige batches elkaar niet kunnen onderbreken (zoals bij D1).
+        for (const s of stmts) uit.push(s.runOrAll());
+        db.exec("COMMIT");
+        return uit;
+      } catch (e) {
+        db.exec("ROLLBACK");
+        throw e;
+      }
+    },
   };
 }

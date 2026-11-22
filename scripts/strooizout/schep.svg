@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 940" width="940" height="940">
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="20%" r="95%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.45" stop-color="#eaf3fa"/>
+      <stop offset="1" stop-color="#c9dfef"/>
+    </radialGradient>
+    <radialGradient id="schaduw" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#0f2c4c" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#0f2c4c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="blad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f7fbf"/>
+      <stop offset="0.55" stop-color="#245a8f"/>
+      <stop offset="1" stop-color="#143a63"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a2f45"/>
+      <stop offset="0.5" stop-color="#3a556f"/>
+      <stop offset="1" stop-color="#1a2f45"/>
+    </linearGradient>
+    <linearGradient id="rand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#cfd9e2"/>
+      <stop offset="0.5" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#aebdca"/>
+    </linearGradient>
+  </defs>
+  <rect width="940" height="940" fill="url(#bg)"/>
+  <ellipse cx="500" cy="800" rx="300" ry="36" fill="url(#schaduw)"/>
+  <g transform="rotate(-18 470 470)">
+    <rect x="452" y="70" width="36" height="430" rx="18" fill="url(#steel)"/>
+    <path d="M410 70 h120 a26 26 0 0 1 0 52 h-120 a26 26 0 0 1 0 -52 z" fill="#0f2c4c"/>
+    <path d="M436 84 h68 a12 12 0 0 1 0 24 h-68 a12 12 0 0 1 0 -24 z" fill="#eaf3fa"/>
+    <path d="M440 470 h60 l18 70 h-96 z" fill="#0f2c4c"/>
+    <path d="M300 540 C 300 528 312 520 326 520 L 614 520 C 628 520 640 528 640 540 L 668 820 C 670 840 656 852 636 852 L 304 852 C 284 852 270 840 272 820 Z" fill="url(#blad)"/>
+    <path d="M320 560 L 620 560 L 640 800 L 300 800 Z" fill="#ffffff" opacity="0.07"/>
+    <path d="M330 560 l-24 260 M610 560 l26 260" stroke="#0f2c4c" stroke-opacity="0.35" stroke-width="6" stroke-linecap="round"/>
+    <rect x="268" y="836" width="404" height="22" rx="6" fill="url(#rand)"/>
+  </g>
+  <g fill="#ffffff" opacity="0.9">
+    <circle cx="160" cy="180" r="10"/><circle cx="790" cy="230" r="7"/><circle cx="820" cy="560" r="12"/><circle cx="120" cy="600" r="8"/>
+  </g>
+</svg>

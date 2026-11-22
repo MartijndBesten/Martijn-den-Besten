@@ -1,7 +1,10 @@
 // Variant van de Worker die de site zelf serveert in plaats van via Workers Static Assets.
 // Gedrag (routes, 404, headers, caching) is gelijk aan de Static Assets-configuratie.
 
-import { handleApi, type Env } from "./index";
+import { handleApi, korteLink, type Env } from "./index";
+import { geplandOnderhoud } from "./strooizout-beheer";
+import { strooizoutDomein } from "./strooizout-domein";
+import { metProductGegevens } from "./strooizout-seo";
 import { FILES, HEADER_RULES } from "./generated/files";
 import { verwijstDoor } from "../shared/bijbelreis";
 
@@ -56,7 +59,15 @@ export default {
       url.protocol = "https:";
       return Response.redirect(url.toString(), 301);
     }
+    const domein = strooizoutDomein(url, env.STROOIZOUT_DOORVERWIJZEN === "ja");
+    if (domein && "antwoord" in domein) return domein.antwoord;
+    if (domein && "pad" in domein && (request.method === "GET" || request.method === "HEAD")) {
+      const bestand = resolve(domein.pad);
+      if (bestand) return domein.pad === "/strooizout" && request.method === "GET" ? metProductGegevens(serve(request, bestand), env) : serve(request, bestand);
+    }
     if (url.pathname.startsWith("/api/")) return handleApi(request, env, ctx);
+    const kort = korteLink(url);
+    if (kort) return kort;
     if (request.method !== "GET" && request.method !== "HEAD") return new Response("Methode niet toegestaan", { status: 405, headers: { Allow: "GET, HEAD" } });
 
     // De Bijbelreis heeft een eigen adres (shared/bijbelreis.ts): het oude pad toont de verhuispagina.
@@ -71,5 +82,8 @@ export default {
     const file = resolve(url.pathname);
     if (file) return serve(request, file);
     return serve(request, "/404.html", 404);
+  },
+  async scheduled(_event, env, ctx): Promise<void> {
+    ctx.waitUntil(geplandOnderhoud(env));
   },
 } satisfies ExportedHandler<Env>;

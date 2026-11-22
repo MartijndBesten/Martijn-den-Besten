@@ -8,7 +8,7 @@ Een speelse, kleurrijke website die drie concepten combineert:
 2. **Het Martijn Control Center** — een bedieningsmachine met arcadeknop, sleutelknop, kussenknop, muntgleuf, draaiknop (0–10, en 11), serieuze modus, hendel, geheime schakelaars en een officiële noodstop.
 3. **Het Museum van Onafgemaakte Ideeën** — zes zalen (waarvan één geheim), een rondleiding, een ideeëngenerator, echte stemmen en een gemodereerd ideeënloket.
 
-Daarnaast: het Bureau voor Onnodige Innovatie, een certificaatgenerator (PNG/PDF), bezoekersmissies en 20 verborgen verrassingen. En één afdeling die wél af is: **[Bijbelreis](https://martijndenbesten.com/bijbelreis)**, een interactieve kaart van het Oude Testament voor kinderen (zie [docs/BIJBELREIS.md](docs/BIJBELREIS.md)).
+Daarnaast: **[Strooizout voor de buurt](https://martijndenbesten.com/strooizout)**, een mini-webshop voor strooizout in Houten met eigen uiterlijk en beheerdashboard op `/strooizout/beheer` (zie [docs/strooizout/README.md](docs/strooizout/README.md)). En het Bureau voor Onnodige Innovatie, een certificaatgenerator (PNG/PDF), bezoekersmissies en 20 verborgen verrassingen. En één afdeling die wél af is: **[Bijbelreis](https://martijndenbesten.com/bijbelreis)**, een interactieve kaart van het Oude Testament voor kinderen (zie [docs/BIJBELREIS.md](docs/BIJBELREIS.md)).
 
 **Live:** https://martijndenbesten.com
 
@@ -19,7 +19,7 @@ Daarnaast: het Bureau voor Onnodige Innovatie, een certificaatgenerator (PNG/PDF
 | Frontend | React 19 + TypeScript + Vite, eigen mini-router, CSS-animaties en inline SVG-illustraties (ontwerpsysteem ‘Playful Premium’, zie docs/ONTWERP.md) |
 | Hosting | Cloudflare Workers met Static Assets (gratis plan) |
 | API | Dezelfde Worker, alleen voor `/api/*` (`worker/index.ts`) |
-| Opslag | Cloudflare D1 (`martijndenbesten`) voor stemmen, inzendingen en rate limiting |
+| Opslag | Cloudflare D1 (`martijndenbesten`) voor stemmen, inzendingen, rate limiting en de Strooizout-webshop (`sz_*`) |
 | www | Aparte mini-Worker `martijndenbesten-www` die 301 doorverwijst naar het hoofddomein |
 | Tests | Vitest (logica + API met echte SQL) en Playwright (e2e + axe-toegankelijkheid) |
 | CI/CD | GitHub Actions: checks bij elke push, deploy naar Cloudflare op `main` |
@@ -74,6 +74,7 @@ docs/             ← inhoud wijzigen, deployment, moderatie, verrassingen
 
 - [Ontwerpsysteem](docs/ONTWERP.md)
 - [Bijbelreis: de interactieve kinderkaart op /bijbelreis](docs/BIJBELREIS.md)
+- [Strooizout voor de buurt: webshop en beheer op /strooizout](docs/strooizout/README.md)
 - [Inhoud wijzigen](docs/INHOUD.md)
 - [Deployment en hosting](docs/DEPLOYMENT.md)
 - [Moderatie van ingezonden ideeën](docs/MODERATIE.md)

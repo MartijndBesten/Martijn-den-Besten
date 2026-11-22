@@ -20,6 +20,7 @@ const TYPES = {
   ".xml": "application/xml; charset=utf-8",
   ".webmanifest": "application/manifest+json",
   ".json": "application/json",
+  ".pdf": "application/pdf",
 };
 const SKIP = new Set(["_headers", ".assetsignore"]);
 
