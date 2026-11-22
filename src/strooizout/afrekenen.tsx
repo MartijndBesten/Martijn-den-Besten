@@ -69,7 +69,7 @@ function Veld({
  * Bestelformulier. Standalone op /strooizout/bestellen (mandje met meerdere producten), of `ingebed` op de homepage:
  * dan kiest de bestelmodule erboven het aantal en ophalen/bezorgen, en toont dit alleen nog gegevens, controle en de knop.
  */
-export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering } } = {}) {
+export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering; voorKnop?: React.ReactNode } } = {}) {
   const { winkel, herlaad } = useWinkel();
   const { regels, zet, leeg } = useMand();
   const { navigeer } = useRouter();
@@ -240,19 +240,19 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering 
     <div className="sz-velden">
       <Veld id="naam" label="Naam" autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
       <Veld id="telefoon" label="Mobiel nummer" type="tel" inputMode="tel" autoComplete="tel" value={v.telefoon} onChange={zetV("telefoon")} fout={fouten.telefoon} className="sz-veld--half" placeholder="06 1234 5678" required />
-      <Veld id="email" label="E-mailadres" optioneel type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />
+      {(!ingebed || opmerkingOpen || !!fouten.email) && <Veld id="email" label="E-mailadres" optioneel type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />}
       {opmerkingOpen ? (
         <div className="sz-veld">
           <label htmlFor="sz-opmerking">
             Opmerking<span className="sz-optioneel"> (optioneel)</span>
           </label>
-          <textarea id="sz-opmerking" className="sz-invoer" maxLength={300} value={v.opmerking} onChange={zetV("opmerking")} placeholder={levering === "bezorgen" ? "Bijvoorbeeld: zet de zakken bij de schuur." : ""} aria-invalid={fouten.opmerking ? true : undefined} autoFocus />
+          <textarea id="sz-opmerking" className="sz-invoer" maxLength={300} value={v.opmerking} onChange={zetV("opmerking")} placeholder={levering === "bezorgen" ? "Bijvoorbeeld: zet de zakken bij de schuur." : ""} aria-invalid={fouten.opmerking ? true : undefined} autoFocus={!ingebed} />
           {fouten.opmerking && <p className="sz-veld__fout">{fouten.opmerking}</p>}
         </div>
       ) : (
         <div className="sz-veld">
           <button type="button" className="sz-knop sz-knop--tekst" style={{ alignSelf: "flex-start", paddingLeft: 0 }} onClick={() => setOpmerkingOpen(true)}>
-            + Opmerking
+            {ingebed ? "+ E-mailadres of opmerking" : "+ Opmerking"}
           </button>
         </div>
       )}
@@ -270,15 +270,15 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering 
           <input type="radio" name="betaal" checked={betaal === "bij_ontvangst"} onChange={() => setBetaal("bij_ontvangst")} />
           <div>
             <strong>{levering === "bezorgen" ? "Bij bezorgen" : "Bij afhalen"}</strong>
-            <span>Contant of met een betaalverzoek.</span>
+            <span>{ingebed ? "Contant of betaalverzoek" : "Contant of met een betaalverzoek."}</span>
           </div>
         </label>
         {inst?.tikkie_aan && (
           <label className="sz-keuze sz-keuze--klein">
             <input type="radio" name="betaal" checked={betaal === "tikkie"} onChange={() => setBetaal("tikkie")} />
             <div>
-              <strong>Betaalverzoek vooraf</strong>
-              <span>Je krijgt een Tikkie op je mobiel.</span>
+              <strong>{ingebed ? "Tikkie vooraf" : "Betaalverzoek vooraf"}</strong>
+              <span>{ingebed ? "Betaalverzoek op je mobiel" : "Je krijgt een Tikkie op je mobiel."}</span>
             </div>
           </label>
         )}
@@ -293,7 +293,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering 
             <span className="sz-spinner" aria-hidden="true" /> Bezig met plaatsen…
           </>
         ) : (
-          `Reservering plaatsen · ${euro(berekening.totaal_cent)}`
+          ingebed ? "Reservering plaatsen" : `Reservering plaatsen · ${euro(berekening.totaal_cent)}`
         )}
       </button>
       <p className="sz-klein">
@@ -316,7 +316,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering 
         {gegevens}
         {momentKeuze}
         {betaalKeuze}
-        <div style={{ height: 16 }} />
+        {ingebed.voorKnop}
         {plaatsKnop}
       </form>
     );

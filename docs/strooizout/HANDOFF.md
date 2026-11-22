@@ -1,13 +1,39 @@
 # Strooizout voor de buurt — overdracht
 
-**Status (22-11-2026, 12:48):** **live op https://martijndenbesten.com/strooizout** (PR #78 gemerged als 00471ba).
+**Status (22-11-2026, 14:45):** **live op https://strooizouthouten.nl**, met geldig certificaat. Uitgerold:
 
-- Uitgerold via de ingebedde variant: Worker `martijndenbesten` versie `0010e146-6db2-4f8b-b8d3-1520a757ded7`, `martijndenbesten-www` versie `c1ce1d69-3189-4f77-9b68-f1c32b31327d`. Herstelpunt van daarvoor: `8f62bf48-ccb4-4f15-bab5-96e940e76de2`.
-- Migratie 0004 is op productie toegepast. Gecontroleerd: zak 10,49 met staffels 9,49 en 8,99; inkoop 7,09; voorraad 40/40; emmer op ‘binnenkort’.
-- Rooktest geslaagd: home, museum, Bijbelreis, beheer, webshop, API (beheer zonder token geeft 401), noindex op het beheer, en de PDF’s en beelden.
-- **Nog niet gedaan:** de bestelronde openen (winkel staat op `open: false`), de productietestbestelling, en het koppelen van strooizouthouten.nl. Deze schrijfacties op productie hield het permissiesysteem van de uitrolsessie tegen; zie *Vragen* 11–12. De zone strooizouthouten.nl staat in Cloudflare op `active`.
+- PR #78 (00471ba) en #79 (326a19a).
+- Worker `martijndenbesten` versie `db0dd005-3a21-4f2d-a041-eaa5e8ef8a1d`. Herstelpunten: `0010e146…` en `8f62bf48…`.
+- Custom domains: martijndenbesten.com, strooizouthouten.nl en www.strooizouthouten.nl (www stuurt door naar het hoofddomein).
+- De bestelronde ‘Winter 2026’ staat open.
+- Bezorgen kost € 2,00 per bezorging.
+
+Gecontroleerd op productie:
+
+- home, museum, Bijbelreis en beheer van martijndenbesten.com werken;
+- op het eigen domein: webshop, beheer, robots.txt en sitemap; overige paden sturen door naar /;
+- de JSON-LD bevat 10.49.
+
+De testbestelling doet Martijn zelf. De doorverwijzing van martijndenbesten.com/strooizout en /zout naar het eigen domein staat aan (PR #81).
 
 Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
+
+## Strooizout 2.0: visuele herontwikkeling (opdracht 22-11-2026)
+
+De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, betaalstatussen en beheer zijn ongewijzigd. Beschrijving in [README.md](README.md) › *Merk en ontwerp*.
+
+| Onderdeel | Uitgevoerd |
+| --- | --- |
+| Identiteit | Nachtblauw, ijsblauw, wit en amber alleen voor de koopactie; donkere en lichte vlakken wisselen af |
+| Logo | Krachtiger merkteken (dak, deur, S-vormige looproute, drie korrels), leesbaar op 16 px; doorgevoerd in site, favicon, flyer, bord, deelbeelden en productillustraties |
+| Hero | Donker, met eigen SVG-illustratie van de zak die meegroeit met het aantal en meebeweegt met de muis; vanafprijs en bestelkaart direct in beeld |
+| Bestellen | Eén kaart, twee stappen; prijstreden in één rail; grote plus/min; zetje vlak voor een trede; totaal precies één keer; op een iPhone 13 valt ‘Bestellen’ in het eerste scherm |
+| Opgelost uit de schermafbeeldingen | Vaste kop schoof over de inhoud (kop staat niet meer vast); ‘AfhalenBezorgen’ plakte aan elkaar; besparingsteksten liepen over; totaal stond dubbel |
+| Beweging | Eén samenhangend systeem in CSS met kleine hulpjes; uit bij ‘minder beweging’ |
+| Boodschap | ‘Strooi ook bij een buur die dat zelf niet kan.’ met een straat waarin de route van deur tot deur verschijnt |
+| Gemeten | Lighthouse mobiel (lokale build): 97 / 100 / 100 / 100; LCP 2,0 s; CLS 0,01; geen horizontale scroll op 320 px |
+
+Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak kan later in het beheer worden geüpload (*Producten › Afbeelding*) en vervangt dan de kleine productafbeeldingen; voor de hero is dan een vrijstaande foto nodig.
 
 ## Commerciële versie (opdracht 22-11-2026)
 
@@ -127,7 +153,7 @@ Bezorgen kost nu een vast bedrag van **€ 2,00 per bezorging (per adres)**, van
 8. **Reservering of koop?** Voor Google Merchant Center (gratis productvermeldingen) moet een bestelling een echte koop zijn. De knop moet dan wettelijk een betalingsverplichting noemen. Zolang het een kosteloos te annuleren reservering blijft: Merchant Center overslaan.
 9. **Google-accounts (login Martijn):** Search Console-domein verifiëren via TXT in Cloudflare, de sitemap indienen en indexering aanvragen (stappen in PROMOTIE.md §2). Bedrijfsprofiel: het bestaande Denckh-profiel uitbreiden in plaats van een tweede profiel aan te maken.
 11. **Bestelronde openen** in *Beheer › Bestelrondes › Nieuwe ronde* (bijv. ‘Winter 2026’, zonder sluitdatum). Kan ook door een agent, als Martijn schrijfacties op de productiedatabase toestaat. Daarna een testbestelling met fictieve gegevens plaatsen, annuleren en opruimen.
-12. **Domein koppelen.** Kan via Claude in Chrome: Workers › `martijndenbesten` › Domains & Routes › Custom domain `strooizouthouten.nl` en `www.strooizouthouten.nl`. Of via een uitrol met de bijgewerkte `wrangler.embedded.jsonc`, waar beide domeinen nu in staan. Gedaan op 22 november 2026: domein gekoppeld en doorverwijzing aan (`STROOIZOUT_DOORVERWIJZEN = "ja"` in `wrangler.embedded.jsonc`).
+12. ~~Domein koppelen~~ — gedaan op 22-11-2026: strooizouthouten.nl en www gekoppeld; doorverwijzing van het oude adres staat aan (`STROOIZOUT_DOORVERWIJZEN = "ja"`, PR #81).
 10. **Promotie plaatsen:** de teksten liggen klaar (PROMOTIE.md §7). Niets plaatsen zonder akkoord van Martijn en, bij groepen, de beheerder.
 
 ## Gecontroleerd (22-11-2026)

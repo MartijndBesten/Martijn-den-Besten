@@ -47,27 +47,30 @@ export const IcoonDelen = (p: SVGProps<SVGSVGElement>) => (
   <svg {...basis(p)}><circle cx="18" cy="5" r="2.5" /><circle cx="6" cy="12" r="2.5" /><circle cx="18" cy="19" r="2.5" /><path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4" /></svg>
 );
 
-/** Merkteken: dak, voordeur en een veilige looproute met strooikorrels (public/strooizout/logo/merk.svg). */
+/**
+ * Merkteken: dak en voordeur met een veilige looproute in de vorm van een S, met drie strooikorrels
+ * (public/strooizout/logo/merk.svg). Dik genoeg getekend om ook als favicon van 16 px leesbaar te blijven.
+ */
 export function Merkteken({ className, opDonker = false }: { className?: string; opDonker?: boolean }) {
+  const id = opDonker ? "sz-mk-d" : "sz-mk";
   return (
     <svg className={className} viewBox="0 0 64 64" aria-hidden="true">
       <defs>
-        <clipPath id={opDonker ? "sz-mk-d" : "sz-mk"}>
+        <clipPath id={id}>
           <rect width="64" height="64" rx="16" />
         </clipPath>
       </defs>
       {opDonker ? <rect x="1" y="1" width="62" height="62" rx="15" fill="#123461" stroke="#cfe6f6" strokeOpacity=".35" strokeWidth="2" /> : <rect width="64" height="64" rx="16" fill="#0b2340" />}
-      <g clipPath={`url(#${opDonker ? "sz-mk-d" : "sz-mk"})`}>
-        <path d="M9 64 C 18 52, 30 50, 29.5 41 L 34.5 41 C 35 51, 27 56, 31 64 Z" fill="#cfe6f6" />
+      <g clipPath={`url(#${id})`}>
+        <path d="M32 41 C 45 44, 46 52, 31 54.5 C 17 57, 15 63, 19 70" fill="none" stroke="#cfe6f6" strokeWidth="9.5" strokeLinecap="round" />
         <g fill="#ffb547">
-          <circle cx="31.8" cy="45.4" r="1.5" />
-          <circle cx="28.4" cy="50.4" r="1.7" />
-          <circle cx="24" cy="55.4" r="1.9" />
-          <circle cx="20.2" cy="60.6" r="2.1" />
+          <circle cx="41.2" cy="46.6" r="2.3" />
+          <circle cx="30.6" cy="54.6" r="2.6" />
+          <circle cx="19.6" cy="60.6" r="2.9" />
         </g>
       </g>
-      <path d="M13 31 32 15l19 16" fill="none" stroke="#fff" strokeWidth="4.8" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M28.5 41v-8.5a3.5 3.5 0 0 1 7 0V41z" fill="#fff" />
+      <path d="M11.5 30.5 32 13l20.5 17.5" fill="none" stroke="#fff" strokeWidth="6.2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M27.4 41.5v-9.2a4.6 4.6 0 0 1 9.2 0v9.2z" fill="#fff" />
     </svg>
   );
 }

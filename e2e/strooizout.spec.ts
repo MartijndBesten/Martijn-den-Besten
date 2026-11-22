@@ -40,42 +40,52 @@ test.describe("Strooizout voor de buurt", () => {
     const headers = { Authorization: `Bearer ${TOKEN}`, Origin: baseURL! };
     await page.goto("/strooizout");
     await expect(page.getByRole("heading", { level: 1, name: "Strooizout uit je eigen buurt." })).toBeVisible();
-    await expect(page.getByText("Hou je buurt veilig. Strooi bewust.").first()).toBeVisible();
-    await expect(page.getByText("Geen aparte rit naar de bouwmarkt.", { exact: false }).first()).toBeVisible();
+    await expect(page.getByText("Hou je buurt veilig.", { exact: true })).toBeVisible();
+    await expect(page.locator(".wn-vanaf")).toContainText("€ 8,99");
     const kaart = page.locator(".sz-bestelkaart");
     await expect(kaart.getByRole("heading", { name: "25 kg strooizout" })).toBeVisible();
-    await expect(kaart.locator(".sz-bestelkaart__staffel")).toContainText(/1\szak\s€\s10,49.*2–3\s€\s9,49.*vanaf\s4\s€\s8,99/);
+    // prijstreden in één rail: 1 zak, 2–3 zakken, 4 of meer
+    const trede = (naam: RegExp) => kaart.getByRole("button", { name: naam });
+    await expect(trede(/1 zak\s*€ 10,49 per zak/)).toBeVisible();
+    await expect(trede(/2–3 zakken\s*€ 9,49 per zak/)).toHaveAttribute("aria-pressed", "true");
+    await expect(trede(/4 of meer\s*€ 8,99 per zak/)).toBeVisible();
     await expect(kaart.locator(".sz-beschikbaar")).toContainText("Op voorraad");
-    await expect(page.getByText("Strooi ook eens bij een buur die dat zelf niet kan.")).toBeVisible();
-    await expect(page.getByText("Neem er eentje mee voor je buren.")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Strooi ook bij een buur die dat zelf niet kan." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Geen aparte rit naar de bouwmarkt." })).toBeVisible();
     // de emmer van 5 kg is zichtbaar maar niet te bestellen; delen en gebruikstip staan op de pagina
     await expect(page.locator(".sz-binnenkort")).toContainText("Binnenkort");
     await expect(page.locator(".sz-binnenkort")).toContainText("€ 7,49");
     await expect(page.getByRole("button", { name: "Deel met je buren" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Strooi bewust" })).toBeVisible();
+    // de kop staat niet vast: hij schuift nooit over de inhoud
+    expect(await page.locator(".sz-kop").evaluate((el) => getComputedStyle(el).position)).not.toMatch(/sticky|fixed/);
 
-    // standaard 2 zakken (voordelige keuze): € 18,98, je bespaart € 2,00
-    await expect(kaart.getByRole("radio", { name: /2 zakken/ })).toBeChecked();
-    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 18,98");
-    await expect(kaart.locator(".sz-bestelkaart__totaal small")).toContainText("je bespaart € 2,00");
-    // 1 zak: € 10,49, bezorgen kan niet
-    await kaart.locator(".sz-aantalkeuze", { hasText: "1 zak" }).click();
-    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 10,49");
-    await expect(kaart.getByRole("radio", { name: "Bezorgen" })).toBeDisabled();
-    await expect(kaart.getByText(/Bezorgen kan vanaf 2 zakken/)).toBeVisible();
-    // ieder aantal: 3 zakken € 9,49 per zak
+    // standaard 2 zakken: € 18,98, je bespaart € 2,00; het totaal staat er precies één keer
+    const totaal = kaart.locator(".sz-bestelkaart__totaal strong");
+    await expect(totaal).toHaveText("€ 18,98");
+    await expect(kaart.locator(".sz-bestelkaart__totaal .wn-bespaar")).toContainText("je bespaart € 2,00");
+    await expect(kaart.locator(".sz-bestelkaart__totaal")).toHaveCount(1);
+    // 1 zak: € 10,49, bezorgen kan niet, zetje naar 2 zakken
+    await trede(/^1 zak/).click();
+    await expect(totaal).toHaveText("€ 10,49");
+    await expect(kaart.getByRole("radio", { name: /Bezorgen/ })).toBeDisabled();
+    await expect(kaart.locator(".wn-lever")).toContainText("vanaf 2 zakken");
+    await expect(kaart.locator(".wn-tip")).toContainText("Nog 1 zak erbij en je betaalt € 9,49 per zak.");
+    // ieder aantal: 3 zakken € 9,49 per zak, zetje naar 4
     const meer = kaart.getByRole("button", { name: /Eén meer/ });
     await meer.click();
     await meer.click();
-    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 28,47");
-    await expect(kaart.getByRole("radio", { name: "Bezorgen" })).toBeEnabled();
+    await expect(totaal).toHaveText("€ 28,47");
+    await expect(kaart.getByRole("radio", { name: /Bezorgen/ })).toBeEnabled();
     // 4 zakken: € 8,99 voor alle zakken, je bespaart € 6,00
-    await kaart.locator(".sz-aantalkeuze", { hasText: "4 zakken" }).click();
-    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 35,96");
-    await expect(kaart.locator(".sz-bestelkaart__totaal small")).toContainText("je bespaart € 6,00");
+    await kaart.getByRole("button", { name: "Maak er 4 van" }).click();
+    await expect(trede(/4 of meer/)).toHaveAttribute("aria-pressed", "true");
+    await expect(totaal).toHaveText("€ 35,96");
+    await expect(kaart.locator(".sz-bestelkaart__totaal .wn-bespaar")).toContainText("je bespaart € 6,00");
     // bezorgen: € 2,00 per bezorging erbij
-    await kaart.locator(".sz-segment label", { hasText: "Bezorgen" }).click();
-    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 37,96");
+    await kaart.locator(".wn-lever label", { hasText: "Bezorgen" }).click();
+    await expect(totaal).toHaveText("€ 37,96");
+    await expect(kaart.getByText("We bezorgen binnen de rondweg van Houten.")).toBeVisible();
 
     // Bestellen: gegevens op dezelfde pagina; adresvelden alleen bij bezorgen
     await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
@@ -98,7 +108,9 @@ test.describe("Strooizout voor de buurt", () => {
     const mobiel = `+31 6 ${String(Date.now()).slice(-8, -4)} ${String(Date.now()).slice(-4)}`;
     await kaart.getByLabel("Mobiel nummer").fill(mobiel);
     // dubbel klikken: precies één bestelling
-    await kaart.getByRole("button", { name: "Reservering plaatsen · € 37,96" }).dblclick();
+    await expect(kaart.locator(".sz-bestelkaart__totaal")).toHaveCount(1);
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 37,96");
+    await kaart.getByRole("button", { name: "Reservering plaatsen", exact: true }).dblclick();
 
     await expect(page.getByRole("heading", { name: /Bedankt, Proef! Je reservering is geplaatst/ })).toBeVisible();
     const code = (await page.locator(".sz-codekaart__code").textContent())!.trim();
@@ -118,13 +130,14 @@ test.describe("Strooizout voor de buurt", () => {
   test("strooizout: 1 zak ophalen op de telefoon en annuleren door de klant", async ({ page }) => {
     await page.goto("/strooizout");
     const kaart = page.locator(".sz-bestelkaart");
-    await kaart.locator(".sz-aantalkeuze", { hasText: "1 zak" }).click();
+    await kaart.getByRole("button", { name: /^1 zak\s*€/ }).click();
     await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
     await expect(kaart.getByLabel("Straat")).toHaveCount(0);
     await kaart.getByLabel("Naam").fill("Mobiel Test");
     await kaart.getByLabel("Mobiel nummer").fill("06 1111 2222");
     await page.waitForTimeout(2600);
-    await kaart.getByRole("button", { name: "Reservering plaatsen · € 10,49" }).click();
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 10,49");
+    await kaart.getByRole("button", { name: "Reservering plaatsen", exact: true }).click();
     await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
     await expect(page.getByText("Het adres verschijnt hier zodra je reservering is bevestigd.")).toBeVisible();
     await page.getByRole("button", { name: "Reservering annuleren" }).click();

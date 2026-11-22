@@ -3,10 +3,10 @@
   <defs><clipPath id="szl"><rect x="4" y="4" width="64" height="64" rx="16"/></clipPath></defs>
   <rect x="5" y="5" width="62" height="62" rx="15" fill="#123461" stroke="#cfe6f6" stroke-opacity=".35" stroke-width="2"/>
   <g clip-path="url(#szl)" transform="translate(4 4)">
-    <path d="M9 64 C 18 52, 30 50, 29.5 41 L 34.5 41 C 35 51, 27 56, 31 64 Z" fill="#cfe6f6"/>
-    <g fill="#ffb547"><circle cx="31.8" cy="45.4" r="1.5"/><circle cx="28.4" cy="50.4" r="1.7"/><circle cx="24" cy="55.4" r="1.9"/><circle cx="20.2" cy="60.6" r="2.1"/></g>
+    <path d="M32 41 C 45 44, 46 52, 31 54.5 C 17 57, 15 63, 19 70" fill="none" stroke="#cfe6f6" stroke-width="9.5" stroke-linecap="round"/>
+    <g fill="#ffb547"><circle cx="41.2" cy="46.6" r="2.3"/><circle cx="30.6" cy="54.6" r="2.6"/><circle cx="19.6" cy="60.6" r="2.9"/></g>
   </g>
-  <g transform="translate(4 4)"><path d="M13 31 32 15l19 16" fill="none" stroke="#fff" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M28.5 41v-8.5a3.5 3.5 0 0 1 7 0V41z" fill="#fff"/></g>
+  <g transform="translate(4 4)"><path d="M11.5 30.5 32 13l20.5 17.5" fill="none" stroke="#fff" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M27.4 41.5v-9.2a4.6 4.6 0 0 1 9.2 0v9.2z" fill="#fff"/></g>
   <text x="84" y="34" font-family="Geist, Arial, sans-serif" font-weight="750" font-size="30" letter-spacing="-0.6" fill="#ffffff">Strooizout</text>
   <text x="85" y="60" font-family="Geist, Arial, sans-serif" font-weight="500" font-size="20" fill="#cfe6f6">voor de buurt</text>
 </svg>
