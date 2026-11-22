@@ -207,7 +207,7 @@ test.describe("Strooizout voor de buurt", () => {
     await page.getByRole("button", { name: `Bestelling ${tweede.afhaalcode} openen` }).click();
     const paneel = page.getByRole("dialog");
     await expect(paneel.getByText("Openstaand bedrag")).toBeVisible();
-    await expect(paneel.getByText("06 1234 1202")).toBeVisible();
+    await expect(paneel.locator(".bh-kopieer", { hasText: "06 1234 1202" })).toBeVisible();
     await paneel.getByRole("button", { name: "Markeer: betaalverzoek verstuurd" }).click();
     await expect(paneel.locator(".bh-pil", { hasText: "Betaalverzoek verstuurd" })).toBeVisible();
     await paneel.getByRole("button", { name: "Bevestigen", exact: true }).click();

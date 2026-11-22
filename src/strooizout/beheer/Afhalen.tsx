@@ -141,11 +141,11 @@ export default function Afhalen() {
               </button>
               {zonderBetaling ? (
                 <button type="button" className="bh-knop bh-knop--gevaar" disabled={bezig} onClick={() => void geefUit(false)}>
-                  Zeker weten: uitgeven zonder betaling
+                  Zeker weten: {b.levering === "bezorgen" ? "bezorgd" : "uitgeven"} zonder betaling
                 </button>
               ) : (
                 <button type="button" className="bh-knop" onClick={() => setZonderBetaling(true)}>
-                  Uitgeven zonder betaling (later betalen)
+                  {b.levering === "bezorgen" ? "Bezorgd" : "Uitgeven"} zonder betaling (later betalen)
                 </button>
               )}
             </div>

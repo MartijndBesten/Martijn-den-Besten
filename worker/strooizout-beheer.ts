@@ -573,21 +573,24 @@ async function uitgeven(request: Request, env: SzEnv, ruw: string): Promise<Resp
   }
   const naar = b.levering === "bezorgen" ? "bezorgd" : "afgehaald";
   const nu = nuIso();
+  // Uniek kenmerk per uitgifte (niet de tijd: twee verzoeken in dezelfde milliseconde zouden anders dezelfde waarde hebben).
+  const uitgifteId = crypto.randomUUID();
   const db = env.DB;
   const res = await db.batch([
-    db.prepare(`UPDATE sz_bestelling SET status = ?2, afgerond_op = ?3, gewijzigd = ?3 WHERE id = ?1 AND status IN ('nieuw', 'bevestigd', 'klaar')`).bind(b.id, naar, nu),
+    db.prepare(`UPDATE sz_bestelling SET status = ?2, afgerond_op = ?3, gewijzigd = ?3, uitgifte_id = ?4 WHERE id = ?1 AND status IN ('nieuw', 'bevestigd', 'klaar')`).bind(b.id, naar, nu, uitgifteId),
     ...(betaling
       ? [
           db.prepare(
             `INSERT INTO sz_betaling (bestelling_id, bedrag_cent, wijze, notitie, op)
-             SELECT ?1, ?2, ?3, 'bij uitgifte', ?4 WHERE EXISTS (SELECT 1 FROM sz_bestelling WHERE id = ?1 AND status = ?5 AND afgerond_op = ?4)`,
-          ).bind(b.id, betaling.bedrag, betaling.wijze, nu, naar),
+             SELECT ?1, ?2, ?3, 'bij uitgifte', ?4 WHERE EXISTS (SELECT 1 FROM sz_bestelling WHERE id = ?1 AND uitgifte_id = ?5)`,
+          ).bind(b.id, betaling.bedrag, betaling.wijze, nu, uitgifteId),
         ]
       : []),
-    db.prepare(`INSERT INTO sz_log (bestelling_id, actie, details, op) SELECT ?1, 'uitgegeven', ?2, ?3 WHERE EXISTS (SELECT 1 FROM sz_bestelling WHERE id = ?1 AND afgerond_op = ?3)`).bind(
+    db.prepare(`INSERT INTO sz_log (bestelling_id, actie, details, op) SELECT ?1, 'uitgegeven', ?2, ?3 WHERE EXISTS (SELECT 1 FROM sz_bestelling WHERE id = ?1 AND uitgifte_id = ?4)`).bind(
       b.id,
       `${b.status} → ${naar}${betaling ? `, ${betaling.wijze} ${betaling.bedrag}` : ""}`,
       nu,
+      uitgifteId,
     ),
   ]);
   if ((res[0].meta?.changes ?? 0) === 0) {

@@ -556,10 +556,11 @@ describe("afhaalcode", () => {
     await startRonde();
     const rnd = vi.spyOn(crypto, "getRandomValues");
     // eerste bestelling: code H-1000; daarna dwingt de mock opnieuw 1000 af voor de vooraf-controle én de eerste poging
-    rnd.mockImplementation(<T extends ArrayBufferView | null>(a: T) => { (a as unknown as Uint32Array)[0] = 0; return a; });
+    const vul = (waarde: () => number) => ((a: Uint32Array) => { a[0] = waarde(); return a; }) as unknown as typeof crypto.getRandomValues;
+    rnd.mockImplementation(vul(() => 0));
     expect(((await (await bestel()).json()) as J).bestelling.afhaalcode).toBe("H-1000");
     let n = 0;
-    rnd.mockImplementation(<T extends ArrayBufferView | null>(a: T) => { (a as unknown as Uint32Array)[0] = n++ < 7 ? 0 : 1234; return a; });
+    rnd.mockImplementation(vul(() => (n++ < 7 ? 0 : 1234)));
     expect(((await (await bestel()).json()) as J).bestelling.afhaalcode).toBe("H-2234");
     rnd.mockRestore();
   });
@@ -591,6 +592,14 @@ describe("afhaalcode", () => {
     expect((db.raw.prepare("SELECT COUNT(*) AS n, SUM(bedrag_cent) AS som FROM sz_betaling").get() as J)).toEqual({ n: 1, som: 1798 });
     const na = await jsonVan(beheer(`/afhalen/${code}`));
     expect(na.bestelling).toMatchObject({ uitgegeven: true, betaalstatus: "betaald", status: "afgehaald" });
+    // ook als beide verzoeken in dezelfde milliseconde vallen: precies één betaling
+    const derde = (await (await bestel()).json()) as J;
+    const vast = vi.spyOn(Date.prototype, "toISOString").mockReturnValue("2026-12-01T10:00:00.000Z");
+    const u = () => beheer(`/afhalen/${derde.bestelling.afhaalcode}/uitgeven`, { method: "POST", body: JSON.stringify({ betaling: { wijze: "contant", bedrag_cent: 1798, ontvangen: true } }) });
+    const [c, d] = await Promise.all([u(), u()]);
+    vast.mockRestore();
+    expect([c.status, d.status].sort()).toEqual([200, 409]);
+    expect((db.raw.prepare("SELECT COUNT(*) AS n FROM sz_betaling WHERE bestelling_id = ?").get(2) as J).n).toBe(1);
     // betaling zonder ‘echt ontvangen’ wordt geweigerd
     const tweedeBestelling = (await (await bestel()).json()) as J;
     expect((await beheer(`/afhalen/${tweedeBestelling.bestelling.afhaalcode}/uitgeven`, { method: "POST", body: JSON.stringify({ betaling: { wijze: "contant", bedrag_cent: 100 } }) })).status).toBe(422);

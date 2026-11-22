@@ -127,6 +127,8 @@ CREATE TABLE IF NOT EXISTS sz_bestelling (
   aangemaakt TEXT NOT NULL,
   gewijzigd TEXT NOT NULL,
   afgerond_op TEXT,
+  -- willekeurig kenmerk van de geslaagde uitgifte; koppelt een betaling bij uitgifte aan precies die ene uitgifte
+  uitgifte_id TEXT,
   voorraad_vrijgegeven INTEGER NOT NULL DEFAULT 0,
   -- gezet zodra de persoonsgegevens na de bewaartermijn zijn gewist
   geanonimiseerd_op TEXT
