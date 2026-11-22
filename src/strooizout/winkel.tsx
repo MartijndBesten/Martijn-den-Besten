@@ -6,6 +6,7 @@ import { IcoonKlok, IcoonLet, IcoonPijlRechts } from "./iconen";
 import { useMand } from "./mandje";
 import { Aantal, maxVoor, StaffelHint } from "./opmaak";
 import { useWinkel } from "./winkeldata";
+import { extern } from "./router";
 
 const Afrekenen = lazy(() => import("./afrekenen"));
 
@@ -35,7 +36,7 @@ function LaatsteBestelling() {
   if (!laatste) return null;
   return (
     <p className="sz-laatste">
-      <a href={`/strooizout/bestelling#${laatste.code}`}>
+      <a href={extern(`/strooizout/bestelling#${laatste.code}`)}>
         Je bestelling{laatste.afhaalcode ? ` ${laatste.afhaalcode}` : ""} bekijken <IcoonPijlRechts />
       </a>
     </p>

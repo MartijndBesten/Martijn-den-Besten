@@ -18,6 +18,7 @@ import {
   type PrijsProduct,
 } from "../shared/strooizout";
 import { csv, opschonen } from "../worker/strooizout-beheer";
+import { strooizoutDomein } from "../worker/strooizout-domein";
 import { STANDAARD_INSTELLINGEN } from "../shared/strooizout";
 import { createD1 } from "./d1-shim";
 
@@ -871,5 +872,41 @@ describe("definitieve afspraken", () => {
     expect((await beheer("/instellingen", { method: "PUT", body: JSON.stringify({ verkoper_kvk: "1234" }) })).status).toBe(422);
     expect((await beheer("/instellingen", { method: "PUT", body: JSON.stringify({ verkoper_btw: "123" }) })).status).toBe(422);
     expect((await beheer("/instellingen", { method: "PUT", body: JSON.stringify({ beschikbaar_vanaf: "26-11-2026" }) })).status).toBe(422);
+  });
+});
+
+describe("eigen domein strooizouthouten.nl", () => {
+  const u = (s: string) => new URL(s);
+  const pad = (r: ReturnType<typeof strooizoutDomein>) => (r && "pad" in r ? r.pad : null);
+  const naar = (r: ReturnType<typeof strooizoutDomein>) => (r && "antwoord" in r ? [r.antwoord.status, r.antwoord.headers.get("Location")] : null);
+
+  it("korte adressen op het eigen domein naar de interne pagina's", () => {
+    expect(pad(strooizoutDomein(u("https://strooizouthouten.nl/"), false))).toBe("/strooizout");
+    expect(pad(strooizoutDomein(u("https://strooizouthouten.nl/beheer"), false))).toBe("/strooizout/beheer");
+    expect(pad(strooizoutDomein(u("https://strooizouthouten.nl/aan-de-weg/"), false))).toBe("/strooizout/aan-de-weg");
+    expect(pad(strooizoutDomein(u("https://strooizouthouten.nl/bestelling"), false))).toBe("/strooizout/bestelling");
+  });
+
+  it("bestanden en API blijven gewoon; de rest van martijndenbesten.com hoort er niet bij", () => {
+    for (const p of ["/api/strooizout/winkel", "/assets/x.js", "/fonts/geist.woff2", "/strooizout/beeld/strooizout-25kg.webp", "/strooizout/flyer-a5.pdf", "/bijbelreis/denckh-logo-signature.svg"]) {
+      expect(strooizoutDomein(u(`https://strooizouthouten.nl${p}`), false)).toBeNull();
+    }
+    expect(naar(strooizoutDomein(u("https://strooizouthouten.nl/museum"), false))).toEqual([302, "/"]);
+  });
+
+  it("www en lange adressen verwijzen door", () => {
+    expect(naar(strooizoutDomein(u("https://www.strooizouthouten.nl/beheer?x=1"), false))).toEqual([301, "https://strooizouthouten.nl/beheer?x=1"]);
+    expect(naar(strooizoutDomein(u("https://strooizouthouten.nl/strooizout"), false))).toEqual([301, "/"]);
+    expect(naar(strooizoutDomein(u("https://strooizouthouten.nl/strooizout/beheer"), false))).toEqual([301, "/beheer"]);
+  });
+
+  it("oud adres blijft werken; doorverwijzen pas als het aan staat", () => {
+    expect(strooizoutDomein(u("https://martijndenbesten.com/strooizout"), false)).toBeNull();
+    expect(strooizoutDomein(u("https://martijndenbesten.com/museum"), true)).toBeNull();
+    expect(naar(strooizoutDomein(u("https://martijndenbesten.com/strooizout"), true))).toEqual([301, "https://strooizouthouten.nl/"]);
+    expect(naar(strooizoutDomein(u("https://martijndenbesten.com/strooizout/aan-de-weg"), true))).toEqual([301, "https://strooizouthouten.nl/aan-de-weg"]);
+    expect(naar(strooizoutDomein(u("https://martijndenbesten.com/zout"), true))).toEqual([301, "https://strooizouthouten.nl/"]);
+    // bestanden (pdf, beelden) blijven op het oude adres bereikbaar
+    expect(strooizoutDomein(u("https://martijndenbesten.com/strooizout/flyer-a5.pdf"), true)).toBeNull();
   });
 });

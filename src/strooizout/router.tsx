@@ -5,7 +5,22 @@ import { createContext, useCallback, useContext, useEffect, useState, type Ancho
 type Router = { pad: string; navigeer: (naar: string, opties?: { vervang?: boolean }) => void };
 const Ctx = createContext<Router>({ pad: "/strooizout", navigeer: () => {} });
 
-const schoon = (p: string) => (p.replace(/\/+$/, "").replace(/\.html$/, "") || "/strooizout").toLowerCase();
+/** Op het eigen domein (strooizouthouten.nl) staan de pagina's zonder /strooizout ervoor; intern rekenen we altijd met /strooizout/…. */
+export const EIGEN_DOMEIN = typeof window !== "undefined" && /(^|\.)strooizouthouten\.nl$/i.test(window.location.hostname);
+
+function schoon(p: string): string {
+  let pad = (p.replace(/\/+$/, "").replace(/\.html$/, "") || "/").toLowerCase();
+  if (EIGEN_DOMEIN && !pad.startsWith("/strooizout")) pad = pad === "/" ? "/strooizout" : `/strooizout${pad}`;
+  return pad === "/" ? "/strooizout" : pad;
+}
+
+/** Intern pad (/strooizout/…) → adres in de adresbalk: op het eigen domein zonder /strooizout. Behoudt ?… en #…. */
+export function extern(intern: string): string {
+  if (!EIGEN_DOMEIN) return intern;
+  const m = intern.match(/^\/strooizout(\/[^?#]*)?([?#].*)?$/);
+  if (!m) return intern;
+  return `${m[1] || "/"}${m[2] ?? ""}`;
+}
 
 export const TITELS: Record<string, string> = {
   "/strooizout": "Strooizout voor de buurt — Hou je buurt veilig",
@@ -29,7 +44,7 @@ export function RouterProvider({ children }: { children: ReactNode }) {
     document.title = TITELS[pad] ?? TITELS["/strooizout"];
   }, [pad]);
   const navigeer = useCallback((naar: string, opties: { vervang?: boolean } = {}) => {
-    const url = new URL(naar, window.location.origin);
+    const url = new URL(extern(naar), window.location.origin);
     if (opties.vervang) window.history.replaceState({}, "", url.pathname + url.search + url.hash);
     else window.history.pushState({}, "", url.pathname + url.search + url.hash);
     setPad(schoon(url.pathname));
@@ -50,7 +65,7 @@ export function Link({ naar, onClick, children, ...rest }: AnchorHTMLAttributes<
     navigeer(naar);
   };
   return (
-    <a href={naar} onClick={klik} {...rest}>
+    <a href={extern(naar)} onClick={klik} {...rest}>
       {children}
     </a>
   );

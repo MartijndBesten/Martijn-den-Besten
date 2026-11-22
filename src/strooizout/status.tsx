@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { dagTekst, euro } from "../../shared/strooizout";
 import { vraag, type KlantBestelling } from "./api";
 import { IcoonKopie, IcoonLet, IcoonVink } from "./iconen";
-import { Link } from "./router";
+import { extern, Link } from "./router";
 
 const STAPPEN_OPHALEN = [
   { s: "nieuw", t: "Reservering ontvangen", u: "We hebben je reservering binnen." },
@@ -63,7 +63,7 @@ export default function Status() {
     else setFout(r.error);
   }
 
-  const link = `${window.location.origin}/strooizout/bestelling#${code}`;
+  const link = `${window.location.origin}${extern(`/strooizout/bestelling#${code}`)}`;
 
   if (fout && !b) {
     return (

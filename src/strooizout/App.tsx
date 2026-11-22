@@ -1,7 +1,7 @@
 // Strooizout voor de buurt: webshop op /strooizout, beheer op /strooizout/beheer. Eigen uiterlijk, eigen bundel.
 
 import { lazy, Suspense, useEffect, useRef } from "react";
-import { RouterProvider, useRouter } from "./router";
+import { extern, RouterProvider, useRouter } from "./router";
 import { MandProvider } from "./mandje";
 import { WinkelProvider } from "./winkeldata";
 import { Kop, Voet, Lade, MobielBalk } from "./opmaak";
@@ -29,7 +29,7 @@ function NietGevonden() {
       <div className="sz-wrap sz-tekstpagina__in">
         <h1>Deze pagina bestaat niet</h1>
         <p>
-          Ga terug naar <a href="/strooizout">de webshop</a>.
+          Ga terug naar <a href={extern("/strooizout")}>de webshop</a>.
         </p>
       </div>
     </section>

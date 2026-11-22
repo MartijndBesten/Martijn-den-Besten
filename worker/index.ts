@@ -9,6 +9,7 @@ import { aanvraagBeheer, aanvragenLijst, meldAanvraag } from "./aanvraag";
 import { rateLimit } from "./begrenzing";
 import { handleStrooizout } from "./strooizout";
 import { geplandOnderhoud } from "./strooizout-beheer";
+import { strooizoutDomein } from "./strooizout-domein";
 
 export { rateLimit };
 
@@ -19,6 +20,8 @@ export interface Env {
   HASH_SECRET?: string;
   /** Optioneel: apart beheertoken voor alleen Strooizout voor de buurt (docs/strooizout/README.md). */
   STROOIZOUT_TOKEN?: string;
+  /** "ja": martijndenbesten.com/strooizout verwijst door naar het eigen domein (worker/strooizout-domein.ts). */
+  STROOIZOUT_DOORVERWIJZEN?: string;
   // Alleen voor tests: "uit" zet de doorverwijzing naar bijbelreis.nl uit (wrangler dev geeft verzoeken de hostnaam
   // van de route, martijndenbesten.com, waardoor de doorverwijzing anders ook lokaal afgaat). Dan serveert deze Worker
   // de atlas zelf, en neemt hij ook de bezoekmeldingen van de atlas aan (/api/bezoek).
@@ -313,6 +316,9 @@ export async function handleApi(request: Request, env: Env, ctx: ExecutionContex
 export default {
   async fetch(request, env, ctx): Promise<Response> {
     const url = new URL(request.url);
+    const domein = strooizoutDomein(url, env.STROOIZOUT_DOORVERWIJZEN === "ja");
+    if (domein && "antwoord" in domein) return domein.antwoord;
+    if (domein && "pad" in domein) return env.ASSETS.fetch(new Request(new URL(domein.pad, url), request));
     if (url.pathname.startsWith("/api/")) return handleApi(request, env, ctx);
     const kort = korteLink(url);
     if (kort) return kort;

@@ -3,6 +3,7 @@
 
 import { lazy, Suspense, useCallback, useEffect, useState, type FormEvent } from "react";
 import { vraag } from "../api";
+import { extern } from "../router";
 import { Merkteken } from "../iconen";
 import { BeheerProvider, leesToken, TOKEN_SLEUTEL, useBeheer } from "./basis";
 import "./beheer.css";
@@ -93,7 +94,7 @@ function Schil() {
     <div className="bh">
       <header className="bh-kop">
         <div className="bh-kop__in">
-          <a className="sz-merk" href="/strooizout" target="_blank" rel="noopener">
+          <a className="sz-merk" href={extern("/strooizout")} target="_blank" rel="noopener">
             <Merkteken className="sz-merk__teken" opDonker />
             <span>
               Strooizout beheer

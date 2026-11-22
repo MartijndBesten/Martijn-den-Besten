@@ -1,6 +1,7 @@
 // Flyer, deelbeelden, QR-code en korte link.
 
 import { KORTE_URL, QrCode, WINKEL_URL } from "../qr";
+import { extern } from "../router";
 
 export default function Delen() {
   return (
@@ -24,7 +25,7 @@ export default function Delen() {
           <h2>Flyer en afbeeldingen</h2>
           <ul style={{ paddingLeft: 18 }}>
             <li>
-              <a href="/strooizout/flyer" target="_blank" rel="noopener">
+              <a href={extern("/strooizout/flyer")} target="_blank" rel="noopener">
                 Flyer en deelbeelden bekijken en afdrukken
               </a>{" "}
               (actuele prijs uit de webshop)

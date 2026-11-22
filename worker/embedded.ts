@@ -3,6 +3,7 @@
 
 import { handleApi, korteLink, type Env } from "./index";
 import { geplandOnderhoud } from "./strooizout-beheer";
+import { strooizoutDomein } from "./strooizout-domein";
 import { FILES, HEADER_RULES } from "./generated/files";
 import { verwijstDoor } from "../shared/bijbelreis";
 
@@ -56,6 +57,12 @@ export default {
     if (url.protocol === "http:" && url.hostname !== "localhost" && url.hostname !== "127.0.0.1") {
       url.protocol = "https:";
       return Response.redirect(url.toString(), 301);
+    }
+    const domein = strooizoutDomein(url, env.STROOIZOUT_DOORVERWIJZEN === "ja");
+    if (domein && "antwoord" in domein) return domein.antwoord;
+    if (domein && "pad" in domein && (request.method === "GET" || request.method === "HEAD")) {
+      const bestand = resolve(domein.pad);
+      if (bestand) return serve(request, bestand);
     }
     if (url.pathname.startsWith("/api/")) return handleApi(request, env, ctx);
     const kort = korteLink(url);
