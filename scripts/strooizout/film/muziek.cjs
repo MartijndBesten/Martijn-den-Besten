@@ -1,8 +1,9 @@
-// Eigen muziek onder de promotiefilmpjes: een winters deuntje met pit. Klokjes en een fel synthje spelen de melodie,
-// eronder een stevige beat (kick op elke tel, klap op twee en vier, hi-hats), een drijvende bas en sleebellen.
+// Eigen muziek onder de promotiefilmpjes: een speels, getokkeld deuntje (pizzicato). Een wandelende getokkelde bas,
+// tokkels tegen de tel in en een getokkelde melodie met hier en daar een klokje, op een lichte beat met sleebellen.
+// Het begin is sluipend en in mineur (het is glad); zodra er gestrooid wordt gaat hetzelfde getokkel door in majeur.
 // Alles is hier in code gemaakt (geen opname, geen muziek van anderen, dus geen rechten of licentie nodig).
-// Elk filmpje heeft een eigen arrangement dat op de beelden is afgestemd (de zak die in beeld komt, licht dat aangaat,
-// een val, het eindbeeld).
+// Elk filmpje heeft een eigen arrangement dat op de beelden is afgestemd (een val, licht dat aangaat, een fietsbel,
+// een duim omhoog, het eindbeeld).
 // Gebruik: require("./film/muziek.cjs").maakMuziek("buurt" | "fiets" | "opa", duurInSeconden, "uit.wav")
 const fs = require("node:fs");
 
@@ -62,9 +63,9 @@ function studio(duur) {
       stem(t0, lang * 3, 0, (t) => vol * (1 - Math.exp(-t / 0.004)) * Math.exp(-t / lang) * (Math.sin(TAU * f * t) + 0.3 * Math.sin(TAU * f * 2 * t)));
     },
     /** getokkelde snaar, kort (voor het sluipende begin van het fietsfilmpje) */
-    pluk(t0, noot, vol = 0.16, pan = 0) {
+    pluk(t0, noot, vol = 0.16, pan = 0, lang = 0.11) {
       const f = hz(noot);
-      stem(t0, 0.6, pan, (t) => vol * (1 - Math.exp(-t / 0.002)) * Math.exp(-t / 0.11) * (Math.sin(TAU * f * t) + 0.5 * Math.sin(TAU * f * 2 * t) + 0.25 * Math.sin(TAU * f * 3 * t)));
+      stem(t0, lang * 5.5, pan, (t) => vol * (1 - Math.exp(-t / 0.002)) * Math.exp(-t / lang) * (Math.sin(TAU * f * t) + 0.5 * Math.sin(TAU * f * 2 * t) + 0.25 * Math.sin(TAU * f * 3 * t)));
     },
     /** sleebel: een kort hoog rinkeltje */
     slee(t0, vol = 0.03, pan = 0.2) {
@@ -101,32 +102,6 @@ function studio(duur) {
         fase += (TAU * (42 + 60 * Math.exp(-t / 0.05))) / SR;
         laag += (ruis() - laag) * 0.06;
         return vol * Math.exp(-t / 0.09) * (Math.sin(fase) + 1.6 * laag);
-      });
-    },
-    /** fel synthje: twee zaagtanden door een filter dat snel dichtgaat (voor melodie en akkoordstoten) */
-    synth(t0, noot, vol = 0.1, pan = 0, lang = 0.2) {
-      const f = typeof noot === "number" ? noot : hz(noot);
-      let f1 = 0;
-      let f2 = 0;
-      let laag = 0;
-      stem(t0, lang * 4, pan, (t) => {
-        f1 = (f1 + (f * 1.004) / SR) % 1;
-        f2 = (f2 + (f * 0.996) / SR) % 1;
-        const a = 1 - Math.exp((-TAU * (700 + 5200 * Math.exp(-t / 0.07))) / SR);
-        laag += a * (f1 + f2 - 1 - laag);
-        return vol * (1 - Math.exp(-t / 0.003)) * Math.exp(-t / lang) * laag * 1.6;
-      });
-    },
-    /** synthbas: zaagtand met een lage sinus eronder */
-    synthbas(t0, noot, vol = 0.2, lang = 0.16) {
-      const f = hz(noot);
-      let fase = 0;
-      let laag = 0;
-      stem(t0, lang * 4, 0, (t) => {
-        fase = (fase + f / SR) % 1;
-        const a = 1 - Math.exp((-TAU * (160 + 1100 * Math.exp(-t / 0.05))) / SR);
-        laag += a * (2 * fase - 1 - laag);
-        return vol * (1 - Math.exp(-t / 0.003)) * Math.exp(-t / lang) * (laag * 1.3 + 0.8 * Math.sin(TAU * f * t));
       });
     },
     /** kick met een tik erop, voor de beat */
@@ -227,7 +202,7 @@ const AKKOORD = {
   C9: [["G3", "D4", "E4"], "C3"],
 };
 
-/** Het thema: per maat acht achtsten, doorlopend, gespeeld door de klokjes en het synthje. */
+/** Het thema: per maat acht achtsten, getokkeld, met een klokje op de zware tellen. */
 const THEMA = {
   C: ["E5", "G5", "C6", "G5", "E6", "C6", "G5", "C6"],
   G: ["D5", "G5", "B5", "G5", "D6", "B5", "G5", "B5"],
@@ -236,77 +211,82 @@ const THEMA = {
   FG: ["F5", "A5", "C6", "A5", "G5", "B5", "D6", "B5"],
   Gop: ["D5", "G5", "B5", "D6", "G5", "B5", "D6", "G6"], // opbouw naar de volgende inzet
 };
-const octaaf = (noot, d) => noot.slice(0, -1) + (Number(noot.slice(-1)) + d);
+/** De wandelende bas (vier tellen) en de tokkel tegen de tel in, per akkoord. */
+const LOOPJE = {
+  Am: [["A2", "C3", "E3", "C3"], ["E4", "A4"]],
+  C: [["C3", "E3", "G3", "E3"], ["E4", "G4"]],
+  G: [["G2", "B2", "D3", "B2"], ["D4", "G4"]],
+  F: [["F2", "A2", "C3", "A2"], ["F4", "A4"]],
+};
 
-/** De beat van één maat: kick op elke tel, klap op twee en vier, hi-hats ertussen. */
-function beat(s, t0, maat, opbouw = false) {
-  const acht = maat / 8;
-  for (let i = 0; i < 8; i++) {
-    if (i % 2 === 0) s.bons(t0 + i * acht, 0.46);
-    if (i === 2 || i === 6) s.klap(t0 + i * acht, 0.19);
-    s.hat(t0 + i * acht, i % 2 ? 0.075 : 0.04, i === 7, i % 2 ? 0.3 : -0.2);
-    s.hat(t0 + i * acht + acht / 2, 0.022, false, 0.1);
-    s.slee(t0 + i * acht, i % 2 ? 0.02 : 0.012, i % 2 ? 0.4 : -0.3);
+/** Eén maat getokkel: wandelende bas op de tel, een tokkel ertegenin, en een lichte beat. */
+function tokkelmaat(s, t0, akkoord, { sluipend = false, eerste = 0, tellen = 4 } = {}) {
+  const [bas, tegen] = LOOPJE[akkoord];
+  for (let i = 0; i < tellen; i++) {
+    const t = t0 + i * 0.5;
+    s.pluk(t, bas[(eerste + i) % 4], sluipend ? 0.24 : 0.26, -0.1, 0.13);
+    tegen.forEach((noot, j) => s.pluk(t + 0.25, noot, sluipend ? (j ? 0 : 0.08) : 0.07, j ? 0.45 : 0.3));
+    s.hat(t + 0.25, sluipend ? 0.04 : 0.06, false, 0.3);
+    if (sluipend) continue;
+    if ((eerste + i) % 2 === 0) s.bons(t, 0.27);
+    else s.klap(t, 0.085);
+    s.hat(t, 0.03, false, -0.2);
+    s.slee(t, 0.022, -0.3);
+    s.slee(t + 0.25, 0.014, 0.4);
   }
-  // opbouw: roffel van klappen in de tweede helft van de maat
-  if (opbouw) for (let i = 0; i < 8; i++) s.klap(t0 + maat / 2 + (i * acht) / 2, 0.07 + i * 0.016);
 }
 
-function arrangement(s, { maat, begin, akkoorden, einde }) {
+/** Een loopje van snelle tokkels omhoog, als aanloop naar een inzet. */
+function aanloopje(s, t0, noten, lengte) {
+  noten.forEach((noot, i) => s.pluk(t0 + (i * lengte) / noten.length, noot, 0.12 + (0.1 * i) / noten.length, -0.3 + (0.6 * i) / noten.length, 0.09));
+}
+
+function arrangement(s, { begin, akkoorden, einde }) {
+  const maat = 2;
   const acht = maat / 8;
-  s.bekken(begin, 0.13);
+  s.bekken(begin, 0.07);
   akkoorden.forEach((naam, m) => {
     const t0 = begin + m * maat;
     const opbouw = naam === "Gop";
-    const helften = naam === "FG" ? ["F", "G"] : opbouw ? ["G", "G"] : [naam, naam];
-    beat(s, t0, maat, opbouw);
-    helften.forEach((ak, k) => {
-      const [vlak, bas] = AKKOORD[ak];
-      const t = t0 + (k * maat) / 2;
-      s.vlak(t, maat / 2, vlak, 0.03);
-      // drijvende bas: grondtoon met sprongen naar het octaaf
-      [bas, null, bas, octaaf(bas, 1)].forEach((noot, i) => noot && s.synthbas(t + i * acht, noot, i === 0 ? 0.24 : 0.19));
-      // akkoordstoten tegen de tel in
-      for (const i of [1, 3]) vlak.forEach((noot, j) => s.synth(t + i * acht, octaaf(noot, 1), 0.035, -0.3 + j * 0.3, 0.09));
-    });
+    if (naam === "FG") {
+      tokkelmaat(s, t0, "F", { tellen: 2 });
+      tokkelmaat(s, t0 + 1, "G", { tellen: 2, eerste: 2 });
+    } else tokkelmaat(s, t0, opbouw ? "G" : naam);
+    s.vlak(t0, maat, AKKOORD[naam === "FG" ? "F" : opbouw ? "G" : naam][0], 0.016);
     THEMA[naam].forEach((noot, i) => {
-      s.bel(t0 + i * acht, noot, i % 4 === 0 ? 0.15 : 0.1, i % 2 ? 0.3 : -0.2, 0.7);
-      if (i === 0 || i === 3 || i === 6 || opbouw) s.synth(t0 + i * acht, octaaf(noot, -1), 0.085, i % 2 ? -0.25 : 0.2, 0.17);
+      s.pluk(t0 + i * acht, noot, i % 4 === 0 ? 0.15 : 0.11, i % 2 ? 0.3 : -0.2, 0.12);
+      if (i % 4 === 0) s.bel(t0 + i * acht, noot, 0.07, i ? 0.3 : -0.2, 0.6);
     });
-    if (opbouw) s.aanloop(t0, maat, 0.1);
+    if (opbouw) {
+      aanloopje(s, t0 + 1, ["G3", "B3", "D4", "G4", "B4", "D5", "G5", "B5"], 1);
+      s.aanloop(t0 + 1, 1, 0.05);
+    }
   });
-  // slot: één klap op de grondtoon die uitklinkt
+  // slot: een getokkeld akkoord dat uitklinkt, en twee tokkels als staartje
   const t = begin + akkoorden.length * maat;
-  s.bons(t, 0.5);
-  s.klap(t, 0.2);
-  s.bekken(t, 0.16);
-  s.synthbas(t, "C2", 0.3, 0.6);
-  s.vlak(t, Math.max(0.5, einde - t), AKKOORD.C[0], 0.05);
-  for (const [i, noot] of ["C5", "E5", "G5"].entries()) s.synth(t, noot, 0.06, -0.3 + i * 0.3, 0.5);
-  s.bel(t, "C6", 0.19, 0, 2);
-  s.bel(t, "E6", 0.13, -0.3, 2);
-  s.harp(t + 0.3, ["G5", "C6", "E6", "G6", "C7"], 0.09, 0.09);
+  s.bons(t, 0.3);
+  s.bekken(t, 0.07);
+  ["C3", "G3", "E4", "C5", "E5"].forEach((noot, i) => s.pluk(t + i * 0.012, noot, 0.2, -0.3 + i * 0.15, 0.3));
+  s.bel(t, "C6", 0.13, 0, 1.8);
+  s.vlak(t, Math.max(0.5, einde - t), AKKOORD.C[0], 0.03);
+  s.pluk(t + 0.5, "G3", 0.2, 0.2, 0.14);
+  s.pluk(t + 1.0, "C3", 0.24, -0.1, 0.3);
+  s.bel(t + 1.0, "C7", 0.06, 0.2, 1.2);
 }
 
 function buurt(s, duur) {
-  // begin: koud en kaal (glad voor de deur), met een tikkende hi-hat; dan een aanloop tot de zak in beeld komt
-  s.vlak(0, 1.5, AKKOORD.Am[0], 0.05);
-  s.bas(0, "A2", 0.14, 0.8);
-  s.bel(0.25, "E5", 0.13, -0.3, 1.2);
-  s.bel(1.0, "A4", 0.11, 0.3, 1.2);
-  s.vlak(1.5, 1.5, AKKOORD.F[0], 0.05);
-  s.bas(1.5, "F2", 0.15, 0.8);
-  ["F5", "A5", "C6", "F6"].forEach((noot, i) => s.bel(1.5 + i * 0.25, noot, 0.11 + i * 0.012, -0.3 + i * 0.2, 0.8));
-  for (let i = 0; i < 12; i++) s.hat(i * 0.25, 0.03 + i * 0.004, false, i % 2 ? 0.3 : -0.2);
-  s.aanloop(1.9, 1.1, 0.11);
-  for (let i = 0; i < 6; i++) s.klap(2.25 + i * 0.125, 0.06 + i * 0.022);
-  // inzet op 3,0 s (de zak), opbouw naar 13,0 s (alles sluit aan, eindbeeld), slotklap op 17,0 s
-  arrangement(s, { maat: 2, begin: 3, akkoorden: ["C", "G", "Am", "F", "Gop", "C", "FG"], einde: duur });
+  // begin: sluipend getokkel in mineur (het is glad voor de deur), met een koud klokje; dan een loopje omhoog
+  tokkelmaat(s, 0, "Am", { sluipend: true });
+  tokkelmaat(s, 2, "Am", { sluipend: true, tellen: 1 });
+  s.bel(0.25, "E5", 0.08, -0.3, 1.2);
+  s.bel(1.25, "A4", 0.07, 0.3, 1.2);
+  aanloopje(s, 2.5, ["E3", "A3", "C4", "E4"], 0.5);
+  // inzet op 3,0 s (de zak), opbouw naar 13,0 s (alles sluit aan, eindbeeld), slot op 17,0 s
+  arrangement(s, { begin: 3, akkoorden: ["C", "G", "Am", "F", "Gop", "C", "FG"], einde: duur });
   // accenten op het beeld: licht aan bij de buren, buren die meedoen, alles sluit aan
-  for (const t of [6.3, 8.85]) s.harp(t, ["G6", "C7"], 0.07, 0.11);
-  [[10.3, "C6"], [10.8, "D6"], [11.3, "E6"], [11.8, "G6"], [12.2, "A6"]].forEach(([t, noot]) => s.bel(t, noot, 0.1, 0.3, 0.8));
-  s.bekken(13, 0.15);
-  s.harp(13.0, ["C5", "E5", "G5", "C6", "E6", "G6", "C7"], 0.04, 0.1);
+  for (const t of [6.3, 8.85]) s.harp(t, ["G6", "C7"], 0.07, 0.1);
+  [[10.3, "C6"], [10.8, "D6"], [11.3, "E6"], [11.8, "G6"], [12.2, "A6"]].forEach(([t, noot]) => s.bel(t, noot, 0.09, 0.3, 0.8));
+  s.harp(13.0, ["C5", "E5", "G5", "C6", "E6", "G6", "C7"], 0.04, 0.09);
 }
 
 function fiets(s, duur) {
@@ -325,34 +305,33 @@ function fiets(s, duur) {
     s.pluk(val + 0.62, "E3", 0.12);
     s.bel(val + 0.95, "G#4", 0.07, 0, 0.5);
   }
-  // aanloop tot de zak in beeld komt
-  s.aanloop(3.9, 0.6, 0.11);
-  for (let i = 0; i < 4; i++) s.klap(4.0 + i * 0.125, 0.07 + i * 0.03);
-  // inzet op 4,5 s (de zak), eindbeeld rond 13,2 s, slotklap op 16,5 s
-  arrangement(s, { maat: 2, begin: 4.5, akkoorden: ["C", "G", "Am", "FG", "C", "FG"], einde: duur });
+  // loopje omhoog tot de zak in beeld komt
+  aanloopje(s, 4.0, ["G3", "B3", "D4", "G4"], 0.5);
+  // inzet op 4,5 s (de zak), eindbeeld rond 13,2 s, slot op 16,5 s
+  arrangement(s, { begin: 4.5, akkoorden: ["C", "G", "Am", "FG", "C", "FG"], einde: duur });
+  // als de fietsers weer opstappen: een glijfluitje omhoog
+  for (const t of [6.6, 7.7]) s.glij(t, 420, 900, 0.3, 0.07, t < 7 ? -0.3 : 0.3);
   // fietsbel van de voorbijganger
   for (const t of [10.0, 10.11, 10.36, 10.47]) s.bel(t, "E7", 0.08, 0.4, 0.35);
-  s.bekken(12.5, 0.13);
 }
 
 function opa(s, duur) {
   // begin: opa schuifelt (getokkel op elke stap), de rollator schiet weg, het hondje glijdt uit
   for (let i = 0; i < 9; i++) {
-    s.pluk(i * 0.5, i % 2 ? "E3" : "A2", 0.22, -0.1);
-    if (i < 5) s.pluk(i * 0.5 + 0.25, "C4", 0.07, 0.4);
-    s.hat(i * 0.5 + 0.25, 0.035);
+    s.pluk(i * 0.5, i % 2 ? "E3" : "A2", 0.24, -0.1);
+    if (i < 5) s.pluk(i * 0.5 + 0.25, "C4", 0.08, 0.4);
+    s.hat(i * 0.5 + 0.25, 0.04);
   }
   s.glij(2.2, 620, 380, 0.3, 0.1, -0.2);
   s.glij(2.55, 1000, 420, 0.4, 0.11, 0.3);
   s.plof(2.95, 0.3);
   s.bel(3.3, "G#4", 0.07, 0, 0.5);
-  // de buurjongen komt aangerend: aanloop, dan de inzet als hij begint te strooien
-  s.aanloop(3.6, 1.4, 0.11);
-  for (let i = 0; i < 6; i++) s.klap(4.25 + i * 0.125, 0.06 + i * 0.022);
-  arrangement(s, { maat: 2, begin: 5, akkoorden: ["C", "G", "Am", "FG", "C", "FG"], einde: duur });
+  // de buurjongen komt aangerend: snelle tokkels, een glijfluitje als hij remt, dan de inzet als hij begint te strooien
+  aanloopje(s, 3.3, ["A2", "C3", "E3", "A3", "C4", "E4", "A4", "C5", "E5", "A5"], 1.25);
+  s.glij(4.6, 900, 520, 0.35, 0.09, 0.2);
+  arrangement(s, { begin: 5, akkoorden: ["C", "G", "Am", "FG", "C", "FG"], einde: duur });
   // duim omhoog: twee keer een tinkel
-  for (const t of [7.2, 11.8]) s.harp(t, ["E6", "G6", "C7"], 0.06, 0.11);
-  s.bekken(13, 0.13);
+  for (const t of [7.2, 11.8]) s.harp(t, ["E6", "G6", "C7"], 0.06, 0.1);
 }
 
 /** Maakt de muziek voor een filmpje en schrijft die als WAV (16 bit, stereo). */

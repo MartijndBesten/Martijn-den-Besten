@@ -3,6 +3,7 @@
 // muziek uit film/muziek.cjs eronder.
 // Gebruik: node scripts/strooizout/maak-film.cjs [buurt|fiets|opa]      → docs/strooizout/film/<naam>.mp4 (+ voorbeeld)
 //          node scripts/strooizout/maak-film.cjs fiets --stil 2,6.5,14 [map]   → losse beelden om te bekijken
+//          node scripts/strooizout/maak-film.cjs buurt --muziek            → alleen de muziek vervangen (ook met --web)
 //          node scripts/strooizout/maak-film.cjs fiets --web   → lichte versie voor de website (540 × 960, minder
 //          sneeuw) in public/strooizout/film/, met een startbeeld; die gaat wel mee in de uitrolbundel, dus klein houden
 // Vereist ffmpeg op het pad. De films komen bewust niet in public/: die map gaat mee in de uitrolbundel.
@@ -50,10 +51,11 @@ function pagina() {
   if (soloMuziek > -1) {
     // alleen de muziek opnieuw onder een bestaande film zetten (zonder de beelden opnieuw te maken)
     await browser.close();
-    const film = path.join(uit, `${FILM.naam}.mp4`);
+    const film = WEB ? path.join(hier, "../../public/strooizout/film", `${welke}.mp4`) : path.join(uit, `${FILM.naam}.mp4`);
     const tijdelijk = fs.mkdtempSync(path.join(os.tmpdir(), "strooimuziek-"));
     const muziek = maakMuziek(welke, duur, path.join(tijdelijk, "muziek.wav"));
-    execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", film, "-i", muziek, "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "128k", "-shortest", "-movflags", "+faststart", path.join(tijdelijk, "uit.mp4")], { stdio: "inherit" });
+    const geluid = WEB ? ["-b:a", "40k", "-ac", "1"] : ["-b:a", "128k"];
+    execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", film, "-i", muziek, "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", ...geluid, "-shortest", "-movflags", "+faststart", path.join(tijdelijk, "uit.mp4")], { stdio: "inherit" });
     fs.copyFileSync(path.join(tijdelijk, "uit.mp4"), film);
     fs.rmSync(tijdelijk, { recursive: true, force: true });
     console.log("muziek vervangen in:", film);
