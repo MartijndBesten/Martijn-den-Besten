@@ -8,7 +8,7 @@ export default function Instellingen() {
   const { api, meld } = useBeheer();
   const [v, setV] = useState<Inst | null>(null);
   const [apart, setApart] = useState(false);
-  const [tarief, setTarief] = useState({ stuk: "", kg: "" });
+  const [tarief, setTarief] = useState({ stuk: "", kg: "", adres: "" });
   const [bezig, setBezig] = useState(false);
   const [proef, setProef] = useState("");
   useEffect(() => {
@@ -16,7 +16,8 @@ export default function Instellingen() {
       if (!r.ok) return meld(r.error, true);
       setV(r.data.instellingen);
       setApart(r.data.apart_token);
-      setTarief({ stuk: (r.data.instellingen.bezorg_per_stuk_cent / 100).toFixed(2).replace(".", ","), kg: (r.data.instellingen.bezorg_per_kg_cent / 100).toFixed(2).replace(".", ",") });
+      const t = (c: number) => (c / 100).toFixed(2).replace(".", ",");
+      setTarief({ stuk: t(r.data.instellingen.bezorg_per_stuk_cent), kg: t(r.data.instellingen.bezorg_per_kg_cent), adres: t(r.data.instellingen.bezorg_per_adres_cent) });
     });
   }, [api, meld]);
   if (!v) return <p>Laden…</p>;
@@ -29,9 +30,10 @@ export default function Instellingen() {
     if (!v) return;
     const stuk = parseEuro(tarief.stuk);
     const perKg = parseEuro(tarief.kg);
-    if (stuk === null || perKg === null) return meld("Controleer de bezorgtarieven (bijv. 0,50).", true);
+    const perAdres = parseEuro(tarief.adres);
+    if (stuk === null || perKg === null || perAdres === null) return meld("Controleer de bezorgtarieven (bijv. 2,00).", true);
     setBezig(true);
-    const r = await api<{ instellingen: Inst }>("/instellingen", { method: "PUT", body: JSON.stringify({ ...v, bezorg_per_stuk_cent: stuk, bezorg_per_kg_cent: perKg }) });
+    const r = await api<{ instellingen: Inst }>("/instellingen", { method: "PUT", body: JSON.stringify({ ...v, bezorg_per_stuk_cent: stuk, bezorg_per_kg_cent: perKg, bezorg_per_adres_cent: perAdres }) });
     setBezig(false);
     if (!r.ok) return meld(r.error, true);
     setV(r.data.instellingen);
@@ -140,6 +142,9 @@ export default function Instellingen() {
             <fieldset className="bh-veld" style={{ border: 0, padding: 0, margin: 0 }}>
               <legend>Tarief</legend>
               <label className="bh-schakel">
+                <input type="radio" name="methode" checked={v.bezorg_methode === "per_adres"} onChange={() => zet("bezorg_methode", "per_adres")} /> Vast bedrag per bezorging (per adres)
+              </label>
+              <label className="bh-schakel">
                 <input type="radio" name="methode" checked={v.bezorg_methode === "per_stuk"} onChange={() => zet("bezorg_methode", "per_stuk")} /> Per stuk (standaard, per product aan te passen)
               </label>
               <label className="bh-schakel">
@@ -150,6 +155,10 @@ export default function Instellingen() {
               <label htmlFor="in-min">Bezorgen vanaf (aantal zakken)</label>
               <input id="in-min" className="sz-invoer" style={{ maxWidth: 120 }} type="number" min={0} max={50} value={v.bezorg_min_zakken} onChange={(e) => zet("bezorg_min_zakken", Math.max(0, Math.min(50, Number(e.target.value) || 0)))} />
               <small>0 = altijd bezorgen mogelijk.</small>
+            </div>
+            <div className="bh-veld bh-veld--6">
+              <label htmlFor="in-adres">Per bezorging (€)</label>
+              <input id="in-adres" className="sz-invoer" inputMode="decimal" value={tarief.adres} onChange={(e) => setTarief((t) => ({ ...t, adres: e.target.value }))} />
             </div>
             <div className="bh-veld bh-veld--6">
               <label htmlFor="in-stuk">Standaard per stuk (€)</label>
@@ -278,7 +287,10 @@ export default function Instellingen() {
           Toegang: {apart ? "eigen beheertoken voor Strooizout (STROOIZOUT_TOKEN) is ingesteld." : "dit beheer gebruikt het algemene beheertoken van de site. Een apart token kan via het Worker-secret STROOIZOUT_TOKEN."}
         </p>
       </section>
-      <p className="bh-sub">Huidig standaard bezorgtarief: {euro(v.bezorg_per_stuk_cent)} per stuk.</p>
+      <p className="bh-sub">
+        Huidig bezorgtarief:{" "}
+        {v.bezorg_methode === "per_adres" ? `${euro(v.bezorg_per_adres_cent)} per bezorging` : v.bezorg_methode === "per_stuk" ? `${euro(v.bezorg_per_stuk_cent)} per stuk` : `${euro(v.bezorg_per_kg_cent)} per kg`}.
+      </p>
     </form>
   );
 }

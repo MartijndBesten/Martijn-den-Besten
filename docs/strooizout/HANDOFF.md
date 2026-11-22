@@ -76,21 +76,14 @@ Conclusie: bij € 7,49 en een proef van 10 haalt de emmer voorwaarde 3 niet. De
   - Wie zelf afvult, geldt volgens de GPSR waarschijnlijk als fabrikant. Dan horen naam, adres en contact van Denckh plus een partijnummer op de emmer.
   - Controleer het veiligheidsblad van de zoutleverancier (antiklontermiddel).
 
-## Bezorgtarief: voorstel (tarief niet gewijzigd)
+## Bezorgtarief: € 2,00 per bezorging (besluit Martijn 22-11-2026)
 
-Nu kost bezorgen € 0,50 per zak incl., dat is € 0,41 excl. Bij 2 zakken komt dat neer op € 0,83 excl. per adres. De kosten:
+Bezorgen kost nu een vast bedrag van **€ 2,00 per bezorging (per adres)**, vanaf 2 zakken en alleen binnen de rondweg. Het aantal zakken maakt niet uit. In de instellingen heet dit ‘Vast bedrag per bezorging’ (`bezorg_methode = per_adres`, `bezorg_per_adres_cent = 200`). Je kunt dit aanpassen in *Instellingen › Bezorgen*.
 
-- Een losse rit binnen de rondweg is grofweg 4–6 km heen en terug (schatting).
-- Per km: € 0,25 (onbelaste vergoeding 2026). De werkelijke autokosten liggen tussen € 0,26 en € 0,55 per km (ANWB, Homefinance).
-- Daarbij komt 10–15 minuten laden en dragen van 50–100 kg.
-- Een losse rit kost daarmee € 1,25–2,75 aan auto, plus tijd. In een gebundelde ronde van ongeveer 6 adressen is dat ca. € 0,45–0,95 per adres, plus 5–7 minuten.
-
-**Het huidige tarief is verliesgevend**, ook in gebundelde rondes, zodra je je tijd meerekent. Twee mogelijke routes:
-
-- **Voorstel A, zonder codewijziging:** € 1,00 per zak, vanaf 2 zakken. Instellen in *Instellingen › Bezorgen*. Dat is € 2,00 bij 2 zakken en € 4,00 bij 4.
-- **Voorstel B, past beter bij ‘meer zakken per bestelling’:** € 2,50 per adres, vanaf 2 zakken, alleen op vaste bezorgrondes. Bij 4 zakken is dat € 0,63 per zak. Hiervoor is een kleine codewijziging nodig: een bezorgmethode ‘per adres’.
-
-Mijn advies is **B**. Beslissing bij Martijn (vraag 2).
+- Een bezorging levert € 1,65 excl. btw op.
+- Zelf rijden binnen de rondweg kost naar schatting € 1,25–2,75 per losse rit (4–6 km × € 0,25–0,55/km), plus 10–15 minuten.
+- In gebundelde rondes is dat ongeveer € 0,45–0,95 per adres.
+- Conclusie: kostendekkend in rondes, losse ritten blijven krap. Het vaste bedrag moedigt meer zakken per adres aan.
 
 ## Marketing
 
@@ -101,7 +94,7 @@ Mijn advies is **B**. Beslissing bij Martijn (vraag 2).
   - `bord-a4.pdf`
   - deeltekst op `/flyer`
   - De QR-codes zijn gedecodeerd: `https://strooizouthouten.nl` en `/aan-de-weg`.
-- **WhatsApp-tekst:** > Hoi buren! Geen aparte rit naar de bouwmarkt: in Houten kun je strooizout bestellen. 25 kg strooizout: 1 zak € 10,49, 2–3 zakken € 9,49, 4 of meer € 8,99 per zak. Samen bestellen is voordeliger. Gratis afhalen in Houten, of laten bezorgen binnen de rondweg (vanaf 2 zakken) voor € 0,50 per zak. Op voorraad vanaf donderdag 26 november; reserveren kan nu. Bestellen: https://strooizouthouten.nl
+- **WhatsApp-tekst:** > Hoi buren! Geen aparte rit naar de bouwmarkt: in Houten kun je strooizout bestellen. 25 kg strooizout: 1 zak € 10,49, 2–3 zakken € 9,49, 4 of meer € 8,99 per zak. Samen bestellen is voordeliger. Gratis afhalen in Houten, of laten bezorgen binnen de rondweg (vanaf 2 zakken) voor € 2,00. Op voorraad vanaf donderdag 26 november; reserveren kan nu. Bestellen: https://strooizouthouten.nl/?via=whatsapp
 - **Doelgroepen en kanaal:**
   - **Straten en buurtapps:** één persoon bestelt 4+ voor de straat. Daar zit de grootste aantallen-winst.
   - **Huishoudens met een oprit:** 2–4 zakken.
@@ -120,7 +113,7 @@ Mijn advies is **B**. Beslissing bij Martijn (vraag 2).
 ## Vragen en fysieke controles voor Martijn
 
 1. **Emmerprijs/afname:** bij € 7,49 haalt de proef de margevoorwaarde niet. Kies tussen ca. € 8,49–8,99 of een grotere afname. De emmer blijft tot dan op *binnenkort*.
-2. **Bezorgtarief:** voorstel A (€ 1,00 per zak) of B (€ 2,50 per adres, codewijziging). Tot dan € 0,50 per zak.
+2. ~~Bezorgtarief~~ — besloten: € 2,00 per bezorging (verwerkt).
 3. **Fysiek met 1–2 emmers, voordat er 10 besteld worden:**
    - vulproef met weegschaal: 5,0 kg erin, en past het deksel dan nog?
    - deksel sluit ook met korrels op de rand, en na herhaald openen;

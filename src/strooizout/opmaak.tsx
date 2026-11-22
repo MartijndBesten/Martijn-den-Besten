@@ -15,7 +15,7 @@ export type MandBerekening = { berekening: Berekening; producten: Map<number, Pu
 export function rekenMand(winkel: Winkel | null, regels: MandRegel[], levering: Levering = "ophalen"): MandBerekening {
   const producten = new Map((winkel?.producten ?? []).map((p) => [p.id, p]));
   const geldig = regels.filter((r) => producten.has(r.product_id));
-  const inst = winkel?.instellingen ?? { bezorg_methode: "per_stuk" as const, bezorg_per_stuk_cent: 50, bezorg_per_kg_cent: 2 };
+  const inst = winkel?.instellingen ?? { bezorg_methode: "per_adres" as const, bezorg_per_stuk_cent: 50, bezorg_per_kg_cent: 2, bezorg_per_adres_cent: 200 };
   const berekening = bereken(
     geldig.map((r) => ({ product: alsPrijsProduct(producten.get(r.product_id)!), aantal: r.aantal })),
     levering,
@@ -313,9 +313,11 @@ export function Lade() {
               <p className="sz-klein">
                 Ophalen is gratis.
                 {winkel.instellingen.bezorgen_aan &&
-                  (winkel.instellingen.bezorg_methode === "per_stuk"
-                    ? ` Bezorgen kost ${euro(winkel.instellingen.bezorg_per_stuk_cent)} per stuk (tenzij anders vermeld).`
-                    : ` Bezorgen kost ${euro(winkel.instellingen.bezorg_per_kg_cent)} per kg.`)}
+                  (winkel.instellingen.bezorg_methode === "per_adres"
+                    ? ` Bezorgen kost ${euro(winkel.instellingen.bezorg_per_adres_cent)} per bezorging.`
+                    : winkel.instellingen.bezorg_methode === "per_stuk"
+                      ? ` Bezorgen kost ${euro(winkel.instellingen.bezorg_per_stuk_cent)} per stuk (tenzij anders vermeld).`
+                      : ` Bezorgen kost ${euro(winkel.instellingen.bezorg_per_kg_cent)} per kg.`)}
               </p>
             )}
           </div>

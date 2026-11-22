@@ -157,7 +157,9 @@ function Bestelmodule({ p, winkel }: { p: PubliekProduct; winkel: Winkel }) {
           </div>
           <p className="sz-bestelkaart__toelichting" aria-live="polite">
             {levering === "bezorgen"
-              ? `Bezorgen binnen de rondweg: ${euro(som.bezorg_cent)} (${euro(inst.bezorg_per_stuk_cent)} per zak).`
+              ? inst.bezorg_methode === "per_adres"
+                ? `Bezorgen binnen de rondweg: ${euro(som.bezorg_cent)} per bezorging.`
+                : `Bezorgen binnen de rondweg: ${euro(som.bezorg_cent)} (${euro(inst.bezorg_per_stuk_cent)} per zak).`
               : inst.bezorgen_aan && !bezorgKan
                 ? `Afhalen is gratis. Bezorgen kan vanaf ${inst.bezorg_min_zakken} zakken, binnen de rondweg.`
                 : "Afhalen is gratis, in Houten."}
