@@ -4,7 +4,7 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { aanbiedingGeldig, alsPrijsProduct, bereken, dagTekst, euro, stukprijs, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
 import { minderBeweging, useOnthul, useTween } from "./beweging";
-import { IcoonBus, IcoonDelen, IcoonEuro, IcoonKlok, IcoonLet, IcoonMand, IcoonPijlRechts, IcoonVink } from "./iconen";
+import { IcoonDelen, IcoonKlok, IcoonLet, IcoonPijlRechts, IcoonVink } from "./iconen";
 import { useMand } from "./mandje";
 import { maxVoor } from "./opmaak";
 import { metBron, WINKEL_URL } from "./qr";
@@ -237,7 +237,7 @@ function Bestelkaart({ p, winkel, onAantal }: { p: PubliekProduct; winkel: Winke
               </button>
               <ul className="wn-zeker">
                 <li>
-                  <IcoonVink /> Betalen bij ontvangst
+                  <IcoonVink /> Betalen met betaalverzoek
                 </li>
                 <li>
                   <IcoonVink /> Gratis annuleren
@@ -267,7 +267,7 @@ function Binnenkort({ p }: { p: PubliekProduct }) {
       <img src={p.afbeelding} alt={p.afbeelding_alt || ""} width={56} height={56} loading="lazy" />
       <div>
         <p className="wn-binnenkort__titel">
-          {p.naam.replace(/^Strooizout (\d+) kg in emmer$/, "Emmer met $1 kg")} <span className="sz-nowrap sz-tnum">{euro(p.prijs_cent)}</span>
+          {p.naam.replace(/^Strooizout (\d+) kg in emmer$/, "Emmer met $1\u00a0kg")} <span className="sz-nowrap sz-tnum">{euro(p.prijs_cent)}</span>
         </p>
         <p>Licht te dragen, voor een kleine stoep.</p>
       </div>
@@ -303,36 +303,18 @@ function Delen({ winkel }: { winkel: Winkel | null }) {
 
 function Stappen() {
   return (
-    <section className="wn-sectie wn-stappen" aria-labelledby="wn-zo">
+    <section className="wn-stappen" aria-labelledby="wn-zo">
       <div className="sz-wrap">
-        <p className="wn-oog wn-oog--licht" data-onthul>
+        <h2 id="wn-zo" className="wn-oog wn-oog--licht">
           Zo werkt het
-        </p>
-        <h2 id="wn-zo" data-onthul>
-          Geen aparte rit naar de bouwmarkt.
         </h2>
         <ol className="wn-stappen__lijst">
-          <li data-onthul>
-            <span className="wn-stappen__icoon">
-              <IcoonMand />
-            </span>
-            <b>Kies je aantal</b>
-            <span>Je krijgt direct een afhaalcode. Meer zakken, lagere prijs per zak.</span>
-          </li>
-          <li data-onthul>
-            <span className="wn-stappen__icoon">
-              <IcoonBus />
-            </span>
-            <b>Afhalen of bezorgen</b>
-            <span>Gratis afhalen in Houten, of bezorgd binnen de rondweg.</span>
-          </li>
-          <li data-onthul>
-            <span className="wn-stappen__icoon">
-              <IcoonEuro />
-            </span>
-            <b>Betaal bij ontvangst</b>
-            <span>Contant of met een betaalverzoek. Nooit vooraf via de website.</span>
-          </li>
+          {["Bestel online", "Ontvang je afhaalcode", "Haal op of laat bezorgen"].map((stap) => (
+            <li key={stap}>
+              <span className="wn-stappen__icoon" aria-hidden="true" />
+              <b>{stap}</b>
+            </li>
+          ))}
         </ol>
       </div>
     </section>
@@ -348,8 +330,11 @@ function BuurBand({ winkel }: { winkel: Winkel | null }) {
             Hou je buurt veilig
           </p>
           <h2 id="wn-buur" data-onthul>
-            Strooi ook bij een buur die dat zelf niet kan.
+            Een beetje zout. <span>Een beetje aandacht.</span>
           </h2>
+          <p className="wn-buur__sub" data-onthul>
+            Strooi ook bij een buur die dat zelf niet kan. En zwaai eens naar elkaar!
+          </p>
           <div data-onthul>
             <Delen winkel={winkel} />
           </div>
@@ -374,21 +359,18 @@ function Bewust() {
         </h2>
         <ul className="wn-bewust__lijst">
           <li data-onthul>
-            <b>Eerst ruimen</b>
-            <span>Veeg of schuif de sneeuw weg en strooi daarna, alleen waar het nodig is.</span>
+            <b>Eerst sneeuw verwijderen</b>
+            <span>Strooi alleen waar nodig.</span>
           </li>
           <li data-onthul>
-            <b>Dun strooien</b>
-            <span>Een handje per vierkante meter is meestal genoeg. Meer zout werkt niet beter.</span>
+            <b>Een beetje is genoeg</b>
+            <span>Te veel zout schaadt planten en dieren.</span>
           </li>
           <li data-onthul>
-            <b>Denk aan groen en dieren</b>
-            <span>Te veel zout is slecht voor planten, bodem en slootwater. Veeg hondenpoten na het uitlaten af.</span>
+            <b>Bij strenge vorst</b>
+            <span>Gebruik zo nodig zand of split voor grip.</span>
           </li>
         </ul>
-        <p className="wn-bewust__noot" data-onthul>
-          Bij strenge vorst werkt zout minder; zand of split geeft dan grip.
-        </p>
       </div>
     </section>
   );

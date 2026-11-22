@@ -50,8 +50,11 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(trede(/2–3 zakken\s*€ 9,49 per zak/)).toHaveAttribute("aria-pressed", "true");
     await expect(trede(/4 of meer\s*€ 8,99 per zak/)).toBeVisible();
     await expect(kaart.locator(".sz-beschikbaar")).toContainText("Op voorraad");
-    await expect(page.getByRole("heading", { name: "Strooi ook bij een buur die dat zelf niet kan." })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Geen aparte rit naar de bouwmarkt." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Een beetje zout. Een beetje aandacht." })).toBeVisible();
+    await expect(page.getByText("Strooi ook bij een buur die dat zelf niet kan. En zwaai eens naar elkaar!")).toBeVisible();
+    await expect(page.locator(".wn-stappen__lijst li")).toHaveText(["Bestel online", "Ontvang je afhaalcode", "Haal op of laat bezorgen"]);
+    // betalen gaat met een betaalverzoek; contant betalen wordt nergens genoemd
+    await expect(page.getByText(/contant/i)).toHaveCount(0);
     // de emmer van 5 kg is zichtbaar maar niet te bestellen; delen en gebruikstip staan op de pagina
     await expect(page.locator(".sz-binnenkort")).toContainText("Binnenkort");
     await expect(page.locator(".sz-binnenkort")).toContainText("€ 7,49");
@@ -133,12 +136,16 @@ test.describe("Strooizout voor de buurt", () => {
     // bovenaan is er nog geen stap bereikt en zijn de ramen nog uit
     await expect(page.locator(".wn-stappen__lijst li.is-bereikt")).toHaveCount(0);
     await expect.poll(() => page.locator(".wn-buur__beeld").evaluate((el) => (el as HTMLElement).style.getPropertyValue("--straat"))).toBe("0.000");
+    const raam = page.locator(".wn-straat__raam");
+    expect(await raam.evaluateAll((els) => els.filter((el) => getComputedStyle(el).opacity !== "0").length)).toBe(0);
     // de route ligt over de inhoud maar vangt geen klikken af en verschuift niets
     expect(await page.locator(".wn-tocht__svg").evaluate((el) => getComputedStyle(el).pointerEvents)).toBe("none");
     await page.getByRole("heading", { name: "Strooi bewust" }).scrollIntoViewIfNeeded();
     await page.mouse.wheel(0, 400);
     await expect(page.locator(".wn-stappen__lijst li.is-bereikt")).toHaveCount(3);
     await expect.poll(() => page.locator(".wn-buur__beeld").evaluate((el) => (el as HTMLElement).style.getPropertyValue("--straat"))).toBe("1.000");
+    // waar gestrooid is, brandt licht: aan het eind in minstens twee huizen
+    expect(await raam.evaluateAll((els) => els.filter((el) => Number(getComputedStyle(el).opacity) > 0.9).length)).toBeGreaterThanOrEqual(4);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
   });
 

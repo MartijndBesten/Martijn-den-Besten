@@ -110,7 +110,7 @@ export default function Status() {
             </strong>
             <span className="sz-codekaart__uitleg">
               {b.kanaal === "straat"
-                ? `Laat deze code zien aan de verkoper en betaal ${euro(b.totaal_cent - b.betaald_cent)}: contant of met een betaalverzoek.`
+                ? `Laat deze code zien aan de verkoper en betaal ${euro(b.totaal_cent - b.betaald_cent)} met het betaalverzoek dat je van de verkoper krijgt.`
                 : b.levering === "ophalen"
                   ? "Noem of laat deze code zien bij het afhalen."
                   : "Noem deze code als je contact opneemt."}
@@ -231,8 +231,8 @@ export default function Status() {
                       : b.betaalwijze === "tikkie"
                         ? "Je krijgt een betaalverzoek op je mobiel"
                         : b.levering === "bezorgen"
-                          ? "Bij bezorgen"
-                          : "Bij afhalen"}
+                          ? "Met een betaalverzoek bij bezorgen"
+                          : "Met een betaalverzoek bij afhalen"}
             </dd>
             <dt>{b.levering === "bezorgen" ? "Bezorgen op" : "Ophalen"}</dt>
             <dd>

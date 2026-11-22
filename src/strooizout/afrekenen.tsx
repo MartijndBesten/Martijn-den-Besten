@@ -264,21 +264,21 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
   );
   const betaalKeuze = (
     <fieldset style={{ border: 0, padding: 0, margin: "16px 0 0" }}>
-      <legend style={{ fontWeight: 600, marginBottom: 8 }}>Betalen</legend>
+      <legend style={{ fontWeight: 600, marginBottom: 8 }}>Betalen met een betaalverzoek</legend>
       <div className="sz-keuzes">
         <label className="sz-keuze sz-keuze--klein">
           <input type="radio" name="betaal" checked={betaal === "bij_ontvangst"} onChange={() => setBetaal("bij_ontvangst")} />
           <div>
             <strong>{levering === "bezorgen" ? "Bij bezorgen" : "Bij afhalen"}</strong>
-            <span>{ingebed ? "Contant of betaalverzoek" : "Contant of met een betaalverzoek."}</span>
+            <span>{ingebed ? "Betaalverzoek ter plekke" : "Je krijgt het betaalverzoek ter plekke."}</span>
           </div>
         </label>
         {inst?.tikkie_aan && (
           <label className="sz-keuze sz-keuze--klein">
             <input type="radio" name="betaal" checked={betaal === "tikkie"} onChange={() => setBetaal("tikkie")} />
             <div>
-              <strong>{ingebed ? "Tikkie vooraf" : "Betaalverzoek vooraf"}</strong>
-              <span>{ingebed ? "Betaalverzoek op je mobiel" : "Je krijgt een Tikkie op je mobiel."}</span>
+              <strong>Vooraf</strong>
+              <span>{ingebed ? "Tikkie op je mobiel" : "Je krijgt een Tikkie op je mobiel."}</span>
             </div>
           </label>
         )}
@@ -297,7 +297,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
         )}
       </button>
       <p className="sz-klein">
-        Je betaalt pas bij ontvangst. Door te reserveren ga je akkoord met de <Link naar="/strooizout/voorwaarden">voorwaarden</Link> en de <Link naar="/strooizout/privacy">privacyverklaring</Link>.
+        Je betaalt met een betaalverzoek, niet via de website. Door te reserveren ga je akkoord met de <Link naar="/strooizout/voorwaarden">voorwaarden</Link> en de <Link naar="/strooizout/privacy">privacyverklaring</Link>.
       </p>
     </>
   );
@@ -329,7 +329,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
           <IcoonPijlLinks /> Verder winkelen
         </Link>
         <h1>Bestellen</h1>
-        <p className="sz-afrekenen__intro">Klaar in een minuut. Je betaalt pas bij ontvangst.</p>
+        <p className="sz-afrekenen__intro">Klaar in een minuut. Je betaalt met een betaalverzoek.</p>
         {!winkel.open && <RondeStatus winkel={winkel} />}
         {melding && (
           <div className="sz-melding sz-melding--fout" role="alert" tabIndex={-1} ref={meldingRef} style={{ marginBottom: 18 }}>
@@ -469,20 +469,20 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                 </div>
               </div>
               <fieldset style={{ border: 0, padding: 0, margin: "18px 0 0" }}>
-                <legend style={{ fontWeight: 600, marginBottom: 10 }}>Betalen</legend>
+                <legend style={{ fontWeight: 600, marginBottom: 10 }}>Betalen met een betaalverzoek</legend>
                 <div className="sz-keuzes">
                   <label className="sz-keuze sz-keuze--klein">
                     <input type="radio" name="betaal" checked={betaal === "bij_ontvangst"} onChange={() => setBetaal("bij_ontvangst")} />
                     <div>
                       <strong>{levering === "bezorgen" ? "Bij bezorgen" : "Bij afhalen"}</strong>
-                      <span>Contant of met een betaalverzoek.</span>
+                      <span>Je krijgt het betaalverzoek ter plekke.</span>
                     </div>
                   </label>
                   {inst?.tikkie_aan && (
                     <label className="sz-keuze sz-keuze--klein">
                       <input type="radio" name="betaal" checked={betaal === "tikkie"} onChange={() => setBetaal("tikkie")} />
                       <div>
-                        <strong>Betaalverzoek vooraf</strong>
+                        <strong>Vooraf</strong>
                         <span>Je krijgt een Tikkie op je mobiel.</span>
                       </div>
                     </label>
@@ -532,7 +532,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
               <h2 style={{ fontSize: 19 }}>Overzicht</h2>
               <Totalen b={berekening} levering={levering} />
               <p className="sz-klein" style={{ marginTop: 0 }}>
-                {inst?.btw_modus === "inclusief" ? `Prijzen inclusief ${inst.btw_tarief}% btw.` : "Alle prijzen zijn eindprijzen."} Betalen bij ontvangst.
+                {inst?.btw_modus === "inclusief" ? `Prijzen inclusief ${inst.btw_tarief}% btw.` : "Alle prijzen zijn eindprijzen."} Betalen met een betaalverzoek.
               </p>
             </div>
           </aside>

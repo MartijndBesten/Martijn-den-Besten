@@ -140,11 +140,8 @@ function Straatverkoop({ producten, bijgewerkt }: { producten: BeheerProduct[]; 
         {som.korting_cent > 0 && <span style={{ color: "var(--groen)", fontWeight: 600 }}>staffelkorting {euro(som.korting_cent)}</span>}
       </div>
       <div className="bh-knoppen" style={{ marginTop: 12 }}>
-        <button type="button" className="bh-knop bh-knop--hoofd" disabled={bezig} onClick={() => void registreer("contant")}>
-          Contant ontvangen
-        </button>
         <button type="button" className="bh-knop bh-knop--hoofd" disabled={bezig} onClick={() => void registreer("tikkie")}>
-          Tikkie ontvangen
+          Betaalverzoek betaald
         </button>
         <button type="button" className="bh-knop" disabled={bezig} onClick={() => void registreer("pin")}>
           Pin

@@ -121,7 +121,22 @@ Gebruik daarbij het beeld `delen-1200x630.jpg`.
 
 > Goedemiddag, wij zijn een lokaal initiatief in Houten en verkopen strooizout in zakken van 25 kg, vanaf 4 zakken voor € 8,99 per zak (incl. btw). We bezorgen binnen de rondweg. Voor grotere aantallen maken we graag een afspraak. Bestellen kan via https://strooizouthouten.nl/?via=zakelijk of door te reageren op dit bericht.
 
-## 8. Mobiele snelheid
+## 8. Filmpje (verticaal, 18,5 seconden)
+
+Bestand: `docs/strooizout/film/strooizout-film.mp4` (1080 × 1920, geschikt voor WhatsApp-status, Instagram/Facebook Reels en Stories, TikTok en YouTube Shorts). Voorbeeldbeeld: `strooizout-film-voorbeeld.jpg`.
+
+Verhaal in vijf beelden: ‘Glad voor de deur?’ → ‘Strooi je eigen stoep’ → ‘en ook bij een buur die dat zelf niet kan.’ (bij de buren gaat het licht aan en de buur zwaait) → ‘Een beetje zout. Een beetje aandacht.’ (meer buren strooien mee, alle paadjes sluiten op elkaar aan) → merk, zak van 25 kg, `strooizouthouten.nl` en onderaan ‘Een initiatief van Denckh’.
+
+- Het filmpje heeft geen geluid. In Instagram, Facebook en TikTok kun je bij het plaatsen zelf muziek uit hun bibliotheek kiezen; die is daar dan ook gelicenseerd.
+- Belangrijke tekst staat buiten de randen waar de apps hun knoppen overheen leggen.
+- Er staan geen prijzen in. Zet de actuele prijs zo nodig in het bijschrift.
+- Zet de link met herkomst in het bijschrift of de bio, bijvoorbeeld `https://strooizouthouten.nl/?via=film`, dan is in het beheer te zien wat het filmpje oplevert.
+
+Bijschrift (kort): *Glad voor de deur? Strooi je eigen stoep, en ook even bij een buur die dat zelf niet kan. Strooizout per zak van 25 kg, afhalen in Houten of bezorgd binnen de rondweg: strooizouthouten.nl*
+
+Plaatsen doet Martijn zelf; er wordt niets namens hem geplaatst.
+
+## 9. Mobiele snelheid
 
 - Homepage: één JavaScript-bundel voor de webshop, het lettertype wordt vooraf geladen en de productbeelden zijn WebP van 15–20 kB.
 - Geen externe scripts, geen cookies en geen tracking van derden.

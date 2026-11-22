@@ -89,7 +89,7 @@ export default function AanDeWeg() {
           <ol className="sz-straat__stappen">
             <li>Kies het aantal zakken.</li>
             <li>Vul je mobiele nummer in.</li>
-            <li>Laat je code zien en betaal bij de verkoper: contant of met een betaalverzoek.</li>
+            <li>Laat je code zien en betaal met het betaalverzoek dat je van de verkoper krijgt.</li>
           </ol>
           <div className="sz-straat__rij">
             <Aantal waarde={aantal} max={Math.max(1, maxVoor(p))} label="zakken" onChange={setAantal} />
@@ -128,7 +128,7 @@ export default function AanDeWeg() {
           <button type="submit" className="sz-knop sz-knop--vol sz-knop--groot" style={{ marginTop: 14 }} disabled={bezig}>
             {bezig ? "Even geduld…" : "Code ophalen"}
           </button>
-          <p className="sz-klein">Je betaalt bij de verkoper; de zakken krijg je na betaling mee. Prijzen inclusief 21% btw.</p>
+          <p className="sz-klein">Je betaalt met een betaalverzoek van de verkoper; de zakken krijg je na betaling mee. Prijzen inclusief 21% btw.</p>
         </form>
       )}
       <p className="sz-buur">Strooi ook bij een buur die dat zelf niet kan.</p>

@@ -7,7 +7,7 @@ import type { Cijfers } from "./typen";
 
 type Data = { cijfers: Cijfers; per_wijze: { wijze: string; n: number; som: number }[]; werkelijke_inkoop_cent: number | null; btw_modus: string; btw_tarief: number };
 
-const WIJZE: Record<string, string> = { contant: "Contant", tikkie: "Tikkie", overboeking: "Overboeking", pin: "Pin", provider: "Online", terugbetaling: "Terugbetaald" };
+const WIJZE: Record<string, string> = { contant: "Contant (oud)", tikkie: "Betaalverzoek", overboeking: "Overboeking", pin: "Pin", provider: "Online", terugbetaling: "Terugbetaald" };
 
 export default function Financien() {
   const { api, ronde, token, meld } = useBeheer();

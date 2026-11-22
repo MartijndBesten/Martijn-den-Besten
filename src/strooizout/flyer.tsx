@@ -99,7 +99,7 @@ export function FlyerA5({ g }: { g: Gegevens }) {
       <ul className="fl-punten">
         <li>Gratis afhalen in {g.plek}</li>
         {bezorgRegel(g) && <li>{bezorgRegel(g)}</li>}
-        <li>Betalen bij ontvangst of met een betaalverzoek</li>
+        <li>Betalen met een betaalverzoek</li>
       </ul>
       <div className="fl-a5__bestel">
         <QrCode className="fl-qr" tekst={metBron(WINKEL_URL, "flyer")} label={`QR-code naar ${WINKEL_URL}`} kleur="#0b2340" />

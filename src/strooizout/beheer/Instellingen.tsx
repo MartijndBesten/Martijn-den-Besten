@@ -185,10 +185,10 @@ export default function Instellingen() {
         <section className="bh-kaart">
           <h2>Betalen</h2>
           <label className="bh-schakel">
-            <input type="checkbox" checked={v.tikkie_aan} onChange={(e) => zet("tikkie_aan", e.target.checked)} /> Klant kan ‘Tikkie vooraf’ kiezen
+            <input type="checkbox" checked={v.tikkie_aan} onChange={(e) => zet("tikkie_aan", e.target.checked)} /> Klant kan ‘betaalverzoek vooraf’ kiezen
           </label>
           <p className="bh-sub" style={{ marginTop: 8 }}>
-            Betalen bij afhalen of bezorgen kan altijd. Tikkies stuur je zelf; registreer de betaling daarna bij de bestelling. Er is geen online betaalprovider gekoppeld.
+            Klanten betalen altijd met een betaalverzoek: ter plekke bij afhalen of bezorgen, of vooraf als dat hierboven aan staat. Het betaalverzoek (Tikkie) stuur je zelf; registreer de betaling daarna bij de bestelling. Er is geen online betaalprovider gekoppeld.
           </p>
           <h3>Btw</h3>
           <label className="bh-schakel">
