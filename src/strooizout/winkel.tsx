@@ -11,6 +11,7 @@ import { metBron, WINKEL_URL } from "./qr";
 import { useWinkel } from "./winkeldata";
 import { extern } from "./router";
 import { Scene, Straat } from "./scene";
+import { Tocht } from "./tocht";
 
 const Afrekenen = lazy(() => import("./afrekenen"));
 
@@ -445,8 +446,12 @@ export function WinkelPagina() {
           </div>
         </div>
       </section>
-      <Stappen />
-      <BuurBand winkel={winkel} />
+      {/* De strooiroute loopt over deze twee secties: langs de stappen naar de deur van de buur. */}
+      <div className="wn-tocht">
+        <Stappen />
+        <BuurBand winkel={winkel} />
+        <Tocht />
+      </div>
       <Bewust />
     </div>
   );

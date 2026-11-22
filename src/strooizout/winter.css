@@ -867,10 +867,9 @@
   border-radius: 24px;
   border: 1px solid var(--rand);
   background: var(--sneeuw);
-  transition: transform 0.35s var(--uit), box-shadow 0.35s ease, border-color 0.35s ease;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
 }
 .wn-stappen__lijst li:hover {
-  transform: translateY(-4px);
   border-color: var(--ijs-3);
   box-shadow: var(--schaduw-2);
 }
@@ -920,13 +919,106 @@
   width: 100%;
   height: clamp(190px, 30vw, 330px);
 }
+/* Het laatste stuk van de strooiroute: over het trottoir naar de deur van de buur. --straat (0 … 1) komt uit
+   tocht.tsx en loopt mee met de scroll; zonder script staat het eindbeeld er. */
+.wn-buur__beeld {
+  --straat: 1;
+}
 .wn-straat__teken {
   stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-  transition: stroke-dashoffset 2.4s var(--uit) 0.35s;
+  stroke-dashoffset: calc(1 - min(1, var(--straat) * 1.2));
 }
-.wn-js .wn-buur__beeld:not(.is-zichtbaar) .wn-straat__teken {
-  stroke-dashoffset: 1;
+.wn-straat__route--rechts {
+  display: none;
+}
+.wn-straat__raam {
+  opacity: clamp(0, calc((var(--straat) - var(--t)) * 16), 0.96);
+}
+.wn-straat__gloed {
+  opacity: clamp(0.3, calc((var(--straat) - 0.8) * 5), 1);
+}
+@media (min-width: 961px) {
+  .wn-straat__route--links {
+    display: none;
+  }
+  .wn-straat__route--rechts {
+    display: inline;
+  }
+}
+
+/* ---------- De strooiroute over de pagina (tocht.tsx) ---------- */
+.wn-tocht {
+  position: relative;
+  isolation: isolate;
+}
+.wn-tocht__svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  overflow: visible;
+  pointer-events: none;
+}
+.wn-tocht__svg path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.wn-tocht__spoor {
+  stroke-width: 18;
+  stroke-dasharray: var(--tocht-spoor, 0 99999);
+}
+.wn-tocht__wit {
+  stroke-width: 4.5;
+  stroke-dasharray: var(--tocht-wit, 0 99999);
+}
+.wn-tocht__amber {
+  stroke-width: 6.5;
+  stroke-dasharray: var(--tocht-amber, 0 99999);
+  stroke-dashoffset: -27;
+}
+.wn-tocht__licht .wn-tocht__spoor {
+  stroke: #e0edf8;
+}
+.wn-tocht__licht .wn-tocht__wit {
+  stroke: #86b4d9;
+}
+.wn-tocht__licht .wn-tocht__amber {
+  stroke: var(--amber-2);
+}
+.wn-tocht__donker .wn-tocht__spoor {
+  stroke: rgba(234, 245, 252, 0.2);
+}
+.wn-tocht__donker .wn-tocht__wit {
+  stroke: #fff;
+}
+.wn-tocht__donker .wn-tocht__amber {
+  stroke: var(--amber);
+}
+.wn-tocht__svg[data-smal="true"] .wn-tocht__spoor {
+  stroke-width: 11;
+}
+.wn-tocht__svg[data-smal="true"] .wn-tocht__wit {
+  stroke-width: 3.6;
+}
+.wn-tocht__svg[data-smal="true"] .wn-tocht__amber {
+  stroke-width: 5.2;
+}
+/* Een stap licht op zodra de route hem bereikt. Het pictogram staat boven de route. */
+.wn-stappen__icoon {
+  position: relative;
+  z-index: 2;
+  transition: background 0.45s ease, color 0.45s ease, box-shadow 0.45s ease, transform 0.5s var(--veer);
+}
+.wn-stappen__lijst li.is-bereikt {
+  border-color: var(--ijs-3);
+  background: #fff;
+}
+.wn-stappen__lijst li.is-bereikt .wn-stappen__icoon {
+  background: var(--amber);
+  color: var(--nacht-2);
+  box-shadow: 0 0 0 6px rgba(255, 181, 71, 0.22);
+  transform: scale(1.06);
 }
 .wn-delen {
   display: inline-flex;

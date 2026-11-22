@@ -127,6 +127,21 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(page.getByRole("link", { name: new RegExp(`Je bestelling ${code} bekijken`) })).toBeVisible();
   });
 
+  test("strooizout: de strooiroute loopt bij het scrollen langs de stappen naar de deur van de buur", async ({ page }) => {
+    await page.goto("/strooizout");
+    await expect(page.locator(".wn-tocht__svg path").first()).toBeAttached();
+    // bovenaan is er nog geen stap bereikt en zijn de ramen nog uit
+    await expect(page.locator(".wn-stappen__lijst li.is-bereikt")).toHaveCount(0);
+    await expect.poll(() => page.locator(".wn-buur__beeld").evaluate((el) => (el as HTMLElement).style.getPropertyValue("--straat"))).toBe("0.000");
+    // de route ligt over de inhoud maar vangt geen klikken af en verschuift niets
+    expect(await page.locator(".wn-tocht__svg").evaluate((el) => getComputedStyle(el).pointerEvents)).toBe("none");
+    await page.getByRole("heading", { name: "Strooi bewust" }).scrollIntoViewIfNeeded();
+    await page.mouse.wheel(0, 400);
+    await expect(page.locator(".wn-stappen__lijst li.is-bereikt")).toHaveCount(3);
+    await expect.poll(() => page.locator(".wn-buur__beeld").evaluate((el) => (el as HTMLElement).style.getPropertyValue("--straat"))).toBe("1.000");
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+  });
+
   test("strooizout: 1 zak ophalen op de telefoon en annuleren door de klant", async ({ page }) => {
     await page.goto("/strooizout");
     const kaart = page.locator(".sz-bestelkaart");
