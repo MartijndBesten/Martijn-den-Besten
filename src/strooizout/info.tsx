@@ -125,6 +125,27 @@ export function Privacy() {
   );
 }
 
+/** Platte tekst uit het beheer: lege regel = nieuwe alinea, regel die met "## " begint = tussenkop. */
+function Opgemaakt({ tekst }: { tekst: string }) {
+  return (
+    <>
+      {tekst
+        .split(/\n\s*\n/)
+        .map((blok) => blok.trim())
+        .filter(Boolean)
+        .map((blok, i) =>
+          blok.startsWith("## ") ? (
+            <h2 key={i}>{blok.slice(3)}</h2>
+          ) : (
+            <p key={i} className="sz-witregel">
+              {blok}
+            </p>
+          ),
+        )}
+    </>
+  );
+}
+
 export function Voorwaarden() {
   const { winkel } = useWinkel();
   return (
@@ -132,7 +153,7 @@ export function Voorwaarden() {
       <div className="sz-wrap sz-tekstpagina__in">
         <h1>Voorwaarden</h1>
         <p>Dit zijn de afspraken voor reserveringen bij Strooizout voor de buurt.</p>
-        {winkel ? <div className="sz-witregel">{winkel.instellingen.voorwaarden}</div> : <p>Even laden…</p>}
+        {winkel ? <Opgemaakt tekst={winkel.instellingen.voorwaarden} /> : <p>Even laden…</p>}
         <h2>Verkoper</h2>
         <Verkoper />
         <p>

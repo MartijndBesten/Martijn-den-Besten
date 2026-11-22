@@ -22,20 +22,24 @@ export default function Financien() {
   if (!d) return <p>Laden…</p>;
   const c = d.cijfers;
   const werkelijk = d.werkelijke_inkoop_cent;
+  // Zonder ingevulde inkoopprijs of geregistreerde inkoop tonen we geen marge (die zou alleen ‘onbekend’ zeggen).
+  const marge = c.inkoop_bekend || werkelijk !== null;
   return (
     <>
       <div className="bh-rij bh-rij--tussen">
         <div>
           <h1>Financiën</h1>
-          <p className="bh-sub">Bedragen van niet-geannuleerde bestellingen. Inkoop volgens de ingestelde inkoopprijzen, tenzij anders vermeld.</p>
+          <p className="bh-sub">Bedragen van niet-geannuleerde bestellingen. {marge ? "Inkoop volgens de ingestelde inkoopprijzen, tenzij anders vermeld." : "Marge verschijnt zodra er een inkoopprijs is ingevuld (Producten of Bestelrondes)."}</p>
         </div>
         <div className="bh-knoppen">
           <button type="button" className="bh-knop" onClick={() => void exporteer("financien")}>
             CSV administratie
           </button>
-          <button type="button" className="bh-knop" onClick={() => void exporteer("producten")}>
-            CSV marge per product
-          </button>
+          {marge && (
+            <button type="button" className="bh-knop" onClick={() => void exporteer("producten")}>
+              CSV marge per product
+            </button>
+          )}
         </div>
       </div>
       <div className="bh-kpis">
@@ -44,9 +48,13 @@ export default function Financien() {
         <Kpi label="Staffelkorting en aanbiedingen" waarde={euro(c.korting_cent)} sub="al verwerkt in de omzet" />
         <Kpi label="Omzet producten" waarde={euro(c.product_omzet_cent)} sub="na korting" />
         <Kpi label="Bezorgopbrengst" waarde={euro(c.bezorg_cent)} />
-        <Kpi label="Inkoopkosten (verwacht)" waarde={euro(c.inkoop_cent)} sub={c.inkoop_onbekend ? "niet alle inkoopprijzen bekend" : undefined} />
-        <Kpi label="Brutowinst (verwacht)" waarde={c.inkoop_onbekend ? "onvolledig" : euro(c.brutowinst_cent)} sub="omzet min inkoop; overige kosten niet meegeteld" />
-        <Kpi label="Werkelijke inkoop" waarde={werkelijk === null ? "–" : euro(werkelijk)} sub={werkelijk === null ? "nog niet geregistreerd" : `brutowinst: ${euro(c.omzet_cent - werkelijk)}`} />
+        {marge && (
+          <>
+            <Kpi label="Inkoopkosten (verwacht)" waarde={euro(c.inkoop_cent)} sub={c.inkoop_onbekend ? "niet alle inkoopprijzen bekend" : undefined} />
+            <Kpi label="Brutowinst (verwacht)" waarde={c.inkoop_onbekend ? "onvolledig" : euro(c.brutowinst_cent)} sub="omzet min inkoop; overige kosten niet meegeteld" />
+            <Kpi label="Werkelijke inkoop" waarde={werkelijk === null ? "–" : euro(werkelijk)} sub={werkelijk === null ? "nog niet geregistreerd" : `brutowinst: ${euro(c.omzet_cent - werkelijk)}`} />
+          </>
+        )}
         <Kpi label="Ontvangen" waarde={euro(c.ontvangen_cent)} />
         <Kpi label="Nog te ontvangen" waarde={euro(c.openstaand_cent)} sub={`${c.betaalstatus.open} openstaand, ${c.betaalstatus.verzoek} verzoek verstuurd`} />
         <Kpi label="Terugbetaald" waarde={euro(c.terugbetaald_cent)} sub={`${c.betaalstatus.terugbetaald} bestellingen`} />
@@ -54,7 +62,7 @@ export default function Financien() {
       {c.terug_te_betalen_cent > 0 && <p className="sz-melding sz-melding--let">Ontvangen op geannuleerde bestellingen: {euro(c.terug_te_betalen_cent)}. Registreer de terugbetaling.</p>}
       <div className="bh-twee">
         <section className="bh-kaart">
-          <h2>Marge per product</h2>
+          <h2>{marge ? "Marge per product" : "Verkoop per product"}</h2>
           {c.per_product.length === 0 ? (
             <p className="bh-sub">Nog geen verkopen.</p>
           ) : (
@@ -65,8 +73,8 @@ export default function Financien() {
                     <th>Product</th>
                     <th className="bh-getal">Aantal</th>
                     <th className="bh-getal">Omzet</th>
-                    <th className="bh-getal">Inkoop</th>
-                    <th className="bh-getal">Marge</th>
+                    {marge && <th className="bh-getal">Inkoop</th>}
+                    {marge && <th className="bh-getal">Marge</th>}
                   </tr>
                 </thead>
                 <tbody>
@@ -78,8 +86,8 @@ export default function Financien() {
                       </td>
                       <td className="bh-getal">{p.aantal}</td>
                       <td className="bh-getal">{euro(p.omzet_cent)}</td>
-                      <td className="bh-getal">{p.inkoop_onbekend ? "onbekend" : euro(p.inkoop_cent)}</td>
-                      <td className="bh-getal">{p.marge_cent === null ? "–" : euro(p.marge_cent)}</td>
+                      {marge && <td className="bh-getal">{p.inkoop_onbekend ? "onbekend" : euro(p.inkoop_cent)}</td>}
+                      {marge && <td className="bh-getal">{p.marge_cent === null ? "–" : euro(p.marge_cent)}</td>}
                     </tr>
                   ))}
                 </tbody>

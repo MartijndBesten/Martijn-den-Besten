@@ -40,7 +40,7 @@ function Denckh() {
   );
 }
 
-const bezorgRegel = (g: Gegevens) => (g.bezorg === null ? null : `Bezorgen${g.bezorgVanaf > 1 ? ` vanaf ${g.bezorgVanaf} zakken` : ""}: ${euro(g.bezorg)} per zak`);
+const bezorgRegel = (g: Gegevens) => (g.bezorg === null ? null : `Bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? `, vanaf ${g.bezorgVanaf} zakken` : ""}: ${`${euro(g.bezorg)} per zak`.replace(/ /g, "\u00a0")}`);
 
 export function FlyerA5({ g }: { g: Gegevens }) {
   return (
@@ -159,7 +159,7 @@ const DEEL_TEKST = (g: Gegevens) =>
     "Strooizout voor de buurt. Hou je buurt veilig.",
     "",
     `25 kg strooizout ${euro(g.prijs)}${g.staffel ? `, vanaf ${g.staffel.vanaf} zakken ${euro(g.staffel.prijs)} per zak` : ""}.`,
-    `Gratis afhalen in ${g.plek}${g.bezorg !== null ? `, of laten bezorgen${g.bezorgVanaf > 1 ? ` (vanaf ${g.bezorgVanaf} zakken)` : ""} voor ${euro(g.bezorg)} per zak` : ""}. Betalen bij ontvangst.`,
+    `Gratis afhalen in ${g.plek}${g.bezorg !== null ? `, of laten bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? ` (vanaf ${g.bezorgVanaf} zakken)` : ""} voor ${euro(g.bezorg)} per zak` : ""}. Betalen bij ontvangst.`,
     g.vanaf ? `Op voorraad vanaf ${dagTekst(g.vanaf)}; reserveren kan nu.` : "",
     "",
     `Bestellen: ${WINKEL_URL}`,

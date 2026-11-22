@@ -6,6 +6,7 @@ import {
   bereken,
   betaalstatus,
   binnenBezorggebied,
+  parseBezorggebied,
   controleerKlant,
   controleerInstelling,
   euro,
@@ -43,7 +44,7 @@ function req(path: string, init: RequestInit & { ip?: string; token?: string | n
 const beheer = (path: string, init: RequestInit & { token?: string | null } = {}) => req(`/api/strooizout/beheer${path}`, { token: ADMIN, ...init });
 const jsonVan = async (r: Response | Promise<Response>) => (await (await r).json()) as J;
 
-const KLANT = { naam: "Anna de Vries", email: "anna@example.com", telefoon: "06 12345678", straat: "Testlaan", huisnummer: "12a", postcode: "3992ab", plaats: "Houten" };
+const KLANT = { naam: "Anna de Vries", email: "anna@example.com", telefoon: "06 12345678", straat: "Testlaan", huisnummer: "12a", postcode: "3992kt", plaats: "Houten" };
 let teller = 0;
 const bestelBody = (extra: Record<string, unknown> = {}) => ({
   idempotentie: `test-${++teller}-abcdefghijklmnop`,
@@ -123,10 +124,10 @@ describe("prijsregels", () => {
 
   it("klantgegevens: verplichte velden, bezorggebied en normalisatie", () => {
     const ok = controleerKlant(KLANT, "bezorgen", "3991, 3992");
-    expect(ok.ok && ok.waarde.postcode).toBe("3992 AB");
+    expect(ok.ok && ok.waarde.postcode).toBe("3992 KT");
     expect(ok.ok && ok.waarde.telefoon).toBe("0612345678");
     const buiten = controleerKlant({ ...KLANT, postcode: "3511 AA" }, "bezorgen", "3991, 3992");
-    expect(!buiten.ok && buiten.fouten.postcode).toMatch(/bezorgen we helaas niet/);
+    expect(!buiten.ok && buiten.fouten.postcode).toMatch(/alleen binnen de rondweg/);
     const leeg = controleerKlant({}, "ophalen", "");
     // e-mail is optioneel; naam en mobiel nummer zijn verplicht
     expect(!leeg.ok && Object.keys(leeg.fouten).sort()).toEqual(["naam", "telefoon"]);
@@ -184,7 +185,7 @@ describe("webshop", () => {
     expect(b.code).toMatch(/^1-[0-9a-f]{24}$/);
     const rij = db.raw.prepare("SELECT * FROM sz_bestelling").get() as J;
     expect(rij.totaal_cent).toBe(1898);
-    expect(rij.postcode).toBe("3992 AB");
+    expect(rij.postcode).toBe("3992 KT");
     expect(db.raw.prepare("SELECT aantal, stukprijs_cent FROM sz_bestelregel").all()).toEqual([{ aantal: 2, stukprijs_cent: 899 }]);
   });
 
@@ -541,6 +542,30 @@ describe("mobiel nummer en klantgegevens", () => {
     expect(binnenBezorggebied("3992ab", "3991, 3992")).toBe(true);
     expect(binnenBezorggebied("3511 AB", "3991, 3992")).toBe(false);
   });
+
+  it("bezorggebied binnen de rondweg: uitzonderingen per postcode, losse postcodes en een duidelijke melding", async () => {
+    const g = STANDAARD_INSTELLINGEN.bezorg_postcodes;
+    expect(parseBezorggebied(g).pc4).toEqual(["3991", "3992", "3993", "3994", "3995"]);
+    expect(parseBezorggebied(g).niet).toHaveLength(65);
+    expect(binnenBezorggebied("3993 HA", g)).toBe(true); // Aalsloot, binnen de rondweg
+    expect(binnenBezorggebied("3991CD", g)).toBe(false); // Duwboot, bedrijventerrein buiten de rondweg
+    expect(binnenBezorggebied("3994 MD", g)).toBe(false); // Beusichemseweg, buiten de rondweg
+    expect(binnenBezorggebied("3994 AA", g)).toBe(true);
+    expect(binnenBezorggebied("3511 AB", g)).toBe(false);
+    // losse postcodes, ook meerdere achter één gebied, en uitsluiten met "behalve"
+    expect(binnenBezorggebied("3511 AC", "3511 AB AC")).toBe(true);
+    expect(binnenBezorggebied("3511 AD", "3511 AB AC")).toBe(false);
+    expect(binnenBezorggebied("3991 AB", "3991\nbehalve: 3991 AB")).toBe(false);
+    expect(binnenBezorggebied("3992 AB", "3991, 3992\nniet: 3991")).toBe(true);
+    expect(binnenBezorggebied("3991 XY", "3991, 3992\nniet: 3991")).toBe(false);
+    expect(controleerInstelling("bezorg_postcodes", g)).toEqual({ ok: true, waarde: g });
+    expect(controleerInstelling("bezorg_postcodes", "Houten").ok).toBe(false);
+
+    await startRonde();
+    const buiten = await bestel({ levering: "bezorgen", klant: { naam: "Piet", telefoon: "0699990000", straat: "Duwboot", huisnummer: "1", postcode: "3991 CD" } });
+    expect(buiten.status).toBe(422);
+    expect(((await buiten.json()) as J).velden.postcode).toMatch(/alleen binnen de rondweg.*wel gratis afhalen/);
+  });
 });
 
 describe("afhaalcode", () => {
@@ -892,6 +917,17 @@ describe("eigen domein strooizouthouten.nl", () => {
       expect(strooizoutDomein(u(`https://strooizouthouten.nl${p}`), false)).toBeNull();
     }
     expect(naar(strooizoutDomein(u("https://strooizouthouten.nl/museum"), false))).toEqual([302, "/"]);
+  });
+
+  it("robots.txt en sitemap van het eigen domein", async () => {
+    const r = strooizoutDomein(u("https://strooizouthouten.nl/robots.txt"), false);
+    const robots = r && "antwoord" in r ? await r.antwoord.text() : "";
+    expect(robots).toContain("Disallow: /beheer");
+    expect(robots).toContain("Sitemap: https://strooizouthouten.nl/sitemap.xml");
+    const s = strooizoutDomein(u("https://strooizouthouten.nl/sitemap.xml"), false);
+    const xml = s && "antwoord" in s ? await s.antwoord.text() : "";
+    expect(xml).toContain("<loc>https://strooizouthouten.nl/</loc>");
+    expect(xml).not.toContain("beheer");
   });
 
   it("www en lange adressen verwijzen door", () => {

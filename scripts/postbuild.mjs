@@ -70,6 +70,8 @@ writeFileSync(
 {
   const { mkdirSync } = await import("node:fs");
   const szShell = readFileSync(join(dist, "strooizout.html"), "utf8");
+  // Canonical op het eigen domein (korte adressen, worker/strooizout-domein.ts).
+  const SZ_DOMEIN = "https://strooizouthouten.nl";
   const SZ = [
     { pad: "bestellen", titel: "Bestellen — Strooizout voor de buurt", noindex: true },
     { pad: "bestelling", titel: "Je bestelling — Strooizout voor de buurt", noindex: true },
@@ -83,8 +85,8 @@ writeFileSync(
   for (const r of SZ) {
     let html = szShell
       .replace(/<title>.*?<\/title>/, `<title>${esc(r.titel)}</title>`)
-      .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${SITE.url}/strooizout/${r.pad}$2`)
-      .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${SITE.url}/strooizout/${r.pad}$2`);
+      .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${SZ_DOMEIN}/${r.pad}$2`)
+      .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${SZ_DOMEIN}/${r.pad}$2`);
     if (r.noindex) html = html.replace(/<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="noindex, nofollow" />');
     writeFileSync(join(dist, "strooizout", `${r.pad}.html`), html);
   }
@@ -94,10 +96,8 @@ writeFileSync(
 const today = new Date().toISOString().slice(0, 10);
 const indexable = [
   ...ROUTES.filter((r) => !["/beheer", "/einde"].includes(r.path)),
-  { path: "/strooizout" },
-  { path: "/strooizout/voorwaarden" },
-  { path: "/strooizout/privacy" },
 ];
+// Strooizout staat in de sitemap van zijn eigen domein (strooizouthouten.nl/sitemap.xml, worker/strooizout-domein.ts).
 writeFileSync(
   join(dist, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexable

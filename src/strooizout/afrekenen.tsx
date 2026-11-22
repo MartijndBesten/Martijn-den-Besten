@@ -2,7 +2,7 @@
 // Alleen wat nodig is: adres alleen bij bezorgen, e-mail optioneel. De server rekent alles opnieuw na.
 
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import { controleerKlant, dagTekst, euro, normaliseerMobiel, normaliseerPostcode, binnenBezorggebied, volgendeStaffel, alsPrijsProduct, zakkenIn, type Betaalwijze, type Klantgegevens, type Levering, type Winkel } from "../../shared/strooizout";
+import { controleerKlant, dagTekst, euro, normaliseerMobiel, normaliseerPostcode, binnenBezorggebied, BUITEN_GEBIED, volgendeStaffel, alsPrijsProduct, zakkenIn, type Betaalwijze, type Klantgegevens, type Levering, type Winkel } from "../../shared/strooizout";
 import type { MandRegel } from "./mandje";
 
 function berekeningZakken(winkel: Winkel | null, regels: MandRegel[]): number {
@@ -115,7 +115,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering 
     if (levering !== "bezorgen" || !inst) return "";
     const pc = normaliseerPostcode(v.postcode);
     if (!pc) return "";
-    return binnenBezorggebied(pc, inst.bezorg_postcodes) ? "" : "Op deze postcode bezorgen we helaas niet. Je kunt je bestelling wel gratis ophalen.";
+    return binnenBezorggebied(pc, inst.bezorg_postcodes) ? "" : BUITEN_GEBIED;
   }, [levering, v.postcode, inst]);
 
   useEffect(() => {

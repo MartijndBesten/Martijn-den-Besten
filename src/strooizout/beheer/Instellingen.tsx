@@ -1,7 +1,7 @@
 // Instellingen: webshop open/dicht, afhalen, bezorgen, tarieven, contact, teksten, voorwaarden, btw en bewaartermijn.
 
 import { useEffect, useState, type FormEvent } from "react";
-import { binnenBezorggebied, euro, normaliseerPostcode, parseEuro, parsePostcodes, type Instellingen as Inst } from "../../../shared/strooizout";
+import { binnenBezorggebied, euro, normaliseerPostcode, parseEuro, parseBezorggebied, type Instellingen as Inst } from "../../../shared/strooizout";
 import { useBeheer } from "./basis";
 
 export default function Instellingen() {
@@ -45,7 +45,7 @@ export default function Instellingen() {
     meld(`${r.data.gewist} ${r.data.gewist === 1 ? "bestelling" : "bestellingen"} opgeschoond`);
   }
 
-  const postcodes = parsePostcodes(v.bezorg_postcodes);
+  const gebied = parseBezorggebied(v.bezorg_postcodes);
   return (
     <form onSubmit={bewaar}>
       <div className="bh-rij bh-rij--tussen">
@@ -105,9 +105,14 @@ export default function Instellingen() {
           </label>
           <div className="bh-formulier" style={{ marginTop: 8 }}>
             <div className="bh-veld">
-              <label htmlFor="in-pc">Bezorggebied (postcodes, 4 cijfers)</label>
-              <input id="in-pc" className="sz-invoer" value={v.bezorg_postcodes} maxLength={400} onChange={tekst("bezorg_postcodes")} />
-              <small>{postcodes.length ? `Herkend: ${postcodes.join(", ")}` : "Nog geen geldige postcodes."} Controleer of dit het gewenste deel van Houten is.</small>
+              <label htmlFor="in-pc">Bezorggebied (postcodes)</label>
+              <textarea id="in-pc" className="sz-invoer" rows={5} value={v.bezorg_postcodes} maxLength={3000} onChange={tekst("bezorg_postcodes")} spellCheck={false} />
+              <small>
+                Hele gebieden als 4 cijfers (3991), losse postcodes als 3991 AB. Uitsluiten op een regel die begint met <code>niet:</code>, bijvoorbeeld <code>niet: 3991 CD CE</code>.{" "}
+                {gebied.pc4.length || gebied.pc6.length
+                  ? `Herkend: ${gebied.pc4.length ? `gebieden ${gebied.pc4.join(", ")}` : ""}${gebied.pc4.length && gebied.pc6.length ? " en " : ""}${gebied.pc6.length ? `${gebied.pc6.length} losse postcodes` : ""}${gebied.niet.length ? `, behalve ${gebied.niet.length} uitgesloten postcodes` : ""}.`
+                  : "Nog geen geldige postcodes."}
+              </small>
             </div>
             <div className="bh-veld">
               <label htmlFor="in-proef">Postcode controleren</label>

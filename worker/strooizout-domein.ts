@@ -10,6 +10,13 @@ export type DomeinUitkomst = { antwoord: Response } | { pad: string } | null;
 
 const doorverwijzing = (doel: string, status = 301) => new Response(null, { status, headers: { Location: doel, "Cache-Control": "public, max-age=3600" } });
 
+const tekst = (inhoud: string, type: string) => new Response(inhoud, { headers: { "Content-Type": `${type}; charset=utf-8`, "Cache-Control": "public, max-age=3600" } });
+const ROBOTS = `User-agent: *\nAllow: /\nDisallow: /beheer\nDisallow: /bestelling\nDisallow: /api/\n\nSitemap: https://${STROOIZOUT_DOMEIN}/sitemap.xml\n`;
+const sitemap = () =>
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${["/", "/voorwaarden", "/privacy"]
+    .map((p) => `  <url><loc>https://${STROOIZOUT_DOMEIN}${p}</loc></url>`)
+    .join("\n")}\n</urlset>\n`;
+
 /**
  * Bepaalt wat er met een verzoek moet gebeuren voor de Strooizout-domeinen.
  * - `{ antwoord }`: een doorverwijzing;
@@ -29,6 +36,9 @@ export function strooizoutDomein(url: URL, doorverwijzen: boolean): DomeinUitkom
     if (p === "/strooizout") return { antwoord: doorverwijzing(`/${url.search}`) };
     const lang = p.match(/^\/strooizout\/([a-z-]+)$/);
     if (lang && PAGINAS.has(lang[1])) return { antwoord: doorverwijzing(`/${lang[1]}${url.search}`) };
+    if (p === "/robots.txt") return { antwoord: tekst(ROBOTS, "text/plain") };
+    if (p === "/sitemap.xml") return { antwoord: tekst(sitemap(), "application/xml") };
+    if (p === "/favicon.ico") return { antwoord: doorverwijzing("/strooizout/icoon.svg") };
     // Bestanden die de webshop gebruikt, en de API.
     if (/^\/(api|assets|fonts|strooizout)\//.test(p) || p === "/bijbelreis/denckh-logo-signature.svg" || p === "/zout") return null;
     // Al het andere (de rest van martijndenbesten.com) hoort niet bij dit domein.

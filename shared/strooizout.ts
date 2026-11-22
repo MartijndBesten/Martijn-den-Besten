@@ -17,7 +17,10 @@ export type Instellingen = {
   afhaal_adres: string;
   afhaal_instructie: string;
   bezorgen_aan: boolean;
-  /** Postcodes (4 cijfers) waar bezorgd wordt, gescheiden door komma's. */
+  /**
+   * Bezorggebied. Hele postcodegebieden als 4 cijfers (`3991`), losse postcodes als `3991 AB`; een regel die begint met
+   * `niet:` sluit uit, bijv. `niet: 3991 CD CE` (zie parseBezorggebied).
+   */
   bezorg_postcodes: string;
   bezorg_methode: BezorgMethode;
   bezorg_per_stuk_cent: number;
@@ -54,25 +57,44 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
   afhaal_adres: "",
   afhaal_instructie: "",
   bezorgen_aan: true,
-  bezorg_postcodes: "3991, 3992, 3993, 3994, 3995",
+  // Houten binnen de rondweg: postcodegebieden 3991–3995 min de 65 postcodes waarvan het middelpunt buiten de rondweg
+  // ligt. Afgeleid uit PDOK Locatieserver (geometrie Rondweg en middelpunt per postcode, 22-11-2026); door Martijn te controleren.
+  bezorg_postcodes: "3991, 3992, 3993, 3994, 3995\nniet: 3991 CD CE CG CH CJ CK CL CM CN CP CR CS CT CW CX CZ LA LB LC LD LJ LK LM LN LS LZ MC\nniet: 3992 AA AB AC AD AE AG AK AL DB DC DD DE DG DH DJ LK LL LM LN LP LR LS LT LV LW LX LZ\nniet: 3994 AD AE AH AJ AN AV AX MA MC MD MG",
   bezorg_methode: "per_stuk",
   bezorg_per_stuk_cent: 50,
   bezorg_per_kg_cent: 2,
   bezorg_uitleg:
-    "We bezorgen alleen als het veilig kan. Bij gladheid, ijzel of sneeuwval kan de bezorging later worden; we laten het je dan weten.",
+    "We bezorgen alleen binnen de rondweg van Houten, en alleen als het veilig kan. Bij gladheid, ijzel of sneeuwval kan de bezorging later worden; we laten het je dan weten.",
   tikkie_aan: true,
   contact_naam: "Denckh",
   contact_email: "info@denckh.nl",
   contact_telefoon: "",
   bevestiging_tekst:
     "Bedankt voor je reservering. We nemen contact met je op zodra de bestelronde is ingekocht en je bestelling klaarligt.",
+  // CONCEPT (22-11-2026), wacht op akkoord van Martijn. Bedrijfsgegevens staan niet in deze tekst maar komen uit de
+  // verkopervelden onderaan de pagina. Regels die met "## " beginnen worden kopjes.
   voorwaarden: [
-    "Verkoper is Denckh. De bedrijfsgegevens staan onderaan deze pagina.",
-    "Een bestelling is een reservering. Je betaalt bij het afhalen of bezorgen, of met een betaalverzoek (bijv. Tikkie) dat je van ons krijgt. Je betaalt nooit vooraf via de website.",
-    "Een reservering is nog geen levergarantie. Lukt de levering niet (helemaal), dan hoor je dat van ons en betaal je niets voor wat niet geleverd wordt.",
-    "Je kunt je reservering kosteloos annuleren zolang de bestelling nog niet is afgehaald of bezorgd: via je bestelpagina of door contact op te nemen.",
-    "Bezorgen doen we vanaf 2 zakken, alleen binnen het aangegeven gebied in Houten en alleen als het veilig kan. Bij gladheid kan de bezorging later worden.",
-    "Alle prijzen zijn inclusief 21% btw. Bezorgkosten zie je voordat je de reservering plaatst.",
+    "## Wie verkoopt",
+    "Strooizout voor de buurt is een initiatief van Denckh. Denckh is de verkoper. De bedrijfsgegevens staan onderaan deze pagina.",
+    "## Wat we verkopen",
+    "Zakken strooizout van 25 kg, om je stoep, oprit of straat ijsvrij te houden. Het actuele aanbod staat in de webshop.",
+    "## Prijzen",
+    "Alle prijzen zijn inclusief 21% btw. Je ziet het totaalbedrag, met korting en eventuele bezorgkosten, voordat je bestelt. De prijs op het moment van bestellen blijft gelden.",
+    "## Vooruit bestellen",
+    "De zakken zijn op voorraad vanaf 26 november; de actuele datum staat in de webshop. Bestel je eerder, dan reserveer je zakken uit de eerste levering. Op is op. Kunnen we je bestelling onverhoopt niet (helemaal) leveren, dan laten we dat weten en betaal je niets voor wat je niet krijgt.",
+    "## Afhalen en bezorgen",
+    "Afhalen is gratis. Na je bestelling krijg je een afhaalcode; die laat je zien als je je zakken ophaalt.",
+    "Bezorgen kan alleen binnen de rondweg van Houten, vanaf 2 zakken, voor € 0,50 per zak. We bezorgen alleen als het veilig kan. Bij gladheid of sneeuwval kan de bezorging later worden; dan hoor je dat van ons.",
+    "## Betalen",
+    "Je betaalt na het bestellen, nooit vooraf via de website. Dat kan met een betaalverzoek (Tikkie) dat je van ons krijgt, of ter plekke bij het afhalen, bij bezorging of aan de weg. Aan de weg betaal je voordat je de zakken meeneemt.",
+    "## Annuleren en terugbrengen",
+    "Je kunt kosteloos annuleren zolang je bestelling nog niet is afgehaald of bezorgd: via je bestelpagina of door contact met ons op te nemen. Na ontvangst heb je 14 dagen bedenktijd: breng ongeopende zakken binnen die tijd terug en je krijgt het aankoopbedrag terug. Heb je al betaald, dan betalen we binnen 14 dagen terug.",
+    "## Klachten",
+    "Is er iets mis met je zakken of je bestelling? Laat het ons zo snel mogelijk weten, dan zoeken we samen een oplossing.",
+    "## Privacy",
+    "We vragen alleen wat nodig is voor je bestelling: je naam, je mobiele nummer en, als je laat bezorgen, je adres. Je e-mailadres is niet verplicht. We gebruiken deze gegevens alleen voor je bestelling en delen ze met niemand. Uiterlijk zes maanden na afloop wissen we je persoonsgegevens; alleen de bedragen bewaren we voor de boekhouding. Lees meer in de privacyverklaring.",
+    "## Contact",
+    "Vragen of klachten? Mail ons; het adres staat onderaan deze pagina.",
   ].join("\n\n"),
   btw_modus: "inclusief",
   btw_tarief: 21,
@@ -98,7 +120,7 @@ export const INSTELLING_VELDEN: Record<keyof Instellingen, Veld> = {
   afhaal_adres: { soort: "tekst", max: 200 },
   afhaal_instructie: { soort: "tekst", max: 500 },
   bezorgen_aan: { soort: "bool" },
-  bezorg_postcodes: { soort: "tekst", max: 400 },
+  bezorg_postcodes: { soort: "tekst", max: 3000 },
   bezorg_methode: { soort: "keuze", opties: ["per_stuk", "per_kg"] },
   bezorg_per_stuk_cent: { soort: "getal", min: 0, max: 2500 },
   bezorg_per_kg_cent: { soort: "getal", min: 0, max: 500 },
@@ -135,7 +157,7 @@ export function controleerInstelling(sleutel: string, waarde: unknown): { ok: tr
     if (sleutel === "beschikbaar_vanaf" && t && (!/^\d{4}-\d{2}-\d{2}$/.test(t) || Number.isNaN(Date.parse(t)))) return { ok: false, fout: "Kies een geldige datum." };
     if (sleutel === "verkoper_kvk" && t && !/^\d{8}$/.test(t)) return { ok: false, fout: "Een KvK-nummer heeft 8 cijfers." };
     if (sleutel === "verkoper_btw" && t && !/^NL\d{9}B\d{2}$/.test(t.replace(/[\s.]/g, "").toUpperCase())) return { ok: false, fout: "Een btw-id ziet eruit als NL123456789B01." };
-    if (sleutel === "bezorg_postcodes" && t && parsePostcodes(t).length === 0) return { ok: false, fout: "Geef postcodes op als 4 cijfers, gescheiden door komma's." };
+    if (sleutel === "bezorg_postcodes" && t && parsePostcodes(t).length === 0) return { ok: false, fout: "Geef postcodes op als 4 cijfers (3991) of als postcode (3991 AB), gescheiden door komma's." };
     return { ok: true, waarde: t };
   }
   if (veld.soort === "getal") {
@@ -147,8 +169,46 @@ export function controleerInstelling(sleutel: string, waarde: unknown): { ok: tr
   return typeof waarde === "string" && veld.opties.includes(waarde) ? { ok: true, waarde } : { ok: false, fout: `${sleutel}: ongeldige keuze.` };
 }
 
+export type Bezorggebied = { pc4: string[]; pc6: string[]; niet: string[] };
+
+/**
+ * Leest het bezorggebied. Per regel: `3991` = heel postcodegebied 3991; `3991 AB` of `3991AB AC` = losse postcodes;
+ * een regel die begint met `niet:` of `behalve:` sluit de genoemde gebieden of postcodes uit.
+ */
+export function parseBezorggebied(lijst: string): Bezorggebied {
+  const pc4 = new Set<string>();
+  const pc6 = new Set<string>();
+  const niet = new Set<string>();
+  for (const regel of lijst.split("\n")) {
+    const m = regel.match(/^\s*(?:niet|behalve)\s*:?(.*)$/i);
+    const uit = !!m;
+    let huidig: string | null = null;
+    let losse = false;
+    const sluit = () => {
+      if (huidig && !losse) (uit ? niet : pc4).add(huidig);
+    };
+    for (const t of (m ? m[1] : regel).toUpperCase().match(/[0-9]+|[A-Z]+/g) ?? []) {
+      if (/^[1-9][0-9]{3}$/.test(t)) {
+        sluit();
+        huidig = t;
+        losse = false;
+      } else if (huidig && /^[A-Z]{2}$/.test(t) && !["SA", "SD", "SS"].includes(t)) {
+        (uit ? niet : pc6).add(huidig + t);
+        losse = true;
+      } else {
+        sluit();
+        huidig = null;
+      }
+    }
+    sluit();
+  }
+  return { pc4: [...pc4], pc6: [...pc6], niet: [...niet] };
+}
+
+/** Alle postcodes/gebieden waar bezorgd wordt (zonder uitzonderingen); leeg = geen geldige invoer. */
 export function parsePostcodes(lijst: string): string[] {
-  return [...new Set((lijst.match(/\b[1-9][0-9]{3}\b/g) ?? []).map(String))];
+  const g = parseBezorggebied(lijst);
+  return [...g.pc4, ...g.pc6.map((p) => `${p.slice(0, 4)} ${p.slice(4)}`)];
 }
 
 /** Wijknaam bij een postcode volgens de instelling `wijken` (anders het postcodegebied zelf). */
@@ -441,17 +501,24 @@ export function controleerKlant(
     if (!/^[0-9]{1,5}(\s?[A-Za-z0-9-]{1,6})?$/.test(huisnummer)) fouten.huisnummer = "Vul een huisnummer in, bijvoorbeeld 12 of 12a.";
     if (plaats.length > 60) fouten.plaats = "Plaatsnaam is te lang.";
     if (!pc) fouten.postcode = "Vul een geldige postcode in, bijvoorbeeld 3991 AB.";
-    else if (!binnenBezorggebied(pc, bezorgPostcodes)) fouten.postcode = "Op dit adres bezorgen we helaas niet. Je kunt je bestelling wel gratis ophalen.";
+    else if (!binnenBezorggebied(pc, bezorgPostcodes)) fouten.postcode = BUITEN_GEBIED;
     else postcode = pc;
   }
   if (Object.keys(fouten).length) return { ok: false, fouten };
   return { ok: true, waarde: { naam, email, telefoon: telefoon!, straat, huisnummer, postcode, plaats, opmerking } };
 }
 
-/** Ligt deze postcode (bijv. "3992 AB") in het ingestelde bezorggebied (lijst van 4-cijferige postcodes)? */
+/** Ligt deze postcode (bijv. "3992 AB") in het ingestelde bezorggebied? Uitzonderingen (`niet:`) gaan voor. */
+export const BUITEN_GEBIED = "We bezorgen alleen binnen de rondweg van Houten. Op deze postcode kan dat helaas niet, maar je kunt je bestelling wel gratis afhalen.";
+
 export function binnenBezorggebied(postcode: string, bezorgPostcodes: string): boolean {
   const pc = normaliseerPostcode(postcode);
-  return !!pc && parsePostcodes(bezorgPostcodes).includes(pc.slice(0, 4));
+  if (!pc) return false;
+  const pc4 = pc.slice(0, 4);
+  const pc6 = pc.replace(" ", "");
+  const g = parseBezorggebied(bezorgPostcodes);
+  if (g.niet.includes(pc6) || g.niet.includes(pc4)) return false;
+  return g.pc6.includes(pc6) || g.pc4.includes(pc4);
 }
 
 // ---------- Staffelkorting ----------

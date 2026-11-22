@@ -252,6 +252,8 @@ function cijfers(cat: Catalogus, inst: Instellingen, bestellingen: BestellingVol
     korting_cent: korting,
     inkoop_cent: inkoop,
     inkoop_onbekend: inkoopOnbekend,
+    // Marge pas tonen als er ergens een inkoopprijs bekend is (besluit Martijn: inkoop mag leeg blijven en blokkeert niets).
+    inkoop_bekend: geldigeRegels.some((r) => regelInkoop(cat, r) !== null) || cat.producten.some((p) => p.status === "actief" && inkoopVan(cat, p) !== null),
     brutowinst_cent: omzet - inkoop,
     btw_cent: inst.btw_modus === "inclusief" ? btwDeel(omzet, inst.btw_tarief) : null,
     ontvangen_cent: ontvangen,
@@ -296,7 +298,6 @@ async function overzicht(request: Request, env: SzEnv, ctx: ExecutionContext): P
   const waarschuwingen: string[] = [];
   if (!inst.afhaal_adres && inst.afhalen_aan) waarschuwingen.push("Het afhaaladres is nog niet ingevuld (Instellingen).");
   if (!inst.contact_email && !inst.contact_telefoon) waarschuwingen.push("Er staan nog geen contactgegevens in de instellingen.");
-  for (const p of cat.producten) if (p.status === "actief" && inkoopVan(cat, p) === null) waarschuwingen.push(`Inkoopprijs van ‘${p.naam}’ is nog niet ingevuld: winst kan niet volledig berekend worden.`);
   if (!rondes.some((r) => r.status === "open")) waarschuwingen.push("Er is geen open bestelronde: klanten kunnen nu niet bestellen.");
   return json({ ok: true, ronde_id: rondeId, rondes, cijfers: cijfers(cat, inst, data.bestellingen, data.regels), werkelijke_inkoop_cent: await werkelijkeInkoop(env.DB, rondeId), waarschuwingen, winkel_open: inst.winkel_open });
 }

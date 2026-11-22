@@ -12,6 +12,8 @@ export type Cijfers = {
   korting_cent: number;
   inkoop_cent: number;
   inkoop_onbekend: boolean;
+  /** Is er ergens een inkoopprijs ingevuld? Zo niet, dan tonen we geen marge. */
+  inkoop_bekend: boolean;
   brutowinst_cent: number;
   btw_cent: number | null;
   ontvangen_cent: number;

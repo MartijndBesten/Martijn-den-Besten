@@ -1,6 +1,6 @@
 # Strooizout voor de buurt
 
-> **Hou je buurt veilig.** Een initiatief van Denckh. Mini-webshop voor inwoners van Houten op **https://martijndenbesten.com/strooizout**, met beheer op **/strooizout/beheer**.
+> **Hou je buurt veilig.** Een initiatief van Denckh. Mini-webshop voor inwoners van Houten op **https://strooizouthouten.nl** (beheer: **/beheer**). Zelfde Worker; intern staan de pagina's onder `/strooizout`, en `martijndenbesten.com/strooizout` blijft werken of verwijst door (zie *Eigen domein*).
 
 Zelfde Worker, zelfde D1-database en zelfde uitrolroute als de rest van martijndenbesten.com. Geen aparte hosting, geen betaalde diensten, geen externe scripts of CDN's.
 
@@ -11,7 +11,7 @@ Zelfde Worker, zelfde D1-database en zelfde uitrolroute als de rest van martijnd
 | Prijs | 1–3 zakken € 8,99, vanaf 4 zakken € 8,49 per zak voor alle zakken, incl. 21% btw | Producten › Strooizout › Staffelkorting |
 | Btw | 21% inclusief, ook over bezorgkosten; geen KOR | Instellingen › Betalen › Btw |
 | Afhalen | gratis, in Houten; volledig adres pas na bevestiging | Instellingen › Ophalen |
-| Bezorgen | vanaf 2 zakken, € 0,50 per zak, alleen in het postcodegebied | Instellingen › Bezorgen |
+| Bezorgen | vanaf 2 zakken, € 0,50 per zak, alleen binnen de rondweg van Houten (postcodelijst, zie *Bezorggebied*) | Instellingen › Bezorgen |
 | Voorraad | 40 zakken verwacht, reserveren vooraf; uitgeven pas na ontvangst | Voorraad |
 | Beschikbaar | ‘Op voorraad vanaf donderdag 26 november’ tot er iets ontvangen is | Instellingen › Webshop |
 | Verkoper | Denckh · Vlierweg 54, Houten · KvK 83176896 · btw NL003791952B15 · info@denckh.nl (zoals gepubliceerd op denckh.nl) | Instellingen › Verkoper |
@@ -56,10 +56,10 @@ Een vaste betaal-QR met één bedrag is bewust níet gebruikt: dan kloppen bedra
 | Bevestiging en bestelpagina | `/strooizout/bestelling#<link>` | Grote **afhaalcode** (bijv. H-4827) met kopiëren, delen en ‘stuur naar mezelf’; status, details, afhaaladres **pas na bevestiging**, annuleren. De persoonlijke link (HMAC) staat in het fragment en gaat niet naar server of statistiek |
 | Privacy en voorwaarden | `/strooizout/privacy`, `/strooizout/voorwaarden` | Voorwaarden zijn in het beheer aan te passen |
 | Flyer en deelbeelden | `/strooizout/flyer` | A5-flyer (afdrukken), deelbeelden, WhatsApp-tekst; prijzen live uit de webshop |
-| Korte link | `/zout` | 301 naar `/strooizout` |
+| Korte link | `/zout` | 301 naar `/strooizout` (met doorverwijzing aan: naar strooizouthouten.nl) |
 | Beheer | `/strooizout/beheer` | Overzicht, **afhalen (uitgifte op code)**, bestellingen, bezorgroute, producten, bestelrondes, financiën, instellingen, flyer en delen |
 
-Statische bestanden in `public/strooizout/`: `flyer-a5.pdf`, `bord-a4.pdf` (verkoop aan de weg), `delen-1080.jpg` (WhatsApp), `delen-1200x630.jpg` (buurt-app en linkvoorvertoning), logo's in `logo/`, productillustraties in `beeld/`. Alle QR-adressen staan op één plek: `src/strooizout/qr.tsx` (`DOMEIN`). Bij een eigen domein daar aanpassen en `node scripts/strooizout/maak-flyer.cjs` opnieuw draaien.
+Statische bestanden in `public/strooizout/`: `flyer-a5.pdf`, `bord-a4.pdf` (verkoop aan de weg), `delen-1080.jpg` (WhatsApp), `delen-1200x630.jpg` (buurt-app en linkvoorvertoning), logo's in `logo/`, productillustraties in `beeld/`. Alle QR-adressen staan op één plek: `src/strooizout/qr.tsx` (`DOMEIN` = `https://strooizouthouten.nl`; bord: `/aan-de-weg`). Na een wijziging `node scripts/strooizout/maak-flyer.cjs` opnieuw draaien tegen een lokale server waarin het product nog niet ontvangen is (dan staat ‘Op voorraad vanaf …’ op de beelden).
 
 ## Werking in het kort
 
@@ -71,8 +71,8 @@ Statische bestanden in `public/strooizout/`: `flyer-a5.pdf`, `bord-a4.pdf` (verk
 - **Geen dubbele bestellingen.** Elke bestelsessie heeft een idempotentiesleutel (`UNIQUE`); dubbel klikken of opnieuw versturen geeft dezelfde bestelling terug. De knop is ook uitgeschakeld tijdens het versturen.
 - **Spam en misbruik.** Alleen vanaf de eigen site (Origin), verborgen veld, minimale invultijd, max. 8 kB per verzoek, begrenzing per (gehasht) IP: 80 pogingen/uur, 20 bestellingen/uur en 60/dag (ruim, omdat buren op mobiel internet vaak één IP-adres delen). Beheer: na 20 mislukte inlogpogingen per uur geblokkeerd.
 - **Combinatiepakketten en aanbiedingen zonder programmeren.** Een product met onderdelen is een pakket (voorraad, inkoop, gewicht en bezorgkosten volgen uit de onderdelen). Aanbiedingen: actieprijs per stuk, optioneel vanaf een aantal (staffel) en binnen een periode; de laagste geldige prijs telt.
-- **Bezorgen.** Aan/uit, postcodegebied (4 cijfers), tarief per stuk (per product aan te passen, standaard € 0,50) of per kg, meerdere bezorg- en ophaalmomenten met optioneel maximum. Route per wijk/postcode met Google Maps-routelinks (max. 10 adressen per link), Apple Kaarten en Waze per adres, afdrukbare lijst. Geen betaalde route-API.
-- **Klantgegevens.** Naam en een **Nederlands mobiel nummer** zijn verplicht (06…, +31 6…, 0031 6…, +31 (0)6…; opgeslagen als 06xxxxxxxx). E-mail is optioneel. Adres (straat, huisnummer, postcode) alleen bij bezorgen, en alleen binnen het ingestelde postcodegebied (te controleren met de postcodecheck in *Instellingen*).
+- **Bezorgen.** Aan/uit, bezorggebied (postcodelijst, zie hieronder), tarief per stuk (per product aan te passen, standaard € 0,50) of per kg, meerdere bezorg- en ophaalmomenten met optioneel maximum. Route per wijk/postcode met Google Maps-routelinks (max. 10 adressen per link), Apple Kaarten en Waze per adres, afdrukbare lijst. Geen betaalde route-API.
+- **Klantgegevens.** Naam en een **Nederlands mobiel nummer** zijn verplicht (06…, +31 6…, 0031 6…, +31 (0)6…; opgeslagen als 06xxxxxxxx). E-mail is optioneel. Adres (straat, huisnummer, postcode) alleen bij bezorgen, en alleen binnen het ingestelde bezorggebied (te controleren met de postcodecheck in *Instellingen*). Daarbuiten: ‘We bezorgen alleen binnen de rondweg van Houten. Op deze postcode kan dat helaas niet, maar je kunt je bestelling wel gratis afhalen.’
 - **Afhaalcode.** Elke bestelling krijgt automatisch een korte code `H-` + 4 cijfers (bij drukte 5). Willekeurig; de `UNIQUE`-index bewaakt botsingen en bij een botsing wordt in dezelfde aanvraag een nieuwe code gekozen (getest met 25 gelijktijdige bestellingen en een geforceerde botsing). De code is **geen sleutel**: publiek opent hij niets; alleen de ingelogde beheerder kan erop zoeken. Na de bewaartermijn wordt de code gewist (en weer vrij).
 - **Afhalen/uitgifte.** Tabblad *Afhalen*: code intikken (met of zonder `H-`) → direct aantal zakken, betaalstatus en afhaalstatus. ‘Ontvangen en uitgeven’ registreert de betaling en zet de status in één transactie; een tweede uitgifte (ook gelijktijdig vanaf een andere telefoon) wordt geweigerd met ‘al uitgegeven op …’, en een betaling wordt alleen geboekt als déze uitgifte slaagde.
 - **Betaalstatussen.** Openstaand → betaalverzoek verstuurd → betaald → terugbetaald. ‘Verstuurd’ zet de beheerder zelf na het maken van een Tikkie (knoppen om mobiel nummer en openstaand bedrag te kopiëren). ‘Betaald’ en ‘terugbetaald’ volgen uitsluitend uit geregistreerde betalingen met het vinkje ‘echt ontvangen/terugbetaald’; deels betaald blijft openstaand.
@@ -86,6 +86,31 @@ Statische bestanden in `public/strooizout/`: `flyer-a5.pdf`, `bord-a4.pdf` (verk
 - Geen persoonsgegevens in logs: het logboek bevat alleen acties en bedragen; foutmeldingen bevatten geen invoer. Getest in `tests/strooizout.test.ts`.
 - Het volledige afhaaladres staat alleen in de instellingen en is pas zichtbaar op de bestelpagina van een klant nadat de beheerder de bestelling heeft bevestigd.
 - Het mandje staat in de browser (localStorage), het beheertoken alleen in de sessie (sessionStorage).
+
+## Bezorggebied: binnen de rondweg
+
+Instelling *Bezorgen › Bezorggebied* (`bezorg_postcodes`). Per regel: `3991` = heel postcodegebied, `3991 AB` (of `3991 AB AC`) = losse postcodes, een regel die begint met `niet:` sluit uit. Uitzonderingen gaan voor. Standaard:
+
+```
+3991, 3992, 3993, 3994, 3995
+niet: 3991 CD CE CG … (27 postcodes, o.a. Duwboot, Draaibrug, Veerwagenweg)
+niet: 3992 AA AB … (27 postcodes, o.a. Essenkade, Hoofdveste, Fortweg)
+niet: 3994 AD AE … (11 postcodes, o.a. Handboog, Rietdijk, Beusichemseweg)
+```
+
+Afgeleid op 22-11-2026 uit PDOK Locatieserver: de geometrie van de weg ‘Rondweg, Houten’ en het middelpunt van alle 1072 postcodes in Houten; 1007 liggen binnen de rondweg, 65 erbuiten (die staan op de `niet:`-regels). Beperkingen: een postcode die precies over de rondweg loopt, telt volgens zijn middelpunt; nieuwe postcodes in 3991–3995 vallen automatisch binnen het gebied. Het beheer toont bij elke bezorgbestelling het adres, dus een twijfelgeval zie je vóór het bezorgen. Volledige lijst: `shared/strooizout.ts` › `STANDAARD_INSTELLINGEN.bezorg_postcodes`.
+
+## Eigen domein strooizouthouten.nl
+
+`worker/strooizout-domein.ts` (in beide Worker-ingangen):
+
+- `strooizouthouten.nl/` → webshop; `/beheer`, `/aan-de-weg`, `/bestelling`, `/privacy`, `/voorwaarden`, `/flyer`, `/bestellen` → de bijbehorende pagina;
+- `www.strooizouthouten.nl` → 301 naar het hoofddomein; lange adressen (`/strooizout/...`) op het eigen domein → 301 naar de korte vorm;
+- `/robots.txt` en `/sitemap.xml` eigen versie; overige paden van martijndenbesten.com → 302 naar `/`;
+- canonical en og:url wijzen naar `https://strooizouthouten.nl/...`; de sitemap van martijndenbesten.com bevat de webshop niet meer;
+- Worker-variabele `STROOIZOUT_DOORVERWIJZEN = "ja"`: `martijndenbesten.com/strooizout(/pagina)` en `/zout` → 301 naar het eigen domein. Bestanden (PDF, beelden) blijven op het oude adres bereikbaar.
+
+Koppelen: Cloudflare › Workers › `martijndenbesten` › Domains & Routes › Custom domain voor `strooizouthouten.nl` en `www.strooizouthouten.nl` (zone in hetzelfde Cloudflare-account; DNS en certificaat regelt Cloudflare).
 
 ## Configuratie en secrets
 
@@ -123,7 +148,7 @@ strooizout.html + src/strooizout/     eigen Vite-ingang en React-app (eigen uite
 src/strooizout/beheer/                beheerdashboard (per tabblad een bestand, lazy geladen)
 scripts/postbuild.mjs                 maakt de HTML per route (noindex voor beheer/bestelling/flyer) en de sitemap-regels
 scripts/strooizout/                   bron-SVG's van de productillustraties en scripts voor beelden, flyer-PDF en deelbeelden
-tests/strooizout.test.ts              47 tests: prijsregels, validatie, API, gelijktijdigheid, rechten, CSV, privacy
+tests/strooizout.test.ts              63 tests: prijsregels, validatie, API, gelijktijdigheid, rechten, CSV, privacy
 e2e/strooizout.spec.ts                bestelroute desktop en telefoon, beheer, CSV, toegankelijkheid (axe)
 ```
 

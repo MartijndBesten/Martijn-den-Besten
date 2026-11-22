@@ -74,8 +74,10 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(kaart.getByText("Vul je naam in.")).toBeVisible();
     await expect(kaart.getByText("Vul je mobiele nummer in.")).toBeVisible();
     await kaart.getByLabel("Postcode").fill("3511 AA");
-    await expect(kaart.getByText("Op deze postcode bezorgen we helaas niet")).toBeVisible();
-    await kaart.getByLabel("Postcode").fill("3992 AB");
+    await expect(kaart.getByText(/alleen binnen de rondweg van Houten/)).toBeVisible();
+    await kaart.getByLabel("Postcode").fill("3991 CD");
+    await expect(kaart.getByText(/alleen binnen de rondweg van Houten/)).toBeVisible();
+    await kaart.getByLabel("Postcode").fill("3992 KT");
     await kaart.getByLabel("Huisnummer").fill("3");
     await kaart.getByLabel("Straat").fill("Proefstraat");
     await kaart.getByLabel("Naam").fill("Proef Klant");
