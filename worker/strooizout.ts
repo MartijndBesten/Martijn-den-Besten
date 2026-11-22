@@ -115,6 +115,7 @@ async function winkel(env: SzEnv): Promise<Response> {
       bezorg_methode: inst.bezorg_methode,
       bezorg_per_stuk_cent: inst.bezorg_per_stuk_cent,
       bezorg_per_kg_cent: inst.bezorg_per_kg_cent,
+      bezorg_per_adres_cent: inst.bezorg_per_adres_cent,
       bezorg_uitleg: inst.bezorg_uitleg,
       tikkie_aan: inst.tikkie_aan,
       contact_naam: inst.contact_naam,

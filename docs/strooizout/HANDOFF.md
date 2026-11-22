@@ -1,6 +1,11 @@
 # Strooizout voor de buurt — overdracht
 
-**Status (22-11-2026):** commerciële versie afgerond op branch `claude/strooizout-webshop-hfgvr1` (PR #78). Domein **strooizouthouten.nl** (Theory7, zone in Cloudflare) wordt na de uitrol als custom domain aan de Worker `martijndenbesten` gekoppeld. Geen echte bestellingen, inkooporders, betaalde diensten of berichten.
+**Status (22-11-2026, 12:48):** **live op https://martijndenbesten.com/strooizout** (PR #78 gemerged als 00471ba).
+
+- Uitgerold via de ingebedde variant: Worker `martijndenbesten` versie `0010e146-6db2-4f8b-b8d3-1520a757ded7`, `martijndenbesten-www` versie `c1ce1d69-3189-4f77-9b68-f1c32b31327d`. Herstelpunt van daarvoor: `8f62bf48-ccb4-4f15-bab5-96e940e76de2`.
+- Migratie 0004 is op productie toegepast. Gecontroleerd: zak 10,49 met staffels 9,49 en 8,99; inkoop 7,09; voorraad 40/40; emmer op ‘binnenkort’.
+- Rooktest geslaagd: home, museum, Bijbelreis, beheer, webshop, API (beheer zonder token geeft 401), noindex op het beheer, en de PDF’s en beelden.
+- **Nog niet gedaan:** de bestelronde openen (winkel staat op `open: false`), de productietestbestelling, en het koppelen van strooizouthouten.nl. Deze schrijfacties op productie hield het permissiesysteem van de uitrolsessie tegen; zie *Vragen* 11–12. De zone strooizouthouten.nl staat in Cloudflare op `active`.
 
 Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
 
@@ -71,21 +76,14 @@ Conclusie: bij € 7,49 en een proef van 10 haalt de emmer voorwaarde 3 niet. De
   - Wie zelf afvult, geldt volgens de GPSR waarschijnlijk als fabrikant. Dan horen naam, adres en contact van Denckh plus een partijnummer op de emmer.
   - Controleer het veiligheidsblad van de zoutleverancier (antiklontermiddel).
 
-## Bezorgtarief: voorstel (tarief niet gewijzigd)
+## Bezorgtarief: € 2,00 per bezorging (besluit Martijn 22-11-2026)
 
-Nu kost bezorgen € 0,50 per zak incl., dat is € 0,41 excl. Bij 2 zakken komt dat neer op € 0,83 excl. per adres. De kosten:
+Bezorgen kost nu een vast bedrag van **€ 2,00 per bezorging (per adres)**, vanaf 2 zakken en alleen binnen de rondweg. Het aantal zakken maakt niet uit. In de instellingen heet dit ‘Vast bedrag per bezorging’ (`bezorg_methode = per_adres`, `bezorg_per_adres_cent = 200`). Je kunt dit aanpassen in *Instellingen › Bezorgen*.
 
-- Een losse rit binnen de rondweg is grofweg 4–6 km heen en terug (schatting).
-- Per km: € 0,25 (onbelaste vergoeding 2026). De werkelijke autokosten liggen tussen € 0,26 en € 0,55 per km (ANWB, Homefinance).
-- Daarbij komt 10–15 minuten laden en dragen van 50–100 kg.
-- Een losse rit kost daarmee € 1,25–2,75 aan auto, plus tijd. In een gebundelde ronde van ongeveer 6 adressen is dat ca. € 0,45–0,95 per adres, plus 5–7 minuten.
-
-**Het huidige tarief is verliesgevend**, ook in gebundelde rondes, zodra je je tijd meerekent. Twee mogelijke routes:
-
-- **Voorstel A, zonder codewijziging:** € 1,00 per zak, vanaf 2 zakken. Instellen in *Instellingen › Bezorgen*. Dat is € 2,00 bij 2 zakken en € 4,00 bij 4.
-- **Voorstel B, past beter bij ‘meer zakken per bestelling’:** € 2,50 per adres, vanaf 2 zakken, alleen op vaste bezorgrondes. Bij 4 zakken is dat € 0,63 per zak. Hiervoor is een kleine codewijziging nodig: een bezorgmethode ‘per adres’.
-
-Mijn advies is **B**. Beslissing bij Martijn (vraag 2).
+- Een bezorging levert € 1,65 excl. btw op.
+- Zelf rijden binnen de rondweg kost naar schatting € 1,25–2,75 per losse rit (4–6 km × € 0,25–0,55/km), plus 10–15 minuten.
+- In gebundelde rondes is dat ongeveer € 0,45–0,95 per adres.
+- Conclusie: kostendekkend in rondes, losse ritten blijven krap. Het vaste bedrag moedigt meer zakken per adres aan.
 
 ## Marketing
 
@@ -96,7 +94,7 @@ Mijn advies is **B**. Beslissing bij Martijn (vraag 2).
   - `bord-a4.pdf`
   - deeltekst op `/flyer`
   - De QR-codes zijn gedecodeerd: `https://strooizouthouten.nl` en `/aan-de-weg`.
-- **WhatsApp-tekst:** > Hoi buren! Geen aparte rit naar de bouwmarkt: in Houten kun je strooizout bestellen. 25 kg strooizout: 1 zak € 10,49, 2–3 zakken € 9,49, 4 of meer € 8,99 per zak. Samen bestellen is voordeliger. Gratis afhalen in Houten, of laten bezorgen binnen de rondweg (vanaf 2 zakken) voor € 0,50 per zak. Op voorraad vanaf donderdag 26 november; reserveren kan nu. Bestellen: https://strooizouthouten.nl
+- **WhatsApp-tekst:** > Hoi buren! Geen aparte rit naar de bouwmarkt: in Houten kun je strooizout bestellen. 25 kg strooizout: 1 zak € 10,49, 2–3 zakken € 9,49, 4 of meer € 8,99 per zak. Samen bestellen is voordeliger. Gratis afhalen in Houten, of laten bezorgen binnen de rondweg (vanaf 2 zakken) voor € 2,00. Op voorraad vanaf donderdag 26 november; reserveren kan nu. Bestellen: https://strooizouthouten.nl/?via=whatsapp
 - **Doelgroepen en kanaal:**
   - **Straten en buurtapps:** één persoon bestelt 4+ voor de straat. Daar zit de grootste aantallen-winst.
   - **Huishoudens met een oprit:** 2–4 zakken.
@@ -115,7 +113,7 @@ Mijn advies is **B**. Beslissing bij Martijn (vraag 2).
 ## Vragen en fysieke controles voor Martijn
 
 1. **Emmerprijs/afname:** bij € 7,49 haalt de proef de margevoorwaarde niet. Kies tussen ca. € 8,49–8,99 of een grotere afname. De emmer blijft tot dan op *binnenkort*.
-2. **Bezorgtarief:** voorstel A (€ 1,00 per zak) of B (€ 2,50 per adres, codewijziging). Tot dan € 0,50 per zak.
+2. ~~Bezorgtarief~~ — besloten: € 2,00 per bezorging (verwerkt).
 3. **Fysiek met 1–2 emmers, voordat er 10 besteld worden:**
    - vulproef met weegschaal: 5,0 kg erin, en past het deksel dan nog?
    - deksel sluit ook met korrels op de rand, en na herhaald openen;
@@ -128,6 +126,8 @@ Mijn advies is **B**. Beslissing bij Martijn (vraag 2).
 7. **Inkoopprijs € 7,09** bevestigen zodra de factuur er is (*Producten*).
 8. **Reservering of koop?** Voor Google Merchant Center (gratis productvermeldingen) moet een bestelling een echte koop zijn. De knop moet dan wettelijk een betalingsverplichting noemen. Zolang het een kosteloos te annuleren reservering blijft: Merchant Center overslaan.
 9. **Google-accounts (login Martijn):** Search Console-domein verifiëren via TXT in Cloudflare, de sitemap indienen en indexering aanvragen (stappen in PROMOTIE.md §2). Bedrijfsprofiel: het bestaande Denckh-profiel uitbreiden in plaats van een tweede profiel aan te maken.
+11. **Bestelronde openen** in *Beheer › Bestelrondes › Nieuwe ronde* (bijv. ‘Winter 2026’, zonder sluitdatum). Kan ook door een agent, als Martijn schrijfacties op de productiedatabase toestaat. Daarna een testbestelling met fictieve gegevens plaatsen, annuleren en opruimen.
+12. **Domein koppelen.** Kan via Claude in Chrome: Workers › `martijndenbesten` › Domains & Routes › Custom domain `strooizouthouten.nl` en `www.strooizouthouten.nl`. Of via een uitrol met de bijgewerkte `wrangler.embedded.jsonc`, waar beide domeinen nu in staan. Werkt het domein, dan de doorverwijzing aanzetten (`STROOIZOUT_DOORVERWIJZEN = "ja"`) en opnieuw uitrollen.
 10. **Promotie plaatsen:** de teksten liggen klaar (PROMOTIE.md §7). Niets plaatsen zonder akkoord van Martijn en, bij groepen, de beheerder.
 
 ## Gecontroleerd (22-11-2026)

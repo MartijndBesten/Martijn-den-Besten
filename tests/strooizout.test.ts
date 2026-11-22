@@ -182,11 +182,11 @@ describe("webshop", () => {
     const b = (await r.json() as J).bestelling;
     expect(b.nummer).toBe("SZ-0001");
     expect(b.subtotaal_cent).toBe(1898);
-    expect(b.bezorg_cent).toBe(100);
-    expect(b.totaal_cent).toBe(1998);
+    expect(b.bezorg_cent).toBe(200); // € 2,00 per bezorging
+    expect(b.totaal_cent).toBe(2098);
     expect(b.code).toMatch(/^1-[0-9a-f]{24}$/);
     const rij = db.raw.prepare("SELECT * FROM sz_bestelling").get() as J;
-    expect(rij.totaal_cent).toBe(1998);
+    expect(rij.totaal_cent).toBe(2098);
     expect(rij.postcode).toBe("3992 KT");
     expect(db.raw.prepare("SELECT aantal, stukprijs_cent FROM sz_bestelregel").all()).toEqual([{ aantal: 2, stukprijs_cent: 949 }]);
   });
@@ -328,7 +328,7 @@ describe("beheer", () => {
     await startRonde();
     await beheer("/producten/1", { method: "PUT", body: JSON.stringify({ ...(await productInvoer(1)), inkoop_cent: 600 }) });
     await bestel({ regels: [{ product_id: 1, aantal: 2 }] }); // 18,98 ophalen
-    await bestel({ regels: [{ product_id: 1, aantal: 3 }], levering: "bezorgen" }); // 28,47 + 1,50
+    await bestel({ regels: [{ product_id: 1, aantal: 3 }], levering: "bezorgen" }); // 28,47 + 2,00
     await bestel({ regels: [{ product_id: 1, aantal: 1 }] }); // wordt geannuleerd
 
     expect((await beheer("/bestellingen/1/status", { method: "POST", body: JSON.stringify({ status: "bezorgd" }) })).status).toBe(409); // ophalen
@@ -347,12 +347,12 @@ describe("beheer", () => {
       geannuleerd: 1,
       zakken: 5,
       gewicht_gram: 125000,
-      omzet_cent: 1898 + 2997,
-      bezorg_cent: 150,
+      omzet_cent: 1898 + 3047,
+      bezorg_cent: 200,
       inkoop_cent: 3000,
-      brutowinst_cent: 1898 + 2997 - 3000,
+      brutowinst_cent: 1898 + 3047 - 3000,
       ontvangen_cent: 2898,
-      openstaand_cent: 2997 - 1000,
+      openstaand_cent: 3047 - 1000,
       af_te_halen: 0,
       te_bezorgen: 1,
       inkoop_onbekend: false,
@@ -491,7 +491,7 @@ describe("beheer", () => {
     const over7maanden = new Date(Date.now() + 7 * 31 * 86400_000);
     expect(await opschonen(db as unknown as D1Database, STANDAARD_INSTELLINGEN, over7maanden)).toBe(1);
     const rij = db.raw.prepare("SELECT naam, email, telefoon, straat, postcode, totaal_cent, geanonimiseerd_op FROM sz_bestelling WHERE id = 1").get() as J;
-    expect(rij).toMatchObject({ naam: "Gewist", email: "", telefoon: "", straat: "", postcode: "3992", totaal_cent: 1998 });
+    expect(rij).toMatchObject({ naam: "Gewist", email: "", telefoon: "", straat: "", postcode: "3992", totaal_cent: 2098 });
     expect(rij.geanonimiseerd_op).toBeTruthy();
     // bestelling 2 is nog niet afgerond: blijft
     expect((db.raw.prepare("SELECT email FROM sz_bestelling WHERE id = 2").get() as J).email).toBe("anna@example.com");
@@ -811,7 +811,11 @@ describe("definitieve afspraken", () => {
     expect(((await een.json()) as J).error).toMatch(/vanaf 2 zakken/);
     expect((await bestel({ regels: [{ product_id: 1, aantal: 1 }] })).status).toBe(201);
     const twee = ((await (await bestel({ regels: [{ product_id: 1, aantal: 2 }], levering: "bezorgen" })).json()) as J).bestelling;
-    expect(twee).toMatchObject({ subtotaal_cent: 1898, bezorg_cent: 100, totaal_cent: 1998 });
+    expect(twee).toMatchObject({ subtotaal_cent: 1898, bezorg_cent: 200, totaal_cent: 2098 });
+    // vast bedrag per bezorging, ongeacht het aantal zakken
+    const tien = ((await (await bestel({ regels: [{ product_id: 1, aantal: 10 }], levering: "bezorgen" })).json()) as J).bestelling;
+    expect(tien).toMatchObject({ subtotaal_cent: 8990, bezorg_cent: 200, totaal_cent: 9190 });
+    expect((await jsonVan(req("/api/strooizout/winkel"))).instellingen).toMatchObject({ bezorg_methode: "per_adres", bezorg_per_adres_cent: 200 });
   });
 
   it("btw 21% inclusief over producten én bezorgkosten, ook met staffelkorting", async () => {

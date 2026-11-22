@@ -4,7 +4,7 @@
 
 // ---------- Instellingen ----------
 
-export type BezorgMethode = "per_stuk" | "per_kg";
+export type BezorgMethode = "per_stuk" | "per_kg" | "per_adres";
 export type BtwModus = "geen" | "inclusief";
 
 export type Instellingen = {
@@ -25,6 +25,8 @@ export type Instellingen = {
   bezorg_methode: BezorgMethode;
   bezorg_per_stuk_cent: number;
   bezorg_per_kg_cent: number;
+  /** Vast bedrag per bezorging (per adres), ongeacht het aantal zakken. */
+  bezorg_per_adres_cent: number;
   bezorg_uitleg: string;
   tikkie_aan: boolean;
   contact_naam: string;
@@ -64,9 +66,11 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
   // Houten binnen de rondweg: postcodegebieden 3991–3995 min de 65 postcodes waarvan het middelpunt buiten de rondweg
   // ligt. Afgeleid uit PDOK Locatieserver (geometrie Rondweg en middelpunt per postcode, 22-11-2026); door Martijn te controleren.
   bezorg_postcodes: "3991, 3992, 3993, 3994, 3995\nniet: 3991 CD CE CG CH CJ CK CL CM CN CP CR CS CT CW CX CZ LA LB LC LD LJ LK LM LN LS LZ MC\nniet: 3992 AA AB AC AD AE AG AK AL DB DC DD DE DG DH DJ LK LL LM LN LP LR LS LT LV LW LX LZ\nniet: 3994 AD AE AH AJ AN AV AX MA MC MD MG",
-  bezorg_methode: "per_stuk",
+  // Besluit Martijn 22-11-2026: bezorgen kost € 2,00 per adres (vanaf 2 zakken, binnen de rondweg).
+  bezorg_methode: "per_adres",
   bezorg_per_stuk_cent: 50,
   bezorg_per_kg_cent: 2,
+  bezorg_per_adres_cent: 200,
   bezorg_uitleg:
     "We bezorgen alleen binnen de rondweg van Houten, en alleen als het veilig kan. Bij gladheid, ijzel of sneeuwval kan de bezorging later worden; we laten het je dan weten.",
   tikkie_aan: true,
@@ -88,7 +92,7 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
     "De zakken zijn op voorraad vanaf 26 november; de actuele datum staat in de webshop. Bestel je eerder, dan reserveer je zakken uit de eerste levering. Op is op. Kunnen we je bestelling onverhoopt niet (helemaal) leveren, dan laten we dat weten en betaal je niets voor wat je niet krijgt.",
     "## Afhalen en bezorgen",
     "Afhalen is gratis. Na je bestelling krijg je een afhaalcode; die laat je zien als je je zakken ophaalt.",
-    "Bezorgen kan alleen binnen de rondweg van Houten, vanaf 2 zakken, voor € 0,50 per zak. We bezorgen alleen als het veilig kan. Bij gladheid of sneeuwval kan de bezorging later worden; dan hoor je dat van ons.",
+    "Bezorgen kan alleen binnen de rondweg van Houten, vanaf 2 zakken, voor € 2,00 per bezorging. We bezorgen alleen als het veilig kan. Bij gladheid of sneeuwval kan de bezorging later worden; dan hoor je dat van ons.",
     "## Betalen",
     "Je betaalt na het bestellen, nooit vooraf via de website. Dat kan met een betaalverzoek (Tikkie) dat je van ons krijgt, of ter plekke bij het afhalen, bij bezorging of aan de weg. Aan de weg betaal je voordat je de zakken meeneemt.",
     "## Annuleren en terugbrengen",
@@ -127,9 +131,10 @@ export const INSTELLING_VELDEN: Record<keyof Instellingen, Veld> = {
   afhaal_instructie: { soort: "tekst", max: 500 },
   bezorgen_aan: { soort: "bool" },
   bezorg_postcodes: { soort: "tekst", max: 3000 },
-  bezorg_methode: { soort: "keuze", opties: ["per_stuk", "per_kg"] },
+  bezorg_methode: { soort: "keuze", opties: ["per_stuk", "per_kg", "per_adres"] },
   bezorg_per_stuk_cent: { soort: "getal", min: 0, max: 2500 },
   bezorg_per_kg_cent: { soort: "getal", min: 0, max: 500 },
+  bezorg_per_adres_cent: { soort: "getal", min: 0, max: 5000 },
   bezorg_uitleg: { soort: "tekst", max: 500 },
   tikkie_aan: { soort: "bool" },
   contact_naam: { soort: "tekst", max: 80 },
@@ -298,7 +303,7 @@ export type Berekening = {
 export function bereken(
   regels: { product: PrijsProduct; aantal: number }[],
   levering: Levering,
-  inst: Pick<Instellingen, "bezorg_methode" | "bezorg_per_stuk_cent" | "bezorg_per_kg_cent">,
+  inst: Pick<Instellingen, "bezorg_methode" | "bezorg_per_stuk_cent" | "bezorg_per_kg_cent"> & { bezorg_per_adres_cent?: number },
   nu: string,
 ): Berekening {
   const uit: BerekendeRegel[] = [];
@@ -323,7 +328,14 @@ export function bereken(
   const normaal = uit.reduce((s, r) => s + r.normaalprijs_cent * r.aantal, 0);
   let bezorg = 0;
   if (levering === "bezorgen") {
-    bezorg = inst.bezorg_methode === "per_stuk" ? uit.reduce((s, r) => s + r.bezorg_cent * r.aantal, 0) : Math.ceil(gewicht / 1000) * inst.bezorg_per_kg_cent;
+    bezorg =
+      inst.bezorg_methode === "per_adres"
+        ? uit.length
+          ? (inst.bezorg_per_adres_cent ?? 0)
+          : 0
+        : inst.bezorg_methode === "per_stuk"
+          ? uit.reduce((s, r) => s + r.bezorg_cent * r.aantal, 0)
+          : Math.ceil(gewicht / 1000) * inst.bezorg_per_kg_cent;
   }
   return {
     regels: uit,
@@ -593,6 +605,7 @@ export type Winkel = {
     | "bezorg_methode"
     | "bezorg_per_stuk_cent"
     | "bezorg_per_kg_cent"
+    | "bezorg_per_adres_cent"
     | "bezorg_uitleg"
     | "tikkie_aan"
     | "contact_naam"

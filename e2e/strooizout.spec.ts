@@ -73,7 +73,7 @@ test.describe("Strooizout voor de buurt", () => {
     await kaart.locator(".sz-aantalkeuze", { hasText: "4 zakken" }).click();
     await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 35,96");
     await expect(kaart.locator(".sz-bestelkaart__totaal small")).toContainText("je bespaart € 6,00");
-    // bezorgen: € 0,50 per zak erbij
+    // bezorgen: € 2,00 per bezorging erbij
     await kaart.locator(".sz-segment label", { hasText: "Bezorgen" }).click();
     await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 37,96");
 
