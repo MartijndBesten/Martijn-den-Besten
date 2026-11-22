@@ -101,7 +101,9 @@ async function foto(udid, pad, verwacht) {
 const SCHERM_HANGT = "schermafbeelding blijft hangen";
 function neem(udid, pad) {
   for (let i = 0; i < 2; i++) {
-    try { execFileSync("xcrun", ["simctl", "io", udid, "screenshot", "--type=png", pad], { timeout: 90000, killSignal: "SIGKILL", stdio: "pipe" }); return; }
+    // stdio "ignore": met een pijp wachtte execFileSync na SIGKILL nog tot een hulpproces van simctl de pijp losliet
+    // (22-11-2026: 126 s en 8,5 min in plaats van 90 s). Zonder pijp komt de time-out echt na 90 s.
+    try { execFileSync("xcrun", ["simctl", "io", udid, "screenshot", "--type=png", pad], { timeout: 90000, killSignal: "SIGKILL", stdio: "ignore" }); return; }
     catch { log("  schermafbeelding duurde te lang" + (i ? "" : ", opnieuw")); }
   }
   throw new Error(SCHERM_HANGT);
@@ -202,7 +204,9 @@ for (const t of TOESTELLEN) {
         catch (e) {
           if (String(e.message) !== SCHERM_HANGT || poging > 1) throw e;
           log(`${t.naam}: ${SCHERM_HANGT}; simulator opnieuw opstarten`);
-          try { sim("shutdown", udid); } catch { /* hing al */ }
+          // Ook hier zonder pijp en met een korte time-out; lukt afsluiten niet, dan alle simulators uit en opnieuw.
+          try { execFileSync("xcrun", ["simctl", "shutdown", udid], { timeout: 120000, killSignal: "SIGKILL", stdio: "ignore" }); }
+          catch { try { execFileSync("xcrun", ["simctl", "shutdown", "all"], { timeout: 120000, killSignal: "SIGKILL", stdio: "ignore" }); } catch { /* hing al */ } }
           start(udid);
         }
       }

@@ -84,6 +84,12 @@ button { font: inherit; }
 
 .tabs { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); align-self: stretch; }
 .tabs button { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 0; padding: 8px 2px; border: 0; background: none; color: rgba(255, 255, 255, 0.72); font-size: 0.74rem; font-weight: 600; letter-spacing: -0.005em; cursor: pointer; transition: color var(--t-micro), background-color var(--t-micro); white-space: nowrap; }
+/* Grote tekst (de browser op 200 % tekst, audit 22-11-2026): het woord mag binnen het eigen vak afbreken in plaats van over
+   het tabblad ernaast te lopen. Bij gewone tekst past elk woord op één regel en verandert er niets. */
+.tabs button .tabwoord { max-width: 100%; white-space: normal; text-align: center; line-height: 1.15; hyphens: auto; overflow-wrap: anywhere; }
+/* Idem: de ondertitel in de kop blijft in zijn eigen vak (met …) en loopt niet onder de tabbladen door. */
+.kop-titel > div { min-width: 0; }
+.kop-sub-tekst { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tabs button svg { width: 21px; height: 21px; }
 .tabs button:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
 .tabs button[aria-selected="true"] { color: #fff; background: rgba(255, 255, 255, 0.1); }
