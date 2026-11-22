@@ -2,8 +2,8 @@
 // winterse ondergrond, met de gestrooide looproute uit het logo. De stapel groeit mee met het gekozen aantal (tot 4
 // zakken zichtbaar) en kantelt licht mee met de muis. Alles is SVG en CSS; geen 3D-bibliotheek.
 
-import { useRef } from "react";
-import { useKantel } from "./beweging";
+import { useEffect, useRef, type RefObject } from "react";
+import { minderBeweging, useKantel } from "./beweging";
 
 /** De zak als herbruikbaar SVG-symbool (320 × 420). */
 function ZakSymbool() {
@@ -205,47 +205,89 @@ const HUIZEN: [number, number, number, number[], string][] = [
 const GROND = 236;
 const STOEP = 278;
 const DEUREN = HUIZEN.map(([x, w]) => x + w / 2);
-// De route over het trottoir, met bij elk huis een aftakking naar de voordeur. Op de telefoon komt de route van links
-// het beeld in, op een breed scherm van rechts (waar de route langs de pagina omlaag komt).
-const ROUTE = { links: `M-40 ${STOEP} H1000`, rechts: `M1000 ${STOEP} H-40` };
-const zijpad = (x: number, kant: "links" | "rechts") => {
-  const r = kant === "links" ? -1 : 1;
-  return `M${x + r * 36} ${STOEP} C ${x + r * 10} ${STOEP}, ${x} ${STOEP - 8}, ${x} ${GROND + 7}`;
-};
+// De route over het trottoir (van links naar rechts), met bij elk huis een aftakking naar de voordeur.
+const ROUTE = `M-40 ${STOEP} H1000`;
+const zijpad = (x: number) => `M${x - 36} ${STOEP} C ${x - 10} ${STOEP}, ${x} ${STOEP - 8}, ${x} ${GROND + 7}`;
 const bij = (x: number) => ({ "--x": x }) as React.CSSProperties;
+
+/**
+ * Laat de straat vanzelf afspelen en opnieuw beginnen, zolang hij in beeld is: de route loopt rustig over de stoep
+ * (`--straat` van 0 naar 1), het eindbeeld blijft even staan, dooft uit (`--aan` naar 0) en begint opnieuw.
+ * Bij ‘minder beweging’ of zonder script staat het eindbeeld er (de standaardwaarden in winter.css).
+ */
+function useStraatLus(ref: RefObject<SVGSVGElement | null>): void {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || minderBeweging() || typeof IntersectionObserver !== "function") return;
+    const HOUD = 5; // seconden dat het eindbeeld blijft staan
+    const UIT = 1.4; // uitdoven
+    const STIL = 0.9; // even donker voor de volgende ronde
+    let loop = 14; // duur van één ronde; hangt af van hoeveel straat er te zien is
+    let t = 0;
+    let vorige = 0;
+    let raf = 0;
+    let zichtbaar = false;
+    const gezet: Record<string, string> = {};
+    const zet = (naam: string, waarde: string) => {
+      if (gezet[naam] === waarde) return;
+      gezet[naam] = waarde;
+      el.style.setProperty(naam, waarde);
+    };
+    // Welk deel van de (bijgesneden) tekening is te zien: daar begint en eindigt de route.
+    const meet = () => {
+      const b = el.clientWidth;
+      if (b <= 0) return;
+      const half = b / (2 * Math.max(b / 960, el.clientHeight / 310));
+      loop = 9 + half / 60;
+      zet("--straat-half", half.toFixed(1));
+    };
+    const teken = () => {
+      zet("--straat", Math.min(1, t / loop).toFixed(4));
+      zet("--aan", (t < loop + HOUD ? 1 : Math.max(0, 1 - (t - loop - HOUD) / UIT)).toFixed(3));
+    };
+    const tik = (nu: number) => {
+      raf = 0;
+      t += Math.min(0.1, (nu - vorige) / 1000);
+      vorige = nu;
+      if (t >= loop + HOUD + UIT + STIL) t = 0;
+      teken();
+      if (zichtbaar) raf = requestAnimationFrame(tik);
+    };
+    const io = new IntersectionObserver(
+      ([item]) => {
+        zichtbaar = item.isIntersecting;
+        if (zichtbaar && !raf) {
+          vorige = performance.now();
+          raf = requestAnimationFrame(tik);
+        }
+      },
+      { threshold: 0.15 },
+    );
+    meet();
+    teken();
+    io.observe(el);
+    const ro = typeof ResizeObserver === "function" ? new ResizeObserver(meet) : null;
+    ro?.observe(el);
+    return () => {
+      io.disconnect();
+      ro?.disconnect();
+      if (raf) cancelAnimationFrame(raf);
+      for (const naam of Object.keys(gezet)) el.style.removeProperty(naam);
+    };
+  }, [ref]);
+}
 
 /**
  * De straat bij de buurtboodschap: een rij huizen in de winternacht. De strooiroute loopt over het trottoir langs de
  * huizen; waar bij de voordeur is gestrooid, gaat binnen het licht aan. Alles hangt aan de CSS-variabele `--straat`
- * (0 … 1) op de ouder: tocht.tsx zet die tijdens het scrollen, zonder script staat hij op 1 (eindbeeld).
+ * (0 … 1) op de tekening; `useStraatLus` laat die vanzelf lopen.
  */
 export function Straat() {
-  const route = (kant: "links" | "rechts") => (
-    <g className={`wn-straat__route wn-straat__route--${kant}`} mask={`url(#wn-st-masker-${kant})`}>
-      {/* de banen in één groep, zodat ze waar ze samenkomen niet lichter worden */}
-      <g opacity="0.3">
-        {[ROUTE[kant], ...DEUREN.map((x) => zijpad(x, kant))].map((d) => (
-          <path key={d} d={d} fill="none" stroke="#eaf5fc" strokeWidth="24" strokeLinecap="round" />
-        ))}
-      </g>
-      {[ROUTE[kant], ...DEUREN.map((x) => zijpad(x, kant))].map((d) => (
-        <g key={d}>
-          <path d={d} fill="none" stroke="#ffffff" strokeWidth="4.5" strokeLinecap="round" strokeDasharray="0.1 15" />
-          <path d={d} fill="none" stroke="#ffb547" strokeWidth="6.5" strokeLinecap="round" strokeDasharray="0.1 45" strokeDashoffset="-7" />
-        </g>
-      ))}
-    </g>
-  );
-  const masker = (kant: "links" | "rechts") => (
-    <mask id={`wn-st-masker-${kant}`} maskUnits="userSpaceOnUse" x="-40" y="200" width="1040" height="110">
-      <path className={`wn-straat__teken wn-straat__teken--${kant}`} d={ROUTE[kant]} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
-      {DEUREN.map((x) => (
-        <path key={x} className="wn-straat__teken wn-straat__teken--zij" style={bij(x)} d={zijpad(x, kant)} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
-      ))}
-    </mask>
-  );
+  const svg = useRef<SVGSVGElement>(null);
+  useStraatLus(svg);
+  const paden = [ROUTE, ...DEUREN.map(zijpad)];
   return (
-    <svg className="wn-straat" viewBox="0 0 960 310" role="img" aria-label="Een straat in de winter: waar bij de voordeur is gestrooid, brandt binnen licht en zwaaien de buren" preserveAspectRatio="xMidYMax slice">
+    <svg ref={svg} className="wn-straat" viewBox="0 0 960 310" role="img" aria-label="Een straat in de winter: waar bij de voordeur is gestrooid, brandt binnen licht en zwaaien de buren" preserveAspectRatio="xMidYMax slice">
       <defs>
         <linearGradient id="wn-st-grond" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#1b4877" />
@@ -255,8 +297,12 @@ export function Straat() {
           <stop offset="0" stopColor="#ffb547" stopOpacity="0.6" />
           <stop offset="1" stopColor="#ffb547" stopOpacity="0" />
         </radialGradient>
-        {masker("links")}
-        {masker("rechts")}
+        <mask id="wn-st-masker" maskUnits="userSpaceOnUse" x="-40" y="200" width="1040" height="110">
+          <path className="wn-straat__teken wn-straat__teken--hoofd" d={ROUTE} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
+          {DEUREN.map((x) => (
+            <path key={x} className="wn-straat__teken wn-straat__teken--zij" style={bij(x)} d={zijpad(x)} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
+          ))}
+        </mask>
       </defs>
       <g fill="#cfe6f6">
         {[
@@ -317,8 +363,20 @@ export function Straat() {
           <ellipse className="wn-straat__gloed" cx={x} cy={GROND - 14} rx="52" ry="46" fill="url(#wn-st-licht)" />
         </g>
       ))}
-      {route("links")}
-      {route("rechts")}
+      <g className="wn-straat__route" mask="url(#wn-st-masker)">
+        {/* de banen in één groep, zodat ze waar ze samenkomen niet lichter worden */}
+        <g opacity="0.3">
+          {paden.map((d) => (
+            <path key={d} d={d} fill="none" stroke="#eaf5fc" strokeWidth="24" strokeLinecap="round" />
+          ))}
+        </g>
+        {paden.map((d) => (
+          <g key={d}>
+            <path d={d} fill="none" stroke="#ffffff" strokeWidth="4.5" strokeLinecap="round" strokeDasharray="0.1 15" />
+            <path d={d} fill="none" stroke="#ffb547" strokeWidth="6.5" strokeLinecap="round" strokeDasharray="0.1 45" strokeDashoffset="-7" />
+          </g>
+        ))}
+      </g>
     </svg>
   );
 }

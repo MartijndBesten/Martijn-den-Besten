@@ -189,13 +189,12 @@ export function Voet() {
         </nav>
         <p className="sz-voet__klein">
           Prijzen inclusief 21% btw. Een reservering is nog geen levergarantie; bezorgen alleen als het veilig kan. De zak op de afbeeldingen is een illustratie; de verpakking kan er anders uitzien.
-          {verkoper && (
-            <>
-              <br />
-              {c?.verkoper_naam || "Denckh"} · {verkoper}
-            </>
-          )}
         </p>
+        {verkoper && (
+          <p className="sz-voet__klein sz-voet__bedrijf">
+            {c?.verkoper_naam || "Denckh"} · {verkoper}
+          </p>
+        )}
       </div>
     </footer>
   );
