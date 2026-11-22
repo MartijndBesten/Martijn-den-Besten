@@ -21,5 +21,7 @@
     }
   ],
   "triggers": { "crons": ["17 3 * * *"] },
+  // strooizouthouten.nl werkt (22-11-2026): martijndenbesten.com/strooizout en /zout verwijzen permanent door naar het eigen domein.
+  "vars": { "STROOIZOUT_DOORVERWIJZEN": "ja" },
   "observability": { "enabled": true }
 }
