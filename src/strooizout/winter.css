@@ -862,7 +862,7 @@
   letter-spacing: -0.04em;
   line-height: 1.03;
 }
-/* Zo werkt het: één compacte regel met drie punten. De strooiroute loopt door de punten (tocht.tsx). */
+/* Zo werkt het: één compacte regel met drie punten. */
 .wn-stappen {
   padding: clamp(26px, 3.4vw, 44px) 0 clamp(30px, 3.8vw, 50px);
   background: #fff;
@@ -887,15 +887,14 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 2.5px solid var(--ijs-3);
-  background: #fff;
+  background: var(--amber);
+  box-shadow: 0 0 0 5px rgba(255, 181, 71, 0.22);
 }
 .wn-stappen__lijst b {
   font-size: clamp(16px, 1.5vw, 19px);
   font-weight: 680;
   letter-spacing: -0.02em;
-  color: var(--tekst-2);
-  transition: color 0.45s ease;
+  color: var(--tekst);
 }
 
 /* Buurtboodschap: donker vlak met de straat */
@@ -931,48 +930,46 @@
   width: 100%;
   height: clamp(190px, 30vw, 330px);
 }
-/* De strooiroute over het trottoir. --straat (0 … 1) komt uit tocht.tsx en loopt mee met de scroll; zonder script
-   staat het eindbeeld er. --kop is de plek van de kop van de route (in eenheden van de tekening), --ri de richting
-   (1 = van links, -1 = van rechts) en --d hoe ver de kop een voordeur voorbij is. De kop begint een half huis buiten
-   beeld, zodat een huis dat maar half te zien is niet al verlicht is. Daar hangt alles aan: eerst het
-   paadje naar de deur, dan het licht in de deur en achter de ramen, en een hartje dat opstijgt. */
-.wn-buur__beeld {
+/* De strooiroute over het trottoir. --straat (0 … 1) loopt vanzelf (scene.tsx › useStraatLus); zonder script of bij
+   ‘minder beweging’ staat het eindbeeld er. --kop is de plek van de kop van de route (in eenheden van de tekening)
+   en --d hoe ver de kop een voordeur voorbij is. Daar hangt alles aan: eerst het paadje naar de deur, dan het licht
+   in de deur en achter de ramen, een buur die zwaait en een hartje dat opstijgt. De kop begint een half huis buiten
+   beeld, zodat een huis dat maar half te zien is niet al verlicht is. Met --aan (1 → 0) dooft alles uit voor de
+   volgende ronde. */
+.wn-straat {
   --straat: 1;
+  --aan: 1;
   --straat-half: 480;
-  --ri: 1;
-  --kop: calc(480 + var(--ri) * (var(--straat) * (var(--straat-half) * 2 + 195) - var(--straat-half) - 105));
+  --kop: calc(375 - var(--straat-half) + var(--straat) * (var(--straat-half) * 2 + 195));
 }
 .wn-straat__huis,
 .wn-straat__teken--zij {
-  --d: calc((var(--kop) - var(--x)) * var(--ri));
+  --d: calc(var(--kop) - var(--x));
 }
 .wn-straat__teken {
   stroke-dasharray: 1 3;
 }
-.wn-straat__teken--links {
+.wn-straat__teken--hoofd {
   stroke-dashoffset: calc(1 - clamp(0, (var(--kop) + 40) / 1040, 1));
-}
-.wn-straat__teken--rechts {
-  stroke-dashoffset: calc(1 - clamp(0, (1000 - var(--kop)) / 1040, 1));
 }
 .wn-straat__teken--zij {
   stroke-dashoffset: calc(1 - clamp(-0.5, (var(--d) + 36) / 56, 1));
 }
-.wn-straat__route--rechts {
-  display: none;
+.wn-straat__route {
+  opacity: var(--aan);
 }
 .wn-straat__deur {
-  opacity: clamp(0, (var(--d) - 16) / 10, 1);
+  opacity: calc(clamp(0, (var(--d) - 16) / 10, 1) * var(--aan));
 }
 .wn-straat__raam {
-  opacity: clamp(0, (var(--d) - 24 - var(--i) * 14) / 10, 0.96);
+  opacity: calc(clamp(0, (var(--d) - 24 - var(--i) * 14) / 10, 0.96) * var(--aan));
 }
 .wn-straat__gloed {
-  opacity: clamp(0, (var(--d) - 16) / 26, 1);
+  opacity: calc(clamp(0, (var(--d) - 16) / 26, 1) * var(--aan));
 }
 /* Een buur in de deuropening die zwaait: verschijnt als het licht aan is en zwaait af en toe even. */
 .wn-straat__buur {
-  opacity: clamp(0, (var(--d) - 42) / 12, 1);
+  opacity: calc(clamp(0, (var(--d) - 42) / 12, 1) * var(--aan));
 }
 .wn-straat__arm {
   transform-box: fill-box;
@@ -995,94 +992,10 @@
   }
 }
 .wn-straat__hart {
-  opacity: calc(clamp(0, (var(--d) - 34) / 12, 1) * clamp(0, 1 - (var(--d) - 200) / 60, 1));
+  opacity: calc(clamp(0, (var(--d) - 34) / 12, 1) * clamp(0, 1 - (var(--d) - 200) / 60, 1) * var(--aan));
   transform: translateY(calc(clamp(0, var(--d) - 34, 170) * -0.2px));
 }
-@media (min-width: 961px) {
-  .wn-buur__beeld {
-    --ri: -1;
-  }
-  .wn-straat__route--links {
-    display: none;
-  }
-  .wn-straat__route--rechts {
-    display: inline;
-  }
-}
 
-/* ---------- De strooiroute over de pagina (tocht.tsx) ---------- */
-.wn-tocht {
-  position: relative;
-  isolation: isolate;
-}
-.wn-tocht__svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 1;
-  overflow: visible;
-  pointer-events: none;
-}
-.wn-tocht__svg path {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.wn-tocht__spoor {
-  stroke-width: 18;
-  stroke-dasharray: var(--tocht-spoor, 0 99999);
-}
-.wn-tocht__wit {
-  stroke-width: 4.5;
-  stroke-dasharray: var(--tocht-wit, 0 99999);
-}
-.wn-tocht__amber {
-  stroke-width: 6.5;
-  stroke-dasharray: var(--tocht-amber, 0 99999);
-  stroke-dashoffset: -27;
-}
-.wn-tocht__licht .wn-tocht__spoor {
-  stroke: #e0edf8;
-}
-.wn-tocht__licht .wn-tocht__wit {
-  stroke: #86b4d9;
-}
-.wn-tocht__licht .wn-tocht__amber {
-  stroke: var(--amber-2);
-}
-.wn-tocht__donker .wn-tocht__spoor {
-  stroke: rgba(234, 245, 252, 0.2);
-}
-.wn-tocht__donker .wn-tocht__wit {
-  stroke: #fff;
-}
-.wn-tocht__donker .wn-tocht__amber {
-  stroke: var(--amber);
-}
-.wn-tocht__svg[data-smal="true"] .wn-tocht__spoor {
-  stroke-width: 11;
-}
-.wn-tocht__svg[data-smal="true"] .wn-tocht__wit {
-  stroke-width: 3.6;
-}
-.wn-tocht__svg[data-smal="true"] .wn-tocht__amber {
-  stroke-width: 5.2;
-}
-/* Een stap licht op zodra de route hem bereikt. Het pictogram staat boven de route. */
-.wn-stappen__icoon {
-  position: relative;
-  z-index: 2;
-  transition: background 0.45s ease, color 0.45s ease, box-shadow 0.45s ease, transform 0.5s var(--veer);
-}
-.wn-stappen__lijst li.is-bereikt b {
-  color: var(--tekst);
-}
-.wn-stappen__lijst li.is-bereikt .wn-stappen__icoon {
-  border-color: var(--amber);
-  background: var(--amber);
-  box-shadow: 0 0 0 5px rgba(255, 181, 71, 0.24);
-  transform: scale(1.1);
-}
 .wn-delen {
   display: inline-flex;
   align-items: center;
@@ -1421,10 +1334,6 @@
   .wn-delen {
     width: 100%;
     justify-content: center;
-  }
-  /* Links van de straat blijft een smalle baan vrij voor de strooiroute, die daar doorloopt tot het trottoir. */
-  .wn-buur__beeld {
-    margin-left: calc(var(--gutter) * -1 + 20px);
   }
 }
 /* Lage telefoonschermen: de regel boven de kop weglaten, zodat de bestelknop in het eerste scherm valt. */

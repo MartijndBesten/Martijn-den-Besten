@@ -39,6 +39,8 @@ De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, bet
 
 **Gerichte verbeteringen (22-11-2026, opdracht Martijn):** (1) betalen gaat overal met een betaalverzoek; contant betalen en ‘betalen bij ontvangst’ zijn weg uit de site, het bestelformulier, de statuspagina, aan de weg, de flyer, de conceptvoorwaarden en de keuzes in het beheer; (2) buurtsectie met ‘Een beetje zout. Een beetje aandacht.’ en zwaaiende buren in de deuropening; (3) de drie kaarten van ‘Zo werkt het’ zijn één compacte regel geworden, de mobiele pagina is ruim een vijfde korter; (4) ‘Strooi bewust’ in drie korte regels, zonder ‘een handje per vierkante meter’; (5) klein label ‘Productillustratie’ bij de zak. Het filmpje eindigt nu met buren die meestrooien tot alle paadjes aansluiten, en met de Denckh-signatuur onderaan. De voorwaarden blijven een concept tot Martijn ze goedkeurt; alleen de alinea over betalen is aangepast.
 
+**Lijn weg, straat in een lus (22-11-2026, opdracht Martijn):** de strooilijn die vanaf boven over de pagina liep is helemaal verwijderd. De animatie in de straat loopt nu vanzelf en rustig, van links naar rechts, en begint na een korte pauze opnieuw (alleen zolang hij in beeld is). De tekst in de voet is netjes gezet: links rechts uitgelijnd, de kleine lettertjes in rustige regels en de bedrijfsgegevens op een eigen regel.
+
 Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak kan later in het beheer worden geüpload (*Producten › Afbeelding*) en vervangt dan de kleine productafbeeldingen; voor de hero is dan een vrijstaande foto nodig.
 
 ## Commerciële versie (opdracht 22-11-2026)

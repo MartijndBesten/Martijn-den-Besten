@@ -1445,6 +1445,7 @@ textarea.sz-invoer {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 18px;
+  margin-left: auto;
   font-size: 15px;
 }
 .sz-voet__links a {
@@ -1452,13 +1453,25 @@ textarea.sz-invoer {
   display: inline-flex;
   align-items: center;
 }
+/* Kleine lettertjes: over de volle breedte onder de eerste rij, in rustige regels zonder los woord op het eind. */
 .sz-voet__klein {
-  width: 100%;
+  flex: 0 0 100%;
+  max-width: 78ch;
   margin: 0;
   padding-top: 0;
   border-top: 0;
   font-size: 13.5px;
+  line-height: 1.6;
   color: var(--tekst-3);
+  text-wrap: pretty;
+}
+.sz-voet__bedrijf {
+  margin-top: -8px;
+}
+@media (max-width: 640px) {
+  .sz-voet__links {
+    margin-left: 0;
+  }
 }
 
 .sz-nowrap {
