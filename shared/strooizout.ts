@@ -39,6 +39,8 @@ export type Instellingen = {
   wijken: string;
   /** Waarschuwing in het beheer als er nog zoveel (of minder) te reserveren is. */
   lage_voorraad: number;
+  /** Code uit Google Search Console / Merchant Center (meta-tag google-site-verification); leeg = geen tag. */
+  google_verificatie: string;
   /** Bezorgen pas vanaf dit aantal zakken (0 = altijd). */
   bezorg_min_zakken: number;
   /** Datum (JJJJ-MM-DD) waarop de voorraad naar verwachting binnen is; leeg = niet tonen. */
@@ -104,6 +106,7 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
   wijken: "",
   bezorg_min_zakken: 2,
   lage_voorraad: 10,
+  google_verificatie: "",
   beschikbaar_vanaf: "2026-11-26",
   // Zoals gepubliceerd op denckh.nl (footer en /privacy/, gecontroleerd 22-11-2026). Aan te passen in het beheer.
   verkoper_naam: "Denckh",
@@ -140,6 +143,7 @@ export const INSTELLING_VELDEN: Record<keyof Instellingen, Veld> = {
   wijken: { soort: "tekst", max: 2000 },
   bezorg_min_zakken: { soort: "getal", min: 0, max: 50 },
   lage_voorraad: { soort: "getal", min: 0, max: 1000 },
+  google_verificatie: { soort: "tekst", max: 120 },
   beschikbaar_vanaf: { soort: "tekst", max: 10 },
   verkoper_naam: { soort: "tekst", max: 80 },
   verkoper_adres: { soort: "tekst", max: 200 },
@@ -158,6 +162,7 @@ export function controleerInstelling(sleutel: string, waarde: unknown): { ok: tr
     const t = waarde.replace(/\r\n/g, "\n").trim();
     if (t.length > veld.max) return { ok: false, fout: `${sleutel}: maximaal ${veld.max} tekens.` };
     if ((sleutel === "contact_email" || sleutel === "verkoper_email") && t && !EMAIL.test(t)) return { ok: false, fout: "Dit is geen geldig e-mailadres." };
+    if (sleutel === "google_verificatie" && t && !/^[A-Za-z0-9_-]{10,120}$/.test(t)) return { ok: false, fout: "Plak alleen de code uit de meta-tag (content=\"…\"), zonder aanhalingstekens." };
     if (sleutel === "beschikbaar_vanaf" && t && (!/^\d{4}-\d{2}-\d{2}$/.test(t) || Number.isNaN(Date.parse(t)))) return { ok: false, fout: "Kies een geldige datum." };
     if (sleutel === "verkoper_kvk" && t && !/^\d{8}$/.test(t)) return { ok: false, fout: "Een KvK-nummer heeft 8 cijfers." };
     if (sleutel === "verkoper_btw" && t && !/^NL\d{9}B\d{2}$/.test(t.replace(/[\s.]/g, "").toUpperCase())) return { ok: false, fout: "Een btw-id ziet eruit als NL123456789B01." };
@@ -626,4 +631,21 @@ export function dagTekst(datum: string): string {
   const d = new Date(`${datum}T12:00:00Z`);
   if (Number.isNaN(d.getTime())) return datum;
   return d.toLocaleDateString("nl-NL", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
+}
+
+// ---------- Bezoek en herkomst (zonder cookies) ----------
+
+export const BEZOEK_PAGINAS = ["winkel", "aan-de-weg", "bestelling", "info", "flyer"] as const;
+export type BezoekPagina = (typeof BEZOEK_PAGINAS)[number];
+
+/** `?via=flyer` e.d.: kleine letters, cijfers en streepjes, hooguit 24 tekens; anders leeg. */
+export function schoneBron(v: unknown): string {
+  return typeof v === "string" && /^[a-z0-9][a-z0-9-]{0,23}$/.test(v.trim().toLowerCase()) ? v.trim().toLowerCase() : "";
+}
+
+/** Alleen een geldige hostnaam (zonder pad of query) of 'direct'. */
+export function schoneHerkomst(v: unknown): string {
+  if (typeof v !== "string" || !v) return "direct";
+  const h = v.trim().toLowerCase().replace(/^www\./, "");
+  return /^(?=.{1,80}$)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/.test(h) ? h : "direct";
 }

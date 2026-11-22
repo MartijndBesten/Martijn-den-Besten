@@ -75,8 +75,8 @@ writeFileSync(
   const SZ = [
     { pad: "bestellen", titel: "Bestellen — Strooizout voor de buurt", noindex: true },
     { pad: "bestelling", titel: "Je bestelling — Strooizout voor de buurt", noindex: true },
-    { pad: "privacy", titel: "Privacy — Strooizout voor de buurt", noindex: false },
-    { pad: "voorwaarden", titel: "Voorwaarden — Strooizout voor de buurt", noindex: false },
+    { pad: "privacy", titel: "Privacy — Strooizout voor de buurt", noindex: false, beschrijving: "Welke gegevens Strooizout voor de buurt (Denckh, Houten) vraagt bij een bestelling, waarvoor en hoe lang. Geen cookies." },
+    { pad: "voorwaarden", titel: "Voorwaarden — Strooizout voor de buurt", noindex: false, beschrijving: "Voorwaarden voor het bestellen van strooizout in Houten: prijzen, afhalen en bezorgen, betalen, annuleren en terugbrengen." },
     { pad: "flyer", titel: "Flyer en deelbeelden — Strooizout voor de buurt", noindex: true },
     { pad: "beheer", titel: "Beheer — Strooizout voor de buurt", noindex: true },
     { pad: "aan-de-weg", titel: "Strooizout aan de weg — Strooizout voor de buurt", noindex: true },
@@ -87,6 +87,7 @@ writeFileSync(
       .replace(/<title>.*?<\/title>/, `<title>${esc(r.titel)}</title>`)
       .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${SZ_DOMEIN}/${r.pad}$2`)
       .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${SZ_DOMEIN}/${r.pad}$2`);
+    if (r.beschrijving) html = html.replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(r.beschrijving)}$2`).replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(r.beschrijving)}$2`);
     if (r.noindex) html = html.replace(/<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="noindex, nofollow" />');
     writeFileSync(join(dist, "strooizout", `${r.pad}.html`), html);
   }

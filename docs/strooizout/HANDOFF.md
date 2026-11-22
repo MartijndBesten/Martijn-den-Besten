@@ -17,6 +17,20 @@ Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
 | Administratie | brutomarge **exclusief btw** (totaal, producten, per product, CSV); inkoopveld heet ‘Inkoopprijs incl. btw’ |
 | Marketing | flyer A5, WhatsApp 1080², buurt-app/social 1200 × 630, bord A4 en deeltekst vernieuwd; knop ‘Deel met je buren’ op de homepage |
 
+## Vindbaarheid en meting (opdracht 11, 22-11-2026)
+
+Volledig plan, kanaalregels en klaarliggende teksten: [PROMOTIE.md](PROMOTIE.md).
+
+| Onderdeel | Status |
+| --- | --- |
+| Titel, beschrijving, H1 | ‘Strooizout kopen in Houten – 25 kg, afhalen of bezorgen’. Metabeschrijving met prijs en bezorging. Regel ‘Strooizout kopen in Houten · 25 kg · afhalen of bezorgen’ boven de H1 ‘Strooizout uit je eigen buurt.’ Voorwaarden en privacy hebben elk een eigen beschrijving |
+| robots.txt, sitemap, canonical | Eigen robots.txt en sitemap op strooizouthouten.nl (/, /voorwaarden, /privacy). Canonical op het eigen domein. Beheer, bestelpagina, flyer en ‘aan de weg’ staan op noindex. Geen extra SEO-landingspagina’s |
+| Product/Offer (schema.org) | De Worker zet de JSON-LD in de homepage op het eigen domein, met de actuele prijs, staffels (10,49 / 9,49 / 8,99), beschikbaarheid (PreOrder met datum, InStock na ontvangst), verkoper Denckh en retourbeleid. ‘Binnenkort’-producten staan er niet in |
+| Open Graph / WhatsApp-voorbeeld | `delen-1200x630.jpg` (75 kB), met titel, beschrijving en alt-tekst |
+| Google-verificatie | *Instellingen › Google-verificatiecode*: de site zet de meta-tag zelf, zonder uitrol |
+| Search Console / Merchant Center / Bedrijfsprofiel | Hiervoor is de Google-login van Martijn nodig. Merchant Center vraagt eerst een besluit over ‘reservering of koop’. Een tweede Bedrijfsprofiel wordt afgeraden (PROMOTIE.md §3–4) |
+| Meting | Cookieloze bezoektelling: per bezoeker per pagina per dag één rij, met een dagelijks wisselende HMAC-code, zonder IP of user-agent. Er wordt gekeken naar herkomst, bron (`?via=` in QR-codes en deellinks), bestellingen met bron, conversie, gemiddeld aantal zakken en bundelverdeling. Te vinden in *Beheer › Overzicht › Bezoek en verkoop*. Privacyverklaring bijgewerkt; de gegevens worden na 400 dagen gewist |
+
 ## Marge per product en staffel (exclusief btw)
 
 Inkoop zak € 7,09 incl. = **€ 5,86 excl.** Btw 21% op verkoop en inkoop (voorbelasting).
@@ -112,6 +126,9 @@ Mijn advies is **B**. Beslissing bij Martijn (vraag 2).
 5. **Voorwaarden (concept) akkoord geven.** Bevat 14 dagen bedenktijd (wettelijk bij online verkoop aan consumenten).
 6. **Invullen in *Instellingen*:** het afhaaladres (privé) en eventueel een telefoonnummer.
 7. **Inkoopprijs € 7,09** bevestigen zodra de factuur er is (*Producten*).
+8. **Reservering of koop?** Voor Google Merchant Center (gratis productvermeldingen) moet een bestelling een echte koop zijn. De knop moet dan wettelijk een betalingsverplichting noemen. Zolang het een kosteloos te annuleren reservering blijft: Merchant Center overslaan.
+9. **Google-accounts (login Martijn):** Search Console-domein verifiëren via TXT in Cloudflare, de sitemap indienen en indexering aanvragen (stappen in PROMOTIE.md §2). Bedrijfsprofiel: het bestaande Denckh-profiel uitbreiden in plaats van een tweede profiel aan te maken.
+10. **Promotie plaatsen:** de teksten liggen klaar (PROMOTIE.md §7). Niets plaatsen zonder akkoord van Martijn en, bij groepen, de beheerder.
 
 ## Gecontroleerd (22-11-2026)
 

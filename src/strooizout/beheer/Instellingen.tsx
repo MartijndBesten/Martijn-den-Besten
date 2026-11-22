@@ -68,6 +68,11 @@ export default function Instellingen() {
           <input id="in-vanaf" className="sz-invoer" type="date" value={v.beschikbaar_vanaf} onChange={tekst("beschikbaar_vanaf")} />
           <small>Wordt getoond zolang er nog niets ontvangen is (Voorraad). Leeg = niet tonen.</small>
         </div>
+        <div className="bh-veld" style={{ marginTop: 8, maxWidth: 520 }}>
+          <label htmlFor="in-google">Google-verificatiecode (Search Console of Merchant Center)</label>
+          <input id="in-google" className="sz-invoer" value={v.google_verificatie} maxLength={120} spellCheck={false} onChange={tekst("google_verificatie")} placeholder="bijv. AbC123…" />
+          <small>Alleen de code uit de meta-tag (content="…"). Wordt op strooizouthouten.nl in de pagina gezet; daarna in Google op ‘Verifiëren’ klikken.</small>
+        </div>
         <div className="bh-veld" style={{ marginTop: 8, maxWidth: 260 }}>
           <label htmlFor="in-laag">Waarschuwing bij lage voorraad</label>
           <input id="in-laag" className="sz-invoer" style={{ maxWidth: 120 }} type="number" min={0} max={1000} value={v.lage_voorraad} onChange={(e) => zet("lage_voorraad", Math.max(0, Math.min(1000, Number(e.target.value) || 0)))} />

@@ -20,6 +20,8 @@ import {
 } from "../shared/strooizout";
 import { csv, opschonen } from "../worker/strooizout-beheer";
 import { strooizoutDomein } from "../worker/strooizout-domein";
+import { productGegevens } from "../worker/strooizout-seo";
+import { laadCatalogus, laadInstellingen, laadMagazijn } from "../worker/strooizout-basis";
 import { STANDAARD_INSTELLINGEN } from "../shared/strooizout";
 import { createD1 } from "./d1-shim";
 
@@ -988,6 +990,87 @@ describe("commerciële afspraken (22-11-2026)", () => {
     expect(o.waarschuwingen).toContain("Strooizout 25 kg: nog 10 te reserveren (Voorraad).");
     const per = (await jsonVan(beheer("/financien"))).cijfers.per_product[0];
     expect(per.marge_excl_cent).toBe(per.omzet_cent - Math.round((per.omzet_cent * 21) / 121) - (per.inkoop_cent - Math.round((per.inkoop_cent * 21) / 121)));
+  });
+});
+
+describe("vindbaarheid en meting", () => {
+  const UA_MOBIEL = "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148";
+  const meld = (body: Record<string, unknown>, ua = UA_MOBIEL, ip = "198.51.100.20", origin = ORIGIN) =>
+    req("/api/strooizout/bezoek", { method: "POST", body: JSON.stringify(body), ip, headers: { "User-Agent": ua, Origin: origin } });
+
+  it("bezoek tellen zonder cookies: één rij per bezoeker per pagina per dag; bots en andere sites tellen niet", async () => {
+    expect((await meld({ pagina: "winkel", bron: "flyer", herkomst: "www.facebook.com" })).status).toBe(204);
+    await meld({ pagina: "winkel", bron: "flyer" }); // zelfde bezoeker, zelfde dag: niet dubbel
+    await meld({ pagina: "bestelling" });
+    await meld({ pagina: "winkel" }, UA_MOBIEL, "198.51.100.21"); // andere bezoeker
+    await meld({ pagina: "winkel" }, "Mozilla/5.0 (compatible; Googlebot/2.1)"); // zoekmachine
+    await meld({ pagina: "winkel" }, "WhatsApp/2.23"); // linkvoorbeeld
+    await meld({ pagina: "winkel" }, UA_MOBIEL, "198.51.100.22", "https://evil.example"); // andere site
+    await meld({ pagina: "beheer" }); // onbekende pagina
+    const rijen = db.raw.prepare("SELECT pagina, apparaat, herkomst, bron, bezoeker FROM sz_bezoek ORDER BY pagina, bron DESC").all() as J[];
+    expect(rijen.map((r) => [r.pagina, r.apparaat, r.herkomst, r.bron])).toEqual([
+      ["bestelling", "telefoon", "direct", ""],
+      ["winkel", "telefoon", "facebook.com", "flyer"],
+      ["winkel", "telefoon", "direct", ""],
+    ]);
+    // geen IP of user-agent in de tabel
+    expect(JSON.stringify(rijen)).not.toContain("198.51.100");
+    expect(rijen[0].bezoeker).toMatch(/^[0-9a-f]{32}$/);
+  });
+
+  it("bestelling onthoudt de bron; het beheer toont bezoek, conversie, gemiddeld aantal zakken en bundels", async () => {
+    await startRonde();
+    await meld({ pagina: "winkel", bron: "flyer" });
+    await meld({ pagina: "winkel" }, UA_MOBIEL, "198.51.100.30");
+    await bestel({ regels: [{ product_id: 1, aantal: 4 }], bron: "flyer" });
+    await bestel({ regels: [{ product_id: 1, aantal: 2 }], bron: "<script>" }); // ongeldige bron wordt leeg
+    await bestel({ regels: [{ product_id: 1, aantal: 1 }], herkomst: "l.facebook.com" });
+    expect(db.raw.prepare("SELECT bron FROM sz_bestelling ORDER BY id").all()).toEqual([{ bron: "flyer" }, { bron: "" }, { bron: "l.facebook.com" }]);
+    const o = await jsonVan(beheer("/bezoek?dagen=7"));
+    expect(o).toMatchObject({ dagen: 7, bezoekers: 2, bestellingen: 3, conversie: 150, gemiddeld_zakken: 2.3 });
+    expect(o.per_dag).toHaveLength(7);
+    expect(o.verdeling).toEqual([
+      { zakken: "1", bestellingen: 1 },
+      { zakken: "2", bestellingen: 1 },
+      { zakken: "3", bestellingen: 0 },
+      { zakken: "4", bestellingen: 1 },
+      { zakken: "5–9", bestellingen: 0 },
+      { zakken: "10+", bestellingen: 0 },
+    ]);
+    expect(o.bron_bestellingen).toEqual(expect.arrayContaining([{ bron: "flyer", n: 1 }, { bron: "onbekend", n: 1 }, { bron: "l.facebook.com", n: 1 }]));
+    expect(o.bron_bezoek).toEqual([{ bron: "flyer", n: 1 }]);
+    expect((await beheer("/bezoek", { token: null })).status).toBe(401);
+  });
+
+  it("structured data: Product + Offer met actuele prijs, staffels, voorbestelling, verkoper en retourbeleid; geen ‘binnenkort’-producten", async () => {
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 40 }) });
+    const d = db as unknown as D1Database;
+    const g = productGegevens(await laadCatalogus(d), await laadInstellingen(d), await laadMagazijn(d), "2026-11-22T12:00:00.000Z") as J;
+    const [verkoper, ...producten] = g["@graph"];
+    expect(verkoper).toMatchObject({ "@type": "Organization", name: "Denckh", vatID: "NL003791952B15", address: { streetAddress: "Vlierweg 54", addressLocality: "Houten", addressCountry: "NL" } });
+    expect(producten).toHaveLength(1);
+    const o = producten[0].offers;
+    expect(producten[0]).toMatchObject({ "@type": "Product", name: "Strooizout 25 kg", sku: "strooizout-25-kg", image: "https://strooizouthouten.nl/strooizout/beeld/strooizout-25kg.webp" });
+    expect(o).toMatchObject({ price: "10.49", priceCurrency: "EUR", availability: "https://schema.org/PreOrder", availabilityStarts: "2026-11-26" });
+    expect(o.priceSpecification.map((p: J) => [p.price, p.eligibleQuantity?.minValue, p.eligibleQuantity?.maxValue])).toEqual([
+      ["10.49", 1, 1],
+      ["9.49", 2, 3],
+      ["8.99", 4, undefined],
+    ]);
+    expect(o.hasMerchantReturnPolicy).toMatchObject({ merchantReturnDays: 14, applicableCountry: "NL" });
+    // na ontvangst: op voorraad
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ ontvangen_erbij: 40 }) });
+    const na = productGegevens(await laadCatalogus(d), await laadInstellingen(d), await laadMagazijn(d)) as J;
+    expect(na["@graph"][1].offers.availability).toBe("https://schema.org/InStock");
+    expect(na["@graph"][1].offers).not.toHaveProperty("availabilityStarts");
+  });
+
+  it("Google-verificatiecode: alleen een geldige code wordt opgeslagen", async () => {
+    expect((await beheer("/instellingen", { method: "PUT", body: JSON.stringify({ google_verificatie: '"><script>' }) })).status).toBe(422);
+    const ok = await jsonVan(beheer("/instellingen", { method: "PUT", body: JSON.stringify({ google_verificatie: "AbCdEf123456_-xyz" }) }));
+    expect(ok.instellingen.google_verificatie).toBe("AbCdEf123456_-xyz");
+    // niet in de publieke winkelgegevens (staat alleen als meta-tag in de pagina)
+    expect(JSON.stringify(await jsonVan(req("/api/strooizout/winkel")))).not.toContain("AbCdEf123456");
   });
 });
 

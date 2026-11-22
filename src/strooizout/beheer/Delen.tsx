@@ -1,6 +1,6 @@
 // Flyer, deelbeelden, QR-code en korte link.
 
-import { KORTE_URL, QrCode, WINKEL_URL } from "../qr";
+import { KORTE_URL, metBron, QrCode, WINKEL_URL } from "../qr";
 import { extern } from "../router";
 
 export default function Delen() {
@@ -11,7 +11,7 @@ export default function Delen() {
       <div className="bh-twee">
         <section className="bh-kaart">
           <h2>QR-code</h2>
-          <QrCode label={`QR-code naar ${WINKEL_URL}`} className="bh-qr" />
+          <QrCode tekst={metBron(WINKEL_URL, "qr")} label={`QR-code naar ${WINKEL_URL}`} className="bh-qr" />
           <p style={{ marginTop: 10 }}>
             <a href={WINKEL_URL} target="_blank" rel="noopener">
               {WINKEL_URL}

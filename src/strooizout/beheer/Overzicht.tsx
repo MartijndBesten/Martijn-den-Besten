@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { euro } from "../../../shared/strooizout";
 import { Kpi, kg, rondeQuery, useBeheer } from "./basis";
+import Bezoek from "./Bezoek";
 import type { Cijfers } from "./typen";
 
 export default function Overzicht() {
@@ -93,6 +94,7 @@ export default function Overzicht() {
           })}
         </section>
       </div>
+      <Bezoek />
     </>
   );
 }

@@ -2,6 +2,7 @@
 // Alleen wat nodig is: adres alleen bij bezorgen, e-mail optioneel. De server rekent alles opnieuw na.
 
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { herkomst } from "./meting";
 import { controleerKlant, dagTekst, euro, normaliseerMobiel, normaliseerPostcode, binnenBezorggebied, BUITEN_GEBIED, volgendeStaffel, alsPrijsProduct, zakkenIn, type Betaalwijze, type Klantgegevens, type Levering, type Winkel } from "../../shared/strooizout";
 import type { MandRegel } from "./mandje";
 
@@ -170,6 +171,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering 
     const r = await vraag<{ bestelling: KlantBestelling }>("/api/strooizout/bestelling", {
       method: "POST",
       body: JSON.stringify({
+        ...herkomst(),
         idempotentie: idempotentie(),
         regels: berekening.regels.map((x) => ({ product_id: x.product_id, aantal: x.aantal })),
         levering,

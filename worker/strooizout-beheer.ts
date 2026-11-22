@@ -638,6 +638,51 @@ async function uitgeven(request: Request, env: SzEnv, ruw: string): Promise<Resp
   return json({ ok: true, bestelling: await afhaalWeergave(env, (await zoekOpAfhaalcode(env, ruw))!.b!) });
 }
 
+// ---------- Bezoek en verkoop ----------
+
+/** Bezoek (cookieloos, per dag), herkomst, bronnen (?via=…), bestellingen, gemiddeld aantal zakken en bundelverdeling. */
+async function bezoekOverzicht(env: SzEnv, dagen: number) {
+  const db = env.DB;
+  const vanaf = new Date(Date.now() - (dagen - 1) * 86_400_000).toISOString().slice(0, 10);
+  const vanafIso = `${vanaf}T00:00:00.000Z`;
+  const [perDag, herkomst, bronBezoek, apparaat, bestPerDag, bronBestel, bundels] = await db.batch([
+    db.prepare("SELECT dag, COUNT(DISTINCT bezoeker) AS bezoekers, SUM(pagina = 'winkel') AS winkel FROM sz_bezoek WHERE dag >= ?1 GROUP BY dag ORDER BY dag").bind(vanaf),
+    db.prepare("SELECT herkomst, COUNT(DISTINCT dag || bezoeker) AS n FROM sz_bezoek WHERE dag >= ?1 GROUP BY herkomst ORDER BY n DESC LIMIT 10").bind(vanaf),
+    db.prepare("SELECT bron, COUNT(DISTINCT dag || bezoeker) AS n FROM sz_bezoek WHERE dag >= ?1 AND bron != '' GROUP BY bron ORDER BY n DESC LIMIT 12").bind(vanaf),
+    db.prepare("SELECT apparaat, COUNT(DISTINCT dag || bezoeker) AS n FROM sz_bezoek WHERE dag >= ?1 GROUP BY apparaat").bind(vanaf),
+    db.prepare("SELECT substr(aangemaakt, 1, 10) AS dag, COUNT(*) AS n FROM sz_bestelling WHERE status != 'geannuleerd' AND aangemaakt >= ?1 GROUP BY dag").bind(vanafIso),
+    db.prepare("SELECT CASE WHEN bron = '' THEN 'onbekend' ELSE bron END AS bron, COUNT(*) AS n FROM sz_bestelling WHERE status != 'geannuleerd' AND aangemaakt >= ?1 GROUP BY 1 ORDER BY n DESC LIMIT 12").bind(vanafIso),
+    db.prepare(
+      `SELECT b.id, COALESCE(SUM(CASE WHEN p.eenheid = 'zak' THEN r.aantal ELSE 0 END), 0) AS zakken
+       FROM sz_bestelling b LEFT JOIN sz_bestelregel r ON r.bestelling_id = b.id LEFT JOIN sz_product p ON p.id = r.product_id
+       WHERE b.status != 'geannuleerd' AND b.aangemaakt >= ?1 GROUP BY b.id`,
+    ).bind(vanafIso),
+  ]);
+  type R = Record<string, number | string>;
+  const zakken = (bundels.results as R[]).map((r) => Number(r.zakken)).filter((n) => n > 0);
+  const groep = (n: number) => (n >= 10 ? "10+" : n >= 5 ? "5–9" : String(n));
+  const verdeling = ["1", "2", "3", "4", "5–9", "10+"].map((g) => ({ zakken: g, bestellingen: zakken.filter((n) => groep(n) === g).length }));
+  const bestellingen = Object.fromEntries((bestPerDag.results as R[]).map((r) => [r.dag, Number(r.n)]));
+  const dagenLijst = Array.from({ length: dagen }, (_, i) => new Date(Date.parse(vanaf) + i * 86_400_000).toISOString().slice(0, 10));
+  const bezoek = Object.fromEntries((perDag.results as R[]).map((r) => [r.dag, { bezoekers: Number(r.bezoekers), winkel: Number(r.winkel) }]));
+  const per_dag = dagenLijst.map((d) => ({ dag: d, bezoekers: bezoek[d]?.bezoekers ?? 0, bestellingen: bestellingen[d] ?? 0 }));
+  const totaalBezoek = per_dag.reduce((s, d) => s + d.bezoekers, 0);
+  const totaalBestel = zakken.length;
+  return {
+    dagen,
+    per_dag,
+    bezoekers: totaalBezoek,
+    bestellingen: totaalBestel,
+    conversie: totaalBezoek ? Math.round((totaalBestel / totaalBezoek) * 1000) / 10 : null,
+    gemiddeld_zakken: totaalBestel ? Math.round((zakken.reduce((s, n) => s + n, 0) / totaalBestel) * 10) / 10 : null,
+    verdeling,
+    herkomst: herkomst.results,
+    bron_bezoek: bronBezoek.results,
+    bron_bestellingen: bronBestel.results,
+    apparaat: apparaat.results,
+  };
+}
+
 // ---------- Voorraad ----------
 
 async function voorraadOverzicht(env: SzEnv) {
@@ -1389,6 +1434,8 @@ export async function opschonen(db: D1Database, inst: Instellingen, nu = new Dat
     .bind(grens.toISOString(), nuIsoTijd)
     .run();
   await db.prepare("UPDATE sz_betaling SET notitie = '' WHERE bestelling_id IN (SELECT id FROM sz_bestelling WHERE geanonimiseerd_op IS NOT NULL) AND notitie != ''").run();
+  // Bezoekmeting: na ruim een jaar weg (bevat geen persoonsgegevens, maar we bewaren niet langer dan nodig).
+  await db.prepare("DELETE FROM sz_bezoek WHERE dag < ?1").bind(new Date(nu.getTime() - 400 * 86_400_000).toISOString().slice(0, 10)).run();
   return res.meta?.changes ?? 0;
 }
 
@@ -1516,6 +1563,10 @@ export async function handleBeheer(request: Request, env: SzEnv, ctx: ExecutionC
   if (pad === "/afbeeldingen" && method === "POST") return uploadAfbeelding(request, env);
   if ((n = id(/^\/afbeeldingen\/(\d{1,9})$/)) !== null && method === "DELETE") return verwijderAfbeelding(env, n);
   if (pad === "/voorraad" && method === "GET") return json({ ok: true, voorraad: await voorraadOverzicht(env) });
+  if (pad === "/bezoek" && method === "GET") {
+    const d = Number(new URL(request.url).searchParams.get("dagen") ?? 30);
+    return json({ ok: true, ...(await bezoekOverzicht(env, [7, 30, 90].includes(d) ? d : 30)) });
+  }
   if (pad === "/voorraad/afvullen" && method === "POST") return afvullen(request, env);
   if ((n = id(/^\/voorraad\/(\d{1,9})$/)) !== null && method === "POST") return voorraadWijzigen(request, env, n);
   if (pad === "/straatverkoop" && method === "POST") return straatverkoop(request, env);

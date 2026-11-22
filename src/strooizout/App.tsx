@@ -1,6 +1,7 @@
 // Strooizout voor de buurt: webshop op /strooizout, beheer op /strooizout/beheer. Eigen uiterlijk, eigen bundel.
 
 import { lazy, Suspense, useEffect, useRef } from "react";
+import { meldBezoek } from "./meting";
 import { extern, RouterProvider, useRouter } from "./router";
 import { MandProvider } from "./mandje";
 import { WinkelProvider } from "./winkeldata";
@@ -48,6 +49,7 @@ function Pagina() {
   const { pad } = useRouter();
   const main = useRef<HTMLElement>(null);
   const eerste = useRef(true);
+  useEffect(() => meldBezoek(pad), [pad]);
   useEffect(() => {
     if (eerste.current) {
       eerste.current = false;

@@ -10,6 +10,7 @@ import { rateLimit } from "./begrenzing";
 import { handleStrooizout } from "./strooizout";
 import { geplandOnderhoud } from "./strooizout-beheer";
 import { strooizoutDomein } from "./strooizout-domein";
+import { metProductGegevens } from "./strooizout-seo";
 
 export { rateLimit };
 
@@ -318,7 +319,10 @@ export default {
     const url = new URL(request.url);
     const domein = strooizoutDomein(url, env.STROOIZOUT_DOORVERWIJZEN === "ja");
     if (domein && "antwoord" in domein) return domein.antwoord;
-    if (domein && "pad" in domein) return env.ASSETS.fetch(new Request(new URL(domein.pad, url), request));
+    if (domein && "pad" in domein) {
+      const pagina = await env.ASSETS.fetch(new Request(new URL(domein.pad, url), request));
+      return domein.pad === "/strooizout" && request.method === "GET" ? metProductGegevens(pagina, env) : pagina;
+    }
     if (url.pathname.startsWith("/api/")) return handleApi(request, env, ctx);
     const kort = korteLink(url);
     if (kort) return kort;

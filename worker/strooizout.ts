@@ -11,7 +11,10 @@ import {
   betaalstatus,
   BETAAL_STATUS,
   controleerKlant,
+  BEZOEK_PAGINAS,
   maakAfhaalcode,
+  schoneBron,
+  schoneHerkomst,
   zakkenIn,
   type Betaalwijze,
   type BestelStatus,
@@ -243,7 +246,7 @@ async function plaatsBestelling(request: Request, env: SzEnv, nuSec: number): Pr
 
   const db = env.DB;
   const maakStatements = (afhaalcode: string) =>
-    bestelStatements(db, { idempotentie: idem, afhaalcode, rondeId: ronde?.id ?? null, kanaal, levering: levering as Levering, momentId, klant: k, betaalwijze: betaalwijze as Betaalwijze, som, effect, voorbestelling, nu });
+    bestelStatements(db, { idempotentie: idem, afhaalcode, rondeId: ronde?.id ?? null, kanaal, levering: levering as Levering, momentId, klant: k, betaalwijze: betaalwijze as Betaalwijze, som, effect, voorbestelling, bron: schoneBron(body.bron) || (kanaal === "straat" ? "aan-de-weg" : schoneHerkomst(body.herkomst) === "direct" ? "" : schoneHerkomst(body.herkomst)), nu });
 
   // Unieke afhaalcode: willekeurig, de UNIQUE-index bewaakt botsingen (ook bij gelijktijdige bestellingen); bij een botsing
   // opnieuw met een andere code. Na een paar pogingen een cijfer langer (H-12345).
@@ -392,6 +395,40 @@ async function afbeelding(env: SzEnv, id: number, hash: string, request: Request
 
 // ---------- Router ----------
 
+// Geen mensen: zoekmachines, linkvoorbeelden van berichtenapps, bewaking, scripts (zelfde lijst als worker/bezoek.ts).
+const GEEN_MENS = /bot|crawl|spider|slurp|preview|headless|lighthouse|pingdom|uptime|monitor|curl|wget|python|scrapy|httpclient|go-http|okhttp|java\/|facebookexternalhit|whatsapp|telegram|embedly|phantom|puppeteer|playwright/i;
+const DAG_NL = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam", year: "numeric", month: "2-digit", day: "2-digit" });
+
+/**
+ * Bezoek tellen zonder cookies: hooguit één rij per bezoeker per pagina per dag (INSERT OR IGNORE), dus begrensde
+ * schrijfacties. De bezoeker is een HMAC van IP + user-agent + dag; die is niet terug te rekenen en verandert elke dag.
+ */
+async function bezoek(request: Request, env: SzEnv): Promise<Response> {
+  if (!sameOrigin(request)) return new Response(null, { status: 204 });
+  const ua = request.headers.get("User-Agent") ?? "";
+  if (!env.HASH_SECRET || !ua || GEEN_MENS.test(ua)) return new Response(null, { status: 204 });
+  const tekst = await request.text();
+  if (tekst.length > 400) return new Response(null, { status: 204 });
+  let b: Record<string, unknown>;
+  try {
+    b = JSON.parse(tekst) as Record<string, unknown>;
+  } catch {
+    return new Response(null, { status: 204 });
+  }
+  const pagina = BEZOEK_PAGINAS.find((p) => p === b.pagina);
+  if (!pagina) return new Response(null, { status: 204 });
+  const dag = DAG_NL.format(new Date());
+  const ip = request.headers.get("CF-Connecting-IP") ?? "onbekend";
+  const bezoeker = (await hmacHex(env.HASH_SECRET, `bezoek|${dag}|${ip}|${ua}`)).slice(0, 32);
+  const apparaat = /ipad|tablet/i.test(ua) ? "tablet" : /mobi|android|iphone/i.test(ua) ? "telefoon" : "desktop";
+  const eigen = new URL(request.url).hostname.replace(/^www\./, "");
+  const herkomst = schoneHerkomst(b.herkomst);
+  await env.DB.prepare("INSERT OR IGNORE INTO sz_bezoek (dag, bezoeker, pagina, apparaat, herkomst, bron) VALUES (?1, ?2, ?3, ?4, ?5, ?6)")
+    .bind(dag, bezoeker, pagina, apparaat, herkomst === eigen ? "direct" : herkomst, schoneBron(b.bron))
+    .run();
+  return new Response(null, { status: 204 });
+}
+
 export async function handleStrooizout(request: Request, env: SzEnv, ctx: ExecutionContext, nuSec: number): Promise<Response | null> {
   const url = new URL(request.url);
   const path = url.pathname.replace(/\/+$/, "");
@@ -399,6 +436,7 @@ export async function handleStrooizout(request: Request, env: SzEnv, ctx: Execut
   if (!path.startsWith("/api/strooizout")) return null;
 
   if (path === "/api/strooizout/winkel" && method === "GET") return winkel(env);
+  if (path === "/api/strooizout/bezoek" && method === "POST") return bezoek(request, env);
   // Zonder HASH_SECRET zijn de persoonlijke bestellinks te raden: dan niet bestellen of bekijken (fail closed).
   if (path.startsWith("/api/strooizout/bestelling") && !env.HASH_SECRET) {
     console.error("Strooizout: HASH_SECRET ontbreekt; bestellen staat uit");

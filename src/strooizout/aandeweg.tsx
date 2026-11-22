@@ -3,6 +3,7 @@
 // geeft nooit zelf zakken vrij en zegt nergens dat er al betaald is. Zie docs/strooizout/README.md › Verkoop aan de weg.
 
 import { useMemo, useRef, useState, type FormEvent } from "react";
+import { herkomst } from "./meting";
 import { alsPrijsProduct, bereken, euro, normaliseerMobiel, volgendeStaffel } from "../../shared/strooizout";
 import { vraag, type KlantBestelling } from "./api";
 import { IcoonLet, Logo } from "./iconen";
@@ -43,6 +44,7 @@ export default function AanDeWeg() {
       method: "POST",
       body: JSON.stringify({
         kanaal: "straat",
+        ...herkomst(),
         idempotentie: idem.current,
         regels: [{ product_id: p!.id, aantal }],
         levering: "ophalen",

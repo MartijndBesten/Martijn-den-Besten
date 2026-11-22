@@ -5,7 +5,7 @@ import { aanbiedingGeldig, alsPrijsProduct, bereken, dagTekst, euro, stukprijs, 
 import { IcoonDelen, IcoonKlok, IcoonLet, IcoonPijlRechts } from "./iconen";
 import { useMand } from "./mandje";
 import { Aantal, maxVoor } from "./opmaak";
-import { WINKEL_URL } from "./qr";
+import { metBron, WINKEL_URL } from "./qr";
 import { useWinkel } from "./winkeldata";
 import { extern } from "./router";
 
@@ -226,13 +226,14 @@ function Delen({ winkel }: { winkel: Winkel }) {
       type="button"
       className="sz-knop sz-knop--licht sz-delen"
       onClick={async () => {
-        const data = { title: "Strooizout voor de buurt", text: tekst, url: WINKEL_URL };
+        const url = metBron(WINKEL_URL, "delen");
+        const data = { title: "Strooizout voor de buurt", text: tekst, url };
         try {
           if (navigator.share) return await navigator.share(data);
         } catch {
           return; // geannuleerd
         }
-        window.open(`https://wa.me/?text=${encodeURIComponent(`${tekst} ${WINKEL_URL}`)}`, "_blank", "noopener");
+        window.open(`https://wa.me/?text=${encodeURIComponent(`${tekst} ${url}`)}`, "_blank", "noopener");
       }}
     >
       <IcoonDelen /> Deel met je buren
@@ -288,6 +289,7 @@ export function WinkelPagina() {
       <div className="sz-start">
         <div className="sz-wrap sz-start__in">
           <div className="sz-start__kop">
+            <p className="sz-oogje">Strooizout kopen in Houten · 25 kg · afhalen of bezorgen</p>
             <h1>Strooizout uit je eigen buurt.</h1>
             <p className="sz-payoff">Hou je buurt veilig. Strooi bewust.</p>
             <p className="sz-intro">Geen aparte rit naar de bouwmarkt. Bestel samen met je buren en houd je stoep veilig.</p>

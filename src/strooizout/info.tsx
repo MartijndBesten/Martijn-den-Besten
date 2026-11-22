@@ -99,7 +99,7 @@ export function Privacy() {
 
         <h2>Geen account, geen cookies, geen tracking</h2>
         <p>
-          Je hebt geen account nodig. Deze webshop plaatst geen cookies en gebruikt geen advertentie- of volgsoftware. Je winkelmandje wordt alleen in je eigen browser bewaard. Voor de hele website martijndenbesten.com staat een anonieme, cookieloze bezoekstatistiek van Cloudflare aan.
+          Je hebt geen account nodig. Deze webshop plaatst geen cookies en gebruikt geen advertentie- of volgsoftware. Je winkelmandje wordt alleen in je eigen browser bewaard. Om te weten hoeveel mensen de webshop bezoeken en via welke weg (bijvoorbeeld de flyer of een gedeelde link), tellen we bezoeken zonder cookies: per dag maken we van je IP-adres en browsertype een code die niet terug te rekenen is en de volgende dag verandert. We bewaren geen IP-adres, alleen de dag, de pagina, het soort apparaat en de verwijzende website. Deze telling bewaren we hooguit ruim een jaar en delen we met niemand. Daarnaast staat voor martijndenbesten.com een anonieme, cookieloze bezoekstatistiek van Cloudflare aan.
         </p>
 
         <h2>Waar staan je gegevens</h2>

@@ -8,6 +8,8 @@ export const DOMEIN = "https://strooizouthouten.nl";
 export const WINKEL_URL = DOMEIN;
 export const WEG_URL = `${DOMEIN}/aan-de-weg`;
 export const KORTE_URL = "strooizouthouten.nl";
+/** Link met bron (`?via=…`), zodat het beheer ziet welk kanaal bezoek en bestellingen oplevert (geen persoonsgegevens). */
+export const metBron = (url: string, via: string) => `${url}${url.endsWith(".nl") ? "/" : ""}?via=${via}`;
 
 /** Pad van alle donkere modules (één <path>, scherp bij elke grootte). */
 export function qrPad(tekst: string, niveau: "L" | "M" | "Q" | "H" = "M"): { pad: string; grootte: number } {

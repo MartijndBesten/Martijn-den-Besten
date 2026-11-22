@@ -111,6 +111,8 @@ CREATE TABLE IF NOT EXISTS sz_bestelling (
   kanaal TEXT NOT NULL DEFAULT 'web' CHECK (kanaal IN ('web', 'straat', 'beheer')),
   -- 1 = geplaatst toen de voorraad er nog niet (genoeg) lag: een voorbestelling
   voorbestelling INTEGER NOT NULL DEFAULT 0,
+  -- herkomst van de bestelling (?via=flyer, bord, delen …) of de verwijzende site; geen persoonsgegevens
+  bron TEXT NOT NULL DEFAULT '',
   -- nieuw: reservering ontvangen · bevestigd · klaar: ligt klaar / gaat mee · afgehaald · bezorgd · geannuleerd
   status TEXT NOT NULL DEFAULT 'nieuw' CHECK (status IN ('nieuw', 'bevestigd', 'klaar', 'afgehaald', 'bezorgd', 'geannuleerd')),
   levering TEXT NOT NULL CHECK (levering IN ('ophalen', 'bezorgen')),
@@ -191,6 +193,18 @@ CREATE TABLE IF NOT EXISTS sz_log (
   actie TEXT NOT NULL,
   details TEXT NOT NULL DEFAULT '',
   op TEXT NOT NULL
+);
+
+-- Bezoekmeting zonder cookies: één rij per bezoeker per pagina per dag. `bezoeker` is een HMAC van IP + user-agent +
+-- dag met een geheime sleutel: niet terug te rekenen en niet tussen dagen te koppelen. Geen IP, geen user-agent, geen cookie.
+CREATE TABLE IF NOT EXISTS sz_bezoek (
+  dag TEXT NOT NULL,                  -- kalenderdag in Nederland, JJJJ-MM-DD
+  bezoeker TEXT NOT NULL,
+  pagina TEXT NOT NULL CHECK (pagina IN ('winkel', 'aan-de-weg', 'bestelling', 'info', 'flyer')),
+  apparaat TEXT NOT NULL CHECK (apparaat IN ('telefoon', 'tablet', 'desktop')),
+  herkomst TEXT NOT NULL DEFAULT 'direct', -- hostnaam van de verwijzende site, of 'direct'
+  bron TEXT NOT NULL DEFAULT '',            -- ?via=… uit de link (flyer, bord, delen, whatsapp …)
+  PRIMARY KEY (dag, bezoeker, pagina)
 );
 
 CREATE TABLE IF NOT EXISTS sz_instelling (

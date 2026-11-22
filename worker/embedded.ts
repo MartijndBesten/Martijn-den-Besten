@@ -4,6 +4,7 @@
 import { handleApi, korteLink, type Env } from "./index";
 import { geplandOnderhoud } from "./strooizout-beheer";
 import { strooizoutDomein } from "./strooizout-domein";
+import { metProductGegevens } from "./strooizout-seo";
 import { FILES, HEADER_RULES } from "./generated/files";
 import { verwijstDoor } from "../shared/bijbelreis";
 
@@ -62,7 +63,7 @@ export default {
     if (domein && "antwoord" in domein) return domein.antwoord;
     if (domein && "pad" in domein && (request.method === "GET" || request.method === "HEAD")) {
       const bestand = resolve(domein.pad);
-      if (bestand) return serve(request, bestand);
+      if (bestand) return domein.pad === "/strooizout" && request.method === "GET" ? metProductGegevens(serve(request, bestand), env) : serve(request, bestand);
     }
     if (url.pathname.startsWith("/api/")) return handleApi(request, env, ctx);
     const kort = korteLink(url);

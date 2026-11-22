@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { dagTekst, euro } from "../../shared/strooizout";
 import { laadWinkel } from "./api";
 import { Logo } from "./iconen";
-import { KORTE_URL, QrCode, WEG_URL, WINKEL_URL } from "./qr";
+import { KORTE_URL, metBron, QrCode, WEG_URL, WINKEL_URL } from "./qr";
 import "./flyer.css";
 
 type Staffel = { vanaf: number; prijs: number };
@@ -101,7 +101,7 @@ export function FlyerA5({ g }: { g: Gegevens }) {
         <li>Betalen bij ontvangst of met een betaalverzoek</li>
       </ul>
       <div className="fl-a5__bestel">
-        <QrCode className="fl-qr" label={`QR-code naar ${WINKEL_URL}`} kleur="#0b2340" />
+        <QrCode className="fl-qr" tekst={metBron(WINKEL_URL, "flyer")} label={`QR-code naar ${WINKEL_URL}`} kleur="#0b2340" />
         <div>
           <p className="fl-a5__scan">Scan en bestel</p>
           <p className="fl-a5__url">{KORTE_URL}</p>
@@ -133,7 +133,7 @@ export function Deelbeeld({ g, vorm }: { g: Gegevens; vorm: "vierkant" | "breed"
       </div>
       {vorm === "vierkant" ? (
         <div className="fl-deel__onder">
-          <QrCode label={`QR-code naar ${WINKEL_URL}`} kleur="#0b2340" />
+          <QrCode tekst={metBron(WINKEL_URL, "deelbeeld")} label={`QR-code naar ${WINKEL_URL}`} kleur="#0b2340" />
           <div>
             <strong>Samen bestellen?</strong>
             <span>{KORTE_URL}</span>
@@ -159,7 +159,7 @@ export function Bord({ g }: { g: Gegevens }) {
         <b>{euro(g.prijs)}</b> per zak
       </p>
       {g.staffels.length > 0 && <p className="fl-bord__staffel">{prijsRegels(g).slice(1).map((r) => nb(`${r.label} ${euro(r.prijs)}`)).join("  ·  ")} per zak</p>}
-      <QrCode className="fl-bord__qr" tekst={WEG_URL} label={`QR-code naar ${WEG_URL}`} kleur="#0b2340" />
+      <QrCode className="fl-bord__qr" tekst={metBron(WEG_URL, "bord")} label={`QR-code naar ${WEG_URL}`} kleur="#0b2340" />
       <ol className="fl-bord__stappen">
         <li>
           <b>Scan</b> en kies je aantal
@@ -187,7 +187,7 @@ const DEEL_TEKST = (g: Gegevens) =>
     `Samen bestellen is voordeliger. Gratis afhalen in ${g.plek}${g.bezorg !== null ? `, of laten bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? ` (vanaf ${g.bezorgVanaf} zakken)` : ""} voor ${euro(g.bezorg)} per zak` : ""}.`,
     g.vanaf ? `Op voorraad vanaf ${dagTekst(g.vanaf)}; reserveren kan nu.` : "",
     "",
-    `Bestellen: ${WINKEL_URL}`,
+    `Bestellen: ${metBron(WINKEL_URL, "whatsapp")}`,
   ]
     .filter((x, i, a) => x !== "" || a[i - 1] !== "")
     .join("\n");
