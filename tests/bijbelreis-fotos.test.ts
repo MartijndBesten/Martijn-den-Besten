@@ -32,6 +32,11 @@ const LICENTIE = /^(Publiek domein|CC0 1\.0|CC BY(-SA)? (2\.0|2\.5|3\.0|4\.0))$/
 const MAX_FOTO = 150_000, MAX_SAMEN = 3_000_000;
 
 describe("foto’s: gegevens en licenties", () => {
+  it("elke foto staat bij maar één plaats (nooit twee keer dezelfde foto)", () => {
+    const bestanden = IDS.map((id) => F[id].f), bronnen = IDS.map((id) => F[id].bron);
+    expect(bestanden.filter((f, i) => bestanden.indexOf(f) !== i)).toEqual([]);
+    expect(bronnen.filter((b, i) => bronnen.indexOf(b) !== i)).toEqual([]);
+  });
   it("er zijn foto’s, en het is een bewuste selectie (25–40)", () => {
     expect(IDS.length).toBeGreaterThanOrEqual(25);
     expect(IDS.length).toBeLessThanOrEqual(40);

@@ -1537,3 +1537,22 @@ Lukas 2:1 | een gebod uitging van den Keizer Augustus, dat de gehele wereld besc
 Lukas 2:2 | Deze eerste beschrijving geschiedde, als Cyrenius over Syri. stadhouder was
 # --- Kerst C (inhoud/kerst-3.js): Archelaüs
 Mattheüs 2:22 | als hij hoorde, dat Archelaus in Judea koning was, in de plaats van zijn vader Herodes, vreesde hij daarheen te gaan
+# --- Afgeleide leeftijden (audit 22-11-2026): de getallen achter ‘a + b jaar’ in personen.js
+Genesis 11:10 | Sem was honderd jaren oud
+Genesis 11:11 | nadat hij Arfachsad gewonnen had, vijfhonderd jaren
+Genesis 11:12 | vijf en dertig jaren
+Genesis 11:13 | vierhonderd en drie jaren
+Genesis 11:14 | Selah leefde dertig jaren
+Genesis 11:15 | vierhonderd en drie jaren
+Genesis 11:16 | vier en dertig jaren
+Genesis 11:17 | vierhonderd en dertig jaren
+Genesis 11:18 | Peleg leefde dertig jaren
+Genesis 11:19 | tweehonderd en negen jaren
+Genesis 11:20 | twee en dertig jaren
+Genesis 11:21 | tweehonderd en zeven jaren
+Genesis 11:22 | Serug leefde dertig jaren
+Genesis 11:23 | tweehonderd jaren
+Genesis 11:24 | negen en twintig jaren
+Genesis 11:25 | honderd en negentien jaren
+2 Samuël 5:4 | Dertig jaar was David oud, als hij koning werd; veertig jaren heeft hij geregeerd
+2 Samuël 5:5 | zeven jaren en zes maanden

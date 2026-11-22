@@ -15,6 +15,9 @@
 //   zussen’. Alleen Abraham en Sara (Genesis 20:12). Het controlescript eist dit veld bij elk zo’n paar.
 // overlevering = kerkelijke overlevering die niet in de Bijbel staat: [[tekst, toelichting]]. Overlevering staat nooit in
 //   v, m of p; een familieband die alleen op overlevering rust, wordt niet opgenomen.
+// leeftijd = [[jaren, verwijzing, afleiding?], ...]. Zonder derde element staat de leeftijd zo in de tekst; met
+//   { afgeleid: "…", ca? } is hij uitgerekend uit getallen in die verzen (bijv. Genesis 11: leeftijd bij de geboorte
+//   van de zoon + de jaren daarna) en toont de app ‘afgeleid’ (en ‘ca.’ als het niet precies uit te rekenen is).
 // Alle familiebanden, leeftijden en verwijzingen zijn gecontroleerd tegen de Statenvertaling:
 //   python3 scripts/bijbel-check.py scripts/bijbel-controle/personen.txt
 // Koppelingen en stamboom: node scripts/bijbelreis-personen-check.mjs
@@ -77,32 +80,32 @@ BR.mensen = {
     basis: { v: ["b", "Genesis 5:28–29"] } },
   sem: { n: "Sem", v: "noach", boek: ["genesis", "kerst"],
     kort: "Een van de drie zonen van Noach; uit hem komen Heber, Terach en Abraham.",
-    geb: "Genesis 5:32", dood: "Genesis 11:11", leeftijd: [[100, "Genesis 11:10"]],
+    geb: "Genesis 5:32", dood: "Genesis 11:11", leeftijd: [[100, "Genesis 11:10"], [600, "Genesis 11:10–11", { afgeleid: "100 + 500 jaar" }]],
     elders: [["Lukas 3:36", "Genoemd in het geslachtsregister van de Heere Jezus."]],
     basis: { v: ["b", "Genesis 5:32"] } },
   arfachsad: { n: "Arfachsad", v: "sem", boek: ["genesis"], kort: "Zoon van Sem, twee jaar na de zondvloed geboren.",
-    geb: "Genesis 11:10", dood: "Genesis 11:13", leeftijd: [[35, "Genesis 11:12"]],
+    geb: "Genesis 11:10", dood: "Genesis 11:13", leeftijd: [[35, "Genesis 11:12"], [438, "Genesis 11:12–13", { afgeleid: "35 + 403 jaar" }]],
     basis: { v: ["b", "Genesis 11:10"] } },
   selah: { n: "Selah", v: "arfachsad", boek: ["genesis"], kort: "Zoon van Arfachsad, een van de voorvaders van Abraham.",
-    geb: "Genesis 11:12", dood: "Genesis 11:15", leeftijd: [[30, "Genesis 11:14"]],
+    geb: "Genesis 11:12", dood: "Genesis 11:15", leeftijd: [[30, "Genesis 11:14"], [433, "Genesis 11:14–15", { afgeleid: "30 + 403 jaar" }]],
     basis: { v: ["b", "Genesis 11:12"] } },
   heber: { n: "Heber", v: "selah", boek: ["genesis"], kort: "Zoon van Selah, een van de voorvaders van Abraham.",
-    geb: "Genesis 11:14", dood: "Genesis 11:17", leeftijd: [[34, "Genesis 11:16"]],
+    geb: "Genesis 11:14", dood: "Genesis 11:17", leeftijd: [[34, "Genesis 11:16"], [464, "Genesis 11:16–17", { afgeleid: "34 + 430 jaar" }]],
     basis: { v: ["b", "Genesis 11:14"] } },
   peleg: { n: "Peleg", v: "heber", boek: ["genesis"], kort: "Zoon van Heber; in zijn dagen werd de aarde verdeeld.",
-    geb: "Genesis 11:16", dood: "Genesis 11:19", leeftijd: [[30, "Genesis 11:18"]], elders: [["Genesis 10:25", "Waarom hij Peleg heette."]],
+    geb: "Genesis 11:16", dood: "Genesis 11:19", leeftijd: [[30, "Genesis 11:18"], [239, "Genesis 11:18–19", { afgeleid: "30 + 209 jaar" }]], elders: [["Genesis 10:25", "Waarom hij Peleg heette."]],
     basis: { v: ["b", "Genesis 11:16"] } },
   rehu: { n: "Rehu", v: "peleg", boek: ["genesis"], kort: "Zoon van Peleg, een van de voorvaders van Abraham.",
-    geb: "Genesis 11:18", dood: "Genesis 11:21", leeftijd: [[32, "Genesis 11:20"]],
+    geb: "Genesis 11:18", dood: "Genesis 11:21", leeftijd: [[32, "Genesis 11:20"], [239, "Genesis 11:20–21", { afgeleid: "32 + 207 jaar" }]],
     basis: { v: ["b", "Genesis 11:18"] } },
   serug: { n: "Serug", v: "rehu", boek: ["genesis"], kort: "Zoon van Rehu en overgrootvader van Abraham.",
-    geb: "Genesis 11:20", dood: "Genesis 11:23", leeftijd: [[30, "Genesis 11:22"]],
+    geb: "Genesis 11:20", dood: "Genesis 11:23", leeftijd: [[30, "Genesis 11:22"], [230, "Genesis 11:22–23", { afgeleid: "30 + 200 jaar" }]],
     basis: { v: ["b", "Genesis 11:20"] } },
   // Twee mannen heten Nahor: de opa en de broer van Abraham (Genesis 11:22–26). Ze mogen niet onder dezelfde naam in
   // hetzelfde boek staan, anders voegt de app ze samen. De opa heet daarom ‘Nahor (opa)’, zoals in de leeftijdenlijst van
   // de Genesis-stamboom; ‘Nahor’ (stamboom-rij, geschiedenissen) is altijd de broer.
   nahor_serug: { n: "Nahor (opa)", v: "serug", boek: ["genesis"], kort: "Zoon van Serug en opa van Abraham; niet dezelfde als Abrahams broer Nahor.",
-    geb: "Genesis 11:22", dood: "Genesis 11:25", leeftijd: [[29, "Genesis 11:24"]],
+    geb: "Genesis 11:22", dood: "Genesis 11:25", leeftijd: [[29, "Genesis 11:24"], [148, "Genesis 11:24–25", { afgeleid: "29 + 119 jaar" }]],
     basis: { v: ["b", "Genesis 11:22"] } },
   terach: { n: "Terach", v: "nahor_serug", boek: ["genesis", "kerst"],
     kort: "Vader van Abram, Nahor en Haran; hij trok met Abram uit Ur en stierf in Haran.",
@@ -401,7 +404,7 @@ BR.mensen = {
     basis: { v: ["b", "1 Samuël 18:20"], p: { david: ["b", "1 Samuël 18:27"] } } },
   david: { n: "David", v: "isai", p: ["michal", "abigail", "bathseba"], boek: ["ruth", "1samuel", "2samuel", "1koningen", "kerst"],
     kort: "De herdersjongen uit Bethlehem die God koos als koning: ‘een man naar Mijn hart’ (Handelingen 13:22).",
-    dood: "1 Koningen 2:10", leeftijd: [[30, "2 Samuël 5:4"]],
+    dood: "1 Koningen 2:10", leeftijd: [[30, "2 Samuël 5:4"], [70, "2 Samuël 5:4–5", { afgeleid: "30 jaar bij zijn kroning + 40 jaar koning", ca: true }]],
     elders: [["Psalm 23:1", "De Psalm van de goede Herder is een psalm van David."], ["Psalm 78:70–71", "God nam David van de schaapskooien om Zijn volk te weiden."], ["Jesaja 9:6", "De Messias zal zitten op de troon van David."], ["Mattheüs 1:1", "Jezus Christus, de Zoon van David."], ["Handelingen 13:22", "‘Ik heb gevonden David, den zoon van Jesse, een man naar Mijn hart.’"]],
     basis: { v: ["b", "Ruth 4:22"], p: { michal: ["b", "1 Samuël 18:27"], abigail: ["b", "1 Samuël 25:42"], bathseba: ["b", "2 Samuël 11:27"] } } },
   goliath: { n: "Goliath", boek: ["1samuel"], kort: "Reus uit Gath, de kampvechter van de Filistijnen; David versloeg hem met een slinger en een steen.",
