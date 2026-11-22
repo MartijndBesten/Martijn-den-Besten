@@ -1095,6 +1095,10 @@ describe("eigen domein strooizouthouten.nl", () => {
       expect(strooizoutDomein(u(`https://strooizouthouten.nl${p}`), false)).toBeNull();
     }
     expect(naar(strooizoutDomein(u("https://strooizouthouten.nl/museum"), false))).toEqual([302, "/"]);
+    // Pictogrammen op de vaste adressen (deelvenster en beginscherm van de telefoon): png, geen doorverwijzing.
+    expect(pad(strooizoutDomein(u("https://strooizouthouten.nl/apple-touch-icon.png"), false))).toBe("/strooizout/icoon-180.png");
+    expect(pad(strooizoutDomein(u("https://strooizouthouten.nl/apple-touch-icon-precomposed.png"), false))).toBe("/strooizout/icoon-180.png");
+    expect(pad(strooizoutDomein(u("https://strooizouthouten.nl/favicon.ico"), false))).toBe("/strooizout/icoon-48.png");
   });
 
   it("robots.txt en sitemap van het eigen domein", async () => {

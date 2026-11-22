@@ -1,6 +1,6 @@
 // De strooiroute over de pagina: begint bij de korrels onder de zak in de hero, loopt bij het scrollen langs de drie
-// stappen (die oplichten als de route ze bereikt) en gaat in de buurtsectie over in het trottoir naar de deur van de
-// buur (scene.tsx › Straat, via de CSS-variabele --straat). Eén SVG-pad dat over de inhoud ligt: geen invloed op de
+// stappen (die oplichten als de route ze bereikt). Op een breed scherm gaat hij in de buurtsectie over in het trottoir
+// (scene.tsx › Straat, via de CSS-variabele --straat); op de telefoon eindigt hij bij de laatste stap. Eén SVG-pad dat over de inhoud ligt: geen invloed op de
 // opmaak, geen klikken onderscheppen, geen maskers of filters. De route loopt alleen vooruit en blijft daarna staan.
 // Bij ‘minder beweging’ staat direct het eindbeeld er.
 
@@ -59,13 +59,6 @@ function bouw(doos: HTMLElement): Vorm | null {
   if (smal) {
     const x = ic[0].x;
     const goot = Math.max(7, marge / 2);
-    // Naast de straat is links een smalle baan vrijgelaten (winter.css): de lijn loopt daar door tot het trottoir,
-    // zodat hij aansluit op het laatste stuk naar de deur van de buur.
-    const st = rel(beeld);
-    const trottoirSmal = st.y + st.h - (310 - 278) * Math.max(st.w / 960, st.h / 310);
-    const naastStraat = goot + 6 <= st.x;
-    const onder = rel(laatste);
-    const voet = onder.y + onder.h;
     // Vanuit de hero eerst langs de linkerrand omlaag (om de koptekst heen), dan de eerste stap in.
     const eerste = rel(iconen[0].closest<HTMLElement>("li") ?? iconen[0]);
     const bocht = Math.max(40, eerste.y - 34);
@@ -75,7 +68,8 @@ function bouw(doos: HTMLElement): Vorm | null {
       const g = i % 2 ? 9 : -9;
       d += ` C${n(x + g)} ${n(ic[i - 1].y + dy)} ${n(x - g)} ${n(ic[i].y - dy)} ${n(x)} ${n(ic[i].y)}`;
     }
-    d += ` L${n(x)} ${n(voet - 6)} C${n(x)} ${n(voet + 26)} ${n(goot)} ${n(voet + 10)} ${n(goot)} ${n(voet + 46)} L${n(goot)} ${n(naastStraat ? trottoirSmal : eind)}`;
+    // Op de telefoon eindigt de route bij de laatste stap: naast de tekst van de buurtsectie is geen ruimte voor een
+    // lijn. De straat tekent daar zelf het pad van jouw deur naar die van de buur.
     return { d, w, h, grens, smal };
   }
 
@@ -103,7 +97,7 @@ function bouw(doos: HTMLElement): Vorm | null {
   // Past de lijn naast de straat, dan loopt hij door tot het trottoir (daar neemt de straat het over).
   const straat = rel(beeld);
   const schaal = Math.max(straat.w / 960, straat.h / 310);
-  const trottoir = straat.y + straat.h - (310 - 278) * schaal;
+  const trottoir = straat.y + straat.h - (310 - 266) * schaal;
   const totTrottoir = rechts - 6 >= straat.x + straat.w;
   d += ` L${n(rechts - R)} ${n(y)} Q${n(rechts)} ${n(y)} ${n(rechts)} ${n(y + R)} L${n(rechts)} ${n(totTrottoir ? trottoir : eind)}`;
   return { d, w, h, grens, smal };

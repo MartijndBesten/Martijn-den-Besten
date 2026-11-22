@@ -202,11 +202,14 @@ const HUIZEN: [number, number, number, number[], string][] = [
   [810, 140, 138, [0, 1, 0, 1], "#143a66"],
 ];
 const GROND = 236;
-// De voordeur van de buur (midden van de deur) en het laatste stuk van de route over het trottoir. Op de telefoon
-// komt de route van links het beeld in, op een breed scherm van rechts (waar de route langs de pagina omlaag komt).
-const DEUR = 570;
-const ROUTE_LINKS = `M120 278 L 520 278 C 556 278, ${DEUR} 268, ${DEUR} 240`;
-const ROUTE_RECHTS = `M990 278 L 620 278 C 584 278, ${DEUR} 268, ${DEUR} 240`;
+// Twee buren naast elkaar: jouw voordeur en die van de buur (midden van de deur). Het gestrooide pad loopt van jouw
+// deur over het trottoir naar die van de buur. Op een breed scherm komt de strooiroute van de pagina van rechts het
+// beeld in en sluit bij jouw deur op dat pad aan.
+const EIGEN = 570;
+const DEUR = 410;
+const PAD_Y = 266;
+const ROUTE_BUUR = `M${EIGEN} 240 C ${EIGEN} 256, ${EIGEN - 13} ${PAD_Y}, ${EIGEN - 35} ${PAD_Y} L ${DEUR + 35} ${PAD_Y} C ${DEUR + 13} ${PAD_Y}, ${DEUR} 256, ${DEUR} 240`;
+const ROUTE_AANVOER = `M990 ${PAD_Y} L ${EIGEN - 35} ${PAD_Y}`;
 
 /**
  * De straat bij de buurtboodschap: een rij huizen in de winternacht. Het laatste stuk van de strooiroute loopt over
@@ -222,15 +225,20 @@ export function Straat() {
     .filter((r) => r.licht)
     .sort((a, b) => Math.abs(b.x - DEUR) - Math.abs(a.x - DEUR))
     .map((r, i, alle) => ({ ...r, t: 0.1 + (0.68 * i) / Math.max(1, alle.length - 1) }));
-  const route = (d: string, kant: "links" | "rechts") => (
-    <g className={`wn-straat__route wn-straat__route--${kant}`} mask={`url(#wn-st-masker-${kant})`}>
-      <path d={d} fill="none" stroke="#eaf5fc" strokeOpacity="0.3" strokeWidth="24" strokeLinecap="round" />
+  // De baan onder de korrels staat voor beide stukken in één doorschijnende groep, zodat de aansluiting niet dubbel telt.
+  const baan = (d: string, deel: "buur" | "aanvoer") => (
+    <g className={`wn-straat__route--${deel}`} mask={`url(#wn-st-masker-${deel})`}>
+      <path d={d} fill="none" stroke="#eaf5fc" strokeWidth="24" strokeLinecap="round" />
+    </g>
+  );
+  const korrels = (d: string, deel: "buur" | "aanvoer") => (
+    <g className={`wn-straat__route--${deel}`} mask={`url(#wn-st-masker-${deel})`}>
       <path d={d} fill="none" stroke="#ffffff" strokeWidth="4.5" strokeLinecap="round" strokeDasharray="0.1 15" />
       <path d={d} fill="none" stroke="#ffb547" strokeWidth="6.5" strokeLinecap="round" strokeDasharray="0.1 45" strokeDashoffset="-7" />
     </g>
   );
   return (
-    <svg className="wn-straat" viewBox="0 0 960 310" role="img" aria-label="Een straat in de winter met een gestrooid pad naar de voordeur van de buren" preserveAspectRatio="xMidYMax slice">
+    <svg className="wn-straat" viewBox="0 0 960 310" role="img" aria-label="Een straat in de winter met een gestrooid pad van jouw voordeur naar die van de buren" preserveAspectRatio="xMidYMax slice">
       <defs>
         <linearGradient id="wn-st-grond" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#1b4877" />
@@ -240,11 +248,11 @@ export function Straat() {
           <stop offset="0" stopColor="#ffb547" stopOpacity="0.6" />
           <stop offset="1" stopColor="#ffb547" stopOpacity="0" />
         </radialGradient>
-        <mask id="wn-st-masker-links" maskUnits="userSpaceOnUse" x="0" y="200" width="1000" height="110">
-          <path className="wn-straat__teken" d={ROUTE_LINKS} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
+        <mask id="wn-st-masker-buur" maskUnits="userSpaceOnUse" x="0" y="200" width="1000" height="110">
+          <path className="wn-straat__teken wn-straat__teken--buur" d={ROUTE_BUUR} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
         </mask>
-        <mask id="wn-st-masker-rechts" maskUnits="userSpaceOnUse" x="0" y="200" width="1000" height="110">
-          <path className="wn-straat__teken" d={ROUTE_RECHTS} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
+        <mask id="wn-st-masker-aanvoer" maskUnits="userSpaceOnUse" x="0" y="200" width="1000" height="110">
+          <path className="wn-straat__teken wn-straat__teken--aanvoer" d={ROUTE_AANVOER} fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" pathLength="1" />
         </mask>
       </defs>
       <g fill="#cfe6f6">
@@ -282,13 +290,27 @@ export function Straat() {
       <rect x="0" y={GROND} width="1000" height="80" fill="url(#wn-st-grond)" />
       <path d={`M0 ${GROND + 1} H1000`} stroke="#9fc9e8" strokeOpacity="0.35" strokeWidth="2" />
       <g stroke="#cfe6f6" strokeOpacity="0.16" strokeWidth="3" strokeLinecap="round">
-        <path d="M40 262 H180M640 296 H800M300 300 H420M700 258 H900" />
+        <path d="M40 262 H180M700 296 H800M820 262 H930" />
       </g>
-      {/* de voordeur van de buur: warm licht dat sterker wordt als de route aankomt */}
+      {/* jouw voordeur (licht aan) en die van de buur: daar wordt het licht sterker als het pad aankomt */}
+      <ellipse cx={EIGEN} cy={GROND - 14} rx="44" ry="38" fill="url(#wn-st-licht)" opacity="0.75" />
+      <rect x={EIGEN - 11} y={GROND - 40} width="22" height="40" rx="3" fill="#ffb547" />
       <ellipse className="wn-straat__gloed" cx={DEUR} cy={GROND - 14} rx="52" ry="46" fill="url(#wn-st-licht)" />
       <rect x={DEUR - 11} y={GROND - 40} width="22" height="40" rx="3" fill="#ffb547" />
-      {route(ROUTE_LINKS, "links")}
-      {route(ROUTE_RECHTS, "rechts")}
+      <g opacity="0.3">
+        {baan(ROUTE_AANVOER, "aanvoer")}
+        {baan(ROUTE_BUUR, "buur")}
+      </g>
+      {korrels(ROUTE_AANVOER, "aanvoer")}
+      {korrels(ROUTE_BUUR, "buur")}
+      <g className="wn-straat__naam" textAnchor="middle">
+        <text x={EIGEN} y="303">
+          Jouw deur
+        </text>
+        <text className="wn-straat__naam--buur" x={DEUR} y="303">
+          Je buur
+        </text>
+      </g>
     </svg>
   );
 }

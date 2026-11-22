@@ -38,7 +38,9 @@ export function strooizoutDomein(url: URL, doorverwijzen: boolean): DomeinUitkom
     if (lang && PAGINAS.has(lang[1])) return { antwoord: doorverwijzing(`/${lang[1]}${url.search}`) };
     if (p === "/robots.txt") return { antwoord: tekst(ROBOTS, "text/plain") };
     if (p === "/sitemap.xml") return { antwoord: tekst(sitemap(), "application/xml") };
-    if (p === "/favicon.ico") return { antwoord: doorverwijzing("/strooizout/icoon.svg") };
+    // Pictogrammen op de vaste adressen waar telefoons en deelvensters ze zoeken (png: iOS toont geen svg).
+    if (p === "/favicon.ico") return { pad: "/strooizout/icoon-48.png" };
+    if (p === "/apple-touch-icon.png" || p === "/apple-touch-icon-precomposed.png") return { pad: "/strooizout/icoon-180.png" };
     // Bestanden die de webshop gebruikt, en de API.
     if (/^\/(api|assets|fonts|strooizout)\//.test(p) || p === "/bijbelreis/denckh-logo-signature.svg" || p === "/zout") return null;
     // Al het andere (de rest van martijndenbesten.com) hoort niet bij dit domein.
