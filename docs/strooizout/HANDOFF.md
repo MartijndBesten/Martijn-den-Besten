@@ -136,7 +136,7 @@ Bezorgen kost nu een vast bedrag van **€ 2,00 per bezorging (per adres)**, van
 8. **Reservering of koop?** Voor Google Merchant Center (gratis productvermeldingen) moet een bestelling een echte koop zijn. De knop moet dan wettelijk een betalingsverplichting noemen. Zolang het een kosteloos te annuleren reservering blijft: Merchant Center overslaan.
 9. **Google-accounts (login Martijn):** Search Console-domein verifiëren via TXT in Cloudflare, de sitemap indienen en indexering aanvragen (stappen in PROMOTIE.md §2). Bedrijfsprofiel: het bestaande Denckh-profiel uitbreiden in plaats van een tweede profiel aan te maken.
 11. **Bestelronde openen** in *Beheer › Bestelrondes › Nieuwe ronde* (bijv. ‘Winter 2026’, zonder sluitdatum). Kan ook door een agent, als Martijn schrijfacties op de productiedatabase toestaat. Daarna een testbestelling met fictieve gegevens plaatsen, annuleren en opruimen.
-12. ~~Domein koppelen~~ — gedaan via de uitrol (14:45). Kan via Claude in Chrome: Workers › `martijndenbesten` › Domains & Routes › Custom domain `strooizouthouten.nl` en `www.strooizouthouten.nl`. Of via een uitrol met de bijgewerkte `wrangler.embedded.jsonc`, waar beide domeinen nu in staan. Werkt het domein, dan de doorverwijzing aanzetten (`STROOIZOUT_DOORVERWIJZEN = "ja"`) en opnieuw uitrollen.
+12. ~~Domein koppelen~~ — gedaan via de uitrol (14:45); doorverwijzing van het oude adres via PR #80.
 10. **Promotie plaatsen:** de teksten liggen klaar (PROMOTIE.md §7). Niets plaatsen zonder akkoord van Martijn en, bij groepen, de beheerder.
 
 ## Gecontroleerd (22-11-2026)
