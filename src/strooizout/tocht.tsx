@@ -59,6 +59,11 @@ function bouw(doos: HTMLElement): Vorm | null {
   if (smal) {
     const x = ic[0].x;
     const goot = Math.max(7, marge / 2);
+    // Naast de straat is links een smalle baan vrijgelaten (winter.css): de lijn loopt daar door tot het trottoir,
+    // zodat hij aansluit op het laatste stuk naar de deur van de buur.
+    const st = rel(beeld);
+    const trottoirSmal = st.y + st.h - (310 - 278) * Math.max(st.w / 960, st.h / 310);
+    const naastStraat = goot + 6 <= st.x;
     const onder = rel(laatste);
     const voet = onder.y + onder.h;
     // Vanuit de hero eerst langs de linkerrand omlaag (om de koptekst heen), dan de eerste stap in.
@@ -70,7 +75,7 @@ function bouw(doos: HTMLElement): Vorm | null {
       const g = i % 2 ? 9 : -9;
       d += ` C${n(x + g)} ${n(ic[i - 1].y + dy)} ${n(x - g)} ${n(ic[i].y - dy)} ${n(x)} ${n(ic[i].y)}`;
     }
-    d += ` L${n(x)} ${n(voet - 6)} C${n(x)} ${n(voet + 26)} ${n(goot)} ${n(voet + 10)} ${n(goot)} ${n(voet + 46)} L${n(goot)} ${n(eind)}`;
+    d += ` L${n(x)} ${n(voet - 6)} C${n(x)} ${n(voet + 26)} ${n(goot)} ${n(voet + 10)} ${n(goot)} ${n(voet + 46)} L${n(goot)} ${n(naastStraat ? trottoirSmal : eind)}`;
     return { d, w, h, grens, smal };
   }
 
@@ -103,6 +108,9 @@ function bouw(doos: HTMLElement): Vorm | null {
   d += ` L${n(rechts - R)} ${n(y)} Q${n(rechts)} ${n(y)} ${n(rechts)} ${n(y + R)} L${n(rechts)} ${n(totTrottoir ? trottoir : eind)}`;
   return { d, w, h, grens, smal };
 }
+
+/** Streepjespatroon voor `aantal` korrels op gelijke afstand; na de laatste korrel volgt alleen nog leegte. */
+const korrels = (aantal: number, afstand: number, groot: number) => (aantal < 1 ? `0 ${groot}` : `${`0.1 ${afstand - 0.1} `.repeat(aantal - 1)}0.1 ${groot}`);
 
 /** Koppelt de route aan de scroll. Geeft een opruimfunctie terug. */
 function begin(
@@ -154,18 +162,13 @@ function begin(
       getoond > AMBER_START
         ? Math.floor((getoond - AMBER_START) / AMBER) + 1
         : 0;
+    const groot = Math.ceil(lengte + 40);
     el.style.setProperty(
       "--tocht-spoor",
       `${getoond.toFixed(1)} ${Math.ceil(lengte + 40)}`,
     );
-    el.style.setProperty(
-      "--tocht-wit",
-      `${`0.1 ${TUSSEN - 0.1} `.repeat(witten)}0 ${Math.ceil(lengte + 40)}`,
-    );
-    el.style.setProperty(
-      "--tocht-amber",
-      `${`0.1 ${AMBER - 0.1} `.repeat(ambers)}0 ${Math.ceil(lengte + 40)}`,
-    );
+    el.style.setProperty("--tocht-wit", korrels(witten, TUSSEN, groot));
+    el.style.setProperty("--tocht-amber", korrels(ambers, AMBER, groot));
     stappen.forEach((li, i) =>
       li.classList.toggle("is-bereikt", getoond >= drempel[i] - 2),
     );
