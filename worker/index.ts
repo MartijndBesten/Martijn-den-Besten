@@ -7,6 +7,7 @@ import { verwijstDoor } from "../shared/bijbelreis";
 import { bezoekOverzicht, meldBezoek } from "./bezoek";
 import { aanvraagBeheer, aanvragenLijst, meldAanvraag } from "./aanvraag";
 import { rateLimit } from "./begrenzing";
+import { handleStrooizout } from "./strooizout";
 
 export { rateLimit };
 
@@ -15,6 +16,8 @@ export interface Env {
   ASSETS: Fetcher;
   ADMIN_TOKEN?: string;
   HASH_SECRET?: string;
+  /** Optioneel: apart beheertoken voor alleen Strooizout voor de buurt (docs/strooizout/README.md). */
+  STROOIZOUT_TOKEN?: string;
   // Alleen voor tests: "uit" zet de doorverwijzing naar bijbelreis.nl uit (wrangler dev geeft verzoeken de hostnaam
   // van de route, martijndenbesten.com, waardoor de doorverwijzing anders ook lokaal afgaat). Dan serveert deze Worker
   // de atlas zelf, en neemt hij ook de bezoekmeldingen van de atlas aan (/api/bezoek).
@@ -252,6 +255,14 @@ async function adminModerate(request: Request, env: Env, id: number, now: number
   return json({ ok: true });
 }
 
+// ---------- Korte link ----------
+
+/** Korte, deelbare link: /zout → /strooizout (bijvoorbeeld voor de buurt-app). */
+export function korteLink(url: URL): Response | null {
+  if (url.pathname.replace(/\/+$/, "").toLowerCase() !== "/zout") return null;
+  return new Response(null, { status: 301, headers: { Location: new URL("/strooizout" + url.search, url).toString(), "Cache-Control": "public, max-age=3600" } });
+}
+
 // ---------- Router ----------
 
 export async function handleApi(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
@@ -276,6 +287,9 @@ export async function handleApi(request: Request, env: Env, ctx: ExecutionContex
     // Worker van bijbelreis.nl ze aan; hier alleen als deze Worker de atlas zelf serveert (lokale tests).
     if (path === "/api/aanvraag" && env.BIJBELREIS_VERHUISD === "uit") return await meldAanvraag(request, env, ctx, now);
 
+    // Strooizout voor de buurt (webshop en beheer): worker/strooizout.ts.
+    if (path.startsWith("/api/strooizout")) return (await handleStrooizout(request, env, ctx, now)) ?? error("Deze afdeling bestaat niet.", 404);
+
     if (path.startsWith("/api/admin/")) {
       if (!isAdmin(request, env)) return error("Geen toegang tot de directiekamer.", 401, { "WWW-Authenticate": "Bearer" });
       if (path === "/api/admin/ideas" && method === "GET") return await adminList(request, env);
@@ -299,6 +313,8 @@ export default {
   async fetch(request, env, ctx): Promise<Response> {
     const url = new URL(request.url);
     if (url.pathname.startsWith("/api/")) return handleApi(request, env, ctx);
+    const kort = korteLink(url);
+    if (kort) return kort;
     // De Bijbelreis heeft een eigen adres (shared/bijbelreis.ts): het oude pad toont de verhuispagina.
     if (env.BIJBELREIS_VERHUISD !== "uit" && verwijstDoor(url.hostname, url.pathname)) return env.ASSETS.fetch(new Request(new URL("/bijbelreis-verhuisd", url), request));
     return env.ASSETS.fetch(request);

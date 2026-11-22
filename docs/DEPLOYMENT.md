@@ -9,7 +9,7 @@
 | Worker hoofdsite | `martijndenbesten` → custom domain `martijndenbesten.com` |
 | Worker www | `martijndenbesten-www` → custom domain `www.martijndenbesten.com` (301 naar hoofddomein) |
 | D1-database | `martijndenbesten` (`d348e383-bcf1-4e08-b742-f85abe8fef2c`, regio WEUR) |
-| Worker-secrets | `ADMIN_TOKEN` (moderatie), `HASH_SECRET` (pseudonimisering voor stemmen/rate limits) |
+| Worker-secrets | `ADMIN_TOKEN` (moderatie en Strooizout-beheer), `HASH_SECRET` (pseudonimisering voor stemmen/rate limits, bestelcodes Strooizout), optioneel `STROOIZOUT_TOKEN` (apart beheertoken webshop, zie [strooizout/README.md](strooizout/README.md)) |
 | Certificaat | Google Trust Services (WR1), dekt `martijndenbesten.com` en `www.`, automatisch verlengd |
 | Kosten | € 0 — alles binnen het gratis Workers/D1-plan |
 

@@ -11,7 +11,7 @@
     "binding": "ASSETS",
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash",
-    "run_worker_first": ["/api/*", "/bijbelreis"]
+    "run_worker_first": ["/api/*", "/bijbelreis", "/zout"]
   },
   "routes": [{ "pattern": "martijndenbesten.com", "custom_domain": true }],
   "d1_databases": [

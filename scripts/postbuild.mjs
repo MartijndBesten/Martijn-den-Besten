@@ -65,8 +65,38 @@ writeFileSync(
   page({ path: "/404", title: "Fout 404: deze pagina is nog niet afgemaakt — Martijn den Besten", description: "Deze pagina bestaat (nog) niet." }, { noindex: true }),
 );
 
+// Strooizout voor de buurt: eigen Vite-ingang (strooizout.html). Elke route krijgt een eigen HTML-bestand met titel en
+// canonical; beheer, bestelpagina en flyer staan op noindex. Zie docs/strooizout/README.md.
+{
+  const { mkdirSync } = await import("node:fs");
+  const szShell = readFileSync(join(dist, "strooizout.html"), "utf8");
+  const SZ = [
+    { pad: "bestellen", titel: "Bestellen — Strooizout voor de buurt", noindex: true },
+    { pad: "bestelling", titel: "Je bestelling — Strooizout voor de buurt", noindex: true },
+    { pad: "privacy", titel: "Privacy — Strooizout voor de buurt", noindex: false },
+    { pad: "voorwaarden", titel: "Voorwaarden — Strooizout voor de buurt", noindex: false },
+    { pad: "flyer", titel: "Flyer en deelbeelden — Strooizout voor de buurt", noindex: true },
+    { pad: "beheer", titel: "Beheer — Strooizout voor de buurt", noindex: true },
+  ];
+  mkdirSync(join(dist, "strooizout"), { recursive: true });
+  for (const r of SZ) {
+    let html = szShell
+      .replace(/<title>.*?<\/title>/, `<title>${esc(r.titel)}</title>`)
+      .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${SITE.url}/strooizout/${r.pad}$2`)
+      .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${SITE.url}/strooizout/${r.pad}$2`);
+    if (r.noindex) html = html.replace(/<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="noindex, nofollow" />');
+    writeFileSync(join(dist, "strooizout", `${r.pad}.html`), html);
+  }
+  console.log(`postbuild: Strooizout ${SZ.length + 1} pagina's`);
+}
+
 const today = new Date().toISOString().slice(0, 10);
-const indexable = ROUTES.filter((r) => !["/beheer", "/einde"].includes(r.path));
+const indexable = [
+  ...ROUTES.filter((r) => !["/beheer", "/einde"].includes(r.path)),
+  { path: "/strooizout" },
+  { path: "/strooizout/voorwaarden" },
+  { path: "/strooizout/privacy" },
+];
 writeFileSync(
   join(dist, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexable

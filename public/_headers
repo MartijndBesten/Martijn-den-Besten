@@ -28,3 +28,19 @@
 
 /beheer
   X-Robots-Tag: noindex, nofollow
+
+/strooizout/beheer
+  X-Robots-Tag: noindex, nofollow
+
+/strooizout/bestelling
+  X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: no-referrer
+
+/strooizout/bestellen
+  X-Robots-Tag: noindex, nofollow
+
+/strooizout/flyer
+  X-Robots-Tag: noindex, nofollow
+
+/strooizout/beeld/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

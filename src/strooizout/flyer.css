@@ -1,0 +1,458 @@
+/* Flyer A5 en deelbeelden. Printvriendelijk: wit papier, donkerblauwe tekst, lichte ijsblauwe vlakken. */
+
+.fl-overzicht {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 24px var(--gutter) 64px;
+}
+.fl-balk {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.fl-balk h1 {
+  font-size: 30px;
+  margin-bottom: 4px;
+}
+.fl-balk p,
+.fl-uitleg {
+  color: var(--tekst-2);
+  margin: 0 0 12px;
+}
+.fl-balk__knoppen {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.fl-sectie {
+  margin-top: 32px;
+}
+.fl-sectie h2 {
+  font-size: 22px;
+}
+.fl-voorbeeld {
+  background: var(--ijs-1);
+  border-radius: 18px;
+  padding: 20px;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+}
+.fl-voorbeeld--a5 .fl-a5 {
+  zoom: 0.85;
+  box-shadow: var(--schaduw-2);
+}
+.fl-voorbeeld--vierkant .fl-deel {
+  zoom: 0.38;
+}
+.fl-voorbeeld--breed .fl-deel {
+  zoom: 0.42;
+}
+.fl-deelrij {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.fl-deelrij figure {
+  margin: 0;
+}
+.fl-deelrij figcaption {
+  margin-top: 8px;
+}
+.fl-tekst {
+  max-width: 620px;
+  font-size: 15px;
+  min-height: 190px;
+}
+
+@media (max-width: 640px) {
+  .fl-voorbeeld {
+    padding: 10px;
+  }
+  .fl-voorbeeld--a5 .fl-a5 {
+    zoom: 0.55;
+  }
+  .fl-voorbeeld--vierkant .fl-deel {
+    zoom: 0.28;
+  }
+  .fl-voorbeeld--breed .fl-deel {
+    zoom: 0.26;
+  }
+}
+
+/* ---------- Logo ---------- */
+
+.fl-logo {
+  display: flex;
+  align-items: center;
+  gap: 3.2mm;
+  color: var(--blauw);
+}
+.fl-logo__teken {
+  width: 11mm;
+  height: 11mm;
+  flex: none;
+}
+.fl-logo strong {
+  display: block;
+  font-size: 5.2mm;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.fl-logo span {
+  display: block;
+  font-size: 3.6mm;
+  color: var(--blauw-3);
+  line-height: 1.3;
+}
+
+/* ---------- A5 ---------- */
+
+.fl-a5 {
+  width: 148mm;
+  height: 210mm;
+  background: #fff;
+  color: var(--blauw);
+  padding: 11mm 11mm 9mm;
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+  overflow: hidden;
+  position: relative;
+  font-family: var(--font);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.fl-a5::before {
+  content: "";
+  position: absolute;
+  right: -30mm;
+  top: -30mm;
+  width: 95mm;
+  height: 95mm;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--ijs-1), rgba(234, 243, 250, 0) 70%);
+}
+.fl-a5 > * {
+  position: relative;
+}
+.fl-a5__held {
+  display: grid;
+  grid-template-columns: 1fr 52mm;
+  align-items: center;
+  gap: 5mm;
+  background: linear-gradient(160deg, var(--ijs-1), var(--ijs-0));
+  border-radius: 6mm;
+  padding: 7mm 6mm 7mm 8mm;
+}
+.fl-a5__held h1 {
+  font-size: 13mm;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  margin: 0 0 4mm;
+  font-weight: 750;
+}
+.fl-a5__held img {
+  width: 52mm;
+  height: 52mm;
+  object-fit: cover;
+  border-radius: 5mm;
+  box-shadow: 0 2mm 6mm rgba(15, 44, 76, 0.18);
+}
+.fl-a5__prijs {
+  margin: 0;
+  font-size: 5mm;
+  color: var(--blauw-3);
+}
+.fl-a5__prijs strong {
+  display: block;
+  font-size: 12mm;
+  color: var(--blauw);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.fl-a5__punten {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2.4mm;
+  font-size: 4.4mm;
+}
+.fl-a5__punten li {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+}
+.fl-a5__punten li::before {
+  content: "";
+  width: 5mm;
+  height: 5mm;
+  flex: none;
+  border-radius: 50%;
+  background: var(--blauw) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.2 4.2L19 7'/%3E%3C/svg%3E") center / 3.4mm no-repeat;
+}
+.fl-a5__bestel {
+  display: grid;
+  grid-template-columns: 40mm 1fr;
+  gap: 6mm;
+  align-items: center;
+  border: 0.5mm solid var(--ijs-2);
+  border-radius: 6mm;
+  padding: 5mm;
+  margin-top: auto;
+}
+.fl-a5__qr {
+  width: 40mm;
+  height: 40mm;
+}
+.fl-a5__bestel h2 {
+  font-size: 5.4mm;
+  margin: 0 0 2mm;
+}
+.fl-a5__bestel ol {
+  margin: 0 0 2.5mm;
+  padding-left: 5mm;
+  font-size: 4mm;
+  line-height: 1.45;
+}
+.fl-a5__bestel p {
+  margin: 0;
+  font-size: 3.7mm;
+  color: var(--blauw-3);
+}
+.fl-a5__voet {
+  font-size: 3.1mm;
+  color: var(--tekst-3);
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* ---------- Deelbeelden ---------- */
+
+.fl-deel {
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font);
+  color: var(--blauw);
+  background:
+    radial-gradient(900px 600px at 100% 0%, rgba(185, 214, 236, 0.9), transparent 60%),
+    linear-gradient(160deg, #f6fafd 0%, #e3eff8 100%);
+  display: grid;
+}
+.fl-deel--vierkant {
+  width: 1080px;
+  height: 1080px;
+  grid-template-rows: auto 1fr;
+  padding: 80px;
+  gap: 40px;
+}
+.fl-deel--breed {
+  width: 1200px;
+  height: 630px;
+  grid-template-columns: 1fr 470px;
+  padding: 56px 64px;
+  gap: 40px;
+  align-items: center;
+}
+.fl-deel .fl-logo__teken {
+  width: 72px;
+  height: 72px;
+}
+.fl-deel .fl-logo strong {
+  font-size: 34px;
+}
+.fl-deel .fl-logo span {
+  font-size: 24px;
+}
+.fl-deel h1 {
+  font-size: 86px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 44px 0 28px;
+  font-weight: 750;
+}
+.fl-deel h1 span {
+  display: block;
+  letter-spacing: -0.02em;
+  color: var(--blauw-3);
+  font-size: 0.72em;
+  margin-top: 10px;
+}
+.fl-deel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+  font-size: 30px;
+}
+.fl-deel li::before {
+  content: "✓";
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--blauw);
+  color: #fff;
+  font-size: 22px;
+  margin-right: 14px;
+  vertical-align: 3px;
+}
+.fl-deel__url {
+  margin: 28px 0 0;
+  font-size: 30px;
+  font-weight: 650;
+  color: var(--blauw-3);
+}
+.fl-deel--breed h1 {
+  font-size: 64px;
+  margin: 28px 0 22px;
+}
+.fl-deel--breed ul {
+  font-size: 25px;
+  gap: 8px;
+}
+.fl-deel--breed li::before {
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+}
+.fl-deel--breed .fl-deel__url {
+  font-size: 25px;
+  margin-top: 20px;
+}
+.fl-deel__beeld {
+  position: relative;
+}
+.fl-deel__beeld img {
+  width: 100%;
+  border-radius: 32px;
+  box-shadow: 0 30px 70px rgba(15, 44, 76, 0.25);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+/* Vierkant: groot en leesbaar op een telefoonscherm (wordt daar ongeveer op een derde getoond). */
+.fl-deel--vierkant {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  padding: 72px 76px;
+}
+.fl-deel--vierkant .fl-logo__teken {
+  width: 84px;
+  height: 84px;
+}
+.fl-deel--vierkant .fl-logo strong {
+  font-size: 40px;
+}
+.fl-deel--vierkant .fl-logo span {
+  font-size: 28px;
+}
+.fl-deel__midden {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  align-items: center;
+  gap: 28px;
+}
+.fl-deel--vierkant h1 {
+  font-size: 104px;
+  line-height: 0.95;
+  margin: 0;
+}
+.fl-deel--vierkant h1 span {
+  font-size: 54px;
+  margin-top: 22px;
+  letter-spacing: -0.02em;
+}
+.fl-deel__midden img {
+  width: 340px;
+  height: 340px;
+  border-radius: 36px;
+  box-shadow: 0 30px 70px rgba(15, 44, 76, 0.25);
+  object-fit: cover;
+}
+.fl-deel--vierkant ul {
+  font-size: 40px;
+  gap: 16px;
+}
+.fl-deel--vierkant li::before {
+  width: 52px;
+  height: 52px;
+  font-size: 30px;
+  margin-right: 18px;
+  vertical-align: 4px;
+}
+.fl-deel__onder {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: #fff;
+  border-radius: 32px;
+  padding: 22px 30px;
+  box-shadow: 0 16px 40px rgba(15, 44, 76, 0.14);
+}
+.fl-deel__onder svg {
+  width: 168px;
+  height: 168px;
+  flex: none;
+}
+.fl-deel__onder strong {
+  display: block;
+  font-size: 46px;
+  letter-spacing: -0.02em;
+}
+.fl-deel__onder span {
+  display: block;
+  font-size: 36px;
+  color: var(--blauw-3);
+  font-weight: 600;
+}
+
+/* ---------- Eén onderdeel op ware grootte (voor PDF en PNG) ---------- */
+
+html.fl-alleen-a5 body,
+html.fl-alleen-vierkant body,
+html.fl-alleen-breed body {
+  margin: 0;
+  background: #fff;
+}
+
+/* ---------- Afdrukken ---------- */
+
+@page {
+  size: A5;
+  margin: 0;
+}
+@media print {
+  html.fl-pagina body {
+    margin: 0;
+  }
+  .fl-balk,
+  .fl-uitleg,
+  .fl-sectie h2,
+  .fl-geen-print {
+    display: none !important;
+  }
+  .fl-overzicht,
+  .fl-sectie {
+    padding: 0;
+    margin: 0;
+    max-width: none;
+  }
+  .fl-voorbeeld {
+    padding: 0;
+    background: none;
+    border-radius: 0;
+  }
+  .fl-voorbeeld--a5 .fl-a5 {
+    zoom: 1;
+    box-shadow: none;
+  }
+}

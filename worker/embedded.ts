@@ -1,7 +1,7 @@
 // Variant van de Worker die de site zelf serveert in plaats van via Workers Static Assets.
 // Gedrag (routes, 404, headers, caching) is gelijk aan de Static Assets-configuratie.
 
-import { handleApi, type Env } from "./index";
+import { handleApi, korteLink, type Env } from "./index";
 import { FILES, HEADER_RULES } from "./generated/files";
 import { verwijstDoor } from "../shared/bijbelreis";
 
@@ -57,6 +57,8 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
     if (url.pathname.startsWith("/api/")) return handleApi(request, env, ctx);
+    const kort = korteLink(url);
+    if (kort) return kort;
     if (request.method !== "GET" && request.method !== "HEAD") return new Response("Methode niet toegestaan", { status: 405, headers: { Allow: "GET, HEAD" } });
 
     // De Bijbelreis heeft een eigen adres (shared/bijbelreis.ts): het oude pad toont de verhuispagina.

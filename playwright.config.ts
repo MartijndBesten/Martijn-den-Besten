@@ -19,7 +19,7 @@ export default defineConfig({
   // De 3D-suite draait mét WebGL (SwiftShader) en controleert dat de machines live, zichtbaar en bedienbaar zijn.
   projects: [
     { name: "desktop", testIgnore: /drie-d/, use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 }, launchOptions: { args: NO_WEBGL } } },
-    { name: "mobiel", use: { ...devices["Pixel 7"], launchOptions: { args: NO_WEBGL } }, testMatch: /navigatie|a11y|uiterlijk|bijbelreis/ },
+    { name: "mobiel", use: { ...devices["Pixel 7"], launchOptions: { args: NO_WEBGL } }, testMatch: /navigatie|a11y|uiterlijk|bijbelreis|strooizout/ },
     // Tablet (iPad-formaat met aanraking) in Chromium; alleen voor de Bijbelreis.
     { name: "tablet", use: { ...devices["iPad (gen 7)"], browserName: "chromium", launchOptions: { args: NO_WEBGL } }, testMatch: /bijbelreis/ },
     { name: "3d-desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 }, launchOptions: { args: WEBGL } }, testMatch: /drie-d/ },
