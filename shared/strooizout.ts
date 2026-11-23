@@ -78,7 +78,7 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
   contact_email: "info@denckh.nl",
   contact_telefoon: "",
   bevestiging_tekst:
-    "Bedankt voor je bestelling. We nemen contact met je op zodra de bestelronde is ingekocht en je bestelling klaarligt.",
+    "Bedankt voor je bestelling. Je krijgt een e-mail met je bevestiging en we sturen je een Tikkie op je mobiel.",
   // CONCEPT (22-11-2026), wacht op akkoord van Martijn. Bedrijfsgegevens staan niet in deze tekst maar komen uit de
   // verkopervelden onderaan de pagina. Regels die met "## " beginnen worden kopjes.
   voorwaarden: [

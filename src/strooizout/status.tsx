@@ -6,6 +6,7 @@ import { dagTekst, euro, whatsappLink } from "../../shared/strooizout";
 import { vraag, type KlantBestelling } from "./api";
 import { IcoonInfo, IcoonKopie, IcoonLet, IcoonVink, WhatsAppKnop } from "./iconen";
 import { extern, Link } from "./router";
+import { useWinkel } from "./winkeldata";
 
 const STAPPEN_OPHALEN = [
   { s: "nieuw", t: "Bestelling ontvangen", u: "We hebben je bestelling binnen." },
@@ -21,6 +22,7 @@ const STAPPEN_BEZORGEN = [
 ];
 
 export default function Status() {
+  const { winkel } = useWinkel();
   const [code] = useState(() => decodeURIComponent(window.location.hash.slice(1)));
   const [b, setB] = useState<KlantBestelling | null>(null);
   const [fout, setFout] = useState("");
@@ -156,7 +158,7 @@ export default function Status() {
           <div className="sz-blok">
             <h2>Bewaar deze pagina</h2>
             <p style={{ margin: 0, color: "var(--tekst-2)" }}>
-              Maak een schermafbeelding van je code, of bewaar deze link. Via de link zie je altijd de actuele stand van je bestelling{b.levering === "ophalen" ? " en, na bevestiging, het afhaaladres" : ""}. We sturen geen automatische e-mail.
+              Maak een schermafbeelding van je code, of bewaar deze link. Via de link zie je altijd de actuele stand van je bestelling{b.levering === "ophalen" ? " en waar je afhaalt" : ""}.{winkel?.mail ? " Je krijgt de link ook per e-mail." : ""}
             </p>
             <div className="sz-linkvak">
               <input className="sz-invoer" readOnly value={link} aria-label="Persoonlijke link naar je bestelling" onFocus={(e) => e.currentTarget.select()} />
