@@ -145,6 +145,16 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
   const [levering, setLevering] = useState<Levering>("ophalen");
   const [verder, setVerder] = useState(false);
   const stap2 = useRef<HTMLDivElement>(null);
+  // De vaste balk onderin (telefoon) verschijnt alleen als de knop ‘Bestellen’ van deze kaart niet in beeld is.
+  const cta = useRef<HTMLButtonElement>(null);
+  const [ctaInBeeld, setCtaInBeeld] = useState(true);
+  useEffect(() => {
+    const el = cta.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(([e]) => setCtaInBeeld(e.isIntersecting), { threshold: 0.6 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [verder, straks]);
 
   const zakken = aantal * (p.zakken_per_stuk ?? 1);
   const bezorgKan = inst.bezorgen_aan && !p.alleen_afhalen && zakken >= inst.bezorg_min_zakken;
@@ -307,7 +317,7 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
           {!verder ? (
             <>
               {totaal}
-              <button type="button" className="sz-knop sz-knop--vol wn-cta" disabled={!kan} onClick={naarStap2}>
+              <button ref={cta} type="button" className="sz-knop sz-knop--vol wn-cta" disabled={!kan} onClick={naarStap2}>
                 Bestellen
                 <IcoonPijlRechts />
               </button>
@@ -323,6 +333,16 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
                 <button type="button" className="sz-knop sz-knop--tekst wn-combineer" onClick={combineer}>
                   Meer producten in één bestelling
                 </button>
+              )}
+              {kan && !ctaInBeeld && (
+                <div className="wn-plakbalk" role="region" aria-label="Je keuze">
+                  <span className="wn-plakbalk__tekst sz-tnum">
+                    <strong>{euro(som.totaal_cent)}</strong> · {perKilo ? `${aantal} × ${perKilo}` : `${aantal} ${aantal === 1 ? eenheid : meervoud}`}
+                  </span>
+                  <button type="button" className="sz-knop wn-plakbalk__knop" onClick={naarStap2}>
+                    Bestellen
+                  </button>
+                </div>
               )}
             </>
           ) : (

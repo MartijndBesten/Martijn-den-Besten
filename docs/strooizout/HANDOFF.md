@@ -38,6 +38,7 @@ Rooktest daarna: `https://martijndenbesten.com/`, `/api/health`, `/bijbelreis` e
 - 10 kg eigen emmer (€ 5,49, alleen afhalen) en 10 kg met emmer (€ 6,49) zijn te bestellen; ze putten uit de zakvoorraad.
 - Mail staat aan; de klant ziet als bestelnummer alleen de willekeurige afhaalcode (geen volgnummer); Martijn krijgt bij elke bestelling een melding zonder naam/telefoon van de klant.
 - Op lage telefoons (390×664) moet ‘Bestellen’ helemaal in het eerste scherm vallen; e2e-test bewaakt dit.
+- Vaste balk onderin (telefoon): alleen zichtbaar als de knop ‘Bestellen’ van de bestelkaart uit beeld is, klein (± 55 px), toont prijs en aantal uit de kaart en opent stap 2; nooit tijdens stap 2. De oude mandjesbalk is weg (het mandje zit in de kop). E2e-test bewaakt dit.
 
 **Werkwijze tests:** een pull request die alleen bestanden met ‘strooizout’ in het pad raakt, draait in de CI alleen `e2e/strooizout.spec.ts` (enkele minuten); al het andere en elke push naar `main` draait de volledige reeks. Na het aanpassen van de frontend eerst `npm run build && node scripts/embed-assets.mjs` doen, anders test de lokale Worker de oude build.
 

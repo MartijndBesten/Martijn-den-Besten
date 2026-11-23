@@ -105,8 +105,8 @@ test.describe("Strooizout voor de buurt", () => {
 
     // Bestellen: gegevens op dezelfde pagina; adresvelden alleen bij bezorgen
     await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
-    // in stap 2 is er één bestelknop: de mandjesbalk onderin is weg
-    await expect(page.locator(".sz-mobielbalk")).toBeHidden();
+    // in stap 2 is er één bestelknop: geen balk onderin
+    await expect(page.locator(".wn-plakbalk")).toBeHidden();
     await expect(kaart.getByLabel("Straat")).toBeVisible();
     await kaart.getByRole("button", { name: /Bestellen met betalingsverplichting/ }).click();
     await expect(kaart.getByText("Vul je naam in.")).toBeVisible();
@@ -299,8 +299,8 @@ test.describe("Strooizout voor de buurt", () => {
     await kaart.getByRole("button", { name: /^1 zak\s*€/ }).click();
     await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
     await expect(kaart.getByLabel("Straat")).toHaveCount(0);
-    // in stap 2 is de kaart zelf het bestelformulier: geen mandjesbalk onderaan die eroverheen schuift
-    await expect(page.locator(".sz-mobielbalk")).toBeHidden();
+    // in stap 2 is de kaart zelf het bestelformulier: geen balk onderaan die eroverheen schuift
+    await expect(page.locator(".wn-plakbalk")).toBeHidden();
     await kaart.getByLabel("Naam").fill("Mobiel Test");
     await kaart.getByLabel("Mobiel nummer").fill("06 1111 2222");
     await page.waitForTimeout(2600);
@@ -409,7 +409,9 @@ test.describe("Strooizout voor de buurt", () => {
   });
 });
 
-test("strooizout: op een lage telefoon (390×664) valt ‘Bestellen’ helemaal in het eerste scherm", async ({ page }) => {
+test("strooizout: op een lage telefoon (390×664) valt ‘Bestellen’ helemaal in het eerste scherm", async ({ page, request, baseURL }) => {
+  // eigen start: open bestelronde en voorraad (alleen tegen de lokale Worker)
+  if (schrijvend) await voorbereiden(request, baseURL!);
   await page.setViewportSize({ width: 390, height: 664 });
   await page.goto("/strooizout");
   const knop = page.locator(".sz-bestelkaart").getByRole("button", { name: "Bestellen", exact: true });
@@ -417,6 +419,31 @@ test("strooizout: op een lage telefoon (390×664) valt ‘Bestellen’ helemaal 
   const onder = await knop.evaluate((e) => e.getBoundingClientRect().bottom);
   expect(onder).toBeLessThanOrEqual(664);
   expect((await knop.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+});
+
+test("strooizout: de balk onderin verschijnt alleen als ‘Bestellen’ uit beeld is en volgt de bestelkaart", async ({ page, request, baseURL }) => {
+  // eigen start: open bestelronde en voorraad (alleen tegen de lokale Worker)
+  if (schrijvend) await voorbereiden(request, baseURL!);
+  await page.setViewportSize({ width: 390, height: 664 });
+  await page.goto("/strooizout");
+  const kaart = page.locator(".sz-bestelkaart");
+  await expect(kaart.getByRole("button", { name: "Bestellen", exact: true })).toBeVisible();
+  const balk = page.locator(".wn-plakbalk");
+  await expect(balk).toHaveCount(0);
+  // 2 zakken kiezen en wegscrollen: de balk toont wat in de kaart staat
+  await kaart.getByRole("button", { name: /^2–3 zakken/ }).click();
+  await page.evaluate(() => window.scrollTo(0, document.querySelector(".wn-stappen__lijst")!.getBoundingClientRect().top + window.scrollY));
+  await expect(balk).toBeVisible();
+  await expect(balk).toContainText("€ 18,98");
+  await expect(balk).toContainText("2 zakken");
+  expect((await balk.boundingBox())!.height).toBeLessThanOrEqual(64);
+  // terug naar de kaart: balk weg; via de balk naar stap 2: balk weg
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await expect(balk).toHaveCount(0);
+  await page.evaluate(() => window.scrollTo(0, document.querySelector(".wn-stappen__lijst")!.getBoundingClientRect().top + window.scrollY));
+  await balk.getByRole("button", { name: "Bestellen" }).click();
+  await expect(kaart.getByLabel("Naam")).toBeVisible();
+  await expect(balk).toHaveCount(0);
 });
 
 test("strooizout: beheer-API weigert zonder token", async ({ request }) => {
