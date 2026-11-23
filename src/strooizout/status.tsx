@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { dagTekst, euro, whatsappLink } from "../../shared/strooizout";
 import { vraag, type KlantBestelling } from "./api";
-import { IcoonInfo, IcoonKopie, IcoonLet, IcoonVink } from "./iconen";
+import { IcoonInfo, IcoonKopie, IcoonLet, IcoonVink, WhatsAppKnop } from "./iconen";
 import { extern, Link } from "./router";
 
 const STAPPEN_OPHALEN = [
@@ -262,16 +262,12 @@ export default function Status() {
               )}
               {b.kanaal !== "straat" && b.levering === "ophalen" && b.afhaal_adres && b.contact.telefoon && b.kan_annuleren && (
                 <div style={{ marginTop: 6 }}>
-                  {appAfhalen ? "App of bel" : "Bel"} even om af te spreken wanneer je langskomt: <a href={`tel:${b.contact.telefoon.replace(/[^+\d]/g, "")}`}>{b.contact.telefoon}</a>
+                  {appAfhalen ? "App of bel" : "Bel"} even om af te spreken wanneer je langskomt: <a href={`tel:${b.contact.telefoon.replace(/[^+\d]/g, "")}`}>{b.contact.telefoon}</a>.
                   {appAfhalen && (
-                    <>
-                      {" · "}
-                      <a href={appAfhalen} target="_blank" rel="noopener noreferrer">
-                        WhatsApp
-                      </a>
-                    </>
+                    <span className="sz-wa-rij">
+                      <WhatsAppKnop href={appAfhalen}>App om af te spreken</WhatsAppKnop>
+                    </span>
                   )}
-                  .
                 </div>
               )}
               {b.afhaal_instructie && <div className="sz-witregel" style={{ color: "var(--tekst-2)", marginTop: 6 }}>{b.afhaal_instructie}</div>}
@@ -293,15 +289,6 @@ export default function Status() {
               {b.contact.telefoon && (
                 <>
                   {" "}via <a href={`tel:${b.contact.telefoon.replace(/[^+\d]/g, "")}`}>{b.contact.telefoon}</a>
-                  {appVraag && (
-                    <>
-                      {" ("}
-                      <a href={appVraag} target="_blank" rel="noopener noreferrer">
-                        WhatsApp
-                      </a>
-                      {")"}
-                    </>
-                  )}
                 </>
               )}
               {b.contact.email && (
@@ -312,6 +299,11 @@ export default function Status() {
               )}
               . Noem je afhaalcode.
             </p>
+            {appVraag && (
+              <p className="sz-wa-rij" style={{ margin: "12px 0 0" }}>
+                <WhatsAppKnop href={appVraag}>Stel je vraag via WhatsApp</WhatsAppKnop>
+              </p>
+            )}
           </div>
         )}
 
