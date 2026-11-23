@@ -141,6 +141,8 @@ export type ProductRij = {
   alleen_afhalen: number;
   /** Korte melding voor de klant die dit product bestelt (bestelkaart, bestelpagina, bevestigingsmail). */
   klant_melding: string;
+  /** Het product (de zak) waar dit product uit wordt gevuld of afgewogen; null = eigen voorraad. */
+  vult_uit: number | null;
   aangemaakt: string;
   gewijzigd: string;
 };
@@ -153,16 +155,19 @@ export type Catalogus = {
   perId: Map<number, ProductRij>;
   onderdelen: Map<number, Onderdeel[]>;
   aanbiedingen: Map<number, Aanbieding[]>;
+  /** Los zout van aangebroken zakken, in grammen (telt mee voor producten die uit zakken worden gevuld). */
+  losGram: number;
 };
 
 export async function laadCatalogus(db: D1Database, { ookVerwijderd = false } = {}): Promise<Catalogus> {
-  const [p, o, a] = await db.batch([
+  const [p, o, a, l] = await db.batch([
     db.prepare(
       `SELECT p.*, c.slug AS categorie FROM sz_product p LEFT JOIN sz_categorie c ON c.id = p.categorie_id
        ${ookVerwijderd ? "" : "WHERE p.status != 'verwijderd'"} ORDER BY p.volgorde, p.id`,
     ),
     db.prepare("SELECT pakket_id, product_id, aantal FROM sz_pakket_onderdeel"),
     db.prepare("SELECT * FROM sz_aanbieding ORDER BY vanaf_aantal, id"),
+    db.prepare("SELECT gram FROM sz_los_zout WHERE id = 1"),
   ]);
   const producten = (p.results ?? []) as ProductRij[];
   const onderdelen = new Map<number, Onderdeel[]>();
@@ -171,7 +176,7 @@ export async function laadCatalogus(db: D1Database, { ookVerwijderd = false } = 
   for (const r of (a.results ?? []) as AanbiedingRij[]) {
     aanbiedingen.set(r.product_id, [...(aanbiedingen.get(r.product_id) ?? []), { id: r.id, naam: r.naam, vanaf_aantal: r.vanaf_aantal, prijs_cent: r.prijs_cent, start: r.start, eind: r.eind, actief: !!r.actief }]);
   }
-  return { producten, perId: new Map(producten.map((x) => [x.id, x])), onderdelen, aanbiedingen };
+  return { producten, perId: new Map(producten.map((x) => [x.id, x])), onderdelen, aanbiedingen, losGram: ((l.results ?? []) as { gram: number }[])[0]?.gram ?? 0 };
 }
 
 /** Inkoop per stuk: eigen inkoopprijs, of bij een pakket de som van de onderdelen. null als iets onbekend is. */
@@ -202,6 +207,60 @@ export function bezorgVan(cat: Catalogus, p: ProductRij, standaard: number): num
   return delen.reduce((s, d) => s + (cat.perId.get(d.product_id)?.bezorg_cent ?? standaard) * d.aantal, 0);
 }
 
+/** De zak waar dit product uit wordt gevuld of afgewogen, als dat is ingesteld en beide een gewicht hebben. */
+export function bronVan(cat: Catalogus, p: ProductRij): ProductRij | null {
+  const bron = p.vult_uit ? cat.perId.get(p.vult_uit) : undefined;
+  return bron && bron.id !== p.id && p.gewicht_gram > 0 && bron.gewicht_gram > 0 ? bron : null;
+}
+
+/**
+ * Zout toewijzen aan producten die uit zakken worden gevuld (10 kg in een emmer): staat er voor een bestelling niet
+ * genoeg klaar, dan komt het tekort uit het losse zout en anders uit een zak. Die zak gaat van de zakvoorraad af
+ * (verwacht en te bestellen; ook ‘ontvangen’ als alles al binnen is), de rest wordt los zout, en de porties komen bij
+ * het product als verwachte voorraad. ‘Ontvangen’ van het product verandert niet: dat bevestigt de beheerder pas als
+ * het zout echt is afgevuld of klaargezet. De statements horen in dezelfde batch als de bestelling, vóór het afboeken:
+ * alle wijzigingen zijn relatief en de CHECK’s (nooit onder nul) laten de hele batch mislukken als een ander net voor was.
+ */
+export function omzetting(db: D1Database, cat: Catalogus, effect: Map<number, number>, kenmerk: string, nu: string): D1PreparedStatement[] {
+  const uit: D1PreparedStatement[] = [];
+  let los = cat.losGram;
+  for (const [productId, aantal] of effect) {
+    const p = cat.perId.get(productId);
+    const bron = p ? bronVan(cat, p) : null;
+    if (!p || !bron || p.voorraad === null) continue;
+    const tekort = aantal - p.voorraad;
+    if (tekort <= 0) continue;
+    const erbijProduct = db.prepare("UPDATE sz_product SET voorraad = voorraad + ?2, voorraad_verwacht = COALESCE(voorraad_verwacht, 0) + ?2, gewijzigd = ?3 WHERE id = ?1").bind(p.id, tekort, nu);
+    // Zakken zonder voorraadgrens (per ronde ingekocht): er valt niets af te boeken, alleen de porties bij te houden.
+    if (bron.voorraad === null) {
+      uit.push(erbijProduct);
+      continue;
+    }
+    const nodig = tekort * p.gewicht_gram;
+    const zakken = Math.max(0, Math.ceil((nodig - los) / bron.gewicht_gram));
+    const erbij = zakken * bron.gewicht_gram - nodig;
+    los += erbij;
+    if (zakken > 0) {
+      uit.push(
+        db
+          .prepare(
+            `UPDATE sz_product SET voorraad = voorraad - ?2,
+               voorraad_ontvangen = CASE WHEN voorraad_verwacht IS NOT NULL AND voorraad_ontvangen >= voorraad_verwacht THEN voorraad_ontvangen - ?2 ELSE voorraad_ontvangen END,
+               voorraad_verwacht = CASE WHEN voorraad_verwacht IS NULL THEN NULL ELSE voorraad_verwacht - ?2 END, gewijzigd = ?3
+             WHERE id = ?1`,
+          )
+          .bind(bron.id, zakken, nu),
+      );
+    }
+    uit.push(
+      db.prepare("UPDATE sz_los_zout SET gram = gram + ?1, laatste = ?2 WHERE id = 1").bind(erbij, kenmerk),
+      erbijProduct,
+      db.prepare("INSERT INTO sz_log (bestelling_id, actie, details, op) VALUES (NULL, 'zout toegewezen', ?1, ?2)").bind(`${tekort} × #${p.id} uit ${zakken} × #${bron.id}; los zout ${erbij >= 0 ? "+" : "−"}${Math.abs(erbij) / 1000} kg`, nu),
+    );
+  }
+  return uit;
+}
+
 /** Wat er van de voorraad af moet bij `aantal` stuks van dit product (een pakket haalt van zijn onderdelen af). */
 export function voorraadEffect(cat: Catalogus, p: ProductRij, aantal: number, uit = new Map<number, number>()): Map<number, number> {
   if (p.voorraad !== null) uit.set(p.id, (uit.get(p.id) ?? 0) + aantal);
@@ -215,6 +274,13 @@ export function voorraadEffect(cat: Catalogus, p: ProductRij, aantal: number, ui
 /** Beschikbare voorraad voor de klant: eigen voorraad en/of wat de onderdelen toelaten. null = geen voorraadgrens. */
 export function beschikbaar(cat: Catalogus, p: ProductRij): number | null {
   let grens: number | null = p.voorraad;
+  // Wordt dit product uit zakken gevuld of afgewogen, dan is er naast wat al klaarstaat ook te bestellen wat het losse
+  // zout en de nog niet bestelde zakken opleveren. Bij het bestellen gaat dat zout van de zakvoorraad af (`omzetting`).
+  const bron = bronVan(cat, p);
+  if (bron && grens !== null) {
+    if (bron.voorraad === null) return null;
+    grens += Math.floor((cat.losGram + bron.voorraad * bron.gewicht_gram) / p.gewicht_gram);
+  }
   for (const d of cat.onderdelen.get(p.id) ?? []) {
     const deel = cat.perId.get(d.product_id);
     if (!deel || deel.voorraad === null) continue;
@@ -371,6 +437,8 @@ export type NieuweBestelling = {
   som: Berekening;
   /** Wat er van de voorraad af moet (ook pakketonderdelen). */
   effect: Map<number, number>;
+  /** Zout toewijzen uit zakken voor producten die daaruit worden gevuld (zie `omzetting`); vóór het afboeken. */
+  omzet?: D1PreparedStatement[];
   /** Geplaatst terwijl de voorraad er nog niet (genoeg) lag. */
   voorbestelling: boolean;
   /** Herkomst (?via=… of verwijzende site), zonder persoonsgegevens. */
@@ -404,6 +472,7 @@ export function bestelStatements(db: D1Database, o: NieuweBestelling): D1Prepare
         )
         .bind(o.idempotentie, r.product_id, r.naam, r.aantal, r.stukprijs_cent, r.normaalprijs_cent, r.inkoop_cent, r.bezorg_cent, r.gewicht_gram, r.aanbieding),
     ),
+    ...(o.omzet ?? []),
     ...[...o.effect].flatMap(([productId, aantal]) => [
       db.prepare("UPDATE sz_product SET voorraad = voorraad - ?2 WHERE id = ?1 AND voorraad IS NOT NULL").bind(productId, aantal),
       db.prepare(`INSERT INTO sz_voorraad_mutatie (bestelling_id, product_id, aantal) VALUES (${idSub}, ?2, ?3)`).bind(o.idempotentie, productId, aantal),

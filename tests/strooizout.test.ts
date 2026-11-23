@@ -169,7 +169,7 @@ describe("webshop", () => {
     const w = await jsonVan(req("/api/strooizout/winkel"));
     expect(w.open).toBe(false);
     expect(w.melding).toMatch(/geen bestelronde/);
-    expect(w.producten.map((p: J) => p.naam)).toEqual(["Strooizout 25 kg"]);
+    expect(w.producten.map((p: J) => p.naam)).toEqual(["Strooizout 25 kg", "Strooizout 10 kg in je eigen emmer", "Strooizout 10 kg met emmer"]);
     expect(w.producten[0]).not.toHaveProperty("inkoop_cent");
     expect(w.producten[0]).not.toHaveProperty("notitie");
     expect(JSON.stringify(w)).not.toContain("afhaal_adres");
@@ -441,7 +441,7 @@ describe("beheer", () => {
     // verbergen haalt het uit de winkel
     const ip = await productInvoer(1);
     await beheer("/producten/1", { method: "PUT", body: JSON.stringify({ ...ip, status: "verborgen" }) });
-    expect((await jsonVan(req("/api/strooizout/winkel"))).producten).toHaveLength(1); // alleen strooiwagen
+    expect((await jsonVan(req("/api/strooizout/winkel"))).producten.map((x: J) => x.id)).toEqual([6, 4, 5]); // strooiwagen en de varianten van 10 kg
   });
 
   it("afbeeldingen: alleen echte JPG/PNG/WebP, daarna te tonen", async () => {
@@ -947,19 +947,112 @@ describe("strooizout per 10 kg: eigen emmer en met emmer (23-11-2026)", () => {
     await startRonde();
   }
 
-  it("zonder afgevulde voorraad is er niets te bestellen, ook niet als het product actief wordt gezet", async () => {
-    await metZakken();
-    await activeer(EIGEN);
-    await activeer(MET);
+  it("10 kg is te bestellen uit de zakvoorraad: een zak gaat eraf, de rest wordt los zout en telt daarna mee", async () => {
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 40 }) }); // 40 zakken verwacht, nog niets ontvangen (zoals bij de start)
+    await startRonde();
     const w = await jsonVan(req("/api/strooizout/winkel"));
-    expect(w.producten.filter((p: J) => p.id !== 1).map((p: J) => p.voorraad)).toEqual([0, 0]);
-    for (const id of [EIGEN, MET]) {
-      const r = await bestel({ regels: [{ product_id: id, aantal: 1 }] });
-      expect(r.status).toBe(409);
-      expect(((await r.json()) as J).error).toMatch(/uitverkocht/);
-    }
-    // voorraad met de hand ophogen kan niet buiten de ontvangen voorraad om: uitgeven vraagt ontvangen voorraad
-    expect((await voorraad()).van(EIGEN)).toMatchObject({ ontvangen: 0, beschikbaar: 0, in_magazijn: 0 });
+    // 40 zakken = 1000 kg = 100 keer 10 kg; het ligt er nog niet, dus een voorbestelling
+    expect(w.producten.map((p: J) => [p.id, p.voorraad, p.op_voorraad])).toEqual([[1, 40, false], [EIGEN, 100, false], [MET, 100, false]]);
+    expect(w.binnenkort).toEqual([]);
+
+    const eerste = await bestel({ regels: [{ product_id: EIGEN, aantal: 1 }] });
+    expect(eerste.status).toBe(201);
+    let v = await voorraad();
+    expect(v.van(1)).toMatchObject({ verwacht: 39, beschikbaar: 39, ontvangen: 0 }); // één zak apart gezet
+    expect(v.los).toBe(15000);
+    expect(v.van(EIGEN)).toMatchObject({ verwacht: 1, gereserveerd: 1, beschikbaar: 0, ontvangen: 0, uit_zakken: true, te_bestellen: 99 });
+    expect(v.van(MET).te_bestellen).toBe(99); // 39 zakken en 15 kg los: 990 kg
+    expect(v.van(1).uit_zakken).toBe(false);
+    expect(((await eerste.json()) as J).bestelling.status).toBe("nieuw");
+
+    // de volgende 10 kg komt uit het losse zout: geen zak erbij
+    expect((await bestel({ regels: [{ product_id: MET, aantal: 1 }] }, "203.0.113.20")).status).toBe(201);
+    v = await voorraad();
+    expect(v.van(1)).toMatchObject({ verwacht: 39, beschikbaar: 39 });
+    expect(v.los).toBe(5000);
+    // 2 × 10 kg met 5 kg los: één zak erbij, 10 kg rest
+    expect((await bestel({ regels: [{ product_id: EIGEN, aantal: 2 }] }, "203.0.113.21")).status).toBe(201);
+    v = await voorraad();
+    expect(v.van(1)).toMatchObject({ verwacht: 38, beschikbaar: 38 });
+    expect(v.los).toBe(10000);
+    // niets verdwenen, niets dubbel: 2 zakken = 50 kg = 4 porties en 10 kg los
+    expect((40 - v.van(1).verwacht) * 25).toBe((v.van(EIGEN).verwacht + v.van(MET).verwacht) * 10 + v.los / 1000);
+    const log = db.raw.prepare("SELECT details FROM sz_log WHERE actie = 'zout toegewezen' ORDER BY id").all() as J[];
+    expect(log).toHaveLength(3);
+  });
+
+  it("geen dubbele verkoop: de laatste zak kan maar één keer weg, als zak of als 10 kg", async () => {
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 1 }) });
+    await startRonde();
+    expect((await jsonVan(req("/api/strooizout/winkel"))).producten.map((p: J) => p.voorraad)).toEqual([1, 2, 2]);
+    // 3 × 10 kg past niet in één zak
+    const teveel = await bestel({ regels: [{ product_id: EIGEN, aantal: 3 }] });
+    expect(teveel.status).toBe(409);
+    expect(((await teveel.json()) as J).error).toMatch(/nog 2 ×/);
+    // een zak én 10 kg uit dezelfde laatste zak kan niet
+    expect((await bestel({ regels: [{ product_id: 1, aantal: 1 }, { product_id: MET, aantal: 1 }] })).status).toBe(409);
+    expect((await voorraad()).van(1)).toMatchObject({ verwacht: 1, beschikbaar: 1 }); // de mislukte bestelling heeft niets gewijzigd
+    expect((await voorraad()).los).toBe(0);
+    // gelijktijdig: 10 kg en de zak; precies één van de twee lukt met de zak
+    const [a, b] = await Promise.all([bestel({ regels: [{ product_id: EIGEN, aantal: 2 }] }, "203.0.113.22"), bestel({ regels: [{ product_id: 1, aantal: 1 }] }, "203.0.113.23")]);
+    expect([a.status, b.status].sort()).toEqual([201, 409]);
+    const v = await voorraad();
+    expect(v.van(1).beschikbaar).toBe(0);
+    // daarna is alles op, behalve wat er nog los ligt
+    const w = await jsonVan(req("/api/strooizout/winkel"));
+    expect(w.producten.find((p: J) => p.id === 1).voorraad).toBe(0);
+    expect((await bestel({ regels: [{ product_id: MET, aantal: 1 }] }, "203.0.113.24")).status).toBe(409);
+    expect(v.los + v.van(1).beschikbaar * 25000).toBeLessThan(10000);
+  });
+
+  it("zakken zonder voorraadgrens: 10 kg is dan ook onbeperkt te bestellen en de porties worden bijgehouden", async () => {
+    await startRonde();
+    expect((await jsonVan(req("/api/strooizout/winkel"))).producten.map((p: J) => p.voorraad)).toEqual([null, null, null]);
+    expect((await bestel({ regels: [{ product_id: EIGEN, aantal: 3 }] })).status).toBe(201);
+    const v = await voorraad();
+    expect(v.van(EIGEN)).toMatchObject({ verwacht: 3, gereserveerd: 3, beschikbaar: 0, te_bestellen: null });
+    expect(v.van(1)).toMatchObject({ verwacht: null, beschikbaar: null });
+    expect(v.los).toBe(0);
+  });
+
+  it("annuleren houdt het zout bij het product van 10 kg; uitgeven kan pas na ‘klaargezet’, tot wat er besteld is", async () => {
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 40 }) });
+    await startRonde();
+    const r = await jsonVan(bestel({ regels: [{ product_id: EIGEN, aantal: 2 }] }));
+    let v = await voorraad();
+    expect(v.van(1).verwacht).toBe(39);
+    expect(v.los).toBe(5000);
+    expect(v.van(EIGEN)).toMatchObject({ verwacht: 2, gereserveerd: 2, beschikbaar: 0 });
+    // de voorraad van dit product volgt de zakken: met de hand ophogen kan niet
+    expect((await beheer(`/voorraad/${EIGEN}`, { method: "POST", body: JSON.stringify({ verwacht: 50 }) })).status).toBe(409);
+    expect((await beheer(`/voorraad/${EIGEN}`, { method: "POST", body: JSON.stringify({ ontvangen_erbij: 3 }) })).status).toBe(409);
+    // uitgeven kan niet zolang het niet klaarstaat
+    const lijst = await jsonVan(beheer("/bestellingen?ronde=alle"));
+    const id = lijst.bestellingen[0].id;
+    expect((await beheer(`/bestellingen/${id}/status`, { method: "POST", body: JSON.stringify({ status: "klaar" }) })).status).toBe(409);
+    expect((await beheer(`/voorraad/${EIGEN}`, { method: "POST", body: JSON.stringify({ ontvangen_erbij: 2 }) })).status).toBe(200);
+    expect((await beheer(`/bestellingen/${id}/status`, { method: "POST", body: JSON.stringify({ status: "klaar" }) })).status).toBe(200);
+    // annuleren: de twee porties blijven bij het product en zijn opnieuw te bestellen, zonder een nieuwe zak
+    expect((await req("/api/strooizout/bestelling/annuleer", { method: "POST", body: JSON.stringify({ code: r.bestelling.code }) })).status).toBe(200);
+    v = await voorraad();
+    expect(v.van(EIGEN)).toMatchObject({ verwacht: 2, gereserveerd: 0, beschikbaar: 2, ontvangen: 2 });
+    expect(v.van(1).verwacht).toBe(39);
+    expect((await bestel({ regels: [{ product_id: EIGEN, aantal: 2 }] }, "203.0.113.25")).status).toBe(201);
+    v = await voorraad();
+    expect(v.van(1).verwacht).toBe(39);
+    expect(v.los).toBe(5000);
+  });
+
+  it("zijn de zakken al binnen, dan gaat een aangebroken zak ook van ‘ontvangen’ af", async () => {
+    await metZakken();
+    expect((await bestel({ regels: [{ product_id: MET, aantal: 1 }] })).status).toBe(201);
+    const v = await voorraad();
+    expect(v.van(1)).toMatchObject({ verwacht: 39, ontvangen: 39, beschikbaar: 39, in_magazijn: 39 });
+    expect(v.van(MET)).toMatchObject({ verwacht: 1, ontvangen: 0, gereserveerd: 1 });
+    expect(v.los).toBe(15000);
+  });
+
+  it("vooruit afvullen: wat klaarstaat gaat eerst weg, daarna pas een nieuwe zak", async () => {
   });
 
   it("afvullen: 1 zak geeft 2 × 10 kg en 5 kg los zout; het losse zout telt de volgende keer mee", async () => {
@@ -1016,10 +1109,6 @@ describe("strooizout per 10 kg: eigen emmer en met emmer (23-11-2026)", () => {
     const bezorgd = await bestel({ levering: "bezorgen", regels: [{ product_id: 1, aantal: 2 }, { product_id: EIGEN, aantal: 1 }] });
     expect(bezorgd.status).toBe(422);
     expect((await bezorgd.json()) as J).toMatchObject({ veld: "levering", code: "alleen_afhalen" });
-    // meer dan er klaarstaat kan niet
-    const teveel = await bestel({ regels: [{ product_id: EIGEN, aantal: 3 }] });
-    expect(teveel.status).toBe(409);
-    expect(((await teveel.json()) as J).error).toMatch(/nog 2 ×/);
     // afhalen: € 5,49 per 10 kg, zonder staffel, met 21% btw in de prijs
     const r = await bestel({ regels: [{ product_id: EIGEN, aantal: 2 }] });
     expect(r.status).toBe(201);
@@ -1028,8 +1117,7 @@ describe("strooizout per 10 kg: eigen emmer en met emmer (23-11-2026)", () => {
     expect(b.meldingen).toEqual(["Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af."]);
     expect(b.regels[0]).toMatchObject({ naam: "Strooizout 10 kg in je eigen emmer", aantal: 2, stukprijs_cent: 549 });
     expect((await voorraad()).van(EIGEN)).toMatchObject({ beschikbaar: 0, gereserveerd: 2, ontvangen: 2 });
-    expect((await bestel({ regels: [{ product_id: EIGEN, aantal: 1 }] }, "203.0.113.11")).status).toBe(409);
-    // de zakken zijn er niet door veranderd
+    // wat al was afgevuld ging eerst weg: de zakken zijn er niet door veranderd
     expect((await voorraad()).van(1)).toMatchObject({ beschikbaar: 39, ontvangen: 39 });
     // annuleren geeft de porties terug, niet de zak
     expect((await req("/api/strooizout/bestelling/annuleer", { method: "POST", body: JSON.stringify({ code: b.code }) })).status).toBe(200);
@@ -1088,19 +1176,21 @@ describe("strooizout per 10 kg: eigen emmer en met emmer (23-11-2026)", () => {
 });
 
 describe("commerciële afspraken (22-11-2026)", () => {
-  it("startgegevens: zak € 10,49 met inkoop € 7,09; de varianten van 10 kg zichtbaar als ‘binnenkort’ maar niet te bestellen", async () => {
+  it("startgegevens: zak € 10,49 met inkoop € 7,09; 10 kg in eigen emmer € 5,49 en met emmer € 6,49, alle drie te bestellen", async () => {
     await startRonde();
     const w = await jsonVan(req("/api/strooizout/winkel"));
-    expect(w.producten.map((p: J) => p.slug)).toEqual(["strooizout-25-kg"]);
-    expect(w.binnenkort.map((p: J) => [p.slug, p.prijs_cent, p.gewicht_gram, p.voorraad, p.alleen_afhalen])).toEqual([
-      ["strooizout-10-kg-eigen-emmer", 549, 10000, 0, true],
-      ["strooizout-10-kg-met-emmer", 649, 10000, 0, false],
+    expect(w.producten.map((p: J) => [p.slug, p.prijs_cent, p.gewicht_gram, p.alleen_afhalen])).toEqual([
+      ["strooizout-25-kg", 1049, 25000, false],
+      ["strooizout-10-kg-eigen-emmer", 549, 10000, true],
+      ["strooizout-10-kg-met-emmer", 649, 10000, false],
     ]);
-    expect(w.binnenkort[0].melding).toBe("Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af.");
-    expect(w.binnenkort[0]).not.toHaveProperty("inkoop_cent");
-    // de emmer van 5 kg is vervallen (concept) en geen van de emmers is te bestellen
+    expect(w.binnenkort).toEqual([]);
+    expect(w.producten[1].melding).toBe("Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af.");
+    expect(w.producten[1]).not.toHaveProperty("inkoop_cent");
+    expect(w.producten[1]).not.toHaveProperty("vult_uit");
+    // de emmer van 5 kg is vervallen (concept) en niet te bestellen
     expect((db.raw.prepare("SELECT status FROM sz_product WHERE id = 3").get() as J).status).toBe("concept");
-    for (const id of [3, 4, 5]) expect((await bestel({ regels: [{ product_id: id, aantal: 1 }] })).status).toBe(409);
+    expect((await bestel({ regels: [{ product_id: 3, aantal: 1 }] })).status).toBe(409);
     // de zak en zijn staffels zijn ongewijzigd
     expect(w.producten[0]).toMatchObject({ prijs_cent: 1049, alleen_afhalen: false, melding: "" });
     expect(w.producten[0].aanbiedingen.map((a: J) => [a.vanaf_aantal, a.prijs_cent])).toEqual([[2, 949], [4, 899]]);
@@ -1218,7 +1308,11 @@ describe("vindbaarheid en meting", () => {
     const g = productGegevens(await laadCatalogus(d), await laadInstellingen(d), await laadMagazijn(d), "2026-11-22T12:00:00.000Z") as J;
     const [verkoper, ...producten] = g["@graph"];
     expect(verkoper).toMatchObject({ "@type": "Organization", name: "Denckh", vatID: "NL003791952B15", address: { streetAddress: "Vlierweg 54", addressLocality: "Houten", addressCountry: "NL" } });
-    expect(producten).toHaveLength(1);
+    expect(producten.map((x: J) => [x.sku, x.offers.price, x.offers.availability.split("/").pop(), x.offers.availableDeliveryMethod.length])).toEqual([
+      ["strooizout-25-kg", "10.49", "PreOrder", 2],
+      ["strooizout-10-kg-eigen-emmer", "5.49", "PreOrder", 1], // alleen afhalen
+      ["strooizout-10-kg-met-emmer", "6.49", "PreOrder", 2],
+    ]);
     const o = producten[0].offers;
     expect(producten[0]).toMatchObject({ "@type": "Product", name: "Strooizout 25 kg", sku: "strooizout-25-kg", image: "https://strooizouthouten.nl/strooizout/beeld/strooizout-25kg.webp" });
     expect(o).toMatchObject({ price: "10.49", priceCurrency: "EUR", availability: "https://schema.org/PreOrder", availabilityStarts: "2026-11-26" });

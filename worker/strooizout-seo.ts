@@ -53,7 +53,7 @@ export function productGegevens(cat: Catalogus, inst: Instellingen, magazijn: Ma
         itemCondition: "https://schema.org/NewCondition",
         seller: { "@id": `${BASIS}/#verkoper` },
         areaServed: { "@type": "City", name: "Houten" },
-        availableDeliveryMethod: ["http://purl.org/goodrelations/v1#DeliveryModePickUp", ...(inst.bezorgen_aan ? ["http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"] : [])],
+        availableDeliveryMethod: ["http://purl.org/goodrelations/v1#DeliveryModePickUp", ...(inst.bezorgen_aan && !p.alleen_afhalen ? ["http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"] : [])],
         priceSpecification: [
           tarief(pub.prijs_cent, treden.length ? 1 : undefined, treden.length ? treden[0].vanaf_aantal - 1 : undefined),
           ...treden.map((a, i) => tarief(a.prijs_cent, a.vanaf_aantal, treden[i + 1] ? treden[i + 1].vanaf_aantal - 1 : undefined)),
