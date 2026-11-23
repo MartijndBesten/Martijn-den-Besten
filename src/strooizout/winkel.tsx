@@ -135,13 +135,13 @@ function Productkeuze({ keuzes, gekozen, nu, onKies }: { keuzes: Keuze[]; gekoze
 }
 
 function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: PubliekProduct; straks: boolean; keuzes: Keuze[]; winkel: Winkel; onAantal: (n: number) => void; onKies: (id: number) => void }) {
-  const { zet, regels, leeg } = useMand();
+  const { zet, leeg } = useMand();
   const { navigeer } = useRouter();
   const inst = winkel.instellingen;
   const max = Math.max(1, maxVoor(p));
   const treden = useMemo(() => tredenVoor(p, winkel.nu), [p, winkel.nu]);
-  // Standaard de eerste voordeeltrede (2 zakken), tenzij er al iets in het mandje zit.
-  const [aantal, setAantal] = useState(() => Math.max(1, Math.min(max, regels.find((r) => r.product_id === p.id)?.aantal ?? treden[1]?.vanaf ?? 1)));
+  // Altijd beginnen bij 1 (besluit Martijn 23-11-2026): geen voorgekozen staffel en geen oud aantal uit het mandje.
+  const [aantal, setAantal] = useState(1);
   const [levering, setLevering] = useState<Levering>("ophalen");
   const [verder, setVerder] = useState(false);
   const stap2 = useRef<HTMLDivElement>(null);
@@ -156,6 +156,11 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
   useEffect(() => {
     if (verder) zet(p.id, aantal);
   }, [verder, aantal, p.id, zet]);
+  // Zolang de gegevens (stap 2) open staan, is er één bestelknop: de balk onderin (mandje) verdwijnt dan.
+  useEffect(() => {
+    document.body.classList.toggle("wn-stap2-open", verder);
+    return () => document.body.classList.remove("wn-stap2-open");
+  }, [verder]);
 
   const som = useMemo(() => bereken([{ product: alsPrijsProduct(p), aantal }], levering, inst, winkel.nu), [p, aantal, levering, inst, winkel.nu]);
   const eenheid = p.eenheid;
@@ -166,7 +171,8 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
   const hoofdKeuze = keuzes.find((k) => !k.straks);
   const actief = treden.reduce((gekozen, t, i) => (aantal >= t.vanaf ? i : gekozen), 0);
   const volgende = treden[actief + 1];
-  const tip = volgende && volgende.vanaf - aantal === 1 && volgende.vanaf <= max ? volgende : null;
+  // Geen zetje bij 1 (de startstand): de staffelprijzen staan al in de rij erboven, en zo blijft de knop in beeld.
+  const tip = aantal > 1 && volgende && volgende.vanaf - aantal === 1 && volgende.vanaf <= max ? volgende : null;
   const beste = treden.length > 1 && actief === treden.length - 1;
   const stuk = som.regels[0]?.stukprijs_cent ?? p.prijs_cent;
   const kan = winkel.open && !straks && p.voorraad !== 0;
@@ -480,7 +486,7 @@ export function WinkelPagina() {
   const keuzes = useMemo<Keuze[]>(() => [...(winkel?.producten ?? []).map((p) => ({ p, straks: false })), ...(winkel?.binnenkort ?? []).map((p) => ({ p, straks: true }))], [winkel]);
   const [gekozenId, setGekozenId] = useState<number | null>(null);
   const gekozen = keuzes.find((k) => k.p.id === gekozenId) ?? keuzes.find((k) => k.p.id === hoofd?.id) ?? keuzes[0];
-  const [aantal, setAantal] = useState(2);
+  const [aantal, setAantal] = useState(1);
   const pagina = useRef<HTMLDivElement>(null);
   useOnthul(pagina);
   const vanaf = hoofd ? Math.min(hoofd.prijs_cent, ...hoofd.aanbiedingen.filter((a) => aanbiedingGeldig(a, winkel!.nu)).map((a) => a.prijs_cent)) : null;

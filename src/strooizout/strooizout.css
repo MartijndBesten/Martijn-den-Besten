@@ -1157,6 +1157,13 @@ textarea.sz-invoer {
   .sz-heeft-balk {
     padding-bottom: 76px;
   }
+  /* Stap 2 van de bestelkaart open: daar staat de enige bestelknop; de mandjesbalk zou die en het blok Betalen afdekken. */
+  .wn-stap2-open .sz-mobielbalk {
+    display: none;
+  }
+  .wn-stap2-open.sz-heeft-balk {
+    padding-bottom: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
