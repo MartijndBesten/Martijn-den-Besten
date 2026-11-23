@@ -8,6 +8,10 @@ const { chromium } = require(path.join(REPO, "node_modules/playwright"));
 const qrcode = require(path.join(REPO, "node_modules/qrcode-generator"));
 
 const UIT = path.join(REPO, "docs/strooizout/kaartje");
+// Optioneel (`--prijs`): een prijsbolletje rechtsboven, alleen voor het deelbeeld voor WhatsApp (JPEG). De gedrukte versie
+// heeft bewust geen prijs, zodat het kaartje niet veroudert. De prijs hieronder is de prijs van één zak (zie de webshop).
+const METPRIJS = process.argv.includes("--prijs");
+const PRIJSBOLLETJE = { regel1: "Zak 25 kilo", regel2: "vanaf", regel3: "€ 9,99" };
 const URL_QR = "https://strooizouthouten.nl/?via=kaartje";
 const A = 3; // afloop in mm; alle maten hieronder zijn in mm vanaf de snijlijn (0,0 = linkerbovenhoek van het kaartje)
 const B = 105;
@@ -220,6 +224,18 @@ function tekening(gids = false) {
   <text x="${K}" y="134.5" font-size="2.9" font-weight="500" fill="#1f5a94">Afhalen of bezorgd</text>
   <text x="${K}" y="138.3" font-size="2.9" font-weight="500" fill="#1f5a94">binnen de rondweg van Houten</text>
 
+  ${
+    METPRIJS
+      ? `<g transform="translate(86 22) rotate(-8)">
+    <circle r="12.6" fill="#020a14" opacity="0.28" transform="translate(0.5 0.9)"/>
+    <circle r="12.4" fill="#ffb547"/>
+    <circle r="11.2" fill="none" stroke="#0b2340" stroke-opacity="0.22" stroke-width="0.35" stroke-dasharray="0.9 0.9"/>
+    <text y="-5.6" text-anchor="middle" font-size="2.9" font-weight="750" fill="#0b2340">${PRIJSBOLLETJE.regel1}</text>
+    <text y="-2.1" text-anchor="middle" font-size="2.6" font-weight="600" fill="#0b2340">${PRIJSBOLLETJE.regel2}</text>
+    <text y="4.4" text-anchor="middle" font-size="6.2" font-weight="800" letter-spacing="-0.2" fill="#0b2340">${PRIJSBOLLETJE.regel3}</text>
+  </g>`
+      : ""
+  }
   <!-- afzender: officiële Denckh-signatuur (ongewijzigd bestand), klein en onderaan -->
   <text x="${K}" y="143.1" font-size="2.2" font-weight="500" fill="#45607a">Een initiatief van</text>
   <image x="${K + 18.2}" y="140.2" width="${(3.8 * 1008.93) / 305.09}" height="3.8" href="data:image/svg+xml;base64,${denckh}"/>
@@ -245,6 +261,17 @@ function pagina(metAfloop, gids = false) {
     await page.evaluate(() => document.fonts.ready);
     await page.evaluate(() => Promise.all([...document.images].map((i) => (i.complete ? null : i.decode().catch(() => null)))));
   };
+  if (METPRIJS) {
+    // alleen het deelbeeld met prijs (300 dpi op A6); de pdf's en de drukversie blijven ongemoeid
+    const mm = 96 / 25.4;
+    const page = await browser.newPage({ viewport: { width: Math.round(B * mm), height: Math.round(H * mm) }, deviceScaleFactor: 1240 / Math.round(B * mm) });
+    await page.setContent(pagina(false));
+    await klaar(page);
+    await page.locator(".vel").screenshot({ path: path.join(UIT, "strooizout-kaartje-a6-prijs.png") });
+    await browser.close();
+    console.log("gemaakt: strooizout-kaartje-a6-prijs.png");
+    return;
+  }
   for (const [metAfloop, bestand] of [[false, "strooizout-kaartje-a6.pdf"], [true, "strooizout-kaartje-a6-drukklaar.pdf"]]) {
     const page = await browser.newPage();
     await page.setContent(pagina(metAfloop));
