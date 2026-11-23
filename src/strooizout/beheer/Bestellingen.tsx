@@ -132,7 +132,7 @@ function DetailPaneel({ id, sluit, bijgewerkt, momenten }: { id: number; sluit: 
 
   const b = d?.bestelling;
   const bericht = b
-    ? `Hoi ${b.naam.split(" ")[0]}, over je strooizoutbestelling ${b.nummer}: ${b.status === "klaar" ? (b.levering === "ophalen" ? "je bestelling ligt klaar om op te halen." : "je bestelling gaat mee met de bezorgronde.") : "je reservering is bevestigd."} Je bestelling bekijken: ${b.klant_link}`
+    ? `Hoi ${b.naam.split(" ")[0]}, over je strooizoutbestelling ${b.nummer}: ${b.status === "klaar" ? (b.levering === "ophalen" ? "je bestelling ligt klaar om op te halen." : "je bestelling gaat mee met de bezorgronde.") : "je bestelling is bevestigd."} Je bestelling bekijken: ${b.klant_link}`
     : "";
   const passendeMomenten = momenten.filter((m) => b && m.soort === b.levering);
 

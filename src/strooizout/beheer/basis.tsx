@@ -6,9 +6,13 @@ import { vraag, type Resultaat } from "../api";
 
 export const TOKEN_SLEUTEL = "strooizout:beheer-token";
 
+/** Na inloggen met een e-mailcode blijft de sessie op dit apparaat bewaard (dertig dagen geldig). */
+export const SESSIE_SLEUTEL = "strooizout:beheer-sessie";
+export const EMAIL_SLEUTEL = "strooizout:beheer-email";
+
 export function leesToken(): string {
   try {
-    return sessionStorage.getItem(TOKEN_SLEUTEL) ?? "";
+    return sessionStorage.getItem(TOKEN_SLEUTEL) || localStorage.getItem(SESSIE_SLEUTEL) || "";
   } catch {
     return "";
   }

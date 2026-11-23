@@ -78,7 +78,7 @@ export default function Instellingen() {
         <div className="bh-veld" style={{ marginTop: 8, maxWidth: 260 }}>
           <label htmlFor="in-laag">Waarschuwing bij lage voorraad</label>
           <input id="in-laag" className="sz-invoer" style={{ maxWidth: 120 }} type="number" min={0} max={1000} value={v.lage_voorraad} onChange={(e) => zet("lage_voorraad", Math.max(0, Math.min(1000, Number(e.target.value) || 0)))} />
-          <small>Het overzicht waarschuwt als er nog zoveel of minder te reserveren is.</small>
+          <small>Het overzicht waarschuwt als er nog zoveel of minder te bestellen is.</small>
         </div>
         <div className="bh-veld" style={{ marginTop: 8 }}>
           <label htmlFor="in-gesloten">Melding als de webshop gesloten is</label>

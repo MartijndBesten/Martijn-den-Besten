@@ -8,14 +8,14 @@ import { IcoonKopie, IcoonLet, IcoonVink } from "./iconen";
 import { extern, Link } from "./router";
 
 const STAPPEN_OPHALEN = [
-  { s: "nieuw", t: "Reservering ontvangen", u: "We hebben je reservering binnen." },
-  { s: "bevestigd", t: "Bevestigd", u: "Je reservering is bevestigd. Het afhaaladres staat hieronder." },
+  { s: "nieuw", t: "Bestelling ontvangen", u: "We hebben je bestelling binnen." },
+  { s: "bevestigd", t: "Bevestigd", u: "Je bestelling is bevestigd. Het afhaaladres staat hieronder." },
   { s: "klaar", t: "Klaar om op te halen", u: "Je bestelling ligt voor je klaar." },
   { s: "afgehaald", t: "Afgehaald", u: "Bedankt en een veilige winter!" },
 ];
 const STAPPEN_BEZORGEN = [
-  { s: "nieuw", t: "Reservering ontvangen", u: "We hebben je reservering binnen." },
-  { s: "bevestigd", t: "Bevestigd", u: "Je reservering is bevestigd." },
+  { s: "nieuw", t: "Bestelling ontvangen", u: "We hebben je bestelling binnen." },
+  { s: "bevestigd", t: "Bevestigd", u: "Je bestelling is bevestigd." },
   { s: "klaar", t: "Klaar voor bezorging", u: "Je bestelling gaat mee met de bezorgronde." },
   { s: "bezorgd", t: "Bezorgd", u: "Bedankt en een veilige winter!" },
 ];
@@ -100,7 +100,7 @@ export default function Status() {
           </div>
         )}
         <h1 tabIndex={-1} ref={kop} style={{ outline: "none" }}>
-          {geannuleerd ? "Je reservering is geannuleerd" : net ? `Bedankt, ${b.voornaam}! Je reservering is geplaatst.` : `Je bestelling, ${b.voornaam}`}
+          {geannuleerd ? "Je bestelling is geannuleerd" : net ? `Bedankt, ${b.voornaam}! Je bestelling is geplaatst.` : `Je bestelling, ${b.voornaam}`}
         </h1>
         {b.afhaalcode && !geannuleerd && (
           <div className="sz-codekaart">
@@ -240,7 +240,7 @@ export default function Status() {
                 ? "Aan de weg, bij de verkoper."
                 : b.levering === "bezorgen"
                   ? b.adres
-                  : b.afhaal_adres || `In ${b.afhaal_plek || "Houten"}. Het adres verschijnt hier zodra je reservering is bevestigd.`}
+                  : b.afhaal_adres || `In ${b.afhaal_plek || "Houten"}. Het adres verschijnt hier zodra je bestelling is bevestigd.`}
               {b.moment && (
                 <div>
                   {dagTekst(b.moment.datum)}, {b.moment.van}–{b.moment.tot}
@@ -284,15 +284,15 @@ export default function Status() {
             <h2>Annuleren</h2>
             {annuleren === "nee" ? (
               <>
-                <p style={{ color: "var(--tekst-2)" }}>Kun je toch geen gebruik maken van je reservering? Annuleer hem dan, zodat we niet te veel inkopen.</p>
+                <p style={{ color: "var(--tekst-2)" }}>Heb je je bestelling toch niet nodig? Annuleer hem dan, zodat we niet te veel inkopen.</p>
                 <button type="button" className="sz-knop sz-knop--licht sz-knop--klein" onClick={() => setAnnuleren("vraag")}>
-                  Reservering annuleren
+                  Bestelling annuleren
                 </button>
               </>
             ) : (
               <div role="alertdialog" aria-labelledby="sz-annuleer-vraag">
                 <p id="sz-annuleer-vraag">
-                  <strong>Weet je zeker dat je reservering {b.nummer} wilt annuleren?</strong>
+                  <strong>Weet je zeker dat je bestelling {b.nummer} wilt annuleren?</strong>
                 </p>
                 <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
                   <button type="button" className="sz-knop sz-knop--klein" onClick={() => void annuleer()} disabled={annuleren === "bezig"}>

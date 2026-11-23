@@ -133,7 +133,8 @@ Statische bestanden in `public/strooizout/`: `flyer-a5.pdf`, `bord-a4.pdf` (verk
 - Persoonsgegevens (naam, mobiel nummer, e-mail, adres, opmerkingen, afhaalcode) worden **na de bewaartermijn** gewist: standaard 6 maanden na afgehaald/bezorgd/geannuleerd. Een bestelling die 12 maanden onaangeroerd openstaat, wordt eerst geannuleerd (voorraad terug) en daarna gewist. Bedragen, aantallen en het postcodegebied blijven voor de administratie. Dit draait **dagelijks om 03:17 UTC** (cron-trigger in `wrangler.jsonc`/`wrangler.embedded.jsonc`, gratis), en daarnaast bij het openen van het beheeroverzicht of met *Instellingen › Nu opschonen*.
 - Geen persoonsgegevens in logs: het logboek bevat alleen acties en bedragen; foutmeldingen bevatten geen invoer. Getest in `tests/strooizout.test.ts`.
 - Het volledige afhaaladres staat alleen in de instellingen en is pas zichtbaar op de bestelpagina van een klant nadat de beheerder de bestelling heeft bevestigd.
-- Het mandje staat in de browser (localStorage), het beheertoken alleen in de sessie (sessionStorage).
+- Het mandje staat in de browser (localStorage), het beheertoken alleen in de sessie (sessionStorage). Wie met een e-mailcode inlogt, houdt de sessie dertig dagen op dat apparaat (localStorage).
+- Het e-mailadres van de klant wordt gebruikt voor de bevestiging met de afhaalcode; de mail gaat via Cloudflare, waar ook de site en de database staan.
 
 ## Bezorggebied: binnen de rondweg
 
@@ -166,12 +167,24 @@ Koppelen: Cloudflare › Workers › `martijndenbesten` › Domains & Routes ›
 | --- | --- | --- | --- |
 | `ADMIN_TOKEN` | Worker-secret (bestaat al) | ja | Algemeen beheertoken van de site; geeft ook toegang tot het Strooizout-beheer |
 | `STROOIZOUT_TOKEN` | Worker-secret (nieuw, optioneel) | nee | Apart beheertoken (min. 24 tekens) voor alleen de webshop, bijvoorbeeld als een buur meehelpt. Zet met `npx wrangler secret put STROOIZOUT_TOKEN -c wrangler.embedded.jsonc` (of in het Cloudflare-dashboard) |
+| `STROOIZOUT_BEHEER_EMAILS` | Worker-secret | voor inloggen per e-mail | Wie met een e-mailcode op het beheer mag inloggen; adressen gescheiden door komma's. Niet in de repository zetten |
+| `STROOIZOUT_MAIL` | variabele in `wrangler.embedded.jsonc` | nee | `aan`: de webshop verstuurt e-mail (bevestiging, inlogcode) en het e-mailadres is bij bestellen verplicht |
 | `HASH_SECRET` | Worker-secret (bestaat al) | **ja** | HMAC voor de persoonlijke bestellink en het pseudonimiseren van IP-adressen. Ontbreekt hij, dan weigert de webshop bestellingen en bestelpagina's (503, *fail closed*), want anders zijn links te raden. **Niet wijzigen** zolang er lopende bestellingen zijn: bestaande klantlinks werken dan niet meer |
-| D1 `martijndenbesten` | binding `DB` (bestaat al) | ja | Migratie `migrations/0004_strooizout.sql` (tabellen `sz_*`) |
+| D1 `martijndenbesten` | binding `DB` (bestaat al) | ja | Migraties `migrations/0004_strooizout.sql` en `0005_strooizout_inlog.sql` (tabellen `sz_*`) |
 
 Alle overige instellingen (afhaaladres, bezorggebied, tarieven, contact, teksten, voorwaarden, btw, bewaartermijn, open/dicht) staan in de database en zijn in het beheer aan te passen.
 
 **Aanbevolen extra slot:** zet `/strooizout/beheer` en `/api/strooizout/beheer` achter Cloudflare Access (gratis, zie [DEPLOYMENT.md](../DEPLOYMENT.md), stap 4; voeg de twee paden toe aan dezelfde applicatie).
+
+## E-mail en inloggen op het beheer
+
+**Bestellen** (afspraak 22-11-2026): overal heet het ‘bestellen’, niet meer ‘reserveren’ (alleen de voorraadterm ‘gereserveerd’ in het beheer is gebleven). Na het bestellen krijgt de klant een e-mail met de afhaalcode, wat er besteld is en de link naar de bestelpagina. Martijn stuurt daarna zelf een Tikkie; na betaling haalt de klant op of wordt er bezorgd. In het formulier valt bij betalen niets meer te kiezen: er staat alleen uitleg. Het e-mailadres is verplicht zodra de webshop mail kan versturen.
+
+**Inloggen zonder wachtwoord** (`worker/strooizout-inlog.ts`, `beheer/Beheer.tsx`): e-mailadres invullen → code van zes cijfers per mail (tien minuten geldig, hooguit vijf pogingen, één keer te gebruiken) → sessie van dertig dagen op dat apparaat (uitloggen maakt hem ongeldig). Wie mag inloggen staat in het Worker-geheim `STROOIZOUT_BEHEER_EMAILS` (adressen gescheiden door komma's). Het adres staat bewust niet in de code, de configuratie of de database: deze repository is openbaar. In de database staan alleen hashes (migratie `0005_strooizout_inlog.sql`). Het antwoord op een aanvraag verraadt niet of een adres toegang heeft. Het beheertoken blijft als terugval werken.
+
+**Versturen** (`worker/strooizout-mail.ts`): via Cloudflare Email Service met de binding `SZ_MAIL` (`send_email` in `wrangler.embedded.jsonc`), afzender `bestelling@strooizouthouten.nl`, antwoorden gaan naar het contactadres uit de instellingen. Er gaat alleen mail uit als de variabele `STROOIZOUT_MAIL` op `aan` staat; zonder binding of schakelaar werkt alles door zoals voorheen (e-mailadres optioneel, inloggen met het token). Mislukt het versturen, dan staat de bestelling er gewoon; er komt geen adres of inhoud in de logs.
+
+Wat ervoor nodig is in het Cloudflare-account (eenmalig): `strooizouthouten.nl` aanmelden als verzenddomein (`npx wrangler email sending enable strooizouthouten.nl`; Cloudflare zet zelf de DNS-records) en het geheim zetten (`npx wrangler secret put STROOIZOUT_BEHEER_EMAILS -c wrangler.embedded.jsonc`). Kosten volgens de documentatie van Cloudflare (nagelezen 22-11-2026, `developers.cloudflare.com/email-service/platform/pricing/`): op het betaalde Workers-plan zijn 3.000 uitgaande mails per maand inbegrepen, daarboven $ 0,35 per 1.000. Voor deze webshop blijft dat ruim binnen het inbegrepen aantal.
 
 ## Livegang (checklist)
 

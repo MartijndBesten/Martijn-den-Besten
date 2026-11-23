@@ -78,7 +78,7 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
   contact_email: "info@denckh.nl",
   contact_telefoon: "",
   bevestiging_tekst:
-    "Bedankt voor je reservering. We nemen contact met je op zodra de bestelronde is ingekocht en je bestelling klaarligt.",
+    "Bedankt voor je bestelling. We nemen contact met je op zodra de bestelronde is ingekocht en je bestelling klaarligt.",
   // CONCEPT (22-11-2026), wacht op akkoord van Martijn. Bedrijfsgegevens staan niet in deze tekst maar komen uit de
   // verkopervelden onderaan de pagina. Regels die met "## " beginnen worden kopjes.
   voorwaarden: [
@@ -89,18 +89,18 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
     "## Prijzen",
     "Alle prijzen zijn inclusief 21% btw. Je ziet het totaalbedrag, met korting en eventuele bezorgkosten, voordat je bestelt. De prijs op het moment van bestellen blijft gelden.",
     "## Vooruit bestellen",
-    "De zakken zijn op voorraad vanaf 26 november; de actuele datum staat in de webshop. Bestel je eerder, dan reserveer je zakken uit de eerste levering. Op is op. Kunnen we je bestelling onverhoopt niet (helemaal) leveren, dan laten we dat weten en betaal je niets voor wat je niet krijgt.",
+    "De zakken zijn op voorraad vanaf 26 november; de actuele datum staat in de webshop. Bestel je eerder, dan krijg je zakken uit de eerste levering. Op is op. Kunnen we je bestelling onverhoopt niet (helemaal) leveren, dan laten we dat weten en betaal je niets voor wat je niet krijgt.",
     "## Afhalen en bezorgen",
     "Afhalen is gratis. Na je bestelling krijg je een afhaalcode; die laat je zien als je je zakken ophaalt.",
     "Bezorgen kan alleen binnen de rondweg van Houten, vanaf 2 zakken, voor € 2,00 per bezorging. We bezorgen alleen als het veilig kan. Bij gladheid of sneeuwval kan de bezorging later worden; dan hoor je dat van ons.",
     "## Betalen",
-    "Je betaalt met een betaalverzoek (Tikkie) dat je van ons krijgt, nooit via de website zelf. Je krijgt het vooraf op je mobiel, of ter plekke bij het afhalen, bij bezorging of aan de weg. Aan de weg betaal je voordat je de zakken meeneemt.",
+    "Na je bestelling krijg je een e-mail met je afhaalcode en sturen we je een betaalverzoek (Tikkie) op je mobiel. Je betaalt nooit via de website zelf. Na betaling kun je je bestelling ophalen of bezorgen we hem. Aan de weg betaal je met een betaalverzoek voordat je de zakken meeneemt.",
     "## Annuleren en terugbrengen",
     "Je kunt kosteloos annuleren zolang je bestelling nog niet is afgehaald of bezorgd: via je bestelpagina of door contact met ons op te nemen. Na ontvangst heb je 14 dagen bedenktijd: breng ongeopende zakken binnen die tijd terug en je krijgt het aankoopbedrag terug. Heb je al betaald, dan betalen we binnen 14 dagen terug.",
     "## Klachten",
     "Is er iets mis met je zakken of je bestelling? Laat het ons zo snel mogelijk weten, dan zoeken we samen een oplossing.",
     "## Privacy",
-    "We vragen alleen wat nodig is voor je bestelling: je naam, je mobiele nummer en, als je laat bezorgen, je adres. Je e-mailadres is niet verplicht. We gebruiken deze gegevens alleen voor je bestelling en delen ze met niemand. Uiterlijk zes maanden na afloop wissen we je persoonsgegevens; alleen de bedragen bewaren we voor de boekhouding. Lees meer in de privacyverklaring.",
+    "We vragen alleen wat nodig is voor je bestelling: je naam, je mobiele nummer, je e-mailadres en, als je laat bezorgen, je adres. Op je e-mailadres krijg je de bevestiging met je afhaalcode. We gebruiken deze gegevens alleen voor je bestelling en delen ze met niemand. Uiterlijk zes maanden na afloop wissen we je persoonsgegevens; alleen de bedragen bewaren we voor de boekhouding. Lees meer in de privacyverklaring.",
     "## Contact",
     "Vragen of klachten? Mail ons; het adres staat onderaan deze pagina.",
   ].join("\n\n"),
@@ -384,7 +384,7 @@ export function bestelnummer(id: number): string {
 // ---------- Statussen ----------
 
 export const BESTEL_STATUS = {
-  nieuw: "Reservering ontvangen",
+  nieuw: "Bestelling ontvangen",
   bevestigd: "Bevestigd",
   klaar: "Klaar voor afhalen of bezorgen",
   afgehaald: "Afgehaald",
@@ -412,7 +412,7 @@ export const RONDE_STATUS = {
 } as const;
 export type RondeStatus = keyof typeof RONDE_STATUS;
 
-export const BETAALWIJZE = { bij_ontvangst: "Betaalverzoek bij afhalen of bezorgen", tikkie: "Betaalverzoek (Tikkie) vooraf" } as const;
+export const BETAALWIJZE = { bij_ontvangst: "Betaalverzoek bij afhalen of bezorgen", tikkie: "Tikkie na je bestelling" } as const;
 export type Betaalwijze = keyof typeof BETAALWIJZE;
 
 export const BETAAL_STATUS = { open: "Openstaand", verzoek: "Betaalverzoek verstuurd", betaald: "Betaald", terugbetaald: "Terugbetaald" } as const;
@@ -503,7 +503,7 @@ export function controleerKlant(
   const opmerking = s(invoer.opmerking);
   if (naam.length < 2) fouten.naam = "Vul je naam in.";
   else if (naam.length > 80) fouten.naam = "Je naam mag maximaal 80 tekens zijn.";
-  if (email && (!EMAIL.test(email) || email.length > 120)) fouten.email = "Dit e-mailadres klopt niet. Je mag het ook leeg laten.";
+  if (email && (!EMAIL.test(email) || email.length > 120)) fouten.email = "Dit e-mailadres klopt niet.";
   const telefoon = normaliseerMobiel(telefoonRuw);
   if (!telefoonRuw) fouten.telefoon = "Vul je mobiele nummer in.";
   else if (!telefoon) fouten.telefoon = "Vul een Nederlands mobiel nummer in, bijvoorbeeld 06 1234 5678 of +31 6 1234 5678.";
@@ -588,6 +588,8 @@ export type PubliekProduct = {
 export type PubliekMoment = { id: number; soort: Levering; datum: string; van: string; tot: string; omschrijving: string; vol: boolean };
 
 export type Winkel = {
+  /** Kan de webshop e-mail versturen? Dan is het e-mailadres verplicht en krijgt de klant een bevestiging. */
+  mail?: boolean;
   open: boolean;
   melding: string;
   ronde: { id: number; naam: string; sluit_op: string | null } | null;

@@ -986,12 +986,12 @@ describe("commerciële afspraken (22-11-2026)", () => {
     await startRonde();
     await bestel({ regels: [{ product_id: 1, aantal: 4 }] }); // 35,96, inkoop 4 × 7,09
     let o = await jsonVan(beheer("/overzicht"));
-    expect(o.waarschuwingen.join(" ")).not.toMatch(/te reserveren/);
+    expect(o.waarschuwingen.join(" ")).not.toMatch(/te bestellen/);
     expect(o.cijfers).toMatchObject({ omzet_cent: 3596, inkoop_cent: 2836, inkoop_bekend: true, marge_excl_cent: 2972 - 2344, product_marge_excl_cent: 628 });
     await bestel({ regels: [{ product_id: 1, aantal: 20 }] });
     await bestel({ regels: [{ product_id: 1, aantal: 6 }] }); // nog 10 vrij
     o = await jsonVan(beheer("/overzicht"));
-    expect(o.waarschuwingen).toContain("Strooizout 25 kg: nog 10 te reserveren (Voorraad).");
+    expect(o.waarschuwingen).toContain("Strooizout 25 kg: nog 10 te bestellen (Voorraad).");
     const per = (await jsonVan(beheer("/financien"))).cijfers.per_product[0];
     expect(per.marge_excl_cent).toBe(per.omzet_cent - Math.round((per.omzet_cent * 21) / 121) - (per.inkoop_cent - Math.round((per.inkoop_cent * 21) / 121)));
   });

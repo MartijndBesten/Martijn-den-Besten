@@ -186,7 +186,7 @@ const DEEL_TEKST = (g: Gegevens) =>
     "",
     `25 kg strooizout: ${prijsRegels(g).map((r) => `${r.label} ${euro(r.prijs)}`).join(", ")} per zak.`,
     `Samen bestellen is voordeliger. Gratis afhalen in ${g.plek}${g.bezorg !== null ? `, of laten bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? ` (vanaf ${g.bezorgVanaf} zakken)` : ""} voor ${euro(g.bezorg)} per ${g.bezorgPer}` : ""}.`,
-    g.vanaf ? `Op voorraad vanaf ${dagTekst(g.vanaf)}; reserveren kan nu.` : "",
+    g.vanaf ? `Op voorraad vanaf ${dagTekst(g.vanaf)}; bestellen kan nu.` : "",
     "",
     `Bestellen: ${metBron(WINKEL_URL, "whatsapp")}`,
   ]

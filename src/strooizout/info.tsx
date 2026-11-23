@@ -66,7 +66,7 @@ export function Privacy() {
     <section className="sz-tekstpagina">
       <div className="sz-wrap sz-tekstpagina__in">
         <h1>Privacyverklaring</h1>
-        <p>Strooizout voor de buurt is een initiatief van Denckh in Houten. We gaan zuinig om met je gegevens: we vragen alleen wat nodig is om je reservering af te handelen. Denckh is verantwoordelijk voor de verwerking.</p>
+        <p>Strooizout voor de buurt is een initiatief van Denckh in Houten. We gaan zuinig om met je gegevens: we vragen alleen wat nodig is om je bestelling af te handelen. Denckh is verantwoordelijk voor de verwerking.</p>
 
         <h2>Welke gegevens en waarom</h2>
         <table>
@@ -82,8 +82,8 @@ export function Privacy() {
               <td>Om je bestelling bij het afhalen of bezorgen aan jou te kunnen geven.</td>
             </tr>
             <tr>
-              <td>Mobiel nummer (verplicht) en e-mailadres (optioneel)</td>
-              <td>Om contact met je op te nemen over je reservering, het afhaalmoment of de bezorging, en om je eventueel een betaalverzoek (bijv. Tikkie) te sturen.</td>
+              <td>Mobiel nummer en e-mailadres</td>
+              <td>Om je de bevestiging met je afhaalcode te mailen, contact met je op te nemen over je bestelling, het afhaalmoment of de bezorging, en om je een betaalverzoek (Tikkie) te sturen.</td>
             </tr>
             <tr>
               <td>Adres (alleen bij bezorgen)</td>
@@ -91,11 +91,11 @@ export function Privacy() {
             </tr>
             <tr>
               <td>Bestelling, opmerking en betaalstatus</td>
-              <td>Om je reservering af te handelen en bij te houden wat betaald is. We bewaren geen bankgegevens.</td>
+              <td>Om je bestelling af te handelen en bij te houden wat betaald is. We bewaren geen bankgegevens.</td>
             </tr>
           </tbody>
         </table>
-        <p>De grondslag is de uitvoering van je reservering (artikel 6 lid 1 onder b AVG). We gebruiken je gegevens niet voor reclame en verkopen of delen ze niet met anderen.</p>
+        <p>De grondslag is de uitvoering van je bestelling (artikel 6 lid 1 onder b AVG). We gebruiken je gegevens niet voor reclame en verkopen of delen ze niet met anderen.</p>
 
         <h2>Geen account, geen cookies, geen tracking</h2>
         <p>
@@ -152,7 +152,7 @@ export function Voorwaarden() {
     <section className="sz-tekstpagina">
       <div className="sz-wrap sz-tekstpagina__in">
         <h1>Voorwaarden</h1>
-        <p>Dit zijn de afspraken voor reserveringen bij Strooizout voor de buurt.</p>
+        <p>Dit zijn de afspraken voor bestellingen bij Strooizout voor de buurt.</p>
         {winkel ? <Opgemaakt tekst={winkel.instellingen.voorwaarden} /> : <p>Even laden…</p>}
         <h2>Verkoper</h2>
         <Verkoper />

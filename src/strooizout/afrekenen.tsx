@@ -79,7 +79,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
   const levering = ingebed?.levering ?? eigenLevering;
   const [momentId, setMomentId] = useState<number | null>(null);
   const [v, setV] = useState<Velden>(LEEG);
-  const [betaal, setBetaal] = useState<Betaalwijze>("bij_ontvangst");
+
   const [opmerkingOpen, setOpmerkingOpen] = useState(false);
   const [honing, setHoning] = useState("");
   const [fouten, setFouten] = useState<Partial<Record<string, string>>>({});
@@ -93,6 +93,9 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
     if (inst && !inst.afhalen_aan && inst.bezorgen_aan) setLevering("bezorgen");
     if (inst && !inst.bezorgen_aan) setLevering("ophalen");
   }, [inst, ingebed]);
+  // Betalen gaat altijd met een Tikkie die na de bestelling wordt gestuurd (tenzij dat in het beheer uit staat).
+  const betaal: Betaalwijze = inst?.tikkie_aan ? "tikkie" : "bij_ontvangst";
+  const mailVerplicht = !!winkel?.mail;
   const zakken = berekeningZakken(winkel, regels);
   const bezorgKan = !!inst?.bezorgen_aan && zakken >= (inst?.bezorg_min_zakken ?? 0);
   useEffect(() => {
@@ -240,7 +243,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
     <div className="sz-velden">
       <Veld id="naam" label="Naam" autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
       <Veld id="telefoon" label="Mobiel nummer" type="tel" inputMode="tel" autoComplete="tel" value={v.telefoon} onChange={zetV("telefoon")} fout={fouten.telefoon} className="sz-veld--half" placeholder="06 1234 5678" required />
-      {(!ingebed || opmerkingOpen || !!fouten.email) && <Veld id="email" label="E-mailadres" optioneel type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />}
+      <Veld id="email" label="E-mailadres" optioneel={!mailVerplicht} required={mailVerplicht} hulp={mailVerplicht ? "Hier sturen we je afhaalcode naartoe." : undefined} type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />
       {opmerkingOpen ? (
         <div className="sz-veld">
           <label htmlFor="sz-opmerking">
@@ -252,7 +255,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
       ) : (
         <div className="sz-veld">
           <button type="button" className="sz-knop sz-knop--tekst" style={{ alignSelf: "flex-start", paddingLeft: 0 }} onClick={() => setOpmerkingOpen(true)}>
-            {ingebed ? "+ E-mailadres of opmerking" : "+ Opmerking"}
+            + Opmerking
           </button>
         </div>
       )}
@@ -263,27 +266,10 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
     </div>
   );
   const betaalKeuze = (
-    <fieldset style={{ border: 0, padding: 0, margin: "16px 0 0" }}>
-      <legend style={{ fontWeight: 600, marginBottom: 8 }}>Betalen met een betaalverzoek</legend>
-      <div className="sz-keuzes">
-        <label className="sz-keuze sz-keuze--klein">
-          <input type="radio" name="betaal" checked={betaal === "bij_ontvangst"} onChange={() => setBetaal("bij_ontvangst")} />
-          <div>
-            <strong>{levering === "bezorgen" ? "Bij bezorgen" : "Bij afhalen"}</strong>
-            <span>{ingebed ? "Betaalverzoek ter plekke" : "Je krijgt het betaalverzoek ter plekke."}</span>
-          </div>
-        </label>
-        {inst?.tikkie_aan && (
-          <label className="sz-keuze sz-keuze--klein">
-            <input type="radio" name="betaal" checked={betaal === "tikkie"} onChange={() => setBetaal("tikkie")} />
-            <div>
-              <strong>Vooraf</strong>
-              <span>{ingebed ? "Tikkie op je mobiel" : "Je krijgt een Tikkie op je mobiel."}</span>
-            </div>
-          </label>
-        )}
-      </div>
-    </fieldset>
+    <p className="sz-betaaluitleg">
+      <strong>Betalen</strong>
+      <span>{inst?.tikkie_aan ? "Na je bestelling sturen we je een Tikkie op je mobiel. Daarna " + (levering === "bezorgen" ? "bezorgen we je bestelling." : "kun je je bestelling komen ophalen.") : levering === "bezorgen" ? "Je betaalt bij het bezorgen met een betaalverzoek." : "Je betaalt bij het afhalen met een betaalverzoek."}</span>
+    </p>
   );
   const plaatsKnop = (
     <>
@@ -293,11 +279,11 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
             <span className="sz-spinner" aria-hidden="true" /> Bezig met plaatsen…
           </>
         ) : (
-          ingebed ? "Reservering plaatsen" : `Reservering plaatsen · ${euro(berekening.totaal_cent)}`
+          ingebed ? "Bestelling plaatsen" : `Bestelling plaatsen · ${euro(berekening.totaal_cent)}`
         )}
       </button>
       <p className="sz-klein">
-        Je betaalt met een betaalverzoek, niet via de website. Door te reserveren ga je akkoord met de <Link naar="/strooizout/voorwaarden">voorwaarden</Link> en de <Link naar="/strooizout/privacy">privacyverklaring</Link>.
+        {mailVerplicht ? "Je krijgt een e-mail met je afhaalcode. " : ""}Door te bestellen ga je akkoord met de <Link naar="/strooizout/voorwaarden">voorwaarden</Link> en de <Link naar="/strooizout/privacy">privacyverklaring</Link>.
       </p>
     </>
   );
@@ -329,7 +315,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
           <IcoonPijlLinks /> Verder winkelen
         </Link>
         <h1>Bestellen</h1>
-        <p className="sz-afrekenen__intro">Klaar in een minuut. Je betaalt met een betaalverzoek.</p>
+        <p className="sz-afrekenen__intro">Klaar in een minuut. Betalen doe je daarna, met een Tikkie.</p>
         {!winkel.open && <RondeStatus winkel={winkel} />}
         {melding && (
           <div className="sz-melding sz-melding--fout" role="alert" tabIndex={-1} ref={meldingRef} style={{ marginBottom: 18 }}>
@@ -447,7 +433,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
               <div className="sz-velden">
                 <Veld id="naam" label="Naam" autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
                 <Veld id="telefoon" label="Mobiel nummer" type="tel" inputMode="tel" autoComplete="tel" value={v.telefoon} onChange={zetV("telefoon")} fout={fouten.telefoon} className="sz-veld--half" placeholder="06 1234 5678" hulp="Voor het afhalen of de bezorging, en een eventueel betaalverzoek." required />
-                <Veld id="email" label="E-mailadres" optioneel type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />
+                <Veld id="email" label="E-mailadres" optioneel={!mailVerplicht} required={mailVerplicht} hulp={mailVerplicht ? "Hier sturen we je afhaalcode naartoe." : undefined} type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />
                 {opmerkingOpen ? (
                   <div className="sz-veld">
                     <label htmlFor="sz-opmerking">
@@ -468,31 +454,14 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                   <input id="sz-bedrijf-extra" name="bedrijf_extra" tabIndex={-1} autoComplete="off" value={honing} onChange={(e) => setHoning(e.target.value)} />
                 </div>
               </div>
-              <fieldset style={{ border: 0, padding: 0, margin: "18px 0 0" }}>
-                <legend style={{ fontWeight: 600, marginBottom: 10 }}>Betalen met een betaalverzoek</legend>
-                <div className="sz-keuzes">
-                  <label className="sz-keuze sz-keuze--klein">
-                    <input type="radio" name="betaal" checked={betaal === "bij_ontvangst"} onChange={() => setBetaal("bij_ontvangst")} />
-                    <div>
-                      <strong>{levering === "bezorgen" ? "Bij bezorgen" : "Bij afhalen"}</strong>
-                      <span>Je krijgt het betaalverzoek ter plekke.</span>
-                    </div>
-                  </label>
-                  {inst?.tikkie_aan && (
-                    <label className="sz-keuze sz-keuze--klein">
-                      <input type="radio" name="betaal" checked={betaal === "tikkie"} onChange={() => setBetaal("tikkie")} />
-                      <div>
-                        <strong>Vooraf</strong>
-                        <span>Je krijgt een Tikkie op je mobiel.</span>
-                      </div>
-                    </label>
-                  )}
-                </div>
-              </fieldset>
+              <p className="sz-betaaluitleg" style={{ marginTop: 18 }}>
+                <strong>Betalen</strong>
+                <span>{inst?.tikkie_aan ? "Na je bestelling sturen we je een Tikkie op je mobiel. Daarna " + (levering === "bezorgen" ? "bezorgen we je bestelling." : "kun je je bestelling komen ophalen.") : levering === "bezorgen" ? "Je betaalt bij het bezorgen met een betaalverzoek." : "Je betaalt bij het afhalen met een betaalverzoek."}</span>
+              </p>
             </section>
 
             <section className="sz-blok sz-controleblok" aria-labelledby="sz-b4">
-              <h2 id="sz-b4">Controleren en reserveren</h2>
+              <h2 id="sz-b4">Controleren en bestellen</h2>
               <ul className="sz-controlelijst">
                 <li>{berekening.regels.map((r) => `${r.aantal}× ${r.naam}`).join(", ")}</li>
                 <li>
@@ -508,7 +477,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                   <strong className="sz-tnum">Totaal {euro(berekening.totaal_cent)}</strong>
                   {berekening.korting_cent > 0 && <span className="sz-korting-tekst"> · je bespaart {euro(berekening.korting_cent)}</span>}
                   {" · "}
-                  {betaal === "tikkie" ? "betaalverzoek vooraf" : levering === "bezorgen" ? "betalen bij bezorgen" : "betalen bij afhalen"}
+                  {betaal === "tikkie" ? "betalen met een Tikkie" : levering === "bezorgen" ? "betaalverzoek bij bezorgen" : "betaalverzoek bij afhalen"}
                 </li>
               </ul>
               <button type="submit" className="sz-knop sz-knop--vol" disabled={bezig || !winkel.open} aria-busy={bezig}>
@@ -517,11 +486,11 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                     <span className="sz-spinner" aria-hidden="true" /> Bezig met plaatsen…
                   </>
                 ) : (
-                  `Reservering plaatsen · ${euro(berekening.totaal_cent)}`
+                  `Bestelling plaatsen · ${euro(berekening.totaal_cent)}`
                 )}
               </button>
               <p className="sz-klein">
-                Een reservering is nog geen levergarantie; je betaalt alleen voor wat je krijgt. Door te reserveren ga je akkoord met de <Link naar="/strooizout/voorwaarden">voorwaarden</Link>. Lees ook de{" "}
+                Op is op: je betaalt alleen voor wat je krijgt. Door te bestellen ga je akkoord met de <Link naar="/strooizout/voorwaarden">voorwaarden</Link>. Lees ook de{" "}
                 <Link naar="/strooizout/privacy">privacyverklaring</Link>.
               </p>
             </section>
@@ -544,7 +513,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
           <span>{berekening.korting_cent > 0 ? `incl. ${euro(berekening.korting_cent)} korting` : `${berekening.aantal_stuks} ${berekening.aantal_stuks === 1 ? "artikel" : "artikelen"}`}</span>
         </div>
         <button type="submit" form="sz-bestelformulier" className="sz-knop" disabled={bezig || !winkel.open} tabIndex={-1}>
-          {bezig ? "Bezig…" : "Reserveren"}
+          {bezig ? "Bezig…" : "Bestellen"}
         </button>
       </div>
     </div>
