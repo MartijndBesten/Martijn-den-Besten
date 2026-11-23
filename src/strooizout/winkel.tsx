@@ -135,16 +135,26 @@ function Productkeuze({ keuzes, gekozen, nu, onKies }: { keuzes: Keuze[]; gekoze
 }
 
 function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: PubliekProduct; straks: boolean; keuzes: Keuze[]; winkel: Winkel; onAantal: (n: number) => void; onKies: (id: number) => void }) {
-  const { zet, regels, leeg } = useMand();
+  const { zet, leeg } = useMand();
   const { navigeer } = useRouter();
   const inst = winkel.instellingen;
   const max = Math.max(1, maxVoor(p));
   const treden = useMemo(() => tredenVoor(p, winkel.nu), [p, winkel.nu]);
-  // Standaard de eerste voordeeltrede (2 zakken), tenzij er al iets in het mandje zit.
-  const [aantal, setAantal] = useState(() => Math.max(1, Math.min(max, regels.find((r) => r.product_id === p.id)?.aantal ?? treden[1]?.vanaf ?? 1)));
+  // Altijd beginnen bij 1 (besluit Martijn 23-11-2026): geen voorgekozen staffel en geen oud aantal uit het mandje.
+  const [aantal, setAantal] = useState(1);
   const [levering, setLevering] = useState<Levering>("ophalen");
   const [verder, setVerder] = useState(false);
   const stap2 = useRef<HTMLDivElement>(null);
+  // De vaste balk onderin (telefoon) verschijnt alleen als de knop ‘Bestellen’ van deze kaart niet in beeld is.
+  const cta = useRef<HTMLButtonElement>(null);
+  const [ctaInBeeld, setCtaInBeeld] = useState(true);
+  useEffect(() => {
+    const el = cta.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(([e]) => setCtaInBeeld(e.isIntersecting), { threshold: 0.6 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [verder, straks]);
 
   const zakken = aantal * (p.zakken_per_stuk ?? 1);
   const bezorgKan = inst.bezorgen_aan && !p.alleen_afhalen && zakken >= inst.bezorg_min_zakken;
@@ -171,7 +181,8 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
   const hoofdKeuze = keuzes.find((k) => !k.straks);
   const actief = treden.reduce((gekozen, t, i) => (aantal >= t.vanaf ? i : gekozen), 0);
   const volgende = treden[actief + 1];
-  const tip = volgende && volgende.vanaf - aantal === 1 && volgende.vanaf <= max ? volgende : null;
+  // Geen zetje bij 1 (de startstand): de staffelprijzen staan al in de rij erboven, en zo blijft de knop in beeld.
+  const tip = aantal > 1 && volgende && volgende.vanaf - aantal === 1 && volgende.vanaf <= max ? volgende : null;
   const beste = treden.length > 1 && actief === treden.length - 1;
   const stuk = som.regels[0]?.stukprijs_cent ?? p.prijs_cent;
   const kan = winkel.open && !straks && p.voorraad !== 0;
@@ -306,7 +317,7 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
           {!verder ? (
             <>
               {totaal}
-              <button type="button" className="sz-knop sz-knop--vol wn-cta" disabled={!kan} onClick={naarStap2}>
+              <button ref={cta} type="button" className="sz-knop sz-knop--vol wn-cta" disabled={!kan} onClick={naarStap2}>
                 Bestellen
                 <IcoonPijlRechts />
               </button>
@@ -322,6 +333,16 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
                 <button type="button" className="sz-knop sz-knop--tekst wn-combineer" onClick={combineer}>
                   Meer producten in één bestelling
                 </button>
+              )}
+              {kan && !ctaInBeeld && (
+                <div className="wn-plakbalk" role="region" aria-label="Je keuze">
+                  <span className="wn-plakbalk__tekst sz-tnum">
+                    <strong>{euro(som.totaal_cent)}</strong> · {perKilo ? `${aantal} × ${perKilo}` : `${aantal} ${aantal === 1 ? eenheid : meervoud}`}
+                  </span>
+                  <button type="button" className="sz-knop wn-plakbalk__knop" onClick={naarStap2}>
+                    Bestellen
+                  </button>
+                </div>
               )}
             </>
           ) : (
@@ -485,7 +506,7 @@ export function WinkelPagina() {
   const keuzes = useMemo<Keuze[]>(() => [...(winkel?.producten ?? []).map((p) => ({ p, straks: false })), ...(winkel?.binnenkort ?? []).map((p) => ({ p, straks: true }))], [winkel]);
   const [gekozenId, setGekozenId] = useState<number | null>(null);
   const gekozen = keuzes.find((k) => k.p.id === gekozenId) ?? keuzes.find((k) => k.p.id === hoofd?.id) ?? keuzes[0];
-  const [aantal, setAantal] = useState(2);
+  const [aantal, setAantal] = useState(1);
   const pagina = useRef<HTMLDivElement>(null);
   useOnthul(pagina);
   const vanaf = hoofd ? Math.min(hoofd.prijs_cent, ...hoofd.aanbiedingen.filter((a) => aanbiedingGeldig(a, winkel!.nu)).map((a) => a.prijs_cent)) : null;

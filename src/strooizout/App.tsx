@@ -5,7 +5,7 @@ import { meldBezoek } from "./meting";
 import { extern, RouterProvider, useRouter } from "./router";
 import { MandProvider } from "./mandje";
 import { WinkelProvider } from "./winkeldata";
-import { Kop, Voet, Lade, MobielBalk } from "./opmaak";
+import { Kop, Voet, Lade } from "./opmaak";
 import { WinkelPagina } from "./winkel";
 
 const Afrekenen = lazy(() => import("./afrekenen"));
@@ -83,7 +83,6 @@ function Pagina() {
       </main>
       <Voet />
       <Lade />
-      <MobielBalk />
     </>
   );
 }

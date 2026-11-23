@@ -331,31 +331,3 @@ export function Lade() {
   );
 }
 
-// ---------- Mobiele balk ----------
-
-export function MobielBalk() {
-  const { pad, navigeer } = useRouter();
-  const { open, setOpen } = useMand();
-  const { berekening, aantal } = useMandBerekening();
-  const { winkel } = useWinkel();
-  // Alleen bij meerdere producten; met één product bestel je direct in de bestelkaart op de homepage.
-  const zichtbaar = aantal > 0 && !open && pad === "/strooizout" && (winkel?.producten.length ?? 0) > 1;
-  useEffect(() => {
-    document.body.classList.toggle("sz-heeft-balk", zichtbaar);
-    return () => document.body.classList.remove("sz-heeft-balk");
-  }, [zichtbaar]);
-  if (!zichtbaar) return null;
-  return (
-    <div className="sz-mobielbalk">
-      <button type="button" className="sz-mobielbalk__tekst" style={{ background: "none", border: 0, textAlign: "left", padding: 0, cursor: "pointer" }} onClick={() => setOpen(true)}>
-        <strong>{euro(berekening.totaal_cent)}</strong>
-        <span>
-          {aantal} {aantal === 1 ? "artikel" : "artikelen"} · bekijk mandje
-        </span>
-      </button>
-      <button type="button" className="sz-knop" onClick={() => navigeer("/strooizout/bestellen")}>
-        Bestellen
-      </button>
-    </div>
-  );
-}

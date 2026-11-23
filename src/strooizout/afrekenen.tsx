@@ -439,7 +439,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                       <IcoonBus className="sz-inline-icoon" />
                       Bezorgen
                     </strong>
-                    <span>{!inst?.bezorgen_aan ? "Nu niet mogelijk." : alleenAfhalen ? `${alleenAfhalen.naam} kun je alleen afhalen.` : !bezorgKan ? `Vanaf ${inst.bezorg_min_zakken} zakken.` : "Alleen in Houten."}</span>
+                    <span>{!inst?.bezorgen_aan ? "Nu niet mogelijk." : alleenAfhalen ? `${alleenAfhalen.naam} kun je alleen afhalen.` : !bezorgKan ? `Vanaf ${inst.bezorg_min_zakken} zakken.` : "Binnen de rondweg van Houten."}</span>
                   </div>
                   <span className="sz-keuze__prijs">{inst?.bezorgen_aan ? `+ ${euro(rekenMand(winkel, regels, "bezorgen").berekening.bezorg_cent)}` : "–"}</span>
                 </label>
@@ -569,8 +569,15 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
           <strong className="sz-tnum">{euro(berekening.totaal_cent)}</strong>
           <span>{berekening.korting_cent > 0 ? `incl. ${euro(berekening.korting_cent)} korting` : `${berekening.aantal_stuks} ${berekening.aantal_stuks === 1 ? "artikel" : "artikelen"}`}</span>
         </div>
-        <button type="submit" form="sz-bestelformulier" className="sz-knop" disabled={bezig || !winkel.open} tabIndex={-1}>
-          {bezig ? "Bezig…" : "Bestellen"}
+        {/* Geen tweede bestelknop: de wet vraagt dat de knop die de bestelling plaatst ‘Bestellen met betalingsverplichting’
+            heet (art. 6:230v lid 3 BW). Deze knop brengt je naar het overzicht met die knop. */}
+        <button
+          type="button"
+          className="sz-knop"
+          tabIndex={-1}
+          onClick={() => document.querySelector(".sz-controleblok")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" })}
+        >
+          Controleren
         </button>
       </div>
     </div>
