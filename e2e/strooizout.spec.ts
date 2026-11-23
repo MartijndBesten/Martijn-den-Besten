@@ -231,6 +231,8 @@ test.describe("Strooizout voor de buurt", () => {
       await kaart.getByRole("button", { name: /^2–3 zakken/ }).click();
       await kaart.getByRole("button", { name: "Meer producten in één bestelling" }).click();
       await expect(page.getByRole("heading", { level: 1, name: "Bestellen" })).toBeVisible();
+      // elke knop die de bestelling plaatst, noemt de betalingsverplichting (art. 6:230v lid 3 BW)
+      for (const t of await page.locator('button[type="submit"], button[form="sz-bestelformulier"]').allTextContents()) expect(t).toMatch(/Bestellen met betalingsverplichting|Bezig/);
       await page.locator(".sz-erbij__knop", { hasText: "met emmer" }).click();
       await expect(page.locator(".sz-regel")).toHaveCount(2);
       const bezorgen = page.getByRole("radio", { name: /Bezorgen/ });
