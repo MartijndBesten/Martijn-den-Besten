@@ -12,6 +12,9 @@ const UIT = path.join(REPO, "docs/strooizout/kaartje");
 // heeft bewust geen prijs, zodat het kaartje niet veroudert. De prijs hieronder is de prijs van één zak (zie de webshop).
 const METPRIJS = process.argv.includes("--prijs");
 const PRIJSBOLLETJE = { regel1: "Zak 25 kilo", regel2: "vanaf", regel3: "€ 9,99" };
+// Optioneel (`--zonder-qr`): het deelbeeld voor WhatsApp zonder QR-code (een QR scan je niet op je eigen scherm): in plaats
+// daarvan staat het adres groot in beeld. Alleen voor het deelbeeld, samen met `--prijs`.
+const ZONDERQR = process.argv.includes("--zonder-qr");
 const URL_QR = "https://strooizouthouten.nl/?via=kaartje";
 const A = 3; // afloop in mm; alle maten hieronder zijn in mm vanaf de snijlijn (0,0 = linkerbovenhoek van het kaartje)
 const B = 105;
@@ -215,14 +218,21 @@ function tekening(gids = false) {
   <!-- licht vlak met de QR-code -->
   <clipPath id="paneelvorm"><path d="M${-A} ${H + A} V113 Q${-A} 107 ${3} 107 H${B - 3} Q${B + A} 107 ${B + A} 113 V${H + A} Z"/></clipPath>
   <g clip-path="url(#paneelvorm)">${banden(-A, 107, B + A * 2, H + A - 107, [[0, "#ffffff"], [1, "#e6f1f9"]], 1)}</g>
-  <rect x="${QR.x}" y="${QR.y}" width="${QR.maat}" height="${QR.maat}" rx="2" fill="#ffffff" stroke="#c3d6e5" stroke-width="0.3"/>
+  ${
+    ZONDERQR
+      ? `<text x="${B / 2}" y="118.6" text-anchor="middle" font-size="5.3" font-weight="800" letter-spacing="-0.14" fill="#0b2340">Bestel online op</text>
+  <rect x="${(B - 76) / 2}" y="122" width="76" height="11" rx="5.5" fill="#ffb547"/>
+  <text x="${B / 2}" y="129.4" text-anchor="middle" font-size="6.1" font-weight="750" letter-spacing="-0.1" fill="#0b2340">strooizouthouten.nl</text>
+  <text x="${B / 2}" y="138.4" text-anchor="middle" font-size="3.15" font-weight="500" fill="#1f5a94">Afhalen of bezorgd binnen de rondweg van Houten</text>`
+      : `<rect x="${QR.x}" y="${QR.y}" width="${QR.maat}" height="${QR.maat}" rx="2" fill="#ffffff" stroke="#c3d6e5" stroke-width="0.3"/>
   <g transform="translate(${QR.x + QR.rand} ${QR.y + QR.rand}) scale(${mod})" shape-rendering="crispEdges"><path d="${pad}" fill="#0b2340"/></g>
 
   <text x="${K}" y="118.2" font-size="5.3" font-weight="800" letter-spacing="-0.14" fill="#0b2340">Scan om te bestellen</text>
   <rect x="${K}" y="121.4" width="56" height="8.6" rx="4.3" fill="#ffb547"/>
   <text x="${K + 28}" y="127.25" text-anchor="middle" font-size="4.35" font-weight="750" letter-spacing="-0.06" fill="#0b2340">strooizouthouten.nl</text>
   <text x="${K}" y="134.5" font-size="2.9" font-weight="500" fill="#1f5a94">Afhalen of bezorgd</text>
-  <text x="${K}" y="138.3" font-size="2.9" font-weight="500" fill="#1f5a94">binnen de rondweg van Houten</text>
+  <text x="${K}" y="138.3" font-size="2.9" font-weight="500" fill="#1f5a94">binnen de rondweg van Houten</text>`
+  }
 
   ${
     METPRIJS
@@ -237,8 +247,8 @@ function tekening(gids = false) {
       : ""
   }
   <!-- afzender: officiële Denckh-signatuur (ongewijzigd bestand), klein en onderaan -->
-  <text x="${K}" y="143.1" font-size="2.2" font-weight="500" fill="#45607a">Een initiatief van</text>
-  <image x="${K + 18.2}" y="140.2" width="${(3.8 * 1008.93) / 305.09}" height="3.8" href="data:image/svg+xml;base64,${denckh}"/>
+  <text x="${ZONDERQR ? (B - 32) / 2 : K}" y="${ZONDERQR ? 144.2 : 143.1}" font-size="2.2" font-weight="500" fill="#45607a">Een initiatief van</text>
+  <image x="${(ZONDERQR ? (B - 32) / 2 : K) + 18.2}" y="${ZONDERQR ? 141.3 : 140.2}" width="${(3.8 * 1008.93) / 305.09}" height="3.8" href="data:image/svg+xml;base64,${denckh}"/>
   ${gids ? GIDS : ""}
 </svg>`;
 }
@@ -267,9 +277,10 @@ function pagina(metAfloop, gids = false) {
     const page = await browser.newPage({ viewport: { width: Math.round(B * mm), height: Math.round(H * mm) }, deviceScaleFactor: 1240 / Math.round(B * mm) });
     await page.setContent(pagina(false));
     await klaar(page);
-    await page.locator(".vel").screenshot({ path: path.join(UIT, "strooizout-kaartje-a6-prijs.png") });
+    const doel = ZONDERQR ? "strooizout-kaartje-a6-prijs-zonder-qr.png" : "strooizout-kaartje-a6-prijs.png";
+    await page.locator(".vel").screenshot({ path: path.join(UIT, doel) });
     await browser.close();
-    console.log("gemaakt: strooizout-kaartje-a6-prijs.png");
+    console.log("gemaakt:", doel);
     return;
   }
   for (const [metAfloop, bestand] of [[false, "strooizout-kaartje-a6.pdf"], [true, "strooizout-kaartje-a6-drukklaar.pdf"]]) {
