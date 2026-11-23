@@ -255,6 +255,11 @@ export default function Status() {
                   {b.moment.omschrijving && ` · ${b.moment.omschrijving}`}
                 </div>
               )}
+              {b.kanaal !== "straat" && b.levering === "ophalen" && b.afhaal_adres && b.contact.telefoon && b.kan_annuleren && (
+                <div style={{ marginTop: 6 }}>
+                  App of bel even om af te spreken wanneer je langskomt: <a href={`tel:${b.contact.telefoon.replace(/[^+\d]/g, "")}`}>{b.contact.telefoon}</a>.
+                </div>
+              )}
               {b.afhaal_instructie && <div className="sz-witregel" style={{ color: "var(--tekst-2)", marginTop: 6 }}>{b.afhaal_instructie}</div>}
             </dd>
           </dl>

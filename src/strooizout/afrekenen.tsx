@@ -274,6 +274,17 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
       </div>
     </div>
   );
+  // Waar afhalen en hoe afspreken (adres en nummer uit de instellingen; leeg = alleen de plaats, adres na bevestiging).
+  const afhaalAdres = (inst?.afhaal_adres ?? "").trim();
+  const belNummer = (inst?.contact_telefoon ?? "").trim();
+  const afhaalUitleg = levering === "ophalen" && afhaalAdres && (
+    <p className="sz-betaaluitleg">
+      <strong>Afhalen</strong>
+      <span>
+        {afhaalAdres}.{belNummer && <> App of bel even om af te spreken: <a href={`tel:${belNummer.replace(/[^+\d]/g, "")}`}>{belNummer}</a>.</>}
+      </span>
+    </p>
+  );
   const betaalKeuze = (
     <p className="sz-betaaluitleg">
       <strong>Betalen</strong>
@@ -310,6 +321,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
         {levering === "bezorgen" && <div style={{ height: 14 }} />}
         {gegevens}
         {momentKeuze}
+        {afhaalUitleg}
         {betaalKeuze}
         {ingebed.voorKnop}
         {plaatsKnop}
@@ -401,7 +413,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                       <IcoonHuis className="sz-inline-icoon" />
                       Ophalen
                     </strong>
-                    <span>In {inst?.afhaal_plek || "Houten"}. Adres na bevestiging.</span>
+                    <span>{afhaalAdres ? `${afhaalAdres}.` : `In ${inst?.afhaal_plek || "Houten"}. Adres na bevestiging.`}</span>
                   </div>
                   <span className="sz-keuze__prijs">Gratis</span>
                 </label>
@@ -483,7 +495,8 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                   <input id="sz-bedrijf-extra" name="bedrijf_extra" tabIndex={-1} autoComplete="off" value={honing} onChange={(e) => setHoning(e.target.value)} />
                 </div>
               </div>
-              <p className="sz-betaaluitleg" style={{ marginTop: 18 }}>
+              {afhaalUitleg && <div style={{ marginTop: 18 }}>{afhaalUitleg}</div>}
+              <p className="sz-betaaluitleg" style={{ marginTop: afhaalUitleg ? 10 : 18 }}>
                 <strong>Betalen</strong>
                 <span>{inst?.tikkie_aan ? "Na je bestelling sturen we je een Tikkie op je mobiel. Daarna " + (levering === "bezorgen" ? "bezorgen we je bestelling." : "kun je je bestelling komen ophalen.") : levering === "bezorgen" ? "Je betaalt bij het bezorgen met een betaalverzoek." : "Je betaalt bij het afhalen met een betaalverzoek."}</span>
               </p>
@@ -496,7 +509,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                 <li>
                   {levering === "bezorgen"
                     ? `Bezorgen${v.straat || v.huisnummer ? `: ${v.straat} ${v.huisnummer}`.trimEnd() : ""}${normaliseerPostcode(v.postcode) ? `, ${normaliseerPostcode(v.postcode)}` : ""}`
-                    : `Ophalen in ${inst?.afhaal_plek || "Houten"}`}
+                    : afhaalAdres ? `Ophalen: ${afhaalAdres}` : `Ophalen in ${inst?.afhaal_plek || "Houten"}`}
                   {moment && ` · ${dagTekst(moment.datum)} ${moment.van}–${moment.tot}`}
                 </li>
                 <li>

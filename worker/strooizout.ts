@@ -113,6 +113,7 @@ async function winkel(env: SzEnv): Promise<Response> {
     instellingen: {
       afhalen_aan: inst.afhalen_aan,
       afhaal_plek: inst.afhaal_plek,
+      afhaal_adres: inst.afhaal_adres,
       bezorgen_aan: inst.bezorgen_aan,
       bezorg_postcodes: inst.bezorg_postcodes,
       bezorg_methode: inst.bezorg_methode,
@@ -307,7 +308,7 @@ type BestellingRij = {
   kanaal: "web" | "straat" | "beheer";
 };
 
-/** Wat de klant over de eigen bestelling ziet. Het volledige afhaaladres pas na bevestiging. */
+/** Wat de klant over de eigen bestelling ziet. */
 async function klantWeergave(env: SzEnv, id: number) {
   const db = env.DB;
   const [b, regels, moment, betaald, inst, meldingen] = await Promise.all([
@@ -347,7 +348,8 @@ async function klantWeergave(env: SzEnv, id: number) {
       aangemaakt: b.aangemaakt,
       kan_annuleren: ["nieuw", "bevestigd", "klaar"].includes(b.status),
       afhaal_plek: inst.afhaal_plek,
-      afhaal_adres: b.levering === "ophalen" && bevestigd ? inst.afhaal_adres : "",
+      // Het afhaaladres is openbaar (staat ook bij het bestellen en in de mail); de instructie pas na bevestiging.
+      afhaal_adres: b.levering === "ophalen" ? inst.afhaal_adres : "",
       afhaal_instructie: b.levering === "ophalen" && bevestigd ? inst.afhaal_instructie : "",
       bevestiging_tekst: inst.bevestiging_tekst,
       contact: { naam: inst.contact_naam, email: inst.contact_email, telefoon: inst.contact_telefoon },

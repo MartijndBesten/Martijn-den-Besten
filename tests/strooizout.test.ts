@@ -172,7 +172,9 @@ describe("webshop", () => {
     expect(w.producten.map((p: J) => p.naam)).toEqual(["Strooizout 25 kg", "Strooizout 10 kg in je eigen emmer", "Strooizout 10 kg met emmer"]);
     expect(w.producten[0]).not.toHaveProperty("inkoop_cent");
     expect(w.producten[0]).not.toHaveProperty("notitie");
-    expect(JSON.stringify(w)).not.toContain("afhaal_adres");
+    // het afhaaladres is openbaar (leeg zolang het niet is ingevuld); de ophaalinstructie en het beheer niet
+    expect(w.instellingen.afhaal_adres).toBe("");
+    expect(JSON.stringify(w)).not.toContain("afhaal_instructie");
     expect((await bestel()).status).toBe(409);
   });
 
@@ -265,20 +267,21 @@ describe("webshop", () => {
     expect((await bestel({ levering: "bezorgen" })).status).toBe(201);
   });
 
-  it("klantpagina: alleen met de juiste code, afhaaladres pas na bevestiging, annuleren kan", async () => {
+  it("klantpagina: alleen met de juiste code; het afhaaladres staat er direct, de instructie pas na bevestiging; annuleren kan", async () => {
     await startRonde();
-    await beheer("/instellingen", { method: "PUT", body: JSON.stringify({ afhaal_adres: "Geheimstraat 1, Houten" }) });
+    await beheer("/instellingen", { method: "PUT", body: JSON.stringify({ afhaal_adres: "Voorbeeldstraat 1, Houten", afhaal_instructie: "Bel aan bij de zijdeur." }) });
+    expect((await jsonVan(req("/api/strooizout/winkel"))).instellingen.afhaal_adres).toBe("Voorbeeldstraat 1, Houten");
     const { bestelling } = await jsonVan(bestel());
     const kijk = (code: string) => req("/api/strooizout/bestelling/bekijk", { method: "POST", body: JSON.stringify({ code }) });
     expect((await kijk("1-000000000000000000000000")).status).toBe(404);
     const eerst = await jsonVan(kijk(bestelling.code));
-    expect(eerst.bestelling.afhaal_adres).toBe("");
-    expect(JSON.stringify(eerst)).not.toContain("Geheimstraat");
+    expect(eerst.bestelling.afhaal_adres).toBe("Voorbeeldstraat 1, Houten");
+    expect(JSON.stringify(eerst)).not.toContain("zijdeur");
     await beheer("/bestellingen/1/status", { method: "POST", body: JSON.stringify({ status: "bevestigd" }) });
-    expect((await jsonVan(kijk(bestelling.code))).bestelling.afhaal_adres).toBe("Geheimstraat 1, Houten");
+    expect((await jsonVan(kijk(bestelling.code))).bestelling).toMatchObject({ afhaal_adres: "Voorbeeldstraat 1, Houten", afhaal_instructie: "Bel aan bij de zijdeur." });
     const weg = await jsonVan(req("/api/strooizout/bestelling/annuleer", { method: "POST", body: JSON.stringify({ code: bestelling.code }) }));
     expect(weg.bestelling.status).toBe("geannuleerd");
-    expect(weg.bestelling.afhaal_adres).toBe("");
+    expect(weg.bestelling.afhaal_instructie).toBe("");
   });
 
   it("schrijft geen persoonsgegevens naar de logs", async () => {

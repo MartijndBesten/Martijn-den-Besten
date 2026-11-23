@@ -94,14 +94,14 @@ export default function Instellingen() {
           </label>
           <div className="bh-formulier" style={{ marginTop: 8 }}>
             <div className="bh-veld">
-              <label htmlFor="in-plek">Plek, publiek zichtbaar</label>
+              <label htmlFor="in-plek">Plek (als er geen adres is ingevuld)</label>
               <input id="in-plek" className="sz-invoer" value={v.afhaal_plek} maxLength={80} onChange={tekst("afhaal_plek")} />
-              <small>Alleen globaal, bijv. ‘Houten-Zuid’. Nooit het volledige adres.</small>
+              <small>Globaal, bijv. ‘Houten-Zuid’. Wordt getoond zolang het afhaaladres hieronder leeg is.</small>
             </div>
             <div className="bh-veld">
-              <label htmlFor="in-adres">Volledig afhaaladres (privé)</label>
+              <label htmlFor="in-adres">Afhaaladres (openbaar)</label>
               <input id="in-adres" className="sz-invoer" value={v.afhaal_adres} maxLength={200} onChange={tekst("afhaal_adres")} />
-              <small>Alleen zichtbaar op de bestelpagina van een klant na bevestiging. Ook startpunt van de bezorgroute.</small>
+              <small>Staat bij het bestellen, op de bestelpagina van de klant en in de bevestigingsmail, met je telefoonnummer om af te spreken. Ook startpunt van de bezorgroute. Leeg laten = adres pas delen na bevestiging.</small>
             </div>
             <div className="bh-veld">
               <label htmlFor="in-instr">Ophaalinstructie (na bevestiging)</label>

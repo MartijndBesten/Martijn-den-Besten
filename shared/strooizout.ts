@@ -13,7 +13,7 @@ export type Instellingen = {
   afhalen_aan: boolean;
   /** Publiek: alleen globaal (wijk, plaats). */
   afhaal_plek: string;
-  /** Privé: volledig adres, pas zichtbaar voor de klant na bevestiging. */
+  /** Volledig afhaaladres. Openbaar (besluit Martijn 23-11-2026): staat bij het bestellen, op de bestelpagina en in de mail. */
   afhaal_adres: string;
   afhaal_instructie: string;
   bezorgen_aan: boolean;
@@ -613,6 +613,7 @@ export type Winkel = {
     Instellingen,
     | "afhalen_aan"
     | "afhaal_plek"
+    | "afhaal_adres"
     | "bezorgen_aan"
     | "bezorg_postcodes"
     | "bezorg_methode"
