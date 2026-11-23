@@ -13,7 +13,7 @@ type Staffel = { vanaf: number; prijs: number };
 type Gegevens = { prijs: number; staffels: Staffel[]; bezorg: number | null; bezorgPer: "zak" | "bezorging"; bezorgVanaf: number; plek: string; vanaf: string | null };
 
 function useGegevens(): Gegevens {
-  const [g, setG] = useState<Gegevens>({ prijs: 1049, staffels: [{ vanaf: 2, prijs: 949 }, { vanaf: 4, prijs: 899 }], bezorg: 200, bezorgPer: "bezorging", bezorgVanaf: 2, plek: "Houten", vanaf: "2026-11-26" });
+  const [g, setG] = useState<Gegevens>({ prijs: 999, staffels: [{ vanaf: 2, prijs: 949 }, { vanaf: 4, prijs: 899 }], bezorg: 200, bezorgPer: "bezorging", bezorgVanaf: 2, plek: "Houten", vanaf: "2026-11-26" });
   useEffect(() => {
     void laadWinkel().then((r) => {
       if (!r.ok) return;
@@ -24,7 +24,7 @@ function useGegevens(): Gegevens {
         .sort((x, y) => x.vanaf_aantal - y.vanaf_aantal)
         .map((a) => ({ vanaf: a.vanaf_aantal, prijs: a.prijs_cent }));
       setG({
-        prijs: zout?.prijs_cent ?? 1049,
+        prijs: zout?.prijs_cent ?? 999,
         staffels,
         bezorg: !i.bezorgen_aan ? null : i.bezorg_methode === "per_adres" ? i.bezorg_per_adres_cent : i.bezorg_methode === "per_stuk" ? (zout?.bezorg_cent ?? i.bezorg_per_stuk_cent) : null,
         bezorgPer: i.bezorg_methode === "per_adres" ? "bezorging" : "zak",

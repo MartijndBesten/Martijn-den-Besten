@@ -226,7 +226,7 @@ function Editor({ product, lijst, sluit, opgeslagen }: { product: BeheerProduct 
 
             <div className="bh-veld bh-veld--4">
               <label htmlFor="pe-prijs">Verkoopprijs (€, incl.)</label>
-              <input id="pe-prijs" className="sz-invoer" inputMode="decimal" value={f.prijs} onChange={(e) => zet("prijs", e.target.value)} placeholder="10,49" />
+              <input id="pe-prijs" className="sz-invoer" inputMode="decimal" value={f.prijs} onChange={(e) => zet("prijs", e.target.value)} placeholder="9,99" />
             </div>
             <div className="bh-veld bh-veld--4">
               <label htmlFor="pe-inkoop">Inkoopprijs incl. btw (€)</label>

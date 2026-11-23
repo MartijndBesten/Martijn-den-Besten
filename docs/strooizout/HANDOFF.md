@@ -110,7 +110,7 @@ Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak 
 
 | Onderdeel | Uitgevoerd |
 | --- | --- |
-| Prijzen 25 kg | 1 zak € 10,49 · 2–3 zakken € 9,49 · 4 of meer € 8,99 per zak, voor alle zakken zodra de drempel is bereikt. Server rekent (twee aanbiedingen in `sz_aanbieding`); opgeslagen per bestelregel met normaalprijs en korting |
+| Prijzen 25 kg | 1 zak € 9,99 (sinds 23-11-2026, besluit Martijn; was € 10,49) · 2–3 zakken € 9,49 · 4 of meer € 8,99 per zak, voor alle zakken zodra de drempel is bereikt. Server rekent (twee aanbiedingen in `sz_aanbieding`); opgeslagen per bestelregel met normaalprijs en korting |
 | Bestelkaart | drie keuzes 1 / 2 (‘Voordelige keuze’) / 4 (‘Extra voordeel’) met totaal en besparing; standaard 2; ieder aantal via de stepper; totaal met ‘je bespaart’ ten opzichte van losse zakken |
 | Boodschap | ‘Strooizout uit je eigen buurt.’ · ‘Hou je buurt veilig. Strooi bewust.’ · ‘Geen aparte rit naar de bouwmarkt. Bestel samen met je buren en houd je stoep veilig.’ · ‘Neem er eentje mee voor je buren.’ |
 | Strooi bewust | korte gebruikstip en milieu/huisdieren op de homepage, zonder absolute claims |
@@ -127,7 +127,7 @@ Volledig plan, kanaalregels en klaarliggende teksten: [PROMOTIE.md](PROMOTIE.md)
 | --- | --- |
 | Titel, beschrijving, H1 | ‘Strooizout kopen in Houten – 25 kg, afhalen of bezorgen’. Metabeschrijving met prijs en bezorging. Regel ‘Strooizout kopen in Houten · 25 kg · afhalen of bezorgen’ boven de H1 ‘Strooizout uit je eigen buurt.’ Voorwaarden en privacy hebben elk een eigen beschrijving |
 | robots.txt, sitemap, canonical | Eigen robots.txt en sitemap op strooizouthouten.nl (/, /voorwaarden, /privacy). Canonical op het eigen domein. Beheer, bestelpagina, flyer en ‘aan de weg’ staan op noindex. Geen extra SEO-landingspagina’s |
-| Product/Offer (schema.org) | De Worker zet de JSON-LD in de homepage op het eigen domein, met de actuele prijs, staffels (10,49 / 9,49 / 8,99), beschikbaarheid (PreOrder met datum, InStock na ontvangst), verkoper Denckh en retourbeleid. ‘Binnenkort’-producten staan er niet in |
+| Product/Offer (schema.org) | De Worker zet de JSON-LD in de homepage op het eigen domein, met de actuele prijs, staffels (9,99 / 9,49 / 8,99), beschikbaarheid (PreOrder met datum, InStock na ontvangst), verkoper Denckh en retourbeleid. ‘Binnenkort’-producten staan er niet in |
 | Open Graph / WhatsApp-voorbeeld | `delen-1200x630.jpg` (75 kB), met titel, beschrijving en alt-tekst |
 | Google-verificatie | *Instellingen › Google-verificatiecode*: de site zet de meta-tag zelf, zonder uitrol |
 | Search Console / Merchant Center / Bedrijfsprofiel | Hiervoor is de Google-login van Martijn nodig. Merchant Center vraagt eerst een besluit over ‘reservering of koop’. Een tweede Bedrijfsprofiel wordt afgeraden (PROMOTIE.md §3–4) |
@@ -139,13 +139,15 @@ Inkoop zak € 7,09 incl. = **€ 5,86 excl.** Btw 21% op verkoop en inkoop (voo
 
 | Aantal | Prijs incl. | Prijs excl. | Marge per zak | Marge per bestelling | Marge % |
 | --- | --- | --- | --- | --- | --- |
-| 1 zak | € 10,49 | € 8,67 | € 2,81 | € 2,81 | 32% |
+| 1 zak | € 9,99 | € 8,26 | € 2,40 | € 2,40 | 29% |
 | 2 zakken | € 9,49 | € 7,84 | € 1,98 | € 3,96 | 25% |
 | 3 zakken | € 9,49 | € 7,84 | € 1,98 | € 5,94 | 25% |
 | 4 zakken | € 8,99 | € 7,43 | € 1,57 | € 6,28 | 21% |
 | 10 zakken | € 8,99 | € 7,43 | € 1,57 | € 15,70 | 21% |
 
-Niet meegerekend: tijd, autokosten van bezorgen en betaalkosten. Hele partij van 40 zakken: tussen € 63 (alles bij 4+) en € 112 (alles los) brutomarge.
+Niet meegerekend: tijd, autokosten van bezorgen en betaalkosten. Hele partij van 40 zakken: tussen € 63 (alles bij 4+) en € 96 (alles los) brutomarge.
+
+**Werkelijke inkoop (bestelling 23-11-2026, bedragen van Martijn):** 40 × Strooizout 25 kg à € 7,61 excl. = € 304,40, minus € 70,00 korting (1000–1399 kg) plus palletkap € 1,25; verzending € 0,00; btw € 49,48; totaal **€ 285,13 incl. btw** (± € 7,13 per zak incl. btw, palletkap meegerekend). In het beheer bij ronde ‘Winter 2026’ vastgelegd als factuurbedrag (€ 285,13) met een inkoopregel van 40 × € 7,09; de inkoopprijs per zak bij het product (€ 7,09) is ongewijzigd.
 
 **Emmer 5 kg, € 7,49 incl. = € 6,19 excl.** Kostprijs excl. btw: zout 1/5 zak € 1,17, emmer + deksel incl. verzending (Jerrycanshop) € 3,05 bij 10 stuks of € 2,48 bij 50, etiket ca. € 0,20. Vulwerk niet in geld gerekend.
 
@@ -191,7 +193,7 @@ Bezorgen kost nu een vast bedrag van **€ 2,00 per bezorging (per adres)**, van
   - `bord-a4.pdf`
   - deeltekst op `/flyer`
   - De QR-codes zijn gedecodeerd: `https://strooizouthouten.nl` en `/aan-de-weg`.
-- **WhatsApp-tekst:** > Hoi buren! Geen aparte rit naar de bouwmarkt: in Houten kun je strooizout bestellen. 25 kg strooizout: 1 zak € 10,49, 2–3 zakken € 9,49, 4 of meer € 8,99 per zak. Samen bestellen is voordeliger. Gratis afhalen in Houten, of laten bezorgen binnen de rondweg (vanaf 2 zakken) voor € 2,00. Op voorraad vanaf donderdag 26 november; reserveren kan nu. Bestellen: https://strooizouthouten.nl/?via=whatsapp
+- **WhatsApp-tekst:** > Hoi buren! Geen aparte rit naar de bouwmarkt: in Houten kun je strooizout bestellen. 25 kg strooizout: 1 zak € 9,99, 2–3 zakken € 9,49, 4 of meer € 8,99 per zak. Samen bestellen is voordeliger. Gratis afhalen in Houten, of laten bezorgen binnen de rondweg (vanaf 2 zakken) voor € 2,00. Op voorraad vanaf donderdag 26 november; reserveren kan nu. Bestellen: https://strooizouthouten.nl/?via=whatsapp
 - **Doelgroepen en kanaal:**
   - **Straten en buurtapps:** één persoon bestelt 4+ voor de straat. Daar zit de grootste aantallen-winst.
   - **Huishoudens met een oprit:** 2–4 zakken.

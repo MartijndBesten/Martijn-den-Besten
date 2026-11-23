@@ -679,7 +679,7 @@ describe("staffelkorting", () => {
   const zout: PrijsProduct = {
     id: 1,
     naam: "Strooizout 25 kg",
-    prijs_cent: 1049,
+    prijs_cent: 999,
     inkoop_cent: 709,
     bezorg_cent: null,
     gewicht_gram: 25000,
@@ -690,23 +690,23 @@ describe("staffelkorting", () => {
   };
   const inst = { bezorg_methode: "per_stuk" as const, bezorg_per_stuk_cent: 50, bezorg_per_kg_cent: 2 };
 
-  it("1 zak € 10,49; 2–3 zakken € 9,49; vanaf 4 € 8,99 op alle zakken; bezorgkosten apart € 0,50 per zak", () => {
-    expect(bereken([{ product: zout, aantal: 1 }], "ophalen", inst, nu)).toMatchObject({ subtotaal_cent: 1049, korting_cent: 0, totaal_cent: 1049 });
+  it("1 zak € 9,99; 2–3 zakken € 9,49; vanaf 4 € 8,99 op alle zakken; bezorgkosten apart € 0,50 per zak", () => {
+    expect(bereken([{ product: zout, aantal: 1 }], "ophalen", inst, nu)).toMatchObject({ subtotaal_cent: 999, korting_cent: 0, totaal_cent: 999 });
     const twee = bereken([{ product: zout, aantal: 2 }], "ophalen", inst, nu);
-    expect(twee).toMatchObject({ subtotaal_cent: 1898, korting_cent: 200, totaal_cent: 1898 });
-    expect(twee.regels[0]).toMatchObject({ stukprijs_cent: 949, normaalprijs_cent: 1049, aanbieding: "Vanaf 2 zakken" });
+    expect(twee).toMatchObject({ subtotaal_cent: 1898, korting_cent: 100, totaal_cent: 1898 });
+    expect(twee.regels[0]).toMatchObject({ stukprijs_cent: 949, normaalprijs_cent: 999, aanbieding: "Vanaf 2 zakken" });
     const drie = bereken([{ product: zout, aantal: 3 }], "bezorgen", inst, nu);
-    expect(drie).toMatchObject({ subtotaal_cent: 2847, korting_cent: 300, bezorg_cent: 150, totaal_cent: 2997 });
+    expect(drie).toMatchObject({ subtotaal_cent: 2847, korting_cent: 150, bezorg_cent: 150, totaal_cent: 2997 });
     const vier = bereken([{ product: zout, aantal: 4 }], "bezorgen", inst, nu);
-    expect(vier).toMatchObject({ subtotaal_cent: 3596, korting_cent: 600, bezorg_cent: 200, totaal_cent: 3796 });
-    expect(vier.regels[0]).toMatchObject({ stukprijs_cent: 899, normaalprijs_cent: 1049, aanbieding: "Vanaf 4 zakken" });
-    expect(bereken([{ product: zout, aantal: 10 }], "ophalen", inst, nu)).toMatchObject({ subtotaal_cent: 8990, korting_cent: 1500, totaal_cent: 8990 });
-    expect(bereken([{ product: zout, aantal: 20 }], "bezorgen", inst, nu)).toMatchObject({ subtotaal_cent: 17980, korting_cent: 3000, bezorg_cent: 1000, totaal_cent: 18980 });
+    expect(vier).toMatchObject({ subtotaal_cent: 3596, korting_cent: 400, bezorg_cent: 200, totaal_cent: 3796 });
+    expect(vier.regels[0]).toMatchObject({ stukprijs_cent: 899, normaalprijs_cent: 999, aanbieding: "Vanaf 4 zakken" });
+    expect(bereken([{ product: zout, aantal: 10 }], "ophalen", inst, nu)).toMatchObject({ subtotaal_cent: 8990, korting_cent: 1000, totaal_cent: 8990 });
+    expect(bereken([{ product: zout, aantal: 20 }], "bezorgen", inst, nu)).toMatchObject({ subtotaal_cent: 17980, korting_cent: 2000, bezorg_cent: 1000, totaal_cent: 18980 });
   });
 
-  it("volgende staffel: bij 1 zak ‘bestel 2 en bespaar € 2,00’, bij 2–3 zakken ‘bestel 4 en bespaar € 6,00’, vanaf 4 niets", () => {
-    expect(volgendeStaffel(zout, 1, nu)).toEqual({ naam: "Vanaf 2 zakken", vanaf: 2, prijs_cent: 949, besparing_cent: 200 });
-    for (const n of [2, 3]) expect(volgendeStaffel(zout, n, nu)).toEqual({ naam: "Vanaf 4 zakken", vanaf: 4, prijs_cent: 899, besparing_cent: 600 });
+  it("volgende staffel: bij 1 zak ‘bestel 2 en bespaar € 1,00’, bij 2–3 zakken ‘bestel 4 en bespaar € 4,00’, vanaf 4 niets", () => {
+    expect(volgendeStaffel(zout, 1, nu)).toEqual({ naam: "Vanaf 2 zakken", vanaf: 2, prijs_cent: 949, besparing_cent: 100 });
+    for (const n of [2, 3]) expect(volgendeStaffel(zout, n, nu)).toEqual({ naam: "Vanaf 4 zakken", vanaf: 4, prijs_cent: 899, besparing_cent: 400 });
     expect(volgendeStaffel(zout, 4, nu)).toBeNull();
     expect(volgendeStaffel(zout, 12, nu)).toBeNull();
   });
@@ -714,33 +714,33 @@ describe("staffelkorting", () => {
   it("server-side: staffels staan standaard aan, korting wordt opgeslagen en komt in financiën", async () => {
     await startRonde();
     const w = await jsonVan(req("/api/strooizout/winkel"));
-    expect(w.producten[0].prijs_cent).toBe(1049);
+    expect(w.producten[0].prijs_cent).toBe(999);
     expect(w.producten[0].aanbiedingen.map((a: J) => [a.vanaf_aantal, a.prijs_cent]).sort()).toEqual([
       [2, 949],
       [4, 899],
     ]);
     const r1 = ((await (await bestel({ regels: [{ product_id: 1, aantal: 1, prijs_cent: 1 }] })).json()) as J).bestelling;
-    expect(r1).toMatchObject({ subtotaal_cent: 1049, korting_cent: 0, totaal_cent: 1049 });
+    expect(r1).toMatchObject({ subtotaal_cent: 999, korting_cent: 0, totaal_cent: 999 });
     const r3 = ((await (await bestel({ regels: [{ product_id: 1, aantal: 3, prijs_cent: 1 }] })).json()) as J).bestelling;
-    expect(r3).toMatchObject({ subtotaal_cent: 2847, korting_cent: 300, totaal_cent: 2847 });
+    expect(r3).toMatchObject({ subtotaal_cent: 2847, korting_cent: 150, totaal_cent: 2847 });
     const r4 = ((await (await bestel({ regels: [{ product_id: 1, aantal: 4 }], levering: "bezorgen" })).json()) as J).bestelling;
-    expect(r4).toMatchObject({ subtotaal_cent: 3596, korting_cent: 600, bezorg_cent: 200, totaal_cent: 3796 });
-    expect(db.raw.prepare("SELECT korting_cent FROM sz_bestelling WHERE id = 3").get()).toEqual({ korting_cent: 600 });
-    expect(db.raw.prepare("SELECT stukprijs_cent, normaalprijs_cent, aanbieding FROM sz_bestelregel WHERE bestelling_id = 3").get()).toEqual({ stukprijs_cent: 899, normaalprijs_cent: 1049, aanbieding: "Vanaf 4 zakken" });
+    expect(r4).toMatchObject({ subtotaal_cent: 3596, korting_cent: 400, bezorg_cent: 200, totaal_cent: 3796 });
+    expect(db.raw.prepare("SELECT korting_cent FROM sz_bestelling WHERE id = 3").get()).toEqual({ korting_cent: 400 });
+    expect(db.raw.prepare("SELECT stukprijs_cent, normaalprijs_cent, aanbieding FROM sz_bestelregel WHERE bestelling_id = 3").get()).toEqual({ stukprijs_cent: 899, normaalprijs_cent: 999, aanbieding: "Vanaf 4 zakken" });
     const r10 = ((await (await bestel({ regels: [{ product_id: 1, aantal: 10 }] })).json()) as J).bestelling;
-    expect(r10).toMatchObject({ subtotaal_cent: 8990, korting_cent: 1500 });
+    expect(r10).toMatchObject({ subtotaal_cent: 8990, korting_cent: 1000 });
     const f = (await jsonVan(beheer("/financien"))).cijfers;
-    expect(f).toMatchObject({ korting_cent: 2400, product_omzet_cent: 1049 + 2847 + 3596 + 8990, bezorg_cent: 200 });
+    expect(f).toMatchObject({ korting_cent: 1550, product_omzet_cent: 999 + 2847 + 3596 + 8990, bezorg_cent: 200 });
     const fin = await (await beheer("/export/financien.csv")).text();
     expect(fin.split("\r\n")[0]).toContain("Producten normale prijs;Korting;Omzet producten");
-    expect(fin).toContain(";41,96;6,00;35,96;");
+    expect(fin).toContain(";39,96;4,00;35,96;");
   });
 
   it("staffel is in het beheer aan te passen (grens en prijs)", async () => {
     const p = await productInvoer(1);
     await beheer("/producten/1", { method: "PUT", body: JSON.stringify({ ...p, aanbiedingen: [{ naam: "Staffelkorting", vanaf_aantal: 5, prijs_cent: 799 }] }) });
     await startRonde();
-    expect(((await (await bestel({ regels: [{ product_id: 1, aantal: 4 }] })).json()) as J).bestelling.totaal_cent).toBe(4196);
+    expect(((await (await bestel({ regels: [{ product_id: 1, aantal: 4 }] })).json()) as J).bestelling.totaal_cent).toBe(3996);
     expect(((await (await bestel({ regels: [{ product_id: 1, aantal: 5 }] })).json()) as J).bestelling.totaal_cent).toBe(3995);
   });
 });
@@ -922,7 +922,7 @@ describe("definitieve afspraken", () => {
     expect((await verkoop()).status).toBe(409); // nog niets ontvangen
     await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ ontvangen_erbij: 10 }) });
     const a = await jsonVan(verkoop());
-    expect(a).toMatchObject({ herhaald: false, totaal_cent: 3596, korting_cent: 600 });
+    expect(a).toMatchObject({ herhaald: false, totaal_cent: 3596, korting_cent: 400 });
     expect((await jsonVan(verkoop())).herhaald).toBe(true); // dubbel klikken
     expect((await verkoop({ idempotentie: "straat-0002-abcdefghijkl", ontvangen: false })).status).toBe(422);
     expect((db.raw.prepare("SELECT COUNT(*) AS n FROM sz_bestelling").get() as J).n).toBe(1);
@@ -1206,11 +1206,11 @@ describe("strooizout per 10 kg: eigen emmer en met emmer (23-11-2026)", () => {
 });
 
 describe("commerciële afspraken (22-11-2026)", () => {
-  it("startgegevens: zak € 10,49 met inkoop € 7,09; 10 kg in eigen emmer € 5,49 en met emmer € 6,49, alle drie te bestellen", async () => {
+  it("startgegevens: zak € 9,99 met inkoop € 7,09; 10 kg in eigen emmer € 5,49 en met emmer € 6,49, alle drie te bestellen", async () => {
     await startRonde();
     const w = await jsonVan(req("/api/strooizout/winkel"));
     expect(w.producten.map((p: J) => [p.slug, p.prijs_cent, p.gewicht_gram, p.alleen_afhalen])).toEqual([
-      ["strooizout-25-kg", 1049, 25000, false],
+      ["strooizout-25-kg", 999, 25000, false],
       ["strooizout-10-kg-eigen-emmer", 549, 10000, true],
       ["strooizout-10-kg-met-emmer", 649, 10000, false],
     ]);
@@ -1222,7 +1222,7 @@ describe("commerciële afspraken (22-11-2026)", () => {
     expect((db.raw.prepare("SELECT status FROM sz_product WHERE id = 3").get() as J).status).toBe("concept");
     expect((await bestel({ regels: [{ product_id: 3, aantal: 1 }] })).status).toBe(409);
     // de zak en zijn staffels zijn ongewijzigd
-    expect(w.producten[0]).toMatchObject({ prijs_cent: 1049, alleen_afhalen: false, melding: "" });
+    expect(w.producten[0]).toMatchObject({ prijs_cent: 999, alleen_afhalen: false, melding: "" });
     expect(w.producten[0].aanbiedingen.map((a: J) => [a.vanaf_aantal, a.prijs_cent])).toEqual([[2, 949], [4, 899]]);
     expect((db.raw.prepare("SELECT inkoop_cent FROM sz_product WHERE id = 1").get() as J).inkoop_cent).toBe(709);
     // status ‘binnenkort’ is in het beheer te kiezen
@@ -1339,15 +1339,15 @@ describe("vindbaarheid en meting", () => {
     const [verkoper, ...producten] = g["@graph"];
     expect(verkoper).toMatchObject({ "@type": "Organization", name: "Denckh", vatID: "NL003791952B15", address: { streetAddress: "Vlierweg 54", addressLocality: "Houten", addressCountry: "NL" } });
     expect(producten.map((x: J) => [x.sku, x.offers.price, x.offers.availability.split("/").pop(), x.offers.availableDeliveryMethod.length])).toEqual([
-      ["strooizout-25-kg", "10.49", "PreOrder", 2],
+      ["strooizout-25-kg", "9.99", "PreOrder", 2],
       ["strooizout-10-kg-eigen-emmer", "5.49", "PreOrder", 1], // alleen afhalen
       ["strooizout-10-kg-met-emmer", "6.49", "PreOrder", 2],
     ]);
     const o = producten[0].offers;
     expect(producten[0]).toMatchObject({ "@type": "Product", name: "Strooizout 25 kg", sku: "strooizout-25-kg", image: "https://strooizouthouten.nl/strooizout/beeld/strooizout-25kg.webp" });
-    expect(o).toMatchObject({ price: "10.49", priceCurrency: "EUR", availability: "https://schema.org/PreOrder", availabilityStarts: "2026-11-26" });
+    expect(o).toMatchObject({ price: "9.99", priceCurrency: "EUR", availability: "https://schema.org/PreOrder", availabilityStarts: "2026-11-26" });
     expect(o.priceSpecification.map((p: J) => [p.price, p.eligibleQuantity?.minValue, p.eligibleQuantity?.maxValue])).toEqual([
-      ["10.49", 1, 1],
+      ["9.99", 1, 1],
       ["9.49", 2, 3],
       ["8.99", 4, undefined],
     ]);
