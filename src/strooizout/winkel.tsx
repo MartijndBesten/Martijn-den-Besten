@@ -207,7 +207,7 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
   );
 
   return (
-    <section className="sz-bestelkaart wn-kaart" aria-labelledby="sz-product-titel" data-beste={beste} data-open={verder} data-keuze={keuzes.length > 1}>
+    <section className="sz-bestelkaart wn-kaart" aria-labelledby="sz-product-titel" data-beste={beste} data-open={verder}>
       <header className="wn-kaart__kop">
         <h2 id="sz-product-titel">{p.naam.replace(/^Strooizout (\d+) kg(.*)$/, "$1 kg strooizout$2")}</h2>
         <Beschikbaarheid p={p} winkel={winkel} straks={straks} />

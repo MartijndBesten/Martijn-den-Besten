@@ -1423,19 +1423,6 @@
   .sz-bestelkaart .wn-kaart__kop {
     margin-bottom: 4px;
   }
-  /* Met de productkeuze erbij staat de naam van het product al in de gekozen knop: de kop alleen nog voor
-     schermlezers, zodat ‘Op voorraad vanaf …’ niet op een tweede regel hoeft. */
-  .sz-bestelkaart[data-keuze="true"] .wn-kaart__kop h2 {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-  .sz-bestelkaart[data-keuze="true"] .wn-keuze {
-    margin-top: 7px;
-  }
   .wn-rail .wn-rail__trede {
     min-height: 44px;
     padding: 5px 2px 5px;
