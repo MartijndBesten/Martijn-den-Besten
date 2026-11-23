@@ -2,6 +2,7 @@
 // de buurtboodschap en bewust strooien. Beweging komt uit CSS en de hulpjes in beweging.ts.
 
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { aanbiedingGeldig, alsPrijsProduct, bereken, dagTekst, euro, stukprijs, whatsappLink, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
 import { minderBeweging, useOnthul, useTween } from "./beweging";
 import { IcoonDelen, IcoonKlok, IcoonLet, IcoonPijlRechts, IcoonVink, WhatsAppKnop } from "./iconen";
@@ -334,7 +335,9 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
                   Meer producten in één bestelling
                 </button>
               )}
-              {kan && !ctaInBeeld && (
+              {kan && !ctaInBeeld && typeof document !== "undefined" && createPortal(
+                // Via een portal direct in <body>: een voorouder met transform (onthul-animatie) zou ‘position: fixed’
+                // anders aan die voorouder koppelen in plaats van aan het scherm.
                 <div className="wn-plakbalk" role="region" aria-label="Je keuze">
                   <span className="wn-plakbalk__tekst sz-tnum">
                     <strong>{euro(som.totaal_cent)}</strong> · {perKilo ? `${aantal} × ${perKilo}` : `${aantal} ${aantal === 1 ? eenheid : meervoud}`}
@@ -342,7 +345,8 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
                   <button type="button" className="sz-knop wn-plakbalk__knop" onClick={naarStap2}>
                     Bestellen
                   </button>
-                </div>
+                </div>,
+                document.body,
               )}
             </>
           ) : (

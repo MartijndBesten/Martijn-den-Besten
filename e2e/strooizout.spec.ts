@@ -461,7 +461,10 @@ test("strooizout: de balk onderin verschijnt alleen als ‘Bestellen’ uit beel
   await expect(balk).toBeVisible();
   await expect(balk).toContainText("€ 18,98");
   await expect(balk).toContainText("2 zakken");
-  expect((await balk.boundingBox())!.height).toBeLessThanOrEqual(64);
+  // echt onderin het scherm (niet ergens buiten beeld door een voorouder met transform)
+  const vak = (await balk.boundingBox())!;
+  expect(vak.height).toBeLessThanOrEqual(64);
+  expect(Math.round(vak.y + vak.height)).toBe(664);
   // terug naar de kaart: balk weg; via de balk naar stap 2: balk weg
   await page.evaluate(() => window.scrollTo(0, 0));
   await expect(balk).toHaveCount(0);
