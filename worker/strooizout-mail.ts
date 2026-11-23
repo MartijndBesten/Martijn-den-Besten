@@ -86,7 +86,7 @@ export function bevestigingsmail(b: BevestigdeBestelling, site: URL, aan: string
     ? `${tikkie ? "We sturen je een Tikkie op je mobiel. Daarna bezorgen we" : "We bezorgen"} je bestelling${b.adres ? ` op ${b.adres}` : ""}; je hoort van ons wanneer.${tikkie ? "" : " Je betaalt bij het bezorgen met een betaalverzoek."}`
     : `${tikkie ? "We sturen je een Tikkie op je mobiel. Daarna kun je" : "Je kunt"} je bestelling komen ophalen. Het adres en de afhaalmomenten staan op je bestelpagina. Neem je afhaalcode mee.${tikkie ? "" : " Je betaalt bij het afhalen met een betaalverzoek."}`;
   const neemMee = (b.meldingen ?? []).join(" ");
-  const sluit = "Heb je je bestelling toch niet nodig? Annuleren kan kosteloos via je bestelpagina.";
+  const sluit = "Heb je je bestelling toch niet nodig? Annuleren is gratis zolang je bestelling nog niet is afgehaald of bezorgd, via je bestelpagina. Na ontvangst heb je 14 dagen bedenktijd (zie de voorwaarden).";
   const aanhef = `Hoi ${b.voornaam}, bedankt voor je bestelling. Dit is je afhaalcode:`;
   return {
     aan,
