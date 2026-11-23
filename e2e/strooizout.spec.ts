@@ -58,8 +58,8 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(kaart.getByRole("heading", { name: "25 kg strooizout" })).toBeVisible();
     // prijstreden in één rail: 1 zak, 2–3 zakken, 4 of meer
     const trede = (naam: RegExp) => kaart.getByRole("button", { name: naam });
-    await expect(trede(/1 zak\s*€ 10,49 per zak/)).toBeVisible();
-    await expect(trede(/2–3 zakken\s*€ 9,49 per zak/)).toHaveAttribute("aria-pressed", "true");
+    await expect(trede(/1 zak\s*€ 10,49 per zak/)).toHaveAttribute("aria-pressed", "true");
+    await expect(trede(/2–3 zakken\s*€ 9,49 per zak/)).toBeVisible();
     await expect(trede(/4 of meer\s*€ 8,99 per zak/)).toBeVisible();
     await expect(kaart.locator(".sz-beschikbaar")).toContainText("Op voorraad");
     await expect(page.getByRole("heading", { name: "Een beetje zout. Een beetje aandacht." })).toBeVisible();
@@ -73,17 +73,20 @@ test.describe("Strooizout voor de buurt", () => {
     // de kop staat niet vast: hij schuift nooit over de inhoud
     expect(await page.locator(".sz-kop").evaluate((el) => getComputedStyle(el).position)).not.toMatch(/sticky|fixed/);
 
-    // standaard 2 zakken: € 18,98, je bespaart € 2,00; het totaal staat er precies één keer
+    // standaard 1 zak (besluit Martijn): € 10,49; het totaal staat er precies één keer
     const totaal = kaart.locator(".sz-bestelkaart__totaal strong");
+    await expect(totaal).toHaveText("€ 10,49");
+    await expect(kaart.locator(".sz-bestelkaart__totaal")).toHaveCount(1);
+    // 2 zakken via de staffel: € 18,98, je bespaart € 2,00
+    await trede(/^2–3 zakken/).click();
     await expect(totaal).toHaveText("€ 18,98");
     await expect(kaart.locator(".sz-bestelkaart__totaal .wn-bespaar")).toContainText("je bespaart € 2,00");
-    await expect(kaart.locator(".sz-bestelkaart__totaal")).toHaveCount(1);
-    // 1 zak: € 10,49, bezorgen kan niet, zetje naar 2 zakken
+    // terug naar 1 zak: bezorgen kan niet; geen zetje bij 1 (de staffel staat erboven)
     await trede(/^1 zak/).click();
     await expect(totaal).toHaveText("€ 10,49");
     await expect(kaart.getByRole("radio", { name: /Bezorgen/ })).toBeDisabled();
     await expect(kaart.locator(".wn-lever")).toContainText("vanaf 2 zakken");
-    await expect(kaart.locator(".wn-tip")).toContainText("Nog 1 zak erbij en je betaalt € 9,49 per zak.");
+    await expect(kaart.locator(".wn-tip")).toHaveAttribute("data-aan", "false");
     // ieder aantal: 3 zakken € 9,49 per zak, zetje naar 4
     const meer = kaart.getByRole("button", { name: /Eén meer/ });
     await meer.click();
@@ -102,6 +105,8 @@ test.describe("Strooizout voor de buurt", () => {
 
     // Bestellen: gegevens op dezelfde pagina; adresvelden alleen bij bezorgen
     await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
+    // in stap 2 is er één bestelknop: geen balk onderin
+    await expect(page.locator(".wn-plakbalk")).toBeHidden();
     await expect(kaart.getByLabel("Straat")).toBeVisible();
     await kaart.getByRole("button", { name: /Bestellen met betalingsverplichting/ }).click();
     await expect(kaart.getByText("Vul je naam in.")).toBeVisible();
@@ -167,7 +172,7 @@ test.describe("Strooizout voor de buurt", () => {
     // terug naar de zak: de bestaande bestelkaart met staffel
     await kaart.getByRole("button", { name: /Bestel nu 25\skg/ }).click();
     await expect(kaart.getByRole("heading", { name: "25 kg strooizout" })).toBeVisible();
-    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 18,98");
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 10,49");
     await expect(kaart.getByRole("button", { name: "Meer producten in één bestelling" })).toHaveCount(0);
     // de server weigert de varianten ook rechtstreeks
     const w = await (await request.get("/api/strooizout/winkel")).json();
@@ -223,8 +228,11 @@ test.describe("Strooizout voor de buurt", () => {
 
       // gemengd: 2 zakken en een emmer met deksel; daarna ook de eigen emmer erbij, dan kan bezorgen niet meer
       await page.goto("/strooizout");
+      await kaart.getByRole("button", { name: /^2–3 zakken/ }).click();
       await kaart.getByRole("button", { name: "Meer producten in één bestelling" }).click();
       await expect(page.getByRole("heading", { level: 1, name: "Bestellen" })).toBeVisible();
+      // elke knop die de bestelling plaatst, noemt de betalingsverplichting (art. 6:230v lid 3 BW)
+      for (const t of await page.locator('button[type="submit"], button[form="sz-bestelformulier"]').allTextContents()) expect(t).toMatch(/Bestellen met betalingsverplichting|Bezig/);
       await page.locator(".sz-erbij__knop", { hasText: "met emmer" }).click();
       await expect(page.locator(".sz-regel")).toHaveCount(2);
       const bezorgen = page.getByRole("radio", { name: /Bezorgen/ });
@@ -316,8 +324,8 @@ test.describe("Strooizout voor de buurt", () => {
     await kaart.getByRole("button", { name: /^1 zak\s*€/ }).click();
     await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
     await expect(kaart.getByLabel("Straat")).toHaveCount(0);
-    // in stap 2 is de kaart zelf het bestelformulier: geen mandjesbalk onderaan die eroverheen schuift
-    await expect(page.locator(".sz-mobielbalk")).toBeHidden();
+    // in stap 2 is de kaart zelf het bestelformulier: geen balk onderaan die eroverheen schuift
+    await expect(page.locator(".wn-plakbalk")).toBeHidden();
     await kaart.getByLabel("Naam").fill("Mobiel Test");
     await kaart.getByLabel("Mobiel nummer").fill("06 1111 2222");
     await page.waitForTimeout(2600);
@@ -426,7 +434,9 @@ test.describe("Strooizout voor de buurt", () => {
   });
 });
 
-test("strooizout: op een lage telefoon (390×664) valt ‘Bestellen’ helemaal in het eerste scherm", async ({ page }) => {
+test("strooizout: op een lage telefoon (390×664) valt ‘Bestellen’ helemaal in het eerste scherm", async ({ page, request, baseURL }) => {
+  // eigen start: open bestelronde en voorraad (alleen tegen de lokale Worker)
+  if (schrijvend) await voorbereiden(request, baseURL!);
   await page.setViewportSize({ width: 390, height: 664 });
   await page.goto("/strooizout");
   const knop = page.locator(".sz-bestelkaart").getByRole("button", { name: "Bestellen", exact: true });
@@ -434,6 +444,31 @@ test("strooizout: op een lage telefoon (390×664) valt ‘Bestellen’ helemaal 
   const onder = await knop.evaluate((e) => e.getBoundingClientRect().bottom);
   expect(onder).toBeLessThanOrEqual(664);
   expect((await knop.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+});
+
+test("strooizout: de balk onderin verschijnt alleen als ‘Bestellen’ uit beeld is en volgt de bestelkaart", async ({ page, request, baseURL }) => {
+  // eigen start: open bestelronde en voorraad (alleen tegen de lokale Worker)
+  if (schrijvend) await voorbereiden(request, baseURL!);
+  await page.setViewportSize({ width: 390, height: 664 });
+  await page.goto("/strooizout");
+  const kaart = page.locator(".sz-bestelkaart");
+  await expect(kaart.getByRole("button", { name: "Bestellen", exact: true })).toBeVisible();
+  const balk = page.locator(".wn-plakbalk");
+  await expect(balk).toHaveCount(0);
+  // 2 zakken kiezen en wegscrollen: de balk toont wat in de kaart staat
+  await kaart.getByRole("button", { name: /^2–3 zakken/ }).click();
+  await page.evaluate(() => window.scrollTo(0, document.querySelector(".wn-stappen__lijst")!.getBoundingClientRect().top + window.scrollY));
+  await expect(balk).toBeVisible();
+  await expect(balk).toContainText("€ 18,98");
+  await expect(balk).toContainText("2 zakken");
+  expect((await balk.boundingBox())!.height).toBeLessThanOrEqual(64);
+  // terug naar de kaart: balk weg; via de balk naar stap 2: balk weg
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await expect(balk).toHaveCount(0);
+  await page.evaluate(() => window.scrollTo(0, document.querySelector(".wn-stappen__lijst")!.getBoundingClientRect().top + window.scrollY));
+  await balk.getByRole("button", { name: "Bestellen" }).click();
+  await expect(kaart.getByLabel("Naam")).toBeVisible();
+  await expect(balk).toHaveCount(0);
 });
 
 test("strooizout: beheer-API weigert zonder token", async ({ request }) => {
