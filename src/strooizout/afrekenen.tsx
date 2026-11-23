@@ -14,7 +14,7 @@ function berekeningZakken(winkel: Winkel | null, regels: MandRegel[]): number {
   return zakkenIn(regels.map((r) => ({ aantal: r.aantal, zakken_per_stuk: per.get(r.product_id) ?? 0 })));
 }
 import { vraag, type KlantBestelling } from "./api";
-import { IcoonBus, IcoonHuis, IcoonInfo, IcoonLet, IcoonPijlLinks } from "./iconen";
+import { IcoonBus, IcoonHuis, IcoonInfo, IcoonLet, IcoonPijlLinks, WhatsAppKnop } from "./iconen";
 import { useMand } from "./mandje";
 import { Aantal, maxVoor, rekenMand, StaffelHint, Totalen } from "./opmaak";
 import { Link, useRouter } from "./router";
@@ -285,17 +285,15 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
         {afhaalAdres}.
         {belNummer && (
           <>
-            {" "}{appLink ? "App of bel" : "Bel"} even om af te spreken: <a href={`tel:${belNummer.replace(/[^+\d]/g, "")}`}>{belNummer}</a>
-            {appLink && (
-              <>
-                {" · "}
-                <a href={appLink} target="_blank" rel="noopener noreferrer">
-                  WhatsApp
-                </a>
-              </>
-            )}
-            .
+            {" "}{appLink ? "App of bel" : "Bel"} even om af te spreken: <a href={`tel:${belNummer.replace(/[^+\d]/g, "")}`}>{belNummer}</a>.
           </>
+        )}
+        {appLink && (
+          <span className="sz-wa-rij">
+            <WhatsAppKnop href={appLink} klein>
+              App om af te spreken
+            </WhatsAppKnop>
+          </span>
         )}
       </span>
     </p>

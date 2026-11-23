@@ -2,9 +2,9 @@
 // de buurtboodschap en bewust strooien. Beweging komt uit CSS en de hulpjes in beweging.ts.
 
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { aanbiedingGeldig, alsPrijsProduct, bereken, dagTekst, euro, stukprijs, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
+import { aanbiedingGeldig, alsPrijsProduct, bereken, dagTekst, euro, stukprijs, whatsappLink, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
 import { minderBeweging, useOnthul, useTween } from "./beweging";
-import { IcoonDelen, IcoonKlok, IcoonLet, IcoonPijlRechts, IcoonVink } from "./iconen";
+import { IcoonDelen, IcoonKlok, IcoonLet, IcoonPijlRechts, IcoonVink, WhatsAppKnop } from "./iconen";
 import { useMand } from "./mandje";
 import { maxVoor } from "./opmaak";
 import { metBron, WINKEL_URL } from "./qr";
@@ -386,7 +386,8 @@ function Delen({ winkel }: { winkel: Winkel | null }) {
   );
 }
 
-function Stappen() {
+function Stappen({ winkel }: { winkel: Winkel | null }) {
+  const app = whatsappLink(winkel?.instellingen.contact_telefoon ?? "", "Hoi, ik heb een vraag over strooizout.");
   return (
     <section className="wn-stappen" aria-labelledby="wn-zo">
       <div className="sz-wrap">
@@ -401,6 +402,12 @@ function Stappen() {
             </li>
           ))}
         </ol>
+        {app && (
+          <p className="wn-stappen__vraag">
+            <span>Vragen of even overleggen?</span>
+            <WhatsAppKnop href={app} />
+          </p>
+        )}
       </div>
     </section>
   );
@@ -554,7 +561,7 @@ export function WinkelPagina() {
           </div>
         </div>
       </section>
-      <Stappen />
+      <Stappen winkel={winkel} />
       <BuurBand winkel={winkel} />
       <Film />
       <Bewust />
