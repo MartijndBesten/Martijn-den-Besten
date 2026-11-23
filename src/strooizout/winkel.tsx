@@ -239,7 +239,7 @@ function Bestelkaart({ p, winkel, onAantal }: { p: PubliekProduct; winkel: Winke
                   <IcoonVink /> Betalen met betaalverzoek
                 </li>
                 <li>
-                  <IcoonVink /> Gratis annuleren
+                  <IcoonVink /> 14 dagen bedenktijd na ontvangst. Annuleren vóór afhalen of bezorgen is gratis.
                 </li>
               </ul>
             </>
