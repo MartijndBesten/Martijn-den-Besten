@@ -161,7 +161,8 @@ describe("e-mail na een bestelling", () => {
     // de beheerder krijgt een melding, zonder gegevens van de klant
     const melding = verstuurd[1];
     expect(melding.subject).toBe(`Nieuwe bestelling ${bestelling.afhaalcode}: € 18,98, afhalen`);
-    expect(melding.text).toContain(`${bestelling.nummer} · afhaalcode ${bestelling.afhaalcode}`);
+    expect(melding.text).toContain(`Afhaalcode ${bestelling.afhaalcode}`);
+    expect(melding.text + melding.html).not.toMatch(/SZ-\d/);
     expect(melding.text).toContain("2 × Strooizout 25 kg");
     expect(melding.text).toContain("Stuur de klant een Tikkie");
     expect(melding.text).toContain("Beheer: https://strooizouthouten.nl/beheer");

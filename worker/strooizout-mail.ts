@@ -128,7 +128,7 @@ export function beheermelding(b: BevestigdeBestelling & { voorbestelling?: boole
   const beheer = `${site.origin}${site.hostname === STROOIZOUT_DOMEIN ? "" : "/strooizout"}/beheer`;
   const regels = (b.regels as { naam: string; aantal: number }[]).map((r) => `${r.aantal} × ${r.naam}`).join("\n");
   const hoe = b.levering === "bezorgen" ? "Bezorgen" : "Afhalen";
-  const kern = `${b.nummer} · afhaalcode ${b.afhaalcode}\n${regels}\n${hoe} · totaal ${euro(b.totaal_cent)}`;
+  const kern = `Afhaalcode ${b.afhaalcode}\n${regels}\n${hoe} · totaal ${euro(b.totaal_cent)}`;
   const doen = b.betaalwijze === "tikkie" ? "Stuur de klant een Tikkie; naam en mobiel nummer staan in het beheer." : "Naam en mobiel nummer van de klant staan in het beheer.";
   return {
     aan,

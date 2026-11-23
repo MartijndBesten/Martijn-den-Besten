@@ -329,12 +329,13 @@ async function klantWeergave(env: SzEnv, id: number) {
   const bs = betaalstatus({ totaal_cent: b.totaal_cent, betaald_cent: betaald?.som ?? 0, ontvangen_cent: betaald?.ontvangen ?? 0, betaalverzoek_op: b.betaalverzoek_op });
   return {
     bestelling: {
-      nummer: bestelnummer(b.id),
+      // Voor de klant is de afhaalcode het bestelnummer: willekeurig, dus zonder volgnummer (dat staat alleen in het beheer).
+      nummer: b.afhaalcode ?? bestelnummer(b.id),
       afhaalcode: b.afhaalcode ?? "",
       kanaal: b.kanaal,
       betaalstatus: bs,
       betaalstatus_tekst: BETAAL_STATUS[bs],
-      code: await klantCode(env, b.id),
+      code: await klantCode(env, b),
       status: b.status,
       status_tekst: BESTEL_STATUS[b.status],
       levering: b.levering,

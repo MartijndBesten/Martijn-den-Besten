@@ -145,9 +145,11 @@ export default function Status() {
             </div>
           </div>
         )}
-        <p>
-          Bestelnummer <span className="sz-nummer">{b.nummer}</span>
-        </p>
+        {b.nummer !== b.afhaalcode && (
+          <p>
+            Bestelnummer <span className="sz-nummer">{b.nummer}</span>
+          </p>
+        )}
         {net && !geannuleerd && <p className="sz-afrekenen__intro">{b.bevestiging_tekst}</p>}
 
         {!geannuleerd && (
@@ -308,7 +310,7 @@ export default function Status() {
                   <a href={`mailto:${b.contact.email}?subject=${encodeURIComponent(`Bestelling ${b.nummer}`)}`}>{b.contact.email}</a>
                 </>
               )}
-              . Noem je bestelnummer.
+              . Noem je afhaalcode.
             </p>
           </div>
         )}

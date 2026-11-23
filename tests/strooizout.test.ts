@@ -183,11 +183,20 @@ describe("webshop", () => {
     const r = await bestel({ regels: [{ product_id: 1, aantal: 2, prijs_cent: 1 }], totaal_cent: 1, levering: "bezorgen" });
     expect(r.status).toBe(201);
     const b = (await r.json() as J).bestelling;
-    expect(b.nummer).toBe("SZ-0001");
+    // voor de klant geen volgnummer: het bestelnummer is de willekeurige afhaalcode, ook in de link
+    expect(b.nummer).toBe(b.afhaalcode);
+    expect(b.afhaalcode).toMatch(/^H-\d{4,5}$/);
     expect(b.subtotaal_cent).toBe(1898);
     expect(b.bezorg_cent).toBe(200); // € 2,00 per bezorging
     expect(b.totaal_cent).toBe(2098);
-    expect(b.code).toMatch(/^1-[0-9a-f]{24}$/);
+    expect(b.code).toBe(`h${b.afhaalcode.slice(2)}-${b.code.split("-")[1]}`);
+    expect(b.code).toMatch(/^h\d{4,5}-[0-9a-f]{24}$/);
+    expect(JSON.stringify(b)).not.toMatch(/SZ-\d|"id":/);
+    // de code werkt; een code met een andere afhaalcode of een geraden volgnummer niet
+    const kijk = (code: string) => req("/api/strooizout/bestelling/bekijk", { method: "POST", body: JSON.stringify({ code }) });
+    expect((await kijk(b.code)).status).toBe(200);
+    expect((await kijk(`h0000-${b.code.split("-")[1]}`)).status).toBe(404);
+    expect((await kijk(`1-${"0".repeat(24)}`)).status).toBe(404);
     const rij = db.raw.prepare("SELECT * FROM sz_bestelling").get() as J;
     expect(rij.totaal_cent).toBe(2098);
     expect(rij.postcode).toBe("3992 KT");
@@ -369,7 +378,7 @@ describe("beheer", () => {
     const zoek = await jsonVan(beheer("/bestellingen?zoek=sz-0002"));
     expect(zoek.bestellingen).toHaveLength(1);
     const detail = await jsonVan(beheer("/bestellingen/2"));
-    expect(detail.bestelling.klant_link).toMatch(/\/strooizout\/bestelling#2-[0-9a-f]{24}$/);
+    expect(detail.bestelling.klant_link).toMatch(/\/strooizout\/bestelling#h\d{4,5}-[0-9a-f]{24}$/);
     expect(detail.betalingen).toHaveLength(1);
     expect(detail.log.map((l: J) => l.actie)).toContain("betaling");
   });
