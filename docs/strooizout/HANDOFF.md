@@ -50,9 +50,11 @@ Rooktest daarna: `https://martijndenbesten.com/`, `/api/health`, `/bijbelreis` e
 
 **Werkwijze tests:** een pull request die alleen bestanden met ‘strooizout’ in het pad raakt, draait in de CI alleen `e2e/strooizout.spec.ts` (enkele minuten); al het andere en elke push naar `main` draait de volledige reeks. Na het aanpassen van de frontend eerst `npm run build && node scripts/embed-assets.mjs` doen, anders test de lokale Worker de oude build.
 
+**A6-kaartje (hangkaartje aan emmer of zak én flyer):** besteld door Martijn bij Reclameland op 23-11-2026 (niet door een agent besteld). Ontwerp en bestanden: `docs/strooizout/kaartje/` (`strooizout-kaartje-a6-drukklaar-CMYK.pdf` = aangeleverde drukversie: 111 × 154 mm, 3 mm afloop, CMYK, tekst als contouren, geen rasterbeelden, geen snijtekens; QR naar `https://strooizouthouten.nl/?via=kaartje`, zodat het beheer ziet hoeveel bezoek en bestellingen van het kaartje komen). Opnieuw maken: `node scripts/strooizout/kaartje/maak-kaartje.cjs`, daarna in de map `docs/strooizout/kaartje` `python3 -I ../../../scripts/strooizout/kaartje/maak-cmyk.py` (vereist ghostscript); `controleer.cjs` leest de QR uit de pdf (vereist `npm i --no-save jsqr`). Teksten zijn bewust geen prijs of aanbod, zodat het kaartje niet veroudert.
+
 **Nog open (niet blokkerend):**
 
-- Martijn doet zelf een testbestelling; daarmee zijn de bevestigingsmail (met afhaalblok), de beheermelding en de afhaalcode als bestelnummer pas echt te zien. Na annuleren de testbestelling opruimen in D1 (alle `sz_*`-rijen met dat `bestelling_id`) en controleren dat de voorraad klopt.
+- Martijn doet later zelf een testbestelling (zijn bericht 23-11); daarmee zijn de bevestigingsmail (met afhaalblok), de beheermelding en de afhaalcode als bestelnummer pas echt te zien. Na annuleren de testbestelling opruimen in D1 (alle `sz_*`-rijen met dat `bestelling_id`) en controleren dat de voorraad klopt.
 - Of de proefmail met inlogcode (23-11, ±08:00 UTC) is aangekomen, kan alleen Martijn bevestigen.
 - Afspelen van het fietsfilmpje op een echte iPhone (Safari) is niet getest; de server geeft wel correcte 206-antwoorden.
 - Bundel ±9,58 van 10 MB: geen extra film of grote beelden in de bundel; daarvoor is opslag buiten de bundel nodig (nieuwe voorziening → kostenakkoord Martijn).
