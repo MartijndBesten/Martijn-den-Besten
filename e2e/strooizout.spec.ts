@@ -399,6 +399,16 @@ test.describe("Strooizout voor de buurt", () => {
   });
 });
 
+test("strooizout: op een lage telefoon (390×664) valt ‘Bestellen’ helemaal in het eerste scherm", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 664 });
+  await page.goto("/strooizout");
+  const knop = page.locator(".sz-bestelkaart").getByRole("button", { name: "Bestellen", exact: true });
+  await expect(knop).toBeVisible();
+  const onder = await knop.evaluate((e) => e.getBoundingClientRect().bottom);
+  expect(onder).toBeLessThanOrEqual(664);
+  expect((await knop.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+});
+
 test("strooizout: beheer-API weigert zonder token", async ({ request }) => {
   expect((await request.get("/api/strooizout/beheer/overzicht")).status()).toBe(401);
   expect((await request.get("/api/strooizout/beheer/export/bestellingen.csv")).status()).toBe(401);

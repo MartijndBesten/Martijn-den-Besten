@@ -26,16 +26,48 @@ jobs:
       - run: npm test
       - run: npm run build
 
+  wijzigingen:
+    # Raakt een pull request alleen Strooizout voor de buurt, dan draaien alleen de strooizout-e2e-tests (enkele
+    # minuten in plaats van ruim twintig). Bij een push naar main en bij elke andere wijziging draait alles.
+    name: Wat is er gewijzigd
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      alleen_strooizout: ${{ steps.bepaal.outputs.alleen_strooizout }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: bepaal
+        env:
+          BASIS: ${{ github.base_ref }}
+        run: |
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            echo "alleen_strooizout=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          git fetch --no-tags origin "$BASIS"
+          git diff --name-only "origin/$BASIS...HEAD" > gewijzigd.txt
+          cat gewijzigd.txt
+          # Strooizout-bestanden: alles met 'strooizout' in pad of naam (src/strooizout, worker/strooizout*.ts,
+          # shared/strooizout.ts, migraties, public/strooizout, docs, scripts, tests en e2e/strooizout.spec.ts).
+          if [ -s gewijzigd.txt ] && ! grep -viq 'strooizout' gewijzigd.txt; then
+            echo "alleen_strooizout=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "alleen_strooizout=false" >> "$GITHUB_OUTPUT"
+          fi
+
   e2e:
     # De e2e-reeks duurde in één job ruim 30 minuten (november 2026). Ze draait daarom in drie delen naast elkaar;
     # samen zijn dat dezelfde tests, niets wordt overgeslagen. Elk deel start zijn eigen lokale Worker met D1.
-    name: End-to-end tests (deel ${{ matrix.deel }} van 3)
+    # Alleen strooizout gewijzigd (pull request): één job met e2e/strooizout.spec.ts.
+    name: ${{ matrix.deel == 'strooizout' && 'End-to-end tests (strooizout)' || format('End-to-end tests (deel {0} van 3)', matrix.deel) }}
+    needs: wijzigingen
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
-        deel: [1, 2, 3]
+        deel: ${{ fromJSON(needs.wijzigingen.outputs.alleen_strooizout == 'true' && '["strooizout"]' || '[1, 2, 3]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -47,7 +79,12 @@ jobs:
       - name: Playwright-browser installeren
         run: npx playwright install --with-deps chromium
       - name: End-to-end tests (lokale Worker + D1)
-        run: npx playwright test --shard=${{ matrix.deel }}/3
+        run: |
+          if [ "${{ matrix.deel }}" = "strooizout" ]; then
+            npx playwright test e2e/strooizout.spec.ts
+          else
+            npx playwright test --shard=${{ matrix.deel }}/3
+          fi
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
@@ -57,6 +94,9 @@ jobs:
 
   visueel:
     name: Visuele regressie (vast Playwright-image)
+    # Deze test dekt alleen de Bijbelreis; bij een wijziging die alleen strooizout raakt is hij niet nodig.
+    needs: wijzigingen
+    if: needs.wijzigingen.outputs.alleen_strooizout != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     # Zelfde image (op digest) als scripts/visueel.sh: browser, besturingssysteem en lettertypen lokaal en in de CI gelijk.
