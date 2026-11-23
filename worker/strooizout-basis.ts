@@ -81,15 +81,28 @@ export function geheim(env: SzEnv): string {
   return env.HASH_SECRET;
 }
 
-/** Persoonlijke code voor de bestelpagina van de klant: ID plus HMAC, zodat niemand andermans bestelling kan raden. */
-export async function klantCode(env: SzEnv, id: number): Promise<string> {
-  return `${id}-${(await hmacHex(geheim(env), `strooizout-bestelling|${id}`)).slice(0, 24)}`;
+/**
+ * Persoonlijke code voor de bestelpagina van de klant: de cijfers van de (willekeurige) afhaalcode plus een HMAC, zodat
+ * niemand andermans bestelling kan raden. Er zit bewust geen volgnummer in: een klant kan nergens aan zien hoeveel
+ * bestellingen er zijn. Alleen een bestelling zonder afhaalcode krijgt nog de oude vorm (volgnummer plus HMAC).
+ */
+export async function klantCode(env: SzEnv, b: { id: number; afhaalcode?: string | null }): Promise<string> {
+  const mac = (await hmacHex(geheim(env), `strooizout-bestelling|${b.id}`)).slice(0, 24);
+  const cijfers = /^H-(\d{4,5})$/.exec(b.afhaalcode ?? "")?.[1];
+  return cijfers ? `h${cijfers}-${mac}` : `${b.id}-${mac}`;
 }
 
 export async function leesKlantCode(env: SzEnv, code: unknown): Promise<number | null> {
-  if (typeof code !== "string" || !/^[0-9]{1,9}-[0-9a-f]{24}$/.test(code)) return null;
+  if (typeof code !== "string") return null;
+  const nieuw = /^h(\d{4,5})-[0-9a-f]{24}$/.exec(code);
+  if (nieuw) {
+    const rij = await env.DB.prepare("SELECT id, afhaalcode FROM sz_bestelling WHERE afhaalcode = ?1").bind(`H-${nieuw[1]}`).first<{ id: number; afhaalcode: string }>();
+    return rij && gelijk(await klantCode(env, rij), code) ? rij.id : null;
+  }
+  // de oude vorm blijft leesbaar (links die al zijn verstuurd)
+  if (!/^[0-9]{1,9}-[0-9a-f]{24}$/.test(code)) return null;
   const id = Number(code.split("-")[0]);
-  return gelijk(await klantCode(env, id), code) ? id : null;
+  return gelijk(await klantCode(env, { id }), code) ? id : null;
 }
 
 export function nuIso(): string {

@@ -3,7 +3,8 @@
 // Zie docs/strooizout/README.md.
 
 import { rateLimit } from "./begrenzing";
-import { bevestigingsmail, heeftMail, stuurMail } from "./strooizout-mail";
+import { beheermelding, bevestigingsmail, heeftMail, stuurMail } from "./strooizout-mail";
+import { beheerAdressen } from "./strooizout-inlog";
 import {
   BESTEL_STATUS,
   GRENZEN,
@@ -113,6 +114,7 @@ async function winkel(env: SzEnv): Promise<Response> {
     instellingen: {
       afhalen_aan: inst.afhalen_aan,
       afhaal_plek: inst.afhaal_plek,
+      afhaal_adres: inst.afhaal_adres,
       bezorgen_aan: inst.bezorgen_aan,
       bezorg_postcodes: inst.bezorg_postcodes,
       bezorg_methode: inst.bezorg_methode,
@@ -266,7 +268,10 @@ async function plaatsBestelling(request: Request, env: SzEnv, ctx: ExecutionCont
       const nieuw = await db.prepare("SELECT id FROM sz_bestelling WHERE idempotentie = ?1").bind(idem).first<{ id: number }>();
       const weergave = await klantWeergave(env, nieuw!.id);
       // Bevestiging met de afhaalcode per e-mail (alleen als er een mailvoorziening is); de bestelling wacht er niet op.
-      if (kanaal === "web" && k.email) ctx.waitUntil(stuurMail(env, bevestigingsmail(weergave.bestelling, new URL(request.url), k.email, inst.contact_email)));
+      if (kanaal === "web" && k.email) ctx.waitUntil(stuurMail(env, bevestigingsmail(weergave.bestelling, new URL(request.url), k.email, inst.contact_email, { adres: inst.afhaal_adres, telefoon: inst.contact_telefoon })));
+      // De beheerder hoort van elke nieuwe webbestelling (zonder klantgegevens in de mail); ook dit houdt de bestelling
+      // niet op. Aan de weg staat de verkoper er zelf bij.
+      if (kanaal === "web" && heeftMail(env)) for (const adres of beheerAdressen(env)) ctx.waitUntil(stuurMail(env, beheermelding(weergave.bestelling, new URL(request.url), adres)));
       return json({ ok: true, herhaald: false, ...weergave }, 201);
     } catch (e) {
       const tekst = String((e as Error)?.message ?? e);
@@ -307,7 +312,7 @@ type BestellingRij = {
   kanaal: "web" | "straat" | "beheer";
 };
 
-/** Wat de klant over de eigen bestelling ziet. Het volledige afhaaladres pas na bevestiging. */
+/** Wat de klant over de eigen bestelling ziet. */
 async function klantWeergave(env: SzEnv, id: number) {
   const db = env.DB;
   const [b, regels, moment, betaald, inst, meldingen] = await Promise.all([
@@ -324,12 +329,13 @@ async function klantWeergave(env: SzEnv, id: number) {
   const bs = betaalstatus({ totaal_cent: b.totaal_cent, betaald_cent: betaald?.som ?? 0, ontvangen_cent: betaald?.ontvangen ?? 0, betaalverzoek_op: b.betaalverzoek_op });
   return {
     bestelling: {
-      nummer: bestelnummer(b.id),
+      // Voor de klant is de afhaalcode het bestelnummer: willekeurig, dus zonder volgnummer (dat staat alleen in het beheer).
+      nummer: b.afhaalcode ?? bestelnummer(b.id),
       afhaalcode: b.afhaalcode ?? "",
       kanaal: b.kanaal,
       betaalstatus: bs,
       betaalstatus_tekst: BETAAL_STATUS[bs],
-      code: await klantCode(env, b.id),
+      code: await klantCode(env, b),
       status: b.status,
       status_tekst: BESTEL_STATUS[b.status],
       levering: b.levering,
@@ -347,7 +353,8 @@ async function klantWeergave(env: SzEnv, id: number) {
       aangemaakt: b.aangemaakt,
       kan_annuleren: ["nieuw", "bevestigd", "klaar"].includes(b.status),
       afhaal_plek: inst.afhaal_plek,
-      afhaal_adres: b.levering === "ophalen" && bevestigd ? inst.afhaal_adres : "",
+      // Het afhaaladres is openbaar (staat ook bij het bestellen en in de mail); de instructie pas na bevestiging.
+      afhaal_adres: b.levering === "ophalen" ? inst.afhaal_adres : "",
       afhaal_instructie: b.levering === "ophalen" && bevestigd ? inst.afhaal_instructie : "",
       bevestiging_tekst: inst.bevestiging_tekst,
       contact: { naam: inst.contact_naam, email: inst.contact_email, telefoon: inst.contact_telefoon },

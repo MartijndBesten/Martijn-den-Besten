@@ -1,7 +1,7 @@
 // Gedeelde onderdelen van de webshop: kop, voet, mandje (lade), mobiele balk, aantalkiezer en totalen.
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { alsPrijsProduct, bereken, euro, volgendeStaffel, type Berekening, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
+import { whatsappLink, alsPrijsProduct, bereken, euro, volgendeStaffel, type Berekening, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
 import { IcoonMand, IcoonSluit, IcoonSneeuw, Logo } from "./iconen";
 import { useMand, type MandRegel } from "./mandje";
 import { Link, useRouter } from "./router";
@@ -186,6 +186,11 @@ export function Voet() {
           <Link naar="/strooizout/privacy">Privacy</Link>
           {(c?.contact_email || c?.verkoper_email) && <a href={`mailto:${c.contact_email || c.verkoper_email}`}>Contact</a>}
           {c?.contact_telefoon && <a href={`tel:${c.contact_telefoon.replace(/[^+\d]/g, "")}`}>{c.contact_telefoon}</a>}
+          {c?.contact_telefoon && whatsappLink(c.contact_telefoon) && (
+            <a href={whatsappLink(c.contact_telefoon)!} target="_blank" rel="noopener noreferrer">
+              WhatsApp
+            </a>
+          )}
         </nav>
         <p className="sz-voet__klein">
           Prijzen inclusief 21% btw. Op is op; bezorgen alleen als het veilig kan. De zak op de afbeeldingen is een illustratie; de verpakking kan er anders uitzien.

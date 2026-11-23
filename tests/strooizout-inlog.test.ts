@@ -144,7 +144,7 @@ describe("e-mail na een bestelling", () => {
     expect(r.status).toBe(201);
     const { bestelling } = await jsonVan(r);
     await Promise.all(wachtend);
-    expect(verstuurd).toHaveLength(1);
+    expect(verstuurd.map((m) => m.to)).toEqual(["anna@example.com", BEHEERDER, "tweede@example.com"]);
     const mail = verstuurd[0];
     expect(mail.to).toBe("anna@example.com");
     expect(mail.subject).toBe(`Je bestelling ${bestelling.afhaalcode} bij Strooizout voor de buurt`);
@@ -155,6 +155,37 @@ describe("e-mail na een bestelling", () => {
     expect(mail.text).toContain(`https://strooizouthouten.nl/bestelling#${bestelling.code}`);
     expect(mail.html).toContain(bestelling.afhaalcode);
     expect(mail.text + mail.html).not.toMatch(/reserver|contant/i);
+    // zonder afhaaladres in de instellingen: de verwijzing naar de bestelpagina
+    expect(mail.text).toContain("Het adres en de afhaalmomenten staan op je bestelpagina");
+
+    // de beheerder krijgt een melding, zonder gegevens van de klant
+    const melding = verstuurd[1];
+    expect(melding.subject).toBe(`Nieuwe bestelling ${bestelling.afhaalcode}: € 18,98, afhalen`);
+    expect(melding.text).toContain(`Afhaalcode ${bestelling.afhaalcode}`);
+    expect(melding.text + melding.html).not.toMatch(/SZ-\d/);
+    expect(melding.text).toContain("2 × Strooizout 25 kg");
+    expect(melding.text).toContain("Stuur de klant een Tikkie");
+    expect(melding.text).toContain("Beheer: https://strooizouthouten.nl/beheer");
+    expect(melding.text + melding.html).not.toMatch(/Anna|de Vries|anna@example\.com|12345678/);
+  });
+
+  it("met afhaaladres en mobiel nummer in de instellingen: het adres, appen of bellen en een WhatsApp-link met de afhaalcode", async () => {
+    await req("/api/strooizout/beheer/instellingen", { method: "PUT", body: JSON.stringify({ afhaal_adres: "Voorbeeldstraat 1, Houten", contact_telefoon: "06 00 00 00 00" }), token: ADMIN, headers: { Origin: ORIGIN } });
+    const { bestelling } = await jsonVan(bestel());
+    await Promise.all(wachtend);
+    const mail = verstuurd[0];
+    expect(mail.text).toContain("Afhalen: Voorbeeldstraat 1, Houten\nApp of bel even om af te spreken wanneer je langskomt: 06 00 00 00 00.\nNeem je afhaalcode mee.");
+    expect(mail.text).toContain("Stuur een appje: https://wa.me/31600000000?text=");
+    expect(decodeURIComponent(mail.text.match(/wa\.me\/31600000000\?text=(\S+)/)![1])).toBe(`Hoi, ik wil mijn strooizout komen afhalen (afhaalcode ${bestelling.afhaalcode}). Wanneer kan ik langskomen?`);
+    expect(mail.html).toContain("<strong>Afhalen: Voorbeeldstraat 1, Houten</strong>");
+    expect(mail.html).toContain(">Stuur een appje via WhatsApp</a>");
+    // een vast nummer: wel bellen, geen WhatsApp-link
+    await req("/api/strooizout/beheer/instellingen", { method: "PUT", body: JSON.stringify({ contact_telefoon: "030 000 00 00" }), token: ADMIN, headers: { Origin: ORIGIN } });
+    verstuurd.length = 0;
+    await bestel();
+    await Promise.all(wachtend);
+    expect(verstuurd[0].text).toContain("\nBel even om af te spreken wanneer je langskomt: 030 000 00 00.");
+    expect(verstuurd[0].text).not.toContain("wa.me");
   });
 
   it("met mail is het e-mailadres verplicht; zonder mail blijft het optioneel en gaat er niets uit", async () => {

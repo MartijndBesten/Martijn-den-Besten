@@ -428,7 +428,7 @@ async function bestelling(env: SzEnv, id: number, request: Request): Promise<Res
       nummer: bestelnummer(b.id),
       wijk: b.levering === "bezorgen" ? wijkVan(b.postcode, inst.wijken) : "",
       betaalstatus: bs(b),
-      klant_link: `${origin}${new URL(request.url).hostname === STROOIZOUT_DOMEIN ? "" : "/strooizout"}/bestelling#${await klantCode(env, b.id)}`,
+      klant_link: `${origin}${new URL(request.url).hostname === STROOIZOUT_DOMEIN ? "" : "/strooizout"}/bestelling#${await klantCode(env, b)}`,
       overgangen: STATUS_OVERGANG[b.status].filter((s) => !(s === "afgehaald" && b.levering !== "ophalen") && !(s === "bezorgd" && b.levering !== "bezorgen")),
     },
     regels: regels.results,

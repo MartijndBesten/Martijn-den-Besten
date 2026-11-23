@@ -172,7 +172,9 @@ describe("webshop", () => {
     expect(w.producten.map((p: J) => p.naam)).toEqual(["Strooizout 25 kg", "Strooizout 10 kg in je eigen emmer", "Strooizout 10 kg met emmer"]);
     expect(w.producten[0]).not.toHaveProperty("inkoop_cent");
     expect(w.producten[0]).not.toHaveProperty("notitie");
-    expect(JSON.stringify(w)).not.toContain("afhaal_adres");
+    // het afhaaladres is openbaar (leeg zolang het niet is ingevuld); de ophaalinstructie en het beheer niet
+    expect(w.instellingen.afhaal_adres).toBe("");
+    expect(JSON.stringify(w)).not.toContain("afhaal_instructie");
     expect((await bestel()).status).toBe(409);
   });
 
@@ -181,11 +183,20 @@ describe("webshop", () => {
     const r = await bestel({ regels: [{ product_id: 1, aantal: 2, prijs_cent: 1 }], totaal_cent: 1, levering: "bezorgen" });
     expect(r.status).toBe(201);
     const b = (await r.json() as J).bestelling;
-    expect(b.nummer).toBe("SZ-0001");
+    // voor de klant geen volgnummer: het bestelnummer is de willekeurige afhaalcode, ook in de link
+    expect(b.nummer).toBe(b.afhaalcode);
+    expect(b.afhaalcode).toMatch(/^H-\d{4,5}$/);
     expect(b.subtotaal_cent).toBe(1898);
     expect(b.bezorg_cent).toBe(200); // € 2,00 per bezorging
     expect(b.totaal_cent).toBe(2098);
-    expect(b.code).toMatch(/^1-[0-9a-f]{24}$/);
+    expect(b.code).toBe(`h${b.afhaalcode.slice(2)}-${b.code.split("-")[1]}`);
+    expect(b.code).toMatch(/^h\d{4,5}-[0-9a-f]{24}$/);
+    expect(JSON.stringify(b)).not.toMatch(/SZ-\d|"id":/);
+    // de code werkt; een code met een andere afhaalcode of een geraden volgnummer niet
+    const kijk = (code: string) => req("/api/strooizout/bestelling/bekijk", { method: "POST", body: JSON.stringify({ code }) });
+    expect((await kijk(b.code)).status).toBe(200);
+    expect((await kijk(`h0000-${b.code.split("-")[1]}`)).status).toBe(404);
+    expect((await kijk(`1-${"0".repeat(24)}`)).status).toBe(404);
     const rij = db.raw.prepare("SELECT * FROM sz_bestelling").get() as J;
     expect(rij.totaal_cent).toBe(2098);
     expect(rij.postcode).toBe("3992 KT");
@@ -265,20 +276,21 @@ describe("webshop", () => {
     expect((await bestel({ levering: "bezorgen" })).status).toBe(201);
   });
 
-  it("klantpagina: alleen met de juiste code, afhaaladres pas na bevestiging, annuleren kan", async () => {
+  it("klantpagina: alleen met de juiste code; het afhaaladres staat er direct, de instructie pas na bevestiging; annuleren kan", async () => {
     await startRonde();
-    await beheer("/instellingen", { method: "PUT", body: JSON.stringify({ afhaal_adres: "Geheimstraat 1, Houten" }) });
+    await beheer("/instellingen", { method: "PUT", body: JSON.stringify({ afhaal_adres: "Voorbeeldstraat 1, Houten", afhaal_instructie: "Bel aan bij de zijdeur." }) });
+    expect((await jsonVan(req("/api/strooizout/winkel"))).instellingen.afhaal_adres).toBe("Voorbeeldstraat 1, Houten");
     const { bestelling } = await jsonVan(bestel());
     const kijk = (code: string) => req("/api/strooizout/bestelling/bekijk", { method: "POST", body: JSON.stringify({ code }) });
     expect((await kijk("1-000000000000000000000000")).status).toBe(404);
     const eerst = await jsonVan(kijk(bestelling.code));
-    expect(eerst.bestelling.afhaal_adres).toBe("");
-    expect(JSON.stringify(eerst)).not.toContain("Geheimstraat");
+    expect(eerst.bestelling.afhaal_adres).toBe("Voorbeeldstraat 1, Houten");
+    expect(JSON.stringify(eerst)).not.toContain("zijdeur");
     await beheer("/bestellingen/1/status", { method: "POST", body: JSON.stringify({ status: "bevestigd" }) });
-    expect((await jsonVan(kijk(bestelling.code))).bestelling.afhaal_adres).toBe("Geheimstraat 1, Houten");
+    expect((await jsonVan(kijk(bestelling.code))).bestelling).toMatchObject({ afhaal_adres: "Voorbeeldstraat 1, Houten", afhaal_instructie: "Bel aan bij de zijdeur." });
     const weg = await jsonVan(req("/api/strooizout/bestelling/annuleer", { method: "POST", body: JSON.stringify({ code: bestelling.code }) }));
     expect(weg.bestelling.status).toBe("geannuleerd");
-    expect(weg.bestelling.afhaal_adres).toBe("");
+    expect(weg.bestelling.afhaal_instructie).toBe("");
   });
 
   it("schrijft geen persoonsgegevens naar de logs", async () => {
@@ -366,7 +378,7 @@ describe("beheer", () => {
     const zoek = await jsonVan(beheer("/bestellingen?zoek=sz-0002"));
     expect(zoek.bestellingen).toHaveLength(1);
     const detail = await jsonVan(beheer("/bestellingen/2"));
-    expect(detail.bestelling.klant_link).toMatch(/\/strooizout\/bestelling#2-[0-9a-f]{24}$/);
+    expect(detail.bestelling.klant_link).toMatch(/\/strooizout\/bestelling#h\d{4,5}-[0-9a-f]{24}$/);
     expect(detail.betalingen).toHaveLength(1);
     expect(detail.log.map((l: J) => l.actie)).toContain("betaling");
   });
@@ -1157,6 +1169,24 @@ describe("strooizout per 10 kg: eigen emmer en met emmer (23-11-2026)", () => {
     expect(met.tekst).toContain("Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af.");
     expect(met.html).toContain("Neem een schone, droge en stevige emmer mee.");
     expect(bevestigingsmail(basis, new URL("https://strooizouthouten.nl/"), "anna@example.com").tekst).not.toContain("emmer mee");
+  });
+
+  it("bevestigingsmail noemt duidelijk waar je afhaalt en dat je even appt of belt (uit de instellingen)", () => {
+    const basis = { nummer: "SZ-0001", afhaalcode: "H-1234", code: "c".repeat(24), voornaam: "Anna", levering: "ophalen" as const, adres: "", betaalwijze: "tikkie", regels: [{ naam: "Strooizout 25 kg", aantal: 2, stukprijs_cent: 949 }], korting_cent: 200, bezorg_cent: 0, totaal_cent: 1898 };
+    const site = new URL("https://strooizouthouten.nl/");
+    const mail = bevestigingsmail(basis, site, "anna@example.com", "", { adres: "Voorbeeldstraat 1, Houten", telefoon: "06 00 00 00 00" });
+    expect(mail.tekst).toContain("Afhalen: Voorbeeldstraat 1, Houten\nApp of bel even om af te spreken wanneer je langskomt: 06 00 00 00 00.\nNeem je afhaalcode mee.");
+    expect(mail.tekst).not.toContain("Het adres en de afhaalmomenten staan op je bestelpagina");
+    expect(mail.html).toContain("<strong>Afhalen: Voorbeeldstraat 1, Houten</strong>");
+    expect(mail.html).toContain("App of bel even om af te spreken wanneer je langskomt: 06 00 00 00 00.");
+    // zonder telefoonnummer: wel het adres, geen lege regel over bellen
+    expect(bevestigingsmail(basis, site, "anna@example.com", "", { adres: "Voorbeeldstraat 1, Houten" }).tekst).toContain("Afhalen: Voorbeeldstraat 1, Houten\nNeem je afhaalcode mee.");
+    // zonder adres in de instellingen: de oude verwijzing naar de bestelpagina
+    expect(bevestigingsmail(basis, site, "anna@example.com").tekst).toContain("Het adres en de afhaalmomenten staan op je bestelpagina");
+    // bezorgen: geen afhaaladres, wel het nummer voor vragen
+    const bezorgd = bevestigingsmail({ ...basis, levering: "bezorgen" as const, adres: "Testlaan 12a, 3992 KT Houten" }, site, "anna@example.com", "", { adres: "Voorbeeldstraat 1, Houten", telefoon: "06 00 00 00 00" });
+    expect(bezorgd.tekst).not.toContain("Afhalen: Voorbeeldstraat");
+    expect(bezorgd.tekst).toContain("Vragen over de bezorging? App of bel 06 00 00 00 00.");
   });
 
   it("beheer: alleen afhalen en de klantmelding zijn per product in te stellen; los zout is te corrigeren", async () => {

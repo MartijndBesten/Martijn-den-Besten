@@ -1,5 +1,6 @@
 // Privacyverklaring en voorwaarden. De voorwaarden zelf zijn in het beheer aan te passen (Instellingen).
 
+import { whatsappLink } from "../../shared/strooizout";
 import { useWinkel } from "./winkeldata";
 import { Link } from "./router";
 
@@ -15,7 +16,20 @@ function Contact() {
           {" "}(<a href={`mailto:${c.contact_email}`}>{c.contact_email}</a>)
         </>
       )}
-      {c.contact_telefoon && <> of telefonisch via {c.contact_telefoon}</>}
+      {c.contact_telefoon && (
+        <>
+          {" "}of telefonisch via <a href={`tel:${c.contact_telefoon.replace(/[^+\d]/g, "")}`}>{c.contact_telefoon}</a>
+          {whatsappLink(c.contact_telefoon) && (
+            <>
+              {" (ook via "}
+              <a href={whatsappLink(c.contact_telefoon)!} target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
+              {")"}
+            </>
+          )}
+        </>
+      )}
     </>
   );
 }

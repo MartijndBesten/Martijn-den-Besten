@@ -13,7 +13,7 @@ export type Instellingen = {
   afhalen_aan: boolean;
   /** Publiek: alleen globaal (wijk, plaats). */
   afhaal_plek: string;
-  /** Privé: volledig adres, pas zichtbaar voor de klant na bevestiging. */
+  /** Volledig afhaaladres. Openbaar (besluit Martijn 23-11-2026): staat bij het bestellen, op de bestelpagina en in de mail. */
   afhaal_adres: string;
   afhaal_instructie: string;
   bezorgen_aan: boolean;
@@ -492,6 +492,15 @@ export function normaliseerMobiel(v: string): string | null {
   return m ? `06${m[1]}` : null;
 }
 
+/**
+ * WhatsApp-link voor een Nederlands mobiel nummer (06… → wa.me/316…), eventueel met een vooringevulde tekst.
+ * null als het geen mobiel nummer is (dan blijft alleen bellen over).
+ */
+export function whatsappLink(telefoon: string, tekst = ""): string | null {
+  const nr = normaliseerMobiel(telefoon);
+  return nr ? `https://wa.me/31${nr.slice(1)}${tekst ? `?text=${encodeURIComponent(tekst)}` : ""}` : null;
+}
+
 /** 0612345678 → "06 1234 5678". */
 export function mobielTekst(nr: string): string {
   return /^06\d{8}$/.test(nr) ? `${nr.slice(0, 2)} ${nr.slice(2, 6)} ${nr.slice(6)}` : nr;
@@ -613,6 +622,7 @@ export type Winkel = {
     Instellingen,
     | "afhalen_aan"
     | "afhaal_plek"
+    | "afhaal_adres"
     | "bezorgen_aan"
     | "bezorg_postcodes"
     | "bezorg_methode"
