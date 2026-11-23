@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 940" width="940" height="940">
+  <defs>
+    <radialGradient id="bg" cx="70%" cy="20%" r="95%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.45" stop-color="#eaf3fa"/>
+      <stop offset="1" stop-color="#c9dfef"/>
+    </radialGradient>
+    <radialGradient id="schaduw" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#0f2c4c" stop-opacity="0.34"/>
+      <stop offset="0.6" stop-color="#0f2c4c" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#0f2c4c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d3dde7"/>
+      <stop offset="0.15" stop-color="#f3f6f9"/>
+      <stop offset="0.5" stop-color="#ffffff"/>
+      <stop offset="0.82" stop-color="#eaf0f5"/>
+      <stop offset="1" stop-color="#bfcdda"/>
+    </linearGradient>
+    <linearGradient id="deksel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dfe7ee"/>
+      <stop offset="0.5" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#cbd8e3"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#143a66"/>
+      <stop offset="1" stop-color="#0b2340"/>
+    </linearGradient>
+  </defs>
+  <rect width="940" height="940" fill="url(#bg)"/>
+  <g fill="#ffffff" opacity="0.85">
+    <circle cx="150" cy="170" r="5"/><circle cx="790" cy="140" r="4"/><circle cx="820" cy="330" r="6"/><circle cx="120" cy="420" r="4"/><circle cx="760" cy="560" r="5"/>
+  </g>
+  <ellipse cx="470" cy="790" rx="290" ry="40" fill="url(#schaduw)"/>
+  <!-- je eigen emmer: open, met het afgewogen zout en een schepje -->
+  <path d="M252 356 C 252 150 688 150 688 356" fill="none" stroke="#7fa9cc" stroke-width="16" stroke-linecap="round"/>
+  <path d="M610 150 L 548 350" stroke="#0b2340" stroke-width="26" stroke-linecap="round"/>
+  <path d="M610 150 L 548 350" stroke="#ffb547" stroke-width="14" stroke-linecap="round"/>
+  <path d="M236 356 L 704 356 L 660 780 Q 470 800 280 780 Z" fill="#8fc4ea"/>
+  <path d="M236 356 L 330 356 L 352 790 Q 310 786 280 780 Z" fill="#0b2340" opacity="0.14"/>
+  <path d="M704 356 L 610 356 L 590 790 Q 632 786 660 780 Z" fill="#0b2340" opacity="0.16"/>
+  <ellipse cx="470" cy="356" rx="234" ry="40" fill="#6aa7d4"/>
+  <path d="M262 356 C 330 262 410 262 470 290 C 530 254 612 266 678 356 Q 470 408 262 356 Z" fill="#ffffff"/>
+  <path d="M262 356 C 330 262 410 262 470 290 C 530 254 612 266 678 356 Q 470 408 262 356 Z" fill="url(#deksel)" opacity="0.7"/>
+  <g fill="#ffffff"><circle cx="356" cy="300" r="6"/><circle cx="566" cy="296" r="5"/><circle cx="462" cy="270" r="4"/></g>
+  <circle cx="446" cy="304" r="5.5" fill="#ffb547"/>
+  <circle cx="590" cy="322" r="4.5" fill="#ffb547"/>
+  <path d="M234 356 Q 470 408 706 356" fill="none" stroke="#cfe6f6" stroke-width="12" stroke-linecap="round"/>
+  <rect x="366" y="540" width="208" height="84" rx="42" fill="#ffffff"/>
+  <text x="470" y="600" text-anchor="middle" font-family="Geist, Arial, sans-serif" font-weight="800" font-size="54" fill="#0b2340">10 kg</text>
+  <path d="M296 420 L 316 760" stroke="#ffffff" stroke-width="14" stroke-linecap="round" opacity="0.4"/>
+</svg>

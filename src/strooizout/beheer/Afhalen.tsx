@@ -17,6 +17,8 @@ type Uitgifte = {
   uitgegeven_op: string | null;
   geannuleerd: boolean;
   zakken: number;
+  stuks?: number;
+  meldingen?: string[];
   regels: { naam: string; aantal: number }[];
   totaal_cent: number;
   betaald_cent: number;
@@ -68,6 +70,8 @@ export default function Afhalen() {
   }
 
   const betaald = b && (b.betaalstatus === "betaald" || b.open_cent === 0);
+  // Zit er iets anders dan zakken in (emmers, zout dat wordt afgewogen), dan tellen we stuks in plaats van zakken.
+  const gemengd = !!b && b.stuks !== undefined && b.stuks !== b.zakken;
   return (
     <>
       <h1>Afhalen</h1>
@@ -97,8 +101,8 @@ export default function Afhalen() {
           </div>
           <div className="bh-uitgifte__cijfers">
             <div>
-              <span>Zakken</span>
-              <strong>{b.zakken}</strong>
+              <span>{gemengd ? "Stuks" : "Zakken"}</span>
+              <strong>{gemengd ? b.stuks : b.zakken}</strong>
             </div>
             <div>
               <span>Betaling</span>
@@ -112,6 +116,11 @@ export default function Afhalen() {
             </div>
           </div>
           <p style={{ margin: "0 0 6px" }}>{b.regels.map((r) => `${r.aantal}× ${r.naam}`).join(", ")}</p>
+          {(b.meldingen ?? []).map((m) => (
+            <p className="bh-sub" key={m} style={{ margin: "0 0 6px", fontWeight: 600 }}>
+              Voor de klant: {m}
+            </p>
+          ))}
           {b.moment && (
             <p className="bh-sub" style={{ margin: "0 0 6px" }}>
               {dagTekst(b.moment.datum)} {b.moment.van}–{b.moment.tot}
@@ -125,7 +134,7 @@ export default function Afhalen() {
             <p className="bh-uitgifte__melding">Deze bestelling is geannuleerd.</p>
           ) : betaald ? (
             <button type="button" className="sz-knop sz-knop--vol" disabled={bezig} onClick={() => void geefUit(false)}>
-              {b.levering === "bezorgen" ? "Bezorgd" : "Uitgeven"} · {b.zakken} {b.zakken === 1 ? "zak" : "zakken"}
+              {b.levering === "bezorgen" ? "Bezorgd" : "Uitgeven"} · {gemengd ? `${b.stuks} ${b.stuks === 1 ? "stuk" : "stuks"}` : `${b.zakken} ${b.zakken === 1 ? "zak" : "zakken"}`}
             </button>
           ) : (
             <div className="bh-uitgifte__betalen">

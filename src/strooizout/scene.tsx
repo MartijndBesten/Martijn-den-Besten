@@ -107,6 +107,45 @@ function ZakSymbool() {
         </text>
         <path d="M62 52 Q 160 62 258 52" fill="none" stroke="#8ea4b8" strokeWidth="2.4" strokeDasharray="7 5" opacity="0.85" />
       </symbol>
+      {/* Emmer met deksel en 10 kg (zelfde maatvoering als de zak, zodat de stapel gelijk blijft) */}
+      <symbol id="wn-emmer" viewBox="0 0 320 420">
+        <path d="M66 190 C 66 70, 254 70, 254 190" fill="none" stroke="#b9c8d6" strokeWidth="9" strokeLinecap="round" />
+        <path d="M66 190 C 66 76, 254 76, 254 190" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" opacity="0.8" />
+        <path d="M50 188 L 270 188 L 248 386 Q 160 398 72 386 Z" fill="url(#wn-zk-h)" stroke="#a9bacb" strokeWidth="2" />
+        <path d="M58 226 Q 160 238 262 226" fill="none" stroke="#b9c8d6" strokeWidth="2.4" />
+        <rect x="40" y="170" width="240" height="30" rx="9" fill="url(#wn-zk-naad)" stroke="#a9bacb" strokeWidth="2" />
+        <rect x="50" y="175" width="220" height="6" rx="3" fill="#ffffff" opacity="0.9" />
+        <path d="M64 254 L 256 254 L 248 344 Q 160 354 72 344 Z" fill="url(#wn-zk-etiket)" />
+        <path d="M65 263 Q 160 271 255 263" fill="none" stroke="#ffb547" strokeWidth="3" />
+        <text x="160" y="303" textAnchor="middle" fontFamily="Geist, Arial, sans-serif" fontWeight="800" fontSize="24" letterSpacing="3" fill="#ffffff">
+          STROOIZOUT
+        </text>
+        <rect x="122" y="313" width="76" height="26" rx="13" fill="#ffffff" />
+        <text x="160" y="332" textAnchor="middle" fontFamily="Geist, Arial, sans-serif" fontWeight="800" fontSize="18" fill="#0b2340">
+          10 kg
+        </text>
+        <path d="M78 214 L 90 372" stroke="#ffffff" strokeWidth="9" strokeLinecap="round" opacity="0.5" />
+      </symbol>
+      {/* Je eigen emmer: open, met het afgewogen zout en een schepje erin */}
+      <symbol id="wn-emmer-open" viewBox="0 0 320 420">
+        <path d="M60 196 C 60 86, 260 86, 260 196" fill="none" stroke="#7fa9cc" strokeWidth="9" strokeLinecap="round" />
+        <path d="M222 92 L 196 190" stroke="#0b2340" strokeWidth="13" strokeLinecap="round" />
+        <path d="M222 92 L 196 190" stroke="#ffb547" strokeWidth="7" strokeLinecap="round" />
+        <path d="M50 196 L 270 196 L 248 386 Q 160 398 72 386 Z" fill="#8fc4ea" />
+        <path d="M50 196 L 270 196 L 248 386 Q 160 398 72 386 Z" fill="url(#wn-zk-etiket-h)" opacity="0.5" />
+        <ellipse cx="160" cy="196" rx="112" ry="20" fill="#6aa7d4" />
+        <path d="M62 196 C 96 150, 132 150, 160 164 C 188 146, 226 152, 258 196 Q 160 222 62 196 Z" fill="url(#wn-hoop)" />
+        <g fill="#ffffff">
+          <circle cx="108" cy="168" r="3" />
+          <circle cx="206" cy="166" r="2.6" />
+        </g>
+        <circle cx="150" cy="170" r="2.6" fill="#ffb547" />
+        <path d="M48 196 Q 160 222 272 196" fill="none" stroke="#cfe6f6" strokeWidth="6" strokeLinecap="round" />
+        <text x="160" y="318" textAnchor="middle" fontFamily="Geist, Arial, sans-serif" fontWeight="800" fontSize="34" letterSpacing="-0.5" fill="#0b2340">
+          10 kg
+        </text>
+        <path d="M80 226 L 92 372" stroke="#ffffff" strokeWidth="9" strokeLinecap="round" opacity="0.35" />
+      </symbol>
     </defs>
   );
 }
@@ -136,12 +175,15 @@ const KORRELS: [number, number, number, 1 | 2 | 3, number, boolean][] = [
   [246, 14, 1.6, 1, 0.8, false],
 ];
 
-export function Scene({ aantal, className = "" }: { aantal: number; className?: string }) {
+/** Wat er in beeld staat: de zak van 25 kg, de emmer met deksel of je eigen (open) emmer. */
+export type SceneSoort = "zak" | "emmer" | "emmer-open";
+
+export function Scene({ aantal, soort = "zak", className = "" }: { aantal: number; soort?: SceneSoort; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   useKantel(ref);
   const zichtbaar = Math.max(1, Math.min(4, aantal));
   return (
-    <div ref={ref} className={`wn-scene ${className}`} data-aantal={zichtbaar} aria-hidden="true">
+    <div ref={ref} className={`wn-scene ${className}`} data-aantal={zichtbaar} data-soort={soort} aria-hidden="true">
       <div className="wn-scene__gloed" />
       <svg className="wn-scene__svg" viewBox="0 0 600 560" focusable="false">
         <ZakSymbool />
@@ -162,7 +204,7 @@ export function Scene({ aantal, className = "" }: { aantal: number; className?: 
             <g key={z.n} transform={`translate(${z.x} ${z.y}) rotate(${z.r} ${160 * z.s} ${400 * z.s}) scale(${z.s})`}>
               <g className={`wn-zak wn-zak--${z.n}`} data-aan={zichtbaar >= z.n}>
                 <ellipse cx="160" cy="396" rx="176" ry="30" fill="url(#wn-schaduw)" />
-                <use href="#wn-zak" width="320" height="420" />
+                <use href={soort === "zak" ? "#wn-zak" : `#wn-${soort}`} width="320" height="420" />
               </g>
             </g>
           ))}

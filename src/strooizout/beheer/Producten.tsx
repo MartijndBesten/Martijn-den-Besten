@@ -9,6 +9,8 @@ type Lijst = { producten: BeheerProduct[]; categorieen: { id: number; slug: stri
 
 const INGEBOUWD = [
   { url: "/strooizout/beeld/strooizout-25kg.webp", naam: "Strooizout" },
+  { url: "/strooizout/beeld/strooizout-10kg-met-emmer.webp", naam: "Emmer 10 kg" },
+  { url: "/strooizout/beeld/strooizout-10kg-eigen-emmer.webp", naam: "Eigen emmer" },
   { url: "/strooizout/beeld/sneeuwschep.webp", naam: "Sneeuwschep" },
 ];
 
@@ -43,6 +45,8 @@ function leegFormulier(): Formulier {
     afbeelding_alt: "",
     notitie: "",
     volgorde: 0,
+    alleen_afhalen: 0,
+    klant_melding: "",
     onderdelen: [],
     aanbiedingen: [],
   };
@@ -145,6 +149,8 @@ function Editor({ product, lijst, sluit, opgeslagen }: { product: BeheerProduct 
       afbeelding_alt: f.afbeelding_alt,
       notitie: f.notitie,
       volgorde: f.volgorde,
+      alleen_afhalen: f.alleen_afhalen ? 1 : 0,
+      klant_melding: f.klant_melding,
       onderdelen: f.onderdelen,
       aanbiedingen,
     };
@@ -364,6 +370,18 @@ function Editor({ product, lijst, sluit, opgeslagen }: { product: BeheerProduct 
             </fieldset>
 
             <div className="bh-veld">
+              <label className="bh-schakel">
+                <input type="checkbox" checked={!!f.alleen_afhalen} onChange={(e) => zet("alleen_afhalen", e.target.checked ? 1 : 0)} /> Alleen afhalen (niet bezorgen)
+              </label>
+              <small>Bijvoorbeeld voor zout dat bij het afhalen in de emmer van de klant wordt afgewogen.</small>
+            </div>
+            <div className="bh-veld">
+              <label htmlFor="pe-melding">Melding voor de klant bij dit product</label>
+              <input id="pe-melding" className="sz-invoer" value={f.klant_melding} maxLength={200} onChange={(e) => zet("klant_melding", e.target.value)} placeholder="Bijvoorbeeld: neem een schone, droge emmer mee." />
+              <small>Staat bij het bestellen, op de bestelpagina van de klant en in de bevestigingsmail.</small>
+            </div>
+
+            <div className="bh-veld">
               <label htmlFor="pe-notitie">Interne notitie (leverancier, bevestigingen)</label>
               <textarea id="pe-notitie" className="sz-invoer" value={f.notitie} maxLength={1000} onChange={(e) => zet("notitie", e.target.value)} />
             </div>
@@ -408,6 +426,8 @@ export default function Producten() {
   }, [laad]);
 
   async function snelStatus(p: BeheerProduct, status: BeheerProduct["status"]) {
+    // Activeren gebeurt nooit vanzelf: staat er een interne notitie met een voorwaarde, dan eerst die bevestigen.
+    if (status === "actief" && p.notitie && !window.confirm(`Let op:\n${p.notitie}\n\nIs dit geregeld en mag ${p.naam} nu te bestellen zijn?`)) return;
     const r = await api(`/producten/${p.id}/status`, { method: "PUT", body: JSON.stringify({ status }) });
     if (!r.ok) return meld(r.error, true);
     meld(status === "actief" ? "Product staat in de webshop" : "Product is uit de webshop gehaald");

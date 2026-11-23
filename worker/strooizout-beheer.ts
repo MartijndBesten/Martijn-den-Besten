@@ -544,12 +544,12 @@ async function zoekOpAfhaalcode(env: SzEnv, ruw: string) {
 async function afhaalWeergave(env: SzEnv, b: BestellingVol) {
   const [regels, moment] = await Promise.all([
     env.DB.prepare(
-      `SELECT r.naam, r.aantal, p.eenheid,
+      `SELECT r.naam, r.aantal, p.eenheid, COALESCE(p.klant_melding, '') AS melding,
               (SELECT COALESCE(SUM(o.aantal), 0) FROM sz_pakket_onderdeel o JOIN sz_product d ON d.id = o.product_id WHERE o.pakket_id = r.product_id AND d.eenheid = 'zak') AS zakken_per_stuk
        FROM sz_bestelregel r LEFT JOIN sz_product p ON p.id = r.product_id WHERE r.bestelling_id = ?1 ORDER BY r.id`,
     )
       .bind(b.id)
-      .all<{ naam: string; aantal: number; eenheid: string | null; zakken_per_stuk: number }>(),
+      .all<{ naam: string; aantal: number; eenheid: string | null; melding: string; zakken_per_stuk: number }>(),
     b.moment_id ? env.DB.prepare("SELECT datum, van, tot FROM sz_moment WHERE id = ?1").bind(b.moment_id).first() : Promise.resolve(null),
   ]);
   const zakken = regels.results.reduce((s, r) => s + (r.eenheid === "zak" ? r.aantal : r.aantal * r.zakken_per_stuk), 0);
@@ -565,6 +565,10 @@ async function afhaalWeergave(env: SzEnv, b: BestellingVol) {
     uitgegeven_op: b.status === "afgehaald" || b.status === "bezorgd" ? b.afgerond_op : null,
     geannuleerd: b.status === "geannuleerd",
     zakken,
+    // alles wat mee moet, ook wat geen zak is (emmers, zout dat wordt afgewogen)
+    stuks: regels.results.reduce((s, r) => s + r.aantal, 0),
+    // wat er bij het uitgeven bij hoort, bijvoorbeeld: 10 kg afwegen in de emmer van de klant
+    meldingen: [...new Set(regels.results.map((r) => r.melding).filter(Boolean))],
     regels: regels.results.map((r) => ({ naam: r.naam, aantal: r.aantal })),
     totaal_cent: b.totaal_cent,
     betaald_cent: b.betaald_cent,
@@ -698,55 +702,95 @@ async function voorraadOverzicht(env: SzEnv) {
   return results.map((r) => ({ ...r, in_magazijn: r.ontvangen - r.uitgegeven, nog_uit_te_geven: r.gereserveerd - r.uitgegeven }));
 }
 
+/** Los zout: wat er van aangebroken zakken over is, in grammen. `laatste` is het kenmerk van de laatste afvulbeurt. */
+async function losZout(db: D1Database): Promise<{ gram: number; laatste: string }> {
+  return (await db.prepare("SELECT gram, laatste FROM sz_los_zout WHERE id = 1").first<{ gram: number; laatste: string }>()) ?? { gram: 0, laatste: "" };
+}
+
 /**
- * Emmers afvullen uit zakken: de gebruikte zakken gaan van de zakvoorraad af (ontvangen, verwacht én te reserveren),
- * de gevulde emmers komen erbij als ontvangen voorraad. Alleen uit zakken die er liggen én niet gereserveerd zijn.
+ * Afvullen uit zakken: emmers vullen, of zout klaarzetten dat bij het afhalen wordt afgewogen. De geopende zakken gaan
+ * van de zakvoorraad af (ontvangen, verwacht én te bestellen); wat gevuld of klaargezet is komt erbij als ontvangen
+ * voorraad van het product van 10 kg. Wat overblijft is los zout en telt mee bij de volgende keer (één zak van 25 kg:
+ * twee keer 10 kg en 5 kg rest). Alleen uit zakken die er liggen én niet besteld zijn, en nooit meer zakken open dan nodig.
  */
 async function afvullen(request: Request, env: SzEnv): Promise<Response> {
   const body = await leesJson(request);
   if (body instanceof Response) return body;
   const emmers = geheel(body.emmers, 1, 1000);
-  const zakken = geheel(body.zakken, 1, 100);
+  const zakken = geheel(body.zakken ?? 0, 0, 100);
   const emmerId = geheel(body.emmer_id, 1, 1e9);
   const zakId = geheel(body.zak_id, 1, 1e9);
-  if (emmers === null || zakken === null || emmerId === null || zakId === null || emmerId === zakId) return fout("Vul het aantal emmers en gebruikte zakken in.", 422);
+  if (emmers === null || zakken === null || emmerId === null || zakId === null || emmerId === zakId) return fout("Vul in hoeveel je afvult en hoeveel zakken je daarvoor opent.", 422);
   const db = env.DB;
   const [emmer, zak] = await Promise.all(
-    [emmerId, zakId].map((id) => db.prepare("SELECT id, naam, gewicht_gram, voorraad FROM sz_product WHERE id = ?1 AND status != 'verwijderd'").bind(id).first<{ id: number; naam: string; gewicht_gram: number; voorraad: number | null }>()),
+    [emmerId, zakId].map((id) => db.prepare("SELECT id, naam, gewicht_gram, voorraad, eenheid FROM sz_product WHERE id = ?1 AND status != 'verwijderd'").bind(id).first<{ id: number; naam: string; gewicht_gram: number; voorraad: number | null; eenheid: string }>()),
   );
   if (!emmer || !zak) return fout("Product niet gevonden.", 404);
   if (!emmer.gewicht_gram || !zak.gewicht_gram) return fout("Vul eerst het gewicht van beide producten in (Producten).", 422);
+  if (zak.eenheid !== "zak" || emmer.eenheid === "zak") return fout("Afvullen gaat van zakken naar een product dat uit zakken wordt gevuld.", 422);
+  const los = await losZout(db);
   const nodig = emmers * emmer.gewicht_gram;
   const gebruikt = zakken * zak.gewicht_gram;
-  if (nodig > gebruikt) return fout(`${emmers} emmers vragen ${nodig / 1000} kg; ${zakken} ${zakken === 1 ? "zak is" : "zakken zijn"} ${gebruikt / 1000} kg.`, 422);
+  if (nodig > gebruikt + los.gram) {
+    return fout(`${emmers} × ${emmer.gewicht_gram / 1000} kg is ${nodig / 1000} kg. ${zakken} ${zakken === 1 ? "zak" : "zakken"}${los.gram ? ` en ${los.gram / 1000} kg los zout` : ""} is ${(gebruikt + los.gram) / 1000} kg.`, 422);
+  }
+  if (zakken > 0 && nodig <= gebruikt - zak.gewicht_gram + los.gram) {
+    return fout(`Daarvoor ${zakken - 1 === 1 ? "is 1 zak" : `zijn ${zakken - 1} zakken`} genoeg${los.gram ? ` (er ligt nog ${los.gram / 1000} kg los zout)` : ""}. Open niet meer zakken dan nodig.`, 422);
+  }
   const z = (await voorraadOverzicht(env)).find((r) => r.id === zakId)!;
   if (z.in_magazijn < zakken) return fout(`Er liggen ${z.in_magazijn} zakken in voorraad; afvullen kan alleen uit ontvangen zakken.`, 409);
-  if (z.beschikbaar !== null && z.beschikbaar < zakken) return fout(`Nog ${z.beschikbaar} zakken zijn niet gereserveerd. Gereserveerde zakken kunnen niet worden afgevuld.`, 409);
-  const rest = gebruikt - nodig;
+  if (z.beschikbaar !== null && z.beschikbaar < zakken) return fout(`Nog ${z.beschikbaar} zakken zijn niet besteld. Bestelde zakken kunnen niet worden afgevuld.`, 409);
+  const rest = gebruikt + los.gram - nodig;
+  const kenmerk = crypto.randomUUID();
+  const nu = nuIso();
   try {
+    // Eén transactie. De eerste stap legt het nieuwe losse zout vast, alleen als zakken en los zout nog zijn zoals net
+    // gelezen; de stappen daarna gaan alleen door als die eerste stap van déze beurt is gelukt (zelfde kenmerk).
     const res = await db.batch([
       db
         .prepare(
-          `UPDATE sz_product SET voorraad_ontvangen = voorraad_ontvangen - ?2, voorraad_verwacht = CASE WHEN voorraad_verwacht IS NULL THEN NULL ELSE voorraad_verwacht - ?2 END,
-             voorraad = CASE WHEN voorraad IS NULL THEN NULL ELSE voorraad - ?2 END, gewijzigd = ?4 WHERE id = ?1 AND voorraad_ontvangen = ?3`,
+          `UPDATE sz_los_zout SET gram = ?1, laatste = ?2
+           WHERE id = 1 AND gram = ?3 AND laatste = ?4
+             AND (?5 = 0 OR (SELECT voorraad_ontvangen FROM sz_product WHERE id = ?6) = ?7)
+             AND (?5 = 0 OR (SELECT voorraad IS NULL OR voorraad >= ?5 FROM sz_product WHERE id = ?6))`,
         )
-        .bind(zakId, zakken, z.ontvangen, nuIso()),
+        .bind(rest, kenmerk, los.gram, los.laatste, zakken, zakId, z.ontvangen),
+      db
+        .prepare(
+          `UPDATE sz_product SET voorraad_ontvangen = voorraad_ontvangen - ?2, voorraad_verwacht = CASE WHEN voorraad_verwacht IS NULL THEN NULL ELSE voorraad_verwacht - ?2 END,
+             voorraad = CASE WHEN voorraad IS NULL THEN NULL ELSE voorraad - ?2 END, gewijzigd = ?3
+           WHERE id = ?1 AND ?2 > 0 AND (SELECT laatste FROM sz_los_zout WHERE id = 1) = ?4`,
+        )
+        .bind(zakId, zakken, nu, kenmerk),
       db
         .prepare(
           `UPDATE sz_product SET voorraad_ontvangen = voorraad_ontvangen + ?2, voorraad_verwacht = COALESCE(voorraad_verwacht, 0) + ?2,
              voorraad = COALESCE(voorraad, 0) + ?2, gewijzigd = ?3
-           WHERE id = ?1 AND (SELECT voorraad_ontvangen FROM sz_product WHERE id = ?4) = ?5`,
+           WHERE id = ?1 AND (SELECT laatste FROM sz_los_zout WHERE id = 1) = ?4`,
         )
-        // Alleen als de zakken hierboven echt zijn afgeboekt (zelfde transactie).
-        .bind(emmerId, emmers, nuIso(), zakId, z.ontvangen - zakken),
-      logStmt(db, null, "afgevuld", `${emmers} × #${emmerId} uit ${zakken} × #${zakId}${rest ? `, rest ${rest / 1000} kg los` : ""}`),
+        .bind(emmerId, emmers, nu, kenmerk),
+      logStmt(db, null, "afgevuld", `${emmers} × #${emmerId} uit ${zakken} × #${zakId}; los zout ${los.gram / 1000} → ${rest / 1000} kg`),
     ]);
     if ((res[0]?.meta?.changes ?? 0) !== 1) return fout("De voorraad is intussen gewijzigd. Vernieuw en probeer opnieuw.", 409);
   } catch (e) {
     if (/CHECK/i.test(String((e as Error)?.message))) return fout("Niet genoeg voorraad om af te vullen.", 409);
     throw e;
   }
-  return json({ ok: true, rest_gram: rest, voorraad: await voorraadOverzicht(env) });
+  return json({ ok: true, rest_gram: rest, los_gram: rest, voorraad: await voorraadOverzicht(env) });
+}
+
+/** Los zout corrigeren na natellen of wegen (bijvoorbeeld als er gemorst is). Verandert geen productvoorraad. */
+async function losZoutWijzigen(request: Request, env: SzEnv): Promise<Response> {
+  const body = await leesJson(request);
+  if (body instanceof Response) return body;
+  const gram = geheel(body.gram, 0, 2_000_000);
+  if (gram === null) return fout("Vul in hoeveel los zout er ligt (in grammen).", 422);
+  const los = await losZout(env.DB);
+  await env.DB.batch([
+    env.DB.prepare("UPDATE sz_los_zout SET gram = ?1, laatste = ?2 WHERE id = 1").bind(gram, crypto.randomUUID()),
+    logStmt(env.DB, null, "los zout gecorrigeerd", `${los.gram / 1000} → ${gram / 1000} kg`),
+  ]);
+  return json({ ok: true, los_gram: gram });
 }
 
 /**
@@ -935,6 +979,8 @@ type ProductInvoer = {
   afbeelding_alt: string;
   notitie: string;
   volgorde: number;
+  alleen_afhalen: number;
+  klant_melding: string;
   onderdelen: { product_id: number; aantal: number }[];
   aanbiedingen: { naam: string; vanaf_aantal: number; prijs_cent: number; start: string | null; eind: string | null; actief: boolean }[];
 };
@@ -951,7 +997,8 @@ async function controleerProduct(db: D1Database, body: Record<string, unknown>, 
   const eenheid = tekst(body.eenheid ?? "stuk", 20);
   const alt = tekst(body.afbeelding_alt ?? "", 160);
   const notitie = tekst(body.notitie ?? "", 1000);
-  if (kort === null || beschrijving === null || !eenheid || alt === null || notitie === null) return { ok: false, fout: "Een van de teksten is te lang." };
+  const melding = tekst(body.klant_melding ?? "", 200);
+  if (kort === null || beschrijving === null || !eenheid || alt === null || notitie === null || melding === null) return { ok: false, fout: "Een van de teksten is te lang." };
   const prijs = centOfNull(body.prijs_cent);
   const inkoop = centOfNull(body.inkoop_cent);
   const bezorg = centOfNull(body.bezorg_cent, 10_000);
@@ -1041,6 +1088,8 @@ async function controleerProduct(db: D1Database, body: Record<string, unknown>, 
       afbeelding_alt: alt,
       notitie,
       volgorde,
+      alleen_afhalen: body.alleen_afhalen === true || body.alleen_afhalen === 1 ? 1 : 0,
+      klant_melding: melding,
       onderdelen,
       aanbiedingen,
     },
@@ -1069,10 +1118,10 @@ async function nieuwProduct(request: Request, env: SzEnv): Promise<Response> {
   const nu = nuIso();
   const rij = await env.DB.prepare(
     `INSERT INTO sz_product (slug, naam, categorie_id, status, kort, beschrijving, specificaties, prijs_cent, inkoop_cent, bezorg_cent, gewicht_gram, eenheid, voorraad,
-       max_per_bestelling, afbeelding, afbeelding_alt, notitie, volgorde, aangemaakt, gewijzigd)
-     VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?19) RETURNING id`,
+       max_per_bestelling, afbeelding, afbeelding_alt, notitie, volgorde, aangemaakt, gewijzigd, alleen_afhalen, klant_melding)
+     VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?19, ?20, ?21) RETURNING id`,
   )
-    .bind(slug, p.naam, p.categorie_id, p.status, p.kort, p.beschrijving, p.specificaties, p.prijs_cent, p.inkoop_cent, p.bezorg_cent, p.gewicht_gram, p.eenheid, p.voorraad, p.max_per_bestelling, p.afbeelding, p.afbeelding_alt, p.notitie, p.volgorde, nu)
+    .bind(slug, p.naam, p.categorie_id, p.status, p.kort, p.beschrijving, p.specificaties, p.prijs_cent, p.inkoop_cent, p.bezorg_cent, p.gewicht_gram, p.eenheid, p.voorraad, p.max_per_bestelling, p.afbeelding, p.afbeelding_alt, p.notitie, p.volgorde, nu, p.alleen_afhalen, p.klant_melding)
     .first<{ id: number }>();
   await env.DB.batch([...bijbehorend(env.DB, rij!.id, p), logStmt(env.DB, null, "product toegevoegd", `#${rij!.id}`)]);
   return json({ ok: true, id: rij!.id }, 201);
@@ -1098,8 +1147,8 @@ async function wijzigProduct(request: Request, env: SzEnv, id: number): Promise<
     env.DB.prepare(
       `UPDATE sz_product SET naam = ?2, categorie_id = ?3, status = ?4, kort = ?5, beschrijving = ?6, specificaties = ?7, prijs_cent = ?8, inkoop_cent = ?9,
          bezorg_cent = ?10, gewicht_gram = ?11, eenheid = ?12, voorraad = CASE WHEN voorraad IS ?20 THEN ?13 ELSE voorraad END, max_per_bestelling = ?14, afbeelding = ?15, afbeelding_alt = ?16, notitie = ?17,
-         volgorde = ?18, gewijzigd = ?19 WHERE id = ?1`,
-    ).bind(id, p.naam, p.categorie_id, p.status, p.kort, p.beschrijving, p.specificaties, p.prijs_cent, p.inkoop_cent, p.bezorg_cent, p.gewicht_gram, p.eenheid, nieuweVoorraad, p.max_per_bestelling, p.afbeelding, p.afbeelding_alt, p.notitie, p.volgorde, nuIso(), bestaat.voorraad),
+         volgorde = ?18, gewijzigd = ?19, alleen_afhalen = COALESCE(?21, alleen_afhalen), klant_melding = COALESCE(?22, klant_melding) WHERE id = ?1`,
+    ).bind(id, p.naam, p.categorie_id, p.status, p.kort, p.beschrijving, p.specificaties, p.prijs_cent, p.inkoop_cent, p.bezorg_cent, p.gewicht_gram, p.eenheid, nieuweVoorraad, p.max_per_bestelling, p.afbeelding, p.afbeelding_alt, p.notitie, p.volgorde, nuIso(), bestaat.voorraad, "alleen_afhalen" in body ? p.alleen_afhalen : null, "klant_melding" in body ? p.klant_melding : null),
     ...bijbehorend(env.DB, id, p),
     logStmt(env.DB, null, "product gewijzigd", `#${id} ${p.status}`),
   ]);
@@ -1568,7 +1617,8 @@ export async function handleBeheer(request: Request, env: SzEnv, ctx: ExecutionC
   if ((n = id(/^\/categorieen\/(\d{1,9})$/)) !== null && method === "PUT") return wijzigCategorie(request, env, n);
   if (pad === "/afbeeldingen" && method === "POST") return uploadAfbeelding(request, env);
   if ((n = id(/^\/afbeeldingen\/(\d{1,9})$/)) !== null && method === "DELETE") return verwijderAfbeelding(env, n);
-  if (pad === "/voorraad" && method === "GET") return json({ ok: true, voorraad: await voorraadOverzicht(env) });
+  if (pad === "/voorraad" && method === "GET") return json({ ok: true, voorraad: await voorraadOverzicht(env), los_gram: (await losZout(env.DB)).gram });
+  if (pad === "/voorraad/los-zout" && method === "POST") return losZoutWijzigen(request, env);
   if (pad === "/bezoek" && method === "GET") {
     const d = Number(new URL(request.url).searchParams.get("dagen") ?? 30);
     return json({ ok: true, ...(await bezoekOverzicht(env, [7, 30, 90].includes(d) ? d : 30)) });

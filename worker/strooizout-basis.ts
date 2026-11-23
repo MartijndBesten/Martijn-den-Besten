@@ -137,6 +137,10 @@ export type ProductRij = {
   afbeelding_alt: string;
   notitie: string;
   volgorde: number;
+  /** 1 = dit product kan alleen worden afgehaald (bijvoorbeeld zout dat ter plekke wordt afgewogen). */
+  alleen_afhalen: number;
+  /** Korte melding voor de klant die dit product bestelt (bestelkaart, bestelpagina, bevestigingsmail). */
+  klant_melding: string;
   aangemaakt: string;
   gewijzigd: string;
 };
@@ -292,6 +296,8 @@ export function publiek(cat: Catalogus, p: ProductRij, standaardBezorg: number, 
     voorraad: beschikbaar(cat, p),
     op_voorraad: opVoorraad(cat, p, magazijn),
     zakken_per_stuk: zakkenPerStuk(cat, p),
+    alleen_afhalen: !!p.alleen_afhalen,
+    melding: p.klant_melding ?? "",
     max_per_bestelling: p.max_per_bestelling,
     afbeelding: p.afbeelding,
     afbeelding_alt: p.afbeelding_alt,

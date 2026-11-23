@@ -38,6 +38,8 @@ export type KlantBestelling = {
   adres: string;
   betaalwijze: "bij_ontvangst" | "tikkie";
   regels: { naam: string; aantal: number; stukprijs_cent: number; normaalprijs_cent: number; aanbieding: string }[];
+  /** Wat de klant voor de bestelde producten moet weten, bijvoorbeeld ‘Neem een emmer mee’. */
+  meldingen?: string[];
   subtotaal_cent: number;
   korting_cent: number;
   bezorg_cent: number;

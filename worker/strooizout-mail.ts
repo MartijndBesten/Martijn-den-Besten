@@ -69,6 +69,7 @@ type BevestigdeBestelling = {
   adres: string;
   betaalwijze: string;
   regels: unknown[];
+  meldingen?: string[];
   korting_cent: number;
   bezorg_cent: number;
   totaal_cent: number;
@@ -84,13 +85,14 @@ export function bevestigingsmail(b: BevestigdeBestelling, site: URL, aan: string
   const verder = b.levering === "bezorgen"
     ? `${tikkie ? "We sturen je een Tikkie op je mobiel. Daarna bezorgen we" : "We bezorgen"} je bestelling${b.adres ? ` op ${b.adres}` : ""}; je hoort van ons wanneer.${tikkie ? "" : " Je betaalt bij het bezorgen met een betaalverzoek."}`
     : `${tikkie ? "We sturen je een Tikkie op je mobiel. Daarna kun je" : "Je kunt"} je bestelling komen ophalen. Het adres en de afhaalmomenten staan op je bestelpagina. Neem je afhaalcode mee.${tikkie ? "" : " Je betaalt bij het afhalen met een betaalverzoek."}`;
+  const neemMee = (b.meldingen ?? []).join(" ");
   const sluit = "Heb je je bestelling toch niet nodig? Annuleren kan kosteloos via je bestelpagina.";
   const aanhef = `Hoi ${b.voornaam}, bedankt voor je bestelling. Dit is je afhaalcode:`;
   return {
     aan,
     antwoordAan,
     onderwerp: `Je bestelling ${b.afhaalcode} bij Strooizout voor de buurt`,
-    tekst: [aanhef, "", b.afhaalcode, "", "Je bestelling:", besteld, "", verder, "", `Je bestelpagina: ${link}`, "", sluit, "", "Strooizout voor de buurt, een initiatief van Denckh in Houten"].join("\n"),
-    html: mailHtml({ kop: `Je bestelling ${b.nummer}`, alineas: [aanhef, besteld, verder, sluit], uitgelicht: b.afhaalcode, knop: { tekst: "Bekijk je bestelling", url: link } }),
+    tekst: [aanhef, "", b.afhaalcode, "", "Je bestelling:", besteld, "", ...(neemMee ? [neemMee, ""] : []), verder, "", `Je bestelpagina: ${link}`, "", sluit, "", "Strooizout voor de buurt, een initiatief van Denckh in Houten"].join("\n"),
+    html: mailHtml({ kop: `Je bestelling ${b.nummer}`, alineas: [aanhef, besteld, ...(neemMee ? [neemMee] : []), verder, sluit], uitgelicht: b.afhaalcode, knop: { tekst: "Bekijk je bestelling", url: link } }),
   };
 }
