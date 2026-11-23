@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { whatsappLink, alsPrijsProduct, bereken, euro, volgendeStaffel, type Berekening, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
-import { IcoonMand, IcoonSluit, IcoonSneeuw, Logo } from "./iconen";
+import { IcoonMand, IcoonSluit, IcoonSneeuw, Logo, WhatsAppKnop } from "./iconen";
 import { useMand, type MandRegel } from "./mandje";
 import { Link, useRouter } from "./router";
 import { useWinkel } from "./winkeldata";
@@ -187,9 +187,9 @@ export function Voet() {
           {(c?.contact_email || c?.verkoper_email) && <a href={`mailto:${c.contact_email || c.verkoper_email}`}>Contact</a>}
           {c?.contact_telefoon && <a href={`tel:${c.contact_telefoon.replace(/[^+\d]/g, "")}`}>{c.contact_telefoon}</a>}
           {c?.contact_telefoon && whatsappLink(c.contact_telefoon) && (
-            <a href={whatsappLink(c.contact_telefoon)!} target="_blank" rel="noopener noreferrer">
+            <WhatsAppKnop href={whatsappLink(c.contact_telefoon, "Hoi, ik heb een vraag over strooizout.")!} klein>
               WhatsApp
-            </a>
+            </WhatsAppKnop>
           )}
         </nav>
         <p className="sz-voet__klein">

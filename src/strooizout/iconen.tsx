@@ -87,3 +87,25 @@ export function Logo({ className = "", opDonker = false }: { className?: string;
     </span>
   );
 }
+
+/** Tekstballon met telefoonhoorn: herkenbaar als ‘appen’ (eigen tekening, gevuld). */
+export const IcoonWhatsApp = (p: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" {...p}>
+    <path fill="currentColor" d="M12 2.2a9.7 9.7 0 0 0-8.3 14.7L2.3 21.8l5.1-1.3A9.7 9.7 0 1 0 12 2.2z" />
+    <path fill="var(--wa-groen, #25d366)" d="M9.3 6.9c-.3-.6-.5-.6-.8-.6h-.7c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.8c.2.3 2.6 4.1 6.4 5.6 3.1 1.2 3.8 1 4.5.9.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5l-2.5-1.2c-.3-.1-.6-.2-.8.2l-1.1 1.4c-.2.2-.4.3-.8.1-.4-.2-1.5-.6-2.9-1.8-1.1-1-1.8-2.1-2-2.5-.2-.4 0-.6.2-.8l.5-.6c.2-.2.2-.4.4-.6.1-.3 0-.5 0-.7z" />
+  </svg>
+);
+
+/**
+ * Duidelijke WhatsApp-knop: groen, met het icoon, opent een gesprek (met eventueel een vooringevulde tekst in de link).
+ * `klein` voor in een rij met andere links.
+ */
+export function WhatsAppKnop({ href, children = "App ons via WhatsApp", klein = false }: { href: string; children?: React.ReactNode; klein?: boolean }) {
+  return (
+    <a className={`sz-wa${klein ? " sz-wa--klein" : ""}`} href={href} target="_blank" rel="noopener noreferrer">
+      <IcoonWhatsApp />
+      <span>{children}</span>
+    </a>
+  );
+}
+

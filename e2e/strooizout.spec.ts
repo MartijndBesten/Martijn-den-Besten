@@ -247,6 +247,31 @@ test.describe("Strooizout voor de buurt", () => {
     }
   });
 
+  test("strooizout: met een mobiel nummer in de instellingen staat er een duidelijke WhatsApp-knop", async ({ page, request, baseURL }) => {
+    const headers = { Authorization: `Bearer ${TOKEN}`, Origin: baseURL! };
+    const zet = (contact_telefoon: string) => request.put("/api/strooizout/beheer/instellingen", { headers, data: { contact_telefoon } });
+    expect((await zet("06 00 00 00 00")).status()).toBe(200);
+    try {
+      await page.emulateMedia({ reducedMotion: "reduce" }); // geen infaden: de contrastcontrole meet de eindtoestand
+      await page.goto("/strooizout");
+      const knop = page.locator(".wn-stappen").getByRole("link", { name: "App ons via WhatsApp" });
+      await expect(knop).toBeVisible();
+      await expect(knop).toHaveAttribute("href", /^https:\/\/wa\.me\/31600000000\?text=/);
+      await expect(knop.locator("svg")).toBeVisible();
+      expect(await knop.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(37, 211, 102)");
+      expect((await knop.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+      await expect(page.locator(".sz-voet").getByRole("link", { name: "WhatsApp" })).toHaveAttribute("href", /wa\.me\/31600000000/);
+      await page.waitForTimeout(700);
+      expect(await axe(page)).toEqual([]);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+    } finally {
+      await zet("");
+    }
+    // zonder nummer: geen knop
+    await page.reload();
+    await expect(page.locator(".sz-wa")).toHaveCount(0);
+  });
+
   test("strooizout: de straat speelt vanzelf af en begint opnieuw; er loopt geen lijn meer over de pagina", async ({ page }) => {
     await page.goto("/strooizout");
     await expect(page.locator(".wn-tocht__svg")).toHaveCount(0);

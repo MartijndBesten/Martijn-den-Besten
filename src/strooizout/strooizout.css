@@ -1616,3 +1616,71 @@ body.sz-stap2-open .sz-mobielbalk {
 body.sz-stap2-open.sz-heeft-balk {
   padding-bottom: 0;
 }
+
+/* WhatsApp-knop: groen en met het icoon, zodat meteen duidelijk is dat je hiermee een appje stuurt */
+.sz-wa {
+  --wa-groen: #25d366;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 10px 20px 10px 14px;
+  border-radius: 999px;
+  background: var(--wa-groen);
+  color: #06281a;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(18, 140, 77, 0.28);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+.sz-wa svg {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+.sz-wa:hover {
+  --wa-groen: #1fc35c;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(18, 140, 77, 0.34);
+  color: #06281a;
+}
+.sz-wa:focus-visible {
+  outline: 3px solid #0b2340;
+  outline-offset: 2px;
+}
+.sz-wa--klein {
+  min-height: 44px;
+  padding: 8px 16px 8px 11px;
+  gap: 7px;
+  font-size: 15px;
+  box-shadow: none;
+}
+.sz-wa--klein svg {
+  width: 22px;
+  height: 22px;
+}
+.sz-wa-rij {
+  display: block;
+  margin-top: 10px;
+}
+/* Op de homepage, direct onder ‘Zo werkt het’ */
+.wn-stappen__vraag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin: clamp(18px, 2.4vw, 28px) 0 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--tekst-2);
+}
+.sz-voet__links .sz-wa {
+  color: #06281a;
+}
+/* de tekst van de knop blijft donker, ook binnen een uitlegblok met een eigen tekstkleur */
+a.sz-wa,
+a.sz-wa span {
+  color: #06281a;
+}
