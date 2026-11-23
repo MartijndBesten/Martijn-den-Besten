@@ -266,7 +266,7 @@ async function plaatsBestelling(request: Request, env: SzEnv, ctx: ExecutionCont
       const nieuw = await db.prepare("SELECT id FROM sz_bestelling WHERE idempotentie = ?1").bind(idem).first<{ id: number }>();
       const weergave = await klantWeergave(env, nieuw!.id);
       // Bevestiging met de afhaalcode per e-mail (alleen als er een mailvoorziening is); de bestelling wacht er niet op.
-      if (kanaal === "web" && k.email) ctx.waitUntil(stuurMail(env, bevestigingsmail(weergave.bestelling, new URL(request.url), k.email, inst.contact_email)));
+      if (kanaal === "web" && k.email) ctx.waitUntil(stuurMail(env, bevestigingsmail(weergave.bestelling, new URL(request.url), k.email, inst.contact_email, { adres: inst.afhaal_adres, telefoon: inst.contact_telefoon })));
       return json({ ok: true, herhaald: false, ...weergave }, 201);
     } catch (e) {
       const tekst = String((e as Error)?.message ?? e);

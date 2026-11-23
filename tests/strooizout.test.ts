@@ -1159,6 +1159,24 @@ describe("strooizout per 10 kg: eigen emmer en met emmer (23-11-2026)", () => {
     expect(bevestigingsmail(basis, new URL("https://strooizouthouten.nl/"), "anna@example.com").tekst).not.toContain("emmer mee");
   });
 
+  it("bevestigingsmail noemt duidelijk waar je afhaalt en dat je even appt of belt (uit de instellingen)", () => {
+    const basis = { nummer: "SZ-0001", afhaalcode: "H-1234", code: "c".repeat(24), voornaam: "Anna", levering: "ophalen" as const, adres: "", betaalwijze: "tikkie", regels: [{ naam: "Strooizout 25 kg", aantal: 2, stukprijs_cent: 949 }], korting_cent: 200, bezorg_cent: 0, totaal_cent: 1898 };
+    const site = new URL("https://strooizouthouten.nl/");
+    const mail = bevestigingsmail(basis, site, "anna@example.com", "", { adres: "Voorbeeldstraat 1, Houten", telefoon: "06 00 00 00 00" });
+    expect(mail.tekst).toContain("Afhalen: Voorbeeldstraat 1, Houten\nApp of bel even om af te spreken wanneer je langskomt: 06 00 00 00 00.\nNeem je afhaalcode mee.");
+    expect(mail.tekst).not.toContain("Het adres en de afhaalmomenten staan op je bestelpagina");
+    expect(mail.html).toContain("<strong>Afhalen: Voorbeeldstraat 1, Houten</strong>");
+    expect(mail.html).toContain("App of bel even om af te spreken wanneer je langskomt: 06 00 00 00 00.");
+    // zonder telefoonnummer: wel het adres, geen lege regel over bellen
+    expect(bevestigingsmail(basis, site, "anna@example.com", "", { adres: "Voorbeeldstraat 1, Houten" }).tekst).toContain("Afhalen: Voorbeeldstraat 1, Houten\nNeem je afhaalcode mee.");
+    // zonder adres in de instellingen: de oude verwijzing naar de bestelpagina
+    expect(bevestigingsmail(basis, site, "anna@example.com").tekst).toContain("Het adres en de afhaalmomenten staan op je bestelpagina");
+    // bezorgen: geen afhaaladres, wel het nummer voor vragen
+    const bezorgd = bevestigingsmail({ ...basis, levering: "bezorgen" as const, adres: "Testlaan 12a, 3992 KT Houten" }, site, "anna@example.com", "", { adres: "Voorbeeldstraat 1, Houten", telefoon: "06 00 00 00 00" });
+    expect(bezorgd.tekst).not.toContain("Afhalen: Voorbeeldstraat");
+    expect(bezorgd.tekst).toContain("Vragen over de bezorging? App of bel 06 00 00 00 00.");
+  });
+
   it("beheer: alleen afhalen en de klantmelding zijn per product in te stellen; los zout is te corrigeren", async () => {
     const ip = await productInvoer(MET);
     expect(ip).toMatchObject({ alleen_afhalen: 0, klant_melding: "" });
