@@ -562,7 +562,7 @@ export function binnenBezorggebied(postcode: string, bezorgPostcodes: string): b
 
 /**
  * Eerstvolgende staffel die bij dit aantal nog niet geldt, met de besparing als de klant tot die grens bestelt.
- * Voorbeeld: 3 zakken, staffel vanaf 4 à € 8,99 (normaal € 10,49) → { vanaf: 4, prijs_cent: 899, besparing_cent: 600 }.
+ * Voorbeeld: 3 zakken, staffel vanaf 4 à € 8,99 (normaal € 9,99) → { vanaf: 4, prijs_cent: 899, besparing_cent: 400 }.
  */
 export function volgendeStaffel(p: Pick<PrijsProduct, "prijs_cent" | "aanbiedingen">, aantal: number, nu: string): { naam: string; vanaf: number; prijs_cent: number; besparing_cent: number } | null {
   const huidig = stukprijs({ ...p, id: 0, naam: "", inkoop_cent: null, bezorg_cent: null, gewicht_gram: 0 }, aantal, nu).cent;

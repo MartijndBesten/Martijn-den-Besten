@@ -93,17 +93,17 @@ De privacyverklaring beschrijft het. Volgens de AP valt analytics met geringe pr
 
 **WhatsApp-buurtgroep (kort)**
 
-> Hoi buren! Geen aparte rit naar de bouwmarkt: in Houten kun je strooizout bestellen. 25 kg: 1 zak € 10,49, 2–3 zakken € 9,49, 4 of meer € 8,99 per zak. Samen bestellen is voordeliger, dus wie doet er mee? Gratis afhalen, of bezorgen binnen de rondweg. Op voorraad vanaf donderdag 26 november; reserveren kan nu: https://strooizouthouten.nl/?via=whatsapp
+> Hoi buren! Geen aparte rit naar de bouwmarkt: in Houten kun je strooizout bestellen. 25 kg: 1 zak € 9,99, 2–3 zakken € 9,49, 4 of meer € 8,99 per zak. Samen bestellen is voordeliger, dus wie doet er mee? Gratis afhalen, of bezorgen binnen de rondweg. Op voorraad vanaf donderdag 26 november; reserveren kan nu: https://strooizouthouten.nl/?via=whatsapp
 
 **Samen bestellen (voor een buurtgenoot die voor de straat bestelt)**
 
-> Ik bestel strooizout voor onze straat bij Strooizout voor de buurt in Houten. Vanaf 4 zakken kost een zak van 25 kg € 8,99 in plaats van € 10,49. Laat je vóór [dag] weten hoeveel zakken je wilt? Dan bestel ik in één keer en verdelen we ze hier. Wie geen hele zak nodig heeft, kan er samen eentje delen.
+> Ik bestel strooizout voor onze straat bij Strooizout voor de buurt in Houten. Vanaf 4 zakken kost een zak van 25 kg € 8,99 in plaats van € 9,99. Laat je vóór [dag] weten hoeveel zakken je wilt? Dan bestel ik in één keer en verdelen we ze hier. Wie geen hele zak nodig heeft, kan er samen eentje delen.
 
 **Facebookgroep (na toestemming van de beheerder)**
 
 > **Strooizout uit je eigen buurt** 🧂❄️
 > Dit jaar kun je in Houten zelf strooizout bestellen, zonder aparte rit naar de bouwmarkt. Zakken van 25 kg:
-> • 1 zak € 10,49
+> • 1 zak € 9,99
 > • 2–3 zakken € 9,49 per zak
 > • 4 of meer € 8,99 per zak
 > Gratis afhalen in Houten of laten bezorgen binnen de rondweg (vanaf 2 zakken). Op voorraad vanaf donderdag 26 november; reserveren kan nu.

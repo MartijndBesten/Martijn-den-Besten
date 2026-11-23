@@ -58,7 +58,7 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(kaart.getByRole("heading", { name: "25 kg strooizout" })).toBeVisible();
     // prijstreden in één rail: 1 zak, 2–3 zakken, 4 of meer
     const trede = (naam: RegExp) => kaart.getByRole("button", { name: naam });
-    await expect(trede(/1 zak\s*€ 10,49 per zak/)).toHaveAttribute("aria-pressed", "true");
+    await expect(trede(/1 zak\s*€ 9,99 per zak/)).toHaveAttribute("aria-pressed", "true");
     await expect(trede(/2–3 zakken\s*€ 9,49 per zak/)).toBeVisible();
     await expect(trede(/4 of meer\s*€ 8,99 per zak/)).toBeVisible();
     await expect(kaart.locator(".sz-beschikbaar")).toContainText("Op voorraad");
@@ -73,17 +73,17 @@ test.describe("Strooizout voor de buurt", () => {
     // de kop staat niet vast: hij schuift nooit over de inhoud
     expect(await page.locator(".sz-kop").evaluate((el) => getComputedStyle(el).position)).not.toMatch(/sticky|fixed/);
 
-    // standaard 1 zak (besluit Martijn): € 10,49; het totaal staat er precies één keer
+    // standaard 1 zak (besluit Martijn): € 9,99; het totaal staat er precies één keer
     const totaal = kaart.locator(".sz-bestelkaart__totaal strong");
-    await expect(totaal).toHaveText("€ 10,49");
+    await expect(totaal).toHaveText("€ 9,99");
     await expect(kaart.locator(".sz-bestelkaart__totaal")).toHaveCount(1);
-    // 2 zakken via de staffel: € 18,98, je bespaart € 2,00
+    // 2 zakken via de staffel: € 18,98, je bespaart € 1,00
     await trede(/^2–3 zakken/).click();
     await expect(totaal).toHaveText("€ 18,98");
-    await expect(kaart.locator(".sz-bestelkaart__totaal .wn-bespaar")).toContainText("je bespaart € 2,00");
+    await expect(kaart.locator(".sz-bestelkaart__totaal .wn-bespaar")).toContainText("je bespaart € 1,00");
     // terug naar 1 zak: bezorgen kan niet; geen zetje bij 1 (de staffel staat erboven)
     await trede(/^1 zak/).click();
-    await expect(totaal).toHaveText("€ 10,49");
+    await expect(totaal).toHaveText("€ 9,99");
     await expect(kaart.getByRole("radio", { name: /Bezorgen/ })).toBeDisabled();
     await expect(kaart.locator(".wn-lever")).toContainText("vanaf 2 zakken");
     await expect(kaart.locator(".wn-tip")).toHaveAttribute("data-aan", "false");
@@ -93,11 +93,11 @@ test.describe("Strooizout voor de buurt", () => {
     await meer.click();
     await expect(totaal).toHaveText("€ 28,47");
     await expect(kaart.getByRole("radio", { name: /Bezorgen/ })).toBeEnabled();
-    // 4 zakken: € 8,99 voor alle zakken, je bespaart € 6,00
+    // 4 zakken: € 8,99 voor alle zakken, je bespaart € 4,00
     await kaart.getByRole("button", { name: "Maak er 4 van" }).click();
     await expect(trede(/4 of meer/)).toHaveAttribute("aria-pressed", "true");
     await expect(totaal).toHaveText("€ 35,96");
-    await expect(kaart.locator(".sz-bestelkaart__totaal .wn-bespaar")).toContainText("je bespaart € 6,00");
+    await expect(kaart.locator(".sz-bestelkaart__totaal .wn-bespaar")).toContainText("je bespaart € 4,00");
     // bezorgen: € 2,00 per bezorging erbij
     await kaart.locator(".wn-lever label", { hasText: "Bezorgen" }).click();
     await expect(totaal).toHaveText("€ 37,96");
@@ -172,7 +172,7 @@ test.describe("Strooizout voor de buurt", () => {
     // terug naar de zak: de bestaande bestelkaart met staffel
     await kaart.getByRole("button", { name: /Bestel nu 25\skg/ }).click();
     await expect(kaart.getByRole("heading", { name: "25 kg strooizout" })).toBeVisible();
-    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 10,49");
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 9,99");
     await expect(kaart.getByRole("button", { name: "Meer producten in één bestelling" })).toHaveCount(0);
     // de server weigert de varianten ook rechtstreeks
     const w = await (await request.get("/api/strooizout/winkel")).json();
@@ -374,7 +374,7 @@ test.describe("Strooizout voor de buurt", () => {
     await kaart.getByLabel("Naam").fill("Mobiel Test");
     await kaart.getByLabel("Mobiel nummer").fill("06 1111 2222");
     await page.waitForTimeout(2600);
-    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 10,49");
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 9,99");
     await kaart.getByRole("button", { name: "Bestellen met betalingsverplichting", exact: true }).click();
     await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
     await expect(page.getByText("Het adres verschijnt hier zodra je bestelling is bevestigd.")).toBeVisible();
@@ -445,7 +445,7 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(kaart.locator(".bh-uitgifte__code")).toHaveText(eerste.afhaalcode);
     await expect(kaart.locator(".bh-uitgifte__cijfers strong")).toHaveText("1");
     await expect(kaart.locator(".bh-pil", { hasText: "Openstaand" })).toBeVisible();
-    await kaart.getByRole("button", { name: /€ 10,49 ontvangen en uitgeven/ }).click();
+    await kaart.getByRole("button", { name: /€ 9,99 ontvangen en uitgeven/ }).click();
     await expect(kaart.getByText(/Al uitgegeven op/)).toBeVisible();
     await expect(kaart.locator(".bh-pil", { hasText: "Betaald" })).toBeVisible();
     await expect(kaart.getByRole("button", { name: /uitgeven/i })).toHaveCount(0);
