@@ -32,13 +32,21 @@ Rooktest daarna: `https://martijndenbesten.com/`, `/api/health`, `/bijbelreis` e
 **Besluiten van Martijn op 23-11-2026** (gelden ook voor een volgende sessie):
 
 - Knop die de bestelling plaatst: **‘Bestellen met betalingsverplichting’** (art. 6:230v lid 3 BW; HR 4-10-2024). Geen andere knop mag de bestelling plaatsen; een e2e-test bewaakt dit.
-- Onder de bestelknop: ‘14 dagen bedenktijd na ontvangst. Annuleren vóór afhalen of bezorgen is gratis.’ Voorwaarden over herroeping: **niet meer dan wettelijk nodig** (geen eis ‘ongeopend’, wel aansprakelijkheid voor waardevermindering, terugbrengkosten voor de klant, terugbetaling incl. bezorgkosten binnen 14 dagen, modelformulier).
+- Onder de bestelknop twee losse regels (aangepast op verzoek van Martijn, 23-11 middag): ‘Gratis annuleren zolang je bestelling nog niet is afgehaald of bezorgd.’ en ‘Na ontvangst heb je 14 dagen bedenktijd.’ Voorwaarden over herroeping: **niet meer dan wettelijk nodig** (geen eis ‘ongeopend’, wel aansprakelijkheid voor waardevermindering, terugbrengkosten voor de klant, terugbetaling incl. bezorgkosten binnen 14 dagen, modelformulier).
 - Tikkie-proces blijft: bestelling ontstaat bij de klik, betalen via betaalverzoek.
 - De bestelkaart **start op 1 zak** (geen voorgekozen staffel, geen oud aantal uit het mandje); het zetje ‘nog 1 erbij’ pas vanaf 2.
 - 10 kg eigen emmer (€ 5,49, alleen afhalen) en 10 kg met emmer (€ 6,49) zijn te bestellen; ze putten uit de zakvoorraad.
 - Mail staat aan; de klant ziet als bestelnummer alleen de willekeurige afhaalcode (geen volgnummer); Martijn krijgt bij elke bestelling een melding zonder naam/telefoon van de klant.
 - Op lage telefoons (390×664) moet ‘Bestellen’ helemaal in het eerste scherm vallen; e2e-test bewaakt dit.
 - Vaste balk onderin (telefoon): alleen zichtbaar als de knop ‘Bestellen’ van de bestelkaart uit beeld is, klein (± 55 px), toont prijs en aantal uit de kaart en opent stap 2; nooit tijdens stap 2. De oude mandjesbalk is weg (het mandje zit in de kop). E2e-test bewaakt dit.
+
+**Gerichte verbeteringen 23-11-2026 (middag, opdracht Martijn):**
+
+- **WhatsApp-knop:** staat nu in de hero, direct onder ‘Hou je buurt veilig.’ (‘Vragen? App ons’, doorschijnend met groen icoon, ondergeschikt aan ‘Bestellen’). Verplaatst vanaf ‘Zo werkt het’, niet dubbel: onderaan de site staat weer een gewone link. Op lage telefoons (hoogte ≤ 700 px) neemt de knop de plek van het prijsbolletje in, zodat ‘Bestellen’ in het eerste scherm blijft (de prijs staat direct eronder in de bestelkaart). E2e-test bewaakt plek, grootte en zichtbaarheid bij 390 × 844, 375 × 667 en 390 × 664.
+- **Totaalbedrag:** het vette bedrag in de bestelkaart liep met een telanimatie naar de nieuwe waarde en kon daardoor even een tussenbedrag tonen (€ 20,90 bij € 20,98). Het bedrag staat er nu meteen exact (`Bedrag` in `winkel.tsx`). De gekozen leverwijze zit in het mandje (`mandje.tsx`): mandje en bestelpagina rekenen met dezelfde keuze als de kaart. E2e-test: 2 zakken bezorgd is overal € 20,98.
+- **Teksten:** bij het e-mailadres ‘Je ontvangt hier je bestelbevestiging en je afhaalcode.’ (afhalen) of ‘Je ontvangt hier je bestelbevestiging.’ (bezorgen); ‘Zo werkt het’: ‘Bestel online · Ontvang je bevestiging · Haal op met je afhaalcode of laat bezorgen’; productknop ‘10 kg in je eigen emmer’.
+- **10 kg met emmer:** het label zegt alleen ‘met emmer’. Dat de emmer herbruikbaar is en een deksel heeft staat wel in de productomschrijving (uit issue #89), maar is niet aan een fysiek product getoetst: Martijn bevestigt dat als de emmers er zijn (aanpassen kan in *Beheer › Producten*).
+- **Straat:** de animatie loopt ongeveer een vijfde sneller (`useStraatLus`: 7,5 + half/75 s).
 
 **Werkwijze tests:** een pull request die alleen bestanden met ‘strooizout’ in het pad raakt, draait in de CI alleen `e2e/strooizout.spec.ts` (enkele minuten); al het andere en elke push naar `main` draait de volledige reeks. Na het aanpassen van de frontend eerst `npm run build && node scripts/embed-assets.mjs` doen, anders test de lokale Worker de oude build.
 

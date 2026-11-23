@@ -280,7 +280,7 @@ function useStraatLus(ref: RefObject<SVGSVGElement | null>): void {
       const b = el.clientWidth;
       if (b <= 0) return;
       const half = b / (2 * Math.max(b / 960, el.clientHeight / 310));
-      loop = 9 + half / 60;
+      loop = 7.5 + half / 75; // iets vlotter (was 9 + half / 60)
       zet("--straat-half", half.toFixed(1));
     };
     const teken = () => {

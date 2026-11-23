@@ -1734,3 +1734,114 @@
     animation: none;
   }
 }
+
+/* Compacte WhatsApp-knop in de hero, direct onder de pay-off: herkenbaar aan het groene icoon, maar ondergeschikt
+   aan de bestelknop (doorschijnend, geen eigen kleurvlak). */
+.wn-app {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  justify-self: start;
+  min-height: 40px;
+  margin: 14px 0 0;
+  padding: 6px 14px 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #eaf5fc;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  animation: wn-op 0.7s var(--uit) 0.12s both;
+  transition: background 0.16s ease, border-color 0.16s ease;
+}
+.wn-app svg {
+  --wa-groen: #0b2340;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  color: #25d366;
+}
+.wn-app:hover {
+  background: rgba(37, 211, 102, 0.16);
+  border-color: rgba(37, 211, 102, 0.6);
+  color: #fff;
+}
+.wn-app:focus-visible {
+  outline: 3px solid var(--vorst);
+  outline-offset: 2px;
+}
+/* Breed scherm: de WhatsApp-knop staat vóór het prijsbolletje op dezelfde regel, even hoog */
+@media (min-width: 961px) {
+  .wn-app {
+    min-height: 46px;
+    margin: 22px 10px 0 0;
+    padding: 8px 18px 8px 12px;
+    vertical-align: top;
+  }
+  .wn-hero[data-app="true"] .wn-vanaf {
+    vertical-align: top;
+  }
+}
+
+/* Het totaalbedrag staat er meteen exact; alleen een korte tik als het verandert */
+.wn-bedrag {
+  display: inline-block;
+  animation: wn-tik 0.22s ease-out;
+}
+@keyframes wn-tik {
+  from {
+    transform: scale(0.96);
+    opacity: 0.6;
+  }
+}
+
+/* Geruststelling onder de bestelknop: korte, losse regels die niet midden in een zinsdeel afbreken */
+.wn-zeker li span {
+  text-wrap: balance;
+}
+/* Productkeuze: ‘in je eigen emmer’ mag over twee regels, netjes verdeeld */
+.wn-keuze__optie > span {
+  text-wrap: balance;
+}
+
+@media (max-width: 960px) {
+  .wn-app {
+    grid-column: 1;
+    min-height: 36px;
+    margin-top: 8px;
+    padding: 4px 12px 4px 8px;
+    font-size: 14px;
+  }
+  .wn-app svg {
+    width: 20px;
+    height: 20px;
+  }
+  .wn-hero[data-app="true"] .wn-vanaf {
+    margin-top: 8px;
+  }
+  /* de zak staat naast pay-off, WhatsApp-knop en prijs */
+  .wn-hero[data-app="true"] .wn-hero__scene {
+    grid-row: 3 / span 3;
+  }
+}
+/* Lage telefoonschermen: de WhatsApp-knop neemt de plek van het prijsbolletje in (de prijs staat direct eronder in de
+   bestelkaart), zodat ‘Bestellen’ in het eerste scherm blijft. */
+@media (max-width: 520px) and (max-height: 700px) {
+  .wn-hero[data-app="true"] .wn-vanaf {
+    display: none;
+  }
+  .wn-hero[data-app="true"] .wn-hero__scene {
+    grid-row: 3 / span 2;
+  }
+  .wn-app {
+    min-height: 34px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wn-app,
+  .wn-bedrag {
+    animation: none;
+  }
+}

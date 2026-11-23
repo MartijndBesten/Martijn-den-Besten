@@ -64,7 +64,7 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(kaart.locator(".sz-beschikbaar")).toContainText("Op voorraad");
     await expect(page.getByRole("heading", { name: "Een beetje zout. Een beetje aandacht." })).toBeVisible();
     await expect(page.getByText("Strooi ook bij een buur die dat zelf niet kan. En zwaai eens naar elkaar!")).toBeVisible();
-    await expect(page.locator(".wn-stappen__lijst li")).toHaveText(["Bestel online", "Ontvang je afhaalcode", "Haal op of laat bezorgen"]);
+    await expect(page.locator(".wn-stappen__lijst li")).toHaveText(["Bestel online", "Ontvang je bevestiging", "Haal op met je afhaalcode of laat bezorgen"]);
     // betalen gaat met een betaalverzoek; contant betalen wordt nergens genoemd
     await expect(page.getByText(/contant/i)).toHaveCount(0);
     // delen en de gebruikstip staan op de pagina
@@ -152,7 +152,7 @@ test.describe("Strooizout voor de buurt", () => {
     const kaart = page.locator(".sz-bestelkaart");
     const keuzes = kaart.getByRole("radiogroup", { name: "Kies je verpakking" });
     await expect(keuzes.getByRole("radio")).toHaveCount(3);
-    await expect(keuzes.locator(".wn-keuze__optie")).toHaveText([/25\skg\s*zak\s*vanaf € 8,99/, /10\skg\s*eigen emmer\s*€ 5,49\s*Binnenkort/, /10\skg\s*met emmer\s*€ 6,49\s*Binnenkort/]);
+    await expect(keuzes.locator(".wn-keuze__optie")).toHaveText([/25\skg\s*zak\s*vanaf € 8,99/, /10\skg\s*in je eigen emmer\s*€ 5,49\s*Binnenkort/, /10\skg\s*met emmer\s*€ 6,49\s*Binnenkort/]);
     await expect(keuzes.getByRole("radio", { name: /25\skg/ })).toBeChecked();
     // de variant kiezen toont de informatie, maar bestellen kan niet
     await keuzes.locator(".wn-keuze__optie", { hasText: "eigen emmer" }).click();
@@ -189,7 +189,7 @@ test.describe("Strooizout voor de buurt", () => {
       await page.goto("/strooizout");
       const kaart = page.locator(".sz-bestelkaart");
       // alle drie te bestellen: geen ‘Binnenkort’ meer in de keuze
-      await expect(kaart.locator(".wn-keuze__optie")).toHaveText([/25\skg\s*zak\s*vanaf € 8,99$/, /10\skg\s*eigen emmer\s*€ 5,49$/, /10\skg\s*met emmer\s*€ 6,49$/]);
+      await expect(kaart.locator(".wn-keuze__optie")).toHaveText([/25\skg\s*zak\s*vanaf € 8,99$/, /10\skg\s*in je eigen emmer\s*€ 5,49$/, /10\skg\s*met emmer\s*€ 6,49$/]);
       await kaart.locator(".wn-keuze__optie", { hasText: "eigen emmer" }).click();
       await expect(kaart.getByRole("heading", { name: "10 kg strooizout in je eigen emmer" })).toBeVisible();
       await expect(kaart.locator(".sz-beschikbaar")).toContainText("Op voorraad");
@@ -255,29 +255,74 @@ test.describe("Strooizout voor de buurt", () => {
     }
   });
 
-  test("strooizout: met een mobiel nummer in de instellingen staat er een duidelijke WhatsApp-knop", async ({ page, request, baseURL }) => {
+  test("strooizout: de WhatsApp-knop staat bovenaan, direct onder de pay-off, compact en zonder scrollen zichtbaar", async ({ page, request, baseURL }) => {
     const headers = { Authorization: `Bearer ${TOKEN}`, Origin: baseURL! };
     const zet = (contact_telefoon: string) => request.put("/api/strooizout/beheer/instellingen", { headers, data: { contact_telefoon } });
     expect((await zet("06 00 00 00 00")).status()).toBe(200);
     try {
-      await page.emulateMedia({ reducedMotion: "reduce" }); // geen infaden: de contrastcontrole meet de eindtoestand
-      await page.goto("/strooizout");
-      const knop = page.locator(".wn-stappen").getByRole("link", { name: "App ons via WhatsApp" });
-      await expect(knop).toBeVisible();
-      await expect(knop).toHaveAttribute("href", /^https:\/\/wa\.me\/31600000000\?text=/);
-      await expect(knop.locator("svg")).toBeVisible();
-      expect(await knop.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(37, 211, 102)");
-      expect((await knop.boundingBox())!.height).toBeGreaterThanOrEqual(44);
-      await expect(page.locator(".sz-voet").getByRole("link", { name: "WhatsApp" })).toHaveAttribute("href", /wa\.me\/31600000000/);
+      await page.emulateMedia({ reducedMotion: "reduce" }); // geen infaden: we meten de eindtoestand
+      for (const [breed, hoog] of [[390, 844], [375, 667], [390, 664]]) {
+        await page.setViewportSize({ width: breed, height: hoog });
+        await page.goto("/strooizout");
+        const knop = page.locator(".wn-hero").getByRole("link", { name: "Vragen? App ons" });
+        await expect(knop).toBeVisible();
+        // precies één WhatsApp-knop op de homepage (verplaatst, niet dubbel), met de bestaande link
+        await expect(page.locator(".wn-app, .sz-wa")).toHaveCount(1);
+        await expect(knop).toHaveAttribute("href", /^https:\/\/wa\.me\/31600000000\?text=/);
+        const k = (await knop.boundingBox())!;
+        const payoff = (await page.locator(".wn-payoff").boundingBox())!;
+        const bestel = (await page.locator(".sz-bestelkaart").getByRole("button", { name: "Bestellen", exact: true }).boundingBox())!;
+        // direct onder de pay-off, binnen het eerste scherm, en duidelijk kleiner dan de bestelknop
+        expect(k.y).toBeGreaterThanOrEqual(payoff.y + payoff.height);
+        expect(k.y - (payoff.y + payoff.height)).toBeLessThanOrEqual(16);
+        expect(k.y + k.height).toBeLessThanOrEqual(hoog);
+        expect(k.height).toBeGreaterThanOrEqual(34);
+        expect(k.height).toBeLessThan(bestel.height);
+        expect(k.width).toBeLessThan(bestel.width * 0.7);
+        // de bestelknop blijft helemaal in het eerste scherm
+        expect(bestel.y + bestel.height).toBeLessThanOrEqual(hoog);
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+      }
       await page.waitForTimeout(700);
       expect(await axe(page)).toEqual([]);
-      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+      // onderaan de site een gewone link, geen tweede knop
+      await expect(page.locator(".sz-voet").getByRole("link", { name: "WhatsApp" })).toHaveAttribute("href", /wa\.me\/31600000000/);
     } finally {
       await zet("");
     }
     // zonder nummer: geen knop
     await page.reload();
-    await expect(page.locator(".sz-wa")).toHaveCount(0);
+    await expect(page.locator(".wn-app")).toHaveCount(0);
+  });
+
+  test("strooizout: het totaal is overal hetzelfde en staat er meteen exact (2 zakken bezorgd: € 20,98)", async ({ page }) => {
+    await page.goto("/strooizout");
+    const kaart = page.locator(".sz-bestelkaart");
+    const totaal = kaart.locator(".sz-bestelkaart__totaal strong");
+    await kaart.getByRole("button", { name: /Eén meer/ }).click();
+    expect(await totaal.textContent()).toBe("€ 18,98"); // direct na de klik: geen tussenbedrag
+    await kaart.locator(".wn-lever label", { hasText: "Bezorgen" }).click();
+    expect(await totaal.textContent()).toBe("€ 20,98");
+    // tijdens de eerste halve seconde nooit iets anders dan het juiste bedrag
+    const gezien = await page.evaluate(async () => {
+      const el = document.querySelector(".sz-bestelkaart__totaal strong")!;
+      const uit = new Set<string>();
+      const eind = performance.now() + 500;
+      while (performance.now() < eind) {
+        uit.add(el.textContent ?? "");
+        await new Promise((r) => requestAnimationFrame(r));
+      }
+      return [...uit];
+    });
+    expect(gezien).toEqual(["€ 20,98"]);
+    await expect(kaart.locator(".wn-totaal__label small")).toHaveText(/2 × € 9,49 \+ € 2,00 bezorgen/);
+    // het mandje (via ‘Meer producten in één bestelling’) en de bestelpagina nemen bezorgen over: zelfde totaal
+    await kaart.getByRole("button", { name: "Meer producten in één bestelling" }).click();
+    await expect(page.getByRole("heading", { level: 1, name: "Bestellen" })).toBeVisible();
+    await expect(page.getByRole("radio", { name: /Bezorgen/ })).toBeChecked();
+    await expect(page.locator(".sz-totaal dd").first()).toHaveText("€ 20,98");
+    await page.locator(".sz-mandknop").click();
+    await expect(page.locator(".sz-lade .sz-totaal dd")).toHaveText("€ 20,98");
   });
 
   test("strooizout: de straat speelt vanzelf af en begint opnieuw; er loopt geen lijn meer over de pagina", async ({ page }) => {
