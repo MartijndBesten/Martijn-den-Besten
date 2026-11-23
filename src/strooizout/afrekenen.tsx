@@ -288,7 +288,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
             <span className="sz-spinner" aria-hidden="true" /> Bezig met plaatsen…
           </>
         ) : (
-          ingebed ? "Bestelling plaatsen" : `Bestelling plaatsen · ${euro(berekening.totaal_cent)}`
+          ingebed ? "Bestellen met betalingsverplichting" : `Bestellen met betalingsverplichting · ${euro(berekening.totaal_cent)}`
         )}
       </button>
       <p className="sz-klein">
@@ -515,7 +515,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                     <span className="sz-spinner" aria-hidden="true" /> Bezig met plaatsen…
                   </>
                 ) : (
-                  `Bestelling plaatsen · ${euro(berekening.totaal_cent)}`
+                  `Bestellen met betalingsverplichting · ${euro(berekening.totaal_cent)}`
                 )}
               </button>
               <p className="sz-klein">

@@ -113,7 +113,7 @@ test.describe("Strooizout voor de buurt", () => {
     // Bestellen: gegevens op dezelfde pagina; adresvelden alleen bij bezorgen
     await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
     await expect(kaart.getByLabel("Straat")).toBeVisible();
-    await kaart.getByRole("button", { name: /Bestelling plaatsen/ }).click();
+    await kaart.getByRole("button", { name: /Bestellen met betalingsverplichting/ }).click();
     await expect(kaart.getByText("Vul je naam in.")).toBeVisible();
     await expect(kaart.getByText("Vul je mobiele nummer in.")).toBeVisible();
     await kaart.getByLabel("Postcode").fill("3511 AA");
@@ -126,14 +126,14 @@ test.describe("Strooizout voor de buurt", () => {
     await kaart.getByLabel("Naam").fill("Proef Klant");
     await kaart.getByLabel("Mobiel nummer").fill("030 1234567");
     await page.waitForTimeout(2600); // minimale invultijd (spambescherming)
-    await kaart.getByRole("button", { name: /Bestelling plaatsen/ }).click();
+    await kaart.getByRole("button", { name: /Bestellen met betalingsverplichting/ }).click();
     await expect(kaart.getByText(/Vul een Nederlands mobiel nummer in/)).toBeVisible();
     const mobiel = `+31 6 ${String(Date.now()).slice(-8, -4)} ${String(Date.now()).slice(-4)}`;
     await kaart.getByLabel("Mobiel nummer").fill(mobiel);
     // dubbel klikken: precies één bestelling
     await expect(kaart.locator(".sz-bestelkaart__totaal")).toHaveCount(1);
     await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 37,96");
-    await kaart.getByRole("button", { name: "Bestelling plaatsen", exact: true }).dblclick();
+    await kaart.getByRole("button", { name: "Bestellen met betalingsverplichting", exact: true }).dblclick();
 
     await expect(page.getByRole("heading", { name: /Bedankt, Proef! Je bestelling is geplaatst/ })).toBeVisible();
     const code = (await page.locator(".sz-codekaart__code").textContent())!.trim();
@@ -211,7 +211,7 @@ test.describe("Strooizout voor de buurt", () => {
       const mobiel = `+31 6 ${String(Date.now()).slice(-8, -4)} ${String(Date.now()).slice(-4)}`;
       await kaart.getByLabel("Mobiel nummer").fill(mobiel);
       await page.waitForTimeout(2600);
-      await kaart.getByRole("button", { name: "Bestelling plaatsen", exact: true }).click();
+      await kaart.getByRole("button", { name: "Bestellen met betalingsverplichting", exact: true }).click();
       await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
       await expect(page.getByText("Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af.")).toBeVisible();
       await expect(page.getByText("2× Strooizout 10 kg in je eigen emmer")).toBeVisible();
@@ -243,7 +243,7 @@ test.describe("Strooizout voor de buurt", () => {
       const mobiel2 = `+31 6 ${String(Date.now() + 7).slice(-8, -4)} ${String(Date.now() + 7).slice(-4)}`;
       await page.getByLabel("Mobiel nummer").fill(mobiel2);
       await page.waitForTimeout(2600);
-      await page.locator("#sz-bestelformulier").getByRole("button", { name: /Bestelling plaatsen/ }).first().click();
+      await page.locator("#sz-bestelformulier").getByRole("button", { name: /Bestellen met betalingsverplichting/ }).first().click();
       await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
       const gemengd = await (await request.get(`/api/strooizout/beheer/bestellingen?ronde=alle&zoek=${encodeURIComponent(mobiel2)}`, { headers })).json();
       expect(gemengd.bestellingen[0]).toMatchObject({ totaal_cent: 2 * 949 + 649 + 549, stuks: 4, levering: "ophalen" });
@@ -301,7 +301,7 @@ test.describe("Strooizout voor de buurt", () => {
     await kaart.getByLabel("Mobiel nummer").fill("06 1111 2222");
     await page.waitForTimeout(2600);
     await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 10,49");
-    await kaart.getByRole("button", { name: "Bestelling plaatsen", exact: true }).click();
+    await kaart.getByRole("button", { name: "Bestellen met betalingsverplichting", exact: true }).click();
     await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
     await expect(page.getByText("Het adres verschijnt hier zodra je bestelling is bevestigd.")).toBeVisible();
     await page.getByRole("button", { name: "Bestelling annuleren" }).click();

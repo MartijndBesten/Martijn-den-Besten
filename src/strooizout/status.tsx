@@ -287,12 +287,20 @@ export default function Status() {
           </div>
         )}
 
+        {(b.status === "afgehaald" || b.status === "bezorgd") && (
+          <div className="sz-blok">
+            <h2>Bedenktijd</h2>
+            <p style={{ color: "var(--tekst-2)" }}>
+              Na ontvangst heb je 14 dagen bedenktijd. Wil je zakken terugbrengen? Neem contact met ons op; zie de <Link naar="/strooizout/voorwaarden">voorwaarden</Link>.
+            </p>
+          </div>
+        )}
         {b.kan_annuleren && (
           <div className="sz-blok">
             <h2>Annuleren</h2>
             {annuleren === "nee" ? (
               <>
-                <p style={{ color: "var(--tekst-2)" }}>Heb je je bestelling toch niet nodig? Annuleer hem dan, zodat we niet te veel inkopen.</p>
+                <p style={{ color: "var(--tekst-2)" }}>Heb je je bestelling toch niet nodig? Annuleren is gratis zolang je bestelling nog niet is afgehaald of bezorgd.</p>
                 <button type="button" className="sz-knop sz-knop--licht sz-knop--klein" onClick={() => setAnnuleren("vraag")}>
                   Bestelling annuleren
                 </button>
