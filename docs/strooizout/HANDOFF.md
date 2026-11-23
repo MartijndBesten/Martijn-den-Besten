@@ -163,7 +163,7 @@ Bezorgen kost nu een vast bedrag van **€ 2,00 per bezorging (per adres)**, van
    - 1–2 weken vocht en klonteren;
    - hechting van het etiket bij kou en nat weer.
 4. **Bezorggebied controleren:** 3991–3995 minus 65 postcodes buiten de rondweg (o.a. Doornkade/Duwboot, Essenkade, Hoofdveste, Fortweg, Beusichemseweg). De lijst staat in README › Bezorggebied.
-5. **Voorwaarden (concept) akkoord geven.** Bevat 14 dagen bedenktijd (wettelijk bij online verkoop aan consumenten).
+5. **Voorwaarden (concept) akkoord geven.** Bevat 14 dagen bedenktijd volgens de wet (art. 6:230o e.v. BW), met modelformulier; annuleren vóór afhalen of bezorgen is gratis (besluit Martijn 23-11-2026: niet meer dan wettelijk nodig).
 6. **Invullen in *Instellingen*:** het afhaaladres (privé) en eventueel een telefoonnummer.
 7. **Inkoopprijs € 7,09** bevestigen zodra de factuur er is (*Producten*).
 8. **Reservering of koop?** Voor Google Merchant Center (gratis productvermeldingen) moet een bestelling een echte koop zijn. De knop moet dan wettelijk een betalingsverplichting noemen. Zolang het een kosteloos te annuleren reservering blijft: Merchant Center overslaan.
