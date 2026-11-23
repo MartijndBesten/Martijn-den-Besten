@@ -90,8 +90,5 @@
     <rect x="20" y="40" width="280" height="370" fill="url(#zk-v)" />
     <path d="M56 84 C 42 190, 40 290, 54 380 L 92 380 C 78 290, 80 190, 94 84 Z" fill="url(#zk-glans)" />
   </g>
-  <text x="160" y="368" text-anchor="middle" font-family="Geist, Arial, sans-serif" font-weight="800" font-size="30" letter-spacing="-0.5" fill="#0b2340">
-    25 kg
-  </text>
   <path d="M62 52 Q 160 62 258 52" fill="none" stroke="#8ea4b8" stroke-width="2.4" stroke-dasharray="7 5" opacity="0.85" />
 </symbol>
