@@ -6,7 +6,7 @@ import { bereken, euro, type PrijsProduct } from "../../../shared/strooizout";
 import { useBeheer } from "./basis";
 import type { BeheerProduct } from "./typen";
 
-type Rij = { id: number; naam: string; eenheid: string; status: string; beschikbaar: number | null; verwacht: number | null; ontvangen: number; gereserveerd: number; uitgegeven: number; in_magazijn: number; nog_uit_te_geven: number };
+type Rij = { id: number; naam: string; eenheid: string; status: string; beschikbaar: number | null; verwacht: number | null; ontvangen: number; gereserveerd: number; uitgegeven: number; in_magazijn: number; nog_uit_te_geven: number; uit_zakken?: boolean; te_bestellen?: number | null };
 
 function VoorraadRij({ r, bijgewerkt }: { r: Rij; bijgewerkt: () => void }) {
   const { api, meld } = useBeheer();
@@ -32,11 +32,11 @@ function VoorraadRij({ r, bijgewerkt }: { r: Rij; bijgewerkt: () => void }) {
       {gevolgd ? (
         <div className="bh-voorraad">
           <div>
-            <span>Verwacht</span>
+            <span>{r.uit_zakken ? "Besteld of afgevuld" : "Verwacht"}</span>
             <strong>{r.verwacht}</strong>
           </div>
           <div>
-            <span>Ontvangen</span>
+            <span>{r.uit_zakken ? "Klaargezet" : "Ontvangen"}</span>
             <strong>{r.ontvangen}</strong>
           </div>
           <div>
@@ -52,8 +52,8 @@ function VoorraadRij({ r, bijgewerkt }: { r: Rij; bijgewerkt: () => void }) {
             <strong>{r.in_magazijn}</strong>
           </div>
           <div className="bh-voorraad--nadruk">
-            <span>Nog te reserveren</span>
-            <strong>{r.beschikbaar ?? "–"}</strong>
+            <span>{r.uit_zakken ? "Nog te bestellen (uit de zakken)" : "Nog te reserveren"}</span>
+            <strong>{(r.uit_zakken ? r.te_bestellen : r.beschikbaar) ?? "–"}</strong>
           </div>
         </div>
       ) : (
@@ -61,11 +61,19 @@ function VoorraadRij({ r, bijgewerkt }: { r: Rij; bijgewerkt: () => void }) {
       )}
       {gevolgd && r.ontvangen < r.gereserveerd && (
         <p className="sz-melding sz-melding--let" style={{ marginTop: 10 }}>
-          Nog {r.gereserveerd - r.ontvangen} {r.eenheid === "zak" ? "zakken" : "stuks"} meer gereserveerd dan ontvangen. Uitgeven kan alleen uit ontvangen voorraad.
+          {r.uit_zakken
+            ? `Nog ${r.gereserveerd - r.ontvangen} × 10 kg besteld en nog niet klaargezet. Uitgeven kan pas als je hieronder bevestigt dat het klaarstaat.`
+            : `Nog ${r.gereserveerd - r.ontvangen} ${r.eenheid === "zak" ? "zakken" : "stuks"} meer gereserveerd dan ontvangen. Uitgeven kan alleen uit ontvangen voorraad.`}
+        </p>
+      )}
+      {r.uit_zakken && (
+        <p className="bh-sub" style={{ marginTop: 10 }}>
+          Dit product komt uit de zakken. Bij een bestelling gaat het zout vanzelf van de zakvoorraad af (een zak van 25 kg geeft twee keer 10 kg; de rest telt als los zout mee). Bevestig hieronder wat je hebt
+          afgevuld of klaargezet voor de bestellingen; pas dan kun je uitgeven.
         </p>
       )}
       <div className="bh-formulier" style={{ marginTop: 12 }}>
-        <div className="bh-veld bh-veld--6">
+        <div className="bh-veld bh-veld--6" hidden={r.uit_zakken}>
           <label htmlFor={`vv-${r.id}`}>Verwachte voorraad (totaal ingekocht)</label>
           <div className="bh-rij">
             <input id={`vv-${r.id}`} className="sz-invoer" style={{ maxWidth: 140 }} inputMode="numeric" value={verwacht} onChange={(e) => setVerwacht(e.target.value.replace(/\D/g, ""))} />
@@ -77,14 +85,14 @@ function VoorraadRij({ r, bijgewerkt }: { r: Rij; bijgewerkt: () => void }) {
         </div>
         {gevolgd && (
           <div className="bh-veld bh-veld--6">
-            <label htmlFor={`vo-${r.id}`}>Ontvangst bevestigen</label>
+            <label htmlFor={`vo-${r.id}`}>{r.uit_zakken ? "Klaargezet bevestigen" : "Ontvangst bevestigen"}</label>
             <div className="bh-rij">
               <input id={`vo-${r.id}`} className="sz-invoer" style={{ maxWidth: 140 }} inputMode="numeric" placeholder="aantal" value={ontvangen} onChange={(e) => setOntvangen(e.target.value.replace(/[^\d-]/g, ""))} />
               <button type="button" className="bh-knop bh-knop--hoofd" disabled={bezig || !ontvangen || Number(ontvangen) === 0} onClick={() => void stuur({ ontvangen_erbij: Number(ontvangen) }, Number(ontvangen) > 0 ? `${ontvangen} ontvangen` : "Gecorrigeerd")}>
                 Bevestigen
               </button>
             </div>
-            <small>Aantal dat nu binnen is gekomen. Een negatief getal corrigeert een vergissing.</small>
+            <small>{r.uit_zakken ? "Aantal keer 10 kg dat nu klaarstaat of is afgevuld. Een negatief getal corrigeert een vergissing." : "Aantal dat nu binnen is gekomen. Een negatief getal corrigeert een vergissing."}</small>
           </div>
         )}
       </div>
@@ -202,8 +210,8 @@ function Afvullen({ rijen, producten, los, bijgewerkt }: { rijen: Rij[]; product
     <section className="bh-kaart">
       <h2>Afvullen uit zakken (10 kg)</h2>
       <p className="bh-sub">
-        Zet zout klaar uit ontvangen, niet-bestelde zakken: gevulde emmers, of zout dat je bij het afhalen afweegt in de emmer van de klant. Pas daarna is het te bestellen, dus er staat nooit meer in de
-        webshop dan er ligt. Eén zak van 25 kg geeft twee keer 10 kg; de 5 kg die overblijft telt als los zout mee bij de volgende keer.
+        Vooruit afvullen of klaarzetten uit ontvangen, niet-bestelde zakken: gevulde emmers, of zout dat je bij het afhalen afweegt in de emmer van de klant. Voor bestellingen hoeft dit niet: die nemen hun
+        zout vanzelf van de zakvoorraad. Eén zak van 25 kg geeft twee keer 10 kg; de 5 kg die overblijft telt als los zout mee bij de volgende keer.
       </p>
       <div className="bh-voorraad" style={{ marginBottom: 12 }}>
         <div>

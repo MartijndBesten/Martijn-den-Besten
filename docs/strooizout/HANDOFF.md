@@ -20,14 +20,14 @@ Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
 
 ## 10 kg in eigen emmer en met emmer (issue #89, 23-11-2026)
 
-Gebouwd volgens de actuele opdracht in issue #89: de informatie staat online, bestellen kan pas als het er echt ligt. Beschrijving in [README.md](README.md) › *Strooizout per 10 kg*.
+Beschrijving in [README.md](README.md) › *Strooizout per 10 kg*.
 
-- **Op de site:** productkeuze in de bestelkaart (25 kg zak · 10 kg eigen emmer € 5,49 · 10 kg met emmer € 6,49). De twee varianten staan op ‘binnenkort’: prijs en uitleg zichtbaar, geen bestelknop, de server weigert ze.
-- **Voorraad:** alleen via *Voorraad › Afvullen uit zakken* (ontvangen, niet-bestelde zakken; 25 kg → 2 × 10 kg + 5 kg los zout dat meetelt bij de volgende keer). Geen voorraad die er niet ligt, geen dubbele verkoop.
+- **Op de site:** productkeuze in de bestelkaart (25 kg zak · 10 kg eigen emmer € 5,49 · 10 kg met emmer € 6,49), **alle drie te bestellen** (besluit Martijn 23-11-2026: ‘10 kg emmers is niet binnenkort. Alles live zetten’). Eerst stonden de varianten op ‘binnenkort’ (PR #90); dat is met migratie 0007 omgezet.
+- **Voorraad:** de varianten van 10 kg putten uit de zakvoorraad. Bij een bestelling gaat zo nodig een zak van de zakvoorraad af (25 kg → 2 × 10 kg + 5 kg los zout dat meetelt bij de volgende keer), in dezelfde transactie als de bestelling. Geen dubbele verkoop, geen negatieve voorraad. Uitgeven kan pas na ‘Klaargezet bevestigen’ in het beheer.
 - **Ongewijzigd:** 25 kg met staffels, betaalproces, verkoop aan de weg, bestaande bestellingen.
-- **Getest:** unit-tests voor omzetting, restzout, voorraadgrenzen, alleen afhalen, gemengde mandjes, annuleren en de bevestigingsmail; schermtests (desktop en telefoon) voor ‘binnenkort’, bestellen na activeren, gemengd mandje en toegankelijkheid.
-- **Nog van Martijn nodig voordat een variant actief wordt** (bewust niet automatisch): ontvangst van de zakken bevestigen en afvullen; voor de eigen emmer een weegschaal die geschikt is voor verkoop op gewicht; voor ‘met emmer’ de emmers zelf en hun inkoopprijs. De voorwaarden (nog steeds concept) hebben een alinea over zout in je eigen emmer gekregen.
-- **Mail:** bij de wijziging van de 10 kg-varianten stond `STROOIZOUT_MAIL` nog op ‘uit’; na het aanmelden van het verzenddomein is de schakelaar op ‘aan’ gezet (samen met de filmpjes zonder hoeveelheid, PR #92).
+- **Getest:** unit-tests voor toewijzing uit zakken, restzout, de laatste zak (ook gelijktijdig), annuleren, klaargezet en uitgifte, zakken zonder voorraadgrens, vooruit afvullen, alleen afhalen, gemengde mandjes en de bevestigingsmail; schermtests (desktop en telefoon) voor bestellen van 10 kg, gemengd mandje, een variant op ‘binnenkort’ en toegankelijkheid.
+- **Aandachtspunten voor Martijn (buiten de software):** eigen emmer is verkoop op gewicht en vraagt een weegschaal die daarvoor geschikt is; ‘met emmer’ vraagt dat de emmers er liggen, en de inkoopprijs van de emmer staat nog leeg. Tijdelijk niet leverbaar: product op ‘verborgen’ of ‘binnenkort’ zetten in *Producten*.
+- **Mail:** `STROOIZOUT_MAIL` staat op ‘aan’ nu het verzenddomein is aangemeld (PR #92, samen met de filmpjes zonder hoeveelheid).
 
 ## Strooizout 2.0: visuele herontwikkeling (opdracht 22-11-2026)
 

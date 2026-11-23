@@ -24,6 +24,8 @@ import {
   alsPrijs,
   beschikbaar,
   bestelStatements,
+  bronVan,
+  omzetting,
   bezorgVan,
   laadMagazijn,
   tekortBijUitgifte,
@@ -699,7 +701,12 @@ async function voorraadOverzicht(env: SzEnv) {
                       WHERE m.product_id = p.id AND b.status IN ('afgehaald', 'bezorgd')), 0) AS uitgegeven
      FROM sz_product p WHERE p.status != 'verwijderd' ORDER BY p.volgorde, p.id`,
   ).all<{ id: number; naam: string; eenheid: string; status: string; beschikbaar: number | null; verwacht: number | null; ontvangen: number; gereserveerd: number; uitgegeven: number }>();
-  return results.map((r) => ({ ...r, in_magazijn: r.ontvangen - r.uitgegeven, nog_uit_te_geven: r.gereserveerd - r.uitgegeven }));
+  const cat = await laadCatalogus(env.DB);
+  return results.map((r) => {
+    const p = cat.perId.get(r.id);
+    // te_bestellen: wat een klant nu kan bestellen; bij een product dat uit zakken komt telt de zakvoorraad mee.
+    return { ...r, in_magazijn: r.ontvangen - r.uitgegeven, nog_uit_te_geven: r.gereserveerd - r.uitgegeven, uit_zakken: !!(p && bronVan(cat, p)), te_bestellen: p ? beschikbaar(cat, p) : r.beschikbaar };
+  });
 }
 
 /** Los zout: wat er van aangebroken zakken over is, in grammen. `laatste` is het kenmerk van de laatste afvulbeurt. */
@@ -804,6 +811,15 @@ async function voorraadWijzigen(request: Request, env: SzEnv, id: number): Promi
   const huidig = (await voorraadOverzicht(env)).find((r) => r.id === id);
   if (!huidig) return fout("Product niet gevonden.", 404);
   const db = env.DB;
+  // Een product dat uit zakken komt krijgt zijn voorraad van de zakken (bij een bestelling of bij Afvullen). Hier kun je
+  // alleen bevestigen dat het zout is klaargezet, tot wat er verwacht is; anders zou er zout bij komen dat niet bestaat.
+  if (huidig.uit_zakken) {
+    if ("verwacht" in body) return fout("Dit product komt uit de zakken: de voorraad volgt de zakvoorraad. Extra klaarzetten doe je bij ‘Afvullen uit zakken’.", 409);
+    const n = geheel(body.ontvangen_erbij, -100_000, 100_000);
+    if (n !== null && huidig.ontvangen + n > (huidig.verwacht ?? 0)) {
+      return fout(`Er ${huidig.verwacht === 1 ? "is" : "zijn"} ${huidig.verwacht ?? 0} besteld of afgevuld; meer klaarzetten doe je bij ‘Afvullen uit zakken’.`, 409);
+    }
+  }
   const gereserveerdSql = `(SELECT COALESCE(SUM(m.aantal), 0) FROM sz_voorraad_mutatie m JOIN sz_bestelling b ON b.id = m.bestelling_id
                              WHERE m.product_id = ?1 AND b.status != 'geannuleerd' AND b.voorraad_vrijgegeven = 0)`;
   if ("verwacht" in body) {
@@ -888,7 +904,7 @@ async function straatverkoop(request: Request, env: SzEnv): Promise<Response> {
     const code = maakAfhaalcode(poging < 6 ? 4 : 5);
     try {
       await db.batch([
-        ...bestelStatements(db, { idempotentie: idem, afhaalcode: code, rondeId: ronde?.id ?? null, kanaal: "beheer", levering: "ophalen", momentId: null, klant, betaalwijze: "bij_ontvangst", som, effect, voorbestelling: false, nu }),
+        ...bestelStatements(db, { idempotentie: idem, afhaalcode: code, rondeId: ronde?.id ?? null, kanaal: "beheer", levering: "ophalen", momentId: null, klant, betaalwijze: "bij_ontvangst", som, effect, omzet: omzetting(db, cat, effect, idem, nu), voorbestelling: false, nu }),
         db.prepare("UPDATE sz_bestelling SET status = 'afgehaald', afgerond_op = ?2, uitgifte_id = ?3 WHERE idempotentie = ?1").bind(idem, nu, uitgifteId),
         ...(wijze !== "nog_niet"
           ? [db.prepare("INSERT INTO sz_betaling (bestelling_id, bedrag_cent, wijze, notitie, op) SELECT id, ?2, ?3, 'straatverkoop', ?4 FROM sz_bestelling WHERE idempotentie = ?1 AND uitgifte_id = ?5").bind(idem, som.totaal_cent, wijze, nu, uitgifteId)]

@@ -37,16 +37,6 @@ async function zetTienKilo(request: APIRequestContext, baseURL: string, status: 
   }
 }
 
-/** Porties van 10 kg klaarzetten uit ontvangen zakken; opent niet meer zakken dan nodig (los zout telt mee). */
-async function vulAf(request: APIRequestContext, baseURL: string, slug: string, aantal: number) {
-  const headers = { Authorization: `Bearer ${TOKEN}`, Origin: baseURL };
-  const { producten } = (await (await request.get("/api/strooizout/beheer/producten", { headers })).json()) as { producten: BeheerProduct[] };
-  const los = (await (await request.get("/api/strooizout/beheer/voorraad", { headers })).json()).los_gram as number;
-  const zakken = Math.max(0, Math.ceil((aantal * 10000 - los) / 25000));
-  const r = await request.post("/api/strooizout/beheer/voorraad/afvullen", { headers, data: { emmer_id: producten.find((x) => x.slug === slug)!.id, zak_id: 1, emmers: aantal, zakken } });
-  expect(r.status()).toBe(200);
-}
-
 async function axe(page: Page) {
   const res = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
   return res.violations.filter((v) => v.impact === "serious" || v.impact === "critical").map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).slice(0, 3).join(" | ")}`);
@@ -150,8 +140,9 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(page.getByRole("link", { name: new RegExp(`Je bestelling ${code} bekijken`) })).toBeVisible();
   });
 
-  test("strooizout: 10 kg in eigen emmer en met emmer staan er als ‘binnenkort’, met prijs maar zonder bestelknop", async ({ page, request, baseURL }) => {
+  test("strooizout: een variant die in het beheer op ‘binnenkort’ staat, toont prijs en uitleg maar geen bestelknop", async ({ page, request, baseURL }) => {
     await zetTienKilo(request, baseURL!, "binnenkort");
+    try {
     await page.goto("/strooizout");
     const kaart = page.locator(".sz-bestelkaart");
     const keuzes = kaart.getByRole("radiogroup", { name: "Kies je verpakking" });
@@ -182,17 +173,18 @@ test.describe("Strooizout voor de buurt", () => {
     const w = await (await request.get("/api/strooizout/winkel")).json();
     expect(w.binnenkort.map((x: { slug: string }) => x.slug)).toEqual(["strooizout-10-kg-eigen-emmer", "strooizout-10-kg-met-emmer"]);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+    } finally {
+      await zetTienKilo(request, baseURL!, "actief"); // zoals ze in de webshop staan
+    }
   });
 
-  test("strooizout: 10 kg bestellen zodra het klaarstaat: eigen emmer alleen afhalen, en zak met emmer in één bestelling", async ({ page, request, baseURL }) => {
+  test("strooizout: 10 kg bestellen uit de zakvoorraad: eigen emmer alleen afhalen, en zak met emmer in één bestelling", async ({ page, request, baseURL }) => {
     const headers = { Authorization: `Bearer ${TOKEN}`, Origin: baseURL! };
-    await ontvang(request, baseURL!, 4);
-    await vulAf(request, baseURL!, "strooizout-10-kg-eigen-emmer", 2);
-    await vulAf(request, baseURL!, "strooizout-10-kg-met-emmer", 2);
-    await zetTienKilo(request, baseURL!, "actief");
-    try {
+    {
       await page.goto("/strooizout");
       const kaart = page.locator(".sz-bestelkaart");
+      // alle drie te bestellen: geen ‘Binnenkort’ meer in de keuze
+      await expect(kaart.locator(".wn-keuze__optie")).toHaveText([/25\skg\s*zak\s*vanaf € 8,99$/, /10\skg\s*eigen emmer\s*€ 5,49$/, /10\skg\s*met emmer\s*€ 6,49$/]);
       await kaart.locator(".wn-keuze__optie", { hasText: "eigen emmer" }).click();
       await expect(kaart.getByRole("heading", { name: "10 kg strooizout in je eigen emmer" })).toBeVisible();
       await expect(kaart.locator(".sz-beschikbaar")).toContainText("Op voorraad");
@@ -212,6 +204,10 @@ test.describe("Strooizout voor de buurt", () => {
       await kaart.getByLabel("Mobiel nummer").fill(mobiel);
       await page.waitForTimeout(2600);
       await kaart.getByRole("button", { name: "Bestellen met betalingsverplichting", exact: true }).click();
+      // Lukt het plaatsen niet, dan staat de reden in de melding (en dus in het testverslag).
+      const melding = kaart.getByRole("alert");
+      await expect(page.locator(".sz-codekaart__code").or(melding).first()).toBeVisible({ timeout: 15_000 });
+      expect((await melding.count()) ? await melding.first().innerText() : "").toBe("");
       await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
       await expect(page.getByText("Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af.")).toBeVisible();
       await expect(page.getByText("2× Strooizout 10 kg in je eigen emmer")).toBeVisible();
@@ -248,8 +244,6 @@ test.describe("Strooizout voor de buurt", () => {
       const gemengd = await (await request.get(`/api/strooizout/beheer/bestellingen?ronde=alle&zoek=${encodeURIComponent(mobiel2)}`, { headers })).json();
       expect(gemengd.bestellingen[0]).toMatchObject({ totaal_cent: 2 * 949 + 649 + 549, stuks: 4, levering: "ophalen" });
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
-    } finally {
-      await zetTienKilo(request, baseURL!, "binnenkort");
     }
   });
 

@@ -27,6 +27,7 @@ import {
   alsPrijs,
   beschikbaar,
   bestelStatements,
+  omzetting,
   fout,
   laadMagazijn,
   zakkenPerStuk,
@@ -253,7 +254,7 @@ async function plaatsBestelling(request: Request, env: SzEnv, ctx: ExecutionCont
 
   const db = env.DB;
   const maakStatements = (afhaalcode: string) =>
-    bestelStatements(db, { idempotentie: idem, afhaalcode, rondeId: ronde?.id ?? null, kanaal, levering: levering as Levering, momentId, klant: k, betaalwijze: betaalwijze as Betaalwijze, som, effect, voorbestelling, bron: schoneBron(body.bron) || (kanaal === "straat" ? "aan-de-weg" : schoneHerkomst(body.herkomst) === "direct" ? "" : schoneHerkomst(body.herkomst)), nu });
+    bestelStatements(db, { idempotentie: idem, afhaalcode, rondeId: ronde?.id ?? null, kanaal, levering: levering as Levering, momentId, klant: k, betaalwijze: betaalwijze as Betaalwijze, som, effect, omzet: omzetting(db, cat, effect, idem, nu), voorbestelling, bron: schoneBron(body.bron) || (kanaal === "straat" ? "aan-de-weg" : schoneHerkomst(body.herkomst) === "direct" ? "" : schoneHerkomst(body.herkomst)), nu });
 
   // Unieke afhaalcode: willekeurig, de UNIQUE-index bewaakt botsingen (ook bij gelijktijdige bestellingen); bij een botsing
   // opnieuw met een andere code. Na een paar pogingen een cijfer langer (H-12345).
