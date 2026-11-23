@@ -1665,20 +1665,6 @@ body.sz-stap2-open.sz-heeft-balk {
   display: block;
   margin-top: 10px;
 }
-/* Op de homepage, direct onder ‘Zo werkt het’ */
-.wn-stappen__vraag {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px 16px;
-  margin: clamp(18px, 2.4vw, 28px) 0 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--tekst-2);
-}
-.sz-voet__links .sz-wa {
-  color: #06281a;
-}
 /* de tekst van de knop blijft donker, ook binnen een uitlegblok met een eigen tekstkleur */
 a.sz-wa,
 a.sz-wa span {

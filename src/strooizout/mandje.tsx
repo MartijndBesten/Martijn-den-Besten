@@ -1,6 +1,7 @@
 // Het winkelmandje: product-ID's en aantallen, bewaard in deze browser (localStorage). Prijzen komen altijd van de server.
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import type { Levering } from "../../shared/strooizout";
 
 export type MandRegel = { product_id: number; aantal: number };
 type Mand = {
@@ -8,6 +9,9 @@ type Mand = {
   zet: (productId: number, aantal: number) => void;
   voegToe: (productId: number, aantal: number) => void;
   leeg: () => void;
+  /** Afhalen of bezorgen, zoals gekozen in de bestelkaart: mandje en bestelpagina rekenen met dezelfde keuze. */
+  levering: Levering;
+  setLevering: (l: Levering) => void;
   open: boolean;
   setOpen: (v: boolean) => void;
   bump: number;
@@ -30,6 +34,7 @@ export function MandProvider({ children }: { children: ReactNode }) {
   const [regels, setRegels] = useState<MandRegel[]>(lees);
   const [open, setOpen] = useState(false);
   const [bump, setBump] = useState(0);
+  const [levering, setLevering] = useState<Levering>("ophalen");
 
   useEffect(() => {
     try {
@@ -69,7 +74,7 @@ export function MandProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const leeg = useCallback(() => setRegels([]), []);
-  const waarde = useMemo(() => ({ regels, zet, voegToe, leeg, open, setOpen, bump }), [regels, zet, voegToe, leeg, open, bump]);
+  const waarde = useMemo(() => ({ regels, zet, voegToe, leeg, levering, setLevering, open, setOpen, bump }), [regels, zet, voegToe, leeg, levering, open, bump]);
   return <Ctx.Provider value={waarde}>{children}</Ctx.Provider>;
 }
 

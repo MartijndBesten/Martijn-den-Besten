@@ -4,8 +4,8 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { aanbiedingGeldig, alsPrijsProduct, bereken, dagTekst, euro, stukprijs, whatsappLink, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
-import { minderBeweging, useOnthul, useTween } from "./beweging";
-import { IcoonDelen, IcoonKlok, IcoonLet, IcoonPijlRechts, IcoonVink, WhatsAppKnop } from "./iconen";
+import { minderBeweging, useOnthul } from "./beweging";
+import { IcoonDelen, IcoonKlok, IcoonLet, IcoonPijlRechts, IcoonVink, IcoonWhatsApp } from "./iconen";
 import { useMand } from "./mandje";
 import { maxVoor } from "./opmaak";
 import { metBron, WINKEL_URL } from "./qr";
@@ -86,13 +86,15 @@ function tredenVoor(p: PubliekProduct, nu: string): Trede[] {
 
 const tredeLabel = (t: Trede, eenheid: string, meervoud: string) => (t.tot === null ? `${t.vanaf} of meer` : t.tot === t.vanaf ? `${t.vanaf} ${t.vanaf === 1 ? eenheid : meervoud}` : `${t.vanaf}–${t.tot} ${meervoud}`);
 
-/** Bedrag dat soepel naar zijn nieuwe waarde loopt; schermlezers horen alleen het eindbedrag. */
+/**
+ * Het totaalbedrag: altijd meteen het exacte bedrag. (Het liep eerst met een telanimatie naar de nieuwe waarde en kon
+ * daardoor heel even een tussenbedrag tonen, bijvoorbeeld € 20,90 bij € 20,98.) Alleen een korte tik bij een wijziging.
+ */
 function Bedrag({ cent, className }: { cent: number; className?: string }) {
-  const nu = useTween(cent);
   return (
     <>
-      <strong className={`sz-tnum ${className ?? ""}`} aria-hidden="true">
-        {euro(nu)}
+      <strong key={cent} className={`sz-tnum wn-bedrag ${className ?? ""}`} aria-hidden="true">
+        {euro(cent)}
       </strong>
       <span className="sr-only" role="status">
         Totaal {euro(cent)}
@@ -104,11 +106,11 @@ function Bedrag({ cent, className }: { cent: number; className?: string }) {
 /** Een keuze in de bestelkaart: een product dat te bestellen is, of een dat eraan komt (zichtbaar, nog niet te bestellen). */
 export type Keuze = { p: PubliekProduct; straks: boolean };
 
-/** ‘Strooizout 10 kg in je eigen emmer’ → ‘10 kg’ en ‘eigen emmer’, voor een compacte keuzeknop. */
+/** ‘Strooizout 10 kg in je eigen emmer’ → ‘10 kg’ en ‘in je eigen emmer’, voor een compacte keuzeknop. */
 function keuzeTekst(p: PubliekProduct): { kop: string; sub: string } {
   const m = /^Strooizout (\d+) kg\s*(.*)$/.exec(p.naam);
   if (!m) return { kop: p.naam, sub: "" };
-  return { kop: `${m[1]}\u00a0kg`, sub: m[2].replace(/^in (je )?/, "") || p.eenheid };
+  return { kop: `${m[1]}\u00a0kg`, sub: m[2] || p.eenheid };
 }
 
 /** De compacte productkeuze boven in de bestelkaart: zak van 25 kg of een van de varianten van 10 kg. */
@@ -136,7 +138,7 @@ function Productkeuze({ keuzes, gekozen, nu, onKies }: { keuzes: Keuze[]; gekoze
 }
 
 function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: PubliekProduct; straks: boolean; keuzes: Keuze[]; winkel: Winkel; onAantal: (n: number) => void; onKies: (id: number) => void }) {
-  const { zet, leeg } = useMand();
+  const { zet, leeg, setLevering: zetMandLevering } = useMand();
   const { navigeer } = useRouter();
   const inst = winkel.instellingen;
   const max = Math.max(1, maxVoor(p));
@@ -163,6 +165,8 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
     if (levering === "bezorgen" && !bezorgKan) setLevering("ophalen");
   }, [levering, bezorgKan]);
   useEffect(() => onAantal(straks ? 1 : aantal), [aantal, straks, onAantal]);
+  // Mandje en bestelpagina rekenen met dezelfde leverwijze als deze kaart (dus overal hetzelfde totaal).
+  useEffect(() => zetMandLevering(levering), [levering, zetMandLevering]);
   // Staat stap 2 open, dan is dít het bestelformulier: de mandjesbalk onderaan (tweede route, over de tekst heen) gaat weg.
   useEffect(() => {
     document.body.classList.toggle("sz-stap2-open", verder);
@@ -327,7 +331,10 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
                   <IcoonVink /> Betalen met betaalverzoek
                 </li>
                 <li>
-                  <IcoonVink /> 14 dagen bedenktijd na ontvangst. Annuleren vóór afhalen of bezorgen is gratis.
+                  <IcoonVink /> <span>Gratis annuleren zolang je bestelling nog niet is afgehaald of&nbsp;bezorgd.</span>
+                </li>
+                <li>
+                  <IcoonVink /> <span>Na ontvangst heb je 14&nbsp;dagen bedenktijd.</span>
                 </li>
               </ul>
               {andere.length > 0 && (
@@ -390,8 +397,7 @@ function Delen({ winkel }: { winkel: Winkel | null }) {
   );
 }
 
-function Stappen({ winkel }: { winkel: Winkel | null }) {
-  const app = whatsappLink(winkel?.instellingen.contact_telefoon ?? "", "Hoi, ik heb een vraag over strooizout.");
+function Stappen() {
   return (
     <section className="wn-stappen" aria-labelledby="wn-zo">
       <div className="sz-wrap">
@@ -399,19 +405,13 @@ function Stappen({ winkel }: { winkel: Winkel | null }) {
           Zo werkt het
         </h2>
         <ol className="wn-stappen__lijst">
-          {["Bestel online", "Ontvang je afhaalcode", "Haal op of laat bezorgen"].map((stap) => (
+          {["Bestel online", "Ontvang je bevestiging", "Haal op met je afhaalcode of laat bezorgen"].map((stap) => (
             <li key={stap}>
               <span className="wn-stappen__icoon" aria-hidden="true" />
               <b>{stap}</b>
             </li>
           ))}
         </ol>
-        {app && (
-          <p className="wn-stappen__vraag">
-            <span>Vragen of even overleggen?</span>
-            <WhatsAppKnop href={app} />
-          </p>
-        )}
       </div>
     </section>
   );
@@ -520,11 +520,12 @@ export function WinkelPagina() {
   const [aantal, setAantal] = useState(1);
   const pagina = useRef<HTMLDivElement>(null);
   useOnthul(pagina);
+  const app = whatsappLink(winkel?.instellingen.contact_telefoon ?? "", "Hoi, ik heb een vraag over strooizout.");
   const vanaf = hoofd ? Math.min(hoofd.prijs_cent, ...hoofd.aanbiedingen.filter((a) => aanbiedingGeldig(a, winkel!.nu)).map((a) => a.prijs_cent)) : null;
 
   return (
     <div ref={pagina} className="wn-pagina">
-      <section className="wn-hero">
+      <section className="wn-hero" data-app={!!app}>
         <div className="wn-hero__lucht" aria-hidden="true" />
         <div className="sz-wrap wn-hero__in">
           <div className="wn-hero__tekst">
@@ -533,6 +534,12 @@ export function WinkelPagina() {
               Strooizout uit <span>je eigen buurt.</span>
             </h1>
             <p className="wn-payoff">Hou je buurt veilig.</p>
+            {app && (
+              <a className="wn-app" href={app} target="_blank" rel="noopener noreferrer">
+                <IcoonWhatsApp />
+                <span>Vragen? App ons</span>
+              </a>
+            )}
             <p className="wn-vanaf" data-klaar={vanaf !== null}>
               {vanaf !== null && (
                 <>
@@ -565,7 +572,7 @@ export function WinkelPagina() {
           </div>
         </div>
       </section>
-      <Stappen winkel={winkel} />
+      <Stappen />
       <BuurBand winkel={winkel} />
       <Film />
       <Bewust />

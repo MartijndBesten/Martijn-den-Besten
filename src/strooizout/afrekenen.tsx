@@ -74,7 +74,7 @@ function Veld({
  */
 export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering; voorKnop?: React.ReactNode } } = {}) {
   const { winkel, herlaad } = useWinkel();
-  const { regels, zet, leeg } = useMand();
+  const { regels, zet, leeg, levering: gekozenLevering, setLevering: zetMandLevering } = useMand();
   const { navigeer } = useRouter();
   const inst = winkel?.instellingen;
   // Producten in het mandje die alleen kunnen worden afgehaald (bijvoorbeeld zout in je eigen emmer), en wat de
@@ -84,7 +84,12 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
   const meldingen = [...new Set(inMand.map((p) => p.melding).filter(Boolean))];
   const erbij = (winkel?.producten ?? []).filter((p) => p.voorraad !== 0 && !regels.some((r) => r.product_id === p.id));
 
-  const [eigenLevering, setLevering] = useState<Levering>(ingebed?.levering ?? "ophalen");
+  // De bestelpagina begint met de leverwijze die in de bestelkaart is gekozen en houdt het mandje gelijk.
+  const [eigenLevering, setEigenLevering] = useState<Levering>(ingebed?.levering ?? gekozenLevering);
+  const setLevering = (l: Levering) => {
+    setEigenLevering(l);
+    zetMandLevering(l);
+  };
   const levering = ingebed?.levering ?? eigenLevering;
   const [momentId, setMomentId] = useState<number | null>(null);
   const [v, setV] = useState<Velden>(LEEG);
@@ -105,6 +110,8 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
   // Betalen gaat altijd met een Tikkie die na de bestelling wordt gestuurd (tenzij dat in het beheer uit staat).
   const betaal: Betaalwijze = inst?.tikkie_aan ? "tikkie" : "bij_ontvangst";
   const mailVerplicht = !!winkel?.mail;
+  // De afhaalcode heb je alleen bij afhalen nodig; bij bezorgen is de mail alleen je bevestiging.
+  const mailHulp = levering === "ophalen" ? "Je ontvangt hier je bestelbevestiging en je afhaalcode." : "Je ontvangt hier je bestelbevestiging.";
   const zakken = berekeningZakken(winkel, regels);
   const bezorgKan = !!inst?.bezorgen_aan && !alleenAfhalen && zakken >= (inst?.bezorg_min_zakken ?? 0);
   useEffect(() => {
@@ -252,7 +259,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
     <div className="sz-velden">
       <Veld id="naam" label="Naam" autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
       <Veld id="telefoon" label="Mobiel nummer" type="tel" inputMode="tel" autoComplete="tel" value={v.telefoon} onChange={zetV("telefoon")} fout={fouten.telefoon} className="sz-veld--half" placeholder="06 1234 5678" required />
-      <Veld id="email" label="E-mailadres" optioneel={!mailVerplicht} required={mailVerplicht} hulp={mailVerplicht ? "Hier sturen we je afhaalcode naartoe." : undefined} type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />
+      <Veld id="email" label="E-mailadres" optioneel={!mailVerplicht} required={mailVerplicht} hulp={mailVerplicht ? mailHulp : undefined} type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />
       {opmerkingOpen ? (
         <div className="sz-veld">
           <label htmlFor="sz-opmerking">
@@ -316,7 +323,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
         )}
       </button>
       <p className="sz-klein">
-        {mailVerplicht ? "Je krijgt een e-mail met je afhaalcode. " : ""}Door te bestellen ga je akkoord met de <Link naar="/strooizout/voorwaarden">voorwaarden</Link> en de <Link naar="/strooizout/privacy">privacyverklaring</Link>.
+        {mailVerplicht ? `Je krijgt een e-mail met je bestelbevestiging${levering === "ophalen" ? " en je afhaalcode" : ""}. ` : ""}Door te bestellen ga je akkoord met de <Link naar="/strooizout/voorwaarden">voorwaarden</Link> en de <Link naar="/strooizout/privacy">privacyverklaring</Link>.
       </p>
     </>
   );
@@ -487,7 +494,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
               <div className="sz-velden">
                 <Veld id="naam" label="Naam" autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
                 <Veld id="telefoon" label="Mobiel nummer" type="tel" inputMode="tel" autoComplete="tel" value={v.telefoon} onChange={zetV("telefoon")} fout={fouten.telefoon} className="sz-veld--half" placeholder="06 1234 5678" hulp="Voor het afhalen of de bezorging, en een eventueel betaalverzoek." required />
-                <Veld id="email" label="E-mailadres" optioneel={!mailVerplicht} required={mailVerplicht} hulp={mailVerplicht ? "Hier sturen we je afhaalcode naartoe." : undefined} type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />
+                <Veld id="email" label="E-mailadres" optioneel={!mailVerplicht} required={mailVerplicht} hulp={mailVerplicht ? mailHulp : undefined} type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />
                 {opmerkingOpen ? (
                   <div className="sz-veld">
                     <label htmlFor="sz-opmerking">

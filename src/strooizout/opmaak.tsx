@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { whatsappLink, alsPrijsProduct, bereken, euro, volgendeStaffel, type Berekening, type Levering, type PubliekProduct, type Winkel } from "../../shared/strooizout";
-import { IcoonMand, IcoonSluit, IcoonSneeuw, Logo, WhatsAppKnop } from "./iconen";
+import { IcoonMand, IcoonSluit, IcoonSneeuw, Logo } from "./iconen";
 import { useMand, type MandRegel } from "./mandje";
 import { Link, useRouter } from "./router";
 import { useWinkel } from "./winkeldata";
@@ -187,9 +187,9 @@ export function Voet() {
           {(c?.contact_email || c?.verkoper_email) && <a href={`mailto:${c.contact_email || c.verkoper_email}`}>Contact</a>}
           {c?.contact_telefoon && <a href={`tel:${c.contact_telefoon.replace(/[^+\d]/g, "")}`}>{c.contact_telefoon}</a>}
           {c?.contact_telefoon && whatsappLink(c.contact_telefoon) && (
-            <WhatsAppKnop href={whatsappLink(c.contact_telefoon, "Hoi, ik heb een vraag over strooizout.")!} klein>
+            <a href={whatsappLink(c.contact_telefoon, "Hoi, ik heb een vraag over strooizout.")!} target="_blank" rel="noopener noreferrer">
               WhatsApp
-            </WhatsAppKnop>
+            </a>
           )}
         </nav>
         <p className="sz-voet__klein">
@@ -208,9 +208,9 @@ export function Voet() {
 // ---------- Mandje (lade) ----------
 
 export function Lade() {
-  const { open, setOpen, regels, zet } = useMand();
+  const { open, setOpen, regels, zet, levering } = useMand();
   const { winkel } = useWinkel();
-  const { berekening, producten, onbekend } = useMandBerekening();
+  const { berekening, producten, onbekend } = useMandBerekening(levering);
   const { navigeer } = useRouter();
   const paneel = useRef<HTMLDivElement>(null);
   const terug = useRef<Element | null>(null);
@@ -300,7 +300,7 @@ export function Lade() {
         </div>
         {!leeg && (
           <div className="sz-lade__voet">
-            <Totalen b={berekening} levering={null} />
+            <Totalen b={berekening} levering={levering} />
             <button
               type="button"
               className="sz-knop sz-knop--vol"
