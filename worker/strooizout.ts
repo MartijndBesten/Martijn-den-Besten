@@ -3,7 +3,8 @@
 // Zie docs/strooizout/README.md.
 
 import { rateLimit } from "./begrenzing";
-import { bevestigingsmail, heeftMail, stuurMail } from "./strooizout-mail";
+import { beheermelding, bevestigingsmail, heeftMail, stuurMail } from "./strooizout-mail";
+import { beheerAdressen } from "./strooizout-inlog";
 import {
   BESTEL_STATUS,
   GRENZEN,
@@ -268,6 +269,9 @@ async function plaatsBestelling(request: Request, env: SzEnv, ctx: ExecutionCont
       const weergave = await klantWeergave(env, nieuw!.id);
       // Bevestiging met de afhaalcode per e-mail (alleen als er een mailvoorziening is); de bestelling wacht er niet op.
       if (kanaal === "web" && k.email) ctx.waitUntil(stuurMail(env, bevestigingsmail(weergave.bestelling, new URL(request.url), k.email, inst.contact_email, { adres: inst.afhaal_adres, telefoon: inst.contact_telefoon })));
+      // De beheerder hoort van elke nieuwe webbestelling (zonder klantgegevens in de mail); ook dit houdt de bestelling
+      // niet op. Aan de weg staat de verkoper er zelf bij.
+      if (kanaal === "web" && heeftMail(env)) for (const adres of beheerAdressen(env)) ctx.waitUntil(stuurMail(env, beheermelding(weergave.bestelling, new URL(request.url), adres)));
       return json({ ok: true, herhaald: false, ...weergave }, 201);
     } catch (e) {
       const tekst = String((e as Error)?.message ?? e);

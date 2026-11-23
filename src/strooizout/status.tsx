@@ -2,7 +2,7 @@
 // serverlogs of statistieken; de pagina haalt de bestelling op met een POST.
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { dagTekst, euro } from "../../shared/strooizout";
+import { dagTekst, euro, whatsappLink } from "../../shared/strooizout";
 import { vraag, type KlantBestelling } from "./api";
 import { IcoonInfo, IcoonKopie, IcoonLet, IcoonVink } from "./iconen";
 import { extern, Link } from "./router";
@@ -88,6 +88,9 @@ export default function Status() {
   const stappen = b.levering === "bezorgen" ? STAPPEN_BEZORGEN : STAPPEN_OPHALEN;
   const huidig = stappen.findIndex((s) => s.s === b.status);
   const betaal = b.betaalstatus;
+  // Appen met één tik (alleen bij een mobiel nummer): de afhaalcode staat alvast in het bericht.
+  const appAfhalen = whatsappLink(b.contact.telefoon, `Hoi, ik wil mijn strooizout komen afhalen (afhaalcode ${b.afhaalcode}). Wanneer kan ik langskomen?`);
+  const appVraag = whatsappLink(b.contact.telefoon, `Hoi, ik heb een vraag over mijn strooizoutbestelling (afhaalcode ${b.afhaalcode}).`);
   const deelTekst = `Mijn strooizoutbestelling: afhaalcode ${b.afhaalcode} (${b.regels.map((r) => `${r.aantal}× ${r.naam}`).join(", ")}). Bekijken: ${link}`;
   const geannuleerd = b.status === "geannuleerd";
 
@@ -257,7 +260,16 @@ export default function Status() {
               )}
               {b.kanaal !== "straat" && b.levering === "ophalen" && b.afhaal_adres && b.contact.telefoon && b.kan_annuleren && (
                 <div style={{ marginTop: 6 }}>
-                  App of bel even om af te spreken wanneer je langskomt: <a href={`tel:${b.contact.telefoon.replace(/[^+\d]/g, "")}`}>{b.contact.telefoon}</a>.
+                  {appAfhalen ? "App of bel" : "Bel"} even om af te spreken wanneer je langskomt: <a href={`tel:${b.contact.telefoon.replace(/[^+\d]/g, "")}`}>{b.contact.telefoon}</a>
+                  {appAfhalen && (
+                    <>
+                      {" · "}
+                      <a href={appAfhalen} target="_blank" rel="noopener noreferrer">
+                        WhatsApp
+                      </a>
+                    </>
+                  )}
+                  .
                 </div>
               )}
               {b.afhaal_instructie && <div className="sz-witregel" style={{ color: "var(--tekst-2)", marginTop: 6 }}>{b.afhaal_instructie}</div>}
@@ -279,6 +291,15 @@ export default function Status() {
               {b.contact.telefoon && (
                 <>
                   {" "}via <a href={`tel:${b.contact.telefoon.replace(/[^+\d]/g, "")}`}>{b.contact.telefoon}</a>
+                  {appVraag && (
+                    <>
+                      {" ("}
+                      <a href={appVraag} target="_blank" rel="noopener noreferrer">
+                        WhatsApp
+                      </a>
+                      {")"}
+                    </>
+                  )}
                 </>
               )}
               {b.contact.email && (

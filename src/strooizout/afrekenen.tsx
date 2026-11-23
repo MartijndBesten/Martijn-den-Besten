@@ -3,7 +3,7 @@
 
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { herkomst } from "./meting";
-import { controleerKlant, dagTekst, euro, normaliseerMobiel, normaliseerPostcode, binnenBezorggebied, BUITEN_GEBIED, volgendeStaffel, alsPrijsProduct, zakkenIn, type Betaalwijze, type Klantgegevens, type Levering, type Winkel } from "../../shared/strooizout";
+import { whatsappLink, controleerKlant, dagTekst, euro, normaliseerMobiel, normaliseerPostcode, binnenBezorggebied, BUITEN_GEBIED, volgendeStaffel, alsPrijsProduct, zakkenIn, type Betaalwijze, type Klantgegevens, type Levering, type Winkel } from "../../shared/strooizout";
 import type { MandRegel } from "./mandje";
 
 /** ‘per zak’, of bij zout per emmer het gewicht: ‘per 10 kg’ (ook als je je eigen emmer meeneemt). */
@@ -277,11 +277,26 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
   // Waar afhalen en hoe afspreken (adres en nummer uit de instellingen; leeg = alleen de plaats, adres na bevestiging).
   const afhaalAdres = (inst?.afhaal_adres ?? "").trim();
   const belNummer = (inst?.contact_telefoon ?? "").trim();
+  const appLink = whatsappLink(belNummer, "Hoi, ik heb een vraag over strooizout afhalen.");
   const afhaalUitleg = levering === "ophalen" && afhaalAdres && (
     <p className="sz-betaaluitleg">
       <strong>Afhalen</strong>
       <span>
-        {afhaalAdres}.{belNummer && <> App of bel even om af te spreken: <a href={`tel:${belNummer.replace(/[^+\d]/g, "")}`}>{belNummer}</a>.</>}
+        {afhaalAdres}.
+        {belNummer && (
+          <>
+            {" "}{appLink ? "App of bel" : "Bel"} even om af te spreken: <a href={`tel:${belNummer.replace(/[^+\d]/g, "")}`}>{belNummer}</a>
+            {appLink && (
+              <>
+                {" · "}
+                <a href={appLink} target="_blank" rel="noopener noreferrer">
+                  WhatsApp
+                </a>
+              </>
+            )}
+            .
+          </>
+        )}
       </span>
     </p>
   );

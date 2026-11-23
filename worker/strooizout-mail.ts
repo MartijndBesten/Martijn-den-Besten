@@ -2,7 +2,7 @@
 // Zonder binding gaat er niets uit en werkt de rest gewoon door: mail is hier een extra, nooit een voorwaarde.
 // Er komt geen e-mailadres of inhoud in de logs.
 
-import { euro } from "../shared/strooizout";
+import { euro, whatsappLink } from "../shared/strooizout";
 import { STROOIZOUT_DOMEIN } from "./strooizout-domein";
 
 export const MAIL_VAN = "bestelling@strooizouthouten.nl";
@@ -22,15 +22,17 @@ export const heeftMail = (env: MailEnv): boolean => !!env.SZ_MAIL && env.STROOIZ
 
 const veilig = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
+type Kader = { kader: string; link?: { tekst: string; url: string } };
+
 /**
  * Eenvoudige opgemaakte versie: een kop, alinea's, eventueel één uitgelichte regel (de code) en een knop. Een alinea
  * als `{ kader: "…" }` krijgt een licht vlak met de eerste regel vet: voor wat de klant niet mag missen (waar afhalen).
  */
-export function mailHtml(o: { kop: string; alineas: (string | { kader: string })[]; uitgelicht?: string; knop?: { tekst: string; url: string }; voet?: string }): string {
-  const alinea = (a: string | { kader: string }) => {
+export function mailHtml(o: { kop: string; alineas: (string | Kader)[]; uitgelicht?: string; knop?: { tekst: string; url: string }; voet?: string }): string {
+  const alinea = (a: string | Kader) => {
     if (typeof a === "string") return `<p style="margin:0 0 14px;font-size:16px;line-height:1.5;color:#22364d">${veilig(a).replace(/\n/g, "<br>")}</p>`;
     const [eerste, ...rest] = a.kader.split("\n");
-    return `<p style="margin:0 0 14px;padding:14px 16px;border-radius:12px;background:#eaf3fa;border:1px solid #c9dfef;font-size:16px;line-height:1.5;color:#0b2340"><strong>${veilig(eerste)}</strong>${rest.length ? `<br>${rest.map(veilig).join("<br>")}` : ""}</p>`;
+    return `<p style="margin:0 0 14px;padding:14px 16px;border-radius:12px;background:#eaf3fa;border:1px solid #c9dfef;font-size:16px;line-height:1.5;color:#0b2340"><strong>${veilig(eerste)}</strong>${rest.length ? `<br>${rest.map(veilig).join("<br>")}` : ""}${a.link ? `<br><a href="${veilig(a.link.url)}" style="color:#1f5a94;font-weight:bold">${veilig(a.link.tekst)}</a>` : ""}</p>`;
   };
   return [
     `<div style="background:#f6fafd;padding:24px 12px;font-family:Arial,Helvetica,sans-serif">`,
@@ -98,9 +100,11 @@ export function bevestigingsmail(b: BevestigdeBestelling, site: URL, aan: string
   // Waar afhalen en hoe afspreken: een eigen, opvallend blok (alleen bij afhalen en als het adres is ingevuld).
   const waar =
     b.levering === "ophalen" && adres
-      ? [`Afhalen: ${adres}`, telefoon ? `App of bel even om af te spreken wanneer je langskomt: ${telefoon}.` : "", "Neem je afhaalcode mee."].filter(Boolean).join("\n")
+      ? [`Afhalen: ${adres}`, telefoon ? `${whatsappLink(telefoon) ? "App of bel" : "Bel"} even om af te spreken wanneer je langskomt: ${telefoon}.` : "", "Neem je afhaalcode mee."].filter(Boolean).join("\n")
       : "";
-  const vragen = b.levering === "bezorgen" && telefoon ? ` Vragen over de bezorging? App of bel ${telefoon}.` : "";
+  // Appen kan met één tik: een WhatsApp-link met de afhaalcode alvast in het bericht (alleen bij een mobiel nummer).
+  const app = waar ? whatsappLink(telefoon, `Hoi, ik wil mijn strooizout komen afhalen (afhaalcode ${b.afhaalcode}). Wanneer kan ik langskomen?`) : null;
+  const vragen = b.levering === "bezorgen" && telefoon ? ` Vragen over de bezorging? ${whatsappLink(telefoon) ? "App of bel" : "Bel"} ${telefoon}.` : "";
   const verder = b.levering === "bezorgen"
     ? `${tikkie ? "We sturen je een Tikkie op je mobiel. Daarna bezorgen we" : "We bezorgen"} je bestelling${b.adres ? ` op ${b.adres}` : ""}; je hoort van ons wanneer.${tikkie ? "" : " Je betaalt bij het bezorgen met een betaalverzoek."}${vragen}`
     : `${tikkie ? "We sturen je een Tikkie op je mobiel. Daarna kun je" : "Je kunt"} je bestelling komen ophalen.${waar ? "" : " Het adres en de afhaalmomenten staan op je bestelpagina. Neem je afhaalcode mee."}${tikkie ? "" : " Je betaalt bij het afhalen met een betaalverzoek."}`;
@@ -111,7 +115,25 @@ export function bevestigingsmail(b: BevestigdeBestelling, site: URL, aan: string
     aan,
     antwoordAan,
     onderwerp: `Je bestelling ${b.afhaalcode} bij Strooizout voor de buurt`,
-    tekst: [aanhef, "", b.afhaalcode, "", "Je bestelling:", besteld, "", ...(neemMee ? [neemMee, ""] : []), verder, "", ...(waar ? [waar, ""] : []), `Je bestelpagina: ${link}`, "", sluit, "", "Strooizout voor de buurt, een initiatief van Denckh in Houten"].join("\n"),
-    html: mailHtml({ kop: `Je bestelling ${b.nummer}`, alineas: [aanhef, besteld, ...(neemMee ? [neemMee] : []), verder, ...(waar ? [{ kader: waar }] : []), sluit], uitgelicht: b.afhaalcode, knop: { tekst: "Bekijk je bestelling", url: link } }),
+    tekst: [aanhef, "", b.afhaalcode, "", "Je bestelling:", besteld, "", ...(neemMee ? [neemMee, ""] : []), verder, "", ...(waar ? [waar, ...(app ? [`Stuur een appje: ${app}`] : []), ""] : []), `Je bestelpagina: ${link}`, "", sluit, "", "Strooizout voor de buurt, een initiatief van Denckh in Houten"].join("\n"),
+    html: mailHtml({ kop: `Je bestelling ${b.nummer}`, alineas: [aanhef, besteld, ...(neemMee ? [neemMee] : []), verder, ...(waar ? [{ kader: waar, ...(app ? { link: { tekst: "Stuur een appje via WhatsApp", url: app } } : {}) }] : []), sluit], uitgelicht: b.afhaalcode, knop: { tekst: "Bekijk je bestelling", url: link } }),
+  };
+}
+
+/**
+ * Melding aan de beheerder dat er een bestelling is binnengekomen. Bewust zonder gegevens van de klant (naam, nummer,
+ * adres): die staan in het beheer, één tik verder. Zo gaan er geen persoonsgegevens door de mail.
+ */
+export function beheermelding(b: BevestigdeBestelling & { voorbestelling?: boolean }, site: URL, aan: string): Mail {
+  const beheer = `${site.origin}${site.hostname === STROOIZOUT_DOMEIN ? "" : "/strooizout"}/beheer`;
+  const regels = (b.regels as { naam: string; aantal: number }[]).map((r) => `${r.aantal} × ${r.naam}`).join("\n");
+  const hoe = b.levering === "bezorgen" ? "Bezorgen" : "Afhalen";
+  const kern = `${b.nummer} · afhaalcode ${b.afhaalcode}\n${regels}\n${hoe} · totaal ${euro(b.totaal_cent)}`;
+  const doen = b.betaalwijze === "tikkie" ? "Stuur de klant een Tikkie; naam en mobiel nummer staan in het beheer." : "Naam en mobiel nummer van de klant staan in het beheer.";
+  return {
+    aan,
+    onderwerp: `Nieuwe bestelling ${b.afhaalcode}: ${euro(b.totaal_cent)}, ${hoe.toLowerCase()}`,
+    tekst: ["Er is een nieuwe bestelling.", "", kern, "", doen, "", `Beheer: ${beheer}`].join("\n"),
+    html: mailHtml({ kop: "Nieuwe bestelling", alineas: ["Er is een nieuwe bestelling binnengekomen.", kern, doen], uitgelicht: b.afhaalcode, knop: { tekst: "Open het beheer", url: beheer }, voet: "Deze melding gaat naar de beheerder van Strooizout voor de buurt." }),
   };
 }
