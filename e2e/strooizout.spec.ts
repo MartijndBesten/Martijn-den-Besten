@@ -291,6 +291,8 @@ test.describe("Strooizout voor de buurt", () => {
     await kaart.getByRole("button", { name: /^1 zak\s*€/ }).click();
     await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
     await expect(kaart.getByLabel("Straat")).toHaveCount(0);
+    // in stap 2 is de kaart zelf het bestelformulier: geen mandjesbalk onderaan die eroverheen schuift
+    await expect(page.locator(".sz-mobielbalk")).toBeHidden();
     await kaart.getByLabel("Naam").fill("Mobiel Test");
     await kaart.getByLabel("Mobiel nummer").fill("06 1111 2222");
     await page.waitForTimeout(2600);

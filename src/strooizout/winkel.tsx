@@ -152,6 +152,11 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
     if (levering === "bezorgen" && !bezorgKan) setLevering("ophalen");
   }, [levering, bezorgKan]);
   useEffect(() => onAantal(straks ? 1 : aantal), [aantal, straks, onAantal]);
+  // Staat stap 2 open, dan is dít het bestelformulier: de mandjesbalk onderaan (tweede route, over de tekst heen) gaat weg.
+  useEffect(() => {
+    document.body.classList.toggle("sz-stap2-open", verder);
+    return () => document.body.classList.remove("sz-stap2-open");
+  }, [verder]);
   // Het mandje volgt de keuze hier (één product op de homepage).
   useEffect(() => {
     if (verder) zet(p.id, aantal);

@@ -1608,3 +1608,11 @@ textarea.sz-invoer {
   white-space: nowrap;
   color: var(--blauw-2);
 }
+
+/* Stap 2 van de bestelkaart staat open: geen mandjesbalk onderaan (die bedekt het formulier en is een tweede route). */
+body.sz-stap2-open .sz-mobielbalk {
+  display: none;
+}
+body.sz-stap2-open.sz-heeft-balk {
+  padding-bottom: 0;
+}
