@@ -152,15 +152,15 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
     if (levering === "bezorgen" && !bezorgKan) setLevering("ophalen");
   }, [levering, bezorgKan]);
   useEffect(() => onAantal(straks ? 1 : aantal), [aantal, straks, onAantal]);
+  // Staat stap 2 open, dan is dít het bestelformulier: de mandjesbalk onderaan (tweede route, over de tekst heen) gaat weg.
+  useEffect(() => {
+    document.body.classList.toggle("sz-stap2-open", verder);
+    return () => document.body.classList.remove("sz-stap2-open");
+  }, [verder]);
   // Het mandje volgt de keuze hier (één product op de homepage).
   useEffect(() => {
     if (verder) zet(p.id, aantal);
   }, [verder, aantal, p.id, zet]);
-  // Zolang de gegevens (stap 2) open staan, is er één bestelknop: de balk onderin (mandje) verdwijnt dan.
-  useEffect(() => {
-    document.body.classList.toggle("wn-stap2-open", verder);
-    return () => document.body.classList.remove("wn-stap2-open");
-  }, [verder]);
 
   const som = useMemo(() => bereken([{ product: alsPrijsProduct(p), aantal }], levering, inst, winkel.nu), [p, aantal, levering, inst, winkel.nu]);
   const eenheid = p.eenheid;

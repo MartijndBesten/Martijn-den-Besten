@@ -1,20 +1,55 @@
 # Strooizout voor de buurt — overdracht
 
-**Status (22-11-2026, 14:45):** **live op https://strooizouthouten.nl**, met geldig certificaat. Uitgerold:
+## Stand 23-11-2026 — zo ga je verder (ook met een ander account)
 
-- PR #78 (00471ba) en #79 (326a19a).
-- Worker `martijndenbesten` versie `db0dd005-3a21-4f2d-a041-eaa5e8ef8a1d`. Herstelpunten: `0010e146…` en `8f62bf48…`.
-- Custom domains: martijndenbesten.com, strooizouthouten.nl en www.strooizouthouten.nl (www stuurt door naar het hoofddomein).
-- De bestelronde ‘Winter 2026’ staat open.
-- Bezorgen kost € 2,00 per bezorging.
+**Live:** https://strooizouthouten.nl (webshop) en https://martijndenbesten.com (hoofdsite; `/strooizout` en `/zout` sturen 301 door naar het eigen domein). Eén Cloudflare Worker `martijndenbesten` (account `c5472db2163a42a463916a6a525d8353`) bedient beide domeinen plus `www.strooizouthouten.nl`. De actuele versie: `npx wrangler deployments list -c wrangler.embedded.jsonc`; vorige versie terugzetten: `npx wrangler rollback <versie-id> -c wrangler.embedded.jsonc`.
 
-Gecontroleerd op productie:
+**Belangrijk — mergen is niet uitrollen.** De deploy-job in GitHub Actions wordt overgeslagen (secret `CLOUDFLARE_API_TOKEN` staat niet in GitHub; zie [DEPLOYMENT.md](../DEPLOYMENT.md)). Na elke merge naar `main` rol je zelf uit, vanaf actuele `main`:
 
-- home, museum, Bijbelreis en beheer van martijndenbesten.com werken;
-- op het eigen domein: webshop, beheer, robots.txt en sitemap; overige paden sturen door naar /;
-- de JSON-LD bevat 10.49.
+```sh
+git fetch origin main && git checkout main && git pull --ff-only
+npx wrangler deployments list -c wrangler.embedded.jsonc            # herstelpunt noteren
+npx wrangler d1 migrations list martijndenbesten --remote -c wrangler.embedded.jsonc   # alleen nieuwe migraties toepassen:
+npx wrangler d1 migrations apply martijndenbesten --remote -c wrangler.embedded.jsonc
+npm ci && npm run build && node scripts/embed-assets.mjs && npx tsc -p worker/tsconfig.embedded.json --noEmit
+npx wrangler deploy -c wrangler.embedded.jsonc                       # gzip-bundel moet onder 10 MB blijven (nu ±9,58 MB)
+```
 
-De testbestelling doet Martijn zelf. De doorverwijzing van martijndenbesten.com/strooizout en /zout naar het eigen domein staat aan (PR #81).
+Rooktest daarna: `https://martijndenbesten.com/`, `/api/health`, `/bijbelreis` en `https://strooizouthouten.nl/` geven 200; `https://strooizouthouten.nl/api/strooizout/winkel` geeft `open: true` en `mail: true`. Doe op productie **geen testbestellingen** (Martijn test zelf). In een Claude-cloudsessie voegt de netwerkproxy het Cloudflare-token toe: gebruik `CLOUDFLARE_API_TOKEN=proxy`.
+
+**Stand van de code:** alles staat op `main`; er zijn geen open branches die nog nodig zijn. Migraties op productie: t/m `0007_strooizout_10kg_uit_zakken.sql`.
+
+**Staat alleen in Cloudflare, niet in deze repository** (bewust; de repository is openbaar):
+
+| Wat | Waar | Stand |
+| --- | --- | --- |
+| Geheimen `ADMIN_TOKEN`, `HASH_SECRET`, `STROOIZOUT_BEHEER_EMAILS` | Worker-secrets | gezet; waarden nooit tonen of committen. `STROOIZOUT_BEHEER_EMAILS` = het beheeradres van Martijn (inloggen met e-mailcode + melding bij elke bestelling) |
+| Instellingen `afhaal_adres` = Vlierweg 54, Houten · `contact_telefoon` = 06 11 43 13 81 | D1-tabel `sz_instelling` | gezet 23-11 met akkoord van Martijn (nummer mag openbaar, ook als WhatsApp-link). Overige instellingen: standaardwaarden uit `shared/strooizout.ts`; wijzigen via *Beheer › Instellingen* |
+| Bestelronde ‘Winter 2026’ | D1 `sz_ronde` | open |
+| Verzenddomein strooizouthouten.nl (Email Sending) | Cloudflare-dashboard | aangezet door Martijn; DNS: 3× MX `cf-bounce`, SPF, DKIM `cf-bounce._domainkey`, DMARC `p=reject`. Het API-token mag e-mailinstellingen niet lezen (fout 10000); controle via DNS |
+| Email Routing (ontvangen) | Cloudflare | aan voor lyev.nl en bijbelreis.nl; níét voor strooizouthouten.nl |
+
+**Besluiten van Martijn op 23-11-2026** (gelden ook voor een volgende sessie):
+
+- Knop die de bestelling plaatst: **‘Bestellen met betalingsverplichting’** (art. 6:230v lid 3 BW; HR 4-10-2024). Geen andere knop mag de bestelling plaatsen; een e2e-test bewaakt dit.
+- Onder de bestelknop: ‘14 dagen bedenktijd na ontvangst. Annuleren vóór afhalen of bezorgen is gratis.’ Voorwaarden over herroeping: **niet meer dan wettelijk nodig** (geen eis ‘ongeopend’, wel aansprakelijkheid voor waardevermindering, terugbrengkosten voor de klant, terugbetaling incl. bezorgkosten binnen 14 dagen, modelformulier).
+- Tikkie-proces blijft: bestelling ontstaat bij de klik, betalen via betaalverzoek.
+- De bestelkaart **start op 1 zak** (geen voorgekozen staffel, geen oud aantal uit het mandje); het zetje ‘nog 1 erbij’ pas vanaf 2.
+- 10 kg eigen emmer (€ 5,49, alleen afhalen) en 10 kg met emmer (€ 6,49) zijn te bestellen; ze putten uit de zakvoorraad.
+- Mail staat aan; de klant ziet als bestelnummer alleen de willekeurige afhaalcode (geen volgnummer); Martijn krijgt bij elke bestelling een melding zonder naam/telefoon van de klant.
+- Op lage telefoons (390×664) moet ‘Bestellen’ helemaal in het eerste scherm vallen; e2e-test bewaakt dit.
+
+**Werkwijze tests:** een pull request die alleen bestanden met ‘strooizout’ in het pad raakt, draait in de CI alleen `e2e/strooizout.spec.ts` (enkele minuten); al het andere en elke push naar `main` draait de volledige reeks. Na het aanpassen van de frontend eerst `npm run build && node scripts/embed-assets.mjs` doen, anders test de lokale Worker de oude build.
+
+**Nog open (niet blokkerend):**
+
+- Martijn doet zelf een testbestelling; daarmee zijn de bevestigingsmail (met afhaalblok), de beheermelding en de afhaalcode als bestelnummer pas echt te zien. Na annuleren de testbestelling opruimen in D1 (alle `sz_*`-rijen met dat `bestelling_id`) en controleren dat de voorraad klopt.
+- Of de proefmail met inlogcode (23-11, ±08:00 UTC) is aangekomen, kan alleen Martijn bevestigen.
+- Afspelen van het fietsfilmpje op een echte iPhone (Safari) is niet getest; de server geeft wel correcte 206-antwoorden.
+- Bundel ±9,58 van 10 MB: geen extra film of grote beelden in de bundel; daarvoor is opslag buiten de bundel nodig (nieuwe voorziening → kostenakkoord Martijn).
+- Weegschaal geschikt voor verkoop op gewicht (eigen emmer) en inkoopprijs van de emmer: Martijn.
+
+**Eerdere stand (22-11-2026):** PR #78/#79 live, custom domains gekoppeld, doorverwijzing aan (PR #81).
 
 Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
 

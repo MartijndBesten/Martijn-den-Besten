@@ -1157,13 +1157,6 @@ textarea.sz-invoer {
   .sz-heeft-balk {
     padding-bottom: 76px;
   }
-  /* Stap 2 van de bestelkaart open: daar staat de enige bestelknop; de mandjesbalk zou die en het blok Betalen afdekken. */
-  .wn-stap2-open .sz-mobielbalk {
-    display: none;
-  }
-  .wn-stap2-open.sz-heeft-balk {
-    padding-bottom: 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1614,4 +1607,12 @@ textarea.sz-invoer {
 .sz-erbij__knop b {
   white-space: nowrap;
   color: var(--blauw-2);
+}
+
+/* Stap 2 van de bestelkaart staat open: geen mandjesbalk onderaan (die bedekt het formulier en is een tweede route). */
+body.sz-stap2-open .sz-mobielbalk {
+  display: none;
+}
+body.sz-stap2-open.sz-heeft-balk {
+  padding-bottom: 0;
 }
