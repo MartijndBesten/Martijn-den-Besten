@@ -18,6 +18,17 @@ De testbestelling doet Martijn zelf. De doorverwijzing van martijndenbesten.com/
 
 Functionaliteit, configuratie en livegangchecklist: [README.md](README.md).
 
+## 10 kg in eigen emmer en met emmer (issue #89, 23-11-2026)
+
+Gebouwd volgens de actuele opdracht in issue #89: de informatie staat online, bestellen kan pas als het er echt ligt. Beschrijving in [README.md](README.md) › *Strooizout per 10 kg*.
+
+- **Op de site:** productkeuze in de bestelkaart (25 kg zak · 10 kg eigen emmer € 5,49 · 10 kg met emmer € 6,49). De twee varianten staan op ‘binnenkort’: prijs en uitleg zichtbaar, geen bestelknop, de server weigert ze.
+- **Voorraad:** alleen via *Voorraad › Afvullen uit zakken* (ontvangen, niet-bestelde zakken; 25 kg → 2 × 10 kg + 5 kg los zout dat meetelt bij de volgende keer). Geen voorraad die er niet ligt, geen dubbele verkoop.
+- **Ongewijzigd:** 25 kg met staffels, betaalproces, verkoop aan de weg, bestaande bestellingen.
+- **Getest:** unit-tests voor omzetting, restzout, voorraadgrenzen, alleen afhalen, gemengde mandjes, annuleren en de bevestigingsmail; schermtests (desktop en telefoon) voor ‘binnenkort’, bestellen na activeren, gemengd mandje en toegankelijkheid.
+- **Nog van Martijn nodig voordat een variant actief wordt** (bewust niet automatisch): ontvangst van de zakken bevestigen en afvullen; voor de eigen emmer een weegschaal die geschikt is voor verkoop op gewicht; voor ‘met emmer’ de emmers zelf en hun inkoopprijs. De voorwaarden (nog steeds concept) hebben een alinea over zout in je eigen emmer gekregen.
+- **Mail:** de schakelaar `STROOIZOUT_MAIL` staat in deze wijziging weer op ‘uit’, omdat het verzenddomein nog niet is aangemeld. Zodra dat is gebeurd: schakelaar op ‘aan’, uitrollen en één inlogcode als proef.
+
 ## Strooizout 2.0: visuele herontwikkeling (opdracht 22-11-2026)
 
 De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, betaalstatussen en beheer zijn ongewijzigd. Beschrijving in [README.md](README.md) › *Merk en ontwerp*.
@@ -47,7 +58,7 @@ De frontend van de webshop is opnieuw ontworpen; backend, prijzen, voorraad, bet
 
 **Fietsfilmpje op de site (22-11-2026, opdracht Martijn):** het fietsfilmpje staat op de homepage, als lichte versie (0,6 MB) die pas laadt na een tik op de afspeelknop. Let op de uitrolbundel: 9,53 MB van 10 MB; voor nog een film op de site is opslag buiten de bundel nodig (bijvoorbeeld Cloudflare R2; dat is een nieuwe voorziening en vraagt akkoord van Martijn).
 
-**Bestellen, e-mail en inloggen (22-11-2026, opdracht Martijn):** (1) ‘reserveren’ is overal ‘bestellen’ geworden; (2) na een bestelling krijgt de klant een e-mail met de afhaalcode, Martijn stuurt een Tikkie en daarna wordt er opgehaald of bezorgd (geen betaalkeuze meer in het formulier); (3) inloggen op het beheer kan met een code per e-mail, zonder wachtwoord. Het beheeradres staat als geheim in de Worker en nergens in deze openbare repository. Zie README › *E-mail en inloggen op het beheer*. **Nog te doen voordat mail werkt:** het verzenddomein aanmelden bij Cloudflare Email Service, het geheim `STROOIZOUT_BEHEER_EMAILS` zetten, migratie 0005 toepassen en daarna `STROOIZOUT_MAIL` in `wrangler.embedded.jsonc` op `aan` zetten. Tot dan is het e-mailadres bij bestellen optioneel, gaat er geen mail uit en log je in met het beheertoken.
+**Bestellen, e-mail en inloggen (22-11-2026, opdracht Martijn):** (1) ‘reserveren’ is overal ‘bestellen’ geworden; (2) na een bestelling krijgt de klant een e-mail met de afhaalcode, Martijn stuurt een Tikkie en daarna wordt er opgehaald of bezorgd (geen betaalkeuze meer in het formulier); (3) inloggen op het beheer kan met een code per e-mail, zonder wachtwoord. Het beheeradres staat als geheim in de Worker en nergens in deze openbare repository. Zie README › *E-mail en inloggen op het beheer*. **Mail (23-11-2026):** Martijn gaf akkoord voor Cloudflare Email Service op strooizouthouten.nl (3.000 mails per maand inbegrepen, daarboven $ 0,35 per 1.000). Het geheim `STROOIZOUT_BEHEER_EMAILS` staat op de Worker. Het verzenddomein moet nog in het Cloudflare-account worden aangemeld (dat kan alleen Martijn in het dashboard); tot dan staat `STROOIZOUT_MAIL` op `uit`.
 
 Het productbeeld is een illustratie. Een echte productfoto van de geleverde zak kan later in het beheer worden geüpload (*Producten › Afbeelding*) en vervangt dan de kleine productafbeeldingen; voor de hero is dan een vrijstaande foto nodig.
 

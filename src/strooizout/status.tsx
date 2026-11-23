@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { dagTekst, euro } from "../../shared/strooizout";
 import { vraag, type KlantBestelling } from "./api";
-import { IcoonKopie, IcoonLet, IcoonVink } from "./iconen";
+import { IcoonInfo, IcoonKopie, IcoonLet, IcoonVink } from "./iconen";
 import { extern, Link } from "./router";
 
 const STAPPEN_OPHALEN = [
@@ -190,6 +190,14 @@ export default function Status() {
             </ol>
           </div>
         )}
+
+        {b.kan_annuleren &&
+          (b.meldingen ?? []).map((m) => (
+            <p className="sz-melding sz-melding--info" key={m} style={{ marginBottom: 14 }}>
+              <IcoonInfo />
+              <span>{m}</span>
+            </p>
+          ))}
 
         <div className="sz-blok sz-controle">
           <h2>Details</h2>

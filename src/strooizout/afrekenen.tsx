@@ -6,6 +6,9 @@ import { herkomst } from "./meting";
 import { controleerKlant, dagTekst, euro, normaliseerMobiel, normaliseerPostcode, binnenBezorggebied, BUITEN_GEBIED, volgendeStaffel, alsPrijsProduct, zakkenIn, type Betaalwijze, type Klantgegevens, type Levering, type Winkel } from "../../shared/strooizout";
 import type { MandRegel } from "./mandje";
 
+/** ‘per zak’, of bij zout per emmer het gewicht: ‘per 10 kg’ (ook als je je eigen emmer meeneemt). */
+const per = (p: { eenheid: string; gewicht_gram: number }) => (p.eenheid === "emmer" && p.gewicht_gram > 0 ? `${p.gewicht_gram / 1000}\u00a0kg` : p.eenheid);
+
 function berekeningZakken(winkel: Winkel | null, regels: MandRegel[]): number {
   const per = new Map((winkel?.producten ?? []).map((p) => [p.id, p.zakken_per_stuk]));
   return zakkenIn(regels.map((r) => ({ aantal: r.aantal, zakken_per_stuk: per.get(r.product_id) ?? 0 })));
@@ -74,6 +77,12 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
   const { regels, zet, leeg } = useMand();
   const { navigeer } = useRouter();
   const inst = winkel?.instellingen;
+  // Producten in het mandje die alleen kunnen worden afgehaald (bijvoorbeeld zout in je eigen emmer), en wat de
+  // klant voor de gekozen producten moet weten.
+  const inMand = (winkel?.producten ?? []).filter((p) => regels.some((r) => r.product_id === p.id));
+  const alleenAfhalen = inMand.find((p) => p.alleen_afhalen);
+  const meldingen = [...new Set(inMand.map((p) => p.melding).filter(Boolean))];
+  const erbij = (winkel?.producten ?? []).filter((p) => p.voorraad !== 0 && !regels.some((r) => r.product_id === p.id));
 
   const [eigenLevering, setLevering] = useState<Levering>(ingebed?.levering ?? "ophalen");
   const levering = ingebed?.levering ?? eigenLevering;
@@ -97,7 +106,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
   const betaal: Betaalwijze = inst?.tikkie_aan ? "tikkie" : "bij_ontvangst";
   const mailVerplicht = !!winkel?.mail;
   const zakken = berekeningZakken(winkel, regels);
-  const bezorgKan = !!inst?.bezorgen_aan && zakken >= (inst?.bezorg_min_zakken ?? 0);
+  const bezorgKan = !!inst?.bezorgen_aan && !alleenAfhalen && zakken >= (inst?.bezorg_min_zakken ?? 0);
   useEffect(() => {
     if (!ingebed && levering === "bezorgen" && !bezorgKan) setLevering("ophalen");
   }, [ingebed, levering, bezorgKan]);
@@ -341,11 +350,11 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                       <div className="sz-regel__sub">
                         {r.aanbieding ? (
                           <>
-                            <s>{euro(r.normaalprijs_cent)}</s> {euro(r.stukprijs_cent)} per {p.eenheid} · {r.aanbieding}
+                            <s>{euro(r.normaalprijs_cent)}</s> {euro(r.stukprijs_cent)} per {per(p)} · {r.aanbieding}
                           </>
                         ) : (
                           <>
-                            {euro(r.stukprijs_cent)} per {p.eenheid}
+                            {euro(r.stukprijs_cent)} per {per(p)}
                           </>
                         )}
                       </div>
@@ -360,6 +369,26 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                   </div>
                 );
               })}
+              {meldingen.map((m) => (
+                <p className="sz-melding sz-melding--info sz-regelmelding" key={m}>
+                  <IcoonInfo />
+                  <span>{m}</span>
+                </p>
+              ))}
+              {erbij.length > 0 && (
+                <div className="sz-erbij">
+                  <p>Nog iets erbij?</p>
+                  {erbij.map((p) => (
+                    <button type="button" className="sz-erbij__knop" key={p.id} onClick={() => zet(p.id, 1)}>
+                      <span>
+                        {p.naam}
+                        {p.alleen_afhalen && <small> · alleen afhalen</small>}
+                      </span>
+                      <b className="sz-tnum">+ {euro(p.prijs_cent)}</b>
+                    </button>
+                  ))}
+                </div>
+              )}
             </section>
 
             <section className="sz-blok" aria-labelledby="sz-b2">
@@ -383,7 +412,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                       <IcoonBus className="sz-inline-icoon" />
                       Bezorgen
                     </strong>
-                    <span>{!inst?.bezorgen_aan ? "Nu niet mogelijk." : !bezorgKan ? `Vanaf ${inst.bezorg_min_zakken} zakken.` : "Alleen in Houten."}</span>
+                    <span>{!inst?.bezorgen_aan ? "Nu niet mogelijk." : alleenAfhalen ? `${alleenAfhalen.naam} kun je alleen afhalen.` : !bezorgKan ? `Vanaf ${inst.bezorg_min_zakken} zakken.` : "Alleen in Houten."}</span>
                   </div>
                   <span className="sz-keuze__prijs">{inst?.bezorgen_aan ? `+ ${euro(rekenMand(winkel, regels, "bezorgen").berekening.bezorg_cent)}` : "–"}</span>
                 </label>

@@ -22,6 +22,7 @@ import { csv, opschonen } from "../worker/strooizout-beheer";
 import { strooizoutDomein } from "../worker/strooizout-domein";
 import { productGegevens } from "../worker/strooizout-seo";
 import { laadCatalogus, laadInstellingen, laadMagazijn } from "../worker/strooizout-basis";
+import { bevestigingsmail } from "../worker/strooizout-mail";
 import { STANDAARD_INSTELLINGEN } from "../shared/strooizout";
 import { createD1 } from "./d1-shim";
 
@@ -407,15 +408,15 @@ describe("beheer", () => {
     const externe = await beheer("/producten", { method: "POST", body: JSON.stringify({ ...leeg, status: "concept", afbeelding: "https://evil.example/x.png" }) });
     expect(externe.status).toBe(422);
     const nieuw = await jsonVan(beheer("/producten", { method: "POST", body: JSON.stringify({ ...leeg, status: "concept" }) }));
-    expect(nieuw.id).toBe(4); // 1 zak, 2 sneeuwschep, 3 emmer
+    expect(nieuw.id).toBe(6); // 1 zak, 2 sneeuwschep, 3 emmer 5 kg (vervallen), 4 en 5 de varianten van 10 kg
 
     // pakket: 2 zakken zout + strooiwagen, voorraad via de onderdelen
-    db.raw.prepare("UPDATE sz_product SET status = 'actief', voorraad = 10, prijs_cent = 2500, inkoop_cent = 1500, beschrijving = 'x', afbeelding = '/strooizout/beeld/strooizout-25kg.webp' WHERE id = 4").run();
+    db.raw.prepare("UPDATE sz_product SET status = 'actief', voorraad = 10, prijs_cent = 2500, inkoop_cent = 1500, beschrijving = 'x', afbeelding = '/strooizout/beeld/strooizout-25kg.webp' WHERE id = 6").run();
     db.raw.prepare("UPDATE sz_product SET voorraad = 5, inkoop_cent = 600 WHERE id = 1").run();
     const pakket = await jsonVan(
       beheer("/producten", {
         method: "POST",
-        body: JSON.stringify({ naam: "Winterpakket", status: "actief", prijs_cent: 3999, beschrijving: "Twee zakken en een strooiwagen.", afbeelding: "/strooizout/beeld/strooizout-25kg.webp", onderdelen: [{ product_id: 1, aantal: 2 }, { product_id: 4, aantal: 1 }], aanbiedingen: [{ naam: "Actie", vanaf_aantal: 1, prijs_cent: 3499 }] }),
+        body: JSON.stringify({ naam: "Winterpakket", status: "actief", prijs_cent: 3999, beschrijving: "Twee zakken en een strooiwagen.", afbeelding: "/strooizout/beeld/strooizout-25kg.webp", onderdelen: [{ product_id: 1, aantal: 2 }, { product_id: 6, aantal: 1 }], aanbiedingen: [{ naam: "Actie", vanaf_aantal: 1, prijs_cent: 3499 }] }),
       }),
     );
     const lijst = await jsonVan(beheer("/producten"));
@@ -432,7 +433,7 @@ describe("beheer", () => {
     expect((await bestel({ regels: [{ product_id: pakket.id, aantal: 1 }] })).status).toBe(409);
 
     // verwijderen: product in een pakket kan niet; besteld pakket wordt gearchiveerd; ongebruikt product definitief
-    expect((await beheer("/producten/4", { method: "DELETE" })).status).toBe(409);
+    expect((await beheer("/producten/6", { method: "DELETE" })).status).toBe(409);
     expect((await jsonVan(beheer(`/producten/${pakket.id}`, { method: "DELETE" }))).verwijderd).toBe("gearchiveerd");
     const los = await jsonVan(beheer("/producten", { method: "POST", body: JSON.stringify({ naam: "Ijskrabber", status: "concept" }) }));
     expect((await jsonVan(beheer(`/producten/${los.id}`, { method: "DELETE" }))).verwijderd).toBe("definitief");
@@ -519,6 +520,8 @@ async function productInvoer(id: number) {
     afbeelding_alt: p.afbeelding_alt,
     notitie: p.notitie,
     volgorde: p.volgorde,
+    alleen_afhalen: p.alleen_afhalen,
+    klant_melding: p.klant_melding,
     onderdelen: p.onderdelen,
     aanbiedingen: p.aanbiedingen,
   };
@@ -928,16 +931,179 @@ describe("definitieve afspraken", () => {
   });
 });
 
+describe("strooizout per 10 kg: eigen emmer en met emmer (23-11-2026)", () => {
+  const EIGEN = 4;
+  const MET = 5;
+  const vul = (emmer_id: number, emmers: number, zakken: number) => beheer("/voorraad/afvullen", { method: "POST", body: JSON.stringify({ emmer_id, zak_id: 1, emmers, zakken }) });
+  const voorraad = async () => {
+    const v = await jsonVan(beheer("/voorraad"));
+    return { los: v.los_gram as number, van: (id: number) => v.voorraad.find((r: J) => r.id === id) as J };
+  };
+  const activeer = (id: number) => beheer(`/producten/${id}/status`, { method: "PUT", body: JSON.stringify({ status: "actief" }) });
+  /** 40 zakken verwacht en ontvangen, ronde open. */
+  async function metZakken() {
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 40 }) });
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ ontvangen_erbij: 40 }) });
+    await startRonde();
+  }
+
+  it("zonder afgevulde voorraad is er niets te bestellen, ook niet als het product actief wordt gezet", async () => {
+    await metZakken();
+    await activeer(EIGEN);
+    await activeer(MET);
+    const w = await jsonVan(req("/api/strooizout/winkel"));
+    expect(w.producten.filter((p: J) => p.id !== 1).map((p: J) => p.voorraad)).toEqual([0, 0]);
+    for (const id of [EIGEN, MET]) {
+      const r = await bestel({ regels: [{ product_id: id, aantal: 1 }] });
+      expect(r.status).toBe(409);
+      expect(((await r.json()) as J).error).toMatch(/uitverkocht/);
+    }
+    // voorraad met de hand ophogen kan niet buiten de ontvangen voorraad om: uitgeven vraagt ontvangen voorraad
+    expect((await voorraad()).van(EIGEN)).toMatchObject({ ontvangen: 0, beschikbaar: 0, in_magazijn: 0 });
+  });
+
+  it("afvullen: 1 zak geeft 2 × 10 kg en 5 kg los zout; het losse zout telt de volgende keer mee", async () => {
+    await metZakken();
+    expect((await vul(EIGEN, 3, 1)).status).toBe(422); // 30 kg past niet in 25 kg
+    expect((await vul(EIGEN, 2, 2)).status).toBe(422); // niet meer zakken openen dan nodig
+    const eerste = await jsonVan(vul(EIGEN, 2, 1));
+    expect(eerste).toMatchObject({ ok: true, los_gram: 5000 });
+    let v = await voorraad();
+    expect(v.los).toBe(5000);
+    expect(v.van(1)).toMatchObject({ verwacht: 39, ontvangen: 39, beschikbaar: 39, in_magazijn: 39 });
+    expect(v.van(EIGEN)).toMatchObject({ verwacht: 2, ontvangen: 2, beschikbaar: 2, in_magazijn: 2 });
+    // 3 emmers = 30 kg uit 1 zak (25 kg) en de 5 kg die er nog los lag
+    expect(await jsonVan(vul(MET, 3, 1))).toMatchObject({ ok: true, los_gram: 0 });
+    v = await voorraad();
+    expect(v.los).toBe(0);
+    expect(v.van(1)).toMatchObject({ ontvangen: 38, beschikbaar: 38 });
+    expect(v.van(MET)).toMatchObject({ ontvangen: 3, beschikbaar: 3, in_magazijn: 3 });
+    // zonder los zout en zonder zak kan er niets bij
+    expect((await vul(MET, 1, 0)).status).toBe(422);
+    // twee keer 5 kg rest is samen weer 10 kg, zonder een zak te openen
+    await vul(EIGEN, 2, 1);
+    await vul(EIGEN, 2, 1);
+    expect((await voorraad()).los).toBe(10000);
+    expect(await jsonVan(vul(EIGEN, 1, 0))).toMatchObject({ ok: true, los_gram: 0 });
+    v = await voorraad();
+    expect(v.van(1).ontvangen).toBe(36);
+    expect(v.van(EIGEN).beschikbaar).toBe(7);
+    // in totaal: 4 zakken = 100 kg → 7 + 3 porties van 10 kg, niets verdwenen en niets dubbel
+    expect((40 - v.van(1).ontvangen) * 25).toBe((v.van(EIGEN).ontvangen + v.van(MET).ontvangen) * 10 + v.los / 1000);
+  });
+
+  it("afvullen kan alleen uit ontvangen, niet-bestelde zakken en nooit van zak naar zak", async () => {
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 40 }) });
+    expect((await vul(EIGEN, 2, 1)).status).toBe(409); // nog niets ontvangen
+    await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ ontvangen_erbij: 40 }) });
+    await startRonde();
+    await bestel({ regels: [{ product_id: 1, aantal: 20 }] });
+    await bestel({ regels: [{ product_id: 1, aantal: 19 }] }, "203.0.113.9"); // nog 1 zak vrij
+    expect((await vul(MET, 5, 2)).status).toBe(409); // bestelde zakken blijven van de klant
+    expect((await vul(MET, 2, 1)).status).toBe(200);
+    const v = await voorraad();
+    expect(v.van(1)).toMatchObject({ beschikbaar: 0, gereserveerd: 39, ontvangen: 39 });
+    expect((await bestel({ regels: [{ product_id: 1, aantal: 1 }] }, "203.0.113.10")).status).toBe(409); // de zak is op: geen dubbele verkoop
+    expect((await beheer("/voorraad/afvullen", { method: "POST", body: JSON.stringify({ emmer_id: 1, zak_id: 1, emmers: 1, zakken: 1 }) })).status).toBe(422);
+    expect((await beheer("/voorraad/afvullen", { method: "POST", body: JSON.stringify({ emmer_id: EIGEN, zak_id: MET, emmers: 1, zakken: 1 }) })).status).toBe(422);
+  });
+
+  it("bestellen: eigen emmer alleen afhalen, met de melding bij de bestelling; voorraadgrens en annuleren kloppen", async () => {
+    await metZakken();
+    await vul(EIGEN, 2, 1);
+    await activeer(EIGEN);
+    // bezorgen kan niet, ook niet samen met zakken
+    const bezorgd = await bestel({ levering: "bezorgen", regels: [{ product_id: 1, aantal: 2 }, { product_id: EIGEN, aantal: 1 }] });
+    expect(bezorgd.status).toBe(422);
+    expect((await bezorgd.json()) as J).toMatchObject({ veld: "levering", code: "alleen_afhalen" });
+    // meer dan er klaarstaat kan niet
+    const teveel = await bestel({ regels: [{ product_id: EIGEN, aantal: 3 }] });
+    expect(teveel.status).toBe(409);
+    expect(((await teveel.json()) as J).error).toMatch(/nog 2 ×/);
+    // afhalen: € 5,49 per 10 kg, zonder staffel, met 21% btw in de prijs
+    const r = await bestel({ regels: [{ product_id: EIGEN, aantal: 2 }] });
+    expect(r.status).toBe(201);
+    const b = ((await r.json()) as J).bestelling;
+    expect(b).toMatchObject({ totaal_cent: 1098, korting_cent: 0, bezorg_cent: 0, levering: "ophalen" });
+    expect(b.meldingen).toEqual(["Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af."]);
+    expect(b.regels[0]).toMatchObject({ naam: "Strooizout 10 kg in je eigen emmer", aantal: 2, stukprijs_cent: 549 });
+    expect((await voorraad()).van(EIGEN)).toMatchObject({ beschikbaar: 0, gereserveerd: 2, ontvangen: 2 });
+    expect((await bestel({ regels: [{ product_id: EIGEN, aantal: 1 }] }, "203.0.113.11")).status).toBe(409);
+    // de zakken zijn er niet door veranderd
+    expect((await voorraad()).van(1)).toMatchObject({ beschikbaar: 39, ontvangen: 39 });
+    // annuleren geeft de porties terug, niet de zak
+    expect((await req("/api/strooizout/bestelling/annuleer", { method: "POST", body: JSON.stringify({ code: b.code }) })).status).toBe(200);
+    const na = await voorraad();
+    expect(na.van(EIGEN)).toMatchObject({ beschikbaar: 2, gereserveerd: 0, ontvangen: 2 });
+    expect(na.van(1)).toMatchObject({ beschikbaar: 39, ontvangen: 39 });
+    expect(na.los).toBe(5000);
+  });
+
+  it("gemengd mandje: zakken met staffel en een emmer erbij; bezorgen telt alleen de zakken", async () => {
+    await metZakken();
+    await vul(MET, 2, 1);
+    await activeer(MET);
+    // alleen een emmer bezorgen kan niet: bezorgen is vanaf 2 zakken
+    const alleen = await bestel({ levering: "bezorgen", regels: [{ product_id: MET, aantal: 2 }] });
+    expect(alleen.status).toBe(422);
+    expect(((await alleen.json()) as J).error).toMatch(/vanaf 2 zakken/);
+    // 2 zakken (staffel € 9,49) en 1 emmer met deksel, bezorgd
+    const r = await bestel({ levering: "bezorgen", regels: [{ product_id: 1, aantal: 2 }, { product_id: MET, aantal: 1 }] });
+    expect(r.status).toBe(201);
+    const b = ((await r.json()) as J).bestelling;
+    expect(b.subtotaal_cent).toBe(2 * 949 + 649);
+    expect(b.totaal_cent).toBe(b.subtotaal_cent + b.bezorg_cent);
+    expect(b.meldingen).toEqual([]);
+    const v = await voorraad();
+    expect(v.van(1)).toMatchObject({ beschikbaar: 37, gereserveerd: 2 });
+    expect(v.van(MET)).toMatchObject({ beschikbaar: 1, gereserveerd: 1 });
+    // afhalen: 4 zakken (€ 8,99) en de laatste emmer
+    const tweede = await bestel({ regels: [{ product_id: 1, aantal: 4 }, { product_id: MET, aantal: 1 }] }, "203.0.113.12");
+    expect(((await tweede.json()) as J).bestelling.totaal_cent).toBe(4 * 899 + 649);
+    expect((await voorraad()).van(MET).beschikbaar).toBe(0);
+  });
+
+  it("bevestigingsmail noemt de melding bij het product (neem een emmer mee)", () => {
+    const basis = { nummer: "SZ-0001", afhaalcode: "H-1234", code: "c".repeat(24), voornaam: "Anna", levering: "ophalen" as const, adres: "", betaalwijze: "tikkie", regels: [{ naam: "Strooizout 10 kg in je eigen emmer", aantal: 1, stukprijs_cent: 549 }], korting_cent: 0, bezorg_cent: 0, totaal_cent: 549 };
+    const met = bevestigingsmail({ ...basis, meldingen: ["Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af."] }, new URL("https://strooizouthouten.nl/"), "anna@example.com");
+    expect(met.tekst).toContain("Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af.");
+    expect(met.html).toContain("Neem een schone, droge en stevige emmer mee.");
+    expect(bevestigingsmail(basis, new URL("https://strooizouthouten.nl/"), "anna@example.com").tekst).not.toContain("emmer mee");
+  });
+
+  it("beheer: alleen afhalen en de klantmelding zijn per product in te stellen; los zout is te corrigeren", async () => {
+    const ip = await productInvoer(MET);
+    expect(ip).toMatchObject({ alleen_afhalen: 0, klant_melding: "" });
+    expect((await beheer(`/producten/${MET}`, { method: "PUT", body: JSON.stringify({ ...ip, alleen_afhalen: 1, klant_melding: "De emmer mag je houden." }) })).status).toBe(200);
+    expect(await productInvoer(MET)).toMatchObject({ alleen_afhalen: 1, klant_melding: "De emmer mag je houden." });
+    // een aanroep zonder deze velden laat ze staan
+    const { alleen_afhalen: _a, klant_melding: _m, ...zonder } = await productInvoer(MET);
+    await beheer(`/producten/${MET}`, { method: "PUT", body: JSON.stringify(zonder) });
+    expect(await productInvoer(MET)).toMatchObject({ alleen_afhalen: 1, klant_melding: "De emmer mag je houden." });
+    expect((await beheer(`/producten/${MET}`, { method: "PUT", body: JSON.stringify({ ...ip, klant_melding: "x".repeat(201) }) })).status).toBe(422);
+    expect((await beheer("/voorraad/los-zout", { method: "POST", body: JSON.stringify({ gram: 2500 }) })).status).toBe(200);
+    expect((await voorraad()).los).toBe(2500);
+    expect((await beheer("/voorraad/los-zout", { method: "POST", body: JSON.stringify({ gram: -1 }) })).status).toBe(422);
+  });
+});
+
 describe("commerciële afspraken (22-11-2026)", () => {
-  it("startgegevens: zak € 10,49 met inkoop € 7,09; emmer 5 kg € 7,49 zichtbaar als ‘binnenkort’ maar niet te bestellen", async () => {
+  it("startgegevens: zak € 10,49 met inkoop € 7,09; de varianten van 10 kg zichtbaar als ‘binnenkort’ maar niet te bestellen", async () => {
     await startRonde();
     const w = await jsonVan(req("/api/strooizout/winkel"));
     expect(w.producten.map((p: J) => p.slug)).toEqual(["strooizout-25-kg"]);
-    expect(w.binnenkort).toHaveLength(1);
-    expect(w.binnenkort[0]).toMatchObject({ slug: "strooizout-emmer-5-kg", prijs_cent: 749, eenheid: "emmer", gewicht_gram: 5000 });
+    expect(w.binnenkort.map((p: J) => [p.slug, p.prijs_cent, p.gewicht_gram, p.voorraad, p.alleen_afhalen])).toEqual([
+      ["strooizout-10-kg-eigen-emmer", 549, 10000, 0, true],
+      ["strooizout-10-kg-met-emmer", 649, 10000, 0, false],
+    ]);
+    expect(w.binnenkort[0].melding).toBe("Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af.");
     expect(w.binnenkort[0]).not.toHaveProperty("inkoop_cent");
-    const emmer = await bestel({ regels: [{ product_id: 3, aantal: 1 }] });
-    expect(emmer.status).toBe(409);
+    // de emmer van 5 kg is vervallen (concept) en geen van de emmers is te bestellen
+    expect((db.raw.prepare("SELECT status FROM sz_product WHERE id = 3").get() as J).status).toBe("concept");
+    for (const id of [3, 4, 5]) expect((await bestel({ regels: [{ product_id: id, aantal: 1 }] })).status).toBe(409);
+    // de zak en zijn staffels zijn ongewijzigd
+    expect(w.producten[0]).toMatchObject({ prijs_cent: 1049, alleen_afhalen: false, melding: "" });
+    expect(w.producten[0].aanbiedingen.map((a: J) => [a.vanaf_aantal, a.prijs_cent])).toEqual([[2, 949], [4, 899]]);
     expect((db.raw.prepare("SELECT inkoop_cent FROM sz_product WHERE id = 1").get() as J).inkoop_cent).toBe(709);
     // status ‘binnenkort’ is in het beheer te kiezen
     expect((await beheer("/producten/2/status", { method: "PUT", body: JSON.stringify({ status: "binnenkort" }) })).status).toBe(200);

@@ -591,6 +591,9 @@ textarea {
   justify-content: space-between;
   gap: 8px;
 }
+.sz-regel__naam > span:last-child {
+  white-space: nowrap;
+}
 .sz-regel__sub {
   color: var(--tekst-3);
   font-size: 14.5px;
@@ -1559,4 +1562,49 @@ textarea.sz-invoer {
 .sz-straat__totaal strong {
   font-size: 28px;
   letter-spacing: -0.03em;
+}
+
+/* Bestelpagina: melding bij een product (neem een emmer mee) en ‘nog iets erbij?’ */
+.sz-regelmelding {
+  margin: 12px 0 0;
+}
+.sz-erbij {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rand);
+}
+.sz-erbij p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--tekst-2);
+}
+.sz-erbij__knop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 6px;
+  padding: 8px 14px;
+  border: 1.5px dashed var(--rand-2);
+  border-radius: 14px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+.sz-erbij__knop:hover {
+  border-style: solid;
+  border-color: var(--blauw-3);
+}
+.sz-erbij__knop small {
+  color: var(--tekst-2);
+}
+.sz-erbij__knop b {
+  white-space: nowrap;
+  color: var(--blauw-2);
 }

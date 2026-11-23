@@ -14,7 +14,8 @@
   ],
   // Oude strooizout-adressen op martijndenbesten.com gaan permanent (301) naar strooizouthouten.nl.
   // STROOIZOUT_MAIL "aan": de webshop verstuurt e-mail (bevestiging na een bestelling, inlogcode voor het beheer).
-  // Staat op "uit" tot het verzenddomein is aangemeld en het geheim met het beheeradres is gezet (README › E-mail).
+  // Akkoord van Martijn is er (23-11-2026); staat op "uit" tot strooizouthouten.nl als verzenddomein is aangemeld.
+  // "uit" zet alle mail van de webshop stil (README › E-mail).
   "vars": { "STROOIZOUT_DOORVERWIJZEN": "ja", "STROOIZOUT_MAIL": "uit" },
   // E-mail van de webshop, vanaf bestelling@strooizouthouten.nl naar klanten en naar de beheerder. Dit vraagt dat
   // strooizouthouten.nl in Cloudflare Email Service is aangemeld als verzenddomein (`wrangler email sending enable`);

@@ -25,6 +25,28 @@ async function ontvang(request: APIRequestContext, baseURL: string, n: number) {
   expect(r.status()).toBe(200);
 }
 
+type BeheerProduct = { id: number; slug: string };
+const TIEN_KILO = ["strooizout-10-kg-eigen-emmer", "strooizout-10-kg-met-emmer"];
+
+/** De varianten van 10 kg op ‘binnenkort’ (zoals ze starten) of ‘actief’ zetten. */
+async function zetTienKilo(request: APIRequestContext, baseURL: string, status: "binnenkort" | "actief") {
+  const headers = { Authorization: `Bearer ${TOKEN}`, Origin: baseURL };
+  const { producten } = (await (await request.get("/api/strooizout/beheer/producten", { headers })).json()) as { producten: BeheerProduct[] };
+  for (const p of producten.filter((x) => TIEN_KILO.includes(x.slug))) {
+    expect((await request.put(`/api/strooizout/beheer/producten/${p.id}/status`, { headers, data: { status } })).status()).toBe(200);
+  }
+}
+
+/** Porties van 10 kg klaarzetten uit ontvangen zakken; opent niet meer zakken dan nodig (los zout telt mee). */
+async function vulAf(request: APIRequestContext, baseURL: string, slug: string, aantal: number) {
+  const headers = { Authorization: `Bearer ${TOKEN}`, Origin: baseURL };
+  const { producten } = (await (await request.get("/api/strooizout/beheer/producten", { headers })).json()) as { producten: BeheerProduct[] };
+  const los = (await (await request.get("/api/strooizout/beheer/voorraad", { headers })).json()).los_gram as number;
+  const zakken = Math.max(0, Math.ceil((aantal * 10000 - los) / 25000));
+  const r = await request.post("/api/strooizout/beheer/voorraad/afvullen", { headers, data: { emmer_id: producten.find((x) => x.slug === slug)!.id, zak_id: 1, emmers: aantal, zakken } });
+  expect(r.status()).toBe(200);
+}
+
 async function axe(page: Page) {
   const res = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
   return res.violations.filter((v) => v.impact === "serious" || v.impact === "critical").map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).slice(0, 3).join(" | ")}`);
@@ -55,9 +77,7 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(page.locator(".wn-stappen__lijst li")).toHaveText(["Bestel online", "Ontvang je afhaalcode", "Haal op of laat bezorgen"]);
     // betalen gaat met een betaalverzoek; contant betalen wordt nergens genoemd
     await expect(page.getByText(/contant/i)).toHaveCount(0);
-    // de emmer van 5 kg is zichtbaar maar niet te bestellen; delen en gebruikstip staan op de pagina
-    await expect(page.locator(".sz-binnenkort")).toContainText("Binnenkort");
-    await expect(page.locator(".sz-binnenkort")).toContainText("€ 7,49");
+    // delen en de gebruikstip staan op de pagina
     await expect(page.getByRole("button", { name: "Deel met je buren" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Strooi bewust" })).toBeVisible();
     // de kop staat niet vast: hij schuift nooit over de inhoud
@@ -128,6 +148,109 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(page.locator(".sz-codekaart__code")).toHaveText(code);
     await page.goto("/strooizout");
     await expect(page.getByRole("link", { name: new RegExp(`Je bestelling ${code} bekijken`) })).toBeVisible();
+  });
+
+  test("strooizout: 10 kg in eigen emmer en met emmer staan er als ‘binnenkort’, met prijs maar zonder bestelknop", async ({ page, request, baseURL }) => {
+    await zetTienKilo(request, baseURL!, "binnenkort");
+    await page.goto("/strooizout");
+    const kaart = page.locator(".sz-bestelkaart");
+    const keuzes = kaart.getByRole("radiogroup", { name: "Kies je verpakking" });
+    await expect(keuzes.getByRole("radio")).toHaveCount(3);
+    await expect(keuzes.locator(".wn-keuze__optie")).toHaveText([/25\skg\s*zak\s*vanaf € 8,99/, /10\skg\s*eigen emmer\s*€ 5,49\s*Binnenkort/, /10\skg\s*met emmer\s*€ 6,49\s*Binnenkort/]);
+    await expect(keuzes.getByRole("radio", { name: /25\skg/ })).toBeChecked();
+    // de variant kiezen toont de informatie, maar bestellen kan niet
+    await keuzes.locator(".wn-keuze__optie", { hasText: "eigen emmer" }).click();
+    await expect(kaart.getByRole("heading", { name: "10 kg strooizout in je eigen emmer" })).toBeVisible();
+    await expect(kaart.locator(".sz-beschikbaar")).toHaveText("Binnenkort te bestellen");
+    await expect(kaart.getByText("Neem je eigen emmer mee: we wegen 10 kg voor je af.")).toBeVisible();
+    await expect(kaart.locator(".wn-straks__prijs")).toHaveText(/€ 5,49 per 10\skg · alleen afhalen/);
+    await expect(kaart.getByText("Nog niet te bestellen. Zodra het klaarstaat, bestel je het hier.")).toBeVisible();
+    await expect(kaart.getByRole("button", { name: "Bestellen", exact: true })).toHaveCount(0);
+    await expect(kaart.locator(".wn-teller")).toHaveCount(0);
+    await expect(page.locator(".wn-scene")).toHaveAttribute("data-soort", "emmer-open");
+    await keuzes.locator(".wn-keuze__optie", { hasText: "met emmer" }).click();
+    await expect(kaart.getByRole("heading", { name: "10 kg strooizout met emmer" })).toBeVisible();
+    await expect(kaart.locator(".wn-straks__prijs")).toHaveText(/€ 6,49 per 10\skg$/);
+    await expect(page.locator(".wn-scene")).toHaveAttribute("data-soort", "emmer");
+    expect(await axe(page)).toEqual([]);
+    // terug naar de zak: de bestaande bestelkaart met staffel
+    await kaart.getByRole("button", { name: /Bestel nu 25\skg/ }).click();
+    await expect(kaart.getByRole("heading", { name: "25 kg strooizout" })).toBeVisible();
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 18,98");
+    await expect(kaart.getByRole("button", { name: "Meer producten in één bestelling" })).toHaveCount(0);
+    // de server weigert de varianten ook rechtstreeks
+    const w = await (await request.get("/api/strooizout/winkel")).json();
+    expect(w.binnenkort.map((x: { slug: string }) => x.slug)).toEqual(["strooizout-10-kg-eigen-emmer", "strooizout-10-kg-met-emmer"]);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+  });
+
+  test("strooizout: 10 kg bestellen zodra het klaarstaat: eigen emmer alleen afhalen, en zak met emmer in één bestelling", async ({ page, request, baseURL }) => {
+    const headers = { Authorization: `Bearer ${TOKEN}`, Origin: baseURL! };
+    await ontvang(request, baseURL!, 4);
+    await vulAf(request, baseURL!, "strooizout-10-kg-eigen-emmer", 2);
+    await vulAf(request, baseURL!, "strooizout-10-kg-met-emmer", 2);
+    await zetTienKilo(request, baseURL!, "actief");
+    try {
+      await page.goto("/strooizout");
+      const kaart = page.locator(".sz-bestelkaart");
+      await kaart.locator(".wn-keuze__optie", { hasText: "eigen emmer" }).click();
+      await expect(kaart.getByRole("heading", { name: "10 kg strooizout in je eigen emmer" })).toBeVisible();
+      await expect(kaart.locator(".sz-beschikbaar")).toContainText("Op voorraad");
+      await expect(kaart.locator(".wn-teller__getal")).toHaveText(/1\s*× 10\skg/);
+      await expect(kaart.getByRole("radio", { name: /Bezorgen/ })).toBeDisabled();
+      await expect(kaart.locator(".wn-lever")).toContainText("alleen afhalen");
+      await expect(kaart.getByText("Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af.")).toBeVisible();
+      const totaal = kaart.locator(".sz-bestelkaart__totaal strong");
+      await expect(totaal).toHaveText("€ 5,49");
+      await kaart.getByRole("button", { name: /Eén meer/ }).click();
+      await expect(totaal).toHaveText("€ 10,98");
+      expect(await axe(page)).toEqual([]);
+      await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
+      await expect(kaart.getByLabel("Straat")).toHaveCount(0);
+      await kaart.getByLabel("Naam").fill("Emmer Test");
+      const mobiel = `+31 6 ${String(Date.now()).slice(-8, -4)} ${String(Date.now()).slice(-4)}`;
+      await kaart.getByLabel("Mobiel nummer").fill(mobiel);
+      await page.waitForTimeout(2600);
+      await kaart.getByRole("button", { name: "Bestellen met betalingsverplichting", exact: true }).click();
+      await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
+      await expect(page.getByText("Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af.")).toBeVisible();
+      await expect(page.getByText("2× Strooizout 10 kg in je eigen emmer")).toBeVisible();
+      const lijst = await (await request.get(`/api/strooizout/beheer/bestellingen?ronde=alle&zoek=${encodeURIComponent(mobiel)}`, { headers })).json();
+      expect(lijst.bestellingen[0]).toMatchObject({ totaal_cent: 1098, stuks: 2, levering: "ophalen" });
+      // annuleren door de klant geeft de porties terug
+      const voor = (await (await request.get("/api/strooizout/winkel")).json()).producten.find((x: { slug: string }) => x.slug === "strooizout-10-kg-eigen-emmer").voorraad;
+      await page.getByRole("button", { name: "Bestelling annuleren" }).click();
+      await page.getByRole("button", { name: "Ja, annuleren" }).click();
+      await expect(page.getByRole("heading", { name: "Je bestelling is geannuleerd" })).toBeVisible();
+      const na = (await (await request.get("/api/strooizout/winkel")).json()).producten.find((x: { slug: string }) => x.slug === "strooizout-10-kg-eigen-emmer").voorraad;
+      expect(na).toBe(voor + 2);
+
+      // gemengd: 2 zakken en een emmer met deksel; daarna ook de eigen emmer erbij, dan kan bezorgen niet meer
+      await page.goto("/strooizout");
+      await kaart.getByRole("button", { name: "Meer producten in één bestelling" }).click();
+      await expect(page.getByRole("heading", { level: 1, name: "Bestellen" })).toBeVisible();
+      await page.locator(".sz-erbij__knop", { hasText: "met emmer" }).click();
+      await expect(page.locator(".sz-regel")).toHaveCount(2);
+      const bezorgen = page.getByRole("radio", { name: /Bezorgen/ });
+      await expect(bezorgen).toBeEnabled();
+      await page.locator(".sz-erbij__knop", { hasText: "eigen emmer" }).click();
+      await expect(page.locator(".sz-regel")).toHaveCount(3);
+      await expect(bezorgen).toBeDisabled();
+      await expect(page.locator(".sz-keuze", { hasText: "Bezorgen" })).toContainText("Strooizout 10 kg in je eigen emmer kun je alleen afhalen.");
+      await expect(page.locator(".sz-regelmelding")).toHaveText("Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af.");
+      expect(await axe(page)).toEqual([]);
+      await page.getByLabel("Naam").fill("Gemengd Test");
+      const mobiel2 = `+31 6 ${String(Date.now() + 7).slice(-8, -4)} ${String(Date.now() + 7).slice(-4)}`;
+      await page.getByLabel("Mobiel nummer").fill(mobiel2);
+      await page.waitForTimeout(2600);
+      await page.locator("#sz-bestelformulier").getByRole("button", { name: /Bestellen met betalingsverplichting/ }).first().click();
+      await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
+      const gemengd = await (await request.get(`/api/strooizout/beheer/bestellingen?ronde=alle&zoek=${encodeURIComponent(mobiel2)}`, { headers })).json();
+      expect(gemengd.bestellingen[0]).toMatchObject({ totaal_cent: 2 * 949 + 649 + 549, stuks: 4, levering: "ophalen" });
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+    } finally {
+      await zetTienKilo(request, baseURL!, "binnenkort");
+    }
   });
 
   test("strooizout: de straat speelt vanzelf af en begint opnieuw; er loopt geen lijn meer over de pagina", async ({ page }) => {
