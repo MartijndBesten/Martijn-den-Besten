@@ -378,6 +378,10 @@ test.describe("Strooizout voor de buurt", () => {
     await kaart.getByRole("button", { name: "Bestellen met betalingsverplichting", exact: true }).click();
     await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
     await expect(page.getByText("Het adres verschijnt hier zodra je bestelling is bevestigd.")).toBeVisible();
+    // geen verouderde teksten meer: er wordt wel een e-mail gestuurd en de bestelronde is voor de klant geen onderwerp
+    await expect(page.getByText(/geen automatische e-mail/)).toHaveCount(0);
+    await expect(page.getByText(/bestelronde/i)).toHaveCount(0);
+    await expect(page.getByText("Bedankt voor je bestelling. Je krijgt een e-mail met je bevestiging en we sturen je een Tikkie op je mobiel.")).toBeVisible();
     await page.getByRole("button", { name: "Bestelling annuleren" }).click();
     await page.getByRole("button", { name: "Ja, annuleren" }).click();
     await expect(page.getByRole("heading", { name: "Je bestelling is geannuleerd" })).toBeVisible();

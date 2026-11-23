@@ -36,6 +36,7 @@ Rooktest daarna: `https://martijndenbesten.com/`, `/api/health`, `/bijbelreis` e
 - Tikkie-proces blijft: bestelling ontstaat bij de klik, betalen via betaalverzoek.
 - De bestelkaart **start op 1 zak** (geen voorgekozen staffel, geen oud aantal uit het mandje); het zetje ‘nog 1 erbij’ pas vanaf 2.
 - 10 kg eigen emmer (€ 5,49, alleen afhalen) en 10 kg met emmer (€ 6,49) zijn te bestellen; ze putten uit de zakvoorraad.
+- Teksten voor de klant: de bevestigingstekst (standaard in `shared/strooizout.ts`, aan te passen in *Beheer › Instellingen*) noemt geen bestelronde meer: ‘Bedankt voor je bestelling. Je krijgt een e-mail met je bevestiging en we sturen je een Tikkie op je mobiel.’ De bestelpagina zegt niet meer dat er geen e-mail wordt gestuurd (aangepast na de proefbestelling van Martijn, 23-11).
 - Mail staat aan; de klant ziet als bestelnummer alleen de willekeurige afhaalcode (geen volgnummer); Martijn krijgt bij elke bestelling een melding zonder naam/telefoon van de klant.
 - Op lage telefoons (390×664) moet ‘Bestellen’ helemaal in het eerste scherm vallen; e2e-test bewaakt dit.
 - Vaste balk onderin (telefoon): alleen zichtbaar als de knop ‘Bestellen’ van de bestelkaart uit beeld is, klein (± 55 px), toont prijs en aantal uit de kaart en opent stap 2; nooit tijdens stap 2. De oude mandjesbalk is weg (het mandje zit in de kop). E2e-test bewaakt dit.
