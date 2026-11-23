@@ -207,6 +207,8 @@ async function plaatsBestelling(request: Request, env: SzEnv, ctx: ExecutionCont
     if (vrij !== null && aantal > vrij) return fout(vrij === 0 ? `${p.naam} is uitverkocht.` : `Er zijn nog ${vrij} × ${p.naam} beschikbaar.`, 409, { veld: "regels", code: "voorraad" });
     regels.push({ product: alsPrijs(cat, p, inst.bezorg_per_stuk_cent), aantal, rij: p });
   }
+  const nietBezorgd = regels.find((r) => r.rij.alleen_afhalen);
+  if (levering === "bezorgen" && nietBezorgd) return fout(`${nietBezorgd.rij.naam} kun je alleen afhalen. Kies afhalen, of haal dit product uit je bestelling.`, 422, { veld: "levering", code: "alleen_afhalen" });
   if (levering === "bezorgen" && inst.bezorg_min_zakken > 0 && zakkenIn(regels.map((r) => ({ aantal: r.aantal, zakken_per_stuk: zakkenPerStuk(cat, r.rij) }))) < inst.bezorg_min_zakken) {
     return fout(`Bezorgen kan vanaf ${inst.bezorg_min_zakken} zakken. Je kunt je bestelling wel gratis ophalen.`, 422, { veld: "levering" });
   }
@@ -307,12 +309,14 @@ type BestellingRij = {
 /** Wat de klant over de eigen bestelling ziet. Het volledige afhaaladres pas na bevestiging. */
 async function klantWeergave(env: SzEnv, id: number) {
   const db = env.DB;
-  const [b, regels, moment, betaald, inst] = await Promise.all([
+  const [b, regels, moment, betaald, inst, meldingen] = await Promise.all([
     db.prepare("SELECT * FROM sz_bestelling WHERE id = ?1").bind(id).first<BestellingRij>(),
     db.prepare("SELECT naam, aantal, stukprijs_cent, normaalprijs_cent, aanbieding FROM sz_bestelregel WHERE bestelling_id = ?1 ORDER BY id").bind(id).all(),
     db.prepare("SELECT m.soort, m.datum, m.van, m.tot, m.omschrijving FROM sz_moment m JOIN sz_bestelling b ON b.moment_id = m.id WHERE b.id = ?1").bind(id).first(),
     db.prepare("SELECT COALESCE(SUM(bedrag_cent), 0) AS som, COALESCE(SUM(CASE WHEN bedrag_cent > 0 THEN bedrag_cent END), 0) AS ontvangen FROM sz_betaling WHERE bestelling_id = ?1").bind(id).first<{ som: number; ontvangen: number }>(),
     laadInstellingen(db),
+    // Wat de klant voor deze producten moet weten (bijvoorbeeld: neem een emmer mee).
+    db.prepare("SELECT DISTINCT p.klant_melding AS melding FROM sz_bestelregel r JOIN sz_product p ON p.id = r.product_id WHERE r.bestelling_id = ?1 AND p.klant_melding != '' ORDER BY p.volgorde, p.id").bind(id).all<{ melding: string }>(),
   ]);
   if (!b) throw new Error("bestelling verdwenen");
   const bevestigd = ["bevestigd", "klaar", "afgehaald"].includes(b.status);
@@ -333,6 +337,7 @@ async function klantWeergave(env: SzEnv, id: number) {
       adres: b.levering === "bezorgen" ? `${b.straat} ${b.huisnummer}, ${b.postcode} ${b.plaats}`.trim() : "",
       betaalwijze: b.betaalwijze,
       regels: regels.results,
+      meldingen: meldingen.results.map((m) => m.melding),
       subtotaal_cent: b.subtotaal_cent,
       korting_cent: b.korting_cent,
       bezorg_cent: b.bezorg_cent,

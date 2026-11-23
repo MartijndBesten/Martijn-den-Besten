@@ -77,6 +77,30 @@ Het eindbeeld is in alle drie hetzelfde: merk, zak van 25 kg, `strooizouthouten.
 
 Uitgeven (afhalen, bezorgen) en ‘klaar zetten’ kan alleen als er genoeg ontvangen voorraad ligt (ontvangen − uitgegeven). De verwachting kan niet lager dan wat al gereserveerd is; ontvangen niet lager dan wat al uitgegeven is. Meer ontvangen dan verwacht verhoogt de verwachting automatisch.
 
+## Strooizout per 10 kg: eigen emmer en met emmer (issue #89, 23-11-2026)
+
+Naast de zak van 25 kg (prijs en staffels ongewijzigd) staan er twee varianten in de bestelkaart (migratie `0006_strooizout_10kg.sql`):
+
+| Product | Prijs incl. 21% btw | Levering | Bijzonderheid |
+| --- | --- | --- | --- |
+| Strooizout 10 kg in je eigen emmer | € 5,49 | alleen afhalen | melding: ‘Neem een schone, droge en stevige emmer mee. We wegen 10 kg voor je af.’ |
+| Strooizout 10 kg met emmer | € 6,49 | afhalen; bezorgen alleen samen met minstens 2 zakken (bestaande regel) | herbruikbare emmer met deksel; inkoopprijs nog leeg tot de emmerprijs vaststaat |
+
+**Productkeuze** (`winkel.tsx` › `Productkeuze`): één rij knoppen boven in de bestelkaart. Een product met status ‘binnenkort’ is te kiezen om de informatie en de prijs te zien, maar heeft geen aantal en geen bestelknop; de server weigert het ook. De illustratie in de hero wisselt mee (zak, emmer met deksel, open emmer). Meer dan één product in dezelfde bestelling gaat via ‘Meer producten in één bestelling’ naar de bestelpagina (`/strooizout/bestellen` › ‘Nog iets erbij?’); die knop staat er pas als er meer dan één product te bestellen is.
+
+**Geen voorraad die er niet ligt.** Beide varianten starten op ‘binnenkort’ met voorraad 0. Voorraad ontstaat alleen door *Voorraad › Afvullen uit zakken*: dat kan uitsluitend uit zakken die ontvangen én niet besteld zijn, en opent nooit meer zakken dan nodig. De geopende zakken gaan van de zakvoorraad af (ontvangen, verwacht en beschikbaar), de porties van 10 kg komen erbij als ontvangen voorraad van het gekozen product. Wat overblijft is **los zout** (tabel `sz_los_zout`, in grammen): één zak geeft twee keer 10 kg en 5 kg rest, en die rest telt mee bij de volgende keer (twee resten zijn samen weer een portie, zonder een zak te openen). Alles gaat in één transactie met een kenmerk per afvulbeurt, zodat twee gelijktijdige beurten of een tussentijdse bestelling nooit dubbel tellen. Los zout is na natellen te corrigeren (`POST /voorraad/los-zout`); dat verandert geen productvoorraad. Annuleert een klant, dan komen de porties terug bij het product van 10 kg, niet bij de zakken.
+
+**Activeren doet Martijn zelf** (*Producten* › status ‘actief’), per variant, zodra het echt kan:
+
+1. de zakken zijn ontvangen en de ontvangst is bevestigd;
+2. er is afgevuld of klaargezet (anders staat het product er als uitverkocht);
+3. *eigen emmer*: de weegschaal is geschikt voor verkoop op gewicht (geijkt voor handelsgebruik). Dit staat als interne notitie bij het product; bij het activeren vraagt het beheer om die notitie te bevestigen;
+4. *met emmer*: de emmers liggen er en de inkoopprijs is ingevuld.
+
+Per product zijn in het beheer in te stellen: **Alleen afhalen** (de server weigert bezorgen, ook in een gemengd mandje) en een **melding voor de klant** (bestelkaart, bestelpagina, statuspagina, bevestigingsmail en het afhaalscherm van het beheer). Het afhaalscherm telt ‘stuks’ in plaats van ‘zakken’ zodra er iets anders dan zakken in een bestelling zit. De emmer van 5 kg (alleen een aankondiging geweest) staat op ‘concept’.
+
+Niet gewijzigd: prijzen en staffels van de zak, het betaalproces (betaalverzoek na de bestelling), de verkoop aan de weg en bestaande bestellingen.
+
 ## Verkoop aan de weg
 
 - **Bord** (`bord-a4.pdf`, A4): logo, ‘Strooizout — 25 kg’, prijs, staffel en een QR-code naar `/strooizout/aan-de-weg`.
@@ -214,6 +238,8 @@ e2e/strooizout.spec.ts                bestelroute desktop en telefoon, beheer, C
 ```
 
 ## Beelden en flyer opnieuw maken
+
+De productillustraties van 10 kg komen uit `scripts/strooizout/emmer-10kg.svg` en `eigen-emmer.svg` (zelfde script).
 
 ```bash
 node scripts/strooizout/maak-beelden.cjs                  # productillustraties (SVG → WebP) en icoon

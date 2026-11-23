@@ -85,18 +85,20 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
     "## Wie verkoopt",
     "Strooizout voor de buurt is een initiatief van Denckh. Denckh is de verkoper. De bedrijfsgegevens staan onderaan deze pagina.",
     "## Wat we verkopen",
-    "Zakken strooizout van 25 kg, om je stoep, oprit of straat ijsvrij te houden. Het actuele aanbod staat in de webshop.",
+    "Zakken strooizout van 25 kg, om je stoep, oprit of straat ijsvrij te houden. Daarnaast strooizout per 10 kg: in een herbruikbare emmer met deksel, of afgewogen in je eigen emmer. Een variant kun je pas bestellen als hij klaarstaat; staat er ‘binnenkort’ bij, dan is dat nog niet zo. Het actuele aanbod staat in de webshop.",
+    "## Zout in je eigen emmer",
+    "Zout in je eigen emmer kun je alleen afhalen. Neem een schone, droge en stevige emmer mee die groot genoeg is voor 10 kg. We wegen de 10 kg af waar je bij bent.",
     "## Prijzen",
     "Alle prijzen zijn inclusief 21% btw. Je ziet het totaalbedrag, met korting en eventuele bezorgkosten, voordat je bestelt. De prijs op het moment van bestellen blijft gelden.",
     "## Vooruit bestellen",
     "De zakken zijn op voorraad vanaf 26 november; de actuele datum staat in de webshop. Bestel je eerder, dan krijg je zakken uit de eerste levering. Op is op. Kunnen we je bestelling onverhoopt niet (helemaal) leveren, dan laten we dat weten en betaal je niets voor wat je niet krijgt.",
     "## Afhalen en bezorgen",
-    "Afhalen is gratis. Na je bestelling krijg je een afhaalcode; die laat je zien als je je zakken ophaalt.",
+    "Afhalen is gratis. Na je bestelling krijg je een afhaalcode; die laat je zien als je je bestelling ophaalt.",
     "Bezorgen kan alleen binnen de rondweg van Houten, vanaf 2 zakken, voor € 2,00 per bezorging. We bezorgen alleen als het veilig kan. Bij gladheid of sneeuwval kan de bezorging later worden; dan hoor je dat van ons.",
     "## Betalen",
     "Na je bestelling krijg je een e-mail met je afhaalcode en sturen we je een betaalverzoek (Tikkie) op je mobiel. Je betaalt nooit via de website zelf. Na betaling kun je je bestelling ophalen of bezorgen we hem. Aan de weg betaal je met een betaalverzoek voordat je de zakken meeneemt.",
     "## Annuleren en terugbrengen",
-    "Je kunt kosteloos annuleren zolang je bestelling nog niet is afgehaald of bezorgd: via je bestelpagina of door contact met ons op te nemen. Na ontvangst heb je 14 dagen bedenktijd: breng ongeopende zakken binnen die tijd terug en je krijgt het aankoopbedrag terug. Heb je al betaald, dan betalen we binnen 14 dagen terug.",
+    "Je kunt kosteloos annuleren zolang je bestelling nog niet is afgehaald of bezorgd: via je bestelpagina of door contact met ons op te nemen. Na ontvangst heb je 14 dagen bedenktijd: breng ongeopende zakken of emmers binnen die tijd terug en je krijgt het aankoopbedrag terug. Heb je al betaald, dan betalen we binnen 14 dagen terug.",
     "## Klachten",
     "Is er iets mis met je zakken of je bestelling? Laat het ons zo snel mogelijk weten, dan zoeken we samen een oplossing.",
     "## Privacy",
@@ -578,6 +580,10 @@ export type PubliekProduct = {
   op_voorraad: boolean | null;
   /** Aantal zakken per stuk (1 voor een zak, n voor een pakket met n zakken, 0 voor iets anders). */
   zakken_per_stuk: number;
+  /** Dit product kan alleen worden afgehaald. */
+  alleen_afhalen: boolean;
+  /** Korte melding voor wie dit product bestelt, bijvoorbeeld ‘Neem een emmer mee’. */
+  melding: string;
   max_per_bestelling: number;
   afbeelding: string;
   afbeelding_alt: string;

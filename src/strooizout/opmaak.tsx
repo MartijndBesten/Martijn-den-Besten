@@ -83,7 +83,7 @@ export function StaffelHint({ staffel, eenheid, onKies, max }: { staffel: Return
   return (
     <p className="sz-staffel" role="status">
       <span>
-        Bestel {staffel.vanaf} {meervoud} en bespaar {euro(staffel.besparing_cent)}!
+        Bestel {staffel.vanaf} {meervoud} en bespaar <span className="sz-nowrap">{euro(staffel.besparing_cent)}</span>!
       </span>
       {onKies && (
         <button type="button" onClick={() => onKies(staffel.vanaf)}>

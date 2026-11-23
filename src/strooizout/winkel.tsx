@@ -9,7 +9,7 @@ import { useMand } from "./mandje";
 import { maxVoor } from "./opmaak";
 import { metBron, WINKEL_URL } from "./qr";
 import { useWinkel } from "./winkeldata";
-import { extern } from "./router";
+import { extern, useRouter } from "./router";
 import { Scene, Straat } from "./scene";
 
 const Afrekenen = lazy(() => import("./afrekenen"));
@@ -48,8 +48,16 @@ function LaatsteBestelling() {
 }
 
 /** ‘Op voorraad’, ‘Op voorraad vanaf donderdag 26 november’ of ‘Uitverkocht’: alleen wat vaststaat. */
-function Beschikbaarheid({ p, winkel }: { p: PubliekProduct; winkel: Winkel }) {
+function Beschikbaarheid({ p, winkel, straks }: { p: PubliekProduct; winkel: Winkel; straks?: boolean }) {
   const vanaf = winkel.instellingen.beschikbaar_vanaf;
+  if (straks) {
+    return (
+      <p className="sz-beschikbaar">
+        <IcoonKlok />
+        <span>Binnenkort te bestellen</span>
+      </p>
+    );
+  }
   if (p.voorraad === 0) return <p className="sz-beschikbaar sz-beschikbaar--op">Uitverkocht. Bestellen is niet meer mogelijk.</p>;
   // Kort: ‘Op voorraad vanaf 26 november’ (zonder weekdag), zodat het op één regel past.
   const tekst = p.op_voorraad ? "Op voorraad" : vanaf ? `Op voorraad vanaf ${dagTekst(vanaf).replace(/^\S+dag\s/, "")}` : "Bestel nu; je hoort wanneer het binnen is";
@@ -92,8 +100,43 @@ function Bedrag({ cent, className }: { cent: number; className?: string }) {
   );
 }
 
-function Bestelkaart({ p, winkel, onAantal }: { p: PubliekProduct; winkel: Winkel; onAantal: (n: number) => void }) {
+/** Een keuze in de bestelkaart: een product dat te bestellen is, of een dat eraan komt (zichtbaar, nog niet te bestellen). */
+export type Keuze = { p: PubliekProduct; straks: boolean };
+
+/** ‘Strooizout 10 kg in je eigen emmer’ → ‘10 kg’ en ‘eigen emmer’, voor een compacte keuzeknop. */
+function keuzeTekst(p: PubliekProduct): { kop: string; sub: string } {
+  const m = /^Strooizout (\d+) kg\s*(.*)$/.exec(p.naam);
+  if (!m) return { kop: p.naam, sub: "" };
+  return { kop: `${m[1]}\u00a0kg`, sub: m[2].replace(/^in (je )?/, "") || p.eenheid };
+}
+
+/** De compacte productkeuze boven in de bestelkaart: zak van 25 kg of een van de varianten van 10 kg. */
+function Productkeuze({ keuzes, gekozen, nu, onKies }: { keuzes: Keuze[]; gekozen: number; nu: string; onKies: (id: number) => void }) {
+  return (
+    <div className="wn-keuze" role="radiogroup" aria-label="Kies je verpakking" style={{ "--wn-n": keuzes.length } as React.CSSProperties}>
+      {keuzes.map(({ p, straks }) => {
+        const t = keuzeTekst(p);
+        const laagste = Math.min(p.prijs_cent, ...p.aanbiedingen.filter((a) => aanbiedingGeldig(a, nu)).map((a) => a.prijs_cent));
+        return (
+          <label key={p.id} className={`wn-keuze__optie${p.id === gekozen ? " is-actief" : ""}`} data-straks={straks}>
+            <input type="radio" name="sz-product" checked={p.id === gekozen} onChange={() => onKies(p.id)} />
+            <b>{t.kop}</b>
+            <span>{t.sub}</span>
+            <em className="sz-tnum">
+              {laagste < p.prijs_cent && <small>vanaf </small>}
+              {euro(laagste)}
+            </em>
+            {straks && <i>Binnenkort</i>}
+          </label>
+        );
+      })}
+    </div>
+  );
+}
+
+function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: PubliekProduct; straks: boolean; keuzes: Keuze[]; winkel: Winkel; onAantal: (n: number) => void; onKies: (id: number) => void }) {
   const { zet, regels, leeg } = useMand();
+  const { navigeer } = useRouter();
   const inst = winkel.instellingen;
   const max = Math.max(1, maxVoor(p));
   const treden = useMemo(() => tredenVoor(p, winkel.nu), [p, winkel.nu]);
@@ -103,12 +146,12 @@ function Bestelkaart({ p, winkel, onAantal }: { p: PubliekProduct; winkel: Winke
   const [verder, setVerder] = useState(false);
   const stap2 = useRef<HTMLDivElement>(null);
 
-  const zakken = aantal * Math.max(1, p.zakken_per_stuk);
-  const bezorgKan = inst.bezorgen_aan && zakken >= inst.bezorg_min_zakken;
+  const zakken = aantal * (p.zakken_per_stuk ?? 1);
+  const bezorgKan = inst.bezorgen_aan && !p.alleen_afhalen && zakken >= inst.bezorg_min_zakken;
   useEffect(() => {
     if (levering === "bezorgen" && !bezorgKan) setLevering("ophalen");
   }, [levering, bezorgKan]);
-  useEffect(() => onAantal(aantal), [aantal, onAantal]);
+  useEffect(() => onAantal(straks ? 1 : aantal), [aantal, straks, onAantal]);
   // Het mandje volgt de keuze hier (één product op de homepage).
   useEffect(() => {
     if (verder) zet(p.id, aantal);
@@ -117,13 +160,24 @@ function Bestelkaart({ p, winkel, onAantal }: { p: PubliekProduct; winkel: Winke
   const som = useMemo(() => bereken([{ product: alsPrijsProduct(p), aantal }], levering, inst, winkel.nu), [p, aantal, levering, inst, winkel.nu]);
   const eenheid = p.eenheid;
   const meervoud = eenheid === "zak" ? "zakken" : eenheid === "emmer" ? "emmers" : "stuks";
+  // Zout per 10 kg (in een emmer) tel je in porties: ‘2 × 10 kg’ leest beter dan ‘2 emmers’ als je je eigen emmer meeneemt.
+  const perKilo = eenheid === "emmer" && p.gewicht_gram > 0 ? `${p.gewicht_gram / 1000}\u00a0kg` : "";
+  const andere = keuzes.filter((k) => !k.straks && k.p.id !== p.id);
+  const hoofdKeuze = keuzes.find((k) => !k.straks);
   const actief = treden.reduce((gekozen, t, i) => (aantal >= t.vanaf ? i : gekozen), 0);
   const volgende = treden[actief + 1];
   const tip = volgende && volgende.vanaf - aantal === 1 && volgende.vanaf <= max ? volgende : null;
   const beste = treden.length > 1 && actief === treden.length - 1;
   const stuk = som.regels[0]?.stukprijs_cent ?? p.prijs_cent;
-  const kan = winkel.open && p.voorraad !== 0;
-  const bezorgTekst = !inst.bezorgen_aan ? "niet mogelijk" : !bezorgKan ? `vanaf ${inst.bezorg_min_zakken} ${meervoud}` : `+ ${euro(bereken([{ product: alsPrijsProduct(p), aantal }], "bezorgen", inst, winkel.nu).bezorg_cent)}`;
+  const kan = winkel.open && !straks && p.voorraad !== 0;
+  const bezorgTekst = !inst.bezorgen_aan ? "niet mogelijk" : p.alleen_afhalen ? "alleen afhalen" : !bezorgKan ? `vanaf ${inst.bezorg_min_zakken} zakken` : `+ ${euro(bereken([{ product: alsPrijsProduct(p), aantal }], "bezorgen", inst, winkel.nu).bezorg_cent)}`;
+
+  /** Meer dan één product in dezelfde bestelling: verder op de bestelpagina, met deze keuze alvast in het mandje. */
+  function combineer() {
+    leeg();
+    zet(p.id, aantal);
+    navigeer("/strooizout/bestellen");
+  }
 
   function naarStap2() {
     leeg(); // op de homepage bestel je dit ene product
@@ -155,12 +209,28 @@ function Bestelkaart({ p, winkel, onAantal }: { p: PubliekProduct; winkel: Winke
   return (
     <section className="sz-bestelkaart wn-kaart" aria-labelledby="sz-product-titel" data-beste={beste} data-open={verder}>
       <header className="wn-kaart__kop">
-        <h2 id="sz-product-titel">{p.naam.replace(/^Strooizout (\d+) kg$/, "$1 kg strooizout")}</h2>
-        <Beschikbaarheid p={p} winkel={winkel} />
+        <h2 id="sz-product-titel">{p.naam.replace(/^Strooizout (\d+) kg(.*)$/, "$1 kg strooizout$2")}</h2>
+        <Beschikbaarheid p={p} winkel={winkel} straks={straks} />
       </header>
+      {keuzes.length > 1 && <Productkeuze keuzes={keuzes} gekozen={p.id} nu={winkel.nu} onKies={onKies} />}
 
       {!winkel.open ? (
         <RondeStatus winkel={winkel} />
+      ) : straks ? (
+        <div className="wn-straks">
+          <p>{p.kort}</p>
+          <p className="wn-straks__prijs">
+            <b className="sz-tnum">{euro(p.prijs_cent)}</b> per {perKilo || eenheid}
+            {p.alleen_afhalen && " · alleen afhalen"}
+          </p>
+          <p className="wn-straks__noot">Nog niet te bestellen. Zodra het klaarstaat, bestel je het hier.</p>
+          {hoofdKeuze && (
+            <button type="button" className="sz-knop sz-knop--vol wn-cta" onClick={() => onKies(hoofdKeuze.p.id)}>
+              Bestel nu {keuzeTekst(hoofdKeuze.p).kop}
+              <IcoonPijlRechts />
+            </button>
+          )}
+        </div>
       ) : (
         <>
           {treden.length > 1 && (
@@ -188,7 +258,7 @@ function Bestelkaart({ p, winkel, onAantal }: { p: PubliekProduct; winkel: Winke
               <b key={aantal} className="sz-tnum">
                 {aantal}
               </b>
-              <span>{aantal === 1 ? eenheid : meervoud}</span>
+              <span>{perKilo ? `× ${perKilo}` : aantal === 1 ? eenheid : meervoud}</span>
             </output>
             <button type="button" className="wn-teller__knop wn-teller__knop--meer" onClick={() => setAantal((n) => Math.min(max, n + 1))} disabled={aantal >= max} aria-label={`Eén meer ${p.naam}`}>
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -226,6 +296,7 @@ function Bestelkaart({ p, winkel, onAantal }: { p: PubliekProduct; winkel: Winke
             </label>
           </div>
           {levering === "bezorgen" && <p className="wn-noot">We bezorgen binnen de rondweg van Houten.</p>}
+          {p.melding && <p className="wn-noot wn-noot--let">{p.melding}</p>}
 
           {!verder ? (
             <>
@@ -242,6 +313,11 @@ function Bestelkaart({ p, winkel, onAantal }: { p: PubliekProduct; winkel: Winke
                   <IcoonVink /> Gratis annuleren
                 </li>
               </ul>
+              {andere.length > 0 && (
+                <button type="button" className="sz-knop sz-knop--tekst wn-combineer" onClick={combineer}>
+                  Meer producten in één bestelling
+                </button>
+              )}
             </>
           ) : (
             <div ref={stap2} className="wn-stap2">
@@ -255,22 +331,6 @@ function Bestelkaart({ p, winkel, onAantal }: { p: PubliekProduct; winkel: Winke
           )}
         </>
       )}
-    </section>
-  );
-}
-
-/** Een product dat eraan komt (bijv. de emmer van 5 kg): zichtbaar, niet te bestellen. */
-function Binnenkort({ p }: { p: PubliekProduct }) {
-  return (
-    <section className="sz-binnenkort wn-binnenkort" aria-label={`Binnenkort: ${p.naam}`}>
-      <img src={p.afbeelding} alt={p.afbeelding_alt || ""} width={56} height={56} loading="lazy" />
-      <div>
-        <p className="wn-binnenkort__titel">
-          {p.naam.replace(/^Strooizout (\d+) kg in emmer$/, "Emmer met $1\u00a0kg")} <span className="sz-nowrap sz-tnum">{euro(p.prijs_cent)}</span>
-        </p>
-        <p>Licht te dragen, voor een kleine stoep.</p>
-      </div>
-      <span className="wn-binnenkort__pil">Binnenkort</span>
     </section>
   );
 }
@@ -416,6 +476,10 @@ function Bewust() {
 export function WinkelPagina() {
   const { winkel, fout, herlaad } = useWinkel();
   const hoofd = winkel?.producten.find((p) => p.slug === "strooizout-25-kg") ?? winkel?.producten[0];
+  // De keuzes in de bestelkaart: wat te bestellen is, en daarna wat eraan komt (zichtbaar, niet te bestellen).
+  const keuzes = useMemo<Keuze[]>(() => [...(winkel?.producten ?? []).map((p) => ({ p, straks: false })), ...(winkel?.binnenkort ?? []).map((p) => ({ p, straks: true }))], [winkel]);
+  const [gekozenId, setGekozenId] = useState<number | null>(null);
+  const gekozen = keuzes.find((k) => k.p.id === gekozenId) ?? keuzes.find((k) => k.p.id === hoofd?.id) ?? keuzes[0];
   const [aantal, setAantal] = useState(2);
   const pagina = useRef<HTMLDivElement>(null);
   useOnthul(pagina);
@@ -441,7 +505,7 @@ export function WinkelPagina() {
               )}
             </p>
           </div>
-          <Scene aantal={aantal} className="wn-hero__scene" />
+          <Scene aantal={aantal} soort={gekozen?.p.eenheid === "emmer" ? (gekozen.p.slug.includes("eigen") ? "emmer-open" : "emmer") : "zak"} className="wn-hero__scene" />
           <div className="wn-hero__bestel">
             <LaatsteBestelling />
             {fout && !winkel ? (
@@ -456,12 +520,11 @@ export function WinkelPagina() {
               </div>
             ) : !winkel ? (
               <div className="sz-skelet wn-skelet" aria-busy="true" />
-            ) : !hoofd ? (
+            ) : !hoofd || !gekozen ? (
               <p className="sz-melding sz-melding--let">Er staat nu niets te koop. Kijk later nog eens.</p>
             ) : (
-              <Bestelkaart p={hoofd} winkel={winkel} onAantal={setAantal} />
+              <Bestelkaart key={gekozen.p.id} p={gekozen.p} straks={gekozen.straks} keuzes={keuzes} winkel={winkel} onAantal={setAantal} onKies={setGekozenId} />
             )}
-            {winkel?.binnenkort?.map((p) => <Binnenkort key={p.id} p={p} />)}
           </div>
         </div>
       </section>

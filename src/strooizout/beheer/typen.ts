@@ -89,6 +89,10 @@ export type BeheerProduct = {
   afbeelding_alt: string;
   notitie: string;
   volgorde: number;
+  /** 1 = alleen afhalen (bijvoorbeeld zout dat bij het afhalen wordt afgewogen). */
+  alleen_afhalen: number;
+  /** Korte melding voor de klant die dit product bestelt. */
+  klant_melding: string;
   onderdelen: { product_id: number; aantal: number }[];
   aanbiedingen: { id?: number; naam: string; vanaf_aantal: number; prijs_cent: number; start: string | null; eind: string | null; actief: boolean }[];
   berekend: { inkoop_cent: number | null; gewicht_gram: number; bezorg_cent: number | null; beschikbaar: number | null };
