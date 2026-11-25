@@ -52,6 +52,7 @@ export type LijstBestelling = {
   bedrijfsnaam: string;
   kvk: string;
   btw_nummer: string;
+  factuuradres: string;
   email: string;
   telefoon: string;
   adres: string;

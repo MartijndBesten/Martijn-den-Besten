@@ -488,6 +488,8 @@ export type Klantgegevens = {
   bedrijfsnaam: string;
   kvk: string;
   btw_nummer: string;
+  /** Afwijkend factuuradres (vrije tekst, alleen zakelijk); leeg = factuur naar het bestel-/bezorgadres. */
+  factuuradres: string;
 };
 
 const s = (v: unknown) => (typeof v === "string" ? v.replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim() : "");
@@ -542,10 +544,12 @@ export function controleerKlant(
   const zakelijk = invoer.zakelijk === true || invoer.zakelijk === "1" || invoer.zakelijk === "true";
   const bedrijfsnaam = zakelijk ? s(invoer.bedrijfsnaam) : "";
   const kvk = zakelijk ? s(invoer.kvk).replace(/\s/g, "") : "";
+  const factuuradres = zakelijk ? s(invoer.factuuradres) : "";
   const btwNummer = zakelijk ? s(invoer.btw_nummer).replace(/[\s.]/g, "").toUpperCase() : "";
   if (zakelijk) {
     if (bedrijfsnaam.length < 2) fouten.bedrijfsnaam = "Vul de naam van je bedrijf in.";
     else if (bedrijfsnaam.length > 100) fouten.bedrijfsnaam = "De bedrijfsnaam mag maximaal 100 tekens zijn.";
+    if (factuuradres.length > 200) fouten.factuuradres = "Het factuuradres mag maximaal 200 tekens zijn.";
     if (kvk && !/^[0-9]{8}$/.test(kvk)) fouten.kvk = "Een KVK-nummer heeft 8 cijfers.";
     if (btwNummer && !/^[A-Z]{2}[A-Z0-9]{8,12}$/.test(btwNummer)) fouten.btw_nummer = "Dit btw-nummer klopt niet, bijvoorbeeld NL123456789B01.";
   }
@@ -568,7 +572,7 @@ export function controleerKlant(
     else postcode = pc;
   }
   if (Object.keys(fouten).length) return { ok: false, fouten };
-  return { ok: true, waarde: { naam, email, telefoon: telefoon!, straat, huisnummer, postcode, plaats, opmerking, zakelijk, bedrijfsnaam, kvk, btw_nummer: btwNummer } };
+  return { ok: true, waarde: { naam, email, telefoon: telefoon!, straat, huisnummer, postcode, plaats, opmerking, zakelijk, bedrijfsnaam, kvk, btw_nummer: btwNummer, factuuradres } };
 }
 
 /** Ligt deze postcode (bijv. "3992 AB") in het ingestelde bezorggebied? Uitzonderingen (`niet:`) gaan voor. */

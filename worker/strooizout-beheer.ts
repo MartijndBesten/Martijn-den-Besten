@@ -119,6 +119,7 @@ type BestellingVol = {
   bedrijfsnaam: string;
   kvk: string;
   btw_nummer: string;
+  factuuradres: string;
   email: string;
   telefoon: string;
   straat: string;
@@ -359,6 +360,7 @@ function lijstRij(b: BestellingVol, regels: RegelVol[], dubbel: boolean, wijken:
     bedrijfsnaam: b.bedrijfsnaam,
     kvk: b.kvk,
     btw_nummer: b.btw_nummer,
+    factuuradres: b.factuuradres,
     email: b.email,
     telefoon: b.telefoon,
     adres: b.levering === "bezorgen" ? `${b.straat} ${b.huisnummer}` : "",
@@ -905,7 +907,7 @@ async function straatverkoop(request: Request, env: SzEnv): Promise<Response> {
   }
   const nu = nuIso();
   const som = bereken([{ product: alsPrijs(cat, p, inst.bezorg_per_stuk_cent), aantal }], "ophalen", inst, nu);
-  const klant = { naam: "Straatverkoop", email: "", telefoon: "", straat: "", huisnummer: "", postcode: "", plaats: "", opmerking: "", zakelijk: false, bedrijfsnaam: "", kvk: "", btw_nummer: "" };
+  const klant = { naam: "Straatverkoop", email: "", telefoon: "", straat: "", huisnummer: "", postcode: "", plaats: "", opmerking: "", zakelijk: false, bedrijfsnaam: "", kvk: "", btw_nummer: "", factuuradres: "" };
   const uitgifteId = crypto.randomUUID();
   const db = env.DB;
   for (let poging = 0; poging < 12; poging++) {
@@ -1501,7 +1503,7 @@ export async function opschonen(db: D1Database, inst: Instellingen, nu = new Dat
   }
   const res = await db
     .prepare(
-      `UPDATE sz_bestelling SET naam = 'Gewist', bedrijfsnaam = '', kvk = '', btw_nummer = '', email = '', telefoon = '', straat = '', huisnummer = '', postcode = substr(postcode, 1, 4),
+      `UPDATE sz_bestelling SET naam = 'Gewist', bedrijfsnaam = '', kvk = '', btw_nummer = '', factuuradres = '', email = '', telefoon = '', straat = '', huisnummer = '', postcode = substr(postcode, 1, 4),
          opmerking = '', beheer_notitie = '', afhaalcode = NULL, geanonimiseerd_op = ?2
        WHERE geanonimiseerd_op IS NULL AND status IN ('afgehaald', 'bezorgd', 'geannuleerd') AND COALESCE(afgerond_op, gewijzigd) < ?1`,
     )
@@ -1558,7 +1560,7 @@ async function export_(request: Request, env: SzEnv, soort: string): Promise<Res
       const regels = per.get(b.id) ?? [];
       return [
         bestelnummer(b.id), b.afhaalcode ?? "", nlDatum(b.aangemaakt), b.ronde_id ?? "", BESTEL_STATUS[b.status], b.levering, b.moment_id ? (momenten.get(b.moment_id) ?? "") : "",
-        b.naam, b.bedrijfsnaam, b.kvk, b.btw_nummer, b.email, b.telefoon, b.levering === "bezorgen" ? `${b.straat} ${b.huisnummer}` : "", b.postcode, b.plaats, b.levering === "bezorgen" ? wijkVan(b.postcode, inst.wijken) : "",
+        b.naam, b.bedrijfsnaam, b.kvk, b.btw_nummer, b.factuuradres, b.email, b.telefoon, b.levering === "bezorgen" ? `${b.straat} ${b.huisnummer}` : "", b.postcode, b.plaats, b.levering === "bezorgen" ? wijkVan(b.postcode, inst.wijken) : "",
         regels.map((r) => `${r.aantal}x ${r.naam}`).join(", "), regels.reduce((s, r) => s + r.aantal, 0), (b.gewicht_gram / 1000).toString().replace(".", ","),
         bedrag(b.subtotaal_cent), bedrag(b.korting_cent), bedrag(b.bezorg_cent), bedrag(b.totaal_cent), b.betaalwijze === "tikkie" ? "Betaalverzoek vooraf" : "Betaalverzoek bij ontvangst",
         bedrag(b.betaald_cent), BETAAL_STATUS[bs(b)], b.opmerking,
@@ -1566,7 +1568,7 @@ async function export_(request: Request, env: SzEnv, soort: string): Promise<Res
     });
     return csvAntwoord(
       `strooizout-bestellingen-${achter}.csv`,
-      csv(["Bestelnummer", "Afhaalcode", "Datum", "Ronde", "Status", "Levering", "Moment", "Naam", "Bedrijf", "KVK", "Btw-nummer", "E-mail", "Telefoon", "Adres", "Postcode", "Plaats", "Wijk", "Producten", "Stuks", "Gewicht (kg)", "Subtotaal", "Korting", "Bezorgkosten", "Totaal", "Betaalwijze", "Betaald", "Betaalstatus", "Opmerking"], rijen),
+      csv(["Bestelnummer", "Afhaalcode", "Datum", "Ronde", "Status", "Levering", "Moment", "Naam", "Bedrijf", "KVK", "Btw-nummer", "Factuuradres", "E-mail", "Telefoon", "Adres", "Postcode", "Plaats", "Wijk", "Producten", "Stuks", "Gewicht (kg)", "Subtotaal", "Korting", "Bezorgkosten", "Totaal", "Betaalwijze", "Betaald", "Betaalstatus", "Opmerking"], rijen),
     );
   }
   if (soort === "financien") {

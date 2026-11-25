@@ -472,12 +472,12 @@ export function bestelStatements(db: D1Database, o: NieuweBestelling): D1Prepare
     db
       .prepare(
         `INSERT INTO sz_bestelling (idempotentie, afhaalcode, ronde_id, status, levering, moment_id, naam, email, telefoon, straat, huisnummer, postcode, plaats, opmerking,
-           betaalwijze, subtotaal_cent, korting_cent, bezorg_cent, totaal_cent, gewicht_gram, aangemaakt, gewijzigd, kanaal, voorbestelling, bron, zakelijk, bedrijfsnaam, kvk, btw_nummer)
-         SELECT ?1, ?20, ?2, 'nieuw', ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?19, ?21, ?22, ?23, ?24, ?25, ?26, ?27
+           betaalwijze, subtotaal_cent, korting_cent, bezorg_cent, totaal_cent, gewicht_gram, aangemaakt, gewijzigd, kanaal, voorbestelling, bron, zakelijk, bedrijfsnaam, kvk, btw_nummer, factuuradres)
+         SELECT ?1, ?20, ?2, 'nieuw', ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?19, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28
          WHERE ?4 IS NULL OR (SELECT COUNT(*) FROM sz_bestelling WHERE moment_id = ?4 AND status != 'geannuleerd')
                < COALESCE((SELECT max_bestellingen FROM sz_moment WHERE id = ?4), 1000000000)`,
       )
-      .bind(o.idempotentie, o.rondeId, o.levering, o.momentId, k.naam, k.email, k.telefoon, k.straat, k.huisnummer, k.postcode, k.plaats, k.opmerking, o.betaalwijze, o.som.subtotaal_cent, o.som.korting_cent, o.som.bezorg_cent, o.som.totaal_cent, o.som.gewicht_gram, o.nu, o.afhaalcode, o.kanaal, o.voorbestelling ? 1 : 0, o.bron ?? "", k.zakelijk ? 1 : 0, k.bedrijfsnaam, k.kvk, k.btw_nummer),
+      .bind(o.idempotentie, o.rondeId, o.levering, o.momentId, k.naam, k.email, k.telefoon, k.straat, k.huisnummer, k.postcode, k.plaats, k.opmerking, o.betaalwijze, o.som.subtotaal_cent, o.som.korting_cent, o.som.bezorg_cent, o.som.totaal_cent, o.som.gewicht_gram, o.nu, o.afhaalcode, o.kanaal, o.voorbestelling ? 1 : 0, o.bron ?? "", k.zakelijk ? 1 : 0, k.bedrijfsnaam, k.kvk, k.btw_nummer, k.factuuradres),
     ...o.som.regels.map((r) =>
       db
         .prepare(

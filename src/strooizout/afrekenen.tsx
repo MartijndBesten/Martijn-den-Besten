@@ -36,7 +36,7 @@ function idempotentie(): string {
 }
 
 type Velden = Omit<Record<keyof Klantgegevens, string>, "zakelijk"> & { zakelijk: boolean };
-const LEEG: Velden = { naam: "", email: "", telefoon: "", straat: "", huisnummer: "", postcode: "", plaats: "Houten", opmerking: "", zakelijk: false, bedrijfsnaam: "", kvk: "", btw_nummer: "" };
+const LEEG: Velden = { naam: "", email: "", telefoon: "", straat: "", huisnummer: "", postcode: "", plaats: "Houten", opmerking: "", zakelijk: false, bedrijfsnaam: "", kvk: "", btw_nummer: "", factuuradres: "" };
 
 function Veld({
   id,
@@ -273,6 +273,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
           <Veld id="bedrijfsnaam" label="Bedrijfsnaam" autoComplete="organization" value={v.bedrijfsnaam} onChange={zetV("bedrijfsnaam")} fout={fouten.bedrijfsnaam} required />
           <Veld id="kvk" label="KVK-nummer" optioneel inputMode="numeric" value={v.kvk} onChange={zetV("kvk")} fout={fouten.kvk} className="sz-veld--half" placeholder="12345678" />
           <Veld id="btw_nummer" label="Btw-nummer" optioneel value={v.btw_nummer} onChange={zetV("btw_nummer")} fout={fouten.btw_nummer} className="sz-veld--half" placeholder="NL123456789B01" />
+          <Veld id="factuuradres" label="Factuuradres" optioneel hulp="Alleen invullen als dat afwijkt van het bezorgadres." autoComplete="off" value={v.factuuradres} onChange={zetV("factuuradres")} fout={fouten.factuuradres} placeholder="Straat 1, 1234 AB Plaats" />
           <p className="sz-hulp" style={{ margin: 0 }}>Zakelijke bestellingen leveren we binnen 2 dagen.</p>
         </>
       )}
@@ -527,6 +528,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                     <Veld id="bedrijfsnaam" label="Bedrijfsnaam" autoComplete="organization" value={v.bedrijfsnaam} onChange={zetV("bedrijfsnaam")} fout={fouten.bedrijfsnaam} required />
                     <Veld id="kvk" label="KVK-nummer" optioneel inputMode="numeric" value={v.kvk} onChange={zetV("kvk")} fout={fouten.kvk} className="sz-veld--half" placeholder="12345678" />
                     <Veld id="btw_nummer" label="Btw-nummer" optioneel value={v.btw_nummer} onChange={zetV("btw_nummer")} fout={fouten.btw_nummer} className="sz-veld--half" placeholder="NL123456789B01" />
+                    <Veld id="factuuradres" label="Factuuradres" optioneel hulp="Alleen invullen als dat afwijkt van het bezorgadres." autoComplete="off" value={v.factuuradres} onChange={zetV("factuuradres")} fout={fouten.factuuradres} placeholder="Straat 1, 1234 AB Plaats" />
                     <p className="sz-hulp" style={{ margin: 0 }}>Zakelijke bestellingen leveren we binnen 2 dagen.</p>
                   </>
                 )}

@@ -857,13 +857,13 @@ describe("definitieve afspraken", () => {
 
   it("bedrijf bestelt: gegevens worden bewaard, zichtbaar in het beheer en gewist na de bewaartermijn; 4 zakken bezorgd is gratis", async () => {
     await startRonde();
-    const zakelijk = { ...KLANT, zakelijk: true, bedrijfsnaam: "Bakkerij Test BV", kvk: "12345678", btw_nummer: "NL123456789B01" };
+    const zakelijk = { ...KLANT, zakelijk: true, bedrijfsnaam: "Bakkerij Test BV", kvk: "12345678", btw_nummer: "NL123456789B01", factuuradres: "Postbus 1, 3990 AA Houten" };
     const zonderNaam = await bestel({ klant: { ...KLANT, zakelijk: true } });
     expect(zonderNaam.status).toBe(422);
     const r = await bestel({ regels: [{ product_id: 1, aantal: 4 }], levering: "bezorgen", klant: zakelijk });
     expect(r.status).toBe(201);
     expect(((await r.json()) as J).bestelling).toMatchObject({ bezorg_cent: 0, totaal_cent: 3596 });
-    expect(db.raw.prepare("SELECT zakelijk, bedrijfsnaam, kvk, btw_nummer FROM sz_bestelling").get()).toEqual({ zakelijk: 1, bedrijfsnaam: "Bakkerij Test BV", kvk: "12345678", btw_nummer: "NL123456789B01" });
+    expect(db.raw.prepare("SELECT zakelijk, bedrijfsnaam, kvk, btw_nummer, factuuradres FROM sz_bestelling").get()).toEqual({ zakelijk: 1, bedrijfsnaam: "Bakkerij Test BV", kvk: "12345678", btw_nummer: "NL123456789B01", factuuradres: "Postbus 1, 3990 AA Houten" });
     const lijst = await jsonVan(beheer("/bestellingen?ronde=alle"));
     expect(lijst.bestellingen[0]).toMatchObject({ zakelijk: true, bedrijfsnaam: "Bakkerij Test BV" });
     const csvTekst = await (await beheer("/export/bestellingen.csv")).text();
