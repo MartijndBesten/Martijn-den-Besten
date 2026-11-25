@@ -16,7 +16,7 @@ Zelfde Worker, zelfde D1-database en zelfde uitrolroute als de rest van martijnd
 | Afhalen | gratis, in Houten; volledig adres pas na bevestiging | Instellingen › Ophalen |
 | Bezorgen | vanaf 2 zakken, € 2,00 per bezorging (vast bedrag per adres, besluit Martijn 22-11), alleen binnen de rondweg van Houten (postcodelijst, zie *Bezorggebied*) | Instellingen › Bezorgen |
 | Voorraad | 40 zakken verwacht, reserveren vooraf (gemarkeerd als *voorbestelling*); uitgeven pas na ontvangst | Voorraad |
-| Beschikbaar | ‘Op voorraad vanaf donderdag 26 november’ tot er iets ontvangen is | Instellingen › Webshop |
+| Beschikbaar | ‘Op voorraad’ zodra er iets ontvangen is; tot dan ‘Op voorraad vanaf <datum>’ als er een datum is ingesteld, anders ‘Bestel nu; je hoort wanneer het binnen is’ (standaard geen datum sinds 25-11-2026) | Instellingen › Webshop |
 | Verkoper | Denckh · Vlierweg 54, Houten · KvK 83176896 · btw NL003791952B15 · info@denckh.nl (zoals gepubliceerd op denckh.nl) | Instellingen › Verkoper |
 
 ## Commerciële opzet

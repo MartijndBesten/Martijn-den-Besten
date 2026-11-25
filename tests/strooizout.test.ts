@@ -831,13 +831,13 @@ describe("bevindingen uit de review", () => {
 // ---------- Definitieve afspraken 22-11-2026: btw, bezorgen vanaf 2 zakken, voorraadmodel, straatverkoop ----------
 
 describe("definitieve afspraken", () => {
-  it("startgegevens: 40 zakken verwacht, niets ontvangen; btw 21% inclusief; bezorgen vanaf 2 zakken; beschikbaar vanaf 26 november", async () => {
+  it("startgegevens: 40 zakken verwacht, niets ontvangen; btw 21% inclusief; bezorgen vanaf 2 zakken; geen beschikbaarheidsdatum", async () => {
     const vers = createD1();
     expect(vers.raw.prepare("SELECT voorraad, voorraad_verwacht, voorraad_ontvangen FROM sz_product WHERE id = 1").get()).toEqual({ voorraad: 40, voorraad_verwacht: 40, voorraad_ontvangen: 0 });
     env.DB = vers as unknown as D1Database;
     db = vers;
     const w = await jsonVan(req("/api/strooizout/winkel"));
-    expect(w.instellingen).toMatchObject({ btw_modus: "inclusief", btw_tarief: 21, bezorg_min_zakken: 2, beschikbaar_vanaf: "2026-11-26", verkoper_naam: "Denckh" });
+    expect(w.instellingen).toMatchObject({ btw_modus: "inclusief", btw_tarief: 21, bezorg_min_zakken: 2, beschikbaar_vanaf: "", verkoper_naam: "Denckh" });
     expect(w.producten[0]).toMatchObject({ voorraad: 40, op_voorraad: false, zakken_per_stuk: 1 });
   });
 
@@ -1373,6 +1373,7 @@ describe("vindbaarheid en meting", () => {
   });
 
   it("structured data: Product + Offer met actuele prijs, staffels, voorbestelling, verkoper en retourbeleid; geen ‘binnenkort’-producten", async () => {
+    db.raw.prepare("INSERT INTO sz_instelling (sleutel, waarde) VALUES ('beschikbaar_vanaf', '\"2026-11-26\"')").run();
     await beheer("/voorraad/1", { method: "POST", body: JSON.stringify({ verwacht: 40 }) });
     const d = db as unknown as D1Database;
     const g = productGegevens(await laadCatalogus(d), await laadInstellingen(d), await laadMagazijn(d), "2026-11-22T12:00:00.000Z") as J;
