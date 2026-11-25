@@ -77,7 +77,7 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
     "We bezorgen alleen binnen de rondweg van Houten, en alleen als het veilig kan. Bij gladheid, ijzel of sneeuwval kan de bezorging later worden; we laten het je dan weten.",
   tikkie_aan: true,
   contact_naam: "Denckh",
-  contact_email: "info@denckh.nl",
+  contact_email: "strooizout@denckh.nl",
   contact_telefoon: "",
   bevestiging_tekst:
     "Bedankt voor je bestelling. Je krijgt een e-mail met je bevestiging en we sturen je een Tikkie op je mobiel.",
@@ -130,7 +130,7 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
   verkoper_adres: "Vlierweg 54, Houten",
   verkoper_kvk: "83176896",
   verkoper_btw: "NL003791952B15",
-  verkoper_email: "info@denckh.nl",
+  verkoper_email: "strooizout@denckh.nl",
 };
 
 type Veld = { soort: "bool" } | { soort: "tekst"; max: number } | { soort: "getal"; min: number; max: number } | { soort: "keuze"; opties: readonly string[] };

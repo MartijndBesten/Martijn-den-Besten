@@ -203,6 +203,13 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
 
   function naarStap2() {
     leeg(); // op de homepage bestel je dit ene product
+    // Op een computerscherm (besluit Martijn 25-11-2026): een eigen brede bestelpagina met het overzicht ernaast.
+    if (typeof window !== "undefined" && window.matchMedia("(min-width: 961px)").matches) {
+      zet(p.id, aantal);
+      zetMandLevering(levering);
+      navigeer("/strooizout/bestellen");
+      return;
+    }
     setVerder(true);
     window.setTimeout(() => {
       stap2.current?.scrollIntoView({ behavior: minderBeweging() ? "auto" : "smooth", block: "start" });

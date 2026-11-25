@@ -3,7 +3,7 @@
 // eigen D1 (playwright.config.ts). Tests die bestellingen aanmaken, slaan zichzelf over tegen productie (E2E_BASE_URL).
 
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test, type APIRequestContext, type Page } from "@playwright/test";
+import { expect, test, type APIRequestContext, type Locator, type Page } from "@playwright/test";
 
 const TOKEN = "e2e-admin-token-0123456789abcdef";
 const schrijvend = !process.env.E2E_BASE_URL;
@@ -20,6 +20,19 @@ async function voorbereiden(request: APIRequestContext, baseURL: string) {
   if ((v?.verwacht ?? 0) < 1000) await request.post("/api/strooizout/beheer/voorraad/1", { headers, data: { verwacht: 1000 } });
   // Zoals productie sinds 25-11-2026: het zout is binnen, de winkel zegt ‘Op voorraad’ (zonder datum).
   if ((v?.ontvangen ?? 0) < 50) await request.post("/api/strooizout/beheer/voorraad/1", { headers, data: { ontvangen_erbij: 50 - (v?.ontvangen ?? 0) } });
+}
+
+/**
+ * Klikt ‘Bestellen’ op de kaart. Smal scherm: het formulier staat in de kaart. Breed scherm (> 960 px): eigen
+ * bestelpagina met het overzicht ernaast (besluit Martijn 25-11-2026).
+ */
+async function openFormulier(page: Page, kaart: Locator): Promise<Locator> {
+  await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
+  if ((page.viewportSize()?.width ?? 0) > 960) {
+    await expect(page).toHaveURL(/\/strooizout\/bestellen/);
+    return page.locator(".sz-afrekenen");
+  }
+  return kaart;
 }
 
 async function ontvang(request: APIRequestContext, baseURL: string, n: number) {
@@ -106,31 +119,33 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(kaart.getByText("We bezorgen binnen de rondweg van Houten.")).toBeVisible();
 
     // Bestellen: gegevens op dezelfde pagina; adresvelden alleen bij bezorgen
-    await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
+    const form = await openFormulier(page, kaart);
     // in stap 2 is er één bestelknop: geen balk onderin
     await expect(page.locator(".wn-plakbalk")).toBeHidden();
-    await expect(kaart.getByLabel("Straat")).toBeVisible();
-    await kaart.getByRole("button", { name: /Bestellen met betalingsverplichting/ }).click();
-    await expect(kaart.getByText("Vul je naam in.")).toBeVisible();
-    await expect(kaart.getByText("Vul je mobiele nummer in.")).toBeVisible();
-    await kaart.getByLabel("Postcode").fill("3511 AA");
-    await expect(kaart.getByText(/alleen binnen de rondweg van Houten/)).toBeVisible();
-    await kaart.getByLabel("Postcode").fill("3991 CD");
-    await expect(kaart.getByText(/alleen binnen de rondweg van Houten/)).toBeVisible();
-    await kaart.getByLabel("Postcode").fill("3992 KT");
-    await kaart.getByLabel("Huisnummer").fill("3");
-    await kaart.getByLabel("Straat").fill("Proefstraat");
-    await kaart.getByLabel("Naam").fill("Proef Klant");
-    await kaart.getByLabel("Mobiel nummer").fill("030 1234567");
+    await expect(form.getByLabel("Straat")).toBeVisible();
+    await form.getByRole("button", { name: /Bestellen met betalingsverplichting/ }).first().click();
+    await expect(form.getByText("Vul je naam in.")).toBeVisible();
+    await expect(form.getByText("Vul je mobiele nummer in.")).toBeVisible();
+    await form.getByLabel("Postcode").fill("3511 AA");
+    await expect(form.getByText(/alleen binnen de rondweg van Houten/).first()).toBeVisible();
+    await form.getByLabel("Postcode").fill("3991 CD");
+    await expect(form.getByText(/alleen binnen de rondweg van Houten/).first()).toBeVisible();
+    await form.getByLabel("Postcode").fill("3992 KT");
+    await form.getByLabel("Huisnummer").fill("3");
+    await form.getByLabel("Straat").fill("Proefstraat");
+    await form.getByLabel("Naam").fill("Proef Klant");
+    await form.getByLabel("Mobiel nummer").fill("030 1234567");
     await page.waitForTimeout(2600); // minimale invultijd (spambescherming)
-    await kaart.getByRole("button", { name: /Bestellen met betalingsverplichting/ }).click();
-    await expect(kaart.getByText(/Vul een Nederlands mobiel nummer in/)).toBeVisible();
+    await form.getByRole("button", { name: /Bestellen met betalingsverplichting/ }).first().click();
+    await expect(form.getByText(/Vul een Nederlands mobiel nummer in/)).toBeVisible();
     const mobiel = `+31 6 ${String(Date.now()).slice(-8, -4)} ${String(Date.now()).slice(-4)}`;
-    await kaart.getByLabel("Mobiel nummer").fill(mobiel);
+    await form.getByLabel("Mobiel nummer").fill(mobiel);
     // dubbel klikken: precies één bestelling
-    await expect(kaart.locator(".sz-bestelkaart__totaal")).toHaveCount(1);
-    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 35,96");
-    await kaart.getByRole("button", { name: "Bestellen met betalingsverplichting", exact: true }).dblclick();
+    if (form === kaart) {
+      await expect(kaart.locator(".sz-bestelkaart__totaal")).toHaveCount(1);
+      await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 35,96");
+    }
+    await form.getByRole("button", { name: /^Bestellen met betalingsverplichting/ }).first().dblclick();
 
     await expect(page.getByRole("heading", { name: /Bedankt, Proef! Je bestelling is geplaatst/ })).toBeVisible();
     const code = (await page.locator(".sz-codekaart__code").textContent())!.trim();
@@ -204,15 +219,15 @@ test.describe("Strooizout voor de buurt", () => {
       await kaart.getByRole("button", { name: /Eén meer/ }).click();
       await expect(totaal).toHaveText("€ 10,98");
       expect(await axe(page)).toEqual([]);
-      await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
-      await expect(kaart.getByLabel("Straat")).toHaveCount(0);
-      await kaart.getByLabel("Naam").fill("Emmer Test");
+      const form = await openFormulier(page, kaart);
+      await expect(form.getByLabel("Straat")).toHaveCount(0);
+      await form.getByLabel("Naam").fill("Emmer Test");
       const mobiel = `+31 6 ${String(Date.now()).slice(-8, -4)} ${String(Date.now()).slice(-4)}`;
-      await kaart.getByLabel("Mobiel nummer").fill(mobiel);
+      await form.getByLabel("Mobiel nummer").fill(mobiel);
       await page.waitForTimeout(2600);
-      await kaart.getByRole("button", { name: "Bestellen met betalingsverplichting", exact: true }).click();
+      await form.getByRole("button", { name: /^Bestellen met betalingsverplichting/ }).first().click();
       // Lukt het plaatsen niet, dan staat de reden in de melding (en dus in het testverslag).
-      const melding = kaart.getByRole("alert");
+      const melding = form.getByRole("alert");
       await expect(page.locator(".sz-codekaart__code").or(melding).first()).toBeVisible({ timeout: 15_000 });
       expect((await melding.count()) ? await melding.first().innerText() : "").toBe("");
       await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
@@ -369,15 +384,15 @@ test.describe("Strooizout voor de buurt", () => {
     await page.goto("/strooizout");
     const kaart = page.locator(".sz-bestelkaart");
     await kaart.getByRole("button", { name: /^1 zak\s*€/ }).click();
-    await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
-    await expect(kaart.getByLabel("Straat")).toHaveCount(0);
+    const form = await openFormulier(page, kaart);
+    await expect(form.getByLabel("Straat")).toHaveCount(0);
     // in stap 2 is de kaart zelf het bestelformulier: geen balk onderaan die eroverheen schuift
     await expect(page.locator(".wn-plakbalk")).toBeHidden();
-    await kaart.getByLabel("Naam").fill("Mobiel Test");
-    await kaart.getByLabel("Mobiel nummer").fill("06 1111 2222");
+    await form.getByLabel("Naam").fill("Mobiel Test");
+    await form.getByLabel("Mobiel nummer").fill("06 1111 2222");
     await page.waitForTimeout(2600);
-    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 9,99");
-    await kaart.getByRole("button", { name: "Bestellen met betalingsverplichting", exact: true }).click();
+    if (form === kaart) await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 9,99");
+    await form.getByRole("button", { name: /^Bestellen met betalingsverplichting/ }).first().click();
     await expect(page.locator(".sz-codekaart__code")).toHaveText(/^H-\d{4,5}$/);
     await expect(page.getByText("Het adres verschijnt hier zodra je bestelling is bevestigd.")).toBeVisible();
     // geen verouderde teksten meer: er wordt wel een e-mail gestuurd en de bestelronde is voor de klant geen onderwerp
@@ -495,6 +510,24 @@ test("strooizout: op een lage telefoon (390×664) valt ‘Bestellen’ helemaal 
   const onder = await knop.evaluate((e) => e.getBoundingClientRect().bottom);
   expect(onder).toBeLessThanOrEqual(664);
   expect((await knop.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+});
+
+test("strooizout: op een computerscherm opent Bestellen een eigen brede bestelpagina met overzicht ernaast", async ({ page, request, baseURL }) => {
+  test.skip((page.viewportSize()?.width ?? 0) <= 960, "alleen brede schermen");
+  if (schrijvend) await voorbereiden(request, baseURL!);
+  await page.goto("/strooizout");
+  const kaart = page.locator(".sz-bestelkaart");
+  await kaart.getByRole("button", { name: /^2–3 zakken/ }).click();
+  await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
+  await expect(page).toHaveURL(/\/strooizout\/bestellen/);
+  await expect(page.getByRole("heading", { level: 1, name: "Bestellen" })).toBeVisible();
+  // het gekozen product staat al in de bestelling, het overzicht staat rechts naast het formulier
+  await expect(page.locator(".sz-regel")).toHaveCount(1);
+  const formulier = (await page.locator("#sz-b3").boundingBox())!;
+  const overzicht = (await page.locator(".sz-samenvatting").boundingBox())!;
+  expect(overzicht.x).toBeGreaterThan(formulier.x + formulier.width);
+  expect(formulier.width).toBeGreaterThan(500);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
 });
 
 test("strooizout: bedrijfsformulier: levertoelichting staat op één regel onder de keuze, niet tussen de velden", async ({ page, request, baseURL }) => {
