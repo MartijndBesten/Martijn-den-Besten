@@ -497,6 +497,22 @@ test("strooizout: op een lage telefoon (390×664) valt ‘Bestellen’ helemaal 
   expect((await knop.boundingBox())!.height).toBeGreaterThanOrEqual(44);
 });
 
+test("strooizout: bedrijfsformulier: levertoelichting staat op één regel onder de keuze, niet tussen de velden", async ({ page, request, baseURL }) => {
+  if (schrijvend) await voorbereiden(request, baseURL!);
+  await page.goto("/strooizout");
+  const kaart = page.locator(".sz-bestelkaart");
+  await kaart.getByRole("button", { name: "Bestellen", exact: true }).click();
+  await page.getByLabel("Bedrijf", { exact: true }).check();
+  const tekst = page.getByText("Zakelijke bestellingen leveren we binnen 2 dagen.");
+  await expect(tekst).toBeVisible();
+  const t = (await tekst.boundingBox())!;
+  const keuze = (await page.getByLabel("Bedrijf", { exact: true }).boundingBox())!;
+  const eerste = (await page.getByLabel("Bedrijfsnaam").boundingBox())!;
+  expect(t.height).toBeLessThan(40);
+  expect(t.y).toBeGreaterThan(keuze.y);
+  expect(t.y + t.height).toBeLessThan(eerste.y);
+});
+
 test("strooizout: de balk onderin verschijnt alleen als ‘Bestellen’ uit beeld is en volgt de bestelkaart", async ({ page, request, baseURL }) => {
   // eigen start: open bestelronde en voorraad (alleen tegen de lokale Worker)
   if (schrijvend) await voorbereiden(request, baseURL!);
