@@ -267,6 +267,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
             <input type="radio" name="sz-soort" checked={v.zakelijk} onChange={() => setV((x) => ({ ...x, zakelijk: true }))} /> Bedrijf
           </label>
         </div>
+        {v.zakelijk && <p className="sz-veld__hulp" id="sz-soort-hulp" style={{ marginTop: 6 }}>Zakelijke bestellingen leveren we binnen 2 dagen.</p>}
       </fieldset>
       {v.zakelijk && (
         <>
@@ -274,7 +275,6 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
           <Veld id="kvk" label="KVK-nummer" optioneel inputMode="numeric" value={v.kvk} onChange={zetV("kvk")} fout={fouten.kvk} className="sz-veld--half" placeholder="12345678" />
           <Veld id="btw_nummer" label="Btw-nummer" optioneel value={v.btw_nummer} onChange={zetV("btw_nummer")} fout={fouten.btw_nummer} className="sz-veld--half" placeholder="NL123456789B01" />
           <Veld id="factuuradres" label="Factuuradres" optioneel hulp="Alleen invullen als dat afwijkt van het bezorgadres." autoComplete="off" value={v.factuuradres} onChange={zetV("factuuradres")} fout={fouten.factuuradres} placeholder="Straat 1, 1234 AB Plaats" />
-          <p className="sz-hulp" style={{ margin: 0, gridColumn: "1 / -1" }}>Zakelijke bestellingen leveren we binnen 2 dagen.</p>
         </>
       )}
       <Veld id="naam" label={v.zakelijk ? "Contactpersoon" : "Naam"} autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
@@ -522,6 +522,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                       <input type="radio" name="sz-soort" checked={v.zakelijk} onChange={() => setV((x) => ({ ...x, zakelijk: true }))} /> Bedrijf
                     </label>
                   </div>
+                  {v.zakelijk && <p className="sz-veld__hulp" id="sz-soort-hulp" style={{ marginTop: 6 }}>Zakelijke bestellingen leveren we binnen 2 dagen.</p>}
                 </fieldset>
                 {v.zakelijk && (
                   <>
@@ -529,7 +530,6 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                     <Veld id="kvk" label="KVK-nummer" optioneel inputMode="numeric" value={v.kvk} onChange={zetV("kvk")} fout={fouten.kvk} className="sz-veld--half" placeholder="12345678" />
                     <Veld id="btw_nummer" label="Btw-nummer" optioneel value={v.btw_nummer} onChange={zetV("btw_nummer")} fout={fouten.btw_nummer} className="sz-veld--half" placeholder="NL123456789B01" />
                     <Veld id="factuuradres" label="Factuuradres" optioneel hulp="Alleen invullen als dat afwijkt van het bezorgadres." autoComplete="off" value={v.factuuradres} onChange={zetV("factuuradres")} fout={fouten.factuuradres} placeholder="Straat 1, 1234 AB Plaats" />
-                    <p className="sz-hulp" style={{ margin: 0, gridColumn: "1 / -1" }}>Zakelijke bestellingen leveren we binnen 2 dagen.</p>
                   </>
                 )}
                 <Veld id="naam" label={v.zakelijk ? "Contactpersoon" : "Naam"} autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
