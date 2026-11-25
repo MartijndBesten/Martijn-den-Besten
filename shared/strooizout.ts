@@ -93,7 +93,7 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
     "## Prijzen",
     "Alle prijzen zijn inclusief 21% btw. Je ziet het totaalbedrag, met korting en eventuele bezorgkosten, voordat je bestelt. De prijs op het moment van bestellen blijft gelden.",
     "## Vooruit bestellen",
-    "De zakken zijn op voorraad vanaf 26 november; de actuele datum staat in de webshop. Bestel je eerder, dan krijg je zakken uit de eerste levering. Op is op. Kunnen we je bestelling onverhoopt niet (helemaal) leveren, dan laten we dat weten en betaal je niets voor wat je niet krijgt.",
+    "Of een product op voorraad is, staat in de webshop. Is het nog niet binnen en bestel je toch, dan krijg je zakken uit de eerstvolgende levering. Op is op. Kunnen we je bestelling onverhoopt niet (helemaal) leveren, dan laten we dat weten en betaal je niets voor wat je niet krijgt.",
     "## Afhalen en bezorgen",
     "Afhalen is gratis. Na je bestelling krijg je een afhaalcode; die laat je zien als je je bestelling ophaalt.",
     "Bezorgen kan alleen binnen de rondweg van Houten, vanaf 2 zakken, voor € 2,00 per bezorging; vanaf 4 zakken bezorgen we gratis. We bezorgen alleen als het veilig kan. Bij gladheid of sneeuwval kan de bezorging later worden; dan hoor je dat van ons.",
@@ -123,7 +123,8 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
   bezorg_gratis_vanaf: 4,
   lage_voorraad: 10,
   google_verificatie: "",
-  beschikbaar_vanaf: "2026-11-26",
+  // Leeg: geen datum tonen. Het zout is op 25-11-2026 geleverd (opdracht Martijn); het beheer kan weer een datum zetten.
+  beschikbaar_vanaf: "",
   // Zoals gepubliceerd op denckh.nl (footer en /privacy/, gecontroleerd 22-11-2026). Aan te passen in het beheer.
   verkoper_naam: "Denckh",
   verkoper_adres: "Vlierweg 54, Houten",

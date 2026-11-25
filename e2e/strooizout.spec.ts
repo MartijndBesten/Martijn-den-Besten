@@ -18,6 +18,8 @@ async function voorbereiden(request: APIRequestContext, baseURL: string) {
   // Ruime verwachte voorraad, zodat herhaalde testruns niet uitverkopen; de voorraadregels zelf zitten in de unit-tests.
   const v = (await (await request.get("/api/strooizout/beheer/voorraad", { headers })).json()).voorraad.find((x: { id: number }) => x.id === 1);
   if ((v?.verwacht ?? 0) < 1000) await request.post("/api/strooizout/beheer/voorraad/1", { headers, data: { verwacht: 1000 } });
+  // Zoals productie sinds 25-11-2026: het zout is binnen, de winkel zegt ‘Op voorraad’ (zonder datum).
+  if ((v?.ontvangen ?? 0) < 50) await request.post("/api/strooizout/beheer/voorraad/1", { headers, data: { ontvangen_erbij: 50 - (v?.ontvangen ?? 0) } });
 }
 
 async function ontvang(request: APIRequestContext, baseURL: string, n: number) {
@@ -192,7 +194,7 @@ test.describe("Strooizout voor de buurt", () => {
       await expect(kaart.locator(".wn-keuze__optie")).toHaveText([/25\skg\s*zak\s*vanaf € 8,99$/, /10\skg\s*in je eigen emmer\s*€ 5,49$/, /10\skg\s*met emmer\s*€ 6,49$/]);
       await kaart.locator(".wn-keuze__optie", { hasText: "eigen emmer" }).click();
       await expect(kaart.getByRole("heading", { name: "10 kg strooizout in je eigen emmer" })).toBeVisible();
-      await expect(kaart.locator(".sz-beschikbaar")).toContainText("Op voorraad");
+      await expect(kaart.locator(".sz-beschikbaar")).toContainText("Bestel nu; je hoort wanneer het binnen is") // 10 kg is nog niet afgevuld; zonder datum zegt de kaart dat eerlijk;
       await expect(kaart.locator(".wn-teller__getal")).toHaveText(/1\s*× 10\skg/);
       await expect(kaart.getByRole("radio", { name: /Bezorgen/ })).toBeDisabled();
       await expect(kaart.locator(".wn-lever")).toContainText("alleen afhalen");
