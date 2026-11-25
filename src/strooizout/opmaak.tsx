@@ -112,7 +112,7 @@ export function Totalen({ b, levering, toonBezorgen = true }: { b: Berekening; l
       {toonBezorgen && (
         <div>
           <dt>{levering === "bezorgen" ? "Bezorgkosten" : levering === "ophalen" ? "Ophalen" : "Ophalen of bezorgen"}</dt>
-          <dd>{levering === "bezorgen" ? euro(b.bezorg_cent) : levering === "ophalen" ? "Gratis" : "Kies bij bestellen"}</dd>
+          <dd>{levering === "bezorgen" ? (b.bezorg_cent === 0 ? "Gratis" : euro(b.bezorg_cent)) : levering === "ophalen" ? "Gratis" : "Kies bij bestellen"}</dd>
         </div>
       )}
       <div className="sz-totaal">

@@ -98,9 +98,9 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(trede(/4 of meer/)).toHaveAttribute("aria-pressed", "true");
     await expect(totaal).toHaveText("€ 35,96");
     await expect(kaart.locator(".sz-bestelkaart__totaal .wn-bespaar")).toContainText("je bespaart € 4,00");
-    // bezorgen: € 2,00 per bezorging erbij
+    // bezorgen: vanaf 4 zakken gratis (besluit Martijn 25-11-2026), dus het totaal blijft € 35,96
     await kaart.locator(".wn-lever label", { hasText: "Bezorgen" }).click();
-    await expect(totaal).toHaveText("€ 37,96");
+    await expect(totaal).toHaveText("€ 35,96");
     await expect(kaart.getByText("We bezorgen binnen de rondweg van Houten.")).toBeVisible();
 
     // Bestellen: gegevens op dezelfde pagina; adresvelden alleen bij bezorgen
@@ -127,7 +127,7 @@ test.describe("Strooizout voor de buurt", () => {
     await kaart.getByLabel("Mobiel nummer").fill(mobiel);
     // dubbel klikken: precies één bestelling
     await expect(kaart.locator(".sz-bestelkaart__totaal")).toHaveCount(1);
-    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 37,96");
+    await expect(kaart.locator(".sz-bestelkaart__totaal strong")).toHaveText("€ 35,96");
     await kaart.getByRole("button", { name: "Bestellen met betalingsverplichting", exact: true }).dblclick();
 
     await expect(page.getByRole("heading", { name: /Bedankt, Proef! Je bestelling is geplaatst/ })).toBeVisible();
@@ -136,7 +136,7 @@ test.describe("Strooizout voor de buurt", () => {
     await expect(page.getByRole("button", { name: /Kopieer code/ })).toBeVisible();
     const lijst = await (await request.get(`/api/strooizout/beheer/bestellingen?ronde=alle&zoek=${encodeURIComponent(mobiel)}`, { headers })).json();
     expect(lijst.bestellingen).toHaveLength(1);
-    expect(lijst.bestellingen[0]).toMatchObject({ afhaalcode: code, totaal_cent: 3796, stuks: 4, levering: "bezorgen", kanaal: "web" });
+    expect(lijst.bestellingen[0]).toMatchObject({ afhaalcode: code, totaal_cent: 3596, stuks: 4, levering: "bezorgen", kanaal: "web" });
 
     // bestelpagina blijft werken na herladen; homepage linkt naar de laatste bestelling
     await page.reload();

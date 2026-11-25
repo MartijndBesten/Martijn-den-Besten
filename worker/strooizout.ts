@@ -131,6 +131,7 @@ async function winkel(env: SzEnv): Promise<Response> {
       btw_tarief: inst.btw_tarief,
       bewaartermijn_maanden: inst.bewaartermijn_maanden,
       bezorg_min_zakken: inst.bezorg_min_zakken,
+      bezorg_gratis_vanaf: inst.bezorg_gratis_vanaf,
       beschikbaar_vanaf: inst.beschikbaar_vanaf,
       verkoper_naam: inst.verkoper_naam,
       verkoper_adres: inst.verkoper_adres,

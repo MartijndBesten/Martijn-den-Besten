@@ -115,6 +115,10 @@ type BestellingVol = {
   levering: "ophalen" | "bezorgen";
   moment_id: number | null;
   naam: string;
+  zakelijk: number;
+  bedrijfsnaam: string;
+  kvk: string;
+  btw_nummer: string;
   email: string;
   telefoon: string;
   straat: string;
@@ -351,6 +355,10 @@ function lijstRij(b: BestellingVol, regels: RegelVol[], dubbel: boolean, wijken:
     levering: b.levering,
     moment_id: b.moment_id,
     naam: b.naam,
+    zakelijk: b.zakelijk === 1,
+    bedrijfsnaam: b.bedrijfsnaam,
+    kvk: b.kvk,
+    btw_nummer: b.btw_nummer,
     email: b.email,
     telefoon: b.telefoon,
     adres: b.levering === "bezorgen" ? `${b.straat} ${b.huisnummer}` : "",
@@ -396,7 +404,7 @@ async function bestellingen(request: Request, env: SzEnv): Promise<Response> {
         // Zoeken op bestelnummer, afhaalcode, naam of mobiel nummer (ook als +31 6… of met spaties ingetypt), e-mail of postcode.
         const code = normaliseerAfhaalcode(zoek);
         const mobiel = normaliseerMobiel(zoek) ?? (/^[\d\s+-]{4,}$/.test(zoek) ? zoek.replace(/\D/g, "").replace(/^(00)?31/, "0") : "");
-        const hooi = [bestelnummer(b.id), b.afhaalcode ?? "", b.naam, b.email, b.telefoon, b.postcode, b.straat, b.opmerking].join(" ").toLowerCase();
+        const hooi = [bestelnummer(b.id), b.afhaalcode ?? "", b.naam, b.bedrijfsnaam ?? "", b.email, b.telefoon, b.postcode, b.straat, b.opmerking].join(" ").toLowerCase();
         const raak = hooi.includes(zoek) || (code !== null && b.afhaalcode === code) || (mobiel !== "" && b.telefoon.includes(mobiel));
         if (!raak) return false;
       }
@@ -897,7 +905,7 @@ async function straatverkoop(request: Request, env: SzEnv): Promise<Response> {
   }
   const nu = nuIso();
   const som = bereken([{ product: alsPrijs(cat, p, inst.bezorg_per_stuk_cent), aantal }], "ophalen", inst, nu);
-  const klant = { naam: "Straatverkoop", email: "", telefoon: "", straat: "", huisnummer: "", postcode: "", plaats: "", opmerking: "" };
+  const klant = { naam: "Straatverkoop", email: "", telefoon: "", straat: "", huisnummer: "", postcode: "", plaats: "", opmerking: "", zakelijk: false, bedrijfsnaam: "", kvk: "", btw_nummer: "" };
   const uitgifteId = crypto.randomUUID();
   const db = env.DB;
   for (let poging = 0; poging < 12; poging++) {
@@ -1493,7 +1501,7 @@ export async function opschonen(db: D1Database, inst: Instellingen, nu = new Dat
   }
   const res = await db
     .prepare(
-      `UPDATE sz_bestelling SET naam = 'Gewist', email = '', telefoon = '', straat = '', huisnummer = '', postcode = substr(postcode, 1, 4),
+      `UPDATE sz_bestelling SET naam = 'Gewist', bedrijfsnaam = '', kvk = '', btw_nummer = '', email = '', telefoon = '', straat = '', huisnummer = '', postcode = substr(postcode, 1, 4),
          opmerking = '', beheer_notitie = '', afhaalcode = NULL, geanonimiseerd_op = ?2
        WHERE geanonimiseerd_op IS NULL AND status IN ('afgehaald', 'bezorgd', 'geannuleerd') AND COALESCE(afgerond_op, gewijzigd) < ?1`,
     )
@@ -1550,7 +1558,7 @@ async function export_(request: Request, env: SzEnv, soort: string): Promise<Res
       const regels = per.get(b.id) ?? [];
       return [
         bestelnummer(b.id), b.afhaalcode ?? "", nlDatum(b.aangemaakt), b.ronde_id ?? "", BESTEL_STATUS[b.status], b.levering, b.moment_id ? (momenten.get(b.moment_id) ?? "") : "",
-        b.naam, b.email, b.telefoon, b.levering === "bezorgen" ? `${b.straat} ${b.huisnummer}` : "", b.postcode, b.plaats, b.levering === "bezorgen" ? wijkVan(b.postcode, inst.wijken) : "",
+        b.naam, b.bedrijfsnaam, b.kvk, b.btw_nummer, b.email, b.telefoon, b.levering === "bezorgen" ? `${b.straat} ${b.huisnummer}` : "", b.postcode, b.plaats, b.levering === "bezorgen" ? wijkVan(b.postcode, inst.wijken) : "",
         regels.map((r) => `${r.aantal}x ${r.naam}`).join(", "), regels.reduce((s, r) => s + r.aantal, 0), (b.gewicht_gram / 1000).toString().replace(".", ","),
         bedrag(b.subtotaal_cent), bedrag(b.korting_cent), bedrag(b.bezorg_cent), bedrag(b.totaal_cent), b.betaalwijze === "tikkie" ? "Betaalverzoek vooraf" : "Betaalverzoek bij ontvangst",
         bedrag(b.betaald_cent), BETAAL_STATUS[bs(b)], b.opmerking,
@@ -1558,7 +1566,7 @@ async function export_(request: Request, env: SzEnv, soort: string): Promise<Res
     });
     return csvAntwoord(
       `strooizout-bestellingen-${achter}.csv`,
-      csv(["Bestelnummer", "Afhaalcode", "Datum", "Ronde", "Status", "Levering", "Moment", "Naam", "E-mail", "Telefoon", "Adres", "Postcode", "Plaats", "Wijk", "Producten", "Stuks", "Gewicht (kg)", "Subtotaal", "Korting", "Bezorgkosten", "Totaal", "Betaalwijze", "Betaald", "Betaalstatus", "Opmerking"], rijen),
+      csv(["Bestelnummer", "Afhaalcode", "Datum", "Ronde", "Status", "Levering", "Moment", "Naam", "Bedrijf", "KVK", "Btw-nummer", "E-mail", "Telefoon", "Adres", "Postcode", "Plaats", "Wijk", "Producten", "Stuks", "Gewicht (kg)", "Subtotaal", "Korting", "Bezorgkosten", "Totaal", "Betaalwijze", "Betaald", "Betaalstatus", "Opmerking"], rijen),
     );
   }
   if (soort === "financien") {

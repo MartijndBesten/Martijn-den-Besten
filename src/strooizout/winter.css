@@ -702,9 +702,10 @@
   box-shadow: none;
 }
 .wn-zeker {
-  display: flex;
-  flex-wrap: wrap;
+  /* één blok in het midden, regels links uitgelijnd: het vinkje staat altijd direct voor zijn tekst */
+  display: grid;
   justify-content: center;
+  justify-items: start;
   gap: 4px 18px;
   margin: 12px 0 0;
   padding: 0;
@@ -716,7 +717,7 @@
   display: inline-flex;
   align-items: flex-start;
   gap: 5px;
-  text-align: center;
+  text-align: left;
 }
 .wn-zeker svg {
   flex: none;
@@ -1346,8 +1347,7 @@
   }
   /* Telefoon: de regels onder elkaar en links uitgelijnd, zodat een lange regel niet anders staat dan een korte. */
   .wn-zeker {
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: start;
     margin-top: 10px;
     font-size: 13px;
   }
@@ -1799,7 +1799,7 @@
 
 /* Geruststelling onder de bestelknop: korte, losse regels die niet midden in een zinsdeel afbreken */
 .wn-zeker li span {
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 /* Productkeuze: ‘in je eigen emmer’ mag over twee regels, netjes verdeeld */
 .wn-keuze__optie > span {

@@ -48,6 +48,10 @@ export type LijstBestelling = {
   levering: "ophalen" | "bezorgen";
   moment_id: number | null;
   naam: string;
+  zakelijk: boolean;
+  bedrijfsnaam: string;
+  kvk: string;
+  btw_nummer: string;
   email: string;
   telefoon: string;
   adres: string;

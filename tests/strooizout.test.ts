@@ -90,6 +90,28 @@ describe("prijsregels", () => {
     expect(bereken([{ product: zout, aantal: 3 }], "ophalen", inst, nu).bezorg_cent).toBe(0);
   });
 
+  it("bezorgen is gratis vanaf het ingestelde aantal zakken", () => {
+    const perAdres = { bezorg_methode: "per_adres" as const, bezorg_per_stuk_cent: 50, bezorg_per_kg_cent: 2, bezorg_per_adres_cent: 200, bezorg_gratis_vanaf: 4 };
+    const zak = { ...zout, zakken_per_stuk: 1 };
+    expect(bereken([{ product: zak, aantal: 3 }], "bezorgen", perAdres, nu).bezorg_cent).toBe(200);
+    expect(bereken([{ product: zak, aantal: 4 }], "bezorgen", perAdres, nu).bezorg_cent).toBe(0);
+    expect(bereken([{ product: zak, aantal: 4 }], "bezorgen", perAdres, nu).totaal_cent).toBe(4 * 899);
+    expect(bereken([{ product: zak, aantal: 9 }], "bezorgen", { ...perAdres, bezorg_gratis_vanaf: 0 }, nu).bezorg_cent).toBe(200);
+    // emmers (zakken_per_stuk 0) tellen niet mee
+    expect(bereken([{ product: { ...zout, zakken_per_stuk: 0 }, aantal: 6 }], "bezorgen", perAdres, nu).bezorg_cent).toBe(200);
+  });
+
+  it("zakelijke bestelling vraagt bedrijfsnaam en controleert KVK en btw-nummer", () => {
+    const zonder = controleerKlant({ ...KLANT, zakelijk: true }, "bezorgen", "3991, 3992");
+    expect(!zonder.ok && zonder.fouten.bedrijfsnaam).toBeTruthy();
+    const fout = controleerKlant({ ...KLANT, zakelijk: true, bedrijfsnaam: "Bakkerij Test", kvk: "123", btw_nummer: "x" }, "bezorgen", "3991, 3992");
+    expect(!fout.ok && fout.fouten.kvk && fout.fouten.btw_nummer).toBeTruthy();
+    const ok = controleerKlant({ ...KLANT, zakelijk: true, bedrijfsnaam: "Bakkerij Test", kvk: "1234 5678", btw_nummer: "nl 1234.56.789 b01" }, "bezorgen", "3991, 3992");
+    expect(ok.ok && ok.waarde).toMatchObject({ zakelijk: true, bedrijfsnaam: "Bakkerij Test", kvk: "12345678", btw_nummer: "NL123456789B01" });
+    const particulier = controleerKlant({ ...KLANT, bedrijfsnaam: "Genegeerd" }, "bezorgen", "3991, 3992");
+    expect(particulier.ok && particulier.waarde).toMatchObject({ zakelijk: false, bedrijfsnaam: "" });
+  });
+
   it("bezorgkosten per kg of per product-eigen tarief", () => {
     expect(bereken([{ product: zout, aantal: 2 }], "bezorgen", { ...inst, bezorg_methode: "per_kg" }, nu).bezorg_cent).toBe(100);
     expect(bereken([{ product: { ...zout, bezorg_cent: 75 }, aantal: 2 }], "bezorgen", inst, nu).bezorg_cent).toBe(150);
@@ -724,13 +746,13 @@ describe("staffelkorting", () => {
     const r3 = ((await (await bestel({ regels: [{ product_id: 1, aantal: 3, prijs_cent: 1 }] })).json()) as J).bestelling;
     expect(r3).toMatchObject({ subtotaal_cent: 2847, korting_cent: 150, totaal_cent: 2847 });
     const r4 = ((await (await bestel({ regels: [{ product_id: 1, aantal: 4 }], levering: "bezorgen" })).json()) as J).bestelling;
-    expect(r4).toMatchObject({ subtotaal_cent: 3596, korting_cent: 400, bezorg_cent: 200, totaal_cent: 3796 });
+    expect(r4).toMatchObject({ subtotaal_cent: 3596, korting_cent: 400, bezorg_cent: 0, totaal_cent: 3596 }); // gratis bezorgen vanaf 4 zakken
     expect(db.raw.prepare("SELECT korting_cent FROM sz_bestelling WHERE id = 3").get()).toEqual({ korting_cent: 400 });
     expect(db.raw.prepare("SELECT stukprijs_cent, normaalprijs_cent, aanbieding FROM sz_bestelregel WHERE bestelling_id = 3").get()).toEqual({ stukprijs_cent: 899, normaalprijs_cent: 999, aanbieding: "Vanaf 4 zakken" });
     const r10 = ((await (await bestel({ regels: [{ product_id: 1, aantal: 10 }] })).json()) as J).bestelling;
     expect(r10).toMatchObject({ subtotaal_cent: 8990, korting_cent: 1000 });
     const f = (await jsonVan(beheer("/financien"))).cijfers;
-    expect(f).toMatchObject({ korting_cent: 1550, product_omzet_cent: 999 + 2847 + 3596 + 8990, bezorg_cent: 200 });
+    expect(f).toMatchObject({ korting_cent: 1550, product_omzet_cent: 999 + 2847 + 3596 + 8990, bezorg_cent: 0 });
     const fin = await (await beheer("/export/financien.csv")).text();
     expect(fin.split("\r\n")[0]).toContain("Producten normale prijs;Korting;Omzet producten");
     expect(fin).toContain(";39,96;4,00;35,96;");
@@ -829,20 +851,38 @@ describe("definitieve afspraken", () => {
     expect(twee).toMatchObject({ subtotaal_cent: 1898, bezorg_cent: 200, totaal_cent: 2098 });
     // vast bedrag per bezorging, ongeacht het aantal zakken
     const tien = ((await (await bestel({ regels: [{ product_id: 1, aantal: 10 }], levering: "bezorgen" })).json()) as J).bestelling;
-    expect(tien).toMatchObject({ subtotaal_cent: 8990, bezorg_cent: 200, totaal_cent: 9190 });
+    expect(tien).toMatchObject({ subtotaal_cent: 8990, bezorg_cent: 0, totaal_cent: 8990 }); // vanaf 4 zakken gratis
     expect((await jsonVan(req("/api/strooizout/winkel"))).instellingen).toMatchObject({ bezorg_methode: "per_adres", bezorg_per_adres_cent: 200 });
+  });
+
+  it("bedrijf bestelt: gegevens worden bewaard, zichtbaar in het beheer en gewist na de bewaartermijn; 4 zakken bezorgd is gratis", async () => {
+    await startRonde();
+    const zakelijk = { ...KLANT, zakelijk: true, bedrijfsnaam: "Bakkerij Test BV", kvk: "12345678", btw_nummer: "NL123456789B01" };
+    const zonderNaam = await bestel({ klant: { ...KLANT, zakelijk: true } });
+    expect(zonderNaam.status).toBe(422);
+    const r = await bestel({ regels: [{ product_id: 1, aantal: 4 }], levering: "bezorgen", klant: zakelijk });
+    expect(r.status).toBe(201);
+    expect(((await r.json()) as J).bestelling).toMatchObject({ bezorg_cent: 0, totaal_cent: 3596 });
+    expect(db.raw.prepare("SELECT zakelijk, bedrijfsnaam, kvk, btw_nummer FROM sz_bestelling").get()).toEqual({ zakelijk: 1, bedrijfsnaam: "Bakkerij Test BV", kvk: "12345678", btw_nummer: "NL123456789B01" });
+    const lijst = await jsonVan(beheer("/bestellingen?ronde=alle"));
+    expect(lijst.bestellingen[0]).toMatchObject({ zakelijk: true, bedrijfsnaam: "Bakkerij Test BV" });
+    const csvTekst = await (await beheer("/export/bestellingen.csv")).text();
+    expect(csvTekst).toContain("Bakkerij Test BV");
+    // een particulier krijgt nooit bedrijfsgegevens opgeslagen
+    await bestel({ klant: { ...KLANT, bedrijfsnaam: "Genegeerd", kvk: "12345678" } });
+    expect(db.raw.prepare("SELECT zakelijk, bedrijfsnaam, kvk FROM sz_bestelling WHERE id = 2").get()).toEqual({ zakelijk: 0, bedrijfsnaam: "", kvk: "" });
   });
 
   it("btw 21% inclusief over producten én bezorgkosten, ook met staffelkorting", async () => {
     db.raw.prepare("INSERT INTO sz_instelling (sleutel, waarde) VALUES ('btw_modus', '\"inclusief\"')").run();
     await startRonde();
-    await bestel({ regels: [{ product_id: 1, aantal: 4 }], levering: "bezorgen" }); // 35,96 + 2,00 = 37,96
+    await bestel({ regels: [{ product_id: 1, aantal: 2 }], levering: "bezorgen" }); // 2 zakken: 18,98 + 2,00 = 20,98
     const f = (await jsonVan(beheer("/financien"))).cijfers;
-    expect(f.omzet_cent).toBe(3796);
-    expect(f.btw_cent).toBe(Math.round((3796 * 21) / 121)); // 659
-    expect(f.btw_cent).toBe(659);
+    expect(f.omzet_cent).toBe(2098);
+    expect(f.btw_cent).toBe(Math.round((2098 * 21) / 121)); // 364
+    expect(f.btw_cent).toBe(364);
     const csvTekst = await (await beheer("/export/financien.csv")).text();
-    expect(csvTekst).toContain(";6,59;");
+    expect(csvTekst).toContain(";3,64;");
   });
 
   it("voorraad: reserveren tot de verwachte voorraad, nooit oververkoop; uitgeven pas na ontvangst", async () => {
