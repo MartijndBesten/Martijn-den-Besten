@@ -35,8 +35,8 @@ function idempotentie(): string {
   }
 }
 
-type Velden = Record<keyof Klantgegevens, string>;
-const LEEG: Velden = { naam: "", email: "", telefoon: "", straat: "", huisnummer: "", postcode: "", plaats: "Houten", opmerking: "" };
+type Velden = Omit<Record<keyof Klantgegevens, string>, "zakelijk"> & { zakelijk: boolean };
+const LEEG: Velden = { naam: "", email: "", telefoon: "", straat: "", huisnummer: "", postcode: "", plaats: "Houten", opmerking: "", zakelijk: false, bedrijfsnaam: "", kvk: "", btw_nummer: "", factuuradres: "" };
 
 function Veld({
   id,
@@ -126,7 +126,7 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
     if (momentId === null && vrij.length === 1) setMomentId(vrij[0].id);
   }, [momenten, momentId]);
 
-  const zetV = (k: keyof Velden) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const zetV = (k: Exclude<keyof Velden, "zakelijk">) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setV((x) => ({ ...x, [k]: e.target.value }));
     if (fouten[k]) setFouten((f) => ({ ...f, [k]: undefined }));
   };
@@ -257,7 +257,27 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
   );
   const gegevens = (
     <div className="sz-velden">
-      <Veld id="naam" label="Naam" autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
+      <fieldset className="sz-veld sz-zakelijk" style={{ border: 0, padding: 0, margin: 0 }}>
+        <legend className="sz-label">Ik bestel als</legend>
+        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+          <label>
+            <input type="radio" name="sz-soort" checked={!v.zakelijk} onChange={() => setV((x) => ({ ...x, zakelijk: false }))} /> Particulier
+          </label>
+          <label>
+            <input type="radio" name="sz-soort" checked={v.zakelijk} onChange={() => setV((x) => ({ ...x, zakelijk: true }))} /> Bedrijf
+          </label>
+        </div>
+      </fieldset>
+      {v.zakelijk && (
+        <>
+          <Veld id="bedrijfsnaam" label="Bedrijfsnaam" autoComplete="organization" value={v.bedrijfsnaam} onChange={zetV("bedrijfsnaam")} fout={fouten.bedrijfsnaam} required />
+          <Veld id="kvk" label="KVK-nummer" optioneel inputMode="numeric" value={v.kvk} onChange={zetV("kvk")} fout={fouten.kvk} className="sz-veld--half" placeholder="12345678" />
+          <Veld id="btw_nummer" label="Btw-nummer" optioneel value={v.btw_nummer} onChange={zetV("btw_nummer")} fout={fouten.btw_nummer} className="sz-veld--half" placeholder="NL123456789B01" />
+          <Veld id="factuuradres" label="Factuuradres" optioneel hulp="Alleen invullen als dat afwijkt van het bezorgadres." autoComplete="off" value={v.factuuradres} onChange={zetV("factuuradres")} fout={fouten.factuuradres} placeholder="Straat 1, 1234 AB Plaats" />
+          <p className="sz-hulp" style={{ margin: 0 }}>Zakelijke bestellingen leveren we binnen 2 dagen.</p>
+        </>
+      )}
+      <Veld id="naam" label={v.zakelijk ? "Contactpersoon" : "Naam"} autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
       <Veld id="telefoon" label="Mobiel nummer" type="tel" inputMode="tel" autoComplete="tel" value={v.telefoon} onChange={zetV("telefoon")} fout={fouten.telefoon} className="sz-veld--half" placeholder="06 1234 5678" required />
       <Veld id="email" label="E-mailadres" optioneel={!mailVerplicht} required={mailVerplicht} hulp={mailVerplicht ? mailHulp : undefined} type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />
       {opmerkingOpen ? (
@@ -444,9 +464,9 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
                       <IcoonBus className="sz-inline-icoon" />
                       Bezorgen
                     </strong>
-                    <span>{!inst?.bezorgen_aan ? "Nu niet mogelijk." : alleenAfhalen ? `${alleenAfhalen.naam} kun je alleen afhalen.` : !bezorgKan ? `Vanaf ${inst.bezorg_min_zakken} zakken.` : "Binnen de rondweg van Houten."}</span>
+                    <span>{!inst?.bezorgen_aan ? "Nu niet mogelijk." : alleenAfhalen ? `${alleenAfhalen.naam} kun je alleen afhalen.` : !bezorgKan ? `Vanaf ${inst.bezorg_min_zakken} zakken.` : `Binnen de rondweg van Houten.${inst.bezorg_gratis_vanaf > 0 ? ` Gratis vanaf ${inst.bezorg_gratis_vanaf} zakken.` : ""}`}</span>
                   </div>
-                  <span className="sz-keuze__prijs">{inst?.bezorgen_aan ? `+ ${euro(rekenMand(winkel, regels, "bezorgen").berekening.bezorg_cent)}` : "–"}</span>
+                  <span className="sz-keuze__prijs">{inst?.bezorgen_aan ? (rekenMand(winkel, regels, "bezorgen").berekening.bezorg_cent === 0 ? "Gratis" : `+ ${euro(rekenMand(winkel, regels, "bezorgen").berekening.bezorg_cent)}`) : "–"}</span>
                 </label>
               </div>
               {levering === "bezorgen" && (
@@ -492,7 +512,27 @@ export default function Afrekenen({ ingebed }: { ingebed?: { levering: Levering;
             <section className="sz-blok" aria-labelledby="sz-b3">
               <h2 id="sz-b3">Je gegevens</h2>
               <div className="sz-velden">
-                <Veld id="naam" label="Naam" autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
+                <fieldset className="sz-veld sz-zakelijk" style={{ border: 0, padding: 0, margin: 0 }}>
+                  <legend className="sz-label">Ik bestel als</legend>
+                  <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+                    <label>
+                      <input type="radio" name="sz-soort" checked={!v.zakelijk} onChange={() => setV((x) => ({ ...x, zakelijk: false }))} /> Particulier
+                    </label>
+                    <label>
+                      <input type="radio" name="sz-soort" checked={v.zakelijk} onChange={() => setV((x) => ({ ...x, zakelijk: true }))} /> Bedrijf
+                    </label>
+                  </div>
+                </fieldset>
+                {v.zakelijk && (
+                  <>
+                    <Veld id="bedrijfsnaam" label="Bedrijfsnaam" autoComplete="organization" value={v.bedrijfsnaam} onChange={zetV("bedrijfsnaam")} fout={fouten.bedrijfsnaam} required />
+                    <Veld id="kvk" label="KVK-nummer" optioneel inputMode="numeric" value={v.kvk} onChange={zetV("kvk")} fout={fouten.kvk} className="sz-veld--half" placeholder="12345678" />
+                    <Veld id="btw_nummer" label="Btw-nummer" optioneel value={v.btw_nummer} onChange={zetV("btw_nummer")} fout={fouten.btw_nummer} className="sz-veld--half" placeholder="NL123456789B01" />
+                    <Veld id="factuuradres" label="Factuuradres" optioneel hulp="Alleen invullen als dat afwijkt van het bezorgadres." autoComplete="off" value={v.factuuradres} onChange={zetV("factuuradres")} fout={fouten.factuuradres} placeholder="Straat 1, 1234 AB Plaats" />
+                    <p className="sz-hulp" style={{ margin: 0 }}>Zakelijke bestellingen leveren we binnen 2 dagen.</p>
+                  </>
+                )}
+                <Veld id="naam" label={v.zakelijk ? "Contactpersoon" : "Naam"} autoComplete="name" value={v.naam} onChange={zetV("naam")} fout={fouten.naam} className="sz-veld--half" required />
                 <Veld id="telefoon" label="Mobiel nummer" type="tel" inputMode="tel" autoComplete="tel" value={v.telefoon} onChange={zetV("telefoon")} fout={fouten.telefoon} className="sz-veld--half" placeholder="06 1234 5678" hulp="Voor het afhalen of de bezorging, en een eventueel betaalverzoek." required />
                 <Veld id="email" label="E-mailadres" optioneel={!mailVerplicht} required={mailVerplicht} hulp={mailVerplicht ? mailHulp : undefined} type="email" inputMode="email" autoComplete="email" value={v.email} onChange={zetV("email")} fout={fouten.email} />
                 {opmerkingOpen ? (

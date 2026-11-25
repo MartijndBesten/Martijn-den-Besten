@@ -156,6 +156,11 @@ export default function Instellingen() {
               <input id="in-min" className="sz-invoer" style={{ maxWidth: 120 }} type="number" min={0} max={50} value={v.bezorg_min_zakken} onChange={(e) => zet("bezorg_min_zakken", Math.max(0, Math.min(50, Number(e.target.value) || 0)))} />
               <small>0 = altijd bezorgen mogelijk.</small>
             </div>
+            <div className="bh-veld">
+              <label htmlFor="in-gratis">Gratis bezorgen vanaf (aantal zakken)</label>
+              <input id="in-gratis" className="sz-invoer" style={{ maxWidth: 120 }} type="number" min={0} max={500} value={v.bezorg_gratis_vanaf} onChange={(e) => zet("bezorg_gratis_vanaf", Math.max(0, Math.min(500, Number(e.target.value) || 0)))} />
+              <small>0 = nooit gratis.</small>
+            </div>
             <div className="bh-veld bh-veld--6">
               <label htmlFor="in-adres">Per bezorging (€)</label>
               <input id="in-adres" className="sz-invoer" inputMode="decimal" value={tarief.adres} onChange={(e) => setTarief((t) => ({ ...t, adres: e.target.value }))} />

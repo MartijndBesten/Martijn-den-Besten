@@ -191,7 +191,8 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
   const beste = treden.length > 1 && actief === treden.length - 1;
   const stuk = som.regels[0]?.stukprijs_cent ?? p.prijs_cent;
   const kan = winkel.open && !straks && p.voorraad !== 0;
-  const bezorgTekst = !inst.bezorgen_aan ? "niet mogelijk" : p.alleen_afhalen ? "alleen afhalen" : !bezorgKan ? `vanaf ${inst.bezorg_min_zakken} zakken` : `+ ${euro(bereken([{ product: alsPrijsProduct(p), aantal }], "bezorgen", inst, winkel.nu).bezorg_cent)}`;
+  const bezorgKosten = bezorgKan ? bereken([{ product: alsPrijsProduct(p), aantal }], "bezorgen", inst, winkel.nu).bezorg_cent : 0;
+  const bezorgTekst = !inst.bezorgen_aan ? "niet mogelijk" : p.alleen_afhalen ? "alleen afhalen" : !bezorgKan ? `vanaf ${inst.bezorg_min_zakken} zakken` : bezorgKosten === 0 ? "gratis" : `+ ${euro(bezorgKosten)}`;
 
   /** Meer dan één product in dezelfde bestelling: verder op de bestelpagina, met deze keuze alvast in het mandje. */
   function combineer() {
@@ -328,7 +329,7 @@ function Bestelkaart({ p, straks, keuzes, winkel, onAantal, onKies }: { p: Publi
               </button>
               <ul className="wn-zeker">
                 <li>
-                  <IcoonVink /> Betalen met betaalverzoek
+                  <IcoonVink /> <span>Betalen met betaalverzoek of op factuur</span>
                 </li>
                 <li>
                   <IcoonVink /> <span>Gratis annuleren zolang je bestelling nog niet is afgehaald of&nbsp;bezorgd.</span>

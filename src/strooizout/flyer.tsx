@@ -10,10 +10,10 @@ import { KORTE_URL, metBron, QrCode, WEG_URL, WINKEL_URL } from "./qr";
 import "./flyer.css";
 
 type Staffel = { vanaf: number; prijs: number };
-type Gegevens = { prijs: number; staffels: Staffel[]; bezorg: number | null; bezorgPer: "zak" | "bezorging"; bezorgVanaf: number; plek: string; vanaf: string | null };
+type Gegevens = { prijs: number; staffels: Staffel[]; bezorg: number | null; bezorgPer: "zak" | "bezorging"; bezorgVanaf: number; gratisVanaf: number; plek: string; vanaf: string | null };
 
 function useGegevens(): Gegevens {
-  const [g, setG] = useState<Gegevens>({ prijs: 999, staffels: [{ vanaf: 2, prijs: 949 }, { vanaf: 4, prijs: 899 }], bezorg: 200, bezorgPer: "bezorging", bezorgVanaf: 2, plek: "Houten", vanaf: "2026-11-26" });
+  const [g, setG] = useState<Gegevens>({ prijs: 999, staffels: [{ vanaf: 2, prijs: 949 }, { vanaf: 4, prijs: 899 }], bezorg: 200, bezorgPer: "bezorging", bezorgVanaf: 2, gratisVanaf: 4, plek: "Houten", vanaf: "2026-11-26" });
   useEffect(() => {
     void laadWinkel().then((r) => {
       if (!r.ok) return;
@@ -29,6 +29,7 @@ function useGegevens(): Gegevens {
         bezorg: !i.bezorgen_aan ? null : i.bezorg_methode === "per_adres" ? i.bezorg_per_adres_cent : i.bezorg_methode === "per_stuk" ? (zout?.bezorg_cent ?? i.bezorg_per_stuk_cent) : null,
         bezorgPer: i.bezorg_methode === "per_adres" ? "bezorging" : "zak",
         bezorgVanaf: i.bezorg_min_zakken,
+        gratisVanaf: i.bezorg_gratis_vanaf,
         plek: i.afhaal_plek || "Houten",
         vanaf: zout?.op_voorraad ? null : i.beschikbaar_vanaf || null,
       });
@@ -76,7 +77,7 @@ function Prijzen({ g }: { g: Gegevens }) {
   );
 }
 
-const bezorgRegel = (g: Gegevens) => (g.bezorg === null ? null : `Bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? `, vanaf ${g.bezorgVanaf} zakken` : ""}: ${nb(`${euro(g.bezorg)} per ${g.bezorgPer}`)}`);
+const bezorgRegel = (g: Gegevens) => (g.bezorg === null ? null : `Bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? `, vanaf ${g.bezorgVanaf} zakken` : ""}: ${nb(`${euro(g.bezorg)} per ${g.bezorgPer}`)}${g.gratisVanaf > 0 ? `, gratis vanaf ${g.gratisVanaf} zakken` : ""}`);
 
 export function FlyerA5({ g }: { g: Gegevens }) {
   return (
@@ -185,7 +186,7 @@ const DEEL_TEKST = (g: Gegevens) =>
     "Hoi buren! Geen aparte rit naar de bouwmarkt: in Houten kun je strooizout bestellen.",
     "",
     `25 kg strooizout: ${prijsRegels(g).map((r) => `${r.label} ${euro(r.prijs)}`).join(", ")} per zak.`,
-    `Samen bestellen is voordeliger. Gratis afhalen in ${g.plek}${g.bezorg !== null ? `, of laten bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? ` (vanaf ${g.bezorgVanaf} zakken)` : ""} voor ${euro(g.bezorg)} per ${g.bezorgPer}` : ""}.`,
+    `Samen bestellen is voordeliger. Gratis afhalen in ${g.plek}${g.bezorg !== null ? `, of laten bezorgen binnen de rondweg${g.bezorgVanaf > 1 ? ` (vanaf ${g.bezorgVanaf} zakken)` : ""} voor ${euro(g.bezorg)} per ${g.bezorgPer}${g.gratisVanaf > 0 ? `, gratis vanaf ${g.gratisVanaf} zakken` : ""}` : ""}.`,
     g.vanaf ? `Op voorraad vanaf ${dagTekst(g.vanaf)}; bestellen kan nu.` : "",
     "",
     `Bestellen: ${metBron(WINKEL_URL, "whatsapp")}`,

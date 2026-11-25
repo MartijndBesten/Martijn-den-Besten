@@ -172,7 +172,23 @@ function DetailPaneel({ id, sluit, bijgewerkt, momenten }: { id: number; sluit: 
                 </p>
               )}
               <dl className="bh-dl">
-                <dt>Naam</dt>
+                {b.zakelijk && (
+                  <>
+                    <dt>Bedrijf</dt>
+                    <dd>
+                      <strong>{b.bedrijfsnaam}</strong>
+                      {b.kvk && <> · KVK {b.kvk}</>}
+                      {b.btw_nummer && <> · btw {b.btw_nummer}</>}
+                    </dd>
+                    {b.factuuradres && (
+                      <>
+                        <dt>Factuuradres</dt>
+                        <dd>{b.factuuradres}</dd>
+                      </>
+                    )}
+                  </>
+                )}
+                <dt>{b.zakelijk ? "Contactpersoon" : "Naam"}</dt>
                 <dd>{b.naam}</dd>
                 <dt>Mobiel</dt>
                 <dd>{b.telefoon ? <a href={`tel:${b.telefoon}`}>{mobielTekst(b.telefoon)}</a> : "–"}</dd>

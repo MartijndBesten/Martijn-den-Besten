@@ -37,7 +37,7 @@ export function createD1() {
   const db = new DatabaseSync(":memory:");
   // Net als D1: foreign keys aan.
   db.exec("PRAGMA foreign_keys = ON");
-  for (const m of ["0001_init.sql", "0002_bezoek.sql", "0003_aanvraag.sql", "0004_strooizout.sql", "0005_strooizout_inlog.sql", "0006_strooizout_10kg.sql", "0007_strooizout_10kg_uit_zakken.sql", "0008_strooizout_prijs_zak.sql"]) db.exec(readFileSync(`migrations/${m}`, "utf8"));
+  for (const m of ["0001_init.sql", "0002_bezoek.sql", "0003_aanvraag.sql", "0004_strooizout.sql", "0005_strooizout_inlog.sql", "0006_strooizout_10kg.sql", "0007_strooizout_10kg_uit_zakken.sql", "0008_strooizout_prijs_zak.sql", "0009_strooizout_zakelijk.sql"]) db.exec(readFileSync(`migrations/${m}`, "utf8"));
   return {
     raw: db,
     prepare: (sql: string) => new Stmt(db, sql),

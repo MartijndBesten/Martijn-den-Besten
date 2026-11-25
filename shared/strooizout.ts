@@ -45,6 +45,8 @@ export type Instellingen = {
   google_verificatie: string;
   /** Bezorgen pas vanaf dit aantal zakken (0 = altijd). */
   bezorg_min_zakken: number;
+  /** Bezorgen is gratis vanaf dit aantal zakken (0 = nooit gratis). */
+  bezorg_gratis_vanaf: number;
   /** Datum (JJJJ-MM-DD) waarop de voorraad naar verwachting binnen is; leeg = niet tonen. */
   beschikbaar_vanaf: string;
   /** Verkoper (wettelijk verplichte gegevens in voorwaarden en privacyverklaring). Leeg = nog niet ingevuld. */
@@ -94,7 +96,7 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
     "De zakken zijn op voorraad vanaf 26 november; de actuele datum staat in de webshop. Bestel je eerder, dan krijg je zakken uit de eerste levering. Op is op. Kunnen we je bestelling onverhoopt niet (helemaal) leveren, dan laten we dat weten en betaal je niets voor wat je niet krijgt.",
     "## Afhalen en bezorgen",
     "Afhalen is gratis. Na je bestelling krijg je een afhaalcode; die laat je zien als je je bestelling ophaalt.",
-    "Bezorgen kan alleen binnen de rondweg van Houten, vanaf 2 zakken, voor € 2,00 per bezorging. We bezorgen alleen als het veilig kan. Bij gladheid of sneeuwval kan de bezorging later worden; dan hoor je dat van ons.",
+    "Bezorgen kan alleen binnen de rondweg van Houten, vanaf 2 zakken, voor € 2,00 per bezorging; vanaf 4 zakken bezorgen we gratis. We bezorgen alleen als het veilig kan. Bij gladheid of sneeuwval kan de bezorging later worden; dan hoor je dat van ons.",
     "## Betalen",
     "Na je bestelling krijg je een e-mail met je afhaalcode en sturen we je een betaalverzoek (Tikkie) op je mobiel. Je betaalt nooit via de website zelf. Na betaling kun je je bestelling ophalen of bezorgen we hem. Aan de weg betaal je met een betaalverzoek voordat je de zakken meeneemt.",
     "## Annuleren vóór afhalen of bezorgen",
@@ -103,11 +105,12 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
     "Na ontvangst heb je 14 dagen bedenktijd. De termijn begint op de dag nadat je het zout hebt afgehaald of bezorgd gekregen. Binnen die termijn kun je de koop zonder opgave van reden ontbinden. Laat ons dat binnen de 14 dagen weten, bijvoorbeeld per e-mail of met het modelformulier hieronder.",
     "Breng de zakken of emmers uiterlijk 14 dagen nadat je ons dat hebt laten weten terug; de kosten van het terugbrengen zijn voor jou. Je bent alleen aansprakelijk voor waardevermindering als je met het zout meer hebt gedaan dan nodig is om ze te beoordelen.",
     "We betalen het volledige bedrag, inclusief eventuele bezorgkosten, binnen 14 dagen nadat je de koop hebt ontbonden terug, op dezelfde manier als je hebt betaald. We mogen wachten met terugbetalen tot we de zakken of emmers terug hebben.",
+    "Bestel je namens een bedrijf? Dan leveren we binnen 2 dagen en geldt de bedenktijd voor consumenten niet.",
     "Modelformulier voor herroeping — Aan Denckh (adres en e-mail onderaan deze pagina): Ik deel hierbij mee dat ik onze overeenkomst betreffende de verkoop van de volgende zaken herroep: … Besteld op / ontvangen op: … Naam: … Adres: … Datum: …",
     "## Klachten",
     "Is er iets mis met je zakken of je bestelling? Laat het ons zo snel mogelijk weten, dan zoeken we samen een oplossing.",
     "## Privacy",
-    "We vragen alleen wat nodig is voor je bestelling: je naam, je mobiele nummer, je e-mailadres en, als je laat bezorgen, je adres. Op je e-mailadres krijg je de bevestiging met je afhaalcode. We gebruiken deze gegevens alleen voor je bestelling en delen ze met niemand. Uiterlijk zes maanden na afloop wissen we je persoonsgegevens; alleen de bedragen bewaren we voor de boekhouding. Lees meer in de privacyverklaring.",
+    "We vragen alleen wat nodig is voor je bestelling: je naam, je mobiele nummer, je e-mailadres en, als je laat bezorgen, je adres. Bestel je als bedrijf, dan ook je bedrijfsnaam en eventueel je KVK- en btw-nummer. Op je e-mailadres krijg je de bevestiging met je afhaalcode. We gebruiken deze gegevens alleen voor je bestelling en delen ze met niemand. Uiterlijk zes maanden na afloop wissen we je persoonsgegevens; alleen de bedragen bewaren we voor de boekhouding. Lees meer in de privacyverklaring.",
     "## Contact",
     "Vragen of klachten? Mail ons; het adres staat onderaan deze pagina.",
   ].join("\n\n"),
@@ -116,6 +119,8 @@ export const STANDAARD_INSTELLINGEN: Instellingen = {
   bewaartermijn_maanden: 6,
   wijken: "",
   bezorg_min_zakken: 2,
+  // Besluit Martijn 25-11-2026: gratis bezorgen vanaf 4 zakken.
+  bezorg_gratis_vanaf: 4,
   lage_voorraad: 10,
   google_verificatie: "",
   beschikbaar_vanaf: "2026-11-26",
@@ -154,6 +159,7 @@ export const INSTELLING_VELDEN: Record<keyof Instellingen, Veld> = {
   bewaartermijn_maanden: { soort: "getal", min: 1, max: 24 },
   wijken: { soort: "tekst", max: 2000 },
   bezorg_min_zakken: { soort: "getal", min: 0, max: 50 },
+  bezorg_gratis_vanaf: { soort: "getal", min: 0, max: 500 },
   lage_voorraad: { soort: "getal", min: 0, max: 1000 },
   google_verificatie: { soort: "tekst", max: 120 },
   beschikbaar_vanaf: { soort: "tekst", max: 10 },
@@ -259,6 +265,8 @@ export type PrijsProduct = {
   bezorg_cent: number | null;
   gewicht_gram: number;
   aanbiedingen: Aanbieding[];
+  /** Aantal zakken per stuk (voor gratis bezorgen vanaf een aantal zakken); ontbreekt = telt niet mee. */
+  zakken_per_stuk?: number;
 };
 
 export function aanbiedingGeldig(a: Aanbieding, nu: string): boolean {
@@ -310,7 +318,7 @@ export type Berekening = {
 export function bereken(
   regels: { product: PrijsProduct; aantal: number }[],
   levering: Levering,
-  inst: Pick<Instellingen, "bezorg_methode" | "bezorg_per_stuk_cent" | "bezorg_per_kg_cent"> & { bezorg_per_adres_cent?: number },
+  inst: Pick<Instellingen, "bezorg_methode" | "bezorg_per_stuk_cent" | "bezorg_per_kg_cent"> & { bezorg_per_adres_cent?: number; bezorg_gratis_vanaf?: number },
   nu: string,
 ): Berekening {
   const uit: BerekendeRegel[] = [];
@@ -343,6 +351,9 @@ export function bereken(
         : inst.bezorg_methode === "per_stuk"
           ? uit.reduce((s, r) => s + r.bezorg_cent * r.aantal, 0)
           : Math.ceil(gewicht / 1000) * inst.bezorg_per_kg_cent;
+    const gratisVanaf = inst.bezorg_gratis_vanaf ?? 0;
+    const zakken = regels.reduce((s, r) => s + r.aantal * (r.product.zakken_per_stuk ?? 0), 0);
+    if (gratisVanaf > 0 && zakken >= gratisVanaf) bezorg = 0;
   }
   return {
     regels: uit,
@@ -472,6 +483,13 @@ export type Klantgegevens = {
   postcode: string;
   plaats: string;
   opmerking: string;
+  /** Bestelling namens een bedrijf. */
+  zakelijk: boolean;
+  bedrijfsnaam: string;
+  kvk: string;
+  btw_nummer: string;
+  /** Afwijkend factuuradres (vrije tekst, alleen zakelijk); leeg = factuur naar het bestel-/bezorgadres. */
+  factuuradres: string;
 };
 
 const s = (v: unknown) => (typeof v === "string" ? v.replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim() : "");
@@ -523,6 +541,18 @@ export function controleerKlant(
   const telefoon = normaliseerMobiel(telefoonRuw);
   if (!telefoonRuw) fouten.telefoon = "Vul je mobiele nummer in.";
   else if (!telefoon) fouten.telefoon = "Vul een Nederlands mobiel nummer in, bijvoorbeeld 06 1234 5678 of +31 6 1234 5678.";
+  const zakelijk = invoer.zakelijk === true || invoer.zakelijk === "1" || invoer.zakelijk === "true";
+  const bedrijfsnaam = zakelijk ? s(invoer.bedrijfsnaam) : "";
+  const kvk = zakelijk ? s(invoer.kvk).replace(/\s/g, "") : "";
+  const factuuradres = zakelijk ? s(invoer.factuuradres) : "";
+  const btwNummer = zakelijk ? s(invoer.btw_nummer).replace(/[\s.]/g, "").toUpperCase() : "";
+  if (zakelijk) {
+    if (bedrijfsnaam.length < 2) fouten.bedrijfsnaam = "Vul de naam van je bedrijf in.";
+    else if (bedrijfsnaam.length > 100) fouten.bedrijfsnaam = "De bedrijfsnaam mag maximaal 100 tekens zijn.";
+    if (factuuradres.length > 200) fouten.factuuradres = "Het factuuradres mag maximaal 200 tekens zijn.";
+    if (kvk && !/^[0-9]{8}$/.test(kvk)) fouten.kvk = "Een KVK-nummer heeft 8 cijfers.";
+    if (btwNummer && !/^[A-Z]{2}[A-Z0-9]{8,12}$/.test(btwNummer)) fouten.btw_nummer = "Dit btw-nummer klopt niet, bijvoorbeeld NL123456789B01.";
+  }
   if (opmerking.length > 300) fouten.opmerking = "Een opmerking mag maximaal 300 tekens zijn.";
 
   let straat = "";
@@ -542,7 +572,7 @@ export function controleerKlant(
     else postcode = pc;
   }
   if (Object.keys(fouten).length) return { ok: false, fouten };
-  return { ok: true, waarde: { naam, email, telefoon: telefoon!, straat, huisnummer, postcode, plaats, opmerking } };
+  return { ok: true, waarde: { naam, email, telefoon: telefoon!, straat, huisnummer, postcode, plaats, opmerking, zakelijk, bedrijfsnaam, kvk, btw_nummer: btwNummer, factuuradres } };
 }
 
 /** Ligt deze postcode (bijv. "3992 AB") in het ingestelde bezorggebied? Uitzonderingen (`niet:`) gaan voor. */
@@ -639,6 +669,7 @@ export type Winkel = {
     | "btw_tarief"
     | "bewaartermijn_maanden"
     | "bezorg_min_zakken"
+    | "bezorg_gratis_vanaf"
     | "beschikbaar_vanaf"
     | "verkoper_naam"
     | "verkoper_adres"
@@ -650,7 +681,7 @@ export type Winkel = {
 };
 
 export function alsPrijsProduct(p: PubliekProduct): PrijsProduct {
-  return { id: p.id, naam: p.naam, prijs_cent: p.prijs_cent, inkoop_cent: 0, bezorg_cent: p.bezorg_cent, gewicht_gram: p.gewicht_gram, aanbiedingen: p.aanbiedingen };
+  return { id: p.id, naam: p.naam, prijs_cent: p.prijs_cent, inkoop_cent: 0, bezorg_cent: p.bezorg_cent, gewicht_gram: p.gewicht_gram, aanbiedingen: p.aanbiedingen, zakken_per_stuk: p.zakken_per_stuk };
 }
 
 /** Datum/tijd in Nederlandse tijd, bijvoorbeeld "vrijdag 4 december, 20:00". */
